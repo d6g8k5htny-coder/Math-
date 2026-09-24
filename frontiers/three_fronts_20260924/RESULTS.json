@@ -1,0 +1,39 @@
+{
+  "lifetime": {
+    "candidate_absolute_remainder": "O(1)",
+    "finite_bar_absolute_remainder": "O(1)",
+    "nonselected_density": "O(1)",
+    "numeric_constants_evaluated": false,
+    "relative_remainder": "O(ell^(1/3))",
+    "scope": "fixed d>=2,L>0; all marks and separations; parent interfaces conditional"
+  },
+  "object": "THREE-FRONTS-20260924-v1",
+  "p15": {
+    "cover_generators": 6,
+    "cover_palette_optimum": 816,
+    "crossing_minimal_quadruples": 419743994415,
+    "disjoint_palette_count": 2448,
+    "enumerated_large_witnesses": false,
+    "failure_below_3_over_10000": true,
+    "failure_upper": "2449227/8180000000",
+    "internal_minimal_pairs": 500616,
+    "original_vertices": 2454,
+    "positive_cover_cost": "6/(40900^409)",
+    "whole_ground_chromatic_number": 818
+  },
+  "rate_ledger": {
+    "count_error": "1",
+    "density_absolute_error": "0",
+    "inner_contact": "7/18",
+    "lower_cutoff": "1/3",
+    "outer_delta": "1/9",
+    "outer_loss": "7/18"
+  },
+  "rn": {
+    "all_fixed_moments_do_not_imply_cubic": true,
+    "triple_integral_evaluated": false,
+    "uniform_L2_only_exponent": "3/2",
+    "uniform_L4_only_exponent": "9/4"
+  },
+  "scientific_acceptance": false
+}
