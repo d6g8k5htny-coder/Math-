@@ -40,10 +40,17 @@ jobs:
           out=pathlib.Path(os.environ['RUNNER_TEMP'])/'three-fronts-results'
           subprocess.run([sys.executable,'-B','-S',str(root/'run_validation.py'),'--output',str(out)],check=True,timeout=240)
           verify()
+          for mode,flags in [('normal',[]),('optimized',['-O'])]:
+              price=subprocess.run([sys.executable,'-B',*flags,'-S','-m','unittest','-v','test_price_boundary'],cwd=root,capture_output=True,text=True,timeout=30)
+              (out/('price_'+mode+'.stdout')).write_text(price.stdout)
+              (out/('price_'+mode+'.stderr')).write_text(price.stderr)
+              if price.returncode or 'Ran 3 tests' not in price.stderr or 'skipped=' in price.stderr:
+                  raise RuntimeError('price boundary controls failed')
+          verify()
           report=json.loads((out/'REPORT.json').read_text())
           if not report['passed'] or report['distinct_tests']!=54 or report['distinct_semantic_mutations']!=10:
               raise RuntimeError('unexpected result')
-          (out/'GITHUB_CONTEXT.json').write_text(json.dumps({'sha':os.environ['GITHUB_SHA'],'run':os.environ['GITHUB_RUN_ID'],'python':sys.version,'source_files_verified':len(pins['files']),'meaning':'same-author cross-runtime checks, not nonauthor analytic review'},indent=2)+'\n')
+          (out/'GITHUB_CONTEXT.json').write_text(json.dumps({'sha':os.environ['GITHUB_SHA'],'run':os.environ['GITHUB_RUN_ID'],'python':sys.version,'source_files_verified':len(pins['files']),'distinct_price_tests':3,'total_distinct_tests':57,'meaning':'same-author cross-runtime checks, not nonauthor analytic review'},indent=2)+'\n')
           print('THREE_FRONTS_PASSED='+json.dumps(report,sort_keys=True))
           PY
       - name: Preserve actual logs including any failures

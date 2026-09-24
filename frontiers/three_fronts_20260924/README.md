@@ -34,3 +34,10 @@ execution receipt. No third-party dependency is required.
 reconnaissance note separates primary-source background from new arguments.
 Existing source bytes, failed evidence, other agents' branches, private sandbox
 contents and scientific acceptance flags are not altered by this package.
+
+A separate exact price-boundary result is in [P15_PRICE_BOUNDARY.md](P15_PRICE_BOUNDARY.md):
+the same-palette extension to every c<=phi(p) is false, already on two original
+coordinates. Its three additional tests are in `test_price_boundary.py`; run
+`python -B -S -m unittest -v test_price_boundary` and the corresponding `-O` mode.
+There are54 core tests plus3 price-boundary tests,57 distinct tests in total.
+The core mutation runner intentionally retains its original54-test scope.
