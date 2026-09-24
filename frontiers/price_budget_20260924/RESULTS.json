@@ -1,0 +1,22 @@
+{
+  "all_prices": "0<=c_v<=min(1,-log(1-p_v))",
+  "analytical_scope": "realized family; every d_i>=2 and every p_v<=1/4",
+  "global_cover_bound": "min(1,(16/27)*[-log(mu_p(D))])",
+  "local_factor": "16/27",
+  "object": "P15-TRANSFORMED-PRICE-BUDGET-20260924-v1",
+  "previous_two_coordinate_counterexample": {
+    "covered_by_new_hypotheses": false,
+    "status": "unchanged: unrestricted same-palette extension is false",
+    "sufficient_checker_accepts": false
+  },
+  "scientific_acceptance": false,
+  "six_block_example": {
+    "block_budget_certified": true,
+    "coordinates": 2454,
+    "cover_cost_at_maximal_prices": "6*log(40900/40899)^409",
+    "probability": "1/40900",
+    "rational_cover_cost_upper": "6/(40899^409)",
+    "strictly_larger_admissible_price": "81801/3345620000",
+    "unchanged_palette": 816
+  }
+}

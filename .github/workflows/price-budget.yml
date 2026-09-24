@@ -1,0 +1,34 @@
+name: P15 transformed-price budget
+'on':
+  push:
+    branches: [chatgpt/navigation-price-20260924]
+  pull_request:
+    paths: ['frontiers/price_budget_20260924/**', 'README.md', 'frontiers/README.md', '.github/workflows/price-budget.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: New exact sources and deliberate mutations
+        run: python -B -S frontiers/price_budget_20260924/run_validation.py --output "${{ runner.temp }}/price-results"
+      - name: Existing mathematical regressions
+        run: |
+          python -B -S -m unittest discover -s coefficients/side24_v1 -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s coefficients/side24_v1 -p 'test_*.py' -v
+          python -B -S -m unittest discover -s frontiers/three_fronts_20260924 -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s frontiers/three_fronts_20260924 -p 'test_*.py' -v
+      - name: Retain exact execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: price-budget-${{ github.run_id }}
+          path: ${{ runner.temp }}/price-results
+          if-no-files-found: error
+          retention-days: 30
