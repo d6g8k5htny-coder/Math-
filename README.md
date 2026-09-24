@@ -9,6 +9,7 @@
 | Gaussian lifetime coefficient | [SIDE24 dimensions 2 and 3](coefficients/side24_v1/PROOF.md) | [main #65](https://github.com/d6g8k5htny-coder/main/issues/65); conditional on the parent lifetime formula |
 | Quantitative lifetime density | [Bounded unrestricted remainder](frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md) | [main #67](https://github.com/d6g8k5htny-coder/main/issues/67); parent interfaces remain under review |
 | RN critical-point counting | [Probability-to-count interface](frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md) | Exact implications and counterexamples; the Gaussian triple integral is not evaluated |
+| RN fixed-remote height window | [Cubic count and contact kernel](frontiers/remote_window_20260924/PROOF.md) | Actual count bound on a fixed remote region; shrinking spatial cutoffs and witness collisions remain outside scope |
 | P15 obstruction covers | [Original-coordinate realization](frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md) | Specified family and cover; 816 versus whole-ground 818 |
 | P15 failed extension | [Price-range counterexample](frontiers/three_fronts_20260924/P15_PRICE_BOUNDARY.md) | Unrestricted same-palette transformed-price extension is false |
 | P15 valid price extension | [Low-probability transformed-price budget](frontiers/price_budget_20260924/PROOF.md) | New sufficient hypotheses: demand at least 2 and probabilities at most 1/4 |
@@ -24,6 +25,8 @@ All commands below use the Python standard library and run from this repository 
 python -B -S coefficients/side24_v1/coefficient.py
 python -B -S -m unittest discover -s coefficients/side24_v1 -p 'test_*.py' -v
 python -B -S -m unittest discover -s frontiers/three_fronts_20260924 -p 'test_*.py' -v
+python -B -S frontiers/remote_window_20260924/remote_window.py
+python -B -S -m unittest discover -s frontiers/remote_window_20260924 -p 'test_*.py' -v
 python -B -S frontiers/price_budget_20260924/price_budget.py
 python -B -S -m unittest discover -s frontiers/price_budget_20260924 -p 'test_*.py' -v
 python -B -S frontiers/full_price_20260924/full_price.py

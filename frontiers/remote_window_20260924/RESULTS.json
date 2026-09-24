@@ -1,0 +1,28 @@
+{
+  "candidate_statement": "E_QW N_j(E)=k*r^3*integral_E Lambda_j + O(k*r^4*volume(E))",
+  "gaussian_integral_numerically_evaluated": false,
+  "independent_analytic_acceptance": false,
+  "legacy_RN_24jet_discharged": false,
+  "object": "RN-FIXED-REMOTE-WINDOW-20260924-v1",
+  "sample_exact_window": "1/6000",
+  "scope": "Fixed positive spatial exclusion; shrinking between-pin height window; compact birth and positive gap marks",
+  "separated_pair": {
+    "determinant_factors": 4,
+    "endpoint_weights": 1,
+    "mean_power": 6,
+    "normalizers": 1,
+    "numerator_power": 8,
+    "unordered_divisor": 2,
+    "witnesses": 2
+  },
+  "separated_tuple_statement": "For fixed m and positive mutual separation, E ordered T_m=(k*r^3)^m*C_m+O(r^(3*m+1))",
+  "single_witness": {
+    "determinant_factors": 3,
+    "endpoint_weights": 1,
+    "mean_power": 3,
+    "normalizers": 1,
+    "numerator_power": 5,
+    "unordered_divisor": 1,
+    "witnesses": 1
+  }
+}
