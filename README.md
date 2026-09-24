@@ -1,42 +1,22 @@
-# Math-
+# Math — research candidates and reproducible calculations
 
-Public **math structure / purpose** shell. Empty by design. This repo describes **where math-shaped material could live**, not that any lemma or prize is closed.
+This repository now hosts mathematical deliverables for Dylan Roy's research workspace. The prior README-only shell is superseded by the owner's 24 September 2026 instruction to use the expanded repository set to advance the project.
 
-| Repo | Role |
-|------|------|
-| [`d6g8k5htny-coder/main`](https://github.com/d6g8k5htny-coder/main) | Research program. Authority and status live there. |
-| **this repo** | Structure/purpose container only. No scientific authority. |
-| [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) | Owner sandbox / agent landing pad. |
+## Current deliverable
 
-## Purpose
+[The SIDE24 coefficient in dimensions two and three](coefficients/side24_v1/PROOF.md) evaluates the expression in [main issue63](https://github.com/d6g8k5htny-coder/main/issues/63), with exact reference cone moments, a uniform bound for all periodic images, and outward rational numerical bounds. The parent's global lifetime theorem remains an author-side candidate awaiting nonauthor review.
 
-- Name the architectural slot for math-facing docs or indexes **outside** the live research tip.
-- Stay inventably honest: absence here is not a proof; presence here is not a certificate.
+```sh
+cd coefficients/side24_v1
+python -B -S coefficient.py
+python -B -S -m unittest -v test_coefficient
+python -B -O -S -m unittest -v test_coefficient
+```
 
-## What belongs here
+No third-party dependency is needed. [ENCLOSURE.json](coefficients/side24_v1/ENCLOSURE.json) is an output to reproduce, not a mathematical acceptance record.
 
-- Structure maps, purpose notes, and inventable honesty about empty math-facing slots.
-- Explicit pointers to `main` for any real status predicates.
+## Repository boundaries
 
-## What does not belong here
+`main` retains the research campaign, source-linked claim discussion and integration decisions. This repository owns its candidate proofs/code; it does not duplicate the scientific-status registers. `google-drive` carries selected byte-identified public evidence replicas; `meta-framework` carries routing metadata; `query-` provides read-only source lookup; `trial` tests integration; private experiments stay in `sandbox`. `governance-` describes the working contract.
 
-- Theorem claims, prize claims, or discharge language.
-- Implying `lemma_closed`, `prizes_solved`, `discharges_OBL_H5_JETMOD`, or `certified_C_H`.
-
-## Non-claims
-
-- This shell is **structure/purpose only**.
-- `lemma_closed`, `prizes_solved`, `discharges_OBL_H5_JETMOD`, and `certified_C_H` stay **unchanged / false** unless `main` records otherwise under its own predicates.
-- Eng ≠ discharge. OBL stays **OPEN**.
-- **NEVER-MAIN**: research tip work stays on the hardening branch of `main`.
-
-## Related shells
-
-| Shell | Note |
-|-------|------|
-| `google-drive` | Drive replica (not SoT) |
-| `meta-framework` | Meta / framework scaffolding |
-| `query-` | Query / ask surface |
-| `governance-` | Governance / protocol surface |
-| `trial` | Strong README — do not dilute |
-| `sandbox` | Private — MCP-only |
+Use exact parent identities, state the scope of each result, preserve failed evidence and coordinate overlapping paths. A merge publishes a candidate; a passing test verifies only its stated test scope. Neither constitutes independent analytic acceptance. Older blanket never-main and empty-by-design language is not a veto on the owner's current instruction. Repository visibility and source privacy are not changed by this update.
