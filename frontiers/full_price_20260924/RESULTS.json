@@ -1,0 +1,21 @@
+{
+  "factor_below_6_7": true,
+  "formula": "rho=1/(3-log(3e-2))",
+  "hazard_above_7_6": true,
+  "hazard_reference": {
+    "lower": "1.18276034459792241314",
+    "upper": "1.18276034459792241315"
+  },
+  "hypotheses": "a_i>=1, d_i>=2, |X_i|=a_i*d_i+1; complete crossing clutter",
+  "object": "P15-FULL-TRANSFORMED-PRICE-20260924-v1",
+  "palette": "unchanged K>=K_H(d)",
+  "price_domain": "0<=c_v<=min(1,-log(1-p_v)); phi(1)=1",
+  "probability_domain": "all independent p_v in [0,1]",
+  "rational_factor": "6/7",
+  "scientific_acceptance": false,
+  "scope": "exact constant evaluation; proof and nonauthor review are separate",
+  "sharp_uniform_factor": {
+    "lower": "0.84547981724898672067",
+    "upper": "0.84547981724898672068"
+  }
+}
