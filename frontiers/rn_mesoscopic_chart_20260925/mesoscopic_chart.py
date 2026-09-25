@@ -452,27 +452,73 @@ def pin_centered_frame(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1
 
 
 def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
-                                  margin: int | Q = Q(1, 10)) -> dict:
-    """Frame-only pin-centred ledger: refuses midpoint U_0 rows; does not invent pin jets."""
+                                  margin: int | Q = Q(1, 10),
+                                  H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1) -> dict:
+    """Pin-centred ledger with leading Morse contact rows in the local frame z=y-pin."""
     frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    rows = pin_site_morse_contact_rows(
+        frame['z1'], frame['z2'], H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
+    )
     return {
         'object': 'RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1',
         'chart': 'C_pin_centered',
         'frame': frame,
         'midpoint_U0_rows_applicable': False,
-        'pin_site_jet_rows_enumerated': False,
-        'contact_rows_enumerated': False,
+        'contact_rows': rows,
+        'scaling': {
+            'grad': PIN_CENTERED_SCALING_EXPONENTS['grad'],
+            'height': PIN_CENTERED_SCALING_EXPONENTS['height'],
+            'gradient_jacobian_r_power': 2 * PIN_CENTERED_SCALING_EXPONENTS['grad'],
+        },
+        'pin_site_jet_rows_enumerated': True,
+        'pin_site_higher_jets_enumerated': False,
+        'contact_rows_enumerated': True,
+        'enumeration_scope': 'leading_morse_hess_z_only',
         'hessian_ledger_evaluated': False,
         'uniform_integrand_bound_proved': False,
         'full_annulus_closed': False,
         'legacy_24jet_discharged': False,
         'pr7_fixed_annulus_A_gt_1': False,
         'complements_pr7': True,
-        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'records the pin-local frame (z = y - pin) on a small-A near-pin chart; '
-            'does not supply pin-site divided-difference contact rows'
+            'leading Morse pin-site contact rows J=H_pin z and height (1/2)z·H·z; '
+            'higher jets and Gaussian density remain open'
         ),
+    }
+
+
+def pin_site_morse_contact_rows(
+    z1: int | Q, z2: int | Q, *,
+    H_xx: int | Q, H_xy: int | Q, H_yy: int | Q,
+) -> dict[str, Q | bool]:
+    """Leading Morse contact residuals after pin constraints, in pin-local z.
+
+    About a Morse pin with grad f(pin)=0:
+      grad f(pin + r z) = r H_pin z + O(r^2)     => divide by r^1
+      f(pin + r z) - f(pin) = (r^2/2) z·H_pin·z + O(r^3)  => divide by r^2
+    Hence
+      J_grad = H_pin z,   J_height = (1/2) z·H_pin·z,
+    and J_height = (1/2) z · J_grad at this order.
+    """
+    a, b, c = map(exact, (H_xx, H_xy, H_yy))
+    u, v = exact(z1), exact(z2)
+    if u == 0 and v == 0:
+        raise ValueError('Morse contact rows require z != 0 (witness off the pin site)')
+    j1 = a * u + b * v
+    j2 = b * u + c * v
+    jh = (a * u * u + 2 * b * u * v + c * v * v) / 2
+    return {
+        'J_grad_1': j1,
+        'J_grad_2': j2,
+        'J_height': jh,
+        'height_minus_half_z_dot_grad': jh - (u * j1 + v * j2) / 2,
+        'height_dependent_on_grad_at_leading_order': True,
+        'z1': u,
+        'z2': v,
+        'H_xx': a,
+        'H_xy': b,
+        'H_yy': c,
     }
 
 
@@ -482,9 +528,8 @@ def pin_site_jet_obstruction_ledger(
 ) -> dict:
     """Exact structural obstruction for midpoint jets near a scaled pin.
 
-    Records pin-local geometry and prerequisites for pin-site divided differences
-    without inventing those contact polynomials. Pins lie on the scaled axis, so a
-    near-pin ball also meets the axial / thin-belt rank-change locus.
+    Records pin-local geometry and why midpoint U_0 jets fail. Leading Morse
+    pin-site rows are enumerated separately in pin_centered_ledger_for_point.
     """
     frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
     z1 = frame['z1']
@@ -504,21 +549,30 @@ def pin_site_jet_obstruction_ledger(
         'midpoint_U0_rows_applicable': False,
         'raw_gradient_collides_with_pin_gradient_constraints': True,
         'near_pin_intersects_axial_thin_belt_locus': True,
-        'contact_rows_enumerated': False,
-        'pin_site_jet_rows_enumerated': False,
-        'required_before_enumeration': [
-            'expand_relative_to_closer_pin_not_midpoint',
-            'subtract_pin_constraint_Hermite_jet',
-            'identify_first_nonzero_divided_difference_powers',
+        'leading_morse_rows_enumerated_elsewhere': True,
+        'pin_site_higher_jets_enumerated': False,
+        'required_before_full_chart': [
+            'higher_order_pin_local_divided_differences',
+            'pin_hessian_signature_max_vs_saddle',
+            'contact_gaussian_density_bound',
         ],
         'hessian_ledger_evaluated': False,
         'uniform_integrand_bound_proved': False,
-        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'pin-local frame and collision obstruction only; '
-            'does not enumerate pin-site divided-difference contact rows'
+            'midpoint jets blocked near pins; leading Morse pin-site rows exist in '
+            'pin_centered_ledger; higher jets and density remain open'
         ),
     }
+
+
+# Pin-local Morse scaling after grad f(pin)=0:
+#   grad f(pin + r z) = r H z + O(r^2)              => p_grad = 1
+#   f(pin + r z)-f(pin) = (r^2/2) z·H·z + O(r^3)   => p_height = 2
+PIN_CENTERED_SCALING_EXPONENTS = {
+    'grad': 1,
+    'height': 2,
+}
 
 
 # Scaling exponents for raw witness (f_x, f_y, f-b) -> divided-difference J in this chart.

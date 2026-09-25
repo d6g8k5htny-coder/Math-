@@ -9,7 +9,7 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 
 | PR7 §5 step | Status in this package | Exact carrier |
 |---|---|---|
-| (1) Independent contact rows `J_0(y)` after pin constraints | **Partial** — enumerated on `C_transverse`, `C_axial`, and `C_thin_belt` (shared jet helper); pin-site jets **not** enumerated (obstruction ledger records prerequisites) | `mesoscopic_chart.py` contact / thin-belt / axial rows; `C_pin_centered` frame + `pin_site_jet_obstruction_ledger` |
+| (1) Independent contact rows `J_0(y)` after pin constraints | **Partial** — enumerated on `C_transverse`, `C_axial`, and `C_thin_belt` (shared jet helper); pin-site **leading Morse** rows enumerated (`J=H z`); higher pin jets open | `mesoscopic_chart.py` contact / thin-belt / axial / `pin_site_morse_contact_rows` |
 | (2) Exact `r`-power of `det S_r(y)` on each rank chart | **Partial** — gradient Jacobian powers `3` (transverse/thin) and `4` (axial); Hessian raw `det H` leading power `1` | `SCALING_EXPONENTS`, `AXIAL_SCALING_EXPONENTS`, `HESSIAN_SCALING_EXPONENTS`, `contact_integrand_power_ledger` |
 | (3) Conditioned witness Hessian in the same chart | **Partial** — contact Hessian polynomials recorded; conditioned Gaussian expectation **open** | `hessian_contact_rows` / `axial_hessian_contact_rows`; `hessian_ledger_evaluated=false` |
 | (4) Combine typed Hessian with gradient-density Jacobian | **Partial** — exact power identity only (`spatial - grad_jac + hess_det + height_window`); unmatched height `r^1` recorded; density factor unbound | net `r^3` transverse / `r^2` axial; `transverse_height_r_factor_ledger`; `contact_density_bound_proved=false` |
@@ -24,7 +24,7 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 | `thin_belt_open` | yes (same jets) | open (`1/\|y2\|` not bare-L1; cancellation required) |
 | `near_pin` | no (pins exterior for `A>1/2`) | n/a on PR7 annulus |
 
-Small-A (`A≤1/2`) is a separate diagnostic regime only: pin-local frame and jet-obstruction ledger recorded, pin-site jets refused as not yet enumerated.
+Small-A (`A≤1/2`) is a separate diagnostic regime: pin-local frame, leading Morse contact rows, and obstruction ledger recorded; higher pin jets and density open.
 
 ## Hard-gate mapping
 

@@ -234,7 +234,20 @@
   "pin_centered_ledger": {
     "chart": "C_pin_centered",
     "complements_pr7": true,
-    "contact_rows_enumerated": false,
+    "contact_rows": {
+      "H_xx": "-1",
+      "H_xy": "0",
+      "H_yy": "1",
+      "J_grad_1": "0",
+      "J_grad_2": "1/20",
+      "J_height": "1/800",
+      "height_dependent_on_grad_at_leading_order": true,
+      "height_minus_half_z_dot_grad": "0",
+      "z1": "0",
+      "z2": "1/20"
+    },
+    "contact_rows_enumerated": true,
+    "enumeration_scope": "leading_morse_hess_z_only",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -251,18 +264,23 @@
     "full_annulus_closed": false,
     "hessian_ledger_evaluated": false,
     "legacy_24jet_discharged": false,
-    "meaning": "records the pin-local frame (z = y - pin) on a small-A near-pin chart; does not supply pin-site divided-difference contact rows",
+    "meaning": "leading Morse pin-site contact rows J=H_pin z and height (1/2)z\u00b7H\u00b7z; higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "object": "RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1",
-    "pin_site_jet_rows_enumerated": false,
+    "pin_site_higher_jets_enumerated": false,
+    "pin_site_jet_rows_enumerated": true,
     "pr7_fixed_annulus_A_gt_1": false,
-    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "scaling": {
+      "grad": 1,
+      "gradient_jacobian_r_power": 2,
+      "height": 2
+    },
+    "status": "OPEN_HIGHER_JETS_AND_DENSITY",
     "uniform_integrand_bound_proved": false
   },
   "pin_exclusion_ok": true,
   "pin_site_jet_obstruction": {
     "chart": "C_pin_centered",
-    "contact_rows_enumerated": false,
     "dist2_to_closer_pin": "1/400",
     "frame": {
       "annulus_A": "2/5",
@@ -278,22 +296,23 @@
       "z2": "1/20"
     },
     "hessian_ledger_evaluated": false,
-    "meaning": "pin-local frame and collision obstruction only; does not enumerate pin-site divided-difference contact rows",
+    "leading_morse_rows_enumerated_elsewhere": true,
+    "meaning": "midpoint jets blocked near pins; leading Morse pin-site rows exist in pin_centered_ledger; higher jets and density remain open",
     "midpoint_U0_rows_applicable": false,
     "near_pin_intersects_axial_thin_belt_locus": true,
     "object": "RN-MESOSCOPIC-PIN-SITE-JET-OBSTRUCTION-20260925-v1",
     "physical_witness_offset": "r * z",
-    "pin_site_jet_rows_enumerated": false,
+    "pin_site_higher_jets_enumerated": false,
     "pin_site_lies_on_scaled_axis": true,
     "raw_gradient_collides_with_pin_gradient_constraints": true,
-    "required_before_enumeration": [
-      "expand_relative_to_closer_pin_not_midpoint",
-      "subtract_pin_constraint_Hermite_jet",
-      "identify_first_nonzero_divided_difference_powers"
+    "required_before_full_chart": [
+      "higher_order_pin_local_divided_differences",
+      "pin_hessian_signature_max_vs_saddle",
+      "contact_gaussian_density_bound"
     ],
     "spatial_distance_to_pin_r_power": 1,
     "spatial_volume_r_power": 2,
-    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "status": "OPEN_HIGHER_JETS_AND_DENSITY",
     "uniform_integrand_bound_proved": false,
     "z1": "0",
     "z2": "1/20"

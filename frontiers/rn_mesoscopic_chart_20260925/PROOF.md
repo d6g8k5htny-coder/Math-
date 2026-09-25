@@ -78,7 +78,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `1/|y2| ≤ 1/δ` on `C_transverse` (chart singularity cleared; Gaussian density still open);
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
-- pin-site jet obstruction ledger (frame, collision with pin gradients, prerequisites; rows not enumerated);
+- pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` (higher jets open);
+- pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**
@@ -87,7 +88,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt integrand bound controlling the `1/|y2|` singularity;
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- pin-site divided-difference contact rows on any scale where pins enter the annulus;
+- higher-order pin-site divided-difference jets beyond the leading Morse Hessian·z residuals;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -118,7 +119,11 @@ with `near_pin` empty on this fixed annulus. The machine cover report records `e
 
 The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend (and are enumerated on `C_thin_belt`), `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. Dyadic shells show the bare factor is not locally `L^1` at `y2=0` (each shell contributes at least `1` to `∫ dy2/|y2|`). Pointwise, the jet map factor `∂J_grad_y/∂f_yy = y2` cancels that reciprocal (`|y2|·(1/|y2|)=1`), but this is **not** a conditioned-density bound. On `C_transverse` itself (`|y2|≥δ`) the bare reciprocal is uniformly bounded by `1/δ`, so the chart-conditioning singularity is cleared there; the remaining transverse obstruction is the contact Gaussian density / Hessian expectation, not `1/|y2|`. Across the interface `|y2|=δ` the transverse and thin-belt charts share identical contact polynomials, so the transition Jacobian on those rows is `1` (nonsingular). The checker still marks `uniform_integrand_bound_proved = false` and `gaussian_density_factor_bounded = false`.
 
-A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The checker records the pin-local frame `z = y − pin`, that midpoint `U_0` rows do not apply, that raw gradients collide with pin-gradient constraints, and the prerequisites for pin-site divided differences (`pin_site_jet_obstruction_ledger`). It still does **not** enumerate pin-site contact rows (`pin_site_jet_rows_enumerated = false`), and it does not alter the PR7 fixed-annulus statements.
+A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The checker records the pin-local frame `z = y − pin`, that midpoint `U_0` rows do not apply, and the leading Morse contact residuals after pin constraints:
+
+    J_grad = H_pin · z,    J_height = (1/2) z · H_pin · z,
+
+with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`). Higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
 
 ## 4.7 Hessian contact rows on C_transverse
 

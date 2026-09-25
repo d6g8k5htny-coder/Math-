@@ -329,14 +329,31 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(frame['z1'], 0)
         self.assertEqual(frame['z2'], Q(1, 20))
         self.assertEqual(frame['dist2_to_closer_pin'], Q(1, 400))
-        led = m.pin_centered_ledger_for_point(y, inner=Q(2, 5), outer=1)
+        led = m.pin_centered_ledger_for_point(y, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
         self.assertEqual(led['chart'], 'C_pin_centered')
         self.assertFalse(led['midpoint_U0_rows_applicable'])
-        self.assertFalse(led['pin_site_jet_rows_enumerated'])
-        self.assertFalse(led['contact_rows_enumerated'])
-        self.assertEqual(led['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        self.assertTrue(led['pin_site_jet_rows_enumerated'])
+        self.assertFalse(led['pin_site_higher_jets_enumerated'])
+        self.assertTrue(led['contact_rows_enumerated'])
+        self.assertEqual(led['enumeration_scope'], 'leading_morse_hess_z_only')
+        self.assertEqual(led['contact_rows']['J_grad_1'], 0)  # H_xy z2 with H_xy=0,z1=0
+        self.assertEqual(led['contact_rows']['J_grad_2'], Q(3, 20))  # H_yy z2
+        self.assertEqual(led['contact_rows']['J_height'], Q(3, 800))  # (1/2) H_yy z2^2
+        self.assertEqual(led['contact_rows']['height_minus_half_z_dot_grad'], 0)
+        self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
+        self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         with self.assertRaises(ValueError):
             m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
+
+    def test_pin_site_morse_contact_rows(self):
+        rows = m.pin_site_morse_contact_rows(1, 2, H_xx=1, H_xy=0, H_yy=1)
+        self.assertEqual(rows['J_grad_1'], 1)
+        self.assertEqual(rows['J_grad_2'], 2)
+        self.assertEqual(rows['J_height'], Q(5, 2))  # (1+4)/2
+        self.assertEqual(rows['height_minus_half_z_dot_grad'], 0)
+        self.assertTrue(rows['height_dependent_on_grad_at_leading_order'])
+        with self.assertRaises(ValueError):
+            m.pin_site_morse_contact_rows(0, 0, H_xx=1, H_xy=0, H_yy=1)
 
     def test_pin_site_jet_obstruction_ledger(self):
         y = m.point(Q(1, 2), Q(1, 20))
@@ -349,10 +366,10 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(obs['midpoint_U0_rows_applicable'])
         self.assertTrue(obs['raw_gradient_collides_with_pin_gradient_constraints'])
         self.assertTrue(obs['near_pin_intersects_axial_thin_belt_locus'])
-        self.assertFalse(obs['pin_site_jet_rows_enumerated'])
-        self.assertFalse(obs['contact_rows_enumerated'])
-        self.assertIn('subtract_pin_constraint_Hermite_jet', obs['required_before_enumeration'])
-        self.assertEqual(obs['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        self.assertTrue(obs['leading_morse_rows_enumerated_elsewhere'])
+        self.assertFalse(obs['pin_site_higher_jets_enumerated'])
+        self.assertIn('contact_gaussian_density_bound', obs['required_before_full_chart'])
+        self.assertEqual(obs['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         with self.assertRaises(ValueError):
             m.pin_site_jet_obstruction_ledger(m.point(0, 2), inner=Q(2, 5), outer=1)
 
@@ -361,7 +378,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('RN-MESOSCOPIC-CHART-PR7-CROSSWALK-20260925-v1', text)
         self.assertIn('Scientific effect: NONE', text)
         self.assertIn('contact_density_bound_proved=false', text)
-        self.assertIn('pin-site jets **not** enumerated', text)
+        self.assertIn('leading Morse', text)
         self.assertIn('AUTHOR_SIDE_CANDIDATE', text)
         self.assertIn('hessian_ledger_evaluated=false', text)
         self.assertIn('transverse_conditioning_uniform_bound', text)
