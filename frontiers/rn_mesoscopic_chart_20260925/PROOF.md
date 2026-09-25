@@ -102,6 +102,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - contact integrand algebraic factor product `(1/|det J_grad|)·|det H_skeleton|` on transverse/axial/thin-belt/pin-centered (Gaussian density still open; thin-belt reciprocal diverges as y2→0; pin Morse `|det|=z2²` or `z1²`);
 - transverse algebraic-factor × unmatched height `r^1` combined skeleton (product identity recorded; neither factor absorbed; density still open);
 - thin-belt algebraic-factor × unmatched height `r^1` combined skeleton (reciprocal diverges as y2→0; neither factor absorbed; density still open);
+- pin-centered algebraic-factor × unmatched height `r^1` combined skeleton (neither factor absorbed; density / higher jets still open);
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
 - thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);

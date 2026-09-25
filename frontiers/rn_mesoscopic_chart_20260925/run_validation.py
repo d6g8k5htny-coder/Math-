@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 67
+EXPECTED_TESTS = 68
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -189,6 +189,10 @@ MUTANTS = {
     'claim_pin_centered_height_r_absorbed': (
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'leading Morse height is (1/2)z·J_grad; cubic H_height_next inserts '\n            'unmatched r^1; not absorbed; density / higher jets still unbound'\n        ),",
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': True,\n        'meaning': (\n            'leading Morse height is (1/2)z·J_grad; cubic H_height_next inserts '\n            'unmatched r^1; not absorbed; density / higher jets still unbound'\n        ),",
+    ),
+    'claim_density_from_pin_algebraic_factor_times_height_r': (
+        "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact pin Morse (1/|det J|)·|det H| times unmatched height r^1; '\n            'neither factor absorbed; density / higher jets still unbound'\n        ),",
+        "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': True,\n        'combined_skeleton_absorbed_into_uniform_bound': True,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': True,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact pin Morse (1/|det J|)·|det H| times unmatched height r^1; '\n            'neither factor absorbed; density / higher jets still unbound'\n        ),",
     ),
     'claim_density_from_algebraic_factor_times_height_r': (
         "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '\n            'neither factor absorbed; Gaussian density still unbound'\n        ),",

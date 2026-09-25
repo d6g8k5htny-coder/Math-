@@ -892,6 +892,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
+        self.assertTrue(inv['charts']['C_pin_centered']['algebraic_factor_times_height_r_skeleton_enumerated'])
         self.assertFalse(inv['charts']['C_pin_centered']['thirteenth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
@@ -1150,6 +1151,27 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(led['contact_gaussian_density_bounded'])
         with self.assertRaises(ValueError):
             m.pin_centered_height_r_factor_ledger(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
+
+    def test_pin_centered_algebraic_factor_times_height_r_skeleton(self):
+        # product=2400, unmatched height r^1
+        t = m.pin_centered_algebraic_factor_times_height_r_skeleton(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1,
+            H_xx=-2, H_xy=0, H_yy=3, f_yyy=6)
+        self.assertEqual(t['chart'], 'C_pin_centered')
+        self.assertEqual(t['algebraic_jacobian_times_det_abs'], 2400)
+        self.assertEqual(t['unmatched_height_density_r_power'], 1)
+        self.assertEqual(t['combined_skeleton_height_r_power'], 1)
+        self.assertEqual(t['algebraic_factor_r_power_after_stripping'], 0)
+        self.assertEqual(t['product_minus_recorded_factors'], 0)
+        self.assertEqual(t['H_height_next'], Q(1, 8000))
+        self.assertTrue(t['combined_algebraic_factor_and_height_r_recorded'])
+        self.assertFalse(t['height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(t['combined_skeleton_absorbed_into_uniform_bound'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        self.assertFalse(t['global_contact_density_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.pin_centered_algebraic_factor_times_height_r_skeleton(
                 m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
 
     def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
