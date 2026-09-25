@@ -1,4 +1,18 @@
 {
+  "axial_conditioning_bound": {
+    "abs_y1": "2",
+    "annulus_A": "2",
+    "axial_area_measure_zero": true,
+    "axial_chart_conditioning_singularity_cleared": true,
+    "axial_gaussian_density_factor_bounded": false,
+    "chart": "C_axial",
+    "conditioning_reciprocal": "1/2",
+    "grad_y_coefficient_y1_sq_over_2": "2",
+    "meaning": "exact |y1|>=A \u21d2 2/y1^2 <= 2/A^2 on C_axial; chart singularity cleared, contact Gaussian density still unbound",
+    "object": "RN-MESOSCOPIC-AXIAL-CONDITIONING-BOUND-20260925-v1",
+    "reciprocal_le_uniform_bound": true,
+    "uniform_chart_bound": "1/2"
+  },
   "axial_gradient_jacobian_r_power": 4,
   "axial_hessian_sample": {
     "H_xx_contact": "24",

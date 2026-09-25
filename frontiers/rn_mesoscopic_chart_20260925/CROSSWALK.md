@@ -13,14 +13,14 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 | (2) Exact `r`-power of `det S_r(y)` on each rank chart | **Partial** — gradient Jacobian powers `3` (transverse/thin) and `4` (axial); Hessian raw `det H` leading power `1` | `SCALING_EXPONENTS`, `AXIAL_SCALING_EXPONENTS`, `HESSIAN_SCALING_EXPONENTS`, `contact_integrand_power_ledger` |
 | (3) Conditioned witness Hessian in the same chart | **Partial** — contact Hessian polynomials recorded; conditioned Gaussian expectation **open** | `hessian_contact_rows` / `axial_hessian_contact_rows`; `hessian_ledger_evaluated=false` |
 | (4) Combine typed Hessian with gradient-density Jacobian | **Partial** — exact power identity only (`spatial - grad_jac + hess_det + height_window`); density factor unbound | net `r^3` transverse / `r^2` axial; `contact_density_bound_proved=false` |
-| (5) Local integrability across chart boundaries; uniform bound on `A≤\|y\|≤B` | **Partial** — `|y2|=δ` transition is identity (det 1); `C_transverse` bare `1/\|y2\|≤1/δ` cleared; thin-belt interior still open (`1/\|y2\|` bare-L1 failure; jet-map pointwise cancel recorded, density unbound) | `chart_boundary_transition`, `transverse_conditioning_uniform_bound`, `thin_belt_reciprocal_shell_lower_bound`, `jet_map_f_yy_to_J_grad_y_factor` |
+| (5) Local integrability across chart boundaries; uniform bound on `A≤\|y\|≤B` | **Partial** — `|y2|=δ` transition is identity (det 1); `C_transverse` bare `1/\|y2\|≤1/δ` and `C_axial` bare `2/y1^2≤2/A^2` cleared; thin-belt interior still open (`1/\|y2\|` bare-L1 failure; jet-map pointwise cancel recorded, density unbound) | `chart_boundary_transition`, `transverse_conditioning_uniform_bound`, `axial_conditioning_uniform_bound`, `thin_belt_reciprocal_shell_lower_bound`, `jet_map_f_yy_to_J_grad_y_factor` |
 
 ## Chart cover (PR7 annulus `A>1`)
 
 | Region | Contact rows | Uniform bound |
 |---|---|---|
 | `C_transverse` | yes | chart conditioning cleared (`1/\|y2\|≤1/δ`); Gaussian density open |
-| `C_axial` | yes | open (and area-measure zero in 2D) |
+| `C_axial` | yes | chart conditioning cleared (`2/y1^2≤2/A^2`); area-measure zero; Gaussian density open |
 | `thin_belt_open` | yes (same jets) | open (`1/\|y2\|` not bare-L1; cancellation required) |
 | `near_pin` | no (pins exterior for `A>1/2`) | n/a on PR7 annulus |
 

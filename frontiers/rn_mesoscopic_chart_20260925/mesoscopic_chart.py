@@ -265,6 +265,42 @@ def transverse_conditioning_uniform_bound(
     }
 
 
+def axial_conditioning_uniform_bound(
+    y: Coord, *, inner: int | Q = 2, outer: int | Q = 4,
+) -> dict[str, Q | str | bool]:
+    """On C_axial, |y1|≥A ⇒ 2/y1^2 ≤ 2/A^2 for the J_grad_y = (y1^2/2) f_xxy coefficient.
+
+    Clears bare chart-conditioning singularity on the axis away from pins.
+    Area measure zero in the 2D annulus integral; Gaussian density still open.
+    """
+    a = exact(inner)
+    if a <= 0:
+        raise ValueError('positive inner radius required')
+    if not axial_chart_ok(y, inner=inner, outer=outer):
+        raise ValueError('point outside C_axial chart')
+    y1 = exact(y[0])
+    coeff = (y1 * y1) / 2
+    reciprocal = 1 / coeff
+    uniform = 2 / (a * a)
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-CONDITIONING-BOUND-20260925-v1',
+        'chart': 'C_axial',
+        'annulus_A': a,
+        'abs_y1': abs(y1),
+        'grad_y_coefficient_y1_sq_over_2': coeff,
+        'conditioning_reciprocal': reciprocal,
+        'uniform_chart_bound': uniform,
+        'reciprocal_le_uniform_bound': reciprocal <= uniform,
+        'axial_chart_conditioning_singularity_cleared': True,
+        'axial_gaussian_density_factor_bounded': False,
+        'axial_area_measure_zero': True,
+        'meaning': (
+            'exact |y1|>=A ⇒ 2/y1^2 <= 2/A^2 on C_axial; '
+            'chart singularity cleared, contact Gaussian density still unbound'
+        ),
+    }
+
+
 def chart_boundary_transition(
     y: Coord, *, floor_y2: int | Q = Q(1, 4),
     gap_mark: int | Q = 1, f_yy: int | Q = 1,
@@ -912,6 +948,7 @@ def result() -> dict:
     boundary = chart_boundary_transition(point(2, Q(1, 4)), gap_mark=1, f_yy=2)
     jet_map = jet_map_f_yy_to_J_grad_y_factor(point(2, Q(1, 8)))
     transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
+    axial_bound = axial_conditioning_uniform_bound(point(2, 0))
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
@@ -938,6 +975,7 @@ def result() -> dict:
     out['chart_boundary_transition'] = conv(boundary)
     out['jet_map_f_yy_sample'] = conv(jet_map)
     out['transverse_conditioning_bound'] = conv(transverse_bound)
+    out['axial_conditioning_bound'] = conv(axial_bound)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)

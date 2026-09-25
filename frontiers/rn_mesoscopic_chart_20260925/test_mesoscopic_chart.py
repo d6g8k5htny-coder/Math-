@@ -262,6 +262,26 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.transverse_conditioning_uniform_bound(m.point(2, 0))
 
+    def test_axial_conditioning_uniform_bound(self):
+        info = m.axial_conditioning_uniform_bound(m.point(2, 0))
+        self.assertEqual(info['abs_y1'], 2)
+        self.assertEqual(info['grad_y_coefficient_y1_sq_over_2'], 2)
+        self.assertEqual(info['conditioning_reciprocal'], Q(1, 2))
+        self.assertEqual(info['uniform_chart_bound'], Q(1, 2))  # 2/A^2 = 2/4
+        self.assertTrue(info['reciprocal_le_uniform_bound'])
+        self.assertTrue(info['axial_chart_conditioning_singularity_cleared'])
+        self.assertFalse(info['axial_gaussian_density_factor_bounded'])
+        self.assertTrue(info['axial_area_measure_zero'])
+        # Larger |y1| improves the coefficient (smaller reciprocal).
+        far = m.axial_conditioning_uniform_bound(m.point(3, 0))
+        self.assertEqual(far['grad_y_coefficient_y1_sq_over_2'], Q(9, 2))
+        self.assertEqual(far['conditioning_reciprocal'], Q(2, 9))
+        self.assertLess(far['conditioning_reciprocal'], info['conditioning_reciprocal'])
+        with self.assertRaises(ValueError):
+            m.axial_conditioning_uniform_bound(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.axial_conditioning_uniform_bound(m.point(Q(1, 2), 0))
+
     def test_chart_boundary_transition(self):
         y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
         self.assertTrue(m.transverse_chart_ok(y))
