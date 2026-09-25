@@ -176,7 +176,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "x=r y with A<=|y|<=B away from pins",
-      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart J0/Hessian/integrand powers and clears C_transverse/C_axial chart conditioning; density bound and pin charts still open"
+      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart algebra and clears chart conditioning on C_transverse/C_axial; density bound and pin charts still open"
     },
     "math.rn-region.pin-collision": {
       "layer": "D5",
@@ -271,10 +271,10 @@
       "kind": "candidate",
       "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
-      "fingerprint": "5b91bb48c164c0024c3a3ef27616ef91373e2bbd",
+      "fingerprint": "ea52f84a33dba3e5f83322fe6b7e715015a41b6e",
       "source": "frontiers/rn_mesoscopic_chart_20260925/PROOF.md",
       "review_pr": 9,
-      "notes": "Exact d=2 chart J0/Hessian/integrand powers, thin-belt L1 + jet-map cancel, boundary identity transition, C_transverse/C_axial chart-conditioning bounds, pin-frame + PR7 \u00a75 crosswalk; Gaussian density bound open"
+      "notes": "Exact d=2 chart J0/Hessian/integrand powers, thin-belt L1 + jet-map cancel, boundary identity, C_transverse/C_axial conditioning bounds, unmatched height r^1, pin-frame + PR7 \u00a75 crosswalk; Gaussian density bound open"
     }
   },
   "edges": [
