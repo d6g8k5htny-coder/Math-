@@ -120,7 +120,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-site heptatriacontic residuals `AI_grad_next = (1/371993326789901217467999448150835200000000)D³⁷f(z^36)`, `AI_height_next = (1/13763753091226345046315979581580902400000000)D³⁷f(z^37)` with `z·AI_grad_next = 37 AI_height_next`;
 - pin-site octatriacontic residuals `AJ_grad_next = (1/13763753091226345046315979581580902400000000)D³⁸f(z^37)`, `AJ_height_next = (1/523022617466601111760007224100074291200000000)D³⁸f(z^38)` with `z·AJ_grad_next = 38 AJ_height_next`;
 - pin-site nonatriacontic residuals `AK_grad_next = (1/523022617466601111760007224100074291200000000)D³⁹f(z^38)`, `AK_height_next = (1/20397882081197443358640281739902897356800000000)D³⁹f(z^39)` with `z·AK_grad_next = 39 AK_height_next`;
-- pin-site tetracontic residuals `AL_grad_next = (1/20397882081197443358640281739902897356800000000)D⁴⁰f(z^39)`, `AL_height_next = (1/815915283247897734345611269596115894272000000000)D⁴⁰f(z^40)` with `z·AL_grad_next = 40 AL_height_next` (forty-first-and-higher jets open);
+- pin-site tetracontic residuals `AL_grad_next = (1/20397882081197443358640281739902897356800000000)D⁴⁰f(z^39)`, `AL_height_next = (1/815915283247897734345611269596115894272000000000)D⁴⁰f(z^40)` with `z·AL_grad_next = 40 AL_height_next`;
+- pin-site hentetracontic residuals `AM_grad_next = (1/815915283247897734345611269596115894272000000000)D⁴¹f(z^40)`, `AM_height_next = (1/33452526613163807108170062053440751665152000000000)D⁴¹f(z^41)` with `z·AM_grad_next = 41 AM_height_next` (forty-second-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse/thin rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; pin Morse rank-2 ⇒ 1 free Hessian dir; density still open);
@@ -132,7 +133,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - thin-belt algebraic-factor × unmatched height `r^1` combined skeleton (reciprocal diverges as y2→0; neither factor absorbed; density still open);
 - pin-centered algebraic-factor × unmatched height `r^1` combined skeleton (neither factor absorbed; density / higher jets still open);
 - inventory bundling those combined skeletons (`C_axial` exempt: no unmatched height r); density still open;
-- pin-site unmatched height-r power inventory for cubic through tetracontic (`r^1`…`r^38`; none absorbed; forty-first+ open);
+- pin-site unmatched height-r power inventory for cubic through hentetracontic (`r^1`…`r^39`; none absorbed; forty-second+ open);
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
 - thin-belt height residual `H_height_next` after the same eliminations (reciprocal diverges as y2→0; unmatched `r^1` still open);
 - thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
@@ -145,7 +146,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt contact Gaussian density bound near `y2→0` (bare `1/|y2|` L1 cleared by jet-map cancel; residual geometric factor = 1);
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- higher-order pin-site divided-difference jets beyond tetracontic residuals;
+- higher-order pin-site divided-difference jets beyond hentetracontic residuals;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
