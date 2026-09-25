@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 19
+EXPECTED_TESTS = 24
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -37,6 +37,14 @@ MUTANTS = {
     'claim_annulus_closed': (
         "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': False,",
         "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': True,",
+    ),
+    'claim_cover_complete': (
+        "'cover_complete': False,",
+        "'cover_complete': True,",
+    ),
+    'wrong_pins_exterior': (
+        "return exact(inner) > Q(1, 2)",
+        "return exact(inner) < Q(1, 2)",
     ),
 }
 

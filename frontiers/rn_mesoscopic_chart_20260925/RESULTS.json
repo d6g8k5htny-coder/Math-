@@ -36,6 +36,14 @@
     }
   },
   "chart": "C_transverse",
+  "classifications": {
+    "axial": "C_axial",
+    "near_pin_default_annulus": "outside_annulus",
+    "near_pin_small_A": "near_pin",
+    "outside": "outside_annulus",
+    "thin": "thin_belt_open",
+    "transverse": "C_transverse"
+  },
   "complements_pr7": true,
   "contact_rows": {
     "H_height_next": "0",
@@ -43,6 +51,27 @@
     "J_grad_y": "4",
     "J_height": "4",
     "height_residual_at_leading_order": "0"
+  },
+  "cover": {
+    "annulus": {
+      "A": "2",
+      "B": "4"
+    },
+    "cover_complete": false,
+    "enumerated_charts": [
+      "C_transverse",
+      "C_axial"
+    ],
+    "full_annulus_closed": false,
+    "legacy_24jet_discharged": false,
+    "notes": "C_transverse \u222a C_axial covers the annulus off the open thin belt 0<|y2|<floor. For A>1/2 the scaled pins lie outside the annulus (PR7 convention); near-pin charts arise only for smaller A or other scales.",
+    "object": "RN-MESOSCOPIC-CHART-COVER-20260925-v1",
+    "open_regions": [
+      "thin_belt_open"
+    ],
+    "pin_exclusion_margin": "1/10",
+    "pins_exterior_to_annulus": true,
+    "transverse_floor_y2": "1/4"
   },
   "full_annulus_closed": false,
   "gradient_jacobian_r_power": 3,
@@ -52,6 +81,19 @@
   "independent_analytic_acceptance": false,
   "legacy_24jet_discharged": false,
   "meaning": "exact d=2 transverse chart contact rows, next-order height remainder, and gradient Jacobian r-power; not a continuum Gaussian evaluation",
+  "near_pin_sample": {
+    "annulus_A": "2/5",
+    "annulus_B": "1",
+    "closer_pin": "S",
+    "dist2_M": "401/400",
+    "dist2_S": "1/400",
+    "midpoint_chart_valid": false,
+    "notes": "Witness approaches a pin site; expand relative to that pin, not the midpoint U_0 chart",
+    "pr7_fixed_annulus_A_gt_1": false,
+    "region": "near_pin",
+    "requires_pin_centered_divided_differences": true,
+    "status": "OPEN_SEPARATE_CHART_REQUIRED"
+  },
   "object": "RN-MESOSCOPIC-CHART-J0-D2-TRANSVERSE-20260925-v1",
   "pin_exclusion_ok": true,
   "rank": {
@@ -79,6 +121,12 @@
     "height_window_r_power": 3,
     "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
     "spatial_volume_r_power": 2
+  },
+  "thin_belt_sample": {
+    "conditioning_factor_reciprocal_abs_y2": "8",
+    "grad_y_coefficient_y2": "1/8",
+    "region": "thin_belt_open",
+    "status": "OPEN_SEPARATE_CHART_REQUIRED"
   },
   "y": {
     "y1": "0",

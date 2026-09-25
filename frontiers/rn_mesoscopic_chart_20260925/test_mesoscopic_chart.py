@@ -147,6 +147,62 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(all(m.transverse_chart_ok(y) for y in ys))
         self.assertTrue(all(m.axial_chart_ok(y) for y in m.sample_axial_points()))
 
+    def test_annulus_require_pr7_A(self):
+        with self.assertRaises(ValueError):
+            m.in_annulus(m.point(0, Q(1, 2)), Q(2, 5), 1)
+        self.assertTrue(
+            m.in_annulus(m.point(0, Q(1, 2)), Q(2, 5), 1, require_pr7_A=False))
+        with self.assertRaises(ValueError):
+            m.in_annulus(m.point(0, 1), 0, 1, require_pr7_A=False)
+
+    def test_pins_exterior_and_cover(self):
+        self.assertTrue(m.pins_exterior_to_annulus(2))
+        self.assertFalse(m.pins_exterior_to_annulus(Q(2, 5)))
+        self.assertFalse(m.pins_exterior_to_annulus(Q(1, 2)))
+        cover = m.chart_cover_report()
+        self.assertTrue(cover['pins_exterior_to_annulus'])
+        self.assertEqual(cover['enumerated_charts'], ['C_transverse', 'C_axial'])
+        self.assertEqual(cover['open_regions'], ['thin_belt_open'])
+        self.assertFalse(cover['cover_complete'])
+        self.assertFalse(cover['full_annulus_closed'])
+        self.assertFalse(cover['legacy_24jet_discharged'])
+
+    def test_classify_partition(self):
+        self.assertEqual(m.classify_annulus_point(m.point(0, 2)), 'C_transverse')
+        self.assertEqual(m.classify_annulus_point(m.point(2, 0)), 'C_axial')
+        self.assertEqual(m.classify_annulus_point(m.point(2, Q(1, 8))), 'thin_belt_open')
+        self.assertEqual(m.classify_annulus_point(m.point(0, 1)), 'outside_annulus')
+        # On the PR7 annulus A>1, scaled pins lie outside; a pin-neighbour is exterior.
+        self.assertEqual(
+            m.classify_annulus_point(m.point(Q(1, 2), Q(1, 20))), 'outside_annulus')
+        self.assertEqual(
+            m.classify_annulus_point(
+                m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, require_pr7_A=False),
+            'near_pin')
+
+    def test_thin_belt_conditioning(self):
+        self.assertTrue(m.thin_belt_ok(m.point(2, Q(1, 8))))
+        self.assertFalse(m.thin_belt_ok(m.point(0, 2)))
+        self.assertFalse(m.thin_belt_ok(m.point(2, 0)))
+        info = m.thin_belt_conditioning(m.point(2, Q(1, 8)))
+        self.assertEqual(info['grad_y_coefficient_y2'], Q(1, 8))
+        self.assertEqual(info['conditioning_factor_reciprocal_abs_y2'], 8)
+        self.assertEqual(info['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        with self.assertRaises(ValueError):
+            m.thin_belt_conditioning(m.point(0, 2))
+
+    def test_near_pin_diagnosis_small_A(self):
+        with self.assertRaises(ValueError):
+            m.near_pin_diagnosis(m.point(Q(1, 2), Q(1, 20)), inner=2, outer=4)
+        diag = m.near_pin_diagnosis(m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+        self.assertEqual(diag['closer_pin'], 'S')
+        self.assertEqual(diag['dist2_S'], Q(1, 400))
+        self.assertFalse(diag['midpoint_chart_valid'])
+        self.assertTrue(diag['requires_pin_centered_divided_differences'])
+        self.assertEqual(diag['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        self.assertFalse(diag['pr7_fixed_annulus_A_gt_1'])
+        self.assertFalse(m.near_pin_ok(m.point(0, 2)))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -78,7 +78,8 @@ The two gradient rows are the independent contact observations for the gradient 
 
 - absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
 - conditioned Hessian ledger on either chart;
-- pin-neighbourhood charts and chart overlaps / partition of the annulus;
+- thin-belt chart (`0 < |y2| < δ`) and its conditioned change-of-variables;
+- pin-centred charts on any scale where pins enter the annulus;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -95,8 +96,22 @@ Hence axial scalings are `p_x=2`, `p_y=2`, `p_height=3`, and the gradient Jacobi
     J_grad_x = 6k y1^2,
     J_height = 2k y1^3.
 
-Height is already independent at this axial leading order (cubic mark). Pin-neighbourhood charts remain open.
+Height is already independent at this axial leading order (cubic mark).
+
+## 4.6 Cover inventory, thin belt, and near-pin diagnosis
+
+For the PR7 convention `A > 1`, both scaled pins satisfy `|pin| = 1/2 < A`, so they lie **exterior** to the annulus. The finite partition of annulus points (off the open thin belt) is therefore:
+
+- `C_transverse`: `|y2| ≥ δ`,
+- `C_axial`: `y2 = 0`,
+- `thin_belt_open`: `0 < |y2| < δ` (still away from pins),
+
+with `near_pin` empty on this fixed annulus. The machine cover report records `enumerated_charts = {C_transverse, C_axial}`, `open_regions = {thin_belt_open}`, and `cover_complete = false`.
+
+The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend, `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. The checker records that factor and marks the region `OPEN_SEPARATE_CHART_REQUIRED`.
+
+A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The diagnosis records which pin is closer and that a pin-centred divided-difference chart is required; it does **not** supply that chart, and it does not alter the PR7 fixed-annulus statements.
 
 ## 5. Relation to PR7 and #86
 
-This is the Codex-offered D5 slice from [main #86](https://github.com/d6g8k5htny-coder/main/issues/86): one declared scaled-annulus chart, separate branch/artifact, no edit to PR7's proof body. Downstream-first still applies: this does not promote a CONTROLLING RN closure while D0–D4 reviews remain open.
+This is the Codex-offered D5 slice from [main #86](https://github.com/d6g8k5htny-coder/main/issues/86): declared scaled-annulus charts, separate branch/artifact, no edit to PR7's proof body. Downstream-first still applies: this does not promote a CONTROLLING RN closure while D0–D4 reviews remain open.
