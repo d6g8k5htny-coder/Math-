@@ -446,6 +446,7 @@
         "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
+        "henicosic_next_order_enumerated": true,
         "heptadecic_next_order_enumerated": true,
         "hexadecic_next_order_enumerated": true,
         "icosic_next_order_enumerated": true,
@@ -463,7 +464,7 @@
         "sextic_next_order_enumerated": true,
         "tetradecic_next_order_enumerated": true,
         "tridecic_next_order_enumerated": true,
-        "twenty_first_and_higher_jets_enumerated": false,
+        "twenty_second_and_higher_jets_enumerated": false,
         "undecic_next_order_enumerated": true,
         "unmatched_height_r_power_inventory_recorded": true
       },
@@ -508,7 +509,7 @@
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "thin_belt_height_r_absorption",
-      "pin_twenty_first_and_higher_jets",
+      "pin_twenty_second_and_higher_jets",
       "pin_centered_height_r_absorption"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
@@ -1216,7 +1217,7 @@
       "z2": "1/20",
       "z_dot_F_grad_next_minus_12_F_height_next": "0"
     },
-    "enumeration_scope": "leading_morse_plus_cubic_through_icosic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_henicosic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -1231,6 +1232,39 @@
       "z2": "1/20"
     },
     "full_annulus_closed": false,
+    "henicosic_rows": {
+      "V_grad_next_1": "0",
+      "V_grad_next_2": "21/104857600000000000000000000",
+      "V_height_next": "1/2097152000000000000000000000",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxxxxxxxxxxxxxxxxx": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_yyyyyyyyyyyyyyyyyyyyy": "51090942171709440000",
+      "twenty_second_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 19,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_V_grad_next_minus_21_V_height_next": "0"
+    },
     "heptadecic_rows": {
       "L_grad_next_1": "0",
       "L_grad_next_2": "17/655360000000000000000",
@@ -1337,7 +1371,7 @@
       "z_dot_R_grad_next_minus_20_R_height_next": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic through icosic H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L/M/O/R_*_next; twenty-first-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic through henicosic H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L/M/O/R/V_*_next; twenty-second-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -1481,6 +1515,7 @@
     },
     "pin_site_decic_enumerated": true,
     "pin_site_dodecic_enumerated": true,
+    "pin_site_henicosic_enumerated": true,
     "pin_site_heptadecic_enumerated": true,
     "pin_site_hexadecic_enumerated": true,
     "pin_site_higher_jets_enumerated": false,
@@ -1707,12 +1742,13 @@
       "heptadecic",
       "octadecic",
       "nonadecic",
-      "icosic"
+      "icosic",
+      "henicosic"
     ],
-    "enumeration_scope": "leading_morse_plus_cubic_through_icosic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_henicosic",
     "global_contact_density_bound_proved": false,
-    "max_unmatched_density_r_power": 18,
-    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through icosic pin residuals; none absorbed; twenty-first-and-higher jets / density open",
+    "max_unmatched_density_r_power": 19,
+    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through henicosic pin residuals; none absorbed; twenty-second-and-higher jets / density open",
     "min_unmatched_density_r_power": 1,
     "object": "RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1",
     "orders": {
@@ -1736,6 +1772,13 @@
         "homogeneous_degree": 12,
         "residual_symbol": "F_*_next",
         "unmatched_density_r_power": 10
+      },
+      "henicosic": {
+        "euler_identity": "z\u00b7grad_residual = 21 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 21,
+        "residual_symbol": "V_*_next",
+        "unmatched_density_r_power": 19
       },
       "heptadecic": {
         "euler_identity": "z\u00b7grad_residual = 17 \u00b7 height_residual",
@@ -1844,7 +1887,7 @@
       }
     },
     "pin_site_higher_jets_enumerated": false,
-    "twenty_first_and_higher_jets_enumerated": false,
+    "twenty_second_and_higher_jets_enumerated": false,
     "unmatched_r_powers": [
       1,
       2,
@@ -1863,7 +1906,8 @@
       15,
       16,
       17,
-      18
+      18,
+      19
     ]
   },
   "rank": {
