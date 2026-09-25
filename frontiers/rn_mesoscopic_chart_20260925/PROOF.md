@@ -80,7 +80,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;
 - pin-site cubic next-order rows `H_grad_next = (1/2)D³f(z,z)`, `H_height_next = (1/6)D³f(z,z,z)` with `z·H_grad_next = 3 H_height_next`;
-- pin-site quartic residuals `Q_grad_next = (1/6)D⁴f(z,z,z)`, `Q_height_next = (1/24)D⁴f(z,z,z,z)` with `z·Q_grad_next = 4 Q_height_next` (fifth-and-higher jets open);
+- pin-site quartic residuals `Q_grad_next = (1/6)D⁴f(z,z,z)`, `Q_height_next = (1/24)D⁴f(z,z,z,z)` with `z·Q_grad_next = 4 Q_height_next`;
+- pin-site quintic residuals `P_grad_next = (1/24)D⁵f(z,z,z,z)`, `P_height_next = (1/120)D⁵f(z,z,z,z,z)` with `z·P_grad_next = 5 P_height_next` (sixth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; density still open);
@@ -96,7 +97,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt contact Gaussian density bound near `y2→0` (bare `1/|y2|` L1 cleared by jet-map cancel; residual geometric factor = 1);
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- higher-order pin-site divided-difference jets beyond quartic residuals;
+- higher-order pin-site divided-difference jets beyond quintic residuals;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -131,7 +132,7 @@ A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used o
 
     J_grad = H_pin · z,    J_height = (1/2) z · H_pin · z,
 
-with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite), plus cubic residuals `H_grad_next` / `H_height_next` (unmatched `r^1`) and quartic residuals `Q_grad_next` / `Q_height_next` (unmatched `r^2`). Fifth-and-higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
+with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite), plus cubic/quartic/quintic residuals (unmatched `r^1`/`r^2`/`r^3`). Sixth-and-higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
 
 ## 4.7 Hessian contact rows on C_transverse
 

@@ -145,11 +145,12 @@
       "C_pin_centered": {
         "contact_gaussian_density_bounded": false,
         "cubic_next_order_enumerated": true,
-        "fifth_and_higher_jets_enumerated": false,
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
         "max_saddle_signature_test_recorded": true,
-        "quartic_next_order_enumerated": true
+        "quartic_next_order_enumerated": true,
+        "quintic_next_order_enumerated": true,
+        "sixth_and_higher_jets_enumerated": false
       },
       "C_thin_belt": {
         "bare_1_over_abs_y2_L1": false,
@@ -178,7 +179,7 @@
       "conditioned_hessian_expectation",
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
-      "pin_fifth_and_higher_jets"
+      "pin_sixth_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
   },
@@ -405,7 +406,7 @@
       "z2": "1/20"
     },
     "contact_rows_enumerated": true,
-    "enumeration_scope": "leading_morse_plus_cubic_and_quartic",
+    "enumeration_scope": "leading_morse_plus_cubic_quartic_quintic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -437,7 +438,7 @@
       "trace_H": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic H_*_next and quartic Q_*_next; fifth-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic/quartic/quintic H/Q/P_*_next; sixth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -457,6 +458,7 @@
     "pin_site_jet_rows_enumerated": true,
     "pin_site_next_order_enumerated": true,
     "pin_site_quartic_enumerated": true,
+    "pin_site_quintic_enumerated": true,
     "pr7_fixed_annulus_A_gt_1": false,
     "quartic_rows": {
       "Q_grad_next_1": "0",
@@ -468,11 +470,27 @@
       "f_xxyy": "0",
       "f_xyyy": "0",
       "f_yyyy": "24",
-      "fifth_and_higher_jets_enumerated": false,
       "unmatched_density_r_power": 2,
       "z1": "0",
       "z2": "1/20",
       "z_dot_Q_grad_next_minus_4_Q_height_next": "0"
+    },
+    "quintic_rows": {
+      "P_grad_next_1": "0",
+      "P_grad_next_2": "1/32000",
+      "P_height_next": "1/3200000",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxx": "0",
+      "f_xxxxy": "0",
+      "f_xxxyy": "0",
+      "f_xxyyy": "0",
+      "f_xyyyy": "0",
+      "f_yyyyy": "120",
+      "sixth_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 3,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_P_grad_next_minus_5_P_height_next": "0"
     },
     "scaling": {
       "grad": 1,
