@@ -262,7 +262,6 @@
         "contact_gaussian_density_bounded": false,
         "cubic_next_order_enumerated": true,
         "decic_next_order_enumerated": true,
-        "eleventh_and_higher_jets_enumerated": false,
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
         "max_saddle_signature_test_recorded": true,
@@ -271,7 +270,9 @@
         "quartic_next_order_enumerated": true,
         "quintic_next_order_enumerated": true,
         "septic_next_order_enumerated": true,
-        "sextic_next_order_enumerated": true
+        "sextic_next_order_enumerated": true,
+        "twelfth_and_higher_jets_enumerated": false,
+        "undecic_next_order_enumerated": true
       },
       "C_thin_belt": {
         "algebraic_factor_times_height_r_skeleton_enumerated": true,
@@ -309,7 +310,7 @@
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "thin_belt_height_r_absorption",
-      "pin_eleventh_and_higher_jets"
+      "pin_twelfth_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
   },
@@ -672,7 +673,6 @@
       "D_grad_next_1": "0",
       "D_grad_next_2": "1/51200000000",
       "D_height_next": "1/10240000000000",
-      "eleventh_and_higher_jets_enumerated": false,
       "explicit_r_factor_still_required": true,
       "f_xxxxxxxxxx": "0",
       "f_xxxxxxxxxy": "0",
@@ -690,7 +690,7 @@
       "z2": "1/20",
       "z_dot_D_grad_next_minus_10_D_height_next": "0"
     },
-    "enumeration_scope": "leading_morse_plus_cubic_through_decic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_undecic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -722,7 +722,7 @@
       "trace_H": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic through decic H/Q/P/S/T/U/N/D_*_next; eleventh-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic through undecic H/Q/P/S/T/U/N/D/E_*_next; twelfth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -787,6 +787,7 @@
     "pin_site_quintic_enumerated": true,
     "pin_site_septic_enumerated": true,
     "pin_site_sextic_enumerated": true,
+    "pin_site_undecic_enumerated": true,
     "pr7_fixed_annulus_A_gt_1": false,
     "quartic_rows": {
       "Q_grad_next_1": "0",
@@ -860,6 +861,29 @@
       "z_dot_S_grad_next_minus_6_S_height_next": "0"
     },
     "status": "OPEN_HIGHER_JETS_AND_DENSITY",
+    "undecic_rows": {
+      "E_grad_next_1": "0",
+      "E_grad_next_2": "11/10240000000000",
+      "E_height_next": "1/204800000000000",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxxxxxxx": "0",
+      "f_xxxxxxxxxxy": "0",
+      "f_xxxxxxxxxyy": "0",
+      "f_xxxxxxxxyyy": "0",
+      "f_xxxxxxxyyyy": "0",
+      "f_xxxxxxyyyyy": "0",
+      "f_xxxxxyyyyyy": "0",
+      "f_xxxxyyyyyyy": "0",
+      "f_xxxyyyyyyyy": "0",
+      "f_xxyyyyyyyyy": "0",
+      "f_xyyyyyyyyyy": "0",
+      "f_yyyyyyyyyyy": "39916800",
+      "twelfth_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 9,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_E_grad_next_minus_11_E_height_next": "0"
+    },
     "uniform_integrand_bound_proved": false
   },
   "pin_centered_net_count_r_power": 3,
