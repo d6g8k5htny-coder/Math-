@@ -39,6 +39,12 @@ jobs:
           if sys.version_info[:2] != (3, 11):
               raise RuntimeError('actual Python 3.11 required')
           verify()
+          sys.path.insert(0, str(root))
+          import hard_gate as gate_module
+          generated = json.dumps(gate_module.results_payload(), indent=2, sort_keys=True) + '\n'
+          if generated != (root / 'RESULTS.json').read_text():
+              import base64
+              print('GENERATED_RESULTS_B64', base64.b64encode(generated.encode()).decode())
           out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'downstream-gate-results'
           subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=120)
           regressions = [
