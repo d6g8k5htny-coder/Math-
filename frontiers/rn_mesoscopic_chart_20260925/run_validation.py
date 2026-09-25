@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 71
+EXPECTED_TESTS = 72
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -67,8 +67,8 @@ MUTANTS = {
         "'uniform_integrand_bound_proved': True,\n        'absorbed_into_C_transverse': True,",
     ),
     'claim_pin_rows_enumerated': (
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_nonic_enumerated': True,\n        'pin_site_decic_enumerated': True,\n        'pin_site_undecic_enumerated': True,\n        'pin_site_dodecic_enumerated': True,\n        'pin_site_tridecic_enumerated': True,\n        'pin_site_tetradecic_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,",
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_nonic_enumerated': True,\n        'pin_site_decic_enumerated': True,\n        'pin_site_undecic_enumerated': True,\n        'pin_site_dodecic_enumerated': True,\n        'pin_site_tridecic_enumerated': True,\n        'pin_site_tetradecic_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_nonic_enumerated': True,\n        'pin_site_decic_enumerated': True,\n        'pin_site_undecic_enumerated': True,\n        'pin_site_dodecic_enumerated': True,\n        'pin_site_tridecic_enumerated': True,\n        'pin_site_tetradecic_enumerated': True,\n        'pin_site_pentadecic_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_nonic_enumerated': True,\n        'pin_site_decic_enumerated': True,\n        'pin_site_undecic_enumerated': True,\n        'pin_site_dodecic_enumerated': True,\n        'pin_site_tridecic_enumerated': True,\n        'pin_site_tetradecic_enumerated': True,\n        'pin_site_pentadecic_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,",
     ),
     'claim_pin_obstruction_cleared': (
         "'raw_gradient_collides_with_pin_gradient_constraints': True,\n        'near_pin_intersects_axial_thin_belt_locus': True,\n        'leading_morse_rows_enumerated_elsewhere': True,\n        'pin_site_higher_jets_enumerated': False,",
@@ -169,6 +169,10 @@ MUTANTS = {
     'drop_pin_tetradecic_identity': (
         "'z_dot_I_grad_next_minus_14_I_height_next': u * g1 + v * g2 - 14 * ht,",
         "'z_dot_I_grad_next_minus_14_I_height_next': u * g1 + v * g2 - 13 * ht,",
+    ),
+    'drop_pin_pentadecic_identity': (
+        "'z_dot_J_grad_next_minus_15_J_height_next': u * g1 + v * g2 - 15 * ht,",
+        "'z_dot_J_grad_next_minus_15_J_height_next': u * g1 + v * g2 - 14 * ht,",
     ),
     'claim_global_density_from_inventory': (
         "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': False,",
