@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 59
+EXPECTED_TESTS = 60
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -101,6 +101,10 @@ MUTANTS = {
     'claim_height_r_absorbed': (
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'meaning': (\n            'leading height is (y2/2)J_grad_y; independence needs H_height_next '\n            'and inserts unmatched r^1; not absorbed into a uniform density bound'\n        ),",
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,\n        'meaning': (\n            'leading height is (y2/2)J_grad_y; independence needs H_height_next '\n            'and inserts unmatched r^1; not absorbed into a uniform density bound'\n        ),",
+    ),
+    'claim_thin_belt_height_r_absorbed': (
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'thin-belt shares transverse height–grad_y dependence; unmatched r^1 '\n            'not absorbed; Gaussian density near y2=0 still unbound'\n        ),",
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'contact_gaussian_density_bounded': True,\n        'meaning': (\n            'thin-belt shares transverse height–grad_y dependence; unmatched r^1 '\n            'not absorbed; Gaussian density near y2=0 still unbound'\n        ),",
     ),
     'claim_density_from_axial_height_independence': (
         "'no_unmatched_height_r_at_leading_order': True,\n        'axial_area_measure_zero': True,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'axial J_height=2k y1^3 is independent at leading order; '\n            'no unmatched height r^1 (unlike C_transverse); density still unbound'\n        ),",

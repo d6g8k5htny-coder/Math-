@@ -277,6 +277,8 @@
         "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
         "contact_gaussian_density_bounded": false,
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+        "height_r_factor_absorbed": false,
+        "height_r_factor_recorded": true,
         "jet_map_pointwise_cancel_recorded": true,
         "residual_geometric_factor_locally_L1": true,
         "uniform_integrand_bound_proved": false
@@ -303,6 +305,7 @@
       "conditioned_hessian_expectation",
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
+      "thin_belt_height_r_absorption",
       "pin_tenth_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
@@ -899,6 +902,28 @@
     "height_window_r_power": 3,
     "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
     "spatial_volume_r_power": 2
+  },
+  "thin_belt_height_r_factor": {
+    "H_height_next": "16",
+    "J_grad_y": "1/4",
+    "J_height": "1/64",
+    "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+    "chart": "C_thin_belt",
+    "contact_gaussian_density_bounded": false,
+    "explicit_r_factor_still_required": true,
+    "floor_y2": "1/4",
+    "height_dependency_factor_y2_over_2": "1/16",
+    "height_minus_dep_times_grad_y": "0",
+    "height_r_absorbed_into_uniform_bound": false,
+    "leading_height_dependent_on_grad_y": true,
+    "meaning": "thin-belt shares transverse height\u2013grad_y dependence; unmatched r^1 not absorbed; Gaussian density near y2=0 still unbound",
+    "next_order_supplies_independent_height": true,
+    "object": "RN-MESOSCOPIC-THIN-BELT-HEIGHT-R-FACTOR-20260925-v1",
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
   },
   "thin_belt_integrand_residual_after_cancel": {
     "bare_conditioning_reciprocal": "8",

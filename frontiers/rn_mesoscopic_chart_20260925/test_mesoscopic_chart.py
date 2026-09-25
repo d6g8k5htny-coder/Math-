@@ -315,6 +315,22 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.transverse_height_r_factor_ledger(m.point(2, 0))
 
+    def test_thin_belt_height_r_factor_ledger(self):
+        led = m.thin_belt_height_r_factor_ledger(m.point(2, Q(1, 8)), gap_mark=1, f_yy=2)
+        self.assertEqual(led['chart'], 'C_thin_belt')
+        self.assertTrue(led['leading_height_dependent_on_grad_y'])
+        self.assertEqual(led['height_dependency_factor_y2_over_2'], Q(1, 16))
+        self.assertEqual(led['height_minus_dep_times_grad_y'], 0)
+        self.assertEqual(led['J_grad_y'], Q(1, 4))  # f_yy * y2 = 2*(1/8)
+        self.assertEqual(led['J_height'], Q(1, 64))  # (f_yy/2)*y2^2 = 1*(1/64)
+        self.assertEqual(led['unmatched_height_density_r_power'], 1)
+        self.assertTrue(led['explicit_r_factor_still_required'])
+        self.assertFalse(led['height_r_absorbed_into_uniform_bound'])
+        self.assertTrue(led['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        with self.assertRaises(ValueError):
+            m.thin_belt_height_r_factor_ledger(m.point(0, 2))
+
     def test_axial_height_independence_ledger(self):
         led = m.axial_height_independence_ledger(m.point(2, 0), gap_mark=1, f_xxy=2)
         self.assertTrue(led['height_independent_at_leading_axial_order'])
@@ -749,6 +765,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
         self.assertTrue(inv['charts']['C_thin_belt']['residual_geometric_factor_locally_L1'])
         self.assertTrue(inv['charts']['C_thin_belt']['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['height_r_factor_recorded'])
+        self.assertFalse(inv['charts']['C_thin_belt']['height_r_factor_absorbed'])
         self.assertFalse(inv['charts']['C_thin_belt']['uniform_integrand_bound_proved'])
         self.assertTrue(inv['charts']['C_pin_centered']['leading_morse_rows_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
@@ -774,6 +792,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('conditioned_hessian_expectation', inv['open_blockers'])
         self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
+        self.assertIn('thin_belt_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_tenth_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_ninth_and_higher_jets', inv['open_blockers'])

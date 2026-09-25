@@ -10,4 +10,4 @@ python -B -S -m unittest -v test_mesoscopic_chart
 python -B -S run_validation.py --output /tmp/mesoscopic-chart-new-run
 ```
 
-59 distinct tests and forty-three semantic mutations. Scientific effect: NONE.
+60 distinct tests and forty-four semantic mutations. Scientific effect: NONE.

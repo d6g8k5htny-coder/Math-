@@ -1568,6 +1568,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
                 'residual_geometric_factor_locally_L1': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+                'height_r_factor_recorded': True,
+                'height_r_factor_absorbed': False,
                 'uniform_integrand_bound_proved': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1591,6 +1593,7 @@ def contact_density_obstruction_inventory() -> dict:
             'conditioned_hessian_expectation',
             'thin_belt_contact_gaussian_density_near_y2_0',
             'transverse_height_r_absorption',
+            'thin_belt_height_r_absorption',
             'pin_tenth_and_higher_jets',
         ],
         'meaning': (
@@ -2306,6 +2309,52 @@ def transverse_height_r_factor_ledger(
     }
 
 
+def thin_belt_height_r_factor_ledger(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Record unmatched height r^1 on C_thin_belt (shared transverse jet forms).
+
+    Same leading dependence J_height = (y2/2) J_grad_y as C_transverse; restoring
+    independence via H_height_next inserts unmatched density r^1. Separately, the
+    thin-belt contact Gaussian density near y2→0 remains open (bare 1/|y2| L1
+    cleared by jet-map cancel). Does not absorb height-r or bound density.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    rows = thin_belt_contact_rows(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    dep = exact(y[1]) / 2
+    # Same H_height_next extraction as height_next_order_independent, on thin belt.
+    nxt_rows = thin_belt_contact_rows(
+        y, gap_mark=gap_mark, f_yy=0, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-HEIGHT-R-FACTOR-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': rows['y1'], 'y2': rows['y2']},
+        'floor_y2': exact(floor_y2),
+        'leading_height_dependent_on_grad_y': True,
+        'height_dependency_factor_y2_over_2': dep,
+        'J_height': rows['J_height'],
+        'J_grad_y': rows['J_grad_y'],
+        'height_minus_dep_times_grad_y': rows['J_height'] - dep * rows['J_grad_y'],
+        'H_height_next': nxt_rows['H_height_next'],
+        'next_order_supplies_independent_height': True,
+        'unmatched_height_density_r_power': 1,
+        'explicit_r_factor_still_required': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'thin-belt shares transverse height–grad_y dependence; unmatched r^1 '
+            'not absorbed; Gaussian density near y2=0 still unbound'
+        ),
+    }
+
+
 def axial_height_independence_ledger(
     y: Coord, *, gap_mark: int | Q = 1, f_xxy: int | Q = 1,
 ) -> dict:
@@ -2537,6 +2586,7 @@ def result() -> dict:
     transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
     axial_bound = axial_conditioning_uniform_bound(point(2, 0))
     height_r = transverse_height_r_factor_ledger(point(0, 2), gap_mark=1, f_yy=2)
+    thin_height_r = thin_belt_height_r_factor_ledger(point(2, Q(1, 8)), gap_mark=1, f_yy=2)
     axial_height = axial_height_independence_ledger(point(2, 0), gap_mark=1, f_xxy=2)
     axial_shared = axial_height_grad_x_shared_mark_ledger(point(2, 0), gap_mark=1, f_xxy=2)
     # Small-A regime only: pins can lie inside the annulus.
@@ -2586,6 +2636,7 @@ def result() -> dict:
     out['transverse_conditioning_bound'] = conv(transverse_bound)
     out['axial_conditioning_bound'] = conv(axial_bound)
     out['transverse_height_r_factor'] = conv(height_r)
+    out['thin_belt_height_r_factor'] = conv(thin_height_r)
     out['axial_height_independence'] = conv(axial_height)
     out['axial_height_grad_x_shared_mark'] = conv(axial_shared)
     out['near_pin_sample'] = conv(near)
