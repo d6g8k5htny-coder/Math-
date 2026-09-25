@@ -183,6 +183,7 @@ class Z3:
             ('Z3_mk_config', [], C.c_void_p),
             ('Z3_set_param_value', [C.c_void_p, C.c_char_p, C.c_char_p], None),
             ('Z3_mk_context', [C.c_void_p], C.c_void_p),
+            ('Z3_global_param_set', [C.c_char_p, C.c_char_p], None),
             ('Z3_del_config', [C.c_void_p], None),
             ('Z3_del_context', [C.c_void_p], None),
             ('Z3_eval_smtlib2_string', [C.c_void_p, C.c_char_p], C.c_char_p),
@@ -209,6 +210,11 @@ class Z3:
                                if self.loaded_path else None)
 
     def run(self, query: str, expected: str) -> str:
+        # Older Z3 (e.g. Ubuntu noble 4.8.12) does not honor the context
+        # config alone for proof production through Z3_eval_smtlib2_string.
+        # Set the global proof parameter before context creation; the query
+        # itself never mutates this initialization-only option.
+        self.lib.Z3_global_param_set(b'proof', b'true')
         cfg = self.lib.Z3_mk_config()
         if not cfg:
             raise VerificationError('could not allocate Z3 config')
