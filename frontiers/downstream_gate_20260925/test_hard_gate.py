@@ -319,5 +319,67 @@ class HardGateControls(unittest.TestCase):
         self.assertTrue(required.issubset(set(self.graph['non_discharge_tokens'])))
 
 
+    def test_edge_only_deletion_seeds_changed_child(self):
+        old = copy.deepcopy(self.graph)
+        new = copy.deepcopy(self.graph)
+        new['edges'] = [e for e in new['edges']
+                        if not (e['from'] == 'math.lifetime-remainder'
+                                and e['to'] == 'math.uniform-matrix-cap-lifetime')]
+        impact = m.reverse_impact_between(old, new)
+        self.assertIn('math.lifetime-remainder', impact['changed_nodes'])
+        self.assertIn('math.lifetime-remainder', impact['impacted'])
+
+    def test_required_true_to_false_seeds_changed_child(self):
+        old = copy.deepcopy(self.graph)
+        new = copy.deepcopy(self.graph)
+        for e in new['edges']:
+            if e['from'] == 'math.lifetime-remainder' and e['to'] == 'math.uniform-matrix-cap-lifetime':
+                e['required'] = False
+        impact = m.reverse_impact_between(old, new)
+        self.assertIn('math.lifetime-remainder', impact['changed_nodes'])
+
+    def test_statement_change_without_fingerprint_seeds_revalidation(self):
+        old = copy.deepcopy(self.graph)
+        new = copy.deepcopy(self.graph)
+        nid = 'math.lifetime-remainder'
+        new['nodes'][nid]['notes'] = str(new['nodes'][nid].get('notes', '')) + ' amended'
+        impact = m.reverse_impact_between(old, new)
+        self.assertIn(nid, impact['changed_nodes'])
+        self.assertIn(nid, impact['impacted'])
+        self.assertEqual(impact['graph']['nodes'][nid]['classification'], 'REVALIDATION_REQUIRED')
+
+    def test_changed_controlling_node_holds_itself(self):
+        old = copy.deepcopy(self.graph)
+        new = copy.deepcopy(self.graph)
+        nid = 'math.lifetime-remainder'
+        old['nodes'][nid]['classification'] = 'PROVED_REVIEWED'
+        old['nodes'][nid]['controlling'] = True
+        new['nodes'][nid] = copy.deepcopy(old['nodes'][nid])
+        new['nodes'][nid]['fingerprint'] = 'changed'
+        impact = m.reverse_impact_between(old, new)
+        self.assertIn(nid, impact['impacted'])
+        self.assertFalse(impact['graph']['nodes'][nid]['controlling'])
+        self.assertEqual(impact['graph']['nodes'][nid]['classification'], 'REVALIDATION_REQUIRED')
+
+    def test_required_flag_must_be_exact_boolean(self):
+        bad = copy.deepcopy(self.graph)
+        bad['edges'][0]['required'] = 0
+        with self.assertRaises(ValueError):
+            m.validate_graph_fail_closed(bad)
+
+    def test_controlling_flag_must_be_exact_boolean(self):
+        bad = copy.deepcopy(self.graph)
+        nid = next(iter(bad['nodes']))
+        bad['nodes'][nid]['controlling'] = 0
+        with self.assertRaises(ValueError):
+            m.validate_graph_fail_closed(bad)
+
+    def test_duplicate_edge_fails_closed(self):
+        bad = copy.deepcopy(self.graph)
+        bad['edges'].append(copy.deepcopy(bad['edges'][0]))
+        with self.assertRaises(ValueError):
+            m.validate_graph_fail_closed(bad)
+
+
 if __name__ == '__main__':
     unittest.main()

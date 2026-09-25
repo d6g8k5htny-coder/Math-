@@ -1,46 +1,54 @@
 name: Downstream hard-gate exact replay
 'on':
-  push:
-    branches: [cursor/downstream-hard-gate-91fa]
   pull_request:
-    paths: ['frontiers/downstream_gate_20260925/**', '.github/workflows/downstream-gate.yml']
   workflow_dispatch:
+    inputs:
+      base_sha:
+        description: Full immutable base commit for a diagnostic replay
+        required: true
 permissions:
   contents: read
 jobs:
   replay:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.11'
-      - name: Verify sources and run gate controls plus regressions
+      - name: Verify exact sources, transition inputs and regressions
         env:
           PYTHONDONTWRITEBYTECODE: '1'
+          BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.base_sha }}
         run: |
-          python -B -S - <<'PY'
+          python -B -S - <<'PYTHON'
           import hashlib, json, os, pathlib, subprocess, sys
           root = pathlib.Path('frontiers/downstream_gate_20260925').resolve()
           pins = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           def verify():
-              mismatches = []
               for name, identity in pins.items():
-                  if pathlib.PurePosixPath(name).name != name or (root / name).is_symlink():
-                      raise ValueError('flat regular source required')
-                  raw = (root / name).read_bytes()
-                  digest = hashlib.sha256(raw).hexdigest()
-                  if len(raw) != identity['bytes'] or digest != identity['sha256']:
-                      print('SOURCE_IDENTITY_ACTUAL', name, len(raw), digest)
-                      mismatches.append(name)
-              if mismatches:
-                  raise ValueError('source identity mismatches: ' + ','.join(mismatches))
+                  part = pathlib.PurePosixPath(name)
+                  path = root / name
+                  if part.is_absolute() or '..' in part.parts or not path.resolve().is_relative_to(root):
+                      raise ValueError('safe repository-relative pinned source required')
+                  if any((root / pathlib.Path(*part.parts[:i])).is_symlink() for i in range(1, len(part.parts)+1)):
+                      raise ValueError('symlink pinned source rejected')
+                  raw = path.read_bytes()
+                  if len(raw) != identity['bytes'] or hashlib.sha256(raw).hexdigest() != identity['sha256']:
+                      raise ValueError('source identity mismatch: ' + name)
           if sys.version_info[:2] != (3, 11):
               raise RuntimeError('actual Python 3.11 required')
           verify()
           out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'downstream-gate-results'
-          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=120)
+          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=240)
+          subprocess.run([
+              sys.executable, '-B', '-S', str(root / 'git_transition_audit.py'),
+              '--repo', str(pathlib.Path.cwd()), '--base', os.environ['BASE_SHA'],
+              '--head', os.environ['GITHUB_SHA'], '--output', str(out / 'TRANSITION_AUDIT.json'),
+          ], check=True, timeout=120)
           regressions = [
               ('coefficients/side24_v1', 30),
               ('frontiers/three_fronts_20260924', 57),
@@ -60,23 +68,19 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 32 or report['distinct_semantic_mutations'] != 10:
+          if not report['passed'] or report['distinct_tests'] != 67 or report['distinct_semantic_mutations'] != 24:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
-              'run': os.environ['GITHUB_RUN_ID'],
-              'sha': os.environ['GITHUB_SHA'],
-              'python': sys.version,
-              'new_distinct_tests': 32,
-              'regression_distinct_tests': 177,
-              'total_distinct_tests': 209,
-              'new_semantic_mutations': 10,
-              'source_files_verified': len(pins),
-              'lemma_closed': False,
-              'scientific_effect': 'NONE',
-              'meaning': 'same-author integrity-gate checks; not analytic review',
+              'run': os.environ['GITHUB_RUN_ID'], 'tested_commit': os.environ['GITHUB_SHA'],
+              'base_commit': os.environ['BASE_SHA'], 'event': os.environ['GITHUB_EVENT_NAME'],
+              'python': sys.version, 'gate_distinct_tests': 67,
+              'regression_distinct_tests': 177, 'total_distinct_tests': 244,
+              'semantic_mutations': 24, 'source_files_verified': len(pins),
+              'lemma_closed': False, 'scientific_effect': 'NONE',
+              'meaning': 'same-author software verification; no independent theorem acceptance',
           }, indent=2) + '\n')
           print('DOWNSTREAM_GATE_PASSED')
-          PY
+          PYTHON
       - name: Retain evidence even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
