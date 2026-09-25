@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 56
+EXPECTED_TESTS = 57
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -67,8 +67,8 @@ MUTANTS = {
         "'uniform_integrand_bound_proved': True,\n        'absorbed_into_C_transverse': True,",
     ),
     'claim_pin_rows_enumerated': (
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,",
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_quartic_enumerated': True,\n        'pin_site_quintic_enumerated': True,\n        'pin_site_sextic_enumerated': True,\n        'pin_site_septic_enumerated': True,\n        'pin_site_octic_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,",
     ),
     'claim_pin_obstruction_cleared': (
         "'raw_gradient_collides_with_pin_gradient_constraints': True,\n        'near_pin_intersects_axial_thin_belt_locus': True,\n        'leading_morse_rows_enumerated_elsewhere': True,\n        'pin_site_higher_jets_enumerated': False,",
@@ -133,6 +133,10 @@ MUTANTS = {
     'drop_pin_septic_identity': (
         "'z_dot_T_grad_next_minus_7_T_height_next': u * g1 + v * g2 - 7 * ht,",
         "'z_dot_T_grad_next_minus_7_T_height_next': u * g1 + v * g2 - 6 * ht,",
+    ),
+    'drop_pin_octic_identity': (
+        "'z_dot_U_grad_next_minus_8_U_height_next': u * g1 + v * g2 - 8 * ht,",
+        "'z_dot_U_grad_next_minus_8_U_height_next': u * g1 + v * g2 - 7 * ht,",
     ),
     'claim_global_density_from_inventory': (
         "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': False,",
