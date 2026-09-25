@@ -2,7 +2,10 @@
   "schema_version": 1,
   "object": "DOWNSTREAM-HARD-GATE-20260925-v1",
   "campaign": {
-    "main_issues": [86, 90],
+    "main_issues": [
+      86,
+      90
+    ],
     "disposition": "research-integrity control; scientific effect NONE"
   },
   "terminal_classifications": [
@@ -213,10 +216,10 @@
       "kind": "candidate",
       "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
-      "fingerprint": "66eab48085db71cee82fa110072bb504a68ab388",
+      "fingerprint": "ea3f1875087694df030331da662c1d4dec6c6fe2",
       "source": "frontiers/rn_mesoscopic_chart_20260925/PROOF.md",
       "review_pr": 9,
-      "notes": "Exact d=2 transverse/axial/thin-belt J0 rows, Hessian powers, integrand r-power identity; complements PR7; not annulus closure or density bound"
+      "notes": "Exact d=2 transverse/axial/thin-belt J0 rows, Hessian/integrand powers, pin-local frame on small-A; complements PR7; not annulus closure or density bound"
     },
     "math.p15-full-price": {
       "layer": "D6",
