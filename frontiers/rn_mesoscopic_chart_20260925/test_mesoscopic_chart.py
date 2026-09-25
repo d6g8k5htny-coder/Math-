@@ -420,7 +420,8 @@ class MesoscopicChartControls(unittest.TestCase):
             f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=263130836933693530167218012160000000,
             f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=8683317618811886495518194401280000000,
             f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=295232799039604140847618609643520000000,
-            f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=10333147966386144929666651337523200000000)
+            f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=10333147966386144929666651337523200000000,
+            f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=371993326789901217467999448150835200000000)
         self.assertEqual(led['chart'], 'C_pin_centered')
         self.assertFalse(led['midpoint_U0_rows_applicable'])
         self.assertTrue(led['pin_site_jet_rows_enumerated'])
@@ -457,9 +458,10 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(led['pin_site_tritriacontic_enumerated'])
         self.assertTrue(led['pin_site_tetratriacontic_enumerated'])
         self.assertTrue(led['pin_site_pentatriacontic_enumerated'])
+        self.assertTrue(led['pin_site_hexatriacontic_enumerated'])
         self.assertFalse(led['pin_site_higher_jets_enumerated'])
         self.assertTrue(led['contact_rows_enumerated'])
-        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_through_pentatriacontic')
+        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_through_hexatriacontic')
         self.assertEqual(led['contact_rows']['J_grad_1'], 0)  # H_xy z2 with H_xy=0,z1=0
         self.assertEqual(led['contact_rows']['J_grad_2'], Q(3, 20))  # H_yy z2
         self.assertEqual(led['contact_rows']['J_height'], Q(3, 800))  # (1/2) H_yy z2^2
@@ -692,6 +694,12 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(led['pentatriacontic_rows']['z_dot_AG_grad_next_minus_35_AG_height_next'], 0)
         self.assertEqual(led['pentatriacontic_rows']['unmatched_density_r_power'], 33)
         self.assertFalse(led['pentatriacontic_rows']['thirty_sixth_and_higher_jets_enumerated'])
+        self.assertEqual(led['hexatriacontic_rows']['AH_grad_next_1'], 0)
+        self.assertEqual(led['hexatriacontic_rows']['AH_grad_next_2'], Q(36, 3435973836800000000000000000000000000000000000))
+        self.assertEqual(led['hexatriacontic_rows']['AH_height_next'], Q(1, 68719476736000000000000000000000000000000000000))
+        self.assertEqual(led['hexatriacontic_rows']['z_dot_AH_grad_next_minus_36_AH_height_next'], 0)
+        self.assertEqual(led['hexatriacontic_rows']['unmatched_density_r_power'], 34)
+        self.assertFalse(led['hexatriacontic_rows']['thirty_seventh_and_higher_jets_enumerated'])
         self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
         self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         self.assertEqual(led['hessian_signature']['signature_kind'], 'INDEFINITE_SADDLE')
@@ -1466,6 +1474,23 @@ class MesoscopicChartControls(unittest.TestCase):
             m.pin_site_morse_pentatriacontic_rows(0, 0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=1)
 
 
+    def test_pin_site_morse_hexatriacontic_rows(self):
+        rows = m.pin_site_morse_hexatriacontic_rows(1, 2, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=371993326789901217467999448150835200000000)
+        self.assertEqual(rows['AH_grad_next_1'], 0)
+        self.assertEqual(rows['AH_grad_next_2'], 1236950581248)
+        self.assertEqual(rows['AH_height_next'], 68719476736)
+        self.assertEqual(rows['z_dot_AH_grad_next_minus_36_AH_height_next'], 0)
+        self.assertEqual(rows['unmatched_density_r_power'], 34)
+        self.assertFalse(rows['thirty_seventh_and_higher_jets_enumerated'])
+        mixed = m.pin_site_morse_hexatriacontic_rows(1, 1, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=371993326789901217467999448150835200000000, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0)
+        self.assertEqual(mixed['AH_grad_next_1'], 36)
+        self.assertEqual(mixed['AH_grad_next_2'], 0)
+        self.assertEqual(mixed['AH_height_next'], 1)
+        self.assertEqual(mixed['z_dot_AH_grad_next_minus_36_AH_height_next'], 0)
+        with self.assertRaises(ValueError):
+            m.pin_site_morse_hexatriacontic_rows(0, 0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xxyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_xyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=0, f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy=1)
+
+
     def test_pin_site_morse_hexadecic_rows(self):
         rows = m.pin_site_morse_hexadecic_rows(
             1, 2,
@@ -1699,6 +1724,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['tritriacontic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['tetratriacontic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['pentatriacontic_next_order_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['hexatriacontic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['unmatched_height_r_power_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['gradient_contact_jacobian_enumerated'])
@@ -1708,7 +1734,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
         self.assertTrue(inv['charts']['C_pin_centered']['algebraic_factor_times_height_r_skeleton_enumerated'])
-        self.assertFalse(inv['charts']['C_pin_centered']['thirty_sixth_and_higher_jets_enumerated'])
+        self.assertFalse(inv['charts']['C_pin_centered']['thirty_seventh_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_thin_belt']['free_jet_residual_inventory_recorded'])
@@ -1733,7 +1759,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
         self.assertIn('thin_belt_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
-        self.assertIn('pin_thirty_sixth_and_higher_jets', inv['open_blockers'])
+        self.assertIn('pin_thirty_seventh_and_higher_jets', inv['open_blockers'])
         self.assertIn('pin_centered_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('pin_thirty_first_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_thirtieth_and_higher_jets', inv['open_blockers'])
@@ -2223,11 +2249,11 @@ class MesoscopicChartControls(unittest.TestCase):
     def test_pin_site_unmatched_height_r_power_inventory(self):
         inv = m.pin_site_unmatched_height_r_power_inventory()
         self.assertEqual(inv['chart'], 'C_pin_centered')
-        self.assertEqual(inv['enumeration_scope'], 'leading_morse_plus_cubic_through_pentatriacontic')
-        self.assertEqual(len(inv['enumerated_order_names']), 33)
+        self.assertEqual(inv['enumeration_scope'], 'leading_morse_plus_cubic_through_hexatriacontic')
+        self.assertEqual(len(inv['enumerated_order_names']), 34)
         self.assertEqual(inv['enumerated_order_names'][0], 'cubic')
-        self.assertEqual(inv['enumerated_order_names'][-1], 'pentatriacontic')
-        self.assertEqual(inv['unmatched_r_powers'], list(range(1, 34)))
+        self.assertEqual(inv['enumerated_order_names'][-1], 'hexatriacontic')
+        self.assertEqual(inv['unmatched_r_powers'], list(range(1, 35)))
         self.assertEqual(inv['orders']['cubic']['unmatched_density_r_power'], 1)
         self.assertEqual(inv['orders']['hexadecic']['unmatched_density_r_power'], 14)
         self.assertEqual(inv['orders']['heptadecic']['unmatched_density_r_power'], 15)
@@ -2249,6 +2275,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(inv['orders']['tritriacontic']['unmatched_density_r_power'], 31)
         self.assertEqual(inv['orders']['tetratriacontic']['unmatched_density_r_power'], 32)
         self.assertEqual(inv['orders']['pentatriacontic']['unmatched_density_r_power'], 33)
+        self.assertEqual(inv['orders']['hexatriacontic']['unmatched_density_r_power'], 34)
         self.assertEqual(inv['orders']['heptadecic']['residual_symbol'], 'L_*_next')
         self.assertEqual(inv['orders']['octadecic']['residual_symbol'], 'M_*_next')
         self.assertEqual(inv['orders']['nonadecic']['residual_symbol'], 'O_*_next')
@@ -2268,12 +2295,13 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(inv['orders']['tritriacontic']['residual_symbol'], 'AE_*_next')
         self.assertEqual(inv['orders']['tetratriacontic']['residual_symbol'], 'AF_*_next')
         self.assertEqual(inv['orders']['pentatriacontic']['residual_symbol'], 'AG_*_next')
+        self.assertEqual(inv['orders']['hexatriacontic']['residual_symbol'], 'AH_*_next')
         self.assertEqual(inv['orders']['hexadecic']['residual_symbol'], 'K_*_next')
         self.assertEqual(inv['min_unmatched_density_r_power'], 1)
-        self.assertEqual(inv['max_unmatched_density_r_power'], 33)
+        self.assertEqual(inv['max_unmatched_density_r_power'], 34)
         self.assertFalse(inv['any_height_r_absorbed_into_uniform_bound'])
         self.assertFalse(inv['pin_site_higher_jets_enumerated'])
-        self.assertFalse(inv['thirty_sixth_and_higher_jets_enumerated'])
+        self.assertFalse(inv['thirty_seventh_and_higher_jets_enumerated'])
         self.assertFalse(inv['contact_gaussian_density_bounded'])
         self.assertFalse(inv['global_contact_density_bound_proved'])
 
