@@ -233,15 +233,27 @@ class HardGateControls(unittest.TestCase):
         self.assertTrue(payload['d0_ci_unblock']['ready'])
         self.assertGreaterEqual(payload['selector_region']['open_or_partial_cell_count'], 15)
 
-    def test_promote_after_all_terminal_deps(self):
+    def test_author_side_with_terminal_deps_cannot_become_controlling(self):
         g = copy.deepcopy(self.graph)
-        # Synthesize a tiny legal subgraph: make parent terminal reviewed.
         g['nodes']['math.p15-price-boundary']['classification'] = 'REFUTED'
         g['nodes']['math.p15-full-price']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(g, 'math.p15-full-price')
+        self.assertFalse(decision['allowed'])
+        self.assertTrue(any('not eligible' in reason for reason in decision['reasons']))
+        applied = m.apply_promotion(g, 'math.p15-full-price')
+        self.assertFalse(applied['decision']['ok'])
+        self.assertEqual(applied['decision']['applied'], 'REFUSED')
+        self.assertFalse(applied['graph']['nodes']['math.p15-full-price']['controlling'])
+
+    def test_proved_reviewed_with_terminal_deps_may_become_controlling(self):
+        g = copy.deepcopy(self.graph)
+        g['nodes']['math.p15-price-boundary']['classification'] = 'REFUTED'
+        g['nodes']['math.p15-full-price']['classification'] = 'PROVED_REVIEWED'
         decision = m.promotion_allowed(g, 'math.p15-full-price')
         self.assertTrue(decision['allowed'])
         applied = m.apply_promotion(g, 'math.p15-full-price')
         self.assertTrue(applied['decision']['ok'])
+        self.assertEqual(applied['decision']['applied'], 'CONTROLLING')
         self.assertTrue(applied['graph']['nodes']['math.p15-full-price']['controlling'])
 
     def test_edge_targets_exist(self):
