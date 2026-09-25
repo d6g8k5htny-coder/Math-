@@ -95,7 +95,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-site dodecic residuals `F_grad_next = (1/39916800)D¹²f(z^11)`, `F_height_next = (1/479001600)D¹²f(z^12)` with `z·F_grad_next = 12 F_height_next`;
 - pin-site tridecic residuals `G_grad_next = (1/479001600)D¹³f(z^12)`, `G_height_next = (1/6227020800)D¹³f(z^13)` with `z·G_grad_next = 13 G_height_next`;
 - pin-site tetradecic residuals `I_grad_next = (1/6227020800)D¹⁴f(z^13)`, `I_height_next = (1/87178291200)D¹⁴f(z^14)` with `z·I_grad_next = 14 I_height_next`;
-- pin-site pentadecic residuals `J_grad_next = (1/87178291200)D¹⁵f(z^14)`, `J_height_next = (1/1307674368000)D¹⁵f(z^15)` with `z·J_grad_next = 15 J_height_next` (sixteenth-and-higher jets open);
+- pin-site pentadecic residuals `J_grad_next = (1/87178291200)D¹⁵f(z^14)`, `J_height_next = (1/1307674368000)D¹⁵f(z^15)` with `z·J_grad_next = 15 J_height_next`;
+- pin-site hexadecic residuals `K_grad_next = (1/1307674368000)D¹⁶f(z^15)`, `K_height_next = (1/20922789888000)D¹⁶f(z^16)` with `z·K_grad_next = 16 K_height_next` (seventeenth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; density still open);
@@ -118,7 +119,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt contact Gaussian density bound near `y2→0` (bare `1/|y2|` L1 cleared by jet-map cancel; residual geometric factor = 1);
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- higher-order pin-site divided-difference jets beyond pentadecic residuals;
+- higher-order pin-site divided-difference jets beyond hexadecic residuals;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -153,7 +154,7 @@ A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used o
 
     J_grad = H_pin · z,    J_height = (1/2) z · H_pin · z,
 
-with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite), plus cubic through pentadecic residuals (unmatched `r^1`…`r^13`). Sixteenth-and-higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
+with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite), plus cubic through hexadecic residuals (unmatched `r^1`…`r^14`). Seventeenth-and-higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
 
 ## 4.7 Hessian contact rows on C_transverse
 
