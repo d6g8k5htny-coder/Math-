@@ -2932,6 +2932,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_r_factor_recorded': True,
                 'height_r_factor_absorbed': False,
+                'height_residual_after_grad_contact_enumerated': True,
                 'algebraic_factor_times_height_r_skeleton_enumerated': True,
                 'uniform_integrand_bound_proved': False,
                 'contact_gaussian_density_bounded': False,
@@ -4570,6 +4571,69 @@ def transverse_height_residual_after_grad_contact(
     }
 
 
+
+def thin_belt_height_residual_after_grad_contact(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Express thin-belt H_height_next in free residuals after eliminating f_yy,f_xyy.
+
+    Same elimination identities as C_transverse (shared jet polynomials), with
+    membership thin_belt_ok (0 < |y2| < δ):
+      H_height_next = y1·J_grad_x − 4k y1^3 − (1/2) f_xxy y1^2 y2 + (1/6) f_yyy y2^3
+    Free residual coordinates: (k, f_xxy, f_yyy). Reciprocal Jacobian diverges as
+    y2→0; unmatched density r^1 and Gaussian density near y2→0 remain open.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = thin_belt_contact_rows(
+        y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d,
+    )
+    jy, jx = rows['J_grad_y'], rows['J_grad_x']
+    f_xyy_solved = (2 / (y2 * y2)) * (jx - 6 * k * y1 * y1 - b * y1 * y2)
+    h_resid = (
+        y1 * jx
+        - 4 * k * y1 ** 3
+        - (b * y1 * y1 * y2) / 2
+        + (d * y2 ** 3) / 6
+    )
+    h_raw = rows['H_height_next']
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-HEIGHT-RESIDUAL-AFTER-GRAD-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'free_residual_coordinates': ['k', 'f_xxy', 'f_yyy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'f_xyy_from_J_grad_x': f_xyy_solved,
+        'f_xyy_minus_solved': c - f_xyy_solved,
+        'H_height_next_residual': h_resid,
+        'H_height_next_raw': h_raw,
+        'H_height_next_minus_raw': h_resid - h_raw,
+        'leading_height_dependent_on_grad_y': True,
+        'unmatched_height_density_r_power': 1,
+        'explicit_r_factor_still_required': True,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'height_residual_after_grad_contact_enumerated': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'contact_gaussian_density_bounded': False,
+        'uniform_integrand_bound_proved': False,
+        'meaning': (
+            'exact thin-belt H_height_next residual after eliminating f_yy,f_xyy; '
+            'reciprocal diverges as y2→0; unmatched r^1 and density remain open'
+        ),
+    }
+
+
 def contact_gradient_rank_symbol(y: Coord) -> dict[str, Q | int | bool]:
     """Rank pattern of (J_grad_x, J_grad_y) as a linear map on (f_yy, f_xxy, f_xyy, k).
 
@@ -4697,6 +4761,8 @@ def result() -> dict:
         point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
     height_resid = transverse_height_residual_after_grad_contact(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+    thin_height_resid = thin_belt_height_residual_after_grad_contact(
+        point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0, f_yyy=6)
     det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
     integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
     pin_alg = pin_centered_contact_integrand_algebraic_factor_skeleton(
@@ -4753,6 +4819,7 @@ def result() -> dict:
     out['thin_belt_conditioned_hessian_residual'] = conv(thin_hess_resid)
     out['pin_centered_conditioned_hessian_residual'] = conv(pin_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)
+    out['thin_belt_height_residual_after_grad'] = conv(thin_height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
     out['pin_centered_contact_integrand_algebraic_factor'] = conv(pin_alg)

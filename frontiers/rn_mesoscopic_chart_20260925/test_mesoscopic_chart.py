@@ -1232,6 +1232,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_thin_belt']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_thin_belt']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_thin_belt']['conditioned_hessian_det_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['height_residual_after_grad_contact_enumerated'])
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
@@ -1444,6 +1445,29 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(off['H_height_next_minus_raw'], 0)
         with self.assertRaises(ValueError):
             m.transverse_height_residual_after_grad_contact(m.point(2, 0))
+
+    def test_thin_belt_height_residual_after_grad_contact(self):
+        # Shared transverse residual form on thin_belt_ok; reciprocal diverges as y2→0.
+        thin = m.thin_belt_height_residual_after_grad_contact(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0, f_yyy=6)
+        self.assertEqual(thin['chart'], 'C_thin_belt')
+        self.assertEqual(thin['free_residual_coordinates'], ['k', 'f_xxy', 'f_yyy'])
+        self.assertEqual(thin['f_xyy_minus_solved'], 0)
+        self.assertEqual(thin['H_height_next_minus_raw'], 0)
+        self.assertEqual(thin['H_height_next_residual'], Q(8193, 512))  # 16 + 1/512
+        self.assertEqual(thin['unmatched_height_density_r_power'], 1)
+        self.assertTrue(thin['reciprocal_diverges_as_y2_to_0'])
+        self.assertFalse(thin['height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(thin['contact_gaussian_density_bounded'])
+        off = m.thin_belt_height_residual_after_grad_contact(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+        self.assertEqual(off['f_xyy_minus_solved'], 0)
+        self.assertEqual(off['H_height_next_minus_raw'], 0)
+        self.assertEqual(off['H_height_next_residual'], Q(8609, 512))
+        with self.assertRaises(ValueError):
+            m.thin_belt_height_residual_after_grad_contact(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.thin_belt_height_residual_after_grad_contact(m.point(2, 0))
 
     def test_gradient_contact_jacobian_density_shape(self):
         t = m.transverse_gradient_contact_jacobian_ledger_with_floor(m.point(0, 2))

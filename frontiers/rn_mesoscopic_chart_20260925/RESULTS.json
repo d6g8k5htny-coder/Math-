@@ -479,6 +479,7 @@
         "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
+        "height_residual_after_grad_contact_enumerated": true,
         "jet_map_pointwise_cancel_recorded": true,
         "residual_geometric_factor_locally_L1": true,
         "uniform_integrand_bound_proved": false
@@ -1975,6 +1976,41 @@
     "meaning": "thin-belt shares transverse height\u2013grad_y dependence; unmatched r^1 not absorbed; Gaussian density near y2=0 still unbound",
     "next_order_supplies_independent_height": true,
     "object": "RN-MESOSCOPIC-THIN-BELT-HEIGHT-R-FACTOR-20260925-v1",
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
+  },
+  "thin_belt_height_residual_after_grad": {
+    "H_height_next_minus_raw": "0",
+    "H_height_next_raw": "8193/512",
+    "H_height_next_residual": "8193/512",
+    "J_grad_x": "24",
+    "J_grad_y": "1/4",
+    "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+    "chart": "C_thin_belt",
+    "contact_gaussian_density_bounded": false,
+    "eliminated_by_grad_contact": [
+      "f_yy",
+      "f_xyy"
+    ],
+    "explicit_r_factor_still_required": true,
+    "f_xyy_from_J_grad_x": "0",
+    "f_xyy_minus_solved": "0",
+    "floor_y2": "1/4",
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy",
+      "f_yyy"
+    ],
+    "height_r_absorbed_into_uniform_bound": false,
+    "height_residual_after_grad_contact_enumerated": true,
+    "leading_height_dependent_on_grad_y": true,
+    "meaning": "exact thin-belt H_height_next residual after eliminating f_yy,f_xyy; reciprocal diverges as y2\u21920; unmatched r^1 and density remain open",
+    "object": "RN-MESOSCOPIC-THIN-BELT-HEIGHT-RESIDUAL-AFTER-GRAD-20260925-v1",
+    "reciprocal_diverges_as_y2_to_0": true,
+    "uniform_integrand_bound_proved": false,
     "unmatched_height_density_r_power": 1,
     "y": {
       "y1": "2",

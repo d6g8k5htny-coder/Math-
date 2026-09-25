@@ -114,6 +114,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - inventory bundling those combined skeletons (`C_axial` exempt: no unmatched height r); density still open;
 - pin-site unmatched height-r power inventory for cubic through icosic (`r^1`…`r^18`; none absorbed; twenty-first+ open);
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
+- thin-belt height residual `H_height_next` after the same eliminations (reciprocal diverges as y2→0; unmatched `r^1` still open);
 - thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
