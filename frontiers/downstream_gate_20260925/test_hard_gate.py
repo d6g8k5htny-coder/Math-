@@ -179,9 +179,50 @@ class HardGateControls(unittest.TestCase):
         self.assertFalse(regions['legacy_24jet_discharged'])
         self.assertTrue(regions['no_event_to_expectation_reversal'])
 
+    def test_selector_region_matrix(self):
+        table = m.load_selector_region()
+        self.assertEqual(table['schema_version'], 1)
+        report = m.selector_region_report(table)
+        self.assertFalse(report['legacy_24jet_discharged'])
+        self.assertTrue(report['no_event_to_expectation_reversal'])
+        self.assertEqual(report['covered_region_ids'], ['math.rn-region.fixed-remote'])
+        # CH-LIFT is bypassed on fixed-remote but reopened on the mesoscopic annulus.
+        ch = table['selectors']['CH-LIFT']
+        self.assertEqual(ch['fixed-remote'], 'BYPASSED_BY_FIXED_RHO')
+        self.assertEqual(ch['mesoscopic-scaled-annulus'], 'REOPENED')
+        # Every open complement region still has at least one non-closed selector cell.
+        open_regions = {c['region'] for c in report['open_or_partial_cells']}
+        for region in (
+            'mesoscopic-scaled-annulus', 'pin-collision',
+            'intermediate-r-to-rho', 'witness-collision',
+        ):
+            self.assertIn(region, open_regions)
+        self.assertGreaterEqual(len(report['open_or_partial_cells']), 15)
+
+    def test_d0_ci_unblock_patch_ready(self):
+        report = m.d0_ci_unblock_report()
+        self.assertTrue(report['ready'])
+        self.assertEqual(report['cursor_main_push'], 'DENIED_403')
+        self.assertEqual(report['patch_bytes'], 3096)
+        self.assertEqual(
+            report['patch_sha256'],
+            '84b7ad724e4da1c5b4b396c90ae03d4ddedc37771a6e45e1082a45fd80d7ff4a',
+        )
+        self.assertIn('unexpected files', report['ci_error'])
+        self.assertIs(report['lemma_closed'], False)
+
+    def test_pr87_hold_until_allowlist(self):
+        node = self.graph['nodes']['eng.main-pr87-crosswalk']
+        self.assertEqual(node['classification'], 'HOLD')
+        decision = m.promotion_allowed(self.graph, 'eng.main-pr87-crosswalk')
+        self.assertFalse(decision['allowed'])
+        self.assertIn('eng.d0-packet-allowlist-fix', decision['required_dependencies'])
+
     def test_layer_coverage_d0_through_d7(self):
         layers = {n['layer'] for n in self.graph['nodes'].values()}
         self.assertEqual(layers, {'D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'})
+        self.assertIn('eng.d0-packet-allowlist-fix', self.graph['nodes'])
+        self.assertIn('math.rn-selector-region-crosswalk', self.graph['nodes'])
 
     def test_results_bytes_match(self):
         payload = m.results_payload(self.graph)
@@ -189,6 +230,8 @@ class HardGateControls(unittest.TestCase):
         self.assertEqual(payload, pinned)
         self.assertTrue(payload['illegal_promotion_refused'])
         self.assertIs(payload['lemma_closed'], False)
+        self.assertTrue(payload['d0_ci_unblock']['ready'])
+        self.assertGreaterEqual(payload['selector_region']['open_or_partial_cell_count'], 15)
 
     def test_promote_after_all_terminal_deps(self):
         g = copy.deepcopy(self.graph)

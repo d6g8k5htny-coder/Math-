@@ -22,12 +22,12 @@
 
 | Lane | Owner offer (#86) | This delivery |
 |---|---|---|
-| D0 historical walls | Cursor + ChatGPT PR87 | Encodes ABSENT carriers and OPEN walls; does not edit hardening status files |
-| D4 RN complement | Campaign queue | Region inventory in `GRAPH.json` / `d4_region_complement` |
+| D0 historical walls | Cursor + ChatGPT PR87 | Encodes ABSENT carriers and OPEN walls; files portable PR87 packet-allowlist unblock (`D0_CI_UNBLOCK.md`) after diagnosing CI `unexpected files` |
+| D4 RN complement | Campaign queue | Region inventory + selector×region matrix |
 | D5 mesoscopic | Codex offer / ChatGPT PR7 | Mapped as open; not expanded |
-| D7 engineering | Cursor | This package |
+| D7 engineering | Cursor | This package + main-write-denied (403) hold on applying the allowlist on `main` |
 | #90 machine gate | Owner directive | Implemented and mutation-tested |
 
 ## Relation to main PR87
 
-PR87's `DOWNSTREAM_CROSSWALK_20260925.md` is the human crosswalk on the hardening branch. This Math- package is the executable fail-closed checker and Math-side node/edge inventory. They are complementary; neither promotes mathematics.
+PR87's `DOWNSTREAM_CROSSWALK_20260925.md` is the human crosswalk on the hardening branch. This Math- package is the executable fail-closed checker and Math-side node/edge inventory. Hardening `ci` currently rejects the unlisted crosswalk file; the exact allowlist patch is preserved here for an agent/owner with `main` write access. They are complementary; neither promotes mathematics.

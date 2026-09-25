@@ -5,12 +5,15 @@ premise registers. Green CI / hashes / same-author checks are not discharge.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
 GRAPH_PATH = ROOT / 'GRAPH.json'
+SELECTOR_REGION_PATH = ROOT / 'SELECTOR_REGION.json'
+D0_PATCH_PATH = ROOT / 'patches' / 'd0_packet_allowlist.patch'
 
 TERMINAL = frozenset({
     'PROVED_REVIEWED',
@@ -315,6 +318,74 @@ def d4_region_complement(graph: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def load_selector_region(path: Path | None = None) -> dict[str, Any]:
+    data = json.loads((path or SELECTOR_REGION_PATH).read_text())
+    if data.get('schema_version') != 1:
+        raise ValueError('unsupported selector-region schema_version')
+    if 'selectors' not in data or 'regions' not in data:
+        raise ValueError('selector-region requires selectors and regions')
+    return data
+
+
+def selector_region_report(data: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Summarize which historical selectors remain open on which RN regions."""
+    table = data or load_selector_region()
+    open_cells = []
+    covered_or_bypassed = []
+    for selector, row in sorted(table['selectors'].items()):
+        for region in table['regions']:
+            status = row[region]
+            cell = {'selector': selector, 'region': region, 'status': status}
+            if status in (
+                'OPEN_ACTIVE', 'OPEN_HISTORICAL', 'NOT_DISCHARGED',
+                'PARTIAL_COVER_ONLY', 'PARTIAL_PR7_REDUCTION', 'REOPENED',
+                'PARTIAL_COVER_DECLARED_REGION',
+            ):
+                open_cells.append(cell)
+            else:
+                covered_or_bypassed.append(cell)
+    return {
+        'object': table.get('object'),
+        'open_or_partial_cells': open_cells,
+        'covered_bypassed_or_na_cells': covered_or_bypassed,
+        'covered_region_ids': table.get('covered_region_ids'),
+        'open_region_ids': table.get('open_region_ids'),
+        'no_event_to_expectation_reversal': table.get('no_event_to_expectation_reversal'),
+        'legacy_24jet_discharged': table.get('legacy_24jet_discharged'),
+        'meaning': table.get('meaning'),
+    }
+
+
+def d0_ci_unblock_report() -> dict[str, Any]:
+    """Record the exact main PR87 packet-allowlist diagnosis and portable patch identity."""
+    patch = D0_PATCH_PATH.read_bytes()
+    digest = hashlib.sha256(patch).hexdigest()
+    text = patch.decode()
+    required_markers = (
+        'DOWNSTREAM_CROSSWALK_20260925.md',
+        'TRANSCRIPTION_NAMES',
+        'None promotes D3 lemma_closed.',
+        'd53b286029d034576245406152c188fe2470ccb089e51f73e9087e34bf5a0e10',
+    )
+    doc = (ROOT / 'D0_CI_UNBLOCK.md').read_text()
+    missing_doc = [m for m in ('unexpected files', '403', 'problems=0') if m not in doc]
+    missing_patch = [m for m in required_markers if m not in text]
+    return {
+        'ci_error': "PROBLEM packet: unexpected files ['DOWNSTREAM_CROSSWALK_20260925.md']",
+        'main_pr': 87,
+        'patch_path': 'patches/d0_packet_allowlist.patch',
+        'patch_bytes': len(patch),
+        'patch_sha256': digest,
+        'cursor_main_push': 'DENIED_403',
+        'local_math_status_check_after_patch': 'problems=0',
+        'missing_doc_markers': missing_doc,
+        'missing_patch_markers': missing_patch,
+        'ready': not missing_doc and not missing_patch,
+        'lemma_closed': False,
+        'meaning': 'engineering unblock recipe; not scientific promotion',
+    }
+
+
 def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
     g = graph or load_graph()
     # Spot-check promotions that must fail closed on the live author-side graph.
@@ -325,12 +396,15 @@ def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
         'promote_lifetime_remainder': promotion_allowed(g, 'math.lifetime-remainder'),
         'promote_side24': promotion_allowed(g, 'math.side24-coefficient'),
         'promote_historical_env_rescov': promotion_allowed(g, 'hist.ENV-RESCOV'),
+        'promote_pr87_before_allowlist': promotion_allowed(g, 'eng.main-pr87-crosswalk'),
     }
     impact = reverse_impact(
         g, 'math.uniform-matrix-cap-lifetime',
         old_fingerprint='main-63-author-side',
         new_fingerprint='main-63-amended-demo',
     )
+    d0 = d0_ci_unblock_report()
+    selectors = selector_region_report()
     return {
         'object': g.get('object'),
         'schema_version': g.get('schema_version'),
@@ -351,6 +425,19 @@ def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
             'dependency_changed': impact['dependency_changed'],
         },
         'd4_region_complement': d4_region_complement(g),
+        'selector_region': {
+            'open_or_partial_cell_count': len(selectors['open_or_partial_cells']),
+            'covered_bypassed_or_na_cell_count': len(selectors['covered_bypassed_or_na_cells']),
+            'legacy_24jet_discharged': selectors['legacy_24jet_discharged'],
+            'no_event_to_expectation_reversal': selectors['no_event_to_expectation_reversal'],
+        },
+        'd0_ci_unblock': {
+            'ready': d0['ready'],
+            'cursor_main_push': d0['cursor_main_push'],
+            'patch_sha256': d0['patch_sha256'],
+            'patch_bytes': d0['patch_bytes'],
+            'ci_error': d0['ci_error'],
+        },
         'closure': {
             'blocked_absent': closure_report(g)['blocked_absent'],
             'open_or_author_side_count': len(closure_report(g)['open_or_author_side']),

@@ -235,6 +235,33 @@
       "fingerprint": "downstream-hard-gate-20260925-v1",
       "source": "frontiers/downstream_gate_20260925/",
       "notes": "This package; never mathematical discharge"
+    },
+    "eng.main-pr87-crosswalk": {
+      "layer": "D0",
+      "kind": "engineering",
+      "classification": "HOLD",
+      "controlling": false,
+      "fingerprint": "main-PR87-3d4969ab-ci-unexpected-file",
+      "source": "https://github.com/d6g8k5htny-coder/main/pull/87",
+      "notes": "Human D0 crosswalk exists; math_status_check rejects unlisted file until allowlist patch lands"
+    },
+    "eng.d0-packet-allowlist-fix": {
+      "layer": "D7",
+      "kind": "engineering",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "84b7ad724e4da1c5b4b396c90ae03d4ddedc37771a6e45e1082a45fd80d7ff4a",
+      "source": "frontiers/downstream_gate_20260925/patches/d0_packet_allowlist.patch",
+      "notes": "Portable fix verified locally; Cursor cannot push to main (403); awaiting agent/owner with write"
+    },
+    "math.rn-selector-region-crosswalk": {
+      "layer": "D4",
+      "kind": "inventory",
+      "classification": "ENGINEERING_CONTROL",
+      "controlling": false,
+      "fingerprint": "rn-selector-region-crosswalk-20260925-v1",
+      "source": "frontiers/downstream_gate_20260925/SELECTOR_REGION.json",
+      "notes": "Maps historical selectors onto fixed-remote vs open complements"
     }
   },
   "edges": [
@@ -309,6 +336,24 @@
       "to": "hist.CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip",
       "required": false,
       "relation": "historical_bundle_identity"
+    },
+    {
+      "from": "eng.main-pr87-crosswalk",
+      "to": "eng.d0-packet-allowlist-fix",
+      "required": true,
+      "relation": "ci_unblock_depends_on_allowlist_patch"
+    },
+    {
+      "from": "math.rn-selector-region-crosswalk",
+      "to": "math.rn-fixed-remote-window",
+      "required": false,
+      "relation": "inventories_covered_region"
+    },
+    {
+      "from": "math.rn-selector-region-crosswalk",
+      "to": "math.rn-count-interface",
+      "required": false,
+      "relation": "inherits_no_markov_reversal"
     }
   ]
 }

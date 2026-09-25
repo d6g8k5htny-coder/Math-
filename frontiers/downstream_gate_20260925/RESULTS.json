@@ -6,7 +6,14 @@
       "hist.rnu_env.py"
     ],
     "illegal_controlling_count": 0,
-    "open_or_author_side_count": 18
+    "open_or_author_side_count": 20
+  },
+  "d0_ci_unblock": {
+    "ci_error": "PROBLEM packet: unexpected files ['DOWNSTREAM_CROSSWALK_20260925.md']",
+    "cursor_main_push": "DENIED_403",
+    "patch_bytes": 3096,
+    "patch_sha256": "84b7ad724e4da1c5b4b396c90ae03d4ddedc37771a6e45e1082a45fd80d7ff4a",
+    "ready": true
   },
   "d4_region_complement": {
     "covered_by_fixed_remote_candidate": [
@@ -98,6 +105,25 @@
       ],
       "would_be_controlling": false
     },
+    "promote_pr87_before_allowlist": {
+      "allowed": false,
+      "blocked_absent": [],
+      "meaning": "integrity decision only; not theorem acceptance",
+      "missing_terminal": [
+        {
+          "classification": "AUTHOR_SIDE_CANDIDATE",
+          "id": "eng.d0-packet-allowlist-fix"
+        }
+      ],
+      "node": "eng.main-pr87-crosswalk",
+      "reasons": [
+        "required transitive dependency is not terminally classified"
+      ],
+      "required_dependencies": [
+        "eng.d0-packet-allowlist-fix"
+      ],
+      "would_be_controlling": false
+    },
     "promote_side24": {
       "allowed": false,
       "blocked_absent": [],
@@ -131,5 +157,11 @@
     ]
   },
   "schema_version": 1,
-  "scientific_effect": "NONE"
+  "scientific_effect": "NONE",
+  "selector_region": {
+    "covered_bypassed_or_na_cell_count": 6,
+    "legacy_24jet_discharged": false,
+    "no_event_to_expectation_reversal": true,
+    "open_or_partial_cell_count": 24
+  }
 }

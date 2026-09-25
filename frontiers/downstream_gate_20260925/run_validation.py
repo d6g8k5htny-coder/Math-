@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 24
+EXPECTED_TESTS = 27
 MUTANTS = {
     'allow_green_ci': (
         "only_non_discharge = bool(tokens) and all(t in non_discharge for t in tokens)",
@@ -30,9 +30,9 @@ MUTANTS = {
         "'lemma_closed': False,\n        'scientific_effect': 'NONE',\n        'illegal_promotion_refused':",
         "'lemma_closed': True,\n        'scientific_effect': 'NONE',\n        'illegal_promotion_refused':",
     ),
-    'omit_region_complement': (
-        "open_regions.append(entry)",
-        "pass",
+    'corrupt_d0_patch_marker': (
+        "'d53b286029d034576245406152c188fe2470ccb089e51f73e9087e34bf5a0e10',",
+        "'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',",
     ),
     'allow_illegal_controlling_report': (
         "'gate_ok': len(controlling_illegal) == 0,",
@@ -121,8 +121,12 @@ def main():
                 scratch = out / 'mutants' / mode / name
                 scratch.mkdir(parents=True)
                 (scratch / 'hard_gate.py').write_text(source.replace(old, new))
-                for filename in ('test_hard_gate.py', 'RESULTS.json', 'GRAPH.json'):
+                for filename in (
+                    'test_hard_gate.py', 'RESULTS.json', 'GRAPH.json',
+                    'SELECTOR_REGION.json', 'D0_CI_UNBLOCK.md',
+                ):
                     shutil.copyfile(ROOT / filename, scratch / filename)
+                shutil.copytree(ROOT / 'patches', scratch / 'patches')
                 execute(cmd, scratch, out, 'mutation_' + mode + '_' + name, mutant=True)
             report['modes'].append(mode)
         require(before == identities(), 'source files changed during execution')
