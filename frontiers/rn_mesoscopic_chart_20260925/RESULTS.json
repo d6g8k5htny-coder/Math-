@@ -370,6 +370,7 @@
         "cubic_next_order_enumerated": true,
         "decic_next_order_enumerated": true,
         "dodecic_next_order_enumerated": true,
+        "free_jet_residual_inventory_recorded": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
         "hexadecic_next_order_enumerated": true,
@@ -456,6 +457,42 @@
       "object": "RN-MESOSCOPIC-AXIAL-FREE-JET-RESIDUAL-20260925-v1",
       "y2_is_zero": true
     },
+    "C_pin_centered": {
+      "abs_det_grad_contact_map": "1/400",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "conditioned_hessian_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "eliminated_coordinates": [
+        "H_xy",
+        "H_yy"
+      ],
+      "elimination_branch": "z2_nonzero",
+      "free_among_leading_grad_coords": [
+        "H_xx"
+      ],
+      "free_directions_after_grad_contact": 1,
+      "height_independent_at_leading_morse_order": false,
+      "higher_pin_jets_free_for_height_residuals": true,
+      "leading_grad_jet_coordinates": [
+        "H_xx",
+        "H_xy",
+        "H_yy"
+      ],
+      "leading_grad_map_rank": 2,
+      "leading_grad_observation_count": 2,
+      "meaning": "rank-2 Morse gradient contact on 3 Hessian coords leaves 1 free direction; higher jets / density still unbound",
+      "object": "RN-MESOSCOPIC-PIN-CENTERED-FREE-JET-RESIDUAL-20260925-v1",
+      "pin_site_higher_jets_enumerated": false,
+      "y": {
+        "y1": "1/2",
+        "y2": "1/20"
+      },
+      "z": {
+        "z1": "0",
+        "z2": "1/20"
+      }
+    },
     "C_transverse": {
       "chart": "C_transverse",
       "conditioned_hessian_expectation_evaluated": false,
@@ -486,7 +523,7 @@
       "object": "RN-MESOSCOPIC-TRANSVERSE-FREE-JET-RESIDUAL-20260925-v1"
     },
     "global_contact_density_bound_proved": false,
-    "meaning": "exact free-jet residual counts after leading gradient contact; prerequisite inventory only \u2014 does not bound the contact density",
+    "meaning": "exact free-jet residual counts after leading gradient contact (transverse/axial/pin); prerequisite inventory only \u2014 does not bound the contact density",
     "object": "RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1"
   },
   "contact_gradient_jacobian_density_shape": {

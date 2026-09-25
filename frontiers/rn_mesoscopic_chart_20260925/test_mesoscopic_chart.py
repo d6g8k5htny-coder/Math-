@@ -1051,6 +1051,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['pentadecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['hexadecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['unmatched_height_r_power_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_pin_centered']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
@@ -1110,10 +1111,35 @@ class MesoscopicChartControls(unittest.TestCase):
         bundled = m.contact_free_jet_residual_inventory()
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['free_directions_after_grad_contact'], 2)
+        pin = m.pin_centered_free_jet_residual_inventory(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin['leading_grad_map_rank'], 2)
+        self.assertEqual(pin['free_directions_after_grad_contact'], 1)
+        self.assertEqual(pin['free_among_leading_grad_coords'], ['H_xx'])
+        self.assertEqual(pin['eliminated_coordinates'], ['H_xy', 'H_yy'])
+        self.assertEqual(pin['elimination_branch'], 'z2_nonzero')
+        self.assertEqual(pin['abs_det_grad_contact_map'], Q(1, 400))
+        self.assertTrue(pin['higher_pin_jets_free_for_height_residuals'])
+        self.assertFalse(pin['contact_gaussian_density_bounded'])
+        self.assertEqual(bundled['C_pin_centered']['free_directions_after_grad_contact'], 1)
+        pin_axis = m.pin_centered_free_jet_residual_inventory(
+            m.point(Q(11, 20), 0), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
+        self.assertEqual(pin_axis['free_among_leading_grad_coords'], ['H_yy'])
         with self.assertRaises(ValueError):
             m.transverse_free_jet_residual_inventory(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_free_jet_residual_inventory(m.point(0, 2))
+
+    def test_pin_centered_free_jet_residual_inventory(self):
+        pin = m.pin_centered_free_jet_residual_inventory(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin['chart'], 'C_pin_centered')
+        self.assertEqual(pin['leading_grad_jet_coordinates'], ['H_xx', 'H_xy', 'H_yy'])
+        self.assertEqual(pin['free_directions_after_grad_contact'], 1)
+        self.assertFalse(pin['conditioned_hessian_expectation_evaluated'])
+        with self.assertRaises(ValueError):
+            m.pin_centered_free_jet_residual_inventory(m.point(0, 2), inner=Q(2, 5), outer=1)
 
     def test_conditioned_hessian_residual_ledger(self):
         # Axis-aligned transverse sample: y1=0 isolates f_xyy from J_x.

@@ -2455,6 +2455,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'pentadecic_next_order_enumerated': True,
                 'hexadecic_next_order_enumerated': True,
                 'unmatched_height_r_power_inventory_recorded': True,
+                'free_jet_residual_inventory_recorded': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
@@ -2567,20 +2568,79 @@ def axial_free_jet_residual_inventory(y: Coord) -> dict:
     }
 
 
+def pin_centered_free_jet_residual_inventory(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+) -> dict:
+    """Exact free-jet residual count on C_pin_centered after Morse gradient contact.
+
+    Leading Morse map on Hessian coordinates (H_xx, H_xy, H_yy):
+      J_grad = H_pin · z
+    so two linear observations on three Hessian entries. When z≠0 the map has
+    rank 2 and leaves exactly one free Hessian direction (H_xx if z2≠0, else
+    H_yy). Cubic-and-higher pin jets remain free for height residuals. Small-A
+    diagnostic chart; does not bound the contact Gaussian density.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    u, v = exact(frame['z1']), exact(frame['z2'])
+    if u == 0 and v == 0:
+        raise ValueError('pin free-jet residual requires z != 0')
+    hess_coords = ('H_xx', 'H_xy', 'H_yy')
+    if v != 0:
+        eliminated = ['H_xy', 'H_yy']
+        free_among = ['H_xx']
+        elimination_branch = 'z2_nonzero'
+        abs_det_jac = v * v
+    else:
+        eliminated = ['H_xx', 'H_xy']
+        free_among = ['H_yy']
+        elimination_branch = 'z1_nonzero_z2_zero'
+        abs_det_jac = u * u
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-FREE-JET-RESIDUAL-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'z': {'z1': u, 'z2': v},
+        'closer_pin': frame['closer_pin'],
+        'leading_grad_jet_coordinates': list(hess_coords),
+        'leading_grad_observation_count': 2,
+        'leading_grad_map_rank': 2,
+        'free_directions_after_grad_contact': 1,
+        'eliminated_coordinates': eliminated,
+        'free_among_leading_grad_coords': free_among,
+        'elimination_branch': elimination_branch,
+        'abs_det_grad_contact_map': abs_det_jac,
+        'higher_pin_jets_free_for_height_residuals': True,
+        'height_independent_at_leading_morse_order': False,
+        'pin_site_higher_jets_enumerated': False,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_hessian_expectation_evaluated': False,
+        'meaning': (
+            'rank-2 Morse gradient contact on 3 Hessian coords leaves 1 free '
+            'direction; higher jets / density still unbound'
+        ),
+    }
+
+
 def contact_free_jet_residual_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+    pin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial free-jet residual inventories; density still open."""
+    """Bundle transverse/axial/pin free-jet residual inventories; density still open."""
     t = transverse_free_jet_residual_inventory(transverse_y or point(0, 2))
     a = axial_free_jet_residual_inventory(axial_y or point(2, 0))
+    p = pin_centered_free_jet_residual_inventory(
+        pin_y or point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1',
         'C_transverse': t,
         'C_axial': a,
+        'C_pin_centered': p,
         'global_contact_density_bound_proved': False,
         'meaning': (
-            'exact free-jet residual counts after leading gradient contact; '
-            'prerequisite inventory only — does not bound the contact density'
+            'exact free-jet residual counts after leading gradient contact '
+            '(transverse/axial/pin); prerequisite inventory only — does not '
+            'bound the contact density'
         ),
     }
 
