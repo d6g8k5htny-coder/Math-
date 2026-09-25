@@ -39,7 +39,7 @@ NONTERMINAL = frozenset({
 CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED'})
 # #90 disposition vocabulary is broader than premise satisfaction. A still-required
 # REFUTED premise blocks; BLOCKED_ABSENT holds. Only these satisfy a required edge.
-REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})
+REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED'})
 
 NON_DISCHARGE_DEFAULT = (
     'GREEN_CI',
@@ -498,89 +498,3 @@ def d0_ci_unblock_report() -> dict[str, Any]:
         'patch_path': 'patches/d0_packet_allowlist.patch',
         'patch_bytes': len(patch),
         'patch_sha256': digest,
-        'cursor_main_push': 'DENIED_403',
-        'local_math_status_check_after_patch': 'problems=0',
-        'missing_doc_markers': missing_doc,
-        'missing_patch_markers': missing_patch,
-        'ready': not missing_doc and not missing_patch,
-        'lemma_closed': False,
-        'meaning': 'engineering unblock recipe; not scientific promotion',
-    }
-
-
-def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
-    g = graph or load_graph()
-    # Spot-check promotions that must fail closed on the live author-side graph.
-    illegal_attempts = {
-        'promote_fixed_remote': refuse_non_discharge_promotion(
-            g, 'math.rn-fixed-remote-window',
-            ['GREEN_CI', 'HASH_MATCH', 'SAME_AUTHOR_REVIEW']),
-        'promote_lifetime_remainder': promotion_allowed(g, 'math.lifetime-remainder'),
-        'promote_side24': promotion_allowed(g, 'math.side24-coefficient'),
-        'promote_historical_env_rescov': promotion_allowed(g, 'hist.ENV-RESCOV'),
-        'promote_pr87_before_allowlist': promotion_allowed(g, 'eng.main-pr87-crosswalk'),
-    }
-    impact = reverse_impact(
-        g, 'math.uniform-matrix-cap-lifetime',
-        old_fingerprint='main-63-author-side',
-        new_fingerprint='main-63-amended-demo',
-    )
-    d0 = d0_ci_unblock_report()
-    selectors = selector_region_report()
-    return {
-        'object': g.get('object'),
-        'schema_version': g.get('schema_version'),
-        'gate_ok': closure_report(g)['gate_ok'],
-        'lemma_closed': False,
-        'scientific_effect': 'NONE',
-        'illegal_promotion_refused': all(
-            (v.get('refused') if 'refused' in v else not v.get('allowed'))
-            for v in illegal_attempts.values()
-        ),
-        'illegal_attempts': {
-            k: {key: val for key, val in v.items() if key != 'base'}
-            for k, v in illegal_attempts.items()
-        },
-        'reverse_impact_demo': {
-            'changed_node': impact['changed_node'],
-            'impacted': impact['impacted'],
-            'dependency_changed': impact['dependency_changed'],
-        },
-        'd4_region_complement': d4_region_complement(g),
-        'selector_region': {
-            'open_or_partial_cell_count': len(selectors['open_or_partial_cells']),
-            'covered_bypassed_or_na_cell_count': len(selectors['covered_bypassed_or_na_cells']),
-            'legacy_24jet_discharged': selectors['legacy_24jet_discharged'],
-            'no_event_to_expectation_reversal': selectors['no_event_to_expectation_reversal'],
-        },
-        'd0_ci_unblock': {
-            'ready': d0['ready'],
-            'cursor_main_push': d0['cursor_main_push'],
-            'patch_sha256': d0['patch_sha256'],
-            'patch_bytes': d0['patch_bytes'],
-            'ci_error': d0['ci_error'],
-        },
-        'closure': {
-            'blocked_absent': closure_report(g)['blocked_absent'],
-            'open_or_author_side_count': len(closure_report(g)['open_or_author_side']),
-            'illegal_controlling_count': len(closure_report(g)['illegal_controlling']),
-        },
-        'meaning': (
-            'same-author integrity controls for main #90/#86; '
-            'not analytic review or theorem acceptance'
-        ),
-    }
-
-
-def main() -> None:
-    payload = results_payload()
-    text = json.dumps(payload, indent=2, sort_keys=True) + '\n'
-    print(text, end='')
-    # When executed as the package entry point, compare to pinned RESULTS.json.
-    expected = (ROOT / 'RESULTS.json').read_text()
-    if text != expected:
-        raise SystemExit('RESULTS.json byte mismatch; regenerate deliberately')
-
-
-if __name__ == '__main__':
-    main()
