@@ -176,7 +176,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "x=r y with A<=|y|<=B away from pins",
-      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart J0/Hessian/integrand powers; density bound and pin charts still open"
+      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart J0/Hessian/integrand powers and clears C_transverse chart conditioning; density bound and pin charts still open"
     },
     "math.rn-region.pin-collision": {
       "layer": "D5",
@@ -271,10 +271,10 @@
       "kind": "candidate",
       "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
-      "fingerprint": "5c8e2f85d0470e6806a39703ac9ebe822cc2b541",
+      "fingerprint": "ccbf6903ca2722520ab6165e102dfe3d0130d96e",
       "source": "frontiers/rn_mesoscopic_chart_20260925/PROOF.md",
       "review_pr": 9,
-      "notes": "Exact d=2 chart J0/Hessian/integrand powers, thin-belt L1 + jet-map cancel, boundary identity transition, pin-frame + PR7 \u00a75 crosswalk; density bound open"
+      "notes": "Exact d=2 chart J0/Hessian/integrand powers, thin-belt L1 + jet-map cancel, boundary identity transition, C_transverse 1/|y2|<=1/delta chart bound, pin-frame + PR7 \u00a75 crosswalk; Gaussian density bound open"
     }
   },
   "edges": [
