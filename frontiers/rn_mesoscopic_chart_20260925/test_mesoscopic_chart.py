@@ -217,6 +217,22 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.thin_belt_contact_rows(m.point(0, 2), gap_mark=1, f_yy=1, f_xxy=0, f_xyy=0)
 
+    def test_thin_belt_reciprocal_shells(self):
+        for n in (1, 4, 8, 16):
+            info = m.thin_belt_reciprocal_shell_lower_bound(n)
+            self.assertEqual(info['integral_lower_bound'], n)
+            self.assertEqual(info['eps'], Q(1, 4) / (2 ** n))
+            self.assertFalse(info['bare_conditioning_factor_L1_near_zero'])
+            self.assertTrue(info['additional_cancellation_required'])
+            self.assertFalse(info['uniform_integrand_bound_proved'])
+        # Bounds are strictly increasing in the shell count.
+        self.assertLess(
+            m.thin_belt_reciprocal_shell_lower_bound(3)['integral_lower_bound'],
+            m.thin_belt_reciprocal_shell_lower_bound(7)['integral_lower_bound'],
+        )
+        with self.assertRaises(ValueError):
+            m.thin_belt_reciprocal_shell_lower_bound(0)
+
     def test_near_pin_diagnosis_small_A(self):
         with self.assertRaises(ValueError):
             m.near_pin_diagnosis(m.point(Q(1, 2), Q(1, 20)), inner=2, outer=4)

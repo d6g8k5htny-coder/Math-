@@ -174,6 +174,38 @@ def thin_belt_conditioning(y: Coord) -> dict[str, Q | str]:
     }
 
 
+def thin_belt_reciprocal_shell_lower_bound(shells: int, floor_y2: int | Q = Q(1, 4)) -> dict:
+    """Exact dyadic lower bound showing ∫ 1/|y2| dy2 diverges as y2→0.
+
+    On each shell [δ/2^k, δ/2^{k-1}], 1/y ≥ 2^k/δ and width = δ/2^k, so the shell
+    contributes at least 1 to the integral. After n shells the truncated integral is
+    at least n, hence unbounded as n→∞. This blocks absorbing the bare conditioning
+    factor into a uniform L^1 bound without additional cancellation.
+    """
+    if type(shells) is not int or shells < 1:
+        raise ValueError('positive shell count required')
+    delta = exact(floor_y2)
+    if delta <= 0:
+        raise ValueError('positive floor required')
+    # Innermost left endpoint after n shells: δ/2^n
+    eps = delta / (2 ** shells)
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-RECIPROCAL-SHELL-20260925-v1',
+        'floor_y2': delta,
+        'shells': shells,
+        'eps': eps,
+        'integral_lower_bound': shells,
+        'bare_conditioning_factor_L1_near_zero': False,
+        'uniform_integrand_bound_proved': False,
+        'additional_cancellation_required': True,
+        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'meaning': (
+            'dyadic shells each contribute >=1 to ∫ dy2/|y2|; bare 1/|y2| is not '
+            'locally L1 at y2=0; not a full Kac-Rice density bound'
+        ),
+    }
+
+
 def thin_belt_contact_rows(y: Coord, *, gap_mark: int | Q,
                            f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
                            f_yyy: int | Q = 0) -> dict[str, Q]:
@@ -771,6 +803,7 @@ def result() -> dict:
     cover = chart_cover_report()
     thin = thin_belt_conditioning(point(2, Q(1, 8)))
     thin_led = thin_belt_ledger_for_point(point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+    thin_shells = thin_belt_reciprocal_shell_lower_bound(8)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
@@ -793,6 +826,7 @@ def result() -> dict:
     out['cover'] = conv(cover)
     out['thin_belt_sample'] = conv(thin)
     out['thin_belt_ledger'] = conv(thin_led)
+    out['thin_belt_reciprocal_shells'] = conv(thin_shells)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)

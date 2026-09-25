@@ -21,7 +21,7 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 |---|---|---|
 | `C_transverse` | yes | open (density) |
 | `C_axial` | yes | open (and area-measure zero in 2D) |
-| `thin_belt_open` | yes (same jets) | open (`1/\|y2\|`) |
+| `thin_belt_open` | yes (same jets) | open (`1/\|y2\|` not bare-L1; cancellation required) |
 | `near_pin` | no (pins exterior for `A>1/2`) | n/a on PR7 annulus |
 
 Small-A (`A≤1/2`) is a separate diagnostic regime only: pin-local frame recorded, pin-site jets refused as not yet enumerated.

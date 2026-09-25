@@ -271,6 +271,18 @@
       "y2": "1/8"
     }
   },
+  "thin_belt_reciprocal_shells": {
+    "additional_cancellation_required": true,
+    "bare_conditioning_factor_L1_near_zero": false,
+    "eps": "1/1024",
+    "floor_y2": "1/4",
+    "integral_lower_bound": 8,
+    "meaning": "dyadic shells each contribute >=1 to \u222b dy2/|y2|; bare 1/|y2| is not locally L1 at y2=0; not a full Kac-Rice density bound",
+    "object": "RN-MESOSCOPIC-THIN-BELT-RECIPROCAL-SHELL-20260925-v1",
+    "shells": 8,
+    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "uniform_integrand_bound_proved": false
+  },
   "thin_belt_sample": {
     "conditioning_factor_reciprocal_abs_y2": "8",
     "grad_y_coefficient_y2": "1/8",
