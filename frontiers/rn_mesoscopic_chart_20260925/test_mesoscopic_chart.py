@@ -419,6 +419,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('Scientific effect: NONE', text)
         self.assertIn('contact_density_bound_proved=false', text)
         self.assertIn('leading Morse', text)
+        self.assertIn('contact_density_obstruction_inventory', text)
         self.assertIn('AUTHOR_SIDE_CANDIDATE', text)
         self.assertIn('hessian_ledger_evaluated=false', text)
         self.assertIn('transverse_conditioning_uniform_bound', text)
@@ -500,6 +501,24 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(m.PIN_CENTERED_HESSIAN_DET_R_POWER, 0)
         with self.assertRaises(ValueError):
             m.pin_centered_integrand_power_ledger(3)
+
+    def test_contact_density_obstruction_inventory(self):
+        inv = m.contact_density_obstruction_inventory()
+        self.assertFalse(inv['global_contact_density_bound_proved'])
+        self.assertTrue(inv['charts']['C_transverse']['chart_conditioning_singularity_cleared'])
+        self.assertFalse(inv['charts']['C_transverse']['contact_gaussian_density_bounded'])
+        self.assertFalse(inv['charts']['C_transverse']['height_r_factor_absorbed'])
+        self.assertTrue(inv['charts']['C_axial']['area_measure_zero_in_2d'])
+        self.assertFalse(inv['charts']['C_thin_belt']['bare_1_over_abs_y2_L1'])
+        self.assertTrue(inv['charts']['C_thin_belt']['jet_map_pointwise_cancel_recorded'])
+        self.assertTrue(inv['charts']['C_pin_centered']['leading_morse_rows_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
+        self.assertFalse(inv['charts']['C_pin_centered']['fourth_and_higher_jets_enumerated'])
+        self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
+        self.assertIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
+        # Every chart still blocks the global density bound.
+        for chart, row in inv['charts'].items():
+            self.assertFalse(row['contact_gaussian_density_bounded'], chart)
 
 
 if __name__ == '__main__':

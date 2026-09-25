@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 42
+EXPECTED_TESTS = 43
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -113,6 +113,10 @@ MUTANTS = {
     'drop_pin_cubic_identity': (
         "'z_dot_H_grad_next_minus_3_H_height_next': u * g1 + v * g2 - 3 * h,",
         "'z_dot_H_grad_next_minus_3_H_height_next': u * g1 + v * g2 - 2 * h,",
+    ),
+    'claim_global_density_from_inventory': (
+        "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': False,",
+        "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': True,",
     ),
 }
 

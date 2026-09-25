@@ -99,6 +99,49 @@
     "transverse": "C_transverse"
   },
   "complements_pr7": true,
+  "contact_density_obstruction": {
+    "charts": {
+      "C_axial": {
+        "area_measure_zero_in_2d": true,
+        "chart_conditioning_singularity_cleared": true,
+        "contact_gaussian_density_bounded": false,
+        "hessian_conditioned_expectation_evaluated": false,
+        "integrand_power_identity_recorded": true
+      },
+      "C_pin_centered": {
+        "contact_gaussian_density_bounded": false,
+        "cubic_next_order_enumerated": true,
+        "fourth_and_higher_jets_enumerated": false,
+        "integrand_power_identity_recorded": true,
+        "leading_morse_rows_enumerated": true,
+        "max_saddle_signature_test_recorded": true
+      },
+      "C_thin_belt": {
+        "bare_1_over_abs_y2_L1": false,
+        "contact_gaussian_density_bounded": false,
+        "jet_map_pointwise_cancel_recorded": true,
+        "uniform_integrand_bound_proved": false
+      },
+      "C_transverse": {
+        "chart_conditioning_singularity_cleared": true,
+        "contact_gaussian_density_bounded": false,
+        "height_r_factor_absorbed": false,
+        "hessian_conditioned_expectation_evaluated": false,
+        "integrand_power_identity_recorded": true
+      }
+    },
+    "global_contact_density_bound_proved": false,
+    "meaning": "inventory only: chart singularities cleared on C_transverse/C_axial; Gaussian density / Hessian expectation / thin-belt / height-r / higher pin jets remain the load-bearing open blockers",
+    "object": "RN-MESOSCOPIC-CONTACT-DENSITY-OBSTRUCTION-20260925-v1",
+    "open_blockers": [
+      "contact_gaussian_density_factor",
+      "conditioned_hessian_expectation",
+      "thin_belt_uniform_integrand_after_cancel",
+      "transverse_height_r_absorption",
+      "pin_fourth_and_higher_jets"
+    ],
+    "target": "gamma_AB_le_C_r_to_minus_d"
+  },
   "contact_rows": {
     "H_height_next": "0",
     "J_grad_x": "0",

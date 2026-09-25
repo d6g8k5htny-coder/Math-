@@ -81,6 +81,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;
 - pin-site cubic next-order rows `H_grad_next = (1/2)D³f(z,z)`, `H_height_next = (1/6)D³f(z,z,z)` with `z·H_grad_next = 3 H_height_next` (fourth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
+- per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 

@@ -990,6 +990,60 @@ def pin_centered_integrand_power_ledger(dimension: int = 2) -> dict:
     }
 
 
+def contact_density_obstruction_inventory() -> dict:
+    """Per-chart inventory of what is cleared vs still blocking γ_AB ≤ C r^(-d).
+
+    Records exact boolean status only; does not prove any density bound.
+    """
+    return {
+        'object': 'RN-MESOSCOPIC-CONTACT-DENSITY-OBSTRUCTION-20260925-v1',
+        'target': 'gamma_AB_le_C_r_to_minus_d',
+        'global_contact_density_bound_proved': False,
+        'charts': {
+            'C_transverse': {
+                'chart_conditioning_singularity_cleared': True,
+                'integrand_power_identity_recorded': True,
+                'height_r_factor_absorbed': False,
+                'hessian_conditioned_expectation_evaluated': False,
+                'contact_gaussian_density_bounded': False,
+            },
+            'C_axial': {
+                'chart_conditioning_singularity_cleared': True,
+                'integrand_power_identity_recorded': True,
+                'area_measure_zero_in_2d': True,
+                'hessian_conditioned_expectation_evaluated': False,
+                'contact_gaussian_density_bounded': False,
+            },
+            'C_thin_belt': {
+                'bare_1_over_abs_y2_L1': False,
+                'jet_map_pointwise_cancel_recorded': True,
+                'uniform_integrand_bound_proved': False,
+                'contact_gaussian_density_bounded': False,
+            },
+            'C_pin_centered': {
+                'leading_morse_rows_enumerated': True,
+                'cubic_next_order_enumerated': True,
+                'max_saddle_signature_test_recorded': True,
+                'integrand_power_identity_recorded': True,
+                'fourth_and_higher_jets_enumerated': False,
+                'contact_gaussian_density_bounded': False,
+            },
+        },
+        'open_blockers': [
+            'contact_gaussian_density_factor',
+            'conditioned_hessian_expectation',
+            'thin_belt_uniform_integrand_after_cancel',
+            'transverse_height_r_absorption',
+            'pin_fourth_and_higher_jets',
+        ],
+        'meaning': (
+            'inventory only: chart singularities cleared on C_transverse/C_axial; '
+            'Gaussian density / Hessian expectation / thin-belt / height-r / higher '
+            'pin jets remain the load-bearing open blockers'
+        ),
+    }
+
+
 def axial_hessian_contact_rows(y: Coord, *, gap_mark: int | Q,
                                f_yy: int | Q, f_xxy: int | Q,
                                f_xyy: int | Q = 0, f_yyy: int | Q = 0) -> dict[str, Q]:
@@ -1234,6 +1288,7 @@ def result() -> dict:
     integrand_t = contact_integrand_power_ledger(2, chart='C_transverse')
     integrand_a = contact_integrand_power_ledger(2, chart='C_axial')
     integrand_pin = pin_centered_integrand_power_ledger(2)
+    density_obs = contact_density_obstruction_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1262,6 +1317,7 @@ def result() -> dict:
     out['integrand_power_transverse'] = conv(integrand_t)
     out['integrand_power_axial'] = conv(integrand_a)
     out['integrand_power_pin_centered'] = conv(integrand_pin)
+    out['contact_density_obstruction'] = conv(density_obs)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())
