@@ -102,20 +102,18 @@ class HardGateControls(unittest.TestCase):
         self.assertEqual(node['classification'], 'REFUTED')
         self.assertTrue(m.is_terminal('REFUTED'))
 
-    def test_full_price_still_blocked_by_review_state(self):
-        # Parent boundary is terminal REFUTED, but full-price itself is author-side
-        # and still may not be controlling without analytic review classification.
+    def test_full_price_boundary_refutation_is_not_a_required_premise(self):
         decision = m.promotion_allowed(self.graph, 'math.p15-full-price')
-        # Required dep is terminal, so missing_terminal may be empty; controlling
-        # still requires an explicit legal promotion path. The node itself is not
-        # yet PROVED_REVIEWED, but #90 rule 1 cares about dependencies. Promote
-        # attempt on an author-side node with terminal deps is still refused by
-        # non-discharge evidence rule in package RESULTS.
-        self.assertEqual(decision['required_dependencies'], ['math.p15-price-boundary'])
+        self.assertEqual(decision['required_dependencies'], [])
         self.assertEqual(decision['missing_terminal'], [])
         self.assertEqual(decision['blocked_absent'], [])
-        # Author-side candidates are not auto-controlling in the stored graph.
-        self.assertFalse(self.graph['nodes']['math.p15-full-price']['controlling'])
+        self.assertEqual(decision['refuted_required'], [])
+        self.assertFalse(decision['allowed'])  # own node remains author-side
+        edge = next(e for e in self.graph['edges']
+                    if e['from'] == 'math.p15-full-price'
+                    and e['to'] == 'math.p15-price-boundary')
+        self.assertFalse(edge['required'])
+        self.assertIn('boundary', edge['relation'])
 
     def test_reverse_impact_marks_dependents(self):
         impact = m.reverse_impact(
@@ -245,16 +243,65 @@ class HardGateControls(unittest.TestCase):
         self.assertEqual(applied['decision']['applied'], 'REFUSED')
         self.assertFalse(applied['graph']['nodes']['math.p15-full-price']['controlling'])
 
-    def test_proved_reviewed_with_terminal_deps_may_become_controlling(self):
+    def test_proved_reviewed_with_satisfied_required_dep_may_control(self):
         g = copy.deepcopy(self.graph)
-        g['nodes']['math.p15-price-boundary']['classification'] = 'REFUTED'
-        g['nodes']['math.p15-full-price']['classification'] = 'PROVED_REVIEWED'
-        decision = m.promotion_allowed(g, 'math.p15-full-price')
+        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'PROVED_REVIEWED'
+        g['nodes']['math.lifetime-remainder']['classification'] = 'PROVED_REVIEWED'
+        decision = m.promotion_allowed(g, 'math.lifetime-remainder')
         self.assertTrue(decision['allowed'])
-        applied = m.apply_promotion(g, 'math.p15-full-price')
+        applied = m.apply_promotion(g, 'math.lifetime-remainder')
         self.assertTrue(applied['decision']['ok'])
         self.assertEqual(applied['decision']['applied'], 'CONTROLLING')
-        self.assertTrue(applied['graph']['nodes']['math.p15-full-price']['controlling'])
+
+    def test_still_required_superseded_label_does_not_satisfy_edge(self):
+        g = copy.deepcopy(self.graph)
+        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'SUPERSEDED_NONBLOCKING'
+        g['nodes']['math.lifetime-remainder']['classification'] = 'PROVED_REVIEWED'
+        decision = m.promotion_allowed(g, 'math.lifetime-remainder')
+        self.assertFalse(decision['allowed'])
+        self.assertTrue(any(x['classification'] == 'SUPERSEDED_NONBLOCKING'
+                            for x in decision['missing_terminal']))
+
+    def test_still_required_refuted_dependency_forces_hold(self):
+        g = copy.deepcopy(self.graph)
+        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'REFUTED'
+        g['nodes']['math.lifetime-remainder']['classification'] = 'PROVED_REVIEWED'
+        decision = m.promotion_allowed(g, 'math.lifetime-remainder')
+        self.assertFalse(decision['allowed'])
+        self.assertEqual(decision['refuted_required'], ['math.uniform-matrix-cap-lifetime'])
+        applied = m.apply_promotion(g, 'math.lifetime-remainder')
+        self.assertEqual(applied['decision']['applied'], 'HOLD')
+        self.assertFalse(applied['graph']['nodes']['math.lifetime-remainder']['controlling'])
+
+    def test_union_reverse_impact_survives_deleted_edge(self):
+        old = copy.deepcopy(self.graph)
+        new = copy.deepcopy(self.graph)
+        old['nodes']['math.uniform-matrix-cap-lifetime']['fingerprint'] = 'old'
+        new['nodes']['math.uniform-matrix-cap-lifetime']['fingerprint'] = 'new'
+        new['edges'] = [e for e in new['edges']
+                        if not (e['from'] == 'math.lifetime-remainder'
+                                and e['to'] == 'math.uniform-matrix-cap-lifetime')]
+        impact = m.reverse_impact_between(old, new)
+        self.assertIn('math.lifetime-remainder', impact['impacted'])
+        self.assertEqual(
+            impact['graph']['nodes']['math.lifetime-remainder']['classification'],
+            'REVALIDATION_REQUIRED')
+
+    def test_malformed_or_cycle_graph_fails_closed(self):
+        bad = copy.deepcopy(self.graph)
+        bad['edges'].append({'from': 'missing', 'to': 'math.p15-full-price',
+                             'required': True, 'relation': 'bad'})
+        with self.assertRaises(ValueError):
+            m.validate_graph_fail_closed(bad)
+        cyc = copy.deepcopy(self.graph)
+        cyc['edges'].extend([
+            {'from': 'math.lifetime-remainder', 'to': 'math.side24-coefficient',
+             'required': True, 'relation': 'cycle'},
+            {'from': 'math.side24-coefficient', 'to': 'math.lifetime-remainder',
+             'required': True, 'relation': 'cycle'},
+        ])
+        with self.assertRaises(ValueError):
+            m.validate_graph_fail_closed(cyc)
 
     def test_edge_targets_exist(self):
         nodes = self.graph['nodes']

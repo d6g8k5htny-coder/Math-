@@ -8,11 +8,23 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 28
+EXPECTED_TESTS = 32
 MUTANTS = {
     'bypass_own_node_eligibility': (
         "if node_classification not in CONTROLLING_ELIGIBLE:",
         "if False:",
+    ),
+    'allow_required_superseded_label': (
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED'})",
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})",
+    ),
+    'allow_required_refutation': (
+        "if cls == 'REFUTED':\n            refuted.append(dep)",
+        "if False:\n            refuted.append(dep)",
+    ),
+    'drop_old_edges_from_reverse_impact': (
+        "union_edges = {(e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']}",
+        "union_edges = {(e['from'], e['to']) for e in new_graph['edges']}",
     ),
     'allow_green_ci': (
         "only_non_discharge = bool(tokens) and all(t in non_discharge for t in tokens)",
@@ -21,10 +33,6 @@ MUTANTS = {
     'ignore_blocked_absent': (
         "if cls == 'BLOCKED_ABSENT':\n            blocked.append(dep)",
         "if False:\n            blocked.append(dep)",
-    ),
-    'treat_author_side_terminal': (
-        "def is_terminal(classification: str) -> bool:\n    return classification in TERMINAL",
-        "def is_terminal(classification: str) -> bool:\n    return classification in TERMINAL or classification == 'AUTHOR_SIDE_CANDIDATE'",
     ),
     'skip_reverse_impact': (
         "node['classification'] = 'REVALIDATION_REQUIRED'\n                node['controlling'] = False\n                impacted.append(dep)",

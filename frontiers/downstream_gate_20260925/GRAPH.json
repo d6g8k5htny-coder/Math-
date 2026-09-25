@@ -2,7 +2,10 @@
   "schema_version": 1,
   "object": "DOWNSTREAM-HARD-GATE-20260925-v1",
   "campaign": {
-    "main_issues": [86, 90],
+    "main_issues": [
+      86,
+      90
+    ],
     "disposition": "research-integrity control; scientific effect NONE"
   },
   "terminal_classifications": [
@@ -216,7 +219,7 @@
       "review_issue": 74,
       "fingerprint": "full-price-20260924",
       "source": "frontiers/full_price_20260924/PROOF.md",
-      "notes": "Full probability cube under demand>=2; review open"
+      "notes": "Full probability cube under demand>=2; review open. Price-boundary refutation is a scope boundary, not a required premise."
     },
     "math.p15-price-boundary": {
       "layer": "D6",
@@ -316,8 +319,8 @@
     {
       "from": "math.p15-full-price",
       "to": "math.p15-price-boundary",
-      "required": true,
-      "relation": "restricted_successor_after_refutation"
+      "required": false,
+      "relation": "boundary_counterexample_not_required_premise"
     },
     {
       "from": "hist.ENV-RESCOV",

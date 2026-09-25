@@ -25,6 +25,7 @@ jobs:
           root = pathlib.Path('frontiers/downstream_gate_20260925').resolve()
           pins = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           def verify():
+              mismatches = []
               for name, identity in pins.items():
                   if pathlib.PurePosixPath(name).name != name or (root / name).is_symlink():
                       raise ValueError('flat regular source required')
@@ -32,7 +33,9 @@ jobs:
                   digest = hashlib.sha256(raw).hexdigest()
                   if len(raw) != identity['bytes'] or digest != identity['sha256']:
                       print('SOURCE_IDENTITY_ACTUAL', name, len(raw), digest)
-                      raise ValueError('source identity mismatch: ' + name)
+                      mismatches.append(name)
+              if mismatches:
+                  raise ValueError('source identity mismatches: ' + ','.join(mismatches))
           if sys.version_info[:2] != (3, 11):
               raise RuntimeError('actual Python 3.11 required')
           verify()
@@ -57,16 +60,16 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 28 or report['distinct_semantic_mutations'] != 8:
+          if not report['passed'] or report['distinct_tests'] != 32 or report['distinct_semantic_mutations'] != 10:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
               'run': os.environ['GITHUB_RUN_ID'],
               'sha': os.environ['GITHUB_SHA'],
               'python': sys.version,
-              'new_distinct_tests': 28,
+              'new_distinct_tests': 32,
               'regression_distinct_tests': 177,
-              'total_distinct_tests': 205,
-              'new_semantic_mutations': 8,
+              'total_distinct_tests': 209,
+              'new_semantic_mutations': 10,
               'source_files_verified': len(pins),
               'lemma_closed': False,
               'scientific_effect': 'NONE',
