@@ -1658,6 +1658,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_r_factor_recorded': True,
                 'height_r_factor_absorbed': False,
+                'algebraic_factor_times_height_r_skeleton_enumerated': True,
                 'uniform_integrand_bound_proved': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -2174,6 +2175,59 @@ def transverse_algebraic_factor_times_height_r_skeleton(
         'meaning': (
             'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '
             'neither factor absorbed; Gaussian density still unbound'
+        ),
+    }
+
+
+def thin_belt_algebraic_factor_times_height_r_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Combine thin-belt algebraic Jacobian×|det H| product with unmatched height r^1.
+
+    Records the exact product identity
+      (1/|det J_grad|)·|det H_skeleton|
+    together with the unmatched height density r-power 1 (shared transverse
+    height–grad_y dependence). Reciprocal still diverges as y2→0; neither the
+    algebraic factor nor height-r is absorbed; contact Gaussian density open.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    alg = thin_belt_contact_integrand_algebraic_factor_skeleton(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+        floor_y2=floor_y2,
+    )
+    height = thin_belt_height_r_factor_ledger(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+        floor_y2=floor_y2,
+    )
+    height_r = height['unmatched_height_density_r_power']
+    product = alg['algebraic_jacobian_times_det_abs']
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y[0], 'y2': y[1]},
+        'floor_y2': exact(floor_y2),
+        'algebraic_jacobian_times_det_abs': product,
+        'unmatched_height_density_r_power': height_r,
+        'combined_skeleton_height_r_power': height_r,
+        'algebraic_factor_r_power_after_stripping': 0,
+        'product_minus_recorded_factors': product - alg['reciprocal_grad_contact_jacobian'] * alg['det_contact_leading_abs'],
+        'H_height_next': height['H_height_next'],
+        'reciprocal_diverges_as_y2_to_0': True,
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'combined_algebraic_factor_and_height_r_recorded': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'combined_skeleton_absorbed_into_uniform_bound': False,
+        'uniform_integrand_bound_proved': False,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_expectation_evaluated': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact thin-belt (1/|det J|)·|det H| times unmatched height r^1; '
+            'reciprocal diverges as y2→0; neither factor absorbed; density unbound'
         ),
     }
 
@@ -2748,6 +2802,8 @@ def result() -> dict:
     integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
     alg_height = transverse_algebraic_factor_times_height_r_skeleton(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+    thin_alg_height = thin_belt_algebraic_factor_times_height_r_skeleton(
+        point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -2791,6 +2847,7 @@ def result() -> dict:
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
     out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
+    out['thin_belt_algebraic_factor_times_height_r'] = conv(thin_alg_height)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

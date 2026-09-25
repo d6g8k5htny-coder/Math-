@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 62
+EXPECTED_TESTS = 63
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -177,6 +177,10 @@ MUTANTS = {
     'claim_density_from_algebraic_factor_times_height_r': (
         "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '\n            'neither factor absorbed; Gaussian density still unbound'\n        ),",
         "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': True,\n        'combined_skeleton_absorbed_into_uniform_bound': True,\n        'contact_gaussian_density_bounded': True,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '\n            'neither factor absorbed; Gaussian density still unbound'\n        ),",
+    ),
+    'claim_thin_belt_density_from_algebraic_factor_times_height_r': (
+        "'reciprocal_diverges_as_y2_to_0': True,\n        'free_residual_coordinates': ['k', 'f_xxy'],\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'uniform_integrand_bound_proved': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact thin-belt (1/|det J|)·|det H| times unmatched height r^1; '\n            'reciprocal diverges as y2→0; neither factor absorbed; density unbound'\n        ),",
+        "'reciprocal_diverges_as_y2_to_0': True,\n        'free_residual_coordinates': ['k', 'f_xxy'],\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': True,\n        'combined_skeleton_absorbed_into_uniform_bound': True,\n        'uniform_integrand_bound_proved': True,\n        'contact_gaussian_density_bounded': True,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact thin-belt (1/|det J|)·|det H| times unmatched height r^1; '\n            'reciprocal diverges as y2→0; neither factor absorbed; density unbound'\n        ),",
     ),
     'claim_height_r_from_grad_residual': (
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'exact H_height_next residual after eliminating f_yy,f_xyy; '\n            'unmatched r^1 and density bound remain open'\n        ),",

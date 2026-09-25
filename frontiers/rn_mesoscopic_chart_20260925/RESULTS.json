@@ -274,6 +274,7 @@
         "sextic_next_order_enumerated": true
       },
       "C_thin_belt": {
+        "algebraic_factor_times_height_r_skeleton_enumerated": true,
         "bare_1_over_abs_y2_L1": false,
         "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
         "contact_gaussian_density_bounded": false,
@@ -926,6 +927,35 @@
     "height_window_r_power": 3,
     "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
     "spatial_volume_r_power": 2
+  },
+  "thin_belt_algebraic_factor_times_height_r": {
+    "H_height_next": "16",
+    "algebraic_factor_r_power_after_stripping": 0,
+    "algebraic_jacobian_times_det_abs": "49152",
+    "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+    "chart": "C_thin_belt",
+    "combined_algebraic_factor_and_height_r_recorded": true,
+    "combined_skeleton_absorbed_into_uniform_bound": false,
+    "combined_skeleton_height_r_power": 1,
+    "conditioned_expectation_evaluated": false,
+    "contact_gaussian_density_bounded": false,
+    "floor_y2": "1/4",
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy"
+    ],
+    "global_contact_density_bound_proved": false,
+    "height_r_absorbed_into_uniform_bound": false,
+    "meaning": "exact thin-belt (1/|det J|)\u00b7|det H| times unmatched height r^1; reciprocal diverges as y2\u21920; neither factor absorbed; density unbound",
+    "object": "RN-MESOSCOPIC-THIN-BELT-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1",
+    "product_minus_recorded_factors": "0",
+    "reciprocal_diverges_as_y2_to_0": true,
+    "uniform_integrand_bound_proved": false,
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
   },
   "thin_belt_height_r_factor": {
     "H_height_next": "16",
