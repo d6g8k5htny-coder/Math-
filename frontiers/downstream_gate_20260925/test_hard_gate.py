@@ -202,6 +202,11 @@ class HardGateControls(unittest.TestCase):
         ch = table['selectors']['CH-LIFT']
         self.assertEqual(ch['fixed-remote'], 'BYPASSED_BY_FIXED_RHO')
         self.assertEqual(ch['mesoscopic-scaled-annulus'], 'REOPENED')
+        piece = table['selectors']['Piece-2-annulus']
+        self.assertEqual(
+            piece['mesoscopic-scaled-annulus'],
+            'PARTIAL_PR7_REDUCTION_PLUS_PR9_CHART_ROWS',
+        )
         # Every open complement region still has at least one non-closed selector cell.
         open_regions = {c['region'] for c in report['open_or_partial_cells']}
         for region in (

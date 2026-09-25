@@ -346,7 +346,8 @@ def selector_region_report(data: dict[str, Any] | None = None) -> dict[str, Any]
             cell = {'selector': selector, 'region': region, 'status': status}
             if status in (
                 'OPEN_ACTIVE', 'OPEN_HISTORICAL', 'NOT_DISCHARGED',
-                'PARTIAL_COVER_ONLY', 'PARTIAL_PR7_REDUCTION', 'REOPENED',
+                'PARTIAL_COVER_ONLY', 'PARTIAL_PR7_REDUCTION',
+                'PARTIAL_PR7_REDUCTION_PLUS_PR9_CHART_ROWS', 'REOPENED',
                 'PARTIAL_COVER_DECLARED_REGION',
             ):
                 open_cells.append(cell)

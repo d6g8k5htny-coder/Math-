@@ -30,11 +30,11 @@
     },
     "Piece-2-annulus": {
       "fixed-remote": "PARTIAL_COVER_ONLY",
-      "mesoscopic-scaled-annulus": "PARTIAL_PR7_REDUCTION",
+      "mesoscopic-scaled-annulus": "PARTIAL_PR7_REDUCTION_PLUS_PR9_CHART_ROWS",
       "pin-collision": "OPEN_ACTIVE",
       "intermediate-r-to-rho": "OPEN_ACTIVE",
       "witness-collision": "OPEN_ACTIVE",
-      "notes": "Active mathematical blocker outside fixed-remote and unfinished PR7 ledger"
+      "notes": "PR7 reduction + PR9 chart J0/Hessian/integrand powers; density bound and pin-site jets still open"
     },
     "H5-REMOTE-THRESHOLD": {
       "fixed-remote": "PARTIAL_COVER_DECLARED_REGION",
