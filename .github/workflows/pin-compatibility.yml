@@ -1,0 +1,52 @@
+name: D5 pin-compatibility review replay
+'on':
+  pull_request:
+    paths: ['reviews/d5_pin_compatibility_20260925/**', '.github/workflows/pin-compatibility.yml']
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Replay exact six-pin witness in both modes
+        run: |
+          python -B -S - <<'PY'
+          import pathlib, hashlib, json, subprocess, sys, os
+          root=pathlib.Path('reviews/d5_pin_compatibility_20260925').resolve()
+          pins=json.loads((root/'SOURCE_FILES.json').read_text())['files']
+          out=pathlib.Path(os.environ['RUNNER_TEMP'])/'pin-compatibility-results'
+          out.mkdir()
+          def verify():
+              for name, identity in pins.items():
+                  if pathlib.PurePosixPath(name).name != name or (root/name).is_symlink():
+                      raise ValueError('flat regular source required')
+                  raw=(root/name).read_bytes()
+                  if len(raw)!=identity['bytes'] or hashlib.sha256(raw).hexdigest()!=identity['sha256']:
+                      raise ValueError('source identity mismatch: '+name)
+          verify()
+          for mode,flags in [('normal',[]),('optimized',['-O'])]:
+              r=subprocess.run([sys.executable,'-B',*flags,'-S','-m','unittest','discover','-v'],cwd=root,capture_output=True,text=True,timeout=30)
+              (out/(mode+'.stdout')).write_text(r.stdout)
+              (out/(mode+'.stderr')).write_text(r.stderr)
+              if r.returncode or 'Ran 16 tests' not in r.stderr or 'skipped=' in r.stderr:
+                  raise RuntimeError('witness replay failed: '+mode)
+              result=subprocess.check_output([sys.executable,'-B',*flags,'-S','pin_compatibility.py'],cwd=root,timeout=15)
+              if result!=(root/'WITNESS.json').read_bytes():
+                  raise ValueError('witness result mismatch')
+              (out/('witness_'+mode+'.json')).write_bytes(result)
+          verify()
+          (out/'REPLAY.json').write_text(json.dumps({'tested_commit':os.environ['GITHUB_SHA'],'run':os.environ['GITHUB_RUN_ID'],'python':sys.version,'distinct_tests':16,'modes':['normal','optimized'],'source_files':pins,'global_theorem_closed':False},indent=2)+'\n')
+          PY
+      - name: Retain replay evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: pin-compatibility-${{ github.run_id }}
+          path: ${{ runner.temp }}/pin-compatibility-results
+          if-no-files-found: error
+          retention-days: 30
