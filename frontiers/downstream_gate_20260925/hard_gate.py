@@ -37,6 +37,9 @@ NONTERMINAL = frozenset({
 })
 
 CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED'})
+# #90 disposition vocabulary is broader than premise satisfaction. A still-required
+# REFUTED premise blocks; BLOCKED_ABSENT holds. Only these satisfy a required edge.
+REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})
 
 NON_DISCHARGE_DEFAULT = (
     'GREEN_CI',
@@ -131,18 +134,27 @@ def blocked_absent_hold(graph: dict[str, Any], node_id: str) -> list[str]:
             if require_node(graph, dep)['classification'] == 'BLOCKED_ABSENT']
 
 
+def refuted_required_hold(graph: dict[str, Any], node_id: str) -> list[str]:
+    """A still-required REFUTED premise blocks its dependent (#90 clarification)."""
+    return [dep for dep in transitive_required(graph, node_id)
+            if require_node(graph, dep)['classification'] == 'REFUTED']
+
+
 def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
     """Return whether node_id may become CONTROLLING under #90 rules."""
     node = require_node(graph, node_id)
     required = transitive_required(graph, node_id)
     missing_terminal = []
     blocked = []
+    refuted = []
     for dep in required:
         cls = require_node(graph, dep)['classification']
-        if not is_terminal(cls):
+        if cls not in REQUIRED_SATISFIED and cls not in ('BLOCKED_ABSENT', 'REFUTED'):
             missing_terminal.append({'id': dep, 'classification': cls})
         if cls == 'BLOCKED_ABSENT':
             blocked.append(dep)
+        if cls == 'REFUTED':
+            refuted.append(dep)
 
     reasons: list[str] = []
     node_classification = node.get('classification')
@@ -155,8 +167,10 @@ def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
         reasons.append('node requires revalidation after a dependency change')
     if blocked:
         reasons.append('required BLOCKED_ABSENT dependency forces HOLD')
+    if refuted:
+        reasons.append('required REFUTED dependency forces HOLD')
     if missing_terminal:
-        reasons.append('required transitive dependency is not terminally classified')
+        reasons.append('required transitive dependency is not satisfied')
     if node_classification == 'FALSE' and node_id == 'hist.lemma_closed':
         reasons.append('lemma_closed register must remain FALSE; gate never promotes it')
 
@@ -168,6 +182,7 @@ def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
         'required_dependencies': required,
         'missing_terminal': missing_terminal,
         'blocked_absent': blocked,
+        'refuted_required': refuted,
         'reasons': reasons,
         'meaning': 'integrity decision only; not theorem acceptance',
     }
@@ -209,7 +224,7 @@ def apply_promotion(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
     clone = json.loads(json.dumps(graph))
     decision = promotion_allowed(clone, node_id)
     node = clone['nodes'][node_id]
-    if decision['blocked_absent']:
+    if decision['blocked_absent'] or decision.get('refuted_required'):
         node['controlling'] = False
         node['classification'] = 'HOLD'
         decision = {**decision, 'applied': 'HOLD', 'ok': False}
@@ -260,6 +275,105 @@ def reverse_impact(
         'impacted': impacted,
         'graph': clone,
         'meaning': 'reverse-impact revalidation marks; not theorem discharge',
+    }
+
+
+
+def _validate_edge_shape(graph: dict[str, Any]) -> None:
+    nodes = graph.get('nodes')
+    edges = graph.get('edges')
+    if not isinstance(nodes, dict) or not isinstance(edges, list):
+        raise ValueError('malformed graph')
+    for edge in edges:
+        if not isinstance(edge, dict) or not {'from', 'to', 'required', 'relation'} <= set(edge):
+            raise ValueError('malformed edge record')
+        if edge['from'] not in nodes or edge['to'] not in nodes:
+            raise ValueError('edge references missing node')
+
+
+def _required_cycle(graph: dict[str, Any]) -> list[str] | None:
+    _validate_edge_shape(graph)
+    visiting: set[str] = set()
+    done: set[str] = set()
+    stack: list[str] = []
+
+    def visit(nid: str) -> list[str] | None:
+        if nid in visiting:
+            i = stack.index(nid)
+            return stack[i:] + [nid]
+        if nid in done:
+            return None
+        visiting.add(nid); stack.append(nid)
+        for dep in required_dependencies(graph, nid):
+            cycle = visit(dep)
+            if cycle:
+                return cycle
+        stack.pop(); visiting.remove(nid); done.add(nid)
+        return None
+
+    for nid in sorted(graph['nodes']):
+        cycle = visit(nid)
+        if cycle:
+            return cycle
+    return None
+
+
+def validate_graph_fail_closed(graph: dict[str, Any]) -> None:
+    _validate_edge_shape(graph)
+    cycle = _required_cycle(graph)
+    if cycle:
+        raise ValueError('required dependency cycle: ' + ' -> '.join(cycle))
+
+
+def reverse_impact_between(
+    old_graph: dict[str, Any],
+    new_graph: dict[str, Any],
+) -> dict[str, Any]:
+    """Reverse impact over UNION(old,new) edges; deleted edges cannot erase impact."""
+    validate_graph_fail_closed(old_graph)
+    validate_graph_fail_closed(new_graph)
+    old_nodes, new_nodes = old_graph['nodes'], new_graph['nodes']
+    all_ids = set(old_nodes) | set(new_nodes)
+    changed: set[str] = set()
+    for nid in all_ids:
+        if nid not in old_nodes or nid not in new_nodes:
+            changed.add(nid); continue
+        if (old_nodes[nid].get('fingerprint') != new_nodes[nid].get('fingerprint')
+                or old_nodes[nid].get('classification') != new_nodes[nid].get('classification')):
+            changed.add(nid)
+
+    union_edges = {
+        (e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']
+    }
+    reverse: dict[str, set[str]] = {}
+    for child, dep in union_edges:
+        reverse.setdefault(dep, set()).add(child)
+
+    impacted: set[str] = set()
+    queue = list(changed)
+    seen = set(queue)
+    while queue:
+        dep = queue.pop()
+        for child in reverse.get(dep, ()):
+            if child not in seen:
+                seen.add(child); queue.append(child)
+            if child in new_nodes:
+                impacted.add(child)
+
+    clone = json.loads(json.dumps(new_graph))
+    for nid in sorted(impacted):
+        node = clone['nodes'][nid]
+        if node.get('classification') in (
+            'AUTHOR_SIDE_CANDIDATE', 'AUTHOR_SIDE_REDUCTION', 'COVERED_BY_CANDIDATE',
+            'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING',
+        ) or node.get('controlling'):
+            node['classification'] = 'REVALIDATION_REQUIRED'
+            node['controlling'] = False
+    return {
+        'changed_nodes': sorted(changed),
+        'impacted': sorted(impacted),
+        'graph': clone,
+        'meaning': 'union-edge reverse-impact hold; never promotion permission',
     }
 
 
