@@ -455,8 +455,11 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
                                   margin: int | Q = Q(1, 10),
                                   H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
                                   f_xxx: int | Q = 0, f_xxy: int | Q = 0,
-                                  f_xyy: int | Q = 0, f_yyy: int | Q = 0) -> dict:
-    """Pin-centred ledger with leading Morse and next-order cubic contact rows."""
+                                  f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+                                  f_xxxx: int | Q = 0, f_xxxy: int | Q = 0,
+                                  f_xxyy: int | Q = 0, f_xyyy: int | Q = 0,
+                                  f_yyyy: int | Q = 0) -> dict:
+    """Pin-centred ledger with Morse, cubic, and quartic contact residuals."""
     frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
     rows = pin_site_morse_contact_rows(
         frame['z1'], frame['z2'], H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
@@ -464,6 +467,10 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
     nxt = pin_site_morse_next_order_rows(
         frame['z1'], frame['z2'],
         f_xxx=f_xxx, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    quart = pin_site_morse_quartic_rows(
+        frame['z1'], frame['z2'],
+        f_xxxx=f_xxxx, f_xxxy=f_xxxy, f_xxyy=f_xxyy, f_xyyy=f_xyyy, f_yyyy=f_yyyy,
     )
     signature = pin_morse_hessian_signature(
         H_xx=H_xx, H_xy=H_xy, H_yy=H_yy, closer_pin=str(frame['closer_pin']),
@@ -475,6 +482,7 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'midpoint_U0_rows_applicable': False,
         'contact_rows': rows,
         'next_order_rows': nxt,
+        'quartic_rows': quart,
         'hessian_signature': signature,
         'scaling': {
             'grad': PIN_CENTERED_SCALING_EXPONENTS['grad'],
@@ -483,9 +491,10 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         },
         'pin_site_jet_rows_enumerated': True,
         'pin_site_next_order_enumerated': True,
+        'pin_site_quartic_enumerated': True,
         'pin_site_higher_jets_enumerated': False,
         'contact_rows_enumerated': True,
-        'enumeration_scope': 'leading_morse_plus_cubic_next_order',
+        'enumeration_scope': 'leading_morse_plus_cubic_and_quartic',
         'hessian_ledger_evaluated': False,
         'uniform_integrand_bound_proved': False,
         'full_annulus_closed': False,
@@ -494,8 +503,8 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'complements_pr7': True,
         'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'leading Morse pin-site rows J=H z plus cubic next-order H_*_next; '
-            'fourth-and-higher jets and Gaussian density remain open'
+            'leading Morse pin-site rows J=H z plus cubic H_*_next and quartic '
+            'Q_*_next; fifth-and-higher jets and Gaussian density remain open'
         ),
     }
 
@@ -568,6 +577,52 @@ def pin_site_morse_next_order_rows(
         'f_xxy': b,
         'f_xyy': c,
         'f_yyy': d,
+    }
+
+
+def pin_site_morse_quartic_rows(
+    z1: int | Q, z2: int | Q, *,
+    f_xxxx: int | Q, f_xxxy: int | Q, f_xxyy: int | Q,
+    f_xyyy: int | Q, f_yyyy: int | Q,
+) -> dict[str, Q | bool | int]:
+    """Quartic (fourth-order) pin-local contact residuals after cubic next-order.
+
+    With fourth derivatives at the pin:
+      grad f(pin+rz) = r H z + (r^2/2) D³f(z,z) + (r^3/6) D⁴f(z,z,z) + O(r^4)
+      f(pin+rz)-f(pin) = (r^2/2) z·H·z + (r^3/6) D³f(z,z,z)
+                         + (r^4/24) D⁴f(z,z,z,z) + O(r^5)
+    so after stripping leading powers the unmatched r^2 corrections are
+      Q_grad_next = (1/6) D⁴f(z,z,z),   Q_height_next = (1/24) D⁴f(z,z,z,z),
+    with the exact identity z·Q_grad_next = 4 Q_height_next.
+    Fifth-and-higher jets remain open.
+    """
+    u, v = exact(z1), exact(z2)
+    if u == 0 and v == 0:
+        raise ValueError('quartic pin rows require z != 0')
+    a, b, c, d, e = map(exact, (f_xxxx, f_xxxy, f_xxyy, f_xyyy, f_yyyy))
+    # (1/6) D⁴f(z,z,z) components
+    g1 = (a * u ** 3 + 3 * b * u * u * v + 3 * c * u * v * v + d * v ** 3) / 6
+    g2 = (b * u ** 3 + 3 * c * u * u * v + 3 * d * u * v * v + e * v ** 3) / 6
+    # (1/24) D⁴f(z,z,z,z)
+    h = (
+        a * u ** 4 + 4 * b * u ** 3 * v + 6 * c * u * u * v * v
+        + 4 * d * u * v ** 3 + e * v ** 4
+    ) / 24
+    return {
+        'Q_grad_next_1': g1,
+        'Q_grad_next_2': g2,
+        'Q_height_next': h,
+        'z_dot_Q_grad_next_minus_4_Q_height_next': u * g1 + v * g2 - 4 * h,
+        'unmatched_density_r_power': 2,
+        'explicit_r_factor_still_required': True,
+        'fifth_and_higher_jets_enumerated': False,
+        'z1': u,
+        'z2': v,
+        'f_xxxx': a,
+        'f_xxxy': b,
+        'f_xxyy': c,
+        'f_xyyy': d,
+        'f_yyyy': e,
     }
 
 
@@ -1023,9 +1078,10 @@ def contact_density_obstruction_inventory() -> dict:
             'C_pin_centered': {
                 'leading_morse_rows_enumerated': True,
                 'cubic_next_order_enumerated': True,
+                'quartic_next_order_enumerated': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
-                'fourth_and_higher_jets_enumerated': False,
+                'fifth_and_higher_jets_enumerated': False,
                 'contact_gaussian_density_bounded': False,
             },
         },
@@ -1034,7 +1090,7 @@ def contact_density_obstruction_inventory() -> dict:
             'conditioned_hessian_expectation',
             'thin_belt_uniform_integrand_after_cancel',
             'transverse_height_r_absorption',
-            'pin_fourth_and_higher_jets',
+            'pin_fifth_and_higher_jets',
         ],
         'meaning': (
             'inventory only: chart singularities cleared on C_transverse/C_axial; '
@@ -1280,7 +1336,8 @@ def result() -> dict:
     height_r = transverse_height_r_factor_ledger(point(0, 2), gap_mark=1, f_yy=2)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
-    pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+    pin_led = pin_centered_ledger_for_point(
+        point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, f_yyyy=24)
     pin_obs = pin_site_jet_obstruction_ledger(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     axial_hess = axial_hessian_contact_rows(
