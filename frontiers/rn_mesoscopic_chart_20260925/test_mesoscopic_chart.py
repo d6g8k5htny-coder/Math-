@@ -1053,6 +1053,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['unmatched_height_r_power_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['gradient_contact_jacobian_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['conditioned_hessian_det_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
@@ -1176,10 +1178,50 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(ax['H_yy_free_residual'], 5)
         self.assertTrue(ax['axial_area_measure_zero'])
         self.assertFalse(ax['conditioned_expectation_evaluated'])
+        pin = m.pin_centered_conditioned_hessian_residual_ledger(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
+        self.assertEqual(pin['elimination_branch'], 'z2_nonzero')
+        self.assertEqual(pin['free_residual_coordinates'], ['H_xx'])
+        self.assertEqual(pin['H_xy_minus_solved'], 0)
+        self.assertEqual(pin['H_yy_minus_solved'], 0)
+        self.assertEqual(pin['H_xx_minus_raw'], 0)
+        self.assertEqual(pin['H_xy_minus_raw'], 0)
+        self.assertEqual(pin['H_yy_minus_raw'], 0)
+        self.assertEqual(pin['det_contact_leading_residual'], -6)
+        self.assertEqual(pin['det_minus_raw'], 0)
+        self.assertTrue(pin['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertFalse(pin['conditioned_expectation_evaluated'])
+        pin_axis = m.pin_centered_conditioned_hessian_residual_ledger(
+            m.point(Q(11, 20), 0), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=1, H_yy=3)
+        self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
+        self.assertEqual(pin_axis['free_residual_coordinates'], ['H_yy'])
+        self.assertEqual(pin_axis['H_xx_minus_solved'], 0)
+        self.assertEqual(pin_axis['H_xy_minus_solved'], 0)
+        self.assertEqual(pin_axis['det_minus_raw'], 0)
         with self.assertRaises(ValueError):
             m.transverse_conditioned_hessian_residual_ledger(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_conditioned_hessian_residual_ledger(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.pin_centered_conditioned_hessian_residual_ledger(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
+
+    def test_pin_centered_conditioned_hessian_residual(self):
+        pin = m.pin_centered_conditioned_hessian_residual_ledger(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=1, H_yy=4)
+        self.assertEqual(pin['chart'], 'C_pin_centered')
+        self.assertEqual(pin['H_xy_residual'], 1)  # J1/z2 with z1=0
+        self.assertEqual(pin['H_yy_residual'], 4)
+        self.assertEqual(pin['det_contact_leading_residual'], -9)  # -2*4 - 1
+        self.assertFalse(pin['hessian_ledger_evaluated'])
+        skel = m.pin_centered_conditioned_det_free_jet_skeleton(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=1, H_yy=4)
+        self.assertEqual(skel['alpha_H_xx'], 4)  # J2/z2 = H_yy
+        self.assertEqual(skel['beta_const'], -1)  # -J1²/z2² = -H_xy²
+        self.assertEqual(skel['det_contact_leading_from_alpha_beta'], -9)
+        self.assertEqual(skel['det_minus_alpha_beta_form'], 0)
+        self.assertTrue(skel['linear_in_free_residuals'])
+        self.assertFalse(skel['conditioned_expectation_evaluated'])
 
     def test_transverse_height_residual_after_grad_contact(self):
         # y1=0: residual collapses to (1/6) f_yyy y2^3
@@ -1277,10 +1319,25 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(bundled['conditioned_expectation_evaluated'])
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['det_minus_alpha_form'], 0)
+        pin = m.pin_centered_conditioned_det_free_jet_skeleton(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
+        self.assertEqual(pin['alpha_H_xx'], 3)
+        self.assertEqual(pin['beta_const'], 0)
+        self.assertEqual(pin['det_contact_leading_from_alpha_beta'], -6)
+        self.assertEqual(pin['det_minus_alpha_beta_form'], 0)
+        self.assertEqual(bundled['C_pin_centered']['det_minus_alpha_beta_form'], 0)
+        pin_axis = m.pin_centered_conditioned_det_free_jet_skeleton(
+            m.point(Q(11, 20), 0), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=1, H_yy=3)
+        self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
+        self.assertEqual(pin_axis['alpha_H_yy'], -2)  # J1/z1 = H_xx
+        self.assertEqual(pin_axis['det_minus_alpha_beta_form'], 0)
         with self.assertRaises(ValueError):
             m.transverse_conditioned_det_free_jet_skeleton(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_conditioned_det_free_jet_skeleton(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.pin_centered_conditioned_det_free_jet_skeleton(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
 
     def test_contact_integrand_algebraic_factor_skeleton(self):
         # y=(0,2): |det J|=|y2|^3/2=4, reciprocal=1/4, |det H|=12, product=3

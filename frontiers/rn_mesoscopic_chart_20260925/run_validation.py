@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 76
+EXPECTED_TESTS = 77
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -190,9 +190,17 @@ MUTANTS = {
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
     ),
+    'claim_hessian_expectation_from_pin_residual': (
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse residual Hessian after eliminating constrained '\n            'coords; not a conditioned Gaussian expectation of |det H|'\n        ),",
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse residual Hessian after eliminating constrained '\n            'coords; not a conditioned Gaussian expectation of |det H|'\n        ),",
+    ),
     'claim_hessian_expectation_from_det_skeleton': (
         "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
         "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
+    ),
+    'claim_hessian_expectation_from_pin_det_skeleton': (
+        "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse linear form det=α·free+β after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
+        "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse linear form det=α·free+β after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
     ),
     'claim_density_from_integrand_algebraic_factor': (
         "'global_contact_density_bound_proved': False,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'exact algebraic Jacobian×|det H| factor products after grad contact; '\n            'does not bound the contact Gaussian density'\n        ),",

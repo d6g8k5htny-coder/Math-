@@ -2457,6 +2457,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'unmatched_height_r_power_inventory_recorded': True,
                 'free_jet_residual_inventory_recorded': True,
                 'gradient_contact_jacobian_enumerated': True,
+                'conditioned_hessian_residual_polynomials_enumerated': True,
+                'conditioned_hessian_det_skeleton_enumerated': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
@@ -2978,23 +2980,168 @@ def axial_conditioned_det_free_jet_skeleton(
     }
 
 
+def pin_centered_conditioned_hessian_residual_ledger(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+    H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
+) -> dict:
+    """Express pin Morse Hessian entries after eliminating constrained coords.
+
+    Leading Morse contact J = H_pin · z. With z2≠0 eliminate (H_xy, H_yy):
+      H_xy = (J1 − H_xx z1) / z2
+      H_yy = (J2 − H_xy z1) / z2
+    leaving free residual H_xx. With z2=0 and z1≠0 eliminate (H_xx, H_xy):
+      H_xx = J1 / z1,   H_xy = J2 / z1
+    leaving free residual H_yy. Exact polynomial identities only; conditioned
+    Gaussian expectation stays open. Small-A diagnostic chart.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    u, v = exact(frame['z1']), exact(frame['z2'])
+    if u == 0 and v == 0:
+        raise ValueError('pin conditioned Hessian residual requires z != 0')
+    a, b, c = map(exact, (H_xx, H_xy, H_yy))
+    rows = pin_site_morse_contact_rows(u, v, H_xx=a, H_xy=b, H_yy=c)
+    j1, j2 = rows['J_grad_1'], rows['J_grad_2']
+    if v != 0:
+        eliminated = ['H_xy', 'H_yy']
+        free_residual = ['H_xx']
+        elimination_branch = 'z2_nonzero'
+        h_xx = a
+        h_xy = (j1 - a * u) / v
+        h_yy = (j2 - h_xy * u) / v
+        h_xy_minus_solved = b - h_xy
+        h_yy_minus_solved = c - h_yy
+        h_xx_minus_solved = 0
+    else:
+        eliminated = ['H_xx', 'H_xy']
+        free_residual = ['H_yy']
+        elimination_branch = 'z1_nonzero_z2_zero'
+        h_xx = j1 / u
+        h_xy = j2 / u
+        h_yy = c
+        h_xx_minus_solved = a - h_xx
+        h_xy_minus_solved = b - h_xy
+        h_yy_minus_solved = 0
+    det_resid = h_xx * h_yy - h_xy * h_xy
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'z': {'z1': u, 'z2': v},
+        'closer_pin': frame['closer_pin'],
+        'free_residual_coordinates': free_residual,
+        'eliminated_by_grad_contact': eliminated,
+        'elimination_branch': elimination_branch,
+        'J_grad_1': j1,
+        'J_grad_2': j2,
+        'H_xx_residual': h_xx,
+        'H_xy_residual': h_xy,
+        'H_yy_residual': h_yy,
+        'H_xx_minus_solved': h_xx_minus_solved,
+        'H_xy_minus_solved': h_xy_minus_solved,
+        'H_yy_minus_solved': h_yy_minus_solved,
+        'H_xx_minus_raw': h_xx - a,
+        'H_xy_minus_raw': h_xy - b,
+        'H_yy_minus_raw': h_yy - c,
+        'det_contact_leading_residual': det_resid,
+        'det_minus_raw': det_resid - (a * c - b * b),
+        'conditioned_hessian_residual_polynomials_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'pin_site_higher_jets_enumerated': False,
+        'meaning': (
+            'exact pin Morse residual Hessian after eliminating constrained '
+            'coords; not a conditioned Gaussian expectation of |det H|'
+        ),
+    }
+
+
+def pin_centered_conditioned_det_free_jet_skeleton(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+    H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
+) -> dict:
+    """Exact linear skeleton of leading det H on the free pin Morse residual.
+
+    After Morse gradient contact the quadratic H_xx² terms cancel, leaving a
+    degree-1 form in the single free Hessian direction:
+      z2≠0:  det = α_Hxx · H_xx + β,  α = J2/z2 + z1 J1/z2²,  β = −J1²/z2²
+      z2=0:  det = α_Hyy · H_yy + β,  α = J1/z1,  β = −J2²/z1²
+    Does not evaluate the conditioned Gaussian expectation of |det H|.
+    """
+    resid = pin_centered_conditioned_hessian_residual_ledger(
+        y, inner=inner, outer=outer, margin=margin,
+        H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
+    )
+    u = resid['z']['z1']
+    v = resid['z']['z2']
+    j1, j2 = resid['J_grad_1'], resid['J_grad_2']
+    if resid['elimination_branch'] == 'z2_nonzero':
+        free_coord = 'H_xx'
+        free_value = exact(H_xx)
+        alpha = j2 / v + (u * j1) / (v * v)
+        beta = -(j1 * j1) / (v * v)
+        alpha_key = 'alpha_H_xx'
+        beta_key = 'beta_const'
+    else:
+        free_coord = 'H_yy'
+        free_value = exact(H_yy)
+        alpha = j1 / u
+        beta = -(j2 * j2) / (u * u)
+        alpha_key = 'alpha_H_yy'
+        beta_key = 'beta_const'
+    det_from = alpha * free_value + beta
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': resid['y'],
+        'z': resid['z'],
+        'closer_pin': resid['closer_pin'],
+        'free_residual_coordinates': resid['free_residual_coordinates'],
+        'eliminated_by_grad_contact': resid['eliminated_by_grad_contact'],
+        'elimination_branch': resid['elimination_branch'],
+        'leading_det_depends_on_free': [free_coord],
+        alpha_key: alpha,
+        beta_key: beta,
+        'det_contact_leading_from_alpha_beta': det_from,
+        'det_contact_leading_residual': resid['det_contact_leading_residual'],
+        'det_minus_alpha_beta_form': det_from - resid['det_contact_leading_residual'],
+        'free_jet_polynomial_degree': 1,
+        'linear_in_free_residuals': True,
+        'conditioned_hessian_det_skeleton_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'pin_site_higher_jets_enumerated': False,
+        'meaning': (
+            'exact pin Morse linear form det=α·free+β after grad contact; '
+            'not a conditioned Gaussian expectation of |det H|'
+        ),
+    }
+
+
 def contact_conditioned_det_free_jet_skeleton_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+    pin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial conditioned det free-jet skeletons (expectation open)."""
+    """Bundle transverse/axial/pin conditioned det free-jet skeletons (expectation open)."""
     ty = transverse_y if transverse_y is not None else point(0, 2)
     ay = axial_y if axial_y is not None else point(2, 0)
+    py = pin_y if pin_y is not None else point(Q(1, 2), Q(1, 20))
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
         'C_transverse': transverse_conditioned_det_free_jet_skeleton(
             ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4),
         'C_axial': axial_conditioned_det_free_jet_skeleton(
             ay, gap_mark=1, f_yy=2, f_xxy=3),
+        'C_pin_centered': pin_centered_conditioned_det_free_jet_skeleton(
+            py, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3),
         'global_contact_density_bound_proved': False,
         'conditioned_expectation_evaluated': False,
         'meaning': (
-            'exact free-jet linear skeletons for leading det H after grad contact; '
-            'does not evaluate conditioned Gaussian expectations'
+            'exact free-jet linear skeletons for leading det H after grad contact '
+            '(transverse/axial/pin); does not evaluate conditioned Gaussian expectations'
         ),
     }
 
@@ -3816,6 +3963,8 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
     axial_hess_resid = axial_conditioned_hessian_residual_ledger(
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3)
+    pin_hess_resid = pin_centered_conditioned_hessian_residual_ledger(
+        point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
     height_resid = transverse_height_residual_after_grad_contact(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
@@ -3871,6 +4020,7 @@ def result() -> dict:
     out['contact_gradient_jacobian_density_shape'] = conv(grad_jac)
     out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
+    out['pin_centered_conditioned_hessian_residual'] = conv(pin_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)

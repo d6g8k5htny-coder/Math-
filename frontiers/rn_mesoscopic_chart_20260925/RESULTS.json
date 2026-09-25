@@ -312,6 +312,43 @@
         "y2": "0"
       }
     },
+    "C_pin_centered": {
+      "alpha_H_xx": "3",
+      "beta_const": "0",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "conditioned_expectation_evaluated": false,
+      "conditioned_hessian_det_skeleton_enumerated": true,
+      "contact_gaussian_density_bounded": false,
+      "det_contact_leading_from_alpha_beta": "-6",
+      "det_contact_leading_residual": "-6",
+      "det_minus_alpha_beta_form": "0",
+      "eliminated_by_grad_contact": [
+        "H_xy",
+        "H_yy"
+      ],
+      "elimination_branch": "z2_nonzero",
+      "free_jet_polynomial_degree": 1,
+      "free_residual_coordinates": [
+        "H_xx"
+      ],
+      "hessian_ledger_evaluated": false,
+      "leading_det_depends_on_free": [
+        "H_xx"
+      ],
+      "linear_in_free_residuals": true,
+      "meaning": "exact pin Morse linear form det=\u03b1\u00b7free+\u03b2 after grad contact; not a conditioned Gaussian expectation of |det H|",
+      "object": "RN-MESOSCOPIC-PIN-CENTERED-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1",
+      "pin_site_higher_jets_enumerated": false,
+      "y": {
+        "y1": "1/2",
+        "y2": "1/20"
+      },
+      "z": {
+        "z1": "0",
+        "z2": "1/20"
+      }
+    },
     "C_transverse": {
       "J_grad_y": "4",
       "alpha_f_xxy": "4",
@@ -343,7 +380,7 @@
     },
     "conditioned_expectation_evaluated": false,
     "global_contact_density_bound_proved": false,
-    "meaning": "exact free-jet linear skeletons for leading det H after grad contact; does not evaluate conditioned Gaussian expectations",
+    "meaning": "exact free-jet linear skeletons for leading det H after grad contact (transverse/axial/pin); does not evaluate conditioned Gaussian expectations",
     "object": "RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1"
   },
   "contact_density_obstruction": {
@@ -365,6 +402,8 @@
       },
       "C_pin_centered": {
         "algebraic_factor_times_height_r_skeleton_enumerated": true,
+        "conditioned_hessian_det_skeleton_enumerated": true,
+        "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "cubic_next_order_enumerated": true,
@@ -898,6 +937,46 @@
     "pin_site_higher_jets_enumerated": false,
     "product_minus_recorded_factors": "0",
     "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "1/2",
+      "y2": "1/20"
+    },
+    "z": {
+      "z1": "0",
+      "z2": "1/20"
+    }
+  },
+  "pin_centered_conditioned_hessian_residual": {
+    "H_xx_minus_raw": "0",
+    "H_xx_minus_solved": 0,
+    "H_xx_residual": "-2",
+    "H_xy_minus_raw": "0",
+    "H_xy_minus_solved": "0",
+    "H_xy_residual": "0",
+    "H_yy_minus_raw": "0",
+    "H_yy_minus_solved": "0",
+    "H_yy_residual": "3",
+    "J_grad_1": "0",
+    "J_grad_2": "3/20",
+    "chart": "C_pin_centered",
+    "closer_pin": "S",
+    "conditioned_expectation_evaluated": false,
+    "conditioned_hessian_residual_polynomials_enumerated": true,
+    "contact_gaussian_density_bounded": false,
+    "det_contact_leading_residual": "-6",
+    "det_minus_raw": "0",
+    "eliminated_by_grad_contact": [
+      "H_xy",
+      "H_yy"
+    ],
+    "elimination_branch": "z2_nonzero",
+    "free_residual_coordinates": [
+      "H_xx"
+    ],
+    "hessian_ledger_evaluated": false,
+    "meaning": "exact pin Morse residual Hessian after eliminating constrained coords; not a conditioned Gaussian expectation of |det H|",
+    "object": "RN-MESOSCOPIC-PIN-CENTERED-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1",
+    "pin_site_higher_jets_enumerated": false,
     "y": {
       "y1": "1/2",
       "y2": "1/20"
