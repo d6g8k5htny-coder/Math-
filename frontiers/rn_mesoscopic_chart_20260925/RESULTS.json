@@ -264,12 +264,13 @@
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
         "max_saddle_signature_test_recorded": true,
-        "ninth_and_higher_jets_enumerated": false,
+        "nonic_next_order_enumerated": true,
         "octic_next_order_enumerated": true,
         "quartic_next_order_enumerated": true,
         "quintic_next_order_enumerated": true,
         "septic_next_order_enumerated": true,
-        "sextic_next_order_enumerated": true
+        "sextic_next_order_enumerated": true,
+        "tenth_and_higher_jets_enumerated": false
       },
       "C_thin_belt": {
         "bare_1_over_abs_y2_L1": false,
@@ -302,7 +303,7 @@
       "conditioned_hessian_expectation",
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
-      "pin_ninth_and_higher_jets"
+      "pin_tenth_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
   },
@@ -661,7 +662,7 @@
       "z2": "1/20"
     },
     "contact_rows_enumerated": true,
-    "enumeration_scope": "leading_morse_plus_cubic_through_octic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_nonic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -693,7 +694,7 @@
       "trace_H": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic through octic H/Q/P/S/T/U_*_next; ninth-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic through nonic H/Q/P/S/T/U/N_*_next; tenth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -707,6 +708,27 @@
       "z1": "0",
       "z2": "1/20",
       "z_dot_H_grad_next_minus_3_H_height_next": "0"
+    },
+    "nonic_rows": {
+      "N_grad_next_1": "0",
+      "N_grad_next_2": "9/25600000000",
+      "N_height_next": "1/512000000000",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxxxxx": "0",
+      "f_xxxxxxxxy": "0",
+      "f_xxxxxxxyy": "0",
+      "f_xxxxxxyyy": "0",
+      "f_xxxxxyyyy": "0",
+      "f_xxxxyyyyy": "0",
+      "f_xxxyyyyyy": "0",
+      "f_xxyyyyyyy": "0",
+      "f_xyyyyyyyy": "0",
+      "f_yyyyyyyyy": "362880",
+      "tenth_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 7,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_N_grad_next_minus_9_N_height_next": "0"
     },
     "object": "RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1",
     "octic_rows": {
@@ -723,7 +745,6 @@
       "f_xxyyyyyy": "0",
       "f_xyyyyyyy": "0",
       "f_yyyyyyyy": "40320",
-      "ninth_and_higher_jets_enumerated": false,
       "unmatched_density_r_power": 6,
       "z1": "0",
       "z2": "1/20",
@@ -732,6 +753,7 @@
     "pin_site_higher_jets_enumerated": false,
     "pin_site_jet_rows_enumerated": true,
     "pin_site_next_order_enumerated": true,
+    "pin_site_nonic_enumerated": true,
     "pin_site_octic_enumerated": true,
     "pin_site_quartic_enumerated": true,
     "pin_site_quintic_enumerated": true,
