@@ -1060,6 +1060,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'integrand_power_identity_recorded': True,
                 'height_r_factor_absorbed': False,
                 'free_jet_residual_inventory_recorded': True,
+                'conditioned_hessian_residual_polynomials_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1068,6 +1069,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'integrand_power_identity_recorded': True,
                 'area_measure_zero_in_2d': True,
                 'free_jet_residual_inventory_recorded': True,
+                'conditioned_hessian_residual_polynomials_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1201,6 +1203,121 @@ def contact_free_jet_residual_inventory(
         'meaning': (
             'exact free-jet residual counts after leading gradient contact; '
             'prerequisite inventory only — does not bound the contact density'
+        ),
+    }
+
+
+def transverse_conditioned_hessian_residual_ledger(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Express transverse Hessian contact entries in (J_grad, k, f_xxy) residuals.
+
+    Eliminate f_yy and f_xyy via leading gradient contact (y2≠0):
+      f_yy  = J_grad_y / y2
+      f_xyy = (2/y2^2) (J_grad_x − 6k y1^2 − f_xxy y1 y2)
+    Free residual coordinates among the four leading-grad jets: (k, f_xxy).
+    Then
+      H_yy = J_grad_y / y2
+      H_xx = 12 k y1 + f_xxy y2
+      H_xy = 2 J_grad_x / y2 − 12 k y1^2 / y2 − f_xxy y1
+    Exact polynomial identities only; conditioned Gaussian expectation stays open.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    y1, y2 = y
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = contact_rows(y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d)
+    jy, jx = rows['J_grad_y'], rows['J_grad_x']
+    f_yy_from_jy = jy / y2
+    f_xyy_from_jx = (2 / (y2 * y2)) * (jx - 6 * k * y1 * y1 - b * y1 * y2)
+    h_yy = f_yy_from_jy
+    h_xx = 12 * k * y1 + b * y2
+    h_xy = (2 * jx) / y2 - (12 * k * y1 * y1) / y2 - b * y1
+    raw = hessian_contact_rows(y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d)
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1',
+        'chart': 'C_transverse',
+        'y': {'y1': y1, 'y2': y2},
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'f_yy_from_J_grad_y': f_yy_from_jy,
+        'f_xyy_from_J_grad_x': f_xyy_from_jx,
+        'f_yy_minus_solved': a - f_yy_from_jy,
+        'f_xyy_minus_solved': c - f_xyy_from_jx,
+        'H_xx_residual': h_xx,
+        'H_xy_residual': h_xy,
+        'H_yy_residual': h_yy,
+        'H_xx_minus_raw': h_xx - raw['H_xx_contact'],
+        'H_xy_minus_raw': h_xy - raw['H_xy_contact'],
+        'H_yy_minus_raw': h_yy - raw['H_yy_contact'],
+        'det_contact_leading_residual': h_xx * h_yy,
+        'det_xy_square_residual': h_xy * h_xy,
+        'conditioned_hessian_residual_polynomials_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '
+            'not a conditioned Gaussian expectation of |det H|'
+        ),
+    }
+
+
+def axial_conditioned_hessian_residual_ledger(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Express axial Hessian contact entries after isolating k and f_xxy.
+
+    Axial gradient contact isolates k and f_xxy. Residual free jets for the
+    Hessian factor include f_yy (and f_xyy,f_yyy at next order):
+      H_xx = 12 k y1 = 2 J_grad_x / y1   (when y1≠0)
+      H_xy = f_xxy y1 = 2 J_grad_y / y1
+      H_yy = f_yy                         (free residual)
+    Exact identities only; density / expectation remain open; area-measure zero.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = axial_contact_rows(y, gap_mark=k, f_xxy=b)
+    jy, jx = rows['J_grad_y'], rows['J_grad_x']
+    h_xx = (2 * jx) / y1
+    h_xy = (2 * jy) / y1
+    h_yy = a
+    raw = axial_hessian_contact_rows(y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d)
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1',
+        'chart': 'C_axial',
+        'y': {'y1': y1, 'y2': y2},
+        'isolated_by_grad_contact': ['k', 'f_xxy'],
+        'free_residual_coordinates': ['f_yy', 'f_xyy', 'f_yyy'],
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'H_xx_from_J_grad_x': h_xx,
+        'H_xy_from_J_grad_y': h_xy,
+        'H_yy_free_residual': h_yy,
+        'H_xx_minus_raw': h_xx - raw['H_xx_contact'],
+        'H_xy_minus_raw': h_xy - raw['H_xy_contact'],
+        'H_yy_minus_raw': h_yy - raw['H_yy_contact'],
+        'det_contact_leading_residual': h_xx * h_yy,
+        'axial_area_measure_zero': True,
+        'conditioned_hessian_residual_polynomials_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact axial residual Hessian after isolating k,f_xxy; H_yy stays free; '
+            'not a conditioned Gaussian expectation'
         ),
     }
 
@@ -1452,6 +1569,10 @@ def result() -> dict:
     integrand_pin = pin_centered_integrand_power_ledger(2)
     density_obs = contact_density_obstruction_inventory()
     free_jets = contact_free_jet_residual_inventory()
+    hess_resid = transverse_conditioned_hessian_residual_ledger(
+        y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+    axial_hess_resid = axial_conditioned_hessian_residual_ledger(
+        point(2, 0), gap_mark=1, f_yy=2, f_xxy=3)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1484,6 +1605,8 @@ def result() -> dict:
     out['integrand_power_pin_centered'] = conv(integrand_pin)
     out['contact_density_obstruction'] = conv(density_obs)
     out['contact_free_jet_residual'] = conv(free_jets)
+    out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
+    out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

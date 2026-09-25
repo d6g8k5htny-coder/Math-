@@ -545,6 +545,9 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(inv['charts']['C_pin_centered']['fifth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_fifth_and_higher_jets', inv['open_blockers'])
@@ -579,6 +582,45 @@ class MesoscopicChartControls(unittest.TestCase):
             m.transverse_free_jet_residual_inventory(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_free_jet_residual_inventory(m.point(0, 2))
+
+    def test_conditioned_hessian_residual_ledger(self):
+        # Axis-aligned transverse sample: y1=0 isolates f_xyy from J_x.
+        led = m.transverse_conditioned_hessian_residual_ledger(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+        self.assertEqual(led['free_residual_coordinates'], ['k', 'f_xxy'])
+        self.assertEqual(led['f_yy_minus_solved'], 0)
+        self.assertEqual(led['f_xyy_minus_solved'], 0)
+        self.assertEqual(led['H_xx_minus_raw'], 0)
+        self.assertEqual(led['H_xy_minus_raw'], 0)
+        self.assertEqual(led['H_yy_minus_raw'], 0)
+        self.assertEqual(led['H_xx_residual'], 6)   # f_xxy * y2 = 3*2
+        self.assertEqual(led['H_yy_residual'], 2)
+        self.assertEqual(led['H_xy_residual'], 8)   # f_xyy * y2 = 4*2
+        self.assertEqual(led['det_contact_leading_residual'], 12)
+        self.assertTrue(led['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertFalse(led['conditioned_expectation_evaluated'])
+        # Off-axis: still exact match to raw Hessian.
+        off = m.transverse_conditioned_hessian_residual_ledger(
+            m.point(2, 2), gap_mark=1, f_yy=5, f_xxy=3, f_xyy=7)
+        self.assertEqual(off['f_yy_minus_solved'], 0)
+        self.assertEqual(off['f_xyy_minus_solved'], 0)
+        self.assertEqual(off['H_xx_minus_raw'], 0)
+        self.assertEqual(off['H_xy_minus_raw'], 0)
+        self.assertEqual(off['H_yy_minus_raw'], 0)
+        ax = m.axial_conditioned_hessian_residual_ledger(
+            m.point(2, 0), gap_mark=1, f_yy=5, f_xxy=3)
+        self.assertEqual(ax['H_xx_minus_raw'], 0)
+        self.assertEqual(ax['H_xy_minus_raw'], 0)
+        self.assertEqual(ax['H_yy_minus_raw'], 0)
+        self.assertEqual(ax['H_xx_from_J_grad_x'], 24)  # 12*k*y1
+        self.assertEqual(ax['H_xy_from_J_grad_y'], 6)   # f_xxy*y1
+        self.assertEqual(ax['H_yy_free_residual'], 5)
+        self.assertTrue(ax['axial_area_measure_zero'])
+        self.assertFalse(ax['conditioned_expectation_evaluated'])
+        with self.assertRaises(ValueError):
+            m.transverse_conditioned_hessian_residual_ledger(m.point(2, 0))
+        with self.assertRaises(ValueError):
+            m.axial_conditioned_hessian_residual_ledger(m.point(0, 2))
 
 
 if __name__ == '__main__':

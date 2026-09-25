@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 45
+EXPECTED_TESTS = 46
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -125,6 +125,10 @@ MUTANTS = {
     'claim_density_from_free_jet_residual': (
         "'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact free-jet residual counts after leading gradient contact; '\n            'prerequisite inventory only — does not bound the contact density'\n        ),",
         "'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact free-jet residual counts after leading gradient contact; '\n            'prerequisite inventory only — does not bound the contact density'\n        ),",
+    ),
+    'claim_hessian_expectation_from_residual': (
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
     ),
 }
 

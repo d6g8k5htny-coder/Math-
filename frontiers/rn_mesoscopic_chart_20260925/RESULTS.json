@@ -1,4 +1,36 @@
 {
+  "axial_conditioned_hessian_residual": {
+    "H_xx_from_J_grad_x": "24",
+    "H_xx_minus_raw": "0",
+    "H_xy_from_J_grad_y": "6",
+    "H_xy_minus_raw": "0",
+    "H_yy_free_residual": "2",
+    "H_yy_minus_raw": "0",
+    "J_grad_x": "24",
+    "J_grad_y": "6",
+    "axial_area_measure_zero": true,
+    "chart": "C_axial",
+    "conditioned_expectation_evaluated": false,
+    "conditioned_hessian_residual_polynomials_enumerated": true,
+    "contact_gaussian_density_bounded": false,
+    "det_contact_leading_residual": "48",
+    "free_residual_coordinates": [
+      "f_yy",
+      "f_xyy",
+      "f_yyy"
+    ],
+    "hessian_ledger_evaluated": false,
+    "isolated_by_grad_contact": [
+      "k",
+      "f_xxy"
+    ],
+    "meaning": "exact axial residual Hessian after isolating k,f_xxy; H_yy stays free; not a conditioned Gaussian expectation",
+    "object": "RN-MESOSCOPIC-AXIAL-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1",
+    "y": {
+      "y1": "2",
+      "y2": "0"
+    }
+  },
   "axial_conditioning_bound": {
     "abs_y1": "2",
     "annulus_A": "2",
@@ -104,6 +136,7 @@
       "C_axial": {
         "area_measure_zero_in_2d": true,
         "chart_conditioning_singularity_cleared": true,
+        "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
         "hessian_conditioned_expectation_evaluated": false,
@@ -126,6 +159,7 @@
       },
       "C_transverse": {
         "chart_conditioning_singularity_cleared": true,
+        "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
         "height_r_factor_absorbed": false,
@@ -560,6 +594,41 @@
     "grad_y_coefficient_y2": "1/8",
     "region": "thin_belt_open",
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
+  },
+  "transverse_conditioned_hessian_residual": {
+    "H_xx_minus_raw": "0",
+    "H_xx_residual": "6",
+    "H_xy_minus_raw": "0",
+    "H_xy_residual": "8",
+    "H_yy_minus_raw": "0",
+    "H_yy_residual": "2",
+    "J_grad_x": "8",
+    "J_grad_y": "4",
+    "chart": "C_transverse",
+    "conditioned_expectation_evaluated": false,
+    "conditioned_hessian_residual_polynomials_enumerated": true,
+    "contact_gaussian_density_bounded": false,
+    "det_contact_leading_residual": "12",
+    "det_xy_square_residual": "64",
+    "eliminated_by_grad_contact": [
+      "f_yy",
+      "f_xyy"
+    ],
+    "f_xyy_from_J_grad_x": "4",
+    "f_xyy_minus_solved": "0",
+    "f_yy_from_J_grad_y": "2",
+    "f_yy_minus_solved": "0",
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy"
+    ],
+    "hessian_ledger_evaluated": false,
+    "meaning": "exact residual Hessian polynomials after eliminating f_yy,f_xyy; not a conditioned Gaussian expectation of |det H|",
+    "object": "RN-MESOSCOPIC-TRANSVERSE-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1",
+    "y": {
+      "y1": "0",
+      "y2": "2"
+    }
   },
   "transverse_conditioning_bound": {
     "abs_y2": "2",
