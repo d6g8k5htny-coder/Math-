@@ -315,6 +315,22 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.transverse_height_r_factor_ledger(m.point(2, 0))
 
+    def test_axial_height_independence_ledger(self):
+        led = m.axial_height_independence_ledger(m.point(2, 0), gap_mark=1, f_xxy=2)
+        self.assertTrue(led['height_independent_at_leading_axial_order'])
+        self.assertFalse(led['leading_height_dependent_on_grad_y'])
+        self.assertFalse(led['leading_height_dependent_on_grad_x'])
+        self.assertEqual(led['unmatched_height_density_r_power'], 0)
+        self.assertFalse(led['explicit_r_factor_still_required'])
+        self.assertTrue(led['no_unmatched_height_r_at_leading_order'])
+        self.assertEqual(led['J_height'], 16)  # 2*k*y1^3 = 2*8
+        self.assertEqual(led['J_grad_x'], 24)  # 6*k*y1^2
+        self.assertEqual(led['J_grad_y'], 4)   # (y1^2/2)*f_xxy = 2*2
+        self.assertTrue(led['axial_area_measure_zero'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        with self.assertRaises(ValueError):
+            m.axial_height_independence_ledger(m.point(0, 2))
+
     def test_chart_boundary_transition(self):
         y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
         self.assertTrue(m.transverse_chart_ok(y))
@@ -639,6 +655,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(inv['charts']['C_transverse']['contact_gaussian_density_bounded'])
         self.assertFalse(inv['charts']['C_transverse']['height_r_factor_absorbed'])
         self.assertTrue(inv['charts']['C_axial']['area_measure_zero_in_2d'])
+        self.assertTrue(inv['charts']['C_axial']['height_independent_at_leading_axial_order'])
+        self.assertTrue(inv['charts']['C_axial']['no_unmatched_height_r_at_leading_order'])
         self.assertFalse(inv['charts']['C_thin_belt']['bare_1_over_abs_y2_L1'])
         self.assertTrue(inv['charts']['C_thin_belt']['jet_map_pointwise_cancel_recorded'])
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])

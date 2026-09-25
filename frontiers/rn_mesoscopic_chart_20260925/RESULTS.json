@@ -46,6 +46,27 @@
     "uniform_chart_bound": "1/2"
   },
   "axial_gradient_jacobian_r_power": 4,
+  "axial_height_independence": {
+    "J_grad_x": "24",
+    "J_grad_y": "4",
+    "J_height": "16",
+    "axial_area_measure_zero": true,
+    "chart": "C_axial",
+    "contact_gaussian_density_bounded": false,
+    "explicit_r_factor_still_required": false,
+    "height_independent_at_leading_axial_order": true,
+    "height_scaling_exponent": 3,
+    "leading_height_dependent_on_grad_x": false,
+    "leading_height_dependent_on_grad_y": false,
+    "meaning": "axial J_height=2k y1^3 is independent at leading order; no unmatched height r^1 (unlike C_transverse); density still unbound",
+    "no_unmatched_height_r_at_leading_order": true,
+    "object": "RN-MESOSCOPIC-AXIAL-HEIGHT-INDEPENDENCE-20260925-v1",
+    "unmatched_height_density_r_power": 0,
+    "y": {
+      "y1": "2",
+      "y2": "0"
+    }
+  },
   "axial_hessian_sample": {
     "H_xx_contact": "24",
     "H_xy_contact": "6",
@@ -209,8 +230,10 @@
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
         "gradient_contact_jacobian_enumerated": true,
+        "height_independent_at_leading_axial_order": true,
         "hessian_conditioned_expectation_evaluated": false,
-        "integrand_power_identity_recorded": true
+        "integrand_power_identity_recorded": true,
+        "no_unmatched_height_r_at_leading_order": true
       },
       "C_pin_centered": {
         "contact_gaussian_density_bounded": false,

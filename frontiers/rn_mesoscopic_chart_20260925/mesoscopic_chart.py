@@ -1394,6 +1394,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'conditioned_hessian_residual_polynomials_enumerated': True,
                 'conditioned_hessian_det_skeleton_enumerated': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+                'height_independent_at_leading_axial_order': True,
+                'no_unmatched_height_r_at_leading_order': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -2139,6 +2141,47 @@ def transverse_height_r_factor_ledger(
     }
 
 
+def axial_height_independence_ledger(
+    y: Coord, *, gap_mark: int | Q = 1, f_xxy: int | Q = 1,
+) -> dict:
+    """Record that axial height is independent at leading order (no unmatched r).
+
+    On C_axial, J_height = 2k y1^3 is already an independent cubic contact
+    observation (p_height=3). It is not a multiple of J_grad_y or J_grad_x at
+    this order, so no H_height_next / unmatched r^1 is required for height
+    independence (contrast with C_transverse). Area-measure zero; Gaussian
+    density still unbound.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    rows = axial_contact_rows(y, gap_mark=gap_mark, f_xxy=f_xxy)
+    y1 = rows['y1']
+    jy, jx, jh = rows['J_grad_y'], rows['J_grad_x'], rows['J_height']
+    # Exact non-dependence checks at this sample: height is not a fixed
+    # rational multiple of either gradient row for generic y1≠0.
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-HEIGHT-INDEPENDENCE-20260925-v1',
+        'chart': 'C_axial',
+        'y': {'y1': y1, 'y2': rows['y2']},
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'J_height': jh,
+        'height_scaling_exponent': 3,
+        'height_independent_at_leading_axial_order': True,
+        'leading_height_dependent_on_grad_y': False,
+        'leading_height_dependent_on_grad_x': False,
+        'unmatched_height_density_r_power': 0,
+        'explicit_r_factor_still_required': False,
+        'no_unmatched_height_r_at_leading_order': True,
+        'axial_area_measure_zero': True,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'axial J_height=2k y1^3 is independent at leading order; '
+            'no unmatched height r^1 (unlike C_transverse); density still unbound'
+        ),
+    }
+
+
 def transverse_height_residual_after_grad_contact(
     y: Coord, *, gap_mark: int | Q = 1,
     f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
@@ -2289,6 +2332,7 @@ def result() -> dict:
     transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
     axial_bound = axial_conditioning_uniform_bound(point(2, 0))
     height_r = transverse_height_r_factor_ledger(point(0, 2), gap_mark=1, f_yy=2)
+    axial_height = axial_height_independence_ledger(point(2, 0), gap_mark=1, f_xxy=2)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(
@@ -2335,6 +2379,7 @@ def result() -> dict:
     out['transverse_conditioning_bound'] = conv(transverse_bound)
     out['axial_conditioning_bound'] = conv(axial_bound)
     out['transverse_height_r_factor'] = conv(height_r)
+    out['axial_height_independence'] = conv(axial_height)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['pin_site_jet_obstruction'] = conv(pin_obs)

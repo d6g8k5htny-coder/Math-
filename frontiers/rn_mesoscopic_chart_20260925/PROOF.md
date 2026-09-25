@@ -78,6 +78,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `1/|y2| ≤ 1/δ` on `C_transverse` (chart singularity cleared; Gaussian density still open);
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
+- axial height independence at leading order (`J_height=2k y1^3`; unmatched height `r`-power `0`; area-measure zero);
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;
 - pin-site cubic next-order rows `H_grad_next = (1/2)D³f(z,z)`, `H_height_next = (1/6)D³f(z,z,z)` with `z·H_grad_next = 3 H_height_next`;
 - pin-site quartic residuals `Q_grad_next = (1/6)D⁴f(z,z,z)`, `Q_height_next = (1/24)D⁴f(z,z,z,z)` with `z·Q_grad_next = 4 Q_height_next`;
