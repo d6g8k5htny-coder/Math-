@@ -264,6 +264,8 @@
         "cubic_next_order_enumerated": true,
         "decic_next_order_enumerated": true,
         "dodecic_next_order_enumerated": true,
+        "height_r_factor_absorbed": false,
+        "height_r_factor_recorded": true,
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
         "max_saddle_signature_test_recorded": true,
@@ -312,7 +314,8 @@
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "thin_belt_height_r_absorption",
-      "pin_thirteenth_and_higher_jets"
+      "pin_thirteenth_and_higher_jets",
+      "pin_centered_height_r_absorption"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
   },
@@ -732,6 +735,33 @@
       "z1": "0",
       "z2": "1/20"
     }
+  },
+  "pin_centered_height_r_factor": {
+    "H_height_next": "1/8000",
+    "J_height": "3/800",
+    "chart": "C_pin_centered",
+    "closer_pin": "S",
+    "contact_gaussian_density_bounded": false,
+    "explicit_r_factor_still_required": true,
+    "height_dependency_factor_half": "1/2",
+    "height_minus_half_z_dot_grad": "0",
+    "height_r_absorbed_into_uniform_bound": false,
+    "leading_height_dependent_on_grad": true,
+    "meaning": "leading Morse height is (1/2)z\u00b7J_grad; cubic H_height_next inserts unmatched r^1; not absorbed; density / higher jets still unbound",
+    "next_order_supplies_independent_height": true,
+    "object": "RN-MESOSCOPIC-PIN-CENTERED-HEIGHT-R-FACTOR-20260925-v1",
+    "pin_site_higher_jets_enumerated": false,
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "1/2",
+      "y2": "1/20"
+    },
+    "z": {
+      "z1": "0",
+      "z2": "1/20"
+    },
+    "z_dot_H_grad_next_minus_3_H_height_next": "0",
+    "z_dot_J_grad": "3/400"
   },
   "pin_centered_ledger": {
     "chart": "C_pin_centered",

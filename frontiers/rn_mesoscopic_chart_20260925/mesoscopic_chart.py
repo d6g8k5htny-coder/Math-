@@ -1863,6 +1863,51 @@ def pin_centered_contact_integrand_algebraic_factor_skeleton(
     }
 
 
+def pin_centered_height_r_factor_ledger(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+    H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
+    f_xxx: int | Q = 0, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 6,
+) -> dict:
+    """Record unmatched height r^1 on C_pin_centered after Morse leading order.
+
+    Leading Morse height satisfies J_height = (1/2) z · J_grad (dependent).
+    Cubic H_height_next supplies an independent height observation and inserts
+    unmatched density r^1. Does not absorb height-r or bound the contact density.
+    Small-A diagnostic chart; higher pin jets remain separately open.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    u, v = exact(frame['z1']), exact(frame['z2'])
+    rows = pin_site_morse_contact_rows(u, v, H_xx=H_xx, H_xy=H_xy, H_yy=H_yy)
+    nxt = pin_site_morse_next_order_rows(
+        u, v, f_xxx=f_xxx, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-HEIGHT-R-FACTOR-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'z': {'z1': u, 'z2': v},
+        'closer_pin': frame['closer_pin'],
+        'leading_height_dependent_on_grad': True,
+        'height_dependency_factor_half': Q(1, 2),
+        'J_height': rows['J_height'],
+        'z_dot_J_grad': u * rows['J_grad_1'] + v * rows['J_grad_2'],
+        'height_minus_half_z_dot_grad': rows['height_minus_half_z_dot_grad'],
+        'H_height_next': nxt['H_height_next'],
+        'z_dot_H_grad_next_minus_3_H_height_next': nxt['z_dot_H_grad_next_minus_3_H_height_next'],
+        'next_order_supplies_independent_height': True,
+        'unmatched_height_density_r_power': 1,
+        'explicit_r_factor_still_required': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'pin_site_higher_jets_enumerated': False,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'leading Morse height is (1/2)z·J_grad; cubic H_height_next inserts '
+            'unmatched r^1; not absorbed; density / higher jets still unbound'
+        ),
+    }
+
+
 def contact_density_obstruction_inventory() -> dict:
     """Per-chart inventory of what is cleared vs still blocking γ_AB ≤ C r^(-d).
 
@@ -1929,6 +1974,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+                'height_r_factor_recorded': True,
+                'height_r_factor_absorbed': False,
                 'thirteenth_and_higher_jets_enumerated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1940,6 +1987,7 @@ def contact_density_obstruction_inventory() -> dict:
             'transverse_height_r_absorption',
             'thin_belt_height_r_absorption',
             'pin_thirteenth_and_higher_jets',
+            'pin_centered_height_r_absorption',
         ],
         'meaning': (
             'inventory only: chart singularities cleared on C_transverse/C_axial; '
@@ -3061,6 +3109,8 @@ def result() -> dict:
     integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
     pin_alg = pin_centered_contact_integrand_algebraic_factor_skeleton(
         point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
+    pin_height_r = pin_centered_height_r_factor_ledger(
+        point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3, f_yyy=6)
     alg_height = transverse_algebraic_factor_times_height_r_skeleton(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     thin_alg_height = thin_belt_algebraic_factor_times_height_r_skeleton(
@@ -3108,6 +3158,7 @@ def result() -> dict:
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
     out['pin_centered_contact_integrand_algebraic_factor'] = conv(pin_alg)
+    out['pin_centered_height_r_factor'] = conv(pin_height_r)
     out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
     out['thin_belt_algebraic_factor_times_height_r'] = conv(thin_alg_height)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())

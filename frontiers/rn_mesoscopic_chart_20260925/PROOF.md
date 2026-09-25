@@ -79,6 +79,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
 - thin-belt unmatched height density `r^1` (same jet dependence as transverse; density near y2→0 still open);
+- pin-centered unmatched height density `r^1` after Morse leading order (cubic `H_height_next`; density / higher jets still open);
 - axial height independence at leading order (`J_height=2k y1^3`; unmatched height `r`-power `0`; area-measure zero);
 - exact axial shared-gap-mark identity `J_height=(y1/3)J_grad_x` (distinct scalings `p_x=2`,`p_height=3` keep unmatched height `r` at 0);
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;

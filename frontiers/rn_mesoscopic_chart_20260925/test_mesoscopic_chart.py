@@ -890,6 +890,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['undecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['dodecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
+        self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
         self.assertFalse(inv['charts']['C_pin_centered']['thirteenth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
@@ -910,6 +912,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('thin_belt_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_thirteenth_and_higher_jets', inv['open_blockers'])
+        self.assertIn('pin_centered_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('pin_twelfth_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_eleventh_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_tenth_and_higher_jets', inv['open_blockers'])
@@ -1127,6 +1130,26 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             # on the pin site itself z=0
             m.pin_centered_contact_integrand_algebraic_factor_skeleton(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
+
+    def test_pin_centered_height_r_factor_ledger(self):
+        led = m.pin_centered_height_r_factor_ledger(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1,
+            H_xx=-2, H_xy=0, H_yy=3, f_yyy=6)
+        self.assertEqual(led['chart'], 'C_pin_centered')
+        self.assertTrue(led['leading_height_dependent_on_grad'])
+        self.assertEqual(led['height_dependency_factor_half'], Q(1, 2))
+        self.assertEqual(led['J_height'], Q(3, 800))
+        self.assertEqual(led['height_minus_half_z_dot_grad'], 0)
+        self.assertEqual(led['H_height_next'], Q(1, 8000))
+        self.assertEqual(led['z_dot_H_grad_next_minus_3_H_height_next'], 0)
+        self.assertEqual(led['unmatched_height_density_r_power'], 1)
+        self.assertTrue(led['explicit_r_factor_still_required'])
+        self.assertTrue(led['next_order_supplies_independent_height'])
+        self.assertFalse(led['height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        with self.assertRaises(ValueError):
+            m.pin_centered_height_r_factor_ledger(
                 m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
 
     def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
