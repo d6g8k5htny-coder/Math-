@@ -1,0 +1,81 @@
+# RN mesoscopic chart: exact d=2 transverse J0 rows
+
+**Object:** RN-MESOSCOPIC-CHART-J0-D2-TRANSVERSE-20260925-v1  
+**Author:** Cursor. **Disposition:** author-side algebraic chart enumeration; complements [Math- PR7](https://github.com/d6g8k5htny-coder/Math-/pull/7) without editing its proof body. **Scientific effect: NONE.**
+
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Fixed-remote parent](../remote_window_20260924/PROOF.md) · [PR7 reduction (branch)](https://github.com/d6g8k5htny-coder/Math-/blob/chatgpt/rn-mesoscopic-annulus-20260925/frontiers/rn_mesoscopic_20260925/PROOF.md)
+
+## 1. Scope of this chart
+
+PR7 isolates the load-bearing missing calculation as the exact contact rows `J_0(y)` and the transform-determinant / witness-Hessian ledger on scaled annuli `x = r y`. This note performs steps (1)–(2) of PR7 §5 for **one declared chart only**:
+
+**Chart `C_transverse` (d=2).** Fixed `1 < A < B < ∞`, witness coordinate `y=(y1,y2)` with
+
+- `A ≤ |y| ≤ B`,
+- `|y2| ≥ δ > 0` (here δ=1/4 in the finite checker),
+- `dist(y, ±e1/2) ≥ η > 0` (here η=1/10),
+
+so the point stays off the scaled pin sites and off the axial line where the leading `f_y` residual vanishes.
+
+No claim is made for pin-collision charts, axial charts with `y2\to0`, intermediate `r≪|x|≪ρ`, witness collisions, or the full annulus cover.
+
+## 2. Contact Taylor jet after the six pins
+
+Use the same contact limit as the fixed-remote / matrix-cap sources:
+
+    U_0 = (f, f_x, f_xx, f_xxx, f_y, f_xy)_0
+        = (b, 0, 0, 12k, 0, 0).
+
+Expand at `x = r y`. The leading raw witness residuals are
+
+    f_y(ry)     = r · f_yy · y2 + O(r^2),
+    f_x(ry)     = (r^2/2)·(12k y1^2 + 2 f_xxy y1 y2 + f_xyy y2^2) + O(r^3),
+    f(ry) − b   = (r^2/2)· f_yy · y2^2 + O(r^3).
+
+Hence the divided-difference scalings on this chart are
+
+    p_y = 1,    p_x = 2,    p_height = 2.
+
+The **gradient-density Jacobian** power for the raw→`J` map on `(f_x,f_y)` is
+
+    r^(p_x + p_y) = r^3
+
+(so the density picks up `r^(-3)` when changing to contact coordinates). The height mark scales by `r^2` separately inside the between-pin window integral of length `k r^3`. Spatial volume contributes `r^2 dy` in d=2. This package records those powers exactly; it does **not** evaluate the conditioned Hessian factor needed to finish the Kac–Rice integrand.
+
+## 3. Contact rows J0 on C_transverse
+
+Define the contact divided differences by stripping the displayed leading powers of `r`:
+
+    J_grad_y = f_yy · y2,
+    J_grad_x = 6k y1^2 + f_xxy y1 y2 + (1/2) f_xyy y2^2,
+    J_height = (1/2) f_yy · y2^2.
+
+With `|y2|≥δ>0`, `J_grad_y` isolates `f_yy`. The height row satisfies the exact identity
+
+    J_height = (y2 / 2) · J_grad_y
+
+at this jet order, so **height is not an independent contact row** until the next-order remainder is restored. A complete height-density ledger therefore needs that remainder (left open).
+
+The two gradient rows are the independent contact observations for the gradient factor on this chart.
+
+## 4. What is proved here vs open
+
+**Recorded / checked (exact arithmetic):**
+
+- chart membership predicates for `C_transverse`;
+- contact-row polynomials above;
+- scaling exponents and gradient Jacobian `r`-power `3`;
+- height–`J_grad_y` dependence identity at this order;
+- finite mutation controls on those algebraic statements.
+
+**Still open (explicitly):**
+
+- next-order height remainder and full Hessian ledger on this chart;
+- axial chart `y2→0` and pin-neighbourhood charts;
+- chart overlaps / partition of the annulus;
+- integrable bound of the resulting contact integrand;
+- any numerical RN / 24-jet certificate.
+
+## 5. Relation to PR7 and #86
+
+This is the Codex-offered D5 slice from [main #86](https://github.com/d6g8k5htny-coder/main/issues/86): one declared scaled-annulus chart, separate branch/artifact, no edit to PR7's proof body. Downstream-first still applies: this does not promote a CONTROLLING RN closure while D0–D4 reviews remain open.

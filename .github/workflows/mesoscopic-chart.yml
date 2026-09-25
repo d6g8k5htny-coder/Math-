@@ -1,0 +1,52 @@
+name: Mesoscopic chart J0 exact replay
+'on':
+  push:
+    branches: [cursor/rn-mesoscopic-chart-j0-91fa]
+  pull_request:
+    paths: ['frontiers/rn_mesoscopic_chart_20260925/**', '.github/workflows/mesoscopic-chart.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Verify sources and run chart controls
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, sys
+          root = pathlib.Path('frontiers/rn_mesoscopic_chart_20260925').resolve()
+          pins = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
+          def verify():
+              for name, identity in pins.items():
+                  if pathlib.PurePosixPath(name).name != name or (root / name).is_symlink():
+                      raise ValueError('flat regular source required')
+                  raw = (root / name).read_bytes()
+                  if len(raw) != identity['bytes'] or hashlib.sha256(raw).hexdigest() != identity['sha256']:
+                      raise ValueError('source identity mismatch: ' + name)
+          if sys.version_info[:2] != (3, 11):
+              raise RuntimeError('actual Python 3.11 required')
+          verify()
+          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'mesoscopic-chart-results'
+          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=120)
+          verify()
+          report = json.loads((out / 'REPORT.json').read_text())
+          if not report['passed'] or report['distinct_tests'] != 13 or report['distinct_semantic_mutations'] != 7:
+              raise RuntimeError('unexpected new-test scope')
+          print('MESOSCOPIC_CHART_PASSED')
+          PY
+      - name: Retain evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: mesoscopic-chart-${{ github.run_id }}
+          path: ${{ runner.temp }}/mesoscopic-chart-results
+          if-no-files-found: error
+          retention-days: 30
