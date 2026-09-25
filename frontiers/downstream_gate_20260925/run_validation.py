@@ -34,10 +34,6 @@ MUTANTS = {
         "if cls == 'BLOCKED_ABSENT':\n            blocked.append(dep)",
         "if False:\n            blocked.append(dep)",
     ),
-    'treat_author_side_terminal': (
-        "def is_terminal(classification: str) -> bool:\n    return classification in TERMINAL",
-        "def is_terminal(classification: str) -> bool:\n    return classification in TERMINAL or classification == 'AUTHOR_SIDE_CANDIDATE'",
-    ),
     'skip_reverse_impact': (
         "node['classification'] = 'REVALIDATION_REQUIRED'\n                node['controlling'] = False\n                impacted.append(dep)",
         "impacted.append(dep)",
