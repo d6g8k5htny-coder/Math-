@@ -1,37 +1,56 @@
-# Downstream hard gate — fail-closed promotion control
+# Downstream hard gate — transition-integrity successor
 
 **Object:** DOWNSTREAM-HARD-GATE-20260925-v1  
-**Author:** Cursor (Cloud Agent). **Disposition:** engineering integrity control for [main #90](https://github.com/d6g8k5htny-coder/main/issues/90) / [main #86](https://github.com/d6g8k5htny-coder/main/issues/86). **Scientific effect: NONE.**
+**Original engineering author:** Cursor. **Transition successor:** OpenAI / ChatGPT, Math- PR15.  
+**Scientific effect: NONE.** Tests establish software behavior, not proof or independent review.
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Math index](../../README.md) · [Scope note](SCOPE.md) · [Machine graph](GRAPH.json)
+## Positive premise satisfaction is not terminal classification
 
-## What this is
+Only `PROVED_REVIEWED` satisfies a still-required positive premise. Required `REFUTED`,
+`BLOCKED_ABSENT`, author-side/open, and `SUPERSEDED_NONBLOCKING` nodes block promotion.
+Supersession requires a reviewed edge replacement/removal; renaming a premise is insufficient.
+The proposed result itself must also be eligible. Green tests, hashes, navigation and self-review
+are non-discharge evidence. Scientific records are inputs; this package does not accept proofs.
 
-A machine-checked dependency graph over the Math- candidate surfaces and the historical RN walls they interact with. It enforces:
+## Loss-only transition checks
 
-1. **No CONTROLLING promotion** unless every *required* transitive dependency is terminally classified as `PROVED_REVIEWED`, `SUPERSEDED_NONBLOCKING`, `REFUTED`, or `BLOCKED_ABSENT`.
-2. Any required `BLOCKED_ABSENT` dependency forces the dependent node to **HOLD**.
-3. A fingerprint or classification change on a dependency marks transitive dependents `REVALIDATION_REQUIRED`.
-4. Green CI, hashes, architectural admission, numerical experiments, same-author review, and navigation success are **non-discharge** tokens and cannot alone authorize promotion.
+`reverse_impact_between` compares complete canonical JSON node records, outgoing edge records
+(including metadata), graph context and, when supplied, paired complete source snapshots.
+It includes changed nodes themselves and traverses the UNION of old and new links, so removal
+cannot hide prior dependents. Input graphs are unchanged. Refuted nodes remain refuted.
+Unknown classifications, malformed booleans, duplicate/contradictory edges, missing nodes,
+required cycles, duplicate JSON keys and non-finite JSON values are rejected. Validation runs
+at public promotion and reporting boundaries as well as transition inspection.
 
-This package also records the **D4 region complement**: the fixed-remote candidate covers only `dist>=rho` with the between-pin height window; mesoscopic scaled annulus, pin-collision, intermediate `r<<|x|<<rho`, and witness-collision regions remain open.
-
-## What this is not
-
-- Not analytic review of #63/#65/#67/#74/#76.
-- Not a replacement for main PR87's hardening-branch crosswalk text.
-- Not a flip of `lemma_closed`, `certified_C_H`, or any prize/premise register.
-- Not permission to mutate the Drive `99_DO_NOT_OPEN` vault (#91 sole-auditor freeze).
+`git_transition_audit.py` reads graph and source objects from two immutable Git commits.
+Source-only edits therefore do not depend on an author remembering to update a fingerprint.
+Repository blobs/directories are byte-bound; external references are explicitly unresolved,
+and absent historical carriers remain absent. Output is HOLD/REVALIDATION proposals only,
+with `promotion_permission: false`. A changed controlling node, illegal controlling state,
+or an unbound controlling source causes a nonzero exit. Unaffected author-side work can proceed.
+This is not a complete external-source monitor or an independent-review authority.
 
 ## Run
 
 ```sh
-python -B -S hard_gate.py
-python -B -S -m unittest -v test_hard_gate
-python -B -O -S -m unittest -v test_hard_gate
+python -B -S -m unittest discover -p 'test_*.py' -v
+python -B -O -S -m unittest discover -p 'test_*.py' -v
 python -B -S run_validation.py --output /tmp/downstream-gate-new-run
+python -B -S git_transition_audit.py --repo /path/to/repository --base FULL_BASE_SHA --head FULL_HEAD_SHA --output /tmp/new-transition.json
 ```
 
-Choose a new output directory outside this source tree. The suite has 32 distinct tests and ten semantic mutations. Required REFUTED premises block; reverse impact uses the union of old and new edges so edge deletion cannot erase revalidation.
+67 distinct tests and 24 assertion-detected semantic mutants are required in both Python modes.
+The source-bound CI workflow also runs 177 existing coefficient/lifetime/price/remote regressions,
+for 244 distinct methods, and audits actual PR base/test-merge source objects. Workflow execution
+and branch-protection enforcement are separate; no administration setting is claimed here.
 
-See also the [D0 CI unblock recipe](D0_CI_UNBLOCK.md) (portable patch for main PR87) and the [selector×region inventory](SELECTOR_REGION.json).
+The source manifest includes the nested D0 patch. All pins are checked before and after execution.
+A changed source requires a deliberately regenerated manifest and result file, not a skipped check.
+
+## Research boundaries
+
+Fixed-remote coverage does not extend to shrinking pin/witness collisions or the full annulus.
+No mathematical graph status, historical proof, normalizer, JETMOD, prize, or vault record is changed.
+D0 recipe and SCOPE are preserved historical package context; current integration state comes from
+live PRs and their exact commits, not from the old recipe's operational status sentences.
+PR15 remains a technical candidate until distinct-lane review and the exact tested integration.

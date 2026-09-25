@@ -53,12 +53,30 @@ NON_DISCHARGE_DEFAULT = (
 )
 
 
+def _json_identity(value: Any) -> str:
+    """Canonical JSON distinguishes Boolean/numeric edits and rejects non-finite data."""
+    try:
+        return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+    except (ValueError, TypeError) as exc:
+        raise ValueError('graph contains non-JSON or non-finite data') from exc
+
+
+def load_json_strict(text: str) -> Any:
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError('duplicate JSON key: ' + key)
+            result[key] = value
+        return result
+    def constant(value):
+        raise ValueError('non-finite JSON constant: ' + value)
+    return json.loads(text, object_pairs_hook=pairs, parse_constant=constant)
+
+
 def load_graph(path: Path | None = None) -> dict[str, Any]:
-    data = json.loads((path or GRAPH_PATH).read_text())
-    if data.get('schema_version') != 1:
-        raise ValueError('unsupported graph schema_version')
-    if 'nodes' not in data or 'edges' not in data:
-        raise ValueError('graph requires nodes and edges')
+    data = load_json_strict((path or GRAPH_PATH).read_text())
+    validate_graph_fail_closed(data)
     return data
 
 
@@ -143,6 +161,7 @@ def refuted_required_hold(graph: dict[str, Any], node_id: str) -> list[str]:
 
 def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
     """Return whether node_id may become CONTROLLING under #90 rules."""
+    validate_graph_fail_closed(graph)
     node = require_node(graph, node_id)
     required = transitive_required(graph, node_id)
     missing_terminal = []
@@ -248,6 +267,7 @@ def reverse_impact(
     new_classification: str | None = None,
 ) -> dict[str, Any]:
     """Mark transitive dependents REVALIDATION_REQUIRED after a dependency change."""
+    validate_graph_fail_closed(graph)
     require_node(graph, changed_node)
     clone = json.loads(json.dumps(graph))
     changed = False
@@ -260,7 +280,7 @@ def reverse_impact(
 
     impacted: list[str] = []
     if changed:
-        for dep in transitive_dependents(clone, changed_node):
+        for dep in [changed_node, *transitive_dependents(clone, changed_node)]:
             node = clone['nodes'][dep]
             if node.get('controlling') or node.get('classification') in (
                 'AUTHOR_SIDE_CANDIDATE', 'AUTHOR_SIDE_REDUCTION', 'COVERED_BY_CANDIDATE',
@@ -281,18 +301,22 @@ def reverse_impact(
 
 
 def _validate_graph_shape(graph: dict[str, Any]) -> None:
+    if not isinstance(graph, dict) or type(graph.get('schema_version')) is not int or graph['schema_version'] != 1:
+        raise ValueError('unsupported graph schema_version')
     nodes = graph.get('nodes')
     edges = graph.get('edges')
-    if not isinstance(nodes, dict) or not isinstance(edges, list):
+    if not isinstance(nodes, dict) or not nodes or not isinstance(edges, list):
         raise ValueError('malformed graph')
+    _json_identity(graph)
     for nid, node in nodes.items():
-        if not isinstance(nid, str) or not nid or not isinstance(node, dict):
+        if not isinstance(nid, str) or not nid.strip() or not isinstance(node, dict):
             raise ValueError('malformed node record')
-        if not isinstance(node.get('classification'), str):
-            raise ValueError('node classification must be string')
-        if 'controlling' in node and type(node['controlling']) is not bool:
+        cls = node.get('classification')
+        if not isinstance(cls, str) or cls not in TERMINAL | NONTERMINAL:
+            raise ValueError('unknown node classification')
+        if type(node.get('controlling')) is not bool:
             raise ValueError('node controlling must be exact boolean')
-    seen_edges: set[tuple[str, str, bool, str]] = set()
+    seen_edges: set[tuple[str, str, str]] = set()
     for edge in edges:
         if not isinstance(edge, dict) or not {'from', 'to', 'required', 'relation'} <= set(edge):
             raise ValueError('malformed edge record')
@@ -300,13 +324,13 @@ def _validate_graph_shape(graph: dict[str, Any]) -> None:
             raise ValueError('edge endpoints must be strings')
         if type(edge['required']) is not bool:
             raise ValueError('edge required must be exact boolean')
-        if not isinstance(edge['relation'], str) or not edge['relation']:
+        if not isinstance(edge['relation'], str) or not edge['relation'].strip():
             raise ValueError('edge relation must be nonempty string')
         if edge['from'] not in nodes or edge['to'] not in nodes:
             raise ValueError('edge references missing node')
-        key = (edge['from'], edge['to'], edge['required'], edge['relation'])
+        key = (edge['from'], edge['to'], edge['relation'])
         if key in seen_edges:
-            raise ValueError('duplicate edge record')
+            raise ValueError('duplicate or contradictory edge record')
         seen_edges.add(key)
 
 
@@ -342,33 +366,45 @@ def validate_graph_fail_closed(graph: dict[str, Any]) -> None:
         raise ValueError('required dependency cycle: ' + ' -> '.join(cycle))
 
 
-def _outgoing_signature(graph: dict[str, Any], nid: str) -> list[tuple[str, bool, str]]:
-    return sorted((e['to'], e['required'], e['relation'])
-                  for e in graph['edges'] if e['from'] == nid)
+def _outgoing_signature(graph: dict[str, Any], nid: str) -> list[str]:
+    return sorted(_json_identity(e) for e in graph['edges'] if e['from'] == nid)
 
 
-def reverse_impact_between(old_graph: dict[str, Any], new_graph: dict[str, Any]) -> dict[str, Any]:
-    """Fail-closed transition impact over complete nodes and UNION(old,new) edges."""
+def reverse_impact_between(
+    old_graph: dict[str, Any], new_graph: dict[str, Any], *,
+    old_sources: dict[str, Any] | None = None,
+    new_sources: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Loss-only proposal; source bytes are monitored only through supplied snapshots."""
     validate_graph_fail_closed(old_graph)
     validate_graph_fail_closed(new_graph)
+    if (old_sources is None) != (new_sources is None):
+        raise ValueError('both source snapshots are required together')
     old_nodes, new_nodes = old_graph['nodes'], new_graph['nodes']
+    if old_sources is not None:
+        for graph, sources in ((old_graph, old_sources), (new_graph, new_sources)):
+            if not isinstance(sources, dict) or set(sources) != set(graph['nodes']):
+                raise ValueError('source snapshot must cover exactly all graph nodes')
+            _json_identity(sources)
     all_ids = set(old_nodes) | set(new_nodes)
     changed: set[str] = set()
+    context_changed = _json_identity({k: v for k, v in old_graph.items() if k not in ('nodes', 'edges')}) != _json_identity({k: v for k, v in new_graph.items() if k not in ('nodes', 'edges')})
     for nid in all_ids:
         if nid not in old_nodes or nid not in new_nodes:
             changed.add(nid)
             continue
-        if old_nodes[nid] != new_nodes[nid]:
+        if _json_identity(old_nodes[nid]) != _json_identity(new_nodes[nid]):
             changed.add(nid)
-            continue
         if _outgoing_signature(old_graph, nid) != _outgoing_signature(new_graph, nid):
             changed.add(nid)
-
+        if old_sources is not None and _json_identity(old_sources[nid]) != _json_identity(new_sources[nid]):
+            changed.add(nid)
+    if context_changed:
+        changed.update(all_ids)
     union_edges = {(e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']}
     reverse: dict[str, set[str]] = {}
     for child, dep in union_edges:
         reverse.setdefault(dep, set()).add(child)
-
     impacted: set[str] = {nid for nid in changed if nid in new_nodes}
     queue = list(changed)
     seen = set(queue)
@@ -376,24 +412,32 @@ def reverse_impact_between(old_graph: dict[str, Any], new_graph: dict[str, Any])
         dep = queue.pop()
         for child in reverse.get(dep, ()):
             if child not in seen:
-                seen.add(child); queue.append(child)
+                seen.add(child)
+                queue.append(child)
             if child in new_nodes:
                 impacted.add(child)
-
     clone = json.loads(json.dumps(new_graph))
     for nid in sorted(impacted):
         node = clone['nodes'][nid]
         if node.get('classification') in (
             'AUTHOR_SIDE_CANDIDATE', 'AUTHOR_SIDE_REDUCTION', 'COVERED_BY_CANDIDATE',
             'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING', 'ENGINEERING_CONTROL',
-        ) or node.get('controlling'):
+        ):
             node['classification'] = 'REVALIDATION_REQUIRED'
-            node['controlling'] = False
-    return {'changed_nodes': sorted(changed), 'impacted': sorted(impacted), 'graph': clone,
-            'meaning': 'complete-record/edge union reverse-impact hold; never promotion permission'}
+        node['controlling'] = False
+    return {
+        'changed_nodes': sorted(changed), 'impacted': sorted(impacted), 'graph': clone,
+        'traversal_edges': [list(e) for e in sorted(union_edges)],
+        'source_snapshots_supplied': old_sources is not None,
+        'context_changed': context_changed,
+        'promotion_permission': False,
+        'meaning': 'complete-record/edge/source union reverse-impact hold; never promotion permission',
+    }
+
 
 def closure_report(graph: dict[str, Any]) -> dict[str, Any]:
     """Machine-readable D0–D7 closure report for the campaign queue."""
+    validate_graph_fail_closed(graph)
     by_layer: dict[str, list[dict[str, Any]]] = {}
     controlling_illegal: list[dict[str, Any]] = []
     for nid, node in sorted(graph['nodes'].items()):
@@ -420,6 +464,15 @@ def closure_report(graph: dict[str, Any]) -> dict[str, Any]:
         'object': graph.get('object'),
         'layers': {layer: by_layer[layer] for layer in layers},
         'open_or_author_side': open_active,
+        'hold_proposals': [
+            {'node': nid, 'unsatisfied_required': [
+                dep for dep in transitive_required(graph, nid)
+                if graph['nodes'][dep]['classification'] not in REQUIRED_SATISFIED
+            ]}
+            for nid in sorted(graph['nodes'])
+            if any(graph['nodes'][dep]['classification'] not in REQUIRED_SATISFIED
+                   for dep in transitive_required(graph, nid))
+        ],
         'blocked_absent': blocked,
         'illegal_controlling': controlling_illegal,
         'lemma_closed': False,
