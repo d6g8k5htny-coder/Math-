@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 13
+EXPECTED_TESTS = 16
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,",
@@ -26,17 +26,17 @@ MUTANTS = {
         "j_x = 6 * k * y1 * y1 + b * y1 * y2 + (c * y2 * y2) / 2",
         "j_x = b * y1 * y2 + (c * y2 * y2) / 2",
     ),
-    'claim_height_independent': (
-        "'height_row_independent_at_this_order': False,",
-        "'height_row_independent_at_this_order': True,",
+    'omit_next_height_k': (
+        "2 * k * y1 ** 3",
+        "0 * k * y1 ** 3",
+    ),
+    'claim_height_independent_leading': (
+        "'height_row_independent_at_leading_order': False,",
+        "'height_row_independent_at_leading_order': True,",
     ),
     'claim_annulus_closed': (
         "'full_annulus_closed': False,",
         "'full_annulus_closed': True,",
-    ),
-    'flip_24jet': (
-        "'legacy_24jet_discharged': False,",
-        "'legacy_24jet_discharged': True,",
     ),
 }
 

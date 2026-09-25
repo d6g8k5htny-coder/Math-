@@ -50,30 +50,36 @@ Define the contact divided differences by stripping the displayed leading powers
     J_grad_x = 6k y1^2 + f_xxy y1 y2 + (1/2) f_xyy y2^2,
     J_height = (1/2) f_yy · y2^2.
 
-With `|y2|≥δ>0`, `J_grad_y` isolates `f_yy`. The height row satisfies the exact identity
+With `|y2|≥δ>0`, `J_grad_y` isolates `f_yy`. The leading height row satisfies
 
     J_height = (y2 / 2) · J_grad_y
 
-at this jet order, so **height is not an independent contact row** until the next-order remainder is restored. A complete height-density ledger therefore needs that remainder (left open).
+so height is **dependent at leading order**. Restoring the next Taylor term gives
 
-The two gradient rows are the independent contact observations for the gradient factor on this chart.
+    (f(ry)−b)/r^2 = J_height + r · H_height_next + O(r^2),
+
+    H_height_next = 2k y1^3 + (1/2) f_xxy y1^2 y2 + (1/2) f_xyy y1 y2^2 + (1/6) f_yyy y2^3.
+
+Thus the height mark becomes an independent contact observation only after keeping the explicit factor of `r` (or passing to a further divided difference). The finite checker records `H_height_next` exactly; it does not eliminate that `r` from the Kac–Rice density.
+
+The two gradient rows are the independent contact observations for the gradient factor on this chart at leading order.
 
 ## 4. What is proved here vs open
 
 **Recorded / checked (exact arithmetic):**
 
 - chart membership predicates for `C_transverse`;
-- contact-row polynomials above;
+- contact-row polynomials above, including `H_height_next`;
+- leading-order height–`J_grad_y` dependence identity;
 - scaling exponents and gradient Jacobian `r`-power `3`;
-- height–`J_grad_y` dependence identity at this order;
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**
 
-- next-order height remainder and full Hessian ledger on this chart;
+- absorbing the explicit `r` in the height density into a uniform integrand bound;
+- conditioned Hessian ledger on this chart;
 - axial chart `y2→0` and pin-neighbourhood charts;
 - chart overlaps / partition of the annulus;
-- integrable bound of the resulting contact integrand;
 - any numerical RN / 24-jet certificate.
 
 ## 5. Relation to PR7 and #86

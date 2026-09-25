@@ -60,7 +60,8 @@ class MesoscopicChartControls(unittest.TestCase):
         # |y|=sqrt(4+0.25)>2? sqrt(4.25)>2 yes; |y2|=1/2 >= 1/4
         self.assertEqual(rank['grad_y_coefficient_f_yy'], Q(1, 2))
         self.assertEqual(rank['grad_x_coefficient_k'], 24)
-        self.assertTrue(rank['height_dependent_on_grad_y_at_this_order'])
+        self.assertTrue(rank['height_dependent_on_grad_y_at_leading_order'])
+        self.assertTrue(rank['height_next_order_enumerated'])
         self.assertEqual(rank['independent_grad_rows_expected'], 2)
 
     def test_outside_chart_refused(self):
@@ -75,11 +76,35 @@ class MesoscopicChartControls(unittest.TestCase):
 
     def test_ledger_flags(self):
         led = m.ledger_for_point(m.point(0, 2))
-        self.assertFalse(led['height_row_independent_at_this_order'])
+        self.assertFalse(led['height_row_independent_at_leading_order'])
+        self.assertTrue(led['height_next_order_enumerated'])
         self.assertFalse(led['hessian_ledger_evaluated'])
         self.assertFalse(led['full_annulus_closed'])
         self.assertFalse(led['legacy_24jet_discharged'])
         self.assertTrue(led['complements_pr7'])
+
+    def test_leading_height_residual_zero(self):
+        for y in m.sample_points():
+            rows = m.contact_rows(y, gap_mark=3, f_yy=5, f_xxy=7, f_xyy=11, f_yyy=13)
+            self.assertEqual(rows['height_residual_at_leading_order'], 0)
+
+    def test_height_next_order_formula(self):
+        y = m.point(2, 2)
+        k, b, c, d = Q(2), Q(5), Q(7), Q(11)
+        rows = m.contact_rows(y, gap_mark=k, f_yy=0, f_xxy=b, f_xyy=c, f_yyy=d)
+        expected = 2 * k * 8 + (b * 4 * 2) / 2 + (c * 2 * 4) / 2 + (d * 8) / 6
+        self.assertEqual(rows['H_height_next'], expected)
+        info = m.height_next_order_independent(
+            y, gap_mark=k, f_xxy=b, f_xyy=c, f_yyy=d)
+        self.assertEqual(info['H_height_next'], expected)
+        self.assertTrue(info['next_order_supplies_height'])
+        self.assertTrue(info['explicit_r_factor_still_required'])
+
+    def test_height_next_on_axis_mark_only(self):
+        # y=(0,2): H_1 = (1/6) f_yyy y2^3 when k term and mixed y1 terms vanish.
+        rows = m.contact_rows(m.point(0, 2), gap_mark=1, f_yy=0, f_xxy=0, f_xyy=0, f_yyy=6)
+        self.assertEqual(rows['H_height_next'], 8)  # (6*8)/6 = 8
+
 
     def test_results_bytes(self):
         payload = m.result()

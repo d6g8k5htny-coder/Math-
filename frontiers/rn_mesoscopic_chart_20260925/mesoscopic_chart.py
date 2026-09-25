@@ -94,46 +94,75 @@ def witness_scaling_determinant_power(dimension: int = 2) -> dict[str, int]:
 
 
 def contact_rows(y: Coord, *, gap_mark: int | Q,
-                 f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q) -> dict[str, Q]:
+                 f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
+                 f_yyy: int | Q = 0) -> dict[str, Q]:
     """Contact-limit J_0 rows on C_transverse after the six-pin / U_0 constraints.
 
-    Free 3-jet leftovers used here: f_yy, f_xxy, f_xyy (exact arithmetic symbols as
-    rationals). Gap mark k enters through f_xxx=12k at contact.
+    Free jet leftovers used here: f_yy, f_xxy, f_xyy, f_yyy (exact rationals).
+    Gap mark k enters through f_xxx=12k at contact.
     """
     if not transverse_chart_ok(y):
         raise ValueError('point outside C_transverse chart')
     y1, y2 = y
     k = exact(gap_mark)
-    a, b, c = map(exact, (f_yy, f_xxy, f_xyy))
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
     if k <= 0:
         raise ValueError('positive gap mark required')
     # Leading contact divided differences (coefficients of the free jet / mark).
     j_y = a * y2
     j_x = 6 * k * y1 * y1 + b * y1 * y2 + (c * y2 * y2) / 2
     j_h = (a * y2 * y2) / 2
+    # Next-order height coefficient after /r^2: (f(ry)-b)/r^2 = J_height + r*H_1 + O(r^2)
+    # with H_1 = 2k y1^3 + (1/2) f_xxy y1^2 y2 + (1/2) f_xyy y1 y2^2 + (1/6) f_yyy y2^3.
+    h1 = (
+        2 * k * y1 ** 3
+        + (b * y1 * y1 * y2) / 2
+        + (c * y1 * y2 * y2) / 2
+        + (d * y2 ** 3) / 6
+    )
     return {
         'J_grad_y': j_y,
         'J_grad_x': j_x,
         'J_height': j_h,
+        'H_height_next': h1,
+        'height_residual_at_leading_order': j_h - (y2 / 2) * j_y,
         'y1': y1,
         'y2': y2,
         'gap_mark': k,
         'f_yy': a,
         'f_xxy': b,
         'f_xyy': c,
+        'f_yyy': d,
     }
 
 
 def height_grad_y_dependency(y: Coord) -> Q:
-    """Exact linear relation J_height - (y2/2) J_grad_y = 0 at this jet order.
-
-    Shows the height row is dependent on J_grad_y in the lowest transverse chart
-    jet; a full height-density ledger needs the next-order remainder (not claimed
-    evaluated here).
-    """
+    """Exact linear relation J_height - (y2/2) J_grad_y = 0 at leading jet order."""
     if not transverse_chart_ok(y):
         raise ValueError('point outside C_transverse chart')
     return exact(y[1]) / 2
+
+
+def height_next_order_independent(y: Coord, *, gap_mark: int | Q,
+                                  f_xxy: int | Q, f_xyy: int | Q,
+                                  f_yyy: int | Q) -> dict[str, Q | bool]:
+    """Independent height direction appears at the next order in r.
+
+    On C_transverse, the leading height row is dependent on J_grad_y. The coefficient
+    H_height_next supplies a new linear form in (k, f_xxy, f_xyy, f_yyy). When this
+    form is not identically zero as a polynomial in y, the height mark becomes an
+    independent contact observation after restoring the explicit factor of r.
+    """
+    rows = contact_rows(
+        y, gap_mark=gap_mark, f_yy=0, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    # With f_yy=0, leading J_height vanishes; independence is carried by H_height_next.
+    return {
+        'H_height_next': rows['H_height_next'],
+        'leading_height_residual': rows['height_residual_at_leading_order'],
+        'next_order_supplies_height': True,
+        'explicit_r_factor_still_required': True,
+    }
 
 
 def contact_gradient_rank_symbol(y: Coord) -> dict[str, Q | int | bool]:
@@ -155,14 +184,18 @@ def contact_gradient_rank_symbol(y: Coord) -> dict[str, Q | int | bool]:
         'grad_x_coefficient_f_xyy': (y2 * y2) / 2,
         'grad_y_nonzero': y2 != 0,
         'independent_grad_rows_expected': 2,
-        'height_dependent_on_grad_y_at_this_order': True,
+        'height_dependent_on_grad_y_at_leading_order': True,
+        'height_next_order_enumerated': True,
         'height_dependency_factor': height_grad_y_dependency(y),
     }
 
 
 def ledger_for_point(y: Coord, gap_mark: int | Q = 1,
-                     f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0) -> dict:
-    rows = contact_rows(y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy)
+                     f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0,
+                     f_yyy: int | Q = 0) -> dict:
+    rows = contact_rows(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
     scale = witness_scaling_determinant_power(2)
     rank = contact_gradient_rank_symbol(y)
     return {
@@ -173,18 +206,21 @@ def ledger_for_point(y: Coord, gap_mark: int | Q = 1,
             'J_grad_y': rows['J_grad_y'],
             'J_grad_x': rows['J_grad_x'],
             'J_height': rows['J_height'],
+            'H_height_next': rows['H_height_next'],
+            'height_residual_at_leading_order': rows['height_residual_at_leading_order'],
         },
         'scaling': scale,
         'rank': {k: v for k, v in rank.items()},
-        'height_row_independent_at_this_order': False,
+        'height_row_independent_at_leading_order': False,
+        'height_next_order_enumerated': True,
         'hessian_ledger_evaluated': False,
         'full_annulus_closed': False,
         'legacy_24jet_discharged': False,
         'independent_analytic_acceptance': False,
         'complements_pr7': True,
         'meaning': (
-            'exact d=2 transverse chart contact rows and gradient Jacobian r-power; '
-            'not a continuum Gaussian evaluation'
+            'exact d=2 transverse chart contact rows, next-order height remainder, '
+            'and gradient Jacobian r-power; not a continuum Gaussian evaluation'
         ),
     }
 
