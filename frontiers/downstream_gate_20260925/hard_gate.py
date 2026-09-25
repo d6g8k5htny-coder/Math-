@@ -36,6 +36,8 @@ NONTERMINAL = frozenset({
     'EXPLORATORY',
 })
 
+CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED'})
+
 NON_DISCHARGE_DEFAULT = (
     'GREEN_CI',
     'HASH_MATCH',
@@ -143,13 +145,19 @@ def promotion_allowed(graph: dict[str, Any], node_id: str) -> dict[str, Any]:
             blocked.append(dep)
 
     reasons: list[str] = []
-    if node.get('classification') == 'REVALIDATION_REQUIRED':
+    node_classification = node.get('classification')
+    if node_classification not in CONTROLLING_ELIGIBLE:
+        reasons.append(
+            'node classification is not eligible for positive CONTROLLING status: '
+            + str(node_classification)
+        )
+    if node_classification == 'REVALIDATION_REQUIRED':
         reasons.append('node requires revalidation after a dependency change')
     if blocked:
         reasons.append('required BLOCKED_ABSENT dependency forces HOLD')
     if missing_terminal:
         reasons.append('required transitive dependency is not terminally classified')
-    if node.get('classification') == 'FALSE' and node_id == 'hist.lemma_closed':
+    if node_classification == 'FALSE' and node_id == 'hist.lemma_closed':
         reasons.append('lemma_closed register must remain FALSE; gate never promotes it')
 
     allowed = not reasons
