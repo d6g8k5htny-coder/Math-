@@ -1169,6 +1169,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'integrand_power_identity_recorded': True,
                 'height_r_factor_absorbed': False,
                 'free_jet_residual_inventory_recorded': True,
+                'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
                 'height_residual_after_grad_contact_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
@@ -1179,6 +1180,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'integrand_power_identity_recorded': True,
                 'area_measure_zero_in_2d': True,
                 'free_jet_residual_inventory_recorded': True,
+                'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
@@ -1316,6 +1318,109 @@ def contact_free_jet_residual_inventory(
         'meaning': (
             'exact free-jet residual counts after leading gradient contact; '
             'prerequisite inventory only — does not bound the contact density'
+        ),
+    }
+
+
+def transverse_gradient_contact_jacobian_ledger(y: Coord) -> dict:
+    """Exact |det| of the leading gradient map on eliminated coords (f_yy, f_xyy).
+
+    Treating free residuals (k, f_xxy) as parameters,
+      J_grad_y = y2 · f_yy
+      J_grad_x = 6k y1^2 + f_xxy y1 y2 + (y2^2)/2 · f_xyy
+    the Jacobian matrix ∂(J_y,J_x)/∂(f_yy,f_xyy) is diagonal with entries
+    (y2, y2^2/2), so
+      |det| = |y2|^3 / 2.
+    On C_transverse (|y2|≥δ) this is ≥ δ^3/2 > 0. Algebraic density-shape
+    factor only; does not bound the Gaussian density of free residuals.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    y1, y2 = y
+    abs_y2 = abs(y2)
+    det_abs = (abs_y2 ** 3) / 2
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-GRADIENT-CONTACT-JACOBIAN-20260925-v1',
+        'chart': 'C_transverse',
+        'eliminated_coordinates': ['f_yy', 'f_xyy'],
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'partial_J_y_partial_f_yy': y2,
+        'partial_J_x_partial_f_xyy': (y2 * y2) / 2,
+        'jacobian_matrix_diagonal': True,
+        'abs_det_grad_contact_map': det_abs,
+        'abs_y2': abs_y2,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'exact |det ∂(J_y,J_x)/∂(f_yy,f_xyy)| = |y2|^3/2; algebraic density '
+            'shape only — free-jet Gaussian density unbound'
+        ),
+    }
+
+
+def transverse_gradient_contact_jacobian_ledger_with_floor(
+    y: Coord, *, floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """As transverse_gradient_contact_jacobian_ledger, plus chart lower bound δ^3/2."""
+    delta = exact(floor_y2)
+    if delta <= 0:
+        raise ValueError('positive floor required')
+    if not transverse_chart_ok(y, floor_y2=delta):
+        raise ValueError('point outside C_transverse chart')
+    led = transverse_gradient_contact_jacobian_ledger(y)
+    lower = (delta ** 3) / 2
+    led['floor_y2'] = delta
+    led['lower_bound_on_chart_abs_det'] = lower
+    led['abs_det_ge_chart_lower_bound'] = led['abs_det_grad_contact_map'] >= lower
+    return led
+
+
+def axial_gradient_contact_jacobian_ledger(y: Coord) -> dict:
+    """Exact |det| of the axial leading gradient map on (f_xxy, k).
+
+      J_grad_y = (y1^2 / 2) f_xxy
+      J_grad_x = 6 k y1^2
+    so ∂(J_y,J_x)/∂(f_xxy,k) has |det| = |(y1^2/2)·(6 y1^2)| = 3 |y1|^4.
+    Area-measure zero in 2D; density still unbound.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    abs_y1 = abs(y1)
+    det_abs = 3 * (abs_y1 ** 4)
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-GRADIENT-CONTACT-JACOBIAN-20260925-v1',
+        'chart': 'C_axial',
+        'eliminated_coordinates': ['f_xxy', 'k'],
+        'free_residual_coordinates': ['f_yy', 'f_xyy', 'f_yyy'],
+        'partial_J_y_partial_f_xxy': (y1 * y1) / 2,
+        'partial_J_x_partial_k': 6 * y1 * y1,
+        'abs_det_grad_contact_map': det_abs,
+        'abs_y1': abs_y1,
+        'axial_area_measure_zero': True,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'exact |det ∂(J_y,J_x)/∂(f_xxy,k)| = 3|y1|^4; algebraic density shape '
+            'only — free-jet Gaussian density unbound'
+        ),
+    }
+
+
+def contact_gradient_jacobian_density_shape_inventory(
+    *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+) -> dict:
+    """Bundle exact gradient-contact Jacobians; density bound still open."""
+    t = transverse_gradient_contact_jacobian_ledger_with_floor(
+        transverse_y or point(0, 2),
+    )
+    a = axial_gradient_contact_jacobian_ledger(axial_y or point(2, 0))
+    return {
+        'object': 'RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1',
+        'C_transverse': t,
+        'C_axial': a,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact algebraic |det| factors for leading gradient contact maps; '
+            'does not bound the contact Gaussian density'
         ),
     }
 
@@ -1739,6 +1844,7 @@ def result() -> dict:
     integrand_pin = pin_centered_integrand_power_ledger(2)
     density_obs = contact_density_obstruction_inventory()
     free_jets = contact_free_jet_residual_inventory()
+    grad_jac = contact_gradient_jacobian_density_shape_inventory()
     hess_resid = transverse_conditioned_hessian_residual_ledger(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
     axial_hess_resid = axial_conditioned_hessian_residual_ledger(
@@ -1778,6 +1884,7 @@ def result() -> dict:
     out['integrand_power_pin_centered'] = conv(integrand_pin)
     out['contact_density_obstruction'] = conv(density_obs)
     out['contact_free_jet_residual'] = conv(free_jets)
+    out['contact_gradient_jacobian_density_shape'] = conv(grad_jac)
     out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)

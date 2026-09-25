@@ -587,6 +587,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(inv['charts']['C_pin_centered']['sixth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_transverse']['gradient_contact_jacobian_enumerated'])
+        self.assertTrue(inv['charts']['C_axial']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
@@ -684,6 +686,28 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(off['H_height_next_minus_raw'], 0)
         with self.assertRaises(ValueError):
             m.transverse_height_residual_after_grad_contact(m.point(2, 0))
+
+    def test_gradient_contact_jacobian_density_shape(self):
+        t = m.transverse_gradient_contact_jacobian_ledger_with_floor(m.point(0, 2))
+        self.assertEqual(t['abs_det_grad_contact_map'], 4)  # 8/2
+        self.assertEqual(t['lower_bound_on_chart_abs_det'], Q(1, 128))  # (1/4)^3 / 2
+        self.assertTrue(t['abs_det_ge_chart_lower_bound'])
+        self.assertTrue(t['jacobian_matrix_diagonal'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        off = m.transverse_gradient_contact_jacobian_ledger(m.point(2, 2))
+        self.assertEqual(off['abs_det_grad_contact_map'], 4)
+        ax = m.axial_gradient_contact_jacobian_ledger(m.point(2, 0))
+        self.assertEqual(ax['abs_det_grad_contact_map'], 48)  # 3*16
+        self.assertTrue(ax['axial_area_measure_zero'])
+        self.assertFalse(ax['contact_gaussian_density_bounded'])
+        bundled = m.contact_gradient_jacobian_density_shape_inventory()
+        self.assertFalse(bundled['global_contact_density_bound_proved'])
+        self.assertEqual(bundled['C_transverse']['abs_det_grad_contact_map'], 4)
+        with self.assertRaises(ValueError):
+            m.transverse_gradient_contact_jacobian_ledger(m.point(2, 0))
+        with self.assertRaises(ValueError):
+            m.axial_gradient_contact_jacobian_ledger(m.point(0, 2))
+
 
 
 if __name__ == '__main__':

@@ -139,6 +139,7 @@
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
+        "gradient_contact_jacobian_enumerated": true,
         "hessian_conditioned_expectation_evaluated": false,
         "integrand_power_identity_recorded": true
       },
@@ -165,6 +166,7 @@
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
+        "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_residual_after_grad_contact_enumerated": true,
         "hessian_conditioned_expectation_evaluated": false,
@@ -241,6 +243,53 @@
     "global_contact_density_bound_proved": false,
     "meaning": "exact free-jet residual counts after leading gradient contact; prerequisite inventory only \u2014 does not bound the contact density",
     "object": "RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1"
+  },
+  "contact_gradient_jacobian_density_shape": {
+    "C_axial": {
+      "abs_det_grad_contact_map": "48",
+      "abs_y1": "2",
+      "axial_area_measure_zero": true,
+      "chart": "C_axial",
+      "contact_gaussian_density_bounded": false,
+      "eliminated_coordinates": [
+        "f_xxy",
+        "k"
+      ],
+      "free_residual_coordinates": [
+        "f_yy",
+        "f_xyy",
+        "f_yyy"
+      ],
+      "meaning": "exact |det \u2202(J_y,J_x)/\u2202(f_xxy,k)| = 3|y1|^4; algebraic density shape only \u2014 free-jet Gaussian density unbound",
+      "object": "RN-MESOSCOPIC-AXIAL-GRADIENT-CONTACT-JACOBIAN-20260925-v1",
+      "partial_J_x_partial_k": "24",
+      "partial_J_y_partial_f_xxy": "2"
+    },
+    "C_transverse": {
+      "abs_det_ge_chart_lower_bound": true,
+      "abs_det_grad_contact_map": "4",
+      "abs_y2": "2",
+      "chart": "C_transverse",
+      "contact_gaussian_density_bounded": false,
+      "eliminated_coordinates": [
+        "f_yy",
+        "f_xyy"
+      ],
+      "floor_y2": "1/4",
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "jacobian_matrix_diagonal": true,
+      "lower_bound_on_chart_abs_det": "1/128",
+      "meaning": "exact |det \u2202(J_y,J_x)/\u2202(f_yy,f_xyy)| = |y2|^3/2; algebraic density shape only \u2014 free-jet Gaussian density unbound",
+      "object": "RN-MESOSCOPIC-TRANSVERSE-GRADIENT-CONTACT-JACOBIAN-20260925-v1",
+      "partial_J_x_partial_f_xyy": "2",
+      "partial_J_y_partial_f_yy": "2"
+    },
+    "global_contact_density_bound_proved": false,
+    "meaning": "exact algebraic |det| factors for leading gradient contact maps; does not bound the contact Gaussian density",
+    "object": "RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1"
   },
   "contact_rows": {
     "H_height_next": "0",
