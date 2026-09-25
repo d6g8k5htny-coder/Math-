@@ -38,7 +38,7 @@ jobs:
           subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=120)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 92 or report['distinct_semantic_mutations'] != 74:
+          if not report['passed'] or report['distinct_tests'] != 93 or report['distinct_semantic_mutations'] != 75:
               raise RuntimeError('unexpected new-test scope')
           print('MESOSCOPIC_CHART_PASSED')
           PY

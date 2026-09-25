@@ -456,6 +456,7 @@
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
         "max_saddle_signature_test_recorded": true,
+        "nonacosic_next_order_enumerated": true,
         "nonadecic_next_order_enumerated": true,
         "nonic_next_order_enumerated": true,
         "octacosic_next_order_enumerated": true,
@@ -469,9 +470,9 @@
         "sextic_next_order_enumerated": true,
         "tetracosic_next_order_enumerated": true,
         "tetradecic_next_order_enumerated": true,
+        "thirtieth_and_higher_jets_enumerated": false,
         "tricosic_next_order_enumerated": true,
         "tridecic_next_order_enumerated": true,
-        "twenty_ninth_and_higher_jets_enumerated": false,
         "undecic_next_order_enumerated": true,
         "unmatched_height_r_power_inventory_recorded": true
       },
@@ -516,7 +517,7 @@
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "thin_belt_height_r_absorption",
-      "pin_twenty_ninth_and_higher_jets",
+      "pin_thirtieth_and_higher_jets",
       "pin_centered_height_r_absorption"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
@@ -1258,7 +1259,7 @@
       "z2": "1/20",
       "z_dot_F_grad_next_minus_12_F_height_next": "0"
     },
-    "enumeration_scope": "leading_morse_plus_cubic_through_octacosic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_nonacosic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -1489,7 +1490,7 @@
       "z_dot_R_grad_next_minus_20_R_height_next": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic through octacosic H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L/M/O/R/V/W/X/Y/Z/A/B/C_*_next; twenty-ninth-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic through nonacosic H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L/M/O/R/V/W/X/Y/Z/A/B/C/AA_*_next; thirtieth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -1503,6 +1504,47 @@
       "z1": "0",
       "z2": "1/20",
       "z_dot_H_grad_next_minus_3_H_height_next": "0"
+    },
+    "nonacosic_rows": {
+      "AA_grad_next_1": "0",
+      "AA_grad_next_2": "0",
+      "AA_height_next": "0",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxxxxxy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxxxxyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxxxyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxxyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxxyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxxyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxxyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxxyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxxyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxxyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxxyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxxyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxxyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxxyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxxyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxxyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxxyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxxyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxxyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxxyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxxyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxxyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxxyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxxyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxxyyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxxyyyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xxyyyyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_xyyyyyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "f_yyyyyyyyyyyyyyyyyyyyyyyyyyyyy": "0",
+      "thirtieth_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 27,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_AA_grad_next_minus_29_AA_height_next": "0"
     },
     "nonadecic_rows": {
       "O_grad_next_1": "0",
@@ -1720,6 +1762,7 @@
     "pin_site_icosic_enumerated": true,
     "pin_site_jet_rows_enumerated": true,
     "pin_site_next_order_enumerated": true,
+    "pin_site_nonacosic_enumerated": true,
     "pin_site_nonadecic_enumerated": true,
     "pin_site_nonic_enumerated": true,
     "pin_site_octacosic_enumerated": true,
@@ -2023,12 +2066,13 @@
       "pentacosic",
       "hexacosic",
       "heptacosic",
-      "octacosic"
+      "octacosic",
+      "nonacosic"
     ],
-    "enumeration_scope": "leading_morse_plus_cubic_through_octacosic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_nonacosic",
     "global_contact_density_bound_proved": false,
-    "max_unmatched_density_r_power": 26,
-    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through octacosic pin residuals; none absorbed; twenty-ninth-and-higher jets / density open",
+    "max_unmatched_density_r_power": 27,
+    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through nonacosic pin residuals; none absorbed; thirtieth-and-higher jets / density open",
     "min_unmatched_density_r_power": 1,
     "object": "RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1",
     "orders": {
@@ -2101,6 +2145,13 @@
         "homogeneous_degree": 20,
         "residual_symbol": "R_*_next",
         "unmatched_density_r_power": 18
+      },
+      "nonacosic": {
+        "euler_identity": "z\u00b7grad_residual = 29 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 29,
+        "residual_symbol": "AA_*_next",
+        "unmatched_density_r_power": 27
       },
       "nonadecic": {
         "euler_identity": "z\u00b7grad_residual = 19 \u00b7 height_residual",
@@ -2216,7 +2267,7 @@
       }
     },
     "pin_site_higher_jets_enumerated": false,
-    "twenty_ninth_and_higher_jets_enumerated": false,
+    "thirtieth_and_higher_jets_enumerated": false,
     "unmatched_r_powers": [
       1,
       2,
@@ -2243,7 +2294,8 @@
       23,
       24,
       25,
-      26
+      26,
+      27
     ]
   },
   "rank": {
