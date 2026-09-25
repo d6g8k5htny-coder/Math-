@@ -75,7 +75,7 @@ class HardGateControls(unittest.TestCase):
         self.assertEqual(node['review_pr'], 9)
         self.assertEqual(
             node['fingerprint'],
-            '8b30cfb45120cf67626d2f74390a27bbdf59b22c',
+            '943c096a6750a1ceda212b193ddae09cf09419ea',
         )
         deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-chart-j0')
         self.assertEqual(deps, ['math.rn-mesoscopic-reduction'])
