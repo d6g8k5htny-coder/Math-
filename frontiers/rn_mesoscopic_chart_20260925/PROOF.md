@@ -73,6 +73,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - leading-order height–`J_grad_y` dependence identity;
 - scaling exponents and gradient Jacobian `r`-power `3`;
 - Hessian contact rows and raw `det H` leading `r`-power `1` on `C_transverse` and `C_axial`;
+- thin-belt contact polynomials (same jet forms; not absorbed; no uniform bound);
 - contact integrand `r`-power identity (net `3` transverse / `2` axial);
 - finite mutation controls on those algebraic statements.
 
@@ -80,8 +81,8 @@ The two gradient rows are the independent contact observations for the gradient 
 
 - absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
+- uniform thin-belt integrand bound controlling the `1/|y2|` singularity;
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- thin-belt chart (`0 < |y2| < δ`) and its conditioned change-of-variables;
 - pin-centred charts on any scale where pins enter the annulus;
 - any numerical RN / 24-jet certificate.
 
@@ -111,7 +112,7 @@ For the PR7 convention `A > 1`, both scaled pins satisfy `|pin| = 1/2 < A`, so t
 
 with `near_pin` empty on this fixed annulus. The machine cover report records `enumerated_charts = {C_transverse, C_axial}`, `open_regions = {thin_belt_open}`, and `cover_complete = false`.
 
-The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend, `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. The checker records that factor and marks the region `OPEN_SEPARATE_CHART_REQUIRED`.
+The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend (and are enumerated on `C_thin_belt`), `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. The checker records that factor and marks the region `OPEN_SEPARATE_CHART_REQUIRED` with `uniform_integrand_bound_proved = false`.
 
 A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The diagnosis records which pin is closer and that a pin-centred divided-difference chart is required; it does **not** supply that chart, and it does not alter the PR7 fixed-annulus statements.
 

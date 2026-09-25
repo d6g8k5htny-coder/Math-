@@ -81,13 +81,15 @@
     ],
     "full_annulus_closed": false,
     "legacy_24jet_discharged": false,
-    "notes": "C_transverse \u222a C_axial covers the annulus off the open thin belt 0<|y2|<floor. For A>1/2 the scaled pins lie outside the annulus (PR7 convention); near-pin charts arise only for smaller A or other scales.",
+    "notes": "C_transverse \u222a C_axial covers the annulus off the open thin belt 0<|y2|<floor. Thin-belt contact polynomials are enumerated but not absorbed (conditioning ~1/|y2|). For A>1/2 the scaled pins lie outside the annulus (PR7 convention); near-pin charts arise only for smaller A or other scales.",
     "object": "RN-MESOSCOPIC-CHART-COVER-20260925-v1",
     "open_regions": [
       "thin_belt_open"
     ],
     "pin_exclusion_margin": "1/10",
     "pins_exterior_to_annulus": true,
+    "thin_belt_contact_rows_enumerated": true,
+    "thin_belt_uniform_bound_proved": false,
     "transverse_floor_y2": "1/4"
   },
   "full_annulus_closed": false,
@@ -208,6 +210,38 @@
     "height_window_r_power": 3,
     "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
     "spatial_volume_r_power": 2
+  },
+  "thin_belt_ledger": {
+    "absorbed_into_C_transverse": false,
+    "chart": "C_thin_belt",
+    "complements_pr7": true,
+    "conditioning": {
+      "conditioning_factor_reciprocal_abs_y2": "8",
+      "grad_y_coefficient_y2": "1/8",
+      "region": "thin_belt_open",
+      "status": "OPEN_SEPARATE_CHART_REQUIRED"
+    },
+    "contact_rows": {
+      "H_height_next": "16",
+      "J_grad_x": "24",
+      "J_grad_y": "1/4",
+      "J_height": "1/64",
+      "height_residual_at_leading_order": "0"
+    },
+    "contact_rows_enumerated": true,
+    "full_annulus_closed": false,
+    "gradient_jacobian_r_power": 3,
+    "hessian_det_leading_r_power": 1,
+    "hessian_ledger_evaluated": false,
+    "legacy_24jet_discharged": false,
+    "meaning": "exact thin-belt contact polynomials matching C_transverse forms; conditioning factor 1/|y2| prevents absorption; no uniform density bound",
+    "object": "RN-MESOSCOPIC-CHART-J0-D2-THIN-BELT-20260925-v1",
+    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "uniform_integrand_bound_proved": false,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
   },
   "thin_belt_sample": {
     "conditioning_factor_reciprocal_abs_y2": "8",

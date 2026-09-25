@@ -141,12 +141,16 @@ def chart_cover_report(*, inner: int | Q = 2, outer: int | Q = 4,
         'transverse_floor_y2': exact(floor_y2),
         'pins_exterior_to_annulus': pins_out,
         'enumerated_charts': ['C_transverse', 'C_axial'],
+        'thin_belt_contact_rows_enumerated': True,
+        'thin_belt_uniform_bound_proved': False,
         'open_regions': open_regions,
         'cover_complete': False,
         'notes': (
             'C_transverse ∪ C_axial covers the annulus off the open thin belt '
-            '0<|y2|<floor. For A>1/2 the scaled pins lie outside the annulus '
-            '(PR7 convention); near-pin charts arise only for smaller A or other scales.'
+            '0<|y2|<floor. Thin-belt contact polynomials are enumerated but not '
+            'absorbed (conditioning ~1/|y2|). For A>1/2 the scaled pins lie outside '
+            'the annulus (PR7 convention); near-pin charts arise only for smaller A '
+            'or other scales.'
         ),
         'legacy_24jet_discharged': False,
         'full_annulus_closed': False,
@@ -167,6 +171,59 @@ def thin_belt_conditioning(y: Coord) -> dict[str, Q | str]:
         'grad_y_coefficient_y2': y2,
         'conditioning_factor_reciprocal_abs_y2': 1 / abs(y2),
         'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+    }
+
+
+def thin_belt_contact_rows(y: Coord, *, gap_mark: int | Q,
+                           f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
+                           f_yyy: int | Q = 0) -> dict[str, Q]:
+    """Contact polynomials on the thin belt (same jet forms as C_transverse).
+
+    Membership uses thin_belt_ok. The polynomials extend, but the chart is not absorbed
+    into C_transverse because |y2| is below the transverse floor.
+    """
+    if not thin_belt_ok(y):
+        raise ValueError('point outside thin belt')
+    return _contact_jet_polynomials(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+
+
+def thin_belt_ledger_for_point(y: Coord, gap_mark: int | Q = 1,
+                               f_yy: int | Q = 1, f_xxy: int | Q = 0,
+                               f_xyy: int | Q = 0, f_yyy: int | Q = 0) -> dict:
+    rows = thin_belt_contact_rows(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    cond = thin_belt_conditioning(y)
+    # Same gradient scaling powers as C_transverse; density may blow as 1/|y2|.
+    grad = SCALING_EXPONENTS['grad_x'] + SCALING_EXPONENTS['grad_y']
+    return {
+        'object': 'RN-MESOSCOPIC-CHART-J0-D2-THIN-BELT-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': rows['y1'], 'y2': rows['y2']},
+        'contact_rows': {
+            'J_grad_y': rows['J_grad_y'],
+            'J_grad_x': rows['J_grad_x'],
+            'J_height': rows['J_height'],
+            'H_height_next': rows['H_height_next'],
+            'height_residual_at_leading_order': rows['height_residual_at_leading_order'],
+        },
+        'conditioning': cond,
+        'gradient_jacobian_r_power': grad,
+        'hessian_det_leading_r_power': HESSIAN_SCALING_EXPONENTS['xx'],
+        'contact_rows_enumerated': True,
+        'uniform_integrand_bound_proved': False,
+        'absorbed_into_C_transverse': False,
+        'hessian_ledger_evaluated': False,
+        'full_annulus_closed': False,
+        'legacy_24jet_discharged': False,
+        'complements_pr7': True,
+        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'meaning': (
+            'exact thin-belt contact polynomials matching C_transverse forms; '
+            'conditioning factor 1/|y2| prevents absorption; no uniform density bound'
+        ),
     }
 
 
@@ -326,27 +383,18 @@ def axial_ledger_for_point(y: Coord, gap_mark: int | Q = 1,
     }
 
 
-def contact_rows(y: Coord, *, gap_mark: int | Q,
-                 f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
-                 f_yyy: int | Q = 0) -> dict[str, Q]:
-    """Contact-limit J_0 rows on C_transverse after the six-pin / U_0 constraints.
-
-    Free jet leftovers used here: f_yy, f_xxy, f_xyy, f_yyy (exact rationals).
-    Gap mark k enters through f_xxx=12k at contact.
-    """
-    if not transverse_chart_ok(y):
-        raise ValueError('point outside C_transverse chart')
+def _contact_jet_polynomials(y: Coord, *, gap_mark: int | Q,
+                             f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
+                             f_yyy: int | Q = 0) -> dict[str, Q]:
+    """Shared contact-jet polynomials (no chart membership check)."""
     y1, y2 = y
     k = exact(gap_mark)
     a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
     if k <= 0:
         raise ValueError('positive gap mark required')
-    # Leading contact divided differences (coefficients of the free jet / mark).
     j_y = a * y2
     j_x = 6 * k * y1 * y1 + b * y1 * y2 + (c * y2 * y2) / 2
     j_h = (a * y2 * y2) / 2
-    # Next-order height coefficient after /r^2: (f(ry)-b)/r^2 = J_height + r*H_1 + O(r^2)
-    # with H_1 = 2k y1^3 + (1/2) f_xxy y1^2 y2 + (1/2) f_xyy y1 y2^2 + (1/6) f_yyy y2^3.
     h1 = (
         2 * k * y1 ** 3
         + (b * y1 * y1 * y2) / 2
@@ -367,6 +415,21 @@ def contact_rows(y: Coord, *, gap_mark: int | Q,
         'f_xyy': c,
         'f_yyy': d,
     }
+
+
+def contact_rows(y: Coord, *, gap_mark: int | Q,
+                 f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
+                 f_yyy: int | Q = 0) -> dict[str, Q]:
+    """Contact-limit J_0 rows on C_transverse after the six-pin / U_0 constraints.
+
+    Free jet leftovers used here: f_yy, f_xxy, f_xyy, f_yyy (exact rationals).
+    Gap mark k enters through f_xxx=12k at contact.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    return _contact_jet_polynomials(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
 
 
 def hessian_contact_rows(y: Coord, *, gap_mark: int | Q,
@@ -662,6 +725,7 @@ def result() -> dict:
     axial = axial_ledger_for_point(point(2, 0), gap_mark=1, f_xxy=2)
     cover = chart_cover_report()
     thin = thin_belt_conditioning(point(2, Q(1, 8)))
+    thin_led = thin_belt_ledger_for_point(point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
@@ -682,6 +746,7 @@ def result() -> dict:
     out['axial_sample'] = conv(axial)
     out['cover'] = conv(cover)
     out['thin_belt_sample'] = conv(thin)
+    out['thin_belt_ledger'] = conv(thin_led)
     out['near_pin_sample'] = conv(near)
     out['hessian_sample'] = conv(hess)
     out['axial_hessian_sample'] = conv(axial_hess)

@@ -171,6 +171,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(cover['pins_exterior_to_annulus'])
         self.assertEqual(cover['enumerated_charts'], ['C_transverse', 'C_axial'])
         self.assertEqual(cover['open_regions'], ['thin_belt_open'])
+        self.assertTrue(cover['thin_belt_contact_rows_enumerated'])
+        self.assertFalse(cover['thin_belt_uniform_bound_proved'])
         self.assertFalse(cover['cover_complete'])
         self.assertFalse(cover['full_annulus_closed'])
         self.assertFalse(cover['legacy_24jet_discharged'])
@@ -198,6 +200,22 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(info['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
         with self.assertRaises(ValueError):
             m.thin_belt_conditioning(m.point(0, 2))
+
+    def test_thin_belt_contact_rows(self):
+        y = m.point(2, Q(1, 8))
+        rows = m.thin_belt_contact_rows(y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+        self.assertEqual(rows['J_grad_y'], Q(1, 4))  # 2*(1/8)
+        self.assertEqual(rows['J_height'], Q(1, 64))  # (2*(1/64))/2
+        self.assertEqual(rows['height_residual_at_leading_order'], 0)
+        led = m.thin_belt_ledger_for_point(y, gap_mark=1, f_yy=2)
+        self.assertEqual(led['chart'], 'C_thin_belt')
+        self.assertTrue(led['contact_rows_enumerated'])
+        self.assertFalse(led['uniform_integrand_bound_proved'])
+        self.assertFalse(led['absorbed_into_C_transverse'])
+        self.assertEqual(led['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        self.assertEqual(led['gradient_jacobian_r_power'], 3)
+        with self.assertRaises(ValueError):
+            m.thin_belt_contact_rows(m.point(0, 2), gap_mark=1, f_yy=1, f_xxy=0, f_xyy=0)
 
     def test_near_pin_diagnosis_small_A(self):
         with self.assertRaises(ValueError):
