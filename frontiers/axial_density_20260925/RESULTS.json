@@ -1,0 +1,39 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "source_sha256": {
+    "PROOF.md": "8b9376a69fda9f0f231d9502be839ae45d8006d1891ff3e700fa521cc96f6cb4",
+    "RECONNAISSANCE.md": "30bf36cc925f566f870fb4ae0a06ecff69c5e51470af4cefdbb1094f2a71502e",
+    "contact.py": "69422122a2f88428db1cffb571a5ae927eafe5308b2cb14ddc2f977804c7f5e4",
+    "run_validation.py": "27a9276adae65e7a79d92d321f68679d830507f652a9a04f1fd3128ff3ef71a3",
+    "test_contact.py": "cab04ac74562024fa21b417eae684addbea87be9a14bc76bdc01b1c72514d592"
+  },
+  "source_unchanged": true,
+  "runs": [
+    {
+      "mode": "normal",
+      "tests_passed": true,
+      "distinct_tests": 15,
+      "mutants_assertion_detected": {
+        "drop_pin_offset": true,
+        "drop_unconditioned_counterterm": true,
+        "wrong_longitudinal_scale": true,
+        "wrong_density_jacobian": true,
+        "wrong_hermite_first_derivative": true
+      }
+    },
+    {
+      "mode": "optimized",
+      "tests_passed": true,
+      "distinct_tests": 15,
+      "mutants_assertion_detected": {
+        "drop_pin_offset": true,
+        "drop_unconditioned_counterterm": true,
+        "wrong_longitudinal_scale": true,
+        "wrong_density_jacobian": true,
+        "wrong_hermite_first_derivative": true
+      }
+    }
+  ],
+  "passed": true,
+  "scope": "Exact algebra only. No covariance enclosure, analytic acceptance, full-repository or hosted-CI claim."
+}
