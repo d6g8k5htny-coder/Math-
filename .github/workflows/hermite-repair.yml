@@ -1,0 +1,47 @@
+name: Finite-r Hermite repair exact replay
+'on':
+  pull_request:
+    paths: ['reviews/d5_finite_r_hermite_repair_20260925/**', '.github/workflows/hermite-repair.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Source-pinned exact pin and remainder controls
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S - <<'PY'
+          import json, os, pathlib, subprocess, sys
+          if sys.version_info[:2] != (3, 11):
+              raise RuntimeError('actual Python 3.11 required')
+          root = pathlib.Path('reviews/d5_finite_r_hermite_repair_20260925').resolve()
+          out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'hermite-repair-results'
+          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=120)
+          report = json.loads((out / 'REPORT.json').read_text())
+          if not report['passed'] or report['distinct_tests'] != 21 or report['distinct_semantic_mutants'] != 3:
+              raise RuntimeError('unexpected finite-pin coverage')
+          if report['mathematical_acceptance'] is not False or report['scientific_effect'] != 'NONE':
+              raise RuntimeError('forbidden scientific promotion')
+          (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
+              'run': os.environ['GITHUB_RUN_ID'], 'sha': os.environ['GITHUB_SHA'],
+              'python': sys.version, 'mathematical_acceptance': False,
+              'scientific_effect': 'NONE',
+          }, indent=2) + '\n')
+          print('FINITE_PIN_REPLAY_PASSED')
+          PY
+      - name: Preserve replay evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: finite-pin-repair-${{ github.run_id }}
+          path: ${{ runner.temp }}/hermite-repair-results
+          if-no-files-found: error
+          retention-days: 30
