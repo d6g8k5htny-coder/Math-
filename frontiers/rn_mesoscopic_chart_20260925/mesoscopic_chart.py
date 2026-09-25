@@ -857,6 +857,45 @@ def height_next_order_independent(y: Coord, *, gap_mark: int | Q,
     }
 
 
+def transverse_height_r_factor_ledger(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Record the unmatched explicit r in the transverse height density.
+
+    Leading J_height = (y2/2) J_grad_y is dependent. Restoring independence via
+    H_height_next inserts one unmatched power of r into the height density factor.
+    This ledger does not absorb that r into a uniform integrand bound.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    rows = contact_rows(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    dep = height_grad_y_dependency(y)
+    nxt = height_next_order_independent(
+        y, gap_mark=gap_mark, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-HEIGHT-R-FACTOR-20260925-v1',
+        'chart': 'C_transverse',
+        'leading_height_dependent_on_grad_y': True,
+        'height_dependency_factor_y2_over_2': dep,
+        'J_height': rows['J_height'],
+        'J_grad_y': rows['J_grad_y'],
+        'height_minus_dep_times_grad_y': rows['J_height'] - dep * rows['J_grad_y'],
+        'H_height_next': nxt['H_height_next'],
+        'next_order_supplies_independent_height': True,
+        'unmatched_height_density_r_power': 1,
+        'explicit_r_factor_still_required': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'meaning': (
+            'leading height is (y2/2)J_grad_y; independence needs H_height_next '
+            'and inserts unmatched r^1; not absorbed into a uniform density bound'
+        ),
+    }
+
+
 def contact_gradient_rank_symbol(y: Coord) -> dict[str, Q | int | bool]:
     """Rank pattern of (J_grad_x, J_grad_y) as a linear map on (f_yy, f_xxy, f_xyy, k).
 
@@ -949,6 +988,7 @@ def result() -> dict:
     jet_map = jet_map_f_yy_to_J_grad_y_factor(point(2, Q(1, 8)))
     transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
     axial_bound = axial_conditioning_uniform_bound(point(2, 0))
+    height_r = transverse_height_r_factor_ledger(point(0, 2), gap_mark=1, f_yy=2)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
@@ -976,6 +1016,7 @@ def result() -> dict:
     out['jet_map_f_yy_sample'] = conv(jet_map)
     out['transverse_conditioning_bound'] = conv(transverse_bound)
     out['axial_conditioning_bound'] = conv(axial_bound)
+    out['transverse_height_r_factor'] = conv(height_r)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)

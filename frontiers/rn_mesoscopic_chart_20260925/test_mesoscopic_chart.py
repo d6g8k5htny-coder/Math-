@@ -282,6 +282,21 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.axial_conditioning_uniform_bound(m.point(Q(1, 2), 0))
 
+    def test_transverse_height_r_factor_ledger(self):
+        y = m.point(0, 2)
+        led = m.transverse_height_r_factor_ledger(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+        self.assertTrue(led['leading_height_dependent_on_grad_y'])
+        self.assertEqual(led['height_dependency_factor_y2_over_2'], 1)
+        self.assertEqual(led['J_grad_y'], 4)  # 2*2
+        self.assertEqual(led['J_height'], 4)  # (1/2)*2*4
+        self.assertEqual(led['height_minus_dep_times_grad_y'], 0)
+        self.assertEqual(led['unmatched_height_density_r_power'], 1)
+        self.assertTrue(led['explicit_r_factor_still_required'])
+        self.assertFalse(led['height_r_absorbed_into_uniform_bound'])
+        self.assertTrue(led['next_order_supplies_independent_height'])
+        with self.assertRaises(ValueError):
+            m.transverse_height_r_factor_ledger(m.point(2, 0))
+
     def test_chart_boundary_transition(self):
         y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
         self.assertTrue(m.transverse_chart_ok(y))

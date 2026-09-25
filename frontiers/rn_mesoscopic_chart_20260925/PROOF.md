@@ -77,6 +77,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - contact integrand `r`-power identity (net `3` transverse / `2` axial);
 - uniform bare-conditioning bound `1/|y2| ≤ 1/δ` on `C_transverse` (chart singularity cleared; Gaussian density still open);
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
+- unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**

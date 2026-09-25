@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 36
+EXPECTED_TESTS = 37
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -89,6 +89,10 @@ MUTANTS = {
     'claim_density_from_axial_bound': (
         "'axial_chart_conditioning_singularity_cleared': True,\n        'axial_gaussian_density_factor_bounded': False,",
         "'axial_chart_conditioning_singularity_cleared': True,\n        'axial_gaussian_density_factor_bounded': True,",
+    ),
+    'claim_height_r_absorbed': (
+        "'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,",
+        "'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,",
     ),
 }
 

@@ -349,6 +349,21 @@
     "thin_belt_still_open": true,
     "uniform_chart_bound": "4"
   },
+  "transverse_height_r_factor": {
+    "H_height_next": "0",
+    "J_grad_y": "4",
+    "J_height": "4",
+    "chart": "C_transverse",
+    "explicit_r_factor_still_required": true,
+    "height_dependency_factor_y2_over_2": "1",
+    "height_minus_dep_times_grad_y": "0",
+    "height_r_absorbed_into_uniform_bound": false,
+    "leading_height_dependent_on_grad_y": true,
+    "meaning": "leading height is (y2/2)J_grad_y; independence needs H_height_next and inserts unmatched r^1; not absorbed into a uniform density bound",
+    "next_order_supplies_independent_height": true,
+    "object": "RN-MESOSCOPIC-TRANSVERSE-HEIGHT-R-FACTOR-20260925-v1",
+    "unmatched_height_density_r_power": 1
+  },
   "transverse_net_count_r_power": 3,
   "y": {
     "y1": "0",
