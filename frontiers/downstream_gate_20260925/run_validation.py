@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 31
+EXPECTED_TESTS = 32
 MUTANTS = {
     'bypass_own_node_eligibility': (
         "if node_classification not in CONTROLLING_ELIGIBLE:",
@@ -25,6 +25,10 @@ MUTANTS = {
     'treat_author_side_required_as_satisfied': (
         "if cls not in REQUIRED_SATISFIED and cls not in ('BLOCKED_ABSENT', 'REFUTED'):",
         "if cls not in REQUIRED_SATISFIED and cls not in ('BLOCKED_ABSENT', 'REFUTED', 'AUTHOR_SIDE_CANDIDATE'):",
+    ),
+    'allow_required_superseded_label': (
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED'})",
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})",
     ),
     'allow_required_refutation': (
         "if cls == 'REFUTED':\n            refuted.append(dep)",
