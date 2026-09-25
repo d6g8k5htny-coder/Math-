@@ -45,9 +45,10 @@ def strict_json(text: str):
     return json.loads(text, object_pairs_hook=pairs, parse_constant=constant)
 
 
-def git(*args: str, cwd: Path = ROOT) -> str:
+def git(*args: str, cwd: Path | None = None) -> str:
+    workdir = ROOT if cwd is None else cwd
     result = subprocess.run(
-        ["git", "-C", str(cwd), *args],
+        ["git", "-C", str(workdir), *args],
         capture_output=True, text=True, timeout=30,
     )
     if result.returncode:
