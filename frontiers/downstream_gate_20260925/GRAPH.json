@@ -176,7 +176,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "x=r y with A<=|y|<=B away from pins",
-      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart algebra incl. pin-site sextic jets; density bound and seventh-and-higher pin jets still open"
+      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart algebra incl. conditioned |det H| free-jet skeleton; density / expectation still open"
     },
     "math.rn-region.pin-collision": {
       "layer": "D5",
@@ -271,10 +271,10 @@
       "kind": "candidate",
       "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
-      "fingerprint": "fb5bd52d87f25671e72b0100f59773dbd69fb646",
+      "fingerprint": "25141b9154b5afcaa16e526f1d9055a2a4e2483d",
       "source": "frontiers/rn_mesoscopic_chart_20260925/PROOF.md",
       "review_pr": 9,
-      "notes": "Exact d=2 chart algebra incl. pin-site sextic S_*_next jets; seventh-and-higher jets and Gaussian density still open"
+      "notes": "Exact d=2 chart algebra incl. conditioned |det H| free-jet linear skeleton; Gaussian density / expectation still open"
     }
   },
   "edges": [
