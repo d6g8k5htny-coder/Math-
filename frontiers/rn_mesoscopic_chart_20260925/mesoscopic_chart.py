@@ -2544,6 +2544,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'jet_map_pointwise_cancel_recorded': True,
                 'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
                 'residual_geometric_factor_locally_L1': True,
+                'free_jet_residual_inventory_recorded': True,
+                'gradient_contact_jacobian_enumerated': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_r_factor_recorded': True,
                 'height_r_factor_absorbed': False,
@@ -2739,24 +2741,77 @@ def pin_centered_free_jet_residual_inventory(
     }
 
 
+def thin_belt_free_jet_residual_inventory(
+    y: Coord, *, floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Exact free-jet residual count on C_thin_belt after leading gradient contact.
+
+    Same leading gradient map as C_transverse on (f_yy, k, f_xxy, f_xyy):
+      J_y = y2 · f_yy
+      J_x = 6 y1^2 · k + y1 y2 · f_xxy + (y2^2)/2 · f_xyy
+    On the thin belt 0 < |y2| < δ the map still has rank 2, leaving 2 free
+    directions; f_yyy is absent from leading gradient rows. Does not bound the
+    contact Gaussian density near y2→0 (reciprocal Jacobian diverges).
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    grad_coords = ('f_yy', 'k', 'f_xxy', 'f_xyy')
+    if y1 == 0:
+        second_row_isolates = 'f_xyy'
+        free_among = ['k', 'f_xxy']
+    else:
+        second_row_isolates = 'linear_form_on_k_f_xxy_f_xyy'
+        free_among = ['residual_codim1_subspace_of_k_f_xxy_f_xyy']
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-FREE-JET-RESIDUAL-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'leading_grad_jet_coordinates': list(grad_coords),
+        'leading_grad_observation_count': 2,
+        'leading_grad_map_rank': 2,
+        'free_directions_after_grad_contact': 2,
+        'grad_y_isolates_f_yy': True,
+        'grad_y_coefficient_f_yy': y2,
+        'grad_x_coefficient_k': 6 * y1 * y1,
+        'grad_x_coefficient_f_xxy': y1 * y2,
+        'grad_x_coefficient_f_xyy': (y2 * y2) / 2,
+        'grad_x_second_row_isolates': second_row_isolates,
+        'free_among_leading_grad_coords': free_among,
+        'f_yyy_absent_from_leading_grad_rows': True,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_hessian_expectation_evaluated': False,
+        'uniform_integrand_bound_proved': False,
+        'meaning': (
+            'rank-2 leading gradient contact on thin belt leaves 2 free dirs; '
+            'reciprocal diverges as y2→0; density near y2=0 still unbound'
+        ),
+    }
+
+
 def contact_free_jet_residual_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
-    pin_y: Coord | None = None,
+    pin_y: Coord | None = None, thin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial/pin free-jet residual inventories; density still open."""
+    """Bundle transverse/axial/thin/pin free-jet residual inventories; density still open."""
     t = transverse_free_jet_residual_inventory(transverse_y or point(0, 2))
     a = axial_free_jet_residual_inventory(axial_y or point(2, 0))
+    thin = thin_belt_free_jet_residual_inventory(thin_y or point(2, Q(1, 8)))
     p = pin_centered_free_jet_residual_inventory(
         pin_y or point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1',
         'C_transverse': t,
         'C_axial': a,
+        'C_thin_belt': thin,
         'C_pin_centered': p,
         'global_contact_density_bound_proved': False,
         'meaning': (
             'exact free-jet residual counts after leading gradient contact '
-            '(transverse/axial/pin); prerequisite inventory only — does not '
+            '(transverse/axial/thin/pin); prerequisite inventory only — does not '
             'bound the contact density'
         ),
     }
@@ -2845,6 +2900,47 @@ def axial_gradient_contact_jacobian_ledger(y: Coord) -> dict:
     }
 
 
+def thin_belt_gradient_contact_jacobian_ledger(
+    y: Coord, *, floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Exact |det| of the thin-belt leading gradient map on (f_yy, f_xyy).
+
+    Same algebraic identity as C_transverse:
+      |det ∂(J_y,J_x)/∂(f_yy,f_xyy)| = |y2|^3 / 2.
+    On the thin belt 0 < |y2| < δ this factor → 0 as y2→0, so the reciprocal
+    diverges; algebraic density-shape factor only — does not bound the contact
+    Gaussian density near y2→0. Bare 1/|y2| L1 is cleared separately by jet-map
+    cancel.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    abs_y2 = abs(y2)
+    det_abs = (abs_y2 ** 3) / 2
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-GRADIENT-CONTACT-JACOBIAN-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'eliminated_coordinates': ['f_yy', 'f_xyy'],
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'partial_J_y_partial_f_yy': y2,
+        'partial_J_x_partial_f_xyy': (y2 * y2) / 2,
+        'jacobian_matrix_diagonal': True,
+        'abs_det_grad_contact_map': det_abs,
+        'abs_y2': abs_y2,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'uniform_integrand_bound_proved': False,
+        'contact_gaussian_density_bounded': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact |det ∂(J_y,J_x)/∂(f_yy,f_xyy)| = |y2|^3/2 on thin belt; '
+            'reciprocal diverges as y2→0; density near y2=0 still unbound'
+        ),
+    }
+
+
 def pin_centered_gradient_contact_jacobian_ledger(
     y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
     margin: int | Q = Q(1, 10),
@@ -2912,24 +3008,26 @@ def pin_centered_gradient_contact_jacobian_ledger(
 
 def contact_gradient_jacobian_density_shape_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
-    pin_y: Coord | None = None,
+    pin_y: Coord | None = None, thin_y: Coord | None = None,
 ) -> dict:
     """Bundle exact gradient-contact Jacobians; density bound still open."""
     t = transverse_gradient_contact_jacobian_ledger_with_floor(
         transverse_y or point(0, 2),
     )
     a = axial_gradient_contact_jacobian_ledger(axial_y or point(2, 0))
+    thin = thin_belt_gradient_contact_jacobian_ledger(thin_y or point(2, Q(1, 8)))
     p = pin_centered_gradient_contact_jacobian_ledger(
         pin_y or point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1',
         'C_transverse': t,
         'C_axial': a,
+        'C_thin_belt': thin,
         'C_pin_centered': p,
         'global_contact_density_bound_proved': False,
         'meaning': (
             'exact algebraic |det| factors for leading gradient contact maps '
-            '(transverse/axial/pin); does not bound the contact Gaussian density'
+            '(transverse/axial/thin/pin); does not bound the contact Gaussian density'
         ),
     }
 

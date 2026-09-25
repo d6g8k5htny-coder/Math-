@@ -437,6 +437,8 @@
         "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
         "contact_gaussian_density_bounded": false,
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+        "free_jet_residual_inventory_recorded": true,
+        "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
         "jet_map_pointwise_cancel_recorded": true,
@@ -534,6 +536,40 @@
         "z2": "1/20"
       }
     },
+    "C_thin_belt": {
+      "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+      "chart": "C_thin_belt",
+      "conditioned_hessian_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "f_yyy_absent_from_leading_grad_rows": true,
+      "floor_y2": "1/4",
+      "free_among_leading_grad_coords": [
+        "residual_codim1_subspace_of_k_f_xxy_f_xyy"
+      ],
+      "free_directions_after_grad_contact": 2,
+      "grad_x_coefficient_f_xxy": "1/4",
+      "grad_x_coefficient_f_xyy": "1/128",
+      "grad_x_coefficient_k": "24",
+      "grad_x_second_row_isolates": "linear_form_on_k_f_xxy_f_xyy",
+      "grad_y_coefficient_f_yy": "1/8",
+      "grad_y_isolates_f_yy": true,
+      "leading_grad_jet_coordinates": [
+        "f_yy",
+        "k",
+        "f_xxy",
+        "f_xyy"
+      ],
+      "leading_grad_map_rank": 2,
+      "leading_grad_observation_count": 2,
+      "meaning": "rank-2 leading gradient contact on thin belt leaves 2 free dirs; reciprocal diverges as y2\u21920; density near y2=0 still unbound",
+      "object": "RN-MESOSCOPIC-THIN-BELT-FREE-JET-RESIDUAL-20260925-v1",
+      "reciprocal_diverges_as_y2_to_0": true,
+      "uniform_integrand_bound_proved": false,
+      "y": {
+        "y1": "2",
+        "y2": "1/8"
+      }
+    },
     "C_transverse": {
       "chart": "C_transverse",
       "conditioned_hessian_expectation_evaluated": false,
@@ -564,7 +600,7 @@
       "object": "RN-MESOSCOPIC-TRANSVERSE-FREE-JET-RESIDUAL-20260925-v1"
     },
     "global_contact_density_bound_proved": false,
-    "meaning": "exact free-jet residual counts after leading gradient contact (transverse/axial/pin); prerequisite inventory only \u2014 does not bound the contact density",
+    "meaning": "exact free-jet residual counts after leading gradient contact (transverse/axial/thin/pin); prerequisite inventory only \u2014 does not bound the contact density",
     "object": "RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1"
   },
   "contact_gradient_jacobian_density_shape": {
@@ -618,6 +654,34 @@
         "z2": "1/20"
       }
     },
+    "C_thin_belt": {
+      "abs_det_grad_contact_map": "1/1024",
+      "abs_y2": "1/8",
+      "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+      "chart": "C_thin_belt",
+      "contact_gaussian_density_bounded": false,
+      "eliminated_coordinates": [
+        "f_yy",
+        "f_xyy"
+      ],
+      "floor_y2": "1/4",
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "jacobian_matrix_diagonal": true,
+      "meaning": "exact |det \u2202(J_y,J_x)/\u2202(f_yy,f_xyy)| = |y2|^3/2 on thin belt; reciprocal diverges as y2\u21920; density near y2=0 still unbound",
+      "object": "RN-MESOSCOPIC-THIN-BELT-GRADIENT-CONTACT-JACOBIAN-20260925-v1",
+      "partial_J_x_partial_f_xyy": "1/128",
+      "partial_J_y_partial_f_yy": "1/8",
+      "reciprocal_diverges_as_y2_to_0": true,
+      "uniform_integrand_bound_proved": false,
+      "y": {
+        "y1": "2",
+        "y2": "1/8"
+      }
+    },
     "C_transverse": {
       "abs_det_ge_chart_lower_bound": true,
       "abs_det_grad_contact_map": "4",
@@ -641,7 +705,7 @@
       "partial_J_y_partial_f_yy": "2"
     },
     "global_contact_density_bound_proved": false,
-    "meaning": "exact algebraic |det| factors for leading gradient contact maps (transverse/axial/pin); does not bound the contact Gaussian density",
+    "meaning": "exact algebraic |det| factors for leading gradient contact maps (transverse/axial/thin/pin); does not bound the contact Gaussian density",
     "object": "RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1"
   },
   "contact_integrand_algebraic_factor_skeleton": {

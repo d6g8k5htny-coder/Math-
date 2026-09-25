@@ -1107,8 +1107,11 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(inv['charts']['C_pin_centered']['eighteenth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_thin_belt']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_transverse']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['gradient_contact_jacobian_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['gradient_contact_jacobian_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_det_skeleton_enumerated'])
@@ -1159,6 +1162,14 @@ class MesoscopicChartControls(unittest.TestCase):
         bundled = m.contact_free_jet_residual_inventory()
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['free_directions_after_grad_contact'], 2)
+        thin = m.thin_belt_free_jet_residual_inventory(m.point(2, Q(1, 8)))
+        self.assertEqual(thin['chart'], 'C_thin_belt')
+        self.assertEqual(thin['free_directions_after_grad_contact'], 2)
+        self.assertEqual(thin['grad_x_second_row_isolates'], 'linear_form_on_k_f_xxy_f_xyy')
+        self.assertTrue(thin['reciprocal_diverges_as_y2_to_0'])
+        self.assertTrue(thin['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
+        self.assertFalse(thin['contact_gaussian_density_bounded'])
+        self.assertEqual(bundled['C_thin_belt']['free_directions_after_grad_contact'], 2)
         pin = m.pin_centered_free_jet_residual_inventory(
             m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
         self.assertEqual(pin['leading_grad_map_rank'], 2)
@@ -1314,10 +1325,16 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
         self.assertEqual(pin_axis['abs_det_grad_contact_map'], Q(1, 400))
         self.assertTrue(pin_axis['jacobian_matrix_diagonal'])
+        thin = m.thin_belt_gradient_contact_jacobian_ledger(m.point(2, Q(1, 8)))
+        self.assertEqual(thin['abs_det_grad_contact_map'], Q(1, 1024))  # (1/8)^3 / 2
+        self.assertTrue(thin['reciprocal_diverges_as_y2_to_0'])
+        self.assertTrue(thin['jacobian_matrix_diagonal'])
+        self.assertFalse(thin['contact_gaussian_density_bounded'])
         bundled = m.contact_gradient_jacobian_density_shape_inventory()
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['abs_det_grad_contact_map'], 4)
         self.assertEqual(bundled['C_pin_centered']['abs_det_grad_contact_map'], Q(1, 400))
+        self.assertEqual(bundled['C_thin_belt']['abs_det_grad_contact_map'], Q(1, 1024))
         with self.assertRaises(ValueError):
             m.transverse_gradient_contact_jacobian_ledger(m.point(2, 0))
         with self.assertRaises(ValueError):
@@ -1325,6 +1342,22 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.pin_centered_gradient_contact_jacobian_ledger(
                 m.point(0, 2), inner=Q(2, 5), outer=1)
+        with self.assertRaises(ValueError):
+            m.thin_belt_gradient_contact_jacobian_ledger(m.point(0, 2))
+
+    def test_thin_belt_free_jet_and_gradient_contact_jacobian(self):
+        thin = m.thin_belt_free_jet_residual_inventory(m.point(2, Q(1, 8)))
+        self.assertEqual(thin['leading_grad_map_rank'], 2)
+        self.assertEqual(thin['free_directions_after_grad_contact'], 2)
+        self.assertTrue(thin['reciprocal_diverges_as_y2_to_0'])
+        self.assertFalse(thin['uniform_integrand_bound_proved'])
+        jac = m.thin_belt_gradient_contact_jacobian_ledger(m.point(2, Q(1, 8)))
+        self.assertEqual(jac['chart'], 'C_thin_belt')
+        self.assertEqual(jac['partial_J_y_partial_f_yy'], Q(1, 8))
+        self.assertEqual(jac['partial_J_x_partial_f_xyy'], Q(1, 128))
+        self.assertTrue(jac['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
+        with self.assertRaises(ValueError):
+            m.thin_belt_free_jet_residual_inventory(m.point(0, 2))
 
     def test_pin_centered_gradient_contact_jacobian(self):
         pin = m.pin_centered_gradient_contact_jacobian_ledger(
