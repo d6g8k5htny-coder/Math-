@@ -174,6 +174,111 @@
     "transverse": "C_transverse"
   },
   "complements_pr7": true,
+  "contact_algebraic_factor_times_height_r_inventory": {
+    "C_axial": {
+      "axial_area_measure_zero": true,
+      "chart": "C_axial",
+      "combined_skeleton_applicable": false,
+      "contact_gaussian_density_bounded": false,
+      "no_unmatched_height_r_at_leading_order": true,
+      "unmatched_height_density_r_power": 0
+    },
+    "C_pin_centered": {
+      "H_height_next": "1/8000",
+      "algebraic_factor_r_power_after_stripping": 0,
+      "algebraic_jacobian_times_det_abs": "2400",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "combined_algebraic_factor_and_height_r_recorded": true,
+      "combined_skeleton_absorbed_into_uniform_bound": false,
+      "combined_skeleton_height_r_power": 1,
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "elimination_branch": "z2_nonzero",
+      "free_residual_coordinates": [
+        "H_xx"
+      ],
+      "global_contact_density_bound_proved": false,
+      "height_r_absorbed_into_uniform_bound": false,
+      "meaning": "exact pin Morse (1/|det J|)\u00b7|det H| times unmatched height r^1; neither factor absorbed; density / higher jets still unbound",
+      "object": "RN-MESOSCOPIC-PIN-CENTERED-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1",
+      "pin_site_higher_jets_enumerated": false,
+      "product_minus_recorded_factors": "0",
+      "unmatched_height_density_r_power": 1,
+      "y": {
+        "y1": "1/2",
+        "y2": "1/20"
+      },
+      "z": {
+        "z1": "0",
+        "z2": "1/20"
+      }
+    },
+    "C_thin_belt": {
+      "H_height_next": "16",
+      "algebraic_factor_r_power_after_stripping": 0,
+      "algebraic_jacobian_times_det_abs": "49152",
+      "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+      "chart": "C_thin_belt",
+      "combined_algebraic_factor_and_height_r_recorded": true,
+      "combined_skeleton_absorbed_into_uniform_bound": false,
+      "combined_skeleton_height_r_power": 1,
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "floor_y2": "1/4",
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "height_r_absorbed_into_uniform_bound": false,
+      "meaning": "exact thin-belt (1/|det J|)\u00b7|det H| times unmatched height r^1; reciprocal diverges as y2\u21920; neither factor absorbed; density unbound",
+      "object": "RN-MESOSCOPIC-THIN-BELT-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1",
+      "product_minus_recorded_factors": "0",
+      "reciprocal_diverges_as_y2_to_0": true,
+      "uniform_integrand_bound_proved": false,
+      "unmatched_height_density_r_power": 1,
+      "y": {
+        "y1": "2",
+        "y2": "1/8"
+      }
+    },
+    "C_transverse": {
+      "H_height_next_residual": "8",
+      "algebraic_factor_r_power_after_stripping": 0,
+      "algebraic_jacobian_times_det_abs": "3",
+      "chart": "C_transverse",
+      "combined_algebraic_factor_and_height_r_recorded": true,
+      "combined_skeleton_absorbed_into_uniform_bound": false,
+      "combined_skeleton_height_r_power": 1,
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "height_r_absorbed_into_uniform_bound": false,
+      "meaning": "exact (1/|det J|)\u00b7|det H| times unmatched height r^1 skeleton; neither factor absorbed; Gaussian density still unbound",
+      "object": "RN-MESOSCOPIC-TRANSVERSE-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1",
+      "product_minus_recorded_factors": "0",
+      "unmatched_height_density_r_power": 1,
+      "y": {
+        "y1": "0",
+        "y2": "2"
+      }
+    },
+    "any_combined_skeleton_absorbed_into_uniform_bound": false,
+    "charts_with_combined_skeleton": [
+      "C_transverse",
+      "C_thin_belt",
+      "C_pin_centered"
+    ],
+    "conditioned_expectation_evaluated": false,
+    "global_contact_density_bound_proved": false,
+    "meaning": "inventory of exact (1/|det J|)\u00b7|det H| \u00d7 unmatched height r^1 combined skeletons; axial exempt (no unmatched height r); density still unbound",
+    "object": "RN-MESOSCOPIC-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-INVENTORY-20260925-v1"
+  },
   "contact_conditioned_det_free_jet_skeleton": {
     "C_axial": {
       "alpha_f_yy": "24",

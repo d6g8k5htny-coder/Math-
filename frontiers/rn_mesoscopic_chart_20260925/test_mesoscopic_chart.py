@@ -1174,6 +1174,25 @@ class MesoscopicChartControls(unittest.TestCase):
             m.pin_centered_algebraic_factor_times_height_r_skeleton(
                 m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
 
+    def test_contact_algebraic_factor_times_height_r_inventory(self):
+        inv = m.contact_algebraic_factor_times_height_r_inventory()
+        self.assertEqual(
+            inv['charts_with_combined_skeleton'],
+            ['C_transverse', 'C_thin_belt', 'C_pin_centered'],
+        )
+        self.assertEqual(inv['C_transverse']['algebraic_jacobian_times_det_abs'], 3)
+        self.assertEqual(inv['C_transverse']['combined_skeleton_height_r_power'], 1)
+        self.assertEqual(inv['C_thin_belt']['algebraic_jacobian_times_det_abs'], 49152)
+        self.assertEqual(inv['C_thin_belt']['combined_skeleton_height_r_power'], 1)
+        self.assertEqual(inv['C_pin_centered']['algebraic_jacobian_times_det_abs'], 2400)
+        self.assertEqual(inv['C_pin_centered']['combined_skeleton_height_r_power'], 1)
+        self.assertTrue(inv['C_axial']['no_unmatched_height_r_at_leading_order'])
+        self.assertFalse(inv['C_axial']['combined_skeleton_applicable'])
+        self.assertEqual(inv['C_axial']['unmatched_height_density_r_power'], 0)
+        self.assertFalse(inv['any_combined_skeleton_absorbed_into_uniform_bound'])
+        self.assertFalse(inv['global_contact_density_bound_proved'])
+        self.assertFalse(inv['conditioned_expectation_evaluated'])
+
     def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
         # y=(2,1/8), f_yy=2,f_xxy=0: J_y=1/4, |det J|=1/1024, reciprocal=1024
         # α_k=48, det=48, product=49152

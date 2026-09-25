@@ -103,6 +103,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - transverse algebraic-factor × unmatched height `r^1` combined skeleton (product identity recorded; neither factor absorbed; density still open);
 - thin-belt algebraic-factor × unmatched height `r^1` combined skeleton (reciprocal diverges as y2→0; neither factor absorbed; density still open);
 - pin-centered algebraic-factor × unmatched height `r^1` combined skeleton (neither factor absorbed; density / higher jets still open);
+- inventory bundling those combined skeletons (`C_axial` exempt: no unmatched height r); density still open;
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
 - thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);

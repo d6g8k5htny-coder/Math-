@@ -2661,6 +2661,47 @@ def contact_integrand_algebraic_factor_skeleton_inventory(
     }
 
 
+def contact_algebraic_factor_times_height_r_inventory(
+    *, transverse_y: Coord | None = None, thin_y: Coord | None = None,
+    pin_y: Coord | None = None,
+) -> dict:
+    """Bundle algebraic-factor × height-r combined skeletons on charts with unmatched r^1.
+
+    C_transverse, C_thin_belt, and C_pin_centered each record the product
+    (1/|det J|)·|det H| together with unmatched height r^1. C_axial has no
+    unmatched height r at leading order, so it is listed as exempt rather than
+    combined. Does not absorb any factor or bound the contact Gaussian density.
+    """
+    ty = transverse_y if transverse_y is not None else point(0, 2)
+    thin = thin_y if thin_y is not None else point(2, Q(1, 8))
+    py = pin_y if pin_y is not None else point(Q(1, 2), Q(1, 20))
+    return {
+        'object': 'RN-MESOSCOPIC-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-INVENTORY-20260925-v1',
+        'C_transverse': transverse_algebraic_factor_times_height_r_skeleton(
+            ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6),
+        'C_thin_belt': thin_belt_algebraic_factor_times_height_r_skeleton(
+            thin, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0),
+        'C_pin_centered': pin_centered_algebraic_factor_times_height_r_skeleton(
+            py, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3, f_yyy=6),
+        'C_axial': {
+            'chart': 'C_axial',
+            'unmatched_height_density_r_power': 0,
+            'no_unmatched_height_r_at_leading_order': True,
+            'combined_skeleton_applicable': False,
+            'axial_area_measure_zero': True,
+            'contact_gaussian_density_bounded': False,
+        },
+        'charts_with_combined_skeleton': ['C_transverse', 'C_thin_belt', 'C_pin_centered'],
+        'any_combined_skeleton_absorbed_into_uniform_bound': False,
+        'global_contact_density_bound_proved': False,
+        'conditioned_expectation_evaluated': False,
+        'meaning': (
+            'inventory of exact (1/|det J|)·|det H| × unmatched height r^1 combined '
+            'skeletons; axial exempt (no unmatched height r); density still unbound'
+        ),
+    }
+
+
 def axial_conditioned_hessian_residual_ledger(
     y: Coord, *, gap_mark: int | Q = 1,
     f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
@@ -3170,6 +3211,7 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     thin_alg_height = thin_belt_algebraic_factor_times_height_r_skeleton(
         point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+    alg_height_inv = contact_algebraic_factor_times_height_r_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -3217,6 +3259,7 @@ def result() -> dict:
     out['pin_centered_algebraic_factor_times_height_r'] = conv(pin_alg_height)
     out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
     out['thin_belt_algebraic_factor_times_height_r'] = conv(thin_alg_height)
+    out['contact_algebraic_factor_times_height_r_inventory'] = conv(alg_height_inv)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())
