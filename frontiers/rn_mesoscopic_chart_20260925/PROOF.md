@@ -72,12 +72,13 @@ The two gradient rows are the independent contact observations for the gradient 
 - contact-row polynomials above, including `H_height_next`;
 - leading-order height–`J_grad_y` dependence identity;
 - scaling exponents and gradient Jacobian `r`-power `3`;
+- Hessian contact rows and raw `det H` leading `r`-power `1` on `C_transverse`;
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**
 
 - absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
-- conditioned Hessian ledger on either chart;
+- conditioned Gaussian expectation of the typed Hessian factor on either chart;
 - thin-belt chart (`0 < |y2| < δ`) and its conditioned change-of-variables;
 - pin-centred charts on any scale where pins enter the annulus;
 - any numerical RN / 24-jet certificate.
@@ -111,6 +112,26 @@ with `near_pin` empty on this fixed annulus. The machine cover report records `e
 The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend, `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. The checker records that factor and marks the region `OPEN_SEPARATE_CHART_REQUIRED`.
 
 A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The diagnosis records which pin is closer and that a pin-centred divided-difference chart is required; it does **not** supply that chart, and it does not alter the PR7 fixed-annulus statements.
+
+## 4.7 Hessian contact rows on C_transverse
+
+After the same `U_0` constraints, the witness Hessian at `x = r y` has mixed leading powers:
+
+    f_xx(ry) = r (12k y1 + f_xxy y2) + O(r^2),
+    f_xy(ry) = r (f_xxy y1 + f_xyy y2) + O(r^2),
+    f_yy(ry) = f_yy + O(r).
+
+Contact entries after stripping those powers:
+
+    H_xx_contact = 12k y1 + f_xxy y2,
+    H_xy_contact = f_xxy y1 + f_xyy y2,
+    H_yy_contact = f_yy.
+
+Hence
+
+    det H = r · H_xx_contact · H_yy_contact − r^2 · H_xy_contact^2 + O(r^2),
+
+so the raw determinant contributes a leading factor `r^1`. The finite checker records these polynomials and the power; it does **not** evaluate the conditioned Gaussian expectation of the typed Hessian factor needed to finish the Kac–Rice integrand (`hessian_ledger_evaluated = false`).
 
 ## 5. Relation to PR7 and #86
 

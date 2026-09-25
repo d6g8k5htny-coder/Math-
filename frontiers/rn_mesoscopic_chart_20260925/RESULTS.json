@@ -77,7 +77,45 @@
   "gradient_jacobian_r_power": 3,
   "height_next_order_enumerated": true,
   "height_row_independent_at_leading_order": false,
+  "hessian_contact_rows_enumerated": true,
   "hessian_ledger_evaluated": false,
+  "hessian_raw_det_leading_r_power": 1,
+  "hessian_sample": {
+    "chart": "C_transverse",
+    "complements_pr7": true,
+    "conditioned_expectation_evaluated": false,
+    "contact_rows": {
+      "H_xx_contact": "0",
+      "H_xy_contact": "0",
+      "H_yy_contact": "2",
+      "H_yy_next": "0",
+      "det_contact_leading": "0",
+      "det_xy_square_coefficient": "0"
+    },
+    "full_annulus_closed": false,
+    "hessian_contact_rows_enumerated": true,
+    "hessian_ledger_evaluated": false,
+    "legacy_24jet_discharged": false,
+    "meaning": "exact d=2 transverse Hessian contact rows and raw det r-power 1; not a conditioned Kac-Rice Hessian expectation",
+    "object": "RN-MESOSCOPIC-CHART-HESSIAN-D2-TRANSVERSE-20260925-v1",
+    "raw_det_leading_r_power": 1,
+    "scaling": {
+      "chart": "C_transverse",
+      "conditioned_expectation_evaluated": false,
+      "dimension": 2,
+      "hessian_scaling_exponents": {
+        "xx": 1,
+        "xy": 1,
+        "yy": 0
+      },
+      "meaning": "raw det H = r * H_xx_contact * H_yy_contact - r^2 * H_xy_contact^2 + O(r^2); leading factor is r^1; conditioned Gaussian expectation of |det H| is not evaluated",
+      "raw_det_leading_r_power": 1
+    },
+    "y": {
+      "y1": "0",
+      "y2": "2"
+    }
+  },
   "independent_analytic_acceptance": false,
   "legacy_24jet_discharged": false,
   "meaning": "exact d=2 transverse chart contact rows, next-order height remainder, and gradient Jacobian r-power; not a continuum Gaussian evaluation",

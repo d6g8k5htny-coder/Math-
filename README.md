@@ -14,7 +14,7 @@
 | P15 failed extension | [Price-range counterexample](frontiers/three_fronts_20260924/P15_PRICE_BOUNDARY.md) | Unrestricted same-palette transformed-price extension is false |
 | P15 valid price extension | [Low-probability transformed-price budget](frontiers/price_budget_20260924/PROOF.md) | New sufficient hypotheses: demand at least 2 and probabilities at most 1/4 |
 | P15 full probability range | [Full transformed-price budget and sharp constant](frontiers/full_price_20260924/PROOF.md) | Demands at least 2; every independent probability vector; same palette; sharp uniform factor 1/[3-log(3e-2)] |
-| Mesoscopic chart J0 (d=2 transverse) | [Contact rows and Jacobian r-power](frontiers/rn_mesoscopic_chart_20260925/PROOF.md) | Complements Math- PR7; one chart only; not annulus closure |
+| Mesoscopic chart J0 (d=2 transverse/axial) | [Contact rows, cover, Hessian powers](frontiers/rn_mesoscopic_chart_20260925/PROOF.md) | Complements Math- PR7; charts + cover inventory; not annulus closure |
 
 All positive research claims here are author-side candidates pending nonauthor review. A merge publishes a source; a test checks its stated coverage. Neither independently accepts a theorem. The counterexample and the restricted successor concern different hypotheses. The full-range successor removes the probability cutoff, not the demand or realized-family hypotheses; the older 16/27 factor remains better on its smaller domain.
 

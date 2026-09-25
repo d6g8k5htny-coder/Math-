@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 24
+EXPECTED_TESTS = 26
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -35,8 +35,8 @@ MUTANTS = {
         "h1 = (\n        0 * k * y1 ** 3\n        + (b * y1 * y1 * y2) / 2",
     ),
     'claim_annulus_closed': (
-        "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': False,",
-        "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': True,",
+        "'height_next_order_enumerated': True,\n        'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': False,",
+        "'height_next_order_enumerated': True,\n        'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': True,",
     ),
     'claim_cover_complete': (
         "'cover_complete': False,",
@@ -45,6 +45,14 @@ MUTANTS = {
     'wrong_pins_exterior': (
         "return exact(inner) > Q(1, 2)",
         "return exact(inner) < Q(1, 2)",
+    ),
+    'wrong_hessian_xx_power': (
+        "'xx': 1,\n    'xy': 1,\n    'yy': 0,",
+        "'xx': 0,\n    'xy': 1,\n    'yy': 0,",
+    ),
+    'claim_hessian_conditioned': (
+        "'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'conditioned_expectation_evaluated': False,",
+        "'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': True,\n        'conditioned_expectation_evaluated': True,",
     ),
 }
 

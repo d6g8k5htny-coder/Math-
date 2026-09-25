@@ -104,6 +104,7 @@ class MesoscopicChartControls(unittest.TestCase):
         led = m.ledger_for_point(m.point(0, 2))
         self.assertFalse(led['height_row_independent_at_leading_order'])
         self.assertTrue(led['height_next_order_enumerated'])
+        self.assertTrue(led['hessian_contact_rows_enumerated'])
         self.assertFalse(led['hessian_ledger_evaluated'])
         self.assertFalse(led['full_annulus_closed'])
         self.assertFalse(led['legacy_24jet_discharged'])
@@ -137,8 +138,11 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(payload, pinned)
         self.assertEqual(payload['gradient_jacobian_r_power'], 3)
         self.assertEqual(payload['axial_gradient_jacobian_r_power'], 4)
+        self.assertEqual(payload['hessian_raw_det_leading_r_power'], 1)
         self.assertTrue(payload['sample_points_ok'])
         self.assertTrue(payload['axial_points_ok'])
+        self.assertFalse(payload['hessian_sample']['hessian_ledger_evaluated'])
+        self.assertTrue(payload['hessian_sample']['hessian_contact_rows_enumerated'])
 
     def test_sample_points_cover_signs(self):
         ys = m.sample_points()
@@ -202,6 +206,39 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(diag['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
         self.assertFalse(diag['pr7_fixed_annulus_A_gt_1'])
         self.assertFalse(m.near_pin_ok(m.point(0, 2)))
+
+    def test_hessian_contact_rows(self):
+        rows = m.hessian_contact_rows(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=5)
+        self.assertEqual(rows['H_xx_contact'], 6)   # 0 + 3*2
+        self.assertEqual(rows['H_xy_contact'], 8)   # 0 + 4*2
+        self.assertEqual(rows['H_yy_contact'], 2)
+        self.assertEqual(rows['H_yy_next'], 10)     # 4*0 + 5*2
+        self.assertEqual(rows['det_contact_leading'], 12)
+        self.assertEqual(rows['det_xy_square_coefficient'], 64)
+        y = m.point(2, 2)
+        k, a, b, c = Q(2), Q(3), Q(5), Q(7)
+        rows = m.hessian_contact_rows(y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c)
+        self.assertEqual(rows['H_xx_contact'], 12 * k * 2 + b * 2)
+        self.assertEqual(rows['H_xy_contact'], b * 2 + c * 2)
+        self.assertEqual(rows['H_yy_contact'], a)
+        self.assertEqual(rows['det_contact_leading'], rows['H_xx_contact'] * a)
+
+    def test_hessian_scaling_and_flags(self):
+        scale = m.hessian_scaling_report(2)
+        self.assertEqual(scale['hessian_scaling_exponents'], {'xx': 1, 'xy': 1, 'yy': 0})
+        self.assertEqual(scale['raw_det_leading_r_power'], 1)
+        self.assertFalse(scale['conditioned_expectation_evaluated'])
+        led = m.hessian_ledger_for_point(m.point(0, 2), gap_mark=1, f_yy=2)
+        self.assertEqual(led['raw_det_leading_r_power'], 1)
+        self.assertTrue(led['hessian_contact_rows_enumerated'])
+        self.assertFalse(led['hessian_ledger_evaluated'])
+        self.assertFalse(led['conditioned_expectation_evaluated'])
+        self.assertFalse(led['full_annulus_closed'])
+        with self.assertRaises(ValueError):
+            m.hessian_contact_rows(m.point(2, 0), gap_mark=1, f_yy=1, f_xxy=0, f_xyy=0)
+        with self.assertRaises(ValueError):
+            m.hessian_scaling_report(2, chart='C_axial')
 
 
 if __name__ == '__main__':
