@@ -1,0 +1,221 @@
+"""Finite integrity-gate controls; not mathematical review or theorem acceptance."""
+from __future__ import annotations
+
+import copy
+import json
+import unittest
+from pathlib import Path
+
+import hard_gate as m
+
+ROOT = Path(__file__).resolve().parent
+
+
+class HardGateControls(unittest.TestCase):
+    def setUp(self):
+        self.graph = m.load_graph()
+
+    def test_schema_and_terminal_set(self):
+        self.assertEqual(self.graph['schema_version'], 1)
+        self.assertEqual(
+            set(self.graph['terminal_classifications']),
+            set(m.TERMINAL),
+        )
+        for token in m.NON_DISCHARGE_DEFAULT:
+            self.assertIn(token, self.graph['non_discharge_tokens'])
+
+    def test_unknown_node_refused(self):
+        with self.assertRaises(KeyError):
+            m.require_node(self.graph, 'no.such.node')
+
+    def test_historical_carriers_absent(self):
+        for nid in (
+            'hist.rnu_env.py',
+            'hist.CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip',
+            'hist.allcell_fdz_enclosures.json',
+        ):
+            self.assertEqual(self.graph['nodes'][nid]['classification'], 'BLOCKED_ABSENT')
+            self.assertFalse(self.graph['nodes'][nid]['controlling'])
+
+    def test_lemma_closed_never_true(self):
+        node = self.graph['nodes']['hist.lemma_closed']
+        self.assertEqual(node['classification'], 'FALSE')
+        self.assertFalse(node['controlling'])
+        report = m.closure_report(self.graph)
+        self.assertIs(report['lemma_closed'], False)
+        self.assertEqual(report['scientific_effect'], 'NONE')
+
+    def test_lifetime_requires_parent(self):
+        deps = m.required_dependencies(self.graph, 'math.lifetime-remainder')
+        self.assertEqual(deps, ['math.uniform-matrix-cap-lifetime'])
+        decision = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
+        self.assertFalse(decision['allowed'])
+        self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
+                            for x in decision['missing_terminal']))
+
+    def test_side24_requires_parent(self):
+        decision = m.promotion_allowed(self.graph, 'math.side24-coefficient')
+        self.assertFalse(decision['allowed'])
+        self.assertIn('math.uniform-matrix-cap-lifetime', decision['required_dependencies'])
+
+    def test_fixed_remote_requires_count_interface(self):
+        deps = m.transitive_required(self.graph, 'math.rn-fixed-remote-window')
+        self.assertIn('math.rn-count-interface', deps)
+        decision = m.promotion_allowed(self.graph, 'math.rn-fixed-remote-window')
+        self.assertFalse(decision['allowed'])
+
+    def test_mesoscopic_requires_fixed_remote(self):
+        deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-reduction')
+        self.assertEqual(deps, ['math.rn-fixed-remote-window'])
+
+    def test_blocked_absent_forces_hold_on_historical_env(self):
+        blocked = m.blocked_absent_hold(self.graph, 'hist.ENV-RESCOV')
+        self.assertEqual(blocked, ['hist.rnu_env.py'])
+        applied = m.apply_promotion(self.graph, 'hist.ENV-RESCOV')
+        self.assertFalse(applied['decision']['ok'])
+        self.assertEqual(applied['decision']['applied'], 'HOLD')
+        self.assertEqual(
+            applied['graph']['nodes']['hist.ENV-RESCOV']['classification'],
+            'HOLD',
+        )
+        self.assertFalse(applied['graph']['nodes']['hist.ENV-RESCOV']['controlling'])
+
+    def test_green_ci_alone_never_promotes(self):
+        for tokens in (
+            ['GREEN_CI'],
+            ['HASH_MATCH', 'NAVIGATION_SUCCESS'],
+            ['SAME_AUTHOR_REVIEW', 'AUTHOR_SELF_CHECK', 'NUMERICAL_EXPERIMENT'],
+            ['GREEN_CI', 'HASH_MATCH', 'ARCHITECTURAL_ADMISSION'],
+        ):
+            result = m.refuse_non_discharge_promotion(
+                self.graph, 'math.rn-fixed-remote-window', tokens)
+            self.assertTrue(result['refused'])
+            self.assertFalse(result['allowed'])
+
+    def test_unknown_evidence_token_refused(self):
+        result = m.refuse_non_discharge_promotion(
+            self.graph, 'math.p15-price-boundary', ['VIBES'])
+        self.assertTrue(result['refused'])
+
+    def test_refuted_price_boundary_is_terminal(self):
+        node = self.graph['nodes']['math.p15-price-boundary']
+        self.assertEqual(node['classification'], 'REFUTED')
+        self.assertTrue(m.is_terminal('REFUTED'))
+
+    def test_full_price_still_blocked_by_review_state(self):
+        # Parent boundary is terminal REFUTED, but full-price itself is author-side
+        # and still may not be controlling without analytic review classification.
+        decision = m.promotion_allowed(self.graph, 'math.p15-full-price')
+        # Required dep is terminal, so missing_terminal may be empty; controlling
+        # still requires an explicit legal promotion path. The node itself is not
+        # yet PROVED_REVIEWED, but #90 rule 1 cares about dependencies. Promote
+        # attempt on an author-side node with terminal deps is still refused by
+        # non-discharge evidence rule in package RESULTS.
+        self.assertEqual(decision['required_dependencies'], ['math.p15-price-boundary'])
+        self.assertEqual(decision['missing_terminal'], [])
+        self.assertEqual(decision['blocked_absent'], [])
+        # Author-side candidates are not auto-controlling in the stored graph.
+        self.assertFalse(self.graph['nodes']['math.p15-full-price']['controlling'])
+
+    def test_reverse_impact_marks_dependents(self):
+        impact = m.reverse_impact(
+            self.graph,
+            'math.uniform-matrix-cap-lifetime',
+            old_fingerprint='main-63-author-side',
+            new_fingerprint='main-63-changed',
+        )
+        self.assertTrue(impact['dependency_changed'])
+        self.assertIn('math.lifetime-remainder', impact['impacted'])
+        self.assertIn('math.side24-coefficient', impact['impacted'])
+        for nid in impact['impacted']:
+            node = impact['graph']['nodes'][nid]
+            self.assertEqual(node['classification'], 'REVALIDATION_REQUIRED')
+            self.assertFalse(node['controlling'])
+
+    def test_reverse_impact_no_change_is_noop(self):
+        impact = m.reverse_impact(
+            self.graph,
+            'math.uniform-matrix-cap-lifetime',
+            old_fingerprint='same',
+            new_fingerprint='same',
+        )
+        self.assertFalse(impact['dependency_changed'])
+        self.assertEqual(impact['impacted'], [])
+
+    def test_classification_change_triggers_impact(self):
+        impact = m.reverse_impact(
+            self.graph,
+            'math.rn-count-interface',
+            old_classification='AUTHOR_SIDE_CANDIDATE',
+            new_classification='REFUTED',
+        )
+        self.assertTrue(impact['dependency_changed'])
+        self.assertIn('math.rn-fixed-remote-window', impact['impacted'])
+        # Mesoscopic depends on fixed-remote, so transitive impact reaches it.
+        self.assertIn('math.rn-mesoscopic-reduction', impact['impacted'])
+
+    def test_illegal_controlling_detected(self):
+        bad = copy.deepcopy(self.graph)
+        bad['nodes']['math.lifetime-remainder']['controlling'] = True
+        report = m.closure_report(bad)
+        self.assertFalse(report['gate_ok'])
+        self.assertEqual(len(report['illegal_controlling']), 1)
+        self.assertEqual(report['illegal_controlling'][0]['node'], 'math.lifetime-remainder')
+
+    def test_live_graph_has_no_illegal_controlling(self):
+        report = m.closure_report(self.graph)
+        self.assertTrue(report['gate_ok'])
+        self.assertEqual(report['illegal_controlling'], [])
+
+    def test_d4_region_complement(self):
+        regions = m.d4_region_complement(self.graph)
+        covered_ids = {r['id'] for r in regions['covered_by_fixed_remote_candidate']}
+        open_ids = {r['id'] for r in regions['open_complement']}
+        self.assertEqual(covered_ids, {'math.rn-region.fixed-remote'})
+        self.assertIn('math.rn-region.mesoscopic-scaled-annulus', open_ids)
+        self.assertIn('math.rn-region.pin-collision', open_ids)
+        self.assertIn('math.rn-region.intermediate-r-to-rho', open_ids)
+        self.assertIn('math.rn-region.witness-collision', open_ids)
+        self.assertFalse(regions['legacy_24jet_discharged'])
+        self.assertTrue(regions['no_event_to_expectation_reversal'])
+
+    def test_layer_coverage_d0_through_d7(self):
+        layers = {n['layer'] for n in self.graph['nodes'].values()}
+        self.assertEqual(layers, {'D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'})
+
+    def test_results_bytes_match(self):
+        payload = m.results_payload(self.graph)
+        pinned = json.loads((ROOT / 'RESULTS.json').read_text())
+        self.assertEqual(payload, pinned)
+        self.assertTrue(payload['illegal_promotion_refused'])
+        self.assertIs(payload['lemma_closed'], False)
+
+    def test_promote_after_all_terminal_deps(self):
+        g = copy.deepcopy(self.graph)
+        # Synthesize a tiny legal subgraph: make parent terminal reviewed.
+        g['nodes']['math.p15-price-boundary']['classification'] = 'REFUTED'
+        g['nodes']['math.p15-full-price']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(g, 'math.p15-full-price')
+        self.assertTrue(decision['allowed'])
+        applied = m.apply_promotion(g, 'math.p15-full-price')
+        self.assertTrue(applied['decision']['ok'])
+        self.assertTrue(applied['graph']['nodes']['math.p15-full-price']['controlling'])
+
+    def test_edge_targets_exist(self):
+        nodes = self.graph['nodes']
+        for edge in self.graph['edges']:
+            self.assertIn(edge['from'], nodes)
+            self.assertIn(edge['to'], nodes)
+            self.assertIn('required', edge)
+            self.assertIn('relation', edge)
+
+    def test_non_discharge_list_complete_for_issue_90(self):
+        required = {
+            'GREEN_CI', 'HASH_MATCH', 'ARCHITECTURAL_ADMISSION',
+            'NUMERICAL_EXPERIMENT', 'SAME_AUTHOR_REVIEW', 'NAVIGATION_SUCCESS',
+        }
+        self.assertTrue(required.issubset(set(self.graph['non_discharge_tokens'])))
+
+
+if __name__ == '__main__':
+    unittest.main()
