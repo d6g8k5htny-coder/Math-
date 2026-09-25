@@ -233,6 +233,28 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.thin_belt_reciprocal_shell_lower_bound(0)
 
+    def test_jet_map_f_yy_factor(self):
+        info = m.jet_map_f_yy_to_J_grad_y_factor(m.point(2, Q(1, 8)))
+        self.assertEqual(info['partial_J_grad_y_partial_f_yy'], Q(1, 8))
+        self.assertEqual(info['product_abs_factor_times_reciprocal'], 1)
+        self.assertTrue(info['cancels_bare_reciprocal_pointwise'])
+        self.assertFalse(info['full_density_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.jet_map_f_yy_to_J_grad_y_factor(m.point(2, 0))
+
+    def test_chart_boundary_transition(self):
+        y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
+        self.assertTrue(m.transverse_chart_ok(y))
+        self.assertFalse(m.thin_belt_ok(y))
+        tr = m.chart_boundary_transition(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+        self.assertEqual(tr['transition_on_contact_rows'], 'identity')
+        self.assertEqual(tr['transition_jacobian_determinant'], 1)
+        self.assertFalse(tr['singular_transition'])
+        self.assertEqual(tr['shared_contact_rows']['J_grad_y'], Q(1, 2))  # 2*(1/4)
+        self.assertFalse(tr['uniform_integrand_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.chart_boundary_transition(m.point(2, Q(1, 8)))
+
     def test_near_pin_diagnosis_small_A(self):
         with self.assertRaises(ValueError):
             m.near_pin_diagnosis(m.point(Q(1, 2), Q(1, 20)), inner=2, outer=4)

@@ -206,6 +206,76 @@ def thin_belt_reciprocal_shell_lower_bound(shells: int, floor_y2: int | Q = Q(1,
     }
 
 
+def jet_map_f_yy_to_J_grad_y_factor(y: Coord) -> dict[str, Q | str | bool]:
+    """Exact jet-space factor ∂J_grad_y/∂f_yy = y2 on transverse/thin contact rows.
+
+    Records a possible cancellation partner for the 1/|y2| conditioning factor.
+    Does not prove that the full conditioned density remains bounded.
+    """
+    y2 = exact(y[1])
+    if y2 == 0:
+        raise ValueError('factor vanishes on the axis; use C_axial instead')
+    return {
+        'object': 'RN-MESOSCOPIC-JET-MAP-FYY-JGRADY-20260925-v1',
+        'partial_J_grad_y_partial_f_yy': y2,
+        'abs_factor': abs(y2),
+        'conditioning_reciprocal_abs_y2': 1 / abs(y2),
+        'product_abs_factor_times_reciprocal': Q(1),
+        'cancels_bare_reciprocal_pointwise': True,
+        'full_density_bound_proved': False,
+        'meaning': (
+            'pointwise |y2|*(1/|y2|)=1 on the contact jet map; '
+            'not a proof that the conditioned Gaussian density is uniformly bounded'
+        ),
+    }
+
+
+def chart_boundary_transition(
+    y: Coord, *, floor_y2: int | Q = Q(1, 4),
+    gap_mark: int | Q = 1, f_yy: int | Q = 1,
+    f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Overlap transition on |y2|=floor between C_transverse and C_thin_belt.
+
+    Both charts use the same contact-jet polynomials, so the transition on
+    (J_grad_y, J_grad_x, J_height, H_height_next) is the identity (det=1).
+    """
+    delta = exact(floor_y2)
+    if abs(exact(y[1])) != delta:
+        raise ValueError('boundary sample requires |y2| equal to transverse floor')
+    if not in_annulus(y, 2, 4):
+        raise ValueError('boundary sample must lie in the PR7 annulus')
+    if not away_from_pins(y):
+        raise ValueError('boundary sample must stay away from pins')
+    # Evaluate shared polynomials without chart membership (boundary is in neither open set).
+    rows = _contact_jet_polynomials(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    return {
+        'object': 'RN-MESOSCOPIC-CHART-BOUNDARY-TRANSITION-20260925-v1',
+        'from_chart': 'C_thin_belt',
+        'to_chart': 'C_transverse',
+        'boundary': '|y2|=floor_y2',
+        'floor_y2': delta,
+        'y': {'y1': rows['y1'], 'y2': rows['y2']},
+        'shared_contact_rows': {
+            'J_grad_y': rows['J_grad_y'],
+            'J_grad_x': rows['J_grad_x'],
+            'J_height': rows['J_height'],
+            'H_height_next': rows['H_height_next'],
+        },
+        'transition_on_contact_rows': 'identity',
+        'transition_jacobian_determinant': Q(1),
+        'singular_transition': False,
+        'full_annulus_closed': False,
+        'uniform_integrand_bound_proved': False,
+        'meaning': (
+            'exact identity transition of shared contact jets across |y2|=δ; '
+            'does not bound the density or close the thin-belt interior'
+        ),
+    }
+
+
 def thin_belt_contact_rows(y: Coord, *, gap_mark: int | Q,
                            f_yy: int | Q, f_xxy: int | Q, f_xyy: int | Q,
                            f_yyy: int | Q = 0) -> dict[str, Q]:
@@ -804,6 +874,8 @@ def result() -> dict:
     thin = thin_belt_conditioning(point(2, Q(1, 8)))
     thin_led = thin_belt_ledger_for_point(point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     thin_shells = thin_belt_reciprocal_shell_lower_bound(8)
+    boundary = chart_boundary_transition(point(2, Q(1, 4)), gap_mark=1, f_yy=2)
+    jet_map = jet_map_f_yy_to_J_grad_y_factor(point(2, Q(1, 8)))
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
@@ -827,6 +899,8 @@ def result() -> dict:
     out['thin_belt_sample'] = conv(thin)
     out['thin_belt_ledger'] = conv(thin_led)
     out['thin_belt_reciprocal_shells'] = conv(thin_shells)
+    out['chart_boundary_transition'] = conv(boundary)
+    out['jet_map_f_yy_sample'] = conv(jet_map)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)

@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 32
+EXPECTED_TESTS = 34
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -73,6 +73,14 @@ MUTANTS = {
     'claim_thin_belt_L1': (
         "'bare_conditioning_factor_L1_near_zero': False,",
         "'bare_conditioning_factor_L1_near_zero': True,",
+    ),
+    'claim_singular_boundary': (
+        "'transition_jacobian_determinant': Q(1),\n        'singular_transition': False,",
+        "'transition_jacobian_determinant': Q(0),\n        'singular_transition': True,",
+    ),
+    'claim_density_from_jet_map': (
+        "'cancels_bare_reciprocal_pointwise': True,\n        'full_density_bound_proved': False,",
+        "'cancels_bare_reciprocal_pointwise': True,\n        'full_density_bound_proved': True,",
     ),
 }
 

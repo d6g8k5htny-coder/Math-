@@ -53,6 +53,29 @@
     }
   },
   "chart": "C_transverse",
+  "chart_boundary_transition": {
+    "boundary": "|y2|=floor_y2",
+    "floor_y2": "1/4",
+    "from_chart": "C_thin_belt",
+    "full_annulus_closed": false,
+    "meaning": "exact identity transition of shared contact jets across |y2|=\u03b4; does not bound the density or close the thin-belt interior",
+    "object": "RN-MESOSCOPIC-CHART-BOUNDARY-TRANSITION-20260925-v1",
+    "shared_contact_rows": {
+      "H_height_next": "16",
+      "J_grad_x": "24",
+      "J_grad_y": "1/2",
+      "J_height": "1/16"
+    },
+    "singular_transition": false,
+    "to_chart": "C_transverse",
+    "transition_jacobian_determinant": "1",
+    "transition_on_contact_rows": "identity",
+    "uniform_integrand_bound_proved": false,
+    "y": {
+      "y1": "2",
+      "y2": "1/4"
+    }
+  },
   "classifications": {
     "axial": "C_axial",
     "near_pin_default_annulus": "outside_annulus",
@@ -167,6 +190,16 @@
     "net_count_r_power": 3,
     "object": "RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1",
     "spatial_volume_r_power": 2
+  },
+  "jet_map_f_yy_sample": {
+    "abs_factor": "1/8",
+    "cancels_bare_reciprocal_pointwise": true,
+    "conditioning_reciprocal_abs_y2": "8",
+    "full_density_bound_proved": false,
+    "meaning": "pointwise |y2|*(1/|y2|)=1 on the contact jet map; not a proof that the conditioned Gaussian density is uniformly bounded",
+    "object": "RN-MESOSCOPIC-JET-MAP-FYY-JGRADY-20260925-v1",
+    "partial_J_grad_y_partial_f_yy": "1/8",
+    "product_abs_factor_times_reciprocal": "1"
   },
   "legacy_24jet_discharged": false,
   "meaning": "exact d=2 transverse chart contact rows, next-order height remainder, and gradient Jacobian r-power; not a continuum Gaussian evaluation",
