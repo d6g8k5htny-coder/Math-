@@ -245,6 +245,15 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
 
+    def test_pr7_crosswalk_flags(self):
+        text = (ROOT / 'CROSSWALK.md').read_text()
+        self.assertIn('RN-MESOSCOPIC-CHART-PR7-CROSSWALK-20260925-v1', text)
+        self.assertIn('Scientific effect: NONE', text)
+        self.assertIn('contact_density_bound_proved=false', text)
+        self.assertIn('pin-site jets **not** enumerated', text)
+        self.assertIn('AUTHOR_SIDE_CANDIDATE', text)
+        self.assertIn('hessian_ledger_evaluated=false', text)
+
     def test_hessian_contact_rows(self):
         rows = m.hessian_contact_rows(
             m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=5)

@@ -3,7 +3,7 @@
 **Object:** RN-MESOSCOPIC-CHART-J0-D2-TRANSVERSE-20260925-v1  
 **Author:** Cursor. **Disposition:** author-side algebraic chart enumeration; complements [Math- PR7](https://github.com/d6g8k5htny-coder/Math-/pull/7) without editing its proof body. **Scientific effect: NONE.**
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Fixed-remote parent](../remote_window_20260924/PROOF.md) · [PR7 reduction (branch)](https://github.com/d6g8k5htny-coder/Math-/blob/chatgpt/rn-mesoscopic-annulus-20260925/frontiers/rn_mesoscopic_20260925/PROOF.md)
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Fixed-remote parent](../remote_window_20260924/PROOF.md) · [PR7 reduction (branch)](https://github.com/d6g8k5htny-coder/Math-/blob/chatgpt/rn-mesoscopic-annulus-20260925/frontiers/rn_mesoscopic_20260925/PROOF.md) · [§5 crosswalk](CROSSWALK.md)
 
 ## 1. Scope of this chart
 
