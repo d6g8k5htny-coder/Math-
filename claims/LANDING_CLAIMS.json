@@ -144,8 +144,9 @@
       "statement_path": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
       "statement_heading": "Candidate theorem",
       "source": {
-        "commit": "2804dc1db27ef3b1fdef6bb350b486162692cc4a",
-        "blob": "081abc13c5e66342c13df2af2bd6b114f320486f"
+        "commit": "760340e921ac4ceda296b8118da936f1133e956e",
+        "blob": "081abc13c5e66342c13df2af2bd6b114f320486f",
+        "reviewed_subject_commit": "2804dc1db27ef3b1fdef6bb350b486162692cc4a"
       },
       "domain": "d=2; fixed L; fixed scaled annulus 1<A0<=|y|<=B0<infinity; compact positive gap marks k_->0; all frames; between-pin height window",
       "measure": "expected index-j critical-point count in rE; physical area r^2 area(E)",
@@ -155,14 +156,16 @@
           "id": "two-scale-s6-s21",
           "path": "frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md",
           "source": {
-            "commit": "b2e1652f1374c3b45759324a1ad1fd4177458500",
-            "blob": "89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73"
+            "commit": "760340e921ac4ceda296b8118da936f1133e956e",
+            "blob": "89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73",
+            "reviewed_subject_commit": "b2e1652f1374c3b45759324a1ad1fd4177458500"
           },
           "review": {
             "path": "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md",
             "source": {
-              "commit": "bc7d75454d30d84be9d46c210eefecde71835d1d",
-              "blob": "8988251631cab8e65eb2b01a08f7fc593b018570"
+              "commit": "760340e921ac4ceda296b8118da936f1133e956e",
+              "blob": "8988251631cab8e65eb2b01a08f7fc593b018570",
+              "reviewed_subject_commit": "bc7d75454d30d84be9d46c210eefecde71835d1d"
             }
           }
         },
