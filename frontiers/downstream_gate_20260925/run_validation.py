@@ -35,7 +35,7 @@ MUTANTS = {
         "if False:\n            refuted.append(dep)",
     ),
     'drop_old_edges_from_reverse_impact': (
-        "union_edges = {\n        (e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']\n    }",
+        "union_edges = {(e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']}",
         "union_edges = {(e['from'], e['to']) for e in new_graph['edges']}",
     ),
     'skip_reverse_impact': (
@@ -148,9 +148,3 @@ def main():
         require(before == identities(), 'source files changed during execution')
         report.update(passed=True, sources_unchanged=True, source_files=before)
     finally:
-        (out / 'REPORT.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
-    print(json.dumps(report, sort_keys=True))
-
-
-if __name__ == '__main__':
-    main()
