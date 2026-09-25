@@ -1,0 +1,36 @@
+name: D5 annulus algebra (not analytic acceptance)
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/rn_thin_tube_20260925/**'
+      - '.github/workflows/rn-thin-tube.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Replay finite-pin and two-scale identities with mutations
+        env:
+          OUT: ${{ runner.temp }}/thin-tube-results
+        run: |
+          set -euo pipefail
+          python -B -S frontiers/rn_thin_tube_20260925/replay_two_scale.py --output "$OUT"
+          git rev-parse HEAD > "$OUT/checkout-commit.txt"
+          git diff --exit-code
+      - name: Preserve actual replay evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rn-thin-tube-${{ github.run_id }}
+          path: ${{ runner.temp }}/thin-tube-results
+          if-no-files-found: error
+          retention-days: 30
