@@ -547,6 +547,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
         self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
@@ -621,6 +622,25 @@ class MesoscopicChartControls(unittest.TestCase):
             m.transverse_conditioned_hessian_residual_ledger(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_conditioned_hessian_residual_ledger(m.point(0, 2))
+
+    def test_transverse_height_residual_after_grad_contact(self):
+        # y1=0: residual collapses to (1/6) f_yyy y2^3
+        led = m.transverse_height_residual_after_grad_contact(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+        self.assertEqual(led['free_residual_coordinates'], ['k', 'f_xxy', 'f_yyy'])
+        self.assertEqual(led['f_xyy_minus_solved'], 0)
+        self.assertEqual(led['H_height_next_minus_raw'], 0)
+        self.assertEqual(led['H_height_next_residual'], 8)  # (1/6)*6*8
+        self.assertEqual(led['unmatched_height_density_r_power'], 1)
+        self.assertFalse(led['height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        # Off-axis identity check.
+        off = m.transverse_height_residual_after_grad_contact(
+            m.point(2, 2), gap_mark=1, f_yy=5, f_xxy=3, f_xyy=7, f_yyy=9)
+        self.assertEqual(off['f_xyy_minus_solved'], 0)
+        self.assertEqual(off['H_height_next_minus_raw'], 0)
+        with self.assertRaises(ValueError):
+            m.transverse_height_residual_after_grad_contact(m.point(2, 0))
 
 
 if __name__ == '__main__':

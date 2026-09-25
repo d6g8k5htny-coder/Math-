@@ -163,6 +163,7 @@
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
         "height_r_factor_absorbed": false,
+        "height_residual_after_grad_contact_enumerated": true,
         "hessian_conditioned_expectation_evaluated": false,
         "integrand_power_identity_recorded": true
       }
@@ -657,6 +658,36 @@
     "next_order_supplies_independent_height": true,
     "object": "RN-MESOSCOPIC-TRANSVERSE-HEIGHT-R-FACTOR-20260925-v1",
     "unmatched_height_density_r_power": 1
+  },
+  "transverse_height_residual_after_grad": {
+    "H_height_next_minus_raw": "0",
+    "H_height_next_raw": "8",
+    "H_height_next_residual": "8",
+    "J_grad_x": "8",
+    "J_grad_y": "4",
+    "chart": "C_transverse",
+    "contact_gaussian_density_bounded": false,
+    "eliminated_by_grad_contact": [
+      "f_yy",
+      "f_xyy"
+    ],
+    "explicit_r_factor_still_required": true,
+    "f_xyy_from_J_grad_x": "4",
+    "f_xyy_minus_solved": "0",
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy",
+      "f_yyy"
+    ],
+    "height_r_absorbed_into_uniform_bound": false,
+    "leading_height_dependent_on_grad_y": true,
+    "meaning": "exact H_height_next residual after eliminating f_yy,f_xyy; unmatched r^1 and density bound remain open",
+    "object": "RN-MESOSCOPIC-TRANSVERSE-HEIGHT-RESIDUAL-AFTER-GRAD-20260925-v1",
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "0",
+      "y2": "2"
+    }
   },
   "transverse_net_count_r_power": 3,
   "y": {

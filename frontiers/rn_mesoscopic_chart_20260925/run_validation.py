@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 46
+EXPECTED_TESTS = 47
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -99,8 +99,8 @@ MUTANTS = {
         "'axial_chart_conditioning_singularity_cleared': True,\n        'axial_gaussian_density_factor_bounded': True,",
     ),
     'claim_height_r_absorbed': (
-        "'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,",
-        "'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,",
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'meaning': (\n            'leading height is (y2/2)J_grad_y; independence needs H_height_next '\n            'and inserts unmatched r^1; not absorbed into a uniform density bound'\n        ),",
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,\n        'meaning': (\n            'leading height is (y2/2)J_grad_y; independence needs H_height_next '\n            'and inserts unmatched r^1; not absorbed into a uniform density bound'\n        ),",
     ),
     'claim_pin_signature_always_matches': (
         "'signature_matches_pin_role': matches,\n        'morse_nondegenerate': det != 0,",
@@ -129,6 +129,10 @@ MUTANTS = {
     'claim_hessian_expectation_from_residual': (
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
+    ),
+    'claim_height_r_from_grad_residual': (
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'exact H_height_next residual after eliminating f_yy,f_xyy; '\n            'unmatched r^1 and density bound remain open'\n        ),",
+        "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'exact H_height_next residual after eliminating f_yy,f_xyy; '\n            'unmatched r^1 and density bound remain open'\n        ),",
     ),
 }
 

@@ -1061,6 +1061,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'height_r_factor_absorbed': False,
                 'free_jet_residual_inventory_recorded': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
+                'height_residual_after_grad_contact_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1463,6 +1464,62 @@ def transverse_height_r_factor_ledger(
     }
 
 
+def transverse_height_residual_after_grad_contact(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Express H_height_next in free residuals after eliminating f_yy and f_xyy.
+
+    With y2≠0, gradient contact solves
+      f_yy  = J_grad_y / y2
+      f_xyy = (2/y2^2) (J_grad_x − 6k y1^2 − f_xxy y1 y2)
+    Substituting into H_height_next yields the exact residual form
+      H_height_next = y1·J_grad_x − 4k y1^3 − (1/2) f_xxy y1^2 y2 + (1/6) f_yyy y2^3
+    Free residual coordinates: (k, f_xxy, f_yyy). The unmatched density r^1 is
+    still not absorbed into a uniform bound.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    y1, y2 = y
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = contact_rows(y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d)
+    jy, jx = rows['J_grad_y'], rows['J_grad_x']
+    f_xyy_solved = (2 / (y2 * y2)) * (jx - 6 * k * y1 * y1 - b * y1 * y2)
+    h_resid = (
+        y1 * jx
+        - 4 * k * y1 ** 3
+        - (b * y1 * y1 * y2) / 2
+        + (d * y2 ** 3) / 6
+    )
+    h_raw = rows['H_height_next']
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-HEIGHT-RESIDUAL-AFTER-GRAD-20260925-v1',
+        'chart': 'C_transverse',
+        'y': {'y1': y1, 'y2': y2},
+        'free_residual_coordinates': ['k', 'f_xxy', 'f_yyy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'f_xyy_from_J_grad_x': f_xyy_solved,
+        'f_xyy_minus_solved': c - f_xyy_solved,
+        'H_height_next_residual': h_resid,
+        'H_height_next_raw': h_raw,
+        'H_height_next_minus_raw': h_resid - h_raw,
+        'leading_height_dependent_on_grad_y': True,
+        'unmatched_height_density_r_power': 1,
+        'explicit_r_factor_still_required': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'contact_gaussian_density_bounded': False,
+        'meaning': (
+            'exact H_height_next residual after eliminating f_yy,f_xyy; '
+            'unmatched r^1 and density bound remain open'
+        ),
+    }
+
+
 def contact_gradient_rank_symbol(y: Coord) -> dict[str, Q | int | bool]:
     """Rank pattern of (J_grad_x, J_grad_y) as a linear map on (f_yy, f_xxy, f_xyy, k).
 
@@ -1573,6 +1630,8 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
     axial_hess_resid = axial_conditioned_hessian_residual_ledger(
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3)
+    height_resid = transverse_height_residual_after_grad_contact(
+        y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1607,6 +1666,7 @@ def result() -> dict:
     out['contact_free_jet_residual'] = conv(free_jets)
     out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
+    out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

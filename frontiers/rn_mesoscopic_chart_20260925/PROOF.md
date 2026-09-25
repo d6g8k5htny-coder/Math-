@@ -85,6 +85,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; density still open);
 - conditioned Hessian residual polynomials after eliminating constrained jets (transverse free `(k,f_xxy)`; axial free `f_yy`; expectation still open);
+- transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 
