@@ -25,6 +25,7 @@ jobs:
           root = pathlib.Path('frontiers/downstream_gate_20260925').resolve()
           pins = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           def verify():
+              mismatches = []
               for name, identity in pins.items():
                   if pathlib.PurePosixPath(name).name != name or (root / name).is_symlink():
                       raise ValueError('flat regular source required')
@@ -32,7 +33,9 @@ jobs:
                   digest = hashlib.sha256(raw).hexdigest()
                   if len(raw) != identity['bytes'] or digest != identity['sha256']:
                       print('SOURCE_IDENTITY_ACTUAL', name, len(raw), digest)
-                      raise ValueError('source identity mismatch: ' + name)
+                      mismatches.append(name)
+              if mismatches:
+                  raise ValueError('source identity mismatches: ' + ','.join(mismatches))
           if sys.version_info[:2] != (3, 11):
               raise RuntimeError('actual Python 3.11 required')
           verify()
