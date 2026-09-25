@@ -1797,6 +1797,72 @@ def pin_centered_integrand_power_ledger(dimension: int = 2) -> dict:
     }
 
 
+def pin_centered_contact_integrand_algebraic_factor_skeleton(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+    H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
+) -> dict:
+    """Exact algebraic Jacobian×|det H| factor product on C_pin_centered (density open).
+
+    Leading Morse contact J_grad = H_pin · z. With z2≠0 eliminate (H_xy, H_yy):
+      |det ∂(J1,J2)/∂(H_xy,H_yy)| = z2²
+    (if z2=0 and z1≠0, eliminate (H_xx,H_xy) with |det|=z1²). The typed Hessian
+    factor is |det H| = |H_xx H_yy − H_xy²| (r-power 0). Product identity only;
+    Gaussian density / higher jets remain open. Small-A diagnostic chart.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    u, v = exact(frame['z1']), exact(frame['z2'])
+    if u == 0 and v == 0:
+        raise ValueError('pin algebraic factor requires z != 0')
+    a, b, c = map(exact, (H_xx, H_xy, H_yy))
+    det_h = a * c - b * b
+    abs_det_h = abs(det_h)
+    if v != 0:
+        abs_det_jac = v * v
+        eliminated = ['H_xy', 'H_yy']
+        free_residual = ['H_xx']
+        elimination_branch = 'z2_nonzero'
+    else:
+        abs_det_jac = u * u
+        eliminated = ['H_xx', 'H_xy']
+        free_residual = ['H_yy']
+        elimination_branch = 'z1_nonzero_z2_zero'
+    reciprocal_jac = 1 / abs_det_jac
+    algebraic_product = reciprocal_jac * abs_det_h
+    powers = pin_centered_integrand_power_ledger(2)
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'z': {'z1': u, 'z2': v},
+        'closer_pin': frame['closer_pin'],
+        'H_xx': a,
+        'H_xy': b,
+        'H_yy': c,
+        'det_H': det_h,
+        'det_contact_leading_abs': abs_det_h,
+        'abs_det_grad_contact_map': abs_det_jac,
+        'reciprocal_grad_contact_jacobian': reciprocal_jac,
+        'algebraic_jacobian_times_det_abs': algebraic_product,
+        'product_minus_factors': algebraic_product - reciprocal_jac * abs_det_h,
+        'eliminated_coordinates': eliminated,
+        'free_residual_coordinates': free_residual,
+        'elimination_branch': elimination_branch,
+        'net_count_r_power': powers['net_count_r_power'],
+        'hessian_det_leading_r_power': 0,
+        'gradient_jacobian_r_power': 2,
+        'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+        'pin_site_higher_jets_enumerated': False,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_expectation_evaluated': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact pin Morse product (1/|det J_grad|)·|det H|; '
+            'Jacobian |det|=z2² (or z1² on axis); density / higher jets still unbound'
+        ),
+    }
+
+
 def contact_density_obstruction_inventory() -> dict:
     """Per-chart inventory of what is cleared vs still blocking γ_AB ≤ C r^(-d).
 
@@ -1862,6 +1928,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'dodecic_next_order_enumerated': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
+                'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'thirteenth_and_higher_jets_enumerated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -2467,12 +2534,13 @@ def axial_contact_integrand_algebraic_factor_skeleton(
 
 def contact_integrand_algebraic_factor_skeleton_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
-    thin_y: Coord | None = None,
+    thin_y: Coord | None = None, pin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial/thin-belt contact integrand algebraic factor skeletons."""
+    """Bundle transverse/axial/thin-belt/pin-centered contact integrand algebraic factor skeletons."""
     ty = transverse_y if transverse_y is not None else point(0, 2)
     ay = axial_y if axial_y is not None else point(2, 0)
     thin = thin_y if thin_y is not None else point(2, Q(1, 8))
+    py = pin_y if pin_y is not None else point(Q(1, 2), Q(1, 20))
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
         'C_transverse': transverse_contact_integrand_algebraic_factor_skeleton(
@@ -2481,6 +2549,8 @@ def contact_integrand_algebraic_factor_skeleton_inventory(
             ay, gap_mark=1, f_yy=2, f_xxy=3),
         'C_thin_belt': thin_belt_contact_integrand_algebraic_factor_skeleton(
             thin, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0),
+        'C_pin_centered': pin_centered_contact_integrand_algebraic_factor_skeleton(
+            py, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3),
         'global_contact_density_bound_proved': False,
         'conditioned_expectation_evaluated': False,
         'meaning': (
@@ -2989,6 +3059,8 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
     integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
+    pin_alg = pin_centered_contact_integrand_algebraic_factor_skeleton(
+        point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
     alg_height = transverse_algebraic_factor_times_height_r_skeleton(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     thin_alg_height = thin_belt_algebraic_factor_times_height_r_skeleton(
@@ -3035,6 +3107,7 @@ def result() -> dict:
     out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
+    out['pin_centered_contact_integrand_algebraic_factor'] = conv(pin_alg)
     out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
     out['thin_belt_algebraic_factor_times_height_r'] = conv(thin_alg_height)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())

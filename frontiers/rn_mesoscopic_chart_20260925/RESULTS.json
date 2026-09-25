@@ -260,6 +260,7 @@
       },
       "C_pin_centered": {
         "contact_gaussian_density_bounded": false,
+        "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "cubic_next_order_enumerated": true,
         "decic_next_order_enumerated": true,
         "dodecic_next_order_enumerated": true,
@@ -445,6 +446,45 @@
       "y": {
         "y1": "2",
         "y2": "0"
+      }
+    },
+    "C_pin_centered": {
+      "H_xx": "-2",
+      "H_xy": "0",
+      "H_yy": "3",
+      "abs_det_grad_contact_map": "1/400",
+      "algebraic_jacobian_times_det_abs": "2400",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+      "det_H": "-6",
+      "det_contact_leading_abs": "6",
+      "eliminated_coordinates": [
+        "H_xy",
+        "H_yy"
+      ],
+      "elimination_branch": "z2_nonzero",
+      "free_residual_coordinates": [
+        "H_xx"
+      ],
+      "global_contact_density_bound_proved": false,
+      "gradient_jacobian_r_power": 2,
+      "hessian_det_leading_r_power": 0,
+      "meaning": "exact pin Morse product (1/|det J_grad|)\u00b7|det H|; Jacobian |det|=z2\u00b2 (or z1\u00b2 on axis); density / higher jets still unbound",
+      "net_count_r_power": 3,
+      "object": "RN-MESOSCOPIC-PIN-CENTERED-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1",
+      "pin_site_higher_jets_enumerated": false,
+      "product_minus_factors": "0",
+      "reciprocal_grad_contact_jacobian": "400",
+      "y": {
+        "y1": "1/2",
+        "y2": "1/20"
+      },
+      "z": {
+        "z1": "0",
+        "z2": "1/20"
       }
     },
     "C_thin_belt": {
@@ -654,6 +694,45 @@
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
   },
   "object": "RN-MESOSCOPIC-CHART-J0-D2-TRANSVERSE-20260925-v1",
+  "pin_centered_contact_integrand_algebraic_factor": {
+    "H_xx": "-2",
+    "H_xy": "0",
+    "H_yy": "3",
+    "abs_det_grad_contact_map": "1/400",
+    "algebraic_jacobian_times_det_abs": "2400",
+    "chart": "C_pin_centered",
+    "closer_pin": "S",
+    "conditioned_expectation_evaluated": false,
+    "contact_gaussian_density_bounded": false,
+    "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+    "det_H": "-6",
+    "det_contact_leading_abs": "6",
+    "eliminated_coordinates": [
+      "H_xy",
+      "H_yy"
+    ],
+    "elimination_branch": "z2_nonzero",
+    "free_residual_coordinates": [
+      "H_xx"
+    ],
+    "global_contact_density_bound_proved": false,
+    "gradient_jacobian_r_power": 2,
+    "hessian_det_leading_r_power": 0,
+    "meaning": "exact pin Morse product (1/|det J_grad|)\u00b7|det H|; Jacobian |det|=z2\u00b2 (or z1\u00b2 on axis); density / higher jets still unbound",
+    "net_count_r_power": 3,
+    "object": "RN-MESOSCOPIC-PIN-CENTERED-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1",
+    "pin_site_higher_jets_enumerated": false,
+    "product_minus_factors": "0",
+    "reciprocal_grad_contact_jacobian": "400",
+    "y": {
+      "y1": "1/2",
+      "y2": "1/20"
+    },
+    "z": {
+      "z1": "0",
+      "z2": "1/20"
+    }
+  },
   "pin_centered_ledger": {
     "chart": "C_pin_centered",
     "complements_pr7": true,

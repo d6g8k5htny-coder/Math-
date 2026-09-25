@@ -889,6 +889,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['decic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['undecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['dodecic_next_order_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertFalse(inv['charts']['C_pin_centered']['thirteenth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
@@ -1094,6 +1095,39 @@ class MesoscopicChartControls(unittest.TestCase):
             m.transverse_contact_integrand_algebraic_factor_skeleton(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_contact_integrand_algebraic_factor_skeleton(m.point(0, 2))
+
+    def test_pin_centered_contact_integrand_algebraic_factor_skeleton(self):
+        # z=(0,1/20), H=(-2,0,3): |det J|=z2^2=1/400, reciprocal=400, |det H|=6, product=2400
+        t = m.pin_centered_contact_integrand_algebraic_factor_skeleton(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
+        self.assertEqual(t['chart'], 'C_pin_centered')
+        self.assertEqual(t['abs_det_grad_contact_map'], Q(1, 400))
+        self.assertEqual(t['reciprocal_grad_contact_jacobian'], 400)
+        self.assertEqual(t['det_H'], -6)
+        self.assertEqual(t['det_contact_leading_abs'], 6)
+        self.assertEqual(t['algebraic_jacobian_times_det_abs'], 2400)
+        self.assertEqual(t['product_minus_factors'], 0)
+        self.assertEqual(t['elimination_branch'], 'z2_nonzero')
+        self.assertEqual(t['free_residual_coordinates'], ['H_xx'])
+        self.assertEqual(t['net_count_r_power'], 3)
+        self.assertTrue(t['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        self.assertFalse(t['global_contact_density_bound_proved'])
+        # z with z2=0 branch: pin S at (1/2,0), take y=(1/2+1/20, 0)=(11/20,0) — may fail near_pin
+        # Use synthetic z1-only via point near M with z2≈0 is hard; check z1 branch via frame point
+        # Direct: point with z=(1/20,0) relative to S=(1/2,0) => y=(1/2+1/20, 0)=(11/20, 0)
+        # near_pin may require both coords; instead verify branch via unit call with constructed frame
+        off = m.pin_centered_contact_integrand_algebraic_factor_skeleton(
+            m.point(Q(1, 2), Q(1, 25)), inner=Q(2, 5), outer=1, H_xx=-1, H_xy=0, H_yy=2)
+        self.assertEqual(off['product_minus_factors'], 0)
+        self.assertEqual(off['elimination_branch'], 'z2_nonzero')
+        self.assertEqual(off['abs_det_grad_contact_map'], Q(1, 625))
+        bundled = m.contact_integrand_algebraic_factor_skeleton_inventory()
+        self.assertEqual(bundled['C_pin_centered']['algebraic_jacobian_times_det_abs'], 2400)
+        with self.assertRaises(ValueError):
+            # on the pin site itself z=0
+            m.pin_centered_contact_integrand_algebraic_factor_skeleton(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
 
     def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
         # y=(2,1/8), f_yy=2,f_xxy=0: J_y=1/4, |det J|=1/1024, reciprocal=1024

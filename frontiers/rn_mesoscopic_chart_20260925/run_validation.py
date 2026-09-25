@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 65
+EXPECTED_TESTS = 66
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -181,6 +181,10 @@ MUTANTS = {
     'claim_density_from_integrand_algebraic_factor': (
         "'global_contact_density_bound_proved': False,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'exact algebraic Jacobian×|det H| factor products after grad contact; '\n            'does not bound the contact Gaussian density'\n        ),",
         "'global_contact_density_bound_proved': True,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'exact algebraic Jacobian×|det H| factor products after grad contact; '\n            'does not bound the contact Gaussian density'\n        ),",
+    ),
+    'claim_density_from_pin_integrand_algebraic_factor': (
+        "'contact_integrand_algebraic_factor_skeleton_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact pin Morse product (1/|det J_grad|)·|det H|; '\n            'Jacobian |det|=z2² (or z1² on axis); density / higher jets still unbound'\n        ),",
+        "'contact_integrand_algebraic_factor_skeleton_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': True,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact pin Morse product (1/|det J_grad|)·|det H|; '\n            'Jacobian |det|=z2² (or z1² on axis); density / higher jets still unbound'\n        ),",
     ),
     'claim_density_from_algebraic_factor_times_height_r': (
         "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '\n            'neither factor absorbed; Gaussian density still unbound'\n        ),",
