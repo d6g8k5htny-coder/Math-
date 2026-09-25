@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 28
+EXPECTED_TESTS = 29
 MUTANTS = {
     'bypass_own_node_eligibility': (
         "if node_classification not in CONTROLLING_ELIGIBLE:",

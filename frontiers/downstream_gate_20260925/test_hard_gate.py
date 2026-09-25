@@ -68,6 +68,18 @@ class HardGateControls(unittest.TestCase):
         deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-reduction')
         self.assertEqual(deps, ['math.rn-fixed-remote-window'])
 
+    def test_chart_j0_complements_pr7_reduction(self):
+        node = self.graph['nodes']['math.rn-mesoscopic-chart-j0']
+        self.assertEqual(node['classification'], 'AUTHOR_SIDE_CANDIDATE')
+        self.assertFalse(node['controlling'])
+        self.assertEqual(node['review_pr'], 9)
+        deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-chart-j0')
+        self.assertEqual(deps, ['math.rn-mesoscopic-reduction'])
+        decision = m.promotion_allowed(self.graph, 'math.rn-mesoscopic-chart-j0')
+        self.assertFalse(decision['allowed'])
+        self.assertIn('PR9', self.graph['nodes'][
+            'math.rn-region.mesoscopic-scaled-annulus']['notes'])
+
     def test_blocked_absent_forces_hold_on_historical_env(self):
         blocked = m.blocked_absent_hold(self.graph, 'hist.ENV-RESCOV')
         self.assertEqual(blocked, ['hist.rnu_env.py'])

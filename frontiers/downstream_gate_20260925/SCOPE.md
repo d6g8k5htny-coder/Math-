@@ -24,7 +24,7 @@
 |---|---|---|
 | D0 historical walls | Cursor + ChatGPT PR87 | Encodes ABSENT carriers and OPEN walls; files portable PR87 packet-allowlist unblock (`D0_CI_UNBLOCK.md`) after diagnosing CI `unexpected files` |
 | D4 RN complement | Campaign queue | Region inventory + selector×region matrix |
-| D5 mesoscopic | Codex offer / ChatGPT PR7 | Mapped as open; not expanded |
+| D5 mesoscopic | Codex offer / ChatGPT PR7 + Cursor PR9 chart | PR7 mapped as paused reduction; PR9 chart-J0 candidate mapped as author-side complement (not expansion of PR7 body) |
 | D7 engineering | Cursor | This package + main-write-denied (403) hold on applying the allowlist on `main` |
 | #90 machine gate | Owner directive | Implemented and mutation-tested |
 
