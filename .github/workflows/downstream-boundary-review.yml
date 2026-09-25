@@ -37,8 +37,8 @@ jobs:
           pkg=reviews/downstream_boundary_20260925
           out="$RUNNER_TEMP/downstream-boundary-review"
           mkdir -p "$out"
-          python -B -S -m unittest discover -s "$pkg" -p 'test_finite_pin_oracle.py' -v > "$out/pins-normal.stdout" 2> "$out/pins-normal.stderr"
-          python -B -O -S -m unittest discover -s "$pkg" -p 'test_finite_pin_oracle.py' -v > "$out/pins-optimized.stdout" 2> "$out/pins-optimized.stderr"
+          python -B -S -m unittest discover -s "$pkg" -p 'test_*.py' -v > "$out/pins-normal.stdout" 2> "$out/pins-normal.stderr"
+          python -B -O -S -m unittest discover -s "$pkg" -p 'test_*.py' -v > "$out/pins-optimized.stdout" 2> "$out/pins-optimized.stderr"
           python -B -S "$pkg/finite_pin_oracle.py" > "$out/PIN_REPORT.json"
           python -B -S "$pkg/architecture_probes.py" --subject reviewed-main --output "$out/ARCHITECTURE_NORMAL.json" > "$out/architecture-normal.log"
           python -B -O -S "$pkg/architecture_probes.py" --subject reviewed-main --output "$out/ARCHITECTURE_OPTIMIZED.json" > "$out/architecture-optimized.log"

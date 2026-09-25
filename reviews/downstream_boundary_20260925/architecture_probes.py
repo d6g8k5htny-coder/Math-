@@ -138,10 +138,13 @@ def run(root):
                 'stderr':proc.stderr})
 
     workflow=(root/'.github/workflows/ci.yml').read_text()
+    adapter_commands=[line.strip() for line in workflow.splitlines()
+                      if line.strip().startswith('run:')
+                      and 'tools/claims_gate_adapter.py' in line]
     record('workflow_entrypoint','DEPLOYMENT_GAP_CONFIRMED_BY_SOURCE',
-           'run: python tools/claims_gate_adapter.py' in workflow
-           and '--before' not in workflow and '--after' not in workflow,
-           'The explicit adapter step is a tip self-audit; no actual base/head arguments are passed.')
+           adapter_commands == ['run: python tools/claims_gate_adapter.py'],
+           {'adapter_commands':adapter_commands,
+            'note':'The adapter step is a tip self-audit. Other unrelated workflow commands may take before/after inputs.'})
     after=verify_sources(root)
     if before!=after:
         raise RuntimeError('subject changed during review')
