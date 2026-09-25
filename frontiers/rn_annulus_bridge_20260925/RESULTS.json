@@ -1,0 +1,28 @@
+{
+  "all_witness_heights": true,
+  "dimension": 2,
+  "fixed_inner_radius_strictly_greater_than_one": true,
+  "global_RN_closed": false,
+  "ledger": {
+    "absorption_order": 7,
+    "conditional_sixth_moment_delta_power": -6,
+    "gradient_density_delta_power": -2,
+    "gradient_density_r_power": -3,
+    "height_window_r_power": 0,
+    "inner_after_absorption_r_power": 1,
+    "inner_physical_r_power": -13,
+    "original_normalizer_r_power": -2,
+    "outer_after_absorption_v_power": 0,
+    "outer_inverse_v_power": 14,
+    "outer_physical_r_power": 1,
+    "outer_scaled_r_power": 3,
+    "physical_to_scaled_area_r_power": 2,
+    "three_hessian_geometric_r_power": 6,
+    "three_hessian_geometric_v_power": -6
+  },
+  "mathematical_acceptance": false,
+  "meaning": "finite algebra/scaling controls for an unreviewed analytic candidate",
+  "object": "D5-ALL-HEIGHT-ANNULUS-BRIDGE-20260925-v1",
+  "positive_compact_gap_marks_required": true,
+  "scientific_effect": "NONE"
+}
