@@ -57,16 +57,16 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 31 or report['distinct_semantic_mutations'] != 10:
+          if not report['passed'] or report['distinct_tests'] != 32 or report['distinct_semantic_mutations'] != 11:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
               'run': os.environ['GITHUB_RUN_ID'],
               'sha': os.environ['GITHUB_SHA'],
               'python': sys.version,
-              'new_distinct_tests': 31,
+              'new_distinct_tests': 32,
               'regression_distinct_tests': 177,
-              'total_distinct_tests': 208,
-              'new_semantic_mutations': 10,
+              'total_distinct_tests': 209,
+              'new_semantic_mutations': 11,
               'source_files_verified': len(pins),
               'lemma_closed': False,
               'scientific_effect': 'NONE',
