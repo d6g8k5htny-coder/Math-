@@ -100,7 +100,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; pin Morse rank-2 ⇒ 1 free Hessian dir; density still open);
-- exact gradient-contact Jacobians `|det|=|y2|^3/2` (transverse) and `3|y1|^4` (axial); algebraic density shape only;
+- exact gradient-contact Jacobians `|det|=|y2|^3/2` (transverse), `3|y1|^4` (axial), and pin Morse `|det|=z2²` (or `z1²` on axis); algebraic density shape only;
 - conditioned Hessian residual polynomials after eliminating constrained jets (transverse free `(k,f_xxy)`; axial free `f_yy`; expectation still open);
 - transverse/axial conditioned `|det H|` free-jet linear skeletons (`det=α_k·k+α_f·f_xxy` / `det=α_fyy·f_yy`; expectation still open);
 - contact integrand algebraic factor product `(1/|det J_grad|)·|det H_skeleton|` on transverse/axial/thin-belt/pin-centered (Gaussian density still open; thin-belt reciprocal diverges as y2→0; pin Morse `|det|=z2²` or `z1²`);

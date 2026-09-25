@@ -2456,6 +2456,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'hexadecic_next_order_enumerated': True,
                 'unmatched_height_r_power_inventory_recorded': True,
                 'free_jet_residual_inventory_recorded': True,
+                'gradient_contact_jacobian_enumerated': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
@@ -2728,22 +2729,91 @@ def axial_gradient_contact_jacobian_ledger(y: Coord) -> dict:
     }
 
 
+def pin_centered_gradient_contact_jacobian_ledger(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+) -> dict:
+    """Exact |det| of the pin Morse gradient map on eliminated Hessian coords.
+
+    Leading Morse contact J_grad = H_pin · z:
+      J1 = H_xx z1 + H_xy z2
+      J2 = H_xy z1 + H_yy z2
+    With z2≠0 eliminate (H_xy, H_yy) treating H_xx free:
+      ∂(J1,J2)/∂(H_xy,H_yy) = [[z2, 0], [z1, z2]] ⇒ |det| = z2².
+    With z2=0 and z1≠0 eliminate (H_xx, H_xy):
+      ∂(J1,J2)/∂(H_xx,H_xy) = diag(z1, z1) ⇒ |det| = z1².
+    Algebraic density-shape factor only; free-jet Gaussian density unbound.
+    Small-A diagnostic chart.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    u, v = exact(frame['z1']), exact(frame['z2'])
+    if u == 0 and v == 0:
+        raise ValueError('pin gradient-contact Jacobian requires z != 0')
+    if v != 0:
+        eliminated = ['H_xy', 'H_yy']
+        free_residual = ['H_xx']
+        elimination_branch = 'z2_nonzero'
+        abs_det_jac = v * v
+        jacobian_matrix_diagonal = False
+        partials = {
+            'partial_J1_partial_H_xy': v,
+            'partial_J1_partial_H_yy': 0,
+            'partial_J2_partial_H_xy': u,
+            'partial_J2_partial_H_yy': v,
+        }
+    else:
+        eliminated = ['H_xx', 'H_xy']
+        free_residual = ['H_yy']
+        elimination_branch = 'z1_nonzero_z2_zero'
+        abs_det_jac = u * u
+        jacobian_matrix_diagonal = True
+        partials = {
+            'partial_J1_partial_H_xx': u,
+            'partial_J1_partial_H_xy': 0,
+            'partial_J2_partial_H_xx': 0,
+            'partial_J2_partial_H_xy': u,
+        }
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-GRADIENT-CONTACT-JACOBIAN-20260925-v1',
+        'chart': 'C_pin_centered',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'z': {'z1': u, 'z2': v},
+        'closer_pin': frame['closer_pin'],
+        'eliminated_coordinates': eliminated,
+        'free_residual_coordinates': free_residual,
+        'elimination_branch': elimination_branch,
+        'jacobian_matrix_diagonal': jacobian_matrix_diagonal,
+        'abs_det_grad_contact_map': abs_det_jac,
+        'contact_gaussian_density_bounded': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact |det ∂(J1,J2)/∂(eliminated Hessian)| = z2² (or z1² on axis); '
+            'algebraic density shape only — free-jet Gaussian density unbound'
+        ),
+        **partials,
+    }
+
+
 def contact_gradient_jacobian_density_shape_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+    pin_y: Coord | None = None,
 ) -> dict:
     """Bundle exact gradient-contact Jacobians; density bound still open."""
     t = transverse_gradient_contact_jacobian_ledger_with_floor(
         transverse_y or point(0, 2),
     )
     a = axial_gradient_contact_jacobian_ledger(axial_y or point(2, 0))
+    p = pin_centered_gradient_contact_jacobian_ledger(
+        pin_y or point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1',
         'C_transverse': t,
         'C_axial': a,
+        'C_pin_centered': p,
         'global_contact_density_bound_proved': False,
         'meaning': (
-            'exact algebraic |det| factors for leading gradient contact maps; '
-            'does not bound the contact Gaussian density'
+            'exact algebraic |det| factors for leading gradient contact maps '
+            '(transverse/axial/pin); does not bound the contact Gaussian density'
         ),
     }
 

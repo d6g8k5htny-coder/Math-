@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 75
+EXPECTED_TESTS = 76
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -239,8 +239,8 @@ MUTANTS = {
         "'reciprocal_diverges_as_y2_to_0': True,\n        'free_residual_coordinates': ['k', 'f_xxy'],\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'contact_integrand_algebraic_factor_skeleton_enumerated': True,\n        'uniform_integrand_bound_proved': True,\n        'contact_gaussian_density_bounded': True,\n        'global_contact_density_bound_proved': True,",
     ),
     'claim_density_from_grad_contact_jacobian': (
-        "'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact algebraic |det| factors for leading gradient contact maps; '\n            'does not bound the contact Gaussian density'\n        ),",
-        "'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact algebraic |det| factors for leading gradient contact maps; '\n            'does not bound the contact Gaussian density'\n        ),",
+        "'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact algebraic |det| factors for leading gradient contact maps '\n            '(transverse/axial/pin); does not bound the contact Gaussian density'\n        ),",
+        "'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact algebraic |det| factors for leading gradient contact maps '\n            '(transverse/axial/pin); does not bound the contact Gaussian density'\n        ),",
     ),
 }
 

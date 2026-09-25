@@ -1052,6 +1052,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['hexadecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['unmatched_height_r_power_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['free_jet_residual_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_pin_centered']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
@@ -1212,14 +1213,42 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(ax['abs_det_grad_contact_map'], 48)  # 3*16
         self.assertTrue(ax['axial_area_measure_zero'])
         self.assertFalse(ax['contact_gaussian_density_bounded'])
+        pin = m.pin_centered_gradient_contact_jacobian_ledger(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin['abs_det_grad_contact_map'], Q(1, 400))
+        self.assertEqual(pin['elimination_branch'], 'z2_nonzero')
+        self.assertEqual(pin['eliminated_coordinates'], ['H_xy', 'H_yy'])
+        self.assertEqual(pin['partial_J1_partial_H_xy'], Q(1, 20))
+        self.assertEqual(pin['partial_J2_partial_H_yy'], Q(1, 20))
+        self.assertFalse(pin['jacobian_matrix_diagonal'])
+        self.assertFalse(pin['contact_gaussian_density_bounded'])
+        pin_axis = m.pin_centered_gradient_contact_jacobian_ledger(
+            m.point(Q(11, 20), 0), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
+        self.assertEqual(pin_axis['abs_det_grad_contact_map'], Q(1, 400))
+        self.assertTrue(pin_axis['jacobian_matrix_diagonal'])
         bundled = m.contact_gradient_jacobian_density_shape_inventory()
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['abs_det_grad_contact_map'], 4)
+        self.assertEqual(bundled['C_pin_centered']['abs_det_grad_contact_map'], Q(1, 400))
         with self.assertRaises(ValueError):
             m.transverse_gradient_contact_jacobian_ledger(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_gradient_contact_jacobian_ledger(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.pin_centered_gradient_contact_jacobian_ledger(
+                m.point(0, 2), inner=Q(2, 5), outer=1)
 
+    def test_pin_centered_gradient_contact_jacobian(self):
+        pin = m.pin_centered_gradient_contact_jacobian_ledger(
+            m.point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+        self.assertEqual(pin['chart'], 'C_pin_centered')
+        self.assertEqual(pin['free_residual_coordinates'], ['H_xx'])
+        self.assertEqual(pin['partial_J2_partial_H_xy'], 0)  # z1=0 at sample
+        self.assertFalse(pin['global_contact_density_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.pin_centered_gradient_contact_jacobian_ledger(
+                m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)  # z = 0 at pin site
     def test_conditioned_det_free_jet_skeleton(self):
         # y1=0: α_k=0, α_f_xxy=J_grad_y=4, det=4*f_xxy=12
         t = m.transverse_conditioned_det_free_jet_skeleton(

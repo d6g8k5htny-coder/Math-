@@ -371,6 +371,7 @@
         "decic_next_order_enumerated": true,
         "dodecic_next_order_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
+        "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
         "hexadecic_next_order_enumerated": true,
@@ -547,6 +548,36 @@
       "partial_J_x_partial_k": "24",
       "partial_J_y_partial_f_xxy": "2"
     },
+    "C_pin_centered": {
+      "abs_det_grad_contact_map": "1/400",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "contact_gaussian_density_bounded": false,
+      "eliminated_coordinates": [
+        "H_xy",
+        "H_yy"
+      ],
+      "elimination_branch": "z2_nonzero",
+      "free_residual_coordinates": [
+        "H_xx"
+      ],
+      "global_contact_density_bound_proved": false,
+      "jacobian_matrix_diagonal": false,
+      "meaning": "exact |det \u2202(J1,J2)/\u2202(eliminated Hessian)| = z2\u00b2 (or z1\u00b2 on axis); algebraic density shape only \u2014 free-jet Gaussian density unbound",
+      "object": "RN-MESOSCOPIC-PIN-CENTERED-GRADIENT-CONTACT-JACOBIAN-20260925-v1",
+      "partial_J1_partial_H_xy": "1/20",
+      "partial_J1_partial_H_yy": 0,
+      "partial_J2_partial_H_xy": "0",
+      "partial_J2_partial_H_yy": "1/20",
+      "y": {
+        "y1": "1/2",
+        "y2": "1/20"
+      },
+      "z": {
+        "z1": "0",
+        "z2": "1/20"
+      }
+    },
     "C_transverse": {
       "abs_det_ge_chart_lower_bound": true,
       "abs_det_grad_contact_map": "4",
@@ -570,7 +601,7 @@
       "partial_J_y_partial_f_yy": "2"
     },
     "global_contact_density_bound_proved": false,
-    "meaning": "exact algebraic |det| factors for leading gradient contact maps; does not bound the contact Gaussian density",
+    "meaning": "exact algebraic |det| factors for leading gradient contact maps (transverse/axial/pin); does not bound the contact Gaussian density",
     "object": "RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1"
   },
   "contact_integrand_algebraic_factor_skeleton": {
