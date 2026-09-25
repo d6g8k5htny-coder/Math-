@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 37
+EXPECTED_TESTS = 38
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -67,8 +67,12 @@ MUTANTS = {
         "'uniform_integrand_bound_proved': True,\n        'absorbed_into_C_transverse': True,",
     ),
     'claim_pin_rows_enumerated': (
-        "'pin_site_jet_rows_enumerated': False,\n        'contact_rows_enumerated': False,",
-        "'pin_site_jet_rows_enumerated': True,\n        'contact_rows_enumerated': True,",
+        "'midpoint_U0_rows_applicable': False,\n        'pin_site_jet_rows_enumerated': False,\n        'contact_rows_enumerated': False,",
+        "'midpoint_U0_rows_applicable': False,\n        'pin_site_jet_rows_enumerated': True,\n        'contact_rows_enumerated': True,",
+    ),
+    'claim_pin_obstruction_cleared': (
+        "'raw_gradient_collides_with_pin_gradient_constraints': True,\n        'near_pin_intersects_axial_thin_belt_locus': True,\n        'contact_rows_enumerated': False,\n        'pin_site_jet_rows_enumerated': False,",
+        "'raw_gradient_collides_with_pin_gradient_constraints': False,\n        'near_pin_intersects_axial_thin_belt_locus': False,\n        'contact_rows_enumerated': True,\n        'pin_site_jet_rows_enumerated': True,",
     ),
     'claim_thin_belt_L1': (
         "'bare_conditioning_factor_L1_near_zero': False,",

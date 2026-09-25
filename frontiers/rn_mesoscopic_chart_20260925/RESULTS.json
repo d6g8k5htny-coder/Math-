@@ -260,6 +260,44 @@
     "uniform_integrand_bound_proved": false
   },
   "pin_exclusion_ok": true,
+  "pin_site_jet_obstruction": {
+    "chart": "C_pin_centered",
+    "contact_rows_enumerated": false,
+    "dist2_to_closer_pin": "1/400",
+    "frame": {
+      "annulus_A": "2/5",
+      "annulus_B": "1",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "dist2_to_closer_pin": "1/400",
+      "pin_site": {
+        "y1": "1/2",
+        "y2": "0"
+      },
+      "z1": "0",
+      "z2": "1/20"
+    },
+    "hessian_ledger_evaluated": false,
+    "meaning": "pin-local frame and collision obstruction only; does not enumerate pin-site divided-difference contact rows",
+    "midpoint_U0_rows_applicable": false,
+    "near_pin_intersects_axial_thin_belt_locus": true,
+    "object": "RN-MESOSCOPIC-PIN-SITE-JET-OBSTRUCTION-20260925-v1",
+    "physical_witness_offset": "r * z",
+    "pin_site_jet_rows_enumerated": false,
+    "pin_site_lies_on_scaled_axis": true,
+    "raw_gradient_collides_with_pin_gradient_constraints": true,
+    "required_before_enumeration": [
+      "expand_relative_to_closer_pin_not_midpoint",
+      "subtract_pin_constraint_Hermite_jet",
+      "identify_first_nonzero_divided_difference_powers"
+    ],
+    "spatial_distance_to_pin_r_power": 1,
+    "spatial_volume_r_power": 2,
+    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "uniform_integrand_bound_proved": false,
+    "z1": "0",
+    "z2": "1/20"
+  },
   "rank": {
     "chart": "C_transverse",
     "grad_x_coefficient_f_xxy": "0",

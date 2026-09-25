@@ -476,6 +476,51 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
     }
 
 
+def pin_site_jet_obstruction_ledger(
+    y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+    margin: int | Q = Q(1, 10),
+) -> dict:
+    """Exact structural obstruction for midpoint jets near a scaled pin.
+
+    Records pin-local geometry and prerequisites for pin-site divided differences
+    without inventing those contact polynomials. Pins lie on the scaled axis, so a
+    near-pin ball also meets the axial / thin-belt rank-change locus.
+    """
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    z1 = frame['z1']
+    z2 = frame['z2']
+    dist2 = frame['dist2_to_closer_pin']
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-SITE-JET-OBSTRUCTION-20260925-v1',
+        'chart': 'C_pin_centered',
+        'frame': frame,
+        'pin_site_lies_on_scaled_axis': True,
+        'physical_witness_offset': 'r * z',
+        'spatial_distance_to_pin_r_power': 1,
+        'spatial_volume_r_power': 2,
+        'z1': z1,
+        'z2': z2,
+        'dist2_to_closer_pin': dist2,
+        'midpoint_U0_rows_applicable': False,
+        'raw_gradient_collides_with_pin_gradient_constraints': True,
+        'near_pin_intersects_axial_thin_belt_locus': True,
+        'contact_rows_enumerated': False,
+        'pin_site_jet_rows_enumerated': False,
+        'required_before_enumeration': [
+            'expand_relative_to_closer_pin_not_midpoint',
+            'subtract_pin_constraint_Hermite_jet',
+            'identify_first_nonzero_divided_difference_powers',
+        ],
+        'hessian_ledger_evaluated': False,
+        'uniform_integrand_bound_proved': False,
+        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'meaning': (
+            'pin-local frame and collision obstruction only; '
+            'does not enumerate pin-site divided-difference contact rows'
+        ),
+    }
+
+
 # Scaling exponents for raw witness (f_x, f_y, f-b) -> divided-difference J in this chart.
 # Derived from the contact Taylor jet with U_0=(f,f_x,f_xx,f_xxx,f_y,f_xy)=(b,0,0,12k,0,0):
 #   f_y(ry) = r * f_yy * y2 + O(r^2)            => divide by r^1
@@ -992,6 +1037,7 @@ def result() -> dict:
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+    pin_obs = pin_site_jet_obstruction_ledger(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     axial_hess = axial_hessian_contact_rows(
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=0)
@@ -1019,6 +1065,7 @@ def result() -> dict:
     out['transverse_height_r_factor'] = conv(height_r)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
+    out['pin_site_jet_obstruction'] = conv(pin_obs)
     out['hessian_sample'] = conv(hess)
     out['axial_hessian_sample'] = conv(axial_hess)
     out['integrand_power_transverse'] = conv(integrand_t)

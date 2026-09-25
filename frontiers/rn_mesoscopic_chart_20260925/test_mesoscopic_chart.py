@@ -338,6 +338,24 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
 
+    def test_pin_site_jet_obstruction_ledger(self):
+        y = m.point(Q(1, 2), Q(1, 20))
+        obs = m.pin_site_jet_obstruction_ledger(y, inner=Q(2, 5), outer=1)
+        self.assertEqual(obs['chart'], 'C_pin_centered')
+        self.assertTrue(obs['pin_site_lies_on_scaled_axis'])
+        self.assertEqual(obs['spatial_distance_to_pin_r_power'], 1)
+        self.assertEqual(obs['spatial_volume_r_power'], 2)
+        self.assertEqual(obs['z2'], Q(1, 20))
+        self.assertFalse(obs['midpoint_U0_rows_applicable'])
+        self.assertTrue(obs['raw_gradient_collides_with_pin_gradient_constraints'])
+        self.assertTrue(obs['near_pin_intersects_axial_thin_belt_locus'])
+        self.assertFalse(obs['pin_site_jet_rows_enumerated'])
+        self.assertFalse(obs['contact_rows_enumerated'])
+        self.assertIn('subtract_pin_constraint_Hermite_jet', obs['required_before_enumeration'])
+        self.assertEqual(obs['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        with self.assertRaises(ValueError):
+            m.pin_site_jet_obstruction_ledger(m.point(0, 2), inner=Q(2, 5), outer=1)
+
     def test_pr7_crosswalk_flags(self):
         text = (ROOT / 'CROSSWALK.md').read_text()
         self.assertIn('RN-MESOSCOPIC-CHART-PR7-CROSSWALK-20260925-v1', text)
