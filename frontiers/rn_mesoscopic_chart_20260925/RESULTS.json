@@ -131,11 +131,79 @@
     "transverse": "C_transverse"
   },
   "complements_pr7": true,
+  "contact_conditioned_det_free_jet_skeleton": {
+    "C_axial": {
+      "alpha_f_yy": "24",
+      "axial_area_measure_zero": true,
+      "chart": "C_axial",
+      "conditioned_expectation_evaluated": false,
+      "conditioned_hessian_det_skeleton_enumerated": true,
+      "contact_gaussian_density_bounded": false,
+      "det_contact_leading_from_alpha": "48",
+      "det_contact_leading_residual": "48",
+      "det_minus_alpha_form": "0",
+      "free_jet_polynomial_degree": 1,
+      "free_residual_coordinates": [
+        "f_yy",
+        "f_xyy",
+        "f_yyy"
+      ],
+      "hessian_ledger_evaluated": false,
+      "isolated_by_grad_contact": [
+        "k",
+        "f_xxy"
+      ],
+      "leading_det_depends_on_free": [
+        "f_yy"
+      ],
+      "linear_in_free_residuals": true,
+      "meaning": "exact axial form det=\u03b1_f_yy\u00b7f_yy after isolating k,f_xxy; not a conditioned Gaussian expectation",
+      "object": "RN-MESOSCOPIC-AXIAL-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1",
+      "y": {
+        "y1": "2",
+        "y2": "0"
+      }
+    },
+    "C_transverse": {
+      "J_grad_y": "4",
+      "alpha_f_xxy": "4",
+      "alpha_k": "0",
+      "chart": "C_transverse",
+      "conditioned_expectation_evaluated": false,
+      "conditioned_hessian_det_skeleton_enumerated": true,
+      "contact_gaussian_density_bounded": false,
+      "det_contact_leading_from_alphas": "12",
+      "det_contact_leading_residual": "12",
+      "det_minus_alpha_form": "0",
+      "eliminated_by_grad_contact": [
+        "f_yy",
+        "f_xyy"
+      ],
+      "free_jet_polynomial_degree": 1,
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "hessian_ledger_evaluated": false,
+      "linear_in_free_residuals": true,
+      "meaning": "exact linear form det=\u03b1_k\u00b7k+\u03b1_f_xxy\u00b7f_xxy after grad contact; not a conditioned Gaussian expectation of |det H|",
+      "object": "RN-MESOSCOPIC-TRANSVERSE-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1",
+      "y": {
+        "y1": "0",
+        "y2": "2"
+      }
+    },
+    "conditioned_expectation_evaluated": false,
+    "global_contact_density_bound_proved": false,
+    "meaning": "exact free-jet linear skeletons for leading det H after grad contact; does not evaluate conditioned Gaussian expectations",
+    "object": "RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1"
+  },
   "contact_density_obstruction": {
     "charts": {
       "C_axial": {
         "area_measure_zero_in_2d": true,
         "chart_conditioning_singularity_cleared": true,
+        "conditioned_hessian_det_skeleton_enumerated": true,
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,
@@ -164,6 +232,7 @@
       },
       "C_transverse": {
         "chart_conditioning_singularity_cleared": true,
+        "conditioned_hessian_det_skeleton_enumerated": true,
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "free_jet_residual_inventory_recorded": true,

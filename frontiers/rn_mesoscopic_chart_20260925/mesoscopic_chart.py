@@ -1241,6 +1241,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'free_jet_residual_inventory_recorded': True,
                 'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
+                'conditioned_hessian_det_skeleton_enumerated': True,
                 'height_residual_after_grad_contact_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
@@ -1252,6 +1253,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'free_jet_residual_inventory_recorded': True,
                 'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
+                'conditioned_hessian_det_skeleton_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1554,6 +1556,125 @@ def transverse_conditioned_hessian_residual_ledger(
         'meaning': (
             'exact residual Hessian polynomials after eliminating f_yy,f_xyy; '
             'not a conditioned Gaussian expectation of |det H|'
+        ),
+    }
+
+
+def transverse_conditioned_det_free_jet_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Exact linear skeleton of leading det H on free residual jets (C_transverse).
+
+    After eliminating f_yy,f_xyy, the leading contact determinant factors as
+      det_contact_leading = H_xx · H_yy
+        = (12 k y1 + f_xxy y2) · (J_grad_y / y2)
+        = α_k · k + α_f_xxy · f_xxy
+    with observed coefficients
+      α_k = 12 y1 J_grad_y / y2,   α_f_xxy = J_grad_y.
+    Degree 1 in free residuals (k, f_xxy). Does not evaluate the conditioned
+    Gaussian expectation of |det H|.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    y1, y2 = y
+    resid = transverse_conditioned_hessian_residual_ledger(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    jy = resid['J_grad_y']
+    k = exact(gap_mark)
+    b = exact(f_xxy)
+    alpha_k = (12 * y1 * jy) / y2
+    alpha_f = jy
+    det_from_alphas = alpha_k * k + alpha_f * b
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
+        'chart': 'C_transverse',
+        'y': {'y1': y1, 'y2': y2},
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'alpha_k': alpha_k,
+        'alpha_f_xxy': alpha_f,
+        'det_contact_leading_from_alphas': det_from_alphas,
+        'det_contact_leading_residual': resid['det_contact_leading_residual'],
+        'det_minus_alpha_form': det_from_alphas - resid['det_contact_leading_residual'],
+        'free_jet_polynomial_degree': 1,
+        'linear_in_free_residuals': True,
+        'conditioned_hessian_det_skeleton_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '
+            'not a conditioned Gaussian expectation of |det H|'
+        ),
+    }
+
+
+def axial_conditioned_det_free_jet_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Exact linear skeleton of leading det H on free residual jets (C_axial).
+
+    After isolating k,f_xxy, H_xx and H_xy are observed from gradient contact while
+    H_yy = f_yy stays free:
+      det_contact_leading = H_xx · H_yy = (2 J_grad_x / y1) · f_yy = α_f_yy · f_yy
+    with α_f_yy = 2 J_grad_x / y1 = 12 k y1. Degree 1 in free residual f_yy.
+    Area-measure zero; expectation still open.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    resid = axial_conditioned_hessian_residual_ledger(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    a = exact(f_yy)
+    alpha_fyy = resid['H_xx_from_J_grad_x']
+    det_from_alpha = alpha_fyy * a
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
+        'chart': 'C_axial',
+        'y': {'y1': y1, 'y2': y2},
+        'free_residual_coordinates': ['f_yy', 'f_xyy', 'f_yyy'],
+        'isolated_by_grad_contact': ['k', 'f_xxy'],
+        'leading_det_depends_on_free': ['f_yy'],
+        'alpha_f_yy': alpha_fyy,
+        'det_contact_leading_from_alpha': det_from_alpha,
+        'det_contact_leading_residual': resid['det_contact_leading_residual'],
+        'det_minus_alpha_form': det_from_alpha - resid['det_contact_leading_residual'],
+        'free_jet_polynomial_degree': 1,
+        'linear_in_free_residuals': True,
+        'axial_area_measure_zero': True,
+        'conditioned_hessian_det_skeleton_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact axial form det=α_f_yy·f_yy after isolating k,f_xxy; '
+            'not a conditioned Gaussian expectation'
+        ),
+    }
+
+
+def contact_conditioned_det_free_jet_skeleton_inventory(
+    *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+) -> dict:
+    """Bundle transverse/axial conditioned det free-jet skeletons (expectation open)."""
+    ty = transverse_y if transverse_y is not None else point(0, 2)
+    ay = axial_y if axial_y is not None else point(2, 0)
+    return {
+        'object': 'RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
+        'C_transverse': transverse_conditioned_det_free_jet_skeleton(
+            ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4),
+        'C_axial': axial_conditioned_det_free_jet_skeleton(
+            ay, gap_mark=1, f_yy=2, f_xxy=3),
+        'global_contact_density_bound_proved': False,
+        'conditioned_expectation_evaluated': False,
+        'meaning': (
+            'exact free-jet linear skeletons for leading det H after grad contact; '
+            'does not evaluate conditioned Gaussian expectations'
         ),
     }
 
@@ -1923,6 +2044,7 @@ def result() -> dict:
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3)
     height_resid = transverse_height_residual_after_grad_contact(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+    det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1960,6 +2082,7 @@ def result() -> dict:
     out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)
+    out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

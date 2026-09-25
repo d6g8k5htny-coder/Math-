@@ -627,9 +627,12 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_axial']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_det_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_det_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
         self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
+        self.assertIn('conditioned_hessian_expectation', inv['open_blockers'])
         self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_seventh_and_higher_jets', inv['open_blockers'])
@@ -745,6 +748,38 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.axial_gradient_contact_jacobian_ledger(m.point(0, 2))
 
+    def test_conditioned_det_free_jet_skeleton(self):
+        # y1=0: α_k=0, α_f_xxy=J_grad_y=4, det=4*f_xxy=12
+        t = m.transverse_conditioned_det_free_jet_skeleton(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+        self.assertEqual(t['alpha_k'], 0)
+        self.assertEqual(t['alpha_f_xxy'], 4)
+        self.assertEqual(t['det_contact_leading_from_alphas'], 12)
+        self.assertEqual(t['det_minus_alpha_form'], 0)
+        self.assertEqual(t['free_jet_polynomial_degree'], 1)
+        self.assertTrue(t['linear_in_free_residuals'])
+        self.assertTrue(t['conditioned_hessian_det_skeleton_enumerated'])
+        self.assertFalse(t['conditioned_expectation_evaluated'])
+        off = m.transverse_conditioned_det_free_jet_skeleton(
+            m.point(2, 2), gap_mark=1, f_yy=5, f_xxy=3, f_xyy=7)
+        self.assertEqual(off['det_minus_alpha_form'], 0)
+        self.assertEqual(off['alpha_k'], 120)  # 12*2*10/2
+        self.assertEqual(off['alpha_f_xxy'], 10)  # J_grad_y = f_yy*y2 = 5*2
+        ax = m.axial_conditioned_det_free_jet_skeleton(
+            m.point(2, 0), gap_mark=1, f_yy=5, f_xxy=3)
+        self.assertEqual(ax['alpha_f_yy'], 24)  # 12*k*y1
+        self.assertEqual(ax['det_contact_leading_from_alpha'], 120)
+        self.assertEqual(ax['det_minus_alpha_form'], 0)
+        self.assertTrue(ax['axial_area_measure_zero'])
+        self.assertFalse(ax['conditioned_expectation_evaluated'])
+        bundled = m.contact_conditioned_det_free_jet_skeleton_inventory()
+        self.assertFalse(bundled['conditioned_expectation_evaluated'])
+        self.assertFalse(bundled['global_contact_density_bound_proved'])
+        self.assertEqual(bundled['C_transverse']['det_minus_alpha_form'], 0)
+        with self.assertRaises(ValueError):
+            m.transverse_conditioned_det_free_jet_skeleton(m.point(2, 0))
+        with self.assertRaises(ValueError):
+            m.axial_conditioned_det_free_jet_skeleton(m.point(0, 2))
 
 
 if __name__ == '__main__':
