@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 73
+EXPECTED_TESTS = 74
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -213,6 +213,10 @@ MUTANTS = {
     'claim_density_from_algebraic_factor_times_height_r_inventory': (
         "'charts_with_combined_skeleton': ['C_transverse', 'C_thin_belt', 'C_pin_centered'],\n        'any_combined_skeleton_absorbed_into_uniform_bound': False,\n        'global_contact_density_bound_proved': False,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'inventory of exact (1/|det J|)·|det H| × unmatched height r^1 combined '\n            'skeletons; axial exempt (no unmatched height r); density still unbound'\n        ),",
         "'charts_with_combined_skeleton': ['C_transverse', 'C_thin_belt', 'C_pin_centered'],\n        'any_combined_skeleton_absorbed_into_uniform_bound': True,\n        'global_contact_density_bound_proved': True,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'inventory of exact (1/|det J|)·|det H| × unmatched height r^1 combined '\n            'skeletons; axial exempt (no unmatched height r); density still unbound'\n        ),",
+    ),
+    'claim_density_from_pin_unmatched_height_r_inventory': (
+        "'any_height_r_absorbed_into_uniform_bound': False,\n        'pin_site_higher_jets_enumerated': False,\n        'seventeenth_and_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact inventory of unmatched height r^(n-2) for cubic through hexadecic '\n            'pin residuals; none absorbed; seventeenth-and-higher jets / density open'\n        ),",
+        "'any_height_r_absorbed_into_uniform_bound': True,\n        'pin_site_higher_jets_enumerated': False,\n        'seventeenth_and_higher_jets_enumerated': False,\n        'contact_gaussian_density_bounded': True,\n        'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact inventory of unmatched height r^(n-2) for cubic through hexadecic '\n            'pin residuals; none absorbed; seventeenth-and-higher jets / density open'\n        ),",
     ),
     'claim_density_from_algebraic_factor_times_height_r': (
         "'combined_algebraic_factor_and_height_r_recorded': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'combined_skeleton_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'conditioned_expectation_evaluated': False,\n        'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '\n            'neither factor absorbed; Gaussian density still unbound'\n        ),",

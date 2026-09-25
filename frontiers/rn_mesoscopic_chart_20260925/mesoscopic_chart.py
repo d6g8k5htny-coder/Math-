@@ -2454,6 +2454,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'tetradecic_next_order_enumerated': True,
                 'pentadecic_next_order_enumerated': True,
                 'hexadecic_next_order_enumerated': True,
+                'unmatched_height_r_power_inventory_recorded': True,
                 'max_saddle_signature_test_recorded': True,
                 'integrand_power_identity_recorded': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
@@ -3133,6 +3134,62 @@ def contact_algebraic_factor_times_height_r_inventory(
     }
 
 
+def pin_site_unmatched_height_r_power_inventory() -> dict:
+    """Exact unmatched height-r powers for enumerated pin-site next-order jets.
+
+    After Morse leading height (1/2)z·J_grad, each homogeneous residual of total
+    degree n (cubic…hexadecic) inserts an unmatched density factor r^(n-2) with
+    the Euler identity z·(grad residual) = n · (height residual). None of these
+    powers are absorbed into a uniform integrand bound; seventeenth-and-higher
+    jets and the contact Gaussian density remain open.
+    """
+    orders = [
+        ('cubic', 'H_*_next', 3, 1),
+        ('quartic', 'Q_*_next', 4, 2),
+        ('quintic', 'P_*_next', 5, 3),
+        ('sextic', 'S_*_next', 6, 4),
+        ('septic', 'T_*_next', 7, 5),
+        ('octic', 'U_*_next', 8, 6),
+        ('nonic', 'N_*_next', 9, 7),
+        ('decic', 'D_*_next', 10, 8),
+        ('undecic', 'E_*_next', 11, 9),
+        ('dodecic', 'F_*_next', 12, 10),
+        ('tridecic', 'G_*_next', 13, 11),
+        ('tetradecic', 'I_*_next', 14, 12),
+        ('pentadecic', 'J_*_next', 15, 13),
+        ('hexadecic', 'K_*_next', 16, 14),
+    ]
+    by_order = {
+        name: {
+            'residual_symbol': symbol,
+            'homogeneous_degree': degree,
+            'unmatched_density_r_power': power,
+            'euler_identity': f'z·grad_residual = {degree} · height_residual',
+            'height_r_absorbed_into_uniform_bound': False,
+        }
+        for name, symbol, degree, power in orders
+    }
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1',
+        'chart': 'C_pin_centered',
+        'enumeration_scope': 'leading_morse_plus_cubic_through_hexadecic',
+        'orders': by_order,
+        'enumerated_order_names': [name for name, *_ in orders],
+        'unmatched_r_powers': [power for *_, power in orders],
+        'min_unmatched_density_r_power': 1,
+        'max_unmatched_density_r_power': 14,
+        'any_height_r_absorbed_into_uniform_bound': False,
+        'pin_site_higher_jets_enumerated': False,
+        'seventeenth_and_higher_jets_enumerated': False,
+        'contact_gaussian_density_bounded': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact inventory of unmatched height r^(n-2) for cubic through hexadecic '
+            'pin residuals; none absorbed; seventeenth-and-higher jets / density open'
+        ),
+    }
+
+
 def axial_conditioned_hessian_residual_ledger(
     y: Coord, *, gap_mark: int | Q = 1,
     f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
@@ -3644,6 +3701,7 @@ def result() -> dict:
     thin_alg_height = thin_belt_algebraic_factor_times_height_r_skeleton(
         point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     alg_height_inv = contact_algebraic_factor_times_height_r_inventory()
+    pin_r_inv = pin_site_unmatched_height_r_power_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -3692,6 +3750,7 @@ def result() -> dict:
     out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
     out['thin_belt_algebraic_factor_times_height_r'] = conv(thin_alg_height)
     out['contact_algebraic_factor_times_height_r_inventory'] = conv(alg_height_inv)
+    out['pin_site_unmatched_height_r_power_inventory'] = conv(pin_r_inv)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

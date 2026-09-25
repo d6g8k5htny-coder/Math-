@@ -386,7 +386,8 @@
         "sextic_next_order_enumerated": true,
         "tetradecic_next_order_enumerated": true,
         "tridecic_next_order_enumerated": true,
-        "undecic_next_order_enumerated": true
+        "undecic_next_order_enumerated": true,
+        "unmatched_height_r_power_inventory_recorded": true
       },
       "C_thin_belt": {
         "algebraic_factor_times_height_r_skeleton_enumerated": true,
@@ -1306,6 +1307,151 @@
     "uniform_integrand_bound_proved": false,
     "z1": "0",
     "z2": "1/20"
+  },
+  "pin_site_unmatched_height_r_power_inventory": {
+    "any_height_r_absorbed_into_uniform_bound": false,
+    "chart": "C_pin_centered",
+    "contact_gaussian_density_bounded": false,
+    "enumerated_order_names": [
+      "cubic",
+      "quartic",
+      "quintic",
+      "sextic",
+      "septic",
+      "octic",
+      "nonic",
+      "decic",
+      "undecic",
+      "dodecic",
+      "tridecic",
+      "tetradecic",
+      "pentadecic",
+      "hexadecic"
+    ],
+    "enumeration_scope": "leading_morse_plus_cubic_through_hexadecic",
+    "global_contact_density_bound_proved": false,
+    "max_unmatched_density_r_power": 14,
+    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through hexadecic pin residuals; none absorbed; seventeenth-and-higher jets / density open",
+    "min_unmatched_density_r_power": 1,
+    "object": "RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1",
+    "orders": {
+      "cubic": {
+        "euler_identity": "z\u00b7grad_residual = 3 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 3,
+        "residual_symbol": "H_*_next",
+        "unmatched_density_r_power": 1
+      },
+      "decic": {
+        "euler_identity": "z\u00b7grad_residual = 10 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 10,
+        "residual_symbol": "D_*_next",
+        "unmatched_density_r_power": 8
+      },
+      "dodecic": {
+        "euler_identity": "z\u00b7grad_residual = 12 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 12,
+        "residual_symbol": "F_*_next",
+        "unmatched_density_r_power": 10
+      },
+      "hexadecic": {
+        "euler_identity": "z\u00b7grad_residual = 16 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 16,
+        "residual_symbol": "K_*_next",
+        "unmatched_density_r_power": 14
+      },
+      "nonic": {
+        "euler_identity": "z\u00b7grad_residual = 9 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 9,
+        "residual_symbol": "N_*_next",
+        "unmatched_density_r_power": 7
+      },
+      "octic": {
+        "euler_identity": "z\u00b7grad_residual = 8 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 8,
+        "residual_symbol": "U_*_next",
+        "unmatched_density_r_power": 6
+      },
+      "pentadecic": {
+        "euler_identity": "z\u00b7grad_residual = 15 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 15,
+        "residual_symbol": "J_*_next",
+        "unmatched_density_r_power": 13
+      },
+      "quartic": {
+        "euler_identity": "z\u00b7grad_residual = 4 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 4,
+        "residual_symbol": "Q_*_next",
+        "unmatched_density_r_power": 2
+      },
+      "quintic": {
+        "euler_identity": "z\u00b7grad_residual = 5 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 5,
+        "residual_symbol": "P_*_next",
+        "unmatched_density_r_power": 3
+      },
+      "septic": {
+        "euler_identity": "z\u00b7grad_residual = 7 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 7,
+        "residual_symbol": "T_*_next",
+        "unmatched_density_r_power": 5
+      },
+      "sextic": {
+        "euler_identity": "z\u00b7grad_residual = 6 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 6,
+        "residual_symbol": "S_*_next",
+        "unmatched_density_r_power": 4
+      },
+      "tetradecic": {
+        "euler_identity": "z\u00b7grad_residual = 14 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 14,
+        "residual_symbol": "I_*_next",
+        "unmatched_density_r_power": 12
+      },
+      "tridecic": {
+        "euler_identity": "z\u00b7grad_residual = 13 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 13,
+        "residual_symbol": "G_*_next",
+        "unmatched_density_r_power": 11
+      },
+      "undecic": {
+        "euler_identity": "z\u00b7grad_residual = 11 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 11,
+        "residual_symbol": "E_*_next",
+        "unmatched_density_r_power": 9
+      }
+    },
+    "pin_site_higher_jets_enumerated": false,
+    "seventeenth_and_higher_jets_enumerated": false,
+    "unmatched_r_powers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
   },
   "rank": {
     "chart": "C_transverse",

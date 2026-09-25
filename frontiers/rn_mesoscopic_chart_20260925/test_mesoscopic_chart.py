@@ -1050,6 +1050,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['tetradecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['pentadecic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['hexadecic_next_order_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['unmatched_height_r_power_inventory_recorded'])
         self.assertTrue(inv['charts']['C_pin_centered']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['height_r_factor_recorded'])
         self.assertFalse(inv['charts']['C_pin_centered']['height_r_factor_absorbed'])
@@ -1353,6 +1354,25 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(inv['any_combined_skeleton_absorbed_into_uniform_bound'])
         self.assertFalse(inv['global_contact_density_bound_proved'])
         self.assertFalse(inv['conditioned_expectation_evaluated'])
+
+    def test_pin_site_unmatched_height_r_power_inventory(self):
+        inv = m.pin_site_unmatched_height_r_power_inventory()
+        self.assertEqual(inv['chart'], 'C_pin_centered')
+        self.assertEqual(inv['enumeration_scope'], 'leading_morse_plus_cubic_through_hexadecic')
+        self.assertEqual(len(inv['enumerated_order_names']), 14)
+        self.assertEqual(inv['enumerated_order_names'][0], 'cubic')
+        self.assertEqual(inv['enumerated_order_names'][-1], 'hexadecic')
+        self.assertEqual(inv['unmatched_r_powers'], list(range(1, 15)))
+        self.assertEqual(inv['orders']['cubic']['unmatched_density_r_power'], 1)
+        self.assertEqual(inv['orders']['hexadecic']['unmatched_density_r_power'], 14)
+        self.assertEqual(inv['orders']['hexadecic']['residual_symbol'], 'K_*_next')
+        self.assertEqual(inv['min_unmatched_density_r_power'], 1)
+        self.assertEqual(inv['max_unmatched_density_r_power'], 14)
+        self.assertFalse(inv['any_height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(inv['pin_site_higher_jets_enumerated'])
+        self.assertFalse(inv['seventeenth_and_higher_jets_enumerated'])
+        self.assertFalse(inv['contact_gaussian_density_bounded'])
+        self.assertFalse(inv['global_contact_density_bound_proved'])
 
     def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
         # y=(2,1/8), f_yy=2,f_xxy=0: J_y=1/4, |det J|=1/1024, reciprocal=1024
