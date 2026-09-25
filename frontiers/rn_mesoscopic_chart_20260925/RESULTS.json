@@ -263,7 +263,7 @@
       "z2": "1/20"
     },
     "contact_rows_enumerated": true,
-    "enumeration_scope": "leading_morse_hess_z_only",
+    "enumeration_scope": "leading_morse_plus_cubic_next_order",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -295,11 +295,25 @@
       "trace_H": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site contact rows J=H_pin z and height (1/2)z\u00b7H\u00b7z with max/saddle signature test; higher jets and density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic next-order H_*_next; fourth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
+    "next_order_rows": {
+      "H_grad_next_1": "0",
+      "H_grad_next_2": "0",
+      "H_height_next": "0",
+      "explicit_r_factor_still_required": true,
+      "f_xxx": "0",
+      "f_xxy": "0",
+      "f_xyy": "0",
+      "f_yyy": "0",
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_H_grad_next_minus_3_H_height_next": "0"
+    },
     "object": "RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1",
     "pin_site_higher_jets_enumerated": false,
     "pin_site_jet_rows_enumerated": true,
+    "pin_site_next_order_enumerated": true,
     "pr7_fixed_annulus_A_gt_1": false,
     "scaling": {
       "grad": 1,

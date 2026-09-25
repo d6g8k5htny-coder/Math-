@@ -78,7 +78,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `1/|y2| ≤ 1/δ` on `C_transverse` (chart singularity cleared; Gaussian density still open);
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
-- pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test (higher jets open);
+- pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;
+- pin-site cubic next-order rows `H_grad_next = (1/2)D³f(z,z)`, `H_height_next = (1/6)D³f(z,z,z)` with `z·H_grad_next = 3 H_height_next` (fourth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
@@ -89,7 +90,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt integrand bound controlling the `1/|y2|` singularity;
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- higher-order pin-site divided-difference jets beyond the leading Morse Hessian·z residuals;
+- higher-order pin-site divided-difference jets beyond cubic next-order residuals;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -124,7 +125,7 @@ A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used o
 
     J_grad = H_pin · z,    J_height = (1/2) z · H_pin · z,
 
-with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite). Higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
+with scalings `p_grad=1`, `p_height=2` (gradient Jacobian `r`-power `2`), plus an exact Sylvester signature test (`M` ⇒ negative definite, `S` ⇒ indefinite), plus cubic next-order residuals `H_grad_next` / `H_height_next` carrying an unmatched explicit `r`. Fourth-and-higher pin-site jets and the contact density remain open (`pin_site_higher_jets_enumerated = false`). This does not alter the PR7 fixed-annulus statements.
 
 ## 4.7 Hessian contact rows on C_transverse
 

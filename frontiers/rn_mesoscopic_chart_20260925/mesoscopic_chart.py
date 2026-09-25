@@ -453,11 +453,17 @@ def pin_centered_frame(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1
 
 def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
                                   margin: int | Q = Q(1, 10),
-                                  H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1) -> dict:
-    """Pin-centred ledger with leading Morse contact rows in the local frame z=y-pin."""
+                                  H_xx: int | Q = -1, H_xy: int | Q = 0, H_yy: int | Q = 1,
+                                  f_xxx: int | Q = 0, f_xxy: int | Q = 0,
+                                  f_xyy: int | Q = 0, f_yyy: int | Q = 0) -> dict:
+    """Pin-centred ledger with leading Morse and next-order cubic contact rows."""
     frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
     rows = pin_site_morse_contact_rows(
         frame['z1'], frame['z2'], H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
+    )
+    nxt = pin_site_morse_next_order_rows(
+        frame['z1'], frame['z2'],
+        f_xxx=f_xxx, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
     )
     signature = pin_morse_hessian_signature(
         H_xx=H_xx, H_xy=H_xy, H_yy=H_yy, closer_pin=str(frame['closer_pin']),
@@ -468,6 +474,7 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'frame': frame,
         'midpoint_U0_rows_applicable': False,
         'contact_rows': rows,
+        'next_order_rows': nxt,
         'hessian_signature': signature,
         'scaling': {
             'grad': PIN_CENTERED_SCALING_EXPONENTS['grad'],
@@ -475,9 +482,10 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
             'gradient_jacobian_r_power': 2 * PIN_CENTERED_SCALING_EXPONENTS['grad'],
         },
         'pin_site_jet_rows_enumerated': True,
+        'pin_site_next_order_enumerated': True,
         'pin_site_higher_jets_enumerated': False,
         'contact_rows_enumerated': True,
-        'enumeration_scope': 'leading_morse_hess_z_only',
+        'enumeration_scope': 'leading_morse_plus_cubic_next_order',
         'hessian_ledger_evaluated': False,
         'uniform_integrand_bound_proved': False,
         'full_annulus_closed': False,
@@ -486,8 +494,8 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'complements_pr7': True,
         'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'leading Morse pin-site contact rows J=H_pin z and height (1/2)z·H·z '
-            'with max/saddle signature test; higher jets and density remain open'
+            'leading Morse pin-site rows J=H z plus cubic next-order H_*_next; '
+            'fourth-and-higher jets and Gaussian density remain open'
         ),
     }
 
@@ -523,6 +531,43 @@ def pin_site_morse_contact_rows(
         'H_xx': a,
         'H_xy': b,
         'H_yy': c,
+    }
+
+
+def pin_site_morse_next_order_rows(
+    z1: int | Q, z2: int | Q, *,
+    f_xxx: int | Q, f_xxy: int | Q, f_xyy: int | Q, f_yyy: int | Q,
+) -> dict[str, Q | bool]:
+    """Next-order (cubic) pin-local contact residuals after Morse leading terms.
+
+    With third derivatives at the pin:
+      grad f(pin+rz) = r H z + (r^2/2) D³f(z,z) + O(r^3)
+      f(pin+rz)-f(pin) = (r^2/2) z·H·z + (r^3/6) D³f(z,z,z) + O(r^4)
+    so after stripping leading powers the unmatched r^1 corrections are
+      H_grad_next = (1/2) D³f(z,z),   H_height_next = (1/6) D³f(z,z,z),
+    with the exact identity z·H_grad_next = 3 H_height_next.
+    """
+    u, v = exact(z1), exact(z2)
+    if u == 0 and v == 0:
+        raise ValueError('next-order pin rows require z != 0')
+    a, b, c, d = map(exact, (f_xxx, f_xxy, f_xyy, f_yyy))
+    # (1/2) D³f(z,z) components
+    g1 = (a * u * u + 2 * b * u * v + c * v * v) / 2
+    g2 = (b * u * u + 2 * c * u * v + d * v * v) / 2
+    # (1/6) D³f(z,z,z)
+    h = (a * u ** 3 + 3 * b * u * u * v + 3 * c * u * v * v + d * v ** 3) / 6
+    return {
+        'H_grad_next_1': g1,
+        'H_grad_next_2': g2,
+        'H_height_next': h,
+        'z_dot_H_grad_next_minus_3_H_height_next': u * g1 + v * g2 - 3 * h,
+        'explicit_r_factor_still_required': True,
+        'z1': u,
+        'z2': v,
+        'f_xxx': a,
+        'f_xxy': b,
+        'f_xyy': c,
+        'f_yyy': d,
     }
 
 

@@ -330,23 +330,41 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(frame['z1'], 0)
         self.assertEqual(frame['z2'], Q(1, 20))
         self.assertEqual(frame['dist2_to_closer_pin'], Q(1, 400))
-        led = m.pin_centered_ledger_for_point(y, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
+        led = m.pin_centered_ledger_for_point(
+            y, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3, f_yyy=6)
         self.assertEqual(led['chart'], 'C_pin_centered')
         self.assertFalse(led['midpoint_U0_rows_applicable'])
         self.assertTrue(led['pin_site_jet_rows_enumerated'])
+        self.assertTrue(led['pin_site_next_order_enumerated'])
         self.assertFalse(led['pin_site_higher_jets_enumerated'])
         self.assertTrue(led['contact_rows_enumerated'])
-        self.assertEqual(led['enumeration_scope'], 'leading_morse_hess_z_only')
+        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_next_order')
         self.assertEqual(led['contact_rows']['J_grad_1'], 0)  # H_xy z2 with H_xy=0,z1=0
         self.assertEqual(led['contact_rows']['J_grad_2'], Q(3, 20))  # H_yy z2
         self.assertEqual(led['contact_rows']['J_height'], Q(3, 800))  # (1/2) H_yy z2^2
         self.assertEqual(led['contact_rows']['height_minus_half_z_dot_grad'], 0)
+        # z=(0,1/20), f_yyy=6 => H_grad_next_2=(1/2)*6*(1/400)=3/400, H_height_next=(1/6)*6*(1/8000)=1/8000
+        self.assertEqual(led['next_order_rows']['H_grad_next_1'], 0)
+        self.assertEqual(led['next_order_rows']['H_grad_next_2'], Q(3, 400))
+        self.assertEqual(led['next_order_rows']['H_height_next'], Q(1, 8000))
+        self.assertEqual(led['next_order_rows']['z_dot_H_grad_next_minus_3_H_height_next'], 0)
+        self.assertTrue(led['next_order_rows']['explicit_r_factor_still_required'])
         self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
         self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         self.assertEqual(led['hessian_signature']['signature_kind'], 'INDEFINITE_SADDLE')
         self.assertTrue(led['hessian_signature']['signature_matches_pin_role'])
         with self.assertRaises(ValueError):
             m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
+
+    def test_pin_site_morse_next_order_rows(self):
+        rows = m.pin_site_morse_next_order_rows(1, 2, f_xxx=0, f_xxy=0, f_xyy=0, f_yyy=6)
+        self.assertEqual(rows['H_grad_next_1'], 0)
+        self.assertEqual(rows['H_grad_next_2'], 12)  # (1/2)*6*4
+        self.assertEqual(rows['H_height_next'], 8)  # (1/6)*6*8
+        self.assertEqual(rows['z_dot_H_grad_next_minus_3_H_height_next'], 0)
+        self.assertTrue(rows['explicit_r_factor_still_required'])
+        with self.assertRaises(ValueError):
+            m.pin_site_morse_next_order_rows(0, 0, f_xxx=1, f_xxy=0, f_xyy=0, f_yyy=0)
 
     def test_pin_morse_hessian_signature(self):
         sad = m.pin_morse_hessian_signature(H_xx=-2, H_xy=0, H_yy=3, closer_pin='S')

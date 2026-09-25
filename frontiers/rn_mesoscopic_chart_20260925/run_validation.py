@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 41
+EXPECTED_TESTS = 42
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -67,8 +67,8 @@ MUTANTS = {
         "'uniform_integrand_bound_proved': True,\n        'absorbed_into_C_transverse': True,",
     ),
     'claim_pin_rows_enumerated': (
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,\n        'contact_rows_enumerated': True,",
-        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,\n        'contact_rows_enumerated': True,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_higher_jets_enumerated': False,",
+        "'pin_site_jet_rows_enumerated': True,\n        'pin_site_next_order_enumerated': True,\n        'pin_site_higher_jets_enumerated': True,",
     ),
     'claim_pin_obstruction_cleared': (
         "'raw_gradient_collides_with_pin_gradient_constraints': True,\n        'near_pin_intersects_axial_thin_belt_locus': True,\n        'leading_morse_rows_enumerated_elsewhere': True,\n        'pin_site_higher_jets_enumerated': False,",
@@ -109,6 +109,10 @@ MUTANTS = {
     'wrong_pin_hess_det_power': (
         'PIN_CENTERED_HESSIAN_DET_R_POWER = 0',
         'PIN_CENTERED_HESSIAN_DET_R_POWER = 1',
+    ),
+    'drop_pin_cubic_identity': (
+        "'z_dot_H_grad_next_minus_3_H_height_next': u * g1 + v * g2 - 3 * h,",
+        "'z_dot_H_grad_next_minus_3_H_height_next': u * g1 + v * g2 - 2 * h,",
     ),
 }
 
