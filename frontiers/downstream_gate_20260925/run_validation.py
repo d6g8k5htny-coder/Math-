@@ -15,8 +15,8 @@ MUTANTS = {
         "if False:",
     ),
     'allow_required_superseded_label': (
-        "CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED'})",
-        "CONTROLLING_ELIGIBLE = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})",
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED'})",
+        "REQUIRED_SATISFIED = frozenset({'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING'})",
     ),
     'allow_required_refutation': (
         "if cls == 'REFUTED':\n            refuted.append(dep)",
