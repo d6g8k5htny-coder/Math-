@@ -659,6 +659,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_det_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_det_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_transverse']['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertTrue(inv['charts']['C_axial']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
         self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
@@ -811,6 +813,40 @@ class MesoscopicChartControls(unittest.TestCase):
             m.transverse_conditioned_det_free_jet_skeleton(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_conditioned_det_free_jet_skeleton(m.point(0, 2))
+
+    def test_contact_integrand_algebraic_factor_skeleton(self):
+        # y=(0,2): |det J|=|y2|^3/2=4, reciprocal=1/4, |det H|=12, product=3
+        t = m.transverse_contact_integrand_algebraic_factor_skeleton(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+        self.assertEqual(t['abs_det_grad_contact_map'], 4)
+        self.assertEqual(t['reciprocal_grad_contact_jacobian'], Q(1, 4))
+        self.assertEqual(t['det_contact_leading_abs'], 12)
+        self.assertEqual(t['algebraic_jacobian_times_det_abs'], 3)
+        self.assertEqual(t['product_minus_factors'], 0)
+        self.assertEqual(t['unmatched_height_density_r_power'], 1)
+        self.assertEqual(t['net_count_r_power'], 3)
+        self.assertTrue(t['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        self.assertFalse(t['height_r_absorbed_into_uniform_bound'])
+        off = m.transverse_contact_integrand_algebraic_factor_skeleton(
+            m.point(2, 2), gap_mark=1, f_yy=5, f_xxy=3, f_xyy=7)
+        self.assertEqual(off['product_minus_factors'], 0)
+        ax = m.axial_contact_integrand_algebraic_factor_skeleton(
+            m.point(2, 0), gap_mark=1, f_yy=5, f_xxy=3)
+        # |det J|=3*|y1|^4=48, reciprocal=1/48, |det H|=120, product=120/48=2.5=5/2
+        self.assertEqual(ax['abs_det_grad_contact_map'], 48)
+        self.assertEqual(ax['reciprocal_grad_contact_jacobian'], Q(1, 48))
+        self.assertEqual(ax['det_contact_leading_abs'], 120)
+        self.assertEqual(ax['algebraic_jacobian_times_det_abs'], Q(5, 2))
+        self.assertEqual(ax['product_minus_factors'], 0)
+        self.assertTrue(ax['axial_area_measure_zero'])
+        bundled = m.contact_integrand_algebraic_factor_skeleton_inventory()
+        self.assertFalse(bundled['global_contact_density_bound_proved'])
+        self.assertEqual(bundled['C_transverse']['algebraic_jacobian_times_det_abs'], 3)
+        with self.assertRaises(ValueError):
+            m.transverse_contact_integrand_algebraic_factor_skeleton(m.point(2, 0))
+        with self.assertRaises(ValueError):
+            m.axial_contact_integrand_algebraic_factor_skeleton(m.point(0, 2))
 
 
 if __name__ == '__main__':

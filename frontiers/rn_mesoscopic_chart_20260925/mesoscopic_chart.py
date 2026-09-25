@@ -1318,6 +1318,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
                 'conditioned_hessian_det_skeleton_enumerated': True,
+                'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_residual_after_grad_contact_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
@@ -1330,6 +1331,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'gradient_contact_jacobian_enumerated': True,
                 'conditioned_hessian_residual_polynomials_enumerated': True,
                 'conditioned_hessian_det_skeleton_enumerated': True,
+                'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1756,6 +1758,126 @@ def contact_conditioned_det_free_jet_skeleton_inventory(
     }
 
 
+def transverse_contact_integrand_algebraic_factor_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Exact algebraic product of transverse Kac–Rice contact factors (density open).
+
+    On C_transverse the contact integrand factors (after stripping exact r-powers)
+    as the product of:
+      1/|det ∂(J_y,J_x)/∂(f_yy,f_xyy)|   =  2/|y2|^3
+      |det H|_contact leading skeleton   =  |α_k·k + α_f_xxy·f_xxy|
+      unmatched height r^1 from H_height_next residual
+    Times an unevaluated free-jet Gaussian density. This ledger records the exact
+    reciprocal Jacobian and det skeleton factors and their product identity; it
+    does not bound the Gaussian density or absorb height-r.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    jac = transverse_gradient_contact_jacobian_ledger(y)
+    det = transverse_conditioned_det_free_jet_skeleton(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    height = transverse_height_residual_after_grad_contact(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    powers = contact_integrand_power_ledger(2, chart='C_transverse')
+    abs_det_jac = jac['abs_det_grad_contact_map']
+    reciprocal_jac = 1 / abs_det_jac
+    abs_det_h = abs(det['det_contact_leading_from_alphas'])
+    algebraic_product = reciprocal_jac * abs_det_h
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
+        'chart': 'C_transverse',
+        'y': {'y1': y[0], 'y2': y[1]},
+        'abs_det_grad_contact_map': abs_det_jac,
+        'reciprocal_grad_contact_jacobian': reciprocal_jac,
+        'det_contact_leading_abs': abs_det_h,
+        'algebraic_jacobian_times_det_abs': algebraic_product,
+        'product_minus_factors': algebraic_product - reciprocal_jac * abs_det_h,
+        'unmatched_height_density_r_power': height['unmatched_height_density_r_power'],
+        'H_height_next_residual': height['H_height_next_residual'],
+        'net_count_r_power': powers['net_count_r_power'],
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_expectation_evaluated': False,
+        'height_r_absorbed_into_uniform_bound': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact product (1/|det J_grad|)·|det H_skeleton| after grad contact; '
+            'Gaussian density / height-r absorption / expectation remain open'
+        ),
+    }
+
+
+def axial_contact_integrand_algebraic_factor_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Exact algebraic product of axial Kac–Rice contact factors (area-measure zero).
+
+    Axial factors:
+      1/|det ∂(J_y,J_x)/∂(f_xxy,k)| = 1/(3|y1|^4)
+      |det H|_contact leading       = |α_f_yy · f_yy|
+    Product identity only; density / expectation open; area-measure zero.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    jac = axial_gradient_contact_jacobian_ledger(y)
+    det = axial_conditioned_det_free_jet_skeleton(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    powers = contact_integrand_power_ledger(2, chart='C_axial')
+    abs_det_jac = jac['abs_det_grad_contact_map']
+    reciprocal_jac = 1 / abs_det_jac
+    abs_det_h = abs(det['det_contact_leading_from_alpha'])
+    algebraic_product = reciprocal_jac * abs_det_h
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
+        'chart': 'C_axial',
+        'y': {'y1': y[0], 'y2': y[1]},
+        'abs_det_grad_contact_map': abs_det_jac,
+        'reciprocal_grad_contact_jacobian': reciprocal_jac,
+        'det_contact_leading_abs': abs_det_h,
+        'algebraic_jacobian_times_det_abs': algebraic_product,
+        'product_minus_factors': algebraic_product - reciprocal_jac * abs_det_h,
+        'net_count_r_power': powers['net_count_r_power'],
+        'free_residual_coordinates': ['f_yy', 'f_xyy', 'f_yyy'],
+        'axial_area_measure_zero': True,
+        'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_expectation_evaluated': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact axial product (1/|det J_grad|)·|det H_skeleton|; '
+            'area-measure zero; Gaussian density still unbound'
+        ),
+    }
+
+
+def contact_integrand_algebraic_factor_skeleton_inventory(
+    *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+) -> dict:
+    """Bundle transverse/axial contact integrand algebraic factor skeletons."""
+    ty = transverse_y if transverse_y is not None else point(0, 2)
+    ay = axial_y if axial_y is not None else point(2, 0)
+    return {
+        'object': 'RN-MESOSCOPIC-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
+        'C_transverse': transverse_contact_integrand_algebraic_factor_skeleton(
+            ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6),
+        'C_axial': axial_contact_integrand_algebraic_factor_skeleton(
+            ay, gap_mark=1, f_yy=2, f_xxy=3),
+        'global_contact_density_bound_proved': False,
+        'conditioned_expectation_evaluated': False,
+        'meaning': (
+            'exact algebraic Jacobian×|det H| factor products after grad contact; '
+            'does not bound the contact Gaussian density'
+        ),
+    }
+
+
 def axial_conditioned_hessian_residual_ledger(
     y: Coord, *, gap_mark: int | Q = 1,
     f_yy: int | Q = 1, f_xxy: int | Q = 1, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
@@ -2122,6 +2244,7 @@ def result() -> dict:
     height_resid = transverse_height_residual_after_grad_contact(
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
+    integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -2160,6 +2283,7 @@ def result() -> dict:
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
+    out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

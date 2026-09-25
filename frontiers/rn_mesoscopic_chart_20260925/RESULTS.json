@@ -206,6 +206,7 @@
         "conditioned_hessian_det_skeleton_enumerated": true,
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
+        "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
         "gradient_contact_jacobian_enumerated": true,
         "hessian_conditioned_expectation_evaluated": false,
@@ -236,6 +237,7 @@
         "conditioned_hessian_det_skeleton_enumerated": true,
         "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
+        "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
         "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
@@ -361,6 +363,63 @@
     "global_contact_density_bound_proved": false,
     "meaning": "exact algebraic |det| factors for leading gradient contact maps; does not bound the contact Gaussian density",
     "object": "RN-MESOSCOPIC-CONTACT-GRADIENT-JACOBIAN-DENSITY-SHAPE-20260925-v1"
+  },
+  "contact_integrand_algebraic_factor_skeleton": {
+    "C_axial": {
+      "abs_det_grad_contact_map": "48",
+      "algebraic_jacobian_times_det_abs": "1",
+      "axial_area_measure_zero": true,
+      "chart": "C_axial",
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+      "det_contact_leading_abs": "48",
+      "free_residual_coordinates": [
+        "f_yy",
+        "f_xyy",
+        "f_yyy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "meaning": "exact axial product (1/|det J_grad|)\u00b7|det H_skeleton|; area-measure zero; Gaussian density still unbound",
+      "net_count_r_power": 2,
+      "object": "RN-MESOSCOPIC-AXIAL-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1",
+      "product_minus_factors": "0",
+      "reciprocal_grad_contact_jacobian": "1/48",
+      "y": {
+        "y1": "2",
+        "y2": "0"
+      }
+    },
+    "C_transverse": {
+      "H_height_next_residual": "8",
+      "abs_det_grad_contact_map": "4",
+      "algebraic_jacobian_times_det_abs": "3",
+      "chart": "C_transverse",
+      "conditioned_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+      "det_contact_leading_abs": "12",
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "height_r_absorbed_into_uniform_bound": false,
+      "meaning": "exact product (1/|det J_grad|)\u00b7|det H_skeleton| after grad contact; Gaussian density / height-r absorption / expectation remain open",
+      "net_count_r_power": 3,
+      "object": "RN-MESOSCOPIC-TRANSVERSE-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1",
+      "product_minus_factors": "0",
+      "reciprocal_grad_contact_jacobian": "1/4",
+      "unmatched_height_density_r_power": 1,
+      "y": {
+        "y1": "0",
+        "y2": "2"
+      }
+    },
+    "conditioned_expectation_evaluated": false,
+    "global_contact_density_bound_proved": false,
+    "meaning": "exact algebraic Jacobian\u00d7|det H| factor products after grad contact; does not bound the contact Gaussian density",
+    "object": "RN-MESOSCOPIC-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1"
   },
   "contact_rows": {
     "H_height_next": "0",

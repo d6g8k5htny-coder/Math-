@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 53
+EXPECTED_TESTS = 54
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -145,6 +145,10 @@ MUTANTS = {
     'claim_hessian_expectation_from_det_skeleton': (
         "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
         "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",
+    ),
+    'claim_density_from_integrand_algebraic_factor': (
+        "'global_contact_density_bound_proved': False,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'exact algebraic Jacobian×|det H| factor products after grad contact; '\n            'does not bound the contact Gaussian density'\n        ),",
+        "'global_contact_density_bound_proved': True,\n        'conditioned_expectation_evaluated': False,\n        'meaning': (\n            'exact algebraic Jacobian×|det H| factor products after grad contact; '\n            'does not bound the contact Gaussian density'\n        ),",
     ),
     'claim_height_r_from_grad_residual': (
         "'unmatched_height_density_r_power': 1,\n        'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'exact H_height_next residual after eliminating f_yy,f_xyy; '\n            'unmatched r^1 and density bound remain open'\n        ),",
