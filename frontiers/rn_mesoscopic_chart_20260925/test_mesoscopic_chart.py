@@ -243,6 +243,23 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.jet_map_f_yy_to_J_grad_y_factor(m.point(2, 0))
 
+    def test_thin_belt_integrand_residual_after_cancel(self):
+        led = m.thin_belt_integrand_residual_after_cancel(m.point(2, Q(1, 8)), shells=8)
+        self.assertEqual(led['chart'], 'C_thin_belt')
+        self.assertEqual(led['product_abs_factor_times_reciprocal'], 1)
+        self.assertEqual(led['residual_geometric_factor_after_cancel'], 1)
+        self.assertTrue(led['cancels_bare_reciprocal_pointwise'])
+        self.assertTrue(led['residual_geometric_factor_locally_L1'])
+        self.assertTrue(led['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
+        self.assertEqual(led['dyadic_shell_width_sum'], Q(1, 4) * (1 - Q(1, 256)))
+        self.assertFalse(led['uniform_integrand_bound_proved'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        self.assertFalse(led['full_density_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.thin_belt_integrand_residual_after_cancel(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.thin_belt_integrand_residual_after_cancel(m.point(2, Q(1, 8)), shells=0)
+
     def test_transverse_conditioning_uniform_bound(self):
         # Interior point |y2|=2 >> δ=1/4.
         info = m.transverse_conditioning_uniform_bound(m.point(0, 2))
@@ -539,6 +556,9 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_axial']['area_measure_zero_in_2d'])
         self.assertFalse(inv['charts']['C_thin_belt']['bare_1_over_abs_y2_L1'])
         self.assertTrue(inv['charts']['C_thin_belt']['jet_map_pointwise_cancel_recorded'])
+        self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
+        self.assertTrue(inv['charts']['C_thin_belt']['residual_geometric_factor_locally_L1'])
+        self.assertFalse(inv['charts']['C_thin_belt']['uniform_integrand_bound_proved'])
         self.assertTrue(inv['charts']['C_pin_centered']['leading_morse_rows_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['quartic_next_order_enumerated'])
@@ -550,7 +570,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
         self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
-        self.assertIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
+        self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
+        self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_fifth_and_higher_jets', inv['open_blockers'])
         # Every chart still blocks the global density bound.
         for chart, row in inv['charts'].items():

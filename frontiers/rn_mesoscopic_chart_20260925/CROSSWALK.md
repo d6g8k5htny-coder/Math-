@@ -13,7 +13,7 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 | (2) Exact `r`-power of `det S_r(y)` on each rank chart | **Partial** — gradient Jacobian powers `3` (transverse/thin), `4` (axial), `2` (pin Morse); Hessian raw `det H` leading power `1` (midpoint charts) / `0` (pin); pin-centered net `r^3` | `SCALING_EXPONENTS`, `AXIAL_SCALING_EXPONENTS`, `PIN_CENTERED_*`, `HESSIAN_SCALING_EXPONENTS`, `contact_integrand_power_ledger`, `pin_centered_integrand_power_ledger` |
 | (3) Conditioned witness Hessian in the same chart | **Partial** — contact Hessian polynomials recorded; free-jet residual inventory after gradient contact recorded; residual Hessian polynomials after eliminating constrained jets recorded; conditioned Gaussian expectation **open** | `hessian_contact_rows` / `axial_hessian_contact_rows` / `contact_free_jet_residual_inventory` / `transverse_conditioned_hessian_residual_ledger` / `axial_conditioned_hessian_residual_ledger`; `hessian_ledger_evaluated=false` |
 | (4) Combine typed Hessian with gradient-density Jacobian | **Partial** — exact power identity only; unmatched height `r^1` recorded; height residual after grad contact enumerated; free-jet / Hessian residuals enumerated; density factor unbound | net `r^3` transverse / pin / `r^2` axial; `transverse_height_r_factor_ledger`; `transverse_height_residual_after_grad_contact`; `contact_free_jet_residual_inventory`; `contact_density_obstruction_inventory`; `contact_density_bound_proved=false` |
-| (5) Local integrability across chart boundaries; uniform bound on `A≤\|y\|≤B` | **Partial** — `|y2|=δ` transition is identity (det 1); `C_transverse` bare `1/\|y2\|≤1/δ` and `C_axial` bare `2/y1^2≤2/A^2` cleared; thin-belt interior still open (`1/\|y2\|` bare-L1 failure; jet-map pointwise cancel recorded, density unbound) | `chart_boundary_transition`, `transverse_conditioning_uniform_bound`, `axial_conditioning_uniform_bound`, `thin_belt_reciprocal_shell_lower_bound`, `jet_map_f_yy_to_J_grad_y_factor` |
+| (5) Local integrability across chart boundaries; uniform bound on `A≤\|y\|≤B` | **Partial** — `|y2|=δ` transition is identity (det 1); `C_transverse` bare `1/\|y2\|≤1/δ` and `C_axial` bare `2/y1^2≤2/A^2` cleared; thin-belt bare reciprocal L1 cleared by jet-map cancel (residual geometric factor = 1, locally L1); contact Gaussian density near `y2→0` still open | `chart_boundary_transition`, `transverse_conditioning_uniform_bound`, `axial_conditioning_uniform_bound`, `thin_belt_reciprocal_shell_lower_bound`, `jet_map_f_yy_to_J_grad_y_factor`, `thin_belt_integrand_residual_after_cancel` |
 
 ## Chart cover (PR7 annulus `A>1`)
 
@@ -21,7 +21,7 @@ PR7 §5 lists five load-bearing calculations. This table records which are enume
 |---|---|---|
 | `C_transverse` | yes | chart conditioning cleared (`1/\|y2\|≤1/δ`); Gaussian density open |
 | `C_axial` | yes | chart conditioning cleared (`2/y1^2≤2/A^2`); area-measure zero; Gaussian density open |
-| `thin_belt_open` | yes (same jets) | open (`1/\|y2\|` not bare-L1; cancellation required) |
+| `thin_belt_open` | yes (same jets) | bare `1/\|y2\|` L1 cleared by jet-map cancel; Gaussian density near `y2→0` open |
 | `near_pin` | no (pins exterior for `A>1/2`) | n/a on PR7 annulus |
 
 Small-A (`A≤1/2`) is a separate diagnostic regime: pin-local frame, leading Morse + cubic + quartic rows, max/saddle Hessian signature test, and obstruction ledger recorded; fifth-and-higher pin jets and density open.

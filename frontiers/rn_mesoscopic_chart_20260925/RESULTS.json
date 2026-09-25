@@ -153,8 +153,10 @@
       },
       "C_thin_belt": {
         "bare_1_over_abs_y2_L1": false,
+        "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
         "contact_gaussian_density_bounded": false,
         "jet_map_pointwise_cancel_recorded": true,
+        "residual_geometric_factor_locally_L1": true,
         "uniform_integrand_bound_proved": false
       },
       "C_transverse": {
@@ -169,12 +171,12 @@
       }
     },
     "global_contact_density_bound_proved": false,
-    "meaning": "inventory only: chart singularities cleared on C_transverse/C_axial; Gaussian density / Hessian expectation / thin-belt / height-r / higher pin jets remain the load-bearing open blockers",
+    "meaning": "inventory only: chart singularities cleared on C_transverse/C_axial; thin-belt bare reciprocal L1 cleared by jet-map cancel; Gaussian density / Hessian expectation / height-r / higher pin jets remain open blockers",
     "object": "RN-MESOSCOPIC-CONTACT-DENSITY-OBSTRUCTION-20260925-v1",
     "open_blockers": [
       "contact_gaussian_density_factor",
       "conditioned_hessian_expectation",
-      "thin_belt_uniform_integrand_after_cancel",
+      "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "pin_fifth_and_higher_jets"
     ],
@@ -545,6 +547,28 @@
     "height_window_r_power": 3,
     "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
     "spatial_volume_r_power": 2
+  },
+  "thin_belt_integrand_residual_after_cancel": {
+    "bare_conditioning_reciprocal": "8",
+    "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+    "cancels_bare_reciprocal_pointwise": true,
+    "chart": "C_thin_belt",
+    "contact_gaussian_density_bounded": false,
+    "dyadic_shell_width_sum": "255/1024",
+    "floor_y2": "1/4",
+    "full_density_bound_proved": false,
+    "jet_map_abs_factor": "1/8",
+    "meaning": "jet-map cancel clears bare 1/|y2| L1 obstruction (residual geometric factor = 1); contact Gaussian density near y2=0 remains unbound",
+    "object": "RN-MESOSCOPIC-THIN-BELT-INTEGRAND-RESIDUAL-AFTER-CANCEL-20260925-v1",
+    "product_abs_factor_times_reciprocal": "1",
+    "residual_geometric_factor_after_cancel": "1",
+    "residual_geometric_factor_locally_L1": true,
+    "shells": 8,
+    "uniform_integrand_bound_proved": false,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
   },
   "thin_belt_ledger": {
     "absorbed_into_C_transverse": false,

@@ -86,6 +86,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; density still open);
 - conditioned Hessian residual polynomials after eliminating constrained jets (transverse free `(k,f_xxy)`; axial free `f_yy`; expectation still open);
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
+- thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 
@@ -93,7 +94,7 @@ The two gradient rows are the independent contact observations for the gradient 
 
 - absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
-- uniform thin-belt integrand bound controlling the `1/|y2|` singularity;
+- uniform thin-belt contact Gaussian density bound near `y2→0` (bare `1/|y2|` L1 cleared by jet-map cancel; residual geometric factor = 1);
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
 - higher-order pin-site divided-difference jets beyond quartic residuals;
 - any numerical RN / 24-jet certificate.

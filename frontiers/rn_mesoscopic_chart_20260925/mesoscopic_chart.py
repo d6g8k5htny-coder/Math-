@@ -230,6 +230,51 @@ def jet_map_f_yy_to_J_grad_y_factor(y: Coord) -> dict[str, Q | str | bool]:
     }
 
 
+def thin_belt_integrand_residual_after_cancel(
+    y: Coord, *, shells: int = 8, floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Record the thin-belt integrand residual after jet-map cancel of 1/|y2|.
+
+    Pointwise, ∂J_grad_y/∂f_yy = y2 cancels the bare conditioning reciprocal:
+      |y2| · (1/|y2|) = 1.
+    The residual geometric change-of-variables factor is therefore identically 1,
+    which is locally L1 on dyadic shells (each shell contributes its width, not ≥1).
+    This clears the bare reciprocal L1 obstruction; the contact Gaussian density
+    near y2→0 remains unbound, so the uniform integrand bound stays open.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    if type(shells) is not int or shells < 1:
+        raise ValueError('positive shell count required')
+    delta = exact(floor_y2)
+    jet = jet_map_f_yy_to_J_grad_y_factor(y)
+    bare = thin_belt_conditioning(y)
+    # Residual geometric factor is 1; dyadic shell widths sum to δ(1 - 2^{-n}).
+    width_sum = delta * (1 - Q(1, 2 ** shells))
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-INTEGRAND-RESIDUAL-AFTER-CANCEL-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': exact(y[0]), 'y2': exact(y[1])},
+        'floor_y2': delta,
+        'shells': shells,
+        'bare_conditioning_reciprocal': bare['conditioning_factor_reciprocal_abs_y2'],
+        'jet_map_abs_factor': jet['abs_factor'],
+        'product_abs_factor_times_reciprocal': jet['product_abs_factor_times_reciprocal'],
+        'cancels_bare_reciprocal_pointwise': True,
+        'residual_geometric_factor_after_cancel': Q(1),
+        'residual_geometric_factor_locally_L1': True,
+        'dyadic_shell_width_sum': width_sum,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'uniform_integrand_bound_proved': False,
+        'contact_gaussian_density_bounded': False,
+        'full_density_bound_proved': False,
+        'meaning': (
+            'jet-map cancel clears bare 1/|y2| L1 obstruction (residual geometric '
+            'factor = 1); contact Gaussian density near y2=0 remains unbound'
+        ),
+    }
+
+
 def transverse_conditioning_uniform_bound(
     y: Coord, *, floor_y2: int | Q = Q(1, 4),
 ) -> dict[str, Q | str | bool]:
@@ -1077,6 +1122,8 @@ def contact_density_obstruction_inventory() -> dict:
             'C_thin_belt': {
                 'bare_1_over_abs_y2_L1': False,
                 'jet_map_pointwise_cancel_recorded': True,
+                'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+                'residual_geometric_factor_locally_L1': True,
                 'uniform_integrand_bound_proved': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1093,14 +1140,14 @@ def contact_density_obstruction_inventory() -> dict:
         'open_blockers': [
             'contact_gaussian_density_factor',
             'conditioned_hessian_expectation',
-            'thin_belt_uniform_integrand_after_cancel',
+            'thin_belt_contact_gaussian_density_near_y2_0',
             'transverse_height_r_absorption',
             'pin_fifth_and_higher_jets',
         ],
         'meaning': (
             'inventory only: chart singularities cleared on C_transverse/C_axial; '
-            'Gaussian density / Hessian expectation / thin-belt / height-r / higher '
-            'pin jets remain the load-bearing open blockers'
+            'thin-belt bare reciprocal L1 cleared by jet-map cancel; Gaussian density / '
+            'Hessian expectation / height-r / higher pin jets remain open blockers'
         ),
     }
 
@@ -1610,6 +1657,7 @@ def result() -> dict:
     thin_shells = thin_belt_reciprocal_shell_lower_bound(8)
     boundary = chart_boundary_transition(point(2, Q(1, 4)), gap_mark=1, f_yy=2)
     jet_map = jet_map_f_yy_to_J_grad_y_factor(point(2, Q(1, 8)))
+    thin_cancel = thin_belt_integrand_residual_after_cancel(point(2, Q(1, 8)))
     transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
     axial_bound = axial_conditioning_uniform_bound(point(2, 0))
     height_r = transverse_height_r_factor_ledger(point(0, 2), gap_mark=1, f_yy=2)
@@ -1651,6 +1699,7 @@ def result() -> dict:
     out['thin_belt_reciprocal_shells'] = conv(thin_shells)
     out['chart_boundary_transition'] = conv(boundary)
     out['jet_map_f_yy_sample'] = conv(jet_map)
+    out['thin_belt_integrand_residual_after_cancel'] = conv(thin_cancel)
     out['transverse_conditioning_bound'] = conv(transverse_bound)
     out['axial_conditioning_bound'] = conv(axial_bound)
     out['transverse_height_r_factor'] = conv(height_r)
