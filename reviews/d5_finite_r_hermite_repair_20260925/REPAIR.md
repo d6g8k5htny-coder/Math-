@@ -9,7 +9,7 @@ Let the longitudinal coordinate be x, transverse coordinate z, midpoint 0, pins 
     f(M)=b,       f(S)=b-k r^3,
     grad f(M)=0,  grad f(S)=0.
 
-Write midpoint derivatives f_{ij...}=D_{x^i z^j} f(0). Taylor the exact pin equations symmetrically before taking r→0.
+Write midpoint derivatives f_{ij...}=D_{x^i z^j} f(0). Assume a uniformly bounded C^6 jet on the fixed scaled chart and Taylor the exact pin equations symmetrically before taking r→0. The displayed O(r^4) midpoint-derivative remainders below use this C^6 control; weaker regularity gives correspondingly weaker remainder notation without changing the exact polynomial witness.
 
 ## Longitudinal finite-r Hermite identities
 
