@@ -409,10 +409,12 @@
         "cubic_next_order_enumerated": true,
         "decic_next_order_enumerated": true,
         "dodecic_next_order_enumerated": true,
+        "eighteenth_and_higher_jets_enumerated": false,
         "free_jet_residual_inventory_recorded": true,
         "gradient_contact_jacobian_enumerated": true,
         "height_r_factor_absorbed": false,
         "height_r_factor_recorded": true,
+        "heptadecic_next_order_enumerated": true,
         "hexadecic_next_order_enumerated": true,
         "integrand_power_identity_recorded": true,
         "leading_morse_rows_enumerated": true,
@@ -423,7 +425,6 @@
         "quartic_next_order_enumerated": true,
         "quintic_next_order_enumerated": true,
         "septic_next_order_enumerated": true,
-        "seventeenth_and_higher_jets_enumerated": false,
         "sextic_next_order_enumerated": true,
         "tetradecic_next_order_enumerated": true,
         "tridecic_next_order_enumerated": true,
@@ -466,7 +467,7 @@
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
       "thin_belt_height_r_absorption",
-      "pin_seventeenth_and_higher_jets",
+      "pin_eighteenth_and_higher_jets",
       "pin_centered_height_r_absorption"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
@@ -1112,7 +1113,7 @@
       "z2": "1/20",
       "z_dot_F_grad_next_minus_12_F_height_next": "0"
     },
-    "enumeration_scope": "leading_morse_plus_cubic_through_hexadecic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_heptadecic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -1127,6 +1128,35 @@
       "z2": "1/20"
     },
     "full_annulus_closed": false,
+    "heptadecic_rows": {
+      "L_grad_next_1": "0",
+      "L_grad_next_2": "17/655360000000000000000",
+      "L_height_next": "1/13107200000000000000000",
+      "eighteenth_and_higher_jets_enumerated": false,
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxxxxxxxxxxxxx": "0",
+      "f_xxxxxxxxxxxxxxxxy": "0",
+      "f_xxxxxxxxxxxxxxxyy": "0",
+      "f_xxxxxxxxxxxxxxyyy": "0",
+      "f_xxxxxxxxxxxxxyyyy": "0",
+      "f_xxxxxxxxxxxxyyyyy": "0",
+      "f_xxxxxxxxxxxyyyyyy": "0",
+      "f_xxxxxxxxxxyyyyyyy": "0",
+      "f_xxxxxxxxxyyyyyyyy": "0",
+      "f_xxxxxxxxyyyyyyyyy": "0",
+      "f_xxxxxxxyyyyyyyyyy": "0",
+      "f_xxxxxxyyyyyyyyyyy": "0",
+      "f_xxxxxyyyyyyyyyyyy": "0",
+      "f_xxxxyyyyyyyyyyyyy": "0",
+      "f_xxxyyyyyyyyyyyyyy": "0",
+      "f_xxyyyyyyyyyyyyyyy": "0",
+      "f_xyyyyyyyyyyyyyyyy": "0",
+      "f_yyyyyyyyyyyyyyyyy": "355687428096000",
+      "unmatched_density_r_power": 15,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_L_grad_next_minus_17_L_height_next": "0"
+    },
     "hessian_ledger_evaluated": false,
     "hessian_signature": {
       "H_xx": "-1",
@@ -1172,7 +1202,7 @@
       "z_dot_K_grad_next_minus_16_K_height_next": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic through hexadecic H/Q/P/S/T/U/N/D/E/F/G/I/J/K_*_next; seventeenth-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic through heptadecic H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L_*_next; eighteenth-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -1255,6 +1285,7 @@
     },
     "pin_site_decic_enumerated": true,
     "pin_site_dodecic_enumerated": true,
+    "pin_site_heptadecic_enumerated": true,
     "pin_site_hexadecic_enumerated": true,
     "pin_site_higher_jets_enumerated": false,
     "pin_site_jet_rows_enumerated": true,
@@ -1459,6 +1490,7 @@
     "any_height_r_absorbed_into_uniform_bound": false,
     "chart": "C_pin_centered",
     "contact_gaussian_density_bounded": false,
+    "eighteenth_and_higher_jets_enumerated": false,
     "enumerated_order_names": [
       "cubic",
       "quartic",
@@ -1473,12 +1505,13 @@
       "tridecic",
       "tetradecic",
       "pentadecic",
-      "hexadecic"
+      "hexadecic",
+      "heptadecic"
     ],
-    "enumeration_scope": "leading_morse_plus_cubic_through_hexadecic",
+    "enumeration_scope": "leading_morse_plus_cubic_through_heptadecic",
     "global_contact_density_bound_proved": false,
-    "max_unmatched_density_r_power": 14,
-    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through hexadecic pin residuals; none absorbed; seventeenth-and-higher jets / density open",
+    "max_unmatched_density_r_power": 15,
+    "meaning": "exact inventory of unmatched height r^(n-2) for cubic through heptadecic pin residuals; none absorbed; eighteenth-and-higher jets / density open",
     "min_unmatched_density_r_power": 1,
     "object": "RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1",
     "orders": {
@@ -1502,6 +1535,13 @@
         "homogeneous_degree": 12,
         "residual_symbol": "F_*_next",
         "unmatched_density_r_power": 10
+      },
+      "heptadecic": {
+        "euler_identity": "z\u00b7grad_residual = 17 \u00b7 height_residual",
+        "height_r_absorbed_into_uniform_bound": false,
+        "homogeneous_degree": 17,
+        "residual_symbol": "L_*_next",
+        "unmatched_density_r_power": 15
       },
       "hexadecic": {
         "euler_identity": "z\u00b7grad_residual = 16 \u00b7 height_residual",
@@ -1582,7 +1622,6 @@
       }
     },
     "pin_site_higher_jets_enumerated": false,
-    "seventeenth_and_higher_jets_enumerated": false,
     "unmatched_r_powers": [
       1,
       2,
@@ -1597,7 +1636,8 @@
       11,
       12,
       13,
-      14
+      14,
+      15
     ]
   },
   "rank": {

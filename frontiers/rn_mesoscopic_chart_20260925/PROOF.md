@@ -96,7 +96,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-site tridecic residuals `G_grad_next = (1/479001600)D¹³f(z^12)`, `G_height_next = (1/6227020800)D¹³f(z^13)` with `z·G_grad_next = 13 G_height_next`;
 - pin-site tetradecic residuals `I_grad_next = (1/6227020800)D¹⁴f(z^13)`, `I_height_next = (1/87178291200)D¹⁴f(z^14)` with `z·I_grad_next = 14 I_height_next`;
 - pin-site pentadecic residuals `J_grad_next = (1/87178291200)D¹⁵f(z^14)`, `J_height_next = (1/1307674368000)D¹⁵f(z^15)` with `z·J_grad_next = 15 J_height_next`;
-- pin-site hexadecic residuals `K_grad_next = (1/1307674368000)D¹⁶f(z^15)`, `K_height_next = (1/20922789888000)D¹⁶f(z^16)` with `z·K_grad_next = 16 K_height_next` (seventeenth-and-higher jets open);
+- pin-site hexadecic residuals `K_grad_next = (1/1307674368000)D¹⁶f(z^15)`, `K_height_next = (1/20922789888000)D¹⁶f(z^16)` with `z·K_grad_next = 16 K_height_next`;
+- pin-site heptadecic residuals `L_grad_next = (1/20922789888000)D¹⁷f(z^16)`, `L_height_next = (1/355687428096000)D¹⁷f(z^17)` with `z·L_grad_next = 17 L_height_next` (eighteenth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; pin Morse rank-2 ⇒ 1 free Hessian dir; density still open);

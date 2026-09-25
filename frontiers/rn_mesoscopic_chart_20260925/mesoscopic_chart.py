@@ -637,8 +637,14 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
                                   f_xxxxxxyyyyyyyyyy: int | Q = 0, f_xxxxxyyyyyyyyyyy: int | Q = 0,
                                   f_xxxxyyyyyyyyyyyy: int | Q = 0, f_xxxyyyyyyyyyyyyy: int | Q = 0,
                                   f_xxyyyyyyyyyyyyyy: int | Q = 0, f_xyyyyyyyyyyyyyyy: int | Q = 0,
-                                  f_yyyyyyyyyyyyyyyy: int | Q = 0) -> dict:
-    """Pin-centred ledger with Morse through hexadecic contact residuals."""
+                                  f_yyyyyyyyyyyyyyyy: int | Q = 0,
+                                  f_xxxxxxxxxxxxxxxxx: int | Q = 0, f_xxxxxxxxxxxxxxxxy: int | Q = 0, f_xxxxxxxxxxxxxxxyy: int | Q = 0,
+                                  f_xxxxxxxxxxxxxxyyy: int | Q = 0, f_xxxxxxxxxxxxxyyyy: int | Q = 0, f_xxxxxxxxxxxxyyyyy: int | Q = 0,
+                                  f_xxxxxxxxxxxyyyyyy: int | Q = 0, f_xxxxxxxxxxyyyyyyy: int | Q = 0, f_xxxxxxxxxyyyyyyyy: int | Q = 0,
+                                  f_xxxxxxxxyyyyyyyyy: int | Q = 0, f_xxxxxxxyyyyyyyyyy: int | Q = 0, f_xxxxxxyyyyyyyyyyy: int | Q = 0,
+                                  f_xxxxxyyyyyyyyyyyy: int | Q = 0, f_xxxxyyyyyyyyyyyyy: int | Q = 0, f_xxxyyyyyyyyyyyyyy: int | Q = 0,
+                                  f_xxyyyyyyyyyyyyyyy: int | Q = 0, f_xyyyyyyyyyyyyyyyy: int | Q = 0, f_yyyyyyyyyyyyyyyyy: int | Q = 0) -> dict:
+    """Pin-centred ledger with Morse through heptadecic contact residuals."""
     frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
     rows = pin_site_morse_contact_rows(
         frame['z1'], frame['z2'], H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
@@ -737,6 +743,15 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         f_xxxxyyyyyyyyyyyy=f_xxxxyyyyyyyyyyyy, f_xxxyyyyyyyyyyyyy=f_xxxyyyyyyyyyyyyy, f_xxyyyyyyyyyyyyyy=f_xxyyyyyyyyyyyyyy,
         f_xyyyyyyyyyyyyyyy=f_xyyyyyyyyyyyyyyy, f_yyyyyyyyyyyyyyyy=f_yyyyyyyyyyyyyyyy,
     )
+    hepta = pin_site_morse_heptadecic_rows(
+        frame['z1'], frame['z2'],
+        f_xxxxxxxxxxxxxxxxx=f_xxxxxxxxxxxxxxxxx, f_xxxxxxxxxxxxxxxxy=f_xxxxxxxxxxxxxxxxy, f_xxxxxxxxxxxxxxxyy=f_xxxxxxxxxxxxxxxyy,
+        f_xxxxxxxxxxxxxxyyy=f_xxxxxxxxxxxxxxyyy, f_xxxxxxxxxxxxxyyyy=f_xxxxxxxxxxxxxyyyy, f_xxxxxxxxxxxxyyyyy=f_xxxxxxxxxxxxyyyyy,
+        f_xxxxxxxxxxxyyyyyy=f_xxxxxxxxxxxyyyyyy, f_xxxxxxxxxxyyyyyyy=f_xxxxxxxxxxyyyyyyy, f_xxxxxxxxxyyyyyyyy=f_xxxxxxxxxyyyyyyyy,
+        f_xxxxxxxxyyyyyyyyy=f_xxxxxxxxyyyyyyyyy, f_xxxxxxxyyyyyyyyyy=f_xxxxxxxyyyyyyyyyy, f_xxxxxxyyyyyyyyyyy=f_xxxxxxyyyyyyyyyyy,
+        f_xxxxxyyyyyyyyyyyy=f_xxxxxyyyyyyyyyyyy, f_xxxxyyyyyyyyyyyyy=f_xxxxyyyyyyyyyyyyy, f_xxxyyyyyyyyyyyyyy=f_xxxyyyyyyyyyyyyyy,
+        f_xxyyyyyyyyyyyyyyy=f_xxyyyyyyyyyyyyyyy, f_xyyyyyyyyyyyyyyyy=f_xyyyyyyyyyyyyyyyy, f_yyyyyyyyyyyyyyyyy=f_yyyyyyyyyyyyyyyyy
+    )
     signature = pin_morse_hessian_signature(
         H_xx=H_xx, H_xy=H_xy, H_yy=H_yy, closer_pin=str(frame['closer_pin']),
     )
@@ -760,6 +775,7 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'tetradecic_rows': tetra,
         'pentadecic_rows': penta,
         'hexadecic_rows': hexa,
+        'heptadecic_rows': hepta,
         'hessian_signature': signature,
         'scaling': {
             'grad': PIN_CENTERED_SCALING_EXPONENTS['grad'],
@@ -781,9 +797,10 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'pin_site_tetradecic_enumerated': True,
         'pin_site_pentadecic_enumerated': True,
         'pin_site_hexadecic_enumerated': True,
+        'pin_site_heptadecic_enumerated': True,
         'pin_site_higher_jets_enumerated': False,
         'contact_rows_enumerated': True,
-        'enumeration_scope': 'leading_morse_plus_cubic_through_hexadecic',
+        'enumeration_scope': 'leading_morse_plus_cubic_through_heptadecic',
         'hessian_ledger_evaluated': False,
         'uniform_integrand_bound_proved': False,
         'full_annulus_closed': False,
@@ -792,8 +809,8 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'complements_pr7': True,
         'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'leading Morse pin-site rows J=H z plus cubic through hexadecic '
-            'H/Q/P/S/T/U/N/D/E/F/G/I/J/K_*_next; seventeenth-and-higher jets and Gaussian density remain open'
+            'leading Morse pin-site rows J=H z plus cubic through heptadecic '
+            'H/Q/P/S/T/U/N/D/E/F/G/I/J/K/L_*_next; eighteenth-and-higher jets and Gaussian density remain open'
         ),
     }
 
@@ -1805,6 +1822,102 @@ def pin_site_morse_hexadecic_rows(
     }
 
 
+def pin_site_morse_heptadecic_rows(
+    z1: int | Q, z2: int | Q, *,
+    f_xxxxxxxxxxxxxxxxx: int | Q, f_xxxxxxxxxxxxxxxxy: int | Q, f_xxxxxxxxxxxxxxxyy: int | Q,
+    f_xxxxxxxxxxxxxxyyy: int | Q, f_xxxxxxxxxxxxxyyyy: int | Q, f_xxxxxxxxxxxxyyyyy: int | Q,
+    f_xxxxxxxxxxxyyyyyy: int | Q, f_xxxxxxxxxxyyyyyyy: int | Q, f_xxxxxxxxxyyyyyyyy: int | Q,
+    f_xxxxxxxxyyyyyyyyy: int | Q, f_xxxxxxxyyyyyyyyyy: int | Q, f_xxxxxxyyyyyyyyyyy: int | Q,
+    f_xxxxxyyyyyyyyyyyy: int | Q, f_xxxxyyyyyyyyyyyyy: int | Q, f_xxxyyyyyyyyyyyyyy: int | Q,
+    f_xxyyyyyyyyyyyyyyy: int | Q, f_xyyyyyyyyyyyyyyyy: int | Q, f_yyyyyyyyyyyyyyyyy: int | Q
+) -> dict[str, Q | bool | int]:
+    """Heptadecic (seventeenth-order) pin-local contact residuals after hexadecic next-order.
+
+    With seventeenth derivatives at the pin:
+      grad f(pin+rz) = … + (r^16/20922789888000) D¹⁷f(z^16) + O(r^17)
+      f(pin+rz)-f(pin) = … + (r^17/355687428096000) D¹⁷f(z^17) + O(r^18)
+    so after stripping leading powers the unmatched r^15 corrections are
+      L_grad_next = (1/20922789888000) D¹⁷f(z^16),
+      L_height_next = (1/355687428096000) D¹⁷f(z^17),
+    with the exact identity z·L_grad_next = 17 L_height_next.
+    Eighteenth-and-higher jets remain open.
+    """
+    u, v = exact(z1), exact(z2)
+    if u == 0 and v == 0:
+        raise ValueError('heptadecic pin rows require z != 0')
+    a, b, c, d, e, f, g, h, ii, jj, kk, ll, mm, nn, oo, pp, qq, rr = map(
+        exact,
+        (
+            f_xxxxxxxxxxxxxxxxx, f_xxxxxxxxxxxxxxxxy, f_xxxxxxxxxxxxxxxyy, f_xxxxxxxxxxxxxxyyy, f_xxxxxxxxxxxxxyyyy, f_xxxxxxxxxxxxyyyyy, f_xxxxxxxxxxxyyyyyy, f_xxxxxxxxxxyyyyyyy, f_xxxxxxxxxyyyyyyyy,
+            f_xxxxxxxxyyyyyyyyy, f_xxxxxxxyyyyyyyyyy, f_xxxxxxyyyyyyyyyyy, f_xxxxxyyyyyyyyyyyy, f_xxxxyyyyyyyyyyyyy, f_xxxyyyyyyyyyyyyyy, f_xxyyyyyyyyyyyyyyy, f_xyyyyyyyyyyyyyyyy, f_yyyyyyyyyyyyyyyyy,
+        ),
+    )
+    # (1/20922789888000) D¹⁷f(z^16) components
+    g1 = (
+        a * u ** 16 + 16 * b * u ** 15 * v
+        + 120 * c * u ** 14 * v * v + 560 * d * u ** 13 * v ** 3
+        + 1820 * e * u ** 12 * v ** 4 + 4368 * f * u ** 11 * v ** 5
+        + 8008 * g * u ** 10 * v ** 6 + 11440 * h * u ** 9 * v ** 7
+        + 12870 * ii * u ** 8 * v ** 8 + 11440 * jj * u ** 7 * v ** 9
+        + 8008 * kk * u ** 6 * v ** 10 + 4368 * ll * u ** 5 * v ** 11
+        + 1820 * mm * u ** 4 * v ** 12 + 560 * nn * u ** 3 * v ** 13
+        + 120 * oo * u ** 2 * v ** 14 + 16 * pp * u * v ** 15
+        + qq * v ** 16
+    ) / 20922789888000
+    g2 = (
+        b * u ** 16 + 16 * c * u ** 15 * v
+        + 120 * d * u ** 14 * v * v + 560 * e * u ** 13 * v ** 3
+        + 1820 * f * u ** 12 * v ** 4 + 4368 * g * u ** 11 * v ** 5
+        + 8008 * h * u ** 10 * v ** 6 + 11440 * ii * u ** 9 * v ** 7
+        + 12870 * jj * u ** 8 * v ** 8 + 11440 * kk * u ** 7 * v ** 9
+        + 8008 * ll * u ** 6 * v ** 10 + 4368 * mm * u ** 5 * v ** 11
+        + 1820 * nn * u ** 4 * v ** 12 + 560 * oo * u ** 3 * v ** 13
+        + 120 * pp * u ** 2 * v ** 14 + 16 * qq * u * v ** 15
+        + rr * v ** 16
+    ) / 20922789888000
+    # (1/355687428096000) D¹⁷f(z^17)
+    ht = (
+        a * u ** 17 + 17 * b * u ** 16 * v
+        + 136 * c * u ** 15 * v * v + 680 * d * u ** 14 * v ** 3
+        + 2380 * e * u ** 13 * v ** 4 + 6188 * f * u ** 12 * v ** 5
+        + 12376 * g * u ** 11 * v ** 6 + 19448 * h * u ** 10 * v ** 7
+        + 24310 * ii * u ** 9 * v ** 8 + 24310 * jj * u ** 8 * v ** 9
+        + 19448 * kk * u ** 7 * v ** 10 + 12376 * ll * u ** 6 * v ** 11
+        + 6188 * mm * u ** 5 * v ** 12 + 2380 * nn * u ** 4 * v ** 13
+        + 680 * oo * u ** 3 * v ** 14 + 136 * pp * u ** 2 * v ** 15
+        + 17 * qq * u * v ** 16 + rr * v ** 17
+    ) / 355687428096000
+    return {
+        'L_grad_next_1': g1,
+        'L_grad_next_2': g2,
+        'L_height_next': ht,
+        'z_dot_L_grad_next_minus_17_L_height_next': u * g1 + v * g2 - 17 * ht,
+        'unmatched_density_r_power': 15,
+        'explicit_r_factor_still_required': True,
+        'eighteenth_and_higher_jets_enumerated': False,
+        'z1': u,
+        'z2': v,
+        'f_xxxxxxxxxxxxxxxxx': a,
+        'f_xxxxxxxxxxxxxxxxy': b,
+        'f_xxxxxxxxxxxxxxxyy': c,
+        'f_xxxxxxxxxxxxxxyyy': d,
+        'f_xxxxxxxxxxxxxyyyy': e,
+        'f_xxxxxxxxxxxxyyyyy': f,
+        'f_xxxxxxxxxxxyyyyyy': g,
+        'f_xxxxxxxxxxyyyyyyy': h,
+        'f_xxxxxxxxxyyyyyyyy': ii,
+        'f_xxxxxxxxyyyyyyyyy': jj,
+        'f_xxxxxxxyyyyyyyyyy': kk,
+        'f_xxxxxxyyyyyyyyyyy': ll,
+        'f_xxxxxyyyyyyyyyyyy': mm,
+        'f_xxxxyyyyyyyyyyyyy': nn,
+        'f_xxxyyyyyyyyyyyyyy': oo,
+        'f_xxyyyyyyyyyyyyyyy': pp,
+        'f_xyyyyyyyyyyyyyyyy': qq,
+        'f_yyyyyyyyyyyyyyyyy': rr,
+    }
+
+
 def pin_morse_hessian_signature(
     *, H_xx: int | Q, H_xy: int | Q, H_yy: int | Q, closer_pin: str,
 ) -> dict[str, Q | str | bool]:
@@ -2454,6 +2567,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'tetradecic_next_order_enumerated': True,
                 'pentadecic_next_order_enumerated': True,
                 'hexadecic_next_order_enumerated': True,
+                'heptadecic_next_order_enumerated': True,
                 'unmatched_height_r_power_inventory_recorded': True,
                 'free_jet_residual_inventory_recorded': True,
                 'gradient_contact_jacobian_enumerated': True,
@@ -2465,7 +2579,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'height_r_factor_recorded': True,
                 'height_r_factor_absorbed': False,
                 'algebraic_factor_times_height_r_skeleton_enumerated': True,
-                'seventeenth_and_higher_jets_enumerated': False,
+                'eighteenth_and_higher_jets_enumerated': False,
                 'contact_gaussian_density_bounded': False,
             },
         },
@@ -2475,7 +2589,7 @@ def contact_density_obstruction_inventory() -> dict:
             'thin_belt_contact_gaussian_density_near_y2_0',
             'transverse_height_r_absorption',
             'thin_belt_height_r_absorption',
-            'pin_seventeenth_and_higher_jets',
+            'pin_eighteenth_and_higher_jets',
             'pin_centered_height_r_absorption',
         ],
         'meaning': (
@@ -3415,9 +3529,9 @@ def pin_site_unmatched_height_r_power_inventory() -> dict:
     """Exact unmatched height-r powers for enumerated pin-site next-order jets.
 
     After Morse leading height (1/2)z·J_grad, each homogeneous residual of total
-    degree n (cubic…hexadecic) inserts an unmatched density factor r^(n-2) with
+    degree n (cubic…heptadecic) inserts an unmatched density factor r^(n-2) with
     the Euler identity z·(grad residual) = n · (height residual). None of these
-    powers are absorbed into a uniform integrand bound; seventeenth-and-higher
+    powers are absorbed into a uniform integrand bound; eighteenth-and-higher
     jets and the contact Gaussian density remain open.
     """
     orders = [
@@ -3435,6 +3549,7 @@ def pin_site_unmatched_height_r_power_inventory() -> dict:
         ('tetradecic', 'I_*_next', 14, 12),
         ('pentadecic', 'J_*_next', 15, 13),
         ('hexadecic', 'K_*_next', 16, 14),
+        ('heptadecic', 'L_*_next', 17, 15),
     ]
     by_order = {
         name: {
@@ -3449,20 +3564,20 @@ def pin_site_unmatched_height_r_power_inventory() -> dict:
     return {
         'object': 'RN-MESOSCOPIC-PIN-UNMATCHED-HEIGHT-R-POWER-INVENTORY-20260925-v1',
         'chart': 'C_pin_centered',
-        'enumeration_scope': 'leading_morse_plus_cubic_through_hexadecic',
+        'enumeration_scope': 'leading_morse_plus_cubic_through_heptadecic',
         'orders': by_order,
         'enumerated_order_names': [name for name, *_ in orders],
         'unmatched_r_powers': [power for *_, power in orders],
         'min_unmatched_density_r_power': 1,
-        'max_unmatched_density_r_power': 14,
+        'max_unmatched_density_r_power': 15,
         'any_height_r_absorbed_into_uniform_bound': False,
         'pin_site_higher_jets_enumerated': False,
-        'seventeenth_and_higher_jets_enumerated': False,
+        'eighteenth_and_higher_jets_enumerated': False,
         'contact_gaussian_density_bounded': False,
         'global_contact_density_bound_proved': False,
         'meaning': (
-            'exact inventory of unmatched height r^(n-2) for cubic through hexadecic '
-            'pin residuals; none absorbed; seventeenth-and-higher jets / density open'
+            'exact inventory of unmatched height r^(n-2) for cubic through heptadecic '
+            'pin residuals; none absorbed; eighteenth-and-higher jets / density open'
         ),
     }
 
@@ -3948,7 +4063,8 @@ def result() -> dict:
         f_yyyy=24, f_yyyyy=120, f_yyyyyy=720, f_yyyyyyy=5040, f_yyyyyyyy=40320,
         f_yyyyyyyyy=362880, f_yyyyyyyyyy=3628800, f_yyyyyyyyyyy=39916800,
         f_yyyyyyyyyyyy=479001600, f_yyyyyyyyyyyyy=6227020800, f_yyyyyyyyyyyyyy=87178291200,
-        f_yyyyyyyyyyyyyyy=1307674368000, f_yyyyyyyyyyyyyyyy=20922789888000)
+        f_yyyyyyyyyyyyyyy=1307674368000, f_yyyyyyyyyyyyyyyy=20922789888000,
+        f_yyyyyyyyyyyyyyyyy=355687428096000)
     pin_obs = pin_site_jet_obstruction_ledger(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     axial_hess = axial_hessian_contact_rows(
