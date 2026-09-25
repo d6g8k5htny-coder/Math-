@@ -150,7 +150,7 @@ def smt_rational(text: str) -> str:
 def build_query(case: dict[str, Any], *, witness_only: bool = False) -> tuple[str, str]:
     validate_case(case)
     expected = 'sat' if witness_only or case['role'] == 'mutant' else 'unsat'
-    lines = ['(set-option :produce-proofs true)', '(set-option :produce-models true)',
+    lines = ['(set-option :produce-models true)',
              '(set-option :timeout 10000)', '(set-logic QF_NRA)']
     lines += [f'(declare-const {v} Real)' for v in case['variables']]
     lines += [f'(assert {h})' for h in case['hypotheses']]
