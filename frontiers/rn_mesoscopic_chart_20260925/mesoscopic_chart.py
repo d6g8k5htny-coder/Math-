@@ -227,6 +227,7 @@ AXIAL_SCALING_EXPONENTS = {
 #   f_xy(ry) = r (f_xxy y1 + f_xyy y2) + O(r^2)    => p_xy = 1
 #   f_yy(ry) = f_yy + O(r)                          => p_yy = 0
 # Raw det H = f_xx f_yy - f_xy^2 is therefore O(r) at leading order.
+# On C_axial (y2=0) the same leading powers hold with y2-terms dropped.
 HESSIAN_SCALING_EXPONENTS = {
     'xx': 1,
     'xy': 1,
@@ -312,6 +313,7 @@ def axial_ledger_for_point(y: Coord, gap_mark: int | Q = 1,
         'scaling': scale,
         'gradient_jacobian_r_power': scale['gradient_jacobian_r_power'],
         'height_independent_at_leading_axial_order': True,
+        'hessian_contact_rows_enumerated': True,
         'hessian_ledger_evaluated': False,
         'full_annulus_closed': False,
         'legacy_24jet_discharged': False,
@@ -409,8 +411,8 @@ def hessian_scaling_report(dimension: int = 2, *, chart: str = 'C_transverse') -
     """r-powers for the d=2 witness Hessian on a declared chart."""
     if dimension != 2:
         raise ValueError('this package enumerates d=2 charts only')
-    if chart != 'C_transverse':
-        raise ValueError('Hessian contact rows are enumerated on C_transverse only')
+    if chart not in ('C_transverse', 'C_axial'):
+        raise ValueError('Hessian scaling is enumerated on C_transverse and C_axial only')
     exp = HESSIAN_SCALING_EXPONENTS
     return {
         'dimension': 2,
@@ -426,6 +428,88 @@ def hessian_scaling_report(dimension: int = 2, *, chart: str = 'C_transverse') -
             'leading factor is r^1; conditioned Gaussian expectation of |det H| is not evaluated'
         ),
         'conditioned_expectation_evaluated': False,
+    }
+
+
+def contact_integrand_power_ledger(dimension: int = 2, *, chart: str = 'C_transverse') -> dict:
+    """Exact r-power bookkeeping for the mesoscopic Kac–Rice count integrand.
+
+    Combines spatial volume, gradient change-of-variables, leading |det H|, and the
+    between-pin height window. Does not bound the contact Gaussian density factor.
+    """
+    if dimension != 2:
+        raise ValueError('this package enumerates d=2 charts only')
+    if chart == 'C_transverse':
+        grad = SCALING_EXPONENTS['grad_x'] + SCALING_EXPONENTS['grad_y']
+        axial_measure_zero_in_area = False
+    elif chart == 'C_axial':
+        grad = AXIAL_SCALING_EXPONENTS['grad_x'] + AXIAL_SCALING_EXPONENTS['grad_y']
+        axial_measure_zero_in_area = True
+    else:
+        raise ValueError('unknown chart')
+    spatial = dimension
+    hess = HESSIAN_SCALING_EXPONENTS['xx']  # leading det power; yy contributes r^0
+    height = 3
+    # Density picks up r^(-grad); |det H| contributes r^(hess); dy gives r^(spatial);
+    # integrating the between-pin height window contributes r^(height).
+    net = spatial - grad + hess + height
+    return {
+        'object': 'RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1',
+        'dimension': 2,
+        'chart': chart,
+        'spatial_volume_r_power': spatial,
+        'gradient_jacobian_r_power': grad,
+        'gradient_density_r_power': -grad,
+        'hessian_det_leading_r_power': hess,
+        'height_window_r_power': height,
+        'net_count_r_power': net,
+        'axial_chart_has_area_measure_zero': axial_measure_zero_in_area,
+        'contact_density_bound_proved': False,
+        'full_annulus_closed': False,
+        'legacy_24jet_discharged': False,
+        'meaning': (
+            'power identity only: r^(spatial - grad_jac + hess_det + height_window); '
+            'not a uniform bound on the contact integrand factor'
+        ),
+    }
+
+
+def axial_hessian_contact_rows(y: Coord, *, gap_mark: int | Q,
+                               f_yy: int | Q, f_xxy: int | Q,
+                               f_xyy: int | Q = 0, f_yyy: int | Q = 0) -> dict[str, Q]:
+    """Leading contact Hessian entries on C_axial (y2=0).
+
+    H_xx_contact = 12k y1
+    H_xy_contact = f_xxy y1
+    H_yy_contact = f_yy
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    if y2 != 0:
+        raise ValueError('axial chart requires y2=0')
+    h_xx = 12 * k * y1
+    h_xy = b * y1
+    h_yy = a
+    h_yy_next = c * y1
+    return {
+        'H_xx_contact': h_xx,
+        'H_xy_contact': h_xy,
+        'H_yy_contact': h_yy,
+        'H_yy_next': h_yy_next,
+        'det_contact_leading': h_xx * h_yy,
+        'det_xy_square_coefficient': h_xy * h_xy,
+        'y1': y1,
+        'y2': y2,
+        'gap_mark': k,
+        'f_yy': a,
+        'f_xxy': b,
+        'f_xyy': c,
+        'f_yyy': d,
     }
 
 
@@ -581,6 +665,10 @@ def result() -> dict:
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+    axial_hess = axial_hessian_contact_rows(
+        point(2, 0), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=0)
+    integrand_t = contact_integrand_power_ledger(2, chart='C_transverse')
+    integrand_a = contact_integrand_power_ledger(2, chart='C_axial')
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -596,6 +684,9 @@ def result() -> dict:
     out['thin_belt_sample'] = conv(thin)
     out['near_pin_sample'] = conv(near)
     out['hessian_sample'] = conv(hess)
+    out['axial_hessian_sample'] = conv(axial_hess)
+    out['integrand_power_transverse'] = conv(integrand_t)
+    out['integrand_power_axial'] = conv(integrand_a)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())
@@ -604,6 +695,8 @@ def result() -> dict:
         AXIAL_SCALING_EXPONENTS['grad_x'] + AXIAL_SCALING_EXPONENTS['grad_y']
     )
     out['hessian_raw_det_leading_r_power'] = HESSIAN_SCALING_EXPONENTS['xx']  # =1; yy contributes r^0
+    out['transverse_net_count_r_power'] = integrand_t['net_count_r_power']
+    out['axial_net_count_r_power'] = integrand_a['net_count_r_power']
 
     out['classifications'] = {
         'transverse': classify_annulus_point(point(0, 2)),

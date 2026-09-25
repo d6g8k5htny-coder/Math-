@@ -2,7 +2,7 @@
 
 [Research home](https://github.com/d6g8k5htny-coder/main) · [Proof](PROOF.md) · [PR7 reduction](https://github.com/d6g8k5htny-coder/Math-/pull/7)
 
-Exact algebraic enumeration of contact divided-difference rows and gradient Jacobian `r`-powers on declared scaled-annulus charts (`C_transverse`, `C_axial`, d=2), Hessian contact rows with raw `det H` `r`-power 1 on `C_transverse`, plus a cover inventory that keeps the thin belt and small-A near-pin regimes explicitly open. Complements PR7; does not edit its body; does not close the annulus or discharge 24-jet / RN certificates.
+Exact algebraic enumeration of contact divided-difference rows and gradient Jacobian `r`-powers on declared scaled-annulus charts (`C_transverse`, `C_axial`, d=2), Hessian contact rows with raw `det H` `r`-power 1, the contact integrand power identity (net `r^3` transverse), plus a cover inventory that keeps the thin belt and small-A near-pin regimes explicitly open. Complements PR7; does not edit its body; does not close the annulus or discharge 24-jet / RN certificates.
 
 ```sh
 python -B -S mesoscopic_chart.py
@@ -10,4 +10,4 @@ python -B -S -m unittest -v test_mesoscopic_chart
 python -B -S run_validation.py --output /tmp/mesoscopic-chart-new-run
 ```
 
-26 distinct tests and eleven semantic mutations. Scientific effect: NONE.
+28 distinct tests and thirteen semantic mutations. Scientific effect: NONE.

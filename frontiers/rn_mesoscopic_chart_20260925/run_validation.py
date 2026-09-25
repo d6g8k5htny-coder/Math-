@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 26
+EXPECTED_TESTS = 28
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -53,6 +53,14 @@ MUTANTS = {
     'claim_hessian_conditioned': (
         "'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'conditioned_expectation_evaluated': False,",
         "'hessian_contact_rows_enumerated': True,\n        'hessian_ledger_evaluated': True,\n        'conditioned_expectation_evaluated': True,",
+    ),
+    'claim_density_bound': (
+        "'contact_density_bound_proved': False,",
+        "'contact_density_bound_proved': True,",
+    ),
+    'wrong_integrand_net': (
+        "net = spatial - grad + hess + height",
+        "net = spatial - grad + height",
     ),
 }
 

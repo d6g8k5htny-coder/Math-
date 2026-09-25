@@ -72,12 +72,14 @@ The two gradient rows are the independent contact observations for the gradient 
 - contact-row polynomials above, including `H_height_next`;
 - leading-order height–`J_grad_y` dependence identity;
 - scaling exponents and gradient Jacobian `r`-power `3`;
-- Hessian contact rows and raw `det H` leading `r`-power `1` on `C_transverse`;
+- Hessian contact rows and raw `det H` leading `r`-power `1` on `C_transverse` and `C_axial`;
+- contact integrand `r`-power identity (net `3` transverse / `2` axial);
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**
 
 - absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
+- uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
 - thin-belt chart (`0 < |y2| < δ`) and its conditioned change-of-variables;
 - pin-centred charts on any scale where pins enter the annulus;
@@ -131,7 +133,20 @@ Hence
 
     det H = r · H_xx_contact · H_yy_contact − r^2 · H_xy_contact^2 + O(r^2),
 
-so the raw determinant contributes a leading factor `r^1`. The finite checker records these polynomials and the power; it does **not** evaluate the conditioned Gaussian expectation of the typed Hessian factor needed to finish the Kac–Rice integrand (`hessian_ledger_evaluated = false`).
+so the raw determinant contributes a leading factor `r^1`. The same leading powers hold on `C_axial` after dropping `y2` terms (`H_xx_contact = 12k y1`, `H_xy_contact = f_xxy y1`). The finite checker records these polynomials and the power; it does **not** evaluate the conditioned Gaussian expectation of the typed Hessian factor needed to finish the Kac–Rice integrand (`hessian_ledger_evaluated = false`).
+
+## 4.8 Contact integrand r-power identity
+
+On a declared chart the mesoscopic expected-count integrand contributes the exact powers
+
+    r^(spatial) · r^(-grad_jac) · r^(hess_det) · r^(height_window)
+
+with `spatial=2`, `height_window=3`, `hess_det=1`, and `grad_jac = 3` on `C_transverse` (resp. `4` on `C_axial`). The resulting net powers are
+
+    C_transverse: 2 − 3 + 1 + 3 = 3,
+    C_axial:      2 − 4 + 1 + 3 = 2
+
+(the axial chart is area-measure zero inside the 2D annulus integral). This is a **power identity only**: it does not bound the contact Gaussian density factor, so it does not yet prove the PR7 target `γ_AB ≤ C r^(-d)`.
 
 ## 5. Relation to PR7 and #86
 

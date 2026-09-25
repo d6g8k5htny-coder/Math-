@@ -55,6 +55,7 @@ class MesoscopicChartControls(unittest.TestCase):
         led = m.axial_ledger_for_point(m.point(-2, 0), gap_mark=2, f_xxy=1)
         self.assertEqual(led['gradient_jacobian_r_power'], 4)
         self.assertTrue(led['height_independent_at_leading_axial_order'])
+        self.assertTrue(led['hessian_contact_rows_enumerated'])
         self.assertFalse(led['full_annulus_closed'])
 
     def test_axial_refuses_transverse_point(self):
@@ -139,10 +140,13 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(payload['gradient_jacobian_r_power'], 3)
         self.assertEqual(payload['axial_gradient_jacobian_r_power'], 4)
         self.assertEqual(payload['hessian_raw_det_leading_r_power'], 1)
+        self.assertEqual(payload['transverse_net_count_r_power'], 3)
+        self.assertEqual(payload['axial_net_count_r_power'], 2)
         self.assertTrue(payload['sample_points_ok'])
         self.assertTrue(payload['axial_points_ok'])
         self.assertFalse(payload['hessian_sample']['hessian_ledger_evaluated'])
         self.assertTrue(payload['hessian_sample']['hessian_contact_rows_enumerated'])
+        self.assertFalse(payload['integrand_power_transverse']['contact_density_bound_proved'])
 
     def test_sample_points_cover_signs(self):
         ys = m.sample_points()
@@ -229,6 +233,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(scale['hessian_scaling_exponents'], {'xx': 1, 'xy': 1, 'yy': 0})
         self.assertEqual(scale['raw_det_leading_r_power'], 1)
         self.assertFalse(scale['conditioned_expectation_evaluated'])
+        axial_scale = m.hessian_scaling_report(2, chart='C_axial')
+        self.assertEqual(axial_scale['raw_det_leading_r_power'], 1)
         led = m.hessian_ledger_for_point(m.point(0, 2), gap_mark=1, f_yy=2)
         self.assertEqual(led['raw_det_leading_r_power'], 1)
         self.assertTrue(led['hessian_contact_rows_enumerated'])
@@ -238,7 +244,34 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.hessian_contact_rows(m.point(2, 0), gap_mark=1, f_yy=1, f_xxy=0, f_xyy=0)
         with self.assertRaises(ValueError):
-            m.hessian_scaling_report(2, chart='C_axial')
+            m.hessian_scaling_report(2, chart='nope')
+
+    def test_axial_hessian_contact_rows(self):
+        rows = m.axial_hessian_contact_rows(
+            m.point(2, 0), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=5)
+        self.assertEqual(rows['H_xx_contact'], 24)  # 12*1*2
+        self.assertEqual(rows['H_xy_contact'], 6)   # 3*2
+        self.assertEqual(rows['H_yy_contact'], 2)
+        self.assertEqual(rows['H_yy_next'], 10)     # 5*2
+        self.assertEqual(rows['det_contact_leading'], 48)
+        with self.assertRaises(ValueError):
+            m.axial_hessian_contact_rows(m.point(0, 2), gap_mark=1, f_yy=1, f_xxy=1)
+
+    def test_contact_integrand_powers(self):
+        t = m.contact_integrand_power_ledger(2, chart='C_transverse')
+        self.assertEqual(t['spatial_volume_r_power'], 2)
+        self.assertEqual(t['gradient_jacobian_r_power'], 3)
+        self.assertEqual(t['gradient_density_r_power'], -3)
+        self.assertEqual(t['hessian_det_leading_r_power'], 1)
+        self.assertEqual(t['height_window_r_power'], 3)
+        self.assertEqual(t['net_count_r_power'], 3)  # 2 - 3 + 1 + 3
+        self.assertFalse(t['axial_chart_has_area_measure_zero'])
+        self.assertFalse(t['contact_density_bound_proved'])
+        a = m.contact_integrand_power_ledger(2, chart='C_axial')
+        self.assertEqual(a['gradient_jacobian_r_power'], 4)
+        self.assertEqual(a['net_count_r_power'], 2)  # 2 - 4 + 1 + 3
+        self.assertTrue(a['axial_chart_has_area_measure_zero'])
+        self.assertFalse(a['full_annulus_closed'])
 
 
 if __name__ == '__main__':

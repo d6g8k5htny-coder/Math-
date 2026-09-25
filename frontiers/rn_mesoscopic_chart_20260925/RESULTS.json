@@ -1,5 +1,21 @@
 {
   "axial_gradient_jacobian_r_power": 4,
+  "axial_hessian_sample": {
+    "H_xx_contact": "24",
+    "H_xy_contact": "6",
+    "H_yy_contact": "2",
+    "H_yy_next": "0",
+    "det_contact_leading": "48",
+    "det_xy_square_coefficient": "36",
+    "f_xxy": "3",
+    "f_xyy": "0",
+    "f_yy": "2",
+    "f_yyy": "0",
+    "gap_mark": "1",
+    "y1": "2",
+    "y2": "0"
+  },
+  "axial_net_count_r_power": 2,
   "axial_points_ok": true,
   "axial_sample": {
     "chart": "C_axial",
@@ -12,6 +28,7 @@
     "full_annulus_closed": false,
     "gradient_jacobian_r_power": 4,
     "height_independent_at_leading_axial_order": true,
+    "hessian_contact_rows_enumerated": true,
     "hessian_ledger_evaluated": false,
     "independent_analytic_acceptance": false,
     "legacy_24jet_discharged": false,
@@ -117,6 +134,38 @@
     }
   },
   "independent_analytic_acceptance": false,
+  "integrand_power_axial": {
+    "axial_chart_has_area_measure_zero": true,
+    "chart": "C_axial",
+    "contact_density_bound_proved": false,
+    "dimension": 2,
+    "full_annulus_closed": false,
+    "gradient_density_r_power": -4,
+    "gradient_jacobian_r_power": 4,
+    "height_window_r_power": 3,
+    "hessian_det_leading_r_power": 1,
+    "legacy_24jet_discharged": false,
+    "meaning": "power identity only: r^(spatial - grad_jac + hess_det + height_window); not a uniform bound on the contact integrand factor",
+    "net_count_r_power": 2,
+    "object": "RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1",
+    "spatial_volume_r_power": 2
+  },
+  "integrand_power_transverse": {
+    "axial_chart_has_area_measure_zero": false,
+    "chart": "C_transverse",
+    "contact_density_bound_proved": false,
+    "dimension": 2,
+    "full_annulus_closed": false,
+    "gradient_density_r_power": -3,
+    "gradient_jacobian_r_power": 3,
+    "height_window_r_power": 3,
+    "hessian_det_leading_r_power": 1,
+    "legacy_24jet_discharged": false,
+    "meaning": "power identity only: r^(spatial - grad_jac + hess_det + height_window); not a uniform bound on the contact integrand factor",
+    "net_count_r_power": 3,
+    "object": "RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1",
+    "spatial_volume_r_power": 2
+  },
   "legacy_24jet_discharged": false,
   "meaning": "exact d=2 transverse chart contact rows, next-order height remainder, and gradient Jacobian r-power; not a continuum Gaussian evaluation",
   "near_pin_sample": {
@@ -166,6 +215,7 @@
     "region": "thin_belt_open",
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
   },
+  "transverse_net_count_r_power": 3,
   "y": {
     "y1": "0",
     "y2": "2"
