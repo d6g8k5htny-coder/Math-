@@ -245,13 +245,22 @@ class HardGateControls(unittest.TestCase):
 
     def test_proved_reviewed_with_satisfied_required_dep_may_control(self):
         g = copy.deepcopy(self.graph)
-        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'SUPERSEDED_NONBLOCKING'
+        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'PROVED_REVIEWED'
         g['nodes']['math.lifetime-remainder']['classification'] = 'PROVED_REVIEWED'
         decision = m.promotion_allowed(g, 'math.lifetime-remainder')
         self.assertTrue(decision['allowed'])
         applied = m.apply_promotion(g, 'math.lifetime-remainder')
         self.assertTrue(applied['decision']['ok'])
         self.assertEqual(applied['decision']['applied'], 'CONTROLLING')
+
+    def test_still_required_superseded_label_does_not_satisfy_edge(self):
+        g = copy.deepcopy(self.graph)
+        g['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'SUPERSEDED_NONBLOCKING'
+        g['nodes']['math.lifetime-remainder']['classification'] = 'PROVED_REVIEWED'
+        decision = m.promotion_allowed(g, 'math.lifetime-remainder')
+        self.assertFalse(decision['allowed'])
+        self.assertTrue(any(x['classification'] == 'SUPERSEDED_NONBLOCKING'
+                            for x in decision['missing_terminal']))
 
     def test_still_required_refuted_dependency_forces_hold(self):
         g = copy.deepcopy(self.graph)
