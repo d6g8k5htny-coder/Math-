@@ -1,0 +1,74 @@
+{
+  "object": "FC-CLAIM-AUDIT-20260925-v2",
+  "audited_math_commit": "760340e921ac4ceda296b8118da936f1133e956e",
+  "scientific_effect": "NONE",
+  "claims": [
+    [
+      "FC-01",
+      "HOLD_WITH_DOMAIN",
+      "SIDE24 expression evaluation; parent persistence interpretation unresolved"
+    ],
+    [
+      "FC-02",
+      "FAIL_CLOSED",
+      "unrestricted lifetime theorem imports external open parent interfaces"
+    ],
+    [
+      "FC-03",
+      "HOLD_WITH_DOMAIN",
+      "RN logical count interface; Gaussian full-region numerator not discharged"
+    ],
+    [
+      "FC-04",
+      "HOLD_WITH_DOMAIN",
+      "fixed-remote theorem only; shrinking complement excluded"
+    ],
+    [
+      "FC-05",
+      "HOLD_WITH_DOMAIN",
+      "realized P15 family only"
+    ],
+    [
+      "FC-06",
+      "HOLD_WITH_DOMAIN",
+      "exact demand-one falsifier at stated scope"
+    ],
+    [
+      "FC-07",
+      "HOLD_WITH_DOMAIN",
+      "restricted transformed-price successor"
+    ],
+    [
+      "FC-08",
+      "HOLD_WITH_DOMAIN",
+      "full probability cube in realized d>=2 family"
+    ],
+    [
+      "FC-09",
+      "FAIL_CLOSED_REPOSITORY_WIDE",
+      "local gate useful; external controlling-source binding unresolved"
+    ],
+    [
+      "FC-10",
+      "FAIL_CLOSED_BLOCKING",
+      "D5 graph points at nonexistent source and stale regional state"
+    ],
+    [
+      "FC-11",
+      "FAIL_CLOSED_PACKAGING",
+      "advertised work queue #61 is closed; #86 is open"
+    ],
+    [
+      "FC-12",
+      "FAIL_CLOSED_CURRENT_MAP",
+      "landing omits reviewed fixed-annulus result now on default branch"
+    ]
+  ],
+  "blocking": [
+    "FC-02",
+    "FC-09",
+    "FC-10",
+    "FC-11"
+  ],
+  "no_promotion": true
+}
