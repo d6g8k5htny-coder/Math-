@@ -176,7 +176,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "x=r y with A<=|y|<=B away from pins",
-      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart algebra incl. height residual after grad contact; density bound still open"
+      "notes": "Owned by Math- PR7 reduction; PR9 enumerates chart algebra incl. thin-belt cancel residual; density bound still open"
     },
     "math.rn-region.pin-collision": {
       "layer": "D5",
@@ -271,10 +271,10 @@
       "kind": "candidate",
       "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
-      "fingerprint": "67b187c5f8ac60a116ed1601fe8719b6ec7e897e",
+      "fingerprint": "3af4ac35d081c05a1d476d68a88da406a974f0da",
       "source": "frontiers/rn_mesoscopic_chart_20260925/PROOF.md",
       "review_pr": 9,
-      "notes": "Exact d=2 chart algebra incl. height residual after grad contact and conditioned Hessian residual polynomials; density / expectation still open"
+      "notes": "Exact d=2 chart algebra incl. thin-belt residual after jet-map cancel; contact Gaussian density still open"
     }
   },
   "edges": [
