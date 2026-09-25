@@ -8,8 +8,12 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 27
+EXPECTED_TESTS = 28
 MUTANTS = {
+    'bypass_own_node_eligibility': (
+        "if node_classification not in CONTROLLING_ELIGIBLE:",
+        "if False:",
+    ),
     'allow_green_ci': (
         "only_non_discharge = bool(tokens) and all(t in non_discharge for t in tokens)",
         "only_non_discharge = False",
