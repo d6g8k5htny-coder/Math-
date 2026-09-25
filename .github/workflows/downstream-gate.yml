@@ -29,7 +29,9 @@ jobs:
                   if pathlib.PurePosixPath(name).name != name or (root / name).is_symlink():
                       raise ValueError('flat regular source required')
                   raw = (root / name).read_bytes()
-                  if len(raw) != identity['bytes'] or hashlib.sha256(raw).hexdigest() != identity['sha256']:
+                  digest = hashlib.sha256(raw).hexdigest()
+                  if len(raw) != identity['bytes'] or digest != identity['sha256']:
+                      print('SOURCE_IDENTITY_ACTUAL', name, len(raw), digest)
                       raise ValueError('source identity mismatch: ' + name)
           if sys.version_info[:2] != (3, 11):
               raise RuntimeError('actual Python 3.11 required')
@@ -55,16 +57,16 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 27 or report['distinct_semantic_mutations'] != 7:
+          if not report['passed'] or report['distinct_tests'] != 28 or report['distinct_semantic_mutations'] != 8:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
               'run': os.environ['GITHUB_RUN_ID'],
               'sha': os.environ['GITHUB_SHA'],
               'python': sys.version,
-              'new_distinct_tests': 27,
+              'new_distinct_tests': 28,
               'regression_distinct_tests': 177,
-              'total_distinct_tests': 204,
-              'new_semantic_mutations': 7,
+              'total_distinct_tests': 205,
+              'new_semantic_mutations': 8,
               'source_files_verified': len(pins),
               'lemma_closed': False,
               'scientific_effect': 'NONE',
