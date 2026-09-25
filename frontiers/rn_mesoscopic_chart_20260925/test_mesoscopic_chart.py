@@ -543,12 +543,42 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['quartic_next_order_enumerated'])
         self.assertFalse(inv['charts']['C_pin_centered']['fifth_and_higher_jets_enumerated'])
+        self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
+        self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
         self.assertIn('pin_fifth_and_higher_jets', inv['open_blockers'])
         # Every chart still blocks the global density bound.
         for chart, row in inv['charts'].items():
             self.assertFalse(row['contact_gaussian_density_bounded'], chart)
+
+    def test_contact_free_jet_residual_inventory(self):
+        t0 = m.transverse_free_jet_residual_inventory(m.point(0, 2))
+        self.assertEqual(t0['leading_grad_map_rank'], 2)
+        self.assertEqual(t0['free_directions_after_grad_contact'], 2)
+        self.assertEqual(t0['grad_x_second_row_isolates'], 'f_xyy')
+        self.assertEqual(t0['free_among_leading_grad_coords'], ['k', 'f_xxy'])
+        self.assertTrue(t0['f_yyy_absent_from_leading_grad_rows'])
+        self.assertFalse(t0['contact_gaussian_density_bounded'])
+        self.assertFalse(t0['conditioned_hessian_expectation_evaluated'])
+        t1 = m.transverse_free_jet_residual_inventory(m.point(2, 2))
+        self.assertEqual(t1['free_directions_after_grad_contact'], 2)
+        self.assertEqual(t1['grad_x_second_row_isolates'], 'linear_form_on_k_f_xxy_f_xyy')
+        self.assertEqual(t1['grad_x_coefficient_k'], 24)
+        ax = m.axial_free_jet_residual_inventory(m.point(2, 0))
+        self.assertEqual(ax['free_directions_after_grad_contact'], 0)
+        self.assertTrue(ax['grad_y_isolates_f_xxy'])
+        self.assertTrue(ax['grad_x_isolates_k'])
+        self.assertEqual(ax['free_hessian_height_jet_coords'], ['f_yy', 'f_xyy', 'f_yyy'])
+        self.assertTrue(ax['axial_area_measure_zero'])
+        self.assertFalse(ax['contact_gaussian_density_bounded'])
+        bundled = m.contact_free_jet_residual_inventory()
+        self.assertFalse(bundled['global_contact_density_bound_proved'])
+        self.assertEqual(bundled['C_transverse']['free_directions_after_grad_contact'], 2)
+        with self.assertRaises(ValueError):
+            m.transverse_free_jet_residual_inventory(m.point(2, 0))
+        with self.assertRaises(ValueError):
+            m.axial_free_jet_residual_inventory(m.point(0, 2))
 
 
 if __name__ == '__main__':

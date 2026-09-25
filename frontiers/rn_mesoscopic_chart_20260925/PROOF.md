@@ -83,6 +83,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - pin-site quartic residuals `Q_grad_next = (1/6)D⁴f(z,z,z)`, `Q_height_next = (1/24)D⁴f(z,z,z,z)` with `z·Q_grad_next = 4 Q_height_next` (fifth-and-higher jets open);
 - pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
+- free-jet residual inventory after leading gradient contact (transverse rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; density still open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 

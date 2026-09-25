@@ -105,6 +105,7 @@
         "area_measure_zero_in_2d": true,
         "chart_conditioning_singularity_cleared": true,
         "contact_gaussian_density_bounded": false,
+        "free_jet_residual_inventory_recorded": true,
         "hessian_conditioned_expectation_evaluated": false,
         "integrand_power_identity_recorded": true
       },
@@ -126,6 +127,7 @@
       "C_transverse": {
         "chart_conditioning_singularity_cleared": true,
         "contact_gaussian_density_bounded": false,
+        "free_jet_residual_inventory_recorded": true,
         "height_r_factor_absorbed": false,
         "hessian_conditioned_expectation_evaluated": false,
         "integrand_power_identity_recorded": true
@@ -142,6 +144,65 @@
       "pin_fifth_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
+  },
+  "contact_free_jet_residual": {
+    "C_axial": {
+      "axial_area_measure_zero": true,
+      "chart": "C_axial",
+      "conditioned_hessian_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "free_directions_after_grad_contact": 0,
+      "free_hessian_height_jet_coords": [
+        "f_yy",
+        "f_xyy",
+        "f_yyy"
+      ],
+      "grad_x_coefficient_k": "24",
+      "grad_x_isolates_k": true,
+      "grad_y_coefficient_f_xxy": "2",
+      "grad_y_isolates_f_xxy": true,
+      "leading_grad_jet_coordinates": [
+        "f_xxy",
+        "k"
+      ],
+      "leading_grad_map_rank": 2,
+      "leading_grad_observation_count": 2,
+      "meaning": "axial leading gradient isolates f_xxy and k; f_yy/f_xyy/f_yyy remain for Hessian/height; not a Gaussian density bound",
+      "object": "RN-MESOSCOPIC-AXIAL-FREE-JET-RESIDUAL-20260925-v1",
+      "y2_is_zero": true
+    },
+    "C_transverse": {
+      "chart": "C_transverse",
+      "conditioned_hessian_expectation_evaluated": false,
+      "contact_gaussian_density_bounded": false,
+      "f_yyy_absent_from_leading_grad_rows": true,
+      "free_among_leading_grad_coords": [
+        "k",
+        "f_xxy"
+      ],
+      "free_directions_after_grad_contact": 2,
+      "grad_x_coefficient_f_xxy": "0",
+      "grad_x_coefficient_f_xyy": "2",
+      "grad_x_coefficient_k": "0",
+      "grad_x_second_row_isolates": "f_xyy",
+      "grad_y_coefficient_f_yy": "2",
+      "grad_y_isolates_f_yy": true,
+      "height_independent_at_leading_order": false,
+      "hessian_entries_polynomials_in_same_jets": true,
+      "leading_grad_jet_coordinates": [
+        "f_yy",
+        "k",
+        "f_xxy",
+        "f_xyy"
+      ],
+      "leading_grad_map_rank": 2,
+      "leading_grad_observation_count": 2,
+      "meaning": "rank-2 leading gradient contact on 4 jet coords leaves 2 free directions plus f_yyy; not a Gaussian density bound",
+      "object": "RN-MESOSCOPIC-TRANSVERSE-FREE-JET-RESIDUAL-20260925-v1"
+    },
+    "global_contact_density_bound_proved": false,
+    "meaning": "exact free-jet residual counts after leading gradient contact; prerequisite inventory only \u2014 does not bound the contact density",
+    "object": "RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1"
   },
   "contact_rows": {
     "H_height_next": "0",

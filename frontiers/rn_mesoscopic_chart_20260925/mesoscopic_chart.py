@@ -1059,6 +1059,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'chart_conditioning_singularity_cleared': True,
                 'integrand_power_identity_recorded': True,
                 'height_r_factor_absorbed': False,
+                'free_jet_residual_inventory_recorded': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1066,6 +1067,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'chart_conditioning_singularity_cleared': True,
                 'integrand_power_identity_recorded': True,
                 'area_measure_zero_in_2d': True,
+                'free_jet_residual_inventory_recorded': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1096,6 +1098,109 @@ def contact_density_obstruction_inventory() -> dict:
             'inventory only: chart singularities cleared on C_transverse/C_axial; '
             'Gaussian density / Hessian expectation / thin-belt / height-r / higher '
             'pin jets remain the load-bearing open blockers'
+        ),
+    }
+
+
+def transverse_free_jet_residual_inventory(y: Coord) -> dict:
+    """Exact free-jet residual count on C_transverse after leading gradient contact.
+
+    Leading gradient map on coordinates (f_yy, k, f_xxy, f_xyy):
+      J_y = y2 · f_yy
+      J_x = 6 y1^2 · k + y1 y2 · f_xxy + (y2^2)/2 · f_xyy
+    With |y2|≥δ the map has rank 2, so 4−2=2 free directions remain among those
+    coordinates; f_yyy is absent from leading gradient rows. Does not bound the
+    contact Gaussian density or evaluate the conditioned Hessian expectation.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    y1, y2 = y
+    grad_coords = ('f_yy', 'k', 'f_xxy', 'f_xyy')
+    # Case split on which second-row coefficients are nonzero (exact; y2≠0 here).
+    if y1 == 0:
+        second_row_isolates = 'f_xyy'
+        free_among = ['k', 'f_xxy']
+    else:
+        # 6 y1^2 ≠ 0: k appears; residual free plane in (k, f_xxy, f_xyy) has dim 2.
+        second_row_isolates = 'linear_form_on_k_f_xxy_f_xyy'
+        free_among = ['residual_codim1_subspace_of_k_f_xxy_f_xyy']
+    free_count = len(grad_coords) - 2
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-FREE-JET-RESIDUAL-20260925-v1',
+        'chart': 'C_transverse',
+        'leading_grad_jet_coordinates': list(grad_coords),
+        'leading_grad_observation_count': 2,
+        'leading_grad_map_rank': 2,
+        'free_directions_after_grad_contact': free_count,
+        'grad_y_isolates_f_yy': True,
+        'grad_y_coefficient_f_yy': y2,
+        'grad_x_coefficient_k': 6 * y1 * y1,
+        'grad_x_coefficient_f_xxy': y1 * y2,
+        'grad_x_coefficient_f_xyy': (y2 * y2) / 2,
+        'grad_x_second_row_isolates': second_row_isolates,
+        'free_among_leading_grad_coords': free_among,
+        'f_yyy_absent_from_leading_grad_rows': True,
+        'height_independent_at_leading_order': False,
+        'hessian_entries_polynomials_in_same_jets': True,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_hessian_expectation_evaluated': False,
+        'meaning': (
+            'rank-2 leading gradient contact on 4 jet coords leaves 2 free '
+            'directions plus f_yyy; not a Gaussian density bound'
+        ),
+    }
+
+
+def axial_free_jet_residual_inventory(y: Coord) -> dict:
+    """Exact free-jet residual count on C_axial after leading gradient contact.
+
+    Axial leading rows (y2=0, |y1|≥A):
+      J_grad_y = (y1^2 / 2) f_xxy
+      J_grad_x = 6 k y1^2
+    so f_xxy and k are isolated when y1≠0. Among displayed leftovers
+    (f_yy, f_xyy, f_yyy) all three remain free at this order. Area-measure zero
+    in the 2D annulus; density still unbound.
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    return {
+        'object': 'RN-MESOSCOPIC-AXIAL-FREE-JET-RESIDUAL-20260925-v1',
+        'chart': 'C_axial',
+        'leading_grad_jet_coordinates': ['f_xxy', 'k'],
+        'leading_grad_observation_count': 2,
+        'leading_grad_map_rank': 2,
+        'free_directions_after_grad_contact': 0,
+        'grad_y_isolates_f_xxy': True,
+        'grad_x_isolates_k': True,
+        'grad_y_coefficient_f_xxy': (y1 * y1) / 2,
+        'grad_x_coefficient_k': 6 * y1 * y1,
+        'y2_is_zero': y2 == 0,
+        'free_hessian_height_jet_coords': ['f_yy', 'f_xyy', 'f_yyy'],
+        'axial_area_measure_zero': True,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_hessian_expectation_evaluated': False,
+        'meaning': (
+            'axial leading gradient isolates f_xxy and k; f_yy/f_xyy/f_yyy remain '
+            'for Hessian/height; not a Gaussian density bound'
+        ),
+    }
+
+
+def contact_free_jet_residual_inventory(
+    *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+) -> dict:
+    """Bundle transverse/axial free-jet residual inventories; density still open."""
+    t = transverse_free_jet_residual_inventory(transverse_y or point(0, 2))
+    a = axial_free_jet_residual_inventory(axial_y or point(2, 0))
+    return {
+        'object': 'RN-MESOSCOPIC-CONTACT-FREE-JET-RESIDUAL-20260925-v1',
+        'C_transverse': t,
+        'C_axial': a,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact free-jet residual counts after leading gradient contact; '
+            'prerequisite inventory only — does not bound the contact density'
         ),
     }
 
@@ -1346,6 +1451,7 @@ def result() -> dict:
     integrand_a = contact_integrand_power_ledger(2, chart='C_axial')
     integrand_pin = pin_centered_integrand_power_ledger(2)
     density_obs = contact_density_obstruction_inventory()
+    free_jets = contact_free_jet_residual_inventory()
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1353,6 +1459,8 @@ def result() -> dict:
         if isinstance(obj, dict):
             return {k: conv(v) for k, v in obj.items()}
         if isinstance(obj, tuple):
+            return [conv(v) for v in obj]
+        if isinstance(obj, list):
             return [conv(v) for v in obj]
         return obj
     out = conv(sample)
@@ -1375,6 +1483,7 @@ def result() -> dict:
     out['integrand_power_axial'] = conv(integrand_a)
     out['integrand_power_pin_centered'] = conv(integrand_pin)
     out['contact_density_obstruction'] = conv(density_obs)
+    out['contact_free_jet_residual'] = conv(free_jets)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

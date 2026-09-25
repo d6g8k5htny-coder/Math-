@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 44
+EXPECTED_TESTS = 45
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -121,6 +121,10 @@ MUTANTS = {
     'claim_global_density_from_inventory': (
         "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': False,",
         "'target': 'gamma_AB_le_C_r_to_minus_d',\n        'global_contact_density_bound_proved': True,",
+    ),
+    'claim_density_from_free_jet_residual': (
+        "'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact free-jet residual counts after leading gradient contact; '\n            'prerequisite inventory only — does not bound the contact density'\n        ),",
+        "'global_contact_density_bound_proved': True,\n        'meaning': (\n            'exact free-jet residual counts after leading gradient contact; '\n            'prerequisite inventory only — does not bound the contact density'\n        ),",
     ),
 }
 
