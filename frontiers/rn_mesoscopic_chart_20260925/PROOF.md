@@ -75,6 +75,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - Hessian contact rows and raw `det H` leading `r`-power `1` on `C_transverse` and `C_axial`;
 - thin-belt contact polynomials (same jet forms; not absorbed; no uniform bound);
 - contact integrand `r`-power identity (net `3` transverse / `2` axial);
+- uniform bare-conditioning bound `1/|y2| ≤ 1/δ` on `C_transverse` (chart singularity cleared; Gaussian density still open);
 - finite mutation controls on those algebraic statements.
 
 **Still open (explicitly):**
@@ -112,7 +113,7 @@ For the PR7 convention `A > 1`, both scaled pins satisfy `|pin| = 1/2 < A`, so t
 
 with `near_pin` empty on this fixed annulus. The machine cover report records `enumerated_charts = {C_transverse, C_axial}`, `open_regions = {thin_belt_open}`, and `cover_complete = false`.
 
-The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend (and are enumerated on `C_thin_belt`), `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. Dyadic shells show the bare factor is not locally `L^1` at `y2=0` (each shell contributes at least `1` to `∫ dy2/|y2|`). Pointwise, the jet map factor `∂J_grad_y/∂f_yy = y2` cancels that reciprocal (`|y2|·(1/|y2|)=1`), but this is **not** a conditioned-density bound. Across the interface `|y2|=δ` the transverse and thin-belt charts share identical contact polynomials, so the transition Jacobian on those rows is `1` (nonsingular). The checker still marks `uniform_integrand_bound_proved = false`.
+The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend (and are enumerated on `C_thin_belt`), `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. Dyadic shells show the bare factor is not locally `L^1` at `y2=0` (each shell contributes at least `1` to `∫ dy2/|y2|`). Pointwise, the jet map factor `∂J_grad_y/∂f_yy = y2` cancels that reciprocal (`|y2|·(1/|y2|)=1`), but this is **not** a conditioned-density bound. On `C_transverse` itself (`|y2|≥δ`) the bare reciprocal is uniformly bounded by `1/δ`, so the chart-conditioning singularity is cleared there; the remaining transverse obstruction is the contact Gaussian density / Hessian expectation, not `1/|y2|`. Across the interface `|y2|=δ` the transverse and thin-belt charts share identical contact polynomials, so the transition Jacobian on those rows is `1` (nonsingular). The checker still marks `uniform_integrand_bound_proved = false` and `gaussian_density_factor_bounded = false`.
 
 A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The checker records the pin-local frame `z = y − pin` and that midpoint `U_0` rows do not apply; it does **not** enumerate pin-site divided-difference contact rows (`pin_site_jet_rows_enumerated = false`), and it does not alter the PR7 fixed-annulus statements.
 

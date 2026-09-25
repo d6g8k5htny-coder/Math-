@@ -322,6 +322,19 @@
     "region": "thin_belt_open",
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
   },
+  "transverse_conditioning_bound": {
+    "abs_y2": "2",
+    "chart": "C_transverse",
+    "chart_conditioning_singularity_cleared": true,
+    "conditioning_reciprocal_abs_y2": "1/2",
+    "floor_y2": "1/4",
+    "gaussian_density_factor_bounded": false,
+    "meaning": "exact |y2|>=\u03b4 \u21d2 1/|y2| <= 1/\u03b4 on C_transverse; chart singularity cleared, contact Gaussian density still unbound",
+    "object": "RN-MESOSCOPIC-TRANSVERSE-CONDITIONING-BOUND-20260925-v1",
+    "reciprocal_le_uniform_bound": true,
+    "thin_belt_still_open": true,
+    "uniform_chart_bound": "4"
+  },
   "transverse_net_count_r_power": 3,
   "y": {
     "y1": "0",

@@ -242,6 +242,26 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.jet_map_f_yy_to_J_grad_y_factor(m.point(2, 0))
 
+    def test_transverse_conditioning_uniform_bound(self):
+        # Interior point |y2|=2 >> δ=1/4.
+        info = m.transverse_conditioning_uniform_bound(m.point(0, 2))
+        self.assertEqual(info['abs_y2'], 2)
+        self.assertEqual(info['conditioning_reciprocal_abs_y2'], Q(1, 2))
+        self.assertEqual(info['uniform_chart_bound'], 4)
+        self.assertTrue(info['reciprocal_le_uniform_bound'])
+        self.assertTrue(info['chart_conditioning_singularity_cleared'])
+        self.assertFalse(info['gaussian_density_factor_bounded'])
+        self.assertTrue(info['thin_belt_still_open'])
+        # Boundary of the chart: |y2|=δ saturates the uniform bound.
+        edge = m.transverse_conditioning_uniform_bound(m.point(2, Q(1, 4)))
+        self.assertEqual(edge['conditioning_reciprocal_abs_y2'], 4)
+        self.assertEqual(edge['uniform_chart_bound'], 4)
+        self.assertTrue(edge['reciprocal_le_uniform_bound'])
+        with self.assertRaises(ValueError):
+            m.transverse_conditioning_uniform_bound(m.point(2, Q(1, 8)))
+        with self.assertRaises(ValueError):
+            m.transverse_conditioning_uniform_bound(m.point(2, 0))
+
     def test_chart_boundary_transition(self):
         y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
         self.assertTrue(m.transverse_chart_ok(y))
@@ -291,6 +311,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('pin-site jets **not** enumerated', text)
         self.assertIn('AUTHOR_SIDE_CANDIDATE', text)
         self.assertIn('hessian_ledger_evaluated=false', text)
+        self.assertIn('transverse_conditioning_uniform_bound', text)
+        self.assertIn('PR #14', text)
 
     def test_hessian_contact_rows(self):
         rows = m.hessian_contact_rows(

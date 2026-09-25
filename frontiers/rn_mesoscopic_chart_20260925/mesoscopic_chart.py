@@ -230,6 +230,41 @@ def jet_map_f_yy_to_J_grad_y_factor(y: Coord) -> dict[str, Q | str | bool]:
     }
 
 
+def transverse_conditioning_uniform_bound(
+    y: Coord, *, floor_y2: int | Q = Q(1, 4),
+) -> dict[str, Q | str | bool]:
+    """On C_transverse, |y2|≥δ ⇒ 1/|y2| ≤ 1/δ uniformly on the chart.
+
+    Clears the bare chart-conditioning singularity on C_transverse (the thin belt
+    still carries the 1/|y2| obstruction). Does not bound the contact Gaussian
+    density factor needed for γ_AB ≤ C r^(-d).
+    """
+    delta = exact(floor_y2)
+    if delta <= 0:
+        raise ValueError('positive floor required')
+    if not transverse_chart_ok(y, floor_y2=delta):
+        raise ValueError('point outside C_transverse chart')
+    y2 = exact(y[1])
+    reciprocal = 1 / abs(y2)
+    uniform = 1 / delta
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-CONDITIONING-BOUND-20260925-v1',
+        'chart': 'C_transverse',
+        'floor_y2': delta,
+        'abs_y2': abs(y2),
+        'conditioning_reciprocal_abs_y2': reciprocal,
+        'uniform_chart_bound': uniform,
+        'reciprocal_le_uniform_bound': reciprocal <= uniform,
+        'chart_conditioning_singularity_cleared': True,
+        'gaussian_density_factor_bounded': False,
+        'thin_belt_still_open': True,
+        'meaning': (
+            'exact |y2|>=δ ⇒ 1/|y2| <= 1/δ on C_transverse; '
+            'chart singularity cleared, contact Gaussian density still unbound'
+        ),
+    }
+
+
 def chart_boundary_transition(
     y: Coord, *, floor_y2: int | Q = Q(1, 4),
     gap_mark: int | Q = 1, f_yy: int | Q = 1,
@@ -876,6 +911,7 @@ def result() -> dict:
     thin_shells = thin_belt_reciprocal_shell_lower_bound(8)
     boundary = chart_boundary_transition(point(2, Q(1, 4)), gap_mark=1, f_yy=2)
     jet_map = jet_map_f_yy_to_J_grad_y_factor(point(2, Q(1, 8)))
+    transverse_bound = transverse_conditioning_uniform_bound(point(0, 2))
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
@@ -901,6 +937,7 @@ def result() -> dict:
     out['thin_belt_reciprocal_shells'] = conv(thin_shells)
     out['chart_boundary_transition'] = conv(boundary)
     out['jet_map_f_yy_sample'] = conv(jet_map)
+    out['transverse_conditioning_bound'] = conv(transverse_bound)
     out['near_pin_sample'] = conv(near)
     out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)
