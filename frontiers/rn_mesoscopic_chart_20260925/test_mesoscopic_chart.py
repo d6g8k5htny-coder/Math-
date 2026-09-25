@@ -142,6 +142,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(payload['hessian_raw_det_leading_r_power'], 1)
         self.assertEqual(payload['transverse_net_count_r_power'], 3)
         self.assertEqual(payload['axial_net_count_r_power'], 2)
+        self.assertEqual(payload['pin_centered_net_count_r_power'], 3)
         self.assertTrue(payload['sample_points_ok'])
         self.assertTrue(payload['axial_points_ok'])
         self.assertFalse(payload['hessian_sample']['hessian_ledger_evaluated'])
@@ -466,6 +467,21 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(a['net_count_r_power'], 2)  # 2 - 4 + 1 + 3
         self.assertTrue(a['axial_chart_has_area_measure_zero'])
         self.assertFalse(a['full_annulus_closed'])
+
+    def test_pin_centered_integrand_powers(self):
+        p = m.pin_centered_integrand_power_ledger(2)
+        self.assertEqual(p['chart'], 'C_pin_centered')
+        self.assertEqual(p['spatial_volume_r_power'], 2)
+        self.assertEqual(p['gradient_jacobian_r_power'], 2)
+        self.assertEqual(p['gradient_density_r_power'], -2)
+        self.assertEqual(p['hessian_det_leading_r_power'], 0)
+        self.assertEqual(p['height_window_r_power'], 3)
+        self.assertEqual(p['net_count_r_power'], 3)  # 2 - 2 + 0 + 3
+        self.assertFalse(p['pin_contact_density_bound_proved'])
+        self.assertFalse(p['pin_site_higher_jets_enumerated'])
+        self.assertEqual(m.PIN_CENTERED_HESSIAN_DET_R_POWER, 0)
+        with self.assertRaises(ValueError):
+            m.pin_centered_integrand_power_ledger(3)
 
 
 if __name__ == '__main__':

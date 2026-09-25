@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 40
+EXPECTED_TESTS = 41
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -59,8 +59,8 @@ MUTANTS = {
         "'contact_density_bound_proved': True,",
     ),
     'wrong_integrand_net': (
-        "net = spatial - grad + hess + height",
-        "net = spatial - grad + height",
+        "net = spatial - grad + hess + height  # midpoint charts",
+        "net = spatial - grad + height  # midpoint charts",
     ),
     'claim_thin_belt_absorbed': (
         "'uniform_integrand_bound_proved': False,\n        'absorbed_into_C_transverse': False,",
@@ -105,6 +105,10 @@ MUTANTS = {
     'claim_pin_signature_always_matches': (
         "'signature_matches_pin_role': matches,\n        'morse_nondegenerate': det != 0,",
         "'signature_matches_pin_role': True,\n        'morse_nondegenerate': det != 0,",
+    ),
+    'wrong_pin_hess_det_power': (
+        'PIN_CENTERED_HESSIAN_DET_R_POWER = 0',
+        'PIN_CENTERED_HESSIAN_DET_R_POWER = 1',
     ),
 }
 

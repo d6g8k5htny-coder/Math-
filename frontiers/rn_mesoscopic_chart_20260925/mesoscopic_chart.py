@@ -627,6 +627,10 @@ PIN_CENTERED_SCALING_EXPONENTS = {
     'height': 2,
 }
 
+# At a Morse pin the Hessian is free at leading order (pin constraints fix value
+# and gradient only), so |det H_pin| is O(1): leading det r-power 0.
+PIN_CENTERED_HESSIAN_DET_R_POWER = 0
+
 
 # Scaling exponents for raw witness (f_x, f_y, f-b) -> divided-difference J in this chart.
 # Derived from the contact Taylor jet with U_0=(f,f_x,f_xx,f_xxx,f_y,f_xy)=(b,0,0,12k,0,0):
@@ -885,7 +889,7 @@ def contact_integrand_power_ledger(dimension: int = 2, *, chart: str = 'C_transv
     height = 3
     # Density picks up r^(-grad); |det H| contributes r^(hess); dy gives r^(spatial);
     # integrating the between-pin height window contributes r^(height).
-    net = spatial - grad + hess + height
+    net = spatial - grad + hess + height  # midpoint charts
     return {
         'object': 'RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1',
         'dimension': 2,
@@ -902,6 +906,40 @@ def contact_integrand_power_ledger(dimension: int = 2, *, chart: str = 'C_transv
         'legacy_24jet_discharged': False,
         'meaning': (
             'power identity only: r^(spatial - grad_jac + hess_det + height_window); '
+            'not a uniform bound on the contact integrand factor'
+        ),
+    }
+
+
+def pin_centered_integrand_power_ledger(dimension: int = 2) -> dict:
+    """Exact r-power bookkeeping for the pin-centered Morse chart integrand.
+
+    Uses pin-local gradient Jacobian r^2, Hessian det r^0, spatial r^2, and the
+    global between-pin height window r^3. Does not bound the contact density.
+    """
+    if dimension != 2:
+        raise ValueError('this package enumerates d=2 charts only')
+    spatial = dimension
+    grad = 2 * PIN_CENTERED_SCALING_EXPONENTS['grad']
+    hess = PIN_CENTERED_HESSIAN_DET_R_POWER
+    height = 3
+    net = spatial - grad + hess + height  # pin-centered Morse chart
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-CENTERED-INTEGRAND-POWER-D2-20260925-v1',
+        'dimension': 2,
+        'chart': 'C_pin_centered',
+        'spatial_volume_r_power': spatial,
+        'gradient_jacobian_r_power': grad,
+        'gradient_density_r_power': -grad,
+        'hessian_det_leading_r_power': hess,
+        'height_window_r_power': height,
+        'net_count_r_power': net,
+        'pin_contact_density_bound_proved': False,
+        'pin_site_higher_jets_enumerated': False,
+        'full_annulus_closed': False,
+        'legacy_24jet_discharged': False,
+        'meaning': (
+            'pin-local power identity r^(2 - 2 + 0 + 3)=r^3; '
             'not a uniform bound on the contact integrand factor'
         ),
     }
@@ -1150,6 +1188,7 @@ def result() -> dict:
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=0)
     integrand_t = contact_integrand_power_ledger(2, chart='C_transverse')
     integrand_a = contact_integrand_power_ledger(2, chart='C_axial')
+    integrand_pin = pin_centered_integrand_power_ledger(2)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -1177,6 +1216,7 @@ def result() -> dict:
     out['axial_hessian_sample'] = conv(axial_hess)
     out['integrand_power_transverse'] = conv(integrand_t)
     out['integrand_power_axial'] = conv(integrand_a)
+    out['integrand_power_pin_centered'] = conv(integrand_pin)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())
@@ -1187,6 +1227,7 @@ def result() -> dict:
     out['hessian_raw_det_leading_r_power'] = HESSIAN_SCALING_EXPONENTS['xx']  # =1; yy contributes r^0
     out['transverse_net_count_r_power'] = integrand_t['net_count_r_power']
     out['axial_net_count_r_power'] = integrand_a['net_count_r_power']
+    out['pin_centered_net_count_r_power'] = integrand_pin['net_count_r_power']
 
     out['classifications'] = {
         'transverse': classify_annulus_point(point(0, 2)),

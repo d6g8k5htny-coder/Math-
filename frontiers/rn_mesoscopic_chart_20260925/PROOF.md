@@ -79,6 +79,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test (higher jets open);
+- pin-centered integrand power identity (net `r^3`: spatial 2 − grad 2 + hess 0 + height 3);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
 - finite mutation controls on those algebraic statements.
 

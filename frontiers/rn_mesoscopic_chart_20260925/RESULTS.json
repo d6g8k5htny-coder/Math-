@@ -189,6 +189,22 @@
     "object": "RN-MESOSCOPIC-CHART-INTEGRAND-POWER-D2-20260925-v1",
     "spatial_volume_r_power": 2
   },
+  "integrand_power_pin_centered": {
+    "chart": "C_pin_centered",
+    "dimension": 2,
+    "full_annulus_closed": false,
+    "gradient_density_r_power": -2,
+    "gradient_jacobian_r_power": 2,
+    "height_window_r_power": 3,
+    "hessian_det_leading_r_power": 0,
+    "legacy_24jet_discharged": false,
+    "meaning": "pin-local power identity r^(2 - 2 + 0 + 3)=r^3; not a uniform bound on the contact integrand factor",
+    "net_count_r_power": 3,
+    "object": "RN-MESOSCOPIC-PIN-CENTERED-INTEGRAND-POWER-D2-20260925-v1",
+    "pin_contact_density_bound_proved": false,
+    "pin_site_higher_jets_enumerated": false,
+    "spatial_volume_r_power": 2
+  },
   "integrand_power_transverse": {
     "axial_chart_has_area_measure_zero": false,
     "chart": "C_transverse",
@@ -293,6 +309,7 @@
     "status": "OPEN_HIGHER_JETS_AND_DENSITY",
     "uniform_integrand_bound_proved": false
   },
+  "pin_centered_net_count_r_power": 3,
   "pin_exclusion_ok": true,
   "pin_site_jet_obstruction": {
     "chart": "C_pin_centered",
