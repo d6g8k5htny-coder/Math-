@@ -342,8 +342,29 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(led['contact_rows']['height_minus_half_z_dot_grad'], 0)
         self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
         self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
+        self.assertEqual(led['hessian_signature']['signature_kind'], 'INDEFINITE_SADDLE')
+        self.assertTrue(led['hessian_signature']['signature_matches_pin_role'])
         with self.assertRaises(ValueError):
             m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
+
+    def test_pin_morse_hessian_signature(self):
+        sad = m.pin_morse_hessian_signature(H_xx=-2, H_xy=0, H_yy=3, closer_pin='S')
+        self.assertEqual(sad['det_H'], -6)
+        self.assertEqual(sad['signature_kind'], 'INDEFINITE_SADDLE')
+        self.assertTrue(sad['signature_matches_pin_role'])
+        self.assertTrue(sad['morse_nondegenerate'])
+        mx = m.pin_morse_hessian_signature(H_xx=-2, H_xy=0, H_yy=-3, closer_pin='M')
+        self.assertEqual(mx['det_H'], 6)
+        self.assertEqual(mx['signature_kind'], 'NEGATIVE_DEFINITE_MAX')
+        self.assertTrue(mx['signature_matches_pin_role'])
+        # Wrong role: saddle Hessian offered for a max pin.
+        bad = m.pin_morse_hessian_signature(H_xx=-2, H_xy=0, H_yy=3, closer_pin='M')
+        self.assertFalse(bad['signature_matches_pin_role'])
+        deg = m.pin_morse_hessian_signature(H_xx=1, H_xy=0, H_yy=0, closer_pin='S')
+        self.assertEqual(deg['signature_kind'], 'DEGENERATE')
+        self.assertFalse(deg['morse_nondegenerate'])
+        with self.assertRaises(ValueError):
+            m.pin_morse_hessian_signature(H_xx=1, H_xy=0, H_yy=-1, closer_pin='X')
 
     def test_pin_site_morse_contact_rows(self):
         rows = m.pin_site_morse_contact_rows(1, 2, H_xx=1, H_xy=0, H_yy=1)

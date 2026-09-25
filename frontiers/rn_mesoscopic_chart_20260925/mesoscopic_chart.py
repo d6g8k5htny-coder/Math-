@@ -459,12 +459,16 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
     rows = pin_site_morse_contact_rows(
         frame['z1'], frame['z2'], H_xx=H_xx, H_xy=H_xy, H_yy=H_yy,
     )
+    signature = pin_morse_hessian_signature(
+        H_xx=H_xx, H_xy=H_xy, H_yy=H_yy, closer_pin=str(frame['closer_pin']),
+    )
     return {
         'object': 'RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1',
         'chart': 'C_pin_centered',
         'frame': frame,
         'midpoint_U0_rows_applicable': False,
         'contact_rows': rows,
+        'hessian_signature': signature,
         'scaling': {
             'grad': PIN_CENTERED_SCALING_EXPONENTS['grad'],
             'height': PIN_CENTERED_SCALING_EXPONENTS['height'],
@@ -482,8 +486,8 @@ def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: 
         'complements_pr7': True,
         'status': 'OPEN_HIGHER_JETS_AND_DENSITY',
         'meaning': (
-            'leading Morse pin-site contact rows J=H_pin z and height (1/2)z·H·z; '
-            'higher jets and Gaussian density remain open'
+            'leading Morse pin-site contact rows J=H_pin z and height (1/2)z·H·z '
+            'with max/saddle signature test; higher jets and density remain open'
         ),
     }
 
@@ -519,6 +523,55 @@ def pin_site_morse_contact_rows(
         'H_xx': a,
         'H_xy': b,
         'H_yy': c,
+    }
+
+
+def pin_morse_hessian_signature(
+    *, H_xx: int | Q, H_xy: int | Q, H_yy: int | Q, closer_pin: str,
+) -> dict[str, Q | str | bool]:
+    """Exact 2×2 Hessian signature constraints for max (M) vs saddle (S) pins.
+
+    Morse nondegeneracy: det H != 0. Maximum M requires negative-definite H;
+    saddle S requires indefinite H (det H < 0 in d=2). Does not bound densities.
+    """
+    if closer_pin not in ('M', 'S'):
+        raise ValueError('closer_pin must be M or S')
+    a, b, c = map(exact, (H_xx, H_xy, H_yy))
+    det = a * c - b * b
+    trace = a + c
+    if det == 0:
+        kind = 'DEGENERATE'
+    elif det < 0:
+        kind = 'INDEFINITE_SADDLE'
+    elif a < 0 and c < 0:
+        kind = 'NEGATIVE_DEFINITE_MAX'
+    elif a > 0 and c > 0:
+        kind = 'POSITIVE_DEFINITE_MIN'
+    else:
+        kind = 'POSITIVE_DEFINITE_MIN' if trace > 0 else 'NEGATIVE_DEFINITE_MAX'
+    if closer_pin == 'M':
+        matches = kind == 'NEGATIVE_DEFINITE_MAX'
+        required = 'NEGATIVE_DEFINITE_MAX'
+    else:
+        matches = kind == 'INDEFINITE_SADDLE'
+        required = 'INDEFINITE_SADDLE'
+    return {
+        'object': 'RN-MESOSCOPIC-PIN-MORSE-HESSIAN-SIGNATURE-20260925-v1',
+        'closer_pin': closer_pin,
+        'H_xx': a,
+        'H_xy': b,
+        'H_yy': c,
+        'det_H': det,
+        'trace_H': trace,
+        'signature_kind': kind,
+        'required_signature_for_pin': required,
+        'signature_matches_pin_role': matches,
+        'morse_nondegenerate': det != 0,
+        'gaussian_density_factor_bounded': False,
+        'meaning': (
+            'exact Sylvester signature test for pin Hessian role; '
+            'not a Kac-Rice density bound'
+        ),
     }
 
 

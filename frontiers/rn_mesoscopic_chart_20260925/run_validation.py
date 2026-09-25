@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 39
+EXPECTED_TESTS = 40
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -101,6 +101,10 @@ MUTANTS = {
     'claim_height_r_absorbed': (
         "'explicit_r_factor_still_required': True,\n        'height_r_absorbed_into_uniform_bound': False,",
         "'explicit_r_factor_still_required': False,\n        'height_r_absorbed_into_uniform_bound': True,",
+    ),
+    'claim_pin_signature_always_matches': (
+        "'signature_matches_pin_role': matches,\n        'morse_nondegenerate': det != 0,",
+        "'signature_matches_pin_role': True,\n        'morse_nondegenerate': det != 0,",
     ),
 }
 
