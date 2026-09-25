@@ -280,20 +280,38 @@ def reverse_impact(
 
 
 
-def _validate_edge_shape(graph: dict[str, Any]) -> None:
+def _validate_graph_shape(graph: dict[str, Any]) -> None:
     nodes = graph.get('nodes')
     edges = graph.get('edges')
     if not isinstance(nodes, dict) or not isinstance(edges, list):
         raise ValueError('malformed graph')
+    for nid, node in nodes.items():
+        if not isinstance(nid, str) or not nid or not isinstance(node, dict):
+            raise ValueError('malformed node record')
+        if not isinstance(node.get('classification'), str):
+            raise ValueError('node classification must be string')
+        if 'controlling' in node and type(node['controlling']) is not bool:
+            raise ValueError('node controlling must be exact boolean')
+    seen_edges: set[tuple[str, str, bool, str]] = set()
     for edge in edges:
         if not isinstance(edge, dict) or not {'from', 'to', 'required', 'relation'} <= set(edge):
             raise ValueError('malformed edge record')
+        if not isinstance(edge['from'], str) or not isinstance(edge['to'], str):
+            raise ValueError('edge endpoints must be strings')
+        if type(edge['required']) is not bool:
+            raise ValueError('edge required must be exact boolean')
+        if not isinstance(edge['relation'], str) or not edge['relation']:
+            raise ValueError('edge relation must be nonempty string')
         if edge['from'] not in nodes or edge['to'] not in nodes:
             raise ValueError('edge references missing node')
+        key = (edge['from'], edge['to'], edge['required'], edge['relation'])
+        if key in seen_edges:
+            raise ValueError('duplicate edge record')
+        seen_edges.add(key)
 
 
 def _required_cycle(graph: dict[str, Any]) -> list[str] | None:
-    _validate_edge_shape(graph)
+    _validate_graph_shape(graph)
     visiting: set[str] = set()
     done: set[str] = set()
     stack: list[str] = []
@@ -318,14 +336,19 @@ def _required_cycle(graph: dict[str, Any]) -> list[str] | None:
 
 
 def validate_graph_fail_closed(graph: dict[str, Any]) -> None:
-    _validate_edge_shape(graph)
+    _validate_graph_shape(graph)
     cycle = _required_cycle(graph)
     if cycle:
         raise ValueError('required dependency cycle: ' + ' -> '.join(cycle))
 
 
+def _outgoing_signature(graph: dict[str, Any], nid: str) -> list[tuple[str, bool, str]]:
+    return sorted((e['to'], e['required'], e['relation'])
+                  for e in graph['edges'] if e['from'] == nid)
+
+
 def reverse_impact_between(old_graph: dict[str, Any], new_graph: dict[str, Any]) -> dict[str, Any]:
-    """Reverse impact over UNION(old,new) edges; deleted edges cannot erase impact."""
+    """Fail-closed transition impact over complete nodes and UNION(old,new) edges."""
     validate_graph_fail_closed(old_graph)
     validate_graph_fail_closed(new_graph)
     old_nodes, new_nodes = old_graph['nodes'], new_graph['nodes']
@@ -333,15 +356,20 @@ def reverse_impact_between(old_graph: dict[str, Any], new_graph: dict[str, Any])
     changed: set[str] = set()
     for nid in all_ids:
         if nid not in old_nodes or nid not in new_nodes:
-            changed.add(nid); continue
-        if (old_nodes[nid].get('fingerprint') != new_nodes[nid].get('fingerprint')
-                or old_nodes[nid].get('classification') != new_nodes[nid].get('classification')):
             changed.add(nid)
+            continue
+        if old_nodes[nid] != new_nodes[nid]:
+            changed.add(nid)
+            continue
+        if _outgoing_signature(old_graph, nid) != _outgoing_signature(new_graph, nid):
+            changed.add(nid)
+
     union_edges = {(e['from'], e['to']) for g in (old_graph, new_graph) for e in g['edges']}
     reverse: dict[str, set[str]] = {}
     for child, dep in union_edges:
         reverse.setdefault(dep, set()).add(child)
-    impacted: set[str] = set()
+
+    impacted: set[str] = {nid for nid in changed if nid in new_nodes}
     queue = list(changed)
     seen = set(queue)
     while queue:
@@ -351,18 +379,18 @@ def reverse_impact_between(old_graph: dict[str, Any], new_graph: dict[str, Any])
                 seen.add(child); queue.append(child)
             if child in new_nodes:
                 impacted.add(child)
+
     clone = json.loads(json.dumps(new_graph))
     for nid in sorted(impacted):
         node = clone['nodes'][nid]
         if node.get('classification') in (
             'AUTHOR_SIDE_CANDIDATE', 'AUTHOR_SIDE_REDUCTION', 'COVERED_BY_CANDIDATE',
-            'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING',
+            'PROVED_REVIEWED', 'SUPERSEDED_NONBLOCKING', 'ENGINEERING_CONTROL',
         ) or node.get('controlling'):
             node['classification'] = 'REVALIDATION_REQUIRED'
             node['controlling'] = False
     return {'changed_nodes': sorted(changed), 'impacted': sorted(impacted), 'graph': clone,
-            'meaning': 'union-edge reverse-impact hold; never promotion permission'}
-
+            'meaning': 'complete-record/edge union reverse-impact hold; never promotion permission'}
 
 def closure_report(graph: dict[str, Any]) -> dict[str, Any]:
     """Machine-readable D0–D7 closure report for the campaign queue."""
