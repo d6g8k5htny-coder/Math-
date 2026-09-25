@@ -151,7 +151,8 @@
         "max_saddle_signature_test_recorded": true,
         "quartic_next_order_enumerated": true,
         "quintic_next_order_enumerated": true,
-        "sixth_and_higher_jets_enumerated": false
+        "seventh_and_higher_jets_enumerated": false,
+        "sextic_next_order_enumerated": true
       },
       "C_thin_belt": {
         "bare_1_over_abs_y2_L1": false,
@@ -181,7 +182,7 @@
       "conditioned_hessian_expectation",
       "thin_belt_contact_gaussian_density_near_y2_0",
       "transverse_height_r_absorption",
-      "pin_sixth_and_higher_jets"
+      "pin_seventh_and_higher_jets"
     ],
     "target": "gamma_AB_le_C_r_to_minus_d"
   },
@@ -455,7 +456,7 @@
       "z2": "1/20"
     },
     "contact_rows_enumerated": true,
-    "enumeration_scope": "leading_morse_plus_cubic_quartic_quintic",
+    "enumeration_scope": "leading_morse_plus_cubic_quartic_quintic_sextic",
     "frame": {
       "annulus_A": "2/5",
       "annulus_B": "1",
@@ -487,7 +488,7 @@
       "trace_H": "0"
     },
     "legacy_24jet_discharged": false,
-    "meaning": "leading Morse pin-site rows J=H z plus cubic/quartic/quintic H/Q/P_*_next; sixth-and-higher jets and Gaussian density remain open",
+    "meaning": "leading Morse pin-site rows J=H z plus cubic/quartic/quintic/sextic H/Q/P/S_*_next; seventh-and-higher jets and Gaussian density remain open",
     "midpoint_U0_rows_applicable": false,
     "next_order_rows": {
       "H_grad_next_1": "0",
@@ -508,6 +509,7 @@
     "pin_site_next_order_enumerated": true,
     "pin_site_quartic_enumerated": true,
     "pin_site_quintic_enumerated": true,
+    "pin_site_sextic_enumerated": true,
     "pr7_fixed_annulus_A_gt_1": false,
     "quartic_rows": {
       "Q_grad_next_1": "0",
@@ -535,7 +537,6 @@
       "f_xxyyy": "0",
       "f_xyyyy": "0",
       "f_yyyyy": "120",
-      "sixth_and_higher_jets_enumerated": false,
       "unmatched_density_r_power": 3,
       "z1": "0",
       "z2": "1/20",
@@ -545,6 +546,24 @@
       "grad": 1,
       "gradient_jacobian_r_power": 2,
       "height": 2
+    },
+    "sextic_rows": {
+      "S_grad_next_1": "0",
+      "S_grad_next_2": "3/1600000",
+      "S_height_next": "1/64000000",
+      "explicit_r_factor_still_required": true,
+      "f_xxxxxx": "0",
+      "f_xxxxxy": "0",
+      "f_xxxxyy": "0",
+      "f_xxxyyy": "0",
+      "f_xxyyyy": "0",
+      "f_xyyyyy": "0",
+      "f_yyyyyy": "720",
+      "seventh_and_higher_jets_enumerated": false,
+      "unmatched_density_r_power": 4,
+      "z1": "0",
+      "z2": "1/20",
+      "z_dot_S_grad_next_minus_6_S_height_next": "0"
     },
     "status": "OPEN_HIGHER_JETS_AND_DENSITY",
     "uniform_integrand_bound_proved": false

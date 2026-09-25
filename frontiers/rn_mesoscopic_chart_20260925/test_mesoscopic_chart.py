@@ -349,16 +349,20 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(frame['dist2_to_closer_pin'], Q(1, 400))
         led = m.pin_centered_ledger_for_point(
             y, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3, f_yyy=6, f_yyyy=24,
-            f_yyyyy=120)
+            f_yyyyy=120, f_yyyyyy=720)
         self.assertEqual(led['chart'], 'C_pin_centered')
         self.assertFalse(led['midpoint_U0_rows_applicable'])
         self.assertTrue(led['pin_site_jet_rows_enumerated'])
         self.assertTrue(led['pin_site_next_order_enumerated'])
         self.assertTrue(led['pin_site_quartic_enumerated'])
         self.assertTrue(led['pin_site_quintic_enumerated'])
+        self.assertTrue(led['pin_site_sextic_enumerated'])
         self.assertFalse(led['pin_site_higher_jets_enumerated'])
         self.assertTrue(led['contact_rows_enumerated'])
-        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_quartic_quintic')
+        self.assertEqual(
+            led['enumeration_scope'],
+            'leading_morse_plus_cubic_quartic_quintic_sextic',
+        )
         self.assertEqual(led['contact_rows']['J_grad_1'], 0)  # H_xy z2 with H_xy=0,z1=0
         self.assertEqual(led['contact_rows']['J_grad_2'], Q(3, 20))  # H_yy z2
         self.assertEqual(led['contact_rows']['J_height'], Q(3, 800))  # (1/2) H_yy z2^2
@@ -382,7 +386,14 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(led['quintic_rows']['P_height_next'], Q(1, 3200000))
         self.assertEqual(led['quintic_rows']['z_dot_P_grad_next_minus_5_P_height_next'], 0)
         self.assertEqual(led['quintic_rows']['unmatched_density_r_power'], 3)
-        self.assertFalse(led['quintic_rows']['sixth_and_higher_jets_enumerated'])
+        # z=(0,1/20), f_yyyyyy=720 => S_grad_2=(1/120)*720*(1/3200000)=3/1600000,
+        # S_height=(1/720)*720*(1/64000000)=1/64000000
+        self.assertEqual(led['sextic_rows']['S_grad_next_1'], 0)
+        self.assertEqual(led['sextic_rows']['S_grad_next_2'], Q(3, 1600000))
+        self.assertEqual(led['sextic_rows']['S_height_next'], Q(1, 64000000))
+        self.assertEqual(led['sextic_rows']['z_dot_S_grad_next_minus_6_S_height_next'], 0)
+        self.assertEqual(led['sextic_rows']['unmatched_density_r_power'], 4)
+        self.assertFalse(led['sextic_rows']['seventh_and_higher_jets_enumerated'])
         self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
         self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         self.assertEqual(led['hessian_signature']['signature_kind'], 'INDEFINITE_SADDLE')
@@ -417,10 +428,34 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(rows['P_height_next'], 32)  # (1/120)*120*32
         self.assertEqual(rows['z_dot_P_grad_next_minus_5_P_height_next'], 0)
         self.assertEqual(rows['unmatched_density_r_power'], 3)
-        self.assertFalse(rows['sixth_and_higher_jets_enumerated'])
         with self.assertRaises(ValueError):
             m.pin_site_morse_quintic_rows(
                 0, 0, f_xxxxx=1, f_xxxxy=0, f_xxxyy=0, f_xxyyy=0, f_xyyyy=0, f_yyyyy=0)
+
+    def test_pin_site_morse_sextic_rows(self):
+        rows = m.pin_site_morse_sextic_rows(
+            1, 2,
+            f_xxxxxx=0, f_xxxxxy=0, f_xxxxyy=0, f_xxxyyy=0,
+            f_xxyyyy=0, f_xyyyyy=0, f_yyyyyy=720)
+        self.assertEqual(rows['S_grad_next_1'], 0)
+        self.assertEqual(rows['S_grad_next_2'], 192)  # (1/120)*720*32
+        self.assertEqual(rows['S_height_next'], 64)  # (1/720)*720*64
+        self.assertEqual(rows['z_dot_S_grad_next_minus_6_S_height_next'], 0)
+        self.assertEqual(rows['unmatched_density_r_power'], 4)
+        self.assertFalse(rows['seventh_and_higher_jets_enumerated'])
+        mixed = m.pin_site_morse_sextic_rows(
+            1, 1,
+            f_xxxxxx=720, f_xxxxxy=0, f_xxxxyy=0, f_xxxyyy=0,
+            f_xxyyyy=0, f_xyyyyy=0, f_yyyyyy=0)
+        self.assertEqual(mixed['S_grad_next_1'], 6)  # (1/120)*720
+        self.assertEqual(mixed['S_grad_next_2'], 0)
+        self.assertEqual(mixed['S_height_next'], 1)  # (1/720)*720
+        self.assertEqual(mixed['z_dot_S_grad_next_minus_6_S_height_next'], 0)
+        with self.assertRaises(ValueError):
+            m.pin_site_morse_sextic_rows(
+                0, 0,
+                f_xxxxxx=1, f_xxxxxy=0, f_xxxxyy=0, f_xxxyyy=0,
+                f_xxyyyy=0, f_xyyyyy=0, f_yyyyyy=0)
 
     def test_pin_site_morse_next_order_rows(self):
         rows = m.pin_site_morse_next_order_rows(1, 2, f_xxx=0, f_xxy=0, f_xyy=0, f_yyy=6)
@@ -584,7 +619,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['quartic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['quintic_next_order_enumerated'])
-        self.assertFalse(inv['charts']['C_pin_centered']['sixth_and_higher_jets_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['sextic_next_order_enumerated'])
+        self.assertFalse(inv['charts']['C_pin_centered']['seventh_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_transverse']['gradient_contact_jacobian_enumerated'])
@@ -596,7 +632,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
-        self.assertIn('pin_sixth_and_higher_jets', inv['open_blockers'])
+        self.assertIn('pin_seventh_and_higher_jets', inv['open_blockers'])
+        self.assertNotIn('pin_sixth_and_higher_jets', inv['open_blockers'])
         # Every chart still blocks the global density bound.
         for chart, row in inv['charts'].items():
             self.assertFalse(row['contact_gaussian_density_bounded'], chart)
