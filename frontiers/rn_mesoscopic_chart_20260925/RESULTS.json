@@ -46,6 +46,28 @@
     "uniform_chart_bound": "1/2"
   },
   "axial_gradient_jacobian_r_power": 4,
+  "axial_height_grad_x_shared_mark": {
+    "J_grad_x": "24",
+    "J_height": "16",
+    "axial_area_measure_zero": true,
+    "chart": "C_axial",
+    "contact_gaussian_density_bounded": false,
+    "explicit_r_factor_still_required": false,
+    "grad_x_scaling_exponent": 2,
+    "height_minus_y1_over_3_times_grad_x": "0",
+    "height_over_grad_x_factor_y1_over_3": "2/3",
+    "height_scaling_exponent": 3,
+    "meaning": "exact J_height=(y1/3)J_grad_x via shared gap mark k; distinct scalings keep unmatched height r at 0; density still unbound",
+    "no_unmatched_height_r_at_leading_order": true,
+    "object": "RN-MESOSCOPIC-AXIAL-HEIGHT-GRAD-X-SHARED-MARK-20260925-v1",
+    "shared_gap_mark_coordinate": "k",
+    "shared_mark_forces_unmatched_height_r": false,
+    "unmatched_height_density_r_power": 0,
+    "y": {
+      "y1": "2",
+      "y2": "0"
+    }
+  },
   "axial_height_independence": {
     "J_grad_x": "24",
     "J_grad_y": "4",
@@ -230,6 +252,7 @@
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
         "gradient_contact_jacobian_enumerated": true,
+        "height_grad_x_shared_mark_identity_recorded": true,
         "height_independent_at_leading_axial_order": true,
         "hessian_conditioned_expectation_evaluated": false,
         "integrand_power_identity_recorded": true,

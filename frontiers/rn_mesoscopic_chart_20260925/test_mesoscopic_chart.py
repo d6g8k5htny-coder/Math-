@@ -331,6 +331,25 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.axial_height_independence_ledger(m.point(0, 2))
 
+    def test_axial_height_grad_x_shared_mark_ledger(self):
+        led = m.axial_height_grad_x_shared_mark_ledger(m.point(2, 0), gap_mark=1, f_xxy=2)
+        self.assertEqual(led['shared_gap_mark_coordinate'], 'k')
+        self.assertEqual(led['height_over_grad_x_factor_y1_over_3'], Q(2, 3))
+        self.assertEqual(led['height_minus_y1_over_3_times_grad_x'], 0)
+        self.assertEqual(led['J_height'], 16)
+        self.assertEqual(led['J_grad_x'], 24)
+        self.assertEqual(led['grad_x_scaling_exponent'], 2)
+        self.assertEqual(led['height_scaling_exponent'], 3)
+        self.assertFalse(led['shared_mark_forces_unmatched_height_r'])
+        self.assertEqual(led['unmatched_height_density_r_power'], 0)
+        self.assertTrue(led['no_unmatched_height_r_at_leading_order'])
+        self.assertFalse(led['contact_gaussian_density_bounded'])
+        other = m.axial_height_grad_x_shared_mark_ledger(m.point(-3, 0), gap_mark=2, f_xxy=1)
+        self.assertEqual(other['height_minus_y1_over_3_times_grad_x'], 0)
+        self.assertEqual(other['height_over_grad_x_factor_y1_over_3'], -1)
+        with self.assertRaises(ValueError):
+            m.axial_height_grad_x_shared_mark_ledger(m.point(0, 2))
+
     def test_chart_boundary_transition(self):
         y = m.point(2, Q(1, 4))  # |y2|=floor; in annulus, off pins
         self.assertTrue(m.transverse_chart_ok(y))
@@ -689,6 +708,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_axial']['area_measure_zero_in_2d'])
         self.assertTrue(inv['charts']['C_axial']['height_independent_at_leading_axial_order'])
         self.assertTrue(inv['charts']['C_axial']['no_unmatched_height_r_at_leading_order'])
+        self.assertTrue(inv['charts']['C_axial']['height_grad_x_shared_mark_identity_recorded'])
         self.assertFalse(inv['charts']['C_thin_belt']['bare_1_over_abs_y2_L1'])
         self.assertTrue(inv['charts']['C_thin_belt']['jet_map_pointwise_cancel_recorded'])
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])

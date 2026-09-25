@@ -79,6 +79,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bare-conditioning bound `2/y1^2 ≤ 2/A^2` on `C_axial` (chart singularity cleared; area-measure zero; Gaussian density still open);
 - unmatched transverse height density `r^1` from `H_height_next` (explicitly not absorbed);
 - axial height independence at leading order (`J_height=2k y1^3`; unmatched height `r`-power `0`; area-measure zero);
+- exact axial shared-gap-mark identity `J_height=(y1/3)J_grad_x` (distinct scalings `p_x=2`,`p_height=3` keep unmatched height `r` at 0);
 - pin-site leading Morse contact rows `J_grad = H_pin z`, `J_height = (1/2) z·H·z` with max/saddle Hessian signature test;
 - pin-site cubic next-order rows `H_grad_next = (1/2)D³f(z,z)`, `H_height_next = (1/6)D³f(z,z,z)` with `z·H_grad_next = 3 H_height_next`;
 - pin-site quartic residuals `Q_grad_next = (1/6)D⁴f(z,z,z)`, `Q_height_next = (1/24)D⁴f(z,z,z,z)` with `z·Q_grad_next = 4 Q_height_next`;
@@ -121,7 +122,7 @@ Hence axial scalings are `p_x=2`, `p_y=2`, `p_height=3`, and the gradient Jacobi
     J_grad_x = 6k y1^2,
     J_height = 2k y1^3.
 
-Height is already independent at this axial leading order (cubic mark).
+Height is already independent at this axial leading order (cubic mark). Exact shared-gap-mark identity: `J_height = (y1/3) J_grad_x`; distinct scalings keep unmatched height `r` at 0.
 
 ## 4.6 Cover inventory, thin belt, and near-pin diagnosis
 

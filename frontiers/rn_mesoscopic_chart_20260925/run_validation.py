@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 57
+EXPECTED_TESTS = 58
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -105,6 +105,10 @@ MUTANTS = {
     'claim_density_from_axial_height_independence': (
         "'no_unmatched_height_r_at_leading_order': True,\n        'axial_area_measure_zero': True,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'axial J_height=2k y1^3 is independent at leading order; '\n            'no unmatched height r^1 (unlike C_transverse); density still unbound'\n        ),",
         "'no_unmatched_height_r_at_leading_order': True,\n        'axial_area_measure_zero': True,\n        'contact_gaussian_density_bounded': True,\n        'meaning': (\n            'axial J_height=2k y1^3 is independent at leading order; '\n            'no unmatched height r^1 (unlike C_transverse); density still unbound'\n        ),",
+    ),
+    'claim_density_from_axial_shared_mark': (
+        "'shared_mark_forces_unmatched_height_r': False,\n        'unmatched_height_density_r_power': 0,\n        'explicit_r_factor_still_required': False,\n        'no_unmatched_height_r_at_leading_order': True,\n        'axial_area_measure_zero': True,\n        'contact_gaussian_density_bounded': False,\n        'meaning': (\n            'exact J_height=(y1/3)J_grad_x via shared gap mark k; '\n            'distinct scalings keep unmatched height r at 0; density still unbound'\n        ),",
+        "'shared_mark_forces_unmatched_height_r': True,\n        'unmatched_height_density_r_power': 0,\n        'explicit_r_factor_still_required': False,\n        'no_unmatched_height_r_at_leading_order': True,\n        'axial_area_measure_zero': True,\n        'contact_gaussian_density_bounded': True,\n        'meaning': (\n            'exact J_height=(y1/3)J_grad_x via shared gap mark k; '\n            'distinct scalings keep unmatched height r at 0; density still unbound'\n        ),",
     ),
     'claim_pin_signature_always_matches': (
         "'signature_matches_pin_role': matches,\n        'morse_nondegenerate': det != 0,",
