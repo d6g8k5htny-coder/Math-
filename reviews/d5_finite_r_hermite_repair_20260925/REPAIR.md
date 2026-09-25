@@ -9,7 +9,7 @@ Let the longitudinal coordinate be x, transverse coordinate z, midpoint 0, pins 
     f(M)=b,       f(S)=b-k r^3,
     grad f(M)=0,  grad f(S)=0.
 
-Write midpoint derivatives f_{ij...}=D_{x^i z^j} f(0). Assume a uniformly bounded C^6 jet on the fixed scaled chart and Taylor the exact pin equations symmetrically before taking r→0. The displayed O(r^4) midpoint-derivative remainders below use this C^6 control; weaker regularity gives correspondingly weaker remainder notation without changing the exact polynomial witness.
+Write midpoint derivatives f_{ij...}=D_{x^i z^j} f(0). Assume a uniformly bounded C^6 jet on an open neighbourhood of the entire square |x|,|z| <= B r (B >= 1), including the midpoint, pins and every Taylor segment to the witness, and Taylor the exact pin equations symmetrically before taking r→0. An annulus-only bound that omits those segments is not sufficient. The displayed O(r^4) midpoint-derivative remainders below use this C^6 control; weaker regularity gives correspondingly weaker remainder notation without changing the exact polynomial witness.
 
 ## Longitudinal finite-r Hermite identities
 
@@ -80,3 +80,7 @@ The leading transverse height row remains (v/2) times the leading transverse gra
 4. Higher-jet identities built from the unshifted midpoint law must not be promoted merely because their algebra is internally consistent.
 
 This repair candidate should be checked by a distinct lane and then incorporated by the PR9 author, with all dependent Jacobian/Hessian/height/RESULTS fingerprints regenerated from finite-r pin-compatible formulas.
+
+## Quantified follow-through
+
+[C6_REMAINDERS.md](C6_REMAINDERS.md) gives explicit bounds for seven midpoint identities and four scaled remainders, with their derivative-domain assumptions. The additional oracle solves all six finite-r pin equations by rational linear algebra across all 22 free monomial directions through total degree six; it does not construct fixtures using the contact formulas under test. The original cubic witness module and its five tests are byte-identical to the earlier PR19 source. Run `python -B -S run_validation.py --output NEW_DIRECTORY_OUTSIDE_THIS_TREE` for both-mode tests and three missing-pin-term mutants. This author-side validation does not supply the outstanding independent review or conditional Gaussian moment estimates.
