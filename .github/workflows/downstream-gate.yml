@@ -1,7 +1,7 @@
 name: Downstream hard-gate exact replay
 'on':
   push:
-    branches: [cursor/downstream-hard-gate-91fa]
+    branches: [cursor/downstream-hard-gate-91fa, cursor/d5-chart-j0-on-hotfix-91fa]
   pull_request:
     paths: ['frontiers/downstream_gate_20260925/**', '.github/workflows/downstream-gate.yml']
   workflow_dispatch:
@@ -60,15 +60,15 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 32 or report['distinct_semantic_mutations'] != 10:
+          if not report['passed'] or report['distinct_tests'] != 33 or report['distinct_semantic_mutations'] != 10:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
               'run': os.environ['GITHUB_RUN_ID'],
               'sha': os.environ['GITHUB_SHA'],
               'python': sys.version,
-              'new_distinct_tests': 32,
+              'new_distinct_tests': 33,
               'regression_distinct_tests': 177,
-              'total_distinct_tests': 209,
+              'total_distinct_tests': 210,
               'new_semantic_mutations': 10,
               'source_files_verified': len(pins),
               'lemma_closed': False,

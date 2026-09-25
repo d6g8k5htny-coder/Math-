@@ -32,6 +32,6 @@ python -B -O -S -m unittest -v test_hard_gate
 python -B -S run_validation.py --output /tmp/downstream-gate-new-run
 ```
 
-Choose a new output directory outside this source tree. The suite has 32 distinct tests and ten semantic mutations. Required REFUTED premises block; reverse impact uses the union of old and new edges so edge deletion cannot erase revalidation.
+Choose a new output directory outside this source tree. The suite has 33 distinct tests and ten semantic mutations. Required REFUTED premises block; reverse impact uses the union of old and new edges so edge deletion cannot erase revalidation.
 
 See also the [D0 CI unblock recipe](D0_CI_UNBLOCK.md) (portable patch for main PR87) and the [selector×region inventory](SELECTOR_REGION.json).

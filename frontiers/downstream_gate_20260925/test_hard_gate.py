@@ -68,6 +68,22 @@ class HardGateControls(unittest.TestCase):
         deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-reduction')
         self.assertEqual(deps, ['math.rn-fixed-remote-window'])
 
+    def test_chart_j0_complements_pr7_reduction(self):
+        node = self.graph['nodes']['math.rn-mesoscopic-chart-j0']
+        self.assertEqual(node['classification'], 'AUTHOR_SIDE_CANDIDATE')
+        self.assertFalse(node['controlling'])
+        self.assertEqual(node['review_pr'], 9)
+        self.assertEqual(
+            node['fingerprint'],
+            '5c8e2f85d0470e6806a39703ac9ebe822cc2b541',
+        )
+        deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-chart-j0')
+        self.assertEqual(deps, ['math.rn-mesoscopic-reduction'])
+        decision = m.promotion_allowed(self.graph, 'math.rn-mesoscopic-chart-j0')
+        self.assertFalse(decision['allowed'])
+        self.assertIn('PR9', self.graph['nodes'][
+            'math.rn-region.mesoscopic-scaled-annulus']['notes'])
+
     def test_blocked_absent_forces_hold_on_historical_env(self):
         blocked = m.blocked_absent_hold(self.graph, 'hist.ENV-RESCOV')
         self.assertEqual(blocked, ['hist.rnu_env.py'])
@@ -188,6 +204,11 @@ class HardGateControls(unittest.TestCase):
         ch = table['selectors']['CH-LIFT']
         self.assertEqual(ch['fixed-remote'], 'BYPASSED_BY_FIXED_RHO')
         self.assertEqual(ch['mesoscopic-scaled-annulus'], 'REOPENED')
+        piece = table['selectors']['Piece-2-annulus']
+        self.assertEqual(
+            piece['mesoscopic-scaled-annulus'],
+            'PARTIAL_PR7_REDUCTION_PLUS_PR9_CHART_ROWS',
+        )
         # Every open complement region still has at least one non-closed selector cell.
         open_regions = {c['region'] for c in report['open_or_partial_cells']}
         for region in (
