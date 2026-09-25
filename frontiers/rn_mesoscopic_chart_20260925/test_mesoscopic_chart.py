@@ -643,6 +643,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_thin_belt']['jet_map_pointwise_cancel_recorded'])
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
         self.assertTrue(inv['charts']['C_thin_belt']['residual_geometric_factor_locally_L1'])
+        self.assertTrue(inv['charts']['C_thin_belt']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertFalse(inv['charts']['C_thin_belt']['uniform_integrand_bound_proved'])
         self.assertTrue(inv['charts']['C_pin_centered']['leading_morse_rows_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['cubic_next_order_enumerated'])
@@ -843,10 +844,32 @@ class MesoscopicChartControls(unittest.TestCase):
         bundled = m.contact_integrand_algebraic_factor_skeleton_inventory()
         self.assertFalse(bundled['global_contact_density_bound_proved'])
         self.assertEqual(bundled['C_transverse']['algebraic_jacobian_times_det_abs'], 3)
+        self.assertTrue(bundled['C_thin_belt']['reciprocal_diverges_as_y2_to_0'])
         with self.assertRaises(ValueError):
             m.transverse_contact_integrand_algebraic_factor_skeleton(m.point(2, 0))
         with self.assertRaises(ValueError):
             m.axial_contact_integrand_algebraic_factor_skeleton(m.point(0, 2))
+
+    def test_thin_belt_contact_integrand_algebraic_factor_skeleton(self):
+        # y=(2,1/8), f_yy=2,f_xxy=0: J_y=1/4, |det J|=1/1024, reciprocal=1024
+        # α_k=48, det=48, product=49152
+        t = m.thin_belt_contact_integrand_algebraic_factor_skeleton(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+        self.assertEqual(t['abs_det_grad_contact_map'], Q(1, 1024))
+        self.assertEqual(t['reciprocal_grad_contact_jacobian'], 1024)
+        self.assertEqual(t['alpha_k'], 48)
+        self.assertEqual(t['alpha_f_xxy'], Q(1, 4))
+        self.assertEqual(t['det_contact_leading_from_alphas'], 48)
+        self.assertEqual(t['algebraic_jacobian_times_det_abs'], 49152)
+        self.assertEqual(t['product_minus_factors'], 0)
+        self.assertTrue(t['reciprocal_diverges_as_y2_to_0'])
+        self.assertTrue(t['contact_integrand_algebraic_factor_skeleton_enumerated'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        self.assertFalse(t['uniform_integrand_bound_proved'])
+        with self.assertRaises(ValueError):
+            m.thin_belt_contact_integrand_algebraic_factor_skeleton(m.point(0, 2))
+        with self.assertRaises(ValueError):
+            m.thin_belt_contact_integrand_algebraic_factor_skeleton(m.point(2, 0))
 
 
 if __name__ == '__main__':

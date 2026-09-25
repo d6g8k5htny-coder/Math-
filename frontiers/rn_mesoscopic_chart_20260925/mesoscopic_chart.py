@@ -275,6 +275,68 @@ def thin_belt_integrand_residual_after_cancel(
     }
 
 
+def thin_belt_contact_integrand_algebraic_factor_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Exact algebraic Jacobian×|det H| factor product on C_thin_belt (density open).
+
+    Same algebraic identities as C_transverse (shared jet polynomials):
+      |det ∂(J_y,J_x)/∂(f_yy,f_xyy)| = |y2|^3 / 2
+      det_contact_leading = α_k·k + α_f_xxy·f_xxy
+        with α_k = 12 y1 J_grad_y / y2, α_f_xxy = J_grad_y
+    As y2→0 the reciprocal Jacobian 2/|y2|^3 diverges, recording the open
+    thin-belt contact Gaussian density obstruction near y2=0. Jet-map cancel
+    of bare 1/|y2| is already recorded separately; this ledger does not bound
+    the density.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = thin_belt_contact_rows(
+        y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d,
+    )
+    jy = rows['J_grad_y']
+    abs_y2 = abs(y2)
+    abs_det_jac = (abs_y2 ** 3) / 2
+    reciprocal_jac = 1 / abs_det_jac
+    alpha_k = (12 * y1 * jy) / y2
+    alpha_f = jy
+    det_from_alphas = alpha_k * k + alpha_f * b
+    abs_det_h = abs(det_from_alphas)
+    algebraic_product = reciprocal_jac * abs_det_h
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'abs_det_grad_contact_map': abs_det_jac,
+        'reciprocal_grad_contact_jacobian': reciprocal_jac,
+        'alpha_k': alpha_k,
+        'alpha_f_xxy': alpha_f,
+        'det_contact_leading_from_alphas': det_from_alphas,
+        'det_contact_leading_abs': abs_det_h,
+        'algebraic_jacobian_times_det_abs': algebraic_product,
+        'product_minus_factors': algebraic_product - reciprocal_jac * abs_det_h,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'contact_integrand_algebraic_factor_skeleton_enumerated': True,
+        'uniform_integrand_bound_proved': False,
+        'contact_gaussian_density_bounded': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact thin-belt product (1/|det J_grad|)·|det H_skeleton|; '
+            'reciprocal diverges as y2→0; Gaussian density near y2=0 still unbound'
+        ),
+    }
+
+
 def transverse_conditioning_uniform_bound(
     y: Coord, *, floor_y2: int | Q = Q(1, 4),
 ) -> dict[str, Q | str | bool]:
@@ -1340,6 +1402,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'jet_map_pointwise_cancel_recorded': True,
                 'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
                 'residual_geometric_factor_locally_L1': True,
+                'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'uniform_integrand_bound_proved': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -1859,16 +1922,20 @@ def axial_contact_integrand_algebraic_factor_skeleton(
 
 def contact_integrand_algebraic_factor_skeleton_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
+    thin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial contact integrand algebraic factor skeletons."""
+    """Bundle transverse/axial/thin-belt contact integrand algebraic factor skeletons."""
     ty = transverse_y if transverse_y is not None else point(0, 2)
     ay = axial_y if axial_y is not None else point(2, 0)
+    thin = thin_y if thin_y is not None else point(2, Q(1, 8))
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1',
         'C_transverse': transverse_contact_integrand_algebraic_factor_skeleton(
             ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6),
         'C_axial': axial_contact_integrand_algebraic_factor_skeleton(
             ay, gap_mark=1, f_yy=2, f_xxy=3),
+        'C_thin_belt': thin_belt_contact_integrand_algebraic_factor_skeleton(
+            thin, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0),
         'global_contact_density_bound_proved': False,
         'conditioned_expectation_evaluated': False,
         'meaning': (

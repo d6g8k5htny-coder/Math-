@@ -228,6 +228,7 @@
         "bare_1_over_abs_y2_L1": false,
         "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
         "contact_gaussian_density_bounded": false,
+        "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "jet_map_pointwise_cancel_recorded": true,
         "residual_geometric_factor_locally_L1": true,
         "uniform_integrand_bound_proved": false
@@ -388,6 +389,34 @@
       "y": {
         "y1": "2",
         "y2": "0"
+      }
+    },
+    "C_thin_belt": {
+      "abs_det_grad_contact_map": "1/1024",
+      "algebraic_jacobian_times_det_abs": "49152",
+      "alpha_f_xxy": "1/4",
+      "alpha_k": "48",
+      "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+      "chart": "C_thin_belt",
+      "contact_gaussian_density_bounded": false,
+      "contact_integrand_algebraic_factor_skeleton_enumerated": true,
+      "det_contact_leading_abs": "48",
+      "det_contact_leading_from_alphas": "48",
+      "floor_y2": "1/4",
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "global_contact_density_bound_proved": false,
+      "meaning": "exact thin-belt product (1/|det J_grad|)\u00b7|det H_skeleton|; reciprocal diverges as y2\u21920; Gaussian density near y2=0 still unbound",
+      "object": "RN-MESOSCOPIC-THIN-BELT-CONTACT-INTEGRAND-ALGEBRAIC-FACTOR-20260925-v1",
+      "product_minus_factors": "0",
+      "reciprocal_diverges_as_y2_to_0": true,
+      "reciprocal_grad_contact_jacobian": "1024",
+      "uniform_integrand_bound_proved": false,
+      "y": {
+        "y1": "2",
+        "y2": "1/8"
       }
     },
     "C_transverse": {

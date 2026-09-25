@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 54
+EXPECTED_TESTS = 55
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -157,6 +157,10 @@ MUTANTS = {
     'claim_thin_belt_density_from_cancel': (
         "'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'uniform_integrand_bound_proved': False,\n        'contact_gaussian_density_bounded': False,\n        'full_density_bound_proved': False,",
         "'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'uniform_integrand_bound_proved': True,\n        'contact_gaussian_density_bounded': True,\n        'full_density_bound_proved': True,",
+    ),
+    'claim_thin_belt_density_from_algebraic_factor': (
+        "'reciprocal_diverges_as_y2_to_0': True,\n        'free_residual_coordinates': ['k', 'f_xxy'],\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'contact_integrand_algebraic_factor_skeleton_enumerated': True,\n        'uniform_integrand_bound_proved': False,\n        'contact_gaussian_density_bounded': False,\n        'global_contact_density_bound_proved': False,",
+        "'reciprocal_diverges_as_y2_to_0': True,\n        'free_residual_coordinates': ['k', 'f_xxy'],\n        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,\n        'contact_integrand_algebraic_factor_skeleton_enumerated': True,\n        'uniform_integrand_bound_proved': True,\n        'contact_gaussian_density_bounded': True,\n        'global_contact_density_bound_proved': True,",
     ),
     'claim_density_from_grad_contact_jacobian': (
         "'global_contact_density_bound_proved': False,\n        'meaning': (\n            'exact algebraic |det| factors for leading gradient contact maps; '\n            'does not bound the contact Gaussian density'\n        ),",
