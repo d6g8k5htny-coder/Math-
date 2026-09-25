@@ -65,6 +65,7 @@
       ],
       "node": "math.rn-fixed-remote-window",
       "reasons": [
+        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
         "required transitive dependency is not terminally classified",
         "evidence consists only of non-discharge tokens"
       ],
@@ -79,6 +80,7 @@
       "missing_terminal": [],
       "node": "hist.ENV-RESCOV",
       "reasons": [
+        "node classification is not eligible for positive CONTROLLING status: OPEN_HISTORICAL",
         "required BLOCKED_ABSENT dependency forces HOLD"
       ],
       "required_dependencies": [
@@ -98,6 +100,7 @@
       ],
       "node": "math.lifetime-remainder",
       "reasons": [
+        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
         "required transitive dependency is not terminally classified"
       ],
       "required_dependencies": [
@@ -117,6 +120,7 @@
       ],
       "node": "eng.main-pr87-crosswalk",
       "reasons": [
+        "node classification is not eligible for positive CONTROLLING status: HOLD",
         "required transitive dependency is not terminally classified"
       ],
       "required_dependencies": [
@@ -136,6 +140,7 @@
       ],
       "node": "math.side24-coefficient",
       "reasons": [
+        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
         "required transitive dependency is not terminally classified"
       ],
       "required_dependencies": [
