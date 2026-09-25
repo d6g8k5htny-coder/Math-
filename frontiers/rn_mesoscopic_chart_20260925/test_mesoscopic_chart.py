@@ -32,8 +32,34 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(scale['gradient_jacobian_r_power'], 3)
         self.assertEqual(scale['spatial_volume_r_power'], 2)
         self.assertEqual(scale['height_window_r_power'], 3)
+        axial = m.witness_scaling_determinant_power(2, chart='C_axial')
+        self.assertEqual(axial['gradient_scaling_exponents'], (2, 2))
+        self.assertEqual(axial['height_scaling_exponent'], 3)
+        self.assertEqual(axial['gradient_jacobian_r_power'], 4)
         with self.assertRaises(ValueError):
             m.witness_scaling_determinant_power(3)
+        with self.assertRaises(ValueError):
+            m.witness_scaling_determinant_power(2, chart='nope')
+
+    def test_axial_chart_membership(self):
+        self.assertTrue(m.axial_chart_ok(m.point(2, 0)))
+        self.assertFalse(m.axial_chart_ok(m.point(2, 1)))
+        self.assertFalse(m.axial_chart_ok(m.point(Q(1, 2), 0)))
+        self.assertFalse(m.transverse_chart_ok(m.point(2, 0)))
+
+    def test_axial_contact_rows(self):
+        rows = m.axial_contact_rows(m.point(2, 0), gap_mark=1, f_xxy=4)
+        self.assertEqual(rows['J_grad_y'], 8)   # (4*4)/2
+        self.assertEqual(rows['J_grad_x'], 24)  # 6*1*4
+        self.assertEqual(rows['J_height'], 16)  # 2*1*8
+        led = m.axial_ledger_for_point(m.point(-2, 0), gap_mark=2, f_xxy=1)
+        self.assertEqual(led['gradient_jacobian_r_power'], 4)
+        self.assertTrue(led['height_independent_at_leading_axial_order'])
+        self.assertFalse(led['full_annulus_closed'])
+
+    def test_axial_refuses_transverse_point(self):
+        with self.assertRaises(ValueError):
+            m.axial_contact_rows(m.point(0, 2), gap_mark=1, f_xxy=1)
 
     def test_contact_rows_sample(self):
         rows = m.contact_rows(m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
@@ -105,19 +131,21 @@ class MesoscopicChartControls(unittest.TestCase):
         rows = m.contact_rows(m.point(0, 2), gap_mark=1, f_yy=0, f_xxy=0, f_xyy=0, f_yyy=6)
         self.assertEqual(rows['H_height_next'], 8)  # (6*8)/6 = 8
 
-
     def test_results_bytes(self):
         payload = m.result()
         pinned = json.loads((ROOT / 'RESULTS.json').read_text())
         self.assertEqual(payload, pinned)
         self.assertEqual(payload['gradient_jacobian_r_power'], 3)
+        self.assertEqual(payload['axial_gradient_jacobian_r_power'], 4)
         self.assertTrue(payload['sample_points_ok'])
+        self.assertTrue(payload['axial_points_ok'])
 
     def test_sample_points_cover_signs(self):
         ys = m.sample_points()
         self.assertTrue(any(y[1] > 0 for y in ys))
         self.assertTrue(any(y[1] < 0 for y in ys))
         self.assertTrue(all(m.transverse_chart_ok(y) for y in ys))
+        self.assertTrue(all(m.axial_chart_ok(y) for y in m.sample_axial_points()))
 
 
 if __name__ == '__main__':

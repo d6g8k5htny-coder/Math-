@@ -1,4 +1,40 @@
 {
+  "axial_gradient_jacobian_r_power": 4,
+  "axial_points_ok": true,
+  "axial_sample": {
+    "chart": "C_axial",
+    "complements_pr7": true,
+    "contact_rows": {
+      "J_grad_x": "24",
+      "J_grad_y": "4",
+      "J_height": "16"
+    },
+    "full_annulus_closed": false,
+    "gradient_jacobian_r_power": 4,
+    "height_independent_at_leading_axial_order": true,
+    "hessian_ledger_evaluated": false,
+    "independent_analytic_acceptance": false,
+    "legacy_24jet_discharged": false,
+    "meaning": "exact d=2 axial chart contact rows and gradient Jacobian r-power 4; not a continuum Gaussian evaluation",
+    "object": "RN-MESOSCOPIC-CHART-J0-D2-AXIAL-20260925-v1",
+    "scaling": {
+      "chart": "C_axial",
+      "dimension": 2,
+      "gradient_jacobian_r_power": 4,
+      "gradient_scaling_exponents": [
+        2,
+        2
+      ],
+      "height_scaling_exponent": 3,
+      "height_window_r_power": 3,
+      "meaning": "det scaling for raw->J gradient map is r^(p_x+p_y); height scaling is recorded separately for the mark integral",
+      "spatial_volume_r_power": 2
+    },
+    "y": {
+      "y1": "2",
+      "y2": "0"
+    }
+  },
   "chart": "C_transverse",
   "complements_pr7": true,
   "contact_rows": {

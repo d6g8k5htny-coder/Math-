@@ -57,6 +57,17 @@ def transverse_chart_ok(y: Coord, *, inner: int | Q = 2, outer: int | Q = 4,
     )
 
 
+def axial_chart_ok(y: Coord, *, inner: int | Q = 2, outer: int | Q = 4,
+                   margin: int | Q = Q(1, 10)) -> bool:
+    """Chart C_axial: y2=0, |y1| in the annulus, away from scaled pin sites ±1/2."""
+    y1, y2 = y
+    return (
+        y2 == 0
+        and in_annulus(y, inner, outer)
+        and away_from_pins(y, margin)
+    )
+
+
 # Scaling exponents for raw witness (f_x, f_y, f-b) -> divided-difference J in this chart.
 # Derived from the contact Taylor jet with U_0=(f,f_x,f_xx,f_xxx,f_y,f_xy)=(b,0,0,12k,0,0):
 #   f_y(ry) = r * f_yy * y2 + O(r^2)            => divide by r^1
@@ -68,27 +79,103 @@ SCALING_EXPONENTS = {
     'height': 2,
 }
 
+# On the axis y2=0 the leading f_y and height residuals lose a power of r:
+#   f_y(r y1, 0) = (r^2 y1^2 / 2) f_xxy + O(r^3)           => p_y = 2
+#   f(r y1, 0)-b = 2k r^3 y1^3 + O(r^3 · other 3-jets)     => p_height = 3
+#   f_x still O(r^2)                                       => p_x = 2
+AXIAL_SCALING_EXPONENTS = {
+    'grad_x': 2,
+    'grad_y': 2,
+    'height': 3,
+}
 
-def witness_scaling_determinant_power(dimension: int = 2) -> dict[str, int]:
-    """r-power of det(diag(r^{p_i})) for the witness block on this chart."""
+
+def witness_scaling_determinant_power(dimension: int = 2, *, chart: str = 'C_transverse') -> dict[str, int]:
+    """r-power of det(diag(r^{p_i})) for the witness block on a declared chart."""
     if dimension != 2:
-        raise ValueError('this package enumerates the d=2 transverse chart only')
-    power = SCALING_EXPONENTS['grad_x'] + SCALING_EXPONENTS['grad_y']
-    # Height is the Kac-Rice mark, not part of the gradient-density Jacobian.
+        raise ValueError('this package enumerates d=2 charts only')
+    if chart == 'C_transverse':
+        exponents = SCALING_EXPONENTS
+    elif chart == 'C_axial':
+        exponents = AXIAL_SCALING_EXPONENTS
+    else:
+        raise ValueError('unknown chart')
+    power = exponents['grad_x'] + exponents['grad_y']
     return {
         'dimension': 2,
-        'chart': 'C_transverse',
+        'chart': chart,
         'gradient_scaling_exponents': (
-            SCALING_EXPONENTS['grad_x'],
-            SCALING_EXPONENTS['grad_y'],
+            exponents['grad_x'],
+            exponents['grad_y'],
         ),
-        'height_scaling_exponent': SCALING_EXPONENTS['height'],
+        'height_scaling_exponent': exponents['height'],
         'gradient_jacobian_r_power': power,
         'spatial_volume_r_power': dimension,
         'height_window_r_power': 3,
         'meaning': (
             'det scaling for raw->J gradient map is r^(p_x+p_y); '
             'height scaling is recorded separately for the mark integral'
+        ),
+    }
+
+
+def axial_contact_rows(y: Coord, *, gap_mark: int | Q,
+                       f_xxy: int | Q, f_xyy: int | Q = 0,
+                       f_yyy: int | Q = 0) -> dict[str, Q]:
+    """Contact rows on C_axial (y2=0) after U_0 constraints.
+
+    Leading residuals:
+      J_grad_y = (y1^2 / 2) f_xxy
+      J_grad_x = 6k y1^2
+      J_height = 2k y1^3
+    (height already at the cubic order; p_height=3).
+    """
+    if not axial_chart_ok(y):
+        raise ValueError('point outside C_axial chart')
+    y1, y2 = y
+    k = exact(gap_mark)
+    b = exact(f_xxy)
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    if y2 != 0:
+        raise ValueError('axial chart requires y2=0')
+    return {
+        'J_grad_y': (y1 * y1 * b) / 2,
+        'J_grad_x': 6 * k * y1 * y1,
+        'J_height': 2 * k * y1 ** 3,
+        'y1': y1,
+        'y2': y2,
+        'gap_mark': k,
+        'f_xxy': b,
+        'f_xyy': exact(f_xyy),
+        'f_yyy': exact(f_yyy),
+    }
+
+
+def axial_ledger_for_point(y: Coord, gap_mark: int | Q = 1,
+                           f_xxy: int | Q = 1) -> dict:
+    rows = axial_contact_rows(y, gap_mark=gap_mark, f_xxy=f_xxy)
+    scale = witness_scaling_determinant_power(2, chart='C_axial')
+    return {
+        'object': 'RN-MESOSCOPIC-CHART-J0-D2-AXIAL-20260925-v1',
+        'chart': 'C_axial',
+        'y': {'y1': rows['y1'], 'y2': rows['y2']},
+        'contact_rows': {
+            'J_grad_y': rows['J_grad_y'],
+            'J_grad_x': rows['J_grad_x'],
+            'J_height': rows['J_height'],
+        },
+        'scaling': scale,
+        'gradient_jacobian_r_power': scale['gradient_jacobian_r_power'],
+        'height_independent_at_leading_axial_order': True,
+        'hessian_ledger_evaluated': False,
+        'full_annulus_closed': False,
+        'legacy_24jet_discharged': False,
+        'independent_analytic_acceptance': False,
+        'complements_pr7': True,
+        'meaning': (
+            'exact d=2 axial chart contact rows and gradient Jacobian r-power 4; '
+            'not a continuum Gaussian evaluation'
         ),
     }
 
@@ -235,9 +322,19 @@ def sample_points() -> tuple[Coord, ...]:
     )
 
 
+def sample_axial_points() -> tuple[Coord, ...]:
+    return (
+        point(2, 0),
+        point(-2, 0),
+        point(3, 0),
+        point(-3, 0),
+    )
+
+
 def result() -> dict:
     y = point(0, 2)
     sample = ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+    axial = axial_ledger_for_point(point(2, 0), gap_mark=1, f_xxy=2)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -248,9 +345,14 @@ def result() -> dict:
             return [conv(v) for v in obj]
         return obj
     out = conv(sample)
+    out['axial_sample'] = conv(axial)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
-    out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points())
+    out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
+    out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())
     out['gradient_jacobian_r_power'] = SCALING_EXPONENTS['grad_x'] + SCALING_EXPONENTS['grad_y']
+    out['axial_gradient_jacobian_r_power'] = (
+        AXIAL_SCALING_EXPONENTS['grad_x'] + AXIAL_SCALING_EXPONENTS['grad_y']
+    )
     return out
 
 

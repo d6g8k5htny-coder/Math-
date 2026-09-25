@@ -8,15 +8,19 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 16
+EXPECTED_TESTS = 19
 MUTANTS = {
     'wrong_grad_x_power': (
-        "'grad_x': 2,",
-        "'grad_x': 1,",
+        "'grad_x': 2,\n    'grad_y': 1,",
+        "'grad_x': 1,\n    'grad_y': 1,",
     ),
     'wrong_grad_y_power': (
-        "'grad_y': 1,",
-        "'grad_y': 2,",
+        "'grad_y': 1,\n    'height': 2,\n}",
+        "'grad_y': 2,\n    'height': 2,\n}",
+    ),
+    'wrong_axial_grad_y_power': (
+        "'grad_y': 2,\n    'height': 3,",
+        "'grad_y': 1,\n    'height': 3,",
     ),
     'drop_height_dependence': (
         "return exact(y[1]) / 2",
@@ -27,16 +31,12 @@ MUTANTS = {
         "j_x = b * y1 * y2 + (c * y2 * y2) / 2",
     ),
     'omit_next_height_k': (
-        "2 * k * y1 ** 3",
-        "0 * k * y1 ** 3",
-    ),
-    'claim_height_independent_leading': (
-        "'height_row_independent_at_leading_order': False,",
-        "'height_row_independent_at_leading_order': True,",
+        "h1 = (\n        2 * k * y1 ** 3\n        + (b * y1 * y1 * y2) / 2",
+        "h1 = (\n        0 * k * y1 ** 3\n        + (b * y1 * y1 * y2) / 2",
     ),
     'claim_annulus_closed': (
-        "'full_annulus_closed': False,",
-        "'full_annulus_closed': True,",
+        "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': False,",
+        "'height_next_order_enumerated': True,\n        'hessian_ledger_evaluated': False,\n        'full_annulus_closed': True,",
     ),
 }
 

@@ -76,11 +76,26 @@ The two gradient rows are the independent contact observations for the gradient 
 
 **Still open (explicitly):**
 
-- absorbing the explicit `r` in the height density into a uniform integrand bound;
-- conditioned Hessian ledger on this chart;
-- axial chart `y2→0` and pin-neighbourhood charts;
-- chart overlaps / partition of the annulus;
+- absorbing the explicit `r` in the transverse height density into a uniform integrand bound;
+- conditioned Hessian ledger on either chart;
+- pin-neighbourhood charts and chart overlaps / partition of the annulus;
 - any numerical RN / 24-jet certificate.
+
+## 4.5 Axial chart C_axial
+
+On `y2=0` with `|y1|` in the annulus and away from `±1/2`, the leading transverse `f_y` and height powers drop:
+
+    f_y(r y1, 0) = (r^2 y1^2 / 2) f_xxy + O(r^3),
+    f_x(r y1, 0) = (r^2/2)(12k y1^2) + O(r^3),
+    f(r y1, 0)−b = 2k r^3 y1^3 + O(r^3 · other 3-jets).
+
+Hence axial scalings are `p_x=2`, `p_y=2`, `p_height=3`, and the gradient Jacobian power is `r^4`. Contact rows:
+
+    J_grad_y = (y1^2 / 2) f_xxy,
+    J_grad_x = 6k y1^2,
+    J_height = 2k y1^3.
+
+Height is already independent at this axial leading order (cubic mark). Pin-neighbourhood charts remain open.
 
 ## 5. Relation to PR7 and #86
 
