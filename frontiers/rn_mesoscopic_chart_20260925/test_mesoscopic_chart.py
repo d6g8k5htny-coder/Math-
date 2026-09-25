@@ -401,7 +401,7 @@ class MesoscopicChartControls(unittest.TestCase):
         led = m.pin_centered_ledger_for_point(
             y, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3, f_yyy=6, f_yyyy=24,
             f_yyyyy=120, f_yyyyyy=720, f_yyyyyyy=5040, f_yyyyyyyy=40320, f_yyyyyyyyy=362880,
-            f_yyyyyyyyyy=3628800, f_yyyyyyyyyyy=39916800)
+            f_yyyyyyyyyy=3628800, f_yyyyyyyyyyy=39916800, f_yyyyyyyyyyyy=479001600)
         self.assertEqual(led['chart'], 'C_pin_centered')
         self.assertFalse(led['midpoint_U0_rows_applicable'])
         self.assertTrue(led['pin_site_jet_rows_enumerated'])
@@ -414,9 +414,10 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(led['pin_site_nonic_enumerated'])
         self.assertTrue(led['pin_site_decic_enumerated'])
         self.assertTrue(led['pin_site_undecic_enumerated'])
+        self.assertTrue(led['pin_site_dodecic_enumerated'])
         self.assertFalse(led['pin_site_higher_jets_enumerated'])
         self.assertTrue(led['contact_rows_enumerated'])
-        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_through_undecic')
+        self.assertEqual(led['enumeration_scope'], 'leading_morse_plus_cubic_through_dodecic')
         self.assertEqual(led['contact_rows']['J_grad_1'], 0)  # H_xy z2 with H_xy=0,z1=0
         self.assertEqual(led['contact_rows']['J_grad_2'], Q(3, 20))  # H_yy z2
         self.assertEqual(led['contact_rows']['J_height'], Q(3, 800))  # (1/2) H_yy z2^2
@@ -482,7 +483,14 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(led['undecic_rows']['E_height_next'], Q(1, 204800000000000))
         self.assertEqual(led['undecic_rows']['z_dot_E_grad_next_minus_11_E_height_next'], 0)
         self.assertEqual(led['undecic_rows']['unmatched_density_r_power'], 9)
-        self.assertFalse(led['undecic_rows']['twelfth_and_higher_jets_enumerated'])
+        # z=(0,1/20), f_yyyyyyyyyyyy=479001600 => F_grad_2=(1/39916800)*479001600*(1/204800000000000)=12/204800000000000,
+        # F_height=(1/479001600)*479001600*(1/4096000000000000)=1/4096000000000000
+        self.assertEqual(led['dodecic_rows']['F_grad_next_1'], 0)
+        self.assertEqual(led['dodecic_rows']['F_grad_next_2'], Q(12, 204800000000000))
+        self.assertEqual(led['dodecic_rows']['F_height_next'], Q(1, 4096000000000000))
+        self.assertEqual(led['dodecic_rows']['z_dot_F_grad_next_minus_12_F_height_next'], 0)
+        self.assertEqual(led['dodecic_rows']['unmatched_density_r_power'], 10)
+        self.assertFalse(led['dodecic_rows']['thirteenth_and_higher_jets_enumerated'])
         self.assertEqual(led['scaling']['gradient_jacobian_r_power'], 2)
         self.assertEqual(led['status'], 'OPEN_HIGHER_JETS_AND_DENSITY')
         self.assertEqual(led['hessian_signature']['signature_kind'], 'INDEFINITE_SADDLE')
@@ -658,7 +666,6 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(rows['E_height_next'], 2048)  # (1/39916800)*39916800*2048
         self.assertEqual(rows['z_dot_E_grad_next_minus_11_E_height_next'], 0)
         self.assertEqual(rows['unmatched_density_r_power'], 9)
-        self.assertFalse(rows['twelfth_and_higher_jets_enumerated'])
         mixed = m.pin_site_morse_undecic_rows(
             1, 1,
             f_xxxxxxxxxxx=39916800, f_xxxxxxxxxxy=0, f_xxxxxxxxxyy=0, f_xxxxxxxxyyy=0,
@@ -674,6 +681,37 @@ class MesoscopicChartControls(unittest.TestCase):
                 f_xxxxxxxxxxx=1, f_xxxxxxxxxxy=0, f_xxxxxxxxxyy=0, f_xxxxxxxxyyy=0,
                 f_xxxxxxxyyyy=0, f_xxxxxxyyyyy=0, f_xxxxxyyyyyy=0, f_xxxxyyyyyyy=0,
                 f_xxxyyyyyyyy=0, f_xxyyyyyyyyy=0, f_xyyyyyyyyyy=0, f_yyyyyyyyyyy=0)
+
+    def test_pin_site_morse_dodecic_rows(self):
+        rows = m.pin_site_morse_dodecic_rows(
+            1, 2,
+            f_xxxxxxxxxxxx=0, f_xxxxxxxxxxxy=0, f_xxxxxxxxxxyy=0, f_xxxxxxxxxyyy=0,
+            f_xxxxxxxxyyyy=0, f_xxxxxxxyyyyy=0, f_xxxxxxyyyyyy=0, f_xxxxxyyyyyyy=0,
+            f_xxxxyyyyyyyy=0, f_xxxyyyyyyyyy=0, f_xxyyyyyyyyyy=0, f_xyyyyyyyyyyy=0,
+            f_yyyyyyyyyyyy=479001600)
+        self.assertEqual(rows['F_grad_next_1'], 0)
+        self.assertEqual(rows['F_grad_next_2'], 24576)  # (1/39916800)*479001600*2048
+        self.assertEqual(rows['F_height_next'], 4096)  # (1/479001600)*479001600*4096
+        self.assertEqual(rows['z_dot_F_grad_next_minus_12_F_height_next'], 0)
+        self.assertEqual(rows['unmatched_density_r_power'], 10)
+        self.assertFalse(rows['thirteenth_and_higher_jets_enumerated'])
+        mixed = m.pin_site_morse_dodecic_rows(
+            1, 1,
+            f_xxxxxxxxxxxx=479001600, f_xxxxxxxxxxxy=0, f_xxxxxxxxxxyy=0, f_xxxxxxxxxyyy=0,
+            f_xxxxxxxxyyyy=0, f_xxxxxxxyyyyy=0, f_xxxxxxyyyyyy=0, f_xxxxxyyyyyyy=0,
+            f_xxxxyyyyyyyy=0, f_xxxyyyyyyyyy=0, f_xxyyyyyyyyyy=0, f_xyyyyyyyyyyy=0,
+            f_yyyyyyyyyyyy=0)
+        self.assertEqual(mixed['F_grad_next_1'], 12)  # (1/39916800)*479001600
+        self.assertEqual(mixed['F_grad_next_2'], 0)
+        self.assertEqual(mixed['F_height_next'], 1)
+        self.assertEqual(mixed['z_dot_F_grad_next_minus_12_F_height_next'], 0)
+        with self.assertRaises(ValueError):
+            m.pin_site_morse_dodecic_rows(
+                0, 0,
+                f_xxxxxxxxxxxx=1, f_xxxxxxxxxxxy=0, f_xxxxxxxxxxyy=0, f_xxxxxxxxxyyy=0,
+                f_xxxxxxxxyyyy=0, f_xxxxxxxyyyyy=0, f_xxxxxxyyyyyy=0, f_xxxxxyyyyyyy=0,
+                f_xxxxyyyyyyyy=0, f_xxxyyyyyyyyy=0, f_xxyyyyyyyyyy=0, f_xyyyyyyyyyyy=0,
+                f_yyyyyyyyyyyy=0)
 
     def test_pin_site_morse_next_order_rows(self):
         rows = m.pin_site_morse_next_order_rows(1, 2, f_xxx=0, f_xxy=0, f_xyy=0, f_yyy=6)
@@ -850,7 +888,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_pin_centered']['nonic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['decic_next_order_enumerated'])
         self.assertTrue(inv['charts']['C_pin_centered']['undecic_next_order_enumerated'])
-        self.assertFalse(inv['charts']['C_pin_centered']['twelfth_and_higher_jets_enumerated'])
+        self.assertTrue(inv['charts']['C_pin_centered']['dodecic_next_order_enumerated'])
+        self.assertFalse(inv['charts']['C_pin_centered']['thirteenth_and_higher_jets_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_axial']['free_jet_residual_inventory_recorded'])
         self.assertTrue(inv['charts']['C_transverse']['gradient_contact_jacobian_enumerated'])
@@ -869,7 +908,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertIn('thin_belt_contact_gaussian_density_near_y2_0', inv['open_blockers'])
         self.assertIn('thin_belt_height_r_absorption', inv['open_blockers'])
         self.assertNotIn('thin_belt_uniform_integrand_after_cancel', inv['open_blockers'])
-        self.assertIn('pin_twelfth_and_higher_jets', inv['open_blockers'])
+        self.assertIn('pin_thirteenth_and_higher_jets', inv['open_blockers'])
+        self.assertNotIn('pin_twelfth_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_eleventh_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_tenth_and_higher_jets', inv['open_blockers'])
         self.assertNotIn('pin_ninth_and_higher_jets', inv['open_blockers'])
