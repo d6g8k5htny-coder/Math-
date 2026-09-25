@@ -2546,6 +2546,8 @@ def contact_density_obstruction_inventory() -> dict:
                 'residual_geometric_factor_locally_L1': True,
                 'free_jet_residual_inventory_recorded': True,
                 'gradient_contact_jacobian_enumerated': True,
+                'conditioned_hessian_residual_polynomials_enumerated': True,
+                'conditioned_hessian_det_skeleton_enumerated': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_r_factor_recorded': True,
                 'height_r_factor_absorbed': False,
@@ -3094,6 +3096,127 @@ def transverse_conditioned_hessian_residual_ledger(
     }
 
 
+def thin_belt_conditioned_hessian_residual_ledger(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Express thin-belt Hessian contact entries in (J_grad, k, f_xxy) residuals.
+
+    Same elimination identities as C_transverse (shared jet polynomials), but
+    membership is thin_belt_ok (0 < |y2| < δ). Exact polynomials only; reciprocal
+    Jacobian diverges as y2→0, so conditioned Gaussian expectation / density
+    near y2→0 stay open.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    k = exact(gap_mark)
+    a, b, c, d = map(exact, (f_yy, f_xxy, f_xyy, f_yyy))
+    if k <= 0:
+        raise ValueError('positive gap mark required')
+    rows = thin_belt_contact_rows(
+        y, gap_mark=k, f_yy=a, f_xxy=b, f_xyy=c, f_yyy=d,
+    )
+    jy, jx = rows['J_grad_y'], rows['J_grad_x']
+    f_yy_from_jy = jy / y2
+    f_xyy_from_jx = (2 / (y2 * y2)) * (jx - 6 * k * y1 * y1 - b * y1 * y2)
+    h_yy = f_yy_from_jy
+    h_xx = 12 * k * y1 + b * y2
+    h_xy = (2 * jx) / y2 - (12 * k * y1 * y1) / y2 - b * y1
+    # Raw Hessian polynomials (same as hessian_contact_rows; chart check differs).
+    raw_h_xx = 12 * k * y1 + b * y2
+    raw_h_xy = b * y1 + c * y2
+    raw_h_yy = a
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'J_grad_x': jx,
+        'f_yy_from_J_grad_y': f_yy_from_jy,
+        'f_xyy_from_J_grad_x': f_xyy_from_jx,
+        'f_yy_minus_solved': a - f_yy_from_jy,
+        'f_xyy_minus_solved': c - f_xyy_from_jx,
+        'H_xx_residual': h_xx,
+        'H_xy_residual': h_xy,
+        'H_yy_residual': h_yy,
+        'H_xx_minus_raw': h_xx - raw_h_xx,
+        'H_xy_minus_raw': h_xy - raw_h_xy,
+        'H_yy_minus_raw': h_yy - raw_h_yy,
+        'det_contact_leading_residual': h_xx * h_yy,
+        'det_xy_square_residual': h_xy * h_xy,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'conditioned_hessian_residual_polynomials_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'uniform_integrand_bound_proved': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact thin-belt residual Hessian after eliminating f_yy,f_xyy; '
+            'reciprocal diverges as y2→0; not a conditioned Gaussian expectation'
+        ),
+    }
+
+
+def thin_belt_conditioned_det_free_jet_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+    floor_y2: int | Q = Q(1, 4),
+) -> dict:
+    """Exact linear skeleton of leading det H on free residual jets (C_thin_belt).
+
+    Same α-form as C_transverse after eliminating f_yy,f_xyy:
+      det = α_k · k + α_f_xxy · f_xxy
+      α_k = 12 y1 J_grad_y / y2,   α_f_xxy = J_grad_y.
+    Reciprocal Jacobian diverges as y2→0; expectation still open.
+    """
+    if not thin_belt_ok(y, floor_y2=floor_y2):
+        raise ValueError('point outside thin belt')
+    y1, y2 = exact(y[0]), exact(y[1])
+    resid = thin_belt_conditioned_hessian_residual_ledger(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+        floor_y2=floor_y2,
+    )
+    jy = resid['J_grad_y']
+    k = exact(gap_mark)
+    b = exact(f_xxy)
+    alpha_k = (12 * y1 * jy) / y2
+    alpha_f = jy
+    det_from_alphas = alpha_k * k + alpha_f * b
+    return {
+        'object': 'RN-MESOSCOPIC-THIN-BELT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
+        'chart': 'C_thin_belt',
+        'y': {'y1': y1, 'y2': y2},
+        'floor_y2': exact(floor_y2),
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'eliminated_by_grad_contact': ['f_yy', 'f_xyy'],
+        'J_grad_y': jy,
+        'alpha_k': alpha_k,
+        'alpha_f_xxy': alpha_f,
+        'det_contact_leading_from_alphas': det_from_alphas,
+        'det_contact_leading_residual': resid['det_contact_leading_residual'],
+        'det_minus_alpha_form': det_from_alphas - resid['det_contact_leading_residual'],
+        'free_jet_polynomial_degree': 1,
+        'linear_in_free_residuals': True,
+        'reciprocal_diverges_as_y2_to_0': True,
+        'bare_reciprocal_L1_obstruction_cleared_by_cancel': True,
+        'conditioned_hessian_det_skeleton_enumerated': True,
+        'conditioned_expectation_evaluated': False,
+        'contact_gaussian_density_bounded': False,
+        'uniform_integrand_bound_proved': False,
+        'hessian_ledger_evaluated': False,
+        'meaning': (
+            'exact thin-belt linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '
+            'reciprocal diverges as y2→0; not a conditioned Gaussian expectation'
+        ),
+    }
+
+
 def transverse_conditioned_det_free_jet_skeleton(
     y: Coord, *, gap_mark: int | Q = 1,
     f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
@@ -3335,11 +3458,12 @@ def pin_centered_conditioned_det_free_jet_skeleton(
 
 def contact_conditioned_det_free_jet_skeleton_inventory(
     *, transverse_y: Coord | None = None, axial_y: Coord | None = None,
-    pin_y: Coord | None = None,
+    pin_y: Coord | None = None, thin_y: Coord | None = None,
 ) -> dict:
-    """Bundle transverse/axial/pin conditioned det free-jet skeletons (expectation open)."""
+    """Bundle transverse/axial/thin/pin conditioned det free-jet skeletons (expectation open)."""
     ty = transverse_y if transverse_y is not None else point(0, 2)
     ay = axial_y if axial_y is not None else point(2, 0)
+    thin = thin_y if thin_y is not None else point(2, Q(1, 8))
     py = pin_y if pin_y is not None else point(Q(1, 2), Q(1, 20))
     return {
         'object': 'RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1',
@@ -3347,13 +3471,15 @@ def contact_conditioned_det_free_jet_skeleton_inventory(
             ty, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4),
         'C_axial': axial_conditioned_det_free_jet_skeleton(
             ay, gap_mark=1, f_yy=2, f_xxy=3),
+        'C_thin_belt': thin_belt_conditioned_det_free_jet_skeleton(
+            thin, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0),
         'C_pin_centered': pin_centered_conditioned_det_free_jet_skeleton(
             py, inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3),
         'global_contact_density_bound_proved': False,
         'conditioned_expectation_evaluated': False,
         'meaning': (
             'exact free-jet linear skeletons for leading det H after grad contact '
-            '(transverse/axial/pin); does not evaluate conditioned Gaussian expectations'
+            '(transverse/axial/thin/pin); does not evaluate conditioned Gaussian expectations'
         ),
     }
 
@@ -4177,6 +4303,8 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
     axial_hess_resid = axial_conditioned_hessian_residual_ledger(
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3)
+    thin_hess_resid = thin_belt_conditioned_hessian_residual_ledger(
+        point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     pin_hess_resid = pin_centered_conditioned_hessian_residual_ledger(
         point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=0, H_yy=3)
     height_resid = transverse_height_residual_after_grad_contact(
@@ -4234,6 +4362,7 @@ def result() -> dict:
     out['contact_gradient_jacobian_density_shape'] = conv(grad_jac)
     out['transverse_conditioned_hessian_residual'] = conv(hess_resid)
     out['axial_conditioned_hessian_residual'] = conv(axial_hess_resid)
+    out['thin_belt_conditioned_hessian_residual'] = conv(thin_hess_resid)
     out['pin_centered_conditioned_hessian_residual'] = conv(pin_hess_resid)
     out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)

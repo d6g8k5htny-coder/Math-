@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 79
+EXPECTED_TESTS = 80
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -197,6 +197,10 @@ MUTANTS = {
     'claim_hessian_expectation_from_pin_residual': (
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse residual Hessian after eliminating constrained '\n            'coords; not a conditioned Gaussian expectation of |det H|'\n        ),",
         "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'pin_site_higher_jets_enumerated': False,\n        'meaning': (\n            'exact pin Morse residual Hessian after eliminating constrained '\n            'coords; not a conditioned Gaussian expectation of |det H|'\n        ),",
+    ),
+    'claim_hessian_expectation_from_thin_belt_residual': (
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'uniform_integrand_bound_proved': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact thin-belt residual Hessian after eliminating f_yy,f_xyy; '\n            'reciprocal diverges as y2→0; not a conditioned Gaussian expectation'\n        ),",
+        "'conditioned_hessian_residual_polynomials_enumerated': True,\n        'conditioned_expectation_evaluated': True,\n        'contact_gaussian_density_bounded': False,\n        'uniform_integrand_bound_proved': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact thin-belt residual Hessian after eliminating f_yy,f_xyy; '\n            'reciprocal diverges as y2→0; not a conditioned Gaussian expectation'\n        ),",
     ),
     'claim_hessian_expectation_from_det_skeleton': (
         "'conditioned_hessian_det_skeleton_enumerated': True,\n        'conditioned_expectation_evaluated': False,\n        'contact_gaussian_density_bounded': False,\n        'hessian_ledger_evaluated': False,\n        'meaning': (\n            'exact linear form det=α_k·k+α_f_xxy·f_xxy after grad contact; '\n            'not a conditioned Gaussian expectation of |det H|'\n        ),",

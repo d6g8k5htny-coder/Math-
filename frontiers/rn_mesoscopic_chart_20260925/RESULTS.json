@@ -349,6 +349,39 @@
         "z2": "1/20"
       }
     },
+    "C_thin_belt": {
+      "J_grad_y": "1/4",
+      "alpha_f_xxy": "1/4",
+      "alpha_k": "48",
+      "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+      "chart": "C_thin_belt",
+      "conditioned_expectation_evaluated": false,
+      "conditioned_hessian_det_skeleton_enumerated": true,
+      "contact_gaussian_density_bounded": false,
+      "det_contact_leading_from_alphas": "48",
+      "det_contact_leading_residual": "48",
+      "det_minus_alpha_form": "0",
+      "eliminated_by_grad_contact": [
+        "f_yy",
+        "f_xyy"
+      ],
+      "floor_y2": "1/4",
+      "free_jet_polynomial_degree": 1,
+      "free_residual_coordinates": [
+        "k",
+        "f_xxy"
+      ],
+      "hessian_ledger_evaluated": false,
+      "linear_in_free_residuals": true,
+      "meaning": "exact thin-belt linear form det=\u03b1_k\u00b7k+\u03b1_f_xxy\u00b7f_xxy after grad contact; reciprocal diverges as y2\u21920; not a conditioned Gaussian expectation",
+      "object": "RN-MESOSCOPIC-THIN-BELT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1",
+      "reciprocal_diverges_as_y2_to_0": true,
+      "uniform_integrand_bound_proved": false,
+      "y": {
+        "y1": "2",
+        "y2": "1/8"
+      }
+    },
     "C_transverse": {
       "J_grad_y": "4",
       "alpha_f_xxy": "4",
@@ -380,7 +413,7 @@
     },
     "conditioned_expectation_evaluated": false,
     "global_contact_density_bound_proved": false,
-    "meaning": "exact free-jet linear skeletons for leading det H after grad contact (transverse/axial/pin); does not evaluate conditioned Gaussian expectations",
+    "meaning": "exact free-jet linear skeletons for leading det H after grad contact (transverse/axial/thin/pin); does not evaluate conditioned Gaussian expectations",
     "object": "RN-MESOSCOPIC-CONTACT-CONDITIONED-DET-FREE-JET-SKELETON-20260925-v1"
   },
   "contact_density_obstruction": {
@@ -435,6 +468,8 @@
         "algebraic_factor_times_height_r_skeleton_enumerated": true,
         "bare_1_over_abs_y2_L1": false,
         "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+        "conditioned_hessian_det_skeleton_enumerated": true,
+        "conditioned_hessian_residual_polynomials_enumerated": true,
         "contact_gaussian_density_bounded": false,
         "contact_integrand_algebraic_factor_skeleton_enumerated": true,
         "free_jet_residual_inventory_recorded": true,
@@ -1754,6 +1789,45 @@
     "reciprocal_diverges_as_y2_to_0": true,
     "uniform_integrand_bound_proved": false,
     "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "2",
+      "y2": "1/8"
+    }
+  },
+  "thin_belt_conditioned_hessian_residual": {
+    "H_xx_minus_raw": "0",
+    "H_xx_residual": "24",
+    "H_xy_minus_raw": "0",
+    "H_xy_residual": "0",
+    "H_yy_minus_raw": "0",
+    "H_yy_residual": "2",
+    "J_grad_x": "24",
+    "J_grad_y": "1/4",
+    "bare_reciprocal_L1_obstruction_cleared_by_cancel": true,
+    "chart": "C_thin_belt",
+    "conditioned_expectation_evaluated": false,
+    "conditioned_hessian_residual_polynomials_enumerated": true,
+    "contact_gaussian_density_bounded": false,
+    "det_contact_leading_residual": "48",
+    "det_xy_square_residual": "0",
+    "eliminated_by_grad_contact": [
+      "f_yy",
+      "f_xyy"
+    ],
+    "f_xyy_from_J_grad_x": "0",
+    "f_xyy_minus_solved": "0",
+    "f_yy_from_J_grad_y": "2",
+    "f_yy_minus_solved": "0",
+    "floor_y2": "1/4",
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy"
+    ],
+    "hessian_ledger_evaluated": false,
+    "meaning": "exact thin-belt residual Hessian after eliminating f_yy,f_xyy; reciprocal diverges as y2\u21920; not a conditioned Gaussian expectation",
+    "object": "RN-MESOSCOPIC-THIN-BELT-CONDITIONED-HESSIAN-RESIDUAL-20260925-v1",
+    "reciprocal_diverges_as_y2_to_0": true,
+    "uniform_integrand_bound_proved": false,
     "y": {
       "y1": "2",
       "y2": "1/8"

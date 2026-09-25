@@ -102,8 +102,8 @@ The two gradient rows are the independent contact observations for the gradient 
 - per-chart contact-density obstruction inventory (`global_contact_density_bound_proved=false`);
 - free-jet residual inventory after leading gradient contact (transverse/thin rank-2 ⇒ 2 free dirs; axial isolates `f_xxy`,`k`; pin Morse rank-2 ⇒ 1 free Hessian dir; density still open);
 - exact gradient-contact Jacobians `|det|=|y2|^3/2` (transverse/thin), `3|y1|^4` (axial), and pin Morse `|det|=z2²` (or `z1²` on axis); thin reciprocal diverges as y2→0; algebraic density shape only;
-- conditioned Hessian residual polynomials after eliminating constrained jets (transverse free `(k,f_xxy)`; axial free `f_yy`; pin Morse free `H_xx` or `H_yy`; expectation still open);
-- transverse/axial/pin conditioned `|det H|` free-jet linear skeletons (`det=α_k·k+α_f·f_xxy` / `det=α_fyy·f_yy` / `det=α·free+β`; expectation still open);
+- conditioned Hessian residual polynomials after eliminating constrained jets (transverse/thin free `(k,f_xxy)`; axial free `f_yy`; pin Morse free `H_xx` or `H_yy`; thin reciprocal diverges as y2→0; expectation still open);
+- transverse/axial/thin/pin conditioned `|det H|` free-jet linear skeletons (`det=α_k·k+α_f·f_xxy` / `det=α_fyy·f_yy` / `det=α·free+β`; thin reciprocal diverges as y2→0; expectation still open);
 - contact integrand algebraic factor product `(1/|det J_grad|)·|det H_skeleton|` on transverse/axial/thin-belt/pin-centered (Gaussian density still open; thin-belt reciprocal diverges as y2→0; pin Morse `|det|=z2²` or `z1²`);
 - transverse algebraic-factor × unmatched height `r^1` combined skeleton (product identity recorded; neither factor absorbed; density still open);
 - thin-belt algebraic-factor × unmatched height `r^1` combined skeleton (reciprocal diverges as y2→0; neither factor absorbed; density still open);

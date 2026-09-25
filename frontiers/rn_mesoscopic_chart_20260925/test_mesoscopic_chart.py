@@ -1111,6 +1111,8 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_transverse']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['gradient_contact_jacobian_enumerated'])
         self.assertTrue(inv['charts']['C_thin_belt']['gradient_contact_jacobian_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['conditioned_hessian_residual_polynomials_enumerated'])
+        self.assertTrue(inv['charts']['C_thin_belt']['conditioned_hessian_det_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_thin_belt']['bare_reciprocal_L1_obstruction_cleared_by_cancel'])
         self.assertTrue(inv['charts']['C_transverse']['conditioned_hessian_residual_polynomials_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['conditioned_hessian_residual_polynomials_enumerated'])
@@ -1254,6 +1256,15 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(pin_axis['H_xx_minus_solved'], 0)
         self.assertEqual(pin_axis['H_xy_minus_solved'], 0)
         self.assertEqual(pin_axis['det_minus_raw'], 0)
+        thin = m.thin_belt_conditioned_hessian_residual_ledger(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+        self.assertEqual(thin['chart'], 'C_thin_belt')
+        self.assertEqual(thin['f_yy_minus_solved'], 0)
+        self.assertEqual(thin['f_xyy_minus_solved'], 0)
+        self.assertEqual(thin['H_xx_minus_raw'], 0)
+        self.assertEqual(thin['H_yy_residual'], 2)
+        self.assertTrue(thin['reciprocal_diverges_as_y2_to_0'])
+        self.assertFalse(thin['conditioned_expectation_evaluated'])
         with self.assertRaises(ValueError):
             m.transverse_conditioned_hessian_residual_ledger(m.point(2, 0))
         with self.assertRaises(ValueError):
@@ -1261,6 +1272,23 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.pin_centered_conditioned_hessian_residual_ledger(
                 m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
+        with self.assertRaises(ValueError):
+            m.thin_belt_conditioned_hessian_residual_ledger(m.point(0, 2))
+
+    def test_thin_belt_conditioned_hessian_residual(self):
+        thin = m.thin_belt_conditioned_hessian_residual_ledger(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+        self.assertEqual(thin['free_residual_coordinates'], ['k', 'f_xxy'])
+        self.assertEqual(thin['H_xx_residual'], Q(195, 8))  # 12*1*2 + 3*(1/8)
+        self.assertEqual(thin['H_yy_residual'], 2)
+        self.assertEqual(thin['det_contact_leading_residual'], Q(195, 4))
+        skel = m.thin_belt_conditioned_det_free_jet_skeleton(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4)
+        self.assertEqual(skel['alpha_f_xxy'], Q(1, 4))  # J_y = f_yy y2 = 2/8
+        self.assertEqual(skel['det_minus_alpha_form'], 0)
+        self.assertTrue(skel['linear_in_free_residuals'])
+        self.assertTrue(skel['reciprocal_diverges_as_y2_to_0'])
+        self.assertFalse(skel['conditioned_expectation_evaluated'])
 
     def test_pin_centered_conditioned_hessian_residual(self):
         pin = m.pin_centered_conditioned_hessian_residual_ledger(
@@ -1404,6 +1432,12 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertEqual(pin['det_contact_leading_from_alpha_beta'], -6)
         self.assertEqual(pin['det_minus_alpha_beta_form'], 0)
         self.assertEqual(bundled['C_pin_centered']['det_minus_alpha_beta_form'], 0)
+        thin = m.thin_belt_conditioned_det_free_jet_skeleton(
+            m.point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
+        self.assertEqual(thin['alpha_k'], 48)  # 12*2*(1/4)/(1/8)=48
+        self.assertEqual(thin['alpha_f_xxy'], Q(1, 4))
+        self.assertEqual(thin['det_minus_alpha_form'], 0)
+        self.assertEqual(bundled['C_thin_belt']['det_minus_alpha_form'], 0)
         pin_axis = m.pin_centered_conditioned_det_free_jet_skeleton(
             m.point(Q(11, 20), 0), inner=Q(2, 5), outer=1, H_xx=-2, H_xy=1, H_yy=3)
         self.assertEqual(pin_axis['elimination_branch'], 'z1_nonzero_z2_zero')
@@ -1416,6 +1450,8 @@ class MesoscopicChartControls(unittest.TestCase):
         with self.assertRaises(ValueError):
             m.pin_centered_conditioned_det_free_jet_skeleton(
                 m.point(Q(1, 2), 0), inner=Q(2, 5), outer=1)
+        with self.assertRaises(ValueError):
+            m.thin_belt_conditioned_det_free_jet_skeleton(m.point(0, 2))
 
     def test_contact_integrand_algebraic_factor_skeleton(self):
         # y=(0,2): |det J|=|y2|^3/2=4, reciprocal=1/4, |det H|=12, product=3
