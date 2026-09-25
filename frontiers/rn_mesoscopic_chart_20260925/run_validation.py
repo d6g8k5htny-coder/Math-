@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent
-EXPECTED_TESTS = 29
+EXPECTED_TESTS = 30
 MUTANTS = {
     'wrong_grad_x_power': (
         "'grad_x': 2,\n    'grad_y': 1,",
@@ -65,6 +65,10 @@ MUTANTS = {
     'claim_thin_belt_absorbed': (
         "'uniform_integrand_bound_proved': False,\n        'absorbed_into_C_transverse': False,",
         "'uniform_integrand_bound_proved': True,\n        'absorbed_into_C_transverse': True,",
+    ),
+    'claim_pin_rows_enumerated': (
+        "'pin_site_jet_rows_enumerated': False,\n        'contact_rows_enumerated': False,",
+        "'pin_site_jet_rows_enumerated': True,\n        'contact_rows_enumerated': True,",
     ),
 }
 

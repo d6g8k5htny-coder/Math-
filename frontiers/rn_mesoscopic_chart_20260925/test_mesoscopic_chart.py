@@ -229,6 +229,22 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertFalse(diag['pr7_fixed_annulus_A_gt_1'])
         self.assertFalse(m.near_pin_ok(m.point(0, 2)))
 
+    def test_pin_centered_frame_ledger(self):
+        y = m.point(Q(1, 2), Q(1, 20))
+        frame = m.pin_centered_frame(y, inner=Q(2, 5), outer=1)
+        self.assertEqual(frame['closer_pin'], 'S')
+        self.assertEqual(frame['z1'], 0)
+        self.assertEqual(frame['z2'], Q(1, 20))
+        self.assertEqual(frame['dist2_to_closer_pin'], Q(1, 400))
+        led = m.pin_centered_ledger_for_point(y, inner=Q(2, 5), outer=1)
+        self.assertEqual(led['chart'], 'C_pin_centered')
+        self.assertFalse(led['midpoint_U0_rows_applicable'])
+        self.assertFalse(led['pin_site_jet_rows_enumerated'])
+        self.assertFalse(led['contact_rows_enumerated'])
+        self.assertEqual(led['status'], 'OPEN_SEPARATE_CHART_REQUIRED')
+        with self.assertRaises(ValueError):
+            m.pin_centered_frame(m.point(0, 2), inner=Q(2, 5), outer=1)
+
     def test_hessian_contact_rows(self):
         rows = m.hessian_contact_rows(
             m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=5)

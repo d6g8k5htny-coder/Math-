@@ -184,6 +184,34 @@
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
   },
   "object": "RN-MESOSCOPIC-CHART-J0-D2-TRANSVERSE-20260925-v1",
+  "pin_centered_ledger": {
+    "chart": "C_pin_centered",
+    "complements_pr7": true,
+    "contact_rows_enumerated": false,
+    "frame": {
+      "annulus_A": "2/5",
+      "annulus_B": "1",
+      "chart": "C_pin_centered",
+      "closer_pin": "S",
+      "dist2_to_closer_pin": "1/400",
+      "pin_site": {
+        "y1": "1/2",
+        "y2": "0"
+      },
+      "z1": "0",
+      "z2": "1/20"
+    },
+    "full_annulus_closed": false,
+    "hessian_ledger_evaluated": false,
+    "legacy_24jet_discharged": false,
+    "meaning": "records the pin-local frame (z = y - pin) on a small-A near-pin chart; does not supply pin-site divided-difference contact rows",
+    "midpoint_U0_rows_applicable": false,
+    "object": "RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1",
+    "pin_site_jet_rows_enumerated": false,
+    "pr7_fixed_annulus_A_gt_1": false,
+    "status": "OPEN_SEPARATE_CHART_REQUIRED",
+    "uniform_integrand_bound_proved": false
+  },
   "pin_exclusion_ok": true,
   "rank": {
     "chart": "C_transverse",

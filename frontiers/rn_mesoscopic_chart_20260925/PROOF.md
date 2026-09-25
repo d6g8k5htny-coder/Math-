@@ -83,7 +83,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - uniform bound on the contact Gaussian density factor (the missing step for `γ_AB ≤ C r^(-d)`);
 - uniform thin-belt integrand bound controlling the `1/|y2|` singularity;
 - conditioned Gaussian expectation of the typed Hessian factor on either chart;
-- pin-centred charts on any scale where pins enter the annulus;
+- pin-site divided-difference contact rows on any scale where pins enter the annulus;
 - any numerical RN / 24-jet certificate.
 
 ## 4.5 Axial chart C_axial
@@ -114,7 +114,7 @@ with `near_pin` empty on this fixed annulus. The machine cover report records `e
 
 The thin belt is not absorbed into `C_transverse`: although the contact polynomials extend (and are enumerated on `C_thin_belt`), `J_grad_y = f_yy · y2` has coefficient `y2 → 0`, so Schur / change-of-variables conditioning deteriorates as `1/|y2|`. The checker records that factor and marks the region `OPEN_SEPARATE_CHART_REQUIRED` with `uniform_integrand_bound_proved = false`.
 
-A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The diagnosis records which pin is closer and that a pin-centred divided-difference chart is required; it does **not** supply that chart, and it does not alter the PR7 fixed-annulus statements.
+A separate **small-A** regime (`0 < A ≤ 1/2`, `require_pr7_A=False`) is used only to diagnose pin-neighbourhood points when pins can enter the annulus. The checker records the pin-local frame `z = y − pin` and that midpoint `U_0` rows do not apply; it does **not** enumerate pin-site divided-difference contact rows (`pin_site_jet_rows_enumerated = false`), and it does not alter the PR7 fixed-annulus statements.
 
 ## 4.7 Hessian contact rows on C_transverse
 

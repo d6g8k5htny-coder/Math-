@@ -258,6 +258,51 @@ def near_pin_diagnosis(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1
     }
 
 
+def pin_centered_frame(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+                       margin: int | Q = Q(1, 10)) -> dict:
+    """Local coordinates relative to the closer scaled pin on a small-A near-pin chart."""
+    diag = near_pin_diagnosis(y, inner=inner, outer=outer, margin=margin)
+    closer = str(diag['closer_pin'])
+    site = pin_sites()[0] if closer == 'M' else pin_sites()[1]
+    z1 = exact(y[0]) - site[0]
+    z2 = exact(y[1]) - site[1]
+    return {
+        'chart': 'C_pin_centered',
+        'closer_pin': closer,
+        'pin_site': {'y1': site[0], 'y2': site[1]},
+        'z1': z1,
+        'z2': z2,
+        'dist2_to_closer_pin': z1 * z1 + z2 * z2,
+        'annulus_A': exact(inner),
+        'annulus_B': exact(outer),
+    }
+
+
+def pin_centered_ledger_for_point(y: Coord, *, inner: int | Q = Q(2, 5), outer: int | Q = 1,
+                                  margin: int | Q = Q(1, 10)) -> dict:
+    """Frame-only pin-centred ledger: refuses midpoint U_0 rows; does not invent pin jets."""
+    frame = pin_centered_frame(y, inner=inner, outer=outer, margin=margin)
+    return {
+        'object': 'RN-MESOSCOPIC-CHART-PIN-CENTERED-D2-20260925-v1',
+        'chart': 'C_pin_centered',
+        'frame': frame,
+        'midpoint_U0_rows_applicable': False,
+        'pin_site_jet_rows_enumerated': False,
+        'contact_rows_enumerated': False,
+        'hessian_ledger_evaluated': False,
+        'uniform_integrand_bound_proved': False,
+        'full_annulus_closed': False,
+        'legacy_24jet_discharged': False,
+        'pr7_fixed_annulus_A_gt_1': False,
+        'complements_pr7': True,
+        'status': 'OPEN_SEPARATE_CHART_REQUIRED',
+        'meaning': (
+            'records the pin-local frame (z = y - pin) on a small-A near-pin chart; '
+            'does not supply pin-site divided-difference contact rows'
+        ),
+    }
+
+
 # Scaling exponents for raw witness (f_x, f_y, f-b) -> divided-difference J in this chart.
 # Derived from the contact Taylor jet with U_0=(f,f_x,f_xx,f_xxx,f_y,f_xy)=(b,0,0,12k,0,0):
 #   f_y(ry) = r * f_yy * y2 + O(r^2)            => divide by r^1
@@ -728,6 +773,7 @@ def result() -> dict:
     thin_led = thin_belt_ledger_for_point(point(2, Q(1, 8)), gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     # Small-A regime only: pins can lie inside the annulus.
     near = near_pin_diagnosis(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
+    pin_led = pin_centered_ledger_for_point(point(Q(1, 2), Q(1, 20)), inner=Q(2, 5), outer=1)
     hess = hessian_ledger_for_point(y, gap_mark=1, f_yy=2, f_xxy=0, f_xyy=0)
     axial_hess = axial_hessian_contact_rows(
         point(2, 0), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=0)
@@ -748,6 +794,7 @@ def result() -> dict:
     out['thin_belt_sample'] = conv(thin)
     out['thin_belt_ledger'] = conv(thin_led)
     out['near_pin_sample'] = conv(near)
+    out['pin_centered_ledger'] = conv(pin_led)
     out['hessian_sample'] = conv(hess)
     out['axial_hessian_sample'] = conv(axial_hess)
     out['integrand_power_transverse'] = conv(integrand_t)
