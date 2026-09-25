@@ -285,6 +285,7 @@
         "uniform_integrand_bound_proved": false
       },
       "C_transverse": {
+        "algebraic_factor_times_height_r_skeleton_enumerated": true,
         "chart_conditioning_singularity_cleared": true,
         "conditioned_hessian_det_skeleton_enumerated": true,
         "conditioned_hessian_residual_polynomials_enumerated": true,
@@ -1019,6 +1020,31 @@
     "grad_y_coefficient_y2": "1/8",
     "region": "thin_belt_open",
     "status": "OPEN_SEPARATE_CHART_REQUIRED"
+  },
+  "transverse_algebraic_factor_times_height_r": {
+    "H_height_next_residual": "8",
+    "algebraic_factor_r_power_after_stripping": 0,
+    "algebraic_jacobian_times_det_abs": "3",
+    "chart": "C_transverse",
+    "combined_algebraic_factor_and_height_r_recorded": true,
+    "combined_skeleton_absorbed_into_uniform_bound": false,
+    "combined_skeleton_height_r_power": 1,
+    "conditioned_expectation_evaluated": false,
+    "contact_gaussian_density_bounded": false,
+    "free_residual_coordinates": [
+      "k",
+      "f_xxy"
+    ],
+    "global_contact_density_bound_proved": false,
+    "height_r_absorbed_into_uniform_bound": false,
+    "meaning": "exact (1/|det J|)\u00b7|det H| times unmatched height r^1 skeleton; neither factor absorbed; Gaussian density still unbound",
+    "object": "RN-MESOSCOPIC-TRANSVERSE-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1",
+    "product_minus_recorded_factors": "0",
+    "unmatched_height_density_r_power": 1,
+    "y": {
+      "y1": "0",
+      "y2": "2"
+    }
   },
   "transverse_conditioned_hessian_residual": {
     "H_xx_minus_raw": "0",

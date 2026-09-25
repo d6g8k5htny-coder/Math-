@@ -1631,6 +1631,7 @@ def contact_density_obstruction_inventory() -> dict:
                 'conditioned_hessian_det_skeleton_enumerated': True,
                 'contact_integrand_algebraic_factor_skeleton_enumerated': True,
                 'height_residual_after_grad_contact_enumerated': True,
+                'algebraic_factor_times_height_r_skeleton_enumerated': True,
                 'hessian_conditioned_expectation_evaluated': False,
                 'contact_gaussian_density_bounded': False,
             },
@@ -2129,6 +2130,50 @@ def transverse_contact_integrand_algebraic_factor_skeleton(
         'meaning': (
             'exact product (1/|det J_grad|)·|det H_skeleton| after grad contact; '
             'Gaussian density / height-r absorption / expectation remain open'
+        ),
+    }
+
+
+
+def transverse_algebraic_factor_times_height_r_skeleton(
+    y: Coord, *, gap_mark: int | Q = 1,
+    f_yy: int | Q = 1, f_xxy: int | Q = 0, f_xyy: int | Q = 0, f_yyy: int | Q = 0,
+) -> dict:
+    """Combine transverse algebraic Jacobian×|det H| product with unmatched height r^1.
+
+    Records the exact product identity
+      (1/|det J_grad|)·|det H_skeleton|
+    together with the unmatched height density r-power 1 from H_height_next.
+    The combined skeleton is not absorbed into a uniform integrand bound; the
+    contact Gaussian density remains open.
+    """
+    if not transverse_chart_ok(y):
+        raise ValueError('point outside C_transverse chart')
+    alg = transverse_contact_integrand_algebraic_factor_skeleton(
+        y, gap_mark=gap_mark, f_yy=f_yy, f_xxy=f_xxy, f_xyy=f_xyy, f_yyy=f_yyy,
+    )
+    height_r = alg['unmatched_height_density_r_power']
+    product = alg['algebraic_jacobian_times_det_abs']
+    return {
+        'object': 'RN-MESOSCOPIC-TRANSVERSE-ALGEBRAIC-FACTOR-TIMES-HEIGHT-R-20260925-v1',
+        'chart': 'C_transverse',
+        'y': {'y1': y[0], 'y2': y[1]},
+        'algebraic_jacobian_times_det_abs': product,
+        'unmatched_height_density_r_power': height_r,
+        'combined_skeleton_height_r_power': height_r,
+        'algebraic_factor_r_power_after_stripping': 0,
+        'product_minus_recorded_factors': product - alg['reciprocal_grad_contact_jacobian'] * alg['det_contact_leading_abs'],
+        'H_height_next_residual': alg['H_height_next_residual'],
+        'free_residual_coordinates': ['k', 'f_xxy'],
+        'combined_algebraic_factor_and_height_r_recorded': True,
+        'height_r_absorbed_into_uniform_bound': False,
+        'combined_skeleton_absorbed_into_uniform_bound': False,
+        'contact_gaussian_density_bounded': False,
+        'conditioned_expectation_evaluated': False,
+        'global_contact_density_bound_proved': False,
+        'meaning': (
+            'exact (1/|det J|)·|det H| times unmatched height r^1 skeleton; '
+            'neither factor absorbed; Gaussian density still unbound'
         ),
     }
 
@@ -2701,6 +2746,8 @@ def result() -> dict:
         y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     det_skel = contact_conditioned_det_free_jet_skeleton_inventory()
     integrand_alg = contact_integrand_algebraic_factor_skeleton_inventory()
+    alg_height = transverse_algebraic_factor_times_height_r_skeleton(
+        y, gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
     # JSON-friendly rationals as strings
     def conv(obj):
         if isinstance(obj, Q):
@@ -2743,6 +2790,7 @@ def result() -> dict:
     out['transverse_height_residual_after_grad'] = conv(height_resid)
     out['contact_conditioned_det_free_jet_skeleton'] = conv(det_skel)
     out['contact_integrand_algebraic_factor_skeleton'] = conv(integrand_alg)
+    out['transverse_algebraic_factor_times_height_r'] = conv(alg_height)
     out['sample_points_ok'] = all(transverse_chart_ok(p) for p in sample_points())
     out['axial_points_ok'] = all(axial_chart_ok(p) for p in sample_axial_points())
     out['pin_exclusion_ok'] = all(away_from_pins(p) for p in sample_points() + sample_axial_points())

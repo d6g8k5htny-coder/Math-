@@ -825,6 +825,7 @@ class MesoscopicChartControls(unittest.TestCase):
         self.assertTrue(inv['charts']['C_transverse']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_axial']['contact_integrand_algebraic_factor_skeleton_enumerated'])
         self.assertTrue(inv['charts']['C_transverse']['height_residual_after_grad_contact_enumerated'])
+        self.assertTrue(inv['charts']['C_transverse']['algebraic_factor_times_height_r_skeleton_enumerated'])
         self.assertFalse(inv['charts']['C_transverse']['hessian_conditioned_expectation_evaluated'])
         self.assertIn('contact_gaussian_density_factor', inv['open_blockers'])
         self.assertIn('conditioned_hessian_expectation', inv['open_blockers'])
@@ -1036,6 +1037,31 @@ class MesoscopicChartControls(unittest.TestCase):
             m.thin_belt_contact_integrand_algebraic_factor_skeleton(m.point(0, 2))
         with self.assertRaises(ValueError):
             m.thin_belt_contact_integrand_algebraic_factor_skeleton(m.point(2, 0))
+
+    def test_transverse_algebraic_factor_times_height_r_skeleton(self):
+        # y=(0,2): algebraic product=3, unmatched height r^1, combined r^1
+        t = m.transverse_algebraic_factor_times_height_r_skeleton(
+            m.point(0, 2), gap_mark=1, f_yy=2, f_xxy=3, f_xyy=4, f_yyy=6)
+        self.assertEqual(t['chart'], 'C_transverse')
+        self.assertEqual(t['algebraic_jacobian_times_det_abs'], 3)
+        self.assertEqual(t['unmatched_height_density_r_power'], 1)
+        self.assertEqual(t['combined_skeleton_height_r_power'], 1)
+        self.assertEqual(t['algebraic_factor_r_power_after_stripping'], 0)
+        self.assertEqual(t['product_minus_recorded_factors'], 0)
+        self.assertEqual(t['H_height_next_residual'], 8)
+        self.assertEqual(t['free_residual_coordinates'], ['k', 'f_xxy'])
+        self.assertTrue(t['combined_algebraic_factor_and_height_r_recorded'])
+        self.assertFalse(t['height_r_absorbed_into_uniform_bound'])
+        self.assertFalse(t['combined_skeleton_absorbed_into_uniform_bound'])
+        self.assertFalse(t['contact_gaussian_density_bounded'])
+        self.assertFalse(t['conditioned_expectation_evaluated'])
+        self.assertFalse(t['global_contact_density_bound_proved'])
+        off = m.transverse_algebraic_factor_times_height_r_skeleton(
+            m.point(2, 2), gap_mark=1, f_yy=5, f_xxy=3, f_xyy=7)
+        self.assertEqual(off['product_minus_recorded_factors'], 0)
+        self.assertEqual(off['combined_skeleton_height_r_power'], 1)
+        with self.assertRaises(ValueError):
+            m.transverse_algebraic_factor_times_height_r_skeleton(m.point(2, 0))
 
 
 if __name__ == '__main__':

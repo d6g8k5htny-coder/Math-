@@ -97,6 +97,7 @@ The two gradient rows are the independent contact observations for the gradient 
 - conditioned Hessian residual polynomials after eliminating constrained jets (transverse free `(k,f_xxy)`; axial free `f_yy`; expectation still open);
 - transverse/axial conditioned `|det H|` free-jet linear skeletons (`det=α_k·k+α_f·f_xxy` / `det=α_fyy·f_yy`; expectation still open);
 - contact integrand algebraic factor product `(1/|det J_grad|)·|det H_skeleton|` on transverse/axial/thin-belt (Gaussian density still open; thin-belt reciprocal diverges as y2→0);
+- transverse algebraic-factor × unmatched height `r^1` combined skeleton (product identity recorded; neither factor absorbed; density still open);
 - transverse height residual `H_height_next` after the same eliminations (unmatched `r^1` still open);
 - thin-belt integrand residual after jet-map cancel (bare reciprocal L1 cleared; residual geometric factor = 1; density near y2=0 open);
 - pin-site jet obstruction ledger (midpoint collision; Morse rows elsewhere);
