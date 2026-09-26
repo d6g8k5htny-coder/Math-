@@ -1,0 +1,3052 @@
+{
+  "cross_radius_overwrites": 34,
+  "decimal_constants": {
+    "mbwd_C": "0.000016522214906702079589157671984569065570108",
+    "mfwd_C": "1.3254142674156215193502668381331233149468",
+    "scone_C": "0.1899834256803476573497151819180928100650",
+    "sdisk_C": "0.34267686010062400717529032707908687172"
+  },
+  "files_by_filename_radius": {
+    "0.0125": 7,
+    "0.0177": 7,
+    "0.025": 10,
+    "0.035355": 10,
+    "0.05": 14
+  },
+  "ignored_failure_rows": [
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "line": 26,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.003",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "line": 26,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.004248",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "line": 26,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.006",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "line": 26,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.0084852",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 11,
+      "part": "sconeprobe_fail",
+      "row": {
+        "dS": "0.03",
+        "part": "sconeprobe_fail",
+        "thS": 12
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 17,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.012",
+        "part": "mbackprobe_fail",
+        "thM": 8
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 18,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.03",
+        "part": "mbackprobe_fail",
+        "thM": 8
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 20,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.012",
+        "part": "mbackprobe_fail",
+        "thM": 12
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 23,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.012",
+        "part": "mbackprobe_fail",
+        "thM": 171
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 26,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.012",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "line": 27,
+      "part": "mbackprobe_fail",
+      "row": {
+        "dl": "0.03",
+        "part": "mbackprobe_fail",
+        "thM": 176
+      }
+    }
+  ],
+  "ignored_rows": 747,
+  "matching_probe_rows": 156,
+  "original_loader_decimal_crosscheck": true,
+  "overwrite_history": [
+    {
+      "key": [
+        "sdisk",
+        30
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.04209186445154081045423122373755342451318"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.05970444992838951411871260946256801612243"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        90
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.005167031752241050894818779964327154496928"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.007302102096813727613600060702385264045733"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        150
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.04296379547155403903824954147880332833154"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.06073263135182144546437560815938758076907"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        60
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01631898271010026391441203837736478865494"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.02306981138274967313330549241174247048706"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        120
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01025632005217831191907668254978056032733"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01444052298602119366407154329680553444003"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        12,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "scone",
+          12,
+          "0.015"
+        ],
+        "line": 12,
+        "part": "sconeprobe",
+        "rho_hi": "0.02265407150820301797622413359639681473823"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          12,
+          "0.015"
+        ],
+        "line": 11,
+        "part": "sconeprobe",
+        "rho_hi": "4.307152514107300766529046571250907440679e-28"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        20,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "scone",
+          20,
+          "0.015"
+        ],
+        "line": 14,
+        "part": "sconeprobe",
+        "rho_hi": "0.006715490250754631099024703820652565378069"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          20,
+          "0.015"
+        ],
+        "line": 13,
+        "part": "sconeprobe",
+        "rho_hi": "0.00000001764526177951859957689273200724348502393"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        30,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "scone",
+          30,
+          "0.015"
+        ],
+        "line": 16,
+        "part": "sconeprobe",
+        "rho_hi": "0.005455780964454772595471797249234297000342"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          30,
+          "0.015"
+        ],
+        "line": 15,
+        "part": "sconeprobe",
+        "rho_hi": "0.000631799195570303149300675732929046327091"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        8,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "mfwd",
+          8,
+          "0.015"
+        ],
+        "line": 19,
+        "part": "mbackprobe",
+        "rho_hi": "0.177717588200634912102470136865961514161"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mfwd",
+          8,
+          "0.015"
+        ],
+        "line": 18,
+        "part": "mbackprobe",
+        "rho_hi": "2.820161587356808669456672995988398133622e-82"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        12,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "mfwd",
+          12,
+          "0.015"
+        ],
+        "line": 22,
+        "part": "mbackprobe",
+        "rho_hi": "0.02168436556474191762539869545931003891326"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mfwd",
+          12,
+          "0.015"
+        ],
+        "line": 21,
+        "part": "mbackprobe",
+        "rho_hi": "8.610236745206529255215991472544396889383e-29"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        171,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "mbwd",
+          171,
+          "0.015"
+        ],
+        "line": 25,
+        "part": "mbackprobe",
+        "rho_hi": "0.0000003689177354097004695504620520410166861118"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mbwd",
+          171,
+          "0.015"
+        ],
+        "line": 24,
+        "part": "mbackprobe",
+        "rho_hi": "0.0000001576188875018899368965450469428925037011"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        176,
+        "0.015"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.0125",
+        "key": [
+          "mbwd",
+          176,
+          "0.015"
+        ],
+        "line": 28,
+        "part": "mbackprobe",
+        "rho_hi": "2.066284871351876967747651190779895714303e-30"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mbwd",
+          176,
+          "0.015"
+        ],
+        "line": 27,
+        "part": "mbackprobe",
+        "rho_hi": "4.112419557608400298621373952811712345975e-32"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        30
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.05970444992838951411871260946256801612243"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.0845269893456670382337784586460061042601"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        90
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.007302102096813727613600060702385264045733"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01028498612300948753858172493840655858932"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        150
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.06073263135182144546437560815938758076907"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.08563592246339869729518877970730894588769"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        60
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.02306981138274967313330549241174247048706"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.03250860313121358862020597070563443509172"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        120
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+        "filename_radius": "0.0177",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01444052298602119366407154329680553444003"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.0202318423739226363722243319433896635573"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        30
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.0845269893456670382337784586460061042601"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.1199242849443913630141681879573868091671"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        90
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01028498612300948753858172493840655858932"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01448701524731262590293476358623757199987"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        150
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.08563592246339869729518877970730894588769"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.1209862136155514317846586917650134330304"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        60
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.03250860313121358862020597070563443509172"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.04581930346824188866524241134591196253635"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        120
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.0202318423739226363722243319433896635573"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.02827968087406386621399854351966468813646"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        20,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          20,
+          "0.03"
+        ],
+        "line": 14,
+        "part": "sconeprobe",
+        "rho_hi": "0.0135404497585080731407373001804611556409"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          20,
+          "0.03"
+        ],
+        "line": 13,
+        "part": "sconeprobe",
+        "rho_hi": "0.001416690499927296562449879998213300019705"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        30,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          30,
+          "0.03"
+        ],
+        "line": 16,
+        "part": "sconeprobe",
+        "rho_hi": "0.01097915559858214481187514829571560959209"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          30,
+          "0.03"
+        ],
+        "line": 15,
+        "part": "sconeprobe",
+        "rho_hi": "0.03810721006710981075183523338577307182362"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        12,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mfwd",
+          12,
+          "0.03"
+        ],
+        "line": 22,
+        "part": "mbackprobe",
+        "rho_hi": "0.04268140820927678218198002280114877748929"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          12,
+          "0.03"
+        ],
+        "line": 21,
+        "part": "mbackprobe",
+        "rho_hi": "0.00000000009753347246898540282775207565981893796121"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        171,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mbwd",
+          171,
+          "0.03"
+        ],
+        "line": 25,
+        "part": "mbackprobe",
+        "rho_hi": "0.000001590967741416002611899575525985299734137"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          171,
+          "0.03"
+        ],
+        "line": 24,
+        "part": "mbackprobe",
+        "rho_hi": "0.005975627354212401000774449353321172829902"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        12,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "scone",
+          12,
+          "0.03"
+        ],
+        "line": 12,
+        "part": "sconeprobe",
+        "rho_hi": "0.04602950036054825145665831591726413485333"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          12,
+          "0.03"
+        ],
+        "line": 40,
+        "part": "sconeprobe",
+        "rho_hi": "9.264600287173579627665901799481748630124e-28"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        12,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          12,
+          "0.06"
+        ],
+        "line": 12,
+        "part": "sconeprobe",
+        "rho_hi": "0.5093742548206705693188589730013848821955"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          12,
+          "0.06"
+        ],
+        "line": 41,
+        "part": "sconeprobe",
+        "rho_hi": "0.0949917128401738286748575909590464050325"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        20,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          20,
+          "0.03"
+        ],
+        "line": 13,
+        "part": "sconeprobe",
+        "rho_hi": "0.001416690499927296562449879998213300019705"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          20,
+          "0.03"
+        ],
+        "line": 42,
+        "part": "sconeprobe",
+        "rho_hi": "0.00000003599644604905419889535491359753927057089"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        20,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          20,
+          "0.06"
+        ],
+        "line": 14,
+        "part": "sconeprobe",
+        "rho_hi": "0.05679888282961399927070426560914151448145"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          20,
+          "0.06"
+        ],
+        "line": 43,
+        "part": "sconeprobe",
+        "rho_hi": "0.02750120391422977602463687289355287468595"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        30,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          30,
+          "0.03"
+        ],
+        "line": 15,
+        "part": "sconeprobe",
+        "rho_hi": "0.03810721006710981075183523338577307182362"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          30,
+          "0.03"
+        ],
+        "line": 44,
+        "part": "sconeprobe",
+        "rho_hi": "0.001274669525951546966870833367958381482365"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "scone",
+        30,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          30,
+          "0.06"
+        ],
+        "line": 16,
+        "part": "sconeprobe",
+        "rho_hi": "0.03746455606393599475741675594933632886807"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "scone",
+          30,
+          "0.06"
+        ],
+        "line": 45,
+        "part": "sconeprobe",
+        "rho_hi": "0.02221755020812436586035680671172981570649"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        8,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mfwd",
+          8,
+          "0.03"
+        ],
+        "line": 19,
+        "part": "mbackprobe",
+        "rho_hi": "0.3472384807054759239762476395740886658814"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          8,
+          "0.03"
+        ],
+        "line": 47,
+        "part": "mbackprobe",
+        "rho_hi": "2.043560258108215432337202365797357923516e-81"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        8,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          8,
+          "0.06"
+        ],
+        "line": 19,
+        "part": "mbackprobe",
+        "rho_hi": "4.024130599278815160167732667417794800713"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          8,
+          "0.06"
+        ],
+        "line": 48,
+        "part": "mbackprobe",
+        "rho_hi": "0.6627071337078107596751334190665616574734"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        12,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          12,
+          "0.03"
+        ],
+        "line": 21,
+        "part": "mbackprobe",
+        "rho_hi": "0.00000000009753347246898540282775207565981893796121"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          12,
+          "0.03"
+        ],
+        "line": 50,
+        "part": "mbackprobe",
+        "rho_hi": "2.004194089181879378382892596912705617171e-28"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mfwd",
+        12,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          12,
+          "0.06"
+        ],
+        "line": 22,
+        "part": "mbackprobe",
+        "rho_hi": "0.2578221638417494055019494078903916387288"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mfwd",
+          12,
+          "0.06"
+        ],
+        "line": 51,
+        "part": "mbackprobe",
+        "rho_hi": "0.08269350821833041956911765791443658102366"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        171,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          171,
+          "0.03"
+        ],
+        "line": 24,
+        "part": "mbackprobe",
+        "rho_hi": "0.005975627354212401000774449353321172829902"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          171,
+          "0.03"
+        ],
+        "line": 53,
+        "part": "mbackprobe",
+        "rho_hi": "0.000000778481268255390883000156101755788955578"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        171,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          171,
+          "0.06"
+        ],
+        "line": 25,
+        "part": "mbackprobe",
+        "rho_hi": "0.0005049029278705578222474031286381450521638"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          171,
+          "0.06"
+        ],
+        "line": 54,
+        "part": "mbackprobe",
+        "rho_hi": "0.000008261107453351039794578835992284532785054"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        176,
+        "0.03"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.025",
+        "key": [
+          "mbwd",
+          176,
+          "0.03"
+        ],
+        "line": 28,
+        "part": "mbackprobe",
+        "rho_hi": "1.310106753913792170779189743208073093485e-28"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          176,
+          "0.03"
+        ],
+        "line": 56,
+        "part": "mbackprobe",
+        "rho_hi": "5.742805774727209601110965608482140648677e-29"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "mbwd",
+        176,
+        "0.06"
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          176,
+          "0.06"
+        ],
+        "line": 28,
+        "part": "mbackprobe",
+        "rho_hi": "8.351864415790821005871634887149485983451e-13"
+      },
+      "radius_changed": false,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "mbwd",
+          176,
+          "0.06"
+        ],
+        "line": 57,
+        "part": "mbackprobe",
+        "rho_hi": "2.347015635911164998282734339561818747077e-22"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        30
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.1199242849443913630141681879573868091671"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "sdisk",
+          30
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.1703373139375097201997317835839296229494"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        60
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 1,
+        "part": "sdiskprobe",
+        "rho_hi": "0.04581930346824188866524241134591196253635"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "sdisk",
+          60
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.06448441353846389984780544321618656056216"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        90
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.01448701524731262590293476358623757199987"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "sdisk",
+          90
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.0203707170469133201573905961063309932868"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        120
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 2,
+        "part": "sdiskprobe",
+        "rho_hi": "0.02827968087406386621399854351966468813646"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "sdisk",
+          120
+        ],
+        "line": 4,
+        "part": "sdiskprobe",
+        "rho_hi": "0.03932340833580301421946174146408725658119"
+      },
+      "value_changed": true
+    },
+    {
+      "key": [
+        "sdisk",
+        150
+      ],
+      "previous": {
+        "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+        "filename_radius": "0.035355",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 3,
+        "part": "sdiskprobe",
+        "rho_hi": "0.1209862136155514317846586917650134330304"
+      },
+      "radius_changed": true,
+      "replacement": {
+        "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+        "filename_radius": "0.05",
+        "key": [
+          "sdisk",
+          150
+        ],
+        "line": 5,
+        "part": "sdiskprobe",
+        "rho_hi": "0.17133843005031200358764516353954343586"
+      },
+      "value_changed": true
+    }
+  ],
+  "overwrites": 45,
+  "parts": {
+    "R1": 335,
+    "R1_shard_total": 132,
+    "mbackprobe": 66,
+    "mbackprobe_fail": 10,
+    "patch": 49,
+    "patches_total": 5,
+    "rimprobe": 60,
+    "rimprobes_done": 6,
+    "sconeprobe": 35,
+    "sconeprobe_fail": 1,
+    "sdiskprobe": 25,
+    "sringprobe": 30,
+    "stitchM": 60,
+    "stitchS": 67,
+    "stitch_total": 22
+  },
+  "raw_bytes": 98773,
+  "raw_files": 48,
+  "rim_literal_comparisons": [
+    {
+      "angle": 15,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 30,
+        "part": "rimprobe",
+        "rho_hi": "0.000603483877415516863467383506023202291435"
+      },
+      "script_literal": "0.00060348387741551686"
+    },
+    {
+      "angle": 45,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 31,
+        "part": "rimprobe",
+        "rho_hi": "2.594350329600783756624172646243486894946"
+      },
+      "script_literal": "2.59435032960078375662"
+    },
+    {
+      "angle": 75,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 32,
+        "part": "rimprobe",
+        "rho_hi": "0.0352824085624791593135768049717404526433"
+      },
+      "script_literal": "0.03528240856247915931"
+    },
+    {
+      "angle": 105,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 33,
+        "part": "rimprobe",
+        "rho_hi": "0.03624768324222395018913977517670266248473"
+      },
+      "script_literal": "0.03624768324222395018"
+    },
+    {
+      "angle": 135,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 34,
+        "part": "rimprobe",
+        "rho_hi": "0.6290006791503880369058217586941857135674"
+      },
+      "script_literal": "0.62900067915038803690"
+    },
+    {
+      "angle": 150,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 35,
+        "part": "rimprobe",
+        "rho_hi": "1.321259176912048311423250104744535800746"
+      },
+      "script_literal": "1.32125917691204831142"
+    },
+    {
+      "angle": 160,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 36,
+        "part": "rimprobe",
+        "rho_hi": "0.02949289930718605979566237088079614210193"
+      },
+      "script_literal": "0.02949289930718605979"
+    },
+    {
+      "angle": 165,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 37,
+        "part": "rimprobe",
+        "rho_hi": "0.001193447165657739275841464013373580805005"
+      },
+      "script_literal": "0.00119344716565773927"
+    },
+    {
+      "angle": 170,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 38,
+        "part": "rimprobe",
+        "rho_hi": "0.00000001327705651495924221485237973377819469168"
+      },
+      "script_literal": "0.00000001327705651495"
+    },
+    {
+      "angle": 175,
+      "exact_decimal_match": false,
+      "ledger_winner": {
+        "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+        "filename_radius": "0.05",
+        "line": 39,
+        "part": "rimprobe",
+        "rho_hi": "1.728655925369777239812566677032221782361e-35"
+      },
+      "script_literal": "1.72865592536977723981"
+    }
+  ],
+  "rows": 903,
+  "scientific_effect": "NONE",
+  "scope": "custody and exact-decimal loader selection only; no QMC or proof validation",
+  "selected": [
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mbwd",
+        171,
+        "0.003"
+      ],
+      "line": 23,
+      "part": "mbackprobe",
+      "rho_hi": "0.00000002407581957441581939691304990464389139567"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        171,
+        "0.004248"
+      ],
+      "line": 23,
+      "part": "mbackprobe",
+      "rho_hi": "0.00000004874060415931757077124259437798461618882"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mbwd",
+        171,
+        "0.006"
+      ],
+      "line": 23,
+      "part": "mbackprobe",
+      "rho_hi": "0.00000009926844710710616768472165803030651447605"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mbwd",
+        171,
+        "0.0075"
+      ],
+      "line": 24,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000000373718167382331350870567778030666347813"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        171,
+        "0.0084852"
+      ],
+      "line": 23,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000002113177561835639641151426192186204493089"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        171,
+        "0.01062"
+      ],
+      "line": 24,
+      "part": "mbackprobe",
+      "rho_hi": "0.00000007592720463193586441043583594158001146696"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        171,
+        "0.012"
+      ],
+      "line": 52,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000004684452558672720287589044719734649054304"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mbwd",
+        171,
+        "0.015"
+      ],
+      "line": 24,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000001576188875018899368965450469428925037011"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        171,
+        "0.021213"
+      ],
+      "line": 24,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000003404624261712111992430237360526856181148"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        171,
+        "0.02124"
+      ],
+      "line": 25,
+      "part": "mbackprobe",
+      "rho_hi": "0.0000007572184988793821088786867272447477321725"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        171,
+        "0.03"
+      ],
+      "line": 53,
+      "part": "mbackprobe",
+      "rho_hi": "0.000000778481268255390883000156101755788955578"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        171,
+        "0.042426"
+      ],
+      "line": 25,
+      "part": "mbackprobe",
+      "rho_hi": "0.000003482823161739612866917876574533332317025"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        171,
+        "0.06"
+      ],
+      "line": 54,
+      "part": "mbackprobe",
+      "rho_hi": "0.000008261107453351039794578835992284532785054"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mbwd",
+        176,
+        "0.006"
+      ],
+      "line": 7,
+      "part": "mbackprobe",
+      "rho_hi": "1.030653336159204759921777440013650710899e-40"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mbwd",
+        176,
+        "0.0075"
+      ],
+      "line": 27,
+      "part": "mbackprobe",
+      "rho_hi": "2.559496259339119972922328828692567253744e-33"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        176,
+        "0.01062"
+      ],
+      "line": 27,
+      "part": "mbackprobe",
+      "rho_hi": "8.427449779180654687719116569509606958539e-33"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        176,
+        "0.012"
+      ],
+      "line": 55,
+      "part": "mbackprobe",
+      "rho_hi": "5.905102461253435026620826566460317802875e-27"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mbwd",
+        176,
+        "0.015"
+      ],
+      "line": 27,
+      "part": "mbackprobe",
+      "rho_hi": "4.112419557608400298621373952811712345975e-32"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        176,
+        "0.021213"
+      ],
+      "line": 27,
+      "part": "mbackprobe",
+      "rho_hi": "5.073649643415364700338609304168917519466e-31"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        176,
+        "0.02124"
+      ],
+      "line": 28,
+      "part": "mbackprobe",
+      "rho_hi": "1.024478926732195510075731401209305983687e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        176,
+        "0.03"
+      ],
+      "line": 56,
+      "part": "mbackprobe",
+      "rho_hi": "5.742805774727209601110965608482140648677e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        176,
+        "0.042426"
+      ],
+      "line": 28,
+      "part": "mbackprobe",
+      "rho_hi": "1.570384714632793152676591981274359573747e-26"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mbwd",
+        176,
+        "0.06"
+      ],
+      "line": 57,
+      "part": "mbackprobe",
+      "rho_hi": "2.347015635911164998282734339561818747077e-22"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mbwd",
+        176,
+        "3.00000000e-03"
+      ],
+      "line": 7,
+      "part": "mbackprobe",
+      "rho_hi": "3.602331365545560503447700262428830906027e-41"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mbwd",
+        176,
+        "4.24800000e-03"
+      ],
+      "line": 7,
+      "part": "mbackprobe",
+      "rho_hi": "1.046128578056086626795007667934960576738e-40"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mbwd",
+        176,
+        "8.48520000e-03"
+      ],
+      "line": 7,
+      "part": "mbackprobe",
+      "rho_hi": "2.693760813053077775905260456436132887198e-39"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mfwd",
+        12,
+        "0.003"
+      ],
+      "line": 20,
+      "part": "mbackprobe",
+      "rho_hi": "5.167951941718529250913855438582394434042e-15"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        12,
+        "0.004248"
+      ],
+      "line": 20,
+      "part": "mbackprobe",
+      "rho_hi": "8.342334311248868072782768612306383620135e-15"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mfwd",
+        12,
+        "0.006"
+      ],
+      "line": 20,
+      "part": "mbackprobe",
+      "rho_hi": "1.428362346979652141314956129406747158408e-14"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mfwd",
+        12,
+        "0.0075"
+      ],
+      "line": 21,
+      "part": "mbackprobe",
+      "rho_hi": "4.101633221284821979590894034217143131071e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        12,
+        "0.0084852"
+      ],
+      "line": 20,
+      "part": "mbackprobe",
+      "rho_hi": "2.613113259137534646006264615483668772359e-14"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        12,
+        "0.01062"
+      ],
+      "line": 21,
+      "part": "mbackprobe",
+      "rho_hi": "5.91287454175363595526804694858367322174e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        12,
+        "0.012"
+      ],
+      "line": 49,
+      "part": "mbackprobe",
+      "rho_hi": "5.071913296095760568075133605702450559932e-14"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mfwd",
+        12,
+        "0.015"
+      ],
+      "line": 21,
+      "part": "mbackprobe",
+      "rho_hi": "8.610236745206529255215991472544396889383e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        12,
+        "0.021213"
+      ],
+      "line": 21,
+      "part": "mbackprobe",
+      "rho_hi": "1.285215864237528549832791638264410324139e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        12,
+        "0.02124"
+      ],
+      "line": 22,
+      "part": "mbackprobe",
+      "rho_hi": "0.0305014630825002206293083501693133528072"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        12,
+        "0.03"
+      ],
+      "line": 50,
+      "part": "mbackprobe",
+      "rho_hi": "2.004194089181879378382892596912705617171e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        12,
+        "0.042426"
+      ],
+      "line": 22,
+      "part": "mbackprobe",
+      "rho_hi": "0.05956917275553263348968582845047549253362"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        12,
+        "0.06"
+      ],
+      "line": 51,
+      "part": "mbackprobe",
+      "rho_hi": "0.08269350821833041956911765791443658102366"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mfwd",
+        8,
+        "0.003"
+      ],
+      "line": 17,
+      "part": "mbackprobe",
+      "rho_hi": "3.092645084695716899969100232332636515143e-30"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        8,
+        "0.004248"
+      ],
+      "line": 17,
+      "part": "mbackprobe",
+      "rho_hi": "5.716074964522307188830598493939127601795e-30"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mfwd",
+        8,
+        "0.006"
+      ],
+      "line": 17,
+      "part": "mbackprobe",
+      "rho_hi": "1.117164579788673681235250354344037727792e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "mfwd",
+        8,
+        "0.0075"
+      ],
+      "line": 18,
+      "part": "mbackprobe",
+      "rho_hi": "1.550042792424893541713530867301623631619e-82"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        8,
+        "0.0084852"
+      ],
+      "line": 17,
+      "part": "mbackprobe",
+      "rho_hi": "2.330239588152070967058037608155088274324e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        8,
+        "0.01062"
+      ],
+      "line": 18,
+      "part": "mbackprobe",
+      "rho_hi": "2.563409523091389012822484814144975950375e-82"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        8,
+        "0.012"
+      ],
+      "line": 46,
+      "part": "mbackprobe",
+      "rho_hi": "5.287487904736706777876798653304911456653e-29"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "mfwd",
+        8,
+        "0.015"
+      ],
+      "line": 18,
+      "part": "mbackprobe",
+      "rho_hi": "2.820161587356808669456672995988398133622e-82"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        8,
+        "0.021213"
+      ],
+      "line": 18,
+      "part": "mbackprobe",
+      "rho_hi": "6.580836090107412326651972122738527336171e-82"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "mfwd",
+        8,
+        "0.02124"
+      ],
+      "line": 19,
+      "part": "mbackprobe",
+      "rho_hi": "0.2492198284723065414878049907224450888855"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        8,
+        "0.03"
+      ],
+      "line": 47,
+      "part": "mbackprobe",
+      "rho_hi": "2.043560258108215432337202365797357923516e-81"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "mfwd",
+        8,
+        "0.042426"
+      ],
+      "line": 19,
+      "part": "mbackprobe",
+      "rho_hi": "0.4816392584496232009927588006542772122274"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "mfwd",
+        8,
+        "0.06"
+      ],
+      "line": 48,
+      "part": "mbackprobe",
+      "rho_hi": "0.6627071337078107596751334190665616574734"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "scone",
+        12,
+        "0.0075"
+      ],
+      "line": 11,
+      "part": "sconeprobe",
+      "rho_hi": "2.117452133679304961879354383692036254048e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        12,
+        "0.01062"
+      ],
+      "line": 11,
+      "part": "sconeprobe",
+      "rho_hi": "3.014709880257410632189771377937731660317e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "scone",
+        12,
+        "0.015"
+      ],
+      "line": 11,
+      "part": "sconeprobe",
+      "rho_hi": "4.307152514107300766529046571250907440679e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        12,
+        "0.021213"
+      ],
+      "line": 11,
+      "part": "sconeprobe",
+      "rho_hi": "6.238272451675973502751740013700071070476e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        12,
+        "0.02124"
+      ],
+      "line": 12,
+      "part": "sconeprobe",
+      "rho_hi": "0.0322899304147290765810634793234689503614"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        12,
+        "0.03"
+      ],
+      "line": 40,
+      "part": "sconeprobe",
+      "rho_hi": "9.264600287173579627665901799481748630124e-28"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        12,
+        "0.042426"
+      ],
+      "line": 12,
+      "part": "sconeprobe",
+      "rho_hi": "0.06594849893408911797525801768547514782432"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        12,
+        "0.06"
+      ],
+      "line": 41,
+      "part": "sconeprobe",
+      "rho_hi": "0.0949917128401738286748575909590464050325"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "scone",
+        20,
+        "0.0075"
+      ],
+      "line": 13,
+      "part": "sconeprobe",
+      "rho_hi": "0.000000008754607702055762939583971362676936365518"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        20,
+        "0.01062"
+      ],
+      "line": 13,
+      "part": "sconeprobe",
+      "rho_hi": "0.0000000124343160063606864947965496195593294187"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "scone",
+        20,
+        "0.015"
+      ],
+      "line": 13,
+      "part": "sconeprobe",
+      "rho_hi": "0.00000001764526177951859957689273200724348502393"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        20,
+        "0.021213"
+      ],
+      "line": 13,
+      "part": "sconeprobe",
+      "rho_hi": "0.00000002514193500843034696028414820488635111889"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        20,
+        "0.02124"
+      ],
+      "line": 14,
+      "part": "sconeprobe",
+      "rho_hi": "0.009541619162497318989892418350954739796344"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        20,
+        "0.03"
+      ],
+      "line": 42,
+      "part": "sconeprobe",
+      "rho_hi": "0.00000003599644604905419889535491359753927057089"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        20,
+        "0.042426"
+      ],
+      "line": 14,
+      "part": "sconeprobe",
+      "rho_hi": "0.01927406103300467138970264531672011477893"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        20,
+        "0.06"
+      ],
+      "line": 43,
+      "part": "sconeprobe",
+      "rho_hi": "0.02750120391422977602463687289355287468595"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "scone",
+        30,
+        "0.0075"
+      ],
+      "line": 15,
+      "part": "sconeprobe",
+      "rho_hi": "0.0003145764172416698702244581420931672857688"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        30,
+        "0.01062"
+      ],
+      "line": 15,
+      "part": "sconeprobe",
+      "rho_hi": "0.0004462128107510383970097106354928944697226"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "scone",
+        30,
+        "0.015"
+      ],
+      "line": 15,
+      "part": "sconeprobe",
+      "rho_hi": "0.000631799195570303149300675732929046327091"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        30,
+        "0.021213"
+      ],
+      "line": 15,
+      "part": "sconeprobe",
+      "rho_hi": "0.0008966766464880645185382630573836922421848"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "scone",
+        30,
+        "0.02124"
+      ],
+      "line": 16,
+      "part": "sconeprobe",
+      "rho_hi": "0.00774544673886334638927688607613420939792"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        30,
+        "0.03"
+      ],
+      "line": 44,
+      "part": "sconeprobe",
+      "rho_hi": "0.001274669525951546966870833367958381482365"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "scone",
+        30,
+        "0.042426"
+      ],
+      "line": 16,
+      "part": "sconeprobe",
+      "rho_hi": "0.01560396005445576626580924270248755799217"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "scone",
+        30,
+        "0.06"
+      ],
+      "line": 45,
+      "part": "sconeprobe",
+      "rho_hi": "0.02221755020812436586035680671172981570649"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sdisk",
+        120
+      ],
+      "line": 4,
+      "part": "sdiskprobe",
+      "rho_hi": "0.03932340833580301421946174146408725658119"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sdisk",
+        150
+      ],
+      "line": 5,
+      "part": "sdiskprobe",
+      "rho_hi": "0.17133843005031200358764516353954343586"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sdisk",
+        30
+      ],
+      "line": 1,
+      "part": "sdiskprobe",
+      "rho_hi": "0.1703373139375097201997317835839296229494"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sdisk",
+        60
+      ],
+      "line": 2,
+      "part": "sdiskprobe",
+      "rho_hi": "0.06448441353846389984780544321618656056216"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sdisk",
+        90
+      ],
+      "line": 3,
+      "part": "sdiskprobe",
+      "rho_hi": "0.0203707170469133201573905961063309932868"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        120,
+        "0.065"
+      ],
+      "line": 2,
+      "part": "sringprobe",
+      "rho_hi": "0.02305055480619919204732140138175422450217"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        120,
+        "1.62500000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.006063741426547811707683669011758470501761"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        120,
+        "2.30100000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.008527698715352764541887187894271398920136"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        120,
+        "3.25000000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.01192814242230614454864268830520251940541"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        120,
+        "4.59615000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.01663357069545208273789181658412504947587"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        150,
+        "0.065"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.1230231874780833081129045609297678609551"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        150,
+        "1.62500000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.03020235225308263282323247836055890580553"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        150,
+        "2.30100000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.04278476798904404557016915596141870001996"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        150,
+        "3.25000000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.06053823206859757570080229557851758670495"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        150,
+        "4.59615000e-02"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.0860261521630392274968679718957120512195"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        30,
+        "0.065"
+      ],
+      "line": 1,
+      "part": "sringprobe",
+      "rho_hi": "0.02617420785323881334738531010113832264707"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        30,
+        "1.62500000e-02"
+      ],
+      "line": 3,
+      "part": "sringprobe",
+      "rho_hi": "0.006395834710055850325586650613430769740653"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        30,
+        "2.30100000e-02"
+      ],
+      "line": 3,
+      "part": "sringprobe",
+      "rho_hi": "0.009086456678381220973361300014695225417527"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        30,
+        "3.25000000e-02"
+      ],
+      "line": 3,
+      "part": "sringprobe",
+      "rho_hi": "0.01289267088826712892975779310190953541593"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        30,
+        "4.59615000e-02"
+      ],
+      "line": 3,
+      "part": "sringprobe",
+      "rho_hi": "0.01834849504404430210632103381738179485794"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        60,
+        "0.065"
+      ],
+      "line": 3,
+      "part": "sringprobe",
+      "rho_hi": "0.02248025822763609405414337064858104620058"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        60,
+        "1.62500000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.005570813424063663365870808754287332731359"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        60,
+        "2.30100000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.007897658978928686462832796792511617544317"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        60,
+        "3.25000000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.0111737203149585950768906241273303869832"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        60,
+        "4.59615000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.01584028312705697414844284252115786528665"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        90,
+        "0.065"
+      ],
+      "line": 5,
+      "part": "sringprobe",
+      "rho_hi": "0.01463348861071138805095388036930578734562"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "filename_radius": "0.05",
+      "key": [
+        "sring",
+        90,
+        "0.085"
+      ],
+      "line": 6,
+      "part": "sringprobe",
+      "rho_hi": "0.01276955679477860158586089892691559088966"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        90,
+        "1.62500000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.003709276574883971768347279537782895664222"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "filename_radius": "0.0125",
+      "key": [
+        "sring",
+        90,
+        "2.12500000e-02"
+      ],
+      "line": 6,
+      "part": "sringprobe",
+      "rho_hi": "0.003231755698031105713746990258498394121833"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        90,
+        "2.30100000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.005242112829550765245380454789230639820861"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "filename_radius": "0.0177",
+      "key": [
+        "sring",
+        90,
+        "3.00900000e-02"
+      ],
+      "line": 6,
+      "part": "sringprobe",
+      "rho_hi": "0.004567831614535798284042937853639331337848"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        90,
+        "3.25000000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.007384017327613139945614010071313002003812"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "filename_radius": "0.025",
+      "key": [
+        "sring",
+        90,
+        "4.25000000e-02"
+      ],
+      "line": 6,
+      "part": "sringprobe",
+      "rho_hi": "0.006435667774755440827357274951019822095688"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        90,
+        "4.59615000e-02"
+      ],
+      "line": 4,
+      "part": "sringprobe",
+      "rho_hi": "0.01040264211278096188397428744756612669785"
+    },
+    {
+      "file": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "filename_radius": "0.035355",
+      "key": [
+        "sring",
+        90,
+        "6.01035000e-02"
+      ],
+      "line": 6,
+      "part": "sringprobe",
+      "rho_hi": "0.009070392356758934105912734070992885763358"
+    }
+  ],
+  "selected_sites": 111,
+  "selected_sites_by_filename_radius": {
+    "0.0125": 17,
+    "0.0177": 24,
+    "0.025": 17,
+    "0.035355": 24,
+    "0.05": 29
+  },
+  "value_changing_overwrites": 45
+}
