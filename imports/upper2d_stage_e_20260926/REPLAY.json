@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-26",
+  "provider": "OpenAI",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "commands": [
+    "python -B -S raw/STAGE_E/attack_h4jc.py",
+    "python -B -O -S raw/STAGE_E/attack_h4jc.py"
+  ],
+  "exit_codes": [
+    0,
+    0
+  ],
+  "stdout_bytes": 1025,
+  "stdout_sha256": "bc9bcca0297cf03169f28d251c42a0211b8c50685b36824aaef2cd52defe1dd6",
+  "historical_transcripts_matched": [
+    "raw/STAGE_E/t_attack_normal.txt",
+    "raw/STAGE_E/t_attack_O.txt"
+  ],
+  "script_sha256": "4ae404d70659333d50d3dfee6c11df6b082b9797d893db1eef8a575128d64f5e",
+  "dependency_sha256": "818df7985412071259345455c9ff6b68cad0c0fa9d636009cf8849b550154185",
+  "scope": "Finite discrete model as implemented; not a continuum/Palm theorem or a claim about repaired successors",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0
+}
