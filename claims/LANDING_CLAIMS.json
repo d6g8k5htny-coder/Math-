@@ -302,8 +302,24 @@
       "measure": "generator-cover price compared with global hazard -log mu_p(D)",
       "required_dependencies": [
         {
-          "kind": "claim",
-          "id": "p15-realized-covers"
+          "kind": "support",
+          "id": "p15-realized-covers:setwise-interfaces",
+          "path": "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md",
+          "source": {
+            "commit": "760340e921ac4ceda296b8118da936f1133e956e",
+            "blob": "173881916ccd0e738bdb41279e835e78e520fcbc"
+          },
+          "review": {
+            "kind": "local_file",
+            "path": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+            "source": {
+              "commit": "1e1114f5eb8ef8cdbcde591bf74126274c250f88",
+              "blob": "07db19f826763b8faa7414ba2e403d9c45bc0b6e"
+            },
+            "disposition": "ACCEPT",
+            "scope": "Source exposure and sections 2/4: realized-family definition (P1), actual local restrictions (P2), and Theorem P2 full-block cover at K>=K_H(d), as used by Theorem F with d_i>=2; excludes the c_v<=p_v price theorem and broader parent acceptance"
+          },
+          "required_for": "actual capacity restrictions and setwise same-palette full-block coverage only; Theorem F derives its transformed-price budget separately"
         }
       ],
       "review": {
