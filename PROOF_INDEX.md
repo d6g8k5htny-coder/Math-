@@ -2,6 +2,17 @@
 
 This file links full proof text, exact reviews, and explicitly incomplete proof obligations. Local links open the retained files in this public repository; immutable external links identify sources still on other public branches. Scientific status is unchanged by this index. Review descriptions below report the linked records, checked on 2026-09-26; they do not replace the claim manifest or the source statements.
 
+## Imported source bytes — publication only
+
+[PR70](https://github.com/d6g8k5htny-coder/Math-/pull/70) landed these public imports at Math- commit `9d7b6802424fb4715b31999066aafca8ee2f3cca`.
+Open the [custody ledger](https://github.com/d6g8k5htny-coder/Math-/blob/9d7b6802424fb4715b31999066aafca8ee2f3cca/imports/hardening_ebedb780/README.md) or [identity manifest](https://github.com/d6g8k5htny-coder/Math-/blob/9d7b6802424fb4715b31999066aafca8ee2f3cca/imports/hardening_ebedb780/MANIFEST.json) for paths, sizes, Git blobs, and SHA256 digests.
+The nine `BYTE_COPY` IDs are `EC-014`, `EC-015`, `EC-021`, `P02-LM-001`, `P02-LM-002`, `P02-LM-005`, `P02-LM-007`, `P02-LM-008`, and `P15-B`.
+Their destination root is [`imports/hardening_ebedb780/`](imports/hardening_ebedb780/); the source is `d6g8k5htny-coder/main@ebedb7802024fa557e9071e4c9cec7cddc474b89`.
+The separate `main#59` carrier is a labeled `TRANSCRIPTION`, not original bytes and not one of the nine byte copies.
+Verify custody with `python -B -S imports/hardening_ebedb780/verify.py`.
+**Publication is not acceptance.** Source self-labels are quoted, not adopted; no verdict, `lemma_closed`, prize, premise, or landing claim changes here.
+The shared [public inventory](https://github.com/d6g8k5htny-coder/main/tree/main/docs/public-math) remains the catalog; this pointer creates no second inventory.
+
 ## Reviewed scoped results
 
 - D2 lifetime remainder: proof [frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md](frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md); [R1–R4 review](https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841270276) and [R5/R6 delta review](https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841782206) record ACCEPT for Theorem R at its stated existential `O(1)`-remainder scope. The delta identifies its exact parent imports and does not consume the still-open Theorem A cubic selection bound. Numerical constants/radii, a second coefficient, and RN/24-jet closure are outside this verdict. [main #67](https://github.com/d6g8k5htny-coder/main/issues/67) remains open for other bundled fronts.
