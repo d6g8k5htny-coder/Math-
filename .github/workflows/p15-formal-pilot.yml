@@ -1,0 +1,47 @@
+name: P15 algebra SMT pilot (not theorem acceptance)
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/formal_p15_20260925/**'
+      - 'frontiers/full_price_20260924/PROOF.md'
+      - '.github/workflows/p15-formal-pilot.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  algebra-pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.16'
+      - name: Install explicit native solver runtime (not a Python dependency)
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y libz3-4
+      - name: Exact algebra, false variants, and runner controls
+        env:
+          EVIDENCE: ${{ runner.temp }}/p15-formal-evidence
+        run: |
+          set -euo pipefail
+          mkdir -p "$EVIDENCE"
+          for mode in normal optimized; do
+            opts=(-B -S)
+            if [ "$mode" = optimized ]; then opts+=(-O); fi
+            python "${opts[@]}" frontiers/formal_p15_20260925/verify.py --output "$EVIDENCE/$mode" | tee "$EVIDENCE/$mode-summary.txt"
+            python "${opts[@]}" -m unittest discover -s frontiers/formal_p15_20260925 -p 'test_*.py' -v > "$EVIDENCE/$mode-tests.txt" 2>&1
+          done
+          git diff --exit-code
+          git rev-parse HEAD > "$EVIDENCE/checkout-commit.txt"
+      - name: Retain source-bound proofs and counterexample transcripts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: p15-formal-${{ github.run_id }}
+          path: ${{ runner.temp }}/p15-formal-evidence
+          if-no-files-found: error
+          retention-days: 30
