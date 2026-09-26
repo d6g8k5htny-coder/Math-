@@ -6,7 +6,7 @@
       "hist.rnu_env.py"
     ],
     "illegal_controlling_count": 0,
-    "open_or_author_side_count": 20
+    "open_or_author_side_count": 21
   },
   "d0_ci_unblock": {
     "ci_error": "PROBLEM packet: unexpected files ['DOWNSTREAM_CROSSWALK_20260925.md']",
@@ -19,35 +19,49 @@
     "covered_by_fixed_remote_candidate": [
       {
         "classification": "COVERED_BY_CANDIDATE",
+        "coverage_source": "math.rn-fixed-remote-window",
         "fingerprint": "dist>=rho and between-pin height",
         "id": "math.rn-region.fixed-remote",
         "notes": "Covered by rn-fixed-remote-window candidate only"
       }
     ],
+    "covered_by_other_scoped_candidates": [
+      {
+        "classification": "COVERED_BY_CANDIDATE",
+        "coverage_source": "math.rn-fixed-annulus-window",
+        "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
+        "id": "math.rn-region.fixed-annulus-window",
+        "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope."
+      }
+    ],
     "legacy_24jet_discharged": false,
-    "meaning": "region inventory for #76/#86 D4; not a numerical RN certificate",
+    "meaning": "region inventory for #76/#86 D4-D5; each covered region retains its source scope",
     "no_event_to_expectation_reversal": true,
     "open_complement": [
       {
         "classification": "OPEN_ACTIVE",
+        "coverage_source": null,
         "fingerprint": "r<<|x|<<rho",
         "id": "math.rn-region.intermediate-r-to-rho",
         "notes": "Transition region; not discharged by fixed-remote or PR7 reduction"
       },
       {
         "classification": "OPEN_ACTIVE",
+        "coverage_source": null,
         "fingerprint": "x=r y with A<=|y|<=B away from pins",
         "id": "math.rn-region.mesoscopic-scaled-annulus",
         "notes": "Owned by Math- PR7 reduction; exact J0 ledger still open"
       },
       {
         "classification": "OPEN_ACTIVE",
+        "coverage_source": null,
         "fingerprint": "near +-e1/2 scaled pin sites",
         "id": "math.rn-region.pin-collision",
         "notes": "Complement of fixed-remote and fixed scaled annulus"
       },
       {
         "classification": "OPEN_ACTIVE",
+        "coverage_source": null,
         "fingerprint": "eta->0 mutual witness separation",
         "id": "math.rn-region.witness-collision",
         "notes": "Fixed-eta factorial moments do not cover shrinking separation"

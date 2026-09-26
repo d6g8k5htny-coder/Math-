@@ -483,8 +483,9 @@ def closure_report(graph: dict[str, Any]) -> dict[str, Any]:
 
 
 def d4_region_complement(graph: dict[str, Any]) -> dict[str, Any]:
-    """Explicit D4/D5 region map: what fixed-remote covers versus what remains open."""
-    covered = []
+    """Explicit D4/D5 region map with coverage attributed to its exact source."""
+    fixed_remote = []
+    other_scoped = []
     open_regions = []
     for nid, node in sorted(graph['nodes'].items()):
         if node.get('kind') != 'region':
@@ -494,17 +495,22 @@ def d4_region_complement(graph: dict[str, Any]) -> dict[str, Any]:
             'classification': node['classification'],
             'fingerprint': node.get('fingerprint'),
             'notes': node.get('notes'),
+            'coverage_source': node.get('coverage_source'),
         }
         if node['classification'] == 'COVERED_BY_CANDIDATE':
-            covered.append(entry)
+            if node.get('coverage_source') == 'math.rn-fixed-remote-window':
+                fixed_remote.append(entry)
+            else:
+                other_scoped.append(entry)
         else:
             open_regions.append(entry)
     return {
-        'covered_by_fixed_remote_candidate': covered,
+        'covered_by_fixed_remote_candidate': fixed_remote,
+        'covered_by_other_scoped_candidates': other_scoped,
         'open_complement': open_regions,
         'no_event_to_expectation_reversal': True,
         'legacy_24jet_discharged': False,
-        'meaning': 'region inventory for #76/#86 D4; not a numerical RN certificate',
+        'meaning': 'region inventory for #76/#86 D4-D5; each covered region retains its source scope',
     }
 
 
