@@ -148,8 +148,7 @@ def _validate_dependency(dep: dict, claim_ids: set[str]) -> None:
         verify_source_binding(dep.get("source"), path, current_required=True)
         review = dep.get("review")
         if review is not None:
-            rpath = safe_relpath(review.get("path"))
-            verify_source_binding(review.get("source"), rpath, current_required=True)
+            _validate_review(review)
 
 
 def validate_manifest(manifest: dict, landing_text: str) -> dict:
