@@ -1,0 +1,22 @@
+name: Pin microdisk exact algebra
+'on':
+  pull_request:
+    paths:
+      - 'reviews/d5_pin_microdisk_20260926/**'
+      - '.github/workflows/pin-microdisk.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  algebra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Divided-difference and determinant identities
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -S reviews/d5_pin_microdisk_20260926/algebra_check.py
