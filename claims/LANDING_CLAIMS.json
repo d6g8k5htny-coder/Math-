@@ -32,10 +32,19 @@
       "measure": "scalar coefficient in the parent per-unit-volume lifetime-density normalization",
       "required_dependencies": [
         {
-          "kind": "external",
+          "kind": "support",
           "id": "main#63:eq15.2-parent",
-          "binding_status": "UNRESOLVED_EXTERNAL",
-          "reference": "https://github.com/d6g8k5htny-coder/main/issues/63",
+          "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+          "source": {
+            "commit": "c39164254ad1529ed49543743598d5dcb24bab98",
+            "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+          },
+          "review": {
+            "kind": "github_issue",
+            "repo": "d6g8k5htny-coder/main",
+            "number": 63,
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+          },
           "required_for": "persistence interpretation"
         }
       ],
@@ -46,7 +55,7 @@
         "url": "https://github.com/d6g8k5htny-coder/main/issues/65"
       },
       "disposition": "HOLD_WITH_DOMAIN",
-      "disposition_reason": "expression evaluation is in-tree; persistence interpretation remains conditional on unresolved parent"
+      "disposition_reason": "parent source is now byte-bound in-tree; persistence interpretation remains conditional on open analytic review #63"
     },
     {
       "claim_id": "lifetime-remainder",
@@ -62,17 +71,35 @@
       "measure": "per-unit-volume lifetime density with respect to d ell",
       "required_dependencies": [
         {
-          "kind": "external",
+          "kind": "support",
           "id": "main#63:matrix-cap-lifetime",
-          "binding_status": "UNRESOLVED_EXTERNAL",
-          "reference": "https://github.com/d6g8k5htny-coder/main/issues/63",
+          "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+          "source": {
+            "commit": "c39164254ad1529ed49543743598d5dcb24bab98",
+            "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+          },
+          "review": {
+            "kind": "github_issue",
+            "repo": "d6g8k5htny-coder/main",
+            "number": 63,
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+          },
           "required_for": "marked Kac-Rice, global elder, regression and parent coefficient interfaces"
         },
         {
-          "kind": "external",
+          "kind": "support",
           "id": "marked-cylinder-cap",
-          "binding_status": "UNRESOLVED_EXTERNAL",
-          "reference": "external:MARKED-CYLINDER-CAP-v1",
+          "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+          "source": {
+            "commit": "c39164254ad1529ed49543743598d5dcb24bab98",
+            "blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1"
+          },
+          "review": {
+            "kind": "github_issue",
+            "repo": "d6g8k5htny-coder/main",
+            "number": 63,
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+          },
           "required_for": "deterministic sufficient pairing event"
         }
       ],
@@ -83,7 +110,7 @@
         "url": "https://github.com/d6g8k5htny-coder/main/issues/67"
       },
       "disposition": "FAIL_CLOSED",
-      "disposition_reason": "successor proof is present, but load-bearing parent interfaces are unresolved external imports in this checkout"
+      "disposition_reason": "all named parent source bytes are now in-tree; theorem remains fail-closed because parent/global elder/Kac-Rice interfaces are still analytically open on #63"
     },
     {
       "claim_id": "rn-count-interface",
