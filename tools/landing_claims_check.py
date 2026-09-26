@@ -148,7 +148,15 @@ def _validate_dependency(dep: dict, claim_ids: set[str]) -> None:
         verify_source_binding(dep.get("source"), path, current_required=True)
         review = dep.get("review")
         if review is not None:
-            _validate_review(review)
+            if isinstance(review, dict) and review.get("kind") in {"github_issue", "local_file"}:
+                _validate_review(review)
+            else:
+                # Backward-compatible support-review record: exact local review file
+                # with path/source but no top-level review kind.
+                if not isinstance(review, dict):
+                    raise ClaimManifestError("support review must be an object")
+                rpath = safe_relpath(review.get("path"))
+                verify_source_binding(review.get("source"), rpath, current_required=True)
 
 
 def validate_manifest(manifest: dict, landing_text: str) -> dict:
