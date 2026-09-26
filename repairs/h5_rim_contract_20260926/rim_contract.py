@@ -43,11 +43,17 @@ def load_rim_constants(path, expected_radius):
             block = {}
             block_failed = False
         elif row.get('part') == 'rimprobe':
+            if type(row['th']) is not int:
+                raise ValueError('rim angle must be an integer')
             if row['th'] in block:
                 raise ValueError('duplicate rim angle in completed block')
+            if not isinstance(row['rho_hi'], str):
+                raise ValueError('rho_hi must be a decimal string')
             block[row['th']] = Decimal(row['rho_hi'])
         elif row.get('part') == 'rimprobe_fail':
             block_failed = True
+    if block_failed:
+        raise ValueError('unterminated failed rimprobe block')
     if block:
         raise ValueError('unterminated rimprobe block')
     if values is None:

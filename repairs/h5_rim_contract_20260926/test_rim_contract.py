@@ -80,6 +80,45 @@ class RimContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'rimprobe failure row'):
             module.load_rim_constants(path, expected_radius=Decimal('0.05'))
 
+    def test_rejects_trailing_rimprobe_failure_after_last_marker(self):
+        module = self.load_module()
+        lines = LEDGER.read_text().splitlines()
+        lines.append('{"part":"rimprobe_fail","th":175}')
+        directory, path = self.copied_ledger(lines)
+        self.addCleanup(directory.cleanup)
+        with self.assertRaisesRegex(ValueError, 'unterminated failed rimprobe block'):
+            module.load_rim_constants(path, expected_radius=Decimal('0.05'))
+
+    def test_rejects_numeric_rho_hi_instead_of_decimal_string(self):
+        module = self.load_module()
+        lines = LEDGER.read_text().splitlines()
+        last_marker = max(i for i, line in enumerate(lines)
+                          if json.loads(line).get('part') == 'rimprobes_done')
+        selected_175 = max(i for i in range(last_marker)
+                           if json.loads(lines[i]).get('part') == 'rimprobe'
+                           and json.loads(lines[i])['th'] == 175)
+        lines[selected_175] = '{"part":"rimprobe","th":175,"rho_hi":1e-35}'
+        directory, path = self.copied_ledger(lines)
+        self.addCleanup(directory.cleanup)
+        with self.assertRaisesRegex(ValueError, 'rho_hi must be a decimal string'):
+            module.load_rim_constants(path, expected_radius=Decimal('0.05'))
+
+    def test_rejects_noninteger_angle_encoding(self):
+        module = self.load_module()
+        lines = LEDGER.read_text().splitlines()
+        last_marker = max(i for i, line in enumerate(lines)
+                          if json.loads(line).get('part') == 'rimprobes_done')
+        selected_175 = max(i for i in range(last_marker)
+                           if json.loads(lines[i]).get('part') == 'rimprobe'
+                           and json.loads(lines[i])['th'] == 175)
+        row = json.loads(lines[selected_175])
+        row['th'] = 175.0
+        lines[selected_175] = json.dumps(row, separators=(',', ':'))
+        directory, path = self.copied_ledger(lines)
+        self.addCleanup(directory.cleanup)
+        with self.assertRaisesRegex(ValueError, 'rim angle must be an integer'):
+            module.load_rim_constants(path, expected_radius=Decimal('0.05'))
+
     def test_angle_order_does_not_change_the_completed_block(self):
         module = self.load_module()
         lines = LEDGER.read_text().splitlines()

@@ -59,8 +59,12 @@ rerun and the ledger bound itself was not re-certified.
 3. The completed block must contain exactly angles
    `15,45,75,105,135,150,160,165,170,175`, once each. Missing, duplicate,
    nonpositive, nonfinite, unterminated, malformed or explicitly failed rim
-   coverage is rejected.
-4. Decimal strings are retained as `Decimal`; `C_flat = 2*rho_hi` is computed
+   coverage is rejected. Angle encodings must be JSON integers, not numerically
+   equal floats or booleans; a failure-only tail after a completion marker is an
+   unterminated failed block and is rejected.
+4. `rho_hi` must be a JSON decimal string. Strings are retained as `Decimal`;
+   numeric JSON is rejected rather than passing through a binary float, and
+   `C_flat = 2*rho_hi` is computed
    with enough decimal precision to avoid the ambient 28-digit rounding that
    would otherwise alter the printed exact product.
 5. The historical module is parsed with `ast`; it is never imported, so its QMC
@@ -106,6 +110,6 @@ intended `rho_hi`. Any such evidence requires a successor review and rerun.
   `rho_hi` values;
 - recreate the numerical environment and rerun the affected hunt against this
   explicit contract, retaining QMC uncertainty and covariance-clipping limits;
-- give the immutable repair head a nonauthor technical review; same-provider
-  review earns zero organizational-independence credit;
+- preserve the source-bound nonauthor review on the successor head; its
+  same-provider provenance earns zero organizational-independence credit;
 - keep broader H5, RN/24-jet and contact-asymptotic obligations unchanged.
