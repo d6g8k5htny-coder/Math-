@@ -307,13 +307,17 @@
         }
       ],
       "review": {
-        "kind": "github_issue",
-        "repo": "d6g8k5htny-coder/main",
-        "number": 74,
-        "url": "https://github.com/d6g8k5htny-coder/main/issues/74"
+        "kind": "local_file",
+        "path": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+        "source": {
+          "commit": "1e1114f5eb8ef8cdbcde591bf74126274c250f88",
+          "blob": "07db19f826763b8faa7414ba2e403d9c45bc0b6e"
+        },
+        "disposition": "ACCEPT",
+        "scope": "Theorem F on the realized disjoint capacity/clutter family with a_i>=1, d_i>=2, all independent p in [0,1]^X, c_v<=phi(p_v), same palette K>=K_H(d), sharp rho*=1/[3-log(3e-2)]"
       },
-      "disposition": "HOLD_WITH_DOMAIN",
-      "disposition_reason": "full probability cube refers to the realized d_i>=2 family, not arbitrary P15 or demand one"
+      "disposition": "REVIEWED_SCOPED",
+      "disposition_reason": "source-bound xAI/Grok nonauthor technical review ACCEPTS Theorem F at its exact realized-family scope; no arbitrary-downset, demand-one, or unrestricted P15-prize transfer"
     },
     {
       "claim_id": "downstream-hard-gate",
