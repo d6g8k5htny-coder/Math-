@@ -168,7 +168,8 @@
       "classification": "COVERED_BY_CANDIDATE",
       "controlling": false,
       "fingerprint": "dist>=rho and between-pin height",
-      "notes": "Covered by rn-fixed-remote-window candidate only"
+      "notes": "Covered by rn-fixed-remote-window candidate only",
+      "coverage_source": "math.rn-fixed-remote-window"
     },
     "math.rn-region.mesoscopic-scaled-annulus": {
       "layer": "D5",
@@ -287,7 +288,8 @@
       "controlling": false,
       "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
       "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope.",
-      "review_disposition": "ACCEPT_AT_SCOPED_SOURCE"
+      "review_disposition": "ACCEPT_AT_SCOPED_SOURCE",
+      "coverage_source": "math.rn-fixed-annulus-window"
     },
     "regional.fixed-annulus.high-jet-route": {
       "layer": "D0",
