@@ -15,4 +15,4 @@ Density and/or weighted count control on the belt `W r < |v| < η` between the i
 
 ## Notes
 
-Explicitly listed as open in the axial-density proof and in the PR19/PR21 imported gaps.
+Explicitly listed as open in the axial-density proof and in the PR19/PR21 imported gaps. For **count** assembly on a fixed scaled annulus, prefer the accepted all-height / height-window annulus theorems rather than treating this density gap as the RN-complete-region blocker.

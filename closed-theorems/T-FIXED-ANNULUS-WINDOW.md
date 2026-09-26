@@ -4,7 +4,7 @@
 
 ## Statement (A2)
 
-On the full fixed scaled annulus with between-pin height window,
+In dimension two, on a fixed torus side `L`, fixed scaled annulus `1 < A0 < B0 < ∞`, and compact positive marks, with between-pin height window,
 
 `E N_j(r E_0) ≤ C k r³ area(E_0)`.
 

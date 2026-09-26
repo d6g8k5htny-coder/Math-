@@ -14,7 +14,7 @@ Exact transverse negative-cone moments in d=2 and d=3; outward arithmetic for th
 | Object | SIDE24-COEFFICIENT-D23-20260924-v1 |
 | Size / SHA256 | 10272 B / `c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769` |
 | Code | [`coefficient.py`](../coefficients/side24_v1/coefficient.py) |
-| Pending review | Math- [#40](https://github.com/d6g8k5htny-coder/Math-/issues/40); main [#65](https://github.com/d6g8k5htny-coder/main/issues/65) |
+| Review | Math- [#40](https://github.com/d6g8k5htny-coder/Math-/issues/40) / main [#65](https://github.com/d6g8k5htny-coder/main/issues/65): C1–C5 **VERIFIED** |
 
 ## Scope boundary
 

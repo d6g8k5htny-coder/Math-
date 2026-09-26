@@ -4,7 +4,11 @@
 
 ## Statement
 
-`p(grad f(X)=0) ≤ C r^{-5} exp(-c k²/r²)` on the inner belt `|z| ≤ W r²`.
+On the inner belt `|z| ≤ W r²`, the two-dimensional conditional gradient density satisfies
+
+`p_{grad f(X)}(0) ≤ C r^{-5} exp(-c k²/r²)`.
+
+This is a density at the origin in gradient space, not the probability of the zero-gradient event.
 
 ## Proof
 

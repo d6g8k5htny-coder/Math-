@@ -6,7 +6,9 @@
 
 Under the six original pins with compact positive marks and witness in the inner belt `A ≤ |u| ≤ B`, `|w| ≤ W`, the conditional gradient density at the witness satisfies
 
-`p(grad f(X) = 0) ≤ C r^{-5} exp(-c k²/r²)`.
+`p_{grad f(X)}(0) ≤ C r^{-5} exp(-c k²/r²)`
+
+(density at the origin in gradient space, not an event probability).
 
 ## Completed proof
 
