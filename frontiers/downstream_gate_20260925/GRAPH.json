@@ -208,8 +208,8 @@
       "classification": "AUTHOR_SIDE_REDUCTION",
       "controlling": false,
       "fingerprint": "Math-PR7-draft",
-      "source": "frontiers/rn_mesoscopic_20260925/PROOF.md",
-      "notes": "Draft PR7; paused for upstream expansion under #86"
+      "source": "external:Math-PR7",
+      "notes": "Legacy author-side PR7 route. Regionally superseded/nonblocking for the reviewed fixed-annulus between-pin height-window subregion; still unresolved for scopes outside that theorem."
     },
     "math.p15-full-price": {
       "layer": "D6",
@@ -265,6 +265,34 @@
       "fingerprint": "rn-selector-region-crosswalk-20260925-v1",
       "source": "frontiers/downstream_gate_20260925/SELECTOR_REGION.json",
       "notes": "Maps historical selectors onto fixed-remote vs open complements"
+    },
+    "math.rn-fixed-annulus-window": {
+      "layer": "D5",
+      "kind": "candidate",
+      "classification": "REVIEWED_SCOPED",
+      "controlling": false,
+      "fingerprint": "081abc13c5e66342c13df2af2bd6b114f320486f",
+      "source": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
+      "review_source": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+      "scope": "d=2; fixed L; fixed scaled annulus 1<A0<=|y|<=B0<infinity; compact positive gaps k_->0; all frames; between-pin height window",
+      "notes": "Source-bound xAI/Grok technical ACCEPT at exact scoped theorem only. No global D5/RN/JETMOD, k->0, d>=3, pin-neighborhood, intermediate-scale, collision, or elder-selection closure."
+    },
+    "math.rn-region.fixed-annulus-window": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "COVERED_BY_REVIEWED_SCOPED",
+      "controlling": false,
+      "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
+      "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope."
+    },
+    "regional.fixed-annulus.high-jet-route": {
+      "layer": "D0",
+      "kind": "regional_supersession",
+      "classification": "SUPERSEDED_NONBLOCKING",
+      "controlling": false,
+      "fingerprint": "regional-bypass-fixed-annulus-window-v1",
+      "scope": "fixed d=2 scaled annulus; compact positive gaps; between-pin height window",
+      "notes": "For this scope only, the reviewed analytic route bypasses CH-LIFT / Piece-2 / OBL-H5-JETMOD. Historical predicates remain OPEN/ABSENT in their original replay scopes."
     }
   },
   "edges": [
@@ -357,6 +385,42 @@
       "to": "math.rn-count-interface",
       "required": false,
       "relation": "inherits_no_markov_reversal"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.rn-count-interface",
+      "required": true,
+      "relation": "supplies_expected_count_on_reviewed_scoped_region"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.rn-region.fixed-annulus-window",
+      "required": false,
+      "relation": "covers_reviewed_subregion"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "regional.fixed-annulus.high-jet-route",
+      "required": false,
+      "relation": "regionally_supersedes_historical_high_jet_route"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.CH-LIFT",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.Piece-2-annulus",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.OBL-H5-JETMOD",
+      "required": false,
+      "relation": "regional_bypass_only"
     }
   ]
 }
