@@ -269,21 +269,25 @@
     "math.rn-fixed-annulus-window": {
       "layer": "D5",
       "kind": "candidate",
-      "classification": "REVIEWED_SCOPED",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
       "controlling": false,
       "fingerprint": "081abc13c5e66342c13df2af2bd6b114f320486f",
       "source": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
       "review_source": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
       "scope": "d=2; fixed L; fixed scaled annulus 1<A0<=|y|<=B0<infinity; compact positive gaps k_->0; all frames; between-pin height window",
-      "notes": "Source-bound xAI/Grok technical ACCEPT at exact scoped theorem only. No global D5/RN/JETMOD, k->0, d>=3, pin-neighborhood, intermediate-scale, collision, or elder-selection closure."
+      "notes": "Source-bound xAI/Grok technical ACCEPT at exact scoped theorem only. No global D5/RN/JETMOD, k->0, d>=3, pin-neighborhood, intermediate-scale, collision, or elder-selection closure.",
+      "review_disposition": "ACCEPT",
+      "review_provider": "xAI/Grok via Cursor",
+      "scientific_status_unchanged": true
     },
     "math.rn-region.fixed-annulus-window": {
       "layer": "D5",
       "kind": "region",
-      "classification": "COVERED_BY_REVIEWED_SCOPED",
+      "classification": "COVERED_BY_CANDIDATE",
       "controlling": false,
       "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
-      "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope."
+      "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope.",
+      "review_disposition": "ACCEPT_AT_SCOPED_SOURCE"
     },
     "regional.fixed-annulus.high-jet-route": {
       "layer": "D0",
