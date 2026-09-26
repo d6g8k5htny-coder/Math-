@@ -2,6 +2,17 @@
 
 [Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
 
+## Lemma and theorem maps
+
+Reading maps only. **Scientific effect: NONE** — they do not flip `lemma_closed`, prizes, or premises. Author-side “closed theorem” does not mean community-final acceptance.
+
+| Map | Contents |
+|---|---|
+| [Closed lemmas](closed-lemmas/README.md) | Lemmas with completed written proofs (and review pointers) |
+| [Open lemmas](open-lemmas/README.md) | Open lemma interfaces and tasks needed to close each |
+| [Closed theorems](closed-theorems/README.md) | Theorems we consider author-side closed |
+| [Open theorems](open-theorems/README.md) | Open theorems and what is needed to close them |
+
 ## Read a result
 
 | Topic | Proof or entry point | Review and scope |
