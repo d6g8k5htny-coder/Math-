@@ -11,3 +11,4 @@ Independent acceptance of the parent uniform matrix-cap selection and unrestrict
 1. Nonauthor review of marked Kac–Rice, global elder selection, and matrix regression on the exact parent identities.
 2. Keep coefficient evaluation ([T-SIDE24-COEFFICIENT](../closed-theorems/T-SIDE24-COEFFICIENT.md)) and remainder ([T-LIFETIME-REMAINDER](../closed-theorems/T-LIFETIME-REMAINDER.md)) as dependents, not substitutes.
 3. Do not treat Math- merges or green tests as parent acceptance.
+4. SIDE24 coefficient C1–C5 are already **VERIFIED** under [T-SIDE24-COEFFICIENT](../closed-theorems/T-SIDE24-COEFFICIENT.md); that verification does not accept this parent.
