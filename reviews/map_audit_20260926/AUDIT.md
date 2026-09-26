@@ -6,9 +6,9 @@ Scientific effect: **NONE**. This note records independent map audits. It does n
 
 | Lane | Agent | Scope | Verdict |
 |---|---|---|---|
-| GPT | [GPT audit closed theorems](bc-9c963ad4-7ad8-5b6e-8e5a-e7bd14342d7e) | `closed-theorems/` + `open-theorems/` | **PASS_WITH_FIXES** (applied below) |
-| Claude Opus | [Claude audit closed lemmas](bc-08757cc3-314a-556c-8d5c-7284be1c5bbb) | `closed-lemmas/` | pending at this note’s first write |
-| Grok | [Grok audit open gaps](bc-e9a4702c-3b6d-5def-aa1c-33b962ff4f7a) | `open-lemmas/` + cross-map gaps | pending at this note’s first write |
+| GPT | [GPT audit closed theorems](bc-9c963ad4-7ad8-5b6e-8e5a-e7bd14342d7e) | `closed-theorems/` + `open-theorems/` | **PASS_WITH_FIXES** (applied) |
+| Claude Opus | [Claude audit closed lemmas](bc-08757cc3-314a-556c-8d5c-7284be1c5bbb) | `closed-lemmas/` | **PASS_WITH_FIXES** (applied) |
+| Grok | [Grok audit open gaps](bc-e9a4702c-3b6d-5def-aa1c-33b962ff4f7a) | `open-lemmas/` + cross-map gaps | pending at this note’s last update |
 
 ## GPT findings applied
 
@@ -20,5 +20,13 @@ Scientific effect: **NONE**. This note records independent map audits. It does n
 6. Remove duplicate open theorem `T-PERIODIZED-SIDE24-FULL`; keep parent under `T-GLOBAL-ELDER-LIFETIME`.
 7. Soften intermediate-belt as RN-complete / RN-UNIF blocker once fixed-annulus accepts are consumed; keep mesoscopic/collision holes.
 8. Clarify matching lower bounds: remote already has positive expected-count asymptotic.
+
+## Claude findings applied
+
+1. Vendor `reviews/collision_mechanism_20260925/` from `origin/main` so contact / D1 / D2 proofs exist on this branch (`NOTE.md` `530dd3ef…`, companion `83f65339…`).
+2. Relabel SIDE24 as C1–C5 closed with parent still open (not a lifetime closure).
+3. Clarify two-scale chart (`δ≤δ₀`, not fixed `ε`) and three-Hessian PR16 vs PR28 forms.
+4. Fix contact-kernel scope to Sections B–C; cross-link typed-cubic; add missing `L-D1-DENSITY`.
+5. Point D2 closed lemma at the companion correction; narrow open bookkeeping to optional in-place `NOTE.md` merge.
 
 Local digest recompute on tip matched every primary vendored proof SHA256 cited in the maps.
