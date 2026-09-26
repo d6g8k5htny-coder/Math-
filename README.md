@@ -43,3 +43,5 @@ The full-price package has 36 distinct tests and seven semantic mutation control
 ## Where the other work lives
 
 [main](https://github.com/d6g8k5htny-coder/main) holds the campaign, reviews and legacy research-branch links. [meta-framework](https://github.com/d6g8k5htny-coder/meta-framework) holds exact source identities; [query-](https://github.com/d6g8k5htny-coder/query-) looks them up; [trial](https://github.com/d6g8k5htny-coder/trial) checks integration; [google-drive](https://github.com/d6g8k5htny-coder/google-drive) carries selected public replicas. Private experiments are not exported through those public routes.
+
+Byte copies of eight hardening-branch lemma proofs and the P15-B proof, plus a transcription of closed [main #59](https://github.com/d6g8k5htny-coder/main/issues/59), are in the [custody ledger](imports/hardening_ebedb780/README.md). That ledger is source availability only. It does not adopt source labels and does not change `lemma_closed`, prizes, premises, or the claim manifest.

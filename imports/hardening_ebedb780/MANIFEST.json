@@ -1,0 +1,275 @@
+{
+  "object": "PROOF-CUSTODY-REPAIR-20260926",
+  "scientific_effect": "NONE",
+  "purpose": "Default-branch-reachable custody for proof bytes that the 2026-09-26 audit found only off the default branch, plus a labeled transcription of closed main issue 59. Source self-labels are quoted and are not adopted.",
+  "does_not_change": [
+    "lemma_closed",
+    "prizes",
+    "premises",
+    "claims/LANDING_CLAIMS.json"
+  ],
+  "byte_copies": [
+    {
+      "id": "EC-014",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-014_v2.0 — Six-Pin Pair-Frame Jacobian/proof.md.export.txt",
+      "source_blob": "7189b4d1538866594c6d8c94f09e247a2cd65abe",
+      "bytes": 11331,
+      "sha256": "c5e64b9ba3a906535f1ae58a161d594a427371599c102ae4a68849b087a2f62c",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/EC-014/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "38db98eb3199907ce8e795cb128d7f30a116fe3c",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-014_v2.0 — Six-Pin Pair-Frame Jacobian/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT CORRECTED SIX-PIN PAIR-FRAME JACOBIAN AND CONTACT-POWER IDENTITY",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; exact controlling identity remains the source/review-packet identity; this status record creates no replacement proof hash",
+        "review_record_id": "1QzlaLR9OStGhOMVeECitanMt7ecxmDREjMOHOAOWSJ4",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "EC-015",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-015_v2.0 — Degree-Four PRCP Witness Event/proof.md.export.txt",
+      "source_blob": "7bcafa247f80297009f7450df28ece5cae58073c",
+      "bytes": 7196,
+      "sha256": "773b49b6d6930915d452a15243c89e32efa181b2ba7d42ae863c9dbc19393752",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/EC-015/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "27462d2573d26fe7ff77bbde1d0331181e500c15",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-015_v2.0 — Degree-Four PRCP Witness Event/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT NONEMPTY WITNESS-PARAMETERIZED DEGREE-FOUR PRCP EVENT",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; exact controlling identity remains the source/review-packet identity; no exact-field or probability scope is added",
+        "review_record_id": "1Hp0Kg1XGCnulfeSm2qON0V26b-_HP-HEU2aNI7LHEkg",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "EC-021",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-021_v2.0 — Uniform Positive Finite-Q4 Palm Mass/proof.md.export.txt",
+      "source_blob": "fce94e3b77a2851ce76fa05002ecb1fd6faea1e9",
+      "bytes": 8269,
+      "sha256": "1b9a56a1b4ecca99452743e2f010717f1eca753cf0c7c7919677490cae0072ba",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/EC-021/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "33e99c515cc82d9f99881cf22cbe3358684c583b",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_EC-021_v2.0 — Uniform Positive Finite-Q4 Palm Mass/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT UNIFORM POSITIVE TYPED FINITE-Q4 PALM MASS",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; finite-Q4 law and normalizer scope only; exact full-field transfer remains separate",
+        "review_record_id": "1Ed5R7jycID1OmXyDgzpQd8Apy_e8LHlMBrKsKOVJ31Q",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P02-LM-001",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-001_v2.0 — Deterministic Capture Majorant/proof.md.export.txt",
+      "source_blob": "de9995e3e312894434fb747a689ee2c6df725d8b",
+      "bytes": 17261,
+      "sha256": "a07d7df63e1f5810ba6bad5576a80afcbfb02deab0790d7804f45ab9dc798ea0",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/P02-LM-001/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "0256324facdf782744cc7223ab55aa1aacc38681",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-001_v2.0 — Deterministic Capture Majorant/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — CONDITIONAL EXACT DEGREE-FOUR DETERMINISTIC CAPTURE MAJORANT",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; terminal only on the declared degree-four REG and deep-threshold domain; exact-field C1 transfer is separate",
+        "review_record_id": "1iEv2eMApYfugkePc2kIGlLalXqaAfN5fQwou6CyDFp8",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P02-LM-002",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-002_v2.0 — Determinant-Weight Second Moment/proof.md.export.txt",
+      "source_blob": "d1fd7eccd5947cb6c5bf8724a77b7ec1c380a29b",
+      "bytes": 9748,
+      "sha256": "0f8f80922feb603e5b6e530eb885a7819b3a98d90d3c42d60a68259af766f7de",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/P02-LM-002/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "80c0258f53e643df3fdae554314ed76a59907480",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-002_v2.0 — Determinant-Weight Second Moment/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT UNIFORM r^4 DETERMINANT-WEIGHT SECOND-MOMENT INTERFACE",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; terminal pointwise/moment interface only; the consuming law must independently satisfy the uniform eighth-moment premise",
+        "review_record_id": "1JaNPnyxAHXJNy45e4Wvrgx2ltYJB4saCZTnWQv-cOaQ",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P02-LM-005",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-005_v2.0 — Uniform Nine-Jet Gaussian Interface/proof.md.export.txt",
+      "source_blob": "8fa134312a4fba7307b97e70498605a41b71ec82",
+      "bytes": 15009,
+      "sha256": "0fe0fad5d8e5519cac0e57a42181aa53560bb38d94f23aea51b63be3f182df8b",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/P02-LM-005/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "50418ee2b623a4efa8548aec475f3b934e98a9db",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-005_v2.0 — Uniform Nine-Jet Gaussian Interface/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT UNIFORM NINE-JET GAUSSIAN DENSITY AND MOMENT INTERFACE",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "SEMANTIC TERMINAL CLOSURE PRESERVED; legacy controlling capsule lacked marker-delimited byte identity; the current-state snapshot hash requires its own review and historical verdicts do not transfer automatically",
+        "review_record_id": "1LcMVKIBcg0RzZf60lcXaYLB8x0HcVqifI4TqV9Wn2nQ",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P02-LM-007",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-007_v2.0 — Conditioned Fifth-Derivative Tail/proof.md.export.txt",
+      "source_blob": "f895c56c1abfabb6da48e7fc1d8a67a24e2583e9",
+      "bytes": 12936,
+      "sha256": "7de9525399327ae512c399274732faeee24e3de5bf7d6d3bc1440837a12ab2fc",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/P02-LM-007/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "d59f245e9e2c7271302973d9c57a2b53d6b14e62",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-007_v2.0 — Conditioned Fifth-Derivative Tail/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT UNIFORM CONDITIONED FIFTH-DERIVATIVE SUPREMUM TAIL",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; terminal on the declared fixed compact chart and exact six-pin conditioned law; enlarged-domain stability requires a separate bridge",
+        "review_record_id": "1EGjAK3pAtF1CzPUrCW11jXhF4IP2T_Md6C886T13vhQ",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P02-LM-008",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-008_v2.0 — Palm-Tail Transfer/proof.md.export.txt",
+      "source_blob": "70112651948447cf95f94c620e17c0e2bbc4dd99",
+      "bytes": 12160,
+      "sha256": "06967d0ba2c2d20550f3bd86ddc97981e324e5f94cd7710996445d507ae2285b",
+      "newline": "CRLF",
+      "destination": "imports/hardening_ebedb780/P02-LM-008/proof.md.export.txt",
+      "source_label_adopted": false,
+      "source_status_blob": "d0e1db89dfbcb8439c95a6b05677f4c6bb24cafe",
+      "source_status_path": "drive/mirrors/01_RESEARCH_PLATFORM_AND_VERIFICATION_ARCHITECTURE/02_FORMAL_AND_LEAN_RESEARCH_SYSTEM/02_CORE_LEMMAS/LEMMA_P02-LM-008_v2.0 — Palm-Tail Transfer/CURRENT_STATUS.json.export.txt",
+      "quoted_from_status": {
+        "operative_terminal_label": "CLOSED — EXACT DETERMINANT-WEIGHTED PALM-TAIL TRANSFER INTERFACE",
+        "parent_theorem_effect": "NONE AUTOMATIC — Core status does not transfer to P0.1, P0.2, Theorem B, lifetime law, machine state, or external release",
+        "source_identity_state": "MIGRATED PROOF AND REVIEW PACKET PRESENT; abstract same-law nonnegative-weight transfer only; every consuming application must separately prove its moment and full-normalizer premises",
+        "review_record_id": "1sbm4z64ro7mHyMtswaBz-IO7BLmrxj6xAjPBdMDYDD4",
+        "note": "Quoted from the source status blob. Not a Math disposition and not a change to lemma_closed."
+      }
+    },
+    {
+      "id": "P15-B",
+      "kind": "BYTE_COPY",
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_branch": "chatgpt/drive-github-hardening-20260919",
+      "source_commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+      "source_path": "drive/mirrors/2026-09-16 — PRIZE PROBLEM RECONNAISSANCE — INDEPENDENT TRACK/06_TALAGRAND_DISCRETE — RESTRICTED_PROOF_CANDIDATES/P15-B_PALETTE_SEPARATED_LOCALIZATION.md",
+      "source_blob": "deab15ebd40e473374ec5943b0163a4a246081aa",
+      "bytes": 6286,
+      "sha256": "9b18b6e9abc90d18deef06ab12e3aa7794dad40e1618d99daa88e369c300e8c3",
+      "newline": "LF",
+      "destination": "imports/hardening_ebedb780/P15-B/P15-B_PALETTE_SEPARATED_LOCALIZATION.md",
+      "source_label_adopted": false,
+      "drive_file_id": "19D-eHQAIXMGGy2ThZUfZ0GGjIKWm5C2j",
+      "unimported_review": {
+        "path": "reviews/records/REV-P15-B.md",
+        "blob": "0579a10c5f3f9eeae330d4b4ec8cba8498ec43d2",
+        "bytes": 27761,
+        "commit": "ebedb7802024fa557e9071e4c9cec7cddc474b89",
+        "note": "Review file not copied. Its text places P15 on the prize reconnaissance track as HOLD / not for submission and says original_prize_closed stays false."
+      }
+    }
+  ],
+  "transcriptions": [
+    {
+      "id": "main#59",
+      "kind": "TRANSCRIPTION",
+      "not_original_bytes": true,
+      "source_repository": "d6g8k5htny-coder/main",
+      "source_issue": 59,
+      "source_issue_id": 5569087824,
+      "source_node_id": "I_kwDOQpeC2s8AAAABS_GJUA",
+      "source_html_url": "https://github.com/d6g8k5htny-coder/main/issues/59",
+      "source_api_url": "https://api.github.com/repos/d6g8k5htny-coder/main/issues/59",
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-09-25T12:30:12Z",
+      "updated_at": "2026-09-25T12:30:12Z",
+      "title": "P15: exact matroid palette specialization and optimal 816-label six-block witness",
+      "body_characters": 4686,
+      "body_utf8_bytes": 4692,
+      "body_sha256": "a1ef86f92c3d236c3190f78a1e1f3b68df599860c376c0a4e151d50de78ded87",
+      "begin_marker": "----- BEGIN GITHUB ISSUE BODY -----",
+      "end_marker": "----- END GITHUB ISSUE BODY -----",
+      "comments": [
+        {
+          "id": 5815779899,
+          "node_id": "IC_kwDOQpeC2s8AAAABWqXCOw",
+          "html_url": "https://github.com/d6g8k5htny-coder/main/issues/59#issuecomment-5815779899",
+          "user": "d6g8k5htny-coder",
+          "created_at": "2026-09-24T14:12:29Z",
+          "updated_at": "2026-09-24T14:12:29Z",
+          "role": "comment"
+        },
+        {
+          "id": 5819456999,
+          "node_id": "IC_kwDOQpeC2s8AAAABWt3d5w",
+          "html_url": "https://github.com/d6g8k5htny-coder/main/issues/59#issuecomment-5819456999",
+          "user": "d6g8k5htny-coder",
+          "created_at": "2026-09-24T18:04:27Z",
+          "updated_at": "2026-09-24T18:04:27Z",
+          "role": "comment"
+        },
+        {
+          "id": 5832385281,
+          "node_id": "IC_kwDOQpeC2s8AAAABW6MjAQ",
+          "html_url": "https://github.com/d6g8k5htny-coder/main/issues/59#issuecomment-5832385281",
+          "user": "d6g8k5htny-coder",
+          "created_at": "2026-09-25T12:30:10Z",
+          "updated_at": "2026-09-25T12:30:10Z",
+          "role": "closing comment"
+        }
+      ],
+      "destination": "imports/hardening_ebedb780/main_issue_59/ISSUE_BODY_TRANSCRIPTION.md",
+      "destination_bytes": 6819,
+      "destination_sha256": "a41bb3475586aa482551a45178631ce5d15e0f07c8061a14b5058bef6252bb7c",
+      "source_label_adopted": false
+    }
+  ]
+}
