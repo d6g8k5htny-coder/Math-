@@ -16,9 +16,9 @@ def var_fts(r: float) -> float:
 
 def var_fts_series(r: float) -> float:
     x = r * r
-    # r^2/2 - r^4/12 + r^6/48 - ... from expanding (E-1-r^2)/(E-1)
-    # Use four terms of the known series of Identity TS.
-    return x / 2.0 - (x * x) / 12.0 + (x ** 3) / 48.0 - (x ** 4) / 180.0
+    # Exact series of Identity TS: r^2/2 - r^4/12 + r^8/720 + O(r^{12}).
+    # The r^6 coefficient vanishes.
+    return x / 2.0 - (x * x) / 12.0 + (x ** 4) / 720.0
 
 
 def var_ftt(r: float) -> float:
@@ -79,6 +79,13 @@ class ClosedFormTests(unittest.TestCase):
         leading = (r ** 4) / 6.0
         rel = abs(var_ftt(r) - leading) / leading
         self.assertLess(rel, 0.05)
+
+    def test_fts_r6_coefficient_vanishes(self) -> None:
+        # (var/r^2 - 1/2 + r^2/12) / r^4 should tend to 0, not to 1/48.
+        r = 0.08
+        x = r * r
+        residual = var_fts(r) / x - 0.5 + x / 12.0
+        self.assertLess(abs(residual), 5e-7)
 
 
 if __name__ == "__main__":
