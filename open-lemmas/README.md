@@ -17,4 +17,4 @@ Named lemma-level interfaces that are **not yet closed** by a completed proof co
 | [L-D3-ANNULUS](L-D3-ANNULUS.md) | Dimension `d ≥ 3` annulus / tube analogues | Present proofs are d=2 chart programs |
 | [L-NUMERICAL-CONSTANTS](L-NUMERICAL-CONSTANTS.md) | Effective `C`, `c`, `r_*`, `C_H` enclosures | Existence accepts only; no numerical FREEZE-grade constants |
 | [L-THIN-TUBE-REVIEW](L-THIN-TUBE-REVIEW.md) | Thin-tube R1–R8 independent analytic closure | Author proof exists; scoped nonauthor ACCEPT of the full tube statement is still open |
-| [L-MARKED-TRANSFER-D1-SOURCE](L-MARKED-TRANSFER-D1-SOURCE.md) | Publish amended cumulative (D2) hypotheses in author source | Review ACCEPT after AMEND; confirm author collision-mechanism note carries the restored sentence |
+| [L-MARKED-TRANSFER-D1-SOURCE](L-MARKED-TRANSFER-D1-SOURCE.md) | Optional in-place merge of D2 companion into `NOTE.md` | Companion correction already accepted; `NOTE.md` left unchanged for provenance |

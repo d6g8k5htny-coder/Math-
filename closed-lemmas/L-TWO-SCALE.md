@@ -4,7 +4,7 @@
 
 ## Statement
 
-On the near-axis two-scale chart with positive scaled width control, the weighted intensity admits the power ledger in (S4)–(S5) via Stecconi’s weighted Kac–Rice (Theorem 29) with nonnegative Borel weights.
+On the near-axis two-scale chart with hypothesis `δ = √(r² + t²) ≤ δ₀` and `A ≤ |u| ≤ B` (not a fixed positive scaled width `ε` held as `r → 0`), the weighted intensity admits the power ledger in (S4)–(S5) via Stecconi’s weighted Kac–Rice (Theorem 29) with nonnegative Borel weights.
 
 ## Completed proof
 
@@ -16,4 +16,4 @@ On the near-axis two-scale chart with positive scaled width control, the weighte
 
 ## Scope boundary
 
-Does not by itself close a fixed positive scaled annulus, global RN, or `k_- → 0` uniformity.
+A fixed positive scaled width `ε`, global RN, and `k_- → 0` uniformity remain open. Fixed-annulus stitching is a separate lemma.
