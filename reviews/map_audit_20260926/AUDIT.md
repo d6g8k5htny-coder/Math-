@@ -8,7 +8,7 @@ Scientific effect: **NONE**. This note records independent map audits. It does n
 |---|---|---|---|
 | GPT | [GPT audit closed theorems](bc-9c963ad4-7ad8-5b6e-8e5a-e7bd14342d7e) | `closed-theorems/` + `open-theorems/` | **PASS_WITH_FIXES** (applied) |
 | Claude Opus | [Claude audit closed lemmas](bc-08757cc3-314a-556c-8d5c-7284be1c5bbb) | `closed-lemmas/` | **PASS_WITH_FIXES** (applied) |
-| Grok | [Grok audit open gaps](bc-e9a4702c-3b6d-5def-aa1c-33b962ff4f7a) | `open-lemmas/` + cross-map gaps | pending at this note’s last update |
+| Grok | [Grok audit open gaps](bc-e9a4702c-3b6d-5def-aa1c-33b962ff4f7a) | `open-lemmas/` + cross-map gaps | **PASS_WITH_FIXES** (applied) |
 
 ## GPT findings applied
 
@@ -28,5 +28,14 @@ Scientific effect: **NONE**. This note records independent map audits. It does n
 3. Clarify two-scale chart (`δ≤δ₀`, not fixed `ε`) and three-Hessian PR16 vs PR28 forms.
 4. Fix contact-kernel scope to Sections B–C; cross-link typed-cubic; add missing `L-D1-DENSITY`.
 5. Point D2 closed lemma at the companion correction; narrow open bookkeeping to optional in-place `NOTE.md` merge.
+
+## Grok findings applied
+
+1. Rewrite `L-OBL-H5-JETMOD` and `L-RN-UNIF` tasks to SCOPE/GRAPH exclusions (drop unvendored refusal tokens and FORM/√λ / Riemann-sum wording).
+2. Narrow `L-INTERMEDIATE-BELT` to the axial density residual; fixed-annulus count already accepted.
+3. Fix `L-COND-HESSIAN` inventory (annulus/transverse/two-scale already have moments; holes are pin/mesoscopic).
+4. Narrow `L-HEIGHT-COND-DENSITY` residual after PR22 rare-target ACCEPT.
+5. Add `L-MESOSCOPIC-JACOBIAN`, `L-RANDOM-M-CEILING`, and `T-REMOTE-FACTORIAL-POISSON`.
+6. Retarget thin-tube tip label to `0a9f508`.
 
 Local digest recompute on tip matched every primary vendored proof SHA256 cited in the maps.

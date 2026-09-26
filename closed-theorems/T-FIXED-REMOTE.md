@@ -17,4 +17,4 @@ On `D_ρ = {dist ≥ ρ}` with between-pin height window, the weighted expected 
 
 ## Explicitly not included
 
-Shrinking `ρ`, pin collisions, all remote heights outside the window, numerical 24-jet certificate.
+Shrinking `ρ`, pin collisions, all remote heights outside the window, numerical 24-jet certificate, full factorial-moment bounds as `η → 0`, and a Poisson-limit claim (see [T-REMOTE-FACTORIAL-POISSON](../open-theorems/T-REMOTE-FACTORIAL-POISSON.md)).

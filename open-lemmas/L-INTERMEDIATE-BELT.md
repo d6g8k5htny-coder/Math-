@@ -1,18 +1,17 @@
-# L-INTERMEDIATE-BELT — Intermediate transverse belt
+# L-INTERMEDIATE-BELT — Axial intermediate-belt density residual
 
-**Status in this map:** open lemma.
+**Status in this map:** open lemma (density residual only).
 
 ## Target
 
-Density and/or weighted count control on the belt `W r < |v| < η` between the inner axial chart and any fixed-transverse chart `|v| ≥ η`.
+The **exponential conditional gradient-density** bound on the axial intermediate belt `W r < |v| < η`, which the axial-density proof explicitly leaves open.
 
 ## Tasks to close
 
-1. Choose a chart decomposition covering `W r < |v| < η` with uniform constants as `r → 0`.
-2. Prove a conditional gradient (or joint) density bound compatible with weighted Kac–Rice.
-3. Control conditional Hessian / C³ moments on that belt after the rare target.
-4. Stitch to [L-AXIAL-DENSITY](../closed-lemmas/L-AXIAL-DENSITY.md) and [L-FIXED-TRANSVERSE](../closed-lemmas/L-FIXED-TRANSVERSE.md) without double-counting or gaps.
+1. Prove (or refuse) a usable gradient-density upper bound on `W r < |v| < η` under the six pins, comparable in spirit to [L-AXIAL-DENSITY](../closed-lemmas/L-AXIAL-DENSITY.md).
+2. Do **not** treat fixed-annulus weighted **count** as unfinished: PR28 R7 ACCEPT and [T-ALL-HEIGHT-ANNULUS](../closed-theorems/T-ALL-HEIGHT-ANNULUS.md) already cover `K_AB` without a gap, including that transverse range inside the annulus.
+3. If a density bound is obtained, document whether it is needed for any remaining open count route (pin neighborhoods, mesoscopic distances) or is only a local axial refinement.
 
 ## Notes
 
-Explicitly listed as open in the axial-density proof and in the PR19/PR21 imported gaps. For **count** assembly on a fixed scaled annulus, prefer the accepted all-height / height-window annulus theorems rather than treating this density gap as the RN-complete-region blocker.
+Axial quote: “The omitted region `W*r<|v|<eta` is substantial and remains open here.” Annulus quote: “The two charts cover `K_AB` without a gap.” This card is not the RN-complete-region count blocker.
