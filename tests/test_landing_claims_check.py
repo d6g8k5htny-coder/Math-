@@ -118,6 +118,22 @@ class LandingClaimsCheckTests(unittest.TestCase):
         with self.assertRaisesRegex(check.ClaimManifestError, "positive disposition depends"):
             check.validate_manifest(manifest, (self.root / "README.md").read_text())
 
+    def test_support_dependency_can_use_github_issue_review(self):
+        manifest = self.manifest()
+        manifest["claims"][0]["required_dependencies"] = [{
+            "kind": "support",
+            "id": "parent-source",
+            "path": "frontiers/a/PROOF.md",
+            "source": {"commit": self.commit, "blob": self.blob},
+            "review": {
+                "kind": "github_issue",
+                "repo": "d6g8k5htny-coder/main",
+                "number": 63,
+            },
+        }]
+        report = check.validate_manifest(manifest, (self.root / "README.md").read_text())
+        self.assertEqual(report["claim_count"], 1)
+
     def test_remote_queue_closed_is_rejected(self):
         class Response:
             def __enter__(self):
