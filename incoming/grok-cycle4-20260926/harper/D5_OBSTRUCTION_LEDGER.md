@@ -187,9 +187,9 @@ That declaration is withdrawn. An upper scale `f_ss(S) = O_p(1)` on the six-pin 
 - that the on-axis product is `O(k^3 r^5 q^2)`;
 - that `O(r^6 q^2)` over-counts a power of `r`.
 
-Both remain an open obligation. This note does not supply the missing transport estimate.
+Both remain an open obligation. This note does not supply the missing transport estimate as a uniform statement; Section 8 records the finite same-law transport identity and diagnostic that bear on it.
 
-Review `5332391136` on the preserved predecessor records a finite 8-pin numerical grid. That grid is diagnostic only. It is not a uniform estimate, it is not reproduced here, and it is not a theorem.
+Review `5332391136` on the preserved predecessor records a finite 8-pin numerical grid. That grid is diagnostic only. It is not a uniform estimate and it is not a theorem. It is reproduced independently, to the displayed digits, by `schur_diagnostic.py` (Section 8).
 
 ## 6. What this does not close
 
@@ -209,6 +209,37 @@ Review `5332391136` on the preserved predecessor records a finite 8-pin numerica
 | three-det product on-axis cone | — | withdrawn | predecessor `O(k^3 r^5 q^2)` |
 | #58 product `O(r^6 q^2)` | — | open | not shown here to over-count a power of `r` |
 | annulus product | `O(r^6)` | congruence | on `|v|>=eta`, not on the pin disk |
+| same-law transport of `f_ss(S)` on the `p=0` slice | `O_p(r)` at the conditional-moment scale of Section 3 | Taylor identity + finite 80-digit diagnostic (Section 8) | bears on the Section 5 obligation; `p`-uniform / `L^p` / product-moment version open |
 | inner square / microdisk | — | missing | AMEND; linear part vanishes; needs third-jet blow-up |
 
 D5 pin-neighborhood remains AMEND. This ledger does not restore `O(r^2 log(1/r))` and does not claim `O(r^3)`.
+
+## 8. Same-law transport: finite identity and diagnostic (added 2026-09-27, second revision)
+
+This section is evidence bearing on the Section 5 obligation. It does not discharge it, and Sections 5–7 keep their open / withdrawn statuses.
+
+Identity. Under the eight-pin law (six pins plus `grad f(X) = 0` at `X = M + r(0, q)`), Section 4 slaves `f_ss(M) = S = -(r q/2) f_sss(M) + O_p(r^2 q^2)`. Axial Taylor expansion of the transverse second derivative over the distance `r` from `M` to `S` is
+
+```
+f_ss(S) = f_ss(M) + r f_tss(M) + (r^2/2) f_ttss(M) + O_p(r^3),
+f_ts(S) = f_ts(M) + r f_tts(M) + O_p(r^2),
+```
+
+where the remainders are conditional-moment scales in the sense of Section 3 (Gaussian jets conditioned on finitely many linear functionals have conditional variances bounded by their unconditional ones, so every jet is `O_p(1)`). Combining with `S = O_p(r|q|)` and `f_ts(M) = r beta = O_p(r|q|)` gives, on the `p = 0` slice and at that scale only,
+
+```
+f_ss(S) = O_p(r),    f_ts(S) = O_p(r).
+```
+
+What this does not give: a `p`-uniform statement on the two-dimensional cone; `L^p` bounds with uniform integrability for the products that enter `det H_M det H_X det H_S`; control of the conditional means of those products; index indicators. Section 5 therefore stays open, and no three-determinant product is claimed.
+
+Diagnostic. `schur_diagnostic.py` (stdlib `decimal`, 80 digits) computes the conditional mean and variance of the second jets at `M` and `S` directly from the Gaussian Schur complement under the six-pin and eight-pin laws, at `b = 1`, `k = 6/5`, `q = 1/5`, `r = 0.1, 0.05, 0.025, 0.0125`. It checks:
+
+- `Var(f_tt(M) | six pins)` equals identity TT and `Var(f_ts(M) | six pins)` equals identity TS of `CLOSED_FORMS_FTS_FTT.md` to `1e-60`; the witness pins leave `f_tt(M)`'s law unchanged to that precision;
+- `E[f_tt(M) | six pins]` and `E[f_tt(S) | six pins]` agree with the exact series of Section 4 (`test_ftt_conditional_mean.py`) through `r^8`, to within `2 r^9` — two independent derivations (series division, direct numerical Schur) of the same means;
+- `Var(f_tt(M))/r^4 = 0.1663336110, 0.1665833507, 0.1666458344, 0.1666614584`, the grid recorded in review `5332391136`, reproduced to the displayed digits;
+- eight-pin law: `Var(f_ss(M)) / (r^2 q^2) = 1.5000` (consistent with `S = -(rq/2) f_sss + ...` and `Var(f_sss | pins) -> 6` from `../benjamin/REDUCED_FRAME_4SLOT.md`); `Var(f_ss(S)) / r^2 = 1.9732, 1.9806, 1.9825, 1.9829` (the review's second grid) with `E[f_ss(S)] = -(b/2) r^2 + O(r^3)`; `Var(f_ts(S)) / r^2 ≈ 0.019`;
+- six-pin law alone: `f_ss(S)` has mean `-> -b` and variance `-> 2`, i.e. the order-one marginal scale the predecessor used, which is not the scale on the witness event;
+- `--mutate` (wrong sign convention for odd-order covariances) is detected and exits 1.
+
+The diagnostic is a finite computation at fixed parameters. It corroborates the conditional-moment scales displayed above; it is not a uniform estimate, not a theorem, and not a review.

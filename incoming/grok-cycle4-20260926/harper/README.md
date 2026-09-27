@@ -11,6 +11,8 @@ Also included: exact planar Bargmann–Fock six-pin variances for `f_ts` and `f_
 - `SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md` — standalone lemma an external reviewer can apply to the author source. Author source not edited.
 - `CLOSED_FORMS_FTS_FTT.md` — exact identities and series.
 - `test_closed_forms.py` — stdlib-only checks of the closed forms: float evaluations against the series prefixes, plus exact rational-series checks of the TS and TT coefficients, the TT denominator order (`-r^8/12`, no `r^6` term) and numerator order (`-r^{12}/72`).
+- `schur_diagnostic.py` — 80-digit (`decimal`) direct Gaussian Schur complements under the six-pin and eight-pin (witness gradient) laws; cross-checks identities TS/TT to `1e-60` and the `E[f_tt]` series of `test_ftt_conditional_mean.py` through `r^8`; reproduces the finite grids of review `5332391136`; `--mutate` negative control. Finite diagnostic (ledger §8), not a uniform theorem.
+- `test_schur_diagnostic.py` — unit tests for the diagnostic (unconditional covariances, closed-form agreement, `f_tt(M)` fluctuation scale `r^2`, eight-pin slaving of `f_ss(S)`, mutation detection).
 
 Run from the repository root:
 
@@ -43,6 +45,8 @@ Review `5332391136` binds to commit `05c20b67ca49281601532f7a0224f871a8dae8d6` o
 - replaces `f_tt(M) = -6 k r + O(r^3)` and `f_tt(S) = 6 k r + O(r^3)` by the conditional mean series and the identity-TT variance `~ r^4/6` (centered scale `O_p(r^2)`);
 - withdraws the claim that a marginal `f_ss(S) = O_p(1)` shows Math-#58's `O(r^6 q^2)` over-counts one power. Same-law transport of `f_ss(S) - f_ss(M)` on `{grad f(X) = 0}` is an open obligation;
 - does not treat the review's finite 8-pin grid as a theorem.
+
+Second revision (same day): `D5_OBSTRUCTION_LEDGER.md` §8 records the same-law Taylor transport identity `f_ss(S) = f_ss(M) + r f_tss(M) + (r^2/2) f_ttss(M) + O_p(r^3)` and the finite 80-digit diagnostic (`schur_diagnostic.py`, `test_schur_diagnostic.py`) that reproduces the review's grids and cross-validates the `E[f_tt]` series. §5 remains an open obligation; no product estimate is claimed. Full suite: 23 tests OK in normal and `-O` modes.
 
 D5, SARD-G A1, and A6 remain AMEND. No status flip. Fresh review is required; that earlier review is not carried to this head.
 
