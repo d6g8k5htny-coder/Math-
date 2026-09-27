@@ -9,7 +9,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 - Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
 - Cross-repo eng tests and Path C live in [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial).
 - Calculations here use the Python standard library only (no extra pip env required in this repo).
-- Formal (Lean 4) work lives under [`formalization/`](formalization/README.md) and follows its gate: pinned sources, standard axioms only, no `sorry`, kernel check ≠ acceptance, alignment review by a distinct agent. Read [`formalization/COORDINATION.md`](formalization/COORDINATION.md) before touching `formalization/**` or asking a sibling repository for follow-ups.
+- Two Lean 4 lanes exist and neither edits the other: [`formal/`](formal/README.md) (closed GP-FOR-192 companion packet, owned by `formal/manifest.json` + `formal/gate.py`) and [`formalization/`](formalization/README.md) (landing-claim-keyed registry, glossary, alignment review lane; `formalization/formal_gate.py` indexes `formal/` read-only and requires shared toolchain/Mathlib pins). Both: pinned sources, standard axioms only, no `sorry`, kernel check ≠ acceptance, alignment review by a distinct agent. Read [`formalization/COORDINATION.md`](formalization/COORDINATION.md) before touching either directory or asking a sibling repository for follow-ups.
 
 ## Never
 

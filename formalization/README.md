@@ -38,6 +38,19 @@ Only `FORMAL_KERNEL_CHECKED_ALIGNED` means "the claim is formally verified in th
 
 Splitting keeps the always-on lane cheap (the core package builds in under a second with no downloads) while still exposing the real-analysis statement layer.
 
+## Two Lean directories in this repository
+
+`Math-` carries two Lean lanes that landed the same day under the same owner directive. They share the toolchain (`leanprover/lean4:v4.34.1`) and the Mathlib pin (`d13f23b7…`) and nothing else; neither edits the other.
+
+| Directory | Package | Owner / lineage | Keyed by | Authority for its own state | Its gate and CI |
+|---|---|---|---|---|---|
+| [`formal/`](../formal/README.md) | `ResearchFormalCoreR1` | [PR #92](https://github.com/d6g8k5htny-coder/Math-/pull/92), ChatGPT lineage | GP-FOR-192 scalar companions (13 targets, see [`formal/SCOPE.md`](../formal/SCOPE.md)) | [`formal/manifest.json`](../formal/manifest.json) | [`formal/gate.py`](../formal/gate.py) · `.github/workflows/formal-lean.yml` |
+| [`formalization/`](README.md) (this lane) | `MathFormalCore`, `MathFormalReal` | [PR #93](https://github.com/d6g8k5htny-coder/Math-/pull/93), Cursor/Anthropic lineage | landing `claim_id`s from [`claims/LANDING_CLAIMS.json`](../claims/LANDING_CLAIMS.json) | [`FORMALIZATION_STATUS.json`](FORMALIZATION_STATUS.json) | [`formal_gate.py`](formal_gate.py) · `.github/workflows/formalization-lane.yml` |
+
+`formal/gate.py` requires every `.lean` file under `formal/` to be registered in its manifest, so the claim-keyed lane lives outside that directory. The registry indexes the companion read-only under `companion_packages`: `formal_gate.py` runs `formal/gate.py` as a subprocess, requires its source-identity check to pass, requires the two lanes' `lean-toolchain` and Mathlib commits to agree, scans the companion's registered modules for the same forbidden constructs, and refuses if the companion manifest ever self-declares alignment acceptance. It never rewrites anything under `formal/` and never cites a companion target as evidence for a landing claim (`claim_ids` is empty and must stay a subset of the landing manifest). A toolchain or Mathlib bump therefore has to land in both directories in one change, or this gate refuses.
+
+The two glossaries ([`formal/GLOSSARY.md`](../formal/GLOSSARY.md), [`GLOSSARY.md`](GLOSSARY.md)) are complementary: the companion's covers the GP-FOR-192 scalar vocabulary; this one covers the landing-claim families. Both adopt the same rule: a missing mapping is a formalization obligation, not evidence of novelty or ill-definition. Consolidation, if wanted, is a change to `formal/GLOSSARY.md` and its manifest pin by that lane's author.
+
 ## Pilot: SIDE24 coefficient
 
 Claim `side24-coefficient` ([PROOF.md](../coefficients/side24_v1/PROOF.md), blob `44b66f04…`). Lane status **`specified`**, alignment **`REVIEW_REQUIRED`**.
@@ -54,8 +67,8 @@ The claim therefore remains **author-side and conditional** exactly as the landi
 From the repository root. Python is standard library only.
 
 ```sh
-python -B -S -m unittest discover -s formal -p 'test_*.py' -v     # 40 negative controls
-python -B -S formalization/formal_gate.py                                 # registry, pins, Layer 0 composition; compares FORMAL_RESULTS.json
+python -B -S -m unittest discover -s formalization -p 'test_*.py' -v     # 49 negative controls
+python -B -S formalization/formal_gate.py                                 # registry, pins, Layer 0 composition, companion index; compares FORMAL_RESULTS.json
 python -B -S formalization/formal_gate.py --with-lean                     # + lake build and axiom audit replay (needs elan)
 python -B -S formalization/formal_gate.py --refresh-pins --no-results-check   # deliberate pin regeneration after editing Lean sources
 ```

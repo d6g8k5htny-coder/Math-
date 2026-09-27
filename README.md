@@ -43,10 +43,10 @@ The full-price package has 36 distinct tests and seven semantic mutation control
 
 ## Formal verification lane
 
-[formalization/](formalization/README.md) is Layer 1 of the verification stack: Lean 4 statements and kernel-checked proofs bound to the exact informal blobs above, with a separate nonauthor alignment review. Each landing claim carries a formalization status (`none`, `specified`, `proved`, `kernel_checked`) in [formalization/FORMALIZATION_STATUS.json](formalization/FORMALIZATION_STATUS.json); the pilot `side24-coefficient` is `specified`, with its skeleton implication and Section 1–5 arithmetic kernel-checked and its Gaussian/Stirling inputs as explicit hypotheses. A kernel check verifies the Lean text only; it does not change any row, disposition, or register above. The [glossary](formalization/GLOSSARY.md) maps project terms to standard mathematics.
+[formalization/](formalization/README.md) is Layer 1 of the verification stack: Lean 4 statements and kernel-checked proofs bound to the exact informal blobs above, with a separate nonauthor alignment review. Each landing claim carries a formalization status (`none`, `specified`, `proved`, `kernel_checked`) in [formalization/FORMALIZATION_STATUS.json](formalization/FORMALIZATION_STATUS.json); the pilot `side24-coefficient` is `specified`, with its skeleton implication and Section 1–5 arithmetic kernel-checked and its Gaussian/Stirling inputs as explicit hypotheses. A kernel check verifies the Lean text only; it does not change any row, disposition, or register above. The [glossary](formalization/GLOSSARY.md) maps project terms to standard mathematics. The separate [formal/](formal/README.md) packet (GP-FOR-192 scalar companions, own manifest and gate) is indexed by this lane read-only; the two share only the Lean toolchain and Mathlib pin.
 
 ```sh
-python -B -S -m unittest discover -s formal -p 'test_*.py' -v
+python -B -S -m unittest discover -s formalization -p 'test_*.py' -v
 python -B -S formalization/formal_gate.py
 python -B -S formalization/formal_gate.py --with-lean   # requires elan; see formalization/README.md
 ```

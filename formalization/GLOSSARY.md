@@ -1,6 +1,8 @@
 # Formal glossary — project terms to standard mathematics to Lean
 
-**Scientific effect: NONE.** This table renames nothing in the sources. It maps each project-specific term to the standard mathematical object it denotes and to the Lean/Mathlib carrier that formalizes it (or records that none exists yet). A term that cannot be mapped is either ill-defined or genuinely new; novelty must then be justified against the literature, not assumed.
+**Scientific effect: NONE.** This table renames nothing in the sources. It maps each project-specific term to the standard mathematical object it denotes and to the Lean/Mathlib carrier that formalizes it (or records that none exists yet). A term that cannot be mapped yet is a formalization obligation, not evidence of novelty or of ill-definition; if after the attempt no standard object can be named, that is a finding to record here and to justify against the literature, never to assume.
+
+A second, complementary glossary covers the GP-FOR-192 scalar companions in [`formal/GLOSSARY.md`](../formal/GLOSSARY.md) (PR #92; its rows are pinned by `formal/manifest.json` and are edited only by that lane). Terms that appear in both (`lifetime coefficient`, `elder density`, `candidate density`) carry the same verdict in both: unmapped until an explicit process/measure object is defined.
 
 Columns: **Project term** as used in the proofs · **Standard mathematics** · **Lean carrier** (`✓` present, `spec` specified as a `Prop`/`def` only, `—` none yet) · **Where the term is defined informally**.
 

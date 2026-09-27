@@ -15,14 +15,25 @@ Under the [working contract](https://github.com/d6g8k5htny-coder/governance-/blo
 |---|---|---|
 | Layer 1 design and rules | [`formalization/README.md`](README.md) | live |
 | Registry keyed by landing `claim_id` | [`formalization/FORMALIZATION_STATUS.json`](FORMALIZATION_STATUS.json) | live; all 10 claims covered; pilot `side24-coefficient` at `specified` |
-| Fail-closed gate + 40 negative controls | [`formalization/formal_gate.py`](formal_gate.py), [`formalization/test_formal_gate.py`](test_formal_gate.py), [`formalization/FORMAL_RESULTS.json`](FORMAL_RESULTS.json) | live |
+| Fail-closed gate + 49 negative controls | [`formalization/formal_gate.py`](formal_gate.py), [`formalization/test_formal_gate.py`](test_formal_gate.py), [`formalization/FORMAL_RESULTS.json`](FORMAL_RESULTS.json) | live |
 | Core-only Lean package (kernel-checked arithmetic, 36 theorems, standard axioms only) | [`formalization/lean/core`](lean/core) | live |
 | Mathlib package (definitions, `Prop` specifications, 8 real-number theorems incl. the SIDE24 skeleton implication) | [`formalization/lean/mathlib`](lean/mathlib) | live |
 | Glossary: project terms → standard mathematics → Lean carriers | [`formalization/GLOSSARY.md`](GLOSSARY.md) | live; extend per PR |
 | Formalization (alignment) review lane template | [`formalization/ALIGNMENT_REVIEW_TEMPLATE.md`](ALIGNMENT_REVIEW_TEMPLATE.md) | live; first review open |
-| CI: registry gate, kernel build + `leanchecker` + `nanoda` + axiom audit (core), Mathlib build + axiom audit | [`.github/workflows/formal-lane.yml`](../.github/workflows/formal-lane.yml) | live |
+| CI: registry gate, kernel build + `leanchecker` + `nanoda` + axiom audit (core), Mathlib build + axiom audit | [`.github/workflows/formalization-lane.yml`](../.github/workflows/formalization-lane.yml) | live |
+| Read-only index of the companion `formal/` packet (PR #92): its gate must pass, toolchain/Mathlib pins must agree | `companion_packages` in [`FORMALIZATION_STATUS.json`](FORMALIZATION_STATUS.json) | live |
 
-Layer 0 is byte-identical: no edit to `claims/LANDING_CLAIMS.json`, `frontiers/downstream_gate_20260925/**`, any proof text, or any review record.
+Layer 0 is byte-identical: no edit to `claims/LANDING_CLAIMS.json`, `frontiers/downstream_gate_20260925/**`, any proof text, or any review record. `formal/**` (PR #92) is also byte-identical.
+
+## Relationship to the `formal/` packet (PR #92, same day)
+
+While this lane was being built, [PR #92](https://github.com/d6g8k5htny-coder/Math-/pull/92) (ChatGPT lineage, owner directive 2026-09-27, [main #95](https://github.com/d6g8k5htny-coder/main/issues/95)) merged a closed Lake package `ResearchFormalCoreR1` under `formal/` with its own manifest, gate, negative controls, Blueprint stub and workflow. Its 13 targets are scalar companions to GP-FOR-192 items; its gate requires every `.lean` under `formal/` to be registered in `formal/manifest.json`. This lane originally lived at `formal/` too and was relocated to `formalization/` so that neither gate has to be edited for the other to pass. Decisions, so every agent applies them the same way:
+
+- `formal/` is owned by its manifest and gate. Do not add, move or edit files there from this lane. Do not re-pin its manifest for it.
+- `formalization/FORMALIZATION_STATUS.json` indexes `formal/` under `companion_packages` **read-only**: `formal_gate.py` runs `formal/gate.py`, requires `SOURCE_IDENTITY_PASS`, requires both lanes' `lean-toolchain` and Mathlib commit to agree, scans the companion's registered modules for `sorry`/`native_decide`/`axiom`/`implemented_by`/`extern`, and refuses if the companion manifest self-declares alignment acceptance. Nothing under `formal/` counts as evidence for a landing `claim_id`.
+- Toolchain or Mathlib bumps land in **both** directories in one PR, or `formalization-lane.yml` fails. That is the intended coordination point; do not silence it by removing the companion index.
+- The two glossaries stay separate and complementary (GP-FOR-192 scalar vocabulary in `formal/GLOSSARY.md`; landing-claim families here). Both use the rule "a missing mapping is a formalization obligation, not evidence of novelty or ill-definition". Consolidation is a change to `formal/GLOSSARY.md` plus its manifest pin by that lane's author, with a pointer here.
+- The two alignment-review mechanisms differ in form (`formal/gate.py --alignment <record>` with a lineage-independent author/reviewer pair and authenticated evidence hash; this lane's `reviews/` record checked by `_validate_alignment`) but agree in substance: kernel acceptance is not review acceptance; the reviewer must be a distinct agent; neither changes a scientific register. A future common review-record schema is a `governance-` amendment (request 2 below), not a unilateral edit in either lane.
 
 ## Why
 
@@ -73,4 +84,5 @@ This run's write scope is `Math-` only (Cloud Agent tokens follow the launch env
 1. **Gate owner:** add `LEAN_KERNEL_CHECK`, `LEAN_STATEMENT_SPECIFIED`, `FORMAL_ALIGNMENT_ACCEPT` to `GRAPH.json` `non_discharge_tokens`, regenerating `SOURCE_FILES.json` and `RESULTS.json` in the same change. Until then Layer 0 refuses them as *unknown* tokens, which the formal gate asserts on every run.
 2. **Blueprint:** optional `leanblueprint` rendering of the `components[].informal_location` map; documentation only.
 3. **Next pilots:** `p15-price-boundary` (exact counterexample, `decide`), `p15-realized-covers`, `rn-count-interface`, then `p15-full-price`.
-4. **Peer review track:** when a claim reaches `FORMAL_KERNEL_CHECKED_ALIGNED`, a manuscript in the glossary's standard terminology with the Lean sources as supplementary material is the intended external route; the landing disposition is still governed by the existing review authority.
+4. **Companion lane:** if `formal/` grows a second module or its author wants the two lanes' status vocabularies unified, do it through `formal/manifest.json` and this registry's `companion_packages` in one PR, with both gates and both test suites run.
+5. **Peer review track:** when a claim reaches `FORMAL_KERNEL_CHECKED_ALIGNED`, a manuscript in the glossary's standard terminology with the Lean sources as supplementary material is the intended external route; the landing disposition is still governed by the existing review authority.
