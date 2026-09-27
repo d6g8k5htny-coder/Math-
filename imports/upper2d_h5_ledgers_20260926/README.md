@@ -23,6 +23,9 @@ research corpus has been recovered.
 - [Review](REVIEW.md) describes the loader and the missing exponent finding.
 - [Selection audit](SELECTION_AUDIT.json) records every selected source line,
   all overwrite history, ignored failure rows and rim-literal comparisons.
+- [Radius-scoped rim successor](../../repairs/h5_rim_contract_20260926/REPAIR.md)
+  removes manual literal transcription at the data-interface level and records
+  the exact angle-175 impact; it does not rerun or certify the numerical hunt.
 
 From the Math- repository root, with Python's standard library only:
 
