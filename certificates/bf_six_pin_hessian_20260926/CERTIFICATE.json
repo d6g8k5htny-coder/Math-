@@ -1,0 +1,57 @@
+{
+  "axial_internal_interval": [
+    "23995/144258",
+    "224477/1343790"
+  ],
+  "centered_residual_determinant_second_moment_upper": "23/20 * r^4",
+  "conditioning": "six linear endpoint pins; no determinant or type reweighting",
+  "coordinates": [
+    "f_tt(M)/r^2",
+    "f_ts(M)/r",
+    "f_ss(M)"
+  ],
+  "covariance_lower": "1/7",
+  "covariance_upper": "2",
+  "coverage": "finite polynomial identities and rational endpoint checks; analytic all-order proof separate",
+  "diagonal_intervals": [
+    [
+      "1/7",
+      "1/5"
+    ],
+    [
+      "1599/3200",
+      "1/2"
+    ],
+    [
+      "2",
+      "2"
+    ]
+  ],
+  "dimension": 2,
+  "kernel_checked": false,
+  "model": "unperiodized planar Bargmann-Fock, K=exp(-|x-y|^2/2)",
+  "moment_boundary": "H-E[H|P] only; not H, not Palm weight, not a normalizer",
+  "object_id": "OA-BF-SIX-PIN-HESSIAN-20260926-v1",
+  "positivity_seeds": {
+    "A": [
+      10,
+      46,
+      94,
+      122
+    ],
+    "D": [
+      2,
+      8,
+      14
+    ]
+  },
+  "r_domain": "0<r<=1/40",
+  "regression_polynomials": {
+    "gram_determinant": true,
+    "inverse_identity": true,
+    "schur_numerator": true
+  },
+  "review_status": "REVIEW_REQUIRED",
+  "scientific_effect": "NONE",
+  "scientific_status_authority": false
+}

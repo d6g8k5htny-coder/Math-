@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'certificates/bf_six_pin_scalar_20260926/**'
+      - 'certificates/bf_six_pin_hessian_20260926/**'
       - '.github/workflows/bf-six-pin-scalar.yml'
   workflow_dispatch:
 permissions:
@@ -27,3 +28,10 @@ jobs:
           python -B -S certificates/bf_six_pin_scalar_20260926/certificate.py > /tmp/bf-scalar.json
           cmp /tmp/bf-scalar.json certificates/bf_six_pin_scalar_20260926/CERTIFICATE.json
           python -B -S certificates/bf_six_pin_scalar_20260926/certificate.py --check /tmp/bf-scalar.json
+      - name: Endpoint Hessian normal and optimized controls
+        run: |
+          python -B -S -m unittest discover -s certificates/bf_six_pin_hessian_20260926 -p 'test_*.py' -v
+          python -O -B -S -m unittest discover -s certificates/bf_six_pin_hessian_20260926 -p 'test_*.py' -v
+          python -B -S certificates/bf_six_pin_hessian_20260926/hessian_certificate.py --check certificates/bf_six_pin_hessian_20260926/CERTIFICATE.json > /tmp/bf-hessian.json
+          python -O -B -S certificates/bf_six_pin_hessian_20260926/hessian_certificate.py --check certificates/bf_six_pin_hessian_20260926/CERTIFICATE.json > /tmp/bf-hessian-optimized.json
+          cmp /tmp/bf-hessian.json /tmp/bf-hessian-optimized.json
