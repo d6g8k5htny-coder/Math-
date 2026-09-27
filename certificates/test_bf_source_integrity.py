@@ -62,6 +62,9 @@ class SourceIntegrityTests(unittest.TestCase):
     def test_symlink_certificates_root_is_refused(self):
         p=self.root/'certificates';target=self.root/'other';p.rename(target);p.symlink_to(target,target_is_directory=True)
         with self.assertRaises(ValueError):self.m.verify(self.root)
+    def test_symlink_verification_root_is_refused(self):
+        p=self.root/'root_link';p.symlink_to(self.root,target_is_directory=True)
+        with self.assertRaises(ValueError):self.m.verify(p)
     def test_cli_requires_no_network_and_is_mode_identical(self):
         outputs=[]
         for flags in ([],['-O']):

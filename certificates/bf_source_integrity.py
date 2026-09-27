@@ -22,7 +22,9 @@ def read_regular(path:Path,limit:int)->bytes:
     return raw
 
 def verify(root:Path)->dict:
-    root=Path(root);parent=root/'certificates'
+    root=Path(root)
+    if root.is_symlink() or not root.is_dir():raise ValueError('invalid verification root')
+    parent=root/'certificates'
     if parent.is_symlink() or not parent.is_dir():raise ValueError('invalid certificates directory')
     count=0
     for name,digest in MANIFEST_SHA256.items():
