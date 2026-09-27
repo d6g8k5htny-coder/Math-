@@ -1,0 +1,9 @@
+# Reconnaissance — 25 September 2026
+
+Scope: a local d=2 thin-tube compensation-density candidate under six exact pins; no general persistence theorem or novelty audit.
+
+Primary search located Stecconi, arXiv:2103.10853, *Kac-Rice formula for transverse intersections*. I inspected the PDF's weighted-count definition/Theorem 29 on printed page 20, its proof on printed page 44, and Section 4.4 on absolutely continuous changes of measure on printed page 23. Theorem 29 permits measurable weights under the stated KROK hypotheses; the proof reduces to bounded continuous weights then uses monotone convergence. This supports retaining W_r inside the conditional expectation and dividing by the original Z_r once. The candidate still checks Gaussian regularity, rank and continuous regression on the actual punctured domain; a citation alone does not establish those hypotheses. URL: https://arxiv.org/pdf/2103.10853 . Journal publication was in Analysis and Mathematical Physics 12, 44 (2022), DOI 10.1007/s13324-022-00654-0; 2021 is the preprint year.
+
+Search also located Gass--Stecconi, arXiv:2305.17586, *The number of critical points of a Gaussian field: finiteness of moments*. It is contextual, NOT an input to the thin-tube bound. Journal metadata corrects the earlier discussion: PTRF 190, 1167--1197 (2024), DOI 10.1007/s00440-024-01273-5; 2023 is its preprint year. I did not use a finite-moment theorem to infer a cubic count bound.
+
+Project sources inspected are bound in PROOF.md Section 9. The new work attacks the actual missing density estimate rather than adding higher-order jets to uncorrected finite-r coordinates. There is no asserted complete match, novelty, priority, independent review, or scientific promotion. The nonperiodic covariance calculation in code is explicitly a diagnostic reference, never substituted for the full periodic covariance in the proof.

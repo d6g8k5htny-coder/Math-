@@ -168,8 +168,14 @@ class HardGateControls(unittest.TestCase):
     def test_d4_region_complement(self):
         regions = m.d4_region_complement(self.graph)
         covered_ids = {r['id'] for r in regions['covered_by_fixed_remote_candidate']}
+        scoped_ids = {r['id'] for r in regions['covered_by_other_scoped_candidates']}
         open_ids = {r['id'] for r in regions['open_complement']}
         self.assertEqual(covered_ids, {'math.rn-region.fixed-remote'})
+        self.assertEqual(scoped_ids, {'math.rn-region.fixed-annulus-window'})
+        self.assertEqual(
+            regions['covered_by_other_scoped_candidates'][0]['coverage_source'],
+            'math.rn-fixed-annulus-window',
+        )
         self.assertIn('math.rn-region.mesoscopic-scaled-annulus', open_ids)
         self.assertIn('math.rn-region.pin-collision', open_ids)
         self.assertIn('math.rn-region.intermediate-r-to-rho', open_ids)
