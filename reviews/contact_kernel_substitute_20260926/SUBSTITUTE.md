@@ -3,7 +3,7 @@
 **Object:** OA-CONTACT-KERNEL-SUBSTITUTE-20260926-v1.
 **Author of this file:** xAI / Grok (team session 2026-09-26).
 **Disposition (amended 2026-09-27):** reconstruction and re-verification of material already on Math- `main` — `reviews/collision_mechanism_20260925/NOTE.md` §B, `reviews/contact_kernel_tail_20260925/KERNEL_TAILS_AND_SMALL_GAP.md` §4, and the PR25 interface record. Scientific effect: **NONE**. It is not a review file and does not create one.
-**This is not** `TRANSVERSE_CONTACT_ASYMPTOTIC.md`, and it is not a stand-in for that file. Nobody holds that file's bytes; main issue #56 item 4 forbids substituting a similar contact document without exact identity evidence, #56 closed via merged Math- #59, and after #59 no file on `main` cites the absent file as attached, so there is no consumer for a stand-in. The filename remains ABSENT. (The first version of this note said the object "may be cited in its place"; that clause is withdrawn.)
+**This is not** `TRANSVERSE_CONTACT_ASYMPTOTIC.md`, and it is not a stand-in for that file. When this note was written nobody held that file's bytes; main issue #56 item 4 forbids substituting a similar contact document without exact identity evidence, and #56 closed via merged Math- #59. (The first version of this note said the object "may be cited in its place"; that clause is withdrawn.) **Update 2026-09-27:** the original bytes have since been recovered and imported on Math- `main` at commit `db6a8d5a099b13cec4364edb544cdf0e34ea720c` (merged #94), path `imports/transverse_contact_library_20260927/TRANSVERSE_CONTACT_ASYMPTOTIC.md`, blob `c2499674d29ad4312e872903d8f5999adc1c51db`, SHA256 `e3ad42b85de72f961978fe9a33d927b54ef8bd09abbd602458e3fb640caa6a73`, together with its geometry companion `GEOMETRY_AND_CUBIC_INDEX.md`, blob `58fbeb8f5180104361938253203b9dfb576af2d9`, SHA256 `4d99cfac30d7d39b69c1a8813c607109328ae310695f1bd609cbc64d5056a6d7`. The filename is therefore no longer ABSENT. The recovered original is the source; this note is a same-workspace re-verification record of finite identities that the original also states (Section 7), not a review of the original and not a source of any credit for it.
 
 ## 0. What this note re-verifies
 
@@ -107,7 +107,7 @@ On the exact variance-one $L$-periodized planar Gaussian field, compact birth/ga
 
 $$K=\{(u,v):1<A_0\le\sqrt{u^2+v^2}\le B<\infty,\ |v|\ge\eta>0\},$$
 
-the PR25 review ACCEPTS interfaces R1–R4 of NOTE §B–C. Qualifiers that travel with the word "theorem" here, verbatim from the sources: the PR25 review is an xAI/Grok nonauthor review in the same workspace and records "Organizational independence is not awarded"; NOTE line 160 states that its use of marked Kac–Rice "needs separate analytic review, not just the finite algebra tests"; and this note is also authored by xAI/Grok. The statement is therefore interface-level accepted, not independently reviewed, and it is the weakest step of this note because it is the only step that is not finite algebra. This is a fixed-chart statement only; what the absent TRANSVERSE file contained is unknown.
+the PR25 review ACCEPTS interfaces R1–R4 of NOTE §B–C. Qualifiers that travel with the word "theorem" here, verbatim from the sources: the PR25 review is an xAI/Grok nonauthor review in the same workspace and records "Organizational independence is not awarded"; NOTE line 160 states that its use of marked Kac–Rice "needs separate analytic review, not just the finite algebra tests"; and this note is also authored by xAI/Grok. The statement is therefore interface-level accepted, not independently reviewed, and it is the weakest step of this note because it is the only step that is not finite algebra. This is a fixed-chart statement only. The recovered original (Section 7) states the same fixed-chart theorem as its proposed refined theorem (2.1)–(2.3) with the same exclusions (`eta -> 0`, shrinking cutoffs, global selection); recovery of that text does not add any review to the statement here.
 
 Consequence that may be cited, with the qualifiers above attached:
 
@@ -163,4 +163,25 @@ for m in pin_sign det_sign integral_bound prefactor; do python -B -S reviews/con
 
 > Cubic contact algebra and type mass: NOTE §B (`reviews/collision_mechanism_20260925/NOTE.md`, blob `3ee3082911f4e8ebee93805633a326940aee17bf`) and KERNEL_TAILS §4, re-verified in OA-CONTACT-KERNEL-SUBSTITUTE-20260926-v1 / `verify_substitute.py`.
 > Fixed-chart Gaussian interface statement on $|v|\ge\eta$: PR25 REVIEW R1–R4 ACCEPT at `ad35e46`, path `reviews/collision_mechanism_20260925/NOTE.md` §§B–C; same-workspace xAI/Grok nonauthor review, no organizational independence; marked Kac–Rice use needs separate analytic review.
-> Missing filename `TRANSVERSE_CONTACT_ASYMPTOTIC.md` is still ABSENT; this object does not restore it and is not cited in its place.
+> `TRANSVERSE_CONTACT_ASYMPTOTIC.md`: cite the recovered original on `main` (`db6a8d5a…`, `imports/transverse_contact_library_20260927/`, blob `c2499674…`, SHA256 `e3ad42b8…`), not this note. This object did not restore it and is not cited in its place.
+
+## 7. Relation to the recovered original (added 2026-09-27)
+
+The recovered exposition and its geometry companion were imported byte-for-byte by merged Math- #94 (`main` `db6a8d5a099b13cec4364edb544cdf0e34ea720c`; identities in the header of this note and in `imports/transverse_contact_library_20260927/SOURCE_BINDING.json`). Read against those files, this note's finite content coincides with the following displayed items of the originals, and `verify_substitute.py` therefore also re-derives them:
+
+| This note | Recovered original | Content |
+|---|---|---|
+| §1 form of $P$ | `GEOMETRY_AND_CUBIC_INDEX.md` (4.1) | six-pin cubic family |
+| §1 solve $(A,c,d)$ | `GEOMETRY_AND_CUBIC_INDEX.md` (4.2); `TRANSVERSE_CONTACT_ASYMPTOTIC.md` (5.2) | $c=-12kD/v^2-2qu/v$, $d=12k(L_c+\theta)/v^3+3qD/v^2$, $A=(12ku+6k+qv-12k\theta)/(2v^2)$ |
+| §1 $B_M,B_S,B_X$ and $\det$ identities | `GEOMETRY_AND_CUBIC_INDEX.md` (4.3), (5.1) | $\det B_X=-(9k^2/v^2)[(w+1-2\theta)^2+4\theta(1-\theta)]$ with $w=(qv+12ku)/(6k)$ |
+| §1 rational sample | `GEOMETRY_AND_CUBIC_INDEX.md` §5 | $u=2,v=1,k=1,\theta=1/2,q=-30$: $A=-3,c=75,d=-363/2$, dets $18,-18,-18$ |
+| §1 interval $I_\theta$ | `TRANSVERSE_CONTACT_ASYMPTOTIC.md` (6.2) | $-1-2\sqrt\theta<w<1-2\sqrt{1-\theta}$ |
+| §2 factor $24k/(z_0\lvert v\rvert^6)$, $dq=(6k/\lvert v\rvert)dw$ | `TRANSVERSE_CONTACT_ASYMPTOTIC.md` (6.1) and §6 | contact-map Jacobian $\lvert v\rvert^6/24$; $z_0=36k^2\,\mathbb{E}[a^2\mathbf 1_{a<0}\mid U_0=v_0]$ (3.1) |
+
+Differences, so that nothing is over-attributed:
+
+- The type-region mass $J=27392/315$, the left/right integrals, and the factor identities $104976$, $2916J=8875008/35$ (§2) are **not** in the recovered original; they come from NOTE §C / KERNEL_TAILS §4 on `main`, as cited above.
+- The recovered original's §7 unperiodized diagnostic (four-jet conditional law $N((-b,0,0,0),\mathrm{diag}(2,2,2,6))$) is not checked by `verify_substitute.py`.
+- The original's continuum steps (uniform Gaussian regression, scaled-Hessian passage, normalizer, marked Kac–Rice) are exactly the steps this note lists as interface-level only. Recovery of the text does not review them; the import README on `main` requests a separate nonauthor source-custody review and states that existing reviews of the consolidated PR25 note are not automatically reviews of the recovered exposition.
+
+Consequently the coincidence table above is a finite-identity cross-check between this note's script and the recovered text, and nothing more.
