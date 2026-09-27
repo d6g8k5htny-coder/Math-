@@ -46,4 +46,3 @@ The older source proofs and other agents' branches are unchanged. The exact dete
 ## Prior-art boundary
 
 Taylor/linear algebra and change of variables are established tools. Related primary work: Gass–Stecconi on multi-point interpolation and critical-point moments (arXiv:2305.17586); Armentano–Azais–Leon on marked Kac-Rice (arXiv:2304.07424); Muirhead on shrinking height windows (arXiv:1901.11336); Denisov–Zwart on Breiman-type product asymptotics (DOI10.1239/jap/1197908822). The potentially distinctive component is the exact pin-compatible typed kernel and its application, not invention of these tools.
-
