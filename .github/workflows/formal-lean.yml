@@ -53,6 +53,8 @@ jobs:
           use-github-cache: 'false'
       - name: Build, recheck, audit axioms and execute negative controls
         run: python3 formal/gate.py --execute
+      - name: TEST ONLY deliberate formal dependency failure NEVER MERGE
+        run: exit 17
       - name: Bind current-run receipt to required check
         id: required-binding
         run: python3 -B -S tools/required_formal_check.py receipt
