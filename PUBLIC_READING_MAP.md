@@ -1,6 +1,6 @@
 # Public reading map — unmerged incoming mathematics
 
-**Date:** 2026-09-26 (tables refreshed 2026-09-27)  
+**Date:** 2026-09-26 (tables refreshed 2026-09-27; cycle-4 pins split 2026-09-27)  
 **Scientific effect:** NONE.  
 This file is a visibility index. It does not accept theorems, flip `STATUS.md`, edit `claims/LANDING_CLAIMS.json`, or close lemmas.
 
@@ -25,13 +25,17 @@ These bytes are public on the cited branch and pull request. They are **review i
 
 ### Cycle-4 six-pin / D5 / SARD-G packet — Math- PR [#87](https://github.com/d6g8k5htny-coder/Math-/pull/87)
 
-Pinned source revision: branch `incoming/harper-cycle4-d5-sard-20260926` at commit `05c20b67ca49281601532f7a0224f871a8dae8d6`. Every artifact link below resolves that exact commit, so the stated identity and the bytes reached by the links are bound to each other. This revision includes the 2026-09-27 amendments (denominator order `-r^8/12` in `CLOSED_FORMS_FTS_FTT.md`, exact-series tests, ledger caveats, RI predicate repairs) requested in the PR #87 review threads; earlier revisions (`8657130`, `0fab9330`) are superseded by it and their dispositions are not carried over. The packet is candidate / author-side material with open substantive review threads; nothing listed here is accepted.
+Two exact revisions are pinned. They are different candidates. Review [`5332391136`](https://github.com/d6g8k5htny-coder/Math-/pull/87#pullrequestreview-5332391136) binds only to the predecessor commit below and is not carried to the revised candidate. Scientific effect NONE. Nothing listed here is accepted. D5, SARD-G A1, and A6 remain AMEND.
+
+#### Preserved predecessor — commit `05c20b67ca49281601532f7a0224f871a8dae8d6`
+
+Pinned source revision: branch `incoming/harper-cycle4-d5-sard-20260926` at commit `05c20b67ca49281601532f7a0224f871a8dae8d6`. Every artifact link in this subsection resolves that exact commit. This revision includes the 2026-09-27 denominator repair (order `-r^8/12` in `CLOSED_FORMS_FTS_FTT.md`, exact-series tests) together with the earlier ledger and RI caveats. Earlier revisions (`8657130`, `0fab9330`) stay superseded for that repair; their dispositions are not carried. Review `5332391136` on this exact head accepts that denominator repair and records two defects in `D5_OBSTRUCTION_LEDGER.md` at SHA256 `ba0f5f2e48ea9704d9078fe26a042815b7228a261c7685010a28bd9e6c0ca57b`: the display `f_tt = ∓6 k r + O(r^3)`, and the claim that a marginal `f_ss(S) = O_p(1)` shows `O(r^6 q^2)` over-counts one power of `r`. The finite 8-pin grid in that review is diagnostic only. Those two assertions are withdrawn in the revised candidate; the predecessor bytes are preserved here.
 
 | Path | What it is | SHA256 at `05c20b67ca49` |
 |---|---|---|
 | [harper/README.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/README.md) | Packet inventory, firewall and amendment log | `db1a696a30be01de74c68634f41cc276dcd0c0885297b08d7c7eabb66220c29d` |
 | [harper/CLOSED_FORMS_FTS_FTT.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/CLOSED_FORMS_FTS_FTT.md) | Exact `Var(f_ts\|{pins})` and `Var(f_tt\|{pins})` on planar Bargmann–Fock | `27cb967a0f54cc505be7e01eb0545da1cba1bf7f4bc77baf76346a408200daad` |
-| [harper/D5_OBSTRUCTION_LEDGER.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/D5_OBSTRUCTION_LEDGER.md) | Coordinate Jacobian `O(r^3 q^2)` vs on-axis congruence product `O(k^3 r^5 q^2)`; heuristic, no count lemma | `ba0f5f2e48ea9704d9078fe26a042815b7228a261c7685010a28bd9e6c0ca57b` |
+| [harper/D5_OBSTRUCTION_LEDGER.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/D5_OBSTRUCTION_LEDGER.md) | Predecessor ledger. Contains the two assertions named in review 5332391136; those assertions are withdrawn in the revised candidate | `ba0f5f2e48ea9704d9078fe26a042815b7228a261c7685010a28bd9e6c0ca57b` |
 | [harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md) | Standalone RI1–RI4 / OPEN lemmas; A1 remains AMEND | `37020f4d44084faf50ed3665a18593e9554b8bce38096a2c43d8ea5d1bf2da03` |
 | [harper/test_closed_forms.py](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/harper/test_closed_forms.py) | Stdlib float and exact rational-series checks of the closed forms | `163d68b560c7640a349369b2d3431dc62eb401474ca2536dadf2f48733575573` |
 | [benjamin/ALPHA_4PIN_SERIES.md](https://github.com/d6g8k5htny-coder/Math-/blob/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926/benjamin/ALPHA_4PIN_SERIES.md) | Axial 4-pin remainder series | `bb951caad911dec409bf89668c25d1d1f3261dca60de6eaefe200ae60f556948` |
@@ -40,9 +44,30 @@ Pinned source revision: branch `incoming/harper-cycle4-d5-sard-20260926` at comm
 
 Pinned raw tree: https://github.com/d6g8k5htny-coder/Math-/tree/05c20b67ca49281601532f7a0224f871a8dae8d6/incoming/grok-cycle4-20260926
 
-Latest working PR head (mutable; may move past the pinned revision): https://github.com/d6g8k5htny-coder/Math-/tree/incoming/harper-cycle4-d5-sard-20260926/incoming/grok-cycle4-20260926
+Verify the predecessor digests from a clone: `git show 05c20b67ca49281601532f7a0224f871a8dae8d6:incoming/grok-cycle4-20260926/<path> | sha256sum`.
 
-Verify the digests from a clone: `git show 05c20b67ca49281601532f7a0224f871a8dae8d6:incoming/grok-cycle4-20260926/<path> | sha256sum`.
+#### Revised candidate — commit `bc85130c12585f641ebb9b9ac3bee0ddd224cbf3`
+
+This commit does not inherit review `5332391136`. Fresh review is required. It keeps the denominator repair byte-for-byte (`CLOSED_FORMS_FTS_FTT.md` and `test_closed_forms.py` hashes match the predecessor). It replaces the two D5 assertions: `f_tt` is stated as a conditional mean plus a centered Gaussian of variance `~ r^4/6`, and the comparison of `O(r^6 q^2)` with a marginal `f_ss(S) = O_p(1)` is an open same-law transport obligation. No uniform estimate is added. The finite 8-pin grid is not used as a theorem. D5, SARD-G A1, and A6 remain AMEND.
+
+| Path | What it is | SHA256 at `bc85130c1258` |
+|---|---|---|
+| [harper/README.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/README.md) | Packet inventory and follow-through log | `2c90b0c6697364f49ab07660a4d245374f2293a0531d817b8385ab974489ed4b` |
+| [harper/CLOSED_FORMS_FTS_FTT.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/CLOSED_FORMS_FTS_FTT.md) | Unchanged denominator repair | `27cb967a0f54cc505be7e01eb0545da1cba1bf7f4bc77baf76346a408200daad` |
+| [harper/D5_OBSTRUCTION_LEDGER.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/D5_OBSTRUCTION_LEDGER.md) | Revised ledger: conditional mean/variance of `f_tt`; transport obligation left open | `b2af7a0f980523d785464f4111701cfc93a0e42c2c3a11c8a7c11daff2152538` |
+| [harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md) | Unchanged; A1 remains AMEND | `37020f4d44084faf50ed3665a18593e9554b8bce38096a2c43d8ea5d1bf2da03` |
+| [harper/test_closed_forms.py](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/test_closed_forms.py) | Unchanged exact-series checks of the denominator repair | `163d68b560c7640a349369b2d3431dc62eb401474ca2536dadf2f48733575573` |
+| [harper/test_ftt_conditional_mean.py](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/harper/test_ftt_conditional_mean.py) | Exact series for `E[f_tt\|pins]` at `M` and `S`, second moment through `r^5`, identity-TT variance | `981eb395c3fa6f66d7b4fe0e216a72a7c3f7a1513b47785770f5e0e197da6cc5` |
+| [benjamin/ALPHA_4PIN_SERIES.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/benjamin/ALPHA_4PIN_SERIES.md) | Unchanged axial 4-pin remainder series | `bb951caad911dec409bf89668c25d1d1f3261dca60de6eaefe200ae60f556948` |
+| [benjamin/REDUCED_FRAME_4SLOT.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/benjamin/REDUCED_FRAME_4SLOT.md) | Unchanged leftover 4-slot frame | `c3d5940336ee3945ab8d6497e5fd52f02a307bff6ab4f8c3d61b951eb64a7c13` |
+| [lucas/SARD_G_A1_APPLIED_TO_SUCCESSOR.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/lucas/SARD_G_A1_APPLIED_TO_SUCCESSOR.md) | Unchanged; A1 remains AMEND | `7e1782566079c67ddf06e15bb83c050031703391b167f38a420917beb00b16a3` |
+| [PUBLIC_READING_MAP.md](https://github.com/d6g8k5htny-coder/Math-/blob/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926/PUBLIC_READING_MAP.md) | In-packet pointer to the predecessor hash and to this index | `e608d427d2c1b50530dfc9ef454d2c0651b745ac4092a0462c8aa33d4657622f` |
+
+Pinned raw tree: https://github.com/d6g8k5htny-coder/Math-/tree/bc85130c12585f641ebb9b9ac3bee0ddd224cbf3/incoming/grok-cycle4-20260926
+
+Latest working PR head (mutable; may move past either pinned revision): https://github.com/d6g8k5htny-coder/Math-/tree/incoming/harper-cycle4-d5-sard-20260926/incoming/grok-cycle4-20260926
+
+Verify the revised digests from a clone: `git show bc85130c12585f641ebb9b9ac3bee0ddd224cbf3:incoming/grok-cycle4-20260926/<path> | sha256sum`.
 
 ### Related math PRs on Math- (state as of 2026-09-27)
 
