@@ -1,0 +1,462 @@
+{
+  "format": "upper2d_h5_custody_v1",
+  "recovered_on": "2026-09-26",
+  "scientific_effect": "NONE",
+  "source_labels_adopted": false,
+  "source_kind": "raw Dropbox files, unchanged",
+  "authorization": "Dylan supplied UPPER2D Dropbox folder for public mathematical recovery",
+  "scope": "All 48 direct H5_closure/h5_results_*.jsonl matching hunt_wedges nonrecursive glob; archive and STAGE_E snapshots excluded",
+  "inspected_public_refs": {
+    "Math-": "3a7dffc322f1faaf55a01b896655e16fe9aef036",
+    "main_default": "64edf72fe7fa72652a9e0c2b26c917166f1768fd",
+    "main_research": "96e5175306f7ab791a9ad021d0d39ecc1fbfee57",
+    "main_historical": "7caac254cbba5f513b2dc0afb56b78a598bc0c93"
+  },
+  "existing_blob_matches_at_inspected_refs": 0,
+  "sources": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "a2c3657c3115853a9bd8642b78c3f9ca0bbc59d1",
+    "hunt_wedges.py": {
+      "path": "imports/upper2d_stage_e_20260926/raw/STAGE_E/hunt_wedges.py",
+      "sha256": "f03507da809d91eb6b358c4bf51298ba9d26bb6ab733e801cb5784394b96d48e"
+    },
+    "hunt_rim.py": {
+      "path": "imports/upper2d_stage_e_20260926/raw/STAGE_E/hunt_rim.py",
+      "sha256": "de73e5fed00782c3709d2f9a8b1cddca23926606a8ef5ffc4cf0de8aefb66f90"
+    }
+  },
+  "files": [
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s0p1_patches.jsonl",
+      "source_id": "id:B7VKvqiUIK0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s0p1_patches.jsonl",
+      "size": 2464,
+      "dropbox_content_hash": "8638364a4795d5a22d383e23367adf73e4dbbec23c1f177252aaa8c8aff05c99",
+      "sha256": "d79b1d84efe2c5b5351036ebd30d97e39107fe1a1d848fa216fe957dc871dc85",
+      "git_blob_sha1": "ac3d7bb422d8928d7c1ebb1c9c3accd665e609e6"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "source_id": "id:M2a4sa9fNnMAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s0p1_rimprobes.jsonl",
+      "size": 3434,
+      "dropbox_content_hash": "243873666282611621438fe9527d601ce63591af58647cd9bcbb3affc743dc76",
+      "sha256": "3b233b5ca042a39e49c347def9772a81bed2bb236861e6f3b873acb05d9eeacc",
+      "git_blob_sha1": "69b18e5e53b67d6ac238d8b09c1676fdf0a6d496"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s0p1_stitch.jsonl",
+      "source_id": "id:uLC5SxicFMQAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s0p1_stitch.jsonl",
+      "size": 130,
+      "dropbox_content_hash": "0e7fa80992d2f36e41aa61d9600b1c8e6ea9d6e268a477410c851d7b3cda63b0",
+      "sha256": "3a84639f313e70bbc40fd337324b36bd796bc35c212c123ce8c039cc664248ba",
+      "git_blob_sha1": "353a2e3eaa131e7a9cea3a5b717423d9cea787e4"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s0p2_cells.jsonl",
+      "source_id": "id:vFKLliZvagAAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s0p2_cells.jsonl",
+      "size": 2577,
+      "dropbox_content_hash": "b3c34638501f13d666ff84ac18633fb2bcfe383c2f37fb9d8756de1c75aa64f0",
+      "sha256": "a0bd1eb8c7f5064cd7a7a4e400d6d8e2eb191ab933a1fc781a620ec5547c156b",
+      "git_blob_sha1": "b124c627180d041e49aadb09a98fa2bd438c8afe"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "source_id": "id:YOlX5yNHzlYAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s0p2_probes.jsonl",
+      "size": 814,
+      "dropbox_content_hash": "42a66ace4b1fac0e305f998522f797cc8a0365856a3938e0ca8bab0d413d6672",
+      "sha256": "9ecbdc87de4caa013ac9a0cdbefb6dbcf48799e39810bedd5d17e95185dd3ced",
+      "git_blob_sha1": "52174026567e8171f2fed3d78db859f0dbcbe54e"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s1p2_cells.jsonl",
+      "source_id": "id:ZDBZrLSvfBoAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s1p2_cells.jsonl",
+      "size": 1446,
+      "dropbox_content_hash": "d2a126be310f640021bd11407bea421bf64469084611c279fc4a4c368dbe7769",
+      "sha256": "389687b702b993de25f6779260023bfe6adc9c79baeb7847138112baab4017ca",
+      "git_blob_sha1": "343c1d4b92cdaee5afc7318919462729c785c9db"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+      "source_id": "id:CAgWs-lutsQAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0125_s1p2_probes.jsonl",
+      "size": 579,
+      "dropbox_content_hash": "b2dd9fd27264d1435e47ef44f7a3997f54065f7aaacb326f9bce39afc3623b69",
+      "sha256": "70317da164d24d2acaf57800249af4a1bf5ca433155a5d35e74c0586ef0a9948",
+      "git_blob_sha1": "17cf18afdb8941e83c5b76640494c8b1ce1ffccd"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s0p1_patches.jsonl",
+      "source_id": "id:5fWPX0T0HHcAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s0p1_patches.jsonl",
+      "size": 2460,
+      "dropbox_content_hash": "2a1c9f70bc6a0a110dfdcd1f2ddd7c70b1dbf5465913b36e2b5fc426d6cabc72",
+      "sha256": "845d5aece14e33cdaa64307aa73b526ff85bc16d766517170eb0e943929f6725",
+      "git_blob_sha1": "de6fc47302137f3f6f95a39454cc5a8e43b1369b"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "source_id": "id:R7tcRw6pausAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s0p1_rimprobes.jsonl",
+      "size": 3465,
+      "dropbox_content_hash": "a1cdc5061c8bf7f9418e9414f37d2a73c77e9dabeb0ba5550e969b12ff1331e0",
+      "sha256": "67f782a1fbc6ecbaa9635e3dde365da34d30f3edc0d6f23a1f8e407b091e3c8e",
+      "git_blob_sha1": "786e9e63e6fa2263d94e5c6304889d73d237ef6b"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s0p1_stitch.jsonl",
+      "source_id": "id:jEX-DX1Gvu4AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s0p1_stitch.jsonl",
+      "size": 475,
+      "dropbox_content_hash": "7ea4eba46b6dee08d371fbf77f07e81f025f80cc369154b143b13f03cf504cd4",
+      "sha256": "d642bf5e660bf36413f06c5ed6f45951655ebf72cfa26a904983c69fc9e108e6",
+      "git_blob_sha1": "a9a2af1bc3eae3181998fd9129deaafa6f7b7aaa"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s0p2_cells.jsonl",
+      "source_id": "id:_De0G_26MyAAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s0p2_cells.jsonl",
+      "size": 6210,
+      "dropbox_content_hash": "3772cf845c80d6e878992dcbea1f810a921c3477c4422bc1e1bade0a1deac036",
+      "sha256": "3cc73ef07f018fa3eeaa178ff89878195eba58d0bf4a614460c6015f80b46a1c",
+      "git_blob_sha1": "38d4a1a9b527b15346801d1e42f31b80fef1e9c1"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "source_id": "id:ofAz83-K7e0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s0p2_probes.jsonl",
+      "size": 814,
+      "dropbox_content_hash": "c6d9fca19bc43a5b3cbb7d1e2d5325f8dca5c731a4668c38f8019397d920f1a2",
+      "sha256": "1cb47d2d0acae86a735621e6d999b60fdd1189daf865b17ccc52b08a2e01107e",
+      "git_blob_sha1": "a23b9806c0ccc7b33c893f4adbcf0bf32172a578"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s1p2_cells.jsonl",
+      "source_id": "id:F7FrRhVJrUMAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s1p2_cells.jsonl",
+      "size": 3501,
+      "dropbox_content_hash": "cd40e31f6f065a8ab7d88e89d916347809b7086e24448abd4ab3313d5abb7e29",
+      "sha256": "bb2bcde84907687275911c0269a8cf7c4ae2a075ee4b335906e5cd4e9a243298",
+      "git_blob_sha1": "67e1b84651394e1cdefd7e155dd2917ca19abe36"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+      "source_id": "id:3JRD3q9MfjMAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.0177_s1p2_probes.jsonl",
+      "size": 579,
+      "dropbox_content_hash": "67a6028029b32f78a884d3eefeca95bce7ecc452fc6932cf0bc4ed8b244f7b8a",
+      "sha256": "0b173dd0e808573548d32ff27a60cbbe0c88e7f2503a220fa8d603183d0ddc5a",
+      "git_blob_sha1": "4c3b9f37e1a1e7c29f9a08b64b2892ced85b5a62"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p1_patches.jsonl",
+      "source_id": "id:QEabJZ_TG6wAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p1_patches.jsonl",
+      "size": 2997,
+      "dropbox_content_hash": "056f6140088cd224a8802fa43da6173eba5961234295507d8cca82fabe6afff1",
+      "sha256": "a9bbeff5e87868f65383de781f260219368f784d983c0fdfbf8221052c8fc230",
+      "git_blob_sha1": "b57b26e3fae177083f3e972f94cdc6f45405977e"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "source_id": "id:SWLoLMhTioEAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p1_rimprobes.jsonl",
+      "size": 3412,
+      "dropbox_content_hash": "7c7622c7f45411308cd4e7286454bb86ff033d4222a3a0820deb96573d9867c8",
+      "sha256": "b3dc261fd6130daaa845b3ad8eaeb394fd9a9bf2297de8da5aa716ce83ab99df",
+      "git_blob_sha1": "43a6dcfbdb98649f830d94f14e84b6e888d7c108"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p1_stitch.jsonl",
+      "source_id": "id:of3QOroKY8QAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p1_stitch.jsonl",
+      "size": 1609,
+      "dropbox_content_hash": "dcde7204537235da02e6d8b5d8ade36ed86e54c7395d3402063dfeb5997fcc51",
+      "sha256": "8eb5e7dd4d1087a5ac86e3c9226ac78c268696acd2ef9b845893b91fc77052f0",
+      "git_blob_sha1": "f5cbea8f84c718d7c7cacc38fd9b6d88a54512bd"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p2_cells.jsonl",
+      "source_id": "id:YPZRe7Eo1G0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p2_cells.jsonl",
+      "size": 6520,
+      "dropbox_content_hash": "6927f4e7c52b18381433845f0027cb85b38e2b6183c4214984f15e8404909990",
+      "sha256": "6cad065a112784bdd374eb867dfa085fdadeeec809de40aae62d1ce0040ffe09",
+      "git_blob_sha1": "f30d4a8e0ff53e6c86aaa62029a17575c096ee17"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "source_id": "id:npM2y6Tvyd4AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p2_probes.jsonl",
+      "size": 800,
+      "dropbox_content_hash": "262ec0b5c8cedee099aa6b102dc988515fb1c0491bff7c77a4bbbbf184472a56",
+      "sha256": "2afe46873bd1ea2acbc8eb781d0bb8a2c97eeed4148357303133f1300cf7c0a7",
+      "git_blob_sha1": "a655883e7da90e336f6c80932fb61ef17a1bef43"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s0p2_stitch.jsonl",
+      "source_id": "id:wb1YDC5VVRgAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s0p2_stitch.jsonl",
+      "size": 747,
+      "dropbox_content_hash": "98adaa56ca63f3fbb32c57d51d1ff4a0813899ffab327fb7115e6baf9fa57966",
+      "sha256": "6b70f1d7dc24fad53533d18e525734ededde508e1c1d026a9e28b818833fd8cd",
+      "git_blob_sha1": "b1a17d82fb0e496677597ed915b8b4eec2d88282"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s1p2_cells.jsonl",
+      "source_id": "id:Lm1hrq2ukCoAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s1p2_cells.jsonl",
+      "size": 3728,
+      "dropbox_content_hash": "fd7d18e8f172fe9a5a6b0e707491ab6e2536876eec6a72bb1bb53734f59092aa",
+      "sha256": "69377df2bf72d94ce359cae55fbd0a6de516f77b6e7f149a802739c39b327e39",
+      "git_blob_sha1": "698a240896a223c57cc383171c728f079502184d"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+      "source_id": "id:mitLe2pnNGEAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s1p2_probes.jsonl",
+      "size": 577,
+      "dropbox_content_hash": "220fac0f3b700a17098f439c837c4180f7c00f2ea3dd74e50de8593077e48d52",
+      "sha256": "da15dd524bd971852081a6852f81af2a12f932172daeb84a32cad762ac80c012",
+      "git_blob_sha1": "73c2d12420a110002df048585c7c767bace0e732"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_s1p2_stitch.jsonl",
+      "source_id": "id:S5dYQdHUa9QAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_s1p2_stitch.jsonl",
+      "size": 817,
+      "dropbox_content_hash": "f3c8e95798b7330bfd963554ae59b667c0b68a605b779e94cbfaf18253615d2b",
+      "sha256": "4d277bc81fbb59e739cc54f8fe025952633c3f7224cabf04f13d09afd3e0fa52",
+      "git_blob_sha1": "48747a0b3464afdb32774ad65124b570808deaa3"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.025_stitchfix.jsonl",
+      "source_id": "id:UtqHo2CseEAAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.025_stitchfix.jsonl",
+      "size": 85,
+      "dropbox_content_hash": "45a9f1f7c1a055a092686e3039ee48dd7935e76d10d4d3c8da97a733d749fc5b",
+      "sha256": "a06e26fb90a8e2b1e29c8421e2ddc4f3f84c9d6db2013f644a005b3e1695f4d5",
+      "git_blob_sha1": "d146c6804f04e9519c592842a22595bfd18ed3bb"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p1_patches.jsonl",
+      "source_id": "id:wJIdfbON17wAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p1_patches.jsonl",
+      "size": 4452,
+      "dropbox_content_hash": "ff3d1b4aa3c1d8bb95a0836b7e4b139dc22009aed0df71f30bb1e15733c61b65",
+      "sha256": "6af274943595e476567fdee10e1c9a89f8baf5bb4c38415afbe9721ae211410b",
+      "git_blob_sha1": "3f059d422eca1536d6688b569c46004e0fd1ba59"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "source_id": "id:RTbNSIOTEqYAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p1_rimprobes.jsonl",
+      "size": 3483,
+      "dropbox_content_hash": "dfd361ea8e8d9e321e3122c34d107dfac59930b93bdbf1fef1f68e65ffc04a9f",
+      "sha256": "5a8daa268184966dca767589fc81edf01933d2663b1c0c60aff78544f0ed5a6e",
+      "git_blob_sha1": "06025a793093d330904381a4043dbe99c8d1ab09"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p1_stitch.jsonl",
+      "source_id": "id:CSNOm_DN_8IAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p1_stitch.jsonl",
+      "size": 2083,
+      "dropbox_content_hash": "794b0a1f3d58c1f102262ae553f98a26630fb2297caa36929a43486c10081b3b",
+      "sha256": "dc26702bf5d23d575dac47e72dc855f8da7ce7e271319aa383ff76511818a4f1",
+      "git_blob_sha1": "284476eb094d4488619d8f71dc9f59942355bc4d"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p2_cells.jsonl",
+      "source_id": "id:-_BW8rDhxYgAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p2_cells.jsonl",
+      "size": 4485,
+      "dropbox_content_hash": "51cabf26163cda92d7c271ab1c17748e99cf6e0f3d1074956c1f78e9071a68e2",
+      "sha256": "cd7db5519c9f295bd822fb6b72990d602af9d29afb98fe28f5c0ebe1af62d7fb",
+      "git_blob_sha1": "bb8d54f97fd4b230fa98303043484f82764ed4b6"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "source_id": "id:bHbSgx8bdjoAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p2_probes.jsonl",
+      "size": 809,
+      "dropbox_content_hash": "441ec8378625aa738a34a89c9b0bff7bb4fc5e012397ef2f6f5cf113891d7bbc",
+      "sha256": "3a31f8a578870de9239a7dfe750d0252a058c26125b40ffc20bbc5ca9dfe0c06",
+      "git_blob_sha1": "b41f44f0af0623559d1f4111edd8804d560723e8"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s0p2_stitch.jsonl",
+      "source_id": "id:-ZbplTcFU6UAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s0p2_stitch.jsonl",
+      "size": 816,
+      "dropbox_content_hash": "9f2ce369d349543165ef265084a3a3a21e33db293402a8506f9c9ac36c76b158",
+      "sha256": "e1805f2dffa3eeb9e0a45434799f0a95bf0a68d0beef2c05c0cfabb3b271280f",
+      "git_blob_sha1": "503727bde91cc24243c0e48409ceb08eb188ac41"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s1p2_cells.jsonl",
+      "source_id": "id:gSnOFnloRqUAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s1p2_cells.jsonl",
+      "size": 3514,
+      "dropbox_content_hash": "98e1e0a616d0cfc2478292175405d214b9cdeedf1c3780be7c1f2408a4895603",
+      "sha256": "fed9ba346dfad00e376da88467fb483bc761615b13dbb119f7eef7f814b1a857",
+      "git_blob_sha1": "b54468de8b7c78285f32c4a8d28dd4f1e28de7f2"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+      "source_id": "id:EH_Zt30FN_QAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s1p2_probes.jsonl",
+      "size": 576,
+      "dropbox_content_hash": "9ee69319b697b5173fe1f97e0f64d51128ba1c48ae3e2d163f084669f04df153",
+      "sha256": "6527cc83516ee48c459e70b6eeaf97fb93cd08abac7b12c6a0bc5ef1041fd572",
+      "git_blob_sha1": "765cac38938df0908186cc25caed91cc634a71ca"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_s1p2_stitch.jsonl",
+      "source_id": "id:_U9UPQZ5PJAAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_s1p2_stitch.jsonl",
+      "size": 966,
+      "dropbox_content_hash": "241cb99d70b86dd5a9066944b557dbfb5307d7ae8d39d0f75f8d6b1567873f74",
+      "sha256": "ff102ca32e90f181d81190f8e1cb4ce6fdb6a4ed137fbe2f82bfbd8cacb71342",
+      "git_blob_sha1": "f17e1b60d1e8d5eb4efe9cf1b7f3fe10c423ceba"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.035355_stitchfix.jsonl",
+      "source_id": "id:cXxL9WdU5-0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.035355_stitchfix.jsonl",
+      "size": 85,
+      "dropbox_content_hash": "11de11c6809c8c90f7bfc155e2b59ab4f77f2a43cf08e60c1f6471fa1f4a1ac2",
+      "sha256": "5a00572f5db739f600a81e8b11838bfa38afff224b92a2a955b5518cf851c3f6",
+      "git_blob_sha1": "0fdc7d6a32bd317229544e207afead4a6bbe2c42"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_refine.jsonl",
+      "source_id": "id:fZy39E6a5voAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_refine.jsonl",
+      "size": 325,
+      "dropbox_content_hash": "596935be1c81bd8bcdeed4b352aa0df82b41a1a9d65a3aa93155ce62e0dbbd09",
+      "sha256": "51178f7cf95f9c20aa3c3fb17a31fcd172275c6bc3b6e33ea8a51cb1dd95942b",
+      "git_blob_sha1": "e5e62463d9fd8c84a49a4d2d4b65cf3b94cf3a2d"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p1_patches.jsonl",
+      "source_id": "id:jaDbO50JNqEAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p1_patches.jsonl",
+      "size": 2381,
+      "dropbox_content_hash": "d3c1caa300f61e29d8560178877e19a8fae0795a1999f679ae3965233de576fa",
+      "sha256": "ab79490029fd6825bcbb74eb92bde769a9a0deb331c7ed02d788a24c739f1409",
+      "git_blob_sha1": "eb14575b0e380c4dd560f99f396289a685ac9bd7"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "source_id": "id:PdRszXtmKE0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p1_rimprobes.jsonl",
+      "size": 6061,
+      "dropbox_content_hash": "08750f0ba5b25bca2bca1a011ec16d70b3c8f6e639878ff437d6a833084dc216",
+      "sha256": "22c7107e93ba9c02bea1f6f34085044ab535f29c067ce79c0cd7d8b1911ecc63",
+      "git_blob_sha1": "4cf46a01d4744a0af6d6b5afcd0e59a43eca9f1c"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p1_stitch.jsonl",
+      "source_id": "id:UGkXfOjsrx4AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p1_stitch.jsonl",
+      "size": 1333,
+      "dropbox_content_hash": "7b6ba836b27e2ed2bc5384ecc53ae73107d16791a9341a57ebeb42832ff4287c",
+      "sha256": "9f5316bb9f271e62cff91b9258edcc6ab8e0629101d68befb57b87d17a741d94",
+      "git_blob_sha1": "7ef624cca7ecbe130adcecfd1cbc9b4a2f8b974d"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p2.jsonl",
+      "source_id": "id:N0I4-ZKDQ38AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p2.jsonl",
+      "size": 824,
+      "dropbox_content_hash": "b73aa5e6fefae5255076de573adc6c8ea8047377f88678d70650df7027731412",
+      "sha256": "a3a9e2a73b4b01b744dc6e151ef16804285890d626fa0e71de61e8c30b05ddb6",
+      "git_blob_sha1": "06287315e050dded1cf7ba54b50ea4d53497e9fa"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p2_cells.jsonl",
+      "source_id": "id:-PfZTT6tfa0AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p2_cells.jsonl",
+      "size": 5057,
+      "dropbox_content_hash": "f674b725147dd494069d5ede6009f197c08b315f59e24955d8256fbec61b3433",
+      "sha256": "6fce1de4b24f6f9ea551ea51df896c3c900f9cd33c6fdf7b51f30dc6ba7a87b4",
+      "git_blob_sha1": "186d6456f6857a347c4e6ff50f588434fd7a0596"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s0p2_cells2.jsonl",
+      "source_id": "id:lXdXNdjB3VsAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s0p2_cells2.jsonl",
+      "size": 666,
+      "dropbox_content_hash": "13eeb075fc5758fc972b23d0d69e855749bcda6f9df2fd3763b43ecb398d6051",
+      "sha256": "1a1df8551ac7ea5da387de863876b6cd2f740f380b7d294c300e24b519a21f70",
+      "git_blob_sha1": "529f3e04380737b882fbf14fc7c863b6f8d16754"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s1p2.jsonl",
+      "source_id": "id:52jJLnEE1-4AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s1p2.jsonl",
+      "size": 660,
+      "dropbox_content_hash": "2300a8e33498be8cc05304389501a549056989fe43334ebea7d002c0854f7853",
+      "sha256": "d798d5f8dc5d7d7f0cc088dac4b740d0dcc3fbf4d3d7b8ddda0a0cb657b39b31",
+      "git_blob_sha1": "eb68843d34ff5501e4f939d1aba407fabad94448"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s1p2_cells.jsonl",
+      "source_id": "id:IuKVOKeXjhsAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s1p2_cells.jsonl",
+      "size": 5175,
+      "dropbox_content_hash": "9aec3ff0a8df94f0f2a2bc34bd6479d50b3736d38ed64f5c15a4ca91e6eb790e",
+      "sha256": "46b92f8fe8f7e129c1110edc0ed9b6c20bce30d65e516b430a46aa3d662396a5",
+      "git_blob_sha1": "938f7636e84ed05a2ff2d0e7d150cdc77232976d"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_s1p2_cells2.jsonl",
+      "source_id": "id:XhNPDW6uUugAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_s1p2_cells2.jsonl",
+      "size": 664,
+      "dropbox_content_hash": "f6dba4b4a1b986d57a97cda9d9442e24c83dc63a2f2d0b7b024c2e85661d1ab7",
+      "sha256": "a1b2352e932d78d60e7e5113fe1202c551bca32e19542d541e6e973ab20e81f5",
+      "git_blob_sha1": "68d7a4bccdc5c871a0dc2c5dc0c5464447bfd9a7"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "source_id": "id:B5bsCFt9x14AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_sdisk.jsonl",
+      "size": 452,
+      "dropbox_content_hash": "65c904eb5331b71f6217f4c3c0cacb5f8add8d631a8d83dbc98521210b87062a",
+      "sha256": "b73b5ef504d9d4d1c5db8a41e68e95c67acfb8f947925c3a323f82e61581b907",
+      "git_blob_sha1": "de20f1583e20bb64bdf4e4c15cc9271099a2b4db"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_sring.jsonl",
+      "source_id": "id:Nn5kCQbfog4AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_sring.jsonl",
+      "size": 637,
+      "dropbox_content_hash": "dbcb71fe5f5151743578e59a6727b7db3780ab452a41c0ec6607bdd239373269",
+      "sha256": "7dfd3085f3d26571615bd0297d64ec30ad508402fc6a073da1b90fd7ce30ebe4",
+      "git_blob_sha1": "4d01883480818e3a972ce278569f202a4d785b89"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_stitchref.jsonl",
+      "source_id": "id:9-7cqpeKqVMAAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_stitchref.jsonl",
+      "size": 2814,
+      "dropbox_content_hash": "106954dc585a98c2bae473eb7b2980650b4959ab19d58c8d698d804ade8438d5",
+      "sha256": "303b23c1c65f1fe87be4cc6f88321bf66cbcf3d0ecdfbdca8023691a420c2eb3",
+      "git_blob_sha1": "920d48aa702f0b83488937995fa3e4c074c30c39"
+    },
+    {
+      "path": "raw/H5_closure/h5_results_r0.05_stitchref3.jsonl",
+      "source_id": "id:KAm54gFjU60AAAAAAAAAAQ",
+      "source_path": "ns:14651557683//Github/UPPER2D/UPPER2D/H5_closure/h5_results_r0.05_stitchref3.jsonl",
+      "size": 215,
+      "dropbox_content_hash": "ba3eb087dbd0f4d9108f6fb481ca80e1ff3f12cc9df397bc41ef01adf3729ffb",
+      "sha256": "687456447e0e2937cb2b3712b247bd1e0a91a419bc8d8b7ef6c71c10ecbc45fc",
+      "git_blob_sha1": "41ed20280c578fdd9fd9bab7b81d6053edd78f8e"
+    }
+  ]
+}
