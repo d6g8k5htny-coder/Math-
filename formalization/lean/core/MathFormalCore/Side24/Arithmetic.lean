@@ -10,10 +10,10 @@ Every theorem below is an exact integer or rational identity or inequality
 that the informal proof uses as a step. Each doc string names the section and
 display of `PROOF.md` it encodes. The kernel checks the arithmetic; it does
 not check that the informal step was correctly transcribed. That is the
-alignment lane (`formal/FORMALIZATION_STATUS.json`, `components[].informal`).
+alignment lane (`formalization/FORMALIZATION_STATUS.json`, `components[].informal`).
 
 Not encoded here (needs real analysis; see the Mathlib package
-`formal/lean/mathlib`): Gaussian conditioning, the Gamma(7/6) Stirling
+`formalization/lean/mathlib`): Gaussian conditioning, the Gamma(7/6) Stirling
 remainder, the exponential/logarithm enclosures, the integral identity of
 Section 1, and the periodic-versus-reference comparison (3)-(4) as statements
 about real numbers. The displayed decimal enclosure of `c_{d,24}` is therefore

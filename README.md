@@ -1,6 +1,6 @@
 # Mathematics — proofs, calculations, and open reviews
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Formal lane](formal/README.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Formal lane](formalization/README.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
 
 ## Read a result
 
@@ -43,12 +43,12 @@ The full-price package has 36 distinct tests and seven semantic mutation control
 
 ## Formal verification lane
 
-[formal/](formal/README.md) is Layer 1 of the verification stack: Lean 4 statements and kernel-checked proofs bound to the exact informal blobs above, with a separate nonauthor alignment review. Each landing claim carries a formalization status (`none`, `specified`, `proved`, `kernel_checked`) in [formal/FORMALIZATION_STATUS.json](formal/FORMALIZATION_STATUS.json); the pilot `side24-coefficient` is `specified`, with its skeleton implication and Section 1–5 arithmetic kernel-checked and its Gaussian/Stirling inputs as explicit hypotheses. A kernel check verifies the Lean text only; it does not change any row, disposition, or register above. The [glossary](formal/GLOSSARY.md) maps project terms to standard mathematics.
+[formalization/](formalization/README.md) is Layer 1 of the verification stack: Lean 4 statements and kernel-checked proofs bound to the exact informal blobs above, with a separate nonauthor alignment review. Each landing claim carries a formalization status (`none`, `specified`, `proved`, `kernel_checked`) in [formalization/FORMALIZATION_STATUS.json](formalization/FORMALIZATION_STATUS.json); the pilot `side24-coefficient` is `specified`, with its skeleton implication and Section 1–5 arithmetic kernel-checked and its Gaussian/Stirling inputs as explicit hypotheses. A kernel check verifies the Lean text only; it does not change any row, disposition, or register above. The [glossary](formalization/GLOSSARY.md) maps project terms to standard mathematics.
 
 ```sh
 python -B -S -m unittest discover -s formal -p 'test_*.py' -v
-python -B -S formal/formal_gate.py
-python -B -S formal/formal_gate.py --with-lean   # requires elan; see formal/README.md
+python -B -S formalization/formal_gate.py
+python -B -S formalization/formal_gate.py --with-lean   # requires elan; see formalization/README.md
 ```
 
 ## Where the other work lives

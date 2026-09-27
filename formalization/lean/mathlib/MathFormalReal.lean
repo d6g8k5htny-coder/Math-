@@ -8,5 +8,5 @@ Mathlib-dependent package. Definitions and `Prop` specifications name the
 standard mathematical objects behind the repository's informal proofs;
 theorems are kernel-checked proofs of exactly their written statements.
 
-Scientific effect: NONE. See `formal/README.md`.
+Scientific effect: NONE. See `formalization/README.md`.
 -/

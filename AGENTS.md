@@ -9,7 +9,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 - Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
 - Cross-repo eng tests and Path C live in [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial).
 - Calculations here use the Python standard library only (no extra pip env required in this repo).
-- Formal (Lean 4) work lives under [`formal/`](formal/README.md) and follows its gate: pinned sources, standard axioms only, no `sorry`, kernel check ≠ acceptance, alignment review by a distinct agent. Read [`formal/COORDINATION.md`](formal/COORDINATION.md) before touching `formal/**` or asking a sibling repository for follow-ups.
+- Formal (Lean 4) work lives under [`formalization/`](formalization/README.md) and follows its gate: pinned sources, standard axioms only, no `sorry`, kernel check ≠ acceptance, alignment review by a distinct agent. Read [`formalization/COORDINATION.md`](formalization/COORDINATION.md) before touching `formalization/**` or asking a sibling repository for follow-ups.
 
 ## Never
 

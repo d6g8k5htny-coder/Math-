@@ -55,14 +55,14 @@ From the repository root. Python is standard library only.
 
 ```sh
 python -B -S -m unittest discover -s formal -p 'test_*.py' -v     # 40 negative controls
-python -B -S formal/formal_gate.py                                 # registry, pins, Layer 0 composition; compares FORMAL_RESULTS.json
-python -B -S formal/formal_gate.py --with-lean                     # + lake build and axiom audit replay (needs elan)
-python -B -S formal/formal_gate.py --refresh-pins --no-results-check   # deliberate pin regeneration after editing Lean sources
+python -B -S formalization/formal_gate.py                                 # registry, pins, Layer 0 composition; compares FORMAL_RESULTS.json
+python -B -S formalization/formal_gate.py --with-lean                     # + lake build and axiom audit replay (needs elan)
+python -B -S formalization/formal_gate.py --refresh-pins --no-results-check   # deliberate pin regeneration after editing Lean sources
 ```
 
-Installing the toolchain: `curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz && ./elan-init -y --default-toolchain none`, then `cd formal/lean/core && lake build`. The Mathlib package needs `lake exe cache get` once (several GB); CI does this with `leanprover/lean-action`.
+Installing the toolchain: `curl -sSfL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz | tar xz && ./elan-init -y --default-toolchain none`, then `cd formalization/lean/core && lake build`. The Mathlib package needs `lake exe cache get` once (several GB); CI does this with `leanprover/lean-action`.
 
-When Lean sources change: rebuild, regenerate `AXIOMS.expected` with `lake env lean scripts/Axioms.lean > AXIOMS.expected` in the package directory, run `--refresh-pins`, then regenerate `FORMAL_RESULTS.json` with `python -B -S formal/formal_gate.py --no-results-check > formal/FORMAL_RESULTS.json`. Do this deliberately and say so in the PR; a failed pin check is not a mathematical objection.
+When Lean sources change: rebuild, regenerate `AXIOMS.expected` with `lake env lean scripts/Axioms.lean > AXIOMS.expected` in the package directory, run `--refresh-pins`, then regenerate `FORMAL_RESULTS.json` with `python -B -S formalization/formal_gate.py --no-results-check > formalization/FORMAL_RESULTS.json`. Do this deliberately and say so in the PR; a failed pin check is not a mathematical objection.
 
 ## How it composes with the downstream hard gate
 

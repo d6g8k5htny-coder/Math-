@@ -1,6 +1,6 @@
 """Layer 1 formal-verification gate for Math- (fail-closed).
 
-Validates ``formal/FORMALIZATION_STATUS.json`` against the landing claim
+Validates ``formalization/FORMALIZATION_STATUS.json`` against the landing claim
 manifest, the downstream dependency graph, the pinned Lean sources and the
 pinned axiom audits. Optionally (``--with-lean``) replays ``lake build`` and the
 axiom audit script with the installed toolchain.
@@ -12,9 +12,9 @@ scope, downstream hard gate) is consumed read-only and is unchanged.
 
 Run from the repository root:
 
-    python -B -S formal/formal_gate.py
-    python -B -S formal/formal_gate.py --with-lean           # needs elan/lake on PATH
-    python -B -S formal/formal_gate.py --refresh-pins        # deliberate pin regeneration
+    python -B -S formalization/formal_gate.py
+    python -B -S formalization/formal_gate.py --with-lean           # needs elan/lake on PATH
+    python -B -S formalization/formal_gate.py --refresh-pins        # deliberate pin regeneration
     python -B -S -m unittest discover -s formal -p 'test_*.py' -v
 """
 from __future__ import annotations
@@ -395,7 +395,7 @@ def lane_verdict(entry: dict[str, Any]) -> str:
 
 def validate(root: Path | None = None, registry_path: Path | None = None) -> dict[str, Any]:
     root = (root or ROOT).resolve()
-    registry_path = registry_path or (root / 'formal' / 'FORMALIZATION_STATUS.json')
+    registry_path = registry_path or (root / 'formalization' / 'FORMALIZATION_STATUS.json')
     reg = strict_json(registry_path.read_text())
     _validate_vocabulary(reg)
     claims = strict_json(read_regular(root, safe_relpath(reg.get('claims_manifest'))).decode())
@@ -442,7 +442,7 @@ def validate(root: Path | None = None, registry_path: Path | None = None) -> dic
 def replay_lean(root: Path | None = None, packages: list[str] | None = None, timeout: int = 3600) -> dict[str, Any]:
     """Run ``lake build`` and the axiom audit for each package; compare with the pinned audit."""
     root = (root or ROOT).resolve()
-    reg = strict_json((root / 'formal' / 'FORMALIZATION_STATUS.json').read_text())
+    reg = strict_json((root / 'formalization' / 'FORMALIZATION_STATUS.json').read_text())
     lake = shutil.which('lake')
     _require(lake is not None, 'lake is not on PATH; install elan and the pinned toolchain before --with-lean')
     out: dict[str, Any] = {}
@@ -469,7 +469,7 @@ def replay_lean(root: Path | None = None, packages: list[str] | None = None, tim
 def refresh_pins(root: Path | None = None) -> dict[str, Any]:
     """Deliberately regenerate the ``sources`` pin table. Statuses are never touched."""
     root = (root or ROOT).resolve()
-    path = root / 'formal' / 'FORMALIZATION_STATUS.json'
+    path = root / 'formalization' / 'FORMALIZATION_STATUS.json'
     reg = strict_json(path.read_text())
     sources: dict[str, Any] = {}
     for pkg in reg['packages'].values():
@@ -498,7 +498,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.refresh_pins:
             pins = refresh_pins(args.root)
-            print(f'refreshed {len(pins)} pins in formal/FORMALIZATION_STATUS.json; statuses untouched', file=sys.stderr)
+            print(f'refreshed {len(pins)} pins in formalization/FORMALIZATION_STATUS.json; statuses untouched', file=sys.stderr)
         report = validate(args.root)
         text = json.dumps(report, indent=2, sort_keys=True) + '\n'
         if args.with_lean:
@@ -512,7 +512,7 @@ def main(argv: list[str] | None = None) -> int:
             out.write_text(payload)
         print(payload, end='')
         if not args.no_results_check:
-            results = (Path(args.root).resolve() / 'formal' / 'FORMAL_RESULTS.json')
+            results = (Path(args.root).resolve() / 'formalization' / 'FORMAL_RESULTS.json')
             if not results.is_file() or results.read_text() != text:
                 raise FormalGateError('FORMAL_RESULTS.json byte mismatch; regenerate deliberately')
         return 0

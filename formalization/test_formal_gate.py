@@ -17,8 +17,8 @@ sys.path.insert(0, str(HERE))
 import formal_gate as gate  # noqa: E402
 
 COPY = (
-    'formal/FORMALIZATION_STATUS.json',
-    'formal/FORMAL_RESULTS.json',
+    'formalization/FORMALIZATION_STATUS.json',
+    'formalization/FORMAL_RESULTS.json',
     'claims/LANDING_CLAIMS.json',
     'frontiers/downstream_gate_20260925/hard_gate.py',
     'frontiers/downstream_gate_20260925/GRAPH.json',
@@ -30,8 +30,8 @@ def make_fixture(root: Path) -> None:
         dst = root / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / rel, dst)
-    src = ROOT / 'formal' / 'lean'
-    shutil.copytree(src, root / 'formal' / 'lean', ignore=shutil.ignore_patterns('.lake'))
+    src = ROOT / 'formalization' / 'lean'
+    shutil.copytree(src, root / 'formalization' / 'lean', ignore=shutil.ignore_patterns('.lake'))
 
 
 class FormalGateTests(unittest.TestCase):
@@ -39,7 +39,7 @@ class FormalGateTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
         make_fixture(self.root)
-        self.registry_path = self.root / 'formal' / 'FORMALIZATION_STATUS.json'
+        self.registry_path = self.root / 'formalization' / 'FORMALIZATION_STATUS.json'
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -69,7 +69,7 @@ class FormalGateTests(unittest.TestCase):
         self.assertFalse(report['promotion_permission'])
         self.assertFalse(report['lemma_closed'])
         self.assertEqual(report['scientific_effect'], 'NONE')
-        pinned = (ROOT / 'formal' / 'FORMAL_RESULTS.json').read_text()
+        pinned = (ROOT / 'formalization' / 'FORMAL_RESULTS.json').read_text()
         self.assertEqual(json.dumps(report, indent=2, sort_keys=True) + '\n', pinned)
 
     def test_pilot_lane_is_specified_not_kernel_checked(self):
@@ -157,7 +157,7 @@ class FormalGateTests(unittest.TestCase):
 
     def test_theorem_missing_from_pinned_audit_refused(self):
         reg = self.registry()
-        audit = self.root / 'formal' / 'lean' / 'core' / 'AXIOMS.expected'
+        audit = self.root / 'formalization' / 'lean' / 'core' / 'AXIOMS.expected'
         lines = [l for l in audit.read_text().splitlines() if 'imageConstant_eq' not in l]
         audit.write_text('\n'.join(lines) + '\n')
         self.write_registry(reg); self.repin()
@@ -192,40 +192,40 @@ class FormalGateTests(unittest.TestCase):
 
     # ----------------------------------------------------------------- Lean sources
     def test_lean_source_drift_refused(self):
-        path = self.root / 'formal' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
+        path = self.root / 'formalization' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
         path.write_text(path.read_text().replace('21175738586478', '21175738586479'))
         self.assertRefused('pinned Lean source drift')
 
     def test_sorry_refused_even_when_repinned(self):
-        path = self.root / 'formal' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
+        path = self.root / 'formalization' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
         path.write_text(path.read_text().replace(':= by decide\n', ':= by sorry\n', 1))
         self.repin()
         self.assertRefused('forbidden construct (sorry)')
 
     def test_native_decide_refused_even_when_repinned(self):
-        path = self.root / 'formal' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
+        path = self.root / 'formalization' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
         path.write_text(path.read_text().replace(':= by decide\n', ':= by native_decide\n', 1))
         self.repin()
         self.assertRefused('forbidden construct (native_decide)')
 
     def test_axiom_declaration_refused_even_when_repinned(self):
-        path = self.root / 'formal' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
+        path = self.root / 'formalization' / 'lean' / 'core' / 'MathFormalCore' / 'Side24' / 'Arithmetic.lean'
         path.write_text(path.read_text().replace('end MathFormalCore.Side24', 'axiom parent : True\n\nend MathFormalCore.Side24'))
         self.repin()
         self.assertRefused('forbidden construct (axiom declaration)')
 
     def test_unpinned_new_lean_file_refused(self):
-        (self.root / 'formal' / 'lean' / 'core' / 'MathFormalCore' / 'Extra.lean').write_text('theorem t : True := trivial\n')
+        (self.root / 'formalization' / 'lean' / 'core' / 'MathFormalCore' / 'Extra.lean').write_text('theorem t : True := trivial\n')
         self.assertRefused('unpinned Lean source')
 
     def test_forbidden_axiom_in_pinned_audit_refused(self):
-        audit = self.root / 'formal' / 'lean' / 'core' / 'AXIOMS.expected'
+        audit = self.root / 'formalization' / 'lean' / 'core' / 'AXIOMS.expected'
         audit.write_text(audit.read_text().replace('imageConstant_eq -', 'imageConstant_eq sorryAx'))
         self.repin()
         self.assertRefused('non-allowed axioms')
 
     def test_toolchain_mismatch_refused(self):
-        (self.root / 'formal' / 'lean' / 'core' / 'lean-toolchain').write_text('leanprover/lean4:v4.0.0\n')
+        (self.root / 'formalization' / 'lean' / 'core' / 'lean-toolchain').write_text('leanprover/lean4:v4.0.0\n')
         self.repin()
         self.assertRefused('toolchain')
 
@@ -328,7 +328,7 @@ class FormalGateTests(unittest.TestCase):
                          'FORMAL_KERNEL_CHECKED_ALIGNED')
 
     def test_cli_refuses_results_drift(self):
-        (self.root / 'formal' / 'FORMAL_RESULTS.json').write_text('{}\n')
+        (self.root / 'formalization' / 'FORMAL_RESULTS.json').write_text('{}\n')
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(gate.main(['--root', str(self.root)]), 2)
             self.assertEqual(gate.main(['--root', str(self.root), '--no-results-check']), 0)

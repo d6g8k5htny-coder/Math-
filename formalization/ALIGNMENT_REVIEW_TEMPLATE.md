@@ -1,6 +1,6 @@
 # Formalization alignment review — template
 
-Copy this file to `reviews/formal_alignment_<claim_id>_<YYYYMMDD>/REVIEW.md`, fill every field, and register the record in `formal/FORMALIZATION_STATUS.json` under `entries[].alignment_review.record` with the file's bytes and SHA-256, the reviewed informal blob, and the reviewed Lean source pins. `formal/formal_gate.py` refuses an `ACCEPT` whose record is missing, mis-pinned, stale against the current Lean sources or informal blob, or authored by the same agent/session as the formalization.
+Copy this file to `reviews/formal_alignment_<claim_id>_<YYYYMMDD>/REVIEW.md`, fill every field, and register the record in `formalization/FORMALIZATION_STATUS.json` under `entries[].alignment_review.record` with the file's bytes and SHA-256, the reviewed informal blob, and the reviewed Lean source pins. `formalization/formal_gate.py` refuses an `ACCEPT` whose record is missing, mis-pinned, stale against the current Lean sources or informal blob, or authored by the same agent/session as the formalization.
 
 **Scientific effect: NONE.** This review answers one question: *does the Lean statement say what the informal statement says, on the informal statement's exact domain, with the informal statement's exact hypotheses?* It does not re-prove the theorem (the kernel did that for the Lean text) and it does not accept the informal claim (that is the Layer 0 review recorded in the landing manifest).
 
@@ -67,7 +67,7 @@ Numbered. Each finding cites the Lean line and the informal line.
     "reviewer": {"provider": "<...>", "model_family": "<...>", "agent": "<...>"},
     "organizational_independence": false,
     "reviewed_informal_blob": "<40-hex>",
-    "reviewed_sources": {"formal/lean/<...>.lean": {"bytes": 0, "sha256": "<64-hex>"}}
+    "reviewed_sources": {"formalization/lean/<...>.lean": {"bytes": 0, "sha256": "<64-hex>"}}
   }
 }
 ```

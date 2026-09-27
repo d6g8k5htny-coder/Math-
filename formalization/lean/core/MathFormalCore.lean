@@ -11,6 +11,6 @@ placeholder proofs (the gate rejects those constructs textually and by axiom aud
 Scientific effect: NONE. A kernel-checked theorem verifies exactly the Lean
 statement written here. Whether that statement matches the informal proof text
 is the separate alignment-review lane recorded in
-`formal/FORMALIZATION_STATUS.json`; neither lane flips `lemma_closed`,
+`formalization/FORMALIZATION_STATUS.json`; neither lane flips `lemma_closed`,
 prizes, premises, or any landing disposition.
 -/

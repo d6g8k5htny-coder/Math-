@@ -2,7 +2,7 @@ name: Formal verification lane (Layer 1)
 'on':
   pull_request:
     paths:
-      - 'formal/**'
+      - 'formalization/**'
       - 'claims/LANDING_CLAIMS.json'
       - 'frontiers/downstream_gate_20260925/GRAPH.json'
       - 'frontiers/downstream_gate_20260925/hard_gate.py'
@@ -29,7 +29,7 @@ jobs:
           set -euo pipefail
           python -B -S -m unittest discover -s formal -p 'test_*.py' -v
           python -B -O -S -m unittest discover -s formal -p 'test_*.py' -v
-          python -B -S formal/formal_gate.py --output "$RUNNER_TEMP/formal-registry-report.json"
+          python -B -S formalization/formal_gate.py --output "$RUNNER_TEMP/formal-registry-report.json"
       - name: Retain report
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -55,7 +55,7 @@ jobs:
       # allows only propext, Classical.choice and Quot.sound.
       - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
-          lake-package-directory: formal/lean/core
+          lake-package-directory: formalization/lean/core
           auto-config: 'false'
           build: 'true'
           test: 'false'
@@ -73,7 +73,7 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="$HOME/.elan/bin:$PATH"
-          python -B -S formal/formal_gate.py --with-lean --package core --no-results-check --output "$RUNNER_TEMP/formal-core-report.json"
+          python -B -S formalization/formal_gate.py --with-lean --package core --no-results-check --output "$RUNNER_TEMP/formal-core-report.json"
       - name: Retain report
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
@@ -96,7 +96,7 @@ jobs:
           python-version: '3.11'
       - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
-          lake-package-directory: formal/lean/mathlib
+          lake-package-directory: formalization/lean/mathlib
           auto-config: 'false'
           build: 'true'
           test: 'false'
@@ -111,7 +111,7 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="$HOME/.elan/bin:$PATH"
-          python -B -S formal/formal_gate.py --with-lean --package mathlib --no-results-check --output "$RUNNER_TEMP/formal-mathlib-report.json"
+          python -B -S formalization/formal_gate.py --with-lean --package mathlib --no-results-check --output "$RUNNER_TEMP/formal-mathlib-report.json"
       - name: Retain report
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a

@@ -51,77 +51,77 @@
   },
   "packages": {
     "core": {
-      "path": "formal/lean/core",
+      "path": "formalization/lean/core",
       "library": "MathFormalCore",
       "depends_on_mathlib": false,
-      "axioms_expected": "formal/lean/core/AXIOMS.expected",
+      "axioms_expected": "formalization/lean/core/AXIOMS.expected",
       "independent_checkers_in_ci": [
         "leanchecker",
         "nanoda"
       ]
     },
     "mathlib": {
-      "path": "formal/lean/mathlib",
+      "path": "formalization/lean/mathlib",
       "library": "MathFormalReal",
       "depends_on_mathlib": true,
-      "axioms_expected": "formal/lean/mathlib/AXIOMS.expected",
+      "axioms_expected": "formalization/lean/mathlib/AXIOMS.expected",
       "independent_checkers_in_ci": [
         "axiom-audit"
       ]
     }
   },
   "sources": {
-    "formal/lean/core/AXIOMS.expected": {
+    "formalization/lean/core/AXIOMS.expected": {
       "bytes": 2113,
       "sha256": "49d53083bbac400e2cd71e59061d2c4633d639a53d4f929638024af778115e01"
     },
-    "formal/lean/core/MathFormalCore.lean": {
-      "bytes": 697,
-      "sha256": "8133d7b6d7943894bbf780b79c9596b65778d1670646a443cdff3b49fff21cb5"
+    "formalization/lean/core/MathFormalCore.lean": {
+      "bytes": 704,
+      "sha256": "a70ab394e3849bff1626e74a97ce7f5ba881e2bb624a07723970abfda1592846"
     },
-    "formal/lean/core/MathFormalCore/Side24/Arithmetic.lean": {
-      "bytes": 11605,
-      "sha256": "3b4ef35de28d380046dac82c71e97e2057983deac624ea1d966e7fd7978fdfce"
+    "formalization/lean/core/MathFormalCore/Side24/Arithmetic.lean": {
+      "bytes": 11619,
+      "sha256": "a25414c535f4d518f4d6c12e7755368935a40ffc8d92d3edccfa9a09b92831d6"
     },
-    "formal/lean/core/lakefile.toml": {
+    "formalization/lean/core/lakefile.toml": {
       "bytes": 416,
       "sha256": "37963cf6cfd897861f1863ab9b0dd3fb25e0f9ba139f548c08015024165f98b8"
     },
-    "formal/lean/core/lean-toolchain": {
+    "formalization/lean/core/lean-toolchain": {
       "bytes": 25,
       "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
     },
-    "formal/lean/core/scripts/Axioms.lean": {
-      "bytes": 1299,
-      "sha256": "963e3c3c8c38b39eab64e3e7487bcc2f1eb40b4754abbb87b0d26cdeb6ca9ff0"
+    "formalization/lean/core/scripts/Axioms.lean": {
+      "bytes": 1320,
+      "sha256": "c6b9b5e40ccca08a305c1156b116f62ad6149694358f12f7222a1ce3cdff7522"
     },
-    "formal/lean/mathlib/AXIOMS.expected": {
+    "formalization/lean/mathlib/AXIOMS.expected": {
       "bytes": 607,
       "sha256": "8cffb8012b5d92966ca0f791e913cd59c7b75c2d30eccde1cc4bf7dd3d064411"
     },
-    "formal/lean/mathlib/MathFormalReal.lean": {
-      "bytes": 406,
-      "sha256": "f56f70ae1e6f592158377621df13d44afd9355183cdb1ef0d1d825c6958ead66"
+    "formalization/lean/mathlib/MathFormalReal.lean": {
+      "bytes": 413,
+      "sha256": "dd9172c5b2e4659dcc720f7d342223966cb1ad300da2f30c7b91629ea381e026"
     },
-    "formal/lean/mathlib/MathFormalReal/Side24/Statement.lean": {
+    "formalization/lean/mathlib/MathFormalReal/Side24/Statement.lean": {
       "bytes": 8999,
       "sha256": "bd2bbd5ca0572623f14d540a0480146f9ed3933afc7d580222f12c705032f08c"
     },
-    "formal/lean/mathlib/lake-manifest.json": {
+    "formalization/lean/mathlib/lake-manifest.json": {
       "bytes": 3332,
       "sha256": "b098e721ba36ef642a64fcb829c1c665e8a59888348aec1eed4e641751e42682"
     },
-    "formal/lean/mathlib/lakefile.toml": {
+    "formalization/lean/mathlib/lakefile.toml": {
       "bytes": 603,
       "sha256": "9360dc5b261af8855e9b5ac1567938c0216e489773f90a3165c3d923c5d761f0"
     },
-    "formal/lean/mathlib/lean-toolchain": {
+    "formalization/lean/mathlib/lean-toolchain": {
       "bytes": 25,
       "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
     },
-    "formal/lean/mathlib/scripts/Axioms.lean": {
-      "bytes": 1305,
-      "sha256": "6a3624f932ade6657b1c7ff9cafacf7e1569a9f634dd7dd409fbbd41b2cf1547"
+    "formalization/lean/mathlib/scripts/Axioms.lean": {
+      "bytes": 1326,
+      "sha256": "1fc6fae817a38bcf2ddb84ff31f1e05c751e5c000139fbecc55551f9bae3eb68"
     }
   },
   "entries": [
@@ -146,7 +146,7 @@
       "alignment_review": {
         "status": "REVIEW_REQUIRED",
         "record": null,
-        "template": "formal/ALIGNMENT_REVIEW_TEMPLATE.md"
+        "template": "formalization/ALIGNMENT_REVIEW_TEMPLATE.md"
       },
       "statement": {
         "package": "mathlib",

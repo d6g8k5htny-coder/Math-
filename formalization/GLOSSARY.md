@@ -55,7 +55,7 @@ Columns: **Project term** as used in the proofs · **Standard mathematics** · *
 |---|---|---|
 | Author-side, nonauthor review, organizational independence | Governance roles of the two-key rule; see [REVIEW_TOPOLOGY](https://github.com/d6g8k5htny-coder/governance-/blob/main/REVIEW_TOPOLOGY.md) | `claims/LANDING_CLAIMS.json`, `reviews/` |
 | `lemma_closed`, prizes, premises | Scientific registers held outside this repository; always `false`/unchanged here | Every validator |
-| `kernel_checked`, alignment review, lane verdict | Layer 1 vocabulary defined in [README.md](README.md) | `formal/formal_gate.py` |
+| `kernel_checked`, alignment review, lane verdict | Layer 1 vocabulary defined in [README.md](README.md) | `formalization/formal_gate.py` |
 
 ## Adding a row
 
