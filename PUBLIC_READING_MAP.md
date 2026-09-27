@@ -52,9 +52,10 @@ Verify the digests from a clone: `git show 05c20b67ca49281601532f7a0224f871a8dae
 | [#60](https://github.com/d6g8k5htny-coder/Math-/pull/60) | Pin microdisk: anisotropic gradient covariance and density envelope | merged to `main` (`46a2a596`) | [reviews/pin_micro_covariance_20260926/](https://github.com/d6g8k5htny-coder/Math-/tree/main/reviews/pin_micro_covariance_20260926) |
 | [#90](https://github.com/d6g8k5htny-coder/Math-/pull/90) | Bounded D5 pin microdisk note and exact divided-difference algebra packet | merged to `main` (`5ee7cfea`) | [reviews/d5_pin_microdisk_20260927/](https://github.com/d6g8k5htny-coder/Math-/tree/main/reviews/d5_pin_microdisk_20260927) |
 | [#69](https://github.com/d6g8k5htny-coder/Math-/pull/69) | D5 pin microdisk divided-difference | closed without merge; contradicted by #82 / #90 | branch `cursor/d5-pin-microdisk-c059` (historical) |
-| [#81](https://github.com/d6g8k5htny-coder/Math-/pull/81) | Drive-hole ledger | open draft, AMEND | branch `grok/drive-hole-ledger-20260926` |
-| [#80](https://github.com/d6g8k5htny-coder/Math-/pull/80) | Contact-kernel substitute | open draft, AMEND | branch `grok/contact-kernel-substitute-20260926` |
-| [#53](https://github.com/d6g8k5htny-coder/Math-/pull/53) | Pin-neighborhood reconnaissance | open draft, AMEND | branch `cursor/pr16-transverse-r1r5-review-b00c` |
+| [#94](https://github.com/d6g8k5htny-coder/Math-/pull/94) | Recovered original `TRANSVERSE_CONTACT_ASYMPTOTIC.md` + geometry companion (byte-preserving import; source availability only) | merged to `main` (`db6a8d5a`) | [imports/transverse_contact_library_20260927/](https://github.com/d6g8k5htny-coder/Math-/tree/main/imports/transverse_contact_library_20260927) |
+| [#81](https://github.com/d6g8k5htny-coder/Math-/pull/81) | Drive-hole ledger (v3: transverse hole closed as a Drive hole, open as mathematics) | open, review amendments applied, ready for owner review | branch `grok/drive-hole-ledger-20260926` |
+| [#80](https://github.com/d6g8k5htny-coder/Math-/pull/80) | Contact-kernel reconstruction note (cross-check against the recovered original, §7) | open, review amendments applied, ready for owner review | branch `grok/contact-kernel-substitute-20260926` |
+| [#53](https://github.com/d6g8k5htny-coder/Math-/pull/53) | Pin-neighborhood reconnaissance (cone `O(r^3)`; inner disk open) | open, review amendments applied, ready for owner review | branch `cursor/pr16-transverse-r1r5-review-b00c` |
 
 Merged rows are reachable on `main` at the cited paths; the merge commit is given for identity, and a merge is not acceptance beyond the scope recorded in each note.
 
