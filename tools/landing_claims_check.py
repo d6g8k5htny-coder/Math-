@@ -177,6 +177,7 @@ def validate_manifest(manifest: dict, landing_text: str) -> dict:
     if len(set(ids)) != len(ids):
         raise ClaimManifestError("duplicate claim_id")
     claim_ids = set(ids)
+    claims_by_id = {c["claim_id"]: c for c in claims}
 
     paths = []
     unresolved_positive = []
@@ -199,12 +200,20 @@ def validate_manifest(manifest: dict, landing_text: str) -> dict:
             raise ClaimManifestError(f"{claim['claim_id']} dependencies must be a list")
         for dep in deps:
             _validate_dependency(dep, claim_ids)
-            if (
-                dep.get("kind") == "external"
-                and dep.get("binding_status") == "UNRESOLVED_EXTERNAL"
-                and claim["disposition"] in POSITIVE_DISPOSITIONS
-            ):
-                unresolved_positive.append((claim["claim_id"], dep["id"]))
+            if claim["disposition"] in POSITIVE_DISPOSITIONS:
+                if dep.get("kind") == "external" and dep.get("binding_status") == "UNRESOLVED_EXTERNAL":
+                    unresolved_positive.append((claim["claim_id"], dep["id"]))
+                if dep.get("kind") == "claim":
+                    parent = claims_by_id[dep["id"]]
+                    if parent.get("disposition") not in POSITIVE_DISPOSITIONS:
+                        raise ClaimManifestError(
+                            f"positive claim {claim['claim_id']} depends on nonpositive internal claim "
+                            f"{dep['id']}:{parent.get('disposition')}"
+                        )
+                if dep.get("kind") == "support" and dep.get("review") is None:
+                    raise ClaimManifestError(
+                        f"positive claim {claim['claim_id']} has unreviewed support {dep['id']}"
+                    )
 
     if len(set(paths)) != len(paths):
         raise ClaimManifestError("duplicate advertised statement_path")
