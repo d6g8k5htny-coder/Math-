@@ -1,0 +1,54 @@
+{
+  "fresh_local_execution": {
+    "normal": {
+      "distinct_test_methods": 24,
+      "exitcode": 0
+    },
+    "optimized": {
+      "distinct_test_methods": 24,
+      "exitcode": 0
+    }
+  },
+  "hosted_artifact": {
+    "both_complete_test_logs_inspected": true,
+    "bytes": 2214,
+    "crc_checked": true,
+    "id": 10888045590,
+    "sha256": "d7b421940997292dabc4355dd4738195f92a336047b8747c24b0f26ce595168d"
+  },
+  "hosted_report": {
+    "commit": "1baa51a44c18990c435b52789a0f3c9183b6d4b8",
+    "distinct_tests": 24,
+    "files": {
+      "NOTE.md": {
+        "bytes": 16243,
+        "sha256": "530dd3efaa965c850ea9e6575f42d3952c3efe6a89b2b5355b6afb4285c9d37e"
+      },
+      "README.md": {
+        "bytes": 1540,
+        "sha256": "feb62c5c74eb48f9d1a613f3a3607bbb45ff4a4041563ef24451fae18cfc999e"
+      },
+      "exact_checks.py": {
+        "bytes": 10098,
+        "sha256": "e51a5bda5b00abe947b4af84e90165ddf9ad8190b459b046112cb4d113b1af0a"
+      }
+    },
+    "meaning": "finite algebra and counterexample checks; not analytic acceptance",
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "python": "3.11.16 (main, Aug 13 2026, 02:46:14) [GCC 13.3.0]",
+    "run": "36189883478"
+  },
+  "independent_analytic_acceptance": false,
+  "local_docs_vs_repo": "Expanded local exposition, not identical bytes to consolidated GitHub NOTE.md; local script comments differ from hosted script.",
+  "local_numerical_diagnostic": "Unperiodized Bargmann-Fock only; not an enclosure and not a finite-L coefficient.",
+  "local_python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "object": "OA-SIMPLEX-CONTACT-TRANSFER-20260925-v1",
+  "pr": 25,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_status_changed": false,
+  "source_commit": "ad35e46d15c2815c36746442808a1626a9724e8a",
+  "state": "DRAFT_AUTHOR_SIDE_NOT_INDEPENDENTLY_ACCEPTED"
+}
