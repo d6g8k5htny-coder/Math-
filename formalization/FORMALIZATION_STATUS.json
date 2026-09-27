@@ -53,6 +53,7 @@
     "core": {
       "path": "formalization/lean/core",
       "library": "MathFormalCore",
+      "lakefile": "lakefile.lean",
       "depends_on_mathlib": false,
       "axioms_expected": "formalization/lean/core/AXIOMS.expected",
       "independent_checkers_in_ci": [
@@ -97,9 +98,9 @@
       "bytes": 11619,
       "sha256": "a25414c535f4d518f4d6c12e7755368935a40ffc8d92d3edccfa9a09b92831d6"
     },
-    "formalization/lean/core/lakefile.toml": {
-      "bytes": 416,
-      "sha256": "37963cf6cfd897861f1863ab9b0dd3fb25e0f9ba139f548c08015024165f98b8"
+    "formalization/lean/core/lakefile.lean": {
+      "bytes": 552,
+      "sha256": "4552f0202c4303861c26ed5656a4f913bc45e938256822c4c0eb25ac223778dc"
     },
     "formalization/lean/core/lean-toolchain": {
       "bytes": 25,
@@ -123,7 +124,7 @@
     },
     "formalization/lean/mathlib/lake-manifest.json": {
       "bytes": 3332,
-      "sha256": "b098e721ba36ef642a64fcb829c1c665e8a59888348aec1eed4e641751e42682"
+      "sha256": "ca62668e998b729fa5f06620d037aa51b98264af6e83a4a048822ca9d74f0d10"
     },
     "formalization/lean/mathlib/lakefile.toml": {
       "bytes": 603,

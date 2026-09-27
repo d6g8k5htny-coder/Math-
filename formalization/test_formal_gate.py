@@ -329,6 +329,27 @@ class FormalGateTests(unittest.TestCase):
         self.assertEqual(gate.lane_verdict({'status': 'kernel_checked', 'alignment_review': {'status': 'ACCEPT'}}),
                          'FORMAL_KERNEL_CHECKED_ALIGNED')
 
+    # ----------------------------------------------------------------- lakefile forms
+    def test_core_lakefile_lean_must_declare_package_and_lib(self):
+        path = self.root / 'formalization' / 'lean' / 'core' / 'lakefile.lean'
+        path.write_text(path.read_text().replace('package MathFormalCore', 'package Renamed'))
+        self.repin()
+        self.assertRefused('does not declare its library name')
+
+    def test_lakefile_flag_must_match_file_on_disk(self):
+        reg = self.registry(); reg['packages']['core']['lakefile'] = 'lakefile.toml'; self.write_registry(reg)
+        self.assertRefused('lakefile.toml')
+
+    def test_unsupported_lakefile_name_refused(self):
+        reg = self.registry(); reg['packages']['core']['lakefile'] = 'Lakefile'; self.write_registry(reg)
+        self.assertRefused('unsupported lakefile name')
+
+    def test_lakefile_lean_requiring_mathlib_contradicts_flag(self):
+        path = self.root / 'formalization' / 'lean' / 'core' / 'lakefile.lean'
+        path.write_text(path.read_text() + '\nrequire "leanprover-community" / "mathlib"\n')
+        self.repin()
+        self.assertRefused('Mathlib dependency flag disagrees')
+
     # ----------------------------------------------------------------- companion packet (formal/)
     def companion(self, reg: dict) -> dict:
         return reg['companion_packages']['formal']

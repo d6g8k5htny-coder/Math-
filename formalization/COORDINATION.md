@@ -15,7 +15,7 @@ Under the [working contract](https://github.com/d6g8k5htny-coder/governance-/blo
 |---|---|---|
 | Layer 1 design and rules | [`formalization/README.md`](README.md) | live |
 | Registry keyed by landing `claim_id` | [`formalization/FORMALIZATION_STATUS.json`](FORMALIZATION_STATUS.json) | live; all 10 claims covered; pilot `side24-coefficient` at `specified` |
-| Fail-closed gate + 49 negative controls | [`formalization/formal_gate.py`](formal_gate.py), [`formalization/test_formal_gate.py`](test_formal_gate.py), [`formalization/FORMAL_RESULTS.json`](FORMAL_RESULTS.json) | live |
+| Fail-closed gate + 53 negative controls | [`formalization/formal_gate.py`](formal_gate.py), [`formalization/test_formal_gate.py`](test_formal_gate.py), [`formalization/FORMAL_RESULTS.json`](FORMAL_RESULTS.json) | live |
 | Core-only Lean package (kernel-checked arithmetic, 36 theorems, standard axioms only) | [`formalization/lean/core`](lean/core) | live |
 | Mathlib package (definitions, `Prop` specifications, 8 real-number theorems incl. the SIDE24 skeleton implication) | [`formalization/lean/mathlib`](lean/mathlib) | live |
 | Glossary: project terms → standard mathematics → Lean carriers | [`formalization/GLOSSARY.md`](GLOSSARY.md) | live; extend per PR |

@@ -103,6 +103,13 @@ def identity(raw: bytes) -> dict[str, Any]:
     return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
+def package_lakefile(package: dict[str, Any]) -> str:
+    """Lake accepts ``lakefile.toml`` or ``lakefile.lean``; the registry says which one a package uses."""
+    name = package.get('lakefile', 'lakefile.toml')
+    _require(name in ('lakefile.toml', 'lakefile.lean'), f'unsupported lakefile name {name!r}')
+    return name
+
+
 def module_relpath(package: dict[str, Any], module: str) -> str:
     if not isinstance(module, str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*(\.[A-Za-z_][A-Za-z0-9_]*)*', module):
         raise FormalGateError('malformed Lean module name: ' + str(module))
@@ -185,9 +192,16 @@ def _validate_packages(reg: dict[str, Any], root: Path) -> None:
         _require(type(pkg.get('depends_on_mathlib')) is bool, 'depends_on_mathlib must be exact boolean')
         toolchain = read_regular(root, pdir + '/lean-toolchain').decode().strip()
         _require(toolchain == reg['toolchain']['lean'], f'package {name} toolchain {toolchain} differs from registry')
-        lakefile = read_regular(root, pdir + '/lakefile.toml').decode()
-        _require(f'name = "{pkg["library"]}"' in lakefile, f'package {name} lakefile does not declare its library name')
-        has_mathlib = 'name = "mathlib"' in lakefile
+        lakefile_name = package_lakefile(pkg)
+        lakefile = read_regular(root, pdir + '/' + lakefile_name).decode()
+        if lakefile_name.endswith('.toml'):
+            declares = f'name = "{pkg["library"]}"' in lakefile
+            has_mathlib = 'name = "mathlib"' in lakefile
+        else:
+            declares = bool(re.search(r'^\s*package\s+' + re.escape(pkg['library']) + r'\b', lakefile, re.MULTILINE)) and \
+                bool(re.search(r'^\s*lean_lib\s+' + re.escape(pkg['library']) + r'\b', lakefile, re.MULTILINE))
+            has_mathlib = bool(re.search(r'^\s*require\s+(?:"leanprover-community"\s*/\s*)?"?mathlib"?\b', lakefile, re.MULTILINE))
+        _require(declares, f'package {name} lakefile does not declare its library name')
         _require(has_mathlib == pkg['depends_on_mathlib'], f'package {name} Mathlib dependency flag disagrees with lakefile')
         if has_mathlib:
             manifest = strict_json(read_regular(root, pdir + '/lake-manifest.json').decode())
@@ -229,7 +243,7 @@ def _validate_sources(reg: dict[str, Any], root: Path) -> None:
                 continue
             rel = path.relative_to(root).as_posix()
             _require(rel in sources, f'unpinned Lean source in package {name}: {rel}')
-        for extra in ('lakefile.toml', 'lean-toolchain', pkg['axioms_expected'].split('/')[-1]):
+        for extra in (package_lakefile(pkg), 'lean-toolchain', pkg['axioms_expected'].split('/')[-1]):
             rel = (pdir / extra).relative_to(root).as_posix()
             _require(rel in sources, f'unpinned package file: {rel}')
         if pkg['depends_on_mathlib']:
@@ -544,7 +558,7 @@ def refresh_pins(root: Path | None = None) -> dict[str, Any]:
     for pkg in reg['packages'].values():
         pdir = root / safe_relpath(pkg['path'])
         files = [p for p in pdir.rglob('*.lean') if '.lake' not in p.parts]
-        files += [pdir / 'lakefile.toml', pdir / 'lean-toolchain', root / safe_relpath(pkg['axioms_expected'])]
+        files += [pdir / package_lakefile(pkg), pdir / 'lean-toolchain', root / safe_relpath(pkg['axioms_expected'])]
         if pkg['depends_on_mathlib']:
             files.append(pdir / 'lake-manifest.json')
         for f in files:

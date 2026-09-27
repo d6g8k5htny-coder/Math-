@@ -33,7 +33,7 @@ Only `FORMAL_KERNEL_CHECKED_ALIGNED` means "the claim is formally verified in th
 
 | Package | Library | Dependency | What lives there |
 |---|---|---|---|
-| [`lean/core`](lean/core) | `MathFormalCore` | none (Lean core prelude) | Exact `Nat`/`Int`/`Rat` facts used as steps in informal proofs. Kernel-checked by `decide`. |
+| [`lean/core`](lean/core) | `MathFormalCore` | none (Lean core prelude) | Exact `Nat`/`Int`/`Rat` facts used as steps in informal proofs. Kernel-checked by `decide`. Configured by `lakefile.lean` because lean-action's `nanoda` step reads the module name from `package <Name>`; the registry records `lakefile` per package. |
 | [`lean/mathlib`](lean/mathlib) | `MathFormalReal` | Mathlib `v4.34.1` (`d13f23b7…`) plus `../core` | Definitions of the standard objects (`Real.Gamma`, `Real.pi`, `Real.sqrt`, `Real.exp`), `Prop` specifications of informal theorems, and real-number theorems. |
 
 Splitting keeps the always-on lane cheap (the core package builds in under a second with no downloads) while still exposing the real-analysis statement layer.
@@ -67,7 +67,7 @@ The claim therefore remains **author-side and conditional** exactly as the landi
 From the repository root. Python is standard library only.
 
 ```sh
-python -B -S -m unittest discover -s formalization -p 'test_*.py' -v     # 49 negative controls
+python -B -S -m unittest discover -s formalization -p 'test_*.py' -v     # 53 negative controls
 python -B -S formalization/formal_gate.py                                 # registry, pins, Layer 0 composition, companion index; compares FORMAL_RESULTS.json
 python -B -S formalization/formal_gate.py --with-lean                     # + lake build and axiom audit replay (needs elan)
 python -B -S formalization/formal_gate.py --refresh-pins --no-results-check   # deliberate pin regeneration after editing Lean sources
