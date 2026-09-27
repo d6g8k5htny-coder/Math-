@@ -4,6 +4,17 @@
     "mathlib": 8
   },
   "claims_covered": 10,
+  "companion_packages": {
+    "formal": {
+      "alignment_status": "PENDING_INDEPENDENT_REVIEW",
+      "authority": "formal/manifest.json",
+      "formalization_status": "proved",
+      "library": "ResearchFormalCoreR1",
+      "mathlib_commit_agrees": true,
+      "source_identity": "PASS",
+      "toolchain_agrees": true
+    }
+  },
   "lanes": {
     "downstream-hard-gate": {
       "alignment": "NONE",

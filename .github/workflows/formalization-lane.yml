@@ -6,7 +6,11 @@ name: Formal verification lane (Layer 1)
       - 'claims/LANDING_CLAIMS.json'
       - 'frontiers/downstream_gate_20260925/GRAPH.json'
       - 'frontiers/downstream_gate_20260925/hard_gate.py'
-      - '.github/workflows/formal-lane.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'formal/manifest.json'
+      - '.github/workflows/formalization-lane.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,8 +31,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           set -euo pipefail
-          python -B -S -m unittest discover -s formal -p 'test_*.py' -v
-          python -B -O -S -m unittest discover -s formal -p 'test_*.py' -v
+          python -B -S -m unittest discover -s formalization -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s formalization -p 'test_*.py' -v
           python -B -S formalization/formal_gate.py --output "$RUNNER_TEMP/formal-registry-report.json"
       - name: Retain report
         if: always()

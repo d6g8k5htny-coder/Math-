@@ -32,6 +32,8 @@ def make_fixture(root: Path) -> None:
         shutil.copy2(ROOT / rel, dst)
     src = ROOT / 'formalization' / 'lean'
     shutil.copytree(src, root / 'formalization' / 'lean', ignore=shutil.ignore_patterns('.lake'))
+    # Companion packet (PR #92) is indexed read-only; copy it byte-identical.
+    shutil.copytree(ROOT / 'formal', root / 'formal', ignore=shutil.ignore_patterns('.lake', '__pycache__'))
 
 
 class FormalGateTests(unittest.TestCase):
@@ -326,6 +328,57 @@ class FormalGateTests(unittest.TestCase):
         self.assertEqual(gate.lane_verdict({**base, 'status': 'kernel_checked'}), 'FORMAL_KERNEL_CHECKED_AUTHOR_SIDE')
         self.assertEqual(gate.lane_verdict({'status': 'kernel_checked', 'alignment_review': {'status': 'ACCEPT'}}),
                          'FORMAL_KERNEL_CHECKED_ALIGNED')
+
+    # ----------------------------------------------------------------- companion packet (formal/)
+    def companion(self, reg: dict) -> dict:
+        return reg['companion_packages']['formal']
+
+    def test_companion_indexed_read_only(self):
+        report = gate.validate(self.root)
+        comp = report['companion_packages']['formal']
+        self.assertEqual(comp['source_identity'], 'PASS')
+        self.assertEqual(comp['library'], 'ResearchFormalCoreR1')
+        self.assertEqual(comp['formalization_status'], 'proved')
+        self.assertEqual(comp['alignment_status'], 'PENDING_INDEPENDENT_REVIEW')
+        self.assertEqual(comp['authority'], 'formal/manifest.json')
+        # Indexing never turns the companion's targets into landing-claim evidence.
+        for lane in report['lanes'].values():
+            self.assertNotIn('ResearchFormalCoreR1', str(lane.get('statement_decl')))
+
+    def test_companion_source_drift_refused_by_its_own_gate(self):
+        path = self.root / 'formal' / 'ResearchFormalCoreR1' / 'AlgebraV2.lean'
+        path.write_text(path.read_text() + '\n-- drift\n')
+        self.assertRefused('companion formal gate refused')
+
+    def test_companion_toolchain_divergence_refused(self):
+        (self.root / 'formal' / 'lean-toolchain').write_text('leanprover/lean4:v4.35.0\n')
+        self.assertRefused('toolchain')
+
+    def test_companion_mathlib_pin_divergence_refused(self):
+        reg = self.registry(); reg['toolchain']['mathlib']['commit'] = '0' * 40; self.write_registry(reg)
+        self.assertRefused('Mathlib commit')
+
+    def test_companion_relationship_must_be_read_only(self):
+        reg = self.registry(); self.companion(reg)['relationship'] = 'owned'; self.write_registry(reg)
+        self.assertRefused('read_only_index')
+
+    def test_companion_manifest_self_accepting_alignment_refused(self):
+        manifest = self.root / 'formal' / 'manifest.json'
+        manifest.write_text(manifest.read_text().replace('PENDING_INDEPENDENT_REVIEW', 'ACCEPTED'))
+        self.assertRefused('self-declares alignment acceptance')
+
+    def test_companion_missing_directory_refused(self):
+        shutil.rmtree(self.root / 'formal')
+        self.assertRefused('companion directory missing')
+
+    def test_companion_claim_ids_must_be_landing_claims(self):
+        reg = self.registry(); self.companion(reg)['claim_ids'] = ['gp-for-192'] ; self.write_registry(reg)
+        self.assertRefused('claim_ids outside the landing manifest')
+
+    def test_companion_forbidden_construct_refused_before_its_gate(self):
+        path = self.root / 'formal' / 'ResearchFormalCoreR1' / 'AlgebraV2.lean'
+        path.write_text(path.read_text() + '\ntheorem drift : True := by sorry\n')
+        self.assertRefused('forbidden construct (sorry) in companion source')
 
     def test_cli_refuses_results_drift(self):
         (self.root / 'formalization' / 'FORMAL_RESULTS.json').write_text('{}\n')

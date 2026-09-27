@@ -237,6 +237,73 @@ def _validate_sources(reg: dict[str, Any], root: Path) -> None:
             _require(rel in sources, f'unpinned lake-manifest: {rel}')
 
 
+def _validate_companions(reg: dict[str, Any], root: Path, claims: dict[str, Any]) -> dict[str, Any]:
+    """Read-only index of sibling Lean packets that own their own manifest and gate.
+
+    The lane never edits a companion. It only asserts that the companion still
+    exists, that its own source-identity gate passes, that its toolchain and
+    Mathlib pins agree with this registry, and that its source modules avoid the
+    same forbidden constructs. A companion's own manifest remains the authority
+    for its targets and alignment state; nothing here re-awards either.
+    """
+    companions = reg.get('companion_packages', {})
+    _require(isinstance(companions, dict), 'companion_packages must be an object')
+    out: dict[str, Any] = {}
+    for name, comp in companions.items():
+        _require(isinstance(comp, dict), f'companion {name} must be an object')
+        _require(comp.get('relationship') == 'read_only_index', f'companion {name} relationship must be read_only_index')
+        pdir = safe_relpath(comp.get('path'))
+        _require((root / pdir).is_dir(), f'companion directory missing: {pdir}')
+        for key in ('manifest', 'gate'):
+            rel = safe_relpath(comp.get(key))
+            _require(rel.startswith(pdir + '/'), f'companion {name} {key} must live inside its directory')
+        manifest_rel = safe_relpath(comp['manifest'])
+        manifest = strict_json(read_regular(root, manifest_rel).decode())
+        _require(manifest.get('schema_version') == 1, f'companion {name} manifest schema unsupported')
+        _require(manifest.get('scientific_effect') == 'NONE', f'companion {name} manifest claims a scientific effect')
+        status = manifest.get('formalization_status')
+        _require(status in STATUS_ORDER, f'companion {name} formalization_status {status!r} outside lane vocabulary')
+        alignment = manifest.get('alignment_status')
+        _require(isinstance(alignment, str) and alignment and 'ACCEPT' not in alignment.upper(),
+                 f'companion {name} manifest self-declares alignment acceptance')
+        toolchain = read_regular(root, pdir + '/lean-toolchain').decode().strip()
+        _require(toolchain == reg['toolchain']['lean'], f'companion {name} toolchain {toolchain} differs from registry')
+        lakefile = read_regular(root, pdir + '/lakefile.toml').decode()
+        _require(isinstance(comp.get('library'), str) and f'name = "{comp["library"]}"' in lakefile,
+                 f'companion {name} lakefile does not declare library {comp.get("library")!r}')
+        revs = manifest.get('dependency_revisions', {})
+        _require(isinstance(revs, dict) and revs.get('mathlib') == reg['toolchain']['mathlib']['commit'],
+                 f'companion {name} Mathlib commit differs from registry pin')
+        claim_ids = comp.get('claim_ids')
+        known = {c.get('claim_id') for c in claims.get('claims', []) if isinstance(c, dict)}
+        _require(isinstance(claim_ids, list) and all(cid in known for cid in claim_ids),
+                 f'companion {name} cites claim_ids outside the landing manifest')
+        modules = manifest.get('source_modules', [])
+        _require(isinstance(modules, list) and modules, f'companion {name} declares no source modules')
+        for module in modules:
+            rel = pdir + '/' + safe_relpath(module)
+            text = read_regular(root, rel).decode()
+            for pattern, label in FORBIDDEN_SOURCE_PATTERNS:
+                _require(not pattern.search(text), f'forbidden construct ({label}) in companion source {rel}')
+        gate_rel = safe_relpath(comp['gate'])
+        proc = subprocess.run([sys.executable, '-B', '-S', str(root / gate_rel)], cwd=root, capture_output=True,
+                              text=True, timeout=600)
+        _require(proc.returncode == 0, f'companion {name} gate refused:\n{proc.stdout[-2000:]}\n{proc.stderr[-2000:]}')
+        prefix = comp.get('source_check_prefix')
+        _require(isinstance(prefix, str) and prefix and proc.stdout.startswith(prefix),
+                 f'companion {name} gate output does not begin with the declared source-check prefix')
+        out[name] = {
+            'library': comp['library'],
+            'source_identity': 'PASS',
+            'formalization_status': status,
+            'alignment_status': alignment,
+            'toolchain_agrees': True,
+            'mathlib_commit_agrees': True,
+            'authority': comp['manifest'],
+        }
+    return out
+
+
 def _decl_declared(text: str, decl: str, kind: str) -> bool:
     short = decl.split('.')[-1]
     keyword = 'theorem' if kind == 'theorem' else 'def'
@@ -406,6 +473,7 @@ def validate(root: Path | None = None, registry_path: Path | None = None) -> dic
     _validate_packages(reg, root)
     _validate_sources(reg, root)
     _validate_entries(reg, root, claims, graph)
+    companions = _validate_companions(reg, root, claims)
     composed = _compose_with_layer0(reg, root, graph, hard_gate)
 
     lanes = {}
@@ -427,6 +495,7 @@ def validate(root: Path | None = None, registry_path: Path | None = None) -> dic
         'claims_covered': len(reg['entries']),
         'lanes': lanes,
         'layer0_composition': composed,
+        'companion_packages': companions,
         'audited_theorems': audited,
         'pinned_sources': len(reg['sources']),
         'toolchain': reg['toolchain'],

@@ -70,6 +70,20 @@
       ]
     }
   },
+  "companion_packages": {
+    "formal": {
+      "relationship": "read_only_index",
+      "path": "formal",
+      "library": "ResearchFormalCoreR1",
+      "manifest": "formal/manifest.json",
+      "gate": "formal/gate.py",
+      "source_check_prefix": "SOURCE_IDENTITY_PASS",
+      "origin": "Math- PR #92 (merged as 867d9e3), owner directive 2026-09-27; GP-FOR-192 scalar companions, ChatGPT lineage",
+      "authority": "formal/manifest.json owns its targets, file pins, formalization_status and alignment_status; this registry only indexes it and asserts shared toolchain/Mathlib pins",
+      "claim_ids": [],
+      "note": "The companion's targets are scalar companions to GP-FOR-192 items, not landing claims; no entry above may cite them as evidence. Toolchain or Mathlib bumps must land in both lanes in one change or this gate refuses."
+    }
+  },
   "sources": {
     "formalization/lean/core/AXIOMS.expected": {
       "bytes": 2113,
