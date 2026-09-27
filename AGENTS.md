@@ -22,3 +22,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 1. This repository’s [README](README.md)
 2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
 3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) (Cloud Agent env deps live on trial `.cursor/environment.json`)
+
+## Additive formal lane — owner directive 2026-09-27
+
+Read [formal/README.md](formal/README.md), [the exact scope](formal/SCOPE.md), and [main #95](https://github.com/d6g8k5htny-coder/main/issues/95) before claiming formal verification. The isolated `formal/` package uses explicitly pinned Lean/mathlib; this owner-authorized toolchain addition does not change the standard-library Python rule elsewhere. A build alone, Blueprint link, solver output, hash or merge is not scientific acceptance. The exact source/axiom/negative-control gate and a separately authenticated, independent alignment review are distinct requirements. Preserve recovered original proof bytes and existing verdicts; document successor changes. Record actual agent pickup and actual review evidence, not presumed activity. Do not duplicate the controlling scientific-status register or broaden these scalar companions into parent theorems.
