@@ -1,0 +1,13 @@
+# Reconnaissance memo — 2026-09-25
+
+Task: OA-D5-AXIAL-DENSITY-20260925-CONSENSUS. Scope: six-pin conditional Gaussian gradient density in the shrinking inner axial belt (ru,r^2*w), positive compact gap marks. This is a targeted search, not an exhaustive novelty audit.
+
+**Search actually performed.** Consensus query: `Gaussian fields Kac Rice divided differences coalescing critical points conditional covariance Hermite interpolation domain:math`. Fetched the full record c85c28354f825e53a6abcf2c1f8cb049 before use. Then inspected primary arXiv text, Theorem 1.2 in the PDF (page 3, screenshot), and the publisher record.
+
+**Relevant source.** Louis Gass and Michele Stecconi, *The number of critical points of a Gaussian field: finiteness of moments*. Probability Theory and Related Fields 190 (2024), 1167-1197. DOI: https://doi.org/10.1007/s00440-024-01273-5 . Preprint: https://arxiv.org/abs/2305.17586 ; inspected version https://arxiv.org/html/2305.17586v2 . Consensus discovery record: https://consensus.app/papers/the-number-of-critical-points-of-a-gaussian-field-gass-stecconi/c85c28354f825e53a6abcf2c1f8cb049/?utm_source=chatgpt . The Consensus record reports 2023; that is the preprint year, not the 2024 journal publication year.
+
+**Exact-scope comparison.** Theorem 1.2 assumes almost-sure C^(p+1) regularity and nondegeneracy of the complete order-p jet at every point, and concludes finite pth critical-point-count moments on compact sets. Its interpolation/desingularization method is relevant prior art. It does not state the present six-pin regression, marked drift, inner-belt r^-5 exponential density estimate, or a uniform estimate as the pins coalesce. The full-jet hypothesis fails at exactly pinned sites for the conditioned field; excluding those sites does not by itself supply uniform constants as r tends to zero. These are scope observations, not criticisms of that theorem.
+
+**Reuse decision.** Use the interpolation viewpoint and citations; do not import moment finiteness as a marked uniform count estimate. The accompanying proof derives the finite-r Hermite transform, unconditioned Gaussian normalization, contact covariance rank, regression mean bound and density penalty directly. No coefficient, RN/24-jet status or theorem-acceptance flag changes. Consensus is a literature service, not the distinct reviewer; Superpowers supplies workflow guidance, not mathematical independence.
+
+**Next review.** A separate analytic lane should attack the displayed interfaces before this candidate is consumed. Broader literature coverage and novelty determination remain open. Source identity and actual test outputs are recorded in RESULTS.json and the execution receipt, not inferred from retrieval.

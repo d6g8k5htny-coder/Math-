@@ -1,0 +1,67 @@
+diff --git a/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md b/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
+index ecc530f..89ad2c1 100644
+--- a/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
++++ b/docs/math_status/DOWNSTREAM_CROSSWALK_20260925.md
+@@ -37,7 +37,7 @@ A newer theorem can bypass a historical-route requirement only when its own stat
+ 3. RN-FIXED-REMOTE-WINDOW-20260924-v1 / main #76: actual three-determinant O(r^5) numerator and O(r^3) expected count for the between-pin height window at fixed positive spatial distance.
+ 4. RN-MESOSCOPIC-ANNULUS-REDUCTION-20260925-v1 / Math- PR7 draft: reduction for x=r y on fixed scaled annuli; exact divided-difference determinant ledger still open.
+ 
+-None is a replacement carrier for the historical ABSENT files. None sets D3 lemma_closed=true.
++None is a replacement carrier for the historical ABSENT files. None promotes D3 lemma_closed.
+ 
+ ## Downstream consequence
+ 
+diff --git a/docs/math_status/PACKET.json b/docs/math_status/PACKET.json
+index acc6623..e58e2f0 100644
+--- a/docs/math_status/PACKET.json
++++ b/docs/math_status/PACKET.json
+@@ -49,6 +49,10 @@
+       "sha256": "7cb442f49cff72bfcee2518c05366f2cc7f39397760bdcd47d310f499b0ae838",
+       "bytes": 3115
+     },
++    "DOWNSTREAM_CROSSWALK_20260925.md": {
++      "sha256": "d53b286029d034576245406152c188fe2470ccb089e51f73e9087e34bf5a0e10",
++      "bytes": 4804
++    },
+     "math_console.py": {
+       "sha256": "55df628e3773c1805bee4d40aadb5dc0c2f012412e2ddfbb90dca5fe2a4d4587",
+       "bytes": 14052
+diff --git a/tools/math_status_check.py b/tools/math_status_check.py
+index 3522714..f5dc9a0 100644
+--- a/tools/math_status_check.py
++++ b/tools/math_status_check.py
+@@ -17,7 +17,7 @@ from quietly saying otherwise. It asserts:
+      ``piece2_annulus_driver`` ``UNWRITTEN``, and the console's own non-claims.
+      Floats in that file are a display. This checker does not certify them.
+ 
+-  3. **Transcriptions.** The six uploaded bodies match the digests pinned in
++  3. **Transcriptions.** The seven uploaded bodies match the digests pinned in
+      ``PACKET.json``. Refreshing a digest to match an edited body does not
+      excuse a flag that left false: both checks run. The 2026-09-22 evening
+      CT wall notes are part of that pin. They do not discharge either
+@@ -103,6 +103,7 @@ TRANSCRIPTION_NAMES = (
+     "STATUS_JETMOD.md",
+     "STATUS_RN_UNIF.md",
+     "STATUS_MATH_PUSH_2026-09-21.md",
++    "DOWNSTREAM_CROSSWALK_20260925.md",
+     "math_console.py",
+     "math_console_snapshot.json",
+ )
+@@ -148,6 +149,17 @@ README_PHRASES = (
+ )
+ 
+ NOTE_PHRASES = {
++    "DOWNSTREAM_CROSSWALK_20260925.md": (
++        "dependency classification only",
++        "ABSENT; historical-route blocker only",
++        "lemma_closed",
++        "FALSE",
++        "certified_C_H",
++        "OPEN and still mathematically relevant",
++        "OPEN; active mathematical blocker",
++        "This crosswalk does not perform that governance action.",
++        "None promotes D3 lemma_closed.",
++    ),
+     "STATUS.md": (
+         "lemma_closed: false",
+         "still OPEN",

@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "object": "DOWNSTREAM-HARD-GATE-20260925-v1",
+  "campaign": {
+    "main_issues": [
+      86,
+      90
+    ],
+    "disposition": "research-integrity control; scientific effect NONE"
+  },
+  "terminal_classifications": [
+    "PROVED_REVIEWED",
+    "SUPERSEDED_NONBLOCKING",
+    "REFUTED",
+    "BLOCKED_ABSENT"
+  ],
+  "non_discharge_tokens": [
+    "GREEN_CI",
+    "HASH_MATCH",
+    "ARCHITECTURAL_ADMISSION",
+    "NUMERICAL_EXPERIMENT",
+    "SAME_AUTHOR_REVIEW",
+    "NAVIGATION_SUCCESS",
+    "AUTHOR_SELF_CHECK"
+  ],
+  "nodes": {
+    "hist.rnu_env.py": {
+      "layer": "D0",
+      "kind": "carrier",
+      "classification": "BLOCKED_ABSENT",
+      "controlling": false,
+      "fingerprint": "ABSENT",
+      "notes": "Historical D3 carrier; no successor claims byte identity"
+    },
+    "hist.CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip": {
+      "layer": "D0",
+      "kind": "carrier",
+      "classification": "BLOCKED_ABSENT",
+      "controlling": false,
+      "fingerprint": "ABSENT",
+      "notes": "Historical archive absent"
+    },
+    "hist.allcell_fdz_enclosures.json": {
+      "layer": "D0",
+      "kind": "carrier",
+      "classification": "BLOCKED_ABSENT",
+      "controlling": false,
+      "fingerprint": "ABSENT",
+      "notes": "Historical cell carrier absent"
+    },
+    "hist.ENV-RESCOV": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_HISTORICAL",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-ordered-wall-1",
+      "notes": "OPEN for historical D3; qualitatively rederived on newer routes where proved"
+    },
+    "hist.ALLCELL-FDZ-Q4": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_HISTORICAL",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-ordered-wall-2",
+      "notes": "Not a dependency of the fixed-remote theorem"
+    },
+    "hist.LOGQ-TAIL": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_HISTORICAL",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-ordered-wall-3",
+      "notes": "Replaced only inside named successors"
+    },
+    "hist.SYM-Fw-jet": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_HISTORICAL",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-ordered-wall-4",
+      "notes": "Analogous interface rederived; no historical certificate identity"
+    },
+    "hist.CH-LIFT": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-ch-lift",
+      "notes": "Still mathematically relevant for shrinking charts"
+    },
+    "hist.Piece-2-annulus": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-piece-2",
+      "notes": "Active mathematical blocker for shrinking/pin-collision regions"
+    },
+    "hist.OBL-H5-JETMOD": {
+      "layer": "D0",
+      "kind": "predicate",
+      "classification": "OPEN_HISTORICAL",
+      "controlling": false,
+      "fingerprint": "status-rn-unif-jetmod",
+      "notes": "No 2026-09-24 proof claims certified 24-jet enclosure"
+    },
+    "hist.lemma_closed": {
+      "layer": "D0",
+      "kind": "register",
+      "classification": "FALSE",
+      "controlling": false,
+      "fingerprint": "lemma_closed=false",
+      "notes": "Scientific effect NONE; this gate never flips the register"
+    },
+    "math.uniform-matrix-cap-lifetime": {
+      "layer": "D1",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 63,
+      "fingerprint": "main-63-author-side",
+      "source": "external:main#63",
+      "notes": "Parent Gaussian selection / Kac-Rice / elder chain"
+    },
+    "math.lifetime-remainder": {
+      "layer": "D2",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 67,
+      "fingerprint": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+      "source": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+      "notes": "Imports named #63 interfaces; not parent collapse"
+    },
+    "math.side24-coefficient": {
+      "layer": "D3",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 65,
+      "fingerprint": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+      "source": "coefficients/side24_v1/PROOF.md",
+      "notes": "Evaluates #63 Eq15.2; parent unreviewed"
+    },
+    "math.rn-count-interface": {
+      "layer": "D4",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 67,
+      "fingerprint": "aa993f5217bd70e6d1060402d121ab659f6582a098e29042c67585a345a8e3ab",
+      "source": "frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md",
+      "notes": "Probability-to-count interface; not an expected-count rate"
+    },
+    "math.rn-fixed-remote-window": {
+      "layer": "D4",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 76,
+      "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "source": "frontiers/remote_window_20260924/PROOF.md",
+      "notes": "Cubic mean on fixed spatial exclusion and between-pin height window"
+    },
+    "math.rn-region.fixed-remote": {
+      "layer": "D4",
+      "kind": "region",
+      "classification": "COVERED_BY_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "dist>=rho and between-pin height",
+      "notes": "Covered by rn-fixed-remote-window candidate only",
+      "coverage_source": "math.rn-fixed-remote-window"
+    },
+    "math.rn-region.mesoscopic-scaled-annulus": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "x=r y with A<=|y|<=B away from pins",
+      "notes": "Owned by Math- PR7 reduction; exact J0 ledger still open"
+    },
+    "math.rn-region.pin-collision": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "near +-e1/2 scaled pin sites",
+      "notes": "Complement of fixed-remote and fixed scaled annulus"
+    },
+    "math.rn-region.intermediate-r-to-rho": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "r<<|x|<<rho",
+      "notes": "Transition region; not discharged by fixed-remote or PR7 reduction"
+    },
+    "math.rn-region.witness-collision": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "eta->0 mutual witness separation",
+      "notes": "Fixed-eta factorial moments do not cover shrinking separation"
+    },
+    "math.rn-mesoscopic-reduction": {
+      "layer": "D5",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_REDUCTION",
+      "controlling": false,
+      "fingerprint": "Math-PR7-draft",
+      "source": "external:Math-PR7",
+      "notes": "Legacy author-side PR7 route. Regionally superseded/nonblocking for the reviewed fixed-annulus between-pin height-window subregion; still unresolved for scopes outside that theorem."
+    },
+    "math.p15-full-price": {
+      "layer": "D6",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "review_issue": 74,
+      "fingerprint": "full-price-20260924",
+      "source": "frontiers/full_price_20260924/PROOF.md",
+      "notes": "Full probability cube under demand>=2; review open. Price-boundary refutation is a scope boundary, not a required premise."
+    },
+    "math.p15-price-boundary": {
+      "layer": "D6",
+      "kind": "candidate",
+      "classification": "REFUTED",
+      "controlling": false,
+      "fingerprint": "498af650ef7139c39d2630561dbfd0822c495ce6308a6cac8b767aefe0c2a40b",
+      "source": "frontiers/three_fronts_20260924/P15_PRICE_BOUNDARY.md",
+      "notes": "Unrestricted same-palette transformed-price extension is false"
+    },
+    "eng.hard-gate": {
+      "layer": "D7",
+      "kind": "integrity_control",
+      "classification": "ENGINEERING_CONTROL",
+      "controlling": false,
+      "fingerprint": "downstream-hard-gate-20260925-v1",
+      "source": "frontiers/downstream_gate_20260925/",
+      "notes": "This package; never mathematical discharge"
+    },
+    "eng.main-pr87-crosswalk": {
+      "layer": "D0",
+      "kind": "engineering",
+      "classification": "HOLD",
+      "controlling": false,
+      "fingerprint": "main-PR87-3d4969ab-ci-unexpected-file",
+      "source": "https://github.com/d6g8k5htny-coder/main/pull/87",
+      "notes": "Human D0 crosswalk exists; math_status_check rejects unlisted file until allowlist patch lands"
+    },
+    "eng.d0-packet-allowlist-fix": {
+      "layer": "D7",
+      "kind": "engineering",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "84b7ad724e4da1c5b4b396c90ae03d4ddedc37771a6e45e1082a45fd80d7ff4a",
+      "source": "frontiers/downstream_gate_20260925/patches/d0_packet_allowlist.patch",
+      "notes": "Portable fix verified locally; Cursor cannot push to main (403); awaiting agent/owner with write"
+    },
+    "math.rn-selector-region-crosswalk": {
+      "layer": "D4",
+      "kind": "inventory",
+      "classification": "ENGINEERING_CONTROL",
+      "controlling": false,
+      "fingerprint": "rn-selector-region-crosswalk-20260925-v1",
+      "source": "frontiers/downstream_gate_20260925/SELECTOR_REGION.json",
+      "notes": "Maps historical selectors onto fixed-remote vs open complements"
+    },
+    "math.rn-fixed-annulus-window": {
+      "layer": "D5",
+      "kind": "candidate",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "081abc13c5e66342c13df2af2bd6b114f320486f",
+      "source": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
+      "review_source": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+      "scope": "d=2; fixed L; fixed scaled annulus 1<A0<=|y|<=B0<infinity; compact positive gaps k_->0; all frames; between-pin height window",
+      "notes": "Source-bound xAI/Grok technical ACCEPT at exact scoped theorem only. No global D5/RN/JETMOD, k->0, d>=3, pin-neighborhood, intermediate-scale, collision, or elder-selection closure.",
+      "review_disposition": "ACCEPT",
+      "review_provider": "xAI/Grok via Cursor",
+      "scientific_status_unchanged": true
+    },
+    "math.rn-region.fixed-annulus-window": {
+      "layer": "D5",
+      "kind": "region",
+      "classification": "COVERED_BY_CANDIDATE",
+      "controlling": false,
+      "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
+      "notes": "Covered by math.rn-fixed-annulus-window only at its exact declared scope.",
+      "review_disposition": "ACCEPT_AT_SCOPED_SOURCE",
+      "coverage_source": "math.rn-fixed-annulus-window"
+    },
+    "regional.fixed-annulus.high-jet-route": {
+      "layer": "D0",
+      "kind": "regional_supersession",
+      "classification": "SUPERSEDED_NONBLOCKING",
+      "controlling": false,
+      "fingerprint": "regional-bypass-fixed-annulus-window-v1",
+      "scope": "fixed d=2 scaled annulus; compact positive gaps; between-pin height window",
+      "notes": "For this scope only, the reviewed analytic route bypasses CH-LIFT / Piece-2 / OBL-H5-JETMOD. Historical predicates remain OPEN/ABSENT in their original replay scopes."
+    }
+  },
+  "edges": [
+    {
+      "from": "math.lifetime-remainder",
+      "to": "math.uniform-matrix-cap-lifetime",
+      "required": true,
+      "relation": "imports_named_interfaces"
+    },
+    {
+      "from": "math.side24-coefficient",
+      "to": "math.uniform-matrix-cap-lifetime",
+      "required": true,
+      "relation": "evaluates_eq_15_2"
+    },
+    {
+      "from": "math.rn-fixed-remote-window",
+      "to": "math.rn-count-interface",
+      "required": true,
+      "relation": "supplies_numerator_on_restricted_region"
+    },
+    {
+      "from": "math.rn-fixed-remote-window",
+      "to": "math.rn-region.fixed-remote",
+      "required": false,
+      "relation": "covers_region"
+    },
+    {
+      "from": "math.rn-mesoscopic-reduction",
+      "to": "math.rn-fixed-remote-window",
+      "required": true,
+      "relation": "successor_scale_after_fixed_remote"
+    },
+    {
+      "from": "math.rn-mesoscopic-reduction",
+      "to": "math.rn-region.mesoscopic-scaled-annulus",
+      "required": false,
+      "relation": "targets_region"
+    },
+    {
+      "from": "math.rn-mesoscopic-reduction",
+      "to": "hist.CH-LIFT",
+      "required": false,
+      "relation": "reopens_scaled_chart_problem"
+    },
+    {
+      "from": "math.rn-mesoscopic-reduction",
+      "to": "hist.Piece-2-annulus",
+      "required": false,
+      "relation": "addresses_partial_piece"
+    },
+    {
+      "from": "math.p15-full-price",
+      "to": "math.p15-price-boundary",
+      "required": false,
+      "relation": "boundary_counterexample_not_required_premise"
+    },
+    {
+      "from": "hist.ENV-RESCOV",
+      "to": "hist.rnu_env.py",
+      "required": true,
+      "relation": "historical_certificate_carrier"
+    },
+    {
+      "from": "hist.ALLCELL-FDZ-Q4",
+      "to": "hist.allcell_fdz_enclosures.json",
+      "required": true,
+      "relation": "historical_certificate_carrier"
+    },
+    {
+      "from": "hist.SYM-Fw-jet",
+      "to": "hist.CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip",
+      "required": false,
+      "relation": "historical_bundle_identity"
+    },
+    {
+      "from": "eng.main-pr87-crosswalk",
+      "to": "eng.d0-packet-allowlist-fix",
+      "required": true,
+      "relation": "ci_unblock_depends_on_allowlist_patch"
+    },
+    {
+      "from": "math.rn-selector-region-crosswalk",
+      "to": "math.rn-fixed-remote-window",
+      "required": false,
+      "relation": "inventories_covered_region"
+    },
+    {
+      "from": "math.rn-selector-region-crosswalk",
+      "to": "math.rn-count-interface",
+      "required": false,
+      "relation": "inherits_no_markov_reversal"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.rn-count-interface",
+      "required": true,
+      "relation": "supplies_expected_count_on_reviewed_scoped_region"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.rn-region.fixed-annulus-window",
+      "required": false,
+      "relation": "covers_reviewed_subregion"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "regional.fixed-annulus.high-jet-route",
+      "required": false,
+      "relation": "regionally_supersedes_historical_high_jet_route"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.CH-LIFT",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.Piece-2-annulus",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.fixed-annulus.high-jet-route",
+      "to": "hist.OBL-H5-JETMOD",
+      "required": false,
+      "relation": "regional_bypass_only"
+    }
+  ]
+}

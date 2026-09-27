@@ -1,0 +1,11 @@
+# Bounded external reconnaissance — 25 September 2026
+
+Scope: joining the existing two-scale near-axis candidate to an explicitly quantified gradient-and-height estimate on a fixed scaled annulus. No general persistence novelty claim or field-class expansion.
+
+Inspected primary source: Armentano, Azais, Leon, *On a general Kac-Rice formula for the measure of a level set*, arXiv:2304.07424v3, HTML Sections 2, 7 and 8.1: https://arxiv.org/html/2304.07424v3 . Theorem 2.2 supplies the Gaussian expected-count formula under smoothness and nondegenerate pointwise covariance; Theorem 7.1 treats nonnegative lower-semicontinuous weights with continuously varying conditional auxiliary laws. The examples include index-restricted critical points. Our use retains the endpoint determinant product as a weight, introduces the open height indicator, and disintegrates the actual witness height. The source supplies the framework, not our uniform asymptotic estimate. Conditional Gaussian regression and fixed-r distinct-site jet rank are checked in the candidate.
+
+Also inspected Stecconi, arXiv:2103.10853v1, Theorem 29 and Section 8.4 in the parsed primary PDF: https://arxiv.org/pdf/2103.10853v1 . This provides an alternative measurable-weight formulation, not a substitute for the pointwise covariance/conditional-moment bounds.
+
+Internal sources read: PR22 b2e1652f1374c3b45759324a1ad1fd4177458500 (two-scale estimate), PR16 32b80ee085dc6a40113d1e46e333cda50d57ba21 (fixed-transverse candidate, proof blob024d927779f79fadaf932541ea6474f2995f8c50), and Math issue24's current review assignment/acknowledgment. Source-derived ingredient: the contact minor t^6/24. New author-side argument: quantify a conservative |t|^12 eigenfloor, choose h_r=r^(1/24) so covariance error is relatively small, retain the rare-gradient exponential inside the full height density, and bound all three conditioned Hessians. The original inner estimate then covers |t|<h_r.
+
+All earlier candidates remain unreviewed unless a separate source-bound disposition says otherwise. The present search establishes neither historical priority nor a complete literature match. Keep the algebraic exponent budget distinct from analytic verification and do not initiate more infrastructure from this experiment.
