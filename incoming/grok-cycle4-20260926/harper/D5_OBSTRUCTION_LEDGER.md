@@ -1,8 +1,10 @@
 # D5 obstruction ledger — transverse cone vs Hessian product
 
-Date: 2026-09-26
+Date: 2026-09-26. Revised candidate: 2026-09-27.
 Author-side packet: Harper cycle-4 (D)
 Scientific effect: NONE. This is a power-counting isolation, not a count lemma and not a review.
+
+Preserved predecessor of this file: commit `05c20b67ca49281601532f7a0224f871a8dae8d6`, SHA256 `ba0f5f2e48ea9704d9078fe26a042815b7228a261c7685010a28bd9e6c0ca57b`. Review `5332391136` binds to that head only and is not carried here. The rational denominator repair in `CLOSED_FORMS_FTS_FTT.md` is unchanged. Two stronger assertions of the predecessor (the deterministic `f_tt = ∓6kr + O(r^3)` display, and the claim that a marginal `f_ss(S) = O_p(1)` rules out a refined `r^6 q^2` product) are withdrawn in Sections 4 and 5. D5, SARD-G A1, and A6 remain AMEND.
 
 Scope: planar Bargmann–Fock, d=2, original six endpoint pins
 `f(M)=b`, `f(S)=b-k r^3`, `grad f(M)=grad f(S)=0`,
@@ -90,45 +92,85 @@ S    = - (r q / 2) f_sss + O(r^2 q^2).
 ```
 
 The remainders are uniform on the cone `|q| <= 1/4` because the Taylor remainders above retain the displacement factor. Thus on the event, `S = O_p(r |q|)` and `beta = O_p(|q|)` in the conditional-moment sense stated in Section 3.
-Endpoint Hessian at `M`:
+Endpoint axial second derivative at `M`, conditional on the six pins. Transverse pins drop out of this regression by `s`-parity, so the conditional law is the four-pin law on `{f, f_t}` at both ends, with values `(f(M), f_t(M), f(S), f_t(S)) = (b, 0, b - k r^3, 0)`. Write
 
 ```
-H_M = [[f_tt(M), f_ts(M)], [f_ts(M), f_ss(M)]]
-    = [[-6 k r + O(r^3), r beta], [r beta, S]].
+f_tt(M) = μ_M + ζ_M,
+μ_M := E[f_tt(M) | six pins],
 ```
 
-So
+where `ζ_M` is centered Gaussian. Its variance does not depend on `(b, k)` and is identity TT of `CLOSED_FORMS_FTS_FTT.md`:
 
 ```
-det H_M = (-6 k r) S - r^2 beta^2 + O(r^3 |q|)
-        = O(k r^2 |q|) + O(r^2 q^2).
+Var(ζ_M) = Var(f_tt(M) | six pins)
+         = r^4/6 - r^6/30 + r^8/360 - r^{10}/12600 + O(r^{12}).
 ```
 
-Transport to the witness by `H_X = H_M + r q * (third jets) + O(r^2 q^2)` and substitute the same slaving:
+The leading term is `r^4/6`, so the conditional standard deviation is `r^2/sqrt(6) * (1 + O(r^2))`. In the conditional-moment sense of Section 3, `ζ_M = O_p(r^2)`. The predecessor display `f_tt(M) = -6 k r + O(r^3)` is withdrawn: a centered Gaussian of variance `~ r^4/6` is not an `O(r^3)` remainder.
+
+The conditional mean is a separate deterministic function of `(b, k, r)`. Exact series division of the four-pin regression (same Gram and cross vector as identity TT; `test_ftt_conditional_mean.py`) gives
 
 ```
-f_ss(X) = S + r q f_sss + O(r^2) = -S + O(r^2) = O(r |q|),
-f_tt(X) = -6 k r + O(r |q|),
-f_ts(X) = r beta + r q f_tss + O(r^2) = - r beta + O(r^2) = O(r |q|),
-det H_X = O(k r^2 |q|).
+μ_M = -6 k r - (b/4) r^2 + k r^3 + (b/24) r^4 - (k/20) r^5
+      - (b/192) r^6 - (k/120) r^7 + (b/5760) r^8 + O(r^9).
 ```
 
-Far-endpoint Hessian `H_S`: the witness sits at physical distance `Theta(r |q|)` from `M` and distance `Theta(r)` from `S`. The two gradient equations at `X` do not constrain `f_ss(S)`. After the original pins only,
+The coefficient of `r^2` is `-b/4`. The conditional mean itself is therefore `-6 k r - (b/4) r^2 + k r^3 + O(r^4)`, which is a mean expansion, not a bound on the random variable. Setting `α_M := f_tt(M)/r` rewrites `μ_M = r E[α_M | 4-pin]`, and the coefficients above agree with every term displayed in `../benjamin/ALPHA_4PIN_SERIES.md`. That agreement is a coefficient check. It does not change the disposition recorded in the alpha note.
+
+The conditional second moment of the remainder is then
 
 ```
-f_tt(S) = 6 k r + O(r^3),    f_ss(S) = a_S = O_p(1),
-det H_S = O(k r).
+E[(f_tt(M) + 6 k r)^2 | pins]
+  = (μ_M + 6 k r)^2 + Var(ζ_M)
+  = (b^2/16 + 1/6) r^4 - (b k / 2) r^5 + O(r^6).
 ```
 
-Three-determinant product on the on-axis slice `p = 0` of the cone:
+Both the mean correction and the centered fluctuation contribute at order `r^4` inside this square. The root-mean-square scale of `f_tt(M) + 6 k r` is order `r^2`.
+
+Reflection `t ↦ r - t` is a kernel isometry. It preserves the six-pin σ-algebra up to deterministic signs on the first `t`-derivatives, and it sends `f_tt(M)` to `f_tt(S)`, so `Var(f_tt(S) | six pins) = Var(ζ_M)`. The same regression at `S` gives the conditional mean
 
 ```
-det H_M * det H_X * det H_S = O(k^3 r^5 q^2).
+μ_S := E[f_tt(S) | six pins]
+     = 6 k r - (b/4) r^2 - k r^3 + (b/24) r^4 + (3/10) k r^5
+       - (b/192) r^6 - (k/30) r^7 + (b/5760) r^8 + O(r^9),
 ```
 
-If `W_r = |det H_M det H_S|`, then `W_r |det H_X| = O(k^3 r^5 q^2)` on this slice. Every estimate in this section is derived on the measure-zero slice `p = 0`. A `p`-uniform version on the two-dimensional cone `|p| <= |q|` (with the corresponding Jacobian and conditional law) is not derived here; see the caveat in Section 6.
+and `f_tt(S) = μ_S + ζ_S` with `ζ_S` centered of that variance. The predecessor display `f_tt(S) = 6 k r + O(r^3)` is withdrawn on the same ground.
 
-## 5. Why Math-#58 `O(r^6 q^2)` over-counts one power of `r`
+Endpoint Hessian at `M`, with the split left explicit:
+
+```
+H_M = [[μ_M + ζ_M, r beta], [r beta, S]],
+det H_M = (μ_M + ζ_M) S - r^2 beta^2
+        = (-6 k r) S + (μ_M + 6 k r) S + ζ_M S - r^2 beta^2.
+```
+
+Here `(μ_M + 6 k r)` is the deterministic series `- (b/4) r^2 + k r^3 + O(r^4)`. The products `(μ_M + 6 k r) S` and `ζ_M S` are not given a new `L^p` bound in this note. The predecessor line `det H_M = (-6 k r) S - r^2 beta^2 + O(r^3 |q|)` is withdrawn with the `O(r^3)` expansion it used.
+
+Transport of the Hessian to the witness remains the on-axis Taylor step `H_X = H_M + r q * (third jets) + O(r^2 q^2)`, in the conditional-moment sense of Section 3. Substituting the gradient slaving of Section 4 into the transverse and mixed entries still gives
+
+```
+f_ss(X) = S + r q f_sss + O(r^2) = -S + O(r^2) = O_p(r |q|),
+f_ts(X) = r beta + r q f_tss + O(r^2) = - r beta + O(r^2) = O_p(r |q|).
+```
+
+The axial entry is the unreduced decomposition
+
+```
+f_tt(X) = μ_M + ζ_M + r q f_ttt(M) + O_p(r^2 q^2).
+```
+
+The predecessor line `f_tt(X) = -6 k r + O(r |q|)` is withdrawn, and with it the predecessor conclusion `det H_X = O(k r^2 |q|)`.
+
+Far-endpoint Hessian `H_S`: the witness sits at physical distance `Theta(r |q|)` from `M` and distance `Theta(r)` from `S`. After the six pins only, `f_tt(S) = μ_S + ζ_S` as above. The marginal scale `f_ss(S) = O_p(1)` on that six-pin law does not determine `det H_S` on `{grad f(X) = 0}`. The predecessor conclusions `det H_S = O(k r)` and
+
+```
+det H_M * det H_X * det H_S = O(k^3 r^5 q^2)
+```
+
+are withdrawn. No three-determinant product is claimed on the on-axis slice. A `p`-uniform version on the cone was already absent; see Section 6.
+
+## 5. Open obligation: same-law transport, not a one-power obstruction
 
 The reviewed annulus (`|v| >= eta`, `A <= |s| <= B`) does slave `f_zz` at both endpoints:
 
@@ -136,30 +178,37 @@ The reviewed annulus (`|v| >= eta`, `A <= |s| <= B`) does slave `f_zz` at both e
 0 = r(u+1/2) f_xz(M) + r v f_zz(M) + O(r^2 M_3),
 ```
 
-and `|v| >= eta` forces `f_zz(M) = O(r)`, hence `det H_M = O(r^2)` and likewise `det H_S = O(r^2)`, hence `W_r |det H_X| = O(r^6)` as in the transverse-bound candidate.
+and `|v| >= eta` forces `f_zz(M) = O(r)` on that chart, hence `det H_M = O(r^2)` and likewise `det H_S = O(r^2)`, hence `W_r |det H_X| = O(r^6)` as in the transverse-bound candidate. That is an annulus statement. It is not a cone theorem.
 
-Transporting that far-endpoint slaving onto the pin cone is a congruence error: a witness adjacent to `M` does not see `S`. Replacing `det H_S = O(r)` by `det H_S = O(r^2)` manufactures the extra `r` in `O(r^6 q^2)`.
+The predecessor treated the cone as the opposite congruence: a witness adjacent to `M` does not see `S`, a marginal `f_ss(S) = O_p(1)` after the six pins was read as `det H_S = O(k r)`, and Math-#58's `O(r^6 q^2)` was declared to be the annulus product copied into cone coordinates, over-counting one power of `r`.
 
-Verdict: `O(r^6 q^2)` is the annulus product written in cone coordinates, not the cone product.
+That declaration is withdrawn. An upper scale `f_ss(S) = O_p(1)` on the six-pin law alone does not control `f_ss(S) - f_ss(M)` under the joint law of the six pins together with the witness condition `grad f(X) = 0`. Until that transport is estimated (conditional mean and conditional moments, on that same law), neither of the following is a conclusion of this note:
+
+- that the on-axis product is `O(k^3 r^5 q^2)`;
+- that `O(r^6 q^2)` over-counts a power of `r`.
+
+Both remain an open obligation. This note does not supply the missing transport estimate.
+
+Review `5332391136` on the preserved predecessor records a finite 8-pin numerical grid. That grid is diagnostic only. It is not a uniform estimate, it is not reproduced here, and it is not a theorem.
 
 ## 6. What this does not close
 
 - Inner square `|p|,|q| <= kappa r`. On `p=0`, if `beta = S = 0` the displayed linear part of `grad f` vanishes for every `q`. Isolation is then carried by third jets that the cone ledger does not estimate. The AMEND-review pathwise majorant `|det H_S| = O(r^2 M_3^2 / |q|)` is not `O(r^5)` uniformly for `|q| < kappa r`. No replacement integral is supplied here.
 - Nested microdisk `s = r S` (physical distance `O(r^2)`). Math-#58 remains open. A two-point divided-difference frame that stays nondegenerate as `X -> M` is not constructed in this note.
 - Intermediate belt `r << |x| << rho` and shrinking-separation collisions remain open as recorded in `PROOF_INDEX.md`.
-- No all-height `O(r^3)` pin-neighborhood expected-count lemma is claimed. **On-axis heuristic only:** multiplying the slice product `O(k^3 r^5 q^2)`, the Jacobian `r^3 q^2`, the physical area element `r^2 dp dq`, and `Z_r = Theta(k^2 r^2)` gives an `O(k r^2)` cone contribution after the `q^2` cancels. This treats an estimate proved only on `p = 0` as if it were uniform over the two-dimensional cone, which is not justified here; a `p`-uniform product estimate with its own Jacobian and conditional law, remainder control in `L^p` with uniform integrability, index indicators, and the inner-square gap are all missing. The number `O(k r^2)` is therefore a heuristic, not a bound.
+- No all-height `O(r^3)` pin-neighborhood expected-count lemma is claimed. The formal product that an earlier draft of this section multiplied into an `O(k r^2)` cone expression was `O(k^3 r^5 q^2)`. Section 5 withdraws that slice product. The expression `O(k r^2)` is not available from this note, including as an on-axis heuristic. A `p`-uniform product estimate, the witness-conditional transport of `f_ss(S)`, remainder control in `L^p` with uniform integrability, index indicators, and the inner-square gap are all missing.
 
 ## 7. One-line ledger
 
 | Object | Power | Kind | Status |
 |---|---|---|---|
 | pin-chart Jacobian at `p=0` | `r^3 q^2` | coordinate | matches PR53 / AMEND-review; equals axial `r^5` at `|q|~r` |
-| slaved `det H_M` on-axis cone | `O(k r^2 \|q\|)` | congruence | from `{grad f(X)=0}` + `f_tt(M)~-6kr` |
-| slaved `det H_X` on-axis cone | `O(k r^2 \|q\|)` | congruence | transport of the same slaving |
-| `det H_S` on pin cone | `O(k r)` | congruence | far endpoint, transverse contact unslaved |
-| three-det product on-axis cone | `O(k^3 r^5 q^2)` | congruence | this note |
-| #58 product `O(r^6 q^2)` | extra `r` | error | over-slaves `det H_S` by copying the annulus |
-| annulus product | `O(r^6)` | congruence | accepted on `|v|>=eta`, not on the pin disk |
+| `f_tt(M)` given six pins | mean `-6kr -(b/4)r^2 + k r^3 + O(r^4)`; centered variance `~ r^4/6` | conditional law | predecessor `O(r^3)` remainder withdrawn |
+| `f_tt(S)` given six pins | mean `6kr -(b/4)r^2 - k r^3 + O(r^4)`; same variance | conditional law | predecessor `O(r^3)` remainder withdrawn |
+| `det H_M`, `det H_X`, `det H_S` on the cone | — | open | witness-conditional transport of `f_ss(S)` not estimated |
+| three-det product on-axis cone | — | withdrawn | predecessor `O(k^3 r^5 q^2)` |
+| #58 product `O(r^6 q^2)` | — | open | not shown here to over-count a power of `r` |
+| annulus product | `O(r^6)` | congruence | on `|v|>=eta`, not on the pin disk |
 | inner square / microdisk | — | missing | AMEND; linear part vanishes; needs third-jet blow-up |
 
 D5 pin-neighborhood remains AMEND. This ledger does not restore `O(r^2 log(1/r))` and does not claim `O(r^3)`.

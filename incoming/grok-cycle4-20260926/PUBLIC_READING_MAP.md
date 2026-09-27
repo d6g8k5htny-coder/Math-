@@ -14,7 +14,7 @@ PR: https://github.com/d6g8k5htny-coder/Math-/pull/87 (ready for review; merge i
 | Path | What it is |
 |---|---|
 | [harper/CLOSED_FORMS_FTS_FTT.md](harper/CLOSED_FORMS_FTS_FTT.md) | Exact Var(f_ts), Var(f_tt) |
-| [harper/D5_OBSTRUCTION_LEDGER.md](harper/D5_OBSTRUCTION_LEDGER.md) | Coordinate vs congruence ledgers |
+| [harper/D5_OBSTRUCTION_LEDGER.md](harper/D5_OBSTRUCTION_LEDGER.md) | Revised candidate: `f_tt` conditional mean/variance; one-power obstruction left open. Predecessor bytes are commit `05c20b67ca49281601532f7a0224f871a8dae8d6`, SHA256 `ba0f5f2e48ea9704d9078fe26a042815b7228a261c7685010a28bd9e6c0ca57b` (review 5332391136). |
 | [harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md](harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md) | P1–P6 repair text, not applied |
 | [benjamin/REDUCED_FRAME_4SLOT.md](benjamin/REDUCED_FRAME_4SLOT.md) | Var(L\|pins)=3/2; 4-slot PD |
 | [benjamin/ALPHA_4PIN_SERIES.md](benjamin/ALPHA_4PIN_SERIES.md) | Axial remainder series |
