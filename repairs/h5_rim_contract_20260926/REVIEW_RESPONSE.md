@@ -32,9 +32,9 @@ by design: the interface promises radius binding, not a fixed producer suffix.
   corrected behavior.
 
 The reviewer also suggested checking `[175]` again immediately before the CLI
-success message. That was not treated as a separate defect: `verify.py` first
-binds both source hashes, while `reproduction_report` and its test already bind
-the mismatch list to `[175]`. The successor retains this existing check path.
+success message. Source hashes fix the two inputs and the report tests assert
+the mismatch list; the successor additionally makes the CLI check explicit so
+the printed statement is itself fail-closed.
 
 ## Preserved review findings
 

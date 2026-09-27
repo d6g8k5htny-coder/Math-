@@ -61,7 +61,10 @@ rerun and the ledger bound itself was not re-certified.
    nonpositive, nonfinite, unterminated, malformed or explicitly failed rim
    coverage is rejected. Angle encodings must be JSON integers, not numerically
    equal floats or booleans; a failure-only tail after a completion marker is an
-   unterminated failed block and is rejected.
+   unterminated failed block and is rejected. No `rimprobe_fail` row occurs in
+   the recovered corpus; that fail-row name is a conservative schema rule
+   inferred from the observed sibling `sconeprobe_fail` and `mbackprobe_fail`
+   records, not evidence that a historical rim run emitted one.
 4. `rho_hi` must be a JSON decimal string. Strings are retained as `Decimal`;
    numeric JSON is rejected rather than passing through a binary float, and
    `C_flat = 2*rho_hi` is computed

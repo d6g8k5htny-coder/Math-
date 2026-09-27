@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 HERE = Path(__file__).resolve().parent
@@ -214,6 +215,21 @@ class RimContractTests(unittest.TestCase):
         report = json.loads(run.stdout)
         self.assertEqual(report['mismatching_angles'], [175])
         self.assertEqual(report['scientific_effect'], 'NONE')
+
+    def test_verify_cli_rejects_a_second_literal_mismatch(self):
+        spec = importlib.util.spec_from_file_location('rim_verify', VERIFY_PATH)
+        module = importlib.util.module_from_spec(spec)
+        with patch.object(sys, 'path', [str(HERE), *sys.path]):
+            spec.loader.exec_module(module)
+        report = {
+            'historical_hunt_sha256': module.HUNT_SHA256,
+            'ledger_sha256': module.LEDGER_SHA256,
+            'mismatching_angles': [170, 175],
+        }
+        module.reproduction_report = lambda *_: report
+        with patch.object(sys, 'argv', [str(VERIFY_PATH)]):
+            with self.assertRaisesRegex(ValueError, 'unexpected historical mismatch set'):
+                module.main()
 
 
 if __name__ == '__main__':

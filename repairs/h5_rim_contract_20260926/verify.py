@@ -25,6 +25,8 @@ def main():
         raise ValueError('historical hunt source identity changed')
     if report['ledger_sha256'] != LEDGER_SHA256:
         raise ValueError('radius-0.05 rim ledger identity changed')
+    if report['mismatching_angles'] != [175]:
+        raise ValueError('unexpected historical mismatch set')
     if args.emit:
         print(json.dumps(report, indent=2, sort_keys=True))
     else:
