@@ -57,9 +57,11 @@
       "depends_on_mathlib": false,
       "axioms_expected": "formalization/lean/core/AXIOMS.expected",
       "independent_checkers_in_ci": [
-        "leanchecker",
-        "nanoda"
-      ]
+        "leanchecker"
+      ],
+      "checkers_deferred": {
+        "nanoda": "lean-action v1.6.0 clones unpinned lean4export master and nanoda_lib@debug; incompatible on 2026-09-27 (export parse error). Re-enable through a pinned pair only."
+      }
     },
     "mathlib": {
       "path": "formalization/lean/mathlib",

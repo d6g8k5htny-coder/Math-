@@ -20,7 +20,7 @@ Under the [working contract](https://github.com/d6g8k5htny-coder/governance-/blo
 | Mathlib package (definitions, `Prop` specifications, 8 real-number theorems incl. the SIDE24 skeleton implication) | [`formalization/lean/mathlib`](lean/mathlib) | live |
 | Glossary: project terms → standard mathematics → Lean carriers | [`formalization/GLOSSARY.md`](GLOSSARY.md) | live; extend per PR |
 | Formalization (alignment) review lane template | [`formalization/ALIGNMENT_REVIEW_TEMPLATE.md`](ALIGNMENT_REVIEW_TEMPLATE.md) | live; first review open |
-| CI: registry gate, kernel build + `leanchecker` + `nanoda` + axiom audit (core), Mathlib build + axiom audit | [`.github/workflows/formalization-lane.yml`](../.github/workflows/formalization-lane.yml) | live |
+| CI: registry gate, kernel build + `leanchecker` + axiom audit (core), Mathlib build + axiom audit (`nanoda` deferred until a pinned pair exists) | [`.github/workflows/formalization-lane.yml`](../.github/workflows/formalization-lane.yml) | live |
 | Read-only index of the companion `formal/` packet (PR #92): its gate must pass, toolchain/Mathlib pins must agree | `companion_packages` in [`FORMALIZATION_STATUS.json`](FORMALIZATION_STATUS.json) | live |
 
 Layer 0 is byte-identical: no edit to `claims/LANDING_CLAIMS.json`, `frontiers/downstream_gate_20260925/**`, any proof text, or any review record. `formal/**` (PR #92) is also byte-identical.
@@ -84,5 +84,6 @@ This run's write scope is `Math-` only (Cloud Agent tokens follow the launch env
 1. **Gate owner:** add `LEAN_KERNEL_CHECK`, `LEAN_STATEMENT_SPECIFIED`, `FORMAL_ALIGNMENT_ACCEPT` to `GRAPH.json` `non_discharge_tokens`, regenerating `SOURCE_FILES.json` and `RESULTS.json` in the same change. Until then Layer 0 refuses them as *unknown* tokens, which the formal gate asserts on every run.
 2. **Blueprint:** optional `leanblueprint` rendering of the `components[].informal_location` map; documentation only.
 3. **Next pilots:** `p15-price-boundary` (exact counterexample, `decide`), `p15-realized-covers`, `rn-count-interface`, then `p15-full-price`.
-4. **Companion lane:** if `formal/` grows a second module or its author wants the two lanes' status vocabularies unified, do it through `formal/manifest.json` and this registry's `companion_packages` in one PR, with both gates and both test suites run.
-5. **Peer review track:** when a claim reaches `FORMAL_KERNEL_CHECKED_ALIGNED`, a manuscript in the glossary's standard terminology with the Lean sources as supplementary material is the intended external route; the landing disposition is still governed by the existing review authority.
+4. **nanoda re-checker:** re-enable in `formalization-lane.yml` only by vendoring or pinning a compatible `lean4export`/`nanoda_lib` commit pair (lean-action's built-in step uses mutable branches); record the pins in the registry's `packages.core` when done.
+5. **Companion lane:** if `formal/` grows a second module or its author wants the two lanes' status vocabularies unified, do it through `formal/manifest.json` and this registry's `companion_packages` in one PR, with both gates and both test suites run.
+6. **Peer review track:** when a claim reaches `FORMAL_KERNEL_CHECKED_ALIGNED`, a manuscript in the glossary's standard terminology with the Lean sources as supplementary material is the intended external route; the landing disposition is still governed by the existing review authority.

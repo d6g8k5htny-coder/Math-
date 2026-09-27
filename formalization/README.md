@@ -25,7 +25,7 @@ Only `FORMAL_KERNEL_CHECKED_ALIGNED` means "the claim is formally verified in th
 - **Kernel:** Lean 4 `leanprover/lean4:v4.34.1`, pinned in both packages. Proofs use `decide`, `decide +kernel`, and Mathlib tactics whose output is kernel-checked.
 - **Axioms:** only `propext`, `Classical.choice`, `Quot.sound`. `sorryAx` and `Lean.ofReduceBool` (`native_decide`) are forbidden. Each package pins a sorted axiom audit (`AXIOMS.expected`) that CI regenerates and compares byte for byte.
 - **Textual guards:** the gate also rejects `sorry`, `native_decide`, `axiom`, `implemented_by`, and `extern` in pinned sources. A parent theorem may later be introduced as an explicit `axiom` only together with a registry entry that names it and its scope note; that path is deliberately closed until needed.
-- **Independent re-checkers:** the core package is additionally re-checked in CI by the bundled `leanchecker` and by `nanoda` (independent Rust type checker). The Mathlib package runs the community `axiom-audit`.
+- **Independent re-checkers:** the core package is additionally re-checked in CI by the bundled `leanchecker`. Both packages run the community `axiom-audit`. `nanoda` (independent Rust type checker) is deferred: lean-action v1.6.0 builds it from unpinned `lean4export` master and the `nanoda_lib` `debug` branch, which is a mutable dependency and was incompatible on 2026-09-27 (export parse error). It comes back only through a pinned `lean4export`/`nanoda_lib` pair; the registry records this under `checkers_deferred`.
 - **Pins:** every Lean source, lakefile, toolchain file, axiom audit and the Mathlib `lake-manifest.json` is pinned by bytes and SHA-256 in the registry. Editing any of them without `--refresh-pins` fails closed. Refreshing pins never edits a status.
 - **Informal binding:** every entry records the landing manifest's `statement_path` and Git blob of the informal proof. If the proof text changes, the blob changes, and the gate refuses with "alignment is stale" until the entry is re-bound and re-reviewed.
 
@@ -33,7 +33,7 @@ Only `FORMAL_KERNEL_CHECKED_ALIGNED` means "the claim is formally verified in th
 
 | Package | Library | Dependency | What lives there |
 |---|---|---|---|
-| [`lean/core`](lean/core) | `MathFormalCore` | none (Lean core prelude) | Exact `Nat`/`Int`/`Rat` facts used as steps in informal proofs. Kernel-checked by `decide`. Configured by `lakefile.lean` because lean-action's `nanoda` step reads the module name from `package <Name>`; the registry records `lakefile` per package. |
+| [`lean/core`](lean/core) | `MathFormalCore` | none (Lean core prelude) | Exact `Nat`/`Int`/`Rat` facts used as steps in informal proofs. Kernel-checked by `decide`. Configured by `lakefile.lean` (lean-action's external-checker steps read the module name from `package <Name>`); the registry records `lakefile` per package. |
 | [`lean/mathlib`](lean/mathlib) | `MathFormalReal` | Mathlib `v4.34.1` (`d13f23b7…`) plus `../core` | Definitions of the standard objects (`Real.Gamma`, `Real.pi`, `Real.sqrt`, `Real.exp`), `Prop` specifications of informal theorems, and real-number theorems. |
 
 Splitting keeps the always-on lane cheap (the core package builds in under a second with no downloads) while still exposing the real-analysis statement layer.

@@ -54,9 +54,12 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11'
-      # Kernel check plus two independent re-checkers of the compiled environment:
-      # the bundled `leanchecker` and the Rust `nanoda` type checker. Axiom audit
-      # allows only propext, Classical.choice and Quot.sound.
+      # Kernel check plus the bundled `leanchecker` (independent re-check of the
+      # compiled environment) and the axiom audit (propext, Classical.choice,
+      # Quot.sound only). `nanoda` is off: lean-action v1.6.0 clones unpinned
+      # lean4export master and the nanoda_lib `debug` branch, which are mutable and
+      # currently incompatible ("invalid digit found in string" on the 4.34.1
+      # export). Re-enable only through a pinned lean4export/nanoda pair.
       - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
         with:
           lake-package-directory: formalization/lean/core
@@ -66,8 +69,7 @@ jobs:
           lint: 'false'
           use-mathlib-cache: 'false'
           leanchecker: 'true'
-          nanoda: 'true'
-          nanoda-allow-sorry: 'false'
+          nanoda: 'false'
           axiom-audit: 'true'
           axiom-audit-allow: 'propext,Classical.choice,Quot.sound'
           axiom-audit-root: 'MathFormalCore'
