@@ -1,0 +1,58 @@
+{
+  "asymptotic_amplitude": 116.47037547871082,
+  "b": 0.0,
+  "certified_error_enclosure": false,
+  "independent_acceptance": false,
+  "k": 1.0,
+  "model": "unperiodized Bargmann-Fock, not SIDE24",
+  "rows": [
+    {
+      "scaled_lambda_grids": {
+        "160": 207.93724260806044,
+        "320": 207.93724396585847,
+        "80": 207.93724310278463
+      },
+      "scaled_lambda_over_limit": 1.7853230326699387,
+      "v": 0.6
+    },
+    {
+      "scaled_lambda_grids": {
+        "160": 152.47361153157652,
+        "320": 152.47361153157655,
+        "80": 152.4736115315766
+      },
+      "scaled_lambda_over_limit": 1.3091192580507016,
+      "v": 0.4
+    },
+    {
+      "scaled_lambda_grids": {
+        "160": 129.72719869319104,
+        "320": 129.7271986931913,
+        "80": 129.72719869319116
+      },
+      "scaled_lambda_over_limit": 1.1138214173346048,
+      "v": 0.25
+    },
+    {
+      "scaled_lambda_grids": {
+        "160": 121.12874419092607,
+        "320": 121.12874419092611,
+        "80": 121.12874419092604
+      },
+      "scaled_lambda_over_limit": 1.0399961680647865,
+      "v": 0.15
+    },
+    {
+      "scaled_lambda_grids": {
+        "160": 117.78259284504516,
+        "320": 117.78259284504527,
+        "80": 117.7825928450453
+      },
+      "scaled_lambda_over_limit": 1.0112665333218085,
+      "v": 0.08
+    }
+  ],
+  "scaling": "|v|^8 exp(Q0^2/(4 v^2)) Lambda_1",
+  "sigma_cutoff": 9,
+  "u": -1.25
+}

@@ -8,7 +8,7 @@
 Input is the six-pin cubic contact kernel of Math- PR25 at immutable
 `ad35e46d15c2815c36746442808a1626a9724e8a`,
 `reviews/collision_mechanism_20260925/NOTE.md`, Section C.
-The expanded attached exposition is `TRANSVERSE_CONTACT_ASYMPTOTIC.md`.
+BLOCKED_ABSENT: the expanded exposition `TRANSVERSE_CONTACT_ASYMPTOTIC.md` is unavailable. No exact carrier of that title was found in this repository's history, branches, source manifests, or the connected Drive, so this note does not attach it.
 The input Gaussian contact-asymptotic theorem is not independently accepted by this note.
 The results below are proved for its explicit limiting kernel. They do not, by themselves,
 provide finite-r uniformity as the transverse coordinate or gap mark tends to zero.
