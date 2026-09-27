@@ -1,6 +1,6 @@
 # Mathematics — proofs, calculations, and open reviews
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Formal lane](formal/README.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
 
 ## Read a result
 
@@ -40,6 +40,16 @@ python -B -S -m unittest discover -s frontiers/downstream_gate_20260925 -p 'test
 The full-price package has 36 distinct tests and seven semantic mutation controls. Run `python -B -S frontiers/full_price_20260924/run_validation.py --output /tmp/full-price-new-run` for both modes; choose a new output directory outside the source tree. `--mode normal` or `--mode optimized` permits bounded split runs. Finite probability grids are checks, not the proof of the full-cube statement.
 
 [Full reproduction guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) explains normal/optimized runs, mutation controls, and pinned versus current-source replay. [Frontier directory](frontiers/README.md) groups the packages. Older dated source files are retained unchanged; use the review links for subsequent corrections.
+
+## Formal verification lane
+
+[formal/](formal/README.md) is Layer 1 of the verification stack: Lean 4 statements and kernel-checked proofs bound to the exact informal blobs above, with a separate nonauthor alignment review. Each landing claim carries a formalization status (`none`, `specified`, `proved`, `kernel_checked`) in [formal/FORMALIZATION_STATUS.json](formal/FORMALIZATION_STATUS.json); the pilot `side24-coefficient` is `specified`, with its skeleton implication and Section 1–5 arithmetic kernel-checked and its Gaussian/Stirling inputs as explicit hypotheses. A kernel check verifies the Lean text only; it does not change any row, disposition, or register above. The [glossary](formal/GLOSSARY.md) maps project terms to standard mathematics.
+
+```sh
+python -B -S -m unittest discover -s formal -p 'test_*.py' -v
+python -B -S formal/formal_gate.py
+python -B -S formal/formal_gate.py --with-lean   # requires elan; see formal/README.md
+```
 
 ## Where the other work lives
 

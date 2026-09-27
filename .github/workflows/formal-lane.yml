@@ -1,0 +1,122 @@
+name: Formal verification lane (Layer 1)
+'on':
+  pull_request:
+    paths:
+      - 'formal/**'
+      - 'claims/LANDING_CLAIMS.json'
+      - 'frontiers/downstream_gate_20260925/GRAPH.json'
+      - 'frontiers/downstream_gate_20260925/hard_gate.py'
+      - '.github/workflows/formal-lane.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  registry:
+    name: formal-registry-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - name: Negative controls and registry validation in both Python modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s formal -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s formal -p 'test_*.py' -v
+          python -B -S formal/formal_gate.py --output "$RUNNER_TEMP/formal-registry-report.json"
+      - name: Retain report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: formal-registry-${{ github.run_id }}
+          path: ${{ runner.temp }}/formal-registry-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+  lean-core:
+    name: lean-kernel-core
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      # Kernel check plus two independent re-checkers of the compiled environment:
+      # the bundled `leanchecker` and the Rust `nanoda` type checker. Axiom audit
+      # allows only propext, Classical.choice and Quot.sound.
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: formal/lean/core
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'false'
+          leanchecker: 'true'
+          nanoda: 'true'
+          nanoda-allow-sorry: 'false'
+          axiom-audit: 'true'
+          axiom-audit-allow: 'propext,Classical.choice,Quot.sound'
+          axiom-audit-root: 'MathFormalCore'
+      - name: Replay axiom audit against the pinned AXIOMS.expected
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          python -B -S formal/formal_gate.py --with-lean --package core --no-results-check --output "$RUNNER_TEMP/formal-core-report.json"
+      - name: Retain report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: formal-lean-core-${{ github.run_id }}
+          path: ${{ runner.temp }}/formal-core-report.json
+          if-no-files-found: error
+          retention-days: 30
+
+  lean-mathlib:
+    name: lean-kernel-mathlib
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11'
+      - uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: formal/lean/mathlib
+          auto-config: 'false'
+          build: 'true'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          axiom-audit: 'true'
+          axiom-audit-allow: 'propext,Classical.choice,Quot.sound'
+          axiom-audit-root: 'MathFormalReal'
+      - name: Replay axiom audit against the pinned AXIOMS.expected
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          python -B -S formal/formal_gate.py --with-lean --package mathlib --no-results-check --output "$RUNNER_TEMP/formal-mathlib-report.json"
+      - name: Retain report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: formal-lean-mathlib-${{ github.run_id }}
+          path: ${{ runner.temp }}/formal-mathlib-report.json
+          if-no-files-found: error
+          retention-days: 30
