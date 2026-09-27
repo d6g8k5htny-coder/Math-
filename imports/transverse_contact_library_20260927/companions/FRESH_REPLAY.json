@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-27",
+  "scope": "finite algebra replay only, not continuum proof verification",
+  "script": "exact_checks.py",
+  "script_bytes": 10374,
+  "script_sha256": "9e9cc0862b8549f40ddfdecde1eebeddbd400c8aa403838b4b36eeb416e01076",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "modes": [
+    {"mode": "normal", "tests": 24, "exitcode": 0},
+    {"mode": "optimized", "tests": 24, "exitcode": 0}
+  ],
+  "both_stderr_sha256": "2260ad82839bea77e6881be4c06b4f372a2884ac5d1574575a6b416c9faac5d9",
+  "both_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "original_archive_manifest_checks": 13,
+  "original_archive_crc": "pass",
+  "numerical_diagnostic_executed": false,
+  "full_repository_suite_executed_locally": false,
+  "independent_review_observed": false,
+  "scientific_effect": "NONE"
+}
