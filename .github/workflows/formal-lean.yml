@@ -1,0 +1,50 @@
+name: Formal Lean evidence (no scientific promotion)
+on:
+  pull_request:
+    paths: ['formal/**', '.github/workflows/formal-lean.yml']
+  push:
+    branches: [main, 'chatgpt/formal-layer-20260927']
+    paths: ['formal/**', '.github/workflows/formal-lean.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: formal-lean-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  formal-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Gate tests and exact source identity
+        run: |
+          python3 -m unittest discover -s formal/tests -v
+          python3 -O -m unittest discover -s formal/tests -v
+          python3 formal/gate.py
+      - name: Install pinned Lean and retrieve dependency cache
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build, recheck, audit axioms and execute negative controls
+        run: python3 formal/gate.py --execute
+      - name: Preserve logs and exact-run receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: formal-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: formal/.lake/formal-evidence/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
