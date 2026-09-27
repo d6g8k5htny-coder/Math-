@@ -1,18 +1,19 @@
 # Drive-waiting hole ledger — substitutes vs fail-closed
 
-**Object:** OA-DRIVE-HOLE-LEDGER-20260926-v2 (v1 amended 2026-09-27 after the nonauthor review on Math- #81; changes are listed in Section 5).
+**Object:** OA-DRIVE-HOLE-LEDGER-20260926-v3 (v1 amended 2026-09-27 after the nonauthor review on Math- #81; v3 records the same-day recovery of `TRANSVERSE_CONTACT_ASYMPTOTIC.md` by merged Math- #94; changes are listed in Section 5).
 **Scientific effect:** NONE. Does not flip `lemma_closed`, prizes, GRAPH classifications, or Math #58/#61 dispositions.
 **Rule:** emit a verification-grade substitute only when live Git identities + CAS or an existing ACCEPT review already close the claim. Do not mint missing historical filenames — and do not mint predicate filenames either.
 
-Source identities in this ledger are given as `repository/path @ commit` with the Git blob id of the bytes classified. Math- `main` is read at `867d9e34b60186ff46ab5b3ecf8ad5ba6a5cc8b4`. Anything on an unmerged branch is labeled as such; a branch head is not a review record.
+Source identities in this ledger are given as `repository/path @ commit` with the Git blob id of the bytes classified. Math- `main` is read at `db6a8d5a099b13cec4364edb544cdf0e34ea720c`. Anything on an unmerged branch is labeled as such; a branch head is not a review record.
 
 Related audit already on `main`: `reviews/d0_custody_audit_20260926/AUDIT.md` (blob `32c874c5b3e30743e624f3382bb63b1643379d40`, merged Math- #65) classifies the same D0 carriers and the regional bypass node with blob identities and search surfaces. This ledger does not restate that audit; Section 2 cites it and keeps only the decision that is new here — substitute versus fail-closed for each hole.
 
-## 1. Candidate reconstruction (not a substitute; pending, unmerged)
+## 1. Formerly missing exposition: original recovered; reconstruction demoted to cross-check
 
-| Missing name | Candidate | Status | Scope |
+| Name | Carrier (identity) | Status | Scope |
 |---|---|---|---|
-| `TRANSVERSE_CONTACT_ASYMPTOTIC.md` | Math- PR80 `reviews/contact_kernel_substitute_20260926/SUBSTITUTE.md` + `verify_substitute.py`, draft head `12d093f603bc790f1f3c399948912b0d971145f4` (unmerged, no review file) | **Pending candidate.** Its own nonauthor review is AMEND; the reconstruction was re-verified by an exact rational script on that head, but nothing has been accepted. | Exact six-pin cubic algebra, type mass $J=27392/315$, factor identities $104976$ and $8875008/35$, and a citation of the PR25 R1–R4 interface acceptance on $\|v\|\ge\eta$. Not $\eta\to0$. The filename stays ABSENT; the note is a reconstruction of NOTE §B / KERNEL_TAILS §4 (both on `main`), not a stand-in for the absent file. |
+| `TRANSVERSE_CONTACT_ASYMPTOTIC.md` | **main** `imports/transverse_contact_library_20260927/TRANSVERSE_CONTACT_ASYMPTOTIC.md`, blob `c2499674d29ad4312e872903d8f5999adc1c51db`, SHA256 `e3ad42b85de72f961978fe9a33d927b54ef8bd09abbd602458e3fb640caa6a73`, 12,049 bytes; companion `GEOMETRY_AND_CUBIC_INDEX.md`, blob `58fbeb8f5180104361938253203b9dfb576af2d9`, SHA256 `4d99cfac30d7d39b69c1a8813c607109328ae310695f1bd609cbc64d5056a6d7`; provenance in `SOURCE_BINDING.json` (blob `c2d30ea8238eb243fad25acc6d8bb5ab89fb8621`); merged Math- #94 at `db6a8d5a…` | **Recovered original bytes (source availability only).** Author-side candidate disposition unchanged; the import README requests a nonauthor source-custody review and states that reviews of the consolidated PR25 note do not transfer to this exposition. Nothing is accepted by the recovery. | Fixed-chart ($\|v\|\ge\eta$) six-pin contact kernel with proposed refined theorem (2.1)–(2.3); excludes $\eta\to0$, shrinking cutoffs and global selection. This hole is **closed as a Drive hole** (bytes exist on `main`) and **open as mathematics** (unreviewed). |
+| Reconstruction (Math- PR80) | `reviews/contact_kernel_substitute_20260926/SUBSTITUTE.md` + `verify_substitute.py`, head `a88d569ee85f741870ba6e7bc1d368f56fc9e3cd` (unmerged, no review file) | **Cross-check only.** Its §7 tabulates which finite identities of the recovered originals ((4.1)–(4.3), (5.1) of the companion; (5.2), (6.1), (6.2) of the exposition) its exact rational script re-derives; the type-mass constants come from NOTE §C / KERNEL_TAILS §4, not from the original. Its own nonauthor review is AMEND-addressed, unmerged. | Not a substitute, not a review of the recovered original, no credit transfer in either direction. |
 
 The v1 heading "Substitute emitted" and the phrase "verification-grade substitute" are withdrawn. Merged Math- #59 disposed of the TRANSVERSE filename as unavailable; after #59 no file on `main` cites it as attached, so there is no consumer for a stand-in.
 
@@ -49,11 +50,11 @@ Rows marked **main** are bytes on Math- `main` at the commit above; rows marked 
 
 ## 4. What will not be written
 
-No files named `rnu_env.py`, `allcell_fdz_enclosures.json`, `CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip`, or `TRANSVERSE_CONTACT_ASYMPTOTIC.md`.
+No files named `rnu_env.py`, `allcell_fdz_enclosures.json`, or `CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip`. (`TRANSVERSE_CONTACT_ASYMPTOTIC.md` was not written by anyone in this lane; the original bytes were imported by #94 with archive-manifest provenance, see Section 1.)
 No invented 24-jet interval table, and no invented predicate filename for it.
 No `lemma_closed=true`.
 
-Next useful math (not Drive recovery): the #58 microdisk count on top of merged #82/#90, or an independent (non-xAI) review of PR80's reconstruction and PR53's corrected cone ledger.
+Next useful math (not Drive recovery): the #58 microdisk count on top of merged #82/#90, or an independent (non-xAI, non-OpenAI) review of the recovered `TRANSVERSE_CONTACT_ASYMPTOTIC.md` exposition and of PR53's corrected cone ledger.
 
 ## 5. Amendments from v1 (2026-09-27)
 
@@ -61,3 +62,4 @@ Next useful math (not Drive recovery): the #58 microdisk count on top of merged 
 2. Sections 1 and 3: PR80 and PR53 relabeled as unmerged draft heads with explicit commits and no review file; "Substitute emitted" / "verification-grade" withdrawn. The D5 inner-microdisk row now cites merged #82 and #90 on `main` and the closed PR69/PR74 drafts with PR74's independence disclaimer.
 3. Section 2 no longer restates PR65's carrier classification; it cites the merged audit and keeps only the substitute-versus-fail-closed decision.
 4. Minor: `UNIFORM_MATRIX_CAP_AND_LIFETIME.md` given its path; the two annulus-bridge objects distinguished; the v1 header's count of main #56 as an open disposition removed (#56 closed via merged Math- #59).
+5. (v3) Section 1 rewritten after merged Math- #94 imported the original `TRANSVERSE_CONTACT_ASYMPTOTIC.md` bytes: the hole is closed as a Drive hole and open as mathematics; the PR80 reconstruction is demoted from "pending candidate" to a finite-identity cross-check and cited at its current head; Section 4 no longer lists the filename as one that will not be written; `main` re-read at `db6a8d5a…`. The nine-row historical R2 remainder is unchanged by #94 (its README says so explicitly) and is unchanged here.
