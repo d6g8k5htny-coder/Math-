@@ -1,6 +1,6 @@
 # Mathematics — proofs, calculations, and open reviews
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86)
 
 ## Read a result
 
@@ -9,7 +9,8 @@
 | Gaussian lifetime coefficient | [SIDE24 dimensions 2 and 3](coefficients/side24_v1/PROOF.md) | [main #65](https://github.com/d6g8k5htny-coder/main/issues/65); conditional on the parent lifetime formula |
 | Quantitative lifetime density | [Bounded unrestricted remainder](frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md) | [main #67](https://github.com/d6g8k5htny-coder/main/issues/67); parent interfaces remain under review |
 | RN critical-point counting | [Probability-to-count interface](frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md) | Exact implications and counterexamples; the Gaussian triple integral is not evaluated |
-| RN fixed-remote height window | [Cubic count and contact kernel](frontiers/remote_window_20260924/PROOF.md) | Actual count bound on a fixed remote region; shrinking spatial cutoffs and witness collisions remain outside scope |\n| RN reviewed fixed-annulus height window | [Fixed scaled-annulus theorem](frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md) | [Source-bound nonauthor review](reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md) accepts the fixed d=2 annulus / compact positive-gap / between-pin-window scope only; no global D5/RN/JETMOD closure |
+| RN fixed-remote height window | [Cubic count and contact kernel](frontiers/remote_window_20260924/PROOF.md) | Actual count bound on a fixed remote region; shrinking spatial cutoffs and witness collisions remain outside scope |
+| RN reviewed fixed-annulus height window | [Fixed scaled-annulus theorem](frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md) | [Source-bound nonauthor review](reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md) accepts the fixed d=2 annulus / compact positive-gap / between-pin-window scope only; no global D5/RN/JETMOD closure |
 | P15 obstruction covers | [Original-coordinate realization](frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md) | Specified family and cover; 816 versus whole-ground 818 |
 | P15 failed extension | [Price-range counterexample](frontiers/three_fronts_20260924/P15_PRICE_BOUNDARY.md) | Unrestricted same-palette transformed-price extension is false |
 | P15 valid price extension | [Low-probability transformed-price budget](frontiers/price_budget_20260924/PROOF.md) | New sufficient hypotheses: demand at least 2 and probabilities at most 1/4 |
@@ -43,3 +44,5 @@ The full-price package has 36 distinct tests and seven semantic mutation control
 ## Where the other work lives
 
 [main](https://github.com/d6g8k5htny-coder/main) holds the campaign, reviews and legacy research-branch links. [meta-framework](https://github.com/d6g8k5htny-coder/meta-framework) holds exact source identities; [query-](https://github.com/d6g8k5htny-coder/query-) looks them up; [trial](https://github.com/d6g8k5htny-coder/trial) checks integration; [google-drive](https://github.com/d6g8k5htny-coder/google-drive) carries selected public replicas. Private experiments are not exported through those public routes.
+
+Byte copies of eight hardening-branch lemma proofs and the P15-B proof, plus a transcription of closed [main #59](https://github.com/d6g8k5htny-coder/main/issues/59), are in the [custody ledger](imports/hardening_ebedb780/README.md). That ledger is source availability only. It does not adopt source labels and does not change `lemma_closed`, prizes, premises, or the claim manifest.

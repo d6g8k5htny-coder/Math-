@@ -1,0 +1,17 @@
+== Part 1: certified quiet counterexample ==
+   pair classification: failure A  D(M) = 574 (y = 574)
+   N_w = 1  N_qual(D2,frozen,own-level) = 1  N_loop(C2,frozen,level-s) = 1
+   double-counted saddles (qual AND loop): [574]
+   H4-JC: N_qual + N_loop = 2  > N_w = 1  -> INEQUALITY VIOLATED: True
+== Part 2: D2's own T2-QUAL synthetic ==
+   classification: failure A  D(M) = 574
+   N_w = 1  N_qual(D2) = 1  N_loop(C2) = 1  double: [574]  JC violated: True
+== Part 3: full-ensemble sweep (B1's frozen 40-field ensemble) ==
+   pairs audited: 427  A-pairs: 175
+   A-pairs with N_qual(D2)+N_loop(C2) > N_w: 132
+   A-pairs whose death saddle fires literal N_loop: 175
+   pairs where the C2/H4 mirror alpha fired at all: 0
+   ... of those, mirror-alpha firings at 2-cluster (Morse) saddles: 0
+== Part 4: structural lemma ==
+   2-cluster window saddles checked: 1612 — both clusters ALWAYS share their level-s component
+STAGE-E H4-JC COUNTEREXAMPLE CERTIFIED digest=51b2bd7c078aef92d1992d43b04c10454f23af0c760716e0674bbc4274987dbf
