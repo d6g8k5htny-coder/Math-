@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "object": "MATH-FORMALIZATION-STATUS-20260927-v1",
+  "repository": "d6g8k5htny-coder/Math-",
+  "layer": "Layer 1: formal specification and proof (Lean 4 kernel); Layer 0 provenance/scope/gate is unchanged",
+  "claims_manifest": "claims/LANDING_CLAIMS.json",
+  "dependency_graph": "frontiers/downstream_gate_20260925/GRAPH.json",
+  "scientific_effect": "NONE",
+  "promotion_permission": false,
+  "lemma_closed": false,
+  "allowed_statuses": [
+    "none",
+    "specified",
+    "proved",
+    "kernel_checked"
+  ],
+  "status_meaning": {
+    "none": "no Lean statement exists for the claim",
+    "specified": "the claim's main statement exists as a Lean `def ... : Prop`; it is not proved (its analytic inputs may be specified as hypotheses)",
+    "proved": "the claim's main statement is a Lean `theorem` with a sorry-free proof in the pinned source, but the axiom audit or CI replay has not yet been recorded",
+    "kernel_checked": "the main theorem is in the pinned AXIOMS.expected with allowed axioms only and the formal-lane CI replays lake build plus the axiom audit"
+  },
+  "allowed_alignment": [
+    "NONE",
+    "REVIEW_REQUIRED",
+    "ACCEPT",
+    "AMEND_REQUIRED"
+  ],
+  "alignment_meaning": "Whether the Lean statement says what the informal statement says. This is a distinct nonauthor review lane; the kernel cannot check it. ACCEPT requires a record file, reviewer provenance, and an explicit organizational-independence field. ACCEPT never flips a landing disposition.",
+  "allowed_component_kinds": [
+    "theorem",
+    "prop_specification",
+    "interface"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "forbidden_axioms": [
+    "sorryAx",
+    "Lean.ofReduceBool",
+    "Lean.trustCompiler"
+  ],
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.34.1",
+    "mathlib": {
+      "input_rev": "v4.34.1",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+    }
+  },
+  "packages": {
+    "core": {
+      "path": "formal/lean/core",
+      "library": "MathFormalCore",
+      "depends_on_mathlib": false,
+      "axioms_expected": "formal/lean/core/AXIOMS.expected",
+      "independent_checkers_in_ci": [
+        "leanchecker",
+        "nanoda"
+      ]
+    },
+    "mathlib": {
+      "path": "formal/lean/mathlib",
+      "library": "MathFormalReal",
+      "depends_on_mathlib": true,
+      "axioms_expected": "formal/lean/mathlib/AXIOMS.expected",
+      "independent_checkers_in_ci": [
+        "axiom-audit"
+      ]
+    }
+  },
+  "sources": {
+    "formal/lean/core/AXIOMS.expected": {
+      "bytes": 2113,
+      "sha256": "49d53083bbac400e2cd71e59061d2c4633d639a53d4f929638024af778115e01"
+    },
+    "formal/lean/core/MathFormalCore.lean": {
+      "bytes": 697,
+      "sha256": "8133d7b6d7943894bbf780b79c9596b65778d1670646a443cdff3b49fff21cb5"
+    },
+    "formal/lean/core/MathFormalCore/Side24/Arithmetic.lean": {
+      "bytes": 11605,
+      "sha256": "3b4ef35de28d380046dac82c71e97e2057983deac624ea1d966e7fd7978fdfce"
+    },
+    "formal/lean/core/lakefile.toml": {
+      "bytes": 416,
+      "sha256": "37963cf6cfd897861f1863ab9b0dd3fb25e0f9ba139f548c08015024165f98b8"
+    },
+    "formal/lean/core/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    "formal/lean/core/scripts/Axioms.lean": {
+      "bytes": 1299,
+      "sha256": "963e3c3c8c38b39eab64e3e7487bcc2f1eb40b4754abbb87b0d26cdeb6ca9ff0"
+    },
+    "formal/lean/mathlib/AXIOMS.expected": {
+      "bytes": 607,
+      "sha256": "8cffb8012b5d92966ca0f791e913cd59c7b75c2d30eccde1cc4bf7dd3d064411"
+    },
+    "formal/lean/mathlib/MathFormalReal.lean": {
+      "bytes": 406,
+      "sha256": "f56f70ae1e6f592158377621df13d44afd9355183cdb1ef0d1d825c6958ead66"
+    },
+    "formal/lean/mathlib/MathFormalReal/Side24/Statement.lean": {
+      "bytes": 8999,
+      "sha256": "bd2bbd5ca0572623f14d540a0480146f9ed3933afc7d580222f12c705032f08c"
+    },
+    "formal/lean/mathlib/lake-manifest.json": {
+      "bytes": 3332,
+      "sha256": "b098e721ba36ef642a64fcb829c1c665e8a59888348aec1eed4e641751e42682"
+    },
+    "formal/lean/mathlib/lakefile.toml": {
+      "bytes": 603,
+      "sha256": "9360dc5b261af8855e9b5ac1567938c0216e489773f90a3165c3d923c5d761f0"
+    },
+    "formal/lean/mathlib/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    "formal/lean/mathlib/scripts/Axioms.lean": {
+      "bytes": 1305,
+      "sha256": "6a3624f932ade6657b1c7ff9cafacf7e1569a9f634dd7dd409fbbd41b2cf1547"
+    }
+  },
+  "entries": [
+    {
+      "claim_id": "side24-coefficient",
+      "graph_node": "math.side24-coefficient",
+      "informal": {
+        "path": "coefficients/side24_v1/PROOF.md",
+        "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+        "object": "SIDE24-COEFFICIENT-D23-20260924-v1",
+        "author": "OpenAI / ChatGPT"
+      },
+      "status": "specified",
+      "status_reason": "The displayed enclosure is specified as `Side24Theorem c24` with the periodic coefficient as a parameter. Its two analytic inputs (`ReferenceEnclosure`: the Section 5 Stirling/Machin/atanh interval computation; `PeriodizationBound`: Sections 2-4 display (4)) are specifications, not theorems. The implication inputs => displayed enclosure, the Section 5 transfer step on the exact 80-digit endpoints, and every exact arithmetic step of Sections 1-4 are kernel-checked components.",
+      "formal_object": "FORMAL-SIDE24-20260927-v1",
+      "formal_author": {
+        "provider": "anthropic",
+        "model_family": "claude",
+        "agent": "cursor[bot]",
+        "note": "AI-authored Lean; author-side until a distinct reviewer accepts the alignment ledger"
+      },
+      "alignment_review": {
+        "status": "REVIEW_REQUIRED",
+        "record": null,
+        "template": "formal/ALIGNMENT_REVIEW_TEMPLATE.md"
+      },
+      "statement": {
+        "package": "mathlib",
+        "module": "MathFormalReal.Side24.Statement",
+        "decl": "MathFormalReal.Side24.Side24Theorem",
+        "kind": "prop_specification",
+        "informal_location": "PROOF.md, 'Scope and exact parent', the two displayed inequalities"
+      },
+      "components": [
+        {
+          "id": "skeleton-implication",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.side24_of_inputs",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Sections 1-5 as a whole: reference enclosure + display (4) => displayed bounds"
+        },
+        {
+          "id": "reference-enclosure-input",
+          "kind": "prop_specification",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.ReferenceEnclosure",
+          "status": "specified",
+          "informal_location": "PROOF.md Section 5 and coefficient.py reference_coefficient(d); Gamma(7/6) Stirling remainder (DLMF 5.11(ii)), Machin pi, atanh log, Taylor exp"
+        },
+        {
+          "id": "periodization-bound-input",
+          "kind": "prop_specification",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.PeriodizationBound",
+          "status": "specified",
+          "informal_location": "PROOF.md Sections 3-4, displays (3) and (4)"
+        },
+        {
+          "id": "reference-coefficient-definition",
+          "kind": "prop_specification",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.cRef",
+          "status": "specified",
+          "informal_location": "PROOF.md Section 1, display (1)"
+        },
+        {
+          "id": "transfer-lemma",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.enclosure_transfer",
+          "status": "kernel_checked",
+          "informal_location": "coefficient.py side24_coefficient: relative bound applied to reference endpoints"
+        },
+        {
+          "id": "transfer-d2-exact",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.transfer_d2",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 5: periodization allowance applied to exact rational endpoints before final outward rounding, d=2"
+        },
+        {
+          "id": "transfer-d3-exact",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.transfer_d3",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 5, d=3"
+        },
+        {
+          "id": "exp-288-125-real",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.exp_288_125_gt_ten",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 2: e^(288/125) > 10 by the positive rational Taylor sum through 20"
+        },
+        {
+          "id": "exp-neg-288-real",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.exp_neg_288_lt",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 2: e^(-288) < 10^(-125)"
+        },
+        {
+          "id": "exp-288-125-rational",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.taylorExp_288_125_gt_ten",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 2 and coefficient.py image_ledger exp_lower: exact rational partial sum exceeds 10"
+        },
+        {
+          "id": "image-constant",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.imageConstant_eq",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 2, display (2): 1458*(76*24^6+15) = 21175738586478"
+        },
+        {
+          "id": "constants-chain",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.constants_chain",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md displays (3) and (4): 60E < eps and 32 eps < 10^(-106)"
+        },
+        {
+          "id": "odd-block-eigenvalue",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.oddBlock_minEigen_gt_third",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 3: smaller eigenvalue 8 - sqrt(58) of [[1,-3],[-3,15]] exceeds 1/3"
+        },
+        {
+          "id": "exponent-bounds",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.exponentBounds_d2",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 4: a + 2b < 14 and 2a + b < 13 (d=2; d=3 is exponentBounds_d3)"
+        },
+        {
+          "id": "cone-moment-d3-bounds",
+          "kind": "theorem",
+          "package": "mathlib",
+          "module": "MathFormalReal.Side24.Statement",
+          "decl": "MathFormalReal.Side24.coneMoment_d3_bounds",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 1: D_2 = 29/6 - sqrt(6) is positive and strictly below the untruncated 29/6"
+        },
+        {
+          "id": "cone-moment-arithmetic",
+          "kind": "theorem",
+          "package": "core",
+          "module": "MathFormalCore.Side24.Arithmetic",
+          "decl": "MathFormalCore.Side24.coneMoment_d3_rational",
+          "status": "kernel_checked",
+          "informal_location": "PROOF.md Section 1: (1/2)[25/3 - 20/3 + 8] = 29/6; companion facts varA_m1, coneMoment_d2, coneMoment_d3_sqrt, s_fourthMoment, cubeRoot_simplification"
+        },
+        {
+          "id": "gaussian-conditioning-and-cone-integrals",
+          "kind": "interface",
+          "package": null,
+          "module": null,
+          "decl": null,
+          "status": "none",
+          "informal_location": "PROOF.md Section 1: covariance differentiation, Schur conditioning A|V=0, Rayleigh integral identity, Gaussian moments E s^4 and E exp(-s^2/2)",
+          "note": "Not formalized. Real Gaussian measure theory; enters Side24Theorem only through the ReferenceEnclosure and PeriodizationBound hypotheses."
+        },
+        {
+          "id": "covariance-comparison",
+          "kind": "interface",
+          "package": null,
+          "module": null,
+          "decl": null,
+          "status": "none",
+          "informal_location": "PROOF.md Sections 3-4: PSD ordering (3), Schur-complement monotonicity, density comparison, scale invariance of the cone moment",
+          "note": "Not formalized. Enters only through the PeriodizationBound hypothesis."
+        },
+        {
+          "id": "stirling-machin-interval-arithmetic",
+          "kind": "interface",
+          "package": null,
+          "module": null,
+          "decl": null,
+          "status": "none",
+          "informal_location": "PROOF.md Section 5 and coefficient.py: outward rational interval arithmetic and DLMF 5.11(ii) remainder",
+          "note": "Not formalized. Enters only through the ReferenceEnclosure hypothesis; the exact endpoints it produced are transcribed as refLo2/refHi2/refLo3/refHi3."
+        }
+      ]
+    },
+    {
+      "claim_id": "lifetime-remainder",
+      "graph_node": "math.lifetime-remainder",
+      "informal": {
+        "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+        "blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized; candidate next pilot after the glossary maps 'elder' objects",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "rn-count-interface",
+      "graph_node": "math.rn-count-interface",
+      "informal": {
+        "path": "frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md",
+        "blob": "371fd6d17920f2eb3b1c5ec30297acf6daf1d385"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized; the abstract event/count implications and counterexamples are a natural second pilot (finite, no Gaussian integrals)",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "rn-fixed-remote-window",
+      "graph_node": "math.rn-fixed-remote-window",
+      "informal": {
+        "path": "frontiers/remote_window_20260924/PROOF.md",
+        "blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "rn-fixed-annulus-window",
+      "graph_node": "math.rn-fixed-annulus-window",
+      "informal": {
+        "path": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
+        "blob": "081abc13c5e66342c13df2af2bd6b114f320486f"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "p15-realized-covers",
+      "graph_node": null,
+      "informal": {
+        "path": "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md",
+        "blob": "173881916ccd0e738bdb41279e835e78e520fcbc"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized; finite combinatorics, suitable for a core-only `decide` pilot",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "p15-price-boundary",
+      "graph_node": "math.p15-price-boundary",
+      "informal": {
+        "path": "frontiers/three_fronts_20260924/P15_PRICE_BOUNDARY.md",
+        "blob": "1d6946658e00e2446d68e8a4884425d4bcec62fb"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized; an exact counterexample is a natural kernel-checkable object",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "p15-price-budget-restricted",
+      "graph_node": null,
+      "informal": {
+        "path": "frontiers/price_budget_20260924/PROOF.md",
+        "blob": "9b17d179d2408dae9ea497d3c6e5c6538d2c3b8b"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "p15-full-price",
+      "graph_node": "math.p15-full-price",
+      "informal": {
+        "path": "frontiers/full_price_20260924/PROOF.md",
+        "blob": "582180e41dca0ad815ad0f18574df42040912149"
+      },
+      "status": "none",
+      "status_reason": "not yet formalized; the sharp constant 1/[3-log(3e-2)] and Theorem F are the next real-analysis target",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    },
+    {
+      "claim_id": "downstream-hard-gate",
+      "graph_node": "eng.hard-gate",
+      "informal": {
+        "path": "frontiers/downstream_gate_20260925/README.md",
+        "blob": "7f07316b733ab32aceeb982051c049d62fb1ef6f"
+      },
+      "status": "none",
+      "status_reason": "engineering control, not a mathematical statement; formalization not applicable",
+      "alignment_review": {
+        "status": "NONE",
+        "record": null
+      },
+      "statement": null,
+      "components": []
+    }
+  ],
+  "forbidden_inferences": [
+    "kernel_checked implies PROVED_REVIEWED",
+    "kernel_checked implies a landing disposition change",
+    "alignment ACCEPT implies organizational independence",
+    "lemma_closed=true"
+  ],
+  "meaning": "formal-lane inventory keyed by landing claim_id; Lean kernel acceptance of the pinned statements only; never theorem acceptance of the informal claim, never promotion"
+}

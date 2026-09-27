@@ -1,0 +1,225 @@
+{
+  "audited_theorems": {
+    "core": 36,
+    "mathlib": 8
+  },
+  "claims_covered": 10,
+  "lanes": {
+    "downstream-hard-gate": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "lifetime-remainder": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "p15-full-price": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "p15-price-boundary": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "p15-price-budget-restricted": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "p15-realized-covers": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "rn-count-interface": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "rn-fixed-annulus-window": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "rn-fixed-remote-window": {
+      "alignment": "NONE",
+      "component_counts": {
+        "kernel_checked": 0,
+        "none": 0,
+        "proved": 0,
+        "specified": 0
+      },
+      "lane_verdict": "FORMAL_NONE",
+      "statement_decl": null,
+      "status": "none"
+    },
+    "side24-coefficient": {
+      "alignment": "REVIEW_REQUIRED",
+      "component_counts": {
+        "kernel_checked": 13,
+        "none": 3,
+        "proved": 0,
+        "specified": 3
+      },
+      "lane_verdict": "FORMAL_SPECIFIED",
+      "statement_decl": "MathFormalReal.Side24.Side24Theorem",
+      "status": "specified"
+    }
+  },
+  "layer0_composition": {
+    "downstream-hard-gate": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "eng.hard-gate",
+      "layer0_classification": "ENGINEERING_CONTROL",
+      "layer0_promotion_allowed": false
+    },
+    "lifetime-remainder": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.lifetime-remainder",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    },
+    "p15-full-price": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.p15-full-price",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    },
+    "p15-price-boundary": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.p15-price-boundary",
+      "layer0_classification": "REFUTED",
+      "layer0_promotion_allowed": false
+    },
+    "rn-count-interface": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.rn-count-interface",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    },
+    "rn-fixed-annulus-window": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.rn-fixed-annulus-window",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    },
+    "rn-fixed-remote-window": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.rn-fixed-remote-window",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    },
+    "side24-coefficient": {
+      "formal_tokens_alone": {
+        "FORMAL_ALIGNMENT_ACCEPT": "REFUSED",
+        "LEAN_KERNEL_CHECK": "REFUSED",
+        "LEAN_STATEMENT_SPECIFIED": "REFUSED"
+      },
+      "graph_node": "math.side24-coefficient",
+      "layer0_classification": "AUTHOR_SIDE_CANDIDATE",
+      "layer0_promotion_allowed": false
+    }
+  },
+  "lemma_closed": false,
+  "meaning": "formal-lane identity/consistency/composition check; kernel replay is the --with-lean step; never theorem acceptance",
+  "object": "MATH-FORMALIZATION-STATUS-20260927-v1",
+  "pinned_sources": 13,
+  "promotion_permission": false,
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.34.1",
+    "mathlib": {
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "input_rev": "v4.34.1"
+    }
+  }
+}
