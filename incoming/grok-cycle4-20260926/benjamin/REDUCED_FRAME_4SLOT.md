@@ -39,7 +39,7 @@ Coordinates (f_tt, f_ts, f_ss, L) given the six pins:
     diag ~ (r^4/6, r^2/2, 2, 3/2)
 
 All four eigenvalues are strictly positive at every tested r>0.
-Product scales as det = Theta(r^6) as r	o0 (two soft slots).
+Product scales as det = Theta(r^6) as r -> 0 (two soft slots).
 Measured: r=0.17 det=6.0e-6; r=0.30 det=1.76e-4; r=1 det=0.171.
 
 ## Off-axis test point X=M+z after six pins

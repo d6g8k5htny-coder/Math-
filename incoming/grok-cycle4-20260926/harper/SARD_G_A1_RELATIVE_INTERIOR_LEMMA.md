@@ -18,22 +18,22 @@ The review records that neither condition 2 nor condition 3 states that the hit 
 
 ## Lemma RI (robust first interior hit)
 
-Let `Sigma subset R^2` be a compact line segment (“finite section”) with endpoints `partial Sigma` and relative interior `relint(Sigma) = Sigma \ partial Sigma`.
+Let `Sigma = [a, b] := { (1-u) a + u b : 0 <= u <= 1 } subset R^2`, `a != b`, be a compact nondegenerate line segment (“finite section”). Write `partial Sigma := {a, b}` for its **endpoint set** (this is the boundary of `Sigma` relative to the line through `a` and `b`, not the topological boundary of `Sigma` in `R^2`, which would be all of `Sigma`), and `relint(Sigma) := Sigma \ {a, b} = { (1-u) a + u b : 0 < u < 1 }` for its relative interior. Let `n_Sigma` be a fixed unit normal to `Sigma`.
 Let `T` be an open tubular neighborhood of an arc that contains `Sigma`.
 Let `gamma : [0, t_max] -> R^2` be a `C^1` embedded arc (“branch”) with launch point `gamma(0) notin Sigma`.
 
-A time `t_* in (0, t_max]` and point `x_* = gamma(t_*)` form a *robust first interior hit* of `Sigma` by `gamma` if all four hold:
+A time `t_* in (0, t_max)` and point `x_* = gamma(t_*)` form a *robust first interior hit* of `Sigma` by `gamma` if all four hold:
 
-**(RI1) Relative interior.** `x_* in relint(Sigma)`. Equivalently `dist(x_*, partial Sigma) > 0`.
+**(RI1) Relative interior.** `x_* in relint(Sigma)`. Equivalently `dist(x_*, {a, b}) > 0`.
 
-**(RI2) First contact with the closed segment.**
-`t_* = inf{ t in [0, t_max] : gamma(t) in Sigma }`.
-In particular there is no earlier intersection with `Sigma`, no earlier tangent contact, and no earlier endpoint contact.
+**(RI2) First contact with the closed segment, with terminal-time slack.**
+`t_* = inf{ t in [0, t_max] : gamma(t) in Sigma }` and `t_* < t_max`.
+In particular there is no earlier intersection with `Sigma`, no earlier tangent contact, and no earlier endpoint contact. The strict inequality `t_* < t_max` is needed for robustness: if the hit sat at the terminal time, a small perturbation could push the transverse crossing past `t_max` and leave no hit in `[0, t_max]`. If the branch is defined only up to its first hit, extend it by a positive time margin and state that margin.
 
 **(RI3) Open-tube clearance of the compact travelled arc.**
 The compact set `gamma([0, t_*])`, including launch and terminal points, lies in `T`. Compactness gives `dist(gamma([0, t_*]), partial T) > 0`. If a closed tube is used instead, the same strict positive clearance must be imposed as a hypothesis.
 
-**(RI4) Transverse local uniqueness.** `langle gamma'(t_*), n_Sigma rangle != 0`, and `x_*` is the unique intersection of `gamma` with `Sigma` in some time neighborhood of `t_*`.
+**(RI4) Transverse local uniqueness.** The normal speed at the hit is nonzero, `< gamma'(t_*), n_Sigma > != 0` (Euclidean inner product of the velocity with the unit normal `n_Sigma`), and `x_*` is the unique intersection of `gamma` with `Sigma` in some time neighborhood of `t_*`.
 
 The same four items are required of every branch-label section used to name the chart, not only of the central section `Sigma`.
 
@@ -46,7 +46,7 @@ Then `U_chi` is open in the `C^2` topology.
 ### Proof sketch (for the reviewer; not a substitute for writing it into the author source)
 
 All four RI predicates are strict. In `C^1`, the flow of `grad f / |grad f|^2` (or the successor’s chosen unit-speed / gradient-ascent parametrization) depends continuously on `f` on any compact set where `min |grad f| > eta`.
-Arrival time at a transverse interior point of a fixed segment is a `C^1` function of the field by the implicit-function theorem, because RI4 supplies a nonvanishing normal speed. Relative-interior distance, first-contact slack, and tube clearance persist under small `C^1` perturbations. Condition 1 and Condition 4 are already strict and persist under small `C^2` perturbations. Hence a `C^2`-ball about any `f in U_chi` remains in `U_chi`.
+Arrival time at a transverse interior point of a fixed segment is a `C^1` function of the field by the implicit-function theorem, because RI4 supplies a nonvanishing normal speed. Relative-interior distance, first-contact slack, terminal-time slack `t_* < t_max`, and tube clearance persist under small `C^1` perturbations. Condition 1 and Condition 4 are already strict and persist under small `C^2` perturbations. Hence a `C^2`-ball about any `f in U_chi` remains in `U_chi`.
 
 ## What the author source does not yet give
 
@@ -84,7 +84,7 @@ An external reviewer can close A1 by checking, against the author source and not
 2. That hit is required to be the first contact with the *closed* section.
 3. The same two items hold for branch-label sections.
 4. Compact travelled arcs, including endpoints, lie in the open tube (or a closed tube with a written positive clearance).
-5. The reference branch starts off the section and has positive finite travel time.
+5. The reference branch starts off the section and has positive finite travel time, with the first hit strictly before the terminal time of the declared branch interval.
 6. With those predicates in the source, openness of `U_chi` follows by Lemma OPEN.
 
 If any of 1–5 is still only inferred from speed/angle/time bounds, A1 stays AMEND.

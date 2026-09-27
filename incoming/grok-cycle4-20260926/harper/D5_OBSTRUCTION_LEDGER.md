@@ -56,13 +56,15 @@ as `r -> 0`, so `f_ts(M) = O_p(r)` after pins. This is the extra factor of `r` i
 
 ## 3. Coordinate object: the gradient Jacobian
 
-Unconditional third-jet Taylor at `p=0`:
+Unconditional third-jet Taylor at `p=0`, where the displacement from `M` is `r q e_s` and the pinned values `f_t(M) = f_s(M) = 0` remove the constant terms:
 
 ```
-f_t(X) = r q f_ts(M) + (r^2/2) q^2 f_tss(M) + O(r^3)
-       = r^2 q beta + (r^2/2) q^2 f_tss + O(r^3),
-f_s(X) = r q f_ss(M) + (r^2/2) q^2 f_sss(M) + O(r^3).
+f_t(X) = r q f_ts(M) + (r^2/2) q^2 f_tss(M) + O(r^3 |q|^3)
+       = r^2 q beta + (r^2/2) q^2 f_tss + O(r^3 |q|^3),
+f_s(X) = r q f_ss(M) + (r^2/2) q^2 f_sss(M) + O(r^3 |q|^3).
 ```
+
+The remainders carry the full displacement power `(r|q|)^3`; writing them as a bare `O(r^3)` would lose the `q` factors that are divided out below and would leave an `O(r/q)` term that is only `O(1)` at the cone boundary `|q| = Theta(r)`. Here and below, `O(.)` applied to a Gaussian jet or to a polynomial in Gaussian jets denotes a conditional-moment (`O_p`, or `L^p` for each fixed `p`) scale, not a pathwise bound: conditioned Gaussian variables remain unbounded. A Kac–Rice assembly that uses these scales needs `L^p` bounds together with uniform integrability, or an explicit truncation with a separately bounded tail. That assembly is not performed in this note.
 
 Let `S := f_ss(M)` (contact, order one before imposing `grad f(X)=0`) and `Y = (beta, S)`.
 The leading map `Y |-> (f_t, f_s)` has Jacobian matrix `diag(r^2 q, r q)` and determinant
@@ -72,8 +74,7 @@ partial(f_t, f_s) / partial(beta, S) = r^3 q^2.
 ```
 
 This matches the PR53 raw Jacobian and the AMEND-review identity
-`sqrt(det Cov(grad f)) = r^3 q^2 / 2` on the leading `(S,T)` chart at `p=0`
-(the factor `1/2` is `sqrt(det Cov(beta,S))` in the recon limit minor).
+`sqrt(det Cov(grad f)) = r^3 q^2 / 2` on the leading `(S,T)` chart at `p=0` up to the constant. The constants differ because the charts differ: in the `(beta, S)` chart used here, `Var(beta | pins) -> 1/2` (Section 2), `Var(S | pins) -> 2` (the `f_ss` slot after pins; see `../benjamin/REDUCED_FRAME_4SLOT.md`), and `Cov(beta, S | pins) = 0` by `s`-parity, so `sqrt(det Cov(beta, S | pins)) -> 1` and the leading conditional gradient density has scale `1 / (r^3 q^2)` with constant `1`, not `1/2`. The `1/2` in the recon note is the minor of its `(S, T)` chart with `T` a third jet. Constants do not enter the power ledger below. (Amended 2026-09-27; an earlier version attributed the `1/2` to `sqrt(det Cov(beta, S))`, which is off by a factor of two.)
 
 The axial-belt chart `X = R(r u, r^2 w)` uses the normalized map `(f_t/r^3, f_s/r^2)` with Jacobian `r^5`. On the overlap `|q| ~ r` one has `r^3 q^2 ~ r^5`. Same geometric density, different coordinates.
 
@@ -81,14 +82,14 @@ Verdict: `O(r^3 q^2)` versus `O(r^5)` is a coordinate rewrite. It is not an obst
 
 ## 4. Congruence object: Hessian product on `{grad f(X)=0}`
 
-Imposing `grad f(X)=0` at `p=0` slaves the endpoint jets:
+Imposing `grad f(X)=0` at `p=0` and dividing the two displayed equations by `r^2 q` and by `r q` respectively slaves the endpoint jets:
 
 ```
-beta = - (q/2) f_tss + O(r),
-S    = - (r q / 2) f_sss + O(r^2).
+beta = - (q/2) f_tss + O(r q^2),
+S    = - (r q / 2) f_sss + O(r^2 q^2).
 ```
 
-Thus on the event, `S = O(r |q|)` and `beta = O(|q|)`.
+The remainders are uniform on the cone `|q| <= 1/4` because the Taylor remainders above retain the displacement factor. Thus on the event, `S = O_p(r |q|)` and `beta = O_p(|q|)` in the conditional-moment sense stated in Section 3.
 Endpoint Hessian at `M`:
 
 ```
@@ -103,7 +104,7 @@ det H_M = (-6 k r) S - r^2 beta^2 + O(r^3 |q|)
         = O(k r^2 |q|) + O(r^2 q^2).
 ```
 
-Transport to the witness by `H_X = H_M + r q * (third jets) + O(r^2)` and substitute the same slaving:
+Transport to the witness by `H_X = H_M + r q * (third jets) + O(r^2 q^2)` and substitute the same slaving:
 
 ```
 f_ss(X) = S + r q f_sss + O(r^2) = -S + O(r^2) = O(r |q|),
@@ -119,13 +120,13 @@ f_tt(S) = 6 k r + O(r^3),    f_ss(S) = a_S = O_p(1),
 det H_S = O(k r).
 ```
 
-Three-determinant product on the on-axis cone:
+Three-determinant product on the on-axis slice `p = 0` of the cone:
 
 ```
 det H_M * det H_X * det H_S = O(k^3 r^5 q^2).
 ```
 
-If `W_r = |det H_M det H_S|`, then `W_r |det H_X| = O(k^3 r^5 q^2)` on this slice.
+If `W_r = |det H_M det H_S|`, then `W_r |det H_X| = O(k^3 r^5 q^2)` on this slice. Every estimate in this section is derived on the measure-zero slice `p = 0`. A `p`-uniform version on the two-dimensional cone `|p| <= |q|` (with the corresponding Jacobian and conditional law) is not derived here; see the caveat in Section 6.
 
 ## 5. Why Math-#58 `O(r^6 q^2)` over-counts one power of `r`
 
@@ -146,7 +147,7 @@ Verdict: `O(r^6 q^2)` is the annulus product written in cone coordinates, not th
 - Inner square `|p|,|q| <= kappa r`. On `p=0`, if `beta = S = 0` the displayed linear part of `grad f` vanishes for every `q`. Isolation is then carried by third jets that the cone ledger does not estimate. The AMEND-review pathwise majorant `|det H_S| = O(r^2 M_3^2 / |q|)` is not `O(r^5)` uniformly for `|q| < kappa r`. No replacement integral is supplied here.
 - Nested microdisk `s = r S` (physical distance `O(r^2)`). Math-#58 remains open. A two-point divided-difference frame that stays nondegenerate as `X -> M` is not constructed in this note.
 - Intermediate belt `r << |x| << rho` and shrinking-separation collisions remain open as recorded in `PROOF_INDEX.md`.
-- No all-height `O(r^3)` pin-neighborhood expected-count lemma is claimed. A formal Kac–Rice assembly from the cone product `O(k^3 r^5 q^2)`, the Jacobian `r^3 q^2`, physical area `r^2 dp dq`, and `Z_r = Theta(k^2 r^2)` produces an `O(k r^2)` cone contribution after the `q^2` cancels, but that assembly is not a proof: remainder control, index indicators, and the inner-square gap are missing.
+- No all-height `O(r^3)` pin-neighborhood expected-count lemma is claimed. **On-axis heuristic only:** multiplying the slice product `O(k^3 r^5 q^2)`, the Jacobian `r^3 q^2`, the physical area element `r^2 dp dq`, and `Z_r = Theta(k^2 r^2)` gives an `O(k r^2)` cone contribution after the `q^2` cancels. This treats an estimate proved only on `p = 0` as if it were uniform over the two-dimensional cone, which is not justified here; a `p`-uniform product estimate with its own Jacobian and conditional law, remainder control in `L^p` with uniform integrability, index indicators, and the inner-square gap are all missing. The number `O(k r^2)` is therefore a heuristic, not a bound.
 
 ## 7. One-line ledger
 

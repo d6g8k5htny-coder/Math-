@@ -35,7 +35,7 @@ Only the pair `(f_s(M), f_s(S))` contributes to the Schur complement. With `c = 
 1 - c^2 / det K = 1 - r^2 / (e^{r^2} - 1) = (e^{r^2} - 1 - r^2) / (e^{r^2} - 1).
 ```
 
-Series: `r^2/2 - r^4/12 + O(r^6)`.
+Series: `r^2/2 - r^4/12 + r^8/720 + O(r^{12})`; the `r^6` and `r^{10}` coefficients are exactly zero.
 Set `beta_M := f_ts(M)/r`. Then
 
 ```
@@ -77,7 +77,27 @@ r^4/6 - r^6/30 + r^8/360 - r^{10}/12600 + O(r^{12}).
 
 The coefficient `1/360` of `r^8` is therefore an identity coefficient of the closed form, not a truncated numerical inversion of a large Gram. A finite-order Gram inversion that fails to stabilize at `r^8` does not refute the coefficient.
 
-Denominator check: `r^4 E - (E-1)^2 = 0` would require `(e^{r^2}-1)^2 = r^4 e^{r^2}`. At `r=0` both sides vanish to order `r^4` with ratio `1 != 1` after two further orders (`(r^2 + r^4/2 + ...)^2 = r^4 + r^6 + ...` versus `r^4 (1 + r^2 + ...)`), and the first differing term is `r^6`, so the small-`r` denominator is `~ r^6/12` and the variance is `~ r^4/6`.
+Denominator check (amended 2026-09-27; the first version of this paragraph stated `~ r^6/12`, which was wrong). With `x = r^2`,
+
+```
+(e^x - 1)^2 = x^2 + x^3 + (7/12) x^4 + (1/4) x^5 + ...
+x^2 e^x     = x^2 + x^3 + (1/2) x^4  + (1/6) x^5 + ...
+```
+
+so the `x^2` and `x^3` terms cancel and
+
+```
+r^4 E - (E-1)^2 = -(1/12) x^4 - (1/12) x^5 - (2/45) x^6 + ...
+                = -r^8/12 - r^{10}/12 - (2/45) r^{12} + O(r^{14}).
+```
+
+The first nonzero order of the denominator is `r^8`, with coefficient `-1/12`; there is no `r^6` term. The numerator vanishes to the matching order `r^{12}`:
+
+```
+r^6 E - r^4 E - r^4 + 4 r^2 E - 4 r^2 - 2 E^2 + 4 E - 2 = -r^{12}/72 - r^{14}/90 - (7/1440) r^{16} + O(r^{18}),
+```
+
+so the ratio is `(-1/72)/(-1/12) r^4 = r^4/6` at leading order, both signs cancel, and the series displayed above follows by exact division of the two expansions. `test_closed_forms.py` asserts the denominator order and leading coefficient, the numerator order, and the quotient coefficients through `r^{10}` with exact rational arithmetic. For `r <~ 0.05` the float64 evaluation of the rational closed form suffers catastrophic cancellation (both numerator and denominator are `O(r^8)` differences of `O(1)` quantities); use the series there.
 
 ## What these identities are not
 
