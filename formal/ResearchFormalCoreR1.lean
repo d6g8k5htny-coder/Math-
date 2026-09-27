@@ -1,2 +1,2 @@
-import ResearchFormalCoreR1.Algebra
-import ResearchFormalCoreR1.ProbabilityCompanions
+import ResearchFormalCoreR1.AlgebraV2
+import ResearchFormalCoreR1.ProbabilityCompanionsV2

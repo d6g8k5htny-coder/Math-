@@ -3,7 +3,7 @@ on:
   pull_request:
     paths: ['formal/**', '.github/workflows/formal-lean.yml']
   push:
-    branches: [main, 'chatgpt/formal-layer-20260927']
+    branches: [main]
     paths: ['formal/**', '.github/workflows/formal-lean.yml']
   workflow_dispatch:
 permissions:

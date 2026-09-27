@@ -87,8 +87,6 @@ class GateTests(unittest.TestCase):
     def test_review_changed_scope(self):
         with self.assertRaises(ValueError): gate.check_alignment(self.review(), 'a'*64, ['X.a'], 'c'*64)
 
-if __name__ == '__main__': unittest.main()
-
 class BlueprintTests(unittest.TestCase):
     def test_valid_link(self):
         self.assertEqual(gate.check_blueprint(r'\lean{X.a}', ['X.a']), ['X.a'])
@@ -98,3 +96,48 @@ class BlueprintTests(unittest.TestCase):
         with self.assertRaises(ValueError): gate.check_blueprint('', ['X.a'])
     def test_unsupported_leanok(self):
         with self.assertRaises(ValueError): gate.check_blueprint(r'\lean{X.a}\leanok', ['X.a'])
+
+class SourceContractTests(unittest.TestCase):
+    def fixture(self):
+        import shutil
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        p = Path(self.tmp.name) / 'formal'
+        shutil.copytree(ROOT, p, ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+        self.previous = gate.ROOT; gate.ROOT = p
+        self.addCleanup(lambda: setattr(gate, 'ROOT', self.previous))
+        self.m = json.loads((p/'manifest.json').read_text())
+        self.m['files'] = {q.relative_to(p).as_posix(): hashlib.sha256(q.read_bytes()).hexdigest() for q in p.rglob('*') if q.is_file() and q.name != 'manifest.json'}
+        self.p = p
+        return p
+    def save(self):
+        (self.p/'manifest.json').write_text(json.dumps(self.m))
+    def test_source_baseline(self):
+        self.fixture(); self.save(); gate.source_check()
+    def test_unbound_gate_refused(self):
+        self.fixture(); del self.m['files']['gate.py']; self.save()
+        with self.assertRaises(ValueError): gate.source_check()
+    def test_manifest_cannot_claim_kernel_status(self):
+        self.fixture(); self.m['formalization_status']='kernel-checked'; self.save()
+        with self.assertRaises(ValueError): gate.source_check()
+    def test_root_declaration_cannot_evade_audit(self):
+        p=self.fixture(); root=p/'ResearchFormalCoreR1.lean'
+        root.write_text(root.read_text()+'theorem hidden : False := by sorry\n')
+        self.m['files']['ResearchFormalCoreR1.lean']=hashlib.sha256(root.read_bytes()).hexdigest(); self.save()
+        with self.assertRaises(ValueError): gate.source_check()
+    def test_duplicate_json_rejected(self):
+        with self.assertRaises(ValueError): gate.load_json('{"a":1,"a":2}')
+    def test_json_object(self):
+        self.assertEqual(gate.load_json('{"a":1}'), {'a':1})
+
+class SuccessorTests(unittest.TestCase):
+    def test_only_documented_algebra_repairs(self):
+        original=(ROOT/'originals/Algebra.lean.txt').read_text()
+        expected=original.replace('def foldPotential', 'noncomputable def foldPotential').replace('  field_simp [hr]\n  ring\n', '  field_simp [hr]\n')
+        self.assertEqual((ROOT/'ResearchFormalCoreR1/AlgebraV2.lean').read_text(), expected)
+    def test_only_documented_probability_repair(self):
+        original=(ROOT/'originals/ProbabilityCompanions.lean.txt').read_text()
+        expected=original.replace('  field_simp [hr, hcZ]\n  ring\n', '  field_simp [hr, hcZ]\n')
+        self.assertEqual((ROOT/'ResearchFormalCoreR1/ProbabilityCompanionsV2.lean').read_text(), expected)
+
+if __name__ == '__main__': unittest.main()

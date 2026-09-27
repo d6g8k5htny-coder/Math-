@@ -1,6 +1,6 @@
 # Exact formal scope and alignment review
 
-Scientific effect: NONE. The package offers 13 scalar companion statements from recovered GP-FOR-192. Its original archive has SHA256 a6440511fc259706457b18227734013966251105d538fdeabe633bb73f168631 (10,644 bytes). The two execution source modules are exact recovered bytes, not a transcription of the full research theorem. Original Status.lean and metadata are deliberately not imported: labels for EC-012, EC-013 and Theorem-B-Jacobian did not supply those theorems.
+Scientific effect: NONE. The package offers 13 scalar companion statements from recovered GP-FOR-192. Its original archive has SHA256 a6440511fc259706457b18227734013966251105d538fdeabe633bb73f168631 (10,644 bytes). The two recovered source modules are preserved byte-identically under originals/*.lean.txt. The separately named AlgebraV2 and ProbabilityCompanionsV2 execution successors apply only the three documented compiler repairs in COMPATIBILITY.md; their thirteen theorem statements are unchanged. Neither version is a transcription of the full research theorem. Original Status.lean and metadata are deliberately not imported: labels for EC-012, EC-013 and Theorem-B-Jacobian did not supply those theorems.
 
 | Targets | Exact coverage | Not established |
 |---|---|---|

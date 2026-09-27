@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import re
+import shutil
 import subprocess
 import sys
 
@@ -74,18 +75,35 @@ def check_alignment(review, manifest_digest, targets, scope_digest):
     # This checks structure, identity and scope. A controller must retrieve and
     # authenticate the review evidence; strings do not prove a review happened.
 
+def load_json(text):
+    def unique(pairs):
+        obj = {}
+        for key, value in pairs:
+            require(key not in obj, 'duplicate JSON key: ' + key)
+            obj[key] = value
+        return obj
+    return json.loads(text, object_pairs_hook=unique)
+
 def source_check():
     raw = (ROOT / 'manifest.json').read_bytes()
-    m = json.loads(raw)
+    m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
+    require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
+    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex'}
+    require(required <= set(m['files']), 'unbound control or scope file')
+    originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
+    require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')
+    require('COMPATIBILITY.md' in m['files'], 'unbound successor rationale')
     check_files(ROOT, m['files'])
     require((ROOT / 'lean-toolchain').read_text().strip() == 'leanprover/lean4:v4.34.1', 'wrong Lean toolchain')
-    lock = json.loads((ROOT / 'lake-manifest.json').read_text())
+    lock = load_json((ROOT / 'lake-manifest.json').read_text())
     packages = lock['packages']
     require(len(packages) == len({p['name'] for p in packages}), 'duplicate dependency')
     actual = {p['name']: p['rev'] for p in packages}
     require(actual == m['dependency_revisions'], 'dependency lock mismatch')
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
+    expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
+    require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
     names = []
     for path in m['source_modules']:
         require(path in m['files'], 'unbound source module')
@@ -107,12 +125,18 @@ def run(command, label, out, expect_success=True):
 def execute(m, digest):
     out = ROOT / '.lake' / 'formal-evidence'
     out.mkdir(parents=True, exist_ok=True)
+    require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink(), 'symlink build directory')
+    if (ROOT / '.lake/build').exists():
+        shutil.rmtree(ROOT / '.lake/build')  # fresh local-package build; dependency cache is untouched
     run(['lake', 'build'], 'build', out)
     run(['lake', 'env', 'leanchecker', 'ResearchFormalCoreR1'], 'leanchecker', out)
     audit = out / 'Audit.lean'
     audit.write_text('import ResearchFormalCoreR1\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
     text = run(['lake', 'env', 'lean', str(audit)], 'axioms', out)
     axioms = audit_axioms(text, m['targets'])
+    types = out / 'Types.lean'
+    types.write_text('import ResearchFormalCoreR1\nset_option pp.explicit true\n' + '\n'.join('#check ' + n for n in m['targets']) + '\n')
+    run(['lake', 'env', 'lean', str(types)], 'elaborated-types', out)
     # Real counterexample/mutation controls, not comparisons of fixed labels.
     cases = {
         'false_fold': ('import ResearchFormalCoreR1\nexample : ResearchFormalCoreR1.foldPotential 1 1 - ResearchFormalCoreR1.foldPotential 1 (-1) = (2 : Real)^3 / 7 := by\n  norm_num [ResearchFormalCoreR1.foldPotential]\n', False, None),
@@ -142,6 +166,9 @@ def execute(m, digest):
     # Recheck after compilation: a build hook must not rewrite bound sources/lock.
     _, after = source_check(); require(after == digest, 'manifest changed during execution')
     version = run(['lake', 'env', 'lean', '--version'], 'version', out).strip()
+    require('version 4.34.1' in version, 'unexpected running Lean version')
+    actual_dependencies = {name: subprocess.check_output(['git', '-C', str(ROOT / '.lake/packages' / name), 'rev-parse', 'HEAD'], text=True).strip() for name in m['dependency_revisions']}
+    require(actual_dependencies == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     require(COMMIT.fullmatch(head), 'missing exact checked commit')
     receipt = dict(schema_version=1, scientific_effect='NONE', formalization_status='kernel-checked',
@@ -162,7 +189,7 @@ def main():
     try:
         m, digest = source_check()
         if args.alignment:
-            check_alignment(json.loads(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])
+            check_alignment(load_json(args.alignment.read_text()), digest, m['targets'], m['files']['SCOPE.md'])
         if args.execute:
             execute(m, digest)
         else:
