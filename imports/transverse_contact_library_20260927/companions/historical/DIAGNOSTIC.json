@@ -1,0 +1,35 @@
+{
+  "meaning": "uncertified numerical diagnostic, not periodic/SIDE24 coefficient",
+  "covariance": "exp(-|x-y|^2/2), unperiodized",
+  "parameters": {
+    "u": -0.5,
+    "v": 1.0,
+    "b": 0.0,
+    "k": 0.16666666666666666
+  },
+  "saddle_contact_kernel_estimates": [
+    {
+      "n": 16,
+      "estimate": 0.010048772284966132
+    },
+    {
+      "n": 32,
+      "estimate": 0.010047911543321686
+    },
+    {
+      "n": 64,
+      "estimate": 0.01004785877283371
+    },
+    {
+      "n": 128,
+      "estimate": 0.01004785549070451
+    },
+    {
+      "n": 256,
+      "estimate": 0.01004785528582169
+    }
+  ],
+  "rigorous_error_bound": null,
+  "independent_analytic_acceptance": false
+}
+
