@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-26",
+  "python": "3.12.14",
+  "scope": "source custody, parsing and loader selection only",
+  "scientific_effect": "NONE",
+  "commands": [
+    "python -B -S imports/upper2d_h5_ledgers_20260926/verify.py",
+    "python -B -O -S imports/upper2d_h5_ledgers_20260926/verify.py",
+    "python -B -S imports/upper2d_h5_ledgers_20260926/verify.py --emit",
+    "python -B -O -S imports/upper2d_h5_ledgers_20260926/verify.py --emit"
+  ],
+  "normal_optimized_emit_byte_identical": true,
+  "receipt_sha256": "5d1fef9363545069c8116d863e8e6d94331b770293ecf671c833365db4729983",
+  "negative_controls": [
+    {
+      "mutation": "ledger_bytes",
+      "exit": 1,
+      "diagnostic": "ValueError: source identity mismatch: raw/H5_closure/h5_results_r0.0125_s0p2_cells.jsonl"
+    },
+    {
+      "mutation": "receipt",
+      "exit": 1,
+      "diagnostic": "ValueError: selection receipt changed"
+    },
+    {
+      "mutation": "consumer",
+      "exit": 1,
+      "diagnostic": "ValueError: pinned loader source changed: hunt_wedges.py"
+    },
+    {
+      "mutation": "missing_file",
+      "exit": 1,
+      "diagnostic": "ValueError: raw inventory mismatch"
+    }
+  ],
+  "not_run": [
+    "numerical hunt",
+    "QMC",
+    "interval-enclosure certification",
+    "mathematical theorem verification"
+  ]
+}
