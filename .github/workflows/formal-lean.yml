@@ -1,18 +1,33 @@
 name: Formal Lean evidence (no scientific promotion)
 on:
-  pull_request:
-    paths: ['formal/**', '.github/workflows/formal-lean.yml']
-  push:
-    branches: [main]
-    paths: ['formal/**', '.github/workflows/formal-lean.yml']
+  workflow_call:
+    outputs:
+      checked_commit:
+        description: Exact tested commit
+        value: ${{ jobs.formal-evidence.outputs.checked_commit }}
+      repository:
+        description: Checked source repository
+        value: ${{ jobs.formal-evidence.outputs.repository }}
+      run_id:
+        description: Producing workflow run
+        value: ${{ jobs.formal-evidence.outputs.run_id }}
+      run_attempt:
+        description: Producing workflow attempt
+        value: ${{ jobs.formal-evidence.outputs.run_attempt }}
+      receipt_sha256:
+        description: Original executed receipt SHA256
+        value: ${{ jobs.formal-evidence.outputs.receipt_sha256 }}
   workflow_dispatch:
 permissions:
   contents: read
-concurrency:
-  group: formal-lean-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
 jobs:
   formal-evidence:
+    outputs:
+      checked_commit: ${{ steps.required-binding.outputs.checked_commit }}
+      repository: ${{ steps.required-binding.outputs.repository }}
+      run_id: ${{ steps.required-binding.outputs.run_id }}
+      run_attempt: ${{ steps.required-binding.outputs.run_attempt }}
+      receipt_sha256: ${{ steps.required-binding.outputs.receipt_sha256 }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
@@ -20,7 +35,6 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           persist-credentials: false
       - name: Gate tests and exact source identity
         run: |
@@ -39,6 +53,9 @@ jobs:
           use-github-cache: 'false'
       - name: Build, recheck, audit axioms and execute negative controls
         run: python3 formal/gate.py --execute
+      - name: Bind current-run receipt to required check
+        id: required-binding
+        run: python3 -B -S tools/required_formal_check.py receipt
       - name: Preserve logs and exact-run receipt
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -46,5 +63,5 @@ jobs:
           name: formal-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: formal/.lake/formal-evidence/
           include-hidden-files: true
-          if-no-files-found: warn
+          if-no-files-found: error
           retention-days: 14
