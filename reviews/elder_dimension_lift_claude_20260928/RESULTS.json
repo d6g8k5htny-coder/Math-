@@ -1,0 +1,81 @@
+{
+  "checks": {
+    "CHART": {
+      "raw_chart_full_jacobian_is_one_d3_d4": true,
+      "rotated_lattice_unisolvence_degree3": true,
+      "schur_shear_cancels_and_det_A_equals_sigma_det_D_n1to4": true
+    },
+    "LEDGER": {
+      "density_loss_ell_2_3_k_minus_5_3": true,
+      "inverse_moment_threshold_5_3": true,
+      "jet_count_U0_plus_J_is_binom_d3_3": true,
+      "ledger_r_r4_over_r2_is_r3_all_d": true
+    },
+    "PATH": {
+      "path_segments_margins_and_saddle_data": true
+    },
+    "PHYSICAL": {
+      "Hu_order_r": true,
+      "endpoint_blocks_A20": true,
+      "gradient_pin_average_A24": true,
+      "normal_form_A17_exact": true,
+      "pins": true,
+      "schur_det_inertia_A21_A22": true,
+      "shear_recovers_sigma_D_tau": true,
+      "weight_order_r4": true
+    },
+    "QUARTIC": {
+      "A17_remainder_halves_with_r": true,
+      "Hu_halves_with_r": true,
+      "_rates": {
+        "A17_remainder": {
+          "3": [
+            2.0,
+            2.0,
+            2.0
+          ],
+          "4": [
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        "H_S_u": {
+          "3": [
+            1.9944,
+            1.9972,
+            1.9986
+          ],
+          "4": [
+            2.0023,
+            2.0011,
+            2.0006
+          ]
+        }
+      },
+      "contact_frame_nonsingular": true,
+      "pins_exact_after_solve": true
+    },
+    "SADDLES": {
+      "_ratios": {
+        "3": [
+          1.1962,
+          1.1312
+        ],
+        "4": [
+          1.0019,
+          1.6157
+        ]
+      },
+      "distinct_from_each_other_and_pins": true,
+      "heights_inside_window": true,
+      "index_d_minus_1": true,
+      "planar_critical_point_not_full_critical": true,
+      "stable_displacement_W_converges_at_rate_r": true,
+      "two_extra_critical_points_exist": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-ELDER-DIMENSION-LIFT-20260928-v1",
+  "passed": true,
+  "scope": "exact chart/field identities and one labelled numerical saddle group; not an analytic proof"
+}
