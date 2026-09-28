@@ -26,7 +26,7 @@ The reviewed Theorem A gives
 
     | E_(Q^W) N_j(E) - k r^3 integral_E Lambda_j | <= C r^4 |E|,               (A)
 
-with a continuous kernel `Lambda_j` that is bounded above and away from zero on `D_rho`. It states explicitly that (A) is **not** a matching lower bound on the event probability. Its §6 handles pairs only at a **fixed** separation `eta>0` and records that shrinking separation is uncontrolled. This is the open "witness-collision" region of the D5 graph (`math.rn-region.witness-collision`, "eta->0 mutual witness separation").
+with a continuous kernel `Lambda_j` that is bounded above and away from zero on `D_rho`. It states explicitly that (A) is **not** a matching lower bound on the event probability. Its §6 handles pairs only at a **fixed** separation `eta>0` and records that shrinking separation is uncontrolled. This is the open "witness-collision" region of the D5 graph (`math.rn-region.witness-collision`, "eta->0 mutual witness separation"). The present note treats that region **only when both witnesses lie in the fixed remote region `D_rho`**; see §8.
 
 ### Theorem C (near-diagonal witness pairs)
 
@@ -222,9 +222,13 @@ The last integral is evaluated exactly by splitting at `delta_0=(k r^3)^(1/3)`: 
 
 *Proof.* The site pairs lie in a compact set of distinct, separated sites. As in Lemma 1, the joint density of `(grad f(x), grad f(x'), f(x), f(x'))` under `Q_r` is bounded, and conditional `K`-moments are bounded. By Lemma 3, and since `|det H|<=K^d`, the integrand in (3.1) is at most `C r^2`. Integrating the two windows gives `(k r^3)^2`, and dividing by `Z_r` gives `r^6`. This is the `m=2`, `eta=eta_0` estimate of the remote §6, (15)–(16), re-derived here for mixed indices. ∎
 
-**Proof of Corollary D.** Sum Theorem C and Lemma 5 over the finitely many index pairs, and use `|E|<=L^d`. For integers `N>=0`, `1{N>=2} <= N(N-1)/2`. ∎
+**Proof of Corollary D.** Sum Theorem C and Lemma 5 over the finitely many index pairs. This gives `E N(E)(N(E)-1) <= C r^5|E| + C r^6|E|^2`.
 
-**Proof of Corollary E.** For integers `N>=0`, `N - N(N-1)/2 <= 1{N>=1} <= N`. Take expectations and use (A) and (D):
+The second term is absorbed explicitly: `r^6|E|^2 = r^5|E| * (r|E|) <= r_* L^d * r^5|E|`, using `r<=r_*` and `|E|<=L^d`. So `E N(E)(N(E)-1) <= C' r^5|E|`, uniformly in `E`, including sets of tiny volume. For integers `N>=0`, `1{N>=2} <= N(N-1)/2`. ∎
+
+**Proof of Corollary E.** For integers `N>=0`, `N - N(N-1)/2 <= 1{N>=1} <= N`.
+
+Apply this to `N_j(E)`. Since `0<=N_j(E)<=N(E)` and `n -> n(n-1)` is nondecreasing on the nonnegative integers, `N_j(E)(N_j(E)-1) <= N(E)(N(E)-1)`, so (D) for the total count also bounds the index-`j` factorial moment. Take expectations and use (A) and (D):
 
     k r^3 integral_E Lambda_j - C r^4|E| - C r^5|E| <= Q^W{N_j(E)>=1} <= k r^3 integral_E Lambda_j + C r^4|E|.  ∎
 
@@ -235,6 +239,8 @@ The last integral is evaluated exactly by splitting at `delta_0=(k r^3)^(1/3)`: 
 **Established:** the witness-collision region **inside the fixed remote region `D_rho`**, meaning pairs at all separations below `eta_0`, including coincidence limits, at first-order factorial-moment level. Also a **matching lower bound** on the window-event probability, which the remote theorem explicitly did not supply.
 
 **Not established:**
+
+- **A torus-wide second factorial moment, or `math.rn-region.witness-collision` in its full torus-wide sense.** Pairs with either witness in the local, collar or intermediate regions are not estimated here. Corollary F's lower bound is global only because the global event contains the remote event.
 
 - **Pairs with a point near the pins or at intermediate scales.** One or both witnesses in `|x| < rho` would need the collision estimate combined with the #105 and #107 machinery. The remote nondegeneracy of Lemma 1 is not uniform as `rho` tends to 0.
 - **All-height pairs.** Only window pairs are counted.
@@ -269,3 +275,12 @@ None of these treats the pinned, determinant-weighted law `Q_r^W`, and none extr
 - the Bonferroni inequalities for `N<=60`.
 
 Five mutants, altering the Jacobian exponent, the trapezoid constant, a dropped determinant factor, the window factor, and the Bonferroni sign, must fail. These checks do not prove the continuum or Gaussian steps.
+
+## Revision history
+
+- **v1**, `a4d4f74`: initial candidate.
+- **v2**: clarifications from the OpenAI/ChatGPT review [5342280263](https://github.com/d6g8k5htny-coder/Math-/pull/110#pullrequestreview-5342280263) at `a4d4f74`. That review accepts the fixed-remote near-diagonal mechanism, its `O(r^5)` order, and Corollaries E and F at their stated scopes. It is source-exposed on the remote dependency. The clarifications:
+  - Corollary D now states the absorption `r^6|E|^2 <= r_* L^d r^5|E|` explicitly.
+  - Corollary E now states `N_j(N_j-1) <= N(N-1)`.
+  - §1 and §8 now say that this does not close a torus-wide second factorial moment or the torus-wide witness-collision region.
+  - No mathematical change was made.
