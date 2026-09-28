@@ -48,15 +48,32 @@ class HardGateControls(unittest.TestCase):
     def test_lifetime_requires_parent(self):
         deps = m.required_dependencies(self.graph, 'math.lifetime-remainder')
         self.assertEqual(deps, ['math.uniform-matrix-cap-lifetime'])
-        decision = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
+        # Pre-reconciliation fixture: an unreviewed parent must block the dependent.
+        pre = copy.deepcopy(self.graph)
+        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(pre, 'math.lifetime-remainder')
         self.assertFalse(decision['allowed'])
         self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
                             for x in decision['missing_terminal']))
+        # Live graph: the reconciled parent satisfies the edge; the dependent's own
+        # author-side classification still refuses promotion.
+        live = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
+        self.assertEqual(self.graph['nodes']['math.uniform-matrix-cap-lifetime']['classification'],
+                         'PROVED_REVIEWED')
+        self.assertEqual(live['missing_terminal'], [])
+        self.assertFalse(live['allowed'])
 
     def test_side24_requires_parent(self):
-        decision = m.promotion_allowed(self.graph, 'math.side24-coefficient')
+        pre = copy.deepcopy(self.graph)
+        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(pre, 'math.side24-coefficient')
         self.assertFalse(decision['allowed'])
         self.assertIn('math.uniform-matrix-cap-lifetime', decision['required_dependencies'])
+        self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
+                            for x in decision['missing_terminal']))
+        live = m.promotion_allowed(self.graph, 'math.side24-coefficient')
+        self.assertEqual(live['missing_terminal'], [])
+        self.assertFalse(live['allowed'])
 
     def test_fixed_remote_requires_count_interface(self):
         deps = m.transitive_required(self.graph, 'math.rn-fixed-remote-window')

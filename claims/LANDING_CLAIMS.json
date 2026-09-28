@@ -43,7 +43,12 @@
             "kind": "github_issue",
             "repo": "d6g8k5htny-coder/main",
             "number": 63,
-            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63",
+            "comments": [
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965",
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"
+            ],
+            "reconciliation": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md"
           },
           "required_for": "persistence interpretation"
         }
@@ -54,8 +59,8 @@
         "number": 65,
         "url": "https://github.com/d6g8k5htny-coder/main/issues/65"
       },
-      "disposition": "HOLD_WITH_DOMAIN",
-      "disposition_reason": "parent source is now byte-bound in-tree; persistence interpretation remains conditional on open analytic review #63"
+      "disposition": "REVIEWED_SCOPED",
+      "disposition_reason": "Coefficient calculation verified (xAI/Grok C1-C6, main#65); its persistence interpretation as the leading coefficient of the parent Theorem C (eq. 15.2) is reconciled in reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md. Arithmetic enclosure of the stated expression only; no finite-radius band."
     },
     {
       "claim_id": "lifetime-remainder",
@@ -82,7 +87,12 @@
             "kind": "github_issue",
             "repo": "d6g8k5htny-coder/main",
             "number": 63,
-            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63",
+            "comments": [
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965",
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"
+            ],
+            "reconciliation": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md"
           },
           "required_for": "marked Kac-Rice, global elder, regression and parent coefficient interfaces"
         },
@@ -98,7 +108,12 @@
             "kind": "github_issue",
             "repo": "d6g8k5htny-coder/main",
             "number": 63,
-            "url": "https://github.com/d6g8k5htny-coder/main/issues/63"
+            "url": "https://github.com/d6g8k5htny-coder/main/issues/63",
+            "comments": [
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965",
+              "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"
+            ],
+            "reconciliation": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md"
           },
           "required_for": "deterministic sufficient pairing event"
         }
@@ -109,8 +124,8 @@
         "number": 67,
         "url": "https://github.com/d6g8k5htny-coder/main/issues/67"
       },
-      "disposition": "FAIL_CLOSED",
-      "disposition_reason": "all named parent source bytes are now in-tree; theorem remains fail-closed because parent/global elder/Kac-Rice interfaces are still analytically open on #63"
+      "disposition": "REVIEWED_SCOPED",
+      "disposition_reason": "Theorem R accepted at its stated existential O(1)-remainder scope (xAI/Grok R1-R6, main#67); its parent imports (D1-A-E: section 8 comparison, section 9 as replaced by v1.1, section 10, (14.1), (15.2)) are reconciled in reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md. Theorem R does not consume Theorem A's cubic bound (1.1). No numerical constants, radii, second coefficient, or RN/24-jet closure."
     },
     {
       "claim_id": "rn-count-interface",

@@ -115,12 +115,24 @@
     "math.uniform-matrix-cap-lifetime": {
       "layer": "D1",
       "kind": "candidate",
-      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "classification": "PROVED_REVIEWED",
       "controlling": false,
       "review_issue": 63,
-      "fingerprint": "main-63-author-side",
-      "source": "external:main#63",
-      "notes": "Parent Gaussian selection / Kac-Rice / elder chain"
+      "fingerprint": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "notes": "Parent Gaussian selection / Kac-Rice / elder chain. Theorems A, B, C accepted at existential scope, read with ERRATUM_CONGRUENCE.md, the section 9 replacement v1.1 and wording W1.",
+      "review_source": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "review_disposition": "ACCEPT_AT_EXISTENTIAL_SCOPE",
+      "review_providers": [
+        "xAI/Grok via Cursor (D1-A-E, section 9 v1.1, partial slices)",
+        "Anthropic/Claude (A1-A7, cap, section 9 v1.1, sections 11-12)"
+      ],
+      "scope": "fixed d>=2 and L; compact births and positive gap marks for Theorems A and B; all frames; Theorem C leading term only; no numerical C, r_*, z_* or coefficient; no d>=3 lower bound; no RN/24-jet",
+      "reading_rule": [
+        "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+        "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+        "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md#5"
+      ]
     },
     "math.lifetime-remainder": {
       "layer": "D2",
@@ -130,7 +142,11 @@
       "review_issue": 67,
       "fingerprint": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
       "source": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
-      "notes": "Imports named #63 interfaces; not parent collapse"
+      "notes": "Imports named #63 interfaces (D1-A-E); not parent collapse; does not consume Theorem A (1.1)",
+      "review_disposition": "ACCEPT",
+      "review_provider": "xAI/Grok via Cursor",
+      "review_source": "https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841782206",
+      "scope": "Theorem R at its stated existential O(1)-remainder scope; no numerical constants or radii"
     },
     "math.side24-coefficient": {
       "layer": "D3",
@@ -140,7 +156,11 @@
       "review_issue": 65,
       "fingerprint": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
       "source": "coefficients/side24_v1/PROOF.md",
-      "notes": "Evaluates #63 Eq15.2; parent unreviewed"
+      "notes": "Evaluates parent Eq15.2; parent reconciled in reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "review_disposition": "ACCEPT",
+      "review_provider": "xAI/Grok via Cursor",
+      "review_source": "https://github.com/d6g8k5htny-coder/main/issues/65#issuecomment-5841269490",
+      "scope": "coefficient calculation for SIDE24 d=2,3; persistence reading via reconciled parent Theorem C; no finite-radius band"
     },
     "math.rn-count-interface": {
       "layer": "D4",
