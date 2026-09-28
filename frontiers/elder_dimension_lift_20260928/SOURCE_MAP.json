@@ -1,0 +1,42 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "d39dbbc25c25a7bc3f6c15b21f957a7fcac30615",
+  "inputs": [
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "direct_use": "Exact model, original pins/tilt/selector, Sections 2-4 positive spectrum and contact regression; Section 8 generic locus/maximin.",
+      "conditional_corollary_use": "Theorem A upper bound and Sections 9-12 compact-mark density ledger/moments; not required for the new direct lower proof."
+    },
+    {
+      "id": "EL",
+      "path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md",
+      "bytes": 10229,
+      "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c",
+      "git_blob": "aaefc8da9668e819591dd9db0b34442394f2362e",
+      "use": "Unchanged planar cubic/path and lower event; basis of d=2 and credited mechanism, not an assumed d>2 proof."
+    },
+    {
+      "id": "LOCAL",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "bytes": 13100,
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "use": "Planar normal-form and extra-saddle data. Its planar global first-moment upper estimate is NOT imported for d>2."
+    }
+  ],
+  "new_obligations": [
+    "Complete physical-jet covariance floor in every fixed dimension",
+    "Nonlinear raw Schur/shear chart with unit Jacobian and one shrinking coordinate",
+    "Conditional C4 control on raw jets before choosing the spatial shear",
+    "Full-dimensional endpoint Schur bounds and anisotropic saddle persistence"
+  ],
+  "pending_pair_distance_sources_consumed": false,
+  "historical_blocked_code_consumed_or_retried": false,
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false
+}
