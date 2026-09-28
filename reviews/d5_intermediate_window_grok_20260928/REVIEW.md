@@ -1,6 +1,6 @@
 # Grok interface review: D5 intermediate height-window bridge
 
-Object: GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1.
+Object: GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1.1.
 Reviewed object: OA-D5-INTERMEDIATE-WINDOW-20260928-v1.
 Scientific effect: **NONE**. This file does not change `lemma_closed`, prizes,
 premises, `STATUS`, `PROOF_INDEX`, `GRAPH`, or any author source. It records
@@ -18,7 +18,9 @@ does not close the PROOF_INDEX intermediate-scale line.
 
 Provider: xAI Grok. Same GitHub account as every lane; no organizational
 independence is claimed. Distinct from the OpenAI author of the candidate.
-Prior #104/#105 reviews are not inherited.
+Prior #104/#105 reviews are not inherited. Harper and Lucas independently
+re-derived the finite minors and the dyadic sum; their (I11) floor wording
+and (I5) tiling caveats are absorbed below.
 
 ## Verdicts
 
@@ -32,13 +34,13 @@ Prior #104/#105 reviews are not inherited.
 | Euler cubic cancellation; both remainder channels live | **ACCEPT** (finite exact, with the all-height negative control) |
 | Shell / dyadic power ledger | **ACCEPT** (finite exact) |
 | Isolated runner replay vs `RESULTS.json` | **ACCEPT** as hosted-local evidence of the packet, not of the continuum |
-| (I11) conditional floor `Cov_{Q_r}(Y_X) ≥ c s^{10} I_3` | **HOLD** |
+| (I11) conditional floor | **HOLD**; `s^{10} I_3` is a valid conservative minorant, not sharp |
 | (I18) continuum pathwise Euler bound under nine observations | **HOLD** |
 | (I25)/(I30) conditional `C^6` moments | **HOLD** |
 | (I33) Kac–Rice first-moment disintegration | **HOLD** |
 | Shell candidate (I3) | **HOLD** as author-side analytic candidate |
 | Dyadic form (I4) | **HOLD**, same |
-| Global first-moment synthesis (I5) | **HOLD**, dependency-bound on named local and remote sources |
+| Global first-moment synthesis (I5) | **HOLD**, author-side tiling; does not inherit #105+D4 and does not discharge pin-neighborhood AMEND |
 
 ## Finite replay
 
@@ -102,17 +104,26 @@ control for that claim.
 
 ## Why continuum steps stay HOLD
 
-1. **(I11).** The rank-plus-remainder argument is the correct shape: degree-five
-   interpolation stays onto at confluence, the Hermite maps are uniformly
-   bounded on `C^3`, and an `O(s^6)` remainder subtracted from a `s^5` jet
-   floor leaves `Cov(V) ≥ c s^{10}`. The Schur identity then gives the
-   three-dimensional conditional floor. I did not independently re-prove the
-   Fourier-lattice 21-jet PD or the uniform `L^p(Q_r)` remainder.
+1. **(I11), conservative floor.** The rank-plus-remainder argument is the
+   correct shape: degree-five interpolation stays onto at confluence, the
+   Hermite maps are uniformly bounded on `C^3`, and an `O(s^6)` remainder
+   subtracted from a `s^5` jet floor leaves `Cov(V) ≥ c s^{10} I_9` for
+   `V = (S_s U_r, f, s f_x, s f_z)`. After the physical map
+   `Y = (f_x, f_z, f)`, the *sharp* minorant is of the form
+   `c diag(s^8, s^8, s^{10})`, not `c s^{10} I_3`. For `s ≤ 1` one has
+   `s^8 ≥ s^{10}`, so `s^{10} I_3` remains a valid *conservative* floor and
+   the `s^{-15}` density prefactor remains a valid majorant. Do not treat
+   `s^{10} I_3` as sharp. The Mahalanobis factor `exp(-c s^{-1/4})` uses
+   `Var(f_x) ≤ C s^4(v^2+s^2)` from (I23), not this floor. I did not
+   independently re-prove the Fourier-lattice 21-jet PD or the uniform
+   `L^p(Q_r)` remainder.
 2. **(I18).** Polynomial Euler cancellation is exact. The continuum claim is
    that, under the six pins plus `grad f(X) = 0` and `f(X) ∈ I_r`, every
    contribution other than `S_0 s^{2} v^{2}/2` is `O(K(r^{2}s + s^{4}))`.
-   That uses (I12) and a `C^4` remainder. Mechanism accepted; implicit
-   constant and the reduction of `s_0` are not certified here.
+   Algebraically `r^3/s^2 ≤ r^2/s` and `r^2 ≤ r^2/s` for `s ≤ 1`, so the
+   displayed majorant `(r^2/s + s^2)` is the right shape. Mechanism accepted;
+   implicit constant and the reduction of `s_0` are not certified here.
+   False without the actual height window.
 3. **(I25)/(I30).** Crude regression bounds `s^{-60}` and `|v|^{-48}` from
    `||Σ^{-1}||` times a whole-field moment. The exponents are absorbed by
    the Gaussian factors, so they do not threaten the *shape* of (I3). They
@@ -124,11 +135,17 @@ control for that claim.
    compact shell separated from the pins. Not a factorial-moment theorem.
    Truncation / monotone-convergence removal of growth restrictions was not
    re-checked on this packet.
-5. **(I5).** Composition is “local all-height collar + (I4) + fixed-remote
-   height window, one `(Q_r, W_r, Z_r)`”. Strength equals the named sources
-   `reviews/d5_local_collar_20260928/{PUNCTURED_PIN_PROOF,COLLAR_PROOF}.md`
-   and `frontiers/remote_window_20260924/PROOF.md`. Those reviews are not
-   inherited. (I5) stays a candidate corollary, not a closed D5/RN theorem.
+5. **(I5), author-side tiling.** Composition is “local all-height collar +
+   (I4) + fixed-remote height window, one `(Q_r, W_r, Z_r)`”. That is a
+   *candidate synthesis*, not a theorem of this note alone.
+   - Local collar source: all-height on a *fixed* scaled ball `|X| ≤ R r`.
+     Height mismatch is conservative (all-height dominates the window).
+     Spatial tiling requires `R ≥ A_0 = 4` with no uncovered annulus.
+   - Reviewed remote theorem: fixed `ρ`. Section 10's “direct remote check”
+     is a new author-side argument if the reviewed remote inner radius sits
+     above `s_0`. Do not write (I5) as inherited from #105 + D4 alone.
+   - “Torus minus `{M,S}`” removes only the two pins. It does **not**
+     discharge the open pin-neighborhood AMEND.
 
 ## Scope firewall
 
