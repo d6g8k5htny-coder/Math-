@@ -35,7 +35,7 @@ reviewer remark (R1). Integration is a separate act.
 | Interface | Verdict |
 |---|---|
 | (O1)–(O2) Theorem O1: exact colouring on bipartite overlap with arbitrary capacities | **ACCEPT** |
-| (O3)–(O4) Corollary O2: active full blocks are exactly the minimal `K`-obstructions; `χ_D(X) = K+1` | **ACCEPT** |
+| (O3)–(O4) Corollary O2: active full blocks form a cover, and their inclusion-minimal distinct members are exactly the minimal `K`-obstructions (an active block containing another is not minimal; see §2); `χ_D(X) = K+1` | **ACCEPT** |
 | (O5) separate-concavity price-to-hazard transfer | **ACCEPT** |
 | (O6)–(O7) Lemma O3: uniform tail `<= q_5` for all `a >= 1` | **ACCEPT** |
 | (O8)–(O10) two-sided Cauchy–Schwarz and sum | **ACCEPT** |
@@ -161,10 +161,14 @@ enclosures have widths of about `3·10^-47` and `10^-48` and lie strictly inside
 
 **Sharpness of the even tail (T13).** Rigorous bounds with `p_* ∈ (1 - 1/e_lo, 1 - 1/e_hi)` show
 `P(Bin(aK+1, p_*) <= a) < q_9` for every even `a <= 10`, `4 <= K <= 8`, except `(a, K) = (2, 4)`. The general proof
-is the source's: monotonicity in `n` for `a = 2`, and Markov for `a >= 4`. Capacity one gives `q_5 > q_9`, so `ρ_9`
-cannot cover active capacity-one blocks.
+is the source's: monotonicity in `n` for `a = 2`, and Markov for `a >= 4`.
 
-### R1 (reviewer remark, not a source claim): odd capacities `>= 3` are not the obstruction
+Capacity one gives `q_5 > q_9`, so the uniform `q_9` reference bound does not reach active capacity-one blocks. In
+this coarse read-two assembly they need the `h_5` local reference input instead. That is a failure of a
+reference-tail bound, **not** a cover-factor impossibility. For example, a single active capacity-one block is
+read-one, so its load is `1/h_5 = ρ_bip/2 < 0.36508 < ρ_9` by the enclosures (O12) and (T2).
+
+### R1 (reviewer remark, not a source claim): the `q_9` reference tail covers every capacity `>= 2`, odd included
 
 In the **bipartite** class of #118, which allows arbitrary capacities, suppose every **active** block has
 `a_i >= 2`. Then:
@@ -184,9 +188,11 @@ Inactive capacity-one blocks are allowed.
 
 The `tail-a3` mutant, which replaces the direct tail by Markov, fails. ∎
 
-So `ρ_bip` is forced only by **active capacity-one** blocks. When those are present alongside larger ones, #122's
-Theorem 2 already gives the instance-specific load: a coordinate shared by a capacity-one and a capacity-`>=2`
-active block carries `1/h_5 + 1/(-log q_9)`. R1 is offered to the author and changes no source.
+So in this coarse read-two assembly, only **active capacity-one** blocks need the `h_5` reference input, which
+yields the uniform factor `ρ_bip`. No necessity or optimality of `ρ_bip` as a cover factor is claimed. When
+capacity-one blocks sit alongside larger ones, #122's Theorem 2 already gives the instance-specific load: a
+coordinate shared by a capacity-one and a capacity-`>=2` active block carries `1/h_5 + 1/(-log q_9)`. R1 is offered
+to the author and changes no source.
 
 ## §6 — #122 Theorem 2 edge cases
 
@@ -224,3 +230,11 @@ against `SOURCE_FILES.json`, replays both modes and requires every mutant to be 
 ## Revision history
 
 - **v1**, reviewing #118 at `23b7558` and #122 at `245f3d7`: initial packet.
+- **v2**, responding to the OpenAI review
+  [5345318332](https://github.com/d6g8k5htny-coder/Math-/pull/123#pullrequestreview-5345318332). Wording only;
+  no verdict, check or source changes.
+  - The (O3)–(O4) row now says the inclusion-minimal distinct active full blocks are the minimal obstructions, as
+    the source does. The reviewer's `X_0 ⊂ X_1` example is the §2 superset case.
+  - §5 and R1 no longer say `ρ_9` "cannot cover" active capacity-one blocks or that `ρ_bip` is "forced". A failed
+    reference-tail bound is not a cover-factor impossibility; a single active capacity-one block has load
+    `1/h_5 < ρ_9`.
