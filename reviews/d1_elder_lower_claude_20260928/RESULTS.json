@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "G_cubic_critical_data": {
+      "M_hessian_diag_-6k_-k_over_2_max": true,
+      "S_hessian_diag_6k_-5k_over_2_saddle": true,
+      "extra_det_-15_over_2_saddle": true,
+      "extra_height_-7_over_32": true,
+      "extra_norm_sq_39_over_16_lt_4": true,
+      "extra_points_are_critical": true,
+      "floor_45_over_4_from_3_over_2_and_15_over_2": true,
+      "pin_gradients_zero": true,
+      "pins_heights_0_and_minus_k": true,
+      "weight_product_45k4": true
+    },
+    "LED_ledgers": {
+      "box_volume_16_eps4_k4_r": true,
+      "loss_exponent_l_2_3_k_minus_5_3": true,
+      "radial_jacobian_r_dr": true,
+      "tilt_ledger_r_times_r4_over_r2_is_r3": true
+    },
+    "NF_pinned_normal_form": {
+      "F_minus_P_is_O_r_generic_degree6": true,
+      "P_satisfies_all_six_pins_for_arbitrary_jets": true,
+      "target_jets_give_G_k": true
+    },
+    "PATH_elder_obstruction": {
+      "g1_nonincreasing": true,
+      "g3_prime_ge_9_over_64": true,
+      "margin_end_above_quarter": true,
+      "margin_path_above_minus_quarter": true,
+      "path_end_17_over_64": true,
+      "path_in_B3": true,
+      "path_min_-7_over_32": true,
+      "segment_polynomials_E6": true
+    },
+    "TV_multiplicity": {
+      "bernoulli_tv_equals_h_random_exact": true,
+      "counting_inequalities": true
+    }
+  },
+  "passed": true,
+  "scientific_effect": "NONE",
+  "scope": "exact identities only; Gaussian jet-box, conditional C^4 and normalizer steps are argued in REVIEW.md"
+}
