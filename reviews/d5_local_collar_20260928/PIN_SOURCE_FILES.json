@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "review_status": "AUTHOR_SIDE_REVIEW_REQUIRED",
+  "published": false,
+  "extends_commit": "be08396071d43a14fa4f3d6d1cb8bdd4cccaf6d2",
+  "files": [
+    {
+      "path": "PIN_RESULTS.json",
+      "bytes": 288,
+      "sha256": "f8989746e5f811063d32d485108d8c6dbeccc070b365645f9d6a8f4db640ca87",
+      "git_blob": "c8273cae528531837ad9633e67ef460ce76116d8"
+    },
+    {
+      "path": "PUNCTURED_PIN_PROOF.md",
+      "bytes": 23771,
+      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a",
+      "git_blob": "d8acf0bcb9025b1562c03c077c8e0094ae282060"
+    },
+    {
+      "path": "pin_frame.py",
+      "bytes": 3059,
+      "sha256": "e1b286e8463820d26463b6520a5781ad3478eec371e2374d86214029f57ff0b6",
+      "git_blob": "ef5a6c48999fd2deded93afa13ba43873a0c2e72"
+    },
+    {
+      "path": "run_pin_validation.py",
+      "bytes": 5267,
+      "sha256": "264943e03cd2a5106104ee6d1ed673c6ae45c425f58dafad7ce5e4f169b75459",
+      "git_blob": "1b2877e8185db53c6d8be8ac42ec60814a8961c2"
+    },
+    {
+      "path": "test_pin_frame.py",
+      "bytes": 6579,
+      "sha256": "3148c16c9ef806d4c653d89321901ad5270914088492645bcad6822dad445388",
+      "git_blob": "29bee940ef3f1fe5c0520b4a526ae577960dc6f1"
+    }
+  ]
+}
