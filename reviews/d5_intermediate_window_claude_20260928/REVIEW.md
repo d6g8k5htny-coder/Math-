@@ -177,14 +177,17 @@ proves (I3).
 **(I34).** Every partial sum `Σ_{j<=n} 4^{-j}` is below `4/3` (checked exactly for n < 80). With `A_0 >= 4`, every
 shell has `r <= s_j/4`, and the constants of (I3) do not depend on `j`. This proves (I4).
 
-**(I33).** Truncate to `min(W_r F_j(H_X), N) · 1{f(X) ∈ open I}`.
+**(I33).** The Theorem 7.1 mark is `g = min(W_r, N) · 1{H_X ∈ O_j} · 1{f(X) ∈ open I}`, where `O_j` is the open
+set of nonsingular symmetric matrices with `j` negative eigenvalues. The witness determinant is **not** part of the
+mark: Theorem 7.1's Jacobian factor `Δ(X) = |det H_X|` supplies it, and `Δ · 1{H_X ∈ O_j} = F_j(H_X)`. So the witness
+determinant appears exactly once, as in (I33). *(Corrected in v2; see Revision history.)*
 
-- `F_j` is continuous everywhere, since it tends to 0 at singular matrices. The endpoint factors are continuous
-  functionals of the field, and an open-interval indicator is lower semicontinuous. So hypotheses (a)–(b) of
-  arXiv:2304.07424v3 Theorem 7.1 hold, and Remark 8 gives (c).
+- `W_r` is a continuous nonnegative functional of the field (the endpoint determinants and type indicators enter
+  through the continuous `F_d`, `F_(d-1)`). Indicators of the open sets `O_j` and `I` are lower semicontinuous. So
+  `g` satisfies hypotheses (a)–(b) of arXiv:2304.07424v3 Theorem 7.1, and Remark 8 gives (c).
 - On the compact shell, the nondegeneracy of `∇f(X)` required by Theorem 2.1's hypotheses follows from (I11).
 - Monotone convergence in `N` and in the interval, together with the nondegenerate joint density of `(∇f, f)(X)`,
-  gives (I33) with the witness determinant counted once.
+  gives (I33).
 
 **N3 (citation).** Theorem 7.1 is stated under Theorem 2.1. Remark 7 is the Gaussian bridge, as in my D1 §9 note N2.
 
@@ -214,6 +217,16 @@ additional window critical point is at most `C r^3`.
 
 **What it is not.** It is not an all-height count, a factorial moment or collision estimate, elder selection, a
 numerical constant, or uniformity in `T`, `k -> 0` or dimension.
+
+## Revision history
+
+- **v1**, head `5f96246`: initial record.
+- **v2**: responds to the integrator's repair request on Math-#109 (comment 5874648263). Two changes:
+  - The (I33) paragraph's Theorem 7.1 mark is corrected from `min(W_r F_j(H_X), N)`, which would count
+    `|det H_X|` twice once the formula's Jacobian is applied, to `min(W_r, N) 1{H_X ∈ O_j}`.
+  - An unmanifested `__pycache__` binary is removed from the tree.
+- The verdicts are unchanged. #107's own (I33) text uses the witness type/height mark and is correct; the slip was in
+  this review's paraphrase.
 
 ## Checks run
 

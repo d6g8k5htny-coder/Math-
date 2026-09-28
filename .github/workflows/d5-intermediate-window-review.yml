@@ -29,7 +29,12 @@ jobs:
           python -B -S - <<'PY'
           import hashlib, json, pathlib, subprocess, sys
           root = pathlib.Path('reviews/d5_intermediate_window_claude_20260928').resolve()
-          for entry in json.loads((root / 'SOURCE_FILES.json').read_text())['files']:
+          manifest = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
+          present = sorted(p.name for p in root.iterdir())
+          expected_names = sorted([e['path'] for e in manifest] + ['SOURCE_FILES.json'])
+          if present != expected_names:
+              raise ValueError('packet tree differs from manifest: ' + repr(present))
+          for entry in manifest:
               path = root / entry['path']
               if pathlib.PurePosixPath(entry['path']).name != entry['path'] or path.is_symlink():
                   raise ValueError('flat regular source required: ' + entry['path'])
