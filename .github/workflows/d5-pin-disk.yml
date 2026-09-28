@@ -31,7 +31,8 @@ jobs:
           import hashlib, json, pathlib, subprocess, sys
           packages = {
               'reviews/pin_micro_covariance_nonauthor_20260928': (
-                  'cov_exact_check.py', [['--mutant', 'pin-sign'], ['--mutant', 'B-entry'], ['--mutant', 'column-r-power']]),
+                  'cov_exact_check.py', [['--mutant', 'pin-sign'], ['--mutant', 'B-entry'],
+                                         ['--mutant', 'column-r-power'], ['--mutant', 'trace-constant']]),
               'reviews/d5_pin_disk_all_directions_20260928': (
                   'triangle_bounds_probe.py', [['--mutant-noncritical']]),
           }

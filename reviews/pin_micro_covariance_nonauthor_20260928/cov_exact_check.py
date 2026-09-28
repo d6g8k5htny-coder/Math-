@@ -13,7 +13,9 @@ the free jets:
      each monomial r^a s^b Q^c also has a >= c-1, so the O(h) bound holds
      uniformly on the whole pin chart |rP|, |rQ| <= 1/4;
   5. the deterministic mean is exactly 6kP(rP-1) in G_r1 and 0 in G_r2;
-  6. the rational constants in the Cauchy-Binet and trace bounds.
+  6. the rational constants in the Cauchy-Binet bound, and the trace bound
+     tr(B_r B_r^T) <= (25/16) h^2 on |rP| <= 1/4, proved from an exact trace
+     identity plus endpoint and monotonicity checks.
 
 Not a continuum proof: the Gaussian Schur-complement floor, the Taylor
 remainder and the density bound are argued in REVIEW.md, not checked here.
@@ -205,9 +207,27 @@ def check(mutant=None):
     require(lo_2rp1 * lo_rp1 ** 2 / 24 == F(3, 256), "m_TR floor constant")
     c0 = min(F(1, 16), F(3, 256) ** 2) / 2
     require(c0 == F(9, 131072), "Cauchy-Binet floor c0")
-    # trace: a^2 <= (3/4)^2 Q^2, Q^2, e^2 <= (1/4)^2(5/4)^2/4... bounded by C0 h^2
-    C0 = max(1 + F(3, 4) ** 2, F(3, 2) ** 2 * F(5, 4) ** 2 / 144 + F(5, 4) ** 2 / 4)
-    require(C0 == F(25, 16), "trace constant C0")
+    C0 = F(25, 16) if mutant != "trace-constant" else F(3, 2)
+
+    # Trace bound tr(B_r B_r^T) <= C0 h^2, h^2 = Q^2 + (rP)^2, for |rP| <= 1/4.
+    # Exact identity: tr = Q^2 f1(s) + s^2 f2(s) with s = rP,
+    #   f1(s) = (s-1/2)^2 + 1,  f2(s) = ((2s-1)(s-1))^2/144 + (s-1)^2/4.
+    s = r * P
+    trace = sum((e * e for row_ in B for e in row_), Poly())
+    f1 = (s - F(1, 2)) ** 2 + 1
+    g_ = (2 * s - 1) * (s - 1)
+    f2 = g_ ** 2 * F(1, 144) + (s - 1) ** 2 * F(1, 4)
+    require((trace - (Q ** 2 * f1 + s ** 2 * f2)).is_zero(), "trace identity")
+    lo, hi = F(-1, 4), F(1, 4)
+    # f1 convex => max at an endpoint.
+    f1v = lambda x: (x - F(1, 2)) ** 2 + 1
+    require(max(f1v(lo), f1v(hi)) <= C0, "trace bound: Q^2 coefficient")
+    # g(s)=2s^2-3s+1 has g'(s)=4s-3<0 on the interval and g(hi)>0, so 0<g<=g(lo);
+    # (s-1)^2 <= (lo-1)^2 there as well.
+    gv = lambda x: (2 * x - 1) * (x - 1)
+    require(4 * hi - 3 < 0 and gv(hi) > 0, "g decreasing and positive")
+    f2max = gv(lo) ** 2 / 144 + (lo - 1) ** 2 / 4
+    require(f2max <= C0, "trace bound: s^2 coefficient")
     smin2 = c0 / C0
     return {
         "B_r_entries_verified": 6,
@@ -218,6 +238,7 @@ def check(mutant=None):
         "longitudinal_mean": "6kP(rP-1) exact in the degree-four model",
         "cauchy_binet_c0": str(c0),
         "trace_C0": str(C0),
+        "trace_bound_proved_on_abs_rP_le_quarter": True,
         "sigma_min_squared_over_h2_floor": str(smin2),
         "scope": "exact polynomial identities only; Gaussian Schur floor, remainder and density are argued in REVIEW.md",
         "scientific_effect": "NONE",
@@ -227,7 +248,7 @@ def check(mutant=None):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mutant", choices=["pin-sign", "B-entry", "column-r-power"])
+    ap.add_argument("--mutant", choices=["pin-sign", "B-entry", "column-r-power", "trace-constant"])
     args = ap.parse_args(argv)
     try:
         out = check(args.mutant)

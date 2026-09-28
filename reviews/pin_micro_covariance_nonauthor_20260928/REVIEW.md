@@ -31,7 +31,7 @@ Scientific effect: **NONE**. This file does not change `lemma_closed`, prizes, p
 | 3. Uniform residual Schur covariance | **CONFIRMED** by the reviewed lattice-positivity argument, extended to all jets of order ≤ 4. |
 | 4. Taylor remainder o(h), uniform across Q=0 and P=0 | **CONFIRMED with an explicit rate O(r h).** |
 | 5. Mean/density coercivity (4.1), (4.2) | **CONFIRMED.** |
-| Extension | (3.1)–(4.2) hold on the **whole pin chart** `|rP|,|rQ|<=1/4`, i.e. `|X-M|<=r/4`, not only on bounded (P,Q). |
+| Extension | (3.1)–(4.2) hold on the **whole pin chart**: the square `|rP|,|rQ|<=1/4`, which contains the disk `|X-M|<=r/4`, not only on bounded (P,Q). |
 
 ### 1. Pin solution and B_r
 
@@ -112,11 +112,12 @@ The note restricts to `|P|,|Q|<=K`. Rewrite each random column as a polynomial i
   unbounded.
 - Items 2–5 above used only `|rP|<=1/4` and `r rho <= 1/(2 sqrt 2)`.
 
-Hence (3.1), (4.1) and (4.2) hold on the whole pin chart. In physical dimensionless coordinates
+Hence (3.1), (4.1) and (4.2) hold on the whole pin chart, the square `|p|,|q|<=1/4`. That square contains
+the disk `p^2+q^2<=1/16` (`|X-M|<=r/4`), which is what the pin-disk note uses. In physical dimensionless coordinates
 `p=rP`, `q=rQ` this reads:
 
 ```
-p_{grad f(X)|pins}(0) <= C r^-3 (q^2+r^2p^2)^-1 exp(-c p^2/(q^2+r^2p^2)),   p^2+q^2<=1/16.
+p_{grad f(X)|pins}(0) <= C r^-3 (q^2+r^2p^2)^-1 exp(-c p^2/(q^2+r^2p^2)),   |p|,|q|<=1/4.
 ```
 
 On the transverse cone `|p|<=|q|` this is the premise `C_p/(r^3q^2)` assumed in
@@ -130,7 +131,12 @@ python -B -O -S cov_exact_check.py     # rc 0, byte-identical output = RESULTS.j
 python -B -S cov_exact_check.py --mutant pin-sign        # rc 1
 python -B -S cov_exact_check.py --mutant B-entry         # rc 1
 python -B -S cov_exact_check.py --mutant column-r-power  # rc 1
+python -B -S cov_exact_check.py --mutant trace-constant  # rc 1
 ```
+
+The trace bound `tr(B_rB_r^T) <= (25/16)h^2` is proved by the script, not only its constant. It checks an
+exact trace identity `tr = Q^2 f1(rP) + (rP)^2 f2(rP)`, then bounds `f1` and `f2` on `|rP|<=1/4` by
+convexity and monotonicity checks.
 
 These are exact polynomial identities, not a continuum or Gaussian proof. Items 3–5 rest on the written
 argument above.

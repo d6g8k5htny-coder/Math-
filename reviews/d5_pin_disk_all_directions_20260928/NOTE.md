@@ -68,10 +68,25 @@ Assume, uniformly over the marks and all admissible `(P,Q)`:
 
 - **(H1)** `p_{grad f(X)|pins}(0) <= C r^-5 h^-2 exp(-c P^2/h^2)` on `D_M`. This is the covariance
   note's (4.2); the companion review confirms it on the whole pin chart.
-- **(H2)** `Z_r >= c_Z r^2`.
+- **(H2)** `Z_r >= c_Z r^2`. This is PR28's (5) (`frontiers/rn_annulus_bridge_20260925/PROOF.md`,
+  blob `6f317515…`), accepted as R5 in the xAI nonauthor review. It uses the same `Q_r`, `W_r=F_2(H_M)F_1(H_S)`
+  and `Z_r`.
 - **(H3)** `E_{Q_r}[L^6 + L^3 N^3 | grad f(X)=0] <= C (1+|P|/h)^m` for a fixed m. Here L is the Hessian
   Lipschitz constant on triangle MSX and `N=max(||H_M||,||H_S||,||H_X||)`.
-- **(H4)** The determinant-weighted Kac–Rice identity is valid.
+- **(H4)** The determinant-weighted Kac–Rice identity is valid. The route is PR28's (accepted as R6),
+  applying Armentano–Azaïs–León (arXiv:2304.07424v3, Theorems 2.2 and 7.1, Remark 8) to `grad f` under the
+  **Gaussian** law `Q_r`. The hypotheses, named:
+  1. under `Q_r` the paths are a.s. C^∞ with finite moments of every derivative sup ((A5));
+  2. for every `X` in `D_M \ {M}`, `grad f(X)` has a nondegenerate Gaussian law under `Q_r` (companion
+     review (3.1), whole chart), and the regression coefficients are continuous in X;
+  3. the mark `W_r` times the indicator of a nonsingular witness Hessian of index j is lower
+     semicontinuous in the jointly Gaussian vector `(H_M, H_S, H_X)`, since the index sets are open and
+     the determinant factors vanish on singular matrices;
+  4. unbounded marks are truncated (`W_r ∧ n`) and restored by monotone convergence;
+  5. the puncture is handled by exhausting `D_M ∩ {|X-M|>=eps}`, eps ↓ 0, by monotone convergence.
+
+  The expectation is taken under `Q_r` and then divided by the original `Z_r`. The tilted `Q_r^W` is never
+  treated as Gaussian.
 
 Then
 
@@ -80,8 +95,17 @@ E_W[#critical points in D_M \ {M}]          = O(r^3),
 E_W[#critical points in {rho<=K} \ {M}]     = O(r^5),
 ```
 
-in every approach direction, including the axis `Q -> 0`. Under the reflection `x -> -x`, the pin data
-keep the same form with `k -> -k`, and only `|k|` is used. So the disk around S obeys the same bound.
+in every approach direction, including the axis `Q -> 0`. The same bounds hold on the disk `D_S` around S.
+
+**The S-disk, with the original typed tilt.** The endpoint types enter the proof in only two places:
+
+- the bound `W_r |det H_X| <= Pi` (the type indicator is at most 1);
+- the **original** normalizer `Z_r` of `W_r=F_2(H_M)F_1(H_S)`.
+
+The reflection `x -> -x` maps `(M,S)` to `(S,M)` and the heights to `(b-kr^3, b)`, so `k -> -k`. It turns
+`W_r` into `F_1(H_{M'})F_2(H_{S'})`, but `Pi` and `Z_r` are unchanged. The covariance lemma (3.1)–(4.2) and
+(H3) are statements about the Gaussian law `Q_r` alone and use only `|k|`. So the proof below, run with
+`A=S` and the original `W_r` and `Z_r`, bounds `D_S` directly. No reversed-type normalizer is used.
 
 *Proof.* The Kac–Rice intensity satisfies `iota(X) <= p(0) E[Pi | grad f(X)=0] / Z_r`. Physical area is
 `r^4 dP dQ`.
@@ -133,12 +157,12 @@ This is bounded, with no singularity at `P -> 0` or `Q -> 0`.
   So the mean is `O(1+|P|/h)`, and (H3) holds with m=6. On the transverse cone `|P|<=|Q|` this is
   #103's constant `C_6`.
 
-**(H2).** Given the pins, `det H_M det H_S = -36k^2r^2 S0^2 + O_{L^2}(r^3)`, and the types fix
-`sign S0`. The conditional law of `S0=f_zz(M)` has variance bounded below (companion review, item 3).
-So `E[S0^2 1_{sign}] >= c`, and `Z_r >= c k_-^2 r^2`.
+**(H2).** Proved in PR28 (5) and accepted as R5; see §3. For orientation: given the pins,
+`det H_M det H_S = -36k^2r^2 S0^2 + O_{L^2}(r^3)`, and the types fix `sign S0`.
 
 **Guardrail.** With an unscaled O(1) height gap instead of `k r^3`, the pins force
-`E[f_xxx|.] ~ gap/r^3`, and both (H2) and (H3) fail.
+`E[f_xxx|.] ~ gap/r^3`. The uniform mean/moment argument for (H3) then fails. This does not by itself
+refute a lower bound of type (H2).
 
 ## 5. What this changes (and what it does not)
 
@@ -147,8 +171,11 @@ So `E[S0^2 1_{sign}] >= c`, and `Z_r >= c k_-^2 r^2`.
   (H1) supplies `exp(-c/(2r^2))`, and (T3) removes the `Q^-4` singularity.
 - #103 §5 premises: the density is now reviewed author-side (companion review, whole chart); `C_6` and
   the normalizer floor reduce to §4.
-- The all-height `O(r^3)` pin-neighbourhood count reduces to (H4) and the §4 sketches. It is **not**
-  declared proved, and D5 is not closed.
+- The all-height `O(r^3)` pin-neighbourhood count reduces to the §4 (H3) sketch, with (H2) and (H4) taken
+  from PR28's accepted R5 and R6. It is **not** declared proved, and D5 is not closed.
+- The collar between these disks and PR28's annulus is not covered here. The OpenAI lane has announced a
+  compact-collar candidate on #104. A Claude exact-algebra check of the degree-five midpoint frame will be
+  offered in its review rather than published as a competing candidate.
 - Item 1 (the singular 9-pin Gram) becomes moot for this route, which uses the 6-pin law plus one
   witness gradient.
 
@@ -170,9 +197,10 @@ violates all three bounds by more than 10^6, and exits 1. These are finite contr
 
 ## 7. Not established here
 
-- (H4) Kac–Rice validity.
-- A written proof of the §4 sketches.
-- The collar from `D_M` to the reviewed fixed annulus, and intermediate distances outside `D_M ∪ D_S`.
+- A written proof of the §4 (H3) sketch.
+- Whether PR28's R6 argument transfers to `D_M \ {M}` as stated in (H4).
+- The collar between `D_M ∪ D_S` and PR28's annulus (see §5). Intermediate physical distances beyond the
+  fixed annulus are not covered.
 - Multiple-witness collisions, elder selection, and any `k -> 0` uniformity.
 
 Requested nonauthor review:
@@ -180,4 +208,4 @@ Requested nonauthor review:
 1. (T2)/(T3) constants.
 2. The Region III intensity bound.
 3. The §4 regression-mean argument.
-4. Whether (H4) holds for the typed tilt.
+4. The transfer of PR28 R6 to `D_M \ {M}`.
