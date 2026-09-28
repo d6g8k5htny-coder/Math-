@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "EU_euler_identity": {
+      "euler_cubic_terms_cancel": true,
+      "euler_remainder_is_sum_(3-j)P_j": true
+    },
+    "EX_TR_pinned_expansion_and_transverse_block": {
+      "B_entries_are_O_of_v": true,
+      "I12_orders_in_r": {
+        "f0_minus_bbar": true,
+        "fx0_plus_3kr2_over_2": true,
+        "fxx0": true,
+        "fxxx0_minus_12k": true,
+        "fxz0": true,
+        "fz0_plus_r2T3_over_8": true
+      },
+      "Z_has_no_negative_power_of_s": true,
+      "Z_s^0_part_equals_mean_plus_BJ": true,
+      "cauchy_binet_det_BBt": true,
+      "minor_C3_D3_S0_is_v^6_over_24": true,
+      "physical_jacobian_s^6": true,
+      "six_pins_hold_exactly": true
+    },
+    "H_hermite_uniform_remainder": {
+      "H3_is_positive_kernel_average_of_g3": true,
+      "d0_d1_are_averages": true,
+      "hermite_coefficients_have_no_inverse_powers_of_a": true,
+      "hermite_reproduces_cubics": true
+    },
+    "LG_ledgers": {
+      "I18_I21_order_comparisons_exact_random": true,
+      "I21_ledger": true,
+      "I31_ledger": true,
+      "I32_shell_bound_gap_is_square": true,
+      "I34_geometric_sums_below_4_over_3": true
+    },
+    "RK_confluent_rank": {
+      "degree_five_kernel_rank_three_on_axis": true,
+      "degree_four_kernel_rank_drops_on_axis": true,
+      "families_annihilate_contact_functionals": true,
+      "witness_minor_v_eq_0_is_u^10": true,
+      "witness_minor_v_ne_0_is_-v^6": true
+    }
+  },
+  "passed": true,
+  "scientific_effect": "NONE",
+  "scope": "exact identities only; covariance floors, Gaussian moments and Kac-Rice are argued in REVIEW.md"
+}
