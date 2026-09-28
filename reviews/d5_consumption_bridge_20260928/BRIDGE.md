@@ -110,14 +110,21 @@ continuum review. They are not Gaussian theorems.
 
     det(BB^T) = u^2 v^4 + v^6/4 = v^4(4u^2+v^2)/4.
 
-Nonnegative, and positive for `(u,v) \ne 0`.
+Nonnegative, and positive exactly when `v != 0`. It vanishes on the entire
+axis `v = 0`, including `(u,v) = (1,0)`. The collar source treats that axis
+separately; its reduced B-frame estimate is used only away from it.
 
 ### L2. Overlap integral
+
+For `k > 0` and `t != 0`, the finite identity is
 
     ∫_0^∞ s (k − s^3 |t|)_+ ds = (3/10) k^{5/3} |t|^{-2/3}.
 
 Direct antiderivative on `s \le (k/|t|)^{1/3}`:
 `k s_*^2/2 − |t| s_*^5/5` with `s_*^3 = k/|t|`.
+
+At `t = 0`, `k > 0`, the integral diverges; no finite value at that point is
+asserted by the displayed formula.
 
 ### L3. Pinned cubic and path
 
