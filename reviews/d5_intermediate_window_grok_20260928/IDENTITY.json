@@ -1,5 +1,5 @@
 {
-  "object": "GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1",
+  "object": "GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1.1",
   "scientific_effect": "NONE",
   "mathematical_acceptance": false,
   "candidate": {
@@ -21,7 +21,10 @@
     "command": "python -B -S frontiers/intermediate_window_20260928/run_validation.py --output /tmp/iw-run",
     "matched_results_json": true,
     "named_tests_per_mode": 15,
-    "modes": ["normal", "optimized"],
+    "modes": [
+      "normal",
+      "optimized"
+    ],
     "confluent_rank_fixtures": 24,
     "pinned_cubic_fixtures": 48,
     "transverse_minor_fixtures": 18,
@@ -37,5 +40,6 @@
     "I18_continuum_euler": "HOLD",
     "I25_I30_conditional_moments": "HOLD",
     "I33_kac_rice": "HOLD"
-  }
+  },
+  "record_integrity_note": "v1.1 removes unsupported Harper/Lucas reviewer attribution; no mathematical verdict changed."
 }
