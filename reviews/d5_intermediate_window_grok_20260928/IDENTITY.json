@@ -1,0 +1,45 @@
+{
+  "object": "GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1.1",
+  "scientific_effect": "NONE",
+  "mathematical_acceptance": false,
+  "candidate": {
+    "id": "OA-D5-INTERMEDIATE-WINDOW-20260928-v1",
+    "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/107",
+    "head": "742e72e427cd98e529af4d86b3917b1c7f144f01",
+    "proof_path": "frontiers/intermediate_window_20260928/PROOF.md",
+    "proof_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+    "proof_bytes": 27775,
+    "proof_sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf"
+  },
+  "reviewer": {
+    "provider": "xAI Grok",
+    "github_account": "d6g8k5htny-coder",
+    "organizational_independence": false,
+    "author_provider_distinct": true
+  },
+  "finite_replay": {
+    "command": "python -B -S frontiers/intermediate_window_20260928/run_validation.py --output /tmp/iw-run",
+    "matched_results_json": true,
+    "named_tests_per_mode": 15,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "confluent_rank_fixtures": 24,
+    "pinned_cubic_fixtures": 48,
+    "transverse_minor_fixtures": 18,
+    "distinct_mutants": 10,
+    "continuum_verified": false
+  },
+  "verdicts": {
+    "finite_identities": "ACCEPT",
+    "I3_shell_candidate": "HOLD",
+    "I4_dyadic": "HOLD",
+    "I5_global_first_moment": "HOLD",
+    "I11_conditional_floor": "HOLD",
+    "I18_continuum_euler": "HOLD",
+    "I25_I30_conditional_moments": "HOLD",
+    "I33_kac_rice": "HOLD"
+  },
+  "record_integrity_note": "v1.1 removes unsupported Harper/Lucas reviewer attribution; no mathematical verdict changed."
+}
