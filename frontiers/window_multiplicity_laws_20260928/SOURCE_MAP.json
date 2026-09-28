@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "meaning": "Exact source identification is not theorem acceptance. Hosted default replay verifies consumed bytes; local packet-only replay does not.",
+  "sources": [
+    {
+      "id": "RM",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "consumed_scope": "Exact pins; positive Fourier spectrum; conditional moments; full normalizer; pointwise pre-height kernel; fixed-distance multi-witness density."
+    },
+    {
+      "id": "RC",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "consumed_scope": "Pair Kac-Rice; collision covariance floor; conditional moments; fixed-remote O(r^5) factorial bound."
+    },
+    {
+      "id": "IW",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "bytes": 27775,
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "git_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+      "consumed_scope": "Planar global HEIGHT-WINDOW first moment (I5), only for the upper bound in the local multiplicity theorem."
+    },
+    {
+      "id": "LP",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed_scope": "Exact ordinary elder-selector definition; upper half only of E4/E11 and the weighted radial density identity E9-E10. The direct lower E2 does not consume the parent upper theorem."
+    },
+    {
+      "id": "SL",
+      "role": "context_only_not_consumed",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "8ab9498c3162db5f673607607582958e1468fae6",
+      "path": "frontiers/remote_singleton_law_20260928/PROOF.md",
+      "bytes": 13112,
+      "sha256": "f5bbdb0923f5dcdeeb21de7c624a08afe71ebd8c0b8c09e67152359ff544615a",
+      "git_blob": "2b01956978d7f1d917e929a955f2588263a87426",
+      "consumed_scope": "Parallel OpenAI candidate #115; generic mixture identities are independently displayed here. No independent acceptance is inherited."
+    }
+  ]
+}

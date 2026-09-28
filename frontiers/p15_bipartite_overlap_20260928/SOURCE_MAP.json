@@ -1,0 +1,28 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+  "inputs": [
+    {
+      "path": "frontiers/full_price_20260924/PROOF.md",
+      "git_blob": "582180e41dca0ad815ad0f18574df42040912149",
+      "use": "Separate-concavity hazard lemma rederived; disjoint-block global step explicitly NOT extended by independence."
+    },
+    {
+      "path": "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md",
+      "git_blob": "173881916ccd0e738bdb41279e835e78e520fcbc",
+      "use": "Generator-cover terminology and realized capacity family; the new overlap coloring proof is direct, with no imported macro-clutter or assumed local P15-B premise."
+    }
+  ],
+  "external_facts": [
+    "Hall matching theorem",
+    "classical bipartite multigraph edge coloring",
+    "separate coordinatewise concavity",
+    "Cauchy-Schwarz",
+    "Euler orientation of even-degree multigraphs",
+    "relative entropy chain rule and log-sum inequality"
+  ],
+  "governing_status_changed": false,
+  "nonauthor_acceptance": false,
+  "blocked_other_packet_republished": false
+}

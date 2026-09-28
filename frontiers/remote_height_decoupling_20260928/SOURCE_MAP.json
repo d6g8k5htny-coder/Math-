@@ -1,0 +1,27 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "inputs": [
+    {
+      "commit": "4b2aa45b2f995fc27c16ec37cccb081821eda74c",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Sections 2-5: same-r height regression, extra-conditioned moments, filtered determinant Lipschitz inequality, full normalizer, pre-height mean kernel and its positive contact limit."
+    },
+    {
+      "commit": "4b2aa45b2f995fc27c16ec37cccb081821eda74c",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "use": "Corollary D: fixed-remote all-index factorial moment O(r^5)|E|."
+    },
+    {
+      "commit": "0507e3a1dbd3dede84cbeb805947c70aa16ebc36",
+      "path": "frontiers/window_multiplicity_laws_20260928/HEIGHT_MARKS.md",
+      "git_blob": "015d769675d9a2cf191286979d3b8c877cd91bdc",
+      "use": "Comparison and attribution only: prior O(r) target is the limiting contact profile, not the new finite-r marginal. Its blocked code is not consumed."
+    }
+  ],
+  "new_analytic_obligation": "Uniform Lipschitz height density via homogeneous endpoint regression directions.",
+  "nonauthor_acceptance": false,
+  "global_extension_claimed": false
+}
