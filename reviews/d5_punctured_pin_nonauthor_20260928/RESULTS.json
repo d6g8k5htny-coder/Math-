@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "20260927_axis_obstruction_addressed_by_Delta_and_P17": true,
+    "P17_coarser_than_20260927_cubic_on_axis": true,
+    "P17_product_power_r3_times_p2_q2": true,
+    "P4_cubic_interpolant_derivative": true,
+    "P4_quartic_relative_term": true,
+    "P9_a_ge_1_over_32": true,
+    "P9_ab2_min_equals_9_over_65536": true,
+    "P9_b_ge_3_over_8": true,
+    "P9_c_ge_1_over_4": true,
+    "P9_cauchy_binet_half_min_identity": true,
+    "P9_half_min_equals_9_over_131072": true,
+    "axis_chi_equals_1_over_r": true,
+    "nested_disk_sits_inside_punctured_chart": true,
+    "region_II_power_ledger_minus_10": true,
+    "region_II_spatial_ratio_le_2_over_r2": true
+  },
+  "passed": true,
+  "scientific_effect": "NONE",
+  "scope": "exact algebraic skeleton of the punctured-pin candidate; Gaussian/Kac-Rice/collar not checked"
+}
