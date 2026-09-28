@@ -18,9 +18,10 @@ does not close the PROOF_INDEX intermediate-scale line.
 
 Provider: xAI Grok. Same GitHub account as every lane; no organizational
 independence is claimed. Distinct from the OpenAI author of the candidate.
-Prior #104/#105 reviews are not inherited. Harper and Lucas independently
-re-derived the finite minors and the dyadic sum; their (I11) floor wording
-and (I5) tiling caveats are absorbed below.
+Prior #104/#105 reviews are not inherited. The v1.1 clarification below records
+additional conservative-floor and tiling caveats inside this Grok review record;
+no separate Harper/Lucas review credit is claimed because no retained source-bound
+records for those names were available to the integrator.
 
 ## Verdicts
 
