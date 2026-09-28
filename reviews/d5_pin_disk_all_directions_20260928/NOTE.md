@@ -20,8 +20,9 @@ All paths are in `d6g8k5htny-coder/Math-` at `582c05b4c5a28dca164605313a0ac8bad8
 **Setting.**
 
 - Pins: `M=(-r/2,0)`, `S=(r/2,0)`, `f(M)=b`, `f(S)=b-kr^3`, `grad f(M)=grad f(S)=0`, with b compact and
-  `k_- <= |k| <= k_+`. The pin law is `Q_r`.
-- Weight: `W_r=|det H_M det H_S| 1_{types}` and `Z_r=E_{Q_r}W_r`.
+  `0 < k_- <= k <= k_+` (positive k, exactly as in PR28). The pin law is `Q_r`.
+- Weight: `W_r=F_2(H_M)F_1(H_S)` (M a maximum, S a saddle) and `Z_r=E_{Q_r}W_r`. The normalizer floor (H2)
+  is proved for this weight with `k>0`; negative k never enters the stated setting.
 - Witness chart: `X = M + r(p,q) = M + r^2(P,Q)`.
 - Scales: `rho^2=P^2+Q^2`, `h^2=Q^2+r^2P^2`, physical `d=|X-M|=r^2 rho`,
   `sigma=|sin angle(S-M,X-M)|=|Q|/rho`.
@@ -64,7 +65,7 @@ and v along BA at B (at most `Lr/2`). Only segments AC and AB are used. ∎
 
 ## 3. Proposition (conditional)
 
-Assume, uniformly over the marks and all admissible `(P,Q)`:
+Assume, uniformly over the marks (`b` compact, `0<k_-<=k<=k_+`) and all admissible `(P,Q)`:
 
 - **(H1)** `p_{grad f(X)|pins}(0) <= C r^-5 h^-2 exp(-c P^2/h^2)` on `D_M`. This is the covariance
   note's (4.2); the companion review confirms it on the whole pin chart.
@@ -102,10 +103,15 @@ in every approach direction, including the axis `Q -> 0`. The same bounds hold o
 - the bound `W_r |det H_X| <= Pi` (the type indicator is at most 1);
 - the **original** normalizer `Z_r` of `W_r=F_2(H_M)F_1(H_S)`.
 
-The reflection `x -> -x` maps `(M,S)` to `(S,M)` and the heights to `(b-kr^3, b)`, so `k -> -k`. It turns
-`W_r` into `F_1(H_{M'})F_2(H_{S'})`, but `Pi` and `Z_r` are unchanged. The covariance lemma (3.1)–(4.2) and
-(H3) are statements about the Gaussian law `Q_r` alone and use only `|k|`. So the proof below, run with
-`A=S` and the original `W_r` and `Z_r`, bounds `D_S` directly. No reversed-type normalizer is used.
+The reflection `x -> -x` maps `(M,S)` to `(S,M)` and the heights to `(b-kr^3, b)`, so `k -> -k`. The
+negative value `-k` appears **only inside this relabeling**, as a device for applying the covariance
+lemma (3.1)–(4.2) and (H3) at S. Those are statements about the Gaussian law `Q_r` alone and use only
+`|k|`. The relabeling turns `W_r` into `F_1(H_{M'})F_2(H_{S'})`, but `Pi` and `Z_r` are the same random
+variable and the same number.
+
+`Z_r` is never recomputed for negative k. It is the original normalizer of the original `k>0` law,
+bounded below by (H2). So the proof below, run with `A=S` and the original `W_r` and `Z_r`, bounds `D_S`
+directly. No reversed-type normalizer is used.
 
 *Proof.* The Kac–Rice intensity satisfies `iota(X) <= p(0) E[Pi | grad f(X)=0] / Z_r`. Physical area is
 `r^4 dP dQ`.
