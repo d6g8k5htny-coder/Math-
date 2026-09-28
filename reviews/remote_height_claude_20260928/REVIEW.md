@@ -75,9 +75,10 @@ The `no-endpoint-pins` and `gradient-target` mutants fail these checks.
 **N2 (what (H8) needs).** Cauchy–Schwarz bounds `|∂_z^α Cov(F(z),V_i)|` by `(Var ∂^α F(z) · Var V_i)^{1/2}`. So the
 input is uniformly bounded **variances** of the divided-difference rows, not bounded raw coefficients: the fourth
 row carries `12/r^3`. RM §2 supplies this through `U_r -> U_0` at second order in `L^2`. `Σ_r^{-1}` is uniformly
-bounded on `O(d) × D_ρ` by compactness. The model shows the same effect exactly: the coefficient sup-norm of `g_r - g_0` is
-1.50, 0.091 and 0.0057 at `r = 1/4, 1/16, 1/64`. That is a ratio of about 16 per factor 4, so `g_r -> g_0` at order `r^2` despite the
-`r^{-3}` coefficient.
+bounded on `O(d) × D_ρ` by compactness. The model is consistent with this: the coefficient sup-norm of `g_r - g_0`
+is 1.50, 0.091 and 0.0057 at `r = 1/4, 1/16, 1/64`, a ratio of about 16 per factor 4 despite the `r^{-3}`
+coefficient. Three observed ratios are consistent with `O(r^2)` but do not by themselves prove that asymptotic. The
+proof is RM's analytic argument, which this observation does not replace.
 
 ## §2 — (H10)–(H12): no `1/r` loss in the endpoint columns
 
@@ -170,8 +171,8 @@ uniform randomized selector satisfy the selector bounds.
 
 ## §6 — §7 compatibility and the (H21) barrier
 
-`TV(S_r, π_E ⊗ λ) <= O(r^2) + TV(π_{r,1}, π_E) = O(r)`, and it cannot be better in general, since RM's profile rate is
-`O(r)`. There is no conflict with (H1)–(H3).
+`TV(S_r, π_E ⊗ λ) <= O(r^2) + TV(π_{r,1}, π_E) = O(r)`. The given premises only establish `O(r)` here. No lower
+bound or optimal Gaussian profile rate is claimed. There is no conflict with (H1)–(H3).
 
 The (H21) example was rebuilt exactly at `r = 1/2, 1/3, 1/10, 1/50`:
 
@@ -220,3 +221,8 @@ against `SOURCE_FILES.json`, replays both modes and requires every mutant to be 
 ## Revision history
 
 - **v1**, reviewing head `f3e1658`: initial packet.
+- **v2**, responding to [owner comment 5879827321](https://github.com/d6g8k5htny-coder/Math-/pull/123#issuecomment-5879827321).
+  Wording only; no verdict, check or source changes.
+  - §6 no longer infers from an `O(r)` upper bound that the contact-profile rate "cannot be better". The given
+    premises establish only `O(r)`, and no lower bound is claimed.
+  - N2 now presents the three finite-rank ratios as consistent with `O(r^2)`, not as a proof of it.
