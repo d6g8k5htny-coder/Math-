@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "object": "D1-CHAIN-RECONCILIATION-20260928-v1",
+  "meaning": "Interface ledger for the D1 parent chain. A review discharges an interface only if its provider is not an author provider and its depth is full.",
+  "author_providers": ["OpenAI"],
+  "sources": {
+    "P": {"path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md", "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2", "bytes": 40261, "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7", "lines": 494},
+    "CAP": {"path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md", "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1", "bytes": 15160, "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc", "lines": 230},
+    "E1": {"path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md", "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0", "bytes": 1782, "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"},
+    "E2": {"path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md", "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a", "bytes": 9062, "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"}
+  },
+  "local_records": {
+    "C1": {"path": "reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md", "git_blob": "bc11369c41ebc76de5700df3f931939ccfc88b9b", "bytes": 24105, "sha256": "b7328d4bab97fa2d12622ca730dc698970febc1ea8bcbc0b24555e69e2a66392"},
+    "G2": {"path": "reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md", "git_blob": "48ea9ad5a3ae5a1515a3533a4c776800547a92bc", "bytes": 4287, "sha256": "a654ea6b52181fa46371c3a2ef9ee17e82f8e365f9de24857526c6dd48154d7e"},
+    "LOWER": {"path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md", "git_blob": "aaefc8da9668e819591dd9db0b34442394f2362e", "bytes": 10229, "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c"},
+    "LOWER_REVIEW": {"path": "reviews/d1_elder_lower_claude_20260928/REVIEW.md", "git_blob": "179c1e6d3d4005b2e406b1bd4d9584caf5465793", "bytes": 16640, "sha256": "53bd5289a2060ce6c906023ed09a5aec457313e782135e1df86e743941839495"},
+    "D2": {"path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md", "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481", "bytes": 17734, "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a"},
+    "D3": {"path": "coefficients/side24_v1/PROOF.md", "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd", "bytes": 10272, "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769"}
+  },
+  "reviews": {
+    "G1": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-ce4bf0bc-0a0b-4cb1-abaf-7c5b8914418c", "locator": "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965"},
+    "C1": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "local_records.C1 and https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"},
+    "G2": {"provider": "xAI", "model": "Grok, Lucas lane", "session": "Math-#112 body (attributed narrative record)", "locator": "local_records.G2"},
+    "G3": {"provider": "xAI", "model": "Grok via Cursor, replay rounds 3-9", "session": "main#163 incoming packet", "locator": "https://github.com/d6g8k5htny-coder/main/tree/main/incoming/grok-session-20260926-replay"},
+    "G4": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-81faa729 and bc-dfbce246", "locator": "https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841270276 and #issuecomment-5841782206"},
+    "C2": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "RECONCILIATION.md section 6"},
+    "O1": {"provider": "OpenAI", "model": "OpenAI technical review", "session": "Math-#106 review 5341593068", "locator": "https://github.com/d6g8k5htny-coder/Math-/pull/106#pullrequestreview-5341593068"}
+  },
+  "interfaces": [
+    {"id": "S1", "source": "P", "lines": [[9, 53]], "component": "statements", "claim": "model, conventions and the statements of Theorems A-C", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A1", "source": "P", "lines": [[54, 68]], "component": "I-normalizer", "claim": "positive Fourier spectrum, finite-jet rank, smooth version", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "A2", "source": "P", "lines": [[69, 114]], "component": "I-normalizer", "claim": "contact frame, |det T_r| = 12 r^-(d+3), uniform covariance gap, density (3.5)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "A4", "source": "P", "lines": [[115, 137]], "component": "I-normalizer", "claim": "(4.1)-(4.3), independent matrix residual, uniform moments", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A3", "source": "P", "lines": [[138, 183]], "component": "I-normalizer", "claim": "(5.1)-(5.5) with erratum E1 and wording W1: type convergence, UI, floor z_*", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "O1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A3-E1", "source": "E1", "lines": "all", "component": "I-normalizer", "claim": "congruence factor D_r = diag(r^-1/2, I)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A5", "source": "P", "lines": [[184, 197]], "component": "II-defect", "claim": "(6.1) canceled-pivot bound, every m", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "A6", "source": "P", "lines": [[198, 211]], "component": "II-defect", "claim": "(6.2) two soft factors including the 3/2 saddle mixed-square term", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G4", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A7", "source": "P", "lines": [[212, 275]], "component": "II-defect", "claim": "(7.1)-(7.8): r^5 numerators, corank strata, m=1 far branch, M4 exception, division by the full floor", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G4", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "CAP", "source": "CAP", "lines": [[1, 168]], "component": "III-elder", "claim": "deterministic separating cap: unique ridge, boundary exits <= s, ridge to a point above b, global maximin level s", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "D1-A", "source": "P", "lines": [[276, 297]], "component": "III-elder", "claim": "pinned genericity, Borel elder event, G_r implies global elder partner S", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "D1-B", "source": "P", "lines": [[298, 309]], "component": "IV-kac-rice", "claim": "Borel marked Kac-Rice interface (read as replaced by E2)", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "D1-B-E2", "source": "E2", "lines": "all", "component": "IV-kac-rice", "claim": "section 9 replacement v1.1, C1-C6", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G2", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "D1-C", "source": "P", "lines": [[310, 336]], "component": "IV-kac-rice", "claim": "radial ledger r A_r dr db dk dsigma, A_r = 12 pi_r Z_r/r^2", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C1", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "S11", "source": "P", "lines": [[337, 364]], "component": "IV-lifetime", "claim": "lifetime pushforward (11.1)-(11.3) and the compact difference (1.2)", "reviews": [{"by": "C2", "verdict": "ACCEPT", "depth": "full"}, {"by": "G4", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "S12", "source": "P", "lines": [[365, 385]], "component": "IV-lifetime", "claim": "cumulative and moment corollaries (12.1)-(12.3)", "reviews": [{"by": "C2", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "D1-D", "source": "P", "lines": [[386, 446]], "component": "IV-lifetime", "claim": "target-growth majorant, k->0 integrability, off-diagonal (14.1), Theorem C assembly", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C2", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "D1-E", "source": "P", "lines": [[447, 481]], "component": "IV-lifetime", "claim": "parity, b-disintegration and the gamma factor in (15.2)", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C2", "verdict": "ACCEPT", "depth": "partial"}]}
+  ],
+  "meta_ranges": {
+    "P": [{"lines": [1, 8], "reason": "object header, no mathematical claim"}, {"lines": [482, 494], "reason": "supplied-interface list, limits and attribution; no mathematical claim"}],
+    "CAP": [{"lines": [169, 230], "reason": "fixed-axis 2D SIDE24 numerical corollary and constant comparison; NOT consumed by P and NOT accepted here"}]
+  },
+  "theorems": {
+    "Theorem A (1.1)": ["S1", "A1", "A2", "A4", "A3", "A3-E1", "A5", "A6", "A7", "CAP", "D1-A"],
+    "Theorem B (1.2)": ["S1", "A1", "A2", "A4", "A3", "A3-E1", "A5", "A6", "A7", "CAP", "D1-A", "D1-B", "D1-B-E2", "D1-C", "S11"],
+    "Theorem C (1.3)": ["S1", "A1", "A2", "A4", "A3", "A3-E1", "A5", "A6", "A7", "CAP", "D1-A", "D1-B", "D1-B-E2", "D1-C", "D1-D", "D1-E"],
+    "Section 12 corollaries": ["S11", "S12", "D1-D", "D1-E"]
+  },
+  "residual_items": [
+    {"id": "R-A3-congruence", "raised_in": "main#63 5841947606; G3 A3_TYPE_CONVERGENCE C1", "discharged_by": ["A3-E1"], "status": "DISCHARGED"},
+    {"id": "R-A3-UI", "raised_in": "G3 A3_TYPE_CONVERGENCE C4", "discharged_by": ["A3"], "status": "DISCHARGED"},
+    {"id": "R-A3-type", "raised_in": "G3 A3_TYPE_CONVERGENCE", "discharged_by": ["A3"], "status": "DISCHARGED"},
+    {"id": "R-A3-floor", "raised_in": "G3 A3_TYPE_CONVERGENCE C3", "discharged_by": ["A3"], "status": "DISCHARGED"},
+    {"id": "R-A3-AM-A0", "raised_in": "G3 A_M_TO_A0", "discharged_by": ["A3", "A1", "A2"], "status": "DISCHARGED"},
+    {"id": "R-A2-gap", "raised_in": "G3 A2_RESIDUAL_GAP", "discharged_by": ["A2"], "status": "DISCHARGED"},
+    {"id": "R-A5-m2", "raised_in": "G3 D1_INTERFACE_TABLE", "discharged_by": ["A5"], "status": "DISCHARGED"},
+    {"id": "R-A7-r5", "raised_in": "G3 D1_INTERFACE_TABLE; C1 v1 far-branch wording", "discharged_by": ["A7"], "status": "DISCHARGED"},
+    {"id": "R-cap-pairing", "raised_in": "G3 EMBEDDED_CHART_AND_MORSE; CAP_PAIRING_IDENTITIES", "discharged_by": ["CAP", "D1-A"], "status": "DISCHARGED"},
+    {"id": "R-embedding-radius", "raised_in": "G3 EMBEDDED_CHART_AND_MORSE (slogan AMEND)", "discharged_by": ["RECONCILIATION.md section 5"], "status": "DISCHARGED"},
+    {"id": "R-section9-writeup", "raised_in": "Math-PR112 review", "discharged_by": ["D1-B-E2"], "status": "DISCHARGED"},
+    {"id": "R-sections-11-12", "raised_in": "this reconciliation line audit", "discharged_by": ["S11", "S12"], "status": "DISCHARGED"},
+    {"id": "R-W1", "raised_in": "C1 A3 wording", "discharged_by": ["RECONCILIATION.md section 5"], "status": "DISCHARGED"}
+  ],
+  "second_provider_invited": ["A4", "A2 uniform gap", "A5 m>=2", "S11 difference bound", "S12"],
+  "not_consumable": ["numerical C, r_*, z_*, c_{B,K}, c_{d,L}", "(1.2) outside compact marks", "any lower bound for d>=3", "globally uniform O(r^3) over unbounded marks", "RN/24-jet/JETMOD/H3/LPW certificates", "lemma_closed, prizes, unconditional acceptance of the lifetime parent"],
+  "transitions": {
+    "Math-": ["PROOF_INDEX.md D1 to reviewed scoped", "claims/LANDING_CLAIMS.json lifetime-remainder FAIL_CLOSED->REVIEWED_SCOPED", "claims/LANDING_CLAIMS.json side24-coefficient HOLD_WITH_DOMAIN->REVIEWED_SCOPED", "GRAPH.json math.uniform-matrix-cap-lifetime AUTHOR_SIDE_CANDIDATE->PROVED_REVIEWED (controlling false)", "GRAPH.json D2/D3 review_disposition ACCEPT metadata", "GRAPH.json reading-rule components E1, E2, CAP and this record bound as PROVED_REVIEWED source nodes behind required edges from D1 (controlling false)"],
+    "main": ["STATUS.md D1 AMEND/open -> ACCEPT scoped (companion PR)", "formal/GLOSSARY.md D1 row", "museum/shop projections"]
+  }
+}

@@ -8,6 +8,16 @@ import unittest
 import hard_gate as m
 import git_transition_audit as gitaudit
 
+LIVE_GRAPH = Path(__file__).resolve().parent / 'GRAPH.json'
+GRAPH_REL = 'frontiers/downstream_gate_20260925/GRAPH.json'
+D1, D2, D3 = 'math.uniform-matrix-cap-lifetime', 'math.lifetime-remainder', 'math.side24-coefficient'
+D1_COMPONENT_FILES = (
+    'imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md',
+    'reviews/d1_section9_borel_repair_20260925/REPAIR.md',
+    'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md',
+    'reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md',
+)
+
 
 def graph():
     return {'schema_version': 1, 'nodes': {
@@ -139,6 +149,76 @@ class TransitionContract(unittest.TestCase):
             (repo/'GRAPH.json').write_text(json.dumps(g)); run('add', '.'); run('commit', '-qm', 'illegal promotion')
             r = gitaudit.audit(repo, new, run('rev-parse', 'HEAD'), 'GRAPH.json')
             self.assertFalse(r['check_passed']); self.assertEqual(r['controlling_impacted'], ['L'])
+
+    def _live_fixture(self, tmp, graph_obj):
+        """A real Git repository holding the given graph and placeholder bytes at every repository source path."""
+        repo = Path(tmp)
+        def run(*args):
+            return subprocess.run(['git', '-C', tmp, *args], check=True, capture_output=True).stdout.decode().strip()
+        run('init', '-q'); run('config', 'user.name', 'local test'); run('config', 'user.email', 'test@example.invalid')
+        (repo/GRAPH_REL).parent.mkdir(parents=True, exist_ok=True)
+        (repo/GRAPH_REL).write_text(json.dumps(graph_obj))
+        paths = list(D1_COMPONENT_FILES) + ['UNRELATED.md']
+        for node in graph_obj['nodes'].values():
+            src = node.get('source')
+            if src and not src.startswith(('https://', 'http://', 'external:')):
+                paths.append(src + 'README.md' if src.endswith('/') else src)
+        for rel in paths:
+            (repo/rel).parent.mkdir(parents=True, exist_ok=True)
+            if not (repo/rel).exists():
+                (repo/rel).write_text('fixture bytes for ' + rel + '\n')
+        run('add', '.'); run('commit', '-qm', 'baseline')
+        return repo, run
+
+    def test_git_d1_component_change_revalidates_d1_d2_d3(self):
+        live = json.loads(LIVE_GRAPH.read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+            repo, run = self._live_fixture(tmp, live)
+            base = run('rev-parse', 'HEAD')
+            parent = live['nodes'][D1]['source']
+            parent_bytes = (repo/parent).read_bytes()
+            for rel in D1_COMPONENT_FILES:
+                for action in ('edit', 'delete'):
+                    with self.subTest(component=rel, action=action):
+                        run('reset', '-q', '--hard', base)
+                        if action == 'edit':
+                            (repo/rel).write_text('amended bytes\n'); run('add', rel)
+                        else:
+                            run('rm', '-q', rel)
+                        run('commit', '-qm', action + ' ' + rel)
+                        r = gitaudit.audit(repo, base, run('rev-parse', 'HEAD'), GRAPH_REL)
+                        self.assertEqual((repo/parent).read_bytes(), parent_bytes)
+                        self.assertEqual(r['old_sources'][D1], r['new_sources'][D1])
+                        self.assertNotIn(D1, r['changed_nodes'])
+                        for nid in (D1, D2, D3):
+                            self.assertEqual(r['revalidation_proposals'].get(nid), 'REVALIDATION_REQUIRED')
+                        self.assertTrue(r['check_passed']); self.assertFalse(r['promotion_permission'])
+
+    def test_git_unrelated_edit_does_not_revalidate_d1(self):
+        live = json.loads(LIVE_GRAPH.read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+            repo, run = self._live_fixture(tmp, live)
+            base = run('rev-parse', 'HEAD')
+            (repo/'UNRELATED.md').write_text('changed\n'); run('add', '.'); run('commit', '-qm', 'unrelated')
+            r = gitaudit.audit(repo, base, run('rev-parse', 'HEAD'), GRAPH_REL)
+            self.assertEqual((r['changed_nodes'], r['impacted']), ([], []))
+
+    def test_git_pre_repair_graph_misses_component_change(self):
+        # The fault this binding closes: with the components only named in metadata, an erratum edit left D1,
+        # D2 and D3 untouched. Kept as a sensitivity control for the fixture above.
+        live = json.loads(LIVE_GRAPH.read_text())
+        pre = copy.deepcopy(live)
+        comps = {nid for nid, n in pre['nodes'].items() if n.get('component_of') == D1}
+        self.assertEqual(len(comps), len(D1_COMPONENT_FILES))
+        for nid in comps:
+            del pre['nodes'][nid]
+        pre['edges'] = [e for e in pre['edges'] if e['to'] not in comps]
+        with tempfile.TemporaryDirectory() as tmp:
+            repo, run = self._live_fixture(tmp, pre)
+            base = run('rev-parse', 'HEAD')
+            (repo/D1_COMPONENT_FILES[0]).write_text('amended bytes\n'); run('add', '.'); run('commit', '-qm', 'erratum')
+            r = gitaudit.audit(repo, base, run('rev-parse', 'HEAD'), GRAPH_REL)
+            self.assertEqual(r['impacted'], [])
 
     def test_git_requires_immutable_revision(self):
         with self.assertRaises(ValueError): gitaudit.read_snapshot(Path('.'), 'main', 'GRAPH.json')

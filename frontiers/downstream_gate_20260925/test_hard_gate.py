@@ -48,15 +48,72 @@ class HardGateControls(unittest.TestCase):
     def test_lifetime_requires_parent(self):
         deps = m.required_dependencies(self.graph, 'math.lifetime-remainder')
         self.assertEqual(deps, ['math.uniform-matrix-cap-lifetime'])
-        decision = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
+        # Pre-reconciliation fixture: an unreviewed parent must block the dependent.
+        pre = copy.deepcopy(self.graph)
+        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(pre, 'math.lifetime-remainder')
         self.assertFalse(decision['allowed'])
         self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
                             for x in decision['missing_terminal']))
+        # Live graph: the reconciled parent satisfies the edge; the dependent's own
+        # author-side classification still refuses promotion.
+        live = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
+        self.assertEqual(self.graph['nodes']['math.uniform-matrix-cap-lifetime']['classification'],
+                         'PROVED_REVIEWED')
+        self.assertEqual(live['missing_terminal'], [])
+        self.assertFalse(live['allowed'])
+
+    def test_d1_reading_rule_components_bound_and_reviewed(self):
+        # Every mandatory reading-rule component is its own source node, required by D1, so a byte change
+        # in any of them reaches D1, D2 and D3 through reverse impact. Each carries the review its role needs.
+        d1 = 'math.uniform-matrix-cap-lifetime'
+        roles = {
+            'imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md': 'amendment',
+            'reviews/d1_section9_borel_repair_20260925/REPAIR.md': 'amendment',
+            'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md': 'deterministic_support',
+            'reviews/d1_chain_reconciliation_20260928/': 'reading_rule_record',
+        }
+        nodes = self.graph['nodes']
+        author = nodes[d1]['author_provider']
+        components = [c for c in m.required_dependencies(self.graph, d1)]
+        bound = {nodes[c]['source']: c for c in components}
+        self.assertEqual(len(bound), len(components))
+        self.assertEqual(set(bound), set(roles))
+        for path, role in roles.items():
+            node = nodes[bound[path]]
+            self.assertEqual(node['classification'], 'PROVED_REVIEWED')
+            self.assertFalse(node['controlling'])
+            self.assertEqual((node['component_of'], node['component_role']), (d1, role))
+            basis = node['review_basis']
+            if role == 'reading_rule_record':
+                self.assertNotEqual(node['author_provider'], author)
+                self.assertFalse(any(author in (b.get('provider'), b.get('raised_by_provider')) for b in basis))
+                self.assertTrue(node['technical_checks_non_discharge'])
+                self.assertTrue(all(c['provider'] == author for c in node['technical_checks_non_discharge']))
+            else:
+                self.assertEqual(node['author_provider'], author)
+                self.assertTrue(any(b['provider'] != author and b['verdict'] == 'ACCEPT' and b['depth'] == 'full'
+                                    for b in basis))
+        for child in ('math.lifetime-remainder', 'math.side24-coefficient'):
+            self.assertTrue(set(components) <= set(m.transitive_required(self.graph, child)))
+        # An unreviewed component still blocks both dependents.
+        pre = copy.deepcopy(self.graph)
+        pre['nodes'][bound['reviews/d1_section9_borel_repair_20260925/REPAIR.md']]['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(pre, 'math.side24-coefficient')
+        self.assertIn(bound['reviews/d1_section9_borel_repair_20260925/REPAIR.md'],
+                      [x['id'] for x in decision['missing_terminal']])
 
     def test_side24_requires_parent(self):
-        decision = m.promotion_allowed(self.graph, 'math.side24-coefficient')
+        pre = copy.deepcopy(self.graph)
+        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(pre, 'math.side24-coefficient')
         self.assertFalse(decision['allowed'])
         self.assertIn('math.uniform-matrix-cap-lifetime', decision['required_dependencies'])
+        self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
+                            for x in decision['missing_terminal']))
+        live = m.promotion_allowed(self.graph, 'math.side24-coefficient')
+        self.assertEqual(live['missing_terminal'], [])
+        self.assertFalse(live['allowed'])
 
     def test_fixed_remote_requires_count_interface(self):
         deps = m.transitive_required(self.graph, 'math.rn-fixed-remote-window')

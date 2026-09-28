@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "object": "D1-CHAIN-RECONCILIATION-20260928-v1",
+  "effect": "REGISTER_RECONCILIATION",
+  "review_status": "RECONCILIATION_OF_NONAUTHOR_REVIEWS",
+  "reconciled_object": {
+    "parent": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+    "parent_sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+    "reading_rule": [
+      "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "RECONCILIATION.md section 5 (W1, embedding radius)"
+    ],
+    "base_commit": "d39dbbc25c25a7bc3f6c15b21f957a7fcac30615"
+  },
+  "files": [
+    {
+      "path": "RECONCILIATION.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342"
+    },
+    {
+      "path": "LEDGER.json",
+      "bytes": 12545,
+      "sha256": "5d39b07556fd356344b6e5d576acabbcd5e67c6dcc8da0bb26c1bb2cac0c591f",
+      "git_blob": "f6c329fb0f21a6cc2cc690240e86aa0a86114d4e"
+    },
+    {
+      "path": "reconciliation_check.py",
+      "bytes": 23779,
+      "sha256": "c83b7c04217259e8c9bcd5ffda9c4bc259d09fc558a4a6ef78632ae4bd41d814",
+      "git_blob": "c2f413e47feef42d57034685b1f504dd48ed2ed3"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 2387,
+      "sha256": "1d01d2afe9881a4a9ba04c6ba3cb9da6f3284f06a7952ece1a45baeac9f469ca",
+      "git_blob": "e2de6c41e87ce64196dfbe5077ead2f09d87b367"
+    }
+  ]
+}

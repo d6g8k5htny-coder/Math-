@@ -6,7 +6,7 @@
       "hist.rnu_env.py"
     ],
     "illegal_controlling_count": 0,
-    "open_or_author_side_count": 21
+    "open_or_author_side_count": 20
   },
   "d0_ci_unblock": {
     "ci_error": "PROBLEM packet: unexpected files ['DOWNSTREAM_CROSSWALK_20260925.md']",
@@ -107,20 +107,18 @@
       "allowed": false,
       "blocked_absent": [],
       "meaning": "integrity decision only; not theorem acceptance",
-      "missing_terminal": [
-        {
-          "classification": "AUTHOR_SIDE_CANDIDATE",
-          "id": "math.uniform-matrix-cap-lifetime"
-        }
-      ],
+      "missing_terminal": [],
       "node": "math.lifetime-remainder",
       "reasons": [
-        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
-        "required transitive dependency is not satisfied"
+        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "math.uniform-matrix-cap-lifetime"
+        "math.uniform-matrix-cap-lifetime",
+        "math.d1-component.congruence-erratum",
+        "math.d1-component.section9-replacement-v1_1",
+        "math.d1-component.marked-cylinder-cap",
+        "math.d1-component.reconciliation-record"
       ],
       "would_be_controlling": false
     },
@@ -149,20 +147,18 @@
       "allowed": false,
       "blocked_absent": [],
       "meaning": "integrity decision only; not theorem acceptance",
-      "missing_terminal": [
-        {
-          "classification": "AUTHOR_SIDE_CANDIDATE",
-          "id": "math.uniform-matrix-cap-lifetime"
-        }
-      ],
+      "missing_terminal": [],
       "node": "math.side24-coefficient",
       "reasons": [
-        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
-        "required transitive dependency is not satisfied"
+        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "math.uniform-matrix-cap-lifetime"
+        "math.uniform-matrix-cap-lifetime",
+        "math.d1-component.congruence-erratum",
+        "math.d1-component.section9-replacement-v1_1",
+        "math.d1-component.marked-cylinder-cap",
+        "math.d1-component.reconciliation-record"
       ],
       "would_be_controlling": false
     }
