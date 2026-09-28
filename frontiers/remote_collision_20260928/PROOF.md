@@ -54,15 +54,19 @@ For every index `j` and Borel `E` contained in `D_rho`,
 
 The same holds for `N(E)` with `Lambda=sum_j Lambda_j`. In particular, for `E` of positive volume the `Q_r^W`-probability that the remote region contains an additional window critical point is asymptotic to `k r^3 integral_E Lambda`.
 
-### Corollary F (two-sided order on the whole torus; conditional on one pending import)
+### Corollary F (lower bound on the whole torus in every fixed `d`; matching upper bound only for `d=2`, conditional on one pending import)
 
 For all small `r`,
 
     Q_r^W{ some critical point x != M,S has f(x) in I_r } >= c r^3,           (F-)
 
-with `c=k_- inf integral_(D_rho) Lambda>0`.
+with `c=(k_-/2) inf integral_(D_rho) Lambda_j > 0`, for a fixed index `j` (or with `Lambda=sum_j Lambda_j` throughout, applying (E) to the total count). The infimum is over marks and frames. `r_*` may need to be reduced. The factor `1/2` is needed: an asymptotic `A r^3 + O(r^4)` with a possibly negative `O(r^4)` term only licenses constants strictly below `A`.
 
-If the global single-witness first moment (I5) of `frontiers/intermediate_window_20260928` (Math-#107, source still pending integration; its nonauthor review record is merged as `reviews/d5_intermediate_window_claude_20260928/` via Math-#109) is consumed, Markov also gives the matching upper bound `<= C r^3`. The order of this event probability is then exactly `r^3`. The upper half of Corollary F is **conditional** on that import. The lower half (F-) uses only (A) and (D).
+**Upper half, planar only.** For `d=2`, consume the global single-witness first moment (I5) of `frontiers/intermediate_window_20260928`. That source is Math-#107, still pending integration; its nonauthor review record is merged as `reviews/d5_intermediate_window_claude_20260928/` via Math-#109. Markov then gives the matching upper bound `<= C r^3`, so the order of the event probability is exactly `r^3`. This half is **conditional** on that import.
+
+For `d>2` the upper half stays conditional on a dimension-matched global first moment. #107 does not supply one, because (I5) is planar.
+
+The lower half (F-) uses only (A) and (D) and holds in every fixed `d>=2`. Theorem C and Corollaries D and E also keep their fixed-`d` scope.
 
 ## 2. Dependencies
 
@@ -146,8 +150,8 @@ for all `0<r<=r_1`, `0<=delta<=eta_0`, `x` in `D_rho`, unit `e`, frames and mark
 
 1. **Continuity.** Every coordinate of `(U_r, V_delta)` is an integral of a derivative of `f` against a probability kernel that converges to a point mass as `r` or `delta` tends to 0. Here `U_r` is the frame transform of the pins; it is invertible for `r>0`, and its `r=0` limit is the contact jet `U_0` (parent §3). So the joint covariance is a continuous function on the compact set
    `[0,r_1] x [0,eta_0] x D_rho x S^(d-1) x O(d)`.
-2. **Positive definiteness for `delta>0`.** The functionals are, up to an invertible map, the contact jets at `0` together with `(grad f, f)` at two distinct sites `x`, `x'`. Both sites are at distance `>=rho/2` from `0`, and all functionals are distinct.
-3. **Positive definiteness at `delta=0`.** At `x`, the functionals `f`, `grad f`, `H e` and `d_e^3 f` have distinct derivative orders 0, 1, 2 and 3. `H -> He` maps `Sym_d` onto `R^d` for every unit `e` (checked exactly in `collision_exact_check.py`), so the order-2 block has full rank. Together with the contact jets at the distinct site `0`, the positive-Fourier-weight argument makes the covariance positive definite.
+2. **Positive definiteness for `delta>0`.** For `r>0`, `U_r` is an invertible transform of the actual endpoint observations `(f, grad f)` at `M` and `S`. Only at `r=0` is it the contact jet `U_0` at `0`. In both cases the pin functionals are supported within distance `r/2<=rho/4` of `0`, whereas `x` and `x'` are at distance `>=rho/2` from `0`. So the functionals are, up to an invertible map, distinct derivative functionals at distinct sites: `M`, `S` (or `0` at `r=0`), `x` and `x'`.
+3. **Positive definiteness at `delta=0`.** At `x`, the functionals `f`, `grad f`, `H e` and `d_e^3 f` have distinct derivative orders 0, 1, 2 and 3. `H -> He` maps `Sym_d` onto `R^d` for every unit `e` (checked exactly in `collision_exact_check.py`), so the order-2 block has full rank. Together with the pin functionals, which are the endpoint observations at `M`, `S` for `r>0` and the contact jets at `0` for `r=0`, supported at distinct sites, the positive-Fourier-weight argument makes the covariance positive definite.
 4. **Conclusion.** Continuity of `lambda_min` and compactness give the floor. The `Q_r` covariance is the Schur complement on `U_r`, which inherits the floor. The target `v_r` is bounded, so the means are bounded. ∎
 
 **Lemma 2 (conditional moments and density).** For every `p` there is `C_p` such that, for all parameters above, `y` in `I_r` and real `t`,
@@ -232,7 +236,7 @@ Apply this to `N_j(E)`. Since `0<=N_j(E)<=N(E)` and `n -> n(n-1)` is nondecreasi
 
     k r^3 integral_E Lambda_j - C r^4|E| - C r^5|E| <= Q^W{N_j(E)>=1} <= k r^3 integral_E Lambda_j + C r^4|E|.  ∎
 
-**Proof of Corollary F.** The event contains `{N_j(D_rho)>=1}`. By (E), its probability is at least `k r^3 integral_(D_rho) Lambda_j - C r^4`. `Lambda_j` is bounded below and `|D_rho|>0`, so this is at least `c r^3` for small `r`. The upper half is Markov applied to the (I5) first moment, and it is conditional on that import. ∎
+**Proof of Corollary F.** The event contains `{N_j(D_rho)>=1}`. By (E), its probability is at least `k r^3 integral_(D_rho) Lambda_j - C r^4 >= r^3 (2c - C r)`, with `c` as above. After reducing `r_*` so that `C r_* <= c`, this is at least `c r^3`. For `d=2`, the upper half is Markov applied to the (I5) first moment and is conditional on that import. For `d>2` no upper half is claimed. ∎
 
 ## 8. Scope and non-claims
 
@@ -317,3 +321,8 @@ These spell out standard steps; none changes a statement.
   - §1 and §8 now say that this does not close a torus-wide second factorial moment or the torus-wide witness-collision region.
   - No mathematical change was made.
 - **v3**: adds Appendix A, which spells out the continuum steps held in the xAI/Harper review [5342481786](https://github.com/d6g8k5htny-coder/Math-/pull/110#pullrequestreview-5342481786): the Theorem 7.1 hypotheses for the pair process, truncation removal, `L^p` continuity through `delta=0`, and Lemma 2. That review accepts the finite identities, the (3.1) mark and the Lemma 1 mechanism. No statement changes.
+- **v4**: amendments from the OpenAI foreground review ([comment 5876143293](https://github.com/d6g8k5htny-coder/Math-/pull/110#issuecomment-5876143293)):
+  - Corollary F's explicit constant is now `c=(k_-/2) inf integral Lambda_j`, not the infimum itself.
+  - The matching upper half of F is restricted to `d=2`, because #107's (I5) is planar. For `d>2` it remains conditional on an unsupplied dimension-matched first moment.
+  - Lemma 1 step 2 now distinguishes the endpoint observations (for `r>0`) from the contact jet (at `r=0`).
+  - Theorem C, Corollaries D and E, and (F-) are unchanged in scope.

@@ -12,7 +12,9 @@ Read `PROOF.md`. It proves, in the exact model of the reviewed fixed-remote theo
 - **Corollary E.** The probability of an additional remote window critical point is
   `k r^3 integral Lambda + O(r^4)`. This is a matching lower bound that the remote theorem did not supply.
 - **Corollary F.** The torus-wide probability of an additional window critical point is at least
-  `c r^3`. The matching `C r^3` upper bound is conditional on the pending import (I5) (Math-#107/#109).
+  `c r^3` in every fixed `d`, with `c=(k_-/2) inf integral Lambda_j`. For `d=2` only, the matching `C r^3`
+  upper bound is conditional on the pending import (I5) (Math-#107/#109). #107 is planar, so for `d>2`
+  no upper half is claimed.
 
 Finite controls (standard library only):
 
