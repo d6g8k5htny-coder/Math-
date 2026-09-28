@@ -189,7 +189,9 @@ refute a lower bound of type (H2).
 
 `triangle_bounds_probe.py` (standard library) builds random exact-rational cubics with three prescribed
 critical points: an exact null-space solve with an exact criticality check that survives `-O`. L is taken
-from below by direction sampling, so a pass with the lower value is a pass for the true L. There are 1599
+from below by direction sampling. The Hessian norms, L and the ratios are evaluated in floating point, so
+the ratios below are **diagnostic**, not rigorous numerical enclosures. Criticality is exact; the
+inequality margins are not certified. There are 1599
 triangles, 400 of them nearly collinear (sine of the angle `1e-4..1e-1`).
 
 | Check | Max ratio Pi / bound |
