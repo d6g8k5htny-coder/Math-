@@ -99,6 +99,20 @@ class LandingClaimsCheckTests(unittest.TestCase):
         with self.assertRaisesRegex(check.ClaimManifestError, "Work queue"):
             check.validate_manifest(self.manifest(), (self.root / "README.md").read_text())
 
+    def test_closed_queue_record_requires_matching_label(self):
+        manifest = self.manifest()
+        manifest["live_queue"]["required_state"] = "closed"
+        with self.assertRaisesRegex(check.ClaimManifestError, "closed-record label"):
+            check.validate_manifest(manifest, (self.root / "README.md").read_text())
+        landing = (self.root / "README.md").read_text().replace(
+            f"[Work queue]({self.queue_url})",
+            f"[Work queue]({self.queue_url}) {check.CLOSED_QUEUE_LABEL}",
+        )
+        report = check.validate_manifest(manifest, landing)
+        self.assertEqual(report["live_queue"]["required_state"], "closed")
+        with self.assertRaisesRegex(check.ClaimManifestError, "closed-record label"):
+            check.validate_manifest(self.manifest(), landing)
+
     def test_unmanifested_landing_claim_is_rejected(self):
         (self.root / "frontiers" / "b").mkdir()
         (self.root / "frontiers" / "b" / "PROOF.md").write_text("# B\n")

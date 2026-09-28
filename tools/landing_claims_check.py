@@ -112,11 +112,19 @@ def landing_result_paths(text: str) -> set[str]:
     }
 
 
+CLOSED_QUEUE_LABEL = "*(closed downstream record; not a live queue)*"
+
+
 def landing_work_queue(text: str) -> str:
     match = re.search(r"\[Work queue\]\(([^)]+)\)", text)
     if not match:
         raise ClaimManifestError("README has no Work queue link")
     return match.group(1)
+
+
+def landing_queue_marked_closed(text: str) -> bool:
+    match = re.search(r"\[Work queue\]\([^)]+\)[ \t]*(\S.*)?$", text, re.MULTILINE)
+    return bool(match and match.group(1) and match.group(1).startswith(CLOSED_QUEUE_LABEL))
 
 
 def _validate_review(review: dict) -> None:
@@ -230,10 +238,12 @@ def validate_manifest(manifest: dict, landing_text: str) -> dict:
     queue = manifest.get("live_queue")
     if not isinstance(queue, dict):
         raise ClaimManifestError("live_queue object required")
-    if type(queue.get("issue")) is not int or queue.get("required_state") != "open":
-        raise ClaimManifestError("live_queue requires integer issue and required_state=open")
+    if type(queue.get("issue")) is not int or queue.get("required_state") not in {"open", "closed"}:
+        raise ClaimManifestError("live_queue requires integer issue and required_state open or closed")
     if landing_work_queue(landing_text) != queue.get("url"):
         raise ClaimManifestError("README Work queue does not match manifest live_queue")
+    if (queue["required_state"] == "closed") != landing_queue_marked_closed(landing_text):
+        raise ClaimManifestError("README Work queue closed-record label does not match required_state")
     if unresolved_positive:
         raise ClaimManifestError(
             "positive disposition depends on unresolved external source: "
