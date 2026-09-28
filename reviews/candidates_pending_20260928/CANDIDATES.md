@@ -57,7 +57,7 @@ Pending: the contact Gaussian coefficient, extra-conditioned weight limit, overl
 
 Source: `frontiers/window_multiplicity_laws_20260928/REMOTE_DISTANCE_MOMENTS.md` at `0507e3a1dbd3dede84cbeb805947c70aa16ebc36`.
 
-Candidate: ordered-pair distance moments `M_p` scale as `r^{5+p} A_p` for `p<1`, `r^6(A_1+B_1)` at `p=1`, and `r^6 B_p` for `p>1`.
+Candidate: for each fixed moment order `p>=0`, ordered-pair distance moments `M_p` scale as `r^{5+p} A_p` for `0<=p<1`, `r^6(A_1+B_1)` at `p=1`, and `r^6 B_p` for `p>1`.
 
 Pending: radial envelope `C(r^{12} delta^{-8}+r^6)`, equal-height contact kernel, loss of uniform integrability at moment order 1, public tests.
 
