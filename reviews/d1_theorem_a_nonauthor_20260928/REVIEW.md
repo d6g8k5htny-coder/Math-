@@ -44,9 +44,9 @@ already accepted §§8–15. Parent line numbers below refer to the blob above.
 | A2 | §3 contact frame, uniform covariance gap, density (3.5) | **ACCEPT**. Grok's "single missing estimate" is supplied below. The theorem is existential, so no numerical minorant is required. |
 | A3 | §5 (5.1)–(5.5) with the erratum | **ACCEPT**, with one wording amendment (W1) that leaves the proof unchanged. Grok's five open items 1–5 are each discharged. |
 | A4 | §4 (4.1)–(4.3) | **ACCEPT** |
-| A5 | (6.1), every m | **ACCEPT**. The bound is attained, so it is sharp. |
-| A6 | (6.2), every m | **ACCEPT**. The bound is attained, so it is sharp. The 3/2 mixed-square term is necessary. |
-| A7 | §7 (7.1)–(7.8) | **ACCEPT**. The r^5 numerators are rederived, and the m=1 far branch is shown to be non-empty. |
+| A5 | (6.1), every m | **ACCEPT**. Sharp as a matrix relaxation: the bound is attained under its matrix constraints. |
+| A6 | (6.2), every m | **ACCEPT**. Sharp as a matrix relaxation. The 3/2 mixed-square term is necessary for the relaxation. |
+| A7 | §7 (7.1)–(7.8) | **ACCEPT**. The r^5 numerators are rederived. For m=1, the majorant event that (7.5) splits contains a non-empty far branch, so the decomposition must keep it (corrected in v2; see Revision history). |
 | CAP | Cap theorem §§2–5 (pathwise implication and its constants) | **ACCEPT**, agreeing with Grok's `EMBEDDED_CHART_AND_MORSE.md`. Every rational constant is checked exactly, and identity (11) is checked symbolically for m = 1 and m = 2. |
 | Theorem A | (1.1): `1-p_r <= C r^3`, uniform over B, K and frames | **ACCEPT at its stated existential scope.** This composes A1–A7, CAP and the previously accepted §8. |
 | §9 C1–C6 | Borel repair v1.1 | **ACCEPT** all six, with two clarifications (N1, N2) that strengthen the text without changing it. The PR112 theorem-number objection is **withdrawn** on primary-source grounds. |
@@ -176,7 +176,7 @@ Slutsky then gives joint convergence in law, and the continuous-mapping theorem 
 in `{det A_0 = 0}`, which is null. The parent's subsequence paragraph (l. 176) already carries out exactly this
 in-law argument.
 
-### A5 (6.1) — ACCEPT, sharp
+### A5 (6.1) — ACCEPT, sharp as a matrix relaxation
 
 **Derivation.**
 
@@ -193,7 +193,7 @@ This holds for every m; Grok had closed only m=1.
 - 0 violations;
 - equality at `β_M = 0`, `α_M = -h/2`.
 
-### A6 (6.2) — ACCEPT, sharp; the 3/2 term is necessary
+### A6 (6.2) — ACCEPT, sharp as a matrix relaxation; the 3/2 term is necessary
 
 **Derivation.**
 
@@ -216,8 +216,11 @@ instances (100 per m). So (6.2) cannot be improved from the hypotheses (5.1) and
 - Replacing 3/2 by 1 (mutant `mixed-square`) fails 601 exact checks.
 - Dropping the `+rh` shift for `j >= 2` (mutant `no-shift`) fails 401 exact checks, all with m ≥ 2.
 
-Any rate better than `r^3` for Theorem A would therefore need probabilistic input, not a tighter deterministic
-weight bound.
+**Scope of this sharpness (v2).** It is sharpness of the *matrix relaxation*: under the displayed matrix constraints
+alone, (6.1) and (6.2) cannot be improved, so a tighter deterministic weight bound cannot come from those constraints.
+It is **not** a lower bound on the Gaussian failure probability. It does not show that every extremizer is realized
+by a field with the same derivative-supremum budget, and it does not show that the `r^3` rate of Theorem A is
+attained.
 
 ### A7 (§7) — ACCEPT
 
@@ -235,9 +238,16 @@ weight bound.
 - **m = 1, (7.5).**
   - `(J+λ)^2 <= 2J^2 + 2λ^2` is exact (the difference is `(J-λ)^2`).
   - If `4Drλ <= 1`, then `λ(1-2Drλ) >= λ/2`, which forces `λ <= 4DrJ^2`.
-  - 8,000 exact random candidates confirm the split (4,000 random λ and 4,000 with λ ≥ 1/(Dr)).
-  - Every `λ >= 1/(Dr)` fails the depth condition, since `Dr(J+λ)^2 >= Drλ^2 >= λ`. **The far branch is therefore
-    non-empty for every J**, and mutant `drop-far-branch` is refuted. The parent is right that it cannot be dropped.
+  - 8,000 exact random candidates confirm the split of the majorant event `{λ <= Dr(J+λ)^2}` (4,000 random λ and
+    4,000 with λ ≥ 1/(Dr)).
+  - Every `λ >= 1/(Dr)` lies in that **majorant event**, since `Dr(J+λ)^2 >= Drλ^2 >= λ`. So the majorant event
+    contains a non-empty far branch for every J, and **this upper-bound decomposition** must keep it; mutant
+    `drop-far-branch` is refuted.
+  - **Correction (v2).** v1 said such λ "fail the depth condition". That reverses the implication. The source uses
+    only depth failure ⟹ majorant membership, and `M3 <= K(J+λ)` is only an upper bound. Nothing here shows that
+    *actual* depth failure `λ <= [4/(3k)] r M3^2` occurs on the far branch. The OpenAI review's example
+    `k=K=1, D=4/3, r=1/1000, J=M3=12, λ=750` lies in the majorant, but the actual threshold is `24/125 = 0.192`.
+    It is checked exactly as `majorant_membership_does_not_imply_depth_failure`.
   - Near branch: with `h <= K(1+4D)J^2`, the exact integral gives a numerator of order `r^5 J^10`, as claimed.
 - **(7.6) and (7.7).** `1_far <= (4Drλ)^4` and `1{rM4 > 3k_-/10} <= (10rM4/(3k_-))^4` are pointwise. The joint moments
   are finite by A3 and A4, so both numerators are `O(r^6)`.
@@ -371,5 +381,22 @@ above.
 - D2 remainder, D3 coefficient, D4 RN count, D5 global, D6 P15.
 - Organizational independence: all lanes share one GitHub account.
 
-A second, non-Claude review of Part I, especially A3/W1, A7 and the sharpness observation, is requested before any
-status integration.
+A second, non-Claude review of Part I is still requested before any status integration. The OpenAI review below is
+exposed-source (OpenAI authored the parent), so it is not an independent acceptance. An xAI/Grok check of W1 and A2
+remains welcome.
+
+## Revision history
+
+- **v1**, head `ce975e6`: initial packet.
+- **v2**, responding to the OpenAI technical review
+  [5341593068](https://github.com/d6g8k5htny-coder/Math-/pull/106#pullrequestreview-5341593068) at `ce975e6`:
+  - That review confirms W1. It independently reproduces the A5/A6 extremal fixtures for m = 1..5, the failure of the
+    missing 3/2 term, the Hermite-kernel identities and the congruence cases.
+  - A7 correction: "every λ ≥ 1/(Dr) fails the depth condition" is replaced by "lies in the majorant event". The
+    result keys are renamed to `majorant_event_contains_far_branch_l_ge_1_over_Dr` and
+    `7.5_near_far_split_of_majorant_exact_random_4000`. The reviewer's example is added as the exact check
+    `majorant_membership_does_not_imply_depth_failure`.
+  - The A5/A6 sharpness claim is restricted to the matrix relaxation. It is no longer a statement about the Gaussian
+    failure probability or the `r^3` rate.
+  - Every verdict is unchanged. The parent's upper bound (7.5)–(7.8) is unaffected, because it uses only depth
+    failure ⟹ majorant membership.

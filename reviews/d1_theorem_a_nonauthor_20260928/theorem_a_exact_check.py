@@ -408,10 +408,19 @@ def check_a7(mut):
                     far = False
                 if not (cand <= 4 * Dq * rq * Jq ** 2 or far):
                     split_ok = False
-        # Every lambda >= 1/(D r) fails the depth condition, so the far branch is not empty.
+        # Every lambda >= 1/(D r) lies in the MAJORANT event lambda <= D r (J+lambda)^2 that (7.5)
+        # splits, so the decomposition must keep a far branch. This is not actual depth failure.
         far_nonempty &= big <= Dq * rq * (Jq + big) ** 2
-    out["7.5_near_far_split_exact_random_4000"] = split_ok
-    out["depth_failure_holds_for_all_l_ge_1_over_Dr"] = far_nonempty
+    out["7.5_near_far_split_of_majorant_exact_random_4000"] = split_ok
+    out["majorant_event_contains_far_branch_l_ge_1_over_Dr"] = far_nonempty
+    # The source uses only: depth failure => majorant membership. The converse is false. OpenAI
+    # review 5341593068 example: k=K=1, D=4/3, r=1/1000, J=M3=12, lambda=750 is in the majorant
+    # (and M3 <= K(J+lambda)), but the actual depth threshold (4/(3k)) r M3^2 is 24/125 < 750.
+    kq, Kq, Dq, rq, Jq, M3q, lq = F(1), F(1), F(4, 3), F(1, 1000), F(12), F(12), F(750)
+    thr = F(4, 3) / kq * rq * M3q ** 2
+    out["majorant_membership_does_not_imply_depth_failure"] = (
+        Dq == 4 * Kq ** 2 / (3 * kq) and lq >= 1 / (Dq * rq) and lq <= Dq * rq * (Jq + lq) ** 2
+        and M3q <= Kq * (Jq + lq) and thr == F(24, 125) and lq > thr)
     # Near branch: h <= K(1+4D) J^2; exact integral gives r^3 J^6 times a constant, with
     # prefactor r^2 h^2/4 -> r^5 J^10.
     Kc = P.v("K")
