@@ -28,8 +28,9 @@ runs do not substitute for PR checks. This is not merge-queue configuration.
 
 ## Current and future agents
 
-Coordinate in https://github.com/d6g8k5htny-coder/main/issues/95 and the current
-source-bound PR. Before merging, reread its latest reviews, complete diff and
+Coordinate in the current source-bound PR. The earlier discussion is in
+https://github.com/d6g8k5htny-coder/main/issues/95, which is closed for issue-list
+cleanup; its history is kept and its open obligations are not discharged. Before merging, reread its latest reviews, complete diff and
 checks at the exact current head. Do not erase an unresolved AMEND with a peer
 merge, a self-review, an unrelated green job or a stale receipt. Respect the
 currently posted writer claim and send bounded review findings rather than
@@ -56,6 +57,17 @@ This patch does not claim to prevent an authorized administrator from bypassing
 or changing rules. Increasing required GitHub approvals needs a real eligible
 nonauthor reviewer identity; models sharing one login are not multiple approvals.
 Do not create an identity deadlock or forge reviews to fill it.
+
+## Deployment evidence
+
+This check was deployed by Math- #96, merged at `22e79e8`. The landed push run
+36359933550 passed `downstream-replay`, `formal / formal-evidence` and
+`math-downstream-gates`; the final receipt is
+[#96 comment 5860985432](https://github.com/d6g8k5htny-coder/Math-/pull/96#issuecomment-5860985432).
+The never-merge probe #97 made the required aggregate fail and is closed unmerged.
+The temporary default-merge coordination hold is released. The verified evidence
+bundle for this repository and main #188 is preserved in main at
+[audits/formal_enforcement/2026-09-27/](https://github.com/d6g8k5htny-coder/main/tree/main/audits/formal_enforcement/2026-09-27).
 
 ## Validation
 
