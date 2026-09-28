@@ -8,6 +8,7 @@ name: D1 chain reconciliation checks
       - 'imports/lifetime_parent_20260925/**'
       - 'reviews/d1_section9_borel_repair_20260925/**'
       - 'reviews/d1_theorem_a_nonauthor_20260928/**'
+      - 'frontiers/downstream_gate_20260925/GRAPH.json'
   workflow_dispatch:
 
 permissions:
@@ -47,7 +48,8 @@ jobs:
           script = str(root / 'reconciliation_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           mutants = ['allow-author-review', 'skip-coverage', 'displayed-congruence', 'drop-mixed-square',
-                     'drop-far-branch', 'embedding-radius', 'difference-exponent', 'gamma-24']
+                     'drop-far-branch', 'embedding-radius', 'difference-exponent', 'gamma-24',
+                     'unbind-component']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout
@@ -58,6 +60,6 @@ jobs:
                                       capture_output=True, timeout=300).returncode
                   if rc != 1:
                       raise RuntimeError('mutant ' + m + ' not rejected')
-          print(json.dumps({'check': 'd1-chain-reconciliation', 'custody_ledger_math': 'PASS', 'analytic_acceptance_by_this_check': False}))
+          print(json.dumps({'check': 'd1-chain-reconciliation', 'custody_graph_ledger_math': 'PASS', 'analytic_acceptance_by_this_check': False}))
           PY
           git diff --exit-code

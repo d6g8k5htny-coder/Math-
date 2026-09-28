@@ -31,6 +31,11 @@ alone.
 
 No formula of P changes.
 
+**Machine binding.** Each component above is also its own source node in the hard-gate graph
+(`frontiers/downstream_gate_20260925/GRAPH.json`), required by the D1 node: E1, E2, CAP (whole file; only §§1–5
+are consumed) and this record's directory, which carries E3 and `LEDGER.json`. A byte change or deletion of any
+component therefore proposes D1, D2 and D3 for revalidation even when P's bytes are unchanged (§9, §10).
+
 **Name collision.** "Theorem A" here always means P (1.1). The fixed-remote mean-measure theorem in
 `frontiers/remote_window_20260924/PROOF.md` is also called "Theorem A". That is a different theorem (D4), and
 nothing in this record concerns it.
@@ -49,8 +54,9 @@ or `c_{d,L}`.
 
 - **Theorem A (P 1.1).** For compact `B` and `K ⊂ (0,∞)`, there are `C` and `r_* > 0` such that
   `0 <= 1 - p_r <= C r^3`. This holds uniformly over `b ∈ B`, `k ∈ K`, all orthonormal frames and `0 < r <= r_*`.
-- **Theorem B (P 1.2).** The compact-window densities satisfy `ν_cand ~ ν_eld ~ c_{B,K} ℓ^{-1/3}` with
-  `c_{B,K} > 0`. Their difference satisfies `0 <= ν_cand - ν_eld <= C ℓ^{2/3}`.
+- **Theorem B (P 1.2).** Let `B` and `K ⊂ (0,∞)` be compact intervals **of positive length** (P l. 37; a singleton
+  interval gives zero mark-window intensity). The compact-window densities satisfy
+  `ν_cand ~ ν_eld ~ c_{B,K} ℓ^{-1/3}` with `c_{B,K} > 0`. Their difference satisfies `0 <= ν_cand - ν_eld <= C ℓ^{2/3}`.
 - **Theorem C (P 1.3).** All births, all positive gaps and all separations are included, and the essential class is
   excluded. Then `ν_cand^all ~ ν_eld^all ~ c_{d,L} ℓ^{-1/3}` with `0 < c_{d,L} < ∞` given by (15.2). This is the
   leading term only: no unrestricted remainder or difference rate is included.
@@ -253,9 +259,18 @@ Math-, in the same PR:
   - `math.uniform-matrix-cap-lifetime` AUTHOR_SIDE_CANDIDATE -> PROVED_REVIEWED, with this record as evidence and
     the §2 scope. It is the only classification that satisfies a still-required premise, and D2 and D3 require it.
   - D2 and D3 gain `review_disposition: ACCEPT` metadata under the existing convention (commit `cc3a991`).
-  - No node becomes `controlling`.
+  - Four reading-rule component nodes (E1, E2, CAP and this record's directory) are added as `PROVED_REVIEWED`
+    source nodes with required edges from D1. Each carries the ledger reviews its role needs: C1 and G3 for E1 and
+    CAP, C1 and G2 for E2. This record is an Anthropic, nonauthor record; its W1 and radius items were raised in C1
+    and G3 and its §6 is C2. OpenAI's technical check of this record (review 5345687857) is listed as author-provider
+    non-discharge. This closes the gap that review found: before it, E1, E2 and W1 were named only in metadata, so
+    editing them left D1's source snapshot unchanged.
+  - No node becomes `controlling`. Satisfying D2's and D3's required edge to D1 is not promotion: their own
+    classifications stay author-side, so `promotion_allowed` still refuses both.
   - The fail-closed tests are kept on a pre-reconciliation fixture, so they still prove that an unreviewed parent
-    blocks both dependents.
+    blocks both dependents. New tests make real two-commit edits and deletions of each component with P unchanged,
+    and require D1, D2 and D3 to be proposed `REVALIDATION_REQUIRED`. An unrelated edit must propose nothing, and
+    the pre-binding graph is shown to miss the component edit.
 
 main, in a companion PR pinned to this record's merged commit:
 
@@ -268,12 +283,18 @@ main, in a companion PR pinned to this record's merged commit:
 `reconciliation_check.py` (Python standard library):
 
 1. Binds every §1 source and every local review record by Git blob, bytes and SHA256.
-2. Validates `LEDGER.json`:
+2. Cross-checks the hard-gate graph against `LEDGER.json`:
+   - D1 is bound to P's exact bytes;
+   - E1, E2, CAP and this directory are D1 source nodes behind required edges;
+   - each component node carries exactly the ledger reviews of its interfaces;
+   - the record's author provider differs from P's;
+   - two negative controls (a dropped edge; an author-only review basis) are rejected.
+3. Validates `LEDGER.json`:
    - every interface has at least one nonauthor ACCEPT;
    - author-provider reviews are non-discharge;
    - P's §§1–16 line ranges are fully covered;
    - every residual item has a discharge pointer.
-3. Re-verifies the reading-rule mathematics exactly:
+4. Re-verifies the reading-rule mathematics exactly:
    - E1 congruence versus the displayed factor;
    - (5.3), (6.1) and (6.2) on exact rational instances;
    - (7.3) and the (7.5) split;
@@ -282,7 +303,7 @@ main, in a companion PR pinned to this record's merged commit:
      integrals;
    - the (13.1) coercivity bound;
    - the (15.2) gamma factor, numerically.
-4. Rejects eight semantic mutants.
+5. Rejects nine semantic mutants.
 
 A green run is evidence that the bookkeeping and finite identities hold. It is not the analytic review, which lives in
 C1, G1, G2, G4 and §6.

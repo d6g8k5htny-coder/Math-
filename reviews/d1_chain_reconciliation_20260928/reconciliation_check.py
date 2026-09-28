@@ -4,6 +4,8 @@ Python standard library only. Exact rational arithmetic, except one clearly labe
 Run from the repository root or from this directory. Groups:
 
   CUSTODY  every bound source and local review record matches its Git blob, byte count and SHA256.
+  GRAPH    the hard-gate graph binds P, E1, E2, CAP and this record as D1 source nodes joined by required edges,
+           and each component node carries exactly the ledger reviews its role needs. Two negative controls.
   LEDGER   every interface has a full-depth ACCEPT from a nonauthor provider; author-provider reviews never
            discharge; P and CAP line ranges are covered exactly; every theorem cites accepted interfaces; every
            residual item is discharged. Two synthetic negative controls must be rejected.
@@ -26,7 +28,14 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 MUTANTS = ("allow-author-review", "skip-coverage", "displayed-congruence", "drop-mixed-square",
-           "drop-far-branch", "embedding-radius", "difference-exponent", "gamma-24")
+           "drop-far-branch", "embedding-radius", "difference-exponent", "gamma-24", "unbind-component")
+GRAPH_PATH = ROOT / "frontiers" / "downstream_gate_20260925" / "GRAPH.json"
+D1_NODE = "math.uniform-matrix-cap-lifetime"
+RECORD_DIR = "reviews/d1_chain_reconciliation_20260928/"
+# Ledger source key -> (component role, ledger interfaces the component node must carry).
+COMPONENTS = {"E1": ("amendment", ["A3-E1"]), "E2": ("amendment", ["D1-B-E2"]),
+              "CAP": ("deterministic_support", ["CAP"])}
+RECORD_ITEMS = ["S11", "S12", "R-W1", "R-embedding-radius"]
 
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -121,6 +130,77 @@ def check_ledger(ledger, mut):
     out["coverage_gap_rejected"] = not ledger_rules(neg2, mut)[1]
     # Provider counts: the providers that discharge each interface (reported, not asserted beyond >= 1).
     out["discharging_provider_counts"] = {i["id"]: len(discharging(ledger, i, None)) for i in ledger["interfaces"]}
+    return out
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Graph binding of the reading rule
+# ---------------------------------------------------------------------------------------------------------------
+
+def graph_rules(graph, ledger, mut):
+    """(bound, reviewed): every reading-rule component is a D1 source node behind a required edge, and each
+    component node carries exactly the ledger reviews that its role needs."""
+    nodes, edges = graph["nodes"], graph["edges"]
+    authors = set(ledger["author_providers"])
+    ifaces = {i["id"]: i for i in ledger["interfaces"]}
+    residual = {r["id"]: r for r in ledger["residual_items"]}
+    required = {e["to"] for e in edges if e["from"] == D1_NODE and e["required"] is True}
+    if mut == "unbind-component":
+        required = set(nodes)
+    by_source = {n.get("source"): (nid, n) for nid, n in nodes.items()}
+    d1, P = nodes.get(D1_NODE, {}), ledger["sources"]["P"]
+    bound = (d1.get("source") == P["path"] and d1.get("fingerprint") == P["sha256"]
+             and d1.get("classification") == "PROVED_REVIEWED" and d1.get("controlling") is False)
+    reviewed = True
+    component_ids = []
+    for key, (role, items) in COMPONENTS.items():
+        src = ledger["sources"][key]
+        nid, node = by_source.get(src["path"], (None, {}))
+        component_ids.append(nid)
+        bound &= nid in required and node.get("fingerprint") == src["sha256"] and node.get("component_of") == D1_NODE
+        want = sorted((rv["by"], ledger["reviews"][rv["by"]]["provider"], rv["verdict"], rv["depth"])
+                      for it in items for rv in ifaces[it]["reviews"])
+        have = sorted((b.get("review"), b.get("provider"), b.get("verdict"), b.get("depth"))
+                      for b in node.get("review_basis", []))
+        reviewed &= (node.get("classification") == "PROVED_REVIEWED" and node.get("controlling") is False
+                     and node.get("component_role") == role and node.get("ledger_items") == items
+                     and node.get("author_provider") in authors and want == have
+                     and all(discharging(ledger, ifaces[it], mut) for it in items))
+    nid, node = by_source.get(RECORD_DIR, (None, {}))
+    component_ids.append(nid)
+    bound &= nid in required and node.get("component_of") == D1_NODE
+    raised = [ledger["reviews"][residual[i]["raised_in"].split()[0]]["provider"] for i in RECORD_ITEMS if i in residual]
+    reviewed &= (node.get("classification") == "PROVED_REVIEWED" and node.get("controlling") is False
+                 and node.get("component_role") == "reading_rule_record" and node.get("ledger_items") == RECORD_ITEMS
+                 and node.get("author_provider") not in authors
+                 and all(discharging(ledger, ifaces[i], mut) for i in RECORD_ITEMS if i in ifaces)
+                 and all(residual[i]["status"] == "DISCHARGED" for i in RECORD_ITEMS if i in residual)
+                 and len(raised) == 2 and not set(raised) & authors
+                 and bool(node.get("technical_checks_non_discharge"))
+                 and all(c.get("provider") in authors for c in node["technical_checks_non_discharge"])
+                 and not any({b.get("provider"), b.get("raised_by_provider")} & authors
+                             for b in node.get("review_basis", [])))
+    bound &= sorted(d1.get("reading_rule", [])) == sorted(x for x in component_ids if x)
+    dependents = {e["from"] for e in edges if e["to"] == D1_NODE and e["required"] is True}
+    bound &= {"math.lifetime-remainder", "math.side24-coefficient"} <= dependents
+    return bound, reviewed
+
+
+def check_graph(ledger, mut):
+    graph = json.loads(GRAPH_PATH.read_text())
+    out = {}
+    b, r = graph_rules(graph, ledger, mut)
+    out["d1_components_bound_by_required_edges"] = b
+    out["d1_components_carry_ledger_reviews"] = r
+    e1_id = next(nid for nid, n in graph["nodes"].items() if n.get("source") == ledger["sources"]["E1"]["path"])
+    # Negative control 3: without the required edge D1 -> erratum node, the binding must be rejected.
+    neg = json.loads(json.dumps(graph))
+    neg["edges"] = [e for e in neg["edges"] if not (e["from"] == D1_NODE and e["to"] == e1_id)]
+    out["unbound_component_rejected"] = not graph_rules(neg, ledger, mut)[0]
+    # Negative control 4: an erratum node whose review basis is only the author provider's review must fail.
+    neg2 = json.loads(json.dumps(graph))
+    neg2["nodes"][e1_id]["review_basis"] = [{"review": "O1", "provider": "OpenAI", "verdict": "ACCEPT", "depth": "full"}]
+    out["author_only_component_review_rejected"] = not graph_rules(neg2, ledger, mut)[1]
     return out
 
 
@@ -384,7 +464,8 @@ def main():
     ap.add_argument("--mutant", choices=MUTANTS)
     mut = ap.parse_args().mutant
     ledger = json.loads((HERE / "LEDGER.json").read_text())
-    checks = {"CUSTODY": check_custody(ledger), "LEDGER": check_ledger(ledger, mut), "MATH": check_math(mut)}
+    checks = {"CUSTODY": check_custody(ledger), "GRAPH": check_graph(ledger, mut), "LEDGER": check_ledger(ledger, mut),
+              "MATH": check_math(mut)}
     passed = all(flatten(checks))
     print(json.dumps({"checks": checks, "object": ledger["object"], "passed": passed,
                       "scope": "custody, ledger rules and exact reading-rule identities; one numerical (15.2) check; "

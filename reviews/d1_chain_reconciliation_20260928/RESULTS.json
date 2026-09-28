@@ -12,6 +12,12 @@
       "sources.E2": true,
       "sources.P": true
     },
+    "GRAPH": {
+      "author_only_component_review_rejected": true,
+      "d1_components_bound_by_required_edges": true,
+      "d1_components_carry_ledger_reviews": true,
+      "unbound_component_rejected": true
+    },
     "LEDGER": {
       "P_and_CAP_lines_covered_exactly_once": true,
       "author_only_interface_rejected": true,

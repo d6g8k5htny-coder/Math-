@@ -39,10 +39,16 @@ python -B -S run_validation.py --output /tmp/downstream-gate-new-run
 python -B -S git_transition_audit.py --repo /path/to/repository --base FULL_BASE_SHA --head FULL_HEAD_SHA --output /tmp/new-transition.json
 ```
 
-67 distinct tests and 24 assertion-detected semantic mutants are required in both Python modes.
+71 distinct tests and 24 assertion-detected semantic mutants are required in both Python modes.
 The source-bound CI workflow also runs 177 existing coefficient/lifetime/price/remote regressions,
-for 244 distinct methods, and audits actual PR base/test-merge source objects. Workflow execution
+for 248 distinct methods, and audits actual PR base/test-merge source objects. Workflow execution
 and branch-protection enforcement are separate; no administration setting is claimed here.
+
+D1 is a composite object. Its congruence erratum, Section 9 replacement v1.1, cap Sections 1-5 and the
+reconciliation record (wording W1, embedding radius, interface ledger) are separate source nodes that D1
+requires, so a byte change or deletion of any of them proposes D1, D2 and D3 for revalidation even when the
+parent bytes are unchanged. Real two-commit regressions cover each component, an unrelated edit, and the
+pre-binding graph that missed such changes.
 
 The source manifest includes the nested D0 patch. All pins are checked before and after execution.
 A changed source requires a deliberately regenerated manifest and result file, not a skipped check.

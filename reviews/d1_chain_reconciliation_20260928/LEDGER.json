@@ -74,7 +74,7 @@
   "second_provider_invited": ["A4", "A2 uniform gap", "A5 m>=2", "S11 difference bound", "S12"],
   "not_consumable": ["numerical C, r_*, z_*, c_{B,K}, c_{d,L}", "(1.2) outside compact marks", "any lower bound for d>=3", "globally uniform O(r^3) over unbounded marks", "RN/24-jet/JETMOD/H3/LPW certificates", "lemma_closed, prizes, unconditional acceptance of the lifetime parent"],
   "transitions": {
-    "Math-": ["PROOF_INDEX.md D1 to reviewed scoped", "claims/LANDING_CLAIMS.json lifetime-remainder FAIL_CLOSED->REVIEWED_SCOPED", "claims/LANDING_CLAIMS.json side24-coefficient HOLD_WITH_DOMAIN->REVIEWED_SCOPED", "GRAPH.json math.uniform-matrix-cap-lifetime AUTHOR_SIDE_CANDIDATE->PROVED_REVIEWED (controlling false)", "GRAPH.json D2/D3 review_disposition ACCEPT metadata"],
+    "Math-": ["PROOF_INDEX.md D1 to reviewed scoped", "claims/LANDING_CLAIMS.json lifetime-remainder FAIL_CLOSED->REVIEWED_SCOPED", "claims/LANDING_CLAIMS.json side24-coefficient HOLD_WITH_DOMAIN->REVIEWED_SCOPED", "GRAPH.json math.uniform-matrix-cap-lifetime AUTHOR_SIDE_CANDIDATE->PROVED_REVIEWED (controlling false)", "GRAPH.json D2/D3 review_disposition ACCEPT metadata", "GRAPH.json reading-rule components E1, E2, CAP and this record bound as PROVED_REVIEWED source nodes behind required edges from D1 (controlling false)"],
     "main": ["STATUS.md D1 AMEND/open -> ACCEPT scoped (companion PR)", "formal/GLOSSARY.md D1 row", "museum/shop projections"]
   }
 }

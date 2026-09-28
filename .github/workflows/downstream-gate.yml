@@ -56,7 +56,7 @@ jobs:
               raise RuntimeError('actual Python 3.11 required')
           verify()
           out = pathlib.Path(os.environ['RUNNER_TEMP']) / 'downstream-gate-results'
-          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=240)
+          subprocess.run([sys.executable, '-B', '-S', str(root / 'run_validation.py'), '--output', str(out)], check=True, timeout=480)
           subprocess.run([
               sys.executable, '-B', '-S', str(root / 'git_transition_audit.py'),
               '--repo', str(pathlib.Path.cwd()), '--base', os.environ['BASE_SHA'],
@@ -81,13 +81,13 @@ jobs:
                       raise RuntimeError('regression failed: ' + folder)
           verify()
           report = json.loads((out / 'REPORT.json').read_text())
-          if not report['passed'] or report['distinct_tests'] != 67 or report['distinct_semantic_mutations'] != 24:
+          if not report['passed'] or report['distinct_tests'] != 71 or report['distinct_semantic_mutations'] != 24:
               raise RuntimeError('unexpected new-test scope')
           (out / 'GITHUB_CONTEXT.json').write_text(json.dumps({
               'run': os.environ['GITHUB_RUN_ID'], 'tested_commit': os.environ['GITHUB_SHA'],
               'base_commit': os.environ['BASE_SHA'], 'event': os.environ['GITHUB_EVENT_NAME'],
-              'python': sys.version, 'gate_distinct_tests': 67,
-              'regression_distinct_tests': 177, 'total_distinct_tests': 244,
+              'python': sys.version, 'gate_distinct_tests': 71,
+              'regression_distinct_tests': 177, 'total_distinct_tests': 248,
               'semantic_mutations': 24, 'source_files_verified': len(pins),
               'lemma_closed': False, 'scientific_effect': 'NONE',
               'meaning': 'same-author software verification; no independent theorem acceptance',
