@@ -276,6 +276,38 @@ None of these treats the pinned, determinant-weighted law `Q_r^W`, and none extr
 
 Five mutants, altering the Jacobian exponent, the trapezoid constant, a dropped determinant factor, the window factor, and the Bonferroni sign, must fail. These checks do not prove the continuum or Gaussian steps.
 
+## Appendix A. Details for the continuum steps held in review 5342481786
+
+These spell out standard steps; none changes a statement.
+
+**A1. Theorem 7.1 hypotheses for the pair process.**
+- Take `T` (the open off-diagonal set of `D' x D'`) as parameter set, `X(x,x') = G(x,x') = (grad f(x), grad f(x'))` (in AAL's notation both the parameter dimension and the value dimension equal `2d`), and the auxiliary process `Z = (f, Df, D^2 f)` with continuous paths on the torus.
+- Theorem 2.1's (i): `f` has smooth paths, so `X` is `C^1`.
+- Theorem 2.1's (ii): under `Q_r`, `X(t)` is Gaussian with covariance continuous in `t` and positive definite on `T` (§3), so its density is continuous and locally uniformly bounded on compact subsets of `T`.
+- Theorem 2.1's (iii) is Remark 7: the conditional law given `X(t)=v` is a Gaussian regression, continuous in `v` for the `C^1` topology.
+- Theorem 7.1's (a)–(b): `g_m(t,Z)` is a product of the continuous nonnegative `min(W_r,m)`, which depends only on `Z` at the fixed pins, with indicators of the open sets `{H_x in O_i}`, `{H_x' in O_j}`, `{f(x), f(x') in I_r}`. `(t,Z) -> H_x, f(x)` is jointly continuous, so each indicator is lower semicontinuous in `t` and in `Z` (uniform convergence on compacts), and so is the product.
+- Theorem 7.1's (c) is Remark 8, since `(X, Z)` is jointly Gaussian under `Q_r`.
+
+**A2. Removing the truncation.**
+- `g_m` increases to `g = W_r 1{O_i}1{O_j}1{I_r}` pointwise.
+- The left side of (3.1) is an expected sum of nonnegative terms, each increasing in `m`.
+- The right side is `integral_B p(0) E[Delta g_m | X=0] dt`, whose integrand increases in `m`, first inside the conditional expectation and then in `t`.
+- Monotone convergence applies on both sides, so (3.1) holds for `g`, as an equality of extended nonnegative numbers. The subsequent estimates show it is finite.
+- Height disintegration uses the nondegenerate joint density of `(X(t), f(x), f(x'))`, again from §3/Lemma 1.
+
+**A3. Uniform `L^p` continuity of `V_delta` through `delta=0` (Lemma 1).**
+- Each coordinate of `V_delta` has the form `integral D^alpha f(x+te)[...] mu_delta(dt)`, with `mu_delta` a probability measure on `[0,delta]` (a point mass, the uniform law, or the trapezoid weight `w_delta`). As `delta` tends to 0, `mu_delta` tends to the point mass `delta_0`.
+- Covariances of such coordinates are `integral integral D^alpha D^beta K_L((x+te)-(y+se)) mu(dt) nu(ds)`. `K_L` is smooth (periodized Gaussian), so these are jointly continuous in `(delta, x, e)`, including `delta=0`. The same holds for cross-covariances with the pin functionals `U_r`, jointly with `r` in `[0,r_1]` (parent §3 / A2 of Math-#106).
+- `V_delta - V_0` is centered Gaussian, so `L^2` continuity gives `L^p` continuity for every `p`.
+- Positive definiteness at every parameter point is parent §2 (A1 of Math-#106, accepted): distinct derivative functionals at distinct sites have positive-definite covariance because every Fourier weight `a_n>0`. At `delta=0` the order-2 functionals `(He)_i` are distinct because `H -> He` is onto.
+
+**A4. Lemma 2.**
+- Write `Sigma = Cov_Q(V_delta)`, with `c_1 I <= Sigma <= C_1 I`, and `A(z) = Cov_Q(D^alpha f(z), V_delta) Sigma^(-1)`.
+- `|Cov_Q(D^alpha f(z), V_delta)| <= (Var_Q D^alpha f(z))^(1/2) C_1^(1/2)`, which is uniformly bounded by parent (4.1). So `sup_z |A(z)| <= C`.
+- Conditioning on `V_delta = w` shifts the mean of `D^alpha f` by `A(z)(w - E_Q V_delta)`, of size at most `C(1+|w|)`.
+- The residual `f - E_Q[f | V_delta]` is Gaussian and independent of `V_delta`. Its `C^3` sup norm has moments bounded by those of `f - E_Q f`, plus `C` times those of `V_delta`.
+- Hence `E_Q[K^p | V_delta = w] <= C_p (1+|w|)^p`. The density bound is the Gaussian density with `Sigma >= c_1 I` and bounded mean.
+
 ## Revision history
 
 - **v1**, `a4d4f74`: initial candidate.
@@ -284,3 +316,4 @@ Five mutants, altering the Jacobian exponent, the trapezoid constant, a dropped 
   - Corollary E now states `N_j(N_j-1) <= N(N-1)`.
   - §1 and §8 now say that this does not close a torus-wide second factorial moment or the torus-wide witness-collision region.
   - No mathematical change was made.
+- **v3**: adds Appendix A, which spells out the continuum steps held in the xAI/Harper review [5342481786](https://github.com/d6g8k5htny-coder/Math-/pull/110#pullrequestreview-5342481786): the Theorem 7.1 hypotheses for the pair process, truncation removal, `L^p` continuity through `delta=0`, and Lemma 2. That review accepts the finite identities, the (3.1) mark and the Lemma 1 mechanism. No statement changes.
