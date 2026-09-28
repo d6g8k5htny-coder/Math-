@@ -1,6 +1,6 @@
 # Drive-waiting hole ledger — substitutes vs fail-closed
 
-**Object:** OA-DRIVE-HOLE-LEDGER-20260926-v3 (v1 amended 2026-09-27 after the nonauthor review on Math- #81; v3 records the same-day recovery of `TRANSVERSE_CONTACT_ASYMPTOTIC.md` by merged Math- #94; changes are listed in Section 5).
+**Object:** OA-DRIVE-HOLE-LEDGER-20260926-v4 (v1 amended 2026-09-27 after the nonauthor review on Math- #81; v3 records the same-day recovery of `TRANSVERSE_CONTACT_ASYMPTOTIC.md` by merged Math- #94; v4 (2026-09-28) corrects the v2 claim that two JETMOD strings exist nowhere and records where the absent carriers went; changes are listed in Section 5).
 **Scientific effect:** NONE. Does not flip `lemma_closed`, prizes, GRAPH classifications, or Math #58/#61 dispositions.
 **Rule:** emit a verification-grade substitute only when live Git identities + CAS or an existing ACCEPT review already close the claim. Do not mint missing historical filenames — and do not mint predicate filenames either.
 
@@ -28,7 +28,18 @@ GRAPH.json (`frontiers/downstream_gate_20260925/GRAPH.json`, blob `23a6759eb0e8a
 | `hist.CL_ANTHROPIC_BUNDLE_2026-09-17_v5.zip` | SYM-Fw-jet receipts | Missing archive. |
 | `hist.OBL-H5-JETMOD` (fingerprint `status-rn-unif-jetmod`) | certified 24-jet band enclosure | OPEN_HISTORICAL. main `audits/vault_99/2026-09-25/EXTRACTED_FACTS_BATCH1.md` (main `40493865b323f0376f09d553d78f705fe613492c`, blob `4557982e18c84d91c61105994318a7c3d5df6a38`, line 18): "displayed modulus and individual RUNG2/RUNG3 checks did not discharge the full certified 24-jet band enclosure." Inventing intervals would be a fake certificate. |
 
-v1 named a predicate file `CHART_SIDE_JETMOD_PLAN.md` and a "G12-band"; neither string exists on Math- `main` or on `d6g8k5htny-coder/main`, so both are removed. The GRAPH node id and the extracted-facts line are the sources.
+v1 named a predicate file `CHART_SIDE_JETMOD_PLAN.md` and a "G12-band" as its sources. v2 replaced them with the GRAPH node id and the extracted-facts line, which remain the sources here. v2's reason was wrong, though. Neither string is on the current `main` trees of Math- or `d6g8k5htny-coder/main`, but both are in `d6g8k5htny-coder/main` history:
+
+- `CHART_SIDE_JETMOD_PLAN.md` is blob `9446daa2471b21f9eba68d2ebd2fd3b88c553cd2` (11,663 bytes) at `drive/mirrors/2026-09-16 — HOLD_NOT_FOR_SUBMISSION/`. It was added in `43a75d6b` and landed with main PR #2 (merge `b040bf0c30f33a9de220d19692e8dbcad9a1c5aa`). Revert `f35eef1b50d9dd86b6cab907551bf3a09a4b0f2a` removed it on 2026-09-23.
+- "G12-band" appears at `b040bf0c` in `docs/OPEN_PROBLEMS.md` lines 17–18, as the proposed band-certification step `Î(r)/r³ ≤ F(G12-band)`.
+
+The plan, `MATH_PUSH_JETMOD_PROTOTYPE.md` and the 2026-09-16 JETMOD results export are being restored byte-identically to `main` under `incoming/claude-audit-package-recovery-20260928/`. That is a review-only intake packet. The plan and the band step describe how a certificate would be computed; neither is the certified 24-jet band enclosure. The decision in this section is unchanged: no substitute, and OBL-H5-JETMOD stays `OPEN_HISTORICAL`.
+
+Where the three absent carriers went, from the bytes the same packet restores (custody facts only; none is a carrier):
+
+- `CL_ANTHROPIC_BUNDLE_*`: `CL-MIRROR-001_MANIFEST.sha256.txt` lines 4–7 say the v3 bundle of 2026-09-16 was "delivered in chat". Its 46 native copies are also in the owner's own `09152026OKComputer_Project_Gap_Closure.zip`, and the manifest records the SHA-256 of each. The v5 bundle of 2026-09-17 most likely took the same route. That puts it in the owner's chat history rather than on Drive or Dropbox.
+- `rnu_env.py`: `CL-RNU-001` lines 6–7 list it as a receipt "in this folder". The folder's 13-row Drive manifest does not include it, so it was never uploaded to Drive. Six other receipts on the same line are also on neither Drive nor Git: `rnu_run1.txt`, `rnu_diag.py`, `rnu_white.py`, `rnu_land.py`, `rnu_fdcheck.py`, `rnu_dcheck.py`, and their transcripts.
+- `allcell_fdz_enclosures.json`: no origin is recorded in the restored bytes.
 
 Regional note already in GRAPH: `regional.fixed-annulus.high-jet-route` is `SUPERSEDED_NONBLOCKING` **only** for fixed $d=2$, fixed $L$, fixed scaled annulus, compact positive gaps, between-pin height window. CH-LIFT / Piece-2 / JETMOD remain OPEN in their original replay scopes.
 
@@ -63,3 +74,4 @@ Next useful math (not Drive recovery): the #58 microdisk count on top of merged 
 3. Section 2 no longer restates PR65's carrier classification; it cites the merged audit and keeps only the substitute-versus-fail-closed decision.
 4. Minor: `UNIFORM_MATRIX_CAP_AND_LIFETIME.md` given its path; the two annulus-bridge objects distinguished; the v1 header's count of main #56 as an open disposition removed (#56 closed via merged Math- #59).
 5. (v3) Section 1 rewritten after merged Math- #94 imported the original `TRANSVERSE_CONTACT_ASYMPTOTIC.md` bytes: the hole is closed as a Drive hole and open as mathematics; the PR80 reconstruction is demoted from "pending candidate" to a finite-identity cross-check and cited at its current head; Section 4 no longer lists the filename as one that will not be written; `main` re-read at `db6a8d5a…`. The nine-row historical R2 remainder is unchanged by #94 (its README says so explicitly) and is unchanged here.
+6. (v4, 2026-09-28) Section 2: v2 amendment 1 said `CHART_SIDE_JETMOD_PLAN.md` and "G12-band" were "no such strings in either repository". That holds only for the current trees; both are in `d6g8k5htny-coder/main` history (see Section 2 for blob, commits and lines). The GRAPH-node sourcing is kept. Section 2 also gains the custody facts on where the three absent carriers went. No row, classification, substitute decision or disposition changes. Scientific effect NONE.
