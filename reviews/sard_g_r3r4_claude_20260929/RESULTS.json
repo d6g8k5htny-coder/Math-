@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "R3a_rkhs_identity": true,
+    "R3c_residual_uncorrelated": true,
+    "degenerate_direction_removed": true,
+    "fewer_points_rank_deficient_control": true,
+    "regular_zeros_have_nonzero_derivative": true,
+    "span_of_point_evaluation_images_is_full": true
+  },
+  "object": "CLAUDE-REVIEW-SARD-G-R3R4-20260929-v1",
+  "passed": true,
+  "scope": "exact finite illustrations only; not the Banach-space proof"
+}
