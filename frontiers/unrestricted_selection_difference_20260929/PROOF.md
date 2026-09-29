@@ -1,6 +1,6 @@
 # The unrestricted selection difference does not vanish: disposition of candidate C7
 
-Object: CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v2.
+Object: CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v3.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor analytic review required.
 Scientific effect: NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, lemma flag, prize or source body changes.
@@ -30,7 +30,7 @@ where "far" means torus distance `≥ r_0` between the two points, as in parent 
 - **(U2)** (C7) is false. `D(ℓ) := ν_cand^all(ℓ) − ν_eld^all(ℓ)` satisfies `D(ℓ)/ℓ^α → ∞` for every `α > 0`.
   Combined with parent (14.1) and Theorem C, `c_* ≤ D(ℓ) = o(ℓ^{−1/3})`.
 - **(U3)** The expected per-unit-volume number of candidate pairs with lifetime in `(0, t]` that are not bars is at
-  least `c_* t`. In the compact window, parent (12.1) gives at most `C t^{5/3}`.
+  least `c_* min(t, ℓ_0)` for every `t > 0`, and so at least `c_* t` for `0 < t ≤ ℓ_0 = 1`. In the compact window, parent (12.1) gives at most `C t^{5/3}`.
 - **(U4)** For `q ≤ −1`, the nonselected sum `E Σ_{candidate, not bar, ℓ ≤ t} ℓ^q` is infinite for every `t > 0`. In
   the compact window, parent (12.3) makes it finite for every `q > −5/3`.
 
@@ -100,7 +100,8 @@ Cameron–Martin space of the unconditioned field restricted to `h(x) = h(y) = 0
 
 Every Fourier weight is positive (parent §2), so `H_0` contains every trigonometric polynomial satisfying those
 `2(d+1)` linear conditions. Their `C²`-closure is `V_0 = {φ ∈ C² : φ, ∇φ vanish at x and y}`. To see this, take
-`φ ∈ V_0` smooth and trigonometric polynomials `τ_n → φ` in `C²`. The `2(d+1)` point functionals are linearly
+`φ ∈ V_0` smooth (a general `φ ∈ V_0` is first smoothed in `C²` and then corrected by the same finite constraints;
+only the smooth `G − m` below is needed) and trigonometric polynomials `τ_n → φ` in `C²`. The `2(d+1)` point functionals are linearly
 independent on trigonometric polynomials (parent §2, distinct-site jets), so there are trigonometric polynomials `ψ_i`
 dual to them. Then `τ_n − Σ_i λ_i(τ_n) ψ_i` lies in `H_0` and converges to `φ`, because `λ_i(τ_n) → λ_i(φ) = 0`.
 
@@ -132,7 +133,14 @@ a positive constant. ∎
 
 With (3.1) this proves (U1), with `ℓ_0 = 1`, and (U2).
 
-For (U3), integrate (U1) over `(0, t]`. For (U4), the nonselected measure has density at least `c_*` on `(0, ℓ_0]`,
+*Density convention.* As in the parent, (U1) is a statement about compatible density versions. The marked
+Kac–Rice identity (parent §9, a finite-measure identity for Borel marks) dominates the nonselected expected measure
+on `ℓ ∈ (0, 1]` from below by the measure with density `N_O(ℓ)`. So the nonselected density is at least `N_O(ℓ)` for
+almost every `ℓ`, and the versions in (U1) are chosen compatibly. The generic-locus assertion of Lemma 1 is used
+only almost surely inside that identity, never pointwise at an exceptional conditioning value. The support
+argument at `ℓ = 0` needs no genericity and is only a compactness endpoint.
+
+For (U3), integrate (U1) over `(0, min(t, ℓ_0)]`. For (U4), the nonselected measure has density at least `c_*` on `(0, ℓ_0]`,
 and `∫_0 ℓ^q dℓ = ∞` for `q ≤ −1`. The bound `D = o(ℓ^{−1/3})` is Theorem C, since both densities are
 `c_{d,L} ℓ^{−1/3}(1 + o(1))`. ∎
 
@@ -172,6 +180,10 @@ Nothing from the elder-selection upper estimate of Theorem A is used.
 
 ## Revisions
 
+- **v3.** Qualifications requested in
+  [5890428429](https://github.com/d6g8k5htny-coder/Math-/pull/133#issuecomment-5890428429): (U3) holds as
+  `c_* min(t, ℓ_0)`; an explicit density-version convention (expected-measure domination, a.e. densities); a note
+  on the full `V_0` closure. No change to Theorem U or the witness.
 - **v2.** Lemma 1 is repaired as requested in
   [5890369316](https://github.com/d6g8k5htny-coder/Math-/pull/133#issuecomment-5890369316). The v1 proof asserted that
   `y` lies in the closure of `x`'s component of `{f > t}` for `t > f(y)`. That is false, because such a closure lies
