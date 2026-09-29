@@ -39,6 +39,15 @@
     "no_event_to_expectation_reversal": true,
     "open_complement": [
       {
+        "classification": "OPEN_ACTIVE",
+        "coverage_source": null,
+        "fingerprint": "eta->0 mutual witness separation",
+        "id": "math.rn-region.witness-collision",
+        "notes": "Off-pin fixed-separation second-moment evidence is reviewed, but the shrinking pin/witness-collision mechanism and sharp full-window order remain open."
+      }
+    ],
+    "proved_reviewed_regions": [
+      {
         "classification": "PROVED_REVIEWED",
         "coverage_source": null,
         "fingerprint": "r<<|x|<<rho",
@@ -58,13 +67,6 @@
         "fingerprint": "near +-e1/2 scaled pin sites",
         "id": "math.rn-region.pin-collision",
         "notes": "Reviewed only at D5-a, D5-b, D5-d; see the complete D5 reconciliation reading rule. No d>2, numerical, elder-selection, JETMOD, or witness-collision closure."
-      },
-      {
-        "classification": "OPEN_ACTIVE",
-        "coverage_source": null,
-        "fingerprint": "eta->0 mutual witness separation",
-        "id": "math.rn-region.witness-collision",
-        "notes": "Off-pin fixed-separation second-moment evidence is reviewed, but the shrinking pin/witness-collision mechanism and sharp full-window order remain open."
       }
     ]
   },
