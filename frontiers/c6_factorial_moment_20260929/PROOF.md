@@ -2,15 +2,17 @@
 
 Object: CL-C6-FACTORIAL-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
-Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
-Version: v1.2.
+Disposition: AUTHOR-SIDE CANDIDATE. Nonauthor verdicts are recorded below; integration is a separate non-Claude act.
+Version: v1.3.
 - v1.1 added the record-keeping completions requested in OpenAI review 5355120953: `m* = ∞`, measurability, integer
   `q`, and `r_* < 1`. That review ACCEPTs §§4–6 (Lemmas E, D and M) at stated scope.
 - v1.2 answers the bounded xAI/Grok read of Lemma R and §8 (#140 comment 5894209739). It adds two explicit sentences
   to Lemma R, and exact citations for the inputs of §8 (§1): the D1 parent's §5 for `W_r` and `Z_r`, and the (I5) row
   with the (P2) HOLD it inherits. §§4–7 are byte-identical to v1.1.
-- There is no theorem change. Lemma R and the §8 assembly still need a nonauthor verdict; the xAI read found no
-  contradiction and is not a C6-L ACCEPT.
+- v1.3 makes the one indexing correction requested in OpenAI review 5355457002, which ACCEPTs Lemma R and the
+  §§2/7/8 cap, tail and assembly at `0a57f51`: `{m_j* ≤ m}` is written in §5 as the finite union over degrees
+  `1 ≤ k ≤ m` and rational radii. With the §§4–6 ACCEPT, that lane's verdict covers Theorem C6-L at stated scope.
+- There is no theorem change. `Θ(r³)` and the witness-conditioned (M′)/(H) remain open.
 Scientific effect: NONE. No register, graph, lemma flag, prize or premise changes. The catalog entry C6 and the D5
 collision node are not moved by this file.
 
@@ -134,12 +136,17 @@ the pins:
 Put `m_j* = ∞` if no degree works. Lemma M shows that this has probability zero. By Lemma R,
 `Ψ ≥ #{critical points on T²}`, pins included.
 
-**Measurability.** For fixed `m`, the map `ρ ↦ min_{∂Ω_ρ(c_j)} (|T_m^{(j)}| − |F − T_m^{(j)}|)` is continuous on
-`[η_j, 2η_j]`, because `F` is continuous on the compact complex ball. So the set of admissible `ρ` is relatively
-open, and it is nonempty iff it contains a rational `ρ`. Hence `{m_j* ≤ m}` is a countable union of events
-`{min_{∂Ω_ρ}(|T_m| − |F − T_m|) > 0}`, `ρ ∈ ℚ`. Each of these is measurable as the minimum of a continuous random
-field over a compact set. `m_j*` and `Ψ` are therefore random variables, which licenses the probability and
-expectation operations below.
+**Measurability.** For fixed `k`, the map `ρ ↦ min_{∂Ω_ρ(c_j)} (|T_k^{(j)}| − |F − T_k^{(j)}|)` is continuous on
+`[η_j, 2η_j]`, because `F` is continuous on the compact complex ball. So the set of `ρ` at which degree `k` succeeds
+is relatively open in `[η_j, 2η_j]`, and it is nonempty iff it contains a rational `ρ` (endpoint successes
+included, by continuity and strictness). Success is not asserted to be monotone in the degree, so `m_j*` is the
+first successful degree and
+
+    {m_j* ≤ m} = ⋃_{k=1}^{m} ⋃_{ρ ∈ ℚ ∩ [η_j, 2η_j]} { min_{∂Ω_ρ(c_j)} (|T_k^{(j)}| − |F − T_k^{(j)}|) > 0 }.
+
+Each event in this countable union is measurable as the minimum of a continuous random field over a compact set.
+`m_j*` and `Ψ` are therefore random variables, which licenses the probability and expectation operations below.
+The tail proof of §6 uses only that `{m_j* > m}` implies failure at degree `m`.
 
 ## 6. Lemma M: the Rouché degree has a uniform exponential tail
 
