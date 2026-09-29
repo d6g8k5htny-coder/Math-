@@ -95,9 +95,10 @@
   "consumed_reviews": [
     "main#76 (remote Theorem A, every d)",
     "Math-#140 review 5355120953 (OpenAI: C6L sections 4-6 ACCEPT at stated scope); Math-#140 comments 5893862956, 5894209739 (scope of the pending Lemma R / section 8 review)",
-    "reviews/d5_punctured_pin_continuum_claude_20260929 (planar PP continuum, same-model record), reviews/d5_collar_count_20260928, reviews/d5_i5_planar_f_20260928, reviews/d5_intermediate_window_claude_20260928 (planar sources behind DL)"
+    "reviews/d5_punctured_pin_continuum_claude_20260929 (planar PP continuum, same-model record), reviews/d5_collar_count_20260928, reviews/d5_i5_planar_f_20260928, reviews/d5_intermediate_window_claude_20260928 (planar sources behind DL)",
+    "Math-#145 OpenAI nonauthor reviews of this note: 5356233690 (section 4 at 415044b), 5357899713 (sections 5-7 at 46f4b1e, AMEND on R3a), 5358116559 (bound to 06bc0d6, PROOF.md blob 64d33b15): ACCEPT of sections 5-7 and Theorem Q, Corollaries Theta and P at the stated source scope, conditional only on the pinned inputs; source-exposed (the reviewer authored or reviewed consumed first-moment sources). At d = 2 consumable against the accepted planar rows (section 1.4); for d >= 3 consumption waits until Math-#141 is integrated on main."
   ],
-  "nonauthor_acceptance": false,
+  "nonauthor_acceptance": true,
   "governing_status_changed": false,
   "related_not_consumed": [
     {
@@ -105,5 +106,6 @@
       "merged_via": "Math-#142 at bf7c45f",
       "note": "growing-radius degree tail and the conditional fixed-d bound r^3 [L/log L]^d given G_d; not used here"
     }
-  ]
+  ],
+  "nonauthor_acceptance_record": "OpenAI reviews 5356233690, 5357899713, 5358116559 on Math-#145; head 06bc0d6; scope fixed d, L, compact marks, existential constants; same GitHub account, zero organizational-independence credit; no STATUS, PROOF_INDEX, GRAPH or catalog transition."
 }

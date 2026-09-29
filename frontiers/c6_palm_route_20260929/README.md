@@ -1,6 +1,8 @@
 # C6 sharp via the Palm route (CL-C6-PALM-20260929-v1)
 
-Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review required.** Scientific effect: NONE.
+Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review: OpenAI ACCEPT of §4 (5356233690) and of
+§§5–7 with Theorem Q and Corollaries Theta, P (5358116559, bound to `06bc0d6`), source-exposed, at the stated scope.**
+Scientific effect: NONE.
 **Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities; OpenAI reviews 5357858391 and 5357882570 ACCEPT of every
 continuum row, Theorems P_d, C_d, I_d, G_d, in every fixed `d`, source-exposed; not yet integrated) at exact bytes.
 
@@ -69,6 +71,21 @@ comparison. No theorem, lemma statement, ledger, script or result changed.
 about the second factorial moment only; higher factorial moments are upper bounds, with no order-`r^3` lower bound
 claimed for `q >= 3`. §6 states the order in which `eta`, `R`, `s_0` and `r_*` are fixed and reduced. No theorem,
 lemma, ledger, script or result changed.
+
+## Review record (29 September 2026)
+
+| Review | Head | Verdict |
+|---|---|---|
+| OpenAI 5356233690 | `415044b` | §4 (parametric tail, regression facts, Proposition 4.5) sound, with the clarifications applied in v1.1 |
+| OpenAI 5357899713 | `46f4b1e` | §§5–7 coherent; AMEND required on the R3a strip bound |
+| OpenAI 5358116559 | `06bc0d6` | R3a repaired; ACCEPT §§5–7, Theorem Q, Corollaries Theta and P at the stated source scope, conditional only on the pinned inputs |
+
+The reviewer is source-exposed (author or reviewer of consumed first-moment sources) and says so. At `d = 2` the note is
+consumable against the accepted planar rows (PROOF.md §1.4). For `d >= 3`, consumption of Theorem Q waits until
+Math-#141 (`DL`, whose continuum rows carry OpenAI reviews 5357858391 and 5357882570) is integrated on `main`; the
+mathematical dependency is reviewed, the repository landing is a separate gate. No STATUS, PROOF_INDEX, GRAPH or
+catalog transition follows from these reviews; that is a source-bound step for a non-author lane. Same GitHub account
+as every lane; zero organizational-independence credit.
 
 ## Review requests (exact interfaces)
 
