@@ -1,7 +1,8 @@
 # C6 sharp: the torus-wide factorial moments of the window count are `O(r^3)` in every fixed dimension
 
 **Object:** CL-C6-PALM-20260929-v1.
-**Version:** v1.2, 29 September 2026. v1.1: clarifications after OpenAI review 5356233690 of §4 (the ratio
+**Version:** v1.3, 29 September 2026. v1.3: Lemma 5.1 rewritten with a canonical regression kernel for every `(X, h)`
+and the two-measure argument, and the Morse genericity cited from [LP] §8 (OpenAI comment 5896041000). v1.1: clarifications after OpenAI review 5356233690 of §4 (the ratio
 `zeta_0 <= eta'/8` in Lemma M' (b), the witness lift convention, `Phi = oo` at a vanishing floor, the finite-union
 measurability convention of [C6L] v1.3, Proposition 4.5' and the remark after Lemma 4.3). v1.2: Corollary P restated
 as a size-biased statement about the second factorial moment only, and the order of constants in §6, after OpenAI
@@ -414,20 +415,38 @@ critical points `X in B`, with `O_j` the open set of nonsingular symmetric matri
 both sides possibly `+oo`. The same holds without the height variable (all heights) with
 `p_( grad f(X) | pins )(0) E[ Xi F_j(H_X) | grad f(X) = 0 ]`.
 
-*Proof.* The sources establish (5.1) for marks `Xi` that are bounded continuous functions of finitely many jets of `f`
-at finitely many fixed sites (the auxiliary Gaussian field of arXiv:2304.07424v3 Theorem 7.1 and Remark 8 may be
-taken constant in `X`): this is (P18), (I33), [RM] (12) and [DL] §4.7, §6.8, with the nondegeneracy of
-`(grad f(X), f(X))` on `B` from [LP] §2. Let `Cc` be the class of bounded nonnegative `sigma(f)`-measurable `Xi` for
-which (5.1) holds. It contains the bounded continuous cylinder functions of the jets of `f` at finitely many sites,
-which form a multiplicative class generating `sigma(f)` (a continuous field is determined by its values on a countable
-dense set). It is closed under bounded monotone limits, both sides of (5.1) passing to the limit by monotone
-convergence (the right side because the conditional expectations converge monotonically almost everywhere). By the
-monotone class theorem `Cc` contains every bounded nonnegative `sigma(f)`-measurable `Xi`. For unbounded `Xi >= 0`,
-apply this to `Xi ∧ n` and let `n -> oo`. ∎
+**Kernel convention.** The conditional expectation in (5.1) is taken with respect to the canonical Gaussian regression
+kernel: for every `X in B` and every `h in R`, `Q_(X,h)` is the law of `f` given `(grad f(X), f(X)) = (0, h)` defined by
+the explicit regression formulas (mean `E_(Q_r) f + Cov_(Q_r)(f, (grad f(X), f(X))) Sigma_X^(-1) ((0,h) - E_(Q_r)(grad
+f(X), f(X)))`, residual covariance the Schur complement), which exist for every `(X, h)` because `Sigma_X` is
+nondegenerate on the compact `B` off the pins ([LP] §2) and depend continuously on `(X, h)`. `Q_X` denotes the same
+with the gradient alone. These kernels are fixed once; no almost-everywhere version of a conditional expectation is
+evaluated at the single value `grad f(X) = 0`.
 
-Almost surely under `Q_r` every critical point of `f` off the pins is nondegenerate (Bulinskaya's lemma for the field
-`(grad f, det D^2 f)`, whose values have a bounded joint density at each point off the pins by [LP] §2); the sources
-use this when they sum over indices. Hence `N = sum_j N_j(X minus {M,S}, I_r)` almost surely.
+*Proof.* Fix `r`, a compact `B` off the pins, `I` and `j`. Define two measures on the field space (the Borel
+`sigma`-field of `C(X)`):
+
+    Lc(A) = E_(Q_r)[ 1_A(f) N_j(B, I) ],
+    Rc(A) = integral_B integral_I p_( grad f(X), f(X) | pins )(0, h) E_(Q_(X,h))[ 1_A(f) F_j(H_X) ] dh dX.
+
+Both are finite: `Lc(C(X)) = E_(Q_r) N_j(B, I) < oo` by the unweighted Kac–Rice formula on `B` ([LP] §9, [RM] §5,
+(P18), (I33)), whose right side is `Rc(C(X))`; so the two total masses agree. For a bounded continuous function `g`
+of finitely many jets of `f` at finitely many fixed sites, the weighted formula of the sources, with the auxiliary
+Gaussian field of arXiv:2304.07424v3 Theorem 7.1 and Remark 8 taken constant in `X` and its conditional law read
+through the kernel `Q_(X,h)`, gives `integral g dLc = integral g dRc`. These `g` form a vector space closed under
+products which generates the Borel `sigma`-field of `C(X)` (a continuous field is determined by its values on a
+countable dense set). Two finite measures whose integrals agree on such a class agree on the generated `sigma`-field
+(monotone class theorem for functions: the bounded measurable `g` with `integral g dLc = integral g dRc` form a
+vector space closed under bounded monotone limits containing the multiplicative class). Hence `Lc = Rc` on all Borel
+`A`, which is (5.1) for indicators; simple functions by linearity, and nonnegative `Xi` by monotone convergence on
+both sides (`Xi ∧ n` increasing to `Xi`). The all-height statement is the same construction with the kernels `Q_X`
+and the unweighted gradient formula; the extension from compact `B` to `X minus {M, S}` is monotone convergence
+along an exhaustion by compact punctures. ∎
+
+Almost surely under `Q_r`, `f` is Morse with distinct critical values, hence every critical point off the pins is
+nondegenerate: this is [LP] §8 ("Pinned genericity and global event measurability"), whose countable-exhaustion
+argument for the pinned law transfers to `Q_r^W` by absolute continuity and `0 < Z_r < oo`. No density statement for
+the nonlinear functional `det D^2 f` is used or needed. Hence `N = sum_j N_j(X minus {M,S}, I_r)` almost surely.
 
 ### 5.2 The Hölder insertion
 

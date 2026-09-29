@@ -51,6 +51,13 @@ through its unique nearby lift in each chart; `Phi = oo` when the floor vanishes
 finite union over degrees of [C6L] v1.3; Proposition 4.5' records the logarithmic form of the moment bound suggested
 in comment 5895432912; a comparison-free proof of Lemma 4.3 is noted. No theorem or ledger changed.
 
+**v1.3 (29 September, after OpenAI comment 5896041000):** Lemma 5.1 fixes the canonical Gaussian regression kernel
+`Q_(X,h)` for every `(X, h)`, including `grad f(X) = 0`, and proves the marked formula by equality of two finite
+measures on field space (agreement on continuous cylinder functions, equal total masses from the unweighted formula,
+monotone class), with gradient-only kernels for all heights and exhaustion for the punctures; the almost-sure
+nondegeneracy of critical points is cited from [LP] §8 (pinned genericity) instead of a density statement for the
+Hessian determinant. No theorem, lemma statement, ledger, script or result changed.
+
 **v1.2 (29 September, after OpenAI comment 5895460246):** Corollary P is restated as a size-biased (Palm) statement
 about the second factorial moment only; higher factorial moments are upper bounds, with no order-`r^3` lower bound
 claimed for `q >= 3`. §6 states the order in which `eta`, `R`, `s_0` and `r_*` are fixed and reduced. No theorem,
