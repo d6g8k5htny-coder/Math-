@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "BR_TORUS": true,
+    "CLOSED_CONTACT": true,
+    "EARLY_PREFIX": true,
+    "IFT": true,
+    "TERMINAL_SLACK": true
+  },
+  "object": "CLAUDE-REVIEW-SARD-R1R2-20260929-v1",
+  "passed": true,
+  "scope": "exact finite controls of the boundary examples only; R1/R2 are reviewed in REVIEW.md"
+}

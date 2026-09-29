@@ -1,0 +1,40 @@
+{
+  "scientific_effect": "NONE",
+  "upstream_replayed_by_packet": false,
+  "inputs": [
+    {
+      "id": "RC-S",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ee94b06368c29bceca80662698b4b4d6ee81ec91",
+      "path": "frontiers/sard_g_robust_charts_20260929/PROOF.md",
+      "git_blob": "7e2237063a8dd0120e9d5bd15a3caaa32e8495fa",
+      "bytes": 25022,
+      "sha256": "b91b9f792c6322204a0f2a573b2ca76d5c951e49ddd7caa6ffd1abed0aa79e79",
+      "use": "Actual first-closed-contact R1/R2 charts and optional R3/R4 slicing; geometric source not overwritten."
+    },
+    {
+      "id": "CL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "2726594c83ac35b0371362674a1e4e4f52fd3840",
+      "path": "frontiers/sard_g_a2_regularity_20260929/PROOF.md",
+      "git_blob": "b27a36e3d337fd0c2bcecdeae6bf013b56883b0f",
+      "use": "Attribution and cross-check of Lemma J, loss diagnosis and weaker A2-G; cited stable-manifold theorems not imported."
+    },
+    {
+      "id": "PREDECESSOR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "e944ba0b595d790d27d1466cc4f576467890bc3a",
+      "path": "frontiers/sard_g_a2_parameter_20260929/PROOF.md",
+      "use": "INVALID Section3/C1-into-C1 predecessor explicitly withdrawn; no proof dependency."
+    }
+  ],
+  "new_author_claims": [
+    "fixed-frame joint Frechet C1 germs",
+    "localized scalar-potential nonvanishing",
+    "Fourier-support Cameron-Martin separation",
+    "Morse/distinct-values mesh proof",
+    "qualitative unconditioned planar no-connection composition"
+  ],
+  "nonauthor_review_required": true,
+  "no_status_fold": true
+}
