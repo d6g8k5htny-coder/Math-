@@ -1,6 +1,6 @@
 # Proof availability index
 
-This file links full proof text, exact reviews, and explicitly incomplete proof obligations. Local links open the retained files in this public repository; immutable external links identify sources still on other public branches. Scientific status is unchanged by this index. Review descriptions below report the linked records, checked on 2026-09-26; they do not replace the claim manifest or the source statements.
+This file links full proof text, exact reviews, and explicitly incomplete proof obligations. Local links open the retained files in this public repository; immutable external links identify sources still on other public branches. Scientific status is unchanged by this index. Review descriptions below report the linked records, checked on 2026-09-26; packets integrated 27–29 September 2026 are listed by availability in the navigation-refresh section near the end of this file, with their review records in [docs/integration/2026-09-29-navigation-refresh.md](docs/integration/2026-09-29-navigation-refresh.md). None of this replaces the claim manifest or the source statements.
 
 ## Imported source bytes — publication only
 
@@ -44,6 +44,104 @@ The shared [public inventory](https://github.com/d6g8k5htny-coder/main/tree/main
 - D5 intermediate scale r << |x| << rho: bounded on opposite sides by [frontiers/remote_window_20260924/PROOF.md](frontiers/remote_window_20260924/PROOF.md) and by the reviewed fixed-annulus proofs [frontiers/rn_annulus_bridge_20260925/PROOF.md](frontiers/rn_annulus_bridge_20260925/PROOF.md) and [frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md](frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md). NO COMPLETE PROOF YET: uniform growing-scaled-radius bridge.
 - D5 shrinking multiple-witness collision: fixed-separation machinery is [frontiers/remote_window_20260924/PROOF.md](frontiers/remote_window_20260924/PROOF.md) section 6, (15)–(16), at fixed `eta>0`. NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate.
 - D0 historical CH-LIFT/Piece-2/24-jet obligations outside reviewed regional bypasses: see [frontiers/downstream_gate_20260925/GRAPH.json](frontiers/downstream_gate_20260925/GRAPH.json). NO COMPLETE PROOF YET where not explicitly superseded; absent historical carriers remain ABSENT.
+
+## Navigation refresh — packets integrated 27–29 September 2026
+
+The packets below landed on `main` after this index was last checked (2026-09-26). This section records **availability only**: path, the packet's own object id, and its kind. The review records for each packet — quoted verbatim, with exact links and the blob each review binds to — are in [docs/integration/2026-09-29-navigation-refresh.md](docs/integration/2026-09-29-navigation-refresh.md); nothing here is a verdict, and no claim, graph node, STATUS row or disposition changes. Author lanes are as the packets state them. Packets on unmerged branches are not listed.
+
+**D1 parent chain (lifetime Theorems A, B, C) and its review records** — [review records](docs/integration/2026-09-29-navigation-refresh.md#d1-parent-chain-lifetime-theorems-a-b-c-and-its-review-records)
+
+- #71 — [`reviews/pr124_c1_c2_nonauthor_20260926/REVIEW.md`](reviews/pr124_c1_c2_nonauthor_20260926/REVIEW.md) (`fe3b9442`) — (no object id stated) — review record
+- #114 — [`reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md`](reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md) (`48ea9ad5`) — (review of: d1_section9 packet reviews reviews/d1_section9_borel_repair_20260925/REPAIR.md (blob fe9b9ce4..., SHA256 845abf9f...): C1–C6 ACCEPT attributed to Grok/Lucas; reported executions UNVERIFIED) — engineering/repair — also: `frontiers/remote_collision_20260928`, `reviews/d5_remote_collision_grok_20260928`
+- #143 — [`reviews/d1_cde_full_depth_claude_20260929/REVIEW.md`](reviews/d1_cde_full_depth_claude_20260929/REVIEW.md) (`f05700e2`) — CL-D1-CDE-FULLDEPTH-20260929-v1 (from SOURCE_FILES.json; REVIEW.md itself carries no 'Object:' line for the record — its Object row names the reviewed parent UNIFORM-MATRIX-CAP-LIFETIME-20260924-v1) — review record
+
+**D3 / SIDE24 coefficient and periodization** — [review records](docs/integration/2026-09-29-navigation-refresh.md#d3--side24-coefficient-and-periodization)
+
+- #144 — [`frontiers/side24_periodization_20260929/PROOF.md`](frontiers/side24_periodization_20260929/PROOF.md) (`1a84f215`) — CL-SIDE24-PFV-20260929-v1 — proof candidate
+- #147 — [`reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md`](reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md) (`003b9879`) — CL-LIT-RECON-LIFETIME-20260929-v1.1 (v1 + the executed 1-D neighbor pass, §4 item D) — reconnaissance/draft
+- #152 — [`reviews/side24_v1_coefficient_claude_20260929/REVIEW.md`](reviews/side24_v1_coefficient_claude_20260929/REVIEW.md) (`665d1683`) — CL-SIDE24-V1-REVIEW-20260929-v1 — review record
+- #154 — [`coefficients/side24_remainder_20260929/PROOF.md`](coefficients/side24_remainder_20260929/PROOF.md) (`0bcf0a6f`) — OA-SIDE24-REMAINDER-20260929-v1 (RECONNAISSANCE.md: OA-SIDE24-REMAINDER-RECON-20260929-v1) — proof candidate
+- #156 — [`frontiers/side24_periodization_remainder_20260929/PROOF.md`](frontiers/side24_periodization_remainder_20260929/PROOF.md) (`03291568`) — CL-SIDE24-PERIODIZATION-REMAINDER-20260929-v1 — proof candidate
+
+**D4–D5 RN regions: pins, microdisk, collar, intermediate window, remote, dimension lifts** — [review records](docs/integration/2026-09-29-navigation-refresh.md#d4d5-rn-regions-pins-microdisk-collar-intermediate-window-remote-dimension-lifts)
+
+- #7 — [`frontiers/rn_mesoscopic_20260925/PROOF.md`](frontiers/rn_mesoscopic_20260925/PROOF.md) (`0ef068fe`) — RN-MESOSCOPIC-ANNULUS-REDUCTION-20260925-v1 — proof candidate
+- #35 — [`reviews/contact_angular_tail_20260925/NOTE.md`](reviews/contact_angular_tail_20260925/NOTE.md) (`df008a07`) — OA-CONTACT-ANGULAR-TAIL-20260925-v1 — proof candidate
+- #60 — [`reviews/pin_micro_covariance_20260926/NOTE.md`](reviews/pin_micro_covariance_20260926/NOTE.md) (`36cc6cfc`) — OA-PIN-MICRO-COV-20260926-v1 — proof candidate
+- #72 — [`reviews/pr125_shrinking_witness_nonauthor_20260926/REVIEW.md`](reviews/pr125_shrinking_witness_nonauthor_20260926/REVIEW.md) (`c337823b`) — (no object id stated) — review record
+- #82 — [`reviews/d5_microdisk_20260926/NOTE.md`](reviews/d5_microdisk_20260926/NOTE.md) (`19efd64e`) — OA-D5-MICRODISK-20260926-v1 (QUARTIC.md: OA-D5-MICRODISK-QUARTIC-20260926-v1) — proof candidate
+- #90 — [`reviews/d5_pin_microdisk_20260927/NOTE.md`](reviews/d5_pin_microdisk_20260927/NOTE.md) (`ac09361c`) — D5-PIN-MICRODISK-20260927-v1 — proof candidate
+- #89 — [`certificates/bf_six_pin_hessian_20260926/PROOF.md`](certificates/bf_six_pin_hessian_20260926/PROOF.md) (`201a29fa`) — OA-BF-SIX-PIN-HESSIAN-20260926-v1 (scalar packet: OA-BF-SIX-PIN-SCALAR-20260926-v1) — proof candidate — also: `certificates/bf_six_pin_scalar_20260926`
+- #80 — [`reviews/contact_kernel_substitute_20260926/SUBSTITUTE.md`](reviews/contact_kernel_substitute_20260926/SUBSTITUTE.md) (`ae3b8e1f`) — OA-CONTACT-KERNEL-SUBSTITUTE-20260926-v1 — other
+- #87 — [`incoming/grok-cycle4-20260926/harper/README.md`](incoming/grok-cycle4-20260926/harper/README.md) (`6d1fb316`) — (no object id stated) — proof candidate
+- #103 — [`reviews/d5_short_edge_20260928/NOTE.md`](reviews/d5_short_edge_20260928/NOTE.md) (`e5fde88b`) — OA-D5-SHORT-EDGE-20260928-v1 — proof candidate
+- #104 — [`reviews/d5_pin_disk_all_directions_20260928/NOTE.md`](reviews/d5_pin_disk_all_directions_20260928/NOTE.md) (`c9a8ec2f`) — CL-D5-PIN-DISK-20260928-v1 (NOTE.md). The companion REVIEW.md has no object id of its own; its reviewed object is OA-PIN-MICRO-COV-20260926-v1. — proof candidate — also: `reviews/pin_micro_covariance_nonauthor_20260928`
+- #105 — [`reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md`](reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md) (`d8acf0bc`) — OA-D5-PUNCTURED-PIN-20260928-v1 (PUNCTURED_PIN_PROOF.md); OA-D5-COMPACT-COLLAR-20260928-v1 (COLLAR_PROOF.md) — proof candidate
+- #107 — [`frontiers/intermediate_window_20260928/PROOF.md`](frontiers/intermediate_window_20260928/PROOF.md) (`f53a527c`) — OA-D5-INTERMEDIATE-WINDOW-20260928-v1 — proof candidate
+- #108 — [`reviews/d5_intermediate_window_grok_20260928/REVIEW.md`](reviews/d5_intermediate_window_grok_20260928/REVIEW.md) (`1b0998b9`) — GROK-D5-INTERMEDIATE-WINDOW-REVIEW-20260928-v1.1 (reviewed object: OA-D5-INTERMEDIATE-WINDOW-20260928-v1) — review record
+- #109 — [`reviews/d5_intermediate_window_claude_20260928/REVIEW.md`](reviews/d5_intermediate_window_claude_20260928/REVIEW.md) (`100ce8ec`) — (review of: OA-D5-INTERMEDIATE-WINDOW-20260928-v1 = frontiers/intermediate_window_20260928/PROOF.md (blob f53a527c..., 27775 B, SHA256 b3eb9456...) at #107 head 742e72e) — review record
+- #111 — [`reviews/d5_punctured_pin_nonauthor_20260928/REVIEW.md`](reviews/d5_punctured_pin_nonauthor_20260928/REVIEW.md) (`c98cf3ee`) — (review of: OA-D5-PUNCTURED-PIN-20260928-v1 (reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md, blob d8acf0bc...) against reviews/d5_pin_microdisk_20260927/NOTE.md obstruction) — review record
+- #110 — [`frontiers/remote_collision_20260928/PROOF.md`](frontiers/remote_collision_20260928/PROOF.md) (`7b48a88e`) — CL-D5-REMOTE-COLLISION-20260928-v1 (v4 head 66437d9) — proof candidate
+- #113 — [`reviews/d5_remote_collision_grok_20260928/REVIEW.md`](reviews/d5_remote_collision_grok_20260928/REVIEW.md) (`c18560f8`) — (review of: CL-D5-REMOTE-COLLISION-20260928-v1 = frontiers/remote_collision_20260928/PROOF.md at v3 head bbb5c7eb (ledger and Bonferroni slice only)) — review record
+- #115 — [`frontiers/remote_singleton_law_20260928/PROOF.md`](frontiers/remote_singleton_law_20260928/PROOF.md) (`2b019569`) — OA-D5-REMOTE-SINGLETON-LAW-20260928-v1 — proof candidate
+- #117 — [`reviews/d5_i5_planar_f_20260928/REVIEW.md`](reviews/d5_i5_planar_f_20260928/REVIEW.md) (`031c5364`) — (review of: frontiers/intermediate_window_20260928/PROOF.md (I3, I4, I5) and frontiers/remote_collision_20260928/PROOF.md Corollary F, on main 5a5b97d2; consumes C2 (d5_local_collar) and D4 Theorem A) — review record — also: `reviews/candidates_pending_20260928`
+- #119 — [`reviews/d5_collar_count_20260928/REVIEW.md`](reviews/d5_collar_count_20260928/REVIEW.md) (`6b1350fa`) — (review of: reviews/d5_local_collar_20260928/COLLAR_PROOF.md (C1 collar, C2 scaled ball) and PUNCTURED_PIN_PROOF.md; frontiers/remote_collision_20260928/PROOF.md Lemma 1 (P_eta)) — review record — also: `reviews/d5_offpin_second_moment_20260928`
+- #121 — [`reviews/d5_consumption_bridge_20260928/BRIDGE.md`](reviews/d5_consumption_bridge_20260928/BRIDGE.md) (`7e1ef1c1`) — (review of: edges among recorded pieces P2, C1, C2, I3/I4, D4 A, I5, F-, F+, P_eta, H1–H4, Theorem A (1.1); finite identities L1–L5) — review record
+- #138 — [`reviews/d5_reconciliation_20260929/RECONCILIATION.md`](reviews/d5_reconciliation_20260929/RECONCILIATION.md) (`4062d76b`) — D5-RECONCILIATION-20260929-v2.1 — other
+- #120 — [`frontiers/remote_height_decoupling_20260928/PROOF.md`](frontiers/remote_height_decoupling_20260928/PROOF.md) (`4d7af587`) — OA-REMOTE-HEIGHT-DECOUPLING-20260928-v1 — proof candidate
+- #123 — [`reviews/d1_elder_lower_claude_20260928/REVIEW.md`](reviews/d1_elder_lower_claude_20260928/REVIEW.md) (`179c1e6d`) — review records (no own Object id); reviewed objects: OA-ELDER-LOWER-DENSITY-GAP-20260928-v1 and OA-WINDOW-MULTIPLICITY-LOCAL-20260928-v1 (#116 C1/C2); OA-P15-BIPARTITE-OVERLAP-20260928-v1, OA-P15-EVEN-READ-TWO-20260928-v1 (#118); OA-P15-TAIL-LOAD-20260928-v1 (#122); OA-REMOTE-HEIGHT-DECOUPLING-20260928-v1 (#120) — review record — also: `reviews/p15_overlap_tail_claude_20260928`, `reviews/remote_height_claude_20260928`
+- #116 — [`frontiers/window_multiplicity_laws_20260928/README.md`](frontiers/window_multiplicity_laws_20260928/README.md) (`126c8e3d`) — C1 OA-ELDER-LOWER-DENSITY-GAP-20260928-v1; C2 OA-WINDOW-MULTIPLICITY-LOCAL-20260928-v1; C3 OA-WINDOW-MULTIPLICITY-REMOTE-20260928-v1; C4 OA-WINDOW-MULTIPLICITY-DISTANCE-20260928-v1; C5 OA-WINDOW-MULTIPLICITY-HEIGHT-20260928-v1 — proof candidate
+- #124 — [`docs/integration/2026-09-28-reviewed-mathematics.md`](docs/integration/2026-09-28-reviewed-mathematics.md) (`0c7f4a7e`) — (no object id stated) — integration — also: `frontiers/p15_bipartite_overlap_20260928`, `frontiers/p15_tail_load_20260928`, `frontiers/remote_height_decoupling_20260928`, `frontiers/window_multiplicity_laws_20260928`, `reviews/d1_elder_lower_claude_20260928`, `reviews/p15_overlap_tail_claude_20260928`, `reviews/remote_height_claude_20260928`
+- #128 — [`frontiers/remote_inverse_separation_20260928/PROOF.md`](frontiers/remote_inverse_separation_20260928/PROOF.md) (`1b24d0f6`) — OA-REMOTE-INVERSE-SEPARATION-20260928-v1 — proof candidate
+- #129 — [`docs/integration/2026-09-29-reviewed-dimension-and-pair.md`](docs/integration/2026-09-29-reviewed-dimension-and-pair.md) (`4c42d40f`) — (no object id stated) — integration — also: `frontiers/elder_dimension_lift_20260928`, `frontiers/window_multiplicity_laws_20260928`, `reviews/elder_dimension_lift_claude_20260928`, `reviews/remote_pair_law_claude_20260928`
+- #130 — [`reviews/remote_inverse_separation_claude_20260929/REVIEW.md`](reviews/remote_inverse_separation_claude_20260929/REVIEW.md) (`df9cdc1f`) — review records (no own Object id); reviewed objects: OA-REMOTE-INVERSE-SEPARATION-20260928-v1 (#128); OA-WINDOW-MULTIPLICITY-DISTANCE-20260928-v1 (#116 C4); OA-WINDOW-MULTIPLICITY-HEIGHT-20260928-v1 (#116 C5) — review record — also: `reviews/remote_distance_moments_claude_20260929`, `reviews/remote_height_marks_claude_20260929`
+- #131 — [`docs/integration/2026-09-29-reviewed-window-and-inverse.md`](docs/integration/2026-09-29-reviewed-window-and-inverse.md) (`73c7675d`) — (no object id stated) — integration — also: `frontiers/remote_inverse_separation_20260928`, `frontiers/window_multiplicity_laws_20260928`, `reviews/remote_distance_moments_claude_20260929`, `reviews/remote_height_marks_claude_20260929`, `reviews/remote_inverse_separation_claude_20260929`
+- #125 — [`frontiers/elder_dimension_lift_20260928/PROOF.md`](frontiers/elder_dimension_lift_20260928/PROOF.md) (`7303bd79`) — OA-ELDER-DIMENSION-LIFT-20260928-v1 — proof candidate
+- #127 — [`reviews/elder_dimension_lift_claude_20260928/REVIEW.md`](reviews/elder_dimension_lift_claude_20260928/REVIEW.md) (`e2b9fcdc`) — review records (no own Object id); reviewed objects: OA-ELDER-DIMENSION-LIFT-20260928-v1 (#125); OA-WINDOW-MULTIPLICITY-REMOTE-20260928-v1 (#116 C3) — review record — also: `reviews/remote_pair_law_claude_20260928`
+- #141 — [`frontiers/d5_dimension_lift_20260929/PROOF.md`](frontiers/d5_dimension_lift_20260929/PROOF.md) (`9d82c707`) — CL-D5-DIMENSION-LIFT-20260929-v1 — proof candidate
+- #149 — [`frontiers/elder_lower_all_d_20260929/PROOF.md`](frontiers/elder_lower_all_d_20260929/PROOF.md) (`7f41c9e3`) — CL-ELDER-LOWER-ALL-D-20260929-v1.1 (v1 + the invariant (E-mix) wording) — proof candidate
+
+**C6 torus-wide factorial moments and cluster laws** — [review records](docs/integration/2026-09-29-navigation-refresh.md#c6-torus-wide-factorial-moments-and-cluster-laws)
+
+- #140 — [`frontiers/c6_factorial_moment_20260929/PROOF.md`](frontiers/c6_factorial_moment_20260929/PROOF.md) (`f5bd013b`) — CL-C6-FACTORIAL-20260929-v1 (Version: v1.3) — proof candidate
+- #142 — [`frontiers/c6_sharpened_20260929/PROOF.md`](frontiers/c6_sharpened_20260929/PROOF.md) (`70ba1972`) — CL-C6-SHARPENED-20260929-v1 (Version: v1.2) — proof candidate
+- #146 — [`frontiers/c6_count_cap_boundary_20260929/PROOF.md`](frontiers/c6_count_cap_boundary_20260929/PROOF.md) (`3d4c28a4`) — OA-C6-COUNT-CAP-BOUNDARY-20260929-v1 — proof candidate
+- #148 — [`frontiers/c6_fourier_cutoff_20260929/PROOF.md`](frontiers/c6_fourier_cutoff_20260929/PROOF.md) (`1d9177a2`) — OA-C6-FOURIER-20260929-v1 — proof candidate — also: `reviews/c6_fourier_completion_20260929`
+- #145 — [`frontiers/c6_palm_route_20260929/PROOF.md`](frontiers/c6_palm_route_20260929/PROOF.md) (`89eb8adf`) — CL-C6-PALM-20260929-v1 (Version: v1.4, provenance refresh after Codex review 5358203608) — proof candidate
+- #153 — [`frontiers/c6_rare_cluster_laws_20260929/PROOF.md`](frontiers/c6_rare_cluster_laws_20260929/PROOF.md) (`2ab625ce`) — OA-C6-RARE-CLUSTER-20260929-v1 (addendum SHARP_POISSON_COEFFICIENT.md: OA-C6-RARE-CLUSTER-20260929-A1) — proof candidate
+- #161 — [`frontiers/local_cluster_tightness_20260929/PROOF.md`](frontiers/local_cluster_tightness_20260929/PROOF.md) (`adffa691`) — OA-LOCAL-CLUSTER-TIGHTNESS-20260929-v1 — proof candidate
+
+**C7 unrestricted selection difference** — [review records](docs/integration/2026-09-29-navigation-refresh.md#c7-unrestricted-selection-difference)
+
+- #132 — [`frontiers/remote_mixed_inverse_20260929/PROOF.md`](frontiers/remote_mixed_inverse_20260929/PROOF.md) (`975d8211`) — OA-REMOTE-MIXED-INVERSE-20260929-v1 — proof candidate
+- #133 — [`frontiers/unrestricted_selection_difference_20260929/PROOF.md`](frontiers/unrestricted_selection_difference_20260929/PROOF.md) (`5a55b179`) — CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v3 — proof candidate — also: `reviews/remote_mixed_inverse_claude_20260929`
+- #134 — [`docs/integration/2026-09-29-c7-and-mixed-review.md`](docs/integration/2026-09-29-c7-and-mixed-review.md) (`185832eb`) — (no object id stated) — integration — also: `frontiers/remote_mixed_inverse_20260929`, `frontiers/unrestricted_selection_difference_20260929`, `reviews/c7_nonvanishing_openai_20260929`, `reviews/remote_mixed_inverse_claude_20260929`
+- #150 — [`frontiers/c7_total_bounded_20260929/PROOF.md`](frontiers/c7_total_bounded_20260929/PROOF.md) (`28748b08`) — CL-C7-TOTAL-BOUNDED-20260929-v1.2 (v1.1 supersedes the withdrawn v1 memo CL-C7-TOTAL-K-SCALING-RECON-20260929-v1) — proof candidate — also: `reviews/c7_total_k_scaling_recon_20260929`
+- #155 — [`frontiers/c7_zero_gap_limit_20260929/PROOF.md`](frontiers/c7_zero_gap_limit_20260929/PROOF.md) (`5b6328ea`) — OA-C7-ZERO-GAP-LIMIT-20260929-v1 — proof candidate
+
+**SARD-G first-contact charts** — [review records](docs/integration/2026-09-29-navigation-refresh.md#sard-g-first-contact-charts)
+
+- #135 — [`frontiers/sard_g_robust_charts_20260929/PROOF.md`](frontiers/sard_g_robust_charts_20260929/PROOF.md) (`7e223706`) — OA-SARD-ROBUST-CHARTS-20260929-v1 — proof candidate
+- #136 — [`reviews/sard_g_r3r4_claude_20260929/REVIEW.md`](reviews/sard_g_r3r4_claude_20260929/REVIEW.md) (`8c6fd343`) — review record (no own Object id); reviewed object: OA-SARD-ROBUST-CHARTS-20260929-v1 (#135), sections 7-8, claims R3-R4 — review record
+- #137 — [`frontiers/sard_g_a2_parameter_20260929/v2/A2_FIXED_FRAME.md`](frontiers/sard_g_a2_parameter_20260929/v2/A2_FIXED_FRAME.md) (`09c45efb`) — OA-SARD-A2-FIXED-FRAME-20260929-v2 (companion OA-SARD-NONVANISHING-CLOSURE-20260929-v1; withdrawn v1 OA-SARD-A2-PARAMETER-20260929-v1) — proof candidate
+- #139 — [`reviews/sard_closure_integration_20260929/READING_RULE.md`](reviews/sard_closure_integration_20260929/READING_RULE.md) (`6860b19b`) — (no object id stated) — integration — also: `frontiers/sard_g_robust_charts_20260929`, `frontiers/sard_g_a2_parameter_20260929`, `frontiers/sard_g_a2_regularity_20260929`, `frontiers/sard_g_pinned_transfer_20260929`, `reviews/sard_g_a2_fixed_frame_claude_20260929`, `reviews/sard_g_r1r2_claude_20260929`, `reviews/d5_punctured_pin_continuum_claude_20260929`
+
+**P15 covers and prices** — [review records](docs/integration/2026-09-29-navigation-refresh.md#p15-covers-and-prices)
+
+- #118 — [`frontiers/p15_bipartite_overlap_20260928/PROOF.md`](frontiers/p15_bipartite_overlap_20260928/PROOF.md) (`8ad826ec`) — OA-P15-BIPARTITE-OVERLAP-20260928-v1 — proof candidate
+- #122 — [`frontiers/p15_tail_load_20260928/PROOF.md`](frontiers/p15_tail_load_20260928/PROOF.md) (`8187908d`) — OA-P15-TAIL-LOAD-20260928-v1 — proof candidate
+
+**Custody, imports, audits, engineering and pointer records** — [review records](docs/integration/2026-09-29-navigation-refresh.md#custody-imports-audits-engineering-and-pointer-records)
+
+- #65 — [`reviews/d0_custody_audit_20260926/AUDIT.md`](reviews/d0_custody_audit_20260926/AUDIT.md) (`32c874c5`) — D0-PROOF-CUSTODY-AUDIT-20260926 — import/custody
+- #81 — [`reviews/drive_hole_substitutes_20260926/LEDGER.md`](reviews/drive_hole_substitutes_20260926/LEDGER.md) (`20193bd0`) — OA-DRIVE-HOLE-LEDGER-20260926-v4 (on main, post-merge #102 of 2026-09-28; merged version was v3, blob 96c5c08f9701428a26d485f25c997070cd8dfc2b, 10894 bytes) — import/custody
+- #83 — [`imports/upper2d_stage_e_20260926/README.md`](imports/upper2d_stage_e_20260926/README.md) (`64b69425`) — (no object id stated) — import/custody
+- #84 — [`imports/upper2d_h5_ledgers_20260926/README.md`](imports/upper2d_h5_ledgers_20260926/README.md) (`9b043d2f`) — (no object id stated) — import/custody
+- #86 — [`repairs/h5_rim_contract_20260926/REPAIR.md`](repairs/h5_rim_contract_20260926/REPAIR.md) (`4c77876e`) — (no object id stated) — engineering/repair — also: `imports/upper2d_h5_ledgers_20260926 (README.md +3 lines)`
+- #88 — [`PUBLIC_READING_MAP.md`](PUBLIC_READING_MAP.md) (`3e583551`) — (no object id stated) — other
+- #91 — [`repairs/c026_reciprocal_20260927/README.md`](repairs/c026_reciprocal_20260927/README.md) (`f359e163`) — (no object id stated) — engineering/repair
+- #73 — [`reviews/pr36_kernel_tail_nonauthor_20260926/REVIEW.md`](reviews/pr36_kernel_tail_nonauthor_20260926/REVIEW.md) (`54986be8`) — (no object id stated) — review record
+
 
 ## Repository rule
 
