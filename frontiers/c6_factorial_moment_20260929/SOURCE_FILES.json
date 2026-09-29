@@ -2,27 +2,43 @@
   "schema": 1,
   "scientific_effect": "NONE",
   "disposition": "AUTHOR_SIDE_CANDIDATE",
-  "base": "dbccbb41a58f2328b3bec6c4609a4b8fb3ac811f",
+  "base": "79f9a73596b1ce925034bd426c005a3251693c1b",
   "consumes": [
     {
       "id": "I5",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
       "records": [
         "reviews/d5_i5_planar_f_20260928/REVIEW.md",
         "reviews/d5_intermediate_window_claude_20260928/REVIEW.md"
+      ],
+      "reading_rule": "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf"
+    },
+    {
+      "id": "W2-Z",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "section": "5 (moments sentence; (5.5))",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "records": [
+        "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md"
       ]
     },
     {
       "id": "P13-P14",
+      "role": "secondary",
       "path": "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
-      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a"
+      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a",
+      "records": [
+        "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md"
+      ]
     }
   ],
   "files": [
     {
       "path": "PROOF.md",
-      "bytes": 15704,
-      "sha256": "ae00625a460b2d5597e3e4669bb468ffb60e85b5a259854f856577397d9ebd2d",
-      "git_blob": "6cb705ef44100d5a32d4c852cf7e460d520f90f5"
+      "bytes": 18692,
+      "sha256": "c5dcc611810c24b115f44ef9cce468e83618f3f63de385e7157a46076a4762d1",
+      "git_blob": "af6c336301d1ec6cf3b2021e8b7478543200d400"
     },
     {
       "path": "RESULTS.json",
