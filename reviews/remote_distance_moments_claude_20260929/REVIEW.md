@@ -32,7 +32,7 @@ separate act.
 | §2 (59–102): the sharper determinant bound (D6), the conditioned bound (D7), the radial envelope (D8) | **ACCEPT**; see §1 below. The height integral is exact (N2). |
 | §3 (104–128): the diagonal bound (D9), `0 < B_p < ∞`, the fixed-distance density (D10) | **ACCEPT**; see §2 below. (D10) reads RM (15) for mixed indices (N1). |
 | §4 (130–168), **Theorem D (D5)**: `r^{5+p}A_p` for `0 ≤ p < 1`; `r⁶(A_1 + B_1)` at `p = 1`; `r⁶B_p` for `p > 1` | **ACCEPT** at the stated fixed-`E`, fixed-`ρ`, existential scope; see §3 below. |
-| §5 (170–201): the limiting law (D13), the `s^{−8}` tail and `R^{−7}` survival (D14), `E[S^p] < ∞` iff `p < 7` | **ACCEPT**; see §4 below. |
+| §5 (170–201): the limiting law (D13), the `s^{−8}` tail and `R^{−7}` survival (D14), and, for `p ≥ 0`, `E[S^p] < ∞` iff `p < 7` | **ACCEPT**; see §4 below. |
 | §6 (203–223): (D15), (D16), quantiles and RMS; TV does not control unbounded moments | **ACCEPT** |
 | §7 (225–234) boundary | **ACCEPT** as stated. |
 
@@ -79,8 +79,10 @@ first moment puts equal mass on every dyadic shell, so the middle region would c
 At `Q_0` with both witness heights equal to `b`, the collision frame has `t = 0` exactly, so (D6) gives
 `|det H| ≤ Cδ²K^d` at each witness. The ledger is: product `δ⁴`, value-gradient density `δ^{−d−3}` ([RC] (4.3) at
 `r = 0`, where [RC] Lemma 1 already includes `r = 0`), polar `δ^{d−1}`. It totals `δ⁰` for every d (`DIAGONAL`). So
-`δ^{d−1}Λ_2(x, x+δe)` is bounded, and `dist^pΛ_2` is locally integrable exactly for `p > −1`. Hence `B_p < ∞` for
-`p ≥ 0`.
+`δ^{d−1}Λ_2(x, x+δe)` is bounded. The bounding envelope `δ^p` is locally integrable for `p > −1`, hence `B_p < ∞` on
+the claimed domain `p ≥ 0`. This is sufficiency only: no negative-moment threshold for the actual kernel `Λ_2` is
+established here. Off-diagonal positivity alone does not give a positive limiting diagonal coefficient; a positive
+bounded radial kernel such as `exp(−1/δ)` has every negative moment finite.
 
 Positivity: at distinct remote sites, the two Hessians and `B_0` have full joint conditional support by [RM] §2's
 distinct-jet principle, so `Λ_2 > 0` off the diagonal. A positive-volume `E` has `E × E` of positive measure at some
@@ -122,8 +124,9 @@ So `A_1(A) + B_1(ε) ≤ liminf ≤ limsup ≤ A_1(A) + B_1(ε) + CA^{−6} + C�
 (D14), with constants `6` and `6/7`.
 
 `TAIL` checks the limit on an exact piecewise-polynomial model `Ψ = (1 − t²)_+`:
-`s⁹∫t²(k − s³|t|)_+Ψ dt → k⁴/6` with error `O(s^{−6})`. `E[S^p] < ∞` iff `p < 7`, and then it equals `A_p/A_0` by
-the Tonelli identity `108/((p+2)(p+5))` (`MOMENTS`). `g_S = O(s)` at `0`.
+`s⁹∫t²(k − s³|t|)_+Ψ dt → k⁴/6` with error `O(s^{−6})`. For `p ≥ 0`, `E[S^p] < ∞` iff `p < 7`, and then it equals
+`A_p/A_0` by the Tonelli identity `108/((p+2)(p+5))` (`MOMENTS`). `g_S = O(s)` at `0`. Across real `p`, the lower
+endpoint is `−2`, from #128's positive `J_0` (N5); the upper-tail argument alone is not a complete real-moment domain.
 
 The tail reproduces the envelope's shape: `r⁴g_S(δ/r) ≈ (6k⁴Ψ_E(0)/z_0)r^{12}δ^{−8}`. So the first term of (D8) is
 the actual microscopic tail, not slack. The two terms of (D8) cross at `δ ≍ r^{3/4}` (N3).
@@ -163,6 +166,13 @@ pair-weighted mass of order `r` sits at fixed physical distances, is exactly the
 - It accepts no event-conditioned pair law, uniform intermediate-scale asymptotic, global (pin-inclusive) factorial
   bound, uniformity as `ρ → 0` or over oscillating `E_r`, numerical constant, or persistence interpretation.
 - It does not run or reconstruct `algebra.py`, and it changes no register.
+
+## Revisions
+
+- **v2** (wording only, requested in [5888822723](https://github.com/d6g8k5htny-coder/Math-/pull/130#issuecomment-5888822723)):
+  §2 now says the bounded envelope gives `B_p < ∞` for `p ≥ 0` (sufficiency only, no negative threshold for `Λ_2`),
+  and the `p < 7` moment statement is qualified to `p ≥ 0` in the verdict table and §4. No verdict, proof reading or
+  checker change.
 
 ## Reproduce
 
