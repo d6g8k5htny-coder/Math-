@@ -41,7 +41,10 @@ Nine groups of exact checks (`X G R RO EU TB N L W`): exterior-power inequality 
 4. Lemma D5: integrability of the weight and the `O(r^5)` nested-ball bound; the region I/II ledgers (4.11), (4.12).
 5. §5.1 and §6.1: degree-five interpolation in `d` variables, the confluent families, and the compactness step.
 6. The tiling in §7, and the claim that [RM] Theorem A, [RC] (F-) and [EDL] (A4) are consumed at their stated every-`d` scope.
-7. Every step cited as "verbatim" from a planar source: confirm it is in fact dimension-free.
+7. Every step cited as "verbatim" from a planar source: confirm it is in fact dimension-free. The vector-valued
+   statements behind (4.1), (5.2) and (6.2) are derived in §4.2, §5.3 and §6.3 rather than cited.
+8. For the `d >= 3` continuum read: `CONTINUUM_CROSSWALK.md` lists every held continuum step with its planar line,
+   the place where the `d`-dimensional argument is written, and the complete list of changes.
 
 ## What this does not do
 

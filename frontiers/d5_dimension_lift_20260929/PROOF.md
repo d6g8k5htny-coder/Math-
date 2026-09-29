@@ -363,7 +363,11 @@ With `D(u) = u^2 - 1/4`, the endpoint pins and Taylor's formula give, uniformly 
     G_1 := f_x(ru, rv)/r^2 = 6k D(u) + u v . T_3 + (1/2) v^T C_3 v + O_(L^s)(r),
     G_2 := grad_y f(ru, rv)/r = S_0 v + O_(L^s)(r),                                           (5.2)
 
-exactly as [CP] (C7), with `v . T_3`, `v^T C_3 v` and `S_0 v` replacing the planar products. Hence `|E_(Q_r) G_1 - 6k D(u)| <= C(|v| + r)` and `Var_(Q_r)(G_1) <= C(|v|^2 + r^2)`. On `|v| <= v_0 <= eta/2` the collar gives `|D(u)| >= eta^2/4`, so `|E_(Q_r) G_1| >= d_0 > 0` after reducing `v_0` and `r_*`. The one-coordinate Mahalanobis bound `m^T Sigma^(-1) m >= m_1^2 / Sigma_11` [CP] (C10) supplies the factor `exp[-c/(r^2 + |v|^2)]` in the joint `d`-dimensional density.
+exactly as [CP] (C7), with `v . T_3`, `v^T C_3 v` and `S_0 v` replacing the planar products. Since (C7) is stated for
+two scalars, the vector form is derived in §6.3: (5.2) is (6.3) with `s = r` and `epsilon = 1` (so `d_e = D(u)`), on
+the compact chart `|u|, |v| <= R`, whose `O(sK)` and `O(s^2 K)` remainders are `O(rK)`; the terms `(r/2) D(u) T_3`,
+`r u C_3 v` and `(r/2) D_3[v, v]` of the transverse line are absorbed into the `O_(L^s)(r)` of the second line of
+(5.2), and the inputs are the vector-valued endpoint identities (6.2). Hence `|E_(Q_r) G_1 - 6k D(u)| <= C(|v| + r)` and `Var_(Q_r)(G_1) <= C(|v|^2 + r^2)`. On `|v| <= v_0 <= eta/2` the collar gives `|D(u)| >= eta^2/4`, so `|E_(Q_r) G_1| >= d_0 > 0` after reducing `v_0` and `r_*`. The one-coordinate Mahalanobis bound `m^T Sigma^(-1) m >= m_1^2 / Sigma_11` [CP] (C10) supplies the factor `exp[-c/(r^2 + |v|^2)]` in the joint `d`-dimensional density.
 
 ### 5.4 Very near the axis: `|v| <= r^(1/3)` ([CP] §6)
 
@@ -450,7 +454,27 @@ Let `T_3 = grad_y f_xx(0) in R^m`, `C_3 = D_y^2 f_x(0) in Sym_m`, `D_3 = D_y^3 f
     |f(0) - b_bar| <= C r^4 K,   f_x(0) = -3k r^2/2 + O(r^4 K),   grad_y f(0) = -r^2 T_3/8 + O(r^4 K),
     |f_xx(0)| + ||grad_y f_x(0)|| <= C r^2 K,   f_xxx(0) = 12k + O(r^2 K),                     (6.2)
 
-by the same averaged endpoint identities as [IW] (I12), applied to each transverse component. With `d_e = u^2 - epsilon^2/4`, at `X = s(u, v)`,
+by the same averaged endpoint identities as [IW] (I12), applied to each transverse component. Since (I12) is stated for
+two transverse scalars, the vector-valued identities are derived here. Write `g(x) = f(x e_1)` and
+`h(x) = grad_y f(x e_1) in R^m`, so the pins read `g(-r/2) = b`, `g(r/2) = b - k r^3`, `g'(±r/2) = 0`, `h(±r/2) = 0`.
+Taylor's formula at `0` through order four, with `K` bounding the fifth derivatives, gives for each of `g` and each
+component `h_i`:
+
+    phi(r/2) - phi(-r/2) = r phi'(0) + (r^3/24) phi'''(0) + O(r^5 K),
+    phi(r/2) + phi(-r/2) = 2 phi(0) + (r^2/4) phi''(0) + O(r^4 K),
+    phi'(r/2) - phi'(-r/2) = r phi''(0) + O(r^3 K),
+    phi'(r/2) + phi'(-r/2) = 2 phi'(0) + (r^2/4) phi'''(0) + O(r^4 K).
+
+For `phi = g`: the third line gives `f_xx(0) = O(r^2 K)`; the fourth gives `g'(0) = -(r^2/8) g'''(0) + O(r^4 K)`;
+inserting this into the first, whose left side is `-k r^3`, gives `-(r^3/12) g'''(0) = -k r^3 + O(r^5 K)`, hence
+`f_xxx(0) = 12k + O(r^2 K)` and `f_x(0) = -3k r^2/2 + O(r^4 K)`; the second gives `f(0) = b - k r^3/2 - (r^2/8) f_xx(0)
++ O(r^4 K) = b_bar + O(r^4 K)`. For `phi = h_i`, both left sides vanish: the first line gives `h_i'(0) = O(r^2 K)`,
+that is `grad_y f_x(0) = O(r^2 K)`, and the second gives `h_i(0) = -(r^2/8) h_i''(0) + O(r^4 K)`, that is
+`grad_y f(0) = -(r^2/8) T_3 + O(r^4 K)`. Each is a one-dimensional identity applied to one component; the vector norm
+costs a factor `sqrt(m)` in the constant. This is (6.2).
+
+The expansions (6.3) below hold for any bounded `(u, v)` and any `epsilon <= 1`, with constants depending on the
+bound; §5.3 uses them with `s = r`, `epsilon = 1` on `|u|, |v| <= R`. With `d_e = u^2 - epsilon^2/4`, at `X = s(u, v)`,
 
     f_x(X)/s^2 = 6k d_e + u v . T_3 + (1/2) v^T C_3 v + O(sK),
     grad_y f(X)/s = S_0 v + (s/2) d_e T_3 + s u C_3 v + (s/2) D_3[v, v] + O(s^2 K),
