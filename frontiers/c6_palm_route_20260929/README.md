@@ -1,7 +1,8 @@
 # C6 sharp via the Palm route (CL-C6-PALM-20260929-v1)
 
 Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review required.** Scientific effect: NONE.
-**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities, HOLD on its counts) at exact bytes.
+**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities; OpenAI review 5357858391 ACCEPT of its pin-ball and collar
+counts, Theorems P_d and C_d, in every fixed `d`; its shell count I_d, hence G_d, still pending) at exact bytes.
 
 ## What it proves, if the arguments and both inputs hold
 
@@ -88,6 +89,6 @@ uniformity in `k`, `L` or `d`, no register or catalog change. The catalog entry 
 
 ## Provenance
 
-Consumed sources and their exact identities, including the byte comparison for the C6L rebind and the unmerged DL head: `SOURCE_MAP.json`. This
+Consumed sources and their exact identities, including the byte comparisons for the C6L rebind and each DL head (last: `cd68723`, two wording clarifications from OpenAI review 5357858391, nothing consumed changed): `SOURCE_MAP.json`. This
 packet's inventory: `SOURCE_FILES.json`. External check: `RECONNAISSANCE.md`. Same GitHub account as every lane; zero
 organizational-independence credit; [C6L], [DL] and this note are Claude-authored in two sessions.
