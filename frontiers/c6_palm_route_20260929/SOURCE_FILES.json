@@ -1,23 +1,23 @@
 {
   "schema": 1,
   "scientific_effect": "NONE",
-  "review_status": "AUTHOR_SIDE_REVIEW_REQUIRED",
+  "review_status": "NONAUTHOR_ACCEPTED",
   "stacked_on": [
     "C6L merged via Math-#140 (nonauthor-accepted, planar scope)",
-    "Math-#141 (unmerged; counts HOLD)"
+    "DL merged via Math-#141 at e1ca400 (identical bytes to the reviewed head ea35953; OpenAI continuum reviews 5357858391, 5357882570)"
   ],
   "files": [
     {
       "path": "PROOF.md",
-      "bytes": 52984,
-      "sha256": "658dad9d0337bf30f9e64faec1233fa5777f723856867817f7cfc22ae3db06db",
-      "git_blob": "64d33b158e923f7e1412a8fe608b9e160f07a8cc"
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5"
     },
     {
       "path": "README.md",
-      "bytes": 9116,
-      "sha256": "5fd4c404d3f2ce82b2c63e2ce4bbfc8dce2f0a5ec44b4d979c7556fd5abf881b",
-      "git_blob": "513f7043882cb33d3c365b6ce41b5f7f34760bb3"
+      "bytes": 9344,
+      "sha256": "56c0b94f9b1fcc1207b8e0bc4d1a7e89b6cba7b285fcbf550fd8dd1d9c30f3e1",
+      "git_blob": "1ebf8ede049f23628db660c422612654b0a1f3fe"
     },
     {
       "path": "RECONNAISSANCE.md",
@@ -43,5 +43,6 @@
       "sha256": "3bd19ec659b2ebceaf2fadeff29c1913ab28998d5182503a6de012c018bb550b",
       "git_blob": "6b0c73baeeb2ac566160e23cc405daec07eb7585"
     }
-  ]
+  ],
+  "review_record": "OpenAI nonauthor reviews 5356233690 (section 4), 5357899713 (sections 5-7, AMEND), 5358116559 (ACCEPT sections 5-7, Theorem Q, Corollaries Theta and P at 06bc0d6, PROOF.md blob 64d33b15); source-exposed; scope fixed d, L, compact marks, existential constants; no STATUS, PROOF_INDEX, GRAPH or catalog transition"
 }

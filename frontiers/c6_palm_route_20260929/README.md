@@ -80,6 +80,7 @@ lemma, ledger, script or result changed.
 | OpenAI 5356233690 | `415044b` | §4 (parametric tail, regression facts, Proposition 4.5) sound, with the clarifications applied in v1.1 |
 | OpenAI 5357899713 | `46f4b1e` | §§5–7 coherent; AMEND required on the R3a strip bound |
 | OpenAI 5358116559 | `06bc0d6` | R3a repaired; ACCEPT §§5–7, Theorem Q, Corollaries Theta and P at the stated source scope, conditional only on the pinned inputs |
+| Codex 5358203608 (bot) | `92c7762` | two provenance findings: the §2 [DL] row named an old head, and the manifest status fields still said review required / counts HOLD; both fixed, `PROOF.md` §2 and status sentences only |
 
 The reviewer is source-exposed (author or reviewer of consumed first-moment sources) and says so. At `d = 2` the note is
 consumable against the accepted planar rows (PROOF.md §1.4). For `d >= 3`, the reviewer placed consumption of Theorem Q after

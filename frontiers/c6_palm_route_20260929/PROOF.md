@@ -1,7 +1,8 @@
 # C6 sharp: the torus-wide factorial moments of the window count are `O(r^3)` in every fixed dimension
 
 **Object:** CL-C6-PALM-20260929-v1.
-**Version:** v1.4, 29 September 2026. v1.4: R3a (§6.2) states the axis-safe determinant-weight bound
+**Version:** v1.4, 29 September 2026 (provenance refresh after Codex review 5358203608: the [DL] identity in §2 and the
+status sentences point at the merged bytes on `main`; no mathematical text changed). v1.4: R3a (§6.2) states the axis-safe determinant-weight bound
 `W_r |det H_X| / Z_r <= C K^(3d)` valid throughout the strip `|v| <= s^(1/8)`, in place of a bound cited on the axis
 alone (OpenAI review 5357899713); the [DL] status sentences updated. v1.3: Lemma 5.1 rewritten with a canonical regression kernel for every `(X, h)`
 and the two-measure argument, and the Morse genericity cited from [LP] §8 (OpenAI comment 5896041000). v1.1: clarifications after OpenAI review 5356233690 of §4 (the ratio
@@ -11,9 +12,9 @@ as a size-biased statement about the second factorial moment only, and the order
 comment 5895460246. No theorem or ledger change in either.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on [C6L],
-now merged on `main` with the OpenAI lane's complete nonauthor acceptance at its planar scope, and on [DL], an
-unmerged author-side candidate whose continuum rows now carry a source-exposed OpenAI nonauthor acceptance (§2); it is
-not consumable before [DL] is integrated and this note itself has a nonauthor verdict.
+now merged on `main` with the OpenAI lane's complete nonauthor acceptance at its planar scope, and on [DL], now
+merged on `main` via Math-#141 with a source-exposed OpenAI nonauthor acceptance of its continuum rows (§2); this note
+itself carries OpenAI review 5358116559 (ACCEPT of §§5–7 and Theorem Q at `06bc0d6`), see `README.md`.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX` verdict, `GRAPH` node, claim, `lemma_closed` flag, catalog
 entry, prize or source body changes.
 
@@ -101,8 +102,8 @@ marks, and nothing about numerical constants. §9 lists the non-claims. The note
 the exact bytes of §2. [C6L] carries the OpenAI lane's complete nonauthor acceptance at its planar scope (its
 `d`-dimensional restatement in §3 is this note's own obligation); [DL] has xAI acceptance of its algebraic identities
 and, at Math-#141 head `c709854` and the wording-only successors, OpenAI source-exposed nonauthor acceptance of every
-continuum row (reviews 5357858391, 5357882570: Theorems P_d, C_d, I_d, G_d), unmerged. A defect in either blocks the
-corresponding step here.
+continuum row (reviews 5357858391, 5357882570: Theorems P_d, C_d, I_d, G_d), merged on `main` at `e1ca400` with
+identical bytes. A defect in either blocks the corresponding step here.
 
 ### 1.4 The planar case depends on this note alone
 
@@ -121,7 +122,7 @@ Identities (bytes, sha256, git blob, branch head) are in `SOURCE_MAP.json`.
 | Tag | Source | What is consumed |
 |---|---|---|
 | [C6L] | `frontiers/c6_factorial_moment_20260929/PROOF.md` v1.3 on `main` `bf7c45f` (merged via Math-#140; previously pinned at v1.2, see `SOURCE_MAP.json` for the byte comparison) | The entire extension and moments §4; the cover, `m_j*`, `Psi` and measurability §5; Lemma R (steps 1–4), Lemma M (steps (a)–(d) as a template), Lemma D (the reduction to `G = (Re F, Im F/t)` and its `t = 0` extension), Lemma E; the pathwise cap §2; the Palm route statement §9. All in `d = 2`; §3 below restates them in `d` dimensions with the two exponent changes. |
-| [DL] | `frontiers/d5_dimension_lift_20260929/PROOF.md`, Math-#141 head `b69debb` | Theorems P_d, C_d, I_d, G_d and the frames, densities, determinant bounds and ledgers of their proofs: §4 (pin ball: `Y`, (4.2)–(4.12)), §5 (collar: `G` of (5.2)–(5.7), the axial strip §5.4, the remainder §5.6), §6 (shells: `Z` of (6.3)–(6.15), the axial strip §6.5), §7 (tiling). The letter `G` of [DL] §5 is written `Gc` here. |
+| [DL] | `frontiers/d5_dimension_lift_20260929/PROOF.md` on `main` `e1ca400` (merged via Math-#141; bytes identical to the reviewed branch head `ea35953`, blob `9d82c707`; every earlier pin and byte comparison in `SOURCE_MAP.json`) | Theorems P_d, C_d, I_d, G_d and the frames, densities, determinant bounds and ledgers of their proofs: §4 (pin ball: `Y`, (4.2)–(4.12)), §5 (collar: `G` of (5.2)–(5.7), the axial strip §5.4, the remainder §5.6), §6 (shells: `Z` of (6.3)–(6.15), the axial strip §6.5), §7 (tiling). The letter `G` of [DL] §5 is written `Gc` here. |
 | [LP] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` | The model in every `d`; §2 distinct-site jet rank and positive spectrum; (4.1) uniform `C^q` moments; (5.5) `Z_r >= z_* r^2`. |
 | [PP], [CP], [IW] | `reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md`, `.../COLLAR_PROOF.md`, `frontiers/intermediate_window_20260928/PROOF.md` | The planar templates behind [DL], cited where [DL] cites them; in particular (P18) and (I33) for the weighted Kac–Rice formula with a field mark, and the degree-five frames of [CP] §4 and [IW] §3. |
 | [RM] | `frontiers/remote_window_20260924/PROOF.md` | Theorem A in every `d` (reviewed, main#76); §2 uniform remote nondegeneracy of `(U_r, Y_x)`; §3 coupling and uniform moments under the extra witness conditioning (5); §4–§5 the weight and the intensity (12)–(14). |
