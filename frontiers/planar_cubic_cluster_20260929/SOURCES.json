@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "id": "L",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "bytes": 13100,
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "use": "L6-L13: exact planar pinned cubic, C2 Taylor remainder, ten-jet rank, extra-conditioned C4 moments. Source acceptance is not revalidated."
+    },
+    {
+      "id": "P",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "Sections 1-5: exact covariance/law, contact frame, smooth regression, positive Fourier spectrum, full normalizer 5.4. No elder-selection or global factorial theorem consumed."
+    }
+  ]
+}
