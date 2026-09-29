@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "object": "CL-C6-CLUSTER-LAW-20260929-v1",
+  "object": "CL-C6-CLUSTER-LAW-20260929-v1.1",
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "source_commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
@@ -122,14 +122,16 @@
     }
   ],
   "new_obligations": [
-    "Lemma 3.1 normal form with stable slaving and the bound on |W| for critical points in the physical scaled ball",
-    "Lemma 3.2 resultant factorization (X^2 - 1/4) Q_2 and the at-most-two-extra-critical-points statement (exact identity in the finite control RS)",
-    "Lemma 3.3 exclusion of near critical points for large scaled soft curvature",
-    "Lemma 3.5 weight limit r^-4 W_r -> (det D)^2 w_0",
+    "Lemma 3.1 normal form in the spectral (rotated) chart with stable slaving and the bound on |W| for critical points in the physical scaled ball",
+    "Lemma 3.2 resultant factorization (X^2 - 1/4) Q_2 and the at-most-two-extra-critical-points statement off the null exceptional set E_k (exact identity in the finite control RS)",
+    "Lemma 3.3 exclusion of near critical points for large scaled soft curvature, in the full transverse space on {K_4 <= kappa}, threshold (3.8)",
+    "Lemma 3.4 pin Hessians, block-determinant expansion (3.9) and the Hadamard bound (3.10); Lemma 3.5 weight limit r^-4 W_r -> (det D)^2 w_0",
+    "Section 3.2 spectral chart and Weyl density (3.3); section 3.7 reduced weight (3.11)",
     "Lemma 4.1 count convergence by C^1 stability under the converging conditional laws",
-    "Lemma 4.2 domination on the scaled slice, including the |det D| -> 0 treatment (4.3)",
+    "Lemma 4.2 large-K_4 tail (4.3) by marked Kac-Rice; Lemma 4.3 domination on {K_4 <= kappa} without D^-1",
+    "Proposition 4.4 near limit for n in {1, 2}, vanishing for n >= 3, finiteness by Fatou against [DL], A -> oo by dominated convergence",
     "Lemma 5.1 witness-conditioned remote first moment; Lemma 5.2 near-far cross term O(r^(9/2))",
-    "Section 6 sandwich, positivity, continuity, Corollaries Lambda, S, X"
+    "Section 6 sandwich, positivity, continuity, Corollaries Lambda, S (with uniform integrability from [C6] Theorem Q), X"
   ],
   "consumed_reviews": [
     "main#76 (remote Theorem A, every d)",
@@ -141,5 +143,6 @@
   ],
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
-  "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026."
+  "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026.",
+  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged."
 }

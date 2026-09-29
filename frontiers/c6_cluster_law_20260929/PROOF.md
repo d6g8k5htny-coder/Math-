@@ -1,7 +1,9 @@
 # The cluster law of the C6 window count: `r^(-3) Q_r^W{N = n} -> nu(n)`, with `nu` carried by `{1, 2}`
 
-**Object:** CL-C6-CLUSTER-LAW-20260929-v1.
-**Version:** v1.0, 29 September 2026.
+**Object:** CL-C6-CLUSTER-LAW-20260929-v1.1.
+**Version:** v1.1, 29 September 2026 (v1.0 the same day; v1.1 answers the OpenAI Codex review of Math-#159: spectral
+chart in place of the shear chart, exclusion lemma in the full transverse space, `K_4 <= kappa` split with a marked
+Kac–Rice tail, domination without `D^(-1)`, `n in {1, 2}` in Proposition 4.4, uniform integrability in Corollary X).
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on merged
 sources only: [LP], [DL], [C6], [RM], [RC], [EDL], [LM], and it answers the "unknown conditional cluster law" left
@@ -53,7 +55,7 @@ depend on `d, L, B, K` and, where stated, on `A` or `rho`; never on `r, b, k, R`
 
 Section 3 defines, for every frame `R` and mark pair `(b, k)`, a reduced weight `m_(b,k,R)` on `R^4` (a nonnegative
 continuous function of the scaled soft curvature `s` and of the three planar cubic jets `(a_3, beta, c_3)`, obtained
-from the `Q_0`-density of the midpoint jets on the singular slice by integrating out the stable directions, (3.8)),
+from the `Q_0`-density of the midpoint jets on the singular slice by integrating out the stable directions, (3.11)),
 the pin weight
 
     w_0(s, a_3, beta) = [ -6k(s - beta/2) - a_3^2/4 ]_+ . [ a_3^2/4 - 6k(s + beta/2) ]_+,          (1.1)
@@ -96,11 +98,10 @@ None of the three non-implication examples of [RCL] §6 occurs in the model.
 parameter set,
 
     r^(-3) E_(Q_r^W) sum_(X in near window critical points) phi( (X . u)/r, |X_perp|/r, (f(X) - b)/r^3 )
-       -> z_0^(-1) integral m w_0 sum_(critical points (X,Z) of F_0 in the window) phi( X, |Z| (1 + |q|^2)^(1/2), F_0(X,Z) ),
+       -> z_0^(-1) integral m w_0 sum_(critical points (X,Z) of F_0 in the window) phi( X, |Z|, F_0(X,Z) ),
 
-where the inner sum runs over the extra critical points of `F_0` and `q` is the shear parameter of the chart of §3.2
-(so that `|Z|(1+|q|^2)^(1/2)` is the scaled transverse distance); the right side is the weighted law of the scaled
-configuration. In `d = 2`, `q` is absent and the scaled transverse coordinate is `|Z|`.
+where the inner sum runs over the extra critical points of `F_0` and `the right side is the weighted law of the scaled configuration, `X` being the scaled axial coordinate
+and `|Z|` the scaled transverse distance (§3.2: the rotated chart makes the physical ball a scaled ball).
 
 ### 1.3 What the results are not
 
@@ -111,7 +112,7 @@ the non-claims. The note is conditional on the consumed sources at the exact byt
 
 ### 1.4 The planar case
 
-For `d = 2` there are no stable directions: `m = 1`, the chart of §3.2 is the identity, `m(s, a_3, beta, c_3)` is the
+For `d = 2` there are no stable directions: `m = 1`, the chart of §3.2 is trivial, `m(s, a_3, beta, c_3)` is the
 `Q_0`-density of `(f_zz, f_xxz, f_xzz, f_zzz)(0)` at `f_zz = 0`, evaluated at `(a_3, beta, c_3)`, and every consumed
 regional bound is a reviewed planar statement ([PP], [CP], [IW] through [DL], [RM], [RC]). Theorem N at `d = 2` is
 therefore conditional on this note's own steps only.
@@ -127,7 +128,7 @@ Identities (bytes, sha256, git blob, commit on `main`) are in `SOURCE_MAP.json`.
 | [C6] | `frontiers/c6_palm_route_20260929/PROOF.md` | Theorem Q (uniform integrability in Corollary Lambda); Lemma 5.1 (marked Kac–Rice for `sigma(f)`-measurable marks, gradient-only kernel); (5.3) the conditional Hölder insertion and the §6 regime table with the squared determinant weight (Lemma 5.3); Lemma 4.1's frame parameter `beta` and the regime bounds `beta <= poly(chi, |v|^(-1), r^(-1), s^(-1))`. |
 | [RM] | `frontiers/remote_window_20260924/PROOF.md` | Theorem A (2) with the contact kernel `Lambda_j` of (13), its continuity, positivity and the remote nondegeneracy of §§2–3; the Kac–Rice representation (12). |
 | [RC] | `frontiers/remote_collision_20260928/PROOF.md` | Corollary D (fixed-remote second factorial moment `<= C r^5 |E|`) and Corollary E (`Q_r^W{N_j(E) >= 1} = k r^3 integral_E Lambda_j + O(r^4 |E|)`), for `E` contained in `D_rho`, every fixed `d`. |
-| [EDL] | `frontiers/elder_dimension_lift_20260928/PROOF.md` | §2 (complete third-order jets and their positive-definite joint covariance with `U_0`), §3 (the unit-Jacobian shear chart (A8)–(A10)), (A11)–(A16) (the rare set and the conditional `C^4` control), (A17) (the normal form on the sheared soft plane), (A26)–(A28) (the rescaled full gradient and the stable block), §9 (block-triangular stability of the extra critical points). Used as the source of the chart and of the normal form; the lower bound (A4) is not consumed. |
+| [EDL] | `frontiers/elder_dimension_lift_20260928/PROOF.md` | §2 (complete third-order jets and their positive-definite joint covariance with `U_0`), (A11)–(A16) (the rare set and the conditional `C^4` control), (A17) (the normal form on the soft plane; here written in a rotated rather than sheared frame), (A26)–(A28) (the rescaled full gradient and the stable block), §9 (block-triangular stability of the extra critical points). Used as the source of the normal form; the shear chart (A8)–(A10) is replaced by the spectral chart of §3.2; the lower bound (A4) is not consumed. |
 | [LM] | `frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md` | (L4)–(L8) the planar normal form and its exact cubic with two extra saddles (used as the positivity witness), (L7) the `C^2` remainder, §6 the exponent arithmetic `r . r^4 / r^2`. |
 | [RCL] | `frontiers/c6_rare_cluster_laws_20260929/PROOF.md` | §§2, 4, 6, 7 statements (Theorems C, S, the identity (6.2), the replica limit (7.1)), consumed only in Corollary S as the statements whose hypotheses this note identifies. |
 
@@ -167,29 +168,37 @@ of the field that is continuous at `Q_0`-almost every `f` in the `C^4` topology,
 E[Phi(f) | (U_0, J) = (v_0, j)]`. This is the device of [LP] §13 and [RM] §5, and it is used below with `Phi` the
 indicator that the scaled count equals `n`.
 
-### 3.2 The shear chart and the singular slice
+### 3.2 The spectral chart and the singular slice
 
-Decompose `A = [[a, v^T], [v, D]]` with `a in R`, `v in R^n`, `D in Sym_n`, and on `{det D != 0}` set
+For `d = 2`, `A = f_yy(0)` is a scalar; put `sigma = A`, and there is no `D`, no `U` and no `w`. For `d >= 3` write the
+eigenvalues of `A` as `lambda_1, ..., lambda_m` and let `sigma` be the eigenvalue of least modulus; `Q_r`-almost
+surely it is unique and simple, since `A` has a Lebesgue density ([LP] (3.5)). Let `u_1` be a unit eigenvector for
+`sigma`, `U in O(m)` an orthogonal matrix with first column `u_1`, and `D = diag(lambda_2, ..., lambda_m)` the
+remaining eigenvalues in a fixed order, so that
 
-    sigma = a - v^T D^(-1) v,      q = D^(-1) v,      y = S(z, w) = (z, w - q z),      S = [[1, 0], [-q, I_n]],       (3.2)
+    A = U diag(sigma, D) U^T,      |sigma| <= |lambda_j|  (j >= 2).                                                 (3.2)
 
-exactly [EDL] (A8)–(A9), so that `S^T A S = diag(sigma, D)`; the map `(a, v, D) -> (sigma, v, D)` has Jacobian one ([EDL] (A10)), and with
-the linear change `L = diag(1, S)` of the transverse coordinates, `f~(x, z, w) = f(R L (x, z, w))` has
-`f~_zz(0) = sigma`, `f~_zw(0) = 0`, `f~_ww(0) = D`. Let `tau` be the third derivatives of `f~` at `0` other than
-`f~_xxx`; for fixed `(v, D)` the map `T -> tau` is triangular with unit diagonal, so `(a, v, D, T) -> (sigma, v, D, tau)`
-has Jacobian one on `{det D != 0}`. `L` has determinant one, is not orthogonal, and its norm is at most `C(1 + |q|)`.
+The Weyl integration formula for real symmetric matrices (e.g. Anderson, Guionnet, Zeitouni, *An Introduction to Random
+Matrices*, §2.5) writes Lebesgue measure on `Sym_m` in these coordinates as
 
-Write `j = (sigma, v, D, tau)` in these coordinates and `chart(sigma, v, D, tau)` for the corresponding raw jet. The
-singular slice is `{sigma = 0}`. For `d = 2` there is no `w`: `sigma = a = f_zz(0)`, `q` and `D` are absent and the
-chart is the identity.
+    dA = c_m  prod_(j >= 2) |sigma - lambda_j| . Delta(D)  dsigma dD dU,      Delta(D) = prod_(2 <= i < j) |lambda_i - lambda_j|,   (3.3)
 
-*Why one chart suffices.* Under `Q_r^W` the endpoint Hessians have indices `d` and `d - 1` and, by [LP] (5.1)–(5.2),
-their transverse blocks are `A + O(r K_4)`; the weight vanishes unless `A_M` is negative definite, so on the support of
-the weight `A` is negative semidefinite up to `O(r)` and its eigenvalues other than the soft one are negative and of
-order one on the rare set of §3.5. Restricting `A` to `e_z^perp` gives `D`, which is then negative definite unless the
-soft eigenvector is orthogonal to `e_z`, a set of `A` of Lebesgue measure zero. The chart therefore covers the whole
-rare set up to a null set of jets, for every `d`. Configurations with two soft transverse eigenvalues have `D` nearly
-singular and are covered by Lemma 4.3, which bounds their contribution by `C eta` uniformly in `r`.
+with `dU` the Haar measure on `O(m)` and `c_m` a fixed positive constant (the restriction `|sigma| <= |lambda_j|`
+selects one of the `m` eigenvalue labellings). The density factor is a polynomial in `(sigma, D)`, and it equals
+`c_m |det D| Delta(D)` on the singular slice `{sigma = 0}`.
+
+Rotate the transverse coordinates by `U`: `f~(x, z, w) = f( R diag(1, U) (x, z, w) )`, with `z in R` along `u_1` and
+`w in R^n`, `n = m - 1`. Since `diag(1, U)` is orthogonal, `f~` has the same `C^4` norm as `f`, its transverse Hessian
+at `0` is `diag(sigma, D)` (so `f~_zw(0) = 0`, `f~_ww(0) = D`), and the physical ball `|X| <= A r` is the scaled ball
+`X^2 + Z^2 + |rW|^2 <= A^2` in the coordinates `(x, z, w) = (rX, rZ, r^2 W)` used below. Let `tau` be the third
+derivatives of `f~` at `0` other than `f~_xxx`; `tau` is the image of `T` under a fixed orthogonal representation of
+`diag(1, U)`, so `|tau| = |T|` and `T -> tau` has Jacobian one for fixed `U`. Write `j = (sigma, U, D, tau)` and
+`chart(j)` for the raw jet `(A, T)`.
+
+The chart replaces the shear of [EDL] (A8)–(A10) by a rotation; no unbounded coefficient enters, at the price of the
+polynomial density (3.3). Configurations in which a second eigenvalue is also small (`|lambda_2|` small) are not
+excluded from the chart; they are handled by the domination of §4, whose dominating function does not involve
+`D^(-1)` (Lemma 4.3), and by the almost-sure nonsingularity of `D` in the pointwise limits.
 
 ### 3.3 The normal form
 
@@ -200,87 +209,113 @@ Let `F_r(X, Z, W) = [ f~(rX, rZ, r^2 W) - b ] / r^3` and
 **Lemma 3.1 (normal form, [EDL] (A17), (A26)–(A28); [LM] (L6)–(L7)).** For every `R_0 >= 1` there is `C = C(d, R_0)`
 such that on `{|(X, Z)| <= R_0, |W| <= R_0}`, uniformly in `b, k, R`, `0 < r <= 1`,
 
-    || F_r(., ., 0) - F_0 ||_(C^2) <= C r K_4 (1 + |q|)^3,                                                          (3.3)
-    r^(-2) grad f~(rX, rZ, r^2 W) = ( partial_X F_0, partial_Z F_0, D W + Q(X, Z) ) + O( r K_4 (1 + |q|)^3 (1 + |D|) ),  (3.4)
+    || F_r(., ., 0) - F_0 ||_(C^2) <= C r K_4,                                                                     (3.4)
+    r^(-2) grad f~(rX, rZ, r^2 W) = ( partial_X F_0, partial_Z F_0, D W + Q(X, Z) ) + O( r K_4 (1 + |D|) ),          (3.5)
 
 with `F_0` as in (1.2) (the pins are exactly retained: `F_0(-+1/2, 0) = 0, -k` and `grad F_0(-+1/2, 0) = 0`, checked
-exactly in the finite control `NF`). Moreover, for `|(X, Z)| <= R_0` and physical `|w| <= R_0 r`, the `w`-gradient
-satisfies `|partial_w f~| >= (sigma_min(D) - C r K_4 R_0)|w| - r^2 |Q| - C r^3 K_4`, so every critical point of `f~` in
-the physical ball of radius `R_0 r` has `|W| <= C |Q(X,Z)| / sigma_min(D) + 1` once `r <= r_0(K_4, R_0, D)`.
+exactly in the finite control `NF`). Moreover, for `|(X, Z)| <= R_0` and physical `|w| <= R_0 r`,
+`|partial_w f~| >= (sigma_min(D) - C r K_4 R_0)|w| - r^2 |Q| - C r^3 K_4`, so if `D` is nonsingular and
+`r <= r_0(K_4, R_0, D)`, every critical point of `f~` in the physical ball of radius `R_0 r` has
+`|W| <= C |Q(X,Z)| / sigma_min(D) + 1`.
 
 *Proof.* The Taylor expansion of `f~` at the midpoint through order three, with the pin identities of [LM] §3
 (`f~_xxx(0) = 12k + O(r K_4)`, `f~_x(0) = -(r^2/8) f~_xxx(0) + O(r^3 K_4)`, `f~_z(0) = -(r^2/8) f~_xxz(0) + O(r^3 K_4)`,
-`f~_xx(0), f~_xz(0) = O(r^2 K_4)`, `f~(0) - b = -(r^3/24) f~_xxx(0) + O(r^4 K_4)`, and `f~_w(0) = -(r^2/8) f~_xxw(0)
-+ O(r^3 K_4)`, `f~_xw(0) = O(r^2 K_4)`, `f~_zw(0) = 0` exactly), is (A17) of [EDL] on `w = 0` and gives (3.3); the
-factor `(1 + |q|)^3` bounds the derivatives of `f~` through order four in terms of those of `f` under the shear.
-Differentiating in `w` and using `D_w^2 f~(0) = D`, `D_(zw) f~(0) = 0` gives (3.4), the last block being `r^2 (D W +
-Q) + O(r^3)` before division. The lower bound on `|partial_w f~|` is (3.4) read at physical `w = r^2 W` with
-`|W| <= R_0 / r`: the quadratic remainder `K_4 |w|^2 <= K_4 R_0 r |w|` is relative to the linear term `D w`. ∎
+`f~_xx(0), f~_xz(0) = O(r^2 K_4)`, `f~(0) - b = -(r^3/24) f~_xxx(0) + O(r^4 K_4)`, and, from the two transverse gradient
+pins, `f~_w(0) = -(r^2/8) f~_xxw(0) + O(r^3 K_4)`, `f~_xw(0) = O(r^2 K_4)`, while `f~_zw(0) = 0` exactly), is (A17) of
+[EDL] on `w = 0` and gives (3.4). Differentiating in `w` and using `D_w^2 f~(0) = D`, `D_(zw) f~(0) = 0` gives (3.5),
+the last block being `r^2 (D W + Q) + O(r^3 K_4)` before division. The lower bound on `|partial_w f~|` is (3.5) read at
+physical `w = r^2 W` with `|W| <= R_0 / r`: the quadratic remainder `K_4 |w|^2 <= K_4 R_0 r |w|` is relative to the
+linear term `D w`. ∎
 
-Consequently, for `r <= r_0(K_4, R_0, D)` the critical points of `f~` in the physical ball of radius `R_0 r` are in
-bijection with the zeros of the reduced planar gradient
+Consequently, when `D` is nonsingular and `r <= r_0(K_4, R_0, D)`, the critical points of `f~` in the physical ball of
+radius `R_0 r` are in bijection with the zeros of the reduced planar gradient
 
-    grad G_r(X, Z),   G_r(X, Z) = F_r(X, Z, W_*(X, Z)),   W_*(X, Z) = the unique solution of the third block of (3.4) = 0,
+    grad G_r(X, Z),   G_r(X, Z) = F_r(X, Z, W_*(X, Z)),   W_*(X, Z) = the unique solution of the third block of (3.5) = 0,
 
-`W_* = -D^(-1) Q(X, Z) + O(r K_4 (1 + |q|)^3 (1 + |D^(-1)|)^2)`, and
+`W_* = -D^(-1) Q(X, Z) + O(r K_4 (1 + |D^(-1)|)^2)`, and
 
-    || G_r - F_0 ||_(C^2({|(X,Z)| <= R_0})) <= C r K_4 (1 + |q|)^3 (1 + |D^(-1)|)^2 (1 + |tau|)^2.                  (3.5)
+    || G_r - F_0 ||_(C^2({|(X,Z)| <= R_0})) <= C r K_4 (1 + |D^(-1)|)^2 (1 + |tau|)^2.                              (3.6)
 
-Indeed `F_r(X, Z, W) - F_r(X, Z, 0) = r^(-3)[ r^2 partial_w f~ . W r^2 ... ] = r (Q . W + W^T D W / 2) + O(r^2)`, which
-is `O(r)` in `C^2` on bounded `W`; the implicit function `W_*` is `C^2` with the stated bound because the third block
-of (3.4) has derivative `D + O(r)` in `W`. The index of a critical point of `f~` equals the index of the corresponding
-critical point of `G_r` plus the index of `D` ([EDL] §9: the full Hessian is block triangular up to `O(r)` with diagonal
-blocks the planar Hessian of `G_r` and `D`), and its height satisfies `(f~ - b)/r^3 = G_r` at the point.
+Indeed `F_r(X, Z, W) - F_r(X, Z, 0) = r (Q . W + W^T D W / 2) + O(r^2 K_4)` on bounded `W`, and the implicit function
+`W_*` is `C^2` with the stated bound because the third block of (3.5) has derivative `D + O(r K_4)` in `W`. The index of a
+critical point of `f~` equals the index of the corresponding critical point of `G_r` plus the index of `D` ([EDL] §9:
+the full Hessian is block triangular up to `O(r)` with diagonal blocks the planar Hessian of `G_r` and `D`), and its
+height satisfies `(f~ - b)/r^3 = G_r` at the point. The bound (3.6) is used only for the pointwise limits of §4.2, at
+fixed jets with `D` nonsingular; it is not used for domination.
 
 ### 3.4 The planar cubic
 
-**Lemma 3.2 (at most two extra critical points).** For every `(k, s, a_3, beta, c_3)` with `k > 0`, the critical points
-of `F_0` in `C^2` other than the two pins are the common zeros of the two quadratics `partial_X F_0, partial_Z F_0`
-whose `X`-coordinates are the roots of
+**Lemma 3.2 (at most two extra critical points).** For every `(k, s, a_3, beta, c_3)` with `k > 0`, the resultant of
+`partial_X F_0` and `partial_Z F_0` with respect to `Z` equals `(X^2 - 1/4) Q_2(X)` identically in
+`(X, s, a_3, beta, c_3, k)`, where
 
     Q_2(X) = c_2 X^2 + s c_1 X + c_0,
       c_2 = a_3^3 c_3/4 - 3 a_3^2 beta^2/16 - (9/2) a_3 beta c_3 k + 3 beta^3 k + 9 c_3^2 k^2,
       c_1 = -a_3^2 beta/4 - 3 a_3 c_3 k + 6 beta^2 k,
-      c_0 = 3 s^2 beta k - ( a_3 beta/8 - 3 c_3 k/2 )^2,                                                        (3.6)
+      c_0 = 3 s^2 beta k - ( a_3 beta/8 - 3 c_3 k/2 )^2                                                         (3.7)
 
-in the sense that the resultant of `partial_X F_0` and `partial_Z F_0` with respect to `Z` equals `(X^2 - 1/4) Q_2(X)`
-identically in `(X, s, a_3, beta, c_3, k)` (finite control `RS`, exact polynomial identity). Hence, whenever the two
-quadratics have no common factor, `F_0` has at most four critical points counted with multiplicity, two of which are
-the pins, and the extra real critical points are at most two; when they have a common factor the set of critical points
-is a curve, which happens only on a proper algebraic subset of the jet space. Away from a proper algebraic subset of
-`(s, a_3, beta, c_3)` (for fixed `k`), the extra critical points are nondegenerate, their heights are not in `{-k, 0}`,
-and `N_oo in {0, 1, 2}`.
+(finite control `RS`, exact polynomial identity). Let `E_k` be the set of `(s, a_3, beta, c_3)` for which the two
+quadratics `partial_X F_0, partial_Z F_0` have a common factor, or `Q_2` vanishes identically, or some common zero other
+than the pins is degenerate, or has height in `{-k, 0}`. `E_k` is a proper algebraic subset of `R^4`, hence
+Lebesgue-null, and off `E_k` the critical points of `F_0` are isolated, at most four with multiplicity (Bézout for two
+conics), two of them the pins; so the extra real critical points number at most two, they are nondegenerate, and
+`N_oo in {0, 1, 2}`. On `E_k` put `N_oo := 0` (the value is irrelevant: `E_k` is null for every `k`).
 
 *Proof.* The resultant identity is an exact computation (the Sylvester determinant of two quadratics in `Z`), verified
 symbolically in `RS`. The pins are the zeros of `partial_X F_0 = 6k X^2 - 3k/2 + a_3 X Z + (beta/2) Z^2` and
 `partial_Z F_0 = s Z + (a_3/2)(X^2 - 1/4) + beta X Z + (c_3/2) Z^2` on `Z = 0`, which explains the factor `X^2 - 1/4`.
-If the two quadratics in `Z` are coprime for the given `X`, they share at most one root; so each root `X_*` of `Q_2`
-carries at most one extra critical point unless `partial_Z F_0(X_*, .) = 0` identically, which requires
-`s + beta X_* = 0`, `c_3 = 0` and `a_3 (X_*^2 - 1/4) = 0`; in that case the extra points are the (at most two) zeros of
-`partial_X F_0(X_*, .)` (as in the [LM] configuration, where control `EX` exhibits `X_* = -3/4` as a double root of `Q_2`). Bézout's
-theorem bounds the number of isolated common zeros of two conics by four. The nondegeneracy statements define
-proper algebraic subsets because the configurations of §7 (exact rational examples with `0`, `1` and `2` extra
-critical points in the window, all nondegenerate) lie outside them. ∎
+Off `E_k`, for each root `X_*` of `Q_2` the two quadratics in `Z` are not proportional (they have no common factor), so
+they share at most one root `Z`; if they are proportional at `X_*`, the extra points are the at most two zeros of
+`partial_X F_0(X_*, .)` (the [LM] configuration, where control `EX` exhibits `X_* = -3/4` as a double root of `Q_2`).
+Bézout's theorem bounds the number of isolated common zeros of two conics by four. `E_k` is defined by polynomial
+equations in the jets (common factor: vanishing of the resultant as a polynomial in `X`; degeneracy and boundary
+heights: vanishing of the Hessian determinant, or of `F_0` or `F_0 + k`, at a common zero, eliminated through the
+resultant), and it is proper because the configurations of §7 (exact rational examples with `0`, `1` and `2` extra
+critical points in the window, all nondegenerate) lie outside it. The example `(0, 0, 0, 0)`, where the lines
+`X = -+1/2` consist of critical points, lies in `E_k`. ∎
 
-**Lemma 3.3 (large soft curvature excludes near critical points).** There is `C = C(d)` such that, if `|(X, Z)| <=
-R_0`, `r <= r_0(K_4, R_0, D)`, `(X, Z, W)` is a critical point of `f~` in the scaled coordinates, and `(X, Z)` is at
-scaled distance at least `rho_pin = c k / (K_4 (1 + |tau|))` from both pins, then
+### 3.5 Large soft curvature excludes near critical points
 
-    |s| <= C (1 + |tau|)^3 (1 + R_0)^2 K_4 (1 + |q|)^3 (1 + |D^(-1)|)^2 / k^2 =: S_*(tau, q, D, K_4, R_0).           (3.7)
+**Lemma 3.3 (exclusion, full transverse space).** There are `C = C(d)` and `r_0(kappa, R_0) > 0` such that, if
+`K_4 <= kappa`, `r <= r_0(kappa, R_0)`, and the transverse Hessian `A` at the midpoint satisfies `|lambda_j| >= S r`
+for every eigenvalue, with
 
-Equivalently: for `|s| > S_*` the only critical points of `f~` in the physical ball of radius `R_0 r` are the pins.
+    S >= S_*(tau, R_0, kappa, k) := C (1 + |tau|)^2 (1 + R_0)^3 (1 + kappa)^2 / k^2,                               (3.8)
 
-*Proof.* At a zero of `grad G_r`, (3.5) gives `|partial_Z F_0(X, Z)| <= eps := C r K_4 (...)`. From the formula for
-`partial_Z F_0`, `|s| |Z| <= (|a_3|/2)(R_0^2 + 1) + |beta| R_0 |Z| + (|c_3|/2) |Z|^2 + eps`, so for
-`|s| >= 2 |beta| R_0 + |c_3| R_0 + 1` one has `|Z| <= C (1 + |tau|)(1 + R_0)^2 / |s|`. Inserting this in
-`|partial_X F_0| <= eps` gives `|6k X^2 - 3k/2| <= C (1 + |tau|)^2 (1 + R_0)^2 / |s| + eps`, hence `X` lies within
-`C (1 + |tau|)^2 (1 + R_0)^2 / (k |s|)` of `+-1/2`. So the zero is within scaled distance `C (1 + |tau|)^3 (1 + R_0)^2
-/ (k |s|)` of a pin. At a pin the scaled Hessian of `G_r` is `M_2 + O(r)` with `M_2` given in Lemma 3.5 below; for
-`|s| >= C(1 + |tau|)^2/k` its least singular value is at least `c k`, and `|grad G_r(xi)| >= c k |xi - pin| - C K_4
-(1 + |q|)^3 |xi - pin|^2` for `|xi - pin| <= 1`, so no other zero lies within scaled distance `rho_pin` of a pin. The
-two conclusions are incompatible when `|s|` exceeds the right side of (3.7). ∎
+then the only critical points of `f` in the physical ball of radius `R_0 r` about the midpoint are the two pins.
+Equivalently, on `{K_4 <= kappa}`, `N^(R_0) >= 1` forces `|s| = |sigma|/r <= S_*(tau, R_0, kappa, k)` for `r <= r_0`.
 
-### 3.5 The weight on the singular slice
+*Proof.* Work in the original pin frame (no rotation is needed), with scaled coordinates `x = rX`, `y = rY`,
+`|(X, Y)| <= R_0`. From the two transverse gradient pins and the pin identities ([LM] §3, [EDL] (A17), the same
+computation as (3.4) in every transverse direction),
+
+    grad_y f(rX, 0) = (r^2/2)(X^2 - 1/4) grad_y f_xx(0) + O(r^3 K_4 (1 + R_0)^3),      D_y^2 f(rX, 0) = A + O(r K_4 R_0),
+
+so at a critical point, `0 = grad_y f(rX, rY) = r^2 [ (1/2)(X^2 - 1/4) grad_y f_xx(0) ] + (A + O(r K_4 R_0)) r Y + O(r^2 K_4 R_0^2)`.
+Dividing by `r` and using `|A Y| >= S r |Y|`,
+
+    (S r - C r K_4 R_0) |Y| <= C r (1 + |tau|)(1 + R_0)^2 + C r K_4 R_0^2,     i.e.     |Y| <= delta := C (1 + |tau| + kappa R_0^2)(1 + R_0)^2 / (S - C kappa R_0),
+
+which is small for `S` large. In the axial equation, `f_x(rX, rY)/r^2 = 6k X^2 - 3k/2 + X grad_y f_xx(0) . Y + O((1 + |tau|) |Y|^2) + O(r K_4 (1 + R_0)^3)`
+([LM] §3, [EDL] (A17): the term `f_xy(0) . Y / r` is `O(r K_4 |Y|)` by the pin identity `f_xy(0) = O(r^2 K_4)`), so
+`|6k X^2 - 3k/2| <= C (1 + |tau|) R_0 delta + C (1 + |tau|) delta^2 + C r kappa (1 + R_0)^3`. Since
+`|6k X^2 - 3k/2| = 6k |X - 1/2| |X + 1/2|`, for `delta` and `r` small this forces `X` within `C (1 + |tau|) R_0 delta / k`
+of `-+1/2`. Hence every critical point in the scaled ball lies within scaled distance
+`rho := delta + C (1 + |tau|) R_0 delta / k` of a pin.
+
+At a pin `P`, `grad f(P) = 0` exactly and, for `|xi| <= 1`, `|grad f(P + r xi)| >= sigma_min(H_P) r |xi| - K_4 r^2 |xi|^2 / 2`.
+The Hessian `H_P` is `r` times the block matrix with axial entry `-+6k + O(r K_4)`, mixed axial–transverse row
+`O(1 + |tau|)` (the entries `-+(1/2) grad_y f_xx(0) + O(r K_4)`), and transverse block `A/r + O(K_4)` whose eigenvalues
+have modulus at least `S - C kappa`. For `S >= C (1 + |tau|)^2 / k + C kappa`, the Schur complement of the transverse
+block is `-+6k + O((1 + |tau|)^2 / (S - C kappa))`, so `sigma_min(H_P) >= c k r`, and no other zero of `grad f` lies
+within scaled distance `rho_pin := c k / kappa` of `P`. The two conclusions are incompatible as soon as
+`rho < rho_pin`, which holds when `S >= S_*` with the constant of (3.8). ∎
+
+The lemma uses no planar reduction and no inverse of `D`; the only randomness it sees is through the deterministic
+bound `K_4 <= kappa`. Note that on the singular slice `|sigma| <= |lambda_j|` for all `j`, so the hypothesis is exactly
+`|s| >= S_*`.
+
+### 3.6 The weight on the singular slice
 
 **Lemma 3.4 (pin Hessians).** With `M_2(M) = [[-6k, -a_3/2], [-a_3/2, s - beta/2]]` and `M_2(S) = [[6k, a_3/2],
 [a_3/2, s + beta/2]]` (exact second derivatives of `F_0` at the pins, control `NF`), the Hessians of `f~` at the pins are
@@ -289,46 +324,52 @@ two conclusions are incompatible when `|s|` exceeds the right side of (3.7). ∎
 
 with `c_i in R^(2 x n)` linear in `tau` (the entries `-+tau_xxw/2, -+tau_xzw/2`), and
 
-    det H~_i = r^2 det D . det M_2(i) + O( r^3 K_4^d (1 + |tau|)^2 (1 + |s|)^2 ),                                 (3.8)
+    det H~_i = r^2 det D . det M_2(i) + O( r^3 K_4^d (1 + |tau|)^2 (1 + |s|)^2 ),                                 (3.9)
 
 exactly as polynomials: the determinant of a matrix whose two soft rows are `O(r)` and whose stable block is `O(1)` is
 `r^2` times the product of the soft-block and stable-block determinants plus `r^3` times a polynomial in the entries
-(control `BD` checks this for `d = 3` and `d = 4` with exact rational arithmetic in `r`). The congruence `L` has
-determinant one, so `det H_i = det H~_i` and the index is unchanged.
+(control `BD` checks this for `d = 3` and `d = 4` with exact rational arithmetic in `r`); the remainder involves no
+inverse of `D`. The rotation `diag(1, U)` is orthogonal, so `det H_i = det H~_i` and the index is unchanged. Moreover,
+by Hadamard's inequality applied to the two soft rows, the row of the least stable eigenvalue `lambda_2` (whose
+entries are `O(r K_4)` off the diagonal and `lambda_2 + O(r K_4)` on it) and the remaining rows,
 
-*Proof.* The entries follow from Lemma 3.1 by differentiating (3.3)–(3.4) once more at the pins:
+    r^(-4) W_r <= C (1 + |s| + |tau| + K_4)^4 ( |lambda_2| + r K_4 )^2 K_4^(2d - 6)      (d >= 3),                   (3.10)
+
+and `r^(-4) W_r <= C (1 + |s| + |tau| + K_4)^4` for `d = 2`.
+
+*Proof.* The entries follow from Lemma 3.1 by differentiating (3.4)–(3.5) once more at the pins:
 `partial_X^2 F_0 = 12k X + a_3 Z`, `partial_X partial_Z F_0 = a_3 X + beta Z`, `partial_Z^2 F_0 = s + beta X + c_3 Z`,
 evaluated at `(-+1/2, 0)`, and the mixed soft–stable entries are the derivatives of `Q`. The determinant expansion is
 the Leibniz formula: every term contains at least two factors from the two soft rows, each `O(r)`; the terms with
 exactly two such factors and the identity permutation on the stable block give `r^2 det M_2 det D`; the remaining terms
-carry `r^3`. ∎
+carry `r^3`. (3.10) is Hadamard's inequality with the stated row norms. ∎
 
-**Lemma 3.5 (weight limit).** On the singular slice write `w_0` as in (1.1). If `D` is negative definite and
-`det M_2(M) != 0 != det M_2(S)`, then under the conditional law of §3.1 with `sigma = r s`,
+**Lemma 3.5 (weight limit).** Write `w_0` as in (1.1). If `D` is nonsingular and `det M_2(M) != 0 != det M_2(S)`,
+then under the conditional law of §3.1 with `sigma = r s`,
 
-    r^(-4) W_r -> (det D)^2 w_0(s, a_3, beta)     in probability as r -> 0,
+    r^(-4) W_r -> (det D)^2 w_0(s, a_3, beta)     in probability as r -> 0.
 
-and `r^(-4) W_r <= C K_4^(2d) (1 + |s| + |tau|)^(2d)` pathwise. Here `w_0 > 0` exactly when `M_2(M)` is negative
-definite (index `d` at `M`, given `D < 0`) and `M_2(S)` has one negative eigenvalue (index `d - 1` at `S`).
+Here `w_0 > 0` exactly when `M_2(M)` is negative definite (index `d` at `M`, given `D < 0`) and `M_2(S)` has one negative
+eigenvalue (index `d - 1` at `S`); if `D` is not negative definite the limit weight is `0` because the index conditions
+fail.
 
-*Proof.* (3.8) gives `r^(-2) det H~_M -> det D . det M_2(M)`, and the index of `H~_M` converges to `index(M_2(M)) +
+*Proof.* (3.9) gives `r^(-2) det H~_M -> det D . det M_2(M)`, and the index of `H~_M` converges to `index(M_2(M)) +
 index(D)` because eigenvalues are continuous and the limits are nonsingular. `F_d(H_M) = |det H_M| 1{index = d}` gives
 the first factor; the second factor is the same at `S`. The condition `index M_2(M) = 2` is `det M_2(M) > 0` (its
 `(1,1)` entry is `-6k < 0`), and `index M_2(S) = 1` is `det M_2(S) < 0` (its `(1,1)` entry is `6k > 0`); these are the
-two positive parts in (1.1). The pathwise bound is Hadamard's inequality on the rows of `H~_i` with the entry bounds
-of Lemma 3.4. ∎
+two positive parts in (1.1). ∎
 
-### 3.6 The reduced weight
+### 3.7 The reduced weight
 
-Let `p_0` be the `Q_0`-density of the raw jet `J = (A, T)` (§3.1). Define, on `{D < 0}`,
+Let `p_0` be the `Q_0`-density of the raw jet `J = (A, T)` (§3.1). Define
 
-    m(s, a_3, beta, c_3) := integral p_0( chart(0, v, D, tau) ) (det D)^2 1{D < 0} dv dD dtau_rest,             (3.9)
+    m(s, a_3, beta, c_3) := integral p_0( chart(0, U, D, tau) ) c_m |det D| Delta(D) (det D)^2 1{D < 0} dU dD dtau_rest,   (3.11)
 
-where `tau_rest` collects the entries of `tau` other than `(a_3, beta, c_3)` (those involving a `w` index), and the
-unit-Jacobian chart is used with `sigma = 0`. The integrand does not depend on `s`; `m` is a bounded, strictly positive,
-continuous function of `(a_3, beta, c_3)` with Gaussian decay (the density `p_0` is Gaussian and nondegenerate, the
-integral over `v, D` converges by (3.5)-type decay of [LP] since `|chart(0, v, D, tau)| >= c(|v| + |D|)`), and it
-depends continuously on `(b, k, R)`. In `d = 2`, `m(s, a_3, beta, c_3) = p_0(0, a_3, beta, c_3)`, the density of
+where `tau_rest` collects the entries of `tau` other than `(a_3, beta, c_3)` (those involving a `w` index), `dU` is the
+Haar measure, and `c_m |det D| Delta(D)` is the density (3.3) on the singular slice. The integrand does not depend on
+`s`; `m` is a bounded, strictly positive, continuous function of `(a_3, beta, c_3)` with Gaussian decay (the density
+`p_0` is Gaussian and nondegenerate, `|chart(0, U, D, tau)| >= c (|D| + |tau|)`, and the Weyl factor is polynomial), and
+it depends continuously on `(b, k, R)`. In `d = 2`, `m(s, a_3, beta, c_3) = p_0(0, a_3, beta, c_3)`, the density of
 `(f_zz, f_xxz, f_xzz, f_zzz)(0)` at `f_zz = 0`.
 
 ## 4. The near limit
@@ -339,114 +380,119 @@ Fix `A >= 4` and write `N^A = N_near^A`. For every Borel set `E` of field config
 
     Q_r^W(E) = Z_r^(-1) integral p_r(j) E[ W_r 1_E | U_r = v_r, J = j ] dj,                                        (4.1)
 
-by the tower property with the regular conditional law of §3.1. Change variables to `(sigma, v, D, tau)` (Jacobian one
-on `{det D != 0}`, whose complement is `p_r`-null) and then `sigma = r s`:
+by the tower property with the regular conditional law of §3.1. Change variables to the spectral coordinates
+`(sigma, U, D, tau)` with the density (3.3) and then `sigma = r s`:
 
-    r^(-3) Q_r^W(E) = (r^2 / Z_r) integral ds dv dD dtau  p_r( chart(rs, v, D, tau) )  r^(-4) E[ W_r 1_E | U_r = v_r, J = chart(rs, v, D, tau) ].   (4.2)
+    r^(-3) Q_r^W(E) = (r^2 / Z_r) integral ds dU dD dtau  p_r( chart(rs, U, D, tau) )  c_m prod_(j>=2) |rs - lambda_j| Delta(D)  r^(-4) E[ W_r 1_E | U_r = v_r, J = chart(rs, U, D, tau) ],   (4.2)
 
-The factor `r` from `dsigma = r ds` and the factor `r^(-4)` from the weight combine with `r^2/Z_r -> 1/z_0` ([LP] (5.4))
-to the exponent `1 + 4 - 2 = 3` of [LM] §6.
+the `s`-integral being over `{ |rs| <= min_j |lambda_j| }`. The factor `r` from `dsigma = r ds` and the factor `r^(-4)`
+from the weight combine with `r^2/Z_r -> 1/z_0` ([LP] (5.4)) to the exponent `1 + 4 - 2 = 3` of [LM] §6.
 
 ### 4.2 Convergence of the scaled count
 
-**Lemma 4.1.** Fix `A >= 4`, and fix `(s, v, D, tau)` with `D < 0` outside the null set `Z_A` of jets for which some
-extra critical point of `F_0` is degenerate, has height in `{-k, 0}`, or lies on the ellipse `X^2 + (1 + |q|^2) Z^2 = A^2`
-(each condition is a nontrivial algebraic relation between the jets and the critical points, which are algebraic
-functions of the jets, so `Z_A` is a proper algebraic subset, hence Lebesgue-null; Lemma 3.2 and the examples of §7
-show the relations are nontrivial), and let `j_r = chart(rs, v, D, tau)`, `j_0 = chart(0, v, D, tau)`. Then, under the
-conditional laws `Q_(r, j_r)` of §3.1,
+**Lemma 4.1.** Fix `A >= 4`, fix `kappa > 0` outside the countable set of atoms of the law of `K_4` under the
+conditional laws below, and fix `(s, U, D, tau)` with `D` nonsingular and `(s, a_3, beta, c_3)` outside `E_k` and outside
+the null set of jets for which an extra critical point of `F_0` lies on the circle `X^2 + Z^2 = A^2`. Let
+`j_r = chart(rs, U, D, tau)` and `j_0 = chart(0, U, D, tau)`. Then, under the conditional laws `Q_(r, j_r)` of §3.1,
 
-    1{ N^A = n }  ->  1{ N_oo^A = n }     in probability,    N_oo^A := #{ extra critical points (X, Z) of F_0 with X^2 + (1 + |q|^2) Z^2 < A^2 and F_0(X, Z) in (-k, 0) },
+    1{ N^A = n } 1{K_4 <= kappa}  ->  1{ N_oo^A = n } 1{K_4 <= kappa}     in probability,
+    N_oo^A := #{ extra critical points (X, Z) of F_0 with X^2 + Z^2 < A^2 and F_0(X, Z) in (-k, 0) },
 
-and likewise for the counts restricted to any fixed index, and for the joint law of the scaled positions and heights
-(Corollary X).
+and likewise for the counts restricted to any fixed index, and for the scaled positions and heights (Corollary X).
 
 *Proof.* Couple the conditional laws as in §3.1: `f = m_r(j_r) + Res_r` with `Res_r -> Res_0` in `C^4` in probability
-and `m_r(j_r) -> m_0(j_0)` in `C^4`. Fix a realization with `K_4 < oo` along which the convergence holds. The physical
-ball `|X| <= A r` in the original coordinates is, in the scaled sheared coordinates, `{X^2 + |S(Z, r W)|^2 <= A^2}` with
-`|S(Z, rW)|^2 = Z^2 + |rW - qZ|^2 = (1 + |q|^2) Z^2 + O(r)` on bounded `W`; by Lemma 3.1 every critical point in it has
-bounded `W`, so its `(X, Z)` lies in the ellipse `E_A = {X^2 + (1+|q|^2) Z^2 <= A^2}` up to `O(r)`. By (3.5),
-`G_r -> F_0` in `C^2(E_(A+1))`. The extra critical points of `F_0` in `E_(A+1)` are finitely many and nondegenerate
-(Lemma 3.2), none lies on `partial E_A` and none has height in `{-k, 0}` (the jet is outside `Z_A`). Ordinary `C^1` stability (the inverse function theorem
-on disjoint balls around the nondegenerate zeros, plus `|grad F_0| >= delta > 0` on the complement of those balls in
-`E_(A+1)`, which `C^1`-closeness preserves for small `r`) gives: for `r` small, `grad G_r` has exactly one zero in each
-small ball and none elsewhere in `E_(A+1)`; each converges to the corresponding zero of `grad F_0`, its `G_r`-height
-converges to the `F_0`-height (so its window membership stabilizes), its planar Hessian converges (so its index
-stabilizes), and, by the bijection of §3.3, these are exactly the critical points of `f~` in the physical ball, other
-than the pins, which are the two fixed nondegenerate zeros `(-+1/2, 0)` of `grad F_0` and attract no other zero.
-Hence `N^A -> N_oo^A` for every such realization; convergence in probability follows. The same argument gives the
-convergence of scaled positions and heights. ∎
+and `m_r(j_r) -> m_0(j_0)` in `C^4`. Fix a realization with `K_4 < oo` along which the convergence holds; `1{K_4 <= kappa}`
+converges because `kappa` is not an atom. By Lemma 3.1 (applicable since `D` is nonsingular and `r -> 0`), every
+critical point of `f~` in the physical ball `X^2 + Z^2 + |rW|^2 <= A^2` has bounded `W`, so its `(X, Z)` lies in the disc
+of radius `A + O(r)`, and by (3.6) `G_r -> F_0` in `C^2` on the disc of radius `A + 1`. The extra critical points of `F_0`
+there are finitely many and nondegenerate, none lies on the circle of radius `A`, and none has height in `{-k, 0}`.
+Ordinary `C^1` stability (the inverse function theorem on disjoint small discs around the nondegenerate zeros, plus
+`|grad F_0| >= delta > 0` on the complement of those discs in the disc of radius `A + 1`, which `C^1`-closeness
+preserves for small `r`) gives: for small `r`, `grad G_r` has exactly one zero in each small disc and none elsewhere;
+each converges to the corresponding zero of `grad F_0`, its `G_r`-height converges (so its window membership
+stabilizes), its planar Hessian converges (so its index stabilizes), and by the bijection of §3.3 these are exactly
+the critical points of `f~` in the physical ball other than the pins, which are the two fixed nondegenerate zeros
+`(-+1/2, 0)` of `grad F_0` and attract no other zero. Hence `N^A -> N_oo^A` for every such realization; convergence in
+probability follows, together with the convergence of scaled positions and heights. ∎
 
-### 4.3 Domination
+### 4.3 The large-`K_4` tail
 
-**Lemma 4.2 (domination on `{|det D| >= eta}`).** Fix `eta > 0` and `A >= 4`. There is an integrable function
-`g_(A, eta)(s, v, D, tau)` on `R x R^n x Sym_n x R^(dim tau)` such that for all `0 < r <= r_*` and all `(s, v, D, tau)`
-with `D < 0` and `|det D| >= eta`,
+**Lemma 4.2.** For every `A >= 4` and every fixed `p >= 1` there is `C(A, p)` such that for `0 < r <= r_*` and
+`kappa >= 1`,
 
-    p_r( chart(rs, v, D, tau) ) r^(-4) E[ W_r 1{ N^A >= 1 } | U_r = v_r, J = chart(rs, v, D, tau) ] <= g_(A, eta)(s, v, D, tau),
+    r^(-3) Q_r^W{ N^A >= 1, K_4 > kappa } <= C(A, p) kappa^(-p/2).                                                   (4.3)
 
-and, without the indicator, `p_r(chart(rs, ...)) r^(-4) E[W_r | ...] <= g(s, v, D, tau)` with `integral_(|s| <= S) g < oo`
-for every `S`.
+*Proof.* `Q{N^A >= 1, K_4 > kappa} <= E[N^A 1{K_4 > kappa}]`, and the mark `1{K_4 > kappa}` is `sigma(f)`-measurable
+and bounded, so [C6] Lemma 5.1 (gradient-only kernel, all heights, which dominates the windowed count) gives
 
-*Proof.* Write `j = chart(rs, v, D, tau)`. On `{|det D| >= eta}`, Cramer's rule gives `|D^(-1)| <= C (1 + |D|)^(n-1) / eta`
-and `|q| <= C |v| (1 + |D|)^(n-1) / eta`, so the constant `S_*` of (3.7) is `K_4 kappa_0(tau, v, D, A, eta)` with `kappa_0`
-polynomial in `(1 + |tau| + |v| + |D|)` and in `A`, with coefficients depending on `eta`. By Lemma 3.3,
-`1{N^A >= 1} <= 1{ K_4 >= |s| / kappa_0 }`. Cauchy–Schwarz and the pathwise bound of Lemma 3.5 give
+    E[ N^A 1{K_4 > kappa} ] <= sum_j integral_(|X| <= A r) p_(grad f(X) | U_r)(0) E[ W_r F_j(H_X) 1{K_4 > kappa} | U_r, grad f(X) = 0 ] dX.
 
-    r^(-4) E[ W_r 1{N^A >= 1} | j ] <= C (1 + |s| + |tau|)^(2d) E[ K_4^(4d) | j ]^(1/2) P( K_4 >= |s|/kappa_0 | j )^(1/2)
-                                    <= C (1 + |s| + |tau|)^(2d) (1 + |j|)^(2d) min{ 1, (1 + |j|)^(p/2) kappa_0^(p/2) |s|^(-p/2) },
+Cauchy–Schwarz on the conditional expectation and Markov's inequality with the conditional moments
+`E[K_4^p | U_r, grad f(X) = 0] <= C_p (1 + beta_X)^p` ([C6] Lemma 4.4 with the frame parameter `beta_X` of [C6] Lemma 4.1)
+bound the integrand by `p_(grad f(X)|U_r)(0) E[(W_r F_j(H_X))^2 | .]^(1/2) (C_p (1 + beta_X)^p)^(1/2) kappa^(-p/2)`. By
+[C6] (5.3) and the §6 regime table, the density times the square root of the squared-weight conditional moment is
+bounded, in every regime, by the source's unmarked intensity bound times `(1 + beta_X)^(3d)`, and the regime's
+Gaussian penalty absorbs any fixed power of `(1 + beta_X)` by raising the index of the exponential series in [C6] §6.2
+(the recorded ledgers `2n >= 6 + 3d`, `2n/3 >= 15 + 39d` are the choices for [C6]'s degree); the regional ledgers then
+give `integral_(|X| <= A r) (...) dX <= C(A, p) r^3`. ∎
 
-by (3.1) and Markov, with a fixed `p` such that `p/2 > 4d + 2`. Since `p_r(j) <= C exp(-c |j|^2)` and
-`|j| >= c (|v| + |D| + |tau|)` (the chart is a bounded perturbation of the identity on `{|det D| >= eta}`), the right
-side times `p_r(j)` is at most
+### 4.4 Domination on `{K_4 <= kappa}`
 
-    g_(A, eta) := C_(A, eta) exp(-c (|v|^2 + |D|^2 + |tau|^2)) (1 + |s| + |v| + |D| + |tau|)^(N) min{ 1, (1 + |v| + |D| + |tau|)^(N) |s|^(-p/2) }
+**Lemma 4.3.** Fix `A >= 4` and `kappa >= 1`. There is `r_0(kappa, A) > 0` and an integrable function
+`g_(A, kappa)(s, U, D, tau)` on `R x O(m) x R^n x R^(dim tau)`, not depending on `r`, such that for `0 < r <= r_0` and all
+`(s, U, D, tau)` in the domain of (4.2),
 
-for a fixed `N`, which is integrable: in `s` by the tail `|s|^(-p/2)`, in `(v, D, tau)` by the Gaussian factor. The
-second statement is the same bound without the minimum, integrated over bounded `s`. ∎
+    p_r( chart(rs, U, D, tau) ) c_m prod_(j>=2) |rs - lambda_j| Delta(D)  r^(-4) E[ W_r 1{ N^A >= 1 } 1{K_4 <= kappa} | U_r = v_r, J = chart(rs, U, D, tau) ] <= g_(A, kappa)(s, U, D, tau),
 
-**Lemma 4.3 (nearly singular stable block).** For every `A >= 4` and `eta > 0`,
+and the same without the indicator `1{N^A >= 1}`, with `integral_(|s| <= S) g < oo` for every `S`.
 
-    limsup_(r -> 0) r^(-3) Q_r^W{ N^A >= 1, |det D| < eta } <= C(A) eta.                                            (4.3)
+*Proof.* Write `j = chart(rs, U, D, tau)`. On `{K_4 <= kappa}`, Lemma 3.3 gives `1{N^A >= 1} <= 1{ |s| <= S_*(tau, A, kappa, k) }`,
+a deterministic indicator with `S_*` polynomial in `|tau|` by (3.8); note that it does not involve `D`. On the same
+event, (3.10) gives `r^(-4) W_r <= C (1 + |s| + |tau| + kappa)^4 (|lambda_2| + r kappa)^2 kappa^(2d - 6)`, again with no
+inverse of `D`. The density satisfies `p_r(j) <= C exp(-c |j|^2) <= C exp(-c (|D|^2 + |tau|^2))` (the chart is an
+isometry in `T` and `|A| >= |D|`), and the Weyl factor is bounded by `C (1 + |s| r + |D|)^(m(m-1)/2)`. Hence the left
+side is at most
 
-*Proof.* In `d = 2` there is no `D` and nothing to prove. Otherwise use (4.2) with the crude bound
-`E[W_r 1{N^A >= 1} | j] <= E[W_r 1{N^A >= 1} | j]` retained only through Lemma 3.3 and the weight expansion. By (3.8), on
-the singular slice
+    g_(A, kappa) := C(A, kappa) exp(-c (|D|^2 + |tau|^2)) (1 + |D|)^(m(m-1)/2) (1 + |s| + |tau|)^4 (|lambda_2| + 1)^2 1{ |s| <= S_*(tau, A, kappa, k) },
 
-    r^(-4) W_r <= (det D)^2 |det M_2(M) det M_2(S)| + C r K_4^(2d) (1 + |s| + |tau|)^(2d),
+which is integrable: bounded `s`-range for each `tau`, polynomial growth in `|tau|` against the Gaussian factor
+(`S_*` is polynomial in `|tau|`), Gaussian decay in `D`, and finite Haar measure in `U`. Without the count indicator,
+the bound is the same without `1{|s| <= S_*}`, integrable over bounded `s`. ∎
 
-where the remainder does not involve `D^(-1)` (it is the Leibniz expansion of Lemma 3.4). By Lemma 3.3 with Cramer's
-rule in the form `|D^(-1)| <= C (1 + |D|)^(n-1) / |det D|`, `N^A >= 1` forces `|s| <= K_4 (1 + |tau| + |v| + |D|)^(N)
-A^2 / |det D|^2`. Hence, for `|det D| < eta`,
+Remark (nearly singular stable block). Nothing in `g_(A, kappa)` blows up as `lambda_2 -> 0`: the factor
+`(|lambda_2| + r kappa)^2` in (3.10) only helps, and the exclusion range `S_*` is independent of `D`. The inverse
+`D^(-1)` enters only the pointwise limits of Lemma 4.1, at fixed jets with `D` nonsingular, which is `Q_0`-almost
+every jet.
 
-    integral ds  r^(-4) E[ W_r 1{N^A >= 1} | j ] <= C E[ K_4 (...)^N | j ] A^2 . [ (det D)^2 (1 + |tau|)^4 / |det D|^2 + r (...) / |det D|^2 ]
-                                                <= C(A) (1 + |j|)^(N') [ 1 + r / eta^2 ],
+### 4.5 The near limit for fixed `A`
 
-using (3.1). The set `{D < 0 : |det D| < eta}` has Lebesgue measure at most `C eta` inside any ball of `Sym_n`, and the
-Gaussian density of `J` integrates the polynomial `(1 + |j|)^(N')` over `(v, tau)` and over `D` outside a ball to an
-arbitrarily small remainder. Multiplying by `r^2 / Z_r <= C` and letting `r -> 0` gives (4.3). ∎
-
-### 4.4 The near limit for fixed `A`
-
-**Proposition 4.4.** For every `A >= 4` and `n in {0, 1, 2}`, uniformly on the compact parameter set,
+**Proposition 4.4.** For every `A >= 4` and `n in {1, 2}`, uniformly on the compact parameter set,
 
     r^(-3) Q_r^W{ N^A = n } -> nu_near^A(n) := z_0^(-1) integral m w_0 1{ N_oo^A = n } ds da_3 dbeta dc_3,          (4.4)
 
-and `r^(-3) Q_r^W{ N^A >= 3 } -> 0`. The integrals are finite, and `nu_near^A(n) -> nu_near(n)` as `A -> oo` (monotone
-convergence of the indicators: `N_oo^A = N_oo` for `A` larger than the scaled radius of the finitely many extra
-critical points, which is finite for every jet outside the null set).
+and `r^(-3) Q_r^W{ N^A >= 3 } -> 0`. The integrals are finite. Moreover `nu_near^A(n) -> nu_near(n)` as `A -> oo`, and
+`integral m w_0 N_oo ds da_3 dbeta dc_3 < oo`.
 
-*Proof.* Apply (4.2) with `E = {N^A = n}` for `n >= 1` (for `n = 0` use the complement). The integrand converges
-pointwise for a.e. `(s, v, D, tau)` to `p_0(chart(0, v, D, tau)) (det D)^2 w_0(s, a_3, beta) 1{N_oo^A = n}` by Lemma
-4.1, Lemma 3.5 (convergence in probability of `r^(-4) W_r` together with the uniform `L^2` bound of (3.1) gives
-convergence of the conditional expectation of the product with a bounded functional) and the continuity of the density.
-Split the integral into `{|det D| >= eta}` and `{|det D| < eta}`: on the first set Lemma 4.2 dominates and dominated
-convergence applies; the second contributes at most `C(A) eta` in the limit by Lemma 4.3, and `eta` is arbitrary. The
-prefactor `r^2/Z_r -> z_0^(-1)`. Integrating out `(v, D, tau_rest)` gives (4.4) with the
-reduced weight (3.9). For `n >= 3` the pointwise limit of the indicator is zero by Lemma 3.2. Uniformity on the compact
-parameter set: the dominating function and all limits depend continuously on `(b, k, R)`, so a sequence of parameters
-along which the convergence fails would have a convergent subsequence contradicting the pointwise statement at the
-limit parameter, exactly as in [LP] §5. ∎
+*Proof.* Fix `kappa` as in Lemma 4.1 and split `1 = 1{K_4 <= kappa} + 1{K_4 > kappa}`. By Lemma 4.2 the second part
+contributes at most `C(A, 2) kappa^(-1)` to `r^(-3) Q{N^A = n}` for `n >= 1`, uniformly in `r`. For the first part apply
+(4.2) with `E = {N^A = n, K_4 <= kappa}`. The integrand converges pointwise, for `Q_0`-almost every `(s, U, D, tau)`
+(`D` nonsingular, jets off `E_k` and off the circle-null set), to
+`p_0(chart(0, U, D, tau)) c_m |det D| Delta(D) (det D)^2 w_0(s, a_3, beta) E_0[1{K_4 <= kappa} | j_0] 1{N_oo^A = n}`, by
+Lemma 4.1, Lemma 3.5 (convergence in probability of `r^(-4) W_r` together with the uniform `L^2` bound (3.1) gives
+convergence of the conditional expectation of its product with a bounded functional) and the continuity of the
+density and of the Weyl factor. Lemma 4.3 dominates uniformly in `r`. The prefactor `r^2/Z_r -> z_0^(-1)`. Hence
+
+    limsup / liminf  r^(-3) Q{N^A = n}  are within  C(A, 2)/kappa  of  z_0^(-1) integral (...) E_0[1{K_4 <= kappa} | j_0] 1{N_oo^A = n};
+
+let `kappa -> oo` (monotone convergence on the right, `E_0[1{K_4 <= kappa}|j_0] -> 1`) and integrate out `(U, D, tau_rest)`
+to obtain (4.4) with the reduced weight (3.11). For `n >= 3` the pointwise limit of the indicator is zero by Lemma 3.2.
+Finiteness: by Fatou's lemma applied along `r -> 0` to the `K_4 <= kappa` part of the representation (4.2) with `E = {N^A >= 1}` (the integrand converges pointwise to the (4.4)-integrand times `E_0[1{K_4 <= kappa}|j_0]`, and the latter tends to `1` as `kappa -> oo`), `integral m w_0 N_oo^A <= liminf r^(-3) E N^A <= C`, where the last bound is [DL] Theorems P_d, C_d and I_d (pin balls and collar of scaled radius `4`, shells from `4r` to `A r`: `C r^3 (1 + sum_j (r/s_j)^2 + s_j^2) <= C r^3` uniformly in `A <= 1/r`). The `A -> oo` limit: `N_oo^A` is nondecreasing in `A` with limit `N_oo`, so
+`integral m w_0 N_oo < oo` by monotone convergence and the uniform bound; then `1{N_oo^A = n} -> 1{N_oo = n}`
+pointwise (for every jet, once `A` exceeds the radius of the finitely many extra critical points) and is dominated by
+`N_oo`, so dominated convergence gives `nu_near^A(n) -> nu_near(n)`. Uniformity on the compact parameter set: the
+dominating functions and all limits depend continuously on `(b, k, R)`, so a sequence of parameters along which the
+convergence fails would have a convergent subsequence contradicting the pointwise statement at the limit parameter,
+exactly as in [LP] §5. ∎
 
 ## 5. The middle and far regions, and the absence of cross terms
 
@@ -538,7 +584,7 @@ by (5.1), (5.4) and (5.2); similarly `Q{N >= 3} <= Q{N^A >= 3} + (the same error
     | Q{N^A = 0, N_rest = 1} - Q{N_far^rho = 1} | <= Q{N^A >= 1, N_rest >= 1} + Q{N_mid >= 1},
 
 and `Q{N_far^rho = 1} = k r^3 integral_(D_rho) Lambda + O(r^4) + O(r^5)` by (5.2). Divide by `r^3`, let `r -> 0` using
-Proposition 4.4, then let `A -> oo` and `rho -> 0` using Proposition 4.4's monotone limit and §5.2:
+Proposition 4.4, then let `A -> oo` and `rho -> 0` using Proposition 4.4's `A -> oo` limit and §5.2:
 
     lim r^(-3) Q{N = 2} = nu_near(2),   lim r^(-3) Q{N = 1} = nu_near(1) + k integral_X Lambda,   lim r^(-3) Q{N >= 3} = 0,
 
@@ -556,11 +602,11 @@ the integral (1.3) over that neighbourhood is positive. `nu_near(1) > 0`: the ex
 (-1/2, 3, 1/3, 0)` at `k = 1` (rescaled by `k` in general) has extra critical points `(-3/2, 3)` at height `-1/2` (in the
 window) and `(45/22, -357/11)` at height `-9947/121` (outside), with pin weights `7/4` and `17/4` (control `EX`); the
 same open-neighbourhood argument applies. `nu(1) >= k integral_X Lambda > 0` by the positivity of `Lambda_j` in [RM].
-Finiteness of (1.3): the limit integrand is dominated by `g_(A, eta)` on `{|det D| >= eta}` (Lemma 4.2), and its
-integral over `{|det D| < eta}` is at most `C eta` by the argument of Lemma 4.3 applied to the limit integrand (the
-factor `(det D)^2` against the `|det D|^(-2)` range of `s`); let `eta -> 0`. Continuity in `(b, k, R)`: `m`, `w_0`, `z_0`, `F_0` and `Lambda` depend continuously on
-the parameters, the indicator `1{N_oo = n}` is continuous off a null set, and the dominating function of Lemma 4.2 is
-locally uniform; dominated convergence in the parameters gives continuity.
+Finiteness of (1.3): Proposition 4.4 (`integral m w_0 N_oo < oo`, by Fatou against the [DL] first-moment bound).
+Continuity in `(b, k, R)`: `m`, `w_0`, `z_0`, `F_0` and `Lambda` depend continuously on the parameters, the indicator
+`1{N_oo = n}` is continuous off a null set (`E_k` and the degenerate configurations), and the integrand of (1.3) is
+dominated locally uniformly in the parameters by `C m (1 + |s| + |a_3| + |beta|)^4 N_oo`, which is integrable by
+Proposition 4.4; dominated convergence in the parameters gives continuity.
 
 ### 6.3 Corollary Lambda
 
@@ -580,10 +626,14 @@ support; each is excluded by (1.5) (existence of the limit, `nu(1) > 0`, `nu(n) 
 
 ### 6.5 Corollary X
 
-Same proof as Proposition 4.4 with the bounded functional `sum_(extra near critical points) phi(scaled data)` in place of
-the indicator: Lemma 4.1 gives the convergence of the scaled positions and heights, the sum has at most `N^A` terms with
-`N^A -> N_oo^A <= 2`, and Lemma 4.2 with `sup |phi|` dominates; then `A -> oo`. The transverse scaled distance of a
-critical point at sheared coordinates `(X, Z, W)` is `|S(Z, rW)| = |Z| (1 + |q|^2)^(1/2) + O(r)`.
+Same proof as Proposition 4.4 with the functional `Phi^A = sum_(extra near critical points) phi(scaled data)` in place of
+the indicator. Two adjustments. First, `Phi^A` is not bounded (`|Phi^A| <= sup|phi| N^A`), so before applying (4.2)
+truncate at `N^A <= M`: by [C6] Theorem Q, `r^(-3) E[N^A 1{N^A > M}] <= r^(-3) E[(N)_2]/(M - 1) <= C_2/(M - 1)`
+uniformly in `r`, which is the uniform integrability needed; on `{N^A <= M}` the functional is bounded, Lemma 4.1
+gives the convergence of the scaled positions and heights, and Lemma 4.3 dominates with `M sup|phi|`. Let
+`kappa -> oo`, then `M -> oo`, then `A -> oo` (the `A -> oo` step as in Proposition 4.4, dominated by `sup|phi| N_oo`).
+Second, the transverse scaled distance: in the rotated chart of §3.2 the physical transverse displacement of a
+critical point at scaled coordinates `(X, Z, W)` is `r (Z, rW)` with `|W|` bounded by Lemma 3.1, so `|X_perp|/r = |Z| + O(r)`.
 
 ## 7. The reduced integral, and exact configurations
 
@@ -603,7 +653,7 @@ along the rescaled solutions `(X, Z) = s (xi, zeta)` of the limiting system `6k 
 `zeta (1 + beta xi + c_3 zeta / 2) + (a_3/2) xi^2 = 0` (control `EU`); `zeta = 0` forces `xi = 0`, so on nontrivial
 solutions `|zeta|` is bounded below and the height leaves the window `(-k, 0)` for large `|s|`. This is the reason the
 near count carries no logarithm although the shells' all-height count would (compare [DL] §8: the height window is
-load-bearing for the shells), and it is the analytic content of Lemma 3.3 and Lemma 4.2.
+load-bearing for the shells), and it is the analytic content of Lemma 3.3 and Lemma 4.3.
 
 ### 7.2 Exact configurations (finite control `EX`)
 
@@ -648,16 +698,17 @@ catalog change. The catalog entry C6 and the GRAPH node `math.rn-region.witness-
 
 - `NF`: the pin conditions of `F_0` (values `0` and `-k`, vanishing gradients at `(-+1/2, 0)`) as polynomial identities in
   `(s, a_3, beta, c_3, k)`; the pin Hessian blocks `M_2(M), M_2(S)` of Lemma 3.4.
-- `RS`: the resultant of `partial_X F_0, partial_Z F_0` in `Z` equals `(X^2 - 1/4) Q_2(X)` with the coefficients (3.6),
+- `RS`: the resultant of `partial_X F_0, partial_Z F_0` in `Z` equals `(X^2 - 1/4) Q_2(X)` with the coefficients (3.7),
   as an identity in `Q[X, s, a_3, beta, c_3, k]`.
 - `EX`: the six configurations of §7.2: exact critical points, heights, window membership, pin weights, `N_oo`; the
   [LM] weight `45 k^4`; the [LM] double root of `Q_2`.
-- `BD`: the block-determinant expansion (3.8) for `d = 3` and `d = 4` as an exact identity in `r` (the `r^2`
+- `BD`: the block-determinant expansion (3.9) for `d = 3` and `d = 4` as an exact identity in `r` (the `r^2`
   coefficient is `det D . det M_2`, the remainder is divisible by `r^3`).
 - `EU`: the Euler identity `xi G_xi + zeta G_zeta = 3 G_3 + zeta^2` for the limiting cubic-plus-quadratic `G`, hence
   `G = zeta^2/6` at its critical points, and `zeta = 0 => xi = 0`.
 - `LG`: the exponent ledgers: `1 + 4 - 2 = 3`; the cross term `3 + 3/2 > 3`; the shell error `A^(-2) + rho^2`; the
-  tail `p/2 > 4d + 1`; the uniform-integrability step of §6.3.
+  Hadamard exponent of (3.10) (`4 + 2 + (2d - 6) = 2d` soft-and-stable row factors for `d = 3, 4`); the large-`K_4`
+  tail `kappa^(-p/2) -> 0`; the uniform-integrability step of §6.3 and §6.5 (`1/(M - 1) -> 0`).
 
 Seven mutants (`pins-not-critical`, `wrong-pin-hessian`, `drop-sigma-jacobian`, `three-extra-points`,
 `cross-term-not-small`, `window-closed`, `index-sign`) each exit `1`. The controls verify identities, exact

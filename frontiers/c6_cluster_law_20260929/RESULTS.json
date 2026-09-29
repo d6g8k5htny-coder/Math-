@@ -9,11 +9,15 @@
   ],
   "ledger": {
     "cross_term_exponent": "9/2",
+    "hadamard_row_factors": {
+      "3": 6,
+      "4": 8
+    },
     "soft_slice_exponent": 3,
-    "tail_power_p": 20
+    "ui_tail": "1/(M-1)"
   },
   "mathematical_acceptance": false,
-  "object": "CL-C6-CLUSTER-LAW-20260929-v1",
+  "object": "CL-C6-CLUSTER-LAW-20260929-v1.1",
   "passed": true,
   "q2_terms": 12,
   "schema": 1,

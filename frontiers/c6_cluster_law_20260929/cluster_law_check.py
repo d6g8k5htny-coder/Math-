@@ -1,4 +1,4 @@
-"""Exact finite controls for CL-C6-CLUSTER-LAW-20260929-v1.
+"""Exact finite controls for CL-C6-CLUSTER-LAW-20260929-v1.1.
 
 Standard library only; exact rationals and exact polynomial arithmetic over Q.
 Verifies identities, exact configurations and exponent bookkeeping only. It does
@@ -346,10 +346,23 @@ def check_ledger(mutant):
     require(cross > 3, 'near-far cross term is o(r^3)')
     for A, rho in ((4, F(1, 2)), (100, F(1, 100))):
         require(F(1, A * A) + rho * rho <= F(1, 16) + F(1, 4), 'shell error A^-2 + rho^2 decreases')
-    p = 4 * 4 + 4          # p/2 > 4d + 1 for d <= 4 in the recorded bookkeeping
-    require(F(p, 2) > 4 * 4 + 1 - 8 or True, 'tail exponent recorded')   # documentary
-    require(F(1, 10 - 3) < F(1, 6), 'uniform-integrability tail 1/(M - q) -> 0')
-    return {'soft_slice_exponent': 3, 'cross_term_exponent': str(cross), 'tail_power_p': p}
+    # Hadamard bound (3.10): per pin determinant, two soft rows, the lambda_2 row and d - 3 stable rows;
+    # W_r is a product of two such determinants, so the row factors number 2d in all.
+    hadamard = {}
+    for d in (3, 4):
+        require(2 * (2 + 1 + (d - 3)) == 2 * d, 'Hadamard: 2d row factors for two pin determinants')
+        require(4 + 2 + (2 * d - 6) == 2 * d, 'exponents 4 (soft), 2 (lambda_2), 2d - 6 (stable) of (3.10) sum to 2d')
+        hadamard[d] = 2 * d
+    # large-K_4 tail (4.3): kappa^(-p/2) -> 0; checked exactly for even p on kappa = 1, 10, 100
+    for half_p in (1, 2, 10):
+        require(F(1, 100) ** half_p < F(1, 10) ** half_p < F(1) ** half_p, 'kappa^(-p/2) decreases in kappa')
+    # uniform integrability (§6.3, §6.5): n 1{n > M} <= n(n - 1)/(M - 1) for every integer n > M >= 2
+    for M in (2, 5, 10):
+        for n in range(M + 1, M + 12):
+            require(F(n) <= F(n * (n - 1), M - 1), 'E[N 1{N > M}] <= E[(N)_2]/(M - 1)')
+    require(F(1, 100 - 1) < F(1, 10 - 1) < F(1, 2 - 1), 'uniform-integrability tail 1/(M - 1) -> 0')
+    return {'soft_slice_exponent': 3, 'cross_term_exponent': str(cross), 'hadamard_row_factors': hadamard,
+            'ui_tail': '1/(M-1)'}
 
 
 def run(mutant=None):
@@ -366,7 +379,7 @@ def run(mutant=None):
     groups.append('EU')
     ledger = check_ledger(mutant)
     groups.append('LG')
-    return {'schema': 1, 'object': 'CL-C6-CLUSTER-LAW-20260929-v1', 'passed': True, 'groups': groups,
+    return {'schema': 1, 'object': 'CL-C6-CLUSTER-LAW-20260929-v1.1', 'passed': True, 'groups': groups,
             'ledger': ledger, 'q2_terms': len(Q2), 'scientific_effect': 'NONE', 'mathematical_acceptance': False,
             'scope': 'exact identities, exact configurations and exponent bookkeeping only'}
 
