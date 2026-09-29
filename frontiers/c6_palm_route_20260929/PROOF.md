@@ -90,6 +90,16 @@ the exact bytes of §2. [C6L] carries the OpenAI lane's complete nonauthor accep
 `d`-dimensional restatement in §3 is this note's own obligation); [DL] has xAI acceptance of its algebraic identities
 and a HOLD on its counts. A defect in either blocks the corresponding step here.
 
+### 1.4 The planar case depends on this note alone
+
+For `d = 2`, every regional bound that §6 takes from [DL] is the planar statement it lifts, and each of those has a
+nonauthor verdict on file: the pin ball (P10)–(P12), (P18)–(P20) (xAI 5894512272 and #111), the collar (C4)–(C19)
+(`reviews/d5_collar_count_20260928/`), the shells (I9)–(I33) (`reviews/d5_i5_planar_f_20260928/`), the remote
+region [RM] Theorem A (main#76), the normalizer [LP] (5.5) (Math-#106), and [C6L] (merged, review 5355682335). The
+correspondence row by row is `frontiers/d5_dimension_lift_20260929/CONTINUUM_CROSSWALK.md`. Hence Theorem Q and
+Corollary Theta at `d = 2`, that is the planar C6 order `E_(Q_r^W)[N(N-1)] = Theta(r^3)`, are conditional on the
+steps of this note only (§§3–7), not on the `d >= 3` read of [DL]. The every-`d` statement additionally needs [DL].
+
 ## 2. Sources consumed, with the exact interface
 
 Identities (bytes, sha256, git blob, branch head) are in `SOURCE_MAP.json`.

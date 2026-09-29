@@ -16,6 +16,10 @@ the full normalizer, in every fixed `d >= 2`:
 
 `N` is the number of window critical points other than the pins, all indices, heights in `I_r = (b - k r^3, b)`.
 
+**Planar case.** At `d = 2` every input has a nonauthor verdict (PROOF.md §1.4), so the planar C6 order
+`E[N(N-1)] = Theta(r^3)` is conditional on this note's own steps only; the every-`d` statement additionally needs
+Math-#141's counts.
+
 ## Mechanism (PROOF.md §4–§6)
 
 1. `N(N-1) <= N Psi` pathwise, with `Psi` the Rouché–Bézout cap of [C6L] in `d` dimensions (§3).
