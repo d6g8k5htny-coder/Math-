@@ -1,0 +1,95 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "79f9a73596b1ce925034bd426c005a3251693c1b",
+  "note": "Inputs C6L and DL are unmerged author-side candidates pinned at exact branch heads; this note is not consumable before they receive nonauthor verdicts.",
+  "inputs": [
+    {
+      "id": "C6L",
+      "path": "frontiers/c6_factorial_moment_20260929/PROOF.md",
+      "branch": "claude/c6-factorial-moment-20260929",
+      "head": "09763caf5849c96ab291b4c51b2192c64529565f",
+      "pull_request": "Math-#140",
+      "bytes": 18692,
+      "sha256": "c5dcc611810c24b115f44ef9cce468e83618f3f63de385e7157a46076a4762d1",
+      "git_blob": "af6c336301d1ec6cf3b2021e8b7478543200d400",
+      "use": "Sections 2-5 (pathwise cap, Lemma R, entire extension and moments, cover, degrees, Psi, measurability), Lemma M as template, Lemma D reduction to G = (Re F, Im F/t), Lemma E, section 9 Palm-route statement (M'), (H). Planar; restated in d dimensions in PROOF.md section 3 with the Bezout and volume exponents changed.",
+      "review_state": "OpenAI review 5355120953 ACCEPT sections 4-6 at a2d6f09 (bytes of sections 4-7 unchanged through v1.2); Lemma R and section 8 await a nonauthor verdict; not accepted as a whole."
+    },
+    {
+      "id": "DL",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "branch": "claude/determined-bardeen-mrqy4y",
+      "head": "278d82c6f3ebd3d7e2dafa79eece5d43af998843",
+      "pull_request": "Math-#141",
+      "bytes": 47881,
+      "sha256": "3b0a4be490c7095f26d094e86a8aee40bff6882487ab8b6eea4375af817ae885",
+      "git_blob": "887a796345c8a6a22bedd5900a23d6f7547eecbc",
+      "use": "Theorems P_d, C_d, I_d, G_d and their proofs' frames Y, G (written Gc here), Z, the raw frames of sections 5.4 and 6.5, densities (4.6), (5.4), (6.12), determinant bounds (4.8), (4.9), (5.6), (6.10), conditional moments (4.7), (5.5), (6.13), ledgers (4.11), (4.12), (5.7), (6.14), (6.15), tiling section 7, Corollary M_d.",
+      "review_state": "author-side candidate; no nonauthor verdict yet."
+    },
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "Model in every d; section 2 positive spectrum and distinct-site jet rank; (4.1) uniform C^q moments; (5.5) Z_r >= z_* r^2."
+    },
+    {
+      "id": "PP",
+      "path": "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+      "bytes": 23771,
+      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a",
+      "git_blob": "d8acf0bcb9025b1562c03c077c8e0094ae282060",
+      "use": "Section 3 endpoint frame E_r with bounded inverse and targets; (P18) weighted Kac-Rice with a field mark."
+    },
+    {
+      "id": "CP",
+      "path": "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+      "bytes": 20318,
+      "sha256": "794babe0fd039c3a93c401c0b8978316331af009fad45f953e63fbe7e1e31aab",
+      "git_blob": "b5647907a8a589635855b59cc4246b23efce2801",
+      "use": "Section 4 degree-five three-site observation vector V_r = B_c D_r J_5 + O(r^6) and its floor c r^10."
+    },
+    {
+      "id": "IW",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "bytes": 27775,
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "git_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+      "use": "Section 3 frame V_(r,s,w) = B D_s J_5 + O(s^6) and its floor c s^10; (I33) marked Kac-Rice with height disintegration."
+    },
+    {
+      "id": "RM",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Theorem A in every d (reviewed ACCEPT, main#76); section 2 uniform remote nondegeneracy of (U_r, Y_x); section 3 coupling (5) with uniform moments under the extra witness conditioning; sections 4-5 weight (10) and intensity (12)-(14)."
+    },
+    {
+      "id": "EDL",
+      "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+      "bytes": 23971,
+      "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+      "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+      "use": "(A4): Q^W(N_r >= 2) >= c r^3 and E[N_r(N_r - 1)] >= c r^3 in every fixed d. Corollary Theta only."
+    }
+  ],
+  "new_obligations": [
+    "Lemma M': the Rouche-degree tail under an arbitrary Gaussian regression law, with explicit dependence on the complex sup of the mean's gradient and Hessian (mu) and on a residual-covariance floor on the annuli (phi), and with a fixed slab of test radii excluded around the witness distance",
+    "Lemma D': the density bound on the annuli under the regression law, forced zeros excluded by the slab",
+    "Lemmas 4.1-4.4: mean, residual floor, residual sup moments (Sudakov-Fernique and Borell-TIS) and conditional K-moments in terms of one frame parameter beta",
+    "Lemmas 6.1-6.3: joint covariance floors for (G(z), frame) in each regime, on jets at the pin site and for the raw coalescing frames",
+    "Lemma 5.1: Kac-Rice with a sigma(f)-measurable mark by the monotone class theorem",
+    "The regime ledger of section 6 with the two mark factors absorbed by each region's Gaussian penalty"
+  ],
+  "consumed_reviews": [
+    "main#76 (remote Theorem A, every d)",
+    "Math-#140 review 5355120953 (OpenAI: C6L sections 4-6 ACCEPT at stated scope); Math-#140 comments 5893862956, 5894209739 (scope of the pending Lemma R / section 8 review)",
+    "reviews/d5_punctured_pin_continuum_claude_20260929 (planar PP continuum, same-model record), reviews/d5_collar_count_20260928, reviews/d5_i5_planar_f_20260928, reviews/d5_intermediate_window_claude_20260928 (planar sources behind DL)"
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false
+}

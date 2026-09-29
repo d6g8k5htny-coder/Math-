@@ -1,0 +1,69 @@
+# C6 sharp via the Palm route (CL-C6-PALM-20260929-v1)
+
+Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review required.** Scientific effect: NONE.
+**Stacked candidate:** consumes Math-#140 (`C6L`) and Math-#141 (`DL`) at exact branch heads; neither is accepted yet.
+
+## What it proves, if the arguments and both inputs hold
+
+For the exact pinned model of `imports/lifetime_parent_20260925` with compact marks, the original endpoint weight and
+the full normalizer, in every fixed `d >= 2`:
+
+| Result | Statement | Closes |
+|---|---|---|
+| Theorem Q | `E_(Q_r^W)[(N)_q] <= C_q r^3` for every fixed integer `q >= 2` | the `log^2(1/r)` of [C6L] Theorem C6-L; catalog C6's open order, in every `d` |
+| Corollary Theta | `c r^3 <= E_(Q_r^W)[N(N-1)] <= C r^3`, `Q_r^W{N >= 2} = Theta(r^3)` | with [EDL] (A4) |
+| Corollary P | pairs per single are of order one: `E[N(N-1)] / E N` bounded above and below | — |
+
+`N` is the number of window critical points other than the pins, all indices, heights in `I_r = (b - k r^3, b)`.
+
+## Mechanism (PROOF.md §4–§6)
+
+1. `N(N-1) <= N Psi` pathwise, with `Psi` the Rouché–Bézout cap of [C6L] in `d` dimensions (§3).
+2. The marked Kac–Rice formula with the `sigma(f)`-measurable mark `W_r Psi^(q-1)` (Lemma 5.1, monotone class) turns
+   the factorial moment into a first-moment integral over the same tiling as [DL] §7.
+3. Under any Gaussian regression law `Q'`, the tail of `m_j*` is `C (1 + mu^2 + Phi) m 2^(-m/(2d))` (Lemma M'), where
+   `mu` is the complex sup of the mean's gradient and Hessian and `Phi` a residual-covariance floor on the test
+   annuli, with a fixed slab of test radii excluded around the witness distance so that the forced zero at the witness
+   never enters the packing. Hence `E_(Q')[Psi^p] <= C_p (1 + mu^2 + Phi)` (Proposition 4.5).
+4. In each regime of the first-moment proofs, `mu`, `Phi` and the conditional `K`-moments are polynomial in the same
+   degeneracy variable (`chi`, `|v|^(-1)`, `r^(-1)`, `s^(-1)`) that the regime's Gaussian penalty already absorbs
+   (Lemmas 4.1–4.4, 6.1–6.3, and the table of §6). The radial ledgers are unchanged, so every region still integrates
+   to `C r^3`.
+
+## Run
+
+    python -B -S palm_exact_check.py                      # rc 0, output = RESULTS.json
+    python -B -O -S palm_exact_check.py                   # rc 0, byte-identical
+    python -B -S palm_exact_check.py --mutant NAME        # rc 1 for each of the six names in the docstring
+
+Six exact groups (`PK EX TL PW SC LG`): slab-excluded packing, Lemma M' exponents, the moment-series index, the
+pathwise inequalities, Schur floors and residual-metric domination on random rational matrices, and the regime
+ledger with the two mark factors. They verify counting, exponents, identities and finite-matrix inequalities only.
+
+## Review requests (exact interfaces)
+
+1. Lemma M' (b): the slab exclusion keeps at least `eta'/(4 delta)` disjoint balls inside `A'_j` at distance
+   `>= zeta_0/2` from the witness, and (c) the Markov step with Lemma D' on the restricted set.
+2. Lemma 4.3: Sudakov–Fernique applies to the regression residual on a compact complex domain, and Borell–TIS gives
+   the moments; Lemma 4.1: the two Cauchy–Schwarz steps and the transitivity of regression.
+3. Lemma 6.1: positivity of `(G(z), Jo, E_0)` at `r = 0` and the continuity of the Schur complement in `r`;
+   Lemma 6.2: the remainder condition in each transverse regime (`r <= c|v|^2`, `s <= c|v|^3`); Lemma 6.3: the joint
+   floor `c sigma^10` from the degree-five frames of [CP] and [IW].
+4. Lemma 5.1: the monotone class argument and the auxiliary-field reading of arXiv:2304.07424v3 Theorem 7.1 for marks
+   constant in the location variable.
+5. §6.2, each regime: that the marked intensity is the source's unmarked bound times `(1 + beta)^(3d)(1 + beta +
+   lambda_J^(-d/2))`, and that the penalty absorbs it, in particular R1 region II (`2n >= 6 + 3d`) and R2a
+   (`2n/3 >= 15 + 39d`); R4: the slab exclusion is what supplies `Phi <= C` there.
+6. That every step cited from [C6L] and [DL] is used at its stated scope and exact bytes.
+
+## What this does not do
+
+No positional law of the pairs, no Poisson approximation with rate, no elder statement, no numerical constant, no
+uniformity in `k`, `L` or `d`, no register or catalog change. The catalog entry C6 and the GRAPH node
+`math.rn-region.witness-collision` are not moved by this packet.
+
+## Provenance
+
+Consumed sources and their exact identities, including the two unmerged branch heads: `SOURCE_MAP.json`. This
+packet's inventory: `SOURCE_FILES.json`. External check: `RECONNAISSANCE.md`. Same GitHub account as every lane; zero
+organizational-independence credit; [C6L], [DL] and this note are Claude-authored in two sessions.
