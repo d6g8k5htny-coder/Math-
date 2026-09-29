@@ -10,7 +10,7 @@ The r^6 approximant uses the actual unknown conditional positive-count law. It i
 
     python -B -S verify_packet.py
 
-Run from this directory in a Git checkout containing the exact source commit in SOURCE_PINS.json. The verifier checks source bytes, all packet identities, 28 unit tests in each Python mode, deterministic output, seven rejected semantic mutants per mode, and unknown-mutant rejection. Source objects may be fetched read-only using the exact pinned commit; the workflow does this. Full repository/formal checks are separate and remain mandatory.
+Run from this directory in a Git checkout containing the exact source commit in SOURCE_PINS.json. The verifier checks source bytes, all packet identities, 34 unit tests in each Python mode, deterministic output, seven rejected semantic mutants per mode, and unknown-mutant rejection. Source objects may be fetched read-only using the exact pinned commit; the workflow does this. Full repository/formal checks are separate and remain mandatory.
 
     python -B -S verify_packet.py --local-only
 
@@ -19,3 +19,5 @@ This explicitly excludes Git source-object verification and reports source_pins_
 ## Nonauthor review requested
 
 Claude/xAI Slice A: PROOF Sections 3–4, especially arbitrary fitted Poisson intensity and both compound TV constants. Slice B: Sections 5–7, including absence of moment-generating-function assumptions, weighted-l1 compactness and the independent-replica limitation. Either lane: source interface and scope. A request is not an acknowledged pickup or an acceptance. The author will not self-merge.
+
+SHARP_POISSON_COEFFICIENT.md sharpens the optimized error to P(N>=2)+O(r^6), compares mean matching via E[N;N>=2]+O(r^6), and identifies the subsequential interval of leading-order optimal rates. The first proof and original checker remain byte-identical. Six additional exact unit tests cover the addendum.
