@@ -82,6 +82,20 @@ class FoldTests(unittest.TestCase):
         self.assertRegex(sec,r"They do\s+not close the regional shrinking-witness mechanism")
         heading=self.cand.split("## C6.",1)[1].splitlines()[0]
         self.assertNotIn("sharp order open",heading)
+    def test_catalog_current_review_crosswalk(self):
+        c1=self.cand.split("## C1.",1)[1].split("\n## C2.",1)[0]
+        c2=self.cand.split("## C2.",1)[1].split("\n## C3.",1)[0]
+        self.assertIn("reviews/d1_elder_lower_claude_20260928/REVIEW.md",c1)
+        self.assertIn("Theorem E1",c1)
+        self.assertNotIn("Pending:",c1)
+        self.assertIn("reviews/d1_elder_lower_claude_20260928/REVIEW.md",c2)
+        self.assertIn("Theorem L",c2)
+        self.assertNotIn("Pending for this candidate",c2)
+    def test_graph_note_separates_global_order_from_regional_gap(self):
+        note=self.g["nodes"]["math.rn-region.witness-collision"]["notes"]
+        self.assertIn("sharp global order is reviewed and merged through Math-#145",note)
+        self.assertIn("regional shrinking pin/witness-collision mechanism",note)
+        self.assertNotIn("sharp full-window order remain open",note)
     def test_declarative_source_preserved(self):
         self.assertIs(self.p["declarative"],True)
         self.assertIs(self.p["executed"],False)

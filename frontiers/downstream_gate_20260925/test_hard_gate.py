@@ -241,6 +241,11 @@ class HardGateControls(unittest.TestCase):
         })
         self.assertTrue(reviewed_ids.isdisjoint(open_ids))
         self.assertIn('math.rn-region.witness-collision', open_ids)
+        witness = next(r for r in regions['open_complement']
+                       if r['id'] == 'math.rn-region.witness-collision')
+        self.assertIn('sharp global order is reviewed and merged through Math-#145',
+                      witness['notes'])
+        self.assertNotIn('sharp full-window order remain open', witness['notes'])
         self.assertFalse(regions['legacy_24jet_discharged'])
         self.assertTrue(regions['no_event_to_expectation_reversal'])
 

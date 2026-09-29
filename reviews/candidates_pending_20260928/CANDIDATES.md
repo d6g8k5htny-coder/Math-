@@ -1,8 +1,11 @@
-# Theorem candidates pending review and test
+# Historical theorem-candidate intake with current review crosswalk
 
 Scientific effect: **NONE**. Publication of this list is not acceptance.
 
-Algebra already checked is noted. Continuum or missing public tests are the pending obligation.
+This file began as the 28 September 2026 intake list. The source descriptions below
+are preserved, while each section now states the source-bound disposition known on
+29 September 2026. A later review does not recover the absent original `algebra.py`,
+and tests or integration do not substitute for the cited analytic review.
 
 ## C1. Planar elder-failure lower bound (Math-#116)
 
@@ -17,23 +20,33 @@ for small r, hence with the parent upper bound `1-p_r = Theta(r^3)` and
 
 Finite identities checked: cubic `G_k` pins correctly; path nodes evaluate to `0`, `-7k/32`, `-7k/32`, `+17k/64`; extra saddles at `X=-3/4`, `Z^2=15/8`, height `-7k/32`.
 
-Pending: 10-jet covariance floor; `Q_r` box mass `>= c r`; `W_r >= c r^4` on that box; comparison with `Z_r <= C r^2`; public runnable suite (`algebra.py` is not in the PR).
+Current disposition: Anthropic's source-bound
+[`reviews/d1_elder_lower_claude_20260928/REVIEW.md`](../d1_elder_lower_claude_20260928/REVIEW.md)
+accepts the ten-jet Schur floor and box mass (L9--L11), conditional `C^4`
+control (L12--L13), determinant/normalizer ledger (L5/L14), and Theorem E1.
+The review packet was integrated by Math-#124. The original author's
+`algebra.py` remains absent, so its historical execution claim is still not
+publicly reproducible; the review's distinct checker does not recover it.
 
 ## C2. Local window multiplicity (Math-#116)
 
 Source: `frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md` at `0507e3a1dbd3dede84cbeb805947c70aa16ebc36`.
 
-Candidate: `P(N_global >= 2) = Theta(r^3)` in the planar height window.
+Original candidate: `P(N_global >= 2) = Theta(r^3)` in the planar height window.
 The same global order conclusion is now available by the separate reviewed Palm
 route in `frontiers/c6_palm_route_20260929/PROOF.md`; that theorem does not
-validate this candidate's local jet-box mechanism. If the mechanism here were
-established with its stated first-moment upper bound, it would give an independent
-local explanation of the failure of global conditional uniqueness. This is not an
-acceptance transfer from the Palm theorem.
+validate this candidate's local jet-box mechanism. The separate C1/C2 review cited
+below does validate that mechanism with its stated first-moment upper bound, giving
+an independent local explanation of the failure of global conditional uniqueness.
+That acceptance is not transferred from the Palm theorem.
 
-Pending for this candidate: the jet-box probability lower bound together with the
-planar first-moment upper bound (I5), as a matched local mechanism, plus public
-tests.
+Current disposition: the same source-bound
+[`reviews/d1_elder_lower_claude_20260928/REVIEW.md`](../d1_elder_lower_claude_20260928/REVIEW.md)
+accepts Theorem L, including the jet-box lower event and the I5 first-moment
+upper composition. This reviewed local mechanism remains distinct from the open
+regional `math.rn-region.witness-collision` graph predicate. The absent original
+`algebra.py` remains a publication/execution limitation, not an unreviewed
+Gaussian step.
 
 ## C3. Remote ordered-pair kernel and beta-gap law (Math-#116)
 
@@ -55,7 +68,10 @@ little-o is for fixed `E`, not arbitrary oscillatory `E_r`.
 
 Finite identities checked: Beta(2/3, 2) has mean `1/4` and variance `9/176`.
 
-Pending: the contact Gaussian coefficient, extra-conditioned weight limit, overlap `(k-s^3|t|)_+`, L1 translation, and public tests.
+Current disposition: Anthropic's source-bound
+[`reviews/remote_pair_law_claude_20260928/REVIEW.md`](../remote_pair_law_claude_20260928/REVIEW.md)
+records the analytic verdict integrated by Math-#129. Its exact fixed-remote,
+fixed-Borel scope remains controlling; it is not a shrinking-region statement.
 
 ## C4. Distance-moment transition (Math-#116)
 
@@ -63,7 +79,11 @@ Source: `frontiers/window_multiplicity_laws_20260928/REMOTE_DISTANCE_MOMENTS.md`
 
 Candidate: for each fixed moment order `p>=0`, ordered-pair distance moments `M_p` scale as `r^{5+p} A_p` for `0<=p<1`, `r^6(A_1+B_1)` at `p=1`, and `r^6 B_p` for `p>1`.
 
-Pending: radial envelope `C(r^{12} delta^{-8}+r^6)`, equal-height contact kernel, loss of uniform integrability at moment order 1, public tests.
+Current disposition: the amended source-bound
+[`reviews/remote_distance_moments_claude_20260929/REVIEW.md`](../remote_distance_moments_claude_20260929/REVIEW.md)
+records the accepted moment transition integrated with Math-#130. The finite-r
+microscopic and limiting moment ranges remain those stated in the integration
+receipt; no pair-event-conditioned law is inferred.
 
 ## C5. Remote singleton height mark (Math-#116)
 
@@ -71,10 +91,12 @@ Source: `frontiers/window_multiplicity_laws_20260928/HEIGHT_MARKS.md` at `0507e3
 
 Candidate: conditional on a remote occurrence, height in the window is asymptotically uniform and independent of the joint location/index mark, at `O(r)` TV.
 
-Pending: source-bound use of the pre-height-integrated remote kernel. Math-#115
-was integrated at `4b2aa45b2f995fc27c16ec37cccb081821eda74c` with a scoped
-nonauthor review, but its proof explicitly omits the height law. This new height
-candidate does not inherit acceptance from that merge.
+Current disposition: Anthropic's source-bound
+[`reviews/remote_height_marks_claude_20260929/REVIEW.md`](../remote_height_marks_claude_20260929/REVIEW.md)
+records the accepted singleton height-mark statement integrated with Math-#130.
+The acceptance comes from that review, not from Math-#115; it retains the fixed
+remote and deterministic varying positive-volume-set scope recorded in
+[`docs/integration/2026-09-29-reviewed-window-and-inverse.md`](../../docs/integration/2026-09-29-reviewed-window-and-inverse.md).
 
 ## C6. Torus-wide factorial moments: reviewed global order; regional mechanism open
 
@@ -115,7 +137,7 @@ Open task: prove or refute the shrinking-separation witness-collision mechanism
 encoded by the open graph node, without inferring it from the global Palm
 bound. Numerical constants and a unique limiting cluster law also remain
 outside the reviewed packets cited above.
-## C7. Unrestricted selection-difference rate
+## C7. Unrestricted selection-difference rate (still open as of 2026-09-29)
 
 Candidate: Theorem C's unrestricted densities satisfy
 
@@ -125,13 +147,16 @@ Written support: the compact-mark case is the parent difference estimate under
 Theorem A in `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
 at `5a5b97d2c518dd5c04c89d17029ec96e721d3b78`. #116 C1 would make the compact exponent sharp.
 
-Pending: a rate in the unbounded-mark dominated-convergence argument of parent §13; parent text presently does not claim this unrestricted remainder.
+Current disposition: **OPEN**. A rate in the unbounded-mark dominated-convergence
+argument of parent §13 is still missing; the parent text does not claim this
+unrestricted remainder.
 
-## C8. Numerical constants
+## C8. Numerical constants (still open as of 2026-09-29)
 
 Candidates: explicit finite `C`, `r_*`, `z_*`, `c_{B,K}`, `c_{d,L}` on a declared compact-mark / torus band.
 
-Pending: a certified covariance-enclosure / finite-band program. No numerical value is recorded here.
+Current disposition: **OPEN**. A certified covariance-enclosure / finite-band
+program is still missing. No numerical value is recorded here.
 
 ## Not candidates
 
