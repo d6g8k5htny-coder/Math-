@@ -1,0 +1,59 @@
+{
+  "author": "Anthropic Claude",
+  "delivered_under": "owner instruction in claude.ai session 2026-09-29 (resumes the reconciliation \u00a78 item-3 invitation); OWNER_STOP left in place, no self-merge, scientific effect NONE",
+  "files": [
+    {
+      "bytes": 13279,
+      "path": "REVIEW.md",
+      "sha256": "8f137401f1f27b76f0202f7d4c271f47899f786cf3bb7064249b46c1c268d09c"
+    },
+    {
+      "bytes": 8692,
+      "path": "cde_review_check.py",
+      "sha256": "a5f5a874a396aba358b81cb41c8ee82b668efc8f50e805b254470a8c24a3daf5"
+    },
+    {
+      "bytes": 1238,
+      "path": "RESULTS.json",
+      "sha256": "97b44def5a7659d500e81817b19eb54dd8de9c7e31b0db683b9eb35b430e38f0"
+    }
+  ],
+  "mathematical_acceptance_by_this_record": "scoped ACCEPT, nonauthor lane, existential scope only",
+  "mutants": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "object": "CL-D1-CDE-FULLDEPTH-20260929-v1",
+  "read_at_head": "dbccbb41a58f2328b3bec6c4609a4b8fb3ac811f",
+  "reviewed_sources": [
+    {
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent (P)",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "bytes": 1782,
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "role": "amendment E1",
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+    },
+    {
+      "blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "bytes": 9062,
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "role": "amendment E2",
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+    },
+    {
+      "blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "role": "reading rule"
+    }
+  ],
+  "reviewer_session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "scientific_effect": "NONE"
+}
