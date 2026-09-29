@@ -3,9 +3,14 @@
 Object: CL-C6-FACTORIAL-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
-Version: v1.1. It adds the record-keeping completions requested in OpenAI review 5355120953: `m* = ∞`,
-measurability, integer `q`, and `r_* < 1`. There is no theorem change. That review ACCEPTs §§4–6 (Lemmas E, D and M)
-at stated scope. Lemma R and the §8 assembly await a separate review.
+Version: v1.2.
+- v1.1 added the record-keeping completions requested in OpenAI review 5355120953: `m* = ∞`, measurability, integer
+  `q`, and `r_* < 1`. That review ACCEPTs §§4–6 (Lemmas E, D and M) at stated scope.
+- v1.2 answers the bounded xAI/Grok read of Lemma R and §8 (#140 comment 5894209739). It adds two explicit sentences
+  to Lemma R, and exact citations for the inputs of §8 (§1): the D1 parent's §5 for `W_r` and `Z_r`, and the (I5) row
+  with the (P2) HOLD it inherits. §§4–7 are byte-identical to v1.1.
+- There is no theorem change. Lemma R and the §8 assembly still need a nonauthor verdict; the xAI read found no
+  contradiction and is not a C6-L ACCEPT.
 Scientific effect: NONE. No register, graph, lemma flag, prize or premise changes. The catalog entry C6 and the D5
 collision node are not moved by this file.
 
@@ -32,11 +37,29 @@ More generally, for each fixed integer `q ≥ 2`, `E_{Q_r^W}[(N)_q] ≤ C_q r³ 
 is `E N(N − 1) ≥ 2 P(N ≥ 2) ≥ 2c r³`. So the optimal order of the torus-wide second factorial moment lies between
 `r³` and `r³ log²(1/r)`. §9 isolates the one estimate that would remove the logarithm.
 
-**Inputs consumed** (all with nonauthor verdicts; see `reviews/d5_reconciliation_20260929/` on #138's branch):
-- **(I5)** `E_{Q_r^W} N ≤ C r³`: `reviews/d5_i5_planar_f_20260928/` and
-  `reviews/d5_intermediate_window_claude_20260928/`.
-- **(P13)–(P14)** `det H_M, det H_S = O_{L^s}(r)` and `Z_r ≥ c_Z r²`: `PUNCTURED_PIN_PROOF.md` §7 (reviewed in #111
-  and `reviews/d5_punctured_pin_continuum_claude_20260929/`).
+**Inputs consumed.** Each is cited at an exact reviewed row, never at the (P2) count row.
+- **(I5)** `E_{Q_r^W} N ≤ C r³`, for the window count `N` of this note (heights in `I_r`, pins removed):
+  `frontiers/intermediate_window_20260928/PROOF.md` (I5).
+  - Verdicts: `reviews/d5_i5_planar_f_20260928/REVIEW.md` (xAI), row "I5 … **ACCEPT** as corollary of C2 + I4 + D4 A";
+    `reviews/d5_intermediate_window_claude_20260928/REVIEW.md`, I5 ACCEPT with the explicit tiling (N1).
+  - (I5) is a window first moment and is used only as one. Nothing here upgrades it to all heights.
+  - Its local part is (C2), which consumes (P2). The (P2) continuum steps carry an xAI HOLD (#111) and a Claude ACCEPT
+    (`reviews/d5_punctured_pin_continuum_claude_20260929/`); the Claude record is not a second independent vote.
+  - So C6-L holds exactly at the scope of the D5 reading rule `reviews/d5_reconciliation_20260929/`, and no stronger.
+- **(W2)** `‖W_r‖_{L²(Q_r)} ≤ C r²` and **(Z)** `Z_r ≥ z_* r²`. Primary source: the D1 parent
+  `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d…`) §5.
+  - The sentence "det H_i/r and W_r/r^2 have uniformly bounded moments of every finite order" gives (W2).
+  - (5.5) `0 < z_* ≤ Z_r/r² ≤ z^*` gives (Z).
+  - Both are component (I) of the D1 reading rule (`reviews/d1_chain_reconciliation_20260928/`), consumed by the
+    register row D1 (Theorem A, accepted at stated scope). Full-depth nonauthor review of that interface is C1
+    (Anthropic), with partial xAI checks G3 of the UI majorant and of `z_* > 0`.
+  - At `d = 2`, `L = T` the D1 law is this note's law: the same covariance `K_T`, the same six observations (P1)
+    (`M = −(r/2)u`, `S = (r/2)u`), and the same weight, since `F_2(H_M)F_1(H_S) = |det H_M det H_S| 1{H_M < 0,
+    index(H_S) = 1}`. The parent's `r < L/(4√2)` is absorbed into `r_*`.
+- The same two facts are (P13)–(P14) of `reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md` §7. There (W2)
+  follows from `det H_M/r, det H_S/r = O_{L^s}(1)`, by (P13) and the bounded moments of `S_0`. They are covered by
+  the Claude continuum record rows "§3 endpoint regression … ACCEPT" and "§7 (P13)–(P14) … ACCEPT"; #111 has no
+  standalone row for them. The D1 citation above is the primary one.
 
 Everything else is proved here, from standard facts: multidimensional Rouché, Bézout, Cauchy estimates and
 Gaussian regression.
@@ -57,10 +80,17 @@ For `c ∈ ℂ²` put `Ω_ρ(c) = {z ∈ ℂ²: |z − c| < ρ}` (Hermitian norm
 **Lemma R.** Let `F: ℂ² → ℂ²` be holomorphic near `Ω̄_ρ(c)`, with `c` real. Let `P` be a polynomial map of degree
 `≤ m`. If `|F − P| < |P|` on `∂Ω_ρ(c)`, then `F` has at most `m²` zeros in the real ball `B_ℝ(c, ρ)`.
 
+Here `|·|` is the Hermitian norm of `ℂ²` throughout. It defines the ball `Ω_ρ(c)`, and the same norm is used on
+both sides of the value inequality `|F − P| < |P|`. Only this consistency on the value side is used in step 3.
+
 *Proof.*
 1. **`P` has finitely many zeros in `Ω_ρ`.** `Z(P) ∩ ∂Ω_ρ = ∅`, so `Z(P) ∩ Ω_ρ = Z(P) ∩ Ω̄_ρ` is a compact analytic
-   subset of the open set `Ω_ρ`, hence finite. Positive-dimensional components of `Z(P)` are non-compact, so they
-   cannot lie in `Ω_ρ`.
+   subset of the open set `Ω_ρ`, hence finite.
+   - Explicitly, let `V` be an irreducible component of `Z(P)` that meets `Ω_ρ`. Then `V ∩ Ω_ρ = V ∩ Ω̄_ρ` is compact.
+   - If `dim V ≥ 1`, then `V` is pure-dimensional, so `V ∩ Ω_ρ` is a compact analytic set of positive dimension.
+     The maximum principle for the coordinate functions on its irreducible components rules this out.
+   - So no positive-dimensional component of `Z(P)` meets `Ω_ρ`. In particular none meets the real ball
+     `B_ℝ(c, ρ) ⊂ Ω_ρ`.
 2. **Bézout.** The refined Bézout inequality bounds the isolated zeros of `P`, counted with multiplicity, by `m²`.
 3. **Rouché.** The homotopy `P + t(F − P)`, `t ∈ [0, 1]`, has no zero on `∂Ω_ρ`. So the Brouwer degrees of `P` and `F`
    on `Ω_ρ` agree, and `F` also has finitely many zeros in `Ω_ρ`. For holomorphic maps, the local degree at an
@@ -188,8 +218,8 @@ Take expectations in (2.1) under `Q_r^W`.
 
 **First term.** `E_{Q_r^W} N ≤ C r³` by (I5), summed over indices.
 
-**Second term.** `E_{Q_r^W}[Ψ²1{Ψ > λ}] = Z_r^{−1} E_{Q_r}[W_r Ψ² 1{Ψ > λ}]`. By (P13),
-`‖W_r‖_{L²(Q_r)} ≤ ‖det H_M‖_{L⁴}‖det H_S‖_{L⁴} ≤ C r²`, and `Z_r ≥ c_Z r²` by (P14). Hence
+**Second term.** `E_{Q_r^W}[Ψ²1{Ψ > λ}] = Z_r^{−1} E_{Q_r}[W_r Ψ² 1{Ψ > λ}]`. By (W2),
+`‖W_r‖_{L²(Q_r)} ≤ C r²`, and `Z_r ≥ z_* r²` by (Z) (§1). Hence
 
     E_{Q_r^W}[Ψ² 1{Ψ > λ}] ≤ C E_{Q_r}[Ψ⁴ 1{Ψ > λ}]^{1/2} ≤ C (E_{Q_r}Ψ⁸)^{1/4} Q_r(Ψ > λ)^{1/4}
                            ≤ C exp(−c λ^{1/2}/4).
@@ -248,6 +278,7 @@ Mutants `wrong-elimination`, `touching-balls`, `no-log`, `short-remainder` must 
 - uniformity in `T` or as `k ↓ 0`;
 - `d > 2`;
 - elder pairing;
+- any status for (I5) beyond the D5 reading rule (§1), in particular nothing that bypasses the (P2) continuum HOLD;
 - any STATUS, GRAPH or catalog change.
 
 **Prior art.** Finiteness of moments of critical-point counts for nondegenerate Gaussian fields is due to Gass and
