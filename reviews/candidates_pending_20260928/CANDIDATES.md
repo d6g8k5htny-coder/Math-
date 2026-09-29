@@ -72,26 +72,35 @@ was integrated at `4b2aa45b2f995fc27c16ec37cccb081821eda74c` with a scoped
 nonauthor review, but its proof explicitly omits the height law. This new height
 candidate does not inherit acceptance from that merge.
 
-## C6. Torus-wide second factorial moment: open optimal order
+## C6. Torus-wide second factorial moment: reviewed upper bound; sharp order open
 
-The global `O(r^5)` extension is not an unqualified theorem target. There is a
-**CONDITIONAL OBSTRUCTION** from C2: pointwise for every nonnegative integer `N`,
+The reviewed planar Fourier-cutoff theorem now supplies, for fixed `T`, compact
+positive-gap marks and existential constants,
 
-    N(N-1) >= 2*1{N>=2}.
+    E_{Q_r^W}[N(N-1)] <= C r^3 log(1/r).
 
-Thus a proved lower bound `P(N>=2)>=c r^3` would force
-`E[N(N-1)]>=2c r^3`, incompatible with a uniform `O(r^5)` upper bound as `r->0`.
-This is not an accepted disproof until C2's analytic lower mechanism is validated.
-No global factorial upper bound or optimal order is supplied here.
+Full proof: `frontiers/c6_fourier_cutoff_20260929/PROOF.md` at Math main
+`4d062e2a976abc8800a1ae63a49a943526b6bc0d`. The source-bound reading note is
+`reviews/c6_fourier_completion_20260929/READING_NOTE.md`; Anthropic nonauthor
+review 5356335148 ACCEPTs the stated planar composition. The complete planar
+D5/I5 reading rule is load-bearing. Tests and the merge do not substitute for
+that analytic review.
+
+The global `O(r^5)` extension is not an unqualified theorem target. Pointwise,
+`N(N-1)>=2*1{N>=2}`; therefore a future proved lower bound
+`P(N>=2)>=c r^3` would force an order-`r^3` lower bound. The current Fourier
+result is only an upper bound with one logarithm. It does not prove
+`Theta(r^3)`, validate C2's lower mechanism, or close the shrinking
+pin/witness-collision or size-biased Palm estimate. The `d>=3` factorial
+composition remains conditional on its separate first-moment input.
 
 The fixed-remote `O(r^5)` result remains separate: both witnesses stay a fixed
-distance from the pins. Source: `frontiers/remote_collision_20260928/PROOF.md`
-at `5a5b97d2c518dd5c04c89d17029ec96e721d3b78`, Corollary D / P_eta.
+distance from the pins. Source: `frontiers/remote_collision_20260928/PROOF.md`.
 
-Open task: determine a valid full-window factorial upper bound with the
-pin-neighborhood collisions included, compatible with the eventual disposition
-of C2. Cauchy-Schwarz on the first moment (I5) does not supply such a bound.
-
+Open task: determine the sharp full-window order, with the pin-neighborhood
+collisions included. Mean plus a stretched/exponential total-count cap alone
+cannot remove the logarithm; an appropriate marked or size-biased estimate is
+still required.
 ## C7. Unrestricted selection-difference rate
 
 Candidate: Theorem C's unrestricted densities satisfy
