@@ -26,8 +26,8 @@ nearest-image periodization correction `P_3(24) e^{−288}` (PR #144). Coverage 
   finite variation and is outside their regime. Perez states in print that the smooth-field case is open.
 - **Bargmann–Fock-specific persistence results beyond percolation:** none found (located: Rivera–Vanneuville
   critical threshold, arXiv:1711.05012; Gass–Stecconi finiteness of critical-point moments, arXiv:2305.17586).
-- **Periodization / nearest-image corrections to local constants on tori:** none found. There is therefore **no
-  external benchmark** for the `e^{−L²/2}` term or the coefficient `−620813376/35`; the benchmark is internal and
+- **Periodization / nearest-image corrections to local constants on tori:** none found. **No
+  external benchmark was located under this protocol** for the `e^{−L²/2}` term or the coefficient `−620813376/35`; the benchmark is internal and
   multi-path (see §4, item C).
 
 "None found" is a statement about this protocol (§5), not a proof of novelty. Three planned searches were not run
@@ -80,7 +80,7 @@ independently of `d`. This matches the parent §10 ledger ("the dimension cancel
 fold-type adjacent pairs; the elder rule pairs them) — exactly what Theorem A + CAP supply rigorously. Useful as a
 sanity narrative in a discussion section; not evidence.
 
-**C. Periodization coefficient — the benchmark is internal.** No external work computes exponentially small
+**C. Periodization coefficient — the benchmark is internal.** No external work was located under this protocol that computes exponentially small
 nearest-image corrections to such constants. The coefficient `P_3(24) = −620813376/35` now has independent
 in-project derivations: PR #144 (first principles in the parent's (15.2) conventions, stdlib checker), the July
 06B suite (SymPy, Hermite + Haar), the OKComputer 2026-08 first-variation script, and a clean-context re-check on
