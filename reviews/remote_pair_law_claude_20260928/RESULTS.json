@@ -1,0 +1,37 @@
+{
+  "checks": {
+    "COEFF": {
+      "coefficient_54_over_5_times_12_minus_4_3_is_3_40_12_2_3": true
+    },
+    "HEIGHT": {
+      "beta_normalizer_9_over_10": true,
+      "gap_moments_R15": true,
+      "h_integrates_to_one": true,
+      "independent_uniform_mean_gap_is_one_third": true,
+      "marginal_and_correlation_R15": true,
+      "pushforward_jacobian": true,
+      "triangle_density_integrates_to_one": true
+    },
+    "LEDGER": {
+      "delta_exponent_is_one_all_d": true,
+      "r_power_is_five_all_d": true
+    },
+    "OVERLAP": {
+      "R10_overlap_integral_exact": true,
+      "envelope_s_min_1_s_minus3_is_3_over_2": true
+    },
+    "PAIR": {
+      "R2_orientation_matches_exact_inertia": true,
+      "R8_congruence_limits_with_O_delta_error": true,
+      "e_to_minus_e_exchanges_ordered_indices": true,
+      "pair_fields_have_both_critical_points": true,
+      "same_index_pairs_only_at_order_delta_squared": true
+    },
+    "WINDOW": {
+      "R9_z_length_is_k_minus_s3_abs_t": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-REMOTE-PAIR-LAW-20260928-v1",
+  "passed": true,
+  "scope": "exact finite identities only; not an analytic proof"
+}
