@@ -14,12 +14,14 @@ reconciled parent chain: `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AN
 or that coefficient; it derives one additional scalar, the first image-shell variation, at the parent's own
 existential scope. It asserts no numerical enclosure of the coefficient itself.
 
-Let `Φ(J)` be the isotropic coefficient functional of the even covariance jet `J` (spectral moments `a, m4, χ`
-through order six) that the parent's §15 reduction produces, so that `c_{3,L}` in the reference normalization is
-`Φ` evaluated at the side-`L` periodized jet `J_L`. Write `J_∞` for the nonperiodic Euclidean jet
-(`a=1, m4=3, χ=15`, `Ω = aχ − m4² = 6`), which is `Φ`'s planar fixed point. Poisson summation gives
-`J_L = J_∞ + J^{(1)}_L + (higher shells)`, where `J^{(1)}_L` is the contribution of the six nearest images
-`±L e_i`, linear in `q = e^{−L²/2}`.
+Let `Φ(J)` be the `O(3)`-invariant coefficient functional on the full even covariance-jet tensors through order
+six, defined by the parent's §15 angular integral. The moments `(a, m4, χ)` parametrize its restriction to the
+isotropic jet family used in §4; the side-`L` periodized jet `J_L` need not be isotropic. In the reference
+normalization, `c_{3,L} = Φ(J_L)`. Write `J_∞` for the isotropic nonperiodic Euclidean jet
+(`a=1, m4=3, χ=15`, `Ω = aχ − m4² = 6`), which is fixed by rotations. Poisson summation gives
+`J_L = J_∞ + J^{(1)}_L + R_L`, where `J^{(1)}_L` is the term linear in `q = e^{−L²/2}` from the six nearest
+images `±L e_i` after normalization. The remaining normalized jet `R_L` includes normalization/product terms
+as well as higher image shells.
 
 ## Theorem (candidate)
 
@@ -29,8 +31,10 @@ With `P_3(L) = −L²(10L⁴ − 147L² + 315)/105` (equivalently `−(2/21)L⁶
 
 and hence the relative side-`L` correction is
 
-    c_{3,L}/c_{3,∞} − 1 = P_3(L) e^{−L²/2} + ε_L,   with |ε_L| bounded by the second-order/deep-shell
-    remainder of §5.
+    c_{3,L}/c_{3,∞} − 1 = P_3(L) e^{−L²/2} + ε_L,
+
+where `ε_L` consists of the nonlinear functional and remaining normalized-jet terms described in §5; no new
+sharp bound on `ε_L` is asserted here.
 
 At `L = 24`: `P_3(24) = −620813376/35`, so the leading relative correction is
 `−(620813376/35) e^{−288} ≈ −1.4862 × 10^{−118}`, and it sits strictly inside the coarse periodization band
@@ -39,11 +43,15 @@ present note sharpens the *leading term* of that already-reviewed band; it does 
 
 ## 1. Rotational projection is exact because Φ is O(3)-invariant
 
-`Φ` depends on the even jet only through the three isotropic spectral moments `a, m4, χ` (parent §15: the cone
-moment `D_u` and the scalar densities are computed after conditioning, and the leading coefficient integrates a
-frame-invariant integrand over `S²`). Therefore `DΦ(J_∞)` annihilates the traceless part of any jet perturbation
-and sees only its Haar (rotational) average. The relevant projection of an even jet onto `(a, m4, χ)` uses the
-directional-derivative averages
+The full coefficient functional is `O(3)`-invariant because rotating a covariance jet rotates the angular
+integration variable in the parent's §15 integral. Since `J_∞` is fixed by rotations, its derivative satisfies
+`DΦ(J_∞)[U·H] = DΦ(J_∞)[H]` for every rotation `U` and jet perturbation `H`. By linearity,
+
+    DΦ(J_∞)[H] = DΦ(J_∞)[∫_{O(3)} U·H dU],
+
+where Haar measure is normalized to mass one. Consequently only the Haar projection of `H` onto the isotropic
+three-moment subspace contributes to this first variation; no such reduction is asserted for `Φ` at a general
+anisotropic jet. The relevant projection onto `(a, m4, χ)` uses the directional-derivative averages
 
     ⟨∂²_v⟩ = (1/3) Σ_i d_ii,
     ⟨∂⁴_v⟩ = (1/5) Σ_i d_iiii + (2/5) Σ_{i<j} d_iijj,
@@ -57,10 +65,17 @@ derives these two ways: directly, and via the Gaussian factorization `g = R v`, 
 
 ## 2. First-order image perturbation of the 1-D moments
 
-The side-`L` kernel factorizes over axes; each 1-D normalized even moment, to first order in `q`, is
-`m_{2j}(L) = He_{2j}(0) + 2q(He_{2j}(L) − He_{2j}(0)) + O(q⁴-scale)`, because
-`(d/dz)^k e^{−z²/2} = (−1)^k He_k(z) e^{−z²/2}` (probabilists' Hermite) and the normalizer `Z_L = 1 + 2q + …`
-divides out. With `He_2(0), He_4(0), He_6(0) = −1, 3, −15`, the per-`q` variations are
+The side-`L` kernel factorizes over axes. For `j = 1, 2, 3` and `L ≥ 1`, each 1-D normalized even moment is
+`m_{2j}(L) = He_{2j}(0) + 2q(He_{2j}(L) − He_{2j}(0)) + O_j((1 + L^{2j})q²)`.
+Indeed, `(d/dz)^k e^{−z²/2} = (−1)^k He_k(z) e^{−z²/2}` (probabilists' Hermite), so the raw numerator is
+`h_0 + 2h_L q + O_j((1 + L^{2j})q⁴)`, where `h_0 = He_{2j}(0)`, `h_L = He_{2j}(L)`, and
+`Z_L = 1 + 2q + O(q⁴)`. The raw tail bound follows from Hermite polynomial growth and the convergence of
+`Σ_{n≥2} n^{2j} exp(−(n² − 4)/2)`. Normalization creates a quadratic term, as the exact identity
+
+    (h_0 + 2h_L q)/(1 + 2q) − h_0 − 2(h_L − h_0)q = −4(h_L − h_0)q²/(1 + 2q)
+
+shows. Thus the next raw 1-D images start at `q⁴`, but the normalized remainder starts at `q²` scale; the
+polynomial factor in `L` is retained in the uniform bound. With `He_2(0), He_4(0), He_6(0) = −1, 3, −15`, the per-`q` variations remain
 `δm_{2j} = 2(He_{2j}(L) − He_{2j}(0))`.
 
 ## 3. Assembling the projected moment variations
@@ -129,13 +144,18 @@ under any isotropic jet are computed here from the covariance alone.
 
 ## 5. Remainder (what a reviewer must still bound analytically)
 
-The bound `|ε_L|` has two sources, both already controlled coarsely in `coefficients/side24_v1/PROOF.md` and
-NOT re-proved here: (i) the second functional derivative `D²Φ` on the operative jet ball, times `‖J^{(1)}_L‖² ~ q²`;
-(ii) the deep image shells `|n| ≥ √2 L`, whose jet contribution the side24_v1 image-tail ledger bounds by a
-convergent theta-type sum. The side24_v1 note certifies the *combined* relative error below `10^{−106}`; the
-present first-variation term `≈ 10^{−118}` is far inside it, so no new analytic bound is claimed — only that the
-leading term is now identified in closed form. A sharper `|ε_L| < 10^{−180}`-type enclosure, if wanted at register
-level, requires an explicit `D²Φ` majorant in these conventions and is left as the review's open item.
+With `R_L = J_L − J_∞ − J^{(1)}_L`, the remainder `ε_L` has two parts: (i) the nonlinear functional Taylor
+remainder at `J_∞` for the full perturbation `J_L − J_∞`; (ii) `DΦ(J_∞)[R_L]/Φ(J_∞)`. The remaining normalized
+jet `R_L` includes normalization terms and products between axis factors as well as deep image shells
+`|n| ≥ √2 L`. In particular, §2's normalization already creates `q²` terms even though the next raw 1-D
+images start at `q⁴`.
+
+No separate `D²Φ` or remaining normalized-jet majorant is proved here. The existing
+`coefficients/side24_v1/PROOF.md` certifies the *total* relative correction at `L = 24` below `10^{−106}`;
+the triangle inequality therefore gives only the inherited coarse bound
+`|ε_24| < 10^{−106} + |P_3(24)| e^{−288}`. The present first-variation term `≈ 10^{−118}` is far inside the
+existing band. A sharper remainder enclosure or a sign certificate for the complete correction requires a
+separate analytic bound and is outside this packet's leading-first-variation claim.
 
 ## 6. What this note is and is not
 
