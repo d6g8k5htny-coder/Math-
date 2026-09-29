@@ -1,0 +1,57 @@
+{
+  "scientific_effect": "NONE",
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "bf7c45f5e180332be97270df2361b2b890890fc3",
+  "sources": [
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Original pin frame, bounded energy, full W/Z moments and lower normalizer"
+    },
+    {
+      "id": "C6L",
+      "path": "frontiers/c6_factorial_moment_20260929/PROOF.md",
+      "sha256": "b19927563e2e9ff8f38648b61cd3f2c09ee1a081494b98cc285283554746e6d3",
+      "git_blob": "f5bd013b7134be9efd246fc9bbb8d18ad5a728bc",
+      "role": "Protected cover, analytic zero/degree argument and planar complex density"
+    },
+    {
+      "id": "C6S",
+      "path": "frontiers/c6_sharpened_20260929/PROOF.md",
+      "sha256": "9f45274ab59d4f4417d1a51e9c97f5916240fdb0a4640ca6f0d3e9e0aea37dd7",
+      "git_blob": "70ba19726a9114bfceae04d021095e6c8eed5026",
+      "role": "Fixed-d cover and complex density extension; its Taylor tail is not an input"
+    },
+    {
+      "id": "I5",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "git_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+      "role": "Planar height-window first moment only, under D5R"
+    },
+    {
+      "id": "D5R",
+      "path": "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+      "sha256": "14342b7eb0ad47c1c99b06be58fb6c901f5c7c72fc70f73e81de3dde50c23432",
+      "git_blob": "4062d76bdf3c60bc73f04295b88c245bcee395de",
+      "role": "Complete planar first-moment reading rule, not an executed graph transition"
+    },
+    {
+      "id": "P2REVIEW",
+      "path": "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md",
+      "sha256": "124c472cc064ba24021cb4bb8da1002836a4ce26c8df506228f5c20609f6575a",
+      "git_blob": "4904e3d929d6dc7bc16b49eee85d7c3a21b6b484",
+      "role": "Actual full-depth P2 continuum acceptance; older xAI partial HOLD remains historical"
+    }
+  ],
+  "higher_dimensional_mean": "G_d is an additional hypothesis, not discharged by #141 or #145 in this packet",
+  "not_consumed": [
+    "C6S Taylor degree tail",
+    "unreviewed #145 marked estimates",
+    "unavailable historical algebra.py"
+  ],
+  "local_packet_replay_verifies_upstream": false,
+  "new_analytic_review_required": true
+}
