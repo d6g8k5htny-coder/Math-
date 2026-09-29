@@ -145,12 +145,14 @@ The rescaling `x = rX, z = rZ, w = r²W` is the right one. I rederived (A27) ter
 Heights are `b + r³(F_r(p) + O(r))`, strictly inside the window. The index is `n + 1 = d − 1`, by the same Schur
 argument as §4.
 
-`SADDLES` checks this in floating point on quartic fields in d = 3, 4 for `r = 1/16 … 1/128`:
+`SADDLES` illustrates this in floating point on quartic fields in d = 3, 4 for `r = 1/16 … 1/128`. It is a numerical
+illustration only: existence and the `O(r)` estimate come from the uniform inverse-function argument above, not from
+the solver or finite samples.
 
-- Both extra critical points exist, with gradient residual below `1e−15`, index d − 1 and heights in `(b − kr³, b)`.
-  They are distinct from each other and from the pins.
-- `|w/r² − W*|/r` stays within a factor 2 across the range, so the stable correction is `O(r)`. Scaling `w` by `r`
-  instead of `r²` is rejected.
+- Newton finds two numerical roots of the full gradient near `(rP_±, r²W*)`, with gradient residual below `1e−15`,
+  index d − 1 and heights in `(b − kr³, b)`. They are distinct from each other and from the pins.
+- `|w/r² − W*|/r` stays within a factor 2 across the range. This is consistent with the `O(r)` estimate proved
+  analytically above; finite samples do not establish it. Scaling `w` by `r` instead of `r²` is rejected.
 - At the planar restriction's critical point, `∂_w f̃/r²` is nonzero. This confirms the manuscript's warning (line
   365) that a planar critical point is not a full critical point.
 

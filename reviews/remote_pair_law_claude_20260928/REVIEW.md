@@ -11,7 +11,7 @@ separate act.
 | Object | OA-WINDOW-MULTIPLICITY-REMOTE-20260928-v1 (OpenAI / ChatGPT) |
 | Branch / head | `chatgpt/window-multiplicity-laws-20260928` / `0507e3a1dbd3dede84cbeb805947c70aa16ebc36` ([Math-#116](https://github.com/d6g8k5htny-coder/Math-/pull/116)) |
 | `REMOTE_PAIR_LAW.md` | Git blob `3fb602040b37158b16ba61bdfc62cc8df1ccc616`, 15878 B, SHA256 `b818a11f1abcf37616d592ecda6341b0d99365cf3ac5047bc2dbaede95da4c5e`, 325 lines |
-| Consumed, on main | [RC] `frontiers/remote_collision_20260928/PROOF.md` (blob `7b48a88e…`): (3.1), (4.1)–(4.3), Lemmas 1, 2, 3, 5. [RM] `frontiers/remote_window_20260924/PROOF.md` (blob `b383bfcc…`): contact frame, (8), §4. The D1 normalizer `Z_r/r² → z_0` (reconciled in Math-#126, merged at `8224783`). |
+| Consumed, on main | [RC] `frontiers/remote_collision_20260928/PROOF.md` (blob `7b48a88e…`): (3.1), (4.1)–(4.3), Lemmas 1, 2, 3, 5. [RM] `frontiers/remote_window_20260924/PROOF.md` (blob `b383bfcc…`): contact frame, (8), the §4 deterministic endpoint identities, and its full endpoint-only normalizer `Z_r/r² → z_0` (the same limit as D1 (I), reconciled in Math-#126, merged at `8224783`). |
 | Request | [Owner comment 5880152796](https://github.com/d6g8k5htny-coder/Math-/pull/116#issuecomment-5880152796); claimed in [5880826796](https://github.com/d6g8k5htny-coder/Math-/pull/116#issuecomment-5880826796) |
 
 ## Provenance and exposure
@@ -78,8 +78,13 @@ In a frame beginning with `e`, conjugate by `diag(δ^{−1/2}, I)`:
 Congruence preserves inertia and multiplies determinants by `δ^{−1}`. `F_j` is continuous everywhere, including on
 singular matrices: it is `|det|` times an index indicator, and `|det| → 0` at the index boundaries. Polynomial moments
 then give (R8) in `L^p`. The limit product `(T²/4)(det A)²χ_ij` has index `a+1` at `x` and `a` at `x'` when `T > 0`,
-which is (R2). The normalizer `W_r/r² → w_0` and `Z_r/r² → z_0` are the D1 normalizer (I), read with the congruence
-erratum `D_r = diag(r^{−1/2}, I)`.
+which is (R2).
+
+The weight and normalizer limits have two separate sources. `Z_r` is [RM]'s full endpoint-only normalizer, so
+`Z_r/r² → z_0` is unconditioned; it is the same limit as D1 (I). The weight limit `W_r/r² → w_0` is needed *under the
+additional pair conditioning* on `V_δ`. It follows from C3 §3's coupled conditional moment bounds together with
+[RM] §4's deterministic endpoint identities, which use the congruence `D_r = diag(r^{−1/2}, I)`. The unconditioned D1
+normalizer limit alone would not establish this extra-conditioned weight limit.
 
 Exact checks (`PAIR`) use the explicit field
 `f(u,v) = (T/6)u³ − (T/4)δu² + ½vᵀAv + (u² − δu)c·v` in d = 2, 3, 4:
@@ -155,8 +160,9 @@ index-`(a+1)` point lies above its adjacent partner. The gap is Beta(2/3, 2), an
   C3 claims otherwise. The coefficient should be read as "`k^{5/3}` times a `k`-dependent Gaussian conditional
   integral".
 - **N2.** The fixed exclusion `ρ` is load-bearing. [RC] Lemma 1's floor is not uniform as `ρ → 0` ([RC] §8).
-  LOCAL_MULTIPLICITY shows that pairs near the pins have order `r³`. §7's exclusions are therefore required, not
-  cosmetic.
+  Near the pins, the integrated planar LOCAL_MULTIPLICITY result gives an `r³` lower obstruction for the probability
+  of multiple occurrences (and a factorial *lower* bound). It does not establish an all-dimensional or global exact
+  `r³` factorial asymptotic. §7's exclusions are therefore required, not cosmetic.
 - **N3.** A factorial-moment asymptotic does not give `Q(N ≥ 2) ~ (r⁵/2)∫ΣK` without higher factorial moments.
   §7 says so, and this review adds nothing there.
 - **N4.** Novelty boundary: generic adjacent-index attraction of critical points in the unconditioned isotropic
