@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "disposition": "AUTHOR_SIDE_CANDIDATE",
+  "successor_of": "CL-C6-FACTORIAL-20260929-v1",
+  "consumes": [
+    {
+      "id": "C6",
+      "path": "frontiers/c6_factorial_moment_20260929/PROOF.md",
+      "sha256": "b19927563e2e9ff8f38648b61cd3f2c09ee1a081494b98cc285283554746e6d3",
+      "git_blob": "f5bd013b7134be9efd246fc9bbb8d18ad5a728bc",
+      "pr": "Math-#140",
+      "version": "v1.3 (b3e8823)"
+    },
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "id": "I5",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "records": [
+        "reviews/d5_i5_planar_f_20260928/REVIEW.md",
+        "reviews/d5_intermediate_window_claude_20260928/REVIEW.md"
+      ],
+      "reading_rule": "reviews/d5_reconciliation_20260929/RECONCILIATION.md"
+    },
+    {
+      "id": "G_d",
+      "pr": "Math-#141",
+      "status": "under review (xAI Slice A: algebra ACCEPT, continuum count HOLD); Theorem S_d is conditional on it"
+    }
+  ],
+  "files": [
+    {
+      "path": "PROOF.md",
+      "bytes": 13278,
+      "sha256": "9f45274ab59d4f4417d1a51e9c97f5916240fdb0a4640ca6f0d3e9e0aea37dd7",
+      "git_blob": "70ba19726a9114bfceae04d021095e6c8eed5026"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 325,
+      "sha256": "c8ca0fee386ed4ed260ccb00ba40b2b9d4866f8488c7cc1d3cbfb6eece098bf0",
+      "git_blob": "b5b7ae466c10d5f079411bf4993db5c8d994ba0c"
+    },
+    {
+      "path": "sharp_check.py",
+      "bytes": 6392,
+      "sha256": "36b169407ceb4a9b32fbc9882a77cbe02ffa3b889e4d69c6f55227f3d0983504",
+      "git_blob": "f6bed29b6a882c785f268df67fd681db08a01073"
+    }
+  ]
+}

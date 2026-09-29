@@ -1,0 +1,44 @@
+{
+  "author": "Anthropic Claude",
+  "consumes": [
+    {
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent P \u00a7\u00a71-5,(4.1)-(4.3),(5.1)-(5.3),\u00a7\u00a76-10,(13.2),(13.3),(14.1)"
+    },
+    {
+      "blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8",
+      "path": "frontiers/unrestricted_selection_difference_20260929/PROOF.md",
+      "role": "Theorem U (far rejected lower density)"
+    }
+  ],
+  "delivered_under": "explicit owner instruction, claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge",
+  "files": [
+    {
+      "bytes": 14982,
+      "path": "PROOF.md",
+      "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01"
+    },
+    {
+      "bytes": 7736,
+      "path": "exponent_check.py",
+      "sha256": "8ba663c1a1500ccac645bf986689ec70266c29dd1c541fcd5c76635f04455f99"
+    },
+    {
+      "bytes": 1056,
+      "path": "RESULTS.json",
+      "sha256": "dd5c89362090bd2ff62080e363b1b54a79ed3fcfb28f93b24d182ecd6ec20777"
+    }
+  ],
+  "mutants": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "object": "CL-C7-TOTAL-BOUNDED-20260929-v1.1",
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "statement": "Theorem K: gap-mark-explicit unnormalized failure intensity (K1),(K2). Corollary T: nu_cand^all - nu_eld^all = O(1); Theta(1) with Theorem U; rejected inverse-moment threshold exactly -1",
+  "supersedes": "CL-C7-TOTAL-K-SCALING-RECON-20260929-v1 (withdrawn; see reviews/c7_total_k_scaling_recon_20260929/RETRACTION.md)"
+}
