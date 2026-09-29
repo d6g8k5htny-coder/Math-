@@ -43,7 +43,7 @@ def verify_sources(root):
         commit,path=entry['commit'],safe_path(entry['path'])
         if not re.fullmatch('[0-9a-f]{40}',commit): raise ValueError('invalid source commit')
         # The pinned tree, not a followed worktree symlink, is the authority.
-        out=subprocess.run(['git','ls-tree','-z',commit,'--',path],cwd=root,
+        out=subprocess.run(['git','ls-tree','--full-tree','-z',commit,'--',path],cwd=root,
                            check=True,capture_output=True,timeout=60).stdout
         records=[x for x in out.split(b'\0') if x]
         if len(records)!=1: raise ValueError('missing or ambiguous pinned path: '+path)

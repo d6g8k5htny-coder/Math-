@@ -28,6 +28,14 @@ class CustodyTests(unittest.TestCase):
         return v.verify_sources(self.root)
     def test_valid_source(self):
         self.assertEqual(self.run_pins([self.entry]),1)
+    def test_valid_source_from_nested_packet(self):
+        packet=self.root/'frontiers'/'packet'; packet.mkdir(parents=True)
+        (packet/'SOURCES.json').write_text(json.dumps({'sources':[self.entry]}))
+        try:
+            result=v.verify_sources(packet)
+        except (ValueError,subprocess.CalledProcessError):
+            result=None
+        self.assertEqual(result,1,'repo-root source identity must work from nested packet')
     def test_wrong_size(self):
         e=copy.deepcopy(self.entry); e['bytes']=0
         with self.assertRaises(ValueError): self.run_pins([e])
