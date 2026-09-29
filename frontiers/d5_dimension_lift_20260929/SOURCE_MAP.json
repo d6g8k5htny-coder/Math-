@@ -1,0 +1,86 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "dbccbb41a58f2328b3bec6c4609a4b8fb3ac811f",
+  "inputs": [
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "Exact model in every d; positive Fourier spectrum and distinct-site jet rank (section 2); contact frame U_r and uniform regression (section 3); uniform C^q moments (4.1); endpoint identities (5.1)-(5.3); full normalizer floor (5.5). These are the A1-A4 interfaces accepted in the D1 reconciliation."
+    },
+    {
+      "id": "PP",
+      "path": "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+      "bytes": 23771,
+      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a",
+      "git_blob": "d8acf0bcb9025b1562c03c077c8e0094ae282060",
+      "use": "Planar all-height punctured endpoint disk (P2): the d = 2 case and the template. Steps (P3)-(P20) are followed; the d-dimensional replacements are written in full."
+    },
+    {
+      "id": "CP",
+      "path": "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+      "bytes": 20318,
+      "sha256": "794babe0fd039c3a93c401c0b8978316331af009fad45f953e63fbe7e1e31aab",
+      "git_blob": "b5647907a8a589635855b59cc4246b23efce2801",
+      "use": "Planar compact collar (C1) and scaled-ball synthesis (C2): the d = 2 case and the template."
+    },
+    {
+      "id": "IW",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "bytes": 27775,
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "git_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+      "use": "Planar intermediate height-window shells (I3), dyadic sum (I4) and global first moment (I5): the d = 2 case and the template."
+    },
+    {
+      "id": "RM",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Fixed-remote Theorem A in every d >= 2 (reviewed ACCEPT, main#76): the outer tile of the global synthesis."
+    },
+    {
+      "id": "RC",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "use": "Corollary (F-), the lower bound c r^3 on the window event in every fixed d, and the sentence leaving the d > 2 upper half conditional on a dimension-matched first moment. That conditional is what Theorem G_d supplies."
+    },
+    {
+      "id": "EDL",
+      "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+      "bytes": 23971,
+      "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+      "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+      "use": "Lower bound (A4): Q^W(N_r >= 2) >= c r^3 in every fixed d. Combined with Theorem G_d only in Corollary M_d."
+    },
+    {
+      "id": "LOCAL",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "bytes": 13100,
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "use": "Planar Theorem L and the total-variation identity (L16), whose d-dimensional form is stated in Corollary M_d; not consumed for d > 2 beyond that elementary identity."
+    }
+  ],
+  "new_obligations": [
+    "Two-soft-direction determinant bound through exterior powers, replacing the planar two-column argument at each of the three Hessians",
+    "Block Gram floor for the d-dimensional pin gradient frame through the map S -> S beta",
+    "Transverse-block determinant control from the Euler quadratic form together with the small gradient column",
+    "Integrable pin weight max(|q|, r|p|)^(2-d) replacing the planar bounded intensity",
+    "Degree-five confluent value/gradient interpolation at three sites in d variables"
+  ],
+  "consumed_reviews": [
+    "main#76 (remote Theorem A, every d)",
+    "Math-#106 A1-A4 (LP sections 2-5)",
+    "Math-#105 comment 5872932723 and reviews/d5_collar_count_20260928 (planar PP and CP)",
+    "reviews/d5_intermediate_window_claude_20260928 and reviews/d5_i5_planar_f_20260928 (planar IW)"
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false
+}
