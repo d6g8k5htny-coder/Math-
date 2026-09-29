@@ -1,0 +1,51 @@
+{
+  "scientific_effect": "NONE",
+  "repository": "d6g8k5htny-coder/Math-",
+  "sources": [
+    {
+      "id": "RM",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "commit": "e7f8aca41c308f8ad8614b587f75916943c86f27",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84"
+    },
+    {
+      "id": "RC",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "commit": "e7f8aca41c308f8ad8614b587f75916943c86f27",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea"
+    },
+    {
+      "id": "RP",
+      "path": "frontiers/window_multiplicity_laws_20260928/REMOTE_PAIR_LAW.md",
+      "commit": "e7f8aca41c308f8ad8614b587f75916943c86f27",
+      "bytes": 15878,
+      "sha256": "b818a11f1abcf37616d592ecda6341b0d99365cf3ac5047bc2dbaede95da4c5e",
+      "git_blob": "3fb602040b37158b16ba61bdfc62cc8df1ccc616"
+    },
+    {
+      "id": "RI",
+      "path": "frontiers/remote_inverse_separation_20260928/PROOF.md",
+      "commit": "b3880006df94573b4d99d05c37b3254e063035fb",
+      "bytes": 18054,
+      "sha256": "95a9aa75e4a254a8f50efc16ee00a78a2ea1481f4013a708dfcbb77dcad4c393",
+      "git_blob": "1b24d0f6d07f84706a0a8e9b25e111e6eff93a2b"
+    }
+  ],
+  "roles": {
+    "RM": "Original model, full normalizer, conditional field moments, distinct jets and separated value densities.",
+    "RC": "Exact collision frame, joint gap, pair Kac-Rice and conditional moment/density envelopes.",
+    "RP": "Coupled determinant limit, fixed-Borel translation and unweighted pair law.",
+    "RI": "A_p coefficient and fixed-r positive support list; inverse-only case credited."
+  },
+  "not_consumed": [
+    "C4 positive-distance crossover",
+    "C5 singleton law",
+    "unavailable historical algebra.py"
+  ],
+  "new_analytic_review_required": true,
+  "local_packet_replay_checks_upstream_bytes": false
+}
