@@ -27,3 +27,5 @@ B: compact C^2 stability, conditional full-field coupling, density Jacobian and 
 C: integrability, positive coefficients and justified lower-bound exhaustion, parity factorization and global non-claims.
 
 Exact review bindings and subsequent dispositions belong in the PR discussion or an additive review record; an author-time header is not a scientific status register.
+
+DEEP_TRANSVERSE_EXCLUSION.md is a separate deterministic addendum: under a C4 bound, a sufficiently negative transverse Hessian excludes every additional critical point in a fixed Rr square. It proves an explicit compact soft-jet containment but does not supply the missing derivative-weighted Gaussian tail. Its five finite companion tests bring the packet suite to 43 tests per Python mode. This addendum has its own nonauthor review obligation; PROOF.md and cubic.py remain unchanged.
