@@ -1,6 +1,6 @@
 # Elder-failure lower bound in every dimension: the soft-eigenplane lift
 
-**Object:** CL-ELDER-LOWER-ALL-D-20260929-v1. **Author:** Anthropic Claude (session `session_01NMeKEismAyeqgdB4sy2NJU`).
+**Object:** CL-ELDER-LOWER-ALL-D-20260929-v1.1 (v1 + the invariant (E-mix) wording; see Revision history). **Author:** Anthropic Claude (session `session_01NMeKEismAyeqgdB4sy2NJU`).
 **Disposition:** author-side proof candidate; **nonauthor analytic review required**. Scientific effect: NONE. No
 register, `STATUS`, `PROOF_INDEX`, `GRAPH`, prize or premise changes.
 
@@ -60,11 +60,17 @@ intersection of:
 - **(E-jet)** in the frame `(x, e_1)`, the four planar-slice third-order jets at `0` satisfy the planar box:
   `|f_{xxy_1}| < εk`, `|f_{xy_1y_1} + 2k| < εk`, `|f_{y_1y_1y_1}| < εk` (the planar (L9) box minus its
   `f_zz` coordinate, which (E-soft) replaces);
-- **(E-mix)** `|f_{xx y_j}(0)| < εk` for every transverse direction `y_j` in `e_1^⊥`;
+- **(E-mix)** `|f_{xxy}(0)| < εk` for every unit vector `y ∈ e_1^⊥`; equivalently `‖P_{e_1^⊥} w‖ < εk` for
+  `w := (f_{xxv}(0))_v` (the transverse gradient of `f_{xx}` at `0`) and `P_{e_1^⊥}` the orthogonal projection onto
+  `e_1^⊥`. The condition is invariant: it involves only the simple eigenvector `e_1` and needs no eigenbasis of the
+  hard block (whose eigenvalues may repeat). In any measurable orthonormal completion `(y_2, …, y_m)` of `e_1` it
+  gives `|f_{xxy_j}(0)| < εk` for each `j ≥ 2`, which is all §4 uses;
 - **(E-C⁴)** `‖f‖_{C⁴(X)} ≤ K_4`.
 
-(E-soft) is a condition on `A(0)` only; so is (E-hard); the frame `e_1` used in (E-jet)/(E-mix) is a function of
-`A(0)`.
+(E-soft) is a condition on `A(0)` only; so is (E-hard); the vector `e_1` used in (E-jet)/(E-mix) is a measurable
+function of `A(0)`. No eigenbasis of the hard block is chosen anywhere: (E-hard) is a spectral condition, (E-mix) is
+invariant on `e_1^⊥`, and §4 uses only the hard spectral bounds `[σ_1, σ_2]`, the determinant `∏_{j≥2} λ_j` and the
+norm of the projected mixed-jet vector — none of which depends on a completion of `e_1`.
 
 ## 3. On `E_r` the planar obstruction applies in the soft eigenplane
 
@@ -114,9 +120,10 @@ an unconditional tail from a rare event of size `r` (planar N-note, retained).
 
 - *Axial entries.* P (5.2): `|α_M + 6k| ≤ rM_4/2`, `|α_S − 6k| ≤ rM_4/2`; on (E-C⁴) these are `6k(1 ± O(r))`.
 - *Transverse blocks.* `A_M = A(0) − (r/2) ∂_x A(0) + O(r² K_4)` and `A_S = A(0) + (r/2) ∂_x A(0) + O(r² K_4)`.
-  In the eigenframe of `A(0)`: the `(e_1,e_1)` entries are `−λ_1 ∓ (r/2) f_{xy_1y_1}(0) + O(r²)`, i.e.
+  In an orthonormal frame `(e_1, y_2, …, y_m)` with `(y_j)` any measurable completion of `e_1` (an eigenframe of the
+  hard block is convenient when its eigenvalues are simple; nothing below depends on the choice): the `(e_1,e_1)` entries are `−λ_1 ∓ (r/2) f_{xy_1y_1}(0) + O(r²)`, i.e.
   `−(k/2) r (1 ± 3ε)` at `M` and `−(5k/2) r (1 ± (3/5)ε)` at `S` up to `O(r)` (using (E-soft) and `f_{xy_1y_1} ≈ −2k`, the
-  planar values `−k/2`, `−5k/2` of the scaled model); the hard block is `−diag(λ_2, …, λ_m) + O(r)`; the
+  planar values `−k/2`, `−5k/2` of the scaled model); the hard block is `−A_hard + O(r)` with `spec(A_hard) = {λ_2, …, λ_m} ⊂ [σ_1, σ_2]`; the
   soft–hard off-diagonals are `∓(r/2) f_{x y_1 y_j}(0) + O(r²) = O(r K_4)`. For `r ≤ r_*` small, both blocks are
   negative definite (the `2×2` minors need `(k/2) r σ_1 > O(r²)`), and
   `|det A_M| = (k/2) r ∏_{j≥2} λ_j · (1 ± 3ε + O(r))`, `|det A_S| = (5k/2) r ∏_{j≥2} λ_j · (1 ± (3/5)ε + O(r))`.
@@ -125,8 +132,9 @@ an unconditional tail from a rare event of size `r` (planar N-note, retained).
   `H_S` has `α_S > 0` and `A_S ≺ 0`, hence index exactly `m = d − 1`. These are the parent's typed support.
 - *The `β` correction is dominated.* From the transverse gradient pins, `f_{y_j}(x,0)` vanishes at `x = ∓ r/2`, so
   `f_{y_j}(x,0) = (x² − r²/4) g_j(x)` with `g_j(0) = f_{xxy_j}(0)/2 + O(rK_4)`; differentiating,
-  `β_{M,j} = f_{xy_j}(M)/r = −f_{xxy_j}(0)/2 + O(rK_4)`. By (E-jet) (`j = 1`) and (E-mix) (`j ≥ 2`),
-  `‖β_M‖ ≤ (√m/2) εk + O(r)`, and the same at `S`. Since `‖adj(A_M)‖ ≤ ∏_{j≥2} λ_j (1 + O(r))` (drop the soft
+  `β_{M,j} = f_{xy_j}(M)/r = −f_{xxy_j}(0)/2 + O(rK_4)`. By (E-jet) (the `e_1` component, `≤ εk/2 + O(r)`) and (E-mix) (the `e_1^⊥`
+  projection: `‖P_{e_1^⊥} β_M‖ ≤ ‖P_{e_1^⊥} w‖/2 + O(r) ≤ εk/2 + O(r)`), `‖β_M‖ ≤ (√m/2) εk + O(r)` (for `m ≥ 2` even
+  `(√2/2) εk`; the stated `√m/2` form is what the checker verifies), and the same at `S`. Since `‖adj(A_M)‖ ≤ ∏_{j≥2} λ_j (1 + O(r))` (drop the soft
   eigenvalue), the correction `r² ‖β‖² ‖adj A_M‖` is at most `(m ε²/4) k² r² ∏ λ_j`, against the main term
   `3 k² r² ∏ λ_j (1 − ε)(1 − 3ε)` (the factor `(1 − ε)` absorbing `|α_M| ≥ 6k(1 − ε)` for small `r`). For
   `ε ≤ 1/16` and `ε ≤ 1/(2√m)` this is dominated with room; the checker verifies the exact rational inequality
@@ -169,6 +177,17 @@ conditional box probability in the *random* eigenframe (P §§2–3 + compactnes
 after conditioning (planar (L12)–(L13), P §4). OpenAI (author of the planar record and the parent) and xAI are the
 natural lanes; the planar base was reviewed by a Claude session, so a non-Claude read of §3's "restriction inherits
 the planar normal form" step is the highest-value single check.
+
+## Revision history
+
+- v1 (2026-09-29, blob `4abd9969…`): initial candidate.
+- v1.1 (2026-09-29): (E-mix) restated invariantly on `e_1^⊥` (equivalently, in any measurable orthonormal
+  completion of `e_1`), the §4 frame sentence and the `β` estimate reworded to use only hard spectral bounds and the
+  projected mixed-jet norm, so that repeated hard eigenvalues never require a globally chosen eigenbasis. This is the
+  reading clarification requested in the OpenAI reviews
+  [5357812605](https://github.com/d6g8k5htny-coder/Math-/pull/149#pullrequestreview-5357812605) and
+  [5358133096](https://github.com/d6g8k5htny-coder/Math-/pull/149#pullrequestreview-5358133096); no new hypothesis,
+  no change to constants, event mass, weight or ledger. Checker and `RESULTS.json` bytes unchanged.
 
 ## Reproduce
 
