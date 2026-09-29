@@ -1,9 +1,10 @@
 """Finite companion for CL-C6-PALM-20260929-v1 (PROOF.md). Standard library only; exact rational arithmetic.
 
 Groups (all exact):
-  PK  slab-excluded packing of Lemma M' (b): retained radii count >= eta'/(4 delta); retained balls lie in the annulus
-      {eta'/2 <= |z - c| <= 3 eta'}; every point of a retained ball is at distance >= zeta_0/2 from every point at
-      distance rho_X from the centre. Grids of rho_X, both radii eta_0 = eta and eta_j = eta/8, delta = 2^(1-m).
+  PK  slab-excluded packing of Lemma M' (b): zeta_0 = eta/64 <= eta'/8; the count inequality eta'/4 - zeta_0 >= delta;
+      retained radii count >= eta'/(4 delta); retained balls lie in the annulus {eta'/2 <= |z - c| <= 3 eta'}; every
+      point of a retained ball is at distance >= zeta_0/2 from every point at distance rho_X from the centre. Grids of
+      rho_X, both radii eta_0 = eta and eta_j = eta/8, delta = 2^(1-m).
   EX  exponent arithmetic of Lemma M' for d = 2..6 with lambda = 2^(m/(4d)): Markov term exponent -1/2, truncation
       exponent -1/(2d), final exponent -1/(2d).
   TL  moment series of Proposition 4.5: least index M_0 from which the summand ratio of
@@ -15,7 +16,8 @@ Groups (all exact):
   LG  regime ledger of section 6 for d = 2..6: radial exponents unchanged from [DL]; absorption powers of R1 region II
       (2n >= 6 + 3d) and R2a (2n/3 >= 15 + 39d) including the two mark factors.
 
-Mutants (each must exit 1): no-slab, lambda-too-large, series-ratio, factorial-power, schur-upper, forget-mark-power.
+Mutants (each must exit 1): no-slab, weak-zeta (zeta_0 = eta'/4, the insufficient ratio), lambda-too-large,
+series-ratio, factorial-power, schur-upper, forget-mark-power.
 """
 import argparse
 import json
@@ -23,7 +25,8 @@ import random
 import sys
 from fractions import Fraction as F
 
-MUTANTS = ['no-slab', 'lambda-too-large', 'series-ratio', 'factorial-power', 'schur-upper', 'forget-mark-power']
+MUTANTS = ['no-slab', 'weak-zeta', 'lambda-too-large', 'series-ratio', 'factorial-power', 'schur-upper',
+           'forget-mark-power']
 MUT = None
 RNG = random.Random(20260929)
 
@@ -95,10 +98,14 @@ def check_pk(out):
     zeta0 = eta / 64
     total_cases = 0
     for etap in (eta, eta / 8):
-        require(zeta0 <= etap / 4, 'zeta_0 exceeds eta_j/4')
+        z0 = etap / 4 if MUT == 'weak-zeta' else zeta0
+        require(z0 <= etap / 8, 'zeta_0 exceeds eta_j/8')
         for m in (8, 10, 12):
             delta = F(2) ** (1 - m)
-            require(delta <= zeta0 / 2 and delta <= etap / 8, 'm_0 condition violated in the test grid')
+            require(delta <= z0 / 2 and delta <= etap / 8, 'm_0 condition violated in the test grid')
+            # the count inequality of Lemma M' (b): eta'/(2 delta) - zeta_0/delta - 1 >= eta'/(4 delta) iff eta'/4 - zeta_0 >= delta
+            require(etap / 4 - z0 >= delta, 'retained-count inequality eta\'/4 - zeta_0 >= delta fails')
+            require(etap / (2 * delta) - z0 / delta - 1 >= etap / (4 * delta), 'retained-count lower bound fails')
             imax = int(etap / (2 * delta))
             radii = [etap + 2 * i * delta for i in range(imax + 1)]
             for rho_X in [F(k, 32) * etap for k in range(0, 4 * 32 + 1)]:
@@ -116,6 +123,7 @@ def check_pk(out):
                 total_cases += 1
     out['pk_cases'] = total_cases
     out['pk_zeta0_over_eta'] = str(zeta0 / eta)
+    out['pk_zeta0_over_smallest_radius'] = str(zeta0 / (eta / 8))
 
 
 # ------------------------------------------------------------------------------------------------------------ EX group

@@ -38,16 +38,24 @@ Math-#141's counts.
 
     python -B -S palm_exact_check.py                      # rc 0, output = RESULTS.json
     python -B -O -S palm_exact_check.py                   # rc 0, byte-identical
-    python -B -S palm_exact_check.py --mutant NAME        # rc 1 for each of the six names in the docstring
+    python -B -S palm_exact_check.py --mutant NAME        # rc 1 for each of the seven names in the docstring
 
-Six exact groups (`PK EX TL PW SC LG`): slab-excluded packing, Lemma M' exponents, the moment-series index, the
-pathwise inequalities, Schur floors and residual-metric domination on random rational matrices, and the regime
-ledger with the two mark factors. They verify counting, exponents, identities and finite-matrix inequalities only.
+Six exact groups (`PK EX TL PW SC LG`): slab-excluded packing (including the ratio `zeta_0 <= eta'/8` and the count
+inequality `eta'/4 - zeta_0 >= delta`), Lemma M' exponents, the moment-series index, the pathwise inequalities, Schur
+floors and residual-metric domination on random rational matrices, and the regime ledger with the two mark factors.
+They verify counting, exponents, identities and finite-matrix inequalities only.
+
+**v1.1 (29 September, after OpenAI review 5356233690 of §4):** the count inequality of Lemma M' (b) now states the
+ratio it needs (`zeta_0 <= eta'/8`, which the cover satisfies; `eta'/4` would not suffice); the witness is read
+through its unique nearby lift in each chart; `Phi = oo` when the floor vanishes; the measurability convention is the
+finite union over degrees of [C6L] v1.3; Proposition 4.5' records the logarithmic form of the moment bound suggested
+in comment 5895432912; a comparison-free proof of Lemma 4.3 is noted. No theorem or ledger changed.
 
 ## Review requests (exact interfaces)
 
 1. Lemma M' (b): the slab exclusion keeps at least `eta'/(4 delta)` disjoint balls inside `A'_j` at distance
-   `>= zeta_0/2` from the witness, and (c) the Markov step with Lemma D' on the restricted set.
+   `>= zeta_0/2` from the witness (through `zeta_0 <= eta'/8`), and (c) the Markov step with Lemma D' on the
+   restricted set. [OpenAI review 5356233690: §4 sound with these clarifications applied.]
 2. Lemma 4.3: Sudakov–Fernique applies to the regression residual on a compact complex domain, and Borell–TIS gives
    the moments; Lemma 4.1: the two Cauchy–Schwarz steps and the transitivity of regression.
 3. Lemma 6.1: positivity of `(G(z), Jo, E_0)` at `r = 0` and the continuity of the Schur complement in `r`;

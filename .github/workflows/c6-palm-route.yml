@@ -43,7 +43,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'palm_exact_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['no-slab', 'lambda-too-large', 'series-ratio', 'factorial-power', 'schur-upper',
+          mutants = ['no-slab', 'weak-zeta', 'lambda-too-large', 'series-ratio', 'factorial-power', 'schur-upper',
                      'forget-mark-power']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],

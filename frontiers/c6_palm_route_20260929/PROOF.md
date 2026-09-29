@@ -1,6 +1,9 @@
 # C6 sharp: the torus-wide factorial moments of the window count are `O(r^3)` in every fixed dimension
 
 **Object:** CL-C6-PALM-20260929-v1.
+**Version:** v1.1, 29 September 2026: clarifications after OpenAI review 5356233690 of §4 (the ratio
+`zeta_0 <= eta'/8` in Lemma M' (b), the witness lift convention, `Phi = oo` at a vanishing floor, the finite-union
+measurability convention of [C6L] v1.3, Proposition 4.5' and the remark after Lemma 4.3); no theorem or ledger change.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on [C6L],
 now merged on `main` with the OpenAI lane's complete nonauthor acceptance at its planar scope, and on [DL], an
@@ -173,8 +176,15 @@ Let `T_m^(j)` be the degree-`m` Taylor polynomial of `F` at `c_j`, and
     m_j* = min{ m >= 1 : exists rho in [eta_j, 2 eta_j] with |F - T_m^(j)| < |T_m^(j)| on partial Omega_rho(c_j) },
     Psi = sum_(j=0)^J (m_j*)^d,                                                       (3.2)
 
-with `m_j* = oo` if no degree works. Measurability of `m_j*` is [C6L] §5 verbatim (continuity of the sphere minimum in
-`rho`, rational radii). By Lemma R_d applied to each ball `B_R(c_j, rho_j)` with an admissible `rho_j`,
+with `m_j* = oo` if no degree works. Measurability of `m_j*` is [C6L] §5 in its v1.3 form: success at degree `k` is
+not asserted monotone in `k`, `m_j*` is the first successful degree, and
+
+    { m_j* <= m } = union_(k=1)^m  union_( rho in Q cap [eta_j, 2 eta_j] ) { min_(partial Omega_rho(c_j)) ( |T_k^(j)| - |F - T_k^(j)| ) > 0 },
+
+a finite union over degrees of countable unions over rational radii of measurable events (the set of successful
+radii at a fixed degree is relatively open by continuity of the sphere minimum in `rho`, so it is nonempty iff it
+contains a rational radius). The tail argument of §4 uses only that `{m_j* > m}` implies failure at degree `m`.
+By Lemma R_d applied to each ball `B_R(c_j, rho_j)` with an admissible `rho_j`,
 
     Psi >= #{ critical points of f on X } >= N + 2,                                   (3.3)
 
@@ -210,7 +220,15 @@ under `Q'` (a centered Gaussian field whose covariance is the `Q_r`-covariance m
 conditional law used in a first-moment proof is of this form, with `Lambda` the frame of that proof.
 
 Two numbers describe `Q'` for the purposes of this section. Fix a real point `X in X` (the witness) and
-`zeta_0 = eta/64`, so that `zeta_0 <= eta_j / 4` for every `j`.
+`zeta_0 = eta/64`, so that `zeta_0 <= eta_j / 8` for every `j` (the smallest radius is `eta_j = eta/8`; for the ball
+around the pins `zeta_0 = eta_0/64`).
+
+**Lifts of the witness.** Each ball `Omega_(4 eta_j)(c_j)` is read in the chart of `C^d` centred at a lift of
+`c_j`; since `8 eta_j < 2L/5 < L`, at most one lift `X~_j in R^d` of `X` satisfies `|X~_j - c_j| <= 4 eta_j`. When
+such a lift exists, `rho_X = |X~_j - c_j|` and `|z - X|` means `|z - X~_j|` for `z` in that chart; when none exists,
+no radius is excluded in Lemma M' (b) and the floor (4.2) is taken over all of `A'_j`, because every lift of `X` is
+then at distance more than `eta_j` from the annulus. Distances to the pins are read in the same charts; the cover
+geometry of §3.3 keeps the real slices of the annuli at distance at least `eta/4` from every lift of `M` and `S`.
 
     mu(Q') = max_j sup_( z in Omega_(4 eta_j)(c_j) ) ( |grad m(z)| + ||D^2 m(z)|| ),                    (4.1)
 
@@ -221,7 +239,10 @@ where, for `z = x + i t u` with `u` a real unit vector and `t = |Im z| > 0`,
     G(z) = ( Re F(z), Im F(z) / t ) in R^(2d),
 
 extended continuously to `t = 0` by `G = (grad f(x), D^2 f(x) u)` ([C6L] Lemma D). `Cov_(Q')(G(z))` is the residual
-covariance of `G(z)`, which does not depend on `tau`. Put `Phi(Q'; X) = max(1, phi^(-1/2))`.
+covariance of `G(z)`, which does not depend on `tau`. Put `Phi(Q'; X) = max(1, phi^(-1/2))`, with `Phi = oo` when
+`phi = 0`; in that case every bound of this section that carries `Phi` is vacuous, and it is the applications in §6
+that prove `phi > 0` with an explicit floor in each regime. Nothing here assumes `phi > 0` from the words "regression
+law".
 
 ### 4.2 Three lemmas about regression laws
 
@@ -260,6 +281,12 @@ prior field. Since `g` is the regression residual of the prior on the total fram
 coefficient vector `C(z)`, `E(X'(z) - X'(z'))^2 = E(X(z) - X(z'))^2 - |C(z) - C(z')|^2 <= E(X(z) - X(z'))^2` and
 `Var X'(z) <= Var X(z)`. Sudakov–Fernique gives `E sup_D X' <= E sup_D X` and `E sup_D (-X') <= E sup_D (-X)`;
 Borell–TIS turns the mean of the supremum and the maximal variance into all moments. `E sup_D |X| < oo` is (3.1). ∎
+
+*Remark (a proof without comparison).* Each Fourier coordinate of the residual `g` after any finite Gaussian
+regression is centered with variance at most its prior variance `sigma_n^2`, so its `L^p` norm is at most `C_p
+sigma_n`; summing `sigma_n |n'|^k e^(|n'| Y)` by Minkowski, as in (3.1), bounds every derivative supremum on the tube
+uniformly in the regressing frame, without independence between the residual coordinates and without any inverse
+Gram bound (Math-#145 review 5356233690, item 1). Either proof gives (4.5).
 
 **Lemma 4.4 (conditional moments of `K`).** `E_(Q')[ K^n ] <= C_n ( 1 + beta )^n` for every `n`, with `beta` from
 (4.3). *Proof.* `K <= C(1 + ||m||_(C^6(X)) + ||g||_(C^6(X)))`; Lemma 4.1 with `Y = 0` bounds the first norm by
@@ -308,9 +335,11 @@ and take `m_0` so large that `delta <= min( zeta_0 / 2, eta' / 8 )` for `m >= m_
 `|F(z_rho)| <= 2 S 2^(-m)`. On the event `{ S <= lambda, Lip <= lambda }`, `|F| <= 2 epsilon` on each ball
 `B(z_rho, delta)`.
 
-Let `rho_X = |X - c|`. Among the radii `rho_i = eta' + 2 i delta`, `0 <= i <= floor(eta'/(2 delta))`, discard those
-with `|rho_i - rho_X| < zeta_0`. At most `zeta_0 / delta + 1` are discarded, so at least
-`eta'/(2 delta) - zeta_0/delta - 1 >= eta'/(4 delta)` remain, using `zeta_0 <= eta'/4` and `delta <= eta'/8`. For a
+Let `rho_X = |X~_j - c|` for the lift of §4.1 (if there is none, discard nothing). Among the radii
+`rho_i = eta' + 2 i delta`, `0 <= i <= floor(eta'/(2 delta))`, discard those with `|rho_i - rho_X| < zeta_0`. At
+most `zeta_0 / delta + 1` are discarded, so at least `eta'/(2 delta) - zeta_0/delta - 1` remain, and this is at
+least `eta'/(4 delta)` exactly when `eta'/4 - zeta_0 >= delta`, which holds because `zeta_0 <= eta'/8` (§4.1) and
+`delta <= eta'/8` give `eta'/4 - zeta_0 >= eta'/8 >= delta`. (The weaker `zeta_0 <= eta'/4` would not suffice.) For a
 retained radius, every `z in B(z_(rho_i), delta)` satisfies `| |z - c| - rho_X | >= zeta_0 - delta >= zeta_0/2`, hence
 `|z - X| >= zeta_0/2`; and `eta'/2 <= rho_i - delta <= |z - c| <= rho_i + delta <= 3 eta'`, so the ball lies in `A'_j`.
 The retained balls are pairwise disjoint (centres on spheres `2 delta` apart). Therefore the volume
@@ -348,6 +377,20 @@ for every regression law `Q'` as in §4.1 and every witness point `X`,
 Q'(m_j* > m)`, and by (4.8) the series is at most `C (1 + mu^2 + Phi) sum_m pd (m+1)^(pd-1) m 2^(-m/(2d)) < oo`. Then
 `Psi^p <= (J+1)^(p-1) sum_j (m_j*)^(pd)`. The finite control `TL` verifies that the summand ratio falls below
 `2^(-1/(4d))` from an explicit index on, for `d = 2, ..., 6` and `p <= 4`. ∎
+
+**Proposition 4.5' (logarithmic form).** With `A = 1 + mu(Q')^2 + Phi(Q'; X)` finite, for every `p >= 1`,
+
+    E_(Q')[ Psi^p ] <= C'_p ( 1 + log A )^(pd).                                                         (4.11)
+
+*Proof.* (4.8) and `Q' <= 1` give `Q'(m_j* > m) <= min(1, C A m 2^(-m/(2d)))`. Choose `M_0 = C_0 (1 + log A)` with
+`C_0 = C_0(d, C)` so large that `C A m 2^(-m/(4d)) <= 1` for all `m >= M_0`; then `Q'(m_j* > m) <= 2^(-m/(4d))` for
+`m >= M_0`. Split the sum of the proof of Proposition 4.5 at `M_0`: the part below `M_0` is at most `M_0^(pd)`, the
+part above is at most `sum_(m >= M_0) pd (m+1)^(pd-1) 2^(-m/(4d)) <= C_p`. ∎
+
+This form was pointed out by the OpenAI lane (Math-#145 comment 5895432912). It follows from the same premises as
+Proposition 4.5 and turns the second factor of (5.3) into `C_q (1 + log(1 + mu^2 + Phi))^(d(q-1))`. The proof of
+Theorem Q below uses only the polynomial form (4.10); the logarithmic form reduces the losses recorded in §6 but is
+not needed for `O(r^3)`, since every regime's penalty already absorbs the polynomial factor.
 
 ## 5. Kac–Rice with a global mark, and the Hölder insertion
 
@@ -601,11 +644,12 @@ divide (1.2) by these. ∎
 ## 10. Finite controls
 
 `palm_exact_check.py` (standard library, exact rational arithmetic; `-O` mode identical) checks six groups and rejects
-six mutants:
+seven mutants:
 
-- `PK` the slab-excluded packing of Lemma M' (b): the retained count is at least `eta'/(4 delta)`, every retained ball
-  lies in the annulus, and every point of a retained ball is at distance at least `zeta_0/2` from every point at
-  distance `rho_X` from the centre, on grids of `rho_X`, for `delta = 2^(1-m)` and both radii `eta_0, eta_j`;
+- `PK` the slab-excluded packing of Lemma M' (b): `zeta_0 <= eta'/8`, the count inequality `eta'/4 - zeta_0 >= delta`,
+  the retained count at least `eta'/(4 delta)`, every retained ball inside the annulus, and every point of a retained
+  ball at distance at least `zeta_0/2` from every point at distance `rho_X` from the centre, on grids of `rho_X`, for
+  `delta = 2^(1-m)` and both radii `eta_0, eta_j`;
 - `EX` the exponent arithmetic of Lemma M' for `d = 2, ..., 6`: `lambda^(2d) 2^(-m) = 2^(-m/2)`, `lambda^(-2) =
   2^(-m/(2d))`, and the final exponent `1/(2d)`;
 - `TL` the moment series of Proposition 4.5: an explicit index from which the summand ratio is below `2^(-1/(4d))`,
@@ -616,7 +660,8 @@ six mutants:
 - `LG` the regime ledger of §6: for each regime the `r`-exponent is that of [DL], and the absorption powers of R1 II
   and R2a are `2n >= 6 + 3d` and `2n/3 >= 15 + 39d`.
 
-The mutants are `no-slab`, `lambda-too-large`, `series-ratio`, `factorial-power`, `schur-upper`, `forget-mark-power`.
+The mutants are `no-slab`, `weak-zeta` (the insufficient ratio `zeta_0 = eta'/4`), `lambda-too-large`,
+`series-ratio`, `factorial-power`, `schur-upper`, `forget-mark-power`.
 `RESULTS.json` is the exact output. These checks verify counting, exponents, identities and inequalities of finite
 matrices only. They do not verify the Gaussian, compactness, regression, Rouché or Kac–Rice steps, which are the
 written arguments above and in the sources.
