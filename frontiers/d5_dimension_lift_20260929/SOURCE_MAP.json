@@ -78,9 +78,10 @@
   "consumed_reviews": [
     "main#76 (remote Theorem A, every d)",
     "Math-#106 A1-A4 (LP sections 2-5)",
-    "Math-#105 comment 5872932723 and reviews/d5_collar_count_20260928 (planar PP and CP)",
+    "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md (committed record of the Math-#105 comment 5872932723 analytic review of planar PP: ACCEPT, existential, no defect) and reviews/d5_collar_count_20260928 (planar PP and CP)",
     "reviews/d5_intermediate_window_claude_20260928 and reviews/d5_i5_planar_f_20260928 (planar IW)"
   ],
   "nonauthor_acceptance": false,
-  "governing_status_changed": false
+  "governing_status_changed": false,
+  "source_commit_note": "All eight inputs re-verified byte-identical (same git blobs) on Math- main e947ade51defcec1fb75444efbe91ac7fcf43f60 on 2026-09-29; the pins above remain the exact consumed bytes."
 }
