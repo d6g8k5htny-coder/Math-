@@ -1,0 +1,39 @@
+{
+  "failed": [],
+  "groups": {
+    "JACOBIAN": {
+      "full_height_map_absolute_determinant_one": true
+    },
+    "LEVEL": {
+      "above_level_closure_excludes_saddle": true,
+      "incidence_uses_critical_level": true
+    },
+    "MOMENT": {
+      "log_endpoint_diverges": true,
+      "lower_divergence_below_endpoint": true,
+      "no_divergence_inferred_above": true
+    },
+    "SCOPE": {
+      "far_lower_not_compact_rate": true,
+      "linear_count_vs_compact_power": true,
+      "unrestricted_finiteness_strip_not_closed": true
+    },
+    "SUPPORT": {
+      "dual_constraint_basis": true,
+      "exact_constraints_after_projection": true
+    },
+    "WITNESS": {
+      "all_shell_faces_have_uniform_slack": true,
+      "alpha_endpoint_is_worst": true,
+      "cosine_quadratic_convex": true,
+      "fixed_square_valid": true,
+      "height_0": true,
+      "height_1/4": true,
+      "indices_0": true,
+      "indices_1/4": true,
+      "minimum_gap_exact": true
+    }
+  },
+  "passed": true,
+  "scope": "Finite algebra and counterexample controls only; no continuum support, topology or Kac-Rice verification"
+}

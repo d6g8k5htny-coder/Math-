@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "LEDGER": {
+      "U3_linear_lower_beats_compact_t_five_thirds": true,
+      "U4_q_minus1_equal_shells_diverge": true,
+      "U4_q_minus2_growing_shells": true,
+      "q_minus_half_summable_ratio": true
+    },
+    "WITNESS": {
+      "1/10": {
+        "M_nondegenerate_maximum": true,
+        "P_increasing_on_cm_1": true,
+        "S_nondegenerate_index1_saddle": true,
+        "boundary_strictly_below_saddle_height": true,
+        "height_difference_is_l": true,
+        "square_half_width_below_pi_over_2": true
+      },
+      "1/100": {
+        "M_nondegenerate_maximum": true,
+        "P_increasing_on_cm_1": true,
+        "S_nondegenerate_index1_saddle": true,
+        "boundary_strictly_below_saddle_height": true,
+        "height_difference_is_l": true,
+        "square_half_width_below_pi_over_2": true
+      },
+      "1/1000": {
+        "M_nondegenerate_maximum": true,
+        "P_increasing_on_cm_1": true,
+        "S_nondegenerate_index1_saddle": true,
+        "boundary_strictly_below_saddle_height": true,
+        "height_difference_is_l": true,
+        "square_half_width_below_pi_over_2": true
+      }
+    }
+  },
+  "object": "CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v1",
+  "passed": true,
+  "scope": "exact finite witness and ledger only; not the Gaussian proof"
+}

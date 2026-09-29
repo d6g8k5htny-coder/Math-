@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "disposition": "AUTHOR_SIDE_CANDIDATE",
+  "consumes": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "sections 2, 9, 13, 14 and Theorem C (1.3)"
+    }
+  ],
+  "files": [
+    {
+      "path": "PROOF.md",
+      "bytes": 13028,
+      "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9",
+      "git_blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 1299,
+      "sha256": "1c95d69227d2dee9a3213e7682563e9ad9d0c09ecd2523372eb422845d2b5420",
+      "git_blob": "8efdfcd18cc144f90b679c7eb8614c27988d9799"
+    },
+    {
+      "path": "witness_check.py",
+      "bytes": 4349,
+      "sha256": "6841618c69183bdf15fba4dfe286891f1c33e15ebad9c3bdb646f60fd0f6d5f1",
+      "git_blob": "854ff4e05467e4fb896c7e4ffc4c0d213c4aae17"
+    }
+  ]
+}
