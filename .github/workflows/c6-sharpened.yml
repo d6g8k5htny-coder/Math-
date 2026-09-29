@@ -43,7 +43,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'sharp_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['fixed-radius', 'wrong-cutoff', 'planar-cap', 'drop-loglog']
+          mutants = ['fixed-radius', 'wrong-cutoff', 'planar-cap', 'drop-loglog', 'small-m0']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

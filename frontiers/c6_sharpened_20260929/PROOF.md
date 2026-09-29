@@ -3,8 +3,13 @@
 Object: CL-C6-SHARPENED-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
-Version: v1.1. It cites [C6] at v1.3 (Math-#140) and aligns the inputs of §1 with [C6] §1 (v1.2 onward). There is no
-theorem change.
+Version: v1.2.
+- v1.1 cites [C6] at v1.3 (Math-#140) and aligns the inputs of §1 with [C6] §1 (v1.2 onward).
+- v1.2 applies the two wording checks from the OpenAI pickup ([#142 comment 5894431345](https://github.com/d6g8k5htny-coder/Math-/pull/142#issuecomment-5894431345)):
+  - Lemma G is stated for real centres;
+  - the bound `log(1/ε_m) ≤ m log m` in (3.3) is derived from the exact `a_m`, with `m_0` enlarged to absorb
+    `log(1/(2η'))`.
+- There is no theorem change.
 Scientific effect: NONE. No register, graph, catalog, lemma flag or prize changes.
 
 **Relation to #140.** This is a successor to CL-C6-FACTORIAL-20260929-v1 (Math-#140,
@@ -61,11 +66,14 @@ The first moment:
 
 ## 2. Growth lemma for the complexified gradient
 
-**Lemma G.** Uniformly in `r ≤ r_*`, marks, frames and centres `c`, for every `R ≥ 1`,
+**Lemma G.** Uniformly in `r ≤ r_*`, marks, frames and **real** centres `c ∈ ℝ^d`, for every `R ≥ 1`,
 
     E_{Q_r} [ sup_{z ∈ Ω_R(c)} |F(z)|² + sup_{z ∈ Ω_R(c)} ‖DF(z)‖² ] ≤ C e^{C R²}.                      (G)
 
 Here `F` is the complexified gradient and `Ω_R(c)` the Hermitian ball in `ℂ^d`.
+- **Real centres.** The centres must be real, as every centre of the [C6] cover is. For real `c`, the ball `Ω_R(c)`
+  lies in `{|Im z| ≤ R}`, which is what the mode bounds below use.
+- **Complex centres fail.** For `Im c ≠ 0`, the ball reaches `|Im z| = |Im c| + R`, and no bound in `R` alone holds.
 
 *Proof.*
 - **Series.** Write `f = Σ_n σ_n(ξ_n cos(n'·x) + ζ_n sin(n'·x))`, with `n' = 2πn/T`,
@@ -122,14 +130,24 @@ every `η' := η_j ≤ 1/8`. Fix `j` and write `c = c_j`.
     Q_r(m_j* > m, S_m ≤ λ_m, L ≤ λ_m) ≤ C λ_m^{2d−1} ε_m (1 + log(1/ε_m)) / η'
                                       ≤ C λ_m^{2d} a_m · m log m ≤ C m^{−m/4} m log m.               (3.3)
 
-Here `λ_m^{2d} = m^{m/4}` and `log(1/ε_m) ≤ m log m`.
+Here `λ_m^{2d} = m^{m/4}`.
+
+**The logarithm.** The bound `log(1/ε_m) ≤ m log m` uses the exact formula for `a_m`, not merely `a_m ≤ m^{−m/2}`.
+An upper bound on `a_m` does not bound `log(1/ε_m)` from above. From `ε_m = 2λ_m a_m = 4 m^{m/(8d)}(2η'/√m)^{m+1}`,
+
+    log(1/ε_m) = (m+1)(½ log m + ℓ') − (m log m)/(8d) − log 4,    ℓ' := log(1/(2η')) ≥ log 4.
+
+For `m ≥ 3` we have `m + 1 ≤ (4/3)m`, so `log(1/ε_m) ≤ m((2/3) log m + (4/3)ℓ') ≤ m log m` once `log m ≥ 4ℓ'`.
+The cover has finitely many radii (`η_0 = η`, `η_j = η/8`), so `m_0` is enlarged once, to absorb
+`ℓ'_max = log(4/η)`.
 
 **(d) Truncation.**
 
     Q_r(S_m > λ_m) ≤ C e^{Cm} m^{−m/(4d)},    Q_r(L > λ_m) ≤ C m^{−m/(4d)}.                           (3.4)
 
 **(e) Conclusion.** Adding (3.3) and (3.4) gives `C e^{Cm} m^{−m/(4d)} ≤ C exp(−(m log m)/(8d))` once
-`log m ≥ 8dC`. So `m_0` is at least `e^{8dC}`: large, but a constant. ∎
+`log m ≥ 8dC`. So `m_0 ≥ max(e^{8dC}, (4/η)^4, 16)`, where the middle term comes from the logarithm step in (c):
+large, but a constant. ∎
 
 **Why the sharpening appears.** With [C6]'s fixed radius `4η'`, the remainder factor is only `2^{−m}`, so the tail is
 merely exponential. With radius `√m`, the remainder factor `m^{−m/2}` is super-exponential. The price is the
@@ -203,7 +221,9 @@ novelty claim is made.
 - the lattice-shell sum growth against `(1+R)^{k+d}e^{R²}` for `d = 2, 3`;
 - the remainder bound (3.1) exactly at perfect-square `m`;
 - the exponent bookkeeping `λ_m^{2d} = m^{m/4}` and `λ_m² = m^{m/(4d)}`;
+- the logarithm step of (3.3), from the exact `ε_m`, for the cover radii `η' = 1/8, 1/64`, at `m ≥ max(3, e^{4ℓ'})`;
 - the Lemma D radial integral in `d = 2, 3`;
 - the choice `λ = A^d[L/log L]^d`, with `λ^{1/d} log λ ≥ A L`, at `r = 2^{−k}`.
 
-Mutants `fixed-radius`, `wrong-cutoff`, `planar-cap` and `drop-loglog` must fail.
+Mutants `fixed-radius`, `wrong-cutoff`, `planar-cap`, `drop-loglog` and `small-m0` must fail. `small-m0` is the
+logarithm step at `m = 16` with no enlargement of `m_0`.

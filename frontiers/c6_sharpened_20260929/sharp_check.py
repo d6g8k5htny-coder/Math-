@@ -7,9 +7,11 @@
   EXPONENTS   lambda_m = m^(m/(8d)): (lambda_m^(2d)) exponent m/4 and lambda_m^2 exponent m/(4d), exactly; the Markov
               term m^(-m/4) m log m and the truncation term e^(Cm) m^(-m/(4d)) both fall below exp(-m log m/(8d)) once
               log m >= 8dC (checked in logs for C = 1 at m = e^(8d+1), e^(8d+4), e^(8d+8)).
+  LOGEPS      log(1/eps_m) <= m log m from the exact eps_m = 4 m^(m/(8d)) (2 eta'/sqrt m)^(m+1), for eta' = 1/8, 1/64
+              and m >= max(3, e^(4 log(1/(2 eta')))) (the enlarged m_0 of (3.3)); d = 2, 3, 4.
   RADIAL      int_{|t|<=R} min(1, eps^(2d)/|t|^d) d^d t = |S^(d-1)| eps^(2d) (1/d + log(R/eps^2)), d = 2, 3, quadrature.
   LAMBDA      lambda = A^d [L/log L]^d satisfies lambda^(1/d) log lambda >= A L at r = 2^-k, L = log(1/r), d = 2, 3.
-Mutants (each must fail): fixed-radius, wrong-cutoff, planar-cap, drop-loglog.
+Mutants (each must fail): fixed-radius, wrong-cutoff, planar-cap, drop-loglog, small-m0.
 """
 import argparse
 import itertools
@@ -18,7 +20,7 @@ import math
 import sys
 from fractions import Fraction as F
 
-MUTANTS = ("fixed-radius", "wrong-cutoff", "planar-cap", "drop-loglog")
+MUTANTS = ("fixed-radius", "wrong-cutoff", "planar-cap", "drop-loglog", "small-m0")
 MUT = None
 
 
@@ -78,6 +80,23 @@ def check_exponents():
     return ok
 
 
+def log_inv_eps(m, eta, d):
+    return (m + 1) * (0.5 * math.log(m) + math.log(1 / (2 * eta))) - m * math.log(m) / (8 * d) - math.log(4)
+
+
+def check_logeps():
+    ok = True
+    for eta in (1 / 8, 1 / 64):                                      # eta_0 = eta = 1/8, eta_j = eta/8
+        m0 = max(3.0, math.exp(4 * math.log(1 / (2 * eta))))
+        if MUT == "small-m0":
+            m0 = 16.0                                               # no enlargement of m_0
+        for d in (2, 3, 4):
+            for mult in (1, 2, 10, 1000):
+                m = m0 * mult
+                ok &= log_inv_eps(m, eta, d) <= m * math.log(m)
+    return ok
+
+
 def radial(eps, R, d, n=6000):
     a, b = math.log(eps * eps), math.log(R)
     h = (b - a) / n
@@ -122,8 +141,9 @@ def main():
     ap.add_argument("--mutant", choices=MUTANTS)
     MUT = ap.parse_args().mutant
     checks = {"SQUARE": check_square(), "SHELL": check_shell(), "REMAINDER": check_remainder(),
-              "EXPONENTS": check_exponents(), "RADIAL": check_radial(), "LAMBDA": check_lambda()}
-    passed = all(checks.values()) and len(checks) == 6
+              "EXPONENTS": check_exponents(), "LOGEPS": check_logeps(), "RADIAL": check_radial(),
+              "LAMBDA": check_lambda()}
+    passed = all(checks.values()) and len(checks) == 7
     print(json.dumps({"object": "CL-C6-SHARPENED-20260929-v1", "checks": checks, "passed": passed,
                       "scope": "finite identities, exponent bookkeeping and quadratures only; the proof is PROOF.md"},
                      indent=2, sort_keys=True))
