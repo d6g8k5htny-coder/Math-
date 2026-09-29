@@ -1,0 +1,39 @@
+{
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "id": "SG",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "a1fc9581291b6f81c76c903c96a13955b51f8d54",
+      "path": "research/q0/sard_g/SARD_G_EXECUTION_REPAIR_20260925.md",
+      "git_blob": "8f86e0c9ef91fde473e2344a3e461c31f63f8529",
+      "use": "Explicit predecessor predicate and conditional A2–A4; new source replaces chart/direction/slicing application, not the original file."
+    },
+    {
+      "id": "BR",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "f43f243c54e12c63fc2c23c89c5b2998766f21b7",
+      "path": "reviews/sard_g_successor_a1_a6_20260926/REVIEW.md",
+      "git_blob": "9fc61b47c2b4c4bcc3898a6c61a6dcf9cbe1d136",
+      "use": "Exact AMEND, endpoint and early-contact boundaries, completed-measure qualification, and no dual-separability assumption."
+    },
+    {
+      "id": "RI",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "0b0b281989db62ccf3ff5e1327df6f9efda073ea",
+      "path": "incoming/grok-cycle4-20260926/harper/SARD_G_A1_RELATIVE_INTERIOR_LEMMA.md",
+      "git_blob": "0ee24f953a4402e58c97ac6d3897eb80d17513a9",
+      "use": "Harper robust first-interior-hit proposal, now explicitly applied in P1–P4 with a full early-prefix proof."
+    }
+  ],
+  "unproved_here": [
+    "A2-T local branch C1-arc continuity",
+    "A2-D C1 dependence in C2 field topology",
+    "A3–A4 directional nonvanishing",
+    "generic full-measure premise",
+    "C103 regional Kac–Rice estimates"
+  ],
+  "upstream_bytes_locally_replayed": false,
+  "new_nonauthor_review_required": true,
+  "existing_status_changed": false
+}
