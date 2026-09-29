@@ -8,8 +8,10 @@ exhaustiveness claim.
 
 The Consensus connector returned its monthly quota error on every call made from this account today ("You've used all
 30 searches this month; resets on October 1st"), as recorded in `frontiers/elder_dimension_lift_20260928/RECONNAISSANCE.md`
-and `frontiers/d5_dimension_lift_20260929/RECONNAISSANCE.md`. No call was made in this pass, no result was invented,
-and no web search was performed.
+and `frontiers/d5_dimension_lift_20260929/RECONNAISSANCE.md`. One further call was made on 29 September 2026 at about
+17:35 UTC with the query "Palm distribution size-biased factorial moments critical points Gaussian random field Kac-Rice
+conditioned on a critical point uniform tail"; it returned the same quota error. No result was invented, and no web
+search was performed.
 
 ## Records already cited by the consumed sources
 
