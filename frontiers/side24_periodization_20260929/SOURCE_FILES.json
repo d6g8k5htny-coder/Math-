@@ -1,0 +1,49 @@
+{
+  "author": "Anthropic Claude",
+  "consumes": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent (15.2) exponent structure",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "role": "reference specialization + coarse band"
+    }
+  ],
+  "delivered_under": "owner instruction in claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge; scientific effect NONE",
+  "files": [
+    {
+      "bytes": 8180,
+      "path": "PROOF.md",
+      "sha256": "619586615ca1311794d6fe171f107121f307dbdb440ecb6f9293c9967feb2877"
+    },
+    {
+      "bytes": 11333,
+      "path": "first_variation_check.py",
+      "sha256": "6845c7eb19ede2389d1b1c19306c0e5d23a172ea5030201f662f503eadf2b85f"
+    },
+    {
+      "bytes": 1225,
+      "path": "RESULTS.json",
+      "sha256": "fe9a48c57f69cccc1c6e956f9fe1040b372cfd90db0bf9c7889b3400f40d4293"
+    }
+  ],
+  "mutants": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "object": "CL-SIDE24-PFV-20260929-v1",
+  "result": {
+    "P3(24)": "-620813376/35",
+    "P3(L)": "-L^2(10L^4-147L^2+315)/105",
+    "coarse_band": "< 1e-106 (side24_v1, reviewed)",
+    "leading_relative_correction_L24": "-(620813376/35) e^-288 ~ -1.4862e-118"
+  },
+  "reviewer_session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "scope": "leading nearest-image first-variation of the reference SIDE24 coefficient; author-side; nonauthor review open"
+}
