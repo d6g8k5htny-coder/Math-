@@ -1,0 +1,87 @@
+{
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "id": "P",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Landed marked Kac-Rice, conditional norm moments and regional bounds.",
+      "bytes": 53364
+    },
+    {
+      "id": "L",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Planar ten-jet rank and endpoint Taylor identities.",
+      "bytes": 13100
+    },
+    {
+      "id": "DL",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Landed shell estimate and global first moment.",
+      "bytes": 53727
+    },
+    {
+      "id": "RM",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Fixed-remote singleton kernel; coefficient includes height length k.",
+      "bytes": 18355
+    },
+    {
+      "id": "RC",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Fixed-exclusion factorial O(r^5), including near-coincident witnesses.",
+      "bytes": 26002
+    },
+    {
+      "id": "C",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "commit": "325c5ebdc2ca0165b483cddce8972ee2d0252c79",
+      "current_required": false,
+      "role": "AUTHOR-SIDE #158 theorem is an explicit premise only of conditional Sections6-7; not accepted here.",
+      "bytes": 19889
+    },
+    {
+      "id": "D",
+      "path": "frontiers/planar_cubic_cluster_20260929/DEEP_TRANSVERSE_EXCLUSION.md",
+      "sha256": "95c03e59262cb9607a21a296a6837932839dd47ec8e15e67bdfa46782adbcd5a",
+      "git_blob": "309a38cab16ef67dd909351f40a48e1d83ba2c28",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "current_required": false,
+      "role": "Mandatory credit for the already-written deterministic graph mechanism; no independent-review credit."
+    },
+    {
+      "id": "RCL",
+      "path": "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+      "sha256": "c52a3cf197b5cf26071a8cc951e15ef3ac564b3d7453d41647f91af540a1b8eb",
+      "git_blob": "2ab625cedfc2e47575c4a7fa4853413418c532da",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "current_required": true,
+      "role": "Prior independent-replica probability argument; not claimed as new.",
+      "bytes": 11811
+    }
+  ],
+  "conditional_source_C_review_status": "AUTHOR_SIDE_NOT_ACCEPTED_HERE",
+  "marked_fourier_157_consumed": false,
+  "local_packet_replay_verifies_upstream": false
+}
