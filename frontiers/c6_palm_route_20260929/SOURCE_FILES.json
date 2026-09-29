@@ -2,22 +2,22 @@
   "schema": 1,
   "scientific_effect": "NONE",
   "review_status": "AUTHOR_SIDE_REVIEW_REQUIRED",
-  "stacked_on_unmerged_candidates": [
-    "Math-#140",
-    "Math-#141"
+  "stacked_on": [
+    "C6L merged via Math-#140 (nonauthor-accepted, planar scope)",
+    "Math-#141 (unmerged; counts HOLD)"
   ],
   "files": [
     {
       "path": "PROOF.md",
-      "bytes": 43372,
-      "sha256": "299faaae100db489f905ea853f1a0c94b39d0799cfc78466b8dcc6eebac534f6",
-      "git_blob": "5f655c02e20ecba5c8684b2ebd1f9eb3c21104dc"
+      "bytes": 43824,
+      "sha256": "57941cb0cc2d32804fa34b17b6da41d62e44a8f301abf374057ced64f6573fcd",
+      "git_blob": "caf25491dc4fb3512ec66fd5cb8dd23a22d90f4b"
     },
     {
       "path": "README.md",
-      "bytes": 4775,
-      "sha256": "90f9a8eaf740028ca7978993c3dd6c6157f1b40a2dc73c9e22fa51c63898a6f1",
-      "git_blob": "7f27c60ade44b33171b183c9c1aaa31d2372e932"
+      "bytes": 4902,
+      "sha256": "e61a93a7a711a6992793716826deacb79781c983552c632f7e1dd9c4489994ae",
+      "git_blob": "dd6c594b197079fea102357650fc8f05579102e6"
     },
     {
       "path": "RECONNAISSANCE.md",
@@ -33,9 +33,9 @@
     },
     {
       "path": "SOURCE_MAP.json",
-      "bytes": 6324,
-      "sha256": "549b4af7a0eb6e69dd0fd117ff2738259d21563bfe636fbe44665c6bb9305aaa",
-      "git_blob": "f313429fa7df13d80cd86e3f4f1ad400e3b928b9"
+      "bytes": 8538,
+      "sha256": "f2f03c59ef77be628d90fed4d5a31479057b9704fb0a72d98c56b3bdce390979",
+      "git_blob": "5a146cec6965b495555c1b5f77c4c57097fe0c19"
     },
     {
       "path": "palm_exact_check.py",
