@@ -3,6 +3,9 @@
 Object: CL-C6-FACTORIAL-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
+Version: v1.1. It adds the record-keeping completions requested in OpenAI review 5355120953: `m* = ∞`,
+measurability, integer `q`, and `r_* < 1`. There is no theorem change. That review ACCEPTs §§4–6 (Lemmas E, D and M)
+at stated scope. Lemma R and the §8 assembly await a separate review.
 Scientific effect: NONE. No register, graph, lemma flag, prize or premise changes. The catalog entry C6 and the D5
 collision node are not moved by this file.
 
@@ -19,11 +22,11 @@ collision node are not moved by this file.
 **The count.** `I_r = (b − kr³, b)` is the between-pin window. `N` is the number of critical points in
 `T² ∖ {M, S}` with height in `I_r` (all indices). This is the count of catalog C6.
 
-**Theorem C6-L.** There are `C, r_* > 0`, uniform in `b`, `k`, frames, such that for `0 < r ≤ r_*`
+**Theorem C6-L.** There are `C > 0` and `0 < r_* < 1`, uniform in `b`, `k`, frames, such that for `0 < r ≤ r_*`
 
     E_{Q_r^W}[N(N − 1)] ≤ C r³ log²(1/r).                                  (C6L)
 
-More generally, for each fixed `q ≥ 2`, `E_{Q_r^W}[(N)_q] ≤ C_q r³ log^{2(q−1)}(1/r)`.
+More generally, for each fixed integer `q ≥ 2`, `E_{Q_r^W}[(N)_q] ≤ C_q r³ log^{2(q−1)}(1/r)`.
 
 **Consequence for C6.** The validated lower obstruction (`docs/integration/2026-09-29-reviewed-window-and-inverse.md`)
 is `E N(N − 1) ≥ 2 P(N ≥ 2) ≥ 2c r³`. So the optimal order of the torus-wide second factorial moment lies between
@@ -98,7 +101,15 @@ the pins:
     m_j* = min{ m ≥ 1 : ∃ ρ ∈ [η_j, 2η_j] with |F − T_m^{(j)}| < |T_m^{(j)}| on ∂Ω_ρ(c_j) },
     Ψ = Σ_{j=0}^{J} (m_j*)².                                                    (5.1)
 
-By Lemma R, `Ψ ≥ #{critical points on T²}`, pins included.
+Put `m_j* = ∞` if no degree works. Lemma M shows that this has probability zero. By Lemma R,
+`Ψ ≥ #{critical points on T²}`, pins included.
+
+**Measurability.** For fixed `m`, the map `ρ ↦ min_{∂Ω_ρ(c_j)} (|T_m^{(j)}| − |F − T_m^{(j)}|)` is continuous on
+`[η_j, 2η_j]`, because `F` is continuous on the compact complex ball. So the set of admissible `ρ` is relatively
+open, and it is nonempty iff it contains a rational `ρ`. Hence `{m_j* ≤ m}` is a countable union of events
+`{min_{∂Ω_ρ}(|T_m| − |F − T_m|) > 0}`, `ρ ∈ ℚ`. Each of these is measurable as the minimum of a continuous random
+field over a compact set. `m_j*` and `Ψ` are therefore random variables, which licenses the probability and
+expectation operations below.
 
 ## 6. Lemma M: the Rouché degree has a uniform exponential tail
 
@@ -183,7 +194,7 @@ Take expectations in (2.1) under `Q_r^W`.
     E_{Q_r^W}[Ψ² 1{Ψ > λ}] ≤ C E_{Q_r}[Ψ⁴ 1{Ψ > λ}]^{1/2} ≤ C (E_{Q_r}Ψ⁸)^{1/4} Q_r(Ψ > λ)^{1/4}
                            ≤ C exp(−c λ^{1/2}/4).
 
-**Choice of `λ`.** `λ = (C' log(1/r))²` makes the second term at most `r³`. This gives (C6L). The `q`-th factorial
+**Choice of `λ`.** For `0 < r ≤ r_* < 1`, `λ = (C' log(1/r))²` makes the second term at most `r³`. This gives (C6L). The `q`-th factorial
 moment is identical, with `λ^{q−1}` and `Ψ^q`. ∎
 
 ## 9. What would remove the logarithm
