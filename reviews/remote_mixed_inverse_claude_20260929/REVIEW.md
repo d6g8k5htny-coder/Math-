@@ -79,10 +79,15 @@ comparison (M20) holds because `Δ < kr³` and `δ ≤ D_T`.
 
 ## Notes
 
-- **N1 (`β ≥ 1` is infinite even at separated positions).** At `δ ≥ η_0`, the joint height density given zero
-  gradients is positive and continuous on the diagonal `y = y'`. So `∫∫_{I_r²}|y−y'|^{−β} = ∞` for `β ≥ 1`, and every
-  distance-cutoff moment is infinite there. This strengthens the note's remark that a distance cutoff "need not"
-  regularize `β ≥ 1`. It gives a second proof of the `β ≥ 1` part of (M20).
+- **N1 (`β ≥ 1` at separated positions).** Consider a distance cutoff whose retained pair set in `E × E` has positive
+  measure; this holds for every sufficiently small fixed cutoff when `E` has positive volume. At separated sites
+  (`δ ≥ η_0`), the full weighted kernel is positive and continuous near the diagonal `y = y'`. That kernel is the
+  joint height density given zero gradients, times `E[W_r F_i(H_x) F_j(H_{x'}) | …]` with the actual endpoint weight
+  and witness determinants. Positivity comes from the distinct-jet support with the correct endpoint Hessian types and
+  nonzero witness determinants; a positive Gaussian height density alone would not control a weight that could vanish
+  on equal heights. Hence `∫∫_{I_r²}|y−y'|^{−β}(…) = ∞` for `β ≥ 1`, and every such cutoff moment is infinite. (A
+  cutoff larger than `diam E` retains no pairs and gives zero.) This extends the note's deliberately weaker "need not
+  regularize" remark; it is not a defect in Theorem M, and it gives a second route to the `β ≥ 1` part of (M20).
 - **N2.** (M20) in fact covers every `β ≥ 2/3` and every `q ≥ 0`. For `2/3 ≤ β < 1` the positive diagonal (M7)
   already gives this.
 - **N3.** As in #128, the `o(1)` in (M7) has no rate, so `λ = 2` gives an equivalence only, with no bounded remainder.
@@ -101,3 +106,9 @@ two-exponent domains, coupled `ε(r)`, `q(r)` or `β(r)` limits, `ρ → 0`, num
     python -B -S mixed_review_check.py            # prints RESULTS.json byte for byte
     python -B -O -S mixed_review_check.py         # identical
     python -B -S mixed_review_check.py --mutant M # exit 1 for each of the 6 mutants
+
+## Revisions
+
+- **v2** ([5890507179](https://github.com/d6g8k5htny-coder/Math-/pull/133#issuecomment-5890507179)): N1 is qualified
+  to cutoffs whose retained `E × E` pair set has positive measure, and it now rests on the full weighted
+  determinant–height kernel rather than the height density alone. No verdict or checker change.
