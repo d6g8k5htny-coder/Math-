@@ -183,7 +183,45 @@ componentwise, by the same two-point Hermite argument. Expanding in `y = rq`,
     f_x(X)/r^2 = 6k p(p-1) + (r A_4/12) p(p-1)(2p-1) + (p - 1/2) q . T_3 + (1/2) q^T C_3 q + epsilon_1,
     grad_y f(X)/r = (r/2) p(p-1) T_3 + S_0 q + epsilon_2,                                            (4.1)
 
-with the pathwise bounds of [PP] (P7) holding for `|epsilon_1|` and `||epsilon_2||` verbatim (norms replace absolute values). The finite control `RO` checks the analogous expansion exactly on a pinned cubic in `d = 3` (there the remainders vanish).
+with the pathwise bounds
+
+    |epsilon_1|  <= C K ( r^2 |p| + r |q| + r |p| |q|^2 + r |q|^3 ),
+    ||epsilon_2|| <= C K ( r^2 |p| + r |p| |q| + r |q|^2 ),                                       (4.1')
+
+which are [PP] (P7) with `|q|` the Euclidean norm of `q in R^m`. Since (P7) is written for two scalars, the
+`d`-dimensional remainders are derived here rather than cited. Let `h(x) = grad_y f(x, 0) in R^m`, so `h(0) = h(r) = 0`
+and `h''(0) = T_3`. Every bound below is pathwise, `K` dominating the derivatives of `f` through order five on the
+chart.
+
+- *Axial rows.* [PP] (P4) concerns the scalar `g(x) = f(x, 0)` alone and is unchanged:
+  `g'(rp) = 6 k r^2 p(p-1) + (r^3 A_4/12) p(p-1)(2p-1) + O(r^4 |p| K)`.
+- *Transverse rows along the axis.* Componentwise, `h_i(0) = h_i(r) = 0` gives `h_i(x) = x(x - r) h_i''(xi_i)/2` with
+  `xi_i` in the convex hull of `{0, r, x}`, hence `|xi_i| <= r` for `x = rp`, `|p| <= 1/4`, and
+  `h(rp) = (r^2/2) p(p-1) T_3 + O(r^3 |p| K)`. For the derivative, `h(r) = 0` and Taylor's formula at `0` give
+  `h'(0) = -(r/2) T_3 + O(r^2 K)`, so `h'(rp) = r (p - 1/2) T_3 + O(r^2 K)`. Both are vector statements: each
+  component obeys the one-dimensional estimate and the norm of a vector is at most `sqrt(m)` times its largest
+  component.
+- *Transverse Taylor expansion.* With `y = r q`, expand in `y` about `y = 0` at fixed `x = rp`:
+
+      f_x(X) = g'(rp) + y . h'(rp) + (1/2) y^T D_y^2 f_x(rp, 0) y + R_3,      |R_3| <= (1/6) |y|^3 sup ||D_y^3 f_x|| <= C K r^3 |q|^3,
+      grad_y f(X) = h(rp) + D_y^2 f(rp, 0) y + R_2,                           ||R_2|| <= (1/2) |y|^2 sup ||D_y^3 f|| <= C K r^2 |q|^2,
+
+  the suprema over the segment from `(rp, 0)` to `X`, and `D_y^2 f_x(rp, 0) = C_3 + O(r |p| K)`,
+  `D_y^2 f(rp, 0) = S_0 + O(r |p| K)` by the Lipschitz bound over the axial distance `r|p|`.
+- *Collecting.* Insert the four expansions and divide by `r^2` and `r` respectively:
+
+      epsilon_1 = O(r^2 |p| K) + O(r |q| K) + O(r |p| |q|^2 K) + O(r |q|^3 K),
+      epsilon_2 = O(r^2 |p| K) + O(r |p| |q| K) + O(r |q|^2 K),
+
+  where the four terms of `epsilon_1` come from the axial remainder, `r q . O(r^2 K)/r^2`, `(1/2) q^T O(r|p|K) q` and
+  `R_3/r^2`, and the three terms of `epsilon_2` from the axial remainder `O(r^3|p|K)/r`, `O(r|p|K) q` and `R_2/r`.
+  This is (4.1'). The only place the dimension enters is the constant, through `sqrt(m)` and the operator norms of
+  the tensors `C_3`, `S_0`, `D_y^3 f`; the powers of `r`, `|p|`, `|q|` are those of (P7).
+
+The ratios used in §4.3, `r^2|p|/Delta <= r`, `r|q|/Delta <= r`, `r|p||q|^2/Delta <= r|p||q|`, `r|q|^3/Delta <= r|q|^2`,
+`r|p||q|/Delta <= r|p|`, `r|q|^2/Delta <= r|q|`, all follow from `Delta >= |q|` and `Delta >= r|p|`, exactly as in the
+planar continuum record `reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md` (its note n2). The finite
+control `RO` checks the expansions (4.1) exactly on a pinned cubic in `d = 3` (there the remainders vanish).
 
 ### 4.3 A stable gradient frame on the whole punctured ball ([PP] §5)
 
