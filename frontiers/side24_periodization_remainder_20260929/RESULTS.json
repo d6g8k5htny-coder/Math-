@@ -1,0 +1,24 @@
+{
+  "object": "CL-SIDE24-PERIODIZATION-REMAINDER-20260929-v1-CHECKS",
+  "passed": true,
+  "results": {
+    "C1": "int w phi_{sC} = s^{-1/3} int w phi_C for d = 3 (and d = 2); exact first section moment int w phi q = (28/3) F",
+    "C2": "c_d = 96^{-1/3} int F(C_u) dsigma (kappa identity and E|N|^{4/3} checked numerically); at C_ref this is coefficients/side24_v1 eq. (1)",
+    "C3": "phi''/phi = a^2/4 - y'Delta C^-1 Delta y + tr(C^-1 Delta C^-1 Delta)/2, a = y'Delta y - tr(C^-1 Delta); exact 3x3 check",
+    "C4": "x^k e^{-x/4} <= (4k/e)^k, k = 1, 2; hence int w phi_C q^k <= (4k/e)^k 2^{n/2} int w phi_{2C}",
+    "C5": "raw C_ref spectrum: {8 +/- sqrt(58), 1, 1} (odd) and {5, 2, 2, 1, 1, 1} (even); lambda_min = 8 - sqrt(58) > 1/3 (exact: 529 > 522)",
+    "C6": {
+      "K": "1391.64",
+      "bracket": "309.2531",
+      "delta": "10 E = 2.1176e-111",
+      "second_order_relative": "< 6.300e-219"
+    },
+    "C7": {
+      "entry_rest": "< 8.453e-238",
+      "first_order_rest_relative": "< 6.007e-235",
+      "total_epsilon": "< 1e-218"
+    },
+    "C8": "P_3(24) = -620813376/35; |P_3(24)| e^{-288} > 1e-118 = 1e100 * 1e-218: the leading term exceeds the remainder bound by > 10^100"
+  },
+  "scope": "finite identities and constants of the second-order remainder bound; analytic steps in PROOF.md"
+}

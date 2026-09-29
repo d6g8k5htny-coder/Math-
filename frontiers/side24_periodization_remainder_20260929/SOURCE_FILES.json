@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "object": "CL-SIDE24-PERIODIZATION-REMAINDER-20260929-v1",
+  "kind": "author-side proof candidate; nonauthor analytic review required",
+  "author": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "closes": "frontiers/side24_periodization_20260929/PROOF.md section 5 open item (PR #144)",
+  "consumed": [
+    {
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "bytes": 10272,
+      "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769"
+    },
+    {
+      "path": "coefficients/side24_v1/coefficient.py",
+      "git_blob": "c2d3ff339f2b9953ec08e676240cdc5edcb17a3e",
+      "bytes": 8073,
+      "sha256": "03ae6d0f15160cb681f9bbb19a84dc861c3a0db3e881291ea621061cc90c86ab"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    }
+  ],
+  "consumed_unmerged": [
+    {
+      "path": "frontiers/side24_periodization_20260929/PROOF.md",
+      "pr": "d6g8k5htny-coder/Math-#144",
+      "git_blob": "56f4af15f508e8c269ac05c9d778516327b32e84",
+      "bytes": 11111,
+      "sha256": "745493e5e69fa794c44f07fce18c4fc3782ab31a5843184caff860254ffe33aa"
+    }
+  ],
+  "referee": {
+    "kind": "clean-context Anthropic Claude subagent before landing",
+    "verdict": "SOUND (expository amendments applied; see PROOF.md revision history)"
+  },
+  "files": [
+    {
+      "path": "PROOF.md",
+      "git_blob": "0329156897fc59b4bb88ad0228eaaade15f3d687",
+      "bytes": 17797,
+      "sha256": "fa4ace8f6c8c33fe2c614b218fb4407b4a21a01807770f766864f084dcb5db4d"
+    },
+    {
+      "path": "remainder_check.py",
+      "git_blob": "40a52ac6a1e120941198318f1cba7d9525654daa",
+      "bytes": 13278,
+      "sha256": "cdbe002cd62ab1130723c0a31a3a84217c10f48659ac48e379e9119c77361c4e"
+    },
+    {
+      "path": "RESULTS.json",
+      "git_blob": "83248815ac09eafed3326fdc4782c60d546ae71e",
+      "bytes": 1307,
+      "sha256": "793ad3b0b37df98121e93075111ac4fdeb318ab826e577008a83f1bfb8269423"
+    }
+  ]
+}
