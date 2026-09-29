@@ -48,7 +48,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'reconciliation_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['tamper', 'drop-collar', 'close-c6']
+          mutants = ['optional-continuum', 'allow-symlink', 'no-hash', 'drop-dependency', 'drop-collar', 'close-c6']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

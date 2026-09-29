@@ -2,25 +2,32 @@
   "schema": 1,
   "scientific_effect": "NONE",
   "disposition": "REGISTER_RECONCILIATION_PROPOSAL",
-  "base": "dbccbb41a58f2328b3bec6c4609a4b8fb3ac811f",
+  "version": "v2",
+  "base": "e947ade51defcec1fb75444efbe91ac7fcf43f60",
   "files": [
     {
+      "path": "PROPOSED_TRANSITIONS.json",
+      "bytes": 3547,
+      "sha256": "1c8988a7f3f278c317d115ba9ffe3df51c58c6529ceb803671f56adf1987a93f",
+      "git_blob": "34fac38900bb90b34c33727be15495251bbdc1cd"
+    },
+    {
       "path": "RECONCILIATION.md",
-      "bytes": 9131,
-      "sha256": "689f72ef8875e9a6033a59d400694df716a542fcab898287da58c2023bdab55f",
-      "git_blob": "c0eadf168a57418170e56604c925aee7f1082bf3"
+      "bytes": 10719,
+      "sha256": "2b06394e70a29cfb17e233803ff0703683ce5b42a4e4ff9296e14aab5c777bef",
+      "git_blob": "d9fd5be514e07fd8c017da2e44014b1294cfd189"
     },
     {
       "path": "RESULTS.json",
-      "bytes": 268,
-      "sha256": "5de560fea532fe1ada5bccfb4463c3d483d39d7fb7f06822f9618a3763be8d1a",
-      "git_blob": "10199683b1a35a5eb35135d017e21b0d58ec3d8e"
+      "bytes": 377,
+      "sha256": "851d660bef39ab23c69cb5815445c45708cbcc98d357b283146576634e02a2ff",
+      "git_blob": "0bd6c3d5001ee5949c2f28b4f6e5e65fa7b66d39"
     },
     {
       "path": "reconciliation_check.py",
-      "bytes": 6121,
-      "sha256": "309a1b87cd39ba649cc12959f88417557f3af2752a4dd87715664b713f623cdd",
-      "git_blob": "49cb234b53086286992f96a41ad4cd8841fe1961"
+      "bytes": 11650,
+      "sha256": "aa9641c9c7f51798bfbc7c3e7ab8927b00a5b5c285300b983f8c363e85b51255",
+      "git_blob": "bebc7eca2d7ba5545a08c9744ce5be1f559e4fb6"
     }
   ]
 }

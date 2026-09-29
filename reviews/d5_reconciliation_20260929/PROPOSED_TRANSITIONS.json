@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "object": "D5-RECONCILIATION-20260929-v2",
+  "scientific_effect": "NONE",
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "status_rows": [
+    {
+      "id": "D5",
+      "current": "NOT_ACCEPTED",
+      "proposed": "ACCEPT_SCOPED_FIRST_MOMENT",
+      "scope": "D5-a..D5-f of RECONCILIATION.md section 2",
+      "uses_P2": true,
+      "required": [
+        "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+        "reviews/d5_punctured_pin_nonauthor_20260928/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/pp_continuum_check.py",
+        "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+        "reviews/d5_collar_count_20260928/REVIEW.md",
+        "frontiers/rn_annulus_bridge_20260925/PROOF.md",
+        "reviews/pr28_annulus_bridge_nonauthor_20260925/REVIEW.md",
+        "frontiers/intermediate_window_20260928/PROOF.md",
+        "reviews/d5_i5_planar_f_20260928/REVIEW.md",
+        "reviews/d5_intermediate_window_claude_20260928/REVIEW.md",
+        "frontiers/remote_window_20260924/PROOF.md"
+      ]
+    },
+    {
+      "id": "D5-collision (catalog C6)",
+      "current": "ABSENT",
+      "proposed": "OPEN",
+      "scope": "torus-wide second factorial moment; lower obstruction only",
+      "uses_P2": false,
+      "required": [
+        "reviews/d5_offpin_second_moment_20260928/REVIEW.md"
+      ]
+    }
+  ],
+  "graph": [
+    {
+      "node": "math.rn-region.pin-collision",
+      "current": "OPEN_ACTIVE",
+      "proposed": "PROVED_REVIEWED",
+      "scope": "D5-a, D5-b, D5-d",
+      "uses_P2": true,
+      "required": [
+        "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+        "reviews/d5_punctured_pin_nonauthor_20260928/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/pp_continuum_check.py",
+        "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+        "reviews/d5_collar_count_20260928/REVIEW.md"
+      ]
+    },
+    {
+      "node": "math.rn-region.mesoscopic-scaled-annulus",
+      "current": "OPEN_ACTIVE",
+      "proposed": "PROVED_REVIEWED",
+      "scope": "D5-d with R >= B (covers the reviewed fixed annulus)",
+      "uses_P2": true,
+      "required": [
+        "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+        "reviews/d5_punctured_pin_nonauthor_20260928/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md",
+        "reviews/d5_punctured_pin_continuum_claude_20260929/pp_continuum_check.py",
+        "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+        "reviews/d5_collar_count_20260928/REVIEW.md",
+        "frontiers/rn_annulus_bridge_20260925/PROOF.md",
+        "reviews/pr28_annulus_bridge_nonauthor_20260925/REVIEW.md"
+      ]
+    },
+    {
+      "node": "math.rn-region.intermediate-r-to-rho",
+      "current": "OPEN_ACTIVE",
+      "proposed": "PROVED_REVIEWED",
+      "scope": "D5-e (I3/I4, window I_r)",
+      "uses_P2": false,
+      "required": [
+        "frontiers/intermediate_window_20260928/PROOF.md",
+        "reviews/d5_i5_planar_f_20260928/REVIEW.md",
+        "reviews/d5_intermediate_window_claude_20260928/REVIEW.md"
+      ]
+    },
+    {
+      "node": "math.rn-region.witness-collision",
+      "current": "OPEN_ACTIVE",
+      "proposed": "OPEN_ACTIVE",
+      "scope": "catalog C6",
+      "uses_P2": false,
+      "required": [
+        "reviews/d5_offpin_second_moment_20260928/REVIEW.md"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,14 @@
 # D5 pin-neighborhood first moment — source-bound reconciliation
 
-**Object:** D5-RECONCILIATION-20260929-v1.
+**Object:** D5-RECONCILIATION-20260929-v2.
+**Version v2 (guard repair).** This version answers OpenAI review
+[5893615810](https://github.com/d6g8k5htny-coder/Math-/pull/138#issuecomment-5893615810):
+- the P2 continuum record is now mandatory and byte-bound;
+- real delete, change and symlink negatives are added;
+- the transition dependency chains are machine-readable;
+- the identity inventory now covers every record §3 names.
+
+The proposal itself is unchanged.
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
 
 **Effect:** a register-reconciliation *proposal*.
@@ -41,15 +49,16 @@ D5-d with `R ≥ B` covers the reviewed fixed annulus `A ≤ |x| ≤ B` of PR28.
 
 ## 3. Components, exact bytes and nonauthor verdicts
 
-All paths are on Math- `main` `dbccbb41a58f2328b3bec6c4609a4b8fb3ac811f`, except the one record on #138's branch.
+All paths are on Math- `main` `e947ade51defcec1fb75444efbe91ac7fcf43f60`. The P2 continuum record landed via #139
+at blob `4904e3d9…`. Items marked *external* are cited but not byte-checked: `main#76` and the #105 comments.
 
 | Component | Source (author) | Blob / SHA256 | Nonauthor verdicts (record) |
 |---|---|---|---|
-| P2 punctured pin disks | `reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md` (OpenAI) | `d8acf0bc…` / `f972e50b…` | xAI/Grok #111 (`reviews/d5_punctured_pin_nonauthor_20260928/`): algebra (P4), (P9), (P17), (P20) ACCEPT, continuum HOLD. Claude (`reviews/d5_punctured_pin_continuum_claude_20260929/`, #138 branch): continuum and **(P2) ACCEPT existential**, committing the #105 review 5872932723. |
-| C1 collar, C2 synthesis | `reviews/d5_local_collar_20260928/COLLAR_PROOF.md` (OpenAI) | `b5647907…` / `794babe0…` | `reviews/d5_collar_count_20260928/` (#119; lane not named in the file): C1 **ACCEPT existential**, C2 **ACCEPT corollary**. Claude #105 review 5872932723: priorities (i)–(vii) confirmed at the analytic level (§4). |
+| P2 punctured pin disks | `reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md` (OpenAI) | `d8acf0bc…` / `f972e50b…` | xAI/Grok #111 (`reviews/d5_punctured_pin_nonauthor_20260928/`): algebra (P4), (P9), (P17), (P20) ACCEPT, continuum HOLD. Claude (`reviews/d5_punctured_pin_continuum_claude_20260929/`, landed via #139, `REVIEW.md` blob `4904e3d9…`, **mandatory** in the checker): continuum and **(P2) ACCEPT existential**, committing the #105 review 5872932723 (*external*). |
+| C1 collar, C2 synthesis | `reviews/d5_local_collar_20260928/COLLAR_PROOF.md` (OpenAI) | `b5647907…` / `794babe0…` | `reviews/d5_collar_count_20260928/` (#119; lane not named in the file): C1 **ACCEPT existential**, C2 **ACCEPT corollary**. Claude #105 review 5872932723 (*external*): priorities (i)–(vii) confirmed at the analytic level (§4). |
 | Reviewed fixed annulus | `frontiers/rn_annulus_bridge_20260925/PROOF.md` (PR28) | `6f317515…` / `d55e2c03…` | `reviews/pr28_annulus_bridge_nonauthor_20260925/`: R1–R7 ACCEPT |
 | I3, I4, I5 | `frontiers/intermediate_window_20260928/PROOF.md` (OpenAI) | `f53a527c…` / `b3eb9456…` | xAI/Grok `reviews/d5_i5_planar_f_20260928/`: I3/I4 **ACCEPT existential**, I5 ACCEPT. Claude `reviews/d5_intermediate_window_claude_20260928/`: I3/I4 ACCEPT, I5 ACCEPT with the explicit tiling (N1). |
-| Remote Theorem A (D4) | `frontiers/remote_window_20260924/PROOF.md` | `b383bfcc…` / `a332bae9…` | STATUS D4 ACCEPT (main#76) |
+| Remote Theorem A (D4) | `frontiers/remote_window_20260924/PROOF.md` | `b383bfcc…` / `a332bae9…` | STATUS D4 ACCEPT (main#76, *external*) |
 | `P_η` fixed-separation factorial moment | `frontiers/remote_collision_20260928/PROOF.md` (Claude) | `7b48a88e…` / `b9b8b58f…` | xAI/Grok `reviews/d5_remote_collision_grok_20260928/`; `reviews/d5_offpin_second_moment_20260928/`: `P_η` ACCEPT |
 
 **Consumption graph.**
@@ -98,6 +107,10 @@ about what code verifies. Its `REVIEW.md` table records the analytic ACCEPT.
 | `PROOF_INDEX.md` | first two D5 bullets under "Open obligations" | Move them to the reviewed section, citing §3's records. Keep the third bullet (shrinking collision) open and point it to C6. |
 | `GRAPH.json` | `math.rn-region.pin-collision`, `.mesoscopic-scaled-annulus` and `.intermediate-r-to-rho` are OPEN_ACTIVE | `PROVED_REVIEWED` at the D5-d, D5-d and D5-e scopes respectively, with these records as `coverage_source`. **`math.rn-region.witness-collision` stays OPEN_ACTIVE.** |
 
+The machine-readable form is `PROPOSED_TRANSITIONS.json`. Every transition that uses P2 lists the continuum record,
+its checker and #111 in its dependency chain: the D5 row, `pin-collision` and `mesoscopic-scaled-annulus`. The
+checker enforces this, and a landing lane should copy these chains into any GRAPH `coverage_source` it writes.
+
 These transitions rest only on the verdicts in §3. The only Claude-authored mathematical input is `P_η`
 (`remote_collision`), and it has xAI/Grok verdicts. The two Claude *review* records (P2 continuum, I3–I5) are joined by
 xAI/Grok records on the same objects: algebra and (P17) for P2; I3/I4/I5 for the intermediate window.
@@ -110,15 +123,20 @@ xAI/Grok records on the same objects: algebra and (P17) for P2; I3/I4/I5 for the
 
 ## 7. Checks
 
-`reconciliation_check.py` (stdlib only) checks four things:
-- **(A)** Every source and record in §3 exists, with the stated SHA256. The P2 continuum record is checked when present
-  on the branch.
-- **(B)** The quoted verdict strings occur in each record.
-- **(C)** The D5-f tiling covers every rational grid point of `T² ∖ {M,S}`. The regions are the pin disks, `C_{1/4,4}`,
-  `{4r ≤ |X| ≤ s_0}` and `{|X| ≥ s_0}`, with `r ≤ s_0/4`.
-- **(D)** The collision item is still recorded as open (C6).
+`reconciliation_check.py` (stdlib only, run from the repository root) has six checks.
+- **IDENTITIES.** All 17 sources and records named in §3 exist as regular files, not symlinks, with the stated SHA256
+  and git blob. The P2 continuum record and its three companion files are mandatory.
+- **VERDICTS.** The exact verdict rows are present, including the continuum record's (P10)–(P20) and (P2) rows. They
+  are checked, not a generic ACCEPT substring.
+- **NEGATIVES.** These are real filesystem faults on a temporary copy: delete the continuum record; change one byte,
+  keeping every verdict row; replace it by a symlink to identical bytes. Each is rejected.
+- **TRANSITIONS.** `PROPOSED_TRANSITIONS.json` names only inventoried files. Every P2-dependent chain contains the
+  continuum record, its checker and #111. `witness-collision` and C6 stay open.
+- **TILING.** The D5-f tiling covers an exact rational grid of `T² ∖ {M,S}`.
+- **OPEN_C6.** The collision item is still recorded as open.
 
-Mutants `tamper`, `drop-collar` and `close-c6` must each fail.
+There are six mutants and each must fail. `optional-continuum` re-creates the v1 defect. The others are
+`allow-symlink`, `no-hash`, `drop-dependency`, `drop-collar` and `close-c6`.
 
     python -B -S reviews/d5_reconciliation_20260929/reconciliation_check.py            # from the repo root; prints RESULTS.json
     python -B -S reviews/d5_reconciliation_20260929/reconciliation_check.py --mutant M # exit 1

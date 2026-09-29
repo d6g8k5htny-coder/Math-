@@ -1,11 +1,14 @@
 {
   "checks": {
     "IDENTITIES": true,
+    "NEGATIVES": true,
     "OPEN_C6": true,
     "TILING": true,
+    "TRANSITIONS": true,
     "VERDICTS": true
   },
-  "object": "D5-RECONCILIATION-20260929-v1",
+  "inventory_files": 17,
+  "object": "D5-RECONCILIATION-20260929-v2",
   "passed": true,
-  "scope": "identity, verdict-string, tiling and open-item checks; no mathematics is re-proved"
+  "scope": "identity, verdict-row, filesystem-negative, transition-chain, tiling and open-item checks; no mathematics is re-proved"
 }
