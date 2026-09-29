@@ -3,6 +3,8 @@
 Object: CL-C6-SHARPENED-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
+Version: v1.1. It cites [C6] at v1.2 (Math-#140 `09763ca`) and aligns the inputs of §1 with [C6] v1.2 §1. There is no
+theorem change.
 Scientific effect: NONE. No register, graph, catalog, lemma flag or prize changes.
 
 **Relation to #140.** This is a successor to CL-C6-FACTORIAL-20260929-v1 (Math-#140,
@@ -30,7 +32,9 @@ This sharpens [C6]'s `r³ L²`.
 
     E_{Q_r^W} N(N−1) ≤ C r³ [L / log L]^d,    E_{Q_r^W} (N)_q ≤ C_q r³ [L / log L]^{d(q−1)}.        (Sd)
 
-For `d = 2`, G_2 is the reviewed (I5), so S₂ is unconditional.
+For `d = 2`, G_2 is (I5), so S₂ does not depend on #141. It consumes (I5) exactly as [C6] v1.2 §1 does: as a
+window first moment, at the scope of the D5 reading rule `reviews/d5_reconciliation_20260929/`, including the
+(P2) continuum HOLD (#111) that (I5) inherits through (C2).
 
 **Consequence.** With the recorded lower obstruction `E N(N−1) ≥ 2c r³`, the planar optimal order lies between `r³`
 and `r³[L/log L]²`. `Θ(r³)` is **not** claimed. The Palm route of [C6] §9 remains the separate route to it.
@@ -39,7 +43,7 @@ and `r³[L/log L]²`. `Θ(r³)` is **not** claimed. The Palm route of [C6] §9 r
 
 From [C6], used verbatim:
 - the pathwise cap (§2);
-- Lemma R (§3);
+- Lemma R (§3), with the v1.2 explicit form of its step 1;
 - the protected cover (§5), including the measurability paragraph;
 - Lemma D and Lemma E (§6, fixed annuli, unchanged), which OpenAI review 5355120953 accepts in `d = 2`.
 
@@ -49,7 +53,11 @@ From [LP], accepted in the D1 reconciliation, all in fixed `d`:
 - `W_r/r²` has bounded moments of every order ((4.1), (5.1));
 - `Z_r ≥ z_* r²` ((5.5)).
 
-The first moment: (I5) in `d = 2`; Theorem G_d of #141 in `d ≥ 3`.
+The first moment:
+- `d = 2`: (I5), cited at the xAI row "I5 … ACCEPT as corollary of C2 + I4 + D4 A" of
+  `reviews/d5_i5_planar_f_20260928/REVIEW.md`, under the D5 reading rule;
+- `d ≥ 3`: Theorem G_d of #141. It is under review, and its continuum count carries an xAI HOLD at the Slice A
+  verdict ([#141 comment 5894274124](https://github.com/d6g8k5htny-coder/Math-/pull/141#issuecomment-5894274124)).
 
 ## 2. Growth lemma for the complexified gradient
 
@@ -131,7 +139,8 @@ merely exponential. With radius `√m`, the remainder factor `m^{−m/2}` is sup
 
 - **Lemma R in `ℂ^d`.**
   - Rouché for holomorphic maps `ℂ^d → ℂ^d` on `Ω_ρ` is the degree argument of [C6] §3, word for word.
-  - A compact analytic subset of `Ω_ρ` is finite.
+  - A compact analytic subset of `Ω_ρ` is finite. As in [C6] v1.2 step 1, no positive-dimensional component of
+    `Z(P)` meets `Ω_ρ` once `Z(P) ∩ ∂Ω_ρ = ∅`.
   - The refined Bézout inequality bounds the isolated zeros of `d` polynomials of degree `≤ m` in `d` variables by
     `m^d`, counted with multiplicity.
   - So a ball whose Rouché test passes at degree `m` carries at most `m^d` real critical points.

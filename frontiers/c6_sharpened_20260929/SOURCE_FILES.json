@@ -7,9 +7,10 @@
     {
       "id": "C6",
       "path": "frontiers/c6_factorial_moment_20260929/PROOF.md",
-      "sha256": "ae00625a460b2d5597e3e4669bb468ffb60e85b5a259854f856577397d9ebd2d",
-      "git_blob": "6cb705ef44100d5a32d4c852cf7e460d520f90f5",
-      "pr": "Math-#140"
+      "sha256": "c5dcc611810c24b115f44ef9cce468e83618f3f63de385e7157a46076a4762d1",
+      "git_blob": "af6c336301d1ec6cf3b2021e8b7478543200d400",
+      "pr": "Math-#140",
+      "version": "v1.2 (09763ca)"
     },
     {
       "id": "LP",
@@ -18,23 +19,26 @@
     },
     {
       "id": "I5",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
       "records": [
         "reviews/d5_i5_planar_f_20260928/REVIEW.md",
         "reviews/d5_intermediate_window_claude_20260928/REVIEW.md"
-      ]
+      ],
+      "reading_rule": "reviews/d5_reconciliation_20260929/RECONCILIATION.md"
     },
     {
       "id": "G_d",
       "pr": "Math-#141",
-      "status": "under review; Theorem S_d is conditional on it"
+      "status": "under review (xAI Slice A: algebra ACCEPT, continuum count HOLD); Theorem S_d is conditional on it"
     }
   ],
   "files": [
     {
       "path": "PROOF.md",
-      "bytes": 10903,
-      "sha256": "8ffbf45d29625619d48fb6857289be1b2d846a4b8f2dd88a10878170b612a1cf",
-      "git_blob": "5f96d0f67faa471b9f1e7f700a31dde36dfa6a24"
+      "bytes": 11756,
+      "sha256": "10dd2bd411479ce68dcf4a4f5053881f6ac530d2be2e192fa8b09f3e404cc56c",
+      "git_blob": "7c46f977eb8015659839d8dda1bdc1c2e45ca98a"
     },
     {
       "path": "RESULTS.json",
