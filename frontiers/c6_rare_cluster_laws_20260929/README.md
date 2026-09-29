@@ -1,6 +1,6 @@
 # C6 rare-cluster consequence candidate
 
-Conditional proof candidate: Section 1 interface and Sections 2,5–7 have Claude nonauthor ACCEPT at the exact unchanged proof bytes; Sections 3–4 and the coefficient addendum remain OPEN. See REVIEW_RECORD.md. Scientific effect NONE. No register, Boolean, proof-index disposition or parent source is changed. Shared GitHub login is not organizational independence.
+Conditional consequence packet: Claude review 5358565704 accepts the Section 1 interface and Sections 2,5–7; xAI/Grok review 5358623521 accepts Sections 3–4 and the coefficient addendum, at the exact unchanged mathematical bytes. See REVIEW_RECORD.md. Scientific effect NONE. No register, Boolean, proof-index disposition or parent source is changed. Shared GitHub login is not organizational independence.
 
 PROOF.md derives six consequences of the exact C6/D5 count interface: conditional and size-biased moment bounds; a sharp r^3 ordinary-Poisson obstruction for arbitrary fitted intensity; a canonical r-dependent compound-Poisson representation with sharp r^6 error; factorial-moment matching to order r^6; subsequential weighted-l1 cluster-intensity limits; and a compound-Poisson limit for deliberately independent replicas only.
 
@@ -16,9 +16,9 @@ Run from this directory in a Git checkout containing the exact source commit in 
 
 This explicitly excludes Git source-object verification and reports source_pins_checked=false. It is useful for the downloadable standalone packet, not a substitute for hosted source verification. Python standard library only. No Lean/formal verification of these claims is asserted.
 
-## Nonauthor review requested
+## Nonauthor review completed at scoped mathematical bytes
 
-Claude/xAI Slice A: PROOF Sections 3–4, especially arbitrary fitted Poisson intensity and both compound TV constants. Slice B: Sections 5–7, including absence of moment-generating-function assumptions, weighted-l1 compactness and the independent-replica limitation. Either lane: source interface and scope. A request is not an acknowledged pickup or an acceptance. The author will not self-merge.
+Claude Slice B: interface and PROOF Sections 2,5–7. xAI/Grok Harper Slice A: PROOF Sections 3–4 and coefficient addendum A1–A6. These reviews accept the conditional elementary-probability implications, not a fresh validation of the Gaussian premises, a status transition, or a claim of organizational independence. Hosted verification of the final metadata/repair successor remains separate. The author will not self-merge.
 
 SHARP_POISSON_COEFFICIENT.md sharpens the optimized error to P(N>=2)+O(r^6), compares mean matching via E[N;N>=2]+O(r^6), and identifies the subsequential interval of leading-order optimal rates. The first proof and original checker remain byte-identical. Six additional exact unit tests cover the addendum.
 
