@@ -3,7 +3,7 @@
 Object: CL-C6-SHARPENED-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor review required.
-Version: v1.1. It cites [C6] at v1.2 (Math-#140 `09763ca`) and aligns the inputs of §1 with [C6] v1.2 §1. There is no
+Version: v1.1. It cites [C6] at v1.3 (Math-#140) and aligns the inputs of §1 with [C6] §1 (v1.2 onward). There is no
 theorem change.
 Scientific effect: NONE. No register, graph, catalog, lemma flag or prize changes.
 
