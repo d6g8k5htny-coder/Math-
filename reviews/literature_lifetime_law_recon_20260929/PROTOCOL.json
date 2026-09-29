@@ -1,0 +1,73 @@
+{
+ "object": "CL-LIT-RECON-LIFETIME-20260929-v1.1",
+ "coverage_target": "through 2026-09-29",
+ "exclusions": [
+  "github.com/d6g8k5htny-coder",
+  "mirrors of the project's own repositories"
+ ],
+ "executed": {
+  "pass_1_session_web_search_4_queries": [
+   "expected persistence diagram density near diagonal Gaussian random field short bars asymptotics",
+   "persistent homology short lifetime power law critical points maximum saddle pairs smooth random function",
+   "Bargmann-Fock field persistent homology lifetime density torus",
+   "Kac-Rice formula pairs critical points small height gap intensity ell^(-1/3) persistence"
+  ],
+  "pass_2_extended_research_run_18_queries": [
+   "expected persistence diagram density near diagonal Gaussian random field",
+   "arXiv 2603.29072 \"How much of persistent homology is topology\"",
+   "Beliaev Cammarota Wigman no repulsion between critical points planar Gaussian random fields",
+   "persistence diagram smooth Gaussian random field short bars power law near diagonal asymptotics",
+   "Azaïs Delmas mean number and correlation function of critical points isotropic Gaussian fields",
+   "merge tree Gaussian random field barcode random Morse function elder rule",
+   "Kac-Rice persistence diagram random field expected density critical pairs",
+   "barcode Brownian motion expected number of bars length distribution persistent homology random process",
+   "persistent homology Bargmann-Fock field Betti numbers excursion sets",
+   "expected persistence diagram smooth stationary Gaussian process density behaviour near diagonal",
+   "McAuley persistence barcode Gaussian field law of large numbers topological",
+   "\"short bars\" persistent homology random function asymptotics number of bars length epsilon smooth",
+   "\"persistence\" \"near the diagonal\" smooth Gaussian process fold \"2/3\" bars length",
+   "Buhovsky Payette Polterovich coarse nodal count topological persistence bars length delta",
+   "Nicolaescu random Morse functions barcode persistence expected",
+   "persistence diagram Gaussian random field critical values pairs Kac-Rice \"persistence\" intensity explicit formula arXiv 2025",
+   "Gaussian random field on torus periodization finite-size correction critical points expected number",
+   "persistent homology Gaussian random field Wasserstein total persistence finite p-th moment smooth field"
+  ],
+  "forward_citation_keyword_checks": [
+   "1802.10457",
+   "1911.03455",
+   "1911.02300",
+   "1706.06059",
+   "2012.09459",
+   "1909.09846"
+  ],
+  "pass_3_lindgren_1972_full_text_openai_lane": {
+   "comment": "https://github.com/d6g8k5htny-coder/Math-/pull/147#issuecomment-5897859268",
+   "source": "G. Lindgren, Wave-length and amplitude in Gaussian noise, Adv. Appl. Prob. 4 (1972) 81-108, DOI 10.2307/1425807 (author-uploaded full text; Cambridge and Lund records)",
+   "finding": "prior art for the d=1 amplitude object and Slepian conditional formulas; no explicit small-amplitude -1/3 density asymptotic located; absence from the 1-D literature not claimed"
+  }
+ },
+ "not_executed": [
+  "classical 1-D small crest-to-trough height distributions: Rice 1945, Longuet-Higgins, Cartwright-Longuet-Higgins at full-text level (Lindgren 1972 read in full by the OpenAI lane, see executed.pass_3)",
+  "Divol-Polonik weight functions near the diagonal",
+  "LLN/CLT for persistent Betti numbers of smooth Gaussian fields, 2024-2026",
+  "Google Scholar cited-by enumeration for 1802.10457, 1911.03455, 1911.02300, 1706.06059, 1908.01619, 2012.09459, Bobrowski-Borman 2012, Adler-Taylor 2007"
+ ],
+ "author_side_paywalled": {
+  "mathscinet": [
+   "Anywhere=(persistence diagram OR barcode) AND Anywhere=(Gaussian random field OR Gaussian field) AND Anywhere=(diagonal OR short OR small lifetime)",
+   "MSC=(55N31 AND 60G60)",
+   "MSC=(60G60 AND 58K05) AND Anywhere=(critical value* AND (gap OR pair* OR close))",
+   "Anywhere=\"Bargmann-Fock\" AND Anywhere=(persistence OR Betti OR barcode)",
+   "Anywhere=(crest trough OR wave height) AND Anywhere=(small OR asymptotic) AND MSC=60G15"
+  ],
+  "zbmath_open": [
+   "ti:(persistence OR barcode) & ab:(Gaussian field) & ab:(diagonal)",
+   "cc:55N31 & cc:60G60",
+   "ab:\"critical values\" & ab:\"Kac-Rice\" & ab:(pair* | two-point)",
+   "ab:\"Bargmann-Fock\" & ab:(persistent | Betti | barcode)",
+   "ab:(torus | periodic) & ab:\"Gaussian field\" & ab:(exponentially small | finite-size correction)"
+  ]
+ },
+ "verdict": "no conflicting, overlapping, or different-exponent theorem found for the smooth-field H0 near-diagonal lifetime law under this protocol; not a proof of novelty",
+ "scientific_effect": "NONE"
+}

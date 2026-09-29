@@ -1,0 +1,20 @@
+{
+  "object": "CL-C7-TOTAL-BOUNDED-20260929-v1.1-CHECKS",
+  "passed": true,
+  "results": {
+    "(6.2')": "layer integral r^3 U^5 [a D^3 U/3 + a K D^2/2 + K^2 D^2 U/8]; equals P (6.2) at a = h/2",
+    "(7.3)": "int_0^{D r U^2} lam(lam+E r U) dlam = r^3 U^5 (D^3 U/3 + E D^2/2), exact",
+    "(K2)_reductions": "(r/k)^4 (k+r)^2 <= 4 r^3/k for r <= k; depth term r^5 k^-3 (k^2 + r^2) <= 2 r^5/k for r <= k",
+    "Corollary_T": {
+      "far": "O(1) by (14.1)",
+      "near, r<=k": "O(l^{1/4})",
+      "near, r>k, k^2-part": "O(l^{1/4})",
+      "near, r>k, r^2-part": "O(1) (cutoff shell)",
+      "rejected_moment_threshold": "q > -1 (sharp)",
+      "total": "O(1); Theta(1) with Theorem U"
+    },
+    "k_reductions": "a^2 k^-3, a^2 k^-2, a k^-2 all <= C k^-3 (k^2 + r^2) poly(U) for k <= 1; a k^-2 via r k^-2 <= (k^-1 + r^2 k^-3)/2",
+    "withdrawn_v1": "crude majorant route gives l^{-1/4}; wrong because A_r ~ k^2 (P (5.4)); kept as mutant M1"
+  },
+  "scope": "exact exponent/integral bookkeeping for Theorem K and Corollary T; Gaussian steps not verified"
+}

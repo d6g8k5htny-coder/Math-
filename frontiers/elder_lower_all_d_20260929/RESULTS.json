@@ -1,0 +1,31 @@
+{
+  "object": "CL-ELDER-LOWER-ALL-D-20260929-v1-CHECKS",
+  "passed": true,
+  "results": {
+    "B_beta_domination": "eps=1/16: 3(1-eps)(1-3eps) - m eps^2/4 >= 3/2 and 15(1-eps)(1-3eps/5) - m eps^2/4 >= 15/2 for m<=4",
+    "D_determinants": {
+      "W": "45 k^4 sigma^(2m-2) r^4",
+      "m=1": "planar values",
+      "|det H_M|": "3k^2 sigma^(m-1) r^2",
+      "|det H_S|": "15k^2 sigma^(m-1) r^2"
+    },
+    "E5_E6_path": {
+      "below_bound": "-15k/64 > -k/4",
+      "end": "+17k/64",
+      "end_bound": "k/4 > 0",
+      "margin": "k/64",
+      "min": "-7k/32"
+    },
+    "L_ledger": "Q_r(E_r) ~ r^1, W_r ~ r^4, Z_r ~ r^2 -> r^3 in every d; all-soft lift would give r^(m(m+1)/2+2m)",
+    "P_model": {
+      "H_M/k": "diag(-6,-1/2)",
+      "H_S/k": "diag(6,-5/2)",
+      "pins": "G(M)=0, G(S)=-1, grad=0"
+    },
+    "V_eigenvalue_region": {
+      "m=2": "measure = c1 r - c2 r^2, c1 = 2 eps k (s2^2 - s1^2)/2 > 0",
+      "m=3": "leading coefficient in r positive; no constant term"
+    }
+  },
+  "scope": "finite exact controls for the soft-eigenplane lift; not the Gaussian/continuum steps"
+}
