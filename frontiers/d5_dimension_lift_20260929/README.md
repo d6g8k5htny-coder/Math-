@@ -44,7 +44,12 @@ Nine groups of exact checks (`X G R RO EU TB N L W`): exterior-power inequality 
 7. Every step cited as "verbatim" from a planar source: confirm it is in fact dimension-free. The vector-valued
    statements behind (4.1), (5.2) and (6.2) are derived in §4.2, §5.3 and §6.3 rather than cited.
 8. For the `d >= 3` continuum read: `CONTINUUM_CROSSWALK.md` lists every held continuum step with its planar line,
-   the place where the `d`-dimensional argument is written, and the complete list of changes.
+   the place where the `d`-dimensional argument is written, and the complete list of changes. Tables A and B (pin
+   ball, collar) carry the OpenAI nonauthor ACCEPT 5357858391 at `c709854` (Theorems P_d, C_d discharged at that
+   source; source-exposed, xAI planar record as the independent base). Table C (shells; Theorem I_d and hence G_d,
+   F_d, M_d) is the one remaining pending slice: the height-marked shell covariance and row operation (6.1)–(6.4),
+   Euler suppression (6.5)–(6.6), the transverse determinant floor (6.11)–(6.13) and the `s^(-2)` shell ledger
+   (6.14)–(6.15).
 
 ## What this does not do
 
