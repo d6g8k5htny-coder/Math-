@@ -1,0 +1,38 @@
+{
+  "checks": {
+    "COEFF": {
+      "M14_T_exponent_beta_free": true,
+      "M15_constant": true,
+      "M15_k_exponent": true,
+      "M4_ratio": true
+    },
+    "ENVELOPE": {
+      "M11_far_exponent_is_minus2_minus_q": true,
+      "domain_exactly_lambda_lt_2": true
+    },
+    "FIXEDR": {
+      "M12_separated_order": true,
+      "M18_radial_power_1_minus_3beta_all_d": true,
+      "M20_monotone_comparison": true,
+      "integrable_iff_lambda_lt_2": true
+    },
+    "HEIGHT": {
+      "M16_normalizer": true,
+      "M17_correlation": true,
+      "M5_joint_and_marginal_mass_one": true,
+      "M6_variance": true,
+      "RP_alpha_two_thirds_and_q1_alpha_one_third": true,
+      "boundary_mean_gap_to_zero": true,
+      "pushforward_exponent": true
+    },
+    "OVERLAP": {
+      "M13_exact": true
+    },
+    "RESIDUE": {
+      "M22_matches_M21": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-REMOTE-MIXED-INVERSE-20260929-v1",
+  "passed": true,
+  "scope": "exact finite identities only; not an analytic proof"
+}
