@@ -1,0 +1,49 @@
+{
+  "author": "Anthropic Claude",
+  "closes_register_gap": "reconciliation \u00a72 / PROOF_INDEX D1 row: \"no lower bound for d >= 3\" (proposed; nonauthor review required before any register edit)",
+  "consumes": [
+    {
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent P (\u00a7\u00a71-5,7,8, Theorem A, \u00a7\u00a79-11) with reconciliation reading rule"
+    },
+    {
+      "blob": "aaefc8da9668e819591dd9db0b34442394f2362e",
+      "path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md",
+      "role": "planar base (E1)-(E8), accepted in reviews/d1_elder_lower_claude_20260928"
+    },
+    {
+      "blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "role": "planar (L9)-(L14) box mass, C4 control, normalizer"
+    }
+  ],
+  "delivered_under": "explicit owner instruction, claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge",
+  "files": [
+    {
+      "bytes": 16485,
+      "path": "PROOF.md",
+      "sha256": "88c6bfc7973fe832918f91e2ed1f47da3e51987ed9efc1a99648e82b2eb119e5"
+    },
+    {
+      "bytes": 11386,
+      "path": "lower_all_d_check.py",
+      "sha256": "9bd487ff494397feadf06ce236b88729a4405b03302edf27d8201e621e7b2d55"
+    },
+    {
+      "bytes": 1092,
+      "path": "RESULTS.json",
+      "sha256": "23b39c639d5acffb8bcf013069dfa8955200e7635efb9cee8b80aea5ac5903de"
+    }
+  ],
+  "mutants": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "object": "CL-ELDER-LOWER-ALL-D-20260929-v1",
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "statement": "1 - p_r >= c r^3 for every fixed d >= 2 on compact marks (Theorem E1_d); with parent Theorem A: Theta(r^3); with parent \u00a7\u00a79-11: compact-window loss Theta(l^(2/3)) in every d"
+}
