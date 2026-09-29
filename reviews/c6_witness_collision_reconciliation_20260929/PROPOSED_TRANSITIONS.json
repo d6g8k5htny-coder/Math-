@@ -4,12 +4,12 @@
   "scientific_effect": "NONE",
   "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
-  "reverified_at": "7a1cb09 (Math- main after Math-#155 and Math-#156; no inventoried path changed)",
+  "reverified_at": "5c484bf (Math- main after Math-#155, #156 and #161; no inventoried path changed)",
   "revision": {
-    "version": "v1.1",
+    "version": "v1.2",
     "applies": [
-      "OpenAI review 5359701805 items 1-3 (P_eta row scope; upper bounds only; bypass scope retention)",
-      "OpenAI pickup 5900929519 residual wording: not supplied by the landed reviewed chain"
+      "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
+      "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged (Anthropic 5359733142 source-exposed; Codex engineering 5359797442); Math-#158 slice verdicts A/B/C/D"
     ],
     "unchanged": "inventory, node ids, edges, status-row statement, historical predicates"
   },
@@ -102,7 +102,7 @@
       "node": "math.rn-region.witness-collision.leading-mass-localization",
       "current": "ABSENT",
       "proposed": "OPEN_ACTIVE",
-      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote) is not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, draft e7f8929, planar, global law conditional on Math-#158) and Math-#159 (Claude, 7188bfa, every fixed d); unreviewed, not premises, not inventoried, not consumed. Required by no theorem.",
+      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote) is not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts while #158 is unmerged) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
       "required": [],
       "supporting": [
         "frontiers/elder_dimension_lift_20260928/PROOF.md",
@@ -531,7 +531,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "leading-order r^3 mass of E N(N-1): pin-local vs mixed pairs",
-      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs, not supplied by the landed reviewed chain; author-side candidates Math-#161 (e7f8929) and Math-#159 (7188bfa) are unreviewed and not premises. Required by no theorem; recorded so that the register keeps a precise statement."
+      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs, not supplied by the landed reviewed chain; author-side candidates: Math-#161 (e7f8929, merged 5c484bf, planar, Anthropic 5359733142 source-exposed + Codex engineering 5359797442, conditional on Math-#158) and Math-#159 (7188bfa, unreviewed); not premises, not consumed. Required by no theorem; recorded so that the register keeps a precise statement."
     },
     {
       "id": "regional.shrinking-regions.analytic-route",
