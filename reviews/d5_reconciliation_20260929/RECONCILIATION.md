@@ -111,7 +111,7 @@ about what code verifies. Its `REVIEW.md` table records the analytic ACCEPT.
 |---|---|---|
 | main `STATUS.md` | D5 in the not-accepted table (text in §1) | Move to the accepted table: **"D5 — pin neighborhoods / microdisk (first moment)"** with the scope of D5-a…D5-f, existential constants, fixed `T`, compact marks with `k ≥ k_− > 0`, all frames and indices, `d = 2`. Add a not-accepted row **"D5-collision (C6)"** with the §5 text. |
 | `PROOF_INDEX.md` | first two D5 bullets under "Open obligations" | Move them to the reviewed section, citing §3's records. Keep the third bullet (shrinking collision) open and point it to C6. |
-| `GRAPH.json` | `math.rn-region.pin-collision`, `.mesoscopic-scaled-annulus` and `.intermediate-r-to-rho` are OPEN_ACTIVE | `PROVED_REVIEWED` at the D5-d, D5-d and D5-e scopes respectively, with these records as `coverage_source`. **`math.rn-region.witness-collision` stays OPEN_ACTIVE.** |
+| `GRAPH.json` | `math.rn-region.pin-collision`, `.mesoscopic-scaled-annulus` and `.intermediate-r-to-rho` are OPEN_ACTIVE | `PROVED_REVIEWED` at the D5-d, D5-d and D5-e scopes respectively. This is realized only by actual source nodes and `required` edges to every evidence component, as declared in `PROPOSED_TRANSITIONS.json`, and never by `coverage_source` metadata. **`math.rn-region.witness-collision` stays OPEN_ACTIVE.** |
 
 The machine-readable form is `PROPOSED_TRANSITIONS.json`.
 - **Dependency chains.** Every transition that uses P2 lists the continuum record, its checker and #111 in its
@@ -122,6 +122,11 @@ The machine-readable form is `PROPOSED_TRANSITIONS.json`.
 - **Required edges.** 30 `required: true` edges run from each consuming node to each of its components.
 - **Enforcement.** The checker requires every chain to be realized by nodes with matching fingerprints and by the
   required edges. A `coverage_source` string alone is not byte invalidation.
+- **Declarative only.** `PROPOSED_TRANSITIONS.json` is declarative and is not executed (`"executed": false`,
+  checked). This PR makes no GRAPH or registry edit.
+  - A later graph change must create actual source nodes and `required` edges to every mandatory evidence component,
+    or else a separately tested extension of the existing reverse-impact source reader.
+  - `coverage_source` metadata is not read by that reader, so it cannot serve as an invalidation repair.
 
 These transitions rest only on the verdicts in §3. The only Claude-authored mathematical input is `P_η`
 (`remote_collision`), and it has xAI/Grok verdicts. The two Claude *review* records (P2 continuum, I3–I5) are joined by

@@ -500,5 +500,7 @@
       "relation": "requires_evidence"
     }
   ],
-  "note": "Every mandatory evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node; a coverage_source string alone is not byte invalidation."
+  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH or registry edit is made here. Every mandatory evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. A later graph change must create actual source nodes and required edges (or a separately tested source-reader extension); coverage_source metadata is not read by the reverse-impact source reader and is not byte invalidation.",
+  "declarative": true,
+  "executed": false
 }

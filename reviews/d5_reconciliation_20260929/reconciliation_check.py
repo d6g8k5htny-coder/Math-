@@ -191,6 +191,7 @@ def check_transitions(root):
             continue
         ok &= all(p in by_source and (src_node, by_source[p]) in have for p in e["required"])
     ok &= "math.d5-pin-neighborhood-first-moment" in nodes
+    ok &= spec.get("declarative") is True and spec.get("executed") is False
     return ok
 
 
