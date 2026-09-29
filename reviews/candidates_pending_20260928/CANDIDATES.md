@@ -153,8 +153,8 @@ Current disposition: **REFUTED**. Theorem U in
 proves that the unrestricted difference is bounded below by a positive constant,
 so its ratio to `ell^alpha` diverges for every `alpha>0`. The source-bound
 [`reviews/c7_nonvanishing_openai_20260929/REVIEW.md`](../c7_nonvanishing_openai_20260929/REVIEW.md)
-accepts that conclusion at fixed `d,L,r_0`; the packet landed via Math-#149 at
-`21244e5ea0b0ab26884d8f933f9391acfa2b3697`. This does not assert an
+accepts that conclusion at fixed `d,L,r_0`; the packet landed via Math-#133 at
+`5bd924969bb261241885cd224d5dfb31acf64509`. This does not assert an
 individual expansion for `nu_eld` or transfer the compact-mark rate to the
 unrestricted densities.
 

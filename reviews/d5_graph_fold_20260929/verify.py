@@ -101,6 +101,9 @@ class FoldTests(unittest.TestCase):
         self.assertIn("REFUTED",c7)
         self.assertIn("frontiers/unrestricted_selection_difference_20260929/PROOF.md",c7)
         self.assertIn("reviews/c7_nonvanishing_openai_20260929/REVIEW.md",c7)
+        self.assertIn("Math-#133",c7)
+        self.assertIn("5bd924969bb261241885cd224d5dfb31acf64509",c7)
+        self.assertNotIn("Math-#149",c7)
         self.assertNotIn("Current disposition: **OPEN**",c7)
     def test_declarative_source_preserved(self):
         self.assertIs(self.p["declarative"],True)
