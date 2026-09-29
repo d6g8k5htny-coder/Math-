@@ -1,0 +1,52 @@
+{
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "sources": [
+    {
+      "id": "RM",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Exact law, weighted Kac-Rice/field marks, conditional moments and full normalizer."
+    },
+    {
+      "id": "RC",
+      "commit": "5a5b97d2c518dd5c04c89d17029ec96e721d3b78",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "use": "Pair Kac-Rice, collision regression floor and moments, separated-pair bound."
+    },
+    {
+      "id": "RP",
+      "commit": "0507e3a1dbd3dede84cbeb805947c70aa16ebc36",
+      "path": "frontiers/window_multiplicity_laws_20260928/REMOTE_PAIR_LAW.md",
+      "bytes": 15878,
+      "sha256": "b818a11f1abcf37616d592ecda6341b0d99365cf3ac5047bc2dbaede95da4c5e",
+      "git_blob": "3fb602040b37158b16ba61bdfc62cc8df1ccc616",
+      "use": "Blown-up L1 density and determinant limits, fixed-Borel translation, exact A0 and sampling convention.",
+      "review": "Math-#116 comment5880900642, Anthropic analytic review; published review-code packet separate."
+    },
+    {
+      "id": "RD",
+      "role": "comparison_only_not_consumed",
+      "commit": "0507e3a1dbd3dede84cbeb805947c70aa16ebc36",
+      "path": "frontiers/window_multiplicity_laws_20260928/REMOTE_DISTANCE_MOMENTS.md",
+      "bytes": 11097,
+      "sha256": "b40dc67a0c4760d3db796914bdc50cbbd5fd1371786772fa919a3a100467b41d",
+      "git_blob": "d077743b7fda8b1bb2e1bafdab97d01bb9e321b1",
+      "use": "Only identifies the prior p>=0 scope. Its p=1 transition and upper tail are not premises."
+    }
+  ],
+  "new_obligations": [
+    "Fixed-r gradient-only collision coefficient and positive support",
+    "Height-indicator convergence and arbitrary fixed-Borel radial asymptotic",
+    "Contact matching J_r/r^3 and inverse-moment weighted domination"
+  ],
+  "blocked_executable_consumed_or_retried": false,
+  "upstream_full_replay_by_packet_runner": false,
+  "nonauthor_acceptance": false
+}

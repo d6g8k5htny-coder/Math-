@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "author": "OpenAI / ChatGPT",
+  "date": "2026-09-28",
+  "scientific_effect": "NONE",
+  "mathematical_acceptance": false,
+  "review_status": "AUTHOR_SIDE_REVIEW_REQUIRED",
+  "public_scope": "proof and provenance documents only",
+  "reproducible_computation_from_this_github_packet": false,
+  "code_publication": {
+    "state": "BLOCKED_UNRESOLVED",
+    "tool_message": "This tool call was blocked by OpenAI because we could not determine the safety status of the request.",
+    "blocked_file": {
+      "path": "algebra.py",
+      "bytes": 6163,
+      "sha256": "16ed713d1822efe2b254f8fd990270a81d23e49487208d4866f888486f553350",
+      "git_blob": "00140088f011b830c343900a4db646b38a5bdd52"
+    },
+    "retry_or_alternate_route_attempted": false,
+    "owner_delivery": "complete local source and evidence in conversation artifact; not a GitHub execution receipt"
+  },
+  "actual_local_execution": {
+    "tests_per_mode": 30,
+    "modes": [
+      "normal",
+      "optimized"
+    ],
+    "semantic_mutants_per_mode": 13,
+    "all_intended_assertion_failures": true,
+    "execution_errors": 0,
+    "normal_optimized_json_pairs_identical": 14,
+    "packet_files_checked": 13,
+    "packet_only_runner_exit_code": 0,
+    "dependency_bytes_replayed_locally": false,
+    "source_bytes_unchanged": true,
+    "infrastructure_negative_controls": 4
+  },
+  "evidence_files": [
+    {
+      "path": "FINITE_REPLAY_SUMMARY.json",
+      "bytes": 6322,
+      "sha256": "745784d958f1aeab958b047155c81c386148c7bbed374c71c64224b74c08389a",
+      "git_blob": "1b5c9e41a9cb25de91648124ca24abd7c09ccb76"
+    },
+    {
+      "path": "PACKET_VALIDATION.json",
+      "bytes": 319,
+      "sha256": "6dc693add39e2c300f3f73986e6f98cea57bf194e61ec44aa81b51e67279c93d",
+      "git_blob": "2807b88740bb2da02bac3fb70de0c5f4445a60e0"
+    },
+    {
+      "path": "PACKET_NEGATIVE_CONTROLS.json",
+      "bytes": 553,
+      "sha256": "d1338e78413961176ec30521961c302b38cba51692d14cfaff894713ca076f47",
+      "git_blob": "81116b1b9d5969e9241290f0a2dd61da9c8f3610"
+    },
+    {
+      "path": "RED.stderr",
+      "bytes": 865,
+      "sha256": "3a5b90a07e9f1663d32407db59bd7f35c4fe58060a3ae15965feec3272e795f5",
+      "git_blob": "ee5187f3a80a7fb130d0dcd9012f9b585643cde0"
+    },
+    {
+      "path": "ELDER_RED.stderr",
+      "bytes": 774,
+      "sha256": "f5d6aea704001d8e43886a58ffc47b9b3ce819959ccf12bdb4e60b9cf3aae07e",
+      "git_blob": "21dc945024e8fd538db17bf01131a7b8d690aaf7"
+    }
+  ]
+}

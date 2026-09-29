@@ -1,0 +1,58 @@
+{
+  "checks": {
+    "COEFF": {
+      "A_p_equals_A_0_times_S_moment": true,
+      "I20_normalizes_to_one": true,
+      "I21_slope_equals_J0_over_A0": true,
+      "I8_at_p0_reduces_to_R3_three_fortieths": true,
+      "I8_constant_108_equals_three_quarters_144": true,
+      "abelian_limit_of_I8_matches_I19": true
+    },
+    "CUTOFF": {
+      "q2_log_with_bounded_remainder": true,
+      "q3_q4_leading_terms_J_eps_power_over_q_minus_2": true,
+      "small_cdf_has_factor_one_half": true
+    },
+    "ENVELOPE": {
+      "endpoint_shell_sums_grow_linearly": true,
+      "envelope_finite_exactly_on_minus2_lt_p_lt_1": true,
+      "t_window_length_is_k_over_s_cubed": true,
+      "z_overlap_is_k_minus_s3_abs_t": true
+    },
+    "LEDGER": {
+      "J_r_is_order_r_cubed_by_both_routes": true,
+      "blow_up_radial_power_is_one_all_d": true,
+      "fixed_r_radial_power_is_one_all_d": true,
+      "frames_agree_after_dy_prime_equals_delta3_dt": true,
+      "gradient_only_frame_det_is_delta_minus_d": true,
+      "height_divided_frame_det_is_delta_minus_d_minus_3": true
+    },
+    "OVERLAP": {
+      "I11_at_p0_is_R10_three_tenths": true,
+      "I11_overlap_integral_exact_negative_and_positive_p": true,
+      "T_exponent_in_1_2_on_domain": true
+    },
+    "PAIR": {
+      "I14_limit_with_order_delta_squared_error": true,
+      "det_squared_le_He_squared_times_frobenius": true,
+      "determinant_product_exact_identity": true,
+      "height_gap_is_minus_T_delta_cubed_over_12": true,
+      "pair_fields_have_both_critical_points": true,
+      "same_index_product_is_order_delta_four": true,
+      "segment_bound_He_le_half_delta_D3": true,
+      "two_windows_differ_on_measure_abs_gap": true
+    },
+    "RANK": {
+      "delta0_positivity_list_full_rank_d2_d3": true,
+      "delta_positive_frame_full_rank_d2_d3": true,
+      "undivided_gradient_frame_degenerates_at_delta0": true
+    },
+    "SCOPE": {
+      "iterated_limits_both_J0_but_coupled_cutoff_sees_J0_plus_half": true,
+      "tv_convergence_does_not_control_inverse_moments": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-REMOTE-INVERSE-SEPARATION-20260929-v1",
+  "passed": true,
+  "scope": "exact finite identities only; not an analytic proof"
+}

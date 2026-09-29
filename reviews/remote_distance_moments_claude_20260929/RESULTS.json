@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "DET": {
+      "D6_axial_entries_plus_minus_6t_plus_O_delta": true,
+      "D6_block_determinant_identity_incl_singular_A": true
+    },
+    "DIAGONAL": {
+      "B_p_locally_integrable_for_p_gt_minus1": true,
+      "D9_radial_density_order_delta0_all_d": true
+    },
+    "ENVELOPE": {
+      "D8_inner_is_r3_delta_all_d": true,
+      "D8_terms_are_r12_delta_minus8_and_r6": true,
+      "height_integral_exact_kr3_a3_over_6_plus_delta2_a": true,
+      "original_envelope_first_moment_not_summable": true
+    },
+    "MOMENTS": {
+      "A_p_is_A0_E_S_p": true,
+      "D15_D16_exponents": true,
+      "D15_limit_exceeds_TV_limit_by_B1_over_A0": true,
+      "D2_T_exponent_integrable_iff_p_lt_7": true,
+      "D2_at_p0_is_R3": true,
+      "rms_distance_exponent": true
+    },
+    "REGIMES": {
+      "A1_prefactor_k2_over_2z0": true,
+      "p1_middle_bounded_by_A_minus6_plus_eps2": true,
+      "p_gt_1_small_distance_parts_vanish": true,
+      "regime_exponents": true
+    },
+    "TAIL": {
+      "S_moments_finite_iff_p_lt_7": true,
+      "model_tail_s9_integral_to_k4_over_6": true,
+      "tail_constants_6_and_6_over_7": true,
+      "tail_matches_D8_and_crossover_three_quarters": true,
+      "v2_one_minus_abs_v_integral_is_one_sixth": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-REMOTE-DISTANCE-MOMENTS-20260929-v1",
+  "passed": true,
+  "scope": "exact finite identities only; not an analytic proof"
+}
