@@ -1,6 +1,6 @@
 # The unrestricted selection difference does not vanish: disposition of candidate C7
 
-Object: CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v1.
+Object: CL-D1-UNRESTRICTED-DIFFERENCE-20260929-v2.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE CANDIDATE; nonauthor analytic review required.
 Scientific effect: NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, lemma flag, prize or source body changes.
@@ -63,14 +63,25 @@ pairs carrying the mark,
 
 ## 3. A separating level curve forbids pairing
 
-**Lemma 1.** Let `f` be `C²`, let `x` be a local maximum and `y` an index-`(d−1)` saddle with `dist(x, y) ≥ r_0`, and
-suppose `f ∈ O_{x,y,ℓ}`. Then `(x, y)` is not an `H_0` persistence pair of the superlevel filtration.
+**Lemma 1.** Let `f` be a Morse function with distinct critical values (the almost-sure generic locus of parent §8).
+Let `x` be a local maximum and `y` an index-`(d−1)` saddle with `dist(x, y) ≥ r_0`, and suppose `f ∈ O_{x,y,ℓ}`, that
+is, `sup_{∂B(x,ρ)} f < s := f(y)`. Then `(x, y)` is not a finite `H_0` persistence pair of the superlevel
+filtration.
 
-*Proof.* If `(x, y)` were a pair, the bar born at `x` would die at `y`. So for every `t` slightly above `f(y)`, the
-component `C_t` of `{f > t}` containing `x` would have `y` in its closure. Every such `t > f(y)` also
-satisfies `t > sup_{∂B(x,ρ)} f`. Then `C_t` is connected, contains `x` and does not meet `∂B(x, ρ)`. Since
-`ρ < r_0 < L/4`, the ball is embedded and `∂B(x,ρ)` separates it from its complement, so `C_t ⊂ B(x, ρ)`. Also
-`f < t` on `∂B(x, ρ)`, so `cl(C_t) ⊂ B(x, ρ)`, which does not contain `y`. ∎
+*Proof.* We work at the closed critical superlevel `{f ≥ s}`, not above `s`.
+
+We use one incidence fact on the generic locus. If a finite `H_0` bar is born at `x` and killed at `y`, then `y` lies
+in the closure of the component `C` of `{f > s}` that contains `x`. The reason is the local picture at a Morse saddle
+of index `d−1` at level `s`. Near `y`, `{f > s}` consists of two local cones. The merge at `y` joins the two global
+components of `{f > s}` that contain them, and the bar killed at `y` is the younger of those two components, which is
+`C`. Since `cl(C) ⊂ {f ≥ s}` is connected, `x` and `y` lie in one connected component `K` of `{f ≥ s}`.
+
+Now `f < s` on `∂B(x, ρ)`, so `K` does not meet `∂B(x, ρ)`. Since `ρ < r_0 < L/4`, the ball is embedded and its
+boundary separates it from its complement. As `K` is connected and contains `x`, `K ⊂ B(x, ρ)`. But
+`dist(x, y) ≥ r_0 > ρ`, so `y ∉ B(x, ρ)`, a contradiction. ∎
+
+The height difference `ℓ = f(x) − f(y)` is positive for every actual pair. The value `ℓ = 0` enters below only as an
+endpoint of the compact parameter set in Lemmas 2–3, never as a paired event.
 
 Hence the far candidate pairs carrying the mark in (2.2) are not bars, and
 
@@ -158,3 +169,12 @@ the square `|u|, |v| ≤ a` with `cos a = −α/2` (rational), `g < g(π, π)`. 
   the same interface as parent §9 and [RC] (3.1).
 
 Nothing from the elder-selection upper estimate of Theorem A is used.
+
+## Revisions
+
+- **v2.** Lemma 1 is repaired as requested in
+  [5890369316](https://github.com/d6g8k5htny-coder/Math-/pull/133#issuecomment-5890369316). The v1 proof asserted that
+  `y` lies in the closure of `x`'s component of `{f > t}` for `t > f(y)`. That is false, because such a closure lies
+  in `{f ≥ t}` and `f(y) < t`. v2 argues at the closed critical superlevel `{f ≥ f(y)}`, using the generic-locus merge
+  incidence stated explicitly, and treats `ℓ = 0` only as a compactness endpoint. Theorem U, Lemmas 2–3, the witness
+  and the corollaries are unchanged.
