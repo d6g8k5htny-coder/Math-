@@ -137,19 +137,26 @@ Open task: prove or refute the shrinking-separation witness-collision mechanism
 encoded by the open graph node, without inferring it from the global Palm
 bound. Numerical constants and a unique limiting cluster law also remain
 outside the reviewed packets cited above.
-## C7. Unrestricted selection-difference rate (still open as of 2026-09-29)
+## C7. Unrestricted selection-difference rate (historical proposal — REFUTED)
 
-Candidate: Theorem C's unrestricted densities satisfy
+Historical candidate: Theorem C's unrestricted densities satisfy
 
     0 <= nu_cand^{all}(ell) - nu_eld^{all}(ell) <= C ell^{2/3}.
 
-Written support: the compact-mark case is the parent difference estimate under
+The compact-mark case is the parent difference estimate under
 Theorem A in `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
-at `5a5b97d2c518dd5c04c89d17029ec96e721d3b78`. #116 C1 would make the compact exponent sharp.
+at `5a5b97d2c518dd5c04c89d17029ec96e721d3b78`; it is not contradicted by
+the unrestricted counterexample.
 
-Current disposition: **OPEN**. A rate in the unbounded-mark dominated-convergence
-argument of parent §13 is still missing; the parent text does not claim this
-unrestricted remainder.
+Current disposition: **REFUTED**. Theorem U in
+[`frontiers/unrestricted_selection_difference_20260929/PROOF.md`](../../frontiers/unrestricted_selection_difference_20260929/PROOF.md)
+proves that the unrestricted difference is bounded below by a positive constant,
+so its ratio to `ell^alpha` diverges for every `alpha>0`. The source-bound
+[`reviews/c7_nonvanishing_openai_20260929/REVIEW.md`](../c7_nonvanishing_openai_20260929/REVIEW.md)
+accepts that conclusion at fixed `d,L,r_0`; the packet landed via Math-#149 at
+`21244e5ea0b0ab26884d8f933f9391acfa2b3697`. This does not assert an
+individual expansion for `nu_eld` or transfer the compact-mark rate to the
+unrestricted densities.
 
 ## C8. Numerical constants (still open as of 2026-09-29)
 

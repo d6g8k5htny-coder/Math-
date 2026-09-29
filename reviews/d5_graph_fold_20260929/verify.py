@@ -96,6 +96,12 @@ class FoldTests(unittest.TestCase):
         self.assertIn("sharp global order is reviewed and merged through Math-#145",note)
         self.assertIn("regional shrinking pin/witness-collision mechanism",note)
         self.assertNotIn("sharp full-window order remain open",note)
+    def test_catalog_c7_historical_proposal_is_refuted(self):
+        c7=self.cand.split("## C7.",1)[1].split("\n## C8.",1)[0]
+        self.assertIn("REFUTED",c7)
+        self.assertIn("frontiers/unrestricted_selection_difference_20260929/PROOF.md",c7)
+        self.assertIn("reviews/c7_nonvanishing_openai_20260929/REVIEW.md",c7)
+        self.assertNotIn("Current disposition: **OPEN**",c7)
     def test_declarative_source_preserved(self):
         self.assertIs(self.p["declarative"],True)
         self.assertIs(self.p["executed"],False)
