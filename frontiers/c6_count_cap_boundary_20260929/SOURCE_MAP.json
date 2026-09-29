@@ -1,0 +1,23 @@
+{
+  "scientific_effect": "NONE",
+  "mathematical_inputs": [],
+  "context_only": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "pull_request": 140,
+      "commit": "09763caf5849c96ab291b4c51b2192c64529565f",
+      "path": "frontiers/c6_factorial_moment_20260929/PROOF.md",
+      "use": "Motivates rare-count/cap-tail inference; not an input to the abstract proof."
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "pull_request": 142,
+      "commit": "aee04cd1eca597cfd45ca88df4b2fdc1728717f9",
+      "path": "frontiers/c6_sharpened_20260929/PROOF.md",
+      "use": "Separate growing-Cauchy-radius candidate. This packet neither duplicates nor accepts its Gaussian argument."
+    }
+  ],
+  "independence": "The author proposed the growing-radius route and reviewed inputs in the same account. This separate abstract result requires its own nonauthor review.",
+  "gaussian_optimality_claimed": false,
+  "global_factorial_order_closed": false
+}
