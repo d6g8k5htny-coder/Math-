@@ -7,7 +7,9 @@ Scope:
 - D5-a–D5-d all-height first moments and D5-e–D5-f window-only first moments;
 - reviewed planar C6 upper bound `E N(N-1)<=C r^3 log(1/r)`.
 
-Explicitly open: shrinking witness collision, sharp `Theta(r^3)`, Palm/size-biased repair, `d>=3` first moments, numerical constants, RN/24-jet/JETMOD and elder selection.
+Separate reviewed/merged packets are not folded by this planar transition: the fixed-dimensional D5 first moments in `frontiers/d5_dimension_lift_20260929/` (Math-#141), the sharp Palm route in `frontiers/c6_palm_route_20260929/` (Math-#145), and the conditional rare-cluster consequences in `frontiers/c6_rare_cluster_laws_20260929/` (Math-#153).
+
+Explicitly open in this graph fold: the regional shrinking witness-collision mechanism and its `OPEN_ACTIVE` node. Numerical constants and RN/24-jet/JETMOD remain outside this fold; no elder-selection or other register transition is inferred.
 
 Run:
 

@@ -1,0 +1,50 @@
+{
+  "author": "Anthropic Claude",
+  "consumes": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent (15.2) exponent structure",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "role": "reference specialization + coarse band"
+    }
+  ],
+  "delivered_under": "owner instruction in claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge; scientific effect NONE",
+  "files": [
+    {
+      "bytes": 12391,
+      "path": "PROOF.md",
+      "sha256": "f540b9b9907ba3e7fa21a9aff03c2af9c7c26c8af63589a79fe72f9f0a62ec50"
+    },
+    {
+      "bytes": 13368,
+      "path": "first_variation_check.py",
+      "sha256": "57d0cac78975ee6c1a23321d8aa44cff92681fb2a42aff8fe820f727c975d6f3"
+    },
+    {
+      "bytes": 1307,
+      "path": "RESULTS.json",
+      "sha256": "b9a28da8aa4332fcf67fc6a1a61d0c8c5caead4de6f15d653a8aafa0426c268c"
+    }
+  ],
+  "mutants": [
+    "M1",
+    "M2",
+    "M3"
+  ],
+  "object": "CL-SIDE24-PFV-20260929-v1.1",
+  "result": {
+    "P3(24)": "-620813376/35",
+    "P3(L)": "-L^2(10L^4-147L^2+315)/105",
+    "coarse_band": "< 1e-106 (side24_v1, reviewed)",
+    "leading_relative_correction_L24": "-(620813376/35) e^-288 ~ -1.4862e-118"
+  },
+  "reviewer_session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "scope": "leading nearest-image first-variation of the reference SIDE24 coefficient; author-side; nonauthor review open",
+  "v1_1_change": "\u00a74 rewritten: the three exponents are derived from finite Gaussian conditioning of the isotropic jet (general d), not read off; checker H6 extended (conditional-covariance scaling, tau^2 Schur complement, general-d exponent sums). \u00a71-3, \u00a75 and the closed forms unchanged."
+}

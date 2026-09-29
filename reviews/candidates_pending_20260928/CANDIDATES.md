@@ -24,12 +24,16 @@ Pending: 10-jet covariance floor; `Q_r` box mass `>= c r`; `W_r >= c r^4` on tha
 Source: `frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md` at `0507e3a1dbd3dede84cbeb805947c70aa16ebc36`.
 
 Candidate: `P(N_global >= 2) = Theta(r^3)` in the planar height window.
-If established with the stated first-moment upper bound, this would rule out global
-conditional uniqueness. Its lower half would also obstruct a global `O(r^5)`
-factorial upper bound; see C6. These are conditional consequences, not an
-acceptance of this candidate.
+The same global order conclusion is now available by the separate reviewed Palm
+route in `frontiers/c6_palm_route_20260929/PROOF.md`; that theorem does not
+validate this candidate's local jet-box mechanism. If the mechanism here were
+established with its stated first-moment upper bound, it would give an independent
+local explanation of the failure of global conditional uniqueness. This is not an
+acceptance transfer from the Palm theorem.
 
-Pending: the jet-box probability lower bound together with the planar first-moment upper bound (I5), as a matched Theta statement, plus public tests.
+Pending for this candidate: the jet-box probability lower bound together with the
+planar first-moment upper bound (I5), as a matched local mechanism, plus public
+tests.
 
 ## C3. Remote ordered-pair kernel and beta-gap law (Math-#116)
 
@@ -72,7 +76,7 @@ was integrated at `4b2aa45b2f995fc27c16ec37cccb081821eda74c` with a scoped
 nonauthor review, but its proof explicitly omits the height law. This new height
 candidate does not inherit acceptance from that merge.
 
-## C6. Torus-wide second factorial moment: reviewed upper bound; sharp order open
+## C6. Torus-wide factorial moments: reviewed global order; regional mechanism open
 
 The reviewed planar Fourier-cutoff theorem now supplies, for fixed `T`, compact
 positive-gap marks and existential constants,
@@ -86,21 +90,31 @@ review 5356335148 ACCEPTs the stated planar composition. The complete planar
 D5/I5 reading rule is load-bearing. Tests and the merge do not substitute for
 that analytic review.
 
-The global `O(r^5)` extension is not an unqualified theorem target. Pointwise,
-`N(N-1)>=2*1{N>=2}`; therefore a future proved lower bound
-`P(N>=2)>=c r^3` would force an order-`r^3` lower bound. The current Fourier
-result is only an upper bound with one logarithm. It does not prove
-`Theta(r^3)`, validate C2's lower mechanism, or close the shrinking
-pin/witness-collision or size-biased Palm estimate. The `d>=3` factorial
-composition remains conditional on its separate first-moment input.
+The later sharp route is a separate reviewed/merged packet, not part of this
+planar graph transition. `frontiers/d5_dimension_lift_20260929/PROOF.md`
+(Math-#141, merge `e1ca400`) supplies the fixed-`d` first-moment inputs, and
+`frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145, merge `820d443`) gives
+`E[(N)_q]<=C_q r^3` for fixed `q>=2` and
+`E[N(N-1)]=Theta(r^3)` in every fixed `d>=2`, at the exact scopes and review
+exposures stated in those packets. The conditional consequences in
+`frontiers/c6_rare_cluster_laws_20260929/PROOF.md` (Math-#153, merge
+`190cf2b`) are likewise separate: they do not identify a unique limiting
+cluster law and do not move a graph node.
+
+These separate reviewed/merged packets resolve the global sharp-order and
+higher-dimensional first-moment statements at their recorded scopes. They do
+not close the regional shrinking-witness mechanism: the planar graph node
+`math.rn-region.witness-collision` remains `OPEN_ACTIVE`. This catalog line
+therefore distinguishes a proved global result from an unresolved regional
+explanation rather than treating the global result as open.
 
 The fixed-remote `O(r^5)` result remains separate: both witnesses stay a fixed
 distance from the pins. Source: `frontiers/remote_collision_20260928/PROOF.md`.
 
-Open task: determine the sharp full-window order, with the pin-neighborhood
-collisions included. Mean plus a stretched/exponential total-count cap alone
-cannot remove the logarithm; an appropriate marked or size-biased estimate is
-still required.
+Open task: prove or refute the shrinking-separation witness-collision mechanism
+encoded by the open graph node, without inferring it from the global Palm
+bound. Numerical constants and a unique limiting cluster law also remain
+outside the reviewed packets cited above.
 ## C7. Unrestricted selection-difference rate
 
 Candidate: Theorem C's unrestricted densities satisfy

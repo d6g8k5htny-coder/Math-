@@ -1,0 +1,60 @@
+{
+  "object": "CL-D1-CDE-FULLDEPTH-20260929-v1-CHECKS",
+  "passed": true,
+  "results": {
+    "C1_detTr_exact_12_r_minus_d_plus_3": [
+      [
+        2,
+        "1/7",
+        "201684"
+      ],
+      [
+        2,
+        "3/5",
+        "12500/81"
+      ],
+      [
+        2,
+        "1",
+        "12"
+      ],
+      [
+        2,
+        "9/4",
+        "4096/19683"
+      ],
+      [
+        3,
+        "1/7",
+        "1411788"
+      ],
+      [
+        3,
+        "3/5",
+        "62500/243"
+      ],
+      [
+        3,
+        "1",
+        "12"
+      ],
+      [
+        3,
+        "9/4",
+        "16384/177147"
+      ]
+    ],
+    "C2_radial_ledger_power": 1,
+    "C3_target_coercivity_13_1": "grid 6x4x3 exact",
+    "C4_pushforward_11_1_cubed_identity": "exact",
+    "C5_gamma_factor_15_2": "rel<1e-9 at tau=1,2.5",
+    "C6_half_gaussian_moment": "rel<1e-9",
+    "C7_amplitude_scaling_exponent": "-2/3 all d in 2..10",
+    "C8_specialization_concordance": {
+      "c2": "0.073406919306034296",
+      "c3": "0.041775931840598357"
+    },
+    "C9_E1_congruence": "det(DHD)=det(H)/r exact; sqrt-r mutant differs"
+  },
+  "scope": "finite exact/numerical controls for parent Sections 10, 13-14, 15 as read with E1/E2/W1; not the Gaussian proof"
+}

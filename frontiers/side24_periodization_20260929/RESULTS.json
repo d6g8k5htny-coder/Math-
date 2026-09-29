@@ -1,0 +1,52 @@
+{
+  "object": "CL-SIDE24-PFV-20260929-v1-CHECKS",
+  "passed": true,
+  "results": {
+    "H1_hermite": {
+      "He2": "L^2-1",
+      "He4": "L^4-6L^2+3",
+      "He6": "L^6-15L^4+45L^2-15",
+      "at_zero": [
+        1,
+        -1,
+        3,
+        -15
+      ]
+    },
+    "H2_sphere_moments": {
+      "v1^2": "1/3",
+      "v1^2v2^2": "1/15",
+      "v1^2v2^2v3^2": "1/105",
+      "v1^4": "1/5",
+      "v1^4v2^2": "1/35",
+      "v1^6": "1/7"
+    },
+    "H3_projection_weights": {
+      "d4": [
+        "1/5",
+        "2/5"
+      ],
+      "d6": [
+        "1/7",
+        "3/7",
+        "6/7"
+      ]
+    },
+    "H5_moment_variations_per_q": {
+      "da": "-2L^2",
+      "dchi": "-(6/7)L^6+18L^4-90L^2",
+      "dm4": "(6/5)L^4-12L^2"
+    },
+    "H6_chain": "exponents derived: a^(-d/2-2/3) m4^(d/2-1) Omega^(2/3); d=3 -> (-13/6, 1/2, 2/3); dlogc = dOmega/9 + dm4/6 - (13/6) da at (1,3,15)",
+    "H7_P3": {
+      "P3(24)": "-620813376/35",
+      "P3(L)": "-L^2(10L^4-147L^2+315)/105"
+    },
+    "H8_bounds": {
+      "coarse_band": "1e-106 (side24_v1 (4)); linear term inside",
+      "e^-288": "<1e-125 (exact rational)",
+      "|P3(24)|e^-288": "<1e-117 (exact); ~1.4862e-118 (float)"
+    }
+  },
+  "scope": "finite exact controls for the nearest-image first-variation candidate; not the Gaussian/analytic proof"
+}

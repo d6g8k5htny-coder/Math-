@@ -59,14 +59,29 @@ class FoldTests(unittest.TestCase):
     def test_index_scope_and_open_boundary(self):
         self.assertIn("D5 planar pin/collar/intermediate first moment",self.index)
         self.assertIn("C6 planar Fourier upper bound",self.index)
-        self.assertIn("NO COMPLETE SHARP PROOF YET",self.index)
+        self.assertIn("C6 sharp Palm route",self.index)
+        self.assertIn("NO COMPLETE REGIONAL PROOF YET",self.index)
+        self.assertIn("`math.rn-region.witness-collision` remains `OPEN_ACTIVE`",self.index)
         self.assertNotIn("the claimed summed pin-neighborhood bound remains AMEND",self.index)
     def test_catalog_records_only_reviewed_bound(self):
         sec=self.cand.split("## C6.",1)[1].split("\n## C7.",1)[0]
         self.assertIn("r^3 log(1/r)",sec)
-        self.assertIn("sharp full-window order",sec)
-        self.assertIn("does not prove",sec)
+        self.assertIn("E[N(N-1)]=Theta(r^3)",sec)
+        self.assertRegex(sec,r"They do\s+not close the regional shrinking-witness mechanism")
+        self.assertIn("`math.rn-region.witness-collision` remains `OPEN_ACTIVE`",sec)
         self.assertNotIn("No global factorial upper bound",sec)
+    def test_later_packets_are_separate_from_open_regional_mechanism(self):
+        for source in (
+            "frontiers/d5_dimension_lift_20260929/PROOF.md",
+            "frontiers/c6_palm_route_20260929/PROOF.md",
+            "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+        ):
+            self.assertIn(source,self.index)
+        sec=self.cand.split("## C6.",1)[1].split("\n## C7.",1)[0]
+        self.assertIn("separate reviewed/merged packets",sec)
+        self.assertRegex(sec,r"They do\s+not close the regional shrinking-witness mechanism")
+        heading=self.cand.split("## C6.",1)[1].splitlines()[0]
+        self.assertNotIn("sharp order open",heading)
     def test_declarative_source_preserved(self):
         self.assertIs(self.p["declarative"],True)
         self.assertIs(self.p["executed"],False)
