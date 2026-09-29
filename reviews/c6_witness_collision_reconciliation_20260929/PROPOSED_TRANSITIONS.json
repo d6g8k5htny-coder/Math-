@@ -1,0 +1,823 @@
+{
+  "schema": 1,
+  "object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1",
+  "scientific_effect": "NONE",
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
+  "reverified_at": "7a1cb09 (Math- main after Math-#155 and Math-#156; no inventoried path changed)",
+  "presupposes": [
+    "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json executed (Math-#151): node math.d5-pin-neighborhood-first-moment and its 13 component nodes exist"
+  ],
+  "status_rows": [
+    {
+      "id": "C6",
+      "current": "STATUS C6 row cites the planar Fourier bound E N(N-1) <= C r^3 log(1/r) only; catalog C6 open; PROOF_INDEX line 45 NO COMPLETE PROOF YET",
+      "proposed": "ACCEPT_SCOPED_FACTORIAL_MOMENT",
+      "scope": "E_{Q_r^W}[(N)_q] <= C_q r^3 for every fixed integer q >= 2 and c r^3 <= E_{Q_r^W} N(N-1) <= C r^3; every fixed d >= 2; fixed torus; compact marks with k_- > 0; all frames and indices; window I_r; original W_r and full Z_r; existential constants. At d = 2 conditional on PALM's own steps only; for d >= 3 additionally on DL at its OpenAI acceptance.",
+      "graph_node": "math.c6-witness-collision-factorial-moment",
+      "required": [
+        "frontiers/c6_palm_route_20260929/PROOF.md",
+        "frontiers/c6_palm_route_20260929/README.md",
+        "frontiers/c6_palm_route_20260929/SOURCE_MAP.json",
+        "frontiers/c6_palm_route_20260929/palm_exact_check.py",
+        "frontiers/c6_palm_route_20260929/RESULTS.json",
+        "frontiers/c6_factorial_moment_20260929/PROOF.md",
+        "frontiers/d5_dimension_lift_20260929/PROOF.md",
+        "frontiers/d5_dimension_lift_20260929/CONTINUUM_CROSSWALK.md",
+        "frontiers/elder_dimension_lift_20260928/PROOF.md",
+        "reviews/elder_dimension_lift_claude_20260928/REVIEW.md",
+        "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+        "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json"
+      ],
+      "supporting": [
+        "frontiers/c6_fourier_cutoff_20260929/PROOF.md",
+        "reviews/c6_fourier_completion_20260929/READING_NOTE.md",
+        "frontiers/c6_count_cap_boundary_20260929/PROOF.md",
+        "frontiers/c6_sharpened_20260929/PROOF.md",
+        "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+        "frontiers/remote_collision_20260928/PROOF.md",
+        "reviews/d5_remote_collision_grok_20260928/REVIEW.md",
+        "reviews/d5_offpin_second_moment_20260928/REVIEW.md",
+        "frontiers/remote_window_20260924/PROOF.md"
+      ]
+    }
+  ],
+  "graph": [
+    {
+      "node": "math.rn-region.witness-collision",
+      "current": "OPEN_ACTIVE",
+      "proposed": "PROVED_REVIEWED",
+      "scope": "RECONCILIATION.md section 4: torus-wide factorial moments of the window count at every mutual separation and every distance from the pins; every fixed d >= 2; existential constants",
+      "required": [
+        "frontiers/c6_palm_route_20260929/PROOF.md",
+        "frontiers/c6_palm_route_20260929/README.md",
+        "frontiers/c6_palm_route_20260929/SOURCE_MAP.json",
+        "frontiers/c6_palm_route_20260929/palm_exact_check.py",
+        "frontiers/c6_palm_route_20260929/RESULTS.json",
+        "frontiers/c6_factorial_moment_20260929/PROOF.md",
+        "frontiers/d5_dimension_lift_20260929/PROOF.md",
+        "frontiers/d5_dimension_lift_20260929/CONTINUUM_CROSSWALK.md",
+        "frontiers/elder_dimension_lift_20260928/PROOF.md",
+        "reviews/elder_dimension_lift_claude_20260928/REVIEW.md",
+        "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+        "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json"
+      ],
+      "required_nodes": [
+        "math.c6-witness-collision-factorial-moment",
+        "math.d5-pin-neighborhood-first-moment"
+      ],
+      "supporting": [
+        "frontiers/remote_collision_20260928/PROOF.md",
+        "reviews/d5_remote_collision_grok_20260928/REVIEW.md",
+        "reviews/d5_offpin_second_moment_20260928/REVIEW.md",
+        "frontiers/remote_window_20260924/PROOF.md"
+      ]
+    },
+    {
+      "node": "math.rn-region.witness-collision.leading-mass-localization",
+      "current": "ABSENT",
+      "proposed": "OPEN_ACTIVE",
+      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote). Required by no theorem.",
+      "required": [],
+      "supporting": [
+        "frontiers/elder_dimension_lift_20260928/PROOF.md",
+        "frontiers/remote_collision_20260928/PROOF.md"
+      ]
+    },
+    {
+      "node": "regional.shrinking-regions.analytic-route",
+      "current": "ABSENT",
+      "proposed": "SUPERSEDED_NONBLOCKING",
+      "scope": "RECONCILIATION.md section 6: for the reviewed scopes of math.rn-region.pin-collision, math.rn-region.intermediate-r-to-rho and math.rn-region.witness-collision, the analytic route (planar D5 reconciliation, DL, PALM) bypasses hist.CH-LIFT, hist.Piece-2-annulus and hist.OBL-H5-JETMOD. The historical predicates keep their classifications in their original replay scopes.",
+      "required": [],
+      "supporting": []
+    }
+  ],
+  "historical_predicates_unchanged": [
+    "hist.CH-LIFT",
+    "hist.Piece-2-annulus",
+    "hist.OBL-H5-JETMOD",
+    "hist.ENV-RESCOV",
+    "hist.ALLCELL-FDZ-Q4"
+  ],
+  "selector_region_proposal": {
+    "regions": [
+      "pin-collision",
+      "intermediate-r-to-rho",
+      "witness-collision"
+    ],
+    "selectors": [
+      "CH-LIFT",
+      "Piece-2-annulus",
+      "OBL-H5-JETMOD",
+      "H5-REMOTE-THRESHOLD"
+    ],
+    "proposed_value": "BYPASSED_BY_ANALYTIC_ROUTE",
+    "under_node": "regional.shrinking-regions.analytic-route",
+    "note": "ENV-RESCOV and ALLCELL-FDZ-Q4 stay OPEN_HISTORICAL; the analytic route uses the positive Fourier spectrum, not the historical carriers."
+  },
+  "proposed_graph_nodes": [
+    {
+      "id": "math.c6-witness-collision-factorial-moment",
+      "layer": "D5",
+      "kind": "candidate",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "scope": "RECONCILIATION.md section 4; every fixed d >= 2; fixed torus; compact marks with k_- > 0; window I_r; existential constants",
+      "source": "reviews/c6_witness_collision_reconciliation_20260929/RECONCILIATION.md"
+    },
+    {
+      "id": "math.c6-component.palm-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "proof",
+      "author_provider": "Anthropic",
+      "fingerprint": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "source": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#145 5356233690",
+          "provider": "OpenAI",
+          "verdict": "section 4 sound",
+          "depth": "full",
+          "source_exposed": true
+        },
+        {
+          "review": "Math-#145 5358116559",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT sections 5-7, Theorem Q, Corollaries Theta and P",
+          "depth": "full",
+          "source_exposed": true
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.palm-review-record",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "review_record",
+      "author_provider": "Anthropic",
+      "fingerprint": "56c0b94f9b1fcc1207b8e0bc4d1a7e89b6cba7b285fcbf550fd8dd1d9c30f3e1",
+      "source": "frontiers/c6_palm_route_20260929/README.md"
+    },
+    {
+      "id": "math.c6-component.palm-source-map",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "source_map",
+      "author_provider": "Anthropic",
+      "fingerprint": "c7cc195f00cc0c45577b7a27eb5e76f5cd9f1dbd1f11d855bcc9be427d699278",
+      "source": "frontiers/c6_palm_route_20260929/SOURCE_MAP.json"
+    },
+    {
+      "id": "math.c6-component.palm-check",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "finite_companion",
+      "author_provider": "Anthropic",
+      "fingerprint": "3bd19ec659b2ebceaf2fadeff29c1913ab28998d5182503a6de012c018bb550b",
+      "source": "frontiers/c6_palm_route_20260929/palm_exact_check.py"
+    },
+    {
+      "id": "math.c6-component.palm-results",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "finite_companion_result",
+      "author_provider": "Anthropic",
+      "fingerprint": "7812de453ff1efd77ffc2431874243713615ce4fcc0e55f2beae991e24f6f6bc",
+      "source": "frontiers/c6_palm_route_20260929/RESULTS.json"
+    },
+    {
+      "id": "math.c6-component.c6l-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "proof",
+      "author_provider": "Anthropic",
+      "fingerprint": "b19927563e2e9ff8f38648b61cd3f2c09ee1a081494b98cc285283554746e6d3",
+      "source": "frontiers/c6_factorial_moment_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#140 5355120953",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT sections 4-6",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#140 5355457002",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT Lemma R and sections 2/7/8",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#140 5355682335",
+          "provider": "OpenAI",
+          "verdict": "rebind to v1.3",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#140 5894209739",
+          "provider": "xAI",
+          "verdict": "bounded read, no contradiction",
+          "depth": "partial"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.dimension-lift-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "proof",
+      "author_provider": "Anthropic",
+      "fingerprint": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "source": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#141 5357858391",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT P_d, C_d",
+          "depth": "full",
+          "source_exposed": true
+        },
+        {
+          "review": "Math-#141 5357882570",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT I_d, G_d composition",
+          "depth": "full",
+          "source_exposed": true
+        },
+        {
+          "review": "Math-#141 5894274124",
+          "provider": "xAI",
+          "verdict": "identities ACCEPT (Slice A)",
+          "depth": "algebraic"
+        },
+        {
+          "review": "Math-#141 5894406926",
+          "provider": "xAI",
+          "verdict": "identities and rank claims ACCEPT (Slice B)",
+          "depth": "algebraic"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.dimension-lift-crosswalk",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "review_record",
+      "author_provider": "Anthropic",
+      "fingerprint": "bdb83c28ef77041ae8d5903b1e46ec96b8046660a07be439bcd60cac02f8c7dc",
+      "source": "frontiers/d5_dimension_lift_20260929/CONTINUUM_CROSSWALK.md"
+    },
+    {
+      "id": "math.c6-component.elder-lift-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "proof",
+      "author_provider": "OpenAI",
+      "fingerprint": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+      "source": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+      "review_basis": [
+        {
+          "review": "reviews/elder_dimension_lift_claude_20260928",
+          "provider": "Anthropic",
+          "verdict": "(A4) ACCEPT",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.elder-lift-review",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "review_record",
+      "author_provider": "Anthropic",
+      "fingerprint": "032bb4c79e4a985e5b53f5abb6bb06da4d643ec7345e4df9591e2046fb287e12",
+      "source": "reviews/elder_dimension_lift_claude_20260928/REVIEW.md"
+    },
+    {
+      "id": "math.c6-component.lifetime-parent",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "proof",
+      "author_provider": "OpenAI",
+      "fingerprint": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "review_basis": [
+        {
+          "review": "reviews/d1_chain_reconciliation_20260928 (Math-#126)",
+          "provider": "Anthropic",
+          "verdict": "register row D1",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.planar-reading-rule",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "reading_rule",
+      "author_provider": "Anthropic",
+      "fingerprint": "14342b7eb0ad47c1c99b06be58fb6c901f5c7c72fc70f73e81de3dde50c23432",
+      "source": "reviews/d5_reconciliation_20260929/RECONCILIATION.md"
+    },
+    {
+      "id": "math.c6-component.planar-reading-rule-transitions",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "reading_rule",
+      "author_provider": "Anthropic",
+      "fingerprint": "02f91870b636635244a767ba92f2490dd480b1720d456889216a56e07705a68b",
+      "source": "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json"
+    },
+    {
+      "id": "math.c6-component.fourier-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "supporting_proof",
+      "author_provider": "OpenAI",
+      "fingerprint": "c1692379a3a066589bd2522aaa5b4d480e736b737c8c39a474d1735185793733",
+      "source": "frontiers/c6_fourier_cutoff_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#148 5356335148",
+          "provider": "Anthropic",
+          "verdict": "ACCEPT Theorem F, W as composition, (F4) planar",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.fourier-reading-note",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "review_record",
+      "author_provider": "OpenAI",
+      "fingerprint": "62f84b68b3bcd034f1427eacf3919c7fb418d311af64f0ab2807d17682cc00b3",
+      "source": "reviews/c6_fourier_completion_20260929/READING_NOTE.md"
+    },
+    {
+      "id": "math.c6-component.count-cap-boundary-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "supporting_proof",
+      "author_provider": "OpenAI",
+      "fingerprint": "264a5e762f598145e9230aa0947acb2e0354efdb2e3adf65d331e7ee0ba52011",
+      "source": "frontiers/c6_count_cap_boundary_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#146 5355817385",
+          "provider": "Anthropic",
+          "verdict": "ACCEPT Theorems A, B, Proposition C (abstract)",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.sharpened-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "supporting_proof",
+      "author_provider": "Anthropic",
+      "fingerprint": "9f45274ab59d4f4417d1a51e9c97f5916240fdb0a4640ca6f0d3e9e0aea37dd7",
+      "source": "frontiers/c6_sharpened_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#142 5355652934",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT (source-exposed)",
+          "depth": "full",
+          "source_exposed": true
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.rare-cluster-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "downstream_consequence",
+      "author_provider": "OpenAI",
+      "fingerprint": "c52a3cf197b5cf26071a8cc951e15ef3ac564b3d7453d41647f91af540a1b8eb",
+      "source": "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+      "review_basis": [
+        {
+          "review": "Math-#153 5358565704",
+          "provider": "Anthropic",
+          "verdict": "ACCEPT sections 1, 2, 5-7",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#153 5358623521",
+          "provider": "xAI",
+          "verdict": "ACCEPT sections 3-4 and addendum",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.remote-collision-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "supporting_proof",
+      "author_provider": "Anthropic",
+      "fingerprint": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "source": "frontiers/remote_collision_20260928/PROOF.md",
+      "review_basis": [
+        {
+          "review": "reviews/d5_remote_collision_grok_20260928",
+          "provider": "xAI",
+          "verdict": "P_eta ACCEPT",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.remote-collision-review-grok",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.c6-witness-collision-factorial-moment",
+      "component_role": "review_record",
+      "author_provider": "xAI",
+      "fingerprint": "f8289546ee82fb386a0d0b6b54fbb99f258a2dc2a959ae231ae80cb4baa61e1e",
+      "source": "reviews/d5_remote_collision_grok_20260928/REVIEW.md"
+    },
+    {
+      "id": "math.rn-region.witness-collision.leading-mass-localization",
+      "layer": "D5",
+      "kind": "region",
+      "classification": "OPEN_ACTIVE",
+      "controlling": false,
+      "fingerprint": "leading-order r^3 mass of E N(N-1): pin-local vs mixed pairs",
+      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs. Required by no theorem; recorded so that the register keeps a precise statement."
+    },
+    {
+      "id": "regional.shrinking-regions.analytic-route",
+      "layer": "D0",
+      "kind": "regional_supersession",
+      "classification": "SUPERSEDED_NONBLOCKING",
+      "controlling": false,
+      "fingerprint": "regional-bypass-shrinking-regions-v1",
+      "scope": "pin-collision, intermediate-r-to-rho and witness-collision at their reviewed scopes (planar D5 reconciliation; DL in every fixed d; PALM Theorem Q); compact positive gaps; window I_r where the source is window-only",
+      "notes": "For these scopes only, the reviewed analytic route bypasses CH-LIFT / Piece-2 / OBL-H5-JETMOD. Historical predicates remain OPEN/ABSENT in their original replay scopes."
+    }
+  ],
+  "proposed_graph_edges": [
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-witness-collision-factorial-moment",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.d5-pin-neighborhood-first-moment",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.palm-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.palm-review-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.palm-source-map",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.palm-check",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.palm-results",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.c6l-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.dimension-lift-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.dimension-lift-crosswalk",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.elder-lift-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.elder-lift-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.lifetime-parent",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.planar-reading-rule",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.planar-reading-rule-transitions",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.remote-collision-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-component.remote-collision-review-grok",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.d5-component.offpin-second-moment-review",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.d5-component.remote-window-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.palm-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.palm-review-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.palm-source-map",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.palm-check",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.palm-results",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.c6l-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.dimension-lift-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.dimension-lift-crosswalk",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.elder-lift-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.elder-lift-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.lifetime-parent",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.planar-reading-rule",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.planar-reading-rule-transitions",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.d5-pin-neighborhood-first-moment",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.fourier-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.fourier-reading-note",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.count-cap-boundary-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.sharpened-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.rare-cluster-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.remote-collision-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.c6-component.remote-collision-review-grok",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.d5-component.offpin-second-moment-review",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "math.d5-component.remote-window-proof",
+      "required": false,
+      "relation": "supporting_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6-component.elder-lift-proof",
+      "required": false,
+      "relation": "lower_bound_localized"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6-component.remote-collision-proof",
+      "required": false,
+      "relation": "partial_cover_only"
+    },
+    {
+      "from": "math.c6-witness-collision-factorial-moment",
+      "to": "regional.shrinking-regions.analytic-route",
+      "required": false,
+      "relation": "regionally_supersedes_historical_high_jet_route"
+    },
+    {
+      "from": "math.d5-pin-neighborhood-first-moment",
+      "to": "regional.shrinking-regions.analytic-route",
+      "required": false,
+      "relation": "regionally_supersedes_historical_high_jet_route"
+    },
+    {
+      "from": "regional.shrinking-regions.analytic-route",
+      "to": "hist.CH-LIFT",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.shrinking-regions.analytic-route",
+      "to": "hist.Piece-2-annulus",
+      "required": false,
+      "relation": "regional_bypass_only"
+    },
+    {
+      "from": "regional.shrinking-regions.analytic-route",
+      "to": "hist.OBL-H5-JETMOD",
+      "required": false,
+      "relation": "regional_bypass_only"
+    }
+  ],
+  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH, SELECTOR_REGION, PROOF_INDEX, STATUS or catalog edit is made here. Every required evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. Supporting files are reached by non-required edges. The residual node is required by nothing. The supersession node changes no historical predicate. Execution is for a non-Claude lane, after Math-#151's planar fold, which defines math.d5-pin-neighborhood-first-moment, math.d5-component.offpin-second-moment-review and math.d5-component.remote-window-proof (reused here rather than duplicated).",
+  "declarative": true,
+  "executed": false
+}
