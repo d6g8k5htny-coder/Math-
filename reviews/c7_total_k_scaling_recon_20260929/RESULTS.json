@@ -1,0 +1,23 @@
+{
+  "object": "CL-C7-TOTAL-K-SCALING-RECON-20260929-v1-CHECKS",
+  "passed": true,
+  "results": {
+    "compact_window": "O(l^(2/3)) recovered",
+    "ledgers": {
+      "conjectured_layer": "(r/k)^3",
+      "cubic_event": "k^6 r^3"
+    },
+    "scenario_H": {
+      "moment_threshold": "q > -3/4",
+      "piece1": "l^(1/12)",
+      "piece2": "l^(1/12)",
+      "rho_rej_near": "l^(-1/3) * l^(1/12) = l^(-1/4)",
+      "threshold_k*": "l^(1/4)"
+    },
+    "scenario_uniform": {
+      "moment_threshold": "q > -1",
+      "rho_rej_near": "O(1)"
+    }
+  },
+  "scope": "exponent bookkeeping only; the heuristic (H) is not verified here"
+}
