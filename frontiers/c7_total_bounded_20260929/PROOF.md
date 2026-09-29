@@ -1,6 +1,6 @@
 # C7-total: a gap-mark-explicit failure intensity and the bounded unrestricted selection difference
 
-**Object:** CL-C7-TOTAL-BOUNDED-20260929-v1.1 (supersedes the withdrawn v1 memo CL-C7-TOTAL-K-SCALING-RECON-20260929-v1;
+**Object:** CL-C7-TOTAL-BOUNDED-20260929-v1.2 (v1.1 + the fixed-frame wording of the shifted-Gaussian step, see Revision history; v1.1 supersedes the withdrawn v1 memo CL-C7-TOTAL-K-SCALING-RECON-20260929-v1;
 see `RECONNAISSANCE.md` for the retraction). **Author:** Anthropic Claude (session `session_01NMeKEismAyeqgdB4sy2NJU`).
 **Disposition:** author-side proof candidate; **nonauthor analytic review required**. Scientific effect: NONE.
 
@@ -69,9 +69,14 @@ Work on the typed support with `B = −A_M ≻ 0`, eigenvalues `0 < λ_1 ≤ …
   `U := J_r + ‖A_r‖_F + |b| + k ≥ 1`; then `h, M_4 ≤ K U` with `K` depending on `d, L` only.
 - **(3.5)/(7.2) with a shifted center.** The `Q`-density of `A_r` is Gaussian with covariance uniformly bounded
   above and below (P §3) and mean `m_A = E_Q A_r`, `‖m_A‖_F ≤ C(|b| + k)`: `density_Q(A) ≤ C_0 exp(−c_0 ‖A − m_A‖_F²)`.
-  Moments of polynomials in the eigenvalues against this shifted Gaussian are polynomial in `‖m_A‖`, hence in
-  `(1 + |b| + k)`. Below, the Gaussian factor in `λ_1` is dropped on the layer (as in P §7) and `λ_2, …, λ_m` are
-  integrated against the shifted Gaussian; this replaces P's centered `e^{−c Σ λ_j²}`.
+  The eigenvalue integration is performed **after fixing the orthogonal frame**: write `B = −A = O diag(λ) O^T`
+  and, for fixed `O`, `‖A − m_A‖_F² = ‖diag(λ) + O^T m_A O‖_F² = Σ_i (λ_i + q_i)² + (fixed off-diagonal squares)`,
+  `q = diag(O^T m_A O)`, `|q_i| ≤ ‖m_A‖`. The Gaussian factor in `λ_1` is dropped on the layer (as in P §7); the
+  remaining `λ_2, …, λ_m` integrals are one-dimensional *shifted* Gaussian polynomial moments, `∫ λ^p e^{−c_0(λ+q)²}dλ
+  ≤ C_p (1 + |q|)^p`, hence polynomial in `‖m_A‖ ≤ C(|b| + k)`, uniformly over the compact `O`; the Vandermonde has
+  already been replaced by the nonnegative polynomial `Λ^{m(m−1)/2}`, and the Haar integral over `O` is then taken.
+  This replaces P's centered `e^{−c Σ λ_j²}` without any `exp(C‖m_A‖²)` loss, and it does **not** assert that the
+  shifted matrix law is orthogonally invariant — only the centered covariance bound is.
 
 With these two replacements, P §7 runs verbatim.
 
@@ -105,7 +110,7 @@ version above) and integrate `λ_1` first, as in P (7.4); every other factor is 
 
 Now `a² ≤ 72k² + r²K²U²/2` gives `a² k^{−3} ≤ C k^{−3}(k² + r²) U²`, `a² k^{−2} ≤ C k^{−3}(k² + r²) U²` for `k ≤ 1`,
 and `a k^{−2} ≤ C (k + rU) k^{−2} ≤ C k^{−3}(k² + r²) U` since `r k^{−2} ≤ (k^{−1} + r² k^{−3})/2` (AM–GM). Moments
-are polynomial in `(1 + |b| + k)` by the shifted-Gaussian remark and the `C⁴` moment of §2. So
+are polynomial in `(1 + |b| + k)` by the fixed-frame shifted-Gaussian step above and the `C⁴` moment of §2. So
 
     E_Q[W_r 1_{depth}] ≤ C r⁵ k^{−3} (k² + r²) (1 + |b| + k)^N          (k ≤ 1),
 
@@ -171,6 +176,17 @@ New: (K1) is a sharper majorant than P (13.4) by the factor `(k + r)²`, obtaine
 is P §7 with `k` tracked. Everything else is the parent's own machinery. Not claimed: any numerical constant; any
 rate for `ν_cand` or `ν_eld` individually; any change to the parent's existential scope or to Theorem A's compact
 formulation; any statement about the *selected* measure's threshold (still `−2/3`); nonauthor acceptance.
+
+## Revision history
+
+- v1 (withdrawn): `RECONNAISSANCE.md` retraction; the `ℓ^{−1/4}` conjecture is not revived.
+- v1.1 (2026-09-29, blob `1fe08e2a…`): Theorem K / Corollary T with the saddle mixed term retained.
+- v1.2 (2026-09-29): the shifted-Gaussian eigenvalue integration in §3 is now stated explicitly as performed after
+  fixing the orthogonal frame `O` (separable shifted one-dimensional moments, uniform over compact `O`, Haar integral
+  last), as recommended in the OpenAI reviews
+  [5357773376](https://github.com/d6g8k5htny-coder/Math-/pull/150#pullrequestreview-5357773376) and
+  [5358141048](https://github.com/d6g8k5htny-coder/Math-/pull/150#pullrequestreview-5358141048). Wording only; no
+  theorem, constant or checker change; `RESULTS.json` bytes unchanged.
 
 ## 6. Review requested (non-Claude lane)
 
