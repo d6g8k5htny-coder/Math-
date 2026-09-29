@@ -46,6 +46,39 @@ jobs:
               data = pathlib.Path(entry['path']).read_bytes()
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
                   raise ValueError('consumed source drifted: ' + entry['path'])
+          # This key records the historical input, even after #144 merges.
+          # Never substitute the checkout's later, corrected #144 proof.
+          historical = manifest['consumed_unmerged']
+          required_path = 'frontiers/side24_periodization_20260929/PROOF.md'
+          if (not isinstance(historical, list) or len(historical) != 1
+                  or historical[0]['path'] != required_path):
+              raise ValueError('historical #144 dependency is required')
+          for entry in historical:
+              commit = entry['commit']
+              if (not isinstance(commit, str) or len(commit) != 40
+                      or any(c not in '0123456789abcdef' for c in commit)):
+                  raise ValueError('full historical commit SHA required')
+              exists = subprocess.run(
+                  ['git', 'cat-file', '-e', commit + '^{commit}'],
+                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode == 0
+              if not exists:
+                  subprocess.run(
+                      ['git', 'fetch', '--no-tags', '--depth=1', 'origin', commit],
+                      check=True, timeout=120)
+              if subprocess.check_output(['git', 'cat-file', '-t', commit]).strip() != b'commit':
+                  raise ValueError('historical source must name a commit')
+              tree = subprocess.check_output(
+                  ['git', 'ls-tree', '-z', commit, '--', entry['path']])
+              expected_tree = ('100644 blob ' + entry['git_blob'] + '\t'
+                               + entry['path'] + '\0').encode()
+              if tree != expected_tree:
+                  raise ValueError('historical source path/blob mismatch: ' + entry['path'])
+              data = subprocess.check_output(['git', 'cat-file', 'blob', entry['git_blob']])
+              blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+              if (len(data) != entry['bytes']
+                      or hashlib.sha256(data).hexdigest() != entry['sha256']
+                      or blob != entry['git_blob']):
+                  raise ValueError('historical source identity mismatch: ' + entry['path'])
           script = str(root / 'remainder_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           mutants = ['M1', 'M2', 'M3']
