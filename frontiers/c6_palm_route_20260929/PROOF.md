@@ -1,7 +1,9 @@
 # C6 sharp: the torus-wide factorial moments of the window count are `O(r^3)` in every fixed dimension
 
 **Object:** CL-C6-PALM-20260929-v1.
-**Version:** v1.3, 29 September 2026. v1.3: Lemma 5.1 rewritten with a canonical regression kernel for every `(X, h)`
+**Version:** v1.4, 29 September 2026. v1.4: R3a (§6.2) states the axis-safe determinant-weight bound
+`W_r |det H_X| / Z_r <= C K^(3d)` valid throughout the strip `|v| <= s^(1/8)`, in place of a bound cited on the axis
+alone (OpenAI review 5357899713); the [DL] status sentences updated. v1.3: Lemma 5.1 rewritten with a canonical regression kernel for every `(X, h)`
 and the two-measure argument, and the Morse genericity cited from [LP] §8 (OpenAI comment 5896041000). v1.1: clarifications after OpenAI review 5356233690 of §4 (the ratio
 `zeta_0 <= eta'/8` in Lemma M' (b), the witness lift convention, `Phi = oo` at a vanishing floor, the finite-union
 measurability convention of [C6L] v1.3, Proposition 4.5' and the remark after Lemma 4.3). v1.2: Corollary P restated
@@ -10,8 +12,8 @@ comment 5895460246. No theorem or ledger change in either.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on [C6L],
 now merged on `main` with the OpenAI lane's complete nonauthor acceptance at its planar scope, and on [DL], an
-author-side candidate whose counts are still held (§2); it is not consumable before [DL] and this note itself have
-nonauthor verdicts.
+unmerged author-side candidate whose continuum rows now carry a source-exposed OpenAI nonauthor acceptance (§2); it is
+not consumable before [DL] is integrated and this note itself has a nonauthor verdict.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX` verdict, `GRAPH` node, claim, `lemma_closed` flag, catalog
 entry, prize or source body changes.
 
@@ -98,7 +100,9 @@ distribution of the pairs' positions, nothing about elder selection, nothing out
 marks, and nothing about numerical constants. §9 lists the non-claims. The note is conditional on [C6L] and [DL] at
 the exact bytes of §2. [C6L] carries the OpenAI lane's complete nonauthor acceptance at its planar scope (its
 `d`-dimensional restatement in §3 is this note's own obligation); [DL] has xAI acceptance of its algebraic identities
-and a HOLD on its counts. A defect in either blocks the corresponding step here.
+and, at Math-#141 head `c709854` and the wording-only successors, OpenAI source-exposed nonauthor acceptance of every
+continuum row (reviews 5357858391, 5357882570: Theorems P_d, C_d, I_d, G_d), unmerged. A defect in either blocks the
+corresponding step here.
 
 ### 1.4 The planar case depends on this note alone
 
@@ -592,8 +596,13 @@ with (6.3) the scaled ball of radius `4` minus the pins has marked count at most
 
 **R3a (shell, `|v| <= s^(1/8)`).** `Lambda = (grad f(X), f(X))` raw, `tau = (0, h)`; [DL] (6.1): `Sigma_X >= c s^10
 I_(d+1)`, variances and means bounded, `|h - E f(X)| <= C`; `beta <= C s^(-10)`; Lemma 6.3 with `sigma = s`:
-`lambda_J >= c s^10`, `Phi <= C s^(-10d)`. [DL] §6.5: joint density at most `C s^(-5(d+1)) exp[-c s^(-1/4)]`, and on the
-axis `W_r |det H_X| <= C r^2 K^(3d)`, which cancels `Z_r`. The marked intensity per unit volume and height is at most
+`lambda_J >= c s^10`, `Phi <= C s^(-10d)`. [DL] §6.5: joint density at most `C s^(-5(d+1)) exp[-c s^(-1/4)]`. For the determinant
+weight use the axis-safe bound of [DL] §6.4, valid throughout the strip `|v| <= s^(1/8)` including `v = 0`: the endpoint
+short columns `H_M e_x`, `H_S e_x`, of size at most `Lr/2` by [LP] (5.3), do not depend on the witness position, so
+Hadamard ([DL] Lemma D2 with `e_x`) gives `|det H_M| |det H_S| <= C r^2 K^(2d)` for every `X` in the strip; with the
+trivial `|det H_X| <= K^d` and `Z_r >= z_* r^2` ([LP] (5.5)), `W_r |det H_X| / Z_r <= C K^(3d)` on the whole strip,
+with no division by `|v|`. (A bound stated only at `v = 0` would not control nonzero `v`; this is the reading of
+[DL] §6.4 recorded in OpenAI review 5357882570.) The marked intensity per unit volume and height is at most
 `C s^(-5(d+1)) exp[-c s^(-1/4)] (1 + s^(-10))^(3d) (s^(-10) + s^(-5d)) <= C`, and the strip contributes at most
 `C r^3 s^2` to the marked shell count exactly as in [DL] §6.5.
 

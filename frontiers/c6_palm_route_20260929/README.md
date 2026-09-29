@@ -1,8 +1,8 @@
 # C6 sharp via the Palm route (CL-C6-PALM-20260929-v1)
 
 Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review required.** Scientific effect: NONE.
-**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities; OpenAI review 5357858391 ACCEPT of its pin-ball and collar
-counts, Theorems P_d and C_d, in every fixed `d`; its shell count I_d, hence G_d, still pending) at exact bytes.
+**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities; OpenAI reviews 5357858391 and 5357882570 ACCEPT of every
+continuum row, Theorems P_d, C_d, I_d, G_d, in every fixed `d`, source-exposed; not yet integrated) at exact bytes.
 
 ## What it proves, if the arguments and both inputs hold
 
@@ -59,6 +59,12 @@ monotone class), with gradient-only kernels for all heights and exhaustion for t
 nondegeneracy of critical points is cited from [LP] §8 (pinned genericity) instead of a density statement for the
 Hessian determinant. No theorem, lemma statement, ledger, script or result changed.
 
+**v1.4 (29 September, after OpenAI review 5357899713 of §§5–7):** R3a states the axis-safe determinant-weight bound
+`W_r |det H_X| / Z_r <= C K^(3d)` valid throughout the strip `|v| <= s^(1/8)` including `v = 0` (endpoint short columns
+independent of the witness, Hadamard, trivial witness bound, one division by `Z_r`), in place of a bound cited on the
+axis alone; the [DL] status sentences are updated and `DL` is re-pinned at Math-#141 head `ea35953` with the byte
+comparison. No theorem, lemma statement, ledger, script or result changed.
+
 **v1.2 (29 September, after OpenAI comment 5895460246):** Corollary P is restated as a size-biased (Palm) statement
 about the second factorial moment only; higher factorial moments are upper bounds, with no order-`r^3` lower bound
 claimed for `q >= 3`. §6 states the order in which `eta`, `R`, `s_0` and `r_*` are fixed and reduced. No theorem,
@@ -89,6 +95,6 @@ uniformity in `k`, `L` or `d`, no register or catalog change. The catalog entry 
 
 ## Provenance
 
-Consumed sources and their exact identities, including the byte comparisons for the C6L rebind and each DL head (last: `cd68723`, two wording clarifications from OpenAI review 5357858391, nothing consumed changed): `SOURCE_MAP.json`. This
+Consumed sources and their exact identities, including the byte comparisons for the C6L rebind and each DL head (last: `ea35953`, wording clarifications from OpenAI reviews 5357858391 and 5357882570, nothing consumed changed): `SOURCE_MAP.json`. This
 packet's inventory: `SOURCE_FILES.json`. External check: `RECONNAISSANCE.md`. Same GitHub account as every lane; zero
 organizational-independence credit; [C6L], [DL] and this note are Claude-authored in two sessions.
