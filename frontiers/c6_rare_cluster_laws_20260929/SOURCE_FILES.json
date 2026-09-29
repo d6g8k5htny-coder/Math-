@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "scientific_effect": "NONE",
-  "review_status": "NONAUTHOR_REVIEW_OPEN",
+  "review_status": "PARTIAL_NONAUTHOR_ACCEPTANCE_OTHER_SLICES_OPEN",
   "files": [
     {
       "path": "PROOF.md",
@@ -11,9 +11,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 2684,
-      "sha256": "a2627a1a3e6cc1db754248fce74ddbcf8cf3ff7d8c0ac8f6fce3bce6239f1833",
-      "git_blob": "dcd5b132101fe6ee2e203c4ed610c83ae77b5254"
+      "bytes": 3145,
+      "sha256": "33b7201dc5723a4b711f9df3951289be5ddde95122666f4a34fe126b4c697b24",
+      "git_blob": "d7cbbdc4b01b3bf66fdefb3c88506c6bd45ce7a6"
     },
     {
       "path": "RECONNAISSANCE.md",
@@ -26,6 +26,12 @@
       "bytes": 408,
       "sha256": "67578132cbc2cac0029f0d138cc847f0484c38b6cdfabc4b62614ebc29df5bc4",
       "git_blob": "fece0ebe53b1c42f71c9d8585da1ba86ede1d374"
+    },
+    {
+      "path": "REVIEW_RECORD.md",
+      "bytes": 2554,
+      "sha256": "a94fa1b55c334ebc7f0276eb26e2bb3a099769f5f40b85a93792e20e9f3e2fae",
+      "git_blob": "b404b211e971fe3f856a46ef194a0f18eec9ca40"
     },
     {
       "path": "SHARP_POISSON_COEFFICIENT.md",
@@ -58,10 +64,16 @@
       "git_blob": "03c79b41605800599075d37800ca60951f045d16"
     },
     {
+      "path": "test_source_pins.py",
+      "bytes": 3109,
+      "sha256": "f5ffd70a26eacba3e7d89062fbecb90886ecacd38ec36ec2aad2da63a1a3a78b",
+      "git_blob": "0d66535386e4f94d63556664d0c4f7c1c97263bf"
+    },
+    {
       "path": "verify_packet.py",
-      "bytes": 3619,
-      "sha256": "6359e10c8a8dea466a44728507962dbb505e0d05852d3650e5b76fd9a5c4104f",
-      "git_blob": "29e0e82fd7b94709d7488959c053161ac5d3f88e"
+      "bytes": 4023,
+      "sha256": "a0a8c2b526c7e1b1872ed31f98809720d86445e5506105822a06fc3fbf375f0d",
+      "git_blob": "2c6d1943d0f4a015d624b09468f61e6bd9d6befa"
     }
   ]
 }

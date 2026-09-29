@@ -44,14 +44,22 @@ def packet_identity(root):
 
 def source_identity(root):
     pins = read_json(root/'SOURCE_PINS.json')
-    for entry in pins['sources']:
+    entries = [(entry, True) for entry in pins['sources']]
+    entries.append((pins['prior_in_project_result'], False))
+    for entry, full_identity in entries:
         commit, path = entry['commit'], entry['path']
         pure = pathlib.PurePosixPath(path)
         if not re.fullmatch('[0-9a-f]{40}', commit) or pure.is_absolute() or '..' in pure.parts:
             raise ValueError('unsafe source identity')
         run = subprocess.run(['git', 'show', commit+':'+path], cwd=root,
                              check=True, capture_output=True, timeout=60)
-        identity(run.stdout, entry)
+        if full_identity:
+            identity(run.stdout, entry)
+        else:
+            data = run.stdout
+            blob = hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+            if blob != entry['git_blob']:
+                raise ValueError('prior-result blob mismatch: ' + path)
 
 
 def main():
