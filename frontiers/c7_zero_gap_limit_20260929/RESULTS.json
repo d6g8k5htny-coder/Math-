@@ -1,0 +1,35 @@
+{
+  "claimed_convergence_rate": null,
+  "cumulative_sampling_exponent": "1/3",
+  "cumulative_sampling_multiplier": "2/3",
+  "density_sampling_exponent": "1/3",
+  "groups": [
+    "coarea",
+    "ordered-normalization",
+    "radial-domination",
+    "concavity-barrier",
+    "typed-open-set-example",
+    "normalization-TV",
+    "moment-threshold",
+    "sampling-exponents"
+  ],
+  "mutants": [
+    "wrong-radial-power",
+    "missing-gap-jacobian",
+    "drop-k-plus-r",
+    "apply-K2-outside-domain",
+    "boundary-only",
+    "unordered-half",
+    "wrong-moment-threshold",
+    "swap-intensity-probability"
+  ],
+  "object": "OA-C7-ZERO-GAP-LIMIT-20260929-v1",
+  "passed": true,
+  "positive_limit": "B_(d,L), explicit equal-height integral; not numerically evaluated",
+  "radial_power": "-2",
+  "rejected_moment_threshold": "q > -1",
+  "scalar_branch_bound": 4,
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "scope": "exact finite ledgers only; regression, barrier topology and dominated convergence require analytic review"
+}
