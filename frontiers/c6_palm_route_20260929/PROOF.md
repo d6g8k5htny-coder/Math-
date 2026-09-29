@@ -1,9 +1,11 @@
 # C6 sharp: the torus-wide factorial moments of the window count are `O(r^3)` in every fixed dimension
 
 **Object:** CL-C6-PALM-20260929-v1.
-**Version:** v1.1, 29 September 2026: clarifications after OpenAI review 5356233690 of §4 (the ratio
+**Version:** v1.2, 29 September 2026. v1.1: clarifications after OpenAI review 5356233690 of §4 (the ratio
 `zeta_0 <= eta'/8` in Lemma M' (b), the witness lift convention, `Phi = oo` at a vanishing floor, the finite-union
-measurability convention of [C6L] v1.3, Proposition 4.5' and the remark after Lemma 4.3); no theorem or ledger change.
+measurability convention of [C6L] v1.3, Proposition 4.5' and the remark after Lemma 4.3). v1.2: Corollary P restated
+as a size-biased statement about the second factorial moment only, and the order of constants in §6, after OpenAI
+comment 5895460246. No theorem or ledger change in either.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on [C6L],
 now merged on `main` with the OpenAI lane's complete nonauthor acceptance at its planar scope, and on [DL], an
@@ -81,8 +83,12 @@ by `1{N >= 2} <= N(N-1)/2`. This settles the order asked for in catalog C6: it i
 included, and the logarithm of [C6L] Theorem C6-L is removed.
 
 **Corollary P (pair intensity has order one relative to the singles).** `E_(Q_r^W)[N(N-1)] / E_(Q_r^W) N` is bounded
-above and below by positive constants. Given one window critical point, the conditional expected number of further
-ones is of order one; no factorial moment of any order carries an extra power of `r`.
+above and below by positive constants. Equivalently, under the size-biased (Palm) law `dP^sb = N dQ_r^W / E_(Q_r^W) N`,
+the expected number of further window critical points, `E_sb[N - 1] = E_(Q_r^W)[N(N-1)] / E_(Q_r^W) N`, is of order
+one. This is a statement about the size-biased law, not about `Q_r^W` conditioned on `N >= 1`. For `q >= 3` Theorem
+Q gives only the upper bound `E_(Q_r^W)[(N)_q] <= C_q r^3`; no lower bound of order `r^3` is claimed for `q >= 3`
+(it would need higher-cluster lower events, which are not supplied, and it can fail for a count that never exceeds
+two).
 
 ### 1.3 What the results are not
 
@@ -447,7 +453,16 @@ which §6 computes region by region and the region's Gaussian penalty absorbs.
 
 The tiling is [DL] §7: the two punctured pin balls of scaled radius `1/4` (Theorem P_d, all heights), the compact
 collar `C(1/4, 4)` in midpoint scaled coordinates (Theorem C_d, all heights), the dyadic shells `4 r <= |X| <= s_0`
-(Theorem I_d, window), and the remote region `|X| >= s_0` ([RM] Theorem A, window). In each region the source proof
+(Theorem I_d, window), and the remote region `|X| >= s_0` ([RM] Theorem A, window).
+
+**Order of constants.** `eta` is fixed first (§3.3), which fixes the cover, the annuli `A'_j`, `zeta_0 = eta/64` and
+the joint-floor constant `c_J` of Lemma 6.1. The collar radius `R = 4` and the shell cutoff `s_0` are fixed next, with
+`s_0 <= eta/4`, so that every witness of the local regimes lies inside the core of the ball around the pins and every
+Taylor scale `sigma in {r, s}` of Lemma 6.3 is at most `s_0`. Lemma 6.3 then reduces `s_0`, and Lemma 6.2 and the
+source proofs reduce `r_*`, until the remainder conditions (`C sigma^6 <= (1/2)(c sigma^10)^(1/2)` in Lemma 6.3, `r <=
+c|v|^2` and `s <= c|v|^3` in Lemma 6.2) hold; these reductions depend on `d, L, B, K, eta` only, never on `r`, `s`, the
+witness or the height. This is the same order as in [DL] §7 and [IW] §10, with `eta` added at the front. In the
+remote regime the exclusion of the witness is read in the local periodic lifts of §4.1. In each region the source proof
 fixes one frame `Lambda` and one target `tau`, bounds `||Cov_(Q_r)(Lambda)^(-1)||`, `Var_(Q_r) Lambda_i` and
 `|tau - E_(Q_r) Lambda|`, and derives the density and the conditional moments from them. The table records, for each
 regime, the parameter `beta` of (4.3) and a floor `lambda_J` for `lambda_min Cov_(Q_r)((G(z), Lambda))` over the
@@ -612,7 +627,8 @@ I_r`, and the constants depend on `q` only through Proposition 4.5. ∎
 with `q = 2`, and `Q_r^W{N >= 2} <= E N(N-1)/2`. ∎
 
 *Corollary P.* `E_(Q_r^W) N >= Q_r^W(N >= 1) >= Q_r^W(N >= 2) >= c r^3` by [EDL] (A4), and `E N <= C r^3` by [DL] (1.7);
-divide (1.2) by these. ∎
+divide (1.2) by these. The size-biased identity `E[(N)_q] = E N . E_sb[(N-1)_(q-1)]` is the definition of `P^sb`
+(Math-#146). The two-sided statement is for the second factorial moment only. ∎
 
 ## 8. Remarks on the mechanism
 

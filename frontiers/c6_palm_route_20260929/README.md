@@ -51,6 +51,11 @@ through its unique nearby lift in each chart; `Phi = oo` when the floor vanishes
 finite union over degrees of [C6L] v1.3; Proposition 4.5' records the logarithmic form of the moment bound suggested
 in comment 5895432912; a comparison-free proof of Lemma 4.3 is noted. No theorem or ledger changed.
 
+**v1.2 (29 September, after OpenAI comment 5895460246):** Corollary P is restated as a size-biased (Palm) statement
+about the second factorial moment only; higher factorial moments are upper bounds, with no order-`r^3` lower bound
+claimed for `q >= 3`. §6 states the order in which `eta`, `R`, `s_0` and `r_*` are fixed and reduced. No theorem,
+lemma, ledger, script or result changed.
+
 ## Review requests (exact interfaces)
 
 1. Lemma M' (b): the slab exclusion keeps at least `eta'/(4 delta)` disjoint balls inside `A'_j` at distance
