@@ -3,6 +3,7 @@
 Object: CL-SARD-PINNED-TRANSFER-20260929-v1.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE SOURCE NOTE; nonauthor review required.
+Version: v2 (admissible-law scope for Corollary R0, per OpenAI review 5353818348; Theorem P unchanged).
 Scientific effect: NONE. No register, graph, lemma flag, prize or source changes. R0 and C103 are not moved.
 
 ## 1. Why this is needed
@@ -84,9 +85,12 @@ the same imports.
 
 ## 5. Genericity for the laws used by R0
 
-For fixed `r > 0` and fixed parameters, `Q_r` is `Law(m_r + f̃)` with `P = {M, S}`. The pins are values and gradients,
-so `J_P` is exactly the pin frame `U_r` up to an invertible map. `m_r` is the regression mean, which has `∇m_r = 0`
-at `M` and `S`.
+Fix an **admissible** law: distinct pin sites `M ≠ S` on `T²` and gap `k > 0`, within the validity regime of the
+parent (its local cylinder and pin covariance, `0 < r ≤ r_0` below the torus injectivity scale), or a separately
+proved extension. For example `r = L`, `u = e_1` identifies `M` and `S` on the torus, and then unequal pinned values
+are impossible; such parameters are excluded. For each admissible law, `Q_r` is `Law(m_r + f̃)` with `P = {M, S}`.
+The pins are values and gradients, so `J_P` is exactly the pin frame `U_r` up to an invertible map. `m_r` is the
+regression mean, which has `∇m_r = 0` at `M` and `S`.
 
 D1 parent §8, `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (sha `9350ad6e…`), accepted
 within the D1 reconciliation of Math-#126, proves exactly `Q_r(Ω_gen) = 1`, and then `Q_r^W(Ω_gen) = 1` because
@@ -97,10 +101,15 @@ within the D1 reconciliation of Math-#126, proves exactly `Q_r(Ω_gen) = 1`, and
 - ties to the pinned heights, which are distinct since `kr³ > 0`.
 
 The same argument with no pins gives `μ(Ω_gen) = 1`. The pinned and tie cases then simply do not occur. So (M3)
-is **discharged** for `μ`, `Q_r` and `Q_r^W` by an already-accepted source.
+is **discharged** for `μ` and for each admissible `Q_r` and `Q_r^W` by an already-accepted source.
 
-**Corollary R0.** Assume the imports named in §7. Then for every fixed `r > 0` and parameters, `Q_r` and `Q_r^W` are
-almost surely Morse–Smale. The `Q_r^W` case follows by absolute continuity with density `W_r/Z_r`.
+**Corollary R0.** Assume the imports named in §7. Then for each fixed admissible law as above, `Q_r` and `Q_r^W` are
+almost surely Morse–Smale. The `Q_r^W` case follows by absolute continuity with density `W_r/Z_r` *with respect to
+`Q_r`*, and so only after Theorem P for `Q_r` itself: `Q_r^W` is not absolutely continuous with respect to the
+unconditioned law.
+
+The statement is per fixed law. It gives no common almost-sure set for uncountably many targets, and no uniform
+quantitative constants as `r → 0`. No regional or numerical estimate follows.
 
 For planar gradient flows, Morse–Smale means Morse together with no saddle–saddle connection. Gradient flows have no
 periodic orbits, and every other stable/unstable intersection is transverse by dimension.

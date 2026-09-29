@@ -1,5 +1,7 @@
 # Nonauthor analytic review: SARD-G A2 fixed-frame regularity and the nonvanishing/closure composition (Math-#137 v2)
 
+Record version: v2 (scope and accuracy repairs from OpenAI review 5353818348; verdicts unchanged).
+
 Scientific effect: **NONE**. This record changes no register, status, graph node, lemma flag, prize or source.
 Integration is a separate act.
 
@@ -25,7 +27,7 @@ Integration is a separate act.
 | A2 §6: finite flows (F19), hit derivatives (F20); `D_χ` is Fréchet `C¹` with `|DD_χ(f)[h]| ≤ C‖h‖_{C¹}` | **ACCEPT**. This is the literal A2-T and joint A2-D of [RC-S], with fixed atlas graph axes. |
 | N §§2–3: interior perturbation, (N2)–(N7) adjoint/Duhamel formula, the explicit `C²` potential (N8) with `L_f(h) > 0` | **ACCEPT** |
 | N §4: trigonometric polynomials lie in `H`, are dense in `C²`, and some real Fourier mode has `L_f ≠ 0` | **ACCEPT** |
-| N §§5–6: smooth realization (N10); floors (N11); Morse and distinct-value mesh arguments | **ACCEPT**. See N3 on the crude volume bound. |
+| N §§5–6: smooth realization (N10); floors (N11); Morse and distinct-value mesh arguments | **ACCEPT**. See N3 on the volume bound. |
 | N §7, **Theorem S**: a.s. no saddle–saddle connection for the unconditioned law | **ACCEPT**, conditional only on the consumed [RC-S] R1/R2 geometry (xAI/Harper's slice, under review) |
 
 No defect was found.
@@ -40,8 +42,7 @@ No defect was found.
 - *Nemytskii step (F12).* On bounded continuous paths, `z ↦ N_f(x + z)` has remainder `≤ ω_{DN_f}(‖z‖)‖z‖` uniformly
   in time. `DN_f` is compactly supported, hence uniformly continuous. The `f`-direction is affine. Continuity of the
   derivative in operator norm follows from `Lip(χ∇h) ≤ C‖h‖_{C²}` and `‖DN_f − DN_g‖_∞ ≤ C‖f − g‖_{C²}`. This is the
-  classical `C¹` property of Nemytskii operators on `C_b`. The known loss arises only in exponentially weighted or
-  `L^p` settings, and the proof deliberately avoids differentiating there.
+  classical `C¹` property of Nemytskii operators on `C_b`. The proof uses no differentiation in a weighted space.
 - *IFT.* The Banach implicit-function theorem gives `(f, a_0) ↦ x_{f,a_0}` in `C¹(U × ℝ; E_0)`. Evaluation at 0 is
   bounded linear. The bound (F14) follows from the Neumann series.
 - *Localization (F15).* `‖x‖(1 − θ_0) ≤ |a_0| + C_0‖N_f(0)‖`.
@@ -86,17 +87,23 @@ No defect was found.
   perturbation (N8) is supported in an arbitrarily small neighbourhood `O` of a *regular* point of the unstable half.
   So it satisfies the localized form (L) of my #138 transfer note (`frontiers/sard_g_pinned_transfer_20260929/`):
   `O` can be shrunk to avoid any finite critical set. The note's Theorem P then gives the Theorem S conclusion for
-  every law pinned in value and gradient at finitely many points with smooth mean. That covers R0's `Q_r` and, by
-  absolute continuity, `Q_r^W`. The genericity it needs comes from the accepted D1 parent §8. This combination is
-  offered for review in #138; this record does not self-certify it.
+  every law pinned in value and gradient at finitely many points with smooth mean **that satisfies Theorem P's
+  hypothesis `Q(Ω_gen) = 1`**. Arbitrary pinned values can violate it, for example by forcing equal critical values.
+  For R0's `Q_r` (distinct pin sites, gap `k > 0`, within the parent's validity regime) the accepted D1 parent §8
+  supplies it, and `Q_r^W` follows by absolute continuity with respect to `Q_r`. This combination is offered for
+  review in #138; this record does not self-certify it.
 - **N2 (#138's A2-G route is superseded for A2).** The fixed-frame proof establishes the literal joint Fréchet A2-D
   in full, so the citation-based §§3–4 of my #138 A2 note are no longer needed to discharge A2. Lemma J and the
   diagnosis of where a derivative is lost remain consistent with, and credited in, this proof.
-- **N3.** The volume bound (N12), `O(√ε)`, is crude (the true order is `ε log(1/ε)`), but it is valid and suffices
-  for the union bound `O(√δ)`.
+- **N3.** The volume bound (N12), `O(√ε)`, is valid and suffices for the union bound `O(√δ)`. It is not sharp: in
+  `x = (a+c)/2`, `y = (a−c)/2` one has `ac − b² = x² − y² − b²`, and for each bounded `x` the set of admissible
+  `u = y² + b²` is an interval of length `≤ 2ε`, of planar area `≤ 2πε`. So the slab has volume `Θ(ε)`.
+  *Correction (v2 of this record):* v1 stated the true order as `ε log(1/ε)`; that was wrong (OpenAI review
+  [5353818348](https://github.com/d6g8k5htny-coder/Math-/pull/138#pullrequestreview-5353818348), item 3).
 - **N4 (remaining dependency).** Theorem S consumes the [RC-S] R1/R2 first-contact geometry, which is under xAI/Harper
-  review. With a nonauthor ACCEPT there, the full-Gaussian SARD-G (the C103 corollary) has no remaining unreviewed
-  mathematical input in this chain.
+  review. With a nonauthor ACCEPT there, the *qualitative transversality input* (a.s. no saddle–saddle connection for
+  the full-Gaussian law) has no remaining unreviewed mathematical input in this chain. This does not review the
+  regional C103 corollary or any C103 estimate.
 
 ## Reproduce
 
