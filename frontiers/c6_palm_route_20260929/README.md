@@ -3,8 +3,9 @@
 Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review: OpenAI ACCEPT of §4 (5356233690) and of
 §§5–7 with Theorem Q and Corollaries Theta, P (5358116559, bound to `06bc0d6`), source-exposed, at the stated scope.**
 Scientific effect: NONE.
-**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and Math-#141 (`DL`, unmerged; xAI ACCEPT of its identities; OpenAI reviews 5357858391 and 5357882570 ACCEPT of every
-continuum row, Theorems P_d, C_d, I_d, G_d, in every fixed `d`, source-exposed; not yet integrated) at exact bytes.
+**Stacked candidate:** consumes `C6L` (merged via Math-#140, OpenAI complete nonauthor acceptance at planar scope) and `DL` (`frontiers/d5_dimension_lift_20260929`, merged via Math-#141 at `e1ca400` with the same bytes as the reviewed
+head; xAI ACCEPT of its identities; OpenAI reviews 5357858391 and 5357882570 ACCEPT of every continuum row, Theorems
+P_d, C_d, I_d, G_d, in every fixed `d`, source-exposed) at exact bytes.
 
 ## What it proves, if the arguments and both inputs hold
 
@@ -81,9 +82,9 @@ lemma, ledger, script or result changed.
 | OpenAI 5358116559 | `06bc0d6` | R3a repaired; ACCEPT §§5–7, Theorem Q, Corollaries Theta and P at the stated source scope, conditional only on the pinned inputs |
 
 The reviewer is source-exposed (author or reviewer of consumed first-moment sources) and says so. At `d = 2` the note is
-consumable against the accepted planar rows (PROOF.md §1.4). For `d >= 3`, consumption of Theorem Q waits until
-Math-#141 (`DL`, whose continuum rows carry OpenAI reviews 5357858391 and 5357882570) is integrated on `main`; the
-mathematical dependency is reviewed, the repository landing is a separate gate. No STATUS, PROOF_INDEX, GRAPH or
+consumable against the accepted planar rows (PROOF.md §1.4). For `d >= 3`, the reviewer placed consumption of Theorem Q after
+Math-#141 (`DL`, whose continuum rows carry OpenAI reviews 5357858391 and 5357882570) is integrated on `main`; that
+happened at `e1ca400` with the bytes unchanged, so the pinned dependency is now on `main`. No STATUS, PROOF_INDEX, GRAPH or
 catalog transition follows from these reviews; that is a source-bound step for a non-author lane. Same GitHub account
 as every lane; zero organizational-independence credit.
 
