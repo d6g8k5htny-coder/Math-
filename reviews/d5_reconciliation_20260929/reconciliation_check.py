@@ -1,16 +1,20 @@
-"""Checks for D5-RECONCILIATION-20260929-v2 (RECONCILIATION.md, PROPOSED_TRANSITIONS.json). Stdlib only; run from the
+"""Checks for D5-RECONCILIATION-20260929-v2.1 (RECONCILIATION.md, PROPOSED_TRANSITIONS.json). Stdlib only; run from the
 repository root.
 
-  IDENTITIES   every source and record named in RECONCILIATION.md section 3 exists as a regular file (no symlink) with
-               its stated SHA256 and git blob. The P2 continuum record is MANDATORY (landed blob 4904e3d9...).
+  IDENTITIES   every source and record named in RECONCILIATION.md section 3 exists as a regular file, with no symlink
+               anywhere on its path (file or parent directory), and with its stated SHA256 and git blob. The P2 continuum record is MANDATORY (landed blob 4904e3d9...).
   VERDICTS     the exact verdict rows occur in each record, including the continuum record's (P10)-(P20) and (P2) rows.
-  NEGATIVES    real filesystem negatives on a temporary copy: deleting the continuum record, changing one byte of it
-               (all verdict substrings kept), or replacing it by a symlink to identical bytes are each REJECTED.
-  TRANSITIONS  PROPOSED_TRANSITIONS.json names only inventoried files; every transition with uses_P2 lists both the P2
-               continuum record (and its checker) and #111; the witness-collision node and C6 stay open.
+  NEGATIVES    real filesystem negatives on a temporary copy of the complete packet: deleting the continuum record,
+               changing one byte of it (all verdict rows kept), replacing it by a symlink to identical bytes, or
+               replacing its parent directory by a symlink to an identical directory are each REJECTED.
+  TRANSITIONS  PROPOSED_TRANSITIONS.json names only inventoried files; every transition with uses_P2 lists the P2
+               continuum record, its checker and #111; every required file is a proposed graph node whose fingerprint
+               equals its inventory SHA256 and source equals its path, reached by a required edge from each consuming
+               node (the D5 row's node included); the witness-collision node and C6 stay open.
   TILING       pin disks, the collar C_{1/4,4}, {4r <= |X| <= s0} and {|X| >= s0} cover an exact rational grid.
   OPEN_C6      the collision item is still recorded as open.
-Mutants (each must fail): optional-continuum, allow-symlink, no-hash, drop-dependency, drop-collar, close-c6.
+Mutants (each must fail): optional-continuum, allow-symlink, no-hash, drop-dependency, drop-edge, stale-fingerprint,
+drop-collar, close-c6.
 """
 import argparse
 import hashlib
@@ -22,7 +26,8 @@ import sys
 import tempfile
 from fractions import Fraction as F
 
-MUTANTS = ("optional-continuum", "allow-symlink", "no-hash", "drop-dependency", "drop-collar", "close-c6")
+MUTANTS = ("optional-continuum", "allow-symlink", "no-hash", "drop-dependency", "drop-edge", "stale-fingerprint",
+           "drop-collar", "close-c6")
 MUT = None
 HERE = "reviews/d5_reconciliation_20260929"
 CONTINUUM = "reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md"
@@ -106,8 +111,9 @@ def check_identities(root):
             continue                                            # the v1 defect: absence accepted
         if not os.path.lexists(p):
             return False
-        if p.is_symlink() and MUT != "allow-symlink":
-            return False
+        if MUT != "allow-symlink" and any((root / pathlib.PurePosixPath(*pathlib.PurePosixPath(path).parts[:i])).is_symlink()
+                                          for i in range(1, len(pathlib.PurePosixPath(path).parts) + 1)):
+            return False                                        # symlinked file or parent directory
         if not p.is_file():
             return False
         data = p.read_bytes()
@@ -128,7 +134,7 @@ def check_negatives(src):
     """Copy the inventory to a temporary root, apply each real filesystem fault to the continuum record, and require
     rejection. The changed copy keeps every verdict substring, so only the byte binding can reject it."""
     rejected = []
-    for fault in ("delete", "change", "symlink"):
+    for fault in ("delete", "change", "symlink", "symlink-parent"):
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)
             for path in INVENTORY:
@@ -141,13 +147,18 @@ def check_negatives(src):
             elif fault == "change":
                 target.write_bytes(target.read_bytes() + b"\n")
                 assert all(n in target.read_text(encoding="utf-8") for n in VERDICTS[CONTINUUM])
-            else:
+            elif fault == "symlink":
                 moved = root / "elsewhere" / "REVIEW.md"
                 moved.parent.mkdir()
                 shutil.move(str(target), str(moved))
                 os.symlink(moved, target)
+            else:
+                moved = root / "elsewhere_dir"
+                shutil.move(str(target.parent), str(moved))
+                os.symlink(moved, target.parent, target_is_directory=True)
+                assert not target.is_symlink() and target.is_file()
             rejected.append(not check_identities(root))
-    return all(rejected) and len(rejected) == 3
+    return all(rejected) and len(rejected) == 4
 
 
 def check_transitions(root):
@@ -162,6 +173,24 @@ def check_transitions(root):
     ok &= any(e.get("node") == "math.rn-region.witness-collision" and e["proposed"] == "OPEN_ACTIVE"
               for e in spec["graph"])
     ok &= any(e["id"].startswith("D5-collision") and e["proposed"] == "OPEN" for e in spec["status_rows"])
+    nodes = {n["id"]: n for n in spec["proposed_graph_nodes"]}
+    edges = spec["proposed_graph_edges"]
+    if MUT == "drop-edge":
+        edges = [e for e in edges if not (e["from"] == "math.rn-region.pin-collision"
+                                          and nodes.get(e["to"], {}).get("source") == CONTINUUM)]
+    if MUT == "stale-fingerprint":
+        for n in nodes.values():
+            if n.get("source") == CONTINUUM:
+                n["fingerprint"] = "0" * 64
+    by_source = {n["source"]: nid for nid, n in nodes.items() if "fingerprint" in n}
+    ok &= all(n["fingerprint"] == INVENTORY[n["source"]][0] for n in nodes.values() if "fingerprint" in n)
+    have = {(e["from"], e["to"]) for e in edges if e["required"] is True}
+    for e in entries:
+        src_node = e.get("node") or e.get("graph_node")
+        if src_node is None:
+            continue
+        ok &= all(p in by_source and (src_node, by_source[p]) in have for p in e["required"])
+    ok &= "math.d5-pin-neighborhood-first-moment" in nodes
     return ok
 
 
@@ -202,7 +231,7 @@ def main():
     checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "NEGATIVES": check_negatives(root),
               "TRANSITIONS": check_transitions(root), "TILING": check_tiling(), "OPEN_C6": check_open(root)}
     passed = all(checks.values()) and len(checks) == 6
-    print(json.dumps({"object": "D5-RECONCILIATION-20260929-v2", "checks": checks, "passed": passed,
+    print(json.dumps({"object": "D5-RECONCILIATION-20260929-v2.1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY),
                       "scope": "identity, verdict-row, filesystem-negative, transition-chain, tiling and open-item "
                                "checks; no mathematics is re-proved"}, indent=2, sort_keys=True))

@@ -1,12 +1,18 @@
 # D5 pin-neighborhood first moment — source-bound reconciliation
 
-**Object:** D5-RECONCILIATION-20260929-v2.
+**Object:** D5-RECONCILIATION-20260929-v2.1.
 **Version v2 (guard repair).** This version answers OpenAI review
 [5893615810](https://github.com/d6g8k5htny-coder/Math-/pull/138#issuecomment-5893615810):
 - the P2 continuum record is now mandatory and byte-bound;
 - real delete, change and symlink negatives are added;
 - the transition dependency chains are machine-readable;
 - the identity inventory now covers every record §3 names.
+
+**v2.1** answers OpenAI review
+[5355021293](https://github.com/d6g8k5htny-coder/Math-/pull/138#pullrequestreview-5355021293):
+- symlinked parent directories are rejected too;
+- every mandatory evidence file is proposed as a graph node, with its SHA256 as `fingerprint`, reached by a
+  `required` edge from each consuming node. A `coverage_source` string alone is not byte invalidation.
 
 The proposal itself is unchanged.
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
@@ -107,9 +113,15 @@ about what code verifies. Its `REVIEW.md` table records the analytic ACCEPT.
 | `PROOF_INDEX.md` | first two D5 bullets under "Open obligations" | Move them to the reviewed section, citing §3's records. Keep the third bullet (shrinking collision) open and point it to C6. |
 | `GRAPH.json` | `math.rn-region.pin-collision`, `.mesoscopic-scaled-annulus` and `.intermediate-r-to-rho` are OPEN_ACTIVE | `PROVED_REVIEWED` at the D5-d, D5-d and D5-e scopes respectively, with these records as `coverage_source`. **`math.rn-region.witness-collision` stays OPEN_ACTIVE.** |
 
-The machine-readable form is `PROPOSED_TRANSITIONS.json`. Every transition that uses P2 lists the continuum record,
-its checker and #111 in its dependency chain: the D5 row, `pin-collision` and `mesoscopic-scaled-annulus`. The
-checker enforces this, and a landing lane should copy these chains into any GRAPH `coverage_source` it writes.
+The machine-readable form is `PROPOSED_TRANSITIONS.json`.
+- **Dependency chains.** Every transition that uses P2 lists the continuum record, its checker and #111 in its
+  chain: the D5 row, `pin-collision` and `mesoscopic-scaled-annulus`.
+- **Graph nodes.** It proposes real GRAPH nodes, in the D1 `reading_rule_component` form: one per mandatory evidence
+  file, with `fingerprint` equal to its SHA256 and `source` equal to its path. It also proposes a D5 aggregate node
+  `math.d5-pin-neighborhood-first-moment`, which stands for the STATUS row.
+- **Required edges.** 30 `required: true` edges run from each consuming node to each of its components.
+- **Enforcement.** The checker requires every chain to be realized by nodes with matching fingerprints and by the
+  required edges. A `coverage_source` string alone is not byte invalidation.
 
 These transitions rest only on the verdicts in §3. The only Claude-authored mathematical input is `P_η`
 (`remote_collision`), and it has xAI/Grok verdicts. The two Claude *review* records (P2 continuum, I3–I5) are joined by
@@ -124,19 +136,23 @@ xAI/Grok records on the same objects: algebra and (P17) for P2; I3/I4/I5 for the
 ## 7. Checks
 
 `reconciliation_check.py` (stdlib only, run from the repository root) has six checks.
-- **IDENTITIES.** All 17 sources and records named in §3 exist as regular files, not symlinks, with the stated SHA256
-  and git blob. The P2 continuum record and its three companion files are mandatory.
+- **IDENTITIES.** All 17 sources and records named in §3 exist as regular files, with no symlink anywhere on the path
+  (file or parent directory), and with the stated SHA256 and git blob. The P2 continuum record and its three companion files are mandatory.
 - **VERDICTS.** The exact verdict rows are present, including the continuum record's (P10)–(P20) and (P2) rows. They
   are checked, not a generic ACCEPT substring.
-- **NEGATIVES.** These are real filesystem faults on a temporary copy: delete the continuum record; change one byte,
-  keeping every verdict row; replace it by a symlink to identical bytes. Each is rejected.
+- **NEGATIVES.** These are real filesystem faults on a temporary copy of the complete packet. Each is rejected:
+  - delete the continuum record;
+  - change one byte, keeping every verdict row;
+  - replace it by a symlink to identical bytes;
+  - replace its parent directory by a symlink to an identical directory.
 - **TRANSITIONS.** `PROPOSED_TRANSITIONS.json` names only inventoried files. Every P2-dependent chain contains the
-  continuum record, its checker and #111. `witness-collision` and C6 stay open.
+  continuum record, its checker and #111. Every chain is realized by component nodes whose fingerprint equals the
+  inventory SHA256, and by required edges. `witness-collision` and C6 stay open.
 - **TILING.** The D5-f tiling covers an exact rational grid of `T² ∖ {M,S}`.
 - **OPEN_C6.** The collision item is still recorded as open.
 
-There are six mutants and each must fail. `optional-continuum` re-creates the v1 defect. The others are
-`allow-symlink`, `no-hash`, `drop-dependency`, `drop-collar` and `close-c6`.
+There are eight mutants and each must fail. `optional-continuum` re-creates the v1 defect. The others are
+`allow-symlink`, `no-hash`, `drop-dependency`, `drop-edge`, `stale-fingerprint`, `drop-collar` and `close-c6`.
 
     python -B -S reviews/d5_reconciliation_20260929/reconciliation_check.py            # from the repo root; prints RESULTS.json
     python -B -S reviews/d5_reconciliation_20260929/reconciliation_check.py --mutant M # exit 1
