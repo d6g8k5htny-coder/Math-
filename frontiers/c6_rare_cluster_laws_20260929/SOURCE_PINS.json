@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "scope": "Mathematical premise identities, not automatic status acceptance",
+  "sources": [
+    {
+      "id": "C6",
+      "commit": "78ac1100217279e7b692f0959f86eee34cd1910e",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "use": "Section 1.1 original count/law; Theorem Q factorial upper bounds; Corollary Theta multiple-occurrence lower bound",
+      "review_context": "PR145 records nonauthor review 5358116559 at 06bc0d6 and provenance-only successors; this is not a review of this new consequence packet. A stale top-level SOURCE_MAP note at the pinned head was separately reported in PR145 comment 5898765203."
+    },
+    {
+      "id": "D5",
+      "commit": "78ac1100217279e7b692f0959f86eee34cd1910e",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "use": "Theorem G_d, summed over d+1 fixed indices, for the first-moment bound"
+    }
+  ],
+  "prior_in_project_result": {
+    "commit": "78ac1100217279e7b692f0959f86eee34cd1910e",
+    "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+    "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+    "use": "Section 7 already establishes the exact-mean Bernoulli obstruction; not claimed as new and not used as a premise"
+  }
+}
