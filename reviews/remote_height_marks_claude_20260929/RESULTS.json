@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "CONTRAST": {
+      "integrated_mass_does_not_fix_height_law": true,
+      "single_uniform_vs_pair_beta_gap": true
+    },
+    "INTEGER": {
+      "pointwise_integer_inequalities": true
+    },
+    "JACOBIAN": {
+      "H2_jacobian_is_k_r_cubed": true
+    },
+    "MIXTURE": {
+      "H7_integer_consequences": true,
+      "a_le_q": true,
+      "configuration_law_within_a_over_m": true,
+      "mu_equals_sigma_plus_eta_and_p1_equals_m_minus_a": true,
+      "singleton_mark_law_within_a_over_m": true
+    },
+    "NORMALIZE": {
+      "normalization_variation_inequality": true
+    }
+  },
+  "object": "CLAUDE-REVIEW-REMOTE-HEIGHT-MARKS-20260929-v1",
+  "passed": true,
+  "scope": "exact finite identities only; not an analytic proof"
+}
