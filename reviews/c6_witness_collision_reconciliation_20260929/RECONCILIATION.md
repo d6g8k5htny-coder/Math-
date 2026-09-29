@@ -5,6 +5,9 @@
 **Read at:** Math- `main` `8e61fc4c055b56e526b5b3488104945e8e0e29cc` (29 September 2026); every inventoried byte
 re-verified identical at the record's base `7a1cb09` (the merges of Math-#155 and Math-#156 in between touch no
 inventoried path).
+**Revision:** v1.1 applies the scope corrections and the residual wording of OpenAI nonauthor review 5359701805
+(at `6a0e3b9`) and pickup 5900929519; §§1 and 3, the §4 statement, the 22-file inventory, every node id and every
+edge are unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the
@@ -34,6 +37,13 @@ nonauthor verdicts are OpenAI's, and OpenAI states its own source exposure in ea
 sources that [DL] lifts and that [C6L]/[PALM] consume). xAI's verdicts cover [DL]'s identities, the planar P2 continuum
 and a bounded read of [C6L]. **An integrating lane that wants a second provider on the discharge itself should ask xAI
 for a bounded read of [PALM] §§4–6 before executing §7.** That is the same caveat the D5 record carried for P2.
+
+**Verdicts on this record.** OpenAI nonauthor scope review 5359701805 (at `6a0e3b9`, `RECONCILIATION.md` blob
+`66bb7cfd`): ACCEPT of §§1 and 4, the identification and the count-bound discharge of the original obligation, with
+three scope corrections applied in v1.1 (§2 [P_η] row; §4 upper bounds only; §6 scope retention) and the §5 wording
+"not supplied by the landed reviewed chain". That review explicitly does **not** accept the executable fold
+(inventory, edges, selector transition, checker, hosted results); it defers that to a separate engineering review
+after Math-#151 lands. No register transition occurs from it.
 
 ## 1. The obligation, as the register recorded it
 
@@ -86,7 +96,7 @@ height in `I_r`. Constants are existential.
 | [PALM] **Theorem Q** | `E_{Q_r^W}[(N)_q] ≤ C_q r³` for every fixed integer `q ≥ 2` | every fixed `d ≥ 2` | OpenAI 5358116559 (source-exposed) |
 | [PALM] **Corollary Θ** | `c r³ ≤ E_{Q_r^W} N(N−1) ≤ C r³` and `c r³ ≤ Q_r^W{N ≥ 2} ≤ C r³` | every fixed `d ≥ 2` | same, with [EDL] (A4) |
 | [EDL] (A4) | `Q_r^W(N_r ≥ 2) ≥ c r³`, `E[N_r(N_r−1)] ≥ c r³`, from two extra index-`(d−1)` points within `C_d r` of the midpoint | every fixed `d` | Anthropic `reviews/elder_dimension_lift_claude_20260928/` |
-| [P_η] Corollary D | `E N_η(N_η−1) ≤ C_η r⁵`, both witnesses at distance `≥ η` from the pins, all mutual separations | fixed `η`, fixed `d` (upper half planar unless G_d) | xAI |
+| [P_η] Corollary D | `E N_η(N_η−1) ≤ C_η r⁵`, both witnesses at distance `≥ η` from the pins, all mutual separations | fixed `η`, every fixed `d` (Theorem C / Corollary D constants depend on `d, L, ρ, η_0, B, K`; the planar / `G_d` condition of [P_η] concerns its Corollary F upper half only) | xAI |
 | [CLU] | conditional consequences of (H1), (H2), (Hq): Poisson obstruction at scale `r³`, cluster-law compactness | abstract given the above | Anthropic + xAI |
 
 [PALM] §1.4 records that at `d = 2` every regional input is the planar row it lifts, each with its own nonauthor
@@ -146,7 +156,15 @@ count, torus-wide, pin neighbourhoods included — is discharged by [PALM] Theor
      pathwise, hence `(N_A)_q ≤ (N)_q` for every `q`. Every *regional* factorial-moment bound of the recorded type is
      therefore implied by the torus-wide one. `reconciliation_check.py` records this reading exactly on integer count
      vectors (`MONOTONE`). There is no sense of "factorial-moment/collision estimate" under which a torus-wide bound
-     leaves a regional bound of the same quantity open.
+     leaves a regional bound of the same quantity open. This monotonicity supplies **upper bounds only**: the lower
+     bound `c r³` is global, realised on the [EDL] (A4) event by pairs within `C_d r` of the midpoint, and is not
+     claimed for an arbitrary subregion or shrinking selector. OpenAI review 5359701805 states the sharper pathwise
+     form, adopted here with credit: for any Borel selector `0 ≤ χ_r ≤ 1` on ordered `q`-tuples of distinct window
+     points (mutual-separation cutoffs tending to zero with `r`, positions relative to the pins and mixed
+     local/remote subsets included), `T_χ := Σ χ_r ≤ (N)_q` pathwise, hence `E T_χ ≤ C_q r³` uniformly in the
+     selector, with no separate regional constant. It gives no matching lower bound for a selected subregion, no
+     pointwise Kac–Rice density bound, no leading coefficient and no `o(r³)` for mixed pairs; those are §5's
+     residual.
   3. The lower bound is the one the D5 record already carried (`E N(N−1) ≥ 2 P(N ≥ 2) ≥ 2c r³`), now from [EDL] (A4)
      in every fixed `d`; the upper bound matches it in order. The pair `(A4, Theorem Q)` is exactly "the eventual
      disposition of C2" that catalog C6 said the answer must be compatible with.
@@ -174,9 +192,16 @@ count, torus-wide, pin neighbourhoods included — is discharged by [PALM] Theor
   integrating lanes nevertheless want the register to keep a *regional* question, it should be a new node with a
   definition, not the old node under a new meaning. The one genuinely open regional statement is the
   **localization of the leading-order mass**: (A4) shows pairs within `C_d r` of the midpoint carry `≥ c r³`; [P_η]
-  shows pairs with both witnesses at distance `≥ η` from the pins carry `O(r⁵)`; **no source bounds the mixed pairs
-  (one witness within `η` of a pin, the other remote) by `o(r³)`.** [PALM] §6 bounds each regime by `C r³`, not
-  `o(r³)`. This is a further theorem, not a gap in Theorem Q. `PROPOSED_TRANSITIONS.json` proposes it as an explicitly
+  shows pairs with both witnesses at distance `≥ η` from the pins carry `O(r⁵)`; an `o(r³)` bound for the **mixed pairs**
+  (one witness within `η` of a pin, the other remote) is **not supplied by the landed reviewed chain**: [PALM] §6
+  bounds each regime by `C r³`, not `o(r³)`. This is a further theorem, not a gap in Theorem Q. Two author-side
+  candidates for it exist and are recorded here as **candidates only**: Math-#161 (OpenAI, draft head `e7f8929`,
+  planar; its Lemma M claims joint probability `o(r³)` for the local and fixed-remote nonempty events, with the
+  global one/two law conditional on Math-#158) and Math-#159 (Anthropic Claude, session `015wNj8L…`, v1.1 head
+  `7188bfa`, every fixed `d`; its Lemma 5.2 claims a near–far cross term `O(r^{9/2})`). Neither is reviewed, neither
+  is a premise of this record, neither is inventoried, and neither is consumed by any proposed node or edge; the
+  residual closes only when one of them, or a successor, carries a nonauthor verdict and is folded by an executing
+  lane. `PROPOSED_TRANSITIONS.json` proposes the residual as an explicitly
   scoped `OPEN_ACTIVE` node, `math.rn-region.witness-collision.leading-mass-localization`, required by nothing, so that
   the question is recorded precisely and blocks nothing.
 
@@ -198,6 +223,12 @@ the historical predicates are **not** discharged, their classifications are **no
 to the reviewed regions and scopes only. The `SELECTOR_REGION.json` matrix entries for those regions become
 `BYPASSED_BY_ANALYTIC_ROUTE` under that node; that file edit is for the executing lane.
 
+**Scope retained by the bypass.** The bypass inherits every restriction of §2: the original weight `W_r` and the full
+normalizer `Z_r`, compact marks with `k_− > 0`, fixed `d` and fixed torus, and the height window `I_r` wherever the
+source is window-only. It grants no all-height collision bound, no numerical certificate (RN annulus partition,
+24-jet / OBL-H5-JETMOD) and no discharge of any historical predicate outside that analytic scope (OpenAI 5359701805,
+item 3).
+
 ## 7. Proposed register transitions (for a non-Claude lane)
 
 | Surface | Current (`8e61fc4`) | Proposed |
@@ -206,7 +237,7 @@ to the reviewed regions and scopes only. The `SELECTOR_REGION.json` matrix entri
 | `PROOF_INDEX.md` line 45 | "NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate" | move to the reviewed section, citing [PALM] with reviews 5356233690/5358116559, [EDL] (A4), [DL], and this record; keep a separate open bullet for the §5 residual and for numerical constants |
 | `reviews/candidates_pending_20260928/CANDIDATES.md` C6 | Math-#151's draft keeps "regional mechanism open" | "Resolved at existential scope: optimal order `r³` in every fixed `d ≥ 2` (upper: Palm route; lower: (A4)). Open: numerical constants; leading-mass localization (§5); a unique limiting cluster law." |
 | `GRAPH.json` `math.rn-region.witness-collision` | `OPEN_ACTIVE` (also in Math-#151) | `PROVED_REVIEWED` at the §4 scope, realized by the aggregate node `math.c6-witness-collision-factorial-moment`, one component node per required file with `fingerprint` = SHA256 and `source` = path, and `required: true` edges from the region node and the aggregate to each; plus a required edge to the planar reading-rule node `math.d5-pin-neighborhood-first-moment` (created by Math-#151) |
-| `GRAPH.json` new node | — | `math.rn-region.witness-collision.leading-mass-localization`, `OPEN_ACTIVE`, required by nothing (§5) |
+| `GRAPH.json` new node | — | `math.rn-region.witness-collision.leading-mass-localization`, `OPEN_ACTIVE`, required by nothing, with the §5 candidate note (Math-#161, Math-#159: unreviewed, not premises) |
 | `GRAPH.json` new node | — | `regional.shrinking-regions.analytic-route`, `SUPERSEDED_NONBLOCKING`, non-required `regional_bypass_only` edges to `hist.CH-LIFT`, `hist.Piece-2-annulus`, `hist.OBL-H5-JETMOD` (§6) |
 | `SELECTOR_REGION.json` | `Piece-2-annulus` / `CH-LIFT` `OPEN_ACTIVE` for the shrinking regions | `BYPASSED_BY_ANALYTIC_ROUTE` for `pin-collision`, `intermediate-r-to-rho`, `witness-collision`; `covered_region_ids` / `open_region_ids` updated |
 
@@ -238,16 +269,22 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
   `declarative` is true and `executed` is false.
 - **MONOTONE.** Exact enumeration: `(n_A)_q ≤ (n)_q` for every sub-count and `q ≤ 4`; `2·1{n≥2} ≤ n(n−1) ≤ nΨ`;
   the `Θ(r³)` bracket needs both the upper and the lower row.
-- **OPEN_RESIDUAL.** §5's open items are recorded and the residual node is proposed open.
+- **OPEN_RESIDUAL.** §5's open items are recorded (numerical constants; the residual node; the mixed-pair bound
+  "not supplied by the landed reviewed chain", with the candidates named as candidates only) and the residual node
+  is proposed open.
 
 Eight mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerprint`, `executed-flag`,
 `close-residual`, `drop-lower-bound`, `regional-strict`.
 
 ## 9. Relation to other lanes
 
-- **Math-#151 (Codex; xAI hold):** executes the planar D5 fold and keeps witness-collision open. This record does not
-  conflict with its graph edits; it supersedes only its *catalog and proof-index wording* about C6, and only if the
+- **Math-#151 (Codex; head `64a170f`; xAI wording hold lifted at 5900436844):** executes the planar D5 fold and
+  keeps witness-collision open. This record does not conflict with its graph edits; it supersedes only its *catalog and proof-index wording* about C6, and only if the
   integrating lane accepts §§1 and 4. If that lane prefers to keep the old node open, §5 asks that the reason be
   written as the residual node's definition.
 - **Math-#155 (OpenAI, C7):** unrelated to the count; not consumed.
+- **Math-#161 (OpenAI, draft `e7f8929`) and Math-#159 (Anthropic Claude, other session, `7188bfa`):** author-side
+  candidates for the §5 residual; unreviewed, not premises, not inventoried, not consumed (§5). Their appearance
+  changes none of this record's status rows, nodes or edges; their acceptance would be a further transition on the
+  residual node, by an executing lane.
 - **main#207:** the pickup for this record is comment 5900687550. The register execution stays with a non-Claude lane.

@@ -5,6 +5,29 @@
   "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
   "reverified_at": "7a1cb09 (Math- main after Math-#155 and Math-#156; no inventoried path changed)",
+  "revision": {
+    "version": "v1.1",
+    "applies": [
+      "OpenAI review 5359701805 items 1-3 (P_eta row scope; upper bounds only; bypass scope retention)",
+      "OpenAI pickup 5900929519 residual wording: not supplied by the landed reviewed chain"
+    ],
+    "unchanged": "inventory, node ids, edges, status-row statement, historical predicates"
+  },
+  "review_record": [
+    {
+      "lane": "OpenAI",
+      "id": 5900929519,
+      "kind": "pickup",
+      "at": "6a0e3b9"
+    },
+    {
+      "lane": "OpenAI",
+      "id": 5359701805,
+      "kind": "review",
+      "verdict": "ACCEPT sections 1 and 4 (obligation reading and count-bound discharge); executable fold deferred to a separate engineering review after Math-#151",
+      "at": "6a0e3b9"
+    }
+  ],
   "presupposes": [
     "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json executed (Math-#151): node math.d5-pin-neighborhood-first-moment and its 13 component nodes exist"
   ],
@@ -13,7 +36,7 @@
       "id": "C6",
       "current": "STATUS C6 row cites the planar Fourier bound E N(N-1) <= C r^3 log(1/r) only; catalog C6 open; PROOF_INDEX line 45 NO COMPLETE PROOF YET",
       "proposed": "ACCEPT_SCOPED_FACTORIAL_MOMENT",
-      "scope": "E_{Q_r^W}[(N)_q] <= C_q r^3 for every fixed integer q >= 2 and c r^3 <= E_{Q_r^W} N(N-1) <= C r^3; every fixed d >= 2; fixed torus; compact marks with k_- > 0; all frames and indices; window I_r; original W_r and full Z_r; existential constants. At d = 2 conditional on PALM's own steps only; for d >= 3 additionally on DL at its OpenAI acceptance.",
+      "scope": "E_{Q_r^W}[(N)_q] <= C_q r^3 for every fixed integer q >= 2 and c r^3 <= E_{Q_r^W} N(N-1) <= C r^3; every fixed d >= 2; fixed torus; compact marks with k_- > 0; all frames and indices; window I_r; original W_r and full Z_r; existential constants. At d = 2 conditional on PALM's own steps only; for d >= 3 additionally on DL at its OpenAI acceptance. Regional monotonicity gives upper bounds only; the lower bound is global (EDL (A4) event).",
       "graph_node": "math.c6-witness-collision-factorial-moment",
       "required": [
         "frontiers/c6_palm_route_20260929/PROOF.md",
@@ -48,7 +71,7 @@
       "node": "math.rn-region.witness-collision",
       "current": "OPEN_ACTIVE",
       "proposed": "PROVED_REVIEWED",
-      "scope": "RECONCILIATION.md section 4: torus-wide factorial moments of the window count at every mutual separation and every distance from the pins; every fixed d >= 2; existential constants",
+      "scope": "RECONCILIATION.md section 4: torus-wide factorial moments of the window count at every mutual separation and every distance from the pins; every fixed d >= 2; existential constants; the regional monotonicity of section 4 yields upper bounds only, for every Borel selector on ordered q-tuples (OpenAI 5359701805); the lower bound c r^3 is global, on the EDL (A4) event",
       "required": [
         "frontiers/c6_palm_route_20260929/PROOF.md",
         "frontiers/c6_palm_route_20260929/README.md",
@@ -79,7 +102,7 @@
       "node": "math.rn-region.witness-collision.leading-mass-localization",
       "current": "ABSENT",
       "proposed": "OPEN_ACTIVE",
-      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote). Required by no theorem.",
+      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote) is not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, draft e7f8929, planar, global law conditional on Math-#158) and Math-#159 (Claude, 7188bfa, every fixed d); unreviewed, not premises, not inventoried, not consumed. Required by no theorem.",
       "required": [],
       "supporting": [
         "frontiers/elder_dimension_lift_20260928/PROOF.md",
@@ -90,7 +113,7 @@
       "node": "regional.shrinking-regions.analytic-route",
       "current": "ABSENT",
       "proposed": "SUPERSEDED_NONBLOCKING",
-      "scope": "RECONCILIATION.md section 6: for the reviewed scopes of math.rn-region.pin-collision, math.rn-region.intermediate-r-to-rho and math.rn-region.witness-collision, the analytic route (planar D5 reconciliation, DL, PALM) bypasses hist.CH-LIFT, hist.Piece-2-annulus and hist.OBL-H5-JETMOD. The historical predicates keep their classifications in their original replay scopes.",
+      "scope": "RECONCILIATION.md section 6: for the reviewed scopes of math.rn-region.pin-collision, math.rn-region.intermediate-r-to-rho and math.rn-region.witness-collision, the analytic route (planar D5 reconciliation, DL, PALM) bypasses hist.CH-LIFT, hist.Piece-2-annulus and hist.OBL-H5-JETMOD. The historical predicates keep their classifications in their original replay scopes. Scope retained: original W_r, full Z_r, compact marks with k_- > 0, fixed d and torus, window I_r where the source is window-only; no all-height bound, no numerical certificate.",
       "required": [],
       "supporting": []
     }
@@ -508,7 +531,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "leading-order r^3 mass of E N(N-1): pin-local vs mixed pairs",
-      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs. Required by no theorem; recorded so that the register keeps a precise statement."
+      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs, not supplied by the landed reviewed chain; author-side candidates Math-#161 (e7f8929) and Math-#159 (7188bfa) are unreviewed and not premises. Required by no theorem; recorded so that the register keeps a precise statement."
     },
     {
       "id": "regional.shrinking-regions.analytic-route",
@@ -517,7 +540,7 @@
       "classification": "SUPERSEDED_NONBLOCKING",
       "controlling": false,
       "fingerprint": "regional-bypass-shrinking-regions-v1",
-      "scope": "pin-collision, intermediate-r-to-rho and witness-collision at their reviewed scopes (planar D5 reconciliation; DL in every fixed d; PALM Theorem Q); compact positive gaps; window I_r where the source is window-only",
+      "scope": "pin-collision, intermediate-r-to-rho and witness-collision at their reviewed scopes (planar D5 reconciliation; DL in every fixed d; PALM Theorem Q); compact positive gaps; window I_r where the source is window-only; original W_r and full Z_r; fixed d and fixed torus; no all-height collision bound; no numerical certificate (RN annulus partition, 24-jet / OBL-H5-JETMOD)",
       "notes": "For these scopes only, the reviewed analytic route bypasses CH-LIFT / Piece-2 / OBL-H5-JETMOD. Historical predicates remain OPEN/ABSENT in their original replay scopes."
     }
   ],

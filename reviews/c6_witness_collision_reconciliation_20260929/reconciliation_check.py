@@ -340,7 +340,7 @@ def check_monotone():
 def check_open_residual(root):
     text = (root / HERE / "RECONCILIATION.md").read_text(encoding="utf-8")
     ok = "**Numerical constants**" in text and "leading-mass-localization" in text
-    ok &= "no source bounds the mixed pairs" in text
+    ok &= "not supplied by the landed reviewed chain" in text and "candidates only" in text
     spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
     res = next(e for e in spec["graph"] if e["node"] == RESIDUAL)
     ok &= res["proposed"] == "OPEN_ACTIVE" and MUT != "close-residual"
