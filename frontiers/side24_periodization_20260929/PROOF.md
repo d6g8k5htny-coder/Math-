@@ -74,20 +74,58 @@ the per-axis / per-pair perturbations through the §1 projection gives, per unit
 
 (These are the exact closed forms the checker verifies as `H5_*`.)
 
-## 4. The chain rule through Φ, and where the exponents come from
+## 4. The chain rule through Φ: the three exponents derived, not read off
 
-The parent's reference specialization writes the coefficient integrand as a product whose isotropic-family
-dependence is `Φ ∝ Ω^{2/3} m4^{1/2} a^{−13/6}`, `Ω = aχ − m4²`. The three exponents are read off the §15
-factors: the two gradient/`V`-densities contribute `p_G(0) ∝ a^{−3/2}` and `p_V(0) ∝ m4^{−3/2}`; the scalar
-`τ_u^{4/3} = (Ω/a)^{2/3}` contributes `Ω^{2/3} a^{−2/3}`; the cone-moment scale `D_u ∝ m4²`. Summing:
-`a: −3/2 − 2/3 = −13/6`, `m4: −3/2 + 2 = 1/2`, `Ω: 2/3`. Hence at the planar point `(1,3,15)`, `Ω = 6`,
+(v1.1, answering the xAI Slice A HOLD: every exponent below is an identity of finite Gaussian conditioning,
+verifiable in any lane without the parent's prose.)
+
+**The isotropic family.** Let `J = (a, m4, χ)` be the even jet of a covariance that is isotropic through order six,
+in the parent's sign convention `a = −⟨∂²_v K⟩(0)`, `m4 = +⟨∂⁴_v K⟩(0)`, `χ = −⟨∂⁶_v K⟩(0)`. Isotropy fixes the
+derivative tensors up to these scalars: `∂_i∂_j K(0) = −a δ_ij`, `∂_i∂_j∂_k∂_l K(0) = (m4/3)(δ_ij δ_kl + δ_ik δ_jl
++ δ_il δ_jk)` (so `d_iiii = m4`, `d_iijj = m4/3`), and the axial sixth derivative `∂_x⁶ K(0) = −χ`. Using
+`Cov(∂^α f, ∂^β f) = (−1)^{|β|} ∂^{α+β} K(0)`, the §15 objects at a contact point with axis `u = e_x` and
+transverse coordinates `y ∈ ℝ^m`, `m = d − 1`, are:
+
+1. **Gradient.** `Cov(G) = a I_d`, so `p_G(0) = (2π)^{−d/2} a^{−d/2}`.
+2. **The `V_u` block.** `V_u = (f_xx, f_{xy_1}, …, f_{xy_m})` has `Var f_xx = m4`, `Var f_{xy_j} = d_{xxy_jy_j} = m4/3`,
+   and all cross-covariances vanish (each would be a fourth derivative with an odd number of one index). Hence
+   `det Cov(V_u) = m4 (m4/3)^m` and `p_{V_u}(0) = (2π)^{−d/2} 3^{m/2} m4^{−d/2}`.
+3. **The axial third derivative.** `Var f_xxx = χ`, `Cov(f_xxx, f_x) = −m4`, `Var f_x = a`, and `f_xxx` is
+   uncorrelated with the transverse gradient components. So `τ_u² = Var(f_xxx | G = 0) = χ − m4²/a = Ω/a`,
+   `Ω := aχ − m4²`, and `τ_u^{4/3} = Ω^{2/3} a^{−2/3}`. (Reference values: `15 − 9 = 6`.)
+4. **The transverse Hessian given `V_u = 0`.** Unconditionally `Cov(A_ii, A_jj) = (m4/3)(1 + 2δ_ij)`,
+   `Var A_ij = m4/3` for `i ≠ j`, off-diagonal entries uncorrelated with the diagonal ones and with `V_u`;
+   `Cov(A_ii, f_xx) = d_{xxy_iy_i} = m4/3`; `Cov(A_ij, f_{xy_k}) = 0` (odd in `x`). Conditioning on `f_xx = 0`
+   (the only correlated coordinate of `V_u`) subtracts `(m4/3)²/m4 = m4/9` from every diagonal–diagonal
+   covariance:
+
+       Cov(A_ii, A_jj | V_u = 0) = (m4/3)(2/3 + 2δ_ij),   Var(A_ij | V_u = 0) = m4/3  (i ≠ j).
+
+   At `m4 = 3` this is exactly `(2/3)δ_ijδ_kl + δ_ikδ_jl + δ_ilδ_jk`, i.e. `A = Q + √(2/3) Z I_m` of
+   `coefficients/side24_v1` §1 (and `Var A = 8/3` for `m = 1`). In general the conditional law is the fixed
+   `m4 = 3` law scaled by `√(m4/3)`; since `h(A) = det(A)² 1{A < 0}` is homogeneous of degree `2m` and the cone
+   is scale-invariant, `D_u = (m4/3)^m D_u^{(3)}`, i.e. **`D_u ∝ m4^{d−1}`**.
+
+**Exponents in every `d`.** Multiplying 1–4, the isotropic-family dependence of the (15.2) integrand — hence of
+`Φ`, since the angular integral of a constant is a constant — is
+
+    Φ ∝ a^{−d/2 − 2/3} · m4^{d/2 − 1} · Ω^{2/3}.
+
+For `d = 3`: `Φ ∝ Ω^{2/3} m4^{1/2} a^{−13/6}`. (For `d = 2` the `m4` exponent is `0`, consistent with
+`coefficients/side24_v1` eq. (1) where `D_1 = 4/3` carries `m4¹` against `p_V ∝ m4^{−1}`.) The checker verifies
+items 1–4 and the exponent sums exactly (group `H6`), including the conditional-covariance scaling at several
+rational `m4` values. Hence at the planar point `(1,3,15)`, `Ω = 6`,
 
     d log Φ = (2/3)(dΩ/6) + (1/2)(dm4/3) − (13/6) da = dΩ/9 + dm4/6 − (13/6) da,
     dΩ = χ da + a dχ − 2 m4 dm4 = 15 da + dχ − 6 dm4.
 
 Substituting §3 and dividing by `q` yields exactly `P_3(L)`. The amplitude-normalization check (`c ∝ A^{−2/3}`
-under `f → Af`, matching `ν_{Af}(ℓ) = A^{−1}ν_f(ℓ/A)`) is the parent's own consistency identity and is reproduced
-in the D1-E full-depth review; it fixes the overall power bookkeeping the exponents above must satisfy.
+under `f → Af`, matching `ν_{Af}(ℓ) = A^{−1}ν_f(ℓ/A)`) is the parent's own consistency identity — with the general
+exponents above it reads `−d/2·2 + 4/3 + 2(d−1) = −2/3` and is reproduced in the D1-E full-depth review.
+
+**What §4 consumes from the parent.** Only the *shape* of (15.2): that the leading coefficient is the angular
+integral of `p_G(0) p_{V_u}(0) τ_u^{4/3} D_u` times a jet-independent constant. The values of the four factors
+under any isotropic jet are computed here from the covariance alone.
 
 ## 5. Remainder (what a reviewer must still bound analytically)
 

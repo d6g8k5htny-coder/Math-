@@ -187,25 +187,60 @@ def main(argv):
     results["H5_moment_variations_per_q"] = {
         "da": "-2L^2", "dm4": "(6/5)L^4-12L^2", "dchi": "-(6/7)L^6+18L^4-90L^2"}
 
-    # ---- H6: isotropic functional exponents and the chain rule --------------
-    # c proportional to Omega^{2/3} m4^{1/2} a^{-13/6}, Omega = a chi - m4^2:
-    # from (15.2)-specialization factors p_G ~ a^{-3/2}, p_V ~ m4^{-3/2},
-    # tau^{4/3} = (Omega/a)^{2/3}, D-scale ~ m4^2  (derivation in PROOF.md §4).
-    ea = F(-3, 2) + F(-2, 3)               # a exponent  (-13/6)
-    em = F(-3, 2) + F(2)                   # m4 exponent (1/2)
-    eo = F(2, 3)                           # Omega exponent
+    # ---- H6: isotropic functional exponents, DERIVED from finite Gaussian
+    # conditioning (PROOF.md §4 items 1-4), then the chain rule -------------
+    # Item 4: transverse Hessian A (m=2: A11, A22, A12) jointly with f_xx under the
+    # isotropic rank-4 tensor d_ijkl = (m4/3)(dd+dd+dd); condition on f_xx = 0.
+    def cond_cov_A(m4):
+        m4 = F(m4)
+        # unconditional: Cov(Aii,Ajj) = (m4/3)(1+2δ), Var(A12) = m4/3,
+        # Cov(Aii, fxx) = m4/3, Var(fxx) = m4; A12 uncorrelated with fxx.
+        c = {}
+        for i in (1, 2):
+            for j in (1, 2):
+                c[(i, j)] = (m4 / 3) * (1 + (2 if i == j else 0)) - (m4 / 3) ** 2 / m4
+        return c, m4 / 3            # diagonal block after conditioning; Var(A12)
+    for m4 in (F(3), F(5, 2), F(7), F(1, 3)):
+        c, v12 = cond_cov_A(m4)
+        s = m4 / 3                  # predicted scale factor (m4/3) times the m4=3 law
+        check("H6_condcov_diag_scaling_m4=%s" % m4,
+              c[(1, 1)] == s * F(8, 3) and c[(2, 2)] == s * F(8, 3)
+              and c[(1, 2)] == s * F(2, 3) and v12 == s * F(1))
+    # at m4 = 3 the law is (2/3)dd+dd+dd: Var Aii = 8/3, Cov(A11,A22) = 2/3, Var A12 = 1
+    c3, v3 = cond_cov_A(3)
+    check("H6_condcov_reference_law", c3[(1, 1)] == F(8, 3) and c3[(1, 2)] == F(2, 3) and v3 == 1)
+    # Item 3: tau^2 = Var(f_xxx | G=0) = chi - m4^2/a  (Schur complement), reference 15-9=6
+    def tau2(a, m4, chi):
+        return F(chi) - F(m4) ** 2 / F(a)
+    check("H6_tau2_reference", tau2(1, 3, 15) == 6)
+    check("H6_tau2_is_Omega_over_a", all(tau2(a, m4, chi) == (F(a) * chi - F(m4) ** 2) / F(a)
+                                       for (a, m4, chi) in ((1, 3, 15), (2, 5, 40), (F(1, 2), 1, 9))))
+    # Items 1,2,4 + exponent sums in every d:  p_G ~ a^{-d/2}; p_V ~ m4^{-d/2}
+    # (det Cov V = m4 (m4/3)^{d-1}); tau^{4/3} ~ Omega^{2/3} a^{-2/3}; D_u ~ m4^{d-1}
+    def exponents(d):
+        ea = F(-d, 2) + F(-2, 3)
+        em = F(-d, 2) + F(d - 1)
+        eo = F(2, 3)
+        return ea, em, eo
+    for d in range(2, 8):
+        ea, em, eo = exponents(d)
+        check("H6_exp_general_d%d" % d, ea == F(-d, 2) - F(2, 3) and em == F(d, 2) - 1 and eo == F(2, 3))
+        # amplitude check: p_G ~ A^{-d}, p_V ~ A^{-d}, tau^{4/3} ~ A^{4/3}, D ~ A^{2(d-1)}
+        check("H6_amplitude_d%d" % d, F(-d) + F(-d) + F(4, 3) + F(2 * (d - 1)) == F(-2, 3))
+    ea, em, eo = exponents(3)
     # M2 corrupts the target a-exponent to -11/6; the true value -13/6 then fails.
     target_a = F(-11, 6) if mutant == "M2" else F(-13, 6)
     check("H6_exp_a", ea == target_a)
     check("H6_exp_m4", em == F(1, 2))
     check("H6_exp_Omega", eo == F(2, 3))
+    check("H6_exp_d2_m4_is_zero", exponents(2)[1] == 0)
     # chain at planar (a, m4, chi) = (1, 3, 15), Omega = 6:
     # dlog c = (2/3) dOmega/6 + (1/2) dm4/3 - (13/6) da = dOmega/9 + dm4/6 - (13/6) da
     check("H6_planar_weights", F(2, 3) / 6 == F(1, 9) and F(1, 2) / 3 == F(1, 6))
     dOmega = padd(padd(pscale(da, 15), dchi), pscale(dm4, -6))  # chi da + a dchi - 2 m4 dm4
     dlogc = padd(padd(pscale(dOmega, F(1, 9)), pscale(dm4, F(1, 6))),
                  pscale(da, F(-13, 6)))
-    results["H6_chain"] = "dlogc = dOmega/9 + dm4/6 - (13/6) da at (1,3,15)"
+    results["H6_chain"] = "exponents derived: a^(-d/2-2/3) m4^(d/2-1) Omega^(2/3); d=3 -> (-13/6, 1/2, 2/3); dlogc = dOmega/9 + dm4/6 - (13/6) da at (1,3,15)"
 
     # ---- H7: the closed form P3(L) and its value at 24 -----------------------
     P3_stated = pscale(pmul({2: F(1)}, {4: F(10), 2: F(-147), 0: F(315)}), F(-1, 105))

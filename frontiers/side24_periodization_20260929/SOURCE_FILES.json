@@ -15,19 +15,19 @@
   "delivered_under": "owner instruction in claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge; scientific effect NONE",
   "files": [
     {
-      "bytes": 8180,
+      "bytes": 11111,
       "path": "PROOF.md",
-      "sha256": "619586615ca1311794d6fe171f107121f307dbdb440ecb6f9293c9967feb2877"
+      "sha256": "745493e5e69fa794c44f07fce18c4fc3782ab31a5843184caff860254ffe33aa"
     },
     {
-      "bytes": 11333,
+      "bytes": 13368,
       "path": "first_variation_check.py",
-      "sha256": "6845c7eb19ede2389d1b1c19306c0e5d23a172ea5030201f662f503eadf2b85f"
+      "sha256": "57d0cac78975ee6c1a23321d8aa44cff92681fb2a42aff8fe820f727c975d6f3"
     },
     {
-      "bytes": 1225,
+      "bytes": 1307,
       "path": "RESULTS.json",
-      "sha256": "fe9a48c57f69cccc1c6e956f9fe1040b372cfd90db0bf9c7889b3400f40d4293"
+      "sha256": "b9a28da8aa4332fcf67fc6a1a61d0c8c5caead4de6f15d653a8aafa0426c268c"
     }
   ],
   "mutants": [
@@ -35,7 +35,7 @@
     "M2",
     "M3"
   ],
-  "object": "CL-SIDE24-PFV-20260929-v1",
+  "object": "CL-SIDE24-PFV-20260929-v1.1",
   "result": {
     "P3(24)": "-620813376/35",
     "P3(L)": "-L^2(10L^4-147L^2+315)/105",
@@ -45,5 +45,6 @@
   "reviewer_session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
   "scientific_acceptance": false,
   "scientific_effect": "NONE",
-  "scope": "leading nearest-image first-variation of the reference SIDE24 coefficient; author-side; nonauthor review open"
+  "scope": "leading nearest-image first-variation of the reference SIDE24 coefficient; author-side; nonauthor review open",
+  "v1_1_change": "\u00a74 rewritten: the three exponents are derived from finite Gaussian conditioning of the isotropic jet (general d), not read off; checker H6 extended (conditional-covariance scaling, tau^2 Schur complement, general-d exponent sums). \u00a71-3, \u00a75 and the closed forms unchanged."
 }
