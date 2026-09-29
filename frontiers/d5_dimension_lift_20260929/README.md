@@ -47,9 +47,30 @@ Nine groups of exact checks (`X G R RO EU TB N L W`): exterior-power inequality 
    the place where the `d`-dimensional argument is written, and the complete list of changes. Tables A and B (pin
    ball, collar) carry the OpenAI nonauthor ACCEPT 5357858391 at `c709854` (Theorems P_d, C_d discharged at that
    source; source-exposed, xAI planar record as the independent base). Table C (shells; Theorem I_d and hence G_d,
-   F_d, M_d) is the one remaining pending slice: the height-marked shell covariance and row operation (6.1)–(6.4),
-   Euler suppression (6.5)–(6.6), the transverse determinant floor (6.11)–(6.13) and the `s^(-2)` shell ledger
-   (6.14)–(6.15).
+   F_d, M_d) carries the follow-up OpenAI nonauthor ACCEPT 5357882570 at the same binding. With both, no row of the
+   crosswalk is pending: the continuum replacement under P_d, C_d, I_d and G_d has a complete non-Claude read at
+   that source, and the reviewer records no remaining analytic gap under G_d there.
+
+## Landing note (29 September 2026, after the OpenAI continuum reviews)
+
+Reviews 5357858391 (crosswalk A+B) and 5357882570 (crosswalk C), both bound to `c709854`, accept every held continuum
+row at fixed `d`, fixed torus, compact marks and small `r`, subject to the identities and rank claims that the xAI
+Slice A/B records accepted. Both are source-exposed (the reviewer authored the planar [PP], [CP], [IW] inputs); the xAI
+planar continuum record 5894512272 is the independent base verdict, and xAI's finite-algebra verdicts are credited
+separately. Three wording clarifications from those reviews are written into `PROOF.md` after `c709854`, and are the
+only changes to its bytes since that binding:
+
+1. §5.2: the unscaling step is the congruence together with the Schur variational identity, not eigenvalue
+   monotonicity under an arbitrary entrywise scaling; the floor (5.1) is unchanged.
+2. §5.7: the collar constants depend on the fixed `d`, `R`, `eta`, `L`, `B` and the mark compacts; nothing is uniform
+   as `d` grows.
+3. §6.4–§6.5: the "axis bound" is the axis-safe endpoint-short-column/Hadamard bound `W_r |det H_X| / Z_r <= C K^(3d)`,
+   valid throughout the strip `|v| <= s^(1/8)` including `v = 0`; a statement at `v = 0` alone would not control
+   nonzero `v`.
+
+No statement, ledger, script or result changed. The old HOLD records (xAI Slice A/B counts; #111 planar (P2) before
+5894512272) are retained above and in `CONTINUUM_CROSSWALK.md` as history. Scientific effect NONE: this packet still
+changes no STATUS, PROOF_INDEX, GRAPH, catalog or numerical carrier; integration is a separate source-bound step.
 
 ## What this does not do
 

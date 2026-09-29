@@ -521,11 +521,11 @@ Combining (6.8), (6.9), dividing once by [LP] (5.5) and using `r^2/s <= r`,
 
     W_r |det H_X| / Z_r <= C K^(3d) s^2 (r + s^2)^2 |v|^(-5).                                        (6.10)
 
-On the axis, retain only the two endpoint short columns (Lemma D2 with `e_x`): `W_r |det H_X| <= C r^2 K^(3d)`, which cancels the normalizer with no division by `v`.
+**Axis-safe bound, valid throughout the strip `|v| <= s^(1/8)`, including `v = 0`.** The two endpoint short columns `H_M e_x`, `H_S e_x`, of size at most `Lr/2` by [LP] (5.3), do not involve the witness position, so Lemma D2 (Hadamard with `e_x`) gives `|det H_M|, |det H_S| <= C r K^(d-1)` for every `X`; with the trivial `|det H_X| <= K^d`, `W_r |det H_X| <= C r^2 K^(3d)` and, dividing once by [LP] (5.5), `W_r |det H_X| / Z_r <= C K^(3d)` on the whole strip, with no division by `|v|`. A bound stated only at `v = 0` would not control nonzero `v`; it is this uniform bound that §6.5 uses.
 
 ### 6.5 Small axial strip ([IW] §6)
 
-On `A` and `|v| <= v_0`, `|u|` is bounded below and `d_e >= c > 0`; the first line of (6.3) gives `|E_(Q_r)[f_x(X)/s^2]| >= c_0` and `Var <= C(|v|^2 + s^2)`; the one-coordinate Mahalanobis bound applies to the full `(d+1)`-dimensional exponent. On `|v| <= s^(1/8)`, (6.1) gives the joint density bound `C s^(-5(d+1)) exp[-c s^(-1/4)]`, regression on `Y_X = (grad f(X), f(X))` with `||Sigma_X^(-1)|| <= C s^(-10)` gives `E[K^(3d) | grad f(X) = 0, f(X) = y] <= C s^(-30d)`, and with the axis bound of §6.4 and [LP] (5.5) the intensity per unit volume and height is bounded by `C s^(-N) exp[-c s^(-1/4)] <= C`. The strip has volume `O(s^d) <= O(s^2)` and the window length is `k r^3`, so it contributes at most `C r^3 s^2` to the shell count.
+On `A` and `|v| <= v_0`, `|u|` is bounded below and `d_e >= c > 0`; the first line of (6.3) gives `|E_(Q_r)[f_x(X)/s^2]| >= c_0` and `Var <= C(|v|^2 + s^2)`; the one-coordinate Mahalanobis bound applies to the full `(d+1)`-dimensional exponent. On `|v| <= s^(1/8)`, (6.1) gives the joint density bound `C s^(-5(d+1)) exp[-c s^(-1/4)]`, regression on `Y_X = (grad f(X), f(X))` with `||Sigma_X^(-1)|| <= C s^(-10)` gives `E[K^(3d) | grad f(X) = 0, f(X) = y] <= C s^(-30d)`, and with the axis-safe bound of §6.4 (`W_r |det H_X| / Z_r <= C K^(3d)` throughout the strip) the intensity per unit volume and height is bounded by `C s^(-N) exp[-c s^(-1/4)] <= C`. The strip has volume `O(s^d) <= O(s^2)` and the window length is `k r^3`, so it contributes at most `C r^3 s^2` to the shell count.
 
 ### 6.6 Transverse region: `s^(1/8) <= |v| <= 2` ([IW] §7)
 
