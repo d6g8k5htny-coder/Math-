@@ -1,0 +1,94 @@
+{
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "disposition": "AUTHOR_SIDE_ANALYTIC_CANDIDATE",
+  "execution_boundary": "Standalone local arithmetic and unit tests executed; upstream source identity verified through connector and, when observed, hosted workflow. No local whole-repository or Lean replay claimed.",
+  "files": [
+    {
+      "bytes": 17592,
+      "path": "PROOF.md",
+      "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777"
+    },
+    {
+      "bytes": 2383,
+      "path": "RECONNAISSANCE.md",
+      "sha256": "1a0b2c8b6bbf92bf1de00085c09820b99e230096f5ada96dd2d8d8f269329710"
+    },
+    {
+      "bytes": 1042,
+      "path": "RESULTS.json",
+      "sha256": "14aa50e91890ec8c0553d16e51a62a6973ce666557edacc67d50cd702a321a49"
+    },
+    {
+      "bytes": 8350,
+      "path": "check.py",
+      "sha256": "b306053817bdda6d5f8cce6da5a39b70c7449aa1add7851c1e17e936f7f21ffd"
+    },
+    {
+      "bytes": 6766,
+      "path": "test_check.py",
+      "sha256": "63e4c72170b3efc1441e8bd9aa5a0bf0b14b90a11ee7681477a4fdb158976f07"
+    }
+  ],
+  "non_claims": [
+    "no numerical B_(d,L)",
+    "no convergence rate",
+    "no individual second-order lifetime expansion",
+    "no fixed-radius Palm reinterpretation",
+    "no dimension-uniform or volume-uniform result"
+  ],
+  "object": "OA-C7-ZERO-GAP-LIMIT-20260929-v1",
+  "organizational_independence_credit": 0,
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "upstream": [
+    {
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "coefficient expression (15.2)",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent reading-rule context, not re-proved",
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+    },
+    {
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent amendment E1",
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+    },
+    {
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent amendment E2",
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+    },
+    {
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "reading rule, E3 and scoped source interpretation"
+    },
+    {
+      "bytes": 14982,
+      "commit": "f4c3f215b39a332d7d9c4b6f1e0bf01f10bf243f",
+      "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+      "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "Theorem K1/K2 only, not normalized aside; existing source-exposed reviews5357773376/5358141048 and v1.2 wording check",
+      "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01"
+    }
+  ],
+  "upstream_status_boundary": "K source pin belongs to PR150 integration branch; exact reviewed bytes retained. Landing is not assumed by this manifest."
+}
