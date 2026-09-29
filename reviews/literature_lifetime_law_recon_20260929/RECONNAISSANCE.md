@@ -1,6 +1,6 @@
 # Reconnaissance memo — literature and novelty check for the near-diagonal H0 lifetime law — 2026-09-29
 
-**Object:** CL-LIT-RECON-LIFETIME-20260929-v1. **Author:** Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`).
+**Object:** CL-LIT-RECON-LIFETIME-20260929-v1.1 (v1 + the executed 1-D neighbor pass, §4 item D). **Author:** Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`).
 **Scientific effect:** NONE. **No priority or novelty claim follows from this memo.** It records what a documented
 search did and did not find, so that any lane can extend it and so that successor attribution sections have a
 verified starting list. Bibliographic details below are *as indexed by the search pass*; verify against full text
@@ -87,12 +87,24 @@ in-project derivations: PR #144 (first principles in the parent's (15.2) convent
 2026-09-29 — all exact agreement. `|P_3(24)| e^{−288} < 10^{−117}` sits inside side24_v1's reviewed `< 10^{−106}`
 band. The remainder enclosure remains PR #144's flagged open item.
 
-**D. Highest-value unexecuted search — for a lane with web access.** The classical 1-D wave literature on the
+**D. The classical 1-D neighbor — executed in two passes (v1.1).** The classical 1-D wave literature on the
 distribution of *small* crest-to-trough heights of a smooth stationary Gaussian process (Rice 1945; Longuet-Higgins;
 Lindgren 1972 "Wave-length and amplitude in Gaussian noise"; Cartwright–Longuet-Higgins) is the natural `d = 1`
-neighbor of the max–min small-gap law and was **not** searched. If a `t^{−1/3}` small-height density is already
-explicit there, it is prior art for the `d = 1` exponent (not a conflict — the parent is `d ≥ 2` on a torus with
-elder pairing) and must be cited. Also unexecuted: Divol–Polonik weight functions near the diagonal; LLN/CLT for
+neighbor of the max–min small-gap law. *Pass 1 (author, web-level, 2026-09-29):* the neighbors were located
+precisely — G. Lindgren, Adv. Appl. Prob. 4 (1972) 81–108, DOI 10.2307/1425807; Lindgren–Rychlik 1982 — but full
+texts were not read. *Pass 2 (OpenAI/ChatGPT, full-text read of Lindgren 1972,
+[PR #147 comment 5897859268](https://github.com/d6g8k5htny-coder/Math-/pull/147#issuecomment-5897859268)):* the paper
+defines the crest-to-trough amplitude after a prescribed maximum, develops the Slepian conditional process, and in
+§§2.2–2.4 constructs an *approximate* joint wavelength/amplitude density under its condition A_p; Theorem 2.4 and
+Corollary 2.2 are approximation/error statements, §2.3 gives numerical amplitude-density curves, §2.4 rejects a
+Rayleigh/independence hypothesis. **No theorem or displayed asymptotic of the form `f_amp(h) ~ C h^{−1/3}` (or
+`F_amp(h) ~ C h^{2/3}`), and no explicit `h ↓ 0` expansion, was found in the full text or by search within it.**
+Attribution consequence, adopted here as the successor wording: *Lindgren 1972 is clear `d = 1` prior art for the
+object (the maximum-to-following-minimum amplitude law) and for conditional/Slepian formulas that could in
+principle be expanded; it is not, on the evidence read, prior art for the `−1/3` small-amplitude density
+exponent. We have not located an explicit small-amplitude `−1/3` asymptotic in that source, and absence from the
+entire 1-D literature is not claimed.* Rice 1945, Longuet-Higgins and Cartwright–Longuet-Higgins remain unread at
+full-text level. Still unexecuted: Divol–Polonik weight functions near the diagonal; LLN/CLT for
 persistent Betti numbers of smooth Gaussian fields 2024–2026; Google-Scholar "cited by" enumeration for
 1802.10457, 1911.03455, 1911.02300, 1706.06059, 1908.01619, 2012.09459, Bobrowski–Borman, Adler–Taylor.
 
