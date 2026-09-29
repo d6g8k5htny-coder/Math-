@@ -6,7 +6,7 @@
       "hist.rnu_env.py"
     ],
     "illegal_controlling_count": 0,
-    "open_or_author_side_count": 20
+    "open_or_author_side_count": 17
   },
   "d0_ci_unblock": {
     "ci_error": "PROBLEM packet: unexpected files ['DOWNSTREAM_CROSSWALK_20260925.md']",
@@ -39,32 +39,32 @@
     "no_event_to_expectation_reversal": true,
     "open_complement": [
       {
-        "classification": "OPEN_ACTIVE",
+        "classification": "PROVED_REVIEWED",
         "coverage_source": null,
         "fingerprint": "r<<|x|<<rho",
         "id": "math.rn-region.intermediate-r-to-rho",
-        "notes": "Transition region; not discharged by fixed-remote or PR7 reduction"
+        "notes": "Reviewed only at D5-e (I3/I4, window I_r); see the complete D5 reconciliation reading rule. No d>2, numerical, elder-selection, JETMOD, or witness-collision closure."
       },
       {
-        "classification": "OPEN_ACTIVE",
+        "classification": "PROVED_REVIEWED",
         "coverage_source": null,
         "fingerprint": "x=r y with A<=|y|<=B away from pins",
         "id": "math.rn-region.mesoscopic-scaled-annulus",
-        "notes": "Owned by Math- PR7 reduction; exact J0 ledger still open"
+        "notes": "Reviewed only at D5-d with R >= B (covers the reviewed fixed annulus); see the complete D5 reconciliation reading rule. No d>2, numerical, elder-selection, JETMOD, or witness-collision closure."
       },
       {
-        "classification": "OPEN_ACTIVE",
+        "classification": "PROVED_REVIEWED",
         "coverage_source": null,
         "fingerprint": "near +-e1/2 scaled pin sites",
         "id": "math.rn-region.pin-collision",
-        "notes": "Complement of fixed-remote and fixed scaled annulus"
+        "notes": "Reviewed only at D5-a, D5-b, D5-d; see the complete D5 reconciliation reading rule. No d>2, numerical, elder-selection, JETMOD, or witness-collision closure."
       },
       {
         "classification": "OPEN_ACTIVE",
         "coverage_source": null,
         "fingerprint": "eta->0 mutual witness separation",
         "id": "math.rn-region.witness-collision",
-        "notes": "Fixed-eta factorial moments do not cover shrinking separation"
+        "notes": "Off-pin fixed-separation second-moment evidence is reviewed, but the shrinking pin/witness-collision mechanism and sharp full-window order remain open."
       }
     ]
   },
