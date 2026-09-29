@@ -1,0 +1,91 @@
+{
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "comparison_not_runtime_dependency": {
+    "commit": "6cfc8c7503c55d9e2b095fc1fd7cafcacac1305d",
+    "path": "frontiers/side24_periodization_20260929/PROOF.md",
+    "pr": 144,
+    "role": "reviewed d=3 first variation; independently rederived here",
+    "sha256": "745493e5e69fa794c44f07fce18c4fc3782ab31a5843184caff860254ffe33aa"
+  },
+  "disposition": "AUTHOR_SIDE_ANALYTIC_CANDIDATE",
+  "execution_boundary": "Local standalone arithmetic/unit tests executed; upstream file readback through connector. Whole-repository execution must be provided by hosted checks, not presumed from local tests.",
+  "files": [
+    {
+      "bytes": 14776,
+      "path": "PROOF.md",
+      "sha256": "f96dabac211d62ff9a6bd33eddeba63f04fe09a618d09994e0de2ee18e6c130b"
+    },
+    {
+      "bytes": 3049,
+      "path": "RECONNAISSANCE.md",
+      "sha256": "86be2dd2542704241b4920c09ab9541ef770aef015ce91097e14ed21976fdef3"
+    },
+    {
+      "bytes": 1749,
+      "path": "RESULTS.json",
+      "sha256": "67829b75cf5712bd78853d05e9a85d210b4ddca47d99a09f35af2c01fcf52611"
+    },
+    {
+      "bytes": 9322,
+      "path": "check.py",
+      "sha256": "68e07112f4c7d85c7c071b52bc654abb6e83a988771a0fb8d345e77a5802452c"
+    },
+    {
+      "bytes": 6107,
+      "path": "test_check.py",
+      "sha256": "a231822c2c94aeaa9ed3fe82e67cc127e80fc8e44ceb34d47b1a5b1f0073ee06"
+    }
+  ],
+  "object": "OA-SIDE24-REMAINDER-20260929-v1",
+  "organizational_independence_credit": 0,
+  "scientific_acceptance": false,
+  "scientific_effect": "NONE",
+  "upstream": [
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "coefficient expression (15.2)",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent reading-rule context, not re-proved",
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+    },
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent amendment E1",
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+    },
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "retained parent amendment E2",
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+    },
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "reading rule, E3 and scoped source interpretation"
+    },
+    {
+      "commit": "e1ca400b3414e5a7bec13b91bc4f1e5293df32be",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "reference covariance floor and all-direction image bound"
+    }
+  ]
+}
