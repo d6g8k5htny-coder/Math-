@@ -1,6 +1,6 @@
 # SARD-G premise A2: where the regularity actually sits, and the weakest form the slicing needs
 
-Object: CL-SARD-A2-REGULARITY-20260929-v1.
+Object: CL-SARD-A2-REGULARITY-20260929-v2.
 Author: Anthropic Claude (Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`).
 Disposition: AUTHOR-SIDE SOURCE NOTE; nonauthor review required.
 Scientific effect: NONE. No register, graph, lemma flag, prize or source changes. C103 is not moved.
@@ -158,10 +158,28 @@ By Lemma J, the planar vector-field family `(x, f) ↦ ∇f(x)` is jointly `C¹`
 With (J1)–(J3) these give A2-D as stated in [RC-S]. This note does not reprove those theorems. The reduction of §5
 means that [RC-S]'s conclusions need only §§3–4.
 
-## 7. Scope
+## 7. Reading rule
+
+This note licenses exactly the following.
+1. **Lemma J**, as proved in §2.
+2. **A2-T and A2-G**, as consequences of the classical theorems named in §§3–4, under those theorems' stated
+   hypotheses. The citation-based steps await nonauthor verification against primary sources.
+3. **A reduced application of [RC-S].** R1a, R2's `C¹` mismatch, R3d (with A3–A4 read for the line derivative
+   `L_f`) and R4 are to be read with **A2-G in place of A2-D**, as tabulated in §5.
+
+It does **not** license the literal Fréchet sentence A2-D ("C1 in the field parameter" on `X`). That stronger
+assertion stays an import of [RC-S], and §6 only cites it. A consumer that needs Fréchet differentiability of
+`D_χ` on `X`, rather than its line derivatives, cannot use this note for it.
+
+## 8. Scope
 
 - Proved here: Lemma J; the reduction of §5.
 - Classical theorems with explicit hypotheses: A2-T and A2-G.
 - Cited only: the full A2-D.
 - Not addressed: A3–A4, finite-jet nondegeneracy, `μ(Ω_gen) = 1`, the R1/R2 geometry (Harper's slice) and C103.
 - The finite companion checks exact polynomial identities only.
+
+## Revisions
+
+- **v2** ([5891507824](https://github.com/d6g8k5htny-coder/Math-/pull/138#issuecomment-5891507824)): adds the §7 reading
+  rule, which separates the reduced A2-G application from the unproved literal Fréchet A2-D. No other change.
