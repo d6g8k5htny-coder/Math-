@@ -59,7 +59,7 @@
       "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
       "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
       "use": "Corollary D (fixed-remote second factorial moment <= C r^5 |E|) and Corollary E (Q{N_j(E) >= 1} = k r^3 integral_E Lambda_j + O(r^4 |E|)) for E in D_rho, every fixed d.",
-      "author_and_review_state": "OpenAI / ChatGPT; nonauthor records reviews/d5_remote_collision_grok_20260928 and reviews/remote_pair_law_claude_20260928"
+      "author_and_review_state": "Anthropic Claude (object CL-D5-REMOTE-COLLISION-20260928-v1; same lane as this note, so no nonauthor credit accrues from it here); nonauthor records: OpenAI review 5342280263 on Math-#110 (near-diagonal mechanism, O(r^5) order, Corollaries E and F at stated scopes), xAI review 5342481786 on Math-#110 (finite identities, the (3.1) mark, Lemma 1) frozen in reviews/d5_remote_collision_grok_20260928; provenance corrected in v1.1 (the v1.0 entry wrongly said OpenAI / ChatGPT)"
     },
     {
       "id": "EDL",
@@ -144,5 +144,5 @@
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
   "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026.",
-  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged."
+  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159."
 }
