@@ -9,7 +9,7 @@
   "residual_definition": {
     "node": "math.rn-region.witness-collision.leading-mass-localization",
     "fingerprint": "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)",
-    "defined_in": "Math-#160 reviews/c6_witness_collision_reconciliation_20260929/RECONCILIATION.md section 5 (head eba6045; refreshed by the integrator onto fe2c3ff as dd4f4f8 with the packet bytes preserved; open)",
+    "defined_in": "Math-#160 reviews/c6_witness_collision_reconciliation_20260929/RECONCILIATION.md section 5 (head eba6045; refreshed by the integrator onto fe2c3ff as dd4f4f8 with the packet bytes preserved; merged at 8d48d02, declarative, transitions not executed)",
     "statement": "lim_{R->oo} limsup_{r->0} r^-3 E_{Q_r^W} #{ordered pairs of distinct window points not both within R r of the midpoint} = 0",
     "identity": "that quantity equals E[(N)_2] - E[(N_R)_2] = 2 E[N_R N_out] + E[(N_out)_2]"
   },
@@ -278,7 +278,7 @@
       "component_of": "math.rn-region.witness-collision.leading-mass-localization",
       "component_role": "reading_rule_record",
       "author_provider": "Anthropic Claude (this session; source-exposed, see section 0)",
-      "fingerprint": "c360d2c5b5206e2e1a942ee2dbec10bb1d005042ca2696cf7e49b679617684a6",
+      "fingerprint": "240a82d45958db6bc3dd45d41f22a6029f991385316c573464ff3140d93f0b9f",
       "source": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
       "scope": "section 3: the corollary (D1) + steps 1-3 (Route A) and Route B, read by 5360645884 at b3fac79 and preserved verbatim in REVIEWED_SECTION_3_b3fac79.md; Route C (OpenAI-authored, checked 5902616692)",
       "review_basis": [
@@ -505,12 +505,13 @@
     "any historical predicate move"
   ],
   "revision": {
-    "version": "v1.3",
+    "version": "v1.4",
     "applies": [
       "initial record at 358f256",
       "fa1cf7b: Math-#166 TWO_SCALE_LAW.md and REVIEW_RECORD.md bound as the direct statement (step 0 satisfied); Route C added with exact checks and mutant route-c-broken; record node supporting",
       "fe2c3ff: two-scale REVIEW_RECORD.md rebound to its Math-#172 bytes; REVIEW_RECORD.json bound as a component (native body digest of 5360227991)",
-      "fe2c3ff (v1.3): Math-#173 reviews answered: record node PROVED_REVIEWED on the reviewed-record path (5360645884; reviewed section preserved and checked), evidence_paths, installed-state acceptance in LIVE, source snapshots and per-component drift in GATE, four new mutants"
+      "fe2c3ff (v1.3): Math-#173 reviews answered: record node PROVED_REVIEWED on the reviewed-record path (5360645884; reviewed section preserved and checked), evidence_paths, installed-state acceptance in LIVE, source snapshots and per-component drift in GATE, four new mutants",
+      "8d48d02 (v1.4): re-verified after Math-#160 merged; no content change"
     ]
   },
   "third_source_bound": {
@@ -544,7 +545,7 @@
     ],
     "bound": "r^-3 E[(N)_2 - (A)_2] <= C (R^-2 + rho^2)^(1/2) + C_(R,rho) r^(3/4) + C_rho r; r -> 0, rho -> 0, R -> oo"
   },
-  "reverified_at": "fe2c3ff (Math-#172 custody repair of the two-scale packet: TWO_SCALE_LAW.md unchanged, REVIEW_RECORD.md extended, REVIEW_RECORD.json added; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c); unchanged at v1.3 (Math-#160 refreshed onto fe2c3ff as dd4f4f8 by the integrator)",
+  "reverified_at": "fe2c3ff (Math-#172 custody repair of the two-scale packet: TWO_SCALE_LAW.md unchanged, REVIEW_RECORD.md extended, REVIEW_RECORD.json added; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c); unchanged at v1.3 (Math-#160 refreshed onto fe2c3ff as dd4f4f8 by the integrator); 8d48d02 (Math-#160 merged: its packet and workflow only; register surfaces and every bound file unchanged)",
   "evidence_paths": {
     "direct_statement": {
       "components": [

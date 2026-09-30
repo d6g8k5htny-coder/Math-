@@ -72,8 +72,8 @@ INVENTORY = {
         "70d05080ed81c66b43261438cae3b9ec2840e637"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "c360d2c5b5206e2e1a942ee2dbec10bb1d005042ca2696cf7e49b679617684a6",
-        "7b82a54bd4380de9de31a6d1bb5f7e4e343df172"
+        "240a82d45958db6bc3dd45d41f22a6029f991385316c573464ff3140d93f0b9f",
+        "51715163977cc9e4a807ea8fa0d578246845ff2f"
     ],
     "reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md": [
         "50daacbe7e244bc149dbf4568970d79f38a356daa1e88a850f2fc2d074db5b6c",

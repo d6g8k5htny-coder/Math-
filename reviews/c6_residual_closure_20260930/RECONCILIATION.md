@@ -7,7 +7,9 @@
 unchanged since `ec6db8c`); re-verified at `fa1cf7b` (Math-#166 merged at `ab13a08f`, Math-#167 merged at `fa1cf7b`; the
 same surfaces unchanged) and at `fe2c3ff` (Math-#172: custody repair of the two-scale packet; `TWO_SCALE_LAW.md` unchanged,
 `REVIEW_RECORD.md` extended and `REVIEW_RECORD.json` added; register surfaces unchanged); main is still `fe2c3ff` at v1.3,
-and the integrator refreshed Math-#160's branch onto it (`dd4f4f8`, its six packet blobs preserved from `eba6045`).
+and the integrator refreshed Math-#160's branch onto it (`dd4f4f8`, its six packet blobs preserved from `eba6045`);
+Math-#160 then merged at `8d48d02` (v1.4 re-verification: only its packet and workflow landed; `GRAPH.json`, `PROOF_INDEX.md`,
+`SELECTOR_REGION.json`, the catalog and every file bound here are unchanged).
 **Revision:** v1.0 at `358f256`; v1.1 at `fa1cf7b` binds Math-#166's `TWO_SCALE_LAW.md` and its review record as the
 direct statement (execution step 0 satisfied), adds Route C (the pair-count corollary of Math-#160 comment 5901994240,
 checked in 5902616692) with its exact checks, and makes this record's own node supporting; v1.2 at `fe2c3ff` rebinds the
@@ -15,7 +17,8 @@ two-scale review record to its Math-#172 bytes and binds `REVIEW_RECORD.json`, w
 review 5360227991; v1.3 at `fe2c3ff` answers Math-#173's reviews: this record's own node is promoted on the reviewed-record
 path (OpenAI / GPT-5.6 Sol 5360645884, a non-Claude bounded read of §3 at head `b3fac79`, whose paragraphs are preserved
 verbatim in `REVIEWED_SECTION_3_b3fac79.md` and checked unchanged), the two evidence paths are modelled separately, and
-the checker accepts the installed state and replays the hard gate with source snapshots (Codex 5360636576). Pickup:
+the checker accepts the installed state and replays the hard gate with source snapshots (Codex 5360636576); v1.4 at
+`8d48d02` re-verifies after Math-#160 merged (no content change). Pickup:
 Math-#160 comment 5902470285; delivery 5902585446.
 **Effect:** register reconciliation, **declarative only** (`PROPOSED_TRANSITIONS.json`, `"executed": false`). It binds the
 residual question that Math-#160 §5 named (`math.rn-region.witness-collision.leading-mass-localization`) to the exact
@@ -281,7 +284,9 @@ review basis must fail `TRANSITIONS` and `REVIEWED`), `reviewed-text-drift` (a c
 
 - **Math-#160 (this session):** defines (Res) and proposes the residual node `OPEN_ACTIVE`; this record is its successor
   and composes with either execution of its §7. Math-#160 is not changed by this record; the integrator refreshed its
-  branch onto `fe2c3ff` (`dd4f4f8`) with the six packet blobs preserved.
+  branch onto `fe2c3ff` (`dd4f4f8`) with the six packet blobs preserved and merged it at `8d48d02` (packet and workflow
+  only; its transitions remain declarative and unexecuted, so the deferred old-node transition here still presupposes
+  its step 3).
 - **Math-#173 reviews (on v1.0 `b3fac79`):** OpenAI/Codex 5360636576, three findings: (i) `LIVE` rejected the installed
   components (4140125558), repaired: the installed state is accepted when exact and simulated in every run; (ii) the
   reverse-impact replay ran without source snapshots (4140125562), repaired: snapshots of both states and a
