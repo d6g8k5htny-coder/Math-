@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "object": "D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1",
+  "scientific_effect": "NONE",
+  "review_status": "NONAUTHOR_SECOND_PASS_SAME_LANE_ACCEPT_UNCHANGED",
+  "disposition": "REVIEW_RECORD_WITH_FINITE_CONTROLS_NO_REGISTER_CHANGE",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "pins_on_main": [
+    {
+      "label": "CAP",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "role": "the deterministic cap theorem, sections 2-5 (object of the record)",
+      "workflow_checked": true
+    },
+    {
+      "label": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Theorem A (1.1); section 7 G_r and (7.8); section 8 Morse/distinct-value locus and Borel maximin; (4.3)",
+      "workflow_checked": true
+    },
+    {
+      "label": "ERR",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "congruence-scaling correction (affects A2, not the cap implication)",
+      "workflow_checked": true
+    },
+    {
+      "label": "C1",
+      "path": "reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md",
+      "git_blob": "bc11369c41ebc76de5700df3f931939ccfc88b9b",
+      "role": "first pass by this lane (A1-A7, CAP, section 9)",
+      "workflow_checked": true
+    },
+    {
+      "label": "REC",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "component table (III), embedding radius r < L/(4 sqrt2), provider ledger",
+      "workflow_checked": true
+    }
+  ],
+  "read_not_pinned": [
+    {
+      "path": "PROOF_INDEX.md",
+      "git_blob_at_base": "030447a1130b52a09230e21c039409f87ef2ba32",
+      "role": "D1 entry and the OPEN_ACTIVE sentence for math.rn-region.witness-collision (moves with the register)"
+    },
+    {
+      "path": "frontiers/downstream_gate_20260925/GRAPH.json",
+      "git_blob_at_base": "220b56867f24c5ef6f55a3cce70490e9777cf3af",
+      "role": "live classification of math.rn-region.witness-collision (OPEN_ACTIVE at base)"
+    },
+    {
+      "path": "reviews/c6_witness_collision_reconciliation_20260929/PROPOSED_TRANSITIONS.json",
+      "git_blob_at_base": "8d70ee7494327e4363548d4a74f0906b30acb818",
+      "role": "merged declarative proposal OPEN_ACTIVE -> PROVED_REVIEWED for that node (Math-#160)"
+    },
+    {
+      "path": "reviews/c6_residual_closure_20260930/PROPOSED_TRANSITIONS.json",
+      "git_blob_at_base": "3706e8ac4e906aa1b53cdf5634abfb324c35a9e3",
+      "role": "merged declarative closure of the residual node (Math-#173)"
+    }
+  ],
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 25923,
+      "sha256": "b20d85f48c79d93359597fe2ec3fd68a9abb7fd82725419cbbb5afcb15675fe7",
+      "git_blob": "b64b2a1c22628d38faee2102a487c6a98bf59a76"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 2823,
+      "sha256": "4f2d905aa678a0c24dd7c89ee7e4ddb115f8b7656bd81617a574b82474f5baf2",
+      "git_blob": "d56da2d7891ec75ab90d455c787d86a37e555e64"
+    },
+    {
+      "path": "cap_maximin_check.py",
+      "bytes": 19015,
+      "sha256": "66b644467561a37900b080a3fd5e15a611c96eb5499e4c8e18e930b5bb781113",
+      "git_blob": "004e16b994218d5d7ee5551a2079c2b6b013b346"
+    }
+  ]
+}
