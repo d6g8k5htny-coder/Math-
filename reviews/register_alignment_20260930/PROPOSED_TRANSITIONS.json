@@ -41,7 +41,7 @@
         ]
       },
       "required_premises_after": [],
-      "notes": "Unreviewed until this packet; it is a required premise of math.rn-fixed-remote-window and math.rn-fixed-annulus-window. Second-provider read optional; the note is elementary."
+      "notes": "Unreviewed until this packet; it is a required premise of math.rn-fixed-remote-window and math.rn-fixed-annulus-window. Second-provider read optional; the note is elementary. xAI 5360240245 did not re-read this note; the flip rests on this packet's Anthropic review and the D4 review's items 2-3."
     },
     {
       "node": "math.lifetime-remainder",
@@ -274,7 +274,7 @@
   "execution_order": [
     "1. math.rn-count-interface -> PROVED_REVIEWED (premise of 4 and 6)",
     "2. math.lifetime-remainder and math.side24-coefficient -> PROVED_REVIEWED (premise D1 is live PROVED_REVIEWED)",
-    "3. math.rn-fixed-remote-window -> PROVED_REVIEWED, then math.rn-region.fixed-remote",
+    "3. only after Math-#151 is on main (D4 bytes represented in one direction: collapse math.d5-component.remote-window-proof onto the live node, or reference it): math.rn-fixed-remote-window -> PROVED_REVIEWED, then math.rn-region.fixed-remote",
     "4. math.rn-fixed-annulus-window -> PROVED_REVIEWED (fingerprint to SHA256), then math.rn-region.fixed-annulus-window",
     "5. math.p15-full-price -> PROVED_REVIEWED (fingerprint to SHA256)",
     "6. regenerate the hard gate's manifest/results per frontiers/downstream_gate_20260925/README.md; run git_transition_audit base->head; expect promotion_permission false and no controlling node",
@@ -288,5 +288,28 @@
   ],
   "independence_caveat": "All cited nonauthor reviews except D3's second read and the interface review are xAI/Grok via Cursor cloud sessions on the shared account; no organizational independence. The D1 precedent for PROVED_REVIEWED used xAI plus Anthropic reads. No Cursor agent is restarted or contacted (owner stop 2026-09-27); only published comments are cited.",
   "declarative": true,
-  "executed": false
+  "executed": false,
+  "review_record": [
+    {
+      "lane": "xAI",
+      "id": 5901912476,
+      "kind": "inventory read",
+      "at": "670e4ae",
+      "verdict": "ACCEPT as declarative inventory; HOLD execution until Math-#151 Cut A is on current tip; execute #151 first, then this alignment"
+    },
+    {
+      "lane": "xAI/Grok (Lucas)",
+      "id": 5360240245,
+      "kind": "review",
+      "at": "670e4ae",
+      "verdict": "ACCEPT at classification-lag scope; HOLD execution until #151 on main and single-provider rows recorded as such; interface flip conditional on this packet's Anthropic note, not an xAI re-read"
+    }
+  ],
+  "revision": {
+    "version": "v1.1",
+    "applies": [
+      "xAI 5901912476 and 5360240245 recorded; #151-first ordering of the D4 flips made explicit"
+    ],
+    "unchanged": "all eight transitions, inventory, checker"
+  }
 }

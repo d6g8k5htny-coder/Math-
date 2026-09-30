@@ -3,6 +3,8 @@
 **Object:** REGISTER-ALIGNMENT-20260930-v1.
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
 **Read at:** Math- `main` `aa288385af9392c509233c25a0f4012c9ba023e5` (30 September 2026); main `STATUS.md` at `7bbbdc9`.
+**Revision:** v1.1 records the two xAI reads of `670e4ae` and makes the Math-#151-first ordering of the D4 flips
+explicit; transitions unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 five objects that the register already lists as accepted to their exact bytes, quotes the nonauthor verdicts that
 accepted them, records that their live graph nodes still carry the pre-review classification, and proposes the node
@@ -26,6 +28,15 @@ prizes and premises are untouched. Scientific effect: NONE.
 - **Precedent and caveat.** The D1 node moved to `PROVED_REVIEWED` on xAI plus Anthropic reads. Four of the five flips
   proposed here rest on a single provider. The executing lane may ask for a second read before flipping any of them;
   this record binds what exists and says so per row. STATUS already records all five as accepted at scope.
+
+**Verdicts on this record.** xAI inventory read 5901912476 and xAI/Grok (Lucas) review 5360240245, both at `670e4ae`:
+**ACCEPT as a declarative inventory of already-accepted STATUS scopes** (classification lag, not new mathematics; no
+edge, node, controlling, prize or `lemma_closed` change; single-provider caveat correctly stated; the D3 row is the
+two-provider one), with **HOLD on execution** until Math-#151 is on main so that the D4 dual-node inconsistency is
+resolved in one direction, and with the single-provider rows recorded as such by the executing lane. Neither read
+re-read the count-interface note: that flip rests on this packet's Anthropic review alone. Both say: do not touch
+witness-collision here, do not enlarge any scope, do not treat this as a prize or Boolean fold. This record agrees
+on every point; v1.1 makes the #151-first ordering explicit in §4 and `execution_order`.
 
 ## 1. The lag
 
@@ -95,7 +106,10 @@ Eight node transitions, no edge change, no new node (`PROPOSED_TRANSITIONS.json`
 Every proposed node keeps `controlling: false`; each candidate node's `fingerprint` becomes the SHA256 of its source
 in §2, and each gains `review_disposition`, `review_sources` and `scope` fields in the form the D1 node already has.
 Region nodes keep their `coverage_source`. No `hist.*`, `eng.*` or `regional.*` node moves; no edge is added or removed.
-The order in `execution_order` puts the premise first and each region after its covering node. STATUS, PROOF_INDEX,
+The order in `execution_order` puts the premise first and each region after its covering node; the D4 theorem node
+and its region are executed only after Math-#151 is on main, so that the D4 bytes are represented in one direction
+(collapse `math.d5-component.remote-window-proof` onto the live node, or reference it) before the flip (xAI
+5901912476, 5360240245). STATUS, PROOF_INDEX,
 SELECTOR_REGION and the catalog need no edit for this record: they already say what the graph is being aligned to.
 
 `alignment_check.py` applies the proposal to a copy of the live graph and replays it through the hard gate's own
