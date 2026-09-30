@@ -983,7 +983,7 @@ def main():
     checks["FLOAT_INSIDE"] = bool(near(D2, f2, 2e-3) and near(D3, f3, 2e-2) and near(D4, f4, 1.5) and near(D4, f4a, 0.4))
     checks["D2_EXACT"] = bool(D2.intersects(D2_exact))
     checks["D3_CONSISTENT"] = bool(D3.intersects(D3_pin) and D3.width() < Decimal("1e-40"))
-    checks["MEHTA_Z4"] = bool(Z4.intersects(mehta_Z(4)) and Z4.intersects(1536 * PI) and Z4.width() < Decimal("1e-30"))
+    checks["MEHTA_Z4"] = bool(Z4.intersects(mehta_Z(4)) and Z4.intersects(1536 * PI) and Z4.width() < Decimal("1e-40"))
     checks["WIDTHS"] = bool(D2.width() < Decimal("1e-40") and D4.width() < Decimal("1e-28") and c5.width() < Decimal("1e-28"))
     side = {d: Iv(Decimal(a), Decimal(b)) for d, (a, b) in SIDE24.items()}
     checks["SIDE24_CONSISTENT"] = bool(all(c.intersects(side[d] + Iv(-side[d].hi * Decimal("1e-106"), side[d].hi * Decimal("1e-106")))
@@ -993,8 +993,11 @@ def main():
     checks["MONOTONE"] = bool(Iv.frac(Fr(4, 3)).hi < D2.lo < D2.hi < D3.lo < D3.hi < D4.lo
                               and c2.lo > c3.hi > c3.lo > c4.hi > c4.lo > c5.hi and c5.lo > 0)
     checks["IMAGE_BOUND"] = bool(Decimal("7e-111") < E5.lo and E5.hi < Decimal("8e-111"))
-    checks["TRANSFER_BOUND"] = bool(delta.hi >= CF.multiply(Decimal(20), eps.lo) and delta.lo <= CC.multiply(Decimal(21), eps.hi)
-                                    and delta.lo > CF.multiply(Decimal(19), eps.lo) and c5_torus.contains(c5))
+    # proving direction (v1.1, Codex 4148778791): 19 eps <= delta <= 21 eps for every represented value; the enclosures of
+    # delta and 20 eps intersect (delta - 20 eps ~ 210 eps^2 is far below the interval resolution, so it is recorded, not certified)
+    checks["TRANSFER_BOUND"] = bool(delta.lo >= CC.multiply(Decimal(19), eps.hi) and delta.hi <= CF.multiply(Decimal(21), eps.lo)
+                                    and delta.hi >= CF.multiply(Decimal(20), eps.lo) and delta.lo <= CC.multiply(Decimal(20), eps.hi)
+                                    and c5_torus.contains(c5))
     checks["LIBRARY_EXACT"] = bool(library_exact())
     pinned = {"D_4": D4, "c_5_ref": c5, "pi": PI}
     checks["PINNED"] = bool(all(str(pinned[k].lo).startswith(p) and str(pinned[k].hi).startswith(p) for k, p in PINNED.items()))

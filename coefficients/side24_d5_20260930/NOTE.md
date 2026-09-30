@@ -13,8 +13,8 @@ For the reference law of SIDE24 in dimension `d = m + 1` (`A = Q + sqrt(2/3) Z I
 `∝ exp(-tr Q^2/4)`), `D_m = E[det(A)^2 1{A < 0}]` is the cone moment of [LP] (15.1). The `d = 4` record reduced `D_3` to
 one dimension; this record does the same for `D_4` and certifies
 
-    D_4 = 14.2187634589773576013064656778740783173406003......        (enclosure width 3.9e-42),
-    c_{5,ref} = Gamma(7/6) (3/2)^(1/3) D_4 / (12 sqrt3 pi^(7/2)) = 0.0132193193800849680760334875146413965210528883......,
+    D_4 = 14.21876345897735760130646567787407831734060......        (enclosure width 3.9e-42),
+    c_{5,ref} = Gamma(7/6) (3/2)^(1/3) D_4 / (12 sqrt3 pi^(7/2)) = 0.0132193193800849680760334875146413965210528......,
     |c_{5,24}/c_{5,ref} - 1| <= delta = 1.8554e-107.
 
 The same code re-runs the `m = 2` and `m = 3` pipelines (rules D2_EXACT: `29/6 - sqrt6`; D3_CONSISTENT: the `D_3`
@@ -95,7 +95,9 @@ and every 3-jet covariance entry of `K_24` is within `E_5 = 60500 (76 . 24^6 + 1
 `(1 - eps) C_ref <= C_24 <= (1 + eps) C_ref` with `eps = 126 E_5 = 9.2768e-109`. (iii) Ratios: `a = m + 2/3 + n_A/2 = 29/3`
 (`n_A = m(m+1)/2 = 10`), `b = d + n_A/2 = 10`; since `(1+eps)^{29/3} <= (1+eps)^{10}`, the ratio lies in `[1/(1+delta), 1+delta]`
 with `delta = (1+eps)^{10}/(1-eps)^{10} - 1 = 20 eps + O(eps^2)` (computed without cancellation; rule TRANSFER_BOUND
-checks `20 eps <= delta <= 21 eps`). So `|c_{5,24}/c_{5,ref} - 1| <= 1.8554e-107`, below the arithmetic width; the printed
+certifies `19 eps <= delta <= 21 eps` for every represented value, `delta.lo >= 19 eps.hi` and `delta.hi <= 21 eps.lo`, and
+records that the enclosures of `delta` and `20 eps` intersect: the offset `delta - 20 eps ~ 210 eps^2 ~ 2e-214` lies far below
+the arithmetic resolution of the two enclosures, so `20 eps <= delta` is not separable and is not claimed as certified). So `|c_{5,24}/c_{5,ref} - 1| <= 1.8554e-107`, below the arithmetic width; the printed
 digits of `c_{5,24}` are those of `c_{5,ref}`. The exact periodic constant is enclosed, not equated to the reference.
 
 ## 5. Values (`RESULTS.json`)
@@ -104,10 +106,10 @@ digits of `c_{5,24}` are those of `c_{5,ref}`. The exact periodic constant is en
 |---|---|---|
 | `D_2` | `29/6 - sqrt6` (rule D2_EXACT) | `1e-50` |
 | `D_3` | `5.3231802688898968949231987396872606357843885294...` (= Math-#199) | `6.5e-47` |
-| `D_4` | `14.2187634589773576013064656778740783173406003......` | `3.9e-42` |
-| `Z_4` (quadrature) | `1536 pi = 4825.4863...` (rule MEHTA_Z4) | `1e-53` |
+| `D_4` | `14.21876345897735760130646567787407831734060......` | `3.9e-42` |
+| `Z_4` (quadrature) | `4825.4863159139224142786202367173164301268521974...` ∋ `1536 pi` (rule MEHTA_Z4) | `1.8e-45` |
 | `c_{2,ref}`, `c_{3,ref}`, `c_{4,ref}` | inside SIDE24's `d = 2, 3` intervals; `0.0233216660029528350945...` | |
-| `c_{5,ref}` | `0.0132193193800849680760334875146413965210528883......` | `3.6e-45` |
+| `c_{5,ref}` | `0.0132193193800849680760334875146413965210528......` | `3.6e-45` |
 | `c_{5,24}` | the same digits; `|c_{5,24}/c_{5,ref} - 1| <= 1.8554e-107` | |
 | `E_5`, `eps`, `delta` | `7.3625e-111`, `9.2768e-109`, `1.8554e-107` | |
 
@@ -121,9 +123,11 @@ midpoint quadrature of the `a`-integrated `(p_1, p_2, p_3)` integrand (`56^3`, `
 
 `python3 -B -S cone_moment_d5.py` (also `-B -O -S`; about eighty seconds) prints `RESULTS.json` and exits `0` only if all
 thirteen rules hold: FLOAT_INSIDE, D2_EXACT, D3_CONSISTENT (intersects Math-#199's enclosure, width below `1e-40`),
-MEHTA_Z4 (intersects both Mehta's value and `1536 pi`, width below `1e-30`), WIDTHS, SIDE24_CONSISTENT, CLOSED_FORM_D5,
+MEHTA_Z4 (intersects both Mehta's value and `1536 pi`, width below `1e-40`; the quadrature width is `1.8e-45`), WIDTHS,
+SIDE24_CONSISTENT, CLOSED_FORM_D5,
 TRUNCATION_NESTING (order `20`, cells of width `1`: intersects and is wider), MONOTONE (`4/3 < D_2 < D_3 < D_4`,
-`c_{2,ref} > c_{3,ref} > c_{4,ref} > c_{5,ref} > 0`), IMAGE_BOUND (`E_5` in `(7e-111, 8e-111)`), TRANSFER_BOUND,
+`c_{2,ref} > c_{3,ref} > c_{4,ref} > c_{5,ref} > 0`), IMAGE_BOUND (`E_5` in `(7e-111, 8e-111)`), TRANSFER_BOUND (section 4:
+`19 eps <= delta <= 21 eps` in the proving direction, intersection with `20 eps`, `c_{5,24}` encloses `c_{5,ref}`),
 LIBRARY_EXACT (the decimal module's `exp`, `sqrt` and the interval negation against exact rational brackets), PINNED.
 Mutants (`--mutant`, each must exit `1`): `shift-variance` (`S^2/24` for `S^2/28` at `m = 4`), `vandermonde`,
 `erfc-branch` (halved), `remainder-dropped` (order `6`, cells of width `1`, no remainder), `mehta` (`Z_5` for `Z_4`),
@@ -148,3 +152,14 @@ workflow; read, not pinned: the SIDE24 remainder record and the C8 catalog entry
 (the `d = 4` record whose `m = 2, 3` pipelines and interval toolkit are re-used verbatim and whose `D_3` enclosure is
 quoted). Mehta's integral at `m <= 4` is verified inside the record (`m = 4` by rule MEHTA_Z4). No external numerical
 library is used.
+
+## 9. Revisions
+
+- **v1.1 (Codex review 5371328766 on `33d50de`, three P2 findings, all taken).** (i) The displayed `D_4` and `c_{5,ref}`
+  values in sections 0 and 5 carried digits beyond the common prefix of the two endpoints; they now stop at the last common
+  digit (`D_4 = 14.21876345897735760130646567787407831734060…`, 43 significant digits; `c_{5,ref} = …5210528…`). (ii) The
+  `Z_4` quadrature width was misreported as `1e-53` (the width of Mehta's closed-form interval); it is `1.8e-45`, and rule
+  MEHTA_Z4 now requires width below `1e-40`. (iii) Rule TRANSFER_BOUND compared endpoints in the non-proving direction; it now
+  certifies `19 eps <= delta <= 21 eps` for every represented value (`delta.lo >= 19 eps.hi`, `delta.hi <= 21 eps.lo`) and
+  records the intersection of the `delta` and `20 eps` enclosures (section 4). No certified value changed; the two rule
+  thresholds tightened.
