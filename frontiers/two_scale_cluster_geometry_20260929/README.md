@@ -65,3 +65,32 @@ source identity to be a commit object, not merely a forty-hex tree-ish name. Fou
 real-Git red/green regressions cover forged/legitimate replacement bindings and
 tree/tag substitution. Both mathematical manuscripts and all mathematical inputs
 remain byte-identical to the initial reviewed head.
+
+## Current proof-to-review custody replay
+
+The earlier 52-test count describes the preceding custody repair. The current
+replay runs 61 unit tests in each Python mode, including nine additional test
+methods for proof and review bindings. The verifier requires both manuscripts,
+the source/result declarations, both review records, the executable checker and
+verifier, and both test modules. Regenerating MANIFEST.json cannot silently omit
+these files or move an old review to different proof bytes.
+
+REVIEW_RECORD.json records the actual A/B/C native IDs, COMMENTED states, raw
+review-body byte counts and SHA256 digests, exact reviewed commit, proof mapping,
+conditional scopes and exposure. The verifier anchors the entire frozen record
+and the accepted manuscript/source identities outside the regenerable inventory.
+Intentional future mathematical changes require reviewed updates to those
+anchors and the review record. Both current manuscripts, SOURCES.json,
+RESULTS.json and geometry.py remain unchanged.
+
+This is an offline consistency check. Its successful summary explicitly reports
+remote_review_authenticity_checked=false and mathematical_acceptance=false.
+The native bodies were actually fetched during integration preflight; the local
+CLI does not fetch them or authenticate a remote reviewer. In --local-only mode,
+the source declaration's frozen bytes are still checked, while the historical
+Git objects remain excluded and source_pins_checked=false.
+
+The same workflow now also runs for main pushes affecting this packet or its own
+workflow, providing a scoped post-merge replay route. Prior PR/manual coverage
+was not itself a verifier defect. Hosted success must bind the actual candidate
+or merge commit; this local note supplies no CI result or mathematical vote.
