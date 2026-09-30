@@ -558,7 +558,7 @@ def gamma_half(twice):
 
 def mehta_Z(m):
     """Z_m = 2^(m/2 + m(m-1)/4) (2 pi)^(m/2) prod_{j<=m} Gamma(1 + j/2) / Gamma(3/2)^m as an element."""
-    m_eff = m + 1 if (MUT == "mehta" and m == 3) else m
+    m_eff = m + 1 if (MUT == "mehta" and m == 4) else m                          # Z_5 for Z_4 (v1.1: was m == 3, Codex 4149168080)
     prod = E(1)
     for j in range(1, m_eff + 1):
         prod = mul(prod, gamma_half(j + 2))

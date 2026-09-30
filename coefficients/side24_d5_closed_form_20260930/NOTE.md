@@ -205,3 +205,14 @@ verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identi
 - **Validation:** 16/16 rules in both modes, byte-identical output; 14/14 mutants rejected in both modes; workflow replayed
   locally; hosted run pending at opening.
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+
+## 9. Revisions
+
+- **v1.1 (Codex review 5371784947 on `60e56ef`).** (i) Thread 4149168080 (P2), taken: the `mehta` mutant altered `Z_3` (a
+  leftover of the Math-#201 script) and was rejected only through `D3_EXACT`; it now replaces `Z_4` by `Z_5` in the `m = 4`
+  prefactor and is rejected by `MEHTA_Z4_EXACT`, `D4_FORM` and the containments. (ii) Thread 4149168070 (P1, the replay
+  workflow and the 2026-09-27 owner stop), not taken; the reasons are on the thread: the per-packet replay workflow is the
+  repository's standing convention (88 workflow files on `main 3e0a91b`, about thirty of them added by every lane since
+  2026-09-27), the owner's later directives quoted in `AGENTS.md` and the owner workflow of 2026-09-30 govern this record, and
+  the workflow is path-scoped to this packet and its pins. The owner can direct its removal at any time; the record is
+  runnable locally in two seconds without it. No certified value changed.
