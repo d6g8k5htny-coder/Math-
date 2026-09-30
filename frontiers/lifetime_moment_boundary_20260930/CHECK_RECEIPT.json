@@ -1,0 +1,54 @@
+{
+  "good_quartic_cases": 54,
+  "normalization_exponent_cases": 12,
+  "outside_hypothesis_axial_negative_controls": 18,
+  "proof_sha256": "3c69e20a332457211b8b1182a4819ce9b1dda824801f3a90157751f41b8fedf8",
+  "runner_sha256": "2d8b4a2cc61908412574734c0266e5b568c32a653d19eb70edd1c0e46a3c8cab",
+  "scope": "Exact finite algebra controls, hypothesis-sensitive negative fixtures, normalization exponents, and source identities only; no Gaussian simulation, infinite-dimensional proof certification, or scientific acceptance.",
+  "source_identity_checks": [
+    {
+      "bytes": 40261,
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "P",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "bytes": 1782,
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "id": "ERR",
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+    },
+    {
+      "bytes": 9062,
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "id": "BOREL",
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+    },
+    {
+      "bytes": 23312,
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "id": "REC",
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da"
+    },
+    {
+      "bytes": 23416,
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "id": "MARK_D",
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e"
+    },
+    {
+      "bytes": 39722,
+      "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "id": "MARK_2",
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b"
+    },
+    {
+      "bytes": 15160,
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "id": "CAP",
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+    }
+  ],
+  "sources_sha256": "45d36269416ba0033edf184a540c32b3007e91fb2031ab8b77ae89eb1942db2e",
+  "status": "PASS"
+}
