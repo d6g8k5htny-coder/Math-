@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "object": "CL-SIDE24-D4-CLOSED-FORM-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_EXACT_IDENTITY_NONAUTHOR_READS_OPEN",
+  "disposition": "EXACT_CLOSED_FORM_OF_D4_FROM_THE_MATH200_REDUCTION_NO_REGISTER_CHANGE_SIDE24_V1_UNCHANGED",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/200#issuecomment-5918942608",
+  "result": {
+    "D_4": "6695/54 - (405/32) sqrt6 - (1/pi) [ (1375/72) sqrt21 + (6695/27) arctan(sqrt(3/7)) + (405/16) sqrt6 arctan(1/sqrt14) ]",
+    "c_5_ref": "Gamma(7/6) (3/2)^(1/3) D_4 / (12 sqrt3 pi^(7/2))",
+    "Z_4": "1536 pi (exact, same machinery)",
+    "D_1, D_2, D_3": "4/3, 29/6 - sqrt6, 50/3 - 76/(3 pi) - (200/(9 pi)) arctan(1/2) (exact, same code path)"
+  },
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(15.1) the cone moment; (15.2) the coefficient c_{d,L}",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "section 1 reference law A = Q + sqrt(2/3) Z I_m, D_1 = 4/3, D_2 = 29/6 - sqrt6 (the m = 1, 2 regressions)",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "33d50de",
+      "path": "coefficients/side24_d5_20260930/RESULTS.json",
+      "git_blob": "b67c00f45d053b51c2ec15ce8d53c8a34e49a006",
+      "role": "the certified enclosures of D_4 and c_{5,ref} quoted in the script (rules D4_INSIDE_CERTIFIED, SIMPLIFIED_FORM, C5_CLOSED, PINNED)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "33d50de",
+      "path": "coefficients/side24_d5_20260930/NOTE.md",
+      "git_blob": "ab3fe17d8fbed0b417a4844ff9490e2eefcb5134",
+      "role": "sections 1-2, the reduction that is integrated exactly here; section 4, the coefficient formula and |S^4|"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/201",
+      "commit": "3abcc10",
+      "path": "coefficients/side24_d4_closed_form_20260930/closed_form_d3.py",
+      "git_blob": "a0c9169227c9a0b42c66deaca2b4f2e3168046ab",
+      "role": "the exact arithmetic, the moments M_n and the m = 1, 2, 3 pipelines, reused verbatim; the D_3 closed form is rule D3_EXACT"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 15468,
+      "sha256": "6d1c9cd3b2a6132b473947e4d517ab5337078e256cd46514a091c85d3da0cde6",
+      "git_blob": "821be30aeafb7e48c8bc927575fb9950e0f4d784"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 16765,
+      "sha256": "b878c1d3534a1ce72f01bb461a06b8777888bc0a5fdd9413fc1a4f8a565a2bb3",
+      "git_blob": "52ce9b5726b8ea92c429ea1193b1812869afe701"
+    },
+    {
+      "path": "closed_form_d4.py",
+      "bytes": 44943,
+      "sha256": "54e348113f67225725b7e2b4399bd39578c51c531967c8f35f8124475d68030b",
+      "git_blob": "83ff92db2d38156b06a85821c07adcabe0343378"
+    }
+  ]
+}
