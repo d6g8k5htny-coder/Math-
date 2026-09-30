@@ -4,13 +4,14 @@
   "scientific_effect": "NONE",
   "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
-  "reverified_at": "5c484bf (Math- main after Math-#155, #156 and #161; no inventoried path changed)",
+  "reverified_at": "aa28838 (Math- main after Math-#155, #156, #161 and #158; no inventoried path changed)",
   "revision": {
-    "version": "v1.3",
+    "version": "v1.4",
     "applies": [
       "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
       "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged",
-      "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)"
+      "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)",
+      "v1.4: merge of Math- main aa28838 (Math-#158 merged); xAI 5901345590 recorded (ACCEPT as inventory, HOLD on execution); explicit execution_order"
     ],
     "unchanged": "22-file inventory, status-row statement, historical predicates; one proposed node removed in favour of the live node"
   },
@@ -27,6 +28,13 @@
       "kind": "review",
       "verdict": "ACCEPT sections 1 and 4 (obligation reading and count-bound discharge); executable fold deferred to a separate engineering review after Math-#151",
       "at": "6a0e3b9"
+    },
+    {
+      "lane": "xAI",
+      "id": 5901345590,
+      "kind": "bounded read",
+      "at": "3e00f21",
+      "verdict": "ACCEPT as inventory (count-estimate obligation discharged at existential fixed-d compact-mark window scope); HOLD on graph execution until Math-#151 lands, residual node created first, xAI read of PALM sections 4-6 as a separate slice"
     }
   ],
   "presupposes": [
@@ -104,7 +112,7 @@
       "node": "math.rn-region.witness-collision.leading-mass-localization",
       "current": "ABSENT",
       "proposed": "OPEN_ACTIVE",
-      "scope": "RECONCILIATION.md section 5: leading-mass localization at scale r, i.e. lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs of distinct window points not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)), so local-local pairs between C_d r and R r are localized mass, not residual; both-remote pairs carry O(r^5) (P_eta); pairs with a witness in the shells R r <= |X - o| <= s_0 carry <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, marked shell bound, q = 2). Open piece: the mixed count M(R, s_0) of pairs with one witness within R r of the midpoint and the other at distance >= s_0, where PALM R4 gives C r^3 only; the residual is equivalent to lim_{s_0->0} lim_{R->oo} limsup_r r^-3 M(R, s_0) = 0, not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts while #158 is unmerged) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
+      "scope": "RECONCILIATION.md section 5: leading-mass localization at scale r, i.e. lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs of distinct window points not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)), so local-local pairs between C_d r and R r are localized mass, not residual; both-remote pairs carry O(r^5) (P_eta); pairs with a witness in the shells R r <= |X - o| <= s_0 carry <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, marked shell bound, q = 2). Open piece: the mixed count M(R, s_0) of pairs with one witness within R r of the midpoint and the other at distance >= s_0, where PALM R4 gives C r^3 only; the residual is equivalent to lim_{s_0->0} lim_{R->oo} limsup_r r^-3 M(R, s_0) = 0, not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts and which merged at aa28838) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
       "required": [],
       "supporting": [
         "frontiers/elder_dimension_lift_20260928/PROOF.md",
@@ -863,5 +871,12 @@
       "sha256": "3809e6147321df260085815b2d9e995094d63492534afa4ad1cd05b9a168ce4d",
       "binding": "OBLIGATION check: C6 heading and the quoted open-task sentence present, or this record referenced; workflow re-runs on change"
     }
-  }
+  },
+  "execution_order": [
+    "1. create math.rn-region.witness-collision.leading-mass-localization (OPEN_ACTIVE, required by nothing)",
+    "2. create regional.shrinking-regions.analytic-route (SUPERSEDED_NONBLOCKING) with its three regional_bypass_only edges; selector cells per selector_region_proposal or the node-only alternative",
+    "3. create the component nodes and the required/supporting edges; reference the live nodes listed in live_nodes_reused",
+    "4. only after Math-#151's fold is on main and the xAI bounded read of PALM sections 4-6 is on file: move math.rn-region.witness-collision to PROVED_REVIEWED and update STATUS/PROOF_INDEX/catalog rows",
+    "executing lane: non-Claude; this record executes nothing"
+  ]
 }
