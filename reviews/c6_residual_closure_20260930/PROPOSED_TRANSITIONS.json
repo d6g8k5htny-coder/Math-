@@ -39,6 +39,11 @@
             "ref": "Math-#159 review 5360192822",
             "provider": "OpenAI (source-exposed)",
             "verdict": "ACCEPT Theorem N, Corollaries Lambda/S/X"
+          },
+          {
+            "ref": "Math-#166 review 5360227991 (in-repo REVIEW_RECORD.md)",
+            "provider": "Anthropic (other session)",
+            "verdict": "ACCEPT Theorem L, the direct statement"
           }
         ],
         "reading_rule": [
@@ -48,9 +53,10 @@
           "math.c6r-component.cluster-law-acceptance",
           "math.c6r-component.cluster-law-source-map",
           "math.c6-component.palm-proof",
-          "math.c6r-component.residual-closure-record"
+          "math.c6r-component.two-scale-law-proof",
+          "math.c6r-component.two-scale-review-record"
         ],
-        "notes": "Leading-mass localization of E N(N-1) at scale r, in the iterated limit; corollary of Math-#162 (26)/(18)/(20) with PALM Theorem Q, and of Math-#159 Corollary Lambda / Proposition 4.4; direct statement Math-#166 Theorem L when merged. C6 residual closure v1.0."
+        "notes": "Leading-mass localization of E N(N-1) at scale r, in the iterated limit; corollary of Math-#162 (26)/(18)/(20) with PALM Theorem Q, and of Math-#159 Corollary Lambda / Proposition 4.4; direct statement Math-#166 Theorem L (L1)/(L2), bound; Route C pair-count corollary. C6 residual closure v1.1."
       },
       "required_premises_after": [
         "math.c6r-component.spectral-closure-proof",
@@ -59,9 +65,10 @@
         "math.c6r-component.cluster-law-acceptance",
         "math.c6r-component.cluster-law-source-map",
         "math.c6-component.palm-proof",
-        "math.c6r-component.residual-closure-record"
+        "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-record"
       ],
-      "notes": "Created PROVED_REVIEWED if Math-#160 step 1 has not run; moved OPEN_ACTIVE -> PROVED_REVIEWED if it has. The record node among its premises is AUTHOR_SIDE_CANDIDATE until read (execution_order step 0)."
+      "notes": "Created PROVED_REVIEWED if Math-#160 step 1 has not run; moved OPEN_ACTIVE -> PROVED_REVIEWED if it has. Every required premise is PROVED_REVIEWED (step 0 satisfied by Math-#166 Theorem L); the record node is supporting."
     },
     {
       "node": "math.rn-region.witness-collision",
@@ -262,18 +269,70 @@
       "component_of": "math.rn-region.witness-collision.leading-mass-localization",
       "component_role": "reading_rule_record",
       "author_provider": "Anthropic Claude (this session; source-exposed, see section 0)",
-      "fingerprint": "13d1182108879c6edd9f8fd60107ffde1097c58592d7d8e5acc92af310a8a779",
+      "fingerprint": "d7420581ac771591f8449afbdd1c096450610b1158bed02a3868483efe10f546",
       "source": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
-      "scope": "section 3: the corollary (D1) + steps 1-3 (Route A) and Route B",
+      "scope": "section 3: the corollary (D1) + steps 1-3 (Route A), Route B, Route C",
       "review_basis": [
         {
-          "review": "none yet",
+          "review": "none",
           "provider": "-",
-          "verdict": "a non-Claude read of RECONCILIATION.md section 3 is required before the residual flip, unless Math-#166 Theorem L (Claude 5360227991) is on main and bound as the direct statement",
+          "verdict": "the reconciler's own text; supporting only since v1.1 (the direct statement is Math-#166 Theorem L); a non-Claude read of section 3 is welcome, not gating",
           "depth": "bounded"
         }
       ],
-      "required_until": "Math-#166 Theorem L component node exists; then supporting"
+      "required_until": "superseded in v1.1: supporting since the Theorem L component exists",
+      "notes": "supporting evidence only"
+    },
+    {
+      "id": "math.c6r-component.two-scale-law-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "proof",
+      "author_provider": "OpenAI (GPT-6 Astra Pro)",
+      "fingerprint": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+      "source": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
+      "scope": "Theorem L (L1) for every fixed q >= 2 and any deterministic delta_r -> 0 with delta_r / r -> oo, and (L2) E_r[N_R N_far^rho] = o_(R,rho)(r^3); every fixed d >= 2, L, b, k > 0, frame; conditional on SOURCES.json inputs (SC, CUB, RM, C6, P, D5)",
+      "review_basis": [
+        {
+          "review": "Math-#166 review 5360227991",
+          "provider": "Anthropic Claude (session 01NMeKE; no authorship of the consumed sources)",
+          "verdict": "ACCEPT Theorem T, Theorem L, (L3), (V1) at the conditional scope",
+          "depth": "full",
+          "at": "7c82252533c3fe14ee262f7f87c0549c10968592, blob a32fd5f7 unchanged"
+        },
+        {
+          "review": "xAI bounded read 5901945424 (reported in Math-#160 5902410407 / 5902466075)",
+          "provider": "xAI/Grok",
+          "verdict": "bounded Theorem-L read, as reported; not re-read here",
+          "depth": "bounded"
+        }
+      ],
+      "notes": "the direct statement of the residual; makes execution step 0 satisfied"
+    },
+    {
+      "id": "math.c6r-component.two-scale-review-record",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "review_record",
+      "author_provider": "OpenAI-authored record of the Claude reviews",
+      "fingerprint": "5295c373a16b6557584e1a633e28fd5962f3e96023945bcc068819e83a0d2cad",
+      "source": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md",
+      "scope": "review record of Math-#166 at blob a32fd5f7: A 5360227991, B 5360178611, C 5360216551",
+      "review_basis": [
+        {
+          "review": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md",
+          "provider": "in-repo record",
+          "verdict": "A/B/C ACCEPT at stated scopes",
+          "depth": "record"
+        }
+      ],
+      "notes": "in-repo record of the acceptance"
     }
   ],
   "proposed_graph_edges": [
@@ -315,9 +374,21 @@
     },
     {
       "from": "math.rn-region.witness-collision.leading-mass-localization",
-      "to": "math.c6r-component.residual-closure-record",
+      "to": "math.c6r-component.two-scale-law-proof",
       "required": true,
       "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.two-scale-review-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.residual-closure-record",
+      "required": false,
+      "relation": "supporting_evidence"
     },
     {
       "from": "math.rn-region.witness-collision",
@@ -334,17 +405,8 @@
       "deferred_with": "math.rn-region.witness-collision"
     }
   ],
-  "pending_third_source": {
-    "pr": "Math-#166",
-    "file": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
-    "blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
-    "math_head": "7c82252533c3fe14ee262f7f87c0549c10968592",
-    "statement": "Theorem L (L1): r^-3 E[(N)_q - (N_in)_q] -> 0 for q >= 2 and any delta_r -> 0, delta_r / r -> oo",
-    "review": "Claude 5360227991 (Slice A)",
-    "status": "unmerged; under C25 / Sol integration; bound by a revision when on main"
-  },
   "execution_order": [
-    "0. a non-Claude read of RECONCILIATION.md section 3 (four lines), or Math-#166 on main with a component node for TWO_SCALE_LAW.md as the direct statement; until then math.c6r-component.residual-closure-record is AUTHOR_SIDE_CANDIDATE and step 2 does not execute",
+    "0. satisfied at ab13a08f: Math-#166 is on main and its Theorem L is a required component node (math.c6r-component.two-scale-law-proof); a non-Claude read of RECONCILIATION.md section 3 remains welcome but is not gating; math.c6r-component.residual-closure-record is AUTHOR_SIDE_CANDIDATE and supporting",
     "1. create the component nodes and their required edges (math.c6-component.palm-proof only if Math-#160 has not created it)",
     "2. create math.rn-region.witness-collision.leading-mass-localization as PROVED_REVIEWED, or move it from OPEN_ACTIVE if Math-#160 step 1 created it",
     "3. only after Math-#160 step 3 (aggregate node): move math.rn-region.witness-collision to PROVED_REVIEWED with required edges to the aggregate node and to the residual node; under Math-#160's keep-open execution this is the step that moves the old node",
@@ -357,6 +419,18 @@
       "id": 5902470285,
       "kind": "pickup on Math-#160",
       "at": "358f256"
+    },
+    {
+      "lane": "this session",
+      "id": 5902585446,
+      "kind": "delivery on Math-#160",
+      "at": "b3fac79"
+    },
+    {
+      "lane": "this session",
+      "id": 5902616692,
+      "kind": "bounded read of the Route C corollary (Math-#160 5901994240) at the request 5902379699",
+      "verdict": "ACCEPT at stated scope; exposure stated"
     }
   ],
   "exposure": "reconciler authored Math-#160 (the definition) and remote_collision_20260928 ([RC], consumed by both routes); reviewed none of Math-#159, #162, #166; same GitHub account; zero organizational-independence credit",
@@ -367,9 +441,32 @@
     "any historical predicate move"
   ],
   "revision": {
-    "version": "v1.0",
+    "version": "v1.1",
     "applies": [
-      "initial record at 358f256"
+      "initial record at 358f256",
+      "fa1cf7b: Math-#166 TWO_SCALE_LAW.md and REVIEW_RECORD.md bound as the direct statement (step 0 satisfied); Route C added with exact checks and mutant route-c-broken; record node supporting"
     ]
-  }
+  },
+  "third_source_bound": {
+    "pr": "Math-#166",
+    "merged_at": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+    "file": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
+    "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+    "blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+    "statement": "Theorem L (L1), (L2)",
+    "review": "Claude 5360227991; xAI 5901945424 as reported"
+  },
+  "route_c": {
+    "source": "Math-#160 comment 5901994240 (OpenAI lane)",
+    "checked_in": "Math-#160 comment 5902616692 (this session; provider-distinct nonauthor on Math-#159/DL/C6, source-exposed on RC)",
+    "ingredients": [
+      "pathwise (D2)",
+      "PALM Theorem Q (E N^4 <= C r^3)",
+      "Math-#159 (5.1) shell bound (DL Theorem I_d)",
+      "Math-#159 (5.4) left inequality",
+      "RC Corollary D"
+    ],
+    "bound": "r^-3 E[(N)_2 - (A)_2] <= C (R^-2 + rho^2)^(1/2) + C_(R,rho) r^(3/4) + C_rho r; r -> 0, rho -> 0, R -> oo"
+  },
+  "reverified_at": "fa1cf7b (Math-#166 merged at ab13a08f, Math-#167 merged at fa1cf7b; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c)"
 }

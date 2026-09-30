@@ -2,7 +2,7 @@
 
 Standard library only. Run from the repository root:  python -B -S reviews/c6_residual_closure_20260930/residual_check.py
 Checks: IDENTITIES, VERDICTS, LIVE, DEDUCTION, TRANSITIONS, GATE, NEGATIVES. No mathematics is re-proved beyond the exact
-finite bookkeeping of section 3; the proposed graph is replayed through the downstream hard gate's own validators in
+finite bookkeeping of section 3 (pair identities, tails, ledgers); the proposed graph is replayed through the downstream hard gate's own validators in
 both executions. Nothing is written to the repository.
 """
 import argparse
@@ -18,7 +18,7 @@ import tempfile
 from fractions import Fraction as F
 
 MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-required-edge", "executed-flag", "controlling-true",
-           "tail-reversed", "pair-identity-broken", "drop-review-needle")
+           "tail-reversed", "pair-identity-broken", "route-c-broken", "drop-review-needle")
 MUT = None
 HERE = "reviews/c6_residual_closure_20260930"
 GRAPH = "frontiers/downstream_gate_20260925/GRAPH.json"
@@ -66,8 +66,16 @@ INVENTORY = {
         "5afe9a2090f2bbee6bd09b31b977c9451db1cea5"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "13d1182108879c6edd9f8fd60107ffde1097c58592d7d8e5acc92af310a8a779",
-        "585a6a12a857b84dd4c5ba8b973cc49c2d667d97"
+        "d7420581ac771591f8449afbdd1c096450610b1158bed02a3868483efe10f546",
+        "38a49460bef06548a8c4a8209c4cd11b2e0807a4"
+    ],
+    "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md": [
+        "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+        "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c"
+    ],
+    "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md": [
+        "5295c373a16b6557584e1a633e28fd5962f3e96023945bcc068819e83a0d2cad",
+        "9f7c7f6fc59ead440258887eb113135ab1dc3463"
     ]
 }
 VERDICTS = {
@@ -100,7 +108,15 @@ VERDICTS = {
         "pullrequestreview-5360192822",
         "VERDICT: ACCEPT Theorem N, Corollaries Lambda/S",
         "A pull-request review is a mutable external object"],
-    HERE + "/RECONCILIATION.md": ["**Object:** C6-RESIDUAL-CLOSURE-20260930-v1.", "(Res)", "(D1)"],
+    HERE + "/RECONCILIATION.md": ["**Object:** C6-RESIDUAL-CLOSURE-20260930-v1.", "(Res)", "(D1)", "(D2)"],
+    "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md": [
+        "**Theorem L (factorial localization).** For every fixed integer q>=2,",
+        "r^-3 E_r[(N_r)_q-(N_in)_q] -> 0.",
+        "E_r[N_R N_far^rho]=o_(R,rho)(r^3),"],
+    "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md": [
+        "Anthropic Claude review5360227991",
+        "bloba32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+        "ACCEPT of Theorem T, Theorem L, ordered-pair law L3"],
 }
 
 
@@ -192,6 +208,14 @@ def check_deduction():
         for n in range(M + 1, 41):
             lhs, rhs = f2(n) * (M - 1), f3(n)
             ok &= (lhs >= rhs) if MUT == "tail-reversed" else (lhs <= rhs)
+    # (D2), Route C: 0 <= (N)_2 - (A)_2 <= N^2 [1{B>0} + 1{A>0, C>0} + 1{C>=2}] for all counts A, B, C
+    for a in range(9):
+        for b in range(9):
+            for c in range(9):
+                n = a + b + c
+                ind = (1 if b > 0 else 0) + (1 if (a > 0 and c > 0) else 0) + (0 if MUT == "route-c-broken" else (1 if c >= 2 else 0))
+                ok &= 0 <= f2(n) - f2(a) <= n * n * ind
+    ok &= F(3, 2) + F(9, 4) - 3 == F(3, 4) and F(3, 2) + F(5, 2) - 3 == F(1)
     # Stirling: n^4 = (n)_4 + 6 (n)_3 + 7 (n)_2 + (n)_1
     for n in range(0, 21):
         ok &= n ** 4 == n * (n - 1) * (n - 2) * (n - 3) + 6 * f3(n) + 7 * f2(n) + n
@@ -230,8 +254,6 @@ def build(spec, graph, stage):
             id_map[nid] = live_by_source[c["source"]]      # cross-record node already created by Math-#160
             continue
         node = {k: v for k, v in c.items() if k != "id"}
-        if nid == RECORD_NODE:
-            node["classification"] = "PROVED_REVIEWED" if stage.startswith("final") else "AUTHOR_SIDE_CANDIDATE"
         new["nodes"][nid] = node
         id_map[nid] = nid
     t = spec["transitions"][0]
@@ -273,9 +295,11 @@ def check_transitions(root, spec):
             ok &= c["classification"] == "PROVED_REVIEWED"
         if c["id"] == PALM_NODE:
             ok &= c.get("create_if_absent") is True and "Math-#160" in str(c.get("cross_record"))
-    ok &= sorted(p["reading_rule"]) == sorted(cids) and sorted(t0["required_premises_after"]) == sorted(cids)
+    req_ids = [c for c in cids if c != RECORD_NODE]
+    ok &= sorted(p["reading_rule"]) == sorted(req_ids) and sorted(t0["required_premises_after"]) == sorted(req_ids)
     req = {(e["from"], e["to"]) for e in spec["proposed_graph_edges"] if e["required"] is True and not e.get("deferred_with")}
-    ok &= all((RES, cid) in req for cid in cids)
+    sup = {(e["from"], e["to"]) for e in spec["proposed_graph_edges"] if e["required"] is False and not e.get("deferred_with")}
+    ok &= all((RES, cid) in req for cid in req_ids) and (RES, RECORD_NODE) in sup and (RES, RECORD_NODE) not in req
     seen = set()
     for e in spec["proposed_graph_edges"]:
         key = (e["from"], e["to"], e["relation"])
@@ -300,8 +324,8 @@ def check_transitions(root, spec):
             ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req_after)
         else:
             ok &= nodes[RES]["classification"] == "OPEN_ACTIVE"
-            ok &= nodes[RECORD_NODE]["classification"] == "AUTHOR_SIDE_CANDIDATE"
-        ok &= len(req_after) == len(cids)
+        ok &= nodes[RECORD_NODE]["classification"] == "AUTHOR_SIDE_CANDIDATE"
+        ok &= len(req_after) == len(cids) - 1
         builds[stage] = (old, new)
     return bool(ok), builds
 

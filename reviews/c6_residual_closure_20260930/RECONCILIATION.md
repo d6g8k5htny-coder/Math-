@@ -4,8 +4,12 @@
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
 **Read at:** Math- `main` `358f2562efbccc59f9549e5a79650e2e936395c3` (30 September 2026, after Math-#159 `98fdb54`, Math-#164
 `7d0c89a` and Math-#162 `358f256` merged; `GRAPH.json`, `PROOF_INDEX.md`, `SELECTOR_REGION.json` and the catalog are
-unchanged since `ec6db8c`).
-**Revision:** v1.0. Pickup: Math-#160 comment 5902470285.
+unchanged since `ec6db8c`); re-verified at `fa1cf7b` (Math-#166 merged at `ab13a08f`, Math-#167 merged at `fa1cf7b`; the
+same surfaces unchanged).
+**Revision:** v1.0 at `358f256`; v1.1 at `fa1cf7b` binds Math-#166's `TWO_SCALE_LAW.md` and its review record as the
+direct statement (execution step 0 satisfied), adds Route C (the pair-count corollary of Math-#160 comment 5901994240,
+checked in 5902616692) with its exact checks, and makes this record's own node supporting. Pickup: Math-#160 comment
+5902470285; delivery 5902585446.
 **Effect:** register reconciliation, **declarative only** (`PROPOSED_TRANSITIONS.json`, `"executed": false`). It binds the
 residual question that Math-#160 §5 named (`math.rn-region.witness-collision.leading-mass-localization`) to the exact
 merged bytes of two independently authored and cross-provider-reviewed proofs, writes the four-line corollary that turns
@@ -29,8 +33,11 @@ Execution of any `GRAPH.json`, `STATUS`, `PROOF_INDEX` or catalog change is a se
   (Math-#159) is Anthropic-authored (the Slice B reviewer's session) and accepted by OpenAI (5360192822), source-exposed
   as author of imported inputs and of Math-#161. Neither route carries an organizationally independent read; taken
   together they are the first item in this chain with a proof from each provider, each read by the other.
-- The pending third source (Math-#166, OpenAI) carries one Anthropic read per slice (5360227991, 5360178611, 5360216551,
-  another session) and is under engineering integration (C25 / Sol); it is not consumed here.
+- The third source (Math-#166, OpenAI; merged at `ab13a08f`) carries one Anthropic read per slice (5360227991, 5360178611,
+  5360216551; another session) and, per Math-#160 comments 5902410407 and 5902466075, an xAI bounded read of Theorem L
+  (5901945424) not re-read here; I reviewed none of it. Route C was posted by an OpenAI lane (Math-#160 comment
+  5901994240) and checked by this session (5902616692): a provider-distinct nonauthor read of a consumer of
+  Math-#159 / [DL] / [C6], source-exposed on [RC].
 - No Cursor agent is restarted or contacted (owner stop, 27 September 2026); only published records are cited.
 
 ## 1. The residual, as defined, and the register as it stands
@@ -65,12 +72,12 @@ mechanism other than by (Res). Both Math-#159 (§9) and Math-#162 (README) state
 | [CL-R] | `frontiers/c6_cluster_law_20260929/README.md`, `SOURCE_MAP.json` | 7560 · `e4b35f2b…` · `1166376f`; 12566 · `0584c380…` · `ef51c582` | Anthropic | — | object identity; acceptance pointer |
 | [PALM] | `frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145, merged `820d443`) | 53364 · `aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b` · `89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5` | Anthropic (other session) | OpenAI 5356233690 (§4), 5358116559 (§§5–7, Theorem Q) | Theorem Q, `q = 3` and `q = 4`, for the uniform-integrability tails |
 | this packet | `reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md` | see `SOURCE_FILES.json` | transcribed by Anthropic | mutable external evidence, labelled | the preserved 5360192822 |
-| pending | Math-#166 `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md`, blob `a32fd5f7d941bbe1fe943df045b1e0fbec8d691c` (math head `7c82252`), **not on main** | — | OpenAI | Claude 5360227991 (Slice A: Theorem T, Theorem L) | Theorem L (L1): the direct statement; bound by a revision when merged |
+| [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, merged `ab13a08f`) | 17139 · `e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769` · `a32fd5f7d941bbe1fe943df045b1e0fbec8d691c` | OpenAI | in-repo `REVIEW_RECORD.md` (5121 · `5295c373…` · `9f7c7f6f`): Claude 5360227991 ACCEPT of Theorem T, Theorem L, (L3), (V1) at the conditional scope; xAI bounded read 5901945424 reported in Math-#160 5902466075 | Theorem L (L1), (L2): the direct statement |
 
 Identities are checked by `residual_check.py` (`IDENTITIES`, `NEGATIVES`); the quoted statements are checked as
 substrings (`VERDICTS`). [SC] and [CL] are conditional on their own pinned inputs at those inputs' reviewed scopes
-([SC] `SOURCES.json`: P, D5, C6, RM, RC, LM, CUB, RCL; [CL] `SOURCE_MAP.json`: LP, DL, C6, RM, RC, EDL, LM, RCL); this
-record inherits exactly those conditions and adds none.
+([SC] `SOURCES.json`: P, D5, C6, RM, RC, LM, CUB, RCL; [CL] `SOURCE_MAP.json`: LP, DL, C6, RM, RC, EDL, LM, RCL; [TSL]
+`SOURCES.json`: SC, CUB, RM, C6, P, D5); this record inherits exactly those conditions and adds none.
 
 ## 3. The corollary: (Res) from the reviewed statements
 
@@ -107,16 +114,35 @@ factorial-moment limit: Lemma 5.2 (5.4), `E[N^A 1{N_far^rho >= 1}] <= C(A, rho) 
 at fixed `(A, rho)`, which is the mixed count of Math-#160 §5 with `s_0 = rho` (the far region `D_rho` is measured from
 `o`; a point at distance `>= s_0` from both pins lies in `D_{s_0/2}` for `r < s_0`). Exponent ledgers checked exactly.
 
-**Direct statement (pending).** Math-#166 Theorem L (L1): `r^-3 E[(N)_q - (N_in)_q] -> 0` for every fixed `q >= 2` and
-every deterministic `delta_r -> 0` with `delta_r / r -> oo`, where `N_in` counts the points within `delta_r` of `o`; with
-`delta_r = R r` and `R -> oo` after `r -> 0` this is (Res) for `q = 2`, and it is stronger (moving cutoff, all `q`). It is
-conditional on [SC] and is not consumed here; it enters by a revision when Math-#166 is on `main`.
+**Route C (pair-count corollary; Math-#160 comment 5901994240, checked in 5902616692).** With `A`, `B`, `C` the window
+counts in `|X| <= R r`, `R r < |X| < rho`, `|X| >= rho` (from `o`; `N = A + B + C`), pathwise
+
+    0 <= (N)_2 - (A)_2 <= N^2 [ 1{B > 0} + 1{A > 0, C > 0} + 1{C >= 2} ],                                       (D2)
+
+exact: the right side vanishes only when `B = 0` and either `C = 0` or `A = 0, C <= 1`, and then the left side
+`2A(B + C) + (B + C)(B + C - 1)` vanishes too (checked in `DEDUCTION`). Cauchy–Schwarz with `E N^4 <= C r^3` ([PALM]
+Theorem Q through Stirling) and [CL] (5.1) (`E B <= C r^3 (R^-2 + rho^2)`, [DL] Theorem I_d, constant uniform in `R >= 4`,
+`rho <= s_0`), the left inequality of [CL] (5.4) (`Q{A >= 1, C >= 1} <= C(A, rho) r^(9/2)`) and [RC] Corollary D
+(`Q{C >= 2} <= E (C)_2 / 2 = O_rho(r^5)`) give
+
+    r^-3 E[(N)_2 - (A)_2] <= C (R^-2 + rho^2)^(1/2) + C_(R,rho) r^(3/4) + C_rho r ;
+
+`r -> 0` first, then `rho -> 0`, then `R -> oo` gives (Res). This route uses no count-law limit: only the shell bound,
+the cross-term bound, the far second factorial moment and Theorem Q (exponent ledgers `3/2 + 9/4 - 3 = 3/4` and
+`3/2 + 5/2 - 3 = 1`, checked exactly).
+
+**Direct statement ([TSL], merged at `ab13a08f`).** Math-#166 Theorem L (L1): `r^-3 E_r[(N_r)_q - (N_in)_q] -> 0` for every
+fixed `q >= 2` and every deterministic `delta_r -> 0` with `delta_r / r -> oo`, `N_in` the count within `delta_r` of `o`;
+and (L2): `E_r[N_R N_far^rho] = o_(R,rho)(r^3)`, the mixed count itself. With `delta_r = R r` and `R -> oo` after `r -> 0`,
+(L1) at `q = 2` is (Res); it is stronger (moving cutoff, all `q`) and is conditional on [SC]. It is bound in §2 and is a
+required component in §5, so execution step 0 is satisfied by a reviewed merged source rather than by a read of this
+record.
 
 **What the corollary uses and nothing else.** Two reviewed limit statements about one law (the full and the near
 second factorial moments), one reviewed exhaustion statement, and one reviewed moment bound for the tail. No
-regression, no Kac–Rice step, no new estimate. A nonauthor read of this section is a bounded task; the executing lane
-should obtain it from a non-Claude lane before step 3 of `execution_order` (§5), because the reconciler is
-source-exposed (§0).
+regression, no Kac–Rice step, no new estimate. Since v1.1 the direct statement [TSL] carries the flip and this record's
+own node is supporting; a non-Claude read of this section remains welcome (the reconciler is source-exposed, §0) but
+is not gating.
 
 ## 4. Scope, and what is not established
 
@@ -131,8 +157,9 @@ within `R r` of the midpoint ((Res), this record); the coefficient is `2 a_2` ([
 **Not established by this record.** No rate of convergence; no numerical value of `a_2`, `nu(1)`, `nu(2)`, `C_3` or of
 the localization scale; no uniformity as `k -> 0`, in `L` or in `d`; no all-height statement (the window is
 load-bearing in both sources); no statement about the elder selection of the extra points; no joint law of clusters
-of distinct pin pairs; no configuration law beyond what [SC]/[CL] state (Math-#166 supplies the configuration form,
-pending); no `d_TV` or moving-cutoff statement (Math-#166); no historical numerical certificate (RN annulus partition,
+of distinct pin pairs; no configuration law beyond what [SC]/[CL] state (Math-#166 Theorem T supplies the configuration
+form; not consumed); no `d_TV` statement (Math-#166 (V1); not consumed); the moving-cutoff form is [TSL] (L1) at its own
+scope; no historical numerical certificate (RN annulus partition,
 24-jet / OBL-H5-JETMOD) and no discharge of any historical predicate outside the analytic scope (Math-#160 §6). Neither
 [SC] nor [CL] is re-reviewed here; their reviews stand at the scopes their records state.
 
@@ -155,14 +182,16 @@ source; one node per byte identity; none duplicates a source the live graph carr
 | `math.c6r-component.cluster-law-acceptance` | this packet's `EXTERNAL_REVIEWS.md` | external review record (5360192822, transcribed; mutable, labelled) | OpenAI review, transcribed by Anthropic | itself |
 | `math.c6r-component.cluster-law-source-map` | `frontiers/c6_cluster_law_20260929/SOURCE_MAP.json` | in-repo acceptance pointer and consumed-input map | Anthropic | records 5360192822 |
 | `math.c6-component.palm-proof` | [PALM] | proof: Theorem Q (`q = 3, 4`) | Anthropic (other session) | OpenAI 5358116559; **defined by Math-#160** (same id, source, fingerprint); created here only if absent |
-| `math.c6r-component.residual-closure-record` | this packet's `RECONCILIATION.md` | reading-rule record: the §3 corollary | Anthropic (this session; source-exposed) | **none yet** — `AUTHOR_SIDE_CANDIDATE` until a non-Claude lane reads §3; the residual flip waits for it, or for Math-#166's Theorem L (Claude 5360227991) to replace it as the direct statement |
+| `math.c6r-component.two-scale-law-proof` | [TSL] | proof: Theorem L (L1), (L2), the direct statement | OpenAI | Claude 5360227991 (in-repo `REVIEW_RECORD.md`); xAI bounded read 5901945424 as reported |
+| `math.c6r-component.two-scale-review-record` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md` | review record | OpenAI-authored record of the Claude reviews | itself |
+| `math.c6r-component.residual-closure-record` | this packet's `RECONCILIATION.md` | reading-rule record: the §3 corollary and Route C | Anthropic (this session; source-exposed) | `AUTHOR_SIDE_CANDIDATE` (the reconciler's own text; a non-Claude read is welcome); **supporting only** since v1.1, because [TSL] Theorem L is the direct statement |
 
-Edges: from the residual node to each component, `required: true` (`requires_evidence`), except that the record node is
-required only until Math-#166's Theorem L node exists, after which it becomes supporting. From the old node (deferred
-transition): `required` edges to the residual node and to Math-#160's aggregate node.
+Edges: from the residual node to each component, `required: true` (`requires_evidence`), except the record node, which
+is supporting (`required: false`) since [TSL] is bound. From the old node (deferred transition): `required` edges to the
+residual node and to Math-#160's aggregate node.
 
-**Execution order** (`PROPOSED_TRANSITIONS.json` `execution_order`): (0) a non-Claude read of §3, or Math-#166 on main
-with a component node for `TWO_SCALE_LAW.md`; (1) the component nodes and their edges; (2) the residual node
+**Execution order** (`PROPOSED_TRANSITIONS.json` `execution_order`): (0) satisfied at `ab13a08f`: Math-#166 is on main and its
+Theorem L is a required component node; a non-Claude read of §3 remains welcome but is not gating; (1) the component nodes and their edges; (2) the residual node
 (created `PROVED_REVIEWED`, or moved from `OPEN_ACTIVE`); (3) only after Math-#160 step 3: the old node; (4) the
 register rows. Nothing here edits `GRAPH.json`, `PROOF_INDEX.md`, `STATUS.md`, `SELECTOR_REGION.json` or the catalog
 (`"executed": false`, checked).
@@ -174,33 +203,35 @@ node) through `reverse_impact_between` (`GATE` replays it in both executions).
 ## 6. Checks
 
 `residual_check.py` (stdlib only, run from the repository root):
-- **IDENTITIES.** All nine inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
+- **IDENTITIES.** All eleven inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
 - **VERDICTS.** The quoted statements are present as substrings: [SC] Theorem (3), (18), (20), (24), (26) and the
   Slice A/B/C lines of its review record with the core blob; [CL] Corollary Λ with `Λ_2 = 2 nu(2)`, Proposition 4.4's
   `A -> oo` sentence, Lemma 5.2 with `r^(9/2)`, the object header, the source map's `nonauthor_acceptance` and its note
-  naming 5360192822; [PALM] object header and Theorem Q; the review id, verdict line and mutability label in
-  `EXTERNAL_REVIEWS.md`.
+  naming 5360192822; [PALM] object header and Theorem Q; [TSL] Theorem L with (L1) and (L2) and its review record's
+  5360227991 line at blob `a32fd5f7`; the review id, verdict line and mutability label in `EXTERNAL_REVIEWS.md`.
 - **LIVE.** `math.rn-region.witness-collision` is a live `OPEN_ACTIVE` region with its recorded fingerprint (or
   `PROVED_REVIEWED` after execution); the residual node is absent or `OPEN_ACTIVE` with Math-#160's fingerprint (or
   `PROVED_REVIEWED` after execution); the selector lists the region; no live fingerprinted node carries a component
   source of §5 other than `math.c6-component.palm-proof` if Math-#160 has been executed.
-- **DEDUCTION.** Exact finite content of §3: the pair identity (D1) for all `0 <= N_R, N_out <= 12`; the tail
+- **DEDUCTION.** Exact finite content of §3: the pair identity (D1) for all `0 <= N_R, N_out <= 12`; the Route C
+  pathwise inequality (D2) for all `0 <= A, B, C <= 8` with its two exponent ledgers; the tail
   inequality `n(n-1)(M-1) <= n(n-1)(n-2)` for `n > M >= 3`; the Stirling identity for `n^4`; the exponent ledgers
   `3 + 3/2 = 9/2 > 3` and `3/2 + 3/4 + 5/4 = 7/2 > 3`; the truncation error of a finite distribution against
   `E(N)_3/(M-1)`; and an exact rational instance of the iterated limit `2 a_2 - 2 a_2^R -> 0`.
 - **TRANSITIONS.** `declarative` true, `executed` false; the residual node `PROVED_REVIEWED`, non-controlling, with
   scope, explicit limits, review basis, Math-#160's fingerprint and a required edge to every component; every
   component node fingerprinted to the inventory with role, provider and review basis, one per byte identity; the
-  record node flagged `AUTHOR_SIDE_CANDIDATE` until read; the old-node transition marked deferred with its two
-  presuppositions; the palm node marked cross-record with Math-#160's id.
+  record node `AUTHOR_SIDE_CANDIDATE` and reached by a supporting edge only; every required premise of the residual node
+  `PROVED_REVIEWED`; the old-node transition marked deferred with its two presuppositions; the palm node marked
+  cross-record with Math-#160's id.
 - **GATE.** In both executions (residual node created directly; residual node pre-existing `OPEN_ACTIVE` as
   Math-#160 proposes), the proposed graph passes `validate_graph_fail_closed`, `closure_report` gives `gate_ok` with no
   illegal controlling node, and `reverse_impact_between` names the residual node and the components as changed and
   impacted; the deferred old-node transition is not applied (its presupposition is absent live) and is reported.
 - **NEGATIVES.** Delete, one-byte change, symlink and symlinked parent on a temporary copy of the inventory are rejected.
 
-Nine mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-required-edge`, `executed-flag`,
-`controlling-true`, `tail-reversed`, `pair-identity-broken`, `drop-review-needle`.
+Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-required-edge`, `executed-flag`,
+`controlling-true`, `tail-reversed`, `pair-identity-broken`, `route-c-broken`, `drop-review-needle`.
 
 ## 7. Relation to other lanes
 
@@ -210,8 +241,9 @@ Nine mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-r
   bound in-repo.
 - **Math-#159 (Anthropic, other session; merged `98fdb54`, integrated by the OpenAI engineering lane):** Route B. Not
   re-reviewed; its acceptance is preserved as external evidence.
-- **Math-#166 (OpenAI; under C25 / Sol integration, engineering repair in progress):** the pending direct statement;
-  hands-off; bound by a revision when merged.
-- **Math-#167 (this session):** disjoint (D2/D3/D4/D5-annulus/D6 alignment).
+- **Math-#166 (OpenAI; merged at `ab13a08f`, integrated by OpenAI Sol / C25):** the direct statement, bound in v1.1; not
+  re-reviewed.
+- **Math-#167 (this session; merged at `fa1cf7b` by OpenAI Sol after review 5360524053):** disjoint (D2/D3/D4/D5-annulus/D6
+  alignment); its execution is a separate non-Claude act.
 - **Math-#151 (merged `ec6db8c`):** kept the old node open under the wording quoted in §1; this record supplies the
   discharge of the only defined residual meaning.

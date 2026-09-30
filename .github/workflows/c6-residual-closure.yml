@@ -12,6 +12,8 @@ name: C6 residual closure checks
       - 'frontiers/c6_cluster_law_20260929/README.md'
       - 'frontiers/c6_cluster_law_20260929/SOURCE_MAP.json'
       - 'frontiers/c6_palm_route_20260929/PROOF.md'
+      - 'frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md'
+      - 'frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md'
       - 'frontiers/downstream_gate_20260925/GRAPH.json'
       - 'frontiers/downstream_gate_20260925/SELECTOR_REGION.json'
       - 'frontiers/downstream_gate_20260925/hard_gate.py'
@@ -53,7 +55,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'residual_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-required-edge', 'executed-flag', 'controlling-true', 'tail-reversed', 'pair-identity-broken', 'drop-review-needle']
+          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-required-edge', 'executed-flag', 'controlling-true', 'tail-reversed', 'pair-identity-broken', 'route-c-broken', 'drop-review-needle']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout
