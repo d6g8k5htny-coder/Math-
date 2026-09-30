@@ -15,8 +15,8 @@ first) the point-intensity radius tail
 
 with `J_cusp = integral H(h) gamma(a)^11 h_0(A_0, Rot_O tau_cusp) da dxi dh dO` (R12) and
 `gamma(a) = sqrt(1 + (a/(12k))^2)`, and lists "no numerical value of its Gaussian integral" as a non-claim. The
-unmerged companions Math-#169 ([E]) and Math-#176 ([Q]) express further constants of the same measure through the
-same cusp integrals: the whole-cluster split of the tail (E6) and the second-order coefficient `C_2`, the
+companions Math-#169 ([E], merged) and Math-#176 ([Q], merged) express further constants of the same measure through
+the same cusp integrals: the whole-cluster split of the tail (E6) and the second-order coefficient `C_2`, the
 total-variation coefficient `kappa |C_2/C_0|` of the radial ratio and the signed constant `B_sign` ((13), (16),
 (19)). This note evaluates all of them in the plane for the parent kernel `K(z) = exp(-|z|^2/2)` ([LP] §2).
 
@@ -76,7 +76,7 @@ ties the [SC]/[R] parametrization (jet Jacobian `2`, root Jacobian `6`, weight `
 | `2.0` | 0.0465858 | 0.0483768 | -0.0040314 | 0.0022051 | `2e-15` |
 
 **Tail constants** (`F(t) ~ C_* t^(-11)` is the `r^(-3)`-scaled expected number of near points at scaled radius
-`R > t`; the split rows are conditional on [E]; `c`, `kappa c`, `B_sign` on [Q]):
+`R > t`; the split rows are values of [E] (E6); `c`, `kappa c`, `B_sign` of [Q] (13), (16), (19)):
 
 | `k` | `b` | `C_*` | `G_max` | `G_2` | `B_2` | singleton | `c = C_2/C_*` | `kappa c` | `B_sign` |
 |---|---|---|---|---|---|---|---|---|---|
@@ -114,6 +114,17 @@ values. This is the check that the two parametrizations agree; it is not a certi
 
 - The one-dimensional cusp integrals agree between 48 and 96 Gauss–Legendre points to the relative deviations in
   the table (all below `1e-14`); the constants inherit that precision and the exact prefactor.
+- Three exact identities stated in Math-#190 (elementary: `G_0 = exp(-12 k^2 (gamma^6 - 1)) / sqrt(192 pi^3)` on the
+  cusp, and `(a gamma^11)' = 12 gamma^11 - 11 gamma^9`) hold in this quadrature at machine precision and are
+  `--check` rules since v3: `T_2 = -T_1/12` (`< 3e-18` absolute at every `k`), `T_b sqrt(192 pi^3) = (12k^2 + 1)/(36k^3)`
+  (`8/9`, `13/36`, `49/288`; `< 6e-16`), and the rational factor `(11/2)(U_2 - B/78)/I = 66451/11128` of
+  `c = C_2/C_* = (66451/11128) T_1/J_cusp` (exact). Since `T_1/J_cusp = 12 - 11 I_9/I_11 in (1, 12)`, the bounds
+  `5.9715 < c(k) < 71.658` of Math-#190 sharpen the corollary `c > 4587/856` quoted in the table; the values here
+  (`9.78`, `6.90`, `6.20`) lie inside.
+- Math-#190 (reviews/c6_tail_constant_certified_20260930, other Claude session, not merged, not consumed here)
+  reports certified interval enclosures of every constant of this table and finds each value of `RESULTS.json`
+  (blob `0b5ce76f`) within `9e-16` relative of its enclosure. That record is information for the reader; it is not a
+  certification of this note, which stays floating point.
 - The near-mass integral moves by at most `3e-04` relative between the 64- and 96-point shape levels at `ns = 160`,
   and by `4e-09` between `ns = 160` and `256`; its remaining error is of the former order, below the Math-#168 Monte
   Carlo standard error.
@@ -121,8 +132,8 @@ values. This is the check that the two parametrizations agree; it is not a certi
 ## 5. What the numbers are not
 
 Not a proof and not an enclosure. `C_*` is a value of the reviewed formula (R13) of the merged [R]; the split and the
-second-order/signed constants are values of formulas in the unmerged candidates [E] and [Q] (their Slices B, C, D and
-A, B respectively carry nonauthor reads at this writing) and are conditional on them. Planar only (`d = 2`), parent
+second-order/signed constants are values of formulas of the merged [E] (Math-#169) and [Q] (Math-#176), evaluated at
+their stated scope (planar, `r -> 0` first). Planar only (`d = 2`), parent
 kernel only, aligned frame; no rate for `r -> 0`, no finite-`r` statement, no statement about the remote singleton
 population. No register, catalog or STATUS change. Same GitHub account as every lane; zero
 organizational-independence credit. The author will not merge.
@@ -131,7 +142,9 @@ organizational-independence credit. The author will not merge.
 
 `tail_constants.py` (standard library; `--check` replays the exact controls, the cusp integrals and the complete
 constants table for each `k` and both `b`, the low-level near-mass integral for each `k` with its log-`Z` study
-entry, the assembly of the identity from the stored numbers, and the identity tolerance against `RESULTS.json`; mutants `shape-integral`,
+entry, the assembly of the identity from the stored numbers, the identity tolerance against `RESULTS.json`, and the
+three exact identities of §4; mutants `shape-integral`,
 `gamma-power`, `cusp-shift` exit 1), `RESULTS.json` (full run, about fifteen minutes), `SOURCE_MAP.json`
-(pins [R], [SC], [NUM], [CUB], [LP] on `main` `02772ec`; companions [E], [Q] unmerged, not workflow-checked),
+(pins [R], [SC], [NUM], [CUB], [LP], [E], [Q] on `main` `3e0a91b`, all workflow-checked; [E] and [Q] were unmerged
+companions in v1/v2 and were promoted to pins in v3 with their blobs unchanged),
 `SOURCE_FILES.json`, workflow `c6-microscopic-tail-numerics.yml`.

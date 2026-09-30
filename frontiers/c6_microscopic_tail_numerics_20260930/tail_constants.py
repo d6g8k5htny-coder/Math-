@@ -174,7 +174,9 @@ def Q(u, v):
 
 def cusp_integrals(k, rule, L=14.0):
     """One-dimensional Gaussian integrals over the cusp slice beta = a^2/(12k), c = a^3/(144k^2):
-    J_cusp = int gamma^11 G0, T1 = int gamma^9 (1 + 12 A^2) G0, T2 = int gamma^13 D_a G0, Tb = int |A| gamma^10 G0."""
+    J_cusp = int gamma^11 G0, T1 = int gamma^9 (1 + 12 A^2) G0, T2 = int gamma^13 D_a G0, Tb = int |A| gamma^10 G0.
+    Exact identities (Math-#190, elementary: G0 = exp(-12 k^2 (gamma^6 - 1)) / sqrt(192 pi^3), (a gamma^11)' = 12 gamma^11 - 11 gamma^9):
+    T2 = -T1/12 and Tb sqrt(192 pi^3) = (12 k^2 + 1)/(36 k^3); both are checked in check_run against this quadrature."""
     gpow = 10 if MUT == 'gamma-power' else 11
     def G0(a):
         cshift = 0.0 if MUT == 'cusp-shift' else a ** 3 / (144 * k * k)
@@ -250,6 +252,8 @@ def controls():
     require(ex['J_outer'] == J_OUT, 'J = 1083417/280')
     require(Fr(11) * ex['U2'] / (2 * ex['I']) == Fr(4587, 856), '11 U2/(2I) = 4587/856')
     require(Fr(11) * ex['Uabs'] / (2 * ex['I']) == Fr(4587821, 876544), '11 Uabs/(2I) = 4587821/876544')
+    # with T2 = -T1/12, c = C2/C_* = (11/2) (U2 - B/78) T1 / (I J_cusp): the rational factor of Math-#190
+    require(Fr(11, 2) * (ex['U2'] - ex['B'] / 78) / ex['I'] == Fr(66451, 11128), '(11/2)(U2 - B/78)/I = 66451/11128')
     D = D_inner()
     require(0 < D < float(ex['I']) - float(ex['J_outer']), 'D positive and I - D - J positive')
     q0 = math.sqrt(13 / 11)
@@ -308,6 +312,10 @@ def check_run():
         cu = cusp_integrals(k, r96)
         for n in cu:
             require(abs(cu[n] - ref['per_k'][str(k)]['cusp'][n]) <= REPLAY_TOL * abs(ref['per_k'][str(k)]['cusp'][n]), 'cusp integral replay %s k=%s' % (n, k))
+        # exact identities of the cusp integrals (Math-#190), at quadrature precision
+        require(abs(cu['T2'] + cu['T1'] / 12) <= 1e-13 * abs(cu['T1']), 'T2 = -T1/12 k=%s' % k)
+        require(abs(cu['Tb'] * math.sqrt(192 * math.pi ** 3) - (12 * k * k + 1) / (36 * k ** 3)) <= 1e-12, 'Tb sqrt(192 pi^3) = (12 k^2 + 1)/(36 k^3) k=%s' % k)
+        require(1.0 < cu['T1'] / cu['J_cusp'] < 12.0, 'T1/J_cusp in (1, 12) k=%s' % k)
         for b in (0.0, 1.0):
             t = constants_table(k, b, ex, cu)
             rt = ref['table']['k=%s,b=%s' % (k, b)]
