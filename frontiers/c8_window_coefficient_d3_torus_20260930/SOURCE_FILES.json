@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-D3-TORUS-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_ENCLOSURE_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_TORUS_ENCLOSURE_OF_THE_D3_WINDOW_COEFFICIENT_NO_REGISTER_CHANGE_C8_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/197#issuecomment-5921235693",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(11.3) the window coefficient in every d; section 15 factorization p_(f,V)(b,0) p_G(0) phi_tau(12k), z_0 = 36 k^2 E[det(A)^2 1{A<0} | f=b, V=0]",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "sections 2-4: image bound (76|x|^6 contraction bound, normalization), C_ref >= I/3, the covariance-sandwich scaling argument generalized here to a birth window",
+      "workflow_checked": true
+    },
+    {
+      "label": "ENC",
+      "path": "coefficients/side24_v1/ENCLOSURE.json",
+      "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+      "role": "the d = 3 enclosure of c_{3,24} quoted in the script (rule SIDE24_CONSISTENT)",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "63e123f",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/window_coefficient.py",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218",
+      "role": "interval class, erf, Owen's T, Owen primitives G_0..G_4, incomplete gamma, library_exact reused verbatim; F3_ref generalized to interval endpoints"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "63e123f",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/NOTE.md",
+      "git_blob": "56d99b48d2d28152029dd099d9a985495399149c",
+      "role": "section 4: the d = 3 reference closed form m_{3,b} (4.1) and its three window primitives; the stated gap (no torus transfer in d = 3)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "63e123f",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/RESULTS.json",
+      "git_blob": "95443edfcfb8466a31e93b16fae9c19bada77e86",
+      "role": "birth_factor_d3_reference: the d = 3 reference factors reproduced here"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 15131,
+      "sha256": "16fbe46bf654e8c46e6571de40bca04d5fef133bf0fe822f1a057fb32225e374",
+      "git_blob": "a8e4e77c1b67a1cb5ffa0cb7f042f5412b508239"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 18390,
+      "sha256": "7f11bc47f01fdf4433187d128a44003fe0c268a48b0703430788c7d06da965df",
+      "git_blob": "8dcf45c592fd0a6d1fcc7fdb957458f52204607a"
+    },
+    {
+      "path": "window_coefficient_d3.py",
+      "bytes": 37850,
+      "sha256": "e05e47fc966f34ae19cc7ddbbac805a763fb330bbf4f9cfff8b7e0078b7db664",
+      "git_blob": "ba24b3802eb0baf5ade65d49fd47ca862972f8bd"
+    }
+  ]
+}
