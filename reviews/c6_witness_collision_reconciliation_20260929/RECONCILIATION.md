@@ -4,8 +4,8 @@
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
 **Read at:** Math- `main` `8e61fc4c055b56e526b5b3488104945e8e0e29cc` (29 September 2026); every inventoried byte
 re-verified identical at the record's base `7a1cb09` (the merges of Math-#155 and Math-#156 in between touch no
-inventoried path); re-verified again at `5c484bf` (Math-#161 merged) and at `aa28838` (Math-#158 merged); no
-inventoried path changed at either.
+inventoried path); re-verified again at `5c484bf` (Math-#161 merged), at `aa28838` (Math-#158 merged) and at
+`bb429d3` (Math-#157 and #165 merged); no inventoried path changed at any of them.
 **Revision:** v1.1 applies the scope corrections and the residual wording of OpenAI nonauthor review 5359701805
 (at `6a0e3b9`) and pickup 5900929519; v1.2 merges Math- main `5c484bf` and updates the §5/§9 status of the
 candidates after Math-#161 merged; v1.3 answers Codex review 5359693191 (the [LP] evidence reuses the live node
@@ -13,7 +13,8 @@ candidates after Math-#161 merged; v1.3 answers Codex review 5359693191 (the [LP
 catalog is bound by the `OBLIGATION` check and the workflow paths; the residual is defined at scale `r`). §§1 and
 3, the §4 statement and the 22-file inventory are unchanged; v1.3 removes one proposed node in favour of a live one.
 v1.4 merges main `aa28838`, records xAI 5901345590 (ACCEPT as inventory; HOLD on execution until Math-#151 lands) and
-makes the execution order explicit in §7.
+makes the execution order explicit in §7. v1.5 merges main `bb429d3` and records Math-#166 as the third candidate
+for the §5 residual, the one whose statement matches the residual's definition.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the
@@ -226,7 +227,14 @@ count, torus-wide, pin neighbourhoods included — is discharged by [PALM] Theor
   5359814083; D Codex 5359601495), and Math-#158 merged at `aa28838`; Math-#159 is unreviewed. Neither candidate
   is a premise of this record, neither is inventoried, and neither is consumed by any proposed node or edge. The
   residual stays `OPEN_ACTIVE` for every fixed `d`: the Math-#161 chain is planar and source-exposed, so an executing
-  lane could at most record a planar sub-status from it, after its own fold; this record proposes none. `PROPOSED_TRANSITIONS.json` proposes the residual as an explicitly
+  lane could at most record a planar sub-status from it, after its own fold; this record proposes none. A third
+  candidate, Math-#166 (OpenAI, `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md`, blob `a32fd5f7`,
+  math head `7c82252`), states the residual as defined here: `r⁻³ E[(N)_q − (N_in)_q] → 0` for every fixed `q ≥ 2`
+  and any `δ_r → 0` with `δ_r / r → ∞`, retaining counted mass (its near/remote product is `o(r³)`), conditional on
+  Math-#162; at `bb429d3` its Slices B and C carry Anthropic verdicts (5360178611, 5360216551, session `01NMeKE…`) and
+  Slice A, the two-scale law itself, is under review. It is unmerged, not a premise, not inventoried, not consumed.
+  When #162 and #166 are on main with their reviews, an additive successor record can bind the residual's closure
+  in every fixed `d`; this record does not. `PROPOSED_TRANSITIONS.json` proposes the residual as an explicitly
   scoped `OPEN_ACTIVE` node, `math.rn-region.witness-collision.leading-mass-localization`, required by nothing, so that
   the question is recorded precisely and blocks nothing.
 
@@ -336,6 +344,9 @@ Ten mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerpri
   author-side candidates for the §5 residual; not premises, not inventoried, not consumed (§5, with their review
   status at `5c484bf`). Their appearance changes none of this record's status rows, nodes or edges; a planar
   sub-status of the residual would be a further transition by an executing lane, after its own fold.
+- **Math-#166 (OpenAI, two-scale cluster geometry, math head `7c82252`, open):** the consumer whose `TWO_SCALE_LAW.md`
+  states the §5 residual exactly, conditional on Math-#162; B and C accepted (other Claude session), A under review;
+  not consumed here; the residual closes by a successor record after both land.
 - **Math-#158 (OpenAI, planar cubic cluster law, `bfcc67dc`, merged at `aa28838`):** premise of Math-#161 §§6–7; this session
   reviewed its Slice C (5359814083); not consumed here.
 - **main#207:** the pickup for this record is comment 5900687550. The register execution stays with a non-Claude lane.

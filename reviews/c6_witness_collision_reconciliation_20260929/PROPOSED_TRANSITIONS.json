@@ -4,14 +4,15 @@
   "scientific_effect": "NONE",
   "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
-  "reverified_at": "aa28838 (Math- main after Math-#155, #156, #161 and #158; no inventoried path changed)",
+  "reverified_at": "bb429d3 (Math- main after Math-#155, #156, #161, #158, #157 and #165; no inventoried path changed)",
   "revision": {
-    "version": "v1.4",
+    "version": "v1.5",
     "applies": [
       "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
       "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged",
       "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)",
-      "v1.4: merge of Math- main aa28838 (Math-#158 merged); xAI 5901345590 recorded (ACCEPT as inventory, HOLD on execution); explicit execution_order"
+      "v1.4: merge of Math- main aa28838 (Math-#158 merged); xAI 5901345590 recorded (ACCEPT as inventory, HOLD on execution); explicit execution_order",
+      "v1.5: merge of Math- main bb429d3; Math-#166 (TWO_SCALE_LAW.md a32fd5f7, math head 7c82252) recorded as the third residual candidate, matching the residual's definition, conditional on #162, A under review"
     ],
     "unchanged": "22-file inventory, status-row statement, historical predicates; one proposed node removed in favour of the live node"
   },
@@ -112,7 +113,7 @@
       "node": "math.rn-region.witness-collision.leading-mass-localization",
       "current": "ABSENT",
       "proposed": "OPEN_ACTIVE",
-      "scope": "RECONCILIATION.md section 5: leading-mass localization at scale r, i.e. lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs of distinct window points not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)), so local-local pairs between C_d r and R r are localized mass, not residual; both-remote pairs carry O(r^5) (P_eta); pairs with a witness in the shells R r <= |X - o| <= s_0 carry <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, marked shell bound, q = 2). Open piece: the mixed count M(R, s_0) of pairs with one witness within R r of the midpoint and the other at distance >= s_0, where PALM R4 gives C r^3 only; the residual is equivalent to lim_{s_0->0} lim_{R->oo} limsup_r r^-3 M(R, s_0) = 0, not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts and which merged at aa28838) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
+      "scope": "RECONCILIATION.md section 5: leading-mass localization at scale r, i.e. lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs of distinct window points not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)), so local-local pairs between C_d r and R r are localized mass, not residual; both-remote pairs carry O(r^5) (P_eta); pairs with a witness in the shells R r <= |X - o| <= s_0 carry <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, marked shell bound, q = 2). Open piece: the mixed count M(R, s_0) of pairs with one witness within R r of the midpoint and the other at distance >= s_0, where PALM R4 gives C r^3 only; the residual is equivalent to lim_{s_0->0} lim_{R->oo} limsup_r r^-3 M(R, s_0) = 0, not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts and which merged at aa28838) and Math-#159 (Claude, 7188bfa, every fixed d, under OpenAI reassessment) and Math-#166 (OpenAI, TWO_SCALE_LAW.md a32fd5f7, math head 7c82252; states r^-3 E[(N)_q - (N_in)_q] -> 0 for q >= 2, conditional on #162; B/C accepted by session 01NMeKE, A under review); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
       "required": [],
       "supporting": [
         "frontiers/elder_dimension_lift_20260928/PROOF.md",
@@ -532,7 +533,7 @@
       "classification": "OPEN_ACTIVE",
       "controlling": false,
       "fingerprint": "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)",
-      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Definition: lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)); both-remote pairs O(r^5) (P_eta); pairs with a shell witness <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, q = 2). Open: the mixed local/remote count M(R, s_0), o(r^3) in the iterated limit, not supplied by the landed reviewed chain; Math-#161 (e7f8929, merged 5c484bf, planar, Anthropic 5359733142 source-exposed + Codex engineering 5359797442, conditional on Math-#158) and Math-#159 (7188bfa, unreviewed); not premises, not consumed. Required by no theorem; recorded so that the register keeps a precise statement. Required by no theorem; recorded so that the register keeps a precise statement."
+      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Definition: lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)); both-remote pairs O(r^5) (P_eta); pairs with a shell witness <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, q = 2). Open: the mixed local/remote count M(R, s_0), o(r^3) in the iterated limit, not supplied by the landed reviewed chain; Math-#161 (e7f8929, merged 5c484bf, planar, Anthropic 5359733142 source-exposed + Codex engineering 5359797442, conditional on Math-#158) Math-#159 (7188bfa, under reassessment) and Math-#166 (a32fd5f7, states the residual exactly, conditional on #162, A under review); not premises, not consumed. Required by no theorem; recorded so that the register keeps a precise statement. Required by no theorem; recorded so that the register keeps a precise statement."
     },
     {
       "id": "regional.shrinking-regions.analytic-route",
