@@ -1,0 +1,717 @@
+{
+  "schema": 1,
+  "object": "REGISTER-ALIGNMENT-20260930-v1",
+  "scientific_effect": "NONE",
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "base_commit": "aa288385af9392c509233c25a0f4012c9ba023e5",
+  "status_rows_unchanged": [
+    "D2",
+    "D3",
+    "D4",
+    "D6 (main STATUS.md accepted-scope table already records these scopes; PROOF_INDEX.md lists all five under Reviewed scoped results)"
+  ],
+  "edges_unchanged": false,
+  "transitions": [
+    {
+      "node": "math.rn-count-interface",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "aa993f5217bd70e6d1060402d121ab659f6582a098e29042c67585a345a8e3ab"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "aa993f5217bd70e6d1060402d121ab659f6582a098e29042c67585a345a8e3ab",
+        "source": "frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md",
+        "scope": "(N1)-(N5) and the section 3 counterexamples as self-contained probability statements; (N6)-(N7) and section 5 as formula-level implications conditional on the parent's regression law Q and section 9 Borel-mark convention (live D1 node) and on the cap support source (live cap component); nothing quantitative",
+        "explicit_limits": "not an expected-count rate; no RN or 24-jet certificate; no evaluation of the Gaussian triple integral; (N6) is a formula, not a numerical RN/JETMOD certificate; the C6 Palm route's Lemma 5.1 is cited for the reader and not consumed",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "reviews/register_alignment_20260930/RN_COUNT_INTERFACE_REVIEW.md",
+            "provider": "Anthropic (this session)",
+            "verdict": "ACCEPT at the logical-interface scope"
+          },
+          {
+            "ref": "main#76 comment 5841783172, items 2-3",
+            "provider": "xAI/Grok 4.7 via Cursor",
+            "verdict": "consumed formulation (three determinants, O(k r^5) numerator, original normalizer) reconstructed and accepted inside the D4 review"
+          }
+        ],
+        "notes": "PROVED_REVIEWED at the logical-interface scope stated in scope; see explicit_limits. Evidence: this packet's review record; premises: the live D1 node and cap component. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.align-component.rn-interface-review",
+        "math.uniform-matrix-cap-lifetime",
+        "math.d1-component.marked-cylinder-cap"
+      ],
+      "notes": "Unreviewed until this packet (its review record is now a component node); it is a required premise of math.rn-fixed-remote-window and math.rn-fixed-annulus-window. Second-provider read optional; the note is elementary. xAI 5360240245 did not re-read this note; the flip rests on this packet's Anthropic review and the D4 review's items 2-3."
+    },
+    {
+      "node": "math.lifetime-remainder",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+        "source": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+        "scope": "Theorem R at its stated existential O(1) remainder scope: candidate and elder densities have leading c ell^(-1/3) term with bounded remainder for sufficiently small lifetime (STATUS D2 row)",
+        "explicit_limits": "no numerical remainder constant or numerical lifetime cutoff; no RN/JETMOD closure",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "main#67 comment 5841270276",
+            "provider": "xAI/Grok 4.7 via Cursor (session bc-81faa729)",
+            "verdict": "R1-R4 ACCEPT; R5-R6 IMPORTED-OPEN pending #63",
+            "binds": "blob 247b3ecf, 17734 bytes, SHA256 380b7d0a"
+          },
+          {
+            "ref": "main#67 comment 5841782206",
+            "provider": "xAI/Grok 4.7 via Cursor (session bc-dfbce246)",
+            "verdict": "R5 and R6 ACCEPT; Theorem R accepted at its stated O(1) remainder scope",
+            "binds": "same blob; parent blob dfed3b8d SHA256 9350ad6e"
+          }
+        ],
+        "notes": "PROVED_REVIEWED at Theorem R's existential O(1)-remainder scope; see explicit_limits. Evidence: main#67 comments (external record node). Single nonauthor provider. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.uniform-matrix-cap-lifetime",
+        "math.align-component.external-issue-reviews"
+      ],
+      "notes": "Parent imports resolved through the live PROVED_REVIEWED D1 node (reviews/d1_chain_reconciliation_20260928, Math-#126) and its four reading-rule components. Single nonauthor provider."
+    },
+    {
+      "node": "math.side24-coefficient",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+        "source": "coefficients/side24_v1/PROOF.md",
+        "scope": "coefficient calculation for SIDE24 in d = 2, 3: cone moments, all-direction periodization comparison, covariance/Schur transfer, outward special-function arithmetic; the two displayed outward enclosures (STATUS D3 row)",
+        "explicit_limits": "coefficient arithmetic acceptance is separate from any imported parent theorem and from a finite-radius error band",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "main#65 comment 5841269490",
+            "provider": "xAI/Grok 4.7 via Cursor (run bc-be5dc8d9)",
+            "verdict": "C1-C6 VERIFIED; COEFFICIENT-CALC-REVIEWED / PARENT-IMPORTED-OPEN",
+            "binds": "commit e329fba, PROOF.md 10272 bytes, SHA256 c06daccc"
+          },
+          {
+            "ref": "reviews/side24_v1_coefficient_claude_20260929/REVIEW.md",
+            "provider": "Anthropic (session 01NMeKE)",
+            "verdict": "ACCEPT at the arithmetic-enclosure scope (second provider)"
+          },
+          {
+            "ref": "main#65 comment 5841779222",
+            "provider": "owner",
+            "verdict": "coefficient-review work package closed"
+          }
+        ],
+        "notes": "PROVED_REVIEWED at the arithmetic-enclosure scope for d = 2, 3; see explicit_limits. Evidence: main#65 comment (external record node) and the in-repo Anthropic review; two providers. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.uniform-matrix-cap-lifetime",
+        "math.align-component.external-issue-reviews",
+        "math.align-component.side24-review-claude"
+      ],
+      "notes": "PARENT-IMPORTED-OPEN is resolved at the register level by the live PROVED_REVIEWED D1 node; the interpretation of the coefficient as the finite-bar lifetime asymptotic is the D1 node's Theorem C row, not this node's. Two nonauthor providers."
+    },
+    {
+      "node": "math.rn-fixed-remote-window",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+        "source": "frontiers/remote_window_20260924/PROOF.md",
+        "scope": "fixed positive spatial separation rho, fixed witness separation eta, between-pin height window; conditioned covariance, three determinant factors, endpoint normalizer, contact kernel, and fixed-separation factorial moments (STATUS D4 row)",
+        "explicit_limits": "does not cover shrinking rho or eta, pin neighborhoods, intermediate scales, all remote heights, or global RN/24-jet closure",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "main#76 comment 5841783172",
+            "provider": "xAI/Grok 4.7 via Cursor (session bc-593a8246)",
+            "verdict": "ACCEPT on all seven fixed-rho/fixed-eta interfaces; not a full RN or 24-jet theorem",
+            "binds": "commit 191ea7d, 18355 bytes, SHA256 a332bae9"
+          },
+          {
+            "ref": "main#76 comment 5841861362",
+            "provider": "owner",
+            "verdict": "D4 review delivery reconciled; #76 closed as the fixed-remote review package"
+          }
+        ],
+        "notes": "PROVED_REVIEWED at fixed rho, fixed eta, between-pin window; see explicit_limits. Evidence: main#76 comments (external record node). Same bytes as the live math.d5-component.remote-window-proof. Single nonauthor provider. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.rn-count-interface",
+        "math.align-component.external-issue-reviews"
+      ],
+      "notes": "The required edge to math.rn-count-interface is kept; its target is proposed PROVED_REVIEWED in the same execution. PROOF section 1 and 7 read the interface as the formulation this theorem completes. The D5 proposal's component node math.d5-component.remote-window-proof (Math-#138/#151) already carries these bytes as PROVED_REVIEWED on the same review; see RECONCILIATION.md section 7. Single nonauthor provider. At ec6db8c that duplicate is live (Math-#151 merged); the D4_DUPLICATE check binds it to this transition."
+    },
+    {
+      "node": "math.rn-region.fixed-remote",
+      "kind": "region",
+      "current": {
+        "classification": "COVERED_BY_CANDIDATE",
+        "fingerprint": "dist>=rho and between-pin height"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "dist>=rho and between-pin height",
+        "source": null,
+        "scope": "the fixed-remote region at the D4 scope: dist >= rho from the pins, between-pin height window",
+        "explicit_limits": "as the covering node",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "main#76 comment 5841783172",
+            "provider": "xAI/Grok 4.7 via Cursor",
+            "verdict": "covering theorem accepted at this exact region scope; region crosswalk table"
+          }
+        ],
+        "coverage_source": "math.rn-fixed-remote-window",
+        "notes": "PROVED_REVIEWED region: covered by math.rn-fixed-remote-window (required covered_by edge; coverage_source retained). Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.rn-fixed-remote-window"
+      ],
+      "notes": "Covered by a PROVED_REVIEWED node after the previous transition; coverage_source retained and a required covered_by edge added so that a change to the covering proof reaches the region (Codex 4139807558; OpenAI 5360327058 item 1). The current hard gate reports PROVED_REVIEWED regions in its own proved_reviewed_regions bucket since ec6db8c (Math-#151), so the earlier region-reporting complaint (Codex 4139807545) is superseded."
+    },
+    {
+      "node": "math.rn-fixed-annulus-window",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "081abc13c5e66342c13df2af2bd6b114f320486f"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "1fd9fe7141e464fd1c09ebf0318d8a701729c9c61ea24f73f7e20a9cf10c552b",
+        "source": "frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md",
+        "scope": "d = 2; fixed L; fixed scaled annulus 1 < A0 <= |y| <= B0 < infinity; compact positive gaps k_- > 0; all frames; between-pin height window (live node scope)",
+        "explicit_limits": "no global D5/RN/JETMOD, k -> 0, d >= 3, pin-neighborhood, intermediate-scale, collision, or elder-selection closure; excludes PR28 and later blobs",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+            "provider": "xAI/Grok 4.7 via Cursor",
+            "verdict": "ACCEPT at the exact scoped theorem (covariance floor, cutoff r^(1/24), rare target density, conditioned C^3 sixth moment, ...)",
+            "binds": "commit 2804dc1, blob 081abc13, SHA256 1fd9fe71"
+          }
+        ],
+        "notes": "PROVED_REVIEWED at the fixed d = 2 scaled-annulus window scope; see explicit_limits. Evidence: pr22 review record; consumed S6-S21 stitching input with its review. Single nonauthor provider. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.rn-count-interface",
+        "math.align-component.pr22-annulus-review",
+        "math.align-component.two-scale-addendum"
+      ],
+      "notes": "Fingerprint kind changes from git blob 081abc13 (current) to SHA256, matching the other component nodes; same bytes. Single nonauthor provider. Its consumed S6-S21 stitching input (TWO_SCALE_ADDENDUM.md) and that input's review are component nodes since v1.3 (Codex 4139807567; OpenAI 5360327058 item 2)."
+    },
+    {
+      "node": "math.rn-region.fixed-annulus-window",
+      "kind": "region",
+      "current": {
+        "classification": "COVERED_BY_CANDIDATE",
+        "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "fixed-d2-annulus-between-pin-window-reviewed",
+        "source": null,
+        "scope": "the fixed d = 2 scaled annulus at the covering node's exact declared scope",
+        "explicit_limits": "as the covering node",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+            "provider": "xAI/Grok 4.7 via Cursor",
+            "verdict": "covering theorem accepted at this exact scope"
+          }
+        ],
+        "coverage_source": "math.rn-fixed-annulus-window",
+        "notes": "PROVED_REVIEWED region: covered by math.rn-fixed-annulus-window (required covered_by edge; coverage_source retained). Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.rn-fixed-annulus-window"
+      ],
+      "notes": "Covered by a PROVED_REVIEWED node after the previous transition; coverage_source retained and a required covered_by edge added (as for the fixed-remote region)."
+    },
+    {
+      "node": "math.p15-full-price",
+      "kind": "candidate",
+      "current": {
+        "classification": "AUTHOR_SIDE_CANDIDATE",
+        "fingerprint": "full-price-20260924"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "87521901ca8e5405b4d1e47f1deb1cd0326affbd6f5967b53c4178590da993f9",
+        "source": "frontiers/full_price_20260924/PROOF.md",
+        "scope": "realized disjoint capacity/clutter family with d_i >= 2, all independent probabilities, c_v <= phi(p_v), same palette K >= K_H(d), sharp rho* = 1/(3 - log(3e-2)) (STATUS D6 row)",
+        "explicit_limits": "demand one remains an obstruction; no arbitrary-downset or unrestricted prize-problem extension",
+        "review_disposition": "ACCEPT",
+        "review_sources": [
+          {
+            "ref": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+            "provider": "xAI/Grok 4.7 via Cursor (Math- issue 57, merged Math-#63)",
+            "verdict": "ACCEPT on all six slices",
+            "binds": "blob 582180e4, SHA256 87521901"
+          },
+          {
+            "ref": "main#74 comment 5842112010",
+            "provider": "owner",
+            "verdict": "D6 analytic review complete; #74 closed as the D6 review work package"
+          }
+        ],
+        "notes": "PROVED_REVIEWED on the realized family with d_i >= 2; see explicit_limits. Evidence: p15 review record, consumed setwise interfaces of P15_REALIZED_COVERS.md, main#74 reconciliation (external record node). Single nonauthor provider. Register alignment v1.3."
+      },
+      "required_premises_after": [
+        "math.align-component.external-issue-reviews",
+        "math.align-component.p15-review",
+        "math.align-component.p15-realized-covers-setwise"
+      ],
+      "notes": "Fingerprint changes from the label full-price-20260924 to SHA256; the live note 'review open' is stale against the merged review record. Single nonauthor provider. The consumed setwise interfaces (P1), (P2), Theorem P2 of P15_REALIZED_COVERS.md are a component node since v1.3, at the D6 review's scope only."
+    }
+  ],
+  "execution_order": [
+    "0. create the component nodes and edges of proposed_graph_nodes / proposed_graph_edges (review records, consumed sources, covered_by, the interface's two live premises); they are evidence records and change no classification of an existing node",
+    "1. math.rn-count-interface -> PROVED_REVIEWED (premise of 4 and 6)",
+    "2. math.lifetime-remainder and math.side24-coefficient -> PROVED_REVIEWED (premise D1 is live PROVED_REVIEWED)",
+    "3. Math-#151 is on main (ec6db8c): the D4 bytes are carried by two live nodes (math.rn-fixed-remote-window AUTHOR_SIDE_CANDIDATE; math.d5-component.remote-window-proof PROVED_REVIEWED; same fingerprint, same main#76 review); execute math.rn-fixed-remote-window -> PROVED_REVIEWED, then math.rn-region.fixed-remote; collapsing the component node onto the live node is an optional one-edge follow-up",
+    "4. math.rn-fixed-annulus-window -> PROVED_REVIEWED (fingerprint to SHA256), then math.rn-region.fixed-annulus-window",
+    "5. math.p15-full-price -> PROVED_REVIEWED (fingerprint to SHA256)",
+    "6. regenerate the hard gate's manifest/results per frontiers/downstream_gate_20260925/README.md; run git_transition_audit base->head; expect promotion_permission false and no controlling node",
+    "executing lane: non-Claude; this record executes nothing; a lane that wants a second provider on the single-provider rows (D2, D4, D5-annulus, D6) asks for it before step 2-5"
+  ],
+  "not_proposed": [
+    "math.rn-region.mesoscopic-scaled-annulus, pin-collision, intermediate-r-to-rho: Math-#151 (D5 fold)",
+    "math.rn-region.witness-collision and its residual: Math-#160",
+    "math.rn-mesoscopic-reduction (legacy PR7 route), eng.* controls, hist.* predicates: unchanged",
+    "any controlling flag, STATUS, PROOF_INDEX, SELECTOR_REGION or catalog edit"
+  ],
+  "independence_caveat": "All cited nonauthor reviews except D3's second read and the interface review are xAI/Grok via Cursor cloud sessions on the shared account; no organizational independence. The D1 precedent for PROVED_REVIEWED used xAI plus Anthropic reads. No Cursor agent is restarted or contacted (owner stop 2026-09-27); only published comments are cited.",
+  "declarative": true,
+  "executed": false,
+  "review_record": [
+    {
+      "lane": "xAI",
+      "id": 5901912476,
+      "kind": "inventory read",
+      "at": "670e4ae",
+      "verdict": "ACCEPT as declarative inventory; HOLD execution until Math-#151 Cut A is on current tip; execute #151 first, then this alignment",
+      "hold_precondition_math_151": "satisfied: Math-#151 merged at ec6db8c (2026-09-30T00:56:58Z)"
+    },
+    {
+      "lane": "xAI/Grok (Lucas)",
+      "id": 5360240245,
+      "kind": "review",
+      "at": "670e4ae",
+      "verdict": "ACCEPT at classification-lag scope; HOLD execution until #151 on main and single-provider rows recorded as such; interface flip conditional on this packet's Anthropic note, not an xAI re-read",
+      "hold_precondition_math_151": "satisfied: Math-#151 merged at ec6db8c (2026-09-30T00:56:58Z)"
+    },
+    {
+      "lane": "OpenAI/ChatGPT",
+      "id": 5360320845,
+      "kind": "source-custody and RN-interface review",
+      "at": "f2250bf",
+      "verdict": "historical lag and logical-interface inequalities sound at stated scopes; AMEND REQUIRED before the proposal is represented as a complete executable evidence-bound fold: (1) review bytes not carried by the graph, production read_snapshot reads node.source only; (2) N4/N5 checks are floating, relabel; (3) the interface is not a quantitative rate; N6 may be recorded via the canonical-kernel interface",
+      "answered_by": "v1.3: review records and consumed sources as fingerprinted component nodes with required edges; external comments preserved in EXTERNAL_REVIEWS.md and labelled mutable; PROPAGATION two-commit cases; INTERFACE exact/numerical labels; interface scope narrowed with its premises as edges"
+    },
+    {
+      "lane": "OpenAI/Codex (delegated)",
+      "id": 5360327058,
+      "kind": "engineering/interface review",
+      "at": "f2250bf",
+      "verdict": "ACCEPT the bounded historical inventory; AMEND the executable proposal; HOLD execution: (1) covering-proof loss does not reach the promoted regions; (2) TWO_SCALE_ADDENDUM, P15_REALIZED_COVERS, the interface's consumed C6-Palm/cap items are not tracked; (3) apply() drops explicit_limits and keeps stale notes; region-reporting complaint superseded on main; D2/D3/D4 comments directly authenticated",
+      "answered_by": "v1.3: covered_by edges; consumed-source component nodes; interface premises as edges to the live D1 node and cap component (Lemma 5.1 cited, not consumed); apply() carries explicit_limits, replacement notes and review_basis; PROPAGATION regressions; the superseded complaint recorded, not replayed"
+    },
+    {
+      "lane": "OpenAI/Codex (bot review 5360253242)",
+      "id": "4139807545/4139807551/4139807558/4139807562/4139807567",
+      "kind": "review threads",
+      "at": "670e4ae",
+      "verdict": "region reporting (superseded on main); stale notes on apply; region-to-covering-proof dependency; authenticate external verdicts; track consumed source dependencies",
+      "answered_by": "v1.3 (all five); 4139807545 by Math-#151's hard_gate.py proved_reviewed_regions bucket, recorded in the region transition notes"
+    }
+  ],
+  "revision": {
+    "version": "v1.3",
+    "applies": [
+      "xAI 5901912476 and 5360240245 recorded; #151-first ordering of the D4 flips made explicit",
+      "re-verified at ec6db8c (Math-#151 merged); live D4 duplicate bound (D4_DUPLICATE check, duplicate-drift mutant); HOLD precondition on Math-#151 recorded as met",
+      "OpenAI 5360320845 and 5360327058 and Codex threads 4139807545-67: eight review-record / consumed-source component nodes and sixteen required edges (edges_unchanged false); covered_by edges from regions; interface premises as edges to the live D1 node and cap component and its scope narrowed; apply() carries explicit_limits, replacement notes, review_basis; PROPAGATION check with nine two-commit cases and mutants region-unlinked / review-metadata-only; INTERFACE exact versus numerical labels; RN_COUNT_INTERFACE_REVIEW.md evidence labels; EXTERNAL_REVIEWS.md preserved and labelled mutable"
+    ],
+    "unchanged": "the eight classifications and every scope exclusion; the ten original inventory identities"
+  },
+  "reverified_at": "ec6db8c (Math- main after Math-#151 merged 2026-09-30T00:56:58Z; the ten inventoried sources and the eight live nodes unchanged; math.d5-component.remote-window-proof live as PROVED_REVIEWED with fingerprint a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7 beside math.rn-fixed-remote-window at AUTHOR_SIDE_CANDIDATE)",
+  "live_duplicate": {
+    "node": "math.d5-component.remote-window-proof",
+    "since": "ec6db8c (Math-#151)",
+    "classification": "PROVED_REVIEWED",
+    "controlling": false,
+    "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+    "source": "frontiers/remote_window_20260924/PROOF.md",
+    "component_of": "math.d5-pin-neighborhood-first-moment",
+    "review_basis": "STATUS D4 (main#76, external), nonauthor, ACCEPT, full",
+    "relation_to_this_record": "same bytes and same review as the math.rn-fixed-remote-window transition; the flip aligns the older node with it; collapsing the pair is a one-edge follow-up for the executing lane, not proposed here",
+    "check": "D4_DUPLICATE; mutant duplicate-drift"
+  },
+  "proposed_graph_nodes": [
+    {
+      "id": "math.align-component.rn-interface-review",
+      "layer": "D4",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-count-interface",
+      "component_role": "review_record",
+      "author_provider": "Anthropic (nonauthor; session 017Mi3hx)",
+      "fingerprint": "52d9038a3f27335d3c219babec785984e00b77f28d7cd7b390477c0bc6a749d1",
+      "source": "reviews/register_alignment_20260930/RN_COUNT_INTERFACE_REVIEW.md",
+      "scope": "ACCEPT at the logical-interface scope: (N1)-(N5) and the section 3 counterexamples self-contained; (N6)-(N7) and section 5 as formula-level implications conditional on the parent regression law / section 9 convention and the cap support source",
+      "review_basis": [
+        {
+          "review": "reviews/register_alignment_20260930/RN_COUNT_INTERFACE_REVIEW.md",
+          "provider": "Anthropic",
+          "verdict": "ACCEPT at the logical-interface scope",
+          "depth": "full at that scope; exact rational checks plus labelled floating-point corroborations in alignment_check.py"
+        }
+      ],
+      "notes": "This packet's own review record; a nonauthor read by a second provider was not available at v1.3 (xAI 5360240245 did not re-read the note)."
+    },
+    {
+      "id": "math.align-component.external-issue-reviews",
+      "layer": "D2",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": null,
+      "components_of": [
+        "math.lifetime-remainder",
+        "math.side24-coefficient",
+        "math.rn-fixed-remote-window",
+        "math.p15-full-price"
+      ],
+      "component_role": "review_record_external",
+      "author_provider": "xAI/Grok 4.7 via Cursor (posted by cursor[bot]) and owner reconciliations; transcribed by Anthropic from the GitHub API read-back of 2026-09-30",
+      "fingerprint": "fa6677f16f688352f3fc9b1703d39324fe57a3b2bf61960591f524f858e99c9d",
+      "source": "reviews/register_alignment_20260930/EXTERNAL_REVIEWS.md",
+      "scope": "seven main-repository issue comments: main#67 5841270276 and 5841782206 (D2), main#65 5841269490 and 5841779222 (D3), main#76 5841783172 and 5841861362 (D4), main#74 5842112010 (D6), with comment id, URL, posting account, created_at, updated_at and body",
+      "review_basis": [
+        {
+          "review": "main#67 comment 5841270276",
+          "provider": "xAI/Grok 4.7 via Cursor (session bc-81faa729)",
+          "verdict": "R1-R3 ACCEPT, R4 ACCEPT for (R12), R5-R6 IMPORTED-OPEN",
+          "created_at": "2026-09-25T23:59:05Z",
+          "updated_at": "2026-09-26T00:07:25Z"
+        },
+        {
+          "review": "main#67 comment 5841782206",
+          "provider": "xAI/Grok 4.7 via Cursor (session bc-dfbce246)",
+          "verdict": "R5 and R6 ACCEPT; Theorem R accepted at its stated O(1) remainder scope",
+          "created_at": "2026-09-26T01:04:21Z",
+          "updated_at": "2026-09-26T01:07:56Z"
+        },
+        {
+          "review": "main#65 comment 5841269490",
+          "provider": "xAI/Grok 4.7 via Cursor (run bc-be5dc8d9)",
+          "verdict": "C1-C6 VERIFIED; COEFFICIENT-CALC-REVIEWED / PARENT-IMPORTED-OPEN",
+          "created_at": "2026-09-25T23:58:59Z",
+          "updated_at": "2026-09-26T00:09:32Z"
+        },
+        {
+          "review": "main#65 comment 5841779222",
+          "provider": "owner",
+          "verdict": "reconciliation; #65 closed as the coefficient-review work package",
+          "created_at": "2026-09-26T01:03:54Z"
+        },
+        {
+          "review": "main#76 comment 5841783172",
+          "provider": "xAI/Grok via Cursor (session bc-593a8246; provider named by the owner's reconciliation)",
+          "verdict": "items 1-7 ACCEPT at fixed-rho/fixed-eta scope; not a full RN or 24-jet theorem",
+          "created_at": "2026-09-26T01:04:29Z",
+          "updated_at": "2026-09-26T01:12:36Z"
+        },
+        {
+          "review": "main#76 comment 5841861362",
+          "provider": "owner",
+          "verdict": "reconciliation; ACCEPT on all seven interfaces; #76 closed as the fixed-remote REVIEW work package only",
+          "created_at": "2026-09-26T01:15:52Z"
+        },
+        {
+          "review": "main#74 comment 5842112010",
+          "provider": "owner",
+          "verdict": "D6 ANALYTIC REVIEW COMPLETE; cross-provider nonauthor ACCEPT on all six slices (the review itself is reviews/p15_full_price_nonauthor_20260926/REVIEW.md); #74 closed",
+          "created_at": "2026-09-26T01:48:31Z"
+        }
+      ],
+      "authentication": "mutable external evidence, read back through the session's GitHub connector and transcribed; not byte-authenticated offline (stdlib checker, no network); OpenAI 5360327058 reports direct authentication of 5841270276, 5841782206, 5841269490 and 5841783172; claims/LANDING_CLAIMS.json cites the same issues as review objects",
+      "notes": "One node for one byte object (this file); loss-only: any edit to the record revalidates D2, D3, D4 and D6."
+    },
+    {
+      "id": "math.align-component.side24-review-claude",
+      "layer": "D3",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.side24-coefficient",
+      "component_role": "review_record",
+      "author_provider": "Anthropic (session 01NMeKE)",
+      "fingerprint": "258c414c46be93142ee552cfa4c32c03dd89b6bf7b0b470334f152e1e0a57eef",
+      "source": "reviews/side24_v1_coefficient_claude_20260929/REVIEW.md",
+      "scope": "second-provider read of coefficients/side24_v1/PROOF.md: ACCEPT at the arithmetic-enclosure scope",
+      "review_basis": [
+        {
+          "review": "reviews/side24_v1_coefficient_claude_20260929/REVIEW.md",
+          "provider": "Anthropic",
+          "verdict": "ACCEPT at the arithmetic-enclosure scope",
+          "depth": "full at that scope"
+        }
+      ],
+      "notes": "Makes D3 the two-provider row (with main#65 5841269490)."
+    },
+    {
+      "id": "math.align-component.pr22-annulus-review",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-fixed-annulus-window",
+      "component_role": "review_record",
+      "author_provider": "xAI/Grok 4.7 via Cursor",
+      "fingerprint": "29a0c6d00ce739baf1d29a3163977d8e707e2079e216fba4fee3669cebec127d",
+      "source": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+      "scope": "ACCEPT of FIXED_ANNULUS_CANDIDATE.md (blob 081abc13, SHA256 1fd9fe71) at the exact scoped theorem: covariance floor, cutoff r^{1/24}, rare target, conditioned C^3 sixth moment, inner two-scale stitching; PR28 and later blobs excluded",
+      "review_basis": [
+        {
+          "review": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "ACCEPT at the exact scoped theorem",
+          "depth": "full"
+        }
+      ],
+      "notes": "Single nonauthor provider."
+    },
+    {
+      "id": "math.align-component.two-scale-addendum",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-fixed-annulus-window",
+      "component_role": "consumed_proof",
+      "author_provider": "OpenAI",
+      "fingerprint": "079f9399aef401d58749b3684f3acbb7f49ffdcbcac9f501b79e06c28a7f4e7d",
+      "source": "frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md",
+      "scope": "S6-S21 and (S3)-(S5): the inner two-scale stitching input (S4) consumed by FIXED_ANNULUS_CANDIDATE.md for |t| < h_r on A <= |u| <= B (claims/LANDING_CLAIMS.json dependency two-scale-s6-s21)",
+      "review_basis": [
+        {
+          "review": "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "ACCEPT S6-S21 and (S3)-(S5) at blob 89cae3a9",
+          "depth": "full"
+        },
+        {
+          "review": "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "inner two-scale stitching ACCEPT; the addendum read as the imported inner bound, not re-derived",
+          "depth": "gluing step"
+        }
+      ],
+      "notes": "The addendum's own review record is the next node; the addendum requires it."
+    },
+    {
+      "id": "math.align-component.two-scale-review",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.align-component.two-scale-addendum",
+      "component_role": "review_record",
+      "author_provider": "xAI/Grok 4.7 via Cursor (session bc-ff620630)",
+      "fingerprint": "04cf4c986f29ac7ac33b3cc87feac23f3cf494e0c1b3bf4476e4e6666de46574",
+      "source": "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md",
+      "scope": "ACCEPT of TWO_SCALE_ADDENDUM.md S6-S21 and (S3)-(S5) at blob 89cae3a9 (Math- PR34, commit bc7d7545)",
+      "review_basis": [
+        {
+          "review": "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "ACCEPT",
+          "depth": "full"
+        }
+      ],
+      "notes": "Single nonauthor provider."
+    },
+    {
+      "id": "math.align-component.p15-review",
+      "layer": "D6",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.p15-full-price",
+      "component_role": "review_record",
+      "author_provider": "xAI/Grok 4.7 via Cursor (Math- issue 57 lane)",
+      "fingerprint": "691ea0db5c0f073326c9f7208c9804c6f5d0daf92ba7467529c9d57e08b15eb7",
+      "source": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+      "scope": "ACCEPT of Theorem F on the realized disjoint capacity/clutter family (six slices) at blob 582180e4, SHA256 87521901; checked the setwise (P1), (P2), Theorem P2 dependency of P15_REALIZED_COVERS.md",
+      "review_basis": [
+        {
+          "review": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "ACCEPT Theorem F on the realized family",
+          "depth": "full"
+        }
+      ],
+      "notes": "Single nonauthor provider; owner reconciliation main#74 5842112010 is in the external record."
+    },
+    {
+      "id": "math.align-component.p15-realized-covers-setwise",
+      "layer": "D6",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.p15-full-price",
+      "component_role": "consumed_interface",
+      "author_provider": "OpenAI",
+      "fingerprint": "c0dbb821fb57b685a20cc321e4074456f39a9697f3104afd1f728e4732179bb9",
+      "source": "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md",
+      "scope": "setwise interfaces only: realized-family definition (P1), actual local restrictions (P2) and Theorem P2 full-block cover at K >= K_H(d), as consumed by Theorem F with d_i >= 2 (claims/LANDING_CLAIMS.json dependency p15-realized-covers:setwise-interfaces); the note's c_v <= p_v price theorem and any broader P15 statement are not included",
+      "review_basis": [
+        {
+          "review": "reviews/p15_full_price_nonauthor_20260926/REVIEW.md",
+          "provider": "xAI/Grok 4.7 via Cursor",
+          "verdict": "read as the cited setwise dependency and checked for the local restriction and the full-block cover; the c_v <= p_v price theorem not accepted",
+          "depth": "setwise interfaces"
+        }
+      ],
+      "notes": "The realized-covers claim itself stays HOLD_WITH_DOMAIN in the claim manifest; only the consumed setwise interfaces are represented here, at the D6 review's scope."
+    }
+  ],
+  "proposed_graph_edges": [
+    {
+      "from": "math.rn-count-interface",
+      "to": "math.align-component.rn-interface-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-count-interface",
+      "to": "math.uniform-matrix-cap-lifetime",
+      "required": true,
+      "relation": "uses_parent_regression_law_and_section9_convention"
+    },
+    {
+      "from": "math.rn-count-interface",
+      "to": "math.d1-component.marked-cylinder-cap",
+      "required": true,
+      "relation": "consumes_cap_support_scope_section5"
+    },
+    {
+      "from": "math.lifetime-remainder",
+      "to": "math.align-component.external-issue-reviews",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.side24-coefficient",
+      "to": "math.align-component.external-issue-reviews",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.side24-coefficient",
+      "to": "math.align-component.side24-review-claude",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-fixed-remote-window",
+      "to": "math.align-component.external-issue-reviews",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.fixed-remote",
+      "to": "math.rn-fixed-remote-window",
+      "required": true,
+      "relation": "covered_by"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.align-component.pr22-annulus-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-fixed-annulus-window",
+      "to": "math.align-component.two-scale-addendum",
+      "required": true,
+      "relation": "consumes_s6_s21_stitching_input"
+    },
+    {
+      "from": "math.align-component.two-scale-addendum",
+      "to": "math.align-component.two-scale-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.fixed-annulus-window",
+      "to": "math.rn-fixed-annulus-window",
+      "required": true,
+      "relation": "covered_by"
+    },
+    {
+      "from": "math.p15-full-price",
+      "to": "math.align-component.external-issue-reviews",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.p15-full-price",
+      "to": "math.align-component.p15-review",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.p15-full-price",
+      "to": "math.align-component.p15-realized-covers-setwise",
+      "required": true,
+      "relation": "consumes_setwise_interfaces_P1_P2_TheoremP2"
+    },
+    {
+      "from": "math.align-component.p15-realized-covers-setwise",
+      "to": "math.align-component.p15-review",
+      "required": true,
+      "relation": "requires_evidence"
+    }
+  ],
+  "nodes_added": 8,
+  "edges_added": 16,
+  "edges_removed": 0,
+  "external_evidence": {
+    "file": "reviews/register_alignment_20260930/EXTERNAL_REVIEWS.md",
+    "sha256": "fa6677f16f688352f3fc9b1703d39324fe57a3b2bf61960591f524f858e99c9d",
+    "node": "math.align-component.external-issue-reviews",
+    "status": "mutable external evidence, read back on 2026-09-30 through the session's GitHub connector and transcribed with comment id, URL, posting account, created_at, updated_at and body (Cursor footer HTML omitted); not byte-authenticated offline; OpenAI 5360327058 reports direct authentication of 5841270276, 5841782206, 5841269490 and 5841783172; this is not an additional review and not an additional provider"
+  }
+}
