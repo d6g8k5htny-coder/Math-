@@ -1,8 +1,9 @@
 """Checks for REGISTER-ALIGNMENT-20260930-v1 (RECONCILIATION.md, PROPOSED_TRANSITIONS.json, RN_COUNT_INTERFACE_REVIEW.md).
 
 Standard library only. Run from the repository root:  python -B -S reviews/register_alignment_20260930/alignment_check.py
-Checks: IDENTITIES, VERDICTS, BASELINE, TRANSITIONS, GATE, INTERFACE, NEGATIVES. No mathematics is re-proved; the
-proposed graph is replayed through the downstream hard gate's own validators. Nothing is written to the repository.
+Checks: IDENTITIES, VERDICTS, BASELINE, TRANSITIONS, GATE, PROPAGATION, INTERFACE, NEGATIVES, D4_DUPLICATE. No mathematics
+is re-proved; the proposed graph is replayed through the downstream hard gate's own validators, and two-commit source
+mutations through its reverse-impact rule. Nothing is written to the repository.
 """
 import argparse
 import copy
@@ -18,7 +19,8 @@ import tempfile
 from fractions import Fraction as F
 
 MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-review-source", "controlling-true", "executed-flag",
-           "skip-interface-premise", "holder-reversed", "baseline-drift", "duplicate-drift")
+           "skip-interface-premise", "holder-reversed", "baseline-drift", "duplicate-drift", "region-unlinked",
+           "review-metadata-only")
 MUT = None
 HERE = "reviews/register_alignment_20260930"
 GRAPH = "frontiers/downstream_gate_20260925/GRAPH.json"
@@ -68,6 +70,26 @@ INVENTORY = {
     "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md": [
         "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
         "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+    ],
+    "frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md": [
+        "079f9399aef401d58749b3684f3acbb7f49ffdcbcac9f501b79e06c28a7f4e7d",
+        "89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73"
+    ],
+    "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md": [
+        "04cf4c986f29ac7ac33b3cc87feac23f3cf494e0c1b3bf4476e4e6666de46574",
+        "8988251631cab8e65eb2b01a08f7fc593b018570"
+    ],
+    "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md": [
+        "c0dbb821fb57b685a20cc321e4074456f39a9697f3104afd1f728e4732179bb9",
+        "173881916ccd0e738bdb41279e835e78e520fcbc"
+    ],
+    "reviews/register_alignment_20260930/RN_COUNT_INTERFACE_REVIEW.md": [
+        "52d9038a3f27335d3c219babec785984e00b77f28d7cd7b390477c0bc6a749d1",
+        "7e7049e2b5e96e51394d44683d61c9d0e03b9323"
+    ],
+    "reviews/register_alignment_20260930/EXTERNAL_REVIEWS.md": [
+        "fa6677f16f688352f3fc9b1703d39324fe57a3b2bf61960591f524f858e99c9d",
+        "2be80e35bce1ffc90d1f7a0675ad5e8830ddbd28"
     ]
 }
 VERDICTS = {
@@ -86,11 +108,15 @@ VERDICTS = {
     "reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md": [
         "| Blob | `081abc13c5e66342c13df2af2bd6b114f320486f` |",
         "| SHA256 | `1fd9fe7141e464fd1c09ebf0318d8a701729c9c61ea24f73f7e20a9cf10c552b` |",
-        "| Cutoff `r^{1/24}` | **ACCEPT** |"],
+        "| Cutoff `r^{1/24}` | **ACCEPT** |",
+        "| Inner two-scale stitching | **ACCEPT** |",
+        "`TWO_SCALE_ADDENDUM.md` blob `89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73`, 15902 bytes"],
     "reviews/p15_full_price_nonauthor_20260926/REVIEW.md": [
         "| Blob | `582180e41dca0ad815ad0f18574df42040912149` |",
         "| SHA256 | `87521901ca8e5405b4d1e47f1deb1cd0326affbd6f5967b53c4178590da993f9` |",
-        "| 1. Coordinatewise hazard transform, separate concavity, chord, `p=0,1` | **ACCEPT** |"],
+        "| 1. Coordinatewise hazard transform, separate concavity, chord, `p=0,1` | **ACCEPT** |",
+        "SHA256 `c0dbb821fb57b685a20cc321e4074456f39a9697f3104afd1f728e4732179bb9`. That is the digest named in the proof.",
+        "| 4. Full-block cover, same palette, realized family | **ACCEPT** |"],
     "reviews/side24_v1_coefficient_claude_20260929/REVIEW.md": [
         "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
         "Overall: **ACCEPT at the arithmetic-enclosure scope**"],
@@ -100,6 +126,22 @@ VERDICTS = {
         "- D4 fixed-remote RN theorem: proof [frontiers/remote_window_20260924/PROOF.md]",
         "- D5 fixed-annulus height-window fallback: proof [frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md]",
         "- D6 P15 full price theorem: proof [frontiers/full_price_20260924/PROOF.md]"],
+    "frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md": ["**Object:** D5-TWO-SCALE-20260925-v1."],
+    "reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md": [
+        "blob `89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73`, 15902 bytes, SHA256 `079f9399aef401d58749b3684f3acbb7f49ffdcbcac9f501b79e06c28a7f4e7d`",
+        "| S6 | **ACCEPT** |"],
+    "frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md": ["**Object:** P15-REALIZED-COVERS-20260924-v1."],
+    HERE + "/RN_COUNT_INTERFACE_REVIEW.md": [
+        "**Overall: ACCEPT at the logical-interface scope.**",
+        "numerical corroborations of arguments proved above, not exact checks"],
+    HERE + "/EXTERNAL_REVIEWS.md": [
+        "issuecomment-5841270276", "issuecomment-5841782206", "issuecomment-5841269490", "issuecomment-5841779222",
+        "issuecomment-5841783172", "issuecomment-5841861362", "issuecomment-5842112010",
+        "R5 and R6 are **ACCEPT**. Theorem R is accepted at its stated O(1) remainder scope.",
+        "All six coefficient interfaces check out. The disposition is **COEFFICIENT-CALC-REVIEWED / PARENT-IMPORTED-OPEN**.",
+        "This accepts only the fixed-ρ and fixed-η interfaces below. It does not accept a full RN or 24-jet theorem.",
+        "D6 ANALYTIC REVIEW COMPLETE",
+        "An issue comment is a mutable external object"],
 }
 
 
@@ -181,6 +223,8 @@ def check_baseline(root, spec):
 
 
 def apply(spec, graph):
+    """The proposal applied to a copy of the live graph: the eight flips with their scope exclusions and replacement
+    notes, plus the review-record / consumed-source component nodes and the required edges that carry the evidence."""
     new = copy.deepcopy(graph)
     for t in spec["transitions"]:
         n = new["nodes"][t["node"]]
@@ -191,44 +235,84 @@ def apply(spec, graph):
         if p.get("source"):
             n["source"] = p["source"]
         n["scope"] = p["scope"]
+        n["explicit_limits"] = p["explicit_limits"]
+        n["notes"] = p["notes"]
         n["review_disposition"] = p["review_disposition"]
         n["review_sources"] = [r["ref"] for r in p["review_sources"]]
+        n["review_basis"] = [{"review": r["ref"], "provider": r.get("provider", "unstated"), "verdict": r.get("verdict", "")}
+                             for r in p["review_sources"]]
         if p.get("coverage_source"):
             n["coverage_source"] = p["coverage_source"]
+    for c in spec["proposed_graph_nodes"]:
+        new["nodes"][c["id"]] = {k: v for k, v in c.items() if k != "id"}
+    new["edges"] = list(new["edges"]) + [dict(e) for e in spec["proposed_graph_edges"]]
     return new
-
 
 def check_transitions(root, spec):
     graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
-    ok = spec.get("declarative") is True and spec.get("executed") is False and spec.get("edges_unchanged") is True
+    ok = spec.get("declarative") is True and spec.get("executed") is False and spec.get("edges_unchanged") is False
     ids = [t["node"] for t in spec["transitions"]]
     ok &= len(ids) == len(set(ids)) and len(ids) >= 1
     for t in spec["transitions"]:
         p = t["proposed"]
         ok &= p["classification"] == "PROVED_REVIEWED" and p["controlling"] is False
-        ok &= bool(p.get("scope")) and len(p.get("review_sources", [])) >= 1
+        ok &= bool(p.get("scope")) and bool(p.get("explicit_limits")) and bool(p.get("notes"))
+        ok &= len(p.get("review_sources", [])) >= 1
         if t["kind"] == "candidate":
             ok &= p.get("source") in INVENTORY and p["fingerprint"] == INVENTORY[p["source"]][0]
         else:
             ok &= t["kind"] == "region" and p.get("coverage_source") in ids
         ok &= not t["node"].startswith(("hist.", "eng.", "regional."))
+    # component nodes: one per byte identity, fingerprinted to the inventory, PROVED_REVIEWED evidence records,
+    # none for bytes the live graph already carries with a fingerprint (Codex 4139312869 on Math-#160)
+    comps = spec["proposed_graph_nodes"]
+    cids = [c["id"] for c in comps]
+    live_fp_sources = {n.get("source") for n in graph["nodes"].values()
+                       if isinstance(n, dict) and n.get("fingerprint") and n.get("source")}
+    ok &= len(cids) == len(set(cids)) and not (set(cids) & set(graph["nodes"])) and len(comps) == spec["nodes_added"]
+    ok &= len({c["source"] for c in comps}) == len(comps)
+    for c in comps:
+        ok &= c["kind"] == "reading_rule_component" and c["classification"] == "PROVED_REVIEWED" and c["controlling"] is False
+        ok &= c["source"] in INVENTORY and c["fingerprint"] == INVENTORY[c["source"]][0]
+        ok &= c["source"] not in live_fp_sources
+        ok &= bool(c.get("component_role")) and bool(c.get("author_provider")) and len(c.get("review_basis", [])) >= 1
+        consumers = c.get("components_of") or [c.get("component_of")]
+        ok &= all(x in ids + cids for x in consumers) and len(consumers) >= 1
+    edges_new = spec["proposed_graph_edges"]
+    known = set(graph["nodes"]) | set(cids)
+    live_keys = {(e["from"], e["to"], e["relation"]) for e in graph["edges"]}
+    seen = set()
+    for e in edges_new:
+        ok &= {"from", "to", "required", "relation"} <= set(e) and type(e["required"]) is bool
+        ok &= e["from"] in known and e["to"] in known and bool(e["relation"].strip())
+        key = (e["from"], e["to"], e["relation"])
+        ok &= key not in seen and key not in live_keys
+        seen.add(key)
+        ok &= e["from"] in ids or e["from"] in cids                 # every added edge leaves one of this record's objects
+    ok &= len(edges_new) == spec["edges_added"]
     if not ok:
         return False, None
     new = apply(spec, graph)
     nodes = new["nodes"]
     edges = new["edges"]
-    ok &= edges == graph["edges"]
-    ok &= all(graph["nodes"][k] == nodes[k] for k in graph["nodes"] if k.startswith("hist."))
+    ok &= edges[:len(graph["edges"])] == graph["edges"] and len(edges) == len(graph["edges"]) + len(edges_new)
+    ok &= all(graph["nodes"][k] == nodes[k] for k in graph["nodes"] if k not in ids)   # only the eight live nodes change
     for t in spec["transitions"]:
         nid = t["node"]
-        if t["kind"] == "candidate":
-            req = [e["to"] for e in edges if e["from"] == nid and e["required"] is True]
-            ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req)
-            ok &= sorted(req) == sorted(t["required_premises_after"])
-        else:
+        req = [e["to"] for e in edges if e["from"] == nid and e["required"] is True]
+        ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req)
+        ok &= sorted(req) == sorted(t["required_premises_after"])
+        if t["kind"] == "region":
+            ok &= t["proposed"]["coverage_source"] in req              # a region depends on its covering node
             ok &= nodes[t["proposed"]["coverage_source"]]["classification"] == "PROVED_REVIEWED"
+        n = nodes[nid]
+        ok &= n.get("explicit_limits") == t["proposed"]["explicit_limits"] and n.get("notes") == t["proposed"]["notes"]
+        ok &= "review open" not in n["notes"] and "candidate only" not in n["notes"]
+        ok &= isinstance(n.get("review_basis"), list) and len(n["review_basis"]) >= 1
+    for c in comps:                                                   # component nodes' own required premises
+        req = [e["to"] for e in edges if e["from"] == c["id"] and e["required"] is True]
+        ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req)
     return bool(ok), new
-
 
 def load_hard_gate(root):
     hg_spec = importlib.util.spec_from_file_location("hard_gate", root / HARD_GATE)
@@ -252,7 +336,7 @@ def check_gate(root, spec, new):
     ok = rep_new.get("gate_ok") is True and not rep_new.get("illegal_controlling")
     ok &= rep_old.get("gate_ok") is True
     ok &= not any(n.get("controlling") for n in new["nodes"].values())
-    changed = sorted(t["node"] for t in spec["transitions"])
+    changed = sorted([t["node"] for t in spec["transitions"]] + [c["id"] for c in spec["proposed_graph_nodes"]])
     imp = ri.get("impacted") if isinstance(ri, dict) else None
     names = []
     if isinstance(imp, list):
@@ -264,8 +348,10 @@ def check_gate(root, spec, new):
 
 
 def check_interface():
-    """Exact finite content of RN_COUNT_INTERFACE_REVIEW.md."""
+    """Finite content of RN_COUNT_INTERFACE_REVIEW.md: exact rational checks, and floating-point corroborations
+    labelled as such (OpenAI 5360320845 item 2)."""
     ok = True
+    num = True
     le = (lambda a, b: a >= b) if MUT == "holder-reversed" else (lambda a, b: a <= b)
     # (N1) on finite rational spaces, p = 2 and p = 3 (Cauchy-Schwarz / Holder in power form)
     spaces = [([F(1, 4)] * 4, [0, 1, 3, 7], [1, 0, 1, 0]), ([F(1, 2), F(1, 3), F(1, 6)], [2, 5, 11], [1, 1, 0]),
@@ -283,16 +369,17 @@ def check_interface():
     for p in (2, 3, 5):
         for beta in (F(0), F(1, 2), F(3)):
             ok &= F(3 * (p - 1), 1) / p - beta / p == 3 - F(3, p) - beta / p
-    # (N4): r = e^-t, t = 1..12: E N / r^3 = ceil(t) increases; E N^p = ceil(t)^p e^-3t <= (t+1)^p e^-3t <= finite sup
+    # (N4), NUMERICAL (floating point): r = e^-t, t = 1..12: E N / r^3 = ceil(t) increases; ceil(t)^p e^-3t <= (t+1)^p e^-3t,
+    # and the grid maximum of (t+1)^p e^-3t stays below the located critical value. The proof is the log-derivative argument.
     for p in (1, 2, 4, 7):
         vals = [math.ceil(t) ** p * math.exp(-3 * t) for t in range(1, 13)]
         bound = [(t + 1) ** p * math.exp(-3 * t) for t in range(1, 13)]
-        ok &= all(v <= b + 1e-15 for v, b in zip(vals, bound))
+        num &= all(v <= b + 1e-15 for v, b in zip(vals, bound))
         tmax = max(1.0, p / 3 - 1)  # critical point of (t+1)^p e^{-3t}
         sup = (tmax + 1) ** p * math.exp(-3 * tmax)
         grid = [(t / 100 + 1) ** p * math.exp(-3 * (t / 100)) for t in range(100, 400000, 7)]
-        ok &= max(grid) <= sup + 1e-9 and math.isfinite(sup)
-        ok &= all(math.ceil(t) > math.ceil(t - 1) for t in range(2, 13))  # E N_r / r^3 -> infinity along the grid
+        num &= max(grid) <= sup + 1e-9 and math.isfinite(sup)
+        ok &= all(math.ceil(t) > math.ceil(t - 1) for t in range(2, 13))  # E N_r / r^3 -> infinity along the grid (exact integers)
     # sharp p: r = 2^{-p m}: E N^p = 1, E N = r^{3-3/p} exactly
     for p in (2, 3, 4):
         for m in (1, 2, 3):
@@ -300,7 +387,8 @@ def check_interface():
             n_r = 2 ** (3 * m)  # = ceil(r^{-3/p}) exactly
             ok &= n_r ** p * r ** 3 == 1 and le(F(1), F(2 ** p)) and n_r * r ** 3 == F(1, 2 ** (3 * m * (p - 1)))
             ok &= n_r * r ** 3 == r ** 3 / r ** F(3, 1) * F(1, 2 ** (3 * m * (p - 1)))  # r^{3-3/p} = 2^{-3m(p-1)}
-    # (N5): int_0^inf min(q, A e^{-t/B}) dt = B q (1 + log(A/q)), q <= A; numeric quadrature at three points
+    # (N5), NUMERICAL (floating point): int_0^inf min(q, A e^{-t/B}) dt = B q (1 + log(A/q)), q <= A; Simpson quadrature at
+    # three parameter points corroborates the antiderivative identity proved in the review
     for (A, B, q) in ((1.0, 1.0, 0.1), (20.0, 0.5, 0.001), (3.0, 2.0, 2.0)):
         t0 = B * math.log(A / q)
         n = 200000
@@ -311,16 +399,16 @@ def check_interface():
             t = i * h
             w = 1 if i in (0, n) else (4 if i % 2 else 2)
             s += w * min(q, A * math.exp(-t / B))
-        num = s * h / 3
-        ok &= abs(num - B * q * (1 + math.log(A / q))) <= 1e-6 * B * q * (1 + math.log(A / q))
-    # uniform tail of the (N4) example: P(N_r > t) = r^3 1{t < ceil(log 1/r)} <= e^3 e^{-3t}
+        quad = s * h / 3
+        num &= abs(quad - B * q * (1 + math.log(A / q))) <= 1e-6 * B * q * (1 + math.log(A / q))
+    # uniform tail of the (N4) example, NUMERICAL (floating point): P(N_r > t) = r^3 1{t < ceil(log 1/r)} <= e^3 e^{-3t}
     for s_ in range(1, 15):
         r3 = math.exp(-3 * s_)
         for t10 in range(0, 10 * s_ + 30):
             t = t10 / 10
             p_tail = r3 if t < math.ceil(s_) else 0.0
-            ok &= le(p_tail, math.exp(3) * math.exp(-3 * t) + 1e-300)
-    return bool(ok)
+            num &= le(p_tail, math.exp(3) * math.exp(-3 * t) + 1e-300)
+    return {"exact": bool(ok), "numerical_corroboration": bool(num)}
 
 
 def check_negatives(src):
@@ -371,6 +459,94 @@ def check_d4_duplicate(root, spec):
     return bool(ok)
 
 
+def snapshot(root, graph):
+    """Source snapshot in the shape of git_transition_audit.read_snapshot, taken from the working tree."""
+    out = {}
+    for nid, node in graph["nodes"].items():
+        ref = node.get("source")
+        if ref is None:
+            out[nid] = {"kind": "record_only"}
+            continue
+        if ref.startswith(("https://", "http://", "external:")):
+            out[nid] = {"kind": "external_unresolved", "reference": ref}
+            continue
+        p = root / ref.rstrip("/")
+        if p.is_file():
+            data = p.read_bytes()
+            out[nid] = {"kind": "blob", "reference": ref, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        elif p.is_dir():
+            h = hashlib.sha256()
+            for f in sorted(x for x in p.rglob("*") if x.is_file() and "__pycache__" not in x.parts):
+                h.update(str(f.relative_to(p)).encode("utf-8") + b"\0" + hashlib.sha256(f.read_bytes()).digest())
+            out[nid] = {"kind": "tree", "reference": ref, "sha256": h.hexdigest()}
+        else:
+            out[nid] = {"kind": "missing", "reference": ref}
+    return out
+
+
+def check_propagation(root, spec, new):
+    """Two-commit mutations on the proposed graph through the production loss-only rule (reverse_impact_between with
+    source snapshots): evidence and consumed-source changes must reach the objects they support (OpenAI 5360320845,
+    5360327058; Codex 4139807558, 4139807567). Nothing scientific is decided here."""
+    if new is None:
+        return False, {}
+    hg = load_hard_gate(root)
+    g = copy.deepcopy(new)
+    if MUT == "region-unlinked":
+        g["edges"] = [e for e in g["edges"] if e.get("relation") != "covered_by"]
+    if MUT == "review-metadata-only":
+        drop = {c["id"] for c in spec["proposed_graph_nodes"] if str(c.get("component_role", "")).startswith("review_record")}
+        g["nodes"] = {k: v for k, v in g["nodes"].items() if k not in drop}
+        g["edges"] = [e for e in g["edges"] if e["from"] not in drop and e["to"] not in drop]
+    base = snapshot(root, g)
+    by_source = {}
+    for nid, n in g["nodes"].items():
+        if n.get("source"):
+            by_source.setdefault(n["source"], []).append(nid)
+
+    def run(edit):
+        g2, s2 = copy.deepcopy(g), copy.deepcopy(base)
+        edit(g2, s2)
+        try:
+            return set(hg.reverse_impact_between(g, g2, old_sources=base, new_sources=s2)["impacted"])
+        except Exception:
+            return None
+
+    def source_edit(path, kind="blob"):
+        def f(g2, s2):
+            for nid in by_source.get(path, []):
+                s2[nid] = ({"kind": "blob", "reference": path, "bytes": 1, "sha256": "1" * 64} if kind == "blob"
+                           else {"kind": "missing", "reference": path})
+        return f
+
+    def fp_edit(g2, s2):
+        g2["nodes"][D4_NODE]["fingerprint"] = "2" * 64
+
+    eight = {t["node"] for t in spec["transitions"]}
+    cases = {
+        "d4-proof-edit-reaches-region-and-consumer": (source_edit(D4), {D4_NODE, "math.rn-region.fixed-remote", "math.rn-mesoscopic-reduction"}),
+        "annulus-proof-edit-reaches-region": (source_edit("frontiers/rn_thin_tube_20260925/FIXED_ANNULUS_CANDIDATE.md"),
+                                              {"math.rn-fixed-annulus-window", "math.rn-region.fixed-annulus-window"}),
+        "interface-review-deleted-reaches-interface-consumers-regions": (source_edit(HERE + "/RN_COUNT_INTERFACE_REVIEW.md", "missing"),
+                                              {IFACE, D4_NODE, "math.rn-fixed-annulus-window", "math.rn-region.fixed-remote", "math.rn-region.fixed-annulus-window"}),
+        "external-review-record-edit-reaches-d2-d3-d4-d6": (source_edit(HERE + "/EXTERNAL_REVIEWS.md"),
+                                              {"math.lifetime-remainder", "math.side24-coefficient", D4_NODE, "math.p15-full-price", "math.rn-region.fixed-remote"}),
+        "two-scale-addendum-edit-reaches-annulus-and-region": (source_edit("frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md"),
+                                              {"math.rn-fixed-annulus-window", "math.rn-region.fixed-annulus-window"}),
+        "realized-covers-edit-reaches-d6": (source_edit("frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md"), {"math.p15-full-price"}),
+        "d4-fingerprint-edit-reaches-region": (fp_edit, {D4_NODE, "math.rn-region.fixed-remote"}),
+    }
+    results = {}
+    for name, (edit, must) in cases.items():
+        imp = run(edit)
+        results[name] = imp is not None and must <= imp
+    imp = run(source_edit("reviews/d5_collar_count_20260928/REVIEW.md"))
+    results["unrelated-edit-leaves-the-eight-untouched"] = imp is not None and not (imp & eight)
+    imp = run(lambda g2, s2: None)
+    results["no-op-impacts-nothing"] = imp == set()
+    return bool(all(results.values()) and len(results) == 9), results
+
+
 def main():
     global MUT
     ap = argparse.ArgumentParser()
@@ -381,15 +557,27 @@ def main():
     ident = identities_ok(root)
     trans_ok, new = check_transitions(root, spec)
     gate_ok, gate = check_gate(root, spec, new)
+    prop_ok, prop = check_propagation(root, spec, new)
+    iface = check_interface()
     checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "BASELINE": check_baseline(root, spec),
-              "TRANSITIONS": trans_ok, "GATE": gate_ok, "INTERFACE": check_interface(), "NEGATIVES": check_negatives(root),
+              "TRANSITIONS": trans_ok, "GATE": gate_ok, "PROPAGATION": prop_ok,
+              "INTERFACE": iface["exact"] and iface["numerical_corroboration"], "NEGATIVES": check_negatives(root),
               "D4_DUPLICATE": check_d4_duplicate(root, spec)}
-    passed = all(checks.values()) and len(checks) == 8
+    passed = all(checks.values()) and len(checks) == 9
     print(json.dumps({"object": "REGISTER-ALIGNMENT-20260930-v1", "checks": checks, "passed": passed,
-                      "inventory_files": len(INVENTORY), "transitions": len(spec["transitions"]), "gate": gate,
-                      "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, interface arithmetic, "
-                               "filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written"},
-                     indent=2, sort_keys=True))
+                      "inventory_files": len(INVENTORY), "transitions": len(spec["transitions"]),
+                      "component_nodes": len(spec["proposed_graph_nodes"]), "edges_added": len(spec["proposed_graph_edges"]),
+                      "gate": gate, "propagation": prop,
+                      "interface_evidence": {"exact_rational": ["(N1) Holder p=2,3 on finite rational spaces", "(N2) exponent identity",
+                                                                "(N3) conditional-mean identity", "sharp-p example at r=2^-pm",
+                                                                "(N4) integer monotonicity of ceil(t)"],
+                                             "numerical_corroboration_floating_point": ["(N4) grid maximum of (t+1)^p e^-3t",
+                                                                                        "(N5) Simpson quadrature at three parameter points",
+                                                                                        "(N4) example uniform tail on a grid"],
+                                             "results": iface},
+                      "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, two-commit propagation, "
+                               "interface arithmetic (exact and numerical parts labelled), filesystem-negative and live D4-duplicate "
+                               "checks; no mathematics is re-proved; nothing is written"}, indent=2, sort_keys=True))
     return 0 if passed else 1
 
 

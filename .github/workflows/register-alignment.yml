@@ -15,6 +15,9 @@ name: Register alignment checks
       - 'reviews/pr22_fixed_annulus_nonauthor_20260925/**'
       - 'reviews/p15_full_price_nonauthor_20260926/**'
       - 'reviews/side24_v1_coefficient_claude_20260929/**'
+      - 'frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md'
+      - 'reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md'
+      - 'frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md'
       - 'frontiers/downstream_gate_20260925/GRAPH.json'
       - 'frontiers/downstream_gate_20260925/hard_gate.py'
       - 'PROOF_INDEX.md'
@@ -56,7 +59,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'alignment_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift', 'duplicate-drift']
+          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift', 'duplicate-drift', 'region-unlinked', 'review-metadata-only']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

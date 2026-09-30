@@ -10,7 +10,13 @@ Re-verified at `ec6db8c` (Math-#151 merged, 30 September 00:56Z): the ten invent
 **Revision:** v1.1 records the two xAI reads of `670e4ae` and makes the Math-#151-first ordering of the D4 flips
 explicit; transitions unchanged. v1.2 re-verifies at `ec6db8c` after Math-#151 merged, binds the now-live duplicate D4
 node (`D4_DUPLICATE` check, `duplicate-drift` mutant) and records that the HOLD's Math-#151 precondition is met;
-transitions unchanged.
+transitions unchanged. v1.3 answers the two OpenAI AMEND reviews (5360320845, 5360327058) and the five Codex threads
+(4139807545–67): review records and consumed sources become fingerprinted component nodes with required edges, regions
+gain `covered_by` edges, `apply()` carries scope exclusions and replacement notes, a nine-case `PROPAGATION` check replays
+two-commit source mutations through the production reverse-impact rule, the interface's promoted scope is narrowed to
+self-contained inequalities plus conditional implications with its consumed premises as edges, the interface evidence
+labels separate exact from floating-point checks, and the external issue comments are preserved in `EXTERNAL_REVIEWS.md`
+and labelled as mutable evidence; the eight classifications are unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 five objects that the register already lists as accepted to their exact bytes, quotes the nonauthor verdicts that
 accepted them, records that their live graph nodes still carry the pre-review classification, and proposes the node
@@ -47,6 +53,18 @@ on every point; v1.1 makes the #151-first ordering explicit in §4 and `executio
 lane record the single-provider rows as such, is already stated per row in §4 and in `PROPOSED_TRANSITIONS.json` and is
 that lane's to carry out.
 
+OpenAI source-custody / RN-interface review 5360320845 and OpenAI-Codex engineering review 5360327058 (both at `f2250bf`,
+with Codex threads 4139807545/51/58/62/67 at `670e4ae`): **the historical classification lag and the logical-interface
+inequalities are sound at their stated scopes; AMEND the executable proposal; HOLD execution.** Their findings: the
+acceptance evidence lived only in `review_sources` metadata, which the production loss-only audit
+(`git_transition_audit.read_snapshot`, `node.source` only) never sees; a covering-proof change did not reach the promoted
+regions; the annulus's `TWO_SCALE_ADDENDUM.md`, D6's `P15_REALIZED_COVERS.md` and the interface's consumed cap / parent
+items were not tracked; `apply()` dropped `explicit_limits` and kept stale notes; the (N4)/(N5) checks were floating
+point while labelled exact; external issue-comment verdicts were quoted, not preserved. v1.3 answers each (§4, §6; the
+eight classifications and scope exclusions unchanged). The region-reporting complaint (4139807545) is superseded on main
+since `ec6db8c` (`hard_gate.d4_region_complement` has a `proved_reviewed_regions` bucket) and is not replayed. Neither
+OpenAI read is a new mathematical acceptance of the six sources; both keep the single-provider caveat.
+
 ## 1. The lag
 
 The main `STATUS.md` accepted-scope table (rows D1–D4, D6) and `PROOF_INDEX.md` "Reviewed scoped results" list these
@@ -74,9 +92,13 @@ fingerprint, source and review basis to the D4 transition.
 
 ## 2. Bindings: what each review bound, and what the bytes are now
 
-All six sources are unchanged since their landing commits (`git log` on each path shows one commit). Identities are
-checked by `alignment_check.py` (`IDENTITIES`); the quoted verdict lines are checked as substrings where the review is
-in this repository (`VERDICTS`).
+All six sources, and the two consumed sources and the addendum's review added in v1.3, are unchanged since their landing
+commits. Identities of all fifteen inventoried files (six sources, the D1 parent, four in-repo reviews, two consumed
+sources, this packet's two review records) are checked by `alignment_check.py` (`IDENTITIES`); the quoted verdict lines
+are checked as substrings where the review is in this repository (`VERDICTS`). The issue-comment reviews are preserved
+as a transcribed read-back in `EXTERNAL_REVIEWS.md` (comment id, URL, posting account, timestamps, body) and are
+labelled there as mutable external evidence that an offline check cannot re-authenticate; OpenAI 5360327058 reports
+having directly authenticated the D2, D3 and D4 comments.
 
 | Object | Source now | Review binding (quoted) | Verdict (quoted) |
 |---|---|---|---|
@@ -87,48 +109,92 @@ in this repository (`VERDICTS`).
 | D6 | `frontiers/full_price_20260924/PROOF.md`, 11352 B, SHA256 `87521901ca8e5405b4d1e47f1deb1cd0326affbd6f5967b53c4178590da993f9`, blob `582180e41dca0ad815ad0f18574df42040912149` | `reviews/p15_full_price_nonauthor_20260926/REVIEW.md` (blob `07db19f826763b8faa7414ba2e403d9c45bc0b6e`): "Blob `582180e4…`", "SHA256 `87521901…`" | six rows **ACCEPT** (hazard transform and separate concavity; odd-majority worst case; global hazard direction and independence; full-block cover; sharpness; demand-one boundary). Owner 5842112010: "D6 ANALYTIC REVIEW COMPLETE … Closing #74 as the D6 review work package". |
 | premise | `frontiers/three_fronts_20260924/RN_COUNT_INTERFACE.md`, 8938 B, SHA256 `aa993f5217bd70e6d1060402d121ab659f6582a098e29042c67585a345a8e3ab`, blob `371fd6d17920f2eb3b1c5ec30297acf6daf1d385` | this packet, `RN_COUNT_INTERFACE_REVIEW.md` | ACCEPT at the logical-interface scope (§3); its consumed formulation was reconstructed inside the D4 review (items 2–3). |
 | D1 parent (premise of D2, D3) | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`, 40261 B, SHA256 `9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7` | live node `math.uniform-matrix-cap-lifetime`, `PROVED_REVIEWED`, four required reading-rule components (Math-#126) | not re-reviewed; checked live (`BASELINE`). |
+| consumed by D5 annulus | `frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md`, 15902 B, SHA256 `079f9399aef401d58749b3684f3acbb7f49ffdcbcac9f501b79e06c28a7f4e7d`, blob `89cae3a9734f2ec7172cd0b6b0b3af3ddd355d73` | `reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md` (10073 B, SHA256 `04cf4c98…`, blob `89882516`): "blob `89cae3a9…`, 15902 bytes, SHA256 `079f9399…`"; the pr22 review: "Read as the imported inner bound, not re-derived: `TWO_SCALE_ADDENDUM.md` blob `89cae3a9…`" | S6–S21 and (S3)–(S5) **ACCEPT** (xAI, Math- PR34); pr22 row "Inner two-scale stitching **ACCEPT**". Component nodes `…two-scale-addendum`, `…two-scale-review` (§4). |
+| consumed by D6 | `frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md`, 11467 B, SHA256 `c0dbb821fb57b685a20cc321e4074456f39a9697f3104afd1f728e4732179bb9`, blob `173881916ccd0e738bdb41279e835e78e520fcbc` | the p15 review: "Read as the cited setwise dependency, and checked for the local restriction and the full-block cover: … SHA256 `c0dbb821…`. That is the digest named in the proof. The check uses (P1), (P2), and Theorem P2 there. It does not accept that note's `c_v<=p_v` price theorem" | setwise interfaces only, at the D6 review's scope. Component node `…p15-realized-covers-setwise` (§4). |
+| external comments (D2, D3, D4, D6) | `reviews/register_alignment_20260930/EXTERNAL_REVIEWS.md` (this packet) | seven comments with id, account, `created_at`, `updated_at`, body; the four `cursor[bot]` reviews and three owner reconciliations | preserved read-back; mutable external evidence, labelled. Component node `…external-issue-reviews` (§4). |
 
 ## 3. The count-interface note
 
 `RN_COUNT_INTERFACE_REVIEW.md` reviews `RN-COUNT-INTERFACE-20260924-v1` at the scope the note itself states: the Hölder
 implications (N1)–(N3), the two counterexamples of its §3 and the layer-cake bound (N5), the marked Kac–Rice formula
 (N6)–(N7) as a formula, and the support statement of §5. Verdict: **ACCEPT at the logical-interface scope**; it is not
-an expected-count rate and is not treated as one. The finite parts are checked exactly (`INTERFACE`): Hölder on finite
-rational distributions for `p = 2, 3`; the exponent identity of (N2); the (N4) example's moments and the finiteness of
-`sup_(t≥1) (t+1)^p e^(−3t)`; the single-`p` sharp example at `r = 2^(−pm)`, where `E N^p = 1` and `E N = r^(3−3/p)`
-exactly; the identity `∫ min(q, A e^(−t/B)) dt = B q [1 + log(A/q)]`; and the uniform tail `P(N_r > t) ≤ e³ e^(−3t)` of
-the (N4) example. The rigorous version of (N6) is Lemma 5.1 of `frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145,
-reviewed), whose fixed-remote instance is the D4 formula (12)–(14).
+an expected-count rate and is not treated as one. The finite parts are checked in `INTERFACE` in two labelled parts: exact rational arithmetic (Hölder on finite rational
+distributions for `p = 2, 3`; the exponent identity of (N2); the (N3) identity; the single-`p` sharp example at
+`r = 2^(−pm)`, where `E N^p = 1` and `E N = r^(3−3/p)` exactly) and floating-point numerical corroborations of arguments
+proved in the review (the (N4) example's moments and the located maximum of `(t+1)^p e^(−3t)`; the identity
+`∫ min(q, A e^(−t/B)) dt = B q [1 + log(A/q)]` by Simpson quadrature; the uniform tail `P(N_r > t) ≤ e³ e^(−3t)` of the
+(N4) example on a grid); OpenAI 5360320845 item 2 asked for exactly this separation. The note's consumed premises are the
+parent's regression law and §9 Borel-mark convention (live node `math.uniform-matrix-cap-lifetime`, with its four
+reading-rule components) and the cap support source of §5 (live node `math.d1-component.marked-cylinder-cap`, SHA256
+`0bf922b9…`, the digest the note quotes); both are required edges of the proposal, and the promoted scope is narrowed to
+(N1)–(N5) with the counterexamples as self-contained statements and (N6)–(N7), §5 as conditional implications at formula
+level. A later rigorous statement of (N6) is Lemma 5.1 of `frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145),
+cited for the reader and not consumed.
 
 ## 4. Proposed transitions
 
-Eight node transitions, no edge change, no new node (`PROPOSED_TRANSITIONS.json`):
+Eight node transitions and, since v1.3, the evidence that carries them, represented in the graph itself: eight
+fingerprinted review-record / consumed-source component nodes and sixteen required edges (`PROPOSED_TRANSITIONS.json`:
+`transitions`, `proposed_graph_nodes`, `proposed_graph_edges`; `edges_unchanged: false`). The change of packaging answers
+OpenAI 5360320845 item 1, OpenAI 5360327058 items 1–2 and Codex threads 4139807558/4139807562/4139807567: the production
+loss-only audit (`git_transition_audit.read_snapshot`) reads `node.source` only, so acceptance evidence and consumed
+sources that live only in `review_sources` metadata would never revalidate a promoted object when they change. The eight
+classifications and every scope exclusion are unchanged from v1.0.
 
 | Node | Current | Proposed | Scope (STATUS row) | Review sources | Required premises after |
 |---|---|---|---|---|---|
-| `math.rn-count-interface` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | logical interface (N1)–(N7), §5 | this packet; main#76 items 2–3 | none |
-| `math.lifetime-remainder` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | Theorem R, existential `O(1)` remainder | main#67 5841270276, 5841782206 | D1 (live `PROVED_REVIEWED`) |
-| `math.side24-coefficient` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | coefficient arithmetic, `d = 2, 3` | main#65 5841269490; in-repo Anthropic record | D1 |
-| `math.rn-fixed-remote-window` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | fixed `ρ`, `η`, between-pin window | main#76 5841783172, 5841861362 | `math.rn-count-interface` |
-| `math.rn-region.fixed-remote` | `COVERED_BY_CANDIDATE` | `PROVED_REVIEWED` | the D4 region | as the covering node | covering node |
-| `math.rn-fixed-annulus-window` | `AUTHOR_SIDE_CANDIDATE` (blob fingerprint) | `PROVED_REVIEWED` (SHA256 fingerprint) | `d = 2` fixed scaled annulus, window | `reviews/pr22_…/REVIEW.md` | `math.rn-count-interface` |
-| `math.rn-region.fixed-annulus-window` | `COVERED_BY_CANDIDATE` | `PROVED_REVIEWED` | the covering node's scope | as the covering node | covering node |
-| `math.p15-full-price` | `AUTHOR_SIDE_CANDIDATE` (label fingerprint) | `PROVED_REVIEWED` (SHA256 fingerprint) | realized family, `d_i ≥ 2` | `reviews/p15_…/REVIEW.md`; main#74 5842112010 | none |
+| `math.rn-count-interface` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | (N1)–(N5) and the §3 counterexamples as self-contained probability statements; (N6)–(N7) and §5 as formula-level implications conditional on the parent's regression law / §9 convention and on the cap support source | this packet (`RN_COUNT_INTERFACE_REVIEW.md`, a component node); main#76 items 2–3 | `math.uniform-matrix-cap-lifetime` and `math.d1-component.marked-cylinder-cap` (both live `PROVED_REVIEWED`; the note's consumed premises); `math.align-component.rn-interface-review` |
+| `math.lifetime-remainder` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | Theorem R, existential `O(1)` remainder | main#67 5841270276, 5841782206 | D1 (live `PROVED_REVIEWED`); `math.align-component.external-issue-reviews` |
+| `math.side24-coefficient` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | coefficient arithmetic, `d = 2, 3` | main#65 5841269490; in-repo Anthropic record | D1; `…external-issue-reviews`; `…side24-review-claude` |
+| `math.rn-fixed-remote-window` | `AUTHOR_SIDE_CANDIDATE` | `PROVED_REVIEWED` | fixed `ρ`, `η`, between-pin window | main#76 5841783172, 5841861362 | `math.rn-count-interface`; `…external-issue-reviews` |
+| `math.rn-region.fixed-remote` | `COVERED_BY_CANDIDATE` | `PROVED_REVIEWED` | the D4 region | as the covering node | `math.rn-fixed-remote-window` (new required `covered_by` edge) |
+| `math.rn-fixed-annulus-window` | `AUTHOR_SIDE_CANDIDATE` (blob fingerprint) | `PROVED_REVIEWED` (SHA256 fingerprint) | `d = 2` fixed scaled annulus, window | `reviews/pr22_…/REVIEW.md` | `math.rn-count-interface`; `…pr22-annulus-review`; `…two-scale-addendum` (the S6–S21 stitching input, which itself requires `…two-scale-review`) |
+| `math.rn-region.fixed-annulus-window` | `COVERED_BY_CANDIDATE` | `PROVED_REVIEWED` | the covering node's scope | as the covering node | `math.rn-fixed-annulus-window` (new required `covered_by` edge) |
+| `math.p15-full-price` | `AUTHOR_SIDE_CANDIDATE` (label fingerprint) | `PROVED_REVIEWED` (SHA256 fingerprint) | realized family, `d_i ≥ 2` | `reviews/p15_…/REVIEW.md`; main#74 5842112010 | `…external-issue-reviews`; `…p15-review`; `…p15-realized-covers-setwise` ((P1), (P2), Theorem P2 setwise only, which itself requires `…p15-review`) |
 
-Every proposed node keeps `controlling: false`; each candidate node's `fingerprint` becomes the SHA256 of its source
-in §2, and each gains `review_disposition`, `review_sources` and `scope` fields in the form the D1 node already has.
-Region nodes keep their `coverage_source`. No `hist.*`, `eng.*` or `regional.*` node moves; no edge is added or removed.
-The order in `execution_order` puts the premise first and each region after its covering node; the D4 theorem node
-and its region are executed only after Math-#151 is on main (satisfied at `ec6db8c`): the D4 bytes are now carried by
-two live nodes on the same review, and the flip aligns the older one with the newer one; the executing lane may then
-collapse `math.d5-component.remote-window-proof` onto the live node or keep both (xAI 5901912476, 5360240245). STATUS, PROOF_INDEX,
-SELECTOR_REGION and the catalog need no edit for this record: they already say what the graph is being aligned to.
+Component nodes (`kind: reading_rule_component`, `PROVED_REVIEWED`, `controlling: false`, `fingerprint` = SHA256 of the
+source; one node per byte identity; none duplicates a source the live graph already carries with a fingerprint):
+
+| Node | Source | Role | Provider | Consumed by |
+|---|---|---|---|---|
+| `math.align-component.rn-interface-review` | `reviews/register_alignment_20260930/RN_COUNT_INTERFACE_REVIEW.md` (this packet) | review record | Anthropic (nonauthor) | `math.rn-count-interface` |
+| `math.align-component.external-issue-reviews` | `reviews/register_alignment_20260930/EXTERNAL_REVIEWS.md` (this packet: seven issue comments transcribed with id, account, timestamps and body; mutable external evidence, labelled) | external review record | xAI/Grok via Cursor (posted by `cursor[bot]`) and owner; recorded by Anthropic | D2, D3, D4, D6 |
+| `math.align-component.side24-review-claude` | `reviews/side24_v1_coefficient_claude_20260929/REVIEW.md` | review record | Anthropic (other session) | D3 |
+| `math.align-component.pr22-annulus-review` | `reviews/pr22_fixed_annulus_nonauthor_20260925/REVIEW.md` | review record | xAI | annulus |
+| `math.align-component.two-scale-addendum` | `frontiers/rn_thin_tube_20260925/TWO_SCALE_ADDENDUM.md` (`079f9399…`, blob `89cae3a9`) | consumed proof: the S6–S21 stitching input ((S4) on `A ≤ |u| ≤ B`) | OpenAI | annulus |
+| `math.align-component.two-scale-review` | `reviews/replacement_20260925_pr19_pr21/TWO_SCALE_REVIEW.md` (`04cf4c98…`, blob `89882516`) | review record of the addendum (S6–S21 and (S3)–(S5) ACCEPT) | xAI | `…two-scale-addendum` |
+| `math.align-component.p15-review` | `reviews/p15_full_price_nonauthor_20260926/REVIEW.md` | review record | xAI | D6, `…p15-realized-covers-setwise` |
+| `math.align-component.p15-realized-covers-setwise` | `frontiers/three_fronts_20260924/P15_REALIZED_COVERS.md` (`c0dbb821…`, blob `17388191`) | consumed interface: (P1), (P2), Theorem P2 setwise at `K ≥ K_H(d)` only, as the D6 review checked them; the note's `c_v ≤ p_v` price theorem is not included | OpenAI | D6 |
+
+These are exactly the support dependencies the canonical claim manifest records for the annulus (`two-scale-s6-s21`)
+and for the full-price theorem (`p15-realized-covers:setwise-interfaces`). The interface's two consumed premises are
+the live D1 node (regression law `Q`, §9 Borel-mark convention, read with its four reading-rule components) and the live
+cap component (`0bf922b9…`, the SHA256 the note quotes for its §5 support statement); the (N6) cross-reference to the
+C6 Palm route's Lemma 5.1 in the review is for the reader and is not consumed.
+
+Every proposed node keeps `controlling: false`; each candidate node's `fingerprint` becomes the SHA256 of its source in
+§2, and `apply()` carries `scope`, `explicit_limits`, a replacement `notes`, `review_disposition`, `review_sources` and a
+structured `review_basis` onto the node, so no promoted node keeps a "review open" or "covered by candidate only" note
+(Codex 4139807551; OpenAI 5360327058 item 3). Region nodes keep `coverage_source` and gain a required `covered_by` edge
+to their covering node, so that a change to the covering proof reaches the region in `reverse_impact_between` (Codex
+4139807558; OpenAI 5360327058 item 1). No `hist.*`, `eng.*` or `regional.*` node moves; no live node other than the
+eight changes; no live edge is removed; every added edge leaves one of this record's objects. The order in
+`execution_order` creates the component nodes and edges first, then the premise, then each region after its covering
+node; the D4 theorem node and its region are executed only after Math-#151 is on main (satisfied at `ec6db8c`): the D4
+bytes are now carried by two live nodes on the same review, and the flip aligns the older one with the newer one; the
+executing lane may then collapse `math.d5-component.remote-window-proof` onto the live node or keep both (xAI
+5901912476, 5360240245). STATUS, PROOF_INDEX, SELECTOR_REGION and the catalog need no edit for this record: they
+already say what the graph is being aligned to.
 
 `alignment_check.py` applies the proposal to a copy of the live graph and replays it through the hard gate's own
 validators (`validate_graph_fail_closed`, `closure_report`, `reverse_impact_between`, imported from
 `frontiers/downstream_gate_20260925/hard_gate.py`): the proposed graph is well formed, no node is controlling,
-`gate_ok` holds, and the loss-only reverse-impact proposal names exactly the changed nodes and their dependents,
-which the executing lane revalidates as part of the fold (as Math-#151 did).
+`gate_ok` holds, and the loss-only reverse-impact proposal names exactly the changed nodes and their dependents.
+`PROPAGATION` then runs nine two-commit mutations through `reverse_impact_between` with source snapshots in the shape of
+`git_transition_audit.read_snapshot` (proof edits reach their regions and consumers; a deleted review record and an
+edited external-review record reach the accepted objects and their dependents; consumed-source edits reach their
+consumers; an unrelated edit and a no-op reach none of the eight), the guarantee OpenAI 5360320845 asked to be tested
+rather than inferred from old-versus-new GRAPH metadata.
 
 ## 5. What is not proposed
 
@@ -141,20 +207,38 @@ which the executing lane revalidates as part of the fold (as Math-#151 did).
 ## 6. Checks
 
 `alignment_check.py` (stdlib only, run from the repository root):
-- **IDENTITIES.** All ten inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
-- **VERDICTS.** The quoted verdict rows and binding lines of the three in-repo reviews, the object headers of the six
-  sources, the D4 sentence that consumes the interface, the interface note's (N1)/(N4)/(N5) displays, and the five
-  PROOF_INDEX rows are present as substrings.
+- **IDENTITIES.** All fifteen inventoried files (the six sources, the D1 parent, the four in-repo reviews, the two
+  consumed sources, and this packet's two review records) exist as regular files, no symlink on their paths, stated
+  SHA256 and blob.
+- **VERDICTS.** The quoted verdict rows and binding lines of the in-repo reviews (pr22, p15, side24, two-scale), the
+  object headers of the sources, the D4 sentence that consumes the interface, the interface note's (N1)/(N4)/(N5)
+  displays, the five PROOF_INDEX rows, the interface review's overall verdict and evidence labels, and the seven comment
+  ids with their verdict lines and the mutability label in `EXTERNAL_REVIEWS.md` are present as substrings.
 - **BASELINE.** Each transition's live node exists with exactly the recorded current classification, fingerprint,
   kind and source; the D1 node is `PROVED_REVIEWED` with its four reading-rule components `PROVED_REVIEWED`.
-- **TRANSITIONS.** `declarative` true, `executed` false; every proposed classification is `PROVED_REVIEWED` with
-  `controlling: false`; every candidate node's fingerprint equals the SHA256 of its inventoried source; every node has
-  a non-empty scope and at least one review source; applied to a copy of the live graph, every flipped candidate's
-  required premises are `PROVED_REVIEWED` and every flipped region's `coverage_source` is `PROVED_REVIEWED`; edges
-  and `hist.*` nodes unchanged.
+- **TRANSITIONS.** `declarative` true, `executed` false, `edges_unchanged` false; every proposed classification is
+  `PROVED_REVIEWED` with `controlling: false`, a non-empty scope, explicit limits, replacement notes and at least one
+  review source; every candidate node's fingerprint equals the SHA256 of its inventoried source; every component node
+  is a `reading_rule_component`, `PROVED_REVIEWED`, non-controlling, fingerprinted to its inventoried source, with a
+  role, a provider, a review basis and a consumer, one node per byte identity and none for bytes the live graph already
+  carries; every added edge is well formed, new, and leaves one of this record's objects; applied to a copy of the live
+  graph, no live node other than the eight changes, no live edge is removed, every flipped node's required premises (the
+  live D1 node and cap component, the interface, the component nodes) are `PROVED_REVIEWED`, every region requires its
+  covering node, and every applied node carries its `explicit_limits`, its replacement `notes` and a `review_basis`.
 - **GATE.** The proposed graph passes the hard gate's `validate_graph_fail_closed`; `closure_report` gives `gate_ok`
-  with no illegal controlling node; `reverse_impact_between(live, proposed)` runs and its impacted set is recorded.
-- **INTERFACE.** The exact checks of §3.
+  with no illegal controlling node; `reverse_impact_between(live, proposed)` runs and its impacted set (the eight nodes,
+  the eight component nodes and their dependents) is recorded.
+- **PROPAGATION.** Nine two-commit cases on the proposed graph with source snapshots in the shape of
+  `git_transition_audit.read_snapshot`: a D4 proof edit reaches the fixed-remote region and the mesoscopic consumer; an
+  annulus proof edit reaches its region; deleting the interface review record reaches the interface, D4, the annulus and
+  both regions; editing the external-review record reaches D2, D3, D4, D6 and the fixed-remote region; editing the
+  two-scale addendum reaches the annulus and its region; editing the realized-covers source reaches D6; a D4 fingerprint
+  edit reaches the region; an unrelated edit reaches none of the eight; a no-op impacts nothing.
+- **INTERFACE.** The finite content of §3, in two labelled parts: exact rational checks (Hölder for `p = 2, 3` on
+  finite spaces, the (N2) exponent identity, the (N3) identity, the sharp-`p` example at `r = 2^(−pm)`, the integer
+  monotonicity in (N4)) and floating-point numerical corroborations (the (N4) grid maximum, the (N5) Simpson quadrature
+  at three parameter points, the (N4) example's uniform tail on a grid). The analytic arguments are in the review; the
+  numerical part corroborates, it does not prove.
 - **NEGATIVES.** Real filesystem faults on a temporary copy of the inventory (delete, change one byte, symlink, symlink
   parent of the D4 proof) are rejected.
 - **D4_DUPLICATE.** The live graph carries `math.d5-component.remote-window-proof` as `PROVED_REVIEWED`,
@@ -162,8 +246,11 @@ which the executing lane revalidates as part of the fold (as Math-#151 did).
   citing main#76 with verdict ACCEPT, `component_of` `math.d5-pin-neighborhood-first-moment`; and the older live node
   `math.rn-fixed-remote-window` still carries that fingerprint at `AUTHOR_SIDE_CANDIDATE`, the lag this record aligns.
 
-Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
-`executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`, `duplicate-drift`.
+Twelve mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
+`executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`, `duplicate-drift`, `region-unlinked`
+(the `covered_by` edges removed before the propagation replay: proof edits no longer reach the regions) and
+`review-metadata-only` (the review-record nodes and their edges removed before the replay, leaving the citations as
+metadata only: a deleted or edited review record no longer reaches its accepted object).
 
 ## 7. Relation to other lanes
 
@@ -175,6 +262,9 @@ Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-re
   for the executing lane, not proposed here.
 - **Math-#160 (this session, C6 reconciliation):** already references the live D4 node with supporting edges; nothing
   there changes.
+- **OpenAI reviews 5360320845 and 5360327058; Codex review 5360253242 (threads 4139807545–67):** answered by v1.3 (§0,
+  §4, §6); the region-reporting thread is superseded on main since `ec6db8c` and not replayed. The single-provider caveat
+  and the HOLD on execution stand until the executing lane decides.
 - **Math-#163 (navigation refresh):** availability index only; disjoint.
 - **main#207 (closed 30 September 00:57Z, after Math-#151 merged):** the delivery note for this record is comment
   5901889845. The executing lane for this record remains non-Claude; any new coordination thread is that lane's to open.
