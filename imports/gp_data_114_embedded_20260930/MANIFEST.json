@@ -1,0 +1,72 @@
+{
+  "external_wrapper_is_not_duplicated": true,
+  "files": [
+    {
+      "bytes": 5047,
+      "git_blob": "77c511eaaab0dcd7863d4eebadfd2dcc69c9cb71",
+      "path": "GP-DATA-114-v1.0_receipt.json",
+      "role": "ORIGINAL_EMBEDDED_BYTES",
+      "sha256": "8472209ee589f44f1f3c472c7040d183494743a89e21ad9487a1879d192003bc"
+    },
+    {
+      "bytes": 9787,
+      "git_blob": "bbbfacee088332b4e4df9953079d579400f2282c",
+      "path": "GP-DATA-114-v1.0_uniform_q_degree4_interval.py",
+      "role": "ORIGINAL_EMBEDDED_BYTES",
+      "sha256": "9d7cb5d6e13579533c5b485775e67c77da83c149c0bf8bbbe7b7bf85aefdb4ef"
+    },
+    {
+      "bytes": 5754,
+      "git_blob": "410f7a4a0598e093e8458ec6fa8f8aec14657f19",
+      "path": "README.md",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "7139b03d1e6263107aa43f4559457eb4e9f59b318a89266457973c5b30c6599a"
+    },
+    {
+      "bytes": 3819,
+      "git_blob": "f9f6285ab3b6c5fc41551f3ed4906cc28969baa4",
+      "path": "SOURCES.json",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "4c28b3fa16ba607ef675276d263add69354d9583b891174f2e1a75742cafac37"
+    },
+    {
+      "bytes": 5698,
+      "git_blob": "4786a22aac19b28cfd008f6d4f90e1a0d0e2d58b",
+      "path": "VALIDATION.json",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "04195d5e5b2f68b46af02c65d1b26be353525f9bf9e9795ade50af3c7cf5ca74"
+    },
+    {
+      "bytes": 6590,
+      "git_blob": "edbfc7d3d08d59375c0f94139f7f493dc1885a3a",
+      "path": "inert_decoder.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "01f0fccad3fb80690b776c957af1a46ac42c92b1ba91cbfa0a272613ee45b94d"
+    },
+    {
+      "bytes": 6719,
+      "git_blob": "b1229430058811c06ec2c073d985347b7d9e7030",
+      "path": "test_inert_decoder.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "4966503339c8ae6de674f57f97d514c4068b134af3b1fcf97710d34e444eed42"
+    },
+    {
+      "bytes": 9588,
+      "git_blob": "45b2c48d43065365d2049dc21c274afae9e1694c",
+      "path": "test_verify_packet.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "7c2796dd9442b95ab3320d826a9cd8700e3474580b875b63e31cac08d425ef46"
+    },
+    {
+      "bytes": 6999,
+      "git_blob": "3b933da10745f58821ccea239263c2a941b92947",
+      "path": "verify_packet.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "f4aecd8163e77bfb9ed66c77f64f81cd9e4017bbc338a879d562b1f18ea3de51"
+    }
+  ],
+  "manifest_self_excluded": true,
+  "object": "OA-GP-DATA-114-EMBEDDED-CUSTODY-20260930-v1",
+  "schema_version": 1,
+  "scientific_effect": "NONE"
+}
