@@ -31,10 +31,16 @@ MUTANTS = ('swap-minmax', 'drop-torus-error', 'sign-saddle')
 MUT = None
 PBITS = 160
 N_EXP = 24          # Taylor order of exp(-r^2/2)
-L_MIN = 10          # declared torus side band L >= L_MIN
+L_MIN = 10          # default torus side floor for the quick and point-band checks (the certified bands carry their own)
 Z_MAX = 8           # |z|_inf clip for the cross-block coupling argument
-BAND_R = (Fr(1, 8), Fr(1, 2))
-R_STEPS = 192
+# certified r-bands: name -> (r range, number of r-steps of width 1/512, declared torus side floor L >= L_min);
+# the low band needs L >= 12 because the periodization remainder enters the preconditioned functionals with the
+# factor r^-10 (see torus_epsilon and NOTE.md section 2)
+BANDS = {
+    'high': {'r': (Fr(1, 8), Fr(1, 2)), 'steps': 192, 'L_min': 10},
+    'low': {'r': (Fr(1, 64), Fr(1, 8)), 'steps': 56, 'L_min': 12},
+}
+BAND_ORDER = ('low', 'high')
 BAND_B = (Fr(0), Fr(1))
 B_STEPS = 8
 BAND_K = (Fr(1, 2), Fr(2))
@@ -741,8 +747,11 @@ def z0_limit(b, k):
 
 
 # ----------------------------------------------------------------------------- driver
-def subboxes():
-    rs = [BAND_R[0] + (BAND_R[1] - BAND_R[0]) * i / R_STEPS for i in range(R_STEPS + 1)]
+def subboxes(band):
+    spec = BANDS[band]
+    r0, r1 = spec['r']
+    n = spec['steps']
+    rs = [r0 + (r1 - r0) * i / n for i in range(n + 1)]
     bs = [BAND_B[0] + (BAND_B[1] - BAND_B[0]) * i / B_STEPS for i in range(B_STEPS + 1)]
     ks = [BAND_K[0] + (BAND_K[1] - BAND_K[0]) * i / K_STEPS for i in range(K_STEPS + 1)]
     return rs, bs, ks
@@ -752,11 +761,16 @@ def key(r0, r1, b0, b1, k0, k1):
     return 'r=[%s,%s],b=[%s,%s],k=[%s,%s]' % (r0, r1, b0, b1, k0, k1)
 
 
+def parse_key(kk):
+    parts_ = kk.replace('r=[', '').replace('],b=[', ',').replace('],k=[', ',').replace(']', '').split(',')
+    return [Fr(x) for x in parts_]
+
+
 def certify_rband(args):
-    ir, L = args
-    rs, bs, ks = subboxes()
+    band, ir = args
+    rs, bs, ks = subboxes(band)
     rband = IV(rs[ir], rs[ir + 1])
-    data = band_data(rband, L)
+    data = band_data(rband, BANDS[band]['L_min'])
     out = {}
     for ib in range(B_STEPS):
         for ik in range(K_STEPS):
@@ -765,32 +779,29 @@ def certify_rband(args):
     return out
 
 
-def parse_key(kk):
-    parts_ = kk.replace('r=[', '').replace('],b=[', ',').replace('],k=[', ',').replace(']', '').split(',')
-    return [Fr(x) for x in parts_]
-
-
-def control_keys(table):
-    """Deterministic choice of the sub-boxes that receive floating Monte Carlo controls: the global argmin, a grid of
+def control_keys(band, table):
+    """Deterministic choice of the sub-boxes that receive floating Monte Carlo controls: the band's argmin, a grid of
     (r, b, k) corners, and for each (b, k) corner box in {low, middle, high}^2 the box attaining the minimum floor
-    among r <= 1/4 and among r <= 1/2 (the boxes quoted in NOTE.md section 3)."""
-    rs, bs, ks = subboxes()
+    among r <= r_top / 2 and among the whole band (the boxes quoted in NOTE.md section 3)."""
+    rs, bs, ks = subboxes(band)
+    n = BANDS[band]['steps']
     fl = {kk: Fr(v['floor']) for kk, v in table.items()}
     chosen = {min(fl, key=fl.get)}
-    for ir in (0, R_STEPS // 4, R_STEPS // 2, 3 * R_STEPS // 4, R_STEPS - 1):
+    for ir in (0, n // 4, n // 2, 3 * n // 4, n - 1):
         for (ib, ik) in ((0, 0), (B_STEPS - 1, K_STEPS - 1), (B_STEPS // 2, K_STEPS // 2), (0, K_STEPS - 1), (B_STEPS - 1, 0)):
             chosen.add(key(rs[ir], rs[ir + 1], bs[ib], bs[ib + 1], ks[ik], ks[ik + 1]))
+    r_top = BANDS[band]['r'][1]
     for b0 in (bs[0], bs[B_STEPS // 2], bs[B_STEPS - 1]):
         for k0 in (ks[0], ks[K_STEPS // 2], ks[K_STEPS - 1]):
-            for rmax in (Fr(1, 4), Fr(1, 2)):
-                cand = [kk for kk in fl if (lambda p: p[1] <= rmax and p[2] == b0 and p[4] == k0)(parse_key(kk))]
+            for rmax in (r_top / 2, r_top):
+                cand = [kk for kk in fl if (lambda p_: p_[1] <= rmax and p_[2] == b0 and p_[4] == k0)(parse_key(kk))]
                 chosen.add(min(cand, key=fl.get))
     return sorted(chosen)
 
 
-def float_controls(table):
+def float_controls(band, table):
     controls = {}
-    for kk in control_keys(table):
+    for kk in control_keys(band, table):
         r0, r1, b0, b1, k0, k1 = parse_key(kk)
         row = {}
         for (r, b, k, tag) in ((r1, b0, k0, 'r1,b0,k0'), (r0, b1, k1, 'r0,b1,k1')):
@@ -800,104 +811,150 @@ def float_controls(table):
     return controls
 
 
-def replay_sample():
-    rs, bs, ks = subboxes()
+def replay_sample(band):
+    """Sub-boxes replayed exactly by --check: one r-band per 32 (high) or per 18 (low), (b, k) indices stepping."""
+    rs, bs, ks = subboxes(band)
+    n = BANDS[band]['steps']
+    irs = (0, 38, 76, 114, 152, 191) if band == 'high' else (0, 18, 37, 55)
+    assert all(ir < n for ir in irs)
     return [key(rs[ir], rs[ir + 1], bs[ib], bs[ib + 1], ks[ik], ks[ik + 1])
-            for j, ir in enumerate((0, 38, 76, 114, 152, 191))
+            for j, ir in enumerate(irs)
             for (ib, ik) in [((3 * j) % B_STEPS, (5 * j + 2) % K_STEPS)]]
-
-
-def check_full(procs, bands=None):
-    """Regenerate every sub-box floor (or the r-bands listed) and compare exactly with RESULTS.json; the floating
-    controls are recomputed and compared to 1e-9 relative (platform libm)."""
-    path = os.path.join(HERE, 'RESULTS.json')
-    require(os.path.exists(path), 'RESULTS.json present')
-    with open(path) as fh:
-        ref = json.load(fh)
-    sel = list(range(R_STEPS)) if bands is None else bands
-    with multiprocessing.Pool(procs) as pool:
-        parts = pool.map(certify_rband, [(ir, L_MIN) for ir in sel])
-    n = 0
-    for part in parts:
-        for kk, v in part.items():
-            require(kk in ref['table'], 'sub-box present: ' + kk)
-            require(v['floor'] == ref['table'][kk]['floor'], 'exact regeneration of ' + kk)
-            n += 1
-    if bands is None:
-        require(n == len(ref['table']) == R_STEPS * B_STEPS * K_STEPS, 'table complete')
-        zs = min(Fr(v['floor']) for v in ref['table'].values())
-        require(str(zs) == ref['z_star'], 'z_star is the minimum of the regenerated table')
-        controls = float_controls(ref['table'])
-        require(sorted(controls) == sorted(ref['float_controls']), 'control set')
-        for kk, row in controls.items():
-            for tag, c in row.items():
-                r0 = ref['float_controls'][kk][tag]
-                for name in ('mc', 'se', 'z0'):
-                    require(abs(c[name] - r0[name]) <= 1e-9 * max(abs(r0[name]), 1e-300), 'control %s %s %s' % (kk, tag, name))
-    print(json.dumps({'check_full': 'ok', 'sub_boxes_regenerated': n, 'z_star': ref['z_star_decimal'], 'mutant': MUT}))
 
 
 def dec(x, digits=10):
     """Decimal string rounded down."""
     x = Fr(x)
     n = x.numerator * 10 ** digits // x.denominator
-    s = str(abs(n)).rjust(digits + 1, '0')
-    return ('-' if n < 0 else '') + s[:-digits] + '.' + s[-digits:]
+    s_ = str(abs(n)).rjust(digits + 1, '0')
+    return ('-' if n < 0 else '') + s_[:-digits] + '.' + s_[-digits:]
 
 
-def full_run(procs):
-    rs, bs, ks = subboxes()
-    with multiprocessing.Pool(procs) as pool:
-        parts = pool.map(certify_rband, [(ir, L_MIN) for ir in range(R_STEPS)])
-    table = {}
-    for p in parts:
-        table.update(p)
+def band_record(band, table):
     zstar = min(Fr(v['floor']) for v in table.values())
     argmin = min(table, key=lambda kk: Fr(table[kk]['floor']))
-    # floating controls at the corners of every (r, b, k) sub-box: MC of Z_r / r^2 at the upper-r corner, lower b, lower k
-    controls = float_controls(table)
-    res = {
+    spec = BANDS[band]
+    return {'r_range': [str(spec['r'][0]), str(spec['r'][1])], 'r_steps': spec['steps'], 'L_min': spec['L_min'],
+            'statement': 'For d = 2, every frame, every torus side L >= %d, every r in [%s, %s], b in [%s, %s], k in [%s, %s]: Z_r / r^2 >= z_star.' % (
+                spec['L_min'], spec['r'][0], spec['r'][1], BAND_B[0], BAND_B[1], BAND_K[0], BAND_K[1]),
+            'z_star': str(zstar), 'z_star_decimal': dec(zstar), 'argmin': argmin,
+            'torus_epsilon_at_rmax': float(torus_epsilon(spec['L_min'], spec['r'][1])), 'torus_epsilon0': float(torus_epsilon(spec['L_min'], Fr(0))),
+            'table': table, 'float_controls': float_controls(band, table)}
+
+
+def combined(res):
+    """The combined statement: the weaker L floor of the two bands, the whole r range, the smaller z_star."""
+    lo, hi = res['bands']['low'], res['bands']['high']
+    z = min(Fr(lo['z_star']), Fr(hi['z_star']))
+    return {'L_min': max(lo['L_min'], hi['L_min']), 'r_range': [lo['r_range'][0], hi['r_range'][1]], 'z_star': str(z), 'z_star_decimal': dec(z),
+            'statement': 'For d = 2, every frame, every torus side L >= %d, every r in [%s, %s], b in [%s, %s], k in [%s, %s]: Z_r / r^2 >= %s (the high band alone holds for L >= %d).' % (
+                max(lo['L_min'], hi['L_min']), lo['r_range'][0], hi['r_range'][1], BAND_B[0], BAND_B[1], BAND_K[0], BAND_K[1], dec(z), hi['L_min'])}
+
+
+def full_run(procs, bands=None):
+    """Certify the listed bands (default: all) and merge them into RESULTS.json (other bands kept)."""
+    path = os.path.join(HERE, 'RESULTS.json')
+    res = {}
+    if os.path.exists(path):
+        with open(path) as fh:
+            res = json.load(fh)
+    res.setdefault('bands', {})
+    for band in (bands or BAND_ORDER):
+        n = BANDS[band]['steps']
+        with multiprocessing.Pool(procs) as pool:
+            parts = pool.map(certify_rband, [(band, ir) for ir in range(n)])
+        table = {}
+        for part in parts:
+            table.update(part)
+        res['bands'][band] = band_record(band, table)
+    res.update({
         'object': 'CL-C8-NORMALIZER-FLOOR-PLANAR-20260930-v1',
         'scientific_effect': 'NONE', 'certified': True, 'kind': 'certified lower bound (exact rational interval arithmetic)',
-        'statement': 'For d = 2, every frame, every torus side L >= %d, every r in [%s, %s], b in [%s, %s], k in [%s, %s]: Z_r / r^2 >= z_star.' % (L_MIN, BAND_R[0], BAND_R[1], BAND_B[0], BAND_B[1], BAND_K[0], BAND_K[1]),
-        'z_star': str(zstar), 'z_star_decimal': dec(zstar), 'argmin': argmin,
-        'table_note': 'floor = certified lower bound of Z_r / r^2 on the box (exact rational, rounded down to 2^-64); Z_r >= floor * r_lo^2 on the box',
-        'parameters': {'PBITS': PBITS, 'N_EXP': N_EXP, 'L_MIN': L_MIN, 'Z_MAX': Z_MAX, 'R_STEPS': R_STEPS, 'B_STEPS': B_STEPS, 'K_STEPS': K_STEPS,
+        'parameters': {'PBITS': PBITS, 'N_EXP': N_EXP, 'Z_MAX': Z_MAX, 'B_STEPS': B_STEPS, 'K_STEPS': K_STEPS,
                        'grid': {k_: (str(v_) if isinstance(v_, Fr) else v_) for k_, v_ in GRID.items()},
-                       'torus_epsilon_at_rmax': float(torus_epsilon(L_MIN, BAND_R[1])), 'torus_epsilon0': float(torus_epsilon(L_MIN, Fr(0)))},
-        'table': table, 'float_controls': controls, 'mutant': MUT,
-    }
+                       'bands': {name: {'r_range': [str(v['r'][0]), str(v['r'][1])], 'r_steps': v['steps'], 'L_min': v['L_min']} for name, v in BANDS.items()}},
+        'table_note': 'floor = certified lower bound of Z_r / r^2 on the box (exact rational, rounded down to 2^-64); Z_r >= floor * r_lo^2 on the box',
+        'mutant': MUT,
+    })
+    if all(b in res['bands'] for b in BANDS):
+        res['combined'] = combined(res)
     return res
 
 
-def check_run():
+def write_results(res):
+    with open(os.path.join(HERE, 'RESULTS.json'), 'w') as fh:
+        json.dump(res, fh, indent=1, sort_keys=True)
+        fh.write('\n')
+
+
+def load_results():
     path = os.path.join(HERE, 'RESULTS.json')
     require(os.path.exists(path), 'RESULTS.json present')
     with open(path) as fh:
-        ref = json.load(fh)
-    rs, bs, ks = subboxes()
-    # 1. the stored floor is the minimum of the table
-    zs = min(Fr(v['floor']) for v in ref['table'].values())
-    require(str(zs) == ref['z_star'], 'z_star is the minimum of the table')
-    require(dec(zs) == ref['z_star_decimal'], 'decimal rendering')
-    # 2. exact replay of the argmin sub-box and of six further sub-boxes spread over the band (one per 32 r-bands,
-    #    (b, k) indices stepping through the grid); the complete regeneration is --check-full
-    keys = [ref['argmin']] + replay_sample()
-    for kk in keys:
-        parts_ = kk.replace('r=[', '').replace('],b=[', ',').replace('],k=[', ',').replace(']', '').split(',')
-        r0, r1, b0, b1, k0, k1 = [Fr(x) for x in parts_]
-        zlo, fl, _ = band_floor(IV(r0, r1), IV(b0, b1), IV(k0, k1), L_MIN)
-        require(str(fl) == ref['table'][kk]['floor'], 'exact replay of %s' % kk)
-    # 3. every certified floor lies below its floating Monte Carlo controls (sanity, not proof)
-    require(sorted(ref['float_controls']) == control_keys(ref['table']), 'control boxes are the deterministic choice')
-    for kk, row in ref['float_controls'].items():
-        v = ref['table'][kk]
-        for tag, c in row.items():
-            require(Fr(v['floor']) <= Fr(c['mc']) + 5 * Fr(c['se']), 'floor below MC + 5 se at %s %s' % (kk, tag))
-            require(Fr(v['floor']) <= Fr(c['z0']) * Fr(101, 100), 'floor below the r -> 0 limit z_0 at %s %s' % (kk, tag))
+        return json.load(fh)
+
+
+def check_full(procs, bands=None, rbands=None):
+    """Regenerate every sub-box floor of the listed bands (or the r-band indices listed) and compare exactly with
+    RESULTS.json; the floating controls are recomputed and compared to 1e-9 relative (platform libm)."""
+    ref = load_results()
+    n_total = 0
+    for band in (bands or BAND_ORDER):
+        rec = ref['bands'][band]
+        sel = list(range(BANDS[band]['steps'])) if rbands is None else rbands
+        with multiprocessing.Pool(procs) as pool:
+            parts = pool.map(certify_rband, [(band, ir) for ir in sel])
+        n = 0
+        for part in parts:
+            for kk, v in part.items():
+                require(kk in rec['table'], 'sub-box present: %s %s' % (band, kk))
+                require(v['floor'] == rec['table'][kk]['floor'], 'exact regeneration of %s %s' % (band, kk))
+                n += 1
+        n_total += n
+        if rbands is None:
+            require(n == len(rec['table']) == BANDS[band]['steps'] * B_STEPS * K_STEPS, 'table complete: ' + band)
+            zs = min(Fr(v['floor']) for v in rec['table'].values())
+            require(str(zs) == rec['z_star'], 'z_star is the minimum of the regenerated table: ' + band)
+            controls = float_controls(band, rec['table'])
+            require(sorted(controls) == sorted(rec['float_controls']), 'control set: ' + band)
+            for kk, row in controls.items():
+                for tag, c in row.items():
+                    r0 = rec['float_controls'][kk][tag]
+                    for name in ('mc', 'se', 'z0'):
+                        require(abs(c[name] - r0[name]) <= 1e-9 * max(abs(r0[name]), 1e-300), 'control %s %s %s %s' % (band, kk, tag, name))
+    print(json.dumps({'check_full': 'ok', 'sub_boxes_regenerated': n_total, 'bands': bands or list(BAND_ORDER), 'z_star_combined': ref.get('combined', {}).get('z_star_decimal'), 'mutant': MUT}))
+
+
+def check_run():
+    ref = load_results()
+    require(sorted(ref['bands']) == sorted(BANDS), 'both bands present')
+    for band in BAND_ORDER:
+        rec = ref['bands'][band]
+        spec = BANDS[band]
+        require(rec['L_min'] == spec['L_min'] and rec['r_steps'] == spec['steps'] and rec['r_range'] == [str(spec['r'][0]), str(spec['r'][1])], 'band record matches the code: ' + band)
+        require(len(rec['table']) == spec['steps'] * B_STEPS * K_STEPS, 'table size: ' + band)
+        # 1. the stored floor is the minimum of the table
+        zs = min(Fr(v['floor']) for v in rec['table'].values())
+        require(str(zs) == rec['z_star'] and dec(zs) == rec['z_star_decimal'], 'z_star is the minimum of the table: ' + band)
+        # 2. exact replay of the argmin sub-box and of sub-boxes spread over the band; the complete regeneration is --check-full
+        for kk in [rec['argmin']] + replay_sample(band):
+            r0, r1, b0, b1, k0, k1 = parse_key(kk)
+            zlo, fl, _ = band_floor(IV(r0, r1), IV(b0, b1), IV(k0, k1), spec['L_min'])
+            require(str(fl) == rec['table'][kk]['floor'], 'exact replay of %s %s' % (band, kk))
+        # 3. every certified floor lies below its floating Monte Carlo controls (sanity, not proof)
+        require(sorted(rec['float_controls']) == control_keys(band, rec['table']), 'control boxes are the deterministic choice: ' + band)
+        for kk, row in rec['float_controls'].items():
+            v = rec['table'][kk]
+            for tag, c in row.items():
+                require(Fr(v['floor']) <= Fr(c['mc']) + 5 * Fr(c['se']), 'floor below MC + 5 se at %s %s %s' % (band, kk, tag))
+                require(Fr(v['floor']) <= Fr(c['z0']) * Fr(101, 100), 'floor below the r -> 0 limit z_0 at %s %s %s' % (band, kk, tag))
+    comb = combined(ref)
+    require(comb == ref['combined'], 'combined statement')
     # 4. the preconditioned regression agrees with the direct floating regression at a point band
-    for (r, b, k) in ((Fr(1, 4), Fr(1, 2), Fr(1)), (Fr(3, 8), Fr(0), Fr(2))):
-        mu, C = conditional(IV(r), IV(b), IV(k), L_MIN)
+    # the direct floating regression on the raw pins is ill conditioned (condition number ~ r^-6), so its tolerance
+    # is loosened at r = 1/32; the exact preconditioned regression keeps its 1e-6 enclosure width everywhere
+    for (r, b, k, tol) in ((Fr(1, 4), Fr(1, 2), Fr(1), 1e-9), (Fr(3, 8), Fr(0), Fr(2), 1e-9), (Fr(1, 32), Fr(1), Fr(1, 2), 1e-5)):
+        mu, C = conditional(IV(r), IV(b), IV(k), 12)
         fmu, fC = float_conditional(float(r), float(b), float(k))
         rr = float(r)
         kk_ = float(k)
@@ -909,16 +966,16 @@ def check_run():
         hm = [sum(A[i][j] * m[j] for j in range(6)) + shift[i] for i in range(6)]
         hc = [[sum(A[i][a] * c[a][bb] * A[j][bb] for a in range(6) for bb in range(6)) for j in range(6)] for i in range(6)]
         for i in range(6):
-            require(abs(hm[i] - fmu[i]) < 1e-9 * (1 + abs(fmu[i])), 'mean agreement %d' % i)
+            require(abs(hm[i] - fmu[i]) < tol * (1 + abs(fmu[i])), 'mean agreement %d at r=%s' % (i, r))
             for j in range(6):
-                require(abs(hc[i][j] - fC[i][j]) < 1e-9 * (1 + abs(fC[i][j])), 'covariance agreement %d %d' % (i, j))
+                require(abs(hc[i][j] - fC[i][j]) < tol * (1 + abs(fC[i][j])), 'covariance agreement %d %d at r=%s' % (i, j, r))
             require(mu[i].width() < Fr(1, 10 ** 6) and C[i][i].width() < Fr(1, 10 ** 6), 'point-band enclosure width')
     # 5. constants
     require(abs(PI.mid() - Fr(3141592653589793, 10 ** 15)) < Fr(1, 10 ** 15) and PI.width() < Fr(1, 10 ** 30), 'pi enclosure')
     require(phi_point(Fr(0)).contains(Fr(1, 2)) and abs(Phi(IV(1)).mid() - Fr(8413447460685429, 10 ** 16)) < Fr(1, 10 ** 15) and Phi(IV(1)).width() < Fr(1, 10 ** 30), 'Phi enclosure')
     require(abs(exp_neg_point(Fr(1)).mid() - Fr(36787944117144233, 10 ** 17)) < Fr(1, 10 ** 15) and exp_neg_point(Fr(1)).width() < Fr(1, 10 ** 30), 'exp enclosure')
     require(abs(SQRT2.mid() * SQRT2.mid() - 2) < Fr(1, 10 ** 40), 'sqrt enclosure')
-    print(json.dumps({'check': 'ok', 'z_star': ref['z_star_decimal'], 'mutant': MUT}))
+    print(json.dumps({'check': 'ok', 'z_star_combined': ref['combined']['z_star_decimal'], 'z_star_high': ref['bands']['high']['z_star_decimal'], 'z_star_low': ref['bands']['low']['z_star_decimal'], 'mutant': MUT}))
 
 
 def main():
@@ -927,41 +984,38 @@ def main():
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--mutant', choices=MUTANTS)
     ap.add_argument('--procs', type=int, default=4)
-    ap.add_argument('--quick', action='store_true', help='one sub-box, print the floor and a Monte Carlo control')
+    ap.add_argument('--quick', action='store_true', help='one sub-box of the high band, print the floor and a Monte Carlo control')
     ap.add_argument('--controls', action='store_true', help='recompute only the floating controls of an existing RESULTS.json')
-    ap.add_argument('--check-full', action='store_true', help='regenerate every sub-box and compare exactly with RESULTS.json (about an hour on four cores)')
-    ap.add_argument('--bands', type=str, default=None, help='with --check-full: comma-separated r-band indices to regenerate instead of all')
+    ap.add_argument('--check-full', action='store_true', help='regenerate every sub-box of the listed bands and compare exactly with RESULTS.json')
+    ap.add_argument('--band', type=str, default=None, help='comma-separated band names (low, high); default all')
+    ap.add_argument('--rbands', type=str, default=None, help='with --check-full: comma-separated r-band indices to regenerate instead of all')
     args = ap.parse_args()
     MUT = args.mutant
+    bands = None if args.band is None else args.band.split(',')
     if args.check_full:
-        check_full(args.procs, None if args.bands is None else [int(x) for x in args.bands.split(',')])
+        check_full(args.procs, bands, None if args.rbands is None else [int(x) for x in args.rbands.split(',')])
         return
     if args.check:
         check_run()
         return
     if args.quick:
-        rs, bs, ks = subboxes()
+        rs, bs, ks = subboxes('high')
         import time
         t0 = time.time()
-        zlo, fl, diag = band_floor(IV(rs[0], rs[1]), IV(bs[0], bs[1]), IV(ks[0], ks[1]), L_MIN)
+        zlo, fl, diag = band_floor(IV(rs[0], rs[1]), IV(bs[0], bs[1]), IV(ks[0], ks[1]), BANDS['high']['L_min'])
         print('floor', float(fl), diag, 'time', time.time() - t0)
         print('mc at r1,b0,k0', float_mc(float(rs[1]), float(bs[0]), float(ks[0]), 20000, 1), 'z0', z0_limit(float(bs[0]), float(ks[0])))
         return
     if args.controls:
-        path = os.path.join(HERE, 'RESULTS.json')
-        with open(path) as fh:
-            res = json.load(fh)
-        res['float_controls'] = float_controls(res['table'])
-        with open(path, 'w') as fh:
-            json.dump(res, fh, indent=1, sort_keys=True)
-            fh.write('\n')
-        print(json.dumps({'controls': len(res['float_controls'])}))
+        res = load_results()
+        for band in (bands or BAND_ORDER):
+            res['bands'][band]['float_controls'] = float_controls(band, res['bands'][band]['table'])
+        write_results(res)
+        print(json.dumps({'controls': {band: len(res['bands'][band]['float_controls']) for band in res['bands']}}))
         return
-    res = full_run(args.procs)
-    with open(os.path.join(HERE, 'RESULTS.json'), 'w') as fh:
-        json.dump(res, fh, indent=1, sort_keys=True)
-        fh.write('\n')
-    print(json.dumps({'z_star': res['z_star_decimal'], 'argmin': res['argmin']}))
+    res = full_run(args.procs, bands)
+    write_results(res)
+    print(json.dumps({band: (res['bands'][band]['z_star_decimal'], res['bands'][band]['argmin']) for band in res['bands']}))
 
 
 if __name__ == '__main__':

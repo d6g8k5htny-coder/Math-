@@ -16,20 +16,23 @@ vector `u`, radius `r`, birth `b` and gap `k`, let `Q = Q_{r,b,k,R}` be the Gaus
 
     W_r = |det H_M  det H_S| 1{H_M < 0, index H_S = 1},      Z_r = E_Q W_r      ([LP] section 1).
 
-**Certified inequality.** For every `L >= 10`, every frame, and every `(r, b, k)` with
+**Certified inequality.** For every frame and every `(b, k)` with `0 <= b <= 1`, `1/2 <= k <= 2`:
 
-    1/8 <= r <= 1/2,      0 <= b <= 1,      1/2 <= k <= 2,
+    L >= 12,   1/64 <= r <= 1/2 :    Z_r / r^2  >=  z_*  =  3.5044 ,
+    L >= 10,   1/8  <= r <= 1/2 :    Z_r / r^2  >=  3.5044   (high band),
+    L >= 12,   1/64 <= r <= 1/8 :    Z_r / r^2  >=  7.0499   (low band),
 
-    Z_r / r^2  >=  z_*  =  3.5044 ,
-
-with the sharper sub-box floors of `RESULTS.json` (`table`; 192 x 8 x 6 boxes, `r` in steps of `1/512`, `b` of `1/8`,
-`k` of `1/4`): in particular `Z_r / r^2 >= 6.5593 ` for `r <= 3/16`, `>= 6.0085 ` for `r <= 1/4`, `>= 4.7822 `
-for `r <= 3/8` (all `b`, `k` in the band), and for every box the floor scales as `k_lo^2 x q(box)` with `q` certified for
-`Z_r / (r^2 k^2)`. The minimum is attained at `r=[255/512,1/2],b=[0,1/8],k=[1/2,3/4]`.
+with the sharper sub-box floors of `RESULTS.json` (`bands.high.table`: 192 x 8 x 6 boxes on `[1/8, 1/2]`;
+`bands.low.table`: 56 x 8 x 6 boxes on `[1/64, 1/8]`; `r` in steps of `1/512`, `b` of `1/8`, `k` of `1/4`): in particular
+`Z_r / r^2 >= 7.6517` for `r <= 1/32`, `>= 7.4705` for `r <= 1/16`, `>= 6.5593` for `1/8 <= r <= 3/16`,
+`>= 6.0085` for `1/8 <= r <= 1/4`, `>= 4.7822` for `1/8 <= r <= 3/8` (all `b`, `k` in the band), and for every box the floor
+scales as `k_lo^2 x q(box)` with `q` certified for `Z_r / (r^2 k^2)`. The high-band minimum is attained at
+`r=[255/512,1/2],b=[0,1/8],k=[1/2,3/4]`, the low-band minimum at `r=[63/512,1/8],b=[0,1/8],k=[1/2,3/4]`. The low band needs `L >= 12`
+because the periodization remainder enters the preconditioned functionals with the factor `r^-10` (section 2).
 
 This is the constant whose existence is [LP] (5.5) (`0 < z_* <= Z_r / r^2`), with a number on a declared band. It is
-a lower bound, not an enclosure: the floating Monte Carlo controls of section 4 put the true `Z_r / r^2` at `1.2` to
-`2` times the floor across the band (`0.50` to `0.85` as a ratio floor / MC).
+a lower bound, not an enclosure: the floating Monte Carlo controls of section 4 put the true `Z_r / r^2` at `1.1` to
+`2` times the floor across the bands (`0.50` to `0.89` as a ratio floor / MC).
 
 ## 1. Reduction to a six-dimensional Gaussian and the r -> 0 limit
 
@@ -84,6 +87,9 @@ them on the band (a structural check of the jet algebra). Evaluation is a term-b
 whole covariance is divided by `Theta` at the end (a common positive factor leaves the regression coefficients unchanged
 and scales the conditional covariance by `1/Theta in [1/(1 + eps_0), 1]`). At `L = 10`, `eps(10, 1/2) = 4.93e-15`,
 `eps_0 = 4.41e-17`; the cross-block Cholesky entries this produces are of size `1e-9` to `1e-6` and are absorbed below.
+The preconditioned functionals carry coefficients up to `r^-5`, so a raw perturbation `eps` becomes `eps r^-10` in the
+`O(1)` covariances: `5e-6` at `L = 10`, `r = 1/8`, but `60` at `L = 10`, `r = 1/64`, where the interval Cholesky fails; the low
+band is therefore declared for `L >= 12`, where `eps(12, 1/8) = 9.37e-26` gives `3e-8` at `r = 1/64`.
 Determinants and indices are frame invariant, so the rotated-frame Hessian is the one of [LP].
 
 **Cells and the lower bound.** With `L` the interval Cholesky factor of `C` in the order `(w_M, om, T_M, tau, v_M, nu)`
@@ -126,18 +132,23 @@ widening). All interval endpoints are rounded outward to `2^-160`.
 
 ## 3. Values (`RESULTS.json`)
 
-Global floor over the band: `z_* = 3.5044` (attained at `r=[255/512,1/2],b=[0,1/8],k=[1/2,3/4]`). Floors by `r`-range (minimum over all `b`,
-`k` sub-boxes with `r` in the range):
+Combined floor: `z_* = 3.5044` (`L >= 12`, `r in [1/64, 1/2]`); high band `3.5044` (attained at `r=[255/512,1/2],b=[0,1/8],k=[1/2,3/4]`,
+valid for `L >= 10`); low band `7.0499` (attained at `r=[63/512,1/8],b=[0,1/8],k=[1/2,3/4]`). Floors by `r`-range (minimum over all
+`b`, `k` sub-boxes with `r` in the range):
 
 | `r` range | floor of `Z_r / r^2` | at `(b, k)` box |
 |---|---|---|
+| `[1/64, 1/32]` | `7.6517` | `b in [0, 1/8], k in [1/2, 3/4]` |
+| `[1/64, 1/16]` | `7.4705` | `b in [0, 1/8], k in [1/2, 3/4]` |
+| `[1/64, 1/8]` | `7.0499` | `b in [0, 1/8], k in [1/2, 3/4]` |
 | `[1/8, 3/16]` | `6.5593` | `b in [0, 1/8], k in [1/2, 3/4]` |
 | `[1/8, 1/4]` | `6.0085` | `b in [0, 1/8], k in [1/2, 3/4]` |
 | `[1/8, 3/8]` | `4.7822` | `b in [0, 1/8], k in [1/2, 3/4]` |
 | `[1/8, 1/2]` | `3.5044` | `b in [0, 1/8], k in [1/2, 3/4]` |
 
 Floors at fixed `(b, k)` corners (minimum over the `r`-bands in the range), against the floating Monte Carlo of
-`Z_r / r^2` at the worst corner `(r_hi, b_lo, k_lo)` of the box attaining the floor and the limit `z_0(b_lo, k_lo)`:
+`Z_r / r^2` at the worst corner `(r_hi, b_lo, k_lo)` of the box attaining the floor and the limit `z_0(b_lo, k_lo)`.
+High band:
 
 | box (`b`, `k`) | `r <= 1/4`: floor / MC (s.e.) | `r <= 1/2`: floor / MC (s.e.) | `z_0(b_lo, k_lo)` |
 |---|---|---|---|
@@ -151,45 +162,60 @@ Floors at fixed `(b, k)` corners (minimum over the `r`-bands in the range), agai
 | `b in [7/8, 1], k in [5/4, 3/2]` | `101.6349` / `128.778` (`1.016`) | `67.5804` / `107.627` (`0.884`) | `136.798` |
 | `b in [7/8, 1], k in [7/4, 2]` | `200.1061` / `251.529` (`1.988`) | `131.2506` / `204.401` (`1.702`) | `268.124` |
 
+Low band:
+
+| box (`b`, `k`) | `r <= 1/16`: floor / MC (s.e.) | `r <= 1/8`: floor / MC (s.e.) | `z_0(b_lo, k_lo)` |
+|---|---|---|---|
+| `b in [0, 1/8], k in [1/2, 3/4]` | `7.4705` / `8.822` (`0.099`) | `7.0499` / `8.728` (`0.098`) | `9.000` |
+| `b in [0, 1/8], k in [5/4, 3/2]` | `47.0643` / `55.144` (`0.619`) | `45.0742` / `54.546` (`0.614`) | `56.250` |
+| `b in [0, 1/8], k in [7/4, 2]` | `92.1467` / `108.077` (`1.214`) | `88.4466` / `106.858` (`1.204`) | `110.250` |
+| `b in [1/2, 5/8], k in [1/2, 3/4]` | `12.9311` / `15.048` (`0.136`) | `12.2491` / `14.911` (`0.135`) | `15.308` |
+| `b in [1/2, 5/8], k in [5/4, 3/2]` | `81.4752` / `94.056` (`0.853`) | `78.2739` / `93.178` (`0.846`) | `95.674` |
+| `b in [1/2, 5/8], k in [7/4, 2]` | `159.5667` / `184.340` (`1.671`) | `153.6276` / `182.550` (`1.659`) | `187.521` |
+| `b in [7/8, 1], k in [1/2, 3/4]` | `18.7088` / `21.565` (`0.169`) | `17.7588` / `21.389` (`0.168`) | `21.888` |
+| `b in [7/8, 1], k in [5/4, 3/2]` | `117.8971` / `134.787` (`1.055`) | `113.4950` / `133.658` (`1.048`) | `136.798` |
+| `b in [7/8, 1], k in [7/4, 2]` | `230.9466` / `264.171` (`2.068`) | `222.8022` / `261.865` (`2.053`) | `268.124` |
+
 ## 4. Precision and controls (floating, not certified)
 
 - The floor is a certified lower bound; its distance from the truth is the sum of the cell-minimum losses (the
   determinant is replaced by its minimum over each cell), the box widths in `(r, b, k)`, the `+-c sd` truncations and
   the dropped `H_xy(S)^2`. The floating Monte Carlo controls (`40000` samples, seed `2026`, direct regression of the
-  six raw Hessian entries, continuum kernel) give ratios floor / MC between `0.50` and `0.85` over
-  the `38` control boxes; every floor lies below its control by more than five standard errors and below the
+  six raw Hessian entries, continuum kernel) give ratios floor / MC between `0.50` and `0.89` over
+  the `76` control boxes of the two bands (the low band reaches `0.85`–`0.90`); every floor lies below its control by more than five standard errors and below the
   `r -> 0` limit `z_0(b_lo, k_lo)` (both are `--check` rules; they are consistency checks, not part of the proof).
 - The preconditioned exact regression agrees with the direct floating regression of the six raw entries to `1e-9`
-  relative at two point bands (`--check` rule); the point-band enclosures have widths below `1e-6`.
+  relative at `r = 1/4, 3/8` and to `1e-5` at `r = 1/32`, where the direct regression on the raw pins is ill conditioned
+  (`--check` rule); the point-band enclosures of the preconditioned regression have widths below `1e-6` at all three.
 - Sensitivity to the band width: at `r = 1/8` the same sub-box certified with `r`-bands of width `1/32`, `1/128`,
   `1/512` gives floors of `0.51`, `0.69`, `0.74` of the Monte Carlo value (the interval Cholesky widths scale with the
   band width); `1/512` is the production choice.
 
 ## 5. What this does not do
 
-Not an enclosure of `Z_r / r^2` (a lower bound only, `1.2` to `2` times below the truth). Not a value of `C`, `r_*`,
+Not an enclosure of `Z_r / r^2` (a lower bound only, `1.1` to `2` times below the truth). Not a value of `C`, `r_*`,
 `c_{B,K}` or `c_{d,L}` of [LP] Theorems A-C, and no statement about `p_r`, the elder selection, the boundary layer of
-[LP] section 7, or any `d >= 3` normalizer. Planar only, `L >= 10` (the `L = 24` SIDE24 torus included), aligned or
-rotated frames, `r in [1/8, 1/2]`, `b in [0, 1]`, `k in [1/2, 2]`; nothing for `r < 1/8` (where the floor tends to
-`z_0`) or `r > 1/2`. Not a review of [LP]; the definitions of `Q`, `W_r`, `Z_r` are consumed as stated, and (5.4)-(5.5)
+[LP] section 7, or any `d >= 3` normalizer. Planar only, `L >= 12` on `[1/64, 1/2]` and `L >= 10` on `[1/8, 1/2]` (the
+`L = 24` SIDE24 torus included), aligned or rotated frames, `b in [0, 1]`, `k in [1/2, 2]`; nothing for `r < 1/64`
+(where the floor tends to `z_0`), `r > 1/2`, or `L < 10`. Not a review of [LP]; the definitions of `Q`, `W_r`, `Z_r` are consumed as stated, and (5.4)-(5.5)
 are not revalidated (the certified band does not use them). No register, catalog, GRAPH or STATUS change; C8 stays
 OPEN. Same GitHub account as every lane; zero organizational-independence credit. The author will not merge.
 
 ## 6. Verification
 
-`python3 -B -S floor.py --check` (and `-B -O -S`; about three minutes): re-derives the certified floor of seven sub-boxes
-(the argmin box and six boxes spread over the band, one per 32 `r`-bands) from scratch and requires exact agreement with
-`RESULTS.json`; checks that the stored `z_star` is the minimum of the table; checks every floating control (floor `<=` MC `+ 5` s.e., floor `<= 1.01 z_0`); checks the
-preconditioned regression against the direct floating regression at two point bands, the Laurent cancellations, and
+`python3 -B -S floor.py --check` (and `-B -O -S`; about three minutes): re-derives the certified floor of twelve sub-boxes
+(each band's argmin box, six high-band boxes one per 32 `r`-bands, four low-band boxes one per 18) from scratch and requires exact agreement with
+`RESULTS.json`; checks that each band's stored `z_star` is the minimum of its table and the combined statement; checks every floating control (floor `<=` MC `+ 5` s.e., floor `<= 1.01 z_0`); checks the
+preconditioned regression against the direct floating regression at three point bands, the Laurent cancellations, and
 the bracketing of `pi`, `Phi(1)`, `exp(-1)`. Mutants (`--mutant`, must exit 1): `swap-minmax` (piece maximum instead
 of minimum in the rectangle bound; the floor exceeds its Monte Carlo control), `drop-torus-error` (`eps = eps_0 = 0`;
 exact replay fails), `sign-saddle` (index condition of `H_S` reversed; exact replay fails). The workflow
 `c8-normalizer-floor-planar.yml` replays the manifest, the two main-resident pins, both check modes and the mutants.
-`python3 -B -S floor.py --check-full --procs N` regenerates **every** one of the 9216 sub-box floors and requires exact
-agreement with `RESULTS.json` (`--bands i,j,...` restricts to listed `r`-bands for a partial check); the workflow's
-`full-regeneration` job runs it on demand (`workflow_dispatch`, two cores, about two hours), since the per-pull-request
+`python3 -B -S floor.py --check-full --procs N` regenerates **every** one of the 11904 sub-box floors (9216 high, 2688 low) and requires exact
+agreement with `RESULTS.json` (`--band low,high` and `--rbands i,j,...` restrict to bands or listed `r`-bands for a partial check); the workflow's
+`full-regeneration` job runs it on demand (`workflow_dispatch`, two cores, about three hours), since the per-pull-request
 job cannot carry it in both interpreter modes with the mutants. The certificate for a stored floor is its exact
-regeneration; the manifest authenticates the bytes, not their derivation. The full run (`--procs 4`, about 64 minutes
+regeneration; the manifest authenticates the bytes, not their derivation. The full run (`--procs 4`; 64 minutes for the high band and about 20 for the low band
 on four cores) regenerates `RESULTS.json` deterministically (exact rationals; the floating controls are seeded).
 
 ## 7. Provenance
