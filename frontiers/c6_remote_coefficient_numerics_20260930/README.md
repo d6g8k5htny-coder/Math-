@@ -10,8 +10,11 @@ that enters `nu(1)` by [CL] (1.4). Companion of the near-coefficient note (Math-
 `alpha_1 = nu_near(1)` are quoted to assemble `nu(1)`.
 
 - `NOTE.md` — statement of what is evaluated, exact structure, method, values, precision, non-claims.
-- `remote.py` — standard-library script: `--check` (exact controls and replay against `RESULTS.json`), full run
-  regenerates `RESULTS.json`; `--mutant {hermite-sign, det-abs, weight-indicator}` must exit 1.
+- `remote.py` — standard-library script (Python `>= 3.11`): `--check` (exact controls and replay against
+  `RESULTS.json`, point-wise tolerance `1e-6` relative to cover interpreter differences), full run regenerates
+  `RESULTS.json` (about 36 minutes); `--mutant {hermite-sign, det-abs, weight-indicator}` must exit 1.
+- Orientation: continuum values hold for every pin direction `u`; all `L`-periodized values are for `u = e_1`
+  aligned with a lattice axis.
 - `RESULTS.json` — all numbers, grids and convergence checks.
 - `SOURCE_MAP.json` — pinned sources on `main` (blob identities); `SOURCE_FILES.json` — packet manifest.
 - Workflow `.github/workflows/c6-remote-coefficient-numerics.yml` replays manifest, pins, both check modes and the

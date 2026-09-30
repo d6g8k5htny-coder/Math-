@@ -18,10 +18,14 @@ with `Lambda_j` the contact kernel of [RM] (13):
 
 `U_0 = (f, f_x, f_z, f_xx, f_xz, f_xxx)(0) = (b, 0, 0, 0, 0, 12k)` the contact observation, `A_0 = f_zz(0)` the soft
 curvature, `w_0 = (6k)^2 A_0^2 1{A_0 < 0}` ([RM] (10) at `d = 2`), `z_0 = E[w_0 | U_0 = v_0] = 36 k^2 m_(2,b)`
-([RM] (11), [LP] (5.4)), `Y_x = (f_x, f_z, f)(x)`, `H_x` the Hessian at `x`, `F_j(H) = |det H| 1{index H = j}`. The
+([RM] (11), [LP] (5.4)) with `m_(2,b) = E[A_0^2 1{A_0 < 0} | U_0]` taken under the same kernel as the numerator
+(continuum: `A_0 | U_0 ~ N(-b, 2)` exactly; `L = 6`: the periodized conditional law, `m_(2,0) = 1.0000175`), `Y_x = (f_x, f_z, f)(x)`, `H_x` the Hessian at `x`, `F_j(H) = |det H| 1{index H = j}`. The
 field is the centered unit-variance Gaussian field on `X = R^2/(L Z^2)` with the exact kernel of [LP] section 2,
-`K_L(z) = sum_n exp(-|z + Ln|^2/2) / sum_n exp(-|Ln|^2/2)`. Everything is a finite-dimensional Gaussian
-computation: the 13-vector of jets (seven at `0`, six at `x`) has covariance
+`K_L(z) = sum_n exp(-|z + Ln|^2/2) / sum_n exp(-|Ln|^2/2)`. Orientation: the continuum kernel is isotropic, so
+continuum quantities (`Lambda_inf`, `c_hole`, sample kernels, profiles) hold for every pin direction `u`; the
+square torus is not rotation-invariant, and every `L`-periodized value in this note is computed with the pin
+direction `u = e_1` aligned with a lattice axis (the image lattice is written in pin-frame coordinates). No other
+orientation is computed. Everything is a finite-dimensional Gaussian computation: the 13-vector of jets (seven at `0`, six at `x`) has covariance
 `Cov(d^alpha f(s), d^beta f(t)) = (-1)^|alpha| (d^(alpha+beta) K_L)(t - s)`, with
 `d^a_x d^c_z exp(-|z|^2/2) = (-1)^(a+c) He_a(x_1) He_c(z) exp(-|z|^2/2)` (probabilists' Hermite polynomials).
 
@@ -75,9 +79,12 @@ analytic map concentrating them at the angular position of the (generally offset
 mean; every piece of the integrand is smooth, and the nested rule converges geometrically on the exact control
 (`1.8e-14 relative on Lambda_inf(0) between orders` at the higher order).
 
-**Ill-conditioned points.** Near the pin axis the conditional law of `Y_x` given `U_0` has variances down to
-`|x|^6`, and the double-precision regression can lose positivity where `Lambda` is already below `10^(-20)`. Such
-points (`24` in the whole run) are recomputed in 50-digit decimal arithmetic; none carries weight.
+**Ill-conditioned points.** Near the pin the conditional law of `Y_x` given `U_0` has variances down to `|x|^6`,
+and the double-precision regression can lose positivity, either in the Hessian block (near the axis, where
+`Lambda` is below `10^(-20)`) or in the Schur complement `Var(A_0 | H_x)` (near the pin in the transverse sector,
+where `Lambda` is small but not negligible: at `r = 0.05` transverse a clamped `Var(A_0 | H_x)` would misreport
+`Lambda` by a factor ten). The full `4 x 4` conditional covariance of `(A_0, H_x)` is therefore Cholesky-factored,
+and any nonpositive pivot sends the point (`{{exact_count}}` in the whole run) to a 50-digit decimal regression.
 
 ## 3. Method
 

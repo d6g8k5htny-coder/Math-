@@ -9,6 +9,8 @@ optional Monte Carlo cross-check (fixed seed).  Nothing here is a proof or an en
 
     python -B -S remote.py            # full run, writes RESULTS.json (long: tens of minutes)
     python -B -S remote.py --check    # exact controls + replay of a small subset against RESULTS.json
+                                      # (Python >= 3.11; point-wise replay tolerance 1e-6 relative covers
+                                      #  interpreter/libm differences between 3.11 and 3.14)
     python -B -S remote.py --check --mutant NAME   # must exit 1
 
 Conventions.  Coordinates x = (x1, z): x1 along the pin axis u, z transverse.  Jets are indexed by
@@ -71,7 +73,11 @@ def _log(t):
 
 def kernel_derivative(a, c, x1, z, L=None, images=2):
     """(d^a/dx1^a d^c/dz^c) K_L(x1, z) for K(z) = exp(-|z|^2/2), K_L its normalized L-periodization.
-    L = None: continuum kernel (single image).  Works in float or Decimal arithmetic (type of x1)."""
+    L = None: continuum kernel (single image).  Works in float or Decimal arithmetic (type of x1).
+    Orientation: (x1, z) are pin-frame coordinates and the image lattice is L Z^2 in these SAME coordinates,
+    i.e. every periodized value in this note is for the pin direction u = e_1 aligned with a lattice axis.
+    The continuum kernel is isotropic, so its values hold for every u; the periodized ones do not ([RM]:
+    Lambda_j depends on u through the frame), and no other orientation is computed here."""
     if L is None:
         return (-1) ** (a + c) * hermite(a, x1) * hermite(c, z) * _exp(-(x1 * x1 + z * z) / 2)
     tot = 0 * x1
@@ -292,7 +298,10 @@ def weighted_determinant_integrals(mu, S, rules):
     SAH = [S[0][j] for j in (1, 2, 3)]
     SAw = [sum(T[i][k] * SAH[k] for k in range(3)) for i in range(3)]
     wA = chol_solve(Lw, SAw)
-    sA = math.sqrt(max(S[0][0] - sum(SAw[i] * wA[i] for i in range(3)), 0.0))
+    sA2 = S[0][0] - sum(SAw[i] * wA[i] for i in range(3))
+    if sA2 <= 0.0:
+        raise ValueError('Var(A_0 | H) not positive: %r' % sA2)
+    sA = math.sqrt(sA2)
     muA = mu[0]
     # inverse via Cholesky for the quadratic form
     Linv = [[0.0] * 3 for _ in range(3)]
@@ -388,6 +397,11 @@ def _conditioning(x1, z, b, k, L, exact):
         bb, kk = b, k
     C = joint_covariance(x1, z, L)
     u0 = [bb, 0 * bb, 0 * bb, 0 * bb, 0 * bb, 12 * kk]
+    # one-site contact law of A_0 = f_zz(0) given U_0 under the SAME kernel (continuum: exactly N(-b, 2);
+    # periodized: the L-dependent conditional law), so that z_0 = 36 k^2 E[A_0^2 1{A_0 < 0} | U_0] is the
+    # normalizer of the field actually used ([RM] (11))
+    meanA, covA, _ = condition(C, OBS0, u0, [5])
+    m2 = m2_negative(float(meanA[0]), math.sqrt(float(covA[0][0])))
     meanY, covY, _ = condition(C, OBS0, u0, OBSX)
     LY = cholesky(covY)
     dev = [0 - meanY[0], 0 - meanY[1], bb - meanY[2]]
@@ -398,24 +412,25 @@ def _conditioning(x1, z, b, k, L, exact):
     mu, S, _ = condition(C, obs, vals, TARGETS)
     mu = [float(v) for v in mu]
     S = [[float(v) for v in row] for row in S]
-    # positivity of the (h1, h2, h3) block is needed by the quadrature
-    cholesky([[S[i][j] for j in (1, 2, 3)] for i in (1, 2, 3)])
-    return logp, mu, S
+    # the quadrature needs the (h1, h2, h3) block AND the Schur complement Var(A_0 | H_x) positive; a
+    # nonpositive pivot anywhere in the full 4 x 4 conditional covariance means the double-precision
+    # regression has lost the tiny residual variances and the caller must redo it in decimal arithmetic
+    cholesky(S)
+    return logp, mu, S, m2
 
 
 def lambda_at(x1, z, b, k, rules, L=None):
     """Returns dict: Lambda_j (j = 0, 1, 2), Lambda (sum), the unweighted remote density rho_j =
     p * E[F_j | obs] (what the same point would carry without the pin weight), logp, coupling."""
     try:
-        logp, mu, S = _conditioning(x1, z, b, k, L, False)
+        logp, mu, S, mm = _conditioning(x1, z, b, k, L, False)
         exact = False
     except ValueError:
-        logp, mu, S = _conditioning(x1, z, b, k, L, True)
+        logp, mu, S, mm = _conditioning(x1, z, b, k, L, True)
         exact = True
         EXACT_COUNT[0] += 1
     p = math.exp(logp)
     W = weighted_determinant_integrals(mu, S, rules)
-    mm = m2b(b)
     lam = [p * W['G'][j] / mm for j in range(3)]
     rho = [p * W['F'][j] for j in range(3)]
     fsum = W['F'][0] + W['F'][1] + W['F'][2]
@@ -485,8 +500,9 @@ def mc_absdet(n, seed=2026):
 def hole_integral(b, k, rules, Rc=5.0, h=0.2, lam_inf=None):
     """2 * sum over the midpoint grid on [-Rc, Rc] x (0, Rc] of (Lambda(x) - Lambda_inf) h^2, by index.
     Continuum kernel."""
-    n1 = int(round(2 * Rc / h))
     n2 = int(round(Rc / h))
+    h = Rc / n2                 # effective spacing: the cells tile [-Rc, Rc] x (0, Rc] exactly
+    n1 = 2 * n2
     tot = [0.0, 0.0, 0.0]
     tot_rho = [0.0, 0.0, 0.0]
     minlam, maxlam = float('inf'), float('-inf')
@@ -508,9 +524,11 @@ def hole_integral(b, k, rules, Rc=5.0, h=0.2, lam_inf=None):
 
 
 def torus_integral(b, k, rules, L, h=0.2):
-    """integral over the fundamental domain [-L/2, L/2]^2 of Lambda_L(x) dx (periodized kernel), by index."""
-    n1 = int(round(L / h))
+    """integral over the fundamental domain [-L/2, L/2]^2 of Lambda_L(x) dx (periodized kernel), by index.
+    The pin direction u is the lattice axis e_1 (see kernel_derivative)."""
     n2 = int(round(L / (2 * h)))
+    h = L / (2 * n2)            # effective spacing: the cells tile [-L/2, L/2] x (0, L/2] exactly
+    n1 = 2 * n2
     tot = [0.0, 0.0, 0.0]
     for i in range(n1):
         x1 = -L / 2 + (i + 0.5) * h
@@ -521,11 +539,14 @@ def torus_integral(b, k, rules, L, h=0.2):
                 tot[q] += r['lambda_j'][q]
     scale = 2.0 * h * h
     return {'integral_j': [scale * t for t in tot], 'integral': scale * sum(tot),
-            'grid': {'L': L, 'h': h, 'points': n1 * n2, 'symmetry': 'z -> -z'}}
+            'grid': {'L': L, 'h': h, 'points': n1 * n2, 'symmetry': 'z -> -z', 'u': 'e_1'}}
 
 
 # ----------------------------------------------------------------------------- controls
 EXACT_COUNT = [0]
+# replay tolerance for point-wise kernel values: libm/interpreter differences (Python 3.11 versus 3.12-3.14 were
+# observed at 8e-9 relative on a near-pin sample) stay far below this; the mutants move values by O(1)
+REPLAY_TOL = 1e-6
 SAMPLE_POINTS = [(0.15, 0.15), (0.5, 0.3), (-0.7, 0.9), (1.0, 0.0), (0.0, 1.0), (2.0, 1.5), (-1.5, 0.5), (3.0, 3.0)]
 
 
@@ -621,6 +642,8 @@ def full_run(fast=False):
     rules = Rules()
     hi_rules = Rules(32, 48, 32)
     res = {'object': 'CL-C6-REMOTE-COEFF-NUMERICS-20260930-v1', 'scientific_effect': 'NONE', 'certified': False,
+           'orientation': 'continuum values (Lambda_inf, c_hole, samples, profiles) hold for every pin direction u (isotropic kernel); every L-periodized value is for u = e_1 aligned with a lattice axis',
+           'python_requirement': '>= 3.11; point-wise replay tolerance 1e-6 relative',
            'quadrature': {'coordinates': 'a = tr H / 2, (c, h2) polar; splits at a = 0 and rho = |a|',
                           'a_gauss_legendre_per_side': 24, 'theta_trapezoid': 32, 'rho_gauss_legendre_per_side': 24, 'cut_sd': 9.0,
                           'high_order_check': [32, 48, 32]}}
@@ -704,16 +727,16 @@ def check_run():
         b = 0.0 if key.endswith('0.0') else 1.0
         rows = sample_table(b, k, rules)
         for r, rr in zip(rows, ref['samples'][key]):
-            require(abs(r['lambda'] - rr['lambda']) <= 1e-9 * max(abs(rr['lambda']), 1e-6), 'sample replay %s at %r' % (key, r['x']))
+            require(abs(r['lambda'] - rr['lambda']) <= REPLAY_TOL * max(abs(rr['lambda']), 1e-6), 'sample replay %s at %r' % (key, r['x']))
         rows6 = sample_table(b, k, rules, 6.0)
         for r, rr in zip(rows6, ref['samples_L6'][key]):
-            require(abs(r['lambda'] - rr['lambda']) <= 1e-9 * max(abs(rr['lambda']), 1e-6), 'L = 6 sample replay %s at %r' % (key, r['x']))
+            require(abs(r['lambda'] - rr['lambda']) <= REPLAY_TOL * max(abs(rr['lambda']), 1e-6), 'L = 6 sample replay %s at %r' % (key, r['x']))
     # a near-axis point that needs the decimal regression
     r = lambda_at(0.1, 0.0, 0.0, 1.0, rules)
     require(r['exact_regression'] and r['lambda'] < 1e-20, 'near-axis point handled by the decimal regression and exponentially small')
     for row in ref['near_zero_profile']['k=1.0,b=0.0']:
         if row['r'] == 0.1 and row['angle_deg'] == 0:
-            require(abs(row['lambda'] - r['lambda']) <= 1e-9 * max(abs(r['lambda']), 1e-30), 'near-zero replay')
+            require(abs(row['lambda'] - r['lambda']) <= REPLAY_TOL * max(abs(r['lambda']), 1e-30), 'near-zero replay')
     print(json.dumps({'check': 'ok', 'controls': list(ctl.keys()), 'mutant': MUT}))
 
 
