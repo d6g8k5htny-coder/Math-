@@ -15,12 +15,15 @@ copy as well.
 Usage, from the repository root:
   python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py [--out DIR] [--skip-old-node-move]
          [--selector-node-only] [--mutants] [--write-installed-results]
-  --out DIR              keep the executed copy in DIR (must be outside the repository); default: a temporary directory
+  --out DIR              keep the executed copy in DIR: a path outside the repository (not inside it, not one of its
+                         parents) that does not exist or is an empty directory; nothing is ever deleted; default: a
+                         temporary directory
   --skip-old-node-move   stop after Math-#160 steps 1-3: witness node left OPEN_ACTIVE, Math-#173's deferred edges not applied
   --selector-node-only   Math-#160's node-only alternative for the selector table (table unchanged)
   --mutants              also run every checker mutant on the executed copy
   --write-installed-results   maintenance of this packet only: write each checker's installed-state output into its packet
-                              as RESULTS_INSTALLED.json (then the normal run compares against it)
+                              as RESULTS_INSTALLED.json, and only after every checker (and every mutant, if requested)
+                              has passed (then the normal run compares against it)
 Exit status 0 iff the executed graph validates and every checker (and mutant, if requested) behaves as required.
 Scientific effect: NONE. This is not an execution: the repository's GRAPH.json and SELECTOR_REGION.json are not touched.
 """
@@ -162,8 +165,10 @@ def compose(out, skip_old_node_move, selector_node_only):
 
 
 def run_checkers(root, out, mutants, write_installed):
-    results = {}
-    ok = True
+    """Run every checker (both interpreter modes, and every mutant if asked) on the executed copy; then, only if all of
+    that passed, write the pinned installed outputs if asked; then compare with the pinned files."""
+    results, outputs = {}, {}
+    valid = True
     for name, (pdir, script) in PACKETS.items():
         entry = {}
         outs = {}
@@ -176,20 +181,9 @@ def run_checkers(root, out, mutants, write_installed):
                 payload = {}
             entry[" ".join(flags)] = {"rc": r.returncode, "checks": payload.get("checks"), "passed": payload.get("passed"),
                                       "register_state": payload.get("register_state")}
-            ok &= r.returncode == 0 and payload.get("passed") is True and payload.get("register_state") == "installed"
+            valid &= r.returncode == 0 and payload.get("passed") is True and payload.get("register_state") == "installed"
         entry["modes_identical"] = outs[("-B", "-S")] == outs[("-B", "-O", "-S")]
-        ok &= entry["modes_identical"]
-        pinned = root / pdir / "RESULTS_INSTALLED.json"
-        if write_installed:
-            pinned.write_bytes(outs[("-B", "-S")])
-            entry["written"] = str(pinned.relative_to(root))
-        if pinned.exists():
-            entry["matches_RESULTS_INSTALLED"] = pinned.read_bytes() == outs[("-B", "-S")]
-            entry["RESULTS_INSTALLED_sha256"] = hashlib.sha256(pinned.read_bytes()).hexdigest()
-            ok &= entry["matches_RESULTS_INSTALLED"]
-        else:
-            entry["matches_RESULTS_INSTALLED"] = None
-            ok = False
+        valid &= entry["modes_identical"]
         if mutants:
             src = (out / pdir / script).read_text(encoding="utf-8")
             names = re.findall(r'"([a-z0-9-]+)"', re.search(r"MUTANTS = \((.*?)\)\n", src, re.S).group(1))
@@ -200,8 +194,25 @@ def run_checkers(root, out, mutants, write_installed):
                 (rejected if r.returncode == 1 else not_rejected).append(m)
             entry["mutants_rejected"] = len(rejected)
             entry["mutants_not_rejected"] = not_rejected
-            ok &= not not_rejected and len(rejected) == len(names)
+            valid &= not not_rejected and len(rejected) == len(names)
         results[name] = entry
+        outputs[name] = outs[("-B", "-S")]
+    ok = valid
+    for name, (pdir, script) in PACKETS.items():
+        entry = results[name]
+        pinned = root / pdir / "RESULTS_INSTALLED.json"
+        if write_installed and valid:                       # never on a failed run (Codex 4143661525)
+            pinned.write_bytes(outputs[name])
+            entry["written"] = str(pinned.relative_to(root))
+        elif write_installed:
+            entry["written"] = None
+        if pinned.exists():
+            entry["matches_RESULTS_INSTALLED"] = pinned.read_bytes() == outputs[name]
+            entry["RESULTS_INSTALLED_sha256"] = hashlib.sha256(pinned.read_bytes()).hexdigest()
+            ok &= entry["matches_RESULTS_INSTALLED"]
+        else:
+            entry["matches_RESULTS_INSTALLED"] = None
+            ok = False
     return ok, results
 
 
@@ -221,11 +232,12 @@ def main():
     tmp = None
     if args.out:
         out = pathlib.Path(args.out).resolve()
-        if root == out or root in out.parents:
-            print(json.dumps({"error": "--out must lie outside the repository"}))
+        if root == out or root in out.parents or out in root.parents:
+            print(json.dumps({"error": "--out must lie outside the repository (neither inside it nor one of its parents)"}))
             return 2
-        if out.exists():
-            shutil.rmtree(out)
+        if out.exists() and (not out.is_dir() or any(out.iterdir())):   # nothing is ever deleted (Codex 4143661496)
+            print(json.dumps({"error": "--out must not exist or must be an empty directory; nothing is deleted"}))
+            return 2
     else:
         tmp = tempfile.mkdtemp(prefix="register-dryrun-")
         out = pathlib.Path(tmp)

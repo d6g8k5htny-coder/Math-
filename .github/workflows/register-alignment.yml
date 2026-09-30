@@ -58,7 +58,7 @@ jobs:
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'alignment_check.py')
-          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift', 'duplicate-drift', 'region-unlinked', 'review-metadata-only', 'installed-drift', 'partial-install']
+          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift', 'duplicate-drift', 'region-unlinked', 'review-metadata-only', 'installed-drift', 'partial-install', 'text-preinstalled']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

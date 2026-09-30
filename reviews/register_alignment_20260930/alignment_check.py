@@ -28,7 +28,7 @@ from fractions import Fraction as F
 
 MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-review-source", "controlling-true", "executed-flag",
            "skip-interface-premise", "holder-reversed", "baseline-drift", "duplicate-drift", "region-unlinked",
-           "review-metadata-only", "installed-drift", "partial-install")
+           "review-metadata-only", "installed-drift", "partial-install", "text-preinstalled")
 MUT = None
 HERE = "reviews/register_alignment_20260930"
 GRAPH = "frontiers/downstream_gate_20260925/GRAPH.json"
@@ -38,6 +38,21 @@ D4_DUP = "math.d5-component.remote-window-proof"
 D4_NODE = "math.rn-fixed-remote-window"
 IFACE = "math.rn-count-interface"
 D4 = "frontiers/remote_window_20260924/PROOF.md"
+# the proposal-written fields of a transition node, and their digest per node as live at dda8991 (json, sorted keys,
+# absent = null): the baseline state requires them unchanged, so the proposal's metadata installed under the current
+# classification is a partial install, not baseline (Codex 4143661511 on Math-#183)
+TEXT_FIELDS = ("scope", "explicit_limits", "notes", "review_disposition", "review_sources", "review_basis",
+               "coverage_source", "source")
+BASELINE_TEXT = {
+    "math.rn-count-interface": "16b8a05feaea45acaaa4c1340d2dbed4ffea5501431d5bd11c4ce6298cd3eb16",
+    "math.lifetime-remainder": "e5164f8eb6b27b67214c4b30b52ccdcf7d154dc1cd3f2382aab15c042a59c6dc",
+    "math.side24-coefficient": "f5a17c6ff5b8e5503aa2ef30c91327503f66b2e82f61b102a12ae47e20bfb60b",
+    "math.rn-fixed-remote-window": "658289f63342a17dee388640eee1648a7f524e3ab4e2351aa42ba1e1a8619be9",
+    "math.rn-region.fixed-remote": "4813392472753d7af976656e900de10216a1930e89a7a5bff625a33efc0cd4c8",
+    "math.rn-fixed-annulus-window": "44aedcb20147d78b3134cdf312a5e1e115901c496b986605a2faaf1443851491",
+    "math.rn-region.fixed-annulus-window": "59b4e5cf61440f7c13a7b157aa609e8d6bd2f66a85fc4cfc5643fc0ac263a03d",
+    "math.p15-full-price": "11271b1ceb95af1fc9d11f22b19abfc5ac139005c543086f2181d1e8f2d1d5ca"
+}
 INVENTORY = {
     "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md": [
         "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
@@ -232,10 +247,23 @@ def matches(live, fields):
     return isinstance(live, dict) and all(live.get(k) == v for k, v in fields.items())
 
 
+def text_digest(node):
+    return hashlib.sha256(json.dumps({k: node.get(k) for k in TEXT_FIELDS}, sort_keys=True,
+                                     ensure_ascii=False).encode("utf-8")).hexdigest()
+
+
+def at_baseline(node, t):
+    """The recorded current classification and fingerprint, and the proposal-written fields as they were at dda8991."""
+    ok = matches(node, {"classification": t["current"]["classification"], "fingerprint": t["current"]["fingerprint"]})
+    if MUT != "text-preinstalled":
+        ok = ok and text_digest(node) == BASELINE_TEXT[t["node"]]
+    return ok
+
+
 def installed_state(graph, spec):
     """How much of the proposal the live graph carries. Fail-closed: a transition node is 'flipped' only if it carries
-    every proposed field exactly and 'baseline' only if it carries the recorded current classification and fingerprint;
-    a live node on a component source that is not the proposed node on every proposed key is a mismatch, as is a
+    every proposed field exactly and 'baseline' only if it carries the recorded current classification and fingerprint
+    with the proposal-written fields unchanged since dda8991 (BASELINE_TEXT); a live node on a component source that is not the proposed node on every proposed key is a mismatch, as is a
     proposed id carrying anything else. The state is 'installed' (everything, exactly), 'baseline' (nothing) or
     'partial' (rejected by BASELINE and TRANSITIONS)."""
     nodes = graph["nodes"]
@@ -244,7 +272,7 @@ def installed_state(graph, spec):
         n = nodes.get(t["node"])
         if matches(n, proposed_fields(t["proposed"])):
             flipped.add(t["node"])
-        elif matches(n, {"classification": t["current"]["classification"], "fingerprint": t["current"]["fingerprint"]}):
+        elif isinstance(n, dict) and at_baseline(n, t):
             baseline.add(t["node"])
         else:
             mismatched.add(t["node"])
@@ -425,6 +453,9 @@ def check_transitions(root, spec):
         sim["nodes"][D4_NODE]["classification"] = t4["current"]["classification"]
     sim_st = installed_state(sim, spec)
     ok &= sim_st["state"] == "installed" and apply(spec, sim) == sim and sim_st["mismatched"] == []
+    # the pre-image of the applied graph carries the proposed metadata under the current classifications: a partial
+    # install, never baseline (Codex 4143661511)
+    ok &= installed_state(strip(spec, new), spec)["state"] == "partial"
     return bool(ok), {"new": new, "base": base, "replay": replay, "state": st["state"]}
 
 def load_hard_gate(root):

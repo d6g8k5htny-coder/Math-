@@ -22,12 +22,14 @@ now live, and records that Math-#151 took the keep-open alternative without defi
 accepts the live register in exactly two states, **baseline** (nothing of §7 live) or **installed** on the main path of §7
 (every proposed node live exactly on every proposed key; the residual node either as proposed here, `OPEN_ACTIVE` with its
 notes, or `PROVED_REVIEWED` as Math-#173 proposes, with layer, kind, fingerprint and `controlling` unchanged; every
-proposed edge not leaving the witness node live; the witness node `OPEN_ACTIVE` while step 4 is pending, or
-`PROVED_REVIEWED` with all its proposed evidence edges live and their required targets `PROVED_REVIEWED`), rejects partial
+proposed edge not leaving the witness node live; the witness node `OPEN_ACTIVE` with none of its proposed edges live
+while step 4 is pending, or `PROVED_REVIEWED` with all of them live and their required targets `PROVED_REVIEWED`), rejects partial
 or drifted installs and any other live fingerprinted node on a proposed source, and accepts the selector table either
 untouched or carrying every proposed cell with the three region ids covered; the workflow compares the checker's output
 with `RESULTS.json` in the baseline state and with `RESULTS_INSTALLED.json` in the installed state; two mutants added
-(`installed-drift`, `partial-install`). Nothing in §§1–7 changes. The §1a register-equivalent alternative (no separate
+(`installed-drift`, `partial-install`); after Codex review 5365065925 on Math-#183 (threads 4143661492, 4143661519) the
+installed selector table is accepted only when the graph carries the proposal, and the open witness node may carry none
+of its proposed edges (mutants `selector-ahead`, `witness-edges-partial`; four added in all). Nothing in §§1–7 changes. The §1a register-equivalent alternative (no separate
 residual node) is not an accepted installed state, since Math-#173 presupposes the separate node.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
@@ -382,15 +384,16 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
   reading-rule edges present, and no proposed node duplicates a live source; every proposed node passes the hard
   gate's shape rules; `declarative` is true and `executed` is false. The live register is in exactly one of two
   accepted states, baseline (nothing of §7 live) or installed (as the v1.8 revision note defines it: every node exactly,
-  the residual as proposed or as Math-#173 promotes it, the witness node open or `PROVED_REVIEWED` with its evidence
-  edges live); once installed this record's nodes are the live carriers of their sources and nothing else may be. The
+  the residual as proposed or as Math-#173 promotes it, the witness node open with none of its proposed edges live, or
+  `PROVED_REVIEWED` with all of them live; one witness edge toggled is asserted partial in every run); once installed this record's nodes are the live carriers of their sources and nothing else may be. The
   installed state is also simulated (steps 1–3 applied to the live graph, the witness node left as it is) and must be
   accepted exactly.
 - **SELECTOR.** The selector proposal names every selector of the live table for its three regions, assigns each a
   value the hard gate classifies as covered or bypassed, and, applied to the live table, moves exactly those three
   region ids from `open_region_ids` to `covered_region_ids`. A live table already carrying every proposed cell is
-  accepted as installed when the three region ids are covered and not open; a table carrying part of the proposal is
-  rejected; the node-only alternative of §7 step 2 (table untouched) is the baseline case.
+  accepted as installed when the three region ids are covered and not open and the graph carries the proposal (a table
+  ahead of the graph is rejected, and the rule itself is asserted in every run); a table carrying part of the proposal
+  is rejected; the node-only alternative of §7 step 2 (table untouched) is the baseline case.
 - **MONOTONE.** Exact enumeration: `(n_A)_q ≤ (n)_q` for every sub-count and `q ≤ 4`; `2·1{n≥2} ≤ n(n−1) ≤ nΨ`;
   the `Θ(r³)` bracket needs both the upper and the lower row.
 - **OPEN_RESIDUAL.** §5's open items are recorded (numerical constants; the residual node with its scale-`r`
@@ -398,10 +401,12 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
   "not supplied by the landed reviewed chain", with the candidates named as candidates only) and the residual node
   is proposed open.
 
-Twelve mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerprint`, `executed-flag`,
+Fourteen mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerprint`, `executed-flag`,
 `close-residual`, `drop-lower-bound`, `regional-strict`, `clone-live-node`, `open-cell-left`, `installed-drift` (the
-simulated installed register with the [PALM] node's fingerprint changed) and `partial-install` (the simulated installed
-register without the supersession node's edges). The workflow runs the checker in the state the repository is in: it
+simulated installed register with the [PALM] node's fingerprint changed), `partial-install` (the simulated installed
+register without the supersession node's edges), `selector-ahead` (the selector-to-graph tie disabled) and
+`witness-edges-partial` (the witness-edge count ignored: one edge toggled would pass). The workflow runs the checker in
+the state the repository is in: it
 compares the output with `RESULTS.json` when the checker reports `register_state: baseline` and with
 `RESULTS_INSTALLED.json` when it reports `installed`; the mutants must be rejected in either state (the composition of
 Math-#167, #160 and #173 on a scratch copy, with every mutant, is replayed by `reviews/register_execution_readiness_20260930`).

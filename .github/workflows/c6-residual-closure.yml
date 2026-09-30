@@ -55,7 +55,7 @@ jobs:
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'residual_check.py')
-          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-required-edge', 'executed-flag', 'controlling-true', 'tail-reversed', 'pair-identity-broken', 'route-c-broken', 'drop-review-needle', 'installed-drift', 'snapshot-omitted', 'record-unreviewed', 'reviewed-text-drift']
+          mutants = ['partial-install', 'allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-required-edge', 'executed-flag', 'controlling-true', 'tail-reversed', 'pair-identity-broken', 'route-c-broken', 'drop-review-needle', 'installed-drift', 'snapshot-omitted', 'record-unreviewed', 'reviewed-text-drift']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

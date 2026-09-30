@@ -24,7 +24,10 @@ the checker accepts the installed state and replays the hard gate with source sn
 register too (before, the mutant was a no-op once the residual was live `PROVED_REVIEWED`, so the workflow's mutant rule
 would have failed after execution), prints `register_state`, and the workflow compares the checker's output with
 `RESULTS.json` in the baseline state and with `RESULTS_INSTALLED.json` in the installed state (the per-stage gate report
-differs between the two by construction); no other content changes; v1.5 at `02772ec` applies the direct-statement amendment
+differs between the two by construction); after Codex review 5365065925 on Math-#183 (thread 4143661501) `LIVE` accepts
+exactly two register states, baseline (residual absent or `OPEN_ACTIVE`, none of this record's edges, no component but
+the cross-record palm node) and installed, so partial installs fail and the interim shape is a replay, not an accepted
+live state (mutant `partial-install`); no other content changes; v1.5 at `02772ec` applies the direct-statement amendment
 of review 5360751376 (the diagonal argument; no fixed-`R` substitution into (L1)) and records that review's ACCEPT of
 Route C. Pickup:
 Math-#160 comment 5902470285; delivery 5902585446.
@@ -266,7 +269,9 @@ therefore reaches the residual through the graph, not through the fingerprint st
   the residual is live `PROVED_REVIEWED`, every component, every edge and the reading rule must be present as proposed.
   The same test runs on the executed graph built from the proposal (installed state, simulated) in every run, so that
   execution cannot turn this check red (Codex 4140125558); on the installed register that simulation is the live graph
-  itself (v1.6).
+  itself (v1.6). The live register must be baseline (residual absent or `OPEN_ACTIVE`, none of this record's edges, no
+  component except the cross-record palm node) or installed; anything else, the interim shape included, fails; the
+  installed graph without one component is asserted partial in every run (v1.6).
 - **REVIEWED.** The record node's first review basis is Math-#173 review 5360645884 (provider OpenAI, ACCEPT, head
   `b3fac79`); `REVIEWED_SECTION_3_b3fac79.md`, after its one-line provenance comment, has the SHA256 the proposal states,
   begins at the §3 heading, contains Route A and Route B and not Route C, and is a verbatim substring of the current
@@ -294,7 +299,8 @@ therefore reaches the residual through the graph, not through the fingerprint st
   component; the deferred old-node transition is not applied (its presupposition is absent live) and is reported.
 - **NEGATIVES.** Delete, one-byte change, symlink and symlinked parent on a temporary copy of the inventory are rejected.
 
-Fourteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-required-edge`, `executed-flag`,
+Fifteen mutants must fail: `partial-install` (partial installs labelled baseline), `allow-symlink`, `no-hash`,
+`stale-fingerprint`, `drop-required-edge`, `executed-flag`,
 `controlling-true`, `tail-reversed`, `pair-identity-broken`, `route-c-broken`, `drop-review-needle`, and since v1.3
 `installed-drift` (an installed component with another fingerprint must fail `LIVE`), `snapshot-omitted` (the
 reverse-impact replay without snapshots must fail `GATE`), `record-unreviewed` (the record node `PROVED_REVIEWED` with no

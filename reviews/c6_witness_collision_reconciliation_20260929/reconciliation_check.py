@@ -35,7 +35,7 @@ import tempfile
 
 MUTANTS = ("allow-symlink", "no-hash", "drop-edge", "stale-fingerprint", "executed-flag", "close-residual",
            "drop-lower-bound", "regional-strict", "clone-live-node", "open-cell-left",
-           "installed-drift", "partial-install")
+           "installed-drift", "partial-install", "selector-ahead", "witness-edges-partial")
 MUT = None
 HERE = "reviews/c6_witness_collision_reconciliation_20260929"
 PALM = "frontiers/c6_palm_route_20260929/PROOF.md"
@@ -255,8 +255,9 @@ def installed_state(graph, proposed_nodes, proposed_edges):
     proposed key is a mismatch (the residual: this record's node OPEN_ACTIVE with its notes, or PROVED_REVIEWED as
     Math-#173 proposes, with layer, kind, fingerprint and controlling unchanged); so is any other live fingerprinted
     node on a proposed source. 'installed': every node present, every edge not leaving the witness node live, and the
-    witness node OPEN_ACTIVE (step 4 pending) or PROVED_REVIEWED with all its proposed edges live and their required
-    targets PROVED_REVIEWED. 'baseline': nothing of the proposal live. Anything else is 'partial' and rejected."""
+    witness node OPEN_ACTIVE with none of its proposed edges live (step 4 pending) or PROVED_REVIEWED with all of them
+    live and their required targets PROVED_REVIEWED (Codex 4143661519). 'baseline': nothing of the proposal live.
+    Anything else is 'partial' and rejected."""
     nodes = graph["nodes"]
     proposed = {n["id"]: n for n in proposed_nodes}
     present, mismatched = set(), set()
@@ -283,8 +284,11 @@ def installed_state(graph, proposed_nodes, proposed_edges):
     n_other, n_wit = len(other & live_edges), len(wit_edges & live_edges)
     wit = nodes.get(WITNESS) if isinstance(nodes.get(WITNESS), dict) else {}
     cls = wit.get("classification")
-    wit_ok = cls == "OPEN_ACTIVE" or (cls == "PROVED_REVIEWED" and n_wit == len(wit_edges) and all(
-        nodes.get(e[1], {}).get("classification") == "PROVED_REVIEWED" for e in wit_edges if e[2] is True))
+    targets_ok = all(nodes.get(e[1], {}).get("classification") == "PROVED_REVIEWED" for e in wit_edges if e[2] is True)
+    if MUT == "witness-edges-partial":
+        wit_ok = cls == "OPEN_ACTIVE" or (cls == "PROVED_REVIEWED" and targets_ok)
+    else:
+        wit_ok = (cls == "OPEN_ACTIVE" and n_wit == 0) or (cls == "PROVED_REVIEWED" and n_wit == len(wit_edges) and targets_ok)
     if not mismatched and set(present) == set(proposed) and n_other == len(other) and wit_ok:
         state = "installed"
     elif not mismatched and not present and n_other == 0 and n_wit == 0:
@@ -438,13 +442,35 @@ def check_transitions(root):
         sim["edges"] = [e for e in sim["edges"] if e["from"] != SUPERSESSION]
     sim_st = installed_state(sim, list(nodes.values()), edges)
     ok &= sim_st["state"] == "installed" and sim_st["mismatched"] == [] and sim_st["present"] == sorted(nodes)
+    # one witness edge toggled (added while the witness node is open, removed once it is PROVED_REVIEWED) is a partial
+    # step 4, never an accepted state (Codex 4143661519)
+    wit_edges = [e for e in edges if e["from"] == WITNESS]
+    if wit_edges:
+        tog = copy.deepcopy(sim)
+        first = wit_edges[0]
+        key = (first["from"], first["to"], first["required"], first["relation"])
+        if tog["nodes"].get(WITNESS, {}).get("classification") == "PROVED_REVIEWED":
+            tog["edges"] = [e for e in tog["edges"] if (e["from"], e["to"], e["required"], e["relation"]) != key]
+        else:
+            tog["edges"].append({"from": key[0], "to": key[1], "required": key[2], "relation": key[3]})
+        ok &= installed_state(tog, list(nodes.values()), edges)["state"] == "partial"
+    else:
+        ok = False
     return bool(ok)
+
+
+def selector_state_ok(applied_all, graph_state):
+    """A table carrying every proposed cell is accepted only when the graph carries the proposal (Codex 4143661492)."""
+    if MUT == "selector-ahead":
+        return True
+    return (not applied_all) or graph_state == "installed"
 
 
 def check_selector(root):
     """Applied to the live selector table, the proposal leaves no open cell in its regions and moves exactly those
     region ids from open to covered (Codex 4139312863). Once the table carries every proposed cell, the three region
-    ids must be covered and not open (installed); a table carrying part of the proposal is rejected (v1.8)."""
+    ids must be covered and not open, and the graph must carry the proposal (installed); a table carrying part of the
+    proposal, or the proposal ahead of the graph, is rejected (v1.8)."""
     spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
     live = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
     prop = spec["selector_region_proposal"]
@@ -458,6 +484,8 @@ def check_selector(root):
     ids = ["math.rn-region." + reg for reg in regions]
     applied = sum(1 for s, v in cells.items() for reg in regions if live["selectors"].get(s, {}).get(reg) == v)
     table = {s: dict(row) for s, row in live["selectors"].items()}
+    ok &= selector_state_ok(applied == len(cells) * len(regions), register_state(root))
+    ok &= not selector_state_ok(True, "baseline") and selector_state_ok(False, "baseline")   # the rule itself
     if applied == len(cells) * len(regions):                          # installed: cells and region lists as proposed
         ok &= set(ids) <= set(live["covered_region_ids"]) and not (set(ids) & set(live["open_region_ids"]))
     else:                                                             # baseline: the proposal applied to the live table

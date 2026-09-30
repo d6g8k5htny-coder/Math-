@@ -57,7 +57,7 @@ jobs:
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'reconciliation_check.py')
-          mutants = ['allow-symlink', 'no-hash', 'drop-edge', 'stale-fingerprint', 'executed-flag', 'close-residual', 'drop-lower-bound', 'regional-strict', 'clone-live-node', 'open-cell-left', 'installed-drift', 'partial-install']
+          mutants = ['allow-symlink', 'no-hash', 'drop-edge', 'stale-fingerprint', 'executed-flag', 'close-residual', 'drop-lower-bound', 'regional-strict', 'clone-live-node', 'open-cell-left', 'installed-drift', 'partial-install', 'selector-ahead', 'witness-edges-partial']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

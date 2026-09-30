@@ -22,8 +22,10 @@ exactly two states, **baseline** (nothing of the proposal live) or **installed**
 every component node and every proposed edge live exactly), rejects partial or drifted installs, replays the proposal
 from the register without it (`strip`) and, once installed, asserts that `apply` is the identity and that this record's
 objects are unheld; the workflow compares the checker's output with `RESULTS.json` in the baseline state and with
-`RESULTS_INSTALLED.json` in the installed state; two mutants added (`installed-drift`, `partial-install`). Transitions,
-sources and verdicts are unchanged.
+`RESULTS_INSTALLED.json` in the installed state; two mutants added (`installed-drift`, `partial-install`); after Codex
+review 5365065925 on Math-#183 (thread 4143661511) the baseline state also pins the proposal-written fields of the eight
+nodes to their digests at `dda8991`, so the proposal's metadata installed under the current classification is a partial
+install (mutant `text-preinstalled`; three added in all). Transitions, sources and verdicts are unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 five objects that the register already lists as accepted to their exact bytes, quotes the nonauthor verdicts that
 accepted them, records that their live graph nodes still carry the pre-review classification, and proposes the node
@@ -222,8 +224,9 @@ rather than inferred from old-versus-new GRAPH metadata.
   displays, the five PROOF_INDEX rows, the interface review's overall verdict and evidence labels, and the seven comment
   ids with their verdict lines and the mutability label in `EXTERNAL_REVIEWS.md` are present as substrings.
 - **BASELINE.** The live register is in exactly one of two accepted states. *Baseline:* each transition's live node
-  exists with exactly the recorded current classification, fingerprint, kind and source, no component node and no
-  proposed edge is live. *Installed:* each transition's live node carries every proposed field exactly (classification,
+  exists with exactly the recorded current classification, fingerprint, kind and source, its proposal-written fields
+  (scope, explicit limits, notes, review disposition, review sources, review basis, coverage source, source) carry the
+  digest recorded at `dda8991` (`BASELINE_TEXT`), no component node and no proposed edge is live. *Installed:* each transition's live node carries every proposed field exactly (classification,
   `controlling`, fingerprint, source, scope, explicit limits, notes, review disposition, review sources and the derived
   `review_basis`), every component node is live as proposed on every proposed key, every proposed edge is live, and no
   other live fingerprinted node carries a component source. Any node in between (one flipped, one not; a proposed key
@@ -271,13 +274,15 @@ rather than inferred from old-versus-new GRAPH metadata.
   citing main#76 with verdict ACCEPT, `component_of` `math.d5-pin-neighborhood-first-moment`; and the older live node
   `math.rn-fixed-remote-window` still carries that fingerprint at `AUTHOR_SIDE_CANDIDATE`, the lag this record aligns.
 
-Fourteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
+Fifteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
 `executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`, `duplicate-drift`, `region-unlinked`
 (the `covered_by` edges removed before the propagation replay: proof edits no longer reach the regions),
 `review-metadata-only` (the review-record nodes and their edges removed before the replay, leaving the citations as
 metadata only: a deleted or edited review record no longer reaches its accepted object), `installed-drift` (the
-simulated installed register with one component fingerprint changed) and `partial-install` (the simulated installed
-register with the D4 node back at its current classification). The workflow runs the checker in the state the
+simulated installed register with one component fingerprint changed), `partial-install` (the simulated installed
+register with the D4 node back at its current classification) and `text-preinstalled` (the baseline text-field rule
+disabled: the pre-image of the applied graph, which carries the proposed metadata under the current classifications,
+would pass as baseline; every run asserts that it is partial). The workflow runs the checker in the state the
 repository is in: it compares the output with `RESULTS.json` when the checker reports `register_state: baseline` and
 with `RESULTS_INSTALLED.json` when it reports `installed`; the mutants must be rejected in either state (the
 composition of Math-#167, #160 and #173 on a scratch copy, with every mutant, is replayed by `reviews/register_execution_readiness_20260930`).

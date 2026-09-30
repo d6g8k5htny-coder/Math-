@@ -58,14 +58,21 @@ executed copy, before this packet:
   its evidence edges live, and the selector table untouched or carrying every proposed cell with the three region ids
   covered. Math-#167's `apply()` is idempotent and its pre-image `strip()` lets the hard-gate replay run from the register
   without the proposal in either state; once installed, `apply` is the identity and the record's objects are unheld.
+  After Codex review 5365065925 on Math-#183: Math-#167's baseline also pins the eight nodes' proposal-written fields
+  to their digests at `dda8991` (metadata installed under the old classification is partial); Math-#160 accepts the
+  installed selector table only when the graph carries the proposal, and the open witness node with none of its
+  proposed edges; Math-#173 accepts exactly baseline or installed (its interim shape is replayed, not accepted live).
 - **Pinned outputs for both states.** Each checker prints `register_state`; each packet carries `RESULTS.json` (baseline)
   and `RESULTS_INSTALLED.json` (installed), and the workflows compare the output with the file the reported state names.
   The installed outputs contain no live-dependent lists (the post-execution impacted sets depend on the other landed
   records), and they are identical across the three execution shapes of §3, so **the executing lane does not regenerate
   anything in the three packets**.
-- **Mutants in either state.** `installed-drift` and `partial-install` added to Math-#167 and Math-#160; Math-#173's
-  simulation of the installed state (and its `installed-drift` mutant) now runs on the installed register too. Every
-  mutant of every checker is rejected on the baseline register and on the executed copy (`--mutants`).
+- **Mutants in either state.** `installed-drift`, `partial-install` and `text-preinstalled` added to Math-#167;
+  `installed-drift`, `partial-install`, `selector-ahead` and `witness-edges-partial` to Math-#160; `partial-install` to
+  Math-#173, whose simulation of the installed state (and its `installed-drift` mutant) now runs on the installed
+  register too. Each new rule is asserted by a permanent self-test in every run, and its mutant disables the rule, so
+  it is rejected in either register state. Every mutant of every checker (44) is rejected on the baseline register and
+  on the executed copy (`--mutants`).
 - **Records:** Math-#167 `RECONCILIATION.md` v1.4 (§0 revision note, §6), Math-#160 v1.8 (§0, §8), Math-#173 v1.6 (§0, §6;
   its own bytes are re-pinned in `INVENTORY` and in the record node's fingerprint, as the record requires of itself).
 - **This packet:** `execution_dryrun.py` and the workflow `register-execution-readiness.yml`, which composes the three
@@ -76,7 +83,10 @@ executed copy, before this packet:
 
 ## 3. The dry run
 
-From the repository root (standard library only; a temporary copy is used unless `--out DIR`, outside the repository):
+From the repository root (standard library only; a temporary copy is used unless `--out DIR`: a path outside the
+repository, neither inside it nor one of its parents, that does not exist or is an empty directory; the script never
+deletes anything). `--write-installed-results` (maintenance of this packet) writes the pinned installed outputs only
+after every checker, both interpreter modes and, if requested, every mutant have passed.
 
 ```
 python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py --mutants
@@ -94,9 +104,11 @@ text fields are not constrained by any of the three checkers; the lane may word 
 
 ## 4. For the executing lane (non-Claude)
 
-- **Order.** Math-#167 at any time. Math-#160 steps 1–3 **before** Math-#173 (the palm-proof node's fields are
-  Math-#160's; Math-#173 reuses it). Math-#160 step 4 and Math-#173's deferred edges together, or step 4 later: both
-  shapes are accepted (§3). Executing Math-#173 first would create the palm node with Math-#173's fields, which
+- **Order.** Math-#167 at any time, in one commit. Math-#160 steps 1–3 **before** Math-#173 (the palm-proof node's fields
+  are Math-#160's; Math-#173 reuses it); the witness node's own evidence edges belong to step 4 (none of them while it is
+  open, all of them once it is `PROVED_REVIEWED`). Math-#173 in one commit (steps 1–2 together: the interim shape with the
+  residual still `OPEN_ACTIVE` is not an accepted live state). Math-#160 step 4 and Math-#173's deferred edges together,
+  or step 4 later: both shapes are accepted (§3). Executing Math-#173 first would create the palm node with Math-#173's fields, which
   Math-#160's checker rejects as a mismatch until the node carries Math-#160's fields.
 - **Not accepted (the checkers stay red):** a partial install of any record; a proposed key drifted on any installed
   node; Math-#160's §1a register-equivalent alternative (no separate residual node; Math-#173 presupposes the node);
@@ -109,7 +121,15 @@ text fields are not constrained by any of the three checkers; the lane may word 
   execution pull request and should be green; if one is red, the cause is a difference between the executed register and
   the proposals as written, and the checker's `register_state` and check names locate it.
 
-## 5. Exposure and independence
+## 5. Review of this packet
+
+Codex review 5365065925 on Math-#183 (six findings, all taken): selector table accepted ahead of the graph (4143661492);
+baseline nodes not checked on the proposal-written fields (4143661511); Math-#173 labelling partial component installs
+baseline (4143661501); the open witness node accepting a subset of its edges (4143661519); `--out` deleting an existing
+path (4143661496); installed results written before validation (4143661525). Each checker rule now has a self-test in
+every run and a mutant that disables it; the helper never deletes and writes only after a fully valid run.
+
+## 6. Exposure and independence
 
 The author of this packet is the author of the three records; the packet was written after this session's own dry run
 found the failures of §1. A read of this packet by the same account, or by any Claude session, carries no organizational
