@@ -435,6 +435,24 @@ def lambda_far(b, rules):
     return {'lambda_j': lam, 'lambda': sum(lam), 'rho_j': [p * W['F'][j] for j in range(3)], 'E_F_j': W['F']}
 
 
+def far_field_closed_form(b):
+    """Exact far field.  With h1 = a + c, h3 = a - c, a ~ N(-b, 1), c ~ N(0, 1), h2 ~ N(0, 1) independent:
+    det H = a^2 - rho^2, rho^2 ~ Exp(mean 2).  E[(rho^2 - a^2)_+ | a] = 2 exp(-a^2/2), E[(a^2 - rho^2)_+ | a] =
+    a^2 - 2 + 2 exp(-a^2/2), and E[exp(-a^2/2) 1{a < 0}] = exp(-b^2/4) Phi(b/sqrt2)/sqrt2.  Hence
+        E F_1 = sqrt2 e^(-b^2/4)                                         (saddles)
+        E F_2 = (b^2+1) Phi(b) + b phi(b) - 2 Phi(b) + sqrt2 e^(-b^2/4) Phi(b/sqrt2)     (maxima, a < 0)
+        E F_0 = the same with b -> -b                                    (minima)
+        E|det H_b| = b^2 - 1 + 2 sqrt2 e^(-b^2/4),
+    and Lambda_inf,j(b) = phi(b) E F_j / (2 pi).  At b = 0: Lambda_inf = (2 sqrt2 - 1)/(2 pi)^(3/2).  Integrating
+    Lambda_inf over b gives 2/(pi sqrt3), the total critical density (Longuet-Higgins)."""
+    e = math.exp(-b * b / 4)
+    F1 = math.sqrt(2) * e
+    F2 = (b * b + 1) * Phi(b) + b * phi(b) - 2 * Phi(b) + math.sqrt(2) * e * Phi(b / math.sqrt(2))
+    F0 = (b * b + 1) * Phi(-b) - b * phi(b) - 2 * Phi(-b) + math.sqrt(2) * e * Phi(-b / math.sqrt(2))
+    p = phi(b) / (2 * math.pi)
+    return {'lambda': p * (b * b - 1 + 2 * math.sqrt(2) * e), 'lambda_j': [p * F0, p * F1, p * F2], 'E_absdet': b * b - 1 + 2 * math.sqrt(2) * e}
+
+
 def unconditional_hessian_controls(rules):
     """H unconditional: Var f_xx = Var f_zz = 3, Cov = 1, Var f_xz = 1.  With h1 = a + c, h3 = a - c
     (a ~ N(0, 2), c ~ N(0, 1) independent) det H = a^2 - (c^2 + h2^2) = a^2 - rho^2 with rho^2 ~ Exp(mean 2),
@@ -678,6 +696,10 @@ def check_run():
     for b in (0.0, 1.0):
         far = lambda_far(b, rules)
         require(abs(far['lambda'] - ref['far_field'][str(b)]['lambda_inf']) < 1e-10, 'far-field replay b = %r' % b)
+        closed = far_field_closed_form(b)
+        require(abs(far['lambda'] - closed['lambda']) < 1e-10 and max(abs(far['lambda_j'][j] - closed['lambda_j'][j]) for j in range(3)) < 1e-10,
+                'far field equals its closed form, b = %r' % b)
+    require(abs(ref['far_field']['0.0']['lambda_inf'] - (2 * math.sqrt(2) - 1) / (2 * math.pi) ** 1.5) < 1e-10, 'Lambda_inf(0) = (2 sqrt2 - 1)/(2 pi)^(3/2)')
     for key, k in (('k=1.0,b=0.0', 1.0), ('k=0.5,b=1.0', 0.5)):
         b = 0.0 if key.endswith('0.0') else 1.0
         rows = sample_table(b, k, rules)
