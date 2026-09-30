@@ -71,38 +71,46 @@ ties the [SC]/[R] parametrization (jet Jacobian `2`, root Jacobian `6`, weight `
 
 | `k` | `J_cusp` | `T_1` | `T_2` | `integral |A| gamma^10 G_0` | max rel. dev. 48 vs 96 points |
 |---|---|---|---|---|---|
-{{cusp_rows}}
+| `0.5` | 0.0569758 | 0.0933384 | -0.0077782 | 0.0115205 | `1e-14` |
+| `1.0` | 0.0485522 | 0.0561351 | -0.00467793 | 0.00468021 | `1e-15` |
+| `2.0` | 0.0465858 | 0.0483768 | -0.0040314 | 0.0022051 | `2e-15` |
 
 **Tail constants** (`F(t) ~ C_* t^(-11)` is the `r^(-3)`-scaled expected number of near points at scaled radius
 `R > t`; the split rows are conditional on [E]; `c`, `kappa c`, `B_sign` on [Q]):
 
 | `k` | `b` | `C_*` | `G_max` | `G_2` | `B_2` | singleton | `c = C_2/C_*` | `kappa c` | `B_sign` |
 |---|---|---|---|---|---|---|---|---|---|
-{{table_rows}}
+| `0.5` | `0.0` | 1.9297 | 1.8996 | 1.0601 | 0.030073 | 0.83957 | 9.7826 | 0.6 | 1.058 |
+| `1.0` | `0.0` | 52.621 | 51.801 | 28.907 | 0.82006 | 22.894 | 6.9042 | 0.424 | 0.5045 |
+| `2.0` | `0.0` | 1615.7 | 1590.5 | 887.55 | 25.179 | 702.95 | 6.2011 | 0.381 | 0.2477 |
+| `0.5` | `1.0` | 0.55249 | 0.54388 | 0.30351 | 0.0086102 | 0.24038 | 9.7826 | 0.6 | 1.058 |
+| `1.0` | `1.0` | 15.066 | 14.831 | 8.2763 | 0.23479 | 6.5549 | 6.9042 | 0.424 | 0.5045 |
+| `2.0` | `1.0` | 462.58 | 455.37 | 254.11 | 7.209 | 201.26 | 6.2011 | 0.381 | 0.2477 |
 
 `c` and `B_sign` are `b`-free (the prefactor cancels); the ratios `G_max/C_* = (I-D)/I = 0.98442`, `G_2/C_* = J/I
 = 0.54934`, `B_2/C_* = D/I = 0.015584` are universal. The bounds of [Q]'s corollary hold: `c > 4587/856 = 5.3586`
-and `0 < B_sign < 4587821/876544 = 5.2340`. Reading: at `k = 1`, `b = 0` the near point mass is `1.378` and `C_*
-= 52.6`, so the asymptotic law puts `C_* 2^(-11) = 0.026` of it beyond twice the pin distance and `3e-4` beyond
+and `0 < B_sign < 4587821/876544 = 5.2340`. Reading: at `k = 1`, `b = 0` the near point mass is `1.378` and `C_* = 52.6`, so the asymptotic law puts `C_* 2^(-11) = 0.026` of it beyond twice the pin distance and `3e-4` beyond
 three; the radial ratio's total-variation distance from Pareto(11) at threshold `t` is `0.42/t^2` to leading order
-(`4.7%` at `t = 3`), and the signed-mark distance decays only like `0.51/t`.
+(`4.7%` at `t = 3`), and the signed-mark distance decays only like `0.50/t`.
 
 **Near-mass identity** (`alpha_1 + 2 alpha_2` from (N) at three shape-grid levels, against Math-#168):
 
 | `k` | (N) at 32/64/96 shape points | (N), `b = 0` | Math-#168 GH60 | Math-#168 MC (s.e. of `alpha_1`) | rel. dev. vs GH60 / MC |
 |---|---|---|---|---|---|
-{{nm_rows}}
+| `0.5` | 37.9798 / 37.8556 / 37.867 | 1.1869 | 1.1877 | 1.1844 (0.0027) | -6.76e-04 / +2.07e-03 |
+| `1.0` | 175.615 / 175.762 / 175.773 | 1.3774 | 1.3801 | 1.3786 (0.0022) | -1.97e-03 / -9.20e-04 |
+| `2.0` | 1116.83 / 1117.77 / 1117.93 | 2.19 | 2.196 | 2.1948 (0.0033) | -2.70e-03 / -2.18e-03 |
 
 The four-dimensional integral converges from below (observed order about two in the shape grid; the integrand has
 an integrable boundary singularity where the `|Z|`-scale of the Gaussian cutoff diverges) and at the finest level
-lies within one Monte Carlo standard error of the Math-#168 value at every `k`. This is the check that the two
+lies within `0.9`, `0.6` and `1.5` Monte Carlo standard errors of the Math-#168 values at `k = 1/2, 1, 2`. This is the check that the two
 parametrizations agree; it is not a certification of either.
 
 ## 4. Precision (empirical, not bounds)
 
 - The one-dimensional cusp integrals agree between 48 and 96 Gauss–Legendre points to the relative deviations in
-  the table (all below `{{cusp_dev_max}}`); the constants inherit that precision and the exact prefactor.
-- The near-mass integral moves by `{{nm_move}}` relative between the 64- and 96-point shape levels; its remaining
+  the table (all below `1e-14`); the constants inherit that precision and the exact prefactor.
+- The near-mass integral moves by `at most `3e-04`` relative between the 64- and 96-point shape levels; its remaining
   error is of that order, below the Math-#168 Monte Carlo standard error.
 
 ## 5. What the numbers are not
@@ -118,6 +126,6 @@ organizational-independence credit. The author will not merge.
 
 `tail_constants.py` (standard library; `--check` replays the exact controls, the cusp integrals and `C_*` for each
 `k`, the low-level near-mass integral, and the identity tolerance against `RESULTS.json`; mutants `shape-integral`,
-`gamma-power`, `cusp-shift` exit 1), `RESULTS.json` (full run, about {{minutes}} minutes), `SOURCE_MAP.json`
+`gamma-power`, `cusp-shift` exit 1), `RESULTS.json` (full run, about 5 minutes), `SOURCE_MAP.json`
 (pins [R], [SC], [NUM], [CUB], [LP] on `main` `02772ec`; companions [E], [Q] unmerged, not workflow-checked),
 `SOURCE_FILES.json`, workflow `c6-microscopic-tail-numerics.yml`.
