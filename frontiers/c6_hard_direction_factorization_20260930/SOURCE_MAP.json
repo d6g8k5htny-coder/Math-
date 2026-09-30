@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70",
-  "note": "Exact reduction of the [SC] (17) near cluster measure in dimension d to the planar one for the unit Gaussian kernel (continuum). Consumes [SC] (8), (17), (20), [LP]'s Q_r / W_r / z0 interface, [CUB]'s classifier and [R] (R11)-(R13) at their stated scopes; multiplies Math-#168's floating planar values. No source theorem is revalidated or promoted; elder corollaries are conditional on unmerged #170/#175/#179/#181 and are quoted only.",
+  "note": "Exact reduction of the [SC] (17) near cluster measure in dimension d to the planar one for the unit Gaussian kernel (continuum). Consumes [SC] (8), (17), (20), [LP]'s Q_r / W_r / z0 interface, [CUB]'s classifier and [R] (R11)-(R13) at their stated scopes; multiplies Math-#168's floating planar values. No source theorem is revalidated or promoted; elder corollaries are conditional on unmerged #170/#175/#179/#181 and are quoted only. Nonauthor reads: Astra 5365199521 (Slice C AMEND at ee6127f, applied at d29e674), Sol 5366261768 (Slice C ACCEPT at d29e674), Sol 5366497205 (Slices A/B ACCEPT at d29e674); review_status unchanged (author-side candidate; no acceptance of numerical values; organizational independence zero).",
   "review_status": "AUTHOR_SIDE_CANDIDATE",
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
@@ -16,6 +16,22 @@
       "date": "2026-09-30",
       "slice": "C (scope)",
       "disposition": "AMEND the finite-L scope sentence (the planar one-site deviations are not an error estimate for the factorization; applied in the successor commit with the suggested replacement) and two non-blocking precisions (positive finite normalizing mass; elder corollaries refer to the continuum model), also applied; the continuum-only conditional corollaries have the correct structural form subject to Slices A/B; the Lemma 1 raw-covariance sentence corrected at 7dc9ee5. Same account, credit 0."
+    },
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5366261768,
+      "head": "d29e6741404f1e7bc06eb1ad91b547399715fb0a",
+      "date": "2026-09-30",
+      "slice": "C (scope), successor reread",
+      "disposition": "ACCEPT: the two blocking defects of 5365199521 resolved (continuum-only finite-L scope, fail-closed; positive finite normalizing mass; continuum-model reading of the elder corollary; Lemma 1 raw covariance repaired). Same account, credit 0."
+    },
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5366497205,
+      "head": "d29e6741404f1e7bc06eb1ad91b547399715fb0a",
+      "date": "2026-09-30",
+      "slice": "A and B",
+      "disposition": "ACCEPT Lemma 1 (conditional jet law, joint gradient/f_xxx regression, Hermite residual covariances, O(m) invariance, k-independence), Lemma 2 (endpoint expansion, type limit, domination, z_0 = 36 k^2 m_(d,b)), Theorem 1 (hard/soft separation, c_m/Haar/Vandermonde ledger, measure identity for arbitrary nonnegative soft g, k cancels) and the closed form R_3(0) = (32 + 28 sqrt2)/17, as identities for the continuum Gaussian-kernel near measure; numerical tables corroborative only; no finite-L or actual torus theorem accepted. Source-exposed (SC/R author), same account, credit 0."
     }
   ],
   "sources": [
