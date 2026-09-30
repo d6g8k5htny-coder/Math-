@@ -7,9 +7,10 @@ reported standard errors. Scientific effect NONE.
     python -B -S coefficients.py --check    # quick replay: exact identities, closed forms, GH40 against RESULTS.json
     python -B -S coefficients.py --check --mutant NAME   # rc 1 for each name in MUTANTS
 """
-import argparse, json, math, random, sys
+import argparse, json, math, os, random, sys
 from fractions import Fraction as F
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 MUTANTS = ('cubic-sign', 'antiderivative', 'typed-boundary')
 MUTANT = None
 K_VALUES = (F(1, 2), F(1), F(2))
@@ -261,7 +262,7 @@ def main():
     try:
         ex, dev = controls()
         if args.check:
-            ref = json.load(open('RESULTS.json'))
+            ref = json.load(open(os.path.join(HERE, 'RESULTS.json')))
             for k in K_VALUES:
                 J1, J2 = J_gh(float(k), 40)
                 rec = ref['per_k'][str(k)]
@@ -285,7 +286,8 @@ def main():
                                                      'alpha1_gh60': sig6(pf * g60[0]), 'alpha2_gh60': sig6(pf * g60[1]),
                                                      'alpha1_mc': sig6(pf * mc[0]), 'alpha2_mc': sig6(pf * mc[1])}
             print(f'k={k}: done', file=sys.stderr, flush=True)
-        json.dump(out, open('RESULTS.json', 'w'), indent=2, sort_keys=True); open('RESULTS.json', 'a').write('\n')
+        path = os.path.join(HERE, 'RESULTS.json')
+        json.dump(out, open(path, 'w'), indent=2, sort_keys=True); open(path, 'a').write('\n')
         print(json.dumps({'passed': True, 'mode': 'full', 'scientific_effect': 'NONE'}, sort_keys=True))
         return 0
     except ValueError as exc:

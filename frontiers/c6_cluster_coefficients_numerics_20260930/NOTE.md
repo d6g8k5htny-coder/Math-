@@ -89,7 +89,24 @@ Outer integration over `(a, beta, c) ~ N(0, diag(2, 2, 6))`: tensor Gauss–Herm
 integrand is bounded and piecewise smooth (kinks where a root of `g` crosses `-|B|/2` or `B`), so Gauss–Hermite
 converges algebraically; the two orders and the Monte Carlo value bracket the truth to the digits shown.
 
-<!-- TABLE -->
+| `k` | `J_1` GH40 / GH60 / MC (`±` s.e.) | `J_2` GH40 / GH60 / MC (`±` s.e.) | `J_2/(J_1+J_2)` | near Palm excess `2J_2/(J_1+2J_2)` |
+|---|---|---|---|---|
+| `1/2` | 35.652 / 35.676 / 35.559 ± 0.086 | 1.121 / 1.109 / 1.115 ± 0.0062 | 0.0301 | 0.0585 |
+| `1` | 169.63 / 169.61 / 169.37 ± 0.28 | 3.249 / 3.255 / 3.281 ± 0.022 | 0.0188 | 0.0370 |
+| `2` | 1104.2 / 1103.7 / 1102.6 ± 1.7 | 8.421 / 8.641 / 8.875 ± 0.073 | 0.0078 | 0.0154 |
+
+`J_j(k) = E_(N(0, diag(2,2,6)))[I_j]`; the ratio columns are `b`-free. Prefactor `p_b(0)/z_0` and the coefficients `alpha_j = (p_b(0)/z_0) J_j` (GH60 values; MC in `RESULTS.json`):
+
+| `k` | `b` | `z_0 = 36 k^2 m_(2,b)` | `p_b(0)/z_0` | `alpha_1` | `alpha_2` |
+|---|---|---|---|---|---|
+| `1/2` | `0` | 9 | 0.031344 | 1.118 | 0.0347 |
+| `1/2` | `1` | 24.4813 | 0.008974 | 0.3202 | 0.00995 |
+| `1` | `0` | 36 | 0.007836 | 1.329 | 0.0255 |
+| `1` | `1` | 97.9251 | 0.0022435 | 0.3805 | 0.0073 |
+| `2` | `0` | 144 | 0.001959 | 2.162 | 0.0169 |
+| `2` | `1` | 391.7 | 0.00056088 | 0.619 | 0.00485 |
+
+Reading: at `k = 1`, `b = 0`, `alpha_1 ≈ 1.33` and `alpha_2 ≈ 0.026`; about 1.9% of nonempty near clusters are two-point clusters, and the near part of the Palm excess `2 nu(2)/(nu(1) + 2 nu(2))` of [C6] Corollary P is at most about 3.7% (the remote singleton part of `nu(1)` only lowers it). The two-point share decreases in `k` (3.0% at `k = 1/2`, 0.78% at `k = 2`). Precision: `J_1` is known to about `0.2%` (GH40, GH60 and MC agree within the MC standard error); `J_2` to about `1%` at `k = 1/2` and `k = 1` and about `3%` at `k = 2`, where GH60 and MC differ by three standard errors because the integrand's kinks slow the Gauss–Hermite convergence; the MC value with its standard error is the better estimate of `J_2` there.
 
 `L`-independence: the values at `L = 24` (the parent's SIDE24 application), `L = 12` and `L = 6` agree to the digits
 shown, as §2 predicts (`exp(-L^2/2)` corrections). The full run is `coefficients.py` (writes `RESULTS.json`); the
