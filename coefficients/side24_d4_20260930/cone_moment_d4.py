@@ -518,8 +518,10 @@ def enclose_integral(branches, K=None, cell=None, T=None, rho=None, remainder=Tr
     """int_0^T of sum over branches of const * prod(prefactors) * sum_pairs poly * J, plus the tail bound.  A branch is
     (const Iv, [prefactor factors], [(Poly, Jk or None)], tail_poly, gamma): for s >= T the branch is bounded in absolute
     value by |const| tail_poly(s) e^{-gamma s^2} (tail_poly a rational polynomial by power).  On each cell the point Taylor
-    coefficients of the product are integrated exactly; the Lagrange remainder of order K+1 is bounded through Cauchy's
-    estimate |f^(K+1)(xi)|/(K+1)! <= M_F(rho)/rho^(K+1), M_F the product/sum of the factors' disc bounds."""
+    coefficients of the product are integrated exactly; the tail sum_{n > K} c_n x^n of the (everywhere convergent) Taylor
+    series at the centre is bounded through Cauchy's estimate at the centre, |c_n| <= M_F(rho)/rho^n, M_F the product/sum of
+    the factors' disc bounds, and the geometric series in |x|/rho <= h/(2 rho) (v1.1: the v1.0 text applied the estimate
+    off-centre without shrinking the radius; Codex 4148001628)."""
     K = K_ORDER if K is None else K
     cell = CELL if cell is None else cell
     T = T_CUT if T is None else T
@@ -530,7 +532,11 @@ def enclose_integral(branches, K=None, cell=None, T=None, rho=None, remainder=Tr
     half = cell / 2
     total = Iv(ZERO)
     even_moments = [Iv.frac(2 * half ** (n + 1) / (n + 1)) if n % 2 == 0 else None for n in range(K + 1)]
-    rem_moment = Iv.frac(2 * half ** (K + 2) / (K + 2))
+    # int_{-h/2}^{h/2} sum_{n>K} |c_n| |x|^n dx <= M_F sum_{n>K} rho^-n 2 (h/2)^(n+1)/(n+1)
+    #                                          <= M_F rho^-(K+1) 2 (h/2)^(K+2)/(K+2) . 1/(1 - h/(2 rho))
+    if Fr(half) >= Fr(rho):
+        raise ValueError("cell half-width must be below the Cauchy radius")
+    rem_moment = Iv.frac(2 * half ** (K + 2) / (K + 2) / (1 - Fr(half) / Fr(rho)))
     rho_pow = Iv.frac(Fr(rho) ** (K + 1))
     for c in range(ncell):
         s0 = (2 * c + 1) * half

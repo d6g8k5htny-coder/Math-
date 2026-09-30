@@ -108,18 +108,26 @@ On each cell `[s_0 - h/2, s_0 + h/2]` (`h = 1/2`, `s_0` rational, `0 < s < T = 6
 with `y_0 = exp(-gamma s_0^2)` (an interval), those of `erf(kappa s)`/`erfc(kappa s)` from the Gaussian's
 (`(2 kappa/sqrt pi) exp(-kappa^2 s^2)`) by division by `n + 1`, with `erf(kappa s_0)` from the positive series, those of the
 `J_k` from their recurrence in Taylor arithmetic, and polynomials exactly; products are Cauchy products of interval
-coefficient lists. The cell integral of the degree-`K` polynomial is exact (odd powers vanish). For the remainder, since
-`F` is entire, Cauchy's estimate gives `|F^(K+1)(xi)|/(K+1)! <= M_F(rho)/rho^(K+1)` for every `xi` in the cell, where
-`M_F(rho)` bounds `|F(z)|` on `|z - s_0| <= rho` (`rho = 6`); by the triangle inequality `M_F` is the corresponding sum of
-products of factor bounds, each elementary on the disc:
+coefficient lists. The cell integral of the degree-`K` polynomial is exact (odd powers vanish). For the remainder: `F` is entire, so its
+Taylor series at `s_0`, `F(s_0 + x) = sum_n c_n x^n`, converges for every `x`, and Cauchy's estimate at the centre gives
+`|c_n| <= M_F(rho)/rho^n` for every `n`, where `M_F(rho)` bounds `|F(z)|` on `|z - s_0| <= rho` (`rho = 6`); by the
+triangle inequality `M_F` is the corresponding sum of products of factor bounds, each elementary on the disc:
 
     |exp(-gamma z^2)| <= exp(gamma rho^2) exp(-gamma (|s_0| - rho)_+^2),
     |erf(kappa z)| <= (2 kappa/sqrt pi) |z| exp(kappa^2 rho^2),        |erfc(kappa z)| <= 1 + that,
     |J_k(z)| = |int_0^1 (tz)^k e^{-t^2 z^2/8} z dt| <= |z|^(k+1) exp(rho^2/8)/(k+1),      |poly(z)| <= sum |c_j| |z|^j,
 
 with `|z| <= |s_0| + rho` (for `exp`: `|e^{-gamma z^2}| = e^{-gamma(x^2 - y^2)}`, `|y| <= rho`, `|x| >= (|s_0| - rho)_+`; for
-`erf` and `J_k`: integrate along the segment from `0` to `z`, on which `|e^{-t^2}| <= e^{(Im t)^2}`). The Lagrange form of
-the remainder then contributes at most `M_F(rho) rho^{-(K+1)} . 2 (h/2)^{K+2}/(K+2)` per cell (of order `1e-34` here).
+`erf` and `J_k`: integrate along the segment from `0` to `z`, on which `|e^{-t^2}| <= e^{(Im t)^2}`). The omitted tail
+of the series integrates to at most
+
+    int_{-h/2}^{h/2} sum_{n > K} |c_n| |x|^n dx <= M_F(rho) sum_{n > K} rho^{-n} 2 (h/2)^{n+1}/(n+1)
+                                            <= M_F(rho) rho^{-(K+1)} . 2 (h/2)^{K+2}/(K+2) . 1/(1 - h/(2 rho))
+
+per cell (`1/(n+1) <= 1/(K+2)` and the geometric series in `h/(2 rho) = 1/24`; of order `1e-33` here). The v1.0 text
+applied Cauchy's estimate at an off-centre point `xi` with the full radius `rho`, which is not justified (the disc around
+`xi` inside the bounded disc has radius `rho - |xi - s_0|`); the centre-based tail bound above replaces it (Codex
+4148001628) and is what the script computes.
 Beyond `T` each branch is bounded by `|const| . tail_poly(s) e^{-gamma s^2}` with `erfc <= 2`, `|J_k| <= J_k(inf) = (1/2) 8^{(k+1)/2} Gamma((k+1)/2)`,
 and `int_T^inf s^j e^{-gamma s^2} ds = (1/2) gamma^{-(j+1)/2} Gamma((j+1)/2, gamma T^2)`, the upper incomplete gamma
 bounded by `x^{a-1} e^{-x}/(1 - (a-1)/x)` (`a > 1`) or `x^{a-1} e^{-x}` (`a <= 1`); at `T = 60` this is below `1e-45`.
@@ -171,7 +179,7 @@ the reference constant; it is enclosed.
 | `c_{4,ref}` | `0.023321666002952835094521194952856885153101372363...` | `2.7e-49` |
 | `c_{4,24}` | the same digits; `|c_{4,24}/c_{4,ref} - 1| <= 1.5702e-108` | |
 | `E_4`, `eps`, `delta` | `1.2462e-111`, `1.1215e-109`, `1.5702e-108` | |
-| `Z_3` | `48 sqrt2 pi = 213.2616...` (floating cube quadrature `212.2`) | |
+| `Z_3` | `48 sqrt2 pi = 213.25838103...` (floating cube quadrature `212.2`) | |
 
 Floating controls (not part of the certificate; printed to ten digits): orthant midpoint quadrature of (1.1) at
 `m = 1, 2, 3` (`1.333333333`, `2.383737`, `5.3098` on a `90^3` grid) and the `(p, q)` midpoint quadrature of the
