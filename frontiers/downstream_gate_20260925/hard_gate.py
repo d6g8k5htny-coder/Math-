@@ -486,6 +486,7 @@ def d4_region_complement(graph: dict[str, Any]) -> dict[str, Any]:
     """Explicit D4/D5 region map with coverage attributed to its exact source."""
     fixed_remote = []
     other_scoped = []
+    proved_reviewed = []
     open_regions = []
     for nid, node in sorted(graph['nodes'].items()):
         if node.get('kind') != 'region':
@@ -502,11 +503,14 @@ def d4_region_complement(graph: dict[str, Any]) -> dict[str, Any]:
                 fixed_remote.append(entry)
             else:
                 other_scoped.append(entry)
+        elif node['classification'] == 'PROVED_REVIEWED':
+            proved_reviewed.append(entry)
         else:
             open_regions.append(entry)
     return {
         'covered_by_fixed_remote_candidate': fixed_remote,
         'covered_by_other_scoped_candidates': other_scoped,
+        'proved_reviewed_regions': proved_reviewed,
         'open_complement': open_regions,
         'no_event_to_expectation_reversal': True,
         'legacy_24jet_discharged': False,
