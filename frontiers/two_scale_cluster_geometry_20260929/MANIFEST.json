@@ -4,6 +4,18 @@
   "review_status": "NONAUTHOR_ACCEPTED_SCOPED_CONDITIONAL_GEOMETRY",
   "files": [
     {
+      "path": "ACCEPTED_BINDINGS.json",
+      "bytes": 2080,
+      "sha256": "5d07d92f85099550f5240f3c2400ab46736f0d38ec0b5cc1936acfecd8beb4fd",
+      "git_blob": "fea550f6bcebe67d08aa590ed004cedd8a88bdfc"
+    },
+    {
+      "path": "geometry.py",
+      "bytes": 7252,
+      "sha256": "e8582266faf3b4277412c00ea68751aeab0aa4e764ef831c56e34b8dbf68a7e9",
+      "git_blob": "f7fd5b69953d631b8cd9e1e92b3d25f1ce824f69"
+    },
+    {
       "path": "RADIAL_TAIL.md",
       "bytes": 12533,
       "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
@@ -40,6 +52,18 @@
       "git_blob": "59d11113e208965fefeaadd1bd5866585e77dc82"
     },
     {
+      "path": "test_custody.py",
+      "bytes": 8958,
+      "sha256": "9499f9b6a0ba699a538f0c53155db8d1d43289d985c15a803f22c281ad0f3e7d",
+      "git_blob": "d65b868673d528ced6898d13385105d7c0f8243a"
+    },
+    {
+      "path": "test_geometry.py",
+      "bytes": 5999,
+      "sha256": "ad87486bec154bf2ed9eb427c2527912579878ae7cd3462082c76bfd57acfa4d",
+      "git_blob": "a787f6e6bfe90385b51ce41d3709bf08af636d04"
+    },
+    {
       "path": "TWO_SCALE_LAW.md",
       "bytes": 17139,
       "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
@@ -52,28 +76,10 @@
       "git_blob": "33f00592e26a8f0a652c6554b6e3ddc389065425"
     },
     {
-      "path": "geometry.py",
-      "bytes": 7252,
-      "sha256": "e8582266faf3b4277412c00ea68751aeab0aa4e764ef831c56e34b8dbf68a7e9",
-      "git_blob": "f7fd5b69953d631b8cd9e1e92b3d25f1ce824f69"
-    },
-    {
-      "path": "test_custody.py",
-      "bytes": 7574,
-      "sha256": "f46073d3ff276cd0fdc571bf76e1cda8e0e4b20d93f3f7ab52a43d936258b325",
-      "git_blob": "d055261a2ff56d038fcf1ce803e0167c0e04d95b"
-    },
-    {
-      "path": "test_geometry.py",
-      "bytes": 5999,
-      "sha256": "ad87486bec154bf2ed9eb427c2527912579878ae7cd3462082c76bfd57acfa4d",
-      "git_blob": "a787f6e6bfe90385b51ce41d3709bf08af636d04"
-    },
-    {
       "path": "verify.py",
-      "bytes": 6002,
-      "sha256": "335dd00fabb70db04498a84eef926266faa9f34486458724d3b0655d10b4f4ca",
-      "git_blob": "e401a78a1a28200f3f7e473b9260f36919ab69f8"
+      "bytes": 9174,
+      "sha256": "9a5119f818cd10f7c734ec73e41d206d82e800df5cf2267620f6dd086fb4c52c",
+      "git_blob": "e5f2fe82cb8d7eeaedf9d4dd8d0c955768000c22"
     }
   ]
 }
