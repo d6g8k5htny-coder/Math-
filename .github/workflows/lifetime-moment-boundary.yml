@@ -26,4 +26,8 @@ jobs:
         with:
           python-version: '3.11.16'
       - run: python -B -S frontiers/lifetime_moment_boundary_20260930/verify.py
+      - name: Receipt and frozen-source regression controls
+        run: |
+          python -B -S -m unittest discover -s frontiers/lifetime_moment_boundary_20260930 -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s frontiers/lifetime_moment_boundary_20260930 -p 'test_*.py' -v
       - run: git diff --exit-code
