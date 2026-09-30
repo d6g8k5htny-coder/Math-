@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
-  "note": "Numerical evaluation only. The formula evaluated is the contact kernel Lambda_j(x; b, k, u) of [RM] (13), summed and integrated over the torus as in [CL] (1.4)-(1.5) (the remote singleton part k integral_X Lambda of nu(1)), at d = 2 with the exact kernel of [LP] section 2. No source theorem is consumed as accepted beyond its recorded disposition; the numbers are deterministic floating-point quadrature values with reported convergence checks, not enclosures. The companion near-coefficient note (Math-#168) merged to main on 30 September 2026 (02772ec) and is now pinned as [NUM].",
+  "note": "Numerical evaluation only. The formula evaluated is the contact kernel Lambda_j(x; b, k, u) of [RM] (13), summed and integrated over the torus as in [CL] (1.4)-(1.5) (the remote singleton part k integral_X Lambda of nu(1)), at d = 2 with the exact kernel of [LP] section 2. No source theorem is consumed as accepted beyond its recorded disposition; the numbers are deterministic floating-point quadrature values with reported convergence checks, not enclosures. The companion near-coefficient note (Math-#168) merged to main on 30 September 2026 (02772ec) and is now pinned as [NUM]. OpenAI Sol review 5363739676 (30 September 2026, head f4d8bb9) accepts the closed-form structure of section 2 as identities; recorded under nonauthor_reads without changing review_status.",
   "sources": [
     {
       "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -64,5 +64,14 @@
   ],
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
-  "main_at_update": "02772ec0427f4dda1f2a6b9e980a031804e276a6"
+  "main_at_update": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+  "nonauthor_reads": [
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5363739676,
+      "head": "f4d8bb9c30b5848996fceb18d213433cfe9956b9",
+      "date": "2026-09-30",
+      "disposition": "ACCEPT Slice A (closed-form far field, covariance rule, index split, unconditional controls, cone-adapted coordinates); the near-pin Euler paragraph read as a scaling heuristic only, with [CL] section 5.1 supplying the integrability bound; explicitly not an acceptance of the grids, the then-stale RESULTS.json, the precision claims or merge readiness; same account, credit 0"
+    }
+  ]
 }

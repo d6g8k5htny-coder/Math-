@@ -7,9 +7,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 16372,
-      "sha256": "42594cdb4c7413d8f77ff7034614c50fba577ce82cabd5da9c166be49e54068c",
-      "git_blob": "7f8c5db0ea37c2f28411748811168cfc0a3caedd"
+      "bytes": 16397,
+      "sha256": "a4d9c45dc9b261a00ef9be2bf541628e1198076d1f0756e8381a83e7af30518a",
+      "git_blob": "b8a7108ecf59a01bf53b8f3ed22ec15a4c7fa800"
     },
     {
       "path": "README.md",
@@ -19,21 +19,28 @@
     },
     {
       "path": "RESULTS.json",
-      "bytes": 103175,
-      "sha256": "e26cc99abce33f212713efa09b3c396831dcc7a8878cb8895207cb182eecb466",
-      "git_blob": "04f5b9fc458e261ed2999ed7f3fc97b98abc3506"
+      "bytes": 103899,
+      "sha256": "e9af3b52761946b57d6f5fa50fdf6ccd8d26610461e471a2e97618da1611e48a",
+      "git_blob": "3e4a7ddb850818c4477b99f678847e68ab2b92e4"
     },
     {
       "path": "SOURCE_MAP.json",
-      "bytes": 4268,
-      "sha256": "1d98c67e3bdf6df7fe2b32689924f6d548757f41a671e8b833bfdd0dbcb44471",
-      "git_blob": "ba9924e142bf3569476b621a56a5711bd10fb0d3"
+      "bytes": 5048,
+      "sha256": "c08c07a5d6251407f7e824d9154f9fe09fa93042d4f239942ab6a4c93f7ba8c7",
+      "git_blob": "7c2df9a35540e3ca6d7e3bf439b15dfa0a85a226"
     },
     {
       "path": "remote.py",
       "bytes": 35916,
       "sha256": "fb012fac939f990341c997a11f31aa18ea42326328ae70d5a1b77f63bfcaf16d",
       "git_blob": "4e85a57fcc97ccb9966b6511f394df98e8877726"
+    }
+  ],
+  "nonauthor_reads": [
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5363739676,
+      "scope": "Slice A (exact structure) accepted; numerics not certified"
     }
   ]
 }

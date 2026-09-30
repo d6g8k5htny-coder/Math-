@@ -84,7 +84,7 @@ and the double-precision regression can lose positivity, either in the Hessian b
 `Lambda` is below `10^(-20)`) or in the Schur complement `Var(A_0 | H_x)` (near the pin in the transverse sector,
 where `Lambda` is small but not negligible: at `r = 0.05` transverse a clamped `Var(A_0 | H_x)` would misreport
 `Lambda` by a factor ten). The full `4 x 4` conditional covariance of `(A_0, H_x)` is therefore Cholesky-factored,
-and any nonpositive pivot sends the point (`{{exact_count}}` in the whole run) to a 50-digit decimal regression.
+and any nonpositive pivot sends the point (`54` in the whole run) to a 50-digit decimal regression.
 
 ## 3. Method
 
@@ -130,7 +130,7 @@ order, a monotone ramp, so window-level critical points near the pins live in th
 (`Lambda(x)/Lambda_inf` at `k = 1, b = 0`: on the axis `2e-22` at `|x_1| = 1.5`, `1.6e-6` at `2`, `0.037` at
 `2.5`, `0.68` at `3`, `1.02` at `4`; transversally `0.21` at `|z| = 1`, `0.68` at `2`, `1.00` at `3`; the ray
 profiles at angles `0, 30, 45, 60, 90` degrees are in `RESULTS.json`, `ray_profile`). Near the pin `Lambda -> 0`
-(`near_zero_profile`: `Lambda(0.05, 60 deg) = 0.001`, `Lambda(0.4, 90 deg) = 0.0079` at `k = 1, b = 0`; on the
+(`near_zero_profile`: `Lambda(0.05, 60 deg) = 0.001`, `Lambda(0.05, 90 deg) = 0.000104`, `Lambda(0.4, 90 deg) = 0.0079` at `k = 1, b = 0`; on the
 axis and at `30` degrees it is below `10^(-20)`).
 
 **Remote singleton mass** `R(k, b, L) = k integral_X Lambda dx` and the assembled `nu(1)`, with `alpha_1` from the
@@ -138,22 +138,22 @@ companion note ([NUM] = Math-#168 `RESULTS.json`, merged, pinned; GH60 values; `
 
 | `k` | `b` | `L` | `integral_X Lambda` | `R = k integral_X Lambda` | `alpha_1` (#168) | `nu(1) = alpha_1 + R` | `nu(2) = alpha_2` | `nu(2)/nu(1)` |
 |---|---|---|---|---|---|---|---|---|
-| `0.5` | `0.0` | `6` (direct) | 3.05738 | 1.52869 | 1.11821 | 2.6469 | 0.0347454 | 0.0131 |
+| `0.5` | `0.0` | `6` (direct) | 3.05732 | 1.52866 | 1.11821 | 2.64687 | 0.0347454 | 0.0131 |
 | `0.5` | `0.0` | `12` | 15.6333 | 7.81666 | 1.11821 | 8.93487 | 0.0347454 | 0.00389 |
 | `0.5` | `0.0` | `24` | 65.7857 | 32.8929 | 1.11821 | 34.0111 | 0.0347454 | 0.00102 |
-| `1.0` | `0.0` | `6` (direct) | 2.54211 | 2.54211 | 1.32906 | 3.87117 | 0.0255091 | 0.00659 |
+| `1.0` | `0.0` | `6` (direct) | 2.54206 | 2.54206 | 1.32906 | 3.87112 | 0.0255091 | 0.00659 |
 | `1.0` | `0.0` | `12` | 15.0863 | 15.0863 | 1.32906 | 16.4154 | 0.0255091 | 0.00155 |
 | `1.0` | `0.0` | `24` | 65.2387 | 65.2387 | 1.32906 | 66.5678 | 0.0255091 | 0.000383 |
-| `2.0` | `0.0` | `6` (direct) | 2.17976 | 4.35953 | 2.1621 | 6.52163 | 0.0169281 | 0.0026 |
+| `2.0` | `0.0` | `6` (direct) | 2.17973 | 4.35945 | 2.1621 | 6.52155 | 0.0169281 | 0.0026 |
 | `2.0` | `0.0` | `12` | 14.5793 | 29.1585 | 2.1621 | 31.3206 | 0.0169281 | 0.00054 |
 | `2.0` | `0.0` | `24` | 64.7316 | 129.463 | 2.1621 | 131.625 | 0.0169281 | 0.000129 |
-| `0.5` | `1.0` | `6` (direct) | 2.237 | 1.1185 | 0.320155 | 1.43866 | 0.00994791 | 0.00691 |
+| `0.5` | `1.0` | `6` (direct) | 2.23698 | 1.11849 | 0.320155 | 1.43865 | 0.00994791 | 0.00691 |
 | `0.5` | `1.0` | `12` | 11.465 | 5.73251 | 0.320155 | 6.05267 | 0.00994791 | 0.00164 |
 | `0.5` | `1.0` | `24` | 48.112 | 24.056 | 0.320155 | 24.3762 | 0.00994791 | 0.000408 |
-| `1.0` | `1.0` | `6` (direct) | 1.81212 | 1.81212 | 0.380523 | 2.19264 | 0.00730347 | 0.00333 |
+| `1.0` | `1.0` | `6` (direct) | 1.8121 | 1.8121 | 0.380523 | 2.19262 | 0.00730347 | 0.00333 |
 | `1.0` | `1.0` | `12` | 11.0312 | 11.0312 | 0.380523 | 11.4117 | 0.00730347 | 0.00064 |
 | `1.0` | `1.0` | `24` | 47.6781 | 47.6781 | 0.380523 | 48.0587 | 0.00730347 | 0.000152 |
-| `2.0` | `1.0` | `6` (direct) | 1.5302 | 3.0604 | 0.619027 | 3.67943 | 0.00484668 | 0.00132 |
+| `2.0` | `1.0` | `6` (direct) | 1.53019 | 3.06037 | 0.619027 | 3.6794 | 0.00484668 | 0.00132 |
 | `2.0` | `1.0` | `12` | 10.6475 | 21.295 | 0.619027 | 21.9141 | 0.00484668 | 0.000221 |
 | `2.0` | `1.0` | `24` | 47.2945 | 94.589 | 0.619027 | 95.208 | 0.00484668 | 5.09e-05 |
 
