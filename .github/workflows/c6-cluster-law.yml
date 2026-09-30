@@ -49,7 +49,7 @@ jobs:
                   raise ValueError('consumed source identity mismatch on this tree: ' + entry['path'])
           script = str(root / 'cluster_law_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian', 'three-extra-points',
+          mutants = ['pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian', 'three-extra-points', 'shear-drop-cubic', 's-bound-constant',
                      'cross-term-not-small', 'window-closed', 'index-sign']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],

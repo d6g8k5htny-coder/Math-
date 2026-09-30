@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "object": "CL-C6-CLUSTER-LAW-20260929-v1.1",
+  "object": "CL-C6-CLUSTER-LAW-20260929-v1.2",
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "source_commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
@@ -130,8 +130,10 @@
     "Lemma 4.1 count convergence by C^1 stability under the converging conditional laws",
     "Lemma 4.2 large-K_4 tail (4.3) by marked Kac-Rice; Lemma 4.3 domination on {K_4 <= kappa} without D^-1",
     "Proposition 4.4 near limit for n in {1, 2}, vanishing for n >= 3, finiteness by Fatou against [DL], A -> oo by dominated convergence",
-    "Lemma 5.1 witness-conditioned remote first moment; Lemma 5.2 near-far cross term O(r^(9/2))",
-    "Section 6 sandwich, positivity, continuity, Corollaries Lambda, S (with uniform integrability from [C6] Theorem Q), X"
+    "Lemma 3.6 sheared cubic (3.12): every extra window critical point on the typed domain is a nondegenerate saddle (det = -3k(B + 4su) < 0) and -s <= 2|B| + (32 k D^2)^(1/3) (3.13); proved here, no #158 input",
+    "Lemma 5.1 remote conditional covariance floor (5.3a) by whitening the joint frame (U_r, Lambda) against the midpoint five-jet: (5.3b) distinct-site floor from [LP] section 2, (5.3c) frame remainders from [LP] section 3 and [DL] (4.2), (4.5), section 5.2, (5.2)-(5.3); Lemma 5.2 near-far cross term O(r^(9/2)) with the full normalizer once",
+    "Choice of kappa outside the countable atom set Kap_0 of the K_4-marginal of the limit measure, by Fubini (after Lemma 4.1)",
+    "Section 6 sandwich, positivity, explicit integrable majorant and continuity (from Lemma 3.6), Corollaries Lambda, S (with uniform integrability from [C6] Theorem Q), X (index d - 1 of the near points)"
   ],
   "consumed_reviews": [
     "main#76 (remote Theorem A, every d)",
@@ -144,5 +146,5 @@
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
   "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026.",
-  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159."
+  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159. v1.2 (30 September 2026) answers OpenAI nonauthor review 5359895261 of v1.1 (normalizer in Lemmas 4.2/5.2, Lemma 5.1 whitening proof, kappa by Fubini, explicit section 6.2 majorant, section 8 saddle correction); consumed-source identities unchanged."
 }

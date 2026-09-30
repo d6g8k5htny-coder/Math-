@@ -1,4 +1,4 @@
-# C6 cluster law (CL-C6-CLUSTER-LAW-20260929-v1.1)
+# C6 cluster law (CL-C6-CLUSTER-LAW-20260929-v1.2)
 
 Author-side proof candidate by Anthropic Claude. **Nonauthor analytic review required.** Scientific effect: NONE.
 **Stacked candidate:** consumes only merged sources at exact bytes (`SOURCE_MAP.json`): [LP], [DL], [C6], [RM], [RC],
@@ -29,7 +29,9 @@ so Theorem N at `d = 2` is conditional on this note's own steps only (PROOF.md �
 1. Near the pins, one transverse curvature of order `r` (one Lebesgue direction: the factor `r`) puts the field into the
    normal form of a planar cubic `F_0` on the soft plane, with the two pins among its critical points ([EDL] (A17),
    [LM] (L6)); the stable directions are slaved (Lemma 3.1). A planar cubic has at most four critical points, so at most
-   two extra ones (Lemma 3.2: the resultant is `(X^2 - 1/4) Q_2(X)` with `Q_2` quadratic, an exact identity).
+   two extra ones (Lemma 3.2: the resultant is `(X^2 - 1/4) Q_2(X)` with `Q_2` quadratic, an exact identity). In the
+   sheared form `C(u) + (s + Bu) Z^2/2 + (D/3) Z^3` (Lemma 3.6, exact identity) every extra window critical point is a
+   nondegenerate saddle and the typed window forces `-s <= 2|B| + (32 k D^2)^(1/3)`, the integrable majorant of §6.2.
 2. The pin weight on such a configuration is `r^4 (det D)^2 w_0` and the normalizer is `r^2 z_0` (Lemmas 3.4–3.5),
    giving the exponent `1 + 4 - 2 = 3`.
 3. The scaled representation (4.2) in the spectral chart of §3.2, a `K_4 <= kappa` split (Lemma 4.2: the large-`K_4`
@@ -45,12 +47,13 @@ so Theorem N at `d = 2` is conditional on this note's own steps only (PROOF.md �
 
     python -B -S cluster_law_check.py                      # rc 0, output = RESULTS.json
     python -B -O -S cluster_law_check.py                   # rc 0, byte-identical
-    python -B -S cluster_law_check.py --mutant NAME        # rc 1 for each of the seven names in the docstring
+    python -B -S cluster_law_check.py --mutant NAME        # rc 1 for each of the nine names in the docstring
 
-Six exact groups (`NF RS EX BD EU LG`): the pin conditions and pin Hessians of the cubic as polynomial identities; the
+Eight exact groups (`NF RS EX BD EU SH TW LG`): the pin conditions and pin Hessians of the cubic as polynomial identities; the
 resultant factorization and the explicit `Q_2`; six exact configurations with `0`, `1`, `2` extra critical points in the
 window and their pin weights (including the [LM] cubic with weight `45 k^4`); the block-determinant expansion in `r`
-for `d = 3, 4`; the Euler identity behind the large-curvature exclusion; the exponent ledgers (soft slice, cross term,
+for `d = 3, 4`; the Euler identity behind the large-curvature exclusion; the shear identity (3.12); the saddle sign,
+height identity and `s`-range of Lemma 3.6 on an exact rational family of critical points; the exponent ledgers (soft slice, cross term,
 shell error, Hadamard row factors of (3.10), the large-`K_4` tail and the uniform-integrability tail). They verify identities,
 exact configurations and exponent bookkeeping only.
 
@@ -64,9 +67,11 @@ exact configurations and exponent bookkeeping only.
    atoms of `K_4`).
 4. Lemma 4.2: the large-`K_4` tail through [C6] Lemma 5.1 and the regime ledgers; Lemma 4.3: the dominating function
    built from (3.8) and the Hadamard bound (3.10), with no inverse of `D`; the Weyl density (3.3).
-5. Lemma 5.1: the uniform conditional covariance floor of the remote jets given the pins and a near witness, regime by
-   regime through the [DL]/[C6] frames; Lemma 5.2: the Cauchy–Schwarz insertion and the absorption of `(1 + beta)^(d/2)`.
-6. §6.1: the sandwich and the order of the limits `r -> 0`, `A -> oo`, `rho -> 0`; §6.2 positivity; §6.3 uniform
+5. Lemma 5.1: the uniform conditional covariance floor (5.3a) of the remote jets given the pins and a near witness,
+   proved by whitening the joint frame against the midpoint five-jet ((5.3b), (5.3c)) with the [LP] §2 distinct-site
+   floor and the [DL] frame remainders; the full normalizer `Z_r^(-1)` once in each marked display (Lemmas 4.2, 5.2); Lemma 5.2: the Cauchy–Schwarz insertion and the absorption of `(1 + beta)^(d/2)`.
+6. Lemma 3.6: the sheared cubic, the saddle sign `-3k(B + 4su) < 0` and the range (3.13); the choice of `kappa` by
+   Fubini on the limit law (after Lemma 4.1); §6.1: the sandwich and the order of the limits `r -> 0`, `A -> oo`, `rho -> 0`; §6.2 positivity and the explicit majorant; §6.3 uniform
    integrability from [C6] Theorem Q.
 7. That every step cited from the seven consumed proof sources is used at its stated scope and exact bytes.
 

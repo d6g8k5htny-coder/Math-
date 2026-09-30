@@ -1,9 +1,13 @@
 # The cluster law of the C6 window count: `r^(-3) Q_r^W{N = n} -> nu(n)`, with `nu` carried by `{1, 2}`
 
-**Object:** CL-C6-CLUSTER-LAW-20260929-v1.1.
-**Version:** v1.1, 29 September 2026 (v1.0 the same day; v1.1 answers the OpenAI Codex review of Math-#159: spectral
-chart in place of the shear chart, exclusion lemma in the full transverse space, `K_4 <= kappa` split with a marked
-Kac–Rice tail, domination without `D^(-1)`, `n in {1, 2}` in Proposition 4.4, uniform integrability in Corollary X).
+**Object:** CL-C6-CLUSTER-LAW-20260929-v1.2.
+**Version:** v1.2, 30 September 2026 (v1.0 and v1.1 on 29 September; v1.1 answered the OpenAI Codex review of Math-#159:
+spectral chart in place of the shear chart, exclusion lemma in the full transverse space, `K_4 <= kappa` split with a
+marked Kac–Rice tail, domination without `D^(-1)`, `n in {1, 2}` in Proposition 4.4, uniform integrability in
+Corollary X; v1.2 answers the OpenAI nonauthor review 5359895261 of v1.1: the full normalizer restored in both marked
+displays (Lemmas 4.2, 5.2), Lemma 5.1 re-proved by whitening against the midpoint five-jet, the choice of `kappa` by
+Fubini on the limit law, an explicit integrable majorant for §6.2 from the new Lemma 3.6 on the sheared cubic, and the
+corrected §8 remark: every extra window critical point is a saddle).
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on merged
 sources only: [LP], [DL], [C6], [RM], [RC], [EDL], [LM], and it answers the "unknown conditional cluster law" left
@@ -372,6 +376,68 @@ Haar measure, and `c_m |det D| Delta(D)` is the density (3.3) on the singular sl
 it depends continuously on `(b, k, R)`. In `d = 2`, `m(s, a_3, beta, c_3) = p_0(0, a_3, beta, c_3)`, the density of
 `(f_zz, f_xxz, f_xzz, f_zzz)(0)` at `f_zz = 0`.
 
+### 3.8 The typed window geometry of the planar cubic
+
+Put `B = beta - a_3^2/(12k)`, `D = ( c_3 - a_3 beta/(4k) + a_3^3/(72k^2) )/2`, `u = X + a_3 Z/(12k)`, and
+`C(u) = 2k u^3 - (3k/2) u - k/2 = (k/2)(u - 1)(2u + 1)^2`. Then, identically in `(X, Z, s, a_3, beta, c_3, k)`,
+
+    F_0(X, Z) = G(u, Z) := C(u) + (s + B u) Z^2 / 2 + (D/3) Z^3                                                  (3.12)
+
+(control `SH`, as the polynomial identity with `k` cleared). The shear `(X, Z) -> (u, Z)` is linear and unimodular,
+so critical points, heights and Hessian determinants of `F_0` and `G` correspond, and the pins are `(u, Z) = (-+1/2, 0)`.
+The typed domain of Lemma 3.5 is `{w_0 > 0} = {s < -|B|/2}`, since `det M_2(M) = -6k(s - B/2)` and
+`det M_2(S) = 6k(s + B/2)`, and there `w_0 = 9k^2(4s^2 - B^2)`.
+
+**Lemma 3.6 (saddles only, and the range of `s`).** Let `s < -|B|/2` and let `(X, Z)` be a critical point of `F_0`
+other than the pins with `F_0(X, Z) in (-k, 0)`. Then `Z != 0`, the planar Hessian of `F_0` at `(X, Z)` has determinant
+`-3k(B + 4 s u) < 0`, so the point is a nondegenerate saddle (index `1` in the plane, hence index `d - 1` in the full
+model when the stable block is negative definite), and
+
+    -s <= 2|B| + (32 k D^2)^(1/3).                                                                                  (3.13)
+
+In particular, on `{w_0 > 0}`, `N_oo >= 1` forces `|s| <= 2|B| + (32 k D^2)^(1/3) <= C_k (1 + |a_3| + |beta| + |c_3|)^2`,
+with `C_k` bounded for `k` in a compact subset of `(0, oo)`, and every counted point is nondegenerate (the degeneracy
+clause in the definition of `E_k` is vacuous on the typed window). Both statements are exercised on an exact rational
+family in control `TW`.
+
+*Proof.* Write `x = -s > |B|/2 >= 0` and `w = s + B u`. The gradient of `G` is `partial_u G = 6k u^2 - 3k/2 + (B/2) Z^2`,
+`partial_Z G = Z (w + D Z)`, and its Hessian determinant is `12 k u (w + 2 D Z) - B^2 Z^2`. A critical point with
+`Z = 0` has `6k u^2 = 3k/2`, so it is a pin; hence `Z != 0` and `w + D Z = 0`.
+
+*Case `D != 0`.* Then `Z = -w/D`, and the first gradient equation reads `B w^2 / D^2 = 3k (1 - 4u^2)`. The height is
+`G = C(u) + w Z^2/2 + (D/3) Z^3 = C(u) + w^3/(6 D^2)`, and the Hessian determinant is
+`12 k u (w - 2w) - B^2 w^2/D^2 = -12 k u w - 3k B (1 - 4u^2) = -3k (B + 4 u (w - B u)) = -3k (B + 4 s u)`.
+
+(a) `B = 0`: `u = -+1/2`. At `u = 1/2`, `w = s` and `G = -k + s^3/(6D^2) < -k`, outside the window. At `u = -1/2`,
+`w = s` and `G = -x^3/(6 D^2)`, in the window iff `x^3 < 6 k D^2`, which implies (3.13); the determinant is
+`-3k . 4 s (-1/2) = 6 k s < 0`.
+
+(b) `B > 0`: `1 - 4u^2 = B w^2/(3k D^2) >= 0` gives `|u| <= 1/2`, and `|u| = 1/2` forces `w = 0`, a pin; so `|u| < 1/2`.
+Then `w = -x + B u <= -x + B/2 < 0` and `C(u) <= 0`, so `G > -k` gives `|w|^3/(6D^2) < k + C(u) <= k`, i.e.
+`|w| < (6 k D^2)^(1/3)`; with `|w| = x - B u >= x - B/2` this is `x < B/2 + (6 k D^2)^(1/3)`, which implies (3.13).
+For the sign, write `|w|^3/(6 D^2) = |w| k (1 - 4u^2)/(2B)` and `k + C(u) = (k/2)(u + 1)(2u - 1)^2` (the identity
+`2 + (u - 1)(2u + 1)^2 = (u + 1)(2u - 1)^2`): the window inequality `G > -k` becomes `|w| (1 + 2u) < B (u + 1)(1 - 2u)`,
+i.e. `x < B u + B (u + 1)(1 - 2u)/(1 + 2u) = B/(1 + 2u)`. Hence `B + 4 s u = B - 4 x u > B (1 - 2u)/(1 + 2u) > 0` when
+`u > 0`, and `B - 4 x u >= B > 0` when `u <= 0`: the determinant is negative.
+
+(c) `B < 0`: `4u^2 - 1 = |B| w^2/(3k D^2) >= 0` gives `|u| >= 1/2`, and `|u| = 1/2` forces `w = 0`, a pin; so `|u| > 1/2`.
+Now `w^3/(6D^2) = w k (4u^2 - 1)/(2|B|)` with `w = -x - |B| u`, and expanding,
+
+    G = (k/2)(2u + 1) [ -1 - (x/|B|)(2u - 1) ].
+
+For `u > 1/2` both factors give `G <= -k`: outside the window. For `u < -1/2` put `t = -u > 1/2`, so
+`G = -(k/2)(2t - 1)( x (2t + 1)/|B| - 1 )`; since `x > |B|/2` the bracket is positive, `G < 0`, and `G > -k` reads
+`(2t - 1)( x (2t + 1) - |B| ) < 2|B|`. The determinant is `-3k( -|B| + 4 x t ) < 0` because `4 x t > 2 x > |B|`. For (3.13)
+assume `x >= 2|B|` (otherwise it holds) and put `delta = 2t - 1 > 0`: the window inequality gives `delta (2x - |B|) < 2|B|`,
+hence `delta < 4|B|/(3x) <= 2/3` and `t < 5/6`; then `w^2 = (3 k D^2/|B|) delta (delta + 2) < 32 k D^2/(3x)`, while
+`|w| = x - |B| t >= 7x/12`; so `x^3 < (144/49)(32/3) k D^2 < 32 k D^2`.
+
+*Case `D = 0`, `B != 0`.* Then `w = 0`, i.e. `u = x/B`, and `Z^2 = 3k (1 - 4u^2)/B`. The height is `G = C(u)`, which lies
+in `(-k, 0)` iff `u in (-1, 1) \ {-+1/2}` (`C(-1) = -k`, `C(-1/2) = 0`, `C(1/2) = -k`, `C(1) = 0`, `C` decreasing on
+`[-1/2, 1/2]`, `k + C(u) = (k/2)(u + 1)(2u - 1)^2`), so `x = |B| |u| < |B|`; the Hessian determinant is `-B^2 Z^2 < 0`.
+
+*Case `D = 0`, `B = 0`.* `partial_Z G = s Z` with `s != 0`: there is no critical point off `Z = 0`. ∎
+
 ## 4. The near limit
 
 ### 4.1 Scaled representation
@@ -390,8 +456,7 @@ from the weight combine with `r^2/Z_r -> 1/z_0` ([LP] (5.4)) to the exponent `1 
 
 ### 4.2 Convergence of the scaled count
 
-**Lemma 4.1.** Fix `A >= 4`, fix `kappa > 0` outside the countable set of atoms of the law of `K_4` under the
-conditional laws below, and fix `(s, U, D, tau)` with `D` nonsingular and `(s, a_3, beta, c_3)` outside `E_k` and outside
+**Lemma 4.1.** Fix `A >= 4`, fix `kappa > 0` outside the countable set `Kap_0` defined after the proof, and fix `(s, U, D, tau)` with `D` nonsingular and `(s, a_3, beta, c_3)` outside `E_k` and outside
 the null set of jets for which an extra critical point of `F_0` lies on the circle `X^2 + Z^2 = A^2`. Let
 `j_r = chart(rs, U, D, tau)` and `j_0 = chart(0, U, D, tau)`. Then, under the conditional laws `Q_(r, j_r)` of §3.1,
 
@@ -401,8 +466,8 @@ the null set of jets for which an extra critical point of `F_0` lies on the circ
 and likewise for the counts restricted to any fixed index, and for the scaled positions and heights (Corollary X).
 
 *Proof.* Couple the conditional laws as in §3.1: `f = m_r(j_r) + Res_r` with `Res_r -> Res_0` in `C^4` in probability
-and `m_r(j_r) -> m_0(j_0)` in `C^4`. Fix a realization with `K_4 < oo` along which the convergence holds; `1{K_4 <= kappa}`
-converges because `kappa` is not an atom. By Lemma 3.1 (applicable since `D` is nonsingular and `r -> 0`), every
+and `m_r(j_r) -> m_0(j_0)` in `C^4`. Fix a realization with `K_4 < oo` along which the convergence holds; `K_4(f_r) -> K_4(f_0)` for it, so `1{K_4 <= kappa}`
+converges whenever `K_4(f_0) != kappa`, an event of full `Q_(0, j_0)`-probability for the jets admitted below. By Lemma 3.1 (applicable since `D` is nonsingular and `r -> 0`), every
 critical point of `f~` in the physical ball `X^2 + Z^2 + |rW|^2 <= A^2` has bounded `W`, so its `(X, Z)` lies in the disc
 of radius `A + O(r)`, and by (3.6) `G_r -> F_0` in `C^2` on the disc of radius `A + 1`. The extra critical points of `F_0`
 there are finitely many and nondegenerate, none lies on the circle of radius `A`, and none has height in `{-k, 0}`.
@@ -415,6 +480,14 @@ the critical points of `f~` in the physical ball other than the pins, which are 
 `(-+1/2, 0)` of `grad F_0` and attract no other zero. Hence `N^A -> N_oo^A` for every such realization; convergence in
 probability follows, together with the convergence of scaled positions and heights. ∎
 
+**Choice of `kappa`.** Only the limit law enters the argument above. Let `mu_l` be the finite measure `Leb(dj) ⊗ Q_(0, j)`
+on `{|j| <= l} x C^4(X)`, `l in N`. The `K_4`-marginal of each `mu_l` has countably many atoms; let `Kap_0` be the
+countable union of these atom sets over `l`. For `kappa` outside `Kap_0`, Fubini gives `integral_(|j| <= l) Q_(0, j){K_4 = kappa} dj = mu_l{K_4 = kappa} = 0`
+for every `l`, hence `Q_(0, j){K_4 = kappa} = 0` for Lebesgue-almost every jet `j`. These are the jets admitted in
+Lemma 4.1, and they are all that Proposition 4.4 integrates over. No union of atom sets over uncountably many
+conditional laws is used. The complement of `Kap_0` is unbounded, and `kappa -> oo` in Proposition 4.4 and §6.5 is
+taken along it.
+
 ### 4.3 The large-`K_4` tail
 
 **Lemma 4.2.** For every `A >= 4` and every fixed `p >= 1` there is `C(A, p)` such that for `0 < r <= r_*` and
@@ -422,10 +495,15 @@ probability follows, together with the convergence of scaled positions and heigh
 
     r^(-3) Q_r^W{ N^A >= 1, K_4 > kappa } <= C(A, p) kappa^(-p/2).                                                   (4.3)
 
-*Proof.* `Q{N^A >= 1, K_4 > kappa} <= E[N^A 1{K_4 > kappa}]`, and the mark `1{K_4 > kappa}` is `sigma(f)`-measurable
-and bounded, so [C6] Lemma 5.1 (gradient-only kernel, all heights, which dominates the windowed count) gives
+*Proof.* `Q_r^W{N^A >= 1, K_4 > kappa} <= E_(Q_r^W)[N^A 1{K_4 > kappa}]`, and the mark `W_r 1{K_4 > kappa}` is
+`sigma(f)`-measurable and nonnegative, so [C6] Lemma 5.1 under `Q_r` (gradient-only kernel, all heights, which dominates
+the windowed count), divided once by the full normalizer, gives
 
-    E[ N^A 1{K_4 > kappa} ] <= sum_j integral_(|X| <= A r) p_(grad f(X) | U_r)(0) E[ W_r F_j(H_X) 1{K_4 > kappa} | U_r, grad f(X) = 0 ] dX.
+    E_(Q_r^W)[ N^A 1{K_4 > kappa} ] <= Z_r^(-1) sum_j integral_(|X| <= A r) p_(grad f(X) | U_r)(0) E_(Q_r)[ W_r F_j(H_X) 1{K_4 > kappa} | U_r, grad f(X) = 0 ] dX.
+
+The left side is under the weighted law; the right side is under `Q_r`, with the original weight `W_r` inside the
+conditional expectation and `Z_r^(-1)` outside, once each (this is the form of [C6] (6.3) and of [DL] (4.10); the
+unnormalized integral is `Z_r` times the left side, not the left side).
 
 Cauchy–Schwarz on the conditional expectation and Markov's inequality with the conditional moments
 `E[K_4^p | U_r, grad f(X) = 0] <= C_p (1 + beta_X)^p` ([C6] Lemma 4.4 with the frame parameter `beta_X` of [C6] Lemma 4.1)
@@ -433,8 +511,9 @@ bound the integrand by `p_(grad f(X)|U_r)(0) E[(W_r F_j(H_X))^2 | .]^(1/2) (C_p 
 [C6] (5.3) and the §6 regime table, the density times the square root of the squared-weight conditional moment is
 bounded, in every regime, by the source's unmarked intensity bound times `(1 + beta_X)^(3d)`, and the regime's
 Gaussian penalty absorbs any fixed power of `(1 + beta_X)` by raising the index of the exponential series in [C6] §6.2
-(the recorded ledgers `2n >= 6 + 3d`, `2n/3 >= 15 + 39d` are the choices for [C6]'s degree); the regional ledgers then
-give `integral_(|X| <= A r) (...) dX <= C(A, p) r^3`. ∎
+(the recorded ledgers `2n >= 6 + 3d`, `2n/3 >= 15 + 39d` are the choices for [C6]'s degree); the regional ledgers of
+[C6] §6, which are stated for the normalized quantity `Z_r^(-1) E_(Q_r) N^(W_r Xi)`, then give
+`Z_r^(-1) integral_(|X| <= A r) (...) dX <= C(A, p) r^3`. ∎
 
 ### 4.4 Domination on `{K_4 <= kappa}`
 
@@ -484,9 +563,9 @@ density and of the Weyl factor. Lemma 4.3 dominates uniformly in `r`. The prefac
 
     limsup / liminf  r^(-3) Q{N^A = n}  are within  C(A, 2)/kappa  of  z_0^(-1) integral (...) E_0[1{K_4 <= kappa} | j_0] 1{N_oo^A = n};
 
-let `kappa -> oo` (monotone convergence on the right, `E_0[1{K_4 <= kappa}|j_0] -> 1`) and integrate out `(U, D, tau_rest)`
+let `kappa -> oo` along the complement of `Kap_0` (monotone convergence on the right, `E_0[1{K_4 <= kappa}|j_0] -> 1`) and integrate out `(U, D, tau_rest)`
 to obtain (4.4) with the reduced weight (3.11). For `n >= 3` the pointwise limit of the indicator is zero by Lemma 3.2.
-Finiteness: by Fatou's lemma applied along `r -> 0` to the `K_4 <= kappa` part of the representation (4.2) with `E = {N^A >= 1}` (the integrand converges pointwise to the (4.4)-integrand times `E_0[1{K_4 <= kappa}|j_0]`, and the latter tends to `1` as `kappa -> oo`), `integral m w_0 N_oo^A <= liminf r^(-3) E N^A <= C`, where the last bound is [DL] Theorems P_d, C_d and I_d (pin balls and collar of scaled radius `4`, shells from `4r` to `A r`: `C r^3 (1 + sum_j (r/s_j)^2 + s_j^2) <= C r^3` uniformly in `A <= 1/r`). The `A -> oo` limit: `N_oo^A` is nondecreasing in `A` with limit `N_oo`, so
+Finiteness (see also the explicit majorant of §6.2, from Lemma 3.6): by Fatou's lemma applied along `r -> 0` to the `K_4 <= kappa` part of the representation (4.2) with `E = {N^A >= 1}` (the integrand converges pointwise to the (4.4)-integrand times `E_0[1{K_4 <= kappa}|j_0]`, and the latter tends to `1` as `kappa -> oo`), `integral m w_0 N_oo^A <= liminf r^(-3) E N^A <= C`, where the last bound is [DL] Theorems P_d, C_d and I_d (pin balls and collar of scaled radius `4`, shells from `4r` to `A r`: `C r^3 (1 + sum_j (r/s_j)^2 + s_j^2) <= C r^3` uniformly in `A <= 1/r`). The `A -> oo` limit: `N_oo^A` is nondecreasing in `A` with limit `N_oo`, so
 `integral m w_0 N_oo < oo` by monotone convergence and the uniform bound; then `1{N_oo^A = n} -> 1{N_oo = n}`
 pointwise (for every jet, once `A` exceeds the radius of the finitely many extra critical points) and is dominated by
 `N_oo`, so dominated convergence gives `nu_near^A(n) -> nu_near(n)`. Uniformity on the compact parameter set: the
@@ -518,48 +597,87 @@ finite, and `k integral_(D_rho) Lambda -> k integral_X Lambda` with error at mos
 ### 5.3 The witness-conditioned far first moment
 
 **Lemma 5.1.** Let `X` be a point of the near region `|X| <= A r` and `Q_X` the regression of `Q_r` on the additional
-observation `grad f(X) = 0` (the gradient-only kernel of [C6] Lemma 5.1, defined for every `X`). Then for `rho <= s_0`,
+observation `grad f(X) = 0` (the gradient-only kernel of [C6] Lemma 5.1, defined for every `X`). There are
+`r_0(A, rho) > 0` and `C(rho)` such that, for `r <= r_0` and `rho <= s_0`, with `Y_x = (grad f(x), f(x))`,
 
-    E_(Q_X)[ N_far^rho ] <= C(rho) k r^3 (1 + beta_X)^d,                                                              (5.3)
+    Cov_(Q_X)( Y_x ) >= (gamma_rho/4) I     for every x in D_rho,                                                    (5.3a)
+    E_(Q_X)[ N_far^rho ] <= C(rho) k r^3 (1 + beta_X)^(2d),                                                          (5.3)
 
-where `beta_X` is the frame parameter of [C6] Lemma 4.1 for the regime containing `X` (bounded by a polynomial in
-`chi`, `|v|^(-1)`, `r^(-1)` as recorded in the [C6] §6 table).
+where `gamma_rho > 0` is the `r`-independent floor (5.3b) and `beta_X` is the frame parameter of [C6] Lemma 4.1 for the
+regime containing `X` (bounded by a polynomial in `chi`, `|v|^(-1)`, `r^(-1)` as recorded in the [C6] §6 table).
 
-*Proof.* Apply the Kac–Rice formula of [RM] (12) under `Q_X` to the remote region `D_rho` and the window. It requires
-the conditional covariance of `Y_x = (grad f(x), f(x))`, `x in D_rho`, given the conditioning σ-algebra, to be uniformly
-nonsingular. Since `|X| <= A r`, only the pin-ball and collar regimes of [DL] §§4–5 occur. The σ-algebra of `(U_r, grad f(X))`
-is that of `(U_r, Y')` for the normalized regime frame `Y'` (the frame `Y` of [DL] (4.5) in the pin ball; the
-`D_r^(-1)`-scaled interpolation frame of [DL] §5.2 in the collar), an invertible re-expression; these normalized frames
-have uniform covariance sandwiches and converge in `L^2` to linear images, of full row rank ([DL] Lemma D3 and §5.1),
-of the midpoint jets of order at most five. `Y_x` is a jet at the distinct site `x`, `|x| >= rho`. By the distinct-site
-jet rank of [LP] §2 the covariance of the limiting vector `(U_0, lim Y', Y_x)` is uniformly positive definite on the
-compact parameter set, so for small `r` its Schur complement, the conditional covariance of `Y_x` given `(U_r, Y')`,
-is bounded below by `c(rho) I`, uniformly in `X` and in the regime. Therefore the conditional density of `Y_x` at `(0, t)` is at most `C(rho)`, and the conditional
-expectation of `F_j(H_x)` given `Y_x = (0, t)` is at most `C E[(1 + |H_x|)^d | ...] <= C (1 + beta_X)^d`, since the
-regression mean of the far jets is linear in the frame targets with bounded coefficients, and the frame target minus
-its mean is what `beta_X` measures ([C6] Lemma 4.1 and Lemma 4.4). Integrating over `D_rho` and the window of length
-`k r^3` gives (5.3). ∎
+*Proof.* Two facts. Let `J_5` be the complete midpoint Taylor jet through order five (the `C(d+5, 5)` coefficients
+`D^alpha f(0)/alpha!`), a nondegenerate Gaussian vector that does not depend on `r`.
+
+(i) By the distinct-site jet rank of [LP] §2, `(J_5, Y_x)` is a list of distinct derivative functionals at the two
+distinct sites `0` and `x`, so its covariance is positive definite; the Schur complement is continuous in `(x, R)` and
+`{x in D_rho} x O(d)` is compact, so
+
+    Cov( Y_x | J_5 ) >= gamma_rho I,     Cov( Y_x ) <= M I,                                                          (5.3b)
+
+with `gamma_rho > 0` and `M` independent of `r`.
+
+(ii) Every observation frame used here is an affine function of `J_5` up to a small remainder. The contact frame
+`U_r` of [LP] §3 is `T_U J_5 + R_U` with `||R_U||_(L^2) <= C r` and `Cov(U_r) >= c I`. Given `U_r`, the near frame
+`Lambda` of the regime containing `X` is an invertible linear image of `grad f(X)`: in the pin ball the normalized
+gradient frame `Y` of [DL] (4.2), `Y = dvec + B J + R` with `||R||_(L^2) <= C r` and `Cov_(Q_r)(Y) >= c_0 I` ([DL] (4.5));
+in the axial collar strip `|v| <= r^(1/3)` the raw gradient, with `Cov_(Q_r) >= c r^10 I` and, through the three-site
+interpolation `V_r = B_c D_r J_5 + R_r` of [DL] §5.2, remainder `||R_r||_(L^2) = O(r^6)` ([DL] (5.1)); in the rest of the
+collar the frame `Gc` of [DL] (5.2)–(5.3), with `Cov_(Q_r)(Gc) >= c |v|^4 I`, `|v| >= r^(1/3)`, and remainder
+`O_(L^2)(r)`. Hence the joint frame `V := (U_r, Lambda)` satisfies
+
+    V = T_V J_5 + R_V,     lambda_min Cov(V) >= lambda_V > 0,     ||Cov(V)^(-1/2)|| ||R_V||_(L^2) <= eta_r,           (5.3c)
+
+with `eta_r -> 0` uniformly in `X` in the near region: `C r/c^(1/2)` in the pin ball, `O(r^6)/(c r^10)^(1/2) = O(r)` in
+the axial strip, `C r/(c^(1/2) |v|^2) <= C r^(1/3)` in the rest of the collar. (The joint floor `lambda_V` follows from
+the floor of `U_r`, the floor of `Lambda` given `U_r` and the bounded entries: for jointly Gaussian `(U, Lambda)`,
+`Var(a . U + b . Lambda) >= Var(b . Lambda | U)` and `Var(a . U + b . Lambda) >= (std(a . U) - std(b . Lambda))^2`, so
+`lambda_min` is at least a constant times the smaller of the two floors.)
+
+Whitening. Put `Ut := Cov(V)^(-1/2) (V - E V)`, so `Cov(Ut) = I` and `Ut = T J~_5 + E` with `J~_5` the centred jet and
+`||E||_(L^2) <= eta_r` by (5.3c). The σ-algebra of `Q_X` is that of `V`, hence that of `Ut`. For a unit vector `e`,
+`Var(e . Y_x | V) = min_a Var(e . Y_x - a . Ut)`, attained at `a = Cov(e . Y_x, Ut)` with `|a|^2 <= Var(e . Y_x) <= M`.
+Since `e . Y_x - a . T J~_5` is `e . Y_x` minus a linear function of `J_5`, its variance is at least `Var(e . Y_x | J_5)
+>= gamma_rho` by (5.3b). Therefore
+
+    std( e . Y_x - a . Ut ) >= std( e . Y_x - a . T J~_5 ) - |a| ||E||_(L^2) >= gamma_rho^(1/2) - M^(1/2) eta_r >= gamma_rho^(1/2)/2
+
+for `r <= r_0(A, rho)`. This is (5.3a), uniformly in `X` and in the regime. Conditioning on less than the full
+three-site vector of [DL] §5.2 (which also carries the witness value) can only increase conditional variances, so no
+witness value is pinned and the same floor holds for the kernel `Q_X`.
+
+Consequences. By (5.3a) the conditional density of `Y_x` at `(0, t)` under `Q_X` is at most `C(rho)`. The conditional
+mean of `H_x` given `(V, Y_x)` is `E H_x` plus a linear function, with coefficients bounded by `M^(1/2)` (bounded
+cross-covariances against the whitened vector), of the whitened target `Cov(V)^(-1/2)(tau_V - E V)` and of
+`Y_x - E Y_x`; the whitened target of `U_r` is bounded (contact frame, bounded target), and that of `Lambda` is at most
+`||Cov(Lambda)^(-1/2)|| |tau - E Lambda| <= (1 + beta_X)^(3/2)` by the definition of `beta_X` in [C6] Lemma 4.1; the
+conditional covariance of `H_x` is bounded. Hence `E[ F_j(H_x) | Y_x = (0, t), V ] <= C E[(1 + |H_x|)^d | ...] <=
+C (1 + beta_X)^(3d/2) (1 + |t|)^d`. Apply the Kac–Rice formula of [RM] (12) under `Q_X` to `D_rho` and the window of
+length `k r^3`, on which `|t|` is bounded: (5.3) follows, with the exponent `2d >= 3d/2`. ∎
 
 **Lemma 5.2 (no near–far cross term).** For `A >= 4` and `rho <= s_0`,
 
     Q_r^W{ N_near^A >= 1, N_far^rho >= 1 } <= E_(Q_r^W)[ N_near^A 1{ N_far^rho >= 1 } ] <= C(A, rho) r^(9/2).       (5.4)
 
-*Proof.* The mark `1{N_far^rho >= 1}` is `sigma(f)`-measurable and bounded, so [C6] Lemma 5.1 (gradient-only kernel,
-all heights, which dominates the windowed near count) gives
+*Proof.* The mark `W_r 1{N_far^rho >= 1}` is `sigma(f)`-measurable and nonnegative, so [C6] Lemma 5.1 under `Q_r`
+(gradient-only kernel, all heights, which dominates the windowed near count), divided once by the full normalizer, gives
 
-    E[ N_near^A 1{N_far >= 1} ] <= sum_j integral_(|X| <= A r) p_(grad f(X) | U_r)(0) E[ W_r F_j(H_X) 1{N_far >= 1} | U_r, grad f(X) = 0 ] dX.
+    E_(Q_r^W)[ N_near^A 1{N_far >= 1} ] <= Z_r^(-1) sum_j integral_(|X| <= A r) p_(grad f(X) | U_r)(0) E_(Q_r)[ W_r F_j(H_X) 1{N_far >= 1} | U_r, grad f(X) = 0 ] dX,
 
-Cauchy–Schwarz on the conditional expectation, `1{N_far >= 1} <= N_far`, and (5.3) bound the integrand by
+the left side under the weighted law and the right side under `Q_r` with `W_r` inside and `Z_r^(-1)` outside, once
+each. Cauchy–Schwarz on the conditional expectation (which is `E_(Q_X)` at the target), `1{N_far >= 1} <= N_far`, and
+(5.3) bound the integrand by
 
-    p_(grad f(X)|U_r)(0) E[ (W_r F_j(H_X))^2 | . ]^(1/2) ( C k r^3 (1 + beta_X)^d )^(1/2).
+    p_(grad f(X)|U_r)(0) E_(Q_X)[ (W_r F_j(H_X))^2 ]^(1/2) ( C k r^3 (1 + beta_X)^(2d) )^(1/2).
 
 By [C6] (5.3) and the §6 regime table, the density times the square root of the squared-weight conditional moment is
 bounded, in every regime, by the source's unmarked intensity bound times `(1 + beta_X)^(3d)`, and the regime's
-Gaussian penalty absorbs the additional `(1 + beta_X)^(d/2)` as it absorbs [C6]'s marked factor: in every regime of
+Gaussian penalty absorbs the additional `(1 + beta_X)^d` as it absorbs [C6]'s marked factor: in every regime of
 [C6] §6.2 the absorption of a power of `beta_X` is by an exponential factor in the degeneracy variable, and any fixed
 polynomial degree is absorbed by raising the index of the exponential series there (the ledgers `2n >= 6 + 3d`,
 `2n/3 >= 15 + 39d` are the recorded choices for [C6]'s degree; a larger `n` serves here at the cost of the constant). The
-regional ledgers then give `integral_(|X| <= A r) (...) dX <= C(A) r^3`. Multiplying by `(C k r^3)^(1/2)` gives (5.4). ∎
+regional ledgers of [C6] §6, stated for the normalized quantity, then give `Z_r^(-1) integral_(|X| <= A r) (...) dX <= C(A) r^3`.
+Multiplying by `(C k r^3)^(1/2)` gives (5.4). ∎
 
 Remark. Only `o(r^3)` is needed; the exponent `9/2` is what Cauchy–Schwarz delivers and is not claimed sharp.
 
@@ -602,11 +720,20 @@ the integral (1.3) over that neighbourhood is positive. `nu_near(1) > 0`: the ex
 (-1/2, 3, 1/3, 0)` at `k = 1` (rescaled by `k` in general) has extra critical points `(-3/2, 3)` at height `-1/2` (in the
 window) and `(45/22, -357/11)` at height `-9947/121` (outside), with pin weights `7/4` and `17/4` (control `EX`); the
 same open-neighbourhood argument applies. `nu(1) >= k integral_X Lambda > 0` by the positivity of `Lambda_j` in [RM].
-Finiteness of (1.3): Proposition 4.4 (`integral m w_0 N_oo < oo`, by Fatou against the [DL] first-moment bound).
-Continuity in `(b, k, R)`: `m`, `w_0`, `z_0`, `F_0` and `Lambda` depend continuously on the parameters, the indicator
-`1{N_oo = n}` is continuous off a null set (`E_k` and the degenerate configurations), and the integrand of (1.3) is
-dominated locally uniformly in the parameters by `C m (1 + |s| + |a_3| + |beta|)^4 N_oo`, which is integrable by
-Proposition 4.4; dominated convergence in the parameters gives continuity.
+Finiteness and continuity of (1.3), with an explicit majorant. On `{w_0 > 0}` the pin weight is
+`w_0 = 9k^2 (4 s^2 - B^2) <= 36 k^2 s^2`, and by Lemma 3.6 the indicator `1{N_oo >= 1}` is supported on
+`|B|/2 < -s <= 2|B| + (32 k D^2)^(1/3)`. Hence, for every `n >= 1`,
+
+    m w_0 1{N_oo = n} <= 36 k^2 s^2 m 1{ |B|/2 < -s <= 2|B| + (32 k D^2)^(1/3) },
+
+and integrating in `s` gives at most `12 k^2 m ( 2|B| + (32 k D^2)^(1/3) )^3 <= C_K m (1 + |a_3| + |beta| + |c_3|)^6` for
+parameters in a compact set `K` (the constant depends on `K` through `k` only). Since `m <= C_K exp(-c_K (a_3^2 +
+beta^2 + c_3^2))` uniformly on `K` (§3.7), this majorant is integrable uniformly on `K`. It proves the finiteness of
+(1.3) a second time (independently of the Fatou argument of Proposition 4.4), and it does not depend on `A`, so it also
+dominates the `A -> oo` step of Proposition 4.4. Continuity in `(b, k, R)`: `m`, `w_0`, `z_0`, `F_0` and `Lambda` depend
+continuously on the parameters, the indicator `1{N_oo = n}` is continuous off the null set `E_k` (every counted point
+is a nondegenerate saddle by Lemma 3.6, and the boundary heights are excluded off `E_k`), and the integrand of (1.3) is
+dominated uniformly on `K` by the integrable majorant above; dominated convergence in the parameters gives continuity.
 
 ### 6.3 Corollary Lambda
 
@@ -634,6 +761,10 @@ gives the convergence of the scaled positions and heights, and Lemma 4.3 dominat
 `kappa -> oo`, then `M -> oo`, then `A -> oo` (the `A -> oo` step as in Proposition 4.4, dominated by `sup|phi| N_oo`).
 Second, the transverse scaled distance: in the rotated chart of §3.2 the physical transverse displacement of a
 critical point at scaled coordinates `(X, Z, W)` is `r (Z, rW)` with `|W|` bounded by Lemma 3.1, so `|X_perp|/r = |Z| + O(r)`.
+Third, the index: by Lemma 3.6 every limit point in the sum is a nondegenerate saddle of `F_0`, of index `d - 1` in
+the full model (Lemma 3.1, stable block negative definite on `{w_0 > 0}`), so the index marginal of the near law is
+concentrated on `d - 1` and `nu_near(n)` is carried by index-`(d - 1)` points; the remote singleton part of `nu(1)`
+carries the index-specific kernels `Lambda_j` of [RM], all `j`.
 
 ## 7. The reduced integral, and exact configurations
 
@@ -676,8 +807,10 @@ substitution `(s, a_3, beta, c_3, X, Z) -> (k s, k a_3, k beta, k c_3, X, Z)`, u
 - The cubic (1.2) is the two-parameter family that the four pins leave free at order three on the soft plane; its
   extra critical points appear and disappear in pairs through fold points (the discriminant of `Q_2`), which is why
   `N_oo` takes the values `0, 1, 2` and why `nu(1)` has a near contribution at all: a pair with one member above the
-  upper window edge or below the lower one. No statement about elder selection is made; the extra points may be maxima
-  or saddles (index `2 + (d - 2)` or `1 + (d - 2)`), and both cases have positive weight.
+  upper window edge or below the lower one. No statement about elder selection is made. By Lemma 3.6 every extra
+  critical point with height in the window is a nondegenerate saddle of the planar cubic, of index `d - 1` in the full
+  model; maxima or degenerate critical points of `F_0` occur only outside the window (control `TW`). This does not
+  affect the count coefficients, but it is the correct input for any positional or index-law consumer (Corollary X).
 - The `r^3` is `r` (the soft transverse curvature must be `O(r)`, one Lebesgue direction) times `r^4/r^2` (the pin
   weight on a soft configuration relative to the normalizer). Nothing is small in the third-order jets.
 - The far contribution to `nu(1)` is the integral of the reviewed contact kernel; its integrability near the pins is a
@@ -706,12 +839,18 @@ catalog change. The catalog entry C6 and the GRAPH node `math.rn-region.witness-
   coefficient is `det D . det M_2`, the remainder is divisible by `r^3`).
 - `EU`: the Euler identity `xi G_xi + zeta G_zeta = 3 G_3 + zeta^2` for the limiting cubic-plus-quadratic `G`, hence
   `G = zeta^2/6` at its critical points, and `zeta = 0 => xi = 0`.
+- `SH`: the shear identity (3.12), `F_0(X, Z) = C(u) + (s + Bu) Z^2/2 + (D/3) Z^3` with `u = X + a_3 Z/(12k)`, as the
+  polynomial identity in `Q[u, Z, s, a_3, beta, c_3, k]` obtained by clearing `k` (`(12k)^3 F_0` with `12k X = 12k u - a_3 Z`).
+- `TW`: on an exact rational family of critical points of `G` (parametrized by `(u, Z, D, k)`, `B` and `s` solved
+  exactly), the Hessian-determinant identity `det = -3k(B + 4su)` at every critical point, the height identity
+  `G = C(u) + w^3/(6D^2)`, and, on every typed in-window sample, `det < 0` and `(-s - 2|B|)_+^3 <= 32 k D^2` (Lemma 3.6);
+  the number of typed in-window samples is recorded.
 - `LG`: the exponent ledgers: `1 + 4 - 2 = 3`; the cross term `3 + 3/2 > 3`; the shell error `A^(-2) + rho^2`; the
   Hadamard exponent of (3.10) (`4 + 2 + (2d - 6) = 2d` soft-and-stable row factors for `d = 3, 4`); the large-`K_4`
   tail `kappa^(-p/2) -> 0`; the uniform-integrability step of §6.3 and §6.5 (`1/(M - 1) -> 0`).
 
-Seven mutants (`pins-not-critical`, `wrong-pin-hessian`, `drop-sigma-jacobian`, `three-extra-points`,
-`cross-term-not-small`, `window-closed`, `index-sign`) each exit `1`. The controls verify identities, exact
+Nine mutants (`pins-not-critical`, `wrong-pin-hessian`, `drop-sigma-jacobian`, `three-extra-points`,
+`cross-term-not-small`, `window-closed`, `index-sign`, `shear-drop-cubic`, `s-bound-constant`) each exit `1`. The controls verify identities, exact
 configurations and exponent bookkeeping only. They do not verify the Gaussian regression, the dominated convergence,
 the stability argument or the Kac–Rice steps; those are the written arguments and the cited sources.
 

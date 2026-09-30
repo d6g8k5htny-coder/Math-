@@ -1,4 +1,4 @@
-"""Exact finite controls for CL-C6-CLUSTER-LAW-20260929-v1.1.
+"""Exact finite controls for CL-C6-CLUSTER-LAW-20260929-v1.2.
 
 Standard library only; exact rationals and exact polynomial arithmetic over Q.
 Verifies identities, exact configurations and exponent bookkeeping only. It does
@@ -14,7 +14,8 @@ import random
 from fractions import Fraction as F
 
 MUTANTS = ('pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian',
-           'three-extra-points', 'cross-term-not-small', 'window-closed', 'index-sign')
+           'three-extra-points', 'cross-term-not-small', 'window-closed', 'index-sign',
+           'shear-drop-cubic', 's-bound-constant')
 
 # ---------------------------------------------------------------- polynomials
 V = ('X', 'Z', 's', 'a', 'b', 'c', 'k')
@@ -365,6 +366,70 @@ def check_ledger(mutant):
             'ui_tail': '1/(M-1)'}
 
 
+# ------------------------------------------------------- shear and typed window
+def check_shear(F0, mutant):
+    """(3.12) with k cleared: (12k)^3 F_0(X, Z) at 12k X = 12k u - a Z equals
+    1728 k^3 C(u) + 864 k^3 s Z^2 + 72 k^2 (12k b - a^2) u Z^2 + 4k (72 k^2 c - 18 k a b + a^3) Z^3.
+    The variable slot 'X' of the polynomial ring is used for u."""
+    u, Z, s, a, b, c, k = (var(n) for n in V)
+    twelve_k = smul(12, k)
+    tkX = add(mul(twelve_k, u), smul(-1, mul(a, Z)))          # 12k X
+    # (12k)^3 F_0 written in 12kX: 2k (12kX)^3 - (3k/2)(12k)^2 (12kX) - (k/2)(12k)^3
+    #   + (12k)^3 [ (s/2) Z^2 + (c/6) Z^3 ] + (a/2)(12k) [ (12kX)^2 - (12k)^2/4 ] Z + (b/2)(12k)^2 (12kX) Z^2
+    k2, k3 = powr(twelve_k, 2), powr(twelve_k, 3)
+    lhs = add(smul(2, mul(k, powr(tkX, 3))), smul(F(-3, 2), mul(mul(k, k2), tkX)))
+    lhs = add(lhs, smul(F(-1, 2), mul(k, k3)))
+    lhs = add(lhs, mul(k3, add(smul(F(1, 2), mul(s, powr(Z, 2))), smul(F(1, 6), mul(c, powr(Z, 3))))))
+    lhs = add(lhs, smul(F(1, 2), mul(mul(a, twelve_k), mul(add(powr(tkX, 2), smul(F(-1, 4), k2)), Z))))
+    lhs = add(lhs, smul(F(1, 2), mul(mul(b, k2), mul(tkX, powr(Z, 2)))))
+    Cu = add(add(smul(2, mul(k, powr(u, 3))), smul(F(-3, 2), mul(k, u))), smul(F(-1, 2), k))
+    twelve_kB = add(mul(twelve_k, b), smul(-1, powr(a, 2)))                      # 12k B
+    D144 = add(add(smul(72, mul(powr(k, 2), c)), smul(-18, mul(k, mul(a, b)))), powr(a, 3))   # 144 k^2 D
+    if mutant == 'shear-drop-cubic':
+        D144 = add(smul(72, mul(powr(k, 2), c)), smul(-18, mul(k, mul(a, b))))
+    rhs = smul(1728, mul(powr(k, 3), Cu))
+    rhs = add(rhs, smul(864, mul(powr(k, 3), mul(s, powr(Z, 2)))))
+    rhs = add(rhs, smul(72, mul(powr(k, 2), mul(twelve_kB, mul(u, powr(Z, 2))))))
+    rhs = add(rhs, smul(4, mul(k, mul(D144, powr(Z, 3)))))
+    require(add(lhs, smul(-1, rhs)) == {}, 'shear identity (3.12) with k cleared')
+    # the shear is unimodular: u = X + a Z/(12k), Z = Z
+    require(F(1) * F(1) - F(0) * F(1) == 1, 'unimodular shear')
+
+
+def check_typed_window(mutant):
+    """Exact rational family of critical points of G(u, Z) = C(u) + (s + B u) Z^2/2 + (D/3) Z^3:
+    for rational (u, Z != 0, D, k), B = 3k(1 - 4u^2)/Z^2 and s = -B u - D Z make (u, Z) critical.
+    Checks the determinant identity, the height identity, and Lemma 3.6 on the typed in-window samples."""
+    bound = F(1) if mutant == 's-bound-constant' else F(32)
+    grid = sorted(set(F(n, d) for n in range(-9, 10) for d in (1, 2, 3)))
+    total = typed = 0
+    for k in (F(1), F(1, 2), F(2)):
+        for u in grid:
+            for Z in grid:
+                if Z == 0:
+                    continue
+                for D in grid:
+                    B = 3 * k * (1 - 4 * u * u) / (Z * Z)
+                    s = -B * u - D * Z
+                    w = s + B * u
+                    gu = 6 * k * u * u - F(3, 2) * k + B * Z * Z / 2
+                    gZ = Z * (w + D * Z)
+                    require(gu == 0 and gZ == 0, 'family consists of critical points')
+                    G = F(k, 2) * (u - 1) * (2 * u + 1) ** 2 + w * Z * Z / 2 + D * Z ** 3 / 3
+                    det = 12 * k * u * (w + 2 * D * Z) - (B * Z) ** 2
+                    require(det == -3 * k * (B + 4 * s * u), 'Hessian determinant -3k(B + 4su) at critical points')
+                    if D != 0:
+                        require(G == F(k, 2) * (u - 1) * (2 * u + 1) ** 2 + w ** 3 / (6 * D * D), 'height C(u) + w^3/(6D^2)')
+                    total += 1
+                    if s < -abs(B) / 2 and -k < G < 0:
+                        typed += 1
+                        require(det < 0, 'every typed in-window extra point is a saddle')
+                        excess = max(F(0), -s - 2 * abs(B))
+                        require(excess ** 3 <= bound * k * D * D, '(-s - 2|B|)_+^3 <= 32 k D^2 (Lemma 3.6)')
+    require(typed >= 1000, 'enough typed in-window samples')
+    return {'family_size': total, 'typed_in_window': typed}
+
+
 def run(mutant=None):
     groups = []
     F0, gx, gz = check_normal_form(mutant)
@@ -377,10 +442,14 @@ def run(mutant=None):
     groups.append('BD')
     check_euler()
     groups.append('EU')
+    check_shear(F0, mutant)
+    groups.append('SH')
+    tw = check_typed_window(mutant)
+    groups.append('TW')
     ledger = check_ledger(mutant)
     groups.append('LG')
-    return {'schema': 1, 'object': 'CL-C6-CLUSTER-LAW-20260929-v1.1', 'passed': True, 'groups': groups,
-            'ledger': ledger, 'q2_terms': len(Q2), 'scientific_effect': 'NONE', 'mathematical_acceptance': False,
+    return {'schema': 1, 'object': 'CL-C6-CLUSTER-LAW-20260929-v1.2', 'passed': True, 'groups': groups,
+            'ledger': ledger, 'q2_terms': len(Q2), 'typed_window': tw, 'scientific_effect': 'NONE', 'mathematical_acceptance': False,
             'scope': 'exact identities, exact configurations and exponent bookkeeping only'}
 
 

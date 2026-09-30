@@ -5,6 +5,8 @@
     "EX",
     "BD",
     "EU",
+    "SH",
+    "TW",
     "LG"
   ],
   "ledger": {
@@ -17,10 +19,14 @@
     "ui_tail": "1/(M-1)"
   },
   "mathematical_acceptance": false,
-  "object": "CL-C6-CLUSTER-LAW-20260929-v1.1",
+  "object": "CL-C6-CLUSTER-LAW-20260929-v1.2",
   "passed": true,
   "q2_terms": 12,
   "schema": 1,
   "scientific_effect": "NONE",
-  "scope": "exact identities, exact configurations and exponent bookkeeping only"
+  "scope": "exact identities, exact configurations and exponent bookkeeping only",
+  "typed_window": {
+    "family_size": 201720,
+    "typed_in_window": 2590
+  }
 }
