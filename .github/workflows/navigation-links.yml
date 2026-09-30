@@ -1,0 +1,36 @@
+name: Navigation document links
+
+'on':
+  pull_request:
+    paths:
+      - 'PROOF_INDEX.md'
+      - 'docs/integration/**'
+      - 'tools/check_doc_links.py'
+      - 'tests/test_navigation_links.py'
+      - '.github/workflows/navigation-links.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  document-relative-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.16'
+      - name: Resolve every link from the containing document, in both interpreter modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S tools/check_doc_links.py PROOF_INDEX.md docs/integration/*.md
+          python -B -O -S tools/check_doc_links.py PROOF_INDEX.md docs/integration/*.md
+          python -B -S -m unittest -v tests.test_navigation_links
+          python -B -O -S -m unittest -v tests.test_navigation_links
+          git diff --exit-code
