@@ -226,6 +226,7 @@ class HardGateControls(unittest.TestCase):
         regions = m.d4_region_complement(self.graph)
         covered_ids = {r['id'] for r in regions['covered_by_fixed_remote_candidate']}
         scoped_ids = {r['id'] for r in regions['covered_by_other_scoped_candidates']}
+        reviewed_ids = {r['id'] for r in regions['proved_reviewed_regions']}
         open_ids = {r['id'] for r in regions['open_complement']}
         self.assertEqual(covered_ids, {'math.rn-region.fixed-remote'})
         self.assertEqual(scoped_ids, {'math.rn-region.fixed-annulus-window'})
@@ -233,10 +234,18 @@ class HardGateControls(unittest.TestCase):
             regions['covered_by_other_scoped_candidates'][0]['coverage_source'],
             'math.rn-fixed-annulus-window',
         )
-        self.assertIn('math.rn-region.mesoscopic-scaled-annulus', open_ids)
-        self.assertIn('math.rn-region.pin-collision', open_ids)
-        self.assertIn('math.rn-region.intermediate-r-to-rho', open_ids)
+        self.assertEqual(reviewed_ids, {
+            'math.rn-region.mesoscopic-scaled-annulus',
+            'math.rn-region.pin-collision',
+            'math.rn-region.intermediate-r-to-rho',
+        })
+        self.assertTrue(reviewed_ids.isdisjoint(open_ids))
         self.assertIn('math.rn-region.witness-collision', open_ids)
+        witness = next(r for r in regions['open_complement']
+                       if r['id'] == 'math.rn-region.witness-collision')
+        self.assertIn('sharp global order is reviewed and merged through Math-#145',
+                      witness['notes'])
+        self.assertNotIn('sharp full-window order remain open', witness['notes'])
         self.assertFalse(regions['legacy_24jet_discharged'])
         self.assertTrue(regions['no_event_to_expectation_reversal'])
 
