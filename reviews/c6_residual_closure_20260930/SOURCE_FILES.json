@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "object": "C6-RESIDUAL-CLOSURE-20260930-v1",
+  "scientific_effect": "NONE",
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "declarative": true,
+  "executed": false,
+  "base": "358f2562efbccc59f9549e5a79650e2e936395c3",
+  "files": [
+    {
+      "path": "EXTERNAL_REVIEWS.md",
+      "bytes": 9320,
+      "sha256": "aba67dbb8e4f8df3456652625015de4984ba3bd8afe1e4961f63dae628fde069",
+      "git_blob": "5afe9a2090f2bbee6bd09b31b977c9451db1cea5"
+    },
+    {
+      "path": "PROPOSED_TRANSITIONS.json",
+      "bytes": 17731,
+      "sha256": "7ac3f521c942add17efb7b0e0909a357cb0e1132921642b8c703bbc93c4a7c48",
+      "git_blob": "2d538a8e4c915fa4a5546e5f5192d536b4d51877"
+    },
+    {
+      "path": "RECONCILIATION.md",
+      "bytes": 21471,
+      "sha256": "13d1182108879c6edd9f8fd60107ffde1097c58592d7d8e5acc92af310a8a779",
+      "git_blob": "585a6a12a857b84dd4c5ba8b973cc49c2d667d97"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 3884,
+      "sha256": "d10eca7c862bfcfc792700fc7a2dd5df00ed1226a19074a661ed55602e02c2d3",
+      "git_blob": "0f38af915773b693054925f5547621ad3b961742"
+    },
+    {
+      "path": "residual_check.py",
+      "bytes": 20036,
+      "sha256": "24ada823242b831454be9ecf4c99a2ac032bfeaee8c21a41bcc26e511b633c91",
+      "git_blob": "c200c31229a5e2503218b44233ca86999f3a9ab1"
+    }
+  ]
+}

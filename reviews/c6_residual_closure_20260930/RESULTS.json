@@ -1,0 +1,90 @@
+{
+  "checks": {
+    "DEDUCTION": true,
+    "GATE": true,
+    "IDENTITIES": true,
+    "LIVE": true,
+    "NEGATIVES": true,
+    "TRANSITIONS": true,
+    "VERDICTS": true
+  },
+  "component_nodes": 7,
+  "gate": {
+    "final": {
+      "changed_nodes": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "impacted": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "old_node_transition": "deferred: presupposes Math-#160 step 3 (aggregate node absent live)",
+      "residual_classification": "PROVED_REVIEWED"
+    },
+    "final-preexisting": {
+      "changed_nodes": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "impacted": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "old_node_transition": "deferred: presupposes Math-#160 step 3 (aggregate node absent live)",
+      "residual_classification": "PROVED_REVIEWED"
+    },
+    "interim": {
+      "changed_nodes": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "impacted": [
+        "math.c6-component.palm-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6r-component.residual-closure-record",
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.rn-region.witness-collision.leading-mass-localization"
+      ],
+      "old_node_transition": "deferred: presupposes Math-#160 step 3 (aggregate node absent live)",
+      "residual_classification": "OPEN_ACTIVE"
+    }
+  },
+  "inventory_files": 9,
+  "object": "C6-RESIDUAL-CLOSURE-20260930-v1",
+  "passed": true,
+  "scope": "identity, verdict-row, live-register, exact finite bookkeeping of section 3, transition-shape, hard-gate replay in both executions, and filesystem-negative checks; the Gaussian limits are the sources' reviewed statements and are not re-proved; nothing is written"
+}

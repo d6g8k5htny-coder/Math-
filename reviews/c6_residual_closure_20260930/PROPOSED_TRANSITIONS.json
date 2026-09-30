@@ -1,0 +1,375 @@
+{
+  "schema": 1,
+  "object": "C6-RESIDUAL-CLOSURE-20260930-v1",
+  "scientific_effect": "NONE",
+  "declarative": true,
+  "executed": false,
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "base_commit": "358f2562efbccc59f9549e5a79650e2e936395c3",
+  "residual_definition": {
+    "node": "math.rn-region.witness-collision.leading-mass-localization",
+    "fingerprint": "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)",
+    "defined_in": "Math-#160 reviews/c6_witness_collision_reconciliation_20260929/RECONCILIATION.md section 5 (head eba6045, unmerged)",
+    "statement": "lim_{R->oo} limsup_{r->0} r^-3 E_{Q_r^W} #{ordered pairs of distinct window points not both within R r of the midpoint} = 0",
+    "identity": "that quantity equals E[(N)_2] - E[(N_R)_2] = 2 E[N_R N_out] + E[(N_out)_2]"
+  },
+  "transitions": [
+    {
+      "node": "math.rn-region.witness-collision.leading-mass-localization",
+      "kind": "region",
+      "current": {
+        "classification": "ABSENT",
+        "note": "Math-#160 proposes OPEN_ACTIVE, required by nothing"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)",
+        "layer": "D5",
+        "scope": "every fixed d >= 2, fixed torus L, fixed frame, compact birth and positive-gap marks (k_- > 0), height window I_r, original W_r and full Z_r; existential constants; conditional on the pinned inputs of Math-#162 and Math-#159 at their reviewed scopes",
+        "explicit_limits": "no rate; no numerical value of a_2, nu(1), nu(2) or C_3; no uniformity as k -> 0, in L or d; no all-height statement; no elder selection; no joint law of distinct pin pairs; no configuration or moving-cutoff statement (Math-#166, pending); no historical numerical certificate",
+        "review_disposition": "ACCEPT_AT_EXISTENTIAL_SCOPE",
+        "review_sources": [
+          {
+            "ref": "Math-#162 reviews 5359968447 / 5359845136 / 5359879627 (in-repo REVIEW_RECORD.md)",
+            "provider": "Anthropic, Anthropic (source-exposed), OpenAI/Codex",
+            "verdict": "ACCEPT A/B/C"
+          },
+          {
+            "ref": "Math-#159 review 5360192822",
+            "provider": "OpenAI (source-exposed)",
+            "verdict": "ACCEPT Theorem N, Corollaries Lambda/S/X"
+          }
+        ],
+        "reading_rule": [
+          "math.c6r-component.spectral-closure-proof",
+          "math.c6r-component.spectral-closure-review-record",
+          "math.c6r-component.cluster-law-proof",
+          "math.c6r-component.cluster-law-acceptance",
+          "math.c6r-component.cluster-law-source-map",
+          "math.c6-component.palm-proof",
+          "math.c6r-component.residual-closure-record"
+        ],
+        "notes": "Leading-mass localization of E N(N-1) at scale r, in the iterated limit; corollary of Math-#162 (26)/(18)/(20) with PALM Theorem Q, and of Math-#159 Corollary Lambda / Proposition 4.4; direct statement Math-#166 Theorem L when merged. C6 residual closure v1.0."
+      },
+      "required_premises_after": [
+        "math.c6r-component.spectral-closure-proof",
+        "math.c6r-component.spectral-closure-review-record",
+        "math.c6r-component.cluster-law-proof",
+        "math.c6r-component.cluster-law-acceptance",
+        "math.c6r-component.cluster-law-source-map",
+        "math.c6-component.palm-proof",
+        "math.c6r-component.residual-closure-record"
+      ],
+      "notes": "Created PROVED_REVIEWED if Math-#160 step 1 has not run; moved OPEN_ACTIVE -> PROVED_REVIEWED if it has. The record node among its premises is AUTHOR_SIDE_CANDIDATE until read (execution_order step 0)."
+    },
+    {
+      "node": "math.rn-region.witness-collision",
+      "kind": "region",
+      "current": {
+        "classification": "OPEN_ACTIVE",
+        "fingerprint": "eta->0 mutual witness separation"
+      },
+      "proposed": {
+        "classification": "PROVED_REVIEWED",
+        "controlling": false,
+        "fingerprint": "eta->0 mutual witness separation",
+        "scope": "count estimate discharged by Math-#160 section 4 (PALM Theorem Q + EDL (A4)); localization discharged by this record; every fixed d >= 2 at the same scope",
+        "explicit_limits": "as Math-#160 section 5 and this record's section 4; no historical certificate; no mechanism beyond the count and the localization is defined anywhere in the register",
+        "review_disposition": "ACCEPT_AT_EXISTENTIAL_SCOPE",
+        "review_sources": [
+          {
+            "ref": "Math-#160 (OpenAI 5359701805, xAI 5901915195 on sections 1 and 4)",
+            "provider": "OpenAI, xAI",
+            "verdict": "count discharge agreed"
+          },
+          {
+            "ref": "this record",
+            "provider": "see section 0",
+            "verdict": "localization"
+          }
+        ],
+        "notes": "Deferred: executes only after Math-#160 step 3 (aggregate node math.c6-witness-collision-factorial-moment) and this record's residual node exist."
+      },
+      "required_premises_after": [
+        "math.rn-region.witness-collision.leading-mass-localization",
+        "math.c6-witness-collision-factorial-moment"
+      ],
+      "deferred": true,
+      "presupposes": [
+        "Math-#160 execution_order step 3",
+        "this record's residual node"
+      ],
+      "notes": "Under Math-#160's keep-open execution the residual definition sits on this node and this transition is the one that moves it."
+    }
+  ],
+  "proposed_graph_nodes": [
+    {
+      "id": "math.c6r-component.spectral-closure-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "proof",
+      "author_provider": "OpenAI (GPT-6 Astra Pro)",
+      "fingerprint": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "source": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "scope": "Theorem (3); near limit (18); exhaustion (20); mixed event (24); factorial-moment limits (26); every fixed d >= 2, L, k > 0, b, frame; conditional on SOURCES.json inputs",
+      "review_basis": [
+        {
+          "review": "Math-#162 review 5359968447",
+          "provider": "Anthropic Claude (no authorship of consumed sources)",
+          "verdict": "ACCEPT sections 2-3",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#162 review 5359845136",
+          "provider": "Anthropic Claude (authored consumed C6/DL/RC and Math-#159; source-exposed)",
+          "verdict": "ACCEPT sections 4-6",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#162 review 5359879627",
+          "provider": "OpenAI/Codex (same provider as the author)",
+          "verdict": "ACCEPT sections 7-8",
+          "depth": "full"
+        }
+      ]
+    },
+    {
+      "id": "math.c6r-component.spectral-closure-review-record",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "review_record",
+      "author_provider": "OpenAI-authored record of the Claude/Codex reviews",
+      "fingerprint": "6031d36697789097185a8e65bfbdf80f447e229689eac5a706ee8b0558db64a5",
+      "source": "frontiers/spectral_cluster_closure_20260929/REVIEW_RECORD.md",
+      "scope": "review record of Math-#162 at core blob 16c56821",
+      "review_basis": [
+        {
+          "review": "frontiers/spectral_cluster_closure_20260929/REVIEW_RECORD.md",
+          "provider": "in-repo record",
+          "verdict": "A/B/C/D ACCEPT at stated scopes",
+          "depth": "record"
+        }
+      ]
+    },
+    {
+      "id": "math.c6r-component.cluster-law-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "proof",
+      "author_provider": "Anthropic Claude (session 015wNj8L)",
+      "fingerprint": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "source": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "scope": "Corollary Lambda (1.6); Proposition 4.4 (4.4) with A -> oo; Lemma 5.2 (5.4); every fixed d >= 2; conditional on SOURCE_MAP.json inputs",
+      "review_basis": [
+        {
+          "review": "Math-#159 review 5360192822",
+          "provider": "OpenAI (GPT-6 Astra Pro; source-exposed as author of imported inputs and Math-#161)",
+          "verdict": "ACCEPT Theorem N, Corollaries Lambda/S, Corollary X at the stated scope, conditional on SOURCE_MAP inputs",
+          "depth": "full",
+          "at": "f7c33955d005c03d1010835f52f500c4b853a847 (same PROOF blob ba492c8e)"
+        }
+      ]
+    },
+    {
+      "id": "math.c6r-component.cluster-law-acceptance",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "review_record_external",
+      "author_provider": "OpenAI review 5360192822, transcribed by Anthropic (this session)",
+      "fingerprint": "aba67dbb8e4f8df3456652625015de4984ba3bd8afe1e4961f63dae628fde069",
+      "source": "reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md",
+      "scope": "preserved transcription; mutable external evidence, labelled; not an additional review or provider",
+      "review_basis": [
+        {
+          "review": "Math-#159 review 5360192822",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT",
+          "submitted_at": "2026-09-30T00:44:51Z",
+          "commit": "f7c33955d005c03d1010835f52f500c4b853a847"
+        }
+      ],
+      "authentication": "mutable external evidence read back through the session's GitHub connector on 2026-09-30; not byte-authenticated offline; in-repo pointer frontiers/c6_cluster_law_20260929/SOURCE_MAP.json"
+    },
+    {
+      "id": "math.c6r-component.cluster-law-source-map",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "review_record",
+      "author_provider": "Anthropic Claude (session 015wNj8L)",
+      "fingerprint": "0584c3808b633fceb3c308186b07d862eb4916053daf4e7bf1110592ec41f107",
+      "source": "frontiers/c6_cluster_law_20260929/SOURCE_MAP.json",
+      "scope": "consumed-input map and acceptance pointer of Math-#159 v1.2",
+      "review_basis": [
+        {
+          "review": "frontiers/c6_cluster_law_20260929/SOURCE_MAP.json",
+          "provider": "in-repo pointer",
+          "verdict": "nonauthor_acceptance true; revision_note names review 5360192822",
+          "depth": "record"
+        }
+      ]
+    },
+    {
+      "id": "math.c6-component.palm-proof",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "proof",
+      "author_provider": "Anthropic Claude (session 015wNj8L)",
+      "fingerprint": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "source": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "scope": "Theorem Q, q = 3 and q = 4, uniform-integrability tails only",
+      "review_basis": [
+        {
+          "review": "Math-#145 review 5358116559",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT sections 5-7 and Theorem Q",
+          "depth": "full"
+        },
+        {
+          "review": "Math-#145 review 5356233690",
+          "provider": "OpenAI",
+          "verdict": "ACCEPT section 4",
+          "depth": "full"
+        }
+      ],
+      "cross_record": "defined by Math-#160 PROPOSED_TRANSITIONS.json under the same id, source and fingerprint; create_if_absent",
+      "create_if_absent": true
+    },
+    {
+      "id": "math.c6r-component.residual-closure-record",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "AUTHOR_SIDE_CANDIDATE",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "reading_rule_record",
+      "author_provider": "Anthropic Claude (this session; source-exposed, see section 0)",
+      "fingerprint": "13d1182108879c6edd9f8fd60107ffde1097c58592d7d8e5acc92af310a8a779",
+      "source": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
+      "scope": "section 3: the corollary (D1) + steps 1-3 (Route A) and Route B",
+      "review_basis": [
+        {
+          "review": "none yet",
+          "provider": "-",
+          "verdict": "a non-Claude read of RECONCILIATION.md section 3 is required before the residual flip, unless Math-#166 Theorem L (Claude 5360227991) is on main and bound as the direct statement",
+          "depth": "bounded"
+        }
+      ],
+      "required_until": "Math-#166 Theorem L component node exists; then supporting"
+    }
+  ],
+  "proposed_graph_edges": [
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.spectral-closure-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.spectral-closure-review-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.cluster-law-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.cluster-law-acceptance",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.cluster-law-source-map",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6-component.palm-proof",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.residual-closure-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.rn-region.witness-collision.leading-mass-localization",
+      "required": true,
+      "relation": "requires_evidence",
+      "deferred_with": "math.rn-region.witness-collision"
+    },
+    {
+      "from": "math.rn-region.witness-collision",
+      "to": "math.c6-witness-collision-factorial-moment",
+      "required": true,
+      "relation": "requires_evidence",
+      "deferred_with": "math.rn-region.witness-collision"
+    }
+  ],
+  "pending_third_source": {
+    "pr": "Math-#166",
+    "file": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
+    "blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+    "math_head": "7c82252533c3fe14ee262f7f87c0549c10968592",
+    "statement": "Theorem L (L1): r^-3 E[(N)_q - (N_in)_q] -> 0 for q >= 2 and any delta_r -> 0, delta_r / r -> oo",
+    "review": "Claude 5360227991 (Slice A)",
+    "status": "unmerged; under C25 / Sol integration; bound by a revision when on main"
+  },
+  "execution_order": [
+    "0. a non-Claude read of RECONCILIATION.md section 3 (four lines), or Math-#166 on main with a component node for TWO_SCALE_LAW.md as the direct statement; until then math.c6r-component.residual-closure-record is AUTHOR_SIDE_CANDIDATE and step 2 does not execute",
+    "1. create the component nodes and their required edges (math.c6-component.palm-proof only if Math-#160 has not created it)",
+    "2. create math.rn-region.witness-collision.leading-mass-localization as PROVED_REVIEWED, or move it from OPEN_ACTIVE if Math-#160 step 1 created it",
+    "3. only after Math-#160 step 3 (aggregate node): move math.rn-region.witness-collision to PROVED_REVIEWED with required edges to the aggregate node and to the residual node; under Math-#160's keep-open execution this is the step that moves the old node",
+    "4. STATUS C6 row, PROOF_INDEX bullet, catalog C6 and the selector as Math-#160 section 7 proposes, with the residual bullet closed",
+    "executing lane: non-Claude; this record executes nothing"
+  ],
+  "review_record": [
+    {
+      "lane": "this session",
+      "id": 5902470285,
+      "kind": "pickup on Math-#160",
+      "at": "358f256"
+    }
+  ],
+  "exposure": "reconciler authored Math-#160 (the definition) and remote_collision_20260928 ([RC], consumed by both routes); reviewed none of Math-#159, #162, #166; same GitHub account; zero organizational-independence credit",
+  "not_proposed": [
+    "any rate, constant or numerical enclosure",
+    "any controlling flag, lemma_closed, prize or premise change",
+    "any change to Math-#160, #162, #159 or #166 files",
+    "any historical predicate move"
+  ],
+  "revision": {
+    "version": "v1.0",
+    "applies": [
+      "initial record at 358f256"
+    ]
+  }
+}
