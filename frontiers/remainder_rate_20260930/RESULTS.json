@@ -1,0 +1,43 @@
+{
+ "checks": {
+  "E1_exponent_ledger": {
+   "info": {
+    "grid_points": 206,
+    "rate": "1/6",
+    "relative_exponent": "1/2",
+    "theta": "1/6",
+    "twelfth_power_points": 4
+   },
+   "passed": true
+  },
+  "E2_barrier_arithmetic": {
+   "info": {
+    "barrier_cases": 48,
+    "solved_form_points": 4
+   },
+   "passed": true
+  },
+  "E3_soft_eigenvalue_determinant": {
+   "info": {
+    "matrices": 5,
+    "sizes": [
+     2,
+     3,
+     4
+    ]
+   },
+   "passed": true
+  },
+  "E4_integrals_and_cutoff_ledger": {
+   "info": {
+    "cutoff_ledger_points": 3,
+    "integral_points": 3
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-D2-REMAINDER-RATE-20260930-v1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}
