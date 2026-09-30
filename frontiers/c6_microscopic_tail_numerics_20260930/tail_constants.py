@@ -183,10 +183,12 @@ def cusp_integrals(k, rule, L=14.0):
         return math.sqrt(1 + (a / (12 * k)) ** 2)
     def DaG0(a):   # D_a = k d_beta + (a/4) d_c on the diagonal cusp density: -(a^2/(12 vbeta) + a^4/(576 k^2 vc)) G0, vbeta = 2, vc = 6
         return -(a * a / 24 + a ** 4 / (3456 * k * k)) * G0(a)
-    Jc = gl(lambda a: gam(a) ** gpow * G0(a), -L, L, rule)
-    T1 = gl(lambda a: gam(a) ** 9 * (1 + 12 * (a / (12 * k)) ** 2) * G0(a), -L, L, rule)
-    T2 = gl(lambda a: gam(a) ** 13 * DaG0(a), -L, L, rule)
-    Tb = gl(lambda a: abs(a / (12 * k)) * gam(a) ** 10 * G0(a), -L, L, rule)
+    # every integrand is even in a (G0 depends on a through a^2, beta_0^2 and c_0^2), so integrate on [0, L] and double;
+    # this also removes the kink of |A| at a = 0 from the quadrature
+    Jc = 2 * gl(lambda a: gam(a) ** gpow * G0(a), 0.0, L, rule)
+    T1 = 2 * gl(lambda a: gam(a) ** 9 * (1 + 12 * (a / (12 * k)) ** 2) * G0(a), 0.0, L, rule)
+    T2 = 2 * gl(lambda a: gam(a) ** 13 * DaG0(a), 0.0, L, rule)
+    Tb = 2 * gl(lambda a: (a / (12 * k)) * gam(a) ** 10 * G0(a), 0.0, L, rule)
     return {'J_cusp': Jc, 'T1': T1, 'T2': T2, 'Tb': Tb}
 
 
