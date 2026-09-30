@@ -1,6 +1,6 @@
 # Orthogonal spectral closure of the window-count law
 
-OpenAI / GPT-6 Astra Pro. Core conditional proof has completed scoped nonauthor A/B/C acceptance. The separate global derivative-weighted addendum requires its own verdict; later PR reviews may supersede this metadata snapshot. Scientific effect NONE. No self-merge, parent-proof modification, or global status/Boolean change. Shared GitHub identity is not organizational independence.
+OpenAI / GPT-6 Astra Pro. Core conditional proof has completed scoped nonauthor A/B/C acceptance. The separate global derivative-weighted addendum has its own Claude nonauthor acceptance5360082678. All acceptance is at the exact stated conditional scope. Scientific effect NONE. No self-merge, parent-proof modification, or global status/Boolean change. Shared GitHub identity is not organizational independence.
 
 The new argument proposes the unique limiting nonempty count measure in every FIXED dimension d>=2: nu1 delta1 + nu2 delta2, with explicit positive finite coefficients. Near coefficients are an orthogonal Haar/spectral/Gaussian jet integral; the far contribution is the reviewed remote singleton kernel. The new proof does not consume the audited v1.0 global argument of #159 or the proposed marked Fourier theorem of #157.
 
@@ -36,6 +36,6 @@ The initial hosted nested-directory source-path defect is repaired with git ls-t
 
 ## Separate global derivative-weighted addendum
 
-GLOBAL_DERIVATIVE_WEIGHTED.md derives E[N_r(1+||f||C4)^p]<=C_p r^3 directly from the earlier C6 regional Kac-Rice proof, in fact with C6 norm. It retains the one full normalizer, adds the conditional-moment cost (1+beta)^p, and writes all eight regional absorptions. It is not a consequence assumed by the core spectral theorem. Nine additional finite ledger tests are included. The addendum is a new Slice D requiring its own nonauthor review.
+GLOBAL_DERIVATIVE_WEIGHTED.md derives E[N_r(1+||f||C4)^p]<=C_p r^3 directly from the earlier C6 regional Kac-Rice proof, in fact with C6 norm. It retains the one full normalizer, adds the conditional-moment cost (1+beta)^p, and writes all eight regional absorptions. It is not a consequence assumed by the core spectral theorem. Nine additional finite ledger tests are included. The addendum has separate Slice D acceptance5360082678; it was not inferred from the earlier core reviews.
 
-REVIEW_RECORD.md records the completed core A/B/C coverage and provider exposure. The GD1 addendum is not accepted by those earlier reviews and is not an input to the core theorem. Its own verdict was not recorded when this metadata was prepared; consult the PR for subsequent source-bound reviews. The author will not self-merge or treat an unanswered review request as acceptance.
+REVIEW_RECORD.md records the completed core A/B/C and separate D coverage, exact byte bindings and provider exposure. GD1 is not an input to the core theorem. The unchanged manuscripts retain their author-time candidate headers to preserve reviewed bytes; this record supplies the later dispositions. Integration still requires successful current-head checks and a nonauthor integrator. The author will not self-merge or change a global scientific register.
