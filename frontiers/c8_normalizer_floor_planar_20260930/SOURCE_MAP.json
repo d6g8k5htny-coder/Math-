@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "object": "CL-C8-NORMALIZER-FLOOR-PLANAR-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_CONSTANT",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "note": "First C8 constant: a certified lower bound z_* for the full normalizer Z_r / r^2 of [LP] section 1 (planar torus kernel, every frame, L >= 10) on the declared band r in [1/8, 1/2], b in [0, 1], k in [1/2, 2], by exact rational interval arithmetic. Consumes the definition of Q, W_r, Z_r and the asymptotic (5.4)-(5.5) of [LP] as statements only; the number z_* is new. The r -> 0 limit z_0 = 36 k^2 E[A^2 1{A < 0}], A ~ N(-b, 2), used as a floating control, is the planar contact law recorded in [NUM]. No register, catalog, GRAPH or STATUS change; C8 stays OPEN (C, r_*, c_{B,K}, c_{d,L} are not supplied).",
+  "sources": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
+      "role": "section 1: the torus kernel K_L (periodized Gaussian, normalized to K_L(0) = 1), the pins M, S, f(M) = b, f(S) = b - k r^3, grad f = 0, the regression law Q, the weight W_r = |det H_M det H_S| 1{H_M < 0, index H_S = d - 1} and the full normalizer Z_r = E_Q W_r; section 5, (5.4)-(5.5): Z_r / r^2 -> z_0 and the existential floor z_* (no numerical value there); section 16 lists a numerical r_*, C on a prescribed band among the items not supplied",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+      "bytes": 4095,
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb",
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f",
+      "id": "NUM",
+      "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
+      "role": "the exact planar contact structure A_0 | even pins ~ N(-b, 2) behind the r -> 0 limit z_0(b, k) = 36 k^2 E[A_0^2 1{A_0 < 0}] used here only as a floating control (Math-#168, merged)",
+      "current_required": true,
+      "on_main": true
+    }
+  ],
+  "catalog_reference": {
+    "path": "reviews/candidates_pending_20260928/CANDIDATES.md",
+    "entry": "C8. Numerical constants (still open as of 2026-09-29): explicit finite C, r_*, z_*, c_{B,K}, c_{d,L} on a declared compact-mark / torus band; disposition OPEN",
+    "effect_here": "none; this packet supplies one certified z_* on one declared band and changes no disposition"
+  },
+  "nonauthor_reads": [],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "main_at_update": "3e0a91b69892b9717564c592e7a966492a81566a"
+}
