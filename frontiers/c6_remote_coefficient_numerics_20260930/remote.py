@@ -742,7 +742,45 @@ def check_run():
     for row in ref['near_zero_profile']['k=1.0,b=0.0']:
         if row['r'] == 0.1 and row['angle_deg'] == 0:
             require(abs(row['lambda'] - r['lambda']) <= REPLAY_TOL * max(abs(r['lambda']), 1e-30), 'near-zero replay')
-    print(json.dumps({'check': 'ok', 'controls': list(ctl.keys()), 'mutant': MUT}))
+    gs = grid_summary(ref)
+    print(json.dumps({'check': 'ok', 'controls': list(ctl.keys()), 'grid_summary': gs, 'mutant': MUT}))
+
+
+def grid_summary(ref):
+    """Replay of the NOTE section 5 summary arithmetic from the stored grid_convergence block (k = 1, b = 0):
+    the Rc = 5 / Rc = 6 difference at h = 0.3, the finest-grid difference, the three-point power-law model
+    A(h) = A_0 + C h^p on the non-nested spacings 0.3, 0.15, 0.1 (a floating extrapolation, not a bound), the
+    default/high-order difference and the L = 12 direct/additive discrepancy."""
+    g = ref['grid_convergence']['k=1.0,b=0.0']
+    a3, a15, a1 = g['hole_h=0.3,Rc=6'], g['hole_h=0.15,Rc=6'], g['hole_h=0.1,Rc=6']
+    d_rc = g['hole_h=0.3,Rc=5'] - a3
+    d_fine = a15 - a1
+    ratio = (a3 - a15) / (a15 - a1)
+    f = lambda p: (0.3 ** p - 0.15 ** p) / (0.15 ** p - 0.1 ** p) - ratio
+    lo, hi = 1.0, 5.0
+    require(f(lo) * f(hi) < 0, 'power-law exponent bracketed in (1, 5)')
+    for _ in range(200):
+        mid = 0.5 * (lo + hi)
+        if f(lo) * f(mid) <= 0:
+            hi = mid
+        else:
+            lo = mid
+    p = 0.5 * (lo + hi)
+    C = (a3 - a15) / (0.3 ** p - 0.15 ** p)
+    A0 = a15 - C * 0.15 ** p
+    out = {'rc5_minus_rc6_h0.3': d_rc, 'h0.15_minus_h0.1': d_fine, 'model_p': p, 'model_A0': A0,
+           'model_residual_h0.15': abs(a15 - A0), 'model_residual_h0.1': abs(a1 - A0),
+           'default_minus_high_order_h0.3': a3 - g['hole_h=0.3,Rc=6,high_order'],
+           'L12_direct_minus_additive_rel': (g['torus_L=12_direct_h=0.2'] - g['torus_L=12_approx']) / g['torus_L=12_direct_h=0.2'],
+           'certified': False}
+    require(abs(d_rc + 9.46e-5) < 5e-8, 'Rc = 5 minus Rc = 6 at h = 0.3 is -9.46e-5 (NOTE section 5)')
+    require(abs(d_fine - 1.875e-4) < 5e-7, 'h = 0.15 minus h = 0.1 is 1.875e-4 (NOTE section 5)')
+    require(abs(p - 2.63) < 5e-3 and abs(A0 + 1.63143) < 5e-5, 'power-law model p = 2.63, A_0 = -1.63143 (NOTE section 5)')
+    require(abs(out['model_residual_h0.15'] - 2.86e-4) < 5e-6 and abs(out['model_residual_h0.1'] - 9.83e-5) < 5e-7,
+            'model residuals 2.9e-4 (h = 0.15) and 9.8e-5 (h = 0.1) (NOTE section 5)')
+    require(abs(out['default_minus_high_order_h0.3']) < 5e-8, 'default/high-order difference below 5e-8 (NOTE section 5)')
+    require(abs(out['L12_direct_minus_additive_rel'] - 2.04e-5) < 1e-7, 'L = 12 direct/additive discrepancy 2.0e-5 relative (NOTE section 4)')
+    return out
 
 
 def main():

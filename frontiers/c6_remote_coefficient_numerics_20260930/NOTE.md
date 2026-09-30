@@ -179,8 +179,8 @@ For `L = 6` the direct periodized integral and the approximation `36 Lambda_inf 
 pins overlap and the additive approximation `L^2 Lambda_inf + c_hole` is not valid; the table uses the direct
 periodized integral for `L = 6`. (The periodization also changes the one-site covariances by up to `8.8e-4` at
 `L = 6`; that is included in the direct value.) For `L = 12` the direct integral at `k = 1, b = 0` is `15.0866`
-against `15.0863` from the far field plus hole, so the additive form is accurate to `2e-5` there and better at
-`L = 24`.
+against `15.0863` from the far field plus hole, so the additive form is accurate to `2e-5` there. No direct
+`L = 24` integral was run: at `L = 24` the additive form is expected, not measured, to be at least as accurate.
 
 **Reading.** For the parent torus sizes the remote singletons dominate `nu(1)` (`R ~ L^2 Lambda_inf`: by a factor
 `50` at `L = 24`, `k = 1, b = 0`), so the two-point cluster probability relative to a nonempty window is
@@ -201,11 +201,16 @@ ring; the net hole is nevertheless negative for every `(k, b)` computed, and gro
   `9e-13` (far field, both `b`). The `h = 0.3` hole constant changes by `4e-08` between the
   two orders.
 - Grid: at `k = 1, b = 0` the hole constant is `-1.629661` (`h = 0.3`), `-1.631148` (`h = 0.15`),
-  `-1.631335` (`h = 0.1`): the midpoint rule converges at an observed order of about `2.7` (`Lambda` has a
-  conical, direction-dependent limit at the pin), the `h = 0.15` values are within `2e-4` of the `h = 0.1` values,
-  and a power-law extrapolation puts the remaining error of the tabulated (`h = 0.15`) hole constants near
-  `1e-4` absolute (`1e-4` relative). The `h = 0.3` run on `[-5, 5]^2` differs by `2.1e-03`, which is grid
-  placement, not tail (see the direct tail check in section 3).
+  `-1.631335` (`h = 0.1`). Measured: the tabulated `h = 0.15` value differs from the `h = 0.1` value by
+  `1.88e-4`. Model (NONRIGOROUS, this one parameter set only): a three-point power law `A(h) = A_0 + C h^p`
+  fitted to the non-nested spacings `0.3, 0.15, 0.1` gives `p = 2.63` (`Lambda` has a conical,
+  direction-dependent limit at the pin), `A_0 = -1.63143`, and model residuals `2.9e-4` at `h = 0.15` and
+  `9.8e-5` at `h = 0.1`; these are extrapolations, not error bounds, and nothing is inferred from them for the
+  other `(k, b)` rows. The `h = 0.3` run on `[-5, 5]^2` differs from the `[-6, 6]^2` run by `9.5e-5`; because
+  the cell count is rounded (`n = round(5/0.3) = 17`, effective spacing `5/17 = 0.294` against `0.3`), that
+  difference mixes grid placement with the exterior annulus and is not a pure exterior-tail measurement (the
+  exterior estimate rests on the sampled profiles of section 3). `--check` replays this summary arithmetic
+  from the stored numbers.
 - The periodized `L = 12` direct integral (`h = 0.2`) agrees with far field plus hole to `2.0e-05` relative.
 - The Monte Carlo cross-check of the unconditional control (`2 . 10^5` samples, seed 2026) gives
   `E|det H| = 2.3032 +- 0.0058`, `4/sqrt3 = 2.3094` lying at `1.1` standard errors.
