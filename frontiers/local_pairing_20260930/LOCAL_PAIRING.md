@@ -7,8 +7,17 @@ and Proposition 3.3 are deterministic statements about the pinned cubic with com
 (reviewed twice by clean-context referee agents before landing; every blocking finding and amendment they
 raised is applied below). Theorem LP (the lower bound with an identified functional) is conditional: it consumes exact
 interfaces of [SC], [CUB] and [P] at their own review status. Conjecture LP= (equality) is stated with its
-single remaining probabilistic obligation. Scientific effect: NONE — no register, graph, STATUS, prize or
-Boolean changes; no numerical constant is claimed.
+single remaining probabilistic obligation. **Relation to Math-#170 and Math-#175 (v1.1, added after landing).**
+The OpenAI packet Math-#170 (`frontiers/local_elder_geometry_20260930/PROOF.md`, head `79f18f0`, blob
+`ef2aa579`, opened before this packet) proves the same deterministic statement as Lemma P′ + Proposition 3.3
+(its Theorem E, by the cubic critical-chord identity and a normalized-gradient collar rather than the explicit
+paths used here) and proves the **equality** `r⁻³(1 − p_r) → α₁ + α₂` at fixed planar marks (its Theorem S) by a
+route this packet does not use: [P]'s cap implication `F_r ⊂ G_r^c` and a retained-tail integration of [P] §7.
+Math-#175 (`frontiers/concave_fibre_elder_20260930/`, head `9c6a734`) lifts it to fixed `d ≥ 3` by a contained
+hard-negative tube. So Conjecture LP= below is Math-#170 Theorem S (planar) / Math-#175 Theorem F (`d ≥ 3`),
+conditional on their interfaces and review; what this packet adds is an independent same-account derivation
+of the deterministic core with exact controls, and the cap-free lower bound Theorem LP. Scientific effect:
+NONE — no register, graph, STATUS, prize or Boolean changes; no numerical constant is claimed.
 
 ## 0. What this packet answers, and what it does not
 
@@ -32,9 +41,11 @@ scope stated below:
    Transferred to the field, this gives the lower bound
    `liminf r⁻³ (1 − p_r) ≥ a₁ + a₂ = ν₁ + ν₂ − β_far` (Theorem LP), where `a₁, a₂` are the local coefficients
    of [SC] (20) and `β_far` its remote coefficient. Equality — the statement that **remote witnesses never
-   pair** — is Conjecture LP= with one obligation (§5). This is the bridge from the count law to the
-   lifetime law: it bounds the existential `Θ(r³)` selection loss of [P] Theorem A / [ELDER] / [E_d] from
-   below by an explicit functional of the cluster measure, and identifies it under LP=.
+   pair** — is Conjecture LP= with one obligation (§5); it is proved by Math-#170 Theorem S (planar) and
+   Math-#175 Theorem F (`d ≥ 3`) by the cap route described in the header, at their conditional scope. This is
+   the bridge from the count law to the lifetime law: it bounds the existential `Θ(r³)` selection loss of [P]
+   Theorem A / [ELDER] / [E_d] from below by an explicit functional of the cluster measure, and identifies it
+   under LP=.
 3. **Cluster law.** Nothing new: [SC] (3) identifies `ν = ν₁δ₁ + ν₂δ₂`; this packet uses only its local part.
 
 What the bridge is worth for the lifetime density is stated without inflation in §6: it bounds from below
@@ -222,7 +233,11 @@ So one upper sector of `S` lies in `C` and the other in a component `C′` of `{
 through no other point, since `S` is the only critical point at that level. `M`, the younger, dies at `S`. ∎
 
 **Proposition 3.3 (the death saddle).** If `θ` is typed with `n(θ) ≥ 1`, then `d_P(M) = max{P(S′) : S′ an
-extra strict-window saddle}`: `M` dies at the highest extra window saddle.
+extra strict-window saddle}`. Off the additional null set `{D = 0}` the maximum is attained at exactly one
+extra window saddle, and `M` dies there: the highest extra window saddle. (For `D = 0` in case (iv) the two
+extra saddles `(u₀, ±Z₀)` have the same height `A(u₀)` — the [ELDER] witness is such a jet — so only the death
+level, not a unique death saddle, is determined; on the Morse distinct-value locus of the field this tie
+does not occur.)
 
 *Proof.* By Lemma P, `d_P(M) > −k`; by Lemma 2.2, `d_P(M)` is the value of an extra strict-window saddle.
 If `n = 1` there is nothing more to show. `n = 2` occurs only in case (iv) of Lemma P (`B < 0`, `s > B`,
@@ -233,14 +248,21 @@ opposite sides of `u₀` (case (iv) of Lemma P); the one with `u₁ > u₀` has 
 hence Lemma P's path V passes through it and `d_P(M) ≥ P(S₁)`. Along the window branch the
 height of the root is [CUB] (C9), `P/k = −(u + 1/2)[1 + (2s/B)(u − 1/2)]`, whose derivative is
 `−k(B + 4su)/B`; for `B < 0` this is positive by [CUB]'s `B + 4su > 0` on (C11). So the root with the larger
-`u` is the higher saddle, and `d_P(M)` equals its value. (`D = 0` puts both saddles at the same height.) ∎
+`u` is the higher saddle, and `d_P(M)` equals its value; for `D = 0` both saddles have the height `A(u₀)`, which
+is then the death level. ∎
 
 Together: **on the limiting local landscape, off the null tie set `{s ≤ B, D² = T}`, `(M,S)` is the elder
-pair iff `n(θ) = 0`, and otherwise `M` dies at the highest extra window saddle.** The exploration in `exploration/` (not a proof, not run in CI)
-computes the merge tree of `P_θ` numerically from its critical points and gradient branches and agrees:
-see `exploration/RESULTS_EXPLORATION.json` for the sampled jets with `n ≥ 1` (death at the highest window
-saddle in every case, no self-attachment, including the samples where `P` has a local minimum elsewhere),
-the sampled jets with `n = 0` (death at `S` in every case), and the [ELDER] witness (death at `−7/32`).
+pair iff `n(θ) = 0`; otherwise `d_P(M)` is the highest extra window critical value, and off `{D = 0}` `M` dies
+at the unique highest extra window saddle.** The exploration in `exploration/` (standard library only; not a
+proof, not run in CI) computes the death level of `M` by the discretised elder rule on a grid — cells merged in
+decreasing order of `P_θ`, death when `M`'s component first meets a point with `P_θ > 0` — for sampled jets,
+and compares it with the closed-form critical points: see `exploration/RESULTS_EXPLORATION.json` (seed 7,
+spacing `0.02`, `k ∈ {1, 1/2}`): for all 120 sampled jets with `n ≥ 1` (80 with `n = 1`, 40 with `n = 2`) the
+grid death level agrees with the highest window critical value to within `1.5·10⁻³` and the merge cell lies at
+that saddle; for all 40 sampled typed jets with `n = 0` the death level is `−k` to within `10⁻⁴`, with the merge
+cell at `S` in 39 cases and, in one case with `s + B/2 ≈ −0.024` (a jet close to the typed boundary, where the
+saddle at `S` is nearly degenerate in `Z`), displaced `0.18` along the flat valley of `S` at the correct level;
+the [ELDER] witness dies at `−7/32`, a tie of its two saddles.
 
 ## 4. Theorem LP: the identified lower bound for the selection loss
 
@@ -371,7 +393,12 @@ has `r⁻³`-limit `M(n ≥ 1, n_R = 0)` at fixed `R` — its jets have all extr
 
     (O1′)   limsup_{r→0} r⁻³ Q_r^W(rejected, n(θ_r) = 0, θ_r outside the margin set) → 0   as the margins are relaxed.
 
-This is **not** a corollary of anything on file. The margin set must be jet-scaled (a fixed `δ` fails: near
+This is not a corollary of anything merged. It **is** supplied, at fixed planar marks, by Math-#170 Theorem S
+(unmerged; OpenAI; reviewed at head `79f18f0`), whose route avoids the margin set altogether: the failure event
+is contained in the bad cap of [P] §8 (`F_r ⊂ G_r^c`), the bad cap's mass restricted to a large residual norm
+is `o(r³)` by keeping the indicator inside [P]'s (7.5) scalar integral, and the remaining compact-jet part
+converges by dominated convergence with the pointwise limit of the failure indicator (its Theorem E). The
+`d ≥ 3` slaving step named below is Math-#175's H1. Read on its own, the margin set must be jet-scaled (a fixed `δ` fails: near
 `M`, `P(M + Z e_Z) = (Z²/2)(s − B/2) + (D/3)Z³` exceeds any fixed `−δ` for `|Z|` slightly beyond `δ` once
 `|s|` is large, so a fixed-margin set would exclude a region of infinite `M`-mass and (O1′) would restate
 (O1)); the typed-jet measure is not finite on `{n = 0}` ([SC] after (17)), so its complement cannot be
@@ -428,9 +455,10 @@ margin reported; P2 the [ELDER] witness; N1 a typed `n = 0` grid on which the U 
 `B < 0 < s − B` never holds (consistency of (C6) with case (iv)).
 Deterministic JSON, byte-identical in `-O`; mutants `M1` (typed condition broken), `M2` (root pushed below
 the window), `M3` (wrong conic identity), `M4` (margin sign) exit 1; unknown label exits 2.
-`exploration/elder_cubic.py` (numpy/scipy/sympy; **not** run in CI, **not** a proof) and
-`exploration/RESULTS_EXPLORATION.json` record the merge-tree computation of §3 (its known numerical limits
-are stated in the script header). None of this certifies the Gaussian steps of §4–§5.
+`exploration/elder_grid.py` (standard library only; **not** run in CI, **not** a proof) and
+`exploration/RESULTS_EXPLORATION.json` record the grid elder-rule computation of §3 (closed-form critical
+points, discretised maximin by union-find, boundary treated by the ray criterion of Lemma 2.1(b); its
+numerical limits are stated in the script header). None of this certifies the Gaussian steps of §4–§5.
 
 ## 8. Non-claims
 

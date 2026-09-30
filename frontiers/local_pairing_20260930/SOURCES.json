@@ -2,7 +2,7 @@
  "schema": 1,
  "scientific_effect": "NONE",
  "object": "CL-LOCAL-PAIRING-20260930-v1",
- "kind": "author-side proof candidate (deterministic lemmas complete; Theorem LP conditional; Conjecture LP= with one obligation); nonauthor analytic review required",
+ "kind": "author-side proof candidate (deterministic lemmas complete; Theorem LP conditional; Conjecture LP= = Math-#170 Theorem S / Math-#175 Theorem F at their scope); nonauthor analytic review required",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "answers": "the 2026-09-30 question relayed by the owner: which window witnesses pair, and whether the pairing is local",
@@ -117,8 +117,8 @@
  "files": [
   {
    "path": "LOCAL_PAIRING.md",
-   "bytes": 38639,
-   "sha256": "54a44740198ec77aa5616177676b1e0ef2ffe93115d6bf2cfcca3bba5d180d1c"
+   "bytes": 41583,
+   "sha256": "9e7193c16d994ee7f115f79e5e525209ad4faad55331051d3936efcb826c8bb2"
   },
   {
    "path": "pairing_check.py",
@@ -132,22 +132,45 @@
   },
   {
    "path": "README.md",
-   "bytes": 2207,
-   "sha256": "7d5585b78aacbd9d018085edf721759120730a965ae704e997839c386806e018"
+   "bytes": 2435,
+   "sha256": "dcef622428269d6b41730a2e4deb13d24c1d72fce3665d6436cfeef0f917e678"
   },
   {
-   "path": "exploration/elder_cubic.py",
-   "bytes": 9959,
-   "sha256": "67bdede2f46fe74afd23d73c5d12fc3df10d6a82221052e81e8fcc7808a50962"
+   "path": "exploration/elder_grid.py",
+   "bytes": 11132,
+   "sha256": "72d642f4b1ce50ab4133533e8a943a84f1e02229c7c62181d6bce426d731a816"
   },
   {
    "path": "exploration/RESULTS_EXPLORATION.json",
-   "bytes": 104796,
-   "sha256": "5c80aecdb6db5403a50ab2239361f36b638d1f5e7e5fd0e3d6dfee5dcd661d2b"
+   "bytes": 89311,
+   "sha256": "a1b8e0ab19dd75f4f595925eeade8bd396b2dc3b82e49cfb542ca18b8e6f85f3"
   }
  ],
  "read_at": {
   "branch_base": "30106e1be251e8c18759b6fa4de6176b76380c12",
   "note": "Math- main after Math-#173 merged; every consumed source verified at these bytes by the workflow"
- }
+ },
+ "cited_unmerged": [
+  {
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "pr": "d6g8k5htny-coder/Math-#170",
+   "commit": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
+   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+   "tag": "LEG",
+   "use": "cited in the header, §0 and §5 only: Theorem E (same deterministic statement as Lemma P′ + Proposition 3.3, different proof) and Theorem S (planar equality by the cap route); not consumed; unmerged, so not verified by the workflow"
+  },
+  {
+   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+   "pr": "d6g8k5htny-coder/Math-#175",
+   "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+   "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+   "bytes": 23416,
+   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+   "tag": "CFE",
+   "use": "cited in the header, §0 and §5 only: H1 (the d >= 3 hard-direction slaving named in §5) and Theorem F; not consumed; unmerged, so not verified by the workflow"
+  }
+ ],
+ "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied — exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded"
 }
