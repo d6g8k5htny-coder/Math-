@@ -1,0 +1,197 @@
+{
+  "box_id": "P01-UNIFORMQ-D4-BOX-001",
+  "explicit_exclusions": [
+    "NO Gaussian or Palm mass lower bound in this source",
+    "NO exact-field transfer",
+    "NO exact full-field Palm or adjacency theorem",
+    "NO P0.1/P0.2/Theorem B promotion"
+  ],
+  "negative_controls": [
+    {
+      "id": "NC1_ZERO_WIDTH",
+      "observed": "FULL_DIMENSIONAL_BOX_FAIL",
+      "pass": true,
+      "required": "FULL_DIMENSIONAL_BOX_FAIL"
+    },
+    {
+      "id": "NC2_TYPING_DESTROYED",
+      "observed": [
+        "saddle_det_negative_margin",
+        "maximum_A_negative_margin",
+        "maximum_det_positive_margin",
+        "cone_axis_margin",
+        "central_drift_margin",
+        "capture_gershgorin_margin_1"
+      ],
+      "pass": true,
+      "required_any_failed_gate": [
+        "saddle_det_negative_margin",
+        "maximum_det_positive_margin"
+      ]
+    },
+    {
+      "id": "NC3_Q_BOX_CROSSES_ZERO",
+      "observed": "Q_NEGATIVITY_FAIL",
+      "pass": true,
+      "required": "Q_NEGATIVITY_FAIL"
+    },
+    {
+      "id": "NC4_CONE_TOO_NARROW",
+      "observed": [
+        "cone_slope_margin",
+        "cone_lower_inward_margin"
+      ],
+      "pass": true,
+      "required_failed_gate": "cone_slope_margin"
+    },
+    {
+      "id": "NC5_CAPTURE_CHART_DESTROYED",
+      "observed": [
+        "cone_slope_margin",
+        "cone_upper_inward_margin",
+        "cone_lower_inward_margin",
+        "handoff_margin",
+        "strip_top_inward_margin",
+        "strip_bottom_inward_margin",
+        "central_drift_margin",
+        "chart_x_margin",
+        "chart_y_margin",
+        "capture_gershgorin_margin_1"
+      ],
+      "pass": true,
+      "required_any_failed_gate": [
+        "chart_x_margin",
+        "capture_gershgorin_margin_1"
+      ]
+    }
+  ],
+  "overall": "PASS_UNIFORM_R_FIXED_Q_FULL_DIMENSIONAL_DEGREE4_INTERVAL_BOX",
+  "primary": {
+    "box": {
+      "a": [
+        0.0024000000000000002,
+        0.0026
+      ],
+      "c04": [
+        -0.01,
+        0.01
+      ],
+      "c13": [
+        -0.01,
+        0.01
+      ],
+      "c22": [
+        -0.01,
+        0.01
+      ],
+      "c31": [
+        -0.01,
+        0.01
+      ],
+      "c40": [
+        -0.01,
+        0.01
+      ],
+      "q": [
+        -1.02,
+        -0.98
+      ],
+      "w": [
+        -0.001,
+        0.001
+      ],
+      "z": [
+        0.99,
+        1.01
+      ]
+    },
+    "derived_intervals": {
+      "W": [
+        0.016970562748477133,
+        0.018974031961839034
+      ],
+      "rho": [
+        0.20285955732969546,
+        0.20356830685437158
+      ],
+      "tau_upper": 6.513136004191066e-05
+    },
+    "failed_gates": [],
+    "failure_class": null,
+    "fixed": {
+      "kappa": 0.01,
+      "mu_interval": [
+        0.017677669529663684,
+        0.01767766952966369
+      ],
+      "q_interval": [
+        -1.02,
+        -0.98
+      ],
+      "r_interval": [
+        0.0,
+        0.05
+      ],
+      "s_upper_worst": -19.599999999999998,
+      "sigma": 0.1
+    },
+    "lower_bounds": {
+      "axial_gap_margin": 20.599395833333325,
+      "capture_gershgorin_margin_1": 0.589931481037461,
+      "capture_gershgorin_margin_2": 19.391268980780914,
+      "central_drift_margin": 0.08996598847018418,
+      "chart_x_margin": 0.04643169314562845,
+      "chart_y_margin": 0.7964316931456284,
+      "cone_axis_margin": 0.8999287018324998,
+      "cone_lower_inward_margin": 0.20363763551749148,
+      "cone_slope_margin": 0.009869737279916179,
+      "cone_upper_inward_margin": 0.20600236151749143,
+      "handoff_margin": 0.007485281374238566,
+      "maximum_A_negative_margin": 0.9999583333333333,
+      "maximum_D_negative_margin": 19.599437499999993,
+      "maximum_det_positive_margin": 19.59861905670138,
+      "partial_y_contraction_margin": 19.58039234290867,
+      "saddle_det_negative_margin": 19.598622198506934,
+      "strip_bottom_inward_margin": 0.33241853805878996,
+      "strip_top_inward_margin": 0.3325271710449011,
+      "threshold_slack": 19.562591224677412
+    },
+    "monotonicity_ledger": {
+      "affected_gates": [
+        "threshold",
+        "endpoint typing",
+        "axial gap",
+        "cone faces",
+        "strip faces",
+        "partial-y contraction",
+        "capture h22"
+      ],
+      "domain": "0<r<=1/20 and q in [-1.02,-0.98]",
+      "relation": "s=q/r <= q_hi/r_max = -19.6",
+      "s_independent_gates": [
+        "cone axis",
+        "handoff",
+        "central X drift",
+        "chart containment",
+        "capture h11"
+      ],
+      "worst_case_s": "All stored lower margins are monotone nondecreasing as s becomes more negative; evaluate at largest admissible s=-19.6."
+    },
+    "pass": true,
+    "radii": {
+      "a": 0.0001,
+      "c04": 0.01,
+      "c13": 0.01,
+      "c22": 0.01,
+      "c31": 0.01,
+      "c40": 0.01,
+      "q": 0.02,
+      "w": 0.001,
+      "z": 0.01
+    }
+  },
+  "schema": "p01-uniformq-degree4-box/1.0",
+  "source_bytes": 9787,
+  "source_filename": "GP-DATA-114-v1.0_uniform_q_degree4_interval.py",
+  "source_sha256": "9d7cb5d6e13579533c5b485775e67c77da83c149c0bf8bbbe7b7bf85aefdb4ef"
+}
