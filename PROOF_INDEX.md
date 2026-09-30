@@ -47,7 +47,7 @@ The shared [public inventory](https://github.com/d6g8k5htny-coder/main/tree/main
 
 ## Navigation refresh — packets integrated 27–29 September 2026
 
-The packets below landed on `main` after this index was last checked (2026-09-26). This section records **availability only**: path, the packet's own object id, and its kind. The review records for each packet — quoted verbatim, with exact links and the blob each review binds to — are in [docs/integration/2026-09-29-navigation-refresh.md](docs/integration/2026-09-29-navigation-refresh.md); nothing here is a verdict, and no claim, graph node, STATUS row or disposition changes. Author lanes are as the packets state them. Packets on unmerged branches are not listed.
+The packets below landed on `main` after this index was last checked (2026-09-26). This section records **availability only**: path, the packet's own object id, and its kind. The review records for each packet — exact links, the blob each review binds to, and for each record either a verbatim excerpt (in quotation marks) or a passage labelled `summary:` (the compiler's paraphrase, which the linked record governs) — are in [docs/integration/2026-09-29-navigation-refresh.md](docs/integration/2026-09-29-navigation-refresh.md); nothing here is a verdict, and no claim, graph node, STATUS row or disposition changes. Author lanes are as the packets state them. Packets on unmerged branches are not listed.
 
 **D1 parent chain (lifetime Theorems A, B, C) and its review records** — [review records](docs/integration/2026-09-29-navigation-refresh.md#d1-parent-chain-lifetime-theorems-a-b-c-and-its-review-records)
 

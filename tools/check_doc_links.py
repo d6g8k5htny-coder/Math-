@@ -33,7 +33,8 @@ def check_document(doc_path, root):
     doc_real = os.path.realpath(doc_path)
     if not doc_real.startswith(root + os.sep):
         return [('document-outside-root', doc_path)]
-    text = open(doc_real, encoding='utf-8').read()
+    with open(doc_real, encoding='utf-8') as handle:
+        text = handle.read()
     doc_dir = os.path.dirname(doc_real)
     failures = []
     for match in LINK.finditer(text):
