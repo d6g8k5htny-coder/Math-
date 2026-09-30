@@ -206,6 +206,53 @@ def gauss_hermite(n):
 
 SIG = (math.sqrt(2.0), math.sqrt(2.0), math.sqrt(6.0))   # odd block: N(0, diag(2, 2, 6)), exact structure
 
+def float_regression(C, targets, target_vals, outputs):
+    """Floating-point Gaussian regression (used only for the finite-L lattice covariance)."""
+    S_tt = [[C[(r, c)] for c in targets] for r in targets]
+    S_ot = [[C[(r, c)] for c in targets] for r in outputs]
+    S_oo = [[C[(r, c)] for c in outputs] for r in outputs]
+    n = len(targets); Ab = [S_tt[i][:] + [S_ot[j][i] for j in range(len(outputs))] for i in range(n)]
+    for i in range(n):
+        piv = max(range(i, n), key=lambda r: abs(Ab[r][i])); Ab[i], Ab[piv] = Ab[piv], Ab[i]; pv = Ab[i][i]
+        Ab[i] = [x / pv for x in Ab[i]]
+        for r in range(n):
+            if r != i and Ab[r][i] != 0.0:
+                f = Ab[r][i]; Ab[r] = [x - f * y for x, y in zip(Ab[r], Ab[i])]
+    K = [[Ab[i][n + j] for i in range(n)] for j in range(len(outputs))]      # S_ot S_tt^-1
+    mean = [sum(K[j][i] * target_vals[i] for i in range(n)) for j in range(len(outputs))]
+    cov = [[S_oo[a][b] - sum(K[a][i] * S_ot[b][i] for i in range(n)) for b in range(len(outputs))] for a in range(len(outputs))]
+    return mean, cov
+
+def cholesky(A):
+    n = len(A); Lm = [[0.0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(i + 1):
+            v = A[i][j] - sum(Lm[i][k] * Lm[j][k] for k in range(j))
+            Lm[i][j] = math.sqrt(v) if i == j else v / Lm[j][j]
+    return Lm
+
+def lattice_setup(L, k, b):
+    """Finite-L contact regression from the lattice covariance: odd-block mean/Cholesky and the prefactor p_b(0)/z_0."""
+    C = lattice_cov(L)
+    muA, covA = float_regression(C, ['f', 'fxx', 'fxz'], [b, 0.0, 0.0], ['fzz'])
+    muA = muA[0]; sA = math.sqrt(covA[0][0]); t = -muA / sA
+    m2 = muA * muA * Phi(t) - 2 * muA * sA * phi(t) + sA * sA * (Phi(t) - t * phi(t))
+    pf = phi(t) / sA / (36 * k * k * m2)
+    muJ, covJ = float_regression(C, ['fx', 'fz', 'fxxx'], [0.0, 0.0, 12 * k], ['fxxz', 'fxzz', 'fzzz'])
+    return {'mu': muJ, 'chol': cholesky(covJ), 'prefactor': pf, 'muA': muA, 'varA': sA * sA, 'covJ': covJ}
+
+def J_gh_lattice(k, order, setup):
+    gh = gauss_hermite(order); mu, Lc = setup['mu'], setup['chol']; J1 = J2 = 0.0
+    for x1, w1 in gh:
+        for x2, w2 in gh:
+            for x3, w3 in gh:
+                a = mu[0] + Lc[0][0] * x1
+                bb = mu[1] + Lc[1][0] * x1 + Lc[1][1] * x2
+                c = mu[2] + Lc[2][0] * x1 + Lc[2][1] * x2 + Lc[2][2] * x3
+                i1, i2 = I_j(a, bb, c, k); w = w1 * w2 * w3
+                J1 += w * i1; J2 += w * i2
+    return J1, J2
+
 def J_gh(k, order):
     gh = gauss_hermite(order); J1 = J2 = 0.0
     for x1, w1 in gh:
@@ -229,12 +276,15 @@ def sig6(x): return float('%.6g' % x)
 def controls():
     ex = exact_structure()
     # lattice sums at L = 24 and 12 agree with the continuum table
-    dev = 0.0
-    for L in (24.0, 12.0):
-        C = lattice_cov(L)
+    devs = {}
+    for L in (24.0, 12.0, 6.0):
+        C = lattice_cov(L); dev = 0.0
         for key, val in exact_cov().items():
             dev = max(dev, abs(C[key] - float(val)))
-    require(dev < 1e-9, 'lattice-sum jet covariances match the continuum Gaussian table')
+        devs[str(int(L))] = dev
+    require(devs['24'] < 1e-9 and devs['12'] < 1e-9, 'lattice-sum jet covariances match the continuum Gaussian table at L = 24, 12')
+    require(1e-4 < devs['6'] < 2e-3, 'the finite-L correction at L = 6 is of order 1e-3 (recorded, not negligible)')
+    dev = devs
     # classifier against direct root count on the typed domain
     rng = random.Random(5); mism = 0
     for _ in range(4000):
@@ -252,7 +302,7 @@ def controls():
     require(Fq(Bq / 2) - Fq(Bq) == 48, 'exact antiderivative of 9k^2(4s^2 - B^2) over (B, B/2) at k = 1, B = -2')
     require(sum(w for _, w in gauss_hermite(40)) - 1 < 1e-12 and abs(sum(x * x * w for x, w in gauss_hermite(40)) - 1) < 1e-10,
             'Gauss-Hermite weights normalized')
-    return ex, dev
+    return ex, devs
 
 def main():
     global MUTANT
@@ -268,11 +318,15 @@ def main():
                 rec = ref['per_k'][str(k)]
                 for got, name in ((J1, 'J1_gh40'), (J2, 'J2_gh40')):
                     require(abs(got - rec[name]) <= 1e-6 * (1 + abs(rec[name])), 'GH40 replay matches RESULTS.json for ' + name)
+            st6 = lattice_setup(6.0, 1.0, 0.0); J6 = J_gh_lattice(1.0, 40, st6); rec6 = ref['lattice_L6']['k=1']
+            for got, name in ((J6[0], 'J1_gh40'), (J6[1], 'J2_gh40')):
+                require(abs(got - rec6[name]) <= 1e-6 * (1 + abs(rec6[name])), 'L = 6 GH40 replay matches RESULTS.json for ' + name)
             print(json.dumps({'passed': True, 'mode': 'check', 'scientific_effect': 'NONE'}, sort_keys=True))
             return 0
         out = {'schema': 1, 'object': 'CL-C6-CLUSTER-COEFF-NUMERICS-20260930-v1', 'scientific_effect': 'NONE',
                'certified': False, 'method': 'exact contact regression + interval-exact s-integral + Gauss-Hermite / Monte Carlo',
-               'exact_structure': ex, 'lattice_vs_continuum_max_dev': sig6(dev), 'per_k': {}, 'prefactor': {}}
+               'exact_structure': ex, 'lattice_vs_continuum_max_dev': {L: sig6(v) for L, v in dev.items()}, 'per_k': {}, 'prefactor': {},
+               'lattice_L6': {}}
         for k in K_VALUES:
             kf = float(k)
             g40 = J_gh(kf, 40); g60 = J_gh(kf, 60); mc = J_mc(kf, 1000000, seed=2026)
@@ -285,6 +339,12 @@ def main():
                 out['prefactor'][f'k={k},b={b}'] = {'p_b0_over_z0': sig6(pf), 'm2_b': sig6(m2), 'z0': sig6(36 * kf * kf * m2),
                                                      'alpha1_gh60': sig6(pf * g60[0]), 'alpha2_gh60': sig6(pf * g60[1]),
                                                      'alpha1_mc': sig6(pf * mc[0]), 'alpha2_mc': sig6(pf * mc[1])}
+            st6 = lattice_setup(6.0, kf, 0.0); J6 = J_gh_lattice(kf, 40, st6)
+            out['lattice_L6'][f'k={k}'] = {'J1_gh40': J6[0], 'J2_gh40': J6[1], 'prefactor_b0': sig6(st6['prefactor']),
+                                            'alpha1_gh40': sig6(st6['prefactor'] * J6[0]), 'alpha2_gh40': sig6(st6['prefactor'] * J6[1]),
+                                            'rel_dev_alpha1_vs_continuum_gh40': sig6(st6['prefactor'] * J6[0] / (prefactor(kf, 0.0)[0] * g40[0]) - 1),
+                                            'rel_dev_alpha2_vs_continuum_gh40': sig6(st6['prefactor'] * J6[1] / (prefactor(kf, 0.0)[0] * g40[1]) - 1),
+                                            'muJ': [sig6(x) for x in st6['mu']], 'varA': sig6(st6['varA']), 'muA': sig6(st6['muA'])}
             print(f'k={k}: done', file=sys.stderr, flush=True)
         path = os.path.join(HERE, 'RESULTS.json')
         json.dump(out, open(path, 'w'), indent=2, sort_keys=True); open(path, 'a').write('\n')

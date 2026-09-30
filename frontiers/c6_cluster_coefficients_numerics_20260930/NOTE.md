@@ -86,8 +86,11 @@ the outer integral converges.
 
 Outer integration over `(a, beta, c) ~ N(0, diag(2, 2, 6))`: tensor Gauss–Hermite of orders 40 and 60 (64,000 and
 216,000 nodes) and Monte Carlo with `10^6` samples (fixed seed), standard errors from the sample variance. The
-integrand is bounded and piecewise smooth (kinks where a root of `g` crosses `-|B|/2` or `B`), so Gauss–Hermite
-converges algebraically; the two orders and the Monte Carlo value bracket the truth to the digits shown.
+integrand `I_j` is **not** bounded: it grows polynomially in the jets (on the `B = 0` family `I_1 = 18 k^3 c^2`), as
+Lemma 3.6 of [CL] allows, and it has kinks where a root of `g` crosses `-|B|/2` or `B`. Against a Gaussian weight a
+polynomially growing, piecewise-smooth integrand is integrable, but no convergence rate for Gauss–Hermite is proved
+here; the two orders are reported as two deterministic estimates, and the Monte Carlo standard error is the only
+statistical error indication. **All precision statements below are empirical.**
 
 | `k` | `J_1` GH40 / GH60 / MC (`±` s.e.) | `J_2` GH40 / GH60 / MC (`±` s.e.) | `J_2/(J_1+J_2)` | near Palm excess `2J_2/(J_1+2J_2)` |
 |---|---|---|---|---|
@@ -106,10 +109,26 @@ converges algebraically; the two orders and the Monte Carlo value bracket the tr
 | `2` | `0` | 144 | 0.001959 | 2.162 | 0.0169 |
 | `2` | `1` | 391.7 | 0.00056088 | 0.619 | 0.00485 |
 
-Reading: at `k = 1`, `b = 0`, `alpha_1 ≈ 1.33` and `alpha_2 ≈ 0.026`; about 1.9% of nonempty near clusters are two-point clusters, and the near part of the Palm excess `2 nu(2)/(nu(1) + 2 nu(2))` of [C6] Corollary P is at most about 3.7% (the remote singleton part of `nu(1)` only lowers it). The two-point share decreases in `k` (3.0% at `k = 1/2`, 0.78% at `k = 2`). Precision: `J_1` is known to about `0.2%` (GH40, GH60 and MC agree within the MC standard error); `J_2` to about `1%` at `k = 1/2` and `k = 1` and about `3%` at `k = 2`, where GH60 and MC differ by three standard errors because the integrand's kinks slow the Gauss–Hermite convergence; the MC value with its standard error is the better estimate of `J_2` there.
+Reading: at `k = 1`, `b = 0`, `alpha_1 ≈ 1.33` and `alpha_2 ≈ 0.026`; about 1.9% of nonempty near clusters are two-point clusters, and the near part of the Palm excess `2 nu(2)/(nu(1) + 2 nu(2))` of [C6] Corollary P is at most about 3.7% (the remote singleton part of `nu(1)` only lowers it). The two-point share decreases in `k` (3.0% at `k = 1/2`, 0.78% at `k = 2`). Empirical precision (GH60 against MC, `10^6` samples):
 
-`L`-independence: the values at `L = 24` (the parent's SIDE24 application), `L = 12` and `L = 6` agree to the digits
-shown, as §2 predicts (`exp(-L^2/2)` corrections). The full run is `coefficients.py` (writes `RESULTS.json`); the
+| `k` | `J_1`: GH60 − MC (in MC s.e., relative) | `J_2`: GH60 − MC (in MC s.e., relative) |
+|---|---|---|
+| `1/2` | +0.1162 (+1.4 s.e., 0.33%) | -0.00615 (-1.0 s.e., 0.6%) |
+| `1` | +0.237 (+0.8 s.e., 0.14%) | -0.02519 (-1.1 s.e., 0.8%) |
+| `2` | +1.05 (+0.6 s.e., 0.10%) | -0.2336 (-3.2 s.e., 2.6%) |
+
+So `J_1` (hence `alpha_1`) is reproduced by the two independent methods to about `0.1`–`0.3%`, within `1.4` MC standard
+errors; `J_2` (hence `alpha_2`) to about `0.5`–`0.8%` at `k = 1/2, 1` (within `1.1` s.e.) and to about `2.7%` at `k = 2`,
+where GH60 lies `3.2` s.e. below MC and GH40 further below: the Gauss–Hermite sequence is still moving there, so the MC
+value with its standard error is the better estimate of `J_2(2)` and the third digit of `alpha_2(2)` is not established.
+These are observed discrepancies, not error bounds.
+
+Finite `L`: the integrations above use the continuum jet covariance, which the lattice sums reproduce to `1e-13` at
+`L = 24` (the parent's SIDE24 application) and `L = 12`. At `L = 6` the lattice jet covariances deviate from the continuum
+table by up to `8.8e-4` (absolute), so `L = 6` is *not* covered by the continuum computation: the script propagates the
+actual `L = 6` lattice covariance through the even/odd regressions (floating point) and the order-40 quadrature, and
+`RESULTS.json` (`lattice_L6`) records the resulting `alpha_j` and their relative deviations from the continuum values,
+of order `1e-4`–`1e-3`; `--check` replays the `k = 1` case. The full run is `coefficients.py` (writes `RESULTS.json`); the
 replay mode `--check` re-verifies the exact structure, the closed forms, the classifier and the order-40 quadrature
 against `RESULTS.json` (tolerance `1e-6`, floating point), and three mutants (`cubic-sign`, `antiderivative`,
 `typed-boundary`) exit 1.
