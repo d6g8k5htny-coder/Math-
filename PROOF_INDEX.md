@@ -13,6 +13,10 @@ Verify custody with `python -B -S imports/hardening_ebedb780/verify.py`.
 **Publication is not acceptance.** Source self-labels are quoted, not adopted; no verdict, `lemma_closed`, prize, premise, or landing claim changes here.
 The shared [public inventory](https://github.com/d6g8k5htny-coder/main/tree/main/docs/public-math) remains the catalog; this pointer creates no second inventory.
 
+Later publication-only import (availability only, outside the dated navigation section below):
+
+- [GP-DATA-114 original source and saved receipt](imports/gp_data_114_embedded_20260930/README.md) (Math- #165, merged 2026-09-30 at `bb429d39`): exact decoded publication from the already-public clean v1.1 capsule; original v1.0 filenames and historical receipt retained (program 9787 B, blob `bbbfacee`; receipt 5047 B, blob `77c511ea`). Custody-only recovery; no execution, theorem alignment or mathematical acceptance.
+
 ## Reviewed scoped results
 
 - D2 lifetime remainder: proof [frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md](frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md); [R1–R4 review](https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841270276) and [R5/R6 delta review](https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841782206) record ACCEPT for Theorem R at its stated existential `O(1)`-remainder scope. The delta identifies its exact parent imports (the D1-A–E interfaces) and does not consume Theorem A's cubic bound (1.1); those imports are now reconciled in [reviews/d1_chain_reconciliation_20260928/](reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md). Numerical constants/radii, a second coefficient, and RN/24-jet closure are outside this verdict. [main #67](https://github.com/d6g8k5htny-coder/main/issues/67) remains open for other bundled fronts.
