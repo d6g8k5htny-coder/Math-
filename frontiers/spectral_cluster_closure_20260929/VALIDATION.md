@@ -16,3 +16,14 @@ The container could not obtain a complete remote checkout, so actual project Git
 ## Hosted nested-directory repair
 
 Initial hosted run36646437664 failed at source verification, job109670396383, because `git ls-tree` interpreted the pinned repository-root path relative to the nested packet cwd. Both source fetches and inventory authentication had succeeded; the error was not a missing upstream proof. A new real-Git nested-packet regression failed before repair (None!=1). Adding `--full-tree` makes root-relative source paths independent of cwd. The mathematical PROOF.md and all premise identities remain unchanged. Latest local suite:46 tests per mode. The original failing hosted run is retained; the successor still needs its own hosted result.
+
+## Addendum and review-metadata completion
+
+The separate GD1 addendum adds nine exact finite ledger tests. Fresh complete
+local replay passes55 tests in normal and55 in optimized Python, with identical
+RESULTS and all eight semantic mutations rejected per mode. These test the
+normalizer/radius/penalty ledgers, not conditional Gaussian integration.
+At addendum head3892aeed64601350472566c657d954e84ffdd78d, hosted target36649121320
+and full36649121574 both succeeded. Later metadata-only commits must be checked
+at their own exact PR test merge. Core PROOF.md, GD1, all source pins and every
+executable remain unchanged by this final review-metadata update.
