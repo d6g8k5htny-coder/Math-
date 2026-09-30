@@ -16,7 +16,14 @@ gain `covered_by` edges, `apply()` carries scope exclusions and replacement note
 two-commit source mutations through the production reverse-impact rule, the interface's promoted scope is narrowed to
 self-contained inequalities plus conditional implications with its consumed premises as edges, the interface evidence
 labels separate exact from floating-point checks, and the external issue comments are preserved in `EXTERNAL_REVIEWS.md`
-and labelled as mutable evidence; the eight classifications are unchanged.
+and labelled as mutable evidence; the eight classifications are unchanged. v1.4 (register execution readiness,
+`reviews/register_execution_readiness_20260930`; re-verified at `dda8991`, Math-#173 merged): the checker accepts the live register in
+exactly two states, **baseline** (nothing of the proposal live) or **installed** (every proposed field of the eight nodes,
+every component node and every proposed edge live exactly), rejects partial or drifted installs, replays the proposal
+from the register without it (`strip`) and, once installed, asserts that `apply` is the identity and that this record's
+objects are unheld; the workflow compares the checker's output with `RESULTS.json` in the baseline state and with
+`RESULTS_INSTALLED.json` in the installed state; two mutants added (`installed-drift`, `partial-install`). Transitions,
+sources and verdicts are unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 five objects that the register already lists as accepted to their exact bytes, quotes the nonauthor verdicts that
 accepted them, records that their live graph nodes still carry the pre-review classification, and proposes the node
@@ -214,8 +221,15 @@ rather than inferred from old-versus-new GRAPH metadata.
   object headers of the sources, the D4 sentence that consumes the interface, the interface note's (N1)/(N4)/(N5)
   displays, the five PROOF_INDEX rows, the interface review's overall verdict and evidence labels, and the seven comment
   ids with their verdict lines and the mutability label in `EXTERNAL_REVIEWS.md` are present as substrings.
-- **BASELINE.** Each transition's live node exists with exactly the recorded current classification, fingerprint,
-  kind and source; the D1 node is `PROVED_REVIEWED` with its four reading-rule components `PROVED_REVIEWED`.
+- **BASELINE.** The live register is in exactly one of two accepted states. *Baseline:* each transition's live node
+  exists with exactly the recorded current classification, fingerprint, kind and source, no component node and no
+  proposed edge is live. *Installed:* each transition's live node carries every proposed field exactly (classification,
+  `controlling`, fingerprint, source, scope, explicit limits, notes, review disposition, review sources and the derived
+  `review_basis`), every component node is live as proposed on every proposed key, every proposed edge is live, and no
+  other live fingerprinted node carries a component source. Any node in between (one flipped, one not; a proposed key
+  drifted; a component present under another id) is a mismatch and the check fails. In both states the D1 node is
+  `PROVED_REVIEWED` with its four reading-rule components `PROVED_REVIEWED`, and every transition is a change (its
+  current and proposed classifications differ).
 - **TRANSITIONS.** `declarative` true, `executed` false, `edges_unchanged` false; every proposed classification is
   `PROVED_REVIEWED` with `controlling: false`, a non-empty scope, explicit limits, replacement notes and at least one
   review source; every candidate node's fingerprint equals the SHA256 of its inventoried source; every component node
@@ -225,9 +239,20 @@ rather than inferred from old-versus-new GRAPH metadata.
   graph, no live node other than the eight changes, no live edge is removed, every flipped node's required premises (the
   live D1 node and cap component, the interface, the component nodes) are `PROVED_REVIEWED`, every region requires its
   covering node, and every applied node carries its `explicit_limits`, its replacement `notes` and a `review_basis`.
-- **GATE.** The proposed graph passes the hard gate's `validate_graph_fail_closed`; `closure_report` gives `gate_ok`
-  with no illegal controlling node; `reverse_impact_between(live, proposed)` runs and its impacted set (the eight nodes,
-  the eight component nodes and their dependents) is recorded.
+  `apply` is idempotent (a node already carrying the proposal is left as it is, a live component or edge is not
+  re-created) and `strip` is its pre-image (the eight nodes at their current classification and fingerprint, the
+  component nodes and the edges touching them removed): on the baseline register `strip` is the identity, on the
+  installed register `apply` is, and `apply(strip(·))` reproduces every object on every proposed key in both. The
+  installed state is also simulated (on the baseline register: `apply` of the live graph; once installed: the live graph
+  itself) and must be accepted exactly, with re-application a no-op.
+- **GATE.** The proposal replayed from the register without it: the replay passes the hard gate's
+  `validate_graph_fail_closed`; `closure_report` gives `gate_ok` with no illegal controlling node on the pre-image, the
+  replay and the live graph; `reverse_impact_between(pre-image, replay)` changes and impacts every one of the sixteen
+  objects (loss-only rule), and none of them is held once applied (every required premise `PROVED_REVIEWED`). In the
+  baseline state the pre-image is the live graph and the impacted set (the eight nodes, the eight component nodes and
+  their dependents) is recorded in `RESULTS.json`; in the installed state `reverse_impact_between(live, apply(live))`
+  must be empty (nothing left to apply) and the impacted set is not pinned, since after execution it depends on the
+  other landed records.
 - **PROPAGATION.** Nine two-commit cases on the proposed graph with source snapshots in the shape of
   `git_transition_audit.read_snapshot`: a D4 proof edit reaches the fixed-remote region and the mesoscopic consumer; an
   annulus proof edit reaches its region; deleting the interface review record reaches the interface, D4, the annulus and
@@ -246,11 +271,16 @@ rather than inferred from old-versus-new GRAPH metadata.
   citing main#76 with verdict ACCEPT, `component_of` `math.d5-pin-neighborhood-first-moment`; and the older live node
   `math.rn-fixed-remote-window` still carries that fingerprint at `AUTHOR_SIDE_CANDIDATE`, the lag this record aligns.
 
-Twelve mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
+Fourteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
 `executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`, `duplicate-drift`, `region-unlinked`
-(the `covered_by` edges removed before the propagation replay: proof edits no longer reach the regions) and
+(the `covered_by` edges removed before the propagation replay: proof edits no longer reach the regions),
 `review-metadata-only` (the review-record nodes and their edges removed before the replay, leaving the citations as
-metadata only: a deleted or edited review record no longer reaches its accepted object).
+metadata only: a deleted or edited review record no longer reaches its accepted object), `installed-drift` (the
+simulated installed register with one component fingerprint changed) and `partial-install` (the simulated installed
+register with the D4 node back at its current classification). The workflow runs the checker in the state the
+repository is in: it compares the output with `RESULTS.json` when the checker reports `register_state: baseline` and
+with `RESULTS_INSTALLED.json` when it reports `installed`; the mutants must be rejected in either state (the
+composition of Math-#167, #160 and #173 on a scratch copy, with every mutant, is replayed by `reviews/register_execution_readiness_20260930`).
 
 ## 7. Relation to other lanes
 

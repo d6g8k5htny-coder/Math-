@@ -19,7 +19,12 @@ review 5360227991; v1.3 at `fe2c3ff` answers Math-#173's reviews: this record's 
 path (OpenAI / GPT-5.6 Sol 5360645884, a non-Claude bounded read of §3 at head `b3fac79`, whose paragraphs are preserved
 verbatim in `REVIEWED_SECTION_3_b3fac79.md` and checked unchanged), the two evidence paths are modelled separately, and
 the checker accepts the installed state and replays the hard gate with source snapshots (Codex 5360636576); v1.4 at
-`8d48d02` re-verifies after Math-#160 merged (no content change); v1.5 at `02772ec` applies the direct-statement amendment
+`8d48d02` re-verifies after Math-#160 merged (no content change); v1.6 at `dda8991` (register execution readiness,
+`reviews/register_execution_readiness_20260930`) keeps the installed-state simulation and its `installed-drift` mutant active on the installed
+register too (before, the mutant was a no-op once the residual was live `PROVED_REVIEWED`, so the workflow's mutant rule
+would have failed after execution), prints `register_state`, and the workflow compares the checker's output with
+`RESULTS.json` in the baseline state and with `RESULTS_INSTALLED.json` in the installed state (the per-stage gate report
+differs between the two by construction); no other content changes; v1.5 at `02772ec` applies the direct-statement amendment
 of review 5360751376 (the diagonal argument; no fixed-`R` substitution into (L1)) and records that review's ACCEPT of
 Route C. Pickup:
 Math-#160 comment 5902470285; delivery 5902585446.
@@ -260,7 +265,8 @@ therefore reaches the residual through the graph, not through the fingerprint st
   classification, controlling); anything else on such a source, or anything else under a proposed id, is a mismatch. If
   the residual is live `PROVED_REVIEWED`, every component, every edge and the reading rule must be present as proposed.
   The same test runs on the executed graph built from the proposal (installed state, simulated) in every run, so that
-  execution cannot turn this check red (Codex 4140125558).
+  execution cannot turn this check red (Codex 4140125558); on the installed register that simulation is the live graph
+  itself (v1.6).
 - **REVIEWED.** The record node's first review basis is Math-#173 review 5360645884 (provider OpenAI, ACCEPT, head
   `b3fac79`); `REVIEWED_SECTION_3_b3fac79.md`, after its one-line provenance comment, has the SHA256 the proposal states,
   begins at the §3 heading, contains Route A and Route B and not Route C, and is a verbatim substring of the current
@@ -293,6 +299,10 @@ Fourteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `dr
 `installed-drift` (an installed component with another fingerprint must fail `LIVE`), `snapshot-omitted` (the
 reverse-impact replay without snapshots must fail `GATE`), `record-unreviewed` (the record node `PROVED_REVIEWED` with no
 review basis must fail `TRANSITIONS` and `REVIEWED`), `reviewed-text-drift` (a changed reviewed text must fail `REVIEWED`).
+The workflow runs the checker in the state the repository is in: it compares the output with `RESULTS.json` when the
+checker reports `register_state: baseline` and with `RESULTS_INSTALLED.json` when it reports `installed`; the mutants
+must be rejected in either state (the composition of Math-#167, #160 and #173 on a scratch copy, with every mutant, is
+replayed by `reviews/register_execution_readiness_20260930`).
 
 ## 7. Relation to other lanes
 

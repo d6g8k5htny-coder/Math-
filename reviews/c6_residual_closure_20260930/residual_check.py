@@ -72,8 +72,8 @@ INVENTORY = {
         "70d05080ed81c66b43261438cae3b9ec2840e637"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
-        "3cfd17c5ef0356dbd3e8f98a2d08cb404ddd982c"
+        "785bdb9d5265e4963a83e23e98ac075f8840fb640dea44fcddeb29285c7b1606",
+        "4082bf07317a84189c07975c989caac28f0eabbf"
     ],
     "reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md": [
         "50daacbe7e244bc149dbf4568970d79f38a356daa1e88a850f2fc2d074db5b6c",
@@ -473,16 +473,17 @@ def check_transitions(root, spec):
             ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req_after)
         ok &= len(req_after) == expected_required.get(stage, len(cids))
         builds[stage] = (old, new)
+    # the installed state, simulated (Codex 4140125558): the executed graph passes LIVE and re-building it is a no-op;
+    # on the installed register the simulation is the live graph itself, so the drift mutant is rejected in either state
+    sim = build(spec, graph, "final")[1]
+    if MUT == "installed-drift":
+        sim["nodes"]["math.c6r-component.spectral-closure-proof"]["fingerprint"] = "0" * 64
+    sim_ok, sim_st = live_ok(sim, sel, spec)
+    ok &= sim_ok and sim_st["residual"] == "PROVED_REVIEWED" and sim_st["present"] == sorted(cids)
+    ok &= sim_st["edges_present"] and not sim_st["mismatched"]
+    o2, n2 = build(spec, sim, "final")
+    ok &= o2 == n2
     if not installed:
-        # the installed state, simulated (Codex 4140125558): the executed graph passes LIVE and re-building it is a no-op
-        sim = build(spec, graph, "final")[1]
-        if MUT == "installed-drift":
-            sim["nodes"]["math.c6r-component.spectral-closure-proof"]["fingerprint"] = "0" * 64
-        sim_ok, sim_st = live_ok(sim, sel, spec)
-        ok &= sim_ok and sim_st["residual"] == "PROVED_REVIEWED" and sim_st["present"] == sorted(cids)
-        ok &= sim_st["edges_present"] and not sim_st["mismatched"]
-        o2, n2 = build(spec, sim, "final")
-        ok &= o2 == n2
         builds["installed-simulated"] = (o2, n2)
     return bool(ok), builds
 
@@ -628,6 +629,7 @@ def main():
     passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "C6-RESIDUAL-CLOSURE-20260930-v1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY), "component_nodes": len(spec["proposed_graph_nodes"]),
+                      "register_state": "installed" if live_state.get("residual") == "PROVED_REVIEWED" else "baseline",
                       "live_state": live_state, "gate": gate,
                       "scope": "identity, verdict-row, live-register (including the installed state), reviewed-text, exact "
                                "finite bookkeeping of section 3, transition-shape, hard-gate replay with source snapshots in "
