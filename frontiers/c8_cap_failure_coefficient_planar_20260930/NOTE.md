@@ -46,19 +46,25 @@ where `w` has the law of `f_yy(0)` given `(f, f_xx, f_xy)(0) = (b, 0, 0)`, `p_w`
 
     R(b) = [phi(b/sqrt2) / sqrt2] / [(2 + b^2) Phi(b/sqrt2) + sqrt2 b phi(b/sqrt2)],
 
-and `J(k) = 2359296 k^3 (1 + delta(k))` with `delta(k) -> 0` rapidly (`delta(1/6) = 52.7`, `delta(1/2) = 0.0232`,
-`delta(3/4) = 1.3e-4`, `delta(1) = -1.3e-6`, `|delta(k)| < 2e-6` for `k >= 1`; both signs occur).
+and `J(k) = 2359296 k^3 (1 + delta(k))`, where on the certified grid `delta(1/6) = 52.7`, `delta(1/2) = 0.0232`,
+`delta(3/4) = 1.3e-4`, `delta(1) = -1.3e-6`, `delta(3/2) = -3.0e-7`, `delta(2) = -8.6e-8` (both signs occur; `delta(k) -> 0` as
+`k -> infinity` by Remark (b), without a uniform rate proved here).
 
-**Certified values (reference kernel).** `J(k)` at `k in {1/6, 1/2, 3/4, 1, 3/2, 2}`, `R(b)` at `b in {0, 1/4, 1/2, 3/4, 1, 6/5}`
+**Certified values (reference kernel only).** `J(k)` at `k in {1/6, 1/2, 3/4, 1, 3/2, 2}`, `R(b)` at `b in {0, 1/4, 1/2, 3/4, 1, 6/5}`
 and the products, all as rational enclosures (section 4). Two headline numbers:
 
     c_G(0, 2)     in  [5324360.4426, 5324360.4427]      (the maximum over the Math-#195 band B = [0, 1], K = [1/2, 2] among the grid points),
-    c_G(6/5, 1/6) in  [35736.7352, 35736.8785]    (SIDE24's fixed-axis parameters, the only pair for which an explicit C is on record).
+    c_G(6/5, 1/6) in  [35736.7352, 35736.8785]    (SIDE24's fixed-axis parameters, the only pair for which an explicit C is on record;
+                                                  SIDE24's torus has L = 24, where the jet-law deviation is below 1e-100 but not enclosed here).
 
-**Corollary (what this says about `C` and `r_*`).** Every constant `C` for which [LP] Theorem A holds at `(b, k)` satisfies
-`C >= c_G(b, k)`, and every band containing `(0, 2)` needs `C > 5.3 x 10^6`; the cap route cannot give a nontrivial bound
-(`C r^3 < 1`) above `r = c_G^{-1/3}`, which is `5.7 x 10^-3` at `(0, 2)`, `3.4 x 10^-2` at `(1, 1/2)`, and `3.0 x 10^-2` at
-`(6/5, 1/6)`. The recorded constant of [CAP] (2)–(3), `C3_new + C4_new / 20 < 2.4 x 10^23` at `(6/5, 1/6)`, exceeds the sharp
+**Corollary (what this says about `C` and `r_*`).** Every constant `C` for which [LP] Theorem A holds at `(b, k)` (for a
+given kernel and frame) satisfies `C >= c_G(b, k)` for that kernel and frame. The certified numbers are the reference-kernel
+values `c_G^{ref}`; for the torus kernel `K_L` in a frame `R` the coefficient is `c_G^{L,R}`, the same formula on the exact
+torus jet law, whose deviation from `c_G^{ref}` (of order `L^6 e^{-L^2/2}`, section 6) is **not enclosed here**. So, as a
+reference-kernel statement (equivalently `L -> infinity`): every band containing `(0, 2)` needs `C > 5.3 x 10^6`, and the
+cap route cannot give a nontrivial bound (`C r^3 < 1`) above `r = c_G^{-1/3}`, which is `5.7 x 10^-3` at `(0, 2)`,
+`3.4 x 10^-2` at `(1, 1/2)`, and `3.0 x 10^-2` at `(6/5, 1/6)`; for a finite torus the same holds with `c_G^{L,R}` in place
+of `c_G^{ref}`, up to that unenclosed deviation. The recorded constant of [CAP] (2)–(3), `C3_new + C4_new / 20 < 2.4 x 10^23` at `(6/5, 1/6)`, exceeds the sharp
 coefficient there by a factor above `6 x 10^18`. Against the true failure coefficient `alpha_1 + alpha_2` of [S] (S2) (the
 actual elder-pairing failure, values from [NUM]) the cap criterion overstates the failure rate by the `b`-free factor
 `36 k^2 J(k) / (J_1(k) + J_2(k))`: `7.4 x 10^4` at `k = 1/2`, `4.9 x 10^5` at `k = 1`, `2.4 x 10^6` at `k = 2` (section 5).
@@ -246,14 +252,18 @@ polynomial majorants of `|F(max(a,c))|` against the incomplete moments of `v`). 
 
 The `--check` mode requires the Monte Carlo value within four standard errors and the quadrature within `3 x 10^-4` of the
 certified midpoint, the enclosure widths below `10^-5` relative, `J >= 2359296 k^3` for `k <= 3/4` and `|J / (2359296 k^3) - 1| < 2 x 10^-6`
-for `k >= 1`, the closed-form `R(b)` against a floating evaluation, `R` decreasing on the grid, the two headline inequalities,
+for `k >= 1`, the closed-form `R(b)` against a floating evaluation, `R` decreasing on the grid (consecutive enclosures disjoint), the two headline inequalities,
 and the exact arithmetic of [CAP] (3).
 
 ## 5. Consequences for `C`, `r_*`, and the size of the cap criterion's slack
 
-1. **Lower bound for every admissible `C`.** If `Q^W(G_r^c) <= C r^3` for all small `r` at `(b, k)`, then `C >= c_G(b, k)`.
-   On the band of Math-#195 (`B = [0, 1]`, `K = [1/2, 2]`) the grid maximum is at `(0, 2)`: `C > 5.32 x 10^6`. Since `R` is
-   decreasing in `b`, the band maximum over `b` is at `b = 0` for every `k`; the dependence on `k` is `~ k^3`.
+All numbers in this section are reference-kernel values (`c_G^{ref}`); for the torus kernel `K_L` in a frame `R` they hold
+with `c_G^{L,R}` in place of `c_G^{ref}`, whose deviation is of order `L^6 e^{-L^2/2}` and is not enclosed here (section 6).
+
+1. **Lower bound for every admissible `C`.** If `Q^W(G_r^c) <= C r^3` for all small `r` at `(b, k)`, then `C >= c_G(b, k)`
+   (for the kernel and frame in question). On the band of Math-#195 (`B = [0, 1]`, `K = [1/2, 2]`) the grid maximum of
+   `c_G^{ref}` is at `(0, 2)`: `C > 5.32 x 10^6` for the reference kernel. Since `R` is decreasing in `b`, the band maximum
+   over `b` is at `b = 0` for every `k`; the dependence on `k` is `~ k^3`.
 2. **Where the cap route can be nontrivial.** `C r^3 < 1` forces `r < c_G(b,k)^{-1/3}`: `5.7 x 10^-3` at `(0, 2)`,
    `3.4 x 10^-2` at `(1, 1/2)` (the band's smallest `c_G` among the grid points), `3.0 x 10^-2` at `(6/5, 1/6)`. Any `r_*`
    for which Theorem A's bound is informative on the band is below `6 x 10^-3` at the band's corner, whatever the proof.
@@ -278,7 +288,8 @@ Not a proof or a review of [LP] Theorem A, of [CAP], or of [S]: (5.4), (5.5), (7
 uniform moments (4.1) are consumed as statements; [S] (S2) and the [NUM] values are quoted for comparison only. No upper
 bound `C` and no `r_*` are supplied (C8 stays OPEN on both). No rate in the `o(r^3)`. The certified numbers are for the
 reference kernel; for the torus kernel `K_L` in a frame `R` the coefficient is the same formula with the exact jet law at 0,
-whose deviation from the reference (`O(L^6 e^{-L^2/2})`) is not enclosed here. Planar only (`d = 2`); the same argument in
+whose deviation from the reference (`O(L^6 e^{-L^2/2})`) is not enclosed here, so every numerical consequence in sections 0
+and 5 is a reference-kernel statement (a certified finite-`L`, all-frame enclosure is a natural successor). Planar only (`d = 2`); the same argument in
 `d >= 3` would need the eigenvalue boundary layer of [LP] section 7 and is not attempted. Nothing on `p_r` beyond the
 comparison in section 5.
 

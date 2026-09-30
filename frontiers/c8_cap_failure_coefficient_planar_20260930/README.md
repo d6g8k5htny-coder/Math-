@@ -10,7 +10,8 @@ For the planar six-pin law of [LP] and the good event `G_r = {lambda_min(-A_M) >
     Q^W(G_r^c) = c_G(b, k) r^3 + o(r^3),      c_G(b, k) = R(b) J(k),
 
 with `R(b)` in closed form and `J(k)` a three-dimensional Gaussian expectation reduced to one-dimensional integrals and
-certified at `k in {1/6, 1/2, 3/4, 1, 3/2, 2}` (`J(k) = 2359296 k^3 (1 + delta(k))`, `delta -> 0`). Consequences: every
+certified at `k in {1/6, 1/2, 3/4, 1, 3/2, 2}` for the reference kernel (`J(k) = 2359296 k^3 (1 + delta(k))`, `delta -> 0`;
+the finite-torus jet-law deviation, of order `L^6 e^{-L^2/2}`, is not enclosed). Reference-kernel consequences: every
 admissible `C` at `(b, k)` is at least `c_G(b, k)`; on the Math-#195 band `C > 5.3 x 10^6`; the cap route is informative only
 below `r = c_G^{-1/3}` (`6 x 10^-3` at the band's corner `(0, 2)`); the recorded constant `2.4 x 10^23` of [CAP] at
 `(6/5, 1/6)` exceeds the sharp coefficient there by more than `6 x 10^18`; the criterion overstates the true failure rate

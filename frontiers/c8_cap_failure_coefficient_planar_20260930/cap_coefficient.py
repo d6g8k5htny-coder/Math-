@@ -474,11 +474,13 @@ def certify_k(k):
     def f3(v):
         rho = phi_dv(DV(v.v * inv_sv, v.d * inv_sv)) * DV.const(inv_sv)
         return G(v) * rho
-    # tail |v| > V: |F(max)| <= (2/3) v^6 + 3k v^4 E|om| + [3 v^2 E c^2 + E|c|^3] / 6 with |c| <= 6k|om| + v^2,
-    # E|om| <= sqrt(2), E om^2 = 2, E|om|^3 <= sqrt(E om^6) = sqrt(120) < 11
+    # tail |v| > V: |F(max)| <= (2/3) v^6 + 3k v^4 |om| + [3 v^2 c^2 + |c|^3] / 6 with |c| <= 6k|om| + v^2; expanding
+    # (6k|om| + v^2)^2 and (6k|om| + v^2)^3 and collecting powers of |v|:
+    #   <= (4/3) v^6 + 12k |om| v^4 + 36k^2 om^2 v^2 + 36k^3 |om|^3        (v^6: 2/3 + 1/2 + 1/6; v^4 |om|: 3k + 6k + 3k;
+    #                                                                       v^2 om^2: 18k^2 + 18k^2; |om|^3: 216k^3/6)
+    # with E|om| <= sqrt2, E om^2 = 2, E|om|^3 <= sqrt(E om^6) = sqrt(120) < 11
     Eom1, Eom2, Eom3 = IV(SQRT2.hi), IV(2), IV(11)
-    coef = {6: Fr(2, 3) + Fr(1, 6), 4: 3 * k * Eom1.hi + Fr(1, 6) * (3 * 6 * k * Eom1.hi + 3 * 6 * k * Eom1.hi),
-            2: Fr(1, 6) * (3 * 36 * k * k * Eom2.hi + 3 * 36 * k * k * Eom2.hi), 0: Fr(1, 6) * 216 * k ** 3 * Eom3.hi}
+    coef = {6: Fr(4, 3), 4: 12 * k * Eom1.hi, 2: 36 * k * k * Eom2.hi, 0: 36 * k ** 3 * Eom3.hi}
     tail3 = IV(0)
     for j, cj in coef.items():
         tail3 = tail3 + abs_moment_tail(j, SIG2_V, V_MAX) * cj
@@ -687,7 +689,7 @@ def check_run(procs):
             require(enclosure(Rb * J, 4) == ref['c_G']['b=%s,k=%s' % (b, k)], 'c_G differs at (%s, %s)' % (b, k))
     # monotonicity of R on the grid and the two headline numbers
     Rvals = [Fr(ref['R'][str(b)][0]) for b in B_GRID]
-    require(all(Fr(ref['R'][str(B_GRID[i])][1]) > Fr(ref['R'][str(B_GRID[i + 1])][0]) for i in range(len(B_GRID) - 1)), 'R not decreasing on the grid')
+    require(all(Fr(ref['R'][str(B_GRID[i])][0]) > Fr(ref['R'][str(B_GRID[i + 1])][1]) for i in range(len(B_GRID) - 1)), 'R not decreasing on the grid (disjoint enclosures required)')
     require(Fr(ref['c_G']['b=0,k=2'][0]) > 5300000, 'c_G(0, 2) headline')
     require(Fr(ref['c_G']['b=6/5,k=1/6'][0]) > 35000, 'c_G(6/5, 1/6) headline')
     # [CAP] (3): C3_new + C4_new / 20 < 2.4e23, exact; and the recorded constant is at least 6e18 times c_G(6/5, 1/6)
