@@ -179,7 +179,18 @@ def c_m(m):
 
 
 def m2(b):
-    """E[A^2 1{A < 0}], A ~ N(-b, 2) (Math-#168's m_(2,b))."""
+    """E[A^2 1{A < 0}], A ~ N(-b, 2) (Math-#168's m_(2,b)).  The closed form (mu^2 + s^2) Phi(-mu/s) - mu s phi(mu/s)
+    cancels catastrophically when the mean -b is far above zero (b <= -4: the two terms agree to their leading
+    digits), so there the moment is integrated directly as a positive integrand."""
+    mu, s = -b, sqrt(2)
+    t = mu / s
+    if t > 2.5:
+        rule = gauss_legendre(200)
+        return gl(lambda a: a * a * phi((a - mu) / s) / s, -(abs(mu) + 40.0), 0.0, rule)
+    return (mu * mu + s * s) * Phi(-t) - mu * s * phi(t)
+
+
+def _m2_closed(b):
     mu, s = -b, sqrt(2)
     t = mu / s
     return (mu * mu + s * s) * Phi(-t) - mu * s * phi(t)
@@ -521,6 +532,8 @@ def check_run():
     cf = closed_forms()
     require(abs(c_m(1) - 1) < 1e-14 and abs(c_m(2) - pi) < 1e-13, 'c_1 = 1, c_2 = pi')
     require(abs(m2(0.0) - 1) < 1e-14 and abs(m2(1.0) - 2.7201411062) < 1e-9, 'm_(2,0) = 1, m_(2,1) = 2.72014')
+    require(m2(-12.0) > 0 and abs(m2(-3.6) - _m2_closed(-3.6)) < 1e-8 * _m2_closed(-3.6),
+            'm_(2,b) positive at b = -12 and the direct tail integral matches the closed form at b = -3.6')
     require(abs(N_d(3, 0.0) - cf['N_3_0']) < 1e-10, 'N_3(0) = 2 sqrt2')
     require(abs(m_d(3, 0.0) - cf['m_3_0']) < 1e-10, 'm_(3,0) = (7 - 4 sqrt2)/2')
     require(abs(R_d(3, 0.0) - cf['R_3_0']) < 1e-9, 'R_3(0) = (32 + 28 sqrt2)/17')

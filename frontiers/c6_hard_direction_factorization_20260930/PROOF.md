@@ -97,10 +97,16 @@ the even class the unconditional covariances are `Var f = 1`, `Var f_xx = Var A_
 conditioning on `(f, f_xx) = (b, 0)` (the `f_(x y_i)` are uncorrelated with `A`) gives `E[A_ii] = -b`,
 `Var A_ii = 3 - 1 = 2`, `Cov(A_ii, A_jj) = 1 - 1 = 0`, and `A_ij` untouched: item 1. For the odd class,
 `Cov(T_(x x y_i), f_(y_i)) = -1`, `Cov(T_(x y_i y_i), f_x) = -1`, `Cov(T_(y_i y_i y_i), f_(y_i)) = -3`,
-`Cov(T_(y_i y_i y_j), f_(y_j)) = -1`, `Cov(T, f_xxx) = 0`, and the unconditional variances are `15`, `3`, `1` by
-multiplicity; conditioning on `grad f = 0`, `f_xxx = 12k` leaves the means at `0` (the only nonzero observed values
-`b`, `12k` have zero coefficients) and the variances `15 - 9 = 6`, `3 - 1 = 2`, `1`, with all cross terms
-cancelling: item 2. Item 3: the three blocks of `T` (`T_(xx .)` an isotropic vector, `T_(x . .)` a GOE-type
+`Cov(T_(y_i y_i y_j), f_(y_j)) = -1`, `Cov(T_(x y_i y_i), f_xxx) = 3` (the only nonzero covariance of a component
+of `T` with `f_xxx`), `Cov(f_x, f_xxx) = -3`, `Var f_xxx = 15`, and the unconditional variances of `T` are `15`,
+`3`, `1` by multiplicity. Regress jointly on `(grad f, f_xxx)`: for `T_(x y_i y_i)` the coefficients on
+`(f_x, f_xxx)` are `(-1, 3) [[1, -3], [-3, 15]]^(-1) = (-1, 0)`, so the coefficient on `f_xxx` vanishes although the
+raw covariance does not, the observed value `12k` never enters, and the conditional variance is `3 - 1 = 2`;
+for `T_(y_i y_i y_i)` the coefficient on `f_(y_i)` is `-3` and the variance `15 - 9 = 6`; for `T_(y_i y_i y_j)` (`i != j`; unconditional
+variance `3`) the coefficient on `f_(y_j)` is `-1` and the variance `3 - 1 = 2`; `T_(xx y_i)` has `Cov(., f_(y_i)) = -1`, variance `3 - 1 = 2`; the
+distinct-index components `T_(ijk)` are uncorrelated with `U_0` and keep variance `1`. Every conditional mean is
+`0` because the coefficients on the two nonzero observations `f = b` and `f_xxx = 12k` are all zero, and every
+conditional cross covariance vanishes: item 2. Item 3: the three blocks of `T` (`T_(xx .)` an isotropic vector, `T_(x . .)` a GOE-type
 matrix with the variances of item 2, `T_(. . .)` an isotropic symmetric 3-tensor) and `A` are each `O(m)`-invariant
 and mutually independent, and no value of `U_0` other than `b` enters. The computation is carried out exactly in
 rational arithmetic for `d = 2, 3, 4, 5` in `factorization.py` (`lemma_one`), including the vanishing of every
@@ -183,7 +189,9 @@ reproduces both closed forms to `1e-10` by quadrature.
 
 `c_1 = 1`, `c_2 = pi`, `c_3 = 19.7392088`, `c_4 = 194.818182` ([SC] (8) through Mehta's integral, `H_m =
 (2 pi)^(m/2) prod_(j<=m) Gamma(1 + j/2) / (Gamma(3/2)^m m!)`); the eigenvalue densities normalize to `1` to `1e-9`
-for every `(d, b)` used.
+for `d <= 4` and to `1.9e-8` (`b = 0`) and `4.6e-6` (`b = 1`) for `d = 5`, where the full-line four-dimensional
+integral is evaluated at order `40`; the one-sided integrals `N_5`, `m_5` themselves are converged to `1e-14`
+across orders `30/40/50` (`quadrature_orders`).
 
 | `d` | `b` | `N_d(b)` | `m_(d,b)` | `m_(d,b)` (Monte Carlo) | `R_d(b)` |
 |---|---|---|---|---|---|
@@ -246,11 +254,13 @@ times the conditional second moment of the other eigenvalue, bin half-width `0.0
 
 ## 6. Non-claims and the torus
 
-- The theorem is for the continuum kernel. The [SC] measure for the periodized field on the torus `T_L^d` uses
-  the one-site jet covariances of `K_L`, which differ from the continuum values by image terms; Math-#168 measured
-  the largest relative deviation of the planar one-site table at `8.8e-4` (`L = 6`), `2e-14` (`L = 12`), `1.4e-13`
-  (`L = 24`). At finite `L` the transverse rotation invariance of Lemma 1(3) is broken to the lattice symmetry and
-  the factorization holds only up to corrections of that size; they are not quantified here beyond that table.
+- The theorem is for the continuum kernel only. The [SC] measure for the periodized field on the torus `T_L^d`
+  uses the one-site jet covariances of `K_L`, which differ from the continuum values by image terms, and at finite
+  `L` the transverse rotation invariance of Lemma 1(3) is broken to the lattice symmetry, so the exact step that
+  extracts a common hard-direction factor is not available. No finite-`L` statement is made and no perturbation
+  bound is proved. The only finite-`L` data quoted are Math-#168's measured deviations of the planar one-site
+  covariance table from the continuum (`8.8e-4` relative at `L = 6`, `2e-14` at `L = 12`, `1.4e-13` at `L = 24`);
+  they are not an error estimate for the factorization in any dimension.
 - Nothing is said about the remote singleton coefficient `beta_far` ([SC] (22), two-site) or the contact kernel
   `Lambda(x)`; the dimension dependence of `nu(1) = a_1 + beta_far` is not reduced by this note.
 - No rate, no finite-`r` statement, no uniformity in `d`, `k`, `b` or `L`. The sources' theorems are consumed at
@@ -263,9 +273,11 @@ times the conditional second moment of the other eigenvalue, bin half-width `0.0
 ## 7. Verification and review obligations
 
 `python -B -S factorization.py --check` and `-B -O -S` exit `0`: exact Lemma 1 in `d = 2..5`; `c_1 = 1`, `c_2 =
-pi`; eigenvalue-density normalization; `m_(2,0) = 1`, `m_(3,0) = (7 - 4 sqrt2)/2`, `N_3(0) = 2 sqrt2`, `R_3(0) =
-(32 + 28 sqrt2)/17`, `R_2 = 1`; replay of every `N_d, m_d, R_d` against `RESULTS.json` to `1e-9`; the Monte Carlo
-and finite-`r` entries within `4` standard errors (plus the stated bin and `O(r)` allowances). Mutants
+pi`; eigenvalue-density normalization to `1e-9` for `d <= 4` and to `1e-5` for `d = 5` (observed `4.6e-6` at
+`b = 1`, section 5); `m_(2,0) = 1`, `m_(3,0) = (7 - 4 sqrt2)/2`, `N_3(0) = 2 sqrt2`, `R_3(0) = (32 + 28 sqrt2)/17`,
+`R_2 = 1`; `m_(2,b) > 0` at `b = -12` (stable tail evaluation); replay of every `N_d, m_d, R_d` against
+`RESULTS.json` to `1e-9` relative; the Monte Carlo and finite-`r` entries within `4` standard errors (plus the
+stated bin and `O(r)` allowances). Mutants
 `drop-vandermonde`, `hard-power-two`, `drop-spectral-constant` exit `1`. The full run regenerates `RESULTS.json`
 deterministically (seeded) in about ten minutes.
 
