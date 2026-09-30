@@ -34,10 +34,14 @@ orientation is computed. Everything is a finite-dimensional Gaussian computation
 kernel is the right object. A direct scaling check is consistent with this: at a critical point `x` of the contact
 field at level `b` with `|x| = eps` small, the Euler identity `x . grad f = 3 C + A_0 z^2 + 4 q + ...` for the cubic
 part `C`, the soft quadratic `A_0 z^2 / 2` and the quartic part `q` forces `A_0 z^2 = O(eps^4)`, i.e. `A_0 = O(eps^2)`;
-the density of `Y_x` at `(0, b)` is `O(eps^(-6))` while `w_0 |det H_x| = O(eps^4 . eps^2)`, so `Lambda = O(1)` as
-`x -> 0`. (A first guess `A_0 = O(eps)` would give `Lambda ~ eps^(-2)` and a logarithmically divergent integral;
-it is wrong exactly because of the Euler identity.) The computed values confirm boundedness and, in fact,
-`Lambda(x) -> 0` as `x -> 0` (section 4).
+the density of `Y_x` at `(0, b)` is `O(eps^(-6))` while `w_0 |det H_x| = O(eps^4 . eps^2)`, so `Lambda = O(1)` along
+such a cone. (A first guess `A_0 = O(eps)` would give `Lambda ~ eps^(-2)` and a logarithmically divergent integral;
+it is wrong exactly because of the Euler identity.) Two qualifications: the division by `z^2` is legitimate only on
+cones `|z| >= c |x|`, so this is a scaling check on such cones and gives no pointwise bound towards the axis
+(where the computed kernel is in any case exponentially small, section 4); and the integrability of `Lambda` at the
+pin used by this note rests on [CL] section 5.1's integral bound `k integral_(|x| < rho) Lambda <= C rho^2`, not on
+this heuristic. No uniform pointwise `Lambda = O(1)` is asserted. The computed values are bounded and, in fact,
+`Lambda(x) -> 0` as `x -> 0` in every sampled direction (section 4).
 
 ## 2. Exact structure
 
@@ -76,8 +80,12 @@ Then `det H = a^2 - rho^2`, the kink of `|det H|` is the coordinate surface `rho
 from `rho < |a|` (definite; sign of `a` separates minimum and maximum) or `rho > |a|` (saddle). The `a`-range is
 split at `0`, the `rho`-range at `|a|`, the `theta` nodes are those of the periodic trapezoid rule under an
 analytic map concentrating them at the angular position of the (generally offset and anisotropic) conditional
-mean; every piece of the integrand is smooth, and the nested rule converges geometrically on the exact control
-(`1.8e-14 relative on Lambda_inf(0) between orders` at the higher order).
+mean. Apart from two truncations, each piece of the integrand is then smooth: the Gaussian ranges are cut at
+`cut = 9` standard deviations (the `rho`-range endpoint `rho_max`, which the `|a|` split can cross, and a
+Mahalanobis cut `q > 2 cut^2` inside the `rho`-loop), both of relative size `e^(-cut^2/2)` or smaller. No
+geometric-convergence theorem is claimed for the implemented rule; what is claimed is the observed behaviour on
+the exact controls (`E|det H| = 4/sqrt3` to `1e-10` at the default order and `3e-15` at the higher order; the
+closed-form far field to `1e-12`) and the order comparisons of section 5.
 
 **Ill-conditioned points.** Near the pin the conditional law of `Y_x` given `U_0` has variances down to `|x|^6`,
 and the double-precision regression can lose positivity, either in the Hessian block (near the axis, where

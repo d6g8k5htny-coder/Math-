@@ -281,8 +281,10 @@ def weighted_determinant_integrals(mu, S, rules):
        G[j] = E[ A^2 1{A<0} |det H| 1{index H = j} ],   F[j] = E[ |det H| 1{index H = j} ],   D = E det H (control).
     Coordinates: a = (h1 + h3)/2, c = (h1 - h3)/2, so det H = a^2 - c^2 - h2^2 = a^2 - rho^2 with (c, h2) =
     rho (cos theta, sin theta).  The cone det H = 0 is the coordinate surface rho = |a|; the a-range is split at 0
-    (index by the sign of the trace) and the rho-range at |a|, so every piece of the integrand is smooth and the
-    nested Gauss-Legendre / trapezoid rule converges geometrically.  The general (non-isotropic) Gaussian density
+    (index by the sign of the trace) and the rho-range at |a|.  Apart from the truncations at cut standard deviations
+    (the rho_max endpoint and the Mahalanobis cut q > 2 cut^2 below, of relative size exp(-cut^2/2) or smaller) each
+    piece of the integrand is smooth; the accuracy of the nested Gauss-Legendre / trapezoid rule is established
+    empirically on the exact controls, not by a convergence theorem.  The general (non-isotropic) Gaussian density
     of (a, c, h2) is evaluated directly at the nodes; A is integrated out in closed form through m2_negative."""
     # linear map (h1, h2, h3) -> w = (a, c, h2)
     T = [[0.5, 0.0, 0.5], [0.5, 0.0, -0.5], [0.0, 1.0, 0.0]]
