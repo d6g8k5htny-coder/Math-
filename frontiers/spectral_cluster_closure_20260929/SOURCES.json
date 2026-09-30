@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "source_policy": "Every entry, including credit and audited historical bytes, is mandatory for full source verification. Identity is not mathematical acceptance.",
+  "sources": [
+    {
+      "id": "P",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "author": "OpenAI",
+      "role": "consumed",
+      "use": "Sections2-5, contact jet rank, full-field regression, derivative moments, full normalizer."
+    },
+    {
+      "id": "D5",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "author": "Anthropic Claude",
+      "role": "consumed",
+      "use": "Fixed-d first moment and height-window shell estimate, exact scope."
+    },
+    {
+      "id": "C6",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "author": "Anthropic Claude",
+      "role": "consumed",
+      "use": "All fixed factorial upper moments, only for uniform integrability and local weighted-count consequence."
+    },
+    {
+      "id": "RM",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "author": "OpenAI",
+      "role": "consumed",
+      "use": "Fixed-remote first moment and continuous positive normalized contact kernel."
+    },
+    {
+      "id": "RC",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "author": "Anthropic Claude",
+      "role": "consumed",
+      "use": "Corollary D, all-index fixed-remote factorial bound. The actual source author is Claude."
+    },
+    {
+      "id": "LM",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "bytes": 13100,
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "author": "OpenAI",
+      "role": "prior_credit",
+      "use": "Original exact pinned cubic and Taylor mechanism, credited and re-derived in spectral coordinates."
+    },
+    {
+      "id": "CUB",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "author": "OpenAI",
+      "role": "consumed",
+      "use": "Only exact deterministic Theorem C/classifier, xAI review5359488967; not Gaussian sector acceptance."
+    },
+    {
+      "id": "DEEP",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "path": "frontiers/planar_cubic_cluster_20260929/DEEP_TRANSVERSE_EXCLUSION.md",
+      "bytes": 6174,
+      "sha256": "95c03e59262cb9607a21a296a6837932839dd47ec8e15e67bdfa46782adbcd5a",
+      "git_blob": "309a38cab16ef67dd909351f40a48e1d83ba2c28",
+      "author": "OpenAI",
+      "role": "prior_credit",
+      "use": "Planar exclusion construction; vector extension is fully proved as new work here."
+    },
+    {
+      "id": "RCL",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+      "bytes": 11811,
+      "sha256": "c52a3cf197b5cf26071a8cc951e15ef3ac564b3d7453d41647f91af540a1b8eb",
+      "git_blob": "2ab625cedfc2e47575c4a7fa4853413418c532da",
+      "author": "OpenAI",
+      "role": "consumed",
+      "use": "Generic conditional/Palm, compound approximation and independent-replica consequences, not claimed anew."
+    },
+    {
+      "id": "RCL-A",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/c6_rare_cluster_laws_20260929/SHARP_POISSON_COEFFICIENT.md",
+      "bytes": 4712,
+      "sha256": "f96e7a02ceb711fbaf10142aff7ee5dbc5fb908ac24f695a289180a1e094d14f",
+      "git_blob": "9f96f7d619a3486d0b125a4f4a3528e213f149d6",
+      "author": "OpenAI",
+      "role": "consumed",
+      "use": "Exact optimized/mean-matched Poisson error inequalities."
+    },
+    {
+      "id": "AUDITED-159",
+      "commit": "f0d11805854b1938a2f89235ec590a37b04a7cb9",
+      "path": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "bytes": 51313,
+      "sha256": "7941ae8062aed14e3085583903867ee3612ca34c1b636c69671a9541c2dd4801",
+      "git_blob": "1ce3769e76c540ab03b42f2deb6f2d1124459a81",
+      "author": "Anthropic Claude",
+      "role": "audited_not_consumed",
+      "use": "Historical proof diagnosed in review5359646638; no theorem or domination from it is imported."
+    }
+  ]
+}
