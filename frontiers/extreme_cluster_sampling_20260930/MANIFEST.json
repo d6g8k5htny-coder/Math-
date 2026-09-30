@@ -4,10 +4,16 @@
   "review_status": "NONAUTHOR_REVIEW_OPEN",
   "files": [
     {
+      "path": "COMPANION_RATIO.md",
+      "bytes": 10032,
+      "sha256": "74ff3af5ec071f57d40938fbeca6bca1c189272d5c1bc0440e41cbe764c04d23",
+      "git_blob": "56348f6765793cd8115041ba367b821eb173f695"
+    },
+    {
       "path": "PLAN.md",
-      "bytes": 2741,
-      "sha256": "f158b7b7d0b42a9aa437c00d4c2962c2597a22b754a33b48412a59a3d4d39c4e",
-      "git_blob": "fcad3058aac543b9dfcd13fa8e6bd42779ca8397"
+      "bytes": 3385,
+      "sha256": "e9f96eb031105bd8aaa0ce2d8d12e7d60900d88b4fc51904899ab19bf354b59d",
+      "git_blob": "b2b0b2d0f95e95b8cee77be078ff55d800fdd52d"
     },
     {
       "path": "PROOF.md",
@@ -17,9 +23,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 4932,
-      "sha256": "c3dd601e8a47ca63bd968982ef6a800245e5b7b6aed3e5458122a345003a8534",
-      "git_blob": "1584485a724810f67dd467883fbac56db7c84f28"
+      "bytes": 6555,
+      "sha256": "c4fccb8c7c87f368ec5364a479327ab39fd3217164612629e4c6b9610205b19e",
+      "git_blob": "e5c71f7ecda09178c3211e9c8daa8a3502492dab"
     },
     {
       "path": "RECONNAISSANCE.md",
@@ -41,9 +47,9 @@
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 5122,
-      "sha256": "76e43cd157de80c635fcf20b1cb2043bbc213a8acb71015f1ab063344c5b9676",
-      "git_blob": "381f28bfaa4aebfbc937e70db4492de27f1e2b07"
+      "bytes": 7468,
+      "sha256": "814d253e04b3f1080988a8845124a3fc71568e9afac5f4569ad391913e755002",
+      "git_blob": "f9220a2e05a66eea800c5ccb58d336738bd61181"
     },
     {
       "path": "extremes.py",
@@ -52,10 +58,22 @@
       "git_blob": "38f3d45373418a6637cbcb0dcf5c23bbd59146db"
     },
     {
+      "path": "ratio_law.py",
+      "bytes": 3731,
+      "sha256": "4ad2fd80172f1794a5b0833c54792db242b855aa8f7dcadf5facf0cfc734eedd",
+      "git_blob": "49404bf07f3e423a932ab02169d369e0bd5ed285"
+    },
+    {
       "path": "test_extremes.py",
       "bytes": 9800,
       "sha256": "b4402e5d62f8e02b864d514d41860a3bc4122a8b76a9ef08d3f995d2fc892171",
       "git_blob": "503ca3571152980af85a87332790bfbe49e37ace"
+    },
+    {
+      "path": "test_ratio_law.py",
+      "bytes": 5980,
+      "sha256": "32c2c5ae94478d4a6ded8528bf9beff36148e392748032621fd4735d98a4d69a",
+      "git_blob": "56346fa404af3c73c3a60b8dd2347751c348845b"
     },
     {
       "path": "test_verify.py",

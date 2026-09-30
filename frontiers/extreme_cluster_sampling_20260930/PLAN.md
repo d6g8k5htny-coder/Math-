@@ -26,8 +26,8 @@ invented. Dylan's explicit autonomous continuation supplies the task authority.
        noncommit objects, symlinks, nested cwd and duplicate/empty inventories.
 5. [x] Verify both Python modes, deterministic outputs, semantic negative controls
        and complete flat packet inventory. Publish all exact source pins.
-6. [ ] Create a separate PR, read back exact bytes/identities, request nonauthor
-       algebra/integration and probability reviews, and observe hosted checks.
+6. [x] Create PR169, read back exact bytes/identities, request nonauthor
+       algebra/integration and probability reviews, and observe initial-head checks.
 
 Review focus: strict height endpoints; denominator-zero and equal-radius sets;
 point versus configuration multiplicity; physical radius versus |Z|; the
@@ -42,3 +42,13 @@ Ruling: no duplicate review of PR166 A/B/C. Its explicit maximum-coefficient
 and ordinary-cluster sampling nonclaims define this separate consumer.
 Ruling: preserve source commits even when a metadata-only peer successor appears;
 new target source authentication remains pinned to the consumed mathematical bytes.
+
+7. [x] Derive the separate companion-ratio unit-square law, its small-ratio/height
+       asymptotic and ideal-real rejection sampler; add fail-first exact controls.
+8. [ ] Publish the additive successor with original main proof/code unchanged,
+       request separate Slice D review, and read its actual hosted results.
+
+Ruling: the companion sampler is explicitly ordinary floating point, while all
+normalization/envelope/acceptance constants are checked by exact rational algebra.
+Ruling: adopt the peer's physical-order counterexample as credited support only;
+it validates the scope boundary and is not an independent mathematical verdict.

@@ -88,3 +88,39 @@ prove the source Gaussian assumptions, changes of variables with multiplicity,
 physical-anchor domination or weak convergence. Those new arguments require
 source-bound nonauthor analytic review. Existing Lean package success is not a
 Lean formalization of this manuscript. No self-merge or scientific-register fold.
+
+## Separate unit-square companion addendum — successor evidence
+
+Original PROOF.md, extremes.py, test_extremes.py, RESULTS.json, SOURCES.json,
+verify.py and test_verify.py remain byte-identical to published head7ab0d31.
+The new files are COMPANION_RATIO.md, ratio_law.py and test_ratio_law.py.
+
+Test-first record: the initial ratio scaffold ran12 methods and produced15
+expected assertion failures, including subtests. The sampler scaffold extension
+ran15 methods and produced20 assertion failures plus one KeyError because its
+stub returned an empty mapping. The implemented15 methods then passed. One more
+exact physical-order counterexample from peer support5902401772 was independently
+recomputed and added as a regression; it does not confer independent acceptance.
+
+Fresh normal and optimized replay, both with the hosted replacement-disabling
+environment, now each run82 tests and PASS. The16 new methods include72 independent
+exact Jacobian comparisons,25 rational companion/height substitutions, explicit
+positive height-difference/top-boundary factors, exact endpoint and small-ratio
+constants, ideal proposal-density factorization/envelope, reproducible float
+sampler/range tests and rejection-budget checks. The original semantic mutants
+and deterministic RESULTS identity remain required by verify.py.
+
+A seeded FLOATING-POINT diagnostic (seed20260930,20000 accepted doublets) observed
+mean proposal count35.0511 and mean rho^11=0.030448088971641796. Every sampled height
+pair and radius ratio satisfied the strict ranges. The exact theoretical values
+are137647104/3972529 for mean proposals and D/J for the eleventh moment. This is
+an illustrative Monte Carlo sanity check, not a proof, interval guarantee, or
+assertion of exact finite-sample agreement. The exact ideal-real acceptance and
+moment identities are established analytically, independently of this diagnostic.
+
+Initial published-head hosted evidence was directly read: target36655624974 /
+job109699228659 SUCCESS; full36655625213 with downstream109699229856,
+formal109699230080 and required aggregate109699995661 all SUCCESS. These are
+7ab0d31 results ONLY. An addendum successor must obtain its own actual hosted
+source authentication and current-base full checks; these predecessor runs do
+not substitute for them. No new analytic review is claimed by this record.

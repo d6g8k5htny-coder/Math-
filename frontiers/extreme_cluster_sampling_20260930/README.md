@@ -95,3 +95,36 @@ C: E27-E34, exact PHYSICAL maximum selector before the limit, Gaussian dominatio
 
 Pickups and verdicts must bind exact proof bytes and declare source exposure.
 Neither a prior source verdict nor green code is acceptance of this new consumer.
+
+## Separate companion-ratio addendum
+
+COMPANION_RATIO.md adds a unit-square parametrization of the limiting extreme
+DOUBLE cluster. Its explicit positive rational density determines both heights
+and the companion/maximum radius ratio rho, without an unknown Gaussian integral.
+It gives the further small-ratio law
+
+    P(rho<epsilon | extreme doublet)
+         ~ (137647104/3972529) epsilon^2.
+
+Under that conditioning the companion's downward height scales as rho^3, while
+the maximum anchor's height has a nondegenerate universal limit. The order is
+first r->0, then extreme radius->infinity, THEN epsilon->0. No uniform triple-scale
+statement about the original field is made.
+
+An ideal-real rejection algorithm has exact acceptance probability
+3972529/137647104. `ratio_law.sample_doublet` implements its scalar shape/height
+part with ordinary floating-point pseudorandom numbers and a bounded trial budget:
+
+    import random
+    from ratio_law import sample_doublet
+    marks = sample_doublet(random.Random(20260930))
+
+It does not simulate the Gaussian orientation/amplitude or a finite-r field,
+and its rounding error is not interval-enclosed. Sixteen added test methods
+bring the suite to82 per Python mode. An exact counterexample credited to the
+supporting recovery lane pins the distinction between finite-scale physical
+radius ordering and the |Z| ordering valid in the second limit.
+
+This addendum is a SEPARATE Slice D review obligation. It leaves PROOF.md,
+extremes.py, the original RESULTS and all source identities unchanged. An
+acceptance of A/B/C is not automatically an acceptance of the new addendum.
