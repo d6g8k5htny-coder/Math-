@@ -37,3 +37,26 @@ The consumed candidates [EDL] and [LM] contain the rare-set construction and the
 device; [RCL] states the cluster law as unknown. The contribution here is to run the same construction as a
 dominated-convergence limit over the whole configuration set, together with the exclusion of large soft curvature and
 the separation of the near and remote regions. No claim of first discovery is made for any component.
+
+## Addendum, 30 September 2026 (00:35Z): external check completed through web search
+
+The Consensus connector still returned the exhausted-monthly-quota error at 00:33Z–00:35Z on 30 September (four
+attempts; one returned a transient rate-limit message instead), after the owner reported that the quota had been
+increased. The check was therefore made through general web search (three extended queries) and direct reads of the
+arXiv abstract pages listed below. No full texts were read; no citation below is used as a source of any step of
+PROOF.md, and none is invented.
+
+| Record | What it establishes | Relation to this packet |
+|---|---|---|
+| D. Beliaev, V. Cammarota, I. Wigman, *Two point function for critical points of a random plane wave*, IMRN 2019(9), 2661–2689; arXiv:1704.04943 | Short-range asymptotics of the two-point function of critical points of the random plane wave: the second factorial moment of the count in a small disc of radius `rho` scales as `rho^4`; separate treatment of extrema and saddles. | Unconditioned pair statistics at short range. This packet's object is the law of the count *conditioned on a pinned birth–death pair* at separation `r` and gap `k r^3`, where the conditional second factorial moment is `Theta(r^3)` ([C6], [EDL]); different normalization and question. No cluster law there. |
+| J.-M. Azaïs, C. Delmas, *Mean number and correlation function of critical points of isotropic Gaussian fields and some results on GOE random matrices*, arXiv:1911.02300 | Correlation function of critical points of isotropic fields: attraction in dimension `> 2`, neutrality in dimension `2`, repulsion in dimension `1`; the attraction comes from critical points of adjacent indices; exact GOE eigenvalue densities. | Qualitatively consistent with §6.5 and Lemma 3.6 here (the extra near points are saddles of index `d - 1`, adjacent to the pin indices `d` and `d - 1`). Unconditioned; no pinned-pair conditioning; no count law. |
+| L. Gass, M. Stecconi, *The number of critical points of a Gaussian field: finiteness of moments*, arXiv:2305.17586 | All moments of the critical-point count are finite as soon as the Taylor polynomial of the relevant order is nondegenerate at every point; general method, not specific to critical points. | Background for moment methods; not the pinned conditional regime, not a small-scale rare-cluster statement. |
+| M. Ancona, L. Gass, T. Letendre, M. Stecconi, *Zeros and critical points of Gaussian fields: cumulants asymptotics and limit theorems*, arXiv:2501.10226 | Cumulant asymptotics, strong law and CLT for nodal volumes and critical-point counts in the large-volume regime for stationary fields with decaying covariance. | Large-volume Gaussian fluctuation regime; no rare-event compound-Poisson or conditional cluster statement. |
+| P. Pranav, *Topology and geometry of Gaussian random fields II: on critical points, excursion sets, and persistent homology*, arXiv:2109.08721 | Persistence diagrams of 3D Gaussian fields from simulations; intensity and difference maps; dependence on the power spectrum. | Numerical; no rigorous short-lifetime law for birth–death pairs. |
+
+Conclusion of the check: no located source states or proves the conditional law of the number of additional critical
+points in the height window of a pinned birth–death pair (Theorem N), its support on `{1, 2}`, or the explicit
+near coefficients; the closest published relatives are the short-range two-point analyses above, which are
+unconditioned. The classical pieces used in §§3.4 and 3.8 (a planar cubic normal form, Bézout, Hadamard's inequality,
+Weyl's integration formula) are not claimed as new. Novelty is asserted only relative to this search; a full-text
+survey was not performed.
