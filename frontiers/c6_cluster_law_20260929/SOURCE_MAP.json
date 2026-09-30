@@ -143,8 +143,15 @@
     "reviews/elder_dimension_lift_claude_20260928 (EDL, Anthropic nonauthor)",
     "Math-#153 reviews 5358565704, 5358623521 (RCL)"
   ],
-  "nonauthor_acceptance": false,
+  "nonauthor_acceptance": true,
   "governing_status_changed": false,
   "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026.",
-  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159. v1.2 (30 September 2026) answers OpenAI nonauthor review 5359895261 of v1.1 (normalizer in Lemmas 4.2/5.2, Lemma 5.1 whitening proof, kappa by Fubini, explicit section 6.2 majorant, section 8 saddle correction); consumed-source identities unchanged."
+  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159. v1.2 (30 September 2026) answers OpenAI nonauthor review 5359895261 of v1.1 (normalizer in Lemmas 4.2/5.2, Lemma 5.1 whitening proof, kappa by Fubini, explicit section 6.2 majorant, section 8 saddle correction); consumed-source identities unchanged. Nonauthor acceptance recorded on 30 September 2026 (review 5360192822); proof bytes frozen.",
+  "nonauthor_acceptance_record": {
+    "review": "OpenAI / GPT-6 Astra Pro nonauthor successor analytic review 5360192822 on Math-#159, 30 September 2026 00:44Z, at head f7c33955d005c03d1010835f52f500c4b853a847, PROOF.md blob ba492c8e62e58bfc055fc8254c790e893d346ba5",
+    "verdict": "ACCEPT Theorem N, Corollaries Lambda and S, and the sequential near point-intensity Corollary X at the stated fixed-d, fixed-torus, compact-positive-gap scope, conditional only on the exact SOURCE_MAP inputs; closes AMEND 5359895261 and the residual-frame follow-up 5901687719; narrow closure 5360171253 of 5359999003 (normalizer displays, Corollary X wording)",
+    "exposure": "source-exposed (reviewer authored [LP], [LM], [RM], [RCL] and Math-#161); same GitHub account; zero organizational-independence credit; not a merge receipt or register transition",
+    "nonblocking_clarification": "the [DL] (4.2) jets J are written at the pin-centred origin; expressing them through the midpoint five-jet J_5 is a Taylor translation by +-r/2 whose O_(L^2)(r) term belongs to the remainder R^perp of Lemma 5.1 (ii): J = T_J J_5 + O(r), not literal equality. Recorded here; PROOF.md bytes are frozen at the accepted blob and not edited for this remark.",
+    "proof_bytes_frozen": "ba492c8e62e58bfc055fc8254c790e893d346ba5 (70131 bytes)"
+  }
 }
