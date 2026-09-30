@@ -16,6 +16,12 @@ name: C6 marked Fourier controls
     paths:
       - 'frontiers/c6_marked_fourier_20260929/**'
       - '.github/workflows/c6-marked-fourier.yml'
+      - 'frontiers/c6_fourier_cutoff_20260929/PROOF.md'
+      - 'frontiers/c6_palm_route_20260929/PROOF.md'
+      - 'frontiers/c6_palm_route_20260929/SOURCE_MAP.json'
+      - 'frontiers/d5_dimension_lift_20260929/PROOF.md'
+      - 'frontiers/elder_dimension_lift_20260928/PROOF.md'
+      - 'frontiers/c6_rare_cluster_laws_20260929/PROOF.md'
   workflow_dispatch:
 
 permissions:
