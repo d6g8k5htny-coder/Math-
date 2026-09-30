@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "policy": "Direct mathematical interfaces only. Verifying immutable bytes does not accept either parent theorem or this new implication.",
+  "sources": [
+    {
+      "id": "MF",
+      "commit": "cbb2f978f9b3e8e2eaca94f3b359b18d7c144f1b",
+      "path": "frontiers/c6_marked_fourier_20260929/PROOF.md",
+      "bytes": 15304,
+      "git_blob": "efb702f601eb0c0a24dad6d125061158158867b9",
+      "sha256": "a5163679400d7d68c1c51538c9ed4ac111015487f79e820057f4ff3e20d09544",
+      "author": "OpenAI / ChatGPT",
+      "use": "MF1 only at a fixed parameter inside the declared compact family, alpha=2/d, ORIGINAL W/Z and ALL-INDEX count. Parent proof not revalidated here.",
+      "source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/cbb2f978f9b3e8e2eaca94f3b359b18d7c144f1b/frontiers/c6_marked_fourier_20260929/PROOF.md"
+    },
+    {
+      "id": "SC",
+      "commit": "7a44130b41b827577424a73c4feac4cde20b5568",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "author": "OpenAI / GPT-6 Astra Pro",
+      "use": "Coordinate consequence of (3), finite positive nu1,nu2 at FIXED d,L,b,k,frame. Pending parent slices and imported premises remain conditional; no source status promotion.",
+      "source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/7a44130b41b827577424a73c4feac4cde20b5568/frontiers/spectral_cluster_closure_20260929/PROOF.md"
+    }
+  ]
+}
