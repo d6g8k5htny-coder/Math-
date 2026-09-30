@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "purpose": "Machine-readable binding of the exact manuscripts to the actual scoped nonauthor reviews accepted before PR #166 integration. Engineering evidence only; scientific effect NONE.",
+  "accepted_mathematical_head": "7c82252533c3fe14ee262f7f87c0549c10968592",
+  "manuscripts": [
+    {
+      "path": "TWO_SCALE_LAW.md",
+      "bytes": 17139,
+      "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+      "git_blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+      "reviews": [
+        {
+          "id": 5360227991,
+          "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360227991",
+          "provider": "Anthropic Claude",
+          "scope": "Slice A: Theorem T, Theorem L, ordered-pair law L3, sampling/order-of-limits statements, spatial-TV obstruction V1"
+        }
+      ]
+    },
+    {
+      "path": "RADIAL_TAIL.md",
+      "bytes": 12533,
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "reviews": [
+        {
+          "id": 5360178611,
+          "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360178611",
+          "provider": "Anthropic Claude",
+          "scope": "Slice B: R4-R13, sharp radius tail and moment threshold"
+        },
+        {
+          "id": 5360216551,
+          "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360216551",
+          "provider": "Anthropic Claude",
+          "scope": "Slice C: Theorem H and H1-H4, universal extreme local marks"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "This file authenticates local binding metadata only; it does not contact GitHub or prove the truth of a review.",
+    "Changing either accepted manuscript requires a new mathematical review and a new explicit binding record; refreshing MANIFEST.json alone is insufficient.",
+    "The three review ids are one provider-distinct Claude session and do not constitute organizational independence."
+  ]
+}
