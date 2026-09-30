@@ -162,7 +162,10 @@ with `eps = 90 E_4 = 1.1215e-109`, in every frame, and the same for marginals an
 density-comparison constant with `n_A = m(m+1)/2 = 6`) and `b = d + n_A/2 = 7` (the two `d`-dimensional densities at `0`
 and the determinant factor). Since `(1+eps)^{20/3} <= (1+eps)^7`, the ratio lies in `[1/(1+delta), 1 + delta]` with
 `delta = (1+eps)^7/(1-eps)^7 - 1 = [sum_k (C(7,k) - (-1)^k C(7,k)) eps^k]/(1-eps)^7 = 14 eps + O(eps^2)`, computed without
-cancellation (rule TRANSFER_BOUND checks `14 eps <= delta <= 15 eps`); positivity of every reference integrand lets the
+cancellation (rule TRANSFER_BOUND certifies `13 eps <= delta <= 15 eps` for every represented value, `delta.lo >= 13 eps.hi`
+and `delta.hi <= 15 eps.lo`, and records that the enclosures of `delta` and `14 eps` intersect: the offset
+`delta - 14 eps ~ 105 eps^2 ~ 1e-216` lies far below the arithmetic resolution of the two enclosures, so `14 eps <= delta`
+is not separable and is not claimed as certified); positivity of every reference integrand lets the
 bound pass through the angular integral. So `|c_{4,24}/c_{4,ref} - 1| <= 1.5702e-108`, far below the arithmetic width of
 `c_{4,ref}`, and the printed digits of `c_{4,24}` are those of `c_{4,ref}`. The exact periodic constant is not claimed equal to
 the reference constant; it is enclosed.
@@ -222,3 +225,15 @@ Selberg's integral, Mehta, *Random Matrices*, chapter 17); at `m <= 3`, the only
 record (`m = 1` trivially, `m = 2` by the elementary two-variable integral, `m = 3` by rule MEHTA_Z3). Cauchy's estimate
 and the Lagrange remainder are elementary. The interval class is the repaired class of Math-#190 v1.3 / Math-#197 (exact
 negation, explicit contexts, rule LIBRARY_EXACT). No external numerical library is used.
+
+## 9. Revisions
+
+- **v1.1 (Codex review thread 4148001628 on `54dd458`, taken).** The v1.0 text applied Cauchy's estimate off-centre without
+  shrinking the radius; the remainder is now the centre-based Taylor tail with the geometric factor `1/(1 - h/(2 rho))`
+  (section 3, `enclose_integral`). Values unchanged.
+- **v1.2 (Codex thread 4148778791 on Math-#200, the same construction there; applied here for consistency).** Rule
+  TRANSFER_BOUND compared endpoints in the non-proving direction and section 4 described it as checking
+  `14 eps <= delta <= 15 eps`; it now certifies `13 eps <= delta <= 15 eps` for every represented value (`delta.lo >= 13 eps.hi`,
+  `delta.hi <= 15 eps.lo`) and records the intersection of the `delta` and `14 eps` enclosures (section 4). No certified value
+  changed. Math-#201 gives `D_3` in closed form, `(50 pi + 200 arctan 2 - 228)/(9 pi)`, at 47 common digits with this record's
+  enclosure; this record is otherwise unchanged and its section 7 non-claim stands as written at v1.0.

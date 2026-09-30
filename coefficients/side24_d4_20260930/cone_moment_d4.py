@@ -795,9 +795,11 @@ def main():
     checks["TRUNCATION_NESTING"] = bool(D3_coarse.intersects(D3) and D3_coarse.width() >= D3.width())
     checks["MONOTONE"] = bool(D1.hi < D2.lo < D2.hi < D3.lo and c2.lo > c3.hi > c3.lo > c4.hi and c4.lo > 0)
     checks["IMAGE_BOUND"] = bool(Decimal("1.2e-111") < E4.lo and E4.hi < Decimal("1.3e-111"))
-    # delta = 14 eps + O(eps^2): its enclosure must reach 14 eps from above and stay below 15 eps
-    checks["TRANSFER_BOUND"] = bool(delta.hi >= CF.multiply(Decimal(14), eps.lo) and delta.lo <= CC.multiply(Decimal(15), eps.hi)
-                                    and delta.lo > CF.multiply(Decimal(13), eps.lo) and c4_torus.contains(c4))
+    # proving direction (v1.2, Codex 4148778791 on Math-#200): 13 eps <= delta <= 15 eps for every represented value; the
+    # enclosures of delta and 14 eps intersect (delta - 14 eps ~ 105 eps^2 is far below the interval resolution: recorded, not certified)
+    checks["TRANSFER_BOUND"] = bool(delta.lo >= CC.multiply(Decimal(13), eps.hi) and delta.hi <= CF.multiply(Decimal(15), eps.lo)
+                                    and delta.hi >= CF.multiply(Decimal(14), eps.lo) and delta.lo <= CC.multiply(Decimal(14), eps.hi)
+                                    and c4_torus.contains(c4))
     # Mehta's constant at m = 3 by the same decoupling (NOTE section 1): Z_3 = (3/2) sqrt(pi/3) int_0^inf e^{-s^2/24} (4 s^2 - 32 + 32 e^{-s^2/8}) ds = 48 sqrt2 pi
     zc = Iv.frac(Fr(3, 2)) * (PI / 3).sqrt()
     z3_quad = enclose_integral([(zc, [Gauss(Fr(1, 24))], [(Poly([Fr(-32), Fr(0), Fr(4)]), None)], [Fr(32), Fr(0), Fr(4)], Fr(1, 24)),
