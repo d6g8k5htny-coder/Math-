@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D2-REMAINDER-RATE-20260930-v1",
- "kind": "author-side proof candidate: Theorem R++ (nu_eld = c ell^-1/3 + O(ell^1/6), i.e. (1 + O(ell^1/2))) via Lemma B (the [182] barrier under the near-pair law of [R]) and Lemma F-prime (the barrier under the far law), assembled with Math-#191 (R+.3) and [C7-K] section 4 at the cutoff rho = ell^1/6; consumes the unmerged #191; nonauthor analytic review required",
+ "object": "CL-D2-REMAINDER-RATE-20260930-v1.1",
+ "kind": "author-side proof candidate: Theorem R++ (nu_eld = c ell^-1/3 + O(ell^1/4), i.e. (1 + O(ell^7/12))) via Lemma B (the [182] barrier under the near-pair law of [R]), Lemma F-prime (the barrier under the far law) and Lemma W (sign-window majorant from Math-#191 Lemma E Steps 1-3, sharpening (K1), (R+.3) and [C7-K] section 4), assembled at the cutoff rho = ell^1/12; v1 (rate 1/6) superseded the same day before any nonauthor read; consumes the unmerged #191; nonauthor analytic review required",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -84,7 +84,7 @@
    "bytes": 25353,
    "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
    "tag": "191",
-   "use": "CONSUMED (Theorem R+ (R+.3), Lemma E, the admissible radius r_0^*, (2.1)); unmerged author-side candidate of this session (xAI review 5369140697 applied at v1.1); this packet cannot be integrated before #191 and must be rebound if #191 changes; not verified by the workflow"
+   "use": "CONSUMED (Theorem R+ (R+.3) and section 2; Lemma E (E.1) and Steps 1-3 through the structural display after (1.6); the admissible radius r_0^*; (2.1)); unmerged author-side candidate of this session (xAI review 5369140697 applied at v1.1); this packet cannot be integrated before #191 and must be rebound if #191 changes; not verified by the workflow"
   }
  ],
  "cited_unmerged": [
@@ -112,32 +112,33 @@
  "mutants": [
   "M1",
   "M2",
-  "M3"
+  "M3",
+  "M4"
  ],
  "referee": {
   "kind": "clean-context Anthropic Claude subagent before landing (same provider, same account; not a nonauthor review)",
-  "findings": "no error in Lemma B, Lemma F-prime, the decomposition (3.1) or the ledger; Lemma E Steps 1-3 confirmed symbolically on pinned quintics in d = 2, 3; thirteen findings applied: canonical Kac-Rice version named in the statement; Remark 1 rewritten (a false sentence on near-separation elder mass, the unproved \"of order rho\", the misdiagnosed bottleneck, the (K1)/(E.1) majorant route); Remark 3 gating (E10 stays until both notes are accepted); [R] section 4 quoted as the filtered bound; (Z14)/[C7-K] attribution; [P] section 2 for the derivative-suprema moments; range [r_0^*, diam X]; rho <= r_0^*; the uniformity of (R+.3) constant quoted from #191 section 2; the [182] barrier review provenance; SOURCES.json added"
+  "findings": "two passes. On v1 (rate 1/6): no error in Lemma B, Lemma F-prime, the decomposition or the ledger; suggested the sign window heuristically (made rigorous as Lemma W in v1.1). On v1.1 sections 3-5: Lemma W (W.1) proved from #191 Steps 1-3 with the (1+k)-quantified remainder re-derived exactly; (W.2)-(W.4) and the assembly correct; findings applied: the dependency on all of Lemma E through (E.1) (not Steps 1-3 alone), eight terms in section 4 (8C), k >= 0 in Lemma W, (W.2) with min(ell^1/4, rho), notation (w, Delta, #191-(1.x)), Remark 1 rewritten around three rho-free ell^1/4 sources with the referee formal cusp-scale computation recorded as unproved (route (b) of v1.1 cannot exist), Remark 2 wording. Earlier v1 findings: Lemma E Steps 1-3 confirmed symbolically on pinned quintics in d = 2, 3; thirteen findings applied: canonical Kac-Rice version named in the statement; Remark 1 rewritten (a false sentence on near-separation elder mass, the unproved \"of order rho\", the misdiagnosed bottleneck, the (K1)/(E.1) majorant route); Remark 3 gating (E10 stays until both notes are accepted); [R] section 4 quoted as the filtered bound; (Z14)/[C7-K] attribution; [P] section 2 for the derivative-suprema moments; range [r_0^*, diam X]; rho <= r_0^*; the uniformity of (R+.3) constant quoted from #191 section 2; the [182] barrier review provenance; SOURCES.json added"
  },
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 22765,
-   "sha256": "0ce4e41b9db92cfa07f4177c30df494b01b1a08630af689e3d8f33b3c551bc4d"
+   "bytes": 33028,
+   "sha256": "a8d700b015b2ab0802a4e49b61b0c186f43d3460e3d63312470baafb2f417ae9"
   },
   {
    "path": "rate_ledger_check.py",
-   "bytes": 12804,
-   "sha256": "0445ff7b7d9c2e0127fb216ea56a58172d8cf1cc681aea5fe9fdd43343850e65"
+   "bytes": 18229,
+   "sha256": "5ad2b0ca9e7a131040252db5f23a3dc6444c3b0120912fbede4a593fbe7cb5d2"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 726,
-   "sha256": "5e24e58ef3f4a3c805f774de342334c89edfb79ecf47ea6412771c5251f488fc"
+   "bytes": 1074,
+   "sha256": "c2c8ed1ccf0e15c992d88aff04caae1a99291f6d71b75f59db943cadbf5dc7e0"
   },
   {
    "path": "README.md",
-   "bytes": 3852,
-   "sha256": "f8b15af48ea336eb860fd8ac529300848a66f5fa4e1e05bdfb8ba0eca3b8b2e0"
+   "bytes": 5694,
+   "sha256": "40769cba5dbd7ae1863b0728c0b0d4b685f88a6587acb8d2db970c8865e7e1c3"
   }
  ]
 }

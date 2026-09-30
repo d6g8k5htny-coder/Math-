@@ -2,11 +2,20 @@
  "checks": {
   "E1_exponent_ledger": {
    "info": {
-    "grid_points": 206,
-    "rate": "1/6",
-    "relative_exponent": "1/2",
-    "theta": "1/6",
-    "twelfth_power_points": 4
+    "grid_points": 208,
+    "relative_exponents": {
+     "v1": "1/2",
+     "v1.1": "7/12"
+    },
+    "twelfth_power_points": 4,
+    "v1": {
+     "rate": "1/6",
+     "theta": "1/6"
+    },
+    "v1.1": {
+     "rate": "1/4",
+     "theta": "1/12"
+    }
    },
    "passed": true
   },
@@ -31,13 +40,23 @@
   "E4_integrals_and_cutoff_ledger": {
    "info": {
     "cutoff_ledger_points": 3,
-    "integral_points": 3
+    "integral_points": 3,
+    "window_integral_points": 3
+   },
+   "passed": true
+  },
+  "E5_sign_window": {
+   "info": {
+    "exact_equality_cases": 0,
+    "near_boundary_case": true,
+    "same_sign_instances": 13858,
+    "typed_instances": 15962
    },
    "passed": true
   }
  },
  "mutant": null,
- "object": "CL-D2-REMAINDER-RATE-20260930-v1",
+ "object": "CL-D2-REMAINDER-RATE-20260930-v1.1",
  "passed": true,
  "scientific_effect": "NONE"
 }

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Exact finite controls for PROOF.md (CL-D2-REMAINDER-RATE-20260930-v1).  Standard library only; exact rationals.
+"""Exact finite controls for PROOF.md (CL-D2-REMAINDER-RATE-20260930-v1.1).  Standard library only; exact rationals.
 
-  E1  the exponent ledger of section 3: with rho = ell^theta the seven terms of (3.1)(i)-(iv) have exponents
-      theta, 2 - 7 theta, 1/4, theta, 1/3 - theta, 4/3 - 5 theta, 1/3; at theta = 1/6 the minimum is 1/6; over a
-      rational grid of theta in (0, 1/3) and at every breakpoint the minimum never exceeds 1/6 (optimality within
-      the ledger: min(theta, 1/3 - theta) <= 1/6 identically); at rational twelfth powers ell = q^12 every term is
-      <= ell^(1/6) exactly, so the assembled bound is 7 C ell^(1/6); mutant M1 claims the rate 1/4;
+  E1  the exponent ledgers of section 4: with rho = ell^theta the v1.1 terms of (4.1)(i)-(iv) have exponents
+      1/4, 3 theta, 2 - 7 theta, 1/4, 3 theta, 1/3 - theta, 4/3 - 5 theta, 1/3 (minimum 1/4 at theta = 1/12) and the
+      v1 terms theta, 2 - 7 theta, 1/4, theta, 1/3 - theta, 4/3 - 5 theta, 1/3 (minimum 1/6 at theta = 1/6); over a
+      rational grid of theta in (0, 1/3) and at every breakpoint neither minimum exceeds its value (optimality within
+      each ledger); at rational twelfth powers ell = q^12 every term is <= ell^(1/4) (resp. ell^(1/6)) exactly, so the
+      assembled bounds are 8 C ell^(1/4) (eight terms, five of them ell^(1/4)) and 7 C ell^(1/6); mutant M1 claims the
+      rate 1/3 for the v1.1 ledger;
   E2  the barrier arithmetic of [182] section 3 (8)-(9): for rational 0 < lambda <= K, a_L <= 1 and 0 < t <= a_L
       lambda / K, (K/6) t^3 <= (lambda/6) t^2 and b - (lambda/2) t^2 + (K/6) t^3 <= b - (lambda/3) t^2 exactly; the
       solved form b - d >= c_L lambda^3 / K^2  <=>  lambda <= ((b - d) K^2 / c_L)^(1/3) at rational cubes; mutant M2
@@ -16,11 +18,19 @@
   E4  the integrals of Lemma B and the cutoff ledger of [C7-K] section 4: int_rho^r0 (ell r^-6 + r^-2) dr =
       ell (rho^-5 - r0^-5)/5 + rho^-1 - r0^-1 <= ell rho^-5 / 5 + rho^-1 exactly at rationals; the second piece
       ell^(-1/3) ell^(2/3) 3 (ell/rho^3)^(-1/3) = 3 rho and the first piece ell^(-1/3) (3/5) ell k_*^(-5/3) =
-      (3/5) ell^(1/4) at k_* = ell^(1/4), at rational twelfth powers.
-  M   mutants (--mutant M1|M2|M3) exit 1; an unknown label exits 2.
-  Scope: E1-E4 check exponent bookkeeping, the barrier's algebra and a linear-algebra inequality at rational
-  points.  They do NOT test Lemma B or Lemma F' as statements about the Gaussian laws, nor the assembly's use of
-  Math-#191 (R+.3) and [C7-K] section 4; those are prose only.  The controls are not acceptance.
+      (3/5) ell^(1/4) at k_* = ell^(1/4), at rational twelfth powers; the (W.2)-(W.3) integrals
+      int_(r1)^rho (ell^2 r^-8 + r^2) dr <= ell^2 r1^-7 / 7 + rho^3 / 3 and int_0^(r1) r^4 / ell dr = r1^5 / (5 ell) =
+      ell^(1/4) / 5 at r1 = ell^(1/4), at rational twelfth powers;
+  E5  the sign window of Lemma W: for rational (k, D, Y, R_M, R_S, r) on a grid including k = 0, whenever the typed
+      sign pattern (r Y - 6 k D + R_M)(r Y + 6 k D + R_S) < 0 holds one has |r Y| <= 6 k |D| + max(|R_M|, |R_S|) and
+      |det K_i| <= 12 k |D| + 2 max(|R_M|, |R_S|) for both i, exactly; the bound is sharp (a near-boundary case); same-sign instances
+      violate the bound (so the sign condition is used); mutant M4 drops the factor 2 on the remainder.
+  M   mutants (--mutant M1|M2|M3|M4) exit 1; an unknown label exits 2.
+  Scope: E1-E5 check exponent bookkeeping, the barrier's algebra, a linear-algebra inequality and the sign-window
+  inequality at rational points.  They do NOT test Lemma B, Lemma F' or Lemma W as statements about the Gaussian
+  laws (the expansions (3.1) imported from Math-#191, the moment imports, the density bound, the Kac-Rice
+  disintegrations), nor the assembly's use of Math-#191 and [C7-K] section 4; those are prose only.  The controls
+  are not acceptance.
 """
 import argparse
 import json
@@ -115,42 +125,56 @@ def is_cube(x):
 
 # ---------------------------------------------------------------------------------------------------- checks
 
-def ledger_terms(theta, mutant):
-    """Exponents of the seven terms of (3.1)(i)-(iv) with rho = ell^theta."""
+def ledger_v11(theta):
+    """Exponents of the eight terms of (4.1)(i)-(iv) with rho = ell^theta (v1.1: (W.2), (W.3), (B.2), (F'.1))."""
+    return [F(1, 4), 3 * theta, 2 - 7 * theta, F(1, 4), 3 * theta, F(1, 3) - theta, F(4, 3) - 5 * theta, F(1, 3)]
+
+
+def ledger_v1(theta):
+    """Exponents of the seven terms with the v1 inputs (R+.3) and [C7-K] section 4 in place of (W.2)-(W.3)."""
     return [theta, 2 - 7 * theta, F(1, 4), theta, F(1, 3) - theta, F(4, 3) - 5 * theta, F(1, 3)]
 
 
 def check_E1(mutant):
-    claimed = F(1, 4) if mutant == 'M1' else F(1, 6)
-    theta_star = claimed  # rho = ell^gamma is forced by the two rho-terms
-    m = min(ledger_terms(theta_star, mutant))
-    if m != claimed:
-        return False, 'ledger minimum at theta = %s is %s, not the claimed rate %s' % (theta_star, m, claimed)
-    # optimality within the ledger: the minimum never exceeds 1/6 on a rational grid and at the breakpoints
     grid = [F(i, 600) for i in range(1, 200)]
-    breakpoints = [F(1, 6), F(1, 4), F(1, 8), F(2, 9), F(5, 24), F(1, 12), F(7, 30)]
-    for theta in grid + breakpoints:
-        if min(ledger_terms(theta, mutant)) > F(1, 6):
-            return False, 'ledger minimum exceeds 1/6 at theta = %s' % theta
-    # exact assembled bound at rational twelfth powers: every term <= ell^(1/6)
+    breakpoints = [F(1, 12), F(1, 6), F(1, 4), F(1, 8), F(2, 9), F(5, 24), F(7, 30), F(1, 24), F(1, 16)]
+    out = {}
+    for name, ledger, theta_star, rate in (('v1.1', ledger_v11, F(1, 12), F(1, 3) if mutant == 'M1' else F(1, 4)),
+                                           ('v1', ledger_v1, F(1, 6), F(1, 6))):
+        m = min(ledger(theta_star))
+        if m != rate:
+            return False, '%s ledger minimum at theta = %s is %s, not the claimed rate %s' % (name, theta_star, m, rate)
+        for theta in grid + breakpoints:
+            if min(ledger(theta)) > rate:
+                return False, '%s ledger minimum exceeds %s at theta = %s' % (name, rate, theta)
+        out[name] = {'theta': str(theta_star), 'rate': str(rate)}
+    # exact assembled bounds at rational twelfth powers ell = q^12
     checked = 0
     for q in (F(1, 2), F(1, 3), F(2, 7), F(1, 10)):
         ell = q ** 12
-        rho = q ** 2                                   # ell^(1/6)
+        # v1.1: rho = ell^(1/12) = q; terms ell^(1/4)=q^3, rho^3=q^3, ell^2 rho^-7=q^17, ell^(1/3)/rho=q^3,
+        # ell^(4/3) rho^-5 = q^11, ell^(1/3) = q^4
+        rho = q
+        terms = [q ** 3, rho ** 3, ell ** 2 / rho ** 7, q ** 3, rho ** 3, q ** 4 / rho, q ** 16 / rho ** 5, q ** 4]
+        if ell ** 2 / rho ** 7 != q ** 17 or q ** 4 / rho != q ** 3 or q ** 16 / rho ** 5 != q ** 11:
+            return False, 'monomial substitution (v1.1)'
+        if any(t > q ** 3 for t in terms) or sum(terms) > 8 * q ** 3:
+            return False, 'a v1.1 ledger term exceeds ell^(1/4) at q = %s' % q
+        # v1: rho = ell^(1/6) = q^2
+        rho = q ** 2
         terms = [rho, ell ** 2 / rho ** 7, q ** 3, rho, q ** 4 / rho, q ** 16 / rho ** 5, q ** 4]
-        # q^3 = ell^(1/4), q^4 = ell^(1/3), q^16 = ell^(4/3)
         if ell ** 2 / rho ** 7 != q ** 10 or q ** 4 / rho != q ** 2 or q ** 16 / rho ** 5 != q ** 6:
-            return False, 'monomial substitution'
-        if any(t > rho for t in terms):
-            return False, 'a ledger term exceeds ell^(1/6) at q = %s' % q
-        if sum(terms) > 7 * rho:
-            return False, 'assembled bound'
+            return False, 'monomial substitution (v1)'
+        if any(t > rho for t in terms) or sum(terms) > 7 * rho:
+            return False, 'a v1 ledger term exceeds ell^(1/6) at q = %s' % q
         checked += 1
-    # relative form: ell^(1/6) / ell^(-1/3) = ell^(1/2)
-    if F(1, 6) - (-F(1, 3)) != F(1, 2):
+    # relative forms: ell^(1/4) / ell^(-1/3) = ell^(7/12); ell^(1/6) / ell^(-1/3) = ell^(1/2)
+    if F(1, 4) + F(1, 3) != F(7, 12) or F(1, 6) + F(1, 3) != F(1, 2):
         return False, 'relative exponent'
-    return True, {'theta': str(theta_star), 'rate': str(claimed), 'grid_points': len(grid) + len(breakpoints),
-                  'twelfth_power_points': checked, 'relative_exponent': '1/2'}
+    out['grid_points'] = len(grid) + len(breakpoints)
+    out['twelfth_power_points'] = checked
+    out['relative_exponents'] = {'v1.1': '7/12', 'v1': '1/2'}
+    return True, out
 
 
 def check_E2(mutant):
@@ -267,12 +291,78 @@ def check_E4(mutant):
         if first != F(3, 5) * ell14:
             return False, 'first piece != (3/5) ell^(1/4)'
         pieces += 1
-    return True, {'integral_points': pts, 'cutoff_ledger_points': pieces}
+    # (W.2)-(W.3) integrals at rational twelfth powers ell = q^12, r1 = ell^(1/4) = q^3, rho = s q^3 with s >= 1
+    w = 0
+    for q, s in ((F(1, 2), F(2)), (F(1, 3), F(5)), (F(2, 5), F(3, 2))):
+        ell = q ** 12
+        r1 = q ** 3
+        rho = s * r1
+        # int_(r1)^rho (ell^2 r^-8 + r^2) dr = ell^2 (r1^-7 - rho^-7)/7 + (rho^3 - r1^3)/3
+        val = ell ** 2 * (r1 ** -7 - rho ** -7) / 7 + (rho ** 3 - r1 ** 3) / 3
+        anti = lambda r: -ell ** 2 * r ** -7 / 7 + r ** 3 / 3
+        if anti(rho) - anti(r1) != val:
+            return False, '(W.2) antiderivative'
+        if not (val <= ell ** 2 * r1 ** -7 / 7 + rho ** 3 / 3):
+            return False, '(W.2) integral bound'
+        if ell ** 2 * r1 ** -7 != q ** 3:                     # ell^2 r1^-7 = ell^(1/4)
+            return False, 'ell^2 r1^-7 != ell^(1/4)'
+        # int_0^(r1) r^4 / ell dr = r1^5 / (5 ell) = ell^(1/4) / 5
+        if r1 ** 5 / (5 * ell) != q ** 3 / 5:
+            return False, '(W.3) first piece'
+        w += 1
+    return True, {'integral_points': pts, 'cutoff_ledger_points': pieces, 'window_integral_points': w}
+
+
+def check_E5(mutant):
+    factor = F(1) if mutant == 'M4' else F(2)
+    ks = [F(0), F(1, 100), F(1, 2), F(3)]
+    Ds = [F(-2), F(-1, 3), F(1, 5), F(4)]
+    Ys = [F(n, 4) for n in range(-12, 13)]
+    Rs = [F(0), F(1, 50), F(-1, 50), F(1, 3), F(-2, 5)]
+    rs = [F(1, 10), F(1, 2), F(1)]
+    typed = same = 0
+    attained = 0
+    for k in ks:
+        for D in Ds:
+            for Y in Ys:
+                for RM in Rs:
+                    for RS in Rs:
+                        for r in rs:
+                            u = r * Y
+                            dM = u - 6 * k * D + RM
+                            dS = u + 6 * k * D + RS
+                            bound_u = 6 * k * abs(D) + max(abs(RM), abs(RS))
+                            bound_d = 12 * k * abs(D) + factor * max(abs(RM), abs(RS))
+                            if dM * dS < 0:
+                                typed += 1
+                                if abs(u) > bound_u:
+                                    return False, '|rY| bound fails at %s' % ((k, D, Y, RM, RS, r),)
+                                if abs(dM) > bound_d or abs(dS) > bound_d:
+                                    return False, '|det K_i| bound fails at %s' % ((k, D, Y, RM, RS, r),)
+                                if abs(dM) == bound_d or abs(dS) == bound_d:
+                                    attained += 1     # not expected under the strict sign condition
+                            elif dM * dS > 0:
+                                same += 1
+    if typed == 0 or same == 0:
+        return False, 'grid does not contain both sign patterns'
+    # the sign condition is used: a same-sign instance violating the |det K_i| bound
+    k, D, Y, RM, RS, r = F(1, 10), F(1), F(20), F(0), F(0), F(1)
+    dM, dS = r * Y - 6 * k * D + RM, r * Y + 6 * k * D + RS
+    if not (dM * dS > 0 and abs(dM) > 12 * k * abs(D)):
+        return False, 'same-sign counterexample missing'
+    # exact equality case: R_M = R_S = 0, rY = 6kD exactly is the boundary (product 0, not typed); just inside, |u| < 6k|D|
+    k, D, RM, RS, r = F(1), F(2), F(0), F(0), F(1)
+    Y = 6 * k * D - F(1, 1000)
+    dM, dS = r * Y - 6 * k * D + RM, r * Y + 6 * k * D + RS
+    if not (dM * dS < 0 and abs(dS) <= 12 * k * abs(D) and abs(dS) > 12 * k * abs(D) - F(1, 100)):
+        return False, 'near-equality case'
+    return True, {'typed_instances': typed, 'same_sign_instances': same, 'exact_equality_cases': attained, 'near_boundary_case': True}
 
 
 CHECKS = [('E1_exponent_ledger', check_E1), ('E2_barrier_arithmetic', check_E2),
-          ('E3_soft_eigenvalue_determinant', check_E3), ('E4_integrals_and_cutoff_ledger', check_E4)]
-MUTANTS = ('M1', 'M2', 'M3')
+          ('E3_soft_eigenvalue_determinant', check_E3), ('E4_integrals_and_cutoff_ledger', check_E4),
+          ('E5_sign_window', check_E5)]
+MUTANTS = ('M1', 'M2', 'M3', 'M4')
 
 
 def main():
@@ -289,7 +379,7 @@ def main():
         ok, info = fn(mutant)
         results[name] = {'passed': ok, 'info': info}
         ok_all = ok_all and ok
-    out = {'object': 'CL-D2-REMAINDER-RATE-20260930-v1', 'scientific_effect': 'NONE', 'passed': ok_all,
+    out = {'object': 'CL-D2-REMAINDER-RATE-20260930-v1.1', 'scientific_effect': 'NONE', 'passed': ok_all,
            'mutant': mutant, 'checks': results}
     sys.stdout.write(json.dumps(out, indent=1, sort_keys=True) + '\n')
     return 0 if ok_all else 1
