@@ -28,6 +28,8 @@ jobs:
         run: |
           set -euo pipefail
           packet=frontiers/cluster_exponential_weight_20260930
+          python -B -S "$packet/verify_packet.py"
+          python -B -O -S "$packet/verify_packet.py"
           python -B -S "$packet/finite_checks.py" > /tmp/exponential-normal.json
           python -B -O -S "$packet/finite_checks.py" > /tmp/exponential-optimized.json
           cmp /tmp/exponential-normal.json /tmp/exponential-optimized.json

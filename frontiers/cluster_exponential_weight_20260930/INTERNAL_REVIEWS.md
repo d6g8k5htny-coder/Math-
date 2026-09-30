@@ -1,3 +1,12 @@
+# Review chronology and current scoped disposition
+
+The original author-side snapshot below is preserved verbatim as published at
+commit `0e70540b70e5e3183df5ed1a6bd70a212b734c9c` on 30 September 2026 UTC.
+Its pending-review wording describes that original snapshot. The appended
+current disposition records later actual native reviews of the same proof.
+
+## Original author-side snapshot (historical)
+
 # Internal challenges, exposure and unresolved review
 
 Target in both mathematical slices: PROOF.md, 12576 bytes, Git blob
@@ -86,3 +95,47 @@ schema requires an actual integer. Repaired verifier SHA256
 **PASS — bounded custody re-review**, 11 controls in each Python mode.
 The real manifest correctly fails locally when historical objects are absent.
 This repair concerns custody code only, not a proof amendment or parent verdict.
+
+---
+
+## Current disposition after actual native reviews (30 September 2026 UTC)
+
+The unchanged PROOF.md now has **scoped nonauthor ACCEPT, CONDITIONAL** for
+Slice A (§§1–3) and Slice B (§§4–5). This supersedes the historical pending-review
+status above; it does not rewrite the author-side challenges or make them
+independent reviews. The complete actual bodies are retained in
+[REVIEW_RECORD.json](REVIEW_RECORD.json):
+
+- [Anthropic/Claude A+B, review5360109371](https://github.com/d6g8k5htny-coder/Math-/pull/164#pullrequestreview-5360109371):
+  actual analytic acceptance of the elementary implications of E1–E2, at fixed
+  parameters with existential constants, independent copies and no rate.
+- [OpenAI/Codex A, review5360144037](https://github.com/d6g8k5htny-coder/Math-/pull/164#pullrequestreview-5360144037):
+  §§1–3, E1–E10, conditional on the exact MF1 and SC(3) interfaces; Slice B
+  outside that individual verdict.
+- [OpenAI/Codex B, review5360159070](https://github.com/d6g8k5htny-coder/Math-/pull/164#pullrequestreview-5360159070):
+  §§4–5, EW3/EW4, E11–E15 and dimension/independence/rate qualifications,
+  retaining E1–E2 and Slice A's endpoint consequence as dependencies.
+
+All three native objects identify original commit
+`0e70540b70e5e3183df5ed1a6bd70a212b734c9c`, PROOF.md's 12,576 bytes,
+Git blob `bf1268b9c18ec05561fd9b14c645ef0b8e530484`, and SHA256
+`3f32fdd744350a15359451bbbee6c6bcc71af47e4f57f6110d7afb4978e941ee`.
+Their source exposure is preserved in their complete native bodies, not
+replaced by this summary. Claude identifies provider distinction from the
+author and reviewer exposure to SC; both Codex reviewers disclose their earlier
+source reviews and challenges. All use the same GitHub account and carry
+**zero organizational-independence credit**.
+
+The original MF1/SC(3) statements remain imported hypotheses; these reviews
+do not prove their Gaussian, spectral or regional parents, supply rates or
+moving-mark uniformity, identify a spatial event, or justify spatial
+independence. Scientific effect remains NONE. The later engineering repair
+preserves every mathematical source byte. Its implementer previously reviewed
+Slice B; that does not self-accept the engineering repair. A separate engineering
+review, current-base CI and authorized integration remain distinct gates.
+
+VALIDATION.json is retained unchanged as the original author execution/history
+record. The new packet guard binds its proof hash and REVIEW_RECORD.json's
+proof identity to actual PROOF.md and checks MANIFEST.json membership and hashes.
+Passing that guard establishes local custody only, not GitHub authenticity or
+mathematical acceptance.
