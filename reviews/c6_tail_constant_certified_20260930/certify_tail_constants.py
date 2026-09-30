@@ -22,12 +22,13 @@ Inputs certified (from Math-#178 NOTE section 1-2 at head 48407d4, planar reduct
 The reductions are consumed at those records' stated scopes; this script certifies the arithmetic of the constants, not
 the theorems. Scientific effect: NONE.
 
-Ten rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
-TB_EXACT, T2_IDENTITY, C_BOUNDS; README section 2) and nine mutants must exit 1. The floating-point control enters the
+Eleven rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
+TB_EXACT, T2_IDENTITY, C_BOUNDS, K_BOUNDS; README section 2) and ten mutants must exit 1. The floating-point control enters the
 pinned output only rounded to 10 significant digits, so the output is byte-identical across CPython versions. TB_EXACT and T2_IDENTITY are the exact
 identities of README section 3: G_0 = exp(-12 k^2 (gamma^6 - 1)), Tb(k) = (12 k^2 + 1)/(36 k^3), T2 = -T1/12, whence
 c = (66451/11128) T1/J_hat and B_sign = (4587821/876544) Tb/J_hat; C_BOUNDS is their consequence
-66451/11128 < c(k) < 199353/2782 (T1/J_hat = 12 - 11 I_9/I_11 with 0 < I_9 < I_11).
+66451/11128 < c(k) < 199353/2782 (T1/J_hat = 12 - 11 I_9/I_11 with 0 < I_9 < I_11); K_BOUNDS the all-k two-sided
+bounds 2 sqrt(pi) < J_hat(k) <= 2 sqrt(pi)(1 + 1/(16k^2) + 1/(512k^4)) and their consequences for I_9, B_sign and c.
 """
 import argparse
 import json
@@ -39,7 +40,7 @@ from fractions import Fraction as Fr
 from math import comb, factorial
 
 MUTANTS = ("gamma-power", "cusp-shift", "prefactor", "pi-truncated", "log2-truncated", "tail-dropped", "tb-power", "t2-weight",
-           "t1t2-scale")
+           "t1t2-scale", "j-scale")
 MUT = None
 
 
@@ -52,6 +53,12 @@ def T1T2_SCALE():
     """Common factor on the T1 and T2 integrands, both evaluation paths (mutant t1t2-scale halves them: T2 = -T1/12
     survives, the float control survives, only the universal bounds on c catch it)."""
     return Fr(1, 2) if MUT == "t1t2-scale" else Fr(1)
+
+
+def J_SCALE():
+    """Factor on the J integrand, both evaluation paths (mutant j-scale multiplies it by 101/100, which leaves the
+    float control and the identities intact and is caught by the all-k bounds K_BOUNDS, as well as by PINNED)."""
+    return Fr(101, 100) if MUT == "j-scale" else Fr(1)
 
 
 def TB_POWER():
@@ -272,7 +279,7 @@ def integrand_series(name, centre, K, k):
     root = t_sqrt(g)
     if name == "J":          # gamma^11 = g^5 sqrt(g)   (mutant gamma-power: gamma^10 = g^5)
         core = t_ipow(g, 5) if MUT == "gamma-power" else t_mul(t_ipow(g, 5), root)
-        return t_mul(core, E)
+        return t_scale(t_mul(core, E), J_SCALE())
     if name == "T1":         # gamma^9 (1 + 12 A^2) = g^4 sqrt(g) (1 + 12 s a^2)
         w = t_add(t_const(1, K), t_scale(a2, 12 * s))
         return t_scale(t_mul(t_mul(t_mul(t_ipow(g, 4), root), w), E), T1T2_SCALE())
@@ -354,7 +361,7 @@ def float_reference(name, k):
         g = 1 + (a / (12 * kf)) ** 2
         E = math.exp(-a * a / 4 - a ** 4 / (576 * kf * kf) - a ** 6 / (248832 * kf ** 4))
         if name == "J":
-            return g ** 5.5 * E
+            return float(J_SCALE()) * g ** 5.5 * E
         if name == "T1":
             return float(T1T2_SCALE()) * g ** 4.5 * (1 + 12 * (a / (12 * kf)) ** 2) * E
         if name == "T2":
@@ -425,6 +432,40 @@ def main():
         ok_cb &= Iv.frac(C_LOWER).hi < c_iv.lo and c_iv.hi < Iv.frac(C_UPPER).lo
     out["exact_relations"]["c_bounds"] = {"lower": str(C_LOWER), "upper": str(C_UPPER),
                                           "note": "T1/J_hat = 12 - 11 I_9/I_11 with 0 < I_9 < I_11; both ends are limits (k -> inf, k -> 0)"}
+    # all-k bounds (README section 3, consequence 3): with s = 4 sqrt3 k sqrt(gamma^6 - 1), J_hat = int F(gamma) e^{-s^2/4} ds
+    # with 1 <= F = gamma^7 sqrt((gamma^4 + gamma^2 + 1)/3) <= gamma^9 = (1 + s^2/(48 k^2))^{3/2}; likewise I_9 with
+    # 1 <= F_9 = gamma^5 sqrt(...) <= gamma^7.  Hence  2 sqrt(pi) < J_hat(k) <= 2 sqrt(pi)(1 + 1/(16k^2) + 1/(512k^4)),
+    # 2 sqrt(pi) < I_9(k) <= 2 sqrt(pi)(1 + 7/(144k^2) + 7/(13824k^4)), and the derived bounds on B_sign and c.
+    ok_kb = True
+    two_sqrt_pi = PI.sqrt() * 2
+    kb = {}
+    for k in KS:
+        J_iv = raw[k]["J"]
+        I9_iv = (J_iv * 12 - raw[k]["T1"]) / 11
+        upJ = two_sqrt_pi * (1 + Fr(1, 16 * k * k) + Fr(1, 512 * k ** 4))
+        upI9 = two_sqrt_pi * (1 + Fr(7, 144 * k * k) + Fr(7, 13824 * k ** 4))
+        tb = Fr(12 * k * k + 1, 36 * k ** 3)
+        b_lo = Iv.frac(tb) * B_PREF / upJ
+        b_hi = Iv.frac(tb) * B_PREF / two_sqrt_pi
+        c_hi = (Iv.frac(12) - two_sqrt_pi * 11 / upJ) * C_PREF
+        b_iv = Iv.frac(tb) * B_PREF / J_iv
+        c_iv = raw[k]["T1"] * C_PREF / J_iv
+        ok_kb &= two_sqrt_pi.hi < J_iv.lo and J_iv.hi < upJ.lo
+        ok_kb &= two_sqrt_pi.hi < I9_iv.lo and I9_iv.hi < upI9.lo
+        ok_kb &= b_lo.hi < b_iv.lo and b_iv.hi < b_hi.lo
+        ok_kb &= c_iv.hi < c_hi.lo
+        kb[str(k)] = {"J_hat": J_iv.pair(), "J_hat_bounds": [two_sqrt_pi.pair(), upJ.pair()], "I_9": I9_iv.pair(),
+                      "I_9_bounds": [two_sqrt_pi.pair(), upI9.pair()], "B_sign": b_iv.pair(), "B_sign_bounds": [b_lo.pair(), b_hi.pair()],
+                      "c": c_iv.pair(), "c_upper": c_hi.pair()}
+    out["exact_relations"]["k_dependent_bounds"] = {
+        "J_hat": "2 sqrt(pi) < J_hat(k) <= 2 sqrt(pi) (1 + 1/(16 k^2) + 1/(512 k^4))",
+        "I_9": "2 sqrt(pi) < I_9(k) <= 2 sqrt(pi) (1 + 7/(144 k^2) + 7/(13824 k^4))",
+        "B_sign": "B_PREF (12k^2+1)/(36 k^3) / upJ < B_sign(k) < B_PREF (12k^2+1)/(72 sqrt(pi) k^3)",
+        "c": "c(k) <= C_PREF (12 - 11 . 2 sqrt(pi)/upJ)",
+        "asymptotic_series_not_certified": {"J_hat/(2 sqrt pi)": "1 + 1/(18 k^2) + 13/(10368 k^4) - 35/(746496 k^6) + O(k^-8)",
+                                            "I_9/(2 sqrt pi)": "1 + 1/(24 k^2) + 1/(10368 k^4) + 0 k^-6 + O(k^-8)",
+                                            "c/C_PREF": "1 + 11/(72 k^2) + O(k^-4)"},
+        "per_k": kb}
     # pinned digits
     for key, prefix in PINNED.items():
         if key.startswith("J_hat|"):
@@ -470,9 +511,9 @@ def main():
     ok_pi = ok_pinned and all(v.width() < Decimal("1e-40") for v in (PI, LOG2, ERF_HALF, KAPPA, D_INNER))
     checks = {"FLOAT_INSIDE": bool(ok_float), "NESTING": bool(ok_nest), "WIDTHS": bool(ok_width), "PINNED": bool(ok_pinned),
               "MONOTONE_IN_K": bool(ok_mono), "CONSTANTS_RIGOROUS": bool(ok_pi), "TB_EXACT": bool(ok_tb), "T2_IDENTITY": bool(ok_t2),
-              "TRUNCATION_NESTING": bool(ok_trunc), "C_BOUNDS": bool(ok_cb)}
+              "TRUNCATION_NESTING": bool(ok_trunc), "C_BOUNDS": bool(ok_cb), "K_BOUNDS": bool(ok_kb)}
     out["checks"] = checks
-    out["passed"] = all(checks.values()) and len(checks) == 10
+    out["passed"] = all(checks.values()) and len(checks) == 11
     print("elapsed seconds %.1f" % (time.time() - t0), file=sys.stderr)      # timing stays out of the pinned output
     out["scope"] = ("rigorous enclosures of the one-dimensional cusp integrals and of the assembled constants; the planar "
                     "reductions and the exact shape integrals are consumed at their records' scopes; not a proof of any "

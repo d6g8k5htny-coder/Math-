@@ -60,7 +60,7 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   (`gamma^15 a^2/24`, `gamma^9 (1 + 12 A^2)`, `gamma^11`, `A gamma^10` are all below it for `a >= 1`, `k >= 1/2`), and
   `int_T^inf a^(2j) e^(-a^2/4) da <= (2/T) 4^j j! e^(-T^2/4) sum_(i <= j) (T^2/4)^i / i!`. The bound is `3.5e-18`,
   `1.9e-21`, `1.9e-23` at `k = 1/2, 1, 2` and is added (for `T_2`, whose integrand is negative, subtracted) before doubling.
-- **Rules (all ten must hold; `passed` is `false` and the exit code `1` otherwise).**
+- **Rules (all eleven must hold; `passed` is `false` and the exit code `1` otherwise).**
   `FLOAT_INSIDE` an independent 96-point Gauss-Legendre value on `[0, 14]` lies within `1e-11` relative of every raw
   enclosure (the control is printed only to 10 significant digits, `float_reference_10sig`, so that the pinned output
   does not depend on the interpreter's floating-point library); `NESTING` a coarser enclosure (a quarter of the cells,
@@ -71,16 +71,19 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   as disjoint intervals; `CONSTANTS_RIGOROUS` `pi`, `log 2`, `erf(1/2)`, `kappa`, `D` are bracketed below `1e-40` and
   the pins hold; `TB_EXACT` and
   `T2_IDENTITY` the two exact identities of section 3 hold as interval statements; `C_BOUNDS` the enclosure of `c(k)`
-  lies strictly inside the universal interval `(66451/11128, 199353/2782)` of section 3 at every `k`.
+  lies strictly inside the universal interval `(66451/11128, 199353/2782)` of section 3 at every `k`; `K_BOUNDS` the
+  enclosures of `J_hat(k)`, `I_9(k)`, `B_sign(k)` lie strictly inside the explicit all-`k` intervals of section 3
+  (Consequence 3) and `c(k)` below its explicit all-`k` upper bound.
 - **Mutants (each must exit `1`, in both interpreter modes).** `gamma-power` (`gamma^10` in place of `gamma^11`),
   `cusp-shift` (drops the `a^6` term of `G_0`), `prefactor` (`p_b(0)/z_0` scaled by `385/384`), `pi-truncated`,
   `log2-truncated`, `tail-dropped` (no tail bound; caught only by `TRUNCATION_NESTING`), `tb-power` (`gamma^8` in the `T_b`
   integrand on both evaluation paths; caught only by `TB_EXACT`), `t2-weight` (the `a^4` weight of `D_a G_0` scaled by
   `1001/1000` on both paths; caught only by `T2_IDENTITY`), `t1t2-scale` (the `T_1` and `T_2` integrands both halved on
-  both paths, so `T_2 = -T_1/12` and the float control survive; caught only by `C_BOUNDS`).
+  both paths, so `T_2 = -T_1/12` and the float control survive; caught only by `C_BOUNDS`), `j-scale` (the `J_hat`
+  integrand multiplied by `101/100` on both paths; caught by `K_BOUNDS` at every `k`, and by `PINNED`).
 
 Runtime about `30 s` per run (standard library only, `python -B -S certify_tail_constants.py`); the workflow runs the
-script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the nine mutants
+script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the ten mutants
 under each mode.
 
 ## 3. Three exact identities (elementary; not used in `NOTE.md` at `48407d4`, which evaluates `T_1`, `T_2`, `T_b` separately)
@@ -130,9 +133,37 @@ at the scope of [Q] (13) (aligned planar cusp density of the parent kernel). Bot
 (Math-#176 comment 5903080058, quoted in Math-#178), which drops the `(2B/13) T_2` term instead of evaluating it; the
 certified values `9.78`, `6.90`, `6.20` at `k = 1/2, 1, 2` sit inside, and `C_BOUNDS` checks the strict containment.
 Nothing analogous sharpens `0 < B_sign < 4587821/876544`: `T_b/J_hat = int |A| gamma^10 G_0 / int gamma^11 G_0 < 1`
-is [Q]'s bound and tends to `1` as `k -> 0` and to `0` as `k -> inf`. Asymptotic remark
-(not certified, not used): expanding `G_0` and `gamma^11` in `s = 1/(144 k^2)` gives `J_hat(k) = 2 sqrt(pi) (1 + 1/(18 k^2) + O(k^-4))`;
-at `k = 2` this reads `3.5941` against the certified `3.59442`, at `k = 1` `3.7418` against `3.74614`.
+is [Q]'s bound and tends to `1` as `k -> 0` and to `0` as `k -> inf`.
+
+**Consequence 3 (explicit bounds for every `k > 0`).** Put `s = 4 sqrt3 . k . sqrt(gamma^6 - 1)` with the sign of `a`
+(so `s^2/4 = 12 k^2 (gamma^6 - 1)`, `s` increases with `a`, and `s ~ a` near `0`). Then `ds/da = a gamma^4 / s` and
+
+    J_hat(k) = int_R F(gamma) e^(-s^2/4) ds,   F(gamma) = gamma^7 sqrt((gamma^4 + gamma^2 + 1)/3),
+    I_9(k)   = int_R F_9(gamma) e^(-s^2/4) ds,  F_9(gamma) = gamma^5 sqrt((gamma^4 + gamma^2 + 1)/3),
+
+with `gamma = gamma(s) = (1 + s^2/(48 k^2))^(1/6)`. Since `gamma >= 1`, `F >= F_9 >= 1` with equality only at `s = 0`, and
+`gamma^4 + gamma^2 + 1 <= 3 gamma^4` gives `F <= gamma^9 = (1 + x)^(3/2)`, `F_9 <= gamma^7 = (1 + x)^(7/6)` with
+`x = s^2/(48 k^2)`. Taylor's theorem (`(1 + x)^(3/2) <= 1 + (3/2) x + (3/8) x^2`, `(1 + x)^(7/6) <= 1 + (7/6) x + (7/72) x^2`
+for `x >= 0`) and the Gaussian moments `int s^2 e^(-s^2/4) = 4 sqrt(pi)`, `int s^4 e^(-s^2/4) = 24 sqrt(pi)` give, for every
+`k > 0`,
+
+    2 sqrt(pi) < J_hat(k) <= 2 sqrt(pi) (1 + 1/(16 k^2) + 1/(512 k^4)),
+    2 sqrt(pi) < I_9(k)   <= 2 sqrt(pi) (1 + 7/(144 k^2) + 7/(13824 k^4)),
+
+both lower bounds sharp as `k -> inf`. Consequently (exact `T_b`, Consequence 2, and `T_1/J_hat = 12 - 11 I_9/J_hat`):
+
+    (4587821/876544) (12 k^2 + 1) / (36 k^3 . 2 sqrt(pi) (1 + 1/(16k^2) + 1/(512k^4)))  <  B_sign(k)  <  (4587821/876544) (12 k^2 + 1) / (72 sqrt(pi) k^3),
+    c(k) <= (66451/11128) [12 - 11 / (1 + 1/(16 k^2) + 1/(512 k^4))],
+    C_*(k, b) > (216/11) k^7 [p_b(0)/z_0] I . 2 sqrt(pi) / sqrt(192 pi^3) = (18 sqrt3 / (11 pi)) k^7 [p_b(0)/z_0] I,
+
+so `B_sign(k) = O(1/k)` explicitly (the universal `B_sign < 4587821/876544` of [Q] is beaten for `k > 0.31`) and
+`c(k) -> 66451/11128` with an explicit rate. At `k = 1/2, 1, 2` the enclosures of `J_hat`, `I_9 = (12 J_hat - T_1)/11`,
+`B_sign` and `c` satisfy these inequalities strictly (rule `K_BOUNDS`; the `J_hat` upper bound is within `0.7 %` at
+`k = 1` and `0.2 %` at `k = 2`). Asymptotic remark (formal series in `1/k^2` from the same substitution, exact
+coefficients, remainders not certified and not used): `J_hat/(2 sqrt(pi)) = 1 + 1/(18 k^2) + 13/(10368 k^4)
+- 35/(746496 k^6) + O(k^-8)`, `I_9/(2 sqrt(pi)) = 1 + 1/(24 k^2) + 1/(10368 k^4) + 0 . k^-6 + O(k^-8)`, hence
+`c(k)/(66451/11128) = 1 + 11/(72 k^2) + O(k^-4)`; the certified values give `(J_hat/(2 sqrt pi) - 1 - 1/(18k^2)) k^4 =
+0.00112, 0.00121, 0.00124` at `k = 1/2, 1, 2` against `13/10368 = 0.001254`.
 
 ## 4. Certified values
 
@@ -200,7 +231,7 @@ quadrature, different arithmetic) and does not consume its numbers except in thi
 the default), `RESULTS.json` (the script's stdout, byte-identical in `-B -S` and `-B -O -S`), `SOURCE_FILES.json`
 (manifest, the three `main` pins with blobs, the Math-#178 companion at head `48407d4`), workflow
 `.github/workflows/c6-tail-constant-certified.yml` (manifest and pin verification, both modes against `RESULTS.json`,
-the nine mutants under each mode in parallel, clean tree; triggered by changes to the packet, the workflow or any of the
+the ten mutants under each mode in parallel, clean tree; triggered by changes to the packet, the workflow or any of the
 three pinned sources). The workflow pins CPython 3.11.16; the pinned output is byte-identical under other CPython 3.x
 versions as well, since the only floating-point quantity it prints is rounded to 10 significant digits (everything else
 is `decimal`/`fractions` arithmetic).
