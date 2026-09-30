@@ -1,13 +1,19 @@
 {
   "schema": 1,
   "scientific_effect": "NONE",
-  "review_status": "NONAUTHOR_ANALYTIC_REVIEW_OPEN",
+  "review_status": "PARTIAL_NONAUTHOR_CORE_B_C_ACCEPTED_A_AND_GD_OPEN",
   "files": [
     {
       "path": "AUDIT_AND_REPAIR.md",
       "bytes": 3553,
       "sha256": "755a2405e7e7925d23adc8b1c7a3abce1fd73bad5fba80e7546618d19a6736ac",
       "git_blob": "23dadc6a314492bdf98bfcb84997b541e9656618"
+    },
+    {
+      "path": "GLOBAL_DERIVATIVE_WEIGHTED.md",
+      "bytes": 8813,
+      "sha256": "a445607be26cc2863682c404d702798a984fa2b8994ed0dc5b57fb9c4da153eb",
+      "git_blob": "3f63edb54ea5422cdc328cc54fb093c8a5d84be1"
     },
     {
       "path": "PLAN.md",
@@ -23,9 +29,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 3634,
-      "sha256": "a590bb605ee28431c3b582957e30d3db3d471c6598009eb3479842760a56bb7c",
-      "git_blob": "04b5d9ca546a02c5b5a306d968ad4d4fabf03577"
+      "bytes": 4381,
+      "sha256": "b725b359ece249e896f217908f1d4e4404e32405e0ec7140090f25990fba24b4",
+      "git_blob": "8d4e973b8710ff52adaa6ee15fcb90e5dbbaa0e8"
     },
     {
       "path": "RECONNAISSANCE.md",
@@ -38,6 +44,12 @@
       "bytes": 338,
       "sha256": "f7ebe3d9a6767d967a8b0139de02b3d18e9081f36c9f85b847c6f3f01d6ce529",
       "git_blob": "7c564dacf616f1b6099c93e05daf564e5c36ec8f"
+    },
+    {
+      "path": "REVIEW_RECORD.md",
+      "bytes": 2867,
+      "sha256": "23bab167fb91d0b27b17e4ad788330684dad62a332bfdf56eeed121e66c0596f",
+      "git_blob": "332ee7491ad43d6a394c602016f1a9959a692356"
     },
     {
       "path": "SOURCES.json",
@@ -62,6 +74,12 @@
       "bytes": 6510,
       "sha256": "b094624c46756ab771465ce1eeb73c315e3f36e66e61ff8f116d0e07d88e1f46",
       "git_blob": "33fdbff05bbae19f9cb9700ba0d7b1ecea5e05c4"
+    },
+    {
+      "path": "test_derivative_weighted.py",
+      "bytes": 2922,
+      "sha256": "39c11a235a6186189d694794078fa9b29b26f1b530b7b79c423c8fff63b5211b",
+      "git_blob": "5389a7400feebae73dbaeeb96cd0f1940c3bab66"
     },
     {
       "path": "test_verify.py",
