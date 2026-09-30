@@ -4,16 +4,17 @@
   "scientific_effect": "NONE",
   "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
-  "reverified_at": "bb429d3 (Math- main after Math-#155, #156, #161, #158, #157 and #165; no inventoried path changed)",
+  "reverified_at": "ec6db8c (Math- main after Math-#151 merged 2026-09-30T00:56:58Z; no inventoried path changed; PROOF_INDEX.md, GRAPH.json and reviews/candidates_pending_20260928/CANDIDATES.md changed as quoted in RECONCILIATION.md section 1a; SELECTOR_REGION.json unchanged)",
   "revision": {
-    "version": "v1.6",
+    "version": "v1.7",
     "applies": [
       "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
       "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged",
       "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)",
       "v1.4: merge of Math- main aa28838 (Math-#158 merged); xAI 5901345590 recorded (ACCEPT as inventory, HOLD on execution); explicit execution_order",
       "v1.5: merge of Math- main bb429d3; Math-#166 (TWO_SCALE_LAW.md a32fd5f7, math head 7c82252) recorded as the third residual candidate, matching the residual's definition, conditional on #162, A under review",
-      "v1.6: xAI bounded discharge read 5901915195 recorded (agrees sections 1 and 4; HOLD execution until Math-#151 on main; residual node first; not the PALM sections 4-6 second-provider read)"
+      "v1.6: xAI bounded discharge read 5901915195 recorded (agrees sections 1 and 4; HOLD execution until Math-#151 on main; residual node first; not the PALM sections 4-6 second-provider read)",
+      "v1.7: re-verified at ec6db8c (Math-#151 merged); register surfaces re-quoted (section 1a); OBLIGATION check rebound to the current PROOF_INDEX/catalog text and the open node's reading rule; live D5 nodes bound to the D5 proposal's fingerprints; keep-open alternative recorded"
     ],
     "unchanged": "22-file inventory, status-row statement, historical predicates; one proposed node removed in favour of the live node"
   },
@@ -47,7 +48,7 @@
     }
   ],
   "presupposes": [
-    "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json executed (Math-#151): node math.d5-pin-neighborhood-first-moment and its 13 component nodes exist"
+    "reviews/d5_reconciliation_20260929/PROPOSED_TRANSITIONS.json executed by Math-#151, on main at ec6db8c: math.d5-pin-neighborhood-first-moment (PROVED_REVIEWED, aggregate) and its 13 component nodes are live; bound by TRANSITIONS"
   ],
   "status_rows": [
     {
@@ -850,7 +851,7 @@
       "relation": "regional_bypass_only"
     }
   ],
-  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH, SELECTOR_REGION, PROOF_INDEX, STATUS or catalog edit is made here. Every required evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. Supporting files are reached by non-required edges. The residual node is required by nothing. The supersession node changes no historical predicate. Execution is for a non-Claude lane, after Math-#151's planar fold, which defines math.d5-pin-neighborhood-first-moment and math.d5-component.offpin-second-moment-review (reused here rather than duplicated); the [LP] and remote_window bytes are referenced through the live nodes math.uniform-matrix-cap-lifetime and math.rn-fixed-remote-window.",
+  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH, SELECTOR_REGION, PROOF_INDEX, STATUS or catalog edit is made here. Every required evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. Supporting files are reached by non-required edges. The residual node is required by nothing. The supersession node changes no historical predicate. Execution is for a non-Claude lane. Math-#151's planar fold is on main (ec6db8c) and defines math.d5-pin-neighborhood-first-moment and math.d5-component.offpin-second-moment-review as live nodes (reused here rather than duplicated); the [LP] and remote_window bytes are referenced through the live nodes math.uniform-matrix-cap-lifetime and math.rn-fixed-remote-window (the latter now duplicated by the live math.d5-component.remote-window-proof; Math-#167 proposes the alignment).",
   "declarative": true,
   "executed": false,
   "live_nodes_reused": [
@@ -872,20 +873,76 @@
       "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
       "role": "supporting only",
       "note": "live classification AUTHOR_SIDE_CANDIDATE although the source was reviewed at main#76; the D5 proposal creates math.d5-component.remote-window-proof for the same bytes. This record references the live node; collapsing the pair and repairing the classification is for the executing lane."
+    },
+    {
+      "id": "math.d5-pin-neighborhood-first-moment",
+      "live_since": "ec6db8c (Math-#151)",
+      "classification": "PROVED_REVIEWED",
+      "kind": "candidate (aggregate, no fingerprint)",
+      "source": "reviews/d5_reconciliation_20260929/RECONCILIATION.md",
+      "role": "required evidence of the witness node and of the aggregate (planar reading rule)"
+    },
+    {
+      "id": "math.d5-component.offpin-second-moment-review",
+      "live_since": "ec6db8c (Math-#151)",
+      "classification": "PROVED_REVIEWED",
+      "fingerprint": "43beb4ef7da5bf71e15164d5c4bc1862db387d83f906aebdf9831625b1ca6369",
+      "source": "reviews/d5_offpin_second_moment_20260928/REVIEW.md",
+      "role": "supporting only; since ec6db8c also the live reading_rule of math.rn-region.witness-collision"
+    },
+    {
+      "id": "math.d5-component.remote-window-proof",
+      "live_since": "ec6db8c (Math-#151)",
+      "classification": "PROVED_REVIEWED",
+      "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "source": "frontiers/remote_window_20260924/PROOF.md",
+      "role": "not referenced; second live node for the math.rn-fixed-remote-window bytes (Math-#151 landed the D5 proposal as written); Math-#167 proposes the alignment of the older node"
     }
   ],
   "register_read": {
     "reviews/candidates_pending_20260928/CANDIDATES.md": {
-      "git_blob": "e3fc1a310c89ac9fd9249af26e28da509649ffd5",
-      "sha256": "3809e6147321df260085815b2d9e995094d63492534afa4ad1cd05b9a168ce4d",
-      "binding": "OBLIGATION check: C6 heading and the quoted open-task sentence present, or this record referenced; workflow re-runs on change"
+      "git_blob": "02455f0561d51990e1486e5d4fbb4229c8a34f5a",
+      "sha256": "cbaa71b55190ac234b8363614b7e57387f60c33b393ea102408eb88ec1e44513",
+      "at": "ec6db8c (rewritten by Math-#151; section 1a)",
+      "previous": {
+        "git_blob": "e3fc1a310c89ac9fd9249af26e28da509649ffd5",
+        "sha256": "3809e6147321df260085815b2d9e995094d63492534afa4ad1cd05b9a168ce4d",
+        "through": "bb429d3"
+      },
+      "binding": "OBLIGATION check: the section 1 C6 heading with its open-task sentence, or the section 1a heading with the node named OPEN_ACTIVE, or this record referenced; workflow re-runs on change"
+    },
+    "PROOF_INDEX.md": {
+      "git_blob": "030447a1130b52a09230e21c039409f87ef2ba32",
+      "sha256": "a1259b8bff4d73d97ee0835ea5c82568d4fac39fae352f5a3a2422c6bf0f8a0c",
+      "at": "ec6db8c (rewritten by Math-#151; section 1a)",
+      "previous": {
+        "git_blob": "dc7cea1568cd5562594bce6fae27d1422515253f",
+        "through": "bb429d3"
+      },
+      "binding": "OBLIGATION check: the section 1 sentence, or the section 1a sentence, or this record referenced; workflow re-runs on change"
+    },
+    "frontiers/downstream_gate_20260925/GRAPH.json": {
+      "git_blob": "220b56867f24c5ef6f55a3cce70490e9777cf3af",
+      "sha256": "8822e9618678321a342d69cd0b8ae6552de1b5d578c331de5072b2892ee9dd09",
+      "at": "ec6db8c (Math-#151 fold: 14 nodes and 30 edges added; witness node gains scope, review_source, review_disposition OPEN, reading_rule and notes; classification and fingerprint unchanged)",
+      "previous": {
+        "git_blob": "fa6ba930fac75e22079fb3b9f13e302a57d5f819",
+        "through": "bb429d3"
+      },
+      "binding": "OBLIGATION, TRANSITIONS and SELECTOR checks; workflow re-runs on change"
+    },
+    "frontiers/downstream_gate_20260925/SELECTOR_REGION.json": {
+      "git_blob": "ebffdb0969c7d3484f8fd1f4352ea290346f0318",
+      "sha256": "53fa0ec88e417882eff2a40e4b575c639d43b7e8787e7fb8917aa22ace79390d",
+      "at": "unchanged through ec6db8c",
+      "binding": "OBLIGATION and SELECTOR checks; workflow re-runs on change"
     }
   },
   "execution_order": [
     "1. create math.rn-region.witness-collision.leading-mass-localization (OPEN_ACTIVE, required by nothing)",
     "2. create regional.shrinking-regions.analytic-route (SUPERSEDED_NONBLOCKING) with its three regional_bypass_only edges; selector cells per selector_region_proposal or the node-only alternative",
     "3. create the component nodes and the required/supporting edges; reference the live nodes listed in live_nodes_reused",
-    "4. only after Math-#151's fold is on main and the xAI bounded read of PALM sections 4-6 is on file: move math.rn-region.witness-collision to PROVED_REVIEWED and update STATUS/PROOF_INDEX/catalog rows",
+    "4. Math-#151's fold is on main (ec6db8c). Remaining precondition for this step: the xAI bounded read of PALM sections 4-6 (per xAI 5901915195) or an explicit integrator decision that OpenAI 5358116559 plus the section 1 reading suffices; then move math.rn-region.witness-collision to PROVED_REVIEWED and update STATUS/PROOF_INDEX/catalog rows. Register-equivalent alternative (section 1a): keep the node OPEN_ACTIVE, give it the residual's definition and fingerprint, record the discharge on the aggregate node, and do not create the residual node separately",
     "executing lane: non-Claude; this record executes nothing"
   ]
 }

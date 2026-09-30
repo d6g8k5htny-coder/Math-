@@ -192,16 +192,23 @@ def check_obligation(root):
         return False
     if node.get("classification") == "OPEN_ACTIVE":
         ok = node.get("fingerprint") == "eta->0 mutual witness separation"
+        # since ec6db8c (Math-#151) the open node carries a review disposition and a reading rule
+        ok &= node.get("review_disposition") in (None, "OPEN")
+        ok &= all(graph["nodes"].get(x, {}).get("classification") == "PROVED_REVIEWED" for x in node.get("reading_rule", []))
     else:
         ok = node.get("classification") == "PROVED_REVIEWED"
     sel = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
     ok &= "witness-collision" in sel.get("regions", [])
     index = (root / "PROOF_INDEX.md").read_text(encoding="utf-8")
-    ok &= ("NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate." in index
+    ok &= ("NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate." in index      # through bb429d3
+           or "**NO COMPLETE REGIONAL PROOF YET:** `math.rn-region.witness-collision` remains `OPEN_ACTIVE`" in index  # ec6db8c
            or HERE in index)
     catalog = (root / CATALOG).read_text(encoding="utf-8")
-    ok &= ("## C6. Torus-wide second factorial moment" in catalog
-           and "a valid full-window factorial upper" in catalog) or HERE in catalog
+    ok &= (("## C6. Torus-wide second factorial moment" in catalog                                              # through bb429d3
+            and "a valid full-window factorial upper" in catalog)
+           or ("## C6. Torus-wide factorial moments: reviewed global order; regional mechanism open" in catalog  # ec6db8c
+               and "`math.rn-region.witness-collision` remains `OPEN_ACTIVE`" in catalog)
+           or HERE in catalog)
     return ok
 
 
@@ -287,7 +294,12 @@ def check_transitions(root):
     for n in d5["proposed_graph_nodes"]:
         evidence.setdefault(n["id"], n)
     by_source = {}
-    for nid, n in evidence.items():                             # live nodes first, then this record's, then D5's
+    for r in spec["live_nodes_reused"]:                         # the live nodes this record names come first
+        n = live.get(r["id"])
+        ok &= isinstance(n, dict) and (not r.get("fingerprint") or n.get("fingerprint") == r["fingerprint"])
+        if isinstance(n, dict) and r.get("fingerprint") and n.get("source") in INVENTORY:
+            by_source.setdefault(n["source"], r["id"])
+    for nid, n in evidence.items():                             # then other live nodes, this record's, then D5's
         if "fingerprint" in n and n.get("source") in INVENTORY:
             by_source.setdefault(n["source"], nid)
     # a source must not be proposed twice (one node per byte identity across the two records)
@@ -334,6 +346,17 @@ def check_transitions(root):
     ok &= D5_AGGREGATE in d5_nodes and "math.d5-component.offpin-second-moment-review" in d5_nodes
     ok &= (WITNESS, D5_AGGREGATE) in have_req and (AGGREGATE, D5_AGGREGATE) in have_req
     ok &= (WITNESS, LIVE_LP) in have_req and (AGGREGATE, LIVE_LP) in have_req
+    # since ec6db8c (Math-#151) the reused D5 nodes are live: bound to the D5 proposal's classification and fingerprint
+    d5_by_id = {n["id"]: n for n in d5["proposed_graph_nodes"]}
+    for nid in (D5_AGGREGATE, "math.d5-component.offpin-second-moment-review"):
+        ln = live.get(nid, {})
+        ok &= ln.get("classification") == "PROVED_REVIEWED" == d5_by_id[nid].get("classification")
+        ok &= (ln.get("fingerprint") or None) == (d5_by_id[nid].get("fingerprint") or None)
+    # the D4 bytes are carried by two live nodes (the D5 proposal landed as written); they must agree byte for byte
+    dup = live.get("math.d5-component.remote-window-proof")
+    if isinstance(dup, dict):
+        ok &= dup.get("fingerprint") == live.get("math.rn-fixed-remote-window", {}).get("fingerprint") \
+            == INVENTORY["frontiers/remote_window_20260924/PROOF.md"][0]
     return bool(ok)
 
 

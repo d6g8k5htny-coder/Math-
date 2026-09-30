@@ -5,7 +5,8 @@
 **Read at:** Math- `main` `8e61fc4c055b56e526b5b3488104945e8e0e29cc` (29 September 2026); every inventoried byte
 re-verified identical at the record's base `7a1cb09` (the merges of Math-#155 and Math-#156 in between touch no
 inventoried path); re-verified again at `5c484bf` (Math-#161 merged), at `aa28838` (Math-#158 merged) and at
-`bb429d3` (Math-#157 and #165 merged); no inventoried path changed at any of them.
+`bb429d3` (Math-#157 and #165 merged); no inventoried path changed at any of them. Re-verified at `ec6db8c` (Math-#151
+merged, 30 September 00:56Z): no inventoried path changed; three register surfaces did (§1a).
 **Revision:** v1.1 applies the scope corrections and the residual wording of OpenAI nonauthor review 5359701805
 (at `6a0e3b9`) and pickup 5900929519; v1.2 merges Math- main `5c484bf` and updates the §5/§9 status of the
 candidates after Math-#161 merged; v1.3 answers Codex review 5359693191 (the [LP] evidence reuses the live node
@@ -14,7 +15,9 @@ catalog is bound by the `OBLIGATION` check and the workflow paths; the residual 
 3, the §4 statement and the 22-file inventory are unchanged; v1.3 removes one proposed node in favour of a live one.
 v1.4 merges main `aa28838`, records xAI 5901345590 (ACCEPT as inventory; HOLD on execution until Math-#151 lands) and
 makes the execution order explicit in §7. v1.5 merges main `bb429d3` and records Math-#166 as the third candidate
-for the §5 residual, the one whose statement matches the residual's definition. v1.6 records xAI 5901915195.
+for the §5 residual, the one whose statement matches the residual's definition. v1.6 records xAI 5901915195. v1.7 re-verifies at `ec6db8c`,
+quotes the register as Math-#151 rewrote it (§1a), rebinds the `OBLIGATION` check to the current text, lists the D5 nodes
+now live, and records that Math-#151 took the keep-open alternative without defining the regional mechanism.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the
@@ -99,6 +102,44 @@ witness pairs with a member at shrinking distance from a pin. The fixed-`η` res
 only when both witnesses stay in a fixed remote region; nothing covered (b). No source defines the node as a regional
 decomposition of the leading-order mass, as a Palm or conditional statement, or as anything other than the count
 estimate above. §5 returns to that point.
+
+### 1a. The register at `ec6db8c` (after Math-#151)
+
+Math-#151 merged at `ec6db8c` on 30 September (00:56Z) and rewrote three of the surfaces quoted above. The quotes in
+§1 remain the obligation as the register recorded it when this record was opened and reviewed (OpenAI 5359701805,
+xAI 5901915195 read that text); the `OBLIGATION` check now binds either text, so the workflow fails on any third
+rewrite.
+
+1. **`PROOF_INDEX.md`** (blob `030447a1`), open-obligations section:
+   > D5 shrinking multiple-witness collision: fixed-separation machinery is `frontiers/remote_collision_20260928/PROOF.md`.
+   > The reviewed Fourier upper bound and the later merged sharp Palm route establish global count statements by routes
+   > that do not identify this regional shrinking-separation mechanism. **NO COMPLETE REGIONAL PROOF YET:**
+   > `math.rn-region.witness-collision` remains `OPEN_ACTIVE`; the global `Theta(r^3)` result is not a proof of that node.
+2. **`GRAPH.json`** (blob `220b5686`), node `math.rn-region.witness-collision`: still `OPEN_ACTIVE`, fingerprint
+   unchanged ("eta->0 mutual witness separation"); new fields `scope: "catalog C6"`,
+   `review_source: reviews/d5_reconciliation_20260929/RECONCILIATION.md`, `review_disposition: "OPEN"`,
+   `reading_rule: [math.d5-component.offpin-second-moment-review]` with a `required` edge to that component; notes:
+   > Off-pin fixed-separation second-moment evidence is reviewed and sharp global order is reviewed and merged through
+   > Math-#145, but the regional shrinking pin/witness-collision mechanism and its source-bound graph fold remain open.
+3. **Catalog C6** (`CANDIDATES.md`, blob `02455f05`), retitled "Torus-wide factorial moments: reviewed global order;
+   regional mechanism open": it records [PALM]'s `Θ(r³)` in every fixed `d ≥ 2` at its packet scope, then:
+   > They do not close the regional shrinking-witness mechanism: the planar graph node `math.rn-region.witness-collision`
+   > remains `OPEN_ACTIVE`. […] Open task: prove or refute the shrinking-separation witness-collision mechanism encoded by
+   > the open graph node, without inferring it from the global Palm bound.
+
+**Reading.** The count sentence of §1 ("shrinking-separation factorial-moment/collision estimate") is no longer in the
+register: Math-#151 replaced it by a "regional shrinking pin/witness-collision mechanism" that no surface defines, i.e.
+it took the alternative anticipated in §5 (keep the old node open) but under a new, undefined meaning and the old
+fingerprint. Three consequences for the executing lane. (i) The count obligation, as the register recorded it through
+`bb429d3` and as OpenAI 5359701805 and xAI 5901915195 read it, is discharged at the §4 scope; nothing in the new text
+disputes that: "the global `Theta(r^3)` result is not a proof of that node" is a statement about the node's new
+meaning, not about the count. (ii) The only definition on file for the new meaning is §5's residual, the scale-`r`
+localization with the mixed count `M(R, s_0)` as its open piece; the new open task ("without inferring it from the
+global Palm bound") is consistent with it and supplies no other. (iii) The proposal of §7 therefore stands, and its two
+executions are register-equivalent: create the residual node and move the old node, or keep the old node open and give
+it the residual's definition and fingerprint. Either way the reading rule now live on the old node
+(`math.d5-component.offpin-second-moment-review`) is preserved; this record already lists that component as supporting
+evidence of the old node and of the aggregate.
 
 ## 2. What is now proved and reviewed
 
@@ -207,8 +248,8 @@ count, torus-wide, pin neighbourhoods included — is discharged by [PALM] Theor
 - **Elder selection:** separate (D1; `frontiers/elder_lower_all_d_20260929/` for the every-`d` lower bound).
 - **Historical numerical certificates** (RN annulus partition, 24-jet / OBL-H5-JETMOD): not discharged and not
   claimed; see §6 for what the analytic route does to their *blocking role*.
-- **The residual that the phrase "regional shrinking-witness mechanism" could legitimately mean.** Math-#151's draft
-  catalog and proof-index text keep `math.rn-region.witness-collision` open on the ground that "the global `Θ(r³)`
+- **The residual that the phrase "regional shrinking-witness mechanism" could legitimately mean.** Math-#151's catalog
+  and proof-index text (merged at `ec6db8c`; quoted in §1a) keep `math.rn-region.witness-collision` open on the ground that "the global `Θ(r³)`
   result is not a proof of that node". §1 shows the node was never defined as anything but the count estimate. If the
   integrating lanes nevertheless want the register to keep a *regional* question, it should be a new node with a
   definition, not the old node under a new meaning. The one genuinely open regional statement is the
@@ -278,24 +319,29 @@ item 3).
 
 ## 7. Proposed register transitions (for a non-Claude lane)
 
-| Surface | Current (`8e61fc4`) | Proposed |
+| Surface | Current (`8e61fc4`; `ec6db8c` where Math-#151 changed it) | Proposed |
 |---|---|---|
 | main `STATUS.md` C6 row | "C6 — Fourier count tail and planar factorial upper bound", `E N(N−1) ≤ C r³ log(1/r)` in `d = 2` | **"C6 — torus-wide factorial moments (witness collision): `Θ(r³)`"** with the §4 statement and scope; keep the Fourier row's count-tail sentence as a component; independence caveat of §0 in the notes column |
-| `PROOF_INDEX.md` line 45 | "NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate" | move to the reviewed section, citing [PALM] with reviews 5356233690/5358116559, [EDL] (A4), [DL], and this record; keep a separate open bullet for the §5 residual and for numerical constants |
-| `reviews/candidates_pending_20260928/CANDIDATES.md` C6 | Math-#151's draft keeps "regional mechanism open" | "Resolved at existential scope: optimal order `r³` in every fixed `d ≥ 2` (upper: Palm route; lower: (A4)). Open: numerical constants; leading-mass localization (§5); a unique limiting cluster law." |
-| `GRAPH.json` `math.rn-region.witness-collision` | `OPEN_ACTIVE` (also in Math-#151) | `PROVED_REVIEWED` at the §4 scope, realized by the aggregate node `math.c6-witness-collision-factorial-moment`, one component node per required file with `fingerprint` = SHA256 and `source` = path, and `required: true` edges from the region node and the aggregate to each; the [LP] evidence is the live reconciled node `math.uniform-matrix-cap-lifetime` (same SHA256, four required reading-rule edges), not a new node; plus a required edge to the planar reading-rule node `math.d5-pin-neighborhood-first-moment` (created by Math-#151) |
+| `PROOF_INDEX.md` open-obligations bullet | at `8e61fc4`: "NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate"; at `ec6db8c`: "NO COMPLETE REGIONAL PROOF YET: `math.rn-region.witness-collision` remains `OPEN_ACTIVE`; the global `Theta(r^3)` result is not a proof of that node" (§1a) | move to the reviewed section, citing [PALM] with reviews 5356233690/5358116559, [EDL] (A4), [DL], and this record; keep a separate open bullet for the §5 residual and for numerical constants |
+| `reviews/candidates_pending_20260928/CANDIDATES.md` C6 | at `ec6db8c` (Math-#151): retitled "reviewed global order; regional mechanism open", open task "prove or refute the shrinking-separation witness-collision mechanism encoded by the open graph node" (§1a) | "Resolved at existential scope: optimal order `r³` in every fixed `d ≥ 2` (upper: Palm route; lower: (A4)). Open: numerical constants; leading-mass localization (§5); a unique limiting cluster law." |
+| `GRAPH.json` `math.rn-region.witness-collision` | `OPEN_ACTIVE` (kept by Math-#151 at `ec6db8c`, with `reading_rule` `[math.d5-component.offpin-second-moment-review]` and `review_disposition` `OPEN`; §1a) | `PROVED_REVIEWED` at the §4 scope, realized by the aggregate node `math.c6-witness-collision-factorial-moment`, one component node per required file with `fingerprint` = SHA256 and `source` = path, and `required: true` edges from the region node and the aggregate to each; the [LP] evidence is the live reconciled node `math.uniform-matrix-cap-lifetime` (same SHA256, four required reading-rule edges), not a new node; plus a required edge to the planar reading-rule node `math.d5-pin-neighborhood-first-moment` (created by Math-#151) |
 | `GRAPH.json` new node | — | `math.rn-region.witness-collision.leading-mass-localization`, `OPEN_ACTIVE`, required by nothing, defined as the scale-`r` localization of §5 with the mixed local/remote count as its open piece, with the §5 candidate note (Math-#161, Math-#159: not premises) |
 | `GRAPH.json` new node | — | `regional.shrinking-regions.analytic-route`, `SUPERSEDED_NONBLOCKING`, non-required `regional_bypass_only` edges to `hist.CH-LIFT`, `hist.Piece-2-annulus`, `hist.OBL-H5-JETMOD` (§6) |
 | `SELECTOR_REGION.json` | `Piece-2-annulus` / `CH-LIFT` `OPEN_ACTIVE`, `ENV-RESCOV` / `ALLCELL-FDZ-Q4` `OPEN_HISTORICAL` for the shrinking regions | all six cells resolved for `pin-collision`, `intermediate-r-to-rho`, `witness-collision` (§6: four `BYPASSED_BY_ANALYTIC_ROUTE`, `ALLCELL-FDZ-Q4` `NOT_REQUIRED`, `ENV-RESCOV` `REDERIVED_QUALITATIVELY`); the three region ids move to `covered_region_ids`; checked by `SELECTOR` |
 
-**Ordering.** These transitions presuppose Math-#151's execution of the planar D5 fold (its 14 nodes and 30 edges);
-the required edge to `math.d5-pin-neighborhood-first-moment` refers to that node. They can be executed in the same
-lane, after it, or folded into #151's restack if that lane prefers; either way the executing lane, not this record,
-decides. Within the execution the order is fixed (xAI 5901345590): first create the residual node
+**Ordering.** These transitions presupposed Math-#151's execution of the planar D5 fold; it is on main at `ec6db8c`
+(14 nodes, 30 edges), so the nodes this record reuses are live: `math.d5-pin-neighborhood-first-moment`
+(`PROVED_REVIEWED`, aggregate, no fingerprint), `math.d5-component.offpin-second-moment-review` (`PROVED_REVIEWED`,
+fingerprint `43beb4ef…`, now also the old node's live `reading_rule`) and `math.d5-component.remote-window-proof`
+(`PROVED_REVIEWED`, fingerprint `a332bae9…`, a second node for the `math.rn-fixed-remote-window` bytes; Math-#167
+proposes the alignment of the older node). The executing lane, not this record, decides. Within the execution the
+order is fixed (xAI 5901345590): first create the residual node
 `math.rn-region.witness-collision.leading-mass-localization` (`OPEN_ACTIVE`) and the supersession node, then the
 component nodes and edges, and only then move `math.rn-region.witness-collision` to `PROVED_REVIEWED`, so that the
 register never loses the localization question under a renamed meaning; the xAI bounded read of [PALM] §§4–6 asked
-for in §0 precedes that last step. Nothing here edits `GRAPH.json`, `PROOF_INDEX.md`, `STATUS.md` or the catalog (`"executed": false`, checked).
+for in §0 precedes that last step. The keep-open execution (§1a, point (iii)) performs the first three steps, records
+the discharge on the aggregate node and then, instead of moving the old node, gives it the residual's definition and
+fingerprint (the residual node is then not created separately); both executions leave the same question open. Nothing here edits `GRAPH.json`, `PROOF_INDEX.md`, `STATUS.md` or the catalog (`"executed": false`, checked).
 
 **Reverse-impact.** Every proposed component node carries the SHA256 of its source, so a later byte change to any of
 them invalidates the fold through the existing reader; `coverage_source` metadata is not used.
@@ -306,11 +352,13 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
 - **IDENTITIES.** All 22 inventoried files exist as regular files, with no symlink anywhere on their paths, and with
   the stated SHA256 and git blob.
 - **VERDICTS.** The exact verdict rows and statements quoted in §§1–2 are present as substrings.
-- **OBLIGATION.** The live graph still carries `math.rn-region.witness-collision` as a `region` node, either
-  `OPEN_ACTIVE` with the recorded fingerprint or already `PROVED_REVIEWED`; `SELECTOR_REGION.json` lists the region;
-  `PROOF_INDEX.md` carries either the line-45 obligation sentence or a reference to this record;
-  `reviews/candidates_pending_20260928/CANDIDATES.md` carries the C6 heading and the quoted open-task sentence, or a
-  reference to this record.
+- **OBLIGATION.** The live graph still carries `math.rn-region.witness-collision` as an `OPEN_ACTIVE` region with the
+  fingerprint quoted in §1 (or as `PROVED_REVIEWED` after execution); while open, its `review_disposition`, if any, is
+  `OPEN` and every `reading_rule` component is live `PROVED_REVIEWED`; the selector still lists the region;
+  `PROOF_INDEX.md` carries the §1 sentence, or the §1a sentence ("NO COMPLETE REGIONAL PROOF YET" with the node named
+  `OPEN_ACTIVE`), or a reference to this record; the catalog carries the §1 C6 heading with its open-task sentence, or
+  the §1a heading with the node named `OPEN_ACTIVE`, or a reference to this record. Any other rewrite of those surfaces
+  fails the check, and the workflow re-runs on their change.
 - **NEGATIVES.** Real filesystem faults on a temporary copy of the inventory: delete [PALM]'s proof, change one byte
   of it (all quoted statements kept), replace it by a symlink to identical bytes, replace its directory by a symlink.
   Each is rejected.
@@ -318,7 +366,7 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
   a proposed node with matching fingerprint and source, reached by a required edge from each consuming node; the
   supporting files are reached by non-required edges; the residual node is `OPEN_ACTIVE` with no required edges; the
   supersession node has exactly the three `regional_bypass_only` edges and no historical predicate changes class; the
-  cross-record node is one the D5 proposal defines; a source already carried by a live fingerprinted node ([LP],
+  cross-record node is one the D5 proposal defines and, since `ec6db8c`, live with that proposal's fingerprint; a source already carried by a live fingerprinted node ([LP],
   `math.uniform-matrix-cap-lifetime`) is referenced through that node, with equal SHA256 and its four required
   reading-rule edges present, and no proposed node duplicates a live source; every proposed node passes the hard
   gate's shape rules; `declarative` is true and `executed` is false.
@@ -337,22 +385,23 @@ Ten mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerpri
 
 ## 9. Relation to other lanes
 
-- **Math-#151 (Codex; head `64a170f`; xAI wording hold lifted at 5900436844):** executes the planar D5 fold and
-  keeps witness-collision open. This record does not conflict with its graph edits; it supersedes only its *catalog and proof-index wording* about C6, and only if the
-  integrating lane accepts §§1 and 4. If that lane prefers to keep the old node open, §5 asks that the reason be
-  written as the residual node's definition. One register point for that lane: the live graph already carries
-  `math.rn-fixed-remote-window` (fingerprint = the remote_window bytes, classification `AUTHOR_SIDE_CANDIDATE` despite
-  the main#76 review), and the D5 proposal creates `math.d5-component.remote-window-proof` for the same bytes; this
-  record references the live node (supporting edges only) and leaves the collapse of the pair, and the classification
-  repair, to the executing lane.
+- **Math-#151 (Codex; merged at `ec6db8c`, 30 September 00:56Z, final head `609e559`):** executed the planar D5 fold
+  (14 nodes, 30 edges; the three planar first-moment regions to `PROVED_REVIEWED`) and kept witness-collision open under
+  the rewritten text quoted in §1a. This record does not conflict with its graph edits and now points at its live nodes;
+  it supersedes only the catalog and proof-index wording about C6, and only if the executing lane accepts §§1 and 4
+  (OpenAI 5359701805 and xAI 5901915195 do). The D4 duplicate (`math.d5-component.remote-window-proof` beside
+  `math.rn-fixed-remote-window`, same bytes) landed uncollapsed; Math-#167 (this session) proposes the alignment of the
+  older node, and this record keeps referencing the older live node with supporting edges only.
 - **Math-#155 (OpenAI, C7):** unrelated to the count; not consumed.
 - **Math-#161 (OpenAI, `e7f8929`, merged at `5c484bf`) and Math-#159 (Anthropic Claude, other session, `7188bfa`):**
   author-side candidates for the §5 residual; not premises, not inventoried, not consumed (§5, with their review
   status at `5c484bf`). Their appearance changes none of this record's status rows, nodes or edges; a planar
   sub-status of the residual would be a further transition by an executing lane, after its own fold.
 - **Math-#166 (OpenAI, two-scale cluster geometry, math head `7c82252`, open):** the consumer whose `TWO_SCALE_LAW.md`
-  states the §5 residual exactly, conditional on Math-#162; B and C accepted (other Claude session), A under review;
-  not consumed here; the residual closes by a successor record after both land.
+  states the §5 residual exactly, conditional on Math-#162; Slices A, B and C carry the other Claude session's verdicts
+  (5360227991, 5360178611, 5360216551; one provider); unmerged; not consumed here; the residual closes by a successor
+  record after both land.
 - **Math-#158 (OpenAI, planar cubic cluster law, `bfcc67dc`, merged at `aa28838`):** premise of Math-#161 §§6–7; this session
   reviewed its Slice C (5359814083); not consumed here.
-- **main#207:** the pickup for this record is comment 5900687550. The register execution stays with a non-Claude lane.
+- **main#207 (closed 30 September 00:57Z, after Math-#151 merged):** the pickup for this record is comment 5900687550
+  and the delivery 5900887059. The register execution stays with a non-Claude lane.
