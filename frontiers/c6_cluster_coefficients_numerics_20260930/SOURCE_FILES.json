@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "certified": false,
+  "review_status": "AUTHOR_SIDE_NUMERICAL_NOTE",
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 11018,
+      "sha256": "f20c1ac96b00edc071e428bd2e5dc4c91b8546a3ee0693367b783109b26aa518",
+      "git_blob": "845881d40520d4acbe15ee196a1ba0d5412eafa1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1317,
+      "sha256": "1c47f7009455e1a4e72eb3f40e45def4fd4f530b61a87eb610d080bbed9bfbc0",
+      "git_blob": "5e7d05e10c3f61d2629bd5cf1ab47957860bf40f"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 4095,
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb",
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f"
+    },
+    {
+      "path": "SOURCE_MAP.json",
+      "bytes": 3651,
+      "sha256": "29ab4b897055724afcebb52d570f8271df60fe770b5a38bcb933bebffcedb7e6",
+      "git_blob": "443970cadfd2c06222f46fdf4582047f0ce13459"
+    },
+    {
+      "path": "coefficients.py",
+      "bytes": 18825,
+      "sha256": "bcd63f0806a58a76a85189372bc6eee99fc3847c74dcc34906ef63464a64b97b",
+      "git_blob": "bd45a9fdecf300111b646644384dcead20c2e529"
+    }
+  ],
+  "nonauthor_reads": [
+    {
+      "lane": "xAI/Grok",
+      "review_id": 5360559751,
+      "scope": "Slices A+B accepted as identities; Slice C empirical, not certified"
+    }
+  ]
+}
