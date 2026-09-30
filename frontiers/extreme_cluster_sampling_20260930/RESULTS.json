@@ -1,0 +1,69 @@
+{
+  "constants": {
+    "companion_ratio_11th_moment_given_double": {
+      "lower": "0.028369119274289249",
+      "upper": "0.028369119274289250"
+    },
+    "double_cluster_given_extreme": {
+      "lower": "0.558034234065747870",
+      "upper": "0.558034234065747871"
+    },
+    "inner_double_shape_mass": {
+      "lower": "109.769950345687984746",
+      "upper": "109.769950345687984747"
+    },
+    "maximum_shape_mass": {
+      "lower": "6933.887192511454872396",
+      "upper": "6933.887192511454872397"
+    },
+    "maximum_to_point_tail_ratio": {
+      "lower": "0.984415773209943375",
+      "upper": "0.984415773209943376"
+    },
+    "mean_exceedance_count": {
+      "lower": "1.015830939745347846",
+      "upper": "1.015830939745347847"
+    },
+    "outer_double_shape_mass": {
+      "lower": "3869.346428571428571428",
+      "upper": "3869.346428571428571429"
+    },
+    "outer_height_mean": {
+      "lower": "0.819586988784918536",
+      "upper": "0.819586988784918537"
+    },
+    "outer_height_second_moment": {
+      "lower": "0.694438469047655310",
+      "upper": "0.694438469047655311"
+    },
+    "point_shape_mass": {
+      "lower": "7043.657142857142857142",
+      "upper": "7043.657142857142857143"
+    },
+    "two_exceedances_given_extreme": {
+      "lower": "0.015830939745347846",
+      "upper": "0.015830939745347847"
+    }
+  },
+  "inner_integrals": {
+    "0": [
+      "27066286003/223205220",
+      "-79298560/4782969"
+    ],
+    "1": [
+      "1259212131941593/15982386572880",
+      "-3186360320/387420489"
+    ],
+    "2": [
+      "72706616008642669/1315122095139840",
+      "-15686696960/3486784401"
+    ]
+  },
+  "log2_terms": 60,
+  "mathematical_acceptance": false,
+  "passed": true,
+  "rational_shape_cases": 893,
+  "scientific_effect": "NONE",
+  "scope": "exact finite identities and rational/logarithmic integrals only",
+  "tail_power": 11
+}
