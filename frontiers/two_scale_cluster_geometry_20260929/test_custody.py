@@ -3,6 +3,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -141,15 +142,20 @@ class CustodyTests(unittest.TestCase):
 
     def inventory_fixture(self):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
-        root=Path(temp.name);data=b'packet fixture\n'
+        root=Path(temp.name)
+        for path in Path(v.__file__).parent.iterdir():
+            if path.is_file():shutil.copyfile(path,root/path.name)
+        data=b'packet fixture\n'
         (root/'note.md').write_bytes(data)
         entry=self.fingerprint('note.md',data)
-        (root/'MANIFEST.json').write_text(json.dumps({'files':[entry]}))
+        entries=[self.fingerprint(p.name,p.read_bytes()) for p in sorted(root.iterdir())
+                 if p.name!='MANIFEST.json']
+        (root/'MANIFEST.json').write_text(json.dumps({'files':entries}))
         return root,entry
 
     def test_valid_packet(self):
         root,entry=self.inventory_fixture()
-        self.assertEqual(v.verify_inventory(root),1)
+        self.assertEqual(v.verify_inventory(root),len(list(root.iterdir()))-1)
 
     def test_changed_packet(self):
         root,entry=self.inventory_fixture();(root/'note.md').write_text('changed')
@@ -168,6 +174,114 @@ class CustodyTests(unittest.TestCase):
         root,entry=self.inventory_fixture();(root/'MANIFEST.json').unlink()
         (root/'MANIFEST.json').symlink_to(self.repo/'a.md')
         with self.assertRaises(ValueError):v.verify_inventory(root)
+
+
+class PacketReviewBindingTests(unittest.TestCase):
+    """Re-signing the inventory must not transfer an old review to new prose."""
+    def setUp(self):
+        temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
+        self.root=Path(temp.name)
+        for path in Path(v.__file__).parent.iterdir():
+            if path.is_file():shutil.copyfile(path,self.root/path.name)
+        self.resign()
+
+    def resign(self):
+        entries=[CustodyTests.fingerprint(p.name,p.read_bytes())
+                 for p in sorted(self.root.iterdir()) if p.name!='MANIFEST.json']
+        (self.root/'MANIFEST.json').write_text(json.dumps({'files':entries}))
+
+    def test_current_reviewed_packet(self):
+        self.assertEqual(v.verify_inventory(self.root),len(list(self.root.iterdir()))-1)
+
+    def test_resigned_manuscript_change(self):
+        for name in ('TWO_SCALE_LAW.md','RADIAL_TAIL.md'):
+            with self.subTest(path=name):
+                path=self.root/name;original=path.read_bytes()
+                path.write_bytes(original+b'\nUnreviewed replacement conclusion.\n')
+                self.resign()
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+                path.write_bytes(original)
+
+    def test_resigned_required_leaf_removal(self):
+        for name in ('TWO_SCALE_LAW.md','RADIAL_TAIL.md','SOURCES.json',
+                     'RESULTS.json','REVIEW_RECORD.md','REVIEW_RECORD.json',
+                     'geometry.py','verify.py','test_geometry.py','test_custody.py'):
+            with self.subTest(path=name):
+                path=self.root/name;original=path.read_bytes();path.unlink()
+                self.resign()
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+                path.write_bytes(original)
+
+    def test_resigned_source_declaration_change(self):
+        path=self.root/'SOURCES.json'
+        data=json.loads(path.read_text());data['sources'][0]['commit']='0'*40
+        path.write_text(json.dumps(data));self.resign()
+        with self.assertRaises(ValueError):v.verify_inventory(self.root)
+
+    def record(self):
+        return json.loads((self.root/'REVIEW_RECORD.json').read_text())
+
+    def write_record(self,record):
+        (self.root/'REVIEW_RECORD.json').write_text(json.dumps(record));self.resign()
+
+    def test_resigned_proof_and_review_coedit(self):
+        record=self.record()
+        for name in ('TWO_SCALE_LAW.md','RADIAL_TAIL.md'):
+            with self.subTest(path=name):
+                path=self.root/name;original=path.read_bytes()
+                path.write_bytes(original+b'\nUnreviewed replacement conclusion.\n')
+                changed=copy.deepcopy(record)
+                for i,proof in enumerate(changed['proofs']):
+                    if proof['path']==name:
+                        changed['proofs'][i]=CustodyTests.fingerprint(name,path.read_bytes())
+                self.write_record(changed)
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+                path.write_bytes(original)
+
+    def test_missing_duplicate_or_swapped_reviews(self):
+        original=self.record()
+        records=[]
+        missing=copy.deepcopy(original);missing['reviews'].pop();records.append(missing)
+        duplicate=copy.deepcopy(original);duplicate['reviews'][1]=duplicate['reviews'][0]
+        records.append(duplicate)
+        swapped=copy.deepcopy(original)
+        swapped['reviews'][0]['proof_path']='RADIAL_TAIL.md';records.append(swapped)
+        for record in records:
+            with self.subTest(reviews=record['reviews']):
+                self.write_record(record)
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+
+    def test_stale_commit_id_or_body_binding(self):
+        original=self.record()
+        for field,value in (('reviewed_commit','0'*40),('native_review_id',5360227992),
+                            ('body_sha256','0'*64),('body_bytes',7841),
+                            ('native_state','APPROVED')):
+            with self.subTest(field=field):
+                record=copy.deepcopy(original);record['reviews'][0][field]=value
+                self.write_record(record)
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+
+    def test_no_inferred_authentication_or_independence(self):
+        original=self.record()
+        for field in ('remote_review_authenticity_checked','mathematical_acceptance'):
+            with self.subTest(field=field):
+                record=copy.deepcopy(original);record[field]=True;self.write_record(record)
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+        record=copy.deepcopy(original);record['exposure']['organizational_independence_credit']=1
+        self.write_record(record)
+        with self.assertRaises(ValueError):v.verify_inventory(self.root)
+
+    def test_duplicate_json_or_wrong_identity_type(self):
+        original=self.record()
+        for value in (True,'17139',None):
+            with self.subTest(value=value):
+                record=copy.deepcopy(original);record['proofs'][0]['bytes']=value
+                self.write_record(record)
+                with self.assertRaises(ValueError):v.verify_inventory(self.root)
+        path=self.root/'REVIEW_RECORD.json'
+        path.write_text('{"schema":"forged","schema":"math166-scoped-review-binding-v1"}')
+        self.resign()
+        with self.assertRaises(ValueError):v.verify_inventory(self.root)
 
 
 if __name__=='__main__':unittest.main()

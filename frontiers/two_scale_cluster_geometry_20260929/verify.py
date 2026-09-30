@@ -12,6 +12,31 @@ import subprocess
 import sys
 
 SOURCE_IDS = frozenset(('SC','CUB','RM','C6','P','D5'))
+REQUIRED_PACKET_FILES = frozenset(('TWO_SCALE_LAW.md','RADIAL_TAIL.md','SOURCES.json',
+                                   'RESULTS.json','REVIEW_RECORD.md','REVIEW_RECORD.json',
+                                   'geometry.py','verify.py','test_geometry.py','test_custody.py'))
+# These anchors are deliberately outside the regenerable MANIFEST.json. Updating
+# mathematics requires a reviewed change to these anchors and the native-review
+# record; re-signing an inventory cannot transfer an old review to new bytes.
+ACCEPTED_FILES = (
+    {'path':'TWO_SCALE_LAW.md','bytes':17139,
+     'sha256':'e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769',
+     'git_blob':'a32fd5f7d941bbe1fe943df045b1e0fbec8d691c'},
+    {'path':'RADIAL_TAIL.md','bytes':12533,
+     'sha256':'250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973',
+     'git_blob':'0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4'},
+    {'path':'SOURCES.json','bytes':2923,
+     'sha256':'de09c2cf3c9082a09d168f451f78a1a60b150f9f55c0c6b9bfe94ac26652dfe0',
+     'git_blob':'59d11113e208965fefeaadd1bd5866585e77dc82'},
+)
+# Pins the entire local record, including actual A/B/C IDs, native COMMENTED
+# states, review-body hashes, proof mappings, conditional scopes and exposure.
+# This authenticates a frozen local record, not GitHub or the reviewer's identity.
+FROZEN_REVIEW_RECORD = {
+    'path':'REVIEW_RECORD.json','bytes':4226,
+    'sha256':'958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca',
+    'git_blob':'a4b0fb99c24e2edf41973ea2a5e5176584602855',
+}
 MUTANTS = ('omit-jet-factor-two','omit-z-reflection','power-ten','wrong-cusp',
            'height-reversed','wrong-window','wrong-k-power','half-root-jacobian')
 
@@ -92,12 +117,28 @@ def verify_sources(root):
     return len(entries)
 
 
+def verify_review_bindings(root):
+    record=read_json(root/'REVIEW_RECORD.json')
+    identity((root/'REVIEW_RECORD.json').read_bytes(),FROZEN_REVIEW_RECORD)
+    if (record['proofs']!=list(ACCEPTED_FILES[:2]) or
+            record['source_manifest']!=ACCEPTED_FILES[2]):
+        raise ValueError('review proof/source mapping mismatch')
+    for entry in ACCEPTED_FILES:
+        path=root/entry['path']
+        if path.is_symlink() or not path.is_file():
+            raise ValueError('regular reviewed source required: '+entry['path'])
+        identity(path.read_bytes(),entry)
+    return len(record['reviews'])
+
+
 def verify_inventory(root):
     entries=read_json(root/'MANIFEST.json')['files']
     if not isinstance(entries,list) or not entries:raise ValueError('empty packet inventory')
     names=[e['path'] for e in entries]
     if len(set(names))!=len(names) or 'MANIFEST.json' in names:
         raise ValueError('duplicate or self-referential packet inventory')
+    if not REQUIRED_PACKET_FILES.issubset(names):
+        raise ValueError('missing required proof or review packet leaf')
     if sorted(p.name for p in root.iterdir())!=sorted(names+['MANIFEST.json']):
         raise ValueError('packet inventory mismatch')
     for entry in entries:
@@ -106,6 +147,7 @@ def verify_inventory(root):
         if len(pure.parts)!=1 or path.is_symlink() or not path.is_file():
             raise ValueError('flat regular packet leaf required')
         identity(path.read_bytes(),entry)
+    verify_review_bindings(root)
     return len(entries)
 
 
@@ -131,6 +173,8 @@ def main():
     verify_inventory(root)
     print(json.dumps({'passed':True,'packet_leaves':count,'source_count':source_count,
                       'source_pins_checked':not args.local_only,'scientific_effect':'NONE',
+                      'review_bindings_checked':True,'review_count':3,
+                      'remote_review_authenticity_checked':False,
                       'mathematical_acceptance':False},sort_keys=True))
 
 
