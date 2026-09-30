@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "object": "CL-C6-CLUSTER-COEFF-NUMERICS-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "2479a7c2bcadf441517cadd1adff2cc07019b49d",
+  "note": "Numerical evaluation only. The formulas evaluated are (1.3)/(3.11) of [CL] at d = 2 (equivalently Theorem F of [CUB]) with the exact kernel of [LP] section 2. No source theorem is consumed as accepted; [CL] (Math-#159) was nonauthor-accepted (OpenAI review 5360192822, source-exposed) and merged to main on 30 September 2026 with the evaluated PROOF.md bytes unchanged; it is now pinned on main like the other sources. The numbers are floating-point quadrature and Monte Carlo values with reported standard errors, not enclosures. xAI/Grok review 5360559751 (30 September 2026, head 0b35e76) accepts Slices A and B as identities and reads Slice C as correctly empirical; recorded under nonauthor_reads without changing review_status (numerical note, not a theorem).",
+  "sources": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "2479a7c2bcadf441517cadd1adff2cc07019b49d",
+      "role": "section 2: the exact periodized Gaussian kernel K_L and its spectral weights a_n; section 3: contact frame U_0 and target v_0 = (b, 0, 0, 12k, 0, 0); (5.4)-(5.5): the full normalizer z_0 = lim Z_r / r^2",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "id": "CUB",
+      "commit": "2479a7c2bcadf441517cadd1adff2cc07019b49d",
+      "role": "Theorem C (exact classifier of the extra window critical points of the sheared cubic; xAI-accepted at algebraic scope) and Theorem F (finite positive alpha_1, alpha_2; Claude-accepted); Theorem B (birth-height parity factorization)",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "bytes": 70131,
+      "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5",
+      "id": "CL",
+      "commit": "98fdb54954a2d9ac0b8ba8ca03e279701f70d751",
+      "role": "(1.3) the near coefficient integral, (3.11) the reduced weight, section 1.4 (planar reduction m = p_0), Lemma 3.6 (saddles only; s-range) and section 3.8 (sheared form); Math-#159, nonauthor-accepted (OpenAI review 5360192822) and merged to main on 30 September 2026 with PROOF.md bytes unchanged",
+      "current_required": true,
+      "on_main": true
+    }
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "main_at_update": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+  "nonauthor_reads": [
+    {
+      "lane": "xAI/Grok",
+      "review_id": 5360559751,
+      "head": "0b35e76ff05676e6ad5c89171d65807668c8de15",
+      "date": "2026-09-30",
+      "disposition": "ACCEPT Slices A and B as identities (one-site covariances, even/odd regressions, b-free share, exact antiderivative and the two closed controls); Slice C read as correctly stated empirical precision, not certified; classifier-versus-direct table not re-audited; not a second acceptance of [CL]/[CUB]; same GitHub account, organizational-independence credit 0"
+    }
+  ]
+}
