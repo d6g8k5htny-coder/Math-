@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "object": "CL-C6-HARD-DIRECTION-FACTORIZATION-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70",
+  "note": "Exact reduction of the [SC] (17) near cluster measure in dimension d to the planar one for the unit Gaussian kernel (continuum). Consumes [SC] (8), (17), (20), [LP]'s Q_r / W_r / z0 interface, [CUB]'s classifier and [R] (R11)-(R13) at their stated scopes; multiplies Math-#168's floating planar values. No source theorem is revalidated or promoted; elder corollaries are conditional on unmerged #170/#175/#179/#181 and are quoted only.",
+  "review_status": "AUTHOR_SIDE_CANDIDATE",
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "nonauthor_reads": [],
+  "sources": [
+    {"id": "SC", "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md", "bytes": 25006, "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb", "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "section 2 (4), (7)-(9): spectral coordinates, c_m, h_0; section 5 (17): the near measure dM; section 6 (19)-(20): the coefficients a_1, a_2", "current_required": true, "on_main": true},
+    {"id": "LP", "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md", "bytes": 40261, "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7", "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "the model and kernel (section 2), the endpoint regression Q_r, the weight W_r = F_d(H_M) F_(d-1)(H_S), the full normalizer Z_r / r^2 -> z0 and the uniform C^q moment bounds used in Lemma 2", "current_required": true, "on_main": true},
+    {"id": "CUB", "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md", "bytes": 19889, "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0", "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "the exact classifier n(s, a, beta, c) in {0, 1, 2} and the planar contact structure (G6)-(G11)", "current_required": true, "on_main": true},
+    {"id": "R", "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md", "bytes": 12533, "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973", "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "(R10)-(R13): the root-resolved representation and C_* = (216/11) k^7 (c_m/z0) I J_cusp, reduced by the same factor", "current_required": true, "on_main": true},
+    {"id": "Q", "path": "frontiers/radial_rate_20260930/PROOF.md", "bytes": 15755, "sha256": "a3693664900e23e1e763d88a0b5609936a6f31d844cbe6f18c7d0379b94ba710", "git_blob": "65f24b1f9a7b80522a2ee059f5f6877c9f970f0d", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "(21): the aligned planar periodic odd variances, whose continuum limit (2, 2, 6) is Lemma 1(2) in d = 2", "current_required": true, "on_main": true},
+    {"id": "NUM", "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json", "bytes": 4095, "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb", "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f", "commit": "7ca3eb00534d0a0d6dad4895f019f86bc2b2bf70", "role": "Math-#168: the planar values alpha_1, alpha_2 (GH60, floating, not certified) and m_(2,b), z0^(2), multiplied by R_d(b) in section 5; read at run time by factorization.py", "current_required": true, "on_main": true}
+  ],
+  "companions_unmerged": [
+    {"id": "E", "pr": 169, "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md", "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a", "use": "shape constants I, J, D and the whole-cluster law: dimension-independent by Corollary 1; quoted only"},
+    {"id": "ELDER2", "pr": 170, "path": "frontiers/local_elder_geometry_20260930/PROOF.md", "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113", "use": "Theorem S: r^-3 (1 - p_r) -> alpha_1 + alpha_2 in d = 2 (Corollary 2, conditional)"},
+    {"id": "ELDERD", "pr": 175, "path": "frontiers/concave_fibre_elder_20260930/PROOF.md", "git_blob": "923d3236b5291a29bd162937f172190db84dcef5", "use": "Theorem F / M1 in d >= 3 (Corollary 2, conditional)"},
+    {"id": "ELD", "pr": 181, "path": "frontiers/elder_partner_extremes_20260930/PROOF.md", "git_blob": "91f88e392fb8aa947dac4fc81c2b45f783fa66cd", "use": "elder-selected laws (S \\ O2, E0, lifetime density): dimension-independent by Corollary 1, conditional; quoted only"},
+    {"id": "ELD179", "pr": 179, "path": "frontiers/elder_selected_extremes_20260930/PROOF.md", "git_blob": "1310dc11bae684a9889548d1e764e83381b39d57", "use": "shared elder-selected base (same statement as ELD sections 1-3); quoted only"}
+  ]
+}
