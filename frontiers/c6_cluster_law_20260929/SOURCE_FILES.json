@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "review_status": "NONAUTHOR_ACCEPTED",
+  "stacked_on": [
+    "LP, DL, C6, RM, RC, EDL, LM merged on main 7a1cb09 at the SOURCE_MAP identities",
+    "RCL (Math-#153) consumed for Corollary S only"
+  ],
+  "files": [
+    {
+      "path": "PROOF.md",
+      "bytes": 70131,
+      "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7560,
+      "sha256": "e4b35f2b0e919ba57ebfb121c403896a32782d58dd99d7ec6a3d6d9e5107c6ac",
+      "git_blob": "1166376f7b4d917b1bda3f9438adfd94d8831139"
+    },
+    {
+      "path": "RECONNAISSANCE.md",
+      "bytes": 6457,
+      "sha256": "de84ddcc0d3df3079e0e7b0cae9804c2a8ea268d9404871b7dd7c18e03464912",
+      "git_blob": "ca622d39d995b4ce483fc93cae7a1b8852004ebf"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 601,
+      "sha256": "26f0af06567ea8f33497bf64fbfff07f0e9154017c9a3e280c49100a9247a197",
+      "git_blob": "381831f0b98f1ee6e0f47555ffb4de7141391fba"
+    },
+    {
+      "path": "SOURCE_MAP.json",
+      "bytes": 12566,
+      "sha256": "0584c3808b633fceb3c308186b07d862eb4916053daf4e7bf1110592ec41f107",
+      "git_blob": "ef51c582d0b1c874aabb01fce3b35c10631f7fc6"
+    },
+    {
+      "path": "cluster_law_check.py",
+      "bytes": 20299,
+      "sha256": "06dbfaaee703f9649f7a5f24cc5f5dc6a3bac9d9e88fc420348c00f069263e5f",
+      "git_blob": "91f485f529e09bebcd92f5a8f41d87bf01efc6d6"
+    }
+  ],
+  "review_record": "OpenAI review 5360192822 at f7c3395 (PROOF blob ba492c8e); source-exposed, zero organizational independence; see SOURCE_MAP.json nonauthor_acceptance_record"
+}
