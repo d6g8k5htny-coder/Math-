@@ -1,0 +1,198 @@
+{
+  "c28": {
+    "PROOF.md": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation28/payload/proof/PROOF.md",
+      "bytes": 13952,
+      "sha256": "3c69e20a332457211b8b1182a4819ce9b1dda824801f3a90157751f41b8fedf8",
+      "git_blob": "d5ee8abee120a8bec2f6c470e517ff9db4645183"
+    },
+    "SOURCES.json": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation28/payload/proof/SOURCES.json",
+      "bytes": 5148,
+      "sha256": "45d36269416ba0033edf184a540c32b3007e91fb2031ab8b77ae89eb1942db2e",
+      "git_blob": "46a791e3313df1954a332db2da7d3489d29bc48c"
+    },
+    "check_exact.py": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation28/payload/proof/check_exact.py",
+      "bytes": 4445,
+      "sha256": "2d8b4a2cc61908412574734c0266e5b568c32a653d19eb70edd1c0e46a3c8cab",
+      "git_blob": "a15e2b4df65966769f7cd347453e4e660ae12da5"
+    },
+    "observed_control_replay": {
+      "good_quartic_cases": 54,
+      "normalization_exponent_cases": 12,
+      "outside_hypothesis_axial_negative_controls": 18,
+      "proof_sha256": "3c69e20a332457211b8b1182a4819ce9b1dda824801f3a90157751f41b8fedf8",
+      "runner_sha256": "2d8b4a2cc61908412574734c0266e5b568c32a653d19eb70edd1c0e46a3c8cab",
+      "scope": "Exact finite algebra controls, hypothesis-sensitive negative fixtures, normalization exponents, and source identities only; no Gaussian simulation, infinite-dimensional proof certification, or scientific acceptance.",
+      "source_identity_checks": [
+        {
+          "bytes": 40261,
+          "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+          "id": "P",
+          "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+        },
+        {
+          "bytes": 1782,
+          "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+          "id": "ERR",
+          "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+        },
+        {
+          "bytes": 9062,
+          "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+          "id": "BOREL",
+          "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+        },
+        {
+          "bytes": 23312,
+          "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+          "id": "REC",
+          "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da"
+        },
+        {
+          "bytes": 23416,
+          "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+          "id": "MARK_D",
+          "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e"
+        },
+        {
+          "bytes": 39722,
+          "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+          "id": "MARK_2",
+          "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b"
+        },
+        {
+          "bytes": 15160,
+          "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+          "id": "CAP",
+          "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+        }
+      ],
+      "sources_sha256": "45d36269416ba0033edf184a540c32b3007e91fb2031ab8b77ae89eb1942db2e",
+      "status": "PASS"
+    }
+  },
+  "c27": {
+    "MOMENT_CONSEQUENCE.md": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/coordination/math-advance-20260930/pr176/MOMENT_CONSEQUENCE.md",
+      "bytes": 11110,
+      "sha256": "29bba56b56fd3223a2ea71d012f9abe04eb30240bc5bbfe8f5b131e0bba6f4dd",
+      "git_blob": "fb3bef3a9a46cc0135a88bae6c26e1bade4e7384"
+    },
+    "COROLLARY_CUSTODY.json": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/coordination/math-advance-20260930/pr176/COROLLARY_CUSTODY.json",
+      "bytes": 3536,
+      "sha256": "b532794b61e6ffd5539ce9f7dc5509b44d04d2c238a14f33e214c8e387532a64",
+      "git_blob": "f957db01bba3dc8ca73120ded1557d1d81c27259"
+    },
+    "moment_consequence_checks.py": {
+      "path": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/coordination/math-advance-20260930/pr176/moment_consequence_checks.py",
+      "bytes": 8259,
+      "sha256": "0c35140179e0345eb03764bf29c3c81453ea278ce1a6319ab33edf6a548e03e6",
+      "git_blob": "95275971632ea61c3d2cd06e2f73f0836c1d7b83"
+    },
+    "observed_control_replay": {
+      "all_order_controls": "normalized finite Pareto mixtures",
+      "exact_rational_powers": [
+        "-100",
+        "-7",
+        "-1",
+        "-1/2",
+        "0",
+        "1/2",
+        "1",
+        "2",
+        "10",
+        "109/10",
+        "10999/1000"
+      ],
+      "log_correction": "-2/143",
+      "log_leading": "1/11",
+      "moment_rows": [
+        {
+          "coefficient_of_c_t_minus_2": "200/12543",
+          "leading": "11/111",
+          "p": "-100"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "7/180",
+          "leading": "11/18",
+          "p": "-7"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "1/84",
+          "leading": "11/12",
+          "p": "-1"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "4/621",
+          "leading": "22/23",
+          "p": "-1/2"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "0",
+          "leading": "1",
+          "p": "0"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-4/525",
+          "leading": "22/21",
+          "p": "1/2"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-1/60",
+          "leading": "11/10",
+          "p": "1"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-4/99",
+          "leading": "11/9",
+          "p": "2"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-20/3",
+          "leading": "11",
+          "p": "10"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-2180/21",
+          "leading": "110",
+          "p": "109/10"
+        },
+        {
+          "coefficient_of_c_t_minus_2": "-21998000/2001",
+          "leading": "11000",
+          "p": "10999/1000"
+        }
+      ],
+      "quantile_controls": "exact rational brackets for Pareto mixtures",
+      "scientific_effect": "NONE",
+      "scope": "PR176 equation17 conditional moment consequence only",
+      "tests": 11
+    },
+    "observed_control_log": "test_actual_probability_mixture_has_claimed_moment_remainder_bound (__main__.MomentConsequenceTests) ... ok\ntest_all_order_finite_tail_matches_direct_pareto_mixture (__main__.MomentConsequenceTests) ... ok\ntest_all_order_log_powers_and_normalization (__main__.MomentConsequenceTests) ... ok\ntest_direct_log_tail_integral (__main__.MomentConsequenceTests) ... ok\ntest_hand_checked_special_cases (__main__.MomentConsequenceTests) ... ok\ntest_offered_rational_coefficient_factors (__main__.MomentConsequenceTests) ... ok\ntest_quantile_expansion_brackets_an_actual_conditional_law_exactly (__main__.MomentConsequenceTests) ... ok\ntest_tail_and_density_derivations_agree_for_negative_zero_positive_p (__main__.MomentConsequenceTests) ... ok\ntest_threshold_and_above_diverge (__main__.MomentConsequenceTests) ... ok\ntest_uniform_in_p_remainder_overclaim_has_exact_counterexample (__main__.MomentConsequenceTests) ... ok\ntest_wrong_normalizer_sign_and_missing_p_are_detected (__main__.MomentConsequenceTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.004s\n\nOK\n"
+  },
+  "checks": [
+    "C28 source P size+SHA256+blob",
+    "C28 source ERR size+SHA256+blob",
+    "C28 source BOREL size+SHA256+blob",
+    "C28 source REC size+SHA256+blob",
+    "C28 source MARK_D size+SHA256+blob",
+    "C28 source MARK_2 size+SHA256+blob",
+    "C28 source CAP size+SHA256+blob",
+    "C27 artifact MOMENT_CONSEQUENCE.md size+SHA256",
+    "C27 artifact moment_consequence_checks.py size+SHA256",
+    "C27 artifact moment-checks-normal.json size+SHA256",
+    "C27 artifact moment-checks-normal.log size+SHA256",
+    "C27 artifact moment-checks-optimized.json size+SHA256",
+    "C27 artifact moment-checks-optimized.log size+SHA256",
+    "C27 artifact AUTHOR_COMMENT_5907459466.json size+SHA256",
+    "C27 artifact AUTHOR_COMMENT_5903080058.json size+SHA256",
+    "C27 artifact SOURCES.json size+SHA256",
+    "C27 source PR176 size+SHA256+blob",
+    "C27 source R size+SHA256+blob",
+    "C27 source SC size+SHA256+blob",
+    "C27 source P size+SHA256+blob"
+  ]
+}
