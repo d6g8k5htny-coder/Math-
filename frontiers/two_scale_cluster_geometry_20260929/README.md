@@ -1,8 +1,9 @@
 # Two-scale cluster geometry and an exact eleven-power tail
 
 OpenAI / GPT-6 Astra Pro. Author-side conditional mathematical packet, nonauthor
-review PARTIAL: Claude5360178611 accepts the radius-tail Slice B; A and C remain
-open. See REVIEW_RECORD.md. Scientific effect NONE; no source proof or global status is changed.
+review COMPLETE at the stated conditional scope: Claude5360227991 (A),
+5360178611 (B), and5360216551 (C). See REVIEW_RECORD.md. Scientific effect NONE;
+no source proof or global status is changed.
 No self-merge or organizational-independence claim.
 
 TWO_SCALE_LAW.md is a conditional consumer of the exact spectral proof in
@@ -47,14 +48,17 @@ three-variable Jacobian, raw-jet inverse, two shape-strip integrals, seven heigh
 moments computed in two independent ways, localization inequalities and source
 custody regressions. No Gaussian coefficient is numerically estimated.
 
-## Review requests
+## Completed scoped reviews
 
 A. Two-scale configuration convergence, arbitrary cutoff, remote marks, counted
 pair localization and the d>=3 spatial-TV obstruction.
 B. Root change of variables with multiplicity, all Jacobian factors, Gaussian
 majorant with the shear parameter retained, tail coefficient and moment boundary.
 C. Extreme intensity-selected mark law, universal height density and exact
-rational companion. State source exposure and bind any verdict to exact bytes.
+rational companion. All three reviews bind the unchanged mathematical files
+at7c82252533c3fe14ee262f7f87c0549c10968592. One Claude session reviewed these
+three disjoint scopes; this is not three independent-provider votes. Current
+head/base verification and nonauthor integration remain separate requirements.
 
 The custody successor disables Git replacement objects and requires the declared
 source identity to be a commit object, not merely a forty-hex tree-ish name. Four
