@@ -22,8 +22,8 @@ Inputs certified (from Math-#178 NOTE section 1-2 at head 48407d4, planar reduct
 The reductions are consumed at those records' stated scopes; this script certifies the arithmetic of the constants, not
 the theorems. Scientific effect: NONE.
 
-Eleven rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
-TB_EXACT, T2_IDENTITY, C_BOUNDS, K_BOUNDS; README section 2) and ten mutants must exit 1. The floating-point control enters the
+Twelve rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
+TB_EXACT, T2_IDENTITY, C_BOUNDS, K_BOUNDS, LIBRARY_EXACT; README section 2) and eleven mutants must exit 1. The floating-point control enters the
 pinned output only rounded to 10 significant digits, so the output is byte-identical across CPython versions. TB_EXACT and T2_IDENTITY are the exact
 identities of README section 3: G_0 = exp(-12 k^2 (gamma^6 - 1)), Tb(k) = (12 k^2 + 1)/(36 k^3), T2 = -T1/12, whence
 c = (66451/11128) T1/J_hat and B_sign = (4587821/876544) Tb/J_hat; C_BOUNDS is their consequence
@@ -35,12 +35,12 @@ import json
 import math
 import sys
 import time
-from decimal import Decimal, Context, ROUND_FLOOR, ROUND_CEILING, ROUND_HALF_EVEN
+from decimal import Decimal, Context, ROUND_FLOOR, ROUND_CEILING, ROUND_HALF_EVEN, setcontext
 from fractions import Fraction as Fr
 from math import comb, factorial
 
 MUTANTS = ("gamma-power", "cusp-shift", "prefactor", "pi-truncated", "log2-truncated", "tail-dropped", "tb-power", "t2-weight",
-           "t1t2-scale", "j-scale")
+           "t1t2-scale", "j-scale", "context-neg")
 MUT = None
 
 
@@ -68,6 +68,11 @@ PREC = 48
 CF = Context(prec=PREC, rounding=ROUND_FLOOR, Emin=-9999999, Emax=9999999)
 CC = Context(prec=PREC, rounding=ROUND_CEILING, Emin=-9999999, Emax=9999999)
 CE = Context(prec=PREC, rounding=ROUND_HALF_EVEN, Emin=-9999999, Emax=9999999)
+# Every arithmetic step names one of the three contexts.  Operator syntax on Decimals (unary minus, int * Decimal) rounds to
+# the thread's current context, whose default precision is 28 and would silently shorten a 48-digit endpoint (v1.2 negated
+# endpoints that way; repaired in v1.3).  The current context is widened as a safety net, negation is the exact copy_negate,
+# and rule LIBRARY_EXACT compares exp, sqrt and the negation against exact rational brackets.
+setcontext(Context(prec=2 * PREC + 20, rounding=ROUND_HALF_EVEN, Emin=-9999999, Emax=9999999))
 ZERO, ONE = Decimal(0), Decimal(1)
 KS = (Fr(1, 2), Fr(1), Fr(2))
 BS = (Fr(0), Fr(1))
@@ -118,7 +123,9 @@ class Iv:
     __radd__ = __add__
 
     def __neg__(a):
-        return Iv(-a.hi, -a.lo)
+        if MUT == "context-neg":                                   # v1.2 behaviour: rounds to the current context
+            return Iv(-a.hi, -a.lo)
+        return Iv(a.hi.copy_negate(), a.lo.copy_negate())          # exact
 
     def __sub__(a, b):
         b = Iv.of(b)
@@ -145,13 +152,13 @@ class Iv:
 
     def exp(a):
         lo, hi = CE.exp(a.lo), CE.exp(a.hi)
-        return Iv(max(ZERO, CF.subtract(lo, 2 * ulp(lo))), CC.add(hi, 2 * ulp(hi)))
+        return Iv(max(ZERO, CF.subtract(lo, CC.multiply(Decimal(2), ulp(lo)))), CC.add(hi, CC.multiply(Decimal(2), ulp(hi))))
 
     def sqrt(a):
         if a.lo < 0:
             raise ValueError("sqrt of an interval with negative part")
         lo, hi = CE.sqrt(a.lo), CE.sqrt(a.hi)
-        return Iv(max(ZERO, CF.subtract(lo, 2 * ulp(lo))), CC.add(hi, 2 * ulp(hi)))
+        return Iv(max(ZERO, CF.subtract(lo, CC.multiply(Decimal(2), ulp(lo)))), CC.add(hi, CC.multiply(Decimal(2), ulp(hi))))
 
     def width(a):
         return CC.subtract(a.hi, a.lo)
@@ -159,6 +166,9 @@ class Iv:
     def contains(a, x):
         x = Iv.of(x)
         return a.lo <= x.lo and x.hi <= a.hi
+
+    def intersects(a, b):
+        return a.lo <= b.hi and b.lo <= a.hi
 
     def mid_float(a):
         return float((a.lo + a.hi) / 2)
@@ -202,6 +212,31 @@ def erf_interval(x):
         sums.append(partial)
     S = Iv(Iv.frac(min(sums[-1], sums[-2])).lo, Iv.frac(max(sums[-1], sums[-2])).hi)
     return S * 2 / pi_interval().sqrt()
+
+
+def library_exact():
+    """exp and sqrt of the decimal module, and the interval negation, against exact rational brackets: e^-q by the rational
+    series of e^(-q/64) raised to the 64th power (alternating, bracketed by consecutive partial sums), sqrt by an integer root.
+    Catches an argument shortened to the default 28-digit context (mutant context-neg) at the 1e-28 level."""
+    ok = True
+    for q in (Fr(48) - Fr(51035039649098175696, 10 ** 29), Fr(3), Fr(1, 2), Fr(288), Fr(5, 7), Fr(1234567, 10 ** 6)):
+        g = -q / 64
+        parts, term, ssum = [], Fr(1), Fr(0)
+        for k in range(0, 60):
+            ssum += term
+            parts.append(ssum)
+            term = term * g / (k + 1)
+        lo, hi = min(parts[-1], parts[-2]), max(parts[-1], parts[-2])
+        exact = Iv(Iv.frac(lo ** 64).lo, Iv.frac(hi ** 64).hi)
+        X = Iv.frac(q)
+        got = (-X).exp()
+        ok &= got.intersects(exact) and CC.divide(got.width(), got.lo) < Decimal(10) ** (-PREC + 3)
+        m = 60
+        r = math.isqrt(q.numerator * q.denominator * 10 ** (2 * m))
+        root = Iv(Iv.frac(Fr(r, q.denominator * 10 ** m)).lo, Iv.frac(Fr(r + 1, q.denominator * 10 ** m)).hi)
+        ok &= X.sqrt().intersects(root) and CC.divide(X.sqrt().width(), root.lo) < Decimal(10) ** (-PREC + 3)
+        ok &= (-X).lo == X.hi.copy_negate() and (-X).hi == X.lo.copy_negate()
+    return ok
 
 
 # ---------------- Taylor arithmetic over intervals
@@ -379,6 +414,8 @@ def main():
     ap.add_argument("--K", type=int, default=12)
     args = ap.parse_args()
     MUT = args.mutant
+    if MUT == "context-neg":
+        setcontext(Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=-9999999, Emax=9999999))
     t0 = time.time()
     PI = pi_interval()
     LOG2 = log2_interval()
@@ -511,9 +548,10 @@ def main():
     ok_pi = ok_pinned and all(v.width() < Decimal("1e-40") for v in (PI, LOG2, ERF_HALF, KAPPA, D_INNER))
     checks = {"FLOAT_INSIDE": bool(ok_float), "NESTING": bool(ok_nest), "WIDTHS": bool(ok_width), "PINNED": bool(ok_pinned),
               "MONOTONE_IN_K": bool(ok_mono), "CONSTANTS_RIGOROUS": bool(ok_pi), "TB_EXACT": bool(ok_tb), "T2_IDENTITY": bool(ok_t2),
-              "TRUNCATION_NESTING": bool(ok_trunc), "C_BOUNDS": bool(ok_cb), "K_BOUNDS": bool(ok_kb)}
+              "TRUNCATION_NESTING": bool(ok_trunc), "C_BOUNDS": bool(ok_cb), "K_BOUNDS": bool(ok_kb),
+              "LIBRARY_EXACT": bool(library_exact())}
     out["checks"] = checks
-    out["passed"] = all(checks.values()) and len(checks) == 11
+    out["passed"] = all(checks.values()) and len(checks) == 12
     print("elapsed seconds %.1f" % (time.time() - t0), file=sys.stderr)      # timing stays out of the pinned output
     out["scope"] = ("rigorous enclosures of the one-dimensional cusp integrals and of the assembled constants; the planar "
                     "reductions and the exact shape integrals are consumed at their records' scopes; not a proof of any "

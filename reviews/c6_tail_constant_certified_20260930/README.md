@@ -60,7 +60,7 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   (`gamma^15 a^2/24`, `gamma^9 (1 + 12 A^2)`, `gamma^11`, `A gamma^10` are all below it for `a >= 1`, `k >= 1/2`), and
   `int_T^inf a^(2j) e^(-a^2/4) da <= (2/T) 4^j j! e^(-T^2/4) sum_(i <= j) (T^2/4)^i / i!`. The bound is `3.5e-18`,
   `1.9e-21`, `1.9e-23` at `k = 1/2, 1, 2` and is added (for `T_2`, whose integrand is negative, subtracted) before doubling.
-- **Rules (all eleven must hold; `passed` is `false` and the exit code `1` otherwise).**
+- **Rules (all twelve must hold; `passed` is `false` and the exit code `1` otherwise).**
   `FLOAT_INSIDE` an independent 96-point Gauss-Legendre value on `[0, 14]` lies within `1e-11` relative of every raw
   enclosure (the control is printed only to 10 significant digits, `float_reference_10sig`, so that the pinned output
   does not depend on the interpreter's floating-point library); `NESTING` a coarser enclosure (a quarter of the cells,
@@ -73,17 +73,23 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   `T2_IDENTITY` the two exact identities of section 3 hold as interval statements; `C_BOUNDS` the enclosure of `c(k)`
   lies strictly inside the universal interval `(66451/11128, 199353/2782)` of section 3 at every `k`; `K_BOUNDS` the
   enclosures of `J_hat(k)`, `I_9(k)`, `B_sign(k)` lie strictly inside the explicit all-`k` intervals of section 3
-  (Consequence 3) and `c(k)` below its explicit all-`k` upper bound.
+  (Consequence 3) and `c(k)` below its explicit all-`k` upper bound; `LIBRARY_EXACT` (v1.3) the decimal module's `exp`
+  and `sqrt`, and the interval negation, agree with exact rational brackets at six arguments (`e^-q` as `(e^(-q/64))^64`
+  from the rational series bracketed by consecutive partial sums, `sqrt q` from an integer square root; relative widths
+  below `1e-45`), which pins the two library primitives the enclosures rely on and detects an endpoint shortened to the
+  default 28-digit context.
 - **Mutants (each must exit `1`, in both interpreter modes).** `gamma-power` (`gamma^10` in place of `gamma^11`),
   `cusp-shift` (drops the `a^6` term of `G_0`), `prefactor` (`p_b(0)/z_0` scaled by `385/384`), `pi-truncated`,
   `log2-truncated`, `tail-dropped` (no tail bound; caught only by `TRUNCATION_NESTING`), `tb-power` (`gamma^8` in the `T_b`
   integrand on both evaluation paths; caught only by `TB_EXACT`), `t2-weight` (the `a^4` weight of `D_a G_0` scaled by
   `1001/1000` on both paths; caught only by `T2_IDENTITY`), `t1t2-scale` (the `T_1` and `T_2` integrands both halved on
   both paths, so `T_2 = -T_1/12` and the float control survive; caught only by `C_BOUNDS`), `j-scale` (the `J_hat`
-  integrand multiplied by `101/100` on both paths; caught by `K_BOUNDS` at every `k`, and by `PINNED`).
+  integrand multiplied by `101/100` on both paths; caught by `K_BOUNDS` at every `k`, and by `PINNED`), `context-neg`
+  (v1.3: the interval negation of v1.2, `Iv(-a.hi, -a.lo)`, together with the default 28-digit current context; caught
+  only by `LIBRARY_EXACT`).
 
 Runtime about `30 s` per run (standard library only, `python -B -S certify_tail_constants.py`); the workflow runs the
-script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the ten mutants
+script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the eleven mutants
 under each mode.
 
 ## 3. Three exact identities (elementary; not used in `NOTE.md` at `48407d4`, which evaluates `T_1`, `T_2`, `T_b` separately)
@@ -231,10 +237,24 @@ quadrature, different arithmetic) and does not consume its numbers except in thi
 the default), `RESULTS.json` (the script's stdout, byte-identical in `-B -S` and `-B -O -S`), `SOURCE_FILES.json`
 (manifest, the three `main` pins with blobs, the Math-#178 companion at head `48407d4`), workflow
 `.github/workflows/c6-tail-constant-certified.yml` (manifest and pin verification, both modes against `RESULTS.json`,
-the ten mutants under each mode in parallel, clean tree; triggered by changes to the packet, the workflow or any of the
-three pinned sources). The workflow pins CPython 3.11.16; the pinned output is byte-identical under other CPython 3.x
+the eleven mutants under each mode in parallel, clean tree; triggered by changes to the packet, the workflow or any of
+the three pinned sources). The workflow pins CPython 3.11.16; the pinned output is byte-identical under other CPython 3.x
 versions as well, since the only floating-point quantity it prints is rounded to 10 significant digits (everything else
 is `decimal`/`fractions` arithmetic).
 
     python -B -S reviews/c6_tail_constant_certified_20260930/certify_tail_constants.py | diff - reviews/c6_tail_constant_certified_20260930/RESULTS.json
     python -B -S reviews/c6_tail_constant_certified_20260930/certify_tail_constants.py --mutant tail-dropped; echo $?   # 1
+
+## 8. Revisions
+
+- **v1.3 (30 September 2026, rigor repair, values unchanged).** The interval class negated endpoints with the Decimal
+  unary minus, `Iv(-a.hi, -a.lo)`, which rounds its operand to the thread's *current* context (default precision 28), not
+  to the 48-digit contexts every other step names. In this script the operation is never applied to an endpoint longer
+  than 28 digits, and the repaired script reproduces every one of the 167 intervals of v1.2 byte for byte; the defect was
+  found in a sibling packet (`frontiers/c8_window_coefficient_planar_20260930`), where `exp(-x)` at a 60-digit `x` went
+  wrong beyond the 28th digit. Repair: negation is the exact `copy_negate`, the two-ulp widening of `exp` and `sqrt`
+  goes through the ceiling context, the current context is widened to `2 . 48 + 20` digits as a safety net, and rule
+  `LIBRARY_EXACT` with mutant `context-neg` (which reinstates the v1.2 negation and the 28-digit current context) are
+  added. Twelve rules, eleven mutants; `RESULTS.json` differs from v1.2 only by the new rule's entry.
+- v1.2: all-`k` bounds (section 3, Consequence 3), rule `K_BOUNDS`, mutant `j-scale`. v1.1: Codex findings (float
+  reference rounded to ten digits, `log 2` series length, trigger paths). v1.0: initial record.
