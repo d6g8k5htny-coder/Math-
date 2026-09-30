@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1",
+  "scientific_effect": "NONE",
+  "disposition": "PROPOSAL_FOR_A_NON_CLAUDE_LANE",
+  "declarative": true,
+  "executed": false,
+  "base": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+  "inventory_read_at": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
+  "files": [
+    {
+      "path": "PROPOSED_TRANSITIONS.json",
+      "bytes": 42904,
+      "sha256": "5698a436db08b4c8942a2df77a1d1bddf52261fffed61c9a323d7e9a8d285f18",
+      "git_blob": "8d70ee7494327e4363548d4a74f0906b30acb818"
+    },
+    {
+      "path": "RECONCILIATION.md",
+      "bytes": 41289,
+      "sha256": "96a0f0bf2700b64b933d08d3c81efbfa8388aa2094e5528a1a6bd627e69f902a",
+      "git_blob": "e488c0afed5c41c2872de0902f0e3d1c08e1b2ce"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 482,
+      "sha256": "8fee5c3e02f2d10de095217d98e7b8a7a7bd7725821a2a9ec9680018cf728a33",
+      "git_blob": "f68f83614484a6e9f9ae3f96502c88a954dce6ee"
+    },
+    {
+      "path": "reconciliation_check.py",
+      "bytes": 28037,
+      "sha256": "a19a01fec6957463229b2297195860105ac7be735f2dd297ffb2907ba2d5d2fa",
+      "git_blob": "a7de1d22c9177cb15133c425283ad990d928efb8"
+    }
+  ]
+}
