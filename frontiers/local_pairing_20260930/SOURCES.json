@@ -13,7 +13,7 @@
    "bytes": 40261,
    "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
    "tag": "P",
-   "use": "§1 p_r and Theorem A; §4 moments; §5 Z_r >= z_* r^2 and (5.3); §8 genericity; §§9-11 ledger"
+   "use": "\u00a71 p_r and Theorem A; \u00a74 moments; \u00a75 Z_r >= z_* r^2 and (5.3); \u00a78 genericity; \u00a7\u00a79-11 ledger"
   },
   {
    "path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md",
@@ -21,7 +21,7 @@
    "bytes": 10229,
    "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c",
    "tag": "ELDER",
-   "use": "(E1) maximin; §2 path (E5) and C0-stability template; §4 (E9)-(E11)"
+   "use": "(E1) maximin; \u00a72 path (E5) and C0-stability template; \u00a74 (E9)-(E11)"
   },
   {
    "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
@@ -39,7 +39,7 @@
    "bytes": 25006,
    "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
    "tag": "SC",
-   "use": "§1, §2 (7)-(10), §4 (14)-(16), §5 normal form and (17)-(18), §6 (19)-(20), §7 (2), (21)-(24)",
+   "use": "\u00a71, \u00a72 (7)-(10), \u00a74 (14)-(16), \u00a75 normal form and (17)-(18), \u00a76 (19)-(20), \u00a77 (2), (21)-(24)",
    "merged": "358f2562efbccc59f9549e5a79650e2e936395c3",
    "note": "reviewed at PR head 382c0f9; merged with identical bytes"
   },
@@ -51,7 +51,7 @@
    "bytes": 17139,
    "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
    "tag": "TSL",
-   "use": "cited in §0 only (Theorems L, T); not consumed by any proof",
+   "use": "cited in \u00a70 only (Theorems L, T); not consumed by any proof",
    "merged": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
    "note": "reviewed at PR head 7c82252 (custody repaired in Math-#172, proof bytes unchanged); merged with identical bytes"
   }
@@ -98,7 +98,7 @@
    "bytes": 34758,
    "sha256": "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
    "tag": "RES",
-   "use": "cited in §0 only: the leading-mass localization residual bound to [TSL] Theorem L (Math-#173, merged 30106e1; declarative)"
+   "use": "cited in \u00a70 only: the leading-mass localization residual bound to [TSL] Theorem L (Math-#173, merged 30106e1; declarative)"
   },
   {
    "path": "frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md",
@@ -106,13 +106,21 @@
    "bytes": 11018,
    "sha256": "f20c1ac96b00edc071e428bd2e5dc4c91b8546a3ee0693367b783109b26aa518",
    "tag": "NUM",
-   "use": "cited in §6 only: uncertified numerical values of the planar near coefficients (Math-#168, merged 02772ec); not consumed"
+   "use": "cited in \u00a76 only: uncertified numerical values of the planar near coefficients (Math-#168, merged 02772ec); not consumed"
+  },
+  {
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "tag": "LEG",
+   "use": "cited in the header, \u00a70 and \u00a75 only: Theorem E (same deterministic statement as Lemma P\u2032 + Proposition 3.3, different proof) and Theorem S (planar equality by the cap route); not consumed; merged as Math-#170 (fa2e990) at the identical blob, now verified by the workflow"
   }
  ],
  "referee": {
   "kind": "two clean-context Anthropic Claude subagent passes before landing (same provider, same account; not a nonauthor review)",
-  "pass_1": "two blocking (mountain-pass step of Lemma P′; the highest-saddle claim unproved) and seventeen amendments; all applied (Lemmas 2.1, 2.2, 4.1, 4.2, Proposition 3.3 added; V-first assignment; D = 0 subcase; tail bound; §5 margins; §6 wording)",
-  "pass_2": "Lemma 2.1(b) contained two false inequalities (replaced by the four-case polar argument); Lemma 2.2 flow wording made an explicit deformation; the S_V assignment in Lemma P made definite and continuous; K_{δ,R} closed by adding s <= -|B|/2 - δ; §5 obligation restated in jet-scaled margins as (O1′) with the d >= 3 slaving named; checker: shear identity (I0), exact central-difference derivative (I2) and Vieta other-root check added, min_margin key; title and README overclaims removed"
+  "pass_1": "two blocking (mountain-pass step of Lemma P\u2032; the highest-saddle claim unproved) and seventeen amendments; all applied (Lemmas 2.1, 2.2, 4.1, 4.2, Proposition 3.3 added; V-first assignment; D = 0 subcase; tail bound; \u00a75 margins; \u00a76 wording)",
+  "pass_2": "Lemma 2.1(b) contained two false inequalities (replaced by the four-case polar argument); Lemma 2.2 flow wording made an explicit deformation; the S_V assignment in Lemma P made definite and continuous; K_{\u03b4,R} closed by adding s <= -|B|/2 - \u03b4; \u00a75 obligation restated in jet-scaled margins as (O1\u2032) with the d >= 3 slaving named; checker: shear identity (I0), exact central-difference derivative (I2) and Vieta other-root check added, min_margin key; title and README overclaims removed"
  },
  "files": [
   {
@@ -152,16 +160,6 @@
  },
  "cited_unmerged": [
   {
-   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
-   "pr": "d6g8k5htny-coder/Math-#170",
-   "commit": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
-   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
-   "bytes": 39722,
-   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
-   "tag": "LEG",
-   "use": "cited in the header, §0 and §5 only: Theorem E (same deterministic statement as Lemma P′ + Proposition 3.3, different proof) and Theorem S (planar equality by the cap route); not consumed; unmerged, so not verified by the workflow"
-  },
-  {
    "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
    "pr": "d6g8k5htny-coder/Math-#175",
    "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
@@ -169,8 +167,8 @@
    "bytes": 23416,
    "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
    "tag": "CFE",
-   "use": "cited in the header, §0 and §5 only: H1 (the d >= 3 hard-direction slaving named in §5) and Theorem F; not consumed; unmerged, so not verified by the workflow"
+   "use": "cited in the header, \u00a70 and \u00a75 only: H1 (the d >= 3 hard-direction slaving named in \u00a75) and Theorem F; not consumed; unmerged, so not verified by the workflow"
   }
  ],
- "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied — exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded"
+ "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied \u2014 exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded | v1.1+sources (2026-09-30 14:15 UTC): LEG (#170) moved from cited_unmerged to cited_only after its integration at the identical blob ef2aa579; no other change; branch merged with main 3e0a91b"
 }
