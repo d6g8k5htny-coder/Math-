@@ -147,8 +147,6 @@ def verify_inventory(root):
     names=[e['path'] for e in entries]
     if len(set(names))!=len(names) or 'MANIFEST.json' in names:
         raise ValueError('duplicate or self-referential packet inventory')
-    if not ESSENTIAL_PACKET_LEAVES <= set(names):
-        raise ValueError('essential accepted/replay leaf missing from packet inventory')
     if sorted(p.name for p in root.iterdir())!=sorted(names+['MANIFEST.json']):
         raise ValueError('packet inventory mismatch')
     for entry in entries:
@@ -160,12 +158,20 @@ def verify_inventory(root):
     return len(entries)
 
 
+def verify_essential_inventory(root):
+    names={e['path'] for e in read_json(root/'MANIFEST.json')['files']}
+    if not ESSENTIAL_PACKET_LEAVES <= names:
+        raise ValueError('essential accepted/replay leaf missing from packet inventory')
+    return len(ESSENTIAL_PACKET_LEAVES)
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--local-only',action='store_true')
     args=parser.parse_args()
     root=Path(__file__).resolve().parent
     count=verify_inventory(root)
+    verify_essential_inventory(root)
     accepted_count=verify_acceptance_bindings(root)
     source_count=0 if args.local_only else verify_sources(root)
     expected=(root/'RESULTS.json').read_bytes()
@@ -181,6 +187,7 @@ def main():
             if result.returncode!=(2 if mutant=='unknown' else 1):
                 raise ValueError('negative control not rejected: '+mutant)
     verify_inventory(root)
+    verify_essential_inventory(root)
     verify_acceptance_bindings(root)
     print(json.dumps({'passed':True,'packet_leaves':count,'accepted_manuscripts':accepted_count,'source_count':source_count,
                       'source_pins_checked':not args.local_only,'scientific_effect':'NONE',
