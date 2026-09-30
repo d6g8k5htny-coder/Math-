@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "id": "F",
+      "path": "frontiers/c6_fourier_cutoff_20260929/PROOF.md",
+      "bytes": 18174,
+      "sha256": "c1692379a3a066589bd2522aaa5b4d480e736b737c8c39a474d1735185793733",
+      "git_blob": "1d9177a259654df0fb7c558fcb803685e09608d2",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Fourier coefficient method, fixed cover and pathwise cutoff cap; no witness-tail inference"
+    },
+    {
+      "id": "P",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Canonical kernels, protected witness geometry, joint floors and regional marked bounds"
+    },
+    {
+      "id": "P-MAP",
+      "path": "frontiers/c6_palm_route_20260929/SOURCE_MAP.json",
+      "bytes": 14037,
+      "sha256": "c7cc195f00cc0c45577b7a27eb5e76f5cd9f1dbd1f11d855bcc9be427d699278",
+      "git_blob": "b528fe10aed99f1ee0947bb58da8623b0fabe354",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Complete parent input reading rule and review exposure"
+    },
+    {
+      "id": "G",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Dimension-matched window mean and regional geometry"
+    },
+    {
+      "id": "EDL",
+      "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+      "bytes": 23971,
+      "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+      "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Additional-point lower event only for MF2 and bounded-size positive mass"
+    },
+    {
+      "id": "PRIOR153",
+      "path": "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+      "bytes": 11811,
+      "sha256": "c52a3cf197b5cf26071a8cc951e15ef3ac564b3d7453d41647f91af540a1b8eb",
+      "git_blob": "2ab625cedfc2e47575c4a7fa4853413418c532da",
+      "commit": "8ba851fb2addeccb7ff9befb6bdedac456b4cb9b",
+      "role": "Explicit prior credit: independent replicas and polynomially weighted subsequences; not premise for MF1"
+    }
+  ],
+  "local_upstream_verification": false,
+  "new_analytic_review_required": true
+}
