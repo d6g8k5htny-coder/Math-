@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "object": "CL-C6-MICRO-TAIL-NUMERICS-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+  "note": "Numerical evaluation only, planar (d = 2). The formulas evaluated are [R] (R13) for the point-intensity tail constant C_*, with the [SC] measure (17) reduced at d = 2 (c_1 = 1, no hard directions) to the exact contact regression of the merged Math-#168 note; the whole-cluster split and the second-order/signed coefficients are the formulas of the unmerged companions Math-#169 (E5-E6) and Math-#176 ((13), (16), (19), (21)-(22)), evaluated as stated there and marked conditional on those candidates. The near-mass identity check ties (R11) to the merged alpha_1, alpha_2 values. Floating-point quadrature with reported convergence, not enclosures.",
+  "sources": [
+    {
+      "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "bytes": 12533,
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "id": "R",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "(R4)-(R13): root parametrization, the weight identity (R10), the root-resolved integral (R11), the cusp integral J_cusp (R12) and C_* = (216/11) k^7 (c_m/z_0) I_shape J_cusp (R13); Theorem H (the point-selected height law, whose moments are recomputed as controls); Math-#166, merged, Slices A/B/C accepted (Claude, other session)",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "id": "SC",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "(8) the spectral constant c_m (c_1 = 1) and (17) the limiting microscopic measure dM = (c_m/z_0) h_0(A_0, T) H(h) w ds dh dO dtau; at d = 2 this is the contact regression with the raw density h_0(0, tau); Math-#162, merged, Slices A/B/C/D accepted",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+      "bytes": 4095,
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb",
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f",
+      "id": "NUM",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "the exact planar contact structure (A_0 | even pins ~ N(-b, 2); odd cubic jets ~ N(0, diag(2, 2, 6)); prefactor p_b(0)/z_0) and the values alpha_1(k, b), alpha_2(k, b) (GH60 and MC with standard errors) used in the near-mass identity control; Math-#168, merged",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "id": "CUB",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "the deterministic classifier consumed by [R] and [E] (shape region S, doublet condition); context only",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "section 2: the parent kernel (periodization of exp(-|z|^2/2), aligned frame); section 3 contact frame; (5.4) the full normalizer z_0",
+      "current_required": true,
+      "on_main": true
+    }
+  ],
+  "companions_unmerged": [
+    {
+      "pull_request": "Math-#169",
+      "head": "56a7904f9ad7d409c31e23195c0e7eeab230613a",
+      "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md",
+      "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a",
+      "id": "E",
+      "role": "(E5) the shape constants J = 1083417/280 (recomputed exactly here) and D = 27066286003/223205220 - (79298560/4782969) log 2 (quoted; numerically confirmed to 1e-13 in the Slice C read), (E6) the whole-cluster coefficients C0 (I - D), C0 J, C0 D, C0 (I - D - J); Slices B, C, D accepted, A under Codex read at this writing; the split reported here is conditional on that candidate",
+      "current_required": false,
+      "on_main": false
+    },
+    {
+      "pull_request": "Math-#176",
+      "head": "71772a8906cf6663d16be2cd5f63e5d4ebdcee2b",
+      "path": "frontiers/radial_rate_20260930/PROOF.md",
+      "git_blob": "65f24b1f9a7b80522a2ee059f5f6877c9f970f0d",
+      "id": "Q",
+      "role": "(12) the shape integrals U_2, B, U_abs (recomputed exactly here), (13) C_0 and C_2, (16) kappa, (19) B_sign, (21)-(22) the aligned planar cusp density and D_a G_0; Slices A and B accepted (this session); the coefficients reported here are conditional on that candidate",
+      "current_required": false,
+      "on_main": false
+    }
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "main_at_update": "02772ec0427f4dda1f2a6b9e980a031804e276a6"
+}
