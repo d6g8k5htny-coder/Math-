@@ -4,7 +4,8 @@
 **Version:** v1.2, 30 September 2026 (v1.0 and v1.1 on 29 September; v1.1 answered the OpenAI Codex review of Math-#159:
 spectral chart in place of the shear chart, exclusion lemma in the full transverse space, `K_4 <= kappa` split with a
 marked Kac–Rice tail, domination without `D^(-1)`, `n in {1, 2}` in Proposition 4.4, uniform integrability in
-Corollary X; v1.2 answers the OpenAI nonauthor review 5359895261 of v1.1: the full normalizer restored in both marked
+Corollary X; v1.2 (and its follow-up on the singular-slice `kappa` mixture and the raw three-site whitening, after
+review 5360034762) answers the OpenAI nonauthor review 5359895261 of v1.1: the full normalizer restored in both marked
 displays (Lemmas 4.2, 5.2), Lemma 5.1 re-proved by whitening against the midpoint five-jet, the choice of `kappa` by
 Fubini on the limit law, an explicit integrable majorant for §6.2 from the new Lemma 3.6 on the sheared cubic, and the
 corrected §8 remark: every extra window critical point is a saddle; the Corollary X scope wording follows the OpenAI
@@ -486,13 +487,19 @@ the critical points of `f~` in the physical ball other than the pins, which are 
 `(-+1/2, 0)` of `grad F_0` and attract no other zero. Hence `N^A -> N_oo^A` for every such realization; convergence in
 probability follows, together with the convergence of scaled positions and heights. ∎
 
-**Choice of `kappa`.** Only the limit law enters the argument above. Let `mu_l` be the finite measure `Leb(dj) ⊗ Q_(0, j)`
-on `{|j| <= l} x C^4(X)`, `l in N`. The `K_4`-marginal of each `mu_l` has countably many atoms; let `Kap_0` be the
-countable union of these atom sets over `l`. For `kappa` outside `Kap_0`, Fubini gives `integral_(|j| <= l) Q_(0, j){K_4 = kappa} dj = mu_l{K_4 = kappa} = 0`
-for every `l`, hence `Q_(0, j){K_4 = kappa} = 0` for Lebesgue-almost every jet `j`. These are the jets admitted in
-Lemma 4.1, and they are all that Proposition 4.4 integrates over. No union of atom sets over uncountably many
-conditional laws is used. The complement of `Kap_0` is unbounded, and `kappa -> oo` in Proposition 4.4 and §6.5 is
-taken along it.
+**Choice of `kappa`.** Only the limit law enters the argument above, and Proposition 4.4 integrates it over the
+singular slice, not over full jet space: the limit targets are `j_0 = chart(0, U, D, tau)`, and the coordinate `s`
+does not enter `Q_(0, j_0)`. Let `mu_l` be the finite measure `dU ⊗ Leb(dD) ⊗ Leb(dtau) ⊗ Q_(0, chart(0, U, D, tau))`
+on `{ |D| + |tau| <= l } x C^4(X)`, `l in N`, with `dU` the Haar measure; this is exactly the measure on the slice that
+(4.2) reduces to at `r = 0`. The `K_4`-marginal of each `mu_l` has countably many atoms; let `Kap_0` be the countable
+union of these atom sets over `l`. For `kappa` outside `Kap_0`, Fubini on `mu_l` gives
+`integral Q_(0, chart(0, U, D, tau)){K_4 = kappa} dU dD dtau = mu_l{K_4 = kappa} = 0` for every `l`, hence
+`Q_(0, chart(0, U, D, tau)){K_4 = kappa} = 0` for `(dU ⊗ Leb ⊗ Leb)`-almost every `(U, D, tau)`, and therefore for
+almost every `(s, U, D, tau)` in the domain of (4.2) and (4.4). These are the jets admitted in Lemma 4.1 and all that
+Proposition 4.4 integrates over. No union of atom sets over uncountably many conditional laws is used, and no
+full-dimensional null set is invoked on the codimension-one slice. The complement of `Kap_0` is unbounded, and
+`kappa -> oo` in Proposition 4.4 and §6.5 is taken along it. (For the uniformity in the parameters, `Kap_0` is formed
+at the limit parameter of the sequential argument, which is the only place where the pointwise statement is used.)
 
 ### 4.3 The large-`K_4` tail
 
@@ -623,22 +630,23 @@ distinct sites `0` and `x`, so its covariance is positive definite; the Schur co
 
 with `gamma_rho > 0` and `M` independent of `r`.
 
-(ii) Every observation frame used here is an affine function of `J_5` up to a small remainder. The contact frame
-`U_r` of [LP] §3 is `T_U J_5 + R_U` with `||R_U||_(L^2) <= C r` and `Cov(U_r) >= c I`. Given `U_r`, the near frame
-`Lambda` of the regime containing `X` is an invertible linear image of `grad f(X)`: in the pin ball the normalized
-gradient frame `Y` of [DL] (4.2), `Y = dvec + B J + R` with `||R||_(L^2) <= C r` and `Cov_(Q_r)(Y) >= c_0 I` ([DL] (4.5));
-in the axial collar strip `|v| <= r^(1/3)` the raw gradient, with `Cov_(Q_r) >= c r^10 I` and, through the three-site
-interpolation `V_r = B_c D_r J_5 + R_r` of [DL] §5.2, remainder `||R_r||_(L^2) = O(r^6)` ([DL] (5.1)); in the rest of the
-collar the frame `Gc` of [DL] (5.2)–(5.3), with `Cov_(Q_r)(Gc) >= c |v|^4 I`, `|v| >= r^(1/3)`, and remainder
-`O_(L^2)(r)`. Hence the joint frame `V := (U_r, Lambda)` satisfies
+(ii) The vector to whiten is chosen regime by regime so that its whole remainder is small relative to its floor.
+In the collar (`|X| >= r/4` in the scaled pin-ball coordinates, [DL] §5), let `V` be the raw three-site scaled vector
+of [DL] §5.2, `V = ( f(ra), r grad f(ra), f(rb), r grad f(rb), f(rc), r grad f(rc) )`, with `a, b` the pins and
+`c = X/r`. Taylor's formula through total degree five gives `V = B_c D_r J_5 + R_V` with `||R_V||_(L^2) <= C r^6`, where
+`B_c` has a uniform row singular-value floor on the collar ([DL] §5.1, Lemma) and `D_r = diag(r^|alpha|) >= r^5 I`; with
+`Cov(J_5) >= c I` this gives `Cov(V) >= c r^10 I` for small `r` (the remainder is absorbed exactly as in [DL] (5.1)). In
+the pin ball let `V = (U_r, Y)`: the contact frame `U_r` of [LP] §3 is `T_U J_5 + R_U` with `||R_U||_(L^2) <= C r` and
+`Cov(U_r) >= c I`, and `Y` is the normalized gradient frame of [DL] (4.2), `Y = dvec + B J + R` with `||R||_(L^2) <= C r`
+and `Cov_(Q_r)(Y) >= c_0 I` ([DL] (4.5)); the joint floor `lambda_min Cov(V) >= c` follows from the two floors and the
+bounded entries (for jointly Gaussian `(U, Y)`, `Var(a . U + b . Y) >= Var(b . Y | U)` and
+`Var(a . U + b . Y) >= (std(a . U) - std(b . Y))^2`). In both cases
 
-    V = T_V J_5 + R_V,     lambda_min Cov(V) >= lambda_V > 0,     ||Cov(V)^(-1/2)|| ||R_V||_(L^2) <= eta_r,           (5.3c)
+    V = T_V J_5 + R_V,     ||Cov(V)^(-1/2)|| ||R_V||_(L^2) <= eta_r := C r,                                          (5.3c)
 
-with `eta_r -> 0` uniformly in `X` in the near region: `C r/c^(1/2)` in the pin ball, `O(r^6)/(c r^10)^(1/2) = O(r)` in
-the axial strip, `C r/(c^(1/2) |v|^2) <= C r^(1/3)` in the rest of the collar. (The joint floor `lambda_V` follows from
-the floor of `U_r`, the floor of `Lambda` given `U_r` and the bounded entries: for jointly Gaussian `(U, Lambda)`,
-`Var(a . U + b . Lambda) >= Var(b . Lambda | U)` and `Var(a . U + b . Lambda) >= (std(a . U) - std(b . Lambda))^2`, so
-`lambda_min` is at least a constant times the smaller of the two floors.)
+by `C r^(-5) . C r^6` in the collar and `C . C r` in the pin ball, uniformly in `X` in the near region. The σ-algebra
+of `Q_X`, generated by `(U_r, grad f(X))`, is contained in that of `V`: equal in the pin ball (`Y` is an invertible
+image of `grad f(X)` given `U_r`), and strictly smaller in the collar, where `V` also carries the witness value `f(X)`.
 
 Whitening. Put `Ut := Cov(V)^(-1/2) (V - E V)`, so `Cov(Ut) = I` and `Ut = T J~_5 + E` with `J~_5` the centred jet and
 `||E||_(L^2) <= eta_r` by (5.3c). The σ-algebra of `Q_X` is that of `V`, hence that of `Ut`. For a unit vector `e`,
@@ -648,16 +656,19 @@ Since `e . Y_x - a . T J~_5` is `e . Y_x` minus a linear function of `J_5`, its 
 
     std( e . Y_x - a . Ut ) >= std( e . Y_x - a . T J~_5 ) - |a| ||E||_(L^2) >= gamma_rho^(1/2) - M^(1/2) eta_r >= gamma_rho^(1/2)/2
 
-for `r <= r_0(A, rho)`. This is (5.3a), uniformly in `X` and in the regime. Conditioning on less than the full
-three-site vector of [DL] §5.2 (which also carries the witness value) can only increase conditional variances, so no
-witness value is pinned and the same floor holds for the kernel `Q_X`.
+for `r <= r_0(A, rho)`, i.e. `Cov(Y_x | V) >= (gamma_rho/4) I`, uniformly in `X` and in the regime. Conditional
+covariances of a Gaussian vector increase under coarsening of the conditioning (`Cov(Y | G) = Cov(Y | F) + Cov(E[Y | F] | G)`
+for `G` contained in `F`), so `Cov_(Q_X)(Y_x) = Cov(Y_x | U_r, grad f(X)) >= Cov(Y_x | V) >= (gamma_rho/4) I`. This is
+(5.3a); no witness value is pinned in the kernel `Q_X`, it is only used inside the whitened vector.
 
-Consequences. By (5.3a) the conditional density of `Y_x` at `(0, t)` under `Q_X` is at most `C(rho)`. The conditional
-mean of `H_x` given `(V, Y_x)` is `E H_x` plus a linear function, with coefficients bounded by `M^(1/2)` (bounded
-cross-covariances against the whitened vector), of the whitened target `Cov(V)^(-1/2)(tau_V - E V)` and of
-`Y_x - E Y_x`; the whitened target of `U_r` is bounded (contact frame, bounded target), and that of `Lambda` is at most
-`||Cov(Lambda)^(-1/2)|| |tau - E Lambda| <= (1 + beta_X)^(3/2)` by the definition of `beta_X` in [C6] Lemma 4.1; the
-conditional covariance of `H_x` is bounded. Hence `E[ F_j(H_x) | Y_x = (0, t), V ] <= C E[(1 + |H_x|)^d | ...] <=
+Consequences. By (5.3a) the conditional density of `Y_x` at `(0, t)` under `Q_X` is at most `C(rho)`. For the
+conditional mean of `H_x` use the frame of `Q_X` itself, `V' = (U_r, Lambda)` with `Lambda` the regime frame of [C6]
+Lemma 4.1 (an invertible image of `grad f(X)` given `U_r`): `E[H_x | V', Y_x]` is `E H_x` plus a linear function, with
+coefficients bounded by `M'^(1/2)` (bounded cross-covariances against the whitened vector), of the whitened target
+`Cov(V')^(-1/2)(tau' - E V')` and of `Y_x - E Y_x`. The joint floor of `V'` is at least a constant times
+`min(1, lambda_min Cov_(Q_r)(Lambda))` (same inequalities as in (ii)), the target of `U_r` is bounded, and
+`||Cov_(Q_r)(Lambda)^(-1)||` and `|tau - E Lambda|` are what `beta_X` bounds, so the whitened target has norm at most
+`C (1 + beta_X)^(3/2)`; the conditional covariance of `H_x` is bounded. Hence `E[ F_j(H_x) | Y_x = (0, t), V ] <= C E[(1 + |H_x|)^d | ...] <=
 C (1 + beta_X)^(3d/2) (1 + |t|)^d`. Apply the Kac–Rice formula of [RM] (12) under `Q_X` to `D_rho` and the window of
 length `k r^3`, on which `|t|` is bounded: (5.3) follows, with the exponent `2d >= 3d/2`. ∎
 
