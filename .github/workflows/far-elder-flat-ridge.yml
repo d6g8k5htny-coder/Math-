@@ -5,6 +5,15 @@ name: Far elder flat-ridge exact controls
     paths:
       - 'frontiers/far_elder_flat_ridge_20260930/**'
       - '.github/workflows/far-elder-flat-ridge.yml'
+      # bound sources (consumed and cited_only in SOURCES.json): a change to any of them must re-run the identity check
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
+      - 'imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md'
+      - 'reviews/d1_section9_borel_repair_20260925/REPAIR.md'
+      - 'reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md'
+      - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
+      - 'frontiers/c7_zero_gap_limit_20260929/PROOF.md'
+      - 'frontiers/unrestricted_selection_difference_20260929/PROOF.md'
+      - 'reviews/c7_nonvanishing_openai_20260929/REVIEW.md'
   workflow_dispatch:
 
 permissions:
