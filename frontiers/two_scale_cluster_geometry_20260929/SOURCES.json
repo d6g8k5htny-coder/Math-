@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "condition": "Source identity is not a new review or an automatic status transition. All applications retain the pinned source hypotheses.",
+  "sources": [
+    {
+      "id": "SC",
+      "commit": "7a44130b41b827577424a73c4feac4cde20b5568",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "use": "Sections4-8: actual spectral/root limit, domination, radius and mixed-event estimates, full count limit. Conditional input; not revalidated."
+    },
+    {
+      "id": "CUB",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "use": "Theorem C and exact shear/height/type identities only. Separate Gaussian sector theorem not consumed."
+    },
+    {
+      "id": "RM",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Sections2-5, complete height-disintegrated integrand12 and normalized kernel13; finite-r spatial Kac-Rice framework."
+    },
+    {
+      "id": "C6",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "use": "Theorem Q for polynomial count uniform integrability, not a spatial moment bound."
+    },
+    {
+      "id": "P",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "Section2 distinct-site jet rank for finite-r spatial absolute continuity; original model conventions."
+    },
+    {
+      "id": "D5",
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "use": "Global first moment and uniform R-dependent shell interface, as composed in SC."
+    }
+  ]
+}
