@@ -10,9 +10,24 @@ root integral with that selector; integrate the selected height marginal by
 polynomial elimination; analyze its small-height endpoint; reweight the explicit
 doublet square law by the inner radius to identify the companion ratio tail.
 
-Execution is foreground and isolated in a new packet/branch. The repeated
-owner autonomy directive supplies authority; no stopped agents or timers are
-restarted. No other writer branch or frozen source proof is changed.
+Execution is foreground and isolated in a new packet/branch. Authority is a
+NEW explicit instruction from Dylan in this ChatGPT conversation on
+2026-09-30, after the repository stop of 2026-09-27, not a pre-stop autonomy
+grant. Immediately before publication he instructed: "Work on closing as many
+mathematical items as possible while working with and supporting the other
+models in the GitHub. Also advance the mathematics in every place that's
+justified based on what we currently know. Ultra tokens, ultra depth @GitHub
+@Superpowers". On this continuation he again explicitly instructed "Continue
+to Work on closing as many mathematical items as possible" with the same
+research and collaboration scope. This is the author's transcription of direct
+owner input; no public-chat permalink or cryptographic authorization receipt
+is claimed. Main#95 pickup5907785003 preceded publication; review-thread
+reply4143176012 records the authorization clarification.
+
+The new instruction authorizes this foreground research session only. It does
+not re-arm a Cursor process, automation, timer, watch or loop. The general
+OWNER_STOP notice and required review/branch-protection rules are unchanged.
+No other writer branch or frozen mathematical proof is changed by this repair.
 
 Steps completed author-side:
 - Read actual ELDER2/ELDERD marked-law interfaces and the root/companion sources.
