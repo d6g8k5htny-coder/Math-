@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "object": "CL-C6-REMOTE-COEFF-NUMERICS-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+  "note": "Numerical evaluation only. The formula evaluated is the contact kernel Lambda_j(x; b, k, u) of [RM] (13), summed and integrated over the torus as in [CL] (1.4)-(1.5) (the remote singleton part k integral_X Lambda of nu(1)), at d = 2 with the exact kernel of [LP] section 2. No source theorem is consumed as accepted beyond its recorded disposition; the numbers are deterministic floating-point quadrature values with reported convergence checks, not enclosures.",
+  "sources": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "section 2: the exact periodized Gaussian kernel K_L (periodization of exp(-|z|^2/2)); section 3: contact frame U_0 and target v_0 = (b, 0, 0, 12k, 0, 0); (5.4)-(5.5): the full normalizer z_0 = lim Z_r / r^2",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "id": "RM",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "Theorem A (fixed-remote mean measure) and the contact kernel Lambda_j(x; b, k, u) of (13): p_(Y_x | U_0 = v_0)(0, b) / z_0 times E[w_0 F_j(H_x) | U_0 = v_0, Y_x = (0, b)] with w_0 = (6k)^2 (det A_0)^2 1{A_0 < 0} ((10)) and z_0 = E[w_0 | U_0 = v_0] ((11)); this is the object evaluated",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "bytes": 70131,
+      "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5",
+      "id": "CL",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "(1.4): nu(1) = nu_near(1) + k integral_X Lambda dx, nu(2) = nu_near(2); section 5.1 (5.2): existence of k integral_X Lambda = lim_(rho -> 0) k integral_(D_rho) Lambda with error <= C rho^2, which is what makes the torus integral of the bounded kernel the right object; Math-#159, nonauthor-accepted (OpenAI review 5360192822), merged",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "id": "RC",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "Corollary E: Q_r^W{N_j(E) >= 1} = k r^3 integral_E Lambda_j + O(r^4 |E|) on fixed remote regions, the probability reading of the same kernel (context only)",
+      "current_required": true,
+      "on_main": true
+    }
+  ],
+  "companion": {
+    "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+    "pull_request": "Math-#168",
+    "head": "0b35e76ff05676e6ad5c89171d65807668c8de15",
+    "role": "near coefficients alpha_1(k, b), alpha_2(k, b) quoted in NOTE.md section 5 to assemble nu(1) = alpha_1 + k integral_X Lambda; unmerged at this writing, hence not a current_required pin and not checked by the workflow",
+    "current_required": false,
+    "on_main": false
+  },
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "main_at_update": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d"
+}
