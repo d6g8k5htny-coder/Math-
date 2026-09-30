@@ -49,7 +49,7 @@ def identity(data,entry):
 
 
 def git(root,*args):
-    return subprocess.run(['git',*args],cwd=root,check=True,capture_output=True,
+    return subprocess.run(['git','--no-replace-objects',*args],cwd=root,check=True,capture_output=True,
                           timeout=60).stdout
 
 
@@ -68,6 +68,8 @@ def verify_source_entry(root,entry):
     commit=entry['commit'];path=entry['path'];pure=safe_path(path)
     if not isinstance(commit,str) or not re.fullmatch('[0-9a-f]{40}',commit):
         raise ValueError('immutable forty-hex commit required')
+    if git(root,'cat-file','-t',commit).strip()!=b'commit':
+        raise ValueError('source identity must name a commit object')
     for length in range(1,len(pure.parts)):
         prefix='/'.join(pure.parts[:length])
         mode,kind,blob=tree_entry(root,commit,prefix)

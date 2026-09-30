@@ -101,6 +101,44 @@ class CustodyTests(unittest.TestCase):
         path.symlink_to(self.repo/'a.md')
         with self.assertRaises(ValueError):v.verify_sources(self.packet)
 
+    def changed_commit(self):
+        (self.repo/'a.md').write_text('different historical source\n',encoding='utf-8')
+        self.git('add','a.md')
+        self.git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid',
+                 'commit','-qm','changed historical source')
+        return self.git('rev-parse','HEAD').decode().strip()
+
+    def accepts(self,entry):
+        try:
+            v.verify_source_entry(self.packet,entry)
+        except (ValueError,subprocess.CalledProcessError):
+            return False
+        return True
+
+    def test_replacement_cannot_forge_commit_binding(self):
+        changed=self.changed_commit()
+        entry=copy.deepcopy(self.entries[0]);entry['commit']=changed
+        self.assertFalse(self.accepts(entry))
+        self.git('replace',changed,self.commit)
+        self.assertFalse(self.accepts(entry),'replacement ref forged historical source binding')
+
+    def test_valid_original_ignores_replacement(self):
+        changed=self.changed_commit()
+        self.git('replace',self.commit,changed)
+        self.assertTrue(self.accepts(self.entries[0]),'original immutable object was replaced')
+
+    def test_tree_sha_is_not_a_commit(self):
+        entry=copy.deepcopy(self.entries[0])
+        entry['commit']=self.git('rev-parse',self.commit+'^{tree}').decode().strip()
+        self.assertFalse(self.accepts(entry),'tree identity accepted as a commit')
+
+    def test_annotated_tag_sha_is_not_a_commit(self):
+        self.git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid',
+                 'tag','-a','fixture-tag','-m','tag fixture',self.commit)
+        entry=copy.deepcopy(self.entries[0])
+        entry['commit']=self.git('rev-parse','fixture-tag').decode().strip()
+        self.assertFalse(self.accepts(entry),'tag identity accepted as a commit')
+
     def inventory_fixture(self):
         temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
         root=Path(temp.name);data=b'packet fixture\n'

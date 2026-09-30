@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "scientific_effect": "NONE",
-  "review_status": "NONAUTHOR_REVIEW_OPEN",
+  "review_status": "PARTIAL_NONAUTHOR_ACCEPTANCE_A_C_OPEN",
   "files": [
     {
       "path": "RADIAL_TAIL.md",
@@ -11,21 +11,27 @@
     },
     {
       "path": "README.md",
-      "bytes": 3118,
-      "sha256": "44179019e8e64c0ff40f061669f89d05d5018b87d5eae7e715865f9e89bb0fa3",
-      "git_blob": "8daa8e3a6b98b2ae0139904ccb9884d7b82828a4"
+      "bytes": 3591,
+      "sha256": "e5cd5ba459aadfdc2fdae75657ecd7582f792be94f97c2ca413b3d5fac59926d",
+      "git_blob": "9732d61ee23e5c19b21d0064dcbf7b065243e1e9"
     },
     {
       "path": "RECONNAISSANCE.md",
-      "bytes": 2266,
-      "sha256": "bb2caad5a7458edbaaf1a04f2fb0580e15933907fd58211669d8e4935e4ef860",
-      "git_blob": "f18d83df0b69e6130c4f1472748b92330180c60f"
+      "bytes": 2643,
+      "sha256": "b9af79b2ee56f151f947e233a684c6a91b0b306cd564dcefa722e43d3cb975e4",
+      "git_blob": "d6e523e5f92ae9ea710d6da54acb5bf4213a39c9"
     },
     {
       "path": "RESULTS.json",
       "bytes": 337,
       "sha256": "3277199a22d6f187354e6f912361648e737bc8aa65107d1d7863a099c176ca8d",
       "git_blob": "99678cd670b9f8fee2f02d73fdb091705b825491"
+    },
+    {
+      "path": "REVIEW_RECORD.md",
+      "bytes": 2235,
+      "sha256": "47eadc44432ba5ea7512682a6781a83210aab345760f1ab52c86e977077d33c0",
+      "git_blob": "d219a8191e59de5cbd022f7134db87e347cb2aae"
     },
     {
       "path": "SOURCES.json",
@@ -41,9 +47,9 @@
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 2126,
-      "sha256": "045016210e4ee4ea93dc002ca6367e6d979eaf243b5fc9c7547ec96fd8df40e4",
-      "git_blob": "6ceaf1e321f9da81e3989ba58bdc88be0cf72115"
+      "bytes": 3023,
+      "sha256": "7600037a03b43c6d20e50002cc0afed912cf6c5bc71e51a490959b3725cfaec0",
+      "git_blob": "33f00592e26a8f0a652c6554b6e3ddc389065425"
     },
     {
       "path": "geometry.py",
@@ -53,9 +59,9 @@
     },
     {
       "path": "test_custody.py",
-      "bytes": 5743,
-      "sha256": "4a6bb11aab2647af46c4a94ff44703d3fdbaa45acfc6cfc8a06339520c4230b2",
-      "git_blob": "3179287ea1e9cffba3971063438327fc0acb87f7"
+      "bytes": 7574,
+      "sha256": "f46073d3ff276cd0fdc571bf76e1cda8e0e4b20d93f3f7ab52a43d936258b325",
+      "git_blob": "d055261a2ff56d038fcf1ce803e0167c0e04d95b"
     },
     {
       "path": "test_geometry.py",
@@ -65,9 +71,9 @@
     },
     {
       "path": "verify.py",
-      "bytes": 5849,
-      "sha256": "b3e415394bc50decb351100d1edc3a7935b40da06a6004b5e9404c99e6dc86d2",
-      "git_blob": "b92bc3c62558e4e6f07eb2bf5cd5cfc4d233793f"
+      "bytes": 6002,
+      "sha256": "335dd00fabb70db04498a84eef926266faa9f34486458724d3b0655d10b4f4ca",
+      "git_blob": "e401a78a1a28200f3f7e473b9260f36919ab69f8"
     }
   ]
 }

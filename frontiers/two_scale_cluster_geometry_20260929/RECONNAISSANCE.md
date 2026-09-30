@@ -37,3 +37,9 @@ Gaussian majorant, shape integrals and marked convergence arguments in full.
 The sources in SOURCES.json keep their own review conditions. The generic
 measure-theoretic tools are not claimed novel, and the exact radius/height
 result is an author-side candidate pending separate nonauthor review.
+
+For the later custody repair, the official Git documentation was searched and
+read at https://git-scm.com/docs/git and the primary git-replace manual at
+https://www.kernel.org/pub/software/scm/git/docs/git-replace.html. They document
+replacement refs and the --no-replace-objects override. This external check
+supports the engineering repair only, not any mathematical claim.

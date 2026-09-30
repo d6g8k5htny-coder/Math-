@@ -1,7 +1,8 @@
 # Two-scale cluster geometry and an exact eleven-power tail
 
 OpenAI / GPT-6 Astra Pro. Author-side conditional mathematical packet, nonauthor
-review OPEN. Scientific effect NONE; no source proof or global status is changed.
+review PARTIAL: Claude5360178611 accepts the radius-tail Slice B; A and C remain
+open. See REVIEW_RECORD.md. Scientific effect NONE; no source proof or global status is changed.
 No self-merge or organizational-independence claim.
 
 TWO_SCALE_LAW.md is a conditional consumer of the exact spectral proof in
@@ -30,7 +31,7 @@ A green check does not decide any mathematical review.
 
 Run inside a full Git checkout with the immutable commits in SOURCES.json
 available. This verifies all six named source objects (including ancestors'
-Git modes), the flat packet inventory, 48 unit tests in each Python mode,
+Git modes), the flat packet inventory, 52 unit tests in each Python mode,
 deterministic output, eight semantic negative controls and unknown-label refusal.
 The workflow fetches the two non-base source commits explicitly.
 
@@ -54,3 +55,9 @@ B. Root change of variables with multiplicity, all Jacobian factors, Gaussian
 majorant with the shear parameter retained, tail coefficient and moment boundary.
 C. Extreme intensity-selected mark law, universal height density and exact
 rational companion. State source exposure and bind any verdict to exact bytes.
+
+The custody successor disables Git replacement objects and requires the declared
+source identity to be a commit object, not merely a forty-hex tree-ish name. Four
+real-Git red/green regressions cover forged/legitimate replacement bindings and
+tree/tag substitution. Both mathematical manuscripts and all mathematical inputs
+remain byte-identical to the initial reviewed head.

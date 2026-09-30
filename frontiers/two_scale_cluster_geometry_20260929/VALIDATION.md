@@ -9,7 +9,7 @@ against stubs: 19 tests produced 24 intended assertion failures (some tests had
 multiple subcases), then all 19 passed after implementation. Logs are retained
 in the conversation evidence bundle, not invented as upstream execution receipts.
 
-Current standalone suite: 29 mathematical tests plus 19 custody tests = 48 tests
+Initial standalone suite: 29 mathematical tests plus 19 custody tests = 48 tests
 in each normal/optimized mode. The mathematical executable verifies 648 rational
 stationary substitutions and exact root/weight/height constants. Eight semantic
 mutants must each return1; an unknown mutant must return2. Normal and optimized
@@ -32,3 +32,18 @@ Mathematical limits not validated by the checker: Gaussian rank/regression,
 spatial root convergence, change-of-variables multiplicity, domination, two-scale
 configuration topology, singular-support TV obstruction and the continuum tail
 asymptotics. These are the written proof obligations for nonauthor reviewers.
+
+## Replacement-object and object-type repair
+
+A later author-side audit reproduced four intended assertion failures in actual
+local Git repositories: replacement refs could forge a commit/path binding,
+replacement refs could incorrectly invalidate a legitimate original pin, and a
+tree or annotated-tag object could pass as a declared forty-hex commit. These
+were verifier weaknesses, not observations of altered project evidence.
+
+The repair uses git --no-replace-objects for every source-object lookup and
+requires cat-file -t to return commit before tree traversal. Four new regressions
+pass after the change. The complete suite is now 29 mathematical plus 23 custody
+tests = 52 per Python mode, with all previous exact and mutant controls retained.
+All mathematical and source-pin bytes remain unchanged. The final successor's
+hosted replay must be checked separately from initial-head runs.
