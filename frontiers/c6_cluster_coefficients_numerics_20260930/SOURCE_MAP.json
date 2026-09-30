@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "2479a7c2bcadf441517cadd1adff2cc07019b49d",
-  "note": "Numerical evaluation only. The formulas evaluated are (1.3)/(3.11) of [CL] at d = 2 (equivalently Theorem F of [CUB]) with the exact kernel of [LP] section 2. No source theorem is consumed as accepted; [CL] is an unmerged author-side candidate and is pinned at its branch head, not required on main. The numbers are floating-point quadrature and Monte Carlo values with reported standard errors, not enclosures.",
+  "note": "Numerical evaluation only. The formulas evaluated are (1.3)/(3.11) of [CL] at d = 2 (equivalently Theorem F of [CUB]) with the exact kernel of [LP] section 2. No source theorem is consumed as accepted; [CL] (Math-#159) was nonauthor-accepted (OpenAI review 5360192822, source-exposed) and merged to main on 30 September 2026 with the evaluated PROOF.md bytes unchanged; it is now pinned on main like the other sources. The numbers are floating-point quadrature and Monte Carlo values with reported standard errors, not enclosures.",
   "sources": [
     {
       "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -34,12 +34,13 @@
       "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
       "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5",
       "id": "CL",
-      "commit": "f7c33955d005c03d1010835f52f500c4b853a847",
-      "role": "(1.3) the near coefficient integral, (3.11) the reduced weight, section 1.4 (planar reduction m = p_0), Lemma 3.6 (saddles only; s-range) and section 3.8 (sheared form); author-side, unmerged, Math-#159",
-      "current_required": false,
-      "on_main": false
+      "commit": "98fdb54954a2d9ac0b8ba8ca03e279701f70d751",
+      "role": "(1.3) the near coefficient integral, (3.11) the reduced weight, section 1.4 (planar reduction m = p_0), Lemma 3.6 (saddles only; s-range) and section 3.8 (sheared form); Math-#159, nonauthor-accepted (OpenAI review 5360192822) and merged to main on 30 September 2026 with PROOF.md bytes unchanged",
+      "current_required": true,
+      "on_main": true
     }
   ],
   "nonauthor_acceptance": false,
-  "governing_status_changed": false
+  "governing_status_changed": false,
+  "main_at_update": "98fdb54954a2d9ac0b8ba8ca03e279701f70d751"
 }

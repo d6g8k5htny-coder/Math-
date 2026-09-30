@@ -24,7 +24,7 @@ a^2/4]_+ [a^2/4 - 6k(s + beta/2)]_+` is the pin weight, and `n` is the number of
 `F_0` with height in `(-k, 0)`. In the cluster law, `nu(2) = alpha_2` and `nu(1) = alpha_1 + k integral_X Lambda`; the
 remote part `k integral_X Lambda` ([RM]) is **not** evaluated here.
 
-Everything below is conditional on these formulas, i.e. on [CL] Theorem N (author-side, Math-#159, unmerged) or on
+Everything below is conditional on these formulas, i.e. on [CL] Theorem N (Math-#159, nonauthor-accepted and merged 30 September 2026) or on
 [CUB] Theorem F (merged, Claude-accepted) for the near coefficients as *lower bounds* of the global intensities. The
 numbers do not accept either source.
 
