@@ -90,3 +90,28 @@ source run36652196578 and full downstream/formal run36652196938 both succeeded
 at the repair commit. A later metadata successor still needs fresh current-head
 checks; no old-head run is automatically rebound. The mathematical files,
 geometry.py, source pins and RESULTS.json have not changed.
+
+## Current integration custody repair
+
+At b8b028ea0a3f45aa8d2640b339977a04154909a4, independent full-CLI fixtures showed
+that changing either manuscript, or removing either manuscript, still passed
+after honestly regenerating MANIFEST.json. The ordinary unresigned mutation
+correctly failed. These were inventory/review-binding defects, not mathematical
+counterexamples. The original reviewed manuscripts remain unchanged.
+
+The current repair requires the proof/review declarations and every executable
+or test module used by the advertised replay. It binds both current manuscripts
+and SOURCES.json to fixed accepted identities and pins the complete additive
+REVIEW_RECORD.json, including actual native review body identities. A co-edit of
+a manuscript, review metadata and manifest cannot rebind an old review merely by
+re-signing the mutable inventory. Nine new regression methods cover these cases;
+the current suite contains 61 tests per Python mode. Existing exact geometry,
+eight semantic mutants and Git replacement/commit-type controls remain intact.
+
+The A/B/C records above retain their original conditional scope and exposure.
+C's native proof identity cross-references B's full blob and gives an abbreviated
+digest; actual bytes at the native reviewed commit were independently matched
+in preflight. The machine-readable record makes that distinction explicit.
+Offline validation authenticates local byte relationships only: it grants no
+remote-review authentication, mathematical acceptance or independence credit.
+Fresh engineering review, current-head CI and integration remain separate gates.
