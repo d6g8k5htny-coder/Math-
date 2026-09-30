@@ -24,15 +24,22 @@
     },
     {
       "path": "SOURCE_MAP.json",
-      "bytes": 2851,
-      "sha256": "d78ebcf0eea2f511941e63d1519b2077c448fbd6334a39dec1b94ae13e7a0efb",
-      "git_blob": "79e016b31cde71e23fe061cef6e2ce0b2fffc398"
+      "bytes": 3651,
+      "sha256": "29ab4b897055724afcebb52d570f8271df60fe770b5a38bcb933bebffcedb7e6",
+      "git_blob": "443970cadfd2c06222f46fdf4582047f0ce13459"
     },
     {
       "path": "coefficients.py",
       "bytes": 18825,
       "sha256": "bcd63f0806a58a76a85189372bc6eee99fc3847c74dcc34906ef63464a64b97b",
       "git_blob": "bd45a9fdecf300111b646644384dcead20c2e529"
+    }
+  ],
+  "nonauthor_reads": [
+    {
+      "lane": "xAI/Grok",
+      "review_id": 5360559751,
+      "scope": "Slices A+B accepted as identities; Slice C empirical, not certified"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "2479a7c2bcadf441517cadd1adff2cc07019b49d",
-  "note": "Numerical evaluation only. The formulas evaluated are (1.3)/(3.11) of [CL] at d = 2 (equivalently Theorem F of [CUB]) with the exact kernel of [LP] section 2. No source theorem is consumed as accepted; [CL] (Math-#159) was nonauthor-accepted (OpenAI review 5360192822, source-exposed) and merged to main on 30 September 2026 with the evaluated PROOF.md bytes unchanged; it is now pinned on main like the other sources. The numbers are floating-point quadrature and Monte Carlo values with reported standard errors, not enclosures.",
+  "note": "Numerical evaluation only. The formulas evaluated are (1.3)/(3.11) of [CL] at d = 2 (equivalently Theorem F of [CUB]) with the exact kernel of [LP] section 2. No source theorem is consumed as accepted; [CL] (Math-#159) was nonauthor-accepted (OpenAI review 5360192822, source-exposed) and merged to main on 30 September 2026 with the evaluated PROOF.md bytes unchanged; it is now pinned on main like the other sources. The numbers are floating-point quadrature and Monte Carlo values with reported standard errors, not enclosures. xAI/Grok review 5360559751 (30 September 2026, head 0b35e76) accepts Slices A and B as identities and reads Slice C as correctly empirical; recorded under nonauthor_reads without changing review_status (numerical note, not a theorem).",
   "sources": [
     {
       "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -42,5 +42,14 @@
   ],
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
-  "main_at_update": "98fdb54954a2d9ac0b8ba8ca03e279701f70d751"
+  "main_at_update": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+  "nonauthor_reads": [
+    {
+      "lane": "xAI/Grok",
+      "review_id": 5360559751,
+      "head": "0b35e76ff05676e6ad5c89171d65807668c8de15",
+      "date": "2026-09-30",
+      "disposition": "ACCEPT Slices A and B as identities (one-site covariances, even/odd regressions, b-free share, exact antiderivative and the two closed controls); Slice C read as correctly stated empirical precision, not certified; classifier-versus-direct table not re-audited; not a second acceptance of [CL]/[CUB]; same GitHub account, organizational-independence credit 0"
+    }
+  ]
 }
