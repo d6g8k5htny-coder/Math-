@@ -1,0 +1,77 @@
+{
+  "schema": "math166-scoped-review-binding-v1",
+  "scientific_effect": "NONE",
+  "mathematical_acceptance": false,
+  "remote_review_authenticity_checked": false,
+  "reviewed_commit": "7c82252533c3fe14ee262f7f87c0549c10968592",
+  "proofs": [
+    {
+      "path": "TWO_SCALE_LAW.md",
+      "bytes": 17139,
+      "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+      "git_blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c"
+    },
+    {
+      "path": "RADIAL_TAIL.md",
+      "bytes": 12533,
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4"
+    }
+  ],
+  "source_manifest": {
+    "path": "SOURCES.json",
+    "bytes": 2923,
+    "sha256": "de09c2cf3c9082a09d168f451f78a1a60b150f9f55c0c6b9bfe94ac26652dfe0",
+    "git_blob": "59d11113e208965fefeaadd1bd5866585e77dc82"
+  },
+  "reviews": [
+    {
+      "slice": "A",
+      "native_review_id": 5360227991,
+      "native_state": "COMMENTED",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360227991",
+      "submitted_at": "2026-09-30T00:52:00Z",
+      "reviewed_commit": "7c82252533c3fe14ee262f7f87c0549c10968592",
+      "proof_path": "TWO_SCALE_LAW.md",
+      "body_bytes": 7840,
+      "body_sha256": "c63efc292d7cf209e2770419cc159276897d0ba955c32ee1d2af88c8aa7f0ed8",
+      "reported_disposition": "ACCEPT at the stated conditional scope",
+      "scope": "Theorem T, Theorem L, ordered-pair law L3, sampling/order of limits and spatial-TV obstruction V1; conditional on exact imported source interfaces, without a rate or parent revalidation."
+    },
+    {
+      "slice": "B",
+      "native_review_id": 5360178611,
+      "native_state": "COMMENTED",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360178611",
+      "submitted_at": "2026-09-30T00:42:15Z",
+      "reviewed_commit": "7c82252533c3fe14ee262f7f87c0549c10968592",
+      "proof_path": "RADIAL_TAIL.md",
+      "body_bytes": 7631,
+      "body_sha256": "3042d958b769b0a9ada1359b6f8d9461c090060fe5057cff795c99b6c6c2894d",
+      "reported_disposition": "ACCEPT at the stated conditional scope",
+      "scope": "RADIAL_TAIL R4-R13: the already-formed limiting microscopic point-intensity tail, full coefficient and moment boundary; conditional on SC/CUB, with r tending to zero before radius tends to infinity."
+    },
+    {
+      "slice": "C",
+      "native_review_id": 5360216551,
+      "native_state": "COMMENTED",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/pull/166#pullrequestreview-5360216551",
+      "submitted_at": "2026-09-30T00:49:42Z",
+      "reviewed_commit": "7c82252533c3fe14ee262f7f87c0549c10968592",
+      "proof_path": "RADIAL_TAIL.md",
+      "body_bytes": 4277,
+      "body_sha256": "9a2c89c6e0c122fc75cc96a2b6392b47ab33bc47feb072b9f2a56315c527df84",
+      "reported_disposition": "ACCEPT at the stated conditional scope",
+      "scope": "RADIAL_TAIL H1-H4: extreme marks under point-intensity sampling of the already-formed microscopic measure, not a uniformly sampled configuration or finite-r global law.",
+      "proof_binding_note": "The native C review refers to B's same full Git blob and an abbreviated SHA256. The integration preflight matched the complete proof bytes at the native reviewed commit; this record does not claim C printed a fresh full digest."
+    }
+  ],
+  "exposure": {
+    "reviewer_provider": "Anthropic",
+    "reviewer_model_attribution": "Claude",
+    "same_session_for_all_three": true,
+    "organizational_independence_credit": 0,
+    "notes": "Actual native review bodies were read back by the integration preflight. These are three disjoint scopes from one provider-distinct session, not three independent votes. Parent proofs remain imported; no new analytic review is supplied by this custody repair."
+  },
+  "binding_policy": "The verifier pins this complete record and the accepted proof/source byte identities. Regenerating MANIFEST.json cannot transfer these old reviews to changed mathematics. An intentional future update requires reviewed changes to the bindings and verifier anchors. Offline replay does not contact GitHub or authenticate a remote reviewer."
+}
