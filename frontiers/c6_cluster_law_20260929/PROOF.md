@@ -7,7 +7,8 @@ marked Kac–Rice tail, domination without `D^(-1)`, `n in {1, 2}` in Propositio
 Corollary X; v1.2 answers the OpenAI nonauthor review 5359895261 of v1.1: the full normalizer restored in both marked
 displays (Lemmas 4.2, 5.2), Lemma 5.1 re-proved by whitening against the midpoint five-jet, the choice of `kappa` by
 Fubini on the limit law, an explicit integrable majorant for §6.2 from the new Lemma 3.6 on the sheared cubic, and the
-corrected §8 remark: every extra window critical point is a saddle).
+corrected §8 remark: every extra window critical point is a saddle; the Corollary X scope wording follows the OpenAI
+follow-up 5359999003).
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 29 September 2026.
 **Disposition:** author-side proof candidate. **Nonauthor analytic review is required.** This note stacks on merged
 sources only: [LP], [DL], [C6], [RM], [RC], [EDL], [LM], and it answers the "unknown conditional cluster law" left
@@ -98,20 +99,25 @@ convergence of [RCL] Theorem S holds along the full family `r -> 0`, with the li
 has the same `r -> 0` limits; and the independent-replica limit of [RCL] §7 is `CP(t nu)` with this explicit `nu`.
 None of the three non-implication examples of [RCL] §6 occurs in the model.
 
-**Corollary X (scaled positional law).** For every bounded continuous `phi` on `R^2 x R`, uniformly on the compact
-parameter set,
+**Corollary X (near point-intensity limit, with a sequential radius limit).** For every bounded continuous `phi` on
+`R^2 x R`, uniformly on the compact parameter set,
 
     r^(-3) E_(Q_r^W) sum_(X in near window critical points) phi( (X . u)/r, |X_perp|/r, (f(X) - b)/r^3 )
        -> z_0^(-1) integral m w_0 sum_(critical points (X,Z) of F_0 in the window) phi( X, |Z|, F_0(X,Z) ),
 
-where the inner sum runs over the extra critical points of `F_0` and `the right side is the weighted law of the scaled configuration, `X` being the scaled axial coordinate
-and `|Z|` the scaled transverse distance (§3.2: the rotated chart makes the physical ball a scaled ball).
+where the inner sum runs over the extra critical points of `F_0`, `X` is the scaled axial coordinate and `|Z|` the
+scaled transverse distance (§3.2: the rotated chart makes the physical ball a scaled ball). Scope: this is a statement
+about the intensity measure of the near points, obtained with `r -> 0` at a fixed near radius `A` first and `A -> oo`
+second (§6.5). It does not by itself give convergence of the law of the random configuration (expectations of sums
+determine only the intensity), and it concerns near points only: the remote singleton part `k integral Lambda` of
+`nu(1)` escapes the `1/r` scaling.
 
 ### 1.3 What the results are not
 
 Existential constants, fixed `d` and `L`, compact marks. No rate in (1.5)–(1.6); no numerical value of `nu(1)`, `nu(2)`
 or `Lambda_q`; no uniformity as `k -> 0`; no statement about the elder selection of the extra points; no spatial
-independence between distinct pin pairs; nothing about the remote pair kernel beyond consistency with [RC]. §9 lists
+independence between distinct pin pairs; no configuration law for the scaled positions (Corollary X is a near
+point-intensity limit with a sequential radius limit); nothing about the remote pair kernel beyond consistency with [RC]. §9 lists
 the non-claims. The note is conditional on the consumed sources at the exact bytes of §2.
 
 ### 1.4 The planar case

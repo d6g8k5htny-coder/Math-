@@ -14,7 +14,7 @@ the full normalizer, in every fixed `d >= 2`, with `N` the window critical-point
 | Theorem N | `r^(-3) Q_r^W{N = n} -> nu(n)` with `nu(1), nu(2) > 0` explicit and `nu(n) = 0` for `n >= 3` | the "unknown conditional cluster law" of Math-#153 |
 | Corollary Lambda | `r^(-3) E[(N)_q] -> Lambda_q`: `Lambda_1 = nu(1) + 2nu(2)`, `Lambda_2 = 2nu(2)`, `Lambda_q = 0` for `q >= 3` | sharpens [C6] Theorem Q to asymptotics; Palm excess converges |
 | Corollary S | the limit `nu` of Math-#153's `nu_r` exists (no subsequence), `F_oo = (nu(1) delta_1 + nu(2) delta_2)/(nu(1)+nu(2))`, `CP(t nu)` explicit | uniqueness and identification of the compound-Poisson limits |
-| Corollary X | the scaled positions and heights of the extra window critical points converge in law to the critical points of a planar cubic | the "positional law of the pairs" non-claim of [C6] §9 |
+| Corollary X | the near point-intensity measure of the scaled positions and heights of the extra window critical points converges (`r -> 0` at fixed near radius, then radius `-> oo`) to that of the critical points of a planar cubic under the weighted jet measure; not a configuration law | the "positional law of the pairs" non-claim of [C6] §9, at intensity level |
 
 `nu(2) = nu_near(2)`, `nu(1) = nu_near(1) + k integral_X Lambda`, where `nu_near(n)` is a four-dimensional Gaussian
 integral over the scaled soft transverse curvature `s` and the three planar cubic jets `(a_3, beta, c_3)` of the
