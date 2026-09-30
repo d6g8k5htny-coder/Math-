@@ -70,6 +70,10 @@ Far field: `Lambda_inf(0) = 0.08574653`, `Lambda_inf(1) = 0.06501408` (index spl
 `E|det G_3| = 3.3851375013`; level-integrated densities by index `0.0348624089, 0.1065073050, 0.1065073050, 0.0348624089` (closed forms `0.0348624089`, `0.1065073050`).
 `m_(3,0) = 0.6715728753`, `m_(3,1) = 5.5480602736`; `z_0 = 36 k^2 m_(3,b)`.
 
+The `integral_X Lambda` and `nu` columns are continuum-kernel approximations of the finite-torus quantities (the
+parent's periodized covariance is not used; `RESULTS.json` keys `remote_total.approx_L3_lambda_inf_plus_hole`,
+`assembled_nu.approx_nu1_L`, `assembled_nu.approx_nu2_over_nu1_L`); see section 5.
+
 | `k` | `b` | `c_hole = integral (Lambda - Lambda_inf)` (± s.e.) | `integral_X Lambda`, `L = 12` | `L = 24` | `a_1^(3)` | `nu(1)` at `L = 24` | `nu(2)/nu(1)` at `L = 24` |
 |---|---|---|---|---|---|---|---|
 | `1/2` | `0` | -1.883 ± 0.025 | 146.29 | 1183.48 | 4.71 | 596.4 | 2.45e-04 |

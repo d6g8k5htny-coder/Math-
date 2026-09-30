@@ -533,8 +533,10 @@ def full_run(fast=False):
             a1 = alphas['%s,b=%d' % (kstr, int(b))]['alpha1_gh60'] * res['R_3'][str(b)]
             a2 = alphas['%s,b=%d' % (kstr, int(b))]['alpha2_gh60'] * res['R_3'][str(b)]
             res['assembled_nu'][key] = {'a1_d3': a1, 'a2_d3': a2,
-                                        'nu1_L': {'L=%d' % L: a1 + k * (L ** 3 * lam_inf + H['hole']) for L in (12, 24)},
-                                        'nu2_over_nu1_L': {'L=%d' % L: a2 / (a1 + k * (L ** 3 * lam_inf + H['hole'])) for L in (12, 24)},
+                                        # continuum-kernel approximations of the finite-torus coefficients (the parent's
+                                        # periodized covariance is not used; see NOTE.md section 5), like remote_total
+                                        'approx_nu1_L': {'L=%d' % L: a1 + k * (L ** 3 * lam_inf + H['hole']) for L in (12, 24)},
+                                        'approx_nu2_over_nu1_L': {'L=%d' % L: a2 / (a1 + k * (L ** 3 * lam_inf + H['hole'])) for L in (12, 24)},
                                         'note': 'a_j^(3) = R_3(b) alpha_j^(2) (Math-#184, unmerged, conditional); alpha from Math-#168 GH60 (floating)'}
     return res
 
