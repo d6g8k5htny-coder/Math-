@@ -47,7 +47,8 @@ Files: `PROOF.md`; `rate_ledger_check.py` (stdlib exact controls; `RESULTS.json`
 `M1`–`M4` exit 1, unknown label exit 2: both exponent ledgers and their optimality within the ledger, the barrier's
 algebra, the soft-eigenvalue determinant inequality on rational orthogonal conjugates, the integrals and the
 [C7-K] cutoff ledger, the sign-window inequality of Lemma W); `SOURCES.json` (exact identities of every merged source; #191 recorded as consumed-unmerged
-with its blob, #187/#188 as cited-unmerged). A clean-context referee agent (same provider; not a nonauthor
+with its blob — the workflow verifies that blob too, from the tree once #191 has landed or through the repository's
+blob API before, and fails on absence or drift; #187/#188 as cited-unmerged). A clean-context referee agent (same provider; not a nonauthor
 review) read a first version before landing: no error found in Lemma B, Lemma F′, the decomposition or the ledger;
 it confirmed Lemma E's Steps 1–3 symbolically on pinned quintics in `d = 2, 3`; its thirteen findings (the
 canonical-version wording of the statement, a false sentence and an overclaim in Remark 1, Remark 3's gating,

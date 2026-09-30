@@ -333,7 +333,7 @@ both ledgers.)
 | [E1] | `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md` (blob `213594d6`) | reading rule |
 | [E2] | `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (blob `fe9b9ce4`) | §9 replacement: regular conditional law, Borel marks, (9.1) |
 | [REC] | `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md` (blob `75da2597`) | reading rule, consumption contract |
-| #191 | `frontiers/remainder_vanishing_20260930/PROOF.md` (unmerged; v1.1 blob `441152df`, head `abae6d0`) | Theorem R+ (R+.3) and its §2 (domination, pointwise limit, (2.1)); Lemma E ((E.1) and Steps 1–3: (1.1), (1.3), (1.5), the structural display after (1.6)); the admissible radius `r_0^*` — **consumed, unmerged** |
+| #191 | `frontiers/remainder_vanishing_20260930/PROOF.md` (unmerged; v1.1 blob `441152df`, head `abae6d0`; the workflow verifies this blob — from the tree once landed, else by blob id — and fails on drift) | Theorem R+ (R+.3) and its §2 (domination, pointwise limit, (2.1)); Lemma E ((E.1) and Steps 1–3: (1.1), (1.3), (1.5), the structural display after (1.6)); the admissible radius `r_0^*` — **consumed, unmerged** |
 | #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (unmerged) | Theorem F (`ℓ^{2/3}` far rate, sharper than (F′.1)) and §4 — cited only (Lemma F′ and Remarks 1–2) |
 | #188 | `frontiers/far_elder_flat_ridge_20260930/PROOF.md` (unmerged) | `ℓ^N` far rate — cited only (Remark 2) |
 

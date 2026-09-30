@@ -5,7 +5,8 @@ name: Remainder rate exact controls
     paths:
       - 'frontiers/remainder_rate_20260930/**'
       - '.github/workflows/remainder-rate.yml'
-      # bound merged sources (consumed in SOURCES.json); the unmerged #191 dependency is recorded, not verified
+      # bound merged sources (consumed in SOURCES.json) and the pinned unmerged dependency (#191; verified by blob)
+      - 'frontiers/remainder_vanishing_20260930/PROOF.md'
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'frontiers/c7_total_bounded_20260929/PROOF.md'
       - 'frontiers/fixed_r_inverse_lifetime_20260930/PROOF.md'
@@ -33,10 +34,12 @@ jobs:
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           python -B -S - <<'PY'
-          import hashlib, json, pathlib, subprocess, sys
+          import base64, hashlib, json, os, pathlib, subprocess, sys, urllib.request
           root = pathlib.Path('frontiers/remainder_rate_20260930').resolve()
           manifest = json.loads((root / 'SOURCES.json').read_text())
           present = sorted(p.name for p in root.iterdir())
@@ -55,6 +58,28 @@ jobs:
               framed = b'blob ' + str(len(data)).encode() + b'\0' + data
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or hashlib.sha1(framed).hexdigest() != entry['git_blob']:
                   raise ValueError('merged source drifted: ' + entry['path'])
+          # the consumed unmerged dependency (#191) is verified by its pinned blob: from the tree if the dependency
+          # has landed (then it must be byte-identical to the pinned version, else this packet needs rebinding),
+          # otherwise fetched by blob id through the repository API; absence or drift fails the job
+          for entry in manifest.get('consumed_unmerged', []):
+              tree_path = pathlib.Path(entry['path'])
+              if tree_path.exists():
+                  data = tree_path.read_bytes()
+                  where = 'tree'
+              else:
+                  req = urllib.request.Request(
+                      'https://api.github.com/repos/' + os.environ['GH_REPOSITORY'] + '/git/blobs/' + entry['git_blob'],
+                      headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
+                  with urllib.request.urlopen(req, timeout=60) as resp:
+                      blob = json.load(resp)
+                  if blob.get('encoding') != 'base64':
+                      raise ValueError('unexpected blob encoding for ' + entry['path'])
+                  data = base64.b64decode(blob['content'])
+                  where = 'blob api'
+              framed = b'blob ' + str(len(data)).encode() + b'\0' + data
+              if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or hashlib.sha1(framed).hexdigest() != entry['git_blob']:
+                  raise ValueError('consumed unmerged dependency differs from the pinned blob (rebind required): ' + entry['path'] + ' via ' + where)
+              print(json.dumps({'consumed_unmerged_verified': entry['path'], 'git_blob': entry['git_blob'], 'via': where}))
           script = str(root / 'rate_ledger_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
