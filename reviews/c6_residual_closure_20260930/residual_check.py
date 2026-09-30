@@ -72,8 +72,8 @@ INVENTORY = {
         "70d05080ed81c66b43261438cae3b9ec2840e637"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "240a82d45958db6bc3dd45d41f22a6029f991385316c573464ff3140d93f0b9f",
-        "51715163977cc9e4a807ea8fa0d578246845ff2f"
+        "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
+        "3cfd17c5ef0356dbd3e8f98a2d08cb404ddd982c"
     ],
     "reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md": [
         "50daacbe7e244bc149dbf4568970d79f38a356daa1e88a850f2fc2d074db5b6c",
@@ -309,6 +309,8 @@ def check_deduction():
         for no in range(13):
             rhs = 2 * nr * no + (no * no if MUT == "pair-identity-broken" else f2(no))
             ok &= f2(nr + no) - f2(nr) == rhs and rhs >= 2 * nr * no >= 0
+    # monotonicity used by the diagonal argument of the direct statement: n -> (n)_2 is nondecreasing on n >= 0
+    ok &= all(f2(n + 1) >= f2(n) for n in range(0, 41))
     # tail: for integers n > M >= 3, n(n-1) <= n(n-1)(n-2)/(M-1)
     for M in range(3, 11):
         for n in range(M + 1, 41):

@@ -278,7 +278,7 @@
       "component_of": "math.rn-region.witness-collision.leading-mass-localization",
       "component_role": "reading_rule_record",
       "author_provider": "Anthropic Claude (this session; source-exposed, see section 0)",
-      "fingerprint": "240a82d45958db6bc3dd45d41f22a6029f991385316c573464ff3140d93f0b9f",
+      "fingerprint": "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
       "source": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
       "scope": "section 3: the corollary (D1) + steps 1-3 (Route A) and Route B, read by 5360645884 at b3fac79 and preserved verbatim in REVIEWED_SECTION_3_b3fac79.md; Route C (OpenAI-authored, checked 5902616692)",
       "review_basis": [
@@ -301,6 +301,13 @@
           "verdict": "ACCEPT Route C at the stated scope",
           "depth": "bounded",
           "covers": "Route C only"
+        },
+        {
+          "review": "Math-#173 review 5360751376",
+          "provider": "OpenAI (GPT-6 Astra Pro; author of Math-#162, contributor to Math-#166/#169; no authorship of this record)",
+          "verdict": "ACCEPT Route C as an elementary conditional implication of its stated estimates",
+          "depth": "bounded read of Route C at head 5d8f011 (RECONCILIATION.md blob fd5ad530); the Route C paragraph is unchanged since",
+          "covers": "Route C only; its amendment to the direct-statement paragraph is applied in v1.5"
         }
       ],
       "notes": "reviewed-corollary evidence path; alternative to the direct-statement path; the promotion rests on 5360645884 and on the reviewed paragraphs standing unchanged (REVIEWED); a revision that alters them must obtain a new read or return this node to AUTHOR_SIDE_CANDIDATE"
@@ -495,6 +502,22 @@
       "verdict": "ACCEPT at the stated fixed-d, fixed-torus, compact-positive-gap window scope; amend list repaired in v1.3",
       "preserved_in": "EXTERNAL_REVIEWS.md section 2",
       "reviewed_text": "REVIEWED_SECTION_3_b3fac79.md"
+    },
+    {
+      "lane": "OpenAI (GPT-6 Astra Pro)",
+      "id": 5360751376,
+      "kind": "bounded nonauthor read of section 3 Route C at 5d8f011",
+      "verdict": "ACCEPT Route C; amendment: no fixed-R substitution into (L1), diagonal argument (applied in v1.5)"
+    },
+    {
+      "lane": "OpenAI Sol (integrator)",
+      "id": [
+        5902847683,
+        5902997395,
+        5907324679
+      ],
+      "kind": "integration hold",
+      "disposition": "items 2-4 closed by v1.3/v1.4; item 1 (direct-statement sentence) closed by v1.5"
     }
   ],
   "exposure": "reconciler authored Math-#160 (the definition) and remote_collision_20260928 ([RC], consumed by both routes); reviewed none of Math-#159, #162, #166; same GitHub account; zero organizational-independence credit; Math-#173's own reviewers are OpenAI Sol (source-exposed; integrator) and OpenAI/Codex",
@@ -505,13 +528,14 @@
     "any historical predicate move"
   ],
   "revision": {
-    "version": "v1.4",
+    "version": "v1.5",
     "applies": [
       "initial record at 358f256",
       "fa1cf7b: Math-#166 TWO_SCALE_LAW.md and REVIEW_RECORD.md bound as the direct statement (step 0 satisfied); Route C added with exact checks and mutant route-c-broken; record node supporting",
       "fe2c3ff: two-scale REVIEW_RECORD.md rebound to its Math-#172 bytes; REVIEW_RECORD.json bound as a component (native body digest of 5360227991)",
       "fe2c3ff (v1.3): Math-#173 reviews answered: record node PROVED_REVIEWED on the reviewed-record path (5360645884; reviewed section preserved and checked), evidence_paths, installed-state acceptance in LIVE, source snapshots and per-component drift in GATE, four new mutants",
-      "8d48d02 (v1.4): re-verified after Math-#160 merged; no content change"
+      "8d48d02 (v1.4): re-verified after Math-#160 merged; no content change",
+      "02772ec (v1.5): direct-statement paragraph repaired per review 5360751376 (diagonal argument; no fixed-R substitution into (L1)); Route C read 5360751376 recorded; re-verified after Math-#168 merged"
     ]
   },
   "third_source_bound": {
@@ -545,7 +569,7 @@
     ],
     "bound": "r^-3 E[(N)_2 - (A)_2] <= C (R^-2 + rho^2)^(1/2) + C_(R,rho) r^(3/4) + C_rho r; r -> 0, rho -> 0, R -> oo"
   },
-  "reverified_at": "fe2c3ff (Math-#172 custody repair of the two-scale packet: TWO_SCALE_LAW.md unchanged, REVIEW_RECORD.md extended, REVIEW_RECORD.json added; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c); unchanged at v1.3 (Math-#160 refreshed onto fe2c3ff as dd4f4f8 by the integrator); 8d48d02 (Math-#160 merged: its packet and workflow only; register surfaces and every bound file unchanged)",
+  "reverified_at": "fe2c3ff (Math-#172 custody repair of the two-scale packet: TWO_SCALE_LAW.md unchanged, REVIEW_RECORD.md extended, REVIEW_RECORD.json added; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c); unchanged at v1.3 (Math-#160 refreshed onto fe2c3ff as dd4f4f8 by the integrator); 8d48d02 (Math-#160 merged: its packet and workflow only; register surfaces and every bound file unchanged); 02772ec (Math-#168 merged: numerics note only; nothing bound changed)",
   "evidence_paths": {
     "direct_statement": {
       "components": [
@@ -553,7 +577,7 @@
         "math.c6r-component.two-scale-review-record",
         "math.c6r-component.two-scale-review-binding"
       ],
-      "statement": "Math-#166 Theorem L (L1) at q = 2 with delta_r = R r, and (L2)",
+      "statement": "Math-#166 Theorem L (L1) at q = 2, applied through the diagonal argument of section 3 (review 5360751376; no fixed-R substitution), and (L2)",
       "review": "Claude 5360227991 (in-repo REVIEW_RECORD.md and REVIEW_RECORD.json body binding); xAI 5901945424 as reported"
     },
     "reviewed_corollary": {
@@ -567,7 +591,7 @@
         "math.c6r-component.residual-closure-record"
       ],
       "statement": "RECONCILIATION.md section 3: (D1) with Route A (Math-#162 (26)/(18)/(20), PALM Theorem Q), Route B (Math-#159 Corollary Lambda / Proposition 4.4 / Lemma 5.2), Route C",
-      "review": "OpenAI / GPT-5.6 Sol 5360645884 at b3fac79 ((D1), Route A, Route B; reviewed text preserved); Route C checked in 5902616692"
+      "review": "OpenAI / GPT-5.6 Sol 5360645884 at b3fac79 ((D1), Route A, Route B; reviewed text preserved); Route C checked in 5902616692; Route C read by OpenAI Astra 5360751376 at 5d8f011"
     },
     "rule": "either path alone establishes (Res) at the section 4 scope; the residual node's required edges take the union so that a later source change on either path holds the residual (fail-closed); GATE replays each path alone, the union, and the negative with the record node required but unread"
   }

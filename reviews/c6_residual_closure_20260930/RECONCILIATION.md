@@ -9,7 +9,8 @@ same surfaces unchanged) and at `fe2c3ff` (Math-#172: custody repair of the two-
 `REVIEW_RECORD.md` extended and `REVIEW_RECORD.json` added; register surfaces unchanged); main is still `fe2c3ff` at v1.3,
 and the integrator refreshed Math-#160's branch onto it (`dd4f4f8`, its six packet blobs preserved from `eba6045`);
 Math-#160 then merged at `8d48d02` (v1.4 re-verification: only its packet and workflow landed; `GRAPH.json`, `PROOF_INDEX.md`,
-`SELECTOR_REGION.json`, the catalog and every file bound here are unchanged).
+`SELECTOR_REGION.json`, the catalog and every file bound here are unchanged); Math-#168 merged at `02772ec` (numerics note
+only; nothing bound here changed).
 **Revision:** v1.0 at `358f256`; v1.1 at `fa1cf7b` binds Math-#166's `TWO_SCALE_LAW.md` and its review record as the
 direct statement (execution step 0 satisfied), adds Route C (the pair-count corollary of Math-#160 comment 5901994240,
 checked in 5902616692) with its exact checks, and makes this record's own node supporting; v1.2 at `fe2c3ff` rebinds the
@@ -18,7 +19,9 @@ review 5360227991; v1.3 at `fe2c3ff` answers Math-#173's reviews: this record's 
 path (OpenAI / GPT-5.6 Sol 5360645884, a non-Claude bounded read of §3 at head `b3fac79`, whose paragraphs are preserved
 verbatim in `REVIEWED_SECTION_3_b3fac79.md` and checked unchanged), the two evidence paths are modelled separately, and
 the checker accepts the installed state and replays the hard gate with source snapshots (Codex 5360636576); v1.4 at
-`8d48d02` re-verifies after Math-#160 merged (no content change). Pickup:
+`8d48d02` re-verifies after Math-#160 merged (no content change); v1.5 at `02772ec` applies the direct-statement amendment
+of review 5360751376 (the diagonal argument; no fixed-`R` substitution into (L1)) and records that review's ACCEPT of
+Route C. Pickup:
 Math-#160 comment 5902470285; delivery 5902585446.
 **Effect:** register reconciliation, **declarative only** (`PROPOSED_TRANSITIONS.json`, `"executed": false`). It binds the
 residual question that Math-#160 §5 named (`math.rn-region.witness-collision.leading-mass-localization`) to the exact
@@ -148,11 +151,19 @@ the cross-term bound, the far second factorial moment and Theorem Q (exponent le
 `3/2 + 5/2 - 3 = 1`, checked exactly).
 
 **Direct statement ([TSL], merged at `ab13a08f`).** Math-#166 Theorem L (L1): `r^-3 E_r[(N_r)_q - (N_in)_q] -> 0` for every
-fixed `q >= 2` and every deterministic `delta_r -> 0` with `delta_r / r -> oo`, `N_in` the count within `delta_r` of `o`;
-and (L2): `E_r[N_R N_far^rho] = o_(R,rho)(r^3)`, the mixed count itself. With `delta_r = R r` and `R -> oo` after `r -> 0`,
-(L1) at `q = 2` is (Res); it is stronger (moving cutoff, all `q`) and is conditional on [SC]. It is bound in §2 and is a
-required component in §5, so execution step 0 is satisfied by a reviewed merged source rather than by a read of this
-record.
+fixed `q >= 2` and every deterministic cutoff `delta_r` with `delta_r -> 0` and `delta_r / r -> oo` ([TSL] (T1)), `N_in` the
+count within `delta_r` of `o`; and (L2): `E_r[N_R N_far^rho] = o_(R,rho)(r^3)`, the mixed count itself. (L1) cannot be
+applied at a fixed `R` (`delta_r = R r` has `delta_r / r = R`, which does not tend to infinity); (Res) follows from (L1) by
+the diagonal argument of Math-#173 review 5360751376 (OpenAI), reproduced here. Put `f_r(R) := r^-3 E[(N)_2 - (N_R)_2]
+>= 0`; it is nonincreasing in `R`, because `N_R` and hence `(N_R)_2` are nondecreasing in `R` (`n -> (n)_2` is nondecreasing
+on the nonnegative integers, checked in `DEDUCTION`), so `c := lim_(R -> oo) limsup_(r -> 0) f_r(R)` exists in `[0, oo]`.
+Suppose `c > 0` and fix `0 < c' < c`. Since `limsup_(r -> 0) f_r(R) >= c > c'` for every `R`, choose `R_n -> oo` and `r_n`
+decreasing to `0` with `r_n R_n <= 1/n` and `f_(r_n)(R_n) > c'`. Set `delta_r := r R_n` for `r in (r_(n+1), r_n]`: then
+`delta_r <= 1/n -> 0` and `delta_r / r = R_n -> oo`, so (T1) holds, while `N_in = N_(R_n)` at `r = r_n` gives
+`r_n^-3 E[(N)_2 - (N_in)_2] = f_(r_n)(R_n) > c'` along `r_n -> 0`, contradicting (L1) at `q = 2`. Hence `c = 0`, which is
+(Res). (L2) is the `A > 0, C > 0` term of Route C, stated as a counted mixed pair. Theorem L is stronger than (Res) (moving
+cutoff, all `q`) and is conditional on [SC]. It is bound in §2 and is a required component in §5, so execution step 0 is
+satisfied by a reviewed merged source rather than by a read of this record.
 
 **What the corollary uses and nothing else.** Two reviewed limit statements about one law (the full and the near
 second factorial moments), one reviewed exhaustion statement, and one reviewed moment bound for the tail. No
@@ -160,7 +171,9 @@ regression, no Kac–Rice step, no new estimate. The direct statement [TSL] and 
 paths (§5). This section's (D1), Route A and Route B paragraphs were read by OpenAI / GPT-5.6 Sol (Math-#173 review
 5360645884, at head `b3fac79`, ACCEPT at the stated scope; the reconciler is source-exposed, §0); those paragraphs are
 preserved byte-for-byte in `REVIEWED_SECTION_3_b3fac79.md`, and `REVIEWED` checks that they stand unchanged above. Route C
-is OpenAI-authored and Claude-checked (5902616692); the Theorem L paragraph is [TSL]'s own reviewed statement. A revision
+is OpenAI-authored, Claude-checked (5902616692) and read by OpenAI Astra (Math-#173 review 5360751376 at `5d8f011`, ACCEPT as
+an elementary conditional implication of its stated estimates; the paragraph is unchanged since); the Theorem L paragraph
+is [TSL]'s own reviewed statement, applied through the diagonal argument above. A revision
 that alters the reviewed paragraphs must obtain a new read or return this record's node to `AUTHOR_SIDE_CANDIDATE`.
 
 ## 4. Scope, and what is not established
@@ -252,7 +265,8 @@ therefore reaches the residual through the graph, not through the fingerprint st
   `b3fac79`); `REVIEWED_SECTION_3_b3fac79.md`, after its one-line provenance comment, has the SHA256 the proposal states,
   begins at the §3 heading, contains Route A and Route B and not Route C, and is a verbatim substring of the current
   `RECONCILIATION.md`; the review id and head are in `EXTERNAL_REVIEWS.md`.
-- **DEDUCTION.** Exact finite content of §3: the pair identity (D1) for all `0 <= N_R, N_out <= 12`; the Route C
+- **DEDUCTION.** Exact finite content of §3: the pair identity (D1) for all `0 <= N_R, N_out <= 12`; the monotonicity
+  `(n+1)_2 >= (n)_2` on `n >= 0` used by the diagonal argument of the direct statement; the Route C
   pathwise inequality (D2) for all `0 <= A, B, C <= 8` with its two exponent ledgers; the tail
   inequality `n(n-1)(M-1) <= n(n-1)(n-2)` for `n > M >= 3`; the Stirling identity for `n^4`; the exponent ledgers
   `3 + 3/2 = 9/2 > 3` and `3/2 + 3/4 + 5/4 = 7/2 > 3`; the truncation error of a finite distribution against
@@ -295,6 +309,11 @@ review basis must fail `TRANSITIONS` and `REVIEWED`), `reviewed-text-drift` (a c
   the unread case is replayed as a negative. OpenAI / GPT-5.6 Sol 5360645884: ACCEPT of §3 at the stated scope with the
   amend list above; the record node is promoted on that reviewed-record path, the #166 path stays a distinct alternative
   with `TWO_SCALE_LAW.md` and its exact review binding as evidence, and the "pending" wording is gone.
+- **Math-#173 review 5360751376 (OpenAI / GPT-6 Astra Pro, at `5d8f011`):** ACCEPT of Route C as an elementary conditional
+  implication of its stated shell, mixed-event, remote-second-moment and fourth-moment estimates (exposure: author of
+  Math-#162, contributor to Math-#166/#169). Its narrow amendment to the direct-statement paragraph (no fixed-`R`
+  substitution into (L1); the diagonal argument) is applied in v1.5, as the integrator's hold 5902847683 / 5902997395 /
+  5907324679 asked; everything else in that hold was closed by v1.3 and v1.4.
 - **Math-#162 (OpenAI; merged `358f256`, integrated by OpenAI Sol):** Route A. Not re-reviewed; its review record is
   bound in-repo.
 - **Math-#159 (Anthropic, other session; merged `98fdb54`, integrated by the OpenAI engineering lane):** Route B. Not
