@@ -95,23 +95,28 @@ three; the radial ratio's total-variation distance from Pareto(11) at threshold 
 
 **Near-mass identity** (`alpha_1 + 2 alpha_2` from (N) at three shape-grid levels, against Math-#168):
 
-| `k` | (N) at 32/64/96 shape points | (N), `b = 0` | Math-#168 GH60 | Math-#168 MC (s.e. of `alpha_1`) | rel. dev. vs GH60 / MC |
+| `k` | (N) at 32/64/96 shape points (`ns = 160`) | (N), `b = 0` | Math-#168 GH60 | Math-#168 MC (s.e. of `alpha_1`) | rel. dev. vs GH60 / MC |
 |---|---|---|---|---|---|
-| `0.5` | 37.9798 / 37.8556 / 37.867 | 1.1869 | 1.1877 | 1.1844 (0.0027) | -6.76e-04 / +2.07e-03 |
-| `1.0` | 175.615 / 175.762 / 175.773 | 1.3774 | 1.3801 | 1.3786 (0.0022) | -1.97e-03 / -9.20e-04 |
-| `2.0` | 1116.83 / 1117.77 / 1117.93 | 2.19 | 2.196 | 2.1948 (0.0033) | -2.70e-03 / -2.18e-03 |
+| `0.5` | 37.9952 / 37.871 / 37.8825 | 1.1874 | 1.1877 | 1.1844 (0.0027) | -2.67e-04 / +2.48e-03 |
+| `1.0` | 175.923 / 176.071 / 176.082 | 1.3798 | 1.3801 | 1.3786 (0.0022) | -2.22e-04 / +8.33e-04 |
+| `2.0` | 1119.62 / 1120.53 / 1120.7 | 2.1954 | 2.196 | 2.1948 (0.0033) | -2.34e-04 / +2.87e-04 |
 
-The four-dimensional integral converges from below (observed order about two in the shape grid; the integrand has
-an integrable boundary singularity where the `|Z|`-scale of the Gaussian cutoff diverges) and at the finest level
-lies within `0.9`, `0.6` and `1.5` Monte Carlo standard errors of the Math-#168 values at `k = 1/2, 1, 2`. This is the check that the two
-parametrizations agree; it is not a certification of either.
+The shape-grid refinement at fixed `ns = 160` moves the integral by at most `3e-04` relative between the 64- and
+96-point levels (observed order about two; the integrand has an integrable boundary singularity where the
+`|Z|`-scale of the Gaussian cutoff diverges), and the log-`Z` order is converged: at `32 x 32` shape points,
+`ns = 64, 96, 160, 256` give `175.6152`, `175.9278`, `175.9235`, `175.9235` at `k = 1` (an under-resolved `ns = 64`, the order of the
+first version of this note, biased the identity low by `1.8e-3`, exactly the deviation then reported; the `a`-order
+`32` and `48` agree to all digits). At the finest level the identity lies within `1.1`, `0.5` and `0.2` Monte Carlo
+standard errors of the Math-#168 values at `k = 1/2, 1, 2`, and within `2.7e-04`, `2.2e-04`, `2.3e-04` relative of the GH60
+values. This is the check that the two parametrizations agree; it is not a certification of either.
 
 ## 4. Precision (empirical, not bounds)
 
 - The one-dimensional cusp integrals agree between 48 and 96 Gauss–Legendre points to the relative deviations in
   the table (all below `1e-14`); the constants inherit that precision and the exact prefactor.
-- The near-mass integral moves by `at most `3e-04`` relative between the 64- and 96-point shape levels; its remaining
-  error is of that order, below the Math-#168 Monte Carlo standard error.
+- The near-mass integral moves by at most `3e-04` relative between the 64- and 96-point shape levels at `ns = 160`,
+  and by `4e-09` between `ns = 160` and `256`; its remaining error is of the former order, below the Math-#168 Monte
+  Carlo standard error.
 
 ## 5. What the numbers are not
 
@@ -124,8 +129,9 @@ organizational-independence credit. The author will not merge.
 
 ## 6. Provenance
 
-`tail_constants.py` (standard library; `--check` replays the exact controls, the cusp integrals and `C_*` for each
-`k`, the low-level near-mass integral, and the identity tolerance against `RESULTS.json`; mutants `shape-integral`,
-`gamma-power`, `cusp-shift` exit 1), `RESULTS.json` (full run, about 5 minutes), `SOURCE_MAP.json`
+`tail_constants.py` (standard library; `--check` replays the exact controls, the cusp integrals and the complete
+constants table for each `k` and both `b`, the low-level near-mass integral for each `k` with its log-`Z` study
+entry, the assembly of the identity from the stored numbers, and the identity tolerance against `RESULTS.json`; mutants `shape-integral`,
+`gamma-power`, `cusp-shift` exit 1), `RESULTS.json` (full run, about fifteen minutes), `SOURCE_MAP.json`
 (pins [R], [SC], [NUM], [CUB], [LP] on `main` `02772ec`; companions [E], [Q] unmerged, not workflow-checked),
 `SOURCE_FILES.json`, workflow `c6-microscopic-tail-numerics.yml`.

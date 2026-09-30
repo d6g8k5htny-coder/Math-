@@ -5,6 +5,11 @@ name: C6 microscopic tail numerics (replay)
     paths:
       - 'frontiers/c6_microscopic_tail_numerics_20260930/**'
       - '.github/workflows/c6-microscopic-tail-numerics.yml'
+      - 'frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md'
+      - 'frontiers/spectral_cluster_closure_20260929/PROOF.md'
+      - 'frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json'
+      - 'frontiers/planar_cubic_cluster_20260929/PROOF.md'
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
   workflow_dispatch:
 
 permissions:

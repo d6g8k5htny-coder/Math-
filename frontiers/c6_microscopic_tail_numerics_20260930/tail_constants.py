@@ -12,7 +12,7 @@ Evaluated (deterministic Gauss quadrature, standard library only; no proof, no e
   * control: the near-mass identity alpha_1 + 2 alpha_2 = K_0 int_S int_Z Q |Z|^-12 p_odd (the root-resolved integral
     (R11) integrated over all Z), against the merged Math-#168 values of alpha_1, alpha_2.
 
-    python -B -S tail_constants.py            # full run, writes RESULTS.json (a few minutes)
+    python -B -S tail_constants.py            # full run, writes RESULTS.json (about fifteen minutes)
     python -B -S tail_constants.py --check    # exact controls + replay against RESULTS.json (Python >= 3.11)
     python -B -S tail_constants.py --check --mutant NAME   # must exit 1
 """
@@ -267,7 +267,10 @@ def full_run():
     ex = controls()
     res = {'object': 'CL-C6-MICRO-TAIL-NUMERICS-20260930-v1', 'scientific_effect': 'NONE', 'certified': False,
            'dimension': 2, 'exact': {k: str(v) for k, v in ex.items()}, 'D_inner': D_inner(), 'kappa': KAPPA,
-           'quadrature': {'cusp_gl': 96, 'cusp_gl_check': 48, 'cusp_range': 14.0, 'near_mass_levels': [[32, 32, 64, 32], [64, 64, 64, 32], [96, 96, 64, 32]]},
+           'quadrature': {'cusp_gl': 96, 'cusp_gl_check': 48, 'cusp_range': 14.0,
+                          'near_mass_levels': [[32, 32, 160, 32], [64, 64, 160, 32], [96, 96, 160, 32]],
+                          'near_mass_logZ_study': {'shape': [32, 32], 'a_nodes': 32, 'ns': [64, 96, 160, 256]},
+                          'near_mass_a_study': {'shape': [32, 32], 'ns': 160, 'na': [32, 48]}},
            'per_k': {}, 'table': {}, 'near_mass_identity': {}}
     r96, r48 = gauss_legendre(96), gauss_legendre(48)
     for k in (0.5, 1.0, 2.0):
@@ -279,11 +282,14 @@ def full_run():
         levels = {}
         for nodes in res['quadrature']['near_mass_levels']:
             levels['x'.join(map(str, nodes))] = near_mass(k, *nodes)
+        logz = {str(ns): near_mass(k, 32, 32, ns, 32) for ns in res['quadrature']['near_mass_logZ_study']['ns']}
+        astudy = {str(na): near_mass(k, 32, 32, 160, na) for na in res['quadrature']['near_mass_a_study']['na']}
         pf0, pf1 = prefactor(k, 0.0), prefactor(k, 1.0)
-        top = levels['96x96x64x32']
+        top = levels['96x96x160x32']
         a1, a2 = ALPHA_GH60[k]; m1, m2 = ALPHA_MC[k]
         res['near_mass_identity']['k=%s' % k] = {
             'K0_integral_without_prefactor_by_level': levels,
+            'logZ_study_32x32': logz, 'a_study_32x32_ns160': astudy,
             'alpha1_plus_2alpha2_b0': pf0 * top, 'alpha1_plus_2alpha2_b1': pf1 * top,
             'ref_gh60_b0': a1 + 2 * a2, 'ref_mc_b0': m1 + 2 * m2, 'ref_mc_b0_se_alpha1': ALPHA_MC_SE1[k],
             'rel_dev_vs_gh60': (pf0 * top - (a1 + 2 * a2)) / (a1 + 2 * a2), 'rel_dev_vs_mc': (pf0 * top - (m1 + 2 * m2)) / (m1 + 2 * m2)}
@@ -302,12 +308,21 @@ def check_run():
         cu = cusp_integrals(k, r96)
         for n in cu:
             require(abs(cu[n] - ref['per_k'][str(k)]['cusp'][n]) <= REPLAY_TOL * abs(ref['per_k'][str(k)]['cusp'][n]), 'cusp integral replay %s k=%s' % (n, k))
-        t = constants_table(k, 0.0, ex, cu)
-        require(abs(t['C_star'] - ref['table']['k=%s,b=0.0' % k]['C_star']) <= REPLAY_TOL * ref['table']['k=%s,b=0.0' % k]['C_star'], 'C_* replay k=%s' % k)
-    nm = near_mass(1.0, 32, 32, 64, 32)
-    require(abs(nm - ref['near_mass_identity']['k=1.0']['K0_integral_without_prefactor_by_level']['32x32x64x32']) <= REPLAY_TOL * nm, 'near-mass replay (low level)')
-    top = ref['near_mass_identity']['k=1.0']['alpha1_plus_2alpha2_b0']
-    require(abs(top - ref['near_mass_identity']['k=1.0']['ref_mc_b0']) < 3 * ref['near_mass_identity']['k=1.0']['ref_mc_b0_se_alpha1'] + 2e-3, 'near-mass identity within tolerance of the Math-#168 MC value')
+        for b in (0.0, 1.0):
+            t = constants_table(k, b, ex, cu)
+            rt = ref['table']['k=%s,b=%s' % (k, b)]
+            require(sorted(t) == sorted(rt), 'table keys k=%s b=%s' % (k, b))
+            for name in t:
+                require(abs(t[name] - rt[name]) <= REPLAY_TOL * max(abs(rt[name]), 1e-300), 'table replay %s k=%s b=%s' % (name, k, b))
+    for k in (0.5, 1.0, 2.0):
+        nm = near_mass(k, 32, 32, 160, 32)
+        require(abs(nm - ref['near_mass_identity']['k=%s' % k]['K0_integral_without_prefactor_by_level']['32x32x160x32']) <= REPLAY_TOL * nm, 'near-mass replay (low level) k=%s' % k)
+        require(abs(nm - ref['near_mass_identity']['k=%s' % k]['logZ_study_32x32']['160']) <= REPLAY_TOL * nm, 'near-mass logZ-study consistency k=%s' % k)
+        pf0 = prefactor(k, 0.0)
+        require(abs(pf0 * ref['near_mass_identity']['k=%s' % k]['K0_integral_without_prefactor_by_level']['96x96x160x32'] - ref['near_mass_identity']['k=%s' % k]['alpha1_plus_2alpha2_b0']) < 1e-12, 'near-mass assembly k=%s' % k)
+    for k in (0.5, 1.0, 2.0):
+        top = ref['near_mass_identity']['k=%s' % k]['alpha1_plus_2alpha2_b0']
+        require(abs(top - ref['near_mass_identity']['k=%s' % k]['ref_mc_b0']) < 3 * ref['near_mass_identity']['k=%s' % k]['ref_mc_b0_se_alpha1'] + 2e-3, 'near-mass identity within tolerance of the Math-#168 MC value k=%s' % k)
     print(json.dumps({'check': 'ok', 'mutant': MUT}))
 
 
