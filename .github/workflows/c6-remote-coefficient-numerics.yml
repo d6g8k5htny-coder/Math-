@@ -5,6 +5,11 @@ name: C6 remote coefficient numerics (replay)
     paths:
       - 'frontiers/c6_remote_coefficient_numerics_20260930/**'
       - '.github/workflows/c6-remote-coefficient-numerics.yml'
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
+      - 'frontiers/remote_window_20260924/PROOF.md'
+      - 'frontiers/c6_cluster_law_20260929/PROOF.md'
+      - 'frontiers/remote_collision_20260928/PROOF.md'
+      - 'frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json'
   workflow_dispatch:
 
 permissions:
