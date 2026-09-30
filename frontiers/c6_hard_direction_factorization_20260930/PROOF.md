@@ -33,17 +33,21 @@ not depend on `k`.
 
 **Corollary 1 (near coefficients).** The [SC] (20) coefficients satisfy `a_j^(d)(b, k) = R_d(b) a_j^(2)(b, k)`,
 `j = 1, 2`. Hence `a_2 / a_1` (the near doublet-to-singleton ratio, `nu_near(2)/nu_near(1)`), and every law
-obtained by normalizing a function of `(s, a, beta, c)` under `dM` — the conditional law of the soft cubic given
+obtained by normalizing a function of `(s, a, beta, c)` under `dM` by a positive finite mass (`0 < integral g dM
+< infinity`; the factor `R_d(b)` is positive and finite and cancels) — the conditional law of the soft cubic given
 `n >= 1`, the shape region measure `Q du dv` of [R] (R9)–(R10), the Pareto-11 radius law and the constants
 `E eta = 5771/7062`, `I, J, D, E0` and all ratios of [R], [E], [Q], [ELD] — are the same in every dimension
-`d >= 2`. The radial-tail constant of [R] (R13) satisfies `C_*^(d) = R_d(b) C_*^(2)`, since (R12)'s `J_cusp`
+`d >= 2`, for the continuum-kernel measures `dM^(d)`. The radial-tail constant of [R] (R13) satisfies `C_*^(d) = R_d(b) C_*^(2)`, since (R12)'s `J_cusp`
 integrand has the same hard-direction factor (section 3).
 
 **Corollary 2 (conditional, elder statements).** Where a source identifies `lim r^(-3) (1 - p_r) = a_1 + a_2`
 (#170 Theorem S in `d = 2`, #175 Theorem F in `d >= 3`, both unmerged drafts), the elder-failure coefficient in
 dimension `d` is `R_d(b) (alpha_1 + alpha_2)^(2)`, and the conditional lifetime-fraction and shape laws given
 failure (#170 section 8.8, #175 M1, #179/#181's `S \ O2` laws) are dimension-independent. This corollary inherits
-those sources' conditional status and promotes nothing.
+those sources' conditional status and promotes nothing. It concerns the sources' statements read for the same
+continuum-kernel model as Theorem 1; the sources are stated for the periodized field on `T_L^d`, and a finite-`L`
+theorem does not transfer to the continuum measures by replacing its covariance in notation, so no new
+actual-field theorem is claimed here.
 
 **Closed form.** `m_(3,0) = (7 - 4 sqrt2)/2`, `N_3(0) = 2 sqrt2`, hence
 
@@ -255,12 +259,15 @@ times the conditional second moment of the other eigenvalue, bin half-width `0.0
 ## 6. Non-claims and the torus
 
 - The theorem is for the continuum kernel only. The [SC] measure for the periodized field on the torus `T_L^d`
-  uses the one-site jet covariances of `K_L`, which differ from the continuum values by image terms, and at finite
-  `L` the transverse rotation invariance of Lemma 1(3) is broken to the lattice symmetry, so the exact step that
-  extracts a common hard-direction factor is not available. No finite-`L` statement is made and no perturbation
-  bound is proved. The only finite-`L` data quoted are Math-#168's measured deviations of the planar one-site
-  covariance table from the continuum (`8.8e-4` relative at `L = 6`, `2e-14` at `L = 12`, `1.4e-13` at `L = 24`);
-  they are not an error estimate for the factorization in any dimension.
+  uses the one-site jet covariances of `K_L`, which differ from the continuum values by image terms. At finite `L`
+  the transverse rotational invariance of Lemma 1(3) is broken, so the exact step that extracts a common
+  hard-direction factor is not available. The quoted planar one-site deviations of Math-#168 (`8.8e-4` relative at
+  `L = 6`, `2e-14` at `L = 12`, `1.4e-13` at `L = 24`) are diagnostics for those covariance entries only. No
+  finite-`L` factorization identity, coefficient error bound, relative accuracy or higher-dimensional correction
+  is established in this packet. Obtaining one requires a separate perturbation estimate for the relevant
+  conditional covariance, the numerator integrals and the full normalizer; a small covariance perturbation does
+  not give a uniform relative error over arbitrary nonnegative `g` (tail indicators `1{x >= a}` under `N(0, 1)`
+  against `N(0, 1 + delta)` have unbounded relative error as `a -> infinity`).
 - Nothing is said about the remote singleton coefficient `beta_far` ([SC] (22), two-site) or the contact kernel
   `Lambda(x)`; the dimension dependence of `nu(1) = a_1 + beta_far` is not reduced by this note.
 - No rate, no finite-`r` statement, no uniformity in `d`, `k`, `b` or `L`. The sources' theorems are consumed at
