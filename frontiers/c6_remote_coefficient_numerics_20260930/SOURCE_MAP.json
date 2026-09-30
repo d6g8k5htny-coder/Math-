@@ -79,6 +79,13 @@
       "head": "f4d8bb9c30b5848996fceb18d213433cfe9956b9",
       "date": "2026-09-30",
       "disposition": "ACCEPT Slice B (cone-coordinate conditional-Gaussian formulation, closed-form A_0 integration, corrected full-normalizer interface, 4x4 positivity check) with two wording amendments (truncation breakpoints in the cubature; angular qualification of the Euler scaling check), applied in the successor commit; not an acceptance of numerical precision or merge readiness; same account, credit 0"
+    },
+    {
+      "lane": "OpenAI/GPT-6 Astra",
+      "review_id": 5364176857,
+      "head": "a04fc81a8753769b8228419d33998aed0679fd30",
+      "date": "2026-09-30",
+      "disposition": "successor reassessment: the two Slice B amendments resolved, the formulation ACCEPT stands; one further wording repair for the truncation sentence (no universal relative bound; exterior figure an estimate), applied in the successor commit; Slice C still open; same account, credit 0"
     }
   ]
 }

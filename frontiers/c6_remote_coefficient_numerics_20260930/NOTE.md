@@ -81,8 +81,15 @@ from `rho < |a|` (definite; sign of `a` separates minimum and maximum) or `rho >
 split at `0`, the `rho`-range at `|a|`, the `theta` nodes are those of the periodic trapezoid rule under an
 analytic map concentrating them at the angular position of the (generally offset and anisotropic) conditional
 mean. Apart from two truncations, each piece of the integrand is then smooth: the Gaussian ranges are cut at
-`cut = 9` standard deviations (the `rho`-range endpoint `rho_max`, which the `|a|` split can cross, and a
-Mahalanobis cut `q > 2 cut^2` inside the `rho`-loop), both of relative size `e^(-cut^2/2)` or smaller. No
+`cut = 9` (the `a`-range at `cut` standard deviations; the `rho`-range endpoint `rho_max = |mean| + cut . max
+marginal sd` of the transverse pair, which the `|a|` split can cross; and a Mahalanobis cut `q > 2 cut^2` inside
+the `rho`-loop). These are numerical truncations whose omitted weighted mass depends on the actual conditional
+covariance, mean and normalization; no universal relative size is claimed. What can be said in general is that
+the transverse cap sits at standardized distance at least `cut/sqrt2 = 6.4` (the largest eigenvalue of a `2 x 2`
+covariance is at most twice its largest marginal variance), so the omitted Gaussian mass is at most of order
+`e^(-20)` times polynomial factors, and the `a`-cut and the Mahalanobis cut are at `9` and `sqrt2 . 9`
+standard deviations; an absolute bound for the omitted Gaussian domain of the exact integral is the Maxwell-tail
+majorant of the OpenAI lane (Math-#174 comment 5907931352, `3e-16` for the `b = 0` control). No
 geometric-convergence theorem is claimed for the implemented rule; what is claimed is the observed behaviour on
 the exact controls (`E|det H| = 4/sqrt3` to `1e-10` at the default order and `3e-15` at the higher order; the
 closed-form far field to `1e-12`) and the order comparisons of section 5.
@@ -102,8 +109,9 @@ the midpoint rule:
 - continuum kernel, hole constant `c_hole,j = integral_(R^2) (Lambda_j - Lambda_inf,j) dx` on `[-6, 6]^2`
   (`h = 0.15`). The sixth-order jet correlations decay only like `He_6(|x|) e^(-|x|^2/2)` (`0.32` at distance 4,
   `4.4e-4` at 6), so the cutoff is checked directly: `Lambda/Lambda_inf - 1` is `3.6e-5` (axis), `3.1e-6` (45 deg),
-  `4.4e-7` (transverse) at `|x| = 5`, and `4.8e-9`, `4.4e-10`, `3.8e-11` at `|x| = 6`; the neglected exterior
-  contributes less than `10^(-7)` to `c_hole`;
+  `4.4e-7` (transverse) at `|x| = 5`, and `4.8e-9`, `4.4e-10`, `3.8e-11` at `|x| = 6`; from these sampled
+  profiles the neglected exterior is estimated at less than `10^(-7)` on `c_hole` (an estimate from the sampled
+  rays, not an integrated tail bound);
 - periodized kernel at `L = 6`, direct integral over the fundamental domain `[-3, 3]^2` (`h = 0.15`);
 - periodized kernel at `L = 12`, direct integral (`h = 0.2`), compared with `L^2 Lambda_inf + c_hole`.
 
