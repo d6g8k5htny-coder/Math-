@@ -15,6 +15,24 @@ SOURCE_IDS = frozenset(('SC','CUB','RM','C6','P','D5'))
 MUTANTS = ('omit-jet-factor-two','omit-z-reflection','power-ten','wrong-cusp',
            'height-reversed','wrong-window','wrong-k-power','half-root-jacobian')
 
+ACCEPTED_MANUSCRIPTS = {
+    'TWO_SCALE_LAW.md': {
+        'bytes': 17139,
+        'sha256': 'e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769',
+        'git_blob': 'a32fd5f7d941bbe1fe943df045b1e0fbec8d691c',
+        'review_ids': (5360227991,),
+    },
+    'RADIAL_TAIL.md': {
+        'bytes': 12533,
+        'sha256': '250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973',
+        'git_blob': '0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4',
+        'review_ids': (5360178611, 5360216551),
+    },
+}
+ESSENTIAL_PACKET_LEAVES = frozenset(('TWO_SCALE_LAW.md','RADIAL_TAIL.md','REVIEW_RECORD.md',
+                                     'ACCEPTED_BINDINGS.json','SOURCES.json','RESULTS.json',
+                                     'geometry.py','verify.py'))
+
 
 def read_json(path):
     path=Path(path)
@@ -92,12 +110,45 @@ def verify_sources(root):
     return len(entries)
 
 
+def verify_acceptance_bindings(root):
+    """Bind the accepted mathematical bytes to the actual scoped review ids.
+
+    MANIFEST.json is intentionally not authoritative for these identities: a
+    coordinated manuscript+manifest refresh must still fail until this explicit
+    acceptance contract is changed under review.
+    """
+    data=read_json(root/'ACCEPTED_BINDINGS.json')
+    if data.get('schema')!=1 or data.get('accepted_mathematical_head')!='7c82252533c3fe14ee262f7f87c0549c10968592':
+        raise ValueError('unexpected acceptance-binding schema/head')
+    rows=data.get('manuscripts')
+    if not isinstance(rows,list) or {r.get('path') for r in rows}!=set(ACCEPTED_MANUSCRIPTS):
+        raise ValueError('accepted manuscript membership mismatch')
+    for row in rows:
+        path=row['path']; expected=ACCEPTED_MANUSCRIPTS[path]
+        pure=safe_path(path)
+        if len(pure.parts)!=1:raise ValueError('flat accepted manuscript required')
+        for key in ('bytes','sha256','git_blob'):
+            if row.get(key)!=expected[key]:raise ValueError('accepted manuscript binding changed: '+path)
+        identity((root/path).read_bytes(),{'path':path,'bytes':expected['bytes'],
+                                           'sha256':expected['sha256'],'git_blob':expected['git_blob']})
+        reviews=row.get('reviews')
+        if not isinstance(reviews,list):raise ValueError('accepted review list required: '+path)
+        ids=tuple(r.get('id') for r in reviews)
+        if ids!=expected['review_ids'] or len(ids)!=len(set(ids)):
+            raise ValueError('accepted review binding changed: '+path)
+        for review in reviews:
+            if review.get('provider')!='Anthropic Claude' or not str(review.get('url','')).startswith('https://github.com/d6g8k5htny-coder/Math-/pull/166#'):
+                raise ValueError('accepted review provenance malformed: '+path)
+    return len(rows)
+
 def verify_inventory(root):
     entries=read_json(root/'MANIFEST.json')['files']
     if not isinstance(entries,list) or not entries:raise ValueError('empty packet inventory')
     names=[e['path'] for e in entries]
     if len(set(names))!=len(names) or 'MANIFEST.json' in names:
         raise ValueError('duplicate or self-referential packet inventory')
+    if not ESSENTIAL_PACKET_LEAVES <= set(names):
+        raise ValueError('essential accepted/replay leaf missing from packet inventory')
     if sorted(p.name for p in root.iterdir())!=sorted(names+['MANIFEST.json']):
         raise ValueError('packet inventory mismatch')
     for entry in entries:
@@ -115,6 +166,7 @@ def main():
     args=parser.parse_args()
     root=Path(__file__).resolve().parent
     count=verify_inventory(root)
+    accepted_count=verify_acceptance_bindings(root)
     source_count=0 if args.local_only else verify_sources(root)
     expected=(root/'RESULTS.json').read_bytes()
     for flags in (['-B','-S'],['-B','-O','-S']):
@@ -129,7 +181,8 @@ def main():
             if result.returncode!=(2 if mutant=='unknown' else 1):
                 raise ValueError('negative control not rejected: '+mutant)
     verify_inventory(root)
-    print(json.dumps({'passed':True,'packet_leaves':count,'source_count':source_count,
+    verify_acceptance_bindings(root)
+    print(json.dumps({'passed':True,'packet_leaves':count,'accepted_manuscripts':accepted_count,'source_count':source_count,
                       'source_pins_checked':not args.local_only,'scientific_effect':'NONE',
                       'mathematical_acceptance':False},sort_keys=True))
 
