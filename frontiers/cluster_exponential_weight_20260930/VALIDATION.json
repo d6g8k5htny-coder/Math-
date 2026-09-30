@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "scope": "finite rational algebra, immutable source custody and conditional prose",
+  "proof_sha256": "3f32fdd744350a15359451bbbee6c6bcc71af47e4f57f6110d7afb4978e941ee",
+  "author_disposition": "AUTHOR_SIDE / CONDITIONAL; external scoped nonauthor review required",
+  "internal_reviews": "INTERNAL_REVIEWS.md; zero organizational independence",
+  "local_runs": {
+    "finite_controls": {"tests": 12, "positive": 8, "intended_negative": 4, "normal_exit": 0, "optimized_exit": 0, "stdout_byte_identical": true},
+    "signed_convolution_pairs": 729,
+    "custody_controls": {"tests": 11, "normal_exit": 0, "optimized_exit": 0},
+    "packet_discovery": {"tests": 23, "normal_exit": 0, "optimized_exit": 0}
+  },
+  "preserved_failures": [
+    "Initial finite-control implementation omitted zero centering; a mass check failed before correction.",
+    "Four checker-bypass mutation runs each caused one named negative control to fail and exit 1.",
+    "Initial repository-root discovery found zero tests and exited 5; targeted packet discovery is the supported command.",
+    "Initial source verifier accepted tree-as-commit, replacement-ref substitution and boolean schema; all three added controls failed before the minimal repairs. Separate re-review passed."
+  ],
+  "source_exposure": {
+    "connector_commit_path_blob_size_sha256_checks": true,
+    "current_MF_successor_proof_equals_pinned_text": true,
+    "local_complete_historical_git_objects_available": false,
+    "local_full_repository_suite_run": false,
+    "hosted_actual_checkout_source_verification": "REQUIRED, not yet claimed"
+  },
+  "excluded_inferences": ["Gaussian proof from tests", "parent theorem acceptance", "spatial independence", "coefficient convergence rate", "larger-disk analyticity for d>2", "endpoint size-bias convergence", "register transition", "external organizational review", "engineering merge"]
+}

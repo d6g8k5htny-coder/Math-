@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "new_consumer_review": "OPEN",
+  "sources": [
+    {
+      "id": "RADIAL",
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "bytes": 12533,
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "use": "Exact R4-R13 root integral, Gaussian domination, point tail; H3-H4 point height moments."
+    },
+    {
+      "id": "MICRO",
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
+      "bytes": 17139,
+      "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+      "git_blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+      "use": "M1-M2 definition and original-frame embedding ONLY, not the two-scale convergence theorem."
+    },
+    {
+      "id": "SC",
+      "commit": "382c0f9ff2281f43651ddbdf2e9b36dd52e2c6bf",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "use": "Explicit spectral/Gaussian micro measure, finite positive nonempty mass and raw Gaussian density bound. Author-side exposure."
+    },
+    {
+      "id": "CUB",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "use": "Exact typed deterministic cubic classifier ONLY; no Gaussian-sector consumption. Author-side exposure."
+    }
+  ]
+}

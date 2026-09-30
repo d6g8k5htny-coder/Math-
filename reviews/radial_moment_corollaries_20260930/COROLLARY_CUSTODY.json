@@ -1,0 +1,91 @@
+{
+  "artifacts": [
+    {
+      "bytes": 11110,
+      "path": "MOMENT_CONSEQUENCE.md",
+      "sha256": "29bba56b56fd3223a2ea71d012f9abe04eb30240bc5bbfe8f5b131e0bba6f4dd"
+    },
+    {
+      "bytes": 8259,
+      "path": "moment_consequence_checks.py",
+      "sha256": "0c35140179e0345eb03764bf29c3c81453ea278ce1a6319ab33edf6a548e03e6"
+    },
+    {
+      "bytes": 1219,
+      "path": "moment-checks-normal.json",
+      "sha256": "ca7298f97379d48ee717c1efa4570fd3bc91eded22be0e16c501702dd1415874"
+    },
+    {
+      "bytes": 1666,
+      "path": "moment-checks-normal.log",
+      "sha256": "29e85d8acec68f817812b97b51986e8b86ab5dce2266ca0c3367f72815bb9e7b"
+    },
+    {
+      "bytes": 1219,
+      "path": "moment-checks-optimized.json",
+      "sha256": "ca7298f97379d48ee717c1efa4570fd3bc91eded22be0e16c501702dd1415874"
+    },
+    {
+      "bytes": 1666,
+      "path": "moment-checks-optimized.log",
+      "sha256": "29e85d8acec68f817812b97b51986e8b86ab5dce2266ca0c3367f72815bb9e7b"
+    },
+    {
+      "bytes": 1896,
+      "path": "AUTHOR_COMMENT_5907459466.json",
+      "sha256": "835a557cdd953cccaf6b1e15cd08e4facddc0e476d11e2c2d9ecfd414b524c68"
+    },
+    {
+      "bytes": 1221,
+      "path": "AUTHOR_COMMENT_5903080058.json",
+      "sha256": "a0918eb36d54a2d78133bb7f01e66c5dc89c8e7248f10940067ca4a09aa8da74"
+    },
+    {
+      "bytes": 1396,
+      "path": "SOURCES.json",
+      "sha256": "22b3064a278faff1d915dfb658e9d7e41ec5c4ee69f31e944d47a699a82f8a07"
+    }
+  ],
+  "claim_id": "13dc84b1-bc12-42df-8c7f-96f23cb1dd7d",
+  "portable_copy_of_sha256": "b532794b61e6ffd5539ce9f7dc5509b44d04d2c238a14f33e214c8e387532a64",
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "bytes": 15755,
+      "commit": "71772a8906cf6663d16be2cd5f63e5d4ebdcee2b",
+      "git_blob": "65f24b1f9a7b80522a2ee059f5f6877c9f970f0d",
+      "id": "PR176",
+      "local_path": "PROOF.md",
+      "repository_path": "frontiers/radial_rate_20260930/PROOF.md",
+      "sha256": "a3693664900e23e1e763d88a0b5609936a6f31d844cbe6f18c7d0379b94ba710"
+    },
+    {
+      "bytes": 12533,
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "id": "R",
+      "local_path": "R.md",
+      "repository_path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973"
+    },
+    {
+      "bytes": 25006,
+      "commit": "382c0f9ff2281f43651ddbdf2e9b36dd52e2c6bf",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "id": "SC",
+      "local_path": "SC.md",
+      "repository_path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb"
+    },
+    {
+      "bytes": 40261,
+      "commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "P",
+      "local_path": "P.md",
+      "repository_path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    }
+  ]
+}

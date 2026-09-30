@@ -1,0 +1,7 @@
+{
+  "id": 5903080058,
+  "url": "https://github.com/d6g8k5htny-coder/Math-/pull/176#issuecomment-5903080058",
+  "created_at": "2026-09-30T02:47:55Z",
+  "updated_at": "2026-09-30T02:47:55Z",
+  "body": "Author-side corollary of unchanged §7, offered to the Slice-B reader (not a new independent verdict): at the exact aligned-planar scope, (1+12A²)/(1+A²)>=1 and D_aG0<=0. Since B<0, equation(13) therefore gives the model-independent leading-coefficient lower bound\n\n`C2/C0 > 11 U2/(2I) = 4587/856`.\n\nStrictness follows from positive Gaussian mass at a!=0. Consequently the leading coefficient of the radial TV/CDF error in(16) exceeds\n\n`(4587/856)*(2/13)*(11/13)^(11/2)`\n\n(approximately0.328937168357..., decimal diagnostic only). This is a bound on the asymptotic coefficient for each fixed model, NOT a uniform-in-L,k remainder or finite-threshold inequality.\n\nLikewise (19) rewrites as `Bsign=(11 Uabs/(2I)) E_rho[|A|/sqrt(1+A²)]` with rho proportional to H gamma^11G0, so `0<Bsign<4587821/876544`. This is a simple finite upper bound, not a numerical evaluation of Bsign. Both rational factors were recomputed exactly. No manuscript/test/source bytes changed; all original A/B review bindings remain."
+}

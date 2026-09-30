@@ -1,0 +1,99 @@
+{
+  "checks": {
+    "BASELINE": true,
+    "D4_DUPLICATE": true,
+    "GATE": true,
+    "IDENTITIES": true,
+    "INTERFACE": true,
+    "NEGATIVES": true,
+    "PROPAGATION": true,
+    "TRANSITIONS": true,
+    "VERDICTS": true
+  },
+  "component_nodes": 8,
+  "edges_added": 16,
+  "gate": {
+    "changed_nodes": [
+      "math.align-component.external-issue-reviews",
+      "math.align-component.p15-realized-covers-setwise",
+      "math.align-component.p15-review",
+      "math.align-component.pr22-annulus-review",
+      "math.align-component.rn-interface-review",
+      "math.align-component.side24-review-claude",
+      "math.align-component.two-scale-addendum",
+      "math.align-component.two-scale-review",
+      "math.lifetime-remainder",
+      "math.p15-full-price",
+      "math.rn-count-interface",
+      "math.rn-fixed-annulus-window",
+      "math.rn-fixed-remote-window",
+      "math.rn-region.fixed-annulus-window",
+      "math.rn-region.fixed-remote",
+      "math.side24-coefficient"
+    ],
+    "impacted": [
+      "math.align-component.external-issue-reviews",
+      "math.align-component.p15-realized-covers-setwise",
+      "math.align-component.p15-review",
+      "math.align-component.pr22-annulus-review",
+      "math.align-component.rn-interface-review",
+      "math.align-component.side24-review-claude",
+      "math.align-component.two-scale-addendum",
+      "math.align-component.two-scale-review",
+      "math.lifetime-remainder",
+      "math.p15-full-price",
+      "math.rn-count-interface",
+      "math.rn-fixed-annulus-window",
+      "math.rn-fixed-remote-window",
+      "math.rn-mesoscopic-reduction",
+      "math.rn-region.fixed-annulus-window",
+      "math.rn-region.fixed-remote",
+      "math.rn-selector-region-crosswalk",
+      "math.side24-coefficient"
+    ],
+    "reverse_impact_keys": [
+      "changed_nodes",
+      "context_changed",
+      "graph",
+      "impacted",
+      "meaning",
+      "promotion_permission",
+      "source_snapshots_supplied",
+      "traversal_edges"
+    ]
+  },
+  "interface_evidence": {
+    "exact_rational": [
+      "(N1) Holder p=2,3 on finite rational spaces",
+      "(N2) exponent identity",
+      "(N3) conditional-mean identity",
+      "sharp-p example at r=2^-pm",
+      "(N4) integer monotonicity of ceil(t)"
+    ],
+    "numerical_corroboration_floating_point": [
+      "(N4) grid maximum of (t+1)^p e^-3t",
+      "(N5) Simpson quadrature at three parameter points",
+      "(N4) example uniform tail on a grid"
+    ],
+    "results": {
+      "exact": true,
+      "numerical_corroboration": true
+    }
+  },
+  "inventory_files": 15,
+  "object": "REGISTER-ALIGNMENT-20260930-v1",
+  "passed": true,
+  "propagation": {
+    "annulus-proof-edit-reaches-region": true,
+    "d4-fingerprint-edit-reaches-region": true,
+    "d4-proof-edit-reaches-region-and-consumer": true,
+    "external-review-record-edit-reaches-d2-d3-d4-d6": true,
+    "interface-review-deleted-reaches-interface-consumers-regions": true,
+    "no-op-impacts-nothing": true,
+    "realized-covers-edit-reaches-d6": true,
+    "two-scale-addendum-edit-reaches-annulus-and-region": true,
+    "unrelated-edit-leaves-the-eight-untouched": true
+  },
+  "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, two-commit propagation, interface arithmetic (exact and numerical parts labelled), filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written",
+  "transitions": 8
+}
