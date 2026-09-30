@@ -177,16 +177,20 @@ OPEN. Same GitHub account as every lane; zero organizational-independence credit
 
 ## 6. Verification
 
-`python3 -B -S floor.py --check` (and `-B -O -S`): re-derives the certified floor of two sub-boxes (the argmin box and an
-interior box) from scratch and requires exact agreement with `RESULTS.json`; checks that the stored `z_star` is the
-minimum of the table; checks every floating control (floor `<=` MC `+ 5` s.e., floor `<= 1.01 z_0`); checks the
+`python3 -B -S floor.py --check` (and `-B -O -S`; about three minutes): re-derives the certified floor of seven sub-boxes
+(the argmin box and six boxes spread over the band, one per 32 `r`-bands) from scratch and requires exact agreement with
+`RESULTS.json`; checks that the stored `z_star` is the minimum of the table; checks every floating control (floor `<=` MC `+ 5` s.e., floor `<= 1.01 z_0`); checks the
 preconditioned regression against the direct floating regression at two point bands, the Laurent cancellations, and
 the bracketing of `pi`, `Phi(1)`, `exp(-1)`. Mutants (`--mutant`, must exit 1): `swap-minmax` (piece maximum instead
 of minimum in the rectangle bound; the floor exceeds its Monte Carlo control), `drop-torus-error` (`eps = eps_0 = 0`;
 exact replay fails), `sign-saddle` (index condition of `H_S` reversed; exact replay fails). The workflow
 `c8-normalizer-floor-planar.yml` replays the manifest, the two main-resident pins, both check modes and the mutants.
-The full run (`--procs 4`, about 64 minutes on four cores) regenerates `RESULTS.json` deterministically (exact rationals; the
-floating controls are seeded).
+`python3 -B -S floor.py --check-full --procs N` regenerates **every** one of the 9216 sub-box floors and requires exact
+agreement with `RESULTS.json` (`--bands i,j,...` restricts to listed `r`-bands for a partial check); the workflow's
+`full-regeneration` job runs it on demand (`workflow_dispatch`, two cores, about two hours), since the per-pull-request
+job cannot carry it in both interpreter modes with the mutants. The certificate for a stored floor is its exact
+regeneration; the manifest authenticates the bytes, not their derivation. The full run (`--procs 4`, about 64 minutes
+on four cores) regenerates `RESULTS.json` deterministically (exact rationals; the floating controls are seeded).
 
 ## 7. Provenance
 

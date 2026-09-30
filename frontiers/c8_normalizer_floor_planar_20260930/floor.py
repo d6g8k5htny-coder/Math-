@@ -800,6 +800,43 @@ def float_controls(table):
     return controls
 
 
+def replay_sample():
+    rs, bs, ks = subboxes()
+    return [key(rs[ir], rs[ir + 1], bs[ib], bs[ib + 1], ks[ik], ks[ik + 1])
+            for j, ir in enumerate((0, 38, 76, 114, 152, 191))
+            for (ib, ik) in [((3 * j) % B_STEPS, (5 * j + 2) % K_STEPS)]]
+
+
+def check_full(procs, bands=None):
+    """Regenerate every sub-box floor (or the r-bands listed) and compare exactly with RESULTS.json; the floating
+    controls are recomputed and compared to 1e-9 relative (platform libm)."""
+    path = os.path.join(HERE, 'RESULTS.json')
+    require(os.path.exists(path), 'RESULTS.json present')
+    with open(path) as fh:
+        ref = json.load(fh)
+    sel = list(range(R_STEPS)) if bands is None else bands
+    with multiprocessing.Pool(procs) as pool:
+        parts = pool.map(certify_rband, [(ir, L_MIN) for ir in sel])
+    n = 0
+    for part in parts:
+        for kk, v in part.items():
+            require(kk in ref['table'], 'sub-box present: ' + kk)
+            require(v['floor'] == ref['table'][kk]['floor'], 'exact regeneration of ' + kk)
+            n += 1
+    if bands is None:
+        require(n == len(ref['table']) == R_STEPS * B_STEPS * K_STEPS, 'table complete')
+        zs = min(Fr(v['floor']) for v in ref['table'].values())
+        require(str(zs) == ref['z_star'], 'z_star is the minimum of the regenerated table')
+        controls = float_controls(ref['table'])
+        require(sorted(controls) == sorted(ref['float_controls']), 'control set')
+        for kk, row in controls.items():
+            for tag, c in row.items():
+                r0 = ref['float_controls'][kk][tag]
+                for name in ('mc', 'se', 'z0'):
+                    require(abs(c[name] - r0[name]) <= 1e-9 * max(abs(r0[name]), 1e-300), 'control %s %s %s' % (kk, tag, name))
+    print(json.dumps({'check_full': 'ok', 'sub_boxes_regenerated': n, 'z_star': ref['z_star_decimal'], 'mutant': MUT}))
+
+
 def dec(x, digits=10):
     """Decimal string rounded down."""
     x = Fr(x)
@@ -843,8 +880,9 @@ def check_run():
     zs = min(Fr(v['floor']) for v in ref['table'].values())
     require(str(zs) == ref['z_star'], 'z_star is the minimum of the table')
     require(dec(zs) == ref['z_star_decimal'], 'decimal rendering')
-    # 2. exact replay of the argmin sub-box and of one interior sub-box
-    keys = [ref['argmin'], key(rs[96], rs[97], bs[4], bs[5], ks[2], ks[3])]
+    # 2. exact replay of the argmin sub-box and of six further sub-boxes spread over the band (one per 32 r-bands,
+    #    (b, k) indices stepping through the grid); the complete regeneration is --check-full
+    keys = [ref['argmin']] + replay_sample()
     for kk in keys:
         parts_ = kk.replace('r=[', '').replace('],b=[', ',').replace('],k=[', ',').replace(']', '').split(',')
         r0, r1, b0, b1, k0, k1 = [Fr(x) for x in parts_]
@@ -891,8 +929,13 @@ def main():
     ap.add_argument('--procs', type=int, default=4)
     ap.add_argument('--quick', action='store_true', help='one sub-box, print the floor and a Monte Carlo control')
     ap.add_argument('--controls', action='store_true', help='recompute only the floating controls of an existing RESULTS.json')
+    ap.add_argument('--check-full', action='store_true', help='regenerate every sub-box and compare exactly with RESULTS.json (about an hour on four cores)')
+    ap.add_argument('--bands', type=str, default=None, help='with --check-full: comma-separated r-band indices to regenerate instead of all')
     args = ap.parse_args()
     MUT = args.mutant
+    if args.check_full:
+        check_full(args.procs, None if args.bands is None else [int(x) for x in args.bands.split(',')])
+        return
     if args.check:
         check_run()
         return
