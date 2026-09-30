@@ -149,7 +149,7 @@
       "required_premises_after": [
         "math.rn-count-interface"
       ],
-      "notes": "The required edge to math.rn-count-interface is kept; its target is proposed PROVED_REVIEWED in the same execution. PROOF section 1 and 7 read the interface as the formulation this theorem completes. The D5 proposal's component node math.d5-component.remote-window-proof (Math-#138/#151) already carries these bytes as PROVED_REVIEWED on the same review; see RECONCILIATION.md section 7. Single nonauthor provider."
+      "notes": "The required edge to math.rn-count-interface is kept; its target is proposed PROVED_REVIEWED in the same execution. PROOF section 1 and 7 read the interface as the formulation this theorem completes. The D5 proposal's component node math.d5-component.remote-window-proof (Math-#138/#151) already carries these bytes as PROVED_REVIEWED on the same review; see RECONCILIATION.md section 7. Single nonauthor provider. At ec6db8c that duplicate is live (Math-#151 merged); the D4_DUPLICATE check binds it to this transition."
     },
     {
       "node": "math.rn-region.fixed-remote",
@@ -274,7 +274,7 @@
   "execution_order": [
     "1. math.rn-count-interface -> PROVED_REVIEWED (premise of 4 and 6)",
     "2. math.lifetime-remainder and math.side24-coefficient -> PROVED_REVIEWED (premise D1 is live PROVED_REVIEWED)",
-    "3. only after Math-#151 is on main (D4 bytes represented in one direction: collapse math.d5-component.remote-window-proof onto the live node, or reference it): math.rn-fixed-remote-window -> PROVED_REVIEWED, then math.rn-region.fixed-remote",
+    "3. Math-#151 is on main (ec6db8c): the D4 bytes are carried by two live nodes (math.rn-fixed-remote-window AUTHOR_SIDE_CANDIDATE; math.d5-component.remote-window-proof PROVED_REVIEWED; same fingerprint, same main#76 review); execute math.rn-fixed-remote-window -> PROVED_REVIEWED, then math.rn-region.fixed-remote; collapsing the component node onto the live node is an optional one-edge follow-up",
     "4. math.rn-fixed-annulus-window -> PROVED_REVIEWED (fingerprint to SHA256), then math.rn-region.fixed-annulus-window",
     "5. math.p15-full-price -> PROVED_REVIEWED (fingerprint to SHA256)",
     "6. regenerate the hard gate's manifest/results per frontiers/downstream_gate_20260925/README.md; run git_transition_audit base->head; expect promotion_permission false and no controlling node",
@@ -295,21 +295,37 @@
       "id": 5901912476,
       "kind": "inventory read",
       "at": "670e4ae",
-      "verdict": "ACCEPT as declarative inventory; HOLD execution until Math-#151 Cut A is on current tip; execute #151 first, then this alignment"
+      "verdict": "ACCEPT as declarative inventory; HOLD execution until Math-#151 Cut A is on current tip; execute #151 first, then this alignment",
+      "hold_precondition_math_151": "satisfied: Math-#151 merged at ec6db8c (2026-09-30T00:56:58Z)"
     },
     {
       "lane": "xAI/Grok (Lucas)",
       "id": 5360240245,
       "kind": "review",
       "at": "670e4ae",
-      "verdict": "ACCEPT at classification-lag scope; HOLD execution until #151 on main and single-provider rows recorded as such; interface flip conditional on this packet's Anthropic note, not an xAI re-read"
+      "verdict": "ACCEPT at classification-lag scope; HOLD execution until #151 on main and single-provider rows recorded as such; interface flip conditional on this packet's Anthropic note, not an xAI re-read",
+      "hold_precondition_math_151": "satisfied: Math-#151 merged at ec6db8c (2026-09-30T00:56:58Z)"
     }
   ],
   "revision": {
-    "version": "v1.1",
+    "version": "v1.2",
     "applies": [
-      "xAI 5901912476 and 5360240245 recorded; #151-first ordering of the D4 flips made explicit"
+      "xAI 5901912476 and 5360240245 recorded; #151-first ordering of the D4 flips made explicit",
+      "re-verified at ec6db8c (Math-#151 merged); live D4 duplicate bound (D4_DUPLICATE check, duplicate-drift mutant); HOLD precondition on Math-#151 recorded as met"
     ],
-    "unchanged": "all eight transitions, inventory, checker"
+    "unchanged": "all eight transitions, inventory"
+  },
+  "reverified_at": "ec6db8c (Math- main after Math-#151 merged 2026-09-30T00:56:58Z; the ten inventoried sources and the eight live nodes unchanged; math.d5-component.remote-window-proof live as PROVED_REVIEWED with fingerprint a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7 beside math.rn-fixed-remote-window at AUTHOR_SIDE_CANDIDATE)",
+  "live_duplicate": {
+    "node": "math.d5-component.remote-window-proof",
+    "since": "ec6db8c (Math-#151)",
+    "classification": "PROVED_REVIEWED",
+    "controlling": false,
+    "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+    "source": "frontiers/remote_window_20260924/PROOF.md",
+    "component_of": "math.d5-pin-neighborhood-first-moment",
+    "review_basis": "STATUS D4 (main#76, external), nonauthor, ACCEPT, full",
+    "relation_to_this_record": "same bytes and same review as the math.rn-fixed-remote-window transition; the flip aligns the older node with it; collapsing the pair is a one-edge follow-up for the executing lane, not proposed here",
+    "check": "D4_DUPLICATE; mutant duplicate-drift"
   }
 }

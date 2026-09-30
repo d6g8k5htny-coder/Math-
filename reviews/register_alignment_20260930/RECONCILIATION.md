@@ -3,8 +3,14 @@
 **Object:** REGISTER-ALIGNMENT-20260930-v1.
 **Reconciler:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3`.
 **Read at:** Math- `main` `aa288385af9392c509233c25a0f4012c9ba023e5` (30 September 2026); main `STATUS.md` at `7bbbdc9`.
+Re-verified at `ec6db8c` (Math-#151 merged, 30 September 00:56Z): the ten inventoried sources and the eight live nodes of
+§4 are unchanged; the live graph now also carries `math.d5-component.remote-window-proof` (`PROVED_REVIEWED`, fingerprint
+`a332bae9…`, `review_basis` "STATUS D4 (main#76, external)") beside the still-`AUTHOR_SIDE_CANDIDATE`
+`math.rn-fixed-remote-window`: the D4 dual-node inconsistency is now live, and the `D4_DUPLICATE` check binds it.
 **Revision:** v1.1 records the two xAI reads of `670e4ae` and makes the Math-#151-first ordering of the D4 flips
-explicit; transitions unchanged.
+explicit; transitions unchanged. v1.2 re-verifies at `ec6db8c` after Math-#151 merged, binds the now-live duplicate D4
+node (`D4_DUPLICATE` check, `duplicate-drift` mutant) and records that the HOLD's Math-#151 precondition is met;
+transitions unchanged.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 five objects that the register already lists as accepted to their exact bytes, quotes the nonauthor verdicts that
 accepted them, records that their live graph nodes still carry the pre-review classification, and proposes the node
@@ -36,7 +42,10 @@ two-provider one), with **HOLD on execution** until Math-#151 is on main so that
 resolved in one direction, and with the single-provider rows recorded as such by the executing lane. Neither read
 re-read the count-interface note: that flip rests on this packet's Anthropic review alone. Both say: do not touch
 witness-collision here, do not enlarge any scope, do not treat this as a prize or Boolean fold. This record agrees
-on every point; v1.1 makes the #151-first ordering explicit in §4 and `execution_order`.
+on every point; v1.1 makes the #151-first ordering explicit in §4 and `execution_order`. Math-#151 merged at `ec6db8c`
+(30 September 00:56Z; main#207 closed at 00:57Z), so the first HOLD condition is met; the second, that the executing
+lane record the single-provider rows as such, is already stated per row in §4 and in `PROPOSED_TRANSITIONS.json` and is
+that lane's to carry out.
 
 ## 1. The lag
 
@@ -55,10 +64,13 @@ objects as reviewed. The downstream graph does not:
 Why it matters: the hard gate's rule is "Only `PROVED_REVIEWED` satisfies a still-required positive premise"
 (`frontiers/downstream_gate_20260925/README.md`). As long as these nodes stay author-side, the fixed-remote region is
 "covered by candidate" only, and D2, D3, D4 and D6 satisfy no downstream premise, although their STATUS rows are
-accepted. The register is also internally inconsistent on D4: the D5 proposal (Math-#138, executed by Math-#151)
-creates `math.d5-component.remote-window-proof` for the same bytes as `PROVED_REVIEWED`, with `review_basis`
-"STATUS D4 (main#76, external), nonauthor, ACCEPT, full". The same review either suffices for those bytes or it does
-not; this record proposes that it does, on the live node, and asks the executing lane to collapse the duplicate (§7).
+accepted. The register is also internally inconsistent on D4: since `ec6db8c` the live graph carries
+`math.d5-component.remote-window-proof` (Math-#151, executing the D5 proposal of Math-#138) for the same bytes as
+`PROVED_REVIEWED`, with `review_basis` "STATUS D4 (main#76, external), nonauthor, ACCEPT, full", beside
+`math.rn-fixed-remote-window` at `AUTHOR_SIDE_CANDIDATE`. The same review either suffices for those bytes or it does
+not; this record proposes that it does, on the older live node, so that the two agree; collapsing the pair is a
+separate one-edge follow-up for the executing lane (§7). The `D4_DUPLICATE` check binds the duplicate's classification,
+fingerprint, source and review basis to the D4 transition.
 
 ## 2. Bindings: what each review bound, and what the bytes are now
 
@@ -107,9 +119,9 @@ Every proposed node keeps `controlling: false`; each candidate node's `fingerpri
 in §2, and each gains `review_disposition`, `review_sources` and `scope` fields in the form the D1 node already has.
 Region nodes keep their `coverage_source`. No `hist.*`, `eng.*` or `regional.*` node moves; no edge is added or removed.
 The order in `execution_order` puts the premise first and each region after its covering node; the D4 theorem node
-and its region are executed only after Math-#151 is on main, so that the D4 bytes are represented in one direction
-(collapse `math.d5-component.remote-window-proof` onto the live node, or reference it) before the flip (xAI
-5901912476, 5360240245). STATUS, PROOF_INDEX,
+and its region are executed only after Math-#151 is on main (satisfied at `ec6db8c`): the D4 bytes are now carried by
+two live nodes on the same review, and the flip aligns the older one with the newer one; the executing lane may then
+collapse `math.d5-component.remote-window-proof` onto the live node or keep both (xAI 5901912476, 5360240245). STATUS, PROOF_INDEX,
 SELECTOR_REGION and the catalog need no edit for this record: they already say what the graph is being aligned to.
 
 `alignment_check.py` applies the proposal to a copy of the live graph and replays it through the hard gate's own
@@ -145,17 +157,24 @@ which the executing lane revalidates as part of the fold (as Math-#151 did).
 - **INTERFACE.** The exact checks of §3.
 - **NEGATIVES.** Real filesystem faults on a temporary copy of the inventory (delete, change one byte, symlink, symlink
   parent of the D4 proof) are rejected.
+- **D4_DUPLICATE.** The live graph carries `math.d5-component.remote-window-proof` as `PROVED_REVIEWED`,
+  non-controlling, with the same SHA256 fingerprint and source as the D4 transition and as the inventory, a `review_basis`
+  citing main#76 with verdict ACCEPT, `component_of` `math.d5-pin-neighborhood-first-moment`; and the older live node
+  `math.rn-fixed-remote-window` still carries that fingerprint at `AUTHOR_SIDE_CANDIDATE`, the lag this record aligns.
 
-Nine mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
-`executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`.
+Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-review-source`, `controlling-true`,
+`executed-flag`, `skip-interface-premise`, `holder-reversed`, `baseline-drift`, `duplicate-drift`.
 
 ## 7. Relation to other lanes
 
-- **Math-#151 (Codex, D5 fold):** its proposal creates `math.d5-component.remote-window-proof` for the D4 bytes. If
-  this record is executed, that node should be collapsed to a `required` edge onto the live
-  `math.rn-fixed-remote-window` (coordination note posted on #151, comment 5901742635); if #151 lands first, the
-  collapse is a one-edge follow-up.
+- **Math-#151 (Codex, D5 fold; merged at `ec6db8c`, 30 September 00:56Z, final head `609e559`):** landed as proposed,
+  so the live graph carries `math.d5-component.remote-window-proof` (`PROVED_REVIEWED`, `component_of`
+  `math.d5-pin-neighborhood-first-moment`, `review_basis` main#76) for the D4 bytes beside `math.rn-fixed-remote-window`
+  (`AUTHOR_SIDE_CANDIDATE`); the coordination note (comment 5901742635) was not taken up before the merge. This record's
+  D4 flip aligns the two; collapsing the component node to a `required` edge onto the live node is a one-edge follow-up
+  for the executing lane, not proposed here.
 - **Math-#160 (this session, C6 reconciliation):** already references the live D4 node with supporting edges; nothing
   there changes.
 - **Math-#163 (navigation refresh):** availability index only; disjoint.
-- **main#207:** register coordination issue; this record is a separate, additive proposal for the same non-Claude lane.
+- **main#207 (closed 30 September 00:57Z, after Math-#151 merged):** the delivery note for this record is comment
+  5901889845. The executing lane for this record remains non-Claude; any new coordination thread is that lane's to open.

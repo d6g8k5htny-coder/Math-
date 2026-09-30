@@ -18,12 +18,13 @@ import tempfile
 from fractions import Fraction as F
 
 MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-review-source", "controlling-true", "executed-flag",
-           "skip-interface-premise", "holder-reversed", "baseline-drift")
+           "skip-interface-premise", "holder-reversed", "baseline-drift", "duplicate-drift")
 MUT = None
 HERE = "reviews/register_alignment_20260930"
 GRAPH = "frontiers/downstream_gate_20260925/GRAPH.json"
 HARD_GATE = "frontiers/downstream_gate_20260925/hard_gate.py"
 D1 = "math.uniform-matrix-cap-lifetime"
+D4_DUP = "math.d5-component.remote-window-proof"
 D4_NODE = "math.rn-fixed-remote-window"
 IFACE = "math.rn-count-interface"
 D4 = "frontiers/remote_window_20260924/PROOF.md"
@@ -349,6 +350,27 @@ def check_negatives(src):
     return all(rejected)
 
 
+def check_d4_duplicate(root, spec):
+    """Since ec6db8c (Math-#151) the live graph carries the D4 bytes twice; bind the duplicate to the D4 transition."""
+    live = json.loads((root / GRAPH).read_text(encoding="utf-8"))["nodes"]
+    dup = live.get(D4_DUP)
+    old = live.get(D4_NODE)
+    t = next(t for t in spec["transitions"] if t["node"] == D4_NODE)
+    want = spec["live_duplicate"]
+    fp = t["proposed"]["fingerprint"]
+    if MUT == "duplicate-drift":
+        fp = "1" * 64
+    if not isinstance(dup, dict) or not isinstance(old, dict):
+        return False
+    ok = dup.get("classification") == "PROVED_REVIEWED" and dup.get("controlling") is False
+    ok &= dup.get("fingerprint") == fp == want["fingerprint"] == INVENTORY[t["proposed"]["source"]][0]
+    ok &= dup.get("source") == t["proposed"]["source"] == want["source"]
+    ok &= dup.get("component_of") == want["component_of"]
+    ok &= any("main#76" in str(b.get("review")) and b.get("verdict") == "ACCEPT" for b in dup.get("review_basis", []))
+    ok &= old.get("fingerprint") == dup.get("fingerprint") and old.get("classification") == t["current"]["classification"]
+    return bool(ok)
+
+
 def main():
     global MUT
     ap = argparse.ArgumentParser()
@@ -360,12 +382,13 @@ def main():
     trans_ok, new = check_transitions(root, spec)
     gate_ok, gate = check_gate(root, spec, new)
     checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "BASELINE": check_baseline(root, spec),
-              "TRANSITIONS": trans_ok, "GATE": gate_ok, "INTERFACE": check_interface(), "NEGATIVES": check_negatives(root)}
-    passed = all(checks.values()) and len(checks) == 7
+              "TRANSITIONS": trans_ok, "GATE": gate_ok, "INTERFACE": check_interface(), "NEGATIVES": check_negatives(root),
+              "D4_DUPLICATE": check_d4_duplicate(root, spec)}
+    passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "REGISTER-ALIGNMENT-20260930-v1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY), "transitions": len(spec["transitions"]), "gate": gate,
-                      "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, interface arithmetic "
-                               "and filesystem-negative checks; no mathematics is re-proved; nothing is written"},
+                      "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, interface arithmetic, "
+                               "filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written"},
                      indent=2, sort_keys=True))
     return 0 if passed else 1
 

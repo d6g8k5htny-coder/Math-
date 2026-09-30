@@ -56,7 +56,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'alignment_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift']
+          mutants = ['allow-symlink', 'no-hash', 'stale-fingerprint', 'drop-review-source', 'controlling-true', 'executed-flag', 'skip-interface-premise', 'holder-reversed', 'baseline-drift', 'duplicate-drift']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

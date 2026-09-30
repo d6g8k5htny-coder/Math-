@@ -1,6 +1,7 @@
 {
   "checks": {
     "BASELINE": true,
+    "D4_DUPLICATE": true,
     "GATE": true,
     "IDENTITIES": true,
     "INTERFACE": true,
@@ -45,6 +46,6 @@
   "inventory_files": 10,
   "object": "REGISTER-ALIGNMENT-20260930-v1",
   "passed": true,
-  "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, interface arithmetic and filesystem-negative checks; no mathematics is re-proved; nothing is written",
+  "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, interface arithmetic, filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written",
   "transitions": 8
 }
