@@ -169,5 +169,34 @@ class CustodyTests(unittest.TestCase):
         (root/'MANIFEST.json').symlink_to(self.repo/'a.md')
         with self.assertRaises(ValueError):v.verify_inventory(root)
 
+    def acceptance_fixture(self):
+        temp=tempfile.TemporaryDirectory();self.addCleanup(temp.cleanup)
+        root=Path(temp.name)
+        source=Path(__file__).resolve().parent
+        for name in ('TWO_SCALE_LAW.md','RADIAL_TAIL.md','ACCEPTED_BINDINGS.json'):
+            (root/name).write_bytes((source/name).read_bytes())
+        return root
+
+    def test_valid_acceptance_bindings(self):
+        root=self.acceptance_fixture()
+        self.assertEqual(v.verify_acceptance_bindings(root),2)
+
+    def test_manifest_refresh_cannot_rebind_changed_manuscript(self):
+        root=self.acceptance_fixture()
+        (root/'TWO_SCALE_LAW.md').write_text('changed manuscript\n',encoding='utf-8')
+        with self.assertRaises(ValueError):v.verify_acceptance_bindings(root)
+
+    def test_review_id_rewrite_rejected(self):
+        root=self.acceptance_fixture()
+        data=json.loads((root/'ACCEPTED_BINDINGS.json').read_text())
+        data['manuscripts'][0]['reviews'][0]['id']=1
+        (root/'ACCEPTED_BINDINGS.json').write_text(json.dumps(data),encoding='utf-8')
+        with self.assertRaises(ValueError):v.verify_acceptance_bindings(root)
+
+    def test_missing_accepted_manuscript_rejected(self):
+        root=self.acceptance_fixture()
+        (root/'RADIAL_TAIL.md').unlink()
+        with self.assertRaises((ValueError,FileNotFoundError)):v.verify_acceptance_bindings(root)
+
 
 if __name__=='__main__':unittest.main()
