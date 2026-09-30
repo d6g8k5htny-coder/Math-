@@ -19,6 +19,7 @@ name: C6 witness-collision reconciliation checks
       - 'reviews/d5_remote_collision_grok_20260928/**'
       - 'reviews/d5_offpin_second_moment_20260928/**'
       - 'PROOF_INDEX.md'
+      - 'reviews/candidates_pending_20260928/CANDIDATES.md'
   workflow_dispatch:
 
 permissions:
@@ -57,7 +58,7 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'reconciliation_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['allow-symlink', 'no-hash', 'drop-edge', 'stale-fingerprint', 'executed-flag', 'close-residual', 'drop-lower-bound', 'regional-strict']
+          mutants = ['allow-symlink', 'no-hash', 'drop-edge', 'stale-fingerprint', 'executed-flag', 'close-residual', 'drop-lower-bound', 'regional-strict', 'clone-live-node', 'open-cell-left']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=300).stdout

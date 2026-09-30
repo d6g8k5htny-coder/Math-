@@ -7,8 +7,10 @@ re-verified identical at the record's base `7a1cb09` (the merges of Math-#155 an
 inventoried path); re-verified again at `5c484bf` (Math-#161 merged; no inventoried path changed).
 **Revision:** v1.1 applies the scope corrections and the residual wording of OpenAI nonauthor review 5359701805
 (at `6a0e3b9`) and pickup 5900929519; v1.2 merges Math- main `5c484bf` and updates the §5/§9 status of the
-candidates after Math-#161 merged. §§1 and 3, the §4 statement, the 22-file inventory, every node id and every edge
-are unchanged.
+candidates after Math-#161 merged; v1.3 answers Codex review 5359693191 (the [LP] evidence reuses the live node
+`math.uniform-matrix-cap-lifetime`; the selector proposal resolves all six cells per region and is checked; the
+catalog is bound by the `OBLIGATION` check and the workflow paths; the residual is defined at scale `r`). §§1 and
+3, the §4 statement and the 22-file inventory are unchanged; v1.3 removes one proposed node in favour of a live one.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the
@@ -70,7 +72,8 @@ The D5 reconciliation (`reviews/d5_reconciliation_20260929/RECONCILIATION.md` §
 > `E_{Q_r^W} N(N−1)` for the window count, with pairs where at least one witness is within fixed `η` of a pin.
 > […] **No upper bound.** The optimal order is open.
 
-And catalog C6 (`reviews/candidates_pending_20260928/CANDIDATES.md`) asked for "a valid full-window factorial upper
+And catalog C6 (`reviews/candidates_pending_20260928/CANDIDATES.md`, read at blob `e3fc1a31`, unchanged through
+`5c484bf`; bound by the `OBLIGATION` check and the workflow paths) asked for "a valid full-window factorial upper
 bound with the pin-neighborhood collisions included".
 
 **Reading.** In all five places the obligation is a **count estimate**: a factorial-moment (collision) bound for the
@@ -192,10 +195,17 @@ count, torus-wide, pin neighbourhoods included — is discharged by [PALM] Theor
   result is not a proof of that node". §1 shows the node was never defined as anything but the count estimate. If the
   integrating lanes nevertheless want the register to keep a *regional* question, it should be a new node with a
   definition, not the old node under a new meaning. The one genuinely open regional statement is the
-  **localization of the leading-order mass**: (A4) shows pairs within `C_d r` of the midpoint carry `≥ c r³`; [P_η]
-  shows pairs with both witnesses at distance `≥ η` from the pins carry `O(r⁵)`; an `o(r³)` bound for the **mixed pairs**
-  (one witness within `η` of a pin, the other remote) is **not supplied by the landed reviewed chain**: [PALM] §6
-  bounds each regime by `C r³`, not `o(r³)`. This is a further theorem, not a gap in Theorem Q. Two author-side
+  **localization of the leading-order mass at scale `r`**, defined (with `o` the midpoint) as
+  `lim_{R→∞} limsup_{r→0} r⁻³ E_{Q_r^W} #{ordered pairs (X, X′) of distinct window points : not both |X − o| ≤ R r
+  and |X′ − o| ≤ R r} = 0`. What the landed chain gives: (A4) shows pairs within `C_d r` of `o` carry `≥ c r³`, so
+  the scale-`r` mass is of order `r³`, and local–local pairs between `C_d r` and `R r` belong to it, not to the
+  residual; [P_η] shows pairs with both witnesses at distance `≥ s_0` from the pins carry `O(r⁵)`; [PALM] §6 R3, the
+  marked shell bound with `q = 2` whose dyadic sum is `C r³(A_0⁻² + s_0²)`, shows that every pair with a witness in
+  the shells `R r ≤ |X − o| ≤ s_0` carries at most `C r³(R⁻² + s_0²)`. What it does not give: an `o(r³)` bound for the
+  **mixed pairs**, one witness within `R r` of `o` and the other at distance `≥ s_0`, where [PALM] §6 R4 gives `C r³`
+  only. By the three facts above the residual is equivalent to `lim_{s_0→0} lim_{R→∞} limsup_{r→0} r⁻³ M(R, s_0) = 0`
+  for that mixed count `M(R, s_0)`, and this bound is **not supplied by the landed reviewed chain**. This is a
+  further theorem, not a gap in Theorem Q. Two author-side
   candidates for it exist and are recorded here as **candidates only**: Math-#161 (OpenAI, head `e7f8929`, merged
   to main at `5c484bf`; planar; its Lemma M gives joint probability `o(r³)` for the local and fixed-remote nonempty
   events, and its §§6–7 one/two law is conditional on Math-#158 Theorems C/G/F) and Math-#159 (Anthropic Claude,
@@ -225,8 +235,16 @@ the pin-collision, intermediate and witness-collision regions are covered by ana
 chart lift, no annulus piece and no 24-jet enclosure. This record therefore proposes a second supersession node,
 `regional.shrinking-regions.analytic-route`, with the same three `regional_bypass_only` edges and the same discipline:
 the historical predicates are **not** discharged, their classifications are **not** changed, and the bypass is scoped
-to the reviewed regions and scopes only. The `SELECTOR_REGION.json` matrix entries for those regions become
-`BYPASSED_BY_ANALYTIC_ROUTE` under that node; that file edit is for the executing lane.
+to the reviewed regions and scopes only. The `SELECTOR_REGION.json` cells of those three regions are all resolved
+under that node, so that `hard_gate.py::selector_region_report` shows no open cell for them: `CH-LIFT`,
+`Piece-2-annulus`, `OBL-H5-JETMOD` and `H5-REMOTE-THRESHOLD` become `BYPASSED_BY_ANALYTIC_ROUTE`; `ALLCELL-FDZ-Q4`
+becomes `NOT_REQUIRED` and `ENV-RESCOV` `REDERIVED_QUALITATIVELY`, the values the `fixed-remote` row already carries
+for the same reason (the analytic route uses the positive Fourier spectrum and the joint floors of [PALM] Lemma 6.1 /
+Lemma E_d, not the historical cell carrier or the historical covariance predicate). The three region ids then move
+from `open_region_ids` to `covered_region_ids`; `mesoscopic-scaled-annulus` stays open. The `SELECTOR` check applies
+the proposal to the live table and verifies exactly this. The file edit is for the executing lane; if it prefers the
+node-only precedent of `regional.fixed-annulus.high-jet-route` (cells untouched), the lists stay unchanged and §7's
+selector row does not apply.
 
 **Scope retained by the bypass.** The bypass inherits every restriction of §2: the original weight `W_r` and the full
 normalizer `Z_r`, compact marks with `k_− > 0`, fixed `d` and fixed torus, and the height window `I_r` wherever the
@@ -241,10 +259,10 @@ item 3).
 | main `STATUS.md` C6 row | "C6 — Fourier count tail and planar factorial upper bound", `E N(N−1) ≤ C r³ log(1/r)` in `d = 2` | **"C6 — torus-wide factorial moments (witness collision): `Θ(r³)`"** with the §4 statement and scope; keep the Fourier row's count-tail sentence as a component; independence caveat of §0 in the notes column |
 | `PROOF_INDEX.md` line 45 | "NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate" | move to the reviewed section, citing [PALM] with reviews 5356233690/5358116559, [EDL] (A4), [DL], and this record; keep a separate open bullet for the §5 residual and for numerical constants |
 | `reviews/candidates_pending_20260928/CANDIDATES.md` C6 | Math-#151's draft keeps "regional mechanism open" | "Resolved at existential scope: optimal order `r³` in every fixed `d ≥ 2` (upper: Palm route; lower: (A4)). Open: numerical constants; leading-mass localization (§5); a unique limiting cluster law." |
-| `GRAPH.json` `math.rn-region.witness-collision` | `OPEN_ACTIVE` (also in Math-#151) | `PROVED_REVIEWED` at the §4 scope, realized by the aggregate node `math.c6-witness-collision-factorial-moment`, one component node per required file with `fingerprint` = SHA256 and `source` = path, and `required: true` edges from the region node and the aggregate to each; plus a required edge to the planar reading-rule node `math.d5-pin-neighborhood-first-moment` (created by Math-#151) |
-| `GRAPH.json` new node | — | `math.rn-region.witness-collision.leading-mass-localization`, `OPEN_ACTIVE`, required by nothing, with the §5 candidate note (Math-#161, Math-#159: unreviewed, not premises) |
+| `GRAPH.json` `math.rn-region.witness-collision` | `OPEN_ACTIVE` (also in Math-#151) | `PROVED_REVIEWED` at the §4 scope, realized by the aggregate node `math.c6-witness-collision-factorial-moment`, one component node per required file with `fingerprint` = SHA256 and `source` = path, and `required: true` edges from the region node and the aggregate to each; the [LP] evidence is the live reconciled node `math.uniform-matrix-cap-lifetime` (same SHA256, four required reading-rule edges), not a new node; plus a required edge to the planar reading-rule node `math.d5-pin-neighborhood-first-moment` (created by Math-#151) |
+| `GRAPH.json` new node | — | `math.rn-region.witness-collision.leading-mass-localization`, `OPEN_ACTIVE`, required by nothing, defined as the scale-`r` localization of §5 with the mixed local/remote count as its open piece, with the §5 candidate note (Math-#161, Math-#159: not premises) |
 | `GRAPH.json` new node | — | `regional.shrinking-regions.analytic-route`, `SUPERSEDED_NONBLOCKING`, non-required `regional_bypass_only` edges to `hist.CH-LIFT`, `hist.Piece-2-annulus`, `hist.OBL-H5-JETMOD` (§6) |
-| `SELECTOR_REGION.json` | `Piece-2-annulus` / `CH-LIFT` `OPEN_ACTIVE` for the shrinking regions | `BYPASSED_BY_ANALYTIC_ROUTE` for `pin-collision`, `intermediate-r-to-rho`, `witness-collision`; `covered_region_ids` / `open_region_ids` updated |
+| `SELECTOR_REGION.json` | `Piece-2-annulus` / `CH-LIFT` `OPEN_ACTIVE`, `ENV-RESCOV` / `ALLCELL-FDZ-Q4` `OPEN_HISTORICAL` for the shrinking regions | all six cells resolved for `pin-collision`, `intermediate-r-to-rho`, `witness-collision` (§6: four `BYPASSED_BY_ANALYTIC_ROUTE`, `ALLCELL-FDZ-Q4` `NOT_REQUIRED`, `ENV-RESCOV` `REDERIVED_QUALITATIVELY`); the three region ids move to `covered_region_ids`; checked by `SELECTOR` |
 
 **Ordering.** These transitions presuppose Math-#151's execution of the planar D5 fold (its 14 nodes and 30 edges);
 the required edge to `math.d5-pin-neighborhood-first-moment` refers to that node. They can be executed in the same
@@ -262,7 +280,9 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
 - **VERDICTS.** The exact verdict rows and statements quoted in §§1–2 are present as substrings.
 - **OBLIGATION.** The live graph still carries `math.rn-region.witness-collision` as a `region` node, either
   `OPEN_ACTIVE` with the recorded fingerprint or already `PROVED_REVIEWED`; `SELECTOR_REGION.json` lists the region;
-  `PROOF_INDEX.md` carries either the line-45 obligation sentence or a reference to this record.
+  `PROOF_INDEX.md` carries either the line-45 obligation sentence or a reference to this record;
+  `reviews/candidates_pending_20260928/CANDIDATES.md` carries the C6 heading and the quoted open-task sentence, or a
+  reference to this record.
 - **NEGATIVES.** Real filesystem faults on a temporary copy of the inventory: delete [PALM]'s proof, change one byte
   of it (all quoted statements kept), replace it by a symlink to identical bytes, replace its directory by a symlink.
   Each is rejected.
@@ -270,23 +290,33 @@ them invalidates the fold through the existing reader; `coverage_source` metadat
   a proposed node with matching fingerprint and source, reached by a required edge from each consuming node; the
   supporting files are reached by non-required edges; the residual node is `OPEN_ACTIVE` with no required edges; the
   supersession node has exactly the three `regional_bypass_only` edges and no historical predicate changes class; the
-  cross-record node is one the D5 proposal defines; every proposed node passes the hard gate's shape rules;
-  `declarative` is true and `executed` is false.
+  cross-record node is one the D5 proposal defines; a source already carried by a live fingerprinted node ([LP],
+  `math.uniform-matrix-cap-lifetime`) is referenced through that node, with equal SHA256 and its four required
+  reading-rule edges present, and no proposed node duplicates a live source; every proposed node passes the hard
+  gate's shape rules; `declarative` is true and `executed` is false.
+- **SELECTOR.** The selector proposal names every selector of the live table for its three regions, assigns each a
+  value the hard gate classifies as covered or bypassed, and, applied to the live table, moves exactly those three
+  region ids from `open_region_ids` to `covered_region_ids`.
 - **MONOTONE.** Exact enumeration: `(n_A)_q ≤ (n)_q` for every sub-count and `q ≤ 4`; `2·1{n≥2} ≤ n(n−1) ≤ nΨ`;
   the `Θ(r³)` bracket needs both the upper and the lower row.
-- **OPEN_RESIDUAL.** §5's open items are recorded (numerical constants; the residual node; the mixed-pair bound
+- **OPEN_RESIDUAL.** §5's open items are recorded (numerical constants; the residual node with its scale-`r`
+  definition; the mixed-pair bound
   "not supplied by the landed reviewed chain", with the candidates named as candidates only) and the residual node
   is proposed open.
 
-Eight mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerprint`, `executed-flag`,
-`close-residual`, `drop-lower-bound`, `regional-strict`.
+Ten mutants must fail: `allow-symlink`, `no-hash`, `drop-edge`, `stale-fingerprint`, `executed-flag`,
+`close-residual`, `drop-lower-bound`, `regional-strict`, `clone-live-node`, `open-cell-left`.
 
 ## 9. Relation to other lanes
 
 - **Math-#151 (Codex; head `64a170f`; xAI wording hold lifted at 5900436844):** executes the planar D5 fold and
   keeps witness-collision open. This record does not conflict with its graph edits; it supersedes only its *catalog and proof-index wording* about C6, and only if the
   integrating lane accepts §§1 and 4. If that lane prefers to keep the old node open, §5 asks that the reason be
-  written as the residual node's definition.
+  written as the residual node's definition. One register point for that lane: the live graph already carries
+  `math.rn-fixed-remote-window` (fingerprint = the remote_window bytes, classification `AUTHOR_SIDE_CANDIDATE` despite
+  the main#76 review), and the D5 proposal creates `math.d5-component.remote-window-proof` for the same bytes; this
+  record references the live node (supporting edges only) and leaves the collapse of the pair, and the classification
+  repair, to the executing lane.
 - **Math-#155 (OpenAI, C7):** unrelated to the count; not consumed.
 - **Math-#161 (OpenAI, `e7f8929`, merged at `5c484bf`) and Math-#159 (Anthropic Claude, other session, `7188bfa`):**
   author-side candidates for the §5 residual; not premises, not inventoried, not consumed (§5, with their review

@@ -6,12 +6,13 @@
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
   "reverified_at": "5c484bf (Math- main after Math-#155, #156 and #161; no inventoried path changed)",
   "revision": {
-    "version": "v1.2",
+    "version": "v1.3",
     "applies": [
       "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
-      "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged (Anthropic 5359733142 source-exposed; Codex engineering 5359797442); Math-#158 slice verdicts A/B/C/D"
+      "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged",
+      "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)"
     ],
-    "unchanged": "inventory, node ids, edges, status-row statement, historical predicates"
+    "unchanged": "22-file inventory, status-row statement, historical predicates; one proposed node removed in favour of the live node"
   },
   "review_record": [
     {
@@ -89,7 +90,8 @@
       ],
       "required_nodes": [
         "math.c6-witness-collision-factorial-moment",
-        "math.d5-pin-neighborhood-first-moment"
+        "math.d5-pin-neighborhood-first-moment",
+        "math.uniform-matrix-cap-lifetime"
       ],
       "supporting": [
         "frontiers/remote_collision_20260928/PROOF.md",
@@ -102,7 +104,7 @@
       "node": "math.rn-region.witness-collision.leading-mass-localization",
       "current": "ABSENT",
       "proposed": "OPEN_ACTIVE",
-      "scope": "RECONCILIATION.md section 5: which pairs carry the leading-order r^3 mass of E N(N-1). Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); pairs with both witnesses at distance >= eta from the pins carry O(r^5) (P_eta). Open: an o(r^3) bound for mixed pairs (one witness within eta of a pin, one remote) is not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts while #158 is unmerged) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
+      "scope": "RECONCILIATION.md section 5: leading-mass localization at scale r, i.e. lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs of distinct window points not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)), so local-local pairs between C_d r and R r are localized mass, not residual; both-remote pairs carry O(r^5) (P_eta); pairs with a witness in the shells R r <= |X - o| <= s_0 carry <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, marked shell bound, q = 2). Open piece: the mixed count M(R, s_0) of pairs with one witness within R r of the midpoint and the other at distance >= s_0, where PALM R4 gives C r^3 only; the residual is equivalent to lim_{s_0->0} lim_{R->oo} limsup_r r^-3 M(R, s_0) = 0, not supplied by the landed reviewed chain. Author-side candidates: Math-#161 (OpenAI, e7f8929, merged 5c484bf; planar; Anthropic analytic ACCEPT 5359733142 by the PALM/DL author session, source-exposed; Codex engineering ACCEPT 5359797442; sections 6-7 conditional on Math-#158, whose slices A/B/C/D carry verdicts while #158 is unmerged) and Math-#159 (Claude, 7188bfa, every fixed d, unreviewed); not premises, not inventoried, not consumed. Stays OPEN_ACTIVE for every fixed d; a planar sub-status is for an executing lane. Required by no theorem.",
       "required": [],
       "supporting": [
         "frontiers/elder_dimension_lift_20260928/PROOF.md",
@@ -131,15 +133,26 @@
       "intermediate-r-to-rho",
       "witness-collision"
     ],
-    "selectors": [
-      "CH-LIFT",
-      "Piece-2-annulus",
-      "OBL-H5-JETMOD",
-      "H5-REMOTE-THRESHOLD"
-    ],
-    "proposed_value": "BYPASSED_BY_ANALYTIC_ROUTE",
+    "cells": {
+      "CH-LIFT": "BYPASSED_BY_ANALYTIC_ROUTE",
+      "Piece-2-annulus": "BYPASSED_BY_ANALYTIC_ROUTE",
+      "OBL-H5-JETMOD": "BYPASSED_BY_ANALYTIC_ROUTE",
+      "H5-REMOTE-THRESHOLD": "BYPASSED_BY_ANALYTIC_ROUTE",
+      "ALLCELL-FDZ-Q4": "NOT_REQUIRED",
+      "ENV-RESCOV": "REDERIVED_QUALITATIVELY"
+    },
     "under_node": "regional.shrinking-regions.analytic-route",
-    "note": "ENV-RESCOV and ALLCELL-FDZ-Q4 stay OPEN_HISTORICAL; the analytic route uses the positive Fourier spectrum, not the historical carriers."
+    "resulting_covered_region_ids": [
+      "math.rn-region.fixed-remote",
+      "math.rn-region.pin-collision",
+      "math.rn-region.intermediate-r-to-rho",
+      "math.rn-region.witness-collision"
+    ],
+    "resulting_open_region_ids": [
+      "math.rn-region.mesoscopic-scaled-annulus"
+    ],
+    "precedent": "fixed-remote row: ALLCELL-FDZ-Q4 NOT_REQUIRED, ENV-RESCOV REDERIVED_QUALITATIVELY; the analytic route uses the positive Fourier spectrum and the joint floors (PALM Lemma 6.1 / Lemma E_d), not the historical carriers. hist.ENV-RESCOV and hist.ALLCELL-FDZ-Q4 keep their classifications.",
+    "alternative": "node-only supersession as regional.fixed-annulus.high-jet-route (cells untouched, lists unchanged); the executing lane decides."
   },
   "proposed_graph_nodes": [
     {
@@ -350,26 +363,6 @@
       "source": "reviews/elder_dimension_lift_claude_20260928/REVIEW.md"
     },
     {
-      "id": "math.c6-component.lifetime-parent",
-      "layer": "D5",
-      "kind": "reading_rule_component",
-      "classification": "PROVED_REVIEWED",
-      "controlling": false,
-      "component_of": "math.c6-witness-collision-factorial-moment",
-      "component_role": "proof",
-      "author_provider": "OpenAI",
-      "fingerprint": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
-      "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
-      "review_basis": [
-        {
-          "review": "reviews/d1_chain_reconciliation_20260928 (Math-#126)",
-          "provider": "Anthropic",
-          "verdict": "register row D1",
-          "depth": "full"
-        }
-      ]
-    },
-    {
       "id": "math.c6-component.planar-reading-rule",
       "layer": "D5",
       "kind": "reading_rule_component",
@@ -530,8 +523,8 @@
       "kind": "region",
       "classification": "OPEN_ACTIVE",
       "controlling": false,
-      "fingerprint": "leading-order r^3 mass of E N(N-1): pin-local vs mixed pairs",
-      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Known: pairs within C_d r of the midpoint carry >= c r^3 (EDL (A4)); both-remote pairs carry O(r^5) (P_eta). Open: o(r^3) for mixed pairs, not supplied by the landed reviewed chain; author-side candidates: Math-#161 (e7f8929, merged 5c484bf, planar, Anthropic 5359733142 source-exposed + Codex engineering 5359797442, conditional on Math-#158) and Math-#159 (7188bfa, unreviewed); not premises, not consumed. Required by no theorem; recorded so that the register keeps a precise statement."
+      "fingerprint": "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)",
+      "notes": "Residual after the count-level discharge of math.rn-region.witness-collision. Definition: lim_{R->oo} limsup_{r->0} r^-3 E #{ordered pairs not both within R r of the midpoint} = 0. Known: pairs within C_d r carry >= c r^3 (EDL (A4)); both-remote pairs O(r^5) (P_eta); pairs with a shell witness <= C r^3 (R^-2 + s_0^2) (PALM section 6 R3, q = 2). Open: the mixed local/remote count M(R, s_0), o(r^3) in the iterated limit, not supplied by the landed reviewed chain; Math-#161 (e7f8929, merged 5c484bf, planar, Anthropic 5359733142 source-exposed + Codex engineering 5359797442, conditional on Math-#158) and Math-#159 (7188bfa, unreviewed); not premises, not consumed. Required by no theorem; recorded so that the register keeps a precise statement. Required by no theorem; recorded so that the register keeps a precise statement."
     },
     {
       "id": "regional.shrinking-regions.analytic-route",
@@ -619,9 +612,9 @@
     },
     {
       "from": "math.rn-region.witness-collision",
-      "to": "math.c6-component.lifetime-parent",
+      "to": "math.uniform-matrix-cap-lifetime",
       "required": true,
-      "relation": "requires_evidence"
+      "relation": "requires_evidence_via_live_reconciled_node"
     },
     {
       "from": "math.rn-region.witness-collision",
@@ -655,9 +648,9 @@
     },
     {
       "from": "math.rn-region.witness-collision",
-      "to": "math.d5-component.remote-window-proof",
+      "to": "math.rn-fixed-remote-window",
       "required": false,
-      "relation": "supporting_evidence"
+      "relation": "supporting_evidence_via_live_node"
     },
     {
       "from": "math.c6-witness-collision-factorial-moment",
@@ -721,9 +714,9 @@
     },
     {
       "from": "math.c6-witness-collision-factorial-moment",
-      "to": "math.c6-component.lifetime-parent",
+      "to": "math.uniform-matrix-cap-lifetime",
       "required": true,
-      "relation": "requires_evidence"
+      "relation": "requires_evidence_via_live_reconciled_node"
     },
     {
       "from": "math.c6-witness-collision-factorial-moment",
@@ -793,9 +786,9 @@
     },
     {
       "from": "math.c6-witness-collision-factorial-moment",
-      "to": "math.d5-component.remote-window-proof",
+      "to": "math.rn-fixed-remote-window",
       "required": false,
-      "relation": "supporting_evidence"
+      "relation": "supporting_evidence_via_live_node"
     },
     {
       "from": "math.rn-region.witness-collision.leading-mass-localization",
@@ -840,7 +833,35 @@
       "relation": "regional_bypass_only"
     }
   ],
-  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH, SELECTOR_REGION, PROOF_INDEX, STATUS or catalog edit is made here. Every required evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. Supporting files are reached by non-required edges. The residual node is required by nothing. The supersession node changes no historical predicate. Execution is for a non-Claude lane, after Math-#151's planar fold, which defines math.d5-pin-neighborhood-first-moment, math.d5-component.offpin-second-moment-review and math.d5-component.remote-window-proof (reused here rather than duplicated).",
+  "note": "DECLARATIVE, NOT EXECUTED: no GRAPH, SELECTOR_REGION, PROOF_INDEX, STATUS or catalog edit is made here. Every required evidence file is a proposed graph node with its SHA256 as fingerprint, reached by a required edge from each consuming node. Supporting files are reached by non-required edges. The residual node is required by nothing. The supersession node changes no historical predicate. Execution is for a non-Claude lane, after Math-#151's planar fold, which defines math.d5-pin-neighborhood-first-moment and math.d5-component.offpin-second-moment-review (reused here rather than duplicated); the [LP] and remote_window bytes are referenced through the live nodes math.uniform-matrix-cap-lifetime and math.rn-fixed-remote-window.",
   "declarative": true,
-  "executed": false
+  "executed": false,
+  "live_nodes_reused": [
+    {
+      "id": "math.uniform-matrix-cap-lifetime",
+      "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "fingerprint": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "reading_rule_required": [
+        "math.d1-component.congruence-erratum",
+        "math.d1-component.section9-replacement-v1_1",
+        "math.d1-component.marked-cylinder-cap",
+        "math.d1-component.reconciliation-record"
+      ],
+      "why": "the live graph already carries these bytes with four required reading-rule edges (D1 reconciliation, Math-#126); a second terminal node would not inherit a later hold on them (Codex 4139312869)"
+    },
+    {
+      "id": "math.rn-fixed-remote-window",
+      "source": "frontiers/remote_window_20260924/PROOF.md",
+      "fingerprint": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "role": "supporting only",
+      "note": "live classification AUTHOR_SIDE_CANDIDATE although the source was reviewed at main#76; the D5 proposal creates math.d5-component.remote-window-proof for the same bytes. This record references the live node; collapsing the pair and repairing the classification is for the executing lane."
+    }
+  ],
+  "register_read": {
+    "reviews/candidates_pending_20260928/CANDIDATES.md": {
+      "git_blob": "e3fc1a310c89ac9fd9249af26e28da509649ffd5",
+      "sha256": "3809e6147321df260085815b2d9e995094d63492534afa4ad1cd05b9a168ce4d",
+      "binding": "OBLIGATION check: C6 heading and the quoted open-task sentence present, or this record referenced; workflow re-runs on change"
+    }
+  }
 }

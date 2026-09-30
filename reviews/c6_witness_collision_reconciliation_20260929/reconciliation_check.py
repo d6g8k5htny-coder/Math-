@@ -33,7 +33,7 @@ import sys
 import tempfile
 
 MUTANTS = ("allow-symlink", "no-hash", "drop-edge", "stale-fingerprint", "executed-flag", "close-residual",
-           "drop-lower-bound", "regional-strict")
+           "drop-lower-bound", "regional-strict", "clone-live-node", "open-cell-left")
 MUT = None
 HERE = "reviews/c6_witness_collision_reconciliation_20260929"
 PALM = "frontiers/c6_palm_route_20260929/PROOF.md"
@@ -48,6 +48,11 @@ RESIDUAL = "math.rn-region.witness-collision.leading-mass-localization"
 SUPERSESSION = "regional.shrinking-regions.analytic-route"
 HIST = ("hist.CH-LIFT", "hist.Piece-2-annulus", "hist.OBL-H5-JETMOD")
 D5_AGGREGATE = "math.d5-pin-neighborhood-first-moment"
+LIVE_LP = "math.uniform-matrix-cap-lifetime"
+LP = "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md"
+CATALOG = "reviews/candidates_pending_20260928/CANDIDATES.md"
+OPEN_CELLS = ("OPEN_ACTIVE", "OPEN_HISTORICAL", "NOT_DISCHARGED", "PARTIAL_COVER_ONLY", "PARTIAL_PR7_REDUCTION",
+              "REOPENED", "PARTIAL_COVER_DECLARED_REGION")  # hard_gate.py::selector_region_report
 CLASSES = {"PROVED_REVIEWED", "SUPERSEDED_NONBLOCKING", "REFUTED", "BLOCKED_ABSENT", "OPEN_ACTIVE", "OPEN_HISTORICAL",
            "AUTHOR_SIDE_CANDIDATE", "AUTHOR_SIDE_REDUCTION", "COVERED_BY_CANDIDATE", "ENGINEERING_CONTROL", "HOLD",
            "FALSE", "REVALIDATION_REQUIRED"}
@@ -194,6 +199,9 @@ def check_obligation(root):
     index = (root / "PROOF_INDEX.md").read_text(encoding="utf-8")
     ok &= ("NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate." in index
            or HERE in index)
+    catalog = (root / CATALOG).read_text(encoding="utf-8")
+    ok &= ("## C6. Torus-wide second factorial moment" in catalog
+           and "a valid full-window factorial upper" in catalog) or HERE in catalog
     return ok
 
 
@@ -249,6 +257,10 @@ def check_transitions(root):
             e["required"] = [p for p in e["required"] if p not in (EDL, EDL_REVIEW)]
     if MUT == "drop-edge":
         edges = [e for e in edges if not (e["from"] == WITNESS and nodes.get(e["to"], {}).get("source") == PALM)]
+    if MUT == "clone-live-node":
+        nodes["math.c6-component.lifetime-parent"] = dict(nodes[AGGREGATE], id="math.c6-component.lifetime-parent",
+                                                          kind="reading_rule_component", source=LP,
+                                                          fingerprint=INVENTORY[LP][0])
     if MUT == "stale-fingerprint":
         for n in nodes.values():
             if n.get("source") == PALM:
@@ -266,17 +278,32 @@ def check_transitions(root):
         seen.add(key)
     # every named file is inventoried; every required or supporting file is a fingerprinted node reached by an edge
     # of the right kind. Evidence nodes may be this record's or the D5 proposal's (cross-record reuse, same bytes).
-    evidence = dict(nodes)
+    # a source already carried by a live fingerprinted node is referenced through that node; then this record's
+    # nodes; then the D5 proposal's (cross-record reuse, same bytes)
+    live_fp = {nid: n for nid, n in live.items() if isinstance(n, dict) and n.get("fingerprint") and n.get("source")}
+    evidence = dict(live_fp)
+    for nid, n in nodes.items():
+        evidence.setdefault(nid, n)
     for n in d5["proposed_graph_nodes"]:
         evidence.setdefault(n["id"], n)
     by_source = {}
-    for nid, n in evidence.items():                             # this record's nodes come first and win ties
+    for nid, n in evidence.items():                             # live nodes first, then this record's, then D5's
         if "fingerprint" in n and n.get("source") in INVENTORY:
             by_source.setdefault(n["source"], nid)
     # a source must not be proposed twice (one node per byte identity across the two records)
     ok &= len({n.get("source") for n in nodes.values() if "fingerprint" in n and n.get("source")}
               & {n.get("source") for n in d5["proposed_graph_nodes"] if "fingerprint" in n and n.get("source")}) == 0
     ok &= all(evidence[nid]["fingerprint"] == INVENTORY[src][0] for src, nid in by_source.items())
+    # no proposed node duplicates a source the live graph already carries with a fingerprint (Codex 4139312869)
+    ok &= not ({n.get("source") for n in nodes.values() if "fingerprint" in n and n.get("source")}
+               & {n["source"] for n in live_fp.values()})
+    # the reused live node is PROVED_REVIEWED with its four required reading-rule components, all PROVED_REVIEWED
+    lp = live.get(LIVE_LP, {})
+    ok &= lp.get("classification") == "PROVED_REVIEWED" and lp.get("source") == LP and lp.get("fingerprint") == INVENTORY[LP][0]
+    rr = lp.get("reading_rule", [])
+    ok &= len(rr) == 4 and all(live.get(x, {}).get("classification") == "PROVED_REVIEWED" for x in rr)
+    ok &= by_source.get(LP) == LIVE_LP
+    ok &= by_source.get("frontiers/remote_window_20260924/PROOF.md") == "math.rn-fixed-remote-window"
     have_req = {(e["from"], e["to"]) for e in edges if e["required"] is True}
     have_sup = {(e["from"], e["to"]) for e in edges if e["required"] is False}
     for e in entries:
@@ -306,6 +333,37 @@ def check_transitions(root):
     # cross-record nodes are the D5 proposal's
     ok &= D5_AGGREGATE in d5_nodes and "math.d5-component.offpin-second-moment-review" in d5_nodes
     ok &= (WITNESS, D5_AGGREGATE) in have_req and (AGGREGATE, D5_AGGREGATE) in have_req
+    ok &= (WITNESS, LIVE_LP) in have_req and (AGGREGATE, LIVE_LP) in have_req
+    return bool(ok)
+
+
+def check_selector(root):
+    """Applied to the live selector table, the proposal leaves no open cell in its regions and moves exactly those
+    region ids from open to covered (Codex 4139312863)."""
+    spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
+    live = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
+    prop = spec["selector_region_proposal"]
+    cells = dict(prop["cells"])
+    if MUT == "open-cell-left":
+        cells.pop("ENV-RESCOV", None)
+    regions = list(prop["regions"])
+    ok = set(regions) <= set(live["regions"]) and len(regions) == 3
+    ok &= set(cells) == set(live["selectors"])
+    ok &= all(v not in OPEN_CELLS for v in cells.values())
+    table = {s: dict(row) for s, row in live["selectors"].items()}
+    for s, v in cells.items():
+        for reg in regions:
+            table[s][reg] = v
+    def is_open(reg):
+        return any(table[s].get(reg) in OPEN_CELLS for s in live["selectors"])
+    ok &= not any(is_open(reg) for reg in regions)
+    ids = ["math.rn-region." + reg for reg in regions]
+    covered = list(live["covered_region_ids"]) + [i for i in ids if i not in live["covered_region_ids"]]
+    opened = [i for i in live["open_region_ids"] if i not in ids]
+    ok &= sorted(prop["resulting_covered_region_ids"]) == sorted(covered)
+    ok &= sorted(prop["resulting_open_region_ids"]) == sorted(opened)
+    ok &= all(("math.rn-region." + reg) in live["open_region_ids"] for reg in regions)
+    ok &= prop.get("under_node") == SUPERSESSION
     return bool(ok)
 
 
@@ -340,6 +398,7 @@ def check_monotone():
 def check_open_residual(root):
     text = (root / HERE / "RECONCILIATION.md").read_text(encoding="utf-8")
     ok = "**Numerical constants**" in text and "leading-mass-localization" in text
+    ok &= "localization of the leading-order mass at scale `r`" in text and "M(R, s_0)" in text
     ok &= "not supplied by the landed reviewed chain" in text and "candidates only" in text
     spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
     res = next(e for e in spec["graph"] if e["node"] == RESIDUAL)
@@ -356,12 +415,13 @@ def main():
     ident = check_identities(root)
     checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "OBLIGATION": check_obligation(root),
               "NEGATIVES": check_negatives(root), "TRANSITIONS": check_transitions(root),
-              "MONOTONE": check_monotone(), "OPEN_RESIDUAL": check_open_residual(root)}
-    passed = all(checks.values()) and len(checks) == 7
+              "MONOTONE": check_monotone(), "OPEN_RESIDUAL": check_open_residual(root),
+              "SELECTOR": check_selector(root)}
+    passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY),
-                      "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain, monotonicity "
-                               "and open-item checks; no mathematics is re-proved"}, indent=2, sort_keys=True))
+                      "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain, monotonicity, "
+                               "open-item and selector-cell checks; no mathematics is re-proved"}, indent=2, sort_keys=True))
     return 0 if passed else 1
 
 

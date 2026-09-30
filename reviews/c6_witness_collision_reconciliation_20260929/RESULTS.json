@@ -5,11 +5,12 @@
     "NEGATIVES": true,
     "OBLIGATION": true,
     "OPEN_RESIDUAL": true,
+    "SELECTOR": true,
     "TRANSITIONS": true,
     "VERDICTS": true
   },
   "inventory_files": 22,
   "object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1",
   "passed": true,
-  "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain, monotonicity and open-item checks; no mathematics is re-proved"
+  "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain, monotonicity, open-item and selector-cell checks; no mathematics is re-proved"
 }
