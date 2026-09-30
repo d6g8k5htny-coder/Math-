@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact finite controls for PROOF.md (CL-D2-REMAINDER-VANISHING-20260930-v1).  Standard library only; exact rationals.
+"""Exact finite controls for PROOF.md (CL-D2-REMAINDER-VANISHING-20260930-v1.1).  Standard library only; exact rationals.
 
   E1  axial pin identities on a quintic profile f(x) = b0 + f1 x + f2 x^2/2 + f3 x^3/6 + f4 x^4/24 + f5 x^5/120: with
       b0, f1, f2, f3 solved from the four pins f(-r/2) = b, f(r/2) = b - k r^3, f'(-r/2) = f'(r/2) = 0 one finds
@@ -13,7 +13,8 @@
       as the polynomial of degree <= 10 in r, has only even powers, constant term -36 k^2 A0^2 (A0 = f_yy(0) = 2 c02)
       and the recorded r^2 coefficient (the parity is forced by the symmetry: a check of the mechanism, not of the
       bookkeeping); mutant M2 applies the parity test to the single factor det H_M / r, which is not even;
-  E3  the block identity det K = alpha det A - r beta^T adj(A) beta, and Haynsworth's inertia additivity
+  E3  the block identity det K = alpha det A - r beta^T adj(A) beta for K = [[alpha, sqrt(r) beta^T], [sqrt(r) beta, A]]
+      ([R] Lemma R3.2 with t = r; r a rational square, entries sqrt(r) beta), and Haynsworth's inertia additivity
       inertia(K) = inertia(A) + inertia(alpha - r beta^T A^{-1} beta), on rational 2x2/3x3 blocks A that are negative
       definite, of index m - 1, and indefinite, with the scalar Schur complement of both signs (inertia by exact
       congruence diagonalisation); the Step 4 case split: F_d(K_M) = 0 whenever lambda_max(A_M) > 0 (A_M has a
@@ -25,6 +26,10 @@
       rational (k, r) with ell = k r^3; mutant M3 claims the loss exponent 1/3;
   E5  the layer algebra of Step 4: k^2 u^2 = C1^2 r^2 T^2 (k + T)^2 and r T^2 <= k u / C1 for u = C1 r T (1 + T/k), exactly.
   M   mutants (--mutant M1|M2|M3) exit 1; an unknown label exits 2.
+  Scope: E1-E5 check exact identities and finitely many rational instances.  They do NOT test Step 4 of PROOF.md as a
+  statement about random matrices (the Weyl/Hadamard layer bound, the choice of C1, the O(r^2) product on the flip
+  layer), nor Step 5 (the C^7 moment import from [R] (R4) and the expectations), nor section 2 (majorant, pointwise
+  and far limits, the use of (Z4)); those are proved in prose only.  The controls are not acceptance.
 """
 import argparse
 import json
@@ -262,8 +267,9 @@ def block(alpha, beta, A, r):
 
 
 def check_E3(mutant):
-    # Use K_t with entries t*beta in place of sqrt(t) beta: det = alpha det A - t^2 beta^T adj(A) beta.  To test the
-    # displayed identity with parameter r we take t^2 = r, i.e. entries sqrt(r) beta: choose r a rational square.
+    # [R] Lemma R3.2 with t = r: K = [[alpha, sqrt(r) beta^T], [sqrt(r) beta, A]] and det K = alpha det A - r beta^T adj(A) beta.
+    # Exact rationals: r is chosen a rational square, s = sqrt(r) rational, and the off-diagonal entries are s*beta,
+    # so the identity tested is det K = alpha det A - s^2 q = alpha det A - r q with q = beta^T adj(A) beta.
     cases = 0
     A_list = [
         [[F(-2), F(1, 2)], [F(1, 2), F(-3)]],                                    # negative definite
@@ -407,7 +413,7 @@ def main():
         ok, info = fn(mutant)
         results[name] = {'passed': bool(ok), 'info': info}
         ok_all = ok_all and ok
-    out = {'object': 'CL-D2-REMAINDER-VANISHING-20260930-v1', 'scientific_effect': 'NONE', 'passed': ok_all, 'checks': results}
+    out = {'object': 'CL-D2-REMAINDER-VANISHING-20260930-v1.1', 'scientific_effect': 'NONE', 'passed': ok_all, 'checks': results}
     print(json.dumps(out, indent=1, sort_keys=True))
     sys.exit(0 if ok_all else 1)
 

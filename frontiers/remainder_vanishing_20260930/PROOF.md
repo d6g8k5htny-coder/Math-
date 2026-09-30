@@ -1,6 +1,8 @@
 # The bounded remainder of Theorem R: `B_{d,L}` for candidates, `0` for elder pairs
 
-Object: CL-D2-REMAINDER-VANISHING-20260930-v1.
+Object: CL-D2-REMAINDER-VANISHING-20260930-v1.1 (v1 → v1.1: xAI review 5369140697 on Math- #191 — A1 the scaling
+dictionary and Lemma R3.2 quoted verbatim, A2 the controls' scope stated, A3 the (R4) import quoted, B2 the signed
+near bound proved as a separate remark; no change to Lemma E, Theorem R+ or (R+.1)–(R+.3)).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 30 September 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register,
 graph, STATUS, PROOF_INDEX, prize or Boolean change; no numerical constant is claimed. Same GitHub account as
@@ -14,8 +16,11 @@ Setting, notation and every display number `(Rn)` are those of [R] (`frontiers/t
 LIFETIME_REMAINDER.md`, blob `247b3ecf`, Theorem R; xAI R1–R6 on main #67, Anthropic full depth Math- #186):
 fixed `d ≥ 2`, `L > 0`, the [P] field on `X = R^d/(LZ^d)`; near pins `M = −ru/2`, `S = ru/2` with heights `b`,
 `b − kr³` and zero gradients; the observation rows `U_r`, target `v_r`, density `π_r`, the regression law `Q`,
-the coupling `F_r` of [R] (R3)–(R4), `m = d − 1`, `P = 1 + |b| + k`; the scaled endpoint Hessians
-`K_i = D_r^{−1}H_iD_r^{−1}` with `α_i = F_{r,xx}(i)/r`, `β_i = ∇_yF_{r,x}(i)/r`, `A_i = D_y²F_r(i)` (`i = M, S`); the
+the coupling `F_r` of [R] (R3)–(R4), `m = d − 1`, `P = 1 + |b| + k`; the scaled endpoint Hessians of [R] §4
+(*scaling dictionary*, quoted): "`alpha_i=F_r,xx(i)/r` and `beta_i=grad_y F_r,x(i)/r`. Let `D_r=diag(sqrt(r),I)`.
+Then `K_i=D_r^(-1) H_i D_r^(-1) =[[alpha_i,sqrt(r) beta_i^T],[sqrt(r) beta_i,A_i]]`, `|det H_i|/r=|det K_i|`" — so
+`H_i` (the full Hessian of `F_r` at the pin `i`, in the coordinates `(x, y)`) has entries `rα_i`, `rβ_i`, `A_i`, and
+`K_i` has the scalar `α_i`, the off-diagonal `√r β_i` and the transverse block `A_i = D_y²F_r(i)` (`i = M, S`); the
 filtered determinants `F_j`; `Z_r/r² = E_Q[F_d(K_M)F_{d−1}(K_S)]`; `A_0 = D_y²F_0(0)`,
 `z_0 = E[(6k)²(det A_0)²1{A_0 < 0}]`; `A_r = 12π_r(v_r)Z_r/r²`, `A_0 = 12π_0(v_0)z_0`; the majorant
 `H(b,k) = CP^Ne^{−c(b²+k²)}` (`N` enlarged when needed); the near/far split at a separation `r_0`, `a = ℓ/r_0³`; and
@@ -51,17 +56,24 @@ candidate density and `0` for the elder density. Moreover, for every `r_0 ∈ (0
 
     ν_cand^{near,r_0}(ℓ) − cℓ^{−1/3} → ∫_{0<dist(0,y)<r_0}∫_R Ψ_0 db dy,       |ν_cand^{near,r_0}(ℓ) − cℓ^{−1/3}| ≤ C (r_0 + ℓ²r_0^{−7}).   (R+.3)
 
-**What is not claimed.** No rate in (R+.1)–(R+.2) (Remark 2 gives one conditionally); no expansion beyond the
+**What is not claimed.** No rate in (R+.1)–(R+.2) (Remark 2 gives one conditionally, on unmerged Math- #187/#188
+and on a polynomial `ρ`-dependence of the far-elder constant that nothing here supplies); no expansion beyond the
 constant term (nothing about `o(1)` being `O(ℓ^{γ})`); no numerical `C`, `ℓ_*`, `B_{d,L}`; no finite-radius band; no
-uniformity in `d`, `L`; nothing beyond the existential scope of Theorem R and Theorem Z.
+RN / 24-jet closure; no uniformity in `d`, `L`; nothing beyond the existential scope of Theorem R and Theorem Z —
+Theorem R+ does not enlarge the scope of (Z4), it identifies the constant term of Theorem R's remainder with it.
 
 ## 1. Proof of Lemma E
 
 Work under the coupling (R3): `F_r` and `F_0` on one probability space, `‖F_r − F_0‖_{L^p(C^q)} ≤ C_{p,q}r²P` (R4).
 Let `T ≥ 1 + k` be a random variable with all finite moments bounded by `C_pP^p`, dominating
-`1 + ‖F_r‖_{C^7} + ‖F_0‖_{C^7}` and `r^{−2}‖F_r − F_0‖_{C^2}` (this is [R]'s `T` with the `C^7` norm in place of `C^4`;
-(R4) supplies the moments for every finite derivative order). Write `f = F_r`, `f_j = ∂_x^jf(0)`, and `O(x)` for
-a quantity bounded by `C|x|` with `C = C(d)`.
+`1 + ‖F_r‖_{C^7} + ‖F_0‖_{C^7}` and `r^{−2}‖F_r − F_0‖_{C^2}` (this is [R]'s `T` with the `C^7` norm in place of `C^4`).
+The moments come from [R] §2, (R4), whose statement is quoted: "equations (R2)-(R3) imply, **for finite p>=1 and each
+finite derivative order q**, `||F_r-F_0||_{L^p(C^q)} <= C_{p,q} r^2 P`, `||1+||F_r||_{C^q}+||F_0||_{C^q}||_p <= C_{p,q} P`,
+`P=1+|b|+k`" — the second line with `q = 7` bounds the `C^7` norms in `L^p`, the first with `q = 2` bounds
+`r^{−2}‖F_r − F_0‖_{C^2}` in `L^p`, so `T := 1 + k + ‖F_r‖_{C^7} + ‖F_0‖_{C^7} + r^{−2}‖F_r − F_0‖_{C^2}` has
+`‖T‖_p ≤ C_pP` for every `p` (`[R]` §4 chose `q = 4` for its `T` because (R8)–(R11) need four derivatives; the
+`C^q` moments exist for every `q` because `F_r` is the Gaussian regression of the smooth [P] field on finitely many
+rows, [R] §2). Write `f = F_r`, `f_j = ∂_x^jf(0)`, and `O(x)` for a quantity bounded by `C|x|` with `C = C(d)`.
 
 *Step 1 (axial pins to second order).* The third and fourth rows of `U_r` at their pinned values `0` and `12k`
 give, by Taylor's formula with integral remainder (the rules are centred, so the odd orders cancel),
@@ -95,7 +107,16 @@ The transverse difference row `(f_y(S) − f_y(M))/r = f_{xy}(0) + (r²/24)f_{xx
 (The sign of `β_i` enters `q_i` quadratically. That `f_{xy}(0)` is `O(r²)` and not `O(r)` is essential: an `O(r)`
 value would shift `β_M` and `β_S` by a common `O(1)` and make `q_M − q_S = O(1)`.)
 
-*Step 3 (the product of determinants).* By the exact identity `det K_i = α_i det A_i − r q_i` ([R] Lemma R3.2),
+*Step 3 (the product of determinants).* [R] Lemma R3.2, quoted: "For a symmetric (n-1) by (n-1) matrix A, scalar
+alpha, vector beta and t>=0, set `K_t=[[alpha,sqrt(t) beta^T],[sqrt(t) beta,A]]`. … Indeed
+`det K_t=alpha det A-t beta^T adj(A) beta`, INCLUDING singular A." With `t = r` and `(alpha, beta, A) = (α_i, β_i, A_i)`,
+`K_r` is the scaled Hessian `K_i` of the dictionary in §0 (off-diagonal entries `√r β_i`), so the exact identity is
+
+    det K_i = α_i det A_i − r β_iᵀadj(A_i)β_i = α_i det A_i − r q_i,
+
+`q_i` as in (1.5): the parameter multiplying `q_i` is the first power of `r` because the off-diagonal entries of `K_i`
+carry `√r` (with `β_i = ∇_yF_{r,x}(i)/r` already containing the `1/r` of the dictionary; in terms of the unscaled
+Hessian, `det H_i = r det K_i = rα_i det A_i − r²q_i`). Hence
 
     det K_M det K_S = α_Mα_S det A_M det A_S − r(α_M det A_M q_S + α_S det A_S q_M) + r² q_M q_S.
 
@@ -174,9 +195,18 @@ is continuous in the target. Also `A_0(b, k, u) → 0` (`A_0 ≤ k²H`). Since `
     ν_cand^{near,r_0}(ℓ) − cℓ^{−1/3} → ∫_0^{r_0}∫∫ r^{d−1}Ψ_0(b, ru) dσ db dr = ∫_{0<dist(0,y)<r_0}∫_R Ψ_0(b, y) db dy,   (2.2)
 
 and the majorant gives the quantitative form `|ν_cand^{near,r_0} − cℓ^{−1/3}| ≤ C(r_0 + ℓ²r_0^{−7})`. This is (R+.3).
-(The signed refinement `ν_cand^{near,r_0} − cℓ^{−1/3} ≥ −C(min(ℓ^{1/4}, r_0) + ℓ²r_0^{−7})` follows from `A_r ≥ 0` on
-`r ≥ ℓ^{1/4}` together with (E.1) on `r < ℓ^{1/4}`; a lower bound `≥ −O(ℓ²r_0^{−7})` would need a positive lower bound
-on the near-diagonal equal-height kernel, which is not supplied.)
+
+*Signed near bound (a remark, not part of (R+.3)).* `A_r ≥ 0` for every `r, b, k, u`: `A_r = 12π_r(v_r)Z_r/r²` with
+`π_r ≥ 0` a density and `Z_r/r² = E_Q[F_d(K_M)F_{d−1}(K_S)] ≥ 0` (`F_j ≥ 0` by definition). Also `A_0 ≤ k²H`
+(`z_0 ≤ 36k²E[(det A_0)²] ≤ Ck²P^N`, `π_0(v_0) ≤ Ce^{−c(b²+k²)}` by (R5)). Put `r_1 := min(ℓ^{1/4}, r_0)`. In (2.1),
+on `0 < r < r_1` use (E.1): `r^{−2}(A_r − A_0) ≥ −H ≥ −Ce^{−cb²}`, contributing `≥ −Cr_1`; on `r_1 ≤ r < r_0` use
+`A_r ≥ 0`: `r^{−2}(A_r − A_0) ≥ −r^{−2}(ℓ/r³)²H = −ℓ²r^{−8}H`, contributing `≥ −Cℓ²r_1^{−7}/7 = −Cℓ^{1/4}/7` when
+`r_1 = ℓ^{1/4}` (and nothing when `r_1 = r_0`); the far term of (2.1) is `≥ −Cℓ²r_0^{−7}`. Hence
+
+    ν_cand^{near,r_0}(ℓ) − cℓ^{−1/3} ≥ −C(min(ℓ^{1/4}, r_0) + ℓ²r_0^{−7}).
+
+(A lower bound `≥ −O(ℓ²r_0^{−7})` would need a positive lower bound on the near-diagonal equal-height kernel, which
+is not supplied; the two-sided (R+.3) is what Theorem R+ uses.)
 
 *The far candidate density.* On the compact set `dist(0, y) ≥ r_0`, [P] §14 / (14.1) — the input behind [Z]
 (Z16) — bounds the unmarked kernel `Ψ_ℓ^{cand}` by `Ce^{−c''b²}` uniformly in `0 < ℓ ≤ 1` (the two-site jets are
@@ -250,16 +280,25 @@ fifteen free ones fixed at rationals): `det H_M(−r) = det H_S(r)` exactly at r
 `r`, has only even powers, constant term `−36k²A_0²` (`A_0 = f_yy(0)`), and the recorded `r²` coefficient. The parity
 is forced by the symmetry, so this is a check of the mechanism of Step 3, not of its bookkeeping; mutant M2
 applies the parity test to the single factor `det H_M/r`, which has `r¹, r³, r⁵` terms, and fails.
-E3 the block identity `det K = α det A − r βᵀadj(A)β` and Haynsworth's inertia count on rational `3×3` and `4×4`
-examples with `A` negative definite, of index `m − 1`, and indefinite, and the scalar Schur complement of both
-signs (inertia by exact congruence diagonalisation); the Step 4 case split at rational points: `F_d(K_M) = 0` when
-`λ_max(A_M) > 0`, and the layer inequality `|det A| ≤ (|λ_max(A)|)·‖A‖^{m−1}` for `|λ_max(A)|` small.
+E3 the block identity `det K = α det A − r βᵀadj(A)β` for `K = [[α, √r βᵀ],[√r β, A]]` (`r` a rational square,
+`s = √r` rational, entries `s·β` — [R] Lemma R3.2 with `t = r`, the dictionary of §0) and Haynsworth's inertia count
+on rational `3×3` and `4×4` examples with `A` negative definite, of index `m − 1`, and indefinite, and the scalar
+Schur complement of both signs (inertia by exact congruence diagonalisation); the Step 4 case split at rational
+points: `F_d(K_M) = 0` when `λ_max(A_M) > 0`, and the layer inequality `|det A| ≤ (|λ_max(A)|)·‖A‖^{m−1}` for
+`|λ_max(A)|` small.
 E4 the ledger of §2 and Remark 2 by exact monomial substitution `r = (ℓ/k)^{1/3}`: `r^{−2}(ℓ/r³)² = ℓ²r^{−8}`
 (so `∫_{r_0}^∞ ≍ ℓ²r_0^{−7}`), `k^{−2/3}r^{3}/k = ℓk^{−8/3}`, `ℓκ^{−5/3} = κ^{7/3} = ℓ^{7/12}` at `κ = ℓ^{1/4}`,
 `ℓ^{2/3}a^{−1/3} = r_0ℓ^{1/3}`, and `r ≤ k ⇔ ℓ ≤ k⁴`; mutant M3 (claims the loss exponent `1/3`) fails.
 E5 the layer algebra of Step 4: `k²u² = C_1²r²T²(k + T)²` and `rT² ≤ ku/C_1` for `u = C_1rT(1 + T/k)`, exactly.
-Mutants `M1`–`M3` exit 1; an unknown label exits 2. The controls check identities and bookkeeping; they do not prove
-the Gaussian estimates and are not acceptance.
+Mutants `M1`–`M3` exit 1; an unknown label exits 2.
+
+**What the controls do not test.** They check exact identities and finitely many rational instances of Steps 1–3
+(E1, E2), of the block/inertia facts and the case split of Step 4 (E3), of the ledger (E4) and of the layer algebra
+(E5). They do **not** test Step 4 as a statement about the random matrices — the Weyl and Hadamard bounds on the
+layer `{|λ_max(A_0)| < u}`, the choice of `C_1`, and the claim that the product of the two typed determinants is
+`O(r²)` times a polynomial in `T` there — nor Step 5 (the `C^7` moment import from (R4) and the passage to
+expectations), nor anything in §2 (the majorant, the pointwise limit, the far limit, the use of (Z4)). Those are
+proved in prose only and are review slice A (Steps 4–5) and slice B (§2). The controls are not acceptance.
 
 ## 6. Review slices
 

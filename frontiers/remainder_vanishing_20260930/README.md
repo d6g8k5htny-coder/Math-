@@ -1,4 +1,4 @@
-# The remainder of Theorem R: `B_{d,L}` for candidates, `0` for elder pairs (CL-D2-REMAINDER-VANISHING-20260930-v1)
+# The remainder of Theorem R: `B_{d,L}` for candidates, `0` for elder pairs (CL-D2-REMAINDER-VANISHING-20260930-v1.1)
 
 Author-side proof candidate, Anthropic Claude, 30 September 2026. Scientific effect NONE. Nonauthor review required.
 Relative to merged, reviewed sources only ([R] Theorem R, [Z] Theorem Z, [C7-K], the reconciled [P] chain);
@@ -32,6 +32,21 @@ agent read a first version before landing; its findings (a false layer inequalit
 flip layer, repaired by the three-case split; the theorem's independence from #188, which the first version had
 assumed; the direct identification of the constant `B_{d,L}` through Theorem Z; Proposition L being [C7-K] §4's
 own proof; the norms `T` controls; controls that were symmetry-forced or tautological) were applied.
+
+**What the controls do not test.** E1–E5 check exact identities and finitely many rational instances (Steps 1–3,
+the block/inertia facts and case split of Step 4, the ledger, the layer algebra). They do not test Step 4 as a
+statement about random matrices (the Weyl/Hadamard layer bound, the choice of `C_1`, the `O(r²)` product on the
+flip layer), nor Step 5 (the `C^7` moment import from [R] (R4), quoted in PROOF.md §1, and the expectations), nor
+§2 (majorant, pointwise and far limits, the use of (Z4)). Those are proved in prose only; they are review slices A
+(Steps 4–5) and B (§2). The controls are not acceptance.
+
+v1 → v1.1 (xAI review 5369140697 on Math- #191): A1 the scaling dictionary of [R] §4 and Lemma R3.2 quoted
+verbatim in §0 and Step 3 (the `r` multiplying `q_i` is R3.2's `t = r`, the off-diagonal of `K_i` being `√r β_i`;
+the checker's E3 comment, which read as `t²`, corrected — the code was and is `s = √r`, `det K = α det A − s²q`);
+A2 the paragraph above; A3 [R] (R4)'s "for finite p>=1 and each finite derivative order q" quoted at the definition
+of `T`; B2 the signed near bound proved in §2 as a separate remark (from `A_r ≥ 0` for every `r` and `A_0 ≤ k²H`),
+not part of (R+.3); B1 the not-claimed list extended (no RN/24-jet closure; R+ does not enlarge (Z4)). Lemma E,
+Theorem R+ and (R+.1)–(R+.3) unchanged.
 
 Review slices (§6): A Lemma E; B the separation-variable limit argument and the use of Theorem Z; C scope and
 remarks.
