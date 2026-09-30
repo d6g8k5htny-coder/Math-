@@ -30,9 +30,7 @@
    "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
    "tag": "CUB",
    "use": "(C1)-(C4), Theorem C, (C6)-(C13); deterministic part only"
-  }
- ],
- "consumed_unmerged": [
+  },
   {
    "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
    "pr": "d6g8k5htny-coder/Math-#162",
@@ -41,7 +39,9 @@
    "bytes": 25006,
    "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
    "tag": "SC",
-   "use": "§1, §2 (7)-(10), §4 (14)-(16), §5 normal form and (17)-(18), §6 (19)-(20), §7 (2), (21)-(24)"
+   "use": "§1, §2 (7)-(10), §4 (14)-(16), §5 normal form and (17)-(18), §6 (19)-(20), §7 (2), (21)-(24)",
+   "merged": "358f2562efbccc59f9549e5a79650e2e936395c3",
+   "note": "reviewed at PR head 382c0f9; merged with identical bytes"
   },
   {
    "path": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
@@ -51,7 +51,9 @@
    "bytes": 17139,
    "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
    "tag": "TSL",
-   "use": "cited in §0 only (Theorems L, T); not consumed by any proof"
+   "use": "cited in §0 only (Theorems L, T); not consumed by any proof",
+   "merged": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+   "note": "reviewed at PR head 7c82252 (custody repaired in Math-#172, proof bytes unchanged); merged with identical bytes"
   }
  ],
  "cited_only": [
@@ -89,6 +91,22 @@
    "bytes": 13028,
    "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9",
    "tag": "C7-U"
+  },
+  {
+   "path": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
+   "git_blob": "3cfd17c5ef0356dbd3e8f98a2d08cb404ddd982c",
+   "bytes": 34758,
+   "sha256": "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
+   "tag": "RES",
+   "use": "cited in §0 only: the leading-mass localization residual bound to [TSL] Theorem L (Math-#173, merged 30106e1; declarative)"
+  },
+  {
+   "path": "frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md",
+   "git_blob": "845881d40520d4acbe15ee196a1ba0d5412eafa1",
+   "bytes": 11018,
+   "sha256": "f20c1ac96b00edc071e428bd2e5dc4c91b8546a3ee0693367b783109b26aa518",
+   "tag": "NUM",
+   "use": "cited in §6 only: uncertified numerical values of the planar near coefficients (Math-#168, merged 02772ec); not consumed"
   }
  ],
  "referee": {
@@ -99,8 +117,8 @@
  "files": [
   {
    "path": "LOCAL_PAIRING.md",
-   "bytes": 37901,
-   "sha256": "f93effd51bc1dc7f5dc0ac59bed9ebf5d94cfdeb992fd64e1b7235e3ae61420a"
+   "bytes": 38639,
+   "sha256": "54a44740198ec77aa5616177676b1e0ef2ffe93115d6bf2cfcca3bba5d180d1c"
   },
   {
    "path": "pairing_check.py",
@@ -114,8 +132,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 2174,
-   "sha256": "3ce445efcd9d1faadfc7b22451a86cac79fc1be141e6a5f44d471e683ade4cd0"
+   "bytes": 2207,
+   "sha256": "7d5585b78aacbd9d018085edf721759120730a965ae704e997839c386806e018"
   },
   {
    "path": "exploration/elder_cubic.py",
@@ -127,5 +145,9 @@
    "bytes": 104796,
    "sha256": "5c80aecdb6db5403a50ab2239361f36b638d1f5e7e5fd0e3d6dfee5dcd661d2b"
   }
- ]
+ ],
+ "read_at": {
+  "branch_base": "30106e1be251e8c18759b6fa4de6176b76380c12",
+  "note": "Math- main after Math-#173 merged; every consumed source verified at these bytes by the workflow"
+ }
 }

@@ -22,7 +22,7 @@ whether the decision is local. This packet shows:
 
 Files: `LOCAL_PAIRING.md` (the note), `pairing_check.py` (stdlib exact controls; `RESULTS.json` its output,
 `-O` identical; mutants `M1`–`M4` exit 1, unknown label exit 2), `SOURCES.json` (exact identities of every
-source; [SC] and [TSL] are consumed at frozen unmerged bytes), `exploration/` (numpy/scipy/sympy merge-tree
+source; [SC] and [TSL] are consumed at their merged bytes, identical to the reviewed PR heads), `exploration/` (numpy/scipy/sympy merge-tree
 computation — evidence, not proof, not run in CI).
 
 Review slices (§9): A deterministic (§§2–3); B the Gaussian transfer (§4); C the obligation (§5).

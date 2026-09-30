@@ -22,7 +22,9 @@ scope stated below:
    the [C6] moments; nonauthor-reviewed at conditional scope). Remote–remote pairs are `O_ρ(r⁵)` ([SC] (2)).
    The only non-local piece of the *nonempty* event is a **remote singleton** of positive mass `β_far`
    ([SC] (22); [TSL] Theorem T). So "the rare event is local" is true for pairs and false for singletons.
-   Nothing in this packet re-proves those statements.
+   Nothing in this packet re-proves those statements. (The leading-mass localization residual of Math-#160 §5
+   is bound to Theorem L as its direct statement by the declarative record [RES], Math-#173; that record proposes
+   register transitions and executes none.)
 2. **Which witnesses pair.** On the limiting local landscape — the pinned planar cubic `P_θ` of [CUB] —
    the elder rule is decided exactly: off the null tie set `{s ≤ B, D² = T}`, `(M,S)` is the elder pair **iff**
    the cubic has no extra strict-window critical point (`n(θ) = 0`) (Lemmas P, P′); if `n(θ) ≥ 1`, `M` dies at
@@ -62,10 +64,11 @@ Sources (exact identities in `SOURCES.json`; none is revalidated here):
 | [P] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` | §1 model and `p_r`; Theorem A upper bound `1 − p_r ≤ C r³`; §8 genericity; §§9–11 radial ledger and (E9)-type intensity. |
 | [ELDER] | `frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md` | (E1) maximin characterisation; §2 the stable-`C⁰`-connectivity transfer template; §4 (E9)–(E11) density gap in `d = 2`. |
 | [CUB] | `frontiers/planar_cubic_cluster_20260929/PROOF.md` | (C1)–(C3) pinned cubic and shear; (C4) typed condition; Theorem C classifier `n(θ) ∈ {0,1,2}`; (C7)–(C13). Only the deterministic part. |
-| [SC] | `frontiers/spectral_cluster_closure_20260929/PROOF.md` (Math-#162, frozen head `382c0f9`, proof blob `16c56821`) | §2 spectral coordinates and (10); §5 normal form: `[f(rX,rZ,0) − b]/r³ → P_θ` in `C²` on bounded sets, the limit `W_r/r⁴ → ∏h_j² w`, and the rescaled typed-jet measure (17); (18)–(20): `a₁, a₂`; (22): `β_far`; (2), (24) as cited in §0. Unmerged: consumed at its frozen bytes. |
-| [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, math head `7c82252`, blob `a32fd5f7`) | Theorem L, Theorem T — cited in §0 only; not consumed by any proof below. |
+| [SC] | `frontiers/spectral_cluster_closure_20260929/PROOF.md` (Math-#162, reviewed at head `382c0f9`, merged at `358f256` with identical bytes; proof blob `16c56821`) | §2 spectral coordinates and (10); §5 normal form: `[f(rX,rZ,0) − b]/r³ → P_θ` in `C²` on bounded sets, the limit `W_r/r⁴ → ∏h_j² w`, and the rescaled typed-jet measure (17); (18)–(20): `a₁, a₂`; (22): `β_far`; (2), (24) as cited in §0. |
+| [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, reviewed at head `7c82252`, merged at `ab13a08` with identical bytes; blob `a32fd5f7`) | Theorem L, Theorem T — cited in §0 only; not consumed by any proof below. |
 | [E_d], [EDL] | `frontiers/elder_lower_all_d_20260929/PROOF.md`, `frontiers/elder_dimension_lift_20260928/PROOF.md` | The existential lower bound `1 − p_r ≥ c r³` in every `d` that Theorem LP sharpens; not consumed. |
 | [C7] | `frontiers/c7_total_bounded_20260929/PROOF.md` (Theorem K / Corollary T), `frontiers/c7_zero_gap_limit_20260929/PROOF.md` (Theorem Z), `frontiers/unrestricted_selection_difference_20260929/PROOF.md` (Theorem U) | Cited in §6.3 only for the order of the unrestricted remainder; not consumed. |
+| [RES], [NUM] | `reviews/c6_residual_closure_20260930/RECONCILIATION.md` (Math-#173), `frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md` (Math-#168) | Cited in §0 and §6.4 only (the residual-closure record; uncertified numerical values of the near coefficients); not consumed. |
 
 A defect in a consumed interface blocks the corresponding statement here. In particular Theorem LP is
 conditional on [SC] at exactly the same scope as [TSL].
@@ -408,8 +411,10 @@ reduction fails.
    either density separately, and none is claimed here. What this packet adds is the structure on the local
    landscape — which points pair — and a lower bound for its weight; locality of the decision for the field
    is Conjecture LP=.
-4. **Not claimed.** No numerical value of `a₁ + a₂`; no rate; no uniformity in marks or `d`; no statement
-   about the joint law of several bars; no change to the C6 / C7 / witness-collision registers.
+4. **Not claimed.** No numerical value of `a₁ + a₂` (uncertified floating-point values of the planar near
+   coefficients exist in [NUM], Math-#168, under its own conditions; this packet neither consumes nor confirms
+   them); no rate; no uniformity in marks or `d`; no statement about the joint law of several bars; no change
+   to the C6 / C7 / witness-collision registers.
 
 ## 7. Finite controls
 
