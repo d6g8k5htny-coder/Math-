@@ -6,13 +6,14 @@
   "base_commit": "8e61fc4c055b56e526b5b3488104945e8e0e29cc",
   "reverified_at": "bb429d3 (Math- main after Math-#155, #156, #161, #158, #157 and #165; no inventoried path changed)",
   "revision": {
-    "version": "v1.5",
+    "version": "v1.6",
     "applies": [
       "v1.1: OpenAI review 5359701805 items 1-3; OpenAI pickup 5900929519 residual wording",
       "v1.2: merge of Math- main 5c484bf; candidate status after Math-#161 merged",
       "v1.3: Codex review 5359693191 threads 4139312857 (catalog bound), 4139312869 (live LP node reused), 4139312863 (all six selector cells resolved, SELECTOR check), 4139312874 (residual defined at scale r)",
       "v1.4: merge of Math- main aa28838 (Math-#158 merged); xAI 5901345590 recorded (ACCEPT as inventory, HOLD on execution); explicit execution_order",
-      "v1.5: merge of Math- main bb429d3; Math-#166 (TWO_SCALE_LAW.md a32fd5f7, math head 7c82252) recorded as the third residual candidate, matching the residual's definition, conditional on #162, A under review"
+      "v1.5: merge of Math- main bb429d3; Math-#166 (TWO_SCALE_LAW.md a32fd5f7, math head 7c82252) recorded as the third residual candidate, matching the residual's definition, conditional on #162, A under review",
+      "v1.6: xAI bounded discharge read 5901915195 recorded (agrees sections 1 and 4; HOLD execution until Math-#151 on main; residual node first; not the PALM sections 4-6 second-provider read)"
     ],
     "unchanged": "22-file inventory, status-row statement, historical predicates; one proposed node removed in favour of the live node"
   },
@@ -36,6 +37,13 @@
       "kind": "bounded read",
       "at": "3e00f21",
       "verdict": "ACCEPT as inventory (count-estimate obligation discharged at existential fixed-d compact-mark window scope); HOLD on graph execution until Math-#151 lands, residual node created first, xAI read of PALM sections 4-6 as a separate slice"
+    },
+    {
+      "lane": "xAI",
+      "id": 5901915195,
+      "kind": "bounded discharge read",
+      "at": "c641df1",
+      "verdict": "count obligation discharged by Theorem Q + (A4) at existential fixed-d compact-mark window scope; monotonicity upper bound only; HOLD execution until Math-#151 lands; residual node before the old node moves; not the second-provider read of PALM sections 4-6"
     }
   ],
   "presupposes": [

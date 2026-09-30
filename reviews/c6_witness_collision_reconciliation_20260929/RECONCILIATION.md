@@ -14,7 +14,7 @@ catalog is bound by the `OBLIGATION` check and the workflow paths; the residual 
 3, the §4 statement and the 22-file inventory are unchanged; v1.3 removes one proposed node in favour of a live one.
 v1.4 merges main `aa28838`, records xAI 5901345590 (ACCEPT as inventory; HOLD on execution until Math-#151 lands) and
 makes the execution order explicit in §7. v1.5 merges main `bb429d3` and records Math-#166 as the third candidate
-for the §5 residual, the one whose statement matches the residual's definition.
+for the §5 residual, the one whose statement matches the residual's definition. v1.6 records xAI 5901915195.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the
@@ -58,6 +58,12 @@ and **HOLD on execution** for three reasons this record already states: `execute
 Math-#151; the residual node must exist before the old node moves (§7 ordering); and the xAI read of [PALM] §§4–6
 asked for above is a separate slice, not that comment. The record may land declaratively; the
 `OPEN_ACTIVE → PROVED_REVIEWED` step is a later non-Claude act.
+
+xAI bounded discharge read 5901915195 (at `c641df1`): agrees that §1 quotes a count estimate and that [PALM]
+Theorem Q with [EDL] (A4) discharges it at existential, fixed-`d ≥ 2`, compact-mark, window-`I_r` scope, with the
+regional monotonicity an upper bound only; holds execution until Math-#151 is on main; requires the residual node
+to exist before the old node moves (the §7 order); and states that it is not the second-provider read of [PALM]
+§§4–6, which the xAI lane (Benjamin) is taking separately.
 
 ## 1. The obligation, as the register recorded it
 
