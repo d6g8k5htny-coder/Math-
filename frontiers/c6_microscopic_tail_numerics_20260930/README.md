@@ -13,7 +13,7 @@ evaluated as a control against the merged Math-#168 values.
 
 - `NOTE.md` — what is evaluated, exact structure, values, precision, non-claims.
 - `tail_constants.py` — standard-library script (Python `>= 3.11`): `--check` (exact controls and replay against
-  `RESULTS.json`), full run regenerates `RESULTS.json` (about five minutes); `--mutant {shape-integral, gamma-power,
+  `RESULTS.json`), full run regenerates `RESULTS.json` (about fifteen minutes); `--mutant {shape-integral, gamma-power,
   cusp-shift}` must exit 1.
 - `RESULTS.json`, `SOURCE_MAP.json` (five main-resident pins and two unmerged companions), `SOURCE_FILES.json`.
 - Workflow `.github/workflows/c6-microscopic-tail-numerics.yml` replays manifest, pins, both check modes and the
