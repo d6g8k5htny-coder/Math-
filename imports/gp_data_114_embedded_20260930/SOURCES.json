@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "object": "OA-GP-DATA-114-EMBEDDED-CUSTODY-20260930-v1",
+  "scientific_effect": "NONE",
+  "review_status": "CUSTODY_REVIEW_REQUIRED",
+  "packet_author": "OpenAI / Codex current-source recovery lane",
+  "shared_account_organizational_independence_credit": 0,
+  "original_author": "UNKNOWN; this packet does not infer authorship from an artifact prefix",
+  "coordination": "https://github.com/d6g8k5htny-coder/main/issues/86#issuecomment-5901405370",
+  "wrapper": {
+    "repository": "d6g8k5htny-coder/main",
+    "commit": "7caac254cbba5f513b2dc0afb56b78a598bc0c93",
+    "path": "drive/mirrors/02_RESEARCH_CARRY_FORWARD_CANON/00 — PRIORITY OPEN MATHEMATICAL TARGETS/P0.1 — UNIFORM ADJACENCY POSITIVITY/03_COMPUTATION_AND_TESTS/GP-DATA-114-v1.1 — Verified Byte-Exact Capsule for the Uniform-r Fixed-q Degree-Four Corridor Box.export.txt",
+    "bytes": 9220,
+    "sha256": "948881341e610800b126623e559c9a45a6a1160a55b6fc69e172ef47ca107c37",
+    "git_blob": "0a1a98169a5283b7a253890fe8bb54a8a91cfe71",
+    "url": "https://github.com/d6g8k5htny-coder/main/blob/7caac254cbba5f513b2dc0afb56b78a598bc0c93/drive/mirrors/02_RESEARCH_CARRY_FORWARD_CANON/00%20%E2%80%94%20PRIORITY%20OPEN%20MATHEMATICAL%20TARGETS/P0.1%20%E2%80%94%20UNIFORM%20ADJACENCY%20POSITIVITY/03_COMPUTATION_AND_TESTS/GP-DATA-114-v1.1%20%E2%80%94%20Verified%20Byte-Exact%20Capsule%20for%20the%20Uniform-r%20Fixed-q%20Degree-Four%20Corridor%20Box.export.txt",
+    "blob_api_url": "https://api.github.com/repos/d6g8k5htny-coder/main/git/blobs/0a1a98169a5283b7a253890fe8bb54a8a91cfe71",
+    "carrier_role": "Public historical GP-DATA-114-v1.1 clean wrapper retaining v1.0 payload names",
+    "copied_into_packet": false,
+    "identity_locator": {
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "c87288ad5a27ca1e452171d4fe7cead43a1a3a5e",
+      "path": "docs/public-math/sources-02.json",
+      "git_blob": "0037f84f28f3e9dada4d921c903ee0271723d544"
+    }
+  },
+  "payloads": [
+    {
+      "label": "SOURCE",
+      "path": "GP-DATA-114-v1.0_uniform_q_degree4_interval.py",
+      "bytes": 9787,
+      "sha256": "9d7cb5d6e13579533c5b485775e67c77da83c149c0bf8bbbe7b7bf85aefdb4ef",
+      "git_blob": "bbbfacee088332b4e4df9953079d579400f2282c",
+      "gzip_bytes": 3416,
+      "gzip_sha256": "18c8768cf37d4557a8c04a9ae6e60523a185098012527403c0e627b259ff1e5c",
+      "role": "Original embedded historical interval-verifier source; decoded as data"
+    },
+    {
+      "label": "RECEIPT",
+      "path": "GP-DATA-114-v1.0_receipt.json",
+      "bytes": 5047,
+      "sha256": "8472209ee589f44f1f3c472c7040d183494743a89e21ad9487a1879d192003bc",
+      "git_blob": "77c511eaaab0dcd7863d4eebadfd2dcc69c9cb71",
+      "gzip_bytes": 1692,
+      "gzip_sha256": "88bb5bce0b875ac2959d7cbcaff235db7ea60249e3124faeccc0d26fe8351222",
+      "role": "Original embedded historical saved receipt; not a fresh execution receipt"
+    }
+  ],
+  "excluded_original": {
+    "role": "Distinct corrupt GP-DATA-114-v1.0 publication mentioned by wrapper; not acquired or used",
+    "payload_lineage_naming_does_not_identify_wrapper_as_corrupt_original": true
+  },
+  "boundaries": {
+    "archived_source_executed": false,
+    "archived_source_imported": false,
+    "dependencies_changed": false,
+    "mathematical_claims_reviewed": false,
+    "status_graph_prize_boolean_changes": false,
+    "global_recovery_novelty": "UNKNOWN: earlier private derived extraction outputs were not inspected",
+    "public_wrapper_was_already_available": true,
+    "individual_payload_404_observation": {
+      "repository": "d6g8k5htny-coder/main",
+      "observed_date": "2026-09-30",
+      "source_blob_status": 404,
+      "receipt_blob_status": 404,
+      "scope": "Targeted connector blob API probes; not an exhaustive historical or private-artifact search"
+    }
+  }
+}

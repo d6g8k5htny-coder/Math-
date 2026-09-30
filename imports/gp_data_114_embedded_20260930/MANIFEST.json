@@ -1,0 +1,58 @@
+{
+  "external_wrapper_is_not_duplicated": true,
+  "files": [
+    {
+      "bytes": 5047,
+      "git_blob": "77c511eaaab0dcd7863d4eebadfd2dcc69c9cb71",
+      "path": "GP-DATA-114-v1.0_receipt.json",
+      "role": "ORIGINAL_EMBEDDED_BYTES",
+      "sha256": "8472209ee589f44f1f3c472c7040d183494743a89e21ad9487a1879d192003bc"
+    },
+    {
+      "bytes": 9787,
+      "git_blob": "bbbfacee088332b4e4df9953079d579400f2282c",
+      "path": "GP-DATA-114-v1.0_uniform_q_degree4_interval.py",
+      "role": "ORIGINAL_EMBEDDED_BYTES",
+      "sha256": "9d7cb5d6e13579533c5b485775e67c77da83c149c0bf8bbbe7b7bf85aefdb4ef"
+    },
+    {
+      "bytes": 4824,
+      "git_blob": "a10edfb259432bfc569afdbef161ddcd4719f8f6",
+      "path": "README.md",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "5563293f379a380a044e36ab81d50433460b517a8344307bd409ec375a7fbf79"
+    },
+    {
+      "bytes": 3819,
+      "git_blob": "f9f6285ab3b6c5fc41551f3ed4906cc28969baa4",
+      "path": "SOURCES.json",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "4c28b3fa16ba607ef675276d263add69354d9583b891174f2e1a75742cafac37"
+    },
+    {
+      "bytes": 4125,
+      "git_blob": "73b3e18c756f299258c736700b8b2050eebbe3f1",
+      "path": "VALIDATION.json",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "5f1d1b69eabfb30570e2f24e7be79f89e3ede3b1ee2ecac73e76a8b84aef7e74"
+    },
+    {
+      "bytes": 6590,
+      "git_blob": "edbfc7d3d08d59375c0f94139f7f493dc1885a3a",
+      "path": "inert_decoder.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "01f0fccad3fb80690b776c957af1a46ac42c92b1ba91cbfa0a272613ee45b94d"
+    },
+    {
+      "bytes": 6719,
+      "git_blob": "b1229430058811c06ec2c073d985347b7d9e7030",
+      "path": "test_inert_decoder.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "4966503339c8ae6de674f57f97d514c4068b134af3b1fcf97710d34e444eed42"
+    }
+  ],
+  "manifest_self_excluded": true,
+  "object": "OA-GP-DATA-114-EMBEDDED-CUSTODY-20260930-v1",
+  "schema_version": 1,
+  "scientific_effect": "NONE"
+}

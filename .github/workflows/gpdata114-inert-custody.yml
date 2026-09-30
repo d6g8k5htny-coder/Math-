@@ -1,0 +1,52 @@
+name: GP DATA 114 inert custody
+'on':
+  pull_request:
+    paths:
+      - 'imports/gp_data_114_embedded_20260930/**'
+      - '.github/workflows/gpdata114-inert-custody.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'imports/gp_data_114_embedded_20260930/**'
+      - '.github/workflows/gpdata114-inert-custody.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inert-custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.16'
+      - name: Verify inert bytes and decoder controls only
+        run: |
+          set -euo pipefail
+          packet=imports/gp_data_114_embedded_20260930
+          python -B -S - <<'PY'
+          import hashlib, json, pathlib, urllib.parse, urllib.request
+          packet = pathlib.Path('imports/gp_data_114_embedded_20260930')
+          source = json.loads((packet / 'SOURCES.json').read_text())['wrapper']
+          url = 'https://raw.githubusercontent.com/' + source['repository'] + '/' + source['commit'] + '/' + urllib.parse.quote(source['path'], safe='/')
+          raw = urllib.request.urlopen(url, timeout=30).read(65537)
+          if len(raw) != source['bytes'] or hashlib.sha256(raw).hexdigest() != source['sha256']:
+              raise SystemExit('exact public wrapper identity mismatch')
+          pathlib.Path('/tmp/gpdata114-wrapper.txt').write_bytes(raw)
+          manifest = json.loads((packet / 'MANIFEST.json').read_text())
+          for entry in manifest['files']:
+              data = (packet / entry['path']).read_bytes()
+              framed = b'blob ' + str(len(data)).encode() + b'\0' + data
+              if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or hashlib.sha1(framed).hexdigest() != entry['git_blob']:
+                  raise SystemExit('packet file identity mismatch: ' + entry['path'])
+          PY
+          python -B -S "$packet/inert_decoder.py" --wrapper-input /tmp/gpdata114-wrapper.txt --verify-existing "$packet" > /tmp/gpdata114-normal.json
+          python -B -O -S "$packet/inert_decoder.py" --wrapper-input /tmp/gpdata114-wrapper.txt --verify-existing "$packet" > /tmp/gpdata114-optimized.json
+          cmp /tmp/gpdata114-normal.json /tmp/gpdata114-optimized.json
+          python -B -S "$packet/test_inert_decoder.py" --wrapper-input /tmp/gpdata114-wrapper.txt > /tmp/gpdata114-tests-normal.json
+          python -B -O -S "$packet/test_inert_decoder.py" --wrapper-input /tmp/gpdata114-wrapper.txt > /tmp/gpdata114-tests-optimized.json
+          cmp /tmp/gpdata114-tests-normal.json /tmp/gpdata114-tests-optimized.json
+          git diff --exit-code
