@@ -12,10 +12,13 @@ method and the exact scope.
 
 - `NOTE.md` — statement, method (midpoint-jet preconditioning, exact Laurent-polynomial cancellation, torus remainder
   bound, block Cholesky with coupling shrink, cell sums with endpoint minima), values, controls, non-claims.
-- `floor.py` — standard-library script (Python `>= 3.11`): `--check` replays the manifest-pinned floor exactly on two
-  sub-boxes, verifies the stored minimum, the floating controls and the constants; the full run (`--procs 4`, about an
-  hour) regenerates `RESULTS.json`; `--mutant {swap-minmax, drop-torus-error, sign-saddle}` must exit 1.
+- `floor.py` — standard-library script (Python `>= 3.11`): `--check` replays the manifest-pinned floor exactly on seven
+  sub-boxes, verifies the stored minimum, the floating controls and the constants (about three minutes);
+  `--check-full --procs N` regenerates all 9216 sub-box floors and compares them exactly (about an hour on four cores;
+  the workflow's on-demand `full-regeneration` job); the full run (`--procs 4`) regenerates `RESULTS.json`;
+  `--mutant {swap-minmax, drop-torus-error, sign-saddle}` must exit 1.
 - `RESULTS.json`, `SOURCE_MAP.json` (two main-resident pins: [LP], [NUM]), `SOURCE_FILES.json`.
-- Workflow `.github/workflows/c8-normalizer-floor-planar.yml` replays manifest, pins, both check modes and the mutants.
+- Workflow `.github/workflows/c8-normalizer-floor-planar.yml` replays manifest, pins, both check modes and the
+  mutants on every pull request, and regenerates every sub-box on demand (`workflow_dispatch`).
 
 Same GitHub account as every other lane; zero organizational-independence credit. The author will not merge.
