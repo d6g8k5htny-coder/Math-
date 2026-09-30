@@ -1,6 +1,6 @@
 # D1 component III, second pass: the cap implication `G_r ⇒ S is the global elder partner of M`, line by line
 
-**Object:** `D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1`. **Reviewer:** Anthropic / Claude, Claude Code session
+**Object:** `D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1` (record v1.1). **Reviewer:** Anthropic / Claude, Claude Code session
 `017Mi3hxjaxV45x6zo6o1ee3` (the same reviewer as C1 of 28 September, `reviews/d1_theorem_a_nonauthor_20260928/`; this is a
 second pass by the same lane, not a new independent lane). **Kind:** nonauthor review record with finite controls.
 **Authors of the objects reviewed:** OpenAI / ChatGPT (the D1 parent P and the cap import CAP). **Scientific effect:**
@@ -225,11 +225,12 @@ is `S`: this is the middle line of section 1, and (7.8) closes Theorem A.
 | `EXACT_CONSTANTS` | L1–L18 and L26 constants in exact arithmetic: kernel mass `1/6`, average `2`, distance `9/2 < 5`, `7/4`, `k >= 11`, `15/4`, kernel max `2`, `u = 24/121`, `mu = 48/121`, adverse `2554128/1771561`, `F'' >= 2184415/7086244 > 1/4`, exterior integrals `9/32`, excess `11/96`, drop `4400/121 > 1/6`, rescaled `3kappa/2`, `27kappa/16`, `11kappa/16`, `26400kappa/121`, and `(4/(3kappa), 3kappa/10)` | true |
 | `RIDGE_IDENTITY_M3` | identity (11) for transverse dimension 3, `f = p(x) - ½(y - Q)^T A(x)(y - Q) + cubic(y - Q)` with quadratic and cubic `Q_i(x)`, `A(x) = A_0 + x A_1`, `x`-dependent cubic coefficients and a quartic `p` (so `F''` is not constant); the ridge gradient vanishes, `g = p`, LHS = RHS as polynomials, and `F'' ≠ f_xxx` on the family | true |
 | `MAXIMIN_D2`, `MAXIMIN_D3` | explicit landscapes `f = b + p(x) - (λ/2)‖y‖² + ε(x² - r²/4) y_1` with `p' = x² - r²/4`, `r = 1/50`, `λ = 1`, `ε = 1/2`: `M_3 = 2`, `M_4 = 0` exactly, `λ = 1 > 8 r M_3² = 16/25`, so (H1)–(H2) hold; on grids of spacing `r/20` (`81²` cells) and `r/12` (`49³` cells), activating cells in decreasing height with union-find, the component of `M` first acquires a point of value `> b` exactly when the grid point `S` is activated: grid maximin level `= s = 1.19999866667`, merge offset from `S` `0` steps | true |
+| `MAXIMIN_M4_INSIDE_H2` (v1.1) | the same construction with a pin-preserving longitudinal quartic `+ μ(x² - r²/4)²`, `μ = 1/10`: both pins stay critical and the gap is unchanged, while `f_xxx = 2 + 24μx` and `f_xxxx = 24μ`, so `M_3 = 262/125`, `M_4 = 12/5`, `r M_4 = 6/125 = 0.048 ≤ 1/20` and `8 r M_3² = 274576/390625 < λ = 1`: the positive control now sits strictly inside the hypothesis box (H1)–(H2) rather than on its `M_4 = 0` face (xAI/Grok remark 1, review 5368893741); in `d = 2` and `d = 3` the merge is again at the grid point `S` at level `s` | true |
 | `HYPOTHESIS_LOAD_BEARING` | the same pins with a quartic transverse rim `+ β‖y‖⁴`, `β = 10^5`: `M_3 >= 48 β r = 96000`, `r M_4 = 48000`, so (H1)–(H2) fail inside `D`; the rim pass along `x = -r/2` sits at `b - 1/(16β) = 1.199999375 > s` and inside `D`; the grid maximin level is `1.19999938667` (above `s` by `0.54` of the gap `κ r³`) and the merge happens `42` steps from `S`: the elder partner of `M` is the rim pass, not `S` | true |
 
 Mutants (each exits 1): `kernel-mass`, `depth-four` (constants chain), `coefficient-two`, `drop-cross-terms` (identity),
-`no-depth` (the rim landscape fed to `MAXIMIN_D2`), `gap-sign` (`S` above `M`). Both interpreter modes give
-byte-identical output. The grids are demonstrations on explicit polynomials; they prove nothing about arbitrary `C^4`
+`no-depth` (the rim landscape fed to `MAXIMIN_D2`), `gap-sign` (`S` above `M`), `m4-over` (`μ = 1/4`, so `r M_4 = 0.12`
+leaves (H2) and the positive control's hypothesis check fails). Both interpreter modes give byte-identical output. The grids are demonstrations on explicit polynomials; they prove nothing about arbitrary `C^4`
 fields. The proof is section 2.
 
 ## 5. The audit's other items, against the repository at `3e0a91b`
@@ -242,6 +243,19 @@ fields. The proof is section 2.
 | **19.4** no quantitative remainder for the unrestricted theorem | P (1.2) gives `0 <= ν_cand - ν_eld <= C ℓ^{2/3}` on compact windows only; (1.3) is a leading term. Open candidates awaiting non-Claude reads: Math-#191 (`ν_cand = cℓ^{-1/3} + B_{d,L} + o(1)`, `ν_eld = cℓ^{-1/3} + o(1)`; constant term identified, no rate), Math-#187 (far elder `O(ℓ^{2/3})`), Math-#188 (far elder `O(ℓ^N)`). | A rate for the unrestricted remainder needs the far-elder constant's dependence on the separation `ρ` (Math-#191 Remark 2). Not resolved. |
 | **19.5** no formal verification | Not supplied for D1; the Lean checks in the repository cover scalar companions only. | A Lean formalization of P/CAP; out of scope for this record. |
 | **§20** `math.rn-region.witness-collision` `OPEN_ACTIVE` | True in the live register at `3e0a91b` (GRAPH node: layer D5, catalog C6, `OPEN_ACTIVE`; PROOF_INDEX line "NO COMPLETE REGIONAL PROOF YET"). The **merged, reviewed** declarative record Math-#160 (`reviews/c6_witness_collision_reconciliation_20260929/PROPOSED_TRANSITIONS.json`, blob `8d70ee74`) proposes `OPEN_ACTIVE → PROVED_REVIEWED` for this node at the scope stated there (torus-wide factorial moments of the window count, every fixed `d >= 2`, existential constants, upper bounds for Borel selectors, lower bound global on the EDL event), resting on the merged sources it lists (the Palm route, the factorial-moment record, the dimension lifts, P, the D5 reconciliation); the residual node it opens (leading-mass localization) is closed by the merged Math-#173 (`reviews/c6_residual_closure_20260930`, blob `3706e8ac`). The register edits themselves are a separate execution reserved for a non-Claude lane; Math-#183 (open) makes the three records' checkers accept the installed state so that execution can be gated. The PROOF_INDEX sentence is scheduled to keep its text with a citation to the closure record (Math-#160 OBLIGATION). **D1 does not depend on this node**: REC's required edges for the D1 node are E1, E2, CAP and the §9 repair, as the audit also observes. | The non-Claude execution of #160/#167/#173 (after which the node reads `PROVED_REVIEWED` at the stated scope), or a non-Claude review that rejects those records. |
+
+### 4a. The xAI/Grok read (review 5368893741, provider-distinct, same account)
+
+The xAI lane recomputed L1, L9–L10, L12, L17, L18 and L26 from the written inequalities, agreed with the reading note,
+with the audit map of section 5 and with "ACCEPT unchanged; file as a review record; do not promote", and left four
+non-blocking remarks. (1) *The good landscapes had `M_4 = 0`, so (H2) was never exercised:* taken in v1.1 as rule
+`MAXIMIN_M4_INSIDE_H2` above. (2) *The rim counterexample is far from threshold:* correct, and deliberately so. CAP's
+hypotheses are sufficient, not necessary ("neither claims to characterize all successful pairs", CAP §8), so a
+near-threshold violation is expected to pair at `S` most of the time and would not be a checkable control; the rim
+landscape establishes only that the conclusion depends on (H1)–(H2) at *some* distance from `G_r`, which is what the
+audit asked. (3) *Grids are explicit polynomials, not statements about `C^4` Gaussian fields:* stated in section 4 and
+in the script's docstring; any later STATUS sentence must keep it. (4) *Same-lane second pass:* stated in the header
+and in section 7; the provider-distinct D1 reads remain the earlier xAI records plus that review.
 
 ## 6. Verdict
 
@@ -264,6 +278,7 @@ SIDE24. No register, catalog, STATUS, PROOF_INDEX or GRAPH change; scientific ef
 
 `REVIEW.md` (this record), `cap_maximin_check.py`, `RESULTS.json` (its stdout, byte-identical under `-B -S` and
 `-B -O -S`), `SOURCE_FILES.json` (manifest and the five `main` pins), workflow
-`.github/workflows/d1-cap-elder-partner-second-pass.yml` (manifest, pins by blob, both modes, six mutants, clean tree).
+`.github/workflows/d1-cap-elder-partner-second-pass.yml` (manifest, pins by blob, both modes, seven mutants, clean tree).
+v1.1 adds rule `MAXIMIN_M4_INSIDE_H2` and mutant `m4-over` (section 4a); nothing else changes.
 
     python -B -S reviews/d1_cap_elder_partner_second_pass_claude_20260930/cap_maximin_check.py | diff - reviews/d1_cap_elder_partner_second_pass_claude_20260930/RESULTS.json

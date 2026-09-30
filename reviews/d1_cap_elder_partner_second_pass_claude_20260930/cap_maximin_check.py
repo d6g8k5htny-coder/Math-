@@ -21,13 +21,17 @@ Rules (all must hold; exit 1 otherwise):
                          whose hypotheses (1) hold with exactly computed M_3, M_4, lambda: the grid maximin level from M
                          to the older set {f > b} (union-find in decreasing height order) equals s = b - kappa r^3 to
                          grid tolerance, and the merge happens at the grid point S;
+  MAXIMIN_M4_INSIDE_H2   the same in d = 2 and d = 3 for landscapes with a pin-preserving longitudinal quartic, so that
+                         M_4 = 24 mu > 0 and r M_4 = 0.048 <= 1/20: the positive control sits strictly inside (H1)-(H2)
+                         (xAI/Grok remark 1 on Math-#194);
   HYPOTHESIS_LOAD_BEARING a landscape that violates the depth condition (a quartic transverse rim inside D): the same
                          computation finds a maximin level strictly above s and a merge point away from S, so the
                          conclusion genuinely depends on (1) and not on the pins alone.
 Mutants (each must exit 1): kernel-mass (Hermite kernel mass r^3/3 in place of r^3/6, so the forced third derivative
 drops and the chain of section 4 no longer yields F'' > 1/4), depth-four (depth constant 4 in place of 8 in (4)),
 coefficient-two (2 f_xxy[h'] in (11)), drop-cross-terms ((11) read as F'' = f_xxx), no-depth (the rim landscape fed to
-the MAXIMIN_D2 rule), gap-sign (S above M: the pins are not a younger/older pair).
+the MAXIMIN_D2 rule), gap-sign (S above M: the pins are not a younger/older pair), m4-over (mu = 1/4, so r M_4 = 0.12
+leaves (H2); the rule requires the hypotheses to hold, so it fails).
 
 Finite grids demonstrate the mechanism on explicit functions; they prove nothing about arbitrary C^4 fields.  The proof
 is the written derivation in REVIEW.md.  Scientific effect: NONE.
@@ -37,9 +41,10 @@ import json
 import sys
 from fractions import Fraction as Fr
 
-MUTANTS = ("kernel-mass", "depth-four", "coefficient-two", "drop-cross-terms", "no-depth", "gap-sign")
+MUTANTS = ("kernel-mass", "depth-four", "coefficient-two", "drop-cross-terms", "no-depth", "gap-sign", "m4-over")
 MUT = None
 BETA_RIM = Fr(100000)          # quartic transverse rim: pass level b - 1/(16 beta) above s = b - r^3/6 for r = 1/50
+MU_QUARTIC = Fr(1, 10)         # pin-preserving longitudinal quartic mu (x^2 - r^2/4)^2: M_4 = 24 mu, r M_4 = 0.048 <= 1/20 at r = 1/50
 
 
 # ---------------------------------------------------------------- 1. exact constants of sections 2-5
@@ -227,12 +232,14 @@ def ridge_identity_m3():
 
 
 # ---------------------------------------------------------------- 3. grid maximin (union-find in decreasing height)
-def landscape(kind, r, lam, eps, beta):
+def landscape(kind, r, lam, eps, beta, mu=Fr(0)):
     """Explicit landscapes on the cylinder; pins M = (-r/2, 0), S = (r/2, 0), f(M) = b, f(S) = b - r^3/6 (kappa = 1/6).
-    p(x) = x^3/3 - r^2 x/4 + const so that p' = x^2 - r^2/4 vanishes at the pins and p(-r/2) - p(r/2) = r^3/6."""
+    p(x) = x^3/3 - r^2 x/4 + const so that p' = x^2 - r^2/4 vanishes at the pins and p(-r/2) - p(r/2) = r^3/6.
+    kind "quartic" adds mu (x^2 - r^2/4)^2, which keeps both pins critical and the gap unchanged but makes M_4 = 24 mu > 0
+    and f_xxx = 2 + 24 mu x, so that the positive control sits strictly inside the hypothesis box (H1)-(H2)."""
     b = Fr(6, 5)
     r = Fr(r)
-    lam, eps, beta = Fr(lam), Fr(eps), Fr(beta)
+    lam, eps, beta, mu = Fr(lam), Fr(eps), Fr(beta), Fr(mu)
     c0 = b - ((-r / 2) ** 3 / 3 - r * r * (-r / 2) / 4)
     sign = -1 if MUT == "gap-sign" else 1
 
@@ -245,12 +252,20 @@ def landscape(kind, r, lam, eps, beta):
         val += -(lam / 2) * ny2 + eps * (Fr(x) ** 2 - r * r / 4) * y1
         if kind == "rim":
             val += beta * ny2 * ny2
+        if kind == "quartic":
+            val += mu * (Fr(x) ** 2 - r * r / 4) ** 2
         return val
 
     # exact hypothesis data for the "good" landscapes: third-order blocks are constants
     if kind == "good":
         M3 = max(Fr(2), 2 * eps)
         M4 = Fr(0)
+        lam_min = lam
+        hyp = lam_min > 8 * r * M3 * M3 and r * M4 <= Fr(1, 20)
+    elif kind == "quartic":
+        # f_xxx = 2 + 24 mu x on D (|x| <= 2r), f_xxy = 2 eps, f_xxxx = 24 mu, all other third/fourth blocks vanish
+        M3 = max(Fr(2) + 48 * mu * r, 2 * eps)
+        M4 = 24 * mu
         lam_min = lam
         hyp = lam_min > 8 * r * M3 * M3 and r * M4 <= Fr(1, 20)
     else:
@@ -317,7 +332,8 @@ def grid_maximin(f, b, r, dim, n):
 def maximin_rule(dim, n, kind_override=None):
     r = Fr(1, 50)
     kind = kind_override or "good"
-    f, b, s, hyp, data = landscape(kind, r, lam=1, eps=Fr(1, 2), beta=0 if kind == "good" else BETA_RIM)
+    mu = (Fr(1, 4) if MUT == "m4-over" else MU_QUARTIC) if kind == "quartic" else Fr(0)
+    f, b, s, hyp, data = landscape(kind, r, lam=1, eps=Fr(1, 2), beta=0 if kind != "rim" else BETA_RIM, mu=mu)
     level, res = grid_maximin(f, b, r, dim, n)
     gap = float(r ** 3 / 6)
     tol = 1e-3 * gap
@@ -355,9 +371,12 @@ def main():
     checks["RIDGE_IDENTITY_M3"], detail["RIDGE_IDENTITY_M3"] = ridge_identity_m3()
     checks["MAXIMIN_D2"], detail["MAXIMIN_D2"] = maximin_rule(2, 20, "rim" if MUT == "no-depth" else None)
     checks["MAXIMIN_D3"], detail["MAXIMIN_D3"] = maximin_rule(3, 12)
+    ok2, d2 = maximin_rule(2, 20, "quartic")
+    ok3, d3 = maximin_rule(3, 12, "quartic")
+    checks["MAXIMIN_M4_INSIDE_H2"], detail["MAXIMIN_M4_INSIDE_H2"] = ok2 and ok3, {"d2": d2, "d3": d3}
     checks["HYPOTHESIS_LOAD_BEARING"], detail["HYPOTHESIS_LOAD_BEARING"] = load_bearing_rule(40)
     out = {"object": "D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1", "checks": checks, "detail": detail,
-           "passed": all(checks.values()) and len(checks) == 5,
+           "passed": all(checks.values()) and len(checks) == 6,
            "scope": ("finite controls for the deterministic cap theorem and identity (11); the theorem itself is the written "
                      "derivation in REVIEW.md; not a proof about random fields; scientific effect NONE")}
     print(json.dumps(out, indent=2, sort_keys=True))

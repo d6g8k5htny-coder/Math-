@@ -59,14 +59,14 @@ jobs:
                   raise ValueError('pinned source drifted: ' + pin['path'] + ' ' + blob)
           script = str(root / 'cap_maximin_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['kernel-mass', 'depth-four', 'coefficient-two', 'drop-cross-terms', 'no-depth', 'gap-sign']
+          mutants = ['kernel-mass', 'depth-four', 'coefficient-two', 'drop-cross-terms', 'no-depth', 'gap-sign', 'm4-over']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
                                    check=True, capture_output=True, timeout=600).stdout
               if out != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
               doc = json.loads(out)
-              if not (doc['passed'] and len(doc['checks']) == 5 and all(doc['checks'].values())):
+              if not (doc['passed'] and len(doc['checks']) == 6 and all(doc['checks'].values())):
                   raise RuntimeError('controls did not pass under ' + ' '.join(flags))
               for m in mutants:
                   rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
