@@ -1,6 +1,11 @@
 name: Two-scale cluster geometry checks
 
 'on':
+  push:
+    branches: ['main']
+    paths:
+      - 'frontiers/two_scale_cluster_geometry_20260929/**'
+      - '.github/workflows/two-scale-cluster-geometry.yml'
   pull_request:
     paths:
       - 'frontiers/two_scale_cluster_geometry_20260929/**'
