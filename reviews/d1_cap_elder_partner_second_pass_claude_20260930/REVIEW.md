@@ -1,6 +1,6 @@
 # D1 component III, second pass: the cap implication `G_r ⇒ S is the global elder partner of M`, line by line
 
-**Object:** `D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1` (record v1.1). **Reviewer:** Anthropic / Claude, Claude Code session
+**Object:** `D1-CAP-ELDER-PARTNER-SECOND-PASS-20260930-v1` (record v1.2). **Reviewer:** Anthropic / Claude, Claude Code session
 `017Mi3hxjaxV45x6zo6o1ee3` (the same reviewer as C1 of 28 September, `reviews/d1_theorem_a_nonauthor_20260928/`; this is a
 second pass by the same lane, not a new independent lane). **Kind:** nonauthor review record with finite controls.
 **Authors of the objects reviewed:** OpenAI / ChatGPT (the D1 parent P and the cap import CAP). **Scientific effect:**
@@ -168,10 +168,12 @@ merge happens at a critical point of value `d_f(M) = s`; distinct critical value
 elder death partner of `M` is `S`**. Merges of `M`'s component with *younger* components at levels above `s` do not kill
 `M`'s class and do not change this.
 
-**L23 (unstable branches; not needed for pairing).** `H_S` restricted to the transverse hyperplane is `<= -delta I`
-(L4), so the positive eigenvector `e_+` of `H_S` has a nonzero `x`-component (a purely transverse vector has negative
-quadratic form). For the ascending gradient flow (of any smooth Riemannian metric) the unstable manifold of `S` is
-one-dimensional, tangent to `e_+`; one half-branch enters `C` (where `f > s` immediately), the other leaves it. The
+**L23 (unstable branches; not needed for pairing).** Let `G` be any smooth Riemannian metric; the ascending gradient
+flow is `ẋ = G^{-1} ∇f`, its linearization at `S` is `G^{-1} H_S`, and the unstable direction is the generalized
+eigenvector `v` with `H_S v = μ G v`, `μ > 0` (the pencil has exactly one positive eigenvalue because `H_S` has index
+`d - 1`). Then `H_S(v, v) = μ G(v, v) > 0`, while `H_S` restricted to the transverse hyperplane is `<= -delta I` (L4), so
+`v` has a nonzero `x`-component. (For the Euclidean metric `v = e_+`, the positive eigenvector of `H_S`.) The unstable
+manifold of `S` is one-dimensional, tangent to `v`; one half-branch enters `C` (where `f > s` immediately), the other leaves it. The
 branch in `C` cannot exit: exiting requires a boundary point of value `<= s` while `f` increases along the branch; its
 omega-limit set is a connected set of critical points in `C`, hence `{M}` or `{S}`, and not `S` (height). The other
 branch can never enter `C` for the same boundary reason. Exactly one branch ends at `M`.
@@ -224,13 +226,15 @@ is `S`: this is the middle line of section 1, and (7.8) closes Theorem A.
 |---|---|---|
 | `EXACT_CONSTANTS` | L1–L18 and L26 constants in exact arithmetic: kernel mass `1/6`, average `2`, distance `9/2 < 5`, `7/4`, `k >= 11`, `15/4`, kernel max `2`, `u = 24/121`, `mu = 48/121`, adverse `2554128/1771561`, `F'' >= 2184415/7086244 > 1/4`, exterior integrals `9/32`, excess `11/96`, drop `4400/121 > 1/6`, rescaled `3kappa/2`, `27kappa/16`, `11kappa/16`, `26400kappa/121`, and `(4/(3kappa), 3kappa/10)` | true |
 | `RIDGE_IDENTITY_M3` | identity (11) for transverse dimension 3, `f = p(x) - ½(y - Q)^T A(x)(y - Q) + cubic(y - Q)` with quadratic and cubic `Q_i(x)`, `A(x) = A_0 + x A_1`, `x`-dependent cubic coefficients and a quartic `p` (so `F''` is not constant); the ridge gradient vanishes, `g = p`, LHS = RHS as polynomials, and `F'' ≠ f_xxx` on the family | true |
-| `MAXIMIN_D2`, `MAXIMIN_D3` | explicit landscapes `f = b + p(x) - (λ/2)‖y‖² + ε(x² - r²/4) y_1` with `p' = x² - r²/4`, `r = 1/50`, `λ = 1`, `ε = 1/2`: `M_3 = 2`, `M_4 = 0` exactly, `λ = 1 > 8 r M_3² = 16/25`, so (H1)–(H2) hold; on grids of spacing `r/20` (`81²` cells) and `r/12` (`49³` cells), activating cells in decreasing height with union-find, the component of `M` first acquires a point of value `> b` exactly when the grid point `S` is activated: grid maximin level `= s = 1.19999866667`, merge offset from `S` `0` steps | true |
+| `MAXIMIN_D2`, `MAXIMIN_D3` | explicit landscapes `f = b + p(x) - (λ/2)‖y‖² + ε(x² - r²/4) y_1` with `p' = x² - r²/4`, `r = 1/50`, `λ = 1`, `ε = 1/2`: `M_3 = 2`, `M_4 = 0` exactly, `λ = 1 > 8 r M_3² = 16/25`, so (H1)–(H2) hold; on grids of spacing `r/20` (`81²` cells) and `r/12` (the `49³` product grid restricted to the theorem's cylinder, transverse norm `<= 2r`: `87857` cells), activating cells in decreasing height with union-find, the component of `M` first acquires a point of value `> b` exactly when the grid point `S` is activated: grid maximin level `= s = 1.19999866667`, merge offset from `S` `0` steps | true |
 | `MAXIMIN_M4_INSIDE_H2` (v1.1) | the same construction with a pin-preserving longitudinal quartic `+ μ(x² - r²/4)²`, `μ = 1/10`: both pins stay critical and the gap is unchanged, while `f_xxx = 2 + 24μx` and `f_xxxx = 24μ`, so `M_3 = 262/125`, `M_4 = 12/5`, `r M_4 = 6/125 = 0.048 ≤ 1/20` and `8 r M_3² = 274576/390625 < λ = 1`: the positive control now sits strictly inside the hypothesis box (H1)–(H2) rather than on its `M_4 = 0` face (xAI/Grok remark 1, review 5368893741); in `d = 2` and `d = 3` the merge is again at the grid point `S` at level `s` | true |
 | `HYPOTHESIS_LOAD_BEARING` | the same pins with a quartic transverse rim `+ β‖y‖⁴`, `β = 10^5`: `M_3 >= 48 β r = 96000`, `r M_4 = 48000`, so (H1)–(H2) fail inside `D`; the rim pass along `x = -r/2` sits at `b - 1/(16β) = 1.199999375 > s` and inside `D`; the grid maximin level is `1.19999938667` (above `s` by `0.54` of the gap `κ r³`) and the merge happens `42` steps from `S`: the elder partner of `M` is the rim pass, not `S` | true |
 
 Mutants (each exits 1): `kernel-mass`, `depth-four` (constants chain), `coefficient-two`, `drop-cross-terms` (identity),
-`no-depth` (the rim landscape fed to `MAXIMIN_D2`), `gap-sign` (`S` above `M`), `m4-over` (`μ = 1/4`, so `r M_4 = 0.12`
-leaves (H2) and the positive control's hypothesis check fails). Both interpreter modes give byte-identical output. The grids are demonstrations on explicit polynomials; they prove nothing about arbitrary `C^4`
+`no-depth` (the rim landscape fed to `MAXIMIN_D2`), `gap-sign` (`f = b - (p - p(M))`, so `f(S) = b + r³/6`: `S` is the
+older point, the maximin level is `b` at `M` itself and the merge is `20` steps from `S`), `m4-over` (`μ = 1/4`, so
+`r M_4 = 0.12` leaves (H2) and the positive control's hypothesis check fails). Both interpreter modes give byte-identical
+output. The grids are demonstrations on explicit polynomials; they prove nothing about arbitrary `C^4`
 fields. The proof is section 2.
 
 ## 5. The audit's other items, against the repository at `3e0a91b`
@@ -239,8 +243,8 @@ fields. The proof is section 2.
 |---|---|---|
 | **19.1** reviews are not institutionally independent | Correct, and stated in every record (REC §"Providers": author OpenAI; nonauthor lanes xAI/Grok and Anthropic/Claude; one GitHub account; zero organizational-independence credit). Nothing inside the repository can change this. | External human peer review of P, CAP and the A1–A7/§8 arguments. This record is offered as a self-contained line-by-line derivation to make that review cheaper, not as a substitute. |
 | **19.2** a real correction (congruence scaling) | ERR (`213594d6`): `D_r = diag(r^{-1/2}, I)`, not `diag(√r, I)`. It affects A2 (the Hessian congruence in the normalizer), not CAP; C1's `check_a2` uses the corrected scaling. The reading rule "P read with ERR" is the object accepted in REC. | Nothing further; the erratum is in the provenance chain. |
-| **19.3** no numerical `c_{d,L}` in general | P (1.3): the constant is an identified finite Gaussian/angular integral, "no elementary closed form or numerical enclosure is claimed". `coefficients/side24_v1` encloses `c_{2,24}` and `c_{3,24}` (`0.07340691930603427103…104`, `0.04177593184059834334…335`), explicitly conditional on the identification with the finite-bar coefficient. | Certified enclosures for `d = 4, 5` need the negative-definite cone moments `D_u` of `3 x 3` and `4 x 4` Gaussian matrices (Math-#184 gives uncertified values `m_{d,0}` for `d <= 5`); feasible with the SIDE24 machinery, not done. |
-| **19.4** no quantitative remainder for the unrestricted theorem | P (1.2) gives `0 <= ν_cand - ν_eld <= C ℓ^{2/3}` on compact windows only; (1.3) is a leading term. Open candidates awaiting non-Claude reads: Math-#191 (`ν_cand = cℓ^{-1/3} + B_{d,L} + o(1)`, `ν_eld = cℓ^{-1/3} + o(1)`; constant term identified, no rate), Math-#187 (far elder `O(ℓ^{2/3})`), Math-#188 (far elder `O(ℓ^N)`). | A rate for the unrestricted remainder needs the far-elder constant's dependence on the separation `ρ` (Math-#191 Remark 2). Not resolved. |
+| **19.3** no numerical `c_{d,L}` in general | P (1.3): the constant is an identified finite Gaussian/angular integral, "no elementary closed form or numerical enclosure is claimed". `coefficients/side24_v1` encloses `c_{2,24}` and `c_{3,24}` (`0.07340691930603427103…104`, `0.04177593184059834334…335`), explicitly conditional on the identification with the finite-bar coefficient. | Certified enclosures for `d = 4, 5` need SIDE24's birth-integrated negative-definite cone moment for the reference matrix `A = Q + √(2/3) Z I_m` (`Q` a `GOE_m` with diagonal variance `2`, `Z` standard normal independent), i.e. `D_m = ∫ φ_{N(0, 2/3)}(b) m_{d,b} db` in Math-#184's notation, for `m = 3, 4`; Math-#184's uncertified `m_{d,0}` values are an ingredient, not that coefficient. Feasible with the SIDE24 machinery, not done. |
+| **19.4** no quantitative remainder for the unrestricted theorem | D1 (1.3) alone is leading-order only, and (1.2)'s `O(ℓ^{2/3})` difference holds on compact windows only. But the **merged, reviewed D2 Theorem R** (`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, blob `247b3ecf`; reviewed R1–R6 by xAI/Grok on main#67 and by `reviews/d2_remainder_full_depth_claude_20260930/REVIEW.md`, blob `529c5264`) already supplies an unrestricted additive remainder: `|ν_cand(ℓ) - cℓ^{-1/3}| <= C` and `|ν_eld(ℓ) - cℓ^{-1/3}| <= C` for `0 < ℓ <= ℓ_*` (R1), i.e. relative error `O(ℓ^{1/3})` — a quantitative statement the audit's item overlooks. Not supplied by D2: a numerical `C` or `ℓ_*`, convergence of the remainder or its rate, and a global `O(ℓ^{2/3})` difference. The open candidates Math-#191 (`ν_cand = cℓ^{-1/3} + B_{d,L} + o(1)`, `ν_eld = cℓ^{-1/3} + o(1)`), Math-#187 and Math-#188 aim at those sharper statements and are not needed for the bounded remainder. | A convergence rate for the unrestricted remainder needs the far-elder constant's dependence on the separation `ρ` (Math-#191 Remark 2). The bounded remainder itself is resolved by D2. |
 | **19.5** no formal verification | Not supplied for D1; the Lean checks in the repository cover scalar companions only. | A Lean formalization of P/CAP; out of scope for this record. |
 | **§20** `math.rn-region.witness-collision` `OPEN_ACTIVE` | True in the live register at `3e0a91b` (GRAPH node: layer D5, catalog C6, `OPEN_ACTIVE`; PROOF_INDEX line "NO COMPLETE REGIONAL PROOF YET"). The **merged, reviewed** declarative record Math-#160 (`reviews/c6_witness_collision_reconciliation_20260929/PROPOSED_TRANSITIONS.json`, blob `8d70ee74`) proposes `OPEN_ACTIVE → PROVED_REVIEWED` for this node at the scope stated there (torus-wide factorial moments of the window count, every fixed `d >= 2`, existential constants, upper bounds for Borel selectors, lower bound global on the EDL event), resting on the merged sources it lists (the Palm route, the factorial-moment record, the dimension lifts, P, the D5 reconciliation); the residual node it opens (leading-mass localization) is closed by the merged Math-#173 (`reviews/c6_residual_closure_20260930`, blob `3706e8ac`). The register edits themselves are a separate execution reserved for a non-Claude lane; Math-#183 (open) makes the three records' checkers accept the installed state so that execution can be gated. The PROOF_INDEX sentence is scheduled to keep its text with a citation to the closure record (Math-#160 OBLIGATION). **D1 does not depend on this node**: REC's required edges for the D1 node are E1, E2, CAP and the §9 repair, as the audit also observes. | The non-Claude execution of #160/#167/#173 (after which the node reads `PROVED_REVIEWED` at the stated scope), or a non-Claude review that rejects those records. |
 
@@ -256,6 +260,22 @@ landscape establishes only that the conclusion depends on (H1)–(H2) at *some* 
 audit asked. (3) *Grids are explicit polynomials, not statements about `C^4` Gaussian fields:* stated in section 4 and
 in the script's docstring; any later STATUS sentence must keep it. (4) *Same-lane second pass:* stated in the header
 and in section 7; the provider-distinct D1 reads remain the earlier xAI records plus that review.
+
+### 4b. The Codex bot read (review 5368946862) and the OpenAI source comparison (comment 5915165412)
+
+Codex, three findings at `959bae3`, all taken in v1.2: (i) the `d = 3` grid enumerated the full transverse square;
+it is now restricted to the theorem's cylinder (`‖y‖ <= 2r`; `87857` of `49³` cells), and the merge is unchanged; (ii) the
+`gap-sign` mutant mirrored its own sign change away; it now uses `f = b - (p(x) - p(M))`, so `f(S) = b + r³/6` and the
+mutant fails for the right reason (maximin level `b` at `M`, merge `20` steps from `S`); (iii) L23 claimed the Euclidean
+eigenvector for every metric; it now uses the generalized eigenvector of the pencil `H_S v = μ G v`, with
+`H_S(v, v) = μ G(v, v) > 0` forcing a nonzero `x`-component.
+
+The OpenAI lane (GPT-6 Astra Pro, author of the parallel audit response Math-#196, `reviews/d1_external_audit_20260930/`)
+posted a scope reconciliation and two source-bound corrections, both taken in v1.2. Math-#196 and this record
+reconstruct the *same* deterministic implication; neither is a second theorem nor an organizationally independent
+validation, and this record does not review Math-#196's bytes. Its corrections: row 19.4 had omitted the merged D2
+Theorem R, and row 19.3 conflated SIDE24's birth-integrated cone with the `b = 0` cone moment; see the rewritten rows in
+section 5.
 
 ## 6. Verdict
 
@@ -279,6 +299,7 @@ SIDE24. No register, catalog, STATUS, PROOF_INDEX or GRAPH change; scientific ef
 `REVIEW.md` (this record), `cap_maximin_check.py`, `RESULTS.json` (its stdout, byte-identical under `-B -S` and
 `-B -O -S`), `SOURCE_FILES.json` (manifest and the five `main` pins), workflow
 `.github/workflows/d1-cap-elder-partner-second-pass.yml` (manifest, pins by blob, both modes, seven mutants, clean tree).
-v1.1 adds rule `MAXIMIN_M4_INSIDE_H2` and mutant `m4-over` (section 4a); nothing else changes.
+v1.1 adds rule `MAXIMIN_M4_INSIDE_H2` and mutant `m4-over` (section 4a). v1.2 restricts the `d = 3` grid to the cylinder,
+repairs the `gap-sign` mutant, rewrites L23 for a general metric, and corrects rows 19.3 and 19.4 (section 4b).
 
     python -B -S reviews/d1_cap_elder_partner_second_pass_claude_20260930/cap_maximin_check.py | diff - reviews/d1_cap_elder_partner_second_pass_claude_20260930/RESULTS.json

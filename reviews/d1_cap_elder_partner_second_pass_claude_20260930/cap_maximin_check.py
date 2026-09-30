@@ -30,8 +30,9 @@ Rules (all must hold; exit 1 otherwise):
 Mutants (each must exit 1): kernel-mass (Hermite kernel mass r^3/3 in place of r^3/6, so the forced third derivative
 drops and the chain of section 4 no longer yields F'' > 1/4), depth-four (depth constant 4 in place of 8 in (4)),
 coefficient-two (2 f_xxy[h'] in (11)), drop-cross-terms ((11) read as F'' = f_xxx), no-depth (the rim landscape fed to
-the MAXIMIN_D2 rule), gap-sign (S above M: the pins are not a younger/older pair), m4-over (mu = 1/4, so r M_4 = 0.12
-leaves (H2); the rule requires the hypotheses to hold, so it fails).
+the MAXIMIN_D2 rule), gap-sign (f = b - (p - p(M)), so f(S) = b + r^3/6 and S is the older point: the maximin level is
+b at M itself and the merge is at M, not S), m4-over (mu = 1/4, so r M_4 = 0.12 leaves (H2); the rule requires the
+hypotheses to hold, so it fails).
 
 Finite grids demonstrate the mechanism on explicit functions; they prove nothing about arbitrary C^4 fields.  The proof
 is the written derivation in REVIEW.md.  Scientific effect: NONE.
@@ -240,13 +241,11 @@ def landscape(kind, r, lam, eps, beta, mu=Fr(0)):
     b = Fr(6, 5)
     r = Fr(r)
     lam, eps, beta, mu = Fr(lam), Fr(eps), Fr(beta), Fr(mu)
-    c0 = b - ((-r / 2) ** 3 / 3 - r * r * (-r / 2) / 4)
-    sign = -1 if MUT == "gap-sign" else 1
+    p_at_M = (-r / 2) ** 3 / 3 - r * r * (-r / 2) / 4
+    sign = -1 if MUT == "gap-sign" else 1                        # gap-sign: f = b - (p(x) - p(M)), so f(M) = b, f(S) = b + r^3/6
 
     def f(x, ys):
-        val = c0 + sign * (Fr(x) ** 3 / 3 - r * r * Fr(x) / 4)
-        if sign < 0:
-            val = b - (val - b)                                  # mirror so that f(M) = b still holds and f(S) = b + r^3/6
+        val = b + sign * ((Fr(x) ** 3 / 3 - r * r * Fr(x) / 4) - p_at_M)
         y1 = Fr(ys[0])
         ny2 = sum(Fr(yy) ** 2 for yy in ys)
         val += -(lam / 2) * ny2 + eps * (Fr(x) ** 2 - r * r / 4) * y1
@@ -279,9 +278,10 @@ def landscape(kind, r, lam, eps, beta, mu=Fr(0)):
 
 
 def grid_maximin(f, b, r, dim, n):
-    """Grid maximin level from M to {f > b} on D = [-2r, 2r] x [-2r, 2r]^(dim-1), spacing r/n (n even so that the
-    pins and 0 are grid points). Cells are activated in decreasing height; the first height at which the component of M
-    contains an older cell is the grid maximin level; the activating cell is the merge point."""
+    """Grid maximin level from M to {f > b} on the cylinder D = [-2r, 2r] x closed_ball(0, 2r) (grid points of the
+    product [-2r, 2r]^dim with transverse norm <= 2r), spacing r/n (n even so that the pins and 0 are grid points).
+    Cells are activated in decreasing height; the first height at which the component of M contains an older cell is
+    the grid maximin level; the activating cell is the merge point."""
     r = Fr(r)
     h = r / n
     N = 4 * n + 1
@@ -291,8 +291,12 @@ def grid_maximin(f, b, r, dim, n):
     idx_M = (int(Fr(3, 2) * n),) + (2 * n,) * (dim - 1)
     idx_S = (int(Fr(5, 2) * n),) + (2 * n,) * (dim - 1)
     vals = {}
+    rad2 = (2 * r) ** 2
     for idx in itertools.product(range(N), repeat=dim):
-        vals[idx] = float(f(coords[idx[0]], [coords[i] for i in idx[1:]]))
+        ys = [coords[i] for i in idx[1:]]
+        if sum(yy * yy for yy in ys) > rad2:                     # the theorem's cylinder is [-2r, 2r] x closed_ball(0, 2r)
+            continue
+        vals[idx] = float(f(coords[idx[0]], ys))
     bf = float(b)
     order = sorted(vals, key=lambda t: -vals[t])
     parent = {}
