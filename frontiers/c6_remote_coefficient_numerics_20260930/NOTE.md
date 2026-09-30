@@ -127,7 +127,7 @@ profiles at angles `0, 30, 45, 60, 90` degrees are in `RESULTS.json`, `ray_profi
 axis and at `30` degrees it is below `10^(-20)`).
 
 **Remote singleton mass** `R(k, b, L) = k integral_X Lambda dx` and the assembled `nu(1)`, with `alpha_1` from the
-companion note (Math-#168, GH60 values; `alpha_2` likewise):
+companion note ([NUM] = Math-#168 `RESULTS.json`, merged, pinned; GH60 values; `alpha_2` likewise):
 
 | `k` | `b` | `L` | `integral_X Lambda` | `R = k integral_X Lambda` | `alpha_1` (#168) | `nu(1) = alpha_1 + R` | `nu(2) = alpha_2` | `nu(2)/nu(1)` |
 |---|---|---|---|---|---|---|---|---|
