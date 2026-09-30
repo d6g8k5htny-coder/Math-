@@ -16,11 +16,11 @@
       "sha256": "9d7cb5d6e13579533c5b485775e67c77da83c149c0bf8bbbe7b7bf85aefdb4ef"
     },
     {
-      "bytes": 4824,
-      "git_blob": "a10edfb259432bfc569afdbef161ddcd4719f8f6",
+      "bytes": 5754,
+      "git_blob": "410f7a4a0598e093e8458ec6fa8f8aec14657f19",
       "path": "README.md",
       "role": "NEW_CUSTODY_CODE_OR_RECORD",
-      "sha256": "5563293f379a380a044e36ab81d50433460b517a8344307bd409ec375a7fbf79"
+      "sha256": "7139b03d1e6263107aa43f4559457eb4e9f59b318a89266457973c5b30c6599a"
     },
     {
       "bytes": 3819,
@@ -30,11 +30,11 @@
       "sha256": "4c28b3fa16ba607ef675276d263add69354d9583b891174f2e1a75742cafac37"
     },
     {
-      "bytes": 4125,
-      "git_blob": "73b3e18c756f299258c736700b8b2050eebbe3f1",
+      "bytes": 5698,
+      "git_blob": "4786a22aac19b28cfd008f6d4f90e1a0d0e2d58b",
       "path": "VALIDATION.json",
       "role": "NEW_CUSTODY_CODE_OR_RECORD",
-      "sha256": "5f1d1b69eabfb30570e2f24e7be79f89e3ede3b1ee2ecac73e76a8b84aef7e74"
+      "sha256": "04195d5e5b2f68b46af02c65d1b26be353525f9bf9e9795ade50af3c7cf5ca74"
     },
     {
       "bytes": 6590,
@@ -49,6 +49,20 @@
       "path": "test_inert_decoder.py",
       "role": "NEW_CUSTODY_CODE_OR_RECORD",
       "sha256": "4966503339c8ae6de674f57f97d514c4068b134af3b1fcf97710d34e444eed42"
+    },
+    {
+      "bytes": 9588,
+      "git_blob": "45b2c48d43065365d2049dc21c274afae9e1694c",
+      "path": "test_verify_packet.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "7c2796dd9442b95ab3320d826a9cd8700e3474580b875b63e31cac08d425ef46"
+    },
+    {
+      "bytes": 6999,
+      "git_blob": "3b933da10745f58821ccea239263c2a941b92947",
+      "path": "verify_packet.py",
+      "role": "NEW_CUSTODY_CODE_OR_RECORD",
+      "sha256": "f4aecd8163e77bfb9ed66c77f64f81cd9e4017bbc338a879d562b1f18ea3de51"
     }
   ],
   "manifest_self_excluded": true,

@@ -41,6 +41,10 @@ separate temporary file, preserving BOM, CRLF and all bytes. From this directory
 python -B -S inert_decoder.py --wrapper-input /path/to/exact-wrapper.txt --verify-existing .
 python -B -S test_inert_decoder.py --wrapper-input /path/to/exact-wrapper.txt
 python -B -O -S test_inert_decoder.py --wrapper-input /path/to/exact-wrapper.txt
+python -B -S verify_packet.py --packet . --wrapper-input /path/to/exact-wrapper.txt
+python -B -O -S verify_packet.py --packet . --wrapper-input /path/to/exact-wrapper.txt
+python -B -S test_verify_packet.py --wrapper-input /path/to/exact-wrapper.txt
+python -B -O -S test_verify_packet.py --wrapper-input /path/to/exact-wrapper.txt
 ```
 
 `--wrapper-input -` accepts exact bytes on stdin. To reproduce the two files in
@@ -59,6 +63,15 @@ fixtures are rebound to their own compressed identity to test the stream gate
 itself. Test-first failures and all verification boundaries are retained in
 [VALIDATION.json](VALIDATION.json). [MANIFEST.json](MANIFEST.json) binds every
 packet file except itself; its exclusion avoids self-reference.
+
+The successor whole-packet verifier requires the exact directory set declared
+by the manifest, rejects duplicate or unsafe paths and symlinks, and checks
+sizes, SHA256 and Git blobs. It also binds every published payload identity in
+SOURCES.json to the decoder's fixed specifications, decoded originals and
+manifest. Re-signing a manifest cannot authorize a false payload identity.
+Twelve additional controls include an undeclared file and falsified SOURCES
+metadata with a re-signed manifest. These repair two actual PR review findings;
+the original source and saved receipt remain byte-identical.
 
 ## Historical scope and limits
 
