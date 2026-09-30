@@ -16,7 +16,7 @@ Integration is a separate act by a non-Claude lane.
 | Read at | Math- `main` `f430fde` (2026-09-30, after #169 merged); every bound blob byte-identical there |
 | Reviewer | Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`) |
 | Exposure | Same shared GitHub account as every lane; zero organizational independence. I authored none of D2, [P], the erratum, the Borel repair or the cap proof. I authored the D1-C/D/E full-depth review (`reviews/d1_cde_full_depth_claude_20260929`, PR #143) and the reconciliation's D3/§9 reads are by Claude sessions; those are reviews, not authorship, and D2's parent interfaces are consumed here at the reconciled scope, not revalidated. **Overlap disclosed:** I authored `frontiers/c7_total_bounded_20260929/PROOF.md` (Theorem K / Corollary T, PR #150, blob `28748b08…`), whose (K1) coincides with the first line of (R10) and whose (K2) is a `k`-explicit companion of (R12); D2 does not consume it, and I did not use it as evidence here — every R3/R4 step below is re-derived from D2's own text and the parent. I authored PR #180 and reviewed #170/#175/#179/#182 today; none of them is consumed by D2. |
-| Own checks | `remainder_review_check.py`: exact `Fraction` controls C1–C7 (C7 evaluates the §7 split at `ℓ = 10^{−18m}`, where every fractional power involved is rational); byte-identical under `-O`; six semantic mutants exit 1, unknown label exits 2. A clean-context referee agent read this record before landing; its findings (one false remark, one missing disclosure, script coverage claims) were applied. Finite controls only — not the Gaussian proof. |
+| Own checks | `remainder_review_check.py`: exact `Fraction` controls C1–C7 (C7 evaluates the §7 split at `ℓ = 10^{−18m}`, where every fractional power involved is rational); byte-identical under `-O`; seven semantic mutants exit 1, unknown label exits 2. A clean-context referee agent read this record before landing; its findings (one false remark, one missing disclosure, script coverage claims) were applied, and the three Codex findings on Math-#186 (`r^{−3}` coefficient of `U3` unchecked; C6 compared a closed form to itself with the cutoff value unused; Theorem U cited without its review binding) were applied in v1.1. Finite controls only — not the Gaussian proof. |
 
 ## Verdict
 
@@ -48,8 +48,9 @@ the note says in its §1.
    `Σ√a_n(1+|n|)^q < ∞` (parent §2) Minkowski gives `‖U_r − U_0‖_{L^p} ≤ Cr²`, uniformly over frames, and the
    same for `Cov(∂^αF(z), U_r − U_0)` uniformly in `z`. Hence (R2): `Σ_r − Σ_0 = O(r²)` (Cauchy–Schwarz on the
    cross terms), `Σ_r^{−1} − Σ_0^{−1} = O(r²)` on the band where `Σ_r` is uniformly positive (parent §3
-   compactness), and `‖C_r − C_0‖_{C^q} = O(r²)`. (All rows are even in `r`; checker C1 asserts that the `r^{−2}`,
-   `r^{−1}`, `r` and `r³` coefficients of every row vanish.)
+   compactness), and `‖C_r − C_0‖_{C^q} = O(r²)`. (All rows are even in `r`; checker C1 asserts that every
+   coefficient from the most negative power a row can carry — `r^{−3}` for `U3`, `r^{−1}` for `U1`, `U2` — through
+   `r³`, other than `r⁰` and `r²`, vanishes.)
 3. **(R3) is a coupling of laws.** `F_r = F + C_rΣ_r^{−1}(v_r − U_r)` has the law of `F` given `U_r = v_r`
    (Gaussian regression: `F − C_rΣ_r^{−1}U_r ⟂ U_r`); same for `F_0`. Then
    `F_r − F_0 = (C_rΣ_r^{−1} − C_0Σ_0^{−1})(v_r − U_r) + C_0Σ_0^{−1}[(v_r − v_0) − (U_r − U_0)]`, and with
@@ -138,7 +139,9 @@ the note says in its §1.
 1. **(R16).** `ℓ^{1/3}ν_cand^{near} = ∫_{k ≥ a}A_r/(3k^{2/3})` with `a = ℓ/r_0³` is parent (13.5); the contact
    coefficient is `∫_{k > 0}A_0/(3k^{2/3}) = c` (13.6). Missing contact mass: `∫_0^a k²H/(3k^{2/3}) = O(a^{7/3})`.
    The two monomials of `r(k + r)H/(3k^{2/3})` are exactly `rk^{1/3} = ℓ^{1/3}` and `r²k^{−2/3} = ℓ^{2/3}k^{−4/3}`
-   (checker C6); `∫_a^1 k^{−4/3}dk = 3a^{−1/3} − 3`, so the second contributes at most `Cℓ^{2/3}a^{−1/3} = Cr_0ℓ^{1/3}`
+   (checker C6, which binds every fractional power to its base by an exact cube identity, verifies the
+   antiderivatives by exponent differentiation and brackets the integrals by exact Riemann sums on a perfect-cube
+   geometric partition); `∫_a^1 k^{−4/3}dk = 3a^{−1/3} − 3`, so the second contributes at most `Cℓ^{2/3}a^{−1/3} = Cr_0ℓ^{1/3}`
    (the constant from the integral of `H`) plus an `O(ℓ^{2/3})` tail. Hence `|ℓ^{1/3}ν_cand^{near} − c| ≤ Cℓ^{1/3}`. The note correctly observes that dropping the
    lower cutoff would make the `r²k^{−2/3}` integral diverge; the cutoff is exactly the near/far split.
 2. **(R17)–(R18).** On `a ≤ k ≤ η = ℓ^{1/6}`: `B_r ≤ A_r ≤ (2k² + 2r²)H` gives `Cη^{7/3} = Cℓ^{7/18}` and
@@ -179,8 +182,12 @@ the note says in its §1.
    `r(k + r)` is valid but not sharp in `r` at fixed `k` (the pathwise (R7)/(R6) bounds are first-order; the
    cancellation is one of expectations). This does not improve Theorem R: the near remainder is dominated by
    the cutoff region `k ≍ a`, i.e. pairs at distance `≍ r_0`, which contribute a genuine `O(1)` (the term
-   `Cr_0ℓ^{1/3}` in (R16)), and the far density (14.1) is `O(1)` with a positive lower bound for its rejected
-   part (Theorem U, `frontiers/unrestricted_selection_difference_20260929`). The note's "we do not prove
+   `Cr_0ℓ^{1/3}` in (R16)), and the far density (14.1) is `O(1)`; for its rejected part a positive lower bound
+   is the content of Theorem U (`frontiers/unrestricted_selection_difference_20260929/PROOF.md`, blob
+   `5a55b179`, an Anthropic candidate whose header still reads "nonauthor analytic review required"; it carries
+   the nonauthor OpenAI record `reviews/c7_nonvanishing_openai_20260929/REVIEW.md`, blob `64794e5e`, verdict
+   ACCEPT at that blob). This remark is context only: no step of R1–R6 uses Theorem U, and this record does not
+   re-review it. The note's "we do not prove
    convergence of the bounded remainder, [nor] identify a second coefficient" is the right boundary; a second
    coefficient would need the second-order expansion of the typed determinant expectation (beyond the
    first-order pathwise bounds) together with the zero-gap far pair density, and is not claimed anywhere.
@@ -194,6 +201,8 @@ the note says in its §1.
 ## What this record does not do
 
 No numerical `C`, `ℓ_*`, `r_0`, `z_*` or `c_{d,L}`; no convergence of the remainder; no second coefficient; no
-unrestricted `O(ℓ^{2/3})` difference (Theorem U gives the far rejected density a positive lower bound on
-`(0, ℓ_0]`; its limit is the separate candidate Theorem Z, `frontiers/c7_zero_gap_limit_20260929`); no `d ≥ 3`
-lower bound; no register, STATUS, GRAPH, PROOF_INDEX or catalog change; no merge.
+unrestricted `O(ℓ^{2/3})` difference (the positive lower bound for the far rejected density on `(0, ℓ_0]` is
+Theorem U, cited above with its OpenAI review; the limit of that density is the separate candidate Theorem Z,
+`frontiers/c7_zero_gap_limit_20260929/PROOF.md`, blob `5b6328ea`, whose header reads "non-OpenAI review
+required" — neither is reviewed or relied on here); no `d ≥ 3` lower bound; no register, STATUS, GRAPH,
+PROOF_INDEX or catalog change; no merge.

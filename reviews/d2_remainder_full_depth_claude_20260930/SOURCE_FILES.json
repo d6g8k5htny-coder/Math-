@@ -1,21 +1,44 @@
 {
   "author": "Anthropic Claude",
+  "cited_only": [
+    {
+      "blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8",
+      "bytes": 13028,
+      "path": "frontiers/unrestricted_selection_difference_20260929/PROOF.md",
+      "role": "Theorem U (Anthropic candidate; header: nonauthor analytic review required) \u2014 cited in a non-blocking remark only, not relied on",
+      "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9"
+    },
+    {
+      "blob": "64794e5801b70d950c7e1202f7b6b7d07055cbb6",
+      "bytes": 10807,
+      "path": "reviews/c7_nonvanishing_openai_20260929/REVIEW.md",
+      "role": "nonauthor OpenAI review of Theorem U (ACCEPT at blob 5a55b179) \u2014 the review binding for the Theorem U citation",
+      "sha256": "68b6cd43351706745992c4af242abdc5bdabd46ab5ac99347f2c12b505e1a15d"
+    },
+    {
+      "blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+      "bytes": 17592,
+      "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+      "role": "Theorem Z (OpenAI candidate; header: non-OpenAI review required) \u2014 named in the scope statement only, not relied on",
+      "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777"
+    }
+  ],
   "delivered_under": "owner instruction in claude.ai session 2026-09-30 (close open mathematical items; support other lanes); OWNER_STOP left in place, no self-merge, scientific effect NONE",
   "files": [
     {
-      "bytes": 19502,
+      "bytes": 20595,
       "path": "REVIEW.md",
-      "sha256": "50dfbf4666f5726d7602dda47b5e72f12f3d06385bb1f74e62e10594fec23bd9"
+      "sha256": "8679afd19ad313ade3602bba48b744183fdbefc9596a7793cfe7f921988a5dfd"
     },
     {
-      "bytes": 20351,
+      "bytes": 24294,
       "path": "remainder_review_check.py",
-      "sha256": "d8b88b93731728895952345e9e4fad0f4cda48207d1d8754a1bbb40ca0f036f8"
+      "sha256": "fec1ec7cad865d2f5d1399fc93f1a4def554d862d9fb32ec6dae34ef64d293f5"
     },
     {
-      "bytes": 1767,
+      "bytes": 2043,
       "path": "RESULTS.json",
-      "sha256": "4a3008f5f7cc43a6cf9a21e23f932fa849353b48352606e08b2b7f7a262e002c"
+      "sha256": "310e1c26b6b0fcd3d64367e1c2c7a0f5b6892e0f9f113c31a8db9520999dd761"
     }
   ],
   "mathematical_acceptance_by_this_record": "scoped ACCEPT R1-R6, nonauthor lane (second provider after xAI/Grok), existential O(1) scope only",
@@ -25,9 +48,10 @@
     "M3",
     "M4",
     "M5",
-    "M6"
+    "M6",
+    "M7"
   ],
-  "object": "CL-D2-REMAINDER-FULLDEPTH-20260930-v1",
+  "object": "CL-D2-REMAINDER-FULLDEPTH-20260930-v1.1",
   "read_at_head": "f430fdecbb1d8802d8af40419b701f12af87c039",
   "referee_pass": "clean-context Anthropic Claude subagent (same provider, same account; not a nonauthor review): no blocking finding; one false remark (contact error is O(r^2), not O(r)), one missing disclosure (#150 overlap), and script coverage claims corrected before landing",
   "reviewed_sources": [
@@ -74,5 +98,6 @@
       "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
     }
   ],
+  "revision": "v1.1 (2026-09-30): applied the three Codex findings on Math-#186 \u2014 C1 forbids the r^-3 coefficient of U3 (all powers from -offset through r^3 other than r^0, r^2); C6 binds a^(-1/3), eta^(-11/3) to the cutoff values by exact cube identities, verifies the antiderivatives by exponent differentiation and brackets the integrals by exact Riemann sums (mutant M7 corrupts a^(-1/3)); C7 binds every fractional power to its base; REVIEW.md cites Theorem U with its nonauthor OpenAI review record and marks it non-load-bearing",
   "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU"
 }

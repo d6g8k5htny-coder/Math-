@@ -5,12 +5,29 @@
     "U3_second_order": "13/40 = f5/40",
     "axial_rows": 4,
     "transverse_rows": 2,
-    "vanishing_terms_asserted": [
-     "r^-2",
-     "r^-1",
-     "r^1",
-     "r^3"
-    ]
+    "vanishing_terms_asserted": {
+     "U0": [
+      "r^1",
+      "r^3"
+     ],
+     "U1": [
+      "r^-1",
+      "r^1",
+      "r^3"
+     ],
+     "U2": [
+      "r^-1",
+      "r^1",
+      "r^3"
+     ],
+     "U3": [
+      "r^-3",
+      "r^-2",
+      "r^-1",
+      "r^1",
+      "r^3"
+     ]
+    }
    },
    "passed": true
   },
@@ -85,7 +102,11 @@
      "2/3",
      "-4/3",
      "0"
-    ]
+    ],
+    "riemann_cells": {
+     "int_a^1": 269,
+     "int_eta^1": 48
+    }
    },
    "passed": true
   },

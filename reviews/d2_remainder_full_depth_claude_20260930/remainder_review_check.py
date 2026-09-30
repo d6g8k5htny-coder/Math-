@@ -6,9 +6,10 @@ the Gaussian estimates of the note and are not acceptance.  Scientific effect: N
 
   C1  the four axial rows (3.1) of the parent applied to a degree-7 polynomial: U0 = f0 + (r^2/8) f2 + O(r^4),
       U1 = f1 + (r^2/24) f3 + O(r^4), U2 = f2 + (r^2/24) f4 + O(r^4), U3 = f3 + (r^2/40) f5 + O(r^4)
-      (note S2: "U_r - U_0 = O(r^2)", "(r^2/40) f_xxxxx"); the r^-2, r^-1 and r^1, r^3 coefficients of every row
-      are asserted to vanish (no unscaled residual, no odd term); the two transverse rows are the U0/U1 pattern
-      applied to f_y and are checked on a second polynomial;
+      (note S2: "U_r - U_0 = O(r^2)", "(r^2/40) f_xxxxx"); every coefficient from the most negative power the
+      row can carry (r^-3 for U3, r^-1 for U1, U2) through r^3, other than r^0 and r^2, is asserted to vanish
+      (no unscaled residual, no odd term); the two transverse rows are the U0/U1 pattern applied to f_y and are
+      checked on a second polynomial;
   C2  Lemma R3.2's affine determinant identity det K_t = alpha det A - t beta^T adj(A) beta on rational
       3x3 and 4x4 blocks, INCLUDING a singular A of corank one with NONZERO adjugate, and the bound
       |F_j(K_r) - F_j(K_0)| <= r |beta^T adj(A) beta| on paths whose inertia changes (a singular crossing in
@@ -27,12 +28,16 @@ the Gaussian estimates of the note and are not acceptance.  Scientific effect: N
       eta = ell^(1/6): r k^(1/3) = ell^(1/3); r^2 k^(-2/3) = ell^(2/3) k^(-4/3); a^(7/3) = ell^(7/3) r_0^-7;
       eta^(7/3) = ell^(7/18); delta = r/k at k = eta is ell^(1/9); ell eta^(-11/3) = ell^(7/18); 7/18 > 1/3;
       and the antiderivatives int_a^1 k^(-4/3) dk = 3 a^(-1/3) - 3 and int_eta^oo k^(-14/3) dk = (3/11) eta^(-11/3)
-      evaluated exactly at ell = 10^-18 (all fractional powers rational there);
+      evaluated exactly at ell = 10^-18 (all fractional powers rational there, each bound to its base by an exact
+      cube identity), verified by exponent differentiation and bracketed by exact lower/upper Riemann sums on a
+      perfect-cube geometric partition (tail on [1, oo) by geometric series);
   C7  the split of note S7 as a model integral with H = 1, r_0 = 1/2, in EXACT rationals at ell = 10^(-18 m),
       m = 1..4 (where ell^(1/6), ell^(1/3), a^(-1/3), a^(7/3) are rational): piece 1 = int_a^eta (2k^2 + 2r^2)
       /(3 k^(2/3)) dk = (2/7)(eta^(7/3) - a^(7/3)) + 2 ell^(2/3)(a^(-1/3) - eta^(-1/3)); piece 2 =
-      int_eta^oo ell k^(-14/3)/3 dk = ell eta^(-11/3)/11; their sum divided by ell^(1/3) stays below 3/2;
-  M   semantic mutants (--mutant M1|M2|M3|M4|M5|M6) exit 1; an unknown label exits 2.
+      int_eta^oo ell k^(-14/3)/3 dk = ell eta^(-11/3)/11; their sum divided by ell^(1/3) stays below 3/2 (every
+      fractional power bound to its base by an exact integer-power identity);
+  M   semantic mutants (--mutant M1|M2|M3|M4|M5|M6|M7) exit 1; an unknown label exits 2 (M7 corrupts the
+      hard-coded a^(-1/3) of C6, which the cube identity must catch).
 """
 import argparse
 import json
@@ -103,11 +108,16 @@ def check_rows(mutant):
     expect = {'U0': (fc[0], fc[2]/8), 'U1': (fc[1], fc[3]/24), 'U2': (fc[2], fc[4]/24), 'U3': (fc[3], fc[5]/40)}
     if mutant == 'M1':
         expect['U3'] = (fc[3], fc[5]/24)
+    vanishing = {}
     for name, (off, p) in rows.items():
-        # coefficient of r^e is coeff(p, e + off)
-        for e in (-2, -1, 1, 3):
+        # coefficient of r^e is coeff(p, e + off); every exponent from the most negative one the representation
+        # can carry (r^-off) through r^3, other than r^0 and r^2, must vanish: for U3 this includes r^-3
+        # (a leftover constant in r*inner would make U3 diverge and break the second-order coupling)
+        forbidden = [e for e in range(-off, 4) if e not in (0, 2)]
+        for e in forbidden:
             if coeff(p, e + off) != 0:
                 return False, 'row %s has a nonzero r^%d term' % (name, e)
+        vanishing[name] = ['r^%d' % e for e in forbidden]
         c0, c2 = expect[name]
         if coeff(p, off) != c0 or coeff(p, off + 2) != c2:
             return False, 'row %s expansion mismatch' % name
@@ -121,7 +131,7 @@ def check_rows(mutant):
     if coeff(p, off) != gc[1] or coeff(p, off + 2) != gc[3]/24 or coeff(p, off + 1) != 0:
         return False, 'transverse row V1 mismatch'
     return True, {'axial_rows': 4, 'transverse_rows': 2, 'U3_second_order': str(fc[5]/40) + ' = f5/40',
-                  'vanishing_terms_asserted': ['r^-2', 'r^-1', 'r^1', 'r^3']}
+                  'vanishing_terms_asserted': vanishing}
 
 
 # ----------------------------------------------------------------------------------------------------------
@@ -371,19 +381,60 @@ def check_exponents(mutant):
             return False, 'monomial claim fails: %s got %s' % (name, got)
     if not (F(7, 18) > F(1, 3) and F(1, 9) > 0):
         return False, 'exponent comparison fails'
-    # antiderivatives evaluated exactly at ell = 10^-18, r_0 = 1/2 (a = 8e-18, a^(-1/3) = 10^6/2, eta = 10^-3)
+    # antiderivatives evaluated exactly at ell = 10^-18, r_0 = 1/2 (a = 8e-18, a^(-1/3) = 10^6/2, eta = 10^-3).
+    # The fractional powers are written down and then BOUND to the cutoff values by exact cube identities, so a
+    # wrong value cannot pass; the antiderivatives are verified by exponent differentiation and by exact
+    # Riemann brackets, not by re-evaluating their own closed form.
     L = F(1, 10**18); a_v = L*8; eta_v = F(1, 1000)
     a_third = F(10**6, 2)                                   # a^(-1/3)
-    int_a_1 = 3*a_third - 3
-    # exact Riemann-type check of the antiderivative: F(k) = -3 k^(-1/3); F(1) - F(a) = -3 + 3 a^(-1/3)
-    if int_a_1 != -3*F(1) + 3*a_third:
-        return False, 'antiderivative int_a^1 k^(-4/3) fails'
+    if mutant == 'M7':
+        a_third = F(10**6)                                  # a wrong a^(-1/3) must be caught by the cube identity
+    if (1/a_third)**3 != a_v:
+        return False, 'a^(-1/3) does not match the cutoff a = ell r_0^-3'
+    if eta_v**6 != L:
+        return False, 'eta^6 != ell'
+    # d/dk [-3 k^(-1/3)] = k^(-4/3) and d/dk [-(3/11) k^(-11/3)] = k^(-14/3): coefficient and exponent, exactly
+    for (cst, p, want_c, want_p) in ((F(-3), F(-1, 3), F(1), F(-4, 3)), (F(-3, 11), F(-11, 3), F(1), F(-14, 3))):
+        if cst*p != want_c or p - 1 != want_p:
+            return False, 'antiderivative differentiation fails for exponent %s' % p
+    int_a_1 = 3*a_third - 3                                 # F(1) - F(a) with F(k) = -3 k^(-1/3)
+    # exact Riemann bracket of int_a^1 k^(-4/3) dk on the geometric partition k_i = a q^(3i), q = 21/20, closed
+    # by [k_N, 1]: the integrand is decreasing, k_i^(-1/3) = a^(-1/3) q^(-i) is rational, so the lower and
+    # upper sums are exact rationals and must bracket the closed form (their ratio is at most q^4 < 1.22)
+    q = F(21, 20)
+    ks, invs = [a_v], [a_third]                             # k_i and k_i^(-1/3)
+    while ks[-1]*q**3 < 1:
+        ks.append(ks[-1]*q**3); invs.append(invs[-1]/q)
+    ks.append(F(1)); invs.append(F(1))
+    lower = sum((ks[i+1]-ks[i])*invs[i+1]**4 for i in range(len(ks)-1))
+    upper = sum((ks[i+1]-ks[i])*invs[i]**4 for i in range(len(ks)-1))
+    if not (lower <= int_a_1 <= upper):
+        return False, 'Riemann bracket fails for int_a^1 k^(-4/3)'
+    if not (upper < q**4*lower):
+        return False, 'Riemann bracket is looser than expected'
+    cells_a = len(ks) - 1
     eta_m113 = F(10**11)                                    # eta^(-11/3) at eta = 10^-3
-    # antiderivative of k^(-14/3) is -(3/11) k^(-11/3); its limit at infinity is 0
+    if eta_m113**3 != eta_v**(-11):
+        return False, 'eta^(-11/3) does not match eta'
+    # int_eta^oo k^(-14/3) dk = (3/11) eta^(-11/3): bracket the piece on [eta, 1] by the same partition and the
+    # tail on [1, oo) by the geometric partition q^(3i) summed as exact geometric series (no antiderivative used):
+    # (q^3 - 1) q^(-14) / (1 - q^(-11)) <= int_1^oo k^(-14/3) dk <= (q^3 - 1) / (1 - q^(-11))
     int_eta_inf = F(3, 11)*eta_m113
-    if int_eta_inf != F(3*10**11, 11) or eta_v**11 != F(1, 10**33):
-        return False, 'antiderivative int_eta^oo k^(-14/3) fails'
-    return True, {name: [str(x) for x in got] for name, (got, want) in claims.items()}
+    ks, invs = [eta_v], [F(10)]                             # k_i and k_i^(-1/3) with eta^(-1/3) = 10
+    if invs[0]**(-3) != eta_v:
+        return False, 'eta^(-1/3) does not match eta'
+    while ks[-1]*q**3 < 1:
+        ks.append(ks[-1]*q**3); invs.append(invs[-1]/q)
+    ks.append(F(1)); invs.append(F(1))
+    tail_lower = (q**3 - 1)*q**(-14)/(1 - q**(-11))
+    tail_upper = (q**3 - 1)/(1 - q**(-11))
+    lower = sum((ks[i+1]-ks[i])*invs[i+1]**14 for i in range(len(ks)-1)) + tail_lower
+    upper = sum((ks[i+1]-ks[i])*invs[i]**14 for i in range(len(ks)-1)) + tail_upper
+    if not (lower <= int_eta_inf <= upper):
+        return False, 'Riemann bracket fails for int_eta^oo k^(-14/3)'
+    info = {name: [str(x) for x in got] for name, (got, want) in claims.items()}
+    info['riemann_cells'] = {'int_a^1': cells_a, 'int_eta^1': len(ks) - 1}
+    return True, info
 
 
 def check_loss_split(mutant):
@@ -397,6 +448,10 @@ def check_loss_split(mutant):
         a_m13 = F(10**(6*m), 2)               # a^(-1/3)
         a_73 = F(128, 10**(42*m))             # a^(7/3) = 2^7 10^(-42 m)
         eta_73 = F(1, 10**(7*m)); eta_m13 = F(10**m); eta_m113 = F(10**(11*m))
+        # every fractional power above is bound to its base by an exact integer-power identity
+        if (eta**6 != L or l13**3 != L or l23**3 != L*L or a_m13**(-3) != a or a_73**3 != a**7
+                or eta_73**3 != eta**7 or eta_m13**(-3) != eta or eta_m113**3 != eta**(-11)):
+            return False, 'a fractional power does not match its base at m=%d' % m
         if not a < eta < 1:
             return False, 'cutoff order a < eta < 1 fails'
         piece1 = F(2, 7)*(eta_73 - a_73) + 2*l23*(a_m13 - eta_m13)
@@ -415,7 +470,7 @@ def main():
     ap.add_argument('--mutant', default=None)
     args = ap.parse_args()
     mutant = args.mutant
-    if mutant is not None and mutant not in ('M1', 'M2', 'M3', 'M4', 'M5', 'M6'):
+    if mutant is not None and mutant not in ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7'):
         sys.stderr.write('unknown mutant label\n'); sys.exit(2)
     results = {}
     ok_all = True
