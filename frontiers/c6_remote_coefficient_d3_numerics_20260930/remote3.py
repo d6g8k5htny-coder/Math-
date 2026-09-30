@@ -32,6 +32,9 @@ MUTANTS = ('hermite-sign', 'det-abs', 'weight-indicator')
 RULES = (20, 16, 16)               # nested Gauss-Legendre nodes for the A_0 cone quadrature (5120 nodes)
 MUT = None
 REPLAY_TOL = 1e-9
+ASSEMBLED_NOTE = ('a_j^(3) = R_3(b) alpha_j^(2) (Math-#184, unmerged, conditional); alpha from Math-#168 GH60 (floating); '
+                  'continuum-kernel approximation of the finite-torus coefficients (nonperiodic kernel; not the parent quantity)')
+ASSEMBLED_KEYS = ('a1_d3', 'a2_d3', 'approx_nu1_L', 'approx_nu2_over_nu1_L', 'note')
 D = 3
 Z3 = (0, 0, 0)
 
@@ -537,7 +540,7 @@ def full_run(fast=False):
                                         # periodized covariance is not used; see NOTE.md section 5), like remote_total
                                         'approx_nu1_L': {'L=%d' % L: a1 + k * (L ** 3 * lam_inf + H['hole']) for L in (12, 24)},
                                         'approx_nu2_over_nu1_L': {'L=%d' % L: a2 / (a1 + k * (L ** 3 * lam_inf + H['hole'])) for L in (12, 24)},
-                                        'note': 'a_j^(3) = R_3(b) alpha_j^(2) (Math-#184, unmerged, conditional); alpha from Math-#168 GH60 (floating)'}
+                                        'note': ASSEMBLED_NOTE}
     return res
 
 
@@ -551,6 +554,26 @@ def check_run():
     for b in (0.0, 1.0):
         require(abs(far_field(b)['lambda'] - ref['far_field'][str(b)]['lambda']) < 1e-12, 'far-field replay b = %r' % b)
         require(abs(R3(b) - ref['R_3'][str(b)]) < 1e-9, 'R_3 replay b = %r' % b)
+    # reporting consistency of the assembled rows with their stored components (keys, note, arithmetic)
+    alphas = planar_alphas()
+    for k in (0.5, 1.0, 2.0):
+        for b in (0.0, 1.0):
+            key = 'k=%s,b=%s' % (k, b)
+            row = ref['assembled_nu'][key]
+            require(tuple(sorted(row)) == tuple(sorted(ASSEMBLED_KEYS)) and row['note'] == ASSEMBLED_NOTE, 'assembled row keys and note %s' % key)
+            kstr = {0.5: 'k=1/2', 1.0: 'k=1', 2.0: 'k=2'}[k]
+            R = ref['R_3'][str(b)]
+            a1 = alphas['%s,b=%d' % (kstr, int(b))]['alpha1_gh60'] * R
+            a2 = alphas['%s,b=%d' % (kstr, int(b))]['alpha2_gh60'] * R
+            require(abs(row['a1_d3'] - a1) < 1e-12 * a1 and abs(row['a2_d3'] - a2) < 1e-12 * a2, 'assembled a_j %s' % key)
+            lam_inf = ref['far_field'][str(b)]['lambda']
+            hole = ref['hole'][key]['hole']
+            for L in (12, 24):
+                tot = L ** 3 * lam_inf + hole
+                require(abs(ref['remote_total'][key]['L=%d' % L]['approx_L3_lambda_inf_plus_hole'] - tot) < 1e-9 * tot, 'remote total %s L=%d' % (key, L))
+                nu1 = a1 + k * tot
+                require(abs(row['approx_nu1_L']['L=%d' % L] - nu1) < 1e-9 * nu1, 'assembled nu1 %s L=%d' % (key, L))
+                require(abs(row['approx_nu2_over_nu1_L']['L=%d' % L] - a2 / nu1) < 1e-9 * (a2 / nu1), 'assembled nu2/nu1 %s L=%d' % (key, L))
     for j in range(3):
         r = ctl['far_mc_over_quadrature_b0.0'][j]
         require(0.9 < r < 1.1, 'far-point Monte Carlo within 10%% of z_0 E|det|1{j}, j = %d' % j)
