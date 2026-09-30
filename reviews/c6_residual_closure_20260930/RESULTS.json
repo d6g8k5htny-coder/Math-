@@ -8,7 +8,7 @@
     "TRANSITIONS": true,
     "VERDICTS": true
   },
-  "component_nodes": 9,
+  "component_nodes": 10,
   "gate": {
     "final": {
       "changed_nodes": [
@@ -20,6 +20,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -32,6 +33,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -48,6 +50,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -60,6 +63,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -76,6 +80,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -88,6 +93,7 @@
         "math.c6r-component.spectral-closure-proof",
         "math.c6r-component.spectral-closure-review-record",
         "math.c6r-component.two-scale-law-proof",
+        "math.c6r-component.two-scale-review-binding",
         "math.c6r-component.two-scale-review-record",
         "math.rn-region.witness-collision.leading-mass-localization"
       ],
@@ -95,7 +101,7 @@
       "residual_classification": "OPEN_ACTIVE"
     }
   },
-  "inventory_files": 11,
+  "inventory_files": 12,
   "object": "C6-RESIDUAL-CLOSURE-20260930-v1",
   "passed": true,
   "scope": "identity, verdict-row, live-register, exact finite bookkeeping of section 3, transition-shape, hard-gate replay in both executions, and filesystem-negative checks; the Gaussian limits are the sources' reviewed statements and are not re-proved; nothing is written"

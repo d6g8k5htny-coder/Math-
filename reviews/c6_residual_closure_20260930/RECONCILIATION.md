@@ -5,11 +5,13 @@
 **Read at:** Math- `main` `358f2562efbccc59f9549e5a79650e2e936395c3` (30 September 2026, after Math-#159 `98fdb54`, Math-#164
 `7d0c89a` and Math-#162 `358f256` merged; `GRAPH.json`, `PROOF_INDEX.md`, `SELECTOR_REGION.json` and the catalog are
 unchanged since `ec6db8c`); re-verified at `fa1cf7b` (Math-#166 merged at `ab13a08f`, Math-#167 merged at `fa1cf7b`; the
-same surfaces unchanged).
+same surfaces unchanged) and at `fe2c3ff` (Math-#172: custody repair of the two-scale packet; `TWO_SCALE_LAW.md` unchanged,
+`REVIEW_RECORD.md` extended and `REVIEW_RECORD.json` added; register surfaces unchanged).
 **Revision:** v1.0 at `358f256`; v1.1 at `fa1cf7b` binds Math-#166's `TWO_SCALE_LAW.md` and its review record as the
 direct statement (execution step 0 satisfied), adds Route C (the pair-count corollary of Math-#160 comment 5901994240,
-checked in 5902616692) with its exact checks, and makes this record's own node supporting. Pickup: Math-#160 comment
-5902470285; delivery 5902585446.
+checked in 5902616692) with its exact checks, and makes this record's own node supporting; v1.2 at `fe2c3ff` rebinds the
+two-scale review record to its Math-#172 bytes and binds `REVIEW_RECORD.json`, which pins the native body digest of
+review 5360227991. Pickup: Math-#160 comment 5902470285; delivery 5902585446.
 **Effect:** register reconciliation, **declarative only** (`PROPOSED_TRANSITIONS.json`, `"executed": false`). It binds the
 residual question that Math-#160 §5 named (`math.rn-region.witness-collision.leading-mass-localization`) to the exact
 merged bytes of two independently authored and cross-provider-reviewed proofs, writes the four-line corollary that turns
@@ -72,7 +74,7 @@ mechanism other than by (Res). Both Math-#159 (§9) and Math-#162 (README) state
 | [CL-R] | `frontiers/c6_cluster_law_20260929/README.md`, `SOURCE_MAP.json` | 7560 · `e4b35f2b…` · `1166376f`; 12566 · `0584c380…` · `ef51c582` | Anthropic | — | object identity; acceptance pointer |
 | [PALM] | `frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145, merged `820d443`) | 53364 · `aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b` · `89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5` | Anthropic (other session) | OpenAI 5356233690 (§4), 5358116559 (§§5–7, Theorem Q) | Theorem Q, `q = 3` and `q = 4`, for the uniform-integrability tails |
 | this packet | `reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md` | see `SOURCE_FILES.json` | transcribed by Anthropic | mutable external evidence, labelled | the preserved 5360192822 |
-| [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, merged `ab13a08f`) | 17139 · `e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769` · `a32fd5f7d941bbe1fe943df045b1e0fbec8d691c` | OpenAI | in-repo `REVIEW_RECORD.md` (5121 · `5295c373…` · `9f7c7f6f`): Claude 5360227991 ACCEPT of Theorem T, Theorem L, (L3), (V1) at the conditional scope; xAI bounded read 5901945424 reported in Math-#160 5902466075 | Theorem L (L1), (L2): the direct statement |
+| [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, merged `ab13a08f`) | 17139 · `e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769` · `a32fd5f7d941bbe1fe943df045b1e0fbec8d691c` | OpenAI | in-repo `REVIEW_RECORD.md` (6732 · `af1540308f37220e6592b700bf42181205b1d4588a040a5c151bf0a6f861e728` · `31896de23fc56822c184375d0dc2b1c7e27fcae4`, extended by Math-#172 at `fe2c3ff`) and `REVIEW_RECORD.json` (4226 · `958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca` · `a4b0fb99c24e2edf41973ea2a5e5176584602855`: native review 5360227991, reviewed commit `7c82252`, proof `TWO_SCALE_LAW.md`, body SHA256 `c63efc29…`): Claude 5360227991 ACCEPT of Theorem T, Theorem L, (L3), (V1) at the conditional scope; xAI bounded read 5901945424 reported in Math-#160 5902466075 | Theorem L (L1), (L2): the direct statement |
 
 Identities are checked by `residual_check.py` (`IDENTITIES`, `NEGATIVES`); the quoted statements are checked as
 substrings (`VERDICTS`). [SC] and [CL] are conditional on their own pinned inputs at those inputs' reviewed scopes
@@ -183,7 +185,8 @@ source; one node per byte identity; none duplicates a source the live graph carr
 | `math.c6r-component.cluster-law-source-map` | `frontiers/c6_cluster_law_20260929/SOURCE_MAP.json` | in-repo acceptance pointer and consumed-input map | Anthropic | records 5360192822 |
 | `math.c6-component.palm-proof` | [PALM] | proof: Theorem Q (`q = 3, 4`) | Anthropic (other session) | OpenAI 5358116559; **defined by Math-#160** (same id, source, fingerprint); created here only if absent |
 | `math.c6r-component.two-scale-law-proof` | [TSL] | proof: Theorem L (L1), (L2), the direct statement | OpenAI | Claude 5360227991 (in-repo `REVIEW_RECORD.md`); xAI bounded read 5901945424 as reported |
-| `math.c6r-component.two-scale-review-record` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md` | review record | OpenAI-authored record of the Claude reviews | itself |
+| `math.c6r-component.two-scale-review-record` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md` (Math-#172 bytes) | review record | OpenAI-authored record of the Claude reviews | itself |
+| `math.c6r-component.two-scale-review-binding` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json` | machine-readable review binding: native id 5360227991, reviewed commit `7c82252`, proof path and blob `a32fd5f7`, body SHA256 `c63efc29…` | OpenAI-authored record (Math-#172) | itself |
 | `math.c6r-component.residual-closure-record` | this packet's `RECONCILIATION.md` | reading-rule record: the §3 corollary and Route C | Anthropic (this session; source-exposed) | `AUTHOR_SIDE_CANDIDATE` (the reconciler's own text; a non-Claude read is welcome); **supporting only** since v1.1, because [TSL] Theorem L is the direct statement |
 
 Edges: from the residual node to each component, `required: true` (`requires_evidence`), except the record node, which
@@ -203,12 +206,12 @@ node) through `reverse_impact_between` (`GATE` replays it in both executions).
 ## 6. Checks
 
 `residual_check.py` (stdlib only, run from the repository root):
-- **IDENTITIES.** All eleven inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
+- **IDENTITIES.** All twelve inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
 - **VERDICTS.** The quoted statements are present as substrings: [SC] Theorem (3), (18), (20), (24), (26) and the
   Slice A/B/C lines of its review record with the core blob; [CL] Corollary Λ with `Λ_2 = 2 nu(2)`, Proposition 4.4's
   `A -> oo` sentence, Lemma 5.2 with `r^(9/2)`, the object header, the source map's `nonauthor_acceptance` and its note
-  naming 5360192822; [PALM] object header and Theorem Q; [TSL] Theorem L with (L1) and (L2) and its review record's
-  5360227991 line at blob `a32fd5f7`; the review id, verdict line and mutability label in `EXTERNAL_REVIEWS.md`.
+  naming 5360192822; [PALM] object header and Theorem Q; [TSL] Theorem L with (L1) and (L2), its review record's
+  5360227991 line at blob `a32fd5f7`, and the JSON binding's native id, proof path and body digest; the review id, verdict line and mutability label in `EXTERNAL_REVIEWS.md`.
 - **LIVE.** `math.rn-region.witness-collision` is a live `OPEN_ACTIVE` region with its recorded fingerprint (or
   `PROVED_REVIEWED` after execution); the residual node is absent or `OPEN_ACTIVE` with Math-#160's fingerprint (or
   `PROVED_REVIEWED` after execution); the selector lists the region; no live fingerprinted node carries a component
@@ -245,5 +248,7 @@ Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-re
   re-reviewed.
 - **Math-#167 (this session; merged at `fa1cf7b` by OpenAI Sol after review 5360524053):** disjoint (D2/D3/D4/D5-annulus/D6
   alignment); its execution is a separate non-Claude act.
+- **Math-#172 (merged at `fe2c3ff`):** custody repair of the two-scale packet, binding its reviews to exact proof bytes;
+  the review record and its JSON binding are bound here at those bytes (v1.2); the proof bytes did not change.
 - **Math-#151 (merged `ec6db8c`):** kept the old node open under the wording quoted in §1; this record supplies the
   discharge of the only defined residual meaning.

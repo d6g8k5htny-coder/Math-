@@ -66,16 +66,20 @@ INVENTORY = {
         "5afe9a2090f2bbee6bd09b31b977c9451db1cea5"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "d7420581ac771591f8449afbdd1c096450610b1158bed02a3868483efe10f546",
-        "38a49460bef06548a8c4a8209c4cd11b2e0807a4"
+        "f524b7bb376c307c40092c27c935851c4d1d92a65b008ef05aed82901274e89a",
+        "fd5ad53010769d8b22de1576eb0681098967475e"
     ],
     "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md": [
         "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
         "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c"
     ],
     "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md": [
-        "5295c373a16b6557584e1a633e28fd5962f3e96023945bcc068819e83a0d2cad",
-        "9f7c7f6fc59ead440258887eb113135ab1dc3463"
+        "af1540308f37220e6592b700bf42181205b1d4588a040a5c151bf0a6f861e728",
+        "31896de23fc56822c184375d0dc2b1c7e27fcae4"
+    ],
+    "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json": [
+        "958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca",
+        "a4b0fb99c24e2edf41973ea2a5e5176584602855"
     ]
 }
 VERDICTS = {
@@ -117,6 +121,11 @@ VERDICTS = {
         "Anthropic Claude review5360227991",
         "bloba32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
         "ACCEPT of Theorem T, Theorem L, ordered-pair law L3"],
+    "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json": [
+        "\"native_review_id\": 5360227991",
+        "\"proof_path\": \"TWO_SCALE_LAW.md\"",
+        "\"body_sha256\": \"c63efc292d7cf209e2770419cc159276897d0ba955c32ee1d2af88c8aa7f0ed8\"",
+        "\"git_blob\": \"a32fd5f7d941bbe1fe943df045b1e0fbec8d691c\""],
 }
 
 

@@ -54,7 +54,8 @@
           "math.c6r-component.cluster-law-source-map",
           "math.c6-component.palm-proof",
           "math.c6r-component.two-scale-law-proof",
-          "math.c6r-component.two-scale-review-record"
+          "math.c6r-component.two-scale-review-record",
+          "math.c6r-component.two-scale-review-binding"
         ],
         "notes": "Leading-mass localization of E N(N-1) at scale r, in the iterated limit; corollary of Math-#162 (26)/(18)/(20) with PALM Theorem Q, and of Math-#159 Corollary Lambda / Proposition 4.4; direct statement Math-#166 Theorem L (L1)/(L2), bound; Route C pair-count corollary. C6 residual closure v1.1."
       },
@@ -66,7 +67,8 @@
         "math.c6r-component.cluster-law-source-map",
         "math.c6-component.palm-proof",
         "math.c6r-component.two-scale-law-proof",
-        "math.c6r-component.two-scale-review-record"
+        "math.c6r-component.two-scale-review-record",
+        "math.c6r-component.two-scale-review-binding"
       ],
       "notes": "Created PROVED_REVIEWED if Math-#160 step 1 has not run; moved OPEN_ACTIVE -> PROVED_REVIEWED if it has. Every required premise is PROVED_REVIEWED (step 0 satisfied by Math-#166 Theorem L); the record node is supporting."
     },
@@ -269,7 +271,7 @@
       "component_of": "math.rn-region.witness-collision.leading-mass-localization",
       "component_role": "reading_rule_record",
       "author_provider": "Anthropic Claude (this session; source-exposed, see section 0)",
-      "fingerprint": "d7420581ac771591f8449afbdd1c096450610b1158bed02a3868483efe10f546",
+      "fingerprint": "f524b7bb376c307c40092c27c935851c4d1d92a65b008ef05aed82901274e89a",
       "source": "reviews/c6_residual_closure_20260930/RECONCILIATION.md",
       "scope": "section 3: the corollary (D1) + steps 1-3 (Route A), Route B, Route C",
       "review_basis": [
@@ -321,9 +323,9 @@
       "component_of": "math.rn-region.witness-collision.leading-mass-localization",
       "component_role": "review_record",
       "author_provider": "OpenAI-authored record of the Claude reviews",
-      "fingerprint": "5295c373a16b6557584e1a633e28fd5962f3e96023945bcc068819e83a0d2cad",
+      "fingerprint": "af1540308f37220e6592b700bf42181205b1d4588a040a5c151bf0a6f861e728",
       "source": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md",
-      "scope": "review record of Math-#166 at blob a32fd5f7: A 5360227991, B 5360178611, C 5360216551",
+      "scope": "review record of Math-#166 at blob a32fd5f7 (Math-#172 bytes): A 5360227991, B 5360178611, C 5360216551, plus the custody-repair section",
       "review_basis": [
         {
           "review": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md",
@@ -333,6 +335,28 @@
         }
       ],
       "notes": "in-repo record of the acceptance"
+    },
+    {
+      "id": "math.c6r-component.two-scale-review-binding",
+      "layer": "D5",
+      "kind": "reading_rule_component",
+      "classification": "PROVED_REVIEWED",
+      "controlling": false,
+      "component_of": "math.rn-region.witness-collision.leading-mass-localization",
+      "component_role": "review_record",
+      "author_provider": "OpenAI-authored machine-readable record (Math-#172)",
+      "fingerprint": "958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca",
+      "source": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json",
+      "scope": "native review 5360227991 (COMMENTED, 2026-09-30T00:52:00Z) bound to reviewed commit 7c82252, proof TWO_SCALE_LAW.md blob a32fd5f7, body 7840 bytes SHA256 c63efc292d7cf209e2770419cc159276897d0ba955c32ee1d2af88c8aa7f0ed8; remote_review_authenticity_checked false by its own declaration",
+      "review_basis": [
+        {
+          "review": "frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json",
+          "provider": "in-repo record",
+          "verdict": "A/B/C reported dispositions ACCEPT at the stated conditional scope",
+          "depth": "record"
+        }
+      ],
+      "notes": "in-repo byte binding of the review body identity; not an additional review or provider"
     }
   ],
   "proposed_graph_edges": [
@@ -381,6 +405,12 @@
     {
       "from": "math.rn-region.witness-collision.leading-mass-localization",
       "to": "math.c6r-component.two-scale-review-record",
+      "required": true,
+      "relation": "requires_evidence"
+    },
+    {
+      "from": "math.rn-region.witness-collision.leading-mass-localization",
+      "to": "math.c6r-component.two-scale-review-binding",
       "required": true,
       "relation": "requires_evidence"
     },
@@ -441,10 +471,11 @@
     "any historical predicate move"
   ],
   "revision": {
-    "version": "v1.1",
+    "version": "v1.2",
     "applies": [
       "initial record at 358f256",
-      "fa1cf7b: Math-#166 TWO_SCALE_LAW.md and REVIEW_RECORD.md bound as the direct statement (step 0 satisfied); Route C added with exact checks and mutant route-c-broken; record node supporting"
+      "fa1cf7b: Math-#166 TWO_SCALE_LAW.md and REVIEW_RECORD.md bound as the direct statement (step 0 satisfied); Route C added with exact checks and mutant route-c-broken; record node supporting",
+      "fe2c3ff: two-scale REVIEW_RECORD.md rebound to its Math-#172 bytes; REVIEW_RECORD.json bound as a component (native body digest of 5360227991)"
     ]
   },
   "third_source_bound": {
@@ -454,7 +485,17 @@
     "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
     "blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
     "statement": "Theorem L (L1), (L2)",
-    "review": "Claude 5360227991; xAI 5901945424 as reported"
+    "review": "Claude 5360227991; xAI 5901945424 as reported",
+    "review_record_md": {
+      "sha256": "af1540308f37220e6592b700bf42181205b1d4588a040a5c151bf0a6f861e728",
+      "blob": "31896de23fc56822c184375d0dc2b1c7e27fcae4"
+    },
+    "review_record_json": {
+      "sha256": "958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca",
+      "blob": "a4b0fb99c24e2edf41973ea2a5e5176584602855",
+      "body_sha256_5360227991": "c63efc292d7cf209e2770419cc159276897d0ba955c32ee1d2af88c8aa7f0ed8"
+    },
+    "rebound_at": "fe2c3ff (Math-#172)"
   },
   "route_c": {
     "source": "Math-#160 comment 5901994240 (OpenAI lane)",
@@ -468,5 +509,5 @@
     ],
     "bound": "r^-3 E[(N)_2 - (A)_2] <= C (R^-2 + rho^2)^(1/2) + C_(R,rho) r^(3/4) + C_rho r; r -> 0, rho -> 0, R -> oo"
   },
-  "reverified_at": "fa1cf7b (Math-#166 merged at ab13a08f, Math-#167 merged at fa1cf7b; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c)"
+  "reverified_at": "fe2c3ff (Math-#172 custody repair of the two-scale packet: TWO_SCALE_LAW.md unchanged, REVIEW_RECORD.md extended, REVIEW_RECORD.json added; GRAPH.json, PROOF_INDEX.md, SELECTOR_REGION.json and the catalog unchanged since ec6db8c)"
 }
