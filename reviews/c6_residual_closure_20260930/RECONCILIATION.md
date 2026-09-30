@@ -6,12 +6,17 @@
 `7d0c89a` and Math-#162 `358f256` merged; `GRAPH.json`, `PROOF_INDEX.md`, `SELECTOR_REGION.json` and the catalog are
 unchanged since `ec6db8c`); re-verified at `fa1cf7b` (Math-#166 merged at `ab13a08f`, Math-#167 merged at `fa1cf7b`; the
 same surfaces unchanged) and at `fe2c3ff` (Math-#172: custody repair of the two-scale packet; `TWO_SCALE_LAW.md` unchanged,
-`REVIEW_RECORD.md` extended and `REVIEW_RECORD.json` added; register surfaces unchanged).
+`REVIEW_RECORD.md` extended and `REVIEW_RECORD.json` added; register surfaces unchanged); main is still `fe2c3ff` at v1.3,
+and the integrator refreshed Math-#160's branch onto it (`dd4f4f8`, its six packet blobs preserved from `eba6045`).
 **Revision:** v1.0 at `358f256`; v1.1 at `fa1cf7b` binds Math-#166's `TWO_SCALE_LAW.md` and its review record as the
 direct statement (execution step 0 satisfied), adds Route C (the pair-count corollary of Math-#160 comment 5901994240,
 checked in 5902616692) with its exact checks, and makes this record's own node supporting; v1.2 at `fe2c3ff` rebinds the
 two-scale review record to its Math-#172 bytes and binds `REVIEW_RECORD.json`, which pins the native body digest of
-review 5360227991. Pickup: Math-#160 comment 5902470285; delivery 5902585446.
+review 5360227991; v1.3 at `fe2c3ff` answers Math-#173's reviews: this record's own node is promoted on the reviewed-record
+path (OpenAI / GPT-5.6 Sol 5360645884, a non-Claude bounded read of §3 at head `b3fac79`, whose paragraphs are preserved
+verbatim in `REVIEWED_SECTION_3_b3fac79.md` and checked unchanged), the two evidence paths are modelled separately, and
+the checker accepts the installed state and replays the hard gate with source snapshots (Codex 5360636576). Pickup:
+Math-#160 comment 5902470285; delivery 5902585446.
 **Effect:** register reconciliation, **declarative only** (`PROPOSED_TRANSITIONS.json`, `"executed": false`). It binds the
 residual question that Math-#160 §5 named (`math.rn-region.witness-collision.leading-mass-localization`) to the exact
 merged bytes of two independently authored and cross-provider-reviewed proofs, writes the four-line corollary that turns
@@ -40,6 +45,11 @@ Execution of any `GRAPH.json`, `STATUS`, `PROOF_INDEX` or catalog change is a se
   (5901945424) not re-read here; I reviewed none of it. Route C was posted by an OpenAI lane (Math-#160 comment
   5901994240) and checked by this session (5902616692): a provider-distinct nonauthor read of a consumer of
   Math-#159 / [DL] / [C6], source-exposed on [RC].
+- Math-#173's own reviews: OpenAI / GPT-5.6 Sol 5360645884, a bounded non-Claude read of §3 at head `b3fac79` (ACCEPT at
+  the stated scope; source-exposed to the OpenAI side of the chain and the integrator of Math-#162/#166; not organizational
+  independence, by its own statement), and OpenAI/Codex 5360636576 (three engineering findings on the checker, all repaired
+  in v1.3). The paragraphs that read covers ((D1), Route A, Route B) are preserved byte-for-byte in
+  `REVIEWED_SECTION_3_b3fac79.md`; Route C and the Theorem L paragraph were not part of it.
 - No Cursor agent is restarted or contacted (owner stop, 27 September 2026); only published records are cited.
 
 ## 1. The residual, as defined, and the register as it stands
@@ -73,7 +83,8 @@ mechanism other than by (Res). Both Math-#159 (§9) and Math-#162 (README) state
 | [CL] | `frontiers/c6_cluster_law_20260929/PROOF.md` (Math-#159 v1.2, merged `98fdb54`) | 70131 · `96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38` · `ba492c8e62e58bfc055fc8254c790e893d346ba5` | Anthropic (other session) | OpenAI review 5360192822 at `f7c3395`, same blob: ACCEPT Theorem N, Corollaries Λ/S, Corollary X (preserved in `EXTERNAL_REVIEWS.md`); in-repo pointer `SOURCE_MAP.json` (`nonauthor_acceptance: true`, revision note naming 5360192822) | Corollary Λ (1.6); Proposition 4.4 (4.4) with its `A -> oo` step; Lemma 5.2 (5.4) |
 | [CL-R] | `frontiers/c6_cluster_law_20260929/README.md`, `SOURCE_MAP.json` | 7560 · `e4b35f2b…` · `1166376f`; 12566 · `0584c380…` · `ef51c582` | Anthropic | — | object identity; acceptance pointer |
 | [PALM] | `frontiers/c6_palm_route_20260929/PROOF.md` (Math-#145, merged `820d443`) | 53364 · `aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b` · `89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5` | Anthropic (other session) | OpenAI 5356233690 (§4), 5358116559 (§§5–7, Theorem Q) | Theorem Q, `q = 3` and `q = 4`, for the uniform-integrability tails |
-| this packet | `reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md` | see `SOURCE_FILES.json` | transcribed by Anthropic | mutable external evidence, labelled | the preserved 5360192822 |
+| this packet | `reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md` | see `SOURCE_FILES.json` | transcribed by Anthropic | mutable external evidence, labelled | the preserved 5360192822 and 5360645884 |
+| this packet | `reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md` | see `SOURCE_FILES.json`; reviewed text (after the provenance comment) 2779 · `931f5c95c5185be075c8684e30c395fe55dd344ad0c1ac45535e3b166c3aac65` | verbatim copy of §3 at `b3fac79` | read by OpenAI 5360645884 (preserved in `EXTERNAL_REVIEWS.md`) | the paragraphs that read covers, checked unchanged in §3 (`REVIEWED`) |
 | [TSL] | `frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md` (Math-#166, merged `ab13a08f`) | 17139 · `e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769` · `a32fd5f7d941bbe1fe943df045b1e0fbec8d691c` | OpenAI | in-repo `REVIEW_RECORD.md` (6732 · `af1540308f37220e6592b700bf42181205b1d4588a040a5c151bf0a6f861e728` · `31896de23fc56822c184375d0dc2b1c7e27fcae4`, extended by Math-#172 at `fe2c3ff`) and `REVIEW_RECORD.json` (4226 · `958d2e1ae8ea5d034d0d87efce6cde9be57ebb9d7c0b671e69d3d6598a6675ca` · `a4b0fb99c24e2edf41973ea2a5e5176584602855`: native review 5360227991, reviewed commit `7c82252`, proof `TWO_SCALE_LAW.md`, body SHA256 `c63efc29…`): Claude 5360227991 ACCEPT of Theorem T, Theorem L, (L3), (V1) at the conditional scope; xAI bounded read 5901945424 reported in Math-#160 5902466075 | Theorem L (L1), (L2): the direct statement |
 
 Identities are checked by `residual_check.py` (`IDENTITIES`, `NEGATIVES`); the quoted statements are checked as
@@ -142,9 +153,12 @@ record.
 
 **What the corollary uses and nothing else.** Two reviewed limit statements about one law (the full and the near
 second factorial moments), one reviewed exhaustion statement, and one reviewed moment bound for the tail. No
-regression, no Kac–Rice step, no new estimate. Since v1.1 the direct statement [TSL] carries the flip and this record's
-own node is supporting; a non-Claude read of this section remains welcome (the reconciler is source-exposed, §0) but
-is not gating.
+regression, no Kac–Rice step, no new estimate. The direct statement [TSL] and this section are two separate evidence
+paths (§5). This section's (D1), Route A and Route B paragraphs were read by OpenAI / GPT-5.6 Sol (Math-#173 review
+5360645884, at head `b3fac79`, ACCEPT at the stated scope; the reconciler is source-exposed, §0); those paragraphs are
+preserved byte-for-byte in `REVIEWED_SECTION_3_b3fac79.md`, and `REVIEWED` checks that they stand unchanged above. Route C
+is OpenAI-authored and Claude-checked (5902616692); the Theorem L paragraph is [TSL]'s own reviewed statement. A revision
+that alters the reviewed paragraphs must obtain a new read or return this record's node to `AUTHOR_SIDE_CANDIDATE`.
 
 ## 4. Scope, and what is not established
 
@@ -171,7 +185,7 @@ scope; no historical numerical certificate (RN annulus partition,
 |---|---|---|
 | `math.rn-region.witness-collision.leading-mass-localization` | absent (Math-#160 proposes it `OPEN_ACTIVE`) | `PROVED_REVIEWED` at the §4 scope, with `fingerprint` unchanged from Math-#160's proposal, `scope`, `explicit_limits`, `review_disposition`, `review_basis`, and `required` edges to the component nodes below; created directly if Math-#160's step 1 has not run, moved if it has |
 | `math.rn-region.witness-collision` | `OPEN_ACTIVE` (Math-#151 wording) | `PROVED_REVIEWED`, **conditional and deferred**: presupposes Math-#160's aggregate node `math.c6-witness-collision-factorial-moment` (count discharge) and this record's residual node (localization); executes only after both exist, with `required` edges to both. Under Math-#160's keep-open execution (§1a (iii) there), the residual's definition sits on the old node and this record moves the old node itself. If the executing lane holds that the node means something other than the count estimate and (Res), it must write that meaning down; no source defines one (Math-#160 §1a) |
-| `SELECTOR_REGION.json`, `PROOF_INDEX.md`, catalog C6, `STATUS.md` C6 row | as at `358f256` | as Math-#160 §7 proposes, with the residual bullet closed: "leading-mass localization: resolved at existential scope by Math-#162 (26)/(18)/(20) and Math-#159 Corollary Λ / Proposition 4.4; direct statement Math-#166 Theorem L when merged; open: rate, constants" |
+| `SELECTOR_REGION.json`, `PROOF_INDEX.md`, catalog C6, `STATUS.md` C6 row | as at `358f256` | as Math-#160 §7 proposes, with the residual bullet closed: "leading-mass localization: resolved at existential scope by Math-#162 (26)/(18)/(20) and Math-#159 Corollary Λ / Proposition 4.4; direct statement Math-#166 Theorem L (merged at `ab13a08f`); open: rate, constants" |
 
 **Component nodes** (`kind: reading_rule_component`, `PROVED_REVIEWED`, `controlling: false`, `fingerprint` = SHA256 of the
 source; one node per byte identity; none duplicates a source the live graph carries with a fingerprint):
@@ -187,35 +201,54 @@ source; one node per byte identity; none duplicates a source the live graph carr
 | `math.c6r-component.two-scale-law-proof` | [TSL] | proof: Theorem L (L1), (L2), the direct statement | OpenAI | Claude 5360227991 (in-repo `REVIEW_RECORD.md`); xAI bounded read 5901945424 as reported |
 | `math.c6r-component.two-scale-review-record` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.md` (Math-#172 bytes) | review record | OpenAI-authored record of the Claude reviews | itself |
 | `math.c6r-component.two-scale-review-binding` | `frontiers/two_scale_cluster_geometry_20260929/REVIEW_RECORD.json` | machine-readable review binding: native id 5360227991, reviewed commit `7c82252`, proof path and blob `a32fd5f7`, body SHA256 `c63efc29…` | OpenAI-authored record (Math-#172) | itself |
-| `math.c6r-component.residual-closure-record` | this packet's `RECONCILIATION.md` | reading-rule record: the §3 corollary and Route C | Anthropic (this session; source-exposed) | `AUTHOR_SIDE_CANDIDATE` (the reconciler's own text; a non-Claude read is welcome); **supporting only** since v1.1, because [TSL] Theorem L is the direct statement |
+| `math.c6r-component.residual-closure-record` | this packet's `RECONCILIATION.md` | reading-rule record: the §3 corollary ((D1), Routes A, B) and Route C | Anthropic (this session; source-exposed) | **OpenAI / GPT-5.6 Sol 5360645884** (bounded non-Claude read of §3 at `b3fac79`; reviewed text preserved and checked, `REVIEWED`); Route C: OpenAI-authored, checked 5902616692. `PROVED_REVIEWED` on the reviewed-record path since v1.3 |
 
-Edges: from the residual node to each component, `required: true` (`requires_evidence`), except the record node, which
-is supporting (`required: false`) since [TSL] is bound. From the old node (deferred transition): `required` edges to the
-residual node and to Math-#160's aggregate node.
+Edges: from the residual node to each of the ten components, `required: true` (`requires_evidence`). From the old node
+(deferred transition): `required` edges to the residual node and to Math-#160's aggregate node.
 
-**Execution order** (`PROPOSED_TRANSITIONS.json` `execution_order`): (0) satisfied at `ab13a08f`: Math-#166 is on main and its
-Theorem L is a required component node; a non-Claude read of §3 remains welcome but is not gating; (1) the component nodes and their edges; (2) the residual node
+**Two evidence paths** (`PROPOSED_TRANSITIONS.json` `evidence_paths`), each sufficient for (Res) on its own: the **direct
+statement** ([TSL] Theorem L with its in-repo review record and JSON binding: three nodes) and the **reviewed corollary**
+(§3 from [SC], [CL], [PALM] and this record, read by 5360645884: seven nodes). The residual's required edges take the
+union, so that a later byte change on either path holds the residual (fail-closed); `GATE` replays each path alone (the
+other path's edges supporting) as well as the union, and replays the negative in which the record node is required
+without its read: the gate then holds the residual on exactly that node.
+
+**Execution order** (`PROPOSED_TRANSITIONS.json` `execution_order`): (0) satisfied twice: at `ab13a08f`
+Math-#166's Theorem L is on main as a required component (direct path), and at `b3fac79` OpenAI 5360645884 read §3
+(reviewed-corollary path); (1) the component nodes and their edges; (2) the residual node
 (created `PROVED_REVIEWED`, or moved from `OPEN_ACTIVE`); (3) only after Math-#160 step 3: the old node; (4) the
 register rows. Nothing here edits `GRAPH.json`, `PROOF_INDEX.md`, `STATUS.md`, `SELECTOR_REGION.json` or the catalog
 (`"executed": false`, checked).
 
-**Reverse-impact.** Every component node carries the SHA256 of its source; a later change to [SC], [CL], [PALM], the
-review record, the source map or the preserved acceptance reaches the residual node (and, once executed, the old
-node) through `reverse_impact_between` (`GATE` replays it in both executions).
+**Reverse-impact.** Every component node carries the SHA256 of its source; `GATE` calls `reverse_impact_between` with exact
+source snapshots of both graph states (every node: `record_only`, `external_unresolved`, `blob` with bytes and SHA256,
+or `tree`), asserts `source_snapshots_supplied`, and then, for each component in turn, changes only that component's
+snapshot digest and checks that the residual node (and the old node, once it depends on the residual) is impacted. A
+later byte change to [SC], [CL], [PALM], [TSL], a review record, the source map, the preserved reviews or this record
+therefore reaches the residual through the graph, not through the fingerprint strings alone.
 
 ## 6. Checks
 
 `residual_check.py` (stdlib only, run from the repository root):
-- **IDENTITIES.** All twelve inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
+- **IDENTITIES.** All thirteen inventoried files exist as regular files, no symlink on their paths, stated SHA256 and blob.
 - **VERDICTS.** The quoted statements are present as substrings: [SC] Theorem (3), (18), (20), (24), (26) and the
   Slice A/B/C lines of its review record with the core blob; [CL] Corollary Λ with `Λ_2 = 2 nu(2)`, Proposition 4.4's
   `A -> oo` sentence, Lemma 5.2 with `r^(9/2)`, the object header, the source map's `nonauthor_acceptance` and its note
   naming 5360192822; [PALM] object header and Theorem Q; [TSL] Theorem L with (L1) and (L2), its review record's
-  5360227991 line at blob `a32fd5f7`, and the JSON binding's native id, proof path and body digest; the review id, verdict line and mutability label in `EXTERNAL_REVIEWS.md`.
+  5360227991 line at blob `a32fd5f7`, and the JSON binding's native id, proof path and body digest; the review ids, verdict lines, the `b3fac79` head and the
+  mutability label in `EXTERNAL_REVIEWS.md`; the heading and the Route A / Route B headers of the reviewed-section file.
 - **LIVE.** `math.rn-region.witness-collision` is a live `OPEN_ACTIVE` region with its recorded fingerprint (or
-  `PROVED_REVIEWED` after execution); the residual node is absent or `OPEN_ACTIVE` with Math-#160's fingerprint (or
-  `PROVED_REVIEWED` after execution); the selector lists the region; no live fingerprinted node carries a component
-  source of §5 other than `math.c6-component.palm-proof` if Math-#160 has been executed.
+  `PROVED_REVIEWED` after execution); the residual node is absent, `OPEN_ACTIVE` with Math-#160's fingerprint, or
+  `PROVED_REVIEWED`; the selector lists the region. A live node on a component source is accepted only if it is the
+  proposed node on every proposed key (the palm node on its cross-record keys: kind, source, fingerprint,
+  classification, controlling); anything else on such a source, or anything else under a proposed id, is a mismatch. If
+  the residual is live `PROVED_REVIEWED`, every component, every edge and the reading rule must be present as proposed.
+  The same test runs on the executed graph built from the proposal (installed state, simulated) in every run, so that
+  execution cannot turn this check red (Codex 4140125558).
+- **REVIEWED.** The record node's first review basis is Math-#173 review 5360645884 (provider OpenAI, ACCEPT, head
+  `b3fac79`); `REVIEWED_SECTION_3_b3fac79.md`, after its one-line provenance comment, has the SHA256 the proposal states,
+  begins at the §3 heading, contains Route A and Route B and not Route C, and is a verbatim substring of the current
+  `RECONCILIATION.md`; the review id and head are in `EXTERNAL_REVIEWS.md`.
 - **DEDUCTION.** Exact finite content of §3: the pair identity (D1) for all `0 <= N_R, N_out <= 12`; the Route C
   pathwise inequality (D2) for all `0 <= A, B, C <= 8` with its two exponent ledgers; the tail
   inequality `n(n-1)(M-1) <= n(n-1)(n-2)` for `n > M >= 3`; the Stirling identity for `n^4`; the exponent ledgers
@@ -224,22 +257,39 @@ node) through `reverse_impact_between` (`GATE` replays it in both executions).
 - **TRANSITIONS.** `declarative` true, `executed` false; the residual node `PROVED_REVIEWED`, non-controlling, with
   scope, explicit limits, review basis, Math-#160's fingerprint and a required edge to every component; every
   component node fingerprinted to the inventory with role, provider and review basis, one per byte identity; the
-  record node `AUTHOR_SIDE_CANDIDATE` and reached by a supporting edge only; every required premise of the residual node
-  `PROVED_REVIEWED`; the old-node transition marked deferred with its two presuppositions; the palm node marked
-  cross-record with Math-#160's id.
-- **GATE.** In both executions (residual node created directly; residual node pre-existing `OPEN_ACTIVE` as
-  Math-#160 proposes), the proposed graph passes `validate_graph_fail_closed`, `closure_report` gives `gate_ok` with no
-  illegal controlling node, and `reverse_impact_between` names the residual node and the components as changed and
-  impacted; the deferred old-node transition is not applied (its presupposition is absent live) and is reported.
+  every component `PROVED_REVIEWED` with at least one review basis and the residual's required edges covering all ten;
+  the two evidence paths partition the components, the record node on the corollary path and Theorem L on the direct
+  path; the old-node transition marked deferred with its two presuppositions; the palm node marked cross-record with
+  Math-#160's id. The builds are idempotent: installed components and edges are not re-created, and the installed state
+  rebuilds to itself.
+- **GATE.** In every execution shape (interim; final; residual node pre-existing `OPEN_ACTIVE` as Math-#160 proposes;
+  each evidence path alone; the installed state, simulated; and the negative with the record node required but unread),
+  the proposed graph passes `validate_graph_fail_closed`, `closure_report` gives `gate_ok` with no illegal controlling
+  node, `reverse_impact_between` runs with source snapshots of both states and names the residual node and the new
+  components as changed and impacted (nothing, in the installed state); the residual is not held except in the negative,
+  where the gate holds it on exactly the record node; a single-component source drift reaches the residual for every
+  component; the deferred old-node transition is not applied (its presupposition is absent live) and is reported.
 - **NEGATIVES.** Delete, one-byte change, symlink and symlinked parent on a temporary copy of the inventory are rejected.
 
-Ten mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-required-edge`, `executed-flag`,
-`controlling-true`, `tail-reversed`, `pair-identity-broken`, `route-c-broken`, `drop-review-needle`.
+Fourteen mutants must fail: `allow-symlink`, `no-hash`, `stale-fingerprint`, `drop-required-edge`, `executed-flag`,
+`controlling-true`, `tail-reversed`, `pair-identity-broken`, `route-c-broken`, `drop-review-needle`, and since v1.3
+`installed-drift` (an installed component with another fingerprint must fail `LIVE`), `snapshot-omitted` (the
+reverse-impact replay without snapshots must fail `GATE`), `record-unreviewed` (the record node `PROVED_REVIEWED` with no
+review basis must fail `TRANSITIONS` and `REVIEWED`), `reviewed-text-drift` (a changed reviewed text must fail `REVIEWED`).
 
 ## 7. Relation to other lanes
 
 - **Math-#160 (this session):** defines (Res) and proposes the residual node `OPEN_ACTIVE`; this record is its successor
-  and composes with either execution of its §7. Math-#160 is not changed.
+  and composes with either execution of its §7. Math-#160 is not changed by this record; the integrator refreshed its
+  branch onto `fe2c3ff` (`dd4f4f8`) with the six packet blobs preserved.
+- **Math-#173 reviews (on v1.0 `b3fac79`):** OpenAI/Codex 5360636576, three findings: (i) `LIVE` rejected the installed
+  components (4140125558), repaired: the installed state is accepted when exact and simulated in every run; (ii) the
+  reverse-impact replay ran without source snapshots (4140125562), repaired: snapshots of both states and a
+  per-component drift test; (iii) the `final` build promoted this record without a read on the Math-#166 path
+  (4140125565), repaired: the two paths are modelled separately, the record node's promotion rests on 5360645884, and
+  the unread case is replayed as a negative. OpenAI / GPT-5.6 Sol 5360645884: ACCEPT of §3 at the stated scope with the
+  amend list above; the record node is promoted on that reviewed-record path, the #166 path stays a distinct alternative
+  with `TWO_SCALE_LAW.md` and its exact review binding as evidence, and the "pending" wording is gone.
 - **Math-#162 (OpenAI; merged `358f256`, integrated by OpenAI Sol):** Route A. Not re-reviewed; its review record is
   bound in-repo.
 - **Math-#159 (Anthropic, other session; merged `98fdb54`, integrated by the OpenAI engineering lane):** Route B. Not

@@ -1,9 +1,11 @@
-"""Checks for C6-RESIDUAL-CLOSURE-20260930-v1 (RECONCILIATION.md, PROPOSED_TRANSITIONS.json, EXTERNAL_REVIEWS.md).
+"""Checks for C6-RESIDUAL-CLOSURE-20260930-v1 (RECONCILIATION.md, PROPOSED_TRANSITIONS.json, EXTERNAL_REVIEWS.md,
+REVIEWED_SECTION_3_b3fac79.md).
 
 Standard library only. Run from the repository root:  python -B -S reviews/c6_residual_closure_20260930/residual_check.py
-Checks: IDENTITIES, VERDICTS, LIVE, DEDUCTION, TRANSITIONS, GATE, NEGATIVES. No mathematics is re-proved beyond the exact
-finite bookkeeping of section 3 (pair identities, tails, ledgers); the proposed graph is replayed through the downstream hard gate's own validators in
-both executions. Nothing is written to the repository.
+Checks: IDENTITIES, VERDICTS, LIVE, REVIEWED, DEDUCTION, TRANSITIONS, GATE, NEGATIVES. No mathematics is re-proved beyond the
+exact finite bookkeeping of section 3 (pair identities, tails, ledgers); the proposed graph is replayed through the downstream
+hard gate's own validators in every execution shape (interim, final, pre-existing residual node, each evidence path alone, the
+unreviewed-record negative, and the installed state), with source snapshots. Nothing is written to the repository.
 """
 import argparse
 import copy
@@ -18,7 +20,8 @@ import tempfile
 from fractions import Fraction as F
 
 MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-required-edge", "executed-flag", "controlling-true",
-           "tail-reversed", "pair-identity-broken", "route-c-broken", "drop-review-needle")
+           "tail-reversed", "pair-identity-broken", "route-c-broken", "drop-review-needle",
+           "installed-drift", "snapshot-omitted", "record-unreviewed", "reviewed-text-drift")
 MUT = None
 HERE = "reviews/c6_residual_closure_20260930"
 GRAPH = "frontiers/downstream_gate_20260925/GRAPH.json"
@@ -30,6 +33,9 @@ AGG = "math.c6-witness-collision-factorial-moment"
 RECORD_NODE = "math.c6r-component.residual-closure-record"
 PALM_NODE = "math.c6-component.palm-proof"
 SC = "frontiers/spectral_cluster_closure_20260929/PROOF.md"
+REVIEWED = HERE + "/REVIEWED_SECTION_3_b3fac79.md"
+REVIEWED_HEAD = "b3fac79875f28bacd135c0aa5e65a47a41ae0fdf"
+SOL_REVIEW = "Math-#173 review 5360645884"
 FP_RES = "leading-order r^3 mass of E N(N-1): scale-r localization; open piece = mixed local/remote pairs M(R, s_0)"
 FP_WIT = "eta->0 mutual witness separation"
 INVENTORY = {
@@ -62,12 +68,16 @@ INVENTORY = {
         "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5"
     ],
     "reviews/c6_residual_closure_20260930/EXTERNAL_REVIEWS.md": [
-        "aba67dbb8e4f8df3456652625015de4984ba3bd8afe1e4961f63dae628fde069",
-        "5afe9a2090f2bbee6bd09b31b977c9451db1cea5"
+        "27b4d8a5f04981e7b01b20f767078df87b4d0c75aebc6f6ed665347a8b605a53",
+        "70d05080ed81c66b43261438cae3b9ec2840e637"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "f524b7bb376c307c40092c27c935851c4d1d92a65b008ef05aed82901274e89a",
-        "fd5ad53010769d8b22de1576eb0681098967475e"
+        "c360d2c5b5206e2e1a942ee2dbec10bb1d005042ca2696cf7e49b679617684a6",
+        "7b82a54bd4380de9de31a6d1bb5f7e4e343df172"
+    ],
+    "reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md": [
+        "50daacbe7e244bc149dbf4568970d79f38a356daa1e88a850f2fc2d074db5b6c",
+        "2fff7c277b43fa8e967ce9a8d70cf01a69e5eee4"
     ],
     "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md": [
         "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
@@ -111,8 +121,13 @@ VERDICTS = {
     HERE + "/EXTERNAL_REVIEWS.md": [
         "pullrequestreview-5360192822",
         "VERDICT: ACCEPT Theorem N, Corollaries Lambda/S",
-        "A pull-request review is a mutable external object"],
-    HERE + "/RECONCILIATION.md": ["**Object:** C6-RESIDUAL-CLOSURE-20260930-v1.", "(Res)", "(D1)", "(D2)"],
+        "A pull-request review is a mutable external object",
+        "pullrequestreview-5360645884",
+        "MATHEMATICAL VERDICT ON §3: ACCEPT at the stated fixed-d, fixed-torus, compact-positive-gap window scope.",
+        REVIEWED_HEAD],
+    HERE + "/RECONCILIATION.md": ["**Object:** C6-RESIDUAL-CLOSURE-20260930-v1.", "(Res)", "(D1)", "(D2)", "5360645884"],
+    REVIEWED: ["## 3. The corollary: (Res) from the reviewed statements", "(D1)",
+               "**Route A ([SC], Math-#162).**", "**Route B ([CL], Math-#159).**"],
     "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md": [
         "**Theorem L (factorial localization).** For every fixed integer q>=2,",
         "r^-3 E_r[(N_r)_q-(N_in)_q] -> 0.",
@@ -127,6 +142,7 @@ VERDICTS = {
         "\"body_sha256\": \"c63efc292d7cf209e2770419cc159276897d0ba955c32ee1d2af88c8aa7f0ed8\"",
         "\"git_blob\": \"a32fd5f7d941bbe1fe943df045b1e0fbec8d691c\""],
 }
+EXTERNAL_PREFIXES = ("https://", "http://", "external:")
 
 
 def git_blob(data):
@@ -179,11 +195,56 @@ def load_spec(root):
     if MUT == "drop-required-edge":
         spec["proposed_graph_edges"] = [e for e in spec["proposed_graph_edges"]
                                         if not (e["from"] == RES and e["to"] == "math.c6r-component.spectral-closure-proof")]
+    if MUT == "record-unreviewed":
+        for n in spec["proposed_graph_nodes"]:
+            if n["id"] == RECORD_NODE:
+                n["review_basis"] = []          # a PROVED_REVIEWED record with no nonauthor read must be rejected
     return spec
 
 
-def check_live(root, spec):
+def load_live(root):
     graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
+    sel = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
+    return graph, sel
+
+
+def component_keys(comp):
+    """Keys a live node must reproduce to count as the proposed component. The palm node is cross-record (Math-#160
+    defines its other fields); every node of this record must reproduce the proposal byte-for-byte on every proposed key."""
+    if comp["id"] == PALM_NODE:
+        return ("kind", "source", "fingerprint", "classification", "controlling")
+    return tuple(k for k in comp if k not in ("id", "create_if_absent", "cross_record"))
+
+
+def matches_proposal(live, comp):
+    return isinstance(live, dict) and all(live.get(k) == comp[k] for k in component_keys(comp))
+
+
+def installed_state(graph, spec):
+    """How much of the proposal the live graph already carries (Codex 4140125558). Fail-closed: a live node on a
+    component source that is not the proposed node on every proposed key is a mismatch, as is a proposed id carrying
+    anything else."""
+    nodes = graph["nodes"]
+    by_source = {c["source"]: c for c in spec["proposed_graph_nodes"]}
+    present, mismatched = set(), set()
+    for nid, n in nodes.items():
+        if not isinstance(n, dict) or n.get("source") not in by_source:
+            continue
+        comp = by_source[n["source"]]
+        (present if nid == comp["id"] and matches_proposal(n, comp) else mismatched).add(nid)
+    for c in spec["proposed_graph_nodes"]:
+        if c["id"] in nodes and c["id"] not in present:
+            mismatched.add(c["id"])
+    res = nodes.get(RES)
+    live_edges = {(e["from"], e["to"], e["required"], e["relation"]) for e in graph["edges"]}
+    wanted = {(e["from"], e["to"], e["required"], e["relation"]) for e in spec["proposed_graph_edges"]
+              if not e.get("deferred_with")}
+    return {"present": sorted(present), "mismatched": sorted(mismatched),
+            "residual": res.get("classification") if isinstance(res, dict) else None,
+            "edges_present": wanted <= live_edges}
+
+
+def live_ok(graph, sel, spec):
     nodes = graph["nodes"]
     wit = nodes.get(WIT)
     ok = isinstance(wit, dict) and wit.get("kind") == "region" and wit.get("fingerprint") == FP_WIT
@@ -192,13 +253,49 @@ def check_live(root, spec):
     if res is not None:
         ok &= res.get("kind") == "region" and res.get("fingerprint") == FP_RES
         ok &= res.get("classification") in ("OPEN_ACTIVE", "PROVED_REVIEWED")
-    sel = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
     ok &= "witness-collision" in sel.get("regions", [])
-    # no live fingerprinted node already carries a component source, except the cross-record palm node
-    comp_sources = {n["source"]: n["id"] for n in spec["proposed_graph_nodes"]}
-    for nid, n in nodes.items():
-        if isinstance(n, dict) and n.get("fingerprint") and n.get("source") in comp_sources:
-            ok &= nid == PALM_NODE and comp_sources[n["source"]] == PALM_NODE
+    st = installed_state(graph, spec)
+    ok &= not st["mismatched"]
+    if st["residual"] == "PROVED_REVIEWED":
+        # a promoted residual must carry the whole proposal: every component by id and bytes, every edge, the reading rule
+        ok &= set(c["id"] for c in spec["proposed_graph_nodes"]) <= set(st["present"]) and st["edges_present"]
+        ok &= set(res.get("reading_rule", [])) >= set(spec["transitions"][0]["proposed"]["reading_rule"])
+    return bool(ok), st
+
+
+def check_live(root, spec):
+    graph, sel = load_live(root)
+    return live_ok(graph, sel, spec)
+
+
+def reviewed_block(data):
+    """The reviewed text: the file after its one-line provenance comment."""
+    if data.startswith(b"<!--"):
+        _, sep, rest = data.partition(b"-->\n\n")
+        return rest if sep else b""
+    return data
+
+
+def check_reviewed(root, spec):
+    """The record node is PROVED_REVIEWED on the strength of a non-Claude read of section 3 (Math-#173 review 5360645884
+    at head b3fac79): the paragraphs that review read are preserved verbatim, fingerprinted in the proposal, and present
+    unchanged in the current RECONCILIATION.md; the review's identity is preserved in EXTERNAL_REVIEWS.md."""
+    rec = next((c for c in spec["proposed_graph_nodes"] if c["id"] == RECORD_NODE), None)
+    if rec is None or not rec.get("review_basis"):
+        return False
+    b0 = rec["review_basis"][0]
+    ok = rec["classification"] == "PROVED_REVIEWED" and b0.get("review") == SOL_REVIEW
+    ok &= str(b0.get("provider", "")).startswith("OpenAI") and "ACCEPT" in str(b0.get("verdict", ""))
+    ok &= b0.get("reviewed_head") == REVIEWED_HEAD and b0.get("reviewed_text") == REVIEWED
+    block = reviewed_block((root / REVIEWED).read_bytes())
+    if MUT == "reviewed-text-drift":
+        block = block[:-1] + b"?"
+    ok &= len(block) > 1000 and hashlib.sha256(block).hexdigest() == b0.get("reviewed_text_sha256")
+    ok &= block.startswith(b"## 3. ") and b"**Route A ([SC], Math-#162).**" in block
+    ok &= b"**Route B ([CL], Math-#159).**" in block and b"Route C" not in block     # the read does not cover Route C
+    ok &= block in (root / HERE / "RECONCILIATION.md").read_bytes()                  # verbatim in the current record
+    ext = (root / HERE / "EXTERNAL_REVIEWS.md").read_text(encoding="utf-8")
+    ok &= "pullrequestreview-5360645884" in ext and REVIEWED_HEAD in ext
     return bool(ok)
 
 
@@ -245,44 +342,74 @@ def check_deduction():
     return bool(ok)
 
 
+def evidence_paths(spec):
+    ep = spec["evidence_paths"]
+    return list(ep["direct_statement"]["components"]), list(ep["reviewed_corollary"]["components"])
+
+
 def build(spec, graph, stage):
-    """Apply the proposal to a copy of the live graph. stage: 'interim' (before execution_order step 0: residual node
-    OPEN_ACTIVE with its evidence attached), 'final' (after step 0: record node read, residual PROVED_REVIEWED),
-    'final-preexisting' (Math-#160 step 1 already created the residual node OPEN_ACTIVE). Returns (old, new)."""
+    """Apply the proposal to a copy of the live graph, idempotently: a component the live graph already carries
+    byte-for-byte is not re-created, an edge already present is not re-added. stage: 'interim' (before step 2: residual
+    node OPEN_ACTIVE with its evidence attached), 'final' (after step 2: residual PROVED_REVIEWED, both evidence paths
+    required), 'final-preexisting' (Math-#160 step 1 already created the residual node OPEN_ACTIVE), 'final-direct-only'
+    and 'final-corollary-only' (the other path's edges supporting: each path alone), 'final-record-unreviewed' (the
+    record node without its read but still required: the residual must be held). Returns (old, new)."""
     old = copy.deepcopy(graph)
     if stage == "final-preexisting":
         old["nodes"][RES] = {"layer": "D5", "kind": "region", "classification": "OPEN_ACTIVE", "controlling": False,
                              "fingerprint": FP_RES, "notes": "Math-#160 execution_order step 1"}
     new = copy.deepcopy(old)
-    live_by_source = {n.get("source"): nid for nid, n in graph["nodes"].items()
+    present = set(installed_state(old, spec)["present"])
+    live_by_source = {n.get("source"): nid for nid, n in old["nodes"].items()
                       if isinstance(n, dict) and n.get("fingerprint") and n.get("source")}
     id_map = {}
     for c in spec["proposed_graph_nodes"]:
         nid = c["id"]
-        if c.get("create_if_absent") and c["source"] in live_by_source:
-            id_map[nid] = live_by_source[c["source"]]      # cross-record node already created by Math-#160
+        if nid in present:
+            id_map[nid] = nid                                   # already installed as proposed
             continue
-        node = {k: v for k, v in c.items() if k != "id"}
-        new["nodes"][nid] = node
+        if c.get("create_if_absent") and c["source"] in live_by_source:
+            id_map[nid] = live_by_source[c["source"]]           # cross-record node already created by Math-#160
+            continue
+        new["nodes"][nid] = {k: v for k, v in c.items() if k != "id"}
         id_map[nid] = nid
     t = spec["transitions"][0]
     p = t["proposed"]
-    new["nodes"][RES] = {"layer": p["layer"], "kind": "region",
-                         "classification": p["classification"] if stage.startswith("final") else "OPEN_ACTIVE",
-                         "controlling": p["controlling"], "fingerprint": p["fingerprint"], "scope": p["scope"],
-                         "explicit_limits": p["explicit_limits"], "review_disposition": p["review_disposition"],
-                         "review_sources": [r["ref"] for r in p["review_sources"]],
-                         "reading_rule": [id_map.get(x, x) for x in p["reading_rule"]], "notes": p["notes"]}
+    res = dict(old["nodes"].get(RES) or {})
+    res.update({"layer": p["layer"], "kind": "region",
+                "classification": p["classification"] if stage.startswith("final") else "OPEN_ACTIVE",
+                "controlling": p["controlling"], "fingerprint": p["fingerprint"], "scope": p["scope"],
+                "explicit_limits": p["explicit_limits"], "review_disposition": p["review_disposition"],
+                "review_sources": [r["ref"] for r in p["review_sources"]],
+                "reading_rule": [id_map.get(x, x) for x in p["reading_rule"]], "notes": p["notes"]})
+    new["nodes"][RES] = res
+    have = {(e["from"], e["to"], e["required"], e["relation"]) for e in new["edges"]}
+    added = []
     for e in spec["proposed_graph_edges"]:
         if e.get("deferred_with"):
-            continue                                        # the old-node transition presupposes Math-#160 step 3
-        new["edges"].append({"from": e["from"], "to": id_map.get(e["to"], e["to"]), "required": e["required"],
-                             "relation": e["relation"]})
+            continue                                            # the old-node transition presupposes Math-#160 step 3
+        key = (e["from"], id_map.get(e["to"], e["to"]), e["required"], e["relation"])
+        if key not in have:
+            added.append({"from": key[0], "to": key[1], "required": key[2], "relation": key[3]})
+            have.add(key)
+    direct, corollary = evidence_paths(spec)
+    if stage == "final-direct-only":
+        for e in added:
+            if e["from"] == RES and e["to"] in corollary:
+                e["required"] = False
+    if stage == "final-corollary-only":
+        for e in added:
+            if e["from"] == RES and e["to"] in direct:
+                e["required"] = False
+    if stage == "final-record-unreviewed" and RECORD_NODE not in present:
+        new["nodes"][RECORD_NODE]["classification"] = "AUTHOR_SIDE_CANDIDATE"
+        new["nodes"][RECORD_NODE]["review_basis"] = []
+    new["edges"].extend(added)
     return old, new
 
 
 def check_transitions(root, spec):
-    graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
+    graph, sel = load_live(root)
     ok = spec.get("declarative") is True and spec.get("executed") is False
     t0, t1 = spec["transitions"]
     p = t0["proposed"]
@@ -297,18 +424,16 @@ def check_transitions(root, spec):
         ok &= c["kind"] == "reading_rule_component" and c["controlling"] is False
         ok &= c["source"] in INVENTORY and c["fingerprint"] == INVENTORY[c["source"]][0]
         ok &= bool(c.get("component_role")) and bool(c.get("author_provider")) and len(c.get("review_basis", [])) >= 1
-        ok &= c["component_of"] == RES
-        if c["id"] == RECORD_NODE:
-            ok &= c["classification"] == "AUTHOR_SIDE_CANDIDATE"       # until a non-Claude read (step 0)
-        else:
-            ok &= c["classification"] == "PROVED_REVIEWED"
+        ok &= c["component_of"] == RES and c["classification"] == "PROVED_REVIEWED"
         if c["id"] == PALM_NODE:
             ok &= c.get("create_if_absent") is True and "Math-#160" in str(c.get("cross_record"))
-    req_ids = [c for c in cids if c != RECORD_NODE]
-    ok &= sorted(p["reading_rule"]) == sorted(req_ids) and sorted(t0["required_premises_after"]) == sorted(req_ids)
+    # two evidence paths, each sufficient, partitioning the components; the residual requires the union (fail-closed)
+    direct, corollary = evidence_paths(spec)
+    ok &= sorted(direct + corollary) == sorted(cids) and not set(direct) & set(corollary)
+    ok &= RECORD_NODE in corollary and "math.c6r-component.two-scale-law-proof" in direct and len(direct) >= 2
+    ok &= sorted(p["reading_rule"]) == sorted(cids) and sorted(t0["required_premises_after"]) == sorted(cids)
     req = {(e["from"], e["to"]) for e in spec["proposed_graph_edges"] if e["required"] is True and not e.get("deferred_with")}
-    sup = {(e["from"], e["to"]) for e in spec["proposed_graph_edges"] if e["required"] is False and not e.get("deferred_with")}
-    ok &= all((RES, cid) in req for cid in req_ids) and (RES, RECORD_NODE) in sup and (RES, RECORD_NODE) not in req
+    ok &= all((RES, cid) in req for cid in cids)
     seen = set()
     for e in spec["proposed_graph_edges"]:
         key = (e["from"], e["to"], e["relation"])
@@ -321,21 +446,42 @@ def check_transitions(root, spec):
     ok &= AGG not in graph["nodes"] or graph["nodes"][AGG].get("classification") == "PROVED_REVIEWED"
     if not ok:
         return False, None
+    st = installed_state(graph, spec)
+    installed = st["residual"] == "PROVED_REVIEWED"
+    stages = ("installed",) if installed else ("interim", "final", "final-preexisting", "final-direct-only",
+                                                "final-corollary-only", "final-record-unreviewed")
+    expected_required = {"final-direct-only": len(direct), "final-corollary-only": len(corollary)}
     builds = {}
-    for stage in ("interim", "final", "final-preexisting"):
-        old, new = build(spec, graph, stage)
+    for stage in stages:
+        old, new = build(spec, graph, "final" if stage == "installed" else stage)
         nodes, edges = new["nodes"], new["edges"]
         ok &= all(old["nodes"][k] == nodes[k] for k in old["nodes"] if k != RES)   # no live node other than the residual changes
         ok &= edges[:len(old["edges"])] == old["edges"]
         req_after = [e["to"] for e in edges if e["from"] == RES and e["required"] is True]
-        if stage.startswith("final"):
-            ok &= nodes[RES]["classification"] == "PROVED_REVIEWED"
-            ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req_after)
-        else:
+        if stage == "interim":
             ok &= nodes[RES]["classification"] == "OPEN_ACTIVE"
-        ok &= nodes[RECORD_NODE]["classification"] == "AUTHOR_SIDE_CANDIDATE"
-        ok &= len(req_after) == len(cids) - 1
+        else:
+            ok &= nodes[RES]["classification"] == "PROVED_REVIEWED"
+        if stage == "installed":
+            ok &= new == old                                    # the live graph carries the proposal exactly: a no-op
+        if stage == "final-record-unreviewed":
+            ok &= nodes[RECORD_NODE]["classification"] == "AUTHOR_SIDE_CANDIDATE"
+        else:
+            ok &= nodes[RECORD_NODE]["classification"] == "PROVED_REVIEWED"
+            ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req_after)
+        ok &= len(req_after) == expected_required.get(stage, len(cids))
         builds[stage] = (old, new)
+    if not installed:
+        # the installed state, simulated (Codex 4140125558): the executed graph passes LIVE and re-building it is a no-op
+        sim = build(spec, graph, "final")[1]
+        if MUT == "installed-drift":
+            sim["nodes"]["math.c6r-component.spectral-closure-proof"]["fingerprint"] = "0" * 64
+        sim_ok, sim_st = live_ok(sim, sel, spec)
+        ok &= sim_ok and sim_st["residual"] == "PROVED_REVIEWED" and sim_st["present"] == sorted(cids)
+        ok &= sim_st["edges_present"] and not sim_st["mismatched"]
+        o2, n2 = build(spec, sim, "final")
+        ok &= o2 == n2
+        builds["installed-simulated"] = (o2, n2)
     return bool(ok), builds
 
 
@@ -346,34 +492,90 @@ def load_hard_gate(root):
     return hg
 
 
+def snapshot(root, graph):
+    """Exact source snapshot covering every node of a graph, in the shape git_transition_audit.read_snapshot produces,
+    taken from the working tree: record_only, external_unresolved, blob (bytes and SHA256), tree (sorted file digests),
+    or missing."""
+    out = {}
+    for nid, n in graph["nodes"].items():
+        ref = n.get("source") if isinstance(n, dict) else None
+        if ref is None:
+            out[nid] = {"kind": "record_only"}
+            continue
+        if ref.startswith(EXTERNAL_PREFIXES):
+            out[nid] = {"kind": "external_unresolved", "reference": ref}
+            continue
+        p = root / ref.rstrip("/")
+        if p.is_file():
+            data = p.read_bytes()
+            out[nid] = {"kind": "blob", "reference": ref, "bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+        elif p.is_dir():
+            items = [[q.relative_to(p).as_posix(), hashlib.sha256(q.read_bytes()).hexdigest()]
+                     for q in sorted(p.rglob("*")) if q.is_file() and "__pycache__" not in q.parts]
+            out[nid] = {"kind": "tree", "reference": ref, "files": len(items),
+                        "sha256": hashlib.sha256(json.dumps(items, sort_keys=True).encode()).hexdigest()}
+        else:
+            out[nid] = {"kind": "missing", "reference": ref}
+    return out
+
+
 def check_gate(root, spec, builds):
     if builds is None:
         return False, {}
     hg = load_hard_gate(root)
     out = {}
     ok = True
-    comp_ids = {c["id"] for c in spec["proposed_graph_nodes"]}
+    comp_ids = [c["id"] for c in spec["proposed_graph_nodes"]]
     for stage, (old, new) in builds.items():
         try:
             hg.validate_graph_fail_closed(new)
             rep_new = hg.closure_report(new)
             rep_old = hg.closure_report(old)
-            ri = hg.reverse_impact_between(old, new)
+            old_src, new_src = snapshot(root, old), snapshot(root, new)
+            if MUT == "snapshot-omitted":
+                ri = hg.reverse_impact_between(old, new)
+            else:
+                ri = hg.reverse_impact_between(old, new, old_sources=old_src, new_sources=new_src)
         except Exception:
             return False, {}
+        ok &= ri.get("source_snapshots_supplied") is True and ri.get("promotion_permission") is False
         ok &= rep_new.get("gate_ok") is True and not rep_new.get("illegal_controlling") and rep_old.get("gate_ok") is True
         ok &= not any(n.get("controlling") for n in new["nodes"].values())
         changed, impacted = set(ri["changed_nodes"]), set(ri["impacted"])
-        ok &= RES in changed and RES in impacted
-        ok &= all((cid in changed) or (cid not in new["nodes"]) for cid in comp_ids)
-        ok &= WIT not in changed                                     # the deferred transition is not applied
-        hold = {h["node"] for h in rep_new.get("hold_proposals", [])}
-        if stage == "interim":
-            ok &= RES not in hold or new["nodes"][RES]["classification"] == "OPEN_ACTIVE"
+        pre = set(installed_state(old, spec)["present"])
+        if stage in ("installed", "installed-simulated"):
+            ok &= not changed and not impacted                  # nothing to apply: the proposal is live as declared
         else:
-            ok &= RES not in hold                                        # every required premise PROVED_REVIEWED
+            ok &= RES in changed and RES in impacted
+            ok &= all((cid in changed) or (cid not in new["nodes"]) or (cid in pre) for cid in comp_ids)
+        ok &= WIT not in changed                                 # the deferred transition is not applied
+        held = {h["node"]: h.get("unsatisfied_required", []) for h in rep_new.get("hold_proposals", [])}
+        if stage == "interim":
+            ok &= RES not in held or new["nodes"][RES]["classification"] == "OPEN_ACTIVE"
+        elif stage == "final-record-unreviewed":
+            ok &= RES in held and RECORD_NODE in held[RES]     # the gate itself holds a residual resting on an unread record
+        else:
+            ok &= RES not in held                                # every required premise PROVED_REVIEWED
+        # a later source-byte change on any component reaches the residual (and the old node once it depends on it)
+        wit_depends = any(e["from"] == WIT and e["to"] == RES for e in new["edges"])
+        tested = 0
+        for cid in comp_ids:
+            if cid not in new["nodes"]:
+                continue
+            drift = copy.deepcopy(new_src)
+            drift[cid]["sha256"] = "0" * 64
+            try:
+                ri2 = hg.reverse_impact_between(new, new, old_sources=new_src, new_sources=drift)
+            except Exception:
+                return False, {}
+            ok &= set(ri2["changed_nodes"]) == {cid} and RES in ri2["impacted"]
+            ok &= (not wit_depends) or WIT in ri2["impacted"]
+            tested += 1
+        ok &= tested == sum(1 for cid in comp_ids if cid in new["nodes"]) >= len(comp_ids) - 1
         out[stage] = {"changed_nodes": sorted(changed), "impacted": sorted(impacted),
                       "residual_classification": new["nodes"][RES]["classification"],
+                      "residual_held": RES in held, "source_snapshots_supplied": True,
+                      "source_drift_reaches_residual": tested,
                       "old_node_transition": "deferred: presupposes Math-#160 step 3 (aggregate node absent live)"}
     return bool(ok), out
 
@@ -415,17 +617,20 @@ def main():
     root = pathlib.Path(".").resolve()
     spec = load_spec(root)
     ident = identities_ok(root)
+    live, live_state = check_live(root, spec)
     trans_ok, builds = check_transitions(root, spec)
     gate_ok, gate = check_gate(root, spec, builds)
-    checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "LIVE": check_live(root, spec),
-              "DEDUCTION": check_deduction(), "TRANSITIONS": trans_ok, "GATE": gate_ok, "NEGATIVES": check_negatives(root)}
-    passed = all(checks.values()) and len(checks) == 7
+    checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "LIVE": live,
+              "REVIEWED": ident and check_reviewed(root, spec), "DEDUCTION": check_deduction(),
+              "TRANSITIONS": trans_ok, "GATE": gate_ok, "NEGATIVES": check_negatives(root)}
+    passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "C6-RESIDUAL-CLOSURE-20260930-v1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY), "component_nodes": len(spec["proposed_graph_nodes"]),
-                      "gate": gate,
-                      "scope": "identity, verdict-row, live-register, exact finite bookkeeping of section 3, transition-shape, "
-                               "hard-gate replay in both executions, and filesystem-negative checks; the Gaussian limits are the "
-                               "sources' reviewed statements and are not re-proved; nothing is written"},
+                      "live_state": live_state, "gate": gate,
+                      "scope": "identity, verdict-row, live-register (including the installed state), reviewed-text, exact "
+                               "finite bookkeeping of section 3, transition-shape, hard-gate replay with source snapshots in "
+                               "every execution shape, and filesystem-negative checks; the Gaussian limits are the sources' "
+                               "reviewed statements and are not re-proved; nothing is written"},
                      indent=2, sort_keys=True))
     return 0 if passed else 1
 
