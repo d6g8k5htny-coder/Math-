@@ -22,10 +22,12 @@ Inputs certified (from Math-#178 NOTE section 1-2 at head 48407d4, planar reduct
 The reductions are consumed at those records' stated scopes; this script certifies the arithmetic of the constants, not
 the theorems. Scientific effect: NONE.
 
-Nine rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
-TB_EXACT, T2_IDENTITY; README section 2) and eight mutants must exit 1. TB_EXACT and T2_IDENTITY are the exact
+Ten rules must hold (FLOAT_INSIDE, NESTING, TRUNCATION_NESTING, WIDTHS, PINNED, MONOTONE_IN_K, CONSTANTS_RIGOROUS,
+TB_EXACT, T2_IDENTITY, C_BOUNDS; README section 2) and nine mutants must exit 1. The floating-point control enters the
+pinned output only rounded to 10 significant digits, so the output is byte-identical across CPython versions. TB_EXACT and T2_IDENTITY are the exact
 identities of README section 3: G_0 = exp(-12 k^2 (gamma^6 - 1)), Tb(k) = (12 k^2 + 1)/(36 k^3), T2 = -T1/12, whence
-c = (66451/11128) T1/J_hat and B_sign = (4587821/876544) Tb/J_hat.
+c = (66451/11128) T1/J_hat and B_sign = (4587821/876544) Tb/J_hat; C_BOUNDS is their consequence
+66451/11128 < c(k) < 199353/2782 (T1/J_hat = 12 - 11 I_9/I_11 with 0 < I_9 < I_11).
 """
 import argparse
 import json
@@ -36,13 +38,20 @@ from decimal import Decimal, Context, ROUND_FLOOR, ROUND_CEILING, ROUND_HALF_EVE
 from fractions import Fraction as Fr
 from math import comb, factorial
 
-MUTANTS = ("gamma-power", "cusp-shift", "prefactor", "pi-truncated", "log2-truncated", "tail-dropped", "tb-power", "t2-weight")
+MUTANTS = ("gamma-power", "cusp-shift", "prefactor", "pi-truncated", "log2-truncated", "tail-dropped", "tb-power", "t2-weight",
+           "t1t2-scale")
 MUT = None
 
 
 def T2_WEIGHT():
     """Coefficient multiplier of the a^4 term of D_a G0 (mutant t2-weight perturbs it on both evaluation paths)."""
     return Fr(1001, 1000) if MUT == "t2-weight" else Fr(1)
+
+
+def T1T2_SCALE():
+    """Common factor on the T1 and T2 integrands, both evaluation paths (mutant t1t2-scale halves them: T2 = -T1/12
+    survives, the float control survives, only the universal bounds on c catch it)."""
+    return Fr(1, 2) if MUT == "t1t2-scale" else Fr(1)
 
 
 def TB_POWER():
@@ -59,6 +68,8 @@ I_SHAPE, U2, BSH, UABS, JOUT = Fr(246528, 35), Fr(240192, 35), Fr(-428544, 7), F
 # exact prefactors of the two reduced formulas (README section 3): c = C_PREF . T1/J_hat,  B_sign = B_PREF . Tb/J_hat
 C_PREF = Fr(11) * (U2 - BSH / 78) / (2 * I_SHAPE)
 B_PREF = Fr(11) * UABS / (2 * I_SHAPE)
+# universal bounds (README section 3, consequence): T1/J_hat = 12 - 11 I_9/I_11 lies strictly in (1, 12) for every k > 0
+C_LOWER, C_UPPER = C_PREF, 12 * C_PREF                 # 66451/11128 < c(k) < 199353/2782
 # first significant digits of the certified values (pinned by this record; PINNED check): key -> string prefix
 PINNED = {
     "J_hat|1/2": "4.396080052560", "J_hat|1": "3.746141728365734", "J_hat|2": "3.594417805731787",
@@ -166,8 +177,8 @@ def pi_interval():
 
 
 def log2_interval():
-    # log 2 = sum_{n>=1} 1/(n 2^n); tail after N terms <= 1/((N+1) 2^N)
-    N = 90 if MUT != "log2-truncated" else 8
+    # log 2 = sum_{n>=1} 1/(n 2^n); tail after N terms <= 1/((N+1) 2^N); N = 160 puts the tail below 1e-50
+    N = 160 if MUT != "log2-truncated" else 8
     s = sum(Fr(1, n * 2 ** n) for n in range(1, N + 1))
     lo = Iv.frac(s)
     hi = Iv.frac(s + Fr(1, (N + 1) * 2 ** N))
@@ -264,10 +275,10 @@ def integrand_series(name, centre, K, k):
         return t_mul(core, E)
     if name == "T1":         # gamma^9 (1 + 12 A^2) = g^4 sqrt(g) (1 + 12 s a^2)
         w = t_add(t_const(1, K), t_scale(a2, 12 * s))
-        return t_mul(t_mul(t_mul(t_ipow(g, 4), root), w), E)
+        return t_scale(t_mul(t_mul(t_mul(t_ipow(g, 4), root), w), E), T1T2_SCALE())
     if name == "T2":         # gamma^13 . (-(a^2/24 + a^4/(3456 k^2)))
         w = t_add(t_scale(a2, Fr(-1, 24)), t_scale(a4, -Fr(1, 3456 * k * k) * T2_WEIGHT()))
-        return t_mul(t_mul(t_mul(t_ipow(g, 6), root), w), E)
+        return t_scale(t_mul(t_mul(t_mul(t_ipow(g, 6), root), w), E), T1T2_SCALE())
     if name == "Tb":         # |A| gamma^10 = (a/(12k)) g^5 on a >= 0
         w = t_scale(a, Fr(1, 12 * k))
         return t_mul(t_mul(t_ipow(g, TB_POWER()), w), E)
@@ -345,9 +356,9 @@ def float_reference(name, k):
         if name == "J":
             return g ** 5.5 * E
         if name == "T1":
-            return g ** 4.5 * (1 + 12 * (a / (12 * kf)) ** 2) * E
+            return float(T1T2_SCALE()) * g ** 4.5 * (1 + 12 * (a / (12 * kf)) ** 2) * E
         if name == "T2":
-            return -g ** 6.5 * (a * a / 24 + float(T2_WEIGHT()) * a ** 4 / (3456 * kf * kf)) * E
+            return -float(T1T2_SCALE()) * g ** 6.5 * (a * a / 24 + float(T2_WEIGHT()) * a ** 4 / (3456 * kf * kf)) * E
         return (a / (12 * kf)) * g ** TB_POWER() * E
     return 2 * sum(w * raw(7 * t + 7) for t, w in zip(xs, ws)) * 7
 
@@ -393,7 +404,7 @@ def main():
             ok_width &= val.width() <= abs(Decimal(repr(ref))) * Decimal("1e-11")
             raw[k][name] = val
             out["raw_integrals"]["%s|%s" % (name, k)] = {"interval": val.pair(), "width": str(val.width()),
-                                                          "float_reference": repr(ref), "max_cell_remainder_width": str(rem),
+                                                          "float_reference_10sig": "%.10g" % ref, "max_cell_remainder_width": str(rem),
                                                           "coarse_enclosure": coarse.pair(), "tail_bound_at_T": str(tail_T.hi),
                                                           "enclosure_at_half_T": val_T2.pair()}
     # exact identities (derived in README section 3): Tb(k) = (12 k^2 + 1)/(36 k^3) and T2 = -T1/12
@@ -407,6 +418,13 @@ def main():
         ok_t2 &= raw[k]["T2"].lo <= minus_t1_over_12.hi and minus_t1_over_12.lo <= raw[k]["T2"].hi
         out["exact_relations"]["per_k"][str(k)] = {"Tb_exact": str(tb_exact), "Tb_enclosure": raw[k]["Tb"].pair(),
                                                    "minus_T1_over_12": minus_t1_over_12.pair(), "T2_enclosure": raw[k]["T2"].pair()}
+    # universal bounds on c = C_PREF . T1/J_hat: strict containment in (C_LOWER, C_UPPER) at every k
+    ok_cb = True
+    for k in KS:
+        c_iv = raw[k]["T1"] * C_PREF / raw[k]["J"]
+        ok_cb &= Iv.frac(C_LOWER).hi < c_iv.lo and c_iv.hi < Iv.frac(C_UPPER).lo
+    out["exact_relations"]["c_bounds"] = {"lower": str(C_LOWER), "upper": str(C_UPPER),
+                                          "note": "T1/J_hat = 12 - 11 I_9/I_11 with 0 < I_9 < I_11; both ends are limits (k -> inf, k -> 0)"}
     # pinned digits
     for key, prefix in PINNED.items():
         if key.startswith("J_hat|"):
@@ -449,12 +467,12 @@ def main():
             if pk in PINNED:
                 ok_pinned &= str(Cstar.lo).startswith(PINNED[pk]) and str(Cstar.hi).startswith(PINNED[pk])
     ok_mono = raw[KS[0]]["J"].lo > raw[KS[1]]["J"].hi > raw[KS[2]]["J"].hi and raw[KS[1]]["J"].lo > raw[KS[2]]["J"].hi
-    ok_pi = PI.width() < Decimal("1e-40") and ok_pinned
+    ok_pi = ok_pinned and all(v.width() < Decimal("1e-40") for v in (PI, LOG2, ERF_HALF, KAPPA, D_INNER))
     checks = {"FLOAT_INSIDE": bool(ok_float), "NESTING": bool(ok_nest), "WIDTHS": bool(ok_width), "PINNED": bool(ok_pinned),
               "MONOTONE_IN_K": bool(ok_mono), "CONSTANTS_RIGOROUS": bool(ok_pi), "TB_EXACT": bool(ok_tb), "T2_IDENTITY": bool(ok_t2),
-              "TRUNCATION_NESTING": bool(ok_trunc)}
+              "TRUNCATION_NESTING": bool(ok_trunc), "C_BOUNDS": bool(ok_cb)}
     out["checks"] = checks
-    out["passed"] = all(checks.values()) and len(checks) == 9
+    out["passed"] = all(checks.values()) and len(checks) == 10
     print("elapsed seconds %.1f" % (time.time() - t0), file=sys.stderr)      # timing stays out of the pinned output
     out["scope"] = ("rigorous enclosures of the one-dimensional cusp integrals and of the assembled constants; the planar "
                     "reductions and the exact shape integrals are consumed at their records' scopes; not a proof of any "

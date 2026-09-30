@@ -44,8 +44,9 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   ceiling context for upper ends). `exp` and `sqrt` are correctly rounded by the `decimal` module and are widened by two
   units in the last place on each side. Rationals enter through outward-rounded division.
 - **Constants.** `pi` from Machin's formula with the alternating-series bracket (both arctangent series stopped at
-  consecutive partial sums); `log 2 = sum 1/(n 2^n)` with the geometric tail; `erf(1/2)` from its Maclaurin series with
-  the alternating tail; `sqrt2`, `sqrt3` by interval `sqrt`.
+  consecutive partial sums); `log 2 = sum 1/(n 2^n)` to `N = 160` terms with the tail bound `1/((N + 1) 2^N)`; `erf(1/2)`
+  from its Maclaurin series with the alternating tail; `sqrt2`, `sqrt3` by interval `sqrt`. The widths of `pi`, `log 2`,
+  `erf(1/2)`, `kappa` and `D` are all below `1e-40` (rule `CONSTANTS_RIGOROUS`; the printed values carry 48 digits).
 - **Cells.** `[0, T]` with `T = 16` is cut into `160` cells of width `1/10`. On a cell of centre `c` and half-width `r`
   the integrand is expanded as a truncated Taylor series in `t = a - c` to order `K = 12` by Taylor-model arithmetic
   (sum, product, scalar, integer power, `exp`, `sqrt` on truncated series with interval coefficients). The expansion at
@@ -59,22 +60,27 @@ Also certified, as a by-product: `pi`, `log 2`, `erf(1/2)` and `D` to more than 
   (`gamma^15 a^2/24`, `gamma^9 (1 + 12 A^2)`, `gamma^11`, `A gamma^10` are all below it for `a >= 1`, `k >= 1/2`), and
   `int_T^inf a^(2j) e^(-a^2/4) da <= (2/T) 4^j j! e^(-T^2/4) sum_(i <= j) (T^2/4)^i / i!`. The bound is `3.5e-18`,
   `1.9e-21`, `1.9e-23` at `k = 1/2, 1, 2` and is added (for `T_2`, whose integrand is negative, subtracted) before doubling.
-- **Rules (all nine must hold; `passed` is `false` and the exit code `1` otherwise).**
+- **Rules (all ten must hold; `passed` is `false` and the exit code `1` otherwise).**
   `FLOAT_INSIDE` an independent 96-point Gauss-Legendre value on `[0, 14]` lies within `1e-11` relative of every raw
-  enclosure; `NESTING` a coarser enclosure (a quarter of the cells, order `K - 4`) contains the fine one;
+  enclosure (the control is printed only to 10 significant digits, `float_reference_10sig`, so that the pinned output
+  does not depend on the interpreter's floating-point library); `NESTING` a coarser enclosure (a quarter of the cells,
+  order `K - 4`) contains the fine one;
   `TRUNCATION_NESTING` the enclosure obtained by truncating at `T/2` (its own tail bound added) intersects the one at
   `T`; `WIDTHS` every raw width is below `1e-11` relative; `PINNED` the printed leading digits of `J_hat(k)`,
   `C_*(k, 0)`, `D`, `log 2`, `pi` begin both ends of the enclosures; `MONOTONE_IN_K` `J_hat(1/2) > J_hat(1) > J_hat(2)`
-  as disjoint intervals; `CONSTANTS_RIGOROUS` `pi` is bracketed below `1e-40` and the pins hold; `TB_EXACT` and
-  `T2_IDENTITY` the two exact identities of section 3 hold as interval statements.
+  as disjoint intervals; `CONSTANTS_RIGOROUS` `pi`, `log 2`, `erf(1/2)`, `kappa`, `D` are bracketed below `1e-40` and
+  the pins hold; `TB_EXACT` and
+  `T2_IDENTITY` the two exact identities of section 3 hold as interval statements; `C_BOUNDS` the enclosure of `c(k)`
+  lies strictly inside the universal interval `(66451/11128, 199353/2782)` of section 3 at every `k`.
 - **Mutants (each must exit `1`, in both interpreter modes).** `gamma-power` (`gamma^10` in place of `gamma^11`),
   `cusp-shift` (drops the `a^6` term of `G_0`), `prefactor` (`p_b(0)/z_0` scaled by `385/384`), `pi-truncated`,
   `log2-truncated`, `tail-dropped` (no tail bound; caught only by `TRUNCATION_NESTING`), `tb-power` (`gamma^8` in the `T_b`
   integrand on both evaluation paths; caught only by `TB_EXACT`), `t2-weight` (the `a^4` weight of `D_a G_0` scaled by
-  `1001/1000` on both paths; caught only by `T2_IDENTITY`).
+  `1001/1000` on both paths; caught only by `T2_IDENTITY`), `t1t2-scale` (the `T_1` and `T_2` integrands both halved on
+  both paths, so `T_2 = -T_1/12` and the float control survive; caught only by `C_BOUNDS`).
 
 Runtime about `30 s` per run (standard library only, `python -B -S certify_tail_constants.py`); the workflow runs the
-script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the eight mutants
+script in both interpreter modes, compares the output byte for byte with `RESULTS.json`, and runs the nine mutants
 under each mode.
 
 ## 3. Three exact identities (elementary; not used in `NOTE.md` at `48407d4`, which evaluates `T_1`, `T_2`, `T_b` separately)
@@ -108,9 +114,23 @@ of `-T_1/12` intersect at every `k`, at widths of `1e-16` to `1e-21`), and
 with `11 (U_2 - B/78)/(2I) = 66451/11128 = 5.97151...`. `RESULTS.json` prints both evaluations (`c_reduced`,
 `B_sign_reduced`) beside the assembled ones; they agree to the last digit.
 
-**Consequence.** Writing `I_p(k) = int gamma^p G_0 da`, the whole table depends on two transcendental numbers per `k`,
-`J_hat = I_11` and `T_1 = 12 I_11 - 11 I_9`; the family obeys `(1 + p) I_p - p I_(p-2) = 72 k^2 (I_(p+6) - I_(p+4))`
-(from `int (a gamma^p G_0)' da = 0`), which does not relate `I_11` to `I_9` without lower members. Asymptotic remark
+**Consequence 1 (two transcendental numbers per `k`).** Writing `I_p(k) = int gamma^p G_0 da`, the whole table depends
+on `J_hat = I_11` and `T_1 = 12 I_11 - 11 I_9`; the family obeys `(1 + p) I_p - p I_(p-2) = 72 k^2 (I_(p+6) - I_(p+4))`
+(from `int (a gamma^p G_0)' da = 0`), which does not relate `I_11` to `I_9` without lower members.
+
+**Consequence 2 (universal bounds on `c`, sharpening [Q]'s corollary).** Since `gamma > 1` off `a = 0` and `G_0 > 0`,
+`0 < I_9 < I_11`, so `T_1/J_hat = 12 - 11 I_9/I_11` lies strictly in `(1, 12)` for every `k > 0`, and
+
+    66451/11128 = 5.97151... < c(k) = C_2/C_* < 12 . 66451/11128 = 199353/2782 = 71.658...
+
+at the scope of [Q] (13) (aligned planar cusp density of the parent kernel). Both ends are sharp as limits: with
+`lambda = 12 k^2` and `I_p = 12k int (1 + A^2)^(p/2) exp(-lambda((1 + A^2)^3 - 1)) dA`, the mass sits at `A -> 0` when
+`k -> inf` (`I_9/I_11 -> 1`, `c -> 66451/11128`) and at `A ~ lambda^(-1/6) -> inf` when `k -> 0` (`I_9/I_11 -> 0`,
+`c -> 199353/2782`). The lower bound improves the author-side corollary `c > 4587/856 = 5.3586...` of [Q]
+(Math-#176 comment 5903080058, quoted in Math-#178), which drops the `(2B/13) T_2` term instead of evaluating it; the
+certified values `9.78`, `6.90`, `6.20` at `k = 1/2, 1, 2` sit inside, and `C_BOUNDS` checks the strict containment.
+Nothing analogous sharpens `0 < B_sign < 4587821/876544`: `T_b/J_hat = int |A| gamma^10 G_0 / int gamma^11 G_0 < 1`
+is [Q]'s bound and tends to `1` as `k -> 0` and to `0` as `k -> inf`. Asymptotic remark
 (not certified, not used): expanding `G_0` and `gamma^11` in `s = 1/(144 k^2)` gives `J_hat(k) = 2 sqrt(pi) (1 + 1/(18 k^2) + O(k^-4))`;
 at `k = 2` this reads `3.5941` against the certified `3.59442`, at `k = 1` `3.7418` against `3.74614`.
 
@@ -180,7 +200,10 @@ quadrature, different arithmetic) and does not consume its numbers except in thi
 the default), `RESULTS.json` (the script's stdout, byte-identical in `-B -S` and `-B -O -S`), `SOURCE_FILES.json`
 (manifest, the three `main` pins with blobs, the Math-#178 companion at head `48407d4`), workflow
 `.github/workflows/c6-tail-constant-certified.yml` (manifest and pin verification, both modes against `RESULTS.json`,
-the eight mutants under each mode in parallel, clean tree).
+the nine mutants under each mode in parallel, clean tree; triggered by changes to the packet, the workflow or any of the
+three pinned sources). The workflow pins CPython 3.11.16; the pinned output is byte-identical under other CPython 3.x
+versions as well, since the only floating-point quantity it prints is rounded to 10 significant digits (everything else
+is `decimal`/`fractions` arithmetic).
 
     python -B -S reviews/c6_tail_constant_certified_20260930/certify_tail_constants.py | diff - reviews/c6_tail_constant_certified_20260930/RESULTS.json
     python -B -S reviews/c6_tail_constant_certified_20260930/certify_tail_constants.py --mutant tail-dropped; echo $?   # 1

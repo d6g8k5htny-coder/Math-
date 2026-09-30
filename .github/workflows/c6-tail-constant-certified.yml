@@ -6,6 +6,8 @@ name: C6 tail constants certified enclosure
       - 'reviews/c6_tail_constant_certified_20260930/**'
       - '.github/workflows/c6-tail-constant-certified.yml'
       - 'frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md'
+      - 'frontiers/extreme_cluster_sampling_20260930/PROOF.md'
+      - 'frontiers/radial_rate_20260930/PROOF.md'
   workflow_dispatch:
 
 permissions:
@@ -56,7 +58,7 @@ jobs:
                   raise ValueError('pinned source drifted: ' + pin['path'] + ' ' + blob)
           script = str(root / 'certify_tail_constants.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['gamma-power', 'cusp-shift', 'prefactor', 'pi-truncated', 'log2-truncated', 'tail-dropped', 'tb-power', 't2-weight']
+          mutants = ['gamma-power', 'cusp-shift', 'prefactor', 'pi-truncated', 'log2-truncated', 'tail-dropped', 'tb-power', 't2-weight', 't1t2-scale']
           def mutant_rc(args):
               flags, m = args
               return m, flags, subprocess.run([sys.executable, *flags, script, '--mutant', m],
@@ -67,7 +69,7 @@ jobs:
               if out != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
               doc = json.loads(out)
-              if not (doc['passed'] and len(doc['checks']) == 9 and all(doc['checks'].values())):
+              if not (doc['passed'] and len(doc['checks']) == 10 and all(doc['checks'].values())):
                   raise RuntimeError('certification did not pass under ' + ' '.join(flags))
               with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
                   for m, fl, rc in pool.map(mutant_rc, [(flags, m) for m in mutants]):
