@@ -1,0 +1,78 @@
+{
+  "author": "Anthropic Claude",
+  "delivered_under": "owner instruction in claude.ai session 2026-09-30 (close open mathematical items; support other lanes); OWNER_STOP left in place, no self-merge, scientific effect NONE",
+  "files": [
+    {
+      "bytes": 19502,
+      "path": "REVIEW.md",
+      "sha256": "50dfbf4666f5726d7602dda47b5e72f12f3d06385bb1f74e62e10594fec23bd9"
+    },
+    {
+      "bytes": 20351,
+      "path": "remainder_review_check.py",
+      "sha256": "d8b88b93731728895952345e9e4fad0f4cda48207d1d8754a1bbb40ca0f036f8"
+    },
+    {
+      "bytes": 1767,
+      "path": "RESULTS.json",
+      "sha256": "4a3008f5f7cc43a6cf9a21e23f932fa849353b48352606e08b2b7f7a262e002c"
+    }
+  ],
+  "mathematical_acceptance_by_this_record": "scoped ACCEPT R1-R6, nonauthor lane (second provider after xAI/Grok), existential O(1) scope only",
+  "mutants": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6"
+  ],
+  "object": "CL-D2-REMAINDER-FULLDEPTH-20260930-v1",
+  "read_at_head": "f430fdecbb1d8802d8af40419b701f12af87c039",
+  "referee_pass": "clean-context Anthropic Claude subagent (same provider, same account; not a nonauthor review): no blocking finding; one false remark (contact error is O(r^2), not O(r)), one missing disclosure (#150 overlap), and script coverage claims corrected before landing",
+  "reviewed_sources": [
+    {
+      "blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+      "bytes": 17734,
+      "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+      "role": "reviewed object (D2, Theorem R)",
+      "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a"
+    },
+    {
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "role": "parent (P)",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+    },
+    {
+      "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "bytes": 1782,
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "role": "reading rule E1",
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+    },
+    {
+      "blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "bytes": 9062,
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "role": "reading rule E2 (section 9 replacement)",
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+    },
+    {
+      "blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "bytes": 23312,
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "role": "reading rule W1, embedding radius, consumption contract",
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da"
+    },
+    {
+      "blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "bytes": 15160,
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "role": "cap theorem (deterministic part)",
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+    }
+  ],
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU"
+}
