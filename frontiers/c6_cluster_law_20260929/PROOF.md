@@ -636,11 +636,15 @@ of [DL] §5.2, `V = ( f(ra), r grad f(ra), f(rb), r grad f(rb), f(rc), r grad f(
 `c = X/r`. Taylor's formula through total degree five gives `V = B_c D_r J_5 + R_V` with `||R_V||_(L^2) <= C r^6`, where
 `B_c` has a uniform row singular-value floor on the collar ([DL] §5.1, Lemma) and `D_r = diag(r^|alpha|) >= r^5 I`; with
 `Cov(J_5) >= c I` this gives `Cov(V) >= c r^10 I` for small `r` (the remainder is absorbed exactly as in [DL] (5.1)). In
-the pin ball let `V = (U_r, Y)`: the contact frame `U_r` of [LP] §3 is `T_U J_5 + R_U` with `||R_U||_(L^2) <= C r` and
-`Cov(U_r) >= c I`, and `Y` is the normalized gradient frame of [DL] (4.2), `Y = dvec + B J + R` with `||R||_(L^2) <= C r`
-and `Cov_(Q_r)(Y) >= c_0 I` ([DL] (4.5)); the joint floor `lambda_min Cov(V) >= c` follows from the two floors and the
-bounded entries (for jointly Gaussian `(U, Y)`, `Var(a . U + b . Y) >= Var(b . Y | U)` and
-`Var(a . U + b . Y) >= (std(a . U) - std(b . Y))^2`). In both cases
+the pin ball let `V = (U_r, Y^perp)`, where `U_r` is the contact frame of [LP] §3, `U_r = T_U J_5 + R_U` with
+`||R_U||_(L^2) <= C r` and `Cov(U_r) >= c I`, and `Y^perp := Y - E[Y | U_r]` is the affine prior-regression residual of
+the normalized gradient frame `Y` of [DL] (4.2). `Y^perp` is independent of `U_r`, `Cov(Y^perp) = Cov_(Q_r)(Y) >= c_0 I`
+([DL] (4.5)), so `Cov(V)` is block diagonal with `lambda_min Cov(V) >= min(c, c_0)` (the floors of `U_r` and of `Y`
+given `U_r` are not combined through a raw joint covariance, which could be small along a direction mixing the two
+blocks). Residualizing [DL] (4.2), `Y^perp = B (J - E[J | U_r]) + R^perp` with `||R^perp||_(L^2) <= C r`; the midpoint
+jets `J` are linear images of `J_5` and the regression coefficient `Cov(J, U_r) Cov(U_r)^(-1)` is bounded, so with
+`U_r = T_U J_5 + R_U` both blocks of `V` are `T_V J_5 + O_(L^2)(r)`. The σ-algebra of `(U_r, Y^perp)` is that of
+`(U_r, grad f(X))`. In both cases
 
     V = T_V J_5 + R_V,     ||Cov(V)^(-1/2)|| ||R_V||_(L^2) <= eta_r := C r,                                          (5.3c)
 
@@ -662,15 +666,14 @@ for `G` contained in `F`), so `Cov_(Q_X)(Y_x) = Cov(Y_x | U_r, grad f(X)) >= Cov
 (5.3a); no witness value is pinned in the kernel `Q_X`, it is only used inside the whitened vector.
 
 Consequences. By (5.3a) the conditional density of `Y_x` at `(0, t)` under `Q_X` is at most `C(rho)`. For the
-conditional mean of `H_x` use the frame of `Q_X` itself, `V' = (U_r, Lambda)` with `Lambda` the regime frame of [C6]
-Lemma 4.1 (an invertible image of `grad f(X)` given `U_r`): `E[H_x | V', Y_x]` is `E H_x` plus a linear function, with
-coefficients bounded by `M'^(1/2)` (bounded cross-covariances against the whitened vector), of the whitened target
-`Cov(V')^(-1/2)(tau' - E V')` and of `Y_x - E Y_x`. The joint floor of `V'` is at least a constant times
-`min(1, lambda_min Cov_(Q_r)(Lambda))` (same inequalities as in (ii)), the target of `U_r` is bounded, and
-`||Cov_(Q_r)(Lambda)^(-1)||` and `|tau - E Lambda|` are what `beta_X` bounds, so the whitened target has norm at most
-`C (1 + beta_X)^(3/2)`; the conditional covariance of `H_x` is bounded. Hence `E[ F_j(H_x) | Y_x = (0, t), V ] <= C E[(1 + |H_x|)^d | ...] <=
-C (1 + beta_X)^(3d/2) (1 + |t|)^d`. Apply the Kac–Rice formula of [RM] (12) under `Q_X` to `D_rho` and the window of
-length `k r^3`, on which `|t|` is bounded: (5.3) follows, with the exponent `2d >= 3d/2`. ∎
+conditional mean of `H_x` condition transitively under `Q_r`. First condition on the regime frame `Lambda = tau` of [C6]
+Lemma 4.1 (an invertible image of `grad f(X)` given `U_r`): that lemma bounds the conditional means of `H_x` and of
+`Y_x` by `C (1 + beta_X)` and their conditional covariances by their prior bounds. Then fix `Y_x = (0, t)`: the
+conditional mean of `H_x` becomes `E[H_x | Lambda] + Cov(H_x, Y_x | Lambda) Cov(Y_x | Lambda)^(-1) ((0, t) - E[Y_x | Lambda])`,
+and `Cov(Y_x | Lambda) = Cov_(Q_X)(Y_x) >= (gamma_rho/4) I` by (5.3a), so `|E[H_x | Lambda, Y_x = (0, t)]| <= C_rho (1 + beta_X + |t|)`;
+the conditional covariance of `H_x` is bounded. No joint floor of `(U_r, Lambda)` is asserted. Hence `E[ F_j(H_x) | Lambda, Y_x = (0, t) ] <= C E[(1 + |H_x|)^d | ...] <= C_rho (1 + beta_X)^d (1 + |t|)^d`.
+Apply the Kac–Rice formula of [RM] (12) under `Q_X` to `D_rho` and the window of length `k r^3`, on which `|t|` is
+bounded: (5.3) follows, with the exponent `2d >= d` (the weaker displayed exponent is kept). ∎
 
 **Lemma 5.2 (no near–far cross term).** For `A >= 4` and `rho <= s_0`,
 
