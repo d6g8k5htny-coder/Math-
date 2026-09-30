@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "object": "OA-GP-DATA-114-EMBEDDED-CUSTODY-20260930-v1",
+  "scientific_effect": "NONE",
+  "verification_context_date": "2026-09-30",
+  "verification_scope": "New standard-library custody decoder, whole-packet verifier and tests; exact public wrapper and original payload identities only",
+  "archive_execution": {
+    "source_executed": false,
+    "source_imported": false,
+    "saved_receipt_is_fresh_execution": false,
+    "dependencies_installed": false,
+    "mathematical_verdict_supplied": false
+  },
+  "observed_runs": [
+    {
+      "stage": "connector response interpretation",
+      "outcome": "JSON parsing the Git-blob connector response failed because the connector returned decoded UTF-8 wrapper text, not raw Git REST JSON. No files had been written. The decoder pins the recovered complete original UTF-8 bytes before interpretation.",
+      "payload_stream_failure": false
+    },
+    {
+      "stage": "initial test-first placeholder",
+      "tests_run": 15,
+      "failures": 14,
+      "errors": 1,
+      "exit_code": 1,
+      "outcome": "Expected missing-gate failures plus one symlink test setup error: the placeholder returned no payloads, so the setup tried to unlink a nonexistent receipt."
+    },
+    {
+      "stage": "corrected test-first placeholder",
+      "tests_run": 15,
+      "failures": 15,
+      "errors": 0,
+      "exit_code": 1,
+      "outcome": "An explicit assertion on the missing receipt converted the setup error into an intended feature-missing assertion failure before decoder implementation."
+    },
+    {
+      "stage": "new decoder baseline and failure controls",
+      "mode": "python -B -S",
+      "tests_run": 15,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0
+    },
+    {
+      "stage": "new decoder baseline and failure controls",
+      "mode": "python -B -O -S",
+      "tests_run": 15,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0
+    },
+    {
+      "stage": "new decoder original-file verification",
+      "mode": "python -B -S",
+      "exit_code": 0,
+      "stderr": "",
+      "complete_single_gzip_member_per_payload": true
+    },
+    {
+      "stage": "new decoder original-file verification",
+      "mode": "python -B -O -S",
+      "exit_code": 0,
+      "stderr": "",
+      "complete_single_gzip_member_per_payload": true
+    },
+    {
+      "stage": "initial packet manifest generation",
+      "exit_code": 1,
+      "outcome": "Final readback rejected a generated manifest with a literal backslash-n terminator; its generator also used literal backslash-zero instead of the NUL byte in Git framing. Both transient metadata defects were corrected with explicit byte/newline construction. Original payload bytes were unchanged. The final verifier checks known payload Git identities and every manifest identity."
+    },
+    {
+      "stage": "actual PR review of initial workflow",
+      "outcome": "Two valid P2 findings: an undeclared file escaped the manifest loop; falsified SOURCES.payload metadata escaped after its manifest entry was re-signed. Original archived bytes were unaffected.",
+      "review_comments": [
+        4139634150,
+        4139634156
+      ]
+    },
+    {
+      "stage": "whole-packet verifier test-first legacy reproduction",
+      "tests_run": 2,
+      "failures": 2,
+      "errors": 0,
+      "exit_code": 1,
+      "outcome": "Both targeted rejection assertions failed with ValueError not raised before replacing the legacy checker."
+    },
+    {
+      "stage": "successor whole-packet verifier controls",
+      "mode": "python -B -S",
+      "tests_run": 12,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0
+    },
+    {
+      "stage": "successor whole-packet verifier controls",
+      "mode": "python -B -O -S",
+      "tests_run": 12,
+      "failures": 0,
+      "errors": 0,
+      "exit_code": 0
+    }
+  ],
+  "paired_output": {
+    "test_json_stdout_identical": true,
+    "original_file_verification_stdout_identical": true,
+    "unittest_timing_and_stderr_are_not_byte_identity_claims": true,
+    "whole_packet_test_json_stdout_identical": true
+  },
+  "failure_controls": [
+    "incomplete gzip with rebound compressed identity",
+    "trailing byte with rebound compressed identity",
+    "concatenated member with rebound compressed identity",
+    "CRC corruption with rebound compressed identity",
+    "wrong inflated size",
+    "wrong inflated SHA256",
+    "unsafe output filename",
+    "altered complete wrapper identity",
+    "duplicate base64 begin marker after rebinding wrapper fixture",
+    "wrong declared gzip size after rebinding wrapper fixture",
+    "invalid base64 after rebinding wrapper fixture",
+    "changed existing receipt bytes",
+    "existing receipt symlink",
+    "undeclared packet file",
+    "duplicate manifest path",
+    "missing declared file",
+    "unsafe manifest path",
+    "packet directory or file symlink",
+    "nonfile directory entry",
+    "false SOURCES payload identity after manifest re-signing",
+    "jointly re-signed changed archived bytes, SOURCES and manifest",
+    "changed packet data or identity fields",
+    "duplicate or missing SOURCES payloads",
+    "CLI rejection exit one in normal and optimized modes"
+  ],
+  "baseline_controls": [
+    "complete single fixture gzip decodes to exact inert bytes",
+    "exact pinned public wrapper decodes to original basename pair"
+  ],
+  "source_identity": "SOURCES.json",
+  "earlier_private_derived_recovery_coverage": "UNKNOWN: not inspected",
+  "no_claims": [
+    "full repository or historical-verifier replay",
+    "new mathematical acceptance",
+    "globally new recovery",
+    "live integration readiness",
+    "nonauthor custody review completed"
+  ]
+}
