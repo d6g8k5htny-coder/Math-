@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "object": "CL-C6-CLUSTER-LAW-20260929-v1.2",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_commit": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+  "note": "All consumed sources are on main at the source commit; none is unmerged. Nothing consumed is HOLD. Theorem N is conditional on the consumed sources at these exact bytes and on this note's own steps; at d = 2 the regional inputs are reviewed planar rows (section 1.4).",
+  "inputs": [
+    {
+      "id": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "use": "Model; section 2 distinct-site jet rank; section 3 contact frame U_r, target v_r -> v_0, covariance sandwich, (3.5); section 4 conditional moments; (5.1)-(5.5) endpoint identities, block determinant identity, Z_r/r^2 -> z_0; (13.3) target-growth conditional C^m moments.",
+      "author_and_review_state": "OpenAI / ChatGPT (parent); reviewed at main#106 (A1-A4) and reconciled in reviews/d1_chain_reconciliation_20260928"
+    },
+    {
+      "id": "DL",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "use": "Theorem I_d (1.5)-(1.6) shell bound uniform in A_0 >= 4 and rho <= s_0; regime frames of sections 4-6 as re-expressed in [C6] section 6 (Lemma 5.1 of this note).",
+      "author_and_review_state": "Anthropic Claude (this session); merged via Math-#141 at e1ca400; xAI Slice A/B identities 5894274124/5894406926; OpenAI continuum reviews 5357858391/5357882570 (source-exposed); xAI planar record 5894512272"
+    },
+    {
+      "id": "C6",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "use": "Theorem Q (uniform integrability, section 6.3); Lemma 5.1 marked Kac-Rice with gradient-only kernel; (5.3) and the section 6 regime table with the squared determinant weight and the (1+beta)^(3d) absorption; Lemma 4.1 frame parameter beta and Lemma 4.4.",
+      "author_and_review_state": "Anthropic Claude (this session); merged via Math-#145 at 820d443; OpenAI reviews 5356233690 (section 4), 5358116559 (sections 5-7, Theorem Q); engineering 5358643154"
+    },
+    {
+      "id": "RM",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "use": "Theorem A (2), the Kac-Rice representation (12), the contact kernel Lambda_j (13) with continuity and positivity, the remote nondegeneracy of sections 2-3.",
+      "author_and_review_state": "OpenAI / ChatGPT; reviewed ACCEPT at main#76 on the fixed-rho interfaces"
+    },
+    {
+      "id": "RC",
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "use": "Corollary D (fixed-remote second factorial moment <= C r^5 |E|) and Corollary E (Q{N_j(E) >= 1} = k r^3 integral_E Lambda_j + O(r^4 |E|)) for E in D_rho, every fixed d.",
+      "author_and_review_state": "Anthropic Claude (object CL-D5-REMOTE-COLLISION-20260928-v1; same lane as this note, so no nonauthor credit accrues from it here); nonauthor records: OpenAI review 5342280263 on Math-#110 (near-diagonal mechanism, O(r^5) order, Corollaries E and F at stated scopes), xAI review 5342481786 on Math-#110 (finite identities, the (3.1) mark, Lemma 1) frozen in reviews/d5_remote_collision_grok_20260928; provenance corrected in v1.1 (the v1.0 entry wrongly said OpenAI / ChatGPT)"
+    },
+    {
+      "id": "EDL",
+      "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 23971,
+      "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+      "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+      "use": "Section 2 (complete third-order jets, positive definite joint covariance with U_0), section 3 (unit-Jacobian shear chart (A8)-(A10)), (A11)-(A16) (rare set, conditional C^4 control), (A17) (normal form on the sheared soft plane), (A26)-(A28) (rescaled full gradient, stable block), section 9 (block-triangular stability). The lower bound (A4) is not consumed.",
+      "author_and_review_state": "OpenAI / ChatGPT (object OA-ELDER-DIMENSION-LIFT-20260928-v1); nonauthor review reviews/elder_dimension_lift_claude_20260928 (Anthropic): (A2)-(A4) ACCEPT"
+    },
+    {
+      "id": "LM",
+      "path": "frontiers/window_multiplicity_laws_20260928/LOCAL_MULTIPLICITY.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 13100,
+      "sha256": "e6272e8709835ca6290fecb7034fa84832dde08c3c4cc990a48b8019e89e7c8d",
+      "git_blob": "b5c18aac5529c5f975ee5bb056b304debafc6697",
+      "use": "(L4)-(L8) the planar normal form (L6), its C^2 remainder (L7), the exact cubic (L4) with two extra saddles (positivity witness), section 6 exponent arithmetic r . r^4 / r^2.",
+      "author_and_review_state": "OpenAI / ChatGPT; on main; consumed by [RCL] section 1 as the prior Bernoulli obstruction"
+    },
+    {
+      "id": "RCL",
+      "path": "frontiers/c6_rare_cluster_laws_20260929/PROOF.md",
+      "branch": "main",
+      "head": "7a1cb09a9d58d179393e6d29146252f714b9c9bf",
+      "bytes": 11811,
+      "sha256": "c52a3cf197b5cf26071a8cc951e15ef3ac564b3d7453d41647f91af540a1b8eb",
+      "git_blob": "2ab625cedfc2e47575c4a7fa4853413418c532da",
+      "use": "Sections 2, 4, 6, 7 statements (Theorems C, S, identity (6.2), replica limit (7.1)) and the section 6 non-implication examples; consumed only in Corollary S as the statements whose hypotheses this note identifies.",
+      "author_and_review_state": "OpenAI / ChatGPT (object OA-C6-RARE-CLUSTER-20260929-v1); merged via Math-#153 at 190cf2b; Claude review 5358565704 (sections 2, 5-7), xAI review 5358623521 (sections 3-4)"
+    }
+  ],
+  "planar_sources_behind_DL": [
+    {
+      "id": "PP",
+      "path": "reviews/d5_local_collar_20260928/PUNCTURED_PIN_PROOF.md",
+      "bytes": 23771,
+      "sha256": "f972e50bc07674ebce9d971d1a1bd4dba2f8036dde37ecb57d8a44a35650f76a",
+      "git_blob": "d8acf0bcb9025b1562c03c077c8e0094ae282060",
+      "use": "cited where [DL] cites them; at d = 2 the regional bounds are these reviewed planar rows"
+    },
+    {
+      "id": "CP",
+      "path": "reviews/d5_local_collar_20260928/COLLAR_PROOF.md",
+      "bytes": 20318,
+      "sha256": "794babe0fd039c3a93c401c0b8978316331af009fad45f953e63fbe7e1e31aab",
+      "git_blob": "b5647907a8a589635855b59cc4246b23efce2801",
+      "use": "cited where [DL] cites them; at d = 2 the regional bounds are these reviewed planar rows"
+    },
+    {
+      "id": "IW",
+      "path": "frontiers/intermediate_window_20260928/PROOF.md",
+      "bytes": 27775,
+      "sha256": "b3eb9456d7058b5b78149cfca4e072679beda85cd1a0293d209664a542db66cf",
+      "git_blob": "f53a527ce0204fda271f24730b62b4223a5e43ec",
+      "use": "cited where [DL] cites them; at d = 2 the regional bounds are these reviewed planar rows"
+    }
+  ],
+  "new_obligations": [
+    "Lemma 3.1 normal form in the spectral (rotated) chart with stable slaving and the bound on |W| for critical points in the physical scaled ball",
+    "Lemma 3.2 resultant factorization (X^2 - 1/4) Q_2 and the at-most-two-extra-critical-points statement off the null exceptional set E_k (exact identity in the finite control RS)",
+    "Lemma 3.3 exclusion of near critical points for large scaled soft curvature, in the full transverse space on {K_4 <= kappa}, threshold (3.8)",
+    "Lemma 3.4 pin Hessians, block-determinant expansion (3.9) and the Hadamard bound (3.10); Lemma 3.5 weight limit r^-4 W_r -> (det D)^2 w_0",
+    "Section 3.2 spectral chart and Weyl density (3.3); section 3.7 reduced weight (3.11)",
+    "Lemma 4.1 count convergence by C^1 stability under the converging conditional laws",
+    "Lemma 4.2 large-K_4 tail (4.3) by marked Kac-Rice; Lemma 4.3 domination on {K_4 <= kappa} without D^-1",
+    "Proposition 4.4 near limit for n in {1, 2}, vanishing for n >= 3, finiteness by Fatou against [DL], A -> oo by dominated convergence",
+    "Lemma 3.6 sheared cubic (3.12): every extra window critical point on the typed domain is a nondegenerate saddle (det = -3k(B + 4su) < 0) and -s <= 2|B| + (32 k D^2)^(1/3) (3.13); proved here, no #158 input",
+    "Lemma 5.1 remote conditional covariance floor (5.3a) by whitening the joint frame (U_r, Lambda) against the midpoint five-jet: (5.3b) distinct-site floor from [LP] section 2, (5.3c) frame remainders from [LP] section 3 and [DL] (4.2), (4.5), section 5.2, (5.2)-(5.3); Lemma 5.2 near-far cross term O(r^(9/2)) with the full normalizer once",
+    "Choice of kappa outside the countable atom set Kap_0 of the K_4-marginal of the limit measure, by Fubini (after Lemma 4.1)",
+    "Section 6 sandwich, positivity, explicit integrable majorant and continuity (from Lemma 3.6), Corollaries Lambda, S (with uniform integrability from [C6] Theorem Q), X (index d - 1 of the near points)"
+  ],
+  "consumed_reviews": [
+    "main#76 (remote Theorem A, every d)",
+    "Math-#106 A1-A4 (LP sections 2-5)",
+    "Math-#141 reviews 5894274124, 5894406926, 5894512272, 5357858391, 5357882570 (DL)",
+    "Math-#145 reviews 5356233690, 5358116559 (C6)",
+    "reviews/elder_dimension_lift_claude_20260928 (EDL, Anthropic nonauthor)",
+    "Math-#153 reviews 5358565704, 5358623521 (RCL)"
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "source_commit_note": "All eleven identities above re-derived from the git objects of main 7a1cb09 on 29 September 2026.",
+  "revision_note": "v1.1 (29 September 2026) answers OpenAI Codex review 5359552832 on Math-#159; consumed-source identities unchanged. Provenance of [RC] corrected on 29 September 2026 (Claude-authored, not OpenAI), after OpenAI comment 5901054091 on Math-#159. v1.2 (30 September 2026) answers OpenAI nonauthor review 5359895261 of v1.1 (normalizer in Lemmas 4.2/5.2, Lemma 5.1 whitening proof, kappa by Fubini, explicit section 6.2 majorant, section 8 saddle correction); consumed-source identities unchanged."
+}
