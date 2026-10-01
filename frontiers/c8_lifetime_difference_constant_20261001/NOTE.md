@@ -92,11 +92,11 @@ Theorem B for pairs at distance at most `r_pop`, in the versions (11.2). For `0 
 
   | `R` | `c'_up/c`, `d = 2` | `c'_dn/c`, `d = 2` | `c'_up/c`, `d = 3` | `c'_dn/c`, `d = 3` |
   |---|---|---|---|---|
-  | `1/4096` | `6.2826` | `4.4646` | `23.153` | `22.427` |
-  | `1/512` | `6.3220` | `4.5055` | `27.377` | `26.662` |
-  | `1/64` | `6.6431` | `4.8363` | `67.060` | `66.397` |
+  | `1/4096` | `6.2826` | `4.4646` | `23.154` | `22.428` |
+  | `1/512` | `6.3221` | `4.5056` | `27.378` | `26.662` |
+  | `1/64` | `6.6431` | `4.8364` | `67.061` | `66.397` |
 
-  (All seven `R` are in `RESULTS.json`.)
+  (Rounded up. All seven `R` are in `RESULTS.json`.)
 - `eps'_2 <= 1.2 x 10^-13` and `eps'_3 <= 2.5 x 10^-12`, absolute.
 
 Hence, with explicit constants, both compact-window densities have the second-order form
