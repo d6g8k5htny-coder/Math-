@@ -19,7 +19,24 @@ import verify_sources as V  # noqa: E402
 
 class Sources(unittest.TestCase):
     def test_seven_sources(self):
-        self.assertEqual(V.verify(), 7)
+        n, cited = V.verify()
+        self.assertEqual(n, 7)
+        self.assertEqual(set(cited), {'C52-FOLD', 'C52-PROOF'})
+
+    def test_historical_rejections(self):
+        import json
+        man = json.loads((V.HERE / 'SOURCES.json').read_text())
+        good = dict(man['current_required'][0])
+        V.historical(good)
+        other = man['current_required'][1]
+        for bad in (dict(good, blob=other['blob']),                      # wrong blob at that commit/path
+                    dict(good, path=other['path']),                      # another path at that commit
+                    dict(good, commit='0' * 40),                         # absent commit
+                    dict(good, sha256='0' * 64),                         # wrong recorded digest
+                    dict(good, bytes=good['bytes'] + 1),                 # wrong recorded size
+                    dict(good, path='../' + good['path'])):              # noncanonical path
+            with self.assertRaises(ValueError):
+                V.historical(bad)
 
 
 class PinTransform(unittest.TestCase):

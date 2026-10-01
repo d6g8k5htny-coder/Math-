@@ -95,8 +95,9 @@ These are `2d + 2` scalar observations. `Q_r` is the whole-field Gaussian regres
 1. `F_r -> F_0` almost surely in `C^4(T_L^d)`.
 2. Let `A = D_y^2 F_0(0)`. Almost surely on `{A < 0}` (negative definite), for all small `r`, the only critical
    points of `F_r` in one fixed neighbourhood of `0` are `M_r` and `S_r`.
-3. Every other critical point continues a nondegenerate critical point of `F_0`. Their limiting values are pairwise
-   distinct and differ from `b`.
+3. Almost surely on `{A < 0}`, for all small `r`, every other critical point of `F_r` continues a nondegenerate
+   critical point of `F_0`, and their limiting values are pairwise distinct and differ from `b`. Off `{A < 0}` no
+   local exhaustion is claimed: there §2.5 shows only that the typed weight vanishes eventually.
 4. For each fixed `y` in `(0, 1]`, put `tau(r) = k r^3/y`. Almost surely on `{A < 0}`, `K_(tau(r))(F_r) <= 1`
    eventually.
 5. On the whole coupling space,
@@ -278,8 +279,8 @@ A degenerate critical point `x` would give a zero of `Z_M` at a unit kernel vect
 
 ### 2.4 Global root exhaustion and value separation
 
-This step is dimension-free; it is C52 §6 verbatim in `T_L^d`. Take a closed box `V` inside `Q_delta` with `0` in its
-interior.
+This step is dimension-free; it is C52 §6 verbatim in `T_L^d`. It uses §2.2, so it holds on `{A < 0}`, which is fixed
+throughout this subsection. Take a closed box `V` inside `Q_delta` with `0` in its interior.
 - Outside `int V`, `F_0` has finitely many critical points `p_1, ..., p_n`, all nondegenerate. An accumulation point
   would be a degenerate critical point, contradicting (N10).
 - The contraction `q -> q - H_j^-1 grad F_r(q)` on small balls `B_j` gives exactly one nondegenerate continued root
@@ -418,7 +419,9 @@ Unbounded mark moments do not converge without a separate uniform-integrability 
 
 These cover `d = 2..6`. `test_check.py` adds unit tests and 17 implementation mutants. Each mutant must fail in both
 `-B -S` and `-B -O -S`. `verify_sources.py` authenticates the seven `current_required` sources by bytes, SHA256 and Git
-blob.
+blob. It checks both the working-tree copy and the historical `commit:path -> blob` entry, via `git ls-tree`. The two
+`cited_unmerged` C52 entries are checked the same way when their commit is present locally, and otherwise reported as
+unavailable; they are not premises.
 
 The controls do not prove the continuum analysis, including:
 - genericity;
