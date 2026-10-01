@@ -30,8 +30,8 @@ Its fold expansion is `A~_r = A_0 + r^2 A_2 + O(r^3)` (§3). Put
     c2[K, u] = (1/3) |S^(d-1)| T(F^u_K),       c2[K] = (1/3) integral_(S^(d-1)) T(F^u_K) d sigma(u).
 
 `c2[K]` is the expression of Math-#218 (0.1). For `K = phi` it does not depend on `u` and equals the closed form of [C2X]
-§0. #218's Theorem T, which identifies this expression as a coefficient of the candidate density, is an unmerged
-author-side candidate for `d >= 2`. In `d = 1` the theorem below is a transfer of the explicitly defined fixed-cone
+§0. #218's Theorem T, which identifies this expression as a coefficient of the candidate density, is a candidate
+theorem for `d >= 2`. It was merged at `fb6ee97`, which is not a status promotion. In `d = 1` the theorem below is a transfer of the explicitly defined fixed-cone
 expression, not an extension of #218's density theorem (review 5383099127, item 3).
 
 **Theorem C2T.** For `d in {1, 2, 3}`, every `L0` in the table, every real `L >= L0` and every orthonormal frame,
@@ -96,7 +96,7 @@ torus-specific constants for every `L >= 10`, together with Lemma E. The two are
   `exact.py` and `pseries.py` are carried as byte-identical copies, and this packet's pipeline is a re-implementation over balls
   that `reference_checks` compares with them identically (§3).
 - **[SIDE24] (1)–(2) (main).** The normalized periodic kernel.
-- **[T] (Math-#218, unmerged) (0.1) and Lemma F.** The definition of `c2`, and its identification as the `ell^(1/3)`
+- **[T] (Math-#218, merged at `fb6ee97`) (0.1) and Lemma F.** The definition of `c2`, and its identification as the `ell^(1/3)`
   coefficient of the candidate density for `d >= 2` (an author-side candidate). Consumed, not reviewed.
 - **[CU] (Math-#219, unmerged).** The certified `c1/c` enclosure quoted in §0. Consumed, not accepted.
 - **[D] §2.2 (Math-#216, unmerged).** `A_r = A~_r + O(r^3)`; consumed, as in [C2X].
@@ -268,11 +268,11 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
 ## 8. What this does not do
 
 - **The definition and identification are consumed.**
-  - **Candidate density.** That `c2[K_L]` is its `ell^(1/3)` coefficient is [T]'s claim: Math-#218, an unmerged
-    author-side candidate for `d >= 2`.
+  - **Candidate density.** That `c2[K_L]` is its `ell^(1/3)` coefficient is [T]'s claim: Math-#218, a candidate theorem
+    for `d >= 2`, merged at `fb6ee97`.
   - **Elder density.** The identification is [E3]'s (Math-#220). That is an unmerged author-side candidate which consumes
-    #207 (merged at `566b1a1`, `PROOF.md` blob `f6df5a73`), the unmerged #218 and the merged #187. The complete chain is
-    #191/#198 (merged) → #207 (merged) → #218 → #220.
+    #207 (merged at `566b1a1`, `PROOF.md` blob `f6df5a73`), #218 (merged at `fb6ee97`, `PROOF.md` blob `70ca57ef`) and
+    the merged #187. The complete chain is #191/#198 (merged) → #207 (merged) → #218 (merged) → #220.
   - Neither identification is reviewed here, and the transfer of the fixed-cone expression does not depend on either
     (review 5383099127, item 2).
   - So is the typed replacement `A_r = A~_r + O(r^3)` ([D] §2.2) on the torus. Lemma E and Theorem C2T are statements
@@ -289,8 +289,9 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
   - [C2X] `frontiers/c2_exact_20261001/{exact.py, pseries.py, NOTE.md, RESULTS.json}` on `main` (since `f9ebba1`; unchanged at `7fe06b0`). `exact.py` and
     `pseries.py` are also carried byte-identically in this directory.
   - [SIDE24] `coefficients/side24_v1/PROOF.md`.
+  - [T] Math-#218 `frontiers/candidate_third_order_20261001/PROOF.md` (blob `70ca57ef`), on `main` since `fb6ee97` and
+    byte-identical to the consumed head `0cf048d`.
 - **Unmerged, recorded and not checked on this tree:**
-  - [T] Math-#218 `PROOF.md` (blob `70ca57ef`);
   - [D] Math-#216 `NOTE.md` (blob `aa078a9c`);
   - [CT] Math-#224 `PROOF.md`, for (T1) and as the `c1` analogue (cited);
   - [CU] Math-#219 at `7a04873`: `NOTE.md` (blob `7dccfa97`) and `RESULTS.json` (blob `8bbd0b0c`), consumed for `c1/c`;

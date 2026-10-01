@@ -7,6 +7,7 @@ name: c2 torus transfer (replay)
       - '.github/workflows/c2-torus-transfer.yml'
       - 'frontiers/c2_exact_20261001/**'
       - 'coefficients/side24_v1/PROOF.md'
+      - 'frontiers/candidate_third_order_20261001/PROOF.md'
   workflow_dispatch:
 
 permissions:
