@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "object": "CL-C8-TORUS-VANISHING-REMAINDER-20261001-v1",
+ "scientific_effect": "NONE",
+ "certified": true,
+ "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
+ "source_repository": "d6g8k5htny-coder/Math-",
+ "main_at_creation": "c2f1270d28192b3c06dd31f728ebf04d03d4246e",
+ "delivered_under": "explicit owner instructions of Dylan Roy in Claude Code session session_015wNj8LPTKXsaT68G3DgPPh, given after OWNER_STOP (2026-09-27): 2026-09-28 \"you have my full permisions and approval to make the proper changes and uploads\"; 2026-09-30 \"Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know. Ultra tokens, ultra depth @GitHub @Superpowers\" (repeated 2026-09-30 as \"Continue to Work on closing ...\"). Pull requests only, never merged by their author; no register, GRAPH, STATUS, lemma_closed, prize or premise edits. OWNER_STOP.md addresses Cursor agents and automations and is untouched.",
+ "note": "current_required sources ([LP]) are verified on the tree by the workflow; packet_copy sources ([B], [E], [E3]) are verified against the packet copies byte for byte; [B-NOTE] and [B-RESULTS] are read-only provenance pinned by identity",
+ "sources": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "id": "LP",
+   "commit": "c2f1270d28192b3c06dd31f728ebf04d03d4246e",
+   "current_required": true,
+   "on_main": true,
+   "role": "sections 1, 3, 8-12: the model, the preconditioned pins, the radial ledger A_r = 12 pi_r Z_r / r^2 (10.2) and its limit A_0 (10.3), the lifetime pushforward (11.1)-(11.3); section 11 records that A_r -> A_0 was not assigned a numerical rate. Consumed as statements, as in Math-#215"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/theorem_b.py",
+   "bytes": 52707,
+   "sha256": "b79df0880e9690f4ac5e35b2b717bb65c1cbf1a323585165e5745a17104d6f12",
+   "git_blob": "f0e788cb01d9f2a434cbfef1d248a5b98dbf0681",
+   "id": "B",
+   "commit": "d77cabf4fee5d36de2a85a810359c1c8812fc28c",
+   "pull_request": 215,
+   "packet_copy": "theorem_b.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "Math-#215 Theorem L certificate: the Taylor-model law (tm_law), the second-order term bounds of bounds_d2/bounds_d3 (reproduced in theorem_v.py with the new increments), the reference integrals (reference, b_cells, k_integral, K_const) and eps_0; carried byte for byte and used as a library"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/NOTE.md",
+   "bytes": 31488,
+   "sha256": "dfb4f7053354a9616239c833c6e7d05799a2e391c42e0ea6e90dde691a4db830",
+   "git_blob": "2e6a364297e19a6d3224dc78a225d75e58828452",
+   "id": "B-NOTE",
+   "commit": "d77cabf4fee5d36de2a85a810359c1c8812fc28c",
+   "pull_request": 215,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only provenance: Theorem L and Corollary L1 with the r-independent eps_d, sections 2-5 (exact expansions, first-order cancellations, Hoelder bounds, Loewner coupling), whose algebra theorem_v.py reuses"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/RESULTS.json",
+   "bytes": 463344,
+   "sha256": "77703dbdd7969ab62c179aa49391c6cddb545d37e0d59654476a09166a0b938f",
+   "git_blob": "894fae2e48e67dd1f21ab2ffffaf7050260cfbc1",
+   "id": "B-RESULTS",
+   "commit": "d77cabf4fee5d36de2a85a810359c1c8812fc28c",
+   "pull_request": 215,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only comparison: Theorem L a(R) and eps_d, Corollary L1 ratios, which theorem_v.py reproduces (a) and removes (eps)"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_planar_20260930/theorem_a.py",
+   "bytes": 52401,
+   "sha256": "4e811b9f7e047b2f851a4be9c69ad69476f100ef30664dae252b659cfd63efbe",
+   "git_blob": "d74542ff66f4d953bc25819a4d0e439082078006",
+   "id": "E",
+   "commit": "0cb8ad3ca1fe1733e737570ab682f469b66d76e4",
+   "pull_request": 206,
+   "packet_copy": "engine_e2.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the planar engine of Math-#206 (as carried by Math-#215): exact covariance series pair_series, the truncation tail (NOTE 2(b)) and the torus remainder M_1 with its coefficient majorant (NOTE 2(c)), interval band laws, transcendentals"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_d3_20261001/theorem_a3.py",
+   "bytes": 75753,
+   "sha256": "b0e1b3b4f43e140b51609332fe2e54f4f6b50d10f9f6af48d40ff548bbe742c0",
+   "git_blob": "ac809dbd36981d1b214fb2f8626417b50afb41f3",
+   "id": "E3",
+   "commit": "c4b8ec3e0232a6dcfc29c8d938268d51693b46b0",
+   "pull_request": 212,
+   "packet_copy": "engine_e3.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the d = 3 engine of Math-#212 (as carried by Math-#215): exact 3D covariance series, band laws, contact moments E[det^a tr^c 1{B > 0}], Frobenius moment bounds"
+  }
+ ]
+}
