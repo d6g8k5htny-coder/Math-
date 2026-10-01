@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1 (frontiers/third_order_coefficient_20261001/NOTE.md).
-Standard library only. Run: python3 -B -S c2_check.py   (and with -O; output byte-identical).
+"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1.1 (frontiers/third_order_coefficient_20261001/NOTE.md).
+Standard library only. Run: python3 -B -S c2_check.py   (and with -O; output byte-identical). v1.1: every float sum is
+math.fsum (exactly rounded; the built-in sum of floats changed in CPython 3.12) and the r-fit uses the scaled variable
+r/max(r), so the output is the same on CPython 3.10-3.14 (checked).
 Mutants: --mutant M1|M2|M3|M4 must exit 1; an unknown label exits 2.
 
 The two-point kernel of [R] (frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md):
@@ -170,11 +172,11 @@ class Pinned:
         return [b - k * r ** 3 / 2, -k * r * r, 0.0, 12 * k] + [0.0] * (2 * (self.d - 1))
 
     def pi(self, v):
-        q = sum(v[i] * self.Sinv[i][j] * v[j] for i in range(self.p) for j in range(self.p))
+        q = math.fsum(v[i] * self.Sinv[i][j] * v[j] for i in range(self.p) for j in range(self.p))
         return (2 * math.pi) ** (-self.p / 2) / math.sqrt(self.detS) * math.exp(-q / 2)
 
     def mean(self, u, v):
-        return sum(c * x for c, x in zip(self.mcoef[u], v))
+        return math.fsum(c * x for c, x in zip(self.mcoef[u], v))
 
 
 # ----------------------------------------------------------------------------------------------- polynomials
@@ -283,7 +285,7 @@ class Kernel:
         for sgn, nm in self.terms:
             aff = {i: {(0,): mu[u], (1,): self.beta[u]} for i, u in enumerate(nm)}
             poly = isserlis_poly(list(range(4)), aff, lambda i, j: self.cp[(nm[i], nm[j])], 1)
-            tot += sgn * sum(c * T[e[0]] for e, c in poly.items())
+            tot += sgn * math.fsum(c * T[e[0]] for e, c in poly.items())
         return -tot
 
     # d = 3: polynomial in (b_eff, k, l1, l2) of E[det H_M det H_S | A = diag(l1, l2)]
@@ -297,8 +299,8 @@ class Kernel:
                 for j in range(3)] for i in range(3)]
         self.Caa_inv, self.Caa_det = inv, det
         hn = [u for u in P.mcoef if u not in al]
-        B = {u: [sum(P.cov[(u, al[j])] * inv[j][i] for j in range(3)) for i in range(3)] for u in hn}
-        self.cp3 = {(u, w): P.cov[(u, w)] - sum(B[u][i] * P.cov[(al[i], w)] for i in range(3)) for u in hn for w in hn}
+        B = {u: [math.fsum(P.cov[(u, al[j])] * inv[j][i] for j in range(3)) for i in range(3)] for u in hn}
+        self.cp3 = {(u, w): P.cov[(u, w)] - math.fsum(B[u][i] * P.cov[(al[i], w)] for i in range(3)) for u in hn for w in hn}
         r = self.r
 
         def kcoef(u):    # coefficient of k in the conditional mean: v = (b_eff, -k r^2, 0, 12k, 0, ...)
@@ -309,8 +311,8 @@ class Kernel:
             raise RuntimeError('k-dependence of the transverse mean')
         aff = {}
         for u in hn:
-            cb = P.mcoef[u][0] - sum(B[u][j] * P.mcoef[al[j]][0] for j in range(3))
-            ck = kcoef(u) - sum(B[u][j] * kcoef(al[j]) for j in range(3))
+            cb = P.mcoef[u][0] - math.fsum(B[u][j] * P.mcoef[al[j]][0] for j in range(3))
+            ck = kcoef(u) - math.fsum(B[u][j] * kcoef(al[j]) for j in range(3))
             aff[u] = {(1, 0, 0, 0): cb, (0, 1, 0, 0): ck, (0, 0, 1, 0): B[u][0], (0, 0, 0, 1): B[u][2]}
         perms = list(itertools.permutations(range(3)))
 
@@ -340,7 +342,7 @@ class Kernel:
                 t = Smax * (x2 + 1) / 2
                 l1, l2 = -s, -s - t
                 z = (l1 - mu[0], -mu[1], l2 - mu[2])
-                q = sum(z[i] * inv[i][j] * z[j] for i in range(3) for j in range(3))
+                q = math.fsum(z[i] * inv[i][j] * z[j] for i in range(3) for j in range(3))
                 w = w1 * w2 * (Smax / 2) ** 2 * norm * math.exp(-q / 2) * (l1 - l2) * math.pi
                 for i in range(7):
                     for j in range(7 - i):
@@ -371,14 +373,16 @@ def coefficients(d, kernel, N, rs, nb=48, nt=80, nq=28, K=8.0):
     """c and c2 by the fold-scale finite part"""
     ks = [Kernel(d, N, r, kernel) for r in rs]
     rf = [float(r) for r in rs]
-    basis = [[1.0, r ** 2, r ** 3, r ** 4] for r in rf]
+    rmax = max(rf)
+    basis = [[1.0, (r / rmax) ** 2, (r / rmax) ** 3, (r / rmax) ** 4] for r in rf]      # scaled: well conditioned
     if MUTANT == 'M2':
-        basis = [[1.0, r ** 3, r ** 2, r ** 4] for r in rf]
+        basis = [[1.0, (r / rmax) ** 3, (r / rmax) ** 2, (r / rmax) ** 4] for r in rf]
     # least-squares rows for the first two coefficients
-    XtX = [[sum(basis[i][a] * basis[i][b] for i in range(len(rf))) for b in range(4)] for a in range(4)]
+    XtX = [[math.fsum(basis[i][a] * basis[i][b] for i in range(len(rf))) for b in range(4)] for a in range(4)]
     inv, _ = gauss_jordan_inv([[Decimal(x) for x in row] for row in XtX])
     inv = [[float(x) for x in row] for row in inv]
-    W = [[sum(inv[a][c] * basis[i][c] for c in range(4)) for i in range(len(rf))] for a in range(2)]
+    W = [[math.fsum(inv[a][c] * basis[i][c] for c in range(4)) / (1.0 if a == 0 else rmax ** 2) for i in range(len(rf))]
+         for a in range(2)]
     B, T = 8.0, K ** (1 / 3)
     xb, wb = gauss_legendre(nb)
     xt, wt = gauss_legendre(nt)
@@ -390,14 +394,14 @@ def coefficients(d, kernel, N, rs, nb=48, nt=80, nq=28, K=8.0):
         b = B * xi
         mom = [kk.cone_moments(b, 0.0, nq) for kk in ks] if d == 3 else [None] * len(ks)
         vals0 = [kk.A(b, 0.0, m) for kk, m in zip(ks, mom)]
-        A20 = sum(W[1][i] * vals0[i] for i in range(len(rf)))
+        A20 = math.fsum(W[1][i] * vals0[i] for i in range(len(rf)))
         tail += B * wi * (-A20)
         for xj, wj in zip(xt, wt):
             t = T * (xj + 1) / 2
             k = t ** 3
             vals = [kk.A(b, k, m) for kk, m in zip(ks, mom)]
-            A0 = sum(W[0][i] * vals[i] for i in range(len(rf)))
-            A2 = sum(W[1][i] * vals[i] for i in range(len(rf)))
+            A0 = math.fsum(W[0][i] * vals[i] for i in range(len(rf)))
+            A2 = math.fsum(W[1][i] * vals[i] for i in range(len(rf)))
             w = B * wi * T * wj / 2
             c += w * 3 * A0
             if MUTANT == 'M1':
@@ -440,7 +444,7 @@ def main():
         sys.stderr.write('unknown mutant label\n')
         return 2
     MUTANT = args.mutant
-    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
+    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1.1 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
     ok_all = True
     for name, kern, K, nt in (('T1_d1_gauss', 'gauss', 8.0, 80), ('T2_d1_mixture', 'mix', 27.0, 120)):
         c, c2 = coefficients(1, kern, 12, RS_D1, nt=nt, K=K)
@@ -466,7 +470,8 @@ def main():
     # separations gives a negligible r^1 coefficient
     t5 = {}
     rf = [float(r) for r in RS]
-    Xb = [[Decimal(1), Decimal(r), Decimal(r) ** 2, Decimal(r) ** 3, Decimal(r) ** 4] for r in RS]
+    rmx5 = Decimal(max(RS, key=Decimal))
+    Xb = [[Decimal(1), Decimal(r) / rmx5, (Decimal(r) / rmx5) ** 2, (Decimal(r) / rmx5) ** 3, (Decimal(r) / rmx5) ** 4] for r in RS]
     inv, _ = gauss_jordan_inv(Xb)
     ok5 = True
     for d, N in ((2, 10), (3, 8)):
@@ -474,10 +479,11 @@ def main():
         for (b, k) in ((0.3, 0.7), (-1.0, 0.2), (1.5, 1.3)):
             mom = [kk.cone_moments(b, 0.0, 32) for kk in ks] if d == 3 else [None] * len(ks)
             vals = [kk.A(b, k, m) for kk, m in zip(ks, mom)]
-            co = [sum(float(inv[a][i]) * vals[i] for i in range(len(rf))) for a in range(5)]
+            co = [math.fsum(float(inv[a][i]) * vals[i] for i in range(len(rf))) for a in range(5)]
             if MUTANT == 'M2':
                 co[1] = co[2]
-            rel1, rel2 = co[1] / co[0], co[2] / co[0]
+            rm = float(rmx5)
+            rel1, rel2 = co[1] / rm / co[0], co[2] / rm ** 2 / co[0]
             t5['d%d_b%g_k%g' % (d, b, k)] = {'abs_r1_over_A0_below_1e-6': abs(rel1) < 1e-6, 'r2_over_A0': '%.4f' % rel2}
             ok5 &= abs(rel1) < 1e-6 and abs(rel2) > 1e-2
     t5['passed'] = bool(ok5)
@@ -486,16 +492,17 @@ def main():
     # T6: the subtracted term is the cusp loss limit (0.1): A_2(b, 0) = -12 pi_0 E_0[Y^2 1{A<0} | b] in d = 2,
     # Y = f_xxxx a / 12 - gamma^2 / 4, a = f_yy(0), gamma = f_xxy(0)
     ks = [Kernel(2, 10, r, 'gauss') for r in RS]
-    basis = [[1.0, float(r) ** 2, float(r) ** 3, float(r) ** 4] for r in RS]
-    XtX = [[sum(basis[i][a] * basis[i][b] for i in range(len(RS))) for b in range(4)] for a in range(4)]
+    rmx = max(float(r) for r in RS)
+    basis = [[1.0, (float(r) / rmx) ** 2, (float(r) / rmx) ** 3, (float(r) / rmx) ** 4] for r in RS]
+    XtX = [[math.fsum(basis[i][a] * basis[i][b] for i in range(len(RS))) for b in range(4)] for a in range(4)]
     inv4, _ = gauss_jordan_inv([[Decimal(x) for x in row] for row in XtX])
     inv4 = [[float(x) for x in row] for row in inv4]
-    W2 = [sum(inv4[1][c] * basis[i][c] for c in range(4)) for i in range(len(RS))]
+    W2 = [math.fsum(inv4[1][c] * basis[i][c] for c in range(4)) / rmx ** 2 for i in range(len(RS))]
     P0 = Pinned(2, 10, '0.000001', 'gauss', {'f4': ((4, 0), Decimal(0)), 'g': ((2, 1), Decimal(0)), 'a': ((0, 2), Decimal(0))})
     xg, wg = gauss_legendre(64)
     t6, ok6 = {}, True
     for b in (-1.2, 0.0, 0.7, 2.0):
-        A20 = sum(W2[i] * ks[i].A(b, 0.0) for i in range(len(RS)))
+        A20 = math.fsum(W2[i] * ks[i].A(b, 0.0) for i in range(len(RS)))
         v = P0.target(b, 0.0)
         mu = {u: P0.mean(u, v) for u in ('f4', 'g', 'a')}
         sa2 = P0.cov[('a', 'a')]

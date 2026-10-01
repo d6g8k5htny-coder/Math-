@@ -4,28 +4,28 @@
    "2B2_closed": "0.2300445803",
    "C0_closed": "0.110110378959",
    "c": "0.110110378959",
-   "c2": "0.2300445807",
+   "c2": "0.2300445808",
    "passed": true
   },
   "T2_d1_mixture": {
    "2B2_closed": "0.5760427425",
    "C0_closed": "0.269510028583",
    "c": "0.269510028583",
-   "c2": "0.5760427427",
+   "c2": "0.5760427428",
    "passed": true
   },
   "T3_d2_gauss": {
    "c": "0.073406919306",
-   "c2": "0.2215244102",
-   "c2_over_c": "3.01775926",
-   "c2_second_rset": "0.2215244099",
+   "c2": "0.2215244125",
+   "c2_over_c": "3.01775929",
+   "c2_second_rset": "0.2215244132",
    "c_2inf": "0.073406919306",
    "passed": true
   },
   "T4_d3_gauss": {
    "c": "0.041775931845",
-   "c2": "0.161234049",
-   "c2_coarse_grid": "0.161234004",
+   "c2": "0.161234050",
+   "c2_coarse_grid": "0.161234005",
    "c2_over_c": "3.8594962",
    "c_3inf": "0.041775931841",
    "grids": "b 40, k 80, cone 32x32; coarse b 32, k 48, cone 24x24",
@@ -83,7 +83,7 @@
   }
  },
  "mutant": null,
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1 controls",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.1 controls",
  "passed": true,
  "scientific_effect": "NONE"
 }

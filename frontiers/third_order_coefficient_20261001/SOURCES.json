@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.1",
  "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (theorem there); values for d = 2, 3; full-field Monte Carlo (exploration outside the repository). Not a proof in d >= 2.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
@@ -204,27 +204,57 @@
    "sha256": "256e42ee13bd9cbca183445a21c0d77e021fa8552ce46debb818ca76cea22ac6"
   }
  ],
- "automated_nonauthor": [],
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "automated_nonauthor": [
+  {
+   "reviewer": "chatgpt-codex-connector[bot] (OpenAI Codex, automated PR review)",
+   "reviewed_commit": "205550f85ad4005825162d3cfd3b77a22852230a",
+   "date": "2026-10-01",
+   "findings": [
+    {
+     "id": "P2",
+     "thread": 4152981579,
+     "claim": "byte-exact replay is interpreter-dependent (CPython 3.14 differs at ~1e-9 in c2)",
+     "verdict": "correct",
+     "disposition": "v1.1: every float sum is math.fsum (the built-in sum of floats changed in CPython 3.12) and the r-fit uses r/max(r); RESULTS.json is now byte-identical on CPython 3.10, 3.11, 3.12, 3.13 and 3.14 (checked); NOTE quotes c2 to 8 significant digits, the level at which summation order no longer matters"
+    },
+    {
+     "id": "P1",
+     "thread": 4152981591,
+     "claim": "a pull_request workflow added during the owner stop re-arms automation",
+     "verdict": "governance question; provenance made exact",
+     "disposition": "v1.1 records the owner's explicit post-stop instructions (delivered_under), as on Math- #210; the workflow is the pull_request-scoped replay that every packet in this lane carries (#198, #207, #211, #214), schedules nothing, and runs only when this packet changes; the PR stays unmerged unless the owner merges it"
+    },
+    {
+     "id": "P2",
+     "thread": 4152981598,
+     "claim": "the workflow ignores cited_unmerged entries",
+     "verdict": "correct",
+     "disposition": "v1.1: the workflow verifies every cited_unmerged entry by its pinned blob id through the repository API (size, sha256, git blob), as #198 does for consumed dependencies"
+    }
+   ]
+  }
+ ],
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 16114,
-   "sha256": "58912bb321edaec8f5ab5ffa875870cc3e7b0ffea20025fe22fc0924d66ef7ef"
+   "bytes": 16930,
+   "sha256": "8f06d00cd248529b8939941bc02541eaca6aafc0f9dba4fc10cebc925c839646"
   },
   {
    "path": "README.md",
-   "bytes": 4325,
-   "sha256": "8226dc210072b62c04056715d30037a1fba0b384da43db66925b90dae374c91e"
+   "bytes": 4653,
+   "sha256": "83fb33194e3413fb916efed0cfb96368c7b2f5131d891c156522b7790a3a6523"
   },
   {
    "path": "c2_check.py",
-   "bytes": 23768,
-   "sha256": "1ea9577fff0703dac3d723c7ac7eb0e175d7bc486fbea2604a934cb035a5e3d4"
+   "bytes": 24423,
+   "sha256": "ebc73465753394cf40f211be0e7220509ed4e07256bbfb601ec71d8ccf10efb8"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 2001,
-   "sha256": "abc3fd31c91be6e33c1ae37b3d870918a38a2fab604870212884cfeac7888d10"
+   "bytes": 2003,
+   "sha256": "5e9e1dc7b51af82b45d2a438b150b0598357480235fbd4247fb0c1101b51b26c"
   }
  ]
 }

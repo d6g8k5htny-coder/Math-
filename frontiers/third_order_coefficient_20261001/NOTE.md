@@ -1,7 +1,14 @@
 # The third-order coefficient of the short-lifetime law: the fold-scale finite part, `d = 1, 2, 3`
 
-Object: CL-THIRD-ORDER-COEFF-20261001-v1.
+Object: CL-THIRD-ORDER-COEFF-20261001-v1.1.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+**v1.1 (after the Codex review of v1 on Math- #216, head `205550f`).**
+- *Replay.* The replay is now interpreter-independent: every float sum uses `math.fsum`, and the `r`-fit uses `r/max r`.
+  The output is byte-identical on CPython 3.10–3.14.
+- *Precision.* `c₂` is quoted to 8 significant digits. Summation order moves the 10th digit.
+- *Workflow.* The workflow verifies the cited unmerged sources by blob id.
+- *Provenance.* The owner's post-stop instructions are recorded exactly (`SOURCES.json`, `delivered_under`).
+The coefficients are unchanged.
 Disposition: FORMAL COEFFICIENT WITH NUMERICAL EVIDENCE. In `d = 1` it is a theorem (Math- #214); in `d ≥ 2` the
 expansion (0.2) is not proved here. Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
 PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
@@ -51,9 +58,12 @@ a fold-scale quantity, and the elder rule enters only through the cusp window.
 
    | `d` | `c` (recomputed; equals the merged value) | `c₂` | `c₂/c` | `c₁/c` (#207, #214) |
    |---|---|---|---|---|
-   | 1 | `0.110110378959` (`C₀`) | `0.230044580` (`= 2B₂`) | `2.089218` | `−2.0671` |
-   | 2 | `0.073406919306` (`c_{2,∞}`) | `0.221524410` | `3.017759` | `−3.6699` |
-   | 3 | `0.041775931845` (`c_{3,∞}`) | `0.161234049` | `3.859496` | `−5.0711` |
+   | 1 | `0.110110378959` (`C₀`) | `0.23004458` (`= 2B₂`) | `2.089218` | `−2.0671` |
+   | 2 | `0.073406919306` (`c_{2,∞}`) | `0.22152441` | `3.017759` | `−3.6699` |
+   | 3 | `0.041775931845` (`c_{3,∞}`) | `0.16123405` | `3.859496` | `−5.0711` |
+
+   The numerical precision of `c₂` is about `2·10⁻⁸` relative. Changing the summation order (the built-in `sum` of
+   CPython 3.12+ against `math.fsum`) moves it by up to that amount.
 
 3. **Full-field Monte Carlo in `d = 2` and `d = 3` (§3; exploration, outside the repository).** The *parameter-free*
    three-term law (0.2) matches the actual elder-rule persistence of the periodized Gaussian field on `[10⁻⁴, 10⁻²]`.
@@ -147,8 +157,8 @@ There it is proved.
   `2B₂^{(2)}` of #214 §2(e), the factor 2 accounting for the two orientations.
 - The fold part is #214's `τ²`-coefficient of `(12/t⁴)p_tm²`, written in the coordinates of [R].
 - T1 and T2 check the total against the closed form `2B₂` (#214 (D1.2)):
-  - Gaussian kernel: `0.2300445807` against `0.2300445803`;
-  - mixture `(e^{−x²/2} + e^{−2x²})/2`: `0.5760427427` against `0.5760427425`.
+  - Gaussian kernel: `0.2300445808` against `0.2300445803`;
+  - mixture `(e^{−x²/2} + e^{−2x²})/2`: `0.5760427428` against `0.5760427425`.
 
 **2.4 Numerics.**
 - *Expansion coefficients.* `A₀` and `A₂` come from least squares on `(1, r², r³, r⁴)` over five separations:
@@ -161,8 +171,10 @@ There it is proved.
 
   | `d` | `c` relative error | `c₂` stability |
   |---|---|---|
-  | 2 | `2·10⁻¹⁴` | two `r`-sets agree to `3·10⁻¹⁰` |
+  | 2 | `2·10⁻¹⁴` | two `r`-sets agree to `3·10⁻⁹` |
   | 3 | `10⁻¹⁰` (grid `(40, 80, 32²)`) | a coarser grid `(32, 48, 24²)` moves it by `4.5·10⁻⁸` |
+
+  Rounding sensitivity is about `2·10⁻⁸` relative (v1.1 note).
 
 ## 3. Full-field Monte Carlo (exploration; outside the repository)
 

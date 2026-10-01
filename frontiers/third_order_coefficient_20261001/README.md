@@ -1,7 +1,12 @@
-# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1)
+# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.1)
 
 Formal coefficient with numerical evidence. Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review
-required. Nothing is consumed. The computation implements the merged two-point kernel of [R]
+required. v1.1 applies the three Codex findings on v1 (`205550f`):
+- the replay is byte-identical on CPython 3.10–3.14 (`math.fsum`, a scaled `r`-fit);
+- the cited unmerged sources are verified by blob id;
+- the owner provenance is recorded exactly.
+
+The coefficients are unchanged and are quoted to 8 digits. Nothing is consumed. The computation implements the merged two-point kernel of [R]
 (`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`). Math- #207, #214 and #191 are cited for comparison.
 
 **What it is.** The elder lifetime density has a third term:
@@ -26,9 +31,9 @@ window.
 
 | `d` | `c` | `c₁` | `c₂` | `c₂/c` |
 |---|---|---|---|---|
-| 1 | `0.110110379` | `−0.227606` | `0.230044580` | `2.0892` |
-| 2 | `0.073406919` | `−0.269399` | `0.221524410` | `3.0178` |
-| 3 | `0.041775932` | `−0.211848` | `0.161234049` | `3.8595` |
+| 1 | `0.110110379` | `−0.227606` | `0.23004458` | `2.0892` |
+| 2 | `0.073406919` | `−0.269399` | `0.22152441` | `3.0178` |
+| 3 | `0.041775932` | `−0.211848` | `0.16123405` | `3.8595` |
 
 **For SIDE24 (`d = 3`).** The relative correction is `ν/(cℓ^{−1/3}) − 1 = −5.071ℓ^{7/12} + 3.859ℓ^{2/3}`:
 
@@ -58,7 +63,7 @@ The adjacent-pair density fits with `I^{cand}` in place of `c₁`. The two-term 
 **Files.**
 - `NOTE.md`: the definition and its formal derivation (§1); the computation (§2, including the `d = 1` identity with #214);
   the Monte Carlo (§3); the SIDE24 correction sizes (§4).
-- `c2_check.py`: standard library. Its output is `RESULTS.json`, byte-identical under `-O`. Mutants M1–M4 exit 1, and an
+- `c2_check.py`: standard library. Its output is `RESULTS.json`, byte-identical under `-O` and on CPython 3.10–3.14. Mutants M1–M4 exit 1, and an
   unknown label exits 2. The run takes about 25 s. Its controls:
   - **T1–T2** `d = 1` against #214's closed forms `C₀`, `2B₂`, for the Gaussian kernel and the mixture
     `(e^{−x²/2} + e^{−2x²})/2`;
