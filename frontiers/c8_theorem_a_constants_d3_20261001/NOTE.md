@@ -75,8 +75,8 @@ The same holds for the reference kernel `exp(-|z|^2/2)` on `R^3`. Every enclosur
   - `(C, r_*) = (23332922.4752, 1/512)`, where the bound at `r = r_*` is below `0.174`;
   - `(22974134.2920, 1/1024)`, where it is below `0.0214`.
 - **What was missing.** [LP] §16 lists "a numerical `r_*` or `C` on a prescribed band" among the items it does not supply.
-  [CAP]'s probabilistic corollary is planar only ("No 3D eight-pin matrix-boundary estimate ... is proved here"). Before
-  this packet no explicit constant was on record in any dimension `d >= 3`.
+  [CAP]'s probabilistic corollary is planar only ("No 3D eight-pin matrix-boundary estimate ... is proved here"). No
+  explicit constant for (1.1) or (7.8) in `d >= 3` is recorded in [LP], [CAP] or the open packets of this repository.
 - **Near-optimal for the cap route.**
   - Every `d = 3` cap-route constant valid for the reference kernel at `(b, k) = (0, 2)` is at least
     `c_G^(3)(0, 2) > 22424320.65` ([G3] Corollary 1).
