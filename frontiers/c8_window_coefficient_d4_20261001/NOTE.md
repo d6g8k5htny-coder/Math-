@@ -10,8 +10,9 @@ reads of this record count for nothing. The author will not merge.
 ## 0. Statement
 
 Let `f` be the unit-variance stationary Gaussian field on `R⁴/(LZ⁴)` with the parent kernel `K_L` of [LP] §1, `B = [b_−, b_+]` a
-birth window and `K = [k_−, k_+]` a gap window (`k_− ≥ 0`), and `c^(4)_{B,K}` the leading coefficient of [LP] Theorem B for the
-pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`).
+birth window and `K = [k_−, k_+]` a gap window with `0 < k_− ≤ k_+ < ∞` ([LP] Theorem B's hypothesis), and `c^(4)_{B,K}` the
+leading coefficient of [LP] Theorem B for the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every
+`d`). Windows outside that hypothesis are treated in §7.
 
 **Proposition (d = 4 window coefficient).** For the reference kernel `e^{−|z|²/2}`, `c^(4)_{B,K} = c_{4,ref} F^(4)_B G_K` with the
 birth factor `F^(4)_B` the one-dimensional integral (2.4) below. For the torus, for every `L ≥ 10` and every frame,
@@ -271,9 +272,10 @@ The hosted workflow replays the manifest, the pins, both modes byte for byte, an
   the total trace in every `d`. In `d = 5`, however, the inner integrals over the differences have one more layer, and Math-#202's
   closed form of `D_4` integrates in a different order, so that layer is not supplied here. The floor must also be re-derived:
   `λ_min = ((2m+8)/3 − √(((2m+8)/3)² − 16/3))/2`, which is `0.2630` at `m = 4`.
-- **Unbounded windows** (`B = [0,∞)`, `(−∞,0]`, `R`; `K = (0,∞)`): the tabulated values are the coefficient integrals (1.1) on those
-  sets. [LP] Theorem B's asymptotic statement is for compact windows and is not extended here; the full window is [LP] (15.2)'s
-  `c_{4,L}`.
+- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes a compact `B` and `0 < k_− ≤ k_+ < ∞`. For a gap window that
+  touches `k = 0` or `∞` (the tabulated `K = (0,∞)`), and for an unbounded `B` (`[0,∞)`, `(−∞,0]`, `R`), the tabulated values are
+  the coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not extended to them; the full window is
+  [LP] (15.2)'s `c_{4,L}`.
 - It does not address `C`, `r_*` or `z_*`. C8 stays OPEN; no register surface is touched; `executed: false`. The replay workflow
   follows the repository's per-packet convention; the owner's open decision on such workflows (Math-#202/#204) applies here too.
 
@@ -305,7 +307,7 @@ No external numerical library is used.
 - **Claim:** the reduction (2.1)–(2.4) and its closed inner layers (2.3); the certified reference values of `c^(4)_{B,K}`; Lemma S
   in `d = 4` with the floor `3/10`; the `d = 4` image bound; the certified `ε`; the torus enclosures for every `L ≥ 10` and every
   frame, and for `L = 24`, on the windows of §5. No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested nonauthor reads:
+- **Completed review scopes:** Codex code review at `ea3a415`, no findings. Requested nonauthor reads:
 
   | slice | scope |
   |---|---|
@@ -315,5 +317,13 @@ No external numerical library is used.
 
 - **Unresolved finding IDs:** none.
 - **Validation:** 18/18 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed
-  locally; hosted run pending at opening.
+  locally; hosted run 4/4 green at `ea3a415`.
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+
+## 10. Revisions
+
+- **v1.1 (gap-window hypothesis; NOTE only).** §0 said `k_− ≥ 0`, which admits a gap window touching `k = 0`. [LP] Theorem B
+  assumes `0 < k_− ≤ k_+ < ∞`, and §0 now states that hypothesis. §7 says that windows outside it, including the tabulated
+  `K = (0,∞)` and the unbounded `B`, are coefficient integrals only. Codex found the same defect on Math-#213 (thread 4151593177),
+  and it is repaired in every packet of the series. §9 records the Codex review. The script, `RESULTS.json`, the rules and the
+  mutants are byte-unchanged.
