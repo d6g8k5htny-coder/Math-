@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-D5-20261001-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_ENCLOSURE_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_REFERENCE_AND_TORUS_ENCLOSURES_OF_THE_D5_WINDOW_COEFFICIENT_NO_REGISTER_CHANGE_C8_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/209#issuecomment-5923710923",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(11.3) the window coefficient in every d; section 15 factorization p_(f,V)(b,0) p_G(0) phi_tau(12k), z_0 = 36 k^2 E[det(A)^2 1{A<0} | f=b, V=0]",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "sections 1-4: the reference law A = Q + sqrt(2/3) Z I, the image-bound pattern (76|x|^6 contraction bound, normalization), the covariance-sandwich scaling argument",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "3dcf612",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/window_coefficient.py",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218",
+      "role": "interval class, erf, arctan, Owen's T, Owen primitives G_0..G_4, incomplete gamma, gap factor G_K, library_exact (reused verbatim through Math-#205's copy; C41 PASS_TECHNICAL, review 5373681556)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/205",
+      "commit": "01d09e9",
+      "path": "frontiers/c8_window_coefficient_d3_torus_20260930/window_coefficient_d3.py",
+      "git_blob": "ba24b3802eb0baf5ade65d49fd47ca862972f8bd",
+      "role": "the toolkit section and I3_ref (rule CROSSCHECK_M2_M3, m = 2) reused verbatim; Lemma S (its NOTE section 2) applied with n = 11, degree 8"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "617236d",
+      "path": "coefficients/side24_d4_20260930/cone_moment_d4.py",
+      "git_blob": "4787d6bf5a3bc469ae62075dde24e913b786e44a",
+      "role": "exact polynomial algebra (padd, pmul, pscale, pconst, pvar) reused verbatim"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/209",
+      "commit": "ea3a415",
+      "path": "frontiers/c8_window_coefficient_d4_20261001/window_coefficient_d4.py",
+      "git_blob": "f77f7d2d158f9513f23f1b55fe0f839eb112d387",
+      "role": "the total-trace reduction, the Taylor quadrature with the Phi factor, the d = 4 band factor F^(4)_[0,1] (rule CROSSCHECK_M2_M3, m = 3), extended here to m = 4"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "aa1d51e",
+      "path": "coefficients/side24_d5_20260930/RESULTS.json",
+      "git_blob": "b67c00f45d053b51c2ec15ce8d53c8a34e49a006",
+      "role": "c_{5,ref} digits quoted in the script (rule C5_CONSISTENT); its E_5 = 60500 (76 L^6 + 15) e^{-L^2/2} constant"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/202",
+      "commit": "4512309",
+      "path": "coefficients/side24_d5_closed_form_20260930/RESULTS.json",
+      "git_blob": "52ce9b5726b8ea92c429ea1193b1812869afe701",
+      "role": "the closed form of D_4 (rule D4_EXACT) and Z_4 = 1536 pi"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 18304,
+      "sha256": "81236a156edfdac71021a2f2378cb3b278ddcbd23d0fd32d1f7fc9182b908412",
+      "git_blob": "6a1493a28366d446ee5653d9dbba793b02b0ad91"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 21231,
+      "sha256": "53cf8ecd2f606967fd716d6c13a6b86357ed0de26a0bf7ffb6af880ff4b6a3ce",
+      "git_blob": "d4719bdd9686f1ddd12b92f3ca866343ddadbfe1"
+    },
+    {
+      "path": "window_coefficient_d5.py",
+      "bytes": 61516,
+      "sha256": "66360917d78be7abb3234b348dd683a59b3f4ddf4dbda9ef2dc536817bf67a58",
+      "git_blob": "9ceb42d3a82610eef1d2b991aea7d0c157733c96"
+    }
+  ]
+}
