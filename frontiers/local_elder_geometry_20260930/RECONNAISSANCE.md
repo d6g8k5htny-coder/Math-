@@ -1,0 +1,11 @@
+# Local elder geometry: reconnaissance and mathematical scope
+
+This note accompanies a self-contained topology proof, rather than claiming novelty or importing a diagram-stability theorem as a missing proof. The exact public workspace sources are in SOURCES.json; all source assertions are restricted to their displayed hypotheses.
+
+The retrieved primary reference is David Cohen-Steiner, Herbert Edelsbrunner and John Harer, *Stability of Persistence Diagrams*, SCG 2005, full text: https://math.uchicago.edu/~shmuel/AAT-readings/Data%20Analysis%20/Stability.pdf. Its main theorem bounds bottleneck distance between diagrams for tame continuous functions on a common triangulable space by their global sup-norm distance. That theorem concerns the whole diagrams and a global norm. It does not, by itself, identify a specified maximum's partner from convergence on shrinking local disks when the exterior field is arbitrary.
+
+The explicit substitute used here has two parts. A cubic critical-chord interpolation supplies a finite connection to an older point at the candidate saddle height. A compact isolating level boundary gives the reverse bound on *all* global older paths, independent of how they connect outside the disk. The nonvanishing leading homogeneous gradient rules out loss of that boundary at finite height. Exact pinning and a uniformly bounded finite-disk flow then prove exact selection in the empty sector, rather than infer it from convergence of death heights alone.
+
+D1 already supplies the global Borel maximin event, the original typed Gaussian law, a cap theorem guaranteeing selection on its good event, its rare weighted cap-failure integration, and the Kac–Rice lifetime pushforward. The new proof uses those interfaces with the published planar cubic classifier. It does not use C6 factorial localization as a substitute for elder pairing.
+
+No priority claim is made. The cubic interpolation, regular-level isotopy and weighted Gaussian disintegration are proved in the accompanying text. The new result remains a source-scoped author-side candidate until reviewed on its exact prose and dependency identities. A review using another OpenAI agent has zero organizational-independence credit.
