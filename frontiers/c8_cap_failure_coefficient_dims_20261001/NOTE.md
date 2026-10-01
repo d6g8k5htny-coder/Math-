@@ -30,6 +30,9 @@ The author will not merge. Scope claim: Math-#203 comment 5922724441.
   (`RESULTS.json`, git blob `e3a8e25a`).
 - [HD] Math-#184 at `d37ff5d`, read-only: the hard-direction factor `R_d(b)`, its closed form at `b = 0`, its floating values,
   and Corollary 2 (the elder-failure coefficient in dimension `d`). Used for comparison and identification only.
+  - Its PROOF blob `91d22fce` has OpenAI nonauthor ACCEPTs at `d29e674`: Slices A/B in review 5366497205 (Lemma 1, Lemma 2,
+    Theorem 1, the closed form (3)) and Slice C in review 5366261768.
+  - Lemma 1 below re-derives the `d = 3` contact law independently.
 
 ## 0. Statement
 
