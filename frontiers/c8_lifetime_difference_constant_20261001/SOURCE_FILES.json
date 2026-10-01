@@ -7,9 +7,9 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 30864,
-   "sha256": "d77c9ab1792f1cba55c512828ad0601216068167b56bc4c912f9e8e7d985ae3e",
-   "git_blob": "0f6c7fb79988b52e26c1e2f1456ab196f075ecf0"
+   "bytes": 31488,
+   "sha256": "dfb4f7053354a9616239c833c6e7d05799a2e391c42e0ea6e90dde691a4db830",
+   "git_blob": "2e6a364297e19a6d3224dc78a225d75e58828452"
   },
   {
    "path": "README.md",
@@ -25,9 +25,9 @@
   },
   {
    "path": "SOURCE_MAP.json",
-   "bytes": 5480,
-   "sha256": "0d168eb8c0f8dd6a51e8fe00f2310ce8ab6d9cac58dd00fea9cdc12b5879b708",
-   "git_blob": "92e12edaec574f84e64b5983d0b1a0fa8b2272e5"
+   "bytes": 5522,
+   "sha256": "86543a2e8568720cde3fb81c2d5118eba87a21dcafe27e8bf76bacb05ea65f45",
+   "git_blob": "147a42a8d73d5ed55c45c561187606192e488284"
   },
   {
    "path": "engine_e2.py",
@@ -43,10 +43,17 @@
   },
   {
    "path": "theorem_b.py",
-   "bytes": 52686,
-   "sha256": "f14268228451c37475d6bf3516c0836b02bb085b9e50c34f75aa7cb8d27b1bd9",
-   "git_blob": "577fbba249aaee60aaaec379fb7831d17af7e0bc"
+   "bytes": 52707,
+   "sha256": "b79df0880e9690f4ac5e35b2b717bb65c1cbf1a323585165e5745a17104d6f12",
+   "git_blob": "f0e788cb01d9f2a434cbfef1d248a5b98dbf0681"
   }
  ],
- "nonauthor_reads": []
+ "nonauthor_reads": [
+  {
+   "lane": "OpenAI / Codex",
+   "review": "https://github.com/d6g8k5htny-coder/Math-/pull/215#pullrequestreview-5378815703",
+   "head": "d748c2abee2cbfbad6504b5700c70bbd83ba5785",
+   "scope": "ACCEPT the d748c2a amendment (additive-remainder scope only); requested the reference-kernel benchmark wording applied in v1.2"
+  }
+ ]
 }

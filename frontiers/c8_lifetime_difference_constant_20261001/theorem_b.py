@@ -1010,7 +1010,7 @@ def check_run(procs, full=False):
 
 # ============================================================================= 7. floating controls (not part of the certificate)
 def controls():
-    """Floating estimates of the cap-route limits Gamma_{B,K} = |S| int A_0^ref c_G / (3 k^(5/3)) for comparison with C_{B,K}:
+    """Floating estimates of the reference-kernel cap-route benchmarks Gamma_{B,K} = |S| int A_0^ref c_G / (3 k^(5/3)) for comparison with C_{B,K}:
     planar c_G = R(b) J(k) of Math-#203 with J(k) = 2359296 k^3 (1 + delta(k)), delta(1/2) = 0.0232, delta(3/4) = 1.3e-4;
     d = 3 from the floating R_3(b) R(b) and J^(3)/J ratios of Math-#208."""
     from math import exp, pi, sqrt, erf

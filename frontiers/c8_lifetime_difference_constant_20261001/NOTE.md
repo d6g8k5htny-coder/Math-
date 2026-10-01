@@ -151,10 +151,15 @@ section 16 lists "a numerical r_* or C on a prescribed band" among the items not
   `d = 3`. The refined boxes improve these by factors `5.8` and `4.1`. [E] has `28` boxes, the coarsest `k`-box being
   `[1/2, 1]`; [E3] has `39`.
 - **A single constant.** Using one sup constant `C(r_*)` of [E] or [E3] times the total weight gives `22467.8` and `38970.6`.
-- **The cap-route limit.** As `r_* -> 0`, the cap route can give no less than
-  `Gamma_{B,K} = |S^(d-1)| int A_0^ref c_G / (3 k^(5/3))`, with the cap-failure coefficients `c_G` of [G] and [G3]. In
-  floating point, `Gamma_2 = 307.5` and `Gamma_3 = 541` (section 9).
-  - `C_{B,K}(1/4096)` is therefore within a factor `1.31` of that limit in the plane and `2.23` in `d = 3`.
+- **The reference-kernel cap-route benchmark.** `Gamma_{B,K} = |S^(d-1)| int A_0^ref c_G / (3 k^(5/3))` is built from
+  the reference-kernel cap-failure coefficients `c_G` of [G] and [G3]. It is the reference-kernel asymptotic lower
+  benchmark for any cap-route bound that is uniform over the present family. That family contains the reference
+  kernel, so as `r_* -> 0` such a bound can give no less than `Gamma_{B,K}`. In floating point, `Gamma_2 = 307.5` and
+  `Gamma_3 = 541` (section 9).
+  - `C_{B,K}(1/4096)` is within a factor `1.31` of that benchmark in the plane and `2.23` in `d = 3`. These floating
+    ratios compare our finite-radius bounds with the benchmark. They do not identify the exact cap-route limit of each
+    finite torus, which would use the torus `A_0^L` and `c_G^(L,u)`; [G] says the torus deviation from `c_G^ref` is not
+    enclosed.
   - The `d = 3` excess comes from the [E3] box bounds near `k = 1/2`, which are about `2.2 c_G^(3)` there.
 - **The cap route itself is loose.** By [G], the cap criterion overstates the actual elder-pairing failure rate by
   `7.4 x 10^4` at `k = 1/2`. `C_{B,K}` bounds the [LP] quantity as [LP] defines it; it is not an estimate of the true
@@ -446,11 +451,13 @@ What the comparison shows:
   - There `23.5` of that constant is the `Z`-part. It consists mostly of the Hölder bounds of `r^2 E[D xi_3 1]` (`13.9`) and
     `r^2 E[(v' A* v)(e' A* e) 1]` (`8.7`), relative to `36 k^2 m_3`.
 
-**Cap-route limits** (section 0). In floating point, `Gamma_{B,K} = |S^(d-1)| int A_0^ref c_G / (3 k^(5/3))` is:
+**Reference-kernel cap-route benchmarks** (section 0). In floating point, `Gamma_{B,K} = |S^(d-1)| int A_0^ref c_G /
+(3 k^(5/3))` is:
 - `Gamma_2 = 307.51`, with the planar `c_G = R(b) J(k)` of [G] (`J(k) = 2359296 k^3 (1 + delta(k))`);
 - `Gamma_3 = 540.97`, with the `d = 3` ratios of [G3].
 
-So `C_{B,K}(1/4096)` is `1.31 Gamma_2` and `2.23 Gamma_3`.
+So `C_{B,K}(1/4096)` is `1.31 Gamma_2` and `2.23 Gamma_3`. These are comparisons with the reference-kernel benchmark,
+not with the exact cap-route limit of a finite torus.
 
 ## 10. What this does not do
 
