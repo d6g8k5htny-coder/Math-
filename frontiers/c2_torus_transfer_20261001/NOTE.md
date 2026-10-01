@@ -215,8 +215,10 @@ where:
   `|w_i w_j| <= (w_i^2 + w_j^2)/2`;
 - `|H_L| <= sum (|c| + rho)|w^e|` and `|H_L - H_ref| <= sum rho |w^e|` over `H`'s monomials.
 
-**Gaussian floor.** A rational `t` with `M - t diag(M)` positive definite, where `E_ref = w^T M w`, is certified by exact
-`LDL^T` and bisection. It gives `e^(-E_ref + |dE|) <= prod_i e^(-a_i w_i^2)` with `a_i = t M_ii - eta_i > 0`.
+**Gaussian floor.** A rational `t` with `M - t diag(M)` positive semidefinite, where `E_ref = w^T M w`, is certified by
+exact `LDL^T` and bisection. For diagonal `M` it is `t = 1` by an exact branch, with zero residual, as in `d = 1`. It gives
+`e^(-E_ref + |dE|) <= prod_i e^(-a_i w_i^2)` with `a_i = t M_ii - eta_i > 0`. Strictness comes from `a_i > 0`, not from
+the residual matrix (5384221624).
 
 The bounds then enlarge the cone and the `b`-line to all of `R^(1 + n_T)`:
 - `|Delta(0)|` uses the monomials with no `k`;
