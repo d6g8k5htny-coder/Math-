@@ -1,0 +1,36 @@
+{
+ "object": "CL-CU-CUSP-COEFFICIENT-20261001-v1",
+ "sources": [
+  {
+   "label": "[CU]",
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "ref": "Math-#207 head 826b8be (unmerged)",
+   "consumed": "Theorem CU, (CU.2) and its parity form: the definition of c1 (jets, Y, Delta, E_0, v_0(b,0), pi_0, the sphere integral); section 8 remark 3 floating values (controls only)",
+   "current_required": false,
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad"
+  },
+  {
+   "label": "[SIDE24]",
+   "path": "coefficients/side24_v1/PROOF.md",
+   "ref": "main 3e0a91b",
+   "consumed": "equation (1): c_(d,ref) = Gamma(7/6)(3/2)^(1/3) D_(d-1)/(2 sqrt3 pi^(d-1) sqrt(pi)), D_1 = 4/3, D_2 = 29/6 - sqrt6",
+   "current_required": true,
+   "bytes": 10272,
+   "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+  },
+  {
+   "label": "[LP]",
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "ref": "main 3e0a91b",
+   "consumed": "section 15: parity factorization pi_0 = p_(f,V_u)(b,0) p_G(0) phi_tau(12k), tau^2 = Var(t_u | G = 0)",
+   "current_required": true,
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+  }
+ ],
+ "note": "current_required entries are verified byte-for-byte on the checked-out tree by the workflow; the unmerged [CU] pin records the exact bytes read (head 826b8be) and is not checked against the tree."
+}
