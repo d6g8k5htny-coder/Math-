@@ -75,14 +75,24 @@
         "window_coefficient_d3.py",
         "RESULTS.json"
       ]
+    },
+    {
+      "version": "v1.3",
+      "finding": "C43-205-H-01 (positive lengths), C43-205-H-02 (C41 review history)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows (b_- = b_+ or k_- = k_+) outside the hypothesis with zero-touching or infinite gap windows and unbounded B; section 9 records C41 as overall AMEND (numerical PASS_TECHNICAL, reporting AMEND C41-205-C-01), C42 resolution and C43",
+      "unchanged": [
+        "window_coefficient_d3.py",
+        "RESULTS.json"
+      ]
     }
   ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 17401,
-      "sha256": "67839353382c8011627cdad08b96ac446fbc4ff01d1e5aff39ab326d8e32d071",
-      "git_blob": "380bbc7aa3a16f5c8497bd202c51dcd85963ae4a"
+      "bytes": 19206,
+      "sha256": "0e5a94e16ab35ff0be16ff6bafbeb6dd02bb50271b2caff5a8090f913b85e459",
+      "git_blob": "549dc7cc3e8ce9b330fa20f6ade98d81c5fe4aaa"
     },
     {
       "path": "RESULTS.json",

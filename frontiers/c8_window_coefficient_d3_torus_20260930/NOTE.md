@@ -9,7 +9,8 @@ as every lane: zero organizational-independence credit. Claude reads of this rec
 ## 0. Statement
 
 Let `f` be the unit-variance stationary Gaussian field on `R³/(LZ³)` with the parent kernel `K_L` of [LP] §1, `B = [b_−, b_+]` a birth
-window and `K = [k_−, k_+]` a gap window with `0 < k_− ≤ k_+ < ∞` ([LP] Theorem B's hypothesis), and `c^(3)_{B,K}` the leading
+window and `K = [k_−, k_+]` a gap window, compact and of positive length with a positive gap floor: `−∞ < b_− < b_+ < ∞` and
+`0 < k_− < k_+ < ∞`. This is [LP] Theorem B's hypothesis (lines 16 and 37 of the pinned [LP]). Let `c^(3)_{B,K}` be the leading
 coefficient of [LP] Theorem B for the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`).
 Windows outside that hypothesis are treated in §7.
 
@@ -162,10 +163,15 @@ SIDE24 `d = 3` interval quoted in the script, and the mutants.
 - Not `d ≥ 4` window coefficients: Lemma S holds in every `d` (with `n = 1 + m(m+1)/2` coordinates and degree `2m`), but the reference
   birth integral `I^ref_B` for `m ≥ 3` with a window is not in closed form (the full-window value is Math-#199/#201 and #200/#202); a
   certified quadrature in `b` would supply it.
-- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes a compact `B` and `0 < k_− ≤ k_+ < ∞`. For a gap window that
-  touches `k = 0` or `∞` (the tabulated `K = (0,∞)`), and for an unbounded `B` (`[0,∞)`, `(−∞,0]`, `R`), the tabulated values are the
-  coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not extended to them; the full window is [LP]
-  (15.2)'s `c_{3,L}`.
+- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes compact windows of positive length with a positive gap floor:
+  `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`. Three kinds of window fall outside it:
+  - a gap window that touches `k = 0` or `∞`, such as the tabulated `K = (0,∞)`;
+  - an unbounded `B`: `[0,∞)`, `(−∞,0]`, `R`;
+  - a singleton window, `b_− = b_+` or `k_− = k_+`. There (1.1) is zero and does not inherit Theorem B's positive coefficient. No
+    singleton window is tabulated.
+
+  For these windows the values are the coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not
+  extended to them; the full window is [LP] (15.2)'s `c_{3,L}`.
 - Not `C`, `r_*` or `z_*`; C8 stays OPEN; no register surface is touched; `executed: false`.
 
 ## 8. Provenance
@@ -183,12 +189,18 @@ Pins on `main 3e0a91b` (workflow-checked): [LP] `imports/lifetime_parent_2026092
   Anthropic / Claude (`session_017Mi3hxjaxV45x6zo6o1ee3`).
 - **Claim:** Lemma S and its use; the `d = 3` image bound; the certified `ε`; the torus enclosures of `c^(3)_{B,K}` for every `L ≥ 10`
   and every frame, and for `L = 24`, on the windows of §5. No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes** (OpenAI / Codex; the PR's disposition block has the table): C40, Slices A and B (§§1–4),
-  PASS_TECHNICAL (review 5373331587); C41, Slice C (§§5–7), PASS_TECHNICAL with reporting finding C41-205-C-01 (review 5373681438);
-  C42, bounded check of v1.1, PASS_TECHNICAL, C41-205-C-01 resolved (review 5374044722).
-- **Unresolved finding IDs:** none. The v1.2 wording of §0 and §7 (§10) awaits a bounded check.
+- **Completed review scopes** (OpenAI / Codex; the PR's disposition block has the table):
+  - C40, Slices A and B (§§1–4): PASS_TECHNICAL, no actionable findings (review 5373331587 at `b875a46`).
+  - C41, Slice C (§§5–7): overall AMEND (review 5373681438 at `b875a46`). The numerical assembly, the full-precision
+    `RESULTS.json` and the cone controls were PASS_TECHNICAL; the reporting was AMEND, finding C41-205-C-01. C41's verdict stands as
+    given.
+  - C42, bounded check of v1.1: PASS_TECHNICAL (review 5374044722 at `01d09e9`). It resolved C41-205-C-01 for the successor head.
+  - C43, bounded check of v1.2: AMEND (review 5377957341 at `c0d8e92`), findings C43-205-H-01 and C43-205-H-02, both fixed in v1.3
+    (§10).
+- **Unresolved finding IDs:** none on the author side. C43-205-H-01 and C43-205-H-02 are fixed in v1.3 and await the reviewer's
+  bounded check.
 - **Validation:** 15/15 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed locally.
-- **Next action:** a bounded nonauthor check of v1.2; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not
+- **Next action:** the reviewer's bounded check of v1.3; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not
   merge.
 
 ## 10. Revisions
@@ -209,3 +221,12 @@ Pins on `main 3e0a91b` (workflow-checked): [LP] `imports/lifetime_parent_2026092
   tabulated `K = (0,∞)` and the unbounded `B`, are coefficient integrals only. The PR body already said so; the NOTE now does too.
   The same wording defect was found by Codex on Math-#213 (thread 4151593177) and is repaired in every packet of the series. The
   script, `RESULTS.json`, the rules and the mutants are byte-unchanged.
+- **v1.3 (C43, review 5377957341; reporting only).**
+  - **C43-205-H-01 (positive lengths).** [LP] Theorem B also requires `B` and `K` to have positive length (line 37 of the pinned
+    [LP]). The v1.2 statement allowed singleton windows such as `K = [1, 1]`, where (1.1) is zero. §0 now states
+    `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`, and §7 classes singleton windows with the other windows outside the hypothesis.
+    Every tabulated window has positive length, so no value changes.
+  - **C43-205-H-02 (review history).** v1.2's §9 summarized C41 as PASS_TECHNICAL with a reporting finding. C41's verdict was overall
+    AMEND: the numerical assembly, `RESULTS.json` and the cone controls PASS_TECHNICAL, the reporting AMEND (C41-205-C-01). §9 now
+    records that split, C42's resolution at `01d09e9`, and C43's review.
+  - The script, `RESULTS.json`, the workflow, the rules and the mutants are byte-unchanged.
