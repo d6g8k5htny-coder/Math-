@@ -32,9 +32,10 @@ against all eight sources at their declared blobs (`REFEREE_2.md` in the project
 MINOR FIXES, with no major finding.
 - *What it verified independently.*
   - (H.1), symbolically by Peano kernels (sympy), and on non-polynomial test functions.
-  - Lemma H's covariance, numerically. For the Gaussian kernel, two independent routes (the segment functionals of
-    (H.1), and `H̃` directly) agree to `7·10⁻¹¹`. Small tori (`L = 2, 3, 6` in `d = 2`, `L = 3` in `d = 3`) were probed,
-    in several frames, by the segment route alone.
+  - Lemma H's covariance, numerically. The direct form of `H̃` and the segment form (H.1) agree to `7·10⁻¹¹` for the
+    Gaussian kernel (two representations sharing one covariance code), and they reproduce the author's 60-digit
+    `mpmath` exploration, which uses the raw pins. The segment form was also evaluated on small tori (`L = 2, 3, 6` in
+    `d = 2`, `L = 3` in `d = 3`) in several frames.
   - The `ε²` mechanism of Lemma S′, by Monte Carlo under the exact pinned law of `H̃`.
   - The §4 ledger and every comparison claim, in exact rationals.
   - All controls and mutants.

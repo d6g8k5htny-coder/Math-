@@ -183,7 +183,7 @@
   "report": "project archive V2_2/frontiers_elder_third_order_20261001/REFEREE_2.md",
   "report_sha256": "9d93d25f17e494e84956af2578b115ddee7d9f4c1f258da2dcf33d0be0453b03",
   "report_bytes": 26106,
-  "independent_checks": "(H.1) by Peano kernels (sympy); Lemma H covariance by two numerical routes (Gaussian kernel) and on tori L = 2, 3, 6 (floating point); the eps^2 mechanism of Lemma S-prime by Monte Carlo; the section 4 ledger in exact rationals; all controls and mutants",
+  "independent_checks": "(H.1) by Peano kernels (sympy); Lemma H covariance numerically: the direct and segment forms of H-tilde agree to 7e-11 for the Gaussian kernel (two representations sharing one covariance code) and reproduce the author mpmath exploration (raw pins); the segment form also on tori L = 2, 3, 6 (d = 2) and L = 3 (d = 3) (floating point); the eps^2 mechanism of Lemma S-prime by Monte Carlo; the section 4 ledger in exact rationals; all controls and mutants",
   "independence": "same provider and GitHub account as the author; zero organizational independence"
  },
  "nonauthor_reviews_of_v1": {
@@ -201,8 +201,8 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 68553,
-   "sha256": "0d10d5d5201c9c181a3127c46a425aa375bfebaa20d0dd481cc0bfae7b0eba3c"
+   "bytes": 68666,
+   "sha256": "c50e8e60d209752f20b2dc51371f3d5b08c84a744d2d73e84b2e3c62f7b4be5d"
   },
   {
    "path": "README.md",
