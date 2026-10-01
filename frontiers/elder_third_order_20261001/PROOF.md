@@ -79,8 +79,9 @@ of them changes:
 - Math- #218 (`frontiers/candidate_third_order_20261001/PROOF.md`, blob `70ca57ef`): Lemma D (also applied here to the
   rescaled Hessian of Lemma H), (1.2) and its proof, Lemma F (Steps F1, F3, (F.2)), Lemma C (Steps C1, C2 and C3),
   Lemma O, Theorem T and §4 (the fold region and the exponent ledger).
-- For (E3.3) and Corollary E3′(3) only: Math- #187 (`frontiers/far_elder_rate_20260930/PROOF.md`, blob `37dcf6ef`),
-  Theorem F at the single separation `ρ = r_0^*`.
+- For (E3.3) and Corollary E3′(3) only: Math- #187 (`frontiers/far_elder_rate_20260930/PROOF.md`, blob `07260114` at
+  `75c686c`), Theorem F at the single separation `ρ = r_0^*`. (Rebound on 1 October from blob `37dcf6ef`: #187's
+  status sentence now records that #182 is integrated. Theorem F and its proof are unchanged.)
 
 **Merged inputs:** [R], [P] with [E1]/[E2]/[REC] ([P] §2's linear independence of derivative functionals also enters
 Lemma H directly), [C7-K] ((K2) and §4), and [Z] (Z13)–(Z14) with [P] §10 (the change of variables behind the
@@ -755,7 +756,7 @@ from #187's Theorem F at `ρ = r_0^*`. ∎
 | #198 | `frontiers/remainder_rate_20260930/PROOF.md` (merged 1 October 2026 at `124c37d`; blob `abfb98ae`) | (3.1), §3 sign window, Lemma B's barrier (1.2) and §1 identity, Lemma W (W.1), (2.1), Lemma F′ — consumed |
 | #207 | `frontiers/cusp_second_order_20261001/PROOF.md` (unmerged; v1.1 blob `f6df5a73`) | §0, proof of CU.1, CU.2, structure of CU.3, §6 ((6.1), (CU.2)) — **consumed, unmerged** |
 | #218 | `frontiers/candidate_third_order_20261001/PROOF.md` (unmerged; blob `70ca57ef`) | Lemma D (also for `H̃`), (1.2) and its proof, Lemma F (F1, F3, (F.2)), Lemma C (C1, C2, C3), Lemma O, Theorem T, §4 — **consumed, unmerged** |
-| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (unmerged; blob `37dcf6ef`) | Theorem F at `ρ = r_0^*` — **consumed, unmerged, for (E3.3) and Corollary E3′(3) only** |
+| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (unmerged; blob `07260114` at `75c686c`, rebound from `37dcf6ef` after a status-only repair) | Theorem F at `ρ = r_0^*` — **consumed, unmerged, for (E3.3) and Corollary E3′(3) only** |
 | #216 | `frontiers/third_order_coefficient_20261001/` (unmerged) | numerical `c₂`, the Monte Carlo — cited only |
 | #188 | `frontiers/far_elder_flat_ridge_20260930/PROOF.md` (unmerged) | Theorem G, an alternative far bound (Remark 2) — cited only |
 
