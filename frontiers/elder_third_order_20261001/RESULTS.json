@@ -1,0 +1,215 @@
+{
+ "checks": {
+  "X1_exponent_ledger": {
+   "core": {
+    "l rho_f^-2": "5/11",
+    "l^2 rho_c^-7": "4/9",
+    "l^2 rho_f^-6": "4/11",
+    "rho_c^2": "4/9",
+    "rho_f^2": "6/11",
+    "rho_f^5/l": "4/11"
+   },
+   "intermediate": {
+    "[a,r0*]: l^(2/3) a^-2": "2/5",
+    "[a,r0*]: l^(5/3) a^-7": "11/15",
+    "[rho_c,a]: a^3": "2/5",
+    "[rho_c,a]: l^2 rho_c^-7": "4/9"
+   },
+   "least": "4/11",
+   "passed": true,
+   "split_exponent": "2/15"
+  },
+  "X2_ridge_identities": {
+   "X3_closed_forms_at_rational_phi": 400,
+   "factorizations": true,
+   "g_at_points": {
+    "-3": [
+     "-50",
+     "3675/16"
+    ],
+    "-3/2": [
+     "-5",
+     "12"
+    ],
+    "2": [
+     "25/2",
+     "675/16"
+    ]
+   },
+   "passed": true
+  },
+  "X3_margins": {
+   "margin_constant": "3/2",
+   "min_ratio_over_grid": "3/2",
+   "passed": true,
+   "sharp_at_phi_1": true
+  },
+  "X4_decision_1d": {
+   "cases": {
+    "E": 117,
+    "R+": 123,
+    "R-": 123
+   },
+   "grid_points": 501,
+   "passed": true,
+   "threshold": "1/3"
+  },
+  "X5_weighted_taylor": {
+   "fields": [
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "161/100",
+     "min_slack": 0,
+     "monomials": 26
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "117/50",
+     "min_slack": 0,
+     "monomials": 25
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "157/100",
+     "min_slack": 0,
+     "monomials": 25
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "42/25",
+     "min_slack": 0,
+     "monomials": 37
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "17/25",
+     "min_slack": 0,
+     "monomials": 37
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "51/50",
+     "min_slack": 0,
+     "monomials": 37
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "213/100",
+     "min_slack": 0,
+     "monomials": 78
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "13/100",
+     "min_slack": 0,
+     "monomials": 79
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "29/100",
+     "min_slack": 0,
+     "monomials": 72
+    }
+   ],
+   "passed": true
+  },
+  "X6_lemma_S": {
+   "Q2_C0_poly": [
+    "25/16",
+    "175/16",
+    "1225/64"
+   ],
+   "Q2_C2_poly": [
+    "105/64",
+    "2911/128",
+    "317/4"
+   ],
+   "coefficient": "2",
+   "passed": true,
+   "random_instances": 900
+  },
+  "X7_pointwise": {
+   "passed": true,
+   "trials": 5000
+  },
+  "X8_lemma_S_prime_algebra": {
+   "extremal_singular": true,
+   "instances": 121,
+   "loewner_factor": "r^2",
+   "passed": true,
+   "range_witness_r2_fails": true
+  },
+  "X9_lemma_H_exact_form": {
+   "fields": [
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "11/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "237/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "169/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "52/25",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "23/20",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "69/25",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "57/100",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "29/10",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "151/100",
+     "separations": 4
+    }
+   ],
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-ELDER-THIRD-ORDER-20261001-v1.1 controls",
+ "passed": true,
+ "scientific_effect": "NONE"
+}
