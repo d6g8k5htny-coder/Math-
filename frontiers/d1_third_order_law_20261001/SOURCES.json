@@ -1,0 +1,128 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-D1-THIRD-ORDER-20261001-v1",
+ "kind": "author-side proof candidate (Theorem D1: the one-dimensional crest-to-trough and persistence lifetime densities on the circle to third order with remainder O(h^(1/2))); self-contained; nothing consumed; nonauthor review required. Control C6 is a numerical consistency check (two-point Rice integral), not a proof.",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a"
+ },
+ "consumed": [],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md",
+   "bytes": 13738,
+   "sha256": "16628983f7833419e33c7b04cdb2e0d49076bccfbe7a6d457bf90efba63aa4ec",
+   "git_blob": "003b98794f02fd5c1cd45ed263bf2818b556e6ab",
+   "tag": "recon147",
+   "use": "literature position (section 6.3): no small-gap exponent located; Perez states the smooth short-bar law as open"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 9 marked Kac-Rice convention (the d-dimensional argument, applied in d = 1)"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "Borel repair of the marked Kac-Rice formula (convention only)"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "comparison only (section 6.1): (CU.2) at d = 1 equals C1; (CU-prime.1) ratio 3^(1/4)/2; the proof of Lemma 3.2 follows CU.1",
+   "head": "826b8be512e86f2de73c33d6ac7a76908dc2e0e6",
+   "pr": "Math- #207"
+  },
+  {
+   "path": "reviews/literature_classical_neighbors_20261001/ADDENDUM.md",
+   "bytes": 13195,
+   "sha256": "f185d70d1e7f289163fd85a99bb9518da7cc3ead5da39db99e570ecde8b4f88e",
+   "git_blob": "fc0a84dcfb0e106316f6e10a9bedd87d578e9c4c",
+   "tag": "210",
+   "use": "comparison only: the d = 1 remark f_H(h) ~ C h^(-1/3) whose constant Theorem D1 proves",
+   "head": "792916912796874c7113258aceffc26ab965de5b",
+   "pr": "Math- #210"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "AW09",
+   "reference": "J.-M. Azais and M. Wschebor, Level Sets and Extrema of Random Processes and Fields, Wiley (2009), Ch. 6",
+   "use": "two-point (marked) Kac-Rice formula"
+  },
+  {
+   "tag": "Markov",
+   "reference": "A. A. Markov / V. A. Markov, inequality for derivatives of polynomials on an interval",
+   "use": "Lemma 4.1"
+  },
+  {
+   "tag": "Landau",
+   "reference": "E. Landau (1913), interpolation inequality |g'| <= 2 (sup|g| sup|g''|)^(1/2)",
+   "use": "flat band, Lemma 4.3"
+  },
+  {
+   "tag": "Bulinskaya",
+   "reference": "E. V. Bulinskaya (1961), on the mean number of crossings of a level by a stationary Gaussian process",
+   "use": "Lemma 1.1 (Morse property, distinct critical values)"
+  },
+  {
+   "tag": "BorellTIS",
+   "reference": "Borell-Tsirelson-Ibragimov-Sudakov inequality",
+   "use": "tails of suprema of conditioned derivatives"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4",
+  "M5"
+ ],
+ "replayed": [
+  "d1_check.py"
+ ],
+ "not_replayed": [],
+ "exploration_outside_repository": "numpy Monte Carlo (exact spectral synthesis, total length 8.4e7) and an mpmath Rice computation (50-130 digits); archived with the project record, not part of this packet (standard-library rule)",
+ "referee": {
+  "kind": "pre-submission clean-context referee passes, same author family (two Anthropic Claude subagents); NOT acceptance, NOT independent",
+  "slices_AB": "no false claim; Lemma 1.3 coefficients verified symbolically for a general covariance; independent Rice computation to h = 1e-40 confirms I/2, C1/2, B2 to 1e-9..1e-11 and a next term O(h^(3/4)); one gap (Prop 2.2(a): the straddle term kernel is alpha t, not alpha t^3) repaired with its Gaussian factor; minor points applied (Kac-Rice display restricted to (max, min) pairs; uniformity statements; the e^{-c/h} complement; I - C1 = 0.0778330)",
+  "slices_CD": "Lemma 3.3 case analysis, Lemmas 3.1, 3.2, 4.1, 4.2 and the counting of nu confirmed (sympy, mpmath, independent Monte Carlo 2.6e7: three-term law 0.996 +- 0.003); two errors repaired (Corollary 3.4: the misclassification window now includes the deterministic tau^2 shift between phi_G and phi; elder pairs are banded or co-banded, the co-banded kernel bounded by the flat band on the long arc); one gap repaired (sqrt(log) loss in the misclassification sum removed by the parity split, Remark 1.4); minor points applied (eta <= 1/4 and the extension of Lemma 3.3 to |phi| >= 1; far-region exponents with conditioning on f''(+-tau); merged-pin limit in Lemma 4.2; the unused adjacency claim dropped)"
+ },
+ "automated_nonauthor": [],
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 39913,
+   "sha256": "76b4bf2e95788f705582f4bd0d8fd2c52c73018b8ff9bba6360709d3f1e89eab"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7177,
+   "sha256": "3aff95a92531420e373faea3d569fcd9d35180f779f6a70fa0ff85714f1bda27"
+  },
+  {
+   "path": "d1_check.py",
+   "bytes": 29048,
+   "sha256": "483886db6442e1007f00f3b8a2a8d563001b660334a6c4c03d2418d73d723ed3"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 3682,
+   "sha256": "c7a5158b3eb7cb6a44003cf225a2b7dafeff6e1660ac1ff0ccb2f97ab585d1be"
+  }
+ ]
+}
