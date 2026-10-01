@@ -6,7 +6,7 @@
   "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
-  "note": "Theorem E: for the planar six-pin law of [LP] and the good event G_r of [LP] section 7 / [CAP] (1), on the band b in [0, 1], k in [1/2, 2], uniformly over frames and torus sides L >= 10 (and for the reference kernel), Q^W(G_r^c) <= C(r_*) r^3 and Z_r / r^2 >= z(r_*) for 0 < r <= r_*, with C(1/512) = 5415659.2391, z(1/512) = 8.962953 and six further certified pairs. The proof is self-contained apart from the definitions and the pins of [LP] (3.1)-(3.3): it does not consume [LP] (4.1), (4.2), (5.4), (5.5) or (7.5)-(7.7). With [LP] section 8 (1 - p_r <= Q^W(G_r^c)) this gives explicit pairs (C, r_*) for [LP] Theorem A (1.1) on the band. Every C here is a cap-route constant (a constant for [LP] (7.8)); it is within 0.6-1.8% of the sharp cap coefficient c_G(0, 2) of Math-#203 for r_* <= 1/512. C8 stays OPEN: no catalog edit; c_{B,K}, c_{d,L} and d >= 3 are not addressed.",
+  "note": "Theorem E: for the planar six-pin law of [LP] and the good event G_r of [LP] section 7 / [CAP] (1), on the band b in [0, 1], k in [1/2, 2], uniformly over frames and torus sides L >= 10 (and for the reference kernel), Q^W(G_r^c) <= C(r_*) r^3 and Z_r / r^2 >= z(r_*) for 0 < r <= r_*, with C(1/512) = 5415659.2391, C(1/256) = 9370799.9311 (C r_*^3 <= 0.559), z(1/512) = 8.962953 and five further certified pairs. Theorem E' (v1.1): the same at the fixed-axis SIDE24 point (b, k) = (6/5, 1/6) of [CAP] section 1, C'(1/4096) = 39322.818 (1.100 c_G), C'(1/2048) = 43092.2382, C'(1/512) r^3 <= 0.874, replacing [CAP]'s recorded 2.4e23. The proof is self-contained apart from the definitions and the pins of [LP] (3.1)-(3.3): it does not consume [LP] (4.1), (4.2), (5.4), (5.5) or (7.5)-(7.7). With [LP] section 8 (1 - p_r <= Q^W(G_r^c)) this gives explicit pairs (C, r_*) for [LP] Theorem A (1.1). Every C here is a cap-route constant (a constant for [LP] (7.8)). C8 stays OPEN: no catalog edit; c_{B,K}, c_{d,L} and d >= 3 are not addressed.",
   "sources": [
     {
       "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -26,7 +26,7 @@
       "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
       "id": "CAP",
       "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
-      "role": "section 1: the cylinder D, the partial-block norms M_3, M_4 (coordinate partials in d = 2) and condition (1) defining G_r; the deterministic cap theorem behind [LP] section 8 (consumed as a statement); the recorded constant (2)-(3) at the SIDE24 parameters, quoted for comparison only",
+      "role": "section 1: the cylinder D, the partial-block norms M_3, M_4 (coordinate partials in d = 2) and condition (1) defining G_r; the deterministic cap theorem behind [LP] section 8 (consumed as a statement); the probabilistic corollary (2)-(3): the fixed-axis SIDE24 law (b = 6/5, kappa = 1/6, 0 < r <= 1/20), whose parameter point is Theorem E', and its recorded constant 2.4e23, quoted for comparison",
       "current_required": true,
       "on_main": true
     },
@@ -38,7 +38,7 @@
       "id": "G",
       "commit": "a388580eee356a88ce31aeed3999ab3fdc302312",
       "pull_request": "Math-#203",
-      "role": "Theorem G and c_G(0, 2) in [5324360.4426, 5324360.4427]; v1.2 section 5 item 1: every cap-route constant is >= c_G. Used only for the --check sanity rule C > 5324360.4426 (a necessary condition) and for the comparison in NOTE section 0; not consumed by the proof",
+      "role": "Theorem G and the certified lower ends c_G(0, 2) >= 5324360.4426 and c_G(6/5, 1/6) >= 35736.7352; v1.2 section 5 item 1: every cap-route constant is >= c_G. Used only for the --check sanity rules C > c_G (necessary conditions) and for the comparisons in NOTE section 0; not consumed by the proof",
       "current_required": false,
       "on_main": false
     },

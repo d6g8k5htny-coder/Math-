@@ -4,7 +4,8 @@ for 0 < r <= r_*, b in [0, 1], k in [1/2, 2],
 
     1 - p_r(b, k, R)  <=  Q^W(G_r^c)  <=  C(r_*) r^3,
 
-with G_r the good event of [LP] section 7 / [CAP] (1) and C(r_*) certified here (NOTE.md Theorem E).  The proof bounds
+with G_r the good event of [LP] section 7 / [CAP] (1) and C(r_*) certified here (NOTE.md Theorem E); the same at the single
+fixed-axis SIDE24 point (b, k) = (6/5, 1/6) of [CAP] section 1 (Theorem E').  The proof bounds
 Q^W(G_r^c) = E_Q[W_r 1{G_r^c}] / Z_r from above by an exact Gaussian regression near r = 0:
 
   * covariances of the preconditioned pin and target functionals are exact power series in r, obtained from the Taylor
@@ -32,9 +33,10 @@ PBITS = 160
 L_MIN = 10
 NX = 60                    # Taylor order in x of the covariance series (exact); the rest is a bounded tail
 NB = 24                    # truncation order of the Taylor tails of the 4-jets at the midpoint (the rest is bounded)
-X0 = Fr(1, 64)             # threshold for the quadratic near-branch analysis
-THETA = Fr(1, 32)          # splitting parameter in the max-moment lemma
+X0 = Fr(1, 64)             # default threshold for the quadratic near-branch analysis (records use COMBOS)
+THETA = Fr(1, 32)          # default splitting parameter in the max-moment lemma (records use COMBOS)
 THETA_E = Fr(1, 16)        # splitting parameter for the (r nu + v)^2 factor
+QS = (2, 4, 8, 16)         # Hoelder exponents of the rare branches: E[W 1_E] <= ||W||_q P(E)^(1 - 1/q), smallest bound used
 R_STARS = (Fr(1, 4096), Fr(1, 2048), Fr(1, 1024), Fr(1, 512), Fr(1, 256), Fr(1, 128), Fr(1, 64))
 BAND_B = (Fr(0), Fr(1))
 BAND_K = (Fr(1, 2), Fr(2))
@@ -623,13 +625,13 @@ def pos_part_moments(s, c, nmax, extra_max):
     return out
 
 
-def normalized_moments(q, nmax):
+def normalized_moments(q, nmax, theta):
     """Component moments, normalized by K = 12 k (K >= Klo), for n <= nmax:
       E1[n], E1o[n], E1v[n] : upper bounds of E[y1^n], E[o0 y1^n], E[v0^2 y1^n], y1 = 1 + cmu1/K + (r1/K) Delta1;
       Tn[n], To[n], Tv[n]   : upper bounds of sum_{i=2,3,4} E[(y_i^n - c^n)_+] (and with the factors o0, v0^2),
                               y_i <= u_i + delta_i (u_i = s_i |zeta| independent half-normals), threshold c = q['c'].
     o0 = s3 |z2| and v0^2 = s2^2 z1^2 / 4 are unnormalized."""
-    th = THETA
+    th = theta
     cp = q['c'] * (1 - th)                  # <= c (1 + th)^{-(n-1)/n} for every n (Bernoulli)
     PP = {i: pos_part_moments(q['s'][i], cp, nmax, 2) for i in (2, 3, 4)}
     Eu3 = (habs_moment(1) * q['s3']).hi
@@ -678,8 +680,11 @@ def elam2_pos(m, s):
     return (m * m + s * s) * Phi(IV(x)) + phi_pt(x) * (m * s)
 
 
-def box_bound(law, bb, kb, r0, r1, last_band=False):
-    """Certified upper bound of sup_{r in [r0, r1]} Q^W(G_r^c) / r^3 over b in bb, k in kb, with its pieces."""
+def box_bound(law, bb, kb, r0, r1, last_band=False, x0=None, theta=None):
+    """Certified upper bound of sup_{r in [r0, r1]} Q^W(G_r^c) / r^3 over b in bb, k in kb, with its pieces, for the near-branch
+    threshold x0 (X_0 of NOTE section 4) and the split parameter theta (section 5); every choice gives a valid bound."""
+    x0 = X0 if x0 is None else Fr(x0)
+    theta = THETA if theta is None else Fr(theta)
     b = IV(bb[0], bb[1])
     k = IV(kb[0], kb[1])
     klo, khi = kb[0], kb[1]
@@ -747,13 +752,13 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
             v = mabs['Y'] + (l31 + l32) * zp + cm + r1 * nDelta(4, p)
         return v / Klo
 
-    kappa = 3 / (1 - 3 * X0)
-    Fk = 1 + kappa * X0                      # (1 + kappa x_i) <= Fk on the event {x_i <= X0}
-    cth = 1 - kappa * X0 / 2                 # <= Fk^{-1/2}
-    NMAX = 18
+    kappa = 3 / (1 - 3 * x0)
+    Fk = 1 + kappa * x0                      # (1 + kappa x_i) <= Fk on the event {x_i <= x0}
+    cth = 1 - kappa * x0 / 2                 # <= Fk^{-1/2}
+    NMAX = 24
     q = {'cmt1': bbars[1] * muw_abs / Klo, 'rK': r1 / Klo, 'nD1': lambda p: nDelta(1, p),
          's': {2: s2 / Klo, 3: s3 / Klo, 4: s4 / Klo}, 'nd': nd, 's3': s3, 's2': s2, 'c': cth}
-    E1, E1o, E1v, Tn, To, Tv = normalized_moments(q, NMAX)
+    E1, E1o, E1v, Tn, To, Tv = normalized_moments(q, NMAX, theta)
     et1 = rup_rel(16 * kappa * r1 * bbars[1] * a_fac)     # eta_1 K, k-free
     aK2_hi = 192 * khi * a_fac                    # a K^2 = 192 k
 
@@ -809,9 +814,25 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
            + ((1 + th) * (1 + 1 / th) * dv(4) ** 2 + (1 + 1 / th) * r1 * r1 * nbar('nu', 4) ** 2) * U2_2
            + r1 * nT4 / six_klo * ebar4 * U2_2)
     termC = aK2_hi ** 2 / (12 * klo) * C_n
-    # density of lambda = -w on [0, inf)
+    # one more power of U for the density refinement: the same three terms with lambda inserted, divided by r
+    # (int_0^{rU} lambda W dlambda <= r^6 |c1| [|c2| (U^4/4 + om U^3/3) + e U^3/3])
+    U3_2_ = U3_2
+    termAp = aK2_hi ** 4 / 4 * (EUt(4) + epsc2 * sq(EUt(8)))
+    EoUt3 = sum(binom(3, l) * et1 ** l * E1o[6 + l] for l in range(4)) + Fk ** 3 * To[6]
+    EvUt3 = sum(binom(3, l) * et1 ** l * E1v[6 + l] for l in range(4)) + Fk ** 3 * Tv[6]
+    termBp = aK2_hi ** 3 / 3 * (EoUt3 + (ndo(2) + epsc4 * no4) * U3_2_)
+    if MUT == 'no-om-term':
+        termBp = Fr(0)
+    termCp = aK2_hi ** 3 / (18 * klo) * ((1 + th) ** 2 * EvUt3
+                                         + ((1 + th) * (1 + 1 / th) * dv(4) ** 2 + (1 + 1 / th) * r1 * r1 * nbar('nu', 4) ** 2) * U3_2_
+                                         + r1 * nT4 / six_klo * ebar4 * U3_2_)
+    # density of lambda = -w: pbar = its supremum on [0, inf); on the failure window [0, rU] also p(lambda) <= p0 + lambda Lp
+    # with p0 = sup over the box of the density at 0 and Lp = sup |p'| <= phi(1)/sigma^2, phi(1) < 0.24198
     mlo = max(Fr(0), mu['w'].lo)
     pbar = (phi_pt(mlo / sw_hi) / sw_lo).hi
+    m0 = Fr(0) if mu['w'].lo <= 0 <= mu['w'].hi else min(abs(mu['w'].lo), abs(mu['w'].hi))
+    p0 = (phi_pt(m0 / sw_hi) / sw_lo).hi
+    Lp = Fr(24198, 100000) / (sw_lo * sw_lo)
     # ---- normalizer floor Z_r / (36 k^2 r^2) >= El2 - corr
     m_lam = -mu['w']
     El2 = elam2_pos(m_lam.lo, sw_lo).lo
@@ -830,15 +851,19 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
         corr = Fr(0)
     zt = El2 - corr
     require(zt > 0, 'normalizer floor not positive')
-    main = pbar * (termA + termB + termC) / zt
-    # ---- rare branches at the band top: ||W||_2 / r^2 and probabilities
+    main = min(pbar * (termA + termB + termC), p0 * (termA + termB + termC) + r1 * Lp * (termAp + termBp + termCp)) / zt
+    # ---- rare branches at the band top: E[W 1_E] <= ||W 1_typed||_q P(E)^(1 - 1/q) (Hoelder), ||W 1_typed||_q / r^2 <= g1 g2,
+    # for each q in QS; the smallest resulting bound is used
     six_khi = 6 * khi
-    nT8Q = gauss_norm(mabs['T'], sdT, 8)
-    ntau8Q = gauss_norm(mabs['tau'], sdtau, 8)
-    g1 = (six_khi + r1 * nT8Q) * lam_n(8)
-    g2 = (six_khi + r1 * nT8Q + r1 * r1 * ntau8Q) * (lam_n(8) + r1 * gauss_norm(mabs['om'], law.sdQ['om'].hi, 8)) \
-        + r1 * (r1 * gauss_norm(mabs['nu'], law.sdQ['nu'].hi, 8) + gauss_norm(mabs['v'], law.sdQ['v'].hi, 8)) ** 2
-    w2 = g1 * g2
+
+    def wnorm(q):
+        p4 = 4 * q
+        nTQ = gauss_norm(mabs['T'], sdT, p4)
+        ntauQ = gauss_norm(mabs['tau'], sdtau, p4)
+        g1 = (six_khi + r1 * nTQ) * lam_n(p4)
+        g2 = (six_khi + r1 * nTQ + r1 * r1 * ntauQ) * (lam_n(p4) + r1 * gauss_norm(mabs['om'], law.sdQ['om'].hi, p4)) \
+            + r1 * (r1 * gauss_norm(mabs['nu'], law.sdQ['nu'].hi, p4) + gauss_norm(mabs['v'], law.sdQ['v'].hi, p4)) ** 2
+        return g1 * g2
     thr = 3 * klo / (10 * r1)
     qA2 = Fr(0)
     args = []
@@ -856,7 +881,7 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
     for i in (1, 2, 3, 4):                         # x_i > X0  <=>  y_i' > X0 / (a r1 beta_i)
         if bbars[i] == 0:
             continue
-        tx = X0 / (a_hi * r1 * bbars[i])
+        tx = x0 / (a_hi * r1 * bbars[i])
         if i == 1:
             cb = 12 * khi + bbars[1] * muw_abs
             qx += Fr(1) if tx <= cb else (r1 * nDelta(1, 32) / (tx - cb)) ** 32
@@ -865,11 +890,12 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
             args.append(tx / (2 * s_i))
             qx += gauss_tail2(0, s_i, tx / 2) + (nd(i, 32) * Klo / (tx / 2)) ** 32
     qs = [min(Fr(1), x) for x in (qA2, qfar, qx)]
-    tail_num = w2 * sum((iroot(x, 2) if x > 0 else Fr(0)) for x in qs)
+    tail_num = min(wnorm(q) * sum(pow_tail(x, q) for x in qs) for q in QS)
     if last_band:
         # (0, R] is the union of [R 2^-(j+1), R 2^-j]; every Gaussian tail argument scales at least like 1/r and is >= 3 at R,
-        # every Markov piece is a power r^q with q >= 16 after the square root, so each halving of r divides every tail
-        # piece by more than 8 and the supremum of tail / r^3 over (0, R] is attained on [R/2, R]
+        # so each Gaussian piece drops by more than 64 when r halves; every Markov piece is a power r^m with m >= 32; after the
+        # power 1 - 1/q (q >= 2) each piece still drops by more than 8, so for the q chosen at R the supremum of tail / r^3
+        # over (0, R] is attained on [R/2, R]
         require(min(args) >= 3, 'last-band tail arguments')
         # no piece is capped at 1, so the factor-64 decrease of every piece per halving carries over to each sum
         require(max(qA2, qfar, qx) < 1, 'last-band tail pieces')
@@ -880,6 +906,13 @@ def box_bound(law, bb, kb, r0, r1, last_band=False):
     total = main + tail
     return {'total': total, 'main': main, 'tail': tail, 'zt': zt, 'pbar': pbar, 'termA': termA, 'termB': termB,
             'termC': termC, 'qA2': qA2, 'qfar': qfar, 'qx': qx, 'El2': El2, 'corr': corr, 'min_arg': min(args)}
+
+
+def pow_tail(x, q):
+    """Upper bound of x^(1 - 1/q) for 0 <= x <= 1 (q a power of two)."""
+    if x <= 0:
+        return Fr(0)
+    return iroot(rup_rel(x, 64) ** (q - 1), q)
 
 
 def phibar_upper(x):
@@ -956,21 +989,38 @@ def dec_up(x, places=4):
 
 
 BOXES = tuple((bb, kb) for bb in B_BOXES for kb in K_BOXES)      # the order of the per-box lists in a band record
+# (x0, theta) choices; each gives a valid bound and the record keeps the smaller one
+COMBOS = ((Fr(1, 64), Fr(1, 32)), (Fr(1, 1024), Fr(1, 256)))
+# the fixed-axis SIDE24 point of [CAP] section 1 (b = 6/5, kappa = 1/6), a single (b, k) point outside the band
+SIDE24_B, SIDE24_K = (Fr(6, 5), Fr(6, 5)), (Fr(1, 6), Fr(1, 6))
+CG_02_LO, CG_SIDE24_LO = Fr('5324360.4426'), Fr('35736.7352')      # certified lower ends of c_G at (0, 2), (6/5, 1/6) ([G])
+
+
+def best_box(law, bb, kb, r0, r1, last):
+    best = None
+    for x0, theta in COMBOS:
+        res = box_bound(law, bb, kb, r0, r1, last_band=last, x0=x0, theta=theta)
+        if best is None or res['total'] < best['total']:
+            best = res
+    return best
 
 
 def band_record(args):
     """Per band: the certified bound of sup Q^W(G_r^c)/r^3 (rounded up, 4 places) and the floor of Z_r/r^2 (rounded down,
-    6 places) for each of the 28 boxes in BOXES order, and the largest tail part (rounded up, 12 places)."""
+    6 places) for each of the 28 boxes in BOXES order, the largest tail part (rounded up, 12 places), and the same two
+    numbers at the SIDE24 point."""
     r0, r1 = args
     law = band_law(r0, r1)
     last = (r0 == 0)
     bound, zfloor, tails = [], [], []
     for bb, kb in BOXES:
-        res = box_bound(law, bb, kb, r0, r1, last_band=last)
+        res = best_box(law, bb, kb, r0, r1, last)
         bound.append(dec_up(res['total']))
         zfloor.append(dec_down(36 * kb[0] * kb[0] * res['zt'], 6))
         tails.append(res['tail'])
-    return {'r': [str(r0), str(r1)], 'bound': bound, 'zfloor': zfloor, 'tail_max': dec_up(max(tails), 12)}
+    s24 = best_box(law, SIDE24_B, SIDE24_K, r0, r1, last)
+    return {'r': [str(r0), str(r1)], 'bound': bound, 'zfloor': zfloor, 'tail_max': dec_up(max(tails), 12),
+            'side24': [dec_up(s24['total']), dec_down(36 * SIDE24_K[0] ** 2 * s24['zt'], 6)]}
 
 
 def full_run(procs):
@@ -992,16 +1042,25 @@ def assemble(recs):
                         mx, arg = v, {'r': rec['r'], 'b': [str(bb[0]), str(bb[1])], 'k': [str(kb[0]), str(kb[1])]}
                     z = Fr(zs)
                     zmin = z if zmin is None or z < zmin else zmin
-        table[str(rs)] = {'C': str(mx), 'argmax': arg, 'C_over_cG02': dec_up(mx / Fr('5324360.4426'), 6),
+        table[str(rs)] = {'C': str(mx), 'argmax': arg, 'C_over_cG02': dec_up(mx / CG_02_LO, 6),
                           'C_rstar3': dec_up(mx * rs ** 3, 10), 'z_star': str(zmin)}
+    side = {}
+    for rs in R_STARS:
+        rows = [rec for rec in recs if Fr(rec['r'][1]) <= rs]
+        mx = max(Fr(rec['side24'][0]) for rec in rows)
+        arg = [rec['r'] for rec in rows if Fr(rec['side24'][0]) == mx][0]
+        zmin = min(Fr(rec['side24'][1]) for rec in rows)
+        side[str(rs)] = {'C': str(mx), 'argmax_r': arg, 'C_over_cG': dec_up(mx / CG_SIDE24_LO, 6),
+                         'C_rstar3': dec_up(mx * rs ** 3, 10), 'z_star': str(zmin)}
     return {'schema': 1, 'object': 'CL-C8-THEOREM-A-CONSTANTS-PLANAR-20260930-v1', 'scientific_effect': 'NONE',
             'certified': True, 'mutant': MUT, 'L_min': L_MIN,
             'band': {'b': [str(BAND_B[0]), str(BAND_B[1])], 'k': [str(BAND_K[0]), str(BAND_K[1])]},
-            'parameters': params(), 'C_table': table, 'bands': recs}
+            'side24_point': {'b': str(SIDE24_B[0]), 'k': str(SIDE24_K[0])},
+            'parameters': params(), 'C_table': table, 'C_table_side24': side, 'bands': recs}
 
 
 def params():
-    return {'PBITS': PBITS, 'NX': NX, 'NB': NB, 'X0': str(X0), 'THETA': str(THETA), 'THETA_E': str(THETA_E),
+    return {'PBITS': PBITS, 'NX': NX, 'NB': NB, 'COMBOS_X0_THETA': [[str(a), str(b)] for a, b in COMBOS], 'THETA_E': str(THETA_E), 'QS': list(QS),
             'R_STARS': [str(x) for x in R_STARS], 'HIGH_OCTAVES': HIGH_OCTAVES, 'TOP_OCTAVES': TOP_OCTAVES,
             'LOW_OCTAVES': LOW_OCTAVES, 'R_LAST': str(R_LAST),
             'B_BOXES': [[str(a), str(b)] for a, b in B_BOXES], 'K_BOXES': [[str(a), str(b)] for a, b in K_BOXES]}
@@ -1052,12 +1111,17 @@ def check_run(procs, full=False):
     for i, rec in zip(idx, recs):
         require(rec == ref['bands'][i], 'band %d (%s) differs from RESULTS.json' % (i, rec['r']))
     # the table is the maximum over the stored records
-    require(assemble(ref['bands'])['C_table'] == ref['C_table'], 'C table is not the maximum of the stored bounds')
+    asm = assemble(ref['bands'])
+    require(asm['C_table'] == ref['C_table'] and asm['C_table_side24'] == ref['C_table_side24'],
+            'C tables are not the maxima of the stored bounds')
     # sanity: every C exceeds the sharp reference-kernel cap coefficient c_G(0, 2) of Math-#203 (a lower bound for every
     # cap-route constant valid for all L >= 10, since c_G^{L,R} -> c_G^{ref} as L -> infinity)
     for rs, row in ref['C_table'].items():
-        require(Fr(row['C']) > Fr('5324360.4426'), 'C below the sharp cap coefficient')
-    print(json.dumps({'check': 'ok', 'bands_replayed': len(idx), 'C_table': {rs: row['C'] for rs, row in ref['C_table'].items()}, 'mutant': MUT}))
+        require(Fr(row['C']) > CG_02_LO, 'C below the sharp cap coefficient')
+    for rs, row in ref['C_table_side24'].items():
+        require(Fr(row['C']) > CG_SIDE24_LO, 'SIDE24 C below the sharp cap coefficient')
+    print(json.dumps({'check': 'ok', 'bands_replayed': len(idx), 'C_table': {rs: row['C'] for rs, row in ref['C_table'].items()},
+                      'C_table_side24': {rs: row['C'] for rs, row in ref['C_table_side24'].items()}, 'mutant': MUT}))
 
 
 def main():
@@ -1079,7 +1143,8 @@ def main():
         return
     res = full_run(args.procs)
     write_results(res)
-    print(json.dumps({rs: row['C'] for rs, row in res['C_table'].items()}))
+    print(json.dumps({'band': {rs: row['C'] for rs, row in res['C_table'].items()},
+                      'side24': {rs: row['C'] for rs, row in res['C_table_side24'].items()}}))
 
 
 

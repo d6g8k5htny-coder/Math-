@@ -7,7 +7,9 @@ arithmetic (standard library only). **Scientific effect:** NONE. Catalog entry C
 catalog edit is made. What this packet supplies, in `d = 2`:
 - on the band `B = [0, 1]`, `K = [1/2, 2]`, uniformly over frames and torus sides `L >= 10`, explicit cap-route pairs
   `(C, r_*)` for [LP] (7.8), and therefore for [LP] Theorem A (1.1);
-- a normalizer floor `z_*` on `(0, r_*]`.
+- a normalizer floor `z_*` on `(0, r_*]`;
+- (v1.1) the same at the single fixed-axis SIDE24 point `(b, k) = (6/5, 1/6)` of [CAP] section 1 (Theorem E'). There the only
+  constant on record, `2.4 x 10^23`, is replaced by `39322.8` for `r <= 1/4096`.
 
 No STATUS, PROOF_INDEX, GRAPH or catalog edit. Same GitHub account as every lane; zero organizational-independence credit.
 The author will not merge.
@@ -57,23 +59,45 @@ The same holds for the reference kernel `exp(-|z|^2/2)` on `R^2`, since every en
 
 | `r_*` | `C(r_*)` | `C / c_G(0,2) <=` | `C r_*^3 <=` | `z(r_*)` | maximizing cell |
 |---|---|---|---|---|---|
-| `1/4096` | `13388287917/2500 = 5355315.1668` | `1.005814` | `0.0000779301` | `8.995379` | `[31/131072, 1/4096]`; `[0, 1/64]`; `[63/32, 2]` |
-| `1/2048` | `5362302951/1000 = 5362302.9510` | `1.007127` | `0.0006242543` | `8.990755` | `[31/65536, 1/2048]`; `[0, 1/64]`; `[63/32, 2]` |
+| `1/4096` | `26776575319/5000 = 5355315.0638` | `1.005814` | `0.0000779301` | `8.995379` | `[31/131072, 1/4096]`; `[0, 1/64]`; `[63/32, 2]` |
+| `1/2048` | `53623024479/10000 = 5362302.4479` | `1.007127` | `0.0006242542` | `8.990755` | `[31/65536, 1/2048]`; `[0, 1/64]`; `[63/32, 2]` |
 | `1/1024` | `2151134031/400 = 5377835.0775` | `1.010044` | `0.0050084993` | `8.981500` | `[31/32768, 1/1024]`; `[0, 1/64]`; `[63/32, 2]` |
 | `1/512` | `54156592391/10000 = 5415659.2391` | `1.017148` | `0.0403498057` | `8.962953` | `[31/16384, 1/512]`; `[0, 1/64]`; `[63/32, 2]` |
-| `1/256` | `170358388957/5000 = 34071677.7914` | `6.399206` | `2.0308302517` | `8.921798` | `[15/4096, 1/256]`; `[1/4, 1]`; `[1/2, 1]` |
+| `1/256` | `93707999311/10000 = 9370799.9311` | `1.759987` | `0.5585432012` | `8.921798` | `[15/4096, 1/256]`; `[1/4, 1]`; `[1/2, 1]` |
 | `1/128` | `87390113247/250 = 349560452.9880` | `65.653041` | `166.6834130230` | `8.841791` | `[5/1024, 11/2048]`; `[1/4, 1]`; `[1/2, 1]` |
 | `1/64` | `14397396179923/10000 = 1439739617.9923` | `270.406115` | `5492.1707839673` | `8.676320` | `[15/1024, 1/64]`; `[1/4, 1]`; `[1/2, 1]` |
 
-`c_G(0, 2)` is replaced by its certified lower end `5324360.4426` ([G]).
+`c_G(0, 2)` is replaced by its certified lower end `5324360.4426` ([G]). v1 had `C(1/256) = 34071677.7914`; the Hölder exponents of
+section 7 bring it below `16777216 = 256^3`. All other entries are equal to v1's or below them by less than `10^-7`
+relative.
+
+**Theorem E' (the SIDE24 point).** The same holds at the single point `(b, k) = (6/5, 1/6)`, for every `L >= 10`, every frame
+and the reference kernel. That point lies outside the band (`k < 1/2`). It is the parameter point of the fixed-x-axis
+SIDE24 law of [CAP] section 1 (torus side 24, `0 < r <= 1/20`).
+
+| `r_*` | `C'(r_*)` | `C' / c_G(6/5, 1/6) <=` | `C' r_*^3 <=` | `z'(r_*)` |
+|---|---|---|---|---|
+| `1/4096` | `19661409/500 = 39322.8180` | `1.100348` | `5.8 x 10^-7` | `3.226690` |
+| `1/2048` | `215461191/5000 = 43092.2382` | `1.205825` | `5.1 x 10^-6` | `3.222401` |
+| `1/1024` | `1604824613/1250 = 1283859.6904` | `35.93` | `0.0012` | `3.213821` |
+| `1/512` | `1173169654911/10000 = 117316965.4911` | `3283` | `0.8741` | `3.196649` |
+| `1/256`, `1/128` | `815443379659/5000 = 163088675.9318` | `4564` | `> 1` | `3.162091`, `3.092963` |
+| `1/64` | `5553365927589/5000 = 1110673185.5178` | `31080` | `> 1` | `2.953979` |
+
+`c_G(6/5, 1/6)` is replaced by its certified lower end `35736.7352` ([G]). The contact value of the floor at this point is
+`z_0 = 36 k^2 E[w^2 1{w < 0}] = 3.2310`.
 
 **Corollary (explicit Theorem A on the band).**
 - **Explicit pairs.** Since `0 <= 1 - p_r <= Q^W(G_r^c)` ([LP] §8), [LP] (1.1) holds on `B x K`, uniformly over frames and
   `L >= 10`, with every pair `(C(r_*), r_*)` of the table. The pairs that are informative at `r = r_*` (`C r_*^3 < 1`) are those
-  with `r_* <= 1/512`; for example `(C, r_*) = (5415659.2391, 1/512)`, where the bound at `r = r_*` is below `0.0404`.
+  with `r_* <= 1/256`. Examples: `(C, r_*) = (5415659.2391, 1/512)`, where the bound at `r = r_*` is below `0.0404`, and
+  `(9370799.9311, 1/256)`, where it is below `0.559`.
 - **What was missing.** [LP] §16 lists "a numerical `r_*` or `C` on a prescribed band" among the items it does not supply.
-  The only explicit constant on record before this packet is [CAP] (2)–(3): `2.4 x 10^23` at the SIDE24 parameters
-  `(6/5, 1/6)`, outside this band.
+  The only explicit constant on record before this packet is [CAP] (2)–(3): `1 - p_elder(r) <= min(1, 2.4 x 10^23 r^3)` for
+  the fixed-axis SIDE24 law, nontrivial only below `r = 1.6 x 10^-8`.
+- **The SIDE24 law (Theorem E').** For that law, `1 - p_elder(r) <= 39322.8180 r^3` for `r <= 1/4096` and
+  `<= 43092.2382 r^3` for `r <= 1/2048`, within `10%` and `21%` of the sharp cap coefficient `c_G(6/5, 1/6) = 35736.8`. The
+  bound stays below `1` up to `r = 1/512` (`C' r_*^3 <= 0.874`).
 - **Near-optimal for the cap route.** The constants are within `0.6%`–`1.8%` of the smallest possible cap-route constant on
   the band for `r_* <= 1/512`. Every cap-route constant valid for the reference kernel at `(b, k) = (0, 2)` is at least
   `c_G(0, 2) > 5324360.44` ([G] Theorem G, v1.2 section 5 item 1), and this certificate's scope includes the reference kernel.
@@ -246,22 +270,39 @@ support,
 
 ## 5. The main term
 
-On `N`, every target `F` is bounded by its `g`-measurable majorant `bar-F = |F_g| + |beta_F| (|mu_w| + rU)`. The density of
-`lambda` on `[0, infinity)` is at most `bar-p = phi(max(0, mu_w)/sigma_w)/sigma_w`. From (I2),
+On `N`, every target `F` is bounded by its `g`-measurable majorant `bar-F = |F_g| + |beta_F| (|mu_w| + rU)`.
+
+**Density of `lambda` (v1.1).** Two bounds hold for the density `p` of `lambda` on the failure window `[0, rU]`:
+- `p <= bar-p = phi(max(0, mu_w)/sigma_w)/sigma_w`, its supremum on `[0, infinity)`;
+- `p(lambda) <= p_0 + lambda L_p`, where:
+  - `p_0 = phi(m_0/sigma_hi)/sigma_lo` bounds `p(0)` over the box, with `m_0` the smallest `|mu_w|` in the box (`0` if the
+    enclosure of `mu_w` contains `0`);
+  - `L_p = 0.24198/sigma_lo^2 >= phi(1)/sigma_w^2 = sup |p'|`.
+
+The second bound matters when `-mu_w = b > 0` is far from `0`: at `b = 6/5` the first gives `0.2821` while `p(0) = 0.1967`. The
+term `lambda L_p` costs one more power of `U`. From (I2),
 
     W_r <= r^2 |c1| lambda (|c2| (lambda + r |om|) + r e)
 
 on the typed support (positive parts; this covers both signs of `c1`, `c2`). Integrating over `lambda = r u in [0, rU]`
 gives
 
-    E_Q[W_r 1_N] <= r^5 bar-p E_g[ |bar-c1 bar-c2| (U^3/3 + bar-om U^2/2) + |bar-c1| bar-e U^2/2 ].
+    E_Q[W_r 1_N] <= r^5 bar-p E_g[ |bar-c1 bar-c2| (U^3/3 + bar-om U^2/2) + |bar-c1| bar-e U^2/2 ],
+
+and, with the linear density bound, the same integral with one more factor `lambda <= rU`:
+
+    E_Q[W_r 1_N] <= r^5 p_0 E_g[ ... as above ... ] + r^6 L_p E_g[ |bar-c1 bar-c2| (U^4/4 + bar-om U^3/3) + |bar-c1| bar-e U^3/3 ].
+
+The certificate uses the smaller of the two.
 
 **Normalization by `K = 12k`.** Write `U = a K^2 tilde-U` with `a K^2 = 192k`, and
 `|c1 c2|/(36k^2) <= 1 + eps`, where `eps <= (2r|T| + r^2|tau|)/(6k) + r|T|(r|T| + r^2|tau|)/(36k^2)`. Then
 
-    E_Q[W_r 1_N] / (36 k^2 r^5)  <=  bar-p (A + B + C),
-    A = (aK^2)^3/3 . E[tilde-U^3 (1 + eps)],   B = (aK^2)^2/2 . E[bar-om tilde-U^2 (1 + eps)],
-    C = (aK^2)^2/(12k) . E[(1 + r|bar-T|/(6k)) bar-e tilde-U^2].
+    E_Q[W_r 1_N] / (36 k^2 r^5)  <=  min( bar-p (A + B + C),  p_0 (A + B + C) + r L_p (A' + B' + C') ),
+    A  = (aK^2)^3/3 . E[tilde-U^3 (1 + eps)],   B  = (aK^2)^2/2 . E[bar-om tilde-U^2 (1 + eps)],
+    C  = (aK^2)^2/(12k) . E[(1 + r|bar-T|/(6k)) bar-e tilde-U^2],
+    A' = (aK^2)^4/4 . E[tilde-U^4 (1 + eps)],   B' = (aK^2)^3/3 . E[bar-om tilde-U^3 (1 + eps)],
+    C' = (aK^2)^3/(18k) . E[(1 + r|bar-T|/(6k)) bar-e tilde-U^3].
 
 **Moments of `tilde-U`.** With `tilde-y_i = y_i'/K`, `F_k = 1 + kappa X_0`, `eta_1 = 16 kappa r bar-beta_1` and
 `Z_1 = tilde-y_1^2 (1 + eta_1 tilde-y_1)`:
@@ -270,13 +311,18 @@ gives
   `max(Z_1, F_k tilde-y_i^2)^p <= Z_1^p + F_k^p sum_i (tilde-y_i^(2p) - c^(2p))_+` with `c = 1 - kappa X_0/2 <= F_k^(-1/2)`.
 - Each `tilde-y_i <= u_i + delta_i` (`i >= 2`), where `u_i` is the half-normal of the `i`-th Cholesky variable and
   `delta_i` collects the means, the off-diagonal Cholesky terms, `bar-beta_i |mu_w|` and `r Delta_i^g`.
-- With `theta = 1/32`:
+- With a parameter `theta > 0`:
   `(u + delta)^n - c^n <= (1 + theta)^(n-1) (u^n - (c(1 - theta))^n)_+ + (1 + 1/theta)^(n-1) delta^n`.
 - `E[u^q (u^n - c'^n)_+]` is in closed form through the incomplete Gaussian moments
   `M_j(x) = integral_x^infinity t^j phi(t) dt = x^(j-1) phi(x) + (j - 1) M_(j-2)(x)`.
 - `tilde-y_1 = 1 + bar-beta_1 |mu_w|/K + (r/K) Delta_1^g` is expanded binomially.
 - The `delta`-terms and every cross term are bounded by Hölder's inequality, with Gaussian `L^p` norms
   (`||N||_p <= ((p - 1)!!)^(1/p)` for `p` a power of two, `||N||_1 <= 4/5`) and the bounds of Lemma 3.
+
+**Parameter choices (v1.1).** Every pair `(X_0, theta)` gives a valid bound. Each box uses the smaller of the bounds for
+`(X_0, theta) = (1/64, 1/32)` and `(1/1024, 1/256)`. The second pair matters at small `k`, where the free third derivatives
+`2|v|, |om|, |Y|` often exceed `12k`, so the factor `F_k^3 = (1 + kappa X_0)^3` and the split loss `(1 + theta)^5` multiply
+the leading term. In v1 these were `1.155` and `1.166`; with the second pair they are `1.009` and `1.020`.
 
 **The factors `bar-om` and `bar-e`.**
 - In `bar-om`, the part that shares its Gaussian variable with `u_3` is integrated exactly; the rest goes through Hölder.
@@ -314,13 +360,15 @@ The bound of the main term is divided by this floor.
 
 ## 7. Rare branches
 
-**Weight bound.** By Hölder,
+**Weight bound.** For `q in {2, 4, 8, 16}`, by Hölder,
 
-    ||W_r 1_typed||_2 <= r^2 g_1 g_2,
-    g_1 = (6k + r||T||_8) ||lambda||_8,
-    g_2 = (6k + r||T||_8 + r^2||tau||_8)(||lambda||_8 + r||om||_8) + r (r||nu||_8 + ||v||_8)^2.
+    ||W_r 1_typed||_q <= r^2 g_1(q) g_2(q),
+    g_1(q) = (6k + r||T||_{4q}) ||lambda||_{4q},
+    g_2(q) = (6k + r||T||_{4q} + r^2||tau||_{4q})(||lambda||_{4q} + r||om||_{4q}) + r (r||nu||_{4q} + ||v||_{4q})^2.
 
-Then `E_Q[W_r 1_E] <= ||W_r||_2 P(E)^(1/2)` for `E = F, X, A`:
+Then `E_Q[W_r 1_E] <= ||W_r 1_typed||_q P(E)^(1 - 1/q)` for `E = F, X, A`, and each box uses the smallest of the four bounds.
+v1 used `q = 2` only. A larger `q` gains when the probabilities are small and loses when they are not, because `||W||_q`
+grows with `q`.
 - `P(A) <= sum_alpha [P(|X_alpha| > (7/8) t) + P(T_alpha > t/8)]` with `t = 3k/(10r)`: a Gaussian tail plus Markov's
   inequality at `p = 32` with Lemma 3.
 - `P(F) <= bar-Phi((lambda_far - |mu_w|)/sigma_w)`.
@@ -348,7 +396,8 @@ sub-bands:
     k in {[1/2, 1], [1, 3/2], [3/2, 7/4], [7/4, 15/8], [15/8, 31/16], [31/16, 63/32], [63/32, 2]}.
 
 That makes 4284 box bounds. `C(r_*)` is their maximum over the bands with `r_1 <= r_*`, and `z(r_*)` is the minimum over
-the same boxes of `36 k_lo^2` times the floor of Lemma 5.
+the same boxes of `36 k_lo^2` times the floor of Lemma 5. The SIDE24 point is evaluated on every band as a degenerate box
+`b = 6/5`, `k = 1/6`, which gives `C'(r_*)` and `z'(r_*)` in the same way.
 
 **The last band `[0, R]`, `R = 2^-29`.** The main term does not depend on `r`, and the tail is divided by `(R/2)^3`. This is
 justified as follows:
@@ -356,8 +405,9 @@ justified as follows:
 - no tail probability reaches `1` at `R` (checked);
 - every Markov piece scales like `r^32` or faster.
 
-So each halving of `r` divides each probability by more than `64`. With the square root, the tail term over `r^3` therefore
-attains its supremum over `(0, R]` on `[R/2, R]`.
+So each halving of `r` divides each probability by more than `64`. After the power `1 - 1/q` with `q >= 2` it still divides
+each piece by more than `8`, for the `q` chosen at `R`. The tail term over `r^3` therefore attains its supremum over `(0, R]`
+on `[R/2, R]`.
 
 ## 9. Arithmetic
 
@@ -384,7 +434,7 @@ Means over seeds, with the standard error of the mean:
 |---|---|---|---|---|
 | `(1/512, 0, 2)` | `4 x 20000` | `4.840e6 +- 0.035e6` | `144.2 +- 0.8` | `C <= 5415659.24`; `Z/r^2 >= 139.21` |
 | `(1/1024, 0, 2)` | `6 x 20000` | `5.192e6 +- 0.053e6` | `144.7 +- 0.6` | `C <= 5377835.08`; `Z/r^2 >= 139.37` |
-| `(1/512, 0, 1/2)` | `6 x 20000` | `8.74e4 +- 0.19e4` | `9.04 +- 0.04` | cell bound `<= 734367.75` (the cell reaches `k = 1`); `Z/r^2 >= 8.9629` |
+| `(1/512, 0, 1/2)` | `6 x 20000` | `8.74e4 +- 0.19e4` | `9.04 +- 0.04` | cell bound `<= 724033.37` (the cell reaches `k = 1`); `Z/r^2 >= 8.9629` |
 
 The limits as `r -> 0` are `c_G(0, 2) = 5324360.44`, `c_G(0, 1/2) = 85120.5` and `z_0 = 144`, `9`.
 
@@ -400,33 +450,45 @@ that no gross error separates the certificate from the definitions.
 
 - **Proofs and reviews of sources.** Not a proof or a review of [LP]'s proof of Theorem A or of [CAP]. The consequence for
   `1 - p_r` uses [LP] §8, which rests on the deterministic cap theorem of [CAP], as a statement.
-- **Scope.** Planar only (`d = 2`); `d >= 3` would need the eigenvalue boundary layer of [LP] section 7. Band only:
-  `b in [0, 1]`, `k in [1/2, 2]`. The SIDE24 parameters `(6/5, 1/6)` are not covered, since a smaller `k` lowers every
-  threshold `3k/(10r)` and `12k`.
+- **Scope.** Planar only (`d = 2`); `d >= 3` would need the eigenvalue boundary layer of [LP] section 7. The band
+  `b in [0, 1]`, `k in [1/2, 2]`, and the single SIDE24 point `(6/5, 1/6)`. No other `k < 1/2`: a smaller `k` lowers every
+  threshold `3k/(10r)` and `12k`, and at the SIDE24 point the tail branches already dominate for `r > 1/2048`.
 - **Lower bounds.** No lower bound for the constant of [LP] (1.1) itself (see [G] v1.2).
-- **Large `r_*`.** For `r_* >= 1/256` the table values are certified but exceed `1` at `r = r_*`. There the tail branches
-  `A` and `X` at small `k` dominate, and the method stops being informative.
+- **Large `r_*`.** For `r_* >= 1/128` (band) and `r_* >= 1/256` (SIDE24 point) the table values are certified but exceed `1`
+  at `r = r_*`. There the tail branches `A` and `X` dominate, and the method stops being informative.
 - **Other C8 constants.** `c_{B,K}` and `c_{d,L}` are not addressed (Math-#197 and the SIDE24 coefficient packets).
-- **Controls.** The Monte Carlo controls are floating point and are not part of the certificate.
+- **Controls.** The Monte Carlo controls are floating point and are not part of the certificate. There is none at the SIDE24
+  point: there the failure probability (`c_G r^3 < 5 x 10^-6` for `r <= 1/2048`) is beyond reach of sampling.
 - **C8.** C8 stays OPEN; this packet changes no catalog entry. Nonauthor reads are requested on the PR.
 
 ## 12. Verification and provenance
 
 - `python3 -B -S theorem_a.py --check --procs N` (also with `-B -O -S`) replays exactly, and compares with `RESULTS.json`:
   - the parameters, the band list, and 11 sampled bands (the last band and the band ending at each `r_*` among them);
-  - the `C` table as the maximum of the stored records;
-  - `C > c_G(0, 2)` for every `r_*`;
+  - both `C` tables as the maxima of the stored records;
+  - `C > c_G(0, 2)` and `C' > c_G(6/5, 1/6)` for every `r_*`;
   - the canonical layout of `RESULTS.json` (one line per band record).
 
-  It takes about 20 s on four cores.
-- `--check-full` replays all 153 bands (about four minutes on four cores).
+  It takes about one minute on four cores.
+- `--check-full` replays all 153 bands (about ten minutes on four cores).
 - Mutants `no-delta` (drop the fourth-derivative terms of Lemma 2), `cap-half` (halve the cap constant `4/(3k)`),
-  `no-zfloor-correction` (drop the corrections of Lemma 5) and `no-om-term` (drop the `om` term `B`) exit 1.
-- Without flags, the script regenerates `RESULTS.json` (about four minutes on four cores).
+  `no-zfloor-correction` (drop the corrections of Lemma 5) and `no-om-term` (drop the `om` terms `B`, `B'`) exit 1.
+- Without flags, the script regenerates `RESULTS.json` (about ten minutes on four cores).
 - Workflow `.github/workflows/c8-theorem-a-constants-planar.yml` checks:
   - the manifest and the main-resident pins ([LP], [CAP]);
   - `--check-full` and `--check` in the two interpreter modes;
   - the four mutants;
   - a clean tree.
+
+**Revisions.** v1 (`f3d41b5`): Theorem E on the band.
+
+v1.1 adds:
+- Theorem E' at the fixed-axis SIDE24 point;
+- the linear density bound for `lambda` (section 5);
+- the per-box choice between two `(X_0, theta)` pairs (section 5);
+- the Hölder exponents `q in {2, 4, 8, 16}` for the rare branches (section 7);
+- `RESULTS.json` regenerated.
+
+The band constants change only in the last digits, except `C(1/256)`, which drops from `3.41 x 10^7` to `9.37 x 10^6`.
 
 Author lane Anthropic / Claude, 30 September – 1 October 2026. Scientific effect NONE. The author will not merge.
