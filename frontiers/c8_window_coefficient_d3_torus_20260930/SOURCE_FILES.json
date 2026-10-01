@@ -65,14 +65,24 @@
         "window_coefficient_d3.py",
         "RESULTS.json"
       ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "gap-window hypothesis wording (same defect as Codex thread 4151593177 on Math-#213)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593177",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity instead of k_- >= 0; section 7 says windows touching k = 0 or infinity (including the tabulated K = (0,infinity)) and unbounded B are coefficient integrals only",
+      "unchanged": [
+        "window_coefficient_d3.py",
+        "RESULTS.json"
+      ]
     }
   ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 16200,
-      "sha256": "9e6d2bc1f905ef240f4c5a678ff7ffca5639db485ff5a5722314dc08d2e3f779",
-      "git_blob": "46da4768109aba2b2d590c6d6e92b5638e46aa98"
+      "bytes": 17401,
+      "sha256": "67839353382c8011627cdad08b96ac446fbc4ff01d1e5aff39ab326d8e32d071",
+      "git_blob": "380bbc7aa3a16f5c8497bd202c51dcd85963ae4a"
     },
     {
       "path": "RESULTS.json",

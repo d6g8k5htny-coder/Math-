@@ -9,8 +9,9 @@ as every lane: zero organizational-independence credit. Claude reads of this rec
 ## 0. Statement
 
 Let `f` be the unit-variance stationary Gaussian field on `R³/(LZ³)` with the parent kernel `K_L` of [LP] §1, `B = [b_−, b_+]` a birth
-window and `K = [k_−, k_+]` a gap window (`k_− ≥ 0`), and `c^(3)_{B,K}` the leading coefficient of [LP] Theorem B for the pairs with
-birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`).
+window and `K = [k_−, k_+]` a gap window with `0 < k_− ≤ k_+ < ∞` ([LP] Theorem B's hypothesis), and `c^(3)_{B,K}` the leading
+coefficient of [LP] Theorem B for the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`).
+Windows outside that hypothesis are treated in §7.
 
 **Proposition (d = 3 torus transfer).** For every `L ≥ 10` and every frame, `c^(3)_{B,K}` lies in the interval computed by
 `window_coefficient_d3.py` from the entry box of radius `E^(3)_10 = 2.058·10⁻¹¹`; on the C8 band `B = [0, 1]`, `K = [1/2, 2]`,
@@ -161,6 +162,10 @@ SIDE24 `d = 3` interval quoted in the script, and the mutants.
 - Not `d ≥ 4` window coefficients: Lemma S holds in every `d` (with `n = 1 + m(m+1)/2` coordinates and degree `2m`), but the reference
   birth integral `I^ref_B` for `m ≥ 3` with a window is not in closed form (the full-window value is Math-#199/#201 and #200/#202); a
   certified quadrature in `b` would supply it.
+- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes a compact `B` and `0 < k_− ≤ k_+ < ∞`. For a gap window that
+  touches `k = 0` or `∞` (the tabulated `K = (0,∞)`), and for an unbounded `B` (`[0,∞)`, `(−∞,0]`, `R`), the tabulated values are the
+  coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not extended to them; the full window is [LP]
+  (15.2)'s `c_{3,L}`.
 - Not `C`, `r_*` or `z_*`; C8 stays OPEN; no register surface is touched; `executed: false`.
 
 ## 8. Provenance
@@ -178,13 +183,13 @@ Pins on `main 3e0a91b` (workflow-checked): [LP] `imports/lifetime_parent_2026092
   Anthropic / Claude (`session_017Mi3hxjaxV45x6zo6o1ee3`).
 - **Claim:** Lemma S and its use; the `d = 3` image bound; the certified `ε`; the torus enclosures of `c^(3)_{B,K}` for every `L ≥ 10`
   and every frame, and for `L = 24`, on the windows of §5. No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested: nonauthor reads of Slice A (§§1–2: the object, Lemma S and its proof, the exact
-  scaling tests), Slice B (§§3–4: the reference law, the eigenvalue floor, the image bound, the entry box and `ε`), Slice C (§§5–7:
-  values, float control, rules, mutants, non-claims).
-- **Unresolved finding IDs:** none.
-- **Validation:** 15/15 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed locally;
-  hosted run pending at opening.
-- **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+- **Completed review scopes** (OpenAI / Codex; the PR's disposition block has the table): C40, Slices A and B (§§1–4),
+  PASS_TECHNICAL (review 5373331587); C41, Slice C (§§5–7), PASS_TECHNICAL with reporting finding C41-205-C-01 (review 5373681438);
+  C42, bounded check of v1.1, PASS_TECHNICAL, C41-205-C-01 resolved (review 5374044722).
+- **Unresolved finding IDs:** none. The v1.2 wording of §0 and §7 (§10) awaits a bounded check.
+- **Validation:** 15/15 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed locally.
+- **Next action:** a bounded nonauthor check of v1.2; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not
+  merge.
 
 ## 10. Revisions
 
@@ -199,3 +204,8 @@ Pins on `main 3e0a91b` (workflow-checked): [LP] `imports/lifetime_parent_2026092
   - The `ε` values of §4 are stated as upper bounds rounded up, and the image-bound values as approximations.
 
   The script, `RESULTS.json`, every certified value, the rules and the mutants are unchanged.
+- **v1.2 (gap-window hypothesis; reporting only).** §0 said `k_− ≥ 0`, which admits a gap window touching `k = 0`. [LP] Theorem B
+  assumes `0 < k_− ≤ k_+ < ∞`, and §0 now states that hypothesis. A new §7 bullet says that windows outside it, including the
+  tabulated `K = (0,∞)` and the unbounded `B`, are coefficient integrals only. The PR body already said so; the NOTE now does too.
+  The same wording defect was found by Codex on Math-#213 (thread 4151593177) and is repaired in every packet of the series. The
+  script, `RESULTS.json`, the rules and the mutants are byte-unchanged.
