@@ -1,10 +1,12 @@
-# The cap-failure probability of Theorem A has an exact leading coefficient in the plane
+# The cap-failure probability in the proof of Theorem A has an exact leading coefficient in the plane
 
 **Object:** `CL-C8-CAP-FAILURE-COEFFICIENT-PLANAR-20260930-v1`. **Author lane:** Anthropic / Claude.
 **Kind:** author-side limit theorem (Theorem G) with certified enclosures of its coefficient (exact rational interval
 arithmetic; standard library only). **Scientific effect:** NONE. Catalog entry C8 (`reviews/candidates_pending_20260928/CANDIDATES.md`:
 "explicit finite `C`, `r_*`, `z_*`, `c_{B,K}`, `c_{d,L}` on a declared band; OPEN") stays OPEN: this packet supplies neither
-`C` nor `r_*`; it determines the exact size of the quantity that `C r^3` bounds, hence a lower bound for every admissible `C`.
+`C` nor `r_*`; it determines the exact size of the cap-failure probability `Q^W(G_r^c)` that the proof of Theorem A bounds
+([LP] (7.8)), hence a lower bound for every cap-route constant `C_cap`; it gives no lower bound for the constant of Theorem A
+itself, which bounds the smaller probability `1 - p_r` (v1.2; section 5, item 1).
 No STATUS, PROOF_INDEX, GRAPH or catalog edit. Same GitHub account as every lane; zero organizational-independence credit.
 The author will not merge.
 
@@ -27,7 +29,11 @@ in `d = 2` the partial-block norm is the maximum of the coordinate partials). Th
 
     G_r = { -f_yy(M) > (4/(3k)) r M_3^2,  r M_4 <= 3k/10 }
 
-(on the typed support `-f_yy(M) = lambda_min(-A_M)`). Theorem A of [LP] is `Q^W(G_r^c) <= C r^3` for `0 < r <= r_*`.
+(on the typed support `-f_yy(M) = lambda_min(-A_M)`). Theorem A of [LP] is `0 <= 1 - p_r <= C r^3` for `0 < r <= r_*`
+([LP] (1.1); `p_r` is the `Q^W` probability that the global ordinary elder death partner of `M` is `S`). Its proof establishes
+the stronger cap bound [LP] (7.8), `Q^W(G_r^c) <= C_3 r^3 + C_4 r^4 <= C r^3`, and deduces (1.1) from `1 - p_r <= Q^W(G_r^c)`
+([LP] section 8: on `G_r` the global elder partner is `S`). A **cap-route constant** is any `C_cap` with
+`Q^W(G_r^c) <= C_cap r^3` for `0 < r <= r_*`; every cap-route constant is a constant for [LP] (1.1), not conversely.
 
 **Theorem G.** Fix `b in R`, `k > 0`, `L`, `R`. Then
 
@@ -57,15 +63,17 @@ and the products, all as rational enclosures (section 4). Two headline numbers:
     c_G(6/5, 1/6) in  [35736.7352, 35736.8785]    (SIDE24's fixed-axis parameters, the only pair for which an explicit C is on record;
                                                   SIDE24's torus has L = 24, where the jet-law deviation is below 1e-100 but not enclosed here).
 
-**Corollary (what this says about `C` and `r_*`).** Every constant `C` for which [LP] Theorem A holds at `(b, k)` (for a
-given kernel and frame) satisfies `C >= c_G(b, k)` for that kernel and frame. The certified numbers are the reference-kernel
+**Corollary (what this says about `C_cap` and `r_*`).** Every cap-route constant `C_cap` at `(b, k)` (for a given kernel and
+frame) satisfies `C_cap >= c_G(b, k)` for that kernel and frame. This is not a lower bound for every constant `C` of [LP] (1.1):
+the only relation between the two events is `1 - p_r <= Q^W(G_r^c)`, and the smaller probability has the smaller coefficient
+`alpha_1 + alpha_2` of [S] (S2) (Remark (d); section 5, items 1 and 4). The certified numbers are the reference-kernel
 values `c_G^{ref}`; for the torus kernel `K_L` in a frame `R` the coefficient is `c_G^{L,R}`, the same formula on the exact
 torus jet law, whose deviation from `c_G^{ref}` (of order `L^6 e^{-L^2/2}`, section 6) is **not enclosed here**. So, as a
-reference-kernel statement (equivalently `L -> infinity`): every band containing `(0, 2)` needs `C > 5.3 x 10^6`, and the
-cap route cannot give a nontrivial bound (`C r^3 < 1`) above `r = c_G^{-1/3}`, which is `5.7 x 10^-3` at `(0, 2)`,
+reference-kernel statement (equivalently `L -> infinity`): every band containing `(0, 2)` needs `C_cap > 5.3 x 10^6`, and the
+cap route cannot give a nontrivial bound (`C_cap r^3 < 1`) above `r = c_G^{-1/3}`, which is `5.7 x 10^-3` at `(0, 2)`,
 `3.4 x 10^-2` at `(1, 1/2)`, and `3.0 x 10^-2` at `(6/5, 1/6)`; for a finite torus the same holds with `c_G^{L,R}` in place
-of `c_G^{ref}`, up to that unenclosed deviation. The recorded constant of [CAP] (2)–(3), `C3_new + C4_new / 20 < 2.4 x 10^23` at `(6/5, 1/6)`, exceeds the sharp
-coefficient there by a factor above `6 x 10^18`. Against the true failure coefficient `alpha_1 + alpha_2` of [S] (S2) (the
+of `c_G^{ref}`, up to that unenclosed deviation. The recorded cap-route constant of [CAP] (2)–(3), `C3_new + C4_new / 20 < 2.4 x 10^23`
+at `(6/5, 1/6)`, exceeds the sharp cap coefficient there by a factor above `6 x 10^18`. Against the true failure coefficient `alpha_1 + alpha_2` of [S] (S2) (the
 actual elder-pairing failure, values from [NUM]) the cap criterion overstates the failure rate by the `b`-free factor
 `36 k^2 J(k) / (J_1(k) + J_2(k))`: `7.4 x 10^4` at `k = 1/2`, `4.9 x 10^5` at `k = 1`, `2.4 x 10^6` at `k = 2` (section 5).
 
@@ -155,8 +163,12 @@ Lebesgue-null. And `p_{w,r}(-ru) -> p_w(0)`.
 *Domination.* Let `N_r = 1 + ||f_r^perp||_{C^5(X)} + ||g_r||_{C^5(X)}`. For `r <= 1` and `u <= r^(-1/2)`, all of `|T|, |tau|, |nu|, |v|, |om|`
 on `f_r(u)` are bounded by `C N_r` by (1.1), so `r^(-4) W_r(u) <= C (1 + u)^2 N_r^4`, and `M_3(u) <= C N_r`, so
 `1{u <= (4/(3k)) M_3(u)^2} <= 1{u <= C N_r^2}`. Therefore the `u`-integrand is bounded by `sup_r sup p_{w,r} . C (1 + u)^2 N_r^4 1{u <= C N_r^2}`,
-whose `du`-integral is at most `C N_r^{10}`, with `sup_r E N_r^{10} < infinity` by 2.1. Dominated convergence (in `u` and on the
-probability space) gives (2.3), where the limit field is the contact field given `f_yy(0) = 0` and `E` is over the law of 2.2.
+whose `du`-integral is at most `C N_r^{10}`, with `sup_r E N_r^{10} < infinity` by 2.1. Explicitly, taking the expectation
+first: at fixed `u` the expected integrand is at most `C (1 + u)^2 min(E N_r^4, (C/u)^4 E N_r^{12})` (Markov on
+`{N_r^2 >= u/C}`), which is bounded uniformly in `r <= 1` by the integrable function `C' (1 + u)^2 min(1, u^-4)`
+(`sup_r E N_r^{12} < infinity` by 2.1); and at fixed `u` the integrand converges almost surely under the coupling and is
+uniformly integrable (`sup_r E N_r^8 < infinity`). Vitali's theorem at fixed `u` and dominated convergence in `u` give (2.3),
+where the limit field is the contact field given `f_yy(0) = 0` and `E` is over the law of 2.2.
 
 **2.5 Conclusion.** `Q^W(G_r^c) = [E_Q(W_r 1_{depth, lambda <= sqrt r}) + o(r^5)] / Z_r = r^3 [p_w(0) E I + o(1)] / [z_0 + o(1)]`, and
 `p_w(0) E[I] / z_0 = p_w(0) / (36 k^2 E[w^2 1{w<0}]) . E[I] = R(b) J(k)`, with `J(k) = E[I] / (36 k^2) = (216 k^3)^(-1) E[integral (s-a)(s-c) ds]`.
@@ -174,7 +186,8 @@ same formula holds with the exact Gaussian laws `w ~ N(mu_w, sigma_w^2)`, `(v, o
 derivatives of `K_L(R .)` at 0; these differ from the reference values by `O(L^6 e^{-L^2/2})` (image sums), which is not
 enclosed here (section 6). (d) Theorem G is a statement about the sufficient criterion `G_r`, not about the elder pairing:
 the actual failure `1 - p_r` is `(alpha_1 + alpha_2) r^3 + o(r^3)` by [S] (S2), and `G_r^c` contains the failure event
-([LP] section 8), so `c_G >= alpha_1 + alpha_2` necessarily; the size of the gap is in section 5.
+([LP] section 8), so `c_G >= alpha_1 + alpha_2` necessarily; the size of the gap is in section 5. Hence `c_G` bounds
+cap-route constants only: a constant for [LP] (1.1) itself is bounded below by `alpha_1 + alpha_2` where (S2) holds, not by `c_G`.
 
 ## 3. Reduction of `J(k)` to three one-dimensional integrals
 
@@ -255,21 +268,25 @@ certified midpoint, the enclosure widths below `10^-5` relative, `J >= 2359296 k
 for `k >= 1`, the closed-form `R(b)` against a floating evaluation, `R` decreasing on the grid (consecutive enclosures disjoint), the two headline inequalities,
 and the exact arithmetic of [CAP] (3).
 
-## 5. Consequences for `C`, `r_*`, and the size of the cap criterion's slack
+## 5. Consequences for `C_cap`, `r_*`, and the size of the cap criterion's slack
 
 All numbers in this section are reference-kernel values (`c_G^{ref}`); for the torus kernel `K_L` in a frame `R` they hold
 with `c_G^{L,R}` in place of `c_G^{ref}`, whose deviation is of order `L^6 e^{-L^2/2}` and is not enclosed here (section 6).
 
-1. **Lower bound for every admissible `C`.** If `Q^W(G_r^c) <= C r^3` for all small `r` at `(b, k)`, then `C >= c_G(b, k)`
-   (for the kernel and frame in question). On the band of Math-#195 (`B = [0, 1]`, `K = [1/2, 2]`) the grid maximum of
-   `c_G^{ref}` is at `(0, 2)`: `C > 5.32 x 10^6` for the reference kernel. Since `R` is decreasing in `b`, the band maximum
+1. **Lower bound for every cap-route constant `C_cap`.** If `Q^W(G_r^c) <= C_cap r^3` for all small `r` at `(b, k)`, then
+   `C_cap >= c_G(b, k)` (for the kernel and frame in question). This does not bound a constant `C` of [LP] (1.1) itself: the
+   only relation is `1 - p_r <= Q^W(G_r^c)`, and a coefficient of the larger probability does not bound the constants of the
+   smaller one (logical countermodel of review 5372981851 on Math-#203: one uniform `U`, `F_r = {U <= r^3}` inside
+   `G_r^c = {U <= 2 r^3}`; the cap coefficient is 2 while `C = 1` is admissible for `F_r`). On the band of Math-#195
+   (`B = [0, 1]`, `K = [1/2, 2]`) the grid maximum of `c_G^{ref}` is at `(0, 2)`: `C_cap > 5.32 x 10^6` for the reference kernel. Since `R` is decreasing in `b`, the band maximum
    over `b` is at `b = 0` for every `k`; the dependence on `k` is `~ k^3`.
-2. **Where the cap route can be nontrivial.** `C r^3 < 1` forces `r < c_G(b,k)^{-1/3}`: `5.7 x 10^-3` at `(0, 2)`,
+2. **Where the cap route can be nontrivial.** `C_cap r^3 < 1` forces `r < c_G(b,k)^{-1/3}`: `5.7 x 10^-3` at `(0, 2)`,
    `3.4 x 10^-2` at `(1, 1/2)` (the band's smallest `c_G` among the grid points), `3.0 x 10^-2` at `(6/5, 1/6)`. Any `r_*`
-   for which Theorem A's bound is informative on the band is below `6 x 10^-3` at the band's corner, whatever the proof.
+   for which the cap bound [LP] (7.8) is informative on the band is below `6 x 10^-3` at the band's corner, whatever the proof
+   of (7.8). A proof of [LP] (1.1) that does not pass through `Q^W(G_r^c)` is not constrained by this item.
 3. **The recorded constant.** [CAP] (2)–(3) give, for the fixed-axis SIDE24 law (`b = 6/5`, `k = 1/6`),
    `C3_new + C4_new/20 < 2.4 x 10^23` (exact rational arithmetic, replayed in `--check`), against `c_G(6/5, 1/6) = 35736.8`:
-   a factor above `6 x 10^18` between the recorded and the sharp coefficient. The slack is in the moment bounds
+   a factor above `6 x 10^18` between the recorded cap-route constant and the sharp cap coefficient. The slack is in the moment bounds
    (`||T||_8 < 320` for a supremum over a set of diameter `<= 6r`, `||M_4||_8 < 340`), not in the geometry.
 4. **The criterion against the truth.** The actual elder-pairing failure has coefficient `alpha_1 + alpha_2` ([S] (S2)), and
    by [NUM] `alpha_j = (p_b(0)/z_0) J_j(k)` with the same `b`-factor as `c_G` (`R(b) = 36 k^2 p_b(0)/z_0`), so the ratio is `b`-free:
@@ -286,7 +303,8 @@ with `c_G^{L,R}` in place of `c_G^{ref}`, whose deviation is of order `L^6 e^{-L
 
 Not a proof or a review of [LP] Theorem A, of [CAP], or of [S]: (5.4), (5.5), (7.6)–(7.7), the coupling (4.2) and the
 uniform moments (4.1) are consumed as statements; [S] (S2) and the [NUM] values are quoted for comparison only. No upper
-bound `C` and no `r_*` are supplied (C8 stays OPEN on both). No rate in the `o(r^3)`. The certified numbers are for the
+bound `C` or `C_cap` and no `r_*` are supplied (C8 stays OPEN on both), and no lower bound for the constant of [LP] (1.1)
+itself (section 5, item 1). No rate in the `o(r^3)`. The certified numbers are for the
 reference kernel; for the torus kernel `K_L` in a frame `R` the coefficient is the same formula with the exact jet law at 0,
 whose deviation from the reference (`O(L^6 e^{-L^2/2})`) is not enclosed here, so every numerical consequence in sections 0
 and 5 is a reference-kernel statement (a certified finite-`L`, all-frame enclosure is a natural successor). Planar only (`d = 2`); the same argument in
@@ -301,5 +319,10 @@ Mutants `no-third-jet` (drop `|Y|` from `M`), `sign-lo` (add `I3` instead of sub
 `cap_coefficient.py --procs 4` regenerates `RESULTS.json` (about eight minutes on four cores); `--quick K` certifies one `k`.
 Workflow `.github/workflows/c8-cap-failure-coefficient-planar.yml`: manifest, main-resident pins ([LP], [CAP], [NUM], [S]),
 both modes, mutants, clean tree.
+
+Revisions: v1.1 (Codex review 5372193385 on Math-#203: the `|v| > V_MAX` tail majorant, disjoint monotonicity enclosures,
+reference-kernel qualification, `delta(k)` on the grid only; `RESULTS.json` unchanged). v1.2 (OpenAI review 5372981851,
+confirmed by xAI review 5373266293: the lower bound concerns cap-route constants `C_cap` of [LP] (7.8) only, not the constant
+of [LP] (1.1); the domination step of 2.4 made explicit; no numerical change, `RESULTS.json` and `cap_coefficient.py` unchanged).
 
 Author lane Anthropic / Claude, 30 September 2026. Scientific effect NONE. The author will not merge.
