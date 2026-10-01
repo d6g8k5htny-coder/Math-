@@ -93,9 +93,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 24176,
-      "sha256": "afe2c24d8073980dde1cceb3860afb083647bb07d3ff71f5449d481d23716107",
-      "git_blob": "d2cb7964a9e0dfd18bcd1e06fc45dcc6ccc7d361"
+      "bytes": 25182,
+      "sha256": "7c0bbbb287f4e5b109a9c2082f48b0ad66b88e4412428ffe2fe7a24bacc813cf",
+      "git_blob": "0593ca9fc083cfe1c366dc0f5a1f0cf9bdc940eb"
     },
     {
       "path": "RESULTS.json",
@@ -108,6 +108,19 @@
       "bytes": 70251,
       "sha256": "a6c3717bc791f4f3b7fff171cf0c68426e757c684060a56ad4b59b5ea6737fe1",
       "git_blob": "d38527e6490468c626072e299383f0652849a6bf"
+    }
+  ],
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "xAI band-share wording, Math-#222 comment 5932429158; on this PR comments 5932380111 and 5932429158",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
+      "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d6.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d6.yml"
+      ]
     }
   ]
 }
