@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "new_consumer_review": "AUTHOR_SIDE/HOLD",
+  "sources": [
+    {
+      "id": "RADIAL",
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "bytes": 12533,
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "use": "R4-R12 exact original-frame root density and Gaussian domination only.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337/frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md"
+    },
+    {
+      "id": "MICRO",
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md",
+      "bytes": 17139,
+      "sha256": "e81d7fe09d25c3266eb8e62922756f54761d7f74d692fb35d9a8071fffd73769",
+      "git_blob": "a32fd5f7d941bbe1fe943df045b1e0fbec8d691c",
+      "use": "M1-M2 definition and original-frame embedding ONLY, not the two-scale convergence theorem.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337/frontiers/two_scale_cluster_geometry_20260929/TWO_SCALE_LAW.md"
+    },
+    {
+      "id": "SC",
+      "commit": "382c0f9ff2281f43651ddbdf2e9b36dd52e2c6bf",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "use": "Explicit spectral/Gaussian micro measure, finite positive nonempty mass and raw Gaussian density bound. Author-side exposure.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/382c0f9ff2281f43651ddbdf2e9b36dd52e2c6bf/frontiers/spectral_cluster_closure_20260929/PROOF.md"
+    },
+    {
+      "id": "CUB",
+      "commit": "bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "use": "Exact typed deterministic cubic classifier ONLY; no Gaussian-sector consumption. Author-side exposure.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bfcc67dc8957b3ed1fbb789e5a0305e98d7359c8/frontiers/planar_cubic_cluster_20260929/PROOF.md"
+    },
+    {
+      "id": "EXT",
+      "commit": "56a7904f9ad7d409c31e23195c0e7eeab230613a",
+      "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md",
+      "bytes": 21891,
+      "sha256": "b90cf745e2e67bc9b501c481552f7080d27c28245580668cf72aefa5b7f04715",
+      "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a",
+      "use": "E12-E19 deterministic companion/height identities and partition; E20-E26 exact shape integrals. Not the maximum-selector law.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/56a7904f9ad7d409c31e23195c0e7eeab230613a/frontiers/extreme_cluster_sampling_20260930/PROOF.md"
+    },
+    {
+      "id": "ELDER",
+      "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+      "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+      "bytes": 23416,
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "use": "S3/M1 actual elder-failure finite measure and selected marked weak limit, fixed d>=3, conditional for Corollary3 only; AUTHOR_SIDE/HOLD.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9c6a73489c5ed2465a3cf65dcc950eeeae074b05/frontiers/concave_fibre_elder_20260930/PROOF.md"
+    },
+    {
+      "id": "ELDER_HARD",
+      "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+      "path": "frontiers/concave_fibre_elder_20260930/HARD_FIBRE_LEMMA.md",
+      "bytes": 18907,
+      "sha256": "434ffd30ac96eb635211ea627459b78c1d39806f75b0634e0f4876dce0765b33",
+      "git_blob": "7365ed9bcf145c832d1c09f0b685fbe8d6695050",
+      "use": "Full companion proof of ELDER contained hard-negative-fibre barrier.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9c6a73489c5ed2465a3cf65dcc950eeeae074b05/frontiers/concave_fibre_elder_20260930/HARD_FIBRE_LEMMA.md"
+    },
+    {
+      "id": "ELDER_INTERFACE",
+      "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+      "path": "frontiers/concave_fibre_elder_20260930/SOURCE_INTERFACE.md",
+      "bytes": 18098,
+      "sha256": "cec41136dfac1fde2247f25dcf7601e1a01a6ec25c4d5f18e8bf1450e8360e48",
+      "git_blob": "7eb203bdf1311ff56b312962ba3f5ce6d5dd9766",
+      "use": "Full original-field analytic interface of ELDER.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9c6a73489c5ed2465a3cf65dcc950eeeae074b05/frontiers/concave_fibre_elder_20260930/SOURCE_INTERFACE.md"
+    },
+    {
+      "id": "ELDER_CUT",
+      "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+      "path": "frontiers/concave_fibre_elder_20260930/SOURCES.json",
+      "bytes": 7186,
+      "sha256": "b97a29ea09f8e8270bfddda8f364f0d61e431e30c1681af4b019f3fb48709a4d",
+      "git_blob": "f072e1bb5c79456be3c79451b6df5b287807edfa",
+      "use": "Complete required ELDER dependency cut and reading rules, reproduced as elder_dependency_cut below.",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/9c6a73489c5ed2465a3cf65dcc950eeeae074b05/frontiers/concave_fibre_elder_20260930/SOURCES.json"
+    }
+  ],
+  "elder_dependency_cut": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "public_main": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+    "planar_pr": 170,
+    "planar_head": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
+    "scientific_effect": "NONE",
+    "review_independence_credit": 0,
+    "sources": [
+      {
+        "id": "SC",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+        "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/frontiers/spectral_cluster_closure_20260929/PROOF.md",
+        "bytes": 25006,
+        "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+        "role": "required: §§2,5,6 raw/full jet disintegration, orthogonal spectral Jacobian, actual hard graph C2 convergence, continuous typed weight, deterministic integral; global count law NOT consumed"
+      },
+      {
+        "id": "CUB",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+        "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/frontiers/planar_cubic_cluster_20260929/PROOF.md",
+        "bytes": 19889,
+        "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+        "role": "required: displayed original planar cubic, exact classifier and polynomial null sets; count expectations NOT consumed"
+      },
+      {
+        "id": "EDL",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+        "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/frontiers/elder_dimension_lift_20260928/PROOF.md",
+        "bytes": 23971,
+        "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+        "role": "context only: preceding actual root/index interface; no count or pairing conclusion consumed"
+      },
+      {
+        "id": "DL",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+        "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/frontiers/d5_dimension_lift_20260929/PROOF.md",
+        "bytes": 53727,
+        "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+        "role": "scope audit only: dimension-lift count result excludes elder selection; no count conclusion consumed"
+      },
+      {
+        "id": "LOCAL",
+        "commit": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
+        "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+        "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/79f18f0cb318fceccd5bdf4e6dad29815165bc7d/frontiers/local_elder_geometry_20260930/PROOF.md",
+        "bytes": 39722,
+        "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+        "role": "required: Theorem E compact planar collar and moving critical chords; position uniqueness off D=0; draft at exact stated source scope"
+      },
+      {
+        "id": "P",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "bytes": 40261,
+        "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+        "role": "required: endpoint matrix density/residual, double soft-factor bound, full Z, global cap-failure inclusion, genericity/Borel and compact lifetime ledger"
+      },
+      {
+        "id": "ELDERD",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "frontiers/elder_lower_all_d_20260929/PROOF.md",
+        "git_blob": "7f41c9e315be0a7985d4c770a11a2cdf717bd46a",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/frontiers/elder_lower_all_d_20260929/PROOF.md",
+        "bytes": 16485,
+        "sha256": "88c6bfc7973fe832918f91e2ed1f47da3e51987ed9efc1a99648e82b2eb119e5",
+        "role": "context only: preceding elder-failure lower event; not used as a coefficient or upper barrier"
+      },
+      {
+        "id": "ERR",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+        "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+        "bytes": 1782,
+        "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+        "role": "required reading rule: endpoint congruence correction"
+      },
+      {
+        "id": "BOREL",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+        "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+        "bytes": 9062,
+        "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+        "role": "required reading rule: whole-field Borel weighted Kac-Rice repair"
+      },
+      {
+        "id": "REC",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+        "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+        "bytes": 23312,
+        "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+        "role": "required reading rules and reviewed source scope: W1 convergence-in-law and embedded-chart radius"
+      },
+      {
+        "id": "CAP",
+        "commit": "ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f",
+        "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+        "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+        "url": "https://github.com/d6g8k5htny-coder/Math-/blob/ab13a08f5e5b0adc7a7d80cf643d9b5a0618507f/imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+        "bytes": 15160,
+        "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+        "role": "required: deterministic global good-cap selection implication"
+      }
+    ],
+    "source_exposure": "Full public immutable sources. Required interfaces remain conditional on their displayed assumptions and actual review scope. Context sources are not mathematical premises."
+  }
+}
