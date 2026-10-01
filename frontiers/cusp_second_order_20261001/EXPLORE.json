@@ -106,14 +106,17 @@
  },
  "X2": {
   "d2": {
+   "I_cand": -0.1772744,
    "J": 0.5518754382,
    "J_coarse": 0.5518754382,
    "c": 0.073406919306,
    "c1": -0.26939883,
    "c1_over_c": -3.669938,
-   "method": "composite Gauss-Legendre, a = -w^4: 24x12 by 56x12 nodes (coarse: 12x12 by 28x12)"
+   "method": "composite Gauss-Legendre, a = -w^4: 24x12 by 56x12 nodes (coarse: 12x12 by 28x12)",
+   "rejected_coefficient": 0.09212443
   },
   "d3": {
+   "I_cand": -0.13940406,
    "J": 1.363390706,
    "J_coarse": 1.363390722,
    "c": 0.041775931841,
@@ -126,9 +129,10 @@
     "c1_se": 0.00014,
     "method": "Monte Carlo on the cone, 8000000 samples, seed 1001, 10 batches"
    },
-   "method": "cone quadrature: Gauss-Legendre 64 x 64 in (rho, u), trapezoid 9 in theta, Gauss-Laguerre 64 in s (coarse: Laguerre 32)"
+   "method": "cone quadrature: Gauss-Legendre 64 x 64 in (rho, u), trapezoid 9 in theta, Gauss-Laguerre 64 in s (coarse: Laguerre 32)",
+   "rejected_coefficient": 0.0724443
   }
  },
  "not_a_control": true,
- "object": "CL-CUSP-SECOND-ORDER-20261001-v1 exploration"
+ "object": "CL-CUSP-SECOND-ORDER-20261001-v1.1 exploration"
 }

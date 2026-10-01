@@ -1,4 +1,4 @@
-# The cusp crossover and the second-order term of the elder lifetime law (CL-CUSP-SECOND-ORDER-20261001-v1)
+# The cusp crossover and the second-order terms of the lifetime laws (CL-CUSP-SECOND-ORDER-20261001-v1.1)
 
 Author-side proof candidate, Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review required.
 **Depends on Math- #191** (Lemma E, (E.1), §2; v1.1 blob `441152df`) **and Math- #198** (§1, Lemma B (B.2), Lemma F′,
@@ -17,6 +17,17 @@ zero-gap contact law. #198 had the order `O(ℓ^{1/4})`; this packet identifies 
 field (`d = 3`, `L = 24`) the exploration gives `c₁ ≈ −0.21185`, `c₁/c ≈ −5.071`:
 `ν_{3,24}(ℓ) = c_{3,24}ℓ^{−1/3}(1 − 5.071ℓ^{7/12} + o(ℓ^{7/12}))`, a 1% correction at `ℓ ≈ 2.3·10⁻⁵`.
 
+**Theorem CU′ (v1.1, §7): the candidate and rejected densities.** With `B_{d,L}` the equal-height mass of Theorem Z,
+
+    ν_cand(ℓ) = c ℓ^{−1/3} + B_{d,L} + I^{cand} ℓ^{1/4} + o(ℓ^{1/4}),     I^{cand} = (3^{1/4}/2) c₁ < 0,
+    ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁) ℓ^{1/4} + o(ℓ^{1/4}),            I^{cand} − c₁ = (1 − 3^{1/4}/2)|c₁| > 0,
+
+so the rejected density approaches `B_{d,L}` from above (`I^{cand} − c₁ ≈ 0.0724` in `d = 3`), the excess being the rejected
+part of the cusp-scale typed pairs (`1/3 ≤ |φ| < 1`). The candidate density needs no elder decision, and its non-cusp
+remainder is Lipschitz in the gap — **Lemma L**: `|A_r(b, k, u) − A_r(b, 0, u)| ≤ C(k² + kr²)(1 + |b|)^Ne^{−cb²}` near the
+diagonal and `O(ℓ)` for far pairs — because the gap enters the pinned regression affinely ([R] (R3)). (CU′.1) does not
+use the elder machinery (Proposition CU.3, Lemma CU.5), so it can be accepted separately.
+
 **Mechanism — the cusp crossover.** At the scale `r ≍ k` (gap `ℓ = kr³` comparable to `r⁴`; `κ := k/r = ℓ/r⁴`), rescaled by
 `x = rX` (axis), `y = r²Ξ` (transverse), heights `r⁴`, the pinned field converges to a universal random polynomial
 `𝔓 = 2κ(X + ½)²(X − 1) + (f₄/24)(X² − ¼)² + ½(X² − ¼)γ·Ξ + ½ΞᵀAΞ` (Theorem CU.1). Maximizing over the concave transverse
@@ -32,30 +43,39 @@ regime (`κ → ∞`: rejected fraction `≍ (r/k)³`, the `Θ(r³)` of [P] Theo
 weight is `O(κ)` of the contact weight and the elder share of it tends to `13/27` (Remark 1; Theorem Z's
 all-rejected statement is the different, non-commuting limit `k → 0` at fixed `r`).
 
-**Not claimed:** a rate for the `o(ℓ^{1/4})`; certified numerical values (the numbers are exploration); the candidate
-and rejected expansions (formal, Remark 2); uniformity in `d, L`.
+**Not claimed:** a rate for any of the `o(ℓ^{1/4})`; certified numerical values of `c₁`, `I^{cand}` or `B_{d,L}` (the
+numbers are exploration); uniformity in `d, L`.
 
 **Files.** `PROOF.md`. `cusp_check.py` (stdlib exact controls; `RESULTS.json` its output, byte-identical under `-O`;
 mutants M1–M4 exit 1, an unknown label exits 2): C1 the quartic-ridge identities and boundary factorizations; C2 the
 elder window by exact 1D maximin for 117 rational `φ`; C3 the fiber reduction; C4 the cusp limit field for pinned
 polynomials of degree 6 in `d = 2, 3`; C5 the model's endpoint determinants and typed window; C6 the cusp integrals;
-C7 the Gaussian-kernel conditional covariances used by the exploration. `explore_cusp.py` (stdlib, floating point,
+C7 the Gaussian-kernel conditional covariances used by the exploration; C8 the affine gap structure behind Lemma L on
+pinned polynomials (a special case: there the gap shift has no transverse part), `I^{cand}/c₁ = 3^{1/4}/2`, the rejected
+cusp integral exactly in `Q(3^{1/4})`, the small-`κ` elder share `13/27` (mutant M5). `explore_cusp.py` (stdlib, floating point,
 **not a control**, not replayed by the workflow, about a minute; `EXPLORE.json` its output): X1 the actual global elder
 rule of random pinned plane quintics at `r = 0.01` agrees with `|φ| < 1/3` in 32/32 typed cases, and in targeted cases at
 `r = 0.003` the boundary lies between `|φ| = 0.32` and `0.345`; X2 `c₁` for the Gaussian kernel — `d = 2`: `−0.26939883`,
 `c₁/c = −3.669938` (Gauss–Legendre quadrature, two resolutions agree to ten digits); `d = 3`: `−0.21184835`,
 `c₁/c = −5.071062` (deterministic quadrature over the negative-definite cone, two resolutions agree to `10⁻⁸`
-relative; a fixed-seed Monte Carlo over the same law gives `−0.21163 ± 0.00014`). `SOURCES.json` (exact identities;
+relative; a fixed-seed Monte Carlo over the same law gives `−0.21163 ± 0.00014`); `I^{cand} = −0.1772744`, `−0.1394041` and
+`I^{cand} − c₁ = 0.0921244`, `0.0724443` (`d = 2, 3`). `SOURCES.json` (exact identities;
 #191/#198 recorded as consumed-unmerged and verified by the workflow by blob).
 
-**Pre-submission referee record (same author family; not acceptance).** Two clean-context Claude referee passes read
-v1 before this PR. Slices A/B confirmed CU.1–CU.2 symbolically and by an independent two-dimensional maximin of the
+**Referee record before any nonauthor review (same author family; not acceptance).** Two clean-context Claude referee
+passes read v1 before this PR. Slices A/B confirmed CU.1–CU.2 symbolically and by an independent two-dimensional maximin of the
 full model (34 cases) and found closeable gaps in Proposition CU.3 (all real zeros of `g'` in Step 5, the margin
 `−2κ − 1` in Step 3, `X_R := min(2, X₃ − τ)`); slices C/D found closeable gaps in Lemma CU.5 (`E₁` must control `T`; the
 `J'`-measurable window event; the Carbery–Wright uniformity) and a false remark (the small-`κ` elder share is `13/27`,
-not `0`), and independently reproduced `c₁` (`d = 2` quadrature; `d = 3` Monte Carlo `−0.211848 ± 0.000024`). Every
-finding is applied in this version.
+not `0`), and independently reproduced `c₁` (`d = 2` quadrature; `d = 3` Monte Carlo `−0.211848 ± 0.000024`). A third pass
+read §7 of v1.1 (Lemma L, Theorem CU′): no error and no gap, seven minor points (attribution of the affine target to
+[R] §2/(R3), the far uniform facts to #198 §2, the far Kac–Rice identity, scope of C8, the dependency split), and it
+checked (7.1) by an exact-conditioning Monte Carlo in `d = 2`. Codex's automated review of v1 (P1 4150765060) found a
+real gap in Lemma CU.5 — the window-length bound dropped an unbounded `(d_S − d_M)` term — repaired in v1.1 by bounding
+the root difference symmetrically through the sign window (same `λ`, downstream unchanged); the repair was re-read by
+the §7 referee with an exact randomized check. Every finding is applied.
 
 **What the controls do not test.** Theorem CU.1 for non-polynomial fields, Proposition CU.3, Theorem CU.4,
-Lemma CU.5 and the assembly (§6) are proved in prose only. Review slices (PROOF.md §10): A the cusp field and the
-model; B stability; C the kernel limits and the window probability; D the assembly and the remarks.
+Lemma CU.5, the assembly (§6), Lemma L for random fields and the assembly of Theorem CU′ (§7) are proved in prose only.
+Review slices (PROOF.md §11): A the cusp field and the model; B stability; C the kernel limits and the window
+probability; D the assembly and the remarks; E Lemma L and Theorem CU′.

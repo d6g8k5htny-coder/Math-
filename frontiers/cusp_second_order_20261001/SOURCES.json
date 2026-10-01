@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-CUSP-SECOND-ORDER-20261001-v1",
- "kind": "author-side proof candidate: Theorem CU, nu_eld = c ell^-1/3 + c_1 ell^1/4 + o(ell^1/4) with c_1 = -(192/7) 2^(1/4) J < 0, via the cusp limit field (CU.1), the quartic-ridge model and its elder window |phi| < 1/3 (CU.2), stability (CU.3), kernel limits (CU.4) and the window probability (CU.5); consumes the unmerged #191 and #198; nonauthor analytic review required. explore_cusp.py / EXPLORE.json are exploration, not controls.",
+ "object": "CL-CUSP-SECOND-ORDER-20261001-v1.1",
+ "kind": "author-side proof candidate: Theorem CU, nu_eld = c ell^-1/3 + c_1 ell^1/4 + o(ell^1/4) with c_1 = -(192/7) 2^(1/4) J < 0, via the cusp limit field (CU.1), the quartic-ridge model and its elder window |phi| < 1/3 (CU.2), stability (CU.3), kernel limits (CU.4) and the window probability (CU.5); and Theorem CU-prime, nu_cand = c ell^-1/3 + B_{d,L} + I_cand ell^1/4 + o(ell^1/4) with I_cand = (3^(1/4)/2) c_1 and rho_rej = B_{d,L} + (I_cand - c_1) ell^1/4 + o(ell^1/4), via the gap-Lipschitz Lemma L; consumes the unmerged #191 and #198; nonauthor analytic review required. explore_cusp.py / EXPLORE.json are exploration, not controls.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -71,7 +71,7 @@
    "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
    "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
    "tag": "Z",
-   "use": "(Z10), (Z13)-(Z14), the radius r_0^[Z]; consumed transitively through #198 and #191"
+   "use": "(Z2)-(Z3), (Z10), section 2 (a.s. nonsingular endpoint Hessians), the [P] section 14 input of (Z16): consumed directly in section 7 (Lemma L (7.2), Theorem CU-prime); (Z10), (Z13)-(Z14), the radius r_0^[Z]: consumed transitively through #198 and #191"
   }
  ],
  "cited_only": [],
@@ -84,7 +84,7 @@
    "bytes": 25353,
    "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
    "tag": "191",
-   "use": "CONSUMED: Lemma E (E.1) and Steps 1-3, section 2 (2.1), the admissible radius; unmerged author-side candidate of this session; this packet cannot be integrated before #191"
+   "use": "CONSUMED: Lemma E (E.1) and Steps 1-3, section 2 (2.1)-(2.2) and the unmarked kernel Psi_ell^cand, the far candidate identity, the admissible radius; unmerged author-side candidate of this session; this packet cannot be integrated before #191"
   },
   {
    "path": "frontiers/remainder_rate_20260930/PROOF.md",
@@ -94,7 +94,7 @@
    "bytes": 33131,
    "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
    "tag": "198",
-   "use": "CONSUMED: section 3 (3.1)-(3.2) and Lemma W, Lemma B (B.2), Lemma F-prime, the elder-density identity of section 1; unmerged author-side candidate of this session; this packet cannot be integrated before #198"
+   "use": "CONSUMED: section 3 (3.1)-(3.2) and Lemma W, Lemma B (B.2), Lemma F-prime with its uniform far facts (a), (b), (2.2) and (2.1), the elder-density identity of section 1; unmerged author-side candidate of this session; this packet cannot be integrated before #198"
   }
  ],
  "cited_external": [
@@ -108,7 +108,8 @@
   "M1",
   "M2",
   "M3",
-  "M4"
+  "M4",
+  "M5"
  ],
  "replayed": [
   "cusp_check.py"
@@ -126,40 +127,51 @@
    {
     "slices": "C, D (Theorem CU.4, Lemma CU.5, section 6, remarks)",
     "result": "closeable gaps in CU.5 (E_1 must control T; the J-prime-measurable window event; Carbery-Wright uniformity via the top Wiener chaos); section 4 details (K_{2 delta}, the C r T bound); a false remark (the small-kappa elder share is 13/27, not 0); transitive dependencies [182], [Z]; c_1 reproduced independently (d = 2 quadrature; d = 3 Monte Carlo -0.211848 +- 0.000024)"
+   },
+   {
+    "slices": "E (section 7 of v1.1: Lemma L, Theorem CU-prime)",
+    "result": "no error and no gap; seven minor findings (the target moves in three rows, not one: cite [R] section 2 and (R3); bound omega_r from (R2); the a.s. appeal unnecessary; far uniform facts from #198 section 2 (a), (b), (2.2); the far Kac-Rice identity; J_1 dominated by (E.1) alone and the CU.4 (iv) split; C8 tests only the polynomial special case, and the separate-acceptance dependency split); constants re-verified symbolically; (7.1) checked by an exact-conditioning Monte Carlo in d = 2"
    }
   ],
-  "disposition": "every finding applied in v1 as submitted"
+  "automated_nonauthor": [
+   {
+    "source": "Codex review comment 4150765060 on Math- #207 (P1, v1 PROOF.md line 303)",
+    "finding": "Lemma CU.5: the window-length bound dropped the term (d_S - d_M)(f_4 + c_M/d_M) of an asymmetric root identity without bounding it",
+    "disposition": "repaired in v1.1: the root difference z_S - z_M = Lambda_M(f_4)/d_M - Lambda_S(f_4)/d_S is bounded symmetrically through the sign window with |d_i| >= (r/24)|Delta|; lambda and every downstream use unchanged; the repair re-read by the section-7 referee (no error or gap; three wording fixes applied; exact randomized check of the identity, the inclusion and the sign-window bounds, 2e5 rational draws)"
+   }
+  ],
+  "disposition": "every finding of the three passes and of the automated review applied (v1 as submitted; v1.1 for section 7 and Lemma CU.5)"
  },
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 40307,
-   "sha256": "28632a87d651785eb1f24e1b92908b8872c3a732987dde34af85199ae0f3ea9f"
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8"
   },
   {
    "path": "cusp_check.py",
-   "bytes": 26196,
-   "sha256": "841f375606d68fc68b9e590064990e0846cd062ea31370355800a01c56138932"
+   "bytes": 35169,
+   "sha256": "d6e6a841dd0c58144fb7a4daaf8a3cf391d92aa3bfbb1caf2c1162e4e439b69f"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 1328,
-   "sha256": "8f2b5a3a5d3556468897c3c51f6935fa3c98a9c3fb515263b60a1de19bc6d2ad"
+   "bytes": 1596,
+   "sha256": "038e0d0554a7575679d24492d110e1a823136dfb88dc556e45c58cc386c86339"
   },
   {
    "path": "README.md",
-   "bytes": 5903,
-   "sha256": "a50ff18f6eb66d36857d5f92bc27eb9ed10c42cb1e2c28544161200cd58d054b"
+   "bytes": 7977,
+   "sha256": "0ba540b193294e240dacc3ad9a0595d559dfe2c2ff761d1dc472488c002eca1b"
   },
   {
    "path": "explore_cusp.py",
-   "bytes": 14953,
-   "sha256": "8c2072c9f23760f63ecf1b4c420d1272f12dad3cc77711c48dcdacd53a2733e4"
+   "bytes": 15374,
+   "sha256": "b32efa718944ef93b5fe41266855878cbc500093ef376c6b07beb4a9567865ed"
   },
   {
    "path": "EXPLORE.json",
-   "bytes": 2422,
-   "sha256": "ba77febb6b44c779363ecd4ce06c4bbd45df2b350513c931e05d649aca719032"
+   "bytes": 2552,
+   "sha256": "c8f631d66f413a4c9787e999114edc42a33cc9a65eef667b2f8de265f371ab74"
   }
  ]
 }

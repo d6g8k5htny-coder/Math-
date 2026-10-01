@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EXPLORATION for PROOF.md (CL-CUSP-SECOND-ORDER-20261001-v1).  Standard library only, floating point.
+"""EXPLORATION for PROOF.md (CL-CUSP-SECOND-ORDER-20261001-v1.1).  Standard library only, floating point.
 NOT a control, NOT evidence of acceptance, NOT replayed by the workflow (it takes about a minute).
 
   X1  the actual global elder decision of random pinned plane quintics at the cusp scale (r = 0.01, k = kappa r),
@@ -8,7 +8,8 @@ NOT a control, NOT evidence of acceptance, NOT replayed by the workflow (it take
   X2  the second-order coefficient c_1 for the Gaussian kernel exp(-|z|^2/2) (L = infinity), with the leading
       constants c_2, c_3 for the ratio c_1/c: d = 2 by composite Gauss-Legendre quadrature, d = 3 by a
       deterministic quadrature over the negative-definite cone; each at two resolutions (the difference is the
-      convergence evidence), and d = 3 also by an independent fixed-seed Monte Carlo over the same law.
+      convergence evidence), and d = 3 also by an independent fixed-seed Monte Carlo over the same law; with the
+      candidate coefficient I_cand = (3^(1/4)/2) c_1 and the rejected coefficient I_cand - c_1 of Theorem CU'.
 Output: EXPLORE.json (numbers rounded; seeds fixed).
 """
 import json
@@ -340,11 +341,14 @@ def run_X2():
     J2c, J2 = ey_d2(12, 28), ey_d2(24, 56)
     J3c, J3 = ey_d3(8, 8, 32), ey_d3(8, 8, 64)
     M3, se3 = mc_d3(8000000)
+    q = 3 ** 0.25 / 2                                     # I_cand / c_1 (Theorem CU')
     return {'d2': {'J': round(J2, 10), 'J_coarse': round(J2c, 10), 'c': round(c2, 12), 'c1': round(k2 * J2, 8),
-                   'c1_over_c': round(k2 * J2 / c2, 6),
+                   'c1_over_c': round(k2 * J2 / c2, 6), 'I_cand': round(q * k2 * J2, 8),
+                   'rejected_coefficient': round((q - 1) * k2 * J2, 8),
                    'method': 'composite Gauss-Legendre, a = -w^4: 24x12 by 56x12 nodes (coarse: 12x12 by 28x12)'},
             'd3': {'J': round(J3, 9), 'J_coarse': round(J3c, 9), 'c': round(c3, 12), 'c1': round(k3 * J3, 8),
-                   'c1_over_c': round(k3 * J3 / c3, 6),
+                   'c1_over_c': round(k3 * J3 / c3, 6), 'I_cand': round(q * k3 * J3, 8),
+                   'rejected_coefficient': round((q - 1) * k3 * J3, 8),
                    'method': 'cone quadrature: Gauss-Legendre 64 x 64 in (rho, u), trapezoid 9 in theta, '
                              'Gauss-Laguerre 64 in s (coarse: Laguerre 32)',
                    'mc_check': {'J': round(M3, 5), 'J_se': round(se3, 5), 'c1': round(k3 * M3, 5),
@@ -353,7 +357,7 @@ def run_X2():
 
 
 if __name__ == '__main__':
-    out = {'object': 'CL-CUSP-SECOND-ORDER-20261001-v1 exploration', 'not_a_control': True}
+    out = {'object': 'CL-CUSP-SECOND-ORDER-20261001-v1.1 exploration', 'not_a_control': True}
     if len(sys.argv) < 2 or 'X2' in sys.argv[1:]:
         out['X2'] = run_X2()
     if len(sys.argv) < 2 or 'X1' in sys.argv[1:]:
