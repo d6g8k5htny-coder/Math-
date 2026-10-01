@@ -72,9 +72,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 20540,
-      "sha256": "b74908982af6aeb3f612215bb9b07f1c963e07e56d0695007ec28c90a2d6656a",
-      "git_blob": "65b02397184f162cea73521bbb91cc0a9297f418"
+      "bytes": 21617,
+      "sha256": "5342be99e41d8d9d0704a6d282d1092dfa506df8ddfae812cfa319b315bfb18f",
+      "git_blob": "a792f299ac7f893df39e74bcc569b1b87b725cf9"
     },
     {
       "path": "RESULTS.json",
@@ -84,9 +84,9 @@
     },
     {
       "path": "window_coefficient_d5.py",
-      "bytes": 62334,
-      "sha256": "675b28297d728ae0fc99db14224a726158554d52d7e302f953c2415417a1e7d3",
-      "git_blob": "680d181583289032ae9ef35ddf0a831517649d81"
+      "bytes": 62446,
+      "sha256": "9f34ad2c20cb38f6bd21714583676d861040b83f9283ad170d7b0a4c9460145b",
+      "git_blob": "da68e6ec22310c35904a70e203cc32cb9e5b19fc"
     }
   ],
   "revisions": [
@@ -95,6 +95,15 @@
       "finding": "Codex code review at 7ab39d2: threads 4151593189 (cancelled layers), 4151593177 (gap window), 4151593183 (module documentation)",
       "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593189",
       "change": "window_coefficient_d5.py: INNER_LAYERS also requires the set of generated kinds that cancel to equal exactly the two Owen-type kinds, the constant and E_{3/16}; new mutant layer-dropped (fails INNER_LAYERS alone); module docstring rewritten for d = 5. NOTE.md: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity; section 7 classes windows touching k = 0 or infinity and unbounded B as coefficient integrals only; sections 2, 6, 9, 10. Workflow: mutant list includes layer-dropped",
+      "unchanged": [
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "C43-205-H-01 (positive lengths; found on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows outside the hypothesis. window_coefficient_d5.py: module docstring states the same hypothesis (no code change)",
       "unchanged": [
         "RESULTS.json"
       ]

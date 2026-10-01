@@ -16,7 +16,8 @@ organizational-independence credit. Claude reads of this record count for nothin
 ## 0. Statement
 
 Let `f` be the unit-variance stationary Gaussian field on `R⁵/(LZ⁵)` with the parent kernel `K_L` of [LP] §1. Let `B = [b_−, b_+]`
-be a birth window and `K = [k_−, k_+]` a gap window with `0 < k_− ≤ k_+ < ∞`, which is [LP] Theorem B's hypothesis. Let
+be a birth window and `K = [k_−, k_+]` a gap window, compact and of positive length with a positive gap floor:
+`−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`. This is [LP] Theorem B's hypothesis (lines 16 and 37 of the pinned [LP]). Let
 `c^(5)_{B,K}` be the leading coefficient of [LP] Theorem B for the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15;
 both stated for every `d`). Windows outside that hypothesis are treated in §7.
 
@@ -268,9 +269,15 @@ replays the manifest, the pins, both modes byte for byte, and the mutants.
 - It encloses `c^(5)_{B,K}` for the reference kernel and the torus. It does not revalidate [LP] Theorem B and §15, which it consumes
   at their scope. It does not review Math-#197, #200, #202, #205 or #209.
 - It does not go to `d ≥ 6`. The `m = 5` analogue would need one more layer, and the floor falls further (`0.2311` at `m = 5`).
-- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes a compact `B` and `0 < k_− ≤ k_+ < ∞`. For a gap window
-  that touches `k = 0` or `∞` (the tabulated `K = (0,∞)`), and for an unbounded `B` (`[0,∞)`, `(−∞,0]`, `R`), the tabulated values
-  are the coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not extended to them.
+- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes compact windows of positive length with a positive gap floor:
+  `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`. Three kinds of window fall outside it:
+  - a gap window that touches `k = 0` or `∞`, such as the tabulated `K = (0,∞)`;
+  - an unbounded `B`: `[0,∞)`, `(−∞,0]`, `R`;
+  - a singleton window, `b_− = b_+` or `k_− = k_+`. There (1.1) is zero and does not inherit Theorem B's positive coefficient. No
+    singleton window is tabulated.
+
+  For these windows the values are the coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not
+  extended to them.
 - It does not address `C`, `r_*` or `z_*`. C8 stays OPEN; no register surface is touched; `executed: false`.
 - The replay workflow follows the repository's per-packet convention. The owner's open decision on such workflows (Math-#202/#204)
   applies here too.
@@ -333,3 +340,9 @@ No external numerical library is used.
   - A thirteenth mutant, `layer-dropped`, leaves the `E_{3/16}` layer out of the derivation. It changes no value, so before v1.1 it
     would have passed; it now fails `INNER_LAYERS`. The workflow's mutant list includes it.
   - The values, the eighteen rules and the twelve earlier mutants are unchanged, and `RESULTS.json` is byte-identical.
+- **v1.2 (positive-length windows; NOTE only).** C43 found on Math-#205 (review 5377957341, finding C43-205-H-01) that
+  [LP] Theorem B also requires `B` and `K` to have positive length (line 37 of the pinned [LP]). The statement here allowed
+  singleton windows such as `K = [1, 1]`, where (1.1) is zero. §0 now states `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`, and
+  §7 classes singleton windows with the other windows outside the hypothesis. Every tabulated window has positive length, so no
+  value changes. The script's docstring states the same hypothesis; the values, the rules, the thirteen mutants and
+  `RESULTS.json` are unchanged.

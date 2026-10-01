@@ -10,8 +10,9 @@ by consecutive partial sums (the Math-#197 toolkit, unchanged), and one one-dime
 at each cell centre with a Cauchy remainder (Math-#199 section 3, as in Math-#209).
 
 Object ([LP] = imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md, (11.3) with the section 15 factorization,
-both stated for every d, for compact windows B and K = [k_-, k_+] with 0 < k_- <= k_+ < infinity; frame (u, w1, ..., w4),
-G = grad f, V = (f_uu, f_uw1, ..., f_uw4), A the 4 x 4 transverse Hessian, t = f_uuu):
+both stated for every d, for compact windows B = [b_-, b_+] and K = [k_-, k_+] of positive length, b_- < b_+ and
+0 < k_- < k_+ < infinity; frame (u, w1, ..., w4), G = grad f, V = (f_uu, f_uw1, ..., f_uw4), A the 4 x 4 transverse Hessian,
+t = f_uuu):
 
   c^(5)_{B,K} = 144 int_{S^4} p_G(0) p_V(0) I_B(u) J_K(u) dsigma(u),   I_B(u) = E[1{f in B} det(A)^2 1{A < 0} | V = 0],
   J_K(u) = int_K k^(4/3) phi_tau(12 k) dk,   tau^2 = Var(t | G = 0).
@@ -35,7 +36,8 @@ the degree-8 homogeneity of det(A)^2 give (Lemma S of Math-#205 with n = 11, deg
 
 lambda_min(C'_ref) = (8 - 2 sqrt13)/3 = 0.2630 (below the d = 4 floor 3/10): eps = ||C' - C'_ref||_F / (1/4) over the entry box of
 the d = 5 image bound E^(5)_L = 60500 (76 L^6 + 15) exp(-L^2/2); p_G(0), p_V(0) and tau^2 over the same box.  One enclosure covers
-every frame and every L >= 10.  Windows touching k = 0 or infinity (and unbounded B) are evaluated as coefficient integrals only.
+every frame and every L >= 10.  Windows touching k = 0 or infinity, unbounded B, and singleton windows (b_- = b_+ or k_- = k_+,
+where the integral is zero) are evaluated as coefficient integrals only.
 Scientific effect NONE.
 """
 import argparse
