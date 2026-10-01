@@ -11,8 +11,8 @@ Hence:
     ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + O(ℓ^{1/3});                      (E3.1)
     ν_eld(ℓ) ≥ c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} − C ℓ^{4/11};            (E3.2)
 
-and if, in addition, Math- #187's Theorem F holds at the one separation `ρ = r_0^*` (the far elder density there is
-`O(ℓ^{2/3})`),
+and, by Math- #187's Theorem F (merged on 1 October 2026) at the one separation `ρ = r_0^*` (the far elder density
+there is `O(ℓ^{2/3})`),
 
     ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + O(ℓ^{4/11}).           (E3.3)
 
@@ -73,10 +73,10 @@ elder rule, by union–find. It fits the three-term law with data/law `1.006 ± 
 - anything about the adjacent-pair density.
 
 **Dependencies.**
-- *Consumed, unmerged:* Math- #207 and #218; for (E3.3) and Corollary E3′(3) only, #187 at `ρ = r_0^*`. This packet
-  must be rebound if any of them changes.
-- *Consumed, merged:* Math- #191 and #198 (merged on 1 October 2026 with the blobs consumed here), [R], [P] (with [E1],
-  [E2], [REC]), [C7-K] and [Z].
+- *Consumed, unmerged:* Math- #207 and #218. This packet must be rebound if either changes.
+- *Consumed, merged:* Math- #191 and #198 (merged on 1 October 2026 with the blobs consumed here); #187 (merged on
+  1 October 2026 at `c2f1270` with the blob consumed here), for (E3.3) and Corollary E3′(3) only, at `ρ = r_0^*`; [R],
+  [P] (with [E1], [E2], [REC]), [C7-K] and [Z].
 - *Cited:* #216, #188.
 
 **Files.**
@@ -90,7 +90,7 @@ elder rule, by union–find. It fits the three-term law with data/law `1.006 ± 
   - **X5** the weighted Taylor structure on exactly pinned polynomial fields in `d = 2, 3`;
   - **X6** Lemma S and the `C⁰`/`C²` polynomial bounds;
   - **X7** the pointwise facts of Lemmas CE and O′;
-  - **X8** Lemma S′'s linear algebra (`det H_M = r² det H̃`; `λ_min(−H_M) ≥ r²λ_min(−H̃)` by principal minors);
+  - **X8** Lemma S′'s linear algebra (`det H_M = r² det H̃`; `λ_min(−H_M) ≥ r²λ_min(−H̃)` by principal minors; a negative witness at `r = 2`);
   - **X9** Lemma H's exact form (H.1) on exactly pinned polynomial fields, and its `r = 0` values.
 
   Mutants M1–M8 exit 1, and an unknown label exits 2.

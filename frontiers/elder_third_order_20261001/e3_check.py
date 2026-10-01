@@ -24,7 +24,8 @@ Mutants: --mutant M1|...|M8 must exit 1; an unknown label exits 2.
   X8 Lemma S' linear algebra: for -Ht = O diag(lam) O^T (rational orthogonal O by the Cayley transform, d = 2, 3, 4)
      and H_M = Lam_r Ht Lam_r, Lam_r = diag(r, 1, ..., 1): det H_M = r^2 det Ht, and -H_M - r^2 lam_min(-Ht) I is positive
      semidefinite (all principal minors >= 0), so lam_min(-H_M) >= r^2 lam_min(-Ht), with a singular (attained) case at
-     Ht = -I, r = 1/2; |det Ht| <= lam_min ||Ht||^(d-1)
+     Ht = -I, r = 1/2; |det Ht| <= lam_min ||Ht||^(d-1); and a negative witness at r = 2 (-Ht = diag(1, 2)), where the
+     r^2 bound fails, so the range r <= r_0^* <= 1 is necessary
   X9 Lemma H's exact form (H.1) on exactly pinned polynomial fields (d = 2: degree 6, 7; d = 3: degree 6; k = kappa r)
      at several rational r: r^-2 f_uu(M) = -6 kappa + int_0^1 s (1-s)^2 f_uuuu(M + r s u) ds and
      r^-1 f_u,theta(M) = -int_0^1 (1-s) f_uu,theta(M + r s u) ds; and, as polynomials in r, the r = 0 values
@@ -596,7 +597,14 @@ def x8(rng):
         for v in lam:
             prod *= v
         ok &= abs(det(ht)) == prod and prod <= lmin * lmax ** (d - 1)
+    # negative witness (xAI review 5379839929): for r > 1 the r^2 factor fails, so Lemma S' uses r <= r_0^* <= 1
+    w_neg = [[Fr(1), Fr(0)], [Fr(0), Fr(2)]]                          # -Ht = diag(1, 2), lam_min(-Ht) = 1
+    rr = Fr(2)
+    w_hm = [[rr * rr * w_neg[0][0], Fr(0)], [Fr(0), w_neg[1][1]]]     # -H_M = Lam (-Ht) Lam = diag(4, 2)
+    witness_fails = not psd_by_minors([[w_hm[i][j] - (rr * rr if i == j else 0) for j in range(2)] for i in range(2)])
+    ok &= witness_fails
     return {'instances': len(insts), 'loewner_factor': fac_label, 'extremal_singular': bool(extremal_singular),
+            'range_witness_r2_fails': bool(witness_fails),
             'passed': bool(ok)}
 
 
