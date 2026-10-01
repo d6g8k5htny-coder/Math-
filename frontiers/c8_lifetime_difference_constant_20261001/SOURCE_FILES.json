@@ -1,0 +1,52 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "certified": true,
+ "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
+ "object": "CL-C8-LIFETIME-DIFFERENCE-CONSTANT-20261001-v1",
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 29736,
+   "sha256": "b827cef22dceeab0c65a023cf0a12d33da38ab6b75f06712acaffdec6a3106fd",
+   "git_blob": "395f3ea1177806a59dec3d3494db423bb81b4c75"
+  },
+  {
+   "path": "README.md",
+   "bytes": 3248,
+   "sha256": "be0e138004ca3b60438ab5c7ae5bd17151ffae19a741ecfb02d77cc6081538c0",
+   "git_blob": "6224993c077110fea30d92587b6c46d91361db50"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 463344,
+   "sha256": "77703dbdd7969ab62c179aa49391c6cddb545d37e0d59654476a09166a0b938f",
+   "git_blob": "894fae2e48e67dd1f21ab2ffffaf7050260cfbc1"
+  },
+  {
+   "path": "SOURCE_MAP.json",
+   "bytes": 5480,
+   "sha256": "0d168eb8c0f8dd6a51e8fe00f2310ce8ab6d9cac58dd00fea9cdc12b5879b708",
+   "git_blob": "92e12edaec574f84e64b5983d0b1a0fa8b2272e5"
+  },
+  {
+   "path": "engine_e2.py",
+   "bytes": 52401,
+   "sha256": "4e811b9f7e047b2f851a4be9c69ad69476f100ef30664dae252b659cfd63efbe",
+   "git_blob": "d74542ff66f4d953bc25819a4d0e439082078006"
+  },
+  {
+   "path": "engine_e3.py",
+   "bytes": 75753,
+   "sha256": "b0e1b3b4f43e140b51609332fe2e54f4f6b50d10f9f6af48d40ff548bbe742c0",
+   "git_blob": "ac809dbd36981d1b214fb2f8626417b50afb41f3"
+  },
+  {
+   "path": "theorem_b.py",
+   "bytes": 52686,
+   "sha256": "f14268228451c37475d6bf3516c0836b02bb085b9e50c34f75aa7cb8d27b1bd9",
+   "git_blob": "577fbba249aaee60aaaec379fb7831d17af7e0bc"
+  }
+ ],
+ "nonauthor_reads": []
+}
