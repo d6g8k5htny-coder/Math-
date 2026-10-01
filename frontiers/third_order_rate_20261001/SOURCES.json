@@ -2,11 +2,12 @@
  "schema": 1,
  "scientific_effect": "NONE",
  "object": "CL-THIRD-ORDER-RATE-20261001-v1",
+ "rebind": "2026-10-01 15:40 UTC: #220 PROOF 736a35de (head e481d23) -> c8767dde (head 70dcf31), a status-only update with no mathematical change (#187 merged; Lemma S-prime range and sign stated; X8 witness); #207 head 782211f -> b12ff46 (guarded main-only merge, blob unchanged); #223 merged (cited_only)",
  "kind": "author-side proof candidate: the candidate and elder lifetime densities to third order with remainder O(l^(3/7)) in every d >= 2 (Theorems T+ and E3+), improving the O(l^(4/11)) of Math- #218 and #220: nu_cand = c l^(-1/3) + B_{d,L} + I^cand l^(1/4) + c2 l^(1/3) + O(l^(3/7)); nu_eld = c l^(-1/3) + c1 l^(1/4) + c2 l^(1/3) + nu_eld^{far,r_0^*} + O(l^(3/7)), and with merged #187 + O(l^(3/7)); rejected density B_{d,L} + (I^cand - c1) l^(1/4) + O(l^(3/7)); new: Lemma L (a kappa-free local Lipschitz bound for (c^2 - y^2)_+), Lemma C+ (candidate cusp kernel, error r(1 + kappa)), Lemma CE+ (elder cusp kernel, error r(1 + kappa) + kappa^2 r^(3/2) + kappa^3 r^2, through a refined bound on the edge window B_4), Proposition W+ (typed-window bound E_Q[W_r/r^2] <= C r^2 (kappa + r)^2 (kappa + r log(2/r)) P^N for k <= r; at k = 0 the equal-height kernel is O(r^3 log(2/r)) near the diagonal); intermediate elder mass O(l^(4/9) log(1/l))",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "77b854cac6017ecdc0ea7abf6f978f9c6c9cb787"
+  "branch_base": "f9ebba17f5cc590232b2fb2cd37b04b996abc143"
  },
  "consumed": [
   {
@@ -98,7 +99,7 @@
    "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
    "tag": "207",
    "use": "section 0 cusp objects; (0.2)/(CU.2), the coefficient c1; section 7 (through #218)",
-   "head": "782211f494aeef1a24b70fe76423c66afe2ea9dc",
+   "head": "b12ff464b3534b6899a90cc250c585b1caf5dfec",
    "pr": "Math- #207"
   },
   {
@@ -113,16 +114,25 @@
   },
   {
    "path": "frontiers/elder_third_order_20261001/PROOF.md",
-   "bytes": 68890,
-   "sha256": "f3a64ad9551e02441eb3e3776aa72441c3c5a3b939a385e3031169a1608756a7",
-   "git_blob": "736a35de9d96e26372349f2a093feb40e47816ce",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
    "tag": "220",
    "use": "section 0 (near/far identity, A^eld, c1); Lemma Q; section 2 (notation, facts (F1)-(F7), (2.1)-(2.2), Lemma G, Lemma CE and its proof, Steps E1-E6); Lemma O-prime; Lemma H (through Lemma S-prime); Lemma S-prime (S-prime.1); section 4: the decomposition F^eld + K^eld + I^eld - J4 and the bound on F^eld",
-   "head": "e481d230cba1f6f29d89c76c8086ee512a61c22e",
+   "head": "70dcf310fc68f7d2b6949f035a09acf54f0cff7d",
    "pr": "Math- #220"
   }
  ],
- "cited_only": [],
+ "cited_only": [
+  {
+   "path": "frontiers/c2_exact_20261001/NOTE.md",
+   "bytes": 14480,
+   "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+   "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+   "tag": "223",
+   "use": "Math- #223 (merged 2026-10-01 at f9ebba1): c2 in closed form for the Gaussian kernel (Remark 4)"
+  }
+ ],
  "cited_unmerged": [
   {
    "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
@@ -133,16 +143,6 @@
    "use": "numerical values of c2 (Remark 4)",
    "head": "04c08e1534122f210be888742fcd7a568e45b097",
    "pr": "Math- #216"
-  },
-  {
-   "path": "frontiers/c2_exact_20261001/NOTE.md",
-   "bytes": 14480,
-   "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
-   "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
-   "tag": "223",
-   "use": "c2 in closed form for the Gaussian kernel (Remark 4)",
-   "head": "b2247fd81712f131ad604d13125580bf1afe2f94",
-   "pr": "Math- #223"
   },
   {
    "path": "frontiers/equal_height_mass_value_20261001/NOTE.md",
@@ -211,13 +211,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 37046,
-   "sha256": "2fd71925c3e501b94acec8e2df3ee02300f91388280886a91cd730ee62341eed"
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d"
   },
   {
    "path": "README.md",
-   "bytes": 4991,
-   "sha256": "f45e9c9dc5bf24b1a54c8411a927d5abeb5261845a7745e8d8c6b87b847b3556"
+   "bytes": 5068,
+   "sha256": "99ee83fd8fe442554db32d43c912b40fd41edf3a684827a9f5a94c73873b6a13"
   },
   {
    "path": "r37_check.py",

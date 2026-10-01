@@ -36,9 +36,9 @@ four error terms are exactly `ℓ^{3/7}` and all others are `O(ℓ^{4/9}log(1/�
 
 | | Sources |
 |---|---|
-| Consumed, unmerged | #207 (`f6df5a73` at `782211f`), #218 (`70ca57ef` at `0cf048d`), #220 (`736a35de` at `e481d23`) |
+| Consumed, unmerged | #207 (`f6df5a73` at `b12ff46`), #218 (`70ca57ef` at `0cf048d`), #220 (`c8767dde` at `70dcf31`, after its status-only update; rebound from `736a35de`) |
 | Consumed, merged | [R], [P] with [E1]/[E2]/[REC], [Z], [C7-K], #191, #198, and #187 (`07260114`, merged 1 Oct at `c2f1270`; used only for (E3⁺.1) and the second form of (R⁺.1)) |
-| Cited | #216, #223 (`c₂`); #211 (Remark 3); #188 |
+| Cited | #216 and #223 (`c₂`; #223 merged 1 Oct); #211 (Remark 3); #188 |
 
 The packet cannot be integrated before #207, #218 and #220, and must be rebound if any of them changes. The workflow
 checks every pin, including the current head (or the merge commit) of each consumed pull request.

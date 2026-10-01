@@ -25,22 +25,27 @@ ingredients.
 
 **Dependencies (consumed, unmerged).** This note cannot be integrated before the following, and must be rebound if any
 of them changes:
-- Math- #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, blob `f6df5a73`, head `782211f`): §0 cusp objects,
+- Math- #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, blob `f6df5a73`, head `b12ff46`): §0 cusp objects,
   (0.2)/(CU.2) (the coefficient `c₁`), §7 (through #218).
 - Math- #218 (`frontiers/candidate_third_order_20261001/PROOF.md`, blob `70ca57ef`, head `0cf048d`): Lemma D (1.1),
   (1.2), Lemma F (F.1)–(F.2), Lemma C and its proof (Steps C1–C3, (C.2)), Lemma O (O.1), (0.1) (`c₂`), and §4 (the
   decomposition `F + K + J₂ + … + J₅` and the bounds on `F`, `J₂`–`J₅`).
-- Math- #220 (`frontiers/elder_third_order_20261001/PROOF.md`, blob `736a35de`, head `e481d23`): §0 (the near/far
+- Math- #220 (`frontiers/elder_third_order_20261001/PROOF.md`, blob `c8767dde`, head `70dcf31`): §0 (the near/far
   identity, `𝒜^{eld}`, `c₁`), Lemma Q, §2 (notation, facts (F1)–(F7), (2.1)–(2.2), Lemma G, Lemma CE and its proof,
   Steps E1–E6), Lemma O′ (O′.1), Lemma H (through Lemma S′), Lemma S′ (S′.1), and §4 (the decomposition
   `F^{eld} + K^{eld} + I^{eld} − J₄` and the bound on `F^{eld}`).
+
+*Rebound on 1 October 2026, 15:40 UTC.* #220's PROOF changed from blob `736a35de` (head `e481d23`) to `c8767dde`
+(head `70dcf31`) by a status-only update with no mathematical change: #187 is listed as merged, Lemma S′ states its
+range `r ≤ r_0^* ≤ 1` and sign `−H̃ > 0`, and X8 has a negative witness. Every part of #220 consumed here is
+unchanged. #207's head moved to `b12ff46` by a guarded main-only merge; its blob is unchanged.
 
 **Merged inputs.** [R] with (R2)–(R5); [P] with [E1], [E2] and [REC] (§2 finite-jet rank, §15 parity); [Z]; [C7-K]
 (K2); Math- #191 (`441152df`: Lemma E Steps 1–3, for (F1) at `k = 0`; §2, `r_0^*` and the `k = 0` identity); Math- #198
 (`abfb98ae`: (3.1), the sign window and (3.2) of §3, Lemma W with its `k = 0` clause, (W.1), the `k = 0` identity in
 the proof of (W.4), Lemma F′); Math- #187 (`07260114`, merged on 1 October 2026 at `c2f1270`: Theorem F at the single
-separation `ρ = r_0^*`). **Cited only:** Math- #216 and #223 (values of `c₂`), #211 (blob `ed0d3fa8`; the
-equal-height mass and a heuristic quoted in Remark 3), #188.
+separation `ρ = r_0^*`). **Cited only:** Math- #216 and #223 (values of `c₂`; #223 merged on 1 October at `f9ebba1`),
+#211 (blob `ed0d3fa8`; the equal-height mass and a heuristic quoted in Remark 3), #188.
 
 ## 0. Statement
 
@@ -421,10 +426,11 @@ The splits are optimal for these error terms (control R1): `ρ_f = ℓ^{2/7}` ba
 | #191 | `frontiers/remainder_vanishing_20260930/PROOF.md` (merged; blob `441152df`) | Lemma E Steps 1–3 (for (F1) at `k = 0`); §2: `r_0^*`, the `k = 0` identity — consumed |
 | #198 | `frontiers/remainder_rate_20260930/PROOF.md` (merged; blob `abfb98ae`) | §3 (3.1), the sign window, (3.2); Lemma W with its `k = 0` clause, (W.1); the proof of (W.4); Lemma F′ — consumed |
 | #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (merged 1 Oct at `c2f1270`; blob `07260114`) | Theorem F at `ρ = r_0^*`, for (E3⁺.1) and (R⁺.1) only — consumed |
-| #207 | `frontiers/cusp_second_order_20261001/PROOF.md` (unmerged; blob `f6df5a73`, head `782211f`) | §0, (CU.2), §7 — **consumed, unmerged** |
+| #207 | `frontiers/cusp_second_order_20261001/PROOF.md` (unmerged; blob `f6df5a73`, head `b12ff46`) | §0, (CU.2), §7 — **consumed, unmerged** |
 | #218 | `frontiers/candidate_third_order_20261001/PROOF.md` (unmerged; blob `70ca57ef`, head `0cf048d`) | Lemmas D, F, C, O; (1.2); (0.1); §4 — **consumed, unmerged** |
-| #220 | `frontiers/elder_third_order_20261001/PROOF.md` (unmerged; blob `736a35de`, head `e481d23`) | §0; Lemma Q; §2 facts, Lemmas G, CE; Lemmas O′, H, S′; §4 — **consumed, unmerged** |
-| #216, #223 | `frontiers/third_order_coefficient_20261001/NOTE.md`, `frontiers/c2_exact_20261001/NOTE.md` (unmerged) | values of `c₂`, Remark 4 — cited only |
+| #220 | `frontiers/elder_third_order_20261001/PROOF.md` (unmerged; blob `c8767dde`, head `70dcf31`) | §0; Lemma Q; §2 facts, Lemmas G, CE; Lemmas O′, H, S′; §4 — **consumed, unmerged** |
+| #216 | `frontiers/third_order_coefficient_20261001/NOTE.md` (unmerged) | values of `c₂`, Remark 4 — cited only |
+| #223 | `frontiers/c2_exact_20261001/NOTE.md` (merged 1 Oct at `f9ebba1`; blob `a2798b87`) | `c₂` in closed form, Remark 4 — cited only |
 | #211 | `frontiers/equal_height_mass_value_20261001/NOTE.md` (unmerged; blob `ed0d3fa8`, head `8e89fe8`) | the heuristic and Monte Carlo of Remark 3 — cited only |
 | #188 | `frontiers/far_elder_flat_ridge_20260930/PROOF.md` (unmerged) | an alternative far bound — cited only |
 
