@@ -18,14 +18,16 @@ contact jets and `I_1`, `I_2` the near failure integrals of [NUM] §§2–3 (rec
 
 with `nu(2) = alpha_2` ([NUM] §1) and `a_fail = alpha_1 + alpha_2` the selector-failure coefficient of [S] (S2).
 
-**Theorem (certified enclosures).** The following intervals contain the exact values. The certificate's own intervals
-(`RESULTS.json`, 10 digits) are rounded further outward here.
+**Theorem (certified enclosures).** The following intervals contain the exact values for the reference kernel. By Lemma T
+(§6a) they also contain them for the torus model of [LP] and [S], with every side `L >= 10` and every frame. The torus
+enclosures in `RESULTS.json` agree with these at the displayed precision. The certificate's own intervals (`RESULTS.json`,
+10 digits) are rounded further outward here.
 
 | `k` | `J_fail = J_1 + J_2` | `J_1` | `J_2` | `J_2 / J_fail` | near Palm excess `2J_2/(J_1 + 2J_2)` |
 |---|---|---|---|---|---|
-| `1/2` | `[36.7830581, 36.7868003]` | `[35.673609, 35.680652]` | `[1.10614, 1.10945]` | `[0.030069, 0.030162]` | `[0.058377, 0.058563]` |
-| `1` | `[172.846360, 172.860205]` | `[169.58395, 169.60709]` | `[3.25312, 3.26241]` | `[0.018819, 0.018875]` | `[0.036941, 0.037052]` |
-| `2` | `[1111.98227, 1112.03079]` | `[1103.1296, 1103.2057]` | `[8.82508, 8.85263]` | `[0.0079360, 0.0079612]` | `[0.015746, 0.015797]` |
+| `1/2` | `[36.783058, 36.786801]` | `[35.673609, 35.680652]` | `[1.10614, 1.10945]` | `[0.030069, 0.030162]` | `[0.058377, 0.058563]` |
+| `1` | `[172.84636, 172.86021]` | `[169.58395, 169.60709]` | `[3.25312, 3.26241]` | `[0.018819, 0.018875]` | `[0.036941, 0.037052]` |
+| `2` | `[1111.9822, 1112.0308]` | `[1103.1296, 1103.2057]` | `[8.82508, 8.85263]` | `[0.0079360, 0.0079612]` | `[0.015746, 0.015797]` |
 
 | `k` | `b` | `p_b(0)/z_0` | `alpha_1` | `alpha_2 = nu(2)` | `a_fail = alpha_1 + alpha_2` |
 |---|---|---|---|---|---|
@@ -47,9 +49,8 @@ satisfies
 
     I_k in [0.4421366, 0.4432234],      C_fail^{B,K} in [0.00272445, 0.00273116].
 
-This is the reference-kernel value of the constant of [S] §9, which states `nu_rej^{B,K}(ell) ~ C_fail^{B,K} ell^(2/3)`
-and `E N_rej^{B,K}(0, t] ~ (3/5) C_fail^{B,K} t^(5/3)` for the torus model. The torus constant differs by the torus
-corrections, which are not certified here (§10).
+By Lemma T the same interval holds for the torus model with every `L >= 10`. That is the model of [S] §9, which states
+`nu_rej^{B,K}(ell) ~ C_fail^{B,K} ell^(2/3)` and `E N_rej^{B,K}(0, t] ~ (3/5) C_fail^{B,K} t^(5/3)`.
 
 **Corollary 2 (`d = 3`, conditional on Math-#175 and Math-#184).**
 - Math-#175 (OpenAI/Codex, open, AUTHOR_SIDE / HOLD) is [FIB]:
@@ -81,6 +82,8 @@ At `b = 0`, `R_3(0) = (32 + 28 sqrt2)/17`:
 - **`nu(2)` and `a_fail` are certified.** At `(b, k) = (0, 1)`: `alpha_2 = nu(2)` is in `[0.025491, 0.025565]` and `a_fail` in
   `[1.354418, 1.354527]`. The two-point share `J_2/J_fail` decreases from
   `3.01%` at `k = 1/2` to `0.79%` at `k = 2`.
+- **These are the model's constants.** By Lemma T the planar enclosures hold for the torus model of [LP] and [S] with
+  every `L >= 10` and every frame, not only for the reference kernel.
 - **[NUM]'s open digit is settled.** At `k = 2`, [NUM] observed that Gauss–Hermite and Monte Carlo disagree on `J_2` by
   2.6% and said the third digit of `alpha_2(2)` was not established. The certified `J_2(2)` is in `[8.82508, 8.85263]`. It
   excludes the GH60 value `8.641` and is consistent with the Monte Carlo value `8.875 +- 0.073`. The Gauss–Hermite
@@ -264,6 +267,46 @@ Values:
 `I_b^(3)` is integrated on `100000` cells of `[0, 1]`. On each cell `exp(-b^2)` decreases and `g` increases (both positive),
 so the cell integral lies between `h exp(-b_1^2) g(b_0)` and `h exp(-b_0^2) g(b_1)`.
 
+## 6a. Lemma T: transfer to the torus
+
+[LP] and [S] work on the torus `R^2/(L Z^2)` with
+`K_L(z) = sum_n exp(-|z + Ln|^2/2) / sum_n exp(-|Ln|^2/2)` ([LP] §2, by Poisson summation). Everything certified in the
+plane is a function of **one-site** jet covariances of order at most `6`:
+- the odd conditional law of `(a, beta, c)` given `(f_x, f_z, f_xxx) = (0, 0, 12k)`;
+- the even conditional law of `A = f_zz` given `(f, f_xx, f_xz) = (b, 0, 0)`, which gives `p_b(0)` and `z_0`;
+- the factors of `pi_0` ([LP] §15).
+
+`K_L` is even, so odd and even jets stay exactly uncorrelated.
+
+**Lemma T.** For every side `L >= 10` and every frame:
+1. **Covariances.** Every one-site covariance of order `<= 6` differs from its reference value by at most
+   `delta <= 2.86E-14`. In a frame `R`,
+   `d^g K_L(0) = sum_n (d^g G)(R^T L n)/Theta_L`, `|R^T L n| = L|n|`, and `|He_g1(y1) He_g2(y2)| <= Hh_g1(|y|) Hh_g2(|y|)` with
+   `Hh_j(t) = sum_k j!/(k!(j-2k)! 2^k) t^(j-2k)`. The shell `|n|_inf = j` has `8j` points with `|n| >= j`. Each product
+   `Hh_a Hh_c e^(-t^2/2)` decreases for `t^2 > a + c`, so the bound at `L = 10` holds for every `L >= 10`.
+2. **Regressions.** Interval regressions with every entry widened by `delta` give the torus conditional laws:
+   - odd: `N(12k v, S_c)` with `||diag(2,2,6)^(-1/2)(S_c - diag(2,2,6))diag(2,2,6)^(-1/2)|| <= eps = 1.30e-12`;
+   - even: `N(c_1 b, s^2)`;
+   - the ratio `(pi_0 p_b(0))^L/(pi_0 p_b(0))^ref` lies in `1 +- 8.8e-12`, uniformly in `(b, k)` in the band;
+   - `z_0` cancels in `A_0 a_fail` on the torus as well.
+3. **Expectations.** Let `S_c = S_0^(1/2)(I + E)S_0^(1/2)` with eigenvalues `e_i` of `E`, and `mu~ = S_0^(-1/2) mu`. Then
+   exactly
+
+       1 + chi^2 = prod (1 - e_i^2)^(-1/2) exp(sum mu~_i^2/(1 - e_i)).
+
+   For `eps^2 <= 0.006` we have `(1 - eps^2)^(-3/2) <= 1.01` and `(1 - eps^2)^(-3/2) - 1 <= 2 eps^2`. With
+   `e^m - 1 <= m e^m`, this gives `chi^2 <= 1.01 m e^m + 2 eps^2`, where `m = |mu~|^2/(1 - eps)`. The certificate checks
+   `eps^2 <= 0.006` and obtains `chi^2 <= 2.88E-23`. By Cauchy–Schwarz, `|J^L - J| <= (E[I^2] chi^2)^(1/2)`, using
+   `I = 3k^2 H <= 12 Pi_4` (the tail polynomial of §6, `k <= 2`), with `E[I^2] <= 5.405e+08`. This bounds `|J^L - J|` by
+   `1.25E-7` for every `k` in `[1/2, 2]`, for `J_fail`
+   and for `J_2` (`0 <= I_2 <= I_fail`).
+4. **Constants.** Hence `C_fail^L` lies in `(1 +- 8.8e-12)(C_fail^ref +- const I_b K_(-4)/3 . |J^L - J|)`, with
+   `K_(-4)/3 = integral e^(-12k^2) k^(-5/3) dk`. The torus `alpha_j`, `a_fail` at the grid points use the torus
+   `p_b(0)/z_0`.
+
+`torus.py` computes all of this in interval arithmetic. `RESULTS.json` lists the torus enclosures under "torus model".
+Lemma T is planar: Corollary 2 stays a reference-kernel statement.
+
 ## 7. Arithmetic
 
 Every `+, -, *, /, sqrt` is IEEE binary64 round-to-nearest, widened outward by one ulp. No libm transcendental is
@@ -330,13 +373,13 @@ Other controls (`controls.py`):
     `[1.225, 1.228] x 10^5`;
   - Math-#184's floating `a_fail^(3)(0, k)` (`4.8558` at `k = 1/2`, `5.705` at `k = 1`) agree with the certified values to
     `0.003%` and `0.008%`.
+- Lemma T: direct floating lattice sums of the torus deviation of six one-site covariance entries at `L = 10`, in three
+  frames, are at most `3.3e-16`, below the certified `delta = 2.86e-14`.
 
 ## 10. What this does not do
 
-- **Reference kernel only.** The torus model of [LP] and [S] has jet covariances within `O(exp(-L^2/2))` of these
-  (lattice sums: `1.4e-13` at `L = 24`, [NUM]). No perturbation bound for `J_j` is proved, so the torus `alpha_j` and
-  `C_fail^{B,K}` are not certified. The torus `A_0` is within `eps_2 <= 3.96e-10` of `A_0^ref` by Theorem L of
-  Math-#215 (open).
+- **Torus sides `L >= 10` only.** Lemma T covers every side `L >= 10` and every frame; `L < 10` is not covered. Corollary 2
+  (`d = 3`) is for the reference kernel only.
 - **Conditional identification.**
   - The certified numbers are the Gaussian integrals that [NUM] (from [CL] Theorem N, [CUB] Theorems C and F) and
     [S] §9 define.
@@ -347,7 +390,7 @@ Other controls (`controls.py`):
     open). Its pointwise values are given only at `b = 0`; `R_3(1)` would need `m_(3,1)`, which is not certified here.
 - **Coverage.**
   - Pointwise coefficients only at `k = 1/2, 1, 2` and `b = 0, 1`, plus the band integral `C_fail^{B,K}`.
-  - No other band, no `k -> 0`, no `d >= 3`.
+  - No other band and no `k -> 0`. `d = 3` is covered only through Corollary 2, and there is nothing for `d >= 4`.
 - No rate, no finite-`r` statement.
 - Not a review of [NUM], [S], [CL], [CUB], [LP] or Math-#215.
 
@@ -357,8 +400,8 @@ Other controls (`controls.py`):
   Math-#215 (`d748c2a`, open) is pinned for comparison constants only. Math-#175 (`701dff4`) and Math-#184 (`d37ff5d`),
   both open, are pinned for Corollary 2.
 - **Packet files:**
-  - `certificate.py` (drivers, exact parts, tails, assembly, self-test, replay), `boxes.py` (roots, Taylor boxes) and
-    `ia.py` (interval arithmetic), all standard-library Python;
+  - `certificate.py` (drivers, exact parts, tails, assembly, self-test, replay), `boxes.py` (roots, Taylor boxes),
+    `torus.py` (Lemma T) and `ia.py` (interval arithmetic), all standard-library Python;
   - `controls.py` (floating controls);
   - `RESULTS.json`, the certificate's output.
 - **Manifest:** `SOURCE_FILES.json`.

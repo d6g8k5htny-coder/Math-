@@ -6,7 +6,8 @@
 3. The certified J_1, J_2 against the Gauss-Hermite and Monte Carlo values of [NUM] (RESULTS.json on this tree).
 4. C_fail^{B,K} against the cap-route constants of Math-#215 (C_{B,K}(1/4096) = 402.5297, Gamma_2 = 307.51), and the
    d = 3 constant against C_{B,K}^(3)(1/4096) = 1205.7089, Gamma_3 = 540.97.
-5. The d = 3 near coefficients at b = 0 against Math-#184's floating values."""
+5. The d = 3 near coefficients at b = 0 against Math-#184's floating values.
+6. Lemma T: floating lattice sums of the torus jet-covariance deviation at L = 10 against the certified delta."""
 import os, sys, json, math
 from decimal import Decimal
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -72,7 +73,34 @@ def main():
     for k, v in hd.items():
         iv = [float(x) for x in D3['k=%g, b=0' % k]['a_fail^(3)']]
         print('   k=%g a_fail^(3) certified [%.6f, %.6f]  Math-#184 %.4f  (%+.3f%%)' % (k, iv[0], iv[1], v, 100 * (v / (0.5 * (iv[0] + iv[1])) - 1)))
-
+    print('6. Lemma T: direct floating lattice sums of the torus deviation at L = 10 (three frames) against delta')
+    import torus as TOR
+    dlt = TOR.delta()
+    def He(j, t):
+        h0, h1 = 1.0, t
+        if j == 0:
+            return h0
+        for i in range(1, j):
+            h0, h1 = h1, t * h1 - i * h0
+        return h1
+    worst = 0.0
+    for th in (0.0, 0.3, math.pi / 4):
+        c, s_ = math.cos(th), math.sin(th)
+        for g in ((6, 0), (3, 3), (4, 2), (2, 2), (5, 1), (0, 0)):
+            tot = 0.0
+            theta = 0.0
+            for n1 in range(-3, 4):
+                for n2 in range(-3, 4):
+                    if n1 == 0 and n2 == 0:
+                        continue
+                    y1, y2 = 10.0 * (c * n1 + s_ * n2), 10.0 * (-s_ * n1 + c * n2)
+                    e = math.exp(-(y1 * y1 + y2 * y2) / 2)
+                    tot += (-1) ** (g[0] + g[1]) * He(g[0], y1) * He(g[1], y2) * e
+                    theta += e
+            d0 = TOR._D(g)
+            dev = abs((tot - d0 * theta) / (1.0 + theta))      # (d0 + tot)/(1 + theta) - d0 without cancellation
+            worst = max(worst, dev)
+    print('   max floating deviation %.3e  <=  delta %.3e: %s' % (worst, dlt, worst <= dlt))
 
 if __name__ == '__main__':
     main()
