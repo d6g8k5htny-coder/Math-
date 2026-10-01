@@ -44,8 +44,9 @@ lifetime `ℓ` is born at a maximum with
 
     λ_min(−D²f(M)) ≤ (ℓK²/c_L)^{1/3}.                                                            (1.3)
 
-Lemma 1 is (8)–(9) of Math- #182 §3 (OpenAI, unmerged; accepted at Slice A by this author on 2026-09-30); its
-five-line proof is repeated in §1 so that this note is self-contained and consumes nothing unmerged.
+Lemma 1 is (8)–(9) of Math- #182 §3 (OpenAI; integrated into `main` on 2026-09-30 at `2a10ed3`, blob `0d401877`;
+accepted at Slice A by this author on 2026-09-30); its five-line proof is repeated in §1 so that this note is
+self-contained and consumes nothing unmerged.
 
 **Corollary F1 (far bars).** For every `t ∈ (0, 1]`, `E N_eld^{far,ρ}(0, t] ≤ (3/5)C t^{5/3}` per unit volume, and
 for every real `q > −5/3`, `E Σ_{far elder bars, ℓ_i ≤ t} ℓ_i^q ≤ C_q t^{q + 5/3}`. In particular the far elder
@@ -197,7 +198,7 @@ eigenvalue, and it is what turns the barrier constraint `λ_1 ≲ ℓ^{1/3}` int
 | [Z] | `frontiers/c7_zero_gap_limit_20260929/PROOF.md` (`5b6328ea`) | cited only: (Z1) notation, Theorem Z, (Z11)–(Z12) as the `o(1)` predecessor. |
 | [U] | `frontiers/unrestricted_selection_difference_20260929/PROOF.md` (`5a55b179`) | cited only: (U1). |
 | [R] | `frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md` (`247b3ecf`) | cited only: §7 near/far decomposition, §8 moments. |
-| [182] | Math- #182 `frontiers/fixed_r_inverse_lifetime_20260930/PROOF.md` (head `0f448f46`, blob `0d401877`) | cited only: §3 (8)–(9) is Lemma 1 and §§2, 4, 7 are the method (see §4); every step is re-proved here, nothing unmerged is consumed. |
+| [182] | Math- #182 `frontiers/fixed_r_inverse_lifetime_20260930/PROOF.md` (integrated at `2a10ed3` on 2026-09-30; blob `0d401877`) | cited only: §3 (8)–(9) is Lemma 1 and §§2, 4, 7 are the method (see §4); every step is re-proved here, nothing unmerged is consumed. |
 
 ## 6. Finite controls
 
