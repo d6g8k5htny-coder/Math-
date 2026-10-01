@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact controls for Theorem D1+ (CL-D1-SHARP-REMAINDER-20261001-v1).
+"""Exact controls for Theorem 1D+ (CL-D1-SHARP-REMAINDER-20261001-v1.1).
 
 Standard library only.  Exact rationals (fractions.Fraction) for C1-C4 and C7, Decimal at 60 digits for C5, and
 float quadrature (reported to 6 significant digits) for C6.  Output: one JSON document on stdout, equal to RESULTS.json.
@@ -114,7 +114,7 @@ Q2SQ = pmul(Q2, Q2)                          # (X^2 - 1/4)^2
 
 
 def g_poly(phi):
-    """[D1] (3.1): g_phi(X) = 2 (X + 1/2)^2 (X - 1) + 3 phi (X^2 - 1/4)^2."""
+    """[1D] (3.1): g_phi(X) = 2 (X + 1/2)^2 (X - 1) + 3 phi (X^2 - 1/4)^2."""
     return padd(pmul(pscale(ppow(padd(X, [HALF]), 2), 2), padd(X, [Fr(-1)])), pscale(Q2SQ, 3 * phi))
 
 
@@ -476,7 +476,7 @@ def control_c7(mutant):
     res['band_tail_exponent_3-11/(5-delta)'] = str(band)
     check(band >= Fr(3, 4), 'C7 band-tail exponent below 3/4')
     check(3 - Fr(11) / (5 - Fr(1, 9)) == Fr(3, 4), 'C7 threshold delta = 1/9')
-    res['recorded_D1_exponents_at_delta_1/10'] = {'2-7/(5-delta)': str(2 - Fr(7) / (5 - delta)), '3/(5-delta)': str(Fr(3) / (5 - delta))}
+    res['recorded_1D_exponents_at_delta_1/10'] = {'2-7/(5-delta)': str(2 - Fr(7) / (5 - delta)), '3/(5-delta)': str(Fr(3) / (5 - delta))}
     # Proposition M: t = (h/u)^{1/4}, t^2 dt = (1/4) h^{3/4} u^{-7/4} du; the integrand t^2 s with s ~ u gives u^{-3/4}
     exp_u = 1 + Fr(-1, 2) - Fr(5, 4)
     check(exp_u == Fr(-3, 4) and exp_u > -1, 'C7 integrability at u -> 0')
@@ -490,7 +490,7 @@ def control_c7(mutant):
     res['next_fold_cusp_exponents_after_1/3'] = [str(e) for e in nxt]
     check(Fr(4, 5) not in fold and Fr(4, 5) not in cusp, 'C7 4/5 in a set')
     res['recorded_heuristic_quintic_scale_exponent'] = '4/5 (Remark 5.1; not derived here)'
-    res['recorded_remainder_improvement'] = {'D1_(D1.2)': '1/2', 'here': '3/4'}
+    res['recorded_remainder_improvement'] = {'1D_(1D.2)': '1/2', 'here': '3/4'}
     return res
 
 
@@ -498,7 +498,7 @@ def main():
     mutant = parse_args(sys.argv[1:])
     controls = [('C1', control_c1), ('C2', control_c2), ('C3', control_c3), ('C4', control_c4),
                 ('C5', control_c5), ('C6', control_c6), ('C7', control_c7)]
-    out = {'object': 'CL-D1-SHARP-REMAINDER-20261001-v1', 'scientific_effect': 'NONE',
+    out = {'object': 'CL-D1-SHARP-REMAINDER-20261001-v1.1', 'scientific_effect': 'NONE',
            'mutants': MUTANTS, 'controls': {}}
     try:
         for name, fn in controls:

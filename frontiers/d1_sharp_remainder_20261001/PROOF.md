@@ -1,20 +1,26 @@
 # The one-dimensional lifetime and crest-to-trough laws with remainder `O(h^{3/4})`
 
-Object: CL-D1-SHARP-REMAINDER-20261001-v1.
+Object: CL-D1-SHARP-REMAINDER-20261001-v1.1.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+**v1.1 (labels, binding and one expository addition; no mathematical change):** (i) after the xAI concern on Math- #214
+(comments 5940492097 and 5940563636), #214 v1.2 renamed its theorem **Theorem 1D**, label only, so that it is not read
+as the cap component D1 (Math- #193, #194). This note follows: its theorem is **Theorem 1D⁺**, with displays
+(1D⁺.1)–(1D⁺.2), and #214 is cited as [1D], bound to its v1.2 blob. (ii) Proposition M's bad-event step names the
+moments that its Cauchy–Schwarz bounds use, as suggested in the Codex Slice D review (Math- #238, review 5386194030).
+The object identifier and the paths keep `D1`/`d1`, which there mean dimension one.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
-**Consumes** Math- #214 (open, unmerged; head `cf162b1c69…`, `frontiers/d1_third_order_law_20261001/PROOF.md` blob
-`873532b9`, v1.1), cited below as [D1]. Its nonauthor analytic review (OpenAI Codex, comment 5933752065, "Slices A–D and
-Theorem D1 ACCEPTED at the stated circle scope") was given on head `f4a58df`; the refresh to `cf162b1` merged `main` and
-left the packet's bytes unchanged. Used from [D1]: §§0–5 as stated, and also the intermediate estimates in the proof of
-[D1] Prop. 2.2 (c)–(d). §2 reruns those estimates on a longer range. The expansions among them follow from [D1] Lemma
-1.3, the bounds on `ζ_θ` are properties of `ζ_θ` alone, and none of them uses `t ≤ t_*` (Prop. 2.2⁺ (c)). Nothing else
-is consumed.
+**Consumes** Math- #214 (open, unmerged; head `4703fc7b3b…`, `frontiers/d1_third_order_law_20261001/PROOF.md` blob
+`3389ef8c`, v1.2), cited below as [1D]. Its nonauthor analytic review (OpenAI Codex, comment 5933752065, "Slices A–D and
+Theorem D1 ACCEPTED at the stated circle scope", under the theorem's former name) was given on head `f4a58df`. The
+refresh to `cf162b1` merged `main` and left the packet's bytes unchanged; v1.2 (`4703fc7`) changed labels only. Used
+from [1D]: §§0–5 as stated, and also the intermediate estimates in the proof of [1D] Prop. 2.2 (c)–(d). §2 reruns those
+estimates on a longer range. The expansions among them follow from [1D] Lemma 1.3, the bounds on `ζ_θ` are properties
+of `ζ_θ` alone, and none of them uses `t ≤ t_*` (Prop. 2.2⁺ (c)). Nothing else is consumed.
 
 ## 0. Statement
 
-Setting, notation and constants are those of [D1] §0–§1:
+Setting, notation and constants are those of [1D] §0–§1:
 - the circle `T = R/LZ` and the hypothesis (H);
 - the canonical two-point densities `ν₊` (crest-to-trough amplitude) and `ν` (persistence lifetime);
 - the pair at `±τ`, with separation `t = 2τ`, gap `h`, `α = 12h/t³` and `κ = h/t⁴`;
@@ -23,27 +29,27 @@ Setting, notation and constants are those of [D1] §0–§1:
 
 Throughout, `‖u‖_{C²} := max(sup|u|, sup|u'|, sup|u''|)` on `[−2, 2]`.
 
-**Theorem D1⁺.** Under (H), as `h ↓ 0` and `ℓ ↓ 0`,
+**Theorem 1D⁺.** Under (H), as `h ↓ 0` and `ℓ ↓ 0`,
 
-    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{3/4}),                        (D1⁺.1)
-    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{3/4}).                        (D1⁺.2)
+    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{3/4}),                        (1D⁺.1)
+    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{3/4}).                        (1D⁺.2)
 
-In particular `2ν₊(ℓ) − ν(ℓ) = (I − C₁)ℓ^{1/4} + O(ℓ^{3/4})`. [D1] §0 reads `2ν₊ − ν` as the density of adjacent
+In particular `2ν₊(ℓ) − ν(ℓ) = (I − C₁)ℓ^{1/4} + O(ℓ^{3/4})`. [1D] §0 reads `2ν₊ − ν` as the density of adjacent
 max/min pairs that are not elder pairs.
 
-[D1] proved the same expansions with `O(h^{1/2})`; its proof gives `O(h^{0.57})` for (D1.1). The exponent `3/4` is the
+[1D] proved the same expansions with `O(h^{1/2})`; its proof gives `O(h^{0.57})` for (1D.1). The exponent `3/4` is the
 order of the first correction to the cusp term (§5.1). No claim is made that its coefficient is nonzero.
 
-**What limited [D1], and what replaces it.**
+**What limited [1D], and what replaces it.**
 
-| | [D1] | limit | here |
+| | [1D] | limit | here |
 |---|---|---|---|
 | `E₂`-correction | Prop. 2.2 (a): kernel `≤ Ct²` on `t ≤ t_*` | `O(t_*³) = O(h^{0.61})` | Lemma E: kernel `≤ Ct² min(1, s)`, `s = m v₁^{−1/2} ≍ κ`, so `O(h^{3/4})` |
 | tails at `t_*` | Prop. 2.2 (c), (d): fold and cusp cut at `t_*` separately | `O(h²t_*^{−7}) = O(h^{0.57})` | Prop. 2.2⁺ (b): their difference, the model kernel, is `O(h³t^{−12})` beyond `t_*`, so both are integrated to a fixed `t₀` |
 | elder misclassification | §5: window perturbation of relative size `t/κ`, bounded in absolute value | `O(h^{1/2})` | Lemmas Φ, W and Prop. M: given all but `φ_G = E₁/m`, the elder set is an interval `(φ₋, φ₊)` independent of `φ_G`. The misclassified mass is first order in the mean of the first-order part of `φ₊ − φ₋ − 2/3`, which is `O(t²)`, and second order in its fluctuation, `O((t/κ)²)`. |
 
 **Mechanism.**
-- *Splitting and regression.* Under `Q` the field splits into independent even and odd parts ([D1] Remark 1.4).
+- *Splitting and regression.* Under `Q` the field splits into independent even and odd parts ([1D] Remark 1.4).
   Regressing the even part on `E₁` makes the rescaled field affine in `φ_G := E₁/m` (Lemma Φ). The profile is
   `≈ 3(X² − ¼)²`, and the remainder is independent of `φ_G`.
 - *The elder set is an interval.* The elder rule is monotone in `φ_G` near the window edges `±1/3`. So, given the
@@ -60,11 +66,11 @@ order of the first correction to the cusp term (§5.1). No claim is made that it
 Both orders are relative `O(t² + (t/κ)²)` of the edge mass, which integrates to `O(h^{3/4})` (Proposition M).
 
 **Not claimed.** The `h^{3/4}` coefficient or its sign; sharpness of `3/4`; uniformity in the covariance; anything on `R`
-([D1] §6.4).
+([1D] §6.4).
 
 ## 1. The `E₂`-correction
 
-As in [D1] §2, let `E₁ ~ N(0, v₁)` and `E₂ ~ N(0, v₂)` be independent, `m > 0` and `s := m v₁^{−1/2}`. Put
+As in [1D] §2, let `E₁ ~ N(0, v₁)` and `E₂ ~ N(0, v₂)` be independent, `m > 0` and `s := m v₁^{−1/2}`. Put
 
     w := ((m + E₂)² − E₁²)⁺1{m + E₂ > 0},   G₁ := E w,   G_{1/3} := E[w 1{|E₁| < m/3}],
     g_θ := E[(m² − E₁²)⁺1{|E₁| < θm}]   for θ ∈ {1, 1/3}.
@@ -111,13 +117,13 @@ Control C6 checks this order on a grid. Write `Φ` and `ϕ` for the standard nor
 
 ## 2. The sign kernels to `O(h^{3/4})`
 
-**Proposition 2.2⁺.** Fix `δ ∈ (0, 1/10]` and `t_* := (12h)^{1/(5−δ)}`, as in [D1] Prop. 2.2 (`t ≤ t_*` iff
+**Proposition 2.2⁺.** Fix `δ ∈ (0, 1/10]` and `t_* := (12h)^{1/(5−δ)}`, as in [1D] Prop. 2.2 (`t ≤ t_*` iff
 `α ≥ t^{2−δ}`). For `θ ∈ {1, 1/3}`, with `I₁ := I` and `I_{1/3} := C₁`,
 
     ∫₀^{t_*} K_θ^{sign}(t, h) dt = (C₀/2) h^{−1/3} + (I_θ/2) h^{1/4} + B₂ h^{1/3} + O(h^{3/4}).
 
-*Proof.* Fix `t₀ ∈ (0, 1]` so small that the expansions of [D1] Lemma 1.3 hold on `t ≤ t₀`, and let `h` be so small
-that `t_* ≤ t₀`. The model kernel ([D1] Prop. 2.2 (b)) is
+*Proof.* Fix `t₀ ∈ (0, 1]` so small that the expansions of [1D] Lemma 1.3 hold on `t ≤ t₀`, and let `h` be so small
+that `t_* ≤ t₀`. The model kernel ([1D] Prop. 2.2 (b)) is
 
     k_θ := (12/t⁴)p_t g_θ = (12/t⁴)p_t m² − (12/t⁴)p_t v₁ζ_θ(s).
 
@@ -137,7 +143,7 @@ using `(1 + α²)p_t ≤ C`. Since `∫₀^∞ t² min(1, h/t⁴) dt = (4/3)h^{3
 we get `∫₀^{t_*}(K_θ^{sign} − k_θ)dt = O(h^{3/4})`.
 
 The correction is integrated only up to `t_*`. Beyond `t ≍ h^{1/5}`, where `m ≍ v₂^{1/2}`, the difference
-`K₁^{sign} − k₁` contains the non-adjacent sign pairs, whose contribution is of order one in `h` ([D1] §6.2); that range
+`K₁^{sign} − k₁` contains the non-adjacent sign pairs, whose contribution is of order one in `h` ([1D] §6.2); that range
 is handled by the band lemma (§4).
 
 (b) *The tail of the model kernel.* `k_θ = (12/t⁴)p_t v₁γ_θ(s)` with
@@ -147,11 +153,11 @@ is handled by the band lemma (§4).
 
 Since `δ ≤ 1/9`, the exponent is at least `3/4`; it is `37/49` for `δ = 1/10`. Here the fold term `(12/t⁴)p_t m²` and the
 cusp term `(12/t⁴)p_t v₁ζ_θ(s)` are each of order `h²t^{−8}`. Their difference `k_θ` is smaller by the factor
-`s ≍ h/t⁴`, since `γ_θ(s) = 2θ(1 − θ²/3)(2π)^{−1/2}s³(1 + O(s²))`. [D1] cut each at `t_*` separately and lost
+`s ≍ h/t⁴`, since `γ_θ(s) = 2θ(1 − θ²/3)(2π)^{−1/2}s³(1 + O(s²))`. [1D] cut each at `t_*` separately and lost
 `h²t_*^{−7}`.
 
-(c) *The model integral to `t₀`.* Run [D1] Prop. 2.2 (c)–(e) with the upper limit `t_*` replaced by `t₀`. None of the
-estimates used in that proof uses `t ≤ t_*`. The expansions follow from [D1] Lemma 1.3 for `t ≤ t₀` and `α ≤ τ^{−1}`,
+(c) *The model integral to `t₀`.* Run [1D] Prop. 2.2 (c)–(e) with the upper limit `t_*` replaced by `t₀`. None of the
+estimates used in that proof uses `t ≤ t_*`. The expansions follow from [1D] Lemma 1.3 for `t ≤ t₀` and `α ≤ τ^{−1}`,
 and from `p_t ≤ Ce^{−α²/(4σ₃²)}` beyond. The bounds on `ζ_θ` are properties of `ζ_θ` alone, and the split at `t_c` is a
 device of the proof. The estimates are: the fold expansion with its `O(τ⁴(1 + α⁴))` term, the cusp expansion with
 `|ε| ≤ Cτ²(1 + α²)`, the bounds on `ζ_θ`, `ζ_θ'` and `1 − ζ_θ`, and the split at `t_c = h^{1/4}`. The changes:
@@ -171,18 +177,18 @@ Finally `∫₀^{t_*}K_θ^{sign} = ∫₀^{t₀}k_θ − ∫_{t_*}^{t₀}k_θ + 
 
 ### 3.1 Regression along `φ_G`
 
-Fix `t ≤ t₀` and `α > 0`, and work under `Q = Q_{t,α}`. By [D1] Remark 1.4, `f = f_e + f_o` with `f_e` and `f_o`
+Fix `t ≤ t₀` and `α > 0`, and work under `Q = Q_{t,α}`. By [1D] Remark 1.4, `f = f_e + f_o` with `f_e` and `f_o`
 independent.
 - `f_e` is centered, and its law does not depend on `α`: its only pin, `U₂ = 0`, is homogeneous, and `U₁, U₃` are
   functionals of `f_o`.
 - `f_o` has mean `αμ_t`, with `μ_t` deterministic and odd, and its centered part has a law that does not depend on `α`.
 
-As in [D1] Lemma 1.2, `E₁ := f_e''(τ)`, `m := E_Q f_o''(τ) = c(t)α`, `E₂ := f_o''(τ) − m`, `v₁ := Var_Q E₁` and
+As in [1D] Lemma 1.2, `E₁ := f_e''(τ)`, `m := E_Q f_o''(τ) = c(t)α`, `E₂ := f_o''(τ) − m`, `v₁ := Var_Q E₁` and
 `s := m v₁^{−1/2}`. Define
 
     ψ(x) := Cov_Q(f_e(x), E₁)/v₁,   f_e^⊥ := f_e − E₁ψ,   φ_G := E₁/m,   ω := (f_o, f_e^⊥).
 
-With `b := f(−τ)` and `F(X) := (f(tX) − b)/h` (the window field `𝔉` of [D1] Lemma 3.2),
+With `b := f(−τ)` and `F(X) := (f(tX) − b)/h` (the window field `𝔉` of [1D] Lemma 3.2),
 
     F = 2X³ − (3/2)X − ½ + O + B + φ_G Ψ̂,                                                        (3.1)
     O(X) := f_o(tX)/h − 2X³ + (3/2)X,   B(X) := (f_e^⊥(tX) − f_e^⊥(τ))/h,   Ψ̂(X) := (m/h)(ψ(tX) − ψ(τ)).
@@ -220,7 +226,7 @@ parities are those of `f_e` and `f_o`. The vanishing at `±½`:
     E₁ = a₄τ²/3 + ρ₁,   ρ₁ := R''(τ) − R'(τ)/τ,
 
 with `|∂_X^k R̃(tX)| ≤ Ct⁶K^e` on `[−2, 2]` (`k ≤ 2`) and `|ρ₁| ≤ Cτ⁴K^e`. The `Q`-law of `f_e` is free of `α`, and
-`E_Q(K^e)² ≤ C` by Sudakov–Fernique and Borell–TIS, as in [D1] Lemma 4.3. Also `V := Var_Q a₄ → σ₄²`, so `V ∈ [c, C]`.
+`E_Q(K^e)² ≤ C` by Sudakov–Fernique and Borell–TIS, as in [1D] Lemma 4.3. Also `V := Var_Q a₄ → σ₄²`, so `V ∈ [c, C]`.
 Then
 
     v₁ = (τ⁴/9)V(1 + O(τ²)),   Cov_Q(f_e(tX) − f_e(τ), E₁) = (t⁴/24)(X² − ¼)²(τ²V/3)(1 + O(τ²)) + Cov_Q(R̃(tX), E₁),
@@ -239,7 +245,7 @@ cubic Hermite basis at `τ`: `p₁(x) = (3/2)(x/τ) − ½(x/τ)³` and `p₂(x)
 So `O = R̃_o(t·)/h` and `‖O‖_{C²} ≤ C(t⁵/h)K^o = C(t/κ)K^o`. The map `f_o ↦ R̃_o` is linear, which gives both bounds.
 - *Applied to `αμ_t`* it gives `‖E_QO‖_{C²} ≤ C(αt⁵/h)sup_{[−2t, 2t]}|μ_t^{(5)}| = 12Ct² sup|μ_t^{(5)}|`. The sup is
   bounded uniformly: `μ_t^{(5)}(x) = Cov(f_o^{(5)}(x), (U₁, U₃))Cov(U₁, U₃)^{−1}e₂` is continuous in `(t, x)`,
-  `Cov(U₁, U₃)` is invertible for each `t > 0` ([D1] Lemma 1.1), and it has a nondegenerate limit as `t ↓ 0` ([D1] Lemma
+  `Cov(U₁, U₃)` is invertible for each `t > 0` ([1D] Lemma 1.1), and it has a nondegenerate limit as `t ↓ 0` ([1D] Lemma
   1.3). So `sup_{t ≤ t₀}sup_{[−2t,2t]}|μ_t^{(5)}| < ∞`.
 - *Applied to `f_o − E_Qf_o`* it gives the second bound.
 
@@ -256,7 +262,7 @@ So the bound holds with `K^⊥ := C(|a₄^⊥|/t² + K^e + |Z|)`. Each term has 
 
 ### 3.2 The window edges
 
-The model `g_φ` of [D1] (3.1) has its third critical point at `X₃ = −1/(2φ)`. There (checker C1)
+The model `g_φ` of [1D] (3.1) has its third critical point at `X₃ = −1/(2φ)`. There (checker C1)
 
     Γ₊(φ) := g_φ(X₃) + 1 = (φ + 1)³(3φ − 1)/(16φ³),   Γ₋(φ) := g_φ(X₃) = (φ − 1)³(3φ + 1)/(16φ³),
     Γ₊'(φ) = Γ₋'(φ) = 3(1 − φ²)²/(16φ⁴),   Γ₊(1/3) = Γ₋(−1/3) = 0,   Γ₊'(1/3) = Γ₋'(−1/3) = 12,   g_φ''(X₃) = 3(1 − φ²)/φ.   (3.2)
@@ -280,12 +286,12 @@ Put `η₀ := 1/100`, `J₊ := [1/3 − η₀, 1/3 + η₀]` and `J₋ := −J�
 
       φ₊ − φ₋ − 2/3 = O(3/2)/6 − Ê(3/2)/18 + r₊ − r₋.                                            (3.3)
 
-*Proof.* *Typing.* For `|φ| ≤ 2`, `‖F_φ − g_φ‖_{C²} ≤ ε`, and typing forces `|φ| < 1 + ε/6` ([D1] Lemma 3.3). For
+*Proof.* *Typing.* For `|φ| ≤ 2`, `‖F_φ − g_φ‖_{C²} ≤ ε`, and typing forces `|φ| < 1 + ε/6` ([1D] Lemma 3.3). For
 `|φ| > 2` the pair is not typed:
 - for `φ > 2`, `F_φ''(−½) = 6(φ − 1) + η⁰''(−½) + φÊ''(−½) ≥ 6(φ − 1) − ε − φε/2 > 0`;
 - for `φ < −2`, symmetrically `F_φ''(½) < 0`.
 
-*Off the edges.* [D1] Lemma 3.3 with `η = η₀`, taking `c₀ ≤ c₀^{[D1]}η₀`, gives: for typed `φ` with
+*Off the edges.* [1D] Lemma 3.3 with `η = η₀`, taking `c₀ ≤ c₀^{[1D]}η₀`, gives: for typed `φ` with
 `||φ| − 1/3| ≥ η₀`, `𝔖` is the death point iff `|φ| < 1/3`.
 
 *The edge `J₊`.* Fix `φ ∈ J₊`. The model satisfies, exactly (checker C2):
@@ -332,7 +338,7 @@ This proves (W.2) for `φ₊`.
 
 *The edge `J₋`.* This is the mirror case. Checker C1 checks the symmetry `g(−X, −φ) = −1 − g(X, φ)` and
 `Γ₋(φ) = −Γ₊(−φ)`; checker C2 checks `g(2) + 1 = 675φ/16 + 27/2 ≤ −9/64` and `g''(X₃) ≤ −7.7`. Fix `φ ∈ J₋`.
-- *The negative direction.* The arc falls below `−1` before exceeding `0`, as in [D1] Lemma 3.3 (E) for `φ < 0`. So
+- *The negative direction.* The arc falls below `−1` before exceeding `0`, as in [1D] Lemma 3.3 (E) for `φ < 0`. So
   `m₋ < −1`.
 - *The positive direction.* The arc descends to `𝔖` and rises to a nondegenerate local maximum `F(X₃'')`, with `X₃''`
   near `X₃ ∈ [1.45, 1.55]`. It then falls below `−1` before `2`. So `m₊ = −1` iff `μ₋(φ) := max_{[1, 2]}F_φ > 0`.
@@ -348,8 +354,8 @@ The even part `B` cancels from the window length; it only translates the window 
 
 ### 3.3 The misclassified mass
 
-Let `K(t, h)` be the elder kernel [D1] (1.3) and `K_{1/3}^{sign} = (12/t⁴)p_t E_Q[w 1{|φ_G| < 1/3}]` the sign kernel,
-where `w = (−f''(−τ))⁺f''(τ)⁺ = ((m + E₂)² − E₁²)⁺1{m + E₂ > 0}` ([D1] (1.4)).
+Let `K(t, h)` be the elder kernel [1D] (1.3) and `K_{1/3}^{sign} = (12/t⁴)p_t E_Q[w 1{|φ_G| < 1/3}]` the sign kernel,
+where `w = (−f''(−τ))⁺f''(τ)⁺ = ((m + E₂)² − E₁²)⁺1{m + E₂ > 0}` ([1D] (1.4)).
 
 **Proposition M.** For `δ ∈ (0, 1/10]` and `t_*` as above, `∫₀^{t_*}|K(t, h) − K_{1/3}^{sign}(t, h)| dt = O(h^{3/4})`.
 
@@ -393,11 +399,14 @@ Hence
 
 and by (Φ.2)–(Φ.3), `E_Qε² ≤ C(t⁴ + (t/κ)² + (t²/κ)² + τ⁴) ≤ C(t² + (t/κ)²)`.
 
-*The bad event.* Off `𝒢` there are two contributions.
+*The bad event.* Off `𝒢` there are two contributions. Both are bounded by Cauchy–Schwarz, using Gaussian moments: since
+`E₂ ~ N(0, v₂)`, `E(m + |E₂|)⁴ ≤ C(m² + v₂)²` and `E(8m²/9 + 2mE₂ + E₂²)⁴ ≤ C(m² + v₂)⁴`.
 - Both conditional expectations are at most `E[w | ω] ≤ (m + |E₂|)²`. By Cauchy–Schwarz this contributes at most
   `C(m² + v₂)P(𝒢^c)^{1/2}`.
-- The main term above carries `e_s ≤ s/√(2π)` and the factor `O(3/2)`. By Cauchy–Schwarz and `E_Q[O(3/2)⁴] ≤ C` (Φ.2)
-  it contributes at most `Cs(m² + v₂)P(𝒢^c)^{1/2}`.
+- The main term above carries `e_s ≤ s/√(2π)` and the factor `Y := O(3/2)/6 − Ê(3/2)/18`. Here `E_Q[O(3/2)⁴] ≤ C`
+  (Φ.2), and `Ê` is deterministic with `|Ê(3/2)| ≤ Cτ²` (Φ.1), so `E_QY⁴ ≤ C`. By Hölder, the mixed moment
+  `E[(8m²/9 + 2mE₂ + E₂²)²Y²]` is at most `C(m² + v₂)²`, and by Cauchy–Schwarz the term contributes at most
+  `Cs(m² + v₂)P(𝒢^c)^{1/2}`.
 
 On `t ≤ t_*` we have `κ/t = α/(12t²) ≥ t^{−δ}/12` and `‖E_QO‖_{C²} + 2‖Ê‖_{C²} ≤ Ct² ≤ c₁/2`. The Gaussian tails of
 `K̃^o` and `K^⊥` then give `P(𝒢^c) ≤ Ce^{−c(κ/t)²} ≤ Ce^{−ct^{−2δ}}`.
@@ -412,30 +421,30 @@ Now `(12/t⁴)m² ≤ Cα²/t² ≤ Cs²`, `(12/t⁴)v₂ ≤ Ct²` and `(t/κ)�
 - *The second part* is at most `C(1 + s³)e^{−ct^{−2δ}} ≤ C(1 + h³t^{−12})e^{−ct^{−2δ}}`. Its integral over `(0, t_*]`
   is `≤ C'_{c,δ}(1 + h³)t_*e^{−(c/2)t_*^{−2δ}} = O(h^N)`, where `C'_{c,δ} := sup_{t>0}(1 + t^{−12})e^{−(c/2)t^{−2δ}}`. ∎
 
-## 4. Proof of Theorem D1⁺
+## 4. Proof of Theorem 1D⁺
 
-Fix `δ = 1/10`, and `t₀` as in Proposition 2.2⁺, small enough also for [D1] Lemma 4.3 (whose own `t₀` is a fixed constant
+Fix `δ = 1/10`, and `t₀` as in Proposition 2.2⁺, small enough also for [1D] Lemma 4.3 (whose own `t₀` is a fixed constant
 in `(0, L/4]`).
 
-**(D1⁺.1).** Write `ν₊ = ∫₀^{t_*}K₊ + ∫_{t_*}^{L}K₊`, where `L` is the length of the circle.
-- On `(0, t_*]`, `K₊ = K₁^{sign} − (12/t⁴)p_tE_Q[w1{not adjacent}]`. By [D1] Lemma 3.1, non-adjacency forces
-  `K₅ ≥ ct^{−δ}`, so the correction integrates to `O(h^N)` ([D1] §5). Proposition 2.2⁺ with `θ = 1` gives the expansion.
-- On `[t_*, L)`, `K₊ ≤ K^{band}` (an adjacent pair is banded), and [D1] Lemma 4.3 gives `O(h^{3/4}) + O(h)`.
+**(1D⁺.1).** Write `ν₊ = ∫₀^{t_*}K₊ + ∫_{t_*}^{L}K₊`, where `L` is the length of the circle.
+- On `(0, t_*]`, `K₊ = K₁^{sign} − (12/t⁴)p_tE_Q[w1{not adjacent}]`. By [1D] Lemma 3.1, non-adjacency forces
+  `K₅ ≥ ct^{−δ}`, so the correction integrates to `O(h^N)` ([1D] §5). Proposition 2.2⁺ with `θ = 1` gives the expansion.
+- On `[t_*, L)`, `K₊ ≤ K^{band}` (an adjacent pair is banded), and [1D] Lemma 4.3 gives `O(h^{3/4}) + O(h)`.
 
-**(D1⁺.2).** Write `ν = 2∫₀^{L/2}K` ([D1] §1).
+**(1D⁺.2).** Write `ν = 2∫₀^{L/2}K` ([1D] §1).
 - On `(0, t_*]`, `K = K_{1/3}^{sign} + (K − K_{1/3}^{sign})`. Proposition 2.2⁺ with `θ = 1/3` gives the expansion with
   `I_{1/3} = C₁`, and Proposition M bounds the rest by `O(h^{3/4})`.
-- On `[t_*, L/2]`, an elder pair is banded or co-banded ([D1] §4), so `K ≤ K^{band} + K^{co}`, and [D1] Lemma 4.3 gives
+- On `[t_*, L/2]`, an elder pair is banded or co-banded ([1D] §4), so `K ≤ K^{band} + K^{co}`, and [1D] Lemma 4.3 gives
   `O(h^{3/4})`.
 
-Doubling gives (D1⁺.2). ∎
+Doubling gives (1D⁺.2). ∎
 
 ## 5. Remarks
 
 **5.1 The order `h^{3/4}`.** Four pieces are each `h^{3/4}` times a convergent Mellin-type integral; here they are only
 bounded:
 - the `E₂`-correction (for `θ = 1/3`, `G_{1/3} − g_{1/3} = v₂P(|E₁| < m/3)(1 + o(1))`);
-- the `τ²`-corrections of the cusp kernel ([D1] Prop. 2.2 (d), the error `ε`);
+- the `τ²`-corrections of the cusp kernel ([1D] Prop. 2.2 (d), the error `ε`);
 - the term `(p₃(α) − p₃(0))(1 − ζ_θ(s₀))`;
 - for `ν`, the window edges of Proposition M: the mean of the first-order part of `φ₊ − φ₋ − 2/3`, the correlation term
   `2m Cov_Q(E₂, O(3/2))`, and the second-order terms.
@@ -448,17 +457,17 @@ These never coincide (`8k = 7 + 6j` has no solution; checker C7), so there are n
 `t ≍ h^{1/5}` appears where the quintic jet competes and `m ≍ E₂`. There the model kernel loses relative order one,
 contributing order `h^{4/5}`. So the exponent after `1/3` is `3/4`, then `4/5`, then `1`.
 
-On sharpness, [D1] §6.2 records that for the Gaussian kernel the `θ = 1/3` sign-kernel remainder after three terms is
+On sharpness, [1D] §6.2 records that for the Gaussian kernel the `θ = 1/3` sign-kernel remainder after three terms is
 `≈ 0.038h^{3/4}`, constant over `h = 10^{−10}, …, 10^{−26}`; a referee recomputed `0.0381`. This is evidence only that
 the `θ = 1/3` sign-kernel integral has a nonzero `h^{3/4}` term for that kernel. It does not show that a nonzero
 `h^{3/4}` term survives in `ν`, where Proposition M's misclassified mass is of the same order, or in `ν₊`; neither is
 examined here.
 
 **5.2 Where the parity enters.** Without the independence of `(φ₋, φ₊)` from `φ_G`, the misclassified mass can only be
-bounded by the probability that `φ_G` lies within the edge fluctuation, `O(t/κ)` relative. That is [D1]'s `O(h^{1/2})`.
+bounded by the probability that `φ_G` lies within the edge fluctuation, `O(t/κ)` relative. That is [1D]'s `O(h^{1/2})`.
 Three facts make the first order a mean:
 - the regression of Lemma Φ, which is exact for Gaussian fields;
-- the independence of `E₂` (odd) from `φ_G` (even), which makes the weight a function of `φ_G` given `ω` ([D1] Remark
+- the independence of `E₂` (odd) from `φ_G` (even), which makes the weight a function of `φ_G` given `ω` ([1D] Remark
   1.4);
 - the evenness of `W` and `p_s`, which reduces the first order to the window length (3.3).
 
@@ -511,8 +520,9 @@ archived with the project record.
 
 ## 6. Sources (exact identities in `SOURCES.json`)
 
-**Consumed.** [D1] = Math- #214, `frontiers/d1_third_order_law_20261001/PROOF.md`, blob `873532b9` at head
-`cf162b1c69…` (open; bound by the workflow's drift gate). It supplies:
+**Consumed.** [1D] = Math- #214, `frontiers/d1_third_order_law_20261001/PROOF.md`, blob `3389ef8c` at head
+`4703fc7b3b…` (v1.2; open; bound by the workflow's drift gate). The v1.1 blob `873532b9` differs from it in labels
+only. It supplies:
 - §0: the setting and constants;
 - §1: Lemmas 1.1–1.3, the canonical versions (1.2)–(1.3), (1.4) and Remark 1.4;
 - §2: the sign kernels, `γ_θ`, `ζ_θ`, Lemma 2.1, Prop. 2.2 (b)–(e), and the intermediate estimates in its proof of
@@ -528,7 +538,7 @@ archived with the project record.
   open) and #229 (`frontiers/third_order_rate_20261001/PROOF.md`, open): the elder window and densities in `d ≥ 2`
   (§5.3).
 
-External: Sudakov–Fernique and Borell–TIS (as used in [D1] Lemma 4.3); Gaussian regression.
+External: Sudakov–Fernique and Borell–TIS (as used in [1D] Lemma 4.3); Gaussian regression.
 
 ## 7. Exact controls
 
@@ -545,7 +555,7 @@ label exits 2.
 | C4 | A bookkeeping check of (3.3), for random rational odd/even polynomials vanishing to second order at `±½`: the even part cancels from the window length. |
 | C5 | (W.2)–(W.3) numerically. The edges `φ±` are computed at 60 digits (Newton for the critical point, bisection in `φ`) for four perturbation shapes (odd, even, mixed with a `φ`-profile, generic). Here `ε` is the shape coefficient, not Lemma W's `ε`, at `ε = 10^{−3}, 10^{−4}, 10^{−5}`. It checks that the edge errors are `≤ 10ε²`, the window-length error is `≤ 20ε²`, and the ratios to `ε²` stabilize to 2%. Observed: the edge errors are at most `1.25ε²` and the length error at most `1.5001ε²`. For the odd shape the ratios tend to `±1/12` and `1/6`, for the even shape to `±3/4` and `3/2`. It does not test (W.1). |
 | C6 | Lemma E numerically, on a 16-point grid: `(G_θ − g_θ)/v₂` by composite Simpson quadrature, the bound `0 ≤ · ≤ 2 min(1, s)`, and the small-`v₂` limits. |
-| C7 | The ledger. Checked: `∫₀^∞t² min(1, h/t⁴) = (4/3)h^{3/4}`, by scaling to `h = 1` and evaluating the exact antiderivatives `u³/3` and `−1/u` of the two pieces; `3 − 11/(5 − δ) ≥ 3/4` iff `δ ≤ 1/9` (`37/49` at `δ = 1/10`); the integrability exponent `−3/4` of Proposition M; the disjointness of the fold and cusp exponent sets, `{−1/3 + 2k/3}` and `{1/4 + j/2}`. Recorded only: the heuristic quintic-scale exponent `4/5` of §5.1 and [D1]'s exponents. |
+| C7 | The ledger. Checked: `∫₀^∞t² min(1, h/t⁴) = (4/3)h^{3/4}`, by scaling to `h = 1` and evaluating the exact antiderivatives `u³/3` and `−1/u` of the two pieces; `3 − 11/(5 − δ) ≥ 3/4` iff `δ ≤ 1/9` (`37/49` at `δ = 1/10`); the integrability exponent `−3/4` of Proposition M; the disjointness of the fold and cusp exponent sets, `{−1/3 + 2k/3}` and `{1/4 + j/2}`. Recorded only: the heuristic quintic-scale exponent `4/5` of §5.1 and [1D]'s exponents. |
 
 What the controls do not test: Lemma E's proof, Lemma Φ's estimates, Lemma W's perturbation argument, (W.1),
 Proposition M and the assembly are proved in prose only. C5 and C6 are numerical consistency checks, not proofs.

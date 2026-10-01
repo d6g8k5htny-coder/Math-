@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-SHARP-REMAINDER-20261001-v1",
- "kind": "author-side proof candidate: the one-dimensional crest-to-trough and lifetime laws with remainder O(h^(3/4)) (Theorem D1+): nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), improving O(h^(1/2)) of Math- #214. New: Lemma E (the E2-correction is O(v2 min(1, s))), Proposition 2.2+ (the model kernel fold - cusp is O(h^3 t^-12) beyond t_*), Lemma Phi (regression of the even part on E1: the window field is affine in phi_G = E1/m with a remainder independent of phi_G), Lemma W (the elder set is an interval (L, R) in phi_G; the edges move by -eta(-+3/2)/12 + O(eps^2); the even part cancels from the window length), Proposition M (the misclassified mass is O(h^(3/4)))",
+ "object": "CL-D1-SHARP-REMAINDER-20261001-v1.1",
+ "kind": "author-side proof candidate: the one-dimensional crest-to-trough and lifetime laws with remainder O(h^(3/4)) (Theorem 1D+): nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), improving O(h^(1/2)) of Math- #214. New: Lemma E (the E2-correction is O(v2 min(1, s))), Proposition 2.2+ (the model kernel fold - cusp is O(h^3 t^-12) beyond t_*), Lemma Phi (regression of the even part on E1: the window field is affine in phi_G = E1/m with a remainder independent of phi_G), Lemma W (the elder set is an interval (phi_-, phi_+) in phi_G; the edges move by -eta(-+3/2)/12 + O(eps^2); the even part cancels from the window length), Proposition M (the misclassified mass is O(h^(3/4)))",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -12,12 +12,12 @@
  "consumed_unmerged": [
   {
    "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
-   "bytes": 44378,
-   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b",
-   "git_blob": "873532b955dbf7684edc1a53ba169c7216f778ab",
+   "bytes": 44784,
+   "sha256": "0461cd82542507102818d9c08dd2f7d132966bdcbcb67b704ec78b498f26c7ec",
+   "git_blob": "3389ef8cfaabab9c71cdf398893b0b7aef69dba1",
    "tag": "214",
-   "use": "Math- #214 v1.1 ([D1]; open; nonauthor analytic review by OpenAI Codex, comment 5933752065, on f4a58df: Slices A-D and Theorem D1 ACCEPTED at the stated circle scope; cf162b1 is a main-only refresh with the packet bytes unchanged): section 0 (setting, (H), constants C0, C1, I, B2); section 1 (Lemmas 1.1-1.3, the canonical versions (1.2)-(1.3), (1.4), Remark 1.4); section 2 (the sign kernels, gamma_theta, zeta_theta, Lemma 2.1, Prop. 2.2 (b)-(e), and the intermediate estimates in its proof of (c)-(d), rerun on (0, t0]: the expansions follow from Lemma 1.3, the zeta_theta bounds are properties of zeta_theta, and none uses t <= t_*); section 3 (Lemma 3.1, Lemma 3.2 (the window field), the model (3.1), Lemma 3.3); section 4 (Lemmas 4.1-4.3); section 5 (the adjacency argument)",
-   "head": "cf162b1c69086775594e150321200eb066c426ca",
+   "use": "Math- #214 v1.2 ([1D]; open; nonauthor analytic review by OpenAI Codex, comment 5933752065, on f4a58df: \"Slices A-D and Theorem D1 ACCEPTED at the stated circle scope\", under the theorem's former name; cf162b1 is a main-only refresh with the packet bytes unchanged; v1.2 (4703fc7) renames the theorem Theorem 1D, label only, and its PROOF blob 3389ef8c differs from the v1.1 blob 873532b9 in labels only): section 0 (setting, (H), constants C0, C1, I, B2); section 1 (Lemmas 1.1-1.3, the canonical versions (1.2)-(1.3), (1.4), Remark 1.4); section 2 (the sign kernels, gamma_theta, zeta_theta, Lemma 2.1, Prop. 2.2 (b)-(e), and the intermediate estimates in its proof of (c)-(d), rerun on (0, t0]: the expansions follow from Lemma 1.3, the zeta_theta bounds are properties of zeta_theta, and none uses t <= t_*); section 3 (Lemma 3.1, Lemma 3.2 (the window field), the model (3.1), Lemma 3.3); section 4 (Lemmas 4.1-4.3); section 5 (the adjacency argument)",
+   "head": "4703fc7b3b29967a134723fb4b7e0b26dff3e656",
    "pr": "Math- #214"
   }
  ],
@@ -91,23 +91,36 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 40024,
-   "sha256": "ae027fe39fc9d9f648720bf9dba0001634e3a984980d147c14940a4a41ddfb62"
+   "bytes": 41236,
+   "sha256": "ab3ef0aff42ec75346c321f57d7b2048ccb28b00bdaf7bd6fa0fd64793a3ce7c"
   },
   {
    "path": "README.md",
-   "bytes": 10273,
-   "sha256": "595a08f85de720e7e237947cd07aaaad847bd1e60027c231b9d07aa73b7bdaf1"
+   "bytes": 11761,
+   "sha256": "6cd7ceddec3e9d7147bf2006c72a0fd4eef2b35e9d1f8d0830a8c9009aae38d6"
   },
   {
    "path": "d1p_check.py",
-   "bytes": 25482,
-   "sha256": "cbab0a63544a2d14120bc4c92bfd215b349919a90079fe9e40b5cc9ac9336425"
+   "bytes": 25486,
+   "sha256": "df6d9086d549bc262e39b9ad6c2d9ad59039dc9bfbc53f8e96cf67a55c8e6578"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 4711,
-   "sha256": "3a1b67744eb318919aeaac8cd53a287d9ba0a166a612b136b3f41ee5410b6e1e"
+   "bytes": 4713,
+   "sha256": "444d4e75550d6573ce24541af70ed70a21488a7e06eac10d0606205cd22cfcfc"
+  }
+ ],
+ "label_history": "v1.1 renames Theorem D1+ to Theorem 1D+ (displays (1D+.1)-(1D+.2)) and cites Math- #214 as [1D], after #214 v1.2 renamed its theorem Theorem 1D (label only; xAI concern on #214, comments 5940492097 and 5940563636: the name D1 belongs to the cap component, Math- #193, #194); rebinds #214 to its v1.2 blob; and adds to Proposition M the moments behind the bad-event Cauchy-Schwarz bounds, as suggested in the Codex Slice D review. No mathematical change. The object identifier and the paths keep D1/d1 (dimension one). The checker changed in labels only (docstring, object, two recorded keys).",
+ "nonauthor_reviews": [
+  {
+   "slice": "D (sections 3.3-4: Proposition M and the assembly)",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386194030 (pickup 5941621955, release 5941667912)",
+   "head": "4b1ae3522a0db60ede0f859f52c70bff3deefa5c",
+   "proof_blob": "a5d8da201556c51d5601f8e39f327db926e2c524",
+   "against": "Math- #214 head cf162b1c69086775594e150321200eb066c426ca, PROOF blob 873532b955dbf7684edc1a53ba169c7216f778ab",
+   "verdict": "ACCEPT Slice D at the stated one-dimensional circle scope, conditional on #214; no mathematical blocker in Proposition M or the assembly; one expository suggestion (the moments behind the bad-event Cauchy-Schwarz bound), applied in v1.1",
+   "boundary": "#214 is not an ancestor of the reviewed head and its proof is not in the tree: not self-contained, not merge-ready by itself; preserve or merge the exact #214 proof first, then re-run current-head gates; no A/B/C/E acceptance; same-provider OpenAI review, organizational-independence credit 0"
   }
  ],
  "referee": {

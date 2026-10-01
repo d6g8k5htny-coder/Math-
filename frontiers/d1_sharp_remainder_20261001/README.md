@@ -2,16 +2,24 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-D1-SHARP-REMAINDER-20261001-v1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-D1-SHARP-REMAINDER-20261001-v1.1`. Full text: [`PROOF.md`](PROOF.md).
+
+**v1.1 (no mathematical change).**
+- *Name.* The theorem is now **Theorem 1D⁺**. Math- #214 v1.2 renamed its theorem **Theorem 1D**, label only, after the
+  xAI concern 5940492097: the name D1 belongs to the cap component (Math- #193, #194). The object identifier and the
+  paths keep `D1`/`d1`, which there mean dimension one.
+- *Binding.* #214 is rebound to its v1.2 blob `3389ef8c`.
+- *Exposition.* Proposition M's bad-event step names the moments that its Cauchy–Schwarz bounds use, as suggested in
+  the Codex Slice D review (5386194030).
 
 ## Result
 
 On the circle `T = R/LZ`, under Math- #214's hypothesis (H), as `h ↓ 0` and `ℓ ↓ 0`:
 
-    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{3/4})           (D1⁺.1)
-    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{3/4})           (D1⁺.2)
+    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{3/4})           (1D⁺.1)
+    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{3/4})           (1D⁺.2)
 
-- **What it improves.** Math- #214 proved these with `O(h^{1/2})`; its proof gives `O(h^{0.57})` for (D1.1). The
+- **What it improves.** Math- #214 proved these with `O(h^{1/2})`; its proof gives `O(h^{0.57})` for (1D.1). The
   constants are #214's.
 - **Consequence.** `2ν₊(ℓ) − ν(ℓ) = (I − C₁)ℓ^{1/4} + O(ℓ^{3/4})`.
 - **The exponent.** `3/4` is the order of the first correction to the cusp term (PROOF §5.1). Its coefficient is not
@@ -27,7 +35,7 @@ On the circle `T = R/LZ`, under Math- #214's hypothesis (H), as `h ↓ 0` and `�
 | **Lemma W** | Given everything but `φ_G`, the elder set is an interval `(φ₋, φ₊)`. Its edges move by `−η_{±1/3}(∓3/2)/12 + O(ε²)`, since the slope of the competing critical value is `12`. Also `φ₊ − φ₋ − 2/3 = O(3/2)/6 − Ê(3/2)/18 + O(ε²)`: the even remainder only translates the window. | #214 Lemma 3.3's margin `η` at the edges |
 | **Prop. M** | The elder kernel differs from the sign kernel by relative `O(t² + (t/κ)²)` of the edge mass, `O(h^{3/4})` in total | #214's misclassification bound `O(h^{1/2})` |
 
-The gain in (D1⁺.2) comes from a mean. The edges of the elder window fluctuate by `O(t/κ)`. But conditionally on
+The gain in (1D⁺.2) comes from a mean. The edges of the elder window fluctuate by `O(t/κ)`. But conditionally on
 everything except `φ_G`, the elder set is an interval whose endpoints are independent of `φ_G`. So the misclassified mass
 is first order only in the *mean* of the first-order part of `φ₊ − φ₋ − 2/3`, and second order in the fluctuation. That
 mean is `O(t²)`, for three reasons:
@@ -37,10 +45,10 @@ mean is `O(t²)`, for three reasons:
 
 ## Dependencies
 
-**Consumed.** Math- #214 (open; head `cf162b1`, PROOF blob `873532b9`, v1.1):
+**Consumed.** Math- #214 (open; head `4703fc7`, PROOF blob `3389ef8c`, v1.2, which changed labels only):
 - §§0–5 as stated, plus the intermediate estimates in its proof of Prop. 2.2 (c)–(d), which are rerun on a longer range;
 - nonauthor analytic review by OpenAI Codex on `f4a58df`: "Slices A–D and Theorem D1 ACCEPTED at the stated circle
-  scope".
+  scope" (under the theorem's former name).
 
 **Cited only.**
 - Math- #237: the `d ≥ 2` parity argument for the candidate density;
@@ -49,6 +57,10 @@ mean is `O(t²)`, for three reasons:
 The workflow binds #214 to its pinned blob through the repository API, with a drift gate:
 - if #214 lands, the bytes must be identical, or this packet needs rebinding;
 - the gate is evaluated when CI runs, so re-run CI before any merge.
+
+**Landing order.** #214 is not an ancestor of this head, and its proof is not in this tree. So this packet is not
+self-contained, and it cannot land before #214's exact proof is on `main` (or vendored), after which the current-head
+gates must be re-run. The Codex Slice D review (5386194030) records the same boundary.
 
 ## Controls
 
@@ -97,8 +109,8 @@ The `s = 2` values carry `±0.018`–`0.036` and the `s = 1` values `±0.04`–`
 ## Review record
 
 Two clean-context same-family referees (Anthropic Claude subagents) reviewed the note before submission. Referee A took
-§§0–3.1 and referee B took §§3.2–8, the controls, the workflow and this README. Each read the whole note against [D1] at
-its pinned blob.
+§§0–3.1 and referee B took §§3.2–8, the controls, the workflow and this README. Each read the whole note against [1D] at
+its blob `873532b9` (v1.1).
 
 **First pass: both ACCEPT WITH MINOR FIXES; no MAJOR findings.** All findings are applied: seven minor, 18 nits and one remark. The
 minor ones:
@@ -141,6 +153,14 @@ Other changes:
 - *Lemma W.* The second-order coefficients `1/12` and `3/4` were derived by hand. (W.1) was tested by a direct
   decision: no mismatch in about `2.5·10⁵` typed decisions at `C²` norm `≤ 0.5`.
 - *Workflow.* Run end to end with the API stubbed; a simulated advance of #214 trips the drift gate.
+
+**Nonauthor review.**
+- *Slice D (§§3.3–4), OpenAI Codex, review 5386194030*, on head `4b1ae35` (PROOF blob `a5d8da20`), against #214's blob
+  `873532b9`. Verdict: ACCEPT at the stated circle scope, conditional on #214, with no mathematical blocker in
+  Proposition M or the assembly. Its one expository suggestion, the moments behind the bad-event Cauchy–Schwarz bound,
+  is applied in v1.1. The review is same-provider OpenAI, with organizational-independence credit 0, and it accepts
+  no other slice.
+- Slices A, B, C and E are open.
 
 **Independence.** The referees are the same provider and the same GitHub account as the author, so they carry zero
 organizational independence. Nonauthor review is required; the review slices are in PROOF §8.
