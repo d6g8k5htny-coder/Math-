@@ -63,7 +63,7 @@ jobs:
           set -euo pipefail
           cd frontiers/cusp_coefficient_certified_20261001
           python $FLAGS certificate.py --check --procs "$(nproc)"
-          for m in kernel-A gl-weight bound-scale phase-sign tail-drop; do
+          for m in kernel-A gl-weight bound-scale phase-sign tail-drop image-order6; do
             set +e
             python $FLAGS certificate.py --mutant "$m" > /dev/null
             rc=$?

@@ -1,8 +1,9 @@
-# Certified cusp coefficient `c1` of Theorem CU (Math-#207) for the Gaussian kernel, `d = 1, 2, 3`
+# Certified cusp coefficient `c1` of Theorem CU (Math-#207): Gaussian kernel, `d = 1, 2, 3`; [P] torus field, `L >= 24`
 
 **Object:** CL-CU-CUSP-COEFFICIENT-20261001-v1.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 1 October 2026.
-**Disposition:** certified numerical enclosures of the explicit Gaussian integral (CU.2) of Math-#207. Author-side; no
+**Disposition:** certified numerical enclosures of the explicit Gaussian integral (CU.2) of Math-#207, for the Gaussian
+kernel (v1) and, by Lemma S, for the [P] torus field of every side `L >= 24`, including SIDE24 (v1.1). Author-side; no
 review yet. Scope claim: Math-#207 comment 5929273376.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit. Nothing in Math-#207, #214, #216 or #218 is touched.
@@ -35,6 +36,19 @@ form,
 | `2` | `[0.0734069193059, 0.0734069193062]` | `[-3.66993776909, -3.66993776907]` |
 | `3` | `[0.0417759318405, 0.0417759318407]` | `[-5.07106215, -5.07106213]` |
 
+**Corollary S (the [P] torus field; v1.1).** Let `L >= 24`, and let the field on `R^d/(L Z^d)` have covariance
+`K_L(z) = sum_(n in Z^d) exp(-|z + L n|^2/2)`, normalized to variance one or not. In particular this covers SIDE24
+(`L = 24`), the manuscript's field ([CU] §0). Then for `d = 2, 3` the coefficient (CU.2) of this field satisfies
+`|c1^(L)/c1^(ref) - 1| <= eta_d`, with `eta_2 <= 5.9e-105` and `eta_3 <= 1.4e-104` (Lemma S, §3b). Hence
+
+| `d` | `c1^(L)` | `I^cand,(L)` | `c1^(24) / c_(d,24)` |
+|---|---|---|---|
+| `2` | `[-0.269398825674, -0.269398825672]` | `[-0.177274396795, -0.177274396793]` | `[-3.66993776909, -3.66993776907]` |
+| `3` | `[-0.211848347, -0.211848346]` | `[-0.139404052, -0.139404051]` | `[-5.07106215, -5.07106213]` |
+
+Here `c_(d,24)` is taken from `coefficients/side24_v1/ENCLOSURE.json` ([SIDE24-E], consumed): `c_(2,24)` in
+`[0.07340691930603427103, 0.07340691930603427104]` and `c_(3,24)` in `[0.04177593184059834334, 0.04177593184059834335]`.
+
 `RESULTS.json` holds the certificate's own intervals (16 digits, after widening by `1e-12` relative); the tables round them
 further outward.
 
@@ -43,9 +57,9 @@ further outward.
   and `-0.21184835` (`d = 3`), `c = 0.0734069193` and `0.0417759318`, `c1/c = -3.669938` and `-5.071062`, and `I^cand`,
   `I^cand - c1` to seven digits. Each is the correct rounding of the certified midpoint (`controls.py`, §7). The `d = 3`
   referee Monte Carlo `-0.211848 +- 0.000024` is `0.01` standard errors from it.
-- **The reference-kernel correction ratio is certified.** In `d = 3` the relative correction of [CU] (CU.1) is
-  `(c1/c) ell^(7/12)`, with `c1/c_(3,ref)` in `[-5.07106215, -5.07106213]`. This is the Gaussian kernel. The SIDE24
-  covariance differs by `1 + O(e^(-288))` ([CU] §8, remark 3), a transfer this packet does not bound (§8).
+- **The manuscript's correction ratio is certified.** For the manuscript's field (`d = 3`, `L = 24`) the relative
+  correction of [CU] (CU.1) is `(c1/c) ell^(7/12)`, with `c1/c_(3,24)` in `[-5.07106215, -5.07106213]` (Corollary S). [CU] §0
+  states `c1/c ~ -5.071` for this field.
 - **`d = 1` is a closed form.** `c1^(1) = -(384/7) 2^(1/4) 12^(-9/4) (2 pi)^-2 sqrt(4 pi/3) 30^(7/8) 2^(7/8)
   Gamma(11/8)/sqrt(pi)`. It agrees with Math-#214's `C_1` (#216's table: `-0.227606`). As [CU]'s author notes (#207 comment
   5925314397), (CU.2) at `d = 1` is #214's coefficient.
@@ -176,6 +190,60 @@ The nodes are certified in exact rational arithmetic (`gauss.py`):
 - In `d = 2`, 15 `u`-panels up to `u = 15` are each taken to `5e-16`. The tail is
   `15^-7/7 +- 1.5 . 15^-14/14`, since `|Re H(u^4)| <= (36/19)^(5/8) u^-7`.
 
+## 3b. The [P] torus field (Lemma S)
+
+**Lemma S.** Let `d in {2, 3}` and `L >= 24`, let `C_L` be the covariance of the `N` jets of (CU.2) for the [P] field in an
+orthonormal frame `(u, Theta)`, and let `C_0` be that of the Gaussian kernel. Here `N = 9` in `d = 2` and `N = 14` in `d = 3`,
+counting the `2d + 2` pinned coordinates `(f, d_u f, d_u^2 f, d_u^3 f, grad_Theta f, grad_Theta d_u f)` and the free
+`(f4, gamma, A)`. Then `(1 - eps) C_0 <= C_L <= (1 + eps) C_0` in every frame, with `eps = N E/mu`, and
+`|c1^(L)/c1^(ref) - 1| <= eta = 8 M eps`, `M = N/2 + 1`.
+
+*Proof.*
+- **S.1 (image bound).** Every covariance entry is `(-1)^|b| D^(|a|+|b|) K(0)` contracted with frame vectors, of total
+  order `q <= 8` (`Cov(f4, f4) = d_u^8 K(0)`).
+  - For unit `v_i`, `D^q phi(x)[v]` is `phi(x)` times a sum over the partial matchings of `{1..q}` of products of
+    `-<v_i, v_j>` and `-<x, v_i>`. So `|D^q phi(x)[v]| <= T_8 |x|^8 phi(x)` for `|x| >= 1`, with `T_8 = 764` matchings, and
+    `<= 7!! = 105` at `x = 0`.
+  - For `d <= 3` the shell `max|n_i| = j` has at most `27 j^3` points, with `|n|^2 <= 3 j^2`. Consecutive shell terms
+    shrink by at least `1/2`, so `sum_(n != 0) |n|^8 e^(-288|n|^2) <= 4374 e^(-288)` and `S_24 - 1 <= 54 e^(-288)`.
+  - `e^(288/125) > 10` by the positive Taylor sum through 20 terms, so `e^(-288) < 10^-125`.
+  - `L^8 e^(-L^2 |n|^2/2)` decreases in `L` once `L|n| >= 3`, so the bound at `L = 24` holds for every `L >= 24`.
+  - Writing `D^q K_L(0) - D^q phi(0) = S_L^-1 sum_(n != 0) D^q phi(L n) + D^q phi(0)(S_L^-1 - 1)`, every entry of
+    `C_L - C_0` is at most `E = (764 . 24^8 . 4374 + 105 . 54) 10^-125 <= 3.7e-108` in absolute value. The
+    unnormalized periodization has only the first term.
+- **S.2 (sandwich).** `C_0 - I/4` is positive definite: an exact `LDL^T` has all pivots positive, and `lambda_min(C_0)` is
+  about `0.258` in `d = 3`. So `|x^T (C_L - C_0) x| <= N E |x|^2 <= eps x^T C_0 x`.
+- **S.3 (transfer).** Write the (CU.2) integral at direction `u` as
+  `I_u(C) = integral db integral dW F(W) phi_C(b, 0, W)`, with `F = |Y|^(7/4) |Delta|^(1/4) 1{A < 0} >= 0` and `2d + 1`
+  coordinates fixed at 0. (`pi_0 E_0[F | b]` is exactly this slice integral of the joint density.)
+  - `F` is homogeneous of degree `2d - 1/4` in the free jets: `Y` has degree `d` and `Delta` degree `d - 1`.
+    Substituting `(b, W) -> sqrt(a) (b, W)` therefore gives `I_u(a C_0) = a^(-5/8) I_u(C_0)`.
+  - From `(1 - eps) C_0 <= C <= (1 + eps) C_0`: `det C >= (1 - eps)^N det C_0` and `C^-1 >= C_0^-1/(1 + eps)`, and
+    symmetrically `det C <= (1 + eps)^N det C_0` and `C^-1 <= C_0^-1/(1 - eps)`. This gives the pointwise sandwich
+
+        [(1 - eps)/(1 + eps)]^(N/2) phi_((1-eps) C_0) <= phi_C <= [(1 + eps)/(1 - eps)]^(N/2) phi_((1+eps) C_0).
+
+  - Integrating the nonnegative `F` gives `I_u(C_L) / I_u(C_0)` in `[rho^-M, rho^M]`, with `rho = (1 + eps)/(1 - eps)`.
+  - `log rho <= 4 eps` and `e^x <= 1 + 2x` on `[0, 1]`, so this lies within `8 M eps` of 1.
+  - `I_u(C_0)` does not depend on `u` (isotropy), so integrating over `S^(d-1)` preserves the bound. ∎
+
+The constants, as exact rationals in `RESULTS.json` (`rules`), are as follows:
+
+| `d` | `N` | `mu` | `eps` | `eta` |
+|---|---|---|---|---|
+| `2` | `9` | `1/4` | `<= 1.4e-106` | `<= 5.9e-105` |
+| `3` | `14` | `1/4` | `<= 2.1e-106` | `<= 1.4e-104` |
+
+In binary64 the factor `[1 - eta, 1 + eta]` is enclosed by the one-ulp interval around 1.
+
+**Cross-check of Lemma R.1.** The self-test builds `C_0` exactly and regresses the free jets on the pins in rational
+arithmetic. The result must reproduce R.1 exactly:
+- `E[f4 | b] = -3b`, `Var = 24`;
+- `gamma ~ N(0, 2 I)`;
+- `E[A_jj | b] = -b`, `Var A_jj = 2`, `Var A_jk = 1`;
+- all cross-covariances 0;
+- `det C_P = 12` and `(C_P^-1)_ff = 3/2`, which is `pi_0 = (2 pi)^(-(d+1)) 12^(-1/2) e^(-3b^2/4)`.
+
 ## 4. Arithmetic
 
 - **`ia.py`** is byte-identical to Math-#217's (`frontiers/c8_elder_failure_coefficient_20261001/ia.py`). It provides
@@ -219,14 +287,23 @@ The self-test checks:
 3. A deliberately coarse 6-point rule on `[0.85, 1.15]`, whose certified enclosure must contain a 40-point floating
    reference. This checks the error bound itself.
 4. The `t`-tail against its floating formula.
+5. Lemma S: the exact regression of R.1 (§3b), the image-bound order against the largest covariance order, `T_8 = 764`,
+   the positive definiteness of `C_0 - I/4`, and the transcription of `c_(d,24)` against the repository copy of
+   `ENCLOSURE.json` (when reachable).
 
 The assembly also compares `integral g2` and `T3` with coarse floating quadratures of the safe form in libm floating
 point. This guards normalizations and factors.
 
-Five seeded defects must each be rejected by the self-test (exit 1): `kernel-A` (a `1e-7` change in `A`), `gl-weight`
-(weights `x (1 + 1e-9)`), `bound-scale` (error bounds `x 1e-6`), `phase-sign` (the sign of the `a1^2` phase term in `f3`),
-and `tail-drop`. The workflow `.github/workflows/cusp-coefficient-certified.yml` runs, for `-B -S` and `-B -O -S`: the
-manifest and pin check, `--check`, the five mutants, and a clean-tree check.
+Six seeded defects must each be rejected by the self-test (exit 1):
+- `kernel-A`: a `1e-7` change in `A`;
+- `gl-weight`: weights `x (1 + 1e-9)`;
+- `bound-scale`: error bounds `x 1e-6`;
+- `phase-sign`: the sign of the `a1^2` phase term in `f3`;
+- `tail-drop`;
+- `image-order6`: an image bound valid only to order 6, as in side24_v1 §2, which is too low for `Cov(f4, f4)`.
+
+The workflow `.github/workflows/cusp-coefficient-certified.yml` runs, for `-B -S` and `-B -O -S`: the manifest and pin
+check, `--check`, the six mutants, and a clean-tree check.
 
 ## 7. Floating controls (`controls.py`; not part of the certificate)
 
@@ -262,12 +339,18 @@ These recompute the same quantities in libm floating point by routes that share 
 - development (`2e8` samples): `-0.211880 +- 0.000100` (`-0.32` standard errors);
 - referee (`5e8` samples): `-0.211848 +- 0.000024` (`+0.01` standard errors).
 
+4. **Lemma S, actual deviations.** A direct floating lattice sum over `|n_i| <= 2` computes the deviations
+   `D^g K_24(0) - D^g phi(0)` of all jet covariance entries (`d = 3`, standard frame, variance-one normalization). The
+   largest is `1.756e-114`, at `g = (8, 0, 0)`, the `d_u^8` entry `Cov(f4, f4)`. The certified entry bound is
+   `E = 3.678e-108`, which exceeds it by a factor of about `2e6`.
+
 ## 8. What this does not do
 
-- **Gaussian kernel only.** The periodized SIDE24 covariance (side `L = 24`) changes the one-site covariances by factors
-  `1 + O(e^(-L^2/2)) = 1 + O(e^(-288))` ([CU] §8, remark 3). A transfer in the manner of Math-#217's Lemma T is possible
-  but is not done here. In particular the SIDE24 value `c_(3,24)` and the ratio `c1/c_(3,24)` are not certified, only
-  the reference-kernel ones.
+- **Sides `L >= 24` only.**
+  - For `L < 24` the premises of S.1 are not established, and no torus statement is made.
+  - `d = 1` is the Gaussian kernel only.
+  - The ratios `c1/c_(d,24)` consume side24_v1's enclosures of `c_(d,24)`. These are author-side (OpenAI), with
+    nonauthor review open; they are not reviewed here.
 - **Not a review of Theorem CU.** The numbers are the integral (CU.2) defines. That `c1` is the coefficient of
   `ell^(1/4)` in `nu_eld` is [CU]'s statement (author-side; it depends on Math-#191 and Math-#198), consumed, not
   reviewed.
@@ -279,12 +362,13 @@ These recompute the same quantities in libm floating point by routes that share 
 - **Sources** (`SOURCE_MAP.json`):
   - [CU] Math-#207 `frontiers/cusp_second_order_20261001/PROOF.md` at head `826b8be` (blob `f6df5a73`, unmerged; recorded,
     not checked on this tree);
-  - [SIDE24] `coefficients/side24_v1/PROOF.md` (1);
+  - [SIDE24] `coefficients/side24_v1/PROOF.md` (1), and §§2, 4 as the model for Lemma S;
+  - [SIDE24-E] `coefficients/side24_v1/ENCLOSURE.json` (`c_(d,24)`);
   - [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` §15.
 
-  The last two are verified on this tree by the workflow.
+  The last three are verified on this tree by the workflow.
 - **Files:**
   - the certificate: `certificate.py` (drivers, self-test, mutants, publication), `cusp.py` (integrands), `d3.py`
-    (`d = 3` boxes and tails), `gauss.py`, `cx.py`, `elem.py`, `ia.py`, `consts.py`;
+    (`d = 3` boxes and tails), `side24.py` (Lemma S, exact rationals), `gauss.py`, `cx.py`, `elem.py`, `ia.py`, `consts.py`;
   - `controls.py`;
   - `RESULTS.json`, `SOURCE_MAP.json`, `SOURCE_FILES.json` (the manifest).

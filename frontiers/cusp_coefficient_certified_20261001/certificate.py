@@ -1,5 +1,6 @@
 """Certificate for CL-CU-CUSP-COEFFICIENT-20261001: rigorous enclosures of the cusp coefficient c1 of Theorem CU
-(Math-#207, (CU.2)) for the Gaussian kernel in d = 1, 2, 3, of I^cand = (3^(1/4)/2) c1, and of the ratios c1/c_(d,ref).
+(Math-#207, (CU.2)) for the Gaussian kernel in d = 1, 2, 3, of I^cand = (3^(1/4)/2) c1, and of the ratios c1/c_(d,ref);
+by Lemma S (side24.py) also for the [P] torus field of every side L >= 24 in d = 2, 3, with the ratios c1/c_(d,24).
 
     python3 -B -S certificate.py --write [--procs N]     compute and write RESULTS.json
     python3 -B -S certificate.py --check [--procs N]     self-test, recompute, compare with RESULTS.json
@@ -28,6 +29,7 @@ import cusp as CU
 import cx as CX
 import consts as K
 import d3
+import side24 as S24
 
 PACKET = 'CL-CU-CUSP-COEFFICIENT-20261001-v1'
 U_EDGES = (0.0, 0.4, 0.7, 0.9, 1.0, 1.1, 1.3, 1.6, 2.0, 2.6, 3.4, 4.5, 6.0, 8.0, 11.0, 15.0)
@@ -37,7 +39,7 @@ TOL3 = 1e-11            # per (s, t) box, d = 3
 RHOS2 = (4.0, 3.0, 2.4, 2.0, 1.7, 1.5, 1.35, 1.25, 1.18, 1.12)
 MARGIN = 1e-12          # relative widening before publication
 DIGITS = 16             # significant digits of the published decimals
-MUTANTS = ('kernel-A', 'gl-weight', 'bound-scale', 'phase-sign', 'tail-drop')
+MUTANTS = ('kernel-A', 'gl-weight', 'bound-scale', 'phase-sign', 'tail-drop', 'image-order6')
 MUTANT = None
 
 
@@ -68,6 +70,8 @@ def install_mutant(name):
         CU.MUTANT = 'phase-sign'
     elif name == 'tail-drop':
         d3.tail_t = lambda: (0.0, 0.0)
+    elif name == 'image-order6':
+        S24.IMAGE_ORDER = 6
     elif name is not None:
         raise SystemExit('unknown mutant: %s' % name)
 
@@ -172,6 +176,19 @@ def selftest():
     ref = W * T ** -7 / 7
     if not (tt[0] <= ref <= tt[1]) or not tt[1] - tt[0] < 1e-2 * ref:
         fails.append('t-tail: %r vs %r' % (tt, ref))
+    # (5) Lemma S: the exact jet covariance C_0 reproduces Lemma R.1 (regression, det C_P = 12, (C_P^-1)_ff = 3/2), and
+    # the premises of the transfer hold (image bound order, matchings count, positive definiteness of C_0 - mu I)
+    for d in (2, 3):
+        fails.extend(S24.lemma_r_check(d))
+        try:
+            S24.transfer(d)
+        except ValueError as e:
+            fails.append('Lemma S, d = %d: %s' % (d, e))
+    if S24.matchings(8) != 764:
+        fails.append('T_8 != 764')
+    enc = S24.enclosure_check(HERE)
+    if enc:
+        fails.extend(enc)
     return fails
 
 
@@ -314,6 +331,7 @@ def certify(procs, log=print):
     out['P3'] = K.prefactor_d3()
     out['c1'] = {1: K.c1_d1(), 2: mul(out['P2'], out['d2']['int_g2']), 3: mul(out['P3'], out['d3']['T3'])}
     out['cref'] = {2: K.c_ref(2), 3: K.c_ref(3)}
+    out['side24'] = {d: S24.transfer(d) for d in (2, 3)}
     out['K_p'] = K.K_p()
     out['Gamma'] = {'5/8': K.gamma(Fr(5, 8)), '11/4': K.gamma(Fr(11, 4)), '11/8': K.gamma(Fr(11, 8)),
                     '7/6': K.gamma(Fr(7, 6))}
@@ -345,6 +363,19 @@ def derived(raw):
         if d in (2, 3):
             res['d=%d' % d]['c_(d,ref)'] = raw['cref'][d]
             res['d=%d' % d]['c1 / c_(d,ref)'] = div(c1, raw['cref'][d])
+    sec = res['[P] field, every L >= 24 (Lemma S)'] = {}
+    for d in (2, 3):
+        eta = raw['side24'][d]['eta']
+        fac = (from_frac(1 - eta)[0], from_frac(1 + eta)[1])
+        c1L = mul(raw['c1'][d], fac)
+        IcL = mul(K.I_CAND_FACTOR, c1L)
+        lo, hi = S24.C_24[d]
+        c24 = (from_frac(Fr(lo))[0], from_frac(Fr(hi))[1])
+        sec['d=%d: c1' % d] = c1L
+        sec['d=%d: I_cand' % d] = IcL
+        sec['d=%d: I_cand - c1' % d] = sub(IcL, c1L)
+        sec['d=%d: c_(d,24) (side24_v1, consumed)' % d] = c24
+        sec['d=%d: c1 / c_(d,24), L = 24' % d] = div(c1L, c24)
     res['parts'] = {
         'd=2: int_0^oo g2(u) du': raw['d2']['int_g2'],
         'd=2: tail u > %g' % U_MAX: raw['d2']['tail'],
@@ -376,6 +407,8 @@ def document(raw):
             'd=2 panels [a, b, n, rho]': raw['d2']['rules'],
             'd=3': {'boxes': raw['d3']['n_boxes'], 'crude': raw['d3']['n_crude'], 'gauss_legendre': raw['d3']['n_gl'],
                     'nodes': raw['d3']['n_nodes'], 'T_MAX': d3.T_MAX, 'S_MAX': d3.S_MAX},
+            'Lemma S (exact rationals)': {
+                'd=%d' % d: {k: str(v) for k, v in raw['side24'][d].items()} for d in (2, 3)},
         },
         'publication': {'margin_relative': MARGIN, 'digits': DIGITS},
     }

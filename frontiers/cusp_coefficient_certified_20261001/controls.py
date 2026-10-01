@@ -8,6 +8,8 @@
    factor 23/20.  This leaves a 4D integral, done here by a floating product Gauss rule.
 3. Math-#207's floating values and Monte Carlo runs (head 826b8be, PROOF.md section 8, remark 3) and the d = 1 value of
    Math-#214/#216.
+4. Lemma S: the actual deviations D^g K_24(0) - D^g phi(0) of the jet covariance entries (standard frame, d = 3), by a
+   direct floating lattice sum over |n_i| <= 2, against the certified entry bound E.
 
 Run: python3 -B controls.py (pure Python, a few minutes)."""
 import json
@@ -112,6 +114,40 @@ def control_d3():
     return pref * tot
 
 
+def _he(n, x):
+    """Probabilists' Hermite polynomial He_n(x), so that d^n/dx^n e^(-x^2/2) = (-1)^n He_n(x) e^(-x^2/2)."""
+    a, b = 1.0, x
+    if n == 0:
+        return a
+    for k in range(1, n):
+        a, b = b, x * b - k * a
+    return b
+
+
+def control_side24(L=24.0, d=3):
+    """max over the covariance entries of |D^g K_L(0) - D^g phi(0)|, K_L normalized to variance one."""
+    import side24 as S24
+    J = S24.jets(d)
+    gs = sorted({tuple(x + y for x, y in zip(a, b)) for _, a, _ in J for _, b, _ in J})
+    rng = range(-2, 3)
+    pts = [(i, j, k) for i in rng for j in rng for k in rng] if d == 3 else [(i, j) for i in rng for j in rng]
+    pts = [n for n in pts if any(n)]
+    S = 1.0 + sum(math.exp(-0.5 * L * L * sum(c * c for c in n)) for n in pts)
+    worst = (0.0, None)
+    for g in gs:
+        far = 0.0
+        for n in pts:
+            v = 1.0
+            for gi, ni in zip(g, n):
+                x = L * ni
+                v *= (-1) ** gi * _he(gi, x) * math.exp(-0.5 * x * x)
+            far += v
+        dev = abs(far / S + S24.dK0(g) * (1.0 / S - 1.0))
+        if dev > worst[0]:
+            worst = (dev, g)
+    return worst
+
+
 REFERENCE = {
     'Math-#207 (826b8be) PROOF.md section 8: c1, d = 2': -0.26939883,
     'Math-#207 (826b8be) PROOF.md section 8: c1, d = 3': -0.21184835,
@@ -165,6 +201,10 @@ def main():
                  'Math-#207: referee Monte Carlo c1, d = 3 (5e8 samples)'):
         mc, se = REFERENCE[name]
         print('   %-58s %.6f +- %.6f -> (MC - certified)/s.e. = %+.2f' % (name, mc, se, (mc - mid(res['d=3']['c1'])) / se))
+    import side24 as S24
+    dev, g = control_side24()
+    print('4. Lemma S, d = 3, L = 24: largest |D^g K_24(0) - D^g phi(0)| = %.3e (at g = %s); certified entry bound E = %.3e'
+          % (dev, g, float(S24.image_bound())))
 
 
 if __name__ == '__main__':

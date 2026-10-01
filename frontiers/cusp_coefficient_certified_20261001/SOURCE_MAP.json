@@ -5,7 +5,7 @@
    "label": "[CU]",
    "path": "frontiers/cusp_second_order_20261001/PROOF.md",
    "ref": "Math-#207 head 826b8be (unmerged)",
-   "consumed": "Theorem CU, (CU.2) and its parity form: the definition of c1 (jets, Y, Delta, E_0, v_0(b,0), pi_0, the sphere integral); section 8 remark 3 floating values (controls only)",
+   "consumed": "Theorem CU, (CU.2) and its parity form: the definition of c1 (jets, Y, Delta, E_0, v_0(b,0), pi_0, the sphere integral); section 8 remark 3 floating values (controls only); for Lemma S: section 0 (Theorem CU for the [P] field on R^d/(L Z^d), every L > 0) and section 8 remark 5 (only the law of (f4, gamma, A), hence c1, depends on the field)",
    "current_required": false,
    "bytes": 52605,
    "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
@@ -15,11 +15,21 @@
    "label": "[SIDE24]",
    "path": "coefficients/side24_v1/PROOF.md",
    "ref": "main 3e0a91b",
-   "consumed": "equation (1): c_(d,ref) = Gamma(7/6)(3/2)^(1/3) D_(d-1)/(2 sqrt3 pi^(d-1) sqrt(pi)), D_1 = 4/3, D_2 = 29/6 - sqrt6",
+   "consumed": "equation (1): c_(d,ref) = Gamma(7/6)(3/2)^(1/3) D_(d-1)/(2 sqrt3 pi^(d-1) sqrt(pi)), D_1 = 4/3, D_2 = 29/6 - sqrt6; section 2 (the periodic-image bound, extended here to order 8 in Lemma S) and section 4 (the density sandwich), as a model for Lemma S",
    "current_required": true,
    "bytes": 10272,
    "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
    "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+  },
+  {
+   "label": "[SIDE24-E]",
+   "path": "coefficients/side24_v1/ENCLOSURE.json",
+   "ref": "main 3e0a91b (last change d83af85)",
+   "consumed": "dimensions: the outward decimal enclosures of c_(2,24) and c_(3,24), transcribed in side24.py C_24 (checked against this file by the self-test when the repository copy is reachable); used only for the ratios c1/c_(d,24)",
+   "current_required": true,
+   "bytes": 1090,
+   "sha256": "72b6cd92d31394cdaf5da8919a5d548e902228af1f095cc184158a71d8287811",
+   "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7"
   },
   {
    "label": "[LP]",
