@@ -16,7 +16,7 @@ birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`
 `window_coefficient_d3.py` from the entry box of radius `E^(3)_10 = 2.058·10⁻¹¹`; on the C8 band `B = [0, 1]`, `K = [1/2, 2]`,
 
 ```
-c^(3)_{B,K}(torus, every L ≥ 10, every frame) ∈ [0.00097438236231621369…, 0.00097438236973228724…]   (relative half-width 3.8e-9),
+c^(3)_{B,K}(torus, every L ≥ 10, every frame) ∈ [0.00097438236231621369, 0.00097438236973228725]     (relative half-width 3.8e-9),
 c^(3)_{B,K}(reference)                     = 0.0009743823660242504624710565467842206863682961221797073…,
 c^(3)_{B,K}(torus, L = 24)                 = the reference digits to 55 places (arithmetic-limited).
 ```
@@ -95,7 +95,7 @@ directions, `|D^q φ(0)| ≤ 15`, the normalization `S ≥ 1`), with the `d = 3`
 frame, is within
 
 ```
-E^(3)_L = 1404 (76 L⁶ + 15) e^{−L²/2}:     E^(3)_10 = 2.0581e-11,   E^(3)_12 = 1.7142e-20,   E^(3)_24 = 1.7086e-112      (rule IMAGE_BOUND)
+E^(3)_L = 1404 (76 L⁶ + 15) e^{−L²/2}:     E^(3)_10 ≈ 2.0581e-11,   E^(3)_12 ≈ 1.7142e-20,   E^(3)_24 ≈ 1.7086e-112      (rule IMAGE_BOUND)
 ```
 
 of its reference value; `E^(3)_L` decreases in `L`, so the `L = 10` box contains the jet of every `L ≥ 10` in every frame.
@@ -108,8 +108,8 @@ depends on the frame only through the entries, so one box bounds the integrand o
 (rule `EPSILON`):
 
 ```
-ε(L ≥ 10) = 5.972e-10,   ε(L ≥ 12) = 4.974e-19,   ε(L = 24) = 3.8e-58 (arithmetic-limited),   ε(E = 0) = 4.3e-59;
-τ²(L ≥ 10) ∈ 6 ± 1.1e-9,   p_G p_V (L ≥ 10) = 0.0023275540108… ± 1.3e-13.
+ε(L ≥ 10) ≤ 5.972e-10,   ε(L ≥ 12) ≤ 4.975e-19,   ε(L = 24) ≤ 3.9e-58 (arithmetic-limited),   ε(E = 0) ≤ 4.4e-59;
+τ²(L ≥ 10) ∈ [5.9999999989, 6.0000000011],   p_G p_V (L ≥ 10) ∈ [0.0023275540107205, 0.0023275540109761].
 ```
 
 Then `c^(3)_{B,K} ∈ 144 · 4π · [p_G p_V] · Lemma S(I^ref, ε) · J_K(τ²)` with `J_K` by Math-#197 (2.2) at the interval `τ²`.
@@ -121,14 +121,14 @@ Then `c^(3)_{B,K} ∈ 144 · 4π · [p_G p_V] · Lemma S(I^ref, ε) · J_K(τ²)
 
 | `B` | `K` | `c^(3)` reference | torus, every `L ≥ 10`, every frame | rel. half-width |
 |---|---|---|---|---|
-| `[0,1]` | `[1/2,2]` | `0.00097438236602425046247…` | `[0.00097438236231621369, 0.00097438236973228724]` | `3.8e-9` |
-| `[0,1]` | `(0,∞)` | `0.01446277713931286117278…` | `[0.01446277709167767642, 0.01446277718694804607]` | `3.3e-9` |
-| `[−1,1]` | `[1/2,2]` | `0.00110183822983417559227…` | `[0.00110183822558582647, 0.00110183823408252472]` | `3.9e-9` |
-| `[−2,2]` | `[1/2,2]` | `0.00244005150534917491086…` | `[0.00244005149542905292, 0.00244005151526929693]` | `4.1e-9` |
-| `[0,∞)` | `[1/2,2]` | `0.00268447988228775572900…` | `[0.00268447987082819968, 0.00268447989374731181]` | `4.3e-9` |
-| `(−∞,0]` | `[1/2,2]` | `0.00013003706128481170262…` | `[0.00013003706072970715, 0.00013003706183991625]` | `4.3e-9` |
-| `R` | `[1/2,2]` | `0.00281451694357256743162…` | `[0.00281451693155790684, 0.00281451695558722806]` | `4.3e-9` |
-| `R` | `(0,∞)` | `0.04177593184059834334293…` | `[0.04177593168364896978, 0.04177593199754771746]` | `3.8e-9` |
+| `[0,1]` | `[1/2,2]` | `0.00097438236602425046247…` | `[0.00097438236231621369, 0.00097438236973228725]` | `3.8e-9` |
+| `[0,1]` | `(0,∞)` | `0.01446277713931286117278…` | `[0.01446277709167767642, 0.01446277718694804608]` | `3.3e-9` |
+| `[−1,1]` | `[1/2,2]` | `0.00110183822983417559227…` | `[0.00110183822558582647, 0.00110183823408252473]` | `3.9e-9` |
+| `[−2,2]` | `[1/2,2]` | `0.00244005150534917491086…` | `[0.00244005149542905292, 0.00244005151526929694]` | `4.1e-9` |
+| `[0,∞)` | `[1/2,2]` | `0.00268447988228775572900…` | `[0.00268447987082819968, 0.00268447989374731182]` | `4.3e-9` |
+| `(−∞,0]` | `[1/2,2]` | `0.00013003706128481170262…` | `[0.00013003706072970715, 0.00013003706183991626]` | `4.3e-9` |
+| `R` | `[1/2,2]` | `0.00281451694357256743162…` | `[0.00281451693155790684, 0.00281451695558722807]` | `4.3e-9` |
+| `R` | `(0,∞)` | `0.04177593184059834334293…` | `[0.04177593168364896978, 0.04177593199754771747]` | `3.8e-9` |
 
 At `L = 24` every enclosure agrees with the reference to about 55 digits; the full window lies inside SIDE24's `c_{3,24}` interval
 `[0.04177593184059834334, 0.04177593184059834335]` (rule `SIDE24_CONSISTENT`). The C8 band carries `34.6 %` of the `d = 3` birth mass
@@ -138,7 +138,7 @@ dimension-free), `2.33 %` in all.
 **Float control (not part of the certificate).** For a non-scalar perturbation of the even block (five entries moved by `±10⁻³`,
 e.g. `Cov(f, A_12) = 10⁻³`, so that `A_12 | f = b` acquires the mean `0.001 b` and the conditional mean is no longer a multiple of the
 identity), `ε = 8.12·10⁻³`; a float evaluation of `I'_B` (the `A_12`-integral over `|A_12| < √(A_11 A_22)` in closed form through
-truncated normal moments, then Gauss–Legendre in `A_11, A_22` and `b`; the same code reproduces `I^ref_B` to `2·10⁻⁹`) lies inside
+truncated normal moments, then Gauss–Legendre in `A_11, A_22` and `b`; the same code reproduces `I^ref_B` to `2·10⁻⁹` relative on these windows, the rule's gate being `10⁻⁷` relative) lies inside
 the sandwich on `[0, 1]`, `[−1/2, 3/2]` and `[1, 2]` (`0.82683` in `[0.79096, 0.86102]`, etc.; rule `FLOAT_CONTROL`).
 
 ## 6. Rules, mutants, verification
@@ -185,3 +185,17 @@ Pins on `main 3e0a91b` (workflow-checked): [LP] `imports/lifetime_parent_2026092
 - **Validation:** 15/15 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed locally;
   hosted run pending at opening.
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+
+## 10. Revisions
+
+- **v1.1 (C41-205-C-01, review 5373681438).** The upper endpoints of the eight torus intervals in §5, and of the C8-band interval in
+  §0, were truncated instead of rounded up. The displayed intervals therefore did not contain the certified intervals of
+  `RESULTS.json` that they summarize.
+  - Every displayed interval is now rounded outward: lower endpoints down, upper endpoints up, at the displayed precision. An exact
+    containment audit against `RESULTS.json` passes for every bracketed interval in this note.
+  - The two `±` statements of §4 are replaced by explicit outward intervals. The old `p_G p_V` line did not contain the certified
+    upper endpoint.
+  - The float-control accuracy in §5 is stated as relative.
+  - The `ε` values of §4 are stated as upper bounds rounded up, and the image-bound values as approximations.
+
+  The script, `RESULTS.json`, every certified value, the rules and the mutants are unchanged.

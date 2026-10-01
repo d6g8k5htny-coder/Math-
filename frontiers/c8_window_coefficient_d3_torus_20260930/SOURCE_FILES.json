@@ -55,12 +55,24 @@
       "role": "birth_factor_d3_reference: the d = 3 reference factors reproduced here"
     }
   ],
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "C41-205-C-01",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5373681438",
+      "change": "NOTE.md only: displayed intervals rounded outward (eight section-5 upper endpoints and the section-0 C8 interval had been truncated downward); the section-4 tau^2 and p_G p_V lines given as explicit outward intervals; eps values stated as rounded-up upper bounds; float-control accuracy stated as relative",
+      "unchanged": [
+        "window_coefficient_d3.py",
+        "RESULTS.json"
+      ]
+    }
+  ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 15131,
-      "sha256": "16fbe46bf654e8c46e6571de40bca04d5fef133bf0fe822f1a057fb32225e374",
-      "git_blob": "a8e4e77c1b67a1cb5ffa0cb7f042f5412b508239"
+      "bytes": 16200,
+      "sha256": "9e6d2bc1f905ef240f4c5a678ff7ffca5639db485ff5a5722314dc08d2e3f779",
+      "git_blob": "46da4768109aba2b2d590c6d6e92b5638e46aa98"
     },
     {
       "path": "RESULTS.json",
