@@ -12,7 +12,9 @@ constants, `c_{B,K}`, in `d = 2`, on the band declared by Math-#195 and on a few
 
 Let `f` be the unit-variance stationary Gaussian field on the torus `R^2 / (L Z^2)` with the parent kernel
 `K_L(z) = sum_n exp(-|z + Ln|^2/2) / sum_n exp(-|Ln|^2/2)` ([LP] section 1), `B = [b_-, b_+]` a birth window and
-`K = [k_-, k_+]` a gap window, `0 < k_-`. [LP] Theorem B gives `nu_cand(ell) ~ c_{B,K} ell^(-1/3)` and
+`K = [k_-, k_+]` a gap window, compact and of positive length with a positive gap floor: `-inf < b_- < b_+ < inf` and
+`0 < k_- < k_+ < inf` ([LP] Theorem B's hypothesis, lines 16 and 37 of the pinned [LP]; windows outside it are treated in
+section 8). [LP] Theorem B gives `nu_cand(ell) ~ c_{B,K} ell^(-1/3)` and
 `nu_eld(ell) ~ c_{B,K} ell^(-1/3)` for the pairs with birth in `B` and scaled gap in `K`, with `c_{B,K}` the Gaussian integral
 (11.3). Everything below is about that integral; the theorem is consumed at its stated scope and not revalidated.
 
@@ -258,7 +260,11 @@ mutant reinstating the old negation.
 ## 8. What this does not do
 
 Not a proof or review of [LP] Theorem B or C: the identity of (1.1) with the leading coefficient of the compact-window
-lifetime density is [LP]'s, consumed at its scope, and its D1 dependencies (Math-#194, Math-#196) are untouched. Not a value
+lifetime density is [LP]'s, consumed at its scope, and its D1 dependencies (Math-#194, Math-#196) are untouched. Windows outside
+Theorem B's hypothesis are coefficient integrals (1.1) only: a gap window touching `k = 0` or `inf` (the tabulated `[1/2, inf)`,
+`[1, inf)` and `(0, inf)`), an unbounded `B` (`[0, inf)`, `(-inf, 0]`, `R`), and a singleton window (`b_- = b_+` or `k_- = k_+`, where (1.1) is zero and does
+not inherit Theorem B's positive coefficient; none is tabulated). Theorem B's asymptotic statement is not extended to them; the
+full window is [LP] (15.2)'s `c_{2,L}`. Not a value
 of `C`, `r_*`, `c_{d,L}` for `d >= 3`, or of any finite-radius quantity; not an enclosure of the torus coefficient in
 `d = 3`; nothing about `p_r`, the elder selection or the boundary layer. The windows are declared, not optimized. No
 register, catalog, GRAPH or STATUS change; C8 stays OPEN. Same GitHub account as every lane; zero
@@ -285,3 +291,10 @@ fixed `(h, a)`, `a <= 1`). No external numerical library is used.
 
   `window_coefficient.py` (blob `43b4f51b`, pinned by Math-#205 and reviewed by C41 in review 5373681556), `RESULTS.json`, every
   certified value, the rules and the mutants are unchanged.
+- **v1.2 (window hypothesis; NOTE only).** Section 0 said only `0 < k_-`. [LP] Theorem B assumes compact windows of positive length
+  with a positive gap floor (lines 16 and 37 of the pinned [LP]): `-inf < b_- < b_+ < inf` and `0 < k_- < k_+ < inf`. Section 0 now
+  states that hypothesis, and section 8 classes the windows outside it (zero-touching or infinite gap windows, unbounded `B`,
+  singleton windows) as coefficient integrals only. The same wording defects were found on Math-#213 by Codex (thread 4151593177) and
+  on Math-#205 by C43 (review 5377957341, finding C43-205-H-01), and are repaired in every packet of the series. Every tabulated
+  window with a Theorem B reading has positive length, so no value changes. `window_coefficient.py` (blob `43b4f51b`), `RESULTS.json`,
+  the rules and the mutants are unchanged.

@@ -67,14 +67,24 @@
         "window_coefficient.py",
         "RESULTS.json"
       ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "window hypothesis wording (Codex thread 4151593177 on Math-#213; C43-205-H-01 on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -inf < b_- < b_+ < inf and 0 < k_- < k_+ < inf (pinned [LP] lines 16 and 37); section 8 classes zero-touching or infinite gap windows, unbounded B and singleton windows as coefficient integrals only",
+      "unchanged": [
+        "window_coefficient.py",
+        "RESULTS.json"
+      ]
     }
   ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 23551,
-      "sha256": "ebdda42ce51cd43a364cbd303abf314d4592042b7391f43d2fc0ebb736a6d8fa",
-      "git_blob": "4bd311630eed0d5f7f23a5c7b73b4f56d17664e3"
+      "bytes": 25063,
+      "sha256": "7c0ea1a7b1d8e538881269264c0829a7ab27c90348f47cd23444c82e561f4f7f",
+      "git_blob": "1163314a3d06533a5ee006e432aeebf1ccb36d1d"
     },
     {
       "path": "RESULTS.json",
