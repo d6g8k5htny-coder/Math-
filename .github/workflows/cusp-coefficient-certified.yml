@@ -5,6 +5,9 @@ name: Cusp coefficient c1 (certified replay)
     paths:
       - 'frontiers/cusp_coefficient_certified_20261001/**'
       - '.github/workflows/cusp-coefficient-certified.yml'
+      - 'coefficients/side24_v1/PROOF.md'
+      - 'coefficients/side24_v1/ENCLOSURE.json'
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
   workflow_dispatch:
 
 permissions:

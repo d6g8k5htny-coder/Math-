@@ -3,10 +3,13 @@
 **Object:** CL-CU-CUSP-COEFFICIENT-20261001-v1.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 1 October 2026.
 **Disposition:** certified numerical enclosures of the explicit Gaussian integral (CU.2) of Math-#207, for the Gaussian
-kernel (v1) and, by Lemma S, for the [P] torus field of every side `L >= 24`, including SIDE24 (v1.1). Author-side; no
-review yet. Scope claim: Math-#207 comment 5929273376.
+kernel (v1) and, by Lemma S, for the [P] torus field of every side `L >= 24`, including SIDE24 (v1.1). Author-side. One
+nonauthor read so far: OpenAI accepts R.1 only (review 5378866830 on `357d0a1`). Scope claim: Math-#207 comment
+5929273376.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit. Nothing in Math-#207, #214, #216 or #218 is touched.
+**Delivered under:** Dylan Roy's explicit instructions in this session, given after the 2026-09-27 owner stop (quoted in
+`SOURCE_MAP.json`, `delivered_under`). `OWNER_STOP.md` addresses Cursor agents and automations and is untouched.
 
 ## 0. Statement
 
