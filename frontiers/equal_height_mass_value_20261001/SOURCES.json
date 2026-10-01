@@ -1,0 +1,126 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1",
+ "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + o(1) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z2)-(Z4) definition of B_{d,L}; section 2 nondegeneracy and the regression form (Z10); section 4 (Z15)-(Z17) near-diagonal majorant; corollaries (Z7)-(Z9)"
+  },
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2) uniform nondegeneracy of the rescaled near-pair rows, (R3) regression form, Lemma R3.1 (R6) (Steps 1, 5)"
+  },
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "section 2: the pointwise bound behind (K1), with local seminorms (Lemma N)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 distinct-site jet rank; section 3 near-pair nondegeneracy; (5.1)-(5.3); the periodized Gaussian field"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "coefficients/side24_v1/PROOF.md",
+   "bytes": 10272,
+   "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+   "tag": "side24_v1",
+   "use": "the value c_{3,24} = 0.0417759318... quoted in sections 0 and 3"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "tag": "191",
+   "reference": "Math- #191 (unmerged), (R+.1)-(R+.2)",
+   "use": "interpretation of B_{d,L} as the constant term of nu_cand; the elder density has none"
+  },
+  {
+   "tag": "207",
+   "reference": "Math- #207 (unmerged), (CU-prime.2)",
+   "use": "the ell^(1/4) term of rho_rej, quoted in section 3"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "BBKS",
+   "reference": "J. M. Bardeen, J. R. Bond, N. Kaiser, A. S. Szalay, The statistics of peaks of Gaussian random fields, Astrophys. J. 304 (1986) 15-61",
+   "use": "closed-form densities of maxima and saddles in d = 3 (control Q3)"
+  },
+  {
+   "tag": "Mehta",
+   "reference": "M. L. Mehta, Random Matrices, 3rd ed., Elsevier (2004), Selberg/Mehta integral",
+   "use": "GOE normalisation (control Q2)"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3"
+ ],
+ "replayed": [
+  "equal_height_mass.py"
+ ],
+ "not_replayed": [
+  "gamma_explore.py"
+ ],
+ "referee": {
+  "kind": "pre-submission clean-context referee pass, same author family (Anthropic Claude subagent); NOT acceptance, NOT independent",
+  "result": "no error; one gap (Step 5 asserted the uniformity in L of the near-diagonal majorant (Z15), whose proof uses whole-torus norms) closed by Lemma N (the pointwise (K1) bound at k = 0 with local seminorms; moments through the covariance on a ball); minor points applied (normalized periodized kernel; c_{3,24} source; [C7-K] in the header; the (Z15) chain; the I(s) shape 0.70 at s = 2; the 200000 invocation; full scaled-GOE covariance in Q1; [R] (R6) citation; jet rank on R^d; e defined; the L^N prefactor; #191 marked unmerged); beta_2, beta_3 recomputed independently to 10 digits; gamma_3 = -0.0200 +- 0.0001 independently (10^6 samples per separation, control variate)"
+ },
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 14672,
+   "sha256": "bfce0c619015e33f77dcade7409252d1470cc992d553b92f5884065e5c3993a2"
+  },
+  {
+   "path": "README.md",
+   "bytes": 2403,
+   "sha256": "a3bc2193a93a00f0056265f22a84b324e72618b2e703908de21a419e79f0abd3"
+  },
+  {
+   "path": "equal_height_mass.py",
+   "bytes": 10792,
+   "sha256": "88a00dafb5710009bd1eeb6267a6b9a197e2cca304ce2f90df5cd138951d1ace"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 929,
+   "sha256": "9054e435878a57a6bea42b8af08c0bd51770474503990334687559f7260b06c3"
+  },
+  {
+   "path": "gamma_explore.py",
+   "bytes": 7444,
+   "sha256": "b058e60e96c3c13fdd14cff619c2324999d06cc76e2538bb69c8e5424f062432"
+  },
+  {
+   "path": "GAMMA.json",
+   "bytes": 824,
+   "sha256": "60f512e83517b4aa37da4d4fbeeb45857ea1fed45dfd9346f60236a72fa6805a"
+  }
+ ]
+}
