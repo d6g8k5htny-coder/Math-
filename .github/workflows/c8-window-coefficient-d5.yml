@@ -57,7 +57,7 @@ jobs:
                   raise ValueError('pinned source drifted: ' + pin['path'] + ' ' + blob)
           script = str(root / 'window_coefficient_d5.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['image-shells', 'd4-floor', 'sandwich-swap', 'window-scale', 'trace-slope', 'moment-recurrence', 'remainder-dropped', 'parts-sign', 'schur-sign', 'tau-cross', 'sphere', 'tilt-gamma']
+          mutants = ['image-shells', 'd4-floor', 'sandwich-swap', 'window-scale', 'trace-slope', 'moment-recurrence', 'remainder-dropped', 'parts-sign', 'schur-sign', 'tau-cross', 'sphere', 'tilt-gamma', 'layer-dropped']
           def mutant_rc(args):
               flags, m = args
               return m, flags, subprocess.run([sys.executable, *flags, script, '--mutant', m],

@@ -72,9 +72,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 18304,
-      "sha256": "81236a156edfdac71021a2f2378cb3b278ddcbd23d0fd32d1f7fc9182b908412",
-      "git_blob": "6a1493a28366d446ee5653d9dbba793b02b0ad91"
+      "bytes": 20540,
+      "sha256": "b74908982af6aeb3f612215bb9b07f1c963e07e56d0695007ec28c90a2d6656a",
+      "git_blob": "65b02397184f162cea73521bbb91cc0a9297f418"
     },
     {
       "path": "RESULTS.json",
@@ -84,9 +84,20 @@
     },
     {
       "path": "window_coefficient_d5.py",
-      "bytes": 61516,
-      "sha256": "66360917d78be7abb3234b348dd683a59b3f4ddf4dbda9ef2dc536817bf67a58",
-      "git_blob": "9ceb42d3a82610eef1d2b991aea7d0c157733c96"
+      "bytes": 62334,
+      "sha256": "675b28297d728ae0fc99db14224a726158554d52d7e302f953c2415417a1e7d3",
+      "git_blob": "680d181583289032ae9ef35ddf0a831517649d81"
+    }
+  ],
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "Codex code review at 7ab39d2: threads 4151593189 (cancelled layers), 4151593177 (gap window), 4151593183 (module documentation)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593189",
+      "change": "window_coefficient_d5.py: INNER_LAYERS also requires the set of generated kinds that cancel to equal exactly the two Owen-type kinds, the constant and E_{3/16}; new mutant layer-dropped (fails INNER_LAYERS alone); module docstring rewritten for d = 5. NOTE.md: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity; section 7 classes windows touching k = 0 or infinity and unbounded B as coefficient integrals only; sections 2, 6, 9, 10. Workflow: mutant list includes layer-dropped",
+      "unchanged": [
+        "RESULTS.json"
+      ]
     }
   ]
 }

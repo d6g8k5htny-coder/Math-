@@ -16,8 +16,9 @@ organizational-independence credit. Claude reads of this record count for nothin
 ## 0. Statement
 
 Let `f` be the unit-variance stationary Gaussian field on `R⁵/(LZ⁵)` with the parent kernel `K_L` of [LP] §1. Let `B = [b_−, b_+]`
-be a birth window and `K = [k_−, k_+]` a gap window (`k_− ≥ 0`). Let `c^(5)_{B,K}` be the leading coefficient of [LP] Theorem B for
-the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15; both stated for every `d`).
+be a birth window and `K = [k_−, k_+]` a gap window with `0 < k_− ≤ k_+ < ∞`, which is [LP] Theorem B's hypothesis. Let
+`c^(5)_{B,K}` be the leading coefficient of [LP] Theorem B for the pairs with birth in `B` and scaled gap in `K` ([LP] (11.3), §15;
+both stated for every `d`). Windows outside that hypothesis are treated in §7.
 
 **Proposition (d = 5 window coefficient).**
 - **Reference kernel.** `c^(5)_{B,K} = c_{5,ref} F^(5)_B G_K`, with the birth factor `F^(5)_B` given by the one-dimensional integral
@@ -95,8 +96,10 @@ I^ref_B = (√(3/7)/(1536π)) ∫_0^∞ e^{−3T²/112} F_4(T) W_B(T) dT.       
 ```
 
 The bracket `√(6π)[erf(T/(2√6)) + erf(T/√6)]` is the same combination that carries Math-#209's `F_3`. Rule `INNER_LAYERS` requires
-three things: (2.2) holds coefficient by coefficient; the cancelled kinds are present in the derivation and are zero; and (2.2)
-agrees with a direct float triple integral of (2.1) at `T = 3, 6` to `10⁻⁶`.
+three things. First, (2.2) holds coefficient by coefficient. Second, the set of kinds that the derivation generates and that come
+out zero is exactly the four stated: the two Owen-type kinds (`g = 1/24, 1/6`), the constant, and `E_{3/16}`. A missing kind fails
+the rule, so the cancellation is derived, not assumed. Third, (2.2) agrees with a direct float triple integral of (2.1) at `T = 3, 6`
+to `10⁻⁶`.
 
 **Controls.**
 - **Full window (rule `D4_EXACT`).** For `B = R`, (2.3) encloses Math-#202's closed form
@@ -237,7 +240,7 @@ eighteen rules hold:
 | `LIBRARY_EXACT` | exp, sqrt and negation against exact rational brackets |
 | `PINNED` | the pinned digits |
 
-Twelve mutants exit `1` in both interpreter modes:
+Thirteen mutants exit `1` in both interpreter modes:
 
 | mutant | change |
 |---|---|
@@ -253,18 +256,21 @@ Twelve mutants exit `1` in both interpreter modes:
 | `tau-cross` | `Cov(t, f_u)` dropped |
 | `sphere` | `2π²` for `8π²/3` |
 | `tilt-gamma` | the `σ²` term dropped from the tilted exponent |
+| `layer-dropped` | the `E_{3/16}` layer silently left out of the derivation (v1.1) |
 
 `moment-recurrence` breaks the Owen-term cancellation. The script then refuses to evaluate anything with a surviving Owen-type term,
 and exits `1` through that `ValueError`. Every other mutant fails named rules; `parts-sign`, for instance, fails `INNER_LAYERS` and
-`D4_EXACT`. The hosted workflow replays the manifest, the pins, both modes byte for byte, and the mutants.
+`D4_EXACT`. `layer-dropped` changes no value, since the omitted layer is zero, and fails `INNER_LAYERS` alone. The hosted workflow
+replays the manifest, the pins, both modes byte for byte, and the mutants.
 
 ## 7. What this does not do
 
 - It encloses `c^(5)_{B,K}` for the reference kernel and the torus. It does not revalidate [LP] Theorem B and §15, which it consumes
   at their scope. It does not review Math-#197, #200, #202, #205 or #209.
 - It does not go to `d ≥ 6`. The `m = 5` analogue would need one more layer, and the floor falls further (`0.2311` at `m = 5`).
-- **Unbounded windows.** The tabulated values are the coefficient integrals (1.1) on those sets. [LP] Theorem B's asymptotic
-  statement is for compact windows and is not extended here.
+- **Windows outside [LP] Theorem B's hypothesis.** Theorem B assumes a compact `B` and `0 < k_− ≤ k_+ < ∞`. For a gap window
+  that touches `k = 0` or `∞` (the tabulated `K = (0,∞)`), and for an unbounded `B` (`[0,∞)`, `(−∞,0]`, `R`), the tabulated values
+  are the coefficient integrals (1.1) on those sets only. Theorem B's asymptotic statement is not extended to them.
 - It does not address `C`, `r_*` or `z_*`. C8 stays OPEN; no register surface is touched; `executed: false`.
 - The replay workflow follows the repository's per-packet convention. The owner's open decision on such workflows (Math-#202/#204)
   applies here too.
@@ -301,11 +307,29 @@ No external numerical library is used.
   - the torus enclosures for every `L ≥ 10` and every frame, and for `L = 24`, on the windows of §5.
 
   No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested nonauthor reads:
+- **Completed review scopes:** Codex code review at `7ab39d2`: three P2 findings, all fixed in v1.1 (§10). Requested nonauthor
+  reads:
   - Slice A: §§1–3;
   - Slice B: §4;
   - Slice C: §§5–7.
 - **Unresolved finding IDs:** none.
-- **Validation:** 18/18 rules in both modes, byte-identical output; 12/12 mutants rejected in both modes; workflow replayed
+- **Validation:** 18/18 rules in both modes, byte-identical output; 13/13 mutants rejected in both modes; workflow replayed
   locally; hosted run pending at opening.
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. The author will not merge.
+
+## 10. Revisions
+
+- **v1.1 (Codex code review at `7ab39d2`, three P2 findings).**
+  - **Thread 4151593189 (cancelled layers).** `INNER_LAYERS` compared only the nonzero kinds with (2.2) and required one Owen-type
+    kind to be present. A derivation that silently omitted a cancelled layer would still have passed. The rule now also requires the
+    set of generated kinds that come out zero to equal exactly the four stated: the two Owen-type kinds, the constant, and
+    `E_{3/16}` (§2).
+  - **Thread 4151593177 (gap window).** §0 said `k_− ≥ 0`. [LP] Theorem B assumes `0 < k_− ≤ k_+ < ∞`, and §0 now states that
+    hypothesis. §7 says that windows outside it, including the tabulated `K = (0,∞)` and the unbounded `B`, are coefficient integrals
+    only.
+  - **Thread 4151593183 (module documentation).** The script's docstring had been carried over from the `d = 4` script. It now
+    describes the `d = 5` calculation: the 4×4 GOE, the coordinates `(T, w, s, q)`, the order-48 quadrature, the cancellation, Lemma S
+    with `n = 11` and degree `8`, the floor `1/4`, `E^(5)_L`, and the window hypothesis.
+  - A thirteenth mutant, `layer-dropped`, leaves the `E_{3/16}` layer out of the derivation. It changes no value, so before v1.1 it
+    would have passed; it now fails `INNER_LAYERS`. The workflow's mutant list includes it.
+  - The values, the eighteen rules and the twelve earlier mutants are unchanged, and `RESULTS.json` is byte-identical.

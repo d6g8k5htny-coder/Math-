@@ -1,38 +1,42 @@
-"""The compact-window coefficient c_{B,K} of [LP] Theorem B in d = 4: reference value and transfer to the torus for every
+"""The compact-window coefficient c_{B,K} of [LP] Theorem B in d = 5: reference value and transfer to the torus for every
 L >= 10 and every frame.
 
-Standard library only. Run from anywhere:  python -B -S window_coefficient_d4.py [--mutant NAME]   (about seventy seconds)
+Standard library only. Run from anywhere:  python -B -S window_coefficient_d5.py [--mutant NAME]   (about eighty seconds)
 Every printed interval [lo, hi] is a rigorous enclosure: interval arithmetic over `decimal` (60 digits, directed rounding; exp
 and sqrt widened by two units in the last place and checked against exact rational brackets by rule LIBRARY_EXACT), pi by
 Machin, fractional powers by exact integer roots, erf and the lower incomplete gamma function by positive series with geometric
-tails, arctan and Owen's T by alternating series bracketed by consecutive partial sums (the Math-#197 toolkit, unchanged), and one
-one-dimensional integral by an order-40 Taylor expansion at each cell centre with a Cauchy remainder (Math-#199 section 3).
+tails (and, for |x| >= 12, the enclosure 0 < erfc(x) < e^{-x^2}/(x sqrt(pi))), arctan and Owen's T by alternating series bracketed
+by consecutive partial sums (the Math-#197 toolkit, unchanged), and one one-dimensional integral by an order-48 Taylor expansion
+at each cell centre with a Cauchy remainder (Math-#199 section 3, as in Math-#209).
 
 Object ([LP] = imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md, (11.3) with the section 15 factorization,
-both stated for every d; frame (u, w1, w2, w3), G = grad f, V = (f_uu, f_uw1, f_uw2, f_uw3), A the 3 x 3 transverse Hessian,
-t = f_uuu):
+both stated for every d, for compact windows B and K = [k_-, k_+] with 0 < k_- <= k_+ < infinity; frame (u, w1, ..., w4),
+G = grad f, V = (f_uu, f_uw1, ..., f_uw4), A the 4 x 4 transverse Hessian, t = f_uuu):
 
-  c^(4)_{B,K} = 144 int_{S^3} p_G(0) p_V(0) I_B(u) J_K(u) dsigma(u),   I_B(u) = E[1{f in B} det(A)^2 1{A < 0} | V = 0],
+  c^(5)_{B,K} = 144 int_{S^4} p_G(0) p_V(0) I_B(u) J_K(u) dsigma(u),   I_B(u) = E[1{f in B} det(A)^2 1{A < 0} | V = 0],
   J_K(u) = int_K k^(4/3) phi_tau(12 k) dk,   tau^2 = Var(t | G = 0).
 
-Reference kernel.  (f, A) | V = 0 is f ~ N(0, 2/3) and A = Q - f I with Q the 3 x 3 GOE (density ~ exp(-tr Q^2/4)) independent
-of f.  On the ordered eigenvalue sector of A, with total trace -T and differences (s, q), the birth window enters only through
-W_B(T) = Phi(sqrt3 (b_+ - T/6)) - Phi(sqrt3 (b_- - T/6)), and only odd powers of q occur, so the q- and s-integrals are exact:
+Reference kernel.  (f, A) | V = 0 is f ~ N(0, 2/3) and A = Q - f I with Q the 4 x 4 GOE (density ~ exp(-tr Q^2/4)) independent
+of f.  On the ordered eigenvalue sector of A, with total trace -T and nested differences (w, s, q) (Jacobian 1/24), the exponent
+is 3T^2/112 + w^2/48 + s^2/24 + q^2/8, the birth window enters only through
+W_B(T) = Phi(sqrt(7/2) (b_+ - T/7)) - Phi(sqrt(7/2) (b_- - T/7)), and only odd powers of q occur, so the q- and s-integrals are
+exact; in the w-integral the Owen-type terms int_0^T e^{-w^2/48} erf(sqrt(g) w) dw (g = 1/24, 1/6) cancel identically, so
 
-  I^ref_B = (1/(96 pi)) int_0^inf exp(-T^2/24) F_3(T) W_B(T) dT,    F_3 elementary (polynomials, exp(-T^2/24), exp(-T^2/6),
-                                                                      erf(T/sqrt24), erf(T/sqrt6)),
+  I^ref_B = (sqrt(3/7)/(1536 pi)) int_0^inf exp(-3T^2/112) F_4(T) W_B(T) dT,   F_4 elementary (polynomials, exp(-T^2/16),
+                                                                                erf(T/4), exp(-T^2/48) erf(T/sqrt24), exp(-T^2/48) erf(T/sqrt6), exp(-3T^2/16)),
 
-and B = R returns Math-#201's D_3 = (50 pi + 200 arctan 2 - 228)/(9 pi).  The same code at m = 2 returns 29/6 - sqrt6 and
-Math-#197's d = 3 window values (closed form through Owen's T).
+and B = R returns Math-#202's D_4.  The same code at m = 2 returns 29/6 - sqrt6 and Math-#197's d = 3 window values, and at m = 3
+Math-#201's D_3 and Math-#209's d = 4 band factor.
 
-Torus.  If (1-eps) C'_ref <= C' <= (1+eps) C'_ref for the covariance of the 7-vector (f, A) | V = 0, the density comparison and
-the degree-6 homogeneity of det(A)^2 give (Lemma S of Math-#205 with n = 7, degree 6)
+Torus.  If (1-eps) C'_ref <= C' <= (1+eps) C'_ref for the covariance of the 11-vector (f, A) | V = 0, the density comparison and
+the degree-8 homogeneity of det(A)^2 give (Lemma S of Math-#205 with n = 11, degree 8)
 
-  (1-eps)^(13/2)/(1+eps)^(7/2) I^ref_{B/sqrt(1-eps)}  <=  I'_B  <=  (1+eps)^(13/2)/(1-eps)^(7/2) I^ref_{B/sqrt(1+eps)}.
+  (1-eps)^(19/2)/(1+eps)^(11/2) I^ref_{B/sqrt(1-eps)}  <=  I'_B  <=  (1+eps)^(19/2)/(1-eps)^(11/2) I^ref_{B/sqrt(1+eps)}.
 
-lambda_min(C'_ref) = (7 - sqrt37)/3 = 0.3057 (below SIDE24's 1/3): eps = ||C' - C'_ref||_F / (3/10) over the entry box of the
-d = 4 image bound E^(4)_L = 10240 (76 L^6 + 15) exp(-L^2/2); p_G(0), p_V(0) and tau^2 over the same box.  One enclosure covers
-every frame and every L >= 10.  Scientific effect NONE.
+lambda_min(C'_ref) = (8 - 2 sqrt13)/3 = 0.2630 (below the d = 4 floor 3/10): eps = ||C' - C'_ref||_F / (1/4) over the entry box of
+the d = 5 image bound E^(5)_L = 60500 (76 L^6 + 15) exp(-L^2/2); p_G(0), p_V(0) and tau^2 over the same box.  One enclosure covers
+every frame and every L >= 10.  Windows touching k = 0 or infinity (and unbounded B) are evaluated as coefficient integrals only.
+Scientific effect NONE.
 """
 import argparse
 import json
@@ -43,7 +47,7 @@ from decimal import Decimal, Context, ROUND_FLOOR, ROUND_CEILING, ROUND_HALF_EVE
 from fractions import Fraction as Fr
 
 MUTANTS = ("image-shells", "d4-floor", "sandwich-swap", "window-scale", "trace-slope", "moment-recurrence", "remainder-dropped",
-           "parts-sign", "schur-sign", "tau-cross", "sphere", "tilt-gamma")
+           "parts-sign", "schur-sign", "tau-cross", "sphere", "tilt-gamma", "layer-dropped")
 MUT = None
 
 PREC = 60
@@ -613,6 +617,8 @@ def F_pieces_build(m):
                     layer = L_dict(aw, key[1], j)
                 for kind, pl in layer.items():
                     acc(kind, lpmul([Fr(0)] * i + [c], pl))
+        if MUT == "layer-dropped":                                     # a cancelled layer silently not derived
+            out.pop(("E", Fr(3, 16)), None)
         return out, Fr(3, 112)
     raise ValueError("m must be 2, 3 or 4")
 
@@ -1257,6 +1263,7 @@ STATED_F4 = {("e", Fr(1, 16)): [Fr(1, 31104) * x for x in (0, -991830528, 0, 184
              ("E", Fr(1, 16)): R8,
              ("eE", Fr(1, 48), Fr(1, 24)): R6, ("eE", Fr(1, 48), Fr(1, 6)): [2 * x for x in R6],
              ("e", Fr(3, 16)): [Fr(512, 243) * x for x in (0, -297, 0, -42, 0, -1)]}
+CANCELLED_F4 = {("1",), ("E", Fr(3, 16)), ("K", Fr(1, 48), Fr(1, 24)), ("K", Fr(1, 48), Fr(1, 6))}   # generated by the derivation and zero
 
 
 def label(W):
@@ -1322,8 +1329,8 @@ def main():
     pieces4 = F_pieces(4)[0]
     nonzero = {k: trim(v) for k, v in pieces4.items() if trim(v)}
     layer_ctrl = {str(T): ["%.12g" % F_float(pieces4, T), "%.12g" % F4_direct_float(float(T))] for T in (3, 6)}
-    checks["INNER_LAYERS"] = bool(nonzero == STATED_F4 and not any(k[0] == "K" for k in nonzero)
-                                  and any(k[0] == "K" for k in pieces4)
+    cancelled = {k for k, v in pieces4.items() if not trim(v)}
+    checks["INNER_LAYERS"] = bool(nonzero == STATED_F4 and cancelled == CANCELLED_F4
                                   and all(abs(float(x) - float(y)) <= 1e-6 * abs(float(y)) for x, y in layer_ctrl.values()))
 
     # the reference birth integral: full window, coarse quadrature, m = 2 and m = 3, float control
