@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "certified": false,
+  "review_status": "AUTHOR_SIDE_NUMERICAL_NOTE",
+  "object": "CL-C6-REMOTE-COEFF-NUMERICS-20260930-v1",
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 18777,
+      "sha256": "aa15838fb0c842f1d24ab5bc883e3546f2ad993b719470df2556b35a9878cf69",
+      "git_blob": "47fc0fedf10d9e68b6eef69808c3f3f7993c06de"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1731,
+      "sha256": "453e5adc6464cbbe020fcd20d59c3dd91afaaba20c91f96854510abf96b10e97",
+      "git_blob": "79b0606281822f3ec2809a8b87317dae648508d0"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 103899,
+      "sha256": "e9af3b52761946b57d6f5fa50fdf6ccd8d26610461e471a2e97618da1611e48a",
+      "git_blob": "3e4a7ddb850818c4477b99f678847e68ab2b92e4"
+    },
+    {
+      "path": "SOURCE_MAP.json",
+      "bytes": 6900,
+      "sha256": "3f3be8f5877c667158aa7aad4249af83d8cbaba37f4e5b06ce7efb3913f84126",
+      "git_blob": "0d3f8b889d6c8f8e99ac14238d9f09e2889f73ab"
+    },
+    {
+      "path": "remote.py",
+      "bytes": 38800,
+      "sha256": "e31571b6aaa27bbb88de22fe75e31ac23bbf446dbc2ddc521fd8421ae1fe0116",
+      "git_blob": "9553e3a95484c2dd19b0f83a19a6837cb5c23675"
+    }
+  ],
+  "nonauthor_reads": [
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5363739676,
+      "scope": "Slice A (exact structure) accepted; numerics not certified"
+    },
+    {
+      "lane": "OpenAI/GPT-6 Astra",
+      "review_id": 5364077220,
+      "scope": "Slice B (formulation) accepted with two wording amendments, applied"
+    },
+    {
+      "lane": "OpenAI/GPT-6 Astra",
+      "review_id": 5364176857,
+      "scope": "reassessment at a04fc81; formulation ACCEPT stands; truncation wording repaired"
+    }
+  ]
+}

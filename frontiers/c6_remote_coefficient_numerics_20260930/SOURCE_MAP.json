@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "object": "CL-C6-REMOTE-COEFF-NUMERICS-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+  "note": "Numerical evaluation only. The formula evaluated is the contact kernel Lambda_j(x; b, k, u) of [RM] (13), summed and integrated over the torus as in [CL] (1.4)-(1.5) (the remote singleton part k integral_X Lambda of nu(1)), at d = 2 with the exact kernel of [LP] section 2. No source theorem is consumed as accepted beyond its recorded disposition; the numbers are deterministic floating-point quadrature values with reported convergence checks, not enclosures. The companion near-coefficient note (Math-#168) merged to main on 30 September 2026 (02772ec) and is now pinned as [NUM]. OpenAI Sol review 5363739676 (30 September 2026, head f4d8bb9) accepts the closed-form structure of section 2 as identities; recorded under nonauthor_reads without changing review_status. OpenAI Astra review 5364077220 (head f4d8bb9) accepts the Slice B formulation with two wording amendments, applied.",
+  "sources": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "section 2: the exact periodized Gaussian kernel K_L (periodization of exp(-|z|^2/2)); section 3: contact frame U_0 and target v_0 = (b, 0, 0, 12k, 0, 0); (5.4)-(5.5): the full normalizer z_0 = lim Z_r / r^2",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "id": "RM",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "Theorem A (fixed-remote mean measure) and the contact kernel Lambda_j(x; b, k, u) of (13): p_(Y_x | U_0 = v_0)(0, b) / z_0 times E[w_0 F_j(H_x) | U_0 = v_0, Y_x = (0, b)] with w_0 = (6k)^2 (det A_0)^2 1{A_0 < 0} ((10)) and z_0 = E[w_0 | U_0 = v_0] ((11)); this is the object evaluated",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "bytes": 70131,
+      "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5",
+      "id": "CL",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "(1.4): nu(1) = nu_near(1) + k integral_X Lambda dx, nu(2) = nu_near(2); section 5.1 (5.2): existence of k integral_X Lambda = lim_(rho -> 0) k integral_(D_rho) Lambda with error <= C rho^2, which is what makes the torus integral of the bounded kernel the right object; Math-#159, nonauthor-accepted (OpenAI review 5360192822), merged",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/remote_collision_20260928/PROOF.md",
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "git_blob": "7b48a88e2af54e759e89a8c8219573bb450a65ea",
+      "id": "RC",
+      "commit": "7d0c89a5bb77a52a7a661d7292ba5d955bd0a66d",
+      "role": "Corollary E: Q_r^W{N_j(E) >= 1} = k r^3 integral_E Lambda_j + O(r^4 |E|) on fixed remote regions, the probability reading of the same kernel (context only)",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+      "bytes": 4095,
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb",
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f",
+      "id": "NUM",
+      "commit": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+      "role": "near coefficients alpha_1(k, b) (GH60) and alpha_2(k, b) quoted in NOTE.md section 4 to assemble nu(1) = alpha_1 + k integral_X Lambda; Math-#168, merged to main on 30 September 2026 (02772ec) with RESULTS.json bytes unchanged from the quoted head 0b35e76; xAI read 5360559751 accepted its Slices A and B as identities",
+      "current_required": true,
+      "on_main": true
+    }
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "main_at_update": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
+  "nonauthor_reads": [
+    {
+      "lane": "OpenAI/GPT-5.6 Sol",
+      "review_id": 5363739676,
+      "head": "f4d8bb9c30b5848996fceb18d213433cfe9956b9",
+      "date": "2026-09-30",
+      "disposition": "ACCEPT Slice A (closed-form far field, covariance rule, index split, unconditional controls, cone-adapted coordinates); the near-pin Euler paragraph read as a scaling heuristic only, with [CL] section 5.1 supplying the integrability bound; explicitly not an acceptance of the grids, the then-stale RESULTS.json, the precision claims or merge readiness; same account, credit 0"
+    },
+    {
+      "lane": "OpenAI/GPT-6 Astra",
+      "review_id": 5364077220,
+      "head": "f4d8bb9c30b5848996fceb18d213433cfe9956b9",
+      "date": "2026-09-30",
+      "disposition": "ACCEPT Slice B (cone-coordinate conditional-Gaussian formulation, closed-form A_0 integration, corrected full-normalizer interface, 4x4 positivity check) with two wording amendments (truncation breakpoints in the cubature; angular qualification of the Euler scaling check), applied in the successor commit; not an acceptance of numerical precision or merge readiness; same account, credit 0"
+    },
+    {
+      "lane": "OpenAI/GPT-6 Astra",
+      "review_id": 5364176857,
+      "head": "a04fc81a8753769b8228419d33998aed0679fd30",
+      "date": "2026-09-30",
+      "disposition": "successor reassessment: the two Slice B amendments resolved, the formulation ACCEPT stands; one further wording repair for the truncation sentence (no universal relative bound; exterior figure an estimate), applied in the successor commit; Slice C still open; same account, credit 0"
+    },
+    {
+      "lane": "OpenAI GPT-6 Astra Pro",
+      "review_id": 5364643055,
+      "head": "a8c6d7918061c62a2e523b6cda34e9b78c9ac320",
+      "date": "2026-09-30",
+      "disposition": "AMEND (reporting only): two stale NOTE section 5 sentences; applied in the successor commit (Rc = 5 minus Rc = 6 at h = 0.3 is 9.46e-5, not 2.1e-3; fitted-error figures labelled nonrigorous model extrapolations for k = 1, b = 0 only with the measured 1.88e-4 finest-grid difference; unequal effective Rc = 5 spacing 5/17 noted; L = 24 improvement stated as expectation, not measurement). Does not certify quadrature accuracy or the table.",
+      "slice": "C (empirical precision reporting)"
+    }
+  ]
+}
