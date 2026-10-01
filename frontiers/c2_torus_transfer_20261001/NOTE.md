@@ -271,7 +271,8 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
   - **Candidate density.** That `c2[K_L]` is its `ell^(1/3)` coefficient is [T]'s claim: Math-#218, an unmerged
     author-side candidate for `d >= 2`.
   - **Elder density.** The identification is [E3]'s (Math-#220). That is an unmerged author-side candidate which consumes
-    the unmerged #207 and #218 and the now-merged #187. The complete chain is #191/#198 (merged) → #207 → #218 → #220.
+    #207 (merged at `566b1a1`, `PROOF.md` blob `f6df5a73`), the unmerged #218 and the merged #187. The complete chain is
+    #191/#198 (merged) → #207 (merged) → #218 → #220.
   - Neither identification is reviewed here, and the transfer of the fixed-cone expression does not depend on either
     (review 5383099127, item 2).
   - So is the typed replacement `A_r = A~_r + O(r^3)` ([D] §2.2) on the torus. Lemma E and Theorem C2T are statements
