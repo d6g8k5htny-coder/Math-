@@ -4,7 +4,10 @@
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 1 October 2026.
 **Disposition:** exact closed forms, by an exact rational derivation replayed with the standard library, and certified
 interval enclosures of the coefficient `c2` that Math-#216 defines and Math-#218 (0.1) and Math-#220 use, together with
-the leading coefficient `c` from the same pipeline. Author-side; no review yet. Scope claim: Math-#216 comment 5931466669.
+the leading coefficient `c` from the same pipeline. Author-side. Nonauthor reads at `b43d36a`: OpenAI Slice B ACCEPT
+(review 5379878251) and Slice A PASS (review 5379979090) with amendment OA-223-A-01, applied in v1.1 (§§0–2: the analytic
+fixed-cone surrogate is written `A~_r`); xAI Slice C arithmetic check (5932294410). Scope claim: Math-#216 comment
+5931466669.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit. Nothing in Math-#214, #216, #218 or #220 is touched.
 **Delivered under:** Dylan Roy's explicit instructions in this session, given after the 2026-09-27 owner stop (quoted in
@@ -13,7 +16,9 @@ account as every lane; zero organizational-independence credit. Nothing in Math-
 ## 0. Statement
 
 Math-#216 ([D], head `4f0927f`) defines, from the two-point kernel `A_r(b, k, u)` of [R] and its fold expansion
-`A_r = A_0 + r^2 A_2 + O(r^3)`,
+`A_r = A_0 + r^2 A_2 + O(r^3)`, the coefficients below. Here `A_0`, `A_2` are the Taylor coefficients of the fixed-cone
+surrogate `A~_r` of §1, which is real-analytic in `r` (§2.3); with the consumed comparison `A_r = A~_r + O(r^3)` (§1) they
+are the coefficients of the fold expansion of `A_r` itself. No analyticity of the typed `A_r` is claimed.
 
     c  = (1/3) |S^(d-1)| integral_R db integral_0^oo A_0(b, k) k^(-2/3) dk,
     c2 = (1/3) |S^(d-1)| integral_R db  f.p. integral_0^oo A_2(b, k) k^(-4/3) dk
@@ -70,7 +75,13 @@ As in [D] §2.2, the typed indicator is:
 - `1{f_yy(0) < 0}` in `d = 2`;
 - `1{D_y^2 f(0) < 0}` in `d = 3`.
 
-Each replacement changes `A_r` by `O(r^3)` at fixed `k`. [T] Lemma F proves the fold expansion and identifies
+Write `A~_r` for the kernel with the typed indicator replaced in this way: the **fixed-cone surrogate**. Each
+replacement changes the kernel by `O(r^3)` at fixed admissible `(b, k)`, so
+
+    A_r(b, k) = A~_r(b, k) + O(r^3),        A~_r = A_0 + r^2 A_2 + O(r^3)  (§2.3).
+
+The first relation is consumed from [D] §2.2. Everything computed below is `A~_r`; analyticity is proved for `A~_r` only,
+and no claim is made that the typed `A_r` is analytic (OA-223-A-01). [T] Lemma F proves the fold expansion and identifies
 `A_2(b, 0) = -12 pi_0 E_0[Y^2 1{A < 0} | b]`, which is (0.1). Both are consumed, not reviewed. On the typed set,
 `|det H_M| |det H_S| = -det H_M det H_S`.
 
@@ -96,7 +107,7 @@ Each replacement changes `A_r` by `O(r^3)` at fixed `k`. [T] Lemma F proves the 
 **2.3 The integrand.** `F = E[det H_M det H_S | T, U_r = v_r]` comes from Isserlis' theorem as an exact polynomial in
 `(r, b, k, x1, x2)`. Then
 
-    A_r(b, k) = const . integral_cone exp(-(q + Q)/2) F w / r^2,    q = v_r^T S_r^-1 v_r,   Q = z^T C_TT^-1 z,
+    A~_r(b, k) = const . integral_cone exp(-(q + Q)/2) F w / r^2,    q = v_r^T S_r^-1 v_r,   Q = z^T C_TT^-1 z,
 
 where:
 - `const = -12 (2 pi)^(-(p + n_T)/2) (det S_0 det T_0)^(-1/2)`, times `pi` in `d = 3`;
@@ -104,12 +115,13 @@ where:
 - `w = 1`, `da`, or `(x1 - x2) dx`.
 
 Writing `q = q_0 + dq` and `Q = Q_0 + dQ`, the factor `(det ratio)^(-1/2) exp(-(dq + dQ)/2) F` is expanded exactly in `r`.
-`A_r` is real-analytic in `r` near 0, with Gaussian domination uniform in small `r` because the `r = 0` covariances are
-nondegenerate. Its Taylor coefficients are therefore the cone integrals of those of the integrand.
+`A~_r` is real-analytic in `r` near 0, with Gaussian domination uniform in small `r` because the `r = 0` covariances are
+nondegenerate. Its Taylor coefficients are therefore the cone integrals of those of the integrand. This is a statement
+about the fixed cone; `A_r = A~_r + O(r^3)` (§1) then carries `A_0` and `A_2` over to the typed kernel.
 
 **2.4 Exact structural facts.** The certificate verifies each of these.
 - The integrand vanishes to order `r^2`.
-- The `r^3` coefficient vanishes, so `A_r` has no `r^1` term ([D] T5).
+- The `r^3` coefficient vanishes, so `A~_r` has no `r^1` term ([D] T5).
 - `q_0 = 3b^2/2 + 24 k^2`, with no `b k` term.
 - `Q_0` has no `k`: the transverse block does not see `k`, by parity.
 - `A_0` and `A_2` contain only even powers of `k`.
@@ -175,9 +187,10 @@ Numbers are carried as `sum q pi^(h/2) sqrt(m) theta^e`, with `q` rational and `
 ## 7. Floating controls (`controls.py`; not part of the certificate)
 
 1. **A finite-`r` kernel.**
-   - `A_r(b, k)` is computed at finite `r` directly from the closed-form kernel derivatives at the displaced points,
+   - The fixed-cone surrogate `A~_r(b, k)` is computed at finite `r` directly from the closed-form kernel derivatives at
+     the displaced points,
      `D^g K(z) = prod (-1)^(g_i) He_(g_i)(z_i) e^(-z_i^2/2)`, with 60-digit conditioning and no Taylor jets.
-   - The Richardson estimate `2 D(r) - D(2r)`, with `D(r) = (A_r - A_0)/r^2`, converges to the exact `A_2(b, k)` at the
+   - The Richardson estimate `2 D(r) - D(2r)`, with `D(r) = (A~_r - A_0)/r^2`, converges to the exact `A_2(b, k)` at the
      rate `O(r^2)`, at five points in `d = 1, 2, 3`.
    - The relative errors at `r = 0.01, 0.005, 0.0025` are `1.3e-4`, `3.2e-5`, `8.0e-6` (`d = 1`), with ratios `3.75` to
      `4.17` per halving everywhere.
@@ -193,7 +206,8 @@ Numbers are carried as `sum q pi^(h/2) sqrt(m) theta^e`, with `q` rational and `
 - **The definition is consumed.**
   - The identification of `c2` as the `ell^(1/3)` coefficient is [D]'s (formal), [T]'s (candidate density, candidate
     status) and Math-#220's (elder density, conditional on #187), and is not reviewed here.
-  - So is the `O(r^3)` replacement of the typed indicator (§1).
+  - So is the `O(r^3)` replacement of the typed indicator, `A_r = A~_r + O(r^3)` (§1). Analyticity is proved for the
+    surrogate `A~_r` only.
 - Not a review of any source. Same GitHub account as every lane; zero organizational-independence credit.
   **I will not merge.**
 

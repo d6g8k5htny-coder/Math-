@@ -234,7 +234,7 @@ def series_exp(x):
 
 
 def kernel_data(d):
-    """A_r(b, k) = const * [cone integral of exp(-(q0 + Q0)/2) G w] / r^2  (NOTE.md (2.4)), with
+    """A~_r(b, k) = const * [cone integral of exp(-(q0 + Q0)/2) G w] / r^2  (NOTE.md 2.3; the fixed-cone surrogate), with
        w = 1 (d = 1), da over a < 0 (d = 2), (x1 - x2) dx over x2 < x1 < 0 (d = 3; the factor pi is in const)."""
     forms, trans = forms_for(d)
     pin = P.Pinned(d, forms)

@@ -1,9 +1,10 @@
 """Floating controls for CL-C2-EXACT-20261001.  These are not part of the certificate.
 
-1. Finite-r kernel, pointwise.  A_r(b, k) is computed at finite r directly from the closed-form kernel derivatives at the
-   displaced points M = -r e1/2, S = r e1/2, 0, without Taylor jets or series: D^g K(z) = prod_i (-1)^(g_i) He_(g_i)(z_i)
-   e^(-z_i^2/2), conditioning in Decimal (60 digits), then floating Isserlis and quadrature.  The Richardson combination
-   2 D(r) - D(2r), D(r) = (A_r - A_0)/r^2, must approach the exact A_2(b, k) of exact.py at the rate O(r^2)
+1. Finite-r kernel, pointwise.  The fixed-cone surrogate A~_r(b, k) (NOTE.md section 1) is computed at finite r
+   directly from the closed-form kernel derivatives at the displaced points M = -r e1/2, S = r e1/2, 0, without Taylor
+   jets or series: D^g K(z) = prod_i (-1)^(g_i) He_(g_i)(z_i) e^(-z_i^2/2), conditioning in Decimal (60 digits), then
+   floating Isserlis and quadrature.  The Richardson combination
+   2 D(r) - D(2r), D(r) = (A~_r - A_0)/r^2, must approach the exact A_2(b, k) of exact.py at the rate O(r^2)
    (error ratio 4 per halving of r).
 2. Math-#216's floating values (head 4f0927f, NOTE.md section 0 table and README) against the closed forms.
 
@@ -177,7 +178,7 @@ def detdet_poly(d, aff, cp):
 
 
 def A_finite(d, st, b, k, nq=40):
-    """A_r(b, k) = -12 pi_r(v) E[det H_M det H_S 1{T < 0} | U_r = v] / r^2 at finite r"""
+    """A~_r(b, k) = -12 pi_r(v) E[det H_M det H_S 1{T < 0} | U_r = v] / r^2 at finite r (the fixed-cone surrogate)"""
     r = st['r']
     p = st['p']
     v = [DEC(b) - DEC(k) * r ** 3 / 2, -DEC(k) * r * r, DEC(0), 12 * DEC(k)] + [DEC(0)] * (p - 4)
