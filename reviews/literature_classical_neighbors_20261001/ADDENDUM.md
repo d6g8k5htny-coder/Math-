@@ -1,8 +1,8 @@
 # Literature addendum — the classical 1-D neighbours read in full; forward citations — 2026-10-01
 
-**Object:** CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1. **Author:** Anthropic Claude (claude.ai session
+**Object:** CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.1 (v1 → v1.1 after Codex review of v1, comments 4151188790–4151188834: hypotheses for the `d = 1` law; the `[P]` source identified; the machine-readable verdict qualified; the provenance made exact; the NumPy simulation replaced by a deterministic standard-library Rice check, `d1_rice_check.py`). **Author:** Anthropic Claude (claude.ai session
 `session_01NMeKEismAyeqgdB4sy2NJU`; the searches and full-text reads were run by a clean-context Claude subagent of that
-session, the d = 1 computation and simulation by the session). **Scientific effect:** NONE. **No priority or novelty claim
+session, the d = 1 computation and its deterministic check by the session). **Scientific effect:** NONE. **No priority or novelty claim
 follows from this memo.** It extends CL-LIT-RECON-LIFETIME-20260929-v1.1
 (`reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md`, blob `003b9879`, Math- #147), executing the items its
 §4-D left open: full-text reads of Rice 1944/1945 and Cartwright–Longuet-Higgins 1956, a partial read of
@@ -44,27 +44,39 @@ Rychlik 1987, Lindgren–Broberg 2004 and Lutes 2008; no title suggests a small-
 
 ## 3. The `d = 1` analogue, made explicit (a remark for the attribution wording; not a theorem of this repository)
 
-The contact computation behind [P] (15.2) does not use `d ≥ 2` except through the transverse block, which is empty in
-`d = 1` (cone moment `D_0 = 1`). Carried out for a stationary Gaussian process with spectral moments `λ₂, λ₄, λ₆` it gives,
-for the crest-to-trough amplitude `H` (a maximum to the following minimum) under the Palm distribution of maxima,
+**Source.** The contact computation of the parent `[P]` = `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
+(blob `dfed3b8d`), (15.2), uses `d ≥ 2` only through the transverse block. That block is empty in `d = 1` (cone moment
+`D_0 = 1`).
+
+**Hypotheses.** A stationary Gaussian process with `C⁴` paths whose jets `(X', X'', X''')` at a point are jointly
+nondegenerate. In particular `τ² := λ₆ − λ₄²/λ₂ > 0`; this excludes spectral measures carried by at most two points such as
+`A cos t + B sin t`, for which `H = 2√(A² + B²)` has no `h^{−1/3}` law. Carried out under these hypotheses, the computation
+gives, for the crest-to-trough amplitude `H` (a maximum to the following minimum) under the Palm distribution of maxima,
 
     f_H(h) ~ C h^{−1/3},     P(H ≤ h) ~ (3/2) C h^{2/3}     (h ↓ 0),
     C = Γ(7/6) · 72^{−1/6} (2π)^{−1/2} · (λ₆ − λ₄²/λ₂)^{2/3} / λ₄,
 
-i.e. `C = 0.199718…` for the covariance `e^{−t²/2}` (`λ₂ = 1`, `λ₄ = 3`, `λ₆ = 15`). (Derivation: in the separation variable,
-`c_d = Γ(7/6)72^{−1/6}(2π)^{−1/2}∫_{S^{d−1}} p_G(0)p_{V_u}(0)τ_u^{4/3}D_u dσ(u)` with `G = f'`, `V_u = f''`,
-`τ² = Var(f''' | f' = 0)`, `D_0 = 1`; `S⁰` has two points, one for each orientation, and "following minimum" keeps one of
-them; dividing by the intensity of maxima `(2π)^{−1}(λ₄/λ₂)^{1/2}` gives `C`. The formula is invariant under time
-rescaling and scales as `σ^{−2/3}` under `f ↦ σf`, as it must.) In `d = 1` a fold pair sits on a monotone slope, so the
-neighbour beyond the minimum is higher than the small maximum: to leading order the pair is an elder pair, and the same
-constant should govern the elder (persistence) lifetimes in `d = 1` (not proved here).
+i.e. `C = 0.199718…` for the covariance `e^{−t²/2}` (`λ₂ = 1`, `λ₄ = 3`, `λ₆ = 15`).
 
-**Exploration (outside this repository's stdlib rule; not part of the packet).** A circulant-embedding simulation of the
-process with covariance `e^{−t²/2}` (numpy; grid step `0.004`, `5.5·10⁵` maxima, parabolic refinement of extreme values)
-gives `P(H ≤ h)/((3/2)Ch^{2/3}) = 0.992, 0.984, 0.988, 0.985, 1.009, 1.001` at `h = 10⁻⁴, 3·10⁻⁴, 10⁻³, 3·10⁻³, 10⁻², 3·10⁻²`
-(counts `355` to `16053`; one-sigma sampling errors `5%` to `0.8%`) and `1.033` at `h = 0.1`, where the next-order terms
-enter. With grid step `0.01` the smallest-`h` ratios fall to `0.94`–`0.97`: missed sub-grid pairs, removed by the finer
-grid.
+**Derivation.** In the separation variable,
+`c_d = Γ(7/6)72^{−1/6}(2π)^{−1/2}∫_{S^{d−1}} p_G(0)p_{V_u}(0)τ_u^{4/3}D_u dσ(u)`, with `G = f'`, `V_u = f''` and
+`τ² = Var(f''' | f' = 0)`. Here `S⁰` has two points, one for each orientation, and "following minimum" keeps one of them.
+Dividing by the intensity of maxima, `(2π)^{−1}(λ₄/λ₂)^{1/2}`, gives `C`. The formula is invariant under time rescaling
+and scales as `σ^{−2/3}` under `f ↦ σf`. In `d = 1` a fold pair sits on a monotone slope, so the neighbour beyond the
+minimum is higher than the small maximum. To leading order the pair is an elder pair, and the same constant should
+govern the elder (persistence) lifetimes in `d = 1` (not proved here).
+
+**Deterministic check (standard library; `d1_rice_check.py`, output `D1_RICE.json`).** For `e^{−t²/2}`, the two-point
+Rice density of (maximum at `0`, minimum at `t`) with `X(0) − X(t) = h` is evaluated exactly in distribution:
+- no sampling;
+- rescaled rows, Decimal arithmetic for the covariance algebra;
+- one-dimensional quadratures.
+
+It is then integrated over separations `t ≤ 1.5`. `h^{1/3}f(h)/(Cν_max)` equals `1.0048, 0.9971, 0.9984, 0.99941, 0.99982,
+0.999951, 0.999989, 0.9999983, 1.0000003` at `h = 10⁻², …, 10⁻¹⁰`. The deviation shrinks by a factor of about `3.3–4.4`
+per decade, i.e. roughly as `h^{0.57}`, consistent with a relative correction of order `h^{7/12}` (the cusp scale).
+This checks the constant's arithmetic through the exact two-point Rice formula. It is not an independent proof of the
+law, since intermediate extrema are not excluded, which affects only the regular part.
 
 So the exponent is implicit in exact classical formulas (Lindgren 2019, (18)), but on the evidence read it is not stated
 in print. **Suggested manuscript wording:** *"In dimension one the same contact computation gives the small-amplitude
@@ -111,4 +123,4 @@ Euler-characteristic statistics); arXiv:2009.04819 (numerical).
 Queries (WebSearch, verbatim) and Consensus searches are listed in `PROTOCOL.json`, with the APIs used and the
 exclusions (`github.com/d6g8k5htny-coder` and mirrors: the project is search-indexed). Caveats: keyword search is not a
 citation crawl; quotations are from OCR/PDF text extraction; the `d = 1` constant of §3 is a computation recorded for
-the attribution wording, not a reviewed theorem, and its simulation used numpy outside this repository.
+the attribution wording, not a reviewed theorem, checked deterministically by `d1_rice_check.py`.
