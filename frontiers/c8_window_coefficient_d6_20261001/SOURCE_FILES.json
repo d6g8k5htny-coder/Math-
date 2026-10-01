@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-D6-20261001-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_ENCLOSURE_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_REFERENCE_AND_TORUS_ENCLOSURES_OF_THE_D6_WINDOW_COEFFICIENT_NO_REGISTER_CHANGE_C8_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "124c37d9218120245098df453cf88d3e54b8c9ca",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/213#issuecomment-5930520277",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(11.3) the window coefficient in every d; section 15 factorization p_(f,V)(b,0) p_G(0) phi_tau(12k), z_0 = 36 k^2 E[det(A)^2 1{A<0} | f=b, V=0]",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "sections 1-4: the reference law A = Q + sqrt(2/3) Z I, the image-bound pattern (76|x|^6 contraction bound, normalization), the covariance-sandwich scaling argument",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "ebc93cd",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/window_coefficient.py",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218",
+      "role": "interval class, erf, arctan, Owen's T, incomplete gamma, gap factor G_K, library_exact (reused verbatim through Math-#205's copy; C41 PASS_TECHNICAL, review 5373681556); Owen's T also certifies the Owen-type kinds (rule OWEN_EXACT)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/205",
+      "commit": "aebb4d4",
+      "path": "frontiers/c8_window_coefficient_d3_torus_20260930/window_coefficient_d3.py",
+      "git_blob": "ba24b3802eb0baf5ade65d49fd47ca862972f8bd",
+      "role": "the toolkit section and I3_ref (rule CROSSCHECK_M2_M4, m = 2) reused verbatim; Lemma S (its NOTE section 2) applied with n = 16, degree 10"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "617236d",
+      "path": "coefficients/side24_d4_20260930/cone_moment_d4.py",
+      "git_blob": "4787d6bf5a3bc469ae62075dde24e913b786e44a",
+      "role": "exact polynomial algebra (padd, pmul, pscale, pconst, pvar) reused verbatim"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/209",
+      "commit": "84a494a",
+      "path": "frontiers/c8_window_coefficient_d4_20261001/window_coefficient_d4.py",
+      "git_blob": "f77f7d2d158f9513f23f1b55fe0f839eb112d387",
+      "role": "the total-trace reduction and the Taylor quadrature with the Phi factor; the d = 4 band factor F^(4)_[0,1] (rule CROSSCHECK_M2_M4, m = 3)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/213",
+      "commit": "b22ff4b",
+      "path": "frontiers/c8_window_coefficient_d5_20261001/window_coefficient_d5.py",
+      "git_blob": "da68e6ec22310c35904a70e203cc32cb9e5b19fc",
+      "role": "the m = 4 layers, generalized here to one layer recursion for every m <= 5; its stated F_4 (rule INNER_LAYERS) and the d = 5 band factor F^(5)_[0,1] (rule CROSSCHECK_M2_M4, m = 4); the tilted pair and the exact tests"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/204",
+      "commit": "5915af4",
+      "path": "coefficients/side24_d6_20260930/cone_moment_d6.py",
+      "git_blob": "c5e56694d96c885373a7b70868259eeb9fdfa746",
+      "role": "the certified cumulative layer for Owen-type kinds (method), Z_5 = 46080 pi^(3/2), the E_6 image-bound constant 314496"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/204",
+      "commit": "5915af4",
+      "path": "coefficients/side24_d6_20260930/RESULTS.json",
+      "git_blob": "031c8bbe38eeb473a2223cc58522803207b4d556",
+      "role": "the certified D_5 interval (rule D5_CERTIFIED) and the c_{6,ref} digits (rule C6_CONSISTENT)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/202",
+      "commit": "4512309",
+      "path": "coefficients/side24_d5_closed_form_20260930/RESULTS.json",
+      "git_blob": "52ce9b5726b8ea92c429ea1193b1812869afe701",
+      "role": "the closed form of D_4 (rule CROSSCHECK_M2_M4, m = 4) and Z_4 = 1536 pi"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/201",
+      "commit": "3abcc10",
+      "path": "coefficients/side24_d4_closed_form_20260930/NOTE.md",
+      "git_blob": "cbf35dea",
+      "role": "the closed form of D_3 (rule CROSSCHECK_M2_M4, m = 3)"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 24176,
+      "sha256": "afe2c24d8073980dde1cceb3860afb083647bb07d3ff71f5449d481d23716107",
+      "git_blob": "d2cb7964a9e0dfd18bcd1e06fc45dcc6ccc7d361"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 28348,
+      "sha256": "6d84046778b20102607550aa9763bd5e53ce38442f20721c33f86e5f9af07bbf",
+      "git_blob": "df361c43b691a90316b0f543150d1fd6935f897a"
+    },
+    {
+      "path": "window_coefficient_d6.py",
+      "bytes": 70251,
+      "sha256": "a6c3717bc791f4f3b7fff171cf0c68426e757c684060a56ad4b59b5ea6737fe1",
+      "git_blob": "d38527e6490468c626072e299383f0652849a6bf"
+    }
+  ]
+}
