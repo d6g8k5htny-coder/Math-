@@ -1,0 +1,240 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-CANDIDATE-PARITY-RATE-20261001-v1",
+ "kind": "author-side proof candidate: the candidate lifetime density with remainder O(l^(3/5)) in every d >= 2 (Theorem P): nu_cand = c l^(-1/3) + B_{d,L} + I^cand l^(1/4) + c2 l^(1/3) + O(l^(3/5)), improving O(l^(4/11)) (Math- #218) and O(l^(3/7)) (Math- #229); Corollary P-prime: no l^(1/2) term. New: Lemma R (birth integration; independent even/odd parts; point reflection k -> -k; evenness in r), Lemma Pi (Pi = 36 k^2 Delta^2 + r^2 (12 k Delta V - U^2) + O(r^4)), Lemma K (the surrogate is smooth and even in r; A_2 even in k), Lemma D-double-prime (two small eigenvalues, eps^2), Lemma Lambda (the gap inside the cusp layer costs O(k^2/(1 + kappa))), Lemma U (one uniform two-scale kernel formula for k >= r^2 with error O(r^2 + r min(k, 1/k)); at the cusp scale the O(r) correction vanishes)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "fb6ee97bc7916edcebba1f236f65762f2eb50570"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "section 2 rows, target (b - k r^3/2, -k r^2, 0, 12k, 0, ...) and Jacobian 12; (R2)-(R5): coupling, moments, pin densities"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 finite-jet rank (nondegeneracy in Lemma R (R.4), as in #218 Step F1)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule"
+  },
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z2)-(Z3): the equal-height kernel Psi_0 and B_{d,L}"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "Math- #191 (merged 2026-10-01): r_0^*, section 2 (2.1) and Lemma E Step 4 (Haynsworth) directly; Lemma E Step 3 for attribution (pathwise evenness of det H_M det H_S / r^2); Lemma E Steps 1-3 through #218"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "Math- #198 (merged 2026-10-01): (W.4) directly (|J2| <= C rho^3); (3.1), the sign window of section 3 and Lemma W through #218 and #207"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged 2026-10-01 19:29 UTC at 566b1a1 from head 74a3943; blob unchanged from the reviewed 96f8aad): section 0 (Y, Delta, E_0); section 4 (4.1) (A^cand, A^con); section 7: Lemma L (7.1)-(7.2), the decomposition of B_{d,L}, I^cand ((CU-prime.1), (7.3))"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Math- #218 (merged 2026-10-01 19:39 UTC at fb6ee97 from head 94758c0, the integrator's guarded main-only refresh of the reviewed 0cf048d; blob unchanged): section 0 (A_2, the coefficient c2 (0.1), the cusp kernels restated); section 1 (Lemma D (1.1) and its proof; the dominating variable T and (1.2)); Step F1 ((2.1)-(2.2) and the free-jet nondegeneracy); Step F3; (F.2) and the surrogate remark after Lemma F; Lemma C Step C1 (its three cases); the proof of Lemma O; section 4 (the decomposition and the bounds on J2-J5)"
+  }
+ ],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "frontiers/c2_finite_jet_transfer_20261001/PROOF.md",
+   "bytes": 25581,
+   "sha256": "971101de946fd711207454c2cd4bbc36729ca9b7c07262e122ff1d54bf5dfa16",
+   "git_blob": "54cc4a1ae274842bc2c01f9c207549e7b07de7bc",
+   "tag": "232",
+   "use": "Math- #232 (merged 2026-10-01 at 7fe06b0): (2.3), section 1 (the birth-integrated basis), (3.2), section 4 (the d = 1, 2 polynomials), Theorem J; an independent derivation of (2.2) and of the k-parity of A_2 (cited)"
+  },
+  {
+   "path": "frontiers/c2_exact_20261001/NOTE.md",
+   "bytes": 14480,
+   "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+   "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+   "tag": "223",
+   "use": "Math- #223 (merged 2026-10-01 at f9ebba1): c and c2 in closed form with certified enclosures (Remark 6)"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Theorem T+ (superseded here for nu_cand), (C+.1), Remarks 1-2 (the matching pairs; the kink bound O(kappa k^2)), Lemma CE+ and the elder window (Remark 3)",
+   "head": "5dbe15cdc5f6d67b37dcefb176e9ad7433d6f77e",
+   "pr": "Math- #229"
+  },
+  {
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb",
+   "tag": "216",
+   "use": "numerical values of c2; the formal elder law (0.2); the full-field Monte Carlo of section 3 (Remark 4)",
+   "head": "04c08e1534122f210be888742fcd7a568e45b097",
+   "pr": "Math- #216"
+  },
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 44378,
+   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b",
+   "git_blob": "873532b955dbf7684edc1a53ba169c7216f778ab",
+   "tag": "214",
+   "use": "the d = 1 analogue: section 0 quote on the next terms O(h^(3/4)) (Remark 5)",
+   "head": "f4a58df9247dfa9ada2b756ecd7629c0b2faf5b5",
+   "pr": "Math- #214"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "the elder density: Lemma Q (Remark 3); not used",
+   "head": "70dcf310fc68f7d2b6949f035a09acf54f0cff7d",
+   "pr": "Math- #220"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Haynsworth",
+   "reference": "E. V. Haynsworth, inertia additivity of the Schur complement (1968)",
+   "use": "through #218 Lemma C Step C1 and #191 Lemma E Step 4 (Lemma U, Step U2)"
+  },
+  {
+   "tag": "Weyl",
+   "reference": "Weyl integration formula on symmetric matrices",
+   "use": "Lemmas D-prime, D-double-prime and Lambda, as in #218 Lemma D"
+  },
+  {
+   "tag": "Anderson",
+   "reference": "T. W. Anderson, Proc. Amer. Math. Soc. 6 (1955) 170-176",
+   "use": "through #218 (1.2)"
+  },
+  {
+   "tag": "Isserlis",
+   "reference": "Isserlis' (Wick's) theorem for Gaussian moments",
+   "use": "control Q4"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4",
+  "M5",
+  "M6",
+  "M7",
+  "M8"
+ ],
+ "replayed": [
+  "parity_check.py"
+ ],
+ "referee": {
+  "kind": "two clean-context same-family referees (Anthropic Claude subagents) before submission, each followed by a delta check of the revision: A on sections 0-3, B on sections 4-8, the controls and the README",
+  "verdict": "first pass: A MAJOR REVISION (narrow; one major: the exceptional set of Lemma Lambda did not cover d >= 4, repaired by Lemma D-double-prime), B MAJOR REVISION (narrow; two majors: Step U2 Case 3 false as written, repaired by comparing with the layer integrand; Remark 2 rewritten); 17 minor findings and 13 nits applied. Delta: A ACCEPT (six nits, applied); B ACCEPT WITH MINOR FIXES (three minor items, including a one-line repair of Step U2 (b)(iii), and six nits; applied)",
+  "reports": [
+   {
+    "report": "project archive V2_2/frontiers_candidate_parity_rate_20261001/REFEREE_A.md",
+    "sha256": "5d81d6282a6c436743e07dee6311984502e500db050acbe37be925cbcbe2a55e",
+    "bytes": 26270
+   },
+   {
+    "report": "project archive V2_2/frontiers_candidate_parity_rate_20261001/REFEREE_A_DELTA.md",
+    "sha256": "77493c38bd3217e540bc22c97a7c5d3fd679696f8fae0947d00d02e73b2d8624",
+    "bytes": 15896
+   },
+   {
+    "report": "project archive V2_2/frontiers_candidate_parity_rate_20261001/REFEREE_B.md",
+    "sha256": "f6c8687293d898b1d55fcce82c14c10d93f2548ac54e815126fef67f2aea53d5",
+    "bytes": 34949
+   },
+   {
+    "report": "project archive V2_2/frontiers_candidate_parity_rate_20261001/REFEREE_B_DELTA.md",
+    "sha256": "91043600090bc304da0d5b66bbe678544274a9d8d6826ed2d3f4de8102e0e80b",
+    "bytes": 25762
+   }
+  ],
+  "independent_checks": "(2.1)-(2.2) symbolic for d = 1, 2, 3 and exact for d = 2-5; the typed criterion against true inertias on 80,000 random matrices (no mismatch); exact finite-r conditioning for Lemma K and Q4 (d = 1, 2); Lemma Lambda toys m = 1, 2, 3 (kappa (Lambda(k) - Lambda(0))/k^2 flat in kappa); P(D < eps) ~ eps^(2.5-3); a d = 2 Gaussian-kernel Monte Carlo with exact finite-r conditioning (T_r - S_r matches the layer term to 1-2% at 18 points; no O(r) term at fixed kappa: -0.007 +- 0.011 at kappa = 1); the cost of Step U2 (b)(iii) (kappa G/k in [0.0002, 0.0066]); control replay byte-identical on CPython 3.10-3.14 with and without -O; the mutant matrix",
+  "independence": "same provider and GitHub account as the author; zero organizational independence"
+ },
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 50928,
+   "sha256": "aa4200100fcdf23135f82b7ac6f69621dedc65983d6707970f93d0343c6fca77"
+  },
+  {
+   "path": "README.md",
+   "bytes": 9263,
+   "sha256": "e8e6c4bc50c858c5d29be390a52178f22945e456fa2b6a006ad6874298e7e1b1"
+  },
+  {
+   "path": "parity_check.py",
+   "bytes": 26836,
+   "sha256": "fbea93a4810d21130a6dc95a593f36d09756368798f6b7ccf608520c68331470"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 1433,
+   "sha256": "2af10a58aae284635de8973840594a71f18f1243415e1e8a3eb9d8a64ee669b1"
+  }
+ ]
+}
