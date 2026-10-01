@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-FAR-ELDER-RATE-20260930-v1",
+ "kind": "author-side proof candidate (Lemma 1 deterministic; Theorem F conditional on the reconciled [P] interfaces); nonauthor analytic review required",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "f430fdecbb1d8802d8af40419b701f12af87c039"
+ },
+ "consumed": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "\u00a71, \u00a72, \u00a73 (3.1), \u00a74 (argument at fixed sites), \u00a75 (5.2), \u00a77 (spectral coordinates), \u00a78, \u00a79 as [E2], \u00a714"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "\u00a79.1-9.4"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "\u00a71 reading rule, \u00a77 consumption contract"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule only"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "tag": "CAP",
+   "use": "reading rule only (not used in any step)"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z1), (Z5), Theorem Z, (Z11)-(Z12): the o(1) predecessor"
+  },
+  {
+   "path": "frontiers/unrestricted_selection_difference_20260929/PROOF.md",
+   "bytes": 13028,
+   "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9",
+   "git_blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8",
+   "tag": "U",
+   "use": "(U1)"
+  },
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "\u00a77 near/far decomposition, \u00a78 moments"
+  },
+  {
+   "path": "frontiers/fixed_r_inverse_lifetime_20260930/PROOF.md",
+   "bytes": 17213,
+   "sha256": "5adef725c1c696adae9bc73a525efe0bfe09d5c07e95ee3f067db9e877283630",
+   "git_blob": "0d4018777d13672c1de1696525512e80b23b7c3c",
+   "tag": "182",
+   "use": "cited only (integrated into main at 2a10ed3 on 2026-09-30; previously cited unmerged at commit 0f448f46 with the same blob): \u00a73 (8)-(9) is Lemma 1 (re-proved here); \u00a7\u00a72, 4, 7 are the method; nothing unmerged is consumed"
+  }
+ ],
+ "cited_unmerged": [],
+ "referee": {
+  "kind": "clean-context Anthropic Claude subagent before landing (same provider, same account; not a nonauthor review)",
+  "findings": "no blocking; amendments applied: Corollary F2 framing (Theorem R unchanged), far rejected limit restricted to D_rho, method credit to #182 sections 2/4/7, heuristic in section 4 stated as an expectation, generic-locus qualification of (1.3), implicit steps in (3.3), SOURCES.json added, script docstrings and the vacuous closed-form check repaired"
+ },
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b"
+  },
+  {
+   "path": "far_elder_check.py",
+   "bytes": 8137,
+   "sha256": "38a8eea06941c5103b2bb2d1615e1cfe65f8f35d366d2e66f683f0c19b9abdb6"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 1111,
+   "sha256": "6ef4152058bd186766c97aba47a8a3485f5b033943d3d1d134c427a6702c4947"
+  },
+  {
+   "path": "README.md",
+   "bytes": 1808,
+   "sha256": "c1b9fbc8db38b8deab4c48c73d4f53f28e94f4e5ea92dff35bc3d8f5c2f316c7"
+  }
+ ]
+}
