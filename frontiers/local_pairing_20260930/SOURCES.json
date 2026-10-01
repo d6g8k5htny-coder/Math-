@@ -115,6 +115,14 @@
    "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
    "tag": "LEG",
    "use": "cited in the header, \u00a70 and \u00a75 only: Theorem E (same deterministic statement as Lemma P\u2032 + Proposition 3.3, different proof) and Theorem S (planar equality by the cap route); not consumed; merged as Math-#170 (fa2e990) at the identical blob, now verified by the workflow"
+  },
+  {
+   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+   "bytes": 23416,
+   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+   "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+   "tag": "CFE",
+   "use": "cited in the header, \u00a70 and \u00a75 only: H1 (the d >= 3 hard-direction slaving named in \u00a75) and Theorem F; not consumed and not a premise of Theorem LP; merged as Math-#175 (eb659bd) at the identical blob, now verified by the workflow"
   }
  ],
  "referee": {
@@ -125,8 +133,8 @@
  "files": [
   {
    "path": "LOCAL_PAIRING.md",
-   "bytes": 41583,
-   "sha256": "9e7193c16d994ee7f115f79e5e525209ad4faad55331051d3936efcb826c8bb2"
+   "bytes": 41691,
+   "sha256": "5234896586fed780a084e82fa44e0ffc890dc9d20f0a5afadeec8901a397378a"
   },
   {
    "path": "pairing_check.py",
@@ -140,8 +148,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 2435,
-   "sha256": "dcef622428269d6b41730a2e4deb13d24c1d72fce3665d6436cfeef0f917e678"
+   "bytes": 2490,
+   "sha256": "b1930a8b248e88558790f4466e233336d5b4fbefccb1d43ec3b00db2c59562b5"
   },
   {
    "path": "exploration/elder_grid.py",
@@ -158,17 +166,6 @@
   "branch_base": "30106e1be251e8c18759b6fa4de6176b76380c12",
   "note": "Math- main after Math-#173 merged; every consumed source verified at these bytes by the workflow"
  },
- "cited_unmerged": [
-  {
-   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
-   "pr": "d6g8k5htny-coder/Math-#175",
-   "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
-   "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
-   "bytes": 23416,
-   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
-   "tag": "CFE",
-   "use": "cited in the header, \u00a70 and \u00a75 only: H1 (the d >= 3 hard-direction slaving named in \u00a75) and Theorem F; not consumed; unmerged, so not verified by the workflow"
-  }
- ],
- "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied \u2014 exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded | v1.1+sources (2026-09-30 14:15 UTC): LEG (#170) moved from cited_unmerged to cited_only after its integration at the identical blob ef2aa579; no other change; branch merged with main 3e0a91b"
+ "cited_unmerged": [],
+ "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied \u2014 exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded | v1.1+sources (2026-09-30 14:15 UTC): LEG (#170) moved from cited_unmerged to cited_only after its integration at the identical blob ef2aa579; no other change; branch merged with main 3e0a91b | status repair (2026-10-01): \u00a75's stale 'not a corollary of anything merged' / 'unmerged' sentence replaced by the attribution to Math-#170 Theorem S on main (requested in comments 5930621629 and 5930668120); #175 (CFE) moved from cited_unmerged to cited_only after its integration at eb659bd with the identical blob 923d3236; header and README status updated; mathematics, checker and RESULTS unchanged; branch merged with main 124c37d"
 }

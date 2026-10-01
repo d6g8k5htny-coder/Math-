@@ -9,11 +9,12 @@ raised is applied below). Theorem LP (the lower bound with an identified functio
 interfaces of [SC], [CUB] and [P] at their own review status. Conjecture LP= (equality) is stated with its
 single remaining probabilistic obligation. **Relation to Math-#170 and Math-#175 (v1.1, added after landing).**
 The OpenAI packet Math-#170 (`frontiers/local_elder_geometry_20260930/PROOF.md`, head `79f18f0`, blob
-`ef2aa579`, opened before this packet) proves the same deterministic statement as Lemma P′ + Proposition 3.3
+`ef2aa579`, opened before this packet; integrated into main at `fa2e990`) proves the same deterministic statement as Lemma P′ + Proposition 3.3
 (its Theorem E, by the cubic critical-chord identity and a normalized-gradient collar rather than the explicit
 paths used here) and proves the **equality** `r⁻³(1 − p_r) → α₁ + α₂` at fixed planar marks (its Theorem S) by a
 route this packet does not use: [P]'s cap implication `F_r ⊂ G_r^c` and a retained-tail integration of [P] §7.
-Math-#175 (`frontiers/concave_fibre_elder_20260930/`, head `9c6a734`) lifts it to fixed `d ≥ 3` by a contained
+Math-#175 (`frontiers/concave_fibre_elder_20260930/`, head `9c6a734`, proof blob `923d3236`; integrated into main at
+`eb659bd`) lifts it to fixed `d ≥ 3` by a contained
 hard-negative tube. So Conjecture LP= below is Math-#170 Theorem S (planar) / Math-#175 Theorem F (`d ≥ 3`),
 conditional on their interfaces and review; what this packet adds is an independent same-account derivation
 of the deterministic core with exact controls, and the cap-free lower bound Theorem LP. Scientific effect:
@@ -393,8 +394,8 @@ has `r⁻³`-limit `M(n ≥ 1, n_R = 0)` at fixed `R` — its jets have all extr
 
     (O1′)   limsup_{r→0} r⁻³ Q_r^W(rejected, n(θ_r) = 0, θ_r outside the margin set) → 0   as the margins are relaxed.
 
-This is not a corollary of anything merged. It **is** supplied, at fixed planar marks, by Math-#170 Theorem S
-(unmerged; OpenAI; reviewed at head `79f18f0`), whose route avoids the margin set altogether: the failure event
+At fixed planar marks, this equality is supplied on main by Math-#170 Theorem S (OpenAI; reviewed at head `79f18f0`,
+proof blob `ef2aa57959ea9f721bbf2316ce94cf616c1c9113`), whose route avoids the margin set altogether: the failure event
 is contained in the bad cap of [P] §8 (`F_r ⊂ G_r^c`), the bad cap's mass restricted to a large residual norm
 is `o(r³)` by keeping the indicator inside [P]'s (7.5) scalar integral, and the remaining compact-jet part
 converges by dominated convergence with the pointwise limit of the failure indicator (its Theorem E). The
