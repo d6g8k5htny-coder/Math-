@@ -22,6 +22,7 @@ name: Elder third-order exact controls
 
 permissions:
   contents: read
+  pull-requests: read
 
 jobs:
   exact-controls:
@@ -107,6 +108,22 @@ jobs:
               if blob.get('encoding') != 'base64':
                   raise ValueError('unexpected blob encoding for ' + entry['path'])
               return base64.b64decode(blob['content'])
+          def current(entry):
+              # drift gate (Copilot review on #220): the recorded head keeps resolving after a dependency PR advances, so
+              # also resolve the dependency PR now. Open: the file at its current head must be the pinned blob. Merged:
+              # the file at its merge commit must be the pinned blob. Closed unmerged: rebinding is required.
+              pr = get_json(api + '/pulls/' + entry['pr'].split('#', 1)[1])
+              if pr.get('merged'):
+                  ref = pr.get('merge_commit_sha')
+              elif pr.get('state') == 'open':
+                  ref = pr['head']['sha']
+              else:
+                  raise ValueError('dependency ' + entry['pr'] + ' closed without merge: rebind required')
+              node = get_json(api + '/contents/' + urllib.parse.quote(entry['path']) + '?ref=' + ref)
+              if node.get('type') != 'file' or node.get('sha') != entry['git_blob'] or node.get('size') != entry['bytes']:
+                  raise ValueError('dependency ' + entry['pr'] + ' advanced: ' + entry['path'] + ' at ' + ref
+                                   + ' is not the pinned blob (rebind required)')
+              return ref
           for kind in ('consumed_unmerged', 'cited_unmerged'):
               for entry in manifest.get(kind, []):
                   # a landed consumed dependency must be the recorded regular-file blob in this tree (symlinks and any
@@ -120,7 +137,9 @@ jobs:
                       data, where = bound(entry), 'head/path/blob api'
                   if not same(data, entry):
                       raise ValueError(kind + ' source differs from its pinned blob (rebind required): ' + entry['path'] + ' via ' + where)
-                  print(json.dumps({kind + '_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head'], 'via': where}))
+                  now = current(entry) if kind == 'consumed_unmerged' else None
+                  print(json.dumps({kind + '_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head'],
+                                    'via': where, 'current_ref_checked': now}))
           script = str(root / 'e3_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):

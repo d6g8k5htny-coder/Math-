@@ -1,58 +1,6 @@
 {
  "checks": {
   "X1_exponent_ledger": {
-   "by_m": {
-    "m=1": {
-     "beta": "1/8",
-     "intermediate": {
-      "l^((3+beta)/5)": "5/8",
-      "l^(5/2) rho_c^-9": "1/2",
-      "l^(7/10)": "7/10",
-      "l^2 rho_c^(-7+beta)": "17/36"
-     },
-     "least": "4/11"
-    },
-    "m=2": {
-     "beta": "1/8",
-     "intermediate": {
-      "l^((3+beta)/5)": "5/8",
-      "l^(5/2) rho_c^-9": "1/2",
-      "l^(7/10)": "7/10",
-      "l^2 rho_c^(-7+beta)": "17/36"
-     },
-     "least": "4/11"
-    },
-    "m=3": {
-     "beta": "1/12",
-     "intermediate": {
-      "l^((3+beta)/5)": "37/60",
-      "l^(5/2) rho_c^-9": "1/2",
-      "l^(7/10)": "7/10",
-      "l^2 rho_c^(-7+beta)": "25/54"
-     },
-     "least": "4/11"
-    },
-    "m=4": {
-     "beta": "1/16",
-     "intermediate": {
-      "l^((3+beta)/5)": "49/80",
-      "l^(5/2) rho_c^-9": "1/2",
-      "l^(7/10)": "7/10",
-      "l^2 rho_c^(-7+beta)": "11/24"
-     },
-     "least": "4/11"
-    },
-    "m=5": {
-     "beta": "1/20",
-     "intermediate": {
-      "l^((3+beta)/5)": "61/100",
-      "l^(5/2) rho_c^-9": "1/2",
-      "l^(7/10)": "7/10",
-      "l^2 rho_c^(-7+beta)": "41/90"
-     },
-     "least": "4/11"
-    }
-   },
    "core": {
     "l rho_f^-2": "5/11",
     "l^2 rho_c^-7": "4/9",
@@ -61,7 +9,15 @@
     "rho_f^2": "6/11",
     "rho_f^5/l": "4/11"
    },
-   "passed": true
+   "intermediate": {
+    "[a,r0*]: l^(2/3) a^-2": "2/5",
+    "[a,r0*]: l^(5/3) a^-7": "11/15",
+    "[rho_c,a]: a^3": "2/5",
+    "[rho_c,a]: l^2 rho_c^-7": "4/9"
+   },
+   "least": "4/11",
+   "passed": true,
+   "split_exponent": "2/15"
   },
   "X2_ridge_identities": {
    "X3_closed_forms_at_rational_phi": 400,
@@ -184,10 +140,75 @@
   "X7_pointwise": {
    "passed": true,
    "trials": 5000
+  },
+  "X8_lemma_S_prime_algebra": {
+   "extremal_singular": true,
+   "instances": 121,
+   "loewner_factor": "r^2",
+   "passed": true
+  },
+  "X9_lemma_H_exact_form": {
+   "fields": [
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "11/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "237/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 6,
+     "kappa": "169/100",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "52/25",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "23/20",
+     "separations": 4
+    },
+    {
+     "d": 2,
+     "degree": 7,
+     "kappa": "69/25",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "57/100",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "29/10",
+     "separations": 4
+    },
+    {
+     "d": 3,
+     "degree": 6,
+     "kappa": "151/100",
+     "separations": 4
+    }
+   ],
+   "passed": true
   }
  },
  "mutant": null,
- "object": "CL-ELDER-THIRD-ORDER-20261001-v1 controls",
+ "object": "CL-ELDER-THIRD-ORDER-20261001-v1.1 controls",
  "passed": true,
  "scientific_effect": "NONE"
 }

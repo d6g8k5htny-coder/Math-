@@ -1,10 +1,55 @@
-# The elder density to third order: `ν_eld(ℓ) = cℓ^{−1/3} + c₁ℓ^{1/4} + O(ℓ^{1/3})`, and the `c₂ℓ^{1/3}` term conditional on Math- #187
+# The elder density to third order up to its far part, and the three-term law with rate `ℓ^{4/11}` conditional on Math- #187
 
-Object: CL-ELDER-THIRD-ORDER-20261001-v1.
+Object: CL-ELDER-THIRD-ORDER-20261001-v1.1 (supersedes v1 on the same branch).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
-Before submission, a clean-context same-family referee read the whole note against its sources (`REFEREE_1.md` in the
-project archive). Its verdict was ACCEPT WITH MINOR FIXES, with no major finding. Its four minor findings and nine nits
-are applied:
+
+**v1.1 changes.**
+- Lemma B′, and with it #207 Lemma CU.5 and the exponent `β`, is replaced by two new lemmas (§3):
+  - **Lemma H.** The rescaled Hessian `H̃ = Λ_r^{−1}H_MΛ_r^{−1}`, with `Λ_r = diag(r, 1, …, 1)`, is a uniformly
+    nondegenerate Gaussian under the pins for all `r ≤ r_0^*`.
+  - **Lemma S′.** `E_Q[(W_r/r²)e] ≤ Cℓ^{2/3}r^{−2}(κ + r)P^N` for `r ≤ r_0^*` and `k ≤ r`.
+
+  Together they are the near-regime spectral refinement that #198 Remark 1 describes.
+- The intermediate separations `[ρ_c, r_0^*]` now contribute `O(ℓ^{2/5})`: #198 (W.1) below `ℓ^{2/15}`, Lemma S′ above.
+  So (E3.0) is an expansion with only the far elder density at the fixed radius `r_0^*` left unexpanded.
+- Consequently (E3.3) has the rate `O(ℓ^{4/11})` and uses #187 at the single separation `r_0^*`. v1's `ε`-argument
+  (`r₁ ↓ 0`) is gone, and so is v1 Remark 2's need for a quantified `C(ρ)`. Corollary E3′(3) gets the same rate.
+- (E3.1), (E3.2) and Lemmas CU.1′, S, Q, G, CE and O′ are unchanged, except that Lemma CE's radius no longer involves
+  #207 Lemma CU.5. (CU.5 still appears in #218's dependency list, but only nominally: #218's Step F1 re-proves the
+  nondegeneracy of the free jets on `(0, r_0^*]`.)
+- Controls: X1 is the new ledger. X8 (Lemma S′'s linear algebra) and X9 (Lemma H's exact form (H.1) on exactly pinned
+  polynomial fields) are new, with mutants M6–M8.
+- The nonauthor reviews of v1 on #220 (OpenAI / Codex, delegated; Slices A, B and C, all PASS_TECHNICAL at their stated
+  scope) requested two amendments:
+  - **OA-220-B-01**, applied: Lemma G (b) now assumes `E[H(E)] < ∞`, and Step E6 records why it holds there.
+  - **OA-220-C-01**, superseded: it repaired v1 Remark 2's shrinking cut-off `r₁ = ℓ^{1/(3(p+β))}`, which could fall
+    below the cusp band. v1.1 has no shrinking cut-off: the near/far cut is the fixed `r_0^*`, and Remark 2 is replaced.
+- #191 and #198 have been merged with the blobs consumed here, so they are now listed as merged inputs. #207's head moved
+  to `782211f`, a merge of `main`; its PROOF blob `f6df5a73` is unchanged.
+
+**v1.1 review record.** Before submission of v1.1, a clean-context same-family referee read the v1 → v1.1 delta
+against all eight sources at their declared blobs (`REFEREE_2.md` in the project archive). Its verdict was ACCEPT WITH
+MINOR FIXES, with no major finding.
+- *What it verified independently.*
+  - (H.1), symbolically by Peano kernels (sympy), and on non-polynomial test functions.
+  - Lemma H's covariance, numerically. For the Gaussian kernel, two independent routes (the segment functionals of
+    (H.1), and `H̃` directly) agree to `7·10⁻¹¹`. Small tori (`L = 2, 3, 6` in `d = 2`, `L = 3` in `d = 3`) were probed,
+    in several frames, by the segment route alone.
+  - The `ε²` mechanism of Lemma S′, by Monte Carlo under the exact pinned law of `H̃`.
+  - The §4 ledger and every comparison claim, in exact rationals.
+  - All controls and mutants.
+- *Fixes applied.*
+  - **MINOR-1.** (F1) is stated for every `r ≤ r_0^*`, as the own-jet form of #198 (3.1), with the reason.
+  - **Nits.** The pin rows `U_r` and the target `v_r` are cited from [P] (3.1)–(3.3). The continuity and invertibility
+    arguments of Lemma H (a) are made explicit. The rescaling matrix is renamed `Λ_r`, to avoid a clash with [R] §4's
+    `D_r`. `n′` is defined in Lemma S′, and Lemma H (b) cites the argument of #218 (1.2), not its statement. The
+    identification of #187's far density with #198's (2.1), the content of the first equivalence, and Remark 1's
+    attribution are all corrected or stated. X8 now asserts the attained case. The exploration paragraph records the
+    small-torus constants.
+
+**v1 review record.** Before submission of v1, a clean-context same-family referee read the whole note against its
+sources (`REFEREE_1.md` in the project archive). Its verdict was ACCEPT WITH MINOR FIXES, with no major finding. Its
+four minor findings and nine nits were applied:
 - the radius `r_Q` is defined, and Step E2 states the conditions on `r` alone;
 - (F3) and (F5) are derived from #218 Step F1 instead of being attributed;
 - Remark 3 now describes #216's Monte Carlo correctly: its elder-pair row estimates `ν_eld` itself;
@@ -18,21 +63,27 @@ Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific 
 STATUS, PROOF_INDEX, prize or Boolean change; no numerical constant is certified. Same GitHub account as every lane;
 zero organizational independence.
 
+**Dependencies (consumed, now merged).** Math- #191 and #198 were merged into `main` on 1 October 2026 (merge commits
+`9556547` and `124c37d`), with the same blobs that v1 consumed. They are now merged inputs:
+- Math- #191 (`frontiers/remainder_vanishing_20260930/PROOF.md`, blob `441152df`): Lemma E Steps 1–4, §2 (2.1), the
+  admissible radius `r_0^*`.
+- Math- #198 (`frontiers/remainder_rate_20260930/PROOF.md`, blob `abfb98ae`): (3.1) and the sign window of §3, Lemma
+  B's barrier (1.2) and §1's elder-density identity, Lemma W's (W.1), the far integral (2.1), Lemma F′.
+
 **Dependencies (unmerged, consumed).** This note cannot be integrated before the following, and must be rebound if any
 of them changes:
-- Math- #191 (`frontiers/remainder_vanishing_20260930/PROOF.md`, v1.1 blob `441152df`): Lemma E Steps 1–4, §2 (2.1),
-  the admissible radius `r_0^*`.
-- Math- #198 (`frontiers/remainder_rate_20260930/PROOF.md`, v1.1 blob `abfb98ae`): (3.1) and the sign window of §3,
-  Lemma B's display (1.3) and §1's elder-density identity, the far integral (2.1), Lemma F′.
 - Math- #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, v1.1 blob `f6df5a73`): §0 (the cusp objects), the proof
-  of Theorem CU.1, Theorem CU.2, the structure of Proposition CU.3 (re-proved here with explicit margins), Lemma CU.5's
-  statement (5.1) and its proof, §6 ((6.1), (CU.2)).
-- Math- #218 (`frontiers/candidate_third_order_20261001/PROOF.md`, blob `70ca57ef`): Lemma D, (1.2), Lemma F (Steps
-  F1, F3, (F.2)), Lemma C (Steps C1, C2 and C3), Lemma O, Theorem T and §4 (the fold region and the exponent ledger).
-- For (E3.3) only: Math- #187 (`frontiers/far_elder_rate_20260930/PROOF.md`, blob `37dcf6ef`), Theorem F.
+  of Theorem CU.1, Theorem CU.2, the structure of Proposition CU.3 (re-proved here with explicit margins), §6 ((6.1),
+  (CU.2)).
+- Math- #218 (`frontiers/candidate_third_order_20261001/PROOF.md`, blob `70ca57ef`): Lemma D (also applied here to the
+  rescaled Hessian of Lemma H), (1.2) and its proof, Lemma F (Steps F1, F3, (F.2)), Lemma C (Steps C1, C2 and C3),
+  Lemma O, Theorem T and §4 (the fold region and the exponent ledger).
+- For (E3.3) and Corollary E3′(3) only: Math- #187 (`frontiers/far_elder_rate_20260930/PROOF.md`, blob `37dcf6ef`),
+  Theorem F at the single separation `ρ = r_0^*`.
 
-**Merged inputs:** [R], [P] with [E1]/[E2]/[REC], [C7-K] ((K2) and §4), and [Z] (Z13)–(Z14) with [P] §10 (the change
-of variables behind the near/far identity); [182] and further parts of [Z] enter through #198 and #191.
+**Merged inputs:** [R], [P] with [E1]/[E2]/[REC] ([P] §2's linear independence of derivative functionals also enters
+Lemma H directly), [C7-K] ((K2) and §4), and [Z] (Z13)–(Z14) with [P] §10 (the change of variables behind the
+near/far identity); [182] and further parts of [Z] enter through #198 and #191.
 
 ## 0. Statement
 
@@ -69,31 +120,37 @@ Hadamard finite part of `(1/3)∫∫∫A₂k^{−4/3}`, where `A₂(b, k, u)` is
 `A₂(b, 0, u) = −12π_0E_0[Y²1{A < 0} | b]` ((F.2) there). `𝒜^{cand}` is #218 §0's candidate cusp kernel (weight
 `(36κ²Δ² − Y²)1{A < 0, |Y| < 6κ|Δ|}`), and `I^{cand}` and `B_{d,L}` are as in #218 §0.
 
-**Theorem E3 (the elder density to third order).** For every `d ≥ 2` and `L > 0`, as `ℓ ↓ 0`:
+**Theorem E3 (the elder density to third order).** For every `d ≥ 2` and `L > 0`, as `ℓ ↓ 0`,
+
+    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{4/11}),    0 ≤ ν_eld^{far,r_0^*}(ℓ) ≤ C ℓ^{1/3}.   (E3.0)
+
+Consequently
 
     ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + O(ℓ^{1/3});                                                    (E3.1)
     ν_eld(ℓ) ≥ c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} − C ℓ^{4/11};                                          (E3.2)
 
-and if, in addition, Math- #187's Theorem F holds (`ν_eld^{far,ρ}(ℓ) ≤ C(ρ)ℓ^{2/3}` for each fixed `ρ ∈ (0, L/2]`), then
+and if, in addition, Math- #187's Theorem F holds at the separation `ρ = r_0^*` (`ν_eld^{far,r_0^*}(ℓ) ≤ Cℓ^{2/3}`), then
 
-    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + o(ℓ^{1/3}).                                         (E3.3)
+    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + O(ℓ^{4/11}).                                         (E3.3)
 
-All three follow from one two-sided estimate. With `β := min(1/8, 1/(4m))` (#207 Lemma CU.5's exponent), there are
-`r₂ > 0` and `C < ∞` such that for every `r₁ ∈ (0, r₂]` and `0 < ℓ ≤ ℓ₀(r₁)`
-
-    −Cℓ^{4/11} ≤ ν_eld(ℓ) − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3} ≤ Cℓ^{4/11} + Cℓ^{1/3}r₁^β + ν_eld^{far,r₁}(ℓ),      (E3.0)
-
-with `C` independent of `r₁`.
+More precisely, (E3.0) reduces the third-order law to the far elder density at the one fixed separation `r_0^*`:
+- for `0 < θ ≤ 4/11`, `ν_eld(ℓ) − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3} = O(ℓ^θ)` if and only if `ν_eld^{far,r_0^*}(ℓ) = O(ℓ^θ)`
+  (for `θ ≤ 1/3` both sides hold by (E3.1) and #198 Lemma F′, so the content is `1/3 < θ ≤ 4/11`);
+- the three-term law with remainder `o(ℓ^{1/3})` holds if and only if `ν_eld^{far,r_0^*}(ℓ) = o(ℓ^{1/3})`.
 
 **Corollary E3′ (the rejected density).** With Theorem T of #218,
+
+    ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁) ℓ^{1/4} − ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{4/11}).                                  (E3′.0)
+
+In particular:
 1. `ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + O(ℓ^{1/3})` — a rate for #207's (CU′.2);
 2. `ρ_rej(ℓ) ≤ B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + Cℓ^{4/11}`;
-3. under #187's Theorem F, `ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + o(ℓ^{1/3})`: the `ℓ^{1/3}` terms of the
-   candidate and elder densities are equal, so the rejected density has none.
+3. under #187's Theorem F at `ρ = r_0^*`, `ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + O(ℓ^{4/11})`: the `ℓ^{1/3}`
+   terms of the candidate and elder densities are equal, so the rejected density has none.
 
 (E3.1) is a rate for #207's (CU.1), which claimed no rate for its `o(ℓ^{1/4})`. (E3.3) identifies the third coefficient
 of the elder law with the `c₂` that Math- #216 defines and computes (`0.22152441` in `d = 2`, `0.16123405` in `d = 3`
-for the Gaussian kernel; numerical approximations, not certified).
+for the Gaussian kernel; numerical approximations, not certified), with the rate `ℓ^{4/11}` of #218's Theorem T.
 
 **How it works.** The decomposition is that of Theorem T (#218 §4), with the elder kernel in place of the candidate
 kernel.
@@ -107,16 +164,26 @@ kernel.
   `O(𝒩r(1 + |γ|/λ)²/κ)` or a small `λ`, and the weight `36κ²Δ²` pays for both: `Δ² ≤ λ²‖A‖^{2m−2}` cancels the `1/λ²`.
 - *Overlap.* Lemma O′: `𝒜^{cand} − 𝒜^{eld} = O(1/κ)`, so the elder cusp loss tends to `A₂(b, 0)` at rate `1/κ`, as the
   candidate loss does (#218 Lemma O). The overlap cancellation of #218 §4 goes through unchanged.
-- *Intermediate separations `ℓ^{1/5} ≤ r ≤ r₁`.* Lemma B′ multiplies three facts: #198's barrier for the elder mark
-  (`|det K_M| ≤ Cℓ^{1/3}K^{d−1/3}/r`), the sign window for `det K_S`, and #207 CU.5's bound on the typed probability. The
-  result is `Cℓ^{1/3}r₁^β`, small with `r₁`. Below `ℓ^{1/5}`, #207's (5.1) suffices.
-- *Far separations.* #198 Lemma F′ gives `O(ℓ^{1/3})`, which proves (E3.1). #187 gives `O(ℓ^{2/3})`, and letting
-  `r₁ ↓ 0` after `ℓ ↓ 0` proves (E3.3).
+- *Intermediate separations `ρ_c ≤ r ≤ r_0^*`.* Split at `ℓ^{2/15}`.
+  - Below the split, #198's unmarked bound (W.1) suffices.
+  - Above it, Lemma S′ applies. #198's barrier puts an eigenvalue of `−H_M` below `(ℓK²/c_L)^{1/3}`. The pins make the
+    axial curvature `∂_u²f(M)` of order `r²`, so the right object is the rescaled Hessian `H̃ = Λ_r^{−1}H_MΛ_r^{−1}`, and
+    the barrier puts `λ_min(−H̃)` below `Cℓ^{1/3}r^{−2}`.
+  - Lemma H shows that `H̃` is a uniformly nondegenerate Gaussian under the pins. So #218's Lemma D charges that event
+    twice: once in `|det H̃|` and once in probability. The result is `E_Q[(W_r/r²)e] ≤ Cℓ^{2/3}r^{−2}(κ + r)P^N`.
+  - Both halves integrate to `O(ℓ^{2/5})`.
+- *Far separations `r ≥ r_0^*`.* `ν_eld^{far,r_0^*}` stays as it is in (E3.0).
+  - #198 Lemma F′ bounds it by `Cℓ^{1/3}`, which gives (E3.1).
+  - #187 bounds it by `C(r_0^*)ℓ^{2/3}`, which gives (E3.3) with the rate `ℓ^{4/11}`.
+
+  Only the one fixed separation `r_0^*` is involved, so no limit in a cut-off and no dependence of #187's constant on
+  `ρ` are needed.
 
 **What is not claimed.**
-- No rate in (E3.3). A rate would follow from a far bound with explicit dependence on the separation,
-  `C(ρ) ≤ Cρ^{−p}` (Remark 2).
-- (E3.3) is conditional on #187, an unmerged author-side candidate. (E3.1), (E3.2) and Corollary E3′(1)–(2) do not use it.
+- (E3.3) and Corollary E3′(3) are conditional on #187, an unmerged author-side candidate, used at the single separation
+  `r_0^*`. (E3.0)–(E3.2), (E3′.0) and Corollary E3′(1)–(2) do not use it.
+- No sharpness of the exponent `4/11`. It is the least exponent of #218's ledger, attained by `ρ_f⁵/ℓ` and `ℓ²ρ_f^{−6}`.
+  The intermediate separations contribute only `O(ℓ^{2/5})`.
 - No certified numerical value of `c`, `c₁`, `c₂`, `I^{cand}` or `B_{d,L}`.
 - No uniformity in `d` or `L`; no finite-radius band; no statement about the adjacent-pair density, which #216 also
   measures.
@@ -282,9 +349,12 @@ lies inside it. No type condition is used either: Lemma Q does not need `M`, `S`
 - `w_κ(A, Y) := (36κ²(det A)² − Y²)₊1{A < 0}`.
 
 **Facts used.**
-- (F1) `det K_M = −6kΔ + rY_r + R_M` and `det K_S = 6kΔ + rY_r + R_S`, with `|R_i| ≤ Cr²(1 + k)𝒩_r^{N₁}`. This is #198
-  (3.1) with `F_r`'s own transverse Hessian `A` in place of `A_0`. #218 Step F1 records why: #191 Steps 1–3 expand the
-  pinned function `F_r` about its own jets at `0`, and pass to `A_0` only through `‖A − A_0‖ ≤ r²T`.
+- (F1) `det K_M = −6kΔ + rY_r + R_M` and `det K_S = 6kΔ + rY_r + R_S`, with `|R_i| ≤ Cr²(1 + k)𝒩_r^{N₁}`. This is the
+  own-jet form of #198 (3.1): `F_r`'s own transverse Hessian `A` replaces `A_0`, and `𝒩_r` replaces #191's `T`. It holds
+  pathwise for every `0 < r ≤ r_0^*` and `k > 0`, not only in this section's range. Indeed, #191 Steps 1–3 are pathwise
+  Taylor expansions of the pinned function `F_r` about its own jets at `0`, with remainders polynomial in `‖F_r‖_{C⁷}` and
+  `k` for every `r ≤ 1`; the coupling enters only once, through `‖A − A_0‖ ≤ r²T` in Step 2, and that step disappears
+  when `A` is used (#218 Step F1 records this). Also `r_0^* ≤ r_0^{[R]} ≤ 1` ([R] §2).
 - (F2) `|r^{−2}F_d(K_M)F_{d−1}(K_S) − w_κ(A, Y_r)| ≤ Cr(1 + κ)𝒩_r^N`. This is #218 (C.2) with `(A, 𝒩_r)` in place of
   `(A_0, T)`. Its case analysis (Step C1) uses only (F1) and `‖A_i − A‖ ≤ (r/2)‖F_r‖_{C³} ≤ r𝒩_r`.
 - (F3) Given `J″`, `f₄` is Gaussian under `Q`, with variance in `[c, C]` and mean `μ`, `|μ| ≤ C(P + |J″|)`. Indeed,
@@ -314,8 +384,11 @@ lies inside it. No type condition is used either: Lemma Q does not need `M`, `S`
   `|G(j)| ≤ H(1 + |j|)^p`. Then
   `|E G(J̃) − E G(J)| ≤ CH(1 + |μ| + |μ̃|)^{p+2}(|μ̃ − μ| + ‖Γ̃ − Γ‖)`.
 - (b) Let `E` and `O` be independent, with `O ~ N(s, Σ)` on `R^{n_o}`, `c_GI ≤ Σ ≤ C_GI` and `|s| ≤ s₀`. Let
-  `G(e, −o) = G(e, o)` and `|G(e, o)| ≤ H(e)(1 + |o|)^p`. Then `|E G(E, O) − E G(E, O₀)| ≤ C|s|²E[H(E)]`, where
-  `O₀ ~ N(0, Σ)` is independent of `E` and `C` depends also on `s₀`.
+  `G(e, −o) = G(e, o)` and `|G(e, o)| ≤ H(e)(1 + |o|)^p`, and assume `E[H(E)] < ∞`. Then
+  `|E G(E, O) − E G(E, O₀)| ≤ C|s|²E[H(E)]`, where `O₀ ~ N(0, Σ)` is independent of `E` and `C` depends also on `s₀`.
+  (v1.1, after the nonauthor Slice B review's OA-220-B-01: without `E[H(E)] < ∞` both expectations can be infinite,
+  e.g. `G(e, o) = H(e) = e` with `E` nonintegrable; the integrability is also what justifies differentiating under
+  the integral below.)
 
 *Proof.*
 - (a) Interpolate `(μ_t, Γ_t)` linearly; then `c_GI ≤ Γ_t ≤ C_GI`. The Gaussian density satisfies
@@ -335,7 +408,8 @@ lies inside it. No type condition is used either: Lemma Q does not need `M`, `S`
 
 This is #218's (C.1) for the elder kernel, with the same rate.
 
-*Proof.* Take `r₂ ≤ min(r_0^*, 1/2, r_Q, r_{CU})`, where `r_{CU}` is the radius `r₁` of #207 Lemma CU.5.
+*Proof.* Take `r₂ := min(r_0^*, 1/2, r_Q)`. (v1 also required `r₂ ≤` the radius of #207 Lemma CU.5, for Lemma B′; v1.1
+does not use Lemma CU.5.)
 
 *Step E1 (pathwise comparison).* Put `G(J′) := w_κ(A, Y_r)1{|φ_r| < 1/3}`. Since
 `r^{−2}F_dF_{d−1}e − G = (r^{−2}F_dF_{d−1} − w_κ)e + w_κ(e − 1{|φ_r| < 1/3})`, (F2) bounds the first term by
@@ -403,7 +477,9 @@ Let `𝔅` be the event that (Q1)–(Q4) fail. Then
 
 *Step E6 (the target `v_0(b, k) → v_0(b, 0)`).* `loss_κ` depends on the even jets `(A, f₄)` and on the odd jet `γ`
 only through `γᵀadj(A)γ`, so it is even in the odd jets. Also `0 ≤ loss_κ ≤ 9Y²`: on `{|Y| ≥ 2κ|Δ|}`,
-`36κ²Δ² ≤ 9Y²`. By (F7) and Lemma G (b) with `s = 12kw` (`|s| ≤ 12|w|`, as `k ≤ 1`),
+`36κ²Δ² ≤ 9Y²`. So Lemma G (b) applies with `E = (A, f₄)`, `O` the odd jets and
+`H(A, f₄) = C(1 + |f₄|)²(1 + ‖A‖)^{2m}` (the odd-jet factor of `Y²` is absorbed in `(1 + |o|)^p`, `p = 4`), and
+`E[H] ≤ C(1 + |b|)^N` under the contact law. By (F7) and Lemma G (b) with `s = 12kw` (`|s| ≤ 12|w|`, as `k ≤ 1`),
 `|E_{v_0(b,k)}[loss_κ] − E_{v_0(b,0)}[loss_κ]| ≤ Ck²(1 + |b|)^N`, with no growth in `κ`. And
 `p_o(0, 12k, 0) = p_o(0, 0, 0)(1 + O(k²))`. So the right side of (2.4) is
 `(𝒜^{eld} − 𝒜^{con})(b, κ, u) + O(k²(1 + |b|)^Ne^{−cb²}) + O(r(1 + κ)²P^Ne^{−c(b²+k²)})`. Since `k² = κ²r² ≤ r(1 + κ)²`
@@ -425,34 +501,137 @@ Consequently, with #218 Lemma O, `|(𝒜^{eld} − 𝒜^{con})(b, κ, u) − A�
 argument of #218 Lemma O (Lemma D for `det A`, with the Gaussian tails of `Y` given `A`) bounds this by
 `Cκ^{−1}(1 + |b|)^Ne^{−cb²}`. ∎
 
-**Lemma B′ (elder pairs at intermediate separations).** For `0 < r ≤ min(r_{CU}, r_0^*)`, `b ∈ R` and `0 < k ≤ 1`, with
-`ℓ = kr³` and `κ = k/r`,
+The next two lemmas replace v1's Lemma B′. They hold for every separation `0 < r ≤ r_0^*`, not only for `r ≤ r₂`. Their
+only inputs from §2 are `𝒩_r := 1 + k + ‖F_r‖_{C⁹}`, `Δ = det A` and (F1), the own-jet form of #198 (3.1), which holds
+for every `r ≤ r_0^*` (see (F1)).
 
-    E_Q[(W_r/r²) e] ≤ C ℓ^{1/3} (κ + r) (min(1, κ)^{1/2} + r^β) P^N,        β = min(1/8, 1/(4m)).              (B′.1)
+**Lemma H (the rescaled Hessian at `M`).** Let `0 < r ≤ r_0^*`, `b ∈ R` and `0 < k ≤ r` (so `κ = k/r ≤ 1`), and let
+`f = F_r` under `Q`. In the frame `(u, Θ)` put `Λ_r := diag(r, 1, …, 1)`, `H_M := D²f(M)` and
+`H̃ := Λ_r^{−1}H_MΛ_r^{−1}`, so that
 
-*Proof.* Use the notation of §2 (`𝒩_r`, `Δ = det A`).
-- *The weight on the elder event.* On `{W_r > 0, e = 1}`, #198 (1.3) gives
-  `|det K_M| = |det H_M|/r ≤ C ℓ^{1/3}K^{d−1/3}/r`, where `K = 1 + ‖D²f‖_∞ + ‖D³f‖_∞ ≤ C𝒩_r`. On the typed event the
-  two determinants have opposite signs, so the sign window (#198 §3), applied to (F1), gives
-  `|det K_S| ≤ 12k|Δ| + 2max_i|R_i| ≤ r(12κ|Δ| + Cr(1 + k)𝒩_r^{N₁})`. With `|Δ| ≤ 𝒩_r^m` and `k ≤ 1`,
-  `(W_r/r²)e ≤ Cℓ^{1/3}(κ + r)𝒩_r^N1{W_r > 0}`.
-- *The typed probability.* The proof of #207 Lemma CU.5 gives `P_Q({W_r > 0} ∩ B₁ ∩ E₁) ≤ C₀λ_{CU}` with
-  `λ_{CU} = C(k/r + r^{1/4})`, `P_Q(B₁^c) ≤ Cr^{1/(2m)}` (Carbery–Wright, uniformly in the mean) and
-  `P_Q(E₁^c) ≤ C_qr^qP^{N_q}`. Hence `P_Q(W_r > 0) ≤ C(min(1, κ) + r^{1/4} + r^{1/(2m)})P^N`.
-- *Cauchy–Schwarz.* `E_Q[(W_r/r²)e] ≤ Cℓ^{1/3}(κ + r)‖𝒩_r^N‖_{L²(Q)}P_Q(W_r > 0)^{1/2}`, which is (B′.1). ∎
+    H̃_uu = r^{−2}∂_u²f(M),    H̃_uΘ = r^{−1}∂_u∇_Θf(M),    H̃_ΘΘ = D_Θ²f(M),    det H_M = r² det H̃.
+
+(`Λ_r` is not [R] §4's `D_r = diag(√r, I)`, which defines `K_M = D_r^{−1}H_MD_r^{−1}`; the two are related by
+`H̃ = diag(r^{−1/2}, I) K_M diag(r^{−1/2}, I)`.)
+
+There are `c > 0` and `C, C_p < ∞`, depending only on `d`, `L` (and `p`), such that:
+- (a) under `Q`, `H̃` is a Gaussian random element of `Sym(d)` with `cI ≤ Cov_Q(H̃) ≤ CI` and `|E_QH̃| ≤ CP`, so #218
+  Lemma D applies to `G = H̃` with `|μ| ≤ CP`;
+- (b) `E_Q[𝒩_r^p | H̃] ≤ C_p(P + |H̃|)^p` for every `p ≥ 1`.
+
+*Proof.* *The exact form.* Put `g(t) := f(M + tu)` and `h(t) := ∇_Θf(M + tu)` for `0 ≤ t ≤ r`. Taylor's formula with
+integral remainder gives, for every `C⁴` function,
+
+    r²g″(0)/6 = [g(r) − g(0) − rg′(0)] − (r/3)[g′(r) − g′(0)] + (1/6)∫_0^r t(r − t)² g⁗(t) dt,
+    rh′(0) = [h(r) − h(0)] − ∫_0^r (r − t) h″(t) dt.
+
+Under `Q` the pins give `g(0) = b`, `g(r) = b − kr³`, `g′(0) = g′(r) = 0` and `h(0) = h(r) = 0`. So the bracketed pin
+combinations equal `−kr³` and `0`, and with `t = rs`
+
+    H̃ = m_κ + 𝒢_r(f),    m_κ := −6κ e_u e_uᵀ,
+    𝒢_r(f) := ( ∫_0^1 s(1 − s)² ∂_u⁴f(M + rsu) ds ;  −∫_0^1 (1 − s) ∂_u²∇_Θf(M + rsu) ds ;  D_Θ²f(M) ),              (H.1)
+
+listing the `uu`, `uΘ` and `ΘΘ` blocks. `𝒢_r` is a linear map on `C⁴` functions with `|𝒢_r(g)| ≤ C‖g‖_{C⁴}`. It is
+defined also at `r = 0`, where `𝒢_0(g) = (∂_u⁴g(0)/12, −∂_u²∇_Θg(0)/2, D_Θ²g(0))`; for the cusp jets this is
+`(f₄/12, −γ/2, A)`. Control X9 checks (H.1) exactly on pinned polynomial fields.
+
+*(a).* Under `Q`, `f` is the Gaussian field `F` conditioned on its pin rows ([R] (R2)–(R3)). Let `U_r = T_rO_r` be the
+rescaled pin rows of [P] (3.1) (`U0`–`U3` and `V_{j0}`, `V_{j1}`), with target
+`v_r = (b − kr³/2, −kr², 0, 12k, 0, …, 0)` ([P] (3.3)); as `r → 0` they converge to the six pinned jets
+`(F, ∂_uF, ∂_u²F, ∂_u³F, ∇_ΘF, ∂_u∇_ΘF)` at `0`. Then `Cov_Q(H̃) = Cov(𝒢_r(F) | U_r)`, the Schur complement of `U_r` in
+the Gram matrix `Γ_r` of `(𝒢_r(F), U_r)`.
+- *Continuity.* Every entry of `(𝒢_r(F), U_r)` is an integral of some `∂^αF(M + rsu)`, `|α| ≤ 4`, against a fixed finite
+  measure on `s ∈ [0, 1]` (a density or an endpoint mass), independent of `r`; by Taylor's formula this holds for the
+  difference rows of [P] (3.1) too. So each entry of `Γ_r` has the form
+  `∫∫ ±∂^{α+β}K_L(r(s − s′)u) μ_i(ds) μ_j(ds′)`, with `K_L` the smooth covariance of `F`. This is continuous on the
+  compact set `[0, r_0^*] × {frames}`, including at `r = 0`.
+- *`r > 0`.* The map from `(D²F(M), O_r)` to `(𝒢_r(F), U_r)` is block-triangular with invertible diagonal blocks:
+  `𝒢_r(F) = Λ_r^{−1}D²F(M)Λ_r^{−1} − (a linear function of the pins)` by the two identities above, read for an
+  arbitrary `C⁴` function, and `U_r = T_rO_r` with `|det T_r| = 12r^{−(d+3)}` ([P] (3.2)). So `(𝒢_r(F), U_r)` is an
+  invertible linear image of `(D²F(M), F(M), F(S), ∇F(M), ∇F(S))`. These are distinct derivative evaluation
+  functionals at the two distinct sites `M ≠ S` (`r ≤ r_0^* < L`), linearly independent by [P] §2: "Any finite list of
+  distinct derivative evaluation functionals at distinct sites is linearly independent."
+- *`r = 0`.* `(𝒢_0(F), U_0)` is an invertible image of `∂_u⁴F(0)`, `∂_u²∇_ΘF(0)` and `D_Θ²F(0)` together with the six
+  pinned jets. These are distinct jets at one point in the frame `(u, Θ)`, independent by [P] §2: "At one site in a
+  rotated frame the same assertion also follows …".
+
+So `Γ_r` is invertible at every point of the compact set, hence `Γ_r ≥ cI` uniformly. Therefore
+`Cov_Q(H̃) ≥ λ_min(Γ_r)I ≥ cI` (the inverse of the Schur complement is a block of `Γ_r^{−1}`), and
+`Cov_Q(H̃) ≤ Cov(𝒢_r(F)) ≤ CI`.
+
+For the mean, `E_QH̃ = m_κ + Cov(𝒢_r(F), U_r)Cov(U_r)^{−1}v_r`, with `|v_r| ≤ |b| + 14k`. The regression coefficient is
+bounded by the same uniform invertibility, and `|m_κ| = 6κ ≤ 6`. So `|E_QH̃| ≤ CP`; this is the computation of (F3)
+with `𝒢_r` in place of `J′`.
+
+*(b).* Conditioning `Q` on `H̃` is conditioning `F` on `(𝒢_r(F), U_r) = (H̃ − m_κ, v_r)`, whose Gram matrix `Γ_r` is
+uniformly invertible by (a).
+- The conditional mean of `F` is the regression on these values. Its `C⁹` norm is `≤ C(P + |H̃|)`, since `Γ_r^{−1}` is
+  bounded, the covariances of `F(·)` with `𝒢_r(F)` and `U_r` have bounded `C⁹` norms, and `|m_κ| ≤ 6`.
+- The conditional covariance is at most `Cov F`, so by Anderson's inequality the conditional moments of the centred
+  part's `C⁹` norm are at most those of `F`.
+
+This is the argument (not the statement) of #218 (1.2), applied to the conditioning vector `(𝒢_r(F), U_r)`; no
+coupling is needed, because `𝒩_r` involves `F_r` only. (Jensen's inequality can replace Anderson's: write the centred
+field as `g + h` with `h` centred and independent of `g`; then `E‖g‖^p ≤ E‖g + h‖^p`.) Since
+`𝒩_r = 1 + k + ‖F_r‖_{C⁹}` and `k ≤ P`, (b) follows. ∎
+
+**Lemma S′ (the elder weight through the rescaled Hessian).** For `0 < r ≤ r_0^*`, `b ∈ R` and `0 < k ≤ r`, with `ℓ = kr³` and
+`κ = k/r ≤ 1`,
+
+    E_Q[(W_r/r²) e] ≤ C ℓ^{2/3} r^{−2} (κ + r) P^N.                                                        (S′.1)
+
+*Proof.*
+- *The barrier, rescaled.* Fix a realisation in `{W_r > 0} ∩ {e = 1}`. Then `H_M < 0`, so `H̃ < 0`.
+  - #198 (1.2) gives `λ_min(−H_M) ≤ (ℓK²/c_L)^{1/3}`, where `K = 1 + ‖D²f‖_∞ + ‖D³f‖_∞ ≤ C_K𝒩_r`.
+  - Since `−H_M = Λ_r(−H̃)Λ_r` and `|Λ_rv| ≥ r|v|` (`r ≤ 1`), `vᵀ(−H_M)v ≥ r²λ_min(−H̃)|v|²`. So
+    `λ_min(−H_M) ≥ r²λ_min(−H̃)` (control X8).
+
+  Hence
+
+      0 < λ_min(−H̃) ≤ ε(𝒩_r),        ε(t) := C₃ ℓ^{1/3} r^{−2} t^{2/3},    C₃ := (C_K²/c_L)^{1/3}.             (S′.2)
+
+- *The weight.* By [R] §4's dictionary, `|det K_M| = |det H_M|/r = r|det H̃| ≤ rλ_min(−H̃)‖H̃‖^{d−1}`. The pair is
+  typed, so the two determinants have opposite signs, and the sign window (#198 §3) applied to (F1) gives
+  `|det K_S| ≤ 12k|Δ| + 2max_i|R_i| ≤ Cr(κ + r)𝒩_r^{N₂}`, using `|Δ| ≤ 𝒩_r^m` and `1 + k ≤ 𝒩_r`. Since
+  `{H̃ < 0, λ_min(−H̃) ≤ ε} ⊂ {|λ_max(H̃)| ≤ ε}`, everywhere
+
+      (W_r/r²) e ≤ C r²(κ + r) ε(𝒩_r) ‖H̃‖^{d−1} 𝒩_r^{N₂} 1{|λ_max(H̃)| ≤ ε(𝒩_r)}.
+
+- *Dyadic layers in `𝒩_r`.* On `{𝒩_r ∈ [2^j, 2^{j+1})}`, `ε(𝒩_r) ≤ ε_j := ε(2^{j+1})`. Condition on `H̃`, and bound
+  `P_Q(𝒩_r ≥ 2^j | H̃) ≤ C_p2^{−jp}(P + |H̃|)^p` by Lemma H (b). Then
+
+      E_Q[(W_r/r²) e] ≤ C r²(κ + r) Σ_{j≥0} 2^{(j+1)N₂ − jp} ε_j E_Q[‖H̃‖^{d−1}(P + |H̃|)^p 1{|λ_max(H̃)| < 2ε_j}].
+
+  By Lemma H (a), #218 Lemma D (first bound, for `d × d` matrices, with `n = d − 1 + p` and `n′ := n + d(d − 1)/2`)
+  bounds the expectation by `CP^{p+n′}ε_j`. So the `j`-th term is at most `C2^{j(N₂ + 4/3 − p)}P^Nℓ^{2/3}r^{−4}`. Take `p = N₂ + 2`; the series
+  converges and gives (S′.1). ∎
+
+**How (S′.1) compares with #198 (B.1).** (B.1) is `E_Q[(W_r/r²)e] ≤ Cℓ^{1/3}r^{−1}(k + r)P^N`. The ratio of (S′.1) to
+(B.1) is `ℓ^{1/3}r^{−2}(k + r²)/(k + r)`. With `k = ℓr^{−3} ≤ r`, this is `≍ ℓ^{4/3}r^{−6}` for `r ≤ ℓ^{1/5}` and
+`≍ ℓ^{1/3}r^{−1}` for `r ≥ ℓ^{1/5}`, so (S′.1) is the sharper bound once `r ≫ ℓ^{2/9}`, in particular on all of
+`[ℓ^{2/15}, r_0^*]`.
+- The gain is the second factor `ε`. The barrier puts `H̃` within `ε` of the singular set, and Lemma H makes that event
+  cost `ε` in probability (Lemma D).
+- The size `ε ≍ ℓ^{1/3}r^{−2}` reflects the pins: they make `∂_u²f(M)` of order `r²`. The `uu`-entry of `H̃` tends to
+  `f₄/12 − 6κ` as `r → 0`.
+
+Lemma H is the lower bound on the conditional variance of the axial curvature under the pins, with `f₄` in the
+limiting rows, that #198 Remark 1 asks for. Lemma S′ is the resulting refinement of #198 Lemma B, by the spectral
+mechanism of #187 §3. At a fixed separation, (S′.1) is `O(ℓ^{2/3})`, the order of #187's Theorem F.
 
 ## 4. Proof of Theorem E3 and of Corollary E3′
 
 *Setup.* As in #218 §4, put `ρ_f := ℓ^{1/4 + 1/44}` and `ρ_c := ℓ^{1/4 − 1/36} = ℓ^{2/9}`, with `s_f := ρ_fℓ^{−1/4} = ℓ^{1/44}`
-and `s_c := ρ_cℓ^{−1/4} = ℓ^{−1/36}`. Let `r₂` be as in Lemma CE, fix `r₁ ∈ (0, r₂]`, and take `ℓ` so small that
-`ρ_c < ℓ^{1/5} < r₁` and `ℓρ_f^{−3} ≤ 1`. By the near/far identity at `r_0 = r₁` (§0),
+and `s_c := ρ_cℓ^{−1/4} = ℓ^{−1/36}`; also put `a := ℓ^{2/15}`. Let `r₂` be as in Lemma CE, and take `ℓ` so small that
+`ρ_c ≤ r₂`, `a < r_0^*` and `ℓρ_f^{−3} ≤ 1`. Then `ρ_f < ρ_c < a`, since `3/11 > 2/9 > 2/15`. By the near/far identity
+at `r_0 = r_0^*` (§0),
 
-    ν_eld(ℓ) − cℓ^{−1/3} = F^{eld} + K^{eld} + I^{eld} − J₄ + ν_eld^{far,r₁}(ℓ),
+    ν_eld(ℓ) − cℓ^{−1/3} = F^{eld} + K^{eld} + I^{eld} − J₄ + ν_eld^{far,r_0^*}(ℓ),
 
 with all integrands at `(b, ℓ/r³, u)`, inner integrals `db dσ(u)`, and
 - `F^{eld} := ∫_0^{ρ_f}∫∫ r^{−2}(A_r^{eld} − A_0)`;
 - `K^{eld} := ∫_{ρ_f}^{ρ_c}∫∫ r^{−2}(A_r^{eld} − A_0)`;
-- `I^{eld} := ∫_{ρ_c}^{r₁}∫∫ r^{−2}A_r^{eld} ≥ 0`;
+- `I^{eld} := ∫_{ρ_c}^{r_0^*}∫∫ r^{−2}A_r^{eld} ≥ 0`;
 - `J₄ := ∫_{ρ_c}^∞∫∫ r^{−2}A_0 ≥ 0`.
 
 *`F^{eld}`: the fold region.* Write `A_r^{eld} = A_r − A_r^{rej}`, `A_r^{rej} := 12π_r(v_r)E_Q[(W_r/r²)(1 − e)]`.
@@ -478,29 +657,35 @@ error terms are those of #218 §4: by #218's ledger (checker T1 there; X1 here),
 
 *`J₄`.* `A_0 ≤ k²H` gives `0 ≤ J₄ ≤ Cℓ²ρ_c^{−7} = Cℓ^{4/9}`.
 
-*`I^{eld}`: intermediate separations.* Split at `ℓ^{1/5}`.
-- *On `[ρ_c, ℓ^{1/5}]`.* `e ≤ 1` and #207 (5.1) with (R5) give
-  `0 ≤ r^{−2}A_r^{eld} ≤ r^{−2}A_r ≤ C(κ² + r²)(min(1, κ)^{1/2} + r^β)(1 + |b|)^Ne^{−cb²}`. Here `κ ≤ s_c^{−4} ≤ 1`. The
-  four products integrate to at most
-  `C(ℓ^{1/4}s_c^{−9} + ℓ²ρ_c^{−7+β} + ℓ^{1/2}ℓ^{1/5} + ℓ^{(3+β)/5}) = C(ℓ^{1/2} + ℓ^{4/9+2β/9} + ℓ^{7/10} + ℓ^{(3+β)/5})`.
-- *On `[ℓ^{1/5}, r₁]`.* `κ = ℓr^{−4} ≤ r` and `κ^{1/2} ≤ r^{1/2} ≤ r^β`, so (B′.1) with (R5) gives
-  `r^{−2}A_r^{eld} ≤ 4Cℓ^{1/3}r^{−1+β}(1 + |b|)^Ne^{−cb²}`. This integrates to at most `(4C/β)ℓ^{1/3}r₁^β`.
+*`I^{eld}`: intermediate separations.* On `[ρ_c, r_0^*]`, `k = ℓ/r³ ≤ ℓρ_c^{−3} = ℓ^{1/3} ≤ 1`. Split at `a = ℓ^{2/15}`.
+- *On `[ρ_c, a]`.* `e ≤ 1`, #198 (W.1) and (R5) give
+  `0 ≤ r^{−2}A_r^{eld} ≤ r^{−2}A_r ≤ Cr^{−2}(k² + r⁴)P^Ne^{−c(b²+k²)} ≤ C(κ² + r²)(1 + |b|)^Ne^{−cb²}`, with
+  `κ = ℓr^{−4}`. This integrates to at most `C(ℓ²ρ_c^{−7} + a³) = C(ℓ^{4/9} + ℓ^{2/5})`.
+- *On `[a, r_0^*]`.* Here `κ = ℓr^{−4} ≤ ℓ^{7/15} ≤ 1`, i.e. `k ≤ r`. Lemma S′ with (R5) gives
+  `0 ≤ r^{−2}A_r^{eld} ≤ Cℓ^{2/3}r^{−4}(κ + r)(1 + |b|)^Ne^{−cb²} = Cℓ^{2/3}(ℓr^{−8} + r^{−3})(1 + |b|)^Ne^{−cb²}`. This
+  integrates to at most `C(ℓ^{5/3}a^{−7} + ℓ^{2/3}a^{−2}) = C(ℓ^{11/15} + ℓ^{2/5})`.
 
-So `0 ≤ I^{eld} ≤ Cℓ^{4/9} + Cℓ^{1/3}r₁^β`, with `C` independent of `r₁`.
+So `0 ≤ I^{eld} ≤ Cℓ^{2/5}`. The split point balances `a³` against `ℓ^{2/3}a^{−2}` (control X1).
 
-*Conclusion.* `4/11 < 4/9 < 1/2 < 3/5 < 7/10`. Hence (E3.0):
-`−Cℓ^{4/11} − Cℓ^{4/9} ≤ ν_eld − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3} ≤ Cℓ^{4/11} + Cℓ^{1/3}r₁^β + ν_eld^{far,r₁}(ℓ)`, using
-`I^{eld} ≥ 0`, `ν_eld^{far,r₁} ≥ 0` and `J₄ ≤ Cℓ^{4/9}`.
-- (E3.2) is the left inequality.
-- (E3.1): take `r₁ = r₂` (`< L/2`). #198 Lemma F′ gives `ν_eld^{far,r₂}(ℓ) ≤ C(r₂)ℓ^{1/3}`, so the right side is `O(ℓ^{1/3})`, and
-  `c₂ℓ^{1/3}` is absorbed.
-- (E3.3): #187 Theorem F at `ρ = r₁` gives `ν_eld^{far,r₁}(ℓ) ≤ C(r₁)ℓ^{2/3}`. So
-  `limsup_{ℓ↓0} ℓ^{−1/3}|ν_eld − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3}| ≤ Cr₁^β` for every `r₁ ∈ (0, r₂]`. Let `r₁ ↓ 0`. ∎
+*Conclusion.* By (4.1), `0 ≤ I^{eld} ≤ Cℓ^{2/5}` and `0 ≤ J₄ ≤ Cℓ^{4/9}`, and since `4/11 < 2/5 < 4/9`,
 
-*Proof of Corollary E3′.* `ρ_rej = ν_cand − ν_eld`.
-1. Corollary T′ of #218 and (E3.1).
-2. (T.1) and (E3.2): `ρ_rej ≤ [cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + Cℓ^{4/11}] − [cℓ^{−1/3} + c₁ℓ^{1/4} + c₂ℓ^{1/3} − Cℓ^{4/11}]`.
-3. (T.1) and (E3.3). ∎
+    ν_eld(ℓ) − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3} − ν_eld^{far,r_0^*}(ℓ) = O(ℓ^{4/11}).
+
+This is (E3.0). The bound `0 ≤ ν_eld^{far,r_0^*}(ℓ) ≤ Cℓ^{1/3}` there is #198 Lemma F′ at `r_0 = r_0^*`
+(`r_0^* ≤ L/(4√2) < L/2`).
+- (E3.1): `ν_eld^{far,r_0^*} = O(ℓ^{1/3})` absorbs `c₂ℓ^{1/3}` and the `O(ℓ^{4/11})`.
+- (E3.2): `ν_eld^{far,r_0^*} ≥ 0`.
+- (E3.3): #187's Theorem F at `ρ = r_0^*` (`∈ (0, L/2]`) gives `ν_eld^{far,r_0^*}(ℓ) ≤ C(r_0^*)ℓ^{2/3} ≤ Cℓ^{4/11}` for
+  `0 < ℓ ≤ 1`. #187's far density (its (0.1)) at `ρ = r_0^*` is the same integral as #198's (2.1) at `r_0 = r_0^*`: the
+  same domain `{dist(0, y) ≥ r_0^*}`, the same `O_y`, `v_{b,ℓ}`, `p_y`, `Q_{y,b,ℓ}` and `W`, and the same Borel mark of
+  [P] §8.
+- The two equivalences: by (E3.0) the difference of the two sides is `O(ℓ^{4/11})`, which is `O(ℓ^θ)` for `θ ≤ 4/11`
+  and `o(ℓ^{1/3})`. ∎
+
+*Proof of Corollary E3′.* `ρ_rej = ν_cand − ν_eld`. Subtracting (E3.0) from #218's (T.1),
+`ν_cand(ℓ) = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{4/11})`, gives (E3′.0): the `cℓ^{−1/3}` and
+`c₂ℓ^{1/3}` terms cancel. Then (1) follows from `ν_eld^{far,r_0^*} ≤ Cℓ^{1/3}`, (2) from `ν_eld^{far,r_0^*} ≥ 0`, and (3)
+from #187's Theorem F at `ρ = r_0^*`. ∎
 
 ## 5. Remarks
 
@@ -510,18 +695,27 @@ So `0 ≤ I^{eld} ≤ Cℓ^{4/9} + Cℓ^{1/3}r₁^β`, with `C` independent of `
    - At the cusp scale the elder rule is the window `|φ| < 1/3` (#207). It changes the `ℓ^{1/4}` coefficient from
      `I^{cand}` to `c₁`, and changes nothing at order `ℓ^{1/3}`: by Lemma O′ the elder and candidate cusp losses have the
      same limit `A₂(b, 0)` as `κ → ∞`, which is what the finite part `c₂` subtracts.
-   - At intermediate and far separations, elder pairs need a soft maximum (#198 Lemma B, #187), which costs a power of
-     `ℓ`.
+   - At intermediate separations, elder pairs need a soft maximum. On `[ℓ^{2/15}, r_0^*]` Lemma S′ bounds the elder
+     weight by `ℓ^{2/3}r^{−2}(κ + r)`; below `ℓ^{2/15}` the unmarked bound (W.1) suffices. Together these separations
+     carry only `O(ℓ^{2/5})`.
+   - At far separations #187 gives `O(ℓ^{2/3})`, but #187 is an unmerged candidate; (E3.0) keeps that part separate.
 
-   So `c₂` is a fold-scale quantity, as #216 argued formally; (E3.3) makes this a theorem, conditional on #187.
-2. **What a rate in (E3.3) would need.** The `o(ℓ^{1/3})` comes from the `ε`-argument in `r₁`. #187 proves
-   `ν_eld^{far,ρ}(ℓ) ≤ C(ρ)ℓ^{2/3}` with `C(ρ)` not quantified as `ρ ↓ 0`. If `C(ρ) ≤ Cρ^{−p}`, then (E3.0) with
-   `r₁ = ℓ^{1/(3(p+β))}` gives the rate `O(ℓ^{min(4/11, 1/3 + β/(3(p+β)))})`. (When `p + β ≤ 5/3` this `r₁` lies below
-   `ℓ^{1/5}`; then #207's (5.1) covers all of `[ρ_c, r₁]`, and the split at `ℓ^{1/5}` is not needed.) Such a bound is the near-diagonal spectral refinement that #198 Remark 1
-   describes: the conditional variance of the axial curvature under the pins, with `f₄` appended to the pin rows.
+   So `c₂` is a fold-scale quantity, as #216 argued formally. (E3.0) makes this a theorem up to the far part, and (E3.3)
+   completes it conditional on #187.
+2. **The far part is the only remaining input.** (E3.0) reduces the elder third-order law to the far elder density at
+   the fixed separation `r_0^*`.
+   - v1 needed an `ε`-argument in a cut-off `r₁ ↓ 0`, and a rate would have needed #187's constant quantified as
+     `C(ρ) ≤ Cρ^{−p}`. Lemma S′ removes both: below `r_0^*` the elder mass is controlled directly.
+   - Any bound `ν_eld^{far,r_0^*}(ℓ) = O(ℓ^θ)` gives the three-term law with remainder `O(ℓ^{min(θ, 4/11)})`. #187's
+     Theorem F gives `θ = 2/3`.
+   - #188 (unmerged; cited only, not consumed) proposes `ν_eld^{far,ρ}(ℓ) = O(ℓ^N)` for every `N` and every
+     `ρ ∈ (0, L/4]`, which would serve equally (`r_0^* ≤ L/(4√2)`).
+   - Lemma S′ also sharpens #198 (B.2). For `ℓ^{1/4} ≤ ρ ≤ r_0^*`, the elder density from separations in `[ρ, r_0^*)`
+     is `≤ C(ℓ^{2/3}ρ^{−2} + ℓ^{5/3}ρ^{−7})`, against #198's `Cℓ^{1/3}(ρ^{−1} + ℓρ^{−5})`; the new bound is smaller
+     when `ρ ≫ ℓ^{2/9}`.
 3. **The SIDE24 values and the Monte Carlo (exploration, not certified).** For the Gaussian kernel in `d = 3`, #207 §8
    and #216 give `c = 0.0417759`, `c₁ = −0.2118484` and `c₂ = 0.1612340`. So under (E3.3)
-   `ν_{3,24}(ℓ) ≈ cℓ^{−1/3}(1 − 5.0711ℓ^{7/12} + 3.8595ℓ^{2/3})` up to `o(ℓ^{2/3})`; the Gaussian-kernel values agree with
+   `ν_{3,24}(ℓ) ≈ cℓ^{−1/3}(1 − 5.0711ℓ^{7/12} + 3.8595ℓ^{2/3})` up to a relative `O(ℓ^{23/33})`; the Gaussian-kernel values agree with
    the `L = 24` torus up to a relative `O(e^{−L²/8})`. The elder-pair row of #216 v1.2 §3 is an exploratory estimate of
    `ν_eld` itself: the exact elder rule by union–find on the full periodized field, `d = 2` at `L = 64` and `d = 3` at
    `L = 16`. On `[10⁻⁴, 10⁻²]` it gives data/law `1.006 ± 0.004` (`χ² = 7.0/11`) in `d = 2` and `1.008 ± 0.010`
@@ -530,42 +724,48 @@ So `0 ≤ I^{eld} ≤ Cℓ^{4/9} + Cℓ^{1/3}r₁^β`, with `C` independent of `
 4. **Lemma Q is field-independent.** It is a deterministic statement about `C⁵` functions with two pinned critical
    points: the elder window `|φ| < 1/3` of #207 is stable, with explicit margins, as long as
    `𝒩r(1 + |γ|/λ)² ≪ κ||φ| − 1/3|` and `λ ≫ 𝒩r + (𝒩r|γ|)^{1/2}`, with the window inside the torus ((Q1)–(Q4)). #207's
-   Proposition CU.3 is its qualitative case. Only Lemma CE and §4 use the law of
-   the [P] field.
-5. **For the manuscript.** Once #191, #198, #207, #218 and this note are reviewed, the abstract can state
+   Proposition CU.3 is its qualitative case. Only §§2–4 use the law of the [P] field.
+5. **For the manuscript.** Once #207, #218 and this note are reviewed (#191 and #198 are merged), the abstract can state
    `ν_{3,24}(ℓ) = c_{3,24}ℓ^{−1/3} + c₁ℓ^{1/4} + O(ℓ^{1/3})` with `c₁ < 0` the explicit integral (CU.2). With #187 it can
-   state the three-term law. Until then V3 edit E10 is the safe statement.
+   state the three-term law with remainder `O(ℓ^{4/11})`. Until then V3 edit E10 is the safe statement.
 6. **Consistency.**
-   - (E3.1) implies #207's (CU.1) and #198's (0.1).
+   - (E3.0) implies (E3.1), which implies #207's (CU.1) and #198's (0.1).
    - Corollary E3′(1) implies #207's (CU′.2).
    - Corollary E3′(1), with `I^{cand} − c₁ = (1 − 3^{1/4}/2)|c₁| > 0` (#207 (CU′.2)), shows that the rejected density
-     approaches `B_{d,L}` from above, by the rejected cusp mass, now with a rate; Corollary E3′(2) bounds the approach
-     from above to order `ℓ^{4/11}`.
+     approaches `B_{d,L}` from above, by the rejected cusp mass, now with a rate. Corollary E3′(2) bounds the approach
+     from above to order `ℓ^{4/11}`. By (E3′.0), the only other `ρ_rej`-correction above order `ℓ^{4/11}` is
+     `−ν_eld^{far,r_0^*}`.
+   - (S′.1) at a fixed separation is `O(ℓ^{2/3})`, the order of #187's far bound. Accordingly (E3.0) holds with
+     `r_0^*` replaced by any fixed `r_0 ∈ (0, r_0^*]`: by Lemma S′ the elder mass from separations in `[r_0, r_0^*)` is
+     `O(ℓ^{2/3})`.
 
 ## 6. Sources (exact identities in `SOURCES.json`)
 
 | Tag | Path | Role |
 |---|---|---|
 | [R] | `frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md` (blob `247b3ecf`) | (R2)–(R5): pin covariance, regression, moments, pin densities; §4 scaled Hessians — consumed |
-| [P] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d`) | §2 finite-jet rank, §8 maximin and elder mark, §§9–10 as [E2] (the near/far identity), §15 parity factorization and (15.2) — consumed |
+| [P] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d`) | §2 finite-jet rank (also for Lemma H), §8 maximin and elder mark, §§9–10 as [E2] (the near/far identity), §15 parity factorization and (15.2) — consumed |
 | [E1] | `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md` (blob `213594d6`) | reading rule |
 | [E2] | `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (blob `fe9b9ce4`) | §9 replacement |
 | [REC] | `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md` (blob `75da2597`) | reading rule |
 | [C7-K] | `frontiers/c7_total_bounded_20260929/PROOF.md` (blob `28748b08`) | (K2); §4 `1 − e ≤ 1_{G_r^c}` — consumed |
 | [Z] | `frontiers/c7_zero_gap_limit_20260929/PROOF.md` (blob `5b6328ea`) | (Z13)–(Z14): the change of variables in the near/far identity — consumed |
-| #191 | `frontiers/remainder_vanishing_20260930/PROOF.md` (unmerged; v1.1 blob `441152df`) | Lemma E Steps 1–4, §2 (2.1), `r_0^*` — **consumed, unmerged** |
-| #198 | `frontiers/remainder_rate_20260930/PROOF.md` (unmerged; v1.1 blob `abfb98ae`) | (3.1), §3 sign window, Lemma B (1.3) and §1 identity, (2.1), Lemma F′ — **consumed, unmerged** |
-| #207 | `frontiers/cusp_second_order_20261001/PROOF.md` (unmerged; v1.1 blob `f6df5a73`) | §0, proof of CU.1, CU.2, structure of CU.3, proof of CU.5 and (5.1), §6 ((6.1), (CU.2)) — **consumed, unmerged** |
-| #218 | `frontiers/candidate_third_order_20261001/PROOF.md` (unmerged; blob `70ca57ef`) | Lemma D, (1.2), Lemma F (F1, F3, (F.2)), Lemma C (C1, C2, C3), Lemma O, Theorem T, Corollary T′, §4 — **consumed, unmerged** |
-| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (unmerged; blob `37dcf6ef`) | Theorem F — **consumed, unmerged, for (E3.3) and Corollary E3′(3) only** |
+| #191 | `frontiers/remainder_vanishing_20260930/PROOF.md` (merged 1 October 2026 at `9556547`; blob `441152df`) | Lemma E Steps 1–4, §2 (2.1), `r_0^*` — consumed |
+| #198 | `frontiers/remainder_rate_20260930/PROOF.md` (merged 1 October 2026 at `124c37d`; blob `abfb98ae`) | (3.1), §3 sign window, Lemma B's barrier (1.2) and §1 identity, Lemma W (W.1), (2.1), Lemma F′ — consumed |
+| #207 | `frontiers/cusp_second_order_20261001/PROOF.md` (unmerged; v1.1 blob `f6df5a73`) | §0, proof of CU.1, CU.2, structure of CU.3, §6 ((6.1), (CU.2)) — **consumed, unmerged** |
+| #218 | `frontiers/candidate_third_order_20261001/PROOF.md` (unmerged; blob `70ca57ef`) | Lemma D (also for `H̃`), (1.2) and its proof, Lemma F (F1, F3, (F.2)), Lemma C (C1, C2, C3), Lemma O, Theorem T, §4 — **consumed, unmerged** |
+| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (unmerged; blob `37dcf6ef`) | Theorem F at `ρ = r_0^*` — **consumed, unmerged, for (E3.3) and Corollary E3′(3) only** |
 | #216 | `frontiers/third_order_coefficient_20261001/` (unmerged) | numerical `c₂`, the Monte Carlo — cited only |
-| #188 | `frontiers/far_elder_flat_ridge_20260930/PROOF.md` (unmerged) | an alternative far bound — cited only |
+| #188 | `frontiers/far_elder_flat_ridge_20260930/PROOF.md` (unmerged) | Theorem G, an alternative far bound (Remark 2) — cited only |
 
 ## 7. Exact controls (`e3_check.py`; stdlib; exact rationals; byte-identical under `-O`)
 
-- **X1** the exponent ledger of §4: #218's ledger (least `4/11`) and the intermediate terms `ℓ^{1/4}s_c^{−9}`,
-  `ℓ²ρ_c^{−7+β}`, `ℓ^{7/10}`, `ℓ^{(3+β)/5}` for `β ∈ {1/8, 1/12, 1/16, 1/20}`, all with exponents `> 4/11`; the order
-  `ρ_c < ℓ^{1/5}`; and the facts used on `[ℓ^{1/5}, r₁]`: `κ ≤ r` and `κ^{1/2} ≤ r^β`.
+- **X1** the exponent ledger of §4.
+  - #218's ledger: least exponent `4/11`, attained exactly by `ρ_f⁵/ℓ` and `ℓ²ρ_f^{−6}`.
+  - The intermediate terms: `ℓ²ρ_c^{−7}` and `a³` on `[ρ_c, a]`; `ℓ^{5/3}a^{−7}` and `ℓ^{2/3}a^{−2}` on `[a, r_0^*]`. All
+    have exponents `> 4/11`, the least being `2/5`.
+  - The facts used: `ρ_f < ρ_c < a`; `k ≤ ℓ^{1/3}` on `[ρ_c, r_0^*]`; `κ ≤ ℓ^{7/15} ≤ 1` on `[a, r_0^*]`; and that
+    `a = ℓ^{2/15}` balances `a³` against `ℓ^{2/3}a^{−2}`.
 - **X2** the ridge identities (M1) and the closed forms (M4)–(M5), as exact polynomial identities in `Q[X, φ]`, with
   `g(X₃)` checked on a grid of rational `φ`.
 - **X3** the margins:
@@ -582,18 +782,47 @@ So `0 ≤ I^{eld} ≤ Cℓ^{4/9} + Cℓ^{1/3}r₁^β`, with `C` independent of `
   `(5/4 + 35Γ/8)² ≤ 80(1 + Γ)²` and `105/64 + (2911/128)Γ + (317/4)Γ² ≤ 80(1 + Γ)²`.
 - **X7** the pointwise facts of §§2–3: `0 ≤ loss_κ ≤ 9Y²`; the equivalence `|φ| < 1/3 ⟺ |Y′| < 2κ|Δ|`; the Lemma O′
   domination; and Step E2's `𝔅_5` bound `w_κ ≤ 12κ|Δ|τ` when `|Y_r| < 6κ|Δ| < |Y′|`.
+- **X8** Lemma S′'s linear algebra, on 121 instances in `d = 2, 3, 4`. Each has `−H̃ = O diag(λ) Oᵀ`, with `O` a rational
+  orthogonal matrix (Cayley transform) and rational `λ`, and `H_M = Λ_rH̃Λ_r`. The checks:
+  - `det H_M = r² det H̃`;
+  - `−H_M − r²λ_min(−H̃)I` is positive semidefinite, by all principal minors, so `λ_min(−H_M) ≥ r²λ_min(−H̃)`; at the
+    instance `H̃ = −I`, `r = 1/2` the matrix is singular, so the bound is attained;
+  - `|det H̃| ≤ λ_min(−H̃)‖H̃‖^{d−1}`.
+- **X9** Lemma H's exact form (H.1). The fields are exactly pinned polynomial fields (`d = 2`: degree 6 and 7; `d = 3`:
+  degree 6; `k = κr`), at the separations `r ∈ {1/3, 2/7, 1/2, 1}`. The checks:
+  - the pins themselves;
+  - `r^{−2}∂_u²f(M) = −6κ + ∫_0^1 s(1 − s)²∂_u⁴f(M + rsu) ds`;
+  - `r^{−1}∂_u∂_θf(M) = −∫_0^1 (1 − s)∂_u²∂_θf(M + rsu) ds`;
+  - as polynomials in `r`, the values at `r = 0`: `−6κ + f₄/12`, `−γ/2` and `A`.
 - **Mutants.** Each exits 1:
   - M1 `ρ_c = ℓ^{1/4 − 1/120}`;
   - M2 margin constant `8/5` in place of `3/2`;
   - M3 elder threshold `0.36` in place of `1/3` in X4;
   - M4 the claim `|j| ≤ a` in X5;
-  - M5 coefficient `1/λ` in place of `2/λ` in (1.2).
+  - M5 coefficient `1/λ` in place of `2/λ` in (1.2);
+  - M6 the factor `1` in place of `r²` in X8 (`λ_min(−H_M) ≥ λ_min(−H̃)`);
+  - M7 the kernel `s²(1 − s)` in place of `s(1 − s)²` in (H.1) (the same mass `1/12`, hence the same `r = 0` value);
+  - M8 the split at `ℓ^{1/5}` in place of `ℓ^{2/15}` (then `ℓ^{2/3}a^{−2} = ℓ^{4/15}`, below `4/11`).
 
   An unknown label exits 2.
 
-**What the controls do not test.** Lemma CU.1′ for non-polynomial fields, the probability estimates of Lemma CE
-(Steps E2–E6), Lemma G, Lemmas O′ and B′ as statements about random fields, and the assembly of §4. These are proved in
-prose only.
+**What the controls do not test.** Lemma CU.1′ for non-polynomial fields; the probability estimates of Lemma CE (Steps
+E2–E6); Lemma G; Lemma O′, Lemma H's covariance bounds and Lemma S′ as statements about random fields; and the assembly
+of §4. These are proved in prose only.
+
+**Exploration (floating point; archive only, not a control).**
+- *The Gaussian kernel on `R^d`, the large-`L` regime.* `Cov(H̃ | pins)` for `e^{−|z|²/2}` (`d = 2, 3`; 60-digit
+  `mpmath`) has smallest eigenvalue `0.1667` at `r = 0.001`. It decreases smoothly to `0.1360` at `r = 1`, `0.0714` at
+  `r = 2` and `0.0239` at `r = 3`, and the largest eigenvalue is `2` throughout.
+  - In `d = 2` the conditional covariance at `r → 0` is diagonal, with eigenvalues `24/144 = 1/6`, `2/4 = 1/2` and `2`:
+    `Var(f₄ | pins) = 105 − 81 = 24`, `Var(γ | pins) = 3 − 1 = 2` and `Var(A | pins) = 3 − 1 = 2`, for the entries
+    `f₄/12`, `−γ/2` and `A` of `H̃`.
+  - The decrease at large `r` is the scaling `H̃_uu = r^{−2}∂_u²f(M)`: once the pin at `S` stops constraining
+    `∂_u²f(M)`, the variance of `H̃_uu` is about `2r^{−4}` (`0.0247` at `r = 3`).
+- *Small tori.* The referee's independent probe (REFEREE_2, R2) found the bound positive and smooth at `r = 0` on tori
+  with `L = 2, 3, 6` in `d = 2` and `L = 3` in `d = 3`, over several frames, for `r` up to `1.5·min(1, L/(4√2))`. The
+  constant depends on `L` and the frame and can be tiny: `λ_min ≈ 4·10⁻⁵` at `d = 2`, `L = 2`, `u = e₁`,
+  `r ≈ 0.354`. Lemma H claims no uniformity in `L`.
 
 ## 8. Review slices
 
@@ -608,5 +837,6 @@ prose only.
   - the pathwise comparison (2.3);
   - the four bad events of Step E2 and their dyadic `𝒩_r`-bookkeeping;
   - the Gaussian comparisons of Steps E4 and E6.
-- **C** §§3–4: Lemmas O′ and B′, the decomposition, the fold-region elder deficit, the intermediate split, the limit
-  `r₁ ↓ 0`, and Corollary E3′.
+- **C** §§3–4: Lemma O′; Lemma H (the exact form (H.1), the uniform nondegeneracy at `r = 0` and `r > 0`, the
+  conditional moments); Lemma S′ (the rescaled barrier, the sign window, the dyadic use of Lemma D); the decomposition
+  at `r_0^*`, the fold-region elder deficit, the split at `ℓ^{2/15}`; and Corollary E3′.

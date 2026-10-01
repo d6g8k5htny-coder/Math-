@@ -1,26 +1,39 @@
-# The elder density to third order (CL-ELDER-THIRD-ORDER-20261001-v1)
+# The elder density to third order (CL-ELDER-THIRD-ORDER-20261001-v1.1)
 
 Author-side proof candidate. Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review required.
 
 **Statement (Theorem E3).** For every `d ≥ 2` and `L > 0`, as `ℓ ↓ 0`,
 
+    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{4/11}),   0 ≤ ν_eld^{far,r_0^*}(ℓ) ≤ C ℓ^{1/3}.   (E3.0)
+
+Hence:
+
     ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + O(ℓ^{1/3});                      (E3.1)
     ν_eld(ℓ) ≥ c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} − C ℓ^{4/11};            (E3.2)
 
-and if, in addition, Math- #187's Theorem F holds (the far elder density is `O(ℓ^{2/3})` at each fixed separation),
+and if, in addition, Math- #187's Theorem F holds at the one separation `ρ = r_0^*` (the far elder density there is
+`O(ℓ^{2/3})`),
 
-    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + o(ℓ^{1/3}).           (E3.3)
+    ν_eld(ℓ) = c ℓ^{−1/3} + c₁ ℓ^{1/4} + c₂ ℓ^{1/3} + O(ℓ^{4/11}).           (E3.3)
 
+- (E3.0) reduces the elder third-order law exactly to the far elder density at the fixed separation `r_0^*`. The law
+  holds with remainder `O(ℓ^θ)`, `θ ≤ 4/11`, if and only if that far density is `O(ℓ^θ)`.
 - `c₁ < 0` is #207's cusp coefficient (CU.2).
 - `c₂` is #218's (0.1): the fold-scale Hadamard finite part that Math- #216 defines and computes (`0.16123405` in `d = 3`
   for the Gaussian kernel; a numerical approximation, not certified).
 - (E3.1) is a rate for #207's (CU.1), which claimed none.
 
-**Corollary E3′ (the rejected density).** With Theorem T (#218):
+**Corollary E3′ (the rejected density).** With Theorem T (#218),
+`ρ_rej = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} − ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{4/11})`. In particular:
 - `ρ_rej = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + O(ℓ^{1/3})`, a rate for #207's (CU′.2);
 - `ρ_rej ≤ B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + Cℓ^{4/11}`;
-- under #187, `ρ_rej = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + o(ℓ^{1/3})`. The candidate and elder densities have the same
+- under #187, `ρ_rej = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + O(ℓ^{4/11})`. The candidate and elder densities have the same
   `ℓ^{1/3}` coefficient, so the rejected density has no `ℓ^{1/3}` term.
+
+**What changed in v1.1.** v1 bounded the intermediate separations by an `ε`-argument (`Cℓ^{1/3}r₁^β`, then `r₁ ↓ 0`).
+So its (E3.3) had no rate, and it needed #187 at every small separation. v1.1 replaces v1's Lemma B′ with Lemmas H and
+S′. The intermediate separations then contribute `O(ℓ^{2/5})`, and only the far part at the fixed radius `r_0^*` is
+left. #207's Lemma CU.5 is no longer consumed.
 
 **The new lemmas.**
 - **Lemma Q (the elder decision with explicit margins).** This is #207's Proposition CU.3 made quantitative. The elder
@@ -34,55 +47,72 @@ and if, in addition, Math- #187's Theorem F holds (the far elder density is `O(�
   regularity of the jumping elder loss.
 - **Lemma O′ (elder overlap).** `𝒜^{cand} − 𝒜^{eld} = O(1/κ)`, so the elder cusp loss tends to `A₂(b, 0)` like the
   candidate loss.
-- **Lemma B′ (intermediate separations).** #198's barrier, times the sign window, times #207 CU.5's typed probability,
-  gives `Cℓ^{1/3}r₁^β` on `[ℓ^{1/5}, r₁]`.
+- **Lemma H (the rescaled Hessian at `M`; new in v1.1).** `H̃ = D_r^{−1}D²f(M)D_r^{−1}`, with `D_r = diag(r, 1, …, 1)`,
+  equals `−6κe_ue_uᵀ` plus explicit segment integrals of `∂_u⁴f` and `∂_u²∇_Θf` (the exact form (H.1)). It is a
+  Gaussian with covariance between `cI` and `CI` uniformly in `r ≤ r_0^*`, by [P] §2's linear independence at `r > 0`
+  and at `r = 0`. This is the conditional variance bound for the axial curvature under the pins that #198 Remark 1
+  asks for.
+- **Lemma S′ (new in v1.1).** `E_Q[(W_r/r²)e] ≤ Cℓ^{2/3}r^{−2}(κ + r)P^N` for `r ≤ r_0^*` and `k ≤ r`.
+  - #198's barrier puts `λ_min(−H̃)` below `Cℓ^{1/3}r^{−2}`.
+  - Lemma D for `H̃` charges that event twice: once in `|det H̃|` and once in probability.
 
 **The assembly.** It uses #218 §4's decomposition and ledger with the elder kernel, so the least exponent is again `4/11`.
 - The fold-region elder deficit is `O(ρ_f⁵/ℓ)`, by [C7-K] (K2).
-- The far part is `O(ℓ^{1/3})` by #198 Lemma F′, which gives (E3.1).
-- With #187's `O(ℓ^{2/3})` and `r₁ ↓ 0`, the far part gives (E3.3).
+- The intermediate separations `[ρ_c, r_0^*]` contribute `O(ℓ^{2/5})`: #198 (W.1) below `ℓ^{2/15}`, Lemma S′ above.
+- The far part `ν_eld^{far,r_0^*}` is kept in (E3.0). #198 Lemma F′ bounds it by `Cℓ^{1/3}`, and #187 by `Cℓ^{2/3}`.
 
 **Numerical illustration (exploration).** The elder-pair row of Math- #216 v1.2's full-field Monte Carlo uses the exact
 elder rule, by union–find. It fits the three-term law with data/law `1.006 ± 0.004` in `d = 2` and `1.008 ± 0.010` in
 `d = 3`, and rejects the two-term law.
 
 **Not claimed:**
-- a rate in (E3.3);
-- (E3.3) without #187;
+- (E3.3) and Corollary E3′(3) without #187;
+- sharpness of `4/11`;
 - certified constants;
 - uniformity in `d` or `L`;
 - anything about the adjacent-pair density.
 
 **Dependencies.**
-- *Consumed, unmerged:* Math- #191, #198, #207 and #218; for (E3.3) and Corollary E3′(3) only, #187. This packet must be
-  rebound if any of them changes.
-- *Merged:* [R], [P] (with [E1], [E2], [REC]), [C7-K] and [Z].
+- *Consumed, unmerged:* Math- #207 and #218; for (E3.3) and Corollary E3′(3) only, #187 at `ρ = r_0^*`. This packet
+  must be rebound if any of them changes.
+- *Consumed, merged:* Math- #191 and #198 (merged on 1 October 2026 with the blobs consumed here), [R], [P] (with [E1],
+  [E2], [REC]), [C7-K] and [Z].
 - *Cited:* #216, #188.
 
 **Files.**
 - `PROOF.md`.
 - `e3_check.py`: standard library, exact rationals. Its output is `RESULTS.json`, byte-identical under `-O` and on
-  CPython 3.10–3.14; the run takes about 10 s. The controls are:
-  - **X1** the exponent ledger, with the intermediate terms;
+  CPython 3.10–3.14; the run takes about 11 s. The controls are:
+  - **X1** the exponent ledger, with the intermediate split at `ℓ^{2/15}`;
   - **X2** the ridge identities;
   - **X3** the margins and the sharpness of `3/2`;
   - **X4** the one-dimensional decision under perturbation, in all three cases;
   - **X5** the weighted Taylor structure on exactly pinned polynomial fields in `d = 2, 3`;
   - **X6** Lemma S and the `C⁰`/`C²` polynomial bounds;
-  - **X7** the pointwise facts of Lemmas CE and O′.
+  - **X7** the pointwise facts of Lemmas CE and O′;
+  - **X8** Lemma S′'s linear algebra (`det H_M = r² det H̃`; `λ_min(−H_M) ≥ r²λ_min(−H̃)` by principal minors);
+  - **X9** Lemma H's exact form (H.1) on exactly pinned polynomial fields, and its `r = 0` values.
 
-  Mutants M1–M5 exit 1, and an unknown label exits 2.
+  Mutants M1–M8 exit 1, and an unknown label exits 2.
 - `SOURCES.json`: the exact identities of all sources.
 
-**Review record.** Before submission, a clean-context same-family referee read the whole note against its sources.
-- Verdict: ACCEPT WITH MINOR FIXES, with no major finding. Its four minor findings and nine nits are applied.
-- A delta check of the revision by the same referee: ACCEPT.
-- The referee's two-dimensional union–find test of Lemma Q's decision agreed in 48 of 48 exactly pinned fields
+**Review record.**
+- v1, same-family: a clean-context referee read the whole note against its sources. Verdict: ACCEPT WITH MINOR FIXES,
+  with no major finding; its four minor findings and nine nits are applied. A delta check of the revision by the same
+  referee: ACCEPT. Its two-dimensional union–find test of Lemma Q's decision agreed in 48 of 48 exactly pinned fields
   (floating point; exploration).
+- v1, nonauthor (on #220, at head `6da0715`):
+  - OpenAI / Codex (delegated) reviewed Slices A, B and C, each PASS_TECHNICAL at its stated scope. It requested two
+    amendments. OA-220-B-01 (the integrability hypothesis of Lemma G (b)) is applied. OA-220-C-01 (v1 Remark 2's
+    shrinking cut-off) is superseded, because v1.1 has no shrinking cut-off.
+  - xAI checked the ridge identities of Lemma Q with sympy.
+- v1.1, same-family: a clean-context referee read the v1 → v1.1 delta against all eight sources. Verdict: ACCEPT WITH
+  MINOR FIXES, with no major finding; one minor finding and eleven nits, all applied. Its delta check of the fixes:
+  ACCEPT.
 
 Same account, zero organizational independence.
 
 **Review slices** (PROOF §8):
 - **A** §1: Lemma CU.1′, Lemma S and Lemma Q;
 - **B** §2: Lemma G and Lemma CE;
-- **C** §§3–4: Lemmas O′ and B′, and the assembly.
+- **C** §§3–4: Lemmas O′, H and S′, and the assembly.
