@@ -23,12 +23,13 @@
    "passed": true
   },
   "T4_d3_gauss": {
-   "c": "0.041775931845",
-   "c2": "0.161234050",
-   "c2_coarse_grid": "0.161234005",
-   "c2_over_c": "3.8594962",
-   "c_3inf": "0.041775931841",
-   "grids": "b 40, k 80, cone 32x32; coarse b 32, k 48, cone 24x24",
+   "c": "0.0417759318406",
+   "c2": "0.1612340502",
+   "c2_grid_40_80_32": "0.1612340502",
+   "c2_over_c": "3.85949620",
+   "c2_second_rset": "0.1612340505",
+   "c_3inf": "0.0417759318406",
+   "grids": "b 56, k 120, cone 48x48; comparisons b 40, k 80, cone 32x32 (both r-sets)",
    "passed": true
   },
   "T5_no_r1_term": {
@@ -83,7 +84,7 @@
   }
  },
  "mutant": null,
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1.1 controls",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.2 controls",
  "passed": true,
  "scientific_effect": "NONE"
 }

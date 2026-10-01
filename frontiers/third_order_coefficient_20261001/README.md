@@ -1,10 +1,20 @@
-# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.1)
+# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.2)
 
 Formal coefficient with numerical evidence. Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review
-required. v1.1 applies the three Codex findings on v1 (`205550f`):
-- the replay is byte-identical on CPython 3.10–3.14 (`math.fsum`, a scaled `r`-fit);
-- the cited unmerged sources are verified by blob id;
-- the owner provenance is recorded exactly.
+required.
+
+**v1.2** applies the two Codex findings on v1.1 (`605af74`) and one author-side correction:
+- T4 now runs at a refined grid and compares it with the old grid and with a second `r`-set. Every grid, `r`-set and
+  summation-order variation moves `c₂` by `≤ 7·10⁻¹⁰` absolute, which supports the eight digits quoted.
+- CI binds each cited unmerged source to its recorded commit, path and blob.
+- **Correction.** v1.1 said that a rate in #207's CU.4 would suffice for a proof in `d ≥ 2`. That understated it; see
+  "Status by dimension".
+- The Monte Carlo counts are final, and the elder window is tested directly.
+
+**v1.1** applied the three Codex findings on v1 (`205550f`):
+- byte-identical replay on CPython 3.10–3.14;
+- blob-id verification of the cited unmerged sources;
+- exact owner provenance.
 
 The coefficients are unchanged and are quoted to 8 digits. Nothing is consumed. The computation implements the merged two-point kernel of [R]
 (`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`). Math- #207, #214 and #191 are cited for comparison.
@@ -25,7 +35,15 @@ window.
 **Status by dimension.**
 - **`d = 1`.** The formula equals #214's `2B₂`, which is a theorem there. The finite part matches as an identity, and the
   total to `10⁻⁹` for two kernels.
-- **`d ≥ 2`.** The expansion is formal (matched asymptotics, NOTE §1). A proof needs a rate `O(r)` in #207's CU.4.
+- **`d ≥ 2`.** For the elder density the expansion is formal (matched asymptotics, NOTE §1). A proof needs three
+  things (NOTE §0):
+  1. a rate in #207's kernel limit CU.4. In #218's ledger, an error `r^θ(1 + κ)^N` with `θ > max(2/5, (N+1)/4)`
+     suffices. For the elder kernel this is a quantitative Proposition CU.3;
+  2. a quantitative fold-scale expansion `A_r = A₀ + r²A₂ + O(r³(1 + k^{−1}))`;
+  3. for the elder density, a bound `o(ℓ^{1/3})` at intermediate separations `ℓ^{1/4} ≪ r ≤ r₁`. #198's Lemma B gives
+     only `O(ℓ^{1/3}ρ^{−1})` there.
+- **The candidate density.** It needs only 1 and 2, and **Math- #218 (Theorem T) supplies both**, at candidate status:
+  `ν_cand = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{4/11})` in every `d ≥ 2`, with this `c₂`.
 
 **Values** for the Gaussian kernel, which is the SIDE24 covariance up to `1 + O(e^{−L²/8})`:
 
@@ -53,12 +71,21 @@ elder-rule persistence of the periodized Gaussian field:
 The runs are `d = 2` with `L = 64` and `d = 3` with `L = 16`. Integrity checks: Kac–Rice counts, Euler characteristic 0,
 dense-seed completeness.
 
-The parameter-free three-term law fits on `[10⁻⁴, 10⁻²]`:
-- `d = 2`: data/law `0.999 ± 0.007`, `χ² = 5.1/11`;
-- `d = 3`: data/law `1.029 ± 0.020`, `χ² = 9.4/11`.
+Final counts are 4000 samples (volume `1.64·10⁷`) in `d = 2` and 996 samples (`4.08·10⁶`) in `d = 3`. On
+`[10⁻⁴, 10⁻²]`:
 
-The adjacent-pair density fits with `I^{cand}` in place of `c₁`. The two-term law is rejected. These are interim numbers
-(1150 and 240 samples); final ones follow when the runs finish.
+| `d` | three-term law: data/law | `χ²` | two-term law: ratio | `χ²` |
+|---|---|---|---|---|
+| 2 | `1.006 ± 0.004` | `7.0/11` | `1.089` | `714/11` |
+| 3 | `1.008 ± 0.010` | `5.0/11` | `1.122` | `175/11` |
+
+- The three-term law is parameter-free; the two-term law is rejected.
+- The adjacent-pair density fits with `I^{cand}` in place of `c₁`.
+- The rejected-adjacent coefficient is `0.0922 ± 0.0039` (`d = 2`), against `I^{cand} − c₁ = 0.0921`.
+- On `[10⁻⁴, 3·10⁻²]` the elder data show the next term, about `0.03ℓ^{1/2}` in both dimensions.
+- **The elder window, tested directly.** The elder fraction of adjacent pairs, plotted against `|φ|` from the midpoint
+  jets, crosses `1/2` at `|φ| ≈ 1/3` in every `ℓ`-range. The rule `1{|φ| < 1/3}` disagrees with the computed elder mark
+  in `8%` of pairs at `ℓ ≈ 10⁻²` and `0.2%` below `10⁻⁴` (`d = 2`).
 
 **Files.**
 - `NOTE.md`: the definition and its formal derivation (§1); the computation (§2, including the `d = 1` identity with #214);
@@ -68,7 +95,7 @@ The adjacent-pair density fits with `I^{cand}` in place of `c₁`. The two-term 
   - **T1–T2** `d = 1` against #214's closed forms `C₀`, `2B₂`, for the Gaussian kernel and the mixture
     `(e^{−x²/2} + e^{−2x²})/2`;
   - **T3** `d = 2`: `c = c_{2,∞}`, and `c₂` from two `r`-sets;
-  - **T4** `d = 3`: `c = c_{3,∞}`, and `c₂` on two grids;
+  - **T4** `d = 3`: `c = c_{3,∞}`; `c₂` on a refined grid, compared with the old grid and a second `r`-set;
   - **T5** the expansion has no `r¹` term;
   - **T6** the subtracted term is the cusp-loss limit (0.1), checked in `d = 2`.
 - `SOURCES.json`: exact identities of the sources. It also gives the sha256 of the archived exploration code.

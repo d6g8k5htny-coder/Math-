@@ -33,7 +33,7 @@ jobs:
         run: |
           set -euo pipefail
           python -B -S - <<'PY'
-          import base64, hashlib, json, os, pathlib, subprocess, sys, urllib.request
+          import base64, hashlib, json, os, pathlib, subprocess, sys, urllib.parse, urllib.request
           root = pathlib.Path('frontiers/third_order_coefficient_20261001').resolve()
           manifest = json.loads((root / 'SOURCES.json').read_text())
           present = sorted(p.name for p in root.iterdir())
@@ -54,21 +54,31 @@ jobs:
                   raise ValueError('merged source drifted: ' + entry['path'])
           if manifest.get('consumed_unmerged'):
               raise ValueError('this packet declares no unmerged dependency')
-          # cited unmerged sources (comparison only) are verified by their pinned blob ids through the repository API:
-          # the cited bytes must exist in this repository with the recorded size and sha256
-          for entry in manifest.get('cited_unmerged', []):
-              req = urllib.request.Request(
-                  'https://api.github.com/repos/' + os.environ['GH_REPOSITORY'] + '/git/blobs/' + entry['git_blob'],
-                  headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json'})
+          # cited unmerged sources (comparison only) are bound to their recorded commit, path and blob through the
+          # repository API (v1.2, Codex P2 on v1.1): the recorded head must resolve, the recorded path in that head's tree
+          # must be a file with the recorded blob id and size, and the blob's bytes must have the recorded sha256
+          api = 'https://api.github.com/repos/' + os.environ['GH_REPOSITORY']
+          def get_json(url):
+              req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'],
+                                                         'Accept': 'application/vnd.github+json'})
               with urllib.request.urlopen(req, timeout=60) as resp:
-                  blob = json.load(resp)
+                  return json.load(resp)
+          for entry in manifest.get('cited_unmerged', []):
+              commit = get_json(api + '/commits/' + entry['head'])
+              if commit.get('sha') != entry['head']:
+                  raise ValueError('recorded head does not resolve: ' + entry['head'])
+              node = get_json(api + '/contents/' + urllib.parse.quote(entry['path']) + '?ref=' + entry['head'])
+              if (node.get('type') != 'file' or node.get('path') != entry['path'] or node.get('sha') != entry['git_blob']
+                      or node.get('size') != entry['bytes']):
+                  raise ValueError('recorded head/path does not map to the recorded blob: ' + entry['path'])
+              blob = get_json(api + '/git/blobs/' + entry['git_blob'])
               if blob.get('encoding') != 'base64':
                   raise ValueError('unexpected blob encoding for ' + entry['path'])
               data = base64.b64decode(blob['content'])
               framed = b'blob ' + str(len(data)).encode() + b'\0' + data
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or hashlib.sha1(framed).hexdigest() != entry['git_blob']:
                   raise ValueError('cited unmerged source differs from its pinned blob: ' + entry['path'])
-              print(json.dumps({'cited_unmerged_verified': entry['path'], 'git_blob': entry['git_blob'], 'head': entry.get('head')}))
+              print(json.dumps({'cited_unmerged_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head']}))
           script = str(root / 'c2_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):

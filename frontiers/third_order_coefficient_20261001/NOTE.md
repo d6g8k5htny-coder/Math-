@@ -1,7 +1,25 @@
 # The third-order coefficient of the short-lifetime law: the fold-scale finite part, `d = 1, 2, 3`
 
-Object: CL-THIRD-ORDER-COEFF-20261001-v1.1.
+Object: CL-THIRD-ORDER-COEFF-20261001-v1.2.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+**v1.2 (after the Codex review of v1.1, head `605af74`, and one author-side correction).**
+- *Requirements for a proof (author-side correction).* v1.1 said that a rate `O(r)` in #207's CU.4 would suffice for a
+  proof in `d ≥ 2`. That understated it. §0 "What is not claimed" now lists three requirements:
+  - a rate in CU.4;
+  - a quantitative fold-scale expansion;
+  - for the elder density, a bound `o(ℓ^{1/3})` at intermediate separations. On file, #198's Lemma B gives only
+    `O(ℓ^{1/3}ρ^{−1})` there.
+
+  The candidate density needs only the first two, and Math- #218 (Theorem T) now proves its expansion with this `c₂`,
+  at candidate status.
+- *Digits.* T4 now runs at a refined grid and compares it with the former production grid and with the second `r`-set.
+  v1.1's coarse comparison grid used 32 nodes in `b`, which under-resolves the height integral and moved `c₂` by
+  `4.5·10⁻⁸`. The converged value is unchanged. All stated digits are stable to `≤ 7·10⁻¹⁰` (§2.4).
+- *Sources.* The workflow binds each cited unmerged source to its recorded commit and path, not only to its blob id.
+- *Monte Carlo.* §3 gives the final counts and a direct test of the elder window.
+
+The coefficients are unchanged.
+
 **v1.1 (after the Codex review of v1 on Math- #216, head `205550f`).**
 - *Replay.* The replay is now interpreter-independent: every float sum uses `math.fsum`, and the `r`-fit uses `r/max r`.
   The output is byte-identical on CPython 3.10–3.14.
@@ -60,10 +78,11 @@ a fold-scale quantity, and the elder rule enters only through the cusp window.
    |---|---|---|---|---|
    | 1 | `0.110110378959` (`C₀`) | `0.23004458` (`= 2B₂`) | `2.089218` | `−2.0671` |
    | 2 | `0.073406919306` (`c_{2,∞}`) | `0.22152441` | `3.017759` | `−3.6699` |
-   | 3 | `0.041775931845` (`c_{3,∞}`) | `0.16123405` | `3.859496` | `−5.0711` |
+   | 3 | `0.041775931841` (`c_{3,∞}`) | `0.16123405` | `3.859496` | `−5.0711` |
 
-   The numerical precision of `c₂` is about `2·10⁻⁸` relative. Changing the summation order (the built-in `sum` of
-   CPython 3.12+ against `math.fsum`) moves it by up to that amount.
+   The stated digits are stable. Changing the `r`-set, refining the grids, or replacing exactly rounded summation by
+   plain left-to-right summation moves `c₂` by at most `7·10⁻¹⁰` absolute (§2.4). v1.1's figure `2·10⁻⁸` was too
+   pessimistic.
 
 3. **Full-field Monte Carlo in `d = 2` and `d = 3` (§3; exploration, outside the repository).** The *parameter-free*
    three-term law (0.2) matches the actual elder-rule persistence of the periodized Gaussian field on `[10⁻⁴, 10⁻²]`.
@@ -75,9 +94,33 @@ moderate `ℓ`. The combined correction is `1%` at `ℓ ≈ 4.6·10⁻⁵` and `
 (#207 §8, V3 edit E15) the corresponding values are `2.3·10⁻⁵` and `1.2·10⁻³`. §4 gives the table.
 
 **What is not claimed.**
-- No proof of (0.2) in `d ≥ 2`. A proof needs a rate `O(r)` in #207's kernel limit CU.4, uniform in `κ` with integrable
-  domination, together with quantitative fold-scale bounds. That is the open item "a rate for the `o(ℓ^{1/4})`"
-  (concordance §9 item 6).
+- No proof of (0.2) for the elder density in `d ≥ 2`. A proof needs three ingredients. For the candidate density the
+  first two are now supplied, at candidate status, by **Math- #218** (Theorem T; see below).
+  1. **A rate in CU.4.** #207's kernel limit CU.4 must hold with a rate:
+     `|r^{−2}(A_r − A₀)(b, κr, u) − (𝒜 − 𝒜^{con})(b, κ, u)| ≤ C r^θ (1 + κ)^N (1 + |b|)^N e^{−cb²}`.
+     - In #218's ledger, `θ > max(2/5, (N + 1)/4)` suffices. `θ > 1/3` alone does not suffice there; this corrects an
+       earlier draft of this item, found by #218's referee.
+     - #218's Lemma C proves `θ = 1`, `N = 2` for the *candidate* kernel.
+     - For the elder kernel this needs a quantitative form of Proposition CU.3. The decision's height margin is
+       `κ·min(1, 12||φ| − 1/3|)`: linear in the distance from the window's edge.
+  2. **A quantitative fold-scale expansion.** `A_r = A₀ + r²A₂ + O(r³(1 + k^{−1}))`, uniformly down to `k ≈ r^{1−}`.
+     The `r³/k` term is the boundary layer of the typed region near `det A = 0`. #218's Lemma F proves it, together with
+     the identification `A₂(b, 0, u) = −12π₀E₀[Y²1{A<0} | b]` of (0.1).
+  3. **For the elder density only: the intermediate separations.** The contribution of `Sℓ^{1/4} ≤ r ≤ r₁`, for one
+     fixed `r₁ > 0`, must be `o(ℓ^{1/3})`.
+     - The tools on file do not give this. #198's Lemma B bounds this range by `O(ℓ^{1/3}ρ^{−1})`, which is never
+       `o(ℓ^{1/3})`. #207's Lemma CU.5 route gives only `o(ℓ^{1/4})`.
+     - Formally the range is `O(ℓ^{1/2})`. The cusp-scale elder weight is `O(κ³)`, with relative corrections
+       `O(r/κ)`.
+     - Beyond `r₁`, the far bounds `O(ℓ^{2/3})` of #187 and `O(ℓ^N)` of #188 suffice. #198's Lemma F′ (`O(ℓ^{1/3})`)
+       does not.
+
+  The **candidate** density needs only 1 and 2. Its intermediate separations are bounded by
+  `O(ℓ^{1/4}S^{−7} + ℓ^{1/2}S^{−2})` (#207 Lemma L), which is `o(ℓ^{1/3})` for `S = ℓ^{−a}`, `a > 1/84`. Its far part
+  is `O(ℓ)` (#207 (7.2)). **Math- #218 (Theorem T)** proves, at candidate status,
+  `ν_cand = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{4/11})` with this `c₂`.
+
+  v1.1 said only that "a rate `O(r)` in CU.4" was needed. That understated 2 and missed 3.
 - No certified enclosure of `c₂`. The values are floating point; the stated digits are stable under the grid and `r`-set
   changes of checkers T3, T4.
 - No statement about the terms after `c₂`.
@@ -113,11 +156,17 @@ Integrating over `r` gives three pieces, each converging separately:
     ∫ [A₂(b, ℓ/r³) − A₂(b, 0)] dr = (ℓ^{1/3}/3) ∫ [A₂(b, k) − A₂(b, 0)] k^{−4/3} dk,
     ∫ (𝒜^{eld} − 𝒜^{con})(b, ℓ/r⁴) dr = ℓ^{1/4} ∫ (𝒜^{eld} − 𝒜^{con})(b, s^{−4}) ds.
 
-The third piece is #207's `c₁` integrand. The neglected pieces are the following, each `O(ℓ^{1/2})` *if* the cusp limit
-CU.4 holds with rate `O(r)`:
-- the fold remainder;
-- the cusp remainder;
-- the mixed term `A₂(b, k) − A₂(b, 0) = O(k)` at `s ≍ 1`.
+The third piece is #207's `c₁` integrand. The neglected pieces are formally `O(ℓ^{1/2})`:
+- the fold remainder. With requirement 2 of §0 it is `O(ρ_f² + ρ_f⁵/ℓ)` below `r = ρ_f`, which is `o(ℓ^{1/3})` for
+  `ρ_f = ℓ^{1/4+a'}`, `a' > 1/60`;
+- the cusp remainder. With requirement 1 it is `o(ℓ^{1/3})`;
+- the mixed term `A₂(b, k) − A₂(b, 0) = O(k)` at `s ≍ 1`, which integrates to `O(ℓ^{1/2}σ^{−2})` above `s = σ`;
+- the intermediate separations `ℓ^{1/4} ≪ r ≤ r₁` and the far part. For the elder density these need requirement 3, and
+  #187 or #188.
+
+Given requirements 1–3, these estimates close the argument. The interface terms `±A₂(b, 0)ρ_f` cancel, because
+`(𝒜^{eld} − 𝒜^{con})(s) = A₂(b, 0) + O(s⁴)` as `s → 0`. This is a sketch; it is not written here as a proof. v1.1
+listed only the first three pieces.
 
 In `d = 1` this is exactly the structure of #214's Proposition 2.2:
 - the fold part (c) gives `B₂^{(1)}`;
@@ -167,14 +216,18 @@ There it is proved.
   mixture.
 - *Tail.* The term `|S^{d−1}|K^{−1/3}∫db(−A₂(b, 0))` beyond `K` is added analytically.
 - *`d = 3` cone.* A Gauss–Legendre rule in `(s, t)`, with `λ₁ = −s` and `λ₂ = −s − t`.
-- *Convergence.*
+- *Convergence (v1.2).* All changes below are absolute changes of `c₂`.
 
-  | `d` | `c` relative error | `c₂` stability |
-  |---|---|---|
-  | 2 | `2·10⁻¹⁴` | two `r`-sets agree to `3·10⁻⁹` |
-  | 3 | `10⁻¹⁰` (grid `(40, 80, 32²)`) | a coarser grid `(32, 48, 24²)` moves it by `4.5·10⁻⁸` |
+  | `d` | `c` relative error | `r`-set | grid refinement | plain summation |
+  |---|---|---|---|---|
+  | 1 | `2·10⁻¹⁴` | against `2B₂`: `6·10⁻¹⁰` (Gaussian), `4·10⁻¹⁰` (mixture) | `k`: `80 → 120`, `5·10⁻¹²` | — |
+  | 2 | `8·10⁻¹⁴` | `7·10⁻¹⁰` | `(48, 80) → (64, 120)`: `< 10⁻¹²` | `3·10⁻¹⁰` |
+  | 3 | `7·10⁻¹³` (grid `(56, 120, 48²)`) | `3·10⁻¹⁰` | `(40, 80, 32²) → (56, 120, 48²)`: `6·10⁻¹¹`; `(64, 160, 64²)`: `2·10⁻¹¹` more | `2·10⁻¹⁰` |
 
-  Rounding sensitivity is about `2·10⁻⁸` relative (v1.1 note).
+  - The `r`-fit bias dominates. Every variation is below `10⁻⁹`, so the eight-digit roundings are stable.
+  - v1.1's comparison grid `(32, 48, 24²)` moved `c₂` by `4.5·10⁻⁸` (Codex P2). The cause is the height quadrature:
+    32 nodes on `b ∈ [−8, 8]` under-resolve the `d = 3` integrand, while `(32, 80, 32²)` and `(40, 48, 32²)` isolate it.
+  - v1.1's summation sensitivity `2·10⁻⁸` predates the scaled `r`-fit; the measured value is `≤ 3·10⁻¹⁰`.
 
 ## 3. Full-field Monte Carlo (exploration; outside the repository)
 
@@ -190,35 +243,73 @@ There it is proved.
 - **Persistence.** The superlevel `H₀` persistence follows by union–find with the elder rule. It is exact for the computed
   critical values.
 - **Integrity.**
-  - Critical-point counts match Kac–Rice: `d = 2`: `376.50` maxima per sample against `376.37`.
+  - Critical-point counts match Kac–Rice. In `d = 2` there are `376.42 ± 0.16` maxima and `752.70` saddles per sample,
+    against `376.37` and `752.75`. In `d = 3` there are `142.8` extrema and `436.4` saddles of each index per sample,
+    against `142.8` and `436.4`.
   - The Euler characteristic is 0 in every retained sample.
   - Every maximum but one dies.
   - A dense-seed Newton search found no missed critical point in six `20 × 20` subregions (`d = 2`) and two `5³` subregions
     (`d = 3`).
   - Taylor evaluation matches exact trigonometric evaluation to `10⁻¹⁴` (`d = 2`) and `3·10⁻¹⁰` (`d = 3`).
+  - In `d = 3`, 4 of 1000 samples are flagged and excluded: 3 have a failed ascent and 1 has Euler characteristic 1. In
+    `d = 2`, none of 4000 is flagged.
 
-**Results (interim: `d = 2`, 1150 samples, volume `4.7·10⁶`; `d = 3`, 240 samples, volume `9.8·10⁵`).** Counts are binned
-in 24 logarithmic bins on `[10⁻⁵, 0.3]` and compared with the bin integrals of (0.2). There are no free parameters.
+**Results (final, v1.2: `d = 2`, 4000 samples, volume `1.64·10⁷`; `d = 3`, 996 samples, volume `4.08·10⁶`).** Counts
+are binned in 24 logarithmic bins on `[10⁻⁵, 0.3]` and compared with the bin integrals of (0.2). There are no free
+parameters.
 
 | `d` | range of `ℓ` | elder pairs: data/(0.2) | `χ²/bins` | adjacent pairs: data/(0.2 with `I^{cand}`) | `χ²/bins` |
 |---|---|---|---|---|---|
-| 2 | `[10⁻⁴, 10⁻²]` | `0.999 ± 0.007` | `5.1/11` | `0.997 ± 0.007` | `5.9/11` |
-| 2 | `[10⁻⁴, 3·10⁻²]` | `1.012 ± 0.005` | `22.1/14` | `1.003 ± 0.004` | `9.9/14` |
-| 3 | `[10⁻⁴, 10⁻²]` | `1.029 ± 0.020` | `9.4/11` | `1.022 ± 0.020` | `10.2/11` |
-| 3 | `[10⁻⁴, 3·10⁻²]` | `1.027 ± 0.014` | `11.8/14` | `1.009 ± 0.013` | `10.7/14` |
+| 2 | `[10⁻⁴, 10⁻²]` | `1.006 ± 0.004` | `7.0/11` | `1.004 ± 0.004` | `6.9/11` |
+| 2 | `[10⁻⁴, 3·10⁻²]` | `1.013 ± 0.002` | `44.9/14` | `1.004 ± 0.002` | `12.8/14` |
+| 3 | `[10⁻⁴, 10⁻²]` | `1.008 ± 0.010` | `5.0/11` | `0.999 ± 0.010` | `5.8/11` |
+| 3 | `[10⁻⁴, 3·10⁻²]` | `1.026 ± 0.007` | `26.9/14` | `1.001 ± 0.006` | `6.5/14` |
 
-On `[10⁻⁴, 10⁻²]` in `d = 2`, the leading term alone gives `χ² = 61/11`, and the two-term law `χ² = 96/11`. Their total
-ratios there are `0.94` and `1.09`.
+**Shorter laws.** On `[10⁻⁴, 10⁻²]` both are rejected:
 
-Beyond `ℓ ≈ 0.03` the elder data exceed (0.2) by a few per cent, from the next terms.
+| `d` | leading term alone: ratio | `χ²` | two-term law: ratio | `χ²` |
+|---|---|---|---|---|
+| 2 | `0.941` | `335/11` | `1.089` | `714/11` |
+| 3 | `0.911` | `116/11` | `1.122` | `175/11` |
+
+The interim runs (1150 and 240 samples) gave consistent ratios.
+
+**The next term.** On `[10⁻⁴, 3·10⁻²]` the elder data exceed (0.2) by a term that fits `eℓ^{1/2}`. The fitted
+coefficient is `e = 0.029 ± 0.005` in `d = 2` and `0.031 ± 0.007` in `d = 3`. On `[10⁻⁴, 10⁻²]` the same fit is not
+significant: `0.03 ± 0.02` and `0.01 ± 0.03`. This is consistent with the formal `O(ℓ^{1/2})` remainder of (0.2). The
+adjacent-pair density needs no such term on either range.
 
 **Rejected adjacent pairs.** These are adjacent pairs (the saddle ascends to the maximum) that are not elder pairs. They
-test the cusp window directly, because the fold terms cancel. A fit `aℓ^{1/4} + bℓ^{1/2} + eℓ^{3/4}` gives:
-- `d = 2`: `a = 0.088 ± 0.007`, against `I^{cand} − c₁ = 0.0921`;
-- `d = 3`: `a = 0.057 ± 0.013`, against `0.0724`.
+test the cusp window directly, because the fold terms cancel. A fit `aℓ^{1/4} + bℓ^{1/2} + eℓ^{3/4}` on `[10⁻⁴, 0.3]`
+gives:
+- `d = 2`: `a = 0.0922 ± 0.0039`, against `I^{cand} − c₁ = 0.0921`;
+- `d = 3`: `a = 0.069 ± 0.006`, against `0.0724`.
 
-A fit without the `ℓ^{1/2}` term gives `0.081 ± 0.001` and `0.062 ± 0.002`. That fit is biased: a relative `ℓ^{1/4}`
-correction is visible in `d ≥ 2`. In `d = 1` there was none (#214 §6.2).
+On `[10⁻³, 0.3]` the fit gives `0.091 ± 0.004` and `0.072 ± 0.007`. A fit without the `ℓ^{1/2}` term gives
+`0.0821 ± 0.0006` and `0.0593 ± 0.0011`, which is biased: a relative `ℓ^{1/4}` correction is visible in `d ≥ 2`. In
+`d = 1` there was none (#214 §6.2).
+
+**The elder window, tested directly (v1.2).** Theorem CU.2 says that, at the cusp scale, an adjacent pair is an elder
+pair iff `|φ| < 1/3`. Here `φ = (f₄ − 3γᵀA^{−1}γ)/(72κ)` is computed from the jets at the midpoint, with `κ = ℓ/r⁴`.
+For each `ℓ`-range the simulation tabulates the elder fraction against `|φ|`. The `|φ|` at which it crosses `1/2`, and
+the rate at which the rule `1{|φ| < 1/3}` disagrees with the computed elder mark, are:
+
+| `ℓ` range | `d = 2`: 50% crossing | `d = 2`: disagreement | `d = 3`: 50% crossing | `d = 3`: disagreement |
+|---|---|---|---|---|
+| `[10⁻⁶, 10⁻⁴)` | (too few near `1/3`) | `0.16%` | (too few) | `0.4%` |
+| `[10⁻⁴, 3·10⁻⁴)` | `0.329` | `0.40%` | `0.334` | `0.0%` |
+| `[3·10⁻⁴, 10⁻³)` | `0.347` | `0.91%` | `0.395` (few) | `1.7%` |
+| `[10⁻³, 3·10⁻³)` | `0.337` | `1.9%` | `0.357` | `2.4%` |
+| `[3·10⁻³, 10⁻²)` | `0.343` | `4.3%` | `0.329` | `6.0%` |
+| `[10⁻², 3·10⁻²)` | `0.335` | `8.2%` | `0.339` | `11.7%` |
+
+The crossing sits at `1/3` within the binning in every range with enough pairs near the boundary. The disagreement falls
+steadily as `ℓ ↓ 0`, roughly like `ℓ^{2/3}`.
+
+The archived figure `results/mc_final.png` shows three panels for each of `d = 2, 3`:
+- the elder density divided by `cℓ^{−1/3}`, with the leading, two-term and three-term laws;
+- the rejected adjacent density divided by `ℓ^{1/4}`;
+- the window test.
 
 ## 4. The SIDE24 correction sizes (`d = 3`, Gaussian kernel)
 
@@ -251,7 +342,8 @@ and an unknown label exits 2. The run takes about 25 seconds.
 - **T1–T2** `d = 1`: `c = C₀` to `10⁻¹⁰` and `c₂ = 2B₂` to `10⁻⁸`, against #214's closed forms, for the Gaussian kernel and
   the mixture.
 - **T3** `d = 2`: `c = c_{2,∞}` to `10⁻¹⁰`; `c₂` from two `r`-sets agreeing to `10⁻⁸`.
-- **T4** `d = 3`: `c = c_{3,∞}` to `10⁻⁸`; `c₂` stable to `10⁻⁶` between two grids.
+- **T4** `d = 3`: `c = c_{3,∞}` to `10⁻¹⁰`; `c₂` at the grid `(56, 120, 48²)`, within `10⁻⁸` of the grid
+  `(40, 80, 32²)` and of the second `r`-set (observed: `< 10⁻¹⁰` and `3·10⁻¹⁰`).
 - **T5** no `r¹` term: the ratio to `A₀` is below `10⁻⁶` at six test points, while the `r²` ratio is `O(1)`.
 - **T6** the overlap term (0.1) in `d = 2`: at four heights, `A₂(b, 0)` from the `r`-fit equals `−12π₀E₀[Y²1{A<0} | b]`
   to `10⁻⁶`. The latter is computed directly from the jets, with `Y = f_xxxx a/12 − γ²/4`. In `d = 1` the same identity

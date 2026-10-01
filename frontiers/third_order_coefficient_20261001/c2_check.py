@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1.1 (frontiers/third_order_coefficient_20261001/NOTE.md).
+"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1.2 (frontiers/third_order_coefficient_20261001/NOTE.md).
 Standard library only. Run: python3 -B -S c2_check.py   (and with -O; output byte-identical). v1.1: every float sum is
 math.fsum (exactly rounded; the built-in sum of floats changed in CPython 3.12) and the r-fit uses the scaled variable
-r/max(r), so the output is the same on CPython 3.10-3.14 (checked).
+r/max(r), so the output is the same on CPython 3.10-3.14 (checked). v1.2 (Codex P2 on v1.1): T4 runs at a refined grid
+and compares with the former production grid and with the second r-set, so that its own spreads justify eight digits
+(v1.1's coarse comparison grid under-resolved the height integral: 32 nodes in b moved c2 by 4.5e-8).
 Mutants: --mutant M1|M2|M3|M4 must exit 1; an unknown label exits 2.
 
 The two-point kernel of [R] (frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md):
@@ -15,7 +17,8 @@ A_r = A_0 + r^2 A_2 + O(r^3).  The fold-scale finite part gives
   T1 d = 1, Gaussian kernel: c = C0 and c2 = 2 B2 of Math- #214 (closed forms)
   T2 d = 1, mixture (exp(-x^2/2) + exp(-2x^2))/2: c = C0 and c2 = 2 B2 (closed forms of #214, general spectral moments)
   T3 d = 2, Gaussian kernel: c = c_{2,inf} (merged reviews/side24_v1_coefficient_claude_20260929); c2 reported; two r-sets agree
-  T4 d = 3, Gaussian kernel: c = c_{3,inf} = c_{3,24}(1 + O(e^{-288})) (merged coefficients/side24_v1); c2 reported
+  T4 d = 3, Gaussian kernel: c = c_{3,inf} = c_{3,24}(1 + O(e^{-288})) (merged coefficients/side24_v1); c2 reported at the
+     grid (b 56, k 120, cone 48^2) and within 1e-8 of the grid (40, 80, 32^2) and of the second r-set
   T5 the expansion A_r = A_0 + r^2 A_2 + O(r^3) has no r^1 term (d = 2, 3, three test points each)
   T6 the subtracted term is the small-s limit of the cusp loss: A_2(b, 0) = -12 pi_0 E_0[Y^2 1{A<0} | b] (d = 2)
 
@@ -444,7 +447,7 @@ def main():
         sys.stderr.write('unknown mutant label\n')
         return 2
     MUTANT = args.mutant
-    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1.1 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
+    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1.2 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
     ok_all = True
     for name, kern, K, nt in (('T1_d1_gauss', 'gauss', 8.0, 80), ('T2_d1_mixture', 'mix', 27.0, 120)):
         c, c2 = coefficients(1, kern, 12, RS_D1, nt=nt, K=K)
@@ -459,11 +462,14 @@ def main():
     out['checks']['T3_d2_gauss'] = {'c': '%.12f' % c, 'c_2inf': '%.12f' % C2INF, 'c2': '%.10f' % c2, 'c2_second_rset': '%.10f' % c2b,
                                     'c2_over_c': '%.8f' % (c2 / c), 'passed': ok}
     ok_all &= ok
-    c, c2 = coefficients(3, 'gauss', 8, RS, nb=40, nt=80, nq=32)
-    c_c, c2_c = coefficients(3, 'gauss', 8, RS, nb=32, nt=48, nq=24)
-    ok = abs(c / C3INF - 1) < 1e-8 and abs(c2 - c2_c) < 1e-6
-    out['checks']['T4_d3_gauss'] = {'c': '%.12f' % c, 'c_3inf': '%.12f' % C3INF, 'c2': '%.9f' % c2, 'c2_coarse_grid': '%.9f' % c2_c,
-                                    'c2_over_c': '%.7f' % (c2 / c), 'grids': 'b 40, k 80, cone 32x32; coarse b 32, k 48, cone 24x24',
+    c, c2 = coefficients(3, 'gauss', 8, RS, nb=56, nt=120, nq=48)
+    c_g, c2_g = coefficients(3, 'gauss', 8, RS, nb=40, nt=80, nq=32)
+    c_r, c2_r = coefficients(3, 'gauss', 8, RS_B, nb=40, nt=80, nq=32)
+    ok = abs(c / C3INF - 1) < 1e-10 and abs(c2 - c2_g) < 1e-8 and abs(c2 - c2_r) < 1e-8
+    out['checks']['T4_d3_gauss'] = {'c': '%.13f' % c, 'c_3inf': '%.13f' % C3INF, 'c2': '%.10f' % c2,
+                                    'c2_grid_40_80_32': '%.10f' % c2_g, 'c2_second_rset': '%.10f' % c2_r,
+                                    'c2_over_c': '%.8f' % (c2 / c),
+                                    'grids': 'b 56, k 120, cone 48x48; comparisons b 40, k 80, cone 32x32 (both r-sets)',
                                     'passed': ok}
     ok_all &= ok
     # T5: the fold-scale expansion is even at first order (#191): interpolating A_r on (1, r, r^2, r^3, r^4) at the five
