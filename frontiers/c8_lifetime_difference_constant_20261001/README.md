@@ -10,12 +10,16 @@ frames and torus sides `L >= 10` (and the reference kernel), through the radial 
 
 **Results** (`NOTE.md` Theorem L and Corollaries L1, L2):
 - **The ledger to second order.** For `0 < r <= R`, `|A_r / A_0^ref - 1| <= a(R) r^2 + eps` with the closed-form contact
-  integrand `A_0^ref`. In the plane `a_up(1/4096) = 13.823`, `a_dn = 3.638`, `eps <= 4.0 x 10^-10`; in `d = 3`
+  integrand `A_0^ref`; `eps` is a radius-independent remainder (torus, truncation and rounding), so this is not a rate for
+  `A_r -> A_0` on the torus. In the plane `a_up(1/4096) = 13.823`, `a_dn = 3.638`, `eps <= 4.0 x 10^-10`; in `d = 3`
   `a_up(1/4096) = 25.67`, `a_dn = 25.52`, `eps <= 1.8 x 10^-8`. [LP] assigns no rate to `A_r -> A_0`.
 - **Densities to second order.** For `ell < min(r_pop, R)^3 / 2`,
   `|ell^(1/3) nu_cand(ell) / c^ref_{B,K} - 1| <= 6.29 ell^(2/3) + 5 x 10^-11` in the plane and
   `<= 23.2 ell^(2/3) + 3 x 10^-9` in `d = 3` (`R = 1/4096` constants). The same holds for `nu_eld` up to
-  `C_{B,K} ell / c^ref_{B,K}`. So `nu_cand, nu_eld = c_{B,K} ell^(-1/3) + O(ell^(1/3))` with explicit constants.
+  `C_{B,K} ell / c^ref_{B,K}`. So both densities are `c^ref_{B,K} ell^(-1/3) + O(ell^(1/3))` up to an additive
+  `eps'_d ell^(-1/3)` that does not vanish as `ell -> 0` (`eps'_d <= 1.2 x 10^-13` in the plane, `2.5 x 10^-12` in
+  `d = 3`). For the torus constant `c_{B,K}` this gives `|c_{B,K} - c^ref_{B,K}| <= eps'_d`, not a vanishing-remainder
+  expansion.
 - **The difference constant.** `0 <= nu_cand - nu_eld <= C_{B,K}(r_*) ell^(2/3)` for `ell < min(r_pop, r_*)^3 / 2`.
   - `C_{B,K}(1/4096) = 402.53` in the plane and `1205.71` in `d = 3`.
   - At `r_* = 1/512` the values are `428.02` and `2488.07` (rounded up).

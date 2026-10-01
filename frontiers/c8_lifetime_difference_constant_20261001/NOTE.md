@@ -66,10 +66,17 @@ The same holds for the reference kernel. The constants are exact rationals (`RES
 | `1/128` | `13.915029` | `3.827402` | `45.611590` | `45.508415` |
 | `1/64` | `14.032636` | `4.025510` | `70.060400` | `69.981330` |
 
-with `eps_2 <= 3.96 x 10^-10` and `eps_3 <= 1.79 x 10^-8` (torus and truncation remainders only).
+with `eps_2 <= 3.96 x 10^-10` and `eps_3 <= 1.79 x 10^-8`. These collect the torus, truncation and rounding remainders and
+do not depend on `r`.
 
-So `A_r -> A_0` uniformly with the explicit rate `O(r^2)`. [LP] proves the convergence ((10.3)) and states in section 11 that
-"Convergence of `A_r` to `A_0` was not assigned a numerical rate."
+What Theorem L gives, and what it does not:
+- **It gives** the second-order coefficient of the deviation of the ledger from the reference contact integrand, `a(R)`,
+  up to the radius-independent `eps_d`. [LP] proves the convergence ((10.3)) and states in section 11 that "Convergence of
+  `A_r` to `A_0` was not assigned a numerical rate."
+- **It does not give** a vanishing-remainder rate. `eps_d` does not tend to `0` with `r`. On the torus, Theorem L
+  therefore does not prove `A_r = A_0 (1 + O(r^2))` for the torus limit `A_0`. With [LP] (10.3) it gives only
+  `|A_0 / A_0^ref - 1| <= eps_d` for that limit. A vanishing-remainder rate would need the torus corrections tracked as
+  functions of `r`, which the certificate does not do.
 
 There is no first-order term:
 - for the Gaussian kernel, the law of the transverse Hessian at `M` is the contact law at every `r` (Lemma 1);
@@ -99,13 +106,15 @@ Theorem B for pairs at distance at most `r_pop`, in the versions (11.2). For `0 
   (Rounded up. All seven `R` are in `RESULTS.json`.)
 - `eps'_2 <= 1.2 x 10^-13` and `eps'_3 <= 2.5 x 10^-12`, absolute.
 
-Hence, with explicit constants, both compact-window densities have the second-order form
+Hence, up to an additive `eps'_d ell^(-1/3)`, both compact-window densities are `c^ref_{B,K} ell^(-1/3) + O(ell^(1/3))`
+with explicit constants. [LP] remarks that (1.2) "is an O(ell^(2/3)) difference, not a claim that either density separately
+has a second-order expansion with that remainder".
+- **What Corollary L1 is.** A two-sided expansion of each density about the reference constant.
+- **What it is not.** Its remainder `eps'_d ell^(-1/3)` does not vanish as `ell -> 0`. For the torus constant `c_{B,K}`
+  (any `L >= 10`) it gives `|c_{B,K} - c^ref_{B,K}| <= eps'_d`, not a second-order expansion about `c_{B,K}` with a
+  vanishing remainder.
 
-    nu_cand(ell) = c_{B,K} ell^(-1/3) + O(ell^(1/3)),        nu_eld(ell) = c_{B,K} ell^(-1/3) + O(ell^(1/3)),
-
-where `c_{B,K}` (torus, any `L >= 10`) lies within `eps'_d` of `c^ref_{B,K}`. [LP] remarks that (1.2) "is an O(ell^(2/3))
-difference, not a claim that either density separately has a second-order expansion with that remainder". For example, in the
-plane, for `ell < 2^-19`:
+For example, in the plane, for `ell < 2^-19`:
 
     -4.84 ell^(2/3) - 10^-10  <=  ell^(1/3) nu_cand(ell) / c_{B,K} - 1  <=  6.65 ell^(2/3) + 10^-10,
 
@@ -449,6 +458,9 @@ So `C_{B,K}(1/4096)` is `1.31 Gamma_2` and `2.23 Gamma_3`.
   - The method needs a compact `K` away from `0`; the shell bound uses `k >= 1/2`.
   - The unrestricted densities of [LP] Theorem C are not addressed. There the constant term `B_{d,L}` (Math-#191, Math-#211)
     comes from pairs this window excludes.
+- **No vanishing-remainder rate on the torus.** The remainders `eps_d` and `eps'_d` depend on neither `r` nor `ell`.
+  Theorem L and Corollary L1 are expansions about the reference contact integrand and constant. They give no rate for
+  `A_r -> A_0`, nor for `ell^(1/3) nu -> c_{B,K}`, on the torus.
 - **The Kac–Rice interface is consumed, not reviewed.** [LP] sections 8–12 are used as statements.
 - **The cap route only for `C_{B,K}`.**
   - `C_{B,K}` bounds `nu_cand - nu_eld` through `1 - p_r <= Q^W(G_r^c)`.
