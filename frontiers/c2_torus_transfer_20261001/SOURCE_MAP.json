@@ -86,7 +86,7 @@
   {
    "label": "[CU]",
    "path": "frontiers/cusp_coefficient_certified_20261001/NOTE.md",
-   "ref": "Math-#219 head 7a04873 (unmerged author-side certificate)",
+   "ref": "Math-#219 head 7a04873 (merged at 5a836a8; NOTE.md changed there by wording only, so this NOTE pin is historical)",
    "consumed": "the certified c1/c enclosure quoted in NOTE section 0 (consumed, not accepted)",
    "current_required": false,
    "bytes": 25867,
@@ -96,9 +96,9 @@
   {
    "label": "[CU-results]",
    "path": "frontiers/cusp_coefficient_certified_20261001/RESULTS.json",
-   "ref": "Math-#219 head 7a04873 (unmerged author-side certificate)",
+   "ref": "Math-#219, merged at 5a836a8 (RESULTS.json byte-identical to the consumed head 7a04873)",
    "consumed": "the stored c1/c interval (consumed, not accepted)",
-   "current_required": false,
+   "current_required": true,
    "bytes": 5350,
    "sha256": "2de0a2381eb2f73b3f2ed7367c78d28856067b271f9e3484384c199a24cacdbe",
    "git_blob": "8bbd0b0c69f6b29849fb2e3a3b2ad86974130987"

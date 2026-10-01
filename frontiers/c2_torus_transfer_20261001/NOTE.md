@@ -63,7 +63,7 @@ With [SIDE24]'s enclosures of `c_{d,24}`, the interval quotients give
 **Three-term law, with its sources.** The law is `nu/(c ell^(-1/3)) - 1 = (c1/c) ell^(7/12) + (c2/c) ell^(2/3) + ...`.
 On the SIDE24 torus in `d = 3` its coefficients are `-5.071062...` and `3.859496174548...`, to the stated digits. The sources
 of each piece are:
-- **`c1/c`** comes from [CU] (Math-#219, an unmerged author-side certificate). It is consumed, not accepted here.
+- **`c1/c`** comes from [CU] (Math-#219, certified arithmetic, merged at `5a836a8`). It is consumed, not accepted here.
 - **Math-#224** plays two separate roles:
   - its (T1) defines the torus kernel used throughout;
   - its `c1` transfer is a separate unmerged author-side candidate, and nothing here inherits status from it.
@@ -98,7 +98,7 @@ torus-specific constants for every `L >= 10`, together with Lemma E. The two are
 - **[SIDE24] (1)–(2) (main).** The normalized periodic kernel.
 - **[T] (Math-#218, merged at `fb6ee97`) (0.1) and Lemma F.** The definition of `c2`, and its identification as the `ell^(1/3)`
   coefficient of the candidate density for `d >= 2` (an author-side candidate). Consumed, not reviewed.
-- **[CU] (Math-#219, unmerged).** The certified `c1/c` enclosure quoted in §0. Consumed, not accepted.
+- **[CU] (Math-#219, merged at `5a836a8`).** The certified `c1/c` enclosure quoted in §0. Consumed, not accepted.
 - **[D] §2.2 (Math-#216, unmerged).** `A_r = A~_r + O(r^3)`; consumed, as in [C2X].
 
 **The route.**
@@ -291,10 +291,13 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
   - [SIDE24] `coefficients/side24_v1/PROOF.md`.
   - [T] Math-#218 `frontiers/candidate_third_order_20261001/PROOF.md` (blob `70ca57ef`), on `main` since `fb6ee97` and
     byte-identical to the consumed head `0cf048d`.
-- **Unmerged, recorded and not checked on this tree:**
+  - [CU] Math-#219 `frontiers/cusp_coefficient_certified_20261001/RESULTS.json` (blob `8bbd0b0c`), on `main` since
+    `5a836a8` and byte-identical to the consumed head `7a04873`. The `c1/c` interval is read from this file.
+- **Recorded and not checked on this tree:**
+  - [CU] Math-#219 `NOTE.md` at `7a04873` (blob `7dccfa97`). On `main` it has since changed by wording only (v1.4–v1.5);
+    the certified values are in the unchanged `RESULTS.json`.
   - [D] Math-#216 `NOTE.md` (blob `aa078a9c`);
   - [CT] Math-#224 `PROOF.md`, for (T1) and as the `c1` analogue (cited);
-  - [CU] Math-#219 at `7a04873`: `NOTE.md` (blob `7dccfa97`) and `RESULTS.json` (blob `8bbd0b0c`), consumed for `c1/c`;
   - [E3] Math-#220 at `70dcf31`: `PROOF.md` (blob `c8767dde`), cited for the conditional elder identification;
   - [L'] Math-#227 at `2d1ec7c`: `NOTE.md` (blob `138521e8`), cited only.
 - **On `main` since `7fe06b0`, cited only:** [FJ] Math-#232
