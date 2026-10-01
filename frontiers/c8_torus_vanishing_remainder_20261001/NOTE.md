@@ -56,8 +56,9 @@ What changes against [B]:
   estimates at `M_1(10) < 4.46 x 10^-15`.
 
 **Corollary L′1 (the densities with a vanishing remainder).** Let `nu_cand`, `nu_eld` be the compact-window densities of [LP]
-Theorem B in the versions (11.2), for the torus kernel or the Gaussian kernel, and `c_{B,K} = |S^(d-1)| int A_0/(3 k^(2/3))`
-the leading constant **of the same kernel**. For `0 < ell < R^3 / 2`:
+Theorem B in the versions (11.2), for the torus kernel or the Gaussian kernel, and
+`c_{B,K} = int_{B x K x S^(d-1)} A_0(b, k, u)/(3 k^(2/3)) db dk dsigma(u)` the leading constant **of the same kernel**. The
+angular integral uses ordinary surface measure `dsigma`, as in [LP] (11.2)–(11.3). The torus is not assumed isotropic. For `0 < ell < R^3 / 2`:
 
     -(c2_dn ell^(2/3) + c1_dn ell^(1/3))  <=  ell^(1/3) nu_cand(ell) - c_{B,K}  <=  c2_up ell^(2/3) + c1_up ell^(1/3),
     ell^(1/3) nu_cand(ell) - C_{B,K}(R) ell  <=  ell^(1/3) nu_eld(ell)  <=  ell^(1/3) nu_cand(ell),
@@ -212,8 +213,12 @@ so this term is `O(r^2)`.
 This gives Theorem L′ on each of the 96 boxes `[i/8, (i+1)/8] x [1/2 + j/8, 1/2 + (j+1)/8]` (as in [B]) and each `R`.
 
 **Corollary L′1.** As in [B] Corollary L1:
-- `ell^(1/3) nu_cand(ell) = |S| int A_r / (3 k^(2/3))` with `r = (ell/k)^(1/3) <= R`.
-- Integrate Theorem L′ box by box: `a r^2` gives the weight `int A_0 / (3 k^(4/3))`, and `beta r` gives `int A_0 / (3 k)`.
+- `ell^(1/3) nu_cand(ell) = int_{B x K x S^(d-1)} A_r(b, k, u) / (3 k^(2/3)) db dk dsigma(u)`, with `r = (ell/k)^(1/3) <= R`
+  ([LP] (11.2)).
+- Theorem L′ holds uniformly in the direction `u`. Integrate it box by box, over each box and all of `S^(d-1)`:
+  `a r^2` gives the weight `int_{box x S^(d-1)} A_0 / (3 k^(4/3))`, and `beta r` gives `int_{box x S^(d-1)} A_0 / (3 k)`.
+  No isotropy is used. The reference weights of the pinned `theorem_b.py` are these full angular integrals for `A_0^ref`
+  (its `K_const` includes `|S^(d-1)|`), so the program needs no extra sphere factor (OA-227-C-01, review 5384474393).
 - The weights of the torus `A_0^(L)` are at most `(1 + eps_0)` times the reference weights. Here `eps_0` is [B]'s
   `|A_0/A_0^ref - 1|` bound, recomputed by the pinned `theorem_b.py` at `R = 1/4096`:
   `eps_0 <= 3.95 x 10^-10` (`d = 2`), `1.78 x 10^-8` (`d = 3`).

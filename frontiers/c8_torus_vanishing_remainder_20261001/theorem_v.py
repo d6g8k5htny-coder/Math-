@@ -8,7 +8,8 @@ For the torus kernel (every side L >= 10, every frame) and for the reference ker
 where A_0 = lim_{r -> 0} A_r is the contact integrand of THE SAME kernel (for the torus: its own A_0^(L), not the Gaussian
 A_0^ref).  Math-#215 (Theorem L) proved the same shape against A_0^ref with an additive, r-independent eps_d; here every
 remainder carries a positive power of r.  The first-order coefficient beta collects the torus corrections only (about
-1e-12); for the reference kernel it is a rounding residue below 1e-80.
+1e-12); for the reference kernel it is exactly 0 (torus=False gives M1 = 0, and the computed beta is the rational 0: its
+upward-rounded stored values are all 0).
 
 Method (NOTE.md sections 2-5):
 - Taylor models with INTERVAL coefficients and a remainder proportional to r^(N+1) (class TV): every rounding goes into a
@@ -750,8 +751,10 @@ def k_weights(d):
 def assemble_v(d, rate, ref, w1, eps0):
     """Corollary L'1: for 0 < ell < R^3/2,
         ell^(1/3) nu_cand(ell) - c_{B,K}  in  [-(c2_dn ell^(2/3) + c1_dn ell^(1/3)), c2_up ell^(2/3) + c1_up ell^(1/3)],
-    c_{B,K} = |S| int A_0/(3 k^(2/3)) of the same kernel; the weights are int A_0/(3k^(4/3)), int A_0/(3k), bounded by
-    (1 + eps0) times the reference weights (eps0 = Math-#215's |A_0/A_0^ref - 1| bound)."""
+    c_{B,K} = int_{B x K x S^(d-1)} A_0(b, k, u)/(3 k^(2/3)) db dk dsigma(u) of the same kernel; the weights are
+    int_{box x S^(d-1)} A_0/(3k^(4/3)) and int_{box x S^(d-1)} A_0/(3k), bounded by (1 + eps0) times the reference
+    weights (eps0 = Math-#215's |A_0/A_0^ref - 1| bound).  The reference weights w_2, w_1 are full angular integrals
+    (theorem_b's K_const includes |S^(d-1)|); Theorem L' is uniform in u, and no isotropy is assumed."""
     c_lo = Fr(ref['c_ref'][0])
     w2 = [Fr(x) for x in ref['w_2']]
     w1 = [Fr(x) for x in w1]
