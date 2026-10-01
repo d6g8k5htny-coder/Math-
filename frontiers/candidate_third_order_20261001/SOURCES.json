@@ -1,0 +1,212 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-CANDIDATE-THIRD-ORDER-20261001-v1",
+ "kind": "author-side proof candidate: the candidate (Kac-Rice max/index-(d-1)) lifetime density to third order in every d >= 2, nu_cand = c l^(-1/3) + B_{d,L} + I_cand l^(1/4) + c2 l^(1/3) + O(l^(4/11)), with c2 the fold-scale Hadamard finite part (the coefficient of Math- #216); Corollary: a rate O(l^(1/3)) for (CU-prime.1) of Math- #207",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2)-(R5), (R9): coupling, moments, pin densities; section 4 scaled Hessians; Lemma R3.2; section 5 eigenvalue coordinates"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 linear independence of distinct derivative functionals; section 4 regression; sections 9-10 as [E2]; section 15 parity factorization and (15.2)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule"
+  },
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z2)-(Z3): the equal-height kernel Psi_0 and B_{d,L}"
+  }
+ ],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "Lemma E Steps 1-4 (expansions (1.1)-(1.6), the good event and its three layer cases), the dominating variable T, section 2 (2.1), r_0^*",
+   "head": "abae6d0b08f39a6b244308c4e351327c1ef56890",
+   "pr": "Math- #191"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "(3.1) with the (1 + k)-quantified remainder, the sign window of section 3, (W.4); (W.1) only through #207 Lemma L",
+   "head": "a28d13c91ef17ffd2c129322457845cd09e713ac",
+   "pr": "Math- #198"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "section 0 cusp objects; Lemma CU.5 nondegeneracy argument (extended in Step F1); section 7: Lemma L (7.1)-(7.2), the far identity, the decomposition of B_{d,L}, (7.3)",
+   "head": "826b8be512e86f2de73c33d6ac7a76908dc2e0e6",
+   "pr": "Math- #207"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2), in Remark 1 only (the fold-region elder deficit)"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "bytes": 16930,
+   "sha256": "8f06d00cd248529b8939941bc02541eaca6aafc0f9dba4fc10cebc925c839646",
+   "git_blob": "3b5ffffad53ac15bb513c273d1bcf4289180b7e8",
+   "tag": "216",
+   "use": "definition and numerical values of c2 (Remark 2)",
+   "head": "605af74ce462ed5a26bb488c65c0b4097d6bd3fa",
+   "pr": "Math- #216"
+  },
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 44378,
+   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b",
+   "git_blob": "873532b955dbf7684edc1a53ba169c7216f778ab",
+   "tag": "214",
+   "use": "the d = 1 analogue (Remark 4)",
+   "head": "f4a58df9247dfa9ada2b756ecd7629c0b2faf5b5",
+   "pr": "Math- #214"
+  },
+  {
+   "path": "frontiers/far_elder_rate_20260930/PROOF.md",
+   "bytes": 16413,
+   "sha256": "67f606327b66a2b4f1b8c67a57d119ac9ddfd2ce827ca8cb0c4daefa31904a3b",
+   "git_blob": "37dcf6ef933251c8890ab653cafd648610779342",
+   "tag": "187",
+   "use": "far elder bound O(l^(2/3)) (Remark 1)",
+   "head": "ecd47e7b1d447eefec963b1fa8395777db09a190",
+   "pr": "Math- #187"
+  },
+  {
+   "path": "frontiers/far_elder_flat_ridge_20260930/PROOF.md",
+   "bytes": 22806,
+   "sha256": "957f9c5e6557a558b2c055fa2a1f11ba301581995b8958658fad2edf47136f57",
+   "git_blob": "50cfbf4fcb9a3526f979eaedf885d42824a3c3a3",
+   "tag": "188",
+   "use": "far elder bound O(l^N) (Remark 1)",
+   "head": "85f0586a468c2b2f73af0e340d251e33a52caade",
+   "pr": "Math- #188"
+  },
+  {
+   "path": "frontiers/equal_height_mass_value_20261001/NOTE.md",
+   "bytes": 16177,
+   "sha256": "9080a5dc567710e0668890cd209484db9026b19ff4707341487f289e2f7c7410",
+   "git_blob": "ed0d3fa8e4c28d181fa7d21efcde74933cc6f03c",
+   "tag": "211",
+   "use": "B_{3,24} ~ 10.21 (Remark 2, exploration)",
+   "head": "8e89fe886368ae048e125c26f3ac51aa9bec83f6",
+   "pr": "Math- #211"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Weyl",
+   "reference": "Weyl integration formula on symmetric matrices (eigenvalue coordinates, Vandermonde factor)",
+   "use": "Lemma D"
+  },
+  {
+   "tag": "Haynsworth",
+   "reference": "E. V. Haynsworth, inertia additivity of the Schur complement (1968)",
+   "use": "Lemma C, Case 1; Lemma F, Step F2 (through #191 Step 4)"
+  },
+  {
+   "tag": "Anderson",
+   "reference": "T. W. Anderson, The integral of a symmetric unimodal function over a symmetric convex set (1955)",
+   "use": "(1.2): conditional moments dominated by unconditional ones"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4"
+ ],
+ "replayed": [
+  "thmT_check.py"
+ ],
+ "referee": {
+  "kind": "clean-context same-family referee (Anthropic Claude subagent), before submission",
+  "verdict": "ACCEPT WITH MINOR FIXES (no major finding; five minor findings and eight nits, all applied)",
+  "report": "project archive V2_2/frontiers_candidate_third_order_20261001/REFEREE_1.md",
+  "report_sha256": "9f25ccfc0da9cc266bce412b0dd090486110b2736cce0fe64a41473c664ce679",
+  "report_bytes": 15735,
+  "independence": "same provider and GitHub account as the author; zero organizational independence"
+ },
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4"
+  },
+  {
+   "path": "README.md",
+   "bytes": 3705,
+   "sha256": "a2696c1596430829a1585723e16a51f191186c897c74dc015331da0fac78c2e0"
+  },
+  {
+   "path": "thmT_check.py",
+   "bytes": 13798,
+   "sha256": "5bdb81d980e9d21cd28de0159d9adbb9a2caccaaec5a2d80b4d45f329ae4949a"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2193,
+   "sha256": "769fe2b9469666ee0e60838717734d18e97ed28424e25108f2296bd2d04f74d0"
+  }
+ ]
+}

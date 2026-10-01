@@ -1,0 +1,66 @@
+{
+  "Lipschitz_constant_upper": "1e50",
+  "SIDE24_uniform_additive_error_upper": "1e-60",
+  "actual_elder_identification_proved_here": false,
+  "budget": {
+    "H_bound": "3200000000002880000000",
+    "H_derivative_bound": "1280000000000288000000000",
+    "final_bound": "195200000000000000000000000000000000000000000000",
+    "moment8_integral": "824629750641408",
+    "p_bound": "10800000000000000000000000000000000000000",
+    "p_derivative_bound": "13080000000000000000000000000000000000000000",
+    "weight_l1": "226469/180"
+  },
+  "finite_lifetime_remainder_bound_proved_here": false,
+  "jet_box_radius": "1e-4",
+  "maximum_covariance_derivative_order": 8,
+  "reference_d1": {
+    "Mellin_factor": "9/8",
+    "a": "12",
+    "c2_over_12pow1over6_Gamma5over6_pi_minus3over2": "3/4",
+    "pin_determinant_product": "18",
+    "polynomial": [
+      "-5/24",
+      "9/2",
+      "108"
+    ]
+  },
+  "scientific_effect": "NONE",
+  "scope": "signed fixed-cone c2 functional; actual persistence identification is an imported premise",
+  "status": "author-side proof candidate; nonauthor review required",
+  "torus_expression_enclosures": {
+    "1": {
+      "additive_error_upper_rational": "57748056297/125000000000000000000000000000000000000000000000000000000000000000000000000",
+      "reference_interval": [
+        "0.2300445802661503",
+        "0.2300445802661998"
+      ],
+      "torus_L_at_least_24_outward_interval": [
+        "0.2300445802661502",
+        "0.2300445802661999"
+      ]
+    },
+    "2": {
+      "additive_error_upper_rational": "180429126933/6250000000000000000000000000000000000000000000000000000000000000000000000",
+      "reference_interval": [
+        "0.2215244106266632",
+        "0.2215244106267110"
+      ],
+      "torus_L_at_least_24_outward_interval": [
+        "0.2215244106266631",
+        "0.2215244106267111"
+      ]
+    },
+    "3": {
+      "additive_error_upper_rational": "58897813524693/125000000000000000000000000000000000000000000000000000000000000000000000000",
+      "reference_interval": [
+        "0.1612340491269447",
+        "0.1612340491269810"
+      ],
+      "torus_L_at_least_24_outward_interval": [
+        "0.1612340491269446",
+        "0.1612340491269811"
+      ]
+    }
+  }
+}

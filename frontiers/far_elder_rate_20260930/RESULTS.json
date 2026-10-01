@@ -1,0 +1,62 @@
+{
+ "checks": {
+  "B1_barrier_polynomial": {
+   "info": {
+    "K": "22",
+    "R": "1/11",
+    "grid_points_in_ball": 1793,
+    "lambda": "2"
+   },
+   "passed": true
+  },
+  "B2_algebra_and_constants": {
+   "info": {
+    "L=1": {
+     "a_L": "1/4",
+     "c_L": "1/48"
+    },
+    "L=2": {
+     "a_L": "1/2",
+     "c_L": "1/12"
+    },
+    "L=24": {
+     "a_L": "1",
+     "c_L": "1/3"
+    },
+    "L=4": {
+     "a_L": "1",
+     "c_L": "1/3"
+    }
+   },
+   "passed": true
+  },
+  "I1_split_integral": {
+   "info": {
+    "q=2,u=1/100": "149/1000000",
+    "q=2,u=1/4": "5/64",
+    "q=2,u=1/9": "25/1458",
+    "q=4,u=1/100": "299999999/4000000000000",
+    "q=4,u=1/4": "767/16384",
+    "q=4,u=1/9": "9841/1062882"
+   },
+   "passed": true
+  },
+  "I2_exponent_ledger": {
+   "info": {
+    "count exponent": "5/3",
+    "inverse moment threshold": "-5/3",
+    "u^2 exponent of ell": "2/3"
+   },
+   "passed": true
+  },
+  "N1_near_consistency": {
+   "info": {
+    "6*sqrt(6 c_L) < 12 for c_L <= 1/3": true
+   },
+   "passed": true
+  }
+ },
+ "object": "CL-FAR-ELDER-RATE-20260930-v1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}
