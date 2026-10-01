@@ -70,12 +70,17 @@ of each piece are:
 - **The identification as density coefficients** is conditional on the chain in §8.
 
 **Lemma E (no `r^1` term for every stationary kernel).** Let `K` be any smooth stationary covariance (no isotropy or
-evenness needed) whose pin and transverse covariances are nondegenerate at `r = 0`. Then the surrogate has the form
-`A~_r(b, k) = Atilde(r^2, b - k r^3/2, k)` with `Atilde` real-analytic. Hence
+evenness needed) whose pin and transverse covariances are nondegenerate at `r = 0`. Then `A~_r(b, k)` is smooth in `r` up
+to `r = 0`, and at fixed `v_1 = b - k r^3/2` its Taylor expansion in `r` contains only even powers: for every `N`,
+`A~_r(b, k) = sum_{j<N} r^(2j) a_j(b - k r^3/2, k) + O(r^(2N))`. If `K` is moreover real-analytic, as the Gaussian `phi`
+and the torus kernels `K_L` are, then `A~_r(b, k) = Atilde(r^2, b - k r^3/2, k)` exactly near `r = 0`, with `Atilde`
+real-analytic. In either case
 
     A~_r = A_0 + r^2 A_2 - (k/2) r^3 d_b A_0 + O(r^4):
 
-there is no `r^1` term, and the `r^3` coefficient is `-(k/2) d_b A_0`.
+there is no `r^1` term, and the `r^3` coefficient is `-(k/2) d_b A_0`. (v1.3: smoothness alone does not give analyticity.
+A smooth positive-spectrum covariance can have a Taylor series of radius zero, for example spectral density
+`exp(-sqrt|xi|)`; 5938497821.)
 
 On the torus this decides, for the surrogate, the question left open in Math-#227 ("whether the torus `A_r` has an `r^1` term
 at all"): it has none. With the consumed comparison `A_r = A~_r + O(r^3)`, the typed `A_r` has none either. This does not
@@ -155,7 +160,7 @@ The output is the integrand `G` (balls), `E = (q_0 + Q_0)/2` (a homogeneous quad
     A~_r^{K,u}(b, k) = kappa_K integral_(T < 0) e^(-E) G dx / r^2,   kappa_K = -12 (2 pi)^(-(p + n_T)/2) (det S_0 det T_0)^(-1/2),
 
 and the `A_2`-integrand is `kappa_K e^(-E) H` with `H = [r^4] G`. As in [C2X] §2.3, `A~_r` is real-analytic near
-`r = 0` because the `r = 0` covariances are nondegenerate. Every pivot is certified by `|c| > rho`.
+`r = 0`, because `K_L` and `phi` are real-analytic and the `r = 0` covariances are nondegenerate. Every pivot is certified by `|c| > rho`.
 
 **Reference check (exact).** With zero radii, `kernel` reproduces [C2X]'s `kernel_data` identically:
 - the coefficients of `G` through `r^4`, `E` and `det S_0` in `d = 1, 2`;
@@ -172,7 +177,12 @@ The relabelling swaps `H_M` and `H_S`, which leaves `det H_M det H_S` unchanged,
 target is `v_r = (b - k r^3/2, -k r^2, 0, 12k, 0, ...)`, whose entries other than `v_1 = b - k r^3/2` depend on `r` only
 through `r^2`. Hence the integrand `e^(-(q + Q)/2) (det ratio)^(-1/2) F`, as a function of `(r, v_1, k, x)`, is even in `r` as a
 formal power series. The coefficients are finite sums of jet covariances, so no property of `K` beyond stationarity and
-smoothness is used. Integrating over the fixed cone gives `A~_r = Atilde(r^2, b - k r^3/2, k)`.
+smoothness is used.
+- **Smooth `K`.** The rows are averages of derivatives against smooth kernels, so the covariances, the regression and the
+  cone integral are smooth in `r` up to `0`. Integrating the even formal series over the fixed cone gives the even
+  finite-order expansion of Lemma E, to every order.
+- **Real-analytic `K`.** The series converge near `r = 0`, which gives the exact form
+  `A~_r = Atilde(r^2, b - k r^3/2, k)` with `Atilde` real-analytic.
 
 **Exact checks (controls.py).** For anisotropic product kernels `prod_i e^(-s_i z_i^2/2)` (rational jets, not isotropic,
 `d = 1, 2, 3`, two `s` each) the exact integrand has `G_0 = G_1 = G_3 = 0` and
