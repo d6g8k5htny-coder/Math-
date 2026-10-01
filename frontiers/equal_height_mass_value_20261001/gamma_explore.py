@@ -167,6 +167,9 @@ def I_of_s(s, NS, rng, hx, hw):
 
 def main():
     NS = int(sys.argv[1]) if len(sys.argv) > 1 else 200000      # GAMMA.json: the default (about two minutes)
+    if NS < 5 or NS % 5:
+        sys.stderr.write('the sample count must be a positive multiple of 5 (five batches)\n')
+        return 2
     rng = random.Random(20261001)
     hx, hw = hermite_nodes(20)
     ss = [0.25 * j for j in range(1, 19)]          # 0.25 .. 4.5
@@ -195,4 +198,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

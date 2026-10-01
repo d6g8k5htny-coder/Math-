@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1",
- "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + o(1) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.",
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
+ "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -91,16 +91,28 @@
   "kind": "pre-submission clean-context referee pass, same author family (Anthropic Claude subagent); NOT acceptance, NOT independent",
   "result": "no error; one gap (Step 5 asserted the uniformity in L of the near-diagonal majorant (Z15), whose proof uses whole-torus norms) closed by Lemma N (the pointwise (K1) bound at k = 0 with local seminorms; moments through the covariance on a ball); minor points applied (normalized periodized kernel; c_{3,24} source; [C7-K] in the header; the (Z15) chain; the I(s) shape 0.70 at s = 2; the 200000 invocation; full scaled-GOE covariance in Q1; [R] (R6) citation; jet rank on R^d; e defined; the L^N prefactor; #191 marked unmerged); beta_2, beta_3 recomputed independently to 10 digits; gamma_3 = -0.0200 +- 0.0001 independently (10^6 samples per separation, control variate)"
  },
+ "automated_nonauthor": [
+  {
+   "source": "Codex review comment 4151471466 on Math- #211 (P1, v1 NOTE.md line 42)",
+   "finding": "the SIDE24 value does not follow from an unquantified near-part o(1)",
+   "disposition": "v1.1: Step 5 rewritten through a uniformly nondegenerate rescaled jet vector, giving the same O(L^N e^{-L^2/8}) rate for the near part; the value B_{3,24} ~ 10.21 is stated as the asymptotic formula at L = 24 with an exponentially small remainder of uncomputed constants (exploration, not an enclosure)"
+  },
+  {
+   "source": "Codex review comment 4151471472 on Math- #211 (P2, gamma_explore.py)",
+   "finding": "sample counts not divisible by five were silently truncated",
+   "disposition": "v1.1: the count must be a positive multiple of five (exit 2 otherwise); GAMMA.json (200000) unchanged"
+  }
+ ],
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 14672,
-   "sha256": "bfce0c619015e33f77dcade7409252d1470cc992d553b92f5884065e5c3993a2"
+   "bytes": 16177,
+   "sha256": "9080a5dc567710e0668890cd209484db9026b19ff4707341487f289e2f7c7410"
   },
   {
    "path": "README.md",
-   "bytes": 2403,
-   "sha256": "a3bc2193a93a00f0056265f22a84b324e72618b2e703908de21a419e79f0abd3"
+   "bytes": 2758,
+   "sha256": "46b27389da17f50df530fdbc779df5161eb1bc88a4a564a0dbd49d81fbe2605f"
   },
   {
    "path": "equal_height_mass.py",
@@ -114,8 +126,8 @@
   },
   {
    "path": "gamma_explore.py",
-   "bytes": 7444,
-   "sha256": "b058e60e96c3c13fdd14cff619c2324999d06cc76e2538bb69c8e5424f062432"
+   "bytes": 7591,
+   "sha256": "fb07dc5efea1def170ea14a6c7e4aa1afe391645f42a9f30d21ee6e4810b01d8"
   },
   {
    "path": "GAMMA.json",

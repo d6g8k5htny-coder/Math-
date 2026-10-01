@@ -1,13 +1,15 @@
 # The equal-height mass `B_{d,L}`: a volume law and its value for the SIDE24 field
 
-Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.
+Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.1 (v1 → v1.1 after Codex P1 4151471466: the near part now has the same
+quantified rate as the far part — Step 5 rewritten through a uniformly nondegenerate rescaled jet vector — and the SIDE24
+value is stated with its exact status; Codex P2 4151471472: the Monte Carlo sample count is validated).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 Disposition: AUTHOR-SIDE CANDIDATE (Proposition V) and EXPLORATION (the numbers); NONAUTHOR REVIEW REQUIRED.
 Scientific effect: NONE — no register, graph, STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every
 lane; zero organizational independence. Consumes merged sources only ([Z], [C7-K], [R], [P]); the unmerged Math- #191
-and #207 are cited for interpretation, not used. v1 incorporates a clean-context referee pass (one gap — the uniformity
-in `L` of the near-diagonal majorant — closed by Lemma N; minor points applied; `β_2`, `β_3` and `γ_3` independently
-recomputed).
+and #207 are cited for interpretation, not used. v1 incorporated a clean-context referee pass (one gap — the uniformity
+in `L` of the near-diagonal majorant — closed in v1 by a majorant, Lemma N, and in v1.1 by the quantitative Step 5;
+minor points applied; `β_2`, `β_3` and `γ_3` independently recomputed).
 
 ## 0. Statement
 
@@ -24,25 +26,26 @@ recomputed).
 Let `f_∞` be the stationary Gaussian field on `R^d` with covariance `e^{−|z|²/2}`, `ρ_j(b)` its height density of critical
 points of index `j` (per unit volume and unit height) and `Ψ_0^∞(b, y)` its equal-height kernel ((Z2) on `R^d`).
 
-**Proposition V (volume law).** As `L → ∞`,
+**Proposition V (volume law).** There are `C, N, L₀` such that for `L ≥ L₀`
 
-    B_{d,L} = β_d L^d + γ_d + o(1),        β_d := ∫_R ρ_d(b) ρ_{d−1}(b) db,
+    B_{d,L} = β_d L^d + γ_d + ε_L,   |ε_L| ≤ C L^N e^{−L²/8},   β_d := ∫_R ρ_d(b) ρ_{d−1}(b) db,
                                             γ_d := ∫_{R^d}∫_R (Ψ_0^∞(b, y) − ρ_d(b)ρ_{d−1}(b)) db dy,          (V.1)
 
-the last integral converging absolutely. For every fixed `r₀ > 0` the part of `B_{d,L}` from separations
-`dist(0, y) ≥ r₀` equals `β_d(L^d − |B_{r₀}|) + ∫_{|y|≥r₀}∫(Ψ_0^∞ − ρ_dρ_{d−1}) db dy + O(L^{N}e^{−L²/8})`.
+the last integral converging absolutely. (`C`, `N` are existential, as everywhere in the chain; they are not computed.)
 
 **Values (exploration; not certified).** For the Gaussian kernel,
 
     β_2 = 3.122769186·10⁻³,   β_3 = 7.400614572·10⁻⁴      (deterministic quadrature; controls Q1–Q4 of equal_height_mass.py),
     γ_3 = −0.020 ± 0.002                                     (two Monte Carlo explorations, §2),
 
-so **`B_{3,24} ≈ 24³β_3 + γ_3 = 10.231 − 0.020 ≈ 10.21`**, about `244` times `c_{3,24} = 0.0417759318…` (the enclosure of
-`coefficients/side24_v1`). Under the heuristic that the `o(1)` in (V.1) is of the size of the image terms,
-`CL^N e^{−(L/2)²/2}` with `e^{−72} ≈ 5·10⁻³²` at `L = 24`, the uncertainty of `B_{3,24}` is that of `γ_3`.
+so `24³β_3 + γ_3 = 10.231 − 0.020 ≈ 10.21`, and **`B_{3,24} = 10.21 ± 0.002 + ε_{24}`** with `|ε_{24}| ≤ C·24^N e^{−72}`
+(`e^{−72} ≈ 5·10⁻³²`; `C`, `N` not computed). That is about `244` times `c_{3,24} = 0.0417759318…` (the enclosure of
+`coefficients/side24_v1`). **Status of this value:** exploration. `β_3` is deterministic (to `10⁻⁸`) and `γ_3` is Monte
+Carlo; the remainder is proved exponentially small in `L²` but with unquantified constants. So `B_{3,24} ≈ 10.21` is the
+value of the asymptotic formula at `L = 24`, not a certified enclosure.
 
-**What is not claimed.** No rate for the `o(1)` in (V.1) (only for the far part); no certified value of `γ_3` or
-`B_{3,24}`; nothing about `B_{d,L}` for covariances other than the periodized Gaussian kernel; no change to Theorem Z.
+**What is not claimed.** No numerical `C`, `N` in (V.1); no certified value of `γ_3` or `B_{3,24}`; nothing about
+`B_{d,L}` for covariances other than the periodized Gaussian kernel; no change to Theorem Z.
 
 ## 1. Proof of Proposition V
 
@@ -80,32 +83,51 @@ The cross block of `Σ_∞(y)` consists of derivatives of `e^{−|y|²/2}` of or
 is integrable over `{|y| ≥ r₀} × R`. Integrating over `C_L ∖ B_{r₀}` gives the far statement of Proposition V; the tail
 `∫_{R^d∖C_L}` of the last integrand is `O(L^Ne^{−L²/8})`.
 
-*Step 5 (near part).* **Lemma N (near majorant at equal heights, uniform in `L`).** There are `r₀, L₀, C, c, N` such that
-for `0 < r < r₀`, `u ∈ S^{d−1}`, `b ∈ R` and `L ∈ [L₀, ∞]` (`L = ∞` meaning `f_∞`),
-`r^{d−1}Ψ_0^{(L)}(b, ru) ≤ C(1 + |b|)^Ne^{−cb²}`.
+*Step 5 (near part, quantitative).* For `|y| < r₀` the jets at `0` and `y` degenerate as `y → 0`, so Step 1 does not
+apply to `Σ(y)` directly. Rescale instead.
 
-*Proof.* By the separation-variable form of the Kac–Rice kernel ([Z] (Z14); #191 (2.1)), `r^{d−1}Ψ_0(b, ru) = r^{−2}A_r(b, 0, u)`
-with `A_r = 12π_r(v_r)E_Q[W_r/r²]`. The pointwise bound in the proof of [C7-K] (K1) (§2: the pin identity of [P] (5.3) with
-(5.1)–(5.2)) gives, at `k = 0`, `W_r/r² ≤ Cr²(1 + M)^{2m+4}`, where `M := max_{j≤4}M_j` and the `M_j` are the **local** `C^j`
-seminorms of the field on the segment between the pins (the passage to global norms in [C7-K] is only used for moments).
-Under `Q_{r,b,0}` the field is `F + C_rΣ_r^{−1}(v_r − U_r)` ([R] (R3)). The `Q`-moments of `M` are therefore bounded through
-the restriction of the covariance to `B_{2r₀}`:
-- `E sup_{B_{r₀}}|∂^αF|^p` is bounded through Sobolev embedding on the ball by finitely many derivatives of `K_L` at `0`;
-- `C_r` on `B_{r₀}` depends only on `K_L` on `B_{2r₀}`;
-- `Σ_r` depends only on `K_L` near `0`, and is uniformly positive for `r ≤ r₀` ([R] (R2), [P] §3).
+Write `y = ru` with `M = −ru/2`, `S = ru/2` after the translation of [R] §2. Form the vector `J̃(r, u)` of:
+- the observation rows `U_r` of [R] §2: the averages and divided differences of `f` and `∇f` at the pins, ending in
+  `U_3 = (6/r²)[f_x(M) + f_x(S) − 2(f(S) − f(M))/r]`;
+- the rescaled Hessian combinations
+  `[(f_xx(S) + f_xx(M))/2 − (f_x(S) − f_x(M))/r]/r²`, `[(f_xx(S) − f_xx(M))/r − U_3]/r²`,
+  `[(f_xy_j(S) + f_xy_j(M))/2 − (f_y_j(S) − f_y_j(M))/r]/r²`, `(f_xy_j(S) − f_xy_j(M))/r`, `(A_S + A_M)/2`, `(A_S − A_M)/r`.
 
-Since `K_L → K_∞` in `C^q(B_{2r₀})` for every `q`, at the rate `L^Ne^{−L²/8}`, all three bounds are uniform in `L ∈ [L₀, ∞]`.
-This gives `E_Q(1 + M)^p ≤ C_p(1 + |b|)^p` and `π_r(v_r(b, 0)) ≤ Ce^{−cb²}`, and hence the claim. ∎
+By Taylor's formula with integral remainder (centred rules), `J̃(r, u)` converges in `L²` as `r → 0`. Its limit is a
+list of *distinct* partial derivatives at `0`, with nonzero coefficients:
+- from the rows: `f, f_x, f_xx, f_xxx, f_y_j, f_xy_j`;
+- from the Hessian combinations: `f_xxxx/12, f_xxxxx/60, f_xxxy_j/12, f_xxy_j, f_y_jy_l, f_xy_jy_l`.
 
-With Lemma N, `Ψ_0^{(L)}(b, y) → Ψ_0^∞(b, y)` pointwise for `0 < |y| < r₀` (Step 1 at fixed `y`, with `c = c(|y|)`), and
-dominated convergence in polar coordinates gives `∫_{|y|<r₀}∫Ψ_0^{(L)} → ∫_{|y|<r₀}∫Ψ_0^∞ < ∞`. This replaces any appeal
-to the uniformity in `L` of [Z] (Z15), whose proof uses whole-torus norms with `L`-dependent constants. Since
-`ρ_dρ_{d−1}` is bounded and integrable in `b`, `γ_d` converges absolutely.
+That list is nondegenerate by the finite-jet rank of [P] §2 (on `R^d` by Step 2's Fourier argument). By continuity and
+compactness, the covariance `Σ̃_L(r, u)` of `J̃` has eigenvalues in `[c, 1/c]` for `r ≤ r₀`, all frames and
+`L ∈ [L₀, ∞]`. Its entries are divided differences of `K_L`, i.e. averages of derivatives of `K_L` over the segment, so
+`‖Σ̃_L(r, u) − Σ̃_∞(r, u)‖ ≤ C‖K_L − K_∞‖_{C^q(B_{2r₀})} ≤ CL^Ne^{−L²/8}`.
 
-Adding the near and far parts, `B_{d,L} = β_dL^d + γ_d + o(1)`. ∎
+**The kernel in rescaled variables.** On the event `U_r = v_r(b, 0)` (equal heights, `k = 0`), the scaled Hessians of
+[R] §4 are affine in `J̃` with coefficients polynomial in `r`:
+- `α_{M,S} = r(Ũ_a ∓ (r/2)Ũ_b)` (cf. #191 (1.1) at `k = 0`);
+- `β_{M,S} = rŨ_c ∓ Ũ_d/2`;
+- `A_{M,S} = Ũ_e ∓ (r/2)Ũ_f`.
 
-(Step 5 is where the rate is lost. Quantifying (Z15)'s dependence on the covariance would give `O(L^Ne^{−L²/8})`, but
-that is not done here.)
+So `det K_i = α_i det A_i − r β_iᵀadj(A_i)β_i` is `r` times a polynomial in `(J̃, r)`. Hence
+`W̃ := W_r/r⁴ = |(det K_M/r)(det K_S/r)|1{typed}` is continuous and piecewise polynomial in `(J̃, r)`, and vanishes where
+an index changes. By the separation-variable form of the kernel ([Z] (Z14); #191 (2.1)),
+
+    r^{d−1}Ψ_0(b, ru) = r^{−2}A_r(b, 0, u) = 12 π_r(v_r(b, 0)) E_Q[W̃] = F̃(Σ̃(r, u); b),
+
+with `F̃` of the same form as `F` in Step 1. Step 1's argument applies verbatim on the uniformly nondegenerate set and gives:
+- `|r^{d−1}(Ψ_0^{(L)} − Ψ_0^∞)(b, ru)| ≤ CL^Ne^{−L²/8}(1 + |b|)^Ne^{−c'b²}`;
+- `r^{d−1}Ψ_0^∞(b, ru) ≤ C(1 + |b|)^Ne^{−c'b²}`.
+
+Integrating over `r < r₀`, `u` and `b`, the near parts for `L` and `∞` differ by `O(L^Ne^{−L²/8})`, and the near part of
+`γ_d` converges absolutely. This replaces any appeal to the uniformity in `L` of [Z] (Z15), whose proof uses
+whole-torus norms. (v1's Lemma N — the pointwise bound behind [C7-K] (K1) at `k = 0` with local seminorms — gave only a
+majorant and hence `o(1)`.)
+
+Adding the near and far parts, `B_{d,L} = β_dL^d + γ_d + O(L^Ne^{−L²/8})`. ∎
+
+(The constants `C`, `N` come from compactness and continuity; quantifying them would turn `B_{3,24} ≈ 10.21` into an
+enclosure, together with a certified `γ_3`.)
 
 ## 2. The numbers
 
@@ -137,7 +159,7 @@ Gauss–Hermite quadrature in `b`.
 (`s = 1`) and `0.70β_3` (`s = 2`), and reaches `β_3` by `s ≈ 3.5–4`. Equal-height maximum/index-2-saddle pairs are depleted
 at short range, so `γ_3 < 0`. (The referee observed, heuristically, that at equal heights the two endpoint axial
 curvatures agree to leading order. That suggests `r^{d−1}Ψ_0 = O(r³)` and `I(s) ∝ s^{4−d}` near `0`, consistent with the
-linear rise in `d = 3`; Lemma N's `O(1)` is far from sharp here.)
+linear rise in `d = 3`; the `O(1)` bound of Step 5 is far from sharp here.)
 
 ## 3. Consequences (with the values of §2; exploration-level numbers)
 
@@ -157,7 +179,7 @@ linear rise in `d = 3`; Lemma N's `O(1)` is far from sharp here.)
 |---|---|---|
 | [Z] | `frontiers/c7_zero_gap_limit_20260929/PROOF.md` (blob `5b6328ea`) | (Z2)–(Z4), §2 (nondegeneracy, (Z10)), §4 (Z15)–(Z17), (Z7)–(Z9) — consumed |
 | [R] | `frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md` (blob `247b3ecf`) | (R2) near-pair nondegeneracy, (R3) the regression form, Lemma R3.1 (R6) — consumed (Steps 1, 5) |
-| [C7-K] | `frontiers/c7_total_bounded_20260929/PROOF.md` (blob `28748b08`) | §2, the pointwise bound behind (K1) with local seminorms — consumed (Lemma N) |
+| [C7-K] | `frontiers/c7_total_bounded_20260929/PROOF.md` (blob `28748b08`) | §2, the pointwise bound behind (K1) — cited (v1's Lemma N, superseded by Step 5) |
 | [P] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d`) | §2 distinct-site jet rank, §3 near-pair nondegeneracy, (5.1)–(5.3), the field — consumed |
 | side24_v1 | `coefficients/side24_v1/PROOF.md` (blob `44b66f04`) | the value `c_{3,24} = 0.0417759318…` in §§0, 3 — cited only |
 | #191, #207 | unmerged | interpretation of `B_{d,L}` as `ν_cand`'s constant term; `ρ_rej`'s `ℓ^{1/4}` term — cited only |
