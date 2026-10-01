@@ -65,9 +65,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 22477,
-      "sha256": "33ef38c1671b52da7b537fd4620abf8cc2856fb230b87445276fa18892a3dd8e",
-      "git_blob": "0c633a9e3470ee8b81e1d715da4ae9c7c88ef8e8"
+      "bytes": 23506,
+      "sha256": "bf79365f4416a74f23053b385eca8f6dbbe847db569c78a382d4926a777350fb",
+      "git_blob": "3bae7f1df2f16d28d8d0f27dda576bcbe12b02d4"
     },
     {
       "path": "RESULTS.json",
@@ -88,6 +88,16 @@
       "finding": "gap-window hypothesis wording (same defect as Codex thread 4151593177 on Math-#213)",
       "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593177",
       "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity instead of k_- >= 0; section 7 says windows touching k = 0 or infinity (including the tabulated K = (0,infinity)) and unbounded B are coefficient integrals only",
+      "unchanged": [
+        "window_coefficient_d4.py",
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "C43-205-H-01 (positive lengths; found on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows (b_- = b_+ or k_- = k_+) outside the hypothesis",
       "unchanged": [
         "window_coefficient_d4.py",
         "RESULTS.json"
