@@ -1,10 +1,12 @@
 cff-version: 1.2.0
-message: "Cite the versioned Zenodo record once it exists, not a branch URL. Citation is not acceptance of any parent theorem."
+message: "This record identifies the repository curator. It is not a claim that every artifact has the same author. Cite a commit SHA until a Zenodo DOI exists. Citation is not acceptance of any parent theorem."
+title: "Math-: Mathematics — proofs, calculations, and open reviews"
 type: software
-title: "Proof vault for Gaussian random fields and persistent homology"
 authors:
   - family-names: Roy
     given-names: Dylan
     orcid: "https://orcid.org/0009-0003-7329-7001"
+    affiliation: "Repository curator. Artifact-specific authors, including unknown authorship, remain as recorded in CITING.md."
 repository-code: "https://github.com/d6g8k5htny-coder/Math-"
 license: MIT
+commit: "71ccd431c5d7c9e877fcbf0385cb690b7236e21c"
