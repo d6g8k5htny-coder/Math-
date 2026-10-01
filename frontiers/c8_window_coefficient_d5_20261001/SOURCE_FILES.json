@@ -72,9 +72,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 21617,
-      "sha256": "5342be99e41d8d9d0704a6d282d1092dfa506df8ddfae812cfa319b315bfb18f",
-      "git_blob": "a792f299ac7f893df39e74bcc569b1b87b725cf9"
+      "bytes": 22577,
+      "sha256": "063854ab42a8216ce40083976bad9fa2f5ca2c1290d0b897a754b52c5f7e6598",
+      "git_blob": "8399c6baf6d6dc9e2eae3a50d53abdf4d60d0651"
     },
     {
       "path": "RESULTS.json",
@@ -106,6 +106,17 @@
       "change": "NOTE.md: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows outside the hypothesis. window_coefficient_d5.py: module docstring states the same hypothesis (no code change)",
       "unchanged": [
         "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.3",
+      "finding": "xAI band-share wording, Math-#222 comment 5932429158",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
+      "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d5.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d5.yml"
       ]
     }
   ]

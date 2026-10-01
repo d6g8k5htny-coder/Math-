@@ -203,17 +203,18 @@ a common prefix of a certified interval's endpoints. Both properties were checke
 `RESULTS.json` lists all twelve window pairs, and each `L ≥ 10` enclosure contains its reference value. At `L = 24` every enclosure
 agrees with the reference to about 50 digits. The full window contains Math-#200's `c_{5,ref}` (rule `C5_CONSISTENT`).
 
-**How the birth mass moves with dimension.** The share carried by the C8 band `B = [0, 1]`:
+**How the band's share moves with dimension.**
 
-| `d` | band share |
-|---|---|
-| 2 | `48.3 %` |
-| 3 | `34.6 %` |
-| 4 | `15.4 %` |
-| 5 | **`4.37 %`** |
+| `d` | height-window share `F^(d)_{[0,1]}` (every `K`) | C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}` |
+|---|---|---|
+| 2 | `48.3 %` | `3.25 %` |
+| 3 | `34.6 %` | `2.33 %` |
+| 4 | `15.4 %` | `1.04 %` |
+| 5 | **`4.37 %`** | **`0.295 %`** |
 
-The negative half-line carries `0.052 %` in `d = 5`. With the dimension-free gap factor (`6.74 %`), the band carries `0.29 %` of
-`c_{5,ref}`.
+The first column is the share of birth heights in `B = [0, 1]`; by the factorization `c_{B,K} = c_{d,ref} F_B G_K` it does
+not depend on the gap window. The second is the C8 band's share of the whole coefficient, with the dimension-free gap factor
+`G_{[1/2,2]} = 6.74 %`. Both are ratios of certified values from the separate packets, not a theorem about birth mass. The negative half-line carries `0.052 %` of the birth heights in `d = 5`.
 
 ## 6. Rules, mutants, verification
 
@@ -346,3 +347,8 @@ No external numerical library is used.
   §7 classes singleton windows with the other windows outside the hypothesis. Every tabulated window has positive length, so no
   value changes. The script's docstring states the same hypothesis; the values, the rules, the thirteen mutants and
   `RESULTS.json` are unchanged.
+- **v1.3 (band-share wording; NOTE only).** The xAI lane found that the table of §5 headed as the band's share of the
+  birth mass shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the C8
+  band's share of the whole coefficient (Math-#222 comment 5932429158). §5 now labels that column as the height-window share and
+  adds the C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are
+  byte-unchanged; no certified value changes.
