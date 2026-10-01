@@ -143,7 +143,7 @@ def _gl_float(f, a, b, n=40):
 def selftest():
     """Returns a list of failure strings (empty when all checks pass)."""
     fails = []
-    # (1) Gauss-Legendre exactness on even monomials, for every n the certificate may use.
+    # (1) Gauss-Legendre exactness on even monomials, for a sample of orders: a defect detector, not the proof of the rules.
     for n in (4, 6, 8, 12, 16, 20, 24, 32, 40, 48):
         xs, ws = G.rule(n)
         for k in range(0, n, max(1, n // 6)):

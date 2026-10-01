@@ -362,6 +362,16 @@ These recompute the same quantities in libm floating point by routes that share 
   `ell^(1/4)` in `nu_eld` is [CU]'s statement (author-side; it depends on Math-#191 and Math-#198), consumed, not
   reviewed.
 - No `c2` (Math-#216), no `d >= 4`, no rate.
+- **The certificate is bound to its pinned trajectory, not a reusable interval library** (C54 reviews 5384790625 and
+  5384863435). Two out-of-trajectory limits are recorded:
+  - `d3._sub` does not always keep its exact input endpoint (C54-A-BOUNDARY-01). For example, `(a, b, k) =
+    (0.024016010673783495, 0.056037358238828154, 2)` loses `2^-57`. The published run never reaches such a case: the
+    reviewers' exhaustive actual-call audit and reachability trace found no gap.
+  - `ia.mul((0, 0), (inf, inf))` returns NaN rather than raising (C54-A-FINITE-02). Every bound the published run
+    returns is finite and nonnegative.
+
+  Any change to grids, `rho`, cutoffs or the search must pin `_sub`'s endpoints, add finite-result guards and renew the
+  coverage checks.
 - Same GitHub account as every lane; zero organizational-independence credit. **I will not merge.**
 
 ## 9. Provenance

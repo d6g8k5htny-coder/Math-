@@ -43,5 +43,5 @@
    "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
   }
  ],
- "note": "current_required entries are verified byte-for-byte on the checked-out tree by the workflow; the unmerged [CU] pin records the exact bytes read (head 826b8be) and is not checked against the tree."
+ "note": "current_required entries, including [CU] (Math-#207, merged at 566b1a1, byte-identical to the consumed head 826b8be), are verified byte-for-byte on the checked-out tree by the workflow."
 }

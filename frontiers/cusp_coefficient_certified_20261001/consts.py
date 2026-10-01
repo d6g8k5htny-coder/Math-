@@ -1,7 +1,7 @@
 """Rigorous constants for CL-CU-CUSP-COEFFICIENT-20261001: Gamma at rationals, the prefactors of c1 in d = 1, 2, 3
 (NOTE.md sections 2-4) and the reference leading coefficients c_(d,ref) of coefficients/side24_v1 (1).
 
-log Gamma(y) for y >= 30 uses Stirling's series
+log Gamma(y) at y = q + N >= 10 (the shift used by lgamma_iv; the bound below holds for every real y > 0) uses Stirling's series
     (y - 1/2) log y - y + log(2 pi)/2 + sum_(k=1..K) B_(2k)/(2k (2k-1) y^(2k-1)) + R_K,
     |R_K| <= |B_(2K+2)|/((2K+2)(2K+1) y^(2K+1))      (real y > 0: the remainder is bounded by the first omitted term),
 and the recurrence log Gamma(q) = log Gamma(q + N) - log prod_(j<N) (q + j), the product taken exactly."""
