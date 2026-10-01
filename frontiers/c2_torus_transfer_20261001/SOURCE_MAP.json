@@ -1,0 +1,92 @@
+{
+ "object": "CL-C2-TORUS-TRANSFER-20261001-v1",
+ "delivered_under": "explicit owner instructions of Dylan Roy in Claude Code session session_015wNj8LPTKXsaT68G3DgPPh, given after OWNER_STOP (2026-09-27): 2026-09-28 \"you have my full permisions and approval to make the proper changes and uploads\"; 2026-09-30 \"Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know. Ultra tokens, ultra depth @GitHub @Superpowers\" (repeated 2026-09-30 as \"Continue to Work on closing ...\"). Pull requests only, never merged by their author; no register, GRAPH, STATUS, lemma_closed, prize or premise edits. OWNER_STOP.md addresses Cursor agents and automations and is untouched.",
+ "task": "Math-#223 comment 5933574379 (task and the finite-part starting inequality), main#229 comment 5933485698 (listed as unsupplied); scope claim Math-#223 comment 5934236720",
+ "sources": [
+  {
+   "label": "[C2X-code]",
+   "path": "frontiers/c2_exact_20261001/exact.py",
+   "ref": "main f9ebba1",
+   "consumed": "kernel_data: the exact derivation of the fixed-cone surrogate (byte-identical copy exact.py in this packet; reference_checks compares the ball pipeline with it identically)",
+   "current_required": true,
+   "bytes": 16099,
+   "sha256": "974099926619e7c85aea9fbccb5285e54862909cd079895f16e785583c884d6c",
+   "git_blob": "b06819802d1b90813cd172dc372aaac771ff6720"
+  },
+  {
+   "label": "[C2X-series]",
+   "path": "frontiers/c2_exact_20261001/pseries.py",
+   "ref": "main f9ebba1",
+   "consumed": "pin rows, Taylor forms at -+r/2, exact division by r (byte-identical copy pseries.py in this packet)",
+   "current_required": true,
+   "bytes": 6782,
+   "sha256": "d1faa96ca7e7df0051fbfe78318a17d0c78d608eb9f1ed2e3a3b83a6598a9994",
+   "git_blob": "fac3c562b33e626d477aefecf2b1e680b0ae5f98"
+  },
+  {
+   "label": "[C2X]",
+   "path": "frontiers/c2_exact_20261001/NOTE.md",
+   "ref": "main f9ebba1",
+   "consumed": "sections 0-2 and 5: the definition of c2 for the surrogate, the closed forms and the published enclosures (widened 1e-14 relative)",
+   "current_required": true,
+   "bytes": 14480,
+   "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+   "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab"
+  },
+  {
+   "label": "[C2X-results]",
+   "path": "frontiers/c2_exact_20261001/RESULTS.json",
+   "ref": "main f9ebba1",
+   "consumed": "the certified enclosures of c2 (lower endpoints used for the relative bounds; C2_REF_LO in transfer.py)",
+   "current_required": true,
+   "bytes": 1891,
+   "sha256": "94aa67f11211881d60e93ee1782e9b9d829d246d8f75d73eb05b2212278cb831",
+   "git_blob": "3077d9b29bc2393fbae1dd2c8420ca1bcc3707dd"
+  },
+  {
+   "label": "[SIDE24]",
+   "path": "coefficients/side24_v1/PROOF.md",
+   "ref": "main f9ebba1",
+   "consumed": "the normalized periodic covariance K_24 and the enclosures of c_(d,24) (corollary quotients)",
+   "current_required": true,
+   "bytes": 10272,
+   "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+  },
+  {
+   "label": "[T]",
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "ref": "Math-#218 head 0cf048d (unmerged)",
+   "consumed": "(0.1): c2 := (1/3) int_S int_R int_0^oo [A_2(b,k,u) - A_2(b,0,u)] k^(-4/3); Lemma F (fold expansion) and the identification of c2 (cited, not reviewed)",
+   "current_required": false,
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e"
+  },
+  {
+   "label": "[D]",
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "ref": "Math-#216 head 04c08e1 (unmerged)",
+   "consumed": "section 2.2: the typed indicator replaced by 1{T < 0} at O(r^3) (consumed premise, as in [C2X])",
+   "current_required": false,
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb"
+  },
+  {
+   "label": "[CT]",
+   "path": "frontiers/cusp_torus_transfer_20261001/PROOF.md",
+   "ref": "Math-#224 head a5e69ee (unmerged)",
+   "consumed": "(T1): the normalized periodic kernel for every L; the analogous c1 transfer (cited)",
+   "current_required": false,
+   "bytes": 15534,
+   "sha256": "6b818bdc34c6908505c6b2ad65584f740254a8525ddc8a45197d560386243bb0",
+   "git_blob": "de3d85fdcf65487adc982bae7318246c1b8f016c"
+  }
+ ],
+ "copies": {
+  "exact.py": "frontiers/c2_exact_20261001/exact.py",
+  "pseries.py": "frontiers/c2_exact_20261001/pseries.py"
+ },
+ "note": "current_required entries are verified byte-for-byte on the checked-out tree by the workflow, and the copies against them; the unmerged pins record the exact bytes read and are not checked against the tree."
+}
