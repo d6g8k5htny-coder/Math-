@@ -3,11 +3,13 @@
 current_required (seven): for each entry the working-tree copy at `local_path` and the historical entry
 `commit:path` must both be the recorded blob, with the recorded byte count and SHA256 (`git ls-tree --full-tree`).
 cited_unmerged (two C52 files of Math-#235): checked the same way when the commit object is present locally, otherwise
-reported as unavailable.  They are not premises.  CI checks out full history (fetch-depth: 0).
+reported as unavailable.  They are not premises.  CI checks out full history (fetch-depth: 0).  Git replacement objects
+are disabled (--no-replace-objects, GIT_NO_REPLACE_OBJECTS=1), so a local refs/replace entry cannot redirect a pin.
 
     python3 -B -S verify_sources.py"""
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -23,8 +25,11 @@ def require(cond, msg):
         raise ValueError(msg)
 
 
+GIT_ENV = dict(os.environ, GIT_NO_REPLACE_OBJECTS='1')  # refs/replace must never redirect a pinned commit (OA-236-ENG-01)
+
+
 def git(*args):
-    p = subprocess.run(['git', '-C', str(ROOT)] + list(args), capture_output=True)
+    p = subprocess.run(['git', '--no-replace-objects', '-C', str(ROOT)] + list(args), capture_output=True, env=GIT_ENV)
     if p.returncode:
         raise ValueError('git %s failed: %s' % (args[0], p.stderr.decode(errors='replace').strip()))
     return p.stdout
@@ -65,7 +70,8 @@ def historical(e):
 
 
 def commit_present(commit):
-    p = subprocess.run(['git', '-C', str(ROOT), 'cat-file', '-t', commit], capture_output=True)
+    p = subprocess.run(['git', '--no-replace-objects', '-C', str(ROOT), 'cat-file', '-t', commit], capture_output=True,
+                       env=GIT_ENV)
     return p.returncode == 0 and p.stdout.strip() == b'commit'
 
 

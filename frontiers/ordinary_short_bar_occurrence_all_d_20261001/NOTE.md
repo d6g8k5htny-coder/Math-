@@ -22,7 +22,9 @@ merging saddle S, of index d-1. Exclude the essential global-maximum class. Let 
 lifetime in `(0, tau]` in ONE field on the WHOLE torus. Its expectation is not divided by volume.
 
 The seven sources P, CAP, E1, E2, REC, R and T are pinned in `SOURCES.json` at Math- `7fe06b0`. They are the sources
-C52 consumes, and each is stated for every fixed `d >= 2`:
+C52 consumes. Each **consumed interface** is stated for every fixed `d >= 2`. CAP's numerical probabilistic corollary is
+the fixed-axis planar SIDE24 statement, and it is not used here: only CAP's deterministic theorem, which holds for `d >= 2`,
+enters (Slice C note, 5384434418).
 - [P] "Fix a dimension d>=2";
 - [CAP] "Let d>=2";
 - [R] and [T] "for each fixed d>=2" and "Fix d>=2";
@@ -419,7 +421,9 @@ Unbounded mark moments do not converge without a separate uniform-integrability 
 
 These cover `d = 2..6`. `test_check.py` adds unit tests and 17 implementation mutants. Each mutant must fail in both
 `-B -S` and `-B -O -S`. `verify_sources.py` authenticates the seven `current_required` sources by bytes, SHA256 and Git
-blob. It checks both the working-tree copy and the historical `commit:path -> blob` entry, via `git ls-tree`. The two
+blob. It checks both the working-tree copy and the historical `commit:path -> blob` entry, via `git ls-tree`. Git
+replacement objects are disabled (`--no-replace-objects`, `GIT_NO_REPLACE_OBJECTS=1`), so a local `refs/replace` entry
+cannot redirect a pinned commit (OA-236-ENG-01, with a real-Git regression test). The two
 `cited_unmerged` C52 entries are checked the same way when their commit is present locally, and otherwise reported as
 unavailable; they are not premises.
 

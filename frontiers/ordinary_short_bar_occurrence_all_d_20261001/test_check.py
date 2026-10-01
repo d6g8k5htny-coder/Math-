@@ -38,6 +38,48 @@ class Sources(unittest.TestCase):
             with self.assertRaises(ValueError):
                 V.historical(bad)
 
+    def test_replacement_objects_ignored(self):
+        """OA-236-ENG-01: a refs/replace entry must neither validate a false original binding nor break a genuine one"""
+        import hashlib
+        import subprocess
+        import tempfile
+        from pathlib import Path
+        env = dict(os.environ, GIT_AUTHOR_NAME='F', GIT_COMMITTER_NAME='F', GIT_AUTHOR_EMAIL='f@example.invalid',
+                   GIT_COMMITTER_EMAIL='f@example.invalid', GIT_CONFIG_NOSYSTEM='1')
+        env.pop('GIT_NO_REPLACE_OBJECTS', None)
+        saved = V.ROOT
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+
+            def g(*a, data=None):
+                return subprocess.run(['git'] + list(a), cwd=root, env=env, input=data, capture_output=True,
+                                      check=True).stdout.strip().decode()
+            try:
+                V.ROOT = root
+                g('init', '-q')
+                wrong = g('commit-tree', g('mktree', data=b''), data=b'empty original\n')
+                (root / 'P.md').write_bytes(b'fixture only\n')
+                g('add', 'P.md')
+                good = g('commit-tree', g('write-tree'), data=b'source\n')
+                (root / 'Q.md').write_bytes(b'unrelated\n')
+                g('add', 'Q.md')
+                other = g('commit-tree', g('write-tree'), data=b'other\n')
+                data = (root / 'P.md').read_bytes()
+                rec = dict(key='P', path='P.md', blob=g('rev-parse', good + ':P.md'), bytes=len(data),
+                           sha256=hashlib.sha256(data).hexdigest())
+                false_binding, true_binding = dict(rec, commit=wrong), dict(rec, commit=good)
+                with self.assertRaises(ValueError):
+                    V.historical(false_binding)                     # control
+                V.historical(true_binding)
+                g('replace', wrong, good)                           # replacement makes the false binding look valid
+                with self.assertRaises(ValueError):
+                    V.historical(false_binding)
+                g('replace', good, other)                           # unrelated replacement of the genuine commit
+                V.historical(true_binding)
+                self.assertTrue(V.commit_present(wrong))
+            finally:
+                V.ROOT = saved
+
 
 class PinTransform(unittest.TestCase):
     def test_det_and_target(self):
