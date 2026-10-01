@@ -57,12 +57,24 @@
     ],
     "workflow_checked": false
   },
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "author containment audit (the pattern of C41-205-C-01 on Math-#205)",
+      "review_context": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5373681438",
+      "change": "NOTE.md only: the L >= 10 torus intervals of section 0 and the section 6 coefficient table rounded outward (upper endpoints had been truncated downward); image-bound values stated as approximations",
+      "unchanged": [
+        "window_coefficient.py",
+        "RESULTS.json"
+      ]
+    }
+  ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 22572,
-      "sha256": "61abb1a1e9aa5521f1681149c3b01daf16fc23e42d0432b8b5f68c3f103e66d3",
-      "git_blob": "56d99b48d2d28152029dd099d9a985495399149c"
+      "bytes": 23551,
+      "sha256": "ebdda42ce51cd43a364cbd303abf314d4592042b7391f43d2fc0ebb736a6d8fa",
+      "git_blob": "4bd311630eed0d5f7f23a5c7b73b4f56d17664e3"
     },
     {
       "path": "RESULTS.json",

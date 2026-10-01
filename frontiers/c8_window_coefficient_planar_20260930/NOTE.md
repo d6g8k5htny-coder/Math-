@@ -37,7 +37,7 @@ the C8 band of Math-#195, `B = [0, 1]`, `K = [1/2, 2]`:
 
     F_B = 0.48264345641927413020434204645556992729...,   G_K = 0.06737173342564166734884441847440277343...,
     c_{B,K} (reference)  = 0.0023869380211529483091019117...,             c_{B,K} / c_{2,ref} = 0.0325165262...,
-    c_{B,K} (torus, every L >= 10, every frame) in [0.00238693802093000833, 0.00238693802137588828],
+    c_{B,K} (torus, every L >= 10, every frame) in [0.00238693802093000833, 0.00238693802137588829],
     c_{B,K} (torus, L = 24) = 0.0023869380211529483091019117...  (agrees with the reference to the printed digits).
 
 So the C8 band carries `48.26 %` of the birth mass and `6.74 %` of the gap mass of the leading coefficient, `3.25 %` in all.
@@ -131,7 +131,7 @@ holds `8 j` lattice points with `j^2 <= |n|^2 <= 2 j^2`, so `sum_{n != 0} |n|^6 
 `K_L = [phi + sum_{n != 0} phi(. + Ln)] / S`, `S = 1 + sum_{n != 0} exp(-L^2|n|^2/2) >= 1`, every unit-direction contraction
 satisfies
 
-    |D^q K_L(0) - D^q phi(0)| <= E_L := 128 (76 L^6 + 15) exp(-L^2/2),      E_10 = 1.876e-12,   E_24 = 1.558e-113.      (3.1)
+    |D^q K_L(0) - D^q phi(0)| <= E_L := 128 (76 L^6 + 15) exp(-L^2/2),      E_10 ≈ 1.876e-12,   E_24 ≈ 1.558e-113.      (3.1)
 
 `E_L` decreases in `L`, so the box "each entry within `E_10` of its reference value" contains the 3-jet covariance of `K_L`
 for every `L >= 10` and every frame `(u, w)` (the entries `Cov(d^a f, d^b f) = (-1)^|a| d^(a+b) K_L(0)` are exactly such
@@ -214,12 +214,12 @@ All enclosure widths are below `1e-50`. Coefficients (reference closed form; tor
 
 | window | `c_{B,K}` reference (`d = 2`) | fraction of `c_{2,ref}` | torus `L >= 10`, every frame | `c^(3)_{B,K}` reference |
 |---|---|---|---|---|
-| W1 `B=[0,1] K=[1/2,2]` | `0.00238693802115294830910...` | `0.0325165` | `[0.00238693802093000833, 0.00238693802137588828]` | `0.000974382366024250...` |
-| W2 `B=[-1,1] K=[1/2,2]` | `0.00328349448038652830503...` | `0.0447300` | `[0.00328349448011528868, 0.00328349448065776792]` | `0.00110183822983417...` |
-| W3 `B=[-2,2] K=[1/4,4]` | `0.03874764950788533309909...` | `0.5278474` | `[0.03874764950590828641, 0.03874764950986237978]` | `0.0198856576593802...` |
-| W4 `B=[-3,3] K=[1/10,10]` | `0.06797101083534825121205...` | `0.9259483` | `[0.06797101083232680835, 0.06797101083836969406]` | `0.0384653388278856...` |
+| W1 `B=[0,1] K=[1/2,2]` | `0.00238693802115294830910...` | `0.0325165` | `[0.00238693802093000833, 0.00238693802137588829]` | `0.000974382366024250...` |
+| W2 `B=[-1,1] K=[1/2,2]` | `0.00328349448038652830503...` | `0.0447300` | `[0.00328349448011528868, 0.00328349448065776793]` | `0.00110183822983417...` |
+| W3 `B=[-2,2] K=[1/4,4]` | `0.03874764950788533309909...` | `0.5278474` | `[0.03874764950590828641, 0.03874764950986237979]` | `0.0198856576593802...` |
+| W4 `B=[-3,3] K=[1/10,10]` | `0.06797101083534825121205...` | `0.9259483` | `[0.06797101083232680835, 0.06797101083836969407]` | `0.0384653388278856...` |
 | W5 `B=[-1/2,1/2] K=[1,3/2]` | `2.6711474686063351637e-7` | `3.63882e-6` | `[2.67114746807e-7, 2.67114746914e-7]` | `6.6380716823e-8` |
-| full | `0.07340691930603427103013...` | `1` | `[0.07340691930405245284, 0.07340691930801608921]` | `0.0417759318405983433...` |
+| full | `0.07340691930603427103013...` | `1` | `[0.07340691930405245284, 0.07340691930801608922]` | `0.0417759318405983433...` |
 
 The `L = 24` enclosures agree with the reference column to every printed digit (`RESULTS.json`, `c_torus_L_24`); the `d = 3`
 fractions are `0.0233`, `0.0264`, `0.4760`, `0.9208`, `1.59e-6`, `1`. `Gamma(7/6) = 0.92771933363003920070834948253462...`,
@@ -272,3 +272,16 @@ companion Math-#195 at `16da75f` (`NOTE.md` `a8b1f71d`) for the band and the quo
 the packet. Owen's series for `T(h, a)`, `T = (1/2 pi)[arctan a - sum_j (-1)^j a^(2j+1)/(2j+1) . P(Poisson(h^2/2) > j)]`
 (Owen 1956, equation 2.3), is used with the bracket by consecutive partial sums (the terms alternate and decrease for each
 fixed `(h, a)`, `a <= 1`). No external numerical library is used.
+
+## 10. Revisions
+
+- **v1.1 (reporting only; the pattern of finding C41-205-C-01 on Math-#205, found here by the author's containment audit).** The upper
+  endpoints of the `L >= 10` torus intervals in section 0 and in the section 6 coefficient table had been truncated instead of
+  rounded up. The displayed intervals therefore did not contain the certified intervals of `RESULTS.json`.
+  - Every displayed interval is now rounded outward: lower endpoints down, upper endpoints up, at the displayed precision.
+  - An exact containment audit against `RESULTS.json` passes for every bracketed interval in this note, and every `...`-terminated
+    digit string is a common prefix of a certified interval's endpoints.
+  - The image-bound values of section 3 are stated as approximations.
+
+  `window_coefficient.py` (blob `43b4f51b`, pinned by Math-#205 and reviewed by C41 in review 5373681556), `RESULTS.json`, every
+  certified value, the rules and the mutants are unchanged.
