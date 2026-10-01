@@ -1,0 +1,230 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1",
+ "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (theorem there); values for d = 2, 3; full-field Monte Carlo (exploration outside the repository). Not a proof in d >= 2.",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a"
+ },
+ "consumed": [],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "the two-point kernel A_r = 12 pi_r(v_r) Z_r / r^2, the symmetric pin vector U_r and its target v_r (sections 2 and 4); the computation implements these definitions"
+  },
+  {
+   "path": "reviews/side24_v1_coefficient_claude_20260929/RESULTS.json",
+   "bytes": 1567,
+   "sha256": "8af1f8f0bea0a1739bfc41dd43fcdd11c219946c16c2ad169ff0581bf6da0b03",
+   "git_blob": "66e0462aa1245f66053d38d8f12a07f2f4f232d7",
+   "tag": "c2inf",
+   "use": "reference value c_{2,inf} = 0.073406919306034271030 (control T3)"
+  },
+  {
+   "path": "coefficients/side24_v1/ENCLOSURE.json",
+   "bytes": 1090,
+   "sha256": "72b6cd92d31394cdaf5da8919a5d548e902228af1f095cc184158a71d8287811",
+   "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+   "tag": "c3inf",
+   "use": "reference value c_{3,24} = c_{3,inf}(1 + O(e^-288)) = 0.04177593184059834334... (control T4)"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 44378,
+   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b",
+   "git_blob": "873532b955dbf7684edc1a53ba169c7216f778ab",
+   "tag": "214",
+   "use": "comparison: B2 (closed form, proof in d = 1); controls T1, T2 compare c2 with 2 B2",
+   "head": "f4a58df9247dfa9ada2b756ecd7629c0b2faf5b5",
+   "pr": "Math- #214"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "comparison: c1 (CU.2), the cusp loss and its small-s limit Y^2, CU.4, Theorem CU-prime",
+   "head": "826b8be512e86f2de73c33d6ac7a76908dc2e0e6",
+   "pr": "Math- #207"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "comparison: the even contact expansion (no r^1 term), checked independently by T5",
+   "head": "abae6d0b08f39a6b244308c4e351327c1ef56890",
+   "pr": "Math- #191"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Isserlis",
+   "reference": "L. Isserlis (1918), moments of products of Gaussian variables (Wick)",
+   "use": "conditional expectations of determinant products"
+  },
+  {
+   "tag": "Hadamard",
+   "reference": "Hadamard finite part",
+   "use": "definition of c2"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4"
+ ],
+ "replayed": [
+  "c2_check.py"
+ ],
+ "not_replayed": [
+  "the Monte Carlo of NOTE section 3 (C + numpy; exploration archived with the project record)"
+ ],
+ "exploration_outside_repository": [
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/README.md",
+   "bytes": 2797,
+   "sha256": "cff9a87ea40a4b143a79f80713ace327fecd3ecbb720d94cad689cf3cd1ed645"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_d3.py",
+   "bytes": 8393,
+   "sha256": "92e5f22efa8ae7d188c183e04d3eb66b06d37d3cda8cf9eea4388ccf4cd682c3"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_d3_int.py",
+   "bytes": 1946,
+   "sha256": "e9b247e073014d57845c6d2825cb66c54f0e3ad84c4f1677ab930c5899aea956"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_fold.py",
+   "bytes": 8436,
+   "sha256": "e4f5cbe79fa106f7d227f0c522e91a22a668aafc2e037e93c3f7fead5e4f9ec9"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_int.py",
+   "bytes": 2470,
+   "sha256": "f0e30b74853ed812a0c8b204efea80fdb287fe54992934f30d376d680e0b01be"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc2_interim.json",
+   "bytes": 6437,
+   "sha256": "66f28d5191d8f7a0011f4e363276dc67c52b83cd4911342140296d7b4b420b0d"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc3_interim.json",
+   "bytes": 6367,
+   "sha256": "6676b9f45ca0340e1ed2f1dddc6649322d883507c53f8a65b2dd7ebe4d63bb84"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/analyze.py",
+   "bytes": 6633,
+   "sha256": "3c02c8601c17ff1df1e416800f12747f3d159ccf637dc3d75ad7bbdf1cd6187a"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/mc_compare.py",
+   "bytes": 4107,
+   "sha256": "98b7253373f6cf7d8bee9f32b287fce29c87603164529ea68139399ad2f83d88"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/plots.py",
+   "bytes": 3180,
+   "sha256": "7c13c4909495667a2b6ba59ab2781288cb36e915e1577c9a9b75bb2e150580c0"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/run_batch_v2.py",
+   "bytes": 1053,
+   "sha256": "d3744083a2f3d4cea2d22132ced8af027ad7a484171538d0d115b1b549019679"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d.c",
+   "bytes": 12429,
+   "sha256": "456a1d83d037a26a55bd6867d1e932cd11eeeb8a7c0d510149445a2ee31c4b8c"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d.py",
+   "bytes": 10769,
+   "sha256": "a647a79579ea7af2885d729320b92d807dafe1b3d4a820ee7dbe08edd0072439"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d_v2.c",
+   "bytes": 12665,
+   "sha256": "649d6fba0ff8f435029973d06d14fef0ae01d55f472362da455e56f584d2bee4"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d_v2.py",
+   "bytes": 11739,
+   "sha256": "f9358cf91fa30abd31943583df8ac3208c5cb7cc03b56a898c317005a91b8ad7"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/validate4.py",
+   "bytes": 1222,
+   "sha256": "aa363970700494238983ba81d420706b0088cddcf5f4ea72f51dcc08e30eb772"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/run_batch3d_v3.py",
+   "bytes": 1029,
+   "sha256": "9026377acde460bd28ca123b915579547a1f46c7d6236e04fac95e9216779845"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d.c",
+   "bytes": 12872,
+   "sha256": "28d63e3f3145718d39f7f0b0f3ae0db73f68368e6b5d5da139d445c5883edb95"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d.py",
+   "bytes": 9448,
+   "sha256": "2997e970bb6d3b43554db0f151a7447e5c68d69069a2d1baa760ae04ff6f06fe"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d_v3.c",
+   "bytes": 13121,
+   "sha256": "bd05561355c1273babb934d67f097ae1806ee93f7b23d7cf93b5633d1254c542"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d_v3.py",
+   "bytes": 10221,
+   "sha256": "6e54cad15b8e2ae9a5305fdda7d80e63a85328de802a57bcee524ce60c447d7e"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/validate3d.py",
+   "bytes": 1971,
+   "sha256": "256e42ee13bd9cbca183445a21c0d77e021fa8552ce46debb818ca76cea22ac6"
+  }
+ ],
+ "automated_nonauthor": [],
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 16114,
+   "sha256": "58912bb321edaec8f5ab5ffa875870cc3e7b0ffea20025fe22fc0924d66ef7ef"
+  },
+  {
+   "path": "README.md",
+   "bytes": 4325,
+   "sha256": "8226dc210072b62c04056715d30037a1fba0b384da43db66925b90dae374c91e"
+  },
+  {
+   "path": "c2_check.py",
+   "bytes": 23768,
+   "sha256": "1ea9577fff0703dac3d723c7ac7eb0e175d7bc486fbea2604a934cb035a5e3d4"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2001,
+   "sha256": "abc3fd31c91be6e33c1ae37b3d870918a38a2fab604870212884cfeac7888d10"
+  }
+ ]
+}
