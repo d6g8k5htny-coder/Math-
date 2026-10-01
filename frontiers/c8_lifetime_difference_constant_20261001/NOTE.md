@@ -330,10 +330,15 @@ Four terms whose expectations are of lower order than their absolute values are 
       E[D tr(A* Omega') 1] = beta (2 E[D^2 1] - b E[D tr B 1]) + R_1,
 
   with `|R_1| <= ||mu_Omega|| E[D tr B 1] + ||DG|| ||D tr B 1||_2 (tr Cb)^(1/2)` (`DY = DG (B - mu_B)`, remainder only). Since
-  `beta = r/2 + O(r^3)`, the term divided by `36 k^2 r^2` (its contribution to `Z_r / (36 k^2 r^2)`) is
-  `-(1/2) r^2 (2 - b E[D tr B 1]/m_3) m_3 (1 + O(r))`; relative to the main term `m_3` it is
-  `-(1/2) r^2 (2 - b E[D tr B 1]/m_3) (1 + O(r))` (OA-215-A-01). It is signed and enters `a_dn`, with only `O(r)` slack in
-  `a_up`.
+  `beta = r/2 + O(r^3)`, write `T_Omega = -36 k^2 r E[D tr(A* Omega') 1]`, `M = E[D^2 1{B > 0}]` and
+  `J = E[D tr B 1{B > 0}]`. `T_Omega` is a term of `E[P1 P2] = Z_r / r^2`, so its raw `Z_r` contribution is `r^2 T_Omega`, and
+  after division by `36 k^2 r^2` it contributes `T_Omega / (36 k^2) = -r beta (2M - bJ) - r R_1` to `Z_r / (36 k^2 r^2)`. For
+  the reference kernel `beta = a(r) = (1 - e^(-r^2/2))/r`, `mu_Omega = k r^2 I` and `DY = 0`, so this is exactly
+
+      T_Omega / (36 k^2) = -r a(r) (2M - bJ) - k r^3 J = -(1/2) r^2 (2M - bJ) + O(r^3),
+
+  uniformly on the band (OA-215-A-01, successor read 5934120553). Relative to the main term `M = m_3`, divide by `M`. It is
+  signed and enters `a_dn`, with only `O(r)` slack in `a_up`.
 - **`r^2 E[c1 c2 D det Omega' 1]`.** `E[det Omega' | B] = det(E[Omega' | B]) + E[det X']`, where `X' = Omega' - E[Omega' | B]`
   is independent of `B`. Here `E[det X'] = Cov(X'_11, X'_22) - Var X'_12` is about `-1`, and `det(E[Omega' | B]) = O(r^2)`.
 - **`r^2 E[c2 tr(A* Omega') v' A* v 1]` and `r^2 E[c1 D e' adj(Omega') e 1]`.** Condition on `zeta = (B, v, nu)`. Then
