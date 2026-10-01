@@ -3,8 +3,8 @@
 **Object:** CL-CU-CUSP-COEFFICIENT-20261001-v1.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 1 October 2026.
 **Disposition:** certified numerical enclosures of the explicit Gaussian integral (CU.2) of Math-#207, for the Gaussian
-kernel (v1) and, by Lemma S, for the [P] torus field of every side `L >= 24`, including SIDE24 (v1.1). Author-side. One
-nonauthor read so far: OpenAI accepts R.1 only (review 5378866830 on `357d0a1`). Scope claim: Math-#207 comment
+kernel (v1) and, by Lemma S, for the [P] torus field of every side `L >= 24`, including SIDE24 (v1.1). Author-side. Nonauthor
+reads: OpenAI accepts R.1 (review 5378866830 on `357d0a1`) and R.2–R.6 with Lemma Q (review 5384432735 on `7a04873`). Scope claim: Math-#207 comment
 5929273376.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit. Nothing in Math-#207, #214, #216 or #218 is touched.
@@ -13,7 +13,8 @@ account as every lane; zero organizational-independence credit. Nothing in Math-
 
 ## 0. Statement
 
-Math-#207 ([CU], head `826b8be`, `PROOF.md` blob `f6df5a73`) proves, at candidate status, the second-order term of the
+Math-#207 ([CU], `PROOF.md` blob `f6df5a73`, merged at `566b1a1`; merging is not a status promotion) proves, at candidate
+status, the second-order term of the
 elder lifetime law, `nu_eld(ell) = c ell^(-1/3) + c1 ell^(1/4) + o(ell^(1/4))`, with
 
     c1 = -(192/7) 2^(1/4) integral_(S^(d-1)) integral_R pi_0(u; v_0(b,0)) E_0[ |Y|^(7/4) |Delta|^(1/4) 1{A < 0} | b ] db dsigma(u),     (CU.2)
@@ -104,8 +105,10 @@ The kernel is `K(z) = exp(-|z|^2/2)`, which is isotropic, so the `u`-integral is
 **R.2 (Mellin form).** For `0 < p < 2`, `|y|^p = K^(-1) integral_0^oo (1 - cos(omega y)) omega^(-1-p) d omega`, with
 `K = pi/(2 Gamma(1+p) sin(pi p/2))`. At `p = 7/4`, `K = pi/(2 Gamma(11/4) sin(7 pi/8))`.
 
-All integrands below are nonnegative before the real part is taken, so Tonelli applies. Hence
-`E|Y|^(7/4) = K^(-1) integral (1 - Re E e^(i omega Y)) omega^(-11/4) d omega`.
+Tonelli applies to the real nonnegative function `(1 - cos(omega Y)) omega^(-11/4)` times the nonnegative determinant and
+cone weight. At each fixed `omega`, the bounded characteristic function is then integrated against the finite Gaussian
+weight. The two terms are never split into separate, divergent, outer Mellin integrals. Hence
+`E|Y|^(7/4) = K^(-1) integral (1 - Re E e^(i omega Y)) omega^(-11/4) d omega` (wording per 5384432735).
 
 **R.3 (`d = 1`).** Here `A` is empty and `Y = f4/12`. The `b`-weight `e^(-3b^2/4)` makes `f4` a centered normal of variance
 `24 + 9 (2/3) = 30`. With `E|Z|^(7/4) = 2^(7/8) Gamma(11/8)/sqrt(pi)` this gives the closed form of §0.
@@ -171,7 +174,8 @@ The nodes are certified in exact rational arithmetic (`gauss.py`):
   - the safe form of R.6, with the integral-hull enclosures `E1(z) = int e^(tau z)`, `L(z) = int (1 + tau z)^-1`,
     `A(z) = int (1 + tau^2 z^2)^-1`, `Sinc(z) = int cos(tau z)`, or their closed forms for `|z| >= 1` (`cx.py`);
   - the direct form `(1 - (Phi + Phi*)/2)/t^8`, bounded through `|z^a| = |z|^a`, where every base of a principal power must
-    avoid `(-oo, 0]`.
+    avoid `(-oo, 0]`. Here `Phi*(w) = conj(Phi(conj w))` is the analytic coefficient-conjugate, as in `cusp.py`. It is not
+    a nonholomorphic `Re` of the variable, and `(Phi + Phi*)/2 = Re Phi` holds on the real axis only.
 - A representation that evaluates without exception on a box is analytic on a neighbourhood of it: every denominator and
   every logarithm or power argument has been checked away from its singular set.
 - Every slab meets the real axis in a segment where the representation equals the integrand. By the identity theorem it is
@@ -363,8 +367,8 @@ These recompute the same quantities in libm floating point by routes that share 
 ## 9. Provenance
 
 - **Sources** (`SOURCE_MAP.json`):
-  - [CU] Math-#207 `frontiers/cusp_second_order_20261001/PROOF.md` at head `826b8be` (blob `f6df5a73`, unmerged; recorded,
-    not checked on this tree);
+  - [CU] Math-#207 `frontiers/cusp_second_order_20261001/PROOF.md` (blob `f6df5a73`). It is on `main` since `566b1a1`
+    (byte-identical to the consumed head `826b8be`) and is now checked on this tree (`current_required`);
   - [SIDE24] `coefficients/side24_v1/PROOF.md` (1), and §§2, 4 as the model for Lemma S;
   - [SIDE24-E] `coefficients/side24_v1/ENCLOSURE.json` (`c_(d,24)`);
   - [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` §15.
