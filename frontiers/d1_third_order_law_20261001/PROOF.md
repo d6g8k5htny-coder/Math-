@@ -1,7 +1,13 @@
 # The one-dimensional lifetime and crest-to-trough laws to third order: `C₀ℓ^{−1/3} + C₁ℓ^{1/4} + 2B₂ℓ^{1/3} + O(ℓ^{1/2})`
 
-Object: CL-D1-THIRD-ORDER-20261001-v1.
+Object: CL-D1-THIRD-ORDER-20261001-v1.1.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+**v1.1 (after the Codex review of v1 on Math- #214, head `2aedcaa`):** (i) the sign of `B₂` is not fixed by (H) — v1's
+README asserted `B₂ > 0`; §0 now gives the decomposition `𝒬 = 4λ₂²λ₄σ₄² + D(24λ₄² − D)`, the sufficient condition
+`λ₂λ₆ ≤ 25λ₄²` and Codex's counterexample (checker C5); (ii) v1's far form of Lemma 4.2 claimed a bounded joint density
+of `(f'(y_i), f''(±τ))` given `U`, which is false as the pins merge (`v₁ ≍ τ⁴`, `v₂ ≍ τ⁶`); it now states and proves the
+bound that Lemma 4.3 uses — the density of `(f'(y_i))` conditional on `U` *and* `f''(±τ)` — and Lemma 4.3's far part now
+controls the conditional mean of `f''` under `Q` explicitly. Theorem D1's statement is unchanged.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 **Dependencies: none.** The proof is self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor's
@@ -49,6 +55,15 @@ with, writing `μ_q := E|Z|^q` for a standard normal `Z` (`μ_{7/4} = 2^{7/8}Γ(
 
 So `C₁ < 0 < C₀`; `I − C₁ = (1 − 3^{1/4}/2)|C₁| > 0` is the density coefficient of adjacent max/min pairs that are
 not elder pairs, `2ν₊(ℓ) − ν(ℓ) = (I − C₁)ℓ^{1/4} + O(ℓ^{1/2})`.
+
+**The sign of `B₂`** is that of `𝒬`, and (checker C5)
+
+    𝒬 = 4λ₂²(λ₄λ₈ − λ₆²) + D(25λ₄² − λ₂λ₆) = 4λ₂²λ₄σ₄² + D(24λ₄² − D),
+
+so `B₂ > 0` whenever `λ₂λ₆ ≤ 25λ₄²` (the Gaussian kernel has `λ₂λ₆/λ₄² = 5/3`, the mixture of §6.2 `1625/867`). The sign
+is not fixed by (H) (Codex, review of v1 on #214): for `L = 2π` and the spectrum with weights `1 − 10⁻⁵` and `10⁻⁵` at the
+frequencies `1` and `40`, `λ₂λ₆/λ₄² ≈ 58.8` and `𝒬 ≈ −7.09·10⁸ < 0`; adding small positive, rapidly decaying weights at
+every other frequency gives (H) and, `𝒬` being continuous in `(λ₂, λ₄, λ₆, λ₈)`, keeps `𝒬 < 0`.
 
 For the Gaussian kernel (`λ_{2j} = (2j − 1)!!`; the periodization changes them by `O(L^{2j}e^{−L²/2})`, invisible
 below for `L ≥ 10`): `C₀ = 0.11011038`, `C₁ = −0.22760636`, `I = −0.14977341`, `B₂ = 0.11502229`, `𝒬/(120λ₂λ₄D) = 3/4`. Per
@@ -305,17 +320,29 @@ value `d(M) = m_±` is attained, i.e. the arc from `M` to its death point (not n
 `P^{(j)}(0) = a_j`, and `f''(±τ) = P''(±τ) + O(τ^kK)`. ∎
 
 **Lemma 4.2 (interior values).** For fixed `−1 < ξ₁ < … < ξ_N < 1` with `∫_{−1}^1 Π_{i}(ξ − ξ_i)(ξ² − 1)dξ ≠ 0`, the
-conditional density under `Q_{t,α}` of `(f'(τξ_i))_{i ≤ N}` is at most `C τ^{−N(N+5)/2}` for `τ ≤ τ₀`. (Far form) For
-points `y₁, …, y_N` at distance `≥ t₀/4` from both pins, the conditional density of `(f'(y_i))` and, jointly, of
-`(f'(y_i), f''(±τ))` is at most `C` uniformly in `t ∈ (0, L)`.
+conditional density under `Q_{t,α}` of `(f'(τξ_i))_{i ≤ N}` is at most `C τ^{−N(N+5)/2}` for `τ ≤ τ₀`. (Far form) Fix
+`t₀ ∈ (0, L/4]`. For points `y₁, …, y_N` at mutual distances `≥ t₀/8` and at distance `≥ t₀/4` from both pins, the
+conditional density of `(f'(y_i))_{i ≤ N}` given `U`, and also given `(U, f''(−τ), f''(τ))`, is at most `C`, uniformly
+in `t ∈ (0, L)` and in such points. (The joint density of `(f'(y_i), f''(±τ))` given `U` is *not* bounded: as `t ↓ 0`
+the pair `f''(±τ)` has conditional variances `v₁ ≍ τ⁴` and `v₂ ≍ τ⁶`, Lemma 1.3. v1 stated that joint bound; Lemma 4.3
+uses only the conditional one.)
 
 *Proof.* `(f'(−τ), f'(τ), f(−τ) − f(τ), f'(τξ₁), …, f'(τξ_N)) = A_τ(a₁, …, a_{N+3}) + O(τ^{N+3})`, where `A_τ =
 B·diag(τ^{j−1})` up to one factor `τ` in the integral row and `B` (evaluations of polynomials of degree `N + 2` at
 `−1, 1, ξ_i` and the integral over `[−1, 1]`) is invertible by the stated condition; so the covariance determinant of the
 full vector is `≍ τ^{(N+3)(N+2) + 2}` and that of the pin vector `≍ τ⁸` (the case `N = 0`), and the Schur complement has
-determinant `≍ τ^{N(N+5)}`. Far form: for pins at distance `≥ t₀/4` (on either side) this is compactness and Lemma 1.1;
-as the pins merge (`t ↓ 0` or `t ↑ L`), `U` converges to the jet `(a₁, a₂, a₃)` at the merged point, which is jointly
-nondegenerate with the far values (Lemma 1.1), so the Schur complements stay bounded below. ∎
+determinant `≍ τ^{N(N+5)}`. Far form: a Gaussian conditional density is at most `(2π)^{−N/2}` times the inverse square
+root of the determinant of the conditional covariance, which depends only on the σ-algebra `𝒢` conditioned on, and
+continuously on `(t, y)`. For `t ∈ [ε, L − ε]` the vector `(f'(y_i), f'(±τ), f(−τ) − f(τ), f''(±τ))` is nondegenerate
+(a surjective linear image of derivatives at distinct points, Lemma 1.1), so the determinant is bounded below by
+compactness. As `t ↓ 0`, `σ(U, f''(±τ)) = σ(W_τ)` with
+`W_τ := (U₁, U₂, U₃, (E₁ − U₂)/τ², ((f''(τ) − f''(−τ))/2 − τU₃)/τ³)`, and the expansions in the proof of Lemma 1.3
+(`E₁ − U₂ = a₄τ²/3 + O(τ⁴)`, `(f''(τ) − f''(−τ))/2 − τU₃ = a₅τ³/15 + O(τ⁵)`, remainders bounded in `L²`) give
+`W_τ → (a₁, a₂, a₃, a₄/3, a₅/15)` in `L²`, jointly with `(f'(y_i))` and uniformly in admissible `y`. This limit and
+`(f'(y_i))` are jointly nondegenerate (Lemma 1.1; the `y_i` stay at distance `≥ t₀/8` from the merged point and from each
+other), so the conditional determinant converges to a positive limit, uniformly; for `𝒢 = σ(U)` keep the first three
+entries. As `t ↑ L` the pins merge at `L/2` across the complementary arc; `σ(U)` and `σ(U, f''(±τ))` are the
+corresponding σ-algebras of the pair at distance `L − t`, and the same argument applies there. ∎
 
 **Lemma 4.3 (thin pairs are negligible).** Let `K^{band}(t, h) := (12/t⁴)p_t(α)E_Q[|f''(−τ)f''(τ)|1{banded}]` and
 `K^{co}(t, h)` the same with `1{co-banded}`. Then `∫_{t_*}^{t₀}K^{band}dt = O(h^{3/4})`, `∫_{t₀}^{L}K^{band}dt = O(h)`
@@ -330,11 +357,25 @@ and smaller beyond (the dyadic decomposition of `K` adds at most powers of `log(
 `3 − 11/(5 − δ) > 3/4`). For `t ∈ [t₁, t₀]`: banded with `h ≤ t^{10}` gives `|f''(±τ)| ≤ C τ⁸(1 + K)` (Lemma 4.1) and, by
 Landau's inequality on the band, `|f'(τξ_i)| ≤ 2(h max(sup|f''|, 1))^{1/2}`; truncating `K` and `sup|f''|` at
 `C(log(1/h))^{1/2}` (the complement has probability `O(h^{10})`), Lemma 4.2 gives
-`K^{band} ≤ Ct^{−4}t^{16}·h log(1/h)·t^{−7}`, integrable, total `O(h log(1/h))`. Far: the band (resp. co-band) arc has length `≥ t₀`
-(resp. `≥ L/2`); take `N = 4` points on it at distance `≥ t₀/4` from both pins, where Landau's inequality gives
-`|f'(y_i)| ≤ 2(hB)^{1/2}`, `B := max(sup_T|f''|, 1)`. Condition also on `f''(±τ)` (far form of Lemma 4.2) and truncate
-`B` at `C(log(1/h))^{1/2}`: the mark costs `O(h²(log(1/h))²)` uniformly, while `∫(12/t⁴)p_t(α)E_Q|f''(−τ)f''(τ)|dt` over
-`[t₀, L)` (resp. `[t_*, L/2]`) is `O(h^{−1/3})` (near a merging of the pins it is the near-pair integral, `O(h^{−1/3})`). ∎
+`K^{band} ≤ Ct^{−4}t^{16}·h log(1/h)·t^{−7}`, integrable, total `O(h log(1/h))`.
+
+*Far.* The band (resp. co-band) arc has length `≥ t₀` (resp. `≥ L/2`); take `N = 4` points on it at mutual distances
+`≥ t₀/8` and at distance `≥ t₀/4` from both pins, where Landau's inequality gives `|f'(y_i)| ≤ 2(hB)^{1/2}`,
+`B := max(sup_T|f''|, 1)`. Put `u := min(t, L − t)` and `α_u := 12h/u³`. The kernel `(12/t⁴)p_t(α)` is the density of
+`(f'(−τ), f'(τ), f(−τ) − f(τ))` at `(0, 0, h)`, invariant under `t ↦ L − t` (§1), so it equals `(12/u⁴)p_u(α_u)`.
+Under `Q`, `f''` is Gaussian; its mean is linear in the conditioning value and bounded by `Cα_u` (for `u ≤ t₀` by Lemma
+1.3 at the merged point — `σ(U)` is that of the pair at distance `u` — and by compactness otherwise), and its centered part
+`f''_c` satisfies `E_Q sup_T|f''_c| ≤ E sup_T|f''|` (Sudakov–Fernique: conditioning does not increase the variance of
+`f''(x) ∓ f''(y)`) and `P_Q(sup_T|f''_c| ≥ E sup_T|f''| + r) ≤ e^{−r²/(2λ₄)}` (Borell–TIS). Let `A` be large.
+- Where `α_u ≤ A(log(1/h))^{1/2}`: `B ≤ C_A(log(1/h))^{1/2}` outside an event of `Q`-probability `O(h^{20})`, and on it
+  the mark forces `|f'(y_i)| ≤ C_Ah^{1/2}(log(1/h))^{1/4}`. By the far form of Lemma 4.2, conditionally on
+  `(U, f''(−τ), f''(τ))`, `E_Q[|f''(−τ)f''(τ)|1{mark}] ≤ C_Ah²log(1/h)·E_Q|f''(−τ)f''(τ)| + O(h^{10}(1 + α_u)²)`.
+- Where `α_u > A(log(1/h))^{1/2}` (so `u ≤ τ₀`): `p_u(α_u) ≤ Ce^{−α_u²/(4σ₃²)}` (Lemma 1.3) and
+  `E_Q|f''(−τ)f''(τ)| ≤ C(1 + α_u)²`; as `(12/u⁴)du = 4(12h)^{−1}dα_u`, this range contributes `O(h^{10})` for `A` large.
+
+Finally `∫(12/t⁴)p_t(α)E_Q|f''(−τ)f''(τ)|dt` over `[t₀, L)` (resp. `[t_*, L/2]`) is `O(h^{−1/3})` (near a merging of
+the pins it is the near-pair integral), and `∫(12/t⁴)p_t(α)(1 + α_u)²dt = O(h^{−1})`. So both far parts are
+`O(h^{5/3}log(1/h)) = O(h)`. ∎
 
 ## 5. Proof of Theorem D1
 
@@ -429,7 +470,8 @@ exits 2):
 - **C4** Lemma 1.3: block structure and the coefficients `c₂, d₂, q₂`, `v₁`, `v₂` as exact Laurent series in `τ` computed from
   the covariance (not from the jets) for the Gaussian kernel and the mixture `(e^{−x²/2} + e^{−2x²})/2`.
 - **C5** the `B₂` assembly: the polynomial identity of §2(e) (exact multivariate polynomials) and the Gaussian-kernel value
-  `𝒬/(120λ₂λ₄D) = 3/4`.
+  `𝒬/(120λ₂λ₄D) = 3/4`; (v1.1) the sign decomposition `𝒬 = 4λ₂²λ₄σ₄² + D(24λ₄² − D)` of §0, `λ₂λ₆ ≤ 25λ₄²` and
+  `𝒬 > 0` for both kernels, and `𝒬 < 0` (exact rationals) for the two-mode spectrum of §0.
 - **C6** the two-point Rice integral (§6.2), both kernels: fitted `a`, `b` within `2·10⁻⁴` and `3·10⁻³` of the predictions.
 
 What the controls do not test: Lemma 1.1, the Kac–Rice representation, the error bounds of Proposition 2.2, Lemmas 3.2–4.3

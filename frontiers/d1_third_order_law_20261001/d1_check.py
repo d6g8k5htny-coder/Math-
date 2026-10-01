@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-D1-THIRD-ORDER-20261001-v1 (frontiers/d1_third_order_law_20261001/PROOF.md).
+"""Exact controls for CL-D1-THIRD-ORDER-20261001-v1.1 (frontiers/d1_third_order_law_20261001/PROOF.md).
 Standard library only. Run: python3 -B -S d1_check.py   (and with -O; output byte-identical).
 Mutants: --mutant M1|M2|M3|M4|M5 must exit 1; an unknown label exits 2.
 
@@ -9,7 +9,9 @@ Mutants: --mutant M1|M2|M3|M4|M5 must exit 1; an unknown label exits 2.
   C3 the model (3.1): polynomial identities in (X, phi); X3 and the critical values; the margins of Lemma 3.3 at rational
        phi; the decision by exact one-dimensional persistence of the quartic for 117 rational phi: elder iff |phi| < 1/3
   C4 Lemma 1.3: exact Laurent series in tau computed from the covariance, for exp(-x^2/2) and (exp(-x^2/2)+exp(-2x^2))/2
-  C5 the B2 assembly: exact multivariate polynomial identities; Q/(120 l2 l4 D) = 3/4 for the Gaussian kernel
+  C5 the B2 assembly: exact multivariate polynomial identities; Q/(120 l2 l4 D) = 3/4 for the Gaussian kernel;
+       v1.1: Q = 4 l2^2 l4 s4^2 + D(24 l4^2 - D), so Q > 0 if l2 l6 <= 25 l4^2 (both kernels), and Q < 0 for a two-mode
+       spectrum (the sign of B2 is not fixed by (H); Codex review on Math- #214)
   C6 the two-point Rice integral (Decimal conditioning, float quadrature): fitted a, b against I/C0 and B2/(C0/2)
 """
 import argparse
@@ -498,6 +500,10 @@ def check_C5():
                   mpc(-25, mono(l4=4)))
     id1 = mpoly_add(lhs1, mpc(-1, rhs1)) == {}
     id2 = mpoly_add(lhs1, t_s, mpc(-1, Q)) == {}
+    # v1.1 sign decomposition: Q = 4 l2^2 (l4 l8 - l6^2) + D (25 l4^2 - l2 l6) = 4 l2^2 l4 s4^2 + D (24 l4^2 - D)
+    sgn_dec = mpoly_add(mpc(4, mpoly_mul(mpoly_mul(l2, l2), mpoly_add(mpoly_mul(l4, l8), mpc(-1, mpoly_mul(l6, l6))))),
+                        mpoly_mul(D, mpoly_add(mpc(25, mpoly_mul(l4, l4)), mpc(-1, mpoly_mul(l2, l6)))))
+    id3 = mpoly_add(Q, mpc(-1, sgn_dec)) == {}
     # individual coefficient formulas against the exact rational values of C4 (Gaussian kernel and mixture)
     vals = {}
     for name, rc in kernels().items():
@@ -509,11 +515,24 @@ def check_C5():
         bracket = (2*fm['c2'] - fm['d2']/2 - 5*fm['q2']/6)/4 + s4sq/(12*s3sq)
         Qv = 4*L2**2*L4*L8 + c26*L2*L4**2*L6 - 5*L2**2*L6**2 - 25*L4**4
         vals[name] = {'bracket': str(bracket), 'Q/(120 l2 l4 D)': str(Qv/(120*L2*L4*Dd)),
-                      'agree': bracket == Qv/(120*L2*L4*Dd)}
+                      'agree': bracket == Qv/(120*L2*L4*Dd),
+                      'l2l6/l4^2': str(L2*L6/L4**2), 'sufficient_l2l6<=25l4^2': L2*L6 <= 25*L4**2, 'Q>0': Qv > 0}
     gauss_34 = vals['exp(-x^2/2)']['Q/(120 l2 l4 D)'] == '3/4'
-    ok = id1 and id2 and gauss_34 and all(v['agree'] for v in vals.values())
-    return ok, {'identity_30l2l4D(2c2-d2/2-5q2/6)': id1, 'identity_sum_equals_Q': id2, 'values': vals,
-                'gauss_Q_over_120l2l4D_is_3/4': gauss_34}
+    # the sign of B2 is not fixed by (H) (Codex review on Math- #214): two-mode spectrum, weights 1 - 1e-5 and 1e-5 at
+    # frequencies 1 and 40 (L = 2 pi); adding small positive weights at every other frequency gives (H) and, by
+    # continuity of Q in (l2, l4, l6, l8), keeps Q < 0
+    eps = F(1, 10**5)
+    lt = [(1 - eps) + eps*F(40)**(2*j) for j in range(5)]
+    Qt = 4*lt[1]**2*lt[2]*lt[4] + c26*lt[1]*lt[2]**2*lt[3] - 5*lt[1]**2*lt[3]**2 - 25*lt[2]**4
+    two_mode = {'Q': '%.8e' % float(Qt), 'Q<0': Qt < 0, 'l2l6/l4^2': '%.6f' % float(lt[1]*lt[3]/lt[2]**2),
+                'l2l6>25l4^2': lt[1]*lt[3] > 25*lt[2]**2}
+    signs_ok = (all(v['sufficient_l2l6<=25l4^2'] and v['Q>0'] for v in vals.values())
+                and two_mode['Q<0'] and two_mode['l2l6>25l4^2'])
+    ok = id1 and id2 and id3 and gauss_34 and signs_ok and all(v['agree'] for v in vals.values())
+    return ok, {'identity_30l2l4D(2c2-d2/2-5q2/6)': id1, 'identity_sum_equals_Q': id2,
+                'identity_Q=4l2^2l4s4^2+D(24l4^2-D)': id3, 'values': vals,
+                'gauss_Q_over_120l2l4D_is_3/4': gauss_34,
+                'two_mode_1_40_eps1e-5_sign_not_fixed_by_H': two_mode}
 
 
 # ----------------------------------------------------------------------------------------------- C6: two-point Rice
@@ -723,7 +742,7 @@ def main():
                      ('C4_pinned_series', check_C4), ('C5_B2_assembly', check_C5), ('C6_rice_integral', check_C6)):
         ok, info = fn()
         results[name] = {'passed': bool(ok), 'info': info}
-    out = {'object': 'CL-D1-THIRD-ORDER-20261001-v1 exact controls', 'scientific_effect': 'NONE',
+    out = {'object': 'CL-D1-THIRD-ORDER-20261001-v1.1 exact controls', 'scientific_effect': 'NONE',
            'mutant': MUTANT, 'passed': all(r['passed'] for r in results.values()), 'checks': results}
     sys.stdout.write(json.dumps(out, indent=1, sort_keys=True) + '\n')
     return 0 if out['passed'] else 1

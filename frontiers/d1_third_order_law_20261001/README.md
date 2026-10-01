@@ -1,6 +1,7 @@
-# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1)
+# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1.1)
 
 Author-side proof candidate, Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review required.
+v1.1 applies the two findings of the Codex review of v1 (head `2aedcaa`); see *Review record* below.
 **No dependencies:** self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor, Markov and Landau
 inequalities). Math- #207 (Theorem CU, `d ≥ 2`) and #210 (the `d = 1` literature remark) are cited for comparison only.
 
@@ -14,8 +15,13 @@ lifetimes (superlevel `H₀`, elder rule), both in their canonical Kac–Rice ve
 
 with explicit constants in the spectral moments: `C₀ = 2·72^{−1/6}Γ(7/6)(2π)^{−1/2}p₁₂σ₃^{4/3}`,
 `C₁ = −(8/21)24^{1/4}μ_{7/4}(2π)^{−1/2}p₁₂σ₄^{7/4}/σ₃ < 0`, `I = (3^{1/4}/2)C₁`, and
-`B₂ = 2^{1/2}3^{1/3}Γ(5/6)(2π)^{−1/2}p₁₂σ₃^{2/3}𝒬/(120λ₂λ₄D) > 0`, where
-`𝒬 = 4λ₂²λ₄λ₈ + 26λ₂λ₄²λ₆ − 5λ₂²λ₆² − 25λ₄⁴`.
+`B₂ = 2^{1/2}3^{1/3}Γ(5/6)(2π)^{−1/2}p₁₂σ₃^{2/3}𝒬/(120λ₂λ₄D)`, where
+`𝒬 = 4λ₂²λ₄λ₈ + 26λ₂λ₄²λ₆ − 5λ₂²λ₆² − 25λ₄⁴ = 4λ₂²λ₄σ₄² + D(24λ₄² − D)`.
+
+The sign of `B₂` is that of `𝒬`. It is positive when `λ₂λ₆ ≤ 25λ₄²`, which covers the Gaussian kernel and the mixture
+below. It is **not** fixed by (H): Codex's two-mode spectrum (weights `1 − 10⁻⁵` and `10⁻⁵` at frequencies `1` and `40`,
+made admissible by small positive weights elsewhere) has `𝒬 ≈ −7.09·10⁸`. v1 wrote `B₂ > 0` here; that was an
+overstatement.
 
 Here `σ₃² = Var(f''' | f')`, `σ₄² = Var(f'''' | f'')`, `p₁₂` is the density of `(f', f'')` at `0`, and
 `μ_{7/4} = E|Z|^{7/4}`.
@@ -67,7 +73,8 @@ the `O(·)`; sharpness of `O(h^{1/2})`.
   - **C2** the Mellin integrals `k_θ`.
   - **C3** the model identities (3.1), the margins of Lemma 3.3, and the decision by exact persistence for 117 rational `φ`.
   - **C4** the pinned-law expansions, as exact Laurent series from the covariance, for two kernels.
-  - **C5** the `B₂` polynomial identities.
+  - **C5** the `B₂` polynomial identities, the sign decomposition of `𝒬`, `𝒬 > 0` for both kernels, and `𝒬 < 0` for the
+    two-mode spectrum.
   - **C6** the two-point Rice integral, a numerical check with tolerance.
 - `SOURCES.json` (exact identities of the cited sources).
 
@@ -92,6 +99,18 @@ read v1 before the PR.
 - It found one gap: a `√log` loss in the misclassification sum. This is removed by the parity split (Remark 1.4: the odd
   part of the field, which carries the first-order window error, is independent of `E₁`).
 - Minor points, all applied.
+
+**Review record (nonauthor).** The Codex review of v1 (`2aedcaa`, 1 October 2026) made two findings, both applied in v1.1:
+- **P2 (correct): `B₂ > 0` is not implied by (H).** The README claim is withdrawn. §0 of `PROOF.md` now gives the sign
+  decomposition, the sufficient condition and the counterexample, all three checked exactly in C5. The theorem never used
+  the sign.
+- **P1 (correct): the far form of Lemma 4.2 as stated was false.** It claimed a bounded joint density of
+  `(f'(y_i), f''(±τ))` given `U`. As the pins merge, the conditional variances of `f''(±τ)` are `≍ τ⁴, τ⁶`, so that
+  density is unbounded. The far-pair bound needs only the density of `(f'(y_i))` *conditional on* `U` and `f''(±τ)`.
+  v1.1 states that bound and proves it: the conditioning σ-algebra is that of
+  `W_τ = (U₁, U₂, U₃, (E₁ − U₂)/τ², ((f''(τ) − f''(−τ))/2 − τU₃)/τ³)`, which converges to the jet
+  `(a₁, a₂, a₃, a₄/3, a₅/15)`, jointly nondegenerate with far values. Lemma 4.3's far part now also controls the
+  conditional mean of `f''` under `Q`, by the symmetry `t ↦ L − t`, Sudakov–Fernique and Borell–TIS.
 
 **What the controls do not test:** Lemma 1.1, the Kac–Rice representation, the error bounds of Proposition 2.2, Lemmas
 3.2–4.3 and the assembly (§5) are proved in prose only. Review slices (PROOF.md §9):

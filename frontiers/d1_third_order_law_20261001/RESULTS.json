@@ -91,17 +91,30 @@
    "info": {
     "gauss_Q_over_120l2l4D_is_3/4": true,
     "identity_30l2l4D(2c2-d2/2-5q2/6)": true,
+    "identity_Q=4l2^2l4s4^2+D(24l4^2-D)": true,
     "identity_sum_equals_Q": true,
+    "two_mode_1_40_eps1e-5_sign_not_fixed_by_H": {
+     "Q": "-7.08561071e+08",
+     "Q<0": true,
+     "l2l6/l4^2": "58.816210",
+     "l2l6>25l4^2": true
+    },
     "values": {
      "(exp(-x^2/2)+exp(-2x^2))/2": {
       "Q/(120 l2 l4 D)": "66423/25772",
+      "Q>0": true,
       "agree": true,
-      "bracket": "66423/25772"
+      "bracket": "66423/25772",
+      "l2l6/l4^2": "1625/867",
+      "sufficient_l2l6<=25l4^2": true
      },
      "exp(-x^2/2)": {
       "Q/(120 l2 l4 D)": "3/4",
+      "Q>0": true,
       "agree": true,
-      "bracket": "3/4"
+      "bracket": "3/4",
+      "l2l6/l4^2": "5/3",
+      "sufficient_l2l6<=25l4^2": true
      }
     }
    },
@@ -154,7 +167,7 @@
   }
  },
  "mutant": null,
- "object": "CL-D1-THIRD-ORDER-20261001-v1 exact controls",
+ "object": "CL-D1-THIRD-ORDER-20261001-v1.1 exact controls",
  "passed": true,
  "scientific_effect": "NONE"
 }

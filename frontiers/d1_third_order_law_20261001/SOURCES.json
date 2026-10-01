@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-THIRD-ORDER-20261001-v1",
+ "object": "CL-D1-THIRD-ORDER-20261001-v1.1",
  "kind": "author-side proof candidate (Theorem D1: the one-dimensional crest-to-trough and persistence lifetime densities on the circle to third order with remainder O(h^(1/2))); self-contained; nothing consumed; nonauthor review required. Control C6 is a numerical consistency check (two-point Rice integral), not a proof.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
@@ -102,27 +102,51 @@
   "slices_AB": "no false claim; Lemma 1.3 coefficients verified symbolically for a general covariance; independent Rice computation to h = 1e-40 confirms I/2, C1/2, B2 to 1e-9..1e-11 and a next term O(h^(3/4)); one gap (Prop 2.2(a): the straddle term kernel is alpha t, not alpha t^3) repaired with its Gaussian factor; minor points applied (Kac-Rice display restricted to (max, min) pairs; uniformity statements; the e^{-c/h} complement; I - C1 = 0.0778330)",
   "slices_CD": "Lemma 3.3 case analysis, Lemmas 3.1, 3.2, 4.1, 4.2 and the counting of nu confirmed (sympy, mpmath, independent Monte Carlo 2.6e7: three-term law 0.996 +- 0.003); two errors repaired (Corollary 3.4: the misclassification window now includes the deterministic tau^2 shift between phi_G and phi; elder pairs are banded or co-banded, the co-banded kernel bounded by the flat band on the long arc); one gap repaired (sqrt(log) loss in the misclassification sum removed by the parity split, Remark 1.4); minor points applied (eta <= 1/4 and the extension of Lemma 3.3 to |phi| >= 1; far-region exponents with conditioning on f''(+-tau); merged-pin limit in Lemma 4.2; the unused adjacency claim dropped)"
  },
- "automated_nonauthor": [],
+ "automated_nonauthor": [
+  {
+   "reviewer": "chatgpt-codex-connector[bot] (OpenAI Codex, automated PR review)",
+   "review_id": 5375298473,
+   "reviewed_commit": "2aedcaa6d4b0a89795dcafc4f5fce22fb418a403",
+   "date": "2026-10-01",
+   "findings": [
+    {
+     "id": "P2",
+     "thread": 4152125662,
+     "claim": "README: B2 > 0 is not implied by (H); two-mode spectrum (weights 1 - 1e-5, 1e-5 at frequencies 1, 40) has Q ~ -7.09e8",
+     "verdict": "correct",
+     "disposition": "v1.1: positivity claim withdrawn; PROOF section 0 gives Q = 4 l2^2 l4 s4^2 + D(24 l4^2 - D), the sufficient condition l2 l6 <= 25 l4^2 and the counterexample; checker C5 verifies all three exactly; the theorem never used the sign"
+    },
+    {
+     "id": "P1",
+     "thread": 4152125664,
+     "claim": "Lemma 4.2 far form: the joint conditional density of (f'(y_i), f''(+-tau)) given U is unbounded as the pins merge (v1 ~ tau^4, v2 ~ tau^6)",
+     "verdict": "correct (the v1 statement was false; the proof of Lemma 4.3 needs only the conditional density given U and f''(+-tau))",
+     "disposition": "v1.1: Lemma 4.2 far form restated as the density of (f'(y_i)) conditional on (U, f''(+-tau)), bounded uniformly in t via W_tau -> (a1, a2, a3, a4/3, a5/15); Lemma 4.3 far part rewritten (kernel symmetry t -> L - t, conditional mean of f'' under Q bounded by C alpha_u, Sudakov-Fernique and Borell-TIS truncation)"
+    }
+   ],
+   "note": "the P1 error had passed the same-family referee pass of slices C/D; the automated review is nonauthor but not a full mathematical acceptance"
+  }
+ ],
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 39913,
-   "sha256": "76b4bf2e95788f705582f4bd0d8fd2c52c73018b8ff9bba6360709d3f1e89eab"
+   "bytes": 44378,
+   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b"
   },
   {
    "path": "README.md",
-   "bytes": 7177,
-   "sha256": "3aff95a92531420e373faea3d569fcd9d35180f779f6a70fa0ff85714f1bda27"
+   "bytes": 9002,
+   "sha256": "b3e21cd7ad5dedac3cecc461e37482b604412c508fd9168ff94d991c1bd79925"
   },
   {
    "path": "d1_check.py",
-   "bytes": 29048,
-   "sha256": "483886db6442e1007f00f3b8a2a8d563001b660334a6c4c03d2418d73d723ed3"
+   "bytes": 30682,
+   "sha256": "5a668ffbef036f19bef2e7ea5ab9b00dcf2bcfd2bb2419b4a087634af4aefbbc"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 3682,
-   "sha256": "c7a5158b3eb7cb6a44003cf225a2b7dafeff6e1660ac1ff0ccb2f97ab585d1be"
+   "bytes": 4066,
+   "sha256": "05795a038510493a36b6b6803efbd57cfa41951bd968a3a1f10b06d51d20da66"
   }
  ]
 }
