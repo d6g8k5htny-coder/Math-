@@ -208,8 +208,9 @@ def phi_std(t):
 
 def _Phi_pos_point(t):
     """Enclosure of Phi(t) for a float 0 <= t < 2: Phi(t) = 1/2 + phi(t) S(t), S(t) = sum t^(2n+1)/(2n+1)!! (positive
-    terms), summed in binary64 with a priori relative error <= (3N + 3) u <= 1e-13 (N <= 300 terms), plus the geometric
-    tail bound once the term ratio t^2/(2n+3) is below 1/2."""
+    terms), summed in binary64.  On 0 < t < 2 the loop stops by n = 24 (there term_n/S <= 4^n/(2n+1)!! < 5e-18), so the
+    accumulated relative error is at most (3 * 24 + 3) u < 1e-14, inside the 1e-13 allowance; the cap n <= 300 only
+    guards termination.  The geometric tail bound applies once the term ratio t^2/(2n+3) is below 1/2."""
     if t == 0.0:
         return (0.5, 0.5)
     if t < 1e-100:
