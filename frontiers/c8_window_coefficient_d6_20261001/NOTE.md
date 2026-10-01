@@ -367,8 +367,9 @@ No external numerical library is used.
 
 ## 10. Revisions
 
-- **v1.1 (band-share wording; NOTE only).** The xAI lane found (on this PR, comments 5932380111 and 5932429158) that the table of §5 headed as the band's share of the
-  birth mass shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the C8
-  band's share of the whole coefficient (Math-#222 comment 5932429158). §5 now labels that column as the height-window share and
-  adds the C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are
-  byte-unchanged; no certified value changes.
+- **v1.1 (band-share wording; NOTE only).** Two caption checks on this PR, the xAI lane (Harper, comment 5932429158) and a
+  scoped check (comment 5932380111; its lane is not stated), found that the table of §5, headed as the band's share of the
+  birth mass, shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the
+  C8 band's share of the whole coefficient. §5 now labels that column as the height-window share and adds the C8 band's share
+  of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are byte-unchanged; no
+  certified value changes.
