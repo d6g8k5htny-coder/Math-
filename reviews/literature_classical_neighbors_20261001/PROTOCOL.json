@@ -1,0 +1,90 @@
+{
+ "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1",
+ "extends": {
+  "object": "CL-LIT-RECON-LIFETIME-20260929-v1.1",
+  "path": "reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md",
+  "git_blob": "003b98794f02fd5c1cd45ed263bf2818b556e6ab"
+ },
+ "coverage_target": "through 2026-10-01",
+ "exclusions": [
+  "github.com/d6g8k5htny-coder",
+  "mirrors of the project's own repositories"
+ ],
+ "executed_by": "clean-context Anthropic Claude subagent of session_01NMeKEismAyeqgdB4sy2NJU, 2026-10-01 ~01:00-01:55 UTC",
+ "websearch_queries": [
+  "Rice 1944 \"Mathematical analysis of random noise\" Bell System Technical Journal pdf archive.org",
+  "Cartwright Longuet-Higgins 1956 \"The statistical distribution of the maxima of a random function\" Proc. R. Soc. A 237",
+  "Longuet-Higgins 1957 \"The statistical analysis of a random, moving surface\" Phil. Trans. R. Soc. A 249",
+  "Longuet-Higgins 1983 \"On the joint distribution of wave periods and amplitudes in a random wave field\" pdf",
+  "rainflow counting persistent homology equivalence local maxima minima pairing persistence diagram",
+  "Gaussian process crest-trough amplitude density \"small amplitudes\" singular at zero exponent \"-1/3\"",
+  "Lindgren Rychlik \"Wave characteristic distributions for Gaussian waves\" Lund University report pdf",
+  "rainflow cycle range distribution smooth Gaussian process small ranges density behaviour near zero",
+  "\"persistence diagram\" \"Gaussian random field\" short bars \"2/3\" OR \"-1/3\" lifetime density small persistence exponent",
+  "Cadiou Pichon Codis \"When do cosmic peaks, filaments or walls merge\" critical events Gaussian random field",
+  "Lindgren Broberg 2004 \"Cycle range distributions for Gaussian processes\" Extremes pdf",
+  "persistence diagram random function near-degenerate critical points cusp singularity correction small persistence asymptotic expansion",
+  "\"wave amplitude\" OR \"crest-to-trough\" distribution Gaussian process \"density\" \"infinite at the origin\" OR \"tends to infinity\" small waves broad spectrum",
+  "expected persistence diagram smooth stationary Gaussian process one dimension near the diagonal density maxima minima pairs",
+  "smallest gaps between zeros of stationary Gaussian processes Feng Yao critical points closest pairs",
+  "Adler Bobrowski Borman Subag Weinberger \"Persistent homology for random fields and complexes\" Gaussian persistence diagram",
+  "Lindgren \"Lectures on Stationary Stochastic Processes\" pdf wave amplitude wavelength Slepian model",
+  "WAFO tutorial pdf \"min-to-max\" OR \"max-to-min\" density wave characteristics Brodtkorb Rychlik Lindgren",
+  "\"cusp\" catastrophe statistics Gaussian random function pair of critical points small height difference fold \"separation cubed\" OR \"fourth power\"",
+  "distribution of barrier heights between adjacent minima smooth Gaussian random potential small barriers power law exponent",
+  "number of persistence bars of length at most epsilon \"epsilon^{2/3}\" OR \"ε^{2/3}\" smooth random function Morse",
+  "\"statistical analysis of a random, moving surface\" Longuet-Higgins pdf \"heights of maxima\" narrow spectrum",
+  "Sousbie 2011 persistent cosmic web DisPerSE persistence ratio distribution Gaussian random field critical point pairs low persistence",
+  "\"persistence diagram\" Gaussian field \"near the diagonal\" second-order expansion correction \"birth-death\" fold cusp random Morse function",
+  "crest trough small waves \"riding waves\" density amplitude near zero Gaussian broad-band spectrum theoretical asymptotic Lindgren Rychlik exact"
+ ],
+ "consensus_queries": [
+  "crest-to-trough amplitude distribution small amplitudes Gaussian process",
+  "joint density of adjacent maximum and minimum heights stationary Gaussian process",
+  "persistence diagram smooth Gaussian random field short bars near diagonal asymptotics (rate-limited, no result)",
+  "density of low persistence pairs near diagonal persistence diagram smooth Gaussian random field asymptotic",
+  "Rychlik regression approximations of wavelength and amplitude distributions",
+  "distribution of height difference between neighbouring local maximum and saddle point Gaussian random surface",
+  "Rychlik new bounds for the first passage, wave-length and amplitude densities"
+ ],
+ "apis": [
+  "arXiv export",
+  "Crossref",
+  "OpenCitations v2",
+  "INSPIRE (refersto:recid:1747978)",
+  "Semantic Scholar (HTTP 429, unreachable)",
+  "OpenAlex (HTTP 429, unreachable)",
+  "zbMATH Open ci: (no citing documents returned)",
+  "archive.org advancedsearch"
+ ],
+ "full_text_read": [
+  "Rice 1944/1945 (archive.org OCR)",
+  "Cartwright & Longuet-Higgins 1956 (IFREMER copy)",
+  "Lindgren 2019 Statist. Sci. (Project Euclid)",
+  "Rychlik, Johannesson & Leadbetter 1997 (university copy)",
+  "Lindgren & Rychlik DTIC TR 282 (text extraction, possibly truncated)"
+ ],
+ "partial": [
+  "Longuet-Higgins 1957 (to section 2.4; section 2.9 unread)"
+ ],
+ "not_accessible": [
+  "Lindgren & Rychlik 1982 Ocean Eng.",
+  "Longuet-Higgins 1983 Proc. R. Soc. A",
+  "Rychlik 1987",
+  "Rychlik 1990",
+  "Lindgren & Broberg 2004",
+  "Lutes 2008"
+ ],
+ "still_author_side": [
+  "MathSciNet and zbMATH paywalled queries of the 2026-09-29 memo section 4-E",
+  "Google-Scholar-level cited-by enumeration",
+  "Longuet-Higgins 1957 section 2.9, Lindgren-Rychlik 1982, Longuet-Higgins 1983 full texts"
+ ],
+ "d1_remark": {
+  "formula": "f_H(h) ~ C h^(-1/3), C = Gamma(7/6) 72^(-1/6) (2 pi)^(-1/2) (lambda6 - lambda4^2/lambda2)^(2/3) / lambda4",
+  "value_gaussian_covariance": "0.199718",
+  "status": "computation recorded for the attribution wording; not a reviewed theorem; simulation (numpy) outside the repository's stdlib rule and not part of this packet"
+ },
+ "verdict": "no source states the small-gap exponent -1/3 (d = 1 or d >= 2) or a cusp-scale correction; Lindgren 2019 eq. (18) contains the d = 1 law implicitly (not expanded there)",
+ "scientific_effect": "NONE"
+}
