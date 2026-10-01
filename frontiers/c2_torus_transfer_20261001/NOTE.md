@@ -119,7 +119,10 @@ and requires `|g|^2 <= 5 L0^2` and `|g| <= L0^2`. At `L0 = 10`, `theta_1 <= 1.16
 
 A ball `B(c, rho)` is the rational interval `[c - rho, c + rho]`.
 - Sums, products and reciprocals (when `|c| > rho`) are the standard outward rules.
-- The radii are rounded up to 64-bit dyadics.
+- The radii are rounded up to dyadic rationals. `rup` keeps 64 significant bits, and one more when the round-up carries
+  (for example `rup((2^64 + 1)/2^64)`). This affects precision only, not outwardness.
+- The operands are integers, Fractions or balls throughout. Float scalars are not certified: `B(1) + 0.1` would round the
+  center without a radius. The certificate never uses one. Reuse elsewhere should coerce or reject floats (review C49).
 - The centers are exact. With all radii zero the arithmetic is exactly [C2X]'s, so the centers of every output are the
   reference values.
 
@@ -177,9 +180,11 @@ This is the inequality of 5933574379 with its second-derivative term replaced by
 **Lemma G.** Write `g_K = kappa_K e^(-E_K) H_K` and, for the derivative, `g'_K = kappa_K e^(-E_K) H'_K`, where
 `H' = d_k H - (d_k E) H` is formed in ball arithmetic. Pointwise,
 
-    |g_L - g_ref| <= kappa_ref e^(-E_ref) [ (|e_kappa| + |dE|) e^(|dE|) |H_L| + |H_L - H_ref| ],
+    |g_L - g_ref| <= |kappa_ref| e^(-E_ref) [ (|e_kappa| + |dE|) e^(|dE|) |H_L| + |H_L - H_ref| ],
 
 where:
+- `|kappa_ref| = 12 (2 pi)^(-(p + n_T)/2) (det S_0 det T_0)^(-1/2)` is the magnitude of the negative constant
+  `kappa_ref`; `bound_core` bounds it above by `kap` (review C49-F01, 5382406982);
 - `kappa_L = kappa_ref (1 + e_kappa)`, with `|e_kappa| <= rho/(1 - rho)` and `rho` the relative radius of
   `det S_0 det T_0`;
 - `|dE| = |E_L - E_ref| <= sum_i eta_i w_i^2`, from the radii of `E`'s coefficients via
