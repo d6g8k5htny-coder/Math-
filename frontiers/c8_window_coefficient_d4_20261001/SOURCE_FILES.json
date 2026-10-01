@@ -65,9 +65,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 24484,
-      "sha256": "f656644cbdcb9ac7aeaaa9c2ef680fad39715266942b776bad84d25103bebf7c",
-      "git_blob": "157f7a1ae17e7a8fa689f0f986349d4c405d5a7b"
+      "bytes": 24546,
+      "sha256": "50288f5fcf2676f32bad0ca7afb3ac7163d77ff1f958f8db5b86dacfd93d6924",
+      "git_blob": "d09612387e01866ea9d6fef7098aee26e226ed1a"
     },
     {
       "path": "RESULTS.json",
@@ -105,7 +105,7 @@
     },
     {
       "version": "v1.3",
-      "finding": "xAI band-share wording, Math-#222 comment 5932429158; on this PR comment 5932367935",
+      "finding": "band-share wording: xAI (Harper), Math-#222 comment 5932429158; a scoped caption check on this PR, comment 5932367935 (its lane is not stated)",
       "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
       "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
       "unchanged": [

@@ -340,8 +340,9 @@ No external numerical library is used.
   singleton windows such as `K = [1, 1]`, where (1.1) is zero. §0 now states `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`, and
   §7 classes singleton windows with the other windows outside the hypothesis. Every tabulated window has positive length, so no
   value changes. The script, `RESULTS.json`, the rules and the mutants are byte-unchanged.
-- **v1.3 (band-share wording; NOTE only).** The xAI lane found (on this PR, comment 5932367935) that the table of §5 headed as the band's share of the
-  birth mass shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the C8
-  band's share of the whole coefficient (Math-#222 comment 5932429158). §5 now labels that column as the height-window share and
-  adds the C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are
-  byte-unchanged; no certified value changes.
+- **v1.3 (band-share wording; NOTE only).** A scoped caption check on this PR (comment 5932367935; its lane is not stated)
+  and the xAI lane (Harper, Math-#222 comment 5932429158) found that the table of §5, headed as the band's share of the birth
+  mass, shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the C8
+  band's share of the whole coefficient. §5 now labels that column as the height-window share and adds the C8 band's share of
+  `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are byte-unchanged; no
+  certified value changes.
