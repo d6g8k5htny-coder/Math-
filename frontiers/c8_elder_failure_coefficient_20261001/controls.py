@@ -4,7 +4,9 @@
 2. Consistency of the split J_fail = 3k^2 (E[2(B_-)^3] + E[2T] + E[V]) with a direct box enclosure of E[H] at k = 1/2
    (same engine, different integrand: the two enclosures must intersect).
 3. The certified J_1, J_2 against the Gauss-Hermite and Monte Carlo values of [NUM] (RESULTS.json on this tree).
-4. C_fail^{B,K} against the cap-route constants of Math-#215 (C_{B,K}(1/4096) = 402.5297, Gamma_2 = 307.51)."""
+4. C_fail^{B,K} against the cap-route constants of Math-#215 (C_{B,K}(1/4096) = 402.5297, Gamma_2 = 307.51), and the
+   d = 3 constant against C_{B,K}^(3)(1/4096) = 1205.7089, Gamma_3 = 540.97.
+5. The d = 3 near coefficients at b = 0 against Math-#184's floating values."""
 import os, sys, json, math
 from decimal import Decimal
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -61,6 +63,15 @@ def main():
     Cf = [float(x) for x in R['C_fail']['C_fail^{B,K}']]
     for name, val in (('C_{B,K}(1/4096), Math-#215', 402.5297), ('Gamma_2 (floating), Math-#215', 307.51)):
         print('   %s = %g : ratio to C_fail in [%.4g, %.4g]' % (name, val, val / Cf[1], val / Cf[0]))
+    D3 = R['d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)']
+    Cf3 = [float(x) for x in D3['C_fail^(3),{B,K}']]
+    for name, val in (('C_{B,K}^(3)(1/4096), Math-#215', 1205.7089), ('Gamma_3 (floating), Math-#215', 540.97)):
+        print('   d = 3: %s = %g : ratio to C_fail^(3) in [%.4g, %.4g]' % (name, val, val / Cf3[1], val / Cf3[0]))
+    print('5. d = 3 near coefficients at b = 0 against Math-#184 (floating, from [NUM] GH60 times R_3(0))')
+    hd = {0.5: 4.8558, 1.0: 5.705}
+    for k, v in hd.items():
+        iv = [float(x) for x in D3['k=%g, b=0' % k]['a_fail^(3)']]
+        print('   k=%g a_fail^(3) certified [%.6f, %.6f]  Math-#184 %.4f  (%+.3f%%)' % (k, iv[0], iv[1], v, 100 * (v / (0.5 * (iv[0] + iv[1])) - 1)))
 
 
 if __name__ == '__main__':

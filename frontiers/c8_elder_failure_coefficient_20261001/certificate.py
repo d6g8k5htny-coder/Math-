@@ -12,7 +12,10 @@
 Certified quantities (planar near cluster coefficients of [NUM], reference kernel):
     J_fail(k) = J_1 + J_2 = 3k^2 (E[2(B_-)^3] + E[2T] + E[V]),   J_2(k) = 3k^2 E[H_2]       (k = 1/2, 1, 2)
     I_k = int_{1/2}^{2} e^(-12k^2) k^(-5/3) J_fail(k) dk,   C_fail^{B,K} = const * I_b * I_k,
-    const = 4 / (sqrt2 (2 pi)^(5/2) sqrt12),   I_b = int_0^1 e^(-b^2) db = sqrt(pi) (Phi(sqrt2) - 1/2)."""
+    const = 4 / (sqrt2 (2 pi)^(5/2) sqrt12),   I_b = int_0^1 e^(-b^2) db = sqrt(pi) (Phi(sqrt2) - 1/2).
+d = 3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1): a_j^(3) = R_3(b) alpha_j, R_3(0) = (32 + 28 sqrt2)/17, and
+    C_fail^(3) = const_3 I_b^(3) I_k,  const_3 = 4 pi (4/sqrt2) (2 pi)^-4 12^(-1/2),  I_b^(3) = (1/2) int_0^1 e^(-b^2) g(b) db,
+    g(b) = E[(b + sqrt2 Z)_+^3] = (b^3 + 6b) Phi(b/sqrt2) + sqrt2 (b^2 + 4) phi(b/sqrt2)."""
 import sys, os, json, time, math, argparse
 from decimal import Decimal, ROUND_FLOOR, ROUND_CEILING
 from fractions import Fraction as Fr
@@ -275,6 +278,36 @@ def constants():
     return const, Ib
 
 
+def constants3():
+    """d = 3: const_3 = 4 pi (4/sqrt2) (2 pi)^-4 12^(-1/2) and R_3(0) = (32 + 28 sqrt2)/17; also checks
+    N_3(0) = pi (2 pi)^(-1/2) g(0) = 2 sqrt2, the identity behind I_b^(3)."""
+    two_pi = scal(2.0, PI)
+    const3 = mul(mul(scal(4.0, PI), div((4.0, 4.0), SQRT2)), div((1.0, 1.0), mul(pw(two_pi, 4), isqrt((12.0, 12.0)))))
+    R30 = divc(add((32.0, 32.0), scal(28.0, SQRT2)), 17.0)
+    N30 = mul(div(PI, isqrt(two_pi)), _gs((0.0, 0.0))[0])
+    two_sqrt2 = scal(2.0, SQRT2)
+    if N30[1] < two_sqrt2[0] or two_sqrt2[1] < N30[0]:
+        raise RuntimeError('N_3(0) = 2 sqrt2 check failed: %r' % (N30,))
+    return const3, R30
+
+
+def Ib3(N=100000):
+    """I_b^(3) = (1/2) int_0^1 e^(-b^2) g(b) db: on each cell e^(-b^2) is decreasing and g increasing (both positive).
+    (The prefactor e^(-3b^2/4) phi(b/sqrt2) pi (2 pi)^(-1/2) of N_3 equals e^(-b^2)/2.)"""
+    lo = hi = 0.0
+    prev_g = _gs((0.0, 0.0))[0]
+    prev_e = (1.0, 1.0)
+    for i in range(1, N + 1):
+        b0, b1 = (i - 1) / N, i / N
+        h = (dn(b1 - b0), up(b1 - b0))
+        g1 = _gs((b1, b1))[0]
+        e1 = exp_neg(sqr((b1, b1)))
+        lo = dn(lo + mul(h, mul(e1, prev_g))[0])
+        hi = up(hi + mul(h, mul(prev_e, g1))[1])
+        prev_g, prev_e = g1, e1
+    return (dn(0.5 * lo), up(0.5 * hi))
+
+
 def iv_frac(q):
     return from_frac(q)
 
@@ -311,6 +344,9 @@ def certify(procs, mutant=None, log=print, only=None):
         const, Ib = constants()
         C = mul(mul(const, Ib), Ik)
         out['Ik'] = {'Ik': Ik, 'boxes': Ik_boxes, 'tail': t4, 'const': const, 'Ib': Ib, 'C_fail': C, 'Wtot': Ktot}
+        const3, R30 = constants3()
+        Ib3_ = Ib3()
+        out['d3'] = {'const3': const3, 'R30': R30, 'Ib3': Ib3_, 'C_fail3': mul(mul(const3, Ib3_), Ik)}
         out['leaves']['I_k 4D'] = n4
         log('I_k in [%.10f, %.10f]  C_fail in [%.12f, %.12f]  (leaves %d; %.0fs)' % (Ik[0], Ik[1], C[0], C[1], n4,
                                                                                     time.time() - t0))
@@ -365,6 +401,15 @@ def derived(raw):
                                  'a_fail = alpha_1 + alpha_2': mul(P, Jf)}
         row['coefficients'] = coeffs
         res['k=%g' % k] = row
+    if 'd3' in raw:
+        D = raw['d3']
+        sec = {'R_3(0) = (32 + 28 sqrt2)/17': D['R30'], 'const_3': D['const3'], 'I_b^(3)': D['Ib3'],
+               'C_fail^(3),{B,K}': D['C_fail3']}
+        for k in KS:
+            c = res['k=%g' % k]['coefficients']['b=0']
+            sec['k=%g, b=0' % k] = {'alpha_1^(3)': mul(D['R30'], c['alpha_1']), 'alpha_2^(3) = nu^(3)(2)': mul(D['R30'], c['alpha_2']),
+                                    'a_fail^(3)': mul(D['R30'], c['a_fail = alpha_1 + alpha_2'])}
+        res['d=3 (conditional on Math-#175 (L1) and Math-#184 Theorem 1)'] = sec
     if 'Ik' in raw:
         I = raw['Ik']
         res['C_fail'] = {'I_k': I['Ik'], 'I_k boxes': I['boxes'], 'I_k tail bound': (0.0, I['tail']),

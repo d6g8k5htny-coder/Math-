@@ -11,6 +11,7 @@ Certified interval enclosures, for the reference planar kernel, of the near clus
   `k = 2`.
 - `C_fail^{B,K}` is in `[0.0027244, 0.0027312]`, about `1.5 x 10^5` below the cap-route constant
   `C_{B,K}(1/4096) = 402.53` of Math-#215.
+- In `d = 3`, conditionally on Math-#175 and Math-#184, `C_fail^(3),{B,K}` is in `[0.0044058, 0.0044168]`.
 
 **Method.** A third-order box scheme:
 - second-order Taylor expansion in `(B, w = |u|)`, where the Hessian of the failure integrand is bounded and explicit;

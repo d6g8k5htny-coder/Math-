@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
-  "note": "Certified interval enclosures of explicit Gaussian integrals that [NUM] (from [CL]/[CUB]) and [S] define, for the reference (continuum) kernel. The identifications of alpha_1, alpha_2, a_fail and C_fail^{B,K} with model quantities are those of the sources and are not re-proved or accepted here. [LDC] is an open pull request, used only for comparison constants.",
+  "note": "Certified interval enclosures of explicit Gaussian integrals that [NUM] (from [CL]/[CUB]) and [S] define, for the reference (continuum) kernel. The identifications of alpha_1, alpha_2, a_fail and C_fail^{B,K} with model quantities are those of the sources and are not re-proved or accepted here. [LDC] is an open pull request, used only for comparison constants. The d = 3 corollary is conditional in addition on [FIB] (Math-#175) and [HD] (Math-#184), both open.",
   "sources": [
     {
       "path": "frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md",
@@ -80,6 +80,28 @@
       "id": "LDC",
       "commit": "d748c2abee2cbfbad6504b5700c70bbd83ba5785",
       "role": "Math-#215 (open, not on main): C_{B,K}(1/4096) = 402.5297, Gamma_2 = 307.51 (floating) and Theorem L (eps_2 <= 3.96e-10); comparison and scope remarks only",
+      "current_required": false,
+      "on_main": false
+    },
+    {
+      "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+      "bytes": 23416,
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "id": "FIB",
+      "commit": "701dff49119897932ebe1891657126eafe395711",
+      "role": "Math-#175 (OpenAI/Codex, open, AUTHOR_SIDE/HOLD): Theorem F (S3), (1 - p_r)/r^3 -> a1 + a2 in fixed d >= 3, and (L1), C_fail^{B,K} = int_{B x K x S^(d-1)} A0 a_fail/(3k^(5/3)); consumed as statements for the d = 3 corollary only",
+      "current_required": false,
+      "on_main": false
+    },
+    {
+      "path": "frontiers/c6_hard_direction_factorization_20260930/PROOF.md",
+      "bytes": 22456,
+      "sha256": "26743f82bf4b86d4ae4c7dfb085d4d15bf36014aa627dee5edfc86a75ca64c05",
+      "git_blob": "91d22fce0fd7d4630bfe2e2c93eab289babc97f2",
+      "id": "HD",
+      "commit": "d37ff5d0315a4f71453d37f0cae2da1f40fdef3c",
+      "role": "Math-#184 (Anthropic/Claude, open; OpenAI nonauthor ACCEPTs 5366497205 (Slices A/B) and 5366261768 (Slice C)): Theorem 1 and Corollary 1, a_j^(d) = R_d(b) a_j^(2), R_d = N_d m_(2,b)/m_(d,b), N_3(b) = pi (2 pi)^(-1/2) int_0^inf h^3 phi_2(h - b) dh, R_3(0) = (32 + 28 sqrt2)/17; consumed for the d = 3 corollary only",
       "current_required": false,
       "on_main": false
     }

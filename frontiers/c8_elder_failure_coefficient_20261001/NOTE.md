@@ -36,7 +36,7 @@ with `nu(2) = alpha_2` ([NUM] §1) and `a_fail = alpha_1 + alpha_2` the selector
 | `2` | `0` | `[0.0019589914, 0.0019589919]` | `[2.161021, 2.161171]` | `[0.017288, 0.017343]` | `[2.178363, 2.178459]` |
 | `2` | `1` | `[0.00056087680, 0.00056087692]` | `[0.6187198, 0.6187626]` | `[0.0049497, 0.0049653]` | `[0.6236851, 0.6237124]` |
 
-**Corollary (the elder-failure constant).** On `B x K = [0, 1] x [1/2, 2]`, the coefficient of [S] §9 for the reference
+**Corollary 1 (the elder-failure constant).** On `B x K = [0, 1] x [1/2, 2]`, the coefficient of [S] §9 for the reference
 kernel,
 
     C_fail^{B,K} = integral_(B x K x S^1) A_0^ref a_fail / (3 k^(5/3)) db dk dsigma(u) = const I_b I_k,
@@ -51,6 +51,32 @@ This is the reference-kernel value of the constant of [S] §9, which states `nu_
 and `E N_rej^{B,K}(0, t] ~ (3/5) C_fail^{B,K} t^(5/3)` for the torus model. The torus constant differs by the torus
 corrections, which are not certified here (§10).
 
+**Corollary 2 (`d = 3`, conditional on Math-#175 and Math-#184).**
+- Math-#175 (OpenAI/Codex, open, AUTHOR_SIDE / HOLD) is [FIB]:
+  - its Theorem F, (S3), identifies `(1 - p_r)/r^3 -> a_1 + a_2` in fixed `d >= 3`;
+  - its (L1) is `C_fail^{B,K} = integral_(B x K x S^(d-1)) A_0 a_fail / (3k^(5/3))`.
+- Math-#184 (open) is [HD]. Its Theorem 1 gives `a_j^(d) = R_d(b) alpha_j` with `R_d = N_d m_(2,b) / m_(d,b)`.
+
+In `d = 3`, for the reference kernel, the derivation of §1 gives
+`A_0^ref,(3) = 432 (2 pi)^-4 12^(-1/2) k^2 exp(-12k^2) exp(-3b^2/4) m_(3,b)`: the transverse jet `f_xy2` adds a factor
+`(2 pi)^(-1/2)`, `p_G(0) = (2 pi)^(-3/2)` and `z_0 = 36 k^2 m_(3,b)`. Both `m_(3,b)` and `m_(2,b)` cancel. With
+`N_3(b) = pi (2 pi)^(-1/2) g(b)` ([HD] (2), `m = 2`) we have `exp(-3b^2/4) phi(b/sqrt2) N_3(b) = exp(-b^2) g(b) / 2`, so
+
+    C_fail^(3),{B,K} = 4 pi (4/sqrt2) (2 pi)^-4 12^(-1/2) I_b^(3) I_k,      I_b^(3) = (1/2) integral_0^1 exp(-b^2) g(b) db,
+
+with `g(b) = (b^3 + 6b) Phi(b/sqrt2) + sqrt2 (b^2 + 4) phi(b/sqrt2)`. The certificate checks `N_3(0) = 2 sqrt2` ([HD] (3)) and
+gives
+
+    I_b^(3) in [1.513649, 1.513684],      C_fail^(3),{B,K} in [0.00440581, 0.00441675].
+
+At `b = 0`, `R_3(0) = (32 + 28 sqrt2)/17`:
+
+| `k` | `alpha_1^(3)` | `alpha_2^(3) = nu^(3)(2)` | `a_fail^(3)` |
+|---|---|---|---|
+| `1/2` | `[4.709246, 4.710177]` | `[0.14602, 0.14646]` | `[4.855704, 4.856199]` |
+| `1` | `[5.596663, 5.597427]` | `[0.10736, 0.10767]` | `[5.704330, 5.704788]` |
+| `2` | `[9.101458, 9.102086]` | `[0.072812, 0.073040]` | `[9.174497, 9.174898]` |
+
 **Consequences.**
 - **`nu(2)` and `a_fail` are certified.** At `(b, k) = (0, 1)`: `alpha_2 = nu(2)` is in `[0.025491, 0.025565]` and `a_fail` in
   `[1.354418, 1.354527]`. The two-point share `J_2/J_fail` decreases from
@@ -64,6 +90,9 @@ corrections, which are not certified here (§10).
   `r_* -> 0`, that route can give no less than `Gamma_2 = 307.51` (floating). The leading constant of the difference is
   `C_fail^{B,K}`, about `0.00273`: `1.47 x 10^5` times smaller than `C_{B,K}(1/4096)` and `1.13 x 10^5` times
   smaller than `Gamma_2`.
+- **The same holds in `d = 3`, conditionally.** `C_fail^(3),{B,K}` is about `0.00441`. That is `2.73 x 10^5` times
+  smaller than Math-#215's `C_{B,K}^(3)(1/4096) = 1205.7089` and `1.23 x 10^5` times smaller than
+  `Gamma_3 = 540.97`.
 
 ## 1. What is evaluated
 
@@ -232,6 +261,9 @@ Values:
 - `I_b = sqrt(pi)(Phi(sqrt2) - 1/2)` is in `[0.7468240581, 0.7468242075]`;
 - `I_k` (boxes plus tail) is in `[0.4421366, 0.4432234]`.
 
+`I_b^(3)` is integrated on `100000` cells of `[0, 1]`. On each cell `exp(-b^2)` decreases and `g` increases (both positive),
+so the cell integral lies between `h exp(-b_1^2) g(b_0)` and `h exp(-b_0^2) g(b_1)`.
+
 ## 7. Arithmetic
 
 Every `+, -, *, /, sqrt` is IEEE binary64 round-to-nearest, widened outward by one ulp. No libm transcendental is
@@ -293,6 +325,11 @@ Other controls (`controls.py`):
   `1e-7`), intersects the split enclosure of `J_fail(1/2)`;
 - `C_{B,K}(1/4096) / C_fail^{B,K}` is in `[1.474, 1.477] x 10^5`, and `Gamma_2 / C_fail^{B,K}` in
   `[1.126, 1.129] x 10^5`.
+- `d = 3`:
+  - `C_{B,K}^(3)(1/4096) / C_fail^(3),{B,K}` is in `[2.730, 2.737] x 10^5`, and `Gamma_3 / C_fail^(3),{B,K}` in
+    `[1.225, 1.228] x 10^5`;
+  - Math-#184's floating `a_fail^(3)(0, k)` (`4.8558` at `k = 1/2`, `5.705` at `k = 1`) agree with the certified values to
+    `0.003%` and `0.008%`.
 
 ## 10. What this does not do
 
@@ -306,6 +343,8 @@ Other controls (`controls.py`):
   - That `a_fail` is the selector-failure coefficient and `C_fail^{B,K}` the lifetime constant are statements of
     [S]: AUTHOR_SIDE / HOLD, consumed, not reviewed.
   - `nu(1) = alpha_1 + k integral_X Lambda` also contains the remote part of [RM], which is not evaluated here.
+  - Corollary 2 is conditional in addition on [FIB] (Math-#175, open, AUTHOR_SIDE / HOLD) and [HD] (Math-#184,
+    open). Its pointwise values are given only at `b = 0`; `R_3(1)` would need `m_(3,1)`, which is not certified here.
 - **Coverage.**
   - Pointwise coefficients only at `k = 1/2, 1, 2` and `b = 0, 1`, plus the band integral `C_fail^{B,K}`.
   - No other band, no `k -> 0`, no `d >= 3`.
@@ -315,7 +354,8 @@ Other controls (`controls.py`):
 ## 11. Provenance
 
 - **Sources:** `SOURCE_MAP.json` pins [NUM], [S], [LP], [CL], [CUB] and the [NUM] results on `main` `3e0a91b`.
-  Math-#215 (`d748c2a`, open) is pinned for comparison constants only.
+  Math-#215 (`d748c2a`, open) is pinned for comparison constants only. Math-#175 (`701dff4`) and Math-#184 (`d37ff5d`),
+  both open, are pinned for Corollary 2.
 - **Packet files:**
   - `certificate.py` (drivers, exact parts, tails, assembly, self-test, replay), `boxes.py` (roots, Taylor boxes) and
     `ia.py` (interval arithmetic), all standard-library Python;
