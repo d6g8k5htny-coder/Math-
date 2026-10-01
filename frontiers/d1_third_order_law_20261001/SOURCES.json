@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-THIRD-ORDER-20261001-v1.1",
- "kind": "author-side proof candidate (Theorem D1: the one-dimensional crest-to-trough and persistence lifetime densities on the circle to third order with remainder O(h^(1/2))); self-contained; nothing consumed; nonauthor review required. Control C6 is a numerical consistency check (two-point Rice integral), not a proof.",
+ "object": "CL-D1-THIRD-ORDER-20261001-v1.2",
+ "kind": "author-side proof candidate (Theorem 1D: the one-dimensional crest-to-trough and persistence lifetime densities on the circle to third order with remainder O(h^(1/2))); self-contained; nothing consumed; nonauthor review required. Control C6 is a numerical consistency check (two-point Rice integral), not a proof.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -53,7 +53,7 @@
    "sha256": "f185d70d1e7f289163fd85a99bb9518da7cc3ead5da39db99e570ecde8b4f88e",
    "git_blob": "fc0a84dcfb0e106316f6e10a9bedd87d578e9c4c",
    "tag": "210",
-   "use": "comparison only: the d = 1 remark f_H(h) ~ C h^(-1/3) whose constant Theorem D1 proves",
+   "use": "comparison only: the d = 1 remark f_H(h) ~ C h^(-1/3) whose constant Theorem 1D proves",
    "head": "792916912796874c7113258aceffc26ab965de5b",
    "pr": "Math- #210"
   }
@@ -130,13 +130,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 44378,
-   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b"
+   "bytes": 44784,
+   "sha256": "0461cd82542507102818d9c08dd2f7d132966bdcbcb67b704ec78b498f26c7ec"
   },
   {
    "path": "README.md",
-   "bytes": 9002,
-   "sha256": "b3e21cd7ad5dedac3cecc461e37482b604412c508fd9168ff94d991c1bd79925"
+   "bytes": 9190,
+   "sha256": "c0e0638d34f8ea953c2843153e938bd74bb4c310a3c749d2b23ec5613c62ebb5"
   },
   {
    "path": "d1_check.py",
@@ -148,5 +148,6 @@
    "bytes": 4066,
    "sha256": "05795a038510493a36b6b6803efbd57cfa41951bd968a3a1f10b06d51d20da66"
   }
- ]
+ ],
+ "label_history": "v1.2 renames Theorem D1 to Theorem 1D (dimension one), label only, after the xAI concern on #214 (comments 5940492097, 5940563636): the name D1 belongs to the cap component (Math- #193, #194). Paths unchanged; d1_check.py and RESULTS.json are byte-identical to v1.1 and keep its object label (their controls are unchanged)."
 }

@@ -1,11 +1,13 @@
-# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1.1)
+# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1.2)
 
 Author-side proof candidate, Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review required.
 v1.1 applies the two findings of the Codex review of v1 (head `2aedcaa`); see *Review record* below.
+v1.2 renames the theorem **Theorem 1D** (dimension one), label only, after the xAI concern 5940492097: the name D1
+belongs to the cap component (Math- #193, #194). No mathematical change.
 **No dependencies:** self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor, Markov and Landau
 inequalities). Math- #207 (Theorem CU, `d ≥ 2`) and #210 (the `d = 1` literature remark) are cited for comparison only.
 
-**Statement (Theorem D1).** Let `f` be a stationary Gaussian process on the circle `R/LZ` whose covariance `ρ` is `C^∞`
+**Statement (Theorem 1D).** Let `f` be a stationary Gaussian process on the circle `R/LZ` whose covariance `ρ` is `C^∞`
 with all Fourier coefficients positive (e.g. the periodized `e^{−x²/2}`, the one-dimensional SIDE24 field). Let `ν₊(h)` be
 the density per unit length of crest-to-trough amplitudes (maximum to the next minimum) and `ν(ℓ)` that of persistence
 lifetimes (superlevel `H₀`, elder rule), both in their canonical Kac–Rice versions. Then

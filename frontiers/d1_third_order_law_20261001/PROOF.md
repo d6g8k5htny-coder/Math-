@@ -1,13 +1,17 @@
 # The one-dimensional lifetime and crest-to-trough laws to third order: `C₀ℓ^{−1/3} + C₁ℓ^{1/4} + 2B₂ℓ^{1/3} + O(ℓ^{1/2})`
 
-Object: CL-D1-THIRD-ORDER-20261001-v1.1.
+Object: CL-D1-THIRD-ORDER-20261001-v1.2.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 **v1.1 (after the Codex review of v1 on Math- #214, head `2aedcaa`):** (i) the sign of `B₂` is not fixed by (H) — v1's
 README asserted `B₂ > 0`; §0 now gives the decomposition `𝒬 = 4λ₂²λ₄σ₄² + D(24λ₄² − D)`, the sufficient condition
 `λ₂λ₆ ≤ 25λ₄²` and Codex's counterexample (checker C5); (ii) v1's far form of Lemma 4.2 claimed a bounded joint density
 of `(f'(y_i), f''(±τ))` given `U`, which is false as the pins merge (`v₁ ≍ τ⁴`, `v₂ ≍ τ⁶`); it now states and proves the
 bound that Lemma 4.3 uses — the density of `(f'(y_i))` conditional on `U` *and* `f''(±τ)` — and Lemma 4.3's far part now
-controls the conditional mean of `f''` under `Q` explicitly. Theorem D1's statement is unchanged.
+controls the conditional mean of `f''` under `Q` explicitly. The theorem's statement is unchanged.
+**v1.2 (label only; xAI concern on #214, comments 5940492097 and 5940563636):** the theorem is renamed **Theorem 1D**
+(dimension one), and its displays (1D.1)–(1D.2), so that it is not read as the cap component D1 (Math- #193, #194). No
+mathematical change. The object identifier and the paths keep `D1`/`d1`, which there mean dimension one; `d1_check.py`
+and `RESULTS.json` are byte-identical to v1.1.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 **Dependencies: none.** The proof is self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor's
@@ -41,10 +45,10 @@ maxima and minima, with pairwise distinct critical values. For a local maximum `
 The intensities `Λ₊(B) := L^{−1}E#{M : H(M) ∈ B}` and `Λ(B) := L^{−1}E#{M not global : ℓ(M) ∈ B}` are absolutely
 continuous; `ν₊`, `ν` denote their **canonical (two-point Kac–Rice) versions** (1.2)–(1.3).
 
-**Theorem D1.** Under (H), as `h ↓ 0` and `ℓ ↓ 0`,
+**Theorem 1D.** Under (H), as `h ↓ 0` and `ℓ ↓ 0`,
 
-    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{1/2}),                        (D1.1)
-    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{1/2}),                        (D1.2)
+    ν₊(h) = (C₀/2) h^{−1/3} + (I/2) h^{1/4} + B₂ h^{1/3} + O(h^{1/2}),                        (1D.1)
+    ν(ℓ)  =  C₀ ℓ^{−1/3}   +  C₁ ℓ^{1/4}  + 2B₂ ℓ^{1/3} + O(ℓ^{1/2}),                        (1D.2)
 
 with, writing `μ_q := E|Z|^q` for a standard normal `Z` (`μ_{7/4} = 2^{7/8}Γ(11/8)π^{−1/2}`),
 
@@ -79,7 +83,7 @@ deficit over the scale gives the `h^{1/4}` terms. The `h^{1/3}` term collects th
 the fold scale and the finite part of the cusp integrand's `τ`-tail (§2).
 
 **What is not claimed.** No statement on `R` (§6.4); no uniformity in the covariance; no explicit constant in the
-`O(·)`; the `O(h^{1/2})` is not claimed sharp (the proof gives `O(h^{0.57})` for (D1.1); the numerics of §6.2 suggest
+`O(·)`; the `O(h^{1/2})` is not claimed sharp (the proof gives `O(h^{0.57})` for (1D.1); the numerics of §6.2 suggest
 the next terms are `O(h^{3/4})`).
 
 ## 1. Two-point representation and the pinned law
@@ -377,15 +381,15 @@ Finally `∫(12/t⁴)p_t(α)E_Q|f''(−τ)f''(τ)|dt` over `[t₀, L)` (resp. `[
 the pins it is the near-pair integral), and `∫(12/t⁴)p_t(α)(1 + α_u)²dt = O(h^{−1})`. So both far parts are
 `O(h^{5/3}log(1/h)) = O(h)`. ∎
 
-## 5. Proof of Theorem D1
+## 5. Proof of Theorem 1D
 
-**(D1.1).** Split `ν₊ = ∫₀^{t_*} + ∫_{t_*}^{t₀} + ∫_{t₀}^{L}`. On `(0, t_*]`, `K₊ = K₁^{sign} − (12/t⁴)p_tE_Q[(⋯)⁺1{not
+**(1D.1).** Split `ν₊ = ∫₀^{t_*} + ∫_{t_*}^{t₀} + ∫_{t₀}^{L}`. On `(0, t_*]`, `K₊ = K₁^{sign} − (12/t⁴)p_tE_Q[(⋯)⁺1{not
 adjacent}]` and non-adjacency forces `K₅ ≥ ct^{−δ}` (Lemma 3.1), whose `Q`-probability is `≤ exp(−ct^{−2δ})` (Borell–TIS
 for the conditioned process; `α ≤ t^{−δ}/C` or `p₃(α)` is negligible); the correction is `O(h^{N})` for every `N`.
 Proposition 2.2 (`θ = 1`) gives the expansion. On `[t_*, t₀]`, `K₊ ≤ K^{band}`: `O(h^{3/4})`; on `[t₀, L)`,
 `K₊ ≤ K^{band}`: `O(h)` (Lemma 4.3). Total remainder `O(h^{0.57})`.
 
-**(D1.2).** `ν = 2∫₀^{L/2}K dt`. On `(0, t_*]`, by Corollary 3.4, `K = K_{1/3}^{sign}` up to (i) the event `𝔅` and (ii)
+**(1D.2).** `ν = 2∫₀^{L/2}K dt`. On `(0, t_*]`, by Corollary 3.4, `K = K_{1/3}^{sign}` up to (i) the event `𝔅` and (ii)
 `{K₅ ≥ ct^{−δ}}`; (ii) is `O(h^N)` as above. For (i), `𝔅` forces `|E₁| ∈ m[1/3 − x, 1/3 + x]` with
 `x := C(tK^o/κ + t²K^e/κ + τ²)/c₀` (or `x ≥ 1/4`, which needs `K^o + K^e ≥ ct^{−δ}`, an `O(h^N)` event). Since
 `E₁ ~ N(0, v₁)` is independent of `K^o` under `Q` (Remark 1.4), the `K^o`- and `τ²`-parts of the window have probability
@@ -441,7 +445,7 @@ everything is explicit — not a proof of any part of #207.
 
 **6.3 Literature.** #147 and #210 found no small-amplitude exponent for the crest-to-trough law in Rice 1944/45,
 Cartwright–Longuet-Higgins 1956, Lindgren 1972 or Lindgren 2019 (whose exact joint law of adjacent extremes contains
-(D1.1) implicitly), and Perez (arXiv:2012.09459) states the smooth short-bar law as open. Theorem D1 makes #210's remark a
+(1D.1) implicitly), and Perez (arXiv:2012.09459) states the smooth short-bar law as open. Theorem 1D makes #210's remark a
 theorem on the circle and adds two terms. Not located is not absent; the database pass of #147 remains to be run.
 
 **6.4 The line.** The near-pair analysis (§§1–3, Lemma 4.1) is local. On `R` the far bound of Lemma 4.3 needs a
@@ -484,5 +488,5 @@ proof.
 - **B** §2: Proposition 2.2 — the convexity bound (a), the split (b)–(d), the closed forms (e) and the `B₂` identity.
 - **C** §3: Lemmas 3.1–3.3 and Corollary 3.4 — the model, the margins, the window decision.
 - **D** §4–§5: the band lemma, interior densities, thin and far pairs, and the assembly, including the misclassification
-  bound in (D1.2).
+  bound in (1D.2).
 - **E** §6: the comparison with #207 and the numerical evidence.
