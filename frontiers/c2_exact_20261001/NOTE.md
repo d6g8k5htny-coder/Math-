@@ -7,6 +7,8 @@ interval enclosures of the coefficient `c2` that Math-#216 defines and Math-#218
 the leading coefficient `c` from the same pipeline. Author-side; no review yet. Scope claim: Math-#216 comment 5931466669.
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit. Nothing in Math-#214, #216, #218 or #220 is touched.
+**Delivered under:** Dylan Roy's explicit instructions in this session, given after the 2026-09-27 owner stop (quoted in
+`SOURCE_MAP.json`, `delivered_under`). `OWNER_STOP.md` addresses Cursor agents and automations and is untouched.
 
 ## 0. Statement
 

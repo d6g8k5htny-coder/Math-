@@ -5,6 +5,8 @@ name: c2 exact closed forms (replay)
     paths:
       - 'frontiers/c2_exact_20261001/**'
       - '.github/workflows/c2-exact.yml'
+      - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
+      - 'coefficients/side24_v1/PROOF.md'
   workflow_dispatch:
 
 permissions:
