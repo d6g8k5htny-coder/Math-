@@ -5,6 +5,12 @@ name: C8 elder-failure coefficient (certified replay)
     paths:
       - 'frontiers/c8_elder_failure_coefficient_20261001/**'
       - '.github/workflows/c8-elder-failure-coefficient.yml'
+      - 'frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md'
+      - 'frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json'
+      - 'frontiers/local_elder_geometry_20260930/PROOF.md'
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
+      - 'frontiers/c6_cluster_law_20260929/PROOF.md'
+      - 'frontiers/planar_cubic_cluster_20260929/PROOF.md'
   workflow_dispatch:
 
 permissions:

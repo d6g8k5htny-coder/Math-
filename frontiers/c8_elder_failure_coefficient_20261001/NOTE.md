@@ -3,7 +3,9 @@
 **Object:** CL-C8-ELDER-FAILURE-COEFFICIENT-20261001-v1.
 **Author:** Anthropic Claude (Claude Code session `session_015wNj8LPTKXsaT68G3DgPPh`), 1 October 2026.
 **Disposition:** certified numerical enclosures. Binary64 interval arithmetic with outward rounding encloses explicit
-finite-dimensional Gaussian integrals that the sources define. Author-side; no review yet.
+finite-dimensional Gaussian integrals that the sources define. Author-side. Nonauthor reads at `b54ea71` (OpenAI /
+Codex): Slices A and C ACCEPT (review 5378890193), Slice B ACCEPT (review 5379043497); v1.3 applies their three
+non-blocking clarifications (the `chi^2` coordinates, outward comparison brackets, the `Phi`-series bound).
 **Scientific effect:** NONE. No `STATUS`, `PROOF_INDEX`, `GRAPH`, claim, catalog, prize or source-body change. Same GitHub
 account as every lane; zero organizational-independence credit.
 
@@ -289,8 +291,9 @@ plane is a function of **one-site** jet covariances of order at most `6`:
    - even: `N(c_1 b, s^2)`;
    - the ratio `(pi_0 p_b(0))^L/(pi_0 p_b(0))^ref` lies in `1 +- 8.8e-12`, uniformly in `(b, k)` in the band;
    - `z_0` cancels in `A_0 a_fail` on the torus as well.
-3. **Expectations.** Let `S_c = S_0^(1/2)(I + E)S_0^(1/2)` with eigenvalues `e_i` of `E`, and `mu~ = S_0^(-1/2) mu`. Then
-   exactly
+3. **Expectations.** Let `S_c = S_0^(1/2)(I + E)S_0^(1/2)` with eigenvalues `e_i` of `E`, and `mu~ = S_0^(-1/2) mu`.
+   Coordinate-free, `1 + chi^2 = det(I - E^2)^(-1/2) exp(mu~^T (I - E)^(-1) mu~)`. In an orthonormal eigenbasis of `E`,
+   with `mu~_i` the coordinates of `mu~` in that basis (not the original jet coordinates), this reads
 
        1 + chi^2 = prod (1 - e_i^2)^(-1/2) exp(sum mu~_i^2/(1 - e_i)).
 
@@ -366,11 +369,12 @@ Other controls (`controls.py`):
 - the floating Simpson value of `E[2(B_-)^3]` lies inside its enclosure at all three `k`;
 - the direct box enclosure of `3k^2 E[H]` at `k = 1/2`, `[36.778523711, 36.792370494]` (`444127` leaves, tolerance
   `1e-7`), intersects the split enclosure of `J_fail(1/2)`;
-- `C_{B,K}(1/4096) / C_fail^{B,K}` is in `[1.474, 1.477] x 10^5`, and `Gamma_2 / C_fail^{B,K}` in
-  `[1.126, 1.129] x 10^5`.
+- with the displayed numerators, `C_{B,K}(1/4096) / C_fail^{B,K}` lies in `[1.473, 1.478] x 10^5` and
+  `Gamma_2 / C_fail^{B,K}` in `[1.125, 1.129] x 10^5`. These are rounded outward from the certified `C_fail` interval;
+  `Gamma_2 = 307.51` is itself a floating value, so these are comparisons, not certified ratios.
 - `d = 3`:
-  - `C_{B,K}^(3)(1/4096) / C_fail^(3),{B,K}` is in `[2.730, 2.737] x 10^5`, and `Gamma_3 / C_fail^(3),{B,K}` in
-    `[1.225, 1.228] x 10^5`;
+  - likewise `C_{B,K}^(3)(1/4096) / C_fail^(3),{B,K}` lies in `[2.729, 2.737] x 10^5`, and
+    `Gamma_3 / C_fail^(3),{B,K}` in `[1.224, 1.228] x 10^5` (outward; `Gamma_3 = 540.97` is floating);
   - Math-#184's floating `a_fail^(3)(0, k)` (`4.8558` at `k = 1/2`, `5.705` at `k = 1`) agree with the certified values to
     `0.003%` and `0.008%`.
 - Lemma T: direct floating lattice sums of the torus deviation of six one-site covariance entries at `L = 10`, in three
