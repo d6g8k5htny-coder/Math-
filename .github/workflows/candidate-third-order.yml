@@ -57,9 +57,32 @@ jobs:
           def same(data, entry):
               framed = b'blob ' + str(len(data)).encode() + b'\0' + data
               return len(data) == entry['bytes'] and hashlib.sha256(data).hexdigest() == entry['sha256'] and hashlib.sha1(framed).hexdigest() == entry['git_blob']
+          def tree_entry(path):
+              # the checked-out commit's tree entry for path: (mode, type, blob) or None; symlinks have mode 120000
+              out = subprocess.run(['git', 'ls-tree', '-z', 'HEAD', '--', path], check=True, capture_output=True).stdout
+              if not out:
+                  return None
+              meta, name = out.rstrip(b'\0').split(b'\t', 1)
+              if name.decode() != path:
+                  raise ValueError('unexpected tree entry for ' + path)
+              mode, kind, sha = meta.decode().split()
+              return mode, kind, sha
+          def tree_bytes(entry):
+              # a source read from the checkout must be a regular file whose tree blob is the recorded one
+              te = tree_entry(entry['path'])
+              if te is None:
+                  return None
+              mode, kind, sha = te
+              if mode != '100644' or kind != 'blob' or sha != entry['git_blob']:
+                  raise ValueError('tree entry is not the recorded regular-file blob (mode/type/blob ' + ' '.join(te) + '): ' + entry['path'])
+              path = pathlib.Path(entry['path'])
+              if path.is_symlink() or not path.is_file():
+                  raise ValueError('checkout path is not a regular file: ' + entry['path'])
+              return path.read_bytes()
           for entry in manifest['consumed'] + manifest['cited_only']:
-              if not same(pathlib.Path(entry['path']).read_bytes(), entry):
-                  raise ValueError('merged source drifted: ' + entry['path'])
+              data = tree_bytes(entry)
+              if data is None or not same(data, entry):
+                  raise ValueError('merged source drifted or absent: ' + entry['path'])
           # unmerged sources are bound to their recorded commit, path and blob through the repository API: the head must
           # resolve, the path in that head's tree must be a file with the recorded blob id and size, and the bytes must have
           # the recorded sha256; a consumed dependency that has landed is instead read from the tree and must be identical
@@ -84,10 +107,14 @@ jobs:
               return base64.b64decode(blob['content'])
           for kind in ('consumed_unmerged', 'cited_unmerged'):
               for entry in manifest.get(kind, []):
-                  tree_path = pathlib.Path(entry['path'])
-                  if kind == 'consumed_unmerged' and tree_path.exists():
-                      data, where = tree_path.read_bytes(), 'tree'
+                  # a landed consumed dependency must be the recorded regular-file blob in this tree (symlinks and any
+                  # other mode are rejected by tree_bytes); otherwise the source is bound through the API
+                  landed = tree_bytes(entry) if kind == 'consumed_unmerged' else None
+                  if landed is not None:
+                      data, where = landed, 'tree'
                   else:
+                      if os.path.lexists(entry['path']) and kind == 'consumed_unmerged':
+                          raise ValueError('path present in the checkout but not as a tracked blob: ' + entry['path'])
                       data, where = bound(entry), 'head/path/blob api'
                   if not same(data, entry):
                       raise ValueError(kind + ' source differs from its pinned blob (rebind required): ' + entry['path'] + ' via ' + where)
