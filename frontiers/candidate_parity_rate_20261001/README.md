@@ -2,7 +2,11 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-CANDIDATE-PARITY-RATE-20261001-v1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-CANDIDATE-PARITY-RATE-20261001-v1.1`. Full text: [`PROOF.md`](PROOF.md).
+
+**v1.1 (wording only).** The six nonblocking corrections of the C55 nonauthor reviews are applied; no estimate or
+conclusion changes (see *Review record*). `parity_check.py` changed in one docstring and one comment; `RESULTS.json` is
+byte-identical to v1.
 
 ## Result
 
@@ -46,7 +50,7 @@ and on CPython 3.10–3.14 (a few seconds).
 | Control | Checks |
 |---|---|
 | Q1 | The ledger: least `3/5` at `ρ = ℓ^{1/5}`, attained by `ρ³`, `ℓ²ρ^{−7}`, `ℓρ^{−2}`. The split is optimal. The exponent is still `3/5` without Lemma K. The closed form of `∫ r min(k, 1/k) dr` is evaluated (a consistency identity). |
-| Q2 | On fourteen exactly pinned polynomial fields (`d = 1, 2, 3, 4`): pinned jets are even in `r`; `Π` is even; the reflection maps `k` to `−k`; `det K_M` and `det K_S` are affine in `k`, checked at `d + 1` values. |
+| Q2 | On fourteen exactly pinned polynomial fields (`d = 1, 2, 3, 4`): pinned jets are even in `r`; `Π` is even; the reflection maps `k` to `−k`; at fixed free jets, `det K_M` and `det K_S` are affine in `k`, checked at `d + 1` values. |
 | Q3 | (2.2) exactly on the same fields, with the general `Δ_BB` and `A^♯_B`. The `d = 4` fields fail the old `m ≤ 2` shortcut, so they test the `m ≥ 3` terms. The parities of `U` and `V` are checked. |
 | Q4 | Lemma K for the Gaussian kernel. The `A`-integrand `H(k, A)` of the birth-integrated `r²` coefficient has only `k⁰, k², k⁴` terms (`d = 1, 2, 3`). The `d = 1, 2` polynomials are #232's. |
 | Q5, Q6 | The pointwise algebra of Step U2, including the Case 3 identity, and the inequalities that collect Lemma U's errors. Three of Q6's four relations are identities, recorded as consistency checks. |
@@ -109,6 +113,25 @@ MINOR FIXES** for §§4–8, with three minor items and six nits. All are applie
 
 **Independence.** The referees are the same provider and the same GitHub account as the author, so they carry zero
 organizational independence. Nonauthor review is required; the review slices are in PROOF §9.
+
+**Nonauthor review (C55: OpenAI Codex, delegated AI review, on head `a6b6788`, PROOF blob `97298f32`).** All three
+slices are PASS_TECHNICAL at their stated scope. Organizational independence is 0, and Dylan Roy's personal reading is
+pending.
+- *Slice A* (§§1–2: Lemmas R, Π, K), review 5385194600. Two nonblocking precision notes.
+- *Slice B* (§3: Lemmas D′, D″, Λ₀, Λ), review 5385169112. Two nonblocking prose corrections and one clarification.
+- *Slice C* (§§4–5: Lemma U and the assembly), review 5385136758, with the addendum 5940107723. One nonblocking
+  correction.
+
+Each correction is applied in v1.1, as follows.
+
+| Review item | v1.1 |
+|---|---|
+| A: `det K_i` affine in `k` | at fixed free jets only, not along the laws `Q̄_{r,k}` (Lemma Π, its proof, Q2) |
+| A: signed-`k` moments | `1 + \|k\|` in the moment bounds before Lemma Π and in Lemma Π |
+| B-01: `φ″ = 2` off `{\|y\| = θ}` | `φ″ = 2·1{\|y\| > θ} + 2θ(δ_{−θ} + δ_θ)` as a distribution |
+| B-02: the density `ρ(λ)` | the unnormalized Weyl slice `c_m q_{A\|𝐠}(O diag(λ, λ′)Oᵀ)\|𝒱\|dλ`, integrated over `dλ′ dO dP_𝐠` |
+| B-02: the case `m = 1` | `adj A = 1`, so `β`, `Y₁`, `Y₂` do not depend on `λ`, and the suprema are finite |
+| C-N1: the `f₄`-windows | two one-sided crossing strips of length `\|a\|`, `a = 3kΔ_B`, centred at `±6κ\|Δ\| − a/2` (total `72k\|Δ_B\|/\|Δ\|`; `144` if centred at the old thresholds) |
 
 ## Not claimed
 

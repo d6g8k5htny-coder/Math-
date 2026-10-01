@@ -15,8 +15,8 @@ Controls
   Q2  Lemma R and the evenness of Lemma Pi on exactly pinned polynomial fields (d = 1, 2, 3, 4): in the
       birth-integrated (midpoint) coordinates every pinned jet is an even polynomial in r; Pi(r) =
       -det H(-r/2) det H(r/2) / r^2 is even in r; the new row of section 1 has target 0 (a consistency identity);
-      point reflection maps the pins at k to the pins at -k and preserves Pi; det K_M and det K_S are affine in k
-      (checked at d + 1 values of k, which determine a polynomial of degree <= d)
+      point reflection maps the pins at k to the pins at -k and preserves Pi; at fixed free jets, det K_M and
+      det K_S are affine in k (checked at d + 1 values of k, which determine a polynomial of degree <= d)
   Q3  Lemma Pi, (2.2), on the same fields: det K_(M,S) = -/+ 6 k Delta + r U -/+ r^2 V + O(r^3) and
       Pi = 36 k^2 Delta^2 + r^2 (12 k Delta V - U^2) + O(r^4), with U, V of (2.1) built from the general
       Delta_BB = d^2/dt^2 det(A + t B) and A#_B = d/dt adj(A + t B) at t = 0 (so d = 4 tests the m >= 3 terms);
@@ -327,8 +327,9 @@ def control_Q2_Q3():
             q2 &= all(not (Rr[i] - tgt[i]).c for i in range(len(Rr)))
             Pr, _, _ = Pi_of(refl, m)
             q2 &= not (Pr - Pi).c
-            # det K_M and det K_S affine in k: both are polynomials of degree <= d in k (the pinned coefficients are
-            # affine in k), so d + 1 values t k, t = 1..d+1, decide; all second differences must vanish
+            # at fixed free jets, det K_M and det K_S are affine in k: both are polynomials of degree <= d in k (the
+            # pinned coefficients are affine in k), so d + 1 values t k, t = 1..d+1, decide; all second differences
+            # must vanish
             KK = [Pi_of(pin_field(free, m, bp, t * k), m) for t in range(1, m + 3)]
             for idx in (1, 2):
                 vals = [x[idx] for x in KK]

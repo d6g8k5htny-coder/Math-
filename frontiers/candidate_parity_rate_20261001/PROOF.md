@@ -1,7 +1,15 @@
 # The candidate density with remainder `ℓ^{3/5}`: a reflection parity removes the `ℓ^{1/2}` term
 
-Object: CL-CANDIDATE-PARITY-RATE-20261001-v1.
+Object: CL-CANDIDATE-PARITY-RATE-20261001-v1.1.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+**v1.1 (wording only; no estimate or conclusion changes):** the six nonblocking corrections of the C55 nonauthor reviews
+(OpenAI Codex, on head `a6b6788`: Slice A 5385194600, Slice B 5385169112, Slice C 5385136758 with addendum
+5940107723) are applied. (1) In Lemma Π, `det K_i` is affine in `k` *at fixed free jets*, not along the laws `Q̄_{r,k}`,
+under which the odd free jets have `k`-dependent means. (2) The moment bounds before Lemma Π, and Lemma Π, are stated
+for signed `k` with `1 + |k|`. (3) In Lemma Λ, `φ″` is given as a distribution. (4) In Lemma Λ's kink step, `ρ` is the
+unnormalized Weyl-coordinate slice, and the measure is stated. (5) The case `m = 1` of that step is spelled out.
+(6) In Step U2 (b)(iii), the `f₄`-windows are the two one-sided threshold-crossing strips, centred at the shifted
+points.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change; no numerical constant is certified. Same GitHub account as every lane;
 zero organizational independence.
@@ -144,17 +152,21 @@ With the jets of §0 put `Δ_B := D det(A)[B] = tr(A^♯B)`, `Δ_C := tr(A^♯C)
     V := (3k/4)(Δ_C + Δ_BB) + (f₄/24)Δ_B + (f₅/120)Δ − (1/12)γᵀA^♯η − (1/8)γᵀA^♯_Bγ.                                (2.1)
 
 Write `V = V_o + kV_e` with `V_e := (3/4)(Δ_C + Δ_BB)`; `V_e` is even and `V_o` is odd under `𝒫`. Let `T` be #218 §1's
-dominating variable. Under `Q̄_{r,k}`, `E[T^p] ≤ C_p(1 + k)^p`: mix #218's bound `C_p(1 + |b′| + k)^p` over the conditional
-law of the midpoint height `b′ = f_e(x_S)`, which is centred Gaussian and does not depend on `k` (Lemma R (R.2)). Likewise,
-for a finite jet vector `J₀` with uniformly invertible covariance, (1.2) gives `E[T^p | J₀] ≤ C_p(1 + k + |J₀|)^p`.
+dominating variable. Under `Q̄_{r,k}`, for `k ∈ R`, `E[T^p] ≤ C_p(1 + |k|)^p`: mix #218's bound `C_p(1 + |b′| + |k|)^p`
+over the conditional law of the midpoint height `b′ = f_e(x_S)`, which is centred Gaussian and does not depend on `k`
+(Lemma R (R.2)). #218 states its bound for `k ≥ 0`; the Gaussian regression behind it is linear in the targets, so for
+signed `k` it holds with `|k|`. Likewise, for a finite jet vector `J₀` with uniformly invertible covariance, (1.2) gives
+`E[T^p | J₀] ≤ C_p(1 + |k| + |J₀|)^p`. For `k ≥ 0` these read `1 + k`, as written where only `k ≥ 0` occurs.
 
 **Lemma Π.** Pathwise,
 
-    det K_M = −6kΔ + rU − r²V + O(r³(1 + k)T^N),      det K_S = 6kΔ + rU + r²V + O(r³(1 + k)T^N),
-    Π = 36k²Δ² + r²(12kΔV − U²) + O(r⁴(1 + k)^N T^N).                                                             (2.2)
+    det K_M = −6kΔ + rU − r²V + O(r³(1 + |k|)T^N),    det K_S = 6kΔ + rU + r²V + O(r³(1 + |k|)T^N),
+    Π = 36k²Δ² + r²(12kΔV − U²) + O(r⁴(1 + |k|)^N T^N).                                                           (2.2)
 
-Under `(k, jets) ↦ (−k, 𝒫jets)`, `Δ`, `Y′` and `U` are invariant and `V` changes sign; `det K_M` and `det K_S` are affine in
-`k`.
+Under `(k, jets) ↦ (−k, 𝒫jets)`, `Δ`, `Y′` and `U` are invariant and `V` changes sign. At fixed free jets, `det K_M` and
+`det K_S` are affine in `k`. This is a statement about the pinned polynomial fields of the proof, not about the laws
+`Q̄_{r,k}` at different `k`: under those, the odd free jets have means `k·w` (Lemma R (R.2)), and these mean shifts are
+kept wherever they matter (Step U2 (b)(ii)).
 
 *Proof.* By #218 Step F1, `Π` equals a polynomial `Φ(J′; r, k)` in the free jets `J′` up to `O(r⁴T^{n₀})`, and the
 coefficients of `Φ` are identities of polynomials, which may be read off on exactly pinned polynomial fields. On those
@@ -163,10 +175,11 @@ with [R]'s row at fixed `b`, `f(0)` would carry a term `−kr³/2`, which does n
 and `Φ` has no odd powers of `r`. The pins give `f_xx(0) = −r²f₄/24 + O(r⁴)`, `f_xxx(0) = 12k − r²f₅/40 + O(r⁴)` and
 `∇_yf_x(0) = −r²η/24 + O(r⁴)`. Expanding `α_i = f_xx(x_i)/r`, `β_i = ∇_yf_x(x_i)/r` and `A_i = ∇_Θ²f(x_i)` and using
 `det K_i = α_i det A_i − rβ_iᵀadj(A_i)β_i` gives the first two lines; their product gives (2.2), the `r`-odd terms
-cancelling. Only `α_i` depends on `k`, affinely, so `det K_i` is affine in `k`. The parity statement is read off (2.1):
+cancelling. At fixed free jets only `α_i` depends on `k`, affinely, so there `det K_i` is affine in `k`. The parity
+statement is read off (2.1):
 `B`, `γ`, `f₅` are odd and `A`, `C`, `η`, `f₄` even, so `Δ_B` and `A^♯_B` are odd and `Δ_BB` (quadratic in `B`) is even.
 Control Q3 checks (2.2) exactly on fourteen pinned polynomial fields in `d = 1, 2, 3, 4`, with general free jets; control
-Q2 checks the evenness, the reflection and the affinity in `k`. ∎
+Q2 checks the evenness, the reflection and the affinity in `k` at fixed free jets. ∎
 
 (2.2) is #232's (2.3) (`W₂ = 12kΔV − U²`, with remainder `O(r³)` there), obtained independently here; the absence of the
 `r³` term is the pathwise evenness of Lemma R (R.4).
@@ -255,8 +268,8 @@ Then `U_s(ζ₀ + sw) = Y₀ + sY₁ + s²Y₂`, with `Y₀ := Y′(ζ₀)`, `Y�
 *Integrate `f₄` first.* Given the other jets, `f₄` is Gaussian with mean `m₄`, linear in the other even jets, and a
 variance `σ₄²` bounded above and below (a Schur complement; #218 Step F1). Write `Y₀ = (Δ/12)f₄ + β` with
 `β := −γ₀ᵀA^♯γ₀/4`. Then `Φ(t) := E_{f₄}[φ(Y₀ + t)]` is `E[φ(Z + t)]` for `Z ~ N(μ_Z, σ_Z²)`, where `μ_Z := (Δ/12)m₄ + β`
-and `σ_Z := |Δ|σ₄/12`. `φ` is convex, `φ″ = 2` off `{|y| = θ}`, and `φ′` jumps by `2θ` at `±θ`. Hence `Φ` is convex and
-smooth, with
+and `σ_Z := |Δ|σ₄/12`. `φ` is convex, and as a distribution `φ″ = 2·1{|y| > θ} + 2θ(δ_{−θ} + δ_θ)`: `φ″ = 0` on
+`|y| < θ`, `φ″ = 2` on `|y| > θ`, and `φ′` jumps by `2θ` at `±θ`. Hence `Φ` is convex and smooth, with
 
     Φ″(t) = 2P(|Z + t| > θ) + 2θ[p_Z(θ − t) + p_Z(−θ − t)],        θ p_Z(x) = (72κ/(√(2π)σ₄)) e^{−(x − μ_Z)²/(2σ_Z²)}.  (3.1)
 
@@ -275,10 +288,14 @@ as `E[Φ(t₀) − Φ(0)] + E[½(Φ(t₀ + h) + Φ(t₀ − h)) − Φ(t₀)]`, 
 - *Second part, kink.* By (3.1) the second term contributes
   `K := (72κ/(√(2π)σ₄))∫(|h| − |τ|)₊ Σ_± e^{−g_±²/(2σ_Z²)} dτ`, where `g_± := ±θ − μ_Z − t₀ − τ`. Note that `K ≤ Cκh²`.
   - *Coordinates.* Use Weyl coordinates for `A`, as in Lemma D′: `λ` is an eigenvalue of least modulus and `D` the product
-    of the other moduli (`D := 1` if `m = 1`), so `|Δ| = |λ|D`, and `λ < 0` on `{A < 0}`. Condition on the eigenvectors,
-    the other eigenvalues and the free jets `𝐠` other than `A` and `f₄`. Then `λ` ranges over `[−x₂, 0)`, where `x₂` is the
-    second smallest modulus (over `(−∞, 0)` if `m = 1`), with density `ρ(λ) ≤ C2^{m−1}D|𝒱′|p̄`. Here `𝒱′` is the Vandermonde
-    factor of the other eigenvalues and `p̄` the supremum over `λ` of the Gaussian density of `A` given `𝐠`.
+    of the other moduli (`D := 1` if `m = 1`), so `|Δ| = |λ|D`, and `λ < 0` on `{A < 0}`. In the Weyl-coordinate
+    integral, fix the eigenvectors `O`, the other eigenvalues `λ′` and the free jets `𝐠` other than `A` and `f₄`, and
+    use the *unnormalized* slice `ρ(λ)dλ := c_m q_{A|𝐠}(O diag(λ, λ′)Oᵀ)|𝒱(λ, λ′)|dλ`, to be integrated afterwards over
+    `dλ′ dO dP_𝐠`. Here `q_{A|𝐠}` is the Gaussian density of `A` given `𝐠` on the symmetric matrices and `𝒱` the
+    Vandermonde factor. (A normalized conditional density of `λ` would carry the inverse of the slice integral, which is
+    not bounded uniformly; it is not used.) Then `λ` ranges over `[−x₂, 0)`, where `x₂` is the second smallest modulus
+    (over `(−∞, 0)` if `m = 1`), and `ρ(λ) ≤ C2^{m−1}D|𝒱′|p̄`, where `𝒱′` is the Vandermonde factor of the other
+    eigenvalues and `p̄ := sup_λ q_{A|𝐠}(O diag(λ, λ′)Oᵀ)`.
   - *Dependence on `λ`.* `θ = −6κDλ` is linear in `λ`; `A^♯`, `β`, `m₄`, `Y₁` and `Y₂` are affine; `μ_Z` is quadratic. Let
     `P := C₀(1 + ‖A‖ + |𝐠|)^{N₀}`, with `C₀`, `N₀` chosen so that `|μ_Z′| + |t₀′| ≤ P/2` and `|m₄| ≤ P` on the range of `λ`.
     For `m ≥ 2`, `‖A‖ = x_m` does not depend on `λ`; for `m = 1` the conditions below cut out an interval of `λ`.
@@ -286,10 +303,11 @@ as `E[Φ(t₀) − Φ(0)] + E[½(Φ(t₀ + h) + Φ(t₀ − h)) − Φ(t₀)]`, 
     `|Δm₄|/12 ≤ θ/72`. Where `|g| ≥ θ/2`, `e^{−g²/(2σ_Z²)} ≤ e^{−648κ²/σ₄²}`, and the contribution is
     `≤ Cκh²e^{−648κ²/σ₄²} ≤ Ch²κ^{−1}`. Where `|g| < θ/2`, `|β + t₀ + τ| > θ/2 − θ/72 > θ/4`. On the support
     `|τ| < |h(λ)|` of the weight, `|β + t₀ + τ| ≤ M₀ := sup_λ(|β| + |t₀| + |h|)`, a polynomial in `(‖A‖, 𝐠)` that does
-    not depend on `λ`; so `|λ| < M₀/(1.5κD)`. Hence
+    not depend on `λ`. (For `m = 1`, `adj A = 1`, so `β`, `Y₁` and `Y₂`, hence `t₀` and `h`, do not depend on `λ`, and
+    `M₀` and `H` below are finite although `λ` ranges over `(−∞, 0)`.) So `|λ| < M₀/(1.5κD)`. Hence
     `σ_Z < σ̄ := M₀σ₄/(18κ)` there. Bound `(|h| − |τ|)₊ ≤ (H − |τ|)₊` with `H := sup_λ|h|`, and change variables `λ ↦ g`
     (`|dλ/dg| ≤ 1/(3κD)`): `∫e^{−g²/(2σ̄²)}ρ dλ ≤ C D|𝒱′|p̄·√(2π)σ̄/(3κD) = C|𝒱′|p̄M₀σ₄/κ²`. With the prefactor and
-    `∫(H − |τ|)₊dτ = H²` this gives `≤ C|𝒱′|p̄M₀H²/κ`, and integrating over the conditioning variables gives
+    `∫(H − |τ|)₊dτ = H²` this gives `≤ C|𝒱′|p̄M₀H²/κ`, and integrating over `dλ′ dO dP_𝐠` gives
     `E[K1_𝔐] ≤ Ck²(1 + k)^Nκ^{−1}`. No largeness of `κ` is used beyond `κ ≥ 1`.
   - *Exceptional set* `𝔐^c ⊂ {D < P/κ} ∪ {P > κ}`. Use `K ≤ Cκh²`. For `m ≥ 2`, Lemma D″, applied given `𝐠` in dyadic
     layers of `‖A‖`, gives `E[h²1{D < P/κ}] ≤ Ck²κ^{−2}`. For `m = 1`, `D = 1` and this set is `{P > κ}`. By Markov,
@@ -354,11 +372,15 @@ the endpoint matrices `A_i := ∇_Θ²f(x_i)`, which holds since `‖A_i − A�
       - (ii) Moving the odd mean from `0` to `k·w` costs, by the Gaussian score (no derivative of an indicator is
         taken), `≤ Ck·sup E[|ΔV_o|(1 + |jets|)1{|Y′| > 6κ|Δ|}1{A<0}] ≤ Ck(1 + k)^N/(1 + κ)²`. On the layer
         `|Δ| < |Y′|/(6κ)`, so Lemma Λ₀ applies along the interpolation.
-      - (iii) Replacing `Y′` by `U` in the indicator (`U − Y′ = 3kΔ_B`). The two indicators differ only where `Y′` is
-        within `3k|Δ_B|` of `±6κ|Δ|`, that is, for `f₄` in two windows `W` of total length `≤ 72k|Δ_B|/|Δ|`, centred at
-        `f₄ = 12(±6κ|Δ| − β)/Δ` with `β := −γᵀA^♯γ/4`. Write `ΔV_o = Δ(a₁f₄ + a₀)` with `a₁ = Δ_B/24` and `a₀` free of
-        `f₄`. Since `sup_x(1 + |x|)p_{f₄}(x) ≤ C(1 + |m₄|)`, the factor `Δ` cancels the `1/|Δ|` of the window length:
-        `E_{f₄}[|ΔV_o|1_W] ≤ Ck(1 + |m₄|)(|a₁| + |a₀|)|Δ_B|`, uniformly in `Δ`. For `k ≤ 1` and
+      - (iii) Replacing `Y′` by `U` in the indicator (`U − Y′ = a := 3kΔ_B`). The two indicators differ only where `Y′`
+        lies in one of the two one-sided threshold-crossing strips between `±6κ|Δ|` and `±6κ|Δ| − a`, each of length
+        `|a|` and centred at `±6κ|Δ| − a/2`. (If `|a| > 12κ|Δ|`, the strips overlap and the difference set is smaller;
+        only this containment is used.) Since `Y′ = (Δ/12)f₄ + β` with `β := −γᵀA^♯γ/4`, this is `f₄` in two windows `W`
+        of total length `≤ 72k|Δ_B|/|Δ|`, centred at `f₄ = 12(±6κ|Δ| − a/2 − β)/Δ`. (Windows centred at the unshifted
+        points `12(±6κ|Δ| − β)/Δ` would need total length `144k|Δ_B|/|Δ|`; the bounds below hold with either.) Write
+        `ΔV_o = Δ(a₁f₄ + a₀)` with `a₁ = Δ_B/24` and `a₀` free of `f₄`. Since `sup_x(1 + |x|)p_{f₄}(x) ≤ C(1 + |m₄|)`,
+        the factor `Δ` cancels the `1/|Δ|` of the window length: `E_{f₄}[|ΔV_o|1_W] ≤ Ck(1 + |m₄|)(|a₁| + |a₀|)|Δ_B|`,
+        uniformly in `Δ`. For `k ≤ 1` and
         `|Δ| > (|β| + 3|Δ_B|)/(3κ)`, on `W` we have `|Δf₄|/12 = |Y′ − β| ≥ 6κ|Δ| − 3|Δ_B| − |β| > 3κ|Δ|`, so
         `W ⊂ {|f₄| > 36κ}`. There `(1 + |x|)p_{f₄}(x) ≤ C(1 + |m₄|)^Nκ^{−N}`, and this part costs `O(kκ^{−N})`. The
         complementary set `{|Δ| ≤ (|β| + 3|Δ_B|)/(3κ)}` has probability `≤ C/κ`, with the polynomial weights (Lemma D in
@@ -553,7 +575,7 @@ This proves (P.1). ∎
 | Control | Checks |
 |---|---|
 | Q1 | the ledger of §5: least `3/5` at `ρ = ℓ^{1/5}`, attained by `ρ³`, `ℓ²ρ^{−7}`, `ℓρ^{−2}`; the split is optimal on a grid and is the edge `k = r²`; the ledger without Lemma K also gives `3/5`; the closed form `∫_0^∞ r min(k, 1/k) dr = (6/5)ℓ^{2/3}` (antiderivatives evaluated exactly at three values); `3/5 > 1/2 > 3/7 > 4/11` |
-| Q2 | Lemma R and the evenness of Lemma Π on fourteen exactly pinned polynomial fields (`d = 1, 2, 3, 4`): pinned jets even in `r`; `Π` even; the new row of §1 has target `0` (a consistency identity); point reflection maps the pins at `k` to those at `−k` and preserves `Π`; `det K_M` and `det K_S` affine in `k` (at `d + 1` values of `k`, which determine a polynomial of degree `≤ d`) |
+| Q2 | Lemma R and the evenness of Lemma Π on fourteen exactly pinned polynomial fields (`d = 1, 2, 3, 4`): pinned jets even in `r`; `Π` even; the new row of §1 has target `0` (a consistency identity); point reflection maps the pins at `k` to those at `−k` and preserves `Π`; `det K_M` and `det K_S` affine in `k` at fixed free jets (at `d + 1` values of `k`, which determine a polynomial of degree `≤ d`) |
 | Q3 | (2.2) exactly on the same fields: `det K_{M,S} = ∓6kΔ + rU ∓ r²V + …`, `Π = 36k²Δ² + r²(12kΔV − U²) + …`, with `Δ_BB = ∂_t²det(A + tB)` and `A^♯_B = ∂_t adj(A + tB)` at `t = 0` in general form (so `d = 4` tests the terms that vanish or simplify for `m ≤ 2`); `U` invariant and `V` odd under `(k, odd jets) ↦ (−k, −odd jets)` |
 | Q4 | Lemma K for the Gaussian kernel: the `A`-integrand `H(k, A)` of the birth-integrated `r²` coefficient (exact Gaussian conditioning and Isserlis) has only `k⁰, k², k⁴` terms in `d = 1, 2, 3`, and `a = 12`; the `d = 1, 2` polynomials equal #232 §4's |
 | Q5 | Step U2's pointwise algebra on rational grids: `y² − min(y², c²) = (y² − c²)₊`; `|(x + e)₊ − x₊ − e1{x>0}| ≤ |e|1{|x| ≤ |e|}`; the Case 1 sign decomposition with the anti-typed term; the Case 3 identity `P(1_{typed} − 1) − X₊ = P1_{typed} − (−X)₊ + ε` |

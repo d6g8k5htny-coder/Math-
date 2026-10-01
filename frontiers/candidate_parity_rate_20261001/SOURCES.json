@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-CANDIDATE-PARITY-RATE-20261001-v1",
+ "object": "CL-CANDIDATE-PARITY-RATE-20261001-v1.1",
  "kind": "author-side proof candidate: the candidate lifetime density with remainder O(l^(3/5)) in every d >= 2 (Theorem P): nu_cand = c l^(-1/3) + B_{d,L} + I^cand l^(1/4) + c2 l^(1/3) + O(l^(3/5)), improving O(l^(4/11)) (Math- #218) and O(l^(3/7)) (Math- #229); Corollary P-prime: no l^(1/2) term. New: Lemma R (birth integration; independent even/odd parts; point reflection k -> -k; evenness in r), Lemma Pi (Pi = 36 k^2 Delta^2 + r^2 (12 k Delta V - U^2) + O(r^4)), Lemma K (the surrogate is smooth and even in r; A_2 even in k), Lemma D-double-prime (two small eigenvalues, eps^2), Lemma Lambda (the gap inside the cusp layer costs O(k^2/(1 + kappa))), Lemma U (one uniform two-scale kernel formula for k >= r^2 with error O(r^2 + r min(k, 1/k)); at the cusp scale the O(r) correction vanishes)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
@@ -218,23 +218,47 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 50928,
-   "sha256": "aa4200100fcdf23135f82b7ac6f69621dedc65983d6707970f93d0343c6fca77"
+   "bytes": 53499,
+   "sha256": "9d58a29bf725d0756c8d11b5a9aa538782e83bee62242bcb1a869d2b95ccce94"
   },
   {
    "path": "README.md",
-   "bytes": 9263,
-   "sha256": "e8e6c4bc50c858c5d29be390a52178f22945e456fa2b6a006ad6874298e7e1b1"
+   "bytes": 11002,
+   "sha256": "515714528b4257378239093bcaa05f83a7d7714f0666856471f6b2c6292f495c"
   },
   {
    "path": "parity_check.py",
-   "bytes": 26836,
-   "sha256": "fbea93a4810d21130a6dc95a593f36d09756368798f6b7ccf608520c68331470"
+   "bytes": 26894,
+   "sha256": "1d103f0f00c1752d96aed59b581965d01a0dbbf26f3832a7a398bc0f5f8f5c5c"
   },
   {
    "path": "RESULTS.json",
    "bytes": 1433,
    "sha256": "2af10a58aae284635de8973840594a71f18f1243415e1e8a3eb9d8a64ee669b1"
   }
- ]
+ ],
+ "revision_history": "v1.1 (wording only; no estimate or conclusion changes) applies the six nonblocking corrections of the C55 nonauthor reviews on head a6b67882344cc39c76c29f5a6a6787a0e243c630: (1) Lemma Pi: det K_i is affine in k at fixed free jets, not along the laws Q-bar_{r,k} (statement, proof, Q2 row, README, checker docstring); (2) the moment bounds before Lemma Pi and Lemma Pi are stated for signed k with 1 + |k|; (3) Lemma Lambda: phi'' = 2*1{|y| > theta} + 2 theta (delta_{-theta} + delta_theta) as a distribution; (4) Lemma Lambda kink step: rho is the unnormalized Weyl-coordinate slice c_m q_{A|g}(O diag(lambda, lambda') O^T) |V| d lambda, integrated over d lambda' dO dP_g; (5) the case m = 1 of that step (adj A = 1); (6) Step U2 (b)(iii): the f4-windows are the two one-sided threshold-crossing strips of length |a|, a = 3k Delta_B, centred at +-6 kappa |Delta| - a/2 (total length 72k|Delta_B|/|Delta|; 144 if centred at the unshifted thresholds). RESULTS.json is byte-identical to v1 and keeps its object label; parity_check.py changed in one docstring and one comment.",
+ "nonauthor_reviews": [
+  {
+   "slice": "A (sections 1-2: Lemmas R, Pi, K)",
+   "record": "Math- #237 review 5385194600",
+   "verdict": "PASS_TECHNICAL at the stated scope; two nonblocking precision notes (fixed-free-jet affinity; 1 + |k|), applied in v1.1"
+  },
+  {
+   "slice": "B (section 3: Lemmas D', D'', Lambda_0, Lambda)",
+   "record": "Math- #237 review 5385169112",
+   "verdict": "PASS_TECHNICAL at the stated scope; nonblocking prose corrections B-01 (phi'') and B-02 (unnormalized Weyl slice; m = 1 sentence), applied in v1.1"
+  },
+  {
+   "slice": "C (sections 4-5: Lemma U and the assembly)",
+   "record": "Math- #237 review 5385136758 and addendum comment 5940107723",
+   "verdict": "PASS_TECHNICAL at the stated scope; nonblocking correction C55-C-N1 (one-sided crossing strips), applied in v1.1"
+  }
+ ],
+ "nonauthor_reviews_common": {
+  "reviewer": "OpenAI Codex under \"Dylan Roy - delegated AI review\" (C55 session; pickup comment 5939770763, delivery comment 5940196613)",
+  "head": "a6b67882344cc39c76c29f5a6a6787a0e243c630",
+  "proof_blob": "97298f32f64bbed591e3067865629ccb838d4e9d",
+  "limits": "organizational independence 0; Dylan Roy personal reading PENDING; reviews the candidate density only, no elder or rejected-density claim; scientific effect NONE"
+ }
 }
