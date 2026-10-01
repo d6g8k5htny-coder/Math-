@@ -210,16 +210,18 @@ prefix of a certified interval's endpoints (both checked mechanically before pub
 agrees with the reference to about 48 digits, and the full window contains Math-#199's `c_{4,ref}`, whose `c_{4,24}` equals it to
 `1.6e-108` (rule `C4_CONSISTENT`).
 
-**How the birth mass moves with dimension.** The C8 band `B = [0, 1]` carries:
+**How the band's share moves with dimension.**
 
-| `d` | share of the birth mass |
-|---|---|
-| 2 | `48.3 %` |
-| 3 | `34.6 %` |
-| 4 | **`15.4 %`** |
+| `d` | height-window share `F^(d)_{[0,1]}` (every `K`) | C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}` |
+|---|---|---|
+| 2 | `48.3 %` | `3.25 %` |
+| 3 | `34.6 %` | `2.33 %` |
+| 4 | **`15.4 %`** | **`1.04 %`** |
 
-The negative half-line carries `0.64 %` in `d = 4`, against `4.6 %` in `d = 3`. The reason is that `f` must exceed the largest
-eigenvalue of a larger GOE matrix. The gap factor is dimension-free (`6.74 %`). On the band, `c^(4)_{B,K}/c_{4,ref} = 1.04 %`.
+The first column is the share of birth heights in `B = [0, 1]`; by the factorization `c_{B,K} = c_{d,ref} F_B G_K` it does
+not depend on the gap window. The second is the C8 band's share of the whole coefficient, with the dimension-free gap factor
+`G_{[1/2,2]} = 6.74 %`. Both are ratios of certified values from the separate packets, not a theorem about birth mass. The negative half-line carries `0.64 %` of the birth heights in `d = 4`, against `4.6 %` in `d = 3`. The reason is that `f` must
+exceed the largest eigenvalue of a larger GOE matrix.
 
 ## 6. Rules, mutants, verification
 
@@ -338,3 +340,8 @@ No external numerical library is used.
   singleton windows such as `K = [1, 1]`, where (1.1) is zero. §0 now states `−∞ < b_− < b_+ < ∞` and `0 < k_− < k_+ < ∞`, and
   §7 classes singleton windows with the other windows outside the hypothesis. Every tabulated window has positive length, so no
   value changes. The script, `RESULTS.json`, the rules and the mutants are byte-unchanged.
+- **v1.3 (band-share wording; NOTE only).** The xAI lane found (on this PR, comment 5932367935) that the table of §5 headed as the band's share of the
+  birth mass shows `F^(d)_{[0,1]}`, the share of birth heights in `B = [0, 1]` (the same for every `K`), while it read as the C8
+  band's share of the whole coefficient (Math-#222 comment 5932429158). §5 now labels that column as the height-window share and
+  adds the C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are
+  byte-unchanged; no certified value changes.
