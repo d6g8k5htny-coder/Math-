@@ -29,7 +29,10 @@ Its fold expansion is `A~_r = A_0 + r^2 A_2 + O(r^3)` (§3). Put
     T(F) = f.p. integral_0^oo F(k) k^(-4/3) dk = integral_0^oo [F(k) - F(0)] k^(-4/3) dk,
     c2[K, u] = (1/3) |S^(d-1)| T(F^u_K),       c2[K] = (1/3) integral_(S^(d-1)) T(F^u_K) d sigma(u).
 
-`c2[K]` is Math-#218 (0.1). For `K = phi` it does not depend on `u` and equals the closed form of [C2X] §0.
+`c2[K]` is the expression of Math-#218 (0.1). For `K = phi` it does not depend on `u` and equals the closed form of [C2X]
+§0. #218's Theorem T, which identifies this expression as a coefficient of the candidate density, is an unmerged
+author-side candidate for `d >= 2`. In `d = 1` the theorem below is a transfer of the explicitly defined fixed-cone
+expression, not an extension of #218's density theorem (review 5383099127, item 3).
 
 **Theorem C2T.** For `d in {1, 2, 3}`, every `L0` in the table, every real `L >= L0` and every orthonormal frame,
 
@@ -57,9 +60,14 @@ With [SIDE24]'s enclosures of `c_{d,24}`, the interval quotients give
 `c2[K_24]/c_{2,24} in [3.017759261945395, 3.017759261946047]` and
 `c2[K_24]/c_{3,24} in [3.859496174547459, 3.859496174548329]`.
 
-With Math-#219 / #224 for `c1`, the coefficients of the three-term law `nu/(c ell^(-1/3)) - 1 = (c1/c) ell^(7/12) +
-(c2/c) ell^(2/3) + ...` on the SIDE24 torus in `d = 3` are `-5.071062...` and `3.859496174548...` to the stated digits. This
-holds conditional on the consumed premises of §8.
+**Three-term law, with its sources.** The law is `nu/(c ell^(-1/3)) - 1 = (c1/c) ell^(7/12) + (c2/c) ell^(2/3) + ...`.
+On the SIDE24 torus in `d = 3` its coefficients are `-5.071062...` and `3.859496174548...`, to the stated digits. The sources
+of each piece are:
+- **`c1/c`** comes from [CU] (Math-#219, an unmerged author-side certificate). It is consumed, not accepted here.
+- **Math-#224** plays two separate roles:
+  - its (T1) defines the torus kernel used throughout;
+  - its `c1` transfer is a separate unmerged author-side candidate, and nothing here inherits status from it.
+- **The identification as density coefficients** is conditional on the chain in §8.
 
 **Lemma E (no `r^1` term for every stationary kernel).** Let `K` be any smooth stationary covariance (no isotropy or
 evenness needed) whose pin and transverse covariances are nondegenerate at `r = 0`. Then the surrogate has the form
@@ -70,7 +78,12 @@ evenness needed) whose pin and transverse covariances are nondegenerate at `r = 
 there is no `r^1` term, and the `r^3` coefficient is `-(k/2) d_b A_0`.
 
 On the torus this decides, for the surrogate, the question left open in Math-#227 ("whether the torus `A_r` has an `r^1` term
-at all"): it has none. With the consumed comparison `A_r = A~_r + O(r^3)`, the typed `A_r` has none either.
+at all"): it has none. With the consumed comparison `A_r = A~_r + O(r^3)`, the typed `A_r` has none either. This does not
+remove #227's certified `beta r` allowance, accept #227's premises, or close C8 ([L'], cited only).
+
+**Relation to Math-#232** ([FJ], merged at `7fe06b0`). #232 gives the general eight-jet local stability interface (a
+birth-marginalized finite-jet formula with an analytic budget, `< 1e-60` for `L >= 24`). This packet gives sharper
+torus-specific constants for every `L >= 10`, together with Lemma E. The two are compatible, and neither supersedes the other.
 
 ## 1. What is consumed, and how the proof runs
 
@@ -78,8 +91,9 @@ at all"): it has none. With the consumed comparison `A_r = A~_r + O(r^3)`, the t
   `exact.py` and `pseries.py` are carried as byte-identical copies, and this packet's pipeline is a re-implementation over balls
   that `reference_checks` compares with them identically (§3).
 - **[SIDE24] (1)–(2) (main).** The normalized periodic kernel.
-- **[T] (Math-#218, unmerged) (0.1) and Lemma F.** The definition of `c2` and its identification as the `ell^(1/3)`
-  coefficient; consumed, not reviewed.
+- **[T] (Math-#218, unmerged) (0.1) and Lemma F.** The definition of `c2`, and its identification as the `ell^(1/3)`
+  coefficient of the candidate density for `d >= 2` (an author-side candidate). Consumed, not reviewed.
+- **[CU] (Math-#219, unmerged).** The certified `c1/c` enclosure quoted in §0. Consumed, not accepted.
 - **[D] §2.2 (Math-#216, unmerged).** `A_r = A~_r + O(r^3)`; consumed, as in [C2X].
 
 **The route.**
@@ -119,8 +133,8 @@ and requires `|g|^2 <= 5 L0^2` and `|g| <= L0^2`. At `L0 = 10`, `theta_1 <= 1.16
 
 A ball `B(c, rho)` is the rational interval `[c - rho, c + rho]`.
 - Sums, products and reciprocals (when `|c| > rho`) are the standard outward rules.
-- The radii are rounded up to dyadic rationals. `rup` keeps 64 significant bits, and one more when the round-up carries
-  (for example `rup((2^64 + 1)/2^64)`). This affects precision only, not outwardness.
+- The radii are rounded up by an outward dyadic ceiling rule (`rup`), with at least 64-bit relative precision. This
+  affects precision only, not outwardness.
 - The operands are integers, Fractions or balls throughout. Float scalars are not certified: `B(1) + 0.1` would round the
   center without a radius. The certificate never uses one. Reuse elsewhere should coerce or reject floats (review C49).
 - The centers are exact. With all radii zero the arithmetic is exactly [C2X]'s, so the centers of every output are the
@@ -242,26 +256,35 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
 ## 8. What this does not do
 
 - **The definition and identification are consumed.**
-  - That `c2[K_L]` is the `ell^(1/3)` coefficient of the torus densities is [T]'s (candidate density, candidate status)
-    and Math-#220's (elder density, conditional on #187), and is not reviewed here.
+  - **Candidate density.** That `c2[K_L]` is its `ell^(1/3)` coefficient is [T]'s claim: Math-#218, an unmerged
+    author-side candidate for `d >= 2`.
+  - **Elder density.** The identification is [E3]'s (Math-#220). That is an unmerged author-side candidate which consumes
+    the unmerged #207 and #218 and the now-merged #187. The complete chain is #191/#198 (merged) → #207 → #218 → #220.
+  - Neither identification is reviewed here, and the transfer of the fixed-cone expression does not depend on either
+    (review 5383099127, item 2).
   - So is the typed replacement `A_r = A~_r + O(r^3)` ([D] §2.2) on the torus. Lemma E and Theorem C2T are statements
     about the surrogate.
 - **`d = 1, 2, 3` only;** the pipeline runs unchanged in `d = 4` given time. Lattices other than `L Z^d` are not treated,
   although Lemma J only needs `|p_n| >= L|n|`-type counts.
 - **Conservative constants** (§6). They are not estimates of the true torus deviation.
-- **No review** of [C2X], [T], [D], [SIDE24] or Math-#224. Same GitHub account as every lane; zero
+- **No review** of [C2X], [T], [D], [SIDE24], [CU], [E3], [L'], [FJ] or Math-#224. Same GitHub account as every lane; zero
   organizational-independence credit. **I will not merge.**
 
 ## 9. Provenance
 
 - **Sources** (`SOURCE_MAP.json`). The workflow verifies these on the checked-out tree:
-  - [C2X] `frontiers/c2_exact_20261001/{exact.py, pseries.py, NOTE.md, RESULTS.json}` on `main` `f9ebba1`. `exact.py` and
+  - [C2X] `frontiers/c2_exact_20261001/{exact.py, pseries.py, NOTE.md, RESULTS.json}` on `main` (since `f9ebba1`; unchanged at `7fe06b0`). `exact.py` and
     `pseries.py` are also carried byte-identically in this directory.
   - [SIDE24] `coefficients/side24_v1/PROOF.md`.
 - **Unmerged, recorded and not checked on this tree:**
   - [T] Math-#218 `PROOF.md` (blob `70ca57ef`);
   - [D] Math-#216 `NOTE.md` (blob `aa078a9c`);
-  - [CT] Math-#224 `PROOF.md`, for (T1) and as the `c1` analogue (cited).
+  - [CT] Math-#224 `PROOF.md`, for (T1) and as the `c1` analogue (cited);
+  - [CU] Math-#219 at `7a04873`: `NOTE.md` (blob `7dccfa97`) and `RESULTS.json` (blob `8bbd0b0c`), consumed for `c1/c`;
+  - [E3] Math-#220 at `70dcf31`: `PROOF.md` (blob `c8767dde`), cited for the conditional elder identification;
+  - [L'] Math-#227 at `2d1ec7c`: `NOTE.md` (blob `138521e8`), cited only.
+- **On `main` since `7fe06b0`, cited only:** [FJ] Math-#232
+  `frontiers/c2_finite_jet_transfer_20261001/PROOF.md` (blob `54cc4a1a`).
 - **Files:**
   - the certificate: `transfer.py`, `ball.py`, `exact.py`, `pseries.py`;
   - `controls.py`;
