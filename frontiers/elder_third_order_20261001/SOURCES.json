@@ -1,0 +1,229 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-ELDER-THIRD-ORDER-20261001-v1.1",
+ "supersedes": "CL-ELDER-THIRD-ORDER-20261001-v1 (head 6da0715, PROOF blob f84b69eb)",
+ "status_update": "2026-10-01 15:30 UTC, after the nonauthor successor Slice C review 5380878588 (PASS_TECHNICAL, scope released): #187 merged (c2f1270) and listed as a merged input; Lemma S-prime states its range r <= r_0^* <= r_0^{[R]} <= 1 and the sign -Ht > 0 explicitly; control X8 adds a negative witness at r = 2; no mathematical change. Previous PROOF blob 736a35de at head e481d23.",
+ "kind": "author-side proof candidate: the elder lifetime density to third order in every d >= 2 up to its far part: nu_eld = c l^(-1/3) + c1 l^(1/4) + c2 l^(1/3) + nu_eld^{far,r_0^*}(l) + O(l^(4/11)) with 0 <= nu_eld^{far,r_0^*} <= C l^(1/3) (E3.0); hence nu_eld = c l^(-1/3) + c1 l^(1/4) + O(l^(1/3)) (a rate for (CU.1) of Math- #207), the lower bound nu_eld >= c l^(-1/3) + c1 l^(1/4) + c2 l^(1/3) - C l^(4/11), and, conditional on Math- #187 Theorem F at rho = r_0^*, nu_eld = c l^(-1/3) + c1 l^(1/4) + c2 l^(1/3) + O(l^(4/11)) with c2 the coefficient of Math- #216/#218; new Lemmas H and S-prime (the rescaled Hessian under the pins; E_Q[(W_r/r^2)e] <= C l^(2/3) r^(-2)(kappa + r)P^N); Corollary for the rejected density",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "f9ebba17f5cc590232b2fb2cd37b04b996abc143"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2)-(R5): pin covariance, regression, moments, pin densities; section 4 scaled Hessians"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 linear independence of distinct derivative functionals (also Lemma H, at two sites and at one site in a rotated frame); section 3 pin rows (3.1)-(3.3) (Lemma H); section 8 maximin and elder mark; sections 9-10 as [E2] (the near/far identity); section 15 parity factorization and (15.2)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule"
+  },
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2): the fold-region elder deficit; section 4: 1 - e <= 1_{G_r^c}"
+  },
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z13)-(Z14): the change of variables in the near/far identity"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "Math- #191 (merged 2026-10-01, merge commit 9556547; the blob v1 consumed): Lemma E Steps 1-4 (expansions), section 2 (2.1), r_0^*"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "Math- #198 (merged 2026-10-01, merge commit 124c37d; the blob v1 consumed): (3.1) and the sign window of section 3 (own-jet form (F1)); Lemma B barrier (1.2) and the section 1 elder-density identity; Lemma W (W.1); the far integral (2.1); Lemma F-prime"
+  },
+  {
+   "path": "frontiers/far_elder_rate_20260930/PROOF.md",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b",
+   "git_blob": "072601145601a1021037a2e91bf8826c1c971ecc",
+   "tag": "187",
+   "use": "Math- #187 (merged 2026-10-01 13:34 UTC, merge commit c2f1270; the blob v1.1 consumed since its rebind): Theorem F at the single separation rho = r_0^* (far elder density O(l^(2/3))), for (E3.3) and Corollary E3-prime(3) only"
+  }
+ ],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "section 0 cusp objects; proof of Theorem CU.1; Theorem CU.2; structure of Proposition CU.3 (re-proved quantitatively); section 6 (6.1), (CU.2)",
+   "head": "b12ff464b3534b6899a90cc250c585b1caf5dfec",
+   "pr": "Math- #207"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Lemma D (also applied to the rescaled Hessian of Lemma H); the argument of (1.2); Lemma F Steps F1, F3, (F.2); Lemma C Steps C1, C2, C3; Lemma O; Theorem T (T.1); section 4 fold region and exponent ledger",
+   "head": "0cf048d18eb28a4ba37eba89c238a2910d4ca915",
+   "pr": "Math- #218"
+  }
+ ],
+ "cited_only": [],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb",
+   "tag": "216",
+   "use": "numerical values of c2; the elder-pair Monte Carlo row (Remark 3, exploration)",
+   "head": "04c08e1534122f210be888742fcd7a568e45b097",
+   "pr": "Math- #216"
+  },
+  {
+   "path": "frontiers/far_elder_flat_ridge_20260930/PROOF.md",
+   "bytes": 22806,
+   "sha256": "957f9c5e6557a558b2c055fa2a1f11ba301581995b8958658fad2edf47136f57",
+   "git_blob": "50cfbf4fcb9a3526f979eaedf885d42824a3c3a3",
+   "tag": "188",
+   "use": "Theorem G, an alternative far elder bound O(l^N) for rho in (0, L/4] (Remark 2)",
+   "head": "85f0586a468c2b2f73af0e340d251e33a52caade",
+   "pr": "Math- #188"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Haynsworth",
+   "reference": "E. V. Haynsworth, inertia additivity of the Schur complement (1968)",
+   "use": "through #218 Lemma C, Step C1 (fact (F2))"
+  },
+  {
+   "tag": "Anderson",
+   "reference": "T. W. Anderson, The integral of a symmetric unimodal function over a symmetric convex set and some probability inequalities, Proc. Amer. Math. Soc. 6 (1955) 170-176",
+   "use": "Lemma H (b), as in the argument of #218 (1.2)"
+  },
+  {
+   "tag": "Weyl",
+   "reference": "Weyl integration formula on symmetric matrices",
+   "use": "through #218 Lemma D (fact (F5))"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4",
+  "M5",
+  "M6",
+  "M7",
+  "M8"
+ ],
+ "replayed": [
+  "e3_check.py"
+ ],
+ "referee": {
+  "kind": "clean-context same-family referee (Anthropic Claude subagent), before submission of v1, with a delta check of the revision",
+  "verdict": "ACCEPT WITH MINOR FIXES (no major finding; four minor findings and nine nits, all applied); delta check of the revision: ACCEPT",
+  "report": "project archive V2_2/frontiers_elder_third_order_20261001/REFEREE_1.md",
+  "report_sha256": "0af4192a773d12dd14f38bdf53a731053728b2a055c90e9dfbc2a5101c824c36",
+  "report_bytes": 36560,
+  "exploration": "the referee tested Lemma Q by a 2D union-find maximin on 48 exactly pinned fields (floating point): 48 of 48 agree",
+  "independence": "same provider and GitHub account as the author; zero organizational independence"
+ },
+ "referee_v1_1": {
+  "kind": "clean-context same-family referee (Anthropic Claude subagent) of the v1 -> v1.1 delta against all eight sources at their declared blobs, with a delta check of the fixes",
+  "verdict": "ACCEPT WITH MINOR FIXES (no major finding; one minor finding and eleven nits, all applied); delta check of the fixes: ACCEPT",
+  "report": "project archive V2_2/frontiers_elder_third_order_20261001/REFEREE_2.md",
+  "report_sha256": "9d93d25f17e494e84956af2578b115ddee7d9f4c1f258da2dcf33d0be0453b03",
+  "report_bytes": 26106,
+  "independent_checks": "(H.1) by Peano kernels (sympy); Lemma H covariance numerically: the direct and segment forms of H-tilde agree to 7e-11 for the Gaussian kernel (two representations sharing one covariance code) and reproduce the author mpmath exploration (raw pins); the segment form also on tori L = 2, 3, 6 (d = 2) and L = 3 (d = 3) (floating point); the eps^2 mechanism of Lemma S-prime by Monte Carlo; the section 4 ledger in exact rationals; all controls and mutants",
+  "independence": "same provider and GitHub account as the author; zero organizational independence"
+ },
+ "nonauthor_reviews_of_v1_1": {
+  "on": "Math- #220 at head e481d23 (PROOF blob 736a35de; sections 1-4 byte-identical to b229143 / 5dec8985)",
+  "reviews": [
+   "OpenAI / Codex (delegated, agent /root/review_density_proof_gaps): successor Slice C, Lemmas H and S-prime and the sections 3-4 assembly, PASS_TECHNICAL, no blocking defect (review 5380878588); OA-220-B-01 resolved, OA-220-C-01 superseded",
+   "OpenAI / Codex: v1 -> v1.1 delta of slices A/B verified, A/B conclusions preserved (comment 5932298017)"
+  ]
+ },
+ "nonauthor_reviews_of_v1": {
+  "on": "Math- #220 at head 6da0715 (PROOF blob f84b69eb)",
+  "reviews": [
+   "OpenAI / Codex (delegated, agent /root/review_density_proof_gaps): Slice A PASS_TECHNICAL (review 5379101929); Slice B PASS_TECHNICAL with amendment OA-220-B-01 (review 5379015767); Slice C PASS_TECHNICAL with amendment OA-220-C-01 (review 5379186710)",
+   "xAI: sympy check of the Lemma Q ridge identities (review 5379144440)"
+  ],
+  "amendments": {
+   "OA-220-B-01": "applied in v1.1: Lemma G (b) assumes E[H(E)] < infinity; Step E6 records why it holds",
+   "OA-220-C-01": "superseded in v1.1: v1 Remark 2 shrinking cut-off removed; the near/far cut is the fixed r_0^*"
+  }
+ },
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7913,
+   "sha256": "4010d885a8fdff55601f067e5504c9736edb40f4f34bef3b402ca8ce01020722"
+  },
+  {
+   "path": "e3_check.py",
+   "bytes": 31425,
+   "sha256": "ffedf4dc3ea5e64a27f8cd77531c1e1524ac76bda5addddaab181f213c0650cc"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 3533,
+   "sha256": "3390d0fc2fd74138fb34b6d5447c7d56191ffc4257fe9ba3985786d1ab661fb1"
+  }
+ ]
+}
