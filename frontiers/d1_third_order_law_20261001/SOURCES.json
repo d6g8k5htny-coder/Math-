@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-THIRD-ORDER-20261001-v1.2",
+ "object": "CL-D1-THIRD-ORDER-20261001-v1.3",
  "kind": "author-side proof candidate (Theorem 1D: the one-dimensional crest-to-trough and persistence lifetime densities on the circle to third order with remainder O(h^(1/2))); self-contained; nothing consumed; nonauthor review required. Control C6 is a numerical consistency check (two-point Rice integral), not a proof.",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
@@ -17,7 +17,7 @@
    "sha256": "16628983f7833419e33c7b04cdb2e0d49076bccfbe7a6d457bf90efba63aa4ec",
    "git_blob": "003b98794f02fd5c1cd45ed263bf2818b556e6ab",
    "tag": "recon147",
-   "use": "literature position (section 6.3): no small-gap exponent located; Perez states the smooth short-bar law as open"
+   "use": "literature position (section 6.3): no small-gap exponent located under the memo's protocol; the memo's sentence that Perez states the smooth case as open overstates arXiv:2012.09459v3 (section 1.1 calls smooth random-field topology an open research area), corrected in section 6.3 after the Slice E review 5387031124 (E-LIT)"
   },
   {
    "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -96,7 +96,58 @@
   "d1_check.py"
  ],
  "not_replayed": [],
- "exploration_outside_repository": "numpy Monte Carlo (exact spectral synthesis, total length 8.4e7) and an mpmath Rice computation (50-130 digits); archived with the project record, not part of this packet (standard-library rule)",
+ "exploration_outside_repository": {
+  "summary": "numpy Monte Carlo (exact spectral synthesis, total length 8.4e7) and an mpmath Rice computation (50-130 digits); not part of this packet (standard-library rule)",
+  "location": "project record (claude.ai project, not public): V2_2/frontiers_d1_third_order_law_20261001/exploration/; identified by SHA-256 below",
+  "status": "author-reported exploration; not verified by a nonauthor (Slice E review 5387031124: UNVERIFIED, excluded from proof inputs); no proof step uses it",
+  "files": [
+   {
+    "path": "README.md",
+    "bytes": 1793,
+    "sha256": "2b32d5e8fb2b184251ea0cb736df8428298489df967e1eb10135c351d72c874d"
+   },
+   {
+    "path": "analysis2.json",
+    "bytes": 4033,
+    "sha256": "72b38410f48d1530659bd3c408a57b6e7099504b4515b0871597a33a5ff22450"
+   },
+   {
+    "path": "analyze2.py",
+    "bytes": 1819,
+    "sha256": "0f2e29467ff1b6abe081185f666339ef52776ed4f0416eeed1657347f3906bcb"
+   },
+   {
+    "path": "consts.py",
+    "bytes": 1098,
+    "sha256": "768172c8f1981ae6bb61cb36dc739fe6f2b2f3986038965ca4112fedac8e8837"
+   },
+   {
+    "path": "rice_mp2.py",
+    "bytes": 3384,
+    "sha256": "fabfe882bc7ae462285d9749ec8190f03aff9112c04e54668e3bb5c9bcfbbe8b"
+   },
+   {
+    "path": "rice_mpmath_runs.txt",
+    "bytes": 1063,
+    "sha256": "fb2f101bbfb3bbdc2ca0a8ed6bc11b3ef48cb05464e61adbd1c27f25cbd9c53f"
+   },
+   {
+    "path": "run_rice.py",
+    "bytes": 588,
+    "sha256": "d3eba22e5b22d4b8081a76c7461c8b8edb08614411a6beadd47bd45fe498291c"
+   },
+   {
+    "path": "sim1d.py",
+    "bytes": 5731,
+    "sha256": "b975ed0e816f0e8a62b06c41884f34f8d429d1783f08f85741ff0be49c66b299"
+   },
+   {
+    "path": "sim2.py",
+    "bytes": 2481,
+    "sha256": "2de9dc9420f7b31a8714b05a82e93c9ed0014fbb39f411b0f092c3890ca4d71b"
+   }
+  ]
+ },
  "referee": {
   "kind": "pre-submission clean-context referee passes, same author family (two Anthropic Claude subagents); NOT acceptance, NOT independent",
   "slices_AB": "no false claim; Lemma 1.3 coefficients verified symbolically for a general covariance; independent Rice computation to h = 1e-40 confirms I/2, C1/2, B2 to 1e-9..1e-11 and a next term O(h^(3/4)); one gap (Prop 2.2(a): the straddle term kernel is alpha t, not alpha t^3) repaired with its Gaussian factor; minor points applied (Kac-Rice display restricted to (max, min) pairs; uniformity statements; the e^{-c/h} complement; I - C1 = 0.0778330)",
@@ -130,13 +181,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 44784,
-   "sha256": "0461cd82542507102818d9c08dd2f7d132966bdcbcb67b704ec78b498f26c7ec"
+   "bytes": 46313,
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804"
   },
   {
    "path": "README.md",
-   "bytes": 9190,
-   "sha256": "c0e0638d34f8ea953c2843153e938bd74bb4c310a3c749d2b23ec5613c62ebb5"
+   "bytes": 10219,
+   "sha256": "b2b3c8fd81b93d38cc16f9fd5bd7db38d7b09e3627d216d8e61db97156896b3e"
   },
   {
    "path": "d1_check.py",
@@ -149,5 +200,47 @@
    "sha256": "05795a038510493a36b6b6803efbd57cfa41951bd968a3a1f10b06d51d20da66"
   }
  ],
- "label_history": "v1.2 renames Theorem D1 to Theorem 1D (dimension one), label only, after the xAI concern on #214 (comments 5940492097, 5940563636): the name D1 belongs to the cap component (Math- #193, #194). Paths unchanged; d1_check.py and RESULTS.json are byte-identical to v1.1 and keep its object label (their controls are unchanged)."
+ "label_history": "v1.2 renames Theorem D1 to Theorem 1D (dimension one), label only, after the xAI concern on #214 (comments 5940492097, 5940563636): the name D1 belongs to the cap component (Math- #193, #194). Paths unchanged; d1_check.py and RESULTS.json are byte-identical to v1.1 and keep its object label (their controls are unchanged).",
+ "nonauthor_reviews": [
+  {
+   "scope": "Slices A-D and the theorem at the circle scope",
+   "reviewer": "OpenAI Codex (delegated AI review)",
+   "record": "comment 5933752065",
+   "head": "f4a58df9247dfa9ada2b756ecd7629c0b2faf5b5",
+   "proof_blob": "873532b955dbf7684edc1a53ba169c7216f778ab",
+   "supplementary": [
+    "comment 5930841283",
+    "comment 5931058934"
+   ],
+   "carried_forward": "comment 5941929764 (v1.2, labels only)",
+   "clarifications_requested": [
+    "Lemma 3.2: f_o(tau) = -h/2",
+    "Lemma 4.3: explicit O(h log(1/h)^(3/2)) cutoff bound",
+    "Lemma 1.3: 0 <= alpha <= tau^-1",
+    "Lemma 3.3 (R): the global-maximum alternative"
+   ],
+   "disposition": "all four applied in v1.3"
+  },
+  {
+   "scope": "Slice E (section 6, controls, sources)",
+   "reviewer": "OpenAI Codex (delegated AI review)",
+   "record": "review 5387031124",
+   "head": "4703fc7b3b29967a134723fb4b7e0b26dff3e656",
+   "proof_blob": "3389ef8cfaabab9c71cdf398893b0b7aef69dba1",
+   "findings": [
+    "coefficient comparison ACCEPTED",
+    "public controls reproduced",
+    "E-LIT: narrow the Perez attribution (AMEND)",
+    "outside-repository exploration UNVERIFIED"
+   ],
+   "disposition": "E-LIT applied in v1.3 (section 6.3); exploration identified by hash, status kept"
+  },
+  {
+   "scope": "naming",
+   "reviewer": "xAI / Grok team",
+   "record": "comments 5940492097, 5940563636",
+   "disposition": "v1.2 rename to Theorem 1D; a provider-distinct readback remains open"
+  }
+ ],
+ "v1_3_changes": "clarifications requested by the nonauthor reviews (comment 5933752065 items 1-4; review 5387031124 E-LIT); no change to any statement, constant or control; d1_check.py and RESULTS.json byte-identical to v1.1"
 }

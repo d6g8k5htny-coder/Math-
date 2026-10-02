@@ -1,9 +1,12 @@
-# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1.2)
+# The one-dimensional lifetime and crest-to-trough laws to third order (CL-D1-THIRD-ORDER-20261001-v1.3)
 
 Author-side proof candidate, Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review required.
 v1.1 applies the two findings of the Codex review of v1 (head `2aedcaa`); see *Review record* below.
 v1.2 renames the theorem **Theorem 1D** (dimension one), label only, after the xAI concern 5940492097: the name D1
 belongs to the cap component (Math- #193, #194). No mathematical change.
+v1.3 applies the clarifications the nonauthor reviews asked for: the four of the Codex acceptance (comment 5933752065: a
+sign typo, a range, a logarithm, the global-maximum alternative) and the narrowed Pérez attribution of the Slice E review
+(5387031124). No statement, constant or control changes.
 **No dependencies:** self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor, Markov and Landau
 inequalities). Math- #207 (Theorem CU, `d ≥ 2`) and #210 (the `d = 1` literature remark) are cited for comparison only.
 
@@ -121,3 +124,11 @@ read v1 before the PR.
 - **C** the window decision;
 - **D** thin and far pairs, and the assembly;
 - **E** the comparison with #207 and the numerics.
+
+**Nonauthor reviews on file** (all OpenAI Codex; same GitHub account, organizational-independence credit 0):
+- Slices A–D and the theorem at the circle scope: comment 5933752065 (head `f4a58df`), with the supplementary derivations
+  in comments 5930841283 and 5931058934; carried to v1.2 by comment 5941929764 (labels only). v1.3 applies its four listed
+  clarifications.
+- Slice E: review 5387031124 (head `4703fc7`): the coefficient comparison and the public controls accepted; the attribution
+  amendment E-LIT, applied in v1.3; the exploration outside the repository is author-reported and was not verified.
+- xAI: the naming concern (5940492097, 5940563636), answered by v1.2; a provider-distinct readback remains open.

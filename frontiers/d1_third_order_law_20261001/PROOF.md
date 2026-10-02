@@ -1,6 +1,6 @@
 # The one-dimensional lifetime and crest-to-trough laws to third order: `C₀ℓ^{−1/3} + C₁ℓ^{1/4} + 2B₂ℓ^{1/3} + O(ℓ^{1/2})`
 
-Object: CL-D1-THIRD-ORDER-20261001-v1.2.
+Object: CL-D1-THIRD-ORDER-20261001-v1.3.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 **v1.1 (after the Codex review of v1 on Math- #214, head `2aedcaa`):** (i) the sign of `B₂` is not fixed by (H) — v1's
 README asserted `B₂ > 0`; §0 now gives the decomposition `𝒬 = 4λ₂²λ₄σ₄² + D(24λ₄² − D)`, the sufficient condition
@@ -12,6 +12,14 @@ controls the conditional mean of `f''` under `Q` explicitly. The theorem's state
 (dimension one), and its displays (1D.1)–(1D.2), so that it is not read as the cap component D1 (Math- #193, #194). No
 mathematical change. The object identifier and the paths keep `D1`/`d1`, which there mean dimension one; `d1_check.py`
 and `RESULTS.json` are byte-identical to v1.1.
+**v1.3 (clarifications requested by the nonauthor reviews; no change to any statement, constant or control):** (i) the
+four manuscript clarifications listed in the OpenAI Codex acceptance of Slices A–D (Math- #214, comment 5933752065):
+`f_o(τ) = −h/2` in the proof of Lemma 3.2 (a sign typo; the solved coefficients were already right); `0 ≤ α ≤ τ^{−1}` in
+Lemma 1.3; in Lemma 4.3 the band bound on `[t₁, t₀]` with the explicit `√log` cutoffs, which give `O(h(log(1/h))^{3/2})`
+in place of the printed `O(h log(1/h))` (comment 5931058934; both are `o(h^{3/4})`); and the global-maximum alternative
+in the negative case of Lemma 3.3 (R). (ii) §6.3's attribution, narrowed as the Slice E review asked (review 5387031124,
+E-LIT): Pérez calls smooth random-field topology an open research area, and does not single out this short-bar law.
+`d1_check.py` and `RESULTS.json` are byte-identical to v1.1.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 **Dependencies: none.** The proof is self-contained (Gaussian conditioning, the two-point Kac–Rice formula, Taylor's
@@ -142,7 +150,7 @@ factors is `(m + E₂)² − E₁²`, positive iff `m + E₂ > |E₁|`; if `m + 
     v₁(t) = (τ⁴σ₄²/9)(1 + O(τ²)),               v₂(t) = (τ⁶/225)(λ₁₀ − (λ₆³ − 2λ₄λ₆λ₈ + λ₂λ₈²)/D)(1 + O(τ²)),
 
 and `p_t(α) = (2π)^{−3/2}(det Cov U)^{−1/2}exp(−α²[Cov(U)^{−1}]₃₃/2)`. In particular
-`p_t(α) = p₁₂p₃(α)(1 + τ²u(α) + O(τ⁴(1 + α⁴)))` for `α ≤ τ^{−1}`, `u(α) := −d₂/2 − q₂α²/(2σ₃²)`, and
+`p_t(α) = p₁₂p₃(α)(1 + τ²u(α) + O(τ⁴(1 + α⁴)))` for `0 ≤ α ≤ τ^{−1}`, `u(α) := −d₂/2 − q₂α²/(2σ₃²)`, and
 `p_t(α) ≤ Ce^{−α²/(4σ₃²)}` for all `α` and `τ ≤ τ₀`. Each quantity is an even function of `τ` (`c` odd).
 
 *Proof.* Taylor's formula at `0` (all `a_j`, remainders bounded by `τ^K sup|f^{(K+1)}|`) gives
@@ -257,7 +265,7 @@ Write `K₅ := sup_{[−2t, 2t]}(|f^{(5)}| + |f^{(6)}|)`.
 
 *Proof.* As in #207 (CU.1) with no transverse variable, divided by `κ`, keeping track of parity. The even pins
 `f_e'(τ) = 0` and `f_e(τ) = b − h/2` involve only even jets and even remainders (of order 6 for `f_e`); the odd pins
-`f_o'(τ) = 0` and `f_o(τ) = h/2` only odd jets and odd remainders (of order 5). They give `ϑ₂ = −(t²/24)f₄ + O(K^et⁴)`,
+`f_o'(τ) = 0` and `f_o(τ) = −h/2` only odd jets and odd remainders (of order 5). They give `ϑ₂ = −(t²/24)f₄ + O(K^et⁴)`,
 `ϑ₀ − b = (−κ/2 + f₄/384)t⁴ + O(K^et⁶)`, `ϑ₃ = 12κt + O(K^ot²)` and `ϑ₁ = −(3/2)κt³ + O(K^ot⁴)`, and `t^{−4}` times the
 degree-4 Taylor polynomial is `κg`. The Taylor remainder is `O(K^o|x|⁵ + K^e|x|⁶)`. After division by `h = κt⁴`, each
 correction and its two `X`-derivatives are `O((tK^o + t²K^e)/κ)` on `[−2, 2]`. ∎
@@ -288,7 +296,9 @@ from `±½` by the quadratic margins. Hence the arc from `𝔐` in the negative 
 `F(𝔐)` before reaching `−1`, `m₋ > −1 = F(𝔖)`, and `d(𝔐) ≥ m₋ > F(𝔖)`.
 If `−1 < φ ≤ −1/3 − η`: `X₃ ∈ (½, 3/2)` is a maximum with `g(X₃) ≤ (3φ + 1)/2 ≤ −3η/2`, `g(2) + 1 = (9/4)(6 − 75|φ|/4) ≤
 −9/16`, and `g < 0` on `(−½, 2]`; so the positive arc from `𝔐` falls below `−1` before exceeding `0`: `m₊ < −1`; and
-`m₋ < −1` as in (E) (`φ < 0`). Then `d(𝔐) < F(𝔖)`.
+`m₋ < −1` as in (E) (`φ < 0`). Then `d(𝔐) < F(𝔖)` if `𝔐` is not the global maximum; if it is, `𝔐` has no finite
+partner. Either way `𝔖` is not `𝔐`'s death point. (Lemma 3.3 is applied only through Corollary 3.4, for `t ≤ t_*`, where
+Lemma 3.2 makes `ε` small.)
 If `1 ≤ φ < 1 + ε/6`: `g' < 0` on `[−2, −½)` (the factor `1 + 2φX` is negative there), so `g ≥ 0` on `[−2, −½]`,
 `g(−2) ≥ 9/16`, and `F ≥ −ε > −1` there with `F(−2) > 0`: `m₋ > −1`. If `−1 − ε/6 < φ ≤ −1`: the bracket
 `2(X + 1) + 3φ(X + ½)² ≤ 2(X + 1) − 3(X + ½)² < 0` on `(½, 2]`, so `g < −1` there and the (R) argument for `φ < 0` applies
@@ -360,8 +370,10 @@ On `[t_*, h^{1/5}]` only `j = 4` is active: `≤ Ch³t^{−12}`, integral `≤ C
 and smaller beyond (the dyadic decomposition of `K` adds at most powers of `log(1/h)`, absorbed since
 `3 − 11/(5 − δ) > 3/4`). For `t ∈ [t₁, t₀]`: banded with `h ≤ t^{10}` gives `|f''(±τ)| ≤ C τ⁸(1 + K)` (Lemma 4.1) and, by
 Landau's inequality on the band, `|f'(τξ_i)| ≤ 2(h max(sup|f''|, 1))^{1/2}`; truncating `K` and `sup|f''|` at
-`C(log(1/h))^{1/2}` (the complement has probability `O(h^{10})`), Lemma 4.2 gives
-`K^{band} ≤ Ct^{−4}t^{16}·h log(1/h)·t^{−7}`, integrable, total `O(h log(1/h))`.
+`R := C(log(1/h))^{1/2}` (the complement has probability `O(h^{10})`), the Hessian product is `≤ Ct^{16}R²`, the two
+interior derivative values are `≤ C(hR)^{1/2}`, and Lemma 4.2 bounds their probability by `ChRt^{−7}`. So
+`K^{band} ≤ Ct^{−4}·t^{16}R²·hRt^{−7} = ChR³t⁵`, integrable, total `O(h(log(1/h))^{3/2})` (v1.2 printed `O(h log(1/h))`;
+comment 5931058934).
 
 *Far.* The band (resp. co-band) arc has length `≥ t₀` (resp. `≥ L/2`); take `N = 4` points on it at mutual distances
 `≥ t₀/8` and at distance `≥ t₀/4` from both pins, where Landau's inequality gives `|f'(y_i)| ≤ 2(hB)^{1/2}`,
@@ -445,8 +457,10 @@ everything is explicit — not a proof of any part of #207.
 
 **6.3 Literature.** #147 and #210 found no small-amplitude exponent for the crest-to-trough law in Rice 1944/45,
 Cartwright–Longuet-Higgins 1956, Lindgren 1972 or Lindgren 2019 (whose exact joint law of adjacent extremes contains
-(1D.1) implicitly), and Perez (arXiv:2012.09459) states the smooth short-bar law as open. Theorem 1D makes #210's remark a
-theorem on the circle and adds two terms. Not located is not absent; the database pass of #147 remains to be run.
+(1D.1) implicitly). Pérez (arXiv:2012.09459v3, §1.1) describes smooth random-field topology as an open research area;
+that general observation does not identify this particular short-bar asymptotic. Theorem 1D makes #210's remark a theorem
+on the circle and adds two terms. The searches cited here did not locate the formula and do not establish novelty; the
+database pass of #147 remains to be run.
 
 **6.4 The line.** The near-pair analysis (§§1–3, Lemma 4.1) is local. On `R` the far bound of Lemma 4.3 needs a
 decorrelation hypothesis (uniform nondegeneracy of separated values); with, e.g., exponentially decaying `ρ^{(j)}` the
