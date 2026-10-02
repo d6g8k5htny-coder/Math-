@@ -1,6 +1,6 @@
 # The one-dimensional lifetime and crest-to-trough laws with remainder `O(h^{3/4})`
 
-Object: CL-D1-SHARP-REMAINDER-20261001-v1.1.
+Object: CL-D1-SHARP-REMAINDER-20261001-v1.2.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 **v1.1 (labels, binding and one expository addition; no mathematical change):** (i) after the xAI concern on Math- #214
 (comments 5940492097 and 5940563636), #214 v1.2 renamed its theorem **Theorem 1D**, label only, so that it is not read
@@ -8,12 +8,23 @@ as the cap component D1 (Math- #193, #194). This note follows: its theorem is **
 (1D⁺.1)–(1D⁺.2), and #214 is cited as [1D], bound to its v1.2 blob. (ii) Proposition M's bad-event step names the
 moments that its Cauchy–Schwarz bounds use, as suggested in the Codex Slice D review (Math- #238, review 5386194030).
 The object identifier and the paths keep `D1`/`d1`, which there mean dimension one.
+**v1.2 (rebinding and the nonblocking amendments of the nonauthor reviews; no mathematical change):** (i) [1D] is rebound
+to Math- #214 v1.3 (head `54666d2`, PROOF blob `1591ecee`). v1.3 applies the clarifications its reviewers asked for
+(comment 5933752065, items 1–4; review 5387031124, E-LIT). None changes a statement used here: [1D] Lemma 4.3 still gives
+`O(h^{3/4})` on `[t_*, t₀]`, its `[t₁, t₀]` part now written `O(h(log(1/h))^{3/2})`. (ii) The two reporting corrections of
+the Slice E review (review 5387084565). §5.1 no longer says that disjoint exponent families exclude logarithms, or that the
+later exponents are established (E-SCOPE-01). §5.4 describes its model as a degree-40 truncation of the Gaussian-kernel
+series, not the stationary process (E-SCOPE-02). (iii) The optional sentence of the Slice C review (review 5386932211) in
+the proof of Lemma W: critical points outside the window cannot change the decision. (iv) §6 records the acceptance
+boundary of [1D].
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
-**Consumes** Math- #214 (open, unmerged; head `4703fc7b3b…`, `frontiers/d1_third_order_law_20261001/PROOF.md` blob
-`3389ef8c`, v1.2), cited below as [1D]. Its nonauthor analytic review (OpenAI Codex, comment 5933752065, "Slices A–D and
-Theorem D1 ACCEPTED at the stated circle scope", under the theorem's former name) was given on head `f4a58df`. The
-refresh to `cf162b1` merged `main` and left the packet's bytes unchanged; v1.2 (`4703fc7`) changed labels only. Used
+**Consumes** Math- #214 (open, unmerged; head `54666d26e1…`, `frontiers/d1_third_order_law_20261001/PROOF.md` blob
+`1591ecee`, v1.3), cited below as [1D]. Its nonauthor analytic review (OpenAI Codex, comment 5933752065, "Slices A–D and
+Theorem D1 ACCEPTED at the stated circle scope", under the theorem's former name) was given on head `f4a58df`, with
+supplementary derivations in comments 5930841283 and 5931058934. The refresh to `cf162b1` merged `main` and left the
+packet's bytes unchanged. v1.2 (`4703fc7`) changed labels only (carried forward in comment 5941929764). v1.3 (`54666d2`)
+applies that review's four listed clarifications and the attribution amendment of the Slice E review (5387031124). Used
 from [1D]: §§0–5 as stated, and also the intermediate estimates in the proof of [1D] Prop. 2.2 (c)–(d). §2 reruns those
 estimates on a longer range. The expansions among them follow from [1D] Lemma 1.3, the bounds on `ζ_θ` are properties
 of `ζ_θ` alone, and none of them uses `t ≤ t_*` (Prop. 2.2⁺ (c)). Nothing else is consumed.
@@ -346,6 +357,10 @@ This proves (W.2) for `φ₊`.
 Hence `𝔖` is the death point iff `μ₋(φ) > 0`. The function `μ₋` increases with slope at least `1`, and by the same
 envelope bound its root `φ₋` satisfies (W.2).
 
+In both edge cases, critical points outside `[−2, 2]` play no part. Along each arc they come only after the arc's first
+crossing above `F(𝔐) = 0`, which ends that arc's contribution to `m_±`, or after the arc has already fallen below the
+saddle value `−1`, which already gives `m_± < −1`.
+
 (W.1) collects the three regimes. For (W.3):
 
     η_{1/3}(−3/2) = −O(3/2) + B(3/2) + Ê(−3/2)/3,   η_{−1/3}(3/2) = O(3/2) + B(3/2) − Ê(3/2)/3.
@@ -453,9 +468,13 @@ Heuristically, the two-scale structure produces two families of exponents:
 - the fold family `−1/3 + 2k/3`, at `t ≍ h^{1/3}`;
 - the cusp family `1/4 + j/2`, at `t ≍ h^{1/4}`.
 
-These never coincide (`8k = 7 + 6j` has no solution; checker C7), so there are no logarithms. A further scale
-`t ≍ h^{1/5}` appears where the quintic jet competes and `m ≍ E₂`. There the model kernel loses relative order one,
-contributing order `h^{4/5}`. So the exponent after `1/3` is `3/4`, then `4/5`, then `1`.
+These never coincide (`8k = 7 + 6j` has no solution; checker C7), so the two families cannot resonate with each other.
+That alone does not exclude logarithms from later integrals: `∫_h^1(h/t)dt = h log(1/h)` is `O(h^{3/4})` and sits at the
+fold family's exponent `1` (Slice E review 5387084565, E-SCOPE-01). A further scale `t ≍ h^{1/5}` appears where the
+quintic jet competes and `m ≍ E₂`. There the model kernel loses relative order one, which by power counting contributes
+order `h^{4/5}`. So, formally, the exponents after `1/3` are `3/4`, then `4/5`, then `1`. This is a power-counting
+conjecture. A full later expansion is not proved here, and nothing here shows that the actual densities have a nonzero
+`h^{4/5}` term or no logarithms beyond `h^{3/4}`.
 
 On sharpness, [1D] §6.2 records that for the Gaussian kernel the `θ = 1/3` sign-kernel remainder after three terms is
 `≈ 0.038h^{3/4}`, constant over `h = 10^{−10}, …, 10^{−26}`; a referee recomputed `0.0381`. This is evidence only that
@@ -488,9 +507,13 @@ archived with the project record.
 - *Lemma E.* By 200-node Gauss–Hermite quadrature, `(G_θ − g_θ)/(v₂ min(1, s))` stays in `(0, 1.60]` for `θ = 1` and in
   `(0, 1.00]` for `θ = 1/3`, on `s ∈ [0.01, 12]` and `v₂^{1/2}/v₁^{1/2} ∈ [s/256, s/8]`. As `s → 0` the `θ = 1` ratio
   tends to `4/√(2π) ≈ 1.596`.
-- *The edge scaling: setup.* The model is the exact Gaussian-kernel process `f(x) = e^{−x²/2}Σ_{n ≤ 40}ξ_nx^n/√(n!)`,
-  with exact Matheron conditioning on the pins (coefficients at 60 digits). The edges `φ±` are found by bisection, and
-  `Δ` is integrated in closed form in `φ_G`. The table gives `E[Δ]/E[∫_{−1/3}^{1/3}Wp_s]`, divided by `t²`.
+- *The edge scaling: setup.* The model is a degree-40 truncation of the series of the Gaussian-kernel process,
+  `f(x) = e^{−x²/2}Σ_{n ≤ 40}ξ_nx^n/√(n!)`. Its covariance is `e^{−(x²+y²)/2}Σ_{n≤40}(xy)^n/n!`, not the stationary kernel
+  `e^{−(x−y)²/2}`: at `x = y = 1` its variance falls short of `1` by more than `1/(3·41!)` (Slice E review 5387084565,
+  E-SCOPE-02). This finite model is conditioned exactly on the pins (Matheron's formula, coefficients at 60 digits); that
+  does not make it the stationary process, and no truncation, rounding or sampling error bound is certified. The edges
+  `φ±` are found by bisection, and `Δ` is integrated in closed form in `φ_G`. The table gives
+  `E[Δ]/E[∫_{−1/3}^{1/3}Wp_s]`, divided by `t²`.
 
   | `t` | samples | `s = 2` | `s = 1` |
   |---|---|---|---|
@@ -505,7 +528,7 @@ archived with the project record.
     (`s = 2`). The tabled values for `t ≤ 0.1` are consistent with these (`χ² ≈ 3.7` and `4.7` on 3 degrees of freedom).
   - In that model the mean part and the fluctuation part have opposite signs at both `s`. Their sizes differ: `−0.36` and
     `+0.52` at `s = 1`, `−0.32` and `+0.01` at `s = 2`. This explains the sign change.
-  - The exact conditional values are `E_QO(3/2)/t² = −5.841, −5.960, −5.990, −5.997` and
+  - In the finite model, the conditional values are `E_QO(3/2)/t² = −5.841, −5.960, −5.990, −5.997` and
     `Ê(3/2)/t² = −12.88, −13.12, −13.18, −13.19` at `t = 0.2, 0.1, 0.05, 0.025`, with limits `−6` and `−13.2`.
   - For `t ∈ {0.1, 0.05}`, a direct grid decision with `φ_G` sampled agreed with `1{φ₋ < φ_G < φ₊}` on all `3.3·10⁵`
     typed samples.
@@ -520,9 +543,9 @@ archived with the project record.
 
 ## 6. Sources (exact identities in `SOURCES.json`)
 
-**Consumed.** [1D] = Math- #214, `frontiers/d1_third_order_law_20261001/PROOF.md`, blob `3389ef8c` at head
-`4703fc7b3b…` (v1.2; open; bound by the workflow's drift gate). The v1.1 blob `873532b9` differs from it in labels
-only. It supplies:
+**Consumed.** [1D] = Math- #214, `frontiers/d1_third_order_law_20261001/PROOF.md`, blob `1591ecee` at head
+`54666d26e1…` (v1.3; open; bound by the workflow's drift gate). The v1.1 blob `873532b9` differs from the v1.2 blob
+`3389ef8c` in labels only. v1.3 applies the clarifications its reviewers requested, listed below. It supplies:
 - §0: the setting and constants;
 - §1: Lemmas 1.1–1.3, the canonical versions (1.2)–(1.3), (1.4) and Remark 1.4;
 - §2: the sign kernels, `γ_θ`, `ζ_θ`, Lemma 2.1, Prop. 2.2 (b)–(e), and the intermediate estimates in its proof of
@@ -531,12 +554,25 @@ only. It supplies:
 - §4: Lemmas 4.1–4.3;
 - §5: the adjacency argument.
 
+*The acceptance boundary of [1D].* Its nonauthor acceptance (OpenAI Codex, comment 5933752065, carried to v1.2 by comment
+5941929764) binds the manuscript together with the supplementary derivations in comments 5930841283, 5931058934 and
+5933752065. Its four listed clarifications are in v1.3's text:
+- `f_o(τ) = −h/2` in Lemma 3.2;
+- `0 ≤ α ≤ τ^{−1}` for the relative density expansion of Lemma 1.3;
+- Lemma 4.3's band bound on `[t₁, t₀]` with the explicit `√log` cutoffs, `O(h(log(1/h))^{3/2})`;
+- the global-maximum alternative in the negative case of Lemma 3.3.
+
+This note uses [1D] with these clarifications, in particular Lemma 4.3's `O(h^{3/4})` through that logarithmic
+calculation. [1D]'s Slice E review (5387031124) accepted the coefficient comparison and the public controls, and its
+attribution amendment is applied in v1.3. The review does not cover [1D]'s outside-repository exploration, and none of it
+is used here.
+
 **Cited only.**
 - Math- #237 (`frontiers/candidate_parity_rate_20261001/PROOF.md`, open): the `d ≥ 2` parity argument for the candidate
   density, for comparison (§5.3).
-- Math- #207 (merged; `frontiers/cusp_second_order_20261001/PROOF.md`), #220 (`frontiers/elder_third_order_20261001/PROOF.md`,
-  open) and #229 (`frontiers/third_order_rate_20261001/PROOF.md`, open): the elder window and densities in `d ≥ 2`
-  (§5.3).
+- Math- #207 (merged; `frontiers/cusp_second_order_20261001/PROOF.md`), #220 (`frontiers/elder_third_order_20261001/PROOF.md`)
+  and #229 (`frontiers/third_order_rate_20261001/PROOF.md`), both merged on 1 October with the pinned blobs: the elder
+  window and densities in `d ≥ 2` (§5.3).
 
 External: Sudakov–Fernique and Borell–TIS (as used in [1D] Lemma 4.3); Gaussian regression.
 

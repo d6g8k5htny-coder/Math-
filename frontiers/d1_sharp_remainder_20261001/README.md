@@ -2,7 +2,17 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-D1-SHARP-REMAINDER-20261001-v1.1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-D1-SHARP-REMAINDER-20261001-v1.2`. Full text: [`PROOF.md`](PROOF.md).
+
+**v1.2 (no mathematical change).**
+- *Binding.* #214 is rebound to its v1.3 blob `1591ecee` (head `54666d2`). v1.3 applies the clarifications its reviewers
+  requested (comment 5933752065, items 1–4; review 5387031124, E-LIT); none changes a statement used here.
+- *Slice E amendments (review 5387084565).* E-SCOPE-01: PROOF §5.1 no longer says that the disjoint exponent families
+  exclude logarithms, or that the later exponents are established; they are a power-counting conjecture. E-SCOPE-02: the
+  exploration model below is a degree-40 truncation of the Gaussian-kernel series, not the stationary process.
+- *Slice C exposition (review 5386932211).* The proof of Lemma W says why critical points outside the window cannot change
+  the decision.
+- *Dependencies.* PROOF §6 records the acceptance boundary of #214 (its supplementary derivations and four clarifications).
 
 **v1.1 (no mathematical change).**
 - *Name.* The theorem is now **Theorem 1D⁺**. Math- #214 v1.2 renamed its theorem **Theorem 1D**, label only, after the
@@ -45,14 +55,16 @@ mean is `O(t²)`, for three reasons:
 
 ## Dependencies
 
-**Consumed.** Math- #214 (open; head `4703fc7`, PROOF blob `3389ef8c`, v1.2, which changed labels only):
+**Consumed.** Math- #214 (open; head `54666d2`, PROOF blob `1591ecee`, v1.3; v1.2 changed labels only, and v1.3 applies
+its reviewers' clarifications):
 - §§0–5 as stated, plus the intermediate estimates in its proof of Prop. 2.2 (c)–(d), which are rerun on a longer range;
 - nonauthor analytic review by OpenAI Codex on `f4a58df`: "Slices A–D and Theorem D1 ACCEPTED at the stated circle
-  scope" (under the theorem's former name).
+  scope" (under the theorem's former name; comment 5933752065, with the supplementary derivations of comments 5930841283
+  and 5931058934, carried to v1.2 by 5941929764); Slice E by OpenAI Codex (review 5387031124).
 
 **Cited only.**
 - Math- #237: the `d ≥ 2` parity argument for the candidate density;
-- Math- #207 (merged), #220 and #229: the elder window and densities in `d ≥ 2`.
+- Math- #207, #220 and #229 (all merged): the elder window and densities in `d ≥ 2`.
 
 The workflow binds #214 to its pinned blob through the repository API, with a drift gate:
 - if #214 lands, the bytes must be identical, or this packet needs rebinding;
@@ -89,7 +101,9 @@ in prose only.
 
 ## Numerical evidence (exploration, outside the repository)
 
-The model is the exact Gaussian-kernel process `e^{−x²/2}Σξ_nx^n/√(n!)`, with exact Matheron conditioning on the pins.
+The model is a degree-40 truncation of the Gaussian-kernel series, `e^{−x²/2}Σ_{n≤40}ξ_nx^n/√(n!)`, with covariance
+`e^{−(x²+y²)/2}Σ_{n≤40}(xy)^n/n!` (not the stationary kernel). It is conditioned exactly on the pins; no truncation,
+rounding or sampling error bound is certified.
 At fixed `s` (the cusp scale), the relative elder misclassification divided by `t²` is flat over
 `t = 0.2, 0.1, 0.05, 0.025`:
 
@@ -160,14 +174,24 @@ Other changes:
   Proposition M or the assembly. Its one expository suggestion, the moments behind the bad-event Cauchy–Schwarz bound,
   is applied in v1.1. The review is same-provider OpenAI, with organizational-independence credit 0, and it accepts
   no other slice.
-- Slices A, B, C and E are open.
+- *Slice A (§§1–2), OpenAI Codex, review 5386542791*, at `0582232` (PROOF blob `3b2ec970`) against #214's `3389ef8c`:
+  scoped ACCEPT (Lemma E, Proposition 2.2⁺), conditional on #214.
+- *Slice B (§3.1), OpenAI Codex, review 5386602374*, at `0582232`: scoped ACCEPT (Lemma Φ and the conditioning interface).
+- *Slice C (§3.2), OpenAI Codex, review 5386932211*, at `0582232`: scoped ACCEPT (Lemma W); one optional sentence, added in
+  v1.2.
+- *Slice D, successor*: review 5386532762 carries the Slice D acceptance to `0582232`.
+- *Slice E (§5, controls, workflow), OpenAI Codex C62, review 5387084565*, at `0582232`: PASS_TECHNICAL_SCOPED with two
+  nonblocking amendments (E-SCOPE-01, E-SCOPE-02), applied in v1.2.
+- *xAI / Grok*: ledger note, NOT READY (review 5386512094); not withdrawn.
+- All slices are same-provider OpenAI reads (organizational-independence credit 0). v1.2's changes need a delta readback.
 
 **Independence.** The referees are the same provider and the same GitHub account as the author, so they carry zero
 organizational independence. Nonauthor review is required; the review slices are in PROOF §8.
 
 ## Not claimed
 
-- the `h^{3/4}` coefficient, its sign, or the sharpness of `3/4`. #214 §6.2 records a `θ = 1/3` sign-kernel remainder
+- the `h^{3/4}` coefficient, its sign, or the sharpness of `3/4`; any later term, or the absence of logarithms beyond
+  `h^{3/4}` (PROOF §5.1 states the later exponents as a power-counting conjecture). #214 §6.2 records a `θ = 1/3` sign-kernel remainder
   `≈ 0.038h^{3/4}` for the Gaussian kernel, which is evidence about that integral only.
 - anything in `d ≥ 2`. Whether the edge argument lifts to the elder density there is open (PROOF §5.3).
 - uniformity in the covariance; anything on `R`.
