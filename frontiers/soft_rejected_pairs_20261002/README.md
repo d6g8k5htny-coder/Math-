@@ -2,7 +2,16 @@
 
 **Author-side proof candidate and conjectures (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-SOFT-REJECTED-20261002-v1.1`. Full text: [`PROOF.md`](PROOF.md). Version history:
+Object `CL-SOFT-REJECTED-20261002-v1.2`. Full text: [`PROOF.md`](PROOF.md). Version history:
+- v1.2 applies the findings of the nonauthor reviews of v1.1 (OpenAI Codex, Slices A, B (model), C, D, and B (formulas) with
+  E): OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01 and E-02.
+  - It adds Codex's exact (D′) witness with control S14, and states that for `β > 2`, `χ < 0` the pair is always rejected.
+  - It records prior work it had not cited (AUTH-242-01): the merged #170/#175 already prove that the fold-scale limit
+    exists, as `kA∗(α₁ + α₂)`. Conjecture 6's identification with `F` is #243 (open).
+  - It labels §5's numbers as author-reported exploration, pins their files in `SOURCES.json` (`exploration_manifest`), and
+    labels their uncertainties as descriptive.
+  - A same-family referee checked the delta: ACCEPT WITH FIXES (9 MINOR, 8 NIT), all applied.
+  - PROOF §9 lists the changed bytes.
 - v1.1 was made before any nonauthor review.
 - It extends Theorem 1 to every `d ≥ 2` and adds the `d = 3` constants (Corollary 1′) and the stiff-direction reduction
   (Proposition 2′). It also adds the `d = 3` Monte Carlo test and fixes finding A-1.
@@ -14,14 +23,14 @@ the cusp end `κ = ℓ/r⁴ → ∞` open. This note describes that end for the 
 
 | | Statement | Status |
 |---|---|---|
-| **Theorem 1** | In every `d ≥ 2`, `κ𝒜^{rej}(b, κ, u) = F₀(b, u) + O(κ^{−1})`, where `F₀ = (5/24)π₀𝔇` and `𝔇` is the density at `0` of the smallest eigenvalue `λ₁` of `−A`, weighted by `γ₁⁶(λ₂⋯λ_m)²`. In `d = 2`, `𝔇 = p_A(0 \| b)E[γ⁶]`. The rejected weight sits on `λ₁ ∈ [γ₁²/(24κ), γ₁²/(8κ)]`. | proof |
+| **Theorem 1** | In every `d ≥ 2`, `κ𝒜^{rej}(b, κ, u) = F₀(b, u) + O(κ^{−1})`, where `F₀ = (5/24)π₀𝔇` and `𝔇` is the density at `0` of the smallest eigenvalue `λ₁` of `−A`, weighted by `γ₁⁶(λ₂⋯λ_m)²`. In `d = 2`, `𝔇 = p_A(0 \| b)E[γ⁶]`. The rejected weight sits exactly on `λ₁ ∈ (3γ₁²/(72κ − f̃₄), 3γ₁²/(24κ − f̃₄)]`; for fixed jets this is `[γ₁²/(24κ), γ₁²/(8κ)]` up to `O(1/κ)`. | proof |
 | **Corollary 1′** | Gaussian kernel: `∫∫F₀ db dσ = 25√3/(48π²) ≈ 0.0914` (`d = 2`), `125√30/(192π³) ≈ 0.1150` (`d = 3`) | proof |
-| **Lemma 2** | The elder decision in the fold-scale soft model `G_k` (new jets `B = ∂_uA`, `C₃ = ∂_Θ³f` along the soft direction), by a one-dimensional scan, including a case where the saddle is a slice minimum | proof (model) |
+| **Lemma 2** | The elder decision in the fold-scale soft model `G_k` (new jets `B = ∂_uA`, `C₃ = ∂_Θ³f` along the soft direction), by a one-dimensional scan, proved at the exact level. It includes a case (D′, `β > 2`, `χ > 0`) where the saddle is a slice minimum, with an exact witness. For `β > 2`, `χ ≤ 0` the pair is always rejected. `G_k` is #170's typed cubic in other coordinates. | proof (model) |
 | **Proposition 2′** | `d ≥ 3`: the stiff directions live at scale `r^{3/2}` and decouple; the limit `G_k − (1/2k)Σλ_iη_i²` has the elder decision of `G_k` | proof (model) |
 | **Lemma 3** | Elder whenever `φ ≤ (1/20)min(1, \|t\|^{−1}, \|χ₀\|^{−2/3})`; so `I(t, χ₀) ≤ (8000/3)max(1, \|t\|³, χ₀²)` | proof (model) |
-| **Proposition 4** | Gaussian kernel, every `d`: the fold-scale rejection rate is `F₀(b)H(k)`, with `H` independent of `b` and `d`, and `H(k) = 1 + (12/25)k² + O(k³)`. The elder edge `φ_e = 1/3 + t/3 + 10t²/27` contributes `+312/25`, and the pin density `e^{−12k²}` contributes `−12`. | proof (given the model) |
+| **Proposition 4** | Gaussian kernel, every `d`: the fold-scale rejection rate is `F₀(b)H(k)`, with `H` independent of `b` and `d`, and `H(k) = 1 + (12/25)k² + O(k³)`. Codex's Slice C review proves the upper remainder `O(k^{7/2})`. The elder edge `φ_e = 1/3 + t/3 + 10t²/27` contributes `+312/25`, and the pin density `e^{−12k²}` contributes `−12`. | proof (given the model) |
 | **Lemma 5** | The composite `∫∫∫𝒜^{rej}(b, ℓ/r⁴, u)H(ℓ/r³)` equals `(I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`, where `R_{2/3} = ∫∫∫v⁴[F(v^{−3}) − F₀]` | proof |
-| **Conjecture 6** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0` at fixed `k` | conjecture |
+| **Conjecture 6** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0` at fixed `k`. The limit exists by #170/#175 (merged); its identification with `F` is #243 (open). | proved author-side in #243 |
 | **Conjecture 7** | `ρ_rej + ν_eld^{far,r_0^*} = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`; Gaussian kernel: `R_{2/3} ≈ −0.049 ± 0.003` (`d = 2`), `−0.062 ± 0.004` (`d = 3`) | conjecture, with evidence |
 
 Conjecture 7 needs two inputs that are not yet available (PROOF §4):
@@ -31,7 +40,7 @@ Conjecture 7 needs two inputs that are not yet available (PROOF §4):
 A third input, (iii) the far elder density, is needed only to remove `ν_eld^{far,r_0^*}` from the left side. #187 bounds it by
 `Cℓ^{2/3}`, and #188 (open) claims `O(ℓ^N)`.
 
-## Evidence (exploration; outside the repository)
+## Evidence (exploration; outside the repository; author-reported, not independently reproduced)
 
 | | Result |
 |---|---|
@@ -40,7 +49,9 @@ A third input, (iii) the far elder density, is needed only to remove `ν_eld^{fa
 | Lemma 2 | agrees with a two-dimensional flood fill on 900 random typed parameter points (one near-degenerate point needs a smaller level offset) |
 | `H` | `H(0.2) = 1.004`, `H(0.4) = 0.727`, `H(0.6) = 0.201`, `H(0.8) = 0.018`. With `C₃` ignored, `R_{2/3}` (`d = 2`) would be `−0.104`; with the pin density alone, `−0.807`. |
 | #216's Monte Carlo, `d = 2` | rejected adjacent pairs with `s = r/ℓ^{1/4} < 0.8`: 37 observed, 35.3 from the composite, 4,322 from the cusp kernel alone |
-| #216's Monte Carlo, `d = 3` | `s < 0.8`: 11 observed, 10.7 composite (1.2 with the pin density alone), 1,329 cusp kernel alone. On `[3·10^{−4}, 10^{−2}]` the counts are `0.884 ± 0.040` of the `ℓ^{1/4}` law and `1.008` of the composite (χ² 11.8 against 2.1 on 8 bins). Over #216's whole range `[10^{−4}, 0.3]` the composite does not describe the counts (finite-`r` corrections). |
+| #216's Monte Carlo, `d = 3` | `s < 0.8`: 11 observed, 10.7 composite (1.2 with the pin density alone), 1,329 cusp kernel alone. On `[3·10^{−4}, 10^{−2}]` the counts are `0.884 ± 0.040` of the `ℓ^{1/4}` law and `1.008` of the composite (Pearson χ² 11.8 against 2.1 on 8 bins). Over #216's whole range `[10^{−4}, 0.3]` the composite does not describe the counts (finite-`r` corrections). |
+
+#216's fields are on the torus with `L = 64` (`d = 2`) and `L = 16` (`d = 3`). The `±` values are Poisson relative errors `1/√n`, and the `χ²` values are Pearson sums over bins with at least five counts. All of these are descriptive, not calibrated significances (PROOF §5).
 
 ## Controls
 
@@ -62,8 +73,9 @@ Lemma 2. Its output is `RESULTS.json`, byte-identical under `-O`.
 | S11 | Theorem 1 in `m = 2, 3` rational eigenframes: the soft-window algebra with the factor `(λ₂⋯λ_m)²` and the double-soft implication |
 | S12 | the Gaussian kernel in `d = 3`: the GOE law of `A`, the laws used in Corollary 1′, the odd jets along a rotated direction, the prefactor `(2π)^{−d}/(6√π)` from exact covariances, and the two constants |
 | S13 | the expansion (2.6) of Proposition 2′ on exactly pinned degree-6 fields in `d = 3`, including the `r^{1/2}`-correction |
+| S14 | Lemma 2's exact (D′) witness `G_{(3/2, 8/3, 20/3)}(X, z) = (1/9)G_{(1/6,0,0)}(X + 2z, 3z)`: the identity, its three critical points and values, and the (D) certificate at `(1/6, 0, 0)`; and the open slice at `1/β` for `β > 2`, `χ < 0` |
 
-Mutants `M1`–`M13` each fail only their own control (the checker names it on stderr), and an unknown label exits 2:
+Mutants `M1`–`M14` each fail only their own control (the checker names it on stderr), and an unknown label exits 2:
 
     python3 -B -S soft_check.py                  # exit 0, output = RESULTS.json
     python3 -B -S soft_check.py --mutant M1      # exit 1
@@ -85,12 +97,29 @@ Mutants `M1`–`M13` each fail only their own control (the checker names it on s
   - Its independent checks: the Gaussian-kernel laws by symbolic differentiation; both constants of Corollary 1′ by the
     per-`b` route; a Monte Carlo of `𝔡(b)`; an independent quadrature of `G₃` (agreeing to `3·10^{−7}`); (2.6) symbolically
     in `d = 3, 4`; the Hessian factor `(λ₂⋯λ_m)²`; and the mutant isolation matrix.
-- **Independence.** The referees are the same provider and the same GitHub account as the author, so they carry zero
-  organizational independence. Nonauthor review is required; the review slices are in PROOF §9.
+- **Nonauthor reviews of v1.1 (OpenAI Codex, same GitHub account, organizational independence 0).** All are at
+  `87912bd`, PROOF blob `8b2f5fae`:
+  - Slice A (5390308599): PASS_TECHNICAL_SCOPED. One nonblocking finding, A-01.
+  - Slice B, model geometry and Proposition 2′ (5948352439): PASS_TECHNICAL. One finding, B-01.
+  - Slice C (5390667993): PASS_TECHNICAL_SCOPED. Findings C-01 and C-02.
+  - Slice D (5390555860): PASS_TECHNICAL_SCOPED for Lemma 5. Findings D-01 and D-02.
+  - Slices B (the remaining formulas) and E (5391485205): PASS_TECHNICAL_SCOPED for the limit-field algebra, normalization,
+    typing and weight; PASS for the checker and mutant correspondence. Findings B-02, B-03, E-01 and E-02. It also gives
+    the root-authored remainder estimate (B.5), now cited after (2.1).
+  - Every finding is applied in v1.2. A delta check of the changed bytes is requested.
+- **v1.2 delta (same family).** A clean-context referee checked the changed bytes.
+  - Verdict: **ACCEPT WITH FIXES**, with no BLOCKING or MAJOR finding: 9 MINOR findings and 8 NITs, all applied.
+  - Its own checks: the witness by sympy, the Jacobians `−96`, `−3/2` and `−6`, and the `48/47` ratio.
+  - It also ran 20,000 typed samples with `β > 2`, `χ < 0`, and found no elder case.
+- **Independence.** The same-family referees are the same provider and the same GitHub account as the author, so they
+  carry zero organizational independence. The review slices are in PROOF §9.
 
 ## Not claimed
 
-- Conjectures 6 and 7 are not proved, and `R_{2/3}` is not certified.
-- Proposition 2′ is a statement about the limit model; its transfer to the field is part of Conjecture 6.
+- Conjectures 6 and 7 are not proved here, and `R_{2/3}` is not certified. Conjecture 6 is proved author-side in #243, and
+  its existence part is merged (#170/#175).
+- Proposition 2′ is a statement about the limit model. Its transfer to the field is #175 Theorem H (for #170's cubic), and
+  #243 Proposition FL.4.
+- No priority for the existence of the fold-scale limit or for the compact-window `ℓ^{2/3}` coefficient (#170, #175).
 - Nothing about the candidate density's own `ℓ^{2/3}` term.
 - No change to #229, #240 or any other packet.

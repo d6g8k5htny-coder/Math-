@@ -1,6 +1,33 @@
 # Soft rejected pairs: the `1/κ` tail of the rejected cusp kernel in every dimension, the fold-scale rejection function, and a conjectured `ℓ^{2/3}` term
 
-Object: CL-SOFT-REJECTED-20261002-v1.1. Version history:
+Object: CL-SOFT-REJECTED-20261002-v1.2. Version history:
+- v1.1 → v1.2, after the nonauthor reviews of v1.1 by OpenAI Codex:
+  - Slice A, 5390308599;
+  - Slice B (model), 5948352439;
+  - Slice C, 5390667993;
+  - Slice D, 5390555860;
+  - Slices B (formulas) and E, 5391485205.
+
+  The changes:
+  - OA-242-A-01: Theorem 1's leading window is stated with its exact endpoints, as a weighted asymptotic localization.
+  - OA-242-B-01: Lemma 2's proof is rewritten at the exact level, following the review. The lemma now also states that for
+    `β > 2`, `χ < 0` the pair is always rejected.
+  - The exact (D′) witness found by Codex (5946792240) is inserted, with control S14.
+  - OA-242-C-01: the unsupported "true next correction" parenthetical in Proposition 4 is replaced by a citation of
+    Codex's upper remainder.
+  - OA-242-C-02: the Jacobian `−96` is attributed to its rescaled system.
+  - OA-242-D-01: §4's opening qualifies the matching of the two limits.
+  - OA-242-D-02: `B_{d,L}` in §4(ii).
+  - OA-242-B-02: §2's opening states the soft-layer localization as weighted, not eventwise.
+  - OA-242-B-03: the absolute Jacobian `|dλ̃/dφ|` and the convention at `t = 1`.
+  - (2.1)'s remainder is now quantified: Codex's estimate (B.5).
+  - OA-242-E-01 and OA-242-E-02: §5's numbers are labelled author-reported, their custody is pinned in `SOURCES.json`,
+    their uncertainties are labelled, and #216's domains are stated.
+  - A same-family referee checked the delta: ACCEPT WITH FIXES, with 9 MINOR findings and 8 NITs, all applied.
+  - AUTH-242-01 (author): v1.1 did not cite #170 and #175. These are merged author-side candidates, at their stated
+    conditional scope, and they prove that the fold-scale limit exists, as `kA∗(α₁ + α₂)`. §§3–4 and 6 now cite them, and
+    Conjecture 6 records its status (§4).
+  - #240 is merged; its blob is unchanged.
 - v1 → v1.1, made before any nonauthor review:
   - Theorem 1 holds in every `d ≥ 2`; the soft direction is the eigenvector of `−A` with the smallest eigenvalue.
   - Corollary 1′ gives the Gaussian-kernel constants in `d = 2, 3`.
@@ -11,16 +38,18 @@ Object: CL-SOFT-REJECTED-20261002-v1.1. Version history:
     value of `Ĩ` that was not reproducible from the recorded scripts.
   - Controls S11–S13 are new.
   - A same-family referee checked the delta (`REFEREE_B.md`: ACCEPT WITH MINOR FIXES; 4 MINOR, 14 NIT, all applied).
-- §2's Lemmas 2 and 3 and the `d = 2` proof of Proposition 4 are unchanged.
+- In v1.1, §2's Lemmas 2 and 3 and the `d = 2` proof of Proposition 4 were unchanged from v1.
 
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 2 October 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem 1, Corollary 1′, Lemmas 2, 3 and 5, Propositions 2′ and 4); CONJECTURES 6
-and 7, with numerical evidence. Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
+and 7, with numerical evidence. For Conjecture 6, the existence of the limit is in the merged #170/#175, at their
+conditional scope. Its identification with `F` follows in `d = 2` from #170 and #243 Proposition FL.7, and #243 (open)
+claims a proof in every `d`. Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
 PROOF_INDEX, prize or Boolean change; no numerical constant is certified. Same GitHub account as every lane; zero
 organizational independence.
 
 **Why.** Math- #229 (merged) proves
-`ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} − ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{3/7})` ((R⁺.1)). Math- #240 (open) proves that each
+`ρ_rej(ℓ) = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} − ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{3/7})` ((R⁺.1)). Math- #240 (merged) proves that each
 fixed cusp window `κ₀ ≤ ℓ/r⁴ ≤ κ₁` contributes a multiple of `ℓ^{1/4}` with error `O(ℓ^{3/4})`, and its Remark 1 leaves the
 ends `κ → ∞` and `κ → 0` open. This note studies the end `κ → ∞` for the rejected pairs. Formally it is the only source of
 the next term of `ρ_rej` (§4).
@@ -31,14 +60,17 @@ the next term of `ρ_rej` (§4).
   - The constant is `F₀ = (5/24)π₀(u; v₀(b, 0))𝔇(b, u) > 0`. Here `𝔇` is the density at `0` of the smallest eigenvalue `λ₁`
     of `−A`, weighted by `γ₁⁶(λ₂⋯λ_m)²`, where `γ₁` is the component of `γ` along the soft eigenvector.
   - In `d = 2`, `𝔇 = p_A(0 | b)E[γ⁶]`.
-  - The rejected weight sits on *soft* transverse curvatures `λ₁ ∈ [γ₁²/(24κ), γ₁²/(8κ)]`, up to relative errors
-    `O(1/κ)`.
+  - The rejected weight sits on *soft* transverse curvatures. On Step 2's event it sits exactly on
+    `λ₁ ∈ (3γ₁²/(72κ − f̃₄), 3γ₁²/(24κ − f̃₄)]`. For fixed jets this window is `[γ₁²/(24κ), γ₁²/(8κ)]` up to relative errors
+    `O(1/κ)`. This is a weighted, asymptotic localization, not a pointwise one: the double-soft and large-jet events are
+    handled separately (Step 1).
 - **Corollary 1′** (Gaussian kernel). `∫∫F₀ db dσ = 25√3/(48π²) ≈ 0.09140` in `d = 2`, and `125√30/(192π³) ≈ 0.11501` in
   `d = 3`.
-- **The fold-scale soft model** (§2). At fixed `k = ℓ/r³` and `λ₁ = λ̃r/k`, the window field divided by `κ = k/r` tends to an
+- **The fold-scale soft model** (§2). It is the same function as #170's typed cubic, in other coordinates (#243
+  Proposition FL.7). At fixed `k = ℓ/r³` and `λ₁ = λ̃r/k`, the window field divided by `κ = k/r` tends to an
   explicit polynomial `G_k`, in which two more jets enter: `B = ∂_uA` and `C₃ = ∂_Θ³f`, taken along the soft direction.
   - **Lemma 2** decides the elder mark in `G_k` exactly by a one-dimensional scan, including a case in which the saddle is
-    not on the ridge.
+    not on the ridge. For `β > 2` that case needs `χ > 0`. An exact witness is given.
   - **Lemma 3** gives an a priori elder region.
   - The typed weight is `(γ⁴/16)(φ^{−2} − (1 − 12kB/γ²)²)₊`.
   - **Proposition 2′** (`d ≥ 3`). The stiff transverse directions live at the scale `r^{3/2}` and decouple. The limit is
@@ -76,7 +108,12 @@ the next term of `ρ_rej` (§4).
   - [P] §2, through #220.
 - Cited only:
   - [C7-K] (`frontiers/c7_total_bounded_20260929/PROOF.md`, blob `28748b08`): (K2).
-  - #240 (open): Lemma Q′, Step N6, Corollary N′, Remarks 1 and 4.
+  - #240 (merged at `7636cae`, blob unchanged): Lemma Q′, Step N6, Corollary N′, Remarks 1 and 4.
+  - #170 (`frontiers/local_elder_geometry_20260930/PROOF.md`, blob `ef2aa579`) and #175
+    (`frontiers/concave_fibre_elder_20260930/PROOF.md`, blob `923d3236`), both merged: the failure law
+    `r^{−3}(1 − p_r) → α₁ + α₂` (Theorems S and F), the compact-window coefficient, #170 §3 (the critical chord), and #170
+    Theorem E. These are prior work for §§2–4; both packets are author-side candidates at their stated conditional scope.
+  - #243 (open, head `0740b2c`): Theorem FL and Proposition FL.7 (Conjecture 6).
   - #237 (open): Theorem P, Remark 4.
   - #216 (open): the Monte Carlo in `d = 2, 3`.
   - #187 (merged) and #188 (open): the far elder density.
@@ -218,8 +255,15 @@ Multiplying by `12π₀` and by `κ` gives (1.0), since `12·(20/3)/384 = 5/24`.
 
 *Remarks on Theorem 1.*
 1. Theorem 1 is about the cusp kernel `𝒜^{rej}` itself, not about the non-uniformity of #240's Theorem N as `κ → ∞`.
-   - The rejected weight sits on `λ₁ ∈ [γ₁²/(24κ), γ₁²/(8κ)]` (Step 2), with the other eigenvalues of order one. So the
-     rejected pairs at large `κ` are soft in exactly one transverse direction.
+   - The rejected weight sits on `λ₁ ∈ (3γ₁²/(72κ − f̃₄), 3γ₁²/(24κ − f̃₄)]` (Step 2), with the other eigenvalues of order
+     one. For fixed jets this is `[γ₁²/(24κ), γ₁²/(8κ)]` with relative error `O(1/κ)`. The shorthand is a weighted
+     asymptotic localization, not a uniform one over all jets.
+     - *Example.* With `m = 1`, `f₄ = κ/2` and `γ = 1`, the upper endpoint is `48/47` times `γ²/(8κ)` for every `κ`.
+     - Such growing-jet configurations are exponentially suppressed (OA-242-A-01). Those with `|f̃₄| ≥ κ` are Step 1's
+       large-jet event, as are the double-soft ones. Those with `|f̃₄| < κ` (for example `f₄ = κ/4`, ratio `96/95`) are covered
+       by the error term (1.2) of Step 2.
+
+     So the rejected pairs at large `κ` are soft in exactly one transverse direction.
    - In #220's elder decision they are the pairs with `|φ| ∈ (1/3, 1)` coming from `3γ₁²/λ₁ ≈ z`, not from `f₄`.
 2. In `d = 2`, expanding (1.2) to first order gives `κ𝒜^{rej}/F₀ = 1 + c(b)/κ + O(κ^{−2})`, with
    `c(b) = (12/5)[E(f₄ | A = 0, b)/18 − ∂_a log p_A(0 | b)·E[γ⁸]/(24E[γ⁶])]`. Here `12/5` is the mean of `1/φ` under the
@@ -275,9 +319,16 @@ rejected coefficient itself is smaller: `I^{cand} − c₁ = 0.07244` against `0
 ## 2. The fold-scale soft model
 
 Theorem 1 shows where the rejected weight sits as `κ → ∞` along the cusp scale. The *fold scale* is the regime of fixed
-`k = ℓ/r³` and `r → 0`, so again `κ = k/r → ∞`. There the pair is rejected only if the transverse curvature is of order `r`
-([C7-K] (K2) bounds the rejected weight by `O(r³/k)`), and two more jets enter. This section is formal for the field (the
-limit is Conjecture 6) and exact for the model. It is written for `d = 2`; Proposition 2′ at its end reduces `d ≥ 3` to it.
+`k = ℓ/r³` and `r → 0`, so again `κ = k/r → ∞`.
+- *Where the rejected weight sits.* [C7-K] (K2) bounds the rejected weight by `O(r³/k)`, and [P]'s cap region shows that in
+  weighted expectation the rejection comes from transverse curvatures of order `r`.
+- *Weighted, not eventwise* (OA-242-B-02). This is a statement in weighted expectation, not an eventwise restriction over
+  all derivative jets. An event of probability `r³` can have curvature of order one. For example, the exact cubic with
+  `k = 1`, `λ̃ = 1/r`, `γ² = 12/r` and `B = C₃ = 0` has `φ = ½` and is rejected, with mixed jets growing like `r^{−1/2}`.
+- *So the soft contribution is studied with `λ = (r/k)λ̃`,* and two more jets enter.
+
+This section is formal for the field (the limit is Conjecture 6) and exact for the model. It is written for `d = 2`;
+Proposition 2′ at its end reduces `d ≥ 3` to it.
 
 *The limit window field.* In the window coordinates of #220 §1 (`Φ(X, Ξ) = rXu + r²ΞΘ`, `𝔉 = r^{−4}(f∘Φ − b)`), put `λ = λ̃/κ`
 and `Ξ = κζ`, so that `x = rX` and `y = rkζ`. Every monomial `x^iy^j` of the Taylor expansion at `0` contributes
@@ -289,6 +340,11 @@ and `Ξ = κζ`, so that `x = rX` and `y = rkζ`. Every monomial `x^iy^j` of the
 
 Control S10 checks (2.1), including `G₁`, on exactly pinned polynomial fields. The pins are exact: `G_k(−½, 0) = 0`,
 `G_k(½, 0) = −1`, and `∇G_k = 0` at both.
+- *The remainder is quantified* by OpenAI Codex's root-authored estimate (B.5) in its review 5391485205. For
+  `f ∈ C⁵([−1, 1]²)` with the pins, `M := max_{i+j=5}sup|∂_x^i∂_y^jf|`, `0 < r ≤ 1/3`, `|X| ≤ 3` and `rk|ζ| ≤ 1`,
+  the `O_k` term of (2.1) is at most `M r²[17203/(7680k) + (1303/384)|ζ| + (9k/4)ζ² + (3k²/4)|ζ|³ + (k³/8)ζ⁴ + (k⁴/120)|ζ|⁵]`.
+  This is a deterministic value estimate. It is uniform for `k` in compacts of `(0, ∞)` and bounded `M`.
+- Such constants do not by themselves dominate a Gaussian integral over unbounded jets.
 
 *Normalization.* For `γ > 0` set `ζ = (γ/λ̃)z` and
 
@@ -307,8 +363,9 @@ ridge `g/(24φκ)` of #220 §1 with `f₄ = 0`, and `φ` is #220's `φ` in the l
 
     0 < φ < 1/|c′|,    c′ := 1 − t.                                                                                    (2.4)
 
-The scaled Kac–Rice weight is `36λ̃² − Y² = (γ⁴/16)(φ^{−2} − c′²)`. With `dλ̃ = (γ²/(24φ²))dφ`, the weight per unit `φ` is
-`(γ⁶/384)φ^{−2}(φ^{−2} − c′²)`. By (2.4), `1 + β/2 − φ = 1 − φc′ > 0`, so the `z`-curvature `−(1 + β/2)` at `M` is negative.
+The scaled Kac–Rice weight is `36λ̃² − Y² = (γ⁴/16)(φ^{−2} − c′²)`. Since `dλ̃/dφ = −γ²/(24φ²)`, with the absolute Jacobian
+`|dλ̃/dφ| = γ²/(24φ²)` (OA-242-B-03), the weight per unit `φ` is `(γ⁶/384)φ^{−2}(φ^{−2} − c′²)`. At `t = 1` (`c′ = 0`), (2.4)
+reads `φ > 0`, with upper endpoint `∞`. By (2.4), `1 + β/2 − φ = 1 − φc′ > 0`, so the `z`-curvature `−(1 + β/2)` at `M` is negative.
 
 *Slices.* For fixed `X`, `z ↦ G(X, z)` is a polynomial of degree at most three. Write `p := X² − ¼`, `a := 1 − βX` and
 `D := a² − χp`. Call `X` *open* if the slice has no local maximum (`χ = 0` and `a ≤ 0`, or `χ ≠ 0` and `D ≤ 0`). Otherwise
@@ -323,40 +380,89 @@ Then `S` kills `M` in the superlevel filtration of `G` (the elder rule) iff one 
 
 - (D) `1 − β/2 > 0`, the right end of `I_M` is `½`, its left end `X_L` is finite, and on `(X_L, ½)` we have `V < L_S` and `R < 0`
   for `X ≠ −½`.
-- (D′) `1 − β/2 < 0` and `χ ≠ 0`, `½ ∈ I_M`, `I_M = (X_L, X_R)` is bounded, and on `I_M` we have `R < 0` for `X ≠ −½` and
+- (D′) `1 − β/2 < 0` and `χ > 0`, `½ ∈ I_M`, `I_M = (X_L, X_R)` is bounded, and on `I_M` we have `R < 0` for `X ≠ −½` and
   `V < L_S` for `X ≠ ½`.
 
-If `1 − β/2 < 0` and `χ = 0`, then `e = 0`.
+If `1 − β/2 < 0` and `χ ≤ 0`, then `S` does not kill `M`. Below, `e := 1{S kills M}`.
 
 *Proof.* Fix a level `c`. On a non-open slice, `{z : G(X, z) > c}` has a bounded *ridge piece* around `z_r` when `R(X) > c`.
 When `χ ≠ 0` it also has an unbounded *far piece* beyond `z_v`, and the two are one interval iff `V(X) > c`. On an open slice
-the set is unbounded (one or two half-lines, or `R`), and `G → +∞` along it, as along every far piece.
-1. *Above `L_S`.* Let `c ↓ L_S`. Suppose no `X ∈ I_M` has `V(X) > c`. Then the component of `{G > c}` containing `M` is the union of
-   the ridge pieces over `I_M`. These vary continuously and shrink to points at finite ends of `I_M`, and the supremum of the
-   union is `max_{I_M} R`. So `M` is still the oldest point of its component iff `I_M` is bounded and `R < 0` on
-   `I_M ∖ {−½}`.
-   - If `I_M` is unbounded, then as `|X| → ∞` along it, either some limit point of `I_M` is open or `R → ±∞` (a finite limit is
-     excluded by hypothesis). The value `−∞` contradicts `R > L_S` on `I_M`, so the component reaches above `0`.
-   - If some `X ∈ I_M` has `V(X) > c`, the component meets a far piece.
-   In all of these cases `M` has died at a level above `L_S`, and `e = 0`.
-2. *`1 − β/2 > 0`.* At `X = ½`, where `p = 0`, the slice has its local maximum at `z = 0`, with value `L_S`. So `S` lies on the
-   ridge, and the right end of `I_M` is at most `½`.
-   - If it is smaller, `R` drops below `L_S` between `M` and `S`, so `S` is not in the closure of `M`'s component above `L_S`,
-     and `e = 0`.
-   - Otherwise, for `c < L_S` close to `L_S`, the component of `M` contains `S` and the segment `{(X, 0) : X > ½}`. Along it
-     `G = A₀(X)` increases from `L_S` to `+∞`. So `S` merges `M`'s component with one containing points above `0`, and `M` dies
-     at `S`.
-3. *`1 − β/2 < 0`.* Now `a(½) < 0`.
-   - If `χ = 0`, `a` vanishes at `X = 1/β ∈ (0, ½)`, and `R = A₀ + p²/(8a) → +∞` as `X ↑ 1/β`. Meanwhile
-     `R ≥ G(X, 0) = A₀ > L_S` on `(−½, 1/β)`. So `R > 0` somewhere on `I_M`, and `e = 0`.
-   - If `χ ≠ 0`, the slice at `X = ½` has its local minimum at `z = 0` (value `L_S`) and its local maximum at `z = 2a(½)/χ`
-     (value `L_S + (2/3)|a(½)|³/χ² > L_S`). So `S` is the valley point of this slice. `V` has a strict local maximum `L_S` at
-     `X = ½`, because the Schur complement of `∂_z²G(S) > 0` in the indefinite Hessian is negative.
-   - If `½ ∉ I_M`, `S` is not in the closure of `M`'s component above `L_S`, and `e = 0`.
-   - If `½ ∈ I_M` and Step 1 leaves `M` alive, then for `c < L_S` close to `L_S` the slice at `X = ½` is one interval. So `M`'s
-     component contains the far piece at `X = ½`, along which `G → +∞`, and `S` kills `M`. ∎
+the set is unbounded (one or two half-lines, or `R`), and `G → +∞` along it, as along every far piece. The argument works at
+the exact level `L_S` (OA-242-B-01), following OpenAI Codex's review of v1.1 (5948352439).
+1. *The exact level.* Let `U` be the component of `{G > L_S}` containing `M`.
+   - *The axial segment.* `{(X, 0) : −½ ≤ X ≤ 2}` carries `G = A₀`, with `A₀ − L_S = (X − ½)²(X + 1)/(12φ) ≥ 0` (equality only
+     at `S`). It ends at `A₀(2) = 25/(48φ) > 0`. This is the critical-chord bound of #170 §3. So the death level of `M` is
+     `≥ L_S`, and `(−½, ½) × {0} ⊂ U`.
+   - *If `U` contains a point above `0`,* a path in `U` reaches it, because `U` is open and connected. By compactness the
+     path has minimum `> L_S`, so `M` dies above `L_S`, and `e = 0`.
+   - *Otherwise* every path from `M` to a point above `0` leaves `U`, so the death level is exactly `L_S`. Since `S` is the
+     only critical point at that level, `S` kills `M`: `e = 1`.
+2. *When `U` reaches above `0`.* `U` contains the ridge tube over `I_M`. It contains a point above `0` in each of three cases:
+   - `R > 0` somewhere on `I_M`;
+   - `V > L_S` somewhere on `I_M` (a far piece joins, along which `G → +∞`);
+   - `I_M` is unbounded. `R` is an algebraic function of `X`, so it has a limit in `[−∞, ∞]` along `I_M`. A finite limit is
+     excluded by hypothesis, and `−∞` contradicts `R > L_S`.
 
-Case (D′) is not empty. Numerically (control S8), `(φ, β, χ) = (0.2401, 2.1425, 0.5536)` is elder, with `I_M ≈ (−1.032, 0.515)`.
+   *An open end of `I_M` reduces to these cases.*
+   - If `χ ≠ 0`, then as `X` tends to an open end inside `I_M`, `R` and `V` tend to the common inflection value, which is
+     `≥ L_S` because `R > L_S` on `I_M`.
+     - If that value exceeds `L_S`, then `V > L_S` nearby (the second case).
+     - If it equals `L_S`, then either `V > L_S` nearby, or the inflection point is a critical point at level `L_S` other
+       than `S`. It is not `S`, because `D(½) = a(½)² > 0` when `β ≠ 2`.
+   - If `χ = 0`, an open end is a zero of `a`, where `R → +∞` (the first case).
+
+   If none of the three cases holds, then `I_M` is bounded with non-open ends, `U` is the ridge tube over `I_M`, and
+   `sup_U G = 0`, attained at `M`. Here the equality cases are excluded by the hypotheses:
+   - a ridge value `0` at some `X ≠ −½`, with `R ≤ 0` nearby, would be a critical point at level `0`;
+   - a valley value `L_S`, with `V ≤ L_S` nearby, would be a critical point at level `L_S`, hence `S`.
+
+   So `e = 1` iff `I_M` is bounded, `R < 0` on `I_M ∖ {−½}`, and `V < L_S` on `I_M` except at `S`. In particular its ends are
+   then non-open.
+3. *A slice fact.* Let `|X| < ½` and `a(X) > 0`, with a non-open slice.
+   - If `χ > 0`, then `D = a² + χ|p| > a²`, so `z_r < 0 < z_v`.
+   - If `χ < 0`, then `z_v < z_r < 0`.
+   - If `χ = 0`, then `z_r = p/(2a) < 0`.
+
+   In every case the slice decreases strictly from `z_r` to `0` (between `z_r` and `z_v`, or beyond `z_r` away from `z_v`), so
+   `R(X) > G(X, 0) = A₀(X) > L_S`.
+4. *`1 − β/2 > 0`.* On (2.4), `β > −2`, so `a > 0` on `[−½, ½]`. By Step 3, the first open slice to the right of `−½`, if it
+   lies in `(−½, ½)`, is an open end of `I_M`, and then `e = 0` by Step 2. Otherwise `(−½, ½) ⊂ I_M`.
+   - At `X = ½`, where `p = 0`, the slice has its local maximum at `z = 0`, with value `L_S`. So `S` is the ridge point there,
+     and the right end of `I_M` is `½`.
+   - Inside `(X_L, ½)` a point with `V = L_S` would be a critical point at level `L_S` other than `S`.
+
+   With Step 2 this is (D).
+5. *`1 − β/2 < 0`.* Now `a(½) < 0`, and `a` vanishes at `X = 1/β ∈ (0, ½)`.
+   - *`χ = 0`.* `R = A₀ + p²/(8a) → +∞` as `X ↑ 1/β`, while `R ≥ G(X, 0) = A₀ > L_S` on `(−½, 1/β)`. So `R > 0` somewhere
+     on `I_M`, and `e = 0`.
+   - *`χ < 0`.* At `X = 1/β`, `D = −χp < 0`, so that slice is open. By Step 3, the first open slice in `(−½, 1/β]` is an open
+     end of `I_M`, and `e = 0` by Step 2.
+   - *`χ > 0`.* For `|X| < ½`, `D > a² ≥ 0` and `z_r < 0 < z_v` whatever the sign of `a`, so `R > A₀ > L_S` on `(−½, ½)`.
+     - At `X = ½` the slice has its local minimum at `z = 0` (value `L_S`) and its local maximum at `z = 2a(½)/χ` (value
+       `L_S + (2/3)|a(½)|³/χ² > L_S`). So `[−½, ½] ⊂ I_M`, and `S` is the valley point at `X = ½`.
+     - `V` has a strict local maximum `L_S` there, because the Schur complement of `∂_z²G(S) > 0` in the indefinite Hessian
+       is negative.
+
+     With Step 2 this is (D′). ∎
+
+#243's Lemma FL.2(c) gives the same case analysis. Off #170's null sets `Σ_k ∪ Δ_k`, #170 Theorem E(1) and #243
+Proposition FL.7(iii) let the decision be read off the critical values: `e = 0` iff `G` has a critical point with value in
+`(L_S, 0)`.
+
+Case (D′) is not empty.
+- *An exact witness,* found by OpenAI Codex (5946792240) (control S14):
+
+      G_{(3/2, 8/3, 20/3)}(X, z) = (1/9)·G_{(1/6, 0, 0)}(X + 2z, 3z).
+
+  - The right side has concave slices and `φ = 1/6 < 1/3`, so `R = (X + ½)²(X² + 3X − 15/4)/8` and
+    `R − L_S = (X − ½)²(X² + 5X + 17/4)/8`. It satisfies (D), with `I_M = ((−5 + 2√2)/2, ½)`, because the convex quadratic
+    `X² + 3X − 15/4` is negative on `[−2, ½]`.
+  - The linear map fixes `M` and `S`, and a positive factor preserves elder decisions. So the witness, which has `β = 8/3 > 2`
+    and `χ = 20/3 > 0`, is elder: case (D′).
+  - It has exactly three critical points, with values `0`, `L_S = −1/36` and `−125/384`. In its own coordinates
+    `I_M ≈ (−1.50494, 0.51622)`.
+- *A numerical example* (control S8): `(φ, β, χ) = (0.2401, 2.1425, 0.5536)` is elder, with `I_M ≈ (−1.032, 0.515)`.
+
 The margins vanish quadratically at the special points `X = −½` (for `R`) and `X = ½` (for `V`), as the lemma requires. A
 flood fill of `{G > L_S ± ε}` on a grid agrees with Lemma 2 at 900 random typed parameter points, once one near-degenerate
 point is rechecked with a smaller `ε` (§5).
@@ -423,7 +529,10 @@ The other monomials, and the Taylor remainder, are `O(r)` on the window. This pr
 - For (b), the fiber of `{G_k^{(d)} > c}` over `(X, ζ)` is the open ellipsoid `{Σλ_iη_i² < 2k(G_k(X, ζ) − c)}`, which is
   nonempty iff `G_k(X, ζ) > c`. The projection is continuous and open, its fibers are connected, and its image is
   `{G_k > c}`, so it induces a bijection of components. The supremum over a fiber is attained at `η = 0`.
-- (c) follows from (a) and (b), and from the block form of the Hessians. ∎
+- (c) follows from (a) and (b), and from the block form of the Hessians. In physical coordinates the pin Hessian is
+  `[[rS + O(r²), rC + O(r²)], [rCᵀ + O(r²), D + O(r)]]` with `D = −diag(λ₂, …, λ_m)` fixed and invertible. Its Schur
+  complement is `rS + O(r²)`, so `det = r²det(D)det(S) + O(r³)`, as OpenAI Codex's Slice B review (§3) spells out. This is not
+  uniform as a second transverse eigenvalue tends to `0`. ∎
 
 Control S13 checks (2.6), including `G_{1/2}`, on exactly pinned degree-6 fields in `d = 3`, at `r = 10^{−6}` and `10^{−8}`
 (so that `r^{1/2}` is rational). Like (2.1) and #207 Theorem CU.1, (2.6) is a deterministic Taylor statement for every `C⁵`
@@ -447,8 +556,23 @@ This motivates
 
 with `(γ₁, B₁, C₁) := (γ_{e₁}, B_{e₁}, C_{e₁})` and the expectation under the contact law at `v₀(b, k)`. In `d = 2` this is
 `12π₀(u; v₀(b, k))p_A(0 | b, k)E_{v₀(b,k)}[(γ⁶/384)I(12kB/γ², 576k²C₃/γ³) | A = 0]`. Formally,
-`r^{−2}A_r^{rej}(b, k, u) = (r/k)F(k; b, u) + o(r)` (Conjecture 6 below). As `k → 0`, `I → I(0, 0) = 20/3`, and (3.1) tends
-to the `F₀` of Theorem 1.
+`r^{−2}A_r^{rej}(b, k, u) = (r/k)F(k; b, u) + o(r)` (Conjecture 6 below). Formally, as `k → 0`, `I → I(0, 0) = 20/3`, and
+(3.1) tends to the `F₀` of Theorem 1. For the Gaussian kernel this is proved by Proposition 4 (`H → 1`).
+
+*Prior work (AUTH-242-01; not cited in v1.1).* Here `A_r^{rej} := A_r(1 − p_r)`, with `A_r` the candidate kernel of [P]
+§§10–11 and `A∗ := lim A_r` ([P] (10.3), where it is written `A_0`). The merged packets #170 (`d = 2`, Theorem S) and #175
+(fixed `d ≥ 3`, Theorem F) are author-side candidates at their stated conditional scope. They prove that `r^{−3}(1 − p_r)`
+converges at fixed marks. The limit is `a_fail = α₁ + α₂`, a Gaussian integral over the window-saddle classifier of #170's
+typed cubic.
+- So the fold-scale limit of `(k/r)r^{−2}A_r^{rej} = kA_r·r^{−3}(1 − p_r)` exists, and equals `kA∗a_fail`. Their §§9 and 7
+  also give the compact-window `ℓ^{2/3}` coefficient `C_fail`.
+- #242's `G_k` is #170's cubic `P_θ(X, kζ)/k` at `θ = (−λ̃/k, γ, B, C₃)`, with the same typed domain, weight and maximin
+  decision (#243 Proposition FL.7).
+  - *In `d = 2`,* (3.1) equals `kA∗a_fail` by a model-level computation (#243 Proposition FL.7(iv)). With #170 Theorem S
+    this gives Conjecture 6 at each fixed `(b, k, u)`, conditional on #170's interfaces.
+  - *In `d ≥ 3`* the identity uses #243's Theorem FL (open) and uniqueness of limits.
+- The remaining content of Conjecture 6 is local uniformity in `k`, and the `d ≥ 3` case. #243 claims both, by a partly
+  different route.
 
 **Proposition 4 (Gaussian kernel).** Let `C(x) = e^{−|x|²/2}` on `R^d`, `d ≥ 2`. Then:
 1. `F(k; b) = F₀(b)H(k)`, where `H(k) := e^{−12k²}E[γ⁶I(t, χ₀)]/(E[γ⁶]·20/3)` depends on neither `b` nor `d`. Here
@@ -473,9 +597,11 @@ Hence the expectation in (3.1) factorizes as `𝔡(b)` times the soft-jet averag
     R − L_S = (X − ½)²[2(X + 1) + 3φ(X + ½)²]/(24φ)      (t = 0),                                                    (3.2)
 
 whose bracket has discriminant `4 − 12φ` in `X + ½`. At `φ = 1/3`, (3.2) is `((X − ½)(X + 3/2))²/(24φ)`, with a nondegenerate
-double zero at `X = −3/2`. The elder edge solves `R(X) = L_S`, `R′(X) = 0` in `(X, φ)` at `β = 2tφ`. The Jacobian at
-`(−3/2, 1/3, t = 0)` is `−96 ≠ 0`, so the implicit function theorem gives analytic `X_e(t)` and `φ_e(t)`. Their series
-(control S4) are
+double zero at `X = −3/2`. The elder edge solves `R(X) = L_S`, `R′(X) = 0` in `(X, φ)` at `β = 2tφ`. Equivalently it solves
+`N = N_X = 0` for the rescaled `N := 24φa(R − L_S)`.
+- The Jacobian of `(N, N_X)` in `(X, φ)` at `(−3/2, 1/3, t = 0)` is `−96 ≠ 0`. For the literal system `(R − L_S, R′)` it is
+  `−3/2`, and for `Q := N/(X − ½)²` it is `−6` (OA-242-C-02).
+- So the implicit function theorem gives analytic `X_e(t)` and `φ_e(t)`. Their series (control S4) are
 
     X_e(t) = −3/2 − t/3 − t²/3 + O(t³),    φ_e(t) = 1/3 + t/3 + (10/27)t² + O(t³).                                    (3.3)
 
@@ -507,7 +633,10 @@ Hence
 
     E[γ⁶I(t, χ₀)] = 120·(20/3) + (52/3)·576k² + O(k³),    H(k) = e^{−12k²}(1 + (312/25)k²) + O(k³) = 1 + (12/25)k² + O(k³).
 
-(The true next correction is of order `k^{7/2}`, since `E[γ⁶t⁴] = ∞`.)
+The divergence of `E[γ⁶t⁴]` does not by itself show a term of order `k^{7/2}` (OA-242-C-01).
+- OpenAI Codex's Slice C review (5390667993, §5) proves the sharper upper remainder `H(k) = 1 + (12/25)k² + O(k^{7/2})`, by
+  sign averaging and a truncated inverse moment. That support is Codex's own and is not reviewed here.
+- No nonzero `k^{7/2}` coefficient is claimed.
 
 (3) Lemma 3 gives `γ⁶I ≤ C(γ⁶ + 1728k³|B|³ + 331776k⁴C₃²)`. ∎
 
@@ -523,9 +652,12 @@ coefficients are `−144/(2σ₃²)` and `(1872/75)σ_B²/σ_γ⁴`, with `σ₃
 
 ## 4. The composite density and the conjectured `ℓ^{2/3}` term
 
-The cusp kernel is the `k → 0` limit, and `(r/k)F(k; b, u)` the `κ → ∞` limit, of the same rejected kernel. Theorem 1 says
-that they agree in the overlap: `F(k)/F₀ → 1`. Put `H(k; b, u) := F(k; b, u)/F₀(b, u)`; for the Gaussian kernel this is the `H(k)`
-of Proposition 4. The simplest density built from both limits is the *composite*
+Theorem 1 describes the cusp kernel's tail as `κ → ∞`: `κ𝒜^{rej} → F₀`. At the fold scale the leading term of the same
+rejected kernel is, by Conjecture 6, `(r/k)F(k; b, u)`. Its existence is #170/#175's failure law, and its identification
+with (3.1) is discussed after (3.1). That the two limits agree in the overlap, `F(k)/F₀ → 1` as `k → 0`, is a further statement about (3.1). It needs (3.1)
+plus domination, and for the Gaussian kernel Proposition 4 proves it (`H → 1`). Theorem 1 alone does not give it
+(OA-242-D-01). Put `H(k; b, u) := F(k; b, u)/F₀(b, u)`; for the Gaussian kernel this is the `H(k)` of Proposition 4. The
+simplest density built from both limits is the *composite*
 
     ν^c(ℓ) := ∫_0^∞∫_R∫_{S^{d−1}} 𝒜^{rej}(b, ℓ/r⁴, u) H(ℓ/r³; b, u) dσ(u) db dr.                                       (4.1)
 
@@ -551,6 +683,13 @@ Integrating over `b` and `u` gives (4.2). ∎
 **Conjecture 6 (the fold-scale limit).** In every `d ≥ 2`, with `F` as in (3.1), for every `k > 0`, `b` and `u`,
 `lim_{r↓0} (k/r)·r^{−2}A_r^{rej}(b, k, u) = F(k; b, u)`, locally uniformly in `k`.
 
+*Status (v1.2).*
+- *Existence of the limit, as `kA∗(α₁ + α₂)`.* This is in #170 (`d = 2`) and #175 (`d ≥ 3`): merged author-side candidates,
+  at their conditional scope.
+- *`d = 2`, at fixed `(b, k, u)`.* This follows from #170 Theorem S and #243 Proposition FL.7(iv), a model-level identity.
+- *Local uniformity in `k`, and `d ≥ 3`.* #243 (open; author-side, nonauthor review pending) claims a proof (Theorem FL).
+- The label is kept here until #243 is reviewed.
+
 **Conjecture 7 (the next term of the rejected density).** In every `d ≥ 2`,
 
     ρ_rej(ℓ) + ν_eld^{far,r_0^*}(ℓ) = B_{d,L} + (I^{cand} − c₁) ℓ^{1/4} + R_{2/3} ℓ^{2/3} + O(ℓ^{3/4}),                       (4.3)
@@ -566,7 +705,7 @@ with `R_{2/3}` as in (4.2).
   errors integrating to `O(ℓ^{3/4})`. In fixed cusp windows this is #240's Theorem N (`O(r²)`). The new part is the window
   field's elder decision in the soft scaling `λ ≍ r`: Lemma 2 with margins for the field, as #240 Lemma Q′ gives them with
   `ε̃` for `λ ≍ 1`. In `d ≥ 3` it also needs Proposition 2′ for the field, uniformly in the stiff eigenvalues.
-- (ii) *The end `κ → 0`.* On the intermediate separations `ℓ^{1/4} ≪ r ≤ r_0^*`, the rejected kernel must match `B_{2,L}`'s part
+- (ii) *The end `κ → 0`.* On the intermediate separations `ℓ^{1/4} ≪ r ≤ r_0^*`, the rejected kernel must match `B_{d,L}`'s part
   plus the composite's own part, up to errors integrating to `O(ℓ^{3/4})`. (The composite is not negligible there:
   `𝒜^{rej} ≍ κ³` as `κ → 0`, so `r ≥ Sℓ^{1/4}` contributes about `ℓ^{1/4}S^{−11}`.) The best available bounds on these
   separations are #229's `O(ℓ^{4/9}log(1/ℓ))` (elder) and #237's `O(ℓ^{3/5})` (candidate), both larger than `ℓ^{2/3}`.
@@ -576,7 +715,7 @@ with `R_{2/3}` as in (4.2).
 
 Formally, a matched-asymptotics count gives cusp-side powers `ℓ^{(j+1)/4}` and fold-side powers `ℓ^{(j+1)/3}`
 (`j = 0, 1, 2, …`). In `ρ_rej` the
-fold-scale kernel is `O(r³/k)` ([C7-K] (K2)), with leading coefficient `F` (formally, Theorem 1 and Proposition 4). This
+fold-scale kernel is `O(r³/k)` ([C7-K] (K2)), with leading coefficient `F` (formally, Conjecture 6; existence by #170/#175). This
 makes `ℓ^{2/3}` the first fold-side power and `ℓ^{3/4}` the next cusp-side one (#240 Corollary N′).
 
 *Remarks.*
@@ -591,8 +730,13 @@ makes `ℓ^{2/3}` the first fold-side power and `ℓ^{3/4}` the next cusp-side o
 
 ## 5. Numerical evidence (exploration; not part of the proofs)
 
-Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise. The scripts are in the project archive
-`V2_2/frontiers_soft_rejected_pairs_20261002/exploration/` (numpy, scipy, mpmath, sympy); none is part of the repository.
+Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
+- *Status.* The numbers below are author-reported exploration, not independently reproduced (OA-242-E-01).
+- *Where the scripts are.* They are in the project archive `V2_2/frontiers_soft_rejected_pairs_20261002/exploration/`
+  (numpy, scipy, mpmath, sympy); none is part of the repository.
+- *Pinned identities.* `SOURCES.json` (`exploration_manifest`) pins every script, table and log there by its SHA-256,
+  including those of the Monte Carlo comparison. #216's raw records are pinned by name in #216's archive
+  `SIDE24_MC_raw_2026-10-01.zip`.
 
 1. *Theorem 1.*
    - *`d = 2`.* Quadrature of (0.2) under the contact law (`fastk.py`, `soft_d2.py`) gives the numbers of Remark 4 of §1.
@@ -654,8 +798,15 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise. The scripts a
      density at small `k`, and `C₃` raises `H` at `k ≈ 0.2–0.7`.
 6. *#216's Monte Carlo.* The raw records were compared with the composite: `composite.py` and `comp2d.py` in `d = 2`, and
    `compd.py` in `d = 3`. The records are `batchA2.npz` (`d = 2`: 4,000 samples, 271,272 rejected adjacent pairs with
-   `ℓ < 0.3`) and `batch3B.npz` (`d = 3`: 996 samples, 45,952 such pairs). #216's row counts *adjacent* rejected pairs, which carry no
-   `B_{2,L}` (#218 Remark 3). By §4 (inputs (ii)–(iii), and the `ℓ^{3/4}` order), these totals do not test the global
+   `ℓ < 0.3`) and `batch3B.npz` (`d = 3`: 996 samples, 45,952 such pairs).
+   - *#216's domains.* The fields are periodized on the torus of side `L = 64` (`d = 2`) and `L = 16` (`d = 3`). The
+     comparison with the composite of the `R^d` Gaussian kernel is exploratory, not a certified transfer.
+   - *What the row counts.* #216's row counts *adjacent* rejected pairs, which carry no `B_{d,L}` (#218 Remark 3).
+   - *Uncertainties (OA-242-E-02).* They are descriptive.
+     - Each `±` on a ratio is the Poisson relative error `1/√n` of the observed count.
+     - "`+4.8σ`" is the Pearson residual `(651 − 540)/√540`.
+     - The `χ²` values are Pearson sums over the bins with at least five counts, a selection that depends on the data.
+     - Pairs from one field realization can be correlated, so none of these is a calibrated significance. By §4 (inputs (ii)–(iii), and the `ℓ^{3/4}` order), these totals do not test the global
    `ℓ^{2/3}` coefficient. What they do test, bin by bin in `s = r/ℓ^{1/4}`, is the fold-side suppression described by `H`.
    - *Small `s` (the fold side).* For `s < 0.8` and `ℓ ∈ [10^{−4}, 0.1)`, 37 pairs are observed, 35.3 predicted by the
      composite, and 4,322 by the cusp kernel alone. In the bin `ℓ ∈ [3·10^{−3}, 10^{−2})`, `s ∈ [0.6, 0.8)` the three numbers
@@ -668,8 +819,8 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise. The scripts a
      and 1,329 by the cusp kernel alone. For `s ∈ [0.8, 1)` the three numbers are 651, 540 and 2,240 (`comp3d_final4.log`).
    - *The test discriminates `H`.* With the pin density alone in place of `H` (`H = e^{−12k²}`), the predictions would be 1.2
      (`s < 0.8`) and 82.7 (`s ∈ [0.8, 1)`) (`comp3d_pin.log`).
-   - *The transition bin `s ∈ [0.8, 1)`.* The data exceed the composite, by `+4.8σ` in `d = 3` and by 2,248 against 1,904 in
-     `d = 2`. In both dimensions the excess is concentrated at `ℓ ≥ 3·10^{−2}`, where the data exceed the composite anyway.
+   - *The transition bin `s ∈ [0.8, 1)`.* The data exceed the composite. In `d = 3` the Pearson residual is `+4.8`
+     (descriptive; see above), and in `d = 2` the counts are 2,248 against 1,904. In both dimensions the excess is concentrated at `ℓ ≥ 3·10^{−2}`, where the data exceed the composite anyway.
    - *`d = 3` totals.* The script keeps bins with at least five counts, so the effective ranges are `[3.1·10^{−4}, 9.7·10^{−3}]`
      (8 bins) and `[3.1·10^{−4}, 2.3·10^{−2}]` (10 bins). In `d = 2` the first range is `[1.3·10^{−4}, 9.7·10^{−3}]` (10 bins).
 
@@ -694,14 +845,22 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise. The scripts a
   fits could not attribute (`ℓ^{1/2}` against `ℓ^{2/3} + ℓ^{3/4}`). Conjecture 7 predicts a contribution `−R_{2/3}ℓ^{2/3}` to
   `ν_eld`, in addition to any `ℓ^{2/3}` term of `ν_cand`, with a coefficient computed independently of the Monte Carlo.
 - **[C7-K] (K2)** bounds the fold-scale rejected weight by `O(r³/k)`. Formally (Conjecture 6) the bound is attained: the
-  leading term of `r^{−2}A_r^{rej}` is `(r/k)F(k; b, u)`, and `F(k) → F₀ ≠ 0` as `k → 0` (Theorem 1).
+  leading term of `r^{−2}A_r^{rej}` is `(r/k)F(k; b, u)`. That leading term exists by #170/#175. For the Gaussian kernel,
+  `F(k) → F₀ ≠ 0` as `k → 0` (Proposition 4).
+- **#170 and #175 (merged author-side candidates, at their stated conditional scope).** They prove the fold-scale failure
+  law `r^{−3}(1 − p_r) → α₁ + α₂` and the compact-window `ℓ^{2/3}` coefficient (AUTH-242-01). #170 Theorem E decides the
+  window cubic. That is the same decision as Lemma 2, computed by another method: critical chords and [CUB]'s classifier.
+- **#243 (open).** Theorem FL and Proposition FL.7 claim a proof of Conjecture 6.
 - **Not claimed.**
-  - Conjectures 6 and 7 are not proved. The values of `H` and `R_{2/3}` are numerical and not certified.
-  - In `d ≥ 3` the fold-scale statements rest on Proposition 2′. It is exact for the model, and its transfer to the field
-    is part of Conjecture 6.
+  - Conjectures 6 and 7 are not proved here. For Conjecture 6, see its status in §4. The values of `H` and `R_{2/3}` are
+    numerical and not certified.
+  - In `d ≥ 3` the fold-scale statements rest on Proposition 2′. It is exact for the model. Its transfer to the field is
+    #175 Theorem H for #170's cubic, and #243 Proposition FL.4 here.
   - Nothing about the candidate density's own `ℓ^{2/3}` term.
   - Lemma 2, Lemma 3 and Proposition 4 are statements about the limit models (2.1) and (2.6). Their transfer to the field
     is Conjecture 6.
+  - No priority is claimed for the existence of the fold-scale limit, or for the compact-window `ℓ^{2/3}` coefficient
+    (#170, #175).
   - The Gaussian-kernel statements are about the model case on `R^d`.
 
 ## 7. Controls
@@ -715,19 +874,20 @@ of the failing controls to stderr.
 | S1 | Theorem 1: `69984/72⁴ = 1/384`; `∫_{1/3}^1(φ^{−4} − φ^{−2})dφ = 20/3`; `12·(20/3)/384 = 5/24`; `F₀ = 25π₀p_A(0 \| b)`; the soft window at `f₄ = 0` |
 | S2 | the algebra of `G_k` at 60 random rational points: its derivatives (exact four-point stencils), pins, `det H_M = 6λ̃ + Y`, `det H_S = −6λ̃ + Y`, the normalization (both signs of `γ`), weight, measure and typed window |
 | S3 | the Gaussian kernel's jet covariances from Hermite numbers: (0.3), and `a′ = 144/(2·6) = 12` |
-| S4 | (3.3) as exact truncated series; the double zero at `t = 0`; the Jacobian `−96` |
+| S4 | (3.3) as exact truncated series; the double zero at `t = 0`; the Jacobian `−96` (computed for `24φ(R − L_S)`, which equals `N` at `t = 0`) |
 | S5 | (3.4), and the antiderivative of the weight |
 | S6 | `E[γ⁶] = 120`, `E[γ⁶t²] = 576k²`, `312/25`, `12/25`, and the moment identities of Proposition 4's proof |
 | S7 | every numerical inequality of Lemma 3's proof, including the critical-value formulas as identities |
-| S8 | Lemma 2 on 16 fixed parameter points with known answers, including case (D′), in floating point |
+| S8 | Lemma 2 on 16 fixed parameter points with known answers, including case (D′), in floating point; the scan is not reliable within about `4·10^{−3}` of `β = 2` (none of the 16 points is there) |
 | S9 | the error exponents of Lemma 5 |
 | S10 | the limit (2.1), including `G₁`, on three exactly pinned degree-6 fields with `A = −λ̃r/k`, at `r = 10^{−3}` and `10^{−4}` |
 | S11 | Theorem 1 for `m = 2, 3` in rational eigenframes (Cayley rotations): `z = f₄ − 3γᵀA^{−1}γ = 3γ₁²/λ₁ + f̃₄`, `Y = (Δ/12)z`, `w_κ = 36κ²Δ²(1 − φ²)`, the substitution (1.1) with the factor `Π′`, `69984/72⁴ = 1/384`, and the double-soft implication of Step 1 |
 | S12 | the Gaussian kernel in `d = 3` from Hermite numbers: given the even pins, `A = −bI + G` with `G` in the Gaussian orthogonal ensemble and `f₄ ~ N(−3b, 24)` independent; the `b`-integrated law (`t ~ N(0, 5/3)`, `f₄ \| t ~ N(6t/5, 138/5)`; `d = 2`: `[[8/3, 2], [2, 30]]`); the odd jets along `e = (3/5, 4/5)` (variances `(6, 2, 2, 6)`); Corollary 1′'s constants `25√3/(48π²)` and `125√30/(192π³)` |
 | S13 | Proposition 2′: (2.6), including `G_{1/2}`, on two exactly pinned degree-6 fields in `d = 3` at `r = 10^{−6}` and `10^{−8}` |
+| S14 | Lemma 2's exact (D′) witness: `G_{(3/2, 8/3, 20/3)}(X, z) = (1/9)G_{(1/6, 0, 0)}(X + 2z, 3z)` on a unisolvent `4 × 4` rational grid (hence identically); typing; the three critical points `(±½, 0)`, `(−3, 35/8)` of `G_{(1/6,0,0)}` (gradient zero, and the factorization `∂_XG(X, p/2) = (X² − ¼)(3/2 + X/2)`), with witness values `0`, `−1/36 = L_S`, `−125/384`; the (D) certificate at `(1/6, 0, 0)`: the two factorizations `R = (X + ½)²(X² + 3X − 15/4)/8` and `R − L_S = (X − ½)²(X² + 5X + 17/4)/8`, with the signs of their quadratic factors; and, for `β > 2`, `χ < 0`, the open slice `D(1/β) = −χp(1/β) < 0` on rational points |
 
 Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, `M4` S5, `M5` S7, `M6` S8, `M7` S9, `M8` S2,
-`M9` S6, `M10` S10, `M11` S11, `M12` S12, `M13` S13); an unknown label exits 2.
+`M9` S6, `M10` S10, `M11` S11, `M12` S12, `M13` S13, `M14` S14); an unknown label exits 2.
 
 ## 8. Sources (exact identities in `SOURCES.json`)
 
@@ -742,7 +902,10 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
 | #229 | `frontiers/third_order_rate_20261001/PROOF.md` (blob `110ed33a`) | (R⁺.1); §0 (`Y_r`); §5 — consumed |
 | [C7-K] | `frontiers/c7_total_bounded_20260929/PROOF.md` (blob `28748b08`) | (K2) — cited |
 | #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (blob `07260114`) | (0.2): `ν_eld^{far} ≤ Cℓ^{2/3}` — cited |
-| #240 | `frontiers/elder_cusp_parity_20261002/PROOF.md` (open PR; blob `16a1db06`) | Lemma Q′, Step N6, Corollary N′, Remarks 1 and 4 — cited |
+| #240 | `frontiers/elder_cusp_parity_20261002/PROOF.md` (merged at `7636cae`; blob `16a1db06`, unchanged) | Lemma Q′, Step N6, Corollary N′, Remarks 1 and 4 — cited |
+| #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (merged; blob `ef2aa579`) | §3 (the critical chord), Theorem E, Theorem S, §9 — cited (prior work, AUTH-242-01) |
+| #175 | `frontiers/concave_fibre_elder_20260930/PROOF.md` (merged; blob `923d3236`) | Theorems H and F, §7 — cited (prior work, AUTH-242-01) |
+| #243 | `frontiers/soft_fold_limit_20261002/PROOF.md` (open PR, head `0740b2c`; blob `caedaef6`) | Theorem FL, Proposition FL.7, Lemma FL.2(c) — cited (Conjecture 6) |
 | #237 | `frontiers/candidate_parity_rate_20261001/PROOF.md` (open PR) | Theorem P's remainder, Remark 4 — cited |
 | #216 | `frontiers/third_order_coefficient_20261001/NOTE.md` (open PR) | the full-field Monte Carlo in `d = 2, 3` (§5) — cited |
 | #188 | far elder density `O(ℓ^N)` (open PR) | §4 (iii) — cited |
@@ -759,3 +922,26 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
   #187, #229 and #240.
 - **E** (§§5–7): the evidence is described accurately and kept separate from the proofs, and the controls match their
   claims.
+
+**Changed bytes in v1.2** (for a delta check against the v1.1 reviews):
+- *Header:* the version history, the Disposition, "Why" (#240 merged), "What is new" (the window, A-01; the soft model and
+  Lemma 2 notes), and the Dependencies (#240, #170, #175, #243).
+- *§1:* Remark 1 (A-01).
+- *§2:*
+  - the opening (B-02);
+  - the remainder estimate after (2.1);
+  - the absolute Jacobian and `t = 1` (B-03);
+  - Lemma 2's statement (`χ > 0` in (D′), `χ ≤ 0` rejected, `e` defined) and its proof (B-01);
+  - the exact witness and the remark after the proof;
+  - the Schur complement in Proposition 2′'s proof.
+- *§3:* the sentence on `k → 0` after (3.1), the prior-work paragraph, the Jacobian normalization (C-02), and the `k^{7/2}`
+  sentence (C-01).
+- *§4:* the opening (D-01), Conjecture 6's status, input (ii) (D-02), and the matched-asymptotics sentence.
+- *§5:* the status, custody and uncertainty labels (E-01, E-02), and #216's domains.
+- *§§6–8:*
+  - the [C7-K] item, the #170/#175/#243 items and "Not claimed";
+  - the S4, S8 and S14 rows;
+  - the sources.
+
+§§0–1's proofs, Lemma 3, Proposition 2′, Proposition 4's statement and proof (apart from C-01 and C-02), and Lemma 5 are
+unchanged.

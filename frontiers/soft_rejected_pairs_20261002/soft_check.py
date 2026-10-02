@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-SOFT-REJECTED-20261002-v1.1 (Theorem 1, Corollary 1', Lemmas 2, 3 and 5, Propositions 2' and 4;
+"""Exact controls for CL-SOFT-REJECTED-20261002-v1.2 (Theorem 1, Corollary 1', Lemmas 2, 3 and 5, Propositions 2' and 4;
 PROOF.md).
 
 Standard library only; exact rationals except control S8 (a deterministic floating-point implementation of Lemma 2 on
 fixed cases). Output: RESULTS.json (sorted keys), byte-identical under -O. Usage:
     python3 -B -S soft_check.py                 # exit 0, prints RESULTS.json
-    python3 -B -S soft_check.py --mutant M3     # exit 1 (only its control fails; M1..M13)
+    python3 -B -S soft_check.py --mutant M3     # exit 1 (only its control fails; M1..M14)
     unknown mutant label                        -> exit 2
 
 Controls
@@ -44,13 +44,21 @@ Controls
       125 sqrt30/(192 pi^3), in exact arithmetic of the form q pi^(e/2) sqrt(r) (floating-point values printed only)
   S13 Proposition 2': on two exactly pinned degree-6 fields in d = 3 with A = diag(-lt r/k, mu) at 0,
       (f(rX, rk zeta, r^(3/2) eta) - b)/(k r^3) = G_k + (mu/2k) eta^2 + r^(1/2) G_half + O(r), at r = 1e-6 and 1e-8
+  S14 Lemma 2's exact (D') witness (OpenAI Codex, #242 comment 5946792240): G_(3/2,8/3,20/3)(X, z) =
+      (1/9) G_(1/6,0,0)(X + 2z, 3z) on a 4 x 4 rational grid (unisolvent for bidegree <= (3, 3), hence an identity); the
+      witness is typed with beta > 2, chi > 0; G_(1/6,0,0) has gradient zero at (+-1/2, 0) and (-3, 35/8), and
+      d_X G(X, p/2) = (X^2 - 1/4)(3/2 + X/2) (so these are all its critical points); the witness's critical values
+      0, -1/36 = L_S, -125/384; and the (D) certificate at (1/6, 0, 0): R = (X + 1/2)^2 (X^2 + 3X - 15/4)/8 < 0 off -1/2 on
+      [-2, 1/2] (convexity, endpoint signs), R - L_S = (X - 1/2)^2 (X^2 + 5X + 17/4)/8 at six points (quartic identity),
+      and the edge factor changes sign once on (-2, -1); and, for beta > 2, chi < 0 (rejected by Lemma 2), the slice at
+      X = 1/beta is open: a = 0 and D = -chi p < 0, on three typed rational points
 """
 import json
 import math
 import sys
 from fractions import Fraction as Fr
 
-MUTANTS = ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12', 'M13')
+MUTANTS = ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12', 'M13', 'M14')
 MUT = None
 
 
@@ -768,6 +776,62 @@ def control_S13():
     return ok, {'fields': 2, 'max_scaled_remainder_at_r_1e-8': str(float(worst))}
 
 
+# ------------------------------------------------------------------------------------- S14: the exact (D') witness
+def control_S14():
+    ok = True
+    H = Fr(1, 2)
+    wit = (Fr(3, 2), Fr(8, 3), Fr(20, 3))
+    base = (Fr(1, 6), Fr(0), Fr(0))
+    scale = Fr(1, 9) if MUT != 'M14' else Fr(1, 8)
+    grid = [Fr(j, 3) - 1 for j in range(4)]
+    for X in grid:
+        for z in grid:
+            ok &= Gn(X, z, *wit) == scale * Gn(X + 2 * z, 3 * z, *base)
+    phi, beta, chi = wit
+    ok &= phi > 0 and abs(phi - beta / 2) < 1 and beta > 2 and chi > 0
+    # critical points of G_(1/6,0,0): grad zero, and d_X G(X, p/2) = (X^2 - 1/4)(1/(4 phi) + X/2) with 1/(4 phi) = 3/2
+    g = lambda X, z: Gn(X, z, *base)
+    def grad(X, z):
+        e = Fr(1, 10 ** 6)
+        # exact derivatives of a cubic by the 4-point stencil (exact for degree <= 4)
+        gx = (-g(X + 2 * e, z) + 8 * g(X + e, z) - 8 * g(X - e, z) + g(X - 2 * e, z)) / (12 * e)
+        gz = (-g(X, z + 2 * e) + 8 * g(X, z + e) - 8 * g(X, z - e) + g(X, z - 2 * e)) / (12 * e)
+        return gx, gz
+    pts = [(-H, Fr(0)), (H, Fr(0)), (Fr(-3), Fr(35, 8))]
+    for X, z in pts:
+        ok &= grad(X, z) == (0, 0)
+    for X in (Fr(-7, 2), Fr(-1), Fr(0), Fr(2, 3), Fr(5, 4)):
+        p = X * X - Fr(1, 4)
+        ok &= grad(X, p / 2)[0] == p * (Fr(3, 2) + X / 2)
+        ok &= grad(X, p / 2)[1] == 0
+    # the witness's critical points are the images under (X, z) -> (X - 2 z/3, z/3) of these, with values / 9
+    vals = sorted(scale * g(X, z) for X, z in pts)
+    ok &= vals == sorted([Fr(0), Fr(-1, 36), Fr(-125, 384)]) and Fr(-1, 24) / phi == Fr(-1, 36)
+    for X, z in pts:
+        Xw, zw = X - 2 * z / 3, z / 3
+        ok &= Gn(Xw, zw, *wit) == scale * g(X, z)
+    # the (D) certificate at (1/6, 0, 0): concave slices, R = (X + 1/2)^2 (X^2 + 3X - 15/4)/8
+    for X in (Fr(-2), Fr(-3, 2), Fr(-1), Fr(0), H):
+        R = g(X, (X * X - Fr(1, 4)) / 2)
+        ok &= R == (X + H) ** 2 * (X * X + 3 * X - Fr(15, 4)) / 8
+    q = lambda X: X * X + 3 * X - Fr(15, 4)
+    ok &= q(Fr(-2)) < 0 and q(H) < 0                    # convex, so negative on [-2, 1/2]
+    e2 = lambda X: X * X + 5 * X + Fr(17, 4)            # R - L_S = (X - 1/2)^2 e2(X)/8 at phi = 1/6 (L_S = -1/4)
+    for X in (Fr(-3), Fr(-2), Fr(-1), Fr(0), Fr(1, 3), Fr(2)):
+        R = g(X, (X * X - Fr(1, 4)) / 2)
+        ok &= R + Fr(1, 4) == (X - H) ** 2 * e2(X) / 8
+    ok &= e2(Fr(-2)) < 0 and e2(Fr(-1)) > 0 and e2(H) > 0
+    # beta > 2, chi < 0: the slice at X = 1/beta is open, D = a^2 - chi p = -chi p(1/beta) < 0 (Lemma 2, Step 5)
+    nopen = 0
+    for (ph, be, ch) in ((Fr(1, 2), Fr(11, 5), Fr(-1, 2)), (Fr(3, 2), Fr(8, 3), Fr(-20, 3)), (Fr(2), Fr(5, 2), Fr(-1, 10))):
+        ok &= ph > 0 and abs(ph - be / 2) < 1 and be > 2 and ch < 0
+        X = 1 / be
+        a = 1 - be * X; p = X * X - Fr(1, 4)
+        ok &= a == 0 and p < 0 and a * a - ch * p < 0
+        nopen += 1
+    return ok, {'witness': [str(v) for v in wit], 'critical_values': [str(v) for v in vals], 'open_slice_cases_beta_gt_2_chi_lt_0': nopen}
+
+
 def main(argv):
     global MUT
     if len(argv) == 2 and argv[0] == '--mutant':
@@ -776,7 +840,7 @@ def main(argv):
             return 2
         MUT = argv[1]
     elif argv:
-        print('usage: soft_check.py [--mutant M1..M13]', file=sys.stderr)
+        print('usage: soft_check.py [--mutant M1..M14]', file=sys.stderr)
         return 2
     s1, s1d = control_S1()
     s2, n2 = control_S2()
@@ -791,13 +855,14 @@ def main(argv):
     s11, s11d = control_S11()
     s12, s12d = control_S12()
     s13, s13d = control_S13()
-    res = {'object': 'CL-SOFT-REJECTED-20261002-v1.1', 'scientific_effect': 'NONE',
+    s14, s14d = control_S14()
+    res = {'object': 'CL-SOFT-REJECTED-20261002-v1.2', 'scientific_effect': 'NONE',
            'controls': {'S1_theorem_1': s1, 'S2_model_algebra': s2, 'S3_gaussian_kernel_jets': s3, 'S4_elder_edge': s4,
                         'S5_I_series': s5, 'S6_proposition_4': s6, 'S7_lemma_3': s7, 'S8_lemma_2_cases': s8,
                         'S9_lemma_5': s9, 'S10_limit_field': s10, 'S11_theorem_1_every_d': s11,
-                        'S12_gaussian_kernel_d3': s12, 'S13_stiff_directions': s13},
+                        'S12_gaussian_kernel_d3': s12, 'S13_stiff_directions': s13, 'S14_exact_dprime_witness': s14},
            'S1': s1d, 'S2_instances': n2, 'S3': s3d, 'S4': s4d, 'S5': s5d, 'S6': s6d, 'S7': s7d, 'S8': s8d, 'S9': s9d, 'S10': s10d,
-           'S11': s11d, 'S12': s12d, 'S13': s13d}
+           'S11': s11d, 'S12': s12d, 'S13': s13d, 'S14': s14d}
     ok = all(res['controls'].values())
     if MUT is None:
         print(json.dumps(res, indent=1, sort_keys=True))

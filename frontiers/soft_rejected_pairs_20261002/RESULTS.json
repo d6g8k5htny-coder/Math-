@@ -99,6 +99,19 @@
   "fields": 2,
   "max_scaled_remainder_at_r_1e-8": "7.123741313250203"
  },
+ "S14": {
+  "critical_values": [
+   "-125/384",
+   "-1/36",
+   "0"
+  ],
+  "open_slice_cases_beta_gt_2_chi_lt_0": 3,
+  "witness": [
+   "3/2",
+   "8/3",
+   "20/3"
+  ]
+ },
  "S2_instances": 60,
  "S3": {
   "conditional_covariance_third_jets": [
@@ -318,6 +331,7 @@
   "S11_theorem_1_every_d": true,
   "S12_gaussian_kernel_d3": true,
   "S13_stiff_directions": true,
+  "S14_exact_dprime_witness": true,
   "S1_theorem_1": true,
   "S2_model_algebra": true,
   "S3_gaussian_kernel_jets": true,
@@ -328,6 +342,6 @@
   "S8_lemma_2_cases": true,
   "S9_lemma_5": true
  },
- "object": "CL-SOFT-REJECTED-20261002-v1.1",
+ "object": "CL-SOFT-REJECTED-20261002-v1.2",
  "scientific_effect": "NONE"
 }
