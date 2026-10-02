@@ -1,0 +1,155 @@
+{
+ "F1": {
+  "random_parameter_points": 40,
+  "window_identity_dims_checked": [
+   1,
+   2,
+   3
+  ]
+ },
+ "F2": {
+  "kappa_pm_float": [
+   [
+    "1/2",
+    "1/3",
+    "-2",
+    0.508700864,
+    -0.002528024
+   ],
+   [
+    "3/2",
+    "8/3",
+    "20/3",
+    0.0,
+    -0.004444444
+   ],
+   [
+    "1/5",
+    "-2",
+    "3",
+    0.490740741,
+    0.416666667
+   ],
+   [
+    "2/3",
+    "5/2",
+    "-1/4",
+    176.841338236,
+    0.075328431
+   ]
+  ],
+  "witness_kappa_plus": "0"
+ },
+ "F3": {
+  "exponent_table": {
+   "2": {
+    "checked_monomials": 5,
+    "listed_pinned_or_exact": 10
+   },
+   "3": {
+    "checked_monomials": 21,
+    "listed_pinned_or_exact": 14
+   },
+   "4": {
+    "checked_monomials": 21,
+    "listed_pinned_or_exact": 14
+   }
+  },
+  "pinned_fields": {
+   "2": {
+    "C2_error_at_two_r": [
+     "0.05243003801440329",
+     "0.0005249930840657922"
+    ],
+    "expected_ratio": "100",
+    "ratio": "99.86805465771194"
+   },
+   "3": {
+    "C2_error_at_two_r": [
+     "0.07666748457359383",
+     "0.007666667498445729"
+    ],
+    "expected_ratio": "10",
+    "ratio": "10.00010559857157"
+   }
+  }
+ },
+ "F4": {
+  "certificate_margins_float": {
+   "D": {
+    "A0_minus_LS_at_X1": 0.004213,
+    "I_M": [
+     -1.086,
+     0.5
+    ],
+    "boundary_max_minus_LS": -0.015882,
+    "interior_max_off_M": -0.003175,
+    "ridge_path_min_minus_LS_off_S": 0.004525,
+    "right_side_max_minus_LS_off_S": -0.003165,
+    "tau": 0.02
+   },
+   "D'": {
+    "I_M": [
+     -1.505,
+     0.517
+    ],
+    "boundary_max_minus_LS": -0.000167,
+    "interior_max_off_M": -0.000191,
+    "ridge_path_min_minus_LS": 0.000556,
+    "slice_path_end_value": 71377.75,
+    "slice_path_min_minus_LS_off_S": 0.00054,
+    "tau": 0.005
+   },
+   "R": {
+    "endpoint_value": 0.050253,
+    "path_min_minus_LS": 0.070321
+   }
+  },
+  "crossing_forms_points": {
+   "D": 8,
+   "D'": 3
+  },
+  "trichotomy_points": {
+   "beta>2,chi<0 open at 1/beta": 40,
+   "chi>0: D > a^2 on |X| < 1/2": 24
+  },
+  "witness_critical_values": [
+   "0",
+   "-1/36",
+   "-125/384"
+  ]
+ },
+ "F5": {
+  "random_points": 30
+ },
+ "F6": {
+  "R_certificates_phi_0_0": {
+   "1/2": {
+    "R(-3)": "2075/384",
+    "roots_of_R_minus_LS_minus_delta_on_[-3,-1/2]": 0
+   },
+   "2/5": {
+    "R(-3)": "1675/384",
+    "roots_of_R_minus_LS_minus_delta_on_[-3,-1/2]": 0
+   },
+   "3/4": {
+    "R(-3)": "7825/1152",
+    "roots_of_R_minus_LS_minus_delta_on_[-3,-1/2]": 0
+   },
+   "9/10": {
+    "R(-3)": "25075/3456",
+    "roots_of_R_minus_LS_minus_delta_on_[-3,-1/2]": 0
+   }
+  }
+ },
+ "controls": {
+  "F1_model_pins_and_weight": true,
+  "F2_lemma_FL2_generic": true,
+  "F3_lemma_FL1_window": true,
+  "F4_proposition_FL4_certificates": true,
+  "F5_theorem_FL_bookkeeping": true,
+  "F6_corollaries": true
+ },
+ "object": "CL-FOLD-LIMIT-20261002-v1",
+ "scientific_effect": "NONE"
+}

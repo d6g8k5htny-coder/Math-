@@ -1,0 +1,145 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-FOLD-LIMIT-20261002-v1",
+ "kind": "author-side proof candidate, every d >= 2: Theorem FL (the fold-scale limit (k/r) r^-2 A_r^rej(b, k, u) -> F(k; b, u), Conjecture 6 of Math- #242, uniformly on compacts of (b, k); the limit defining F exists, F is continuous and positive); Corollary FL.5 (r^-3 (1 - p_r) -> F/(k A_*), A_* the limit of A_r); Corollary FL.6 (compact mark windows BB x KK: nu_cand - nu_eld = d l^(2/3) + o(l^(2/3)), d = (1/3) int k^(-8/3) F > 0); Proposition FL.4 (stability of the model decision of #242 Lemma 2 under C^2-small perturbations, stiff directions included); Lemma FL.2 (the generic set has full measure; a rejected model maximum dies strictly above the saddle (an axial path, observed by OpenAI Codex on #242); case (D-prime) needs chi > 0); Lemma FL.3 (crossing a nondegenerate saddle); Lemma FL.1 (the soft window, rate r in d = 2 and r^(1/2) in d >= 3)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "7636cae5c386f9725f9eec127dfd4ea5ec630435"
+ },
+ "consumed": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 1 (Q, W_r, Z_r, p_r), section 2 (finite-jet rank), section 3 ((3.3)-(3.5)), sections 5-6 ((5.3), (6.2)), section 7 (the cap region where pairing holds, and (7.7)), section 8 (pinned genericity and the maximin), sections 10-12 ((10.2), (10.3), (11.1)-(11.2), (12.1), (12.3))"
+  },
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2)-(R3) (the covariance bounds and the coupling, from which the pathwise bound (3.2) is derived by Taylor's formula), (R5) (the pin density), (R11) (A_r -> A_*, written A_0 there)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "tag": "CAP",
+   "use": "sections 1 and 5: the deterministic cap theorem, as used in [P] section 7 (on its cap region every C^4 field with the pins has maximin d_f(M) = f(S)); consumed in Step 4 of Theorem FL"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged): section 0 (the elder mark and the maximin), Theorem CU.1 (the pin identities used in Lemma FL.1), and the structure of Proposition CU.3 and Theorem CU.4"
+  },
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2): the bound E_Q[(W_r/r^2) 1_{G_r^c}] <= C (r^3/k) P^N used for dominated convergence in Corollary FL.6"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement (the elder mark is Borel), through #207 section 0"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule for [P]"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule for [P]"
+  }
+ ],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
+   "bytes": 63690,
+   "sha256": "c312e423990442cfaad44459a2a20b231029828cae97018ba68724c20613331b",
+   "git_blob": "8b2f5fae2a0014a401003463d7c2b2221e7124f5",
+   "tag": "242",
+   "use": "Math- #242 (open): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
+   "head": "87912bd8f28fe0d31fcb525670d1fd71a00e0db1",
+   "pr": "Math- #242"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+   "bytes": 23971,
+   "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+   "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+   "tag": "OA-lift",
+   "use": "OA elder dimension lift (merged): (A3), 1 - p_r >= c r^3, compared with Corollary FL.5"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Math- #229 (merged): (R+.1), the l^(1/4) term of the rejected density (Remark 2 after Corollary FL.6)"
+  }
+ ],
+ "cited_unmerged": [],
+ "cited_external": [],
+ "mutants": {
+  "M1": "F1",
+  "M2": "F2",
+  "M3": "F3",
+  "M4": "F4",
+  "M5": "F5",
+  "M6": "F6",
+  "M7": "F4"
+ },
+ "replayed": [
+  "fold_check.py"
+ ],
+ "exploration": "project archive V2_2/frontiers_soft_fold_limit_20261002/exploration/ (numpy, scipy; not part of the repository)",
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 59974,
+   "sha256": "5f5a411d1333c8f1eb83ec02794e154d6793a41f7d822cf8faca82cba020ea9f"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7764,
+   "sha256": "2c0a3dc154b973f42aa7f9326ea6d354362d227d6fc31e15e56af2db86a28dac"
+  },
+  {
+   "path": "fold_check.py",
+   "bytes": 37203,
+   "sha256": "680442d62ba7b146e9a55ad99797e7520ffe97a96943fc0a4982cba604e8d7cf"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2796,
+   "sha256": "61ca77e1eb57e22d60eb37bd8c97cd388c1814245406856c379c4ca51966c762"
+  }
+ ]
+}
