@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-FOLD-LIMIT-20261002-v1.1 (Theorem FL, Propositions FL.4 and FL.7, Corollaries FL.5-FL.6,
+"""Exact controls for CL-FOLD-LIMIT-20261002-v1.2 (Theorem FL, Propositions FL.4 and FL.7, Corollaries FL.5-FL.6,
 Lemmas FL.1-FL.3; PROOF.md).
 
 Standard library only; exact rationals except the floating-point margins printed by F4 (a fixed, deterministic
@@ -814,7 +814,7 @@ def main(argv):
     f5, f5d = control_F5()
     f6, f6d = control_F6()
     f7, f7d = control_F7()
-    res = {'object': 'CL-FOLD-LIMIT-20261002-v1.1', 'scientific_effect': 'NONE',
+    res = {'object': 'CL-FOLD-LIMIT-20261002-v1.2', 'scientific_effect': 'NONE',
            'controls': {'F1_model_pins_and_weight': f1, 'F2_lemma_FL2_generic': f2, 'F3_lemma_FL1_window': f3,
                         'F4_proposition_FL4_certificates': f4, 'F5_theorem_FL_bookkeeping': f5, 'F6_corollaries': f6,
                         'F7_proposition_FL7_identification': f7},

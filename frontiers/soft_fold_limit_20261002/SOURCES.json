@@ -1,16 +1,16 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-FOLD-LIMIT-20261002-v1.1",
+ "object": "CL-FOLD-LIMIT-20261002-v1.2",
  "supersedes": {
-  "object": "CL-FOLD-LIMIT-20261002-v1",
-  "head": "008b2997936ae8a677a05cae00db010006ae319f"
+  "object": "CL-FOLD-LIMIT-20261002-v1.1",
+  "head": "0740b2cae546866c5f5f27e770ba023bde64bbe8"
  },
  "kind": "author-side proof candidate, every d >= 2: Theorem FL (Conjecture 6 of Math- #242: the fold-scale limit (k/r) r^-2 A_r^rej(b, k, u) -> F(k; b, u), uniformly on compacts of (b, k); the limit defining F exists, F is continuous and positive; the existence of the limit, as r^-3 (1 - p_r) -> alpha_1 + alpha_2, was proved earlier by the merged #170 (d = 2) and #175 (d >= 3); the decision and convergence steps here take a different route, the cap-region domination is shared); Proposition FL.7 (G_k(X, zeta) = P_theta(X, k zeta)/k with theta = (-lt/k, gamma, B, C3): same typed domain, weight and maximin decision, so F = k A_* a_fail, directly in d = 2 and by uniqueness of limits in d >= 3); Corollaries FL.5-FL.6 (recover #170 Theorem S and section 9, #175 Theorem F and section 7, in #242 form; not new); Proposition FL.4 (re-proves the window-to-global decision transfer of #170 Theorem E(2)-(3) and #175 Theorem H in #242 normalization, by paths and traps); Lemma FL.2 (the generic set has full measure; d(M) >= L_S by the critical chord of #170 section 3, observed on #242 by OpenAI Codex; case (D-prime) needs chi > 0); Lemma FL.3 (crossing a nondegenerate saddle); Lemma FL.1 (the soft window, rate r in d = 2 and r^(1/2) in d >= 3)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "7636cae5c386f9725f9eec127dfd4ea5ec630435"
+  "branch_base": "f5347541a6ef7b84de96120dcce6137b816b8033"
  },
  "consumed": [
   {
@@ -97,12 +97,12 @@
  "consumed_unmerged": [
   {
    "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
-   "bytes": 63690,
-   "sha256": "c312e423990442cfaad44459a2a20b231029828cae97018ba68724c20613331b",
-   "git_blob": "8b2f5fae2a0014a401003463d7c2b2221e7124f5",
+   "bytes": 79394,
+   "sha256": "ab952b2a2c7648beb5f7473b3f028cdc495c8317c52522bee144d26eecc8e2bb",
+   "git_blob": "ad4beb8467a775c7c76f85d5584c13338d0e66be",
    "tag": "242",
-   "use": "Math- #242 (open): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
-   "head": "87912bd8f28fe0d31fcb525670d1fd71a00e0db1",
+   "use": "Math- #242 (open; v1.2): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision; v1.2 rewrites its proof at the exact level and states that beta > 2, chi <= 0 is rejected, as Lemma FL.2(c) here), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
+   "head": "1f86fea035f838cd3957b20bea58fc2082a4e3a4",
    "pr": "Math- #242"
   }
  ],
@@ -144,23 +144,23 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 72241,
-   "sha256": "9047cc30a37af0aed43ed289d6f94ce31a2a3607bd67c71195158390a48d67d2"
+   "bytes": 72742,
+   "sha256": "7716a113bcf8c1725f9ec771d58ef033767f0a7bb50d592b841ca0ffe86f31af"
   },
   {
    "path": "README.md",
-   "bytes": 10568,
-   "sha256": "f8981defe4468c9edc04ef0101dc7c60fe45a7a37514a70c55c831ecbe61c299"
+   "bytes": 10687,
+   "sha256": "0be812e8a4785462587ac0e572dd42a04d3d1789a03d948ebb220649d5f5da6a"
   },
   {
    "path": "fold_check.py",
    "bytes": 40386,
-   "sha256": "425ac7ac63efa7e1fdfa2d53d16fd9f2138216f9630e500487e55d4907339ba7"
+   "sha256": "762695347e6b46aab81759c299cbc2a5dd3860e53017fc1ddbda1b43994850ae"
   },
   {
    "path": "RESULTS.json",
    "bytes": 2903,
-   "sha256": "168118193b1f7fc9b93416541e93237a82fbe5935306ad2f71cb013a6c7dd43d"
+   "sha256": "459bbdf3c84b77548e53824df889b13a8ebd0fe6b0d7d7cadf8a4d73821641e9"
   }
  ]
 }

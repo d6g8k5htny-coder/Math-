@@ -2,7 +2,8 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-FOLD-LIMIT-20261002-v1.1`; v1 was `008b299`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-FOLD-LIMIT-20261002-v1.2`. Versions: v1 `008b299`; v1.1 `0740b2c` (prior work, Proposition FL.7); v1.2 (rebinds
+#242 v1.2 and cites Codex's `d ≥ 3` cross-check). Full text: [`PROOF.md`](PROOF.md).
 
 ## Prior work (AUTH-243-01)
 

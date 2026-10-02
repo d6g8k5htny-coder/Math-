@@ -1,6 +1,9 @@
 # The fold-scale rejection limit through #242's soft model: Conjecture 6 of Math- #242 in every dimension, and its identification with the failure law of #170/#175
 
-Object: CL-FOLD-LIMIT-20261002-v1.1 (v1: `008b299`; v1.1 adds the prior-work record AUTH-243-01 and Proposition FL.7).
+Object: CL-FOLD-LIMIT-20261002-v1.2. Versions:
+- v1, `008b299`.
+- v1.1, `0740b2c`: the prior-work record AUTH-243-01, and Proposition FL.7.
+- v1.2: rebinds #242 v1.2, and cites Codex's direct `d ≥ 3` cross-check of FL.7.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 2 October 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem FL, Propositions FL.4 and FL.7, Lemmas FL.1–FL.3; Corollaries FL.5 and FL.6
 recover merged results of #170 and #175).
@@ -92,7 +95,7 @@ domination are as in #170 §8 and #175 §§2 and 4.
   - #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, blob `f6df5a73`): §0 (the elder mark and the maximin), Theorem
     CU.1 (the pin identities), and the structure of Proposition CU.3 and Theorem CU.4.
   - [C7-K] (`frontiers/c7_total_bounded_20260929/PROOF.md`, blob `28748b08`): (K2).
-- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `87912bd`, blob `8b2f5fae`): §0,
+- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `1f86fea`, blob `ad4beb84`; v1.2): §0,
   (2.1)–(2.5), Lemmas 2 and 3, Proposition 2′ ((2.6)), (3.1). This note must be rebound if that blob changes.
 - Consumed through #207 §0: [E2] (`reviews/d1_section9_borel_repair_20260925/REPAIR.md`, blob `fe9b9ce4`), for the Borel
   measurability of the elder mark. Reading rules for [P]: [E1] (`imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`,
@@ -607,6 +610,9 @@ number of points of `C(P_θ)` (#170 §2; the classifier of #170 §§7 and 8.1, w
   - *In `d ≥ 3` the integrands also agree, up to the normalization `c_m dO` of the Weyl formula.*
     `𝒱(0, μ_2, …, μ_m)(μ_2⋯μ_m)² = Π_{j≥2}μ_j³Π_{2≤i<j}(μ_j − μ_i)` is #175's hard factor, and both decisions are the planar
     one (#175 Theorem H; Proposition FL.4 here).
+  - *OpenAI Codex's cross-check.* Codex's antecedent cross-check (comment 5951210964 on #243) argues the `d ≥ 3` identity
+    directly. It matches #175 (S1)'s `c_m`, Haar variable and hard Vandermonde with (3.4) and (3.7), and finds no orientation
+    or factor-of-two discrepancy. This is root-authored support and is not reviewed here.
   - *The last claim.* Integrating `(1/3)k^{−8/3}F = A_∗a_fail/(3k^{5/3})` gives `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}`. ∎
 
 **A second proof of (0.0) in `d = 2`.** At each fixed `(b, k, u)`, conditional on #170's interfaces, (0.0) follows without
@@ -620,7 +626,8 @@ That last limit is a model-level fact. In `d = 2` the jets `(γ, B, C_3)` do not
 dominated convergence with #242 Lemma 3's bound; Step 5 of Theorem FL proves it in every `d`.
 
 Theorem FL is then a second proof with a partly different route, and it also gives continuity and local uniformity. In
-`d ≥ 3` the direct computation would also need the Weyl normalization of #175 §2 matched with (3.4); that is not done here.
+`d ≥ 3` the direct computation would also need the Weyl normalization of #175 §2 matched with (3.4). This note does not do it;
+Codex's cross-check 5951210964 argues it.
 
 **Corollary FL.5 (the constant in `1 − p_r ~ r³`; #170 Theorem S, #175 Theorem F).** For fixed `u ∈ S^{d−1}`, uniformly
 for `(b, k)` in compact subsets of `R × (0, ∞)`,
@@ -842,7 +849,7 @@ These are argued in the text and are the subject of review slices B–E.
 | [CAP] | `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` (`0633aca3`) | §§1, 5: the deterministic cap theorem — consumed (as in [P] §7) |
 | [E1], [REC] | `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md` (`213594d6`), `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md` (`75da2597`) | reading rules for [P] |
 | [E2] | `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (`fe9b9ce4`) | the elder mark is Borel — consumed |
-| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `87912bd` (`8b2f5fae`), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
+| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `1f86fea` (`ad4beb84`, v1.2), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
 | OA lift | `frontiers/elder_dimension_lift_20260928/PROOF.md` (`7303bd79`) | (A3) — cited |
 | #229 | `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`) | (R⁺.1) — cited |
 | #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (`ef2aa579`) | §2 (Theorem E(1)), §§7–8 (the classifier, (S1), (S11), the mass `α₁ + α₂`), Theorem S, §9 — compared; consumed by Proposition FL.7 only |
