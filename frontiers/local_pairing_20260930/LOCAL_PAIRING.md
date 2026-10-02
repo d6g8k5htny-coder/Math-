@@ -19,6 +19,14 @@ hard-negative tube. So Conjecture LP= below is Math-#170 Theorem S (planar) / Ma
 conditional on their interfaces and review; what this packet adds is an independent same-account derivation
 of the deterministic core with exact controls, and the cap-free lower bound Theorem LP. Scientific effect:
 NONE — no register, graph, STATUS, prize or Boolean changes; no numerical constant is claimed.
+**v1.2 (2 October 2026), answering the Slice C review.** Codex's Slice C review (C85, 5396856086) found
+C-01: v1.1's optional §5 margin sketch confined `M`'s component at one level above `f(S)` only, and it gave an
+exact falsifier. v1.2 withdraws that sketch as a proof. In its place §5 states Lemma 5.1, a common-radius
+acceptance lemma that controls the component through the exact saddle level. It is consumed from QS-E (main#229
+5961415030; author-side candidate, nonauthor review requested), with exhausting jet-scaled margin sets
+`𝓜(η, R)`. §5 also records the review's notes on the weighted normalization and on Gaussian conditioning, and
+now says that the reverse reduction (O1′) ⇒ (O1) is conditional on Lemma 5.1. Lemmas 2.1–2.2, P, P′,
+Proposition 3.3, Theorem LP, the controls and the cap bypass are unchanged.
 
 ## 0. What this packet answers, and what it does not
 
@@ -367,45 +375,118 @@ where `N_R` counts strict-window critical points of `f` in `B(Rr)` other than th
 
     (O1)   limsup_{r→0} r⁻³ Q_r^W(rejected, N_R = 0) → 0   as R → ∞.
 
-What is known toward (O1), and what is not. On `{N_R = 0}` the analogue of the transfer in Theorem LP would
-run Lemma P′ on the coupled field: if the jet `θ_r` has `n = 0` and the cubic landscape has margins — `P`
-strictly concave on a ball `B(M, η)` with modulus `μ`, `sup_{C_θ ∖ B(M, η)} P ≤ −μη²/4` for the `M`-component
-`C_θ` at level `−k + δ/4`, `C_θ ⊂ B(R − 1)`, the axis ray beyond `S` reaching `P ≥ δ` inside `B(R)`, `θ_r` at
-distance `≥ δ` from the typed boundary and from the tie set — and if the `C²` error of Lemma 4.1 on `B(R)` is
-below `min(μ/2, μη²/16, δ/8)`, then the rescaled field `F_r = (f(r·) − b)/r³` restricted to the soft plane
-has its `M`-component at level `−k + δ/2` inside `{P > −k + δ/4}`, hence inside `B(R)` and away from every
-point with `F_r ≥ 0` other than `M` itself; the far sector of its saddle at `S` (exact, since the pins are
-exact under `Q_r^W`) reaches `F_r > 0` inside `B(R)`; and the axis gives `d_f(M) ≥ f(S)` (on it
-`f − f(S) = r³(X − 1/2)²[2k(X + 1) − O(C_R K r)]`). In `d = 2` this yields `d_f(M) ∈ [f(S), f(S) + (δ/2)r³]`
-with `S` the only saddle at such a level inside `B(Rr)` (`N_R = 0`) and the `M`-component confined to the
-ball, so the death partner is `S`: **accepted**. In `d ≥ 3` the same conclusion needs the hard-direction
-slaving of the superlevel components (fiberwise concavity in the hard coordinates `w`, `f_ww ≤ −h₂/2` on the
-cylinder, and the correspondence between components of `{f > h}` and those of the reduced planar potential
-`max_w f`), which [SC] §5 carries out for the critical points and this note does not carry out for the
-superlevel sets. Granting it,
+What is known toward (O1), and what is not (amended in v1.2). The v1.1 sketch here confined the
+`M`-component of the rescaled field at the single level `−k + δ/2`. It did not control the levels between
+`f(S)` and `f(S) + (δ/2)r³`, where a remote saddle can still kill `M` on `{N_R = 0}`. Codex's Slice C review
+(C85, 5396856086, finding C-01) gives an exact falsifier of that finite-radius implication.
+- *The construction.* Take `k = δ = 1` and `P = A(X + HZ) − σZ²/2`, with `H = 10⁹`, `σ = 10¹⁴` and `R = 125`.
+- *Why the v1.1 margins hold.* The cubic is typed with `n = 0`, its component at `−3/4` lies in `B(124)`, and
+  `N_R = 0`. A bump placed outside `B(125)` leaves the actual `C²` error on `B(R)` equal to zero.
+- *Why acceptance fails.* The sheared vertical path from `M` stays above `−7/8` and leaves `B(125)`. A bump
+  there, outside `B(125)`, makes the pair rejected.
 
-    {rejected, N_R = 0} ⊂ {n(θ_r) = 0, θ_r outside the margin set} ∪ {C²-error too large} ∪ {n(θ_r) ≥ 1, N_R = 0},
+The v1.1 sketch is therefore withdrawn as a proof. What (O1) needs is a *common-radius acceptance lemma*:
+one that controls the component through the exact saddle level and slightly below it. For the planar cubic,
+QS-E supplies it.
 
-where untyped `θ_r` are placed in the first set. The second set is `O(r^p)` (as in Theorem LP). The third
-has `r⁻³`-limit `M(n ≥ 1, n_R = 0)` at fixed `R` — its jets have all extra roots outside `B(R)` — by Lemma
-4.2 on compact subsets, [SC] §5's joint spectral-jet/count convergence in total variation, and tightness of
-`M` on `{n ≥ 1}` ([SC] (19): `|s| ≤ 2|B| + (48kD²)^{1/3}` there, with (10)/(15)/(6) domination); it tends to
-`0` as `R → ∞`. So, granting the slaving step, (O1) is equivalent to
+Notation for the lemma.
+- *Coordinates.* Work in [CUB]'s sheared coordinates `(u, Z)`, normalized by `k`, so that `P_θ/k` has the
+  pins `0` and `−1`. These are the coordinates of main#229 5961415030, where `u = X + aZ/(12k)`.
+- *The saddle margin.* `μ(θ) := 1 + max{P_θ(Y)/k : Y an extra nondegenerate saddle}`, and `μ = −∞` if there is
+  none. Every extra critical point lies below `0`, so `n(θ) = 0` iff `μ ≤ 0`. Off the tie set `Σ`, `n = 0`
+  forces `μ < 0`.
+- *The QS sets* (QS §§1–4):
+  - the tolerances `m_S` and `ε_M`;
+  - the ellipses `E_S` and `E_M`;
+  - the cut trap `T_ℓ`: the `M`-component of `{P > ℓ}` cut along the stable curve of `S`;
+  - the axis segment `A = [M, (3/2, 0)]`.
 
-    (O1′)   limsup_{r→0} r⁻³ Q_r^W(rejected, n(θ_r) = 0, θ_r outside the margin set) → 0   as the margins are relaxed.
+**Lemma 5.1 (common-radius acceptance; QS-E).** Let `θ` be typed, off `Δ ∪ Σ`, with `n(θ) = 0`. Let
+`0 < η < min(|μ|, m_S, ε_M)`, and let `V_η(θ) := T̄_{−1−η} ∪ A ∪ E_S ∪ E_M`, taken in raw coordinates.
+Suppose `V_η(θ) ⊂ B(R)`. Let `F` be a planar function with the exact pins of `P_θ/k` such that:
+- `|F − P_θ/k| < η` on `T̄_{−1−η} ∪ A`;
+- QS's rescaled `C²` bounds (E2) and (E3) hold on `E_S` and `E_M`.
+
+Then `d_F(M) = F(S)` (elder), whatever `F` is outside `B(R)`.
+
+Both of QS-E's bounds use only paths inside `V_η ⊂ B(R)`:
+- the exit from the trap, for the upper bound;
+- the axis `A`, for the lower bound.
+
+So the lemma applies to the torus field through the chart, exactly as in #170 §5.
+
+This is Theorem QS-E of main#229 5961415030, an author-side candidate whose nonauthor review is requested;
+this packet consumes it at that status. QS Remark 4 shows why the axis beyond `S` must be in `V_η`. The
+lemma needs no `N_R = 0`. In the C-01 cubic, along the sheared vertical path, the level-`(−1 − η)` component
+reaches `|X| ≈ H(2/σ)^{1/2} ≈ 142`, beyond `B(125)`. So the containment hypothesis fails there, as it must.
+The exact C-01 cubic, with `B = D = 0`, also lies on `Δ`.
+
+The margin sets. Put
+
+    𝓜(η, R) := {θ typed : n(θ) = 0, θ ∉ Δ ∪ Σ, η < min(|μ|, m_S, ε_M), V_η(θ) ⊂ B(R − 1)}.
+
+These sets are jet-scaled, and they increase to `{n = 0} \ (Δ ∪ Σ)` as `η ↓ 0` and `R ↑ ∞`: QS Lemma 4
+makes the trap bounded at each such `θ`, although its size is not explicit. Two bounds hold on
+`𝓜(η, R)`:
+- `E_S ⊂ B(R − 1)` gives `κ_S ≥ r̃²/(R − 1)²`, and `η < m_S = (2/5)r̃²` then gives
+  `1/κ_S < 2(R − 1)²/(5η)`.
+- In the same way, `1/κ_M < (R − 1)²/(2η)`.
+
+So the raw-coordinate thresholds of (E2) and (E3) are at least `c(η, R)/(1 + |a|/(12k))²`.
+
+The decomposition in `d = 2`. Lemma 4.1's planar `C²` error on the fixed ball `B(R)` is `O(C_R K r)`, so
+
+    {rejected, N_R = 0} ⊂ {rejected, n(θ_r) = 0, θ_r ∉ 𝓜(η, R)} ∪ {θ_r ∈ 𝓜(η, R), error on B(R) above θ_r's thresholds}
+                          ∪ {n(θ_r) ≥ 1, N_R = 0} ∪ {θ_r ∈ Δ ∪ Σ},
+
+where untyped `θ_r` are placed in the first set.
+- *The second set* is `O(r^p)`, as in Theorem LP, by the Gaussian moments of `a` and of `K`.
+- *The third set* has `r⁻³`-limit `M(n ≥ 1, n_R = 0)` at fixed `R`, since its jets have all their extra roots
+  outside `B(R)`. This follows from three facts:
+  - Lemma 4.2, on compact subsets;
+  - [SC] §5's joint spectral-jet/count convergence in total variation;
+  - the tightness of `M` on `{n ≥ 1}` ([SC] (19): `|s| ≤ 2|B| + (48kD²)^{1/3}` there, with (10)/(15)/(6)
+    domination).
+
+  This limit tends to `0` as `R → ∞`.
+- *The last set* is null.
+
+Three conditions apply to these statements.
+- Do not condition the Gaussian regression on `{N_R = 0}`; that would destroy its Gaussian structure. Keep
+  every intersection indicator under the original law `Q_r^W`, with positive majorants.
+- In `d ≥ 3` the same conclusion needs the hard-direction slaving of the superlevel components:
+  - fiberwise concavity in the hard coordinates `w`;
+  - `f_ww ≤ −h₂/2` on the cylinder;
+  - the correspondence between the components of `{f > h}` and those of the reduced planar potential
+    `max_w f`.
+
+  [SC] §5 carries this out for the critical points; this note does not carry it out for the superlevel sets.
+- (O1) ⇒ (O1′) holds already. At fixed regular `R`, [SC] §5's nonempty joint convergence gives
+  `r⁻³Q_r^W(n(θ_r) = 0, N_R ≥ 1) → 0`. The converse direction is the decomposition above. So, granting
+  Lemma 5.1 (and, in `d ≥ 3`, the slaving step), (O1) is equivalent to
+
+    (O1′)   limsup_{r→0} r⁻³ Q_r^W(rejected, n(θ_r) = 0, θ_r ∉ 𝓜(η, R)) → 0   as η ↓ 0 and R ↑ ∞.
 
 At fixed planar marks, this equality is supplied on main by Math-#170 Theorem S (OpenAI; reviewed at head `79f18f0`,
 proof blob `ef2aa57959ea9f721bbf2316ce94cf616c1c9113`), whose route avoids the margin set altogether: the failure event
 is contained in the bad cap of [P] §8 (`F_r ⊂ G_r^c`), the bad cap's mass restricted to a large residual norm
 is `o(r³)` by keeping the indicator inside [P]'s (7.5) scalar integral, and the remaining compact-jet part
 converges by dominated convergence with the pointwise limit of the failure indicator (its Theorem E). The
-`d ≥ 3` slaving step named below is Math-#175's H1. Read on its own, the margin set must be jet-scaled (a fixed `δ` fails: near
+`d ≥ 3` slaving step named above is Math-#175's H1. Read on its own, the margin set must be jet-scaled (a fixed `δ` fails: near
 `M`, `P(M + Z e_Z) = (Z²/2)(s − B/2) + (D/3)Z³` exceeds any fixed `−δ` for `|Z|` slightly beyond `δ` once
 `|s|` is large, so a fixed-margin set would exclude a region of infinite `M`-mass and (O1′) would restate
 (O1)); the typed-jet measure is not finite on `{n = 0}` ([SC] after (17)), so its complement cannot be
 handled by Lemma 4.2; and the events in the complement — a second soft eigenvalue, a large jet, a jet near
 the typed boundary, a landscape whose `M`-component reaches far — are the ones [P] §§6–7 and [SC] §4 control
-in unweighted or occurrence-weighted form, not in rejection-weighted form. What is needed is either a direct
+in unweighted or occurrence-weighted form, not in rejection-weighted form. C85's review records the
+normalization:
+- [P] §§6–7 keep the double soft factor `W_r ≲ r²λ₁(λ₁ + CrU)`. So the soft interval gives an `O(r⁵)` weighted
+  numerator, and one division by `Z_r ≥ z_*r²` gives `O(r³)`.
+- Exhausting the margins needs more than that displayed bound: a written rejection-tail deduction that keeps
+  the residual and hard-spectrum tail indicators inside the same integral.
+- [SC] §4's domination covers only the nonempty near-occurrence measure.
+
+What is needed is either a direct
 argument that a long excursion of `M`'s window component without a window saddle inside `B(Rr)` has
 weighted probability `o(r³)`, or the boundary-layer estimates of [P] §7 restated at `o(r³)` on the no-witness
 event. That, together with the `d ≥ 3` slaving step, is what separates Theorem LP from LP=.
@@ -413,9 +494,10 @@ event. That, together with the `d ≥ 3` slaving step, is what separates Theorem
 Falsifiers. LP= is false if there is a configuration class of weighted probability `≍ r³` in which
 `(M,S)` is rejected although no strict-window critical point lies within `O(r)` of the pair — for example
 a mechanism where the far sector of `S` reconnects to `M`'s component (self-attachment) through a region
-at distance `≫ r`. Lemma P′ shows no such class exists on the accurate planar cubic model with margins; a
-counterexample would have to live where the model is inaccurate, unmargined, or where the hard-direction
-reduction fails.
+at distance `≫ r`. Lemma P′ and Lemma 5.1 show that no such class exists on the accurate planar cubic model with margins.
+The margins must control the component down to the exact saddle level; C-01 shows that confinement at
+one level above `f(S)` is not enough. A counterexample would have to live where the model is inaccurate
+or unmargined, or where the hard-direction reduction fails.
 
 ## 6. Consequences for the lifetime law, stated without inflation
 
@@ -475,3 +557,6 @@ witnesses; no `d ≥ 3` hard-direction statement beyond what [SC] §5 supplies f
   from [SC] §5, and the `O(r^p)` tail. Best read by a lane not exposed to [SC]'s authorship.
 * **Slice C (the obligation):** §5 — whether (O1) follows from [P] §§6–7 and [SC] §4 as stated, or needs
   a new estimate. This is the lane where the next theorem is decided.
+  Reviewed by Codex (C85, 5396856086): the remaining weighted obligation and the cap bypass are sound at
+  their conditional scope. Finding C-01 is applied in v1.2: the v1.1 sketch is withdrawn, Lemma 5.1 is consumed
+  from QS-E, and the reverse reduction is marked conditional.
