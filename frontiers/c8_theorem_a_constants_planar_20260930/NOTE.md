@@ -491,4 +491,11 @@ v1.1 adds:
 
 The band constants change only in the last digits, except `C(1/256)`, which drops from `3.41 x 10^7` to `9.37 x 10^6`.
 
+v1.2 is documentation only: two docstrings in `theorem_a.py`, byte-identical copies of which are carried by Math-#215 and
+Math-#227. The AST with docstrings removed is unchanged, and so are `RESULTS.json` and every constant.
+- `sqrt_up` promised a relative error below `2^-200`; at `x = 49/100` the excess is `(8/7) 2^-200` (C59-DOC-01). The
+  stated bound is now `2^-198`: the root step adds less than `2^-209` and the rounding to 200 bits less than `2^-199`.
+- `box_bound` said "every choice gives a valid bound". It now states the proved domain: `0 < x0 < 2/9` and
+  `0 < theta < 1` (C61). Both `COMBOS` pairs, `(1/64, 1/32)` and `(1/1024, 1/256)`, lie inside it.
+
 Author lane Anthropic / Claude, 30 September – 1 October 2026. Scientific effect NONE. The author will not merge.
