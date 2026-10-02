@@ -20,8 +20,15 @@ not merge. Scope claim: Math-#206 comment 5924133127.
   Sections 8–12 are consumed as statements; nothing else of [LP] is used.
 - [CAP] `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md`, section 1 (the good event `G_r`), through the
   engines.
-- [E] Math-#206 at `0cb8ad3`: the planar certificate `theorem_a.py`, carried byte for byte as `engine_e2.py`.
-- [E3] Math-#212 at `c4b8ec3`: the `d = 3` certificate `theorem_a3.py`, carried byte for byte as `engine_e3.py`.
+- **The corrected parent reading set.** [LP] is read together with three mandatory amendments, all on `main` and pinned
+  `current_required`. The parent object is P + CAP + E1 + E2 + REC, as REC section 1 requires of every consumer (review C61):
+  - [E1] `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`: the preconditioning congruence is `diag(r^(-1/2), I)`;
+  - [E2] `reviews/d1_section9_borel_repair_20260925/REPAIR.md`: [LP] section 9 is replaced by the marked Kac–Rice identity
+    for the Borel elder indicator (finite-measure equality on a cylinder algebra, then a monotone-class extension);
+  - [REC] `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`: the reading rule. It uses joint convergence in law
+    and the embedding condition `r < L/(4 sqrt 2)`, which `r <= 1/64` and `L >= 10` satisfy.
+- [E] Math-#206 at `13f932c` (v1.2): the planar certificate `theorem_a.py`, carried byte for byte as `engine_e2.py`.
+- [E3] Math-#212 at `250b907` (v1.1): the `d = 3` certificate `theorem_a3.py`, carried byte for byte as `engine_e3.py`.
 - Read-only cross-checks and comparisons:
   - [W] Math-#197: `c_{B,K}` in the plane.
   - [W3] Math-#205: `c_{B,K}` in `d = 3`.
@@ -170,7 +177,7 @@ section 16 lists "a numerical r_* or C on a prescribed band" among the items not
 ## 1. The radial ledger and what is consumed
 
 [LP] sections 8–11 are consumed as statements:
-- **Section 9.** The weighted Kac–Rice identity on the near-diagonal pair domain.
+- **Section 9, as repaired by [E2].** The weighted Kac–Rice identity on the near-diagonal pair domain.
 - **Section 10, the ledger (10.1)–(10.2).** The candidate intensity is `r A_r dr db dk dsigma(u)`. The selected intensity
   carries the extra factor `p_r`. `A_r` does not depend on the transverse frame.
 - **Section 11, the pushforward (11.1)–(11.2).** For `ell < k_- r_pop^3`,
@@ -415,6 +422,22 @@ with `r_1 <= r_*`, and
 
     C_{B,K}(r_*) = (1 + a_up(r_*) r_*^2 + eps) sum_box C_box(r_*) |S^(d-1)| int_box A_0^ref / (3 k^(5/3)).
 
+**Reviewed disposition of `C_{B,K}` (C61, review 5386924911 at `b41eb28`).** C61 accepts the planar and `d = 3` weighted
+cap engines at this caller, `(X_0, theta) = (1/64, 1/32)`. It then validates all fourteen published `C_{B,K}` and `C_121`
+upper constants by a different, cellwise transfer. That transfer uses Math-#227's reviewed finite-radius rate (C56–C59) and
+C60's direct contact comparison in place of the factor `(1 + a_up r_*^2 + eps)` above. The published constants dominate the
+alternative bound.
+
+So the elder corollaries no longer rest on the positive-radius parts of Theorem L that remain unaccepted. C61's scope is
+the compact window `b in [0, 1]`, `k in [1/2, 2]`, `L >= 10`, `d = 2, 3`, and the corrected parent set above. It gives
+`0 <= nu_cand - nu_eld <= C_{B,K}(R) ell^(2/3)` and the cumulative `C_121(R) t^(5/3)` for `ell, t < min(r_pop, R)^3/2`.
+
+C61 does not claim:
+- that every short bar is a candidate;
+- an unrestricted difference rate;
+- the shrinking multiple-witness node;
+- C8.
+
 ## 8. Arithmetic
 
 - Exact rationals throughout.
@@ -507,8 +530,22 @@ not with the exact cap-route limit of a finite torus.
 - Mutants `no-om-term`, `no-bad-set`, `no-det`, `no-torus` and `cap-half` make the replay fail.
 - The workflow checks:
   - the manifest;
-  - the main-resident pins ([LP], [CAP]);
+  - the main-resident pins ([LP], [CAP], [E1], [E2], [REC]);
   - the engine copies against `SOURCE_MAP.json`;
   - `--check-full` and `--check` in the two interpreter modes;
   - the mutants;
   - a clean tree.
+
+## 12. Revisions
+
+**v1.5 (documentation only).** It records review C61 and the corrected parent set:
+- [E1], [E2] and [REC] become `current_required` pins (§0), and §1 reads [LP] section 9 through [E2].
+- §7 records C61's disposition of `C_{B,K}`.
+- Two clarifications in `theorem_b.py`:
+  - `wq_bound`'s docstring keeps the nonnegative diagonal surplus `H` (C58);
+  - a comment at the `Fae` line says that `(3/2) sb >= 1` is all the variance multiplier needs, and that it is not a claim
+    `Phi <= 3/4`, which is false at `mu = 1, sigma^2 = 2` (C60).
+- The engine copies follow Math-#206 v1.2 and Math-#212 v1.1, which are docstring-only: `sqrt_up`'s bound is now `2^-198`
+  (C59-DOC-01), and `box_bound` now states its proved parameter domain `0 < x0 < 2/9`, `0 < theta < 1` (C61).
+
+In every changed Python file the AST with docstrings removed is unchanged, and `RESULTS.json` and every constant are unchanged.
