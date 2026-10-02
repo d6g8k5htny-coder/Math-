@@ -4,7 +4,7 @@
 
 | Source | Path | Role |
 |---|---|---|
-| SP | `reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md` | L16–L22, the line-numbered reconstruction of CAP §§2–5 |
+| SP | `reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md` | the line-numbered reconstruction of CAP §§2–5. L13, L16, L17 and L19–L22 are proved here. L7, L11, L12 and L18 enter `ridge_capHyp` as hypotheses. |
 | CAP | `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` | the deterministic theorem that SP reconstructs |
 
 The source setting (SP §2) is as follows:
