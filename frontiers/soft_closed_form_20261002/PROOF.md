@@ -1,6 +1,17 @@
 # The closed form of the soft rejected set: an explicit `I(t, χ₀)`, `t* = 2/3`, and the expansion of `H` to `k⁴`
 
-Object: CL-SOFT-CLOSED-FORM-20261002-v1.
+Object: CL-SOFT-CLOSED-FORM-20261002-v1.1. Versions:
+- v1, `1781c0f` (PROOF blob `310ef828`). OpenAI Codex's nonauthor Slices A, B and C reviewed it.
+- v1.1 applies their findings:
+  - OA-244-A-01: the Cardano wording;
+  - OA-244-B-01: a direct proof on the fibre `t = 3/4`, `χ₀ = 0`, which lies on `Δ`. It also answers Codex's automated
+    finding 4167121706. The argument is the Slice B reviewer's.
+  - OA-244-B-02: the range in Corollary A.3;
+  - OA-244-C-01 and C-02: wording in Lemmas B.1 and B.2.
+
+  It also corrects one sentence of §6 and rebinds #242 v1.3, whose §§0–3 are byte-identical to v1.2. No statement
+  changes, except that Corollary A.1 now covers `t = 3/4`. §9 lists the changed bytes.
+
 Author: Anthropic Claude (configured model `claude-opus-5-5`), session https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU,
 2 October 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE. Theorem A and everything after it are conditional on merged author-side candidates,
@@ -61,14 +72,15 @@ comes from #242's assembly of `Ĩ`, not from its `H` values (§5).
 
 **Not claimed.**
 - No unconditional statement: Theorem A rests on the sources named in the disposition.
-- On the curve `Δ`, only what §3 proves separately (the zero set, the minimum over `χ₀`, and `(0, 0)`).
+- On the curve `Δ`, only what §3 proves separately (the zero set, the minimum over `χ₀`, `(0, 0)`, and the fibre `(3/4, 0)`).
 - No field statement. Conjecture 7 of #242 is not addressed.
 - No certification of the §5 numbers.
 - No change to #242, #243, #170, [CUB] or any other packet.
 
 ## 1. Sources
 
-- **#242** (open; consumed at head `b82b0ca`, PROOF blob `ad4beb84`). Used:
+- **#242** (open; consumed at head `d504cdb`, PROOF blob `5fd29e63`, v1.3). Its §§0–3 are byte-identical to v1.2's `ad4beb84`,
+  which Slices A–C of this packet read. Used:
   - (2.2)–(2.4): the normalization `φ, t, β, χ₀, χ`, the model (0.1) and typing;
   - the elder rule ("`S` kills `M` in the superlevel filtration of `G`"), read as in Step 1 of Lemma 2's proof: `S` kills
     `M` iff the maximin level of `M` is `L_S`;
@@ -78,7 +90,7 @@ comes from #242's assembly of `Ĩ`, not from its `H` values (§5).
   - (4.2): `Ĩ`, `R_{2/3}`;
   - §§2, 3 and 5: the values compared.
 
-  Lemma 2's scan is not used. Lemma 3 is compared, not consumed.
+  Lemma 2's scan is not used. Lemma 3 is compared, not consumed: the finiteness in §4 uses (2.8).
 - **#170** (merged author-side candidate, OpenAI; `frontiers/local_elder_geometry_20260930/PROOF.md`, blob `ef2aa579`). Used:
   - §2: the typed cubic `P_θ`, the shear quantities `B`, `D`, the null sets `Σ_k`, `Δ_k`, the set `C(P)` of additional
     critical points with values in `(−k, 0)`, and `h_*(P) = max({−k} ∪ P(C(P)))`;
@@ -185,8 +197,11 @@ Explicitly, with `y := ψ_e − c′`:
   - Otherwise, Cardano's formula gives the largest real root.
     - Generically there is one simple real root.
     - When `σ = 0 < −c′`, there is also a double root `y = c′` below it, and Cardano's value is `2|c′|`.
-    - The two cube roots are `A^{2/3}` and `(c′³/A)^{2/3}`, because `(|σ| ± √(σ² − c′³))² = 2σ² − c′³ ± 2|σ|√(σ² − c′³)` and
-      the product of the two is `c′³`.
+    - For `y³ + py + q = 0` with `p = −3c′²` and `q = 2c′³ − 4σ²`, the two radicands are
+      `−q/2 ± √(q²/4 + p³/27) = 2σ² − c′³ ± 2|σ|√(σ² − c′³) = (|σ| ± √(σ² − c′³))²`.
+    - The unsquared conjugate factors satisfy `(|σ| + √(σ² − c′³))(|σ| − √(σ² − c′³)) = c′³`. So the two real cube-root
+      terms are `A^{2/3}` and `(c′³/A)^{2/3} = c′²A^{−2/3}`, and their product is `c′² = −p/3`, as Cardano requires
+      (OA-244-A-01).
   - On `σ² = c′³` both formulas give `y = 2c′`. ∎
 
 **Remarks.**
@@ -210,6 +225,8 @@ Explicitly, with `y := ψ_e − c′`:
 
 Write `I₀(t) := Φ(1 − t, 8 − 12t)`. On the line `χ₀ = 0`, the curve `Δ` meets only `t = 0` and `t = 3/4`, because
 `σ² − c′³ = t²(t − 3/4)` there. By Theorem A, `I(t, 0) = I₀(t)` for `t ∉ {0, 3/4}`. By Remark 2 it also holds at `t = 0`.
+At `t = 3/4` every typed `φ` lies on `Δ`, and the last item of the proof of Corollary A.1 proves it directly
+(OA-244-B-01).
 
 **Corollary A.1 (`χ₀ = 0`).** Here `R = 4(2 − 3t)`, and
 
@@ -224,7 +241,7 @@ with roots `t` and `ψ_± = 3/2 − 2t ± (3/2)S`, where `S := √(1 − 4t/3)` 
     I₀(t) = t − 2/3                                                           (t ≥ 1).
 
 In particular:
-- **The edge switch is at exactly `t* = 2/3`.** For `t ≥ 2/3`, `t ≠ 3/4`, the elder edge is `φ_e = 1/t`, that is `β = 2`.
+- **The edge switch is at exactly `t* = 2/3`.** For `t ≥ 2/3` the elder edge is `φ_e = 1/t`, that is `β = 2`.
   #242 §2 (the numerical list after Lemma 3) located `t*` in `(0.65, 0.68)`.
 - `I₀` is strictly decreasing on `(−∞, 2/3]` and strictly increasing on `[2/3, ∞)`. Its minimum is `I₀(2/3) = 4/81`.
   - At `t = 2/3` it has a convex kink, with slopes `−13/9` and `5/9`.
@@ -260,7 +277,31 @@ In particular:
   - Expand `S = √(1 − 4x)` with `x = t/3`, using `√(1 − 4x) = 1 − 2Σ_{m≥0}C_m x^{m+1}`. This is the Taylor series of `ψ_+`,
     convergent for `|t| ≤ 3/4`.
   - By (3.2), `ψ_e = ψ_+` exactly on `t ≤ 2/3`.
-  - The coefficients of `I₀` follow (C3). ∎
+  - The coefficients of `I₀` follow (C3).
+- **The fibre `t = 3/4` (on `Δ`; OA-244-B-01).** The argument is the Slice B reviewer's (review 5393778724, OpenAI Codex),
+  checked here exactly (C3). Here `c′ = 1/4`, `R = −1` and `σ² = c′³`, so every typed `φ` lies on `Δ` and Theorem A does
+  not apply.
+  - Put `ψ = 1/φ > 1/4`, `P := 24φG`, `Z := 24φz` and `v := X + Z/8`. Then
+  
+        P = F_ψ(v) − (ψ/48)(Z − m_ψ(v))²,    m_ψ(v) = (3/(2ψ))(1 − 4v²),    F_ψ(v) = 2v³ − 3v/2 − ½ + (3/(64ψ))(1 − 4v²)²,
+
+    and `F_ψ′(v) = (3/ψ)(v² − ¼)(v + 2ψ)`.
+  - The critical points of `P` are the points `Z = m_ψ(v)` with `v ∈ {−2ψ, −½, ½}`. They are an extra saddle `Y`, the
+    maximum `M` and the saddle `S`.
+    - Their levels are `P(M) = 0`, `P(S) = −1` and `h_Y := P(Y) = −(4ψ − 1)³(4ψ + 3)/(64ψ)`. So
+      `h_Y + 1 = −(4ψ − 3)(4ψ + 1)³/(64ψ)`.
+    - In #242's coordinates, `Y = (ψ − 3/(16ψ), 1/16 − ψ²)`.
+    - The Hessian determinants of `G` at `M`, `S` and `Y` are `(4ψ − 1)/16`, `−(4ψ + 1)/16` and `(1 − 16ψ²)/32`. So all
+      three points are nondegenerate for `ψ > 1/4`.
+  - On `[−2ψ, ½]`, `F_ψ` increases to `F_ψ(−½) = 0` and then decreases, so `F_ψ ≤ 0` there, and `P ≤ F_ψ`. A path from `M`
+    to `{P > 0}` therefore crosses `v = −2ψ`, where `P ≤ h_Y`, or `v = ½`, where `P ≤ −1`.
+  - Along the ridge `Z = m_ψ(v)`, `P = F_ψ(v) → +∞` as `v → ±∞`, so both bounds are attained. Hence
+    `d_P(M) = max(h_Y, −1)`.
+  - So `S` kills `M` iff `h_Y ≤ −1`, iff `ψ ≥ 3/4`.
+    - At `ψ = 3/4` the saddles `S` and `Y` tie at level `−1`. The maximin mark is `1` there, and a single `φ` does not
+      affect `I`.
+    - Thus `𝓡(3/4, 0) = (4/3, 4)` and `ψ_e = 3/4 = t`.
+    - `I(3/4, 0) = ∫_{1/4}^{3/4}(ψ² − 1/16)dψ = 5/48 = I₀(3/4)`, as (3.2)–(3.3) state. ∎
 
 **Corollary A.2 (the dependence on `χ₀`).** Fix `t`.
 - (a) **Minimum and zero set.** `Φ(c′, ·)` depends on `R` only through `|R|`, and is nondecreasing in `|R|`, with minimum
@@ -300,8 +341,9 @@ In particular:
 
       I = (4/3)|t|³ + 3√3|t|^{5/2} + (17/2)t² + O(|t|^{3/2}).
 
-  #242 fitted `|t|³(4/3 + 5.74|t|^{−1/2})` to a table on `|t| ≤ 400`. With the exact terms,
-  `3√3 + (17/2)|t|^{−1/2} ∈ [5.62, 6.05]` on that range.
+  #242 §5(4) uses `|t|³(4/3 + 5.74|t|^{−1/2})` beyond its table on `|t| ≤ 400`; it does not record how the constant `5.74`
+  was obtained. With the exact terms, `3√3 + (17/2)|t|^{−1/2} ∈ [5.62, 6.05]` for `100 ≤ |t| ≤ 400` (OA-244-B-02); at
+  `|t| = 1` it is about `13.70`.
 - **As `|χ₀| → ∞` at fixed `t`.** `ψ_e = (R²/16)^{1/3} + c′ + O(|R|^{−2/3})`, so `φ_e|χ₀|^{2/3} → 16^{1/3}`. Also
   `I = R²/48 + c′(R²/16)^{2/3} + O(|R|^{2/3})`. At `t = 0` this is `I(0, χ₀) = χ₀²/48 + 16^{−2/3}|χ₀|^{4/3} + O(|χ₀|)`.
 - **As `t → +∞` at fixed `χ₀`.** `I = t − 2/3 − χ₀/3 + O(1/t)`.
@@ -355,11 +397,17 @@ referee; its proof is given below.
   - Also `|R₂(τ)| ≤ C_R(1 + |τ|³)`.
 - (b) The integral (4.3) converges, and equals the value stated.
 
-*Proof of (a).*
-- On `[−2/3, 2/3]`, `R₂` is analytic (3.3). Its Taylor polynomial of degree `2` vanishes, and the series (3.4) gives the
-  expansion of `R₂(τ) + R₂(−τ)`, which is even.
-- For `|τ| ≥ 2/3`, both sides are bounded by `C(1 + |τ|³)` (by (2.8), or by (3.3) for `τ ≥ 1`), which is at most a constant
-  times `τ⁴` and `τ⁶`.
+*Proof of (a).* Put `E(τ) := R₂(τ) + R₂(−τ)`, which is even.
+- *Near `0`.* `R₂` is analytic in a neighbourhood of `0`. For `τ < 2/3` it is the first line of (3.3) minus `T₂`, which is
+  analytic for `τ < 3/4`. The piecewise `R₂` has the kink of Corollary A.1 at `+2/3`, so it is not analytic through that
+  point (OA-244-C-01).
+  - Its Taylor polynomial of degree `2` vanishes, and the series (3.4) gives the expansion of `E`.
+  - So `|E(τ)| ≤ Cτ⁴` and `|E(τ) + (14/27)τ⁴| ≤ Cτ⁶` near `0`.
+- *For `τ ≥ 2/3`.* `|E(τ)| ≤ C(1 + τ³) ≤ C₁τ⁴`, by (2.8), or by (3.3) for `τ ≥ 1`. Also
+  `|E(τ) + (14/27)τ⁴| ≤ C(1 + τ³) + (14/27)τ⁴ ≤ C₂τ⁶`.
+- *In between.* On any compact interval in `(0, 2/3]` both functions are continuous and the powers of `τ` are bounded
+  below. So the two bounds hold for all `τ ≥ 0`.
+- *Growth.* `|R₂(τ)| ≤ C_R(1 + |τ|³)` follows from (2.8) and `T₂(τ) = O(1 + τ²)`.
 
 *Proof of (b).*
 - **The pieces.** On `0 < τ ≤ 2/3`, (3.3) gives
@@ -398,7 +446,8 @@ and `R² = 16ρ²(ρ + 3c′)`. Moreover:
 
       0 ≤ Δ₂ := ½[Φ(c′, r + h) + Φ(c′, r − h)] − Φ(c′, r) ≤ h²/32 + (κ(c′)/2)|h|·1{|r| < |h|}.                        (4.4)
 
-  If `|r| ≥ |h|`, then `Δ₂ = (h²/2)∂_R²Φ(c′, ξ)` for some `ξ` between `r − h` and `r + h`.
+  If `h = 0`, then `Δ₂ = 0`. If `h ≠ 0` and `|r| ≥ |h|`, then `Δ₂ = (h²/2)∂_R²Φ(c′, ξ)` for some `ξ` strictly between
+  `r − h` and `r + h` (OA-244-C-02).
 
 *Proof.*
 - **The relation.** `ψ_e − 2c′ = ρ` and `ψ_e + c′ = ρ + 3c′`, so `g_{c′}(ψ_e) = R²` reads `R² = 16ρ²(ρ + 3c′)`.
@@ -417,8 +466,12 @@ and `R² = 16ρ²(ρ + 3c′)`. Moreover:
     than `(3/2)/(ρ − 3m)`, because `(3/2)(ρ − m)(ρ − 2m) > 3m(ρ − 2m) > m(ρ − 3m)`.
   - The limits at `R → 0±` are `F(0) = (3c′)^{3/2}/12` (`c′ > 0`) and `0` (`c′ ≤ 0`).
 - **(d).** `Δ₂ = ½∫_0^{|h|}[∂_RΦ(r + u) − ∂_RΦ(r − u)]du`. The bracket is at most `∫_{r−u}^{r+u}∂_R²Φ + κ·1{|r| < u}`, which
-  is at most `u/8 + κ·1{|r| < u}`. If `|r| ≥ |h|`, `Φ` is `C²` on the interval, and Taylor's formula gives the mean-value
-  form. ∎
+  is at most `u/8 + κ·1{|r| < u}`.
+  - Now let `h ≠ 0` and `|r| ≥ |h|`. The open interval `(r − |h|, r + |h|)` does not contain the kink `R = 0`; it may touch
+    it at an endpoint when `|r| = |h|`.
+  - On that interval `Φ` is `C²`, and `Δ₂ = ½∫_0^{|h|}(|h| − u)[∂_R²Φ(r + u) + ∂_R²Φ(r − u)]du`.
+  - `∂_R²Φ` is continuous there, with finite one-sided limits at the ends by (b). The weight `|h| − u` is positive on
+    `[0, |h|)`. So the weighted mean-value theorem gives `ξ` strictly inside the interval. ∎
 
 *Proof of Theorem B.* By Theorem A, for almost every `(γ, B, C₃)`, `I(t, χ₀) = Φ(c′, r + χ₀)` with `c′ = 1 − t` and
 `r := 8 − 12t`. By (2.8), `γ⁶Φ ≤ C(γ⁶ + 1728k³|B|³ + 331776k⁴C₃²)`, so every expectation below is finite. Write
@@ -571,13 +624,14 @@ independent scripts are in `referee_checks/` there.
   stated results. It sharpens several:
   - `t*` (§2 there) is exactly `2/3`;
   - the asymptotic constants of §5(3)–(4) there are replaced by exact expansions;
-  - the fourth decimals of #242 §5's `H` table at `k = 0.3–0.6` change (§5 here);
+  - at four decimals, #242 v1.2's `H` row changes at `k = 0.1` and `0.3–0.6`, and its `H₀` row at `k = 0.4` (§5 here);
   - the small-`k` coefficient of `Δ_χ` is `66.56`, not `≈ 62`;
   - `Ĩ` is `−0.5337`.
 
   #242's author disclosed the scanner artifact on #242 (comment 5953336662). That comment attributes the `Ĩ` change to the
   scanner; §5 above corrects this. #242 Proposition 4's `H(k) = 1 + (12/25)k² + O(k³)`, and Codex's `O(k^{7/2})`, are
-  sharpened by Theorem B.
+  sharpened by Theorem B. #242 v1.3 (`d504cdb`) adopts the corrected §5 values and records both scanner artifacts; its
+  §§0–3, which this packet consumes, are unchanged.
 - **#243 (open).** FL.7 is the same identification as Lemma 1. Through Theorem FL, `F(k; b, u) = F₀H(k)` for the Gaussian kernel
   is now an explicit Gaussian integral of an algebraic function.
 - **#170 and [CUB] (merged, at their stated conditional scope).** Theorem E(1), Theorem C and the height identities are
@@ -596,7 +650,7 @@ parsing the checker's stderr against `SOURCES.json`. An unknown label exits 2.
 |---|---|
 | C1 | Lemma 1: (i) as a polynomial identity in `(X, z)` at 30 random rational `(φ, t, χ₀)`; (2.2)–(2.4) exactly; typing iff `ψ > \|c′\|`, and `s ≤ B` iff `ψ ≥ 2c′` |
 | C2 | `g′ = 48ψ(ψ − 2c′)`, `g(ψ₀) = 0`; the shift `y = ψ − c′`; the discriminant `432σ²(c′³ − σ²)`; (2.6) against bisection (floating point) on 600 points, including both branches, `c′ = 0` and `σ = 0`, with the formula's value `≥ ψ₀`; (2.8) at rational points |
-| C3 | Corollary A.1: (3.1) as a polynomial identity; (3.3) from (2.5) at rational `S` (`t = 3(1 − S²)/4`); the root ordering behind `t* = 2/3`; the values `20/3`, `4/81`, `1/3`; the derivative formula `I₀′ = −δ[2ψ_e + (ψ_e + c′)/S]` against the exact derivative of (3.3) at rational `S`; the slopes `−13/9`, `5/9`, `1` and `I₀″(1) = 0`; strict monotonicity on a rational grid; the Catalan series (3.4) and the series of `I₀` to order 12 |
+| C3 | Corollary A.1: (3.1) as a polynomial identity; (3.3) from (2.5) at rational `S` (`t = 3(1 − S²)/4`); the root ordering behind `t* = 2/3`; the values `20/3`, `4/81`, `1/3`; the derivative formula `I₀′ = −δ[2ψ_e + (ψ_e + c′)/S]` against the exact derivative of (3.3) at rational `S`; the slopes `−13/9`, `5/9`, `1` and `I₀″(1) = 0`; strict monotonicity on a rational grid; the Catalan series (3.4) and the series of `I₀` to order 12. The fibre `t = 3/4` (v1.1): `σ² = c′³`, and at eight rational `ψ > 1/4` the completed square as a polynomial identity in `(v, Z)`, `F_ψ′`, `h_Y` and `h_Y + 1`, `F_ψ(±½)`, the critical point `Y` and `G(Y) = h_Yψ/24`, the three Hessian determinants, and the sign of `h_Y + 1`; `I(3/4, 0) = 5/48` |
 | C4 | Corollary A.2: `g₀(ψ) = 16ψ³`, and `I(1, χ₀) = (χ₀ − 4)²/48` with `ψ_e` found independently by bisection (floating point); the minimum `(4/3)c′³` and the zero set in both directions; (2.7) as a polynomial identity given the cubic; `∫_{c′}^{2c′}(ψ² − c′²)dψ = (4/3)c′³` |
 | C5 | Corollary A.4 at 400 rational typed points with `β > 2`, `χ₀ ≤ 0`: `g_{c′}(t) = 16(3t − 2)²`, `R² ≥ g_{c′}(t) > g_{c′}(ψ)`, and the failure of (A) |
 | C6 | Lemma B.2: (a) at rational points with rational square roots; the reduction of `∂_R²Φ` to `(3p³ + 2c′p² + c′²p + 2c′³)/(72p³)` as a polynomial identity; the range `[0, 1/16]` and `∂_R²Φ(1, 8) = 13/243`; the one-sided limits of `F` (jump `κ`, and `0` for `c′ ≤ 0`) as exact values of `F`; (4.4) at 300 random points (floating point) |
@@ -609,7 +663,8 @@ parsing the checker's stderr against `SOURCES.json`. An unknown label exits 2.
 - Theorem A is conditional on #170 Theorem E(1), [CUB] Theorem C and [CUB]'s height identities (C8)–(C11) (merged author-side
   candidates at their stated conditional scope). Lemma 1(iii) and, on `Δ`, Corollary A.2 (with #170 §3) are where they enter.
   Everything after Theorem A inherits this condition.
-- On `Δ`, only Corollary A.2(a)–(b) and `(0, 0)` are claimed. Corollary A.1 at `t = 3/4` is a statement about `I₀`.
+- On `Δ`, only Corollary A.2(a)–(b), `(0, 0)` and the fibre `(3/4, 0)` (the last item of Corollary A.1's proof) are
+  claimed.
 - No statement about the actual Gaussian field. The fold-scale limit is #243 (open) and #170/#175 (merged).
 - The §5 values are numerical, uncertified exploration.
 - Conjecture 7 of #242 (the `ℓ^{2/3}` term of `ρ_rej`) is not addressed. Its missing inputs (i)–(iii) are unchanged.
@@ -624,3 +679,21 @@ parsing the checker's stderr against `SOURCES.json`. An unknown label exits 2.
   match their claims.
 
 Per slice, record ACCEPT, ACCEPT WITH FIXES (with a list), or REJECT (with the failing step).
+
+**Nonauthor reviews of v1** (`1781c0f`, PROOF blob `310ef828`; OpenAI Codex, same account, organizational independence 0):
+A (5393530365), B (5393778724) and C (5393825372), each ACCEPT WITH FIXES; and Codex's automated review (5393535561, two P2
+findings, one on the workflow). Slice D is open.
+
+**Changed bytes in v1.1** (for delta checks against those reviews):
+- *Header:* the object label and versions.
+- *§0:* the "Not claimed" item on `Δ`.
+- *§1:* the #242 binding (v1.3) and the Lemma 3 sentence.
+- *§2 (slice A):* the Cardano items in the proof of Theorem A (A-01).
+- *§3 (slice B):*
+  - the sentence before Corollary A.1, and its edge-switch item;
+  - the new last item of its proof (B-01);
+  - the sentence after the `t → −∞` expansion in Corollary A.3 (B-02).
+- *§4 (slice C):* the proof of Lemma B.1(a) (C-01); the last sentence of Lemma B.2(d), and the proof of (d) (C-02).
+- *§§6–9:* the #242 item of §6, the C3 row of §7, the `Δ` item of §8, and this list.
+
+The statements of Theorems A and B and Corollaries A.2–A.4 are unchanged. So are §5 and the other proofs.

@@ -1,12 +1,17 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-SOFT-CLOSED-FORM-20261002-v1",
- "kind": "author-side proof candidate, conditional on the merged #170 Theorem E(1) and [CUB] Theorem C: Theorem A (the elder test of #242's fold-scale soft model in closed form, psi >= 2c' and (chi0 + 8 - 12t)^2 <= 16 (psi - 2c')^2 (psi + c'); the rejected set (1/psi_e, 1/|c'|) and I = |c'| delta^2 + delta^3/3 with explicit psi_e); Corollaries A.1-A.4 (chi0 = 0: t* = 2/3, elementary I(t, 0), the Catalan series; I(1, chi0) = (chi0 - 4)^2/48; the zero set t >= 1, chi0 = 12t - 8; the kink; exact asymptotics; beta > 2, chi <= 0 rejected); Lemma 1 (#243 FL.7(i)-(iii) in #242 normalization); Theorem B (H(k) = 1 + (12/25)k^2 + h_{7/2} k^(7/2) + h_4 k^4 + o(k^4) with h_{7/2} = 16 Gamma(9/4)(1728 sqrt6 - 4332 sqrt2 - 2721)/(2625 pi) and h_4 = 728/25, the k^4 coefficient derived by the referee)",
+ "object": "CL-SOFT-CLOSED-FORM-20261002-v1.1",
+ "supersedes": {
+  "object": "CL-SOFT-CLOSED-FORM-20261002-v1",
+  "head": "1781c0fd37469a0840f3c768d2b505ef6319133e",
+  "proof_blob": "310ef82832a51bc876494f72fc3f002ea2bfaea0"
+ },
+ "kind": "author-side proof candidate, conditional on the merged #170 Theorem E(1) and [CUB] Theorem C (v1.1: applies the nonauthor findings OA-244-A-01 (Cardano wording), B-01 (a direct proof on the fibre t = 3/4, chi0 = 0, which lies on Delta; the Slice B reviewer's argument; also automated finding 4167121706), B-02 (a range in Corollary A.3), C-01 and C-02 (wording in Lemmas B.1-B.2), and the automated workflow finding 4167121714; rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical): Theorem A (the elder test of #242's fold-scale soft model in closed form, psi >= 2c' and (chi0 + 8 - 12t)^2 <= 16 (psi - 2c')^2 (psi + c'); the rejected set (1/psi_e, 1/|c'|) and I = |c'| delta^2 + delta^3/3 with explicit psi_e); Corollaries A.1-A.4 (chi0 = 0: t* = 2/3, elementary I(t, 0), the Catalan series; I(1, chi0) = (chi0 - 4)^2/48; the zero set t >= 1, chi0 = 12t - 8; the kink; exact asymptotics; beta > 2, chi <= 0 rejected); Lemma 1 (#243 FL.7(i)-(iii) in #242 normalization); Theorem B (H(k) = 1 + (12/25)k^2 + h_{7/2} k^(7/2) + h_4 k^4 + o(k^4) with h_{7/2} = 16 Gamma(9/4)(1728 sqrt6 - 4332 sqrt2 - 2721)/(2625 pi) and h_4 = 728/25, the k^4 coefficient derived by the referee)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "f5347541a6ef7b84de96120dcce6137b816b8033"
+  "branch_base": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
  },
  "consumed": [
   {
@@ -29,12 +34,12 @@
  "consumed_unmerged": [
   {
    "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
-   "bytes": 79394,
-   "sha256": "ab952b2a2c7648beb5f7473b3f028cdc495c8317c52522bee144d26eecc8e2bb",
-   "git_blob": "ad4beb8467a775c7c76f85d5584c13338d0e66be",
+   "bytes": 87672,
+   "sha256": "2d6981593fc32533fd3f3a25c8c424bff829c7b2baa47da148b9502520e62467",
+   "git_blob": "5fd29e63e81980a968009c7e8c3ba8e0af9e46a8",
    "tag": "242",
-   "use": "Math- #242 (open; v1.2 with README amendment): (2.2)-(2.4) (normalization, the model (0.1), typing), the elder rule (S kills M in the superlevel filtration), (2.5) (the rejected set and I), Lemma 3 (the bound I <= (8000/3) max(1, |t|^3, chi0^2), for integrability in Theorem B), Proposition 4 (the definition of H and the jet law), (4.2) (I~ and R_{2/3}), sections 2, 3 and 5 (the values compared); Lemma 2 is cited for the rule (Step 1 of its proof) and Lemma 3 is compared, not consumed",
-   "head": "b82b0ca16926666adb8895c21801b6e85d7e18df",
+   "use": "Math- #242 (open; v1.3, whose sections 0-3 are byte-identical to v1.2 blob ad4beb84, which Slices A-C of this packet read): (2.2)-(2.4) (normalization, the model (0.1), typing), the elder rule (S kills M in the superlevel filtration), (2.5) (the rejected set and I), Proposition 4 (the definition of H and the jet law), (4.2) (I~ and R_{2/3}), sections 2, 3 and 5 (the values compared); Lemma 2 is cited for the rule (Step 1 of its proof); Lemma 3 is compared, not consumed (the finiteness in section 4 uses (2.8) here)",
+   "head": "d504cdb15851b4a9140755fee6a295282c503ed4",
    "pr": "Math- #242"
   }
  ],
@@ -42,12 +47,12 @@
  "cited_unmerged": [
   {
    "path": "frontiers/soft_fold_limit_20261002/PROOF.md",
-   "bytes": 72742,
-   "sha256": "7716a113bcf8c1725f9ec771d58ef033767f0a7bb50d592b841ca0ffe86f31af",
-   "git_blob": "3d9faa87d717fbd68b784b2ae408505fb2cc56dc",
+   "bytes": 77255,
+   "sha256": "2c7202ea7dab1313ee57f682d241904aea62d340238ec824ad05f551320f2907",
+   "git_blob": "2652db8721d654b47763b18eea6b97ba9a0dc281",
    "tag": "243",
-   "use": "Math- #243 (open; v1.2): Proposition FL.7 (the identification of #242's model with #170's cubic), re-derived here as Lemma 1 in #242's normalization so that this packet does not consume #243; the v1.1 referee's note on the scanner near X = 1/2 (section 5 there)",
-   "head": "11a4cd4e3b3f927eb9d4a743d8a43e387f1a66da",
+   "use": "Math- #243 (open; v1.3): Proposition FL.7 (the identification of #242's model with #170's cubic), re-derived here as Lemma 1 in #242's normalization so that this packet does not consume #243; the v1.1 referee's note on the scanner near X = 1/2 (section 5 there)",
+   "head": "483556485cf15cc8662425e2195699029c713ff5",
    "pr": "Math- #243"
   }
  ],
@@ -71,6 +76,60 @@
    "ref": "Math- #242 issuecomment-5953336662",
    "by": "Anthropic Claude (author of #242)",
    "use": "the author disclosure of the scanner artifact in #242 section 5"
+  },
+  {
+   "ref": "Math- #244 pullrequestreview-5393778724",
+   "by": "OpenAI Codex (Slice B of this packet)",
+   "use": "the direct proof on the fibre t = 3/4, chi0 = 0 (OA-244-B-01), inserted as the last item of the proof of Corollary A.1 and checked exactly in C3"
+  }
+ ],
+ "nonauthor_reviews": [
+  {
+   "slice": "A (sections 1-2)",
+   "review": "pullrequestreview-5393530365",
+   "at": "1781c0f",
+   "verdict": "ACCEPT WITH FIXES",
+   "findings": [
+    "OA-244-A-01 (NIT)"
+   ],
+   "applied_in": "v1.1",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "B (section 3)",
+   "review": "pullrequestreview-5393778724",
+   "at": "1781c0f",
+   "verdict": "ACCEPT WITH FIXES",
+   "findings": [
+    "OA-244-B-01 (MINOR)",
+    "OA-244-B-02 (MINOR)"
+   ],
+   "applied_in": "v1.1",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "C (section 4)",
+   "review": "pullrequestreview-5393825372",
+   "at": "1781c0f",
+   "verdict": "ACCEPT WITH FIXES",
+   "findings": [
+    "OA-244-C-01 (MINOR)",
+    "OA-244-C-02 (NIT)"
+   ],
+   "applied_in": "v1.1",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "automated (chatgpt-codex-connector)",
+   "review": "pullrequestreview-5393535561",
+   "at": "1781c0f",
+   "verdict": "two P2 suggestions",
+   "findings": [
+    "4167121706 (the t = 3/4 fibre; = OA-244-B-01)",
+    "4167121714 (workflow: a merged dependency must be present in the tree)"
+   ],
+   "applied_in": "v1.1",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
   }
  ],
  "mutants": {
@@ -102,23 +161,23 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 46949,
-   "sha256": "a6c29a529af87da69ea7929bccd2ad81cad313cecb235ad8bf2dea274d2acb96"
+   "bytes": 52899,
+   "sha256": "f67c017f031b89d804317b7a8c06a55ac0068c684593541b25484c0599fb61ca"
   },
   {
    "path": "README.md",
-   "bytes": 7012,
-   "sha256": "6d9c29ad7bdc802804bad8dc048df584d61c24180c4f41491bb7884c4052deff"
+   "bytes": 8834,
+   "sha256": "48ca19a8f22c0f52c182d3a6ec78208f040be5777c9bfc1401784ed1401b2c8b"
   },
   {
    "path": "closed_form_check.py",
-   "bytes": 35688,
-   "sha256": "66bcd280a43e54b877312961c54cb95bbb11d434eca37e9252cb4c7e1bfe96ee"
+   "bytes": 38455,
+   "sha256": "2940bda8ee5af80458298f128ee10b1f1836e94a562ddc7bbcd3fadbfa38ff78"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 2021,
-   "sha256": "fddc8f2af4a1209e958791f5ef88b4a39f1107fa6a569abd70dc867f71fb4201"
+   "bytes": 2109,
+   "sha256": "5c169d78cb8e7177e7bc5ef894b0d2cc1f10cb78ff515c053b1bf90c42bcd13a"
   }
  ],
  "exploration_manifest": {
@@ -208,6 +267,16 @@
     "path": "exploration/antider2.py",
     "bytes": 1116,
     "sha256": "28a0fe1e50ec497e121508d7492157dda5adb858493b94861feaaaead5e1726c"
+   },
+   {
+    "path": "exploration/b01_check.log",
+    "bytes": 442,
+    "sha256": "c3af469638521cf21c00c7f322a42f17a08aa696014606cf7538f776adecfa36"
+   },
+   {
+    "path": "exploration/b01_check.py",
+    "bytes": 2463,
+    "sha256": "c845dcdfbf03007642ad31b236622f29c252762a6ee19fcdc56bef88c7f2105d"
    },
    {
     "path": "exploration/cf.py",

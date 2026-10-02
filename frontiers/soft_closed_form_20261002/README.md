@@ -4,7 +4,19 @@
 their stated conditional scope: #170 Theorem E(1), [CUB] Theorem C, and [CUB]'s height identities (C8)–(C11). Nonauthor
 review required.**
 
-Object `CL-SOFT-CLOSED-FORM-20261002-v1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-SOFT-CLOSED-FORM-20261002-v1.1`. Full text: [`PROOF.md`](PROOF.md).
+
+Versions:
+- v1 `1781c0f`.
+- v1.1 applies the findings of OpenAI Codex's nonauthor Slices A–C:
+  - OA-244-A-01, the Cardano wording;
+  - OA-244-B-01, a direct proof on the fibre `t = 3/4`, `χ₀ = 0`, which lies on `Δ` (the reviewer's argument). This also
+    answers the automated finding 4167121706.
+  - OA-244-B-02, a range in Corollary A.3;
+  - OA-244-C-01 and C-02, wording in Lemmas B.1–B.2.
+
+  It also applies the automated finding 4167121714: once #242 merges, the workflow requires #242's pinned source in the
+  tree. It rebinds #242 v1.3 (`d504cdb`), whose consumed §§0–3 are byte-identical to v1.2.
 
 ## Result
 
@@ -18,7 +30,7 @@ and [CUB] Theorem C decide the model exactly. Put `ψ = 1/φ`, `c′ = 1 − t` 
 | | Statement | Status |
 |---|---|---|
 | **Theorem A** | Elder iff `ψ ≥ 2c′` and `R² ≤ 16(ψ − 2c′)²(ψ + c′)`, off the curve `Δ = {(R/8)² = c′³}` and finitely many `φ`. So `𝓡(t, χ₀) = (1/ψ_e, 1/\|c′\|)`, where `ψ_e` is the largest root of that cubic (trigonometric or Cardano form), and `I = \|c′\|δ² + δ³/3` with `δ = ψ_e − \|c′\|`. | proof, conditional |
-| **Corollary A.1** | At `χ₀ = 0` the cubic factors, so `t* = 2/3` exactly (#242 had `(0.65, 0.68)`). `I(t, 0)` is elementary: an algebraic expression for `t ≤ 2/3`, then `(2t − 1)²(2 − t)/3`, then `t − 2/3` for `t ≥ 1`. Its minimum is `4/81`, and `ψ_e`'s Taylor coefficients are Catalan numbers. | proof (as Theorem A) |
+| **Corollary A.1** | At `χ₀ = 0` the cubic factors, so `t* = 2/3` exactly (#242 had `(0.65, 0.68)`). The fibre `t = 3/4`, which lies on `Δ`, is proved directly (v1.1). `I(t, 0)` is elementary: an algebraic expression for `t ≤ 2/3`, then `(2t − 1)²(2 − t)/3`, then `t − 2/3` for `t ≥ 1`. Its minimum is `4/81`, and `ψ_e`'s Taylor coefficients are Catalan numbers. | proof (as Theorem A) |
 | **Corollaries A.2–A.4** | `I(1, χ₀) = (χ₀ − 4)²/48`. `I ≥ (4/3)(1 − t)₊³`, and `I = 0` exactly on `t ≥ 1`, `χ₀ = 12t − 8`; this includes `Δ`. There is a convex kink along `χ₀ = 12t − 8`, `t < 1`. Exact asymptotics, for example `I = (4/3)\|t\|³ + 3√3\|t\|^{5/2} + (17/2)t² + O(\|t\|^{3/2})` as `t → −∞`. For `β > 2`, `χ ≤ 0` the pair is always rejected. | proof (as Theorem A) |
 | **Theorem B** | `H(k) = 1 + (12/25)k² + h_{7/2}k^{7/2} + (728/25)k⁴ + o(k⁴)` with `h_{7/2} = 16Γ(9/4)(1728√6 − 4332√2 − 2721)/(2625π) = −10.1440440…`. The `k^{7/2}` term comes from the `γ ≈ √k` region. This is the sharp term that Codex's OA-242-C-01 left open. The `k⁴` coefficient is the referee's. | proof, conditional on Theorem A |
 
@@ -89,10 +101,24 @@ Mutants `M1`–`M9` each fail only their own control, and CI checks this. An unk
 
 The report and scripts are in the project archive.
 
+**Nonauthor reviews of v1 (`1781c0f`; OpenAI Codex, same account, organizational independence 0).**
+- Slice A, §§1–2 (5393530365): ACCEPT WITH FIXES. It has one NIT, A-01: the Cardano wording. Its independent checks include
+  (2.6) against bisection on 10,008 cases.
+- Slice B, §3 (5393778724): ACCEPT WITH FIXES.
+  - B-01 (MINOR) confirms automated finding 4167121706: the fibre `t = 3/4`, `χ₀ = 0` lies on `Δ`. The review supplies
+    the direct proof that v1.1 inserts, and v1.1 checks it exactly (C3) and with sympy (exploration).
+  - B-02 (MINOR) corrects a range in Corollary A.3.
+- Slice C, §4 (5393825372): ACCEPT WITH FIXES. Its findings are C-01 (MINOR), the local-analytic wording and the large-`τ`
+  bounds in Lemma B.1(a), and C-02 (NIT), `h = 0` and the one-sided endpoint in Lemma B.2(d). It independently reconstructs
+  `Λ`, `h_{7/2}`, `32256`, `53248` and `728/25`, and proves that the kink contributes only `o(k⁴)`.
+- Automated review (5393535561): the two P2 findings above, 4167121706 and 4167121714 (the workflow). Both are applied in
+  v1.1.
+- Slice D (§§5–7) is open.
+
 ## Not claimed
 
 - No unconditional statement: everything rests on #170 Theorem E(1) and [CUB].
-- On `Δ`, only the zero set, the minimum over `χ₀`, `I(1, χ₀)` and `(0, 0)` are claimed.
+- On `Δ`, only the zero set, the minimum over `χ₀`, `I(1, χ₀)`, `(0, 0)` and the fibre `(3/4, 0)` are claimed.
 - No field statement, and nothing on #242's Conjecture 7.
 - No certification of the numerics.
 - No priority for the identification of #242's model with #170's cubic (#243 FL.7).

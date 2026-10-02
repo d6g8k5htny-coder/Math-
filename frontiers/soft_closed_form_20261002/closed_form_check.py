@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-SOFT-CLOSED-FORM-20261002-v1 (Theorem A, Corollaries A.1-A.4, Lemmas B.1-B.2, Theorem B;
+"""Exact controls for CL-SOFT-CLOSED-FORM-20261002-v1.1 (Theorem A, Corollaries A.1-A.4, Lemmas B.1-B.2, Theorem B;
 PROOF.md).
 
 Standard library only. Exact rationals, except where a control says floating point: C2 (the explicit roots (2.6) against
@@ -21,7 +21,11 @@ Controls
       floating point on 600 points (both branches, cp = 0, sigma = 0), with psi_e >= psi0
   C3  Corollary A.1: (3.1) as a polynomial identity in (psi, t); (3.3) from (2.5) at rational S (t = 3(1 - S^2)/4); the
       ordering psi_+ >= t iff t <= 2/3; the values 20/3, 4/81, 1/3; the slopes -13/9, 5/9 and 1; strict monotonicity on a
-      rational grid; the Catalan series (3.4) and the series of I(t, 0) to order 12 (exact power series)
+      rational grid; the Catalan series (3.4) and the series of I(t, 0) to order 12 (exact power series); v1.1, the fibre
+      t = 3/4, chi0 = 0 on Delta (OA-244-B-01): sigma^2 = cp^3, and at eight rational psi > 1/4 the completed square
+      24 phi G = F(v) - (psi/48)(Z - m(v))^2 (Z = 24 phi z, v = X + Z/8) as a polynomial identity in (v, Z), F', h_Y and
+      h_Y + 1, F(-1/2) = 0, F(1/2) = -1, the critical point Y with G(Y) = h_Y psi/24, the Hessian determinants at M, S, Y,
+      the sign of h_Y + 1; I(3/4, 0) = 5/48
   C4  Corollary A.2: I(1, chi0) = (chi0 - 4)^2/48; the minimum (4/3) cp^3 (cp > 0) and the zero set (cp <= 0) at R = 0;
       the identity (2.7) as a polynomial identity in (cp, y) given the cubic for y
   C5  Corollary A.4: g(t) = 16 (3t - 2)^2 when cp = 1 - t, and on 400 rational typed points with beta > 2, chi0 <= 0 the
@@ -306,6 +310,45 @@ def I0_exact_at_S(S):
     return t, None
 
 
+def ev1v(poly, i, val):
+    """evaluate a polynomial in the single variable i at a rational"""
+    return sum(c * val ** k[i] for k, c in poly.t.items())
+
+
+def ev2v(poly, x0, z0):
+    """evaluate a polynomial in V0, V1 at (x0, z0)"""
+    return sum(c * x0 ** k[0] * z0 ** k[1] for k, c in poly.t.items())
+
+
+def fibre_34(psi):
+    """OA-244-B-01: the fibre t = 3/4, chi0 = 0 (on Delta for every typed phi) at a rational psi > 1/4 (PROOF section 3)"""
+    ok = True
+    X, z = V0, V1
+    phi = 1 / psi
+    beta = 2 * Fr(3, 4) * phi
+    G = 2 * (X + H) ** 2 * (X - 1) * Fr(1, 24) * psi + H * (X * X - Fr(1, 4)) * z - H * (1 - beta * X) * z * z
+    v, Zv = V2, V3
+    Pp = (G * (24 * phi)).subs(1, Zv * (psi / 24)).subs(0, v - Zv * Fr(1, 8))
+    m = Fr(3, 2) / psi * (1 - 4 * v * v)
+    F = 2 * v ** 3 - Fr(3, 2) * v - H + Fr(3, 64) / psi * (1 - 4 * v * v) ** 2
+    ok &= (Pp - (F - psi / 48 * (Zv - m) ** 2)).is_zero()
+    ok &= (F.diff(2) - (3 / psi) * (v * v - Fr(1, 4)) * (v + 2 * psi)).is_zero()
+    hY = ev1v(F, 2, -2 * psi)
+    ok &= hY == -(4 * psi - 1) ** 3 * (4 * psi + 3) / (64 * psi)
+    ok &= hY + 1 == -(4 * psi - 3) * (4 * psi + 1) ** 3 / (64 * psi)
+    ok &= ev1v(F, 2, -H) == 0 and ev1v(F, 2, H) == -1
+    xY, zY = psi - Fr(3, 16) / psi, Fr(1, 16) - psi * psi
+    ok &= ev2v(G.diff(0), xY, zY) == 0 and ev2v(G.diff(1), xY, zY) == 0
+    ok &= ev2v(G, xY, zY) == hY * psi / 24
+    ok &= ev2v(G, -H, Fr(0)) == 0 and ev2v(G, H, Fr(0)) == -psi / 24
+    Gxx, Gxz, Gzz = G.diff(0).diff(0), G.diff(0).diff(1), G.diff(1).diff(1)
+    det = lambda x0, z0: ev2v(Gxx, x0, z0) * ev2v(Gzz, x0, z0) - ev2v(Gxz, x0, z0) ** 2
+    ok &= det(-H, Fr(0)) == (4 * psi - 1) / 16 and det(H, Fr(0)) == -(4 * psi + 1) / 16
+    ok &= det(xY, zY) == (1 - 16 * psi * psi) / 32
+    ok &= ((hY + 1 > 0) == (psi < Fr(3, 4))) and ((hY + 1 == 0) == (psi == Fr(3, 4)))
+    return ok
+
+
 def control_C3():
     ok = True
     psi, t = V0, V1
@@ -398,7 +441,16 @@ def control_C3():
     for n in range(1, 4):
         inv.append(-sum(pe_ser[i] * inv[n - i] for i in range(1, n + 1)) / pe_ser[0])
     ok &= inv[:3] == [Fr(1, 3), Fr(1, 3), Fr(10, 27)]
+    # v1.1, OA-244-B-01: the fibre t = 3/4, chi0 = 0
+    cp34, R34 = Fr(1, 4), Fr(8) - 12 * Fr(3, 4)
+    ok &= (R34 / 8) ** 2 == cp34 ** 3
+    psis = (Fr(3, 10), Fr(1, 2), Fr(2, 3), Fr(3, 4), Fr(4, 5), Fr(1), Fr(2), Fr(7))
+    for ps in psis:
+        ok &= fibre_34(ps)
+    I34 = (Fr(27, 64) - Fr(1, 64)) / 3 - (Fr(3, 4) - Fr(1, 4)) / 16
+    ok &= I34 == Fr(5, 48) == mid(Fr(3, 4))
     return ok, {'identity_3_1': True, 'points_3_3': n33, 'points_derivative': nder, 't_star': '2/3', 'I(0,0)': str(I00), 'I(2/3,0)': str(I23),
+                'fibre_3/4': {'psi_points': len(psis), 'I(3/4,0)': str(I34), 'tie_at_psi': '3/4'},
                 'slopes_at_2/3': ['-13/9', '5/9'], 'catalan_terms': N, 'I_series': [str(x) for x in I_ser[:6]],
                 'phi_e_series': [str(x) for x in inv[:3]]}
 
