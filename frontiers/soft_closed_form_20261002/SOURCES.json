@@ -1,0 +1,564 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-SOFT-CLOSED-FORM-20261002-v1",
+ "kind": "author-side proof candidate, conditional on the merged #170 Theorem E(1) and [CUB] Theorem C: Theorem A (the elder test of #242's fold-scale soft model in closed form, psi >= 2c' and (chi0 + 8 - 12t)^2 <= 16 (psi - 2c')^2 (psi + c'); the rejected set (1/psi_e, 1/|c'|) and I = |c'| delta^2 + delta^3/3 with explicit psi_e); Corollaries A.1-A.4 (chi0 = 0: t* = 2/3, elementary I(t, 0), the Catalan series; I(1, chi0) = (chi0 - 4)^2/48; the zero set t >= 1, chi0 = 12t - 8; the kink; exact asymptotics; beta > 2, chi <= 0 rejected); Lemma 1 (#243 FL.7(i)-(iii) in #242 normalization); Theorem B (H(k) = 1 + (12/25)k^2 + h_{7/2} k^(7/2) + h_4 k^4 + o(k^4) with h_{7/2} = 16 Gamma(9/4)(1728 sqrt6 - 4332 sqrt2 - 2721)/(2625 pi) and h_4 = 728/25, the k^4 coefficient derived by the referee)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "f5347541a6ef7b84de96120dcce6137b816b8033"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "tag": "170",
+   "use": "Math- #170 (merged author-side candidate, OpenAI, at its stated conditional scope): section 2 (the typed cubic P_theta, the shear quantities B and D, the null sets Sigma_k and Delta_k, C(P) and h_*(P)) and Theorem E(1) (the maximin connection level of M is h_*(P)); consumed in Lemma 1(iii); section 3 (the critical-chord bound d_P(M) >= h_*(P), valid for every typed cubic), consumed on Delta in Corollary A.2"
+  },
+  {
+   "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+   "bytes": 19889,
+   "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+   "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+   "tag": "CUB",
+   "use": "[CUB] (merged author-side candidate, OpenAI, at its stated conditional scope): section 2 (C1)-(C6), Theorem C (the exact classifier: n = 0 iff s <= B and D^2 <= T, including Delta_k), and the height identities (C8)-(C11) with the B = 0 paragraph (off Sigma_k only the pins sit at the boundary heights; also used in the proof of Lemma S); consumed in Lemma 1(iii), Theorem A and, on Delta, Corollary A.2"
+  }
+ ],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
+   "bytes": 79394,
+   "sha256": "ab952b2a2c7648beb5f7473b3f028cdc495c8317c52522bee144d26eecc8e2bb",
+   "git_blob": "ad4beb8467a775c7c76f85d5584c13338d0e66be",
+   "tag": "242",
+   "use": "Math- #242 (open; v1.2 with README amendment): (2.2)-(2.4) (normalization, the model (0.1), typing), the elder rule (S kills M in the superlevel filtration), (2.5) (the rejected set and I), Lemma 3 (the bound I <= (8000/3) max(1, |t|^3, chi0^2), for integrability in Theorem B), Proposition 4 (the definition of H and the jet law), (4.2) (I~ and R_{2/3}), sections 2, 3 and 5 (the values compared); Lemma 2 is cited for the rule (Step 1 of its proof) and Lemma 3 is compared, not consumed",
+   "head": "b82b0ca16926666adb8895c21801b6e85d7e18df",
+   "pr": "Math- #242"
+  }
+ ],
+ "cited_only": [],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/soft_fold_limit_20261002/PROOF.md",
+   "bytes": 72742,
+   "sha256": "7716a113bcf8c1725f9ec771d58ef033767f0a7bb50d592b841ca0ffe86f31af",
+   "git_blob": "3d9faa87d717fbd68b784b2ae408505fb2cc56dc",
+   "tag": "243",
+   "use": "Math- #243 (open; v1.2): Proposition FL.7 (the identification of #242's model with #170's cubic), re-derived here as Lemma 1 in #242's normalization so that this packet does not consume #243; the v1.1 referee's note on the scanner near X = 1/2 (section 5 there)",
+   "head": "11a4cd4e3b3f927eb9d4a743d8a43e387f1a66da",
+   "pr": "Math- #243"
+  }
+ ],
+ "cited_external": [
+  {
+   "ref": "Math- #242 pullrequestreview-5390667993",
+   "by": "OpenAI Codex (Slice C)",
+   "use": "section 5: H(k) = 1 + (12/25)k^2 + O(k^(7/2)); finding OA-242-C-01 (a sharp fractional term would need the gamma ~ sqrt(k) transition and a nonzero coefficient), answered by Theorem B at its conditional scope"
+  },
+  {
+   "ref": "Math- #242 pullrequestreview-5391986303",
+   "by": "OpenAI Codex (v1.2 complementary review)",
+   "use": "section 3 (D.1, root-authored): the direct model-integral identity F = k A_* a_fail in every fixed d, using the same classifier identity"
+  },
+  {
+   "ref": "Math- #242 issuecomment-5952577050",
+   "by": "OpenAI Codex (v1.2 readback)",
+   "use": "a direct finite-path proof that beta > 2, chi <= 0 is rejected (compared with Corollary A.4)"
+  },
+  {
+   "ref": "Math- #242 issuecomment-5953336662",
+   "by": "Anthropic Claude (author of #242)",
+   "use": "the author disclosure of the scanner artifact in #242 section 5"
+  }
+ ],
+ "mutants": {
+  "M1": "C1",
+  "M2": "C2",
+  "M3": "C3",
+  "M4": "C4",
+  "M5": "C5",
+  "M6": "C6",
+  "M7": "C7",
+  "M8": "C8",
+  "M9": "C9"
+ },
+ "replayed": [
+  "closed_form_check.py"
+ ],
+ "referee": {
+  "kind": "one clean-context same-family referee (an Anthropic Claude subagent) before submission",
+  "verdict": "ACCEPT WITH FIXES, no BLOCKING or MAJOR finding: 6 MINOR (the domain of the Catalan series (3.4); statements on Delta, now proved separately with the referee's arguments; the attribution of the I~ change; the accuracy of the H0 row; the exploration archive; vacuous or mislabelled checker items and CI mutant isolation) and 10 NIT findings, all applied; the referee also derived h4 = 728/25 (now in Theorem B with proof), the (17/2) t^2 asymptotic term, and the decomposition of #242's I~ error",
+  "report": "project archive V2_2/frontiers_soft_closed_form_20261002/REFEREE_CF.md",
+  "sha256": "f31dfe06ccb2da8dec893037f072ba630b7458bd01fe92b60c7c051cf55e6fe4",
+  "bytes": 28900,
+  "independent_checks": "symbolic re-derivation of Lemma 1, Theorem A and the corollaries; (2.6) against numpy.roots at 200,000 points; Lambda and h_{7/2} four ways; a direct grid maximin at 2,800 points (400 on Delta) using neither #170 nor [CUB]; an independent quadrature of H reproducing the section 5 H row; checker modes and mutant isolation",
+  "scripts": "project archive V2_2/frontiers_soft_closed_form_20261002/referee_checks/",
+  "limits": "same provider and same GitHub account as the author: organizational-independence credit 0; not a nonauthor review"
+ },
+ "exploration": "project archive V2_2/frontiers_soft_closed_form_20261002/exploration/ (numpy, scipy, mpmath, sympy; not part of the repository)",
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 46949,
+   "sha256": "a6c29a529af87da69ea7929bccd2ad81cad313cecb235ad8bf2dea274d2acb96"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7012,
+   "sha256": "6d9c29ad7bdc802804bad8dc048df584d61c24180c4f41491bb7884c4052deff"
+  },
+  {
+   "path": "closed_form_check.py",
+   "bytes": 35688,
+   "sha256": "66bcd280a43e54b877312961c54cb95bbb11d434eca37e9252cb4c7e1bfe96ee"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2021,
+   "sha256": "fddc8f2af4a1209e958791f5ef88b4a39f1107fa6a569abd70dc867f71fb4201"
+  }
+ ],
+ "exploration_manifest": {
+  "location": "claude.ai project archive V2_2/frontiers_soft_closed_form_20261002/ (and the local archive zip); not part of the repository",
+  "files": [
+   {
+    "path": "exploration/Hcf.py",
+    "bytes": 2651,
+    "sha256": "36787ccaf7dbd42ffcf21b4c138e2266aeb6e47a0e3f5b81553782124841ad96"
+   },
+   {
+    "path": "exploration/Hcf_grid.log",
+    "bytes": 465,
+    "sha256": "b42481ae7c05551d0b7ee815ad7ab0f08ac337f44bf564a32f1a5c1b0f7852a1"
+   },
+   {
+    "path": "exploration/Hcf_grid_nochi_v2.log",
+    "bytes": 465,
+    "sha256": "58dac2db3aa20d2f93eb5519f79448f27a852c071b690e4fdd339deffe1efe83"
+   },
+   {
+    "path": "exploration/Hsmall.log",
+    "bytes": 735,
+    "sha256": "539a8f413a71a482bcffa67ea758be4e8ede1944e610ee76c492898c8e61e19d"
+   },
+   {
+    "path": "exploration/Hsmall.py",
+    "bytes": 339,
+    "sha256": "f22c71bf1b54e469078cec6ac65266bae593b20ed6097fc915d05cc33cb54415"
+   },
+   {
+    "path": "exploration/Hsmall2.log",
+    "bytes": 258,
+    "sha256": "c9b0deff45c408e247835f63f826a38eee542e9cacf5a9c2e90c6d09d2ca36ef"
+   },
+   {
+    "path": "exploration/Hsmall2.py",
+    "bytes": 387,
+    "sha256": "c1bd7c9d75d54a94cca7a7021a947903e59b1c484e5e074a423ce62673d22169"
+   },
+   {
+    "path": "exploration/Itilde.py",
+    "bytes": 1306,
+    "sha256": "86f7bb01ceaa534550ab01f53ee2c7a42f11cc1202175300460e13e758f925be"
+   },
+   {
+    "path": "exploration/Itilde_16_60.log",
+    "bytes": 258,
+    "sha256": "9703c947dbf2e027715f58a937ee4ed102bcb50bbe542cd58b53b3f26b3a222d"
+   },
+   {
+    "path": "exploration/Itilde_24_80.log",
+    "bytes": 258,
+    "sha256": "545bcf4a273236cce107daef85f6f81fcf2c698673f51c510a30676be5db678f"
+   },
+   {
+    "path": "exploration/Itilde_headfix.log",
+    "bytes": 480,
+    "sha256": "84fa0caa234243d9a780613c94de06a592bfa8f5d2c91f0ce696641f524dbbe4"
+   },
+   {
+    "path": "exploration/Itilde_headfix.py",
+    "bytes": 778,
+    "sha256": "ee003377068c55ac8db454801b9d62ef99401f9b089e78367fbaa534373f4f46"
+   },
+   {
+    "path": "exploration/Itilde_n16_q60.npz",
+    "bytes": 4948,
+    "sha256": "42769f6a733f9f262429e905afe7ca1a60eea33c90b473a9b0f7833e94dfb087"
+   },
+   {
+    "path": "exploration/Itilde_n24_q80.npz",
+    "bytes": 7060,
+    "sha256": "b03653feea432a96fd431fe4894dcf1b66e65abc160e07fb4509d75d57a43ce5"
+   },
+   {
+    "path": "exploration/README.md",
+    "bytes": 7067,
+    "sha256": "48e611800887f12d6515c76f420de547e6920e60327349badd1fd7cbd3de3637"
+   },
+   {
+    "path": "exploration/antider.py",
+    "bytes": 449,
+    "sha256": "7e936b1a2504774ac5587c8fa4d027df7df4444455640ee0da678461f54caaa8"
+   },
+   {
+    "path": "exploration/antider2.py",
+    "bytes": 1116,
+    "sha256": "28a0fe1e50ec497e121508d7492157dda5adb858493b94861feaaaead5e1726c"
+   },
+   {
+    "path": "exploration/cf.py",
+    "bytes": 1784,
+    "sha256": "5861010443118e0407fa78ba30e8ae9eaeb044a6fe1676ab4db02bb6be8f36af"
+   },
+   {
+    "path": "exploration/check_fix.py",
+    "bytes": 1732,
+    "sha256": "42cb2967cb8c043e3c2864ad7f19c0fabefab15d4e33b150ba69cd9eb1359160"
+   },
+   {
+    "path": "exploration/chk11.log",
+    "bytes": 234,
+    "sha256": "ec915a6f66aaa2e0142ba188862762fb5b4611ea826b049427b56b9314e05be8"
+   },
+   {
+    "path": "exploration/chk12.log",
+    "bytes": 516,
+    "sha256": "f51864e66327558bdb58bac7c9c8dd121e495e12ed6ffc30e7e56f129c68db39"
+   },
+   {
+    "path": "exploration/claims.log",
+    "bytes": 1506,
+    "sha256": "78cbeaf4b0e181a11e2af3ddcaab1bde361ba1348e6a5ca92b0cb668df302a28"
+   },
+   {
+    "path": "exploration/claims.py",
+    "bytes": 3215,
+    "sha256": "16ee526b08f84bf7b2ac0487ea324e9d55f8b1205f7e726f33a534a7df96a0fa"
+   },
+   {
+    "path": "exploration/classify97.json",
+    "bytes": 18503,
+    "sha256": "fbe9616640c8c9b9557aaf7fb72d5befd31526b60227cd0e579970e9f1244384"
+   },
+   {
+    "path": "exploration/classify97.log",
+    "bytes": 74,
+    "sha256": "c824c7890f9ebba442b088cf92a27e0b4df377c6b60ca955d1496bcd539f7ae6"
+   },
+   {
+    "path": "exploration/classify97.py",
+    "bytes": 1259,
+    "sha256": "01158334494db46f98090dafa9929d119d0ba6fe0d8f79efab8a902376bed0d8"
+   },
+   {
+    "path": "exploration/dec1d_fix.py",
+    "bytes": 2554,
+    "sha256": "d947845c0b26917c16fa986089be87f04814671cbcd36c321cbbce664129ae2d"
+   },
+   {
+    "path": "exploration/dec_mp.log",
+    "bytes": 419,
+    "sha256": "510f62f99cc42ac62486824ed61ae96bbf23877043ade7939cd29505d806adcc"
+   },
+   {
+    "path": "exploration/dec_mp.py",
+    "bytes": 3121,
+    "sha256": "810b3c2e8cd3f46e68eb5f79ab6c86ac4c2a57c991ea524f6af2d1c522ac75de"
+   },
+   {
+    "path": "exploration/diag.py",
+    "bytes": 2032,
+    "sha256": "94e4f5da0c5348fade5e14c5e2f3aa711c34dc18dfa0b438e97f195d88d8d088"
+   },
+   {
+    "path": "exploration/disputes.py",
+    "bytes": 1226,
+    "sha256": "1abb1b9a85e43657f684b34e4d116d9a406a8056209c4a8ba38de011342a4654"
+   },
+   {
+    "path": "exploration/g6i.py",
+    "bytes": 2261,
+    "sha256": "ec81a1631304f2dc17b254a61452a46f012e22797aedccc4d00fba20537ce1c3"
+   },
+   {
+    "path": "exploration/h72b.log",
+    "bytes": 270,
+    "sha256": "8c710bc9be99ce853723d7f027e7b53f534860b4a722d6c3bd629069cc2105c0"
+   },
+   {
+    "path": "exploration/h72b.py",
+    "bytes": 1138,
+    "sha256": "263a645607d232120dde628993e3f0fbf5cadd9cb513391e3a1c9cb62a17de5d"
+   },
+   {
+    "path": "exploration/h72s.py",
+    "bytes": 922,
+    "sha256": "daefef4724a53d1c7b3f76e6febf6d9747d59865061a9604e3ccfbd7320e91a4"
+   },
+   {
+    "path": "exploration/lam_exact2.py",
+    "bytes": 2680,
+    "sha256": "4fa4617bfaa40ea9d64a032ed176e4968447a9a6ae0f742204121d82cfac4a78"
+   },
+   {
+    "path": "exploration/lam_exact3.py",
+    "bytes": 1935,
+    "sha256": "5f880dc97361aec980377b3170c27738414a00511e57aa8e0ed602b30a1d7600"
+   },
+   {
+    "path": "exploration/other.py",
+    "bytes": 1039,
+    "sha256": "2ed8bdbfbeb52726a5c05fc9ec299b28571e3f631597c585856e430641226b4f"
+   },
+   {
+    "path": "exploration/tri.py",
+    "bytes": 1043,
+    "sha256": "3a0c1521a58980d943a75dc33f7a4bd56d4fbab752cb3a078d5cce3a68df46ef"
+   },
+   {
+    "path": "exploration/validate_cf.log",
+    "bytes": 1149,
+    "sha256": "55df2e8c1565f94678d7ed9c3e54c50dcd67f24f13b53f2db0d4c937340ec848"
+   },
+   {
+    "path": "exploration/validate_cf.py",
+    "bytes": 1287,
+    "sha256": "b33e9dae8909165b34c0ebbdc7fbb2f21b2771e7e43c42f54d70c78d196dcd34"
+   },
+   {
+    "path": "referee_checks/AB_split.py",
+    "bytes": 996,
+    "sha256": "074b95ca328ff5436f6e863375825bd37f0efdaa1e4268ba67c26a6db75d6727"
+   },
+   {
+    "path": "referee_checks/H0_check.py",
+    "bytes": 1289,
+    "sha256": "34b78d526a908ea5bbc268147a3102f208ab54a5bc8c881a45882476f5f513da"
+   },
+   {
+    "path": "referee_checks/H0_row.py",
+    "bytes": 519,
+    "sha256": "0b50b12dcd9e17f48f04136acb83276d7d83f2e12046b03726df6573fbbe57e4"
+   },
+   {
+    "path": "referee_checks/H0_values.json",
+    "bytes": 264,
+    "sha256": "5f9754356de9d95196a63226b258010e1183a123b05e4abf11d7293f763da498"
+   },
+   {
+    "path": "referee_checks/H0grid.json",
+    "bytes": 10911,
+    "sha256": "45e477e6f537b3de41f8763ef1cd49692da7a30cb5bb6d3aaa66a002b284e14d"
+   },
+   {
+    "path": "referee_checks/H0grid.py",
+    "bytes": 254,
+    "sha256": "28c8ebea2836df260f6eeb83a45e0649ce241f941d86cece5c264fa9f7a5b944"
+   },
+   {
+    "path": "referee_checks/H_dense3.json",
+    "bytes": 5488,
+    "sha256": "13986faeee2251e41d969001d3261a9b84648bc58b87d0ca47b5065c989b4b4b"
+   },
+   {
+    "path": "referee_checks/H_direct.py",
+    "bytes": 2149,
+    "sha256": "4a3af568dc15c0e0e8ce8119918a7c8617f2cdacb0d1d38bd017d721f69d5206"
+   },
+   {
+    "path": "referee_checks/H_table.py",
+    "bytes": 1231,
+    "sha256": "36dd60c4ef8c02a170cea3d739fdfd5cbcd1807a7cc928abc70c5927c219ac8e"
+   },
+   {
+    "path": "referee_checks/Itilde2.py",
+    "bytes": 3753,
+    "sha256": "1bf3b5fbd11e75d93ca2169662501ec5140a92f90dc8e83745ae58f2e2ca5e34"
+   },
+   {
+    "path": "referee_checks/J_check.py",
+    "bytes": 1092,
+    "sha256": "fb230d89368e6e263a56d22541c54b148413ffe1a8f4d8e6a90ff4b74fb0bb9b"
+   },
+   {
+    "path": "referee_checks/K_direct.py",
+    "bytes": 2539,
+    "sha256": "3138179c4f263d0031f6e90a40d2ad21138561e9aa0b6c75c70819770ff90e5b"
+   },
+   {
+    "path": "referee_checks/K_direct2.py",
+    "bytes": 1291,
+    "sha256": "e685d54568e223d8ac4a6378f2b60a10e4224499fe93b26aa5730857d8c486de"
+   },
+   {
+    "path": "referee_checks/asym.py",
+    "bytes": 1508,
+    "sha256": "c49107976397a7b5b50c79eaeed8f8d586e8f4b18ad5394fbffcc16f7986d17d"
+   },
+   {
+    "path": "referee_checks/err_O.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   {
+    "path": "referee_checks/err_plain.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   {
+    "path": "referee_checks/examples5.py",
+    "bytes": 420,
+    "sha256": "d450a6dbee15cee620ea08873f2a07a03bb7ea7fc781c2c3d485824dc8b9311e"
+   },
+   {
+    "path": "referee_checks/grid_analyze.py",
+    "bytes": 2252,
+    "sha256": "1f3495641870098c0b9b0537a528a0daa46bf786feae2c7105cbbf67849b8f5b"
+   },
+   {
+    "path": "referee_checks/grid_beta2.json",
+    "bytes": 229768,
+    "sha256": "d00b6bbb6930ebdf4d26987c479d8e36e2e445d639528a7507de66b6b9d6f8f2"
+   },
+   {
+    "path": "referee_checks/grid_broad.json",
+    "bytes": 230909,
+    "sha256": "4497f1b2313ca818aec9f7cc85a2f50a249819d01f40b4b7ffcb284973e521d1"
+   },
+   {
+    "path": "referee_checks/grid_delta.json",
+    "bytes": 116798,
+    "sha256": "50de739b12d77c7d98cfcd489eeda8eb1bbf0094ac238998c5e6d034a1953591"
+   },
+   {
+    "path": "referee_checks/grid_gauss.json",
+    "bytes": 232114,
+    "sha256": "5892766c09bbf272d9afb5639c2cadef2e6a35649bc4495a27860729ebbb8387"
+   },
+   {
+    "path": "referee_checks/grid_maximin.py",
+    "bytes": 7060,
+    "sha256": "b26ca4bc22615d8051eebd537b8c11220e471706aec3442e66ff32e10fcd9412"
+   },
+   {
+    "path": "referee_checks/lemmaB.py",
+    "bytes": 4627,
+    "sha256": "e985f705bfdbecb5679fbe872e4b6d761634e81401496414d5fd9d27bc8a6503"
+   },
+   {
+    "path": "referee_checks/lemmaB2.py",
+    "bytes": 3878,
+    "sha256": "c3e50e4013f9b9946c926fad94a3e2ac7460cf769bc671b922034f20039bf877"
+   },
+   {
+    "path": "referee_checks/log_H0grid.txt",
+    "bytes": 9,
+    "sha256": "6a1f3fb2ea206bfca05a9c4a0c31b46fa1d50201b4af66df9a58bda48857e41f"
+   },
+   {
+    "path": "referee_checks/log_Hconv48a.txt",
+    "bytes": 88,
+    "sha256": "703fb61e95f90943a1bee4881841a3bcfacc41c30145c5b99f39c7bce11dd9f0"
+   },
+   {
+    "path": "referee_checks/log_Hconv48b.txt",
+    "bytes": 85,
+    "sha256": "00f0066e8cbb1571c100ba0a57307e183250e9cbb04129f1d8decf45c37540a9"
+   },
+   {
+    "path": "referee_checks/log_Hfill1.txt",
+    "bytes": 610,
+    "sha256": "ce94f83bb30bbf8699b5102edf6e4e1ebbb081efcf12dade0b144ce151d276cd"
+   },
+   {
+    "path": "referee_checks/log_Hfill2.txt",
+    "bytes": 714,
+    "sha256": "786f633f985a652461ae3938601b24ce6ebd9436d4e779a3508c0e8f185f4680"
+   },
+   {
+    "path": "referee_checks/log_Hfill3.txt",
+    "bytes": 266,
+    "sha256": "521dabedd56dd08aff463993aa8f9bf33bd9c2c258ecc6c107731376d8dab588"
+   },
+   {
+    "path": "referee_checks/log_Hfill4.txt",
+    "bytes": 263,
+    "sha256": "5e8dadc2e1c395c1fb9e2e1248b44d78b4778dc312adb6e3a439c28cfb234eb8"
+   },
+   {
+    "path": "referee_checks/log_Hsmall32.txt",
+    "bytes": 434,
+    "sha256": "62d4c2559320f655e032809a856bde4ef2257fa1b852a60ab7e907c571523c49"
+   },
+   {
+    "path": "referee_checks/log_Htable32.txt",
+    "bytes": 695,
+    "sha256": "d0140471407ee62b49650f519e47d3ddfdc8913a55bb526cedf38d875b1be2b5"
+   },
+   {
+    "path": "referee_checks/log_beta2.txt",
+    "bytes": 15,
+    "sha256": "da9042b34c35633077c65a51c9a48b84ea4e0468f4821a321964d932a6a15891"
+   },
+   {
+    "path": "referee_checks/log_broad.txt",
+    "bytes": 15,
+    "sha256": "3500b5f36d1b92e0237ea50228fa8def650eea7f80f339f75f1330edee18fd0b"
+   },
+   {
+    "path": "referee_checks/log_delta.txt",
+    "bytes": 15,
+    "sha256": "43f71f8e110f15d83292f5f60c2e335d8053173b10c340e0d9887d3d324bb6d5"
+   },
+   {
+    "path": "referee_checks/log_gauss.txt",
+    "bytes": 15,
+    "sha256": "a5b347f3130978d9e945375ad66068011a7e1c5d828f5c3d849ee24d7cb13cb5"
+   },
+   {
+    "path": "referee_checks/out_O.json",
+    "bytes": 1822,
+    "sha256": "a63e5106170dc2eed34f8a79d6c4a590664a50f6d720a9a125d977c3d084e5ba"
+   },
+   {
+    "path": "referee_checks/out_plain.json",
+    "bytes": 1822,
+    "sha256": "a63e5106170dc2eed34f8a79d6c4a590664a50f6d720a9a125d977c3d084e5ba"
+   },
+   {
+    "path": "referee_checks/outliers.py",
+    "bytes": 1887,
+    "sha256": "67d7f6f75b46af7e62933315b03f76e8b92141b3264812cd22cacd2fd60c2a41"
+   },
+   {
+    "path": "referee_checks/phicore.py",
+    "bytes": 1538,
+    "sha256": "8ee9c185e2363af045cdfff8cd259697cdc029de8b4b7e87d27eb86b9649de3c"
+   },
+   {
+    "path": "referee_checks/roots_check.py",
+    "bytes": 1743,
+    "sha256": "ad70fcce9da318bdf9969e8a9a26c97eedf32bba53e0701f8754da23a5d1defd"
+   },
+   {
+    "path": "referee_checks/sym_algebra.py",
+    "bytes": 5367,
+    "sha256": "d9d877348b3c2d82a09d3c8b4909145caa5d613b51a103ba4a00e2383a1cb067"
+   },
+   {
+    "path": "REFEREE_CF.md",
+    "bytes": 28900,
+    "sha256": "f31dfe06ccb2da8dec893037f072ba630b7458bd01fe92b60c7c051cf55e6fe4"
+   },
+   {
+    "path": "PROOF_v1_preref.md",
+    "bytes": 38646,
+    "sha256": "3ed9317c474721e49414bcc2c840946396e82b581e90fa78cf734d46ca013848"
+   }
+  ]
+ }
+}
