@@ -1,9 +1,13 @@
 # The fold-scale rejection limit through #242's soft model: Conjecture 6 of Math- #242 in every dimension, and its identification with the failure law of #170/#175
 
-Object: CL-FOLD-LIMIT-20261002-v1.2. Versions:
+Object: CL-FOLD-LIMIT-20261002-v1.3. Versions:
 - v1, `008b299`.
 - v1.1, `0740b2c`: the prior-work record AUTH-243-01, and Proposition FL.7.
-- v1.2: rebinds #242 v1.2, and cites Codex's direct `d ≥ 3` cross-check of FL.7.
+- v1.2, `11a4cd4`: rebinds #242 v1.2, and cites Codex's direct `d ≥ 3` cross-check of FL.7. Nonauthor slices A–E
+  reviewed this head.
+- v1.3: applies the four minor findings of those reviews, OA-243-B-01, B-02, B-03 (Proposition FL.4) and D-01 (Step 5 of
+  Theorem FL). It records Codex's reviewed direct identity D.1 after Proposition FL.7, and rebinds #242 v1.3, whose
+  §§0–3 are byte-identical to v1.2. No statement changes; §9 lists the changed bytes.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 2 October 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem FL, Propositions FL.4 and FL.7, Lemmas FL.1–FL.3; Corollaries FL.5 and FL.6
 recover merged results of #170 and #175).
@@ -52,7 +56,8 @@ domination are as in #170 §8 and #175 §§2 and 4.
   - In `d = 2`, `F = kA_∗a_fail` is a direct identity of model integrals. With #170 Theorem S it gives a second proof of
     (0.0) at each fixed `(b, k, u)`.
   - In `d ≥ 3` the identity follows from Theorem FL and #175 Theorem F by uniqueness of limits. It is therefore conditional
-    on #175's interfaces.
+    on #175's interfaces. Codex's supplement D.1, reviewed by another Codex agent, gives it directly as an identity of
+    model integrals in every fixed `d`, without #175 Theorem F (Remark after Proposition FL.7).
 - **Corollaries FL.5 and FL.6** (§4) are not new. They are #170 Theorem S and §9 (`d = 2`) and #175 Theorem F and §7
   (`d ≥ 3`), recovered with the constants in #242's form:
   - `r^{−3}(1 − p_r) → F/(k·A_∗)`, now locally uniformly in `(b, k)`;
@@ -95,8 +100,10 @@ domination are as in #170 §8 and #175 §§2 and 4.
   - #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, blob `f6df5a73`): §0 (the elder mark and the maximin), Theorem
     CU.1 (the pin identities), and the structure of Proposition CU.3 and Theorem CU.4.
   - [C7-K] (`frontiers/c7_total_bounded_20260929/PROOF.md`, blob `28748b08`): (K2).
-- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `1f86fea`, blob `ad4beb84`; v1.2): §0,
-  (2.1)–(2.5), Lemmas 2 and 3, Proposition 2′ ((2.6)), (3.1). This note must be rebound if that blob changes.
+- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `d504cdb`, blob `5fd29e63`; v1.3): §0,
+  (2.1)–(2.5), Lemmas 2 and 3, Proposition 2′ ((2.6)), (3.1). #242's §§0–3 are byte-identical to its v1.2 (blob
+  `ad4beb84`), which the slice reviews of v1.2 of this note read; v1.3 changed only #242's header, §4's numerical
+  sentences and §§5–9. This note must be rebound if that blob changes.
 - Consumed through #207 §0: [E2] (`reviews/d1_section9_borel_repair_20260925/REPAIR.md`, blob `fe9b9ce4`), for the Borel
   measurability of the elder mark. Reading rules for [P]: [E1] (`imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`,
   blob `213594d6`) and [REC] (`reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`, blob `75da2597`).
@@ -306,7 +313,13 @@ on `|w| ≤ ρ_3` when `ρ_3` and `ε_0` are small. Taylor's formula with integr
 ### 2.3 The stability proposition
 
 **Proposition FL.4 (stability of the model decision).** Let `ϖ ∈ 𝒦` and let `𝒬` be a positive definite
-`(m − 1) × (m − 1)` matrix (nothing if `m = 1`), `𝔮(η) := ½ηᵀ𝒬η`, `q_− := λ_min(𝒬)`. There are a compact rectangle
+`(m − 1) × (m − 1)` matrix (nothing if `m = 1`), `𝔮(η) := ½ηᵀ𝒬η`, `q_− := λ_min(𝒬)`.
+
+*Convention for `m = 1` (OA-243-B-01).* There are then no stiff variables `η`. Read `W × B̄_{R_η}` as `W`, `𝔮` as `0`, and
+`M̂_0`, `Ŝ_0` as `M̂`, `Ŝ`. Every clause below that involves `η`, `𝒬`, `q_−` or `R_η` is vacuous and is omitted, including the
+term `q_−ρ²/8` in the choice of `ε` and the choice of `R_η` in Step 4.
+
+There are a compact rectangle
 `W = W_ϖ ⊂ R²` containing `M̂` and `Ŝ` in its interior, a radius `R_η = R_η(ϖ, 𝒬)` and an `ε = ε(ϖ, 𝒬) > 0` with the
 following property. Let `𝔊 ∈ C²(W × B̄_{R_η})` satisfy
 
@@ -321,7 +334,8 @@ Let `f` be continuous on `X`, and let `Ψ : W × B̄_{R_η} → X` be continuous
 If moreover `f` is `C²` near `M` and `S` and `Ψ` is a `C²` diffeomorphism near `M̂_0` and `Ŝ_0`, then `M` is a nondegenerate
 local maximum of `f` and `S` a nondegenerate critical point of index `m`.
 
-*Proof.* Constants `δ, ρ, τ` below depend on `ϖ` and `𝒬` only.
+*Proof.* The curves `σ_±`, the path `Γ`, the set `𝒟_2`, the constants `τ`, `Z`, `ρ_1`, `r_ϖ` and the rectangle `W` below
+depend on `ϖ` only. The radius `ρ`, the margin `δ`, and `ε` and `R_η` depend on `ϖ` and `𝒬` (OA-243-B-03).
 
 *Step 1 (types).* By (S2), `Hess 𝔊(M̂_0)` is within `ε` of `diag(Hess G_ϖ(M̂), −𝒬)`, which is negative definite (on `𝒯`,
 `det Hess G_ϖ(M̂) = (1 + β/2 − φ)/(4φ) > 0` and `∂_z²G_ϖ(M̂) = −(1 + β/2) < 0`). Likewise `Hess 𝔊(Ŝ_0)` is within `ε` of
@@ -334,13 +348,15 @@ persists (Weyl), and it transfers to `f` through `Ψ`.
 - (Trap) Let `𝒟` be open in `R^d`, with `𝒟 ⊂ int(W × B̄_{R_η})` and `𝒟̄ ⊂ W × B̄_{R_η}`. Suppose `M̂_0 ∈ 𝒟`, `𝔊 ≤ c′` on
   `∂𝒟`, and `𝔊 < 𝔊(M̂_0)` on `𝒟 ∖ {M̂_0}`. Then `d_f(M) ≤ b + sc′`.
 
-  Indeed, by invariance of domain `Ψ(𝒟)` is open in `X`. Its closure lies in the compact set `Ψ(𝒟̄)`, so its boundary lies in
-  `Ψ(∂𝒟)`, where `f ≤ b + sc′`. The path component `C` of `{f > b + sc′}` containing `M` therefore lies in `Ψ(𝒟)`, so
-  `f < f(M)` on `C ∖ {M}`. A path from `M` to a point above `f(M)` must leave `C`, and so it meets `{f ≤ b + sc′}`.
+  Indeed, if `c′ ≥ 𝔊(M̂_0)`, the bound is trivial: every admissible path starts at `M`, so
+  `d_f(M) ≤ f(M) = b + s𝔊(M̂_0) ≤ b + sc′` (OA-243-B-02). Let now `c′ < 𝔊(M̂_0)`, so that `M ∈ {f > b + sc′}`. By invariance
+  of domain `Ψ(𝒟)` is open in `X`. Its closure lies in the compact set `Ψ(𝒟̄)`, so its boundary lies in `Ψ(∂𝒟)`, where
+  `f ≤ b + sc′`. The path component `C` of `{f > b + sc′}` containing `M` therefore lies in `Ψ(𝒟)`, so `f < f(M)` on
+  `C ∖ {M}`. A path from `M` to a point above `f(M)` must leave `C`, and so it meets `{f ≤ b + sc′}`.
 
-*Step 3 (model certificates).* By Lemma FL.2(c), `ϖ ∈ 𝒦` falls in exactly one of three cases. Each comes with a margin
-`δ > 0` and a radius `ρ > 0`. Let `ρ_3` be the smallest of the radii that Lemma FL.3 gives for the three maps of Step 4; we
-take `2ρ ≤ ρ_3` (`ρ` may be decreased at the cost of `δ`).
+*Step 3 (model certificates).* By Lemma FL.2(c), `ϖ ∈ 𝒦` falls in exactly one of three cases. Each comes with a
+certificate built from `ϖ` alone and, for every small radius `ρ > 0`, a margin `δ = δ(ρ) > 0`; decreasing `ρ` decreases
+`δ`. The radius `ρ` is fixed in Step 4, with `2ρ ≤ ρ_3`.
 
 - **(R)** `e(G_ϖ) = 0`, so `M` dies above `L_S`. Then there is a compact path `Γ` from `M̂` to a point `𝔭` with
   `G_ϖ(𝔭) > 2δ`, along which `G_ϖ ≥ L_S + 2δ`. (By the definition of the maximin, and because components of open subsets of
@@ -388,16 +404,25 @@ just outside `I_M`. (Here `R′` is the derivative of `R`.)
     `Ŝ` to a point `𝔭 = (½, z_𝔭)` on the far side of `0`, with `G_ϖ(𝔭) > 2δ`. The slice at `½` has its only critical points at
     `z_r(½)` (maximum) and `0` (minimum, value `L_S`), and it tends to `+∞` on the far side.
 
-In both cases compactness gives `δ` and `ρ`.
+In both cases the curves `σ_±`, the path `Γ` and the set `𝒟_2` do not depend on `ρ`, and for every small `ρ > 0`
+compactness gives `δ(ρ) > 0`. In case (R), `δ` does not depend on `ρ` at all.
 
-*Step 4 (persistence).* The three maps are `t ↦ (σ_+(t), 0)` and `(t, η) ↦ (σ_−(t), η)` at `Ŝ_0`, and the identity at
-`M̂_0`. The forms of `H_0 := G_ϖ − 𝔮` on their tangent spaces are `σ_+′ᵀ𝐇_Sσ_+′ > 0`, `diag(σ_−′ᵀ𝐇_Sσ_−′, −𝒬) < 0` and
-`diag(Hess G_ϖ(M̂), −𝒬) < 0`, with `𝐇_S := Hess G_ϖ(Ŝ)`. Let `ρ_3` and `ε_0` be the smallest radius and tolerance that
-Lemma FL.3 gives for the three maps (with `2ρ ≤ ρ_3` as in Step 3), and `ρ_c` the largest of their radii `ρ_3 sup|Dc|`.
-Choose `ε ≤ min(δ/2, ε_0, q_−ρ²/8)`, with `ε < 1`, so small that Step 1 applies. Then fix a compact rectangle `W` whose
-interior contains `Γ`, `𝒟̄_2` and the closed `2ρ_c`-discs about `M̂` and `Ŝ`, and a radius `R_η ≥ 2ρ_c` with
-`q_−R_η²/2 ≥ max_W G_ϖ − L_S + 3`. So `W × B̄_{R_η}` contains the balls of Lemma FL.3, and `δ, ρ, ρ_3, ε_0, ε` do not
-depend on `W` or `R_η`. By (S2), `|𝔊(M̂_0)| ≤ ε` and `|𝔊(Ŝ_0) − L_S| ≤ ε`.
+*Step 4 (persistence).* First fix a radius `r_ϖ > 0` and a compact rectangle `W = W_ϖ` whose interior contains `Γ`,
+`𝒟̄_2` and the closed `r_ϖ`-discs about `M̂` and `Ŝ`. Both depend on `ϖ` only (OA-243-B-03).
+
+The three maps are `t ↦ (σ_+(t), 0)` and `(t, η) ↦ (σ_−(t), η)` at `Ŝ_0`, and the identity at `M̂_0`. The forms of
+`H_0 := G_ϖ − 𝔮` on their tangent spaces are `σ_+′ᵀ𝐇_Sσ_+′ > 0`, `diag(σ_−′ᵀ𝐇_Sσ_−′, −𝒬) < 0` and
+`diag(Hess G_ϖ(M̂), −𝒬) < 0`, with `𝐇_S := Hess G_ϖ(Ŝ)`.
+- Let `ε_0` and `ρ_3` be the smallest tolerance and radius that Lemma FL.3 gives for the three maps, and `ρ_c` the largest
+  of their radii `ρ_3 sup|Dc|`.
+- Decrease `ρ_3` until `2ρ_c ≤ r_ϖ`. Lemma FL.3 still holds with the same `ε_0`: its proof uses `H` only on
+  `c(B̄_{ρ_3})`, and its margins improve as `ρ_3` decreases.
+- Fix `ρ ∈ (0, ρ_3/2]` small enough for Step 3, and put `δ := δ(ρ)`.
+- Choose `ε ≤ min(δ/2, ε_0, q_−ρ²/8)`, with `ε < 1`, so small that Step 1 applies. Choose a radius `R_η ≥ 2ρ_c` with
+  `q_−R_η²/2 ≥ max_W G_ϖ − L_S + 3`.
+
+Then `W × B̄_{R_η}` contains the balls `B(s, 2ρ_c)` of Lemma FL.3. Only `ρ_3`, `ε_0`, `ρ`, `δ`, `ε` and `R_η` depend on
+`𝒬`, as the statement says. By (S2), `|𝔊(M̂_0)| ≤ ε` and `|𝔊(Ŝ_0) − L_S| ≤ ε`.
 
 - **(R).** On `Γ × {0}`, `𝔊 ≥ L_S + 2δ − ε > L_S + ε ≥ 𝔊(Ŝ_0)`, and `𝔊(𝔭, 0) > 2δ − ε > 𝔊(M̂_0)`. By (Path),
   `d_f(M) ≥ b + s(L_S + 2δ − ε) > f(S)`. So `1{d_f(M) = f(S)} = 0`.
@@ -554,9 +579,15 @@ By #242 §2, the change of variables `μ̃ = γ*²/(24φ)` turns `36μ̃² − Y
 `(γ*²/(24φ²))dφ`. So by Fubini, `∫_0^∞h dμ̃ = (μ_2⋯μ_m)²E[(γ*⁶/384)I(t*, χ_0*)]`, with `t*`, `χ_0*` as in (0.3) and `I` as
 in #242 (2.5).
 
-It remains to identify (3.7) with #242 (3.1). By Weyl's formula,
-`ε^{−1}E_{v_0}[Υ1{𝔸 < 0, λ_1 < ε}] = c_m∫∫ε^{−1}∫_0^ε p_𝔸(a)𝒱(λ)E[Υ(F_0^a)]dλ_1 dλ_2⋯dO`, where
-`Υ := (γ_1⁶/384)(λ_2⋯λ_m)²I(t, χ_0)`. The inner average tends to its value at `λ_1 = 0`, for three reasons:
+It remains to identify (3.7) with #242 (3.1). By Weyl's formula, with `0 < λ_1 < ⋯ < λ_m` the eigenvalues of `−a`,
+
+    ε^{−1}E_{v_0}[Υ1{𝔸 < 0, λ_1 < ε}]
+        = c_m∫_{0<λ_2<⋯<λ_m}∫_O ε^{−1}∫_0^{min(ε, λ_2)} p_𝔸(a)𝒱(λ)E[Υ(F_0^a)] dλ_1 dλ_2⋯dλ_m dO,
+
+where `Υ := (γ_1⁶/384)(λ_2⋯λ_m)²I(t, χ_0)`. For `m = 1` the upper limit is `ε` and there are no hard eigenvalues. The
+ordering `λ_1 < λ_2` must be kept (OA-243-D-01). Write the inner average as `∫_0^1 1{εs < λ_2}(⋯)|_{λ_1 = εs} ds`. For
+every fixed ordered hard spectrum the indicator tends to `1`, and the bounds below dominate in `s`, the hard spectrum and
+`O`. The inner average tends to its value at `λ_1 = 0`, for three reasons:
 - by #242 Lemma 3, `γ⁶I ≤ C(γ⁶ + k³|B|³ + k⁴C_3²)`, which is integrable with Gaussian weights;
 - `I` is continuous at almost every `(t, χ_0)`. By Remark 4 of §2, the actual decision is constant near each point of `𝒦`;
   for almost every `(t, χ_0)` the set `{φ : (φ, 2tφ, χ_0φ²) ∉ 𝒦}` is null, so `1{φ ∈ 𝓡(t′, χ_0′)} → 1{φ ∈ 𝓡(t, χ_0)}` for
@@ -615,6 +646,16 @@ number of points of `C(P_θ)` (#170 §2; the classifier of #170 §§7 and 8.1, w
     or factor-of-two discrepancy. This is root-authored support and is not reviewed here.
   - *The last claim.* Integrating `(1/3)k^{−8/3}F = A_∗a_fail/(3k^{5/3})` gives `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}`. ∎
 
+*Remark (D.1: a direct identity in every `d`).* OpenAI Codex's supplement D.1 is §3 of its review 5391986303 on #242. It
+is bound to #242 v1.2's PROOF, whose §§0–3 are unchanged in v1.3.
+- D.1 proves `F = kA_∗a_fail` directly, as an identity of model integrals in every fixed `d`, under its stated
+  contact-density and deterministic-classifier interfaces (#170, #175 and [SC]). It uses neither Theorem FL nor #175
+  Theorem F.
+- A different Codex agent reviewed it (5954510413, on this PR): PASS_TECHNICAL_SCOPED, with no finding. The review notes
+  that an author may adopt the identity in FL.7 while keeping every hypothesis needed for an actual-field conclusion.
+- With D.1, (iv) holds in `d ≥ 3` without #175 Theorem F. This note records D.1 as reviewed support and does not reproduce
+  it. D.1, its review and this note are on the same account (organizational independence 0).
+
 **A second proof of (0.0) in `d = 2`.** At each fixed `(b, k, u)`, conditional on #170's interfaces, (0.0) follows without
 the field analysis of §§1–3. The ingredients are:
 - #170 Theorem S;
@@ -627,7 +668,7 @@ dominated convergence with #242 Lemma 3's bound; Step 5 of Theorem FL proves it 
 
 Theorem FL is then a second proof with a partly different route, and it also gives continuity and local uniformity. In
 `d ≥ 3` the direct computation would also need the Weyl normalization of #175 §2 matched with (3.4). This note does not do it;
-Codex's cross-check 5951210964 argues it.
+Codex's cross-check 5951210964 argues it, and D.1 (the Remark above) proves it.
 
 **Corollary FL.5 (the constant in `1 − p_r ~ r³`; #170 Theorem S, #175 Theorem F).** For fixed `u ∈ S^{d−1}`, uniformly
 for `(b, k)` in compact subsets of `R × (0, ∞)`,
@@ -767,7 +808,7 @@ in the (D′) family, 141 of them elder. The parameters were `k ∈ [0.1, 5]` an
   - *Shared steps.* Theorem FL's domination step uses the same cap-region mechanism and the same `m = 1` near/far split
     (#170 §8.3). The stiff scale `r^{3/2}` of Proposition FL.4 is #175's hard tube.
   - *Proposition FL.7* shows that the two limits are the same Gaussian integral in `d = 2`. In `d ≥ 3` they are equal by
-    uniqueness of limits.
+    uniqueness of limits, and directly by Codex's reviewed D.1 (Remark after FL.7).
 - **#242 Conjecture 7** is not proved. It needs inputs (i)–(ii) of #242 §4. Input (i) asks for (3.1) with an error that,
   integrated against `dr` from the cusp scale to the fold scale, is `O(ℓ^{3/4})` after the composite is subtracted. That
   needs quantitative margins in Proposition FL.4 near the decision boundary, which the present pointwise argument does not
@@ -849,7 +890,7 @@ These are argued in the text and are the subject of review slices B–E.
 | [CAP] | `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` (`0633aca3`) | §§1, 5: the deterministic cap theorem — consumed (as in [P] §7) |
 | [E1], [REC] | `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md` (`213594d6`), `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md` (`75da2597`) | reading rules for [P] |
 | [E2] | `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (`fe9b9ce4`) | the elder mark is Borel — consumed |
-| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `1f86fea` (`ad4beb84`, v1.2), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
+| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `d504cdb` (`5fd29e63`, v1.3; §§0–3 as in v1.2's `ad4beb84`), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
 | OA lift | `frontiers/elder_dimension_lift_20260928/PROOF.md` (`7303bd79`) | (A3) — cited |
 | #229 | `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`) | (R⁺.1) — cited |
 | #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (`ef2aa579`) | §2 (Theorem E(1)), §§7–8 (the classifier, (S1), (S11), the mass `α₁ + α₂`), Theorem S, §9 — compared; consumed by Proposition FL.7 only |
@@ -869,3 +910,15 @@ These are argued in the text and are the subject of review slices B–E.
   the use of [P] (11.2) and [C7-K] (K2)), with §§5–6.
 
 A reviewer should record, per slice: ACCEPT, ACCEPT WITH FIXES (list), or REJECT (with the failing step).
+
+**Changed bytes in v1.3** (for delta checks against the v1.2 slice reviews at `11a4cd4`):
+- *Header:* the object label and versions; the FL.7 item of "What is new" (D.1); the #242 dependency (rebound to v1.3).
+- *§2 (slice B):* the `m = 1` convention after Proposition FL.4's first sentence (B-01); the trivial case in the proof of
+  (Trap) (B-02); the proof's first sentence, Step 3's first paragraph, the sentence after the certificates, and Step 4's
+  first paragraph (B-03).
+- *§3 (slice D):* the Weyl equality in Step 5, with the ordered upper limit `min(ε, λ_2)` and the sentence after it (D-01).
+- *§4 (slice E):* the Remark on D.1 after Proposition FL.7, and the last clause of the paragraph after "A second proof".
+- *§§6, 8–9:* the FL.7 item of §6, the #242 source row, and this list.
+
+No statement changes in substance; Proposition FL.4's statement gains only the `m = 1` convention. §§0–1, §§2.1–2.2,
+§3's Steps 1–4, the proofs of FL.5–FL.7, §§5 and 7, `fold_check.py` and `RESULTS.json` are unchanged.

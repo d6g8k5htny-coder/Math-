@@ -2,8 +2,18 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-FOLD-LIMIT-20261002-v1.2`. Versions: v1 `008b299`; v1.1 `0740b2c` (prior work, Proposition FL.7); v1.2 (rebinds
-#242 v1.2 and cites Codex's `d ≥ 3` cross-check). Full text: [`PROOF.md`](PROOF.md).
+Object `CL-FOLD-LIMIT-20261002-v1.3`. Full text: [`PROOF.md`](PROOF.md). Versions:
+- v1 `008b299`;
+- v1.1 `0740b2c`: prior work, Proposition FL.7;
+- v1.2 `11a4cd4`: rebinds #242 v1.2 and cites Codex's `d ≥ 3` cross-check. Nonauthor slices A–E reviewed this head.
+- v1.3 applies those reviews' four minor findings:
+  - OA-243-B-01, the `m = 1` convention in Proposition FL.4;
+  - OA-243-B-02, the trivial case of the (Trap) fact;
+  - OA-243-B-03, the rectangle `W` chosen before the `𝒬`-dependent radii;
+  - OA-243-D-01, the ordered domain `λ_1 < min(ε, λ_2)` in Step 5.
+
+  It also records Codex's reviewed direct identity D.1 after FL.7, and rebinds #242 v1.3 (`d504cdb`, blob `5fd29e63`),
+  whose consumed §§0–3 are byte-identical to v1.2. No statement changes in substance. PROOF §9 lists the changed bytes.
 
 ## Prior work (AUTH-243-01)
 
@@ -25,7 +35,7 @@ of its Lemma 2. Its Conjecture 6 states that the rejected kernel at a fixed gap 
 | | Statement | Status |
 |---|---|---|
 | **Theorem FL** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0`, for every `d ≥ 2`, uniformly for `(b, k)` in compacts. The limit in #242 (3.1) exists, and `F` is continuous and positive. This is Conjecture 6. The identification with `F`, the continuity and the local uniformity are new. The decision and convergence steps take a different route from #170/#175; the cap-region domination is shared. | proof |
-| **Proposition FL.7** | #242's model is #170's cubic: `G_k(X, ζ) = P_θ(X, kζ)/k`, with `θ = (−λ̃/k, γ, B, C_3)`. The typed domain, weight and maximin decision are the same, so `F = kA_∗a_fail`. In `d = 2` this is an identity of model integrals, which with #170 Theorem S gives a second proof of Conjecture 6. In `d ≥ 3` it follows by uniqueness of limits, conditional on #175. | proof |
+| **Proposition FL.7** | #242's model is #170's cubic: `G_k(X, ζ) = P_θ(X, kζ)/k`, with `θ = (−λ̃/k, γ, B, C_3)`. The typed domain, weight and maximin decision are the same, so `F = kA_∗a_fail`. In `d = 2` this is an identity of model integrals, which with #170 Theorem S gives a second proof of Conjecture 6. In `d ≥ 3` it follows by uniqueness of limits, conditional on #175; Codex's reviewed supplement D.1 gives it directly as a model identity (Remark after FL.7). | proof |
 | **Corollary FL.5** | `r^{−3}(1 − p_r) → F/(k·A_∗)`: #170 Theorem S and #175 Theorem F, in #242's form | recovers merged results |
 | **Corollary FL.6** | compact mark windows: `ν_cand − ν_eld = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3})`, with `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}` (#170 §9, #175 §7) | recovers merged results |
 | **Proposition FL.4** | the decision transfer of #170 Theorem E(2)–(3) and #175 Theorem H, re-proved in #242's normalization by paths and traps (an `ε`-form for a continuous global field), with the generic set adapted to #242's slice decision; stiff directions included | proof (method new) |
@@ -119,5 +129,16 @@ PR.
   - It also found four MINOR findings and six NITs.
   - All are applied.
 
-Same GitHub account and same provider as the author: zero organizational-independence credit. Nonauthor review is
-required for every slice (`PROOF.md` §9).
+**Nonauthor reviews (OpenAI Codex; same GitHub account, organizational independence 0; Dylan's personal reading pending).**
+- Slice A at v1.1 `0740b2c` (review 5391585764): ACCEPT / PASS_TECHNICAL_SCOPED, no finding.
+- At v1.2 `11a4cd4`, PROOF blob `3d9faa87`:
+  - Slice B (5392212174): ACCEPT WITH THREE MINOR FIXES, OA-243-B-01, B-02 and B-03;
+  - Slice C (5392145839): ACCEPT / PASS_TECHNICAL_SCOPED;
+  - Slice D (5392277487): ACCEPT WITH ONE MINOR CLARIFICATION, OA-243-D-01;
+  - Slice E (5392675391): ACCEPT / PASS_TECHNICAL_SCOPED, no new finding.
+- D.1, Codex's root-authored direct identity `F = kA_∗a_fail` (§3 of review 5391986303 on #242), was reviewed by a different
+  Codex agent (5954510413): PASS_TECHNICAL_SCOPED, no finding.
+- v1.3 applies the four findings and asks the B, D and E reviewers for bounded delta checks of the changed bytes.
+
+The same-family referees are the same GitHub account and the same provider as the author, so they carry zero
+organizational-independence credit. The nonauthor reviews are listed above; the slices are in `PROOF.md` §9.
