@@ -96,7 +96,7 @@ SIDE24 law of [CAP] section 1 (torus side 24, `0 < r <= 1/20`).
   The only explicit constant on record before this packet is [CAP] (2)–(3): `1 - p_elder(r) <= min(1, 2.4 x 10^23 r^3)` for
   the fixed-axis SIDE24 law, nontrivial only below `r = 1.6 x 10^-8`.
 - **The SIDE24 law (Theorem E').** For that law, `1 - p_elder(r) <= 39322.8180 r^3` for `r <= 1/4096` and
-  `<= 43092.2382 r^3` for `r <= 1/2048`, within `10%` and `21%` of the sharp cap coefficient `c_G(6/5, 1/6) = 35736.8`. The
+  `<= 43092.2382 r^3` for `r <= 1/2048`, within `10.1%` and `21%` of the sharp cap coefficient `c_G(6/5, 1/6) = 35736.8`. The
   bound stays below `1` up to `r = 1/512` (`C' r_*^3 <= 0.874`).
 - **Near-optimal for the cap route.** The constants are within `0.6%`–`1.8%` of the smallest possible cap-route constant on
   the band for `r_* <= 1/512`. Every cap-route constant valid for the reference kernel at `(b, k) = (0, 2)` is at least
@@ -498,4 +498,9 @@ Math-#227. The AST with docstrings removed is unchanged, and so are `RESULTS.jso
 - `box_bound` said "every choice gives a valid bound". It now states the proved domain: `0 < x0 < 2/9` and
   `0 < theta < 1` (C61). Both `COMBOS` pairs, `(1/64, 1/32)` and `(1/1024, 1/256)`, lie inside it.
 
-Author lane Anthropic / Claude, 30 September – 1 October 2026. Scientific effect NONE. The author will not merge.
+v1.2.1 is one wording fix in section 0, from the Slice C review 5397446329 (C206-C-01). The SIDE24 constant
+`39322.8180` exceeds the certified lower end `35736.7352` of `c_G(6/5, 1/6)` by the factor `1.100348` (`RESULTS.json`),
+so "within `10%`" now reads "within `10.1%`". The `21%` statement (factor `1.205825`) was already correct. No code,
+`RESULTS.json` or constant changed.
+
+Author lane Anthropic / Claude, 30 September – 2 October 2026. Scientific effect NONE. The author will not merge.
