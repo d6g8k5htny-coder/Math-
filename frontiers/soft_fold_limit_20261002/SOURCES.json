@@ -1,13 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-FOLD-LIMIT-20261002-v1.4",
+ "object": "CL-FOLD-LIMIT-20261002-v1.5",
  "supersedes": {
-  "object": "CL-FOLD-LIMIT-20261002-v1.3",
-  "head": "483556485cf15cc8662425e2195699029c713ff5",
-  "proof_blob": "2652db8721d654b47763b18eea6b97ba9a0dc281"
+  "object": "CL-FOLD-LIMIT-20261002-v1.4",
+  "head": "15870b638748eb3f4e152fbb77ff41dac264e923",
+  "proof_blob": "64091adf95bf21e4445c4effa70ee92f84ad2da6"
  },
- "kind": "author-side proof candidate, every d >= 2 (v1.4: rebinds #242 v1.4 (head ffc7005, blob c1592915), whose consumed sections 0-3 are byte-identical to v1.2 and v1.3; the workflow requires the pinned #242 blob in the tree once #242 has merged (automated finding 4167121714 on #244, same pattern); no statement or proof changes; v1.3: applies the minor findings OA-243-B-01 (the m = 1 convention in Proposition FL.4), B-02 (the trivial case of the Trap fact), B-03 (the rectangle W fixed before the Q-dependent radii) and D-01 (the ordered domain lambda_1 < min(eps, lambda_2) in Step 5) of the nonauthor slice reviews of v1.2; records Codex's reviewed direct identity D.1 (F = k A_* a_fail in every fixed d); rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical to v1.2; no statement changes in substance): Theorem FL (Conjecture 6 of Math- #242: the fold-scale limit (k/r) r^-2 A_r^rej(b, k, u) -> F(k; b, u), uniformly on compacts of (b, k); the limit defining F exists, F is continuous and positive; the existence of the limit, as r^-3 (1 - p_r) -> alpha_1 + alpha_2, was proved earlier by the merged #170 (d = 2) and #175 (d >= 3); the decision and convergence steps here take a different route, the cap-region domination is shared); Proposition FL.7 (G_k(X, zeta) = P_theta(X, k zeta)/k with theta = (-lt/k, gamma, B, C3): same typed domain, weight and maximin decision, so F = k A_* a_fail, directly in d = 2 and by uniqueness of limits in d >= 3); Corollaries FL.5-FL.6 (recover #170 Theorem S and section 9, #175 Theorem F and section 7, in #242 form; not new); Proposition FL.4 (re-proves the window-to-global decision transfer of #170 Theorem E(2)-(3) and #175 Theorem H in #242 normalization, by paths and traps); Lemma FL.2 (the generic set has full measure; d(M) >= L_S by the critical chord of #170 section 3, observed on #242 by OpenAI Codex; case (D-prime) needs chi > 0); Lemma FL.3 (crossing a nondegenerate saddle); Lemma FL.1 (the soft window, rate r in d = 2 and r^(1/2) in d >= 3)",
+ "kind": "author-side proof candidate, every d >= 2 (v1.5: rebinds #242 v1.5 (head ee56652, blob 271412db; reporting-only changes after C80), whose consumed sections 0-3 are byte-identical; no other change; v1.4: rebinds #242 v1.4 (head ffc7005, blob c1592915), whose consumed sections 0-3 are byte-identical to v1.2 and v1.3; the workflow requires the pinned #242 blob in the tree once #242 has merged (automated finding 4167121714 on #244, same pattern); no statement or proof changes; v1.3: applies the minor findings OA-243-B-01 (the m = 1 convention in Proposition FL.4), B-02 (the trivial case of the Trap fact), B-03 (the rectangle W fixed before the Q-dependent radii) and D-01 (the ordered domain lambda_1 < min(eps, lambda_2) in Step 5) of the nonauthor slice reviews of v1.2; records Codex's reviewed direct identity D.1 (F = k A_* a_fail in every fixed d); rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical to v1.2; no statement changes in substance): Theorem FL (Conjecture 6 of Math- #242: the fold-scale limit (k/r) r^-2 A_r^rej(b, k, u) -> F(k; b, u), uniformly on compacts of (b, k); the limit defining F exists, F is continuous and positive; the existence of the limit, as r^-3 (1 - p_r) -> alpha_1 + alpha_2, was proved earlier by the merged #170 (d = 2) and #175 (d >= 3); the decision and convergence steps here take a different route, the cap-region domination is shared); Proposition FL.7 (G_k(X, zeta) = P_theta(X, k zeta)/k with theta = (-lt/k, gamma, B, C3): same typed domain, weight and maximin decision, so F = k A_* a_fail, directly in d = 2 and by uniqueness of limits in d >= 3); Corollaries FL.5-FL.6 (recover #170 Theorem S and section 9, #175 Theorem F and section 7, in #242 form; not new); Proposition FL.4 (re-proves the window-to-global decision transfer of #170 Theorem E(2)-(3) and #175 Theorem H in #242 normalization, by paths and traps); Lemma FL.2 (the generic set has full measure; d(M) >= L_S by the critical chord of #170 section 3, observed on #242 by OpenAI Codex; case (D-prime) needs chi > 0); Lemma FL.3 (crossing a nondegenerate saddle); Lemma FL.1 (the soft window, rate r in d = 2 and r^(1/2) in d >= 3)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -98,12 +98,12 @@
  "consumed_unmerged": [
   {
    "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
-   "bytes": 90777,
-   "sha256": "f45ce06a0a78169fb5003cb91705f344c5e5867f6bd8271210253b423b53f9a6",
-   "git_blob": "c15929151e9f82813b7993a31b6735bcff8dc6fa",
+   "bytes": 91967,
+   "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75",
+   "git_blob": "271412dbc96a29590f5f805258e15c9e335cb430",
    "tag": "242",
-   "use": "Math- #242 (open; v1.4, whose sections 0-3 are byte-identical to v1.3 and to v1.2 blob ad4beb84, which the v1.2 slice reviews of this note read): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision; v1.2 rewrites its proof at the exact level and states that beta > 2, chi <= 0 is rejected, as Lemma FL.2(c) here), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
-   "head": "ffc7005509554a378edd81136aa6e1f4fbd0eff8",
+   "use": "Math- #242 (open; v1.5, whose sections 0-3 are byte-identical to v1.4, v1.3 and to v1.2 blob ad4beb84, which the v1.2 slice reviews of this note read): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision; v1.2 rewrites its proof at the exact level and states that beta > 2, chi <= 0 is rejected, as Lemma FL.2(c) here), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
+   "head": "ee56652e1b30f2bfbb476da269fab15eb24cecba",
    "pr": "Math- #242"
   }
  ],
@@ -145,13 +145,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 78202,
-   "sha256": "7d0d69a100c34188a950746fb6ca5afe3a865c0cc72f85269dcfcd6bdf05df8d"
+   "bytes": 78874,
+   "sha256": "f972f46d6b7348a4ff5d2eea022694364895a5273265818533dd01204b4c06a0"
   },
   {
    "path": "README.md",
-   "bytes": 12659,
-   "sha256": "b93c60afa625087bf355955d1aacb0e7b71e38e851556e83a9c701c754105db8"
+   "bytes": 12892,
+   "sha256": "acc6421222ad925c23aea29c6a309c4343c54c21133fbdc27b320ebaee9bd1aa"
   },
   {
    "path": "fold_check.py",
@@ -220,6 +220,30 @@
    "verdict": "PASS_TECHNICAL_SCOPED",
    "findings": [],
    "use_here": "recorded as reviewed support in the Remark after Proposition FL.7 (v1.3)",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "B/D/E v1.3+v1.4 consolidated amendment (C79)",
+   "review": "pullrequestreview-5394499570",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED for OA-243-B-01, B-02, B-03 and D-01, plus the D.1 adoption readback",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "D/E changed-source review (D-01, D.1 adoption)",
+   "review": "pullrequestreview-5394480716",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "v1.4 workflow/source-presence engineering verification",
+   "review": "pullrequestreview-5394576747",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "PASS_TECHNICAL_SCOPED (historical fallback reproduced on v1.3 and rejected by v1.4)",
+   "findings": [],
    "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
   }
  ]
