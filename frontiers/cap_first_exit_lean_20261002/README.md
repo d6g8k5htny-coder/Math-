@@ -19,9 +19,12 @@ That implication has two parts:
   - (C3) a path from `M` to an older point `z`, `f(z) > b`, along which `f ≥ s`.
 - **Topological part (L21–L22).** From (C1)–(C3), deduce `M`'s global maximin level and its superlevel death level.
 
-This packet kernel-checks the topological part, using no hypothesis beyond (C1)–(C3). `X` is any topological space.
-No metric, smoothness, Morse, compactness or probability hypothesis is used. The separation steps do not even use
-continuity of `f`. Nothing is assumed about `f` outside `C` except along the single ridge path.
+This packet kernel-checks the topological part. `X` is any topological space, and nothing is assumed about `f`
+outside `C` except along the single ridge path.
+- The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
+  separation steps do not even use continuity of `f`.
+- The two older-peak theorems, `older_peak` and `elder_death_level_peak`, add compactness, local connectedness and
+  continuity of `f`. All three hold on the torus.
 
 | Lean declaration | Statement |
 |---|---|
@@ -32,6 +35,9 @@ continuity of `f`. Nothing is assumed about `f` outside `C` except along the sin
 | `CapHyp.elder_death_level` | the largest such `h` exists and equals `s` (L22's death level) |
 | `CapHyp.path_through_saddle` | under (C2⁺): every path from `M` to a point `> b` inside `{f ≥ s}` passes through `S` |
 | `CapHyp.saddle_cut` | under (C2⁺): in `{f ≥ s} \ {S}`, the component of `M` has no point `> b`; `S` is a cut point at the death level |
+| `CapHyp.older_peak` | on a compact, locally connected space with continuous `f`: for every `h ≤ s`, `M`'s component in `{f ≥ h}` contains a local maximum `p` of `f` with `f p > b` that is highest in the component (the older class) |
+| `CapHyp.elder_alive` | with `b = f M`: for every `h > s`, `M` is a highest point of its component in `{f ≥ h}` |
+| `CapHyp.elder_death_level_peak` | compact, locally connected, continuous, `b = f M`: the largest level at which `M`'s component contains a strictly higher local maximum exists and is `s` |
 | `CapHyp.congr` | exterior invariance: agreement on `closure C` and along one ridge preserves every hypothesis, hence every conclusion |
 | `toy_capHyp`, `toy_death_level` | a concrete instance on `ℝ`, showing the hypotheses are satisfiable and the theorems are not vacuous |
 | `toy_needs_C1`, `toy_needs_C2`, `toy_needs_C3` | proved counterexamples: for each of (C1), (C2), (C3), Lean proves that the other two hold, that this one fails, and that the maximin conclusion fails |
@@ -54,8 +60,10 @@ This packet does not formalize:
 
 - the analytic inequalities L1–L20 that produce (C1)–(C3) from `G_r`;
 - the chart/embedding interface: that the frontier of the cylinder cap in `ℝ^d` is its frontier in the torus;
-- the elder-rule reading in L22: "the class born at `M` dies at the largest `t` at which its component contains a
-  point of value `> b`". This needs compactness and the elder-rule definition. Lean proves what that largest `t` is;
+- the definition of the H0 superlevel persistence pairing itself: that the class born at a local maximum `M` dies at
+  the largest level at which its component contains a strictly higher local maximum. On a compact, locally connected
+  space Lean proves that this level is `s` (`elder_death_level_peak`); only the persistence-module bookkeeping is
+  informal;
 - L23, P §8, and every probabilistic statement (Theorem A, `Q^W(G_r^c) ≤ C r^3`).
 
 So issue Math-#193's "D1 Lean / kernel formalization" remains **partially** unsupplied. [ALIGNMENT.md](ALIGNMENT.md)
@@ -84,7 +92,7 @@ The source gate checks:
 
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 29 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 34 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

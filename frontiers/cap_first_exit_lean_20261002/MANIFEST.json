@@ -50,6 +50,11 @@
   "CapFirstExit.CapHyp.path_through_saddle",
   "CapFirstExit.CapHyp.saddle_cut",
   "CapFirstExit.CapHyp.congr",
+  "CapFirstExit.isClosed_connectedComponentIn",
+  "CapFirstExit.CapHyp.older_peak",
+  "CapFirstExit.CapHyp.elder_alive",
+  "CapFirstExit.CapHyp.olderPeakLevels",
+  "CapFirstExit.CapHyp.elder_death_level_peak",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -149,6 +154,31 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.isClosed_connectedComponentIn": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.older_peak": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_alive": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.olderPeakLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_death_level_peak": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -218,18 +248,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 6816,
-   "sha256": "f61e6bfe53701b8d3f8bfeaa59f2838e5ed42f54b5c9bd5228bb2c65549ea5c9"
+   "bytes": 8249,
+   "sha256": "8a80cb5c0189bb05bd365e810568899e4ad311a91bf9bd05e1edd69a1b73c79b"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 16101,
-   "sha256": "d8669d68602df9ad9001eb2295b61731a6b7dd73e811d32ed2bc63b6d9079915"
+   "bytes": 20265,
+   "sha256": "34fe096d066e5bdbc45c8132c2a7dbbc7eeb6945a90ff89c1e5ae7b6fb30fc25"
   },
   {
    "path": "README.md",
-   "bytes": 5920,
-   "sha256": "0f6b49e076f3a6416e6e24be561d19dfabe5b26afca5db28afcf1aaa59df8a83"
+   "bytes": 6763,
+   "sha256": "c496785a35e4893d79c436219c994a84d790d1bbd92216031decec75f84cf500"
   },
   {
    "path": "gate.py",
@@ -254,7 +284,7 @@
   {
    "path": "test_gate.py",
    "bytes": 4881,
-   "sha256": "588e16d46d3974763ef28010ad7243196363a41012fd3debce19f5e2669a31a2"
+   "sha256": "0f0df3ffe8c39b11d563e1009872e03d0902f3cac4a74d23ad48431c5e41523b"
   }
  ]
 }

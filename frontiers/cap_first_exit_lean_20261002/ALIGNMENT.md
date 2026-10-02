@@ -39,6 +39,10 @@ The source setting (SP §2) is as follows:
 | `CapHyp.joinedLevels`, `CapHyp.elder_death_level` | `IsGreatest {h ∣ ∃ w ∈ cc{f ≥ h}(M), b < f w} s` | SP L22, "the largest `t` at which it contains a point of value `> b`, i.e. at `t = d_f(M)`" | Both halves of SP's "i.e." are proved: the largest such `t` exists and is `s`, and `s = d_f(M)`. See interface I2. |
 | `CapHyp.path_through_saddle` | under `hS`, every path from `M` to a point `> b` inside `{f ≥ s}` passes through `S` | SP L19 + L21 | |
 | `CapHyp.saddle_cut` | under `hS`, `M`'s component of `{f ≥ s} \ {S}` has no point `> b` | replaces SP L22's "distinct critical values make it `S`" | A topological identification of the merge point. With `elder_merge_iff_closed` at `h = s`, removing `S` at the death level disconnects `M` from every older point. No Morse hypothesis. |
+| `isClosed_connectedComponentIn` | a connected component of a closed set is closed | standard | Not in Mathlib at the pinned revision; proved from `IsPreconnected.closure`. |
+| `CapHyp.older_peak` | `[CompactSpace X] [LocallyConnectedSpace X]`, `Continuous f`, `h ≤ s` ⇒ `∃ p ∈ cc{f ≥ h}(M), b < f p ∧ IsLocalMax f p ∧ ∀ w ∈ cc{f ≥ h}(M), f w ≤ f p` | SP L22, "the older endpoint" | Compactness gives the maximum over the closed component. Local connectedness makes that maximum a local maximum of `f` on `X`: the `{f > h}`-component of `p` is an open neighbourhood inside the component. |
+| `CapHyp.elder_alive` | `f M = b`, `s < h` ⇒ `∀ w ∈ cc{f ≥ h}(M), f w ≤ f M` | SP L22, the class is alive above `s` | No compactness needed. |
+| `CapHyp.olderPeakLevels`, `CapHyp.elder_death_level_peak` | `IsGreatest {h ∣ ∃ p ∈ cc{f ≥ h}(M), f M < f p ∧ IsLocalMax f p} s` | SP L22, the death level | This is the elder rule's death level, stated with older local maxima instead of older points. |
 | `CapHyp.congr` | from `g = f` on `closure C` and along one ridge `γ₀`, `CapHyp g C M z b s` | the audit's exterior-invariance corollary (Math-#193 deliverable 2) | `closure C ⊇ C ∪ frontier C`. In SP, `C` is closed. |
 
 ## 3. Non-vacuity and necessity, proved in Lean
@@ -64,6 +68,10 @@ The proved facts are:
 
 Each necessity theorem is one conjunction, so it certifies its own premises, not only its conclusion.
 
+The toy lives on `ℝ`, which is not compact. So the older-peak theorems (`older_peak`, `elder_death_level_peak`) have
+no concrete instance exhibited in Lean. Their extra hypotheses (compact, locally connected, continuous `f`) hold on the
+torus.
+
 The toy is one-dimensional, so its "saddle" `S = 1` is a local minimum, the index-`d−1` point for `d = 1`. The toy
 illustrates the hypotheses; it is not a model of the planar cap.
 
@@ -72,7 +80,7 @@ illustrates the hypotheses; it is not a model of the planar cap.
 | | Interface | Where it is argued | Why it is outside this packet |
 |---|---|---|---|
 | I1 | The frontier of `C = [-2r, r/2] × B̄(0, 2r)` in the torus equals its Euclidean frontier (faces and curved side), because the chart is a homeomorphism onto an open set containing `C` | SP §3 / REC embedding radius | chart geometry, not topology of the first-exit step |
-| I2 | Elder-rule reading: on a compact manifold with `f` Morse with distinct critical values, the class born at `M` dies at the largest `t` at which its `{f ≥ t}`-component contains a point of value `> b` | SP L22, P §8 | needs compactness, the elder-rule definition and the persistence module; Lean identifies the level, not the module |
+| I2 | Persistence bookkeeping: in H0 superlevel persistence with distinct critical values, the class born at a local maximum `M` dies at the largest level at which its component contains a strictly higher local maximum (the elder rule) | SP L22, P §8 | This is the definition of the elder pairing. On a compact, locally connected space, Lean proves that this level is `s` (`elder_death_level_peak`). Only the identification of the persistence module's pairing with that definition is informal. |
 | I3 | (C1)–(C3) from `G_r` | SP L1–L20, CAP §§2–5 | analytic inequalities with exact constants; checked by exact arithmetic in SP's script, not in Lean |
 | I4 | Theorem A, measurability, `Q^W(G_r^c) ≤ C r³` | P §§7–8, C1, G1 | probability |
 

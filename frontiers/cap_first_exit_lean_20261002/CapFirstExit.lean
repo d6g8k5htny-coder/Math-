@@ -10,13 +10,15 @@
 
   The saddle form adds (C2⁺): every frontier point other than `S` has `f < s`   (L19).
 
-  Nothing is assumed about `f` outside `C` beyond the witness path in (C3). No metric, smoothness,
-  Morse, compactness or probabilistic hypothesis is used, and the separation statements do not
-  even use continuity of `f`. `X` is an arbitrary topological space; the torus is one instance.
+  Nothing is assumed about `f` outside `C` beyond the witness path in (C3). The core theorems use
+  no metric, smoothness, Morse, compactness or probabilistic hypothesis, and their separation
+  statements do not even use continuity of `f`. `X` is an arbitrary topological space; the torus
+  is one instance. Only the older-peak theorems add compactness, local connectedness and
+  continuity of `f`, all of which hold on the torus.
 
   What this file does NOT formalize: the analytic inequalities L1–L20 that produce (C1)–(C3)
-  from `G_r`, the Morse-theoretic identification of the merging critical point (L22, "distinct
-  critical values"), the unstable-branch analysis (L23), and every probabilistic statement.
+  from `G_r`; the identification of the H0 persistence pairing with the elder rule (L22, P §8);
+  the unstable-branch analysis (L23); and every probabilistic statement.
 -/
 import Mathlib
 
@@ -235,6 +237,82 @@ theorem congr {g : X → ℝ} (H : CapHyp f C M z b s) (γ₀ : Path M z) (hγ�
     rw [h1]
     exact H.older
   ridge := ⟨γ₀, fun t => (hgγ t).symm ▸ hγ₀ t⟩
+
+end CapHyp
+
+/-! ### The elder-rule interface on a compact, locally connected space
+
+The elder rule pairs the class born at `M` with the level at which its superlevel component first
+contains a strictly higher local maximum (an older class). On a compact, locally connected space
+with continuous `f` (a closed manifold, in particular the torus), the following theorems identify
+that level as `s`. -/
+
+/-- A connected component of a closed set is closed. -/
+theorem isClosed_connectedComponentIn {F : Set X} (hF : IsClosed F) (x : X) :
+    IsClosed (connectedComponentIn F x) := by
+  by_cases hx : x ∈ F
+  · refine isClosed_of_closure_subset ?_
+    exact isPreconnected_connectedComponentIn.closure.subset_connectedComponentIn
+      (subset_closure (mem_connectedComponentIn hx))
+      (closure_minimal (connectedComponentIn_subset F x) hF)
+  · rw [connectedComponentIn_eq_empty hx]
+    exact isClosed_empty
+
+namespace CapHyp
+
+variable {f : X → ℝ} {C : Set X} {M z : X} {b s : ℝ}
+
+/-- **An older peak below the death level.** For every level `h ≤ s`, the component of `M` in
+`{f ≥ h}` contains a point `p` with `f p > b` that maximizes `f` over the component and is a local
+maximum of `f` on `X`: the older class that absorbs the class born at `M`. -/
+theorem older_peak [CompactSpace X] [LocallyConnectedSpace X] (H : CapHyp f C M z b s)
+    (hf : Continuous f) {h : ℝ} (hh : h ≤ s) :
+    ∃ p ∈ connectedComponentIn {x | h ≤ f x} M, b < f p ∧ IsLocalMax f p ∧
+      ∀ w ∈ connectedComponentIn {x | h ≤ f x} M, f w ≤ f p := by
+  have hF : IsClosed {x | h ≤ f x} := isClosed_le continuous_const hf
+  obtain ⟨w, hwK, hbw⟩ := (H.elder_merge_iff_closed h).mpr hh
+  obtain ⟨p, hpK, hpmax⟩ := (isClosed_connectedComponentIn hF M).isCompact.exists_isMaxOn
+    ⟨w, hwK⟩ hf.continuousOn
+  have hmax : ∀ x ∈ connectedComponentIn {x | h ≤ f x} M, f x ≤ f p := isMaxOn_iff.mp hpmax
+  have hbp : b < f p := lt_of_lt_of_le hbw (hmax w hwK)
+  have hsb : s ≤ b := le_trans H.s_le_f_M (H.ceiling M H.mem)
+  have hpU : p ∈ {x | h < f x} := by
+    show h < f p
+    linarith
+  have hU : IsOpen {x | h < f x} := isOpen_lt continuous_const hf
+  have hVK : connectedComponentIn {x | h < f x} p ⊆ connectedComponentIn {x | h ≤ f x} M := by
+    rw [connectedComponentIn_eq hpK]
+    exact connectedComponentIn_mono p (fun x (hx : h < f x) => (le_of_lt hx : h ≤ f x))
+  refine ⟨p, hpK, hbp, ?_, hmax⟩
+  exact Filter.eventually_of_mem (hU.connectedComponentIn.mem_nhds (mem_connectedComponentIn hpU))
+    (fun x hx => hmax x (hVK hx))
+
+/-- **No older point above the death level.** For every level `h > s`, `M` is a highest point of
+its component in `{f ≥ h}`, when `b = f M`: the class born at `M` is the elder of its component. -/
+theorem elder_alive (H : CapHyp f C M z b s) (hMb : f M = b) {h : ℝ} (hh : s < h) :
+    ∀ w ∈ connectedComponentIn {x | h ≤ f x} M, f w ≤ f M := by
+  intro w hw
+  rw [hMb]
+  by_contra hlt
+  rw [not_le] at hlt
+  exact absurd ((H.elder_merge_iff_closed h).mp ⟨w, hw, hlt⟩) (not_le.mpr hh)
+
+/-- The levels at which the component of `M` in `{f ≥ h}` contains a strictly higher local
+maximum of `f`. -/
+def olderPeakLevels (f : X → ℝ) (M : X) : Set ℝ :=
+  {h | ∃ p ∈ connectedComponentIn {x | h ≤ f x} M, f M < f p ∧ IsLocalMax f p}
+
+/-- **Elder death level, peak form.** On a compact, locally connected space with continuous `f`
+and `b = f M`, the largest level at which the component of `M` contains a strictly higher local
+maximum exists and equals `s`. This is the death level of the elder rule. -/
+theorem elder_death_level_peak [CompactSpace X] [LocallyConnectedSpace X]
+    (H : CapHyp f C M z b s) (hf : Continuous f) (hMb : f M = b) :
+    IsGreatest (olderPeakLevels f M) s := by
+  refine ⟨?_, fun h hh => ?_⟩
+  · obtain ⟨p, hpK, hbp, hloc, -⟩ := H.older_peak hf le_rfl
+    exact ⟨p, hpK, hMb ▸ hbp, hloc⟩
+  · obtain ⟨p, hpK, hMp, -⟩ := hh
+    exact (H.elder_merge_iff_closed h).mp ⟨p, hpK, hMb ▸ hMp⟩
 
 end CapHyp
 
