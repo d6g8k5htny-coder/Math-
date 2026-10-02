@@ -2,8 +2,8 @@
 
 current_required (seven): for each entry the working-tree copy at `local_path` and the historical entry
 `commit:path` must both be the recorded blob, with the recorded byte count and SHA256 (`git ls-tree --full-tree`).
-cited_unmerged (two C52 files of Math-#235): checked the same way when the commit object is present locally, otherwise
-reported as unavailable.  They are not premises.  CI checks out full history (fetch-depth: 0).  Git replacement objects
+cited (two C52 files of Math-#235, merged to main at 7e23441): checked the same way, working tree and commit:path,
+and required.  They are credited sources, not premises.  CI checks out full history (fetch-depth: 0).  Git replacement objects
 are disabled (--no-replace-objects, GIT_NO_REPLACE_OBJECTS=1), so a local refs/replace entry cannot redirect a pin.
 
     python3 -B -S verify_sources.py"""
@@ -17,7 +17,7 @@ from pathlib import Path, PurePosixPath
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-MANIFEST_SHA256 = '44fc416116eca6bbf56c029329930212c0b108ee1bb9174ca8f3b41ad1b78991'
+MANIFEST_SHA256 = '7fa5215487df6282baa997efe469686677277f08bfeb210e95e13d8273a0345b'
 
 
 def require(cond, msg):
@@ -87,13 +87,12 @@ def verify():
         require(identity_ok(contained(e['local_path']).read_bytes(), e), 'working-tree bytes ' + e['key'])
         historical(e)
     cited = {}
-    for e in man['cited_unmerged']:
+    for e in man['cited']:
         require(e['pr'] == 'Math-#235', 'cited entry ' + e['key'])
-        if commit_present(e['commit']):
-            historical(e)
-            cited[e['key']] = 'verified'
-        else:
-            cited[e['key']] = 'commit not present locally (not a premise)'
+        require(e['local_path'] == e['path'], 'local path differs from pinned path ' + e['key'])
+        require(identity_ok(contained(e['local_path']).read_bytes(), e), 'working-tree bytes ' + e['key'])
+        historical(e)
+        cited[e['key']] = 'verified'
     return len(req), cited
 
 
@@ -103,5 +102,5 @@ if __name__ == '__main__':
     except ValueError as exc:
         print('source verification FAILED:', exc)
         sys.exit(1)
-    print(json.dumps({'verified_sources': n, 'cited_unmerged': cited,
+    print(json.dumps({'verified_sources': n, 'cited': cited,
                       'scope': 'source identity only, not analytic acceptance'}))

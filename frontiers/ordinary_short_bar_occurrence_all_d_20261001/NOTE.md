@@ -4,8 +4,8 @@ Object: C52-ALL-D-ORDINARY-SHORT-BAR-OCCURRENCE-20261001-v1.
 Author lane: Anthropic / Claude (session 015wNj8L…), under Dylan Roy's delegation. Additive conditional candidate.
 Scientific effect: NONE. C8 OPEN. No STATUS, PROOF_INDEX, GRAPH, prize or premise edit.
 
-**Credit.** The argument is OpenAI/Codex's C52 (Math-#235, head `c463777`: `FOLD_ISOLATION.md` blob `a3d4e7c4`,
-`PROOF.md` blob `69ff20a6`). C52 proves the planar case and states that it makes "no extension of the present planar
+**Credit.** The argument is OpenAI/Codex's C52 (Math-#235, merged to main at `7e23441` with the reviewed blobs unchanged:
+`FOLD_ISOLATION.md` blob `a3d4e7c4`, `PROOF.md` blob `69ff20a6`). C52 proves the planar case and states that it makes "no extension of the present planar
 lemma to other dimensions" (FOLD_ISOLATION §8). This packet supplies that extension. Its planar case `d = 2` is exactly
 C52's Theorem O, so it neither supersedes nor edits #235. C52's files are cited, not consumed as premises: every step
 used here is restated and proved below in dimension d.
@@ -424,8 +424,8 @@ These cover `d = 2..6`. `test_check.py` adds unit tests and 17 implementation mu
 blob. It checks both the working-tree copy and the historical `commit:path -> blob` entry, via `git ls-tree`. Git
 replacement objects are disabled (`--no-replace-objects`, `GIT_NO_REPLACE_OBJECTS=1`), so a local `refs/replace` entry
 cannot redirect a pinned commit (OA-236-ENG-01, with a real-Git regression test). The two
-`cited_unmerged` C52 entries are checked the same way when their commit is present locally, and otherwise reported as
-unavailable; they are not premises.
+`cited` C52 entries (merged with #235 at `7e23441`) are checked the same way, working tree and `commit:path`; they are
+credited sources, not premises.
 
 The controls do not prove the continuum analysis, including:
 - genericity;
@@ -441,3 +441,11 @@ The controls do not prove the continuum analysis, including:
   conditional covariance positivity for (N7), and the uniform integrability.
 - **Slice C, §§0, 3–5:** the source scope in general `d`, (C1)–(C2), the domination, and the occurrence and mark
   conclusions. This includes checking that [T] (T4) and [E2] are indeed used only within their stated general-d scope.
+
+## 8. Revisions
+
+- **v1.1 (provenance only).** Math-#235 merged at `7e23441` with `FOLD_ISOLATION.md` and `PROOF.md` byte-identical to
+  the blobs cited since v1 (`a3d4e7c4`, `69ff20a6`). `SOURCES.json` moves the two C52 entries from `cited_unmerged` to
+  `cited`, pinned at `7e23441` and verified on the working tree. `verify_sources.py` now requires them instead of
+  reporting them as optional, and the workflow also triggers on those two paths. No statement, proof, control or
+  constant changed, and C52 remains cited, not consumed as a premise.

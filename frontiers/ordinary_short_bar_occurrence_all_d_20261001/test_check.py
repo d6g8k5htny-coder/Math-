@@ -21,7 +21,7 @@ class Sources(unittest.TestCase):
     def test_seven_sources(self):
         n, cited = V.verify()
         self.assertEqual(n, 7)
-        self.assertEqual(set(cited), {'C52-FOLD', 'C52-PROOF'})
+        self.assertEqual(cited, {'C52-FOLD': 'verified', 'C52-PROOF': 'verified'})
 
     def test_historical_rejections(self):
         import json
