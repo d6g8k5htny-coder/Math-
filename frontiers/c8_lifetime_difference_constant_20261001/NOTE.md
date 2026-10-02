@@ -428,7 +428,9 @@ upper constants by a different, cellwise transfer. That transfer uses Math-#227'
 C60's direct contact comparison in place of the factor `(1 + a_up r_*^2 + eps)` above. The published constants dominate the
 alternative bound.
 
-So the elder corollaries no longer rest on the positive-radius parts of Theorem L that remain unaccepted. C61's scope is
+The cap-derived candidate-minus-selected-elder error estimates no longer rest on those unaccepted positive-radius parts;
+C61 does not accept the older individual-density expansions or the selected-count bounds that also use `c'` and `eps'`.
+C61's scope is
 the compact window `b in [0, 1]`, `k in [1/2, 2]`, `L >= 10`, `d = 2, 3`, and the corrected parent set above. It gives
 `0 <= nu_cand - nu_eld <= C_{B,K}(R) ell^(2/3)` and the cumulative `C_121(R) t^(5/3)` for `ell, t < min(r_pop, R)^3/2`.
 
@@ -549,3 +551,7 @@ not with the exact cap-route limit of a finite torus.
   (C59-DOC-01), and `box_bound` now states its proved parameter domain `0 < x0 < 2/9`, `0 < theta < 1` (C61).
 
 In every changed Python file the AST with docstrings removed is unchanged, and `RESULTS.json` and every constant are unchanged.
+
+**v1.5.1 (wording; C63, 5943465973).** §7 is narrowed. C61's transfer covers the cap-derived candidate-minus-selected-elder
+error estimates. It covers neither Corollary L1's individual-density expansions nor Corollary L2's selected-count bounds,
+both of which also use `c'` and `eps'` from the full positive-radius Theorem L.
