@@ -71,10 +71,11 @@ dec_up, dec_down, cdiv = TB.dec_up, TB.dec_down, TB.cdiv
 class TV:
     """f(r) = sum_{j <= N} c_j r^j + rho(r) for 0 <= r <= 2^-s, with FIXED (r-independent) coefficients
     c_j in [(C_j - D_j)/2^P, (C_j + D_j)/2^P] and |rho(r)| <= (E/2^P) r^(N+1).  In particular f(0) = c_0.
-    Preconditions (the reuse boundary; review C56): C and D are integer lists of length N + 1 with every D_j >= 0, and
-    E >= 0; the operands of +, -, * share (s, N); powers are nonnegative integers; the readers are called with
-    0 < R <= 2^-s; the lists are not mutated after construction.  The certificate meets all of them; inputs outside
-    them are not covered."""
+    Preconditions (the reuse boundary; reviews C56, C63): C and D are integer lists of length N + 1 with every D_j >= 0;
+    E is an integer >= 0; s >= 0 and N >= 0 are integers, with N >= 2 for the second-order readers (inc, absinc and
+    their callers read coeff(2)); the operands of +, -, * share (s, N); powers are nonnegative integers; reader radii
+    and scalars are exact rationals, with 0 < R <= 2^-s; the lists are not mutated after construction.  The certificate
+    meets all of them (s = TM_S, N = TM_N = 8); inputs outside them are not covered."""
     __slots__ = ('C', 'D', 'E', 's', 'N')
 
     def __init__(self, C, D, E, s, N):

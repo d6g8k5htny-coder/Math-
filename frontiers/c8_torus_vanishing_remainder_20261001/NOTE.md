@@ -58,7 +58,7 @@ What changes against [B]:
 **Corollary L′1 (the densities with a vanishing remainder).** Let `nu_cand`, `nu_eld` be the compact-window densities of [LP]
 Theorem B in the versions (11.2), for the torus kernel or the Gaussian kernel, and
 `c_{B,K} = int_{B x K x S^(d-1)} A_0(b, k, u)/(3 k^(2/3)) db dk dsigma(u)` the leading constant **of the same kernel**. The
-angular integral uses ordinary surface measure `dsigma`, as in [LP] (11.2)–(11.3). The torus is not assumed isotropic. For `0 < ell < R^3 / 2`:
+angular integral uses ordinary surface measure `dsigma`, as in [LP] (11.2)–(11.3). The torus is not assumed isotropic. For `0 < ell < min(r_pop, R)^3 / 2`, with `r_pop` [LP]'s population radius:
 
     -(c2_dn ell^(2/3) + c1_dn ell^(1/3))  <=  ell^(1/3) nu_cand(ell) - c_{B,K}  <=  c2_up ell^(2/3) + c1_up ell^(1/3),
     ell^(1/3) nu_cand(ell) - C_{B,K}(R) ell  <=  ell^(1/3) nu_eld(ell)  <=  ell^(1/3) nu_cand(ell),
@@ -280,7 +280,8 @@ deviations from `A_0^ref`.
   - [LP]'s sections 8–12, as in [B], read with [E1], [E2], [REC];
   - [B]'s §§2–5 algebra (exact expansions, first-order cancellations, Hölder bounds, Loewner coupling): scoped reads
     5378815703, 5379687608, 5379747967, 5379848224, 5384256400. Its positive-radius Theorem L is not accepted as a whole;
-    this packet uses only its contact value (C60) and its `C_{B,K}` (C61);
+    this packet uses only these assembled conclusions of Theorem L, namely its contact value (C60) and its `C_{B,K}` (C61),
+    while the scoped [B] algebra and reference routines above remain consumed;
   - the band laws, interval and transcendental primitives and moment routines of [E], [E3]: reviewed at the contracts used
     here (C57, C59).
 
@@ -318,6 +319,11 @@ deviations from `A_0^ref`.
     - §5 records C60's direct contact comparison and C61's `C_{B,K}` disposition.
     - §§7–8 add the corrected parent set [E1], [E2], [REC] (C61) and the current review status, and §8 pins [CAP] as well,
       so that this consumer verifies the whole parent set it cites (C63, 5943439412).
+  - **v1.2.2 (C63, 5943465973).** Three wording changes:
+    - the `TV` docstring adds C56's integer `E`, integer `s, N >= 0` with `N >= 2` for the second-order readers, and
+      exact rational reader inputs;
+    - Corollary L′1's window becomes `ell < min(r_pop, R)^3/2`, as in §5;
+    - §7 says "these assembled conclusions of Theorem L".
   - **`theorem_v.py`.**
     - The `TV` docstring states its preconditions (C56).
     - `combine_v` states the positivity case split of the lower bound (C58).
