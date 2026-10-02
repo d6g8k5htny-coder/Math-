@@ -316,6 +316,97 @@ theorem elder_death_level_peak [CompactSpace X] [LocallyConnectedSpace X]
 
 end CapHyp
 
+/-! ### Charts: the cap on the torus and its faces
+
+The analysis of CAP §§2–5 runs in Euclidean coordinates on the periodic lift `f ∘ e` of a field
+`f` on the torus, where `e : ℝ^d → T^d` is the covering map. The two lemmas below transport the cap
+hypotheses to the torus and list the faces of the cylinder cap. The transport needs only that `e`
+is continuous and open, that the target is Hausdorff and that the cap is compact; injectivity is
+not used. -/
+
+/-- Frontier of a compact image. If `e` is continuous and open, `X` is Hausdorff and `C` is
+compact, every frontier point of `e '' C` is the image of a frontier point of `C`. -/
+theorem frontier_image_subset {Y : Type*} [TopologicalSpace Y] [T2Space X] {e : Y → X}
+    (hec : Continuous e) (heo : IsOpenMap e) {C : Set Y} (hC : IsCompact C) :
+    frontier (e '' C) ⊆ e '' frontier C := by
+  intro x hx
+  have hcl : IsClosed (e '' C) := (hC.image hec).isClosed
+  have hx1 : x ∈ e '' C := by
+    have h := hx.1
+    rwa [hcl.closure_eq] at h
+  obtain ⟨y, hyC, rfl⟩ := hx1
+  refine ⟨y, ⟨subset_closure hyC, fun hyi => hx.2 ?_⟩, rfl⟩
+  exact interior_maximal (image_mono interior_subset) (heo _ isOpen_interior) ⟨y, hyi, rfl⟩
+
+namespace CapHyp
+
+/-- **Transport along a chart.** The cap hypotheses for the lift `f ∘ e` on a compact cap `C`
+give the cap hypotheses for `f` on `e '' C`, with the same `b` and `s`. -/
+theorem map {Y : Type*} [TopologicalSpace Y] [T2Space X] {e : Y → X} (hec : Continuous e)
+    (heo : IsOpenMap e) {f : X → ℝ} {C : Set Y} (hC : IsCompact C) {M z : Y} {b s : ℝ}
+    (H : CapHyp (f ∘ e) C M z b s) : CapHyp f (e '' C) (e M) (e z) b s where
+  mem := ⟨M, H.mem, rfl⟩
+  ceiling := by
+    rintro _ ⟨y, hy, rfl⟩
+    exact H.ceiling y hy
+  frontier_le := by
+    intro x hx
+    obtain ⟨y, hy, rfl⟩ := frontier_image_subset hec heo hC hx
+    exact H.frontier_le y hy
+  older := H.older
+  ridge := by
+    obtain ⟨γ, hγ⟩ := H.ridge
+    exact ⟨γ.map hec, fun t => hγ t⟩
+
+/-- Transport of (C2⁺): if only `S` attains `s` on the frontier of `C` for the lift, only `e S`
+attains it on the frontier of `e '' C`. -/
+theorem map_saddle {Y : Type*} [TopologicalSpace Y] [T2Space X] {e : Y → X} (hec : Continuous e)
+    (heo : IsOpenMap e) {f : X → ℝ} {C : Set Y} (hC : IsCompact C) {S : Y} {s : ℝ}
+    (hS : ∀ y ∈ frontier C, y ≠ S → (f ∘ e) y < s) :
+    ∀ x ∈ frontier (e '' C), x ≠ e S → f x < s := by
+  intro x hx hne
+  obtain ⟨y, hy, rfl⟩ := frontier_image_subset hec heo hC hx
+  exact hS y hy (fun h => hne (h ▸ rfl))
+
+end CapHyp
+
+/-- **The faces of the cylinder cap** `[a, c] × B̄(0, R)`: the two end faces `{a, c} × B̄(0, R)`
+and the curved side `[a, c] × S(0, R)`. These are the faces estimated in L17–L19. -/
+theorem frontier_cylinder {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] {a c R : ℝ}
+    (hac : a ≤ c) (hR : R ≠ 0) :
+    frontier (Icc a c ×ˢ Metric.closedBall (0 : E) R) =
+      ({a, c} : Set ℝ) ×ˢ Metric.closedBall (0 : E) R ∪ Icc a c ×ˢ Metric.sphere (0 : E) R := by
+  rw [frontier_prod_eq, closure_Icc, frontier_closedBall (0 : E) hR, frontier_Icc hac,
+    Metric.isClosed_closedBall.closure_eq]
+  exact union_comm _ _
+
+/-- The cylinder cap is compact in finite dimension. -/
+theorem isCompact_cylinder {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [ProperSpace E]
+    (a c R : ℝ) : IsCompact (Icc a c ×ˢ Metric.closedBall (0 : E) R) :=
+  isCompact_Icc.prod (isCompact_closedBall 0 R)
+
+/-- The covering map of the flat torus `(ℝ / Lℤ)^d`. -/
+def torusCover (L : ℝ) (d : ℕ) : (Fin d → ℝ) → (Fin d → AddCircle L) :=
+  Pi.map fun _ => ((↑) : ℝ → AddCircle L)
+
+theorem torusCover_continuous (L : ℝ) (d : ℕ) : Continuous (torusCover L d) :=
+  Continuous.piMap fun _ => continuous_quotient_mk'
+
+theorem torusCover_isOpenMap (L : ℝ) (d : ℕ) : IsOpenMap (torusCover L d) :=
+  IsOpenMap.piMap (fun _ => QuotientAddGroup.isOpenMap_coe)
+    (Filter.Eventually.of_forall fun _ => QuotientAddGroup.mk_surjective)
+
+/-- **The cap on the torus.** Let `φ` be any coordinate frame (a homeomorphism onto `ℝ^d`), and
+suppose the periodic lift `f ∘ torusCover L d ∘ φ` satisfies the cap hypotheses on a compact cap
+`C`. Then `f` satisfies them on the image of `C` in the torus `(ℝ / Lℤ)^d`, with the same `b` and
+`s`. No embedding radius is used. -/
+theorem CapHyp.toTorus {Y : Type*} [TopologicalSpace Y] {L : ℝ} {d : ℕ}
+    (φ : Y ≃ₜ (Fin d → ℝ)) {f : (Fin d → AddCircle L) → ℝ} {C : Set Y} (hC : IsCompact C)
+    {M z : Y} {b s : ℝ} (H : CapHyp (f ∘ (torusCover L d ∘ φ)) C M z b s) :
+    CapHyp f ((torusCover L d ∘ φ) '' C) (torusCover L d (φ M)) (torusCover L d (φ z)) b s :=
+  H.map ((torusCover_continuous L d).comp φ.continuous)
+    ((torusCover_isOpenMap L d).comp φ.isOpenMap) hC
+
 /-! ### A concrete instance and the necessity of each hypothesis
 
 On `ℝ`, `toyF x = max (-|x|) (x - 2)` has a local maximum `M = 0` at height `b = 0`, a

@@ -39,6 +39,9 @@ outside `C` except along the single ridge path.
 | `CapHyp.elder_alive` | with `b = f M`: for every `h > s`, `M` is a highest point of its component in `{f ≥ h}` |
 | `CapHyp.elder_death_level_peak` | compact, locally connected, continuous, `b = f M`: the largest level at which `M`'s component contains a strictly higher local maximum exists and is `s` |
 | `CapHyp.congr` | exterior invariance: agreement on `closure C` and along one ridge preserves every hypothesis, hence every conclusion |
+| `CapHyp.map`, `CapHyp.map_saddle` | transport: if the lift `f ∘ e` satisfies (C1)–(C3) (and (C2⁺)) on a compact cap `C`, then `f` satisfies them on `e '' C`. Needs only `e` continuous and open and the target Hausdorff; no injectivity |
+| `torusCover`, `CapHyp.toTorus` | the covering map `ℝ^d → (ℝ/Lℤ)^d` is continuous and open, so a cap verified for the periodic lift in any coordinate frame transfers to the torus with the same `b`, `s`. No embedding radius is needed for this step |
+| `frontier_cylinder`, `isCompact_cylinder` | `frontier ([a, c] × B̄(0, R)) = {a, c} × B̄(0, R) ∪ [a, c] × S(0, R)`: exactly the end faces and curved side estimated in L17–L19; the cylinder is compact |
 | `toy_capHyp`, `toy_death_level` | a concrete instance on `ℝ`, showing the hypotheses are satisfiable and the theorems are not vacuous |
 | `toy_needs_C1`, `toy_needs_C2`, `toy_needs_C3` | proved counterexamples: for each of (C1), (C2), (C3), Lean proves that the other two hold, that this one fails, and that the maximin conclusion fails |
 
@@ -59,7 +62,9 @@ that step.
 This packet does not formalize:
 
 - the analytic inequalities L1–L20 that produce (C1)–(C3) from `G_r`;
-- the chart/embedding interface: that the frontier of the cylinder cap in `ℝ^d` is its frontier in the torus;
+- the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
+  frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
+  proved (`CapHyp.toTorus`, `frontier_cylinder`);
 - the definition of the H0 superlevel persistence pairing itself: that the class born at a local maximum `M` dies at
   the largest level at which its component contains a strictly higher local maximum. On a compact, locally connected
   space Lean proves that this level is `s` (`elder_death_level_peak`); only the persistence-module bookkeeping is
@@ -92,7 +97,7 @@ The source gate checks:
 
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 34 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 43 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

@@ -43,6 +43,10 @@ The source setting (SP §2) is as follows:
 | `CapHyp.older_peak` | `[CompactSpace X] [LocallyConnectedSpace X]`, `Continuous f`, `h ≤ s` ⇒ `∃ p ∈ cc{f ≥ h}(M), b < f p ∧ IsLocalMax f p ∧ ∀ w ∈ cc{f ≥ h}(M), f w ≤ f p` | SP L22, "the older endpoint" | Compactness gives the maximum over the closed component. Local connectedness makes that maximum a local maximum of `f` on `X`: the `{f > h}`-component of `p` is an open neighbourhood inside the component. |
 | `CapHyp.elder_alive` | `f M = b`, `s < h` ⇒ `∀ w ∈ cc{f ≥ h}(M), f w ≤ f M` | SP L22, the class is alive above `s` | No compactness needed. |
 | `CapHyp.olderPeakLevels`, `CapHyp.elder_death_level_peak` | `IsGreatest {h ∣ ∃ p ∈ cc{f ≥ h}(M), f M < f p ∧ IsLocalMax f p} s` | SP L22, the death level | This is the elder rule's death level, stated with older local maxima instead of older points. |
+| `frontier_image_subset` | `Continuous e`, `IsOpenMap e`, `T2Space X`, `IsCompact C` ⇒ `frontier (e '' C) ⊆ e '' frontier C` | I1 | No injectivity: if a preimage of a frontier point were interior to `C`, the open map would make the point interior to `e '' C`. |
+| `CapHyp.map`, `CapHyp.map_saddle` | `CapHyp (f ∘ e) C M z b s` ⇒ `CapHyp f (e '' C) (e M) (e z) b s`; and (C2⁺) for the lift ⇒ (C2⁺) for `e S` | I1 | |
+| `torusCover`, `torusCover_continuous`, `torusCover_isOpenMap`, `CapHyp.toTorus` | for any frame `φ : Y ≃ₜ ℝ^d`, a cap for `f ∘ torusCover L d ∘ φ` on compact `C` gives a cap for `f` on the torus `(ℝ/Lℤ)^d` | I1; SP §2's coordinates, "every frame" | The torus is `Fin d → AddCircle L`. |
+| `frontier_cylinder`, `isCompact_cylinder` | `frontier (Icc a c ×ˢ closedBall 0 R) = {a, c} ×ˢ closedBall 0 R ∪ Icc a c ×ˢ sphere 0 R` for `a ≤ c`, `R ≠ 0`, in `ℝ × E` with `E` a real normed space; compact when `E` is proper | SP L16–L19 (`a = -2r`, `c = r/2`, `R = 2r`) | The three pieces are L17's left face, L19's right face and L18's curved side. |
 | `CapHyp.congr` | from `g = f` on `closure C` and along one ridge `γ₀`, `CapHyp g C M z b s` | the audit's exterior-invariance corollary (Math-#193 deliverable 2) | `closure C ⊇ C ∪ frontier C`. In SP, `C` is closed. |
 
 ## 3. Non-vacuity and necessity, proved in Lean
@@ -79,7 +83,7 @@ illustrates the hypotheses; it is not a model of the planar cap.
 
 | | Interface | Where it is argued | Why it is outside this packet |
 |---|---|---|---|
-| I1 | The frontier of `C = [-2r, r/2] × B̄(0, 2r)` in the torus equals its Euclidean frontier (faces and curved side), because the chart is a homeomorphism onto an open set containing `C` | SP §3 / REC embedding radius | chart geometry, not topology of the first-exit step |
+| I1 | Coordinates: SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a frame `φ` of the periodic lift, and SP's "boundary" is the topological frontier. The transport to the torus (`CapHyp.toTorus`) and the face list (`frontier_cylinder`) are proved; the transport needs no embedding radius | SP §2 | Only the identification of SP's objects with these Lean objects remains. |
 | I2 | Persistence bookkeeping: in H0 superlevel persistence with distinct critical values, the class born at a local maximum `M` dies at the largest level at which its component contains a strictly higher local maximum (the elder rule) | SP L22, P §8 | This is the definition of the elder pairing. On a compact, locally connected space, Lean proves that this level is `s` (`elder_death_level_peak`). Only the identification of the persistence module's pairing with that definition is informal. |
 | I3 | (C1)–(C3) from `G_r` | SP L1–L20, CAP §§2–5 | analytic inequalities with exact constants; checked by exact arithmetic in SP's script, not in Lean |
 | I4 | Theorem A, measurability, `Q^W(G_r^c) ≤ C r³` | P §§7–8, C1, G1 | probability |
