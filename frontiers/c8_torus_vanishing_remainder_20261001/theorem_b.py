@@ -405,7 +405,9 @@ def gersh_min(C):
 
 
 def wq_bound(M, Cg, rows, vecs):
-    """Upper bound of ||V' Cg^-1 V|| (rows of V given as magnitude lists): Cg = D^(1/2)(I + E)D^(1/2), Cg^-1 <= D^-1/(1 - ||E||)."""
+    """Upper bound of ||V' Cg^-1 V|| (rows of V given as magnitude lists).  With D the lower endpoints of the diagonal,
+    Cg = D^(1/2)(I + H + E)D^(1/2) exactly, where H >= 0 is diagonal (the actual diagonal's surplus over D) and E has zero
+    diagonal with ||E||_F <= Ef; so Cg >= (1 - Ef) D and Cg^-1 <= D^-1/(1 - Ef) (review C58: the surplus H only helps)."""
     n = len(rows)
     D = [Cg[(rows[i], rows[i])].lo for i in range(n)]
     Ef2 = Fr(0)
@@ -479,6 +481,8 @@ def bounds_d2(Q, R, tml, il):
     Fmin = M.elam2_pos(m_lo, sa).lo
     Fmax = M.elam2_pos(m_hi, sb).hi
     F1max = M.elam_pos(m_hi, sb).hi
+    # the variance multiplier (3/4) 2 sb = (3/2) sb only needs to be >= 1 (dF/d(sigma^2) = Phi(mu/sigma) <= 1); it is not
+    # a claim that Phi <= 3/4, which fails at mu = 1, sigma^2 = 2 (review C60)
     Fae = ae_add(ae_mul(Dae, 2 * F1max / Fmin), ae_mul(Sae, 2 * sb / Fmin * Fr(3, 4)))
     Fref = M.elam2_pos(b0, r2.lo).lo
     # secondary law: the engine's interval law over [0, R]

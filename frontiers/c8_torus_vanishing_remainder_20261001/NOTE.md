@@ -77,6 +77,13 @@ and `c1/c <= 1.531 x 10^-10` (`d = 2`), `<= 3.985 x 10^-8` (`d = 3`). For the Ga
 So, on the torus, both densities are `c_{B,K} ell^(-1/3) + O(1) + O(ell^(1/3))` about the **torus** constant, with explicit
 constants and a vanishing remainder. [B] gave the same expansion only about `c^ref_{B,K}`, up to `eps'_d ell^(-1/3)`.
 
+**Four result scopes, and what each consumes.** Every scope also retains the corrected parent [LP] + [CAP] + [E1] + [E2] +
+[REC] (§8) and its Gaussian-field, typed-weight and Kac–Rice interpretation.
+1. *Theorem L′*, the main radial rate, for both kernels: §§2–4 and the band-law, primitive and moment contracts of [E], [E3].
+2. *The Gaussian-kernel candidate corollary*: the rate and the reference integrals; `eps_0 = 0`.
+3. *The torus candidate corollary*: additionally the finite contact comparison `eps_0` (§5).
+4. *The elder corollary, for either kernel*: additionally [B]'s cap-derived `C_{B,K}(R)` (§5).
+
 ## 1. Where [B]'s remainder came from
 
 [B]'s `eps_d` collects five things, each `r`-independent:
@@ -130,7 +137,7 @@ The reference series gives the centers exactly. The truncation tail beyond `g_x 
 checked). `M_1(10) < 4.46 x 10^-15` (`d = 2`) and `< 1.94 x 10^-13` (`d = 3`) decrease in `L`, so the models hold for every
 `L >= 10` and every frame; with `M_1 = 0` they are the Gaussian kernel's.
 
-The six pins, the targets of [B] §2 and Gaussian elimination without pivoting give `TV`s for `det S_r`, the energies `e_bb`,
+The pins (six in `d = 2`, eight in `d = 3`), the targets of [B] §2 and Gaussian elimination without pivoting give `TV`s for `det S_r`, the energies `e_bb`,
 `e_bk`, `e_kk`, the regression coefficients `alpha`, `beta` of the transverse Hessian and of `Omega'`, their covariances, and in
 `d = 3` the regression of `Omega'` on `B = -A`. The certificate checks that the centers are [B]'s reference laws. In
 particular the law of the transverse Hessian is flat in `r` ([B] Lemma 1): every center of `alpha_A + 1`, `beta_A` and
@@ -222,7 +229,19 @@ This gives Theorem L′ on each of the 96 boxes `[i/8, (i+1)/8] x [1/2 + j/8, 1/
 - The weights of the torus `A_0^(L)` are at most `(1 + eps_0)` times the reference weights. Here `eps_0` is [B]'s
   `|A_0/A_0^ref - 1|` bound, recomputed by the pinned `theorem_b.py` at `R = 1/4096`:
   `eps_0 <= 3.95 x 10^-10` (`d = 2`), `1.78 x 10^-8` (`d = 3`).
-- The elder line is [B]'s.
+
+  Only the contact (`r -> 0`) value of that bound is used. Review C60 (5386707554) proves it directly at contact:
+  - it uses the C57 contact intervals, Gaussian log-moment derivatives (`d = 2`), a Loewner and chi-tail comparison
+    (`d = 3`), the normalized pin density, and dominated convergence;
+  - it gives `|A_0^(L)/A_0^ref - 1| <= 3.943 x 10^-10` (`d = 2`) and `<= 1.778 x 10^-8` (`d = 3`) for `L >= 10`, every
+    frame and the compact marks.
+
+  So the torus corollary does not rest on the positive-radius parts of [B]'s Theorem L.
+- The elder line uses [B]'s `C_{B,K}(R)`. Review C61 (5386924911, at Math-#215 `b41eb28`) validates all fourteen published
+  `C_{B,K}` and `C_121` upper constants by a cellwise transfer. The transfer uses this packet's reviewed rate and C60's
+  contact comparison, the two cap engines at [B]'s caller, and the corrected parent set. C61's scope is
+  `0 <= nu_cand - nu_eld <= C_{B,K}(R) ell^(2/3)` for `ell < min(r_pop, R)^3/2` on the compact window. C61 does not claim
+  that every short bar is a candidate, nor an unrestricted difference rate.
 
 ## 6. Verification
 
@@ -242,7 +261,7 @@ This gives Theorem L′ on each of the 96 boxes `[i/8, (i+1)/8] x [1/2 + j/8, 1/
   - `coupling-half`: halve Lemma V5's constant.
 - The workflow `.github/workflows/c8-torus-vanishing-remainder.yml` checks:
   - the manifest;
-  - the main-resident pin [LP];
+  - the main-resident pins [LP], [E1], [E2], [REC];
   - the packet copies [B], [E], [E3], byte for byte;
   - both modes;
   - the mutants;
@@ -257,25 +276,51 @@ deviations from `A_0^ref`.
 - **Still the compact window `B x K`, `L >= 10`, `d = 2, 3`, `R <= 1/64`.** These are [B]'s ranges.
 - **`beta` is not the true first-order coefficient.** It bounds the torus part of the `r^1` coefficients through
   `M_1`. Whether the torus `A_r` has a nonzero `r^1` term at all (of order `e^-50`) is not decided.
-- **Consumed, not reviewed:**
-  - [LP]'s sections 8–12, as in [B];
-  - [B]'s §§2–5 algebra (exact expansions, first-order cancellations, Hölder bounds, Loewner coupling for the moment
-    bounds);
-  - the interval band laws and transcendentals of [E], [E3].
+- **Consumed, with their review status (OpenAI / Codex, delegated; same account, zero organizational-independence credit):**
+  - [LP]'s sections 8–12, as in [B], read with [E1], [E2], [REC];
+  - [B]'s §§2–5 algebra (exact expansions, first-order cancellations, Hölder bounds, Loewner coupling): scoped reads
+    5378815703, 5379687608, 5379747967, 5379848224, 5384256400. Its positive-radius Theorem L is not accepted as a whole;
+    this packet uses only its contact value (C60) and its `C_{B,K}` (C61);
+  - the band laws, interval and transcendental primitives and moment routines of [E], [E3]: reviewed at the contracts used
+    here (C57, C59).
 
-  [B] is author-side with an OpenAI amendment ACCEPT (5378815703). [E] and [E3] are author-side and unmerged.
+  [B], [E] and [E3] are author-side and unmerged.
 - No `C`, `r_*`, `z_*` beyond [B], #206, #212 and #195. No new count, moment or elder statement beyond Corollary L′1.
 - Same GitHub account as every lane; zero organizational-independence credit. **I will not merge.**
 
 ## 8. Provenance
 
 - **Sources** (`SOURCE_MAP.json`):
-  - [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (on `main`, verified by the workflow);
-  - [B] Math-#215 `theorem_b.py` at `d77cabf` (packet copy `theorem_b.py`) and its `NOTE.md` and `RESULTS.json` (provenance);
-  - [E] Math-#206 `theorem_a.py` (packet copy `engine_e2.py`);
-  - [E3] Math-#212 `theorem_a3.py` (packet copy `engine_e3.py`).
+  - [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (on `main`, verified by the workflow), read
+    with its mandatory amendments, also on `main` and verified:
+    - [E1] `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`;
+    - [E2] `reviews/d1_section9_borel_repair_20260925/REPAIR.md`;
+    - [REC] `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`;
+  - [B] Math-#215 `theorem_b.py` at `1aa250d` (v1.5; packet copy `theorem_b.py`), and its `NOTE.md` and `RESULTS.json` at
+    `d77cabf` (provenance);
+  - [E] Math-#206 `theorem_a.py` at `13f932c` (v1.2; packet copy `engine_e2.py`);
+  - [E3] Math-#212 `theorem_a3.py` at `250b907` (v1.1; packet copy `engine_e3.py`).
 - **Files:**
   - `NOTE.md`, `README.md`;
   - `theorem_v.py` (new);
   - the copies `theorem_b.py`, `engine_e2.py`, `engine_e3.py`;
   - `RESULTS.json`, `SOURCE_MAP.json`, `SOURCE_FILES.json`.
+
+## 9. Revisions
+
+- **v1.1 (`75b5fce`):** the explicit angular integrals (OA-227-C-01).
+- **v1.2:** documentation only, recording the review cycle C56–C61. In every changed Python file the AST with docstrings
+  removed is unchanged, and so are `RESULTS.json` and every constant.
+  - **NOTE.**
+    - "six pins" becomes "six in `d = 2`, eight in `d = 3`" (C57).
+    - §0 gains the four result scopes.
+    - §5 records C60's direct contact comparison and C61's `C_{B,K}` disposition.
+    - §§7–8 add the corrected parent set [E1], [E2], [REC] (C61) and the current review status.
+  - **`theorem_v.py`.**
+    - The `TV` docstring states its preconditions (C56).
+    - `combine_v` states the positivity case split of the lower bound (C58).
+    - A comment at the planar `omega` regression says that `Theta` cancels exactly and `cwlo` is conservative (C58).
+    - A comment in `explained` keeps the diagonal surplus (C58).
+  - **The copies follow Math-#215 v1.5, Math-#206 v1.2 and Math-#212 v1.1.** These change docstrings and comments only:
+    `sqrt_up` (`2^-198`, C59-DOC-01), `box_bound`'s parameter domain (C61), `wq_bound`'s diagonal surplus (C58), and the
+    `3/4` multiplier comment (C60).

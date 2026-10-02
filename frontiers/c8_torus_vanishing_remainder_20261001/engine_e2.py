@@ -298,7 +298,9 @@ def rup_rel(x, bits=200):
 
 
 def sqrt_up(x):
-    """Rational upper bound of sqrt(x), x >= 0 rational, relative error below 2^-200 (no absolute rounding floor)."""
+    """Rational upper bound of sqrt(x), x >= 0 rational, relative excess below 2^-198 (no absolute rounding floor): the root
+    step adds less than 2^-209 and rup_rel(., 200) less than 2^-199.  (The earlier '2^-200' was too sharp: at x = 49/100 the
+    excess is (8/7) 2^-200, review C59-DOC-01.)"""
     x = Fr(x)
     if x == 0:
         return Fr(0)
@@ -682,7 +684,10 @@ def elam2_pos(m, s):
 
 def box_bound(law, bb, kb, r0, r1, last_band=False, x0=None, theta=None):
     """Certified upper bound of sup_{r in [r0, r1]} Q^W(G_r^c) / r^3 over b in bb, k in kb, with its pieces, for the near-branch
-    threshold x0 (X_0 of NOTE section 4) and the split parameter theta (section 5); every choice gives a valid bound."""
+    threshold x0 (X_0 of NOTE section 4) and the split parameter theta (section 5).  The bound is proved for 0 < x0 < 2/9 and
+    0 < theta < 1: then 3 x0 < 1, x0 <= 1/4 (root bounds), kappa = 3/(1 - 3 x0), c = 1 - kappa x0/2 > 0 and
+    (1 + kappa x0) c^2 <= 1.  No claim is made outside that domain.  Both COMBOS pairs, and the (1/64, 1/32) of Math-#215's
+    caller, lie inside it (review C61)."""
     x0 = X0 if x0 is None else Fr(x0)
     theta = THETA if theta is None else Fr(theta)
     b = IV(bb[0], bb[1])

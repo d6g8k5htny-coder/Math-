@@ -70,7 +70,11 @@ dec_up, dec_down, cdiv = TB.dec_up, TB.dec_down, TB.cdiv
 # ============================================================================= 1. interval-coefficient Taylor models
 class TV:
     """f(r) = sum_{j <= N} c_j r^j + rho(r) for 0 <= r <= 2^-s, with FIXED (r-independent) coefficients
-    c_j in [(C_j - D_j)/2^P, (C_j + D_j)/2^P] and |rho(r)| <= (E/2^P) r^(N+1).  In particular f(0) = c_0."""
+    c_j in [(C_j - D_j)/2^P, (C_j + D_j)/2^P] and |rho(r)| <= (E/2^P) r^(N+1).  In particular f(0) = c_0.
+    Preconditions (the reuse boundary; review C56): C and D are integer lists of length N + 1 with every D_j >= 0, and
+    E >= 0; the operands of +, -, * share (s, N); powers are nonnegative integers; the readers are called with
+    0 < R <= 2^-s; the lists are not mutated after construction.  The certificate meets all of them; inputs outside
+    them are not covered."""
     __slots__ = ('C', 'D', 'E', 's', 'N')
 
     def __init__(self, C, D, E, s, N):
@@ -426,7 +430,9 @@ def pi_ratio_v(law, Q, R):
 
 
 def combine_v(M, p_up, p_dn, z_up, z_dn, R):
-    """A_r/A_0 = (pi_r/pi_0) (z_r/z_0): (1 + pu)(1 + zu) - 1 <= pu + zu + pu zu(R); 1 - (1 - pd)(1 - zd) <= pd + zd."""
+    """A_r/A_0 = (pi_r/pi_0) (z_r/z_0): (1 + pu)(1 + zu) - 1 <= pu + zu + pu zu(R); 1 - (1 - pd)(1 - zd) <= pd + zd.
+    The lower sum is valid even when one lower estimate exceeds 1 (review C58): if pd + zd >= 1 it holds because both ratios
+    are positive; otherwise 0 <= 1 - pd, 1 - zd and the two lower factors may be multiplied."""
     pu = exp_up_ab(M, p_up, R)
     zR = ab_at(z_up, R)
     up = (pu[0] + z_up[0] + pu[0] * zR, pu[1] + z_up[1] + pu[1] * zR)
@@ -482,6 +488,8 @@ def bounds_d2_v(Q, R, law, il):
     sb_, cb_ = law.beta['om'].absval(R)
     sc_, cc_ = law.Cu[('om', 'w')].absval(R)
     cwlo = (2 - Sm) / (1 + th1)                                    # Var w = Cu_ww / Theta >= cwlo
+    # the regression coefficient Cu_om,w / Cu_ww is free of Theta (it cancels exactly); dividing |Cu_om,w| by the
+    # normalized floor cwlo is deliberately conservative (review C58)
     # relative to 36 k^2 r^2 F_0: the 36 k^2 cancels, so the normalizer is F_0 >= Fmin
     T2 = (((b1 * sa_ + k1 * sb_) * F1max + sc_ / cwlo * (Fmax + mmax * F1max)) / Fmin,
           ((b1 * ca_ + k1 * cb_) * F1max + cc_ / cwlo * (Fmax + mmax * F1max)) / Fmin)
@@ -654,6 +662,8 @@ def bounds_d3_v(Q, R, law, il):
         return M.absup(il.C[(o, z)])
 
     def explained(zs):
+        # with D the lower diagonal endpoints, C_zz = D^(1/2)(I + H + E)D^(1/2): H >= 0 diagonal (surplus), E zero-diagonal
+        # with ||E||_F <= Ef, so C_zz >= (1 - Ef) D; the surplus H only helps (review C58)
         rows = [[cov_Oz(o, z) for z in zs] for o in M.ONAMES]
         D = [il.C[(z, z)].lo for z in zs]
         Ef2 = Fr(0)
