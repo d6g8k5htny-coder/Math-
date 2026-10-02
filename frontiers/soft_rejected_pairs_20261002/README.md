@@ -12,6 +12,7 @@ Object `CL-SOFT-REJECTED-20261002-v1.2`. Full text: [`PROOF.md`](PROOF.md). Vers
     labels their uncertainties as descriptive.
   - A same-family referee checked the delta: ACCEPT WITH FIXES (9 MINOR, 8 NIT), all applied.
   - PROOF §9 lists the changed bytes.
+- v1.2 README amendment: OA-242-V12-01 (the Theorem 1 row now states the window on Step 2's event, as the PROOF overview does) and OA-242-V12-02 (the two kinds of `±` are distinguished, and the Monte Carlo `±` is identified as the relative error `1/√n` printed by `compd.py`). Only this README and `SOURCES.json` change; `PROOF.md`, `soft_check.py` and `RESULTS.json` are the v1.2 bytes.
 - v1.1 was made before any nonauthor review.
 - It extends Theorem 1 to every `d ≥ 2` and adds the `d = 3` constants (Corollary 1′) and the stiff-direction reduction
   (Proposition 2′). It also adds the `d = 3` Monte Carlo test and fixes finding A-1.
@@ -23,7 +24,7 @@ the cusp end `κ = ℓ/r⁴ → ∞` open. This note describes that end for the 
 
 | | Statement | Status |
 |---|---|---|
-| **Theorem 1** | In every `d ≥ 2`, `κ𝒜^{rej}(b, κ, u) = F₀(b, u) + O(κ^{−1})`, where `F₀ = (5/24)π₀𝔇` and `𝔇` is the density at `0` of the smallest eigenvalue `λ₁` of `−A`, weighted by `γ₁⁶(λ₂⋯λ_m)²`. In `d = 2`, `𝔇 = p_A(0 \| b)E[γ⁶]`. The rejected weight sits exactly on `λ₁ ∈ (3γ₁²/(72κ − f̃₄), 3γ₁²/(24κ − f̃₄)]`; for fixed jets this is `[γ₁²/(24κ), γ₁²/(8κ)]` up to `O(1/κ)`. | proof |
+| **Theorem 1** | In every `d ≥ 2`, `κ𝒜^{rej}(b, κ, u) = F₀(b, u) + O(κ^{−1})`, where `F₀ = (5/24)π₀𝔇` and `𝔇` is the density at `0` of the smallest eigenvalue `λ₁` of `−A`, weighted by `γ₁⁶(λ₂⋯λ_m)²`. In `d = 2`, `𝔇 = p_A(0 \| b)E[γ⁶]`. On Step 2's event the rejected weight sits exactly on `λ₁ ∈ (3γ₁²/(72κ − f̃₄), 3γ₁²/(24κ − f̃₄)]`; for fixed jets this is `[γ₁²/(24κ), γ₁²/(8κ)]` up to `O(1/κ)`. This is a weighted, asymptotic localization, not a pointwise one: rejected weight outside this window exists, and the double-soft and large-jet events are handled separately (PROOF §1, Step 1). | proof |
 | **Corollary 1′** | Gaussian kernel: `∫∫F₀ db dσ = 25√3/(48π²) ≈ 0.0914` (`d = 2`), `125√30/(192π³) ≈ 0.1150` (`d = 3`) | proof |
 | **Lemma 2** | The elder decision in the fold-scale soft model `G_k` (new jets `B = ∂_uA`, `C₃ = ∂_Θ³f` along the soft direction), by a one-dimensional scan, proved at the exact level. It includes a case (D′, `β > 2`, `χ > 0`) where the saddle is a slice minimum, with an exact witness. For `β > 2`, `χ ≤ 0` the pair is always rejected. `G_k` is #170's typed cubic in other coordinates. | proof (model) |
 | **Proposition 2′** | `d ≥ 3`: the stiff directions live at scale `r^{3/2}` and decouple; the limit `G_k − (1/2k)Σλ_iη_i²` has the elder decision of `G_k` | proof (model) |
@@ -31,7 +32,7 @@ the cusp end `κ = ℓ/r⁴ → ∞` open. This note describes that end for the 
 | **Proposition 4** | Gaussian kernel, every `d`: the fold-scale rejection rate is `F₀(b)H(k)`, with `H` independent of `b` and `d`, and `H(k) = 1 + (12/25)k² + O(k³)`. Codex's Slice C review proves the upper remainder `O(k^{7/2})`. The elder edge `φ_e = 1/3 + t/3 + 10t²/27` contributes `+312/25`, and the pin density `e^{−12k²}` contributes `−12`. | proof (given the model) |
 | **Lemma 5** | The composite `∫∫∫𝒜^{rej}(b, ℓ/r⁴, u)H(ℓ/r³)` equals `(I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`, where `R_{2/3} = ∫∫∫v⁴[F(v^{−3}) − F₀]` | proof |
 | **Conjecture 6** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0` at fixed `k`. The limit exists by #170/#175 (merged); its identification with `F` is #243 (open). | proved author-side in #243 |
-| **Conjecture 7** | `ρ_rej + ν_eld^{far,r_0^*} = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`; Gaussian kernel: `R_{2/3} ≈ −0.049 ± 0.003` (`d = 2`), `−0.062 ± 0.004` (`d = 3`) | conjecture, with evidence |
+| **Conjecture 7** | `ρ_rej + ν_eld^{far,r_0^*} = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`; Gaussian kernel: `R_{2/3} ≈ −0.049 ± 0.003` (`d = 2`), `−0.062 ± 0.004` (`d = 3`); these `±` are quadrature and interpolation sensitivity ranges (PROOF §5(5)), not sampling errors | conjecture, with evidence |
 
 Conjecture 7 needs two inputs that are not yet available (PROOF §4):
 - (i) the soft layer `λ₁ ≍ r`, together with Proposition 2′ for the field in `d ≥ 3`;
@@ -51,7 +52,7 @@ A third input, (iii) the far elder density, is needed only to remove `ν_eld^{fa
 | #216's Monte Carlo, `d = 2` | rejected adjacent pairs with `s = r/ℓ^{1/4} < 0.8`: 37 observed, 35.3 from the composite, 4,322 from the cusp kernel alone |
 | #216's Monte Carlo, `d = 3` | `s < 0.8`: 11 observed, 10.7 composite (1.2 with the pin density alone), 1,329 cusp kernel alone. On `[3·10^{−4}, 10^{−2}]` the counts are `0.884 ± 0.040` of the `ℓ^{1/4}` law and `1.008` of the composite (Pearson χ² 11.8 against 2.1 on 8 bins). Over #216's whole range `[10^{−4}, 0.3]` the composite does not describe the counts (finite-`r` corrections). |
 
-#216's fields are on the torus with `L = 64` (`d = 2`) and `L = 16` (`d = 3`). The `±` values are Poisson relative errors `1/√n`, and the `χ²` values are Pearson sums over bins with at least five counts. All of these are descriptive, not calibrated significances (PROOF §5).
+#216's fields are on the torus with `L = 64` (`d = 2`) and `L = 16` (`d = 3`). In the Monte Carlo rows, the number after a count ratio's `±` is the Poisson *relative* error `1/√n` of the observed count `n`, as `compd.py` prints it. So `0.884 ± 0.040` means a relative error of 4.0%, that is about `±0.035` on the ratio itself. The `χ²` values are Pearson sums over bins with at least five counts. All of these are descriptive, not calibrated significances (PROOF §5). The `±` ranges for `R_{2/3}` in the table above are of a different kind: sensitivity ranges of the quadrature and interpolation (PROOF §5(5)).
 
 ## Controls
 
@@ -106,7 +107,10 @@ Mutants `M1`–`M14` each fail only their own control (the checker names it on s
   - Slices B (the remaining formulas) and E (5391485205): PASS_TECHNICAL_SCOPED for the limit-field algebra, normalization,
     typing and weight; PASS for the checker and mutant correspondence. Findings B-02, B-03, E-01 and E-02. It also gives
     the root-authored remainder estimate (B.5), now cited after (2.1).
-  - Every finding is applied in v1.2. A delta check of the changed bytes is requested.
+  - Every finding is applied in v1.2.
+- **Nonauthor reviews of v1.2 (OpenAI Codex), at `1f86fea`, PROOF blob `ad4beb84`:**
+  - Bounded readback of B-01, D-01, the exact (D′) witness and the strengthened `β > 2`, `χ ≤ 0` rejection (5952577050): PASS_TECHNICAL_SCOPED, no new finding. It adds a direct finite-path proof of that rejection.
+  - Complementary delta review (5391986303): PASS_TECHNICAL_SCOPED for the changed proof corrections and the conditional source alignment. Two minor README findings, V12-01 and V12-02, are applied in the v1.2 README amendment. Its §3 is root-authored support (D.1): a direct model-integral proof of `F = kA∗a_fail` in every fixed dimension, not reviewed here.
 - **v1.2 delta (same family).** A clean-context referee checked the changed bytes.
   - Verdict: **ACCEPT WITH FIXES**, with no BLOCKING or MAJOR finding: 9 MINOR findings and 8 NITs, all applied.
   - Its own checks: the witness by sympy, the Jacobians `−96`, `−3/2` and `−6`, and the `48/47` ratio.

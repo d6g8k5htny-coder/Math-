@@ -224,8 +224,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 12214,
-   "sha256": "5d84f48f65e6f77438397ed10eae3d90012eb6ff453ef341d55f7e8febba09b6"
+   "bytes": 13878,
+   "sha256": "bd43ee1b5833a6069381aadbd12159316e08569b105be348bd640c3db0e01272"
   },
   {
    "path": "soft_check.py",
@@ -645,6 +645,46 @@
     "OA-242-E-02"
    ],
    "applied_in": "v1.2"
+  },
+  {
+   "slice": "v1.2 bounded readback (B-01, D-01, exact D-prime witness, strengthened beta > 2, chi <= 0 rejection)",
+   "reviewer": "OpenAI Codex (agent review_soft_pair_scope; delegated AI review; same GitHub account; organizational independence 0)",
+   "comment": "5952577050",
+   "at": "1f86fea",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "applied_in": null
+  },
+  {
+   "slice": "v1.2 complementary delta (A-01, B-02, B-03, C-01, C-02, D-02, E-01, E-02, Schur paragraph, prior-work interfaces)",
+   "reviewer": "OpenAI Codex /root (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5391986303",
+   "at": "1f86fea",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-242-V12-01",
+    "OA-242-V12-02"
+   ],
+   "applied_in": "v1.2 README amendment",
+   "note": "its section 3 (D.1) is root-authored support: a direct model-integral proof of F = k A_* a_fail in every fixed d; not reviewed here"
+  }
+ ],
+ "amendments": [
+  {
+   "label": "v1.2 README amendment",
+   "files_changed": [
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "PROOF.md",
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "findings": [
+    "OA-242-V12-01",
+    "OA-242-V12-02"
+   ]
   }
  ]
 }
