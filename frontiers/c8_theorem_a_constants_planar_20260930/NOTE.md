@@ -319,7 +319,8 @@ The certificate uses the smaller of the two.
 - The `delta`-terms and every cross term are bounded by Hölder's inequality, with Gaussian `L^p` norms
   (`||N||_p <= ((p - 1)!!)^(1/p)` for `p` a power of two, `||N||_1 <= 4/5`) and the bounds of Lemma 3.
 
-**Parameter choices (v1.1).** Every pair `(X_0, theta)` gives a valid bound. Each box uses the smaller of the bounds for
+**Parameter choices (v1.1).** Every pair in the proved domain `0 < X_0 < 2/9`, `0 < theta < 1` gives a valid bound; both
+pairs used below lie in that domain. Each box uses the smaller of the bounds for
 `(X_0, theta) = (1/64, 1/32)` and `(1/1024, 1/256)`. The second pair matters at small `k`, where the free third derivatives
 `2|v|, |om|, |Y|` often exceed `12k`, so the factor `F_k^3 = (1 + kappa X_0)^3` and the split loss `(1 + theta)^5` multiply
 the leading term. In v1 these were `1.155` and `1.166`; with the second pair they are `1.009` and `1.020`.
@@ -502,5 +503,10 @@ v1.2.1 is one wording fix in section 0, from the Slice C review 5397446329 (C206
 `39322.8180` exceeds the certified lower end `35736.7352` of `c_G(6/5, 1/6)` by the factor `1.100348` (`RESULTS.json`),
 so "within `10%`" now reads "within `10.1%`". The `21%` statement (factor `1.205825`) was already correct. No code,
 `RESULTS.json` or constant changed.
+
+v1.2.2 is one wording fix in section 5, from the Slice A review 5397500398 (C206-A-01). "Every pair `(X_0, theta)`
+gives a valid bound" now names the proved domain `0 < X_0 < 2/9`, `0 < theta < 1`, matching the `box_bound` docstring
+since v1.2; both `COMBOS` pairs, `(1/64, 1/32)` and `(1/1024, 1/256)`, lie inside it. No code, `RESULTS.json` or constant
+changed.
 
 Author lane Anthropic / Claude, 30 September – 2 October 2026. Scientific effect NONE. The author will not merge.
