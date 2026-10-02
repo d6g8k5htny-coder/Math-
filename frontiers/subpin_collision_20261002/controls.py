@@ -26,7 +26,7 @@ def main():
     for n in range(7):
         edges = n * (n - 1) // 2
         for bits in range(1 << edges):
-            c = 2 * bits.bit_count()
+            c = 2 * bin(bits).count('1')
             require(c <= n * (n - 1), 'factorial count domination')
             require((c == 0) or c >= 2, 'ordered nonempty lower bound')
             for p in (0, 1, 2, 5):
