@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-SOFT-REJECTED-20261002-v1",
- "kind": "author-side proof candidate and conjectures, d = 2: Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 pA(0|b) E gamma^6, with the weight on soft transverse curvatures lambda in [gamma^2/(24 kappa), gamma^2/(8 kappa)]); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel: the fold-scale rejection rate is F0(b) H(k), H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{2,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 for the Gaussian kernel, not certified)",
+ "object": "CL-SOFT-REJECTED-20261002-v1.1",
+ "kind": "author-side proof candidate and conjectures, every d >= 2: Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.062 (d = 3) for the Gaussian kernel, not certified)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -55,7 +55,7 @@
    "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
    "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
    "tag": "207",
-   "use": "Math- #207 (merged 2026-10-01 at 566b1a1): sections 0, 4, 6 (the cusp objects); Theorem CU.2(c) (the exact elder window of the cusp polynomial)"
+   "use": "Math- #207 (merged 2026-10-01 at 566b1a1): sections 0, 4, 6 (the cusp objects); the parity factorization of [P] section 15 as stated after (CU.2) (Corollary 1'); Theorem CU.1 (the transverse pins, Proposition 2'); Theorem CU.2(c) (the exact elder window)"
   },
   {
    "path": "frontiers/candidate_third_order_20261001/PROOF.md",
@@ -154,7 +154,10 @@
   "M7": "S9",
   "M8": "S2",
   "M9": "S6",
-  "M10": "S10"
+  "M10": "S10",
+  "M11": "S11",
+  "M12": "S12",
+  "M13": "S13"
  },
  "replayed": [
   "soft_check.py"
@@ -171,30 +174,37 @@
    "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_A_DELTA.md",
    "sha256": "5ccfb644e1a58abf4a022a1fe83a9c3969fdca448724de315a9eace5dc60ca01",
    "bytes": 13940
+  },
+  "v1.1_delta": {
+   "verdict": "ACCEPT WITH MINOR FIXES, no BLOCKING or MAJOR finding: four MINOR (Theorem 1 Step 3 main term on the excluded sets; the d = 3 s-integral needed a refined grid; the d = 3 Monte Carlo statement overread #216's fit; packaging) and fourteen NIT findings, all applied",
+   "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_B.md",
+   "sha256": "095505d20ac264d6d8a4d3a39cb9d137999e7a3c7aac97105336f4561c7ed205",
+   "bytes": 27059,
+   "limits": "same provider and same GitHub account as the author: organizational-independence credit 0"
   }
  },
- "exploration": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/exploration/ (numpy, scipy, mpmath, sympy; not part of the repository)",
+ "exploration": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/exploration/ (numpy, scipy, mpmath, sympy; not part of the repository); the raw Monte Carlo records batchA2.npz and batch3B.npz are delivered as SIDE24_MC_raw_2026-10-01.zip",
  "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 43001,
-   "sha256": "19e911e99298daf9e7879a88cc2d727278472c68ed80f4fd6701f38596c98fe7"
+   "bytes": 63690,
+   "sha256": "c312e423990442cfaad44459a2a20b231029828cae97018ba68724c20613331b"
   },
   {
    "path": "README.md",
-   "bytes": 6239,
-   "sha256": "8a98e9039bdde282ab6c4e23717d7ec5b096d9e1368e4d922bb1e0376df9f589"
+   "bytes": 8806,
+   "sha256": "64ac4b380a45ae77847e77ab5e792d5f9d84898d5ec00fb670f01f8cf2cd1e7e"
   },
   {
    "path": "soft_check.py",
-   "bytes": 25199,
-   "sha256": "feb656ce94401a63f994dca47d09416cf130f520dc53d8ece68e18a044b4a9ab"
+   "bytes": 40790,
+   "sha256": "9c92b76c7a77ed6630370b343466977a18d503543436f00524e864aff4323c07"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 2395,
-   "sha256": "e1e0e8885d6e5a6d49865026d6c5d0a27ecc14f7fac2d61cb55f082a9d791d38"
+   "bytes": 3445,
+   "sha256": "86e733071854b0c7189e91e125cf7505b2c6eefa27b14a8ceadf7f1d7bf78562"
   }
  ]
 }
