@@ -77,6 +77,33 @@ and `c1/c <= 1.531 x 10^-10` (`d = 2`), `<= 3.985 x 10^-8` (`d = 3`). For the Ga
 So, on the torus, both densities are `c_{B,K} ell^(-1/3) + O(1) + O(ell^(1/3))` about the **torus** constant, with explicit
 constants and a vanishing remainder. [B] gave the same expansion only about `c^ref_{B,K}`, up to `eps'_d ell^(-1/3)`.
 
+**Corollary L′2 (expected selected counts; derived in review C63, 5387311588).** Let `n_sel(t)` be the expected number per
+unit volume of selected elder pairs of the population with lifetime in `(0, t]`. Multiply by `L^d` for the expected total on
+the torus. For `0 < t < ell_* = min(r_pop, R)^3/2`, integrating Corollary L′1 and its elder line over `(0, t]` gives
+
+    max(0, (3/2) c t^(2/3) - c1_dn t - (3/4) c2_dn t^(4/3) - (3/5) C_{B,K}(R) t^(5/3))
+        <=  n_sel(t)  <=  (3/2) c t^(2/3) + c1_up t + (3/4) c2_up t^(4/3),
+
+with `c = c_{B,K}` of the same kernel. Equivalently, `n_sel(t) = (3/2) c t^(2/3) (1 + delta)` with
+`-dn <= delta <= up`. Every term is increasing in `t`, so the values at `t = ell_*` bound the whole window. The ratios
+use `corollary_torus` here and `C_{B,K}(R)` of [B] (`RESULTS.json` blob `894fae2e`), divided by `c >= c_ref,lo (1 - eps_0)`;
+all are rounded up:
+
+| `d` | `R` | `ell_*` (`r_pop >= R`) | `up` | `dn` |
+|---|---|---|---|---|
+| 2 | `1/4096` | `2^-37` | `1.18e-7` | `5.75e-7` |
+| 2 | `1/1024` | `2^-31` | `1.90e-6` | `3.37e-5` |
+| 2 | `1/512` | `2^-28` | `7.60e-6` | `2.73e-4` |
+| 3 | `1/4096` | `2^-37` | `4.35e-7` | `4.03e-6` |
+| 3 | `1/1024` | `2^-31` | `7.50e-6` | `2.51e-4` |
+| 3 | `1/512` | `2^-28` | `3.29e-5` | `3.84e-3` |
+
+Each scope applies:
+- the upper bound has the torus candidate corollary's scope;
+- the lower bound additionally has the elder corollary's scope, through `C_{B,K}`.
+
+The bound is per unit volume, for the compact-window population only. It is not a count of all short bars.
+
 **Four result scopes, and what each consumes.** Every scope also retains the corrected parent [LP] + [CAP] + [E1] + [E2] +
 [REC] (§8) and its Gaussian-field, typed-weight and Kac–Rice interpretation.
 1. *Theorem L′*, the main radial rate, for both kernels: §§2–4 and the band-law, primitive and moment contracts of [E], [E3].
@@ -319,6 +346,9 @@ deviations from `A_0^ref`.
     - §5 records C60's direct contact comparison and C61's `C_{B,K}` disposition.
     - §§7–8 add the corrected parent set [E1], [E2], [REC] (C61) and the current review status, and §8 pins [CAP] as well,
       so that this consumer verifies the whole parent set it cites (C63, 5943439412).
+  - **v1.2.3.** It adds Corollary L′2 (§0), the expected selected-count bound derived in review C63, with its relative
+    error table. The integration is checked symbolically, and the numbers are computed with exact rationals from the cited
+    tables.
   - **v1.2.2 (C63, 5943465973).** Three wording changes:
     - the `TV` docstring adds C56's integer `E`, integer `s, N >= 0` with `N >= 2` for the second-order readers, and
       exact rational reader inputs;
