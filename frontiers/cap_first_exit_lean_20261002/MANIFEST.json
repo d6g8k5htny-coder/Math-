@@ -1,0 +1,260 @@
+{
+ "object": "CAP-FIRST-EXIT-LEAN-20261002-v1",
+ "scientific_effect": "NONE",
+ "mathematical_acceptance": false,
+ "alignment_review": "NOT_CLAIMED",
+ "module": "CapFirstExit",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "dependency_revisions": {
+  "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+  "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+  "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+  "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+  "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+  "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+  "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+  "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+ },
+ "pins_on_main": [
+  {
+   "path": "reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md",
+   "git_blob": "a653dbc7bd8bd692433587f050ab8678713c297e"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1"
+  }
+ ],
+ "allowed_axioms": [
+  "Classical.choice",
+  "Quot.sound",
+  "propext"
+ ],
+ "targets": [
+  "CapFirstExit.path_meets_frontier",
+  "CapFirstExit.preconnected_subset_of_frontier_disjoint",
+  "CapFirstExit.CapHyp",
+  "CapFirstExit.CapHyp.s_le_f_M",
+  "CapFirstExit.CapHyp.barrier",
+  "CapFirstExit.connectionLevels",
+  "CapFirstExit.CapHyp.maximin_isGreatest",
+  "CapFirstExit.CapHyp.maximin_eq",
+  "CapFirstExit.CapHyp.component_separated",
+  "CapFirstExit.component_joined",
+  "CapFirstExit.CapHyp.elder_merge_iff_closed",
+  "CapFirstExit.CapHyp.elder_merge_iff_open",
+  "CapFirstExit.CapHyp.joinedLevels",
+  "CapFirstExit.CapHyp.elder_death_level",
+  "CapFirstExit.CapHyp.path_through_saddle",
+  "CapFirstExit.CapHyp.saddle_cut",
+  "CapFirstExit.CapHyp.congr",
+  "CapFirstExit.toyF",
+  "CapFirstExit.toyRidge",
+  "CapFirstExit.toy_ridge_ge",
+  "CapFirstExit.toy_frontier",
+  "CapFirstExit.toy_capHyp",
+  "CapFirstExit.toy_saddle_strict",
+  "CapFirstExit.toy_death_level",
+  "CapFirstExit.toy_f_M",
+  "CapFirstExit.toy_f_S",
+  "CapFirstExit.toy_needs_C2",
+  "CapFirstExit.toy_needs_C1",
+  "CapFirstExit.toy_needs_C3"
+ ],
+ "expected_axioms": {
+  "CapFirstExit.path_meets_frontier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.preconnected_subset_of_frontier_disjoint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.s_le_f_M": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.barrier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.connectionLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.maximin_isGreatest": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.maximin_eq": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.component_separated": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.component_joined": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_merge_iff_closed": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_merge_iff_open": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.joinedLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_death_level": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.path_through_saddle": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.saddle_cut": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.congr": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toyRidge": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_ridge_ge": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_frontier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_death_level": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_f_M": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_f_S": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C2": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C1": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ]
+ },
+ "files": [
+  {
+   "path": ".gitignore",
+   "bytes": 20,
+   "sha256": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374"
+  },
+  {
+   "path": "ALIGNMENT.md",
+   "bytes": 6816,
+   "sha256": "f61e6bfe53701b8d3f8bfeaa59f2838e5ed42f54b5c9bd5228bb2c65549ea5c9"
+  },
+  {
+   "path": "CapFirstExit.lean",
+   "bytes": 16101,
+   "sha256": "d8669d68602df9ad9001eb2295b61731a6b7dd73e811d32ed2bc63b6d9079915"
+  },
+  {
+   "path": "README.md",
+   "bytes": 5920,
+   "sha256": "0f6b49e076f3a6416e6e24be561d19dfabe5b26afca5db28afcf1aaa59df8a83"
+  },
+  {
+   "path": "gate.py",
+   "bytes": 10833,
+   "sha256": "ee327566df5f428571e38672de933dc3d496abe32f979b540f972e5697ce4181"
+  },
+  {
+   "path": "lake-manifest.json",
+   "bytes": 3547,
+   "sha256": "04549ed79e36b417686b94d91994aad4dad7bb78d896bd2e74099ff95265935b"
+  },
+  {
+   "path": "lakefile.toml",
+   "bytes": 252,
+   "sha256": "3fa8afe35db80e433b9ff59fab399df0b44ade73aeda1452b884a24ed1b01a52"
+  },
+  {
+   "path": "lean-toolchain",
+   "bytes": 25,
+   "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  {
+   "path": "test_gate.py",
+   "bytes": 4881,
+   "sha256": "588e16d46d3974763ef28010ad7243196363a41012fd3debce19f5e2669a31a2"
+  }
+ ]
+}

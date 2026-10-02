@@ -1,0 +1,95 @@
+# Cap first exit in Lean: the topological global step of D1 component III
+
+**Object:** `CAP-FIRST-EXIT-LEAN-20261002-v1`. **Author:** Anthropic / Claude, Claude Code session `017Mi3hx…`.
+**Kind:** a Lean 4 / Mathlib formalization, with its own source and execution gate. **Scientific effect:** NONE. No
+register, catalog, STATUS, PROOF_INDEX, GRAPH or `formal/` scope change. **Same GitHub account as every lane: zero
+organizational-independence credit.** The author will not merge.
+
+## What is proved
+
+The audit of D1 named one step as load-bearing: the deterministic implication from the local good event to "`S` is
+the *global* elder partner of `M`". It asked for that step to have a completely independent derivation.
+
+That implication has two parts:
+
+- **Analytic part (CAP §§2–5, second pass L1–L20).** From `G_r`, construct a cap `C` and a ridge with three
+  properties:
+  - (C1) `f ≤ b` on `C`;
+  - (C2) `f ≤ s` on the frontier of `C`, with only `S` attaining `s` (C2⁺);
+  - (C3) a path from `M` to an older point `z`, `f(z) > b`, along which `f ≥ s`.
+- **Topological part (L21–L22).** From (C1)–(C3), deduce `M`'s global maximin level and its superlevel death level.
+
+This packet kernel-checks the topological part, using no hypothesis beyond (C1)–(C3). `X` is any topological space.
+No metric, smoothness, Morse, compactness or probability hypothesis is used. The separation steps do not even use
+continuity of `f`. Nothing is assumed about `f` outside `C` except along the single ridge path.
+
+| Lean declaration | Statement |
+|---|---|
+| `CapHyp f C M z b s` | (C1)–(C3) as one `Prop` structure |
+| `CapHyp.maximin_isGreatest`, `maximin_eq` | `d_f(M) = sup_γ inf_t f(γ t) = s`, attained (L21) |
+| `CapHyp.elder_merge_iff_closed` | for every `h`: the component of `M` in `{f ≥ h}` contains a point `> b` **iff** `h ≤ s` |
+| `CapHyp.elder_merge_iff_open` | for every `h`: the component of `M` in `{f > h}` contains a point `> b` **iff** `h < s` |
+| `CapHyp.elder_death_level` | the largest such `h` exists and equals `s` (L22's death level) |
+| `CapHyp.path_through_saddle` | under (C2⁺): every path from `M` to a point `> b` inside `{f ≥ s}` passes through `S` |
+| `CapHyp.saddle_cut` | under (C2⁺): in `{f ≥ s} \ {S}`, the component of `M` has no point `> b`; `S` is a cut point at the death level |
+| `CapHyp.congr` | exterior invariance: agreement on `closure C` and along one ridge preserves every hypothesis, hence every conclusion |
+| `toy_capHyp`, `toy_death_level` | a concrete instance on `ℝ`, showing the hypotheses are satisfiable and the theorems are not vacuous |
+| `toy_needs_C1`, `toy_needs_C2`, `toy_needs_C3` | proved counterexamples: for each of (C1), (C2), (C3), Lean proves that the other two hold, that this one fails, and that the maximin conclusion fails |
+
+The two engines of the proof are:
+
+- `path_meets_frontier`: a path that leaves `C` meets `frontier C`.
+- `preconnected_subset_of_frontier_disjoint`: a preconnected set that meets `C` and avoids `frontier C` lies inside
+  `C`.
+
+The second is what lets the component statements avoid path-connectedness and continuity of `f`.
+
+`saddle_cut` gives a topological reason why the death happens at `S`. The source instead identifies `S` through a
+Morse-theoretic step: distinct critical values make the merging critical point unique. `saddle_cut` does not need
+that step.
+
+## What is not proved here
+
+This packet does not formalize:
+
+- the analytic inequalities L1–L20 that produce (C1)–(C3) from `G_r`;
+- the chart/embedding interface: that the frontier of the cylinder cap in `ℝ^d` is its frontier in the torus;
+- the elder-rule reading in L22: "the class born at `M` dies at the largest `t` at which its component contains a
+  point of value `> b`". This needs compactness and the elder-rule definition. Lean proves what that largest `t` is;
+- L23, P §8, and every probabilistic statement (Theorem A, `Q^W(G_r^c) ≤ C r^3`).
+
+So issue Math-#193's "D1 Lean / kernel formalization" remains **partially** unsupplied. [ALIGNMENT.md](ALIGNMENT.md)
+maps every Lean statement to its source line and lists these interfaces.
+
+## Running it
+
+The package pins the same toolchain and Mathlib revision as `formal/`: Lean `v4.34.1`, Mathlib `d13f23b7`. It has its
+own `lakefile.toml` and `lake-manifest.json`, and it neither imports nor alters `formal/`.
+
+    python3 frontiers/cap_first_exit_lean_20261002/gate.py              # source gate (no Lean needed)
+    python3 -m unittest discover -s frontiers/cap_first_exit_lean_20261002 -p 'test_*.py' -v
+    cd frontiers/cap_first_exit_lean_20261002 && lake exe cache get && cd -
+    python3 frontiers/cap_first_exit_lean_20261002/gate.py --execute    # build, replay, axioms, controls
+
+The source gate checks:
+
+- every file against `MANIFEST.json` (bytes and SHA-256), and the exact tree;
+- the two pinned sources on main, by git blob;
+- toolchain and dependency pins;
+- that the only import is `Mathlib`;
+- that no forbidden token (`sorry`, `axiom`, `native_decide`, `set_option`, …) appears outside comments;
+- that the declared targets equal the manifest list.
+
+`--execute` additionally:
+
+- rebuilds the package fresh;
+- replays the module with `leanchecker`;
+- prints the axioms of all 29 declarations, requiring exactly the manifest's report: each uses only `propext`,
+  `Classical.choice`, `Quot.sound`;
+- runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
+
+The workflow `.github/workflows/cap-first-exit-lean.yml` runs all of this on pull requests that touch the packet.
+
+A green run is kernel evidence for the displayed Lean statements, relative to Lean's kernel and the pinned toolchain.
+It does not show that the statements say what the source says. That is the job of the alignment review requested
+in [ALIGNMENT.md](ALIGNMENT.md), which must come from a non-Claude lane.
