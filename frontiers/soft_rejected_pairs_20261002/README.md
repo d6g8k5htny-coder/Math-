@@ -2,12 +2,22 @@
 
 **Author-side proof candidate and conjectures (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-SOFT-REJECTED-20261002-v1.3`. Full text: [`PROOF.md`](PROOF.md). Version history:
+Object `CL-SOFT-REJECTED-20261002-v1.4`. Full text: [`PROOF.md`](PROOF.md). Version history:
+- v1.4 applies the three findings of OpenAI Codex's C78 delta review of v1.3 (review 5394316763, AMEND; findings first
+  sent in 5956579220). The changes are to the reporting in PROOF §5 and the header.
+  - OA-242-V13-01: the `2.0·10^{−4}` comparison is the largest difference observed at v1.2's tabulated `k`, not a
+    certified bound.
+  - OA-242-V13-02: the limits of §5(3)'s expansions are stated.
+  - OA-242-V13-03: the sensitivity `±0.018` is computed exactly, as `±0.0186`.
+  - C78's rounding note: PROOF §5(5) prints `Ĩ = −0.5336676`, from which `R_{2/3}` is computed.
+  - `SOURCES.json` pins the raw Monte Carlo archive by hash. PROOF §§0–4, `soft_check.py` and `RESULTS.json` are
+    unchanged.
 - v1.3 is an author correction of PROOF §5's numbers (AUTH-242-02), first disclosed in PR comments 5953336662 and
   5955380848. xAI asked (5955184422) that it be in the landed note; it is in PROOF §5 and below.
   - The one-dimensional scanner `dec1d.py` behind §5's `I` table and `H` has two artifacts, in thin layers on either side
     of `β = 2`. Just above, it misses a fold and falsely rejects; just below, with `χ < 0`, its tolerance `10^{−3}` falsely
-    accepts. These are errors of the implementation, not of Lemma 2. They move `H` by at most `2.0·10^{−4}`.
+    accepts. These are errors of the implementation, not of Lemma 2. At v1.2's tabulated `k`, v1.2's `H` differs from the
+    recomputed `H` by at most `2.0·10^{−4}`. That is an observed difference, not a certified bound (v1.4).
   - The corrected values come from the closed form of `I` in Math- #244 (open; conditional on #170 Theorem E(1) and [CUB]
     Theorem C): `H` and `H₀` rows, `Δ_χ/k⁴ → 66.56` (v1.2 fitted `62`), `Ĩ = −0.5337`, and `R_{2/3} = −0.0488`
     (`d = 2`) and `−0.0614` (`d = 3`). These are inside v1.2's sensitivity ranges, which stand. Most of the change in
@@ -58,7 +68,7 @@ A third input, (iii) the far elder density, is needed only to remove `ν_eld^{fa
 |---|---|
 | Theorem 1, `d = 2` | `κ𝒜^{rej}(0, κ)/F₀(0) = 0.751, 0.977, 0.9985, 0.9999` at `κ = 1, 4, 16, 64`; the `1/κ` coefficient `c(b) = 0.3b` is confirmed at `b = ±1` |
 | Theorem 1, `d = 3` | `κ∫∫𝒜^{rej}/∫∫F₀ = 0.670, 0.9899, 0.99936, 0.99994` at `κ = 1, 10, 100, 1000`; `∫∫F₀` agrees with Corollary 1′ to `10^{−5}`; per `b` the ratio tends to `1` at rate `1/κ`; `∫G(s^{−4})ds = 0.072444` reproduces #207's `I^{cand} − c₁ = 0.0724443` |
-| Lemma 2 | agrees with a two-dimensional flood fill on 900 random typed parameter points (one near-degenerate point needs a smaller level offset). **Disclosure (v1.3):** the scanner `dec1d.py` that implements Lemma 2 for the numbers errs in thin layers on either side of `β = 2`: just above, it misses a fold and falsely rejects; just below, with `χ < 0`, its tolerance `10^{−3}` falsely accepts. The flood fill's level offset was too large to expose this. The closed form of #244 found it. It moves `H` by at most `2.0·10^{−4}`; the values below are corrected (PROOF §5(2), (4)). |
+| Lemma 2 | agrees with a two-dimensional flood fill on 900 random typed parameter points (one near-degenerate point needs a smaller level offset). **Disclosure (v1.3):** the scanner `dec1d.py` that implements Lemma 2 for the numbers errs in thin layers on either side of `β = 2`: just above, it misses a fold and falsely rejects; just below, with `χ < 0`, its tolerance `10^{−3}` falsely accepts. The flood fill's level offset was too large to expose this. The closed form of #244 found it. At v1.2's tabulated `k`, v1.2's `H` differs from the corrected values by at most `2.0·10^{−4}` (an observed difference, not a certified bound); the values below are corrected (PROOF §5(2), (4)). |
 | `H` | `H(0.2) = 1.004`, `H(0.4) = 0.727`, `H(0.6) = 0.201`, `H(0.8) = 0.018`; v1.3 recomputes them from #244's closed form (v1.2's fourth decimals at `k = 0.1, 0.3–0.6` differed by up to `2·10^{−4}`). For small `k`, `H − H₀ ≈ 66.56k⁴` (v1.2 fitted `62k⁴`). `Ĩ = −0.5337`, so `R_{2/3} = −0.0488` (`d = 2`) and `−0.0614` (`d = 3`); v1.2 had `Ĩ = −0.536`. With `C₃` ignored, `R_{2/3}` (`d = 2`) would be `−0.104`; with the pin density alone, `−0.807`. |
 | #216's Monte Carlo, `d = 2` | rejected adjacent pairs with `s = r/ℓ^{1/4} < 0.8`: 37 observed, 35.3 from the composite, 4,322 from the cusp kernel alone |
 | #216's Monte Carlo, `d = 3` | `s < 0.8`: 11 observed, 10.7 composite (1.2 with the pin density alone), 1,329 cusp kernel alone. On `[3·10^{−4}, 10^{−2}]` the counts are `0.884 ± 0.040` of the `ℓ^{1/4}` law and `1.008` of the composite (Pearson χ² 11.8 against 2.1 on 8 bins). Over #216's whole range `[10^{−4}, 0.3]` the composite does not describe the counts (finite-`r` corrections). |

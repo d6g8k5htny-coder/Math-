@@ -1,10 +1,24 @@
 # Soft rejected pairs: the `1/κ` tail of the rejected cusp kernel in every dimension, the fold-scale rejection function, and a conjectured `ℓ^{2/3}` term
 
-Object: CL-SOFT-REJECTED-20261002-v1.3. Version history:
+Object: CL-SOFT-REJECTED-20261002-v1.4. Version history:
+- v1.3 → v1.4 applies the three findings of OpenAI Codex's C78 delta review of v1.3 (review 5394316763; the findings
+  were first sent in 5956579220). It changes the header and §5 only. No statement, proof or control changes, and no
+  tabulated value changes.
+  - OA-242-V13-01: the `2.0·10^{−4}` comparison of `H` is now stated as what it is. It is the largest difference observed
+    at the 15 values of `k` in v1.2's table, not a certified uniform bound, and it also contains v1.2's quadrature and
+    table-interpolation errors.
+  - OA-242-V13-02: §5(3)'s two expansions now state their limits, `t → −∞` and `|χ₀| → ∞`.
+  - OA-242-V13-03: the inherited sensitivity is computed exactly. A shift of `H` by `±0.002` on `k ≥ 0.1` moves `Ĩ` by
+    `±0.002·10^{5/3}/5 = ±0.0186`, not `±0.018`. The ranges stand.
+  - C78 also noted (not a finding) that `0.1150058 × 0.53367` rounds to `0.06138`, not to the printed `0.06137`. §5(5) now
+    prints `Ĩ = −0.5336676`, the value from which `R_{2/3}` was computed.
+  - `SOURCES.json` also pins the raw Monte Carlo archive by hash. §§0–4, `soft_check.py` and `RESULTS.json` are
+    byte-identical to v1.3, and §9 lists the changed bytes.
 - v1.2 → v1.3, an author correction of §5's numbers (AUTH-242-02). It was disclosed in PR comments 5953336662 and
   5955380848; xAI asked in 5955184422 that it be in the landed note. No statement, proof or control changes.
   - §5(2) records two artifacts of the one-dimensional scanner `dec1d.py`, in thin layers on either side of `β = 2`. They
-    are in the implementation, not in Lemma 2, and they move `H` by at most `2.0·10^{−4}`.
+    are in the implementation, not in Lemma 2. At the 15 values of `k` in v1.2's table, v1.2's `H` differs from the
+    recomputed `H` by at most `2.0·10^{−4}`. That is an observed difference, not a certified bound (v1.4).
   - §5(4) gives the `H` and `H₀` rows recomputed, the accuracy sentence, and the small-`k` coefficient of `Δ_χ`
     (`66.56`, exact, in place of the fitted `62`).
   - §5(5), §4 Remark 2, and the numerical remarks in "What is new" and Conjecture 7: `Ĩ = −0.5337`, so
@@ -789,8 +803,11 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
        `≈ a(½)²/|χ|`), and the axial segment joins `M` to the far region above `L_S`, so the pair is rejected.
      - The flood fill errs the other way here: its level offset `ε` exceeds the relevant level gaps. So the comparisons
        above did not expose the artifacts.
-     - The artifacts move `H` by at most `2.0·10^{−4}` (at `k = 0.4`). Items 4–5 give the corrected values. Control S8
-       stays clear of this region (§7).
+     - At the 15 values of `k` in v1.2's table (`k = 0.1, 0.15, …, 0.6` and `0.7, 0.8, 0.9, 1.0`), v1.2's `H` differs from
+       the recomputed `H` of item 4 by at most `2.0·10^{−4}`, at `k = 0.4`. This is the largest observed difference at
+       those points, not a certified uniform bound on the artifacts' effect, and it also contains v1.2's quadrature and
+       table-interpolation errors (OA-242-V13-01).
+     - Items 4–5 give the corrected values. Control S8 stays clear of this region (§7).
 3. *The function `I`.*
    - A `101 × 121` table of `I(t, χ₀)` on `|t| ≤ 30`, `|χ₀| ≤ 2000` (`Itab2d_v2.py`), and an exact evaluator for other points
      (`Ifast.py`).
@@ -804,7 +821,10 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
        differ by more than `10^{−3}` are explained: 7 tiny intervals the grid misses, 54 table resolution, and 36 the
        artifacts of item 2.
      - In particular `t* = 2/3` exactly (§2 has `t* ∈ (0.65, 0.68)`), and the two limits above have the exact next terms
-       `I(t, 0) = (4/3)|t|³ + 3√3|t|^{5/2} + O(t²)` and `I(0, χ₀) = χ₀²/48 + 16^{−2/3}|χ₀|^{4/3} + O(|χ₀|)`.
+       `I(t, 0) = (4/3)|t|³ + 3√3|t|^{5/2} + O(t²)` as `t → −∞` and
+       `I(0, χ₀) = χ₀²/48 + 16^{−2/3}|χ₀|^{4/3} + O(|χ₀|)` as `|χ₀| → ∞` (OA-242-V13-02). For `t ≥ 1`, instead,
+       `I(t, 0) = t − 2/3` exactly (#244 Corollary A.1). At `t = 0`, Theorem A's formula depends on `χ₀` only through
+       `(χ₀ + 8)²`, so the second expansion holds in both directions.
 4. *The function `H`.* `H = H₀ + Δ_χ`.
    - `H₀`, the value with `C₃` ignored, comes from a 639-point table of `I(t, 0)` on `|t| ≤ 400`, its asymptotic forms beyond
      (`|t|³(4/3 + 5.74|t|^{−1/2})` and `t − 2/3`), and adaptive quadrature in `t` and `γ²` down to `γ → 0` (`Hk0b.py`). Its
@@ -814,12 +834,14 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
      range and the exact evaluator outside it.
    - Accuracy checks (v1.2): without the table, `Δ_χ(0.2)` changes by `2·10^{−5}`; with 48 nodes in `|γ|`, `H` changes by
      `5·10^{−5}`; and the quadrature `H` agrees with a table-free direct quadrature at `k = 0.2` to `1.3·10^{−4}`. All three
-     checks use `dec1d.py`, so none of them measures its bias (item 2). That bias reaches `2.0·10^{−4}` at `k = 0.4`.
+     checks use `dec1d.py`, so none of them measures its bias (item 2). Against the recomputed values, v1.2's `H` is off
+     by up to `2.0·10^{−4}` at the tabulated `k` (at `k = 0.4`; an observed difference, item 2).
    - *Recomputed values (v1.3).* The rows below come from #244's closed form of `I`. `H` and `H₀` are evaluated by nested
      Gauss–Legendre quadrature over `(|γ|, B, C₃)`, split at the kinks of the integrand. Raising the node counts from `60³`
      to `100³` changes them by less than `10^{−10}`, and #244's referee reproduces the `H` row with an independent
      quadrature.
-     - The v1.2 rows differed by at most `2.0·10^{−4}` (`H`) and `1.3·10^{−5}` (`H₀`).
+     - At the 15 values of `k` in v1.2's table, the v1.2 values differ from these by at most `2.0·10^{−4}` (`H`, at
+       `k = 0.4`) and `1.3·10^{−5}` (`H₀`, at `k = 0.35`). These are observed differences, not certified bounds.
      - At four decimals the v1.2 rows had `H = 1.0039, 0.9345, 0.7271, 0.4397, 0.2007` at `k = 0.1, 0.3, 0.4, 0.5, 0.6`
        and `H₀ = 0.4663` at `k = 0.4`.
    - *Small `k`.* `Δ_χ/k⁴ → 53248/800 = 66.56` (#244 Theorem B, Step 3); v1.2 used the fitted value `62`. #244 Theorem B
@@ -836,7 +858,7 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
      | `e^{−12k²}` | 0.887 | 0.619 | 0.340 | 0.147 | 0.050 | 0.013 | 0.003 | 0.0005 | 0.000006 |
 
 5. *`R_{2/3}`.*
-   - *v1.3.* With `H` from #244's closed form, `Ĩ = −0.53367`. The quadrature is Gauss–Legendre in `q = k^{1/3}` on
+   - *v1.3.* With `H` from #244's closed form, `Ĩ = −0.5336676`. The quadrature is Gauss–Legendre in `q = k^{1/3}` on
      `[0.1, 1.2]`, with #244 Theorem B's expansion below `q = 0.1` and `H = 0` above `q = 1.2`, where `H < 2·10^{−13}`. With
      16 and 24 nodes per segment the results agree to `2.5·10^{−8}`.
      - So `R_{2/3} = 0.0914028·Ĩ = −0.04878` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.06137` in `d = 3`. Both lie inside
@@ -854,7 +876,9 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
      - v1 quoted `−0.537` for "a dense trapezoid rule". That was the `R23` field stored in `H_dense2.json`, produced by an
        unrecorded rule (finding A-1, found by the author while archiving v1).
      - So v1.2 had `R_{2/3} = 0.0914028·Ĩ = −0.049` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.0617` in `d = 3`.
-   - *Sensitivity (v1.2; the ranges stand).* A uniform shift of `H` by `±0.002` on `k ≥ 0.1` moves `Ĩ` by `±0.018`. Halving
+   - *Sensitivity (v1.2; the ranges stand).* A uniform shift of `H` by `±0.002` on `k ≥ 0.1` (that is, `v ≤ 10^{1/3}`)
+     moves `Ĩ` by exactly `±0.002·∫_0^{10^{1/3}}v⁴dv = ±0.002·10^{5/3}/5 = ±0.0186` (v1.2 printed `±0.018`;
+     OA-242-V13-03). Halving
      v1.2's small-`k` term `62k⁴` moves it by `−0.021`, and multiplying it by `1.5` by `+0.021`. So `Ĩ = −0.54 ± 0.03`,
      `R_{2/3} = −0.049 ± 0.003` in `d = 2` and `R_{2/3} = −0.062 ± 0.004` in `d = 3`.
    - *Comparisons.* With `C₃` ignored (`H = H₀`), `Ĩ = −1.134` and `R_{2/3} = −0.104` (v1.3; v1.2 had `Ĩ = −1.133`). With
@@ -990,6 +1014,16 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
   #187, #229 and #240.
 - **E** (§§5–7): the evidence is described accurately and kept separate from the proofs, and the controls match their
   claims.
+
+**Changed bytes in v1.4** (for a delta check against the C78 review of v1.3, 5394316763):
+- *Header:* the object label, the new v1.4 entry, and the `2.0·10^{−4}` sentence of the v1.3 entry (V13-01).
+- *§5:* the last item of item 2 (V13-01); the expansions in item 3 (V13-02); item 4's accuracy sentence and the
+  comparison sentence after the recomputation (V13-01); item 5's first sentence (`Ĩ` printed to seven digits, C78's
+  rounding note) and its sensitivity sentence (V13-03).
+- *§9:* this list.
+
+§§0–4, §§6–8, every value in §5's tables, every other value in §5, `soft_check.py` and `RESULTS.json` are unchanged.
+The only changed numbers are the sensitivity `±0.0186` (V13-03) and the extra digits of `Ĩ` in item 5.
 
 **Changed bytes in v1.3** (for a delta check against the v1.2 reviews; AUTH-242-02):
 - *Header:* the object label and version history, the closing numerical item of "What is new" (`≈ −0.061` in `d = 3`),
