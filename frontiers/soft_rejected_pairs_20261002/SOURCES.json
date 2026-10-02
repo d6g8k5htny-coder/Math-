@@ -1,12 +1,12 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-SOFT-REJECTED-20261002-v1.2",
- "kind": "author-side proof candidate and conjectures, every d >= 2 (v1.2: applies OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01, E-02; exact (D-prime) witness; Lemma 2 now states that beta > 2, chi <= 0 is always rejected; prior work #170/#175 recorded, AUTH-242-01; Conjecture 6 status: existence merged (#170/#175), identification #243): Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.062 (d = 3) for the Gaussian kernel, not certified)",
+ "object": "CL-SOFT-REJECTED-20261002-v1.3",
+ "kind": "author-side proof candidate and conjectures, every d >= 2 (v1.3: author correction AUTH-242-02 of section 5 only: two artifacts of the scanner dec1d.py in thin layers on either side of beta = 2 are disclosed, and H, H0, Delta_chi/k^4 -> 66.56, I~ = -0.5337 and R_{2/3} = -0.0488 (d = 2), -0.0614 (d = 3) are recomputed from the closed form of Math- #244, inside the v1.2 ranges; no statement, proof or control changes; v1.2: applies OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01, E-02; exact (D-prime) witness; Lemma 2 now states that beta > 2, chi <= 0 is always rejected; prior work #170/#175 recorded, AUTH-242-01; Conjecture 6 status: existence merged (#170/#175), identification #243): Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.061 (d = 3) for the Gaussian kernel, not certified)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "f5347541a6ef7b84de96120dcce6137b816b8033"
+  "branch_base": "a808ba25de9db22110db8b7555a64852f38e031d"
  },
  "consumed": [
   {
@@ -158,13 +158,23 @@
   },
   {
    "path": "frontiers/soft_fold_limit_20261002/PROOF.md",
-   "bytes": 72241,
-   "sha256": "9047cc30a37af0aed43ed289d6f94ce31a2a3607bd67c71195158390a48d67d2",
-   "git_blob": "caedaef6cbb0ebaad647c2f091a6835bf3228697",
+   "bytes": 72742,
+   "sha256": "7716a113bcf8c1725f9ec771d58ef033767f0a7bb50d592b841ca0ffe86f31af",
+   "git_blob": "3d9faa87d717fbd68b784b2ae408505fb2cc56dc",
    "tag": "243",
-   "use": "Math- #243 (open): Theorem FL and Proposition FL.7 (Conjecture 6: the identification of the fold-scale limit with F, continuity, local uniformity), Lemma FL.2(c)",
-   "head": "0740b2cae546866c5f5f27e770ba023bde64bbe8",
+   "use": "Math- #243 (open; its five nonauthor slice reviews are at this head): Theorem FL and Proposition FL.7 (Conjecture 6: the identification of the fold-scale limit with F, continuity, local uniformity), Lemma FL.2(c)",
+   "head": "11a4cd4e3b3f927eb9d4a743d8a43e387f1a66da",
    "pr": "Math- #243"
+  },
+  {
+   "path": "frontiers/soft_closed_form_20261002/PROOF.md",
+   "bytes": 46949,
+   "sha256": "a6c29a529af87da69ea7929bccd2ad81cad313cecb235ad8bf2dea274d2acb96",
+   "git_blob": "310ef82832a51bc876494f72fc3f002ea2bfaea0",
+   "tag": "244",
+   "use": "Math- #244 (open; conditional on #170 Theorem E(1) and [CUB] Theorem C): Theorem A (the closed form of the rejected set and of I), Corollary A.1 (t* = 2/3), Theorem B (H to order k^4, the exact k^(7/2) and k^4 coefficients), section 5 (its numerics); section 5 here uses it for the v1.3 values",
+   "head": "1781c0fd37469a0840f3c768d2b505ef6319133e",
+   "pr": "Math- #244"
   }
  ],
  "cited_external": [],
@@ -219,13 +229,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 79394,
-   "sha256": "ab952b2a2c7648beb5f7473b3f028cdc495c8317c52522bee144d26eecc8e2bb"
+   "bytes": 87672,
+   "sha256": "2d6981593fc32533fd3f3a25c8c424bff829c7b2baa47da148b9502520e62467"
   },
   {
    "path": "README.md",
-   "bytes": 13878,
-   "sha256": "bd43ee1b5833a6069381aadbd12159316e08569b105be348bd640c3db0e01272"
+   "bytes": 16712,
+   "sha256": "ff9cccc50084953833c3b43760388989e9be32c721f915ac3c170c4b26740ae8"
   },
   {
    "path": "soft_check.py",
@@ -239,9 +249,10 @@
   }
  ],
  "supersedes": {
-  "object": "CL-SOFT-REJECTED-20261002-v1.1",
-  "head": "87912bd8f28fe0d31fcb525670d1fd71a00e0db1",
-  "proof_blob": "8b2f5fae2a0014a401003463d7c2b2221e7124f5"
+  "object": "CL-SOFT-REJECTED-20261002-v1.2",
+  "head": "b82b0ca16926666adb8895c21801b6e85d7e18df",
+  "proof_blob": "ad4beb8467a775c7c76f85d5584c13338d0e66be",
+  "note": "b82b0ca is the v1.2 README amendment; the v1.2 PROOF commit was 1f86fea (same PROOF blob)"
  },
  "exploration_manifest": {
   "location": "claude.ai project archive V2_2/frontiers_soft_rejected_pairs_20261002/ (and the local archive zip SIDE24_V2_2_2026-09-29.zip); not part of the repository",
@@ -583,7 +594,85 @@
    }
   ],
   "raw_monte_carlo": "batchA2.npz (d = 2, L = 64) and batch3B.npz (d = 3, L = 16), records of Math- #216, delivered as SIDE24_MC_raw_2026-10-01.zip; not pinned here by hash",
-  "status": "author-reported exploration, not independently reproduced (OA-242-E-01)"
+  "status": "author-reported exploration, not independently reproduced (OA-242-E-01)",
+  "v13_files": [
+   {
+    "path": "exploration/v13/Hcf.py",
+    "bytes": 2651,
+    "sha256": "36787ccaf7dbd42ffcf21b4c138e2266aeb6e47a0e3f5b81553782124841ad96"
+   },
+   {
+    "path": "exploration/v13/Hcf_grid.log",
+    "bytes": 465,
+    "sha256": "b42481ae7c05551d0b7ee815ad7ab0f08ac337f44bf564a32f1a5c1b0f7852a1"
+   },
+   {
+    "path": "exploration/v13/Hcf_grid_nochi_v2.log",
+    "bytes": 465,
+    "sha256": "58dac2db3aa20d2f93eb5519f79448f27a852c071b690e4fdd339deffe1efe83"
+   },
+   {
+    "path": "exploration/v13/Itilde.py",
+    "bytes": 1306,
+    "sha256": "86f7bb01ceaa534550ab01f53ee2c7a42f11cc1202175300460e13e758f925be"
+   },
+   {
+    "path": "exploration/v13/Itilde_16_60.log",
+    "bytes": 258,
+    "sha256": "9703c947dbf2e027715f58a937ee4ed102bcb50bbe542cd58b53b3f26b3a222d"
+   },
+   {
+    "path": "exploration/v13/Itilde_24_80.log",
+    "bytes": 258,
+    "sha256": "545bcf4a273236cce107daef85f6f81fcf2c698673f51c510a30676be5db678f"
+   },
+   {
+    "path": "exploration/v13/Itilde_headfix.log",
+    "bytes": 480,
+    "sha256": "84fa0caa234243d9a780613c94de06a592bfa8f5d2c91f0ce696641f524dbbe4"
+   },
+   {
+    "path": "exploration/v13/Itilde_headfix.py",
+    "bytes": 778,
+    "sha256": "ee003377068c55ac8db454801b9d62ef99401f9b089e78367fbaa534373f4f46"
+   },
+   {
+    "path": "exploration/v13/README.md",
+    "bytes": 2365,
+    "sha256": "2ef3f9b975b93d635a0f4f9b25f230bdf0a042e0b88d0731f717d2ccab1104f6"
+   },
+   {
+    "path": "exploration/v13/cf.py",
+    "bytes": 1784,
+    "sha256": "5861010443118e0407fa78ba30e8ae9eaeb044a6fe1676ab4db02bb6be8f36af"
+   },
+   {
+    "path": "exploration/v13/g6i.py",
+    "bytes": 2261,
+    "sha256": "ec81a1631304f2dc17b254a61452a46f012e22797aedccc4d00fba20537ce1c3"
+   },
+   {
+    "path": "exploration/v13/itilde_split.py",
+    "bytes": 2042,
+    "sha256": "f2603cc204cc0f6ce07130d8d07100b62ba2df6be8f4a69a19eec471e1a8cefd"
+   },
+   {
+    "path": "exploration/v13/split_chi_16_60.log",
+    "bytes": 383,
+    "sha256": "55d0eaba57e0067bb6fc7807320352b1e46b3cd05967914cd6c368b782e8a73f"
+   },
+   {
+    "path": "exploration/v13/split_nochi_16_60.log",
+    "bytes": 381,
+    "sha256": "43273dc5535e41010c9338b89588abcf24e6b490ed5f4fd2a2e5b08e76b3205a"
+   },
+   {
+    "path": "exploration/v13/split_nochi_24_80.log",
+    "bytes": 381,
+    "sha256": "739406306a03d914c02c87185d013d215cbe79c4fc6b66e270380f1e37d94521"
+   }
+  ],
+  "v13_note": "v1.3 (AUTH-242-02): the scripts and logs behind section 5's corrected values (H and H0 rows, the I~ split by v-range, I~ with and without C3), evaluating the closed form of Math- #244; the comparison with the I table, the classification of its 97 outliers and the two dec1d.py artifacts are #244's exploration, pinned in #244's SOURCES.json"
  },
  "nonauthor_reviews": [
   {
@@ -667,6 +756,25 @@
    ],
    "applied_in": "v1.2 README amendment",
    "note": "its section 3 (D.1) is root-authored support: a direct model-integral proof of F = k A_* a_fail in every fixed d; not reviewed here"
+  },
+  {
+   "slice": "D.1 supplement (root-authored section 3 of review 5391986303): the direct model identity F = k A_* a_fail in every fixed d",
+   "reviewer": "OpenAI Codex agent prioritize_program_closure_work (delegated AI review; nonauthor of D.1; same GitHub account; organizational independence 0)",
+   "comment": "Math- #243 5954510413",
+   "at": "b82b0ca (PROOF blob ad4beb84)",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "note": "reviews D.1 against this PROOF's sections 2-3 (unchanged in v1.3); not a review of this packet's proofs"
+  },
+  {
+   "slice": "head receipt on the v1.2 README amendment",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5393329837",
+   "comment": "5955184422",
+   "at": "b82b0ca",
+   "verdict": "NOT READY (not a proof acceptance or a merge vote): behind main; Conjecture 7 open; R_{2/3} a sensitivity range, not a certified enclosure; the scanner disclosure must be in the landed note",
+   "findings": [],
+   "applied_in": "v1.3 (rebased on main; the disclosure is in PROOF section 5 and the README)"
   }
  ],
  "amendments": [
@@ -685,6 +793,28 @@
     "OA-242-V12-01",
     "OA-242-V12-02"
    ]
+  },
+  {
+   "label": "v1.3",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "proof_sections_unchanged": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "findings": [
+    "AUTH-242-02 (author: two dec1d.py artifacts near beta = 2; section 5 numbers corrected; disclosed in 5953336662, corrected in 5955380848)"
+   ],
+   "requested_by": "xAI 5955184422 (disclosure in the landed note); Codex 5954054126 (PR242 held for the promised section 5 correction)"
   }
  ]
 }

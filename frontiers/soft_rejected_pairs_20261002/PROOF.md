@@ -1,6 +1,17 @@
 # Soft rejected pairs: the `1/κ` tail of the rejected cusp kernel in every dimension, the fold-scale rejection function, and a conjectured `ℓ^{2/3}` term
 
-Object: CL-SOFT-REJECTED-20261002-v1.2. Version history:
+Object: CL-SOFT-REJECTED-20261002-v1.3. Version history:
+- v1.2 → v1.3, an author correction of §5's numbers (AUTH-242-02). It was disclosed in PR comments 5953336662 and
+  5955380848; xAI asked in 5955184422 that it be in the landed note. No statement, proof or control changes.
+  - §5(2) records two artifacts of the one-dimensional scanner `dec1d.py`, in thin layers on either side of `β = 2`. They
+    are in the implementation, not in Lemma 2, and they move `H` by at most `2.0·10^{−4}`.
+  - §5(4) gives the `H` and `H₀` rows recomputed, the accuracy sentence, and the small-`k` coefficient of `Δ_χ`
+    (`66.56`, exact, in place of the fitted `62`).
+  - §5(5), §4 Remark 2, and the numerical remarks in "What is new" and Conjecture 7: `Ĩ = −0.5337`, so
+    `R_{2/3} = −0.0488` (`d = 2`) and `−0.0614` (`d = 3`), inside the v1.2 sensitivity ranges, which stand.
+  - The corrected values use the closed form of `I` in Math- #244 (open; conditional on #170 Theorem E(1) and [CUB]
+    Theorem C). They are exploration, not certified.
+  - §§0–3 are byte-identical to v1.2, as are `soft_check.py` and `RESULTS.json`. §9 lists the changed bytes.
 - v1.1 → v1.2, after the nonauthor reviews of v1.1 by OpenAI Codex:
   - Slice A, 5390308599;
   - Slice B (model), 5948352439;
@@ -83,7 +94,7 @@ the next term of `ρ_rej` (§4).
   - The two-scale composite density has the expansion `(I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`, with `R_{2/3}`
     given by `F` and `F₀`.
   - Conjecture 7 says that `ρ_rej + ν_eld^{far,r_0^*} − B_{d,L}` has the same expansion.
-  - For the Gaussian kernel, numerically `R_{2/3} ≈ −0.049` in `d = 2` and `≈ −0.062` in `d = 3` (§5).
+  - For the Gaussian kernel, numerically `R_{2/3} ≈ −0.049` in `d = 2` and `≈ −0.061` in `d = 3` (§5).
 - **Evidence** (§5, exploration):
   - the tail of Theorem 1, by quadrature in `d = 2` and `d = 3`;
   - Lemma 2 against a two-dimensional flood fill;
@@ -113,7 +124,9 @@ the next term of `ρ_rej` (§4).
     (`frontiers/concave_fibre_elder_20260930/PROOF.md`, blob `923d3236`), both merged: the failure law
     `r^{−3}(1 − p_r) → α₁ + α₂` (Theorems S and F), the compact-window coefficient, #170 §3 (the critical chord), and #170
     Theorem E. These are prior work for §§2–4; both packets are author-side candidates at their stated conditional scope.
-  - #243 (open, head `0740b2c`): Theorem FL and Proposition FL.7 (Conjecture 6).
+  - #243 (open; its five review slices are at head `11a4cd4`): Theorem FL and Proposition FL.7 (Conjecture 6).
+  - #244 (open, head `1781c0f`): the closed form of `I` (Theorem A), `t* = 2/3` (Corollary A.1) and the expansion of `H` to
+    order `k⁴` (Theorem B), conditional on #170 Theorem E(1) and [CUB] Theorem C. §5's v1.3 numbers use it.
   - #237 (open): Theorem P, Remark 4.
   - #216 (open): the Monte Carlo in `d = 2, 3`.
   - #187 (merged) and #188 (open): the far elder density.
@@ -687,8 +700,10 @@ Integrating over `b` and `u` gives (4.2). ∎
 - *Existence of the limit, as `kA∗(α₁ + α₂)`.* This is in #170 (`d = 2`) and #175 (`d ≥ 3`): merged author-side candidates,
   at their conditional scope.
 - *`d = 2`, at fixed `(b, k, u)`.* This follows from #170 Theorem S and #243 Proposition FL.7(iv), a model-level identity.
-- *Local uniformity in `k`, and `d ≥ 3`.* #243 (open; author-side, nonauthor review pending) claims a proof (Theorem FL).
-- The label is kept here until #243 is reviewed.
+- *Local uniformity in `k`, and `d ≥ 3`.* #243 (open; author-side) claims a proof (Theorem FL). Its five nonauthor slice
+  reviews (same account, organizational independence 0) are delivered at head `11a4cd4`, with four minor clarifications
+  to apply.
+- The label is kept here until #243 lands.
 
 **Conjecture 7 (the next term of the rejected density).** In every `d ≥ 2`,
 
@@ -698,7 +713,7 @@ with `R_{2/3}` as in (4.2).
 - Equivalently, `ρ_rej + ν_eld^{far,r_0^*} − B_{d,L} − ν^c = O(ℓ^{3/4})`. This is (R⁺.1) of #229 with its remainder resolved.
 - If `ν_eld^{far,r_0^*}(ℓ) = O(ℓ^{3/4})` (#188, open, claims `O(ℓ^N)`), then
   `ρ_rej = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`.
-- For the Gaussian kernel, numerically `R_{2/3} ≈ −0.049` in `d = 2` and `R_{2/3} ≈ −0.062` in `d = 3` (§5).
+- For the Gaussian kernel, numerically `R_{2/3} ≈ −0.049` in `d = 2` and `R_{2/3} ≈ −0.061` in `d = 3` (§5).
 
 *What a proof needs.* Inputs (i) and (ii) are missing; (iii) is needed only to drop the far term.
 - (i) *The soft layer.* A two-scale version of Conjecture 6, uniform from the cusp scale to the fold scale (`κ ≥ κ₁`), with
@@ -724,7 +739,8 @@ makes `ℓ^{2/3}` the first fold-side power and `ℓ^{3/4}` the next cusp-side o
    #237's remainder `ℓ^{3/5}` allows both. Only `ρ_rej`, or the rejected Monte Carlo row binned in `s`, tests `R_{2/3}` alone,
    and only subject to (ii)–(iii).
 2. For the Gaussian kernel, `Ĩ` is dominated by `v ∈ [1, 1.5]`, that is `k ∈ [0.3, 1]`, where `H` falls from `≈ 1` to `≈ 0`. The
-   contributions are `−0.200` (`v < 1`), `−0.563` (`1 ≤ v ≤ 1.5`), `+0.003` (`1.5 ≤ v ≤ 2`) and `+0.223` (`v ≥ 2`).
+   contributions are `−0.200` (`v < 1`), `−0.563` (`1 ≤ v ≤ 1.5`), `+0.003` (`1.5 ≤ v ≤ 2`) and `+0.227` (`v ≥ 2`) (v1.3,
+   by `itilde_split.py` of §5's v1.3 custody item; v1.2 had `+0.223` for `v ≥ 2`).
 3. `R_{2/3}/(I^{cand} − c₁) ≈ −0.53` in `d = 2` and `≈ −0.85` in `d = 3`. Since `ℓ^{5/12} = 0.147` at `ℓ = 10^{−2}`, the
    `ℓ^{2/3}` term there is about 8% (`d = 2`) and 12% (`d = 3`) of the `ℓ^{1/4}` term.
 
@@ -737,6 +753,9 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
 - *Pinned identities.* `SOURCES.json` (`exploration_manifest`) pins every script, table and log there by its SHA-256,
   including those of the Monte Carlo comparison. #216's raw records are pinned by name in #216's archive
   `SIDE24_MC_raw_2026-10-01.zip`.
+- *v1.3.* The scripts and logs behind the corrected values are in `exploration/v13/` of the same archive, pinned in
+  `SOURCES.json` (`exploration_manifest`, `v13_files`). They evaluate #244's closed form; #244's own exploration is
+  pinned in its `SOURCES.json`.
 
 1. *Theorem 1.*
    - *`d = 2`.* Quadrature of (0.2) under the contact law (`fastk.py`, `soft_d2.py`) gives the numbers of Remark 4 of §1.
@@ -758,11 +777,34 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
      default `ε`; with `ε_rel = 5·10^{−4}` the flood fill agrees.
    - The referee's independent comparison (500 points, 40 of them (D′)-elder) agrees after resolving two numerical
      artifacts.
+   - *Two artifacts of `dec1d.py` (v1.3, AUTH-242-02).* Both are in thin layers on either side of `β = 2`. They are errors
+     of the implementation, not of Lemma 2, and the comparison with the closed form of #244 found them.
+     - *Just above `β = 2`, false rejections.* Here `a(½) = 1 − β/2 < 0`. The slices just right of `X = ½` lose their
+       maximum at a fold, at distance `≈ a(½)²/χ` from `½`, which can be far below the grid step. `dec1d.py` treats a first
+       grid point past `½` whose slice has no maximum as an open end. But if the fold value `A₀ + a³/(6χ²)` is below `L_S`,
+       the band closes before the fold, and `S` is the death saddle. Example: at `(t, χ₀) = (9.005434, 193.926947)`,
+       `dec1d.py` rejects `φ ∈ (0.11104, 0.12491)`, and the rejected set is `(0.11245, 0.12491)`.
+     - *Just below `β = 2`, with `χ < 0`, false acceptances.* The tolerance `δ = 10^{−3}` of `dec1d.py` treats a band that
+       ends within `10^{−3}` of `X = ½` as ending at `S`. But the slices just left of `X = ½` open (at distance
+       `≈ a(½)²/|χ|`), and the axial segment joins `M` to the far region above `L_S`, so the pair is rejected.
+     - The flood fill errs the other way here: its level offset `ε` exceeds the relevant level gaps. So the comparisons
+       above did not expose the artifacts.
+     - The artifacts move `H` by at most `2.0·10^{−4}` (at `k = 0.4`). Items 4–5 give the corrected values. Control S8
+       stays clear of this region (§7).
 3. *The function `I`.*
    - A `101 × 121` table of `I(t, χ₀)` on `|t| ≤ 30`, `|χ₀| ≤ 2000` (`Itab2d_v2.py`), and an exact evaluator for other points
      (`Ifast.py`).
    - `I(t, 0)/|t|³ = 1.95, 1.51, 1.39` at `t = −10², −10³, −10⁴`, tending to `4/3`.
    - `I(0, χ₀)/χ₀² = 0.0228, 0.0212, 0.0209` at `χ₀ = 10³, 10⁴, 10⁵`, tending to `1/48`.
+   - *The closed form (v1.3).* #244 (open) derives `I` exactly, conditional on #170 Theorem E(1) and [CUB] Theorem C,
+     through #243 Proposition FL.7's identification. With `ψ = 1/φ` and `c′ = 1 − t`, off a null set the pair is elder iff
+     `ψ ≥ 2c′` and `(χ₀ + 8 − 12t)² ≤ 16(ψ − 2c′)²(ψ + c′)`. So `I = |c′|δ² + δ³/3`, where `δ = ψ_e − |c′|` and `ψ_e` is the
+     largest root of that cubic.
+     - The table above agrees with it to a median relative difference of `1.8·10^{−7}`. The 97 of its 12,221 entries that
+       differ by more than `10^{−3}` are explained: 7 tiny intervals the grid misses, 54 table resolution, and 36 the
+       artifacts of item 2.
+     - In particular `t* = 2/3` exactly (§2 has `t* ∈ (0.65, 0.68)`), and the two limits above have the exact next terms
+       `I(t, 0) = (4/3)|t|³ + 3√3|t|^{5/2} + O(t²)` and `I(0, χ₀) = χ₀²/48 + 16^{−2/3}|χ₀|^{4/3} + O(|χ₀|)`.
 4. *The function `H`.* `H = H₀ + Δ_χ`.
    - `H₀`, the value with `C₃` ignored, comes from a 639-point table of `I(t, 0)` on `|t| ≤ 400`, its asymptotic forms beyond
      (`|t|³(4/3 + 5.74|t|^{−1/2})` and `t − 2/3`), and adaptive quadrature in `t` and `γ²` down to `γ → 0` (`Hk0b.py`). Its
@@ -770,32 +812,54 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
    - `Δ_χ` is the difference of two direct quadratures over `(|γ|, B, C₃)`, with and without `C₃` (`Hdirect4.py`). These use
      32 Gauss–Legendre nodes in `|γ|` on `[0, 7.5]` and 24 Gauss–Hermite nodes in `B` and in `C₃`, with the table inside its
      range and the exact evaluator outside it.
-   - Accuracy checks: without the table, `Δ_χ(0.2)` changes by `2·10^{−5}`; with 48 nodes in `|γ|`, `H` changes by
-     `5·10^{−5}`. For small `k`, `Δ_χ ≈ 62k⁴`. The quadrature `H` agrees with a table-free direct quadrature at `k = 0.2` to
-     `1.3·10^{−4}`.
-   - Values:
+   - Accuracy checks (v1.2): without the table, `Δ_χ(0.2)` changes by `2·10^{−5}`; with 48 nodes in `|γ|`, `H` changes by
+     `5·10^{−5}`; and the quadrature `H` agrees with a table-free direct quadrature at `k = 0.2` to `1.3·10^{−4}`. All three
+     checks use `dec1d.py`, so none of them measures its bias (item 2). That bias reaches `2.0·10^{−4}` at `k = 0.4`.
+   - *Recomputed values (v1.3).* The rows below come from #244's closed form of `I`. `H` and `H₀` are evaluated by nested
+     Gauss–Legendre quadrature over `(|γ|, B, C₃)`, split at the kinks of the integrand. Raising the node counts from `60³`
+     to `100³` changes them by less than `10^{−10}`, and #244's referee reproduces the `H` row with an independent
+     quadrature.
+     - The v1.2 rows differed by at most `2.0·10^{−4}` (`H`) and `1.3·10^{−5}` (`H₀`).
+     - At four decimals the v1.2 rows had `H = 1.0039, 0.9345, 0.7271, 0.4397, 0.2007` at `k = 0.1, 0.3, 0.4, 0.5, 0.6`
+       and `H₀ = 0.4663` at `k = 0.4`.
+   - *Small `k`.* `Δ_χ/k⁴ → 53248/800 = 66.56` (#244 Theorem B, Step 3); v1.2 used the fitted value `62`. #244 Theorem B
+     also gives `H = 1 + (12/25)k² + h_{7/2}k^{7/2} + (728/25)k⁴ + o(k⁴)`, with
+     `h_{7/2} = 16Γ(9/4)(1728√6 − 4332√2 − 2721)/(2625π) ≈ −10.144`. So the upper remainder `O(k^{7/2})` from Codex's
+     Slice C review, cited in the proof of Proposition 4(2), is attained (OA-242-C-01). This packet itself still claims no
+     `k^{7/2}` coefficient.
+   - Values (v1.3):
 
      | `k` | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 1.0 |
      |---|---|---|---|---|---|---|---|---|---|
-     | `H₀` | 0.9976 | 0.9334 | 0.7403 | 0.4663 | 0.2268 | 0.0845 | 0.0241 | 0.0053 | 0.0001 |
-     | `H` | 1.0039 | 1.0041 | 0.9345 | 0.7271 | 0.4397 | 0.2007 | 0.0687 | 0.0177 | 0.0005 |
+     | `H₀` | 0.9976 | 0.9334 | 0.7403 | 0.4662 | 0.2268 | 0.0845 | 0.0241 | 0.0053 | 0.0001 |
+     | `H` | 1.0040 | 1.0041 | 0.9344 | 0.7269 | 0.4395 | 0.2006 | 0.0687 | 0.0177 | 0.0005 |
      | `e^{−12k²}` | 0.887 | 0.619 | 0.340 | 0.147 | 0.050 | 0.013 | 0.003 | 0.0005 | 0.000006 |
 
 5. *`R_{2/3}`.*
-   - `Ĩ = −0.536` (`assemble2.py`).
-   - The 200-point grid `H_dense3.json` is written by `dense2.py --write` and used below. It has the same values of `H` as
-     v1's `H_dense2.json`, and its `R23` field comes from the quadrature of its interpolant, `Ĩ = −0.5361`.
-   - The check mode of `dense2.py` (`dense2.log`) shows trapezoid and Simpson rules on the same grid giving `−0.535` to
-     `−0.536`.
-   - v1 quoted `−0.537` for "a dense trapezoid rule". That was the `R23` field stored in `H_dense2.json`, produced by an
-     unrecorded rule (finding A-1, found by the author while archiving v1).
-   - So `R_{2/3} = 0.0914028·Ĩ = −0.049` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.0617` in `d = 3`.
-   - Sensitivity: a uniform shift of `H` by `±0.002` on `k ≥ 0.1` moves `Ĩ` by `±0.018`. Halving the small-`k` term `62k⁴`
-     moves it by `−0.021`, and multiplying it by `1.5` by `+0.021`. So `Ĩ = −0.54 ± 0.03`, `R_{2/3} = −0.049 ± 0.003` in `d = 2`
-     and `R_{2/3} = −0.062 ± 0.004` in `d = 3`.
-   - With `C₃` ignored (`H = H₀`), `Ĩ = −1.133` and `R_{2/3} = −0.104`. With the pin density alone (`H = e^{−12k²}`),
-     `Ĩ = 12^{5/6}Γ(−5/6)/6 = −8.829` and `R_{2/3} = −0.807`. So the soft model's extra jets matter: `B` nearly cancels the pin
-     density at small `k`, and `C₃` raises `H` at `k ≈ 0.2–0.7`.
+   - *v1.3.* With `H` from #244's closed form, `Ĩ = −0.53367`. The quadrature is Gauss–Legendre in `q = k^{1/3}` on
+     `[0.1, 1.2]`, with #244 Theorem B's expansion below `q = 0.1` and `H = 0` above `q = 1.2`, where `H < 2·10^{−13}`. With
+     16 and 24 nodes per segment the results agree to `2.5·10^{−8}`.
+     - So `R_{2/3} = 0.0914028·Ĩ = −0.04878` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.06137` in `d = 3`. Both lie inside
+       the sensitivity ranges below, which stand.
+     - *Why v1.2 differed.* Its `Ĩ` (`−0.5361` on the dense grid, `−0.5364` by `assemble2.py`) was off by about
+       `−0.0025`. By the decomposition in #244 §5, about `−0.0019` comes from v1.2's interpolation of `Δ_χ` between the
+       nodes `k = 0.1, 0.15, 0.2`, and about `−0.0008` from its small-`k` model `62k⁴`. Only about `+0.0002` comes from the
+       artifacts of item 2 (`k = 0.25–0.7`).
+   - *The v1.2 computation, kept as a record.*
+     - `Ĩ = −0.536` (`assemble2.py`).
+     - The 200-point grid `H_dense3.json` is written by `dense2.py --write`. It has the same values of `H` as v1's
+       `H_dense2.json`, and its `R23` field comes from the quadrature of its interpolant, `Ĩ = −0.5361`.
+     - The check mode of `dense2.py` (`dense2.log`) shows trapezoid and Simpson rules on the same grid giving `−0.535` to
+       `−0.536`.
+     - v1 quoted `−0.537` for "a dense trapezoid rule". That was the `R23` field stored in `H_dense2.json`, produced by an
+       unrecorded rule (finding A-1, found by the author while archiving v1).
+     - So v1.2 had `R_{2/3} = 0.0914028·Ĩ = −0.049` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.0617` in `d = 3`.
+   - *Sensitivity (v1.2; the ranges stand).* A uniform shift of `H` by `±0.002` on `k ≥ 0.1` moves `Ĩ` by `±0.018`. Halving
+     v1.2's small-`k` term `62k⁴` moves it by `−0.021`, and multiplying it by `1.5` by `+0.021`. So `Ĩ = −0.54 ± 0.03`,
+     `R_{2/3} = −0.049 ± 0.003` in `d = 2` and `R_{2/3} = −0.062 ± 0.004` in `d = 3`.
+   - *Comparisons.* With `C₃` ignored (`H = H₀`), `Ĩ = −1.134` and `R_{2/3} = −0.104` (v1.3; v1.2 had `Ĩ = −1.133`). With
+     the pin density alone (`H = e^{−12k²}`), `Ĩ = 12^{5/6}Γ(−5/6)/6 = −8.829` and `R_{2/3} = −0.807`. So the soft model's
+     extra jets matter: `B` nearly cancels the pin density at small `k`, and `C₃` raises `H` at `k ≈ 0.2–0.7`.
 6. *#216's Monte Carlo.* The raw records were compared with the composite: `composite.py` and `comp2d.py` in `d = 2`, and
    `compd.py` in `d = 3`. The records are `batchA2.npz` (`d = 2`: 4,000 samples, 271,272 rejected adjacent pairs with
    `ℓ < 0.3`) and `batch3B.npz` (`d = 3`: 996 samples, 45,952 such pairs).
@@ -851,6 +915,9 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
   law `r^{−3}(1 − p_r) → α₁ + α₂` and the compact-window `ℓ^{2/3}` coefficient (AUTH-242-01). #170 Theorem E decides the
   window cubic. That is the same decision as Lemma 2, computed by another method: critical chords and [CUB]'s classifier.
 - **#243 (open).** Theorem FL and Proposition FL.7 claim a proof of Conjecture 6.
+- **#244 (open).** Conditional on #170 Theorem E(1) and [CUB] Theorem C, and through #243 Proposition FL.7's
+  identification, it gives `𝓡(t, χ₀)` and `I(t, χ₀)` of (2.5) in closed form, `t* = 2/3`, and
+  `H = 1 + (12/25)k² + h_{7/2}k^{7/2} + (728/25)k⁴ + o(k⁴)`. It changes no statement here. §5's v1.3 numbers use it.
 - **Not claimed.**
   - Conjectures 6 and 7 are not proved here. For Conjecture 6, see its status in §4. The values of `H` and `R_{2/3}` are
     numerical and not certified.
@@ -878,7 +945,7 @@ of the failing controls to stderr.
 | S5 | (3.4), and the antiderivative of the weight |
 | S6 | `E[γ⁶] = 120`, `E[γ⁶t²] = 576k²`, `312/25`, `12/25`, and the moment identities of Proposition 4's proof |
 | S7 | every numerical inequality of Lemma 3's proof, including the critical-value formulas as identities |
-| S8 | Lemma 2 on 16 fixed parameter points with known answers, including case (D′), in floating point; the scan is not reliable within about `4·10^{−3}` of `β = 2` (none of the 16 points is there) |
+| S8 | Lemma 2 on 16 fixed parameter points with known answers, including case (D′), in floating point; the scan is not reliable within about `4·10^{−3}` of `β = 2` (none of the 16 points is there; §5(2) describes the two artifacts there, and #244's control C9 confirms the 16 decisions from the closed form) |
 | S9 | the error exponents of Lemma 5 |
 | S10 | the limit (2.1), including `G₁`, on three exactly pinned degree-6 fields with `A = −λ̃r/k`, at `r = 10^{−3}` and `10^{−4}` |
 | S11 | Theorem 1 for `m = 2, 3` in rational eigenframes (Cayley rotations): `z = f₄ − 3γᵀA^{−1}γ = 3γ₁²/λ₁ + f̃₄`, `Y = (Δ/12)z`, `w_κ = 36κ²Δ²(1 − φ²)`, the substitution (1.1) with the factor `Π′`, `69984/72⁴ = 1/384`, and the double-soft implication of Step 1 |
@@ -905,7 +972,8 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
 | #240 | `frontiers/elder_cusp_parity_20261002/PROOF.md` (merged at `7636cae`; blob `16a1db06`, unchanged) | Lemma Q′, Step N6, Corollary N′, Remarks 1 and 4 — cited |
 | #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (merged; blob `ef2aa579`) | §3 (the critical chord), Theorem E, Theorem S, §9 — cited (prior work, AUTH-242-01) |
 | #175 | `frontiers/concave_fibre_elder_20260930/PROOF.md` (merged; blob `923d3236`) | Theorems H and F, §7 — cited (prior work, AUTH-242-01) |
-| #243 | `frontiers/soft_fold_limit_20261002/PROOF.md` (open PR, head `0740b2c`; blob `caedaef6`) | Theorem FL, Proposition FL.7, Lemma FL.2(c) — cited (Conjecture 6) |
+| #243 | `frontiers/soft_fold_limit_20261002/PROOF.md` (open PR, head `11a4cd4`; blob `3d9faa87`) | Theorem FL, Proposition FL.7, Lemma FL.2(c) — cited (Conjecture 6) |
+| #244 | `frontiers/soft_closed_form_20261002/PROOF.md` (open PR, head `1781c0f`; blob `310ef828`) | Theorems A and B, Corollary A.1, §5 — cited (§5's v1.3 numbers) |
 | #237 | `frontiers/candidate_parity_rate_20261001/PROOF.md` (open PR) | Theorem P's remainder, Remark 4 — cited |
 | #216 | `frontiers/third_order_coefficient_20261001/NOTE.md` (open PR) | the full-field Monte Carlo in `d = 2, 3` (§5) — cited |
 | #188 | far elder density `O(ℓ^N)` (open PR) | §4 (iii) — cited |
@@ -922,6 +990,20 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
   #187, #229 and #240.
 - **E** (§§5–7): the evidence is described accurately and kept separate from the proofs, and the controls match their
   claims.
+
+**Changed bytes in v1.3** (for a delta check against the v1.2 reviews; AUTH-242-02):
+- *Header:* the object label and version history, the closing numerical item of "What is new" (`≈ −0.061` in `d = 3`),
+  and the Dependencies (#243's reviewed head, #244).
+- *§4:* Conjecture 6's status (#243's reviews), the numerical sentence after Conjecture 7 (`≈ −0.061`), and the
+  `v ≥ 2` contribution in Remark 2 (`+0.227`).
+- *§5:* the v1.3 custody item; item 2's account of the two `dec1d.py` artifacts; item 3's closed-form paragraph; item 4's
+  accuracy sentence, recomputation paragraph, small-`k` paragraph and both value rows; item 5's v1.3 paragraph, and the
+  regrouping of its v1.2 record, sensitivity and comparisons (`Ĩ = −1.134` with `C₃` ignored).
+- *§§6–8:* the #244 item, the S8 row, and the #243 and #244 source rows.
+- *§9:* this list.
+
+§§0–3 (byte-identical), Lemma 5, Conjectures 6 and 7 themselves, §5(1) and §5(6), `soft_check.py` and `RESULTS.json`
+are unchanged.
 
 **Changed bytes in v1.2** (for a delta check against the v1.1 reviews):
 - *Header:* the version history, the Disposition, "Why" (#240 merged), "What is new" (the window, A-01; the soft model and

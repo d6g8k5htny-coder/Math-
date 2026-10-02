@@ -2,7 +2,18 @@
 
 **Author-side proof candidate and conjectures (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-SOFT-REJECTED-20261002-v1.2`. Full text: [`PROOF.md`](PROOF.md). Version history:
+Object `CL-SOFT-REJECTED-20261002-v1.3`. Full text: [`PROOF.md`](PROOF.md). Version history:
+- v1.3 is an author correction of PROOF §5's numbers (AUTH-242-02), first disclosed in PR comments 5953336662 and
+  5955380848. xAI asked (5955184422) that it be in the landed note; it is in PROOF §5 and below.
+  - The one-dimensional scanner `dec1d.py` behind §5's `I` table and `H` has two artifacts, in thin layers on either side
+    of `β = 2`. Just above, it misses a fold and falsely rejects; just below, with `χ < 0`, its tolerance `10^{−3}` falsely
+    accepts. These are errors of the implementation, not of Lemma 2. They move `H` by at most `2.0·10^{−4}`.
+  - The corrected values come from the closed form of `I` in Math- #244 (open; conditional on #170 Theorem E(1) and [CUB]
+    Theorem C): `H` and `H₀` rows, `Δ_χ/k⁴ → 66.56` (v1.2 fitted `62`), `Ĩ = −0.5337`, and `R_{2/3} = −0.0488`
+    (`d = 2`) and `−0.0614` (`d = 3`). These are inside v1.2's sensitivity ranges, which stand. Most of the change in
+    `Ĩ` comes from v1.2's small-`k` interpolation and model, not from the scanner.
+  - No statement, proof or control changes: PROOF §§0–3 (byte-identical), `soft_check.py` and `RESULTS.json` are
+    unchanged. PROOF §9 lists the changed bytes.
 - v1.2 applies the findings of the nonauthor reviews of v1.1 (OpenAI Codex, Slices A, B (model), C, D, and B (formulas) with
   E): OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01 and E-02.
   - It adds Codex's exact (D′) witness with control S14, and states that for `β > 2`, `χ < 0` the pair is always rejected.
@@ -29,10 +40,10 @@ the cusp end `κ = ℓ/r⁴ → ∞` open. This note describes that end for the 
 | **Lemma 2** | The elder decision in the fold-scale soft model `G_k` (new jets `B = ∂_uA`, `C₃ = ∂_Θ³f` along the soft direction), by a one-dimensional scan, proved at the exact level. It includes a case (D′, `β > 2`, `χ > 0`) where the saddle is a slice minimum, with an exact witness. For `β > 2`, `χ ≤ 0` the pair is always rejected. `G_k` is #170's typed cubic in other coordinates. | proof (model) |
 | **Proposition 2′** | `d ≥ 3`: the stiff directions live at scale `r^{3/2}` and decouple; the limit `G_k − (1/2k)Σλ_iη_i²` has the elder decision of `G_k` | proof (model) |
 | **Lemma 3** | Elder whenever `φ ≤ (1/20)min(1, \|t\|^{−1}, \|χ₀\|^{−2/3})`; so `I(t, χ₀) ≤ (8000/3)max(1, \|t\|³, χ₀²)` | proof (model) |
-| **Proposition 4** | Gaussian kernel, every `d`: the fold-scale rejection rate is `F₀(b)H(k)`, with `H` independent of `b` and `d`, and `H(k) = 1 + (12/25)k² + O(k³)`. Codex's Slice C review proves the upper remainder `O(k^{7/2})`. The elder edge `φ_e = 1/3 + t/3 + 10t²/27` contributes `+312/25`, and the pin density `e^{−12k²}` contributes `−12`. | proof (given the model) |
+| **Proposition 4** | Gaussian kernel, every `d`: the fold-scale rejection rate is `F₀(b)H(k)`, with `H` independent of `b` and `d`, and `H(k) = 1 + (12/25)k² + O(k³)`. Codex's Slice C review proves the upper remainder `O(k^{7/2})`. The elder edge `φ_e = 1/3 + t/3 + 10t²/27` contributes `+312/25`, and the pin density `e^{−12k²}` contributes `−12`. #244 (open, conditional) gives the exact `k^{7/2}` and `k⁴` terms. | proof (given the model) |
 | **Lemma 5** | The composite `∫∫∫𝒜^{rej}(b, ℓ/r⁴, u)H(ℓ/r³)` equals `(I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`, where `R_{2/3} = ∫∫∫v⁴[F(v^{−3}) − F₀]` | proof |
 | **Conjecture 6** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0` at fixed `k`. The limit exists by #170/#175 (merged); its identification with `F` is #243 (open). | proved author-side in #243 |
-| **Conjecture 7** | `ρ_rej + ν_eld^{far,r_0^*} = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`; Gaussian kernel: `R_{2/3} ≈ −0.049 ± 0.003` (`d = 2`), `−0.062 ± 0.004` (`d = 3`); these `±` are quadrature and interpolation sensitivity ranges (PROOF §5(5)), not sampling errors | conjecture, with evidence |
+| **Conjecture 7** | `ρ_rej + ν_eld^{far,r_0^*} = B_{d,L} + (I^{cand} − c₁)ℓ^{1/4} + R_{2/3}ℓ^{2/3} + O(ℓ^{3/4})`; Gaussian kernel: `R_{2/3} ≈ −0.049 ± 0.003` (`d = 2`), `−0.062 ± 0.004` (`d = 3`); these `±` are quadrature and interpolation sensitivity ranges (PROOF §5(5)), not sampling errors. The v1.3 point values are `−0.0488` and `−0.0614`. | conjecture, with evidence |
 
 Conjecture 7 needs two inputs that are not yet available (PROOF §4):
 - (i) the soft layer `λ₁ ≍ r`, together with Proposition 2′ for the field in `d ≥ 3`;
@@ -47,8 +58,8 @@ A third input, (iii) the far elder density, is needed only to remove `ν_eld^{fa
 |---|---|
 | Theorem 1, `d = 2` | `κ𝒜^{rej}(0, κ)/F₀(0) = 0.751, 0.977, 0.9985, 0.9999` at `κ = 1, 4, 16, 64`; the `1/κ` coefficient `c(b) = 0.3b` is confirmed at `b = ±1` |
 | Theorem 1, `d = 3` | `κ∫∫𝒜^{rej}/∫∫F₀ = 0.670, 0.9899, 0.99936, 0.99994` at `κ = 1, 10, 100, 1000`; `∫∫F₀` agrees with Corollary 1′ to `10^{−5}`; per `b` the ratio tends to `1` at rate `1/κ`; `∫G(s^{−4})ds = 0.072444` reproduces #207's `I^{cand} − c₁ = 0.0724443` |
-| Lemma 2 | agrees with a two-dimensional flood fill on 900 random typed parameter points (one near-degenerate point needs a smaller level offset) |
-| `H` | `H(0.2) = 1.004`, `H(0.4) = 0.727`, `H(0.6) = 0.201`, `H(0.8) = 0.018`. With `C₃` ignored, `R_{2/3}` (`d = 2`) would be `−0.104`; with the pin density alone, `−0.807`. |
+| Lemma 2 | agrees with a two-dimensional flood fill on 900 random typed parameter points (one near-degenerate point needs a smaller level offset). **Disclosure (v1.3):** the scanner `dec1d.py` that implements Lemma 2 for the numbers errs in thin layers on either side of `β = 2`: just above, it misses a fold and falsely rejects; just below, with `χ < 0`, its tolerance `10^{−3}` falsely accepts. The flood fill's level offset was too large to expose this. The closed form of #244 found it. It moves `H` by at most `2.0·10^{−4}`; the values below are corrected (PROOF §5(2), (4)). |
+| `H` | `H(0.2) = 1.004`, `H(0.4) = 0.727`, `H(0.6) = 0.201`, `H(0.8) = 0.018`; v1.3 recomputes them from #244's closed form (v1.2's fourth decimals at `k = 0.1, 0.3–0.6` differed by up to `2·10^{−4}`). For small `k`, `H − H₀ ≈ 66.56k⁴` (v1.2 fitted `62k⁴`). `Ĩ = −0.5337`, so `R_{2/3} = −0.0488` (`d = 2`) and `−0.0614` (`d = 3`); v1.2 had `Ĩ = −0.536`. With `C₃` ignored, `R_{2/3}` (`d = 2`) would be `−0.104`; with the pin density alone, `−0.807`. |
 | #216's Monte Carlo, `d = 2` | rejected adjacent pairs with `s = r/ℓ^{1/4} < 0.8`: 37 observed, 35.3 from the composite, 4,322 from the cusp kernel alone |
 | #216's Monte Carlo, `d = 3` | `s < 0.8`: 11 observed, 10.7 composite (1.2 with the pin density alone), 1,329 cusp kernel alone. On `[3·10^{−4}, 10^{−2}]` the counts are `0.884 ± 0.040` of the `ℓ^{1/4}` law and `1.008` of the composite (Pearson χ² 11.8 against 2.1 on 8 bins). Over #216's whole range `[10^{−4}, 0.3]` the composite does not describe the counts (finite-`r` corrections). |
 
@@ -111,6 +122,8 @@ Mutants `M1`–`M14` each fail only their own control (the checker names it on s
 - **Nonauthor reviews of v1.2 (OpenAI Codex), at `1f86fea`, PROOF blob `ad4beb84`:**
   - Bounded readback of B-01, D-01, the exact (D′) witness and the strengthened `β > 2`, `χ ≤ 0` rejection (5952577050): PASS_TECHNICAL_SCOPED, no new finding. It adds a direct finite-path proof of that rejection.
   - Complementary delta review (5391986303): PASS_TECHNICAL_SCOPED for the changed proof corrections and the conditional source alignment. Two minor README findings, V12-01 and V12-02, are applied in the v1.2 README amendment. Its §3 is root-authored support (D.1): a direct model-integral proof of `F = kA∗a_fail` in every fixed dimension, not reviewed here.
+  - D.1 was then reviewed by a different Codex agent, on #243 (5954510413): PASS_TECHNICAL_SCOPED, no finding, against this PROOF at blob `ad4beb84` (§§2–3, unchanged in v1.3).
+- **xAI / Grok on the v1.2 README amendment (`b82b0ca`).** Head receipt 5393329837 and comment 5955184422: NOT READY. The branch was behind `main`; Conjecture 7 is open; `R_{2/3}` is a sensitivity range, not a certified enclosure; and the scanner disclosure must be in the landed note. v1.3 is rebased on `main` and puts the disclosure in PROOF §5 and in this README. It does not change Conjecture 7's status or the ranges.
 - **v1.2 delta (same family).** A clean-context referee checked the changed bytes.
   - Verdict: **ACCEPT WITH FIXES**, with no BLOCKING or MAJOR finding: 9 MINOR findings and 8 NITs, all applied.
   - Its own checks: the witness by sympy, the Jacobians `−96`, `−3/2` and `−6`, and the `48/47` ratio.
@@ -122,6 +135,8 @@ Mutants `M1`–`M14` each fail only their own control (the checker names it on s
 
 - Conjectures 6 and 7 are not proved here, and `R_{2/3}` is not certified. Conjecture 6 is proved author-side in #243, and
   its existence part is merged (#170/#175).
+- The v1.3 values rest on #244's closed form, which is conditional on #170 Theorem E(1) and [CUB] Theorem C, and on
+  floating-point quadrature. They are exploration.
 - Proposition 2′ is a statement about the limit model. Its transfer to the field is #175 Theorem H (for #170's cubic), and
   #243 Proposition FL.4.
 - No priority for the existence of the fold-scale limit or for the compact-window `ℓ^{2/3}` coefficient (#170, #175).
