@@ -1,12 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
- "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.",
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.2",
+ "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.; v1.2: status update (#191, #207 merged; #218/#229 cited; #229 Proposition W+ proves the section 2 heuristic up to log); no statement, proof, number or control changes",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a"
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "main_merged_in_v1_2": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
  },
  "consumed": [
   {
@@ -50,18 +51,38 @@
    "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
    "tag": "side24_v1",
    "use": "the value c_{3,24} = 0.0417759318... quoted in sections 0 and 3"
-  }
- ],
- "cited_unmerged": [
-  {
-   "tag": "191",
-   "reference": "Math- #191 (unmerged), (R+.1)-(R+.2)",
-   "use": "interpretation of B_{d,L} as the constant term of nu_cand; the elder density has none"
   },
   {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "interpretation: (R+.1)-(R+.2), B_{d,L} is the constant term of nu_cand; the elder density has none (merged since v1.1)"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
    "tag": "207",
-   "reference": "Math- #207 (unmerged), (CU-prime.2)",
-   "use": "the ell^(1/4) term of rho_rej, quoted in section 3"
+   "use": "(CU-prime.2), the ell^(1/4) term of rho_rej, quoted in section 3 (merged since v1.1)"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Theorem T: nu_cand with B_{d,L} and the next terms (v1.2, section 0)"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Theorem T+; Proposition W+ ((W+.2) at k = 0, (W+.3)): the section 2 heuristic up to log(2/r) (v1.2)"
   }
  ],
  "cited_external": [
@@ -106,13 +127,13 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 16177,
-   "sha256": "9080a5dc567710e0668890cd209484db9026b19ff4707341487f289e2f7c7410"
+   "bytes": 18425,
+   "sha256": "6c671a132962fc7a1c7e5bd0bc5bce3730afeffadaa06bf3a238e0eec3f19def"
   },
   {
    "path": "README.md",
-   "bytes": 2758,
-   "sha256": "46b27389da17f50df530fdbc779df5161eb1bc88a4a564a0dbd49d81fbe2605f"
+   "bytes": 3230,
+   "sha256": "3d42f1f4ece3f241af0e76016620f4506503634d93d2b84ef04f0991accb66d9"
   },
   {
    "path": "equal_height_mass.py",
@@ -133,6 +154,48 @@
    "path": "GAMMA.json",
    "bytes": 824,
    "sha256": "60f512e83517b4aa37da4d4fbeeb45857ea1fed45dfd9346f60236a72fa6805a"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
+  "head": "8e89fe886368ae048e125c26f3ac51aa9bec83f6",
+  "note_blob": "ed0d3fa8e4c28d181fa7d21efcde74933cc6f03c"
+ },
+ "nonauthor_reviews": [
+  {
+   "slice": "A (Proposition V)",
+   "reviewer": "OpenAI Codex /root with /root/volume_far_review (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379568217",
+   "pickup": "5931994043",
+   "at": "8e89fe8 (NOTE blob ed0d3fa8)",
+   "verdict": "scoped analytic ACCEPT; no blocking finding; Slice B numerics not reviewed",
+   "findings": []
+  },
+  {
+   "slice": "arithmetic note",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379852902",
+   "at": "8e89fe8",
+   "verdict": "NOT READY (arithmetic closes; not a proof acceptance; behind main)",
+   "findings": []
+  }
+ ],
+ "status_updates": [
+  {
+   "version": "v1.2",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/equal-height-mass.yml"
+   ],
+   "unchanged": [
+    "equal_height_mass.py",
+    "RESULTS.json",
+    "gamma_explore.py",
+    "GAMMA.json"
+   ],
+   "proposition_v_and_proof": "unchanged"
   }
  ]
 }

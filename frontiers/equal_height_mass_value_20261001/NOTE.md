@@ -1,13 +1,21 @@
 # The equal-height mass `B_{d,L}`: a volume law and its value for the SIDE24 field
 
-Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.1 (v1 → v1.1 after Codex P1 4151471466: the near part now has the same
+Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.2.
+- v1.2 (2 October 2026) is a status update. It changes no statement, proof, number or control.
+  - Math- #191 and #207 are now merged.
+  - The merged #218 and #229 give the candidate density with this `B_{d,L}` as its constant term, with rates.
+  - The merged #229, Proposition W⁺, proves the near-diagonal heuristic of §2 up to a factor `log(2/r)`, for the torus
+    kernel.
+  - Codex's Slice A review (5379568217) accepted Proposition V at v1.1, NOTE blob `ed0d3fa8`. v1.2 does not touch
+    Proposition V or its proof.
+- v1.1 (v1 → v1.1 after Codex P1 4151471466: the near part now has the same
 quantified rate as the far part — Step 5 rewritten through a uniformly nondegenerate rescaled jet vector — and the SIDE24
 value is stated with its exact status; Codex P2 4151471472: the Monte Carlo sample count is validated).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 Disposition: AUTHOR-SIDE CANDIDATE (Proposition V) and EXPLORATION (the numbers); NONAUTHOR REVIEW REQUIRED.
 Scientific effect: NONE — no register, graph, STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every
-lane; zero organizational independence. Consumes merged sources only ([Z], [C7-K], [R], [P]); the unmerged Math- #191
-and #207 are cited for interpretation, not used. v1 incorporated a clean-context referee pass (one gap — the uniformity
+lane; zero organizational independence. Consumes merged sources only ([Z], [C7-K], [R], [P]); Math- #191 and #207 (merged
+since; v1.2) are cited for interpretation, not used. v1 incorporated a clean-context referee pass (one gap — the uniformity
 in `L` of the near-diagonal majorant — closed in v1 by a majorant, Lemma N, and in v1.1 by the quantitative Step 5;
 minor points applied; `β_2`, `β_3` and `γ_3` independently recomputed).
 
@@ -20,8 +28,9 @@ minor points applied; `β_2`, `β_3` and `γ_3` independently recomputed).
     B_{d,L} = ∫_{X_L∖{0}} ∫_R Ψ_0^{(L)}(b, y) db dy,     Ψ_0(b, y) = p_y(v_{b,0}) E_{Q_{y,b,0}}[W],                     ((Z2)–(Z3))
 
 `W = |det H_0 det H_y|1{H_0 < 0, index H_y = d − 1}`. By Theorem Z (Z4), `B_{d,L}` is the limit of the rejected density,
-`ρ_rej(ℓ) → B_{d,L}`; by Math- #191 (R+.1), unmerged, it is the constant term of the candidate density,
-`ν_cand(ℓ) = cℓ^{−1/3} + B_{d,L} + o(1)`. [Z] states that it gives "No numerical value for B_(d,L)".
+`ρ_rej(ℓ) → B_{d,L}`; by Math- #191 (R+.1) (merged), it is the constant term of the candidate density,
+`ν_cand(ℓ) = cℓ^{−1/3} + B_{d,L} + o(1)`. (v1.2: the merged #218 (Theorem T) and #229 (Theorem T⁺) give
+`ν_cand = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{3/7})`, at their stated scope.) [Z] states that it gives "No numerical value for B_(d,L)".
 
 Let `f_∞` be the stationary Gaussian field on `R^d` with covariance `e^{−|z|²/2}`, `ρ_j(b)` its height density of critical
 points of index `j` (per unit volume and unit height) and `Ψ_0^∞(b, y)` its equal-height kernel ((Z2) on `R^d`).
@@ -160,6 +169,11 @@ Gauss–Hermite quadrature in `b`.
 at short range, so `γ_3 < 0`. (The referee observed, heuristically, that at equal heights the two endpoint axial
 curvatures agree to leading order. That suggests `r^{d−1}Ψ_0 = O(r³)` and `I(s) ∝ s^{4−d}` near `0`, consistent with the
 linear rise in `d = 3`; the `O(1)` bound of Step 5 is far from sharp here.)
+*v1.2.* The merged #229 (Proposition W⁺, (W⁺.2) at `k = 0` and (W⁺.3)) proves the upper half of this heuristic for the
+torus kernel, up to a factor `log(2/r)`. Precisely, `r^{d−1}Ψ_0(b, ru) ≤ Cr³log(2/r)(1 + |b|)^Ne^{−cb²}` for
+`0 < r ≤ r_0^*`, so the equal-height mass below separation `ρ` is `O(ρ⁴log(2/ρ))`. The mechanism is the typed window
+`|Y| ≲ r`, of conditional probability `O(r log(2/r))`. No matching lower bound or exact power is proved. #229 notes
+that the `d = 2` exploration suggests the logarithm may be an artifact.
 
 ## 3. Consequences (with the values of §2; exploration-level numbers)
 
@@ -167,11 +181,11 @@ linear rise in `d = 3`; the `O(1)` bound of Step 5 is far from sharp here.)
   - the expected rejected count with gap in `(0, t]` is `B_{3,24}t + o(t) ≈ 10.2t` ((Z7));
   - `ρ_rej(ℓ)/ν_cand(ℓ) ~ (B/c)ℓ^{1/3} ≈ 244ℓ^{1/3}` ((Z8));
   - the cumulative ratio is `≈ 163t^{1/3}` ((Z9)).
-- **Size of the candidate density.** In `ν_cand(ℓ) = cℓ^{−1/3} + B + o(1)` (#191, unmerged), the constant exceeds the singular term once
+- **Size of the candidate density.** In `ν_cand(ℓ) = cℓ^{−1/3} + B + o(1)` (#191, merged; with rates, #218 and #229), the constant exceeds the singular term once
   `ℓ > (c/B)³ ≈ 6.8·10⁻⁸`. Unmarked max/index-2-saddle pairs with small height gap on the side-24 torus are therefore
   overwhelmingly unrelated, far-apart pairs. By Theorem Z the elder rule removes all of them in the limit; the elder
   density has no constant term (#191 (R+.2)).
-- **With #207 (CU′.2)** (unmerged), `ρ_rej(ℓ) ≈ 10.21 + 0.072ℓ^{1/4}` for small `ℓ`.
+- **With #207 (CU′.2)** (merged), `ρ_rej(ℓ) ≈ 10.21 + 0.072ℓ^{1/4}` for small `ℓ`.
 
 ## 4. Sources
 
@@ -182,7 +196,8 @@ linear rise in `d = 3`; the `O(1)` bound of Step 5 is far from sharp here.)
 | [C7-K] | `frontiers/c7_total_bounded_20260929/PROOF.md` (blob `28748b08`) | §2, the pointwise bound behind (K1) — cited (v1's Lemma N, superseded by Step 5) |
 | [P] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d`) | §2 distinct-site jet rank, §3 near-pair nondegeneracy, (5.1)–(5.3), the field — consumed |
 | side24_v1 | `coefficients/side24_v1/PROOF.md` (blob `44b66f04`) | the value `c_{3,24} = 0.0417759318…` in §§0, 3 — cited only |
-| #191, #207 | unmerged | interpretation of `B_{d,L}` as `ν_cand`'s constant term; `ρ_rej`'s `ℓ^{1/4}` term — cited only |
+| #191, #207 | `frontiers/remainder_vanishing_20260930/PROOF.md` (`441152df`), `frontiers/cusp_second_order_20261001/PROOF.md` (`f6df5a73`); merged since v1.1 | interpretation of `B_{d,L}` as `ν_cand`'s constant term; `ρ_rej`'s `ℓ^{1/4}` term — cited only |
+| #218, #229 | `frontiers/candidate_third_order_20261001/PROOF.md` (`70ca57ef`), `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`); merged | Theorems T and T⁺ (`B_{d,L}` with rates); Proposition W⁺ (§2's heuristic) — cited only (v1.2) |
 | [BBKS] | J. M. Bardeen, J. R. Bond, N. Kaiser, A. S. Szalay, *The statistics of peaks of Gaussian random fields*, Astrophys. J. 304 (1986) 15–61 | closed-form densities of maxima and saddles in `d = 3` (control Q3) — external |
 | [Mehta] | M. L. Mehta, *Random Matrices*, 3rd ed., Elsevier (2004), the Selberg/Mehta integral | GOE normalization (control Q2) — external |
 
@@ -213,3 +228,14 @@ B: The numbers. This covers:
 - the reduction to scaled-GOE eigenvalue integrals and the quadrature;
 - the agreement with the BBKS densities;
 - `β_3`, the Monte Carlo design for `γ_3`, and `B_{3,24} ≈ 10.21`.
+
+**Changed bytes in v1.2** (status update, against v1.1 at `8e89fe8`, NOTE blob `ed0d3fa8`):
+- *Header:* the object label and version list, and the sentence on #191 and #207.
+- *§0:* "(merged)" for #191, and the parenthetical on #218 and #229.
+- *§2:* the v1.2 paragraph after the `γ_3` heuristic.
+- *§3:* "merged" for #191 and #207.
+- *§4:* the #191/#207 row and the new #218/#229 row.
+- *§6:* this list.
+
+Proposition V, its proof (Steps 1–5), §1, every number, `equal_height_mass.py`, `RESULTS.json`, `gamma_explore.py` and
+`GAMMA.json` are unchanged.
