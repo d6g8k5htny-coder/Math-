@@ -7,7 +7,7 @@
  "source_repository": "d6g8k5htny-coder/Math-",
  "main_at_creation": "c2f1270d28192b3c06dd31f728ebf04d03d4246e",
  "delivered_under": "explicit owner instructions of Dylan Roy in Claude Code session session_015wNj8LPTKXsaT68G3DgPPh, given after OWNER_STOP (2026-09-27): 2026-09-28 \"you have my full permisions and approval to make the proper changes and uploads\"; 2026-09-30 \"Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know. Ultra tokens, ultra depth @GitHub @Superpowers\" (repeated 2026-09-30 as \"Continue to Work on closing ...\"). Pull requests only, never merged by their author; no register, GRAPH, STATUS, lemma_closed, prize or premise edits. OWNER_STOP.md addresses Cursor agents and automations and is untouched.",
- "note": "current_required sources ([LP] and the mandatory parent amendments [E1], [E2], [REC]) are verified on the tree by the workflow; packet_copy sources ([B], [E], [E3]) are verified against the packet copies byte for byte; [B-NOTE] and [B-RESULTS] are read-only provenance pinned by identity",
+ "note": "current_required sources ([LP], [CAP] and the mandatory parent amendments [E1], [E2], [REC]) are verified on the tree by the workflow; packet_copy sources ([B], [E], [E3]) are verified against the packet copies byte for byte; [B-NOTE] and [B-RESULTS] are read-only provenance pinned by identity",
  "sources": [
   {
    "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -19,6 +19,17 @@
    "current_required": true,
    "on_main": true,
    "role": "sections 1, 3, 8-12: the model, the preconditioned pins, the radial ledger A_r = 12 pi_r Z_r / r^2 (10.2) and its limit A_0 (10.3), the lifetime pushforward (11.1)-(11.3); section 11 records that A_r -> A_0 was not assigned a numerical rate. Consumed as statements, as in Math-#215"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "id": "CAP",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "section 1: the marked-cylinder good event G_r and the cap criterion; part of the corrected parent P + CAP + E1 + E2 + REC that every scope of Corollary L'1 retains (review C63), and through [B] and [E], [E3] the cap route behind the elder line's C_{B,K}"
   },
   {
    "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",

@@ -261,7 +261,7 @@ This gives Theorem L′ on each of the 96 boxes `[i/8, (i+1)/8] x [1/2 + j/8, 1/
   - `coupling-half`: halve Lemma V5's constant.
 - The workflow `.github/workflows/c8-torus-vanishing-remainder.yml` checks:
   - the manifest;
-  - the main-resident pins [LP], [E1], [E2], [REC];
+  - the main-resident pins [LP], [CAP], [E1], [E2], [REC];
   - the packet copies [B], [E], [E3], byte for byte;
   - both modes;
   - the mutants;
@@ -292,7 +292,8 @@ deviations from `A_0^ref`.
 
 - **Sources** (`SOURCE_MAP.json`):
   - [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (on `main`, verified by the workflow), read
-    with its mandatory amendments, also on `main` and verified:
+    with [CAP] `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` and its mandatory amendments, all on
+    `main` and verified:
     - [E1] `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`;
     - [E2] `reviews/d1_section9_borel_repair_20260925/REPAIR.md`;
     - [REC] `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`;
@@ -315,7 +316,8 @@ deviations from `A_0^ref`.
     - "six pins" becomes "six in `d = 2`, eight in `d = 3`" (C57).
     - §0 gains the four result scopes.
     - §5 records C60's direct contact comparison and C61's `C_{B,K}` disposition.
-    - §§7–8 add the corrected parent set [E1], [E2], [REC] (C61) and the current review status.
+    - §§7–8 add the corrected parent set [E1], [E2], [REC] (C61) and the current review status, and §8 pins [CAP] as well,
+      so that this consumer verifies the whole parent set it cites (C63, 5943439412).
   - **`theorem_v.py`.**
     - The `TV` docstring states its preconditions (C56).
     - `combine_v` states the positivity case split of the lower bound (C58).
