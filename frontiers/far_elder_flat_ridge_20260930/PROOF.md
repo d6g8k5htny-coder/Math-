@@ -1,11 +1,18 @@
 # Living bars have flat components: the far elder density is `O(ℓ^N)` for every `N`
 
-Object: CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.
-Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 30 September 2026.
+Object: CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.1.
+- v1, `85f0586`. xAI read Slice A (5379778152), and a scoped check verified two control identities (5932225117).
+- v1.1, 2 October 2026. It records what has changed around the note; Theorem G and its proof are unchanged.
+  - Math- #187 is merged at `c2f1270`, with a status-only change to its blob, now `07260114`.
+  - Remark 5 is rewritten for the merged expansions of the elder density: #191, #198, #220 and #229.
+  - The new Remark 6 records the two conditional consequences that OpenAI Codex posted on this PR (5938629116,
+    5940268333). It proves from them that the constant in (0.2) must blow up at least like `ρ^{1−4N}` as `ρ ↓ 0`.
+  - §7 lists the changed bytes.
+Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 30 September 2026 (v1.1: 2 October 2026).
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register,
 graph, STATUS, PROOF_INDEX, prize or Boolean change; no numerical constant is claimed. Same GitHub account as
 every lane; zero organizational independence. Successor in rate to Math- #187 (`CL-FAR-ELDER-RATE-20260930-v1`,
-`O(ℓ^{2/3})`), which it does not modify and whose barrier lemma it does not use.
+`O(ℓ^{2/3})`; merged at `c2f1270`), which it does not modify and whose barrier lemma it does not use.
 
 ## 0. Statement
 
@@ -23,7 +30,7 @@ and the far elder density per unit volume at lifetime `ℓ` (the canonical marke
     ν_eld^{far,ρ}(ℓ) = ∫_{dist(0,y) ≥ ρ} ∫_R p_y(v_{b,ℓ}) E_{Q_{y,b,ℓ}}[W(f) e_y(f)] db dy.            (0.1)
 
 [P] §14's argument gives `ν_eld^{far,ρ}(ℓ) ≤ C` on `(0, 1]` ((14.1) is its case `ρ = r_0`); [Z] gives
-`ν_eld^{far,ρ}(ℓ) → 0` with no rate; Math- #187 gives `O(ℓ^{2/3})`. The SIDE24 manuscript's Proposition A.3.2 / A.3.2′ asserts `O(ℓ)` without a valid proof (July audit
+`ν_eld^{far,ρ}(ℓ) → 0` with no rate; Math- #187 (merged) gives `O(ℓ^{2/3})`. The SIDE24 manuscript's Proposition A.3.2 / A.3.2′ asserts `O(ℓ)` without a valid proof (July audit
 F-02).
 
 **Theorem G.** For every `ρ ∈ (0, L/4]` and every integer `N ≥ 1` there is `C = C(d, L, ρ, N) < ∞` such that
@@ -56,8 +63,9 @@ the component `C_t` meets every sphere `∂B(x_0, r)`, `0 < r < ρ`, and on `C_t
 **What is not claimed.** No statement about the far *rejected* density (which stays of order one: [U] (U1) gives it
 the lower bound `c_* > 0` at `ρ = r_0`, and [Z] identifies its limit); no near-pair statement (Lemma 1 is
 consistent with the near law but adds nothing there, §4); no numerical `C`; no uniformity in `L`, `d`, `N` or
-`ρ ↓ 0`; nothing about the true order of `ν_eld^{far,ρ}` beyond (0.2) (§4 records the expectation that it is
-super-polynomially small; no rate is conjectured).
+`ρ ↓ 0` (Remark 6: uniformity in `ρ` fails, conditionally on a posted estimate); nothing about the true order of
+`ν_eld^{far,ρ}` beyond (0.2) (§4 records the expectation that it is super-polynomially small at fixed `ρ`; no rate is
+conjectured).
 
 ## 1. Proofs of the deterministic lemmas
 
@@ -232,12 +240,56 @@ is bounded on `(0, 1]`) gives (0.2). The cumulative and moment statements follow
    itself — a small-ball-type event in `C¹`, though not a standard one (the set is random and the band is pinned).
    The expectation is that `ν_eld^{far,ρ}` is super-polynomially small; no rate is conjectured, and the `N`-site
    argument cannot produce one because `C_N` grows with `N`.
-5. **For the manuscript.** In Theorem R's near/far decomposition ([R] §7, `ρ = r_0`), the far *elder* term is
-   `O(ℓ^N)` for every `N`; Theorem R's `O(1)` remainder is unchanged — it comes from the near terms (R16) (the
-   near candidate contact error) and (R18) (the near pairing loss), and, for the candidate density, from the far
-   rejected `O(1)` of [P] (14.1). The manuscript's A.3.2′ (far elder contribution `O(1)`, hence `o(ℓ^{−1/3})`
-   relative) rests on the reviewed (14.1) and should stay; this note, like #187, is an unreviewed candidate rate
-   that the V3 text may cite as such, not a replacement of a reviewed statement.
+5. **For the manuscript, and the merged expansions.** (Rewritten in v1.1.) Since v1 the elder density has been expanded on
+   `main`, each result at its packet's stated conditional scope:
+   - #191 (R+.2): `ν_eld = cℓ^{−1/3} + o(1)`;
+   - #198 Theorem R++: `ν_eld = cℓ^{−1/3} + O(ℓ^{1/4})`;
+   - #220 Theorem E3, and #229 Theorem E3⁺:
+
+         ν_eld(ℓ) = cℓ^{−1/3} + c₁ℓ^{1/4} + c₂ℓ^{1/3} + ν_eld^{far,r_0^*}(ℓ) + O(ℓ^{3/7})      (#229 (E3⁺.0)).
+
+   The far elder density enters these expansions only at the one fixed separation `r_0^* ≤ L/(4√2) < L/4` (#191 §0).
+   - #229 bounds that term by #187's Theorem F at `ρ = r_0^*`, which is `O(ℓ^{2/3})`. This is below `ℓ^{3/7}`, so the far
+     term does not limit the current remainder, and Theorem G changes no merged statement.
+   - What Theorem G adds is that the term is `O(ℓ^N)` for every `N`. By #229's equivalence, for `0 < θ ≤ 3/7`,
+     `ν_eld − cℓ^{−1/3} − c₁ℓ^{1/4} − c₂ℓ^{1/3} = O(ℓ^θ)` if and only if `ν_eld^{far,r_0^*} = O(ℓ^θ)`. So the far term
+     would not limit any future improvement of the near and intermediate estimates, whereas #187 alone stops at
+     `ℓ^{2/3}`. The same holds for the rejected density, #229 (R⁺.1).
+   - The manuscript's A.3.2′ (a far elder contribution `O(1)`, hence `o(ℓ^{−1/3})` relative) rests on the reviewed
+     (14.1) and should stay. This note is an unreviewed candidate rate that the V3 text may cite as such, not a
+     replacement of a reviewed statement.
+6. **The dependence on `ρ`.** (New in v1.1.) Theorem G is a statement at a fixed separation, and its constant cannot be
+   uniform as `ρ ↓ 0`. Two results that OpenAI Codex posted on this PR make that precise. They are cited, not consumed,
+   and each is conditional on its stated sources; neither uses Theorem G as a premise except (a).
+   - (a) *A diagonal cutoff* (OA-FAR-DIAGONAL-CUTOFF-20261001-v1, comment 5938629116, conditional on (0.2)). There is a
+     deterministic cutoff `ρ(ℓ) → 0`, nondecreasing in `ℓ`, with `ρ(ℓ)/ℓ^a → ∞` for every `a > 0`, such that
+     `ν_eld^{far,ρ(ℓ)}(ℓ) = o(ℓ^n)` for every `n` (its Proposition D, with a cumulative form, D-cum). Its nonnegative
+     measure (D5) shows that (0.2) at each fixed `ρ`, by itself, implies nothing at an algebraic cutoff `ρ = Cℓ^a`.
+   - (b) *The moving contact tail* (OA-ELDER-MOVING-CONTACT-TAIL-20261001-v1, comment 5940268333). It is conditional on
+     merged #198 (Theorem R++, the proof of W.2, and W.3), with [P] and [R], and it does not use Theorem G. It retains
+     #198's contact tail and gives a uniform two-parameter estimate with an explicit `a_0 > 0` (its (2.1)):
+
+         |ν_eld^{far,ρ}(ℓ) − (a_0/7)ℓ²ρ^{−7}| ≤ C_*[ℓ^{1/4} + ρ³ + ℓ⁴ρ^{−13}],   0 < ρ ≤ r_*,  0 < ℓ ≤ min(ℓ_*, ρ³)   (its (2.4)).
+
+     So `ν_eld^{far,ηℓ^a}(ℓ) ∼ (a_0/(7η⁷))ℓ^{2−7a}` for fixed `η > 0` and `1/4 < a < 1/3` (its (3.4)). At such cutoffs the
+     far elder density is not even `O(ℓ)`.
+   - (c) *Consequence for the constant in (0.2).* Suppose (b)'s (2.4) holds for the density (0.1). Then for every `N ≥ 1`
+     there are `c_N > 0` and `ρ_N > 0` such that every constant admissible in (0.2) satisfies
+
+         C(d, L, ρ, N) ≥ c_N ρ^{1−4N},      0 < ρ ≤ ρ_N.                                                  (R6.1)
+
+     *Proof.* Fix `M ≥ 1` with `C_*M^{1/4} ≤ (a_0/14)M²`, and put `ℓ = Mρ⁴`. Take `ρ` so small that
+     `ρ ≤ min(r_*, 1/M, (ℓ_*/M)^{1/4})`, `Mρ⁴ ≤ 1` and `C_*(1 + M⁴)ρ² ≤ (a_0/28)M²`. Then `ℓ ≤ min(ℓ_*, ρ³)`, and (2.4)
+     applies:
+     - its main term is `(a_0/7)ℓ²ρ^{−7} = (a_0/7)M²ρ`;
+     - its error is at most `C_*M^{1/4}ρ + C_*(1 + M⁴)ρ³ ≤ (a_0/14 + a_0/28)M²ρ`.
+
+     Hence `ν_eld^{far,ρ}(Mρ⁴) ≥ (a_0/28)M²ρ`, and (0.2) at `ℓ = Mρ⁴` gives `C(ρ, N) ≥ (a_0/28)M^{2−N}ρ^{1−4N}`. ∎
+   - So the bound `C(ρ, N)ℓ^N ≥ c_Nρ(ℓ/ρ⁴)^N` of (0.2) can be informative only for `ℓ ≪ ρ⁴`, that is `ρ ≫ ℓ^{1/4}`. This
+     is the left end `a = 1/4` of the range in (b).
+   - Open: whether `ν_eld^{far,ρ}(ℓ) = O(ℓ^N)` for every `N` when `ρ ≥ ℓ^a` with `0 < a < 1/4`. Neither (0.2) nor (b)
+     decides it, since (2.4)'s error `ℓ^{1/4}` exceeds its main term there. A quantitative form of §2, tracking `ρ` in the
+     `N`-site conditional density bound (2.1) and in (2.a), is what the proof of Theorem G would need for it.
 
 ## 5. Sources (exact identities in `SOURCES.json`)
 
@@ -250,11 +302,14 @@ is bounded on `(0, 1]`) gives (0.2). The cumulative and moment statements follow
 | [R] | `frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md` (blob `247b3ecf`) | Theorem R, §7 near/far split (cited only) |
 | [Z] | `frontiers/c7_zero_gap_limit_20260929/PROOF.md` (blob `5b6328ea`) | far rejected limit (cited only; OpenAI candidate, non-OpenAI review required) |
 | [U] | `frontiers/unrestricted_selection_difference_20260929/PROOF.md` (blob `5a55b179`) | (U1) lower bound (cited only; OpenAI review `reviews/c7_nonvanishing_openai_20260929`) |
-| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (Math- #187, unmerged) | predecessor rate `O(ℓ^{2/3})` (cited only; §2 restates its fixed-separation facts from [P] directly) |
+| #187 | `frontiers/far_elder_rate_20260930/PROOF.md` (Math- #187, merged at `c2f1270`; blob `07260114`, a status-only change from the `37dcf6ef` that v1 read) | predecessor rate `O(ℓ^{2/3})` (cited only; §2 restates its fixed-separation facts from [P] directly) |
+| #191, #198 | `frontiers/remainder_vanishing_20260930/PROOF.md` (`441152df`), `frontiers/remainder_rate_20260930/PROOF.md` (`abfb98ae`), both merged | `r_0^*` (#191 §0); Theorem R++ (Remark 5); #198 is a premise of Remark 6(b), not of this note (cited only) |
+| #220, #229 | `frontiers/elder_third_order_20261001/PROOF.md` (`c8767dde`), `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`), both merged | (E3.0), (E3⁺.0), (E3⁺.1), (R⁺.1) and the equivalence after them (Remark 5; cited only) |
+| OA-FD, OA-MT | Math- #188 comments 5938629116 (OA-FAR-DIAGONAL-CUTOFF-20261001-v1) and 5940268333 (OA-ELDER-MOVING-CONTACT-TAIL-20261001-v1), OpenAI Codex | Proposition D, D-cum and (D5); (2.1), (2.4), (3.4) (Remark 6; cited only, not verified by the workflow) |
 | lit. | Adler–Taylor, *Random Fields and Geometry* (2007), Thm 2.1.1 (Borell–TIS) | standard inequality, §2(c) |
 
 Consumed: [P] §§1, 2, 4 and 8 (their arguments, applied at the far pins `0`, `y`), 9 (as [E2]), 14; [E1]; [E2];
-[REC] §§1, 5, 7. Cited only: [R], [Z], [U], #187.
+[REC] §§1, 5, 7. Cited only: [R], [Z], [U], #187, #191, #198, #220, #229, OA-FD, OA-MT.
 
 ## 6. Exact controls (`flat_ridge_check.py`; stdlib; exact rationals; byte-identical under `-O`)
 
@@ -288,4 +343,14 @@ B: §2 (a)–(d) — the uniform conditional density bound with `N` extra sites 
    decomposition and the use of Borell–TIS, and the far-pin genericity (d); whether (2.1) is stated at the right
    scope.
 C: §3 — the volume/Markov step (3.1), the tower-property step, the `K_0` splitting and the choice (Step 4), and the
-   integration in `(b, y)`; Remarks 1–3 for consistency with [U], [Z], [R] and #187.
+   integration in `(b, y)`; Remarks 1–3 for consistency with [U], [Z], [R] and #187; Remarks 5–6 (v1.1).
+
+**Changed bytes in v1.1** (for a delta check against v1, `85f0586`, blob `50cfbf4f`):
+- *Header:* the object label and versions, the author line, the #187 merge in the Disposition paragraph.
+- *§0:* "#187 (merged)", and the `ρ ↓ 0` clause of "What is not claimed".
+- *§4:* Remark 5 (rewritten) and Remark 6 (new; its item (c) is the only new mathematics).
+- *§5:* the #187 row, three new rows (#191/#198, #220/#229, OA-FD/OA-MT), and the cited-only list.
+- *§7:* the Remarks 5–6 clause of Slice C, and this list.
+
+§§1–3 (Lemmas 1–3, §2 (a)–(d), the proof of Theorem G), Remarks 1–4, §6, `flat_ridge_check.py` and `RESULTS.json`
+are unchanged.

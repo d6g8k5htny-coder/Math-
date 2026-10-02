@@ -1,12 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1",
- "kind": "author-side proof candidate (Lemmas 1-3 deterministic; Theorem G conditional on the reconciled [P] interfaces and the standard Borell-TIS inequality); nonauthor analytic review required",
+ "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.1",
+ "kind": "author-side proof candidate (Lemmas 1-3 deterministic; Theorem G conditional on the reconciled [P] interfaces and the standard Borell-TIS inequality; v1.1: Remark 5 rewritten for the merged expansions #191/#198/#220/#229, Remark 6 records the posted Codex consequences and proves C(rho, N) >= c_N rho^(1-4N) conditionally on their (2.4); Theorem G and its proof unchanged); nonauthor analytic review required",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
-  "branch_base": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333"
+  "branch_base": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333",
+  "main_merged_in_v1_1": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
  },
  "consumed": [
   {
@@ -74,18 +75,46 @@
    "git_blob": "64794e5801b70d950c7e1202f7b6b7d07055cbb6",
    "tag": "U-review",
    "use": "the nonauthor review binding for [U]"
-  }
- ],
- "cited_unmerged": [
+  },
   {
    "path": "frontiers/far_elder_rate_20260930/PROOF.md",
-   "pr": "d6g8k5htny-coder/Math-#187",
-   "commit": "ecd47e7b1d447eefec963b1fa8395777db09a190",
-   "git_blob": "37dcf6ef933251c8890ab653cafd648610779342",
-   "bytes": 16413,
-   "sha256": "67f606327b66a2b4f1b8c67a57d119ac9ddfd2ce827ca8cb0c4daefa31904a3b",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b",
+   "git_blob": "072601145601a1021037a2e91bf8826c1c971ecc",
    "tag": "187",
-   "use": "cited only: predecessor rate O(ell^(2/3)); its (2.1)-(2.2) restated in \u00a72 from [P]; nothing unmerged is consumed; not verified by the workflow"
+   "use": "cited only: predecessor rate O(ell^(2/3)) (Theorem F); merged at c2f1270 with blob 07260114, a status-only change from the 37dcf6ef that v1 read (#182 recorded as integrated); its (2.1)-(2.2) are restated in section 2 from [P]; nothing of it is consumed"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "cited only (Remark 5): (R+.2) nu_eld = c ell^(-1/3) + o(1); section 0, the admissible radius r_0^* <= L/(4 sqrt 2)"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "cited only (Remark 5): Theorem R++, nu_eld = c ell^(-1/3) + O(ell^(1/4)); a premise of the cited Codex consequence OA-MT (Remark 6(b)), not of this note"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "cited only (Remark 5): Theorem E3, (E3.0) and (E3.3), the far elder density at the fixed separation r_0^*"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "cited only (Remark 5): Theorem E3+ (E3+.0), (E3+.1), (R+.1) and the equivalence for 0 < theta <= 3/7"
   }
  ],
  "literature": [
@@ -105,8 +134,8 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 22806,
-   "sha256": "957f9c5e6557a558b2c055fa2a1f11ba301581995b8958658fad2edf47136f57"
+   "bytes": 29110,
+   "sha256": "967148439e32e8e5d6c06a12df5cc7c1eb2475fe6828e4aeb3748c48817a4cba"
   },
   {
    "path": "flat_ridge_check.py",
@@ -120,8 +149,73 @@
   },
   {
    "path": "README.md",
-   "bytes": 2845,
-   "sha256": "aed92c1d8b7f767e2b9c8571f33d0e72966366f0b4234586559420bc8b209593"
+   "bytes": 3999,
+   "sha256": "4404bb60cfbe10d0ae677f8136330629797b97d374508efea02a4b6cb7a8c11b"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1",
+  "head": "85f0586a468c2b2f73af0e340d251e33a52caade",
+  "proof_blob": "50cfbf4fcb9a3526f979eaedf885d42824a3c3a3"
+ },
+ "cited_comments": [
+  {
+   "tag": "OA-FD",
+   "object": "OA-FAR-DIAGONAL-CUTOFF-20261001-v1",
+   "where": "Math- #188 comment 5938629116",
+   "author": "OpenAI Codex root, under Dylan Roy's delegation (same GitHub account)",
+   "input": "this note at 85f0586, PROOF blob 50cfbf4f: (0.1) and Theorem G (0.2)",
+   "use": "Remark 6(a): Proposition D (a diagonal cutoff), D-cum, and the nonnegative measure (D5)",
+   "review": "fresh nonauthor OpenAI scoped PASS disclosed in the comment (organizational independence 0)"
+  },
+  {
+   "tag": "OA-MT",
+   "object": "OA-ELDER-MOVING-CONTACT-TAIL-20261001-v1",
+   "where": "Math- #188 comment 5940268333",
+   "author": "OpenAI Codex /root/review_density_proof_gaps, under Dylan Roy's delegation (same GitHub account)",
+   "input": "merged #198 (blob abfb98ae: Theorem R++, the proof of W.2, W.3) with [P] and [R]; Theorem G is not a premise",
+   "use": "Remark 6(b)-(c): (2.1) a_0 > 0, (2.4) the uniform two-parameter estimate, (3.4); (R6.1) here is derived from (2.4)",
+   "review": "fresh nonauthor OpenAI conditional technical pass disclosed in the comment (organizational independence 0)"
+  }
+ ],
+ "nonauthor_reviews": [
+  {
+   "slice": "A (note; not an acceptance)",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379778152",
+   "at": "85f0586",
+   "verdict": "NOT READY (Lemma 1 checked as the standard uphill bound with its sharp equality case; living-bar hypothesis, shell count and Kac-Rice insertion not checked; behind main)",
+   "findings": []
+  },
+  {
+   "slice": "scoped deterministic check (not a review of Theorem G)",
+   "reviewer": "same-account lane (unsigned in the comment; organizational independence 0)",
+   "comment": "5932225117",
+   "at": "85f0586",
+   "verdict": "two control identities exact: Lemma 1 sharpness on f = b - K|x|^2/2, and the younger lifetime 16/15 in F1",
+   "findings": []
+  }
+ ],
+ "amendments": [
+  {
+   "label": "v1.1",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/far-elder-flat-ridge.yml"
+   ],
+   "unchanged": [
+    "flat_ridge_check.py",
+    "RESULTS.json"
+   ],
+   "proof_parts_unchanged": [
+    "sections 1-3",
+    "Theorem G",
+    "Remarks 1-4",
+    "section 6"
+   ],
+   "reason": "status of #187 (merged); Remark 5 for the merged #191/#198/#220/#229; Remark 6 records OA-FD and OA-MT and derives (R6.1); requested context: xAI 5379778152 and the scoped check 5932225117 note that #191 and #198 have merged"
   }
  ]
 }
