@@ -133,8 +133,8 @@
  "files": [
   {
    "path": "LOCAL_PAIRING.md",
-   "bytes": 46711,
-   "sha256": "649c8015d88c230af84660455a02a7f8acb1397b89d308ff462a973bd1f22fe7"
+   "bytes": 46742,
+   "sha256": "e01e1d097fb087fee013559f508ad58849da06f9a764eed1464286946d78331a"
   },
   {
    "path": "pairing_check.py",
@@ -148,8 +148,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 3092,
-   "sha256": "5b3c3662171ffe53618b0346d7550bb79ab7050b43fe8d1e5dc87b3809cc3dc0"
+   "bytes": 3130,
+   "sha256": "745ef6547c7e93993649f5cb7a978af87b175a908f202d2e398e4eeca2e460ae"
   },
   {
    "path": "exploration/elder_grid.py",
@@ -167,5 +167,5 @@
   "note": "Math- main after Math-#173 merged; every consumed source verified at these bytes by the workflow"
  },
  "cited_unmerged": [],
- "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied \u2014 exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded | v1.1+sources (2026-09-30 14:15 UTC): LEG (#170) moved from cited_unmerged to cited_only after its integration at the identical blob ef2aa579; no other change; branch merged with main 3e0a91b | status repair (2026-10-01): \u00a75's stale 'not a corollary of anything merged' / 'unmerged' sentence replaced by the attribution to Math-#170 Theorem S on main (requested in comments 5930621629 and 5930668120); #175 (CFE) moved from cited_unmerged to cited_only after its integration at eb659bd with the identical blob 923d3236; header and README status updated; mathematics, checker and RESULTS unchanged; branch merged with main 124c37d | v1.2 (2026-10-02): Slice C review C85 5396856086 finding C-01 applied \u2014 the v1.1 \u00a75 single-level margin sketch is withdrawn as a proof; Lemma 5.1 (common-radius acceptance, consumed from QS-E, main#229 comment 5961415030, author-side candidate) with exhausting jet-scaled margin sets M(eta, R) replaces it; the review's normalization and Gaussian-conditioning notes are recorded; (O1') => (O1) marked conditional on Lemma 5.1; LOCAL_PAIRING.md and README.md only; checker, RESULTS, exploration and workflow unchanged"
+ "revision": "v1.1 (30 September 2026): Codex review 5364265784 on Math-#180 applied \u2014 exploration rewritten in the standard library (elder_grid.py), Proposition 3.3 tie set extended by {D = 0}; relation to Math-#170/#175 recorded | v1.1+sources (2026-09-30 14:15 UTC): LEG (#170) moved from cited_unmerged to cited_only after its integration at the identical blob ef2aa579; no other change; branch merged with main 3e0a91b | status repair (2026-10-01): \u00a75's stale 'not a corollary of anything merged' / 'unmerged' sentence replaced by the attribution to Math-#170 Theorem S on main (requested in comments 5930621629 and 5930668120); #175 (CFE) moved from cited_unmerged to cited_only after its integration at eb659bd with the identical blob 923d3236; header and README status updated; mathematics, checker and RESULTS unchanged; branch merged with main 124c37d | v1.2 (2026-10-02): Slice C review C85 5396856086 finding C-01 applied \u2014 the v1.1 \u00a75 single-level margin sketch is withdrawn as a proof; Lemma 5.1 (common-radius acceptance, consumed from QS-E, main#229 comment 5961415030, author-side candidate) with exhausting jet-scaled margin sets M(eta, R) replaces it; the review's normalization and Gaussian-conditioning notes are recorded; (O1') => (O1) marked conditional on Lemma 5.1; LOCAL_PAIRING.md and README.md only; checker, RESULTS, exploration and workflow unchanged | status refresh (2026-10-02): QS-E's consumed status updated from 'author-side candidate, nonauthor review requested' to its delivered nonauthor review 5961620598 (ACCEPT / PASS_TECHNICAL_SCOPED), as requested by the v1.2 delta review 5397276533 (item 8); three status phrases in LOCAL_PAIRING.md and README.md only; Lemma 5.1, all mathematics, checker, RESULTS, exploration and workflow unchanged"
 }

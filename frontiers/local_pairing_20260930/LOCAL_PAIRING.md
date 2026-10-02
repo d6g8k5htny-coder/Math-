@@ -23,7 +23,7 @@ NONE — no register, graph, STATUS, prize or Boolean changes; no numerical cons
 C-01: v1.1's optional §5 margin sketch confined `M`'s component at one level above `f(S)` only, and it gave an
 exact falsifier. v1.2 withdraws that sketch as a proof. In its place §5 states Lemma 5.1, a common-radius
 acceptance lemma that controls the component through the exact saddle level. It is consumed from QS-E (main#229
-5961415030; author-side candidate, nonauthor review requested), with exhausting jet-scaled margin sets
+5961415030; nonauthor review ACCEPT / PASS_TECHNICAL_SCOPED, 5961620598), with exhausting jet-scaled margin sets
 `𝓜(η, R)`. §5 also records the review's notes on the weighted normalization and on Gaussian conditioning, and
 now says that the reverse reduction (O1′) ⇒ (O1) is conditional on Lemma 5.1. Lemmas 2.1–2.2, P, P′,
 Proposition 3.3, Theorem LP, the controls and the cap bypass are unchanged.
@@ -415,8 +415,8 @@ Both of QS-E's bounds use only paths inside `V_η ⊂ B(R)`:
 
 So the lemma applies to the torus field through the chart, exactly as in #170 §5.
 
-This is Theorem QS-E of main#229 5961415030, an author-side candidate whose nonauthor review is requested;
-this packet consumes it at that status. QS Remark 4 shows why the axis beyond `S` must be in `V_η`. The
+This is Theorem QS-E of main#229 5961415030, whose nonauthor review 5961620598 returned ACCEPT / PASS_TECHNICAL_SCOPED;
+this packet consumes it at that reviewed scope. QS Remark 4 shows why the axis beyond `S` must be in `V_η`. The
 lemma needs no `N_R = 0`. In the C-01 cubic, along the sheared vertical path, the level-`(−1 − η)` component
 reaches `|X| ≈ H(2/σ)^{1/2} ≈ 142`, beyond `B(125)`. So the containment hypothesis fails there, as it must.
 The exact C-01 cubic, with `B = D = 0`, also lies on `Δ`.

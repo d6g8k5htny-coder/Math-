@@ -32,7 +32,7 @@ Review slices (§9): A deterministic (§§2–3); B the Gaussian transfer (§4);
 
 **v1.2 (2 October 2026).** Codex's Slice C review (C85, 5396856086) found C-01: v1.1's optional §5 margin sketch
 confined `M`'s component at one level above `f(S)` only. v1.2 withdraws that sketch as a proof and states
-Lemma 5.1 instead. It is a common-radius acceptance lemma, consumed from QS-E (main#229 5961415030; author-side
-candidate), with exhausting jet-scaled margin sets. §5 also records the review's notes on normalization and
+Lemma 5.1 instead. It is a common-radius acceptance lemma, consumed from QS-E (main#229 5961415030; nonauthor
+review ACCEPT / PASS_TECHNICAL_SCOPED, 5961620598), with exhausting jet-scaled margin sets. §5 also records the review's notes on normalization and
 conditioning, and marks (O1′) ⇒ (O1) as conditional on Lemma 5.1. Nothing else changes: not the deterministic
 lemmas, not Theorem LP, and not the controls.
