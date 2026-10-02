@@ -19,8 +19,14 @@ That implication has two parts:
   - (C3) a path from `M` to an older point `z`, `f(z) > b`, along which `f ≥ s`.
 - **Topological part (L21–L22).** From (C1)–(C3), deduce `M`'s global maximin level and its superlevel death level.
 
-This packet kernel-checks the topological part. `X` is any topological space, and nothing is assumed about `f`
-outside `C` except along the single ridge path.
+This packet kernel-checks two things:
+- the whole topological part;
+- the one-variable and assembly steps of the analytic part (L13, L16, L17, L19, L20, in `ridge_capHyp`).
+
+The multi-variable estimates L1–L12 and L18 remain hypotheses.
+
+In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
+single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
   separation steps do not even use continuity of `f`.
 - The two older-peak theorems, `older_peak` and `elder_death_level_peak`, add compactness, local connectedness and
@@ -42,6 +48,9 @@ outside `C` except along the single ridge path.
 | `CapHyp.map`, `CapHyp.map_saddle` | transport: if the lift `f ∘ e` satisfies (C1)–(C3) (and (C2⁺)) on a compact cap `C`, then `f` satisfies them on `e '' C`. Needs only `e` continuous and open and the target Hausdorff; no injectivity |
 | `torusCover`, `CapHyp.toTorus` | the covering map `ℝ^d → (ℝ/Lℤ)^d` is continuous and open, so a cap verified for the periodic lift in any coordinate frame transfers to the torus with the same `b`, `s`. No embedding radius is needed for this step |
 | `frontier_cylinder`, `isCompact_cylinder` | `frontier ([a, c] × B̄(0, R)) = {a, c} × B̄(0, R) ∪ [a, c] × S(0, R)`: exactly the end faces and curved side estimated in L17–L19; the cylinder is compact |
+| `ridge_profile` | L13, L16, L17 and L20 in one variable. Assume, on `[−2r, 2r]`, that `g' = F`, `F(∓r/2) = 0` and `F − (x + r/2)(x − r/2)/8` is convex. Then `g ≤ g(−r/2)` on `[−2r, r/2]` and `g ≥ g(r/2)` on `[−r/2, 2r]`. Also `g(−2r) ≤ g(−r/2) − 9r³/32` and `g(2r) ≥ g(r/2) + 9r³/32`: the exact face integrals |
+| `ridge_capHyp`, `ridge_saddle_strict` | (C1)–(C3), and (C2⁺), on the cylinder `[−2r, r/2] × B̄(0, 2r)`, derived from the multi-variable outputs, each assumed only where SP supplies it: L7 (transverse maximum, unique for (C2⁺)), L11 (`g' = F` on `[−2r, 2r]`), L12 (`F'' ≥ 1/4` as convexity on `[−2r, 2r]`), L18 (curved side), and the gap `b − s < 9r³/32` |
+| `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
 | `toy_capHyp`, `toy_death_level` | a concrete instance on `ℝ`, showing the hypotheses are satisfiable and the theorems are not vacuous |
 | `toy_needs_C1`, `toy_needs_C2`, `toy_needs_C3` | proved counterexamples: for each of (C1), (C2), (C3), Lean proves that the other two hold, that this one fails, and that the maximin conclusion fails |
 
@@ -61,7 +70,9 @@ that step.
 
 This packet does not formalize:
 
-- the analytic inequalities L1–L20 that produce (C1)–(C3) from `G_r`;
+- the multi-variable analytic steps L1–L12 and L18: the Hermite identity, increments, strong concavity and the
+  transverse maximizer, the implicit function theorem, the ridge identity, the `F''` bound, and the curved side. These
+  enter `ridge_capHyp` as hypotheses, and L13, L16, L17, L19 and L20 are proved from them;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -97,7 +108,7 @@ The source gate checks:
 
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 43 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 52 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

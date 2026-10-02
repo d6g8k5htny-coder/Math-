@@ -47,6 +47,10 @@ The source setting (SP §2) is as follows:
 | `CapHyp.map`, `CapHyp.map_saddle` | `CapHyp (f ∘ e) C M z b s` ⇒ `CapHyp f (e '' C) (e M) (e z) b s`; and (C2⁺) for the lift ⇒ (C2⁺) for `e S` | I1 | |
 | `torusCover`, `torusCover_continuous`, `torusCover_isOpenMap`, `CapHyp.toTorus` | for any frame `φ : Y ≃ₜ ℝ^d`, a cap for `f ∘ torusCover L d ∘ φ` on compact `C` gives a cap for `f` on the torus `(ℝ/Lℤ)^d` | I1; SP §2's coordinates, "every frame" | The torus is `Fin d → AddCircle L`. |
 | `frontier_cylinder`, `isCompact_cylinder` | `frontier (Icc a c ×ˢ closedBall 0 R) = {a, c} ×ˢ closedBall 0 R ∪ Icc a c ×ˢ sphere 0 R` for `a ≤ c`, `R ≠ 0`, in `ℝ × E` with `E` a real normed space; compact when `E` is proper | SP L16–L19 (`a = -2r`, `c = r/2`, `R = 2r`) | The three pieces are L17's left face, L19's right face and L18's curved side. |
+| `convex_zeros_between`, `convex_zeros_left`, `convex_zeros_right` | a convex function vanishing at `a < c` is `≤ 0` on `[a, c]` and `≥ 0` outside | SP L13, L17 | Uses `ConvexOn.le_on_segment` and `ConvexOn.slope_mono_adjacent`. |
+| `ridge_profile` | on `D = [-2r, 2r]`: `g' = F`, `F(-r/2) = F(r/2) = 0`, `ConvexOn D (F - (x + r/2)(x - r/2)/8)` ⇒ `g ≤ g(-r/2)` on `[-2r, r/2]`; `g(r/2) ≤ g` on `[-r/2, 2r]`; `g(-2r) ≤ g(-r/2) - 9r³/32`; `g(r/2) + 9r³/32 ≤ g(2r)` | SP L13 (sign pattern), L16 (ceiling along the ridge), L17 (both exact integrals `9r³/32`), L20 (ridge minimum) | SP states L12 as `F'' − 1/4 > 0`; Lean takes the weaker convexity of `F − q`. L17's integrals come from comparing `g` with `Q = x³/24 − r²x/32`, `Q' = q`. |
+| `ridge_capHyp` | `CapHyp f C M z b s`, with `C = Icc (-2r) (r/2) ×ˢ closedBall 0 (2r)`, `M = (-r/2, h(-r/2))`, `z = (2r, h(2r))`, `b = g(-r/2)`, `s = g(r/2)` | SP L16, L17, L19, L20 | Hypotheses, all local as in SP: `hT` = L7's `f(x, y) ≤ g(x)` on `C`; `hg` = L11 on `[-2r, 2r]`; `hh` = continuity of `h` on `[-r/2, 2r]`; `hFa`, `hFc` = critical pins; `hconv` = L12 on `[-2r, 2r]`; `hside` = L18 (non-strict suffices); `hM` (`h(a) = 0` in SP); `hgap` (SP: `r³/6 < 9r³/32`). The ridge path does not need to stay in `C`. |
+| `ridge_saddle_strict` | under `hTs` (the unique transverse maximizer, L7) and a strict `hside`, every frontier point other than `S = (r/2, h(r/2))` has `f < s` | SP L19, "only `S` attains it" | The left face is strict through `hgap`; the right face is strict through uniqueness. |
 | `CapHyp.congr` | from `g = f` on `closure C` and along one ridge `γ₀`, `CapHyp g C M z b s` | the audit's exterior-invariance corollary (Math-#193 deliverable 2) | `closure C ⊇ C ∪ frontier C`. In SP, `C` is closed. |
 
 ## 3. Non-vacuity and necessity, proved in Lean
@@ -72,6 +76,8 @@ The proved facts are:
 
 Each necessity theorem is one conjunction, so it certifies its own premises, not only its conclusion.
 
+`ridgeToy_capHyp` and `ridgeToy_saddle_strict` instantiate `ridge_capHyp` and `ridge_saddle_strict` at SP's normalization, with `r = 1`, `E = ℝ`, `f(x, y) = x³/3 − x/4 − y²`, `h = 0` and `F = x² − 1/4`. The gap there is exactly `r³/6`, so all ridge hypotheses are jointly satisfiable.
+
 The toy lives on `ℝ`, which is not compact. So the older-peak theorems (`older_peak`, `elder_death_level_peak`) have
 no concrete instance exhibited in Lean. Their extra hypotheses (compact, locally connected, continuous `f`) hold on the
 torus.
@@ -85,7 +91,7 @@ illustrates the hypotheses; it is not a model of the planar cap.
 |---|---|---|---|
 | I1 | Coordinates: SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a frame `φ` of the periodic lift, and SP's "boundary" is the topological frontier. The transport to the torus (`CapHyp.toTorus`) and the face list (`frontier_cylinder`) are proved; the transport needs no embedding radius | SP §2 | Only the identification of SP's objects with these Lean objects remains. |
 | I2 | Persistence bookkeeping: in H0 superlevel persistence with distinct critical values, the class born at a local maximum `M` dies at the largest level at which its component contains a strictly higher local maximum (the elder rule) | SP L22, P §8 | This is the definition of the elder pairing. On a compact, locally connected space, Lean proves that this level is `s` (`elder_death_level_peak`). Only the identification of the persistence module's pairing with that definition is informal. |
-| I3 | (C1)–(C3) from `G_r` | SP L1–L20, CAP §§2–5 | analytic inequalities with exact constants; checked by exact arithmetic in SP's script, not in Lean |
+| I3 | The multi-variable analytic steps L1–L12 and L18, which supply `hT`, `hTs`, `hg`, `hFa`, `hFc`, `hconv`, `hside` and `hgap` of `ridge_capHyp` from `G_r` | SP L1–L12, L18; CAP §§2–5 | Hermite identity, increments, strong concavity, implicit function theorem, ridge identity, `F''` bound and curved-side estimate, with exact constants checked by SP's script, not in Lean. L13, L16, L17, L19 and L20 are proved in Lean from these outputs. |
 | I4 | Theorem A, measurability, `Q^W(G_r^c) ≤ C r³` | P §§7–8, C1, G1 | probability |
 
 ## 5. Review contract

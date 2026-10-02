@@ -64,6 +64,12 @@
   "CapFirstExit.torusCover_continuous",
   "CapFirstExit.torusCover_isOpenMap",
   "CapFirstExit.CapHyp.toTorus",
+  "CapFirstExit.convex_zeros_between",
+  "CapFirstExit.convex_zeros_right",
+  "CapFirstExit.convex_zeros_left",
+  "CapFirstExit.ridge_profile",
+  "CapFirstExit.ridge_capHyp",
+  "CapFirstExit.ridge_saddle_strict",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -75,7 +81,10 @@
   "CapFirstExit.toy_f_S",
   "CapFirstExit.toy_needs_C2",
   "CapFirstExit.toy_needs_C1",
-  "CapFirstExit.toy_needs_C3"
+  "CapFirstExit.toy_needs_C3",
+  "CapFirstExit.ridgeToyF",
+  "CapFirstExit.ridgeToy_capHyp",
+  "CapFirstExit.ridgeToy_saddle_strict"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -233,6 +242,36 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.convex_zeros_between": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_zeros_right": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_zeros_left": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_profile": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -292,6 +331,21 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.ridgeToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -302,23 +356,23 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 9450,
-   "sha256": "cf90d4dab9e83b62d660d54db77bee04d725ea831573c94b8220ff4eba878c69"
+   "bytes": 11611,
+   "sha256": "c4f249996df3032e91fcad24635e59ea459b386c2e8a932faf2cf5f5c0ae3048"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 25141,
-   "sha256": "05999d4f40706194a9762fb927c25658e59c17d878b4f8762979272a5364b62c"
+   "bytes": 41872,
+   "sha256": "743a5fce2272e5837da1dab7d0be9ecdc96105d04258d94be65d60d3c9edcd42"
   },
   {
    "path": "README.md",
-   "bytes": 7644,
-   "sha256": "78d4c6f9c1961326076959cb0b43253ee49c7d081b21178521b845a572aed762"
+   "bytes": 9032,
+   "sha256": "c7f862cf76e91e88d5c5f9fe25d0ab9f8cb870cc530066fc21f52739833aeebe"
   },
   {
    "path": "gate.py",
-   "bytes": 10833,
-   "sha256": "ee327566df5f428571e38672de933dc3d496abe32f979b540f972e5697ce4181"
+   "bytes": 11124,
+   "sha256": "14fee627636ec543159637e84d602acdf9e79f34c3b66b8eb82c5e2b4c234876"
   },
   {
    "path": "lake-manifest.json",
@@ -337,8 +391,8 @@
   },
   {
    "path": "test_gate.py",
-   "bytes": 4881,
-   "sha256": "015443b3d518b091ba09b8f3fe84f82f5ec24572e14d74bdc8cd2b11e661f8ab"
+   "bytes": 5295,
+   "sha256": "46ae6154b911eda5d5871efc9caa9c50bcee3f30c85a519ae408831c6f942155"
   }
  ]
 }

@@ -82,22 +82,25 @@ def forbidden_tokens(text):
 
 
 def declarations(text):
-    """Fully qualified names of top-level theorem/def/structure declarations."""
+    """Fully qualified names of top-level theorem/def/structure declarations.
+
+    Namespaces prefix names; named sections only scope variables and must close like namespaces."""
     stack, names = [], []
     for line in strip_comments(text).splitlines():
-        m = re.match(r'^namespace (' + NAME + r')\s*$', line)
+        m = re.match(r'^(namespace|section) (' + NAME + r')\s*$', line)
         if m:
-            stack.append(m.group(1))
+            stack.append((m.group(1), m.group(2)))
             continue
         m = re.match(r'^end (' + NAME + r')\s*$', line)
         if m:
-            require(stack and stack[-1] == m.group(1), 'unbalanced namespace: ' + m.group(1))
+            require(stack and stack[-1][1] == m.group(1), 'unbalanced namespace or section: ' + m.group(1))
             stack.pop()
             continue
+        require(re.match(r'^(section|end)\s*$', line) is None, 'anonymous section or end is not supported')
         m = DECL.match(line)
         if m:
-            names.append('.'.join(stack + [m.group(2)]))
-    require(not stack, 'unclosed namespace')
+            names.append('.'.join([n for k, n in stack if k == 'namespace'] + [m.group(2)]))
+    require(not stack, 'unclosed namespace or section')
     return names
 
 

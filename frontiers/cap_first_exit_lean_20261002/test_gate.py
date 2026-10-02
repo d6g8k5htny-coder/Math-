@@ -16,7 +16,7 @@ ALLOWED = ['propext', 'Classical.choice', 'Quot.sound']
 class SourceGate(unittest.TestCase):
     def test_tree_passes(self):
         m = gate.source_check()
-        self.assertEqual(len(m["targets"]), 43)
+        self.assertEqual(len(m["targets"]), 52)
         self.assertEqual(m['scientific_effect'], 'NONE')
 
     def copy(self):
@@ -86,6 +86,15 @@ class Declarations(unittest.TestCase):
         text = ('namespace A\ntheorem x : True := trivial\nnamespace B\nnoncomputable def y : Nat := 0\n'
                 'end B\nstructure Z : Prop where\n  p : True\nend A\n')
         self.assertEqual(gate.declarations(text), ['A.x', 'A.B.y', 'A.Z'])
+
+    def test_sections_do_not_prefix(self):
+        text = ('namespace A\nsection S\ntheorem x : True := trivial\nend S\n'
+                'theorem y : True := trivial\nend A\n')
+        self.assertEqual(gate.declarations(text), ['A.x', 'A.y'])
+
+    def test_anonymous_section_rejected(self):
+        with self.assertRaises(ValueError):
+            gate.declarations('section\ntheorem x : True := trivial\nend\n')
 
     def test_unbalanced(self):
         with self.assertRaises(ValueError):
