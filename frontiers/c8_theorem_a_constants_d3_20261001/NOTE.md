@@ -531,3 +531,13 @@ Pooled over 16 seeds:
   since `c_G^(3) (1/256)^3 > 1`.
 - **Status.** C8 stays OPEN.
 - **Independence.** Same GitHub account as every lane; zero organizational-independence credit. The author will not merge.
+
+## 12. Revisions
+
+- **v1 (`c4b8ec3`):** Theorem E3 on the band.
+- **v1.1:** documentation only. It changes two docstrings in `theorem_a3.py`, byte-identical copies of which are carried by
+  Math-#215 and Math-#227. The AST with docstrings removed is unchanged, and so are `RESULTS.json` and every constant.
+  - `sqrt_up` promised a relative error below `2^-200`; at `x = 49/100` the excess is `(8/7) 2^-200` (C59-DOC-01). The
+    stated bound is now `2^-198`: the root step adds less than `2^-209` and the rounding to 200 bits less than `2^-199`.
+  - `box_bound` said "every choice gives a valid bound". It now states the proved domain: `0 < x0 < 2/9` and
+    `0 < theta < 1` (C61). `COMBO = (1/64, 1/32)` lies inside it.
