@@ -40,7 +40,7 @@ single ridge path.
 | `CapHyp.elder_merge_iff_open` | for every `h`: the component of `M` in `{f > h}` contains a point `> b` **iff** `h < s` |
 | `CapHyp.elder_death_level` | the largest such `h` exists and equals `s` (L22's death level) |
 | `CapHyp.path_through_saddle` | under (C2⁺): every path from `M` to a point `> b` inside `{f ≥ s}` passes through `S` |
-| `CapHyp.saddle_cut` | under (C2⁺): in `{f ≥ s} \ {S}`, the component of `M` has no point `> b`; `S` is a cut point at the death level |
+| `CapHyp.saddle_cut`, `toy_saddle_cut` | under (C2⁺) and `M ≠ S`: `M` lies in its own component of `{f ≥ s} \ {S}`, so the statement is not vacuous, and that component has no point `> b`. `S` is a cut point at the death level. The toy shows this on concrete data |
 | `CapHyp.older_peak` | on a compact, locally connected space with continuous `f`: for every `h ≤ s`, `M`'s component in `{f ≥ h}` contains a local maximum `p` of `f` with `f p > b` that is highest in the component (the older class) |
 | `CapHyp.elder_alive` | with `b = f M`: for every `h > s`, `M` is a highest point of its component in `{f ≥ h}` |
 | `CapHyp.elder_death_level_peak` | compact, locally connected, continuous, `b = f M`: the largest level at which `M`'s component contains a strictly higher local maximum exists and is `s` |
@@ -106,6 +106,9 @@ The source gate checks:
 
 `--execute` additionally:
 
+- fails unless the running Lean is exactly the pinned release, and unless every dependency worktree is at its pinned
+  revision with no staged, unstaged or untracked changes (checked before the build and again when the receipt is
+  bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
 - prints the axioms of all 52 declarations, requiring exactly the manifest's report: each uses only `propext`,

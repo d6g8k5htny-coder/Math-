@@ -196,7 +196,8 @@ theorem elder_death_level (H : CapHyp f C M z b s) : IsGreatest (joinedLevels f 
 /-! ### The merging saddle -/
 
 /-- Every path from `M` to a point strictly above `b` that stays in `{f ≥ s}` passes through `S`,
-when `S` is the only frontier point at height `s` (C2⁺, L19). -/
+when `S` is the only frontier point at height `s` (C2⁺, L19). The statement says something only when
+`M ≠ S`, as in the source, where the pins are distinct. -/
 theorem path_through_saddle (H : CapHyp f C M z b s) {S : X}
     (hS : ∀ x ∈ frontier C, x ≠ S → f x < s) {w : X} (hw : b < f w) (γ : Path M w)
     (hγ : ∀ t, s ≤ f (γ t)) : ∃ t, γ t = S := by
@@ -208,12 +209,16 @@ theorem path_through_saddle (H : CapHyp f C M z b s) {S : X}
   have h2 := hγ t
   linarith
 
-/-- **`S` is a cut point at the death level.** Under (C2⁺), removing `S` from `{f ≥ s}` separates
-`M` from every point strictly above `b`, while `{f ≥ s}` itself joins them
-(`elder_merge_iff_closed` at `h = s`). -/
+/-- **`S` is a cut point at the death level.** Assume (C2⁺) and `M ≠ S`. Then `M` lies in its own
+component of `{f ≥ s} \ {S}`, so the statement is not vacuous, and that component contains no
+point strictly above `b`. By contrast, `{f ≥ s}` itself joins `M` to an older point
+(`elder_merge_iff_closed` at `h = s`). Removing `S` therefore disconnects `M` from every older
+point at the death level. -/
 theorem saddle_cut (H : CapHyp f C M z b s) {S : X}
-    (hS : ∀ x ∈ frontier C, x ≠ S → f x < s) {w : X}
-    (hw : w ∈ connectedComponentIn ({x | s ≤ f x} \ {S}) M) : f w ≤ b := by
+    (hS : ∀ x ∈ frontier C, x ≠ S → f x < s) (hMS : M ≠ S) :
+    M ∈ connectedComponentIn ({x | s ≤ f x} \ {S}) M ∧
+      ∀ w ∈ connectedComponentIn ({x | s ≤ f x} \ {S}) M, f w ≤ b := by
+  refine ⟨mem_connectedComponentIn ⟨H.s_le_f_M, hMS⟩, fun w hw => ?_⟩
   refine H.component_separated (fun x hx hxU => ?_) hw
   obtain ⟨h1, h2⟩ := hxU
   have h3 := hS x hx h2
@@ -720,6 +725,13 @@ theorem toy_saddle_strict : ∀ x ∈ frontier (Icc (-2 : ℝ) 1), x ≠ 1 → t
   · show max (-|(-2 : ℝ)|) ((-2 : ℝ) - 2) < -1
     norm_num [abs_of_neg]
   · exact absurd h hne
+
+/-- In the toy, removing `S = 1` from `{f ≥ -1}` disconnects `M = 0` from every older point. The
+cut is not vacuous: `M` lies in its own component. -/
+theorem toy_saddle_cut :
+    (0 : ℝ) ∈ connectedComponentIn ({x | (-1 : ℝ) ≤ toyF x} \ {1}) 0 ∧
+      ∀ w ∈ connectedComponentIn ({x | (-1 : ℝ) ≤ toyF x} \ {1}) 0, toyF w ≤ 0 :=
+  toy_capHyp.saddle_cut toy_saddle_strict (by norm_num)
 
 /-- The toy's elder death level is `-1`. -/
 theorem toy_death_level : IsGreatest (CapHyp.joinedLevels toyF 0 0) (-1) :=

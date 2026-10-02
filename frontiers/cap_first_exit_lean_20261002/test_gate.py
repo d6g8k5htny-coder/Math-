@@ -16,7 +16,7 @@ ALLOWED = ['propext', 'Classical.choice', 'Quot.sound']
 class SourceGate(unittest.TestCase):
     def test_tree_passes(self):
         m = gate.source_check()
-        self.assertEqual(len(m["targets"]), 52)
+        self.assertEqual(len(m["targets"]), 53)
         self.assertEqual(m['scientific_effect'], 'NONE')
 
     def copy(self):
@@ -101,6 +101,24 @@ class Declarations(unittest.TestCase):
             gate.declarations('namespace A\nend B\n')
         with self.assertRaises(ValueError):
             gate.declarations('namespace A\ntheorem x : True := trivial\n')
+
+
+class Pins(unittest.TestCase):
+    def test_version_exact(self):
+        ok = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit abc, Release)\n'
+        self.assertTrue(gate.check_lean_version(ok, 'leanprover/lean4:v4.34.1').startswith('Lean (version 4.34.1,'))
+        for bad in ('Lean (version 4.34.2, x86_64, Release)', 'Lean (version 4.34.10, x86_64, Release)',
+                    'Lean (version 4.34.1-rc1, x86_64, Release)', ''):
+            with self.assertRaises(ValueError):
+                gate.check_lean_version(bad, 'leanprover/lean4:v4.34.1')
+        with self.assertRaises(ValueError):
+            gate.pinned_lean_version('leanprover/lean4:nightly')
+
+    def test_worktree_clean(self):
+        gate.check_worktree_clean('mathlib', '')
+        for status in (' M Mathlib/Order/Basic.lean\n', 'M  Mathlib/Order/Basic.lean\n', '?? extra.lean\n'):
+            with self.assertRaises(ValueError):
+                gate.check_worktree_clean('mathlib', status)
 
 
 class Axioms(unittest.TestCase):

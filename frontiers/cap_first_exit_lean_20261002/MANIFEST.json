@@ -76,6 +76,7 @@
   "CapFirstExit.toy_frontier",
   "CapFirstExit.toy_capHyp",
   "CapFirstExit.toy_saddle_strict",
+  "CapFirstExit.toy_saddle_cut",
   "CapFirstExit.toy_death_level",
   "CapFirstExit.toy_f_M",
   "CapFirstExit.toy_f_S",
@@ -302,6 +303,11 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.toy_saddle_cut": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toy_death_level": [
    "Classical.choice",
    "Quot.sound",
@@ -356,23 +362,23 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 11703,
-   "sha256": "fb9ad4f75e247842b8cc0381b82326184f2ff634973dfb76f8c15e8d29bb23ff"
+   "bytes": 11887,
+   "sha256": "c55a89e0c5134f78d0051bda0f221a0f50f2802a72def8b2d37dc41d362821a8"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 41872,
-   "sha256": "743a5fce2272e5837da1dab7d0be9ecdc96105d04258d94be65d60d3c9edcd42"
+   "bytes": 42711,
+   "sha256": "2fe8943b74c6aa66a46b7b1db6fe5332f82dff2ee01ff27731188404ddad4ebd"
   },
   {
    "path": "README.md",
-   "bytes": 9032,
-   "sha256": "c7f862cf76e91e88d5c5f9fe25d0ab9f8cb870cc530066fc21f52739833aeebe"
+   "bytes": 9402,
+   "sha256": "5256f80e0e500f61098bac8cdd9e0a349573bf212ca5bcbf41af6566bf10c7f7"
   },
   {
    "path": "gate.py",
-   "bytes": 11124,
-   "sha256": "14fee627636ec543159637e84d602acdf9e79f34c3b66b8eb82c5e2b4c234876"
+   "bytes": 12390,
+   "sha256": "eaceb18e3ad096a0b1fab332dc095b78221867d79f9ba0e120b2c2e4812c7395"
   },
   {
    "path": "lake-manifest.json",
@@ -391,8 +397,8 @@
   },
   {
    "path": "test_gate.py",
-   "bytes": 5295,
-   "sha256": "46ae6154b911eda5d5871efc9caa9c50bcee3f30c85a519ae408831c6f942155"
+   "bytes": 6274,
+   "sha256": "f7df7152065d3fb69aed839138575b0cca3f821d958f5849f617e69e390bc6b3"
   }
  ]
 }

@@ -155,6 +155,37 @@ def source_check(root=ROOT, repo=REPO):
     return m
 
 
+def pinned_lean_version(toolchain):
+    m = re.fullmatch(r'leanprover/lean4:v(\d+\.\d+\.\d+)', toolchain)
+    require(m is not None, 'unrecognized toolchain pin: ' + toolchain)
+    return m.group(1)
+
+
+def check_lean_version(text, toolchain):
+    """The running Lean must be exactly the pinned release, not merely a compatible one."""
+    version = pinned_lean_version(toolchain)
+    require(re.match(r'Lean \(version ' + re.escape(version) + r',', text.strip()) is not None,
+            'running Lean differs from the pinned ' + version + ': ' + text.strip()[:120])
+    return text.strip()
+
+
+def check_worktree_clean(name, status):
+    """`git status --porcelain` output of a dependency: staged, unstaged or untracked changes fail."""
+    require(status.strip() == '', 'dependency worktree is not clean: ' + name + ': ' + status.strip()[:200])
+
+
+def dependency_state(m):
+    """Exact pinned revision and a clean worktree for every dependency, read from the checkouts."""
+    actual = {}
+    for name in m['dependency_revisions']:
+        repo = str(ROOT / '.lake' / 'packages' / name)
+        actual[name] = subprocess.check_output(['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()
+        check_worktree_clean(name, subprocess.check_output(
+            ['git', '-C', repo, 'status', '--porcelain', '--untracked-files=normal'], text=True))
+    require(actual == m['dependency_revisions'], 'checked-out dependency revisions differ from MANIFEST.json')
+    return actual
+
+
 def run(command, label, out, expect_success=True):
     proc = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=1800)
     log = proc.stdout + proc.stderr
@@ -169,6 +200,8 @@ def execute(m):
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
+    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out), m['toolchain'])
+    dependency_state(m)
     build = ROOT / '.lake' / 'build'
     require(not build.is_symlink(), 'symlink build directory')
     if build.exists():
@@ -197,10 +230,7 @@ def execute(m):
             outcomes[label] = 'REJECTED'
             continue
         raise ValueError('negative control escaped the audit: ' + label)
-    version = run(['lake', 'env', 'lean', '--version'], 'version', out).strip()
-    actual = {name: subprocess.check_output(['git', '-C', str(ROOT / '.lake' / 'packages' / name), 'rev-parse', 'HEAD'],
-                                            text=True).strip() for name in m['dependency_revisions']}
-    require(actual == m['dependency_revisions'], 'checked-out dependency revisions differ from MANIFEST.json')
+    actual = dependency_state(m)
     receipt = {
         'scientific_effect': 'NONE',
         'module': MODULE,
@@ -208,7 +238,7 @@ def execute(m):
         'toolchain': m['toolchain'],
         'dependency_revisions': actual,
         'source_sha256': {e['path']: e['sha256'] for e in m['files']},
-        'build': 'PASS', 'leanchecker': 'PASS',
+        'build': 'PASS', 'leanchecker': 'PASS', 'dependency_worktrees': 'CLEAN',
         'axioms': axioms,
         'negative_controls': outcomes,
         'alignment_review': 'NOT_CLAIMED'}
