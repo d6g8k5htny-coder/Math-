@@ -1,6 +1,6 @@
 # The fold-scale rejection limit through #242's soft model: Conjecture 6 of Math- #242 in every dimension, and its identification with the failure law of #170/#175
 
-Object: CL-FOLD-LIMIT-20261002-v1.3. Versions:
+Object: CL-FOLD-LIMIT-20261002-v1.4. Versions:
 - v1, `008b299`.
 - v1.1, `0740b2c`: the prior-work record AUTH-243-01, and Proposition FL.7.
 - v1.2, `11a4cd4`: rebinds #242 v1.2, and cites Codex's direct `d ≥ 3` cross-check of FL.7. Nonauthor slices A–E
@@ -8,6 +8,11 @@ Object: CL-FOLD-LIMIT-20261002-v1.3. Versions:
 - v1.3: applies the four minor findings of those reviews, OA-243-B-01, B-02, B-03 (Proposition FL.4) and D-01 (Step 5 of
   Theorem FL). It records Codex's reviewed direct identity D.1 after Proposition FL.7, and rebinds #242 v1.3, whose
   §§0–3 are byte-identical to v1.2. No statement changes; §9 lists the changed bytes.
+- v1.4: rebinds #242 v1.4 (`ffc7005`, blob `c1592915`). #242 v1.4 changes only its header and §5, after the C78 delta
+  review (5394316763), so the consumed §§0–3 are still byte-identical to the bytes the slice reviews read. The workflow now
+  resolves the #242 PR before reading the source. Once #242 has merged, its pinned blob must be in this tree, with no
+  fallback to the historical head. This applies the automated finding 4167121714 (raised on #244, same pattern). No
+  statement or proof changes; §9 lists the changed bytes.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 2 October 2026.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem FL, Propositions FL.4 and FL.7, Lemmas FL.1–FL.3; Corollaries FL.5 and FL.6
 recover merged results of #170 and #175).
@@ -100,10 +105,10 @@ domination are as in #170 §8 and #175 §§2 and 4.
   - #207 (`frontiers/cusp_second_order_20261001/PROOF.md`, blob `f6df5a73`): §0 (the elder mark and the maximin), Theorem
     CU.1 (the pin identities), and the structure of Proposition CU.3 and Theorem CU.4.
   - [C7-K] (`frontiers/c7_total_bounded_20260929/PROOF.md`, blob `28748b08`): (K2).
-- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `d504cdb`, blob `5fd29e63`; v1.3): §0,
+- Consumed (unmerged): #242 (`frontiers/soft_rejected_pairs_20261002/PROOF.md` at `ffc7005`, blob `c1592915`; v1.4): §0,
   (2.1)–(2.5), Lemmas 2 and 3, Proposition 2′ ((2.6)), (3.1). #242's §§0–3 are byte-identical to its v1.2 (blob
-  `ad4beb84`), which the slice reviews of v1.2 of this note read; v1.3 changed only #242's header, §4's numerical
-  sentences and §§5–9. This note must be rebound if that blob changes.
+  `ad4beb84`), which the slice reviews of v1.2 of this note read. v1.3 changed only #242's header, §4's numerical
+  sentences and §§5–9, and v1.4 only its header, §5 and §9. This note must be rebound if that blob changes.
 - Consumed through #207 §0: [E2] (`reviews/d1_section9_borel_repair_20260925/REPAIR.md`, blob `fe9b9ce4`), for the Borel
   measurability of the elder mark. Reading rules for [P]: [E1] (`imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`,
   blob `213594d6`) and [REC] (`reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`, blob `75da2597`).
@@ -890,7 +895,7 @@ These are argued in the text and are the subject of review slices B–E.
 | [CAP] | `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` (`0633aca3`) | §§1, 5: the deterministic cap theorem — consumed (as in [P] §7) |
 | [E1], [REC] | `imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md` (`213594d6`), `reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md` (`75da2597`) | reading rules for [P] |
 | [E2] | `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (`fe9b9ce4`) | the elder mark is Borel — consumed |
-| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `d504cdb` (`5fd29e63`, v1.3; §§0–3 as in v1.2's `ad4beb84`), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
+| #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `ffc7005` (`c1592915`, v1.4; §§0–3 as in v1.2's `ad4beb84`), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
 | OA lift | `frontiers/elder_dimension_lift_20260928/PROOF.md` (`7303bd79`) | (A3) — cited |
 | #229 | `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`) | (R⁺.1) — cited |
 | #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (`ef2aa579`) | §2 (Theorem E(1)), §§7–8 (the classifier, (S1), (S11), the mass `α₁ + α₂`), Theorem S, §9 — compared; consumed by Proposition FL.7 only |
@@ -910,6 +915,14 @@ These are argued in the text and are the subject of review slices B–E.
   the use of [P] (11.2) and [C7-K] (K2)), with §§5–6.
 
 A reviewer should record, per slice: ACCEPT, ACCEPT WITH FIXES (list), or REJECT (with the failing step).
+
+**Changed bytes in v1.4** (for a delta check against v1.3 at `4835564`):
+- *Header:* the object label, the v1.4 entry, and the #242 dependency (rebound to v1.4).
+- *§8:* the #242 source row.
+- *§9:* this list.
+- *Workflow:* the binding of the consumed #242 (finding 4167121714).
+
+Everything else in `PROOF.md`, and `fold_check.py` and `RESULTS.json`, is unchanged.
 
 **Changed bytes in v1.3** (for delta checks against the v1.2 slice reviews at `11a4cd4`):
 - *Header:* the object label and versions; the FL.7 item of "What is new" (D.1); the #242 dependency (rebound to v1.3).

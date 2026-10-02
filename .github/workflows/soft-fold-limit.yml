@@ -115,7 +115,8 @@ jobs:
               # also resolve the dependency PR now. Open: the file at its current head must be the pinned blob. Merged:
               # the file at its merge commit must be the pinned blob. Closed unmerged: rebinding is required.
               pr = get_json(api + '/pulls/' + entry['pr'].split('#', 1)[1])
-              if pr.get('merged'):
+              merged = bool(pr.get('merged'))
+              if merged:
                   ref = pr.get('merge_commit_sha')
               elif pr.get('state') == 'open':
                   ref = pr['head']['sha']
@@ -125,12 +126,18 @@ jobs:
               if node.get('type') != 'file' or node.get('sha') != entry['git_blob'] or node.get('size') != entry['bytes']:
                   raise ValueError('dependency ' + entry['pr'] + ' advanced: ' + entry['path'] + ' at ' + ref
                                    + ' is not the pinned blob (rebind required)')
-              return ref
+              return ref, merged
           for kind in ('consumed_unmerged', 'cited_unmerged'):
               for entry in manifest.get(kind, []):
-                  # a landed consumed dependency must be the recorded regular-file blob in this tree (symlinks and any
-                  # other mode are rejected by tree_bytes); otherwise the source is bound through the API
+                  # a consumed dependency's PR is resolved first (Codex review 4167121714 on #244). Once it has merged,
+                  # its source must be the recorded regular-file blob in this tree: a deleted, renamed or changed landed
+                  # source fails, and there is no fallback to the historical head. While it is open, the source is bound
+                  # through the API. Cited sources are bound through the API.
+                  now, merged = current(entry) if kind == 'consumed_unmerged' else (None, False)
                   landed = tree_bytes(entry) if kind == 'consumed_unmerged' else None
+                  if merged and landed is None:
+                      raise ValueError('dependency ' + entry['pr'] + ' has merged but its pinned source is absent from this '
+                                       'tree: ' + entry['path'])
                   if landed is not None:
                       data, where = landed, 'tree'
                   else:
@@ -139,9 +146,8 @@ jobs:
                       data, where = bound(entry), 'head/path/blob api'
                   if not same(data, entry):
                       raise ValueError(kind + ' source differs from its pinned blob (rebind required): ' + entry['path'] + ' via ' + where)
-                  now = current(entry) if kind == 'consumed_unmerged' else None
                   print(json.dumps({kind + '_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head'],
-                                    'via': where, 'current_ref_checked': now}))
+                                    'via': where, 'current_ref_checked': now, 'dependency_merged': merged}))
           script = str(root / 'fold_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):

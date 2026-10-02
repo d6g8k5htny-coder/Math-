@@ -2,7 +2,7 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-FOLD-LIMIT-20261002-v1.3`. Full text: [`PROOF.md`](PROOF.md). Versions:
+Object `CL-FOLD-LIMIT-20261002-v1.4`. Full text: [`PROOF.md`](PROOF.md). Versions:
 - v1 `008b299`;
 - v1.1 `0740b2c`: prior work, Proposition FL.7;
 - v1.2 `11a4cd4`: rebinds #242 v1.2 and cites Codex's `d ≥ 3` cross-check. Nonauthor slices A–E reviewed this head.
@@ -14,6 +14,9 @@ Object `CL-FOLD-LIMIT-20261002-v1.3`. Full text: [`PROOF.md`](PROOF.md). Version
 
   It also records Codex's reviewed direct identity D.1 after FL.7, and rebinds #242 v1.3 (`d504cdb`, blob `5fd29e63`),
   whose consumed §§0–3 are byte-identical to v1.2. No statement changes in substance. PROOF §9 lists the changed bytes.
+- v1.4 rebinds #242 v1.4 (`ffc7005`, blob `c1592915`). #242 v1.4 changes only its header and §5, after the C78 review
+  5394316763, so the consumed §§0–3 are unchanged. The workflow now requires #242's pinned blob in the tree once #242 has
+  merged (automated finding 4167121714 on #244; same pattern here). No statement or proof changes.
 
 ## Prior work (AUTH-243-01)
 
