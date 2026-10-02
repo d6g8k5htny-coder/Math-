@@ -1,22 +1,34 @@
-# The fold-scale rejection limit in every dimension
+# The fold-scale rejection limit through #242's soft model
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-FOLD-LIMIT-20261002-v1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-FOLD-LIMIT-20261002-v1.1`; v1 was `008b299`. Full text: [`PROOF.md`](PROOF.md).
+
+## Prior work (AUTH-243-01)
+
+Two OpenAI packets are merged on `main` as author-side candidates, each at its stated conditional scope: Math- #170
+(`d = 2`) and Math- #175 (fixed `d ≥ 3`). At fixed marks they already prove:
+- the failure law `r^{−3}(1 − p_r) → α₁ + α₂` (Theorems S and F), and hence the existence of the fold-scale limit of the
+  rejected kernel, `kA_∗(α₁ + α₂)`;
+- the compact-window `ℓ^{2/3}` coefficient (their §§9 and 7);
+- the transfer of the window decision to the global field (#170 Theorem E(2)–(3), #175 Theorem H);
+- the critical-chord bound `d(M̂) ≥ L_S` (#170 §3).
+
+v1 of this packet did not cite them. v1.1 records this and claims no priority for those statements.
 
 ## Result
 
 Math- #242 (open) defines the fold-scale rejection rate `F(k; b, u)` through an explicit soft model and the elder decision
-of its Lemma 2, and states as Conjecture 6 that the rejected kernel at a fixed gap `k = ℓ/r³` converges to it. This note
-proves that conjecture in every dimension and draws two consequences for the parent's Theorems A and B.
+of its Lemma 2. Its Conjecture 6 states that the rejected kernel at a fixed gap `k = ℓ/r³` converges to `F`.
 
 | | Statement | Status |
 |---|---|---|
-| **Theorem FL** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0`, every `d ≥ 2`, uniformly for `(b, k)` in compacts; the limit in #242 (3.1) exists, and `F` is continuous and positive | proof |
-| **Corollary FL.5** | `r^{−3}(1 − p_r) → F/(k·A_∗) ∈ (0, ∞)` (fixed `u`, uniformly for `(b, k)` in compacts): the constant in the `Θ(r³)` selection loss of [P] Theorem A and the OA lower bound (A3) | proof |
-| **Corollary FL.6** | compact mark windows: `ν_cand − ν_eld = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3})`, `d_{𝐁,𝐊} = (1/3)∫∫∫k^{−8/3}F > 0`; so also `E[N_cand − N_eld](0, t] ~ (3/5)d_{𝐁,𝐊}t^{5/3}` | proof |
-| **Proposition FL.4** | stability of #242 Lemma 2's decision: every `C²`-small perturbation with the pins as critical points has the model's decision, for the global superlevel filtration of any field realizing it in a window; stiff directions included | proof |
-| **Lemma FL.2** | the generic set `𝒦` has full measure; a rejected model maximum always dies strictly above the saddle level (an axial path, observed by OpenAI Codex on #242), and case (D′) needs `χ > 0` | proof |
+| **Theorem FL** | `(k/r)r^{−2}A_r^{rej}(b, k, u) → F(k; b, u)` as `r → 0`, for every `d ≥ 2`, uniformly for `(b, k)` in compacts. The limit in #242 (3.1) exists, and `F` is continuous and positive. This is Conjecture 6. The identification with `F`, the continuity and the local uniformity are new. The decision and convergence steps take a different route from #170/#175; the cap-region domination is shared. | proof |
+| **Proposition FL.7** | #242's model is #170's cubic: `G_k(X, ζ) = P_θ(X, kζ)/k`, with `θ = (−λ̃/k, γ, B, C_3)`. The typed domain, weight and maximin decision are the same, so `F = kA_∗a_fail`. In `d = 2` this is an identity of model integrals, which with #170 Theorem S gives a second proof of Conjecture 6. In `d ≥ 3` it follows by uniqueness of limits, conditional on #175. | proof |
+| **Corollary FL.5** | `r^{−3}(1 − p_r) → F/(k·A_∗)`: #170 Theorem S and #175 Theorem F, in #242's form | recovers merged results |
+| **Corollary FL.6** | compact mark windows: `ν_cand − ν_eld = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3})`, with `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}` (#170 §9, #175 §7) | recovers merged results |
+| **Proposition FL.4** | the decision transfer of #170 Theorem E(2)–(3) and #175 Theorem H, re-proved in #242's normalization by paths and traps (an `ε`-form for a continuous global field), with the generic set adapted to #242's slice decision; stiff directions included | proof (method new) |
+| **Lemma FL.2** | the generic set `𝒦` has full measure; a rejected model maximum always dies strictly above the saddle level (#170 §3's critical chord; observed on #242 by OpenAI Codex); case (D′) needs `χ > 0` | proof |
 | **Lemma FL.3** | a nondegenerate saddle can be crossed along a model curve, robustly under `C²`-small perturbation | proof |
 | **Lemma FL.1** | the soft window of a pinned `C⁵` field is `C²`-close to the model: rate `r` (`d = 2`), `r^{1/2}` (`d ≥ 3`), constant linear in `‖f‖_{C⁵}` | proof |
 
@@ -57,8 +69,9 @@ on three fixed points. Its output is `RESULTS.json`, byte-identical under `-O`.
 | F4 | Proposition FL.4: the exact (D′) witness `G_{(3/2, 8/3, 20/3)}(X, z) = (1/9)G_{(1/6, 0, 0)}(X + 2z, 3z)`, a factorization proving it has exactly three critical points, the crossing forms at `Ŝ`, the two facts used in Lemma FL.2(c), and floating-point certificate margins on three fixed points |
 | F5 | Theorem FL: the change of variables `μ̃ ↔ φ`, the constant `384`, and `χ = χ_0φ²` |
 | F6 | the corollaries: the factorization (4.2) of `R − L_S` at `ϖ = (φ, 0, 0)` and its discriminant, exact Sturm certificates of rejection for `φ ∈ {2/5, 1/2, 3/4, 9/10}`, and the exponents of the pushforward |
+| F7 | Proposition FL.7: `G_k(X, ζ) = P_θ(X, kζ)/k` as a polynomial identity, `Y = 3kB′`, the weight identity `9k²(4s² − B′²) = 36λ̃² − Y²`, the typed domains, the hard factor `𝒱(0, μ)(Πμ_j)² = Πμ_j³Π(μ_j − μ_i)` (`m = 2, 3, 4`), and the exponent of `d_{𝐁,𝐊} = C_fail`. The decision equivalence (iii) is tested numerically by the referee (PROOF §5), not by F7 |
 
-Mutants `M1`–`M7` each fail only their own control (the checker names it on stderr), and an unknown label exits 2:
+Mutants `M1`–`M8` each fail only their own control (the checker names it on stderr), and an unknown label exits 2:
 
     python3 -B -S fold_check.py                  # exit 0, output = RESULTS.json
     python3 -B -S fold_check.py --mutant M1      # exit 1
@@ -68,7 +81,9 @@ Mutants `M1`–`M7` each fail only their own control (the checker names it on st
 - No rate in Theorem FL, and no uniformity as `k → 0` or `k → ∞`.
 - #242 Conjecture 7 (the unrestricted `ℓ^{2/3}` term) is not proved; it still needs #242 §4's inputs (i)–(ii).
 - No numerical constant is certified.
-- No change to #242, [P] or any other packet; #242 is consumed at a pinned blob.
+- No priority for the existence of the limit, the constant in `1 − p_r ~ r³`, the compact-window `ℓ^{2/3}` coefficient, the
+  window-to-global decision transfer, or the critical-chord bound (#170, #175).
+- No change to #242, [P], #170, #175 or any other packet; #242 is consumed at a pinned blob.
 
 ## Review record
 
@@ -88,6 +103,20 @@ The same referee then checked the fixes: **ACCEPT WITH MINOR FIXES**. Every fix 
 `Ŝ`, the domain of Lemma FL.3, two descriptions in §§5 and 7, the `kind` summary and the reading rules [E1], [REC], and the
 description of [CAP]. All seven were applied. After that check, Step 4 of Proposition FL.4 was reordered so that `W` and
 `R_η` are fixed after `ε` and visibly contain the balls of Lemma FL.3; the argument is unchanged.
+
+**v1.1 (author, after opening).** The author found that #170/#175 had not been cited. This is recorded as AUTH-243-01 on the
+PR.
+- *Changes.* v1.1 adds the prior-work statement, Proposition FL.7, control F7 and mutant M8. It relabels Corollaries
+  FL.5–FL.6, credits #170/#175 for the decision transfer and the critical chord, and updates §§4–9. The arguments of
+  §§1–3 are unchanged.
+- *Referee pass on the change.* A third clean-context same-family referee checked Proposition FL.7 and the prior-work
+  record: **ACCEPT WITH FIXES** for both.
+  - It re-derived (i) and (ii) with sympy, and checked the normalizations of (iv) end to end. It compared (iii) on 1,800
+    typed points, with no disagreement.
+  - It found three MAJOR wording findings: the decision-transfer and critical-chord credits; the conditional status of the
+    `d ≥ 3` identity; and the description of #170/#175's route and of what is shared.
+  - It also found four MINOR findings and six NITs.
+  - All are applied.
 
 Same GitHub account and same provider as the author: zero organizational-independence credit. Nonauthor review is
 required for every slice (`PROOF.md` §9).

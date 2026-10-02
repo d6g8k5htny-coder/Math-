@@ -142,14 +142,19 @@
    }
   }
  },
+ "F7": {
+  "hard_factor_cases": 14,
+  "random_jets": 40
+ },
  "controls": {
   "F1_model_pins_and_weight": true,
   "F2_lemma_FL2_generic": true,
   "F3_lemma_FL1_window": true,
   "F4_proposition_FL4_certificates": true,
   "F5_theorem_FL_bookkeeping": true,
-  "F6_corollaries": true
+  "F6_corollaries": true,
+  "F7_proposition_FL7_identification": true
  },
- "object": "CL-FOLD-LIMIT-20261002-v1",
+ "object": "CL-FOLD-LIMIT-20261002-v1.1",
  "scientific_effect": "NONE"
 }

@@ -1,8 +1,9 @@
-# The fold-scale rejection limit in every dimension: Conjecture 6 of Math- #242, the constant in `1 − p_r ~ r³`, and the compact-window `ℓ^{2/3}` law
+# The fold-scale rejection limit through #242's soft model: Conjecture 6 of Math- #242 in every dimension, and its identification with the failure law of #170/#175
 
-Object: CL-FOLD-LIMIT-20261002-v1.
+Object: CL-FOLD-LIMIT-20261002-v1.1 (v1: `008b299`; v1.1 adds the prior-work record AUTH-243-01 and Proposition FL.7).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 2 October 2026.
-Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem FL, Corollaries FL.5 and FL.6, Proposition FL.4, Lemmas FL.1–FL.3).
+Disposition: AUTHOR-SIDE PROOF CANDIDATE (Theorem FL, Propositions FL.4 and FL.7, Lemmas FL.1–FL.3; Corollaries FL.5 and FL.6
+recover merged results of #170 and #175).
 Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS, PROOF_INDEX, prize or Boolean change; no
 numerical constant is certified. Same GitHub account as every lane; zero organizational independence.
 
@@ -12,33 +13,72 @@ as **Conjecture 6** that the actual rejected kernel at a fixed gap `k = ℓ/r³`
 
     lim_{r↓0} (k/r)·r^{−2}A_r^{rej}(b, k, u) = F(k; b, u).                                                         (0.0)
 
-This note proves (0.0) in every `d ≥ 2`. It is the fold-scale counterpart of #207's Theorem CU.4 (the cusp kernels at a fixed
-`κ`). The new points are that the decision is #242's Lemma 2 (slices are cubic, and in one case the saddle is a slice
-minimum), that the transverse curvature must be zoomed at the scale `r` (the soft layer), and that the domination comes from
-the parent's deterministic cap region ([P] §7), which confines rejection to that layer.
+**Prior work (recorded in v1.1, AUTH-243-01).** That the left side of (0.0) converges is not new. Two OpenAI packets are
+merged on `main` as author-side candidates, each at its stated conditional scope:
+- Math- #170 (`d = 2`), conditional on its Theorem E and its source interfaces;
+- Math- #175 (fixed `d ≥ 3`), conditional on its source interfaces and its Theorem H.
+
+Their Theorems S and F prove, at fixed marks, `r^{−3}(1 − p_r) → a_fail` (`= α₁ + α₂` in #170, `a1 + a2` in #175). This is an
+identified Gaussian integral over the window-saddle classifier of #170's typed cubic. Their §§9 and 7 give the compact-window
+`ℓ^{2/3}` coefficient. Since `(k/r)r^{−2}A_r^{rej} = kA_r·r^{−3}(1 − p_r)`, the left side of (0.0) tends to `kA_∗a_fail`. Two
+further statements here are also theirs:
+- the decision transfer from a window model to the global field (#170 Theorem E(2)–(3), #175 Theorem H);
+- the lower bound `d(M̂) ≥ L_S` by a critical chord through `S` (#170 §3).
+
+#242 and v1 of this note did not cite them. What Conjecture 6 adds is the identification of the limit with #242's `F`.
+
+This note proves (0.0) in every `d ≥ 2` along a partly different route (§§1–3). It identifies the two limits directly in
+`d = 2`, and by uniqueness of limits in `d ≥ 3` (Proposition FL.7). Theorem FL is the fold-scale counterpart of #207's
+Theorem CU.4 (the cusp kernels at a fixed `κ`). Its decision step is #242's Lemma 2: the slices are cubic, and in one case
+the saddle is a slice minimum. The transverse curvature is zoomed at the scale `r` (the soft layer), and the domination
+comes from the parent's deterministic cap region ([P] §7), which confines rejection to that layer. The zoom and the
+domination are as in #170 §8 and #175 §§2 and 4.
 
 **What is new.**
 - **Theorem FL** (§3). (0.0) holds for every `d ≥ 2`, `L > 0`, `b ∈ R`, `k > 0` and `u ∈ S^{d−1}`, uniformly for `(b, k)` in
   compact subsets of `R × (0, ∞)`. The limit defining `F` in #242 (3.1) exists, and `F` is continuous and positive.
-- **Corollary FL.5** (§4, the selection loss). `r^{−3}(1 − p_r(b, k, u)) → F(k; b, u)/(k·A_∗(b, k, u)) ∈ (0, ∞)`. [P]'s
-  Theorem A gives `1 − p_r ≤ Cr³` and the merged dimension lift gives `1 − p_r ≥ cr³`; this identifies the constant.
-- **Corollary FL.6** (§4, the compact-window density difference). For the compact mark windows of [P]'s Theorem B,
-  `ν_cand(ℓ) − ν_eld(ℓ) = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3})` with `d_{𝐁,𝐊} = (1/3)∫∫∫_{S^{d−1}×𝐁×𝐊} k^{−8/3}F(k; b, u) > 0`. This
-  sharpens [P] (1.2) from `O(ℓ^{2/3})` to an asymptotic law; it is the compact-window analogue of #242's Conjecture 7.
-- **Proposition FL.4** (§2, stability of #242's Lemma 2). For every parameter `ϖ` in a full-measure set `𝒦`, every
-  `C²`-small perturbation of the model with the two pins as critical points has the elder decision of the model, for the
-  global superlevel filtration of any field that realizes it in a window. The certificates are explicit paths and traps
-  crossing the saddle along model curves. In `d ≥ 3` the stiff directions enter as a negative definite form.
-- **Lemma FL.2** (§2). `𝒦` has full measure; the proof gives explicit Jacobians, `z⁴(X ± ½)/(96φ²)` for the level
-  conditions. In the model a rejected maximum always dies strictly above the saddle level (by an axial path, an observation
-  of OpenAI Codex on #242), and #242's case (D′) requires `χ > 0`: for `β > 2`, `χ < 0` the pair is always rejected.
+  - *Relative to #170/#175,* which are pointwise at fixed marks, the identification with `F`, the continuity and the local
+    uniformity are new.
+  - *The decision and convergence steps take a different route.* They condition on the contact Hessian with a Weyl zoom
+    and use #242's slice decision with Proposition FL.4. They do not consume [CUB], [TWO], [SC], [LOCAL] or #175's
+    hard-fibre lemma.
+  - *The domination step is the same cap-region mechanism as theirs.*
+- **Proposition FL.7** (§4, the identification). #242's model and #170's cubic are the same function,
+  `G_k(X, ζ) = P_θ(X, kζ)/k` with `θ = (−λ̃/k, γ, B, C_3)`, and their typed domains, limiting weights and maximin decisions
+  agree.
+  - In `d = 2`, `F = kA_∗a_fail` is a direct identity of model integrals. With #170 Theorem S it gives a second proof of
+    (0.0) at each fixed `(b, k, u)`.
+  - In `d ≥ 3` the identity follows from Theorem FL and #175 Theorem F by uniqueness of limits. It is therefore conditional
+    on #175's interfaces.
+- **Corollaries FL.5 and FL.6** (§4) are not new. They are #170 Theorem S and §9 (`d = 2`) and #175 Theorem F and §7
+  (`d ≥ 3`), recovered with the constants in #242's form:
+  - `r^{−3}(1 − p_r) → F/(k·A_∗)`, now locally uniformly in `(b, k)`;
+  - `ν_cand − ν_eld = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3})`, with `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}` of #170 §9 in `d = 2`.
+- **Proposition FL.4** (§2) re-proves, in #242's normalization, the decision transfer of #170 Theorem E(2)–(3) and #175
+  Theorem H. For every parameter `ϖ` in a full-measure set `𝒦`, every `C²`-small perturbation of the model with the two pins
+  as critical points has the model's elder decision. This holds for the global superlevel filtration of any field that
+  realizes the perturbation in a window.
+  - *What differs is the method:* explicit paths and traps crossing the saddle along model curves (Lemma FL.3), an `ε`-form
+    for a merely continuous global field, and the generic set `𝒦` adapted to #242's slice decision.
+  - In `d ≥ 3` the stiff directions enter as a negative definite form; this is #175's hard tube.
+- **Lemma FL.2** (§2). `𝒦` has full measure, with explicit Jacobians `z⁴(X ± ½)/(96φ²)` for the level conditions.
+  - In the model a rejected maximum always dies strictly above the saddle level. This is #170 §3's critical chord through
+    `S`; OpenAI Codex observed it on #242 as an axial path.
+  - #242's case (D′) requires `χ > 0`: for `β > 2`, `χ < 0` the pair is always rejected.
 - **Lemma FL.1** (§1) makes #242's expansions (2.1) and (2.6) quantitative: the soft window of a pinned `C⁵` field is
   `C²`-close to the model, at rate `r` (`d = 2`) or `r^{1/2}` (`d ≥ 3`), with a constant linear in `‖f‖_{C⁵}` and independent
   of the transverse eigenvalues.
 
-**What is not claimed.** Conjecture 7 of #242 (the `ℓ^{2/3}` term of the unrestricted `ρ_rej`) is not proved: it needs
-(0.0) uniformly from the cusp scale to the fold scale with integrable errors, and the intermediate separations (#242 §4,
-inputs (i)–(iii)). Theorem FL is a limit without rate, at fixed `k` (locally uniformly). No numerical value is certified.
+**What is not claimed.**
+- Conjecture 7 of #242 (the `ℓ^{2/3}` term of the unrestricted `ρ_rej`) is not proved. It needs (0.0) uniformly from the
+  cusp scale to the fold scale with integrable errors, and the intermediate separations (#242 §4, inputs (i)–(iii)).
+- Theorem FL is a limit without rate, at fixed `k` (locally uniformly). No numerical value is certified.
+- No priority is claimed for #170's and #175's results:
+  - the existence of the limit in (0.0);
+  - the constant in `1 − p_r ~ r³`;
+  - the compact-window `ℓ^{2/3}` coefficient;
+  - the transfer of the window decision to the global field;
+  - the critical-chord bound `d(M̂) ≥ L_S`.
 
 **Dependencies.**
 - Consumed (merged):
@@ -57,6 +97,22 @@ inputs (i)–(iii)). Theorem FL is a limit without rate, at fixed `k` (locally u
 - Consumed through #207 §0: [E2] (`reviews/d1_section9_borel_repair_20260925/REPAIR.md`, blob `fe9b9ce4`), for the Borel
   measurability of the elder mark. Reading rules for [P]: [E1] (`imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md`,
   blob `213594d6`) and [REC] (`reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md`, blob `75da2597`).
+- Compared (merged, author-side candidates at their stated conditional scope), and consumed by Proposition FL.7 only:
+  - #170 (`frontiers/local_elder_geometry_20260930/PROOF.md`, blob `ef2aa579`):
+    - §2: the typed cubic `P_θ`, `B′`, `C(P)`, the null sets, and Theorem E(1);
+    - §§7 and 8.1: the classifier `n(θ)`, (S1) and the weight `w_+`;
+    - §8.5 (S11): the weight limit;
+    - §8.6: the mass `α₁ + α₂`;
+    - Theorem S, (S2);
+    - §9: `C_fail`.
+  - #175 (`frontiers/concave_fibre_elder_20260930/PROOF.md`, blob `923d3236`):
+    - §§1–2: the model and the soft cubic, `n ∈ {0, 1, 2}`;
+    - §3: Theorem H;
+    - §5: Theorem F, (S1)–(S3);
+    - §7.
+
+  Through them, FL.7 depends transitively on #170's [CUB] classifier (via Theorem E(1)). In `d ≥ 3` it also depends on
+  #175's source interfaces ([SC], [LOCAL], and the hard-fibre lemma).
 - Cited only: OpenAI Codex's #242 Slice B review (comment 5948352439, the axial path in Lemma FL.2(c)); OA dimension lift
   (`frontiers/elder_dimension_lift_20260928/PROOF.md`, blob `7303bd79`): (A3); #229
   (`frontiers/third_order_rate_20261001/PROOF.md`, blob `110ed33a`): (R⁺.1); #242 Theorem 1 and Proposition 4 (same blob as
@@ -199,8 +255,10 @@ null set. At `X = −1` the conditions force `a(−1) = 0` and then `χ = 0`; at
 inflection value, which is therefore `≥ L_S`; equality is excluded by (G3).
 
 *Proof of (c).* The axial segment `{(X, 0) : −½ ≤ X ≤ 2}` carries `G_ϖ = A₀`, with `A₀ − L_S = (X − ½)²(X + 1)/(12φ) ≥ 0`
-(equality only at `Ŝ`), and it ends at `A₀(2) = 25/(48φ) > 0`. So `d(M̂) ≥ L_S` for every typed `ϖ`. This observation is
-OpenAI Codex's, in its review of #242 Lemma 2 (comment 5948352439). Hence `e(G_ϖ) = 1` iff `d(M̂) ≤ L_S`, i.e. iff for every
+(equality only at `Ŝ`), and it ends at `A₀(2) = 25/(48φ) > 0`. So `d(M̂) ≥ L_S` for every typed `ϖ`. This is #170 §3's
+critical-chord bound through `S` (for a cubic, the restriction to a chord between two critical points is
+`P(M) + (P(Y) − P(M))(3t² − 2t³)`). OpenAI Codex observed it for #242's model in its review of Lemma 2
+(comment 5948352439). Hence `e(G_ϖ) = 1` iff `d(M̂) ≤ L_S`, i.e. iff for every
 `c > L_S` the point `M` is the highest point of its component of `{G_ϖ > c}`. Assume this, with `ϖ ∈ 𝒦`. As in Step 1 of the
 proof of Lemma 2:
 - (i) `R < 0` on `I_M ∖ {−½}`. A point `X*` with `R(X*) > 0` would put a point above `0` into `M`'s component at the level
@@ -511,10 +569,61 @@ continuously. All bounds above are uniform on `𝒞`. A diagonal argument then g
 uniform convergence. Positivity is proved in Corollary FL.5. (Uniformity in `u` would need `u_n → u` in this argument as
 well; it is not claimed.) ∎
 
-## 4. The selection loss and the compact-window density difference
+## 4. The identification with #170/#175, the selection loss, and the compact-window density difference
 
-**Corollary FL.5 (the constant in `1 − p_r ~ r³`).** For fixed `u ∈ S^{d−1}`, uniformly for `(b, k)` in compact subsets of
-`R × (0, ∞)`,
+**Proposition FL.7 (the model of #170 and #175).** For the jets `(λ̃, γ, B, C_3)` of (0.2), put
+`θ := (s, a, β′, c) := (−λ̃/k, γ, B, C_3)`. In `d = 2` these are #170's coordinates `(f_zz(0)/r, f_xxz(0), f_xzz(0), f_zzz(0))`
+(§8.1 there); in `d ≥ 3` they are #175's soft coordinates (`μ_1 = −rs`, §2 there). Let
+
+    P_θ(X, Z) := 2kX³ − 3kX/2 − k/2 + sZ²/2 + (a/2)(X² − ¼)Z + (β′/2)XZ² + (c/6)Z³,    B′ := β′ − a²/(12k),        (4.0)
+
+be #170's typed cubic. Let `n(θ)` be its number of additional critical points with values in `(−k, 0)`, that is, the
+number of points of `C(P_θ)` (#170 §2; the classifier of #170 §§7 and 8.1, with `n ∈ {0, 1, 2}` by #175 §2). Then:
+- (i) `G_k(X, ζ) = P_θ(X, kζ)/k` identically.
+- (ii) `Y = 3kB′`. So the typed domains agree (`s < −|B′|/2` iff `|Y| < 6λ̃`), and so do the limiting weights:
+  `9k²(4s² − B′²) = 36λ̃² − Y²`.
+- (iii) For typed `θ` with `γ ≠ 0`, off #170's null sets `Σ_k ∪ Δ_k`, `1 − e(G_ϖ) = 1{n(θ) > 0}`.
+- (iv) `F(k; b, u) = kA_∗(b, k, u)·a_fail(b, k, u)` and `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}`.
+  - In `d = 2`, `a_fail = α₁ + α₂` is #170's (S2), and `C_fail` is #170 §9. This case is an identity of model integrals.
+  - In `d ≥ 3`, `a_fail = a1 + a2` is #175's (S2)–(S3), and `C_fail` is #175 §7 (L1). This case uses uniqueness of limits
+    and is conditional on #175 Theorem F.
+
+*Proof.*
+- (i) This is a polynomial identity (control F7). `2(X + ½)²(X − 1) = 2X³ − 3X/2 − ½`, and the terms of #242 (2.1) in `ζ`,
+  `ζ²` and `ζ³` are `(γ/2)(X² − ¼)ζ`, `−(λ̃/2)ζ² + (kB/2)Xζ²` and `(k²C_3/6)ζ³`. These are the terms of `P_θ(X, kζ)/k`.
+- (ii) `Y = 3kB − γ²/4 = 3kB′`, and `λ̃ = −ks`.
+- (iii) By (i) and (0.4), `G_ϖ(X, z) = (λ̃/(kγ²))P_θ(X, k(γ/λ̃)z)`. This is an invertible linear change of variables
+  fixing `M̂ = M` and `Ŝ = S`, followed by a positive factor; it preserves maximin levels up to that factor, and it maps
+  `L_S` to `−k`. By #170 Theorem E(1), the maximin level of `P_θ` is `h_*(θ) = max({−k} ∪ P_θ(C(P_θ))) ≥ −k`. So
+  `e(G_ϖ) = 1` iff `h_*(θ) = −k` iff `n(θ) = 0`.
+- (iv) In `d = 2`, Step 5 of Theorem FL and Fubini give
+  `F = 12π_0(u; v_0)∫_0^∞dμ̃∫(36μ̃² − Y²)1{|Y| < 6μ̃}(1 − e(G_ϖ))h_0(0, γ, B, C_3)dγ dB dC_3`. Here `h_0` is the joint
+  density of `(𝔸, γ, B, C_3)` under the contact law, with `e_1` the transverse unit vector of #170's frame. Flipping `e_1`
+  changes neither `ϖ` nor `w_+` nor `n`. Put `μ̃ = −ks`, so that `dμ̃/ds = −k` and `∫_0^∞dμ̃ = k∫_{−∞}^0 ds`, and use
+  (ii)–(iii). This becomes `k·12π_0∫w_+(θ)h_0(0, a, β′, c)1{n(θ) > 0}dθ`, which is `k·A_∗·a_fail` by #170 (S1)–(S2), (S11)
+  and `A_∗ = 12π_0z_0`.
+  - *Every `d ≥ 2`.* Uniqueness of limits gives the same identity. `(k/r)r^{−2}A_r^{rej} = kA_r·r^{−3}(1 − p_r)` tends to `F`
+    by Theorem FL, and to `kA_∗a_fail` by #170 Theorem S or #175 Theorem F.
+  - *In `d ≥ 3` the integrands also agree, up to the normalization `c_m dO` of the Weyl formula.*
+    `𝒱(0, μ_2, …, μ_m)(μ_2⋯μ_m)² = Π_{j≥2}μ_j³Π_{2≤i<j}(μ_j − μ_i)` is #175's hard factor, and both decisions are the planar
+    one (#175 Theorem H; Proposition FL.4 here).
+  - *The last claim.* Integrating `(1/3)k^{−8/3}F = A_∗a_fail/(3k^{5/3})` gives `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}`. ∎
+
+**A second proof of (0.0) in `d = 2`.** At each fixed `(b, k, u)`, conditional on #170's interfaces, (0.0) follows without
+the field analysis of §§1–3. The ingredients are:
+- #170 Theorem S;
+- `A_r → A_∗` ([P] (10.3));
+- parts (i)–(iii) above, and the computation in (iv);
+- the existence of the limit in #242 (3.1).
+
+That last limit is a model-level fact. In `d = 2` the jets `(γ, B, C_3)` do not depend on an eigenvector, so it follows from
+dominated convergence with #242 Lemma 3's bound; Step 5 of Theorem FL proves it in every `d`.
+
+Theorem FL is then a second proof with a partly different route, and it also gives continuity and local uniformity. In
+`d ≥ 3` the direct computation would also need the Weyl normalization of #175 §2 matched with (3.4); that is not done here.
+
+**Corollary FL.5 (the constant in `1 − p_r ~ r³`; #170 Theorem S, #175 Theorem F).** For fixed `u ∈ S^{d−1}`, uniformly
+for `(b, k)` in compact subsets of `R × (0, ∞)`,
 
     r^{−3}(1 − p_r(b, k, u)) → F(k; b, u)/(k·A_∗(b, k, u)) ∈ (0, ∞)    (r → 0).                                        (4.1)
 
@@ -534,17 +643,20 @@ uniformly for `φ ∈ [1/3 + δ_5, 1 − δ_5]`. So `𝓡(t, χ_0) ⊃ [1/3 + δ
 `{|t*| + |χ_0*| ≤ θ, γ* ≠ 0}` has positive probability, since the jets are nondegenerate Gaussian. Also `p_𝔸 > 0`,
 `π_0 > 0` and `𝒱 > 0` almost everywhere. Hence `F > 0`. ∎
 
-[P]'s Theorem A gives `1 − p_r ≤ Cr³`, and the OA dimension lift (A3) gives `1 − p_r ≥ cr³`, both uniformly. (4.1)
-identifies the constant at each `(b, k, u)`.
+[P]'s Theorem A gives `1 − p_r ≤ Cr³`, and the OA dimension lift (A3) gives `1 − p_r ≥ cr³`, both uniformly. The constant
+was first identified by #170 Theorem S (`d = 2`) and #175 Theorem F (`d ≥ 3`) as `α₁ + α₂`. (4.1) recovers it in #242's form,
+and the two forms agree by Proposition FL.7. The positivity argument above is independent of theirs.
 
-**Corollary FL.6 (the compact-window density difference).** Let `𝐁` (births) and `𝐊 = [k_−, k_+] ⊂ (0, ∞)` (gap marks) be
-compact intervals of positive length, and let `ν_cand`, `ν_eld` be the compact-window densities of [P]'s Theorem B. Then
+**Corollary FL.6 (the compact-window density difference; #170 §9, #175 §7).** Let `𝐁` (births) and
+`𝐊 = [k_−, k_+] ⊂ (0, ∞)` (gap marks) be compact intervals of positive length, and let `ν_cand`, `ν_eld` be the compact-window
+densities of [P]'s Theorem B. Then
 
     ν_cand(ℓ) − ν_eld(ℓ) = d_{𝐁,𝐊}ℓ^{2/3} + o(ℓ^{2/3}),    d_{𝐁,𝐊} := (1/3)∫_{S^{d−1}}∫_𝐁∫_𝐊 k^{−8/3}F(k; b, u)dk db dσ(u) ∈ (0, ∞).   (4.3)
 
 Consequently `E[N_cand(0, t] − N_eld(0, t]] = (3/5)d_{𝐁,𝐊}t^{5/3} + o(t^{5/3})`. And for every real `q > −5/3`,
-`E Σ_{candidate, not selected, ℓ ≤ t}ℓ^q = d_{𝐁,𝐊}t^{q+5/3}/(q + 5/3) + o(t^{q+5/3})`. These sharpen [P] (1.2), (12.1)
-and (12.3) from upper bounds to asymptotic laws.
+`E Σ_{candidate, not selected, ℓ ≤ t}ℓ^q = d_{𝐁,𝐊}t^{q+5/3}/(q + 5/3) + o(t^{q+5/3})`. #170 §9 and #175 §7 already sharpen
+[P] (1.2) and (12.1) from upper bounds to asymptotic laws, with `C_fail^{𝐁,𝐊} = d_{𝐁,𝐊}` (Proposition FL.7). The `q`-moment
+form is the same integration.
 
 *Proof.* By [P] (11.1)–(11.2), at `r = (ℓ/k)^{1/3}`,
 `ν_cand(ℓ) − ν_eld(ℓ) = ℓ^{−1/3}∫A_r(1 − p_r)/(3k^{2/3}) db dk dσ = ℓ^{−1/3}∫A_r^{rej}/(3k^{2/3})`. Since `r³ = ℓ/k`,
@@ -560,10 +672,11 @@ by integrating (4.3) against `ℓ^q dℓ` on `(0, t]`, as in [P] §12. ∎
 1. #242 Proposition 4 computes `F = F_0(b)H(k)` for the Gaussian kernel `e^{−|x|²/2}` on `R^d`, the model case, not for the
    torus field of Theorem FL. For that model the formula reads `d_{𝐁,𝐊} = (1/3)|S^{d−1}|∫_𝐁F_0 db·∫_𝐊 k^{−8/3}H(k)dk`; for the
    periodized torus field the jets' laws differ by `O(e^{−L²/8})` (#242 §0).
-2. Without the lower cutoff `k_−`, the integral in (4.3) diverges at `k → 0`, where `F(k) → F_0 > 0`. Cutting it at the cusp
-   scale `k ≍ ℓ^{1/4}` produces `ℓ^{2/3}·ℓ^{−5/12} = ℓ^{1/4}`, the order of #229's term `(I^{cand} − c_1)ℓ^{1/4}`. This is why
-   the unrestricted `ℓ^{2/3}` coefficient (#242 Conjecture 7) needs the two-scale composite and the intermediate separations,
-   while the compact-window coefficient (4.3) does not.
+2. Without the lower cutoff `k_−`, the integral in (4.3) diverges at `k → 0` whenever `F` stays bounded below there, as for
+   the Gaussian kernel, where `F(k) → F_0 > 0` (#242 Proposition 4). Cutting it at the cusp scale `k ≍ ℓ^{1/4}` produces
+   `ℓ^{2/3}·ℓ^{−5/12} = ℓ^{1/4}`, the order of #229's term `(I^{cand} − c_1)ℓ^{1/4}`. This is why the unrestricted `ℓ^{2/3}`
+   coefficient (#242 Conjecture 7) needs the two-scale composite and the intermediate separations, while the compact-window
+   coefficient (4.3) does not.
 
 ## 5. Numerical evidence (exploration; not part of the proofs)
 
@@ -618,22 +731,47 @@ The scripts and records are in the project archive (`exploration/`; numpy and sc
   exception: #242's near-degenerate (D′) point flips at amplitudes `≥ 3·10⁻³`. This is consistent with `ε` depending on the
   margins.
 
+**Proposition FL.7(iii) (v1.1 referee, independent).** The comparison was made on 1,800 typed points: 1,500 broad, and 300
+in the (D′) family, 141 of them elder. The parameters were `k ∈ [0.1, 5]` and `λ̃ ∈ [0.1, 10]`, with both signs of `γ`.
+- *Method.* #170's classifier (the critical points of `P_θ` with values in `(−k, 0)`, found from a resultant) was compared
+  with an independent one-dimensional implementation of #242 Lemma 2 on `G_ϖ`.
+- *Result.* There were no disagreements once the scanner's grid was refined near `X = ½`, where `I_M`'s right end can lie
+  very close to `½`. All 243 points with `β > 2`, `χ < 0` have `n > 0`.
+- *The identity (iv).* `(γ⁶/384)I(t, χ_0) = k∫w_+1{n > 0}ds` was checked on four jet triples, to relative error
+  `≤ 1.2·10⁻⁶`.
+
 ## 6. Scope and relation to other packets
 
 - **#242.** Conjecture 6 is Theorem FL. The definition (3.1) of `F` is the actual fold-scale limit of the rejected kernel in
-  every dimension. For the Gaussian kernel on `R^d` (#242's model case), #242 Proposition 4 describes `F`: `F = F_0H`,
-  `H(k) = 1 + (12/25)k² + O(k³)`.
+  every dimension. For the Gaussian kernel on `R^d` (#242's model case), #242 Proposition 4 describes `F` as `F = F_0H`, with
+  `H(k) = 1 + (12/25)k² + O(k³)`. #170/#175 define `a_fail` for the torus field only. In `d = 2`, Proposition FL.7(iv) is an
+  identity of model integrals, so `F_0H/k` is the integral `A_∗a_fail` evaluated with the `R^d` kernel's jets. The jets of the
+  periodized torus field differ from these by `O(e^{−L²/8})`.
   Proposition 2′ of #242 (the stiff directions) is transferred to the field here, as part of Proposition FL.4.
+- **#170 and #175 (merged author-side candidates, at their stated conditional scope).** Their Theorems S and F prove the
+  failure law `r^{−3}(1 − p_r) → a_fail` at fixed marks.
+  - *Their route.* #170's Theorem E decides the window cubic by critical chords and isolating caps, with [CUB]'s classifier,
+    and transfers it to the global field. #175's Theorem H adds, for `d ≥ 3`, a hard-fibre barrier of width `r^{3/2}`.
+  - *Their domination* is the parent's cap implication on `{λ_1 > (4/(3k))rM_3², rM_4 ≤ 3k/10}`, with [P] (6.2) and (7.7).
+  - *Their compact-window coefficient* is in their §§9 and 7.
+  - *Theorem FL's route.* It reaches the same limit through a different decision and convergence step: conditioning on the
+    contact Hessian with a Weyl zoom, #242's slice decision, and the path/trap stability of Proposition FL.4. It does not
+    consume [CUB], [TWO], [SC], [LOCAL] or the hard-fibre lemma.
+  - *Shared steps.* Theorem FL's domination step uses the same cap-region mechanism and the same `m = 1` near/far split
+    (#170 §8.3). The stiff scale `r^{3/2}` of Proposition FL.4 is #175's hard tube.
+  - *Proposition FL.7* shows that the two limits are the same Gaussian integral in `d = 2`. In `d ≥ 3` they are equal by
+    uniqueness of limits.
 - **#242 Conjecture 7** is not proved. It needs inputs (i)–(ii) of #242 §4. Input (i) asks for (3.1) with an error that,
   integrated against `dr` from the cusp scale to the fold scale, is `O(ℓ^{3/4})` after the composite is subtracted. That
   needs quantitative margins in Proposition FL.4 near the decision boundary, which the present pointwise argument does not
   give. Input (ii) (the intermediate separations) is untouched.
-- **[P], the dimension lift, and [C7-K].** Corollaries FL.5 and FL.6 identify the constants in the `Θ(r³)` selection loss
-  and the `Θ(ℓ^{2/3})` compact-window density difference. Their orders were known from [P] Theorems A and B, the OA lower
-  bound (A3), and [C7-K] (K2).
-- **Matching.** #242 Theorem 1 gives `κ𝒜^{rej} → F_0` as `κ → ∞` at the cusp scale. Theorem FL gives
-  `(k/r)r^{−2}A_r^{rej} → F(k)`, with `F(k) → F_0` as `k → 0` (#242 §3). The two limits agree in the overlap, which is what
-  the composite of #242 Lemma 5 assumes.
+- **[P], the dimension lift, and [C7-K].** Corollaries FL.5 and FL.6 restate, in #242's form, the constants of the `Θ(r³)`
+  selection loss and of the `Θ(ℓ^{2/3})` compact-window density difference, which #170/#175 identified first. Their orders
+  were known from [P] Theorems A and B, the OA lower bound (A3), and [C7-K] (K2).
+- **Matching.** #242 Theorem 1 gives `κ𝒜^{rej} → F_0` as `κ → ∞` at the cusp scale, and Theorem FL gives the fold-scale
+  limit `F(k)`. That `F(k) → F_0` as `k → 0` is proved in #242 only for the Gaussian kernel on `R^d` (Proposition 4,
+  `H → 1`). It is what the composite of #242 Lemma 5 assumes. Neither limit is uniform in the overlap, and that is not
+  claimed here.
 - **Not claimed:** any rate in (3.1); uniformity as `k → 0` or `k → ∞`; any statement about `ν_cand`'s own corrections.
 
 ## 7. Controls
@@ -675,14 +813,23 @@ The scripts and records are in the project archive (`exploration/`; numpy and sc
   - exact Sturm certificates of `(R)` along the ridge for `φ ∈ {2/5, 1/2, 3/4, 9/10}`: no root of `R − L_S − 1/200` on
     `[−3, −½]`, and `R(−3) > 0`;
   - the exponents of the pushforward (4.4) and of Remark 2.
+- **F7.** Proposition FL.7:
+  - `G_k(X, ζ) = P_θ(X, kζ)/k` as a polynomial identity in `(X, ζ)`, on random rational jets with `λ̃` of either sign;
+  - `Y = 3kB′`, the weight identity `9k²(4s² − B′²) = 36λ̃² − Y²`, and the equivalence of the typed domains;
+  - the hard-factor identity `𝒱(0, μ_2, …, μ_m)(μ_2⋯μ_m)² = Π μ_j³Π(μ_j − μ_i)` for `m = 2, 3, 4`;
+  - the exponent `−8/3 + 1 = −5/3` of `d_{𝐁,𝐊} = C_fail^{𝐁,𝐊}`, and `dμ̃/ds = −k`.
 
-Mutants `M1`–`M7` each fail only their own control (`M1` F1, `M2` F2, `M3` F3, `M4` and `M7` F4, `M5` F5, `M6` F6); the checker
+Mutants `M1`–`M8` each fail only their own control (`M1` F1, `M2` F2, `M3` F3, `M4` and `M7` F4, `M5` F5, `M6` F6, `M8` F7); the checker
 names the failing control on stderr, and an unknown label exits 2.
 
-**What the controls do not test.** Proposition FL.4 for non-polynomial perturbations, the transversality and Sard arguments
-themselves (only their Jacobians), Lemma FL.2(c) beyond its two elementary facts (it is tested numerically in §5), and the
-probabilistic steps of Theorem FL (coupling, conditioning, domination). These are argued in the text and are the subject of
-review slices B–D.
+**What the controls do not test.**
+- Proposition FL.4 for non-polynomial perturbations.
+- The transversality and Sard arguments themselves (only their Jacobians).
+- Lemma FL.2(c) beyond its two elementary facts (it is tested numerically in §5).
+- The probabilistic steps of Theorem FL (coupling, conditioning, domination).
+- The use of #170 Theorem E(1) in Proposition FL.7(iii). The referee's numerical comparison in §5 tests it.
+
+These are argued in the text and are the subject of review slices B–E.
 
 ## 8. Sources (exact identities in `SOURCES.json`)
 
@@ -698,6 +845,8 @@ review slices B–D.
 | #242 | `frontiers/soft_rejected_pairs_20261002/PROOF.md` at `87912bd` (`8b2f5fae`), unmerged | §0, (2.1)–(2.6), Lemmas 2–3, Proposition 2′, (3.1) — consumed |
 | OA lift | `frontiers/elder_dimension_lift_20260928/PROOF.md` (`7303bd79`) | (A3) — cited |
 | #229 | `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`) | (R⁺.1) — cited |
+| #170 | `frontiers/local_elder_geometry_20260930/PROOF.md` (`ef2aa579`) | §2 (Theorem E(1)), §§7–8 (the classifier, (S1), (S11), the mass `α₁ + α₂`), Theorem S, §9 — compared; consumed by Proposition FL.7 only |
+| #175 | `frontiers/concave_fibre_elder_20260930/PROOF.md` (`923d3236`) | §§1–2, §3 (Theorem H), §5 (Theorem F, (S1)–(S3)), §7 — compared; consumed by Proposition FL.7 only |
 
 ## 9. Review slices
 
@@ -709,6 +858,7 @@ review slices B–D.
 - **C** — §3, Steps 1–3: the coupling and the conditioning on `𝔸`, the Weyl zoom (3.4), the window identity (3.5), and the
   almost-everywhere convergence (full measure of `ϖ* ∈ 𝒦`).
 - **D** — §3, Steps 4–5: the domination (cap region, (3.6), the `m = 1` far branch), and the identification with #242 (3.1).
-- **E** — §4: Corollaries FL.5 and FL.6 (the positivity of `F`, and the use of [P] (11.2) and [C7-K] (K2)), with §§5–6.
+- **E** — §4: Proposition FL.7 (the identification with #170/#175) and Corollaries FL.5 and FL.6 (the positivity of `F`, and
+  the use of [P] (11.2) and [C7-K] (K2)), with §§5–6.
 
 A reviewer should record, per slice: ACCEPT, ACCEPT WITH FIXES (list), or REJECT (with the failing step).

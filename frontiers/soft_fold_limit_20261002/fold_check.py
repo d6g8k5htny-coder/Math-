@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-FOLD-LIMIT-20261002-v1 (Theorem FL, Corollaries FL.5-FL.6, Proposition FL.4, Lemmas FL.1-FL.3;
-PROOF.md).
+"""Exact controls for CL-FOLD-LIMIT-20261002-v1.1 (Theorem FL, Propositions FL.4 and FL.7, Corollaries FL.5-FL.6,
+Lemmas FL.1-FL.3; PROOF.md).
 
 Standard library only; exact rationals except the floating-point margins printed by F4 (a fixed, deterministic
 construction of the model certificates on three parameter points). Output:
 RESULTS.json (sorted keys), byte-identical under -O. Usage:
     python3 -B -S fold_check.py                 # exit 0, prints RESULTS.json
-    python3 -B -S fold_check.py --mutant M3     # exit 1 (only its control fails; M1..M7)
+    python3 -B -S fold_check.py --mutant M3     # exit 1 (only its control fails; M1..M8)
     unknown mutant label                        -> exit 2
 
 Controls
@@ -40,13 +40,18 @@ Controls
       exact Sturm counts showing R > L_S + 1/200 on [-3, -1/2] and R(-3) > 0 (the (R) certificate along the ridge); the
       pushforward ell^(-1/3) (ell/k^2)/(3 k^(2/3)) = ell^(2/3) k^(-8/3)/3, the cumulative factor 3/5 and the cusp-cutoff
       exponent 2/3 - 5/12 = 1/4
+  F7  Proposition FL.7 (the model of #170/#175): G_k(X, zeta) = P_theta(X, k zeta)/k as a polynomial identity in
+      (X, zeta) with theta = (s, a, beta', c) = (-lt/k, gamma, B, C3), on random rational jets (lt of either sign);
+      Y = 3k B' (B' = beta' - a^2/(12k)); 9k^2 (4 s^2 - B'^2) = 36 lt^2 - Y^2; typed domains s < -|B'|/2 iff |Y| < 6 lt;
+      the hard factor V(0, mu_2..mu_m) (mu_2...mu_m)^2 = prod mu_j^3 prod (mu_j - mu_i) for m = 2, 3, 4; d mu~/ds = -k;
+      and the exponent -8/3 + 1 = -5/3 of d_BK = C_fail
 """
 import json
 import math
 import sys
 from fractions import Fraction as Fr
 
-MUTANTS = ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7')
+MUTANTS = ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8')
 MUT = None
 FACT = [math.factorial(n) for n in range(16)]
 H = Fr(1, 2)
@@ -737,6 +742,61 @@ def control_F6():
     return ok, {'R_certificates_phi_0_0': cert}
 
 
+# ------------------------------------------------------------------------------------------------ F7
+def control_F7():
+    ok = True
+    rng = LCG(907)
+    n = 0
+    for _ in range(40):
+        k = Fr(1 + rng.nxt() % 9, 1 + rng.nxt() % 5); g = rng.rat(7, 3, nonzero=True)
+        lt = Fr(1 + rng.nxt() % 9, 1 + rng.nxt() % 4) * (1 if rng.nxt() % 3 else -1)
+        B = rng.rat(7, 3); C3 = rng.rat(7, 3)
+        s, a, bp, c = -lt / k, g, B, C3
+        # G_k of #242 (2.1), as a polynomial in (X, zeta) = (VX, VZ)
+        Gk_poly = (2 * (VX + H) ** 2 * (VX - 1) + H * g * (VX * VX - Fr(1, 4)) * VZ - H * lt * VZ * VZ
+                   + H * k * B * VX * VZ * VZ + k * k * C3 * Fr(1, 6) * VZ ** 3)
+        # #170's typed cubic (4.0) at Z = k zeta, divided by k
+        Zk = VZ * k
+        P170 = (2 * k * VX ** 3 - Fr(3, 2) * k * VX - k * H + s * H * Zk * Zk + a * H * (VX * VX - Fr(1, 4)) * Zk
+                + bp * H * VX * Zk * Zk + c * Fr(1, 6) * Zk ** 3) * (1 / k)
+        if MUT == 'M8':
+            P170 = P170 + Fr(1, 1000) * VX * VZ * VZ
+        ok &= Gk_poly == P170
+        for X, ze in ((Fr(-3, 2), Fr(1, 3)), (Fr(1, 5), Fr(-2)), (Fr(2), Fr(5, 7))):
+            ok &= Gk(X, ze, g, lt, k, B, C3) == Gk_poly(X, ze, 0, 0, 0)
+        Bp = bp - a * a / (12 * k); Y = 3 * k * B - g * g / 4
+        ok &= Y == 3 * k * Bp
+        ok &= 9 * k * k * (4 * s * s - Bp * Bp) == 36 * lt * lt - Y * Y
+        ok &= (s < -abs(Bp) / 2) == (abs(Y) < 6 * lt)
+        ok &= (-k * (s + Fr(1, 10 ** 6)) - (-k * s)) / Fr(1, 10 ** 6) == -k       # mu~ = -k s: d mu~/ds = -k
+        n += 1
+    # the hard factor: Vandermonde(0, mu_2..mu_m) (mu_2...mu_m)^2 = prod mu_j^3 prod_{i<j} (mu_j - mu_i)
+    hard = 0
+    for m in (2, 3, 4):
+        for _ in range(5):
+            mus = sorted({Fr(1 + rng.nxt() % 40, 1 + rng.nxt() % 7) for _ in range(m - 1)})
+            if len(mus) != m - 1:
+                continue
+            full = [Fr(0)] + mus
+            V = Fr(1)
+            for i in range(len(full)):
+                for j in range(i + 1, len(full)):
+                    V *= full[j] - full[i]
+            prod2 = Fr(1)
+            for x in mus:
+                prod2 *= x * x
+            rhs = Fr(1)
+            for x in mus:
+                rhs *= x ** 3
+            for i in range(len(mus)):
+                for j in range(i + 1, len(mus)):
+                    rhs *= mus[j] - mus[i]
+            ok &= V * prod2 == rhs
+            hard += 1
+    ok &= Fr(-8, 3) + 1 == Fr(-5, 3)
+    return ok, {'random_jets': n, 'hard_factor_cases': hard}
+
+
 def main(argv):
     global MUT
     if len(argv) == 2 and argv[0] == '--mutant':
@@ -745,7 +805,7 @@ def main(argv):
             return 2
         MUT = argv[1]
     elif argv:
-        print('usage: fold_check.py [--mutant M1..M7]', file=sys.stderr)
+        print('usage: fold_check.py [--mutant M1..M8]', file=sys.stderr)
         return 2
     f1, f1d = control_F1()
     f2, f2d = control_F2()
@@ -753,10 +813,12 @@ def main(argv):
     f4, f4d = control_F4()
     f5, f5d = control_F5()
     f6, f6d = control_F6()
-    res = {'object': 'CL-FOLD-LIMIT-20261002-v1', 'scientific_effect': 'NONE',
+    f7, f7d = control_F7()
+    res = {'object': 'CL-FOLD-LIMIT-20261002-v1.1', 'scientific_effect': 'NONE',
            'controls': {'F1_model_pins_and_weight': f1, 'F2_lemma_FL2_generic': f2, 'F3_lemma_FL1_window': f3,
-                        'F4_proposition_FL4_certificates': f4, 'F5_theorem_FL_bookkeeping': f5, 'F6_corollaries': f6},
-           'F1': f1d, 'F2': f2d, 'F3': f3d, 'F4': f4d, 'F5': f5d, 'F6': f6d}
+                        'F4_proposition_FL4_certificates': f4, 'F5_theorem_FL_bookkeeping': f5, 'F6_corollaries': f6,
+                        'F7_proposition_FL7_identification': f7},
+           'F1': f1d, 'F2': f2d, 'F3': f3d, 'F4': f4d, 'F5': f5d, 'F6': f6d, 'F7': f7d}
     ok = all(res['controls'].values())
     if MUT is None:
         print(json.dumps(res, indent=1, sort_keys=True))
