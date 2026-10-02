@@ -1,0 +1,67 @@
+{
+ "object": "CL-C2-EXACT-20261001-v1",
+ "delivered_under": "explicit owner instructions of Dylan Roy in Claude Code session session_015wNj8LPTKXsaT68G3DgPPh, given after OWNER_STOP (2026-09-27): 2026-09-28 \"you have my full permisions and approval to make the proper changes and uploads\"; 2026-09-30 \"Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know. Ultra tokens, ultra depth @GitHub @Superpowers\" (repeated 2026-09-30 as \"Continue to Work on closing ...\"). Pull requests only, never merged by their author; no register, GRAPH, STATUS, lemma_closed, prize or premise edits. OWNER_STOP.md addresses Cursor agents and automations and is untouched.",
+ "sources": [
+  {
+   "label": "[R]",
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "ref": "main 124c37d",
+   "consumed": "sections 2-4: the symmetric pin vector U_r, the target v_r and the two-point kernel A_r(b,k,u) = 12 pi_r(v_r) Z_r / r^2",
+   "current_required": true,
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481"
+  },
+  {
+   "label": "[SIDE24]",
+   "path": "coefficients/side24_v1/PROOF.md",
+   "ref": "main 124c37d",
+   "consumed": "equation (1): c_(d,ref) = Gamma(7/6)(3/2)^(1/3) D_(d-1)/(2 sqrt3 pi^(d-1) sqrt(pi)), D_1 = 4/3, D_2 = 29/6 - sqrt6 (an exact check of the pipeline)",
+   "current_required": true,
+   "bytes": 10272,
+   "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+  },
+  {
+   "label": "[D]",
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "ref": "Math-#216 head 4f0927f (unmerged)",
+   "consumed": "section 0: the definition of c and c2 (fold expansion, finite part); section 2.2: the typed indicator replaced by 1{T < 0} at O(r^3); section 0 table: the floating values (controls only)",
+   "current_required": false,
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb"
+  },
+  {
+   "label": "[D-code]",
+   "path": "frontiers/third_order_coefficient_20261001/c2_check.py",
+   "ref": "Math-#216 head 4f0927f (unmerged)",
+   "consumed": "Pinned.pin_rows and Pinned.target: the exact pin rows and target reproduced in pseries.pin_rows",
+   "current_required": false,
+   "bytes": 25031,
+   "sha256": "0f8a742958ce9bfa94382d73748fe93769cba43079570d67180bfa9082a6e68a",
+   "git_blob": "41f745275db81f6332e791759db5858eec8c5365"
+  },
+  {
+   "label": "[T]",
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "ref": "Math-#218 head 7f09d34 (unmerged)",
+   "consumed": "(0.1) and Lemma F: the fold expansion A_r = A_0 + r^2 A_2 + O(r^3) and the identification of A_2(b, 0) (cited)",
+   "current_required": false,
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e"
+  },
+  {
+   "label": "[D1]",
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "ref": "Math-#214 head f4a58df (unmerged)",
+   "consumed": "(D1.2): C_0 and B_2 in closed form for spectral moments (an exact check of the d = 1 pipeline)",
+   "current_required": false,
+   "bytes": 44378,
+   "sha256": "279ed88ff2debd570e6426aec53cc93aabc7a298731cd9b25c45667a2c11077b",
+   "git_blob": "873532b955dbf7684edc1a53ba169c7216f778ab"
+  }
+ ],
+ "note": "current_required entries are verified byte-for-byte on the checked-out tree by the workflow; the unmerged pins record the exact bytes read and are not checked against the tree."
+}
