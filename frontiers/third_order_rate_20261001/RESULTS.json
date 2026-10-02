@@ -1,0 +1,84 @@
+{
+ "checks": {
+  "R1_exponent_ledger": {
+   "a": "l^1/9",
+   "candidate_least": "3/7",
+   "candidate_terms": {
+    "F: l rho_f^-2 (finite part)": "3/7",
+    "F: rho_f^2": "4/7",
+    "F: rho_f^5/l (Lemma F layer)": "3/7",
+    "J2: rho_c^3": "2/3",
+    "J3: l rho_c^-2": "5/9",
+    "J3: l^2 rho_c^-7": "4/9",
+    "J4: l^2 rho_c^-7": "4/9",
+    "J5: l": "1",
+    "K: Lemma C+ r^1 kappa^0": "4/9",
+    "K: Lemma C+ r^1 kappa^1": "3/7",
+    "K: l^2 rho_c^-7 (upper tail)": "4/9",
+    "K: rho_f^5/l (Lemma O tail)": "3/7"
+   },
+   "elder_least": "3/7",
+   "elder_terms": {
+    "F: l rho_f^-2 (finite part)": "3/7",
+    "F: rho_f^2": "4/7",
+    "F: rho_f^5/l (Lemma F layer)": "3/7",
+    "F: rho_f^5/l (rejected fold mass, [C7-K] (K2))": "3/7",
+    "I: [a,r0*] l^(2/3) a^-2": "4/9",
+    "I: [a,r0*] l^(5/3) a^-7": "8/9",
+    "I: [rho_c,a] a^4 (log)": "4/9",
+    "I: [rho_c,a] l^3 rho_c^-11 (log)": "5/9",
+    "J4: l^2 rho_c^-7": "4/9",
+    "K: Lemma CE+ r^1 kappa^0": "4/9",
+    "K: Lemma CE+ r^1 kappa^1": "3/7",
+    "K: Lemma CE+ r^2 kappa^3": "3/7",
+    "K: Lemma CE+ r^3/2 kappa^2": "3/7",
+    "K: l^2 rho_c^-7 (upper tail)": "4/9",
+    "K: rho_f^5/l (Lemma O/O' tail)": "3/7",
+    "far: #187 Theorem F": "2/3"
+   },
+   "hypotheses": true,
+   "intermediate_least": "4/9",
+   "passed": true,
+   "regression_218": "4/11",
+   "regression_220_intermediate": "2/5",
+   "remark1_maxmin": {
+    "drop_layer_cand": "4/9",
+    "drop_layer_eld": "4/9",
+    "drop_linear_cand": "4/9",
+    "drop_linear_eld": "3/7"
+   },
+   "rho_c": "l^2/9",
+   "rho_f": "l^2/7"
+  },
+  "R2_lemma_L": {
+   "equality_instances": 700,
+   "improvement_factor_le_1/100_instances": 2,
+   "instances": 6108,
+   "passed": true
+  },
+  "R3_refined_B4": {
+   "instances": 6901,
+   "matrix_instances": 900,
+   "passed": true,
+   "second_alternative_only": 66
+  },
+  "R4_typed_window": {
+   "passed": true,
+   "splitting_instances": 3000,
+   "typed_instances": 5035,
+   "window_instances": 3000
+  },
+  "R5_W_plus_bookkeeping": {
+   "instances": 5000,
+   "passed": true
+  },
+  "R6_C_plus_CE_plus_bookkeeping": {
+   "instances": 8000,
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-THIRD-ORDER-RATE-20261001-v1 controls",
+ "passed": true,
+ "scientific_effect": "NONE"
+}
