@@ -1,7 +1,24 @@
 # The third-order coefficient of the short-lifetime law: the fold-scale finite part, `d = 1, 2, 3`
 
-Object: CL-THIRD-ORDER-COEFF-20261001-v1.2.
-Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
+Object: CL-THIRD-ORDER-COEFF-20261001-v1.3.
+Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026 (v1.3: 2 October 2026).
+**v1.3 (status update; no coefficient, check, control or Monte Carlo number changes).**
+- *Status since v1.2.* The packets cited below as unmerged have landed. Other merged packets now supply what this note
+  listed as missing; each holds at its stated conditional scope. §0 states it.
+  - The expansion (0.2) is proved in every `d ≥ 2`, at candidate status, with this `c₂`, but with remainder
+    `O(ℓ^{3/7})` in place of `O(ℓ^{1/2})`:
+    - the candidate density by #218 and #229;
+    - the elder density by #220 and #229, using #187 for the far part.
+  - #223 gives `c₂` for the Gaussian kernel in closed form with certified enclosures. Every digit printed here is
+    confirmed.
+  - #232 transfers `c₂` to the periodized torus covariance for `L ≥ 24`, and #219 certifies `c₁`.
+- *xAI's findings on v1.2* (5378684363).
+  - P2 asked that §4's SIDE24 sentence not be read as a certified prediction. §4 now separates the coefficients, which
+    are certified, from the three-term truncation, whose error at a given `ℓ` is not quantified.
+  - P3 concerned landing order. #191, #198, #207 and #218 are merged, and this note consumes nothing, so it imposes no
+    order. It does not discharge the elder law; #220 and #229 do.
+- *Labels.* #214's theorem is now Theorem 1D, with displays (1D.1)–(1D.2). The name D1 refers only to the cap
+  component; the label note is 5942064561. #214 is rebound to v1.3 (`54666d2`), whose `B₂` is unchanged.
 **v1.2 (after the Codex review of v1.1, head `605af74`, and one author-side correction).**
 - *Requirements for a proof (author-side correction).* v1.1 said that a rate `O(r)` in #207's CU.4 would suffice for a
   proof in `d ≥ 2`. That understated it. §0 "What is not claimed" now lists three requirements:
@@ -28,14 +45,17 @@ The coefficients are unchanged.
 - *Provenance.* The owner's post-stop instructions are recorded exactly (`SOURCES.json`, `delivered_under`).
 The coefficients are unchanged.
 Disposition: FORMAL COEFFICIENT WITH NUMERICAL EVIDENCE. In `d = 1` it is a theorem (Math- #214); in `d ≥ 2` the
-expansion (0.2) is not proved here. Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
+expansion (0.2) is not proved here. Merged packets prove it at candidate status with remainder `O(ℓ^{3/7})`
+(#218, #220, #229; §0, "Status since v1.2"). Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
 PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 **Dependencies:** none consumed. The computation uses only the merged two-point kernel of [R]
 (`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, blob `247b3ecf`). The following are cited for comparison:
-- Math- #214 (`d = 1`, Theorem D1);
-- Math- #207 (Theorem CU: `c₁` and the cusp loss);
-- Math- #191 (the even contact expansion);
-- the merged values of `c_{2,∞}` and `c_{3,∞}`.
+- Math- #214 (`d = 1`, Theorem 1D; open);
+- Math- #207 (Theorem CU: `c₁` and the cusp loss; merged);
+- Math- #191 (the even contact expansion; merged);
+- the merged values of `c_{2,∞}` and `c_{3,∞}`;
+- since v1.3, the merged #218 (Theorem T), #220 (Theorem E3), #229 (Theorems T⁺ and E3⁺), #223 (`c₂` in closed form),
+  #232 (`c₂` on the torus) and #219 (`c₁` certified).
 
 ## 0. Statement
 
@@ -71,7 +91,7 @@ a fold-scale quantity, and the elder rule enters only through the cusp window.
 **What is established here.**
 1. **`d = 1`.** The formula gives exactly #214's `2B₂`, for every covariance satisfying #214's (H). For the finite part
    this is an identity (§2.3). For the total it is verified numerically to `10⁻⁹` for two kernels (checkers T1, T2). In
-   `d = 1`, (0.2) is #214's Theorem D1.
+   `d = 1`, (0.2) is #214's Theorem 1D.
 2. **Values for the Gaussian kernel `e^{−|z|²/2}`** (the SIDE24 covariance up to factors `1 + O(e^{−L²/8})`):
 
    | `d` | `c` (recomputed; equals the merged value) | `c₂` | `c₂/c` | `c₁/c` (#207, #214) |
@@ -84,6 +104,10 @@ a fold-scale quantity, and the elder rule enters only through the cusp window.
    plain left-to-right summation moves `c₂` by at most `7·10⁻¹⁰` absolute (§2.4). v1.1's figure `2·10⁻⁸` was too
    pessimistic.
 
+   *v1.3.* Merged #223 gives these `c₂` in closed form, with certified enclosures. For example,
+   `c₂ = (13/18)·12^{1/6}Γ(5/6)/π^{3/2}` in `d = 2` and `(5/48)(33 − 7√6)·12^{1/6}Γ(5/6)/π^{5/2}` in `d = 3`. Every
+   digit in the table is a correct rounding.
+
 3. **Full-field Monte Carlo in `d = 2` and `d = 3` (§3; exploration, outside the repository).** The *parameter-free*
    three-term law (0.2) matches the actual elder-rule persistence of the periodized Gaussian field on `[10⁻⁴, 10⁻²]`.
    Both the leading term alone and the two-term law `cℓ^{−1/3} + c₁ℓ^{1/4}` are rejected.
@@ -93,7 +117,25 @@ a fold-scale quantity, and the elder rule enters only through the cusp window.
 moderate `ℓ`. The combined correction is `1%` at `ℓ ≈ 4.6·10⁻⁵` and `10%` at `ℓ ≈ 3.6·10⁻³`. For the `ℓ^{1/4}` term alone
 (#207 §8, V3 edit E15) the corresponding values are `2.3·10⁻⁵` and `1.2·10⁻³`. §4 gives the table.
 
-**What is not claimed.**
+**Status since v1.2 (v1.3).** Each item holds at its packet's stated conditional scope. All the packets are merged.
+- **Candidate density.** #218 (Theorem T) proves (0.2) with this `c₂`, `B_{d,L}` added and `c₁` replaced by `I^{cand}`,
+  with remainder `O(ℓ^{4/11})`. #229 (Theorem T⁺) improves the remainder to `O(ℓ^{3/7})`.
+- **Elder density.** #220 (Theorem E3) supplies the three requirements below:
+  1. the elder cusp rate, through its Lemmas Q and CE;
+  2. the fold expansion, through #218 Lemma F;
+  3. the intermediate separations, `O(ℓ^{2/5})`, through its Lemmas H and S′.
+
+  With #187 for the far part, (0.2) holds with remainder `O(ℓ^{4/11})` (E3.3). #229 (Theorem E3⁺) improves this to
+  `O(ℓ^{3/7})`.
+- **What remains formal here.**
+  - The remainder `O(ℓ^{1/2})` of (0.2) in `d ≥ 2`. #229 Remark 1 explains why its method stops at `3/7`.
+  - The `ℓ^{1/2}` term of §3.
+- **The coefficients.**
+  - #223 gives `c₂` in closed form with certified enclosures (Gaussian kernel).
+  - #232 transfers it to the periodized covariance for every `L ≥ 24`, with error `< 10⁻⁶⁰`.
+  - #219 certifies `c₁`, with `c₁/c_{3,24} ∈ [−5.07106215, −5.07106213]`.
+
+**What is not claimed.** (The first item is v1.2's record of what a proof needed. The merged packets above now supply it.)
 - No proof of (0.2) for the elder density in `d ≥ 2`. A proof needs three ingredients. For the candidate density the
   first two are now supplied, at candidate status, by **Math- #218** (Theorem T; see below).
   1. **A rate in CU.4.** #207's kernel limit CU.4 must hold with a rate:
@@ -121,8 +163,8 @@ moderate `ℓ`. The combined correction is `1%` at `ℓ ≈ 4.6·10⁻⁵` and `
   `ν_cand = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{4/11})` with this `c₂`.
 
   v1.1 said only that "a rate `O(r)` in CU.4" was needed. That understated 2 and missed 3.
-- No certified enclosure of `c₂`. The values are floating point; the stated digits are stable under the grid and `r`-set
-  changes of checkers T3, T4.
+- No certified enclosure of `c₂` here. The values are floating point; the stated digits are stable under the grid and
+  `r`-set changes of checkers T3, T4. Merged #223 supplies the certified enclosures (v1.3).
 - No statement about the terms after `c₂`.
 - Nothing about `L ≠ ∞`, beyond the `O(e^{−L²/8})` periodization factors.
 
@@ -205,7 +247,7 @@ There it is proved.
 - So the finite-part integral, with `α = 12k`, is `(2/3)(−σ₄²p₁₂/12)12^{1/3}∫₀^∞(p₃(α) − p₃(0))α^{−4/3}dα`. This is
   `2B₂^{(2)}` of #214 §2(e), the factor 2 accounting for the two orientations.
 - The fold part is #214's `τ²`-coefficient of `(12/t⁴)p_tm²`, written in the coordinates of [R].
-- T1 and T2 check the total against the closed form `2B₂` (#214 (D1.2)):
+- T1 and T2 check the total against the closed form `2B₂` (#214 (1D.2)):
   - Gaussian kernel: `0.2300445808` against `0.2300445803`;
   - mixture `(e^{−x²/2} + e^{−2x²})/2`: `0.5760427428` against `0.5760427425`.
 
@@ -321,7 +363,15 @@ The archived figure `results/mc_final.png` shows three panels for each of `d = 2
 | `10⁻²` | `−0.3455` | `+0.1791` | `−0.1663` |
 
 The combined correction is `1%` at `ℓ ≈ 4.6·10⁻⁵` and `10%` at `ℓ ≈ 3.6·10⁻³`. V3 edit E15's sizes describe the
-`ℓ^{1/4}` term only (#214 caution); with this note the manuscript can quote both. Both are formal for `d = 3`.
+`ℓ^{1/4}` term only (#214 caution); with this note the manuscript can quote both.
+
+*Status of these numbers (v1.3; xAI P2, 5378684363).*
+- **The coefficients are certified.** `c₁/c_{3,24}` comes from #219. `c₂/c` comes from #223's closed form; #232
+  transfers it to the torus, and `c_{3,24} = c_{3,∞}(1 + O(e^{−288}))`. The ratios `−5.071` and `3.859` are their
+  roundings.
+- **The table is the three-term truncation, not a certified prediction of `ν`.** The three-term law holds at candidate
+  status with remainder `O(ℓ^{3/7})` (#229), with an unspecified constant. So the size of the omitted terms at a given
+  `ℓ` is not quantified. §3's Monte Carlo suggests a next term of about `0.03ℓ^{1/2}`, which is exploration.
 
 ## 5. Sources (exact identities in `SOURCES.json`)
 
@@ -330,10 +380,18 @@ Merged:
 - `reviews/side24_v1_coefficient_claude_20260929/RESULTS.json`: `c_{2,∞}`;
 - `coefficients/side24_v1/ENCLOSURE.json`: `c_{3,24} = c_{3,∞}(1 + O(e^{−288}))`.
 
+Cited, merged since v1.2 (verified from the tree):
+- #207 `frontiers/cusp_second_order_20261001/PROOF.md` (`f6df5a73`): `c₁`, the cusp loss, Theorem CU′;
+- #191 `frontiers/remainder_vanishing_20260930/PROOF.md` (`441152df`): the even contact expansion;
+- #218 `frontiers/candidate_third_order_20261001/PROOF.md` (`70ca57ef`): Theorem T, (0.1), Lemmas C and F;
+- #220 `frontiers/elder_third_order_20261001/PROOF.md` (`c8767dde`): Theorem E3, Lemmas Q, CE, H, S′;
+- #229 `frontiers/third_order_rate_20261001/PROOF.md` (`110ed33a`): Theorems T⁺, E3⁺, Remark 1;
+- #223 `frontiers/c2_exact_20261001/NOTE.md` (`a2798b87`): `c₂` in closed form, certified enclosures;
+- #232 `frontiers/c2_finite_jet_transfer_20261001/PROOF.md` (`54cc4a1a`): `c₂` on the torus, `L ≥ 24`;
+- #219 `frontiers/cusp_coefficient_certified_20261001/NOTE.md` (`b2866871`): `c₁` certified, `c₁/c_{3,24}`.
+
 Cited, unmerged:
-- #207 `frontiers/cusp_second_order_20261001/PROOF.md`: `c₁`, the cusp loss, Theorem CU′;
-- #214 `frontiers/d1_third_order_law_20261001/PROOF.md`: `B₂` and its proof in `d = 1`;
-- #191 `frontiers/remainder_vanishing_20260930/PROOF.md`: the even contact expansion.
+- #214 `frontiers/d1_third_order_law_20261001/PROOF.md` (v1.3 at `54666d2`): `B₂` and its proof in `d = 1` (Theorem 1D).
 
 ## 6. Controls
 
@@ -363,3 +421,14 @@ What the controls do not test: the formal derivation of §1 in `d ≥ 2`, and th
 - **B** §2.1–§2.3: the pinned structure, the `O(r³)` indicator replacement, and the `d = 1` identity with #214.
 - **C** §2.4 and `c2_check.py`: the numerics and their convergence.
 - **D** §3–§4: the Monte Carlo method and its interpretation (exploration).
+
+**Changed bytes in v1.3** (status update, against v1.2 at `04c08e1`):
+- *Header:* the object label, the v1.3 block, the Disposition sentence, and the dependency list.
+- *§0:* "Theorem 1D" in item 1; the v1.3 paragraph after item 2's table; the new "Status since v1.2" paragraph; the
+  heading of "What is not claimed" and its certified-enclosure item.
+- *§2.3:* "(1D.2)".
+- *§4:* the status paragraph after the table (xAI P2).
+- *§5:* the source lists.
+- *§7:* this list.
+
+§1, §§2.1–2.2, §2.4, §3, every coefficient and Monte Carlo number, `c2_check.py` and `RESULTS.json` are unchanged.

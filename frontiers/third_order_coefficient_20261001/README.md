@@ -1,9 +1,22 @@
-# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.2)
+# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.3)
 
 Formal coefficient with numerical evidence. Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review
 required.
 
-**v1.2** applies the two Codex findings on v1.1 (`605af74`) and one author-side correction:
+**v1.3 (status update; no coefficient, control or Monte Carlo number changes).**
+- **Merged since v1.2.** The cited #191, #207 and #218 have landed. Merged packets now prove the expansion in every
+  `d ≥ 2`, at candidate status, with this `c₂` and remainder `O(ℓ^{3/7})`:
+  - the candidate density: #218 Theorem T and #229 Theorem T⁺;
+  - the elder density: #220 Theorem E3 and #229 Theorem E3⁺, with #187 for the far part.
+- **Certified coefficients.** #223 gives `c₂` in closed form with certified enclosures, confirming every digit here. #232
+  transfers `c₂` to the torus for `L ≥ 24`, and #219 certifies `c₁`.
+- **xAI on v1.2** (5378684363):
+  - P2: the SIDE24 correction table is now labelled as the three-term truncation, with certified coefficients and an
+    unquantified truncation error.
+  - P3: this note imposes no landing order, and it does not discharge the elder law; #220 and #229 do.
+- **Labels.** #214's theorem is Theorem 1D, and #214 is rebound to v1.3.
+
+**v1.2** applied the two Codex findings on v1.1 (`605af74`) and one author-side correction:
 - T4 now runs at a refined grid and compares it with the old grid and with a second `r`-set. Every grid, `r`-set and
   summation-order variation moves `c₂` by `≤ 7·10⁻¹⁰` absolute, which supports the eight digits quoted.
 - CI binds each cited unmerged source to its recorded commit, path and blob.
@@ -17,7 +30,8 @@ required.
 - exact owner provenance.
 
 The coefficients are unchanged and are quoted to 8 digits. Nothing is consumed. The computation implements the merged two-point kernel of [R]
-(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`). Math- #207, #214 and #191 are cited for comparison.
+(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`). Math- #207, #214 and #191 are cited for comparison;
+since v1.3 also the merged #218, #220, #229, #223, #232 and #219.
 
 **What it is.** The elder lifetime density has a third term:
 
@@ -33,9 +47,12 @@ The same `c₂` appears in the adjacent-pair density and in the near candidate d
 window.
 
 **Status by dimension.**
-- **`d = 1`.** The formula equals #214's `2B₂`, which is a theorem there. The finite part matches as an identity, and the
+- **`d = 1`.** The formula equals #214's `2B₂`, which is a theorem there (Theorem 1D). The finite part matches as an identity, and the
   total to `10⁻⁹` for two kernels.
-- **`d ≥ 2`.** For the elder density the expansion is formal (matched asymptotics, NOTE §1). A proof needs three
+- **`d ≥ 2`, since v1.3.** Merged packets prove the expansion at candidate status, with remainder `O(ℓ^{3/7})`. For the
+  elder density this is #220 with #229; for the candidate density, #218 with #229. The remainder `O(ℓ^{1/2})` stays
+  formal. The list below is v1.2's record of what a proof needed, now supplied by #220 (NOTE §0).
+- **`d ≥ 2`, v1.2.** For the elder density the expansion was formal (matched asymptotics, NOTE §1). A proof needs three
   things (NOTE §0):
   1. a rate in #207's kernel limit CU.4. In #218's ledger, an error `r^θ(1 + κ)^N` with `θ > max(2/5, (N+1)/4)`
      suffices. For the elder kernel this is a quantitative Proposition CU.3;
@@ -45,7 +62,8 @@ window.
 - **The candidate density.** It needs only 1 and 2, and **Math- #218 (Theorem T) supplies both**, at candidate status:
   `ν_cand = cℓ^{−1/3} + B_{d,L} + I^{cand}ℓ^{1/4} + c₂ℓ^{1/3} + O(ℓ^{4/11})` in every `d ≥ 2`, with this `c₂`.
 
-**Values** for the Gaussian kernel, which is the SIDE24 covariance up to `1 + O(e^{−L²/8})`:
+**Values** for the Gaussian kernel, which is the SIDE24 covariance up to `1 + O(e^{−L²/8})`. #223 (merged) gives `c₂` in
+closed form with certified enclosures, and every digit below is a correct rounding:
 
 | `d` | `c` | `c₁` | `c₂` | `c₂/c` |
 |---|---|---|---|---|
@@ -61,6 +79,10 @@ window.
 
 The `ℓ^{1/3}` term cancels about 40–50% of the `ℓ^{1/4}` term. The combined correction reaches `1%` at `4.6·10⁻⁵` and `10%`
 at `3.6·10⁻³`. Taking the `ℓ^{1/4}` term alone, as V3 edit E15 does, gives `2.3·10⁻⁵` and `1.2·10⁻³`.
+
+These are the three-term truncation (xAI P2). The coefficients `c₁/c` and `c₂/c` are certified (#219; #223 with #232's
+torus transfer). The law holds at candidate status with remainder `O(ℓ^{3/7})` (#229), with an unspecified constant, so
+the omitted terms are not quantified at a given `ℓ` (NOTE §4).
 
 **Numerical evidence (exploration, outside the repository; NOTE §3).** A full-field Monte Carlo computes the actual
 elder-rule persistence of the periodized Gaussian field:
@@ -106,7 +128,7 @@ Final counts are 4000 samples (volume `1.64·10⁷`) in `d = 2` and 996 samples 
 - **C** the numerics;
 - **D** the Monte Carlo (exploration).
 
-**Not claimed:**
-- a proof in `d ≥ 2`;
-- certified values;
+**Not claimed here:**
+- a proof in `d ≥ 2` (since v1.3: #218, #220 and #229, merged, prove it with remainder `O(ℓ^{3/7})`);
+- certified values (#223, merged, certifies them);
 - the terms after `c₂`.
