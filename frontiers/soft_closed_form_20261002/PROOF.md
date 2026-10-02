@@ -1,6 +1,6 @@
 # The closed form of the soft rejected set: an explicit `I(t, χ₀)`, `t* = 2/3`, and the expansion of `H` to `k⁴`
 
-Object: CL-SOFT-CLOSED-FORM-20261002-v1.1. Versions:
+Object: CL-SOFT-CLOSED-FORM-20261002-v1.2. Versions:
 - v1, `1781c0f` (PROOF blob `310ef828`). OpenAI Codex's nonauthor Slices A, B and C reviewed it.
 - v1.1 applies their findings:
   - OA-244-A-01: the Cardano wording;
@@ -11,6 +11,16 @@ Object: CL-SOFT-CLOSED-FORM-20261002-v1.1. Versions:
 
   It also corrects one sentence of §6 and rebinds #242 v1.3, whose §§0–3 are byte-identical to v1.2. No statement
   changes, except that Corollary A.1 now covers `t = 3/4`. §9 lists the changed bytes.
+- v1.2 (2 October 2026), after the delta readbacks of v1.1 and Slice D (review 5394484567):
+  - **OA-244-D-01:** the checker emits the current object (RESULTS changes accordingly).
+  - **OA-244-D-02:** C5's row in §7 describes its two rejection branches.
+  - **OA-244-D-03:** the floating-point branches are labelled completely, in the checker and in §7.
+  - **Rebinding:** #242 v1.5 (`ee56652`, blob `271412db`) and #243 v1.5 (`3a188be`). The consumed #242 §§0–3 are unchanged.
+  - **Remark A.1′ (cited):** records OpenAI Codex's lemma on the whole curve `Δ` (5957328502; nonauthor ACCEPT 5957356693).
+    On `Δ`, the elder switch is at `ψ = 3c′`, and `I = (20/3)c′³`, which is Theorem A's formula with `ψ_e = 3c′`. C3
+    checks its identities exactly.
+
+  The proofs of Theorems A and B and of Corollaries A.1–A.4 are unchanged. §9 lists the changed bytes.
 
 Author: Anthropic Claude (configured model `claude-opus-5-5`), session https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU,
 2 October 2026.
@@ -72,15 +82,17 @@ comes from #242's assembly of `Ĩ`, not from its `H` values (§5).
 
 **Not claimed.**
 - No unconditional statement: Theorem A rests on the sources named in the disposition.
-- On the curve `Δ`, only what §3 proves separately (the zero set, the minimum over `χ₀`, `(0, 0)`, and the fibre `(3/4, 0)`).
+- On the curve `Δ`, only what §3 proves separately (the zero set, the minimum over `χ₀`, `(0, 0)`, and the fibre `(3/4, 0)`),
+  and, through the cited lemma of Remark A.1′, `I = (20/3)c′³` on all of `Δ` (v1.2).
 - No field statement. Conjecture 7 of #242 is not addressed.
 - No certification of the §5 numbers.
 - No change to #242, #243, #170, [CUB] or any other packet.
 
 ## 1. Sources
 
-- **#242** (open; consumed at head `d504cdb`, PROOF blob `5fd29e63`, v1.3). Its §§0–3 are byte-identical to v1.2's `ad4beb84`,
-  which Slices A–C of this packet read. Used:
+- **#242** (open; consumed at head `ee56652`, PROOF blob `271412db`, v1.5). Its §§0–3 are byte-identical to v1.2's `ad4beb84`
+  (43,505 bytes, SHA-256 `7548a21d…`), which Slices A–C of this packet read; v1.3–v1.5 changed only #242's header, §4's
+  numerical sentences (v1.3) and §§5–9. Used:
   - (2.2)–(2.4): the normalization `φ, t, β, χ₀, χ`, the model (0.1) and typing;
   - the elder rule ("`S` kills `M` in the superlevel filtration of `G`"), read as in Step 1 of Lemma 2's proof: `S` kills
     `M` iff the maximin level of `M` is `L_S`;
@@ -302,6 +314,33 @@ In particular:
       affect `I`.
     - Thus `𝓡(3/4, 0) = (4/3, 4)` and `ψ_e = 3/4 = t`.
     - `I(3/4, 0) = ∫_{1/4}^{3/4}(ψ² − 1/16)dψ = 5/48 = I₀(3/4)`, as (3.2)–(3.3) state. ∎
+
+**Remark A.1′ (the whole curve `Δ`; v1.2, cited).** OpenAI Codex extended the fibre argument to every typed point of `Δ`
+(Math- #244 comment 5957328502). A separate OpenAI reviewer accepted it at its deterministic polynomial scope (5957356693).
+It uses only [CUB] (C3)–(C4), not #170 Theorem E(1) or [CUB] Theorem C (5957339141). This packet cites it and does not
+re-prove it. The organizational independence of both is 0.
+- *Statement in this packet's variables.* Take `(t, χ₀) ∈ Δ` with `c′ > 0`. Then `σ = ±c′^{3/2}`. Put
+  `q := ∓c′^{1/2}/12`, the sign chosen so that `D = −12q³`. For typed `ψ > c′` put `ρ := c′/ψ ∈ (0, 1)`. In
+  `v := X + (1/12 + q)Z`, with `Z := 24φz`,
+
+      24φG = f_ρ(v) − (ψ/48)(Z − m(v))²,    f_ρ(v) = 2v³ − 3v/2 − ½ + 3ρ(v² − ¼)²,    m(v) = −(144q/ψ)(v² − ¼),
+
+  and `f_ρ′(v) = 6(v² − ¼)(1 + 2ρv)`. The critical points are `M`, `S` and one extra saddle `Y` at `v = −1/(2ρ)`, of level
+  `h(ρ) = −(1 − ρ)³(1 + 3ρ)/(16ρ³)`, with `h(ρ) + 1 = −(1 − 3ρ)(1 + ρ)³/(16ρ³)`. The barrier-and-ridge argument of the
+  fibre `t = 3/4` gives `d_P(M) = max(h(ρ), −1)`.
+- *So:*
+  - `S` kills `M` iff `ψ ≥ 3c′`, with a two-saddle tie at `ψ = 3c′` (maximin mark 1; one `φ` does not affect `I`);
+  - `𝓡(t, χ₀) = (1/(3c′), 1/c′)`;
+  - `I(t, χ₀) = ∫_{c′}^{3c′}(ψ² − c′²)dψ = (20/3)c′³`.
+
+  This is Theorem A's `Φ(c′, R)` with `ψ_e = 3c′`, the largest root of `g_{c′}(ψ) = R² = 64c′³`. At `c′ = 0`, `Δ` is the
+  point `(1, 4)`, where `B = D = 0`, every typed `φ` is elder, and `I = 0 = Φ(0, 0)`. The fibre `t = 3/4` is the case
+  `c′ = 1/4` (`q = 1/24`, `ρ = 1/(4ψ)`), and `(0, 0)` is the case `c′ = 1` (`ψ_e = 3`, `I = 20/3`; Remark 2).
+- *Consequence.* At this deterministic scope, `I(t, χ₀) = Φ(c′, R)` for every `(t, χ₀)`, on `Δ` as well as off it. This
+  changes nothing in `H` or `Ĩ`, because `Δ` is null for #242's Gaussian law (Remark 1).
+- *Checks.* C3 (v1.2) checks the completed square, `f_ρ′`, `h` and `h + 1`, `f_ρ″` at the three critical points, the
+  saddle `Y` with `G(Y) = h(ρ)ψ/24`, the switch at `ψ = 3c′`, and `Φ = (20/3)c′³`. It does so exactly, at 32 rational
+  points: `c′ ∈ {1/9, 1/4, 1, 9/4}`, both signs of `σ`, and four `ψ` each.
 
 **Corollary A.2 (the dependence on `χ₀`).** Fix `t`.
 - (a) **Minimum and zero set.** `Φ(c′, ·)` depends on `R` only through `|R|`, and is nondecreasing in `|R|`, with minimum
@@ -630,8 +669,9 @@ independent scripts are in `referee_checks/` there.
 
   #242's author disclosed the scanner artifact on #242 (comment 5953336662). That comment attributes the `Ĩ` change to the
   scanner; §5 above corrects this. #242 Proposition 4's `H(k) = 1 + (12/25)k² + O(k³)`, and Codex's `O(k^{7/2})`, are
-  sharpened by Theorem B. #242 v1.3 (`d504cdb`) adopts the corrected §5 values and records both scanner artifacts; its
-  §§0–3, which this packet consumes, are unchanged.
+  sharpened by Theorem B. #242 v1.3 (`d504cdb`) adopts the corrected §5 values and records both scanner artifacts. v1.4
+  (`ffc7005`) and v1.5 (`ee56652`) refine its reporting after Codex's C78 and C80 reviews. Its §§0–3, which this packet
+  consumes, are unchanged.
 - **#243 (open).** FL.7 is the same identification as Lemma 1. Through Theorem FL, `F(k; b, u) = F₀H(k)` for the Gaussian kernel
   is now an explicit Gaussian integral of an algebraic function.
 - **#170 and [CUB] (merged, at their stated conditional scope).** Theorem E(1), Theorem C and the height identities are
@@ -642,7 +682,8 @@ independent scripts are in `referee_checks/` there.
 
 ## 7. Controls
 
-`closed_form_check.py` uses the Python standard library: exact `Fraction` arithmetic, plus floating point where noted. Its
+`closed_form_check.py` uses the Python standard library: exact `Fraction` arithmetic, plus floating point where noted. The
+floating-point branches are C2, C4, C6, C7, C8 and C9 (each labelled below; OA-244-D-03), and everything else is exact. Its
 output is `RESULTS.json`, byte-identical under `-O`. Mutants `M1`–`M9` each fail only their own control. CI checks this by
 parsing the checker's stderr against `SOURCES.json`. An unknown label exits 2.
 
@@ -650,21 +691,22 @@ parsing the checker's stderr against `SOURCES.json`. An unknown label exits 2.
 |---|---|
 | C1 | Lemma 1: (i) as a polynomial identity in `(X, z)` at 30 random rational `(φ, t, χ₀)`; (2.2)–(2.4) exactly; typing iff `ψ > \|c′\|`, and `s ≤ B` iff `ψ ≥ 2c′` |
 | C2 | `g′ = 48ψ(ψ − 2c′)`, `g(ψ₀) = 0`; the shift `y = ψ − c′`; the discriminant `432σ²(c′³ − σ²)`; (2.6) against bisection (floating point) on 600 points, including both branches, `c′ = 0` and `σ = 0`, with the formula's value `≥ ψ₀`; (2.8) at rational points |
-| C3 | Corollary A.1: (3.1) as a polynomial identity; (3.3) from (2.5) at rational `S` (`t = 3(1 − S²)/4`); the root ordering behind `t* = 2/3`; the values `20/3`, `4/81`, `1/3`; the derivative formula `I₀′ = −δ[2ψ_e + (ψ_e + c′)/S]` against the exact derivative of (3.3) at rational `S`; the slopes `−13/9`, `5/9`, `1` and `I₀″(1) = 0`; strict monotonicity on a rational grid; the Catalan series (3.4) and the series of `I₀` to order 12. The fibre `t = 3/4` (v1.1): `σ² = c′³`, and at eight rational `ψ > 1/4` the completed square as a polynomial identity in `(v, Z)`, `F_ψ′`, `h_Y` and `h_Y + 1`, `F_ψ(±½)`, the critical point `Y` and `G(Y) = h_Yψ/24`, the three Hessian determinants, and the sign of `h_Y + 1`; `I(3/4, 0) = 5/48` |
-| C4 | Corollary A.2: `g₀(ψ) = 16ψ³`, and `I(1, χ₀) = (χ₀ − 4)²/48` with `ψ_e` found independently by bisection (floating point); the minimum `(4/3)c′³` and the zero set in both directions; (2.7) as a polynomial identity given the cubic; `∫_{c′}^{2c′}(ψ² − c′²)dψ = (4/3)c′³` |
-| C5 | Corollary A.4 at 400 rational typed points with `β > 2`, `χ₀ ≤ 0`: `g_{c′}(t) = 16(3t − 2)²`, `R² ≥ g_{c′}(t) > g_{c′}(ψ)`, and the failure of (A) |
+| C3 | Corollary A.1: (3.1) as a polynomial identity; (3.3) from (2.5) at rational `S` (`t = 3(1 − S²)/4`); the root ordering behind `t* = 2/3`; the values `20/3`, `4/81`, `1/3`; the derivative formula `I₀′ = −δ[2ψ_e + (ψ_e + c′)/S]` against the exact derivative of (3.3) at rational `S`; the slopes `−13/9`, `5/9`, `1` and `I₀″(1) = 0`; strict monotonicity on a rational grid; the Catalan series (3.4) and the series of `I₀` to order 12. The fibre `t = 3/4` (v1.1): `σ² = c′³`, and at eight rational `ψ > 1/4` the completed square as a polynomial identity in `(v, Z)`, `F_ψ′`, `h_Y` and `h_Y + 1`, `F_ψ(±½)`, the critical point `Y` and `G(Y) = h_Yψ/24`, the three Hessian determinants, and the sign of `h_Y + 1`; `I(3/4, 0) = 5/48`. The whole curve `Δ` (v1.2, Remark A.1′): at `c′ ∈ {1/9, 1/4, 1, 9/4}`, both signs of `σ` and four typed `ψ` each, the completed square, `f_ρ′`, `h(ρ)` and `h(ρ) + 1`, `f_ρ″` at the three critical points, `Y` and `G(Y)`, the switch at `ψ = 3c′`, and `Φ = (20/3)c′³`; at `c′ = 0`, every typed `ψ` is elder |
+| C4 | Corollary A.2: `g₀(ψ) = 16ψ³`, and `I(1, χ₀) = (χ₀ − 4)²/48` with `ψ_e` found independently by bisection (floating point); the minimum `(4/3)c′³` and the zero set in both directions (the positivity of `I` off the zero set at 200 points by bisection, floating point); (2.7) as a polynomial identity given the cubic; `∫_{c′}^{2c′}(ψ² − c′²)dψ = (4/3)c′³` |
+| C5 | Corollary A.4 at 400 rational typed points with `β > 2`, `χ₀ ≤ 0`: `g_{c′}(t) = 16(3t − 2)²` (an identity in `t`), and the rejection through either branch of (A). For `t ≥ 2/3`, `R² ≥ g_{c′}(t)`, and either `ψ < 2c′` (the first inequality of (A) fails) or `g_{c′}(ψ) < g_{c′}(t) ≤ R²` (the second fails). For `t < 2/3`, `ψ < 2c′`. At two of the 400 points `ψ < 2c′` and `g_{c′}(ψ) > g_{c′}(t)`, so the chain `g_{c′}(t) > g_{c′}(ψ)` is not claimed at every point (OA-244-D-02). The exact test (A) rejects all 400 |
 | C6 | Lemma B.2: (a) at rational points with rational square roots; the reduction of `∂_R²Φ` to `(3p³ + 2c′p² + c′²p + 2c′³)/(72p³)` as a polynomial identity; the range `[0, 1/16]` and `∂_R²Φ(1, 8) = 13/243`; the one-sided limits of `F` (jump `κ`, and `0` for `c′ ≤ 0`) as exact values of `F`; (4.4) at 300 random points (floating point) |
 | C7 | Lemma B.1(b): `F₋′`, `F₊′` as polynomial identities after multiplying by `τ^{9/2}S`; the even series of `R₂(τ) + R₂(−τ)`; the exact assembly of `Λ` in `Q(√3, √6)`; a floating-point quadrature of (4.3) (exact series near `0`, Gauss–Legendre elsewhere) within `10⁻¹²`; the two forms of `h_{7/2}` in (4.2), exactly in `Q(√2, √6)`, and its value |
-| C8 | Theorem B's bookkeeping: `E[γ⁶] = 120`, `E[γ⁶t²] = 576k²`, `800 + 9984k²`, `312/25 − 12 = 12/25`, `24^{7/2} = 27648√6`; `E\|B\|^{7/2} = 2^{7/2}Γ(9/4)/√π` against a quadrature (floating point); `64512`, `∫(p(w) − p(0))w^{−2}dw = −½` (floating point), `32256`, `53248` and `h₄ = 728/25`; the exponents `7/2`, `4`, `9/2`, `14/3`, `25/6` |
-| C9 | Fixed points: #242's exact (D′) witness `(φ, β, χ) = (3/2, 8/3, 20/3)` is elder; `(0, 0)` gives `ψ_e = 3`, `I = 20/3` (Remark 2; on `Δ`); #242's 16 control-S8 decisions (five of them at `(0, 0)`); both §5 examples at full precision |
+| C8 | Theorem B's bookkeeping: `E[γ⁶] = 120`, `E[γ⁶t²] = 576k²`, `800 + 9984k²`, `312/25 − 12 = 12/25`, `24^{7/2} = 27648√6`; `E\|B\|^{7/2} = 2^{7/2}Γ(9/4)/√π` against a quadrature (floating point); `64512`, `∫(p(w) − p(0))w^{−2}dw = −½` (a quadrature, floating point), `32256`, `53248` and `h₄ = 728/25`; the exponents `7/2`, `4`, `9/2`, `14/3`, `25/6` |
+| C9 | Fixed points: #242's exact (D′) witness `(φ, β, χ) = (3/2, 8/3, 20/3)` is elder (exact); `(0, 0)` gives `ψ_e = 3`, `I = 20/3` (exact; Remark 2; on `Δ`); #242's 16 control-S8 decisions (five of them at `(0, 0)`) and both §5 examples, whose decimal inputs are evaluated as Python floats (floating point) |
 
 ## 8. Not claimed (expanded)
 
 - Theorem A is conditional on #170 Theorem E(1), [CUB] Theorem C and [CUB]'s height identities (C8)–(C11) (merged author-side
   candidates at their stated conditional scope). Lemma 1(iii) and, on `Δ`, Corollary A.2 (with #170 §3) are where they enter.
   Everything after Theorem A inherits this condition.
-- On `Δ`, only Corollary A.2(a)–(b), `(0, 0)` and the fibre `(3/4, 0)` (the last item of Corollary A.1's proof) are
-  claimed.
+- On `Δ`, this packet proves only Corollary A.2(a)–(b), `(0, 0)` and the fibre `(3/4, 0)` (the last item of Corollary
+  A.1's proof). For the rest of `Δ` it cites OpenAI Codex's lemma (Remark A.1′; 5957328502, reviewed in 5957356693). The
+  lemma is not re-proved here.
 - No statement about the actual Gaussian field. The fold-scale limit is #243 (open) and #170/#175 (merged).
 - The §5 values are numerical, uncertified exploration.
 - Conjecture 7 of #242 (the `ℓ^{2/3}` term of `ρ_rej`) is not addressed. Its missing inputs (i)–(iii) are unchanged.
@@ -682,7 +724,26 @@ Per slice, record ACCEPT, ACCEPT WITH FIXES (with a list), or REJECT (with the f
 
 **Nonauthor reviews of v1** (`1781c0f`, PROOF blob `310ef828`; OpenAI Codex, same account, organizational independence 0):
 A (5393530365), B (5393778724) and C (5393825372), each ACCEPT WITH FIXES; and Codex's automated review (5393535561, two P2
-findings, one on the workflow). Slice D is open.
+findings, one on the workflow). Slice D was then open; it reviewed v1.1 (below).
+
+**Nonauthor reviews of v1.1** (`446ea03`, PROOF blob `e0aff5ad`; OpenAI Codex, same account, organizational independence 0):
+the A/B affected-delta readback (5394322266), the C affected-delta readback (5394321246, PASS_TECHNICAL_SCOPED), and Slice
+D (5394484567, ACCEPT WITH FIXES: D-01, D-02, D-03). The full-`Δ` lemma (5957328502) has its own nonauthor review
+(5957356693).
+
+**Changed bytes in v1.2** (for a delta check against those reviews):
+- *Header:* the object label and the v1.2 entry.
+- *§0:* the "Not claimed" item on `Δ`.
+- *§1:* the #242 binding (v1.5).
+- *§3:* Remark A.1′ (new; cited), after Corollary A.1's proof.
+- *§6:* the #242 item's last sentence.
+- *§7:* the opening sentence (D-03), and the C3 (Remark A.1′), C4, C5 (D-02), C8 and C9 (D-03) rows.
+- *§§8–9:* the `Δ` item of §8, the Slice D sentence of the v1 review record, the v1.1 review record, and this list.
+- *Checker:* the docstring (D-03; the C3 item), `delta_fibre` and its loop in C3, and the emitted object (D-01).
+  `RESULTS.json` changes only in `object` and the new `C3.Delta_curve` entry.
+
+The statements and proofs of Lemma 1, Theorems A and B, Corollaries A.1–A.4 and Lemmas B.1–B.2, §§2 and 4–5, and the
+other controls are unchanged.
 
 **Changed bytes in v1.1** (for delta checks against those reviews):
 - *Header:* the object label and versions.

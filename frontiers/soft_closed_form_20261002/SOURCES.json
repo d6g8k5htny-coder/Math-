@@ -1,13 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-SOFT-CLOSED-FORM-20261002-v1.1",
+ "object": "CL-SOFT-CLOSED-FORM-20261002-v1.2",
  "supersedes": {
-  "object": "CL-SOFT-CLOSED-FORM-20261002-v1",
-  "head": "1781c0fd37469a0840f3c768d2b505ef6319133e",
-  "proof_blob": "310ef82832a51bc876494f72fc3f002ea2bfaea0"
+  "object": "CL-SOFT-CLOSED-FORM-20261002-v1.1",
+  "head": "446ea03d555968557136e9f7f569d6c56359bd76",
+  "proof_blob": "e0aff5ad5bb757eb759b64e5ba746e8491250391"
  },
- "kind": "author-side proof candidate, conditional on the merged #170 Theorem E(1) and [CUB] Theorem C (v1.1: applies the nonauthor findings OA-244-A-01 (Cardano wording), B-01 (a direct proof on the fibre t = 3/4, chi0 = 0, which lies on Delta; the Slice B reviewer's argument; also automated finding 4167121706), B-02 (a range in Corollary A.3), C-01 and C-02 (wording in Lemmas B.1-B.2), and the automated workflow finding 4167121714; rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical): Theorem A (the elder test of #242's fold-scale soft model in closed form, psi >= 2c' and (chi0 + 8 - 12t)^2 <= 16 (psi - 2c')^2 (psi + c'); the rejected set (1/psi_e, 1/|c'|) and I = |c'| delta^2 + delta^3/3 with explicit psi_e); Corollaries A.1-A.4 (chi0 = 0: t* = 2/3, elementary I(t, 0), the Catalan series; I(1, chi0) = (chi0 - 4)^2/48; the zero set t >= 1, chi0 = 12t - 8; the kink; exact asymptotics; beta > 2, chi <= 0 rejected); Lemma 1 (#243 FL.7(i)-(iii) in #242 normalization); Theorem B (H(k) = 1 + (12/25)k^2 + h_{7/2} k^(7/2) + h_4 k^4 + o(k^4) with h_{7/2} = 16 Gamma(9/4)(1728 sqrt6 - 4332 sqrt2 - 2721)/(2625 pi) and h_4 = 728/25, the k^4 coefficient derived by the referee)",
+ "kind": "author-side proof candidate, conditional on the merged #170 Theorem E(1) and [CUB] Theorem C (v1.2: applies Slice D (OA-244-D-01 the emitted object, D-02 the C5 branch description, D-03 the floating-point labels); rebinds #242 v1.5 and #243 v1.5; Remark A.1' cites OpenAI Codex's reviewed lemma on the whole curve Delta (I = (20/3) c'^3 there, Theorem A's formula with psi_e = 3c'), checked exactly in C3; v1.1: applies the nonauthor findings OA-244-A-01 (Cardano wording), B-01 (a direct proof on the fibre t = 3/4, chi0 = 0, which lies on Delta; the Slice B reviewer's argument; also automated finding 4167121706), B-02 (a range in Corollary A.3), C-01 and C-02 (wording in Lemmas B.1-B.2), and the automated workflow finding 4167121714; rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical): Theorem A (the elder test of #242's fold-scale soft model in closed form, psi >= 2c' and (chi0 + 8 - 12t)^2 <= 16 (psi - 2c')^2 (psi + c'); the rejected set (1/psi_e, 1/|c'|) and I = |c'| delta^2 + delta^3/3 with explicit psi_e); Corollaries A.1-A.4 (chi0 = 0: t* = 2/3, elementary I(t, 0), the Catalan series; I(1, chi0) = (chi0 - 4)^2/48; the zero set t >= 1, chi0 = 12t - 8; the kink; exact asymptotics; beta > 2, chi <= 0 rejected); Lemma 1 (#243 FL.7(i)-(iii) in #242 normalization); Theorem B (H(k) = 1 + (12/25)k^2 + h_{7/2} k^(7/2) + h_4 k^4 + o(k^4) with h_{7/2} = 16 Gamma(9/4)(1728 sqrt6 - 4332 sqrt2 - 2721)/(2625 pi) and h_4 = 728/25, the k^4 coefficient derived by the referee)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -34,12 +34,12 @@
  "consumed_unmerged": [
   {
    "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
-   "bytes": 87672,
-   "sha256": "2d6981593fc32533fd3f3a25c8c424bff829c7b2baa47da148b9502520e62467",
-   "git_blob": "5fd29e63e81980a968009c7e8c3ba8e0af9e46a8",
+   "bytes": 91967,
+   "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75",
+   "git_blob": "271412dbc96a29590f5f805258e15c9e335cb430",
    "tag": "242",
-   "use": "Math- #242 (open; v1.3, whose sections 0-3 are byte-identical to v1.2 blob ad4beb84, which Slices A-C of this packet read): (2.2)-(2.4) (normalization, the model (0.1), typing), the elder rule (S kills M in the superlevel filtration), (2.5) (the rejected set and I), Proposition 4 (the definition of H and the jet law), (4.2) (I~ and R_{2/3}), sections 2, 3 and 5 (the values compared); Lemma 2 is cited for the rule (Step 1 of its proof); Lemma 3 is compared, not consumed (the finiteness in section 4 uses (2.8) here)",
-   "head": "d504cdb15851b4a9140755fee6a295282c503ed4",
+   "use": "Math- #242 (open; v1.5, whose sections 0-3 are byte-identical to v1.4, v1.3 and v1.2 blob ad4beb84, which Slices A-C of this packet read): (2.2)-(2.4) (normalization, the model (0.1), typing), the elder rule (S kills M in the superlevel filtration), (2.5) (the rejected set and I), Proposition 4 (the definition of H and the jet law), (4.2) (I~ and R_{2/3}), sections 2, 3 and 5 (the values compared); Lemma 2 is cited for the rule (Step 1 of its proof); Lemma 3 is compared, not consumed (the finiteness in section 4 uses (2.8) here)",
+   "head": "ee56652e1b30f2bfbb476da269fab15eb24cecba",
    "pr": "Math- #242"
   }
  ],
@@ -47,12 +47,12 @@
  "cited_unmerged": [
   {
    "path": "frontiers/soft_fold_limit_20261002/PROOF.md",
-   "bytes": 77255,
-   "sha256": "2c7202ea7dab1313ee57f682d241904aea62d340238ec824ad05f551320f2907",
-   "git_blob": "2652db8721d654b47763b18eea6b97ba9a0dc281",
+   "bytes": 78874,
+   "sha256": "f972f46d6b7348a4ff5d2eea022694364895a5273265818533dd01204b4c06a0",
+   "git_blob": "6502cf7ba2edee47761e40308c15b7563b06d1f8",
    "tag": "243",
-   "use": "Math- #243 (open; v1.3): Proposition FL.7 (the identification of #242's model with #170's cubic), re-derived here as Lemma 1 in #242's normalization so that this packet does not consume #243; the v1.1 referee's note on the scanner near X = 1/2 (section 5 there)",
-   "head": "483556485cf15cc8662425e2195699029c713ff5",
+   "use": "Math- #243 (open; v1.5): Proposition FL.7 (the identification of #242's model with #170's cubic), re-derived here as Lemma 1 in #242's normalization so that this packet does not consume #243; the v1.1 referee's note on the scanner near X = 1/2 (section 5 there)",
+   "head": "3a188bef39f5eca6fbb7c0cc43be86a52140895c",
    "pr": "Math- #243"
   }
  ],
@@ -81,6 +81,13 @@
    "ref": "Math- #244 pullrequestreview-5393778724",
    "by": "OpenAI Codex (Slice B of this packet)",
    "use": "the direct proof on the fibre t = 3/4, chi0 = 0 (OA-244-B-01), inserted as the last item of the proof of Corollary A.1 and checked exactly in C3"
+  },
+  {
+   "ref": "Math- #244 issuecomment-5957328502",
+   "by": "OpenAI Codex (contributor lane; author-side lemma)",
+   "use": "Remark A.1' (v1.2): the maximin identity d_P(M) = k max(h(rho), -1) on every typed point of Delta, hence the elder switch at psi = 3c' and I = (20/3) c'^3 on Delta; cited, not re-proved; its identities are checked exactly in C3",
+   "review": "Math- #244 issuecomment-5957356693 (separate read-only OpenAI reviewer discriminant_extension_review: ACCEPT at the deterministic polynomial scope; organizational independence 0)",
+   "interface": "Math- #244 issuecomment-5957339141 (uses only [CUB] (C3)-(C4), not #170 Theorem E(1) or [CUB] Theorem C)"
   }
  ],
  "nonauthor_reviews": [
@@ -130,6 +137,39 @@
    ],
    "applied_in": "v1.1",
    "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "A/B affected-delta readback of v1.1",
+   "review": "pullrequestreview-5394322266",
+   "at": "446ea03",
+   "verdict": "A-01 and B-02 resolved; B-01 incorporated with its algebra verified (contributor-side verification for B-01)",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "C affected-delta readback of v1.1",
+   "review": "pullrequestreview-5394321246",
+   "at": "446ea03",
+   "verdict": "PASS_TECHNICAL_SCOPED (C-01, C-02 resolved; the consumed #242 sections 0-3 block unchanged)",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "D (sections 5-7 and the 4167121714 workflow repair)",
+   "review": "pullrequestreview-5394484567",
+   "at": "446ea03",
+   "verdict": "ACCEPT WITH FIXES",
+   "findings": [
+    "OA-244-D-01 (NIT)",
+    "OA-244-D-02 (MINOR)",
+    "OA-244-D-03 (NIT)"
+   ],
+   "applied_in": "v1.2",
+   "evidence": [
+    "issuecomment-5957056855 (independent numerical sanity, uncertified)",
+    "issuecomment-5957180884 (workflow fixtures)"
+   ],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
   }
  ],
  "mutants": {
@@ -161,23 +201,23 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 52899,
-   "sha256": "f67c017f031b89d804317b7a8c06a55ac0068c684593541b25484c0599fb61ca"
+   "bytes": 58898,
+   "sha256": "dd9b436a58d5d58f706ca59ddcf3eb31519866ea9e0a854e168036a8c21e1eaf"
   },
   {
    "path": "README.md",
-   "bytes": 8834,
-   "sha256": "48ca19a8f22c0f52c182d3a6ec78208f040be5777c9bfc1401784ed1401b2c8b"
+   "bytes": 9991,
+   "sha256": "209ee7ed7399cf0b3a78ec72f044eca277fac88c2cdaf6e43fd15470f34a4b00"
   },
   {
    "path": "closed_form_check.py",
-   "bytes": 38455,
-   "sha256": "2940bda8ee5af80458298f128ee10b1f1836e94a562ddc7bbcd3fadbfa38ff78"
+   "bytes": 41881,
+   "sha256": "8599c3fb6a5605e8d893e0d0c067c994ce32911d75164cc698d790a5b049999f"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 2109,
-   "sha256": "5c169d78cb8e7177e7bc5ef894b0d2cc1f10cb78ff515c053b1bf90c42bcd13a"
+   "bytes": 2210,
+   "sha256": "7f730556750d43b397f3047ef2392b8359f4016a3ae9740405cd0468b09fb5b5"
   }
  ],
  "exploration_manifest": {
@@ -629,5 +669,28 @@
     "sha256": "3ed9317c474721e49414bcc2c840946396e82b581e90fa78cf734d46ca013848"
    }
   ]
- }
+ },
+ "amendments": [
+  {
+   "label": "v1.2",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "closed_form_check.py",
+    "RESULTS.json",
+    "SOURCES.json"
+   ],
+   "findings": [
+    "OA-244-D-01",
+    "OA-244-D-02",
+    "OA-244-D-03"
+   ],
+   "also": [
+    "rebinds #242 v1.5 and #243 v1.5",
+    "Remark A.1' (cited full-Delta lemma, checked in C3)"
+   ],
+   "results_change": "object, and the new C3.Delta_curve entry",
+   "unchanged": "the statements and proofs of Lemma 1, Theorems A and B, Corollaries A.1-A.4 and Lemmas B.1-B.2; the workflow"
+  }
+ ]
 }

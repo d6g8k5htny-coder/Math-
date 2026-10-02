@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Exact controls for CL-SOFT-CLOSED-FORM-20261002-v1.1 (Theorem A, Corollaries A.1-A.4, Lemmas B.1-B.2, Theorem B;
+"""Exact controls for CL-SOFT-CLOSED-FORM-20261002-v1.2 (Theorem A, Corollaries A.1-A.4, Lemmas B.1-B.2, Theorem B;
 PROOF.md).
 
-Standard library only. Exact rationals, except where a control says floating point: C2 (the explicit roots (2.6) against
-bisection), C6 (the bound (4.4) at random points) and C7 (a Gauss-Legendre quadrature of (4.3)). Output: RESULTS.json
-(sorted keys), byte-identical under -O. Usage:
+Standard library only. Exact rationals, except where a control says floating point (v1.2, OA-244-D-03, the complete list):
+C2 (the explicit roots (2.6) against bisection), C4 (I(1, chi0) with psi_e found by bisection, and the positivity of I off
+its zero set by bisection), C6 (the bound (4.4) at random points), C7 (a Gauss-Legendre quadrature of (4.3)), C8 (the
+quadratures for E|B|^(7/2) and for the integral of (p(w) - p(0))/w^2) and C9 (#242's decimal S8 cases and the section 5
+examples, evaluated as Python floats). Everything else is exact. Output: RESULTS.json (sorted keys), byte-identical under -O.
+Usage:
     python3 -B -S closed_form_check.py                 # exit 0, prints RESULTS.json
     python3 -B -S closed_form_check.py --mutant M3     # exit 1 (only its control fails; M1..M9)
     unknown mutant label                               -> exit 2
@@ -25,7 +28,12 @@ Controls
       t = 3/4, chi0 = 0 on Delta (OA-244-B-01): sigma^2 = cp^3, and at eight rational psi > 1/4 the completed square
       24 phi G = F(v) - (psi/48)(Z - m(v))^2 (Z = 24 phi z, v = X + Z/8) as a polynomial identity in (v, Z), F', h_Y and
       h_Y + 1, F(-1/2) = 0, F(1/2) = -1, the critical point Y with G(Y) = h_Y psi/24, the Hessian determinants at M, S, Y,
-      the sign of h_Y + 1; I(3/4, 0) = 5/48
+      the sign of h_Y + 1; I(3/4, 0) = 5/48; v1.2, the whole curve Delta (the cited lemma, Math- #244 comment 5957328502):
+      at c' = sq^2 for sq in {1/3, 1/2, 1, 3/2}, both signs of sigma = -eps sq^3 and four typed psi each, the completed
+      square P = f_rho(v) + (s/2)(Z - m(v))^2 (rho = c'/psi, v = X + (1/12 + q)Z, q = eps sq/12) as a polynomial identity,
+      f_rho', h(rho) and h(rho) + 1, f_rho'' at v = -1/2, 1/2, -1/(2 rho), the extra saddle Y with G(Y) = h(rho) psi/24, the
+      switch at psi = 3c', and psi_e = 3c' with Phi(c', R) = (20/3) c'^3; at c' = 0, (t, chi0) = (1, 4), every typed psi is
+      elder
   C4  Corollary A.2: I(1, chi0) = (chi0 - 4)^2/48; the minimum (4/3) cp^3 (cp > 0) and the zero set (cp <= 0) at R = 0;
       the identity (2.7) as a polynomial identity in (cp, y) given the cubic for y
   C5  Corollary A.4: g(t) = 16 (3t - 2)^2 when cp = 1 - t, and on 400 rational typed points with beta > 2, chi0 <= 0 the
@@ -349,6 +357,47 @@ def fibre_34(psi):
     return ok
 
 
+def delta_fibre(sq, eps, psi):
+    """v1.2: the whole curve Delta (cited lemma, Math- #244 comment 5957328502, nonauthor ACCEPT 5957356693): c' = sq^2 > 0,
+    sigma = -eps sq^3 (so R^2 = 64 c'^3), at a rational typed psi > c' (PROOF section 3, Remark A.1')"""
+    ok = True
+    cp = sq * sq
+    t = 1 - cp
+    R = -8 * eps * sq ** 3
+    chi0 = R - 8 + 12 * t
+    phi = 1 / psi
+    beta, chi = 2 * t * phi, chi0 * phi * phi
+    X, z = V0, V1
+    G = (2 * (X + H) ** 2 * (X - 1) * Fr(1, 24) * psi + H * (X * X - Fr(1, 4)) * z - H * (1 - beta * X) * z * z
+         + Fr(1, 6) * chi * z ** 3)
+    q = eps * sq / 12
+    rho = cp / psi
+    s = -psi / 24
+    v, Zv = V2, V3
+    Pp = (G * (24 * phi)).subs(1, Zv * (psi / 24)).subs(0, v - Zv * (Fr(1, 12) + q))
+    m = (6 * q / s) * (v * v - Fr(1, 4))
+    f = 2 * v ** 3 - Fr(3, 2) * v - H + 3 * rho * (v * v - Fr(1, 4)) ** 2
+    ok &= (Pp - (f + (s / 2) * (Zv - m) ** 2)).is_zero()
+    ok &= (f.diff(2) - 6 * (v * v - Fr(1, 4)) * (1 + 2 * rho * v)).is_zero()
+    vY = -1 / (2 * rho)
+    h = ev1v(f, 2, vY)
+    ok &= h == -(1 - rho) ** 3 * (1 + 3 * rho) / (16 * rho ** 3)
+    ok &= h + 1 == -(1 - 3 * rho) * (1 + rho) ** 3 / (16 * rho ** 3)
+    ok &= ev1v(f, 2, -H) == 0 and ev1v(f, 2, H) == -1
+    f2 = f.diff(2).diff(2)
+    ok &= ev1v(f2, 2, -H) == -6 * (1 - rho) and ev1v(f2, 2, H) == 6 * (1 + rho)
+    ok &= ev1v(f2, 2, vY) == 3 * (1 - rho * rho) / rho
+    ZY = ev1v(m, 2, vY)
+    xY, zY = vY - (Fr(1, 12) + q) * ZY, ZY * psi / 24
+    ok &= ev2v(G.diff(0), xY, zY) == 0 and ev2v(G.diff(1), xY, zY) == 0
+    ok &= ev2v(G, xY, zY) == h * psi / 24
+    ok &= ((h + 1 > 0) == (psi < 3 * cp)) and ((h + 1 == 0) == (psi == 3 * cp))
+    ok &= R * R == 64 * cp ** 3 and g_of(3 * cp, cp) == R * R and elder_test(3 * cp, cp, R)
+    dl = 2 * cp
+    ok &= cp * dl * dl + dl ** 3 / 3 == Fr(20, 3) * cp ** 3
+    return ok
+
+
 def control_C3():
     ok = True
     psi, t = V0, V1
@@ -449,8 +498,19 @@ def control_C3():
         ok &= fibre_34(ps)
     I34 = (Fr(27, 64) - Fr(1, 64)) / 3 - (Fr(3, 4) - Fr(1, 4)) / 16
     ok &= I34 == Fr(5, 48) == mid(Fr(3, 4))
+    # v1.2: the whole curve Delta (cited lemma 5957328502); the fibre t = 3/4 is sq = 1/2, eps = 1
+    n_delta = 0
+    for sq in (Fr(1, 3), Fr(1, 2), Fr(1), Fr(3, 2)):
+        cpd = sq * sq
+        for eps in (1, -1):
+            for ps in (cpd * Fr(8, 7), 2 * cpd, 3 * cpd, 4 * cpd):
+                ok &= delta_fibre(sq, eps, ps)
+                n_delta += 1
+    ok &= (Fr(20, 3) * (Fr(1, 4)) ** 3 == I34) and (Fr(20, 3) == I00)
+    ok &= all(elder_test(ps, Fr(0), Fr(0)) for ps in (Fr(1, 5), Fr(1), Fr(7)))     # c' = 0: (t, chi0) = (1, 4), I = 0
     return ok, {'identity_3_1': True, 'points_3_3': n33, 'points_derivative': nder, 't_star': '2/3', 'I(0,0)': str(I00), 'I(2/3,0)': str(I23),
                 'fibre_3/4': {'psi_points': len(psis), 'I(3/4,0)': str(I34), 'tie_at_psi': '3/4'},
+                'Delta_curve': {'points': n_delta, 'I_on_Delta': "(20/3) c'^3", 'switch_at_psi': "3c'"},
                 'slopes_at_2/3': ['-13/9', '5/9'], 'catalan_terms': N, 'I_series': [str(x) for x in I_ser[:6]],
                 'phi_e_series': [str(x) for x in inv[:3]]}
 
@@ -834,7 +894,7 @@ def main(argv):
         ok, detail = fn()
         controls[name] = bool(ok)
         out[name.split('_')[0]] = detail
-    res = {'object': 'CL-SOFT-CLOSED-FORM-20261002-v1', 'scientific_effect': 'NONE', 'controls': controls}
+    res = {'object': 'CL-SOFT-CLOSED-FORM-20261002-v1.2', 'scientific_effect': 'NONE', 'controls': controls}
     res.update(out)
     ok = all(controls.values())
     if MUT is None:

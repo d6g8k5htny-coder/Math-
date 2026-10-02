@@ -4,7 +4,7 @@
 their stated conditional scope: #170 Theorem E(1), [CUB] Theorem C, and [CUB]'s height identities (C8)–(C11). Nonauthor
 review required.**
 
-Object `CL-SOFT-CLOSED-FORM-20261002-v1.1`. Full text: [`PROOF.md`](PROOF.md).
+Object `CL-SOFT-CLOSED-FORM-20261002-v1.2`. Full text: [`PROOF.md`](PROOF.md).
 
 Versions:
 - v1 `1781c0f`.
@@ -17,6 +17,14 @@ Versions:
 
   It also applies the automated finding 4167121714: once #242 merges, the workflow requires #242's pinned source in the
   tree. It rebinds #242 v1.3 (`d504cdb`), whose consumed §§0–3 are byte-identical to v1.2.
+- v1.2 applies Slice D (5394484567).
+  - OA-244-D-01: the checker emits the current object.
+  - OA-244-D-02: C5's two rejection branches are described as the code checks them.
+  - OA-244-D-03: the floating-point branches C2, C4, C6–C9 are all labelled.
+
+  It rebinds #242 v1.5 (`ee56652`) and #243 v1.5 (`3a188be`). It also adds **Remark A.1′**, which cites OpenAI Codex's
+  lemma on the whole curve `Δ` (5957328502, nonauthor ACCEPT 5957356693): on `Δ`, `S` kills `M` iff `ψ ≥ 3c′`, and
+  `I = (20/3)c′³`. That is Theorem A's formula with `ψ_e = 3c′`. C3 checks the lemma's identities exactly at 32 points.
 
 ## Result
 
@@ -30,7 +38,7 @@ and [CUB] Theorem C decide the model exactly. Put `ψ = 1/φ`, `c′ = 1 − t` 
 | | Statement | Status |
 |---|---|---|
 | **Theorem A** | Elder iff `ψ ≥ 2c′` and `R² ≤ 16(ψ − 2c′)²(ψ + c′)`, off the curve `Δ = {(R/8)² = c′³}` and finitely many `φ`. So `𝓡(t, χ₀) = (1/ψ_e, 1/\|c′\|)`, where `ψ_e` is the largest root of that cubic (trigonometric or Cardano form), and `I = \|c′\|δ² + δ³/3` with `δ = ψ_e − \|c′\|`. | proof, conditional |
-| **Corollary A.1** | At `χ₀ = 0` the cubic factors, so `t* = 2/3` exactly (#242 had `(0.65, 0.68)`). The fibre `t = 3/4`, which lies on `Δ`, is proved directly (v1.1). `I(t, 0)` is elementary: an algebraic expression for `t ≤ 2/3`, then `(2t − 1)²(2 − t)/3`, then `t − 2/3` for `t ≥ 1`. Its minimum is `4/81`, and `ψ_e`'s Taylor coefficients are Catalan numbers. | proof (as Theorem A) |
+| **Corollary A.1** | At `χ₀ = 0` the cubic factors, so `t* = 2/3` exactly (#242 had `(0.65, 0.68)`). The fibre `t = 3/4`, which lies on `Δ`, is proved directly (v1.1). The rest of `Δ` is covered by a cited lemma: `I = (20/3)c′³` there (Remark A.1′, v1.2). `I(t, 0)` is elementary: an algebraic expression for `t ≤ 2/3`, then `(2t − 1)²(2 − t)/3`, then `t − 2/3` for `t ≥ 1`. Its minimum is `4/81`, and `ψ_e`'s Taylor coefficients are Catalan numbers. | proof (as Theorem A) |
 | **Corollaries A.2–A.4** | `I(1, χ₀) = (χ₀ − 4)²/48`. `I ≥ (4/3)(1 − t)₊³`, and `I = 0` exactly on `t ≥ 1`, `χ₀ = 12t − 8`; this includes `Δ`. There is a convex kink along `χ₀ = 12t − 8`, `t < 1`. Exact asymptotics, for example `I = (4/3)\|t\|³ + 3√3\|t\|^{5/2} + (17/2)t² + O(\|t\|^{3/2})` as `t → −∞`. For `β > 2`, `χ ≤ 0` the pair is always rejected. | proof (as Theorem A) |
 | **Theorem B** | `H(k) = 1 + (12/25)k² + h_{7/2}k^{7/2} + (728/25)k⁴ + o(k⁴)` with `h_{7/2} = 16Γ(9/4)(1728√6 − 4332√2 − 2721)/(2625π) = −10.1440440…`. The `k^{7/2}` term comes from the `γ ≈ √k` region. This is the sharp term that Codex's OA-242-C-01 left open. The `k⁴` coefficient is the referee's. | proof, conditional on Theorem A |
 
@@ -66,7 +74,7 @@ output is `RESULTS.json`, byte-identical under `-O`.
 |---|---|
 | C1 | Lemma 1: `G(X, z) = P_θ(X, 24φz)/(24φ)` exactly; [CUB]'s `B`, `D`, `T`, `Σ₁`, `Δ₁` in #242's variables; typing |
 | C2 | Theorem A: monotonicity, the shifted cubic, the discriminant, (2.6) against bisection on 600 points, and the bound (2.8) |
-| C3 | Corollary A.1: the factorization (3.1), the formulas (3.3), the derivative formula, the values and slopes, monotonicity, the Catalan series |
+| C3 | Corollary A.1: the factorization (3.1), the formulas (3.3), the derivative formula, the values and slopes, monotonicity, the Catalan series; the fibre `t = 3/4`; the whole curve `Δ` (v1.2, 32 exact points) |
 | C4 | Corollary A.2: `I(1, χ₀)` with `ψ_e` found independently, the minimum, the zero set in both directions, and the identity (2.7) |
 | C5 | Corollary A.4 on 400 rational points, with the inequalities used |
 | C6 | Lemma B.2: `∂_RΦ`, `∂_R²Φ ∈ [0, 1/16]`, `∂_R²Φ(1, 8) = 13/243`, the one-sided limits, and the bound (4.4) |
@@ -113,12 +121,15 @@ The report and scripts are in the project archive.
   `Λ`, `h_{7/2}`, `32256`, `53248` and `728/25`, and proves that the kink contributes only `o(k⁴)`.
 - Automated review (5393535561): the two P2 findings above, 4167121706 and 4167121714 (the workflow). Both are applied in
   v1.1.
-- Slice D (§§5–7) is open.
+- Delta readbacks of v1.1 (`446ea03`): A/B (5394322266) and C (5394321246, PASS_TECHNICAL_SCOPED).
+- Slice D, §§5–7 (5394484567): ACCEPT WITH FIXES. D-01, D-02 and D-03 are applied in v1.2. The workflow fixtures
+  (5957180884) reproduce the v1 historical-fallback failure and confirm the v1.1 fix.
 
 ## Not claimed
 
 - No unconditional statement: everything rests on #170 Theorem E(1) and [CUB].
-- On `Δ`, only the zero set, the minimum over `χ₀`, `I(1, χ₀)`, `(0, 0)` and the fibre `(3/4, 0)` are claimed.
+- On `Δ`, this packet proves only the zero set, the minimum over `χ₀`, `I(1, χ₀)`, `(0, 0)` and the fibre `(3/4, 0)`. For
+  the rest of `Δ` it cites OpenAI Codex's lemma (Remark A.1′), without re-proving it.
 - No field statement, and nothing on #242's Conjecture 7.
 - No certification of the numerics.
 - No priority for the identification of #242's model with #170's cubic (#243 FL.7).

@@ -17,6 +17,11 @@
   "points": 600
  },
  "C3": {
+  "Delta_curve": {
+   "I_on_Delta": "(20/3) c'^3",
+   "points": 32,
+   "switch_at_psi": "3c'"
+  },
   "I(0,0)": "20/3",
   "I(2/3,0)": "4/81",
   "I_series": [
@@ -107,6 +112,6 @@
   "C8_theorem_B_bookkeeping": true,
   "C9_fixed_points": true
  },
- "object": "CL-SOFT-CLOSED-FORM-20261002-v1",
+ "object": "CL-SOFT-CLOSED-FORM-20261002-v1.2",
  "scientific_effect": "NONE"
 }
