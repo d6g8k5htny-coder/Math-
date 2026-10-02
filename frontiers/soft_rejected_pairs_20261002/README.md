@@ -2,13 +2,18 @@
 
 **Author-side proof candidate and conjectures (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-SOFT-REJECTED-20261002-v1.4`. Full text: [`PROOF.md`](PROOF.md). Version history:
+Object `CL-SOFT-REJECTED-20261002-v1.5`. Full text: [`PROOF.md`](PROOF.md). Version history:
+- v1.5 applies the two minor amendments of OpenAI Codex's C80 readback of v1.4 (review 5394603905). The changes are to
+  reporting and custody only.
+  - OA-242-V14-01: the sensitivity is `±0.002·10^{5/3}/5 ≈ ±0.0186`, an exact expression and its rounding. The `H₀`
+    comparison is about `1.33·10^{−5}`.
+  - OA-242-V14-02: `SOURCES.json` names C78's final reviewer (Codex root) and records the interrupted helper as support.
 - v1.4 applies the three findings of OpenAI Codex's C78 delta review of v1.3 (review 5394316763, AMEND; findings first
   sent in 5956579220). The changes are to the reporting in PROOF §5 and the header.
   - OA-242-V13-01: the `2.0·10^{−4}` comparison is the largest difference observed at v1.2's tabulated `k`, not a
     certified bound.
   - OA-242-V13-02: the limits of §5(3)'s expansions are stated.
-  - OA-242-V13-03: the sensitivity `±0.018` is computed exactly, as `±0.0186`.
+  - OA-242-V13-03: the sensitivity is `±0.002·10^{5/3}/5 ≈ ±0.0186` (v1.2 printed `±0.018`).
   - C78's rounding note: PROOF §5(5) prints `Ĩ = −0.5336676`, from which `R_{2/3}` is computed.
   - `SOURCES.json` pins the raw Monte Carlo archive by hash. PROOF §§0–4, `soft_check.py` and `RESULTS.json` are
     unchanged.

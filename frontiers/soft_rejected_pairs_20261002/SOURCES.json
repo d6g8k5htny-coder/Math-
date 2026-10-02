@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-SOFT-REJECTED-20261002-v1.4",
- "kind": "author-side proof candidate and conjectures, every d >= 2 (v1.4: applies the C78 delta review of v1.3 (OA-242-V13-01, V13-02, V13-03): wording of section 5 and the header only; the 2.0e-4 comparison of H is the largest difference observed at the 15 tabulated k, not a certified bound; the limits of the section 5(3) expansions are stated; the inherited sensitivity is +-0.0186 (exact), the ranges stand; the raw Monte Carlo archive is pinned by hash; no statement, proof, control or tabulated value changes; v1.3: author correction AUTH-242-02 of section 5 only: two artifacts of the scanner dec1d.py in thin layers on either side of beta = 2 are disclosed, and H, H0, Delta_chi/k^4 -> 66.56, I~ = -0.5337 and R_{2/3} = -0.0488 (d = 2), -0.0614 (d = 3) are recomputed from the closed form of Math- #244, inside the v1.2 ranges; no statement, proof or control changes; v1.2: applies OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01, E-02; exact (D-prime) witness; Lemma 2 now states that beta > 2, chi <= 0 is always rejected; prior work #170/#175 recorded, AUTH-242-01; Conjecture 6 status: existence merged (#170/#175), identification #243): Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.061 (d = 3) for the Gaussian kernel, not certified)",
+ "object": "CL-SOFT-REJECTED-20261002-v1.5",
+ "kind": "author-side proof candidate and conjectures, every d >= 2 (v1.5: applies the C80 readback of v1.4 (OA-242-V14-01: the sensitivity written +-0.002*10^(5/3)/5 ~ +-0.0186 and the H0 comparison about 1.33e-5; OA-242-V14-02: C78 final-reviewer attribution); reporting and custody only; v1.4: applies the C78 delta review of v1.3 (OA-242-V13-01, V13-02, V13-03): wording of section 5 and the header only; the 2.0e-4 comparison of H is the largest difference observed at the 15 tabulated k, not a certified bound; the limits of the section 5(3) expansions are stated; the inherited sensitivity is +-0.002*10^(5/3)/5 ~ +-0.0186, the ranges stand; the raw Monte Carlo archive is pinned by hash; no statement, proof, control or tabulated value changes; v1.3: author correction AUTH-242-02 of section 5 only: two artifacts of the scanner dec1d.py in thin layers on either side of beta = 2 are disclosed, and H, H0, Delta_chi/k^4 -> 66.56, I~ = -0.5337 and R_{2/3} = -0.0488 (d = 2), -0.0614 (d = 3) are recomputed from the closed form of Math- #244, inside the v1.2 ranges; no statement, proof or control changes; v1.2: applies OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01, E-02; exact (D-prime) witness; Lemma 2 now states that beta > 2, chi <= 0 is always rejected; prior work #170/#175 recorded, AUTH-242-01; Conjecture 6 status: existence merged (#170/#175), identification #243): Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.061 (d = 3) for the Gaussian kernel, not certified)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -229,13 +229,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 90777,
-   "sha256": "f45ce06a0a78169fb5003cb91705f344c5e5867f6bd8271210253b423b53f9a6"
+   "bytes": 91967,
+   "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75"
   },
   {
    "path": "README.md",
-   "bytes": 17657,
-   "sha256": "84883a6e1ef2b064c4c9fcc3ab5d518ff9683a71c3f935489c164eb7cdf6bfac"
+   "bytes": 18111,
+   "sha256": "17dbd735b22a01949148a29b8012fc6318ed7f8dce11451e35334877e7efe17d"
   },
   {
    "path": "soft_check.py",
@@ -249,10 +249,10 @@
   }
  ],
  "supersedes": {
-  "object": "CL-SOFT-REJECTED-20261002-v1.3",
-  "head": "d504cdb15851b4a9140755fee6a295282c503ed4",
-  "proof_blob": "5fd29e63e81980a968009c7e8c3ba8e0af9e46a8",
-  "note": "v1.3 PROOF sections 0-4, soft_check.py and RESULTS.json are byte-identical in v1.4"
+  "object": "CL-SOFT-REJECTED-20261002-v1.4",
+  "head": "ffc7005509554a378edd81136aa6e1f4fbd0eff8",
+  "proof_blob": "c15929151e9f82813b7993a31b6735bcff8dc6fa",
+  "note": "v1.4 PROOF sections 0-4 and 6-8, soft_check.py and RESULTS.json are byte-identical in v1.5"
  },
  "exploration_manifest": {
   "location": "claude.ai project archive V2_2/frontiers_soft_rejected_pairs_20261002/ (and the local archive zip SIDE24_V2_2_2026-09-29.zip); not part of the repository",
@@ -800,7 +800,7 @@
   },
   {
    "slice": "C78 bounded delta review of v1.3 (section 9 changed bytes, section 5 numerical disclosures and source bindings, README/SOURCES, unchanged checker)",
-   "reviewer": "OpenAI Codex root and /root/c78_numerical_delta_review (delegated AI review; same GitHub account; organizational independence 0)",
+   "reviewer": "OpenAI Codex root (final reviewer of review 5394316763; delegated AI review; same GitHub account; organizational independence 0)",
    "comment": "5956579220",
    "pickup": "5956488449",
    "at": "d504cdb (PROOF blob 5fd29e63)",
@@ -811,7 +811,21 @@
     "OA-242-V13-03"
    ],
    "applied_in": "v1.4",
-   "review": "pullrequestreview-5394316763"
+   "review": "pullrequestreview-5394316763",
+   "support": "the helper /root/c78_numerical_delta_review supplied preliminary findings and the script reconstruct.py, then hit a usage limit before completing a report: interrupted preliminary support, not a completed separate review (OA-242-V14-02)"
+  },
+  {
+   "slice": "C80 bounded readback of the v1.4 reporting fixes",
+   "reviewer": "OpenAI Codex root (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5394603905",
+   "pickup": "5957362074",
+   "at": "ffc7005 (PROOF blob c1592915)",
+   "verdict": "PASS_TECHNICAL_SCOPED for the corrected scope statements, tail directions, sensitivity formula and unchanged-proof/control correspondence; two minor amendments",
+   "findings": [
+    "OA-242-V14-01",
+    "OA-242-V14-02"
+   ],
+   "applied_in": "v1.5"
   }
  ],
  "amendments": [
@@ -881,6 +895,33 @@
    ],
    "requested_by": "Codex C78 delta review 5394316763 (findings first sent in 5956579220)",
    "also": "C78 rounding note (not a finding): section 5(5) prints I~ = -0.5336676"
+  },
+  {
+   "label": "v1.5",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "proof_sections_unchanged": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "6",
+    "7",
+    "8"
+   ],
+   "findings": [
+    "OA-242-V14-01",
+    "OA-242-V14-02"
+   ],
+   "requested_by": "Codex C80 readback 5394603905"
   }
  ]
 }

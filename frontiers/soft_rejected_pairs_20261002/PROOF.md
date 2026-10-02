@@ -1,6 +1,14 @@
 # Soft rejected pairs: the `1/κ` tail of the rejected cusp kernel in every dimension, the fold-scale rejection function, and a conjectured `ℓ^{2/3}` term
 
-Object: CL-SOFT-REJECTED-20261002-v1.4. Version history:
+Object: CL-SOFT-REJECTED-20261002-v1.5. Version history:
+- v1.4 → v1.5 applies the two minor amendments of OpenAI Codex's C80 readback of v1.4 (review 5394603905). It changes the
+  header, one sentence each in §5(4) and §5(5), §9, the README and `SOURCES.json`. No proof, control or tabulated value
+  changes.
+  - OA-242-V14-01: the sensitivity is written `±0.002·10^{5/3}/5 ≈ ±0.0186`, the exact expression and its rounding. The
+    `H₀` comparison reads about `1.33·10^{−5}`; the largest observed difference is `1.326·10^{−5}`, which exceeds the
+    `1.3·10^{−5}` printed before.
+  - OA-242-V14-02: `SOURCES.json` records Codex root as C78's final reviewer. The helper `c78_numerical_delta_review`
+    supplied preliminary notes and a script and then stopped before a report; it is recorded as interrupted support.
 - v1.3 → v1.4 applies the three findings of OpenAI Codex's C78 delta review of v1.3 (review 5394316763; the findings
   were first sent in 5956579220). It changes the header and §5 only. No statement, proof or control changes, and no
   tabulated value changes.
@@ -9,7 +17,7 @@ Object: CL-SOFT-REJECTED-20261002-v1.4. Version history:
     table-interpolation errors.
   - OA-242-V13-02: §5(3)'s two expansions now state their limits, `t → −∞` and `|χ₀| → ∞`.
   - OA-242-V13-03: the inherited sensitivity is computed exactly. A shift of `H` by `±0.002` on `k ≥ 0.1` moves `Ĩ` by
-    `±0.002·10^{5/3}/5 = ±0.0186`, not `±0.018`. The ranges stand.
+    `±0.002·10^{5/3}/5 ≈ ±0.0186`, not `±0.018`. The ranges stand.
   - C78 also noted (not a finding) that `0.1150058 × 0.53367` rounds to `0.06138`, not to the printed `0.06137`. §5(5) now
     prints `Ĩ = −0.5336676`, the value from which `R_{2/3}` was computed.
   - `SOURCES.json` also pins the raw Monte Carlo archive by hash. §§0–4, `soft_check.py` and `RESULTS.json` are
@@ -841,7 +849,7 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
      to `100³` changes them by less than `10^{−10}`, and #244's referee reproduces the `H` row with an independent
      quadrature.
      - At the 15 values of `k` in v1.2's table, the v1.2 values differ from these by at most `2.0·10^{−4}` (`H`, at
-       `k = 0.4`) and `1.3·10^{−5}` (`H₀`, at `k = 0.35`). These are observed differences, not certified bounds.
+       `k = 0.4`) and about `1.33·10^{−5}` (`H₀`, at `k = 0.35`). These are observed differences, not certified bounds.
      - At four decimals the v1.2 rows had `H = 1.0039, 0.9345, 0.7271, 0.4397, 0.2007` at `k = 0.1, 0.3, 0.4, 0.5, 0.6`
        and `H₀ = 0.4663` at `k = 0.4`.
    - *Small `k`.* `Δ_χ/k⁴ → 53248/800 = 66.56` (#244 Theorem B, Step 3); v1.2 used the fitted value `62`. #244 Theorem B
@@ -877,7 +885,7 @@ Gaussian kernel `e^{−|z|²/2}`, `d = 2` unless stated otherwise.
        unrecorded rule (finding A-1, found by the author while archiving v1).
      - So v1.2 had `R_{2/3} = 0.0914028·Ĩ = −0.049` in `d = 2` and `R_{2/3} = 0.1150058·Ĩ = −0.0617` in `d = 3`.
    - *Sensitivity (v1.2; the ranges stand).* A uniform shift of `H` by `±0.002` on `k ≥ 0.1` (that is, `v ≤ 10^{1/3}`)
-     moves `Ĩ` by exactly `±0.002·∫_0^{10^{1/3}}v⁴dv = ±0.002·10^{5/3}/5 = ±0.0186` (v1.2 printed `±0.018`;
+     moves `Ĩ` by exactly `±0.002·∫_0^{10^{1/3}}v⁴dv = ±0.002·10^{5/3}/5 ≈ ±0.0186` (v1.2 printed `±0.018`;
      OA-242-V13-03). Halving
      v1.2's small-`k` term `62k⁴` moves it by `−0.021`, and multiplying it by `1.5` by `+0.021`. So `Ĩ = −0.54 ± 0.03`,
      `R_{2/3} = −0.049 ± 0.003` in `d = 2` and `R_{2/3} = −0.062 ± 0.004` in `d = 3`.
@@ -1014,6 +1022,13 @@ Mutants `M1`–`M13` each break exactly one control (`M1` S1, `M2` S3, `M3` S4, 
   #187, #229 and #240.
 - **E** (§§5–7): the evidence is described accurately and kept separate from the proofs, and the controls match their
   claims.
+
+**Changed bytes in v1.5** (for a delta check against C80's readback of v1.4, 5394603905):
+- *Header:* the object label, the new v1.5 entry, and `≈` in the v1.4 entry (V14-01).
+- *§5:* the `H₀` figure in item 4's comparison sentence, and `≈` in item 5's sensitivity sentence (V14-01).
+- *§9:* this list.
+
+Everything else in `PROOF.md`, and `soft_check.py` and `RESULTS.json`, is unchanged.
 
 **Changed bytes in v1.4** (for a delta check against the C78 review of v1.3, 5394316763):
 - *Header:* the object label, the new v1.4 entry, and the `2.0·10^{−4}` sentence of the v1.3 entry (V13-01).
