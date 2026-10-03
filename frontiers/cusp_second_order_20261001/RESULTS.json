@@ -1,0 +1,81 @@
+{
+ "checks": {
+  "C1_quartic_ridge_identities": {
+   "info": {
+    "boundary_identities": 6,
+    "parameter_points": 21
+   },
+   "passed": true
+  },
+  "C2_elder_window_exact_maximin": {
+   "info": {
+    "elder": 39,
+    "grid": "1/8 on [-40,40] plus critical points",
+    "phi_values": 117,
+    "rejected": 78
+   },
+   "passed": true
+  },
+  "C3_fiber_reduction": {
+   "info": {
+    "points": 144
+   },
+   "passed": true
+  },
+  "C4_cusp_limit_field_pinned_polynomials": {
+   "info": {
+    "degree": 6,
+    "dimensions": [
+     2,
+     3
+    ],
+    "points": 24
+   },
+   "passed": true
+  },
+  "C5_model_endpoint_determinants_and_typed_window": {
+   "info": {
+    "cases": 60
+   },
+   "passed": true
+  },
+  "C6_cusp_integrals": {
+   "info": {
+    "candidate_constant": "(8/7) 6^(1/4)",
+    "elder_constant": "(16/7) 2^(1/4)",
+    "points": 3
+   },
+   "passed": true
+  },
+  "C7_gaussian_kernel_covariances": {
+   "info": {
+    "D1": "4/3",
+    "d2_even_block": "[[8/3, 2], [2, 30]]",
+    "d2_gamma_var": "2",
+    "d3_gamma_cov": "2 I",
+    "d3_regression": "3/5, 3/5, 0",
+    "d3_residual": "138/5",
+    "d3_transverse_block": "[[8/3, 2/3, 0], [2/3, 8/3, 0], [0, 0, 1]]",
+    "tau2": "6"
+   },
+   "passed": true
+  },
+  "C8_gap_affine_structure_and_cand_constants": {
+   "info": {
+    "I_cand_over_c1": "3^(1/4)/2",
+    "dimensions": [
+     2,
+     3
+    ],
+    "pinned_cases": 8,
+    "rejected_integral_points": 2,
+    "small_kappa_elder_share": "13/27"
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-CUSP-SECOND-ORDER-20261001-v1.1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

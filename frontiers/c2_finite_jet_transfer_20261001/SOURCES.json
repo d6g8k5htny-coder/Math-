@@ -1,0 +1,51 @@
+{
+  "repository": "d6g8k5htny-coder/Math-",
+  "sources": [
+    {
+      "id": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "commit": "f9ebba17f5cc590232b2fb2cd37b04b996abc143",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "use": "Exact normalized covariance definition only; no new audit of P."
+    },
+    {
+      "id": "R",
+      "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+      "commit": "f9ebba17f5cc590232b2fb2cd37b04b996abc143",
+      "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+      "bytes": 17734,
+      "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+      "use": "Observation conventions, factor12 and signed-kernel normalization."
+    },
+    {
+      "id": "NUM_NOTE",
+      "path": "frontiers/c2_exact_20261001/NOTE.md",
+      "commit": "f9ebba17f5cc590232b2fb2cd37b04b996abc143",
+      "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+      "bytes": 14480,
+      "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+      "use": "Corrected signed fixed-cone convention and reference closed forms; no original pipeline rerun."
+    },
+    {
+      "id": "NUM_INTERVAL",
+      "path": "frontiers/c2_exact_20261001/RESULTS.json",
+      "commit": "f9ebba17f5cc590232b2fb2cd37b04b996abc143",
+      "git_blob": "3077d9b29bc2393fbae1dd2c8420ca1bcc3707dd",
+      "bytes": 1891,
+      "sha256": "94aa67f11211881d60e93ee1782e9b9d829d246d8f75d73eb05b2212278cb831",
+      "use": "Three reference c2 interval pairs, transported conditionally on their existing numerical certificate."
+    },
+    {
+      "id": "T",
+      "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+      "commit": "0cf048d18eb28a4ba37eba89c238a2910d4ca915",
+      "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+      "bytes": 37220,
+      "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+      "use": "Definition(0.1); actual typed-kernel and persistence identification retained as conditional imported interfaces."
+    }
+  ],
+  "scientific_effect": "NONE"
+}

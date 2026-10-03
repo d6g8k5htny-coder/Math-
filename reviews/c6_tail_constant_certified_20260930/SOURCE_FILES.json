@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "object": "C6-TAIL-CONSTANT-CERTIFIED-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "SUPPORT_RECORD_FOR_MATH_178_NOT_A_REVIEW",
+  "disposition": "CERTIFIED_ENCLOSURES_OF_STATED_FORMULAS_NO_REGISTER_CHANGE",
+  "declarative": true,
+  "executed": false,
+  "base": "fa2e9909d8cca40d38b7dc2eadda6766bd0788e1",
+  "pins_on_main": [
+    {
+      "label": "R",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "role": "(R12) J_cusp and (R13) C_* = (216/11) k^7 (c_m/z_0) I J_cusp: the object whose planar value is enclosed",
+      "workflow_checked": true
+    },
+    {
+      "label": "E",
+      "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md",
+      "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a",
+      "role": "E20 J = 1083417/280, E21 D = 27066286003/223205220 - (79298560/4782969) log 2, E6 whole-cluster split G_max, G_2, B_2 (Math-#169, merged)",
+      "workflow_checked": true
+    },
+    {
+      "label": "Q",
+      "path": "frontiers/radial_rate_20260930/PROOF.md",
+      "git_blob": "65f24b1f9a7b80522a2ee059f5f6877c9f970f0d",
+      "role": "(12) U_abs, (13) C_2 with T_1 and T_2, (16) kappa, (19) B_sign, (21)-(22) the aligned planar cusp density and D_a G_0 (Math-#176, merged)",
+      "workflow_checked": true
+    }
+  ],
+  "unmerged_companion": {
+    "label": "NOTE",
+    "pr": 178,
+    "head": "48407d43d2603b8f04f8ba3824b53fac903ed0be",
+    "files": [
+      {
+        "path": "frontiers/c6_microscopic_tail_numerics_20260930/NOTE.md",
+        "git_blob": "674cb9772dde7fe5ddbf35c6fe11c1d462795c6a",
+        "role": "section 1 planar reduction (p_b(0)/z_0, p_odd = N(0, diag(2, 2, 6)), the one-dimensional cusp integrals) and section 2 assembly; consumed at its stated scope, not reviewed here"
+      },
+      {
+        "path": "frontiers/c6_microscopic_tail_numerics_20260930/RESULTS.json",
+        "git_blob": "0b5ce76f5f950f3ef09fc0e26dafa884a43d8f63",
+        "role": "the floating-point table compared against the enclosures in README section 5"
+      },
+      {
+        "path": "frontiers/c6_microscopic_tail_numerics_20260930/tail_constants.py",
+        "git_blob": "ff1f5d4b61859367ffcbebe9e1b5bf7990b2ef0b",
+        "role": "the Gauss-Legendre evaluator; no code shared with certify_tail_constants.py"
+      }
+    ],
+    "workflow_checked": false
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 21599,
+      "sha256": "f207c320cbe3a676f8a683d5c26a0b74cf66d74d7fec708bf7a6b3517e70b799",
+      "git_blob": "5f96b3d36defbcd7e32fbb4e9b1d0053aa55d047"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 35072,
+      "sha256": "c595d223a0f6f9df297443469024094225d0da8f388e1d7c2ed9dbbc59f3e8ec",
+      "git_blob": "2735dc391818bb431ea7fa3842dde44d1748ea04"
+    },
+    {
+      "path": "certify_tail_constants.py",
+      "bytes": 27779,
+      "sha256": "2edbc5a7407673a7abeb6f4f7d2f548f417c43a384182c937493a7379d48816c",
+      "git_blob": "aa590e2b2deea620d88324dc6dcb1ee1dfeb6f2b"
+    }
+  ]
+}

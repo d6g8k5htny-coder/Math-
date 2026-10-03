@@ -1,0 +1,79 @@
+{
+ "X1": {
+  "constant": 220,
+  "eps0": [
+   "4",
+   "35",
+   "1225/16"
+  ],
+  "eps1": [
+   "4",
+   "41",
+   "1645/16"
+  ],
+  "eps2": [
+   "6",
+   "279/4",
+   "3333/16"
+  ]
+ },
+ "X2": {
+  "Psi2_bound": 90,
+  "c3": "281/128",
+  "c4": "22761/495616",
+  "c_e": "1/200",
+  "delta_e": "1/96",
+  "omega_bound": 120,
+  "second_order_coefficients": {
+   "Psi2_at_0": "-81",
+   "Psi2m_at_0": "81",
+   "omega_at_0": "99",
+   "omegam_at_0": "99"
+  }
+ },
+ "X3_Omega_fields_checked": 6,
+ "X3_window_fields_checked": 9,
+ "X4_instances_checked": 24,
+ "X6": {
+  "conditional_least": "4/9",
+  "conditional_ledger_remark_1": {
+   "a^4 log (intermediate)": "4/9",
+   "l rho_c^-2": "3/5",
+   "l^(2/3) a^-2 (intermediate)": "4/9",
+   "l^2 rho_c^-7": "3/5",
+   "l^2 rho_f^-5": "1/2",
+   "l^3 rho_c^-11 log": "4/5",
+   "rho_c^3": "3/5",
+   "rho_f^2": "3/5",
+   "rho_f^5/l": "1/2"
+  },
+  "least_with_elder_rows": "3/7",
+  "least_without_elder_rows": "3/7",
+  "ledger_229": {
+   "a^4 log": "4/9",
+   "l": "1",
+   "l rho_c^-2": "5/9",
+   "l rho_f^-2": "3/7",
+   "l^(2/3) a^-2": "4/9",
+   "l^(5/3) a^-7": "8/9",
+   "l^2 rho_c^-7": "4/9",
+   "l^2 rho_f^-11/2 (elder only)": "3/7",
+   "l^3 rho_c^-11 log": "5/9",
+   "l^3 rho_f^-9 (elder only)": "3/7",
+   "rho_c^2": "4/9",
+   "rho_c^3": "2/3",
+   "rho_f^2": "4/7",
+   "rho_f^5/l": "3/7"
+  }
+ },
+ "controls": {
+  "X1_lemma_Q_prime_and_CE": true,
+  "X2_model_ridge_and_edges": true,
+  "X3_pinned_fields_and_Omega_a": true,
+  "X4_Q1_identities_and_parity": true,
+  "X5_first_order_bookkeeping": true,
+  "X6_corollary_and_ledgers": true
+ },
+ "object": "CL-ELDER-CUSP-PARITY-20261002-v1",
+ "scientific_effect": "NONE"
+}

@@ -1,0 +1,32 @@
+{
+  "repository": "d6g8k5htny-coder/Math-",
+  "scientific_effect": "NONE",
+  "files": [
+    {
+      "tag": "P",
+      "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "use": "Sections 1-2 exact model, positive Fourier spectrum, smoothness and finite-jet rank; Section 8 genericity/maximin convention. Reconstructed here for the unconditioned field; no density or selection estimate consumed."
+    },
+    {
+      "tag": "RATE",
+      "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+      "path": "frontiers/third_order_rate_20261001/PROOF.md",
+      "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+      "bytes": 37626,
+      "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+      "use": "Optional Section 7.2 only: E3+ pointwise elder-density expansion at its retained parent and fixed-radius far-elder premises. Not needed for SF or the count lower bound."
+    },
+    {
+      "tag": "O",
+      "commit": "c46377738b711a5cc2114b58bf7726ae6e7bc553",
+      "path": "frontiers/ordinary_short_bar_occurrence_20261001/PROOF.md",
+      "git_blob": "69ff20a6c514629373f3ad12eb2db2a2596777d6",
+      "bytes": 14146,
+      "use": "Optional Section 7.3 only, d=2: positive leading mean and singleton conditional limit, retaining all C52 premises. Also cited for compatibility. Frozen unmerged draft #235 at authoring; not needed for SF or Sections 7.1-7.2."
+    }
+  ]
+}
