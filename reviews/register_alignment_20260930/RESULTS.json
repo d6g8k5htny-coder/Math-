@@ -51,6 +51,7 @@
       "math.rn-selector-region-crosswalk",
       "math.side24-coefficient"
     ],
+    "register_state": "baseline",
     "reverse_impact_keys": [
       "changed_nodes",
       "context_changed",
@@ -94,6 +95,7 @@
     "two-scale-addendum-edit-reaches-annulus-and-region": true,
     "unrelated-edit-leaves-the-eight-untouched": true
   },
-  "scope": "identity, verdict-row, live-baseline, transition-shape, hard-gate replay, two-commit propagation, interface arithmetic (exact and numerical parts labelled), filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written",
+  "register_state": "baseline",
+  "scope": "identity, verdict-row, live-register (baseline or exactly installed), transition-shape, hard-gate replay from the pre-image, two-commit propagation, interface arithmetic (exact and numerical parts labelled), filesystem-negative and live D4-duplicate checks; no mathematics is re-proved; nothing is written",
   "transitions": 8
 }
