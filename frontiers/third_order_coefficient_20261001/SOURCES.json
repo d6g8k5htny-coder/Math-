@@ -1,0 +1,441 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.3",
+ "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (theorem there); values for d = 2, 3; full-field Monte Carlo with a direct test of the elder window (exploration outside the repository). Not a proof for the elder density in d >= 2; the candidate-density expansion with this c2 is Theorem T of Math- #218 (candidate).; v1.3 (status update, no number changes): the expansion is proved at candidate status with remainder O(l^(3/7)) by the merged #218/#220/#229, c2 is certified by the merged #223 and transferred to the torus by #232, c1 by #219; xAI P2/P3 (5378684363) answered; #214 relabelled Theorem 1D and rebound to v1.3",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "main_merged_in_v1_3": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
+ },
+ "consumed": [],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "the two-point kernel A_r = 12 pi_r(v_r) Z_r / r^2, the symmetric pin vector U_r and its target v_r (sections 2 and 4); the computation implements these definitions"
+  },
+  {
+   "path": "reviews/side24_v1_coefficient_claude_20260929/RESULTS.json",
+   "bytes": 1567,
+   "sha256": "8af1f8f0bea0a1739bfc41dd43fcdd11c219946c16c2ad169ff0581bf6da0b03",
+   "git_blob": "66e0462aa1245f66053d38d8f12a07f2f4f232d7",
+   "tag": "c2inf",
+   "use": "reference value c_{2,inf} = 0.073406919306034271030 (control T3)"
+  },
+  {
+   "path": "coefficients/side24_v1/ENCLOSURE.json",
+   "bytes": 1090,
+   "sha256": "72b6cd92d31394cdaf5da8919a5d548e902228af1f095cc184158a71d8287811",
+   "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+   "tag": "c3inf",
+   "use": "reference value c_{3,24} = c_{3,inf}(1 + O(e^-288)) = 0.04177593184059834334... (control T4)"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "comparison: c1 (CU.2), the cusp loss and its small-s limit Y^2, CU.4, Theorem CU-prime (merged; the same blob as pinned in v1.2)"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "comparison: the even contact expansion (no r^1 term), checked independently by T5 (merged; the same blob as pinned in v1.2)"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Theorem T: the candidate density to third order with this c2 (requirements 1-2 of NOTE section 0 for the candidate kernel; the identification of A_2(b, 0, u)) (merged; the same blob as pinned in v1.2)"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "status (v1.3): Theorem E3, the elder density to third order with this c2, Lemmas Q, CE, H, S-prime; (E3.3) with #187"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "status (v1.3): Theorems T+ and E3+, remainder O(l^(3/7)); Remark 1 (why the method stops at 3/7)"
+  },
+  {
+   "path": "frontiers/c2_exact_20261001/NOTE.md",
+   "bytes": 14480,
+   "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
+   "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
+   "tag": "223",
+   "use": "status (v1.3): c2 for the Gaussian kernel in closed form with certified enclosures; confirms every printed digit"
+  },
+  {
+   "path": "frontiers/c2_finite_jet_transfer_20261001/PROOF.md",
+   "bytes": 25581,
+   "sha256": "971101de946fd711207454c2cd4bbc36729ca9b7c07262e122ff1d54bf5dfa16",
+   "git_blob": "54cc4a1ae274842bc2c01f9c207549e7b07de7bc",
+   "tag": "232",
+   "use": "status (v1.3): c2 on the periodized torus covariance, d = 1, 2, 3, every L >= 24, error < 1e-60"
+  },
+  {
+   "path": "frontiers/cusp_coefficient_certified_20261001/NOTE.md",
+   "bytes": 27264,
+   "sha256": "9c74117f6b7ff2054fcfb5ddcfb4c8ad4a3a1278c201faafc5e98e7612abfc0c",
+   "git_blob": "b2866871c10cd0a0def41e10bdaf5ecbef18241c",
+   "tag": "219",
+   "use": "status (v1.3): c1 certified; c1/c_(3,24) in [-5.07106215, -5.07106213]"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 46313,
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
+   "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+   "tag": "214",
+   "use": "comparison: B2 (closed form (1D.2), proof in d = 1, Theorem 1D; v1.3 of #214, rebound from f4a58df / 873532b9, whose B2 is unchanged); controls T1, T2 compare c2 with 2 B2",
+   "head": "54666d26e11a576ae3138b54a42268152eff6ca5",
+   "pr": "Math- #214"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Isserlis",
+   "reference": "L. Isserlis (1918), moments of products of Gaussian variables (Wick)",
+   "use": "conditional expectations of determinant products"
+  },
+  {
+   "tag": "Hadamard",
+   "reference": "Hadamard finite part",
+   "use": "definition of c2"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4"
+ ],
+ "replayed": [
+  "c2_check.py"
+ ],
+ "not_replayed": [
+  "the Monte Carlo of NOTE section 3 (C + numpy; exploration archived with the project record)"
+ ],
+ "exploration_outside_repository": [
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/README.md",
+   "bytes": 4770,
+   "sha256": "592552635479e8f5a7a50ecb67b65a4b98fd84138cf48735c28c6d3225ad120e"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/analysis/law_compare.py",
+   "bytes": 2364,
+   "sha256": "d20cf129c47e0ba9b49ae55958d27e93a79c64bb7e93894e285e49d5a75b230b"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/analysis/plots_final.py",
+   "bytes": 3491,
+   "sha256": "0ff6cf9ad8d9af49940bd072a9d13840b3c7fb8403aa67cb70c7482eb24e3329"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/analysis/window_test.py",
+   "bytes": 3009,
+   "sha256": "2bcd5370e060f6e5100332ac8e0fc62b38d3422126bfafcbb8479a093f7e950b"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_d3.py",
+   "bytes": 8393,
+   "sha256": "92e5f22efa8ae7d188c183e04d3eb66b06d37d3cda8cf9eea4388ccf4cd682c3"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_d3_int.py",
+   "bytes": 1946,
+   "sha256": "e9b247e073014d57845c6d2825cb66c54f0e3ad84c4f1677ab930c5899aea956"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_fold.py",
+   "bytes": 8436,
+   "sha256": "e4f5cbe79fa106f7d227f0c522e91a22a668aafc2e037e93c3f7fead5e4f9ec9"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/c2_mpmath/c2_int.py",
+   "bytes": 2470,
+   "sha256": "f0e30b74853ed812a0c8b204efea80fdb287fe54992934f30d376d680e0b01be"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/law2_final.json",
+   "bytes": 1355,
+   "sha256": "fbacb05213c3c7d7fd724d9c72d162404f83e2bd95555ddd165598c752f612e0"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/law3_final.json",
+   "bytes": 1355,
+   "sha256": "b87acf045b7657c253ac474883a6b65de70095e0f2e80a88f2dea95823d1e377"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc2_final.json",
+   "bytes": 6465,
+   "sha256": "168104cdc15e5de40586816bb451d6944f88ecd0a557ff1ee9c471d56188a86f"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc2_interim.json",
+   "bytes": 6437,
+   "sha256": "66f28d5191d8f7a0011f4e363276dc67c52b83cd4911342140296d7b4b420b0d"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc3_final.json",
+   "bytes": 6401,
+   "sha256": "f1105e1e6471b2a95caf664e3342b69a9145b69899b37837c3c6d40849c77843"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc3_interim.json",
+   "bytes": 6367,
+   "sha256": "6676b9f45ca0340e1ed2f1dddc6649322d883507c53f8a65b2dd7ebe4d63bb84"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/mc_final.png",
+   "bytes": 190186,
+   "sha256": "606c8092ea61b3a9d8c79f2fe835b2e92d2c7a288aed16896ec08676ed00260b"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/validate2d.out",
+   "bytes": 350,
+   "sha256": "a946644417ce7b1dec789b7df61f2705c95f9316193a892c5480bcea8a756b88"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/validate3d.out",
+   "bytes": 314,
+   "sha256": "d29eec6e670044a76920045f2cb0e329a0de92fa47f3d3054a65a804e421b1d4"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/window2_final.json",
+   "bytes": 3211,
+   "sha256": "3ae8c05cf0c202e3575d61ae8ef1a69275e09ea15e866c29efd0d8a4da11cedf"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/results/window3_final.json",
+   "bytes": 2958,
+   "sha256": "c7bfb554df29f906466fc14072e777f7834ee320595075978fae2a4c36a97905"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/analyze.py",
+   "bytes": 6633,
+   "sha256": "3c02c8601c17ff1df1e416800f12747f3d159ccf637dc3d75ad7bbdf1cd6187a"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/mc_compare.py",
+   "bytes": 4107,
+   "sha256": "98b7253373f6cf7d8bee9f32b287fce29c87603164529ea68139399ad2f83d88"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/plots.py",
+   "bytes": 3180,
+   "sha256": "7c13c4909495667a2b6ba59ab2781288cb36e915e1577c9a9b75bb2e150580c0"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/run_batch_v2.py",
+   "bytes": 1053,
+   "sha256": "d3744083a2f3d4cea2d22132ced8af027ad7a484171538d0d115b1b549019679"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d.c",
+   "bytes": 12429,
+   "sha256": "456a1d83d037a26a55bd6867d1e932cd11eeeb8a7c0d510149445a2ee31c4b8c"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d.py",
+   "bytes": 10769,
+   "sha256": "a647a79579ea7af2885d729320b92d807dafe1b3d4a820ee7dbe08edd0072439"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d_v2.c",
+   "bytes": 12665,
+   "sha256": "649d6fba0ff8f435029973d06d14fef0ae01d55f472362da455e56f584d2bee4"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/sim2d_v2.py",
+   "bytes": 11739,
+   "sha256": "f9358cf91fa30abd31943583df8ac3208c5cb7cc03b56a898c317005a91b8ad7"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim2d/validate4.py",
+   "bytes": 1222,
+   "sha256": "aa363970700494238983ba81d420706b0088cddcf5f4ea72f51dcc08e30eb772"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/run_batch3d_v3.py",
+   "bytes": 1029,
+   "sha256": "9026377acde460bd28ca123b915579547a1f46c7d6236e04fac95e9216779845"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d.c",
+   "bytes": 12872,
+   "sha256": "28d63e3f3145718d39f7f0b0f3ae0db73f68368e6b5d5da139d445c5883edb95"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d.py",
+   "bytes": 9448,
+   "sha256": "2997e970bb6d3b43554db0f151a7447e5c68d69069a2d1baa760ae04ff6f06fe"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d_v3.c",
+   "bytes": 13121,
+   "sha256": "bd05561355c1273babb934d67f097ae1806ee93f7b23d7cf93b5633d1254c542"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/sim3d_v3.py",
+   "bytes": 10221,
+   "sha256": "6e54cad15b8e2ae9a5305fdda7d80e63a85328de802a57bcee524ce60c447d7e"
+  },
+  {
+   "path": "project archive V2_2/numerics_lifetime_mc_20261001/sim3d/validate3d.py",
+   "bytes": 1971,
+   "sha256": "256e42ee13bd9cbca183445a21c0d77e021fa8552ce46debb818ca76cea22ac6"
+  }
+ ],
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "automated_nonauthor": [
+  {
+   "reviewer": "chatgpt-codex-connector[bot] (OpenAI Codex, automated PR review)",
+   "reviewed_commit": "205550f85ad4005825162d3cfd3b77a22852230a",
+   "date": "2026-10-01",
+   "findings": [
+    {
+     "id": "P2",
+     "thread": 4152981579,
+     "claim": "byte-exact replay is interpreter-dependent (CPython 3.14 differs at ~1e-9 in c2)",
+     "verdict": "correct",
+     "disposition": "v1.1: every float sum is math.fsum (the built-in sum of floats changed in CPython 3.12) and the r-fit uses r/max(r); RESULTS.json is now byte-identical on CPython 3.10, 3.11, 3.12, 3.13 and 3.14 (checked); NOTE quotes c2 to 8 significant digits, the level at which summation order no longer matters"
+    },
+    {
+     "id": "P1",
+     "thread": 4152981591,
+     "claim": "a pull_request workflow added during the owner stop re-arms automation",
+     "verdict": "governance question; provenance made exact",
+     "disposition": "v1.1 records the owner's explicit post-stop instructions (delivered_under), as on Math- #210; the workflow is the pull_request-scoped replay that every packet in this lane carries (#198, #207, #211, #214), schedules nothing, and runs only when this packet changes; the PR stays unmerged unless the owner merges it"
+    },
+    {
+     "id": "P2",
+     "thread": 4152981598,
+     "claim": "the workflow ignores cited_unmerged entries",
+     "verdict": "correct",
+     "disposition": "v1.1: the workflow verifies every cited_unmerged entry by its pinned blob id through the repository API (size, sha256, git blob), as #198 does for consumed dependencies"
+    }
+   ]
+  },
+  {
+   "reviewer": "chatgpt-codex-connector[bot] (OpenAI Codex, automated PR review)",
+   "reviewed_commit": "605af74ce462ed5a26bb488c65c0b4097d6bd3fa",
+   "date": "2026-10-01",
+   "review": 5376571239,
+   "findings": [
+    {
+     "id": "P2",
+     "thread": 4153154184,
+     "claim": "eight digits of c2 in d = 3 are not supported by T4 (its two grids differ by 4.5e-8)",
+     "verdict": "correct about T4; the converged value is unchanged",
+     "disposition": "v1.2: convergence study (b, k, cone grids, r-set, summation order); the coarse grid under-resolved the height integral (32 nodes); T4 now runs at (56, 120, 48^2) and compares with (40, 80, 32^2) and the second r-set (spreads < 1e-10 and 3e-10); all variations < 1e-9 in every dimension (NOTE section 2.4)"
+    },
+    {
+     "id": "P2",
+     "thread": 4153154193,
+     "claim": "cited_unmerged blobs are not bound to their recorded head and path",
+     "verdict": "correct",
+     "disposition": "v1.2: the workflow resolves each recorded head, checks through the contents API that the recorded path at that head is a file with the recorded blob id and size, then checks the blob bytes (sha256, framed sha1)"
+    }
+   ]
+  }
+ ],
+ "author_corrections": [
+  {
+   "version": "v1.2",
+   "what": "v1.1 said a rate O(r) in #207 CU.4 suffices for a proof in d >= 2; that understated it: a quantitative fold expansion and, for the elder density, an o(l^(1/3)) bound at intermediate separations are also needed (NOTE section 0); the sufficient rate condition is theta > max(2/5, (N+1)/4) for an error r^theta (1 + kappa)^N (found by the referee of Math- #218)"
+  }
+ ],
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 29604,
+   "sha256": "b8026928e70e1a1c984aaade2ea0d9941148aca2de589cd388c31399fc5c1f60"
+  },
+  {
+   "path": "README.md",
+   "bytes": 8616,
+   "sha256": "6856a0821cb29a20da9af57c00577fb94e3f22e7b7f0bab779715c618d31663a"
+  },
+  {
+   "path": "c2_check.py",
+   "bytes": 25031,
+   "sha256": "0f8a742958ce9bfa94382d73748fe93769cba43079570d67180bfa9082a6e68a"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2067,
+   "sha256": "c5232aa5bf2308a6e6724c4929474e56723daf71dae0cb998219bb0a9648f02e"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-THIRD-ORDER-COEFF-20261001-v1.2",
+  "head": "04c08e1534122f210be888742fcd7a568e45b097",
+  "note_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb"
+ },
+ "nonauthor_reviews": [
+  {
+   "reviewer": "xAI / Grok lane (Lucas); same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5378684363",
+   "at": "4f0927f",
+   "verdict": "COMMENT (AUTHOR_SIDE_CANDIDATE / REVIEWED_WITH_FINDINGS)",
+   "findings": [
+    "P2: label the SIDE24 sentence (answered in v1.3, NOTE section 4)",
+    "P3: landing order / does not discharge the elder law (answered in v1.3)"
+   ],
+   "applied_in": "v1.3"
+  },
+  {
+   "reviewer": "xAI / Grok team; same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5379816488",
+   "at": "04c08e1",
+   "verdict": "NOT READY (scope note: exponents close; the elder expansion was formal; blocked)",
+   "findings": []
+  },
+  {
+   "reviewer": "OpenAI Codex automated review",
+   "comment": "5928841544",
+   "at": "4f0927f",
+   "verdict": "no major issues",
+   "findings": []
+  }
+ ],
+ "status_updates": [
+  {
+   "version": "v1.3",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/third-order-coefficient.yml"
+   ],
+   "unchanged": [
+    "c2_check.py",
+    "RESULTS.json"
+   ],
+   "what": "merged status of #191/#207/#218; the expansion proved at candidate status by #218/#220/#229; c2 certified by #223 and transferred by #232; c1 by #219; xAI P2/P3 answered; Theorem 1D labels; #214 rebound to v1.3"
+  }
+ ]
+}
