@@ -43,7 +43,11 @@ Since v1.9, `ridge_capHyp_C3` also derives L12's `hconv`, from the second and th
 - L9: the differentiated ridge equation gives `‖h'‖ ≤ 2s + 2s²`, with `s = mr/δ`.
 - L12: `F' = D²f[(1, h'), (1, 0)]` is the maximum of `ζ ↦ D²f[(1, ζ), (1, ζ)]`, so `F' − x/4` is monotone with no second derivative of `h`. With SP's constants, `F'' ≥ 7/4 − 48/121 · (3 + 72/121 + 576/14641) > 1/4`.
 
-What remains an input is `f_xxx ≥ 7/4` on the collar (SP's L4, from L2 and (H2)), together with the source data.
+Since v2.0, `ridge_capHyp_C4` also derives the one analytic input that `ridge_capHyp_C3` still takes, SP's L4 bound `f_xxx ≥ 7/4`:
+- L2's second statement: some point of the pin interval has `f_xxx ≥ 2`. This comes from a one-sided Hermite bound, by contradiction (`third_deriv_exists_two`).
+- L4: (H2) `rn ≤ 1/20`, with a bound `n` on the derivative of `f_xxx`, gives `f_xxx ≥ 2 − 3rn ≥ 7/4` on the collar (`fxxx_lower`).
+
+So the hypotheses of `ridge_capHyp_C4` are SP's (H1), (H2), the critical pins, the gap `r³/6` and the derivative data with the bounds `m` and `n`. No step of L1–L20 remains a hypothesis.
 
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
@@ -97,6 +101,10 @@ single ridge path.
 | `ridge_hconv` | L12 as `hconv`. Along the ridge, assume `D²f` is symmetric with negative-definite transverse part, `‖h'‖ ≤ u`, and `s ↦ D²f(s, h s)[(1, b), (1, b)]` has derivative `≥ 1/4` for `‖b‖ ≤ u`. Then `F − (x + r/2)(x − r/2)/8` is convex on `[−2r, 2r]`. For `η = h'(x₁)`: `F'(x₂) − F'(x₁) ≥ D²f(x₂)[(1, η), (1, η)] − D²f(x₁)[(1, η), (1, η)] ≥ (x₂ − x₁)/4` |
 | `ridge_source_facts`, `ridge_capHyp_C3` | the cap from SP's `C³` source data (v1.9). It assumes `ridge_capHyp_source`'s data, `D²f` and the third derivatives on the collar, the block bound `m` and `f_xxx ≥ 7/4`. It proves that a ridge exists, that `h(∓r/2) = 0`, and the cap with `M = (−r/2, 0)`, deriving L12's `hconv` rather than assuming it |
 | `h1Toy_C3` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C3`: `D²f = diag(2x, −40)`, and only `f_xxx = 2` is nonzero among the third derivatives. The theorem gives its ridge and its cap without a supplied `hconv` |
+| `hermite_gap_le_concave`, `third_deriv_exists_two` | L1 from the concave half alone (`g''' ≤ m` weakly gives `g(a) − g(c) ≤ m(c − a)³/12`), and L2's second statement (v2.0). If `g'''` is continuous on the pin interval and the gap is `r³/6`, then `g''' ≥ 2` somewhere there. Otherwise its maximum `M' < 2` would give a gap `≤ M'r³/12 < r³/6` |
+| `fxxx_lower` | L4's `f_xxx ≥ 7/4` (v2.0): if `‖D f_xxx‖ ≤ n` on the collar, `f_xxx(x₀, 0) ≥ 2` and (H2) `rn ≤ 1/20`, then `f_xxx ≥ 2 − 3rn ≥ 7/4` (SP: `2 − 5rn`) |
+| `ridge_capHyp_C4` | the cap from SP's hypotheses (v2.0): `ridge_capHyp_C3` with `f_xxx ≥ 7/4` replaced by a derivative `Φ4` of `f_xxx` with `‖Φ4‖ ≤ n` and (H2) `rn ≤ 1/20` |
+| `h1Toy_C4` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C4` (`f_xxx = 2` constant, `n = 0`). The theorem gives its ridge and cap with neither `hconv` nor `f_xxx ≥ 7/4` supplied |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -119,12 +127,10 @@ that step.
 
 This packet does not formalize:
 
-- SP's L4 bound `f_xxx ≥ 7/4` on `D`, which SP derives from L2's second statement (some point has `f_xxx = 2`) and
-  (H2) `rn ≤ 1/20` with the fourth-derivative bound `n`. It is a hypothesis of `ridge_capHyp_C3`. Since v1.9, L6 and
-  L9–L12 are proved (`ridge_hconv`, `ridge_capHyp_C3`), and so are L1–L5, L7 (existence, uniqueness and regularity of
-  `h`), L8, L11, L13 and L16–L20;
-- the source data themselves. `ridge_capHyp_source` and `ridge_capHyp_C3` take, as hypotheses, the derivatives `Df`,
-  `DG`, `H`, `D2f` and the third derivatives, with the bounds `m`, on the collar `[−2r − ε, 2r + ε] × B̄(0, 2r)`. SP has `f ∈ C⁴` near `D` and bounds the
+- the source data themselves. Since v2.0 every analytic step of L1–L20 is proved: L1–L12, L13 and L16–L20, with L7's
+  existence, uniqueness and regularity of `h`. `ridge_capHyp_C4` takes, as hypotheses, the derivatives `Df`, `DG`,
+  `H`, `D2f`, the third derivatives and the derivative of `f_xxx`, with the bounds `m` and `n`, on the collar
+  `[−2r − ε, 2r + ε] × B̄(0, 2r)`. SP has `f ∈ C⁴` near `D` and bounds the
   third derivatives on `D`. On a thin enough collar the bound `m + η` holds by continuity, and (H1) stays strict for
   small `η`; Lean does not prove this step;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
@@ -165,7 +171,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 108 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 113 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

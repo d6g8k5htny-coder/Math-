@@ -22,7 +22,8 @@
   `ridge_differentiable`), L8, L11's chain rule, L13 and L16–L20 are proved, and since v1.8
   `ridge_capHyp_source` composes them from source data on a collar `[-2r - ε, 2r + ε]` of `D`
   (the source data themselves are hypotheses). Since v1.9, L6 and L9–L12 are proved too, and
-  `ridge_capHyp_C3` derives `hconv`; SP's `f_xxx ≥ 7/4` (L4, from L2 and (H2)) stays an input.
+  `ridge_capHyp_C3` derives `hconv`; since v2.0 `ridge_capHyp_C4` also derives SP's
+  `f_xxx ≥ 7/4` (L4, from L2's second statement and (H2)).
   Also not formalized: the
   identification of the H0 persistence pairing with the elder rule (L22, P §8); the
   unstable-branch analysis (L23); and every probabilistic statement.
@@ -2397,6 +2398,203 @@ theorem ridge_capHyp_C3 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     hridgeU hhd hD2r hsym hnegD hu hΦ
     (fun x hx b hb => l12_lower hm0 (hT _ (hridgeX x hx)) (hxxx _ (hridgeX x hx)) hc (hu x hx) hb)
 
+
+/-! ### L2's second statement and (H2) (v2.0)
+
+SP's L4 lower bound `f_xxx ≥ 7/4` was the last analytic hypothesis of `ridge_capHyp_C3`. It follows
+from the normalization (some point of the pin interval has `f_xxx ≥ 2`, by a one-sided Hermite bound)
+and (H2) `rn ≤ 1/20` with a bound `n` on the derivative of `f_xxx`. `ridge_capHyp_C4` takes SP's
+hypotheses only. -/
+
+/-- **L1, one-sided.** As `hermite_gap_le`, from the concave half alone (`G'' ≤ m` weakly):
+`g(a) - g(c) ≤ m (c - a)³/12`. -/
+theorem hermite_gap_le_concave {g G : ℝ → ℝ} {a c m : ℝ} (hac : a < c)
+    (hg : ∀ x ∈ Icc a c, HasDerivAt g (G x) x)
+    (hcc : ConcaveOn ℝ (Icc a c) (fun t => G t - m / 2 * t ^ 2))
+    (hGa : G a = 0) (hGc : G c = 0) :
+    g a - g c ≤ m * (c - a) ^ 3 / 12 := by
+  have hpoly : ∀ x, HasDerivAt (fun t => (c - a) * (t - a) ^ 2 / 2 - (t - a) ^ 3 / 3)
+      ((x - a) * (c - x)) x := by
+    intro x
+    have h1 : HasDerivAt (fun t => t - a) 1 x := (hasDerivAt_id x).sub_const a
+    have h2 := ((h1.pow 2).const_mul (c - a)).div_const 2
+    have h3 := (h1.pow 3).div_const 3
+    convert h2.sub h3 using 1
+    push_cast
+    ring
+  set k : ℝ → ℝ := fun t => g t + m / 2 * ((c - a) * (t - a) ^ 2 / 2 - (t - a) ^ 3 / 3)
+    with hk
+  have hkd : ∀ x ∈ Icc a c, HasDerivAt k (G x + m / 2 * ((x - a) * (c - x))) x :=
+    fun x hx => (hg x hx).add ((hpoly x).const_mul (m / 2))
+  have hcv' : ConvexOn ℝ (Icc a c) (fun t => -G t + m / 2 * t ^ 2) :=
+    hcc.neg.congr fun t _ => by simp only [Pi.neg_apply]; ring
+  have hχ := convexOn_add_node (a := a) (c := c) hcv'
+  have hmono : MonotoneOn k (Icc a c) := by
+    refine monotoneOn_of_hasDerivWithinAt_nonneg (convex_Icc a c)
+      (fun x hx => (hkd x hx).continuousAt.continuousWithinAt)
+      (fun x hx => (hkd x (interior_subset hx)).hasDerivWithinAt) (fun x hx => ?_)
+    have hx := interior_subset hx
+    have h0 := convex_zeros_between hχ (left_mem_Icc.mpr hac.le) (right_mem_Icc.mpr hac.le) hac.le
+      (by rw [hGa]; ring) (by rw [hGc]; ring) hx
+    nlinarith
+  have hkac := hmono (left_mem_Icc.mpr hac.le) (right_mem_Icc.mpr hac.le) hac.le
+  simp only [hk] at hkac
+  have e0 : m / 2 * ((c - a) * (a - a) ^ 2 / 2 - (a - a) ^ 3 / 3) = 0 := by ring
+  have e1 : m / 2 * ((c - a) * (c - a) ^ 2 / 2 - (c - a) ^ 3 / 3) = m * (c - a) ^ 3 / 12 := by
+    ring
+  linarith
+
+/-- **L2, second statement.** Under SP's normalization `g(-r/2) - g(r/2) = r³/6` with critical pins,
+if `g''' = φ` is continuous on the pin interval, then `φ(x₀) ≥ 2` for some `x₀` there (SP: the
+`φ`-weighted average of `f_xxx` is `2`). -/
+theorem third_deriv_exists_two {g G G' φ : ℝ → ℝ} {r : ℝ} (hr : 0 < r)
+    (hg : ∀ x ∈ Icc (-r / 2) (r / 2), HasDerivAt g (G x) x)
+    (hG : ∀ x ∈ Icc (-r / 2) (r / 2), HasDerivAt G (G' x) x)
+    (hG' : ∀ x ∈ Icc (-r / 2) (r / 2), HasDerivAt G' (φ x) x)
+    (hφ : ContinuousOn φ (Icc (-r / 2) (r / 2)))
+    (hGa : G (-r / 2) = 0) (hGc : G (r / 2) = 0) (hgap : g (-r / 2) - g (r / 2) = r ^ 3 / 6) :
+    ∃ x₀ ∈ Icc (-r / 2) (r / 2), 2 ≤ φ x₀ := by
+  by_contra hcon
+  simp only [not_exists, not_and, not_le] at hcon
+  have hne : (Icc (-r / 2) (r / 2)).Nonempty := ⟨-r / 2, left_mem_Icc.mpr (by linarith)⟩
+  obtain ⟨x₁, hx₁, hmax⟩ := isCompact_Icc.exists_isMaxOn hne hφ
+  set M := φ x₁ with hM
+  have hcc : ConcaveOn ℝ (Icc (-r / 2) (r / 2)) (fun t => G t - M / 2 * t ^ 2) := by
+    refine concaveOn_of_hasDerivWithinAt2_nonpos (convex_Icc _ _) (f' := fun t => G' t - M * t)
+      (f'' := fun t => φ t - M)
+      (fun t ht => ((hG t ht).sub ((hasDerivAt_pow 2 t).const_mul (M / 2))).continuousAt.continuousWithinAt)
+      (fun t ht => ?_) (fun t ht => ?_) (fun t ht => ?_)
+    · have := (hG t (interior_subset ht)).sub ((hasDerivAt_pow 2 t).const_mul (M / 2))
+      convert this.hasDerivWithinAt using 1
+      push_cast
+      ring
+    · have := (hG' t (interior_subset ht)).sub ((hasDerivAt_id' t).const_mul M)
+      convert this.hasDerivWithinAt using 1
+      ring
+    · have h' : φ t ≤ φ x₁ := hmax (interior_subset ht)
+      show φ t - M ≤ 0
+      linarith
+  have h1 := hermite_gap_le_concave (by linarith) hg hcc hGa hGc
+  have hcr : r / 2 - -r / 2 = r := by ring
+  rw [hgap, hcr] at h1
+  have h2 := hcon x₁ hx₁
+  have hr3 : 0 < r ^ 3 := by positivity
+  nlinarith
+
+/-- **L4 (`f_xxx ≥ 7/4`).** If `ψ = f_xxx` has derivative of norm at most `n` on the collar
+`[-2r - ε, 2r + ε] × B̄(0, 2r)` (`0 < ε ≤ r/2`), `ψ(x₀, 0) ≥ 2` at a point of the pin interval and
+(H2) `rn ≤ 1/20`, then `ψ ≥ 2 - 3rn ≥ 7/4` on the collar (SP: `2 - 5rn`; the product norm is the
+maximum of `|Δx| ≤ 3r` and `‖Δy‖ ≤ 2r`). -/
+theorem fxxx_lower {ψ : ℝ × E → ℝ} {Dψ : ℝ × E → ℝ × E →L[ℝ] ℝ} {r n ε x₀ : ℝ} (hr : 0 < r)
+    (hε : 0 < ε) (hεr : ε ≤ r / 2)
+    (hψ : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), HasFDerivAt ψ (Dψ p) p) (hn : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖Dψ p‖ ≤ n)
+    (hx₀ : x₀ ∈ Icc (-r / 2) (r / 2)) (h2 : 2 ≤ ψ (x₀, 0)) (hH2 : r * n ≤ 1 / 20) :
+    ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ ψ p := by
+  intro p hp
+  have hcvx : Convex ℝ (Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r)) := (convex_Icc _ _).prod (convex_closedBall _ _)
+  have h0 : ((x₀ : ℝ), (0 : E)) ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r) :=
+    ⟨⟨by linarith [hx₀.1], by linarith [hx₀.2]⟩, Metric.mem_closedBall_self (by positivity)⟩
+  have hmv := hcvx.norm_image_sub_le_of_norm_hasFDerivWithin_le
+    (fun q hq => (hψ q hq).hasFDerivWithinAt) hn h0 hp
+  have hdist : ‖p - (x₀, 0)‖ ≤ 3 * r := by
+    obtain ⟨⟨hp1, hp2⟩, hp3⟩ := hp
+    have hy : ‖p.2‖ ≤ 2 * r := by simpa [Metric.mem_closedBall, dist_zero_right] using hp3
+    rw [Prod.norm_def]
+    refine max_le ?_ ?_
+    · simp only [Prod.fst_sub, Real.norm_eq_abs]
+      rw [abs_le]; constructor <;> linarith [hx₀.1, hx₀.2]
+    · simp only [Prod.snd_sub, sub_zero]
+      linarith
+  have hn0 : 0 ≤ n := (norm_nonneg _).trans (hn p hp)
+  rw [Real.norm_eq_abs] at hmv
+  have h3 := (abs_le.mp hmv).1
+  have h4 := mul_le_mul_of_nonneg_left hdist hn0
+  nlinarith
+
+/-- **The cap from SP's hypotheses (H1), (H2) and the derivative bounds (L1–L20 composed).** As
+`ridge_capHyp_C3`, with `f_xxx ≥ 7/4` derived instead of assumed: from a derivative `Φ4` of `f_xxx`
+with `‖Φ4‖ ≤ n` on the collar (SP's `n = M_4` on that block) and (H2) `rn ≤ 1/20`. L2's second
+statement gives `f_xxx(x₀, 0) ≥ 2` on the pin interval (`third_deriv_exists_two`), and
+`fxxx_lower` gives `f_xxx ≥ 7/4` on the collar. -/
+theorem ridge_capHyp_C4 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
+    {Df : ℝ × E → ℝ × E →L[ℝ] ℝ} {D2f : ℝ × E → ℝ × E →L[ℝ] ℝ × E →L[ℝ] ℝ}
+    {T3 : ℝ × E → ℝ × E → ℝ × E → ℝ × E →L[ℝ] ℝ} {Φ4 : ℝ × E → ℝ × E →L[ℝ] ℝ} {n : ℝ}
+    {DG : ℝ × E → ℝ × E →L[ℝ] E →L[ℝ] ℝ}
+    {H : ℝ × E → E →L[ℝ] E →L[ℝ] ℝ} {Hx : ℝ → E →L[ℝ] E →L[ℝ] ℝ}
+    {Hr : ℝ × E → ℝ → E →L[ℝ] E →L[ℝ] ℝ} {r m lam ε : ℝ} (hr : 0 < r) (hε : 0 < ε)
+    (hεr : ε ≤ r / 2)
+    (hDf : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), HasFDerivAt f (Df p) p)
+    (hD2 : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), HasFDerivAt Df (D2f p) p)
+    (hD3 : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ a b : ℝ × E, HasFDerivAt (fun q => D2f q a b) (T3 p a b) p)
+    (hT : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ (s₁ s₂ s₃ : ℝ) (y₁ y₂ y₃ : E),
+      |T3 p (s₁, y₁) (s₂, y₂) (s₃, y₃) - s₁ * s₂ * s₃ * T3 p (1, 0) (1, 0) (1, 0)| ≤
+        m * ((|s₁| + ‖y₁‖) * (|s₂| + ‖y₂‖) * (|s₃| + ‖y₃‖) - |s₁| * |s₂| * |s₃|))
+    (hD4 : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      HasFDerivAt (fun q => T3 q (1, 0) (1, 0) (1, 0)) (Φ4 p) p)
+    (hn : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖Φ4 p‖ ≤ n) (hH2 : r * n ≤ 1 / 20)
+    (hGs : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      HasStrictFDerivAt (fun q => (Df q).comp (ContinuousLinearMap.inr ℝ ℝ E)) (DG p) p)
+    (hH : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      HasFDerivAt (fun y => (Df (p.1, y)).comp (ContinuousLinearMap.inr ℝ ℝ E)) (H p) p.2)
+    (hHx : ∀ x ∈ Icc (-2 * r - ε) (2 * r + ε), HasDerivAt (fun t => H (t, 0)) (Hx x) x)
+    (hHxb : ∀ x ∈ Icc (-2 * r - ε) (2 * r + ε), ‖Hx x‖ ≤ m)
+    (hHr : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ∀ s ∈ Icc (0 : ℝ) 1, HasDerivAt (fun s : ℝ => H (p.1, s • p.2)) (Hr p s) s)
+    (hHrb : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ∀ s ∈ Icc (0 : ℝ) 1, ‖Hr p s‖ ≤ m * ‖p.2‖)
+    (hlam : ∀ v : E, H (-r / 2, 0) v v ≤ -lam * ‖v‖ ^ 2) (hH1 : 8 * r * m ^ 2 < lam)
+    (hM : Df (-r / 2, 0) = 0) (hS : Df (r / 2, 0) = 0)
+    (hG0cv : ConvexOn ℝ (Icc (-r / 2) (r / 2)) (fun t => Df (t, 0) (1, 0) + m / 2 * t ^ 2))
+    (hG0cc : ConcaveOn ℝ (Icc (-r / 2) (r / 2)) (fun t => Df (t, 0) (1, 0) - m / 2 * t ^ 2))
+    (hwcv : ∀ v : E, ConvexOn ℝ (Icc (-2 * r - ε) (2 * r + ε))
+      (fun t => Df (t, 0) (0, v) + m * ‖v‖ / 2 * t ^ 2))
+    (hwcc : ∀ v : E, ConcaveOn ℝ (Icc (-2 * r - ε) (2 * r + ε))
+      (fun t => Df (t, 0) (0, v) - m * ‖v‖ / 2 * t ^ 2))
+    (hnorm : f (-r / 2, 0) - f (r / 2, 0) = r ^ 3 / 6) :
+    (∃ h : ℝ → E, ∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε), h x ∈ Metric.ball (0 : E) (2 * r) ∧
+        HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) ∧
+      ∀ h : ℝ → E, (∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε),
+          h x ∈ Metric.closedBall (0 : E) (2 * r) ∧
+            HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) →
+        h (-r / 2) = 0 ∧ h (r / 2) = 0 ∧
+          CapHyp f (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)) (-r / 2, 0)
+            (2 * r, h (2 * r)) (f (-r / 2, 0)) (f (r / 2, 0)) ∧
+          ∀ x ∈ frontier (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)),
+            x ≠ (r / 2, 0) → f x < f (r / 2, 0) := by
+  have hmem : ∀ t ∈ Icc (-r / 2) (r / 2), (t, (0 : E)) ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r) := fun t ht =>
+    ⟨⟨by linarith [ht.1], by linarith [ht.2]⟩, Metric.mem_closedBall_self (by positivity)⟩
+  have hp : ∀ t : ℝ, HasDerivAt (fun s : ℝ => (s, (0 : E))) ((1 : ℝ), (0 : E)) t := fun t =>
+    (hasDerivAt_id t).prodMk (hasDerivAt_const t (0 : E))
+  have hg : ∀ x ∈ Icc (-r / 2) (r / 2), HasDerivAt (fun x => f (x, 0)) (Df (x, 0) (1, 0)) x := by
+    intro x hx
+    exact (hDf _ (hmem x hx)).comp_hasDerivAt x (hp x)
+  have hG : ∀ x ∈ Icc (-r / 2) (r / 2),
+      HasDerivAt (fun t => Df (t, 0) (1, 0)) (D2f (x, 0) (1, 0) (1, 0)) x := by
+    intro x hx
+    have h1 : HasDerivAt (fun t => Df (t, 0)) (D2f (x, 0) (1, 0)) x :=
+      (hD2 _ (hmem x hx)).comp_hasDerivAt x (hp x)
+    simpa using h1.clm_apply (hasDerivAt_const x ((1 : ℝ), (0 : E)))
+  have hG' : ∀ x ∈ Icc (-r / 2) (r / 2),
+      HasDerivAt (fun t => D2f (t, 0) (1, 0) (1, 0)) (T3 (x, 0) (1, 0) (1, 0) (1, 0)) x := by
+    intro x hx
+    exact (hD3 _ (hmem x hx) (1, 0) (1, 0)).comp_hasDerivAt x (hp x)
+  have hc : Continuous (fun s : ℝ => (s, (0 : E))) := continuous_id.prodMk continuous_const
+  have hφc : ContinuousOn (fun t => T3 (t, 0) (1, 0) (1, 0) (1, 0)) (Icc (-r / 2) (r / 2)) := by
+    intro t ht
+    have h1 : ContinuousAt (fun q => T3 q (1, 0) (1, 0) (1, 0)) (t, (0 : E)) :=
+      (hD4 _ (hmem t ht)).continuousAt
+    have h2 : ContinuousAt (fun s : ℝ => T3 (s, 0) (1, 0) (1, 0) (1, 0)) t :=
+      ContinuousAt.comp (g := fun q => T3 q (1, 0) (1, 0) (1, 0)) (f := fun s : ℝ => (s, (0 : E)))
+        h1 hc.continuousAt
+    exact h2.continuousWithinAt
+  have hGa : Df (-r / 2, 0) (1, 0) = 0 := by simp [hM]
+  have hGc : Df (r / 2, 0) (1, 0) = 0 := by simp [hS]
+  have hxxx : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ T3 p (1, 0) (1, 0) (1, 0) := by
+    obtain ⟨x₀, hx₀, h2⟩ := third_deriv_exists_two hr hg hG hG' hφc hGa hGc hnorm
+    exact fxxx_lower (ψ := fun q => T3 q (1, 0) (1, 0) (1, 0)) hr hε hεr hD4 hn hx₀ h2 hH2
+  exact ridge_capHyp_C3 hr hε hεr hDf hD2 hD3 hT hxxx hGs hH hHx hHxb hHr hHrb hlam hH1 hM hS
+    hG0cv hG0cc hwcv hwcc hnorm
+
 end Slice
 
 /-! ### A concrete instance and the necessity of each hypothesis
@@ -3172,6 +3370,151 @@ theorem h1Toy_C3 :
     (Hr := fun _ _ => 0) (r := 1) (m := 2) (lam := 40) (ε := 1 / 2) one_pos (by norm_num)
     (by norm_num) (fun p _ => hDf p) (fun p _ => hD2 p) (fun p _ a b => hD3 p a b)
     (fun p _ => hT p) (fun p _ => by norm_num) (fun p _ => hGs p) (fun p _ => hH p)
+    (fun x _ => hasDerivAt_const x ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
+    (fun x _ => by simp only [ContinuousLinearMap.opNorm_zero]; norm_num)
+    (fun p _ s _ => hasDerivAt_const s ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
+    (fun p _ s _ => by simp only [ContinuousLinearMap.opNorm_zero]; positivity)
+    (fun v => by
+      simp only [smul_apply, ContinuousLinearMap.mul_apply', smul_eq_mul, Real.norm_eq_abs, sq_abs]
+      nlinarith [sq_nonneg v])
+    (by norm_num) (by ext <;> norm_num) (by ext <;> norm_num) ?_ ?_ ?_ ?_
+    (by simp only [h1ToyF]; norm_num)
+  · obtain ⟨hex, hcap⟩ := hsrc
+    have hcrit0 : ∀ x : ℝ, HasFDerivAt (fun y => h1ToyF (x, y)) (0 : ℝ →L[ℝ] ℝ) 0 := by
+      intro x
+      have := slice_hasFDerivAt (hDf (x, 0))
+      convert this using 1
+      ext
+      simp
+    obtain ⟨-, -, hC, -⟩ := hcap (fun _ => 0) (fun x _ => ⟨by simp, hcrit0 x⟩)
+    exact ⟨hex, hC⟩
+  · have hc : ConvexOn ℝ univ (fun x : ℝ => (2 : ℝ) • x ^ 2 + (-1 / 4 : ℝ)) :=
+      ((even_two.convexOn_pow).smul (by norm_num)).add (convexOn_const _ convex_univ)
+    refine (hc.subset (subset_univ _) (convex_Icc _ _)).congr ?_
+    intro x _
+    simp only [smul_eq_mul]
+    simp
+    ring
+  · refine (concaveOn_const (-1 / 4 : ℝ) (convex_Icc _ _)).congr ?_
+    intro x _
+    simp
+    ring
+  · intro v
+    have hc : ConvexOn ℝ univ (fun t : ℝ => ‖v‖ • t ^ 2) :=
+      (even_two.convexOn_pow).smul (norm_nonneg v)
+    refine (hc.subset (subset_univ _) (convex_Icc _ _)).congr ?_
+    intro t _
+    simp only [smul_eq_mul]
+    simp
+  · intro v
+    have hc : ConcaveOn ℝ univ (fun t : ℝ => -(‖v‖ • t ^ 2)) :=
+      ((even_two.convexOn_pow).smul (norm_nonneg v)).neg
+    refine (hc.subset (subset_univ _) (convex_Icc _ _)).congr ?_
+    intro t _
+    simp only [smul_eq_mul]
+    simp
+
+/-- **`ridge_capHyp_C4` is not vacuous.** `h1ToyF` meets every hypothesis of `ridge_capHyp_C4`
+on the collar `ε = 1/2`: the data of `h1Toy_C3`, with `f_xxx = 2` constant, so its derivative is `0`
+and (H2) holds with `n = 0`. The theorem gives the ridge and the cap with `M = (-1/2, 0)`, with
+neither L12 nor `f_xxx ≥ 7/4` supplied. -/
+theorem h1Toy_C4 :
+    (∃ h : ℝ → ℝ, ∀ x ∈ Ioo (-2 * 1 - 1 / 2 : ℝ) (2 * 1 + 1 / 2), h x ∈ Metric.ball (0 : ℝ) (2 * 1) ∧
+        HasFDerivAt (fun y => h1ToyF (x, y)) (0 : ℝ →L[ℝ] ℝ) (h x)) ∧
+      CapHyp h1ToyF (Icc (-2 * 1) (1 / 2) ×ˢ Metric.closedBall (0 : ℝ) (2 * 1)) (-1 / 2, 0)
+        (2 * 1, 0) (h1ToyF (-1 / 2, 0)) (h1ToyF (1 / 2, 0)) := by
+  have hDf : ∀ p : ℝ × ℝ, HasFDerivAt h1ToyF ((p.1 ^ 2 - 1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ +
+      (-40 * p.2) • ContinuousLinearMap.snd ℝ ℝ ℝ) p := by
+    intro p
+    have hf : HasFDerivAt (fun q : ℝ × ℝ => q.1) (ContinuousLinearMap.fst ℝ ℝ ℝ) p :=
+      hasFDerivAt_fst
+    have hs : HasFDerivAt (fun q : ℝ × ℝ => q.2) (ContinuousLinearMap.snd ℝ ℝ ℝ) p :=
+      hasFDerivAt_snd
+    have h1 := HasFDerivAt.sub (HasFDerivAt.sub
+      (HasFDerivAt.const_mul (HasFDerivAt.pow hf 3) (1 / 3)) (HasFDerivAt.const_mul hf (1 / 4)))
+      (HasFDerivAt.const_mul (HasFDerivAt.pow hs 2) 20)
+    convert h1 using 1
+    · funext q
+      simp only [h1ToyF, Pi.sub_apply]
+      ring
+    · ext <;> simp; ring
+  have hGs : ∀ p : ℝ × ℝ, HasStrictFDerivAt (fun q : ℝ × ℝ => ((q.1 ^ 2 - 1 / 4) •
+      ContinuousLinearMap.fst ℝ ℝ ℝ + (-40 * q.2) • ContinuousLinearMap.snd ℝ ℝ ℝ).comp
+        (ContinuousLinearMap.inr ℝ ℝ ℝ))
+      (((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ) p := by
+    intro p
+    convert (((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L
+      ContinuousLinearMap.snd ℝ ℝ ℝ).hasStrictFDerivAt (x := p) using 1
+    funext q
+    ext
+    simp
+  have hH : ∀ p : ℝ × ℝ, HasFDerivAt (fun y => ((p.1 ^ 2 - 1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ +
+      (-40 * y) • ContinuousLinearMap.snd ℝ ℝ ℝ).comp (ContinuousLinearMap.inr ℝ ℝ ℝ))
+      ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) p.2 := by
+    intro p
+    convert ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ).hasFDerivAt (x := p.2) using 1
+    funext y
+    ext
+    simp
+  have hf : ∀ p : ℝ × ℝ, HasFDerivAt (fun q : ℝ × ℝ => q.1) (ContinuousLinearMap.fst ℝ ℝ ℝ) p :=
+    fun p => hasFDerivAt_fst
+  have hs : ∀ p : ℝ × ℝ, HasFDerivAt (fun q : ℝ × ℝ => q.2) (ContinuousLinearMap.snd ℝ ℝ ℝ) p :=
+    fun p => hasFDerivAt_snd
+  have hD2 : ∀ p : ℝ × ℝ, HasFDerivAt (fun q : ℝ × ℝ => (q.1 ^ 2 - 1 / 4) •
+      ContinuousLinearMap.fst ℝ ℝ ℝ + (-40 * q.2) • ContinuousLinearMap.snd ℝ ℝ ℝ)
+      (((2 * p.1) • ContinuousLinearMap.fst ℝ ℝ ℝ).smulRight (ContinuousLinearMap.fst ℝ ℝ ℝ) +
+        ((-40 : ℝ) • ContinuousLinearMap.snd ℝ ℝ ℝ).smulRight (ContinuousLinearMap.snd ℝ ℝ ℝ)) p := by
+    intro p
+    have h1 : HasFDerivAt (fun q : ℝ × ℝ => q.1 ^ 2 - 1 / 4) ((2 * p.1) • ContinuousLinearMap.fst ℝ ℝ ℝ)
+        p := by
+      have := (HasFDerivAt.pow (hf p) 2).sub_const (1 / 4)
+      convert this using 1
+      ext <;> simp
+    have h2 : HasFDerivAt (fun q : ℝ × ℝ => -40 * q.2) ((-40 : ℝ) • ContinuousLinearMap.snd ℝ ℝ ℝ) p :=
+      HasFDerivAt.const_mul (hs p) (-40)
+    exact (h1.smul_const (ContinuousLinearMap.fst ℝ ℝ ℝ)).add
+      (h2.smul_const (ContinuousLinearMap.snd ℝ ℝ ℝ))
+  have hD3 : ∀ p : ℝ × ℝ, ∀ a b : ℝ × ℝ, HasFDerivAt (fun q : ℝ × ℝ =>
+      ((((2 * q.1) • ContinuousLinearMap.fst ℝ ℝ ℝ).smulRight (ContinuousLinearMap.fst ℝ ℝ ℝ) +
+        ((-40 : ℝ) • ContinuousLinearMap.snd ℝ ℝ ℝ).smulRight (ContinuousLinearMap.snd ℝ ℝ ℝ)) a) b)
+      ((2 * a.1 * b.1) • ContinuousLinearMap.fst ℝ ℝ ℝ) p := by
+    intro p a b
+    have := (HasFDerivAt.const_mul (hf p) (2 * a.1 * b.1)).add_const (-40 * a.2 * b.2)
+    convert this using 1
+    funext q
+    simp
+    ring
+  have hT : ∀ p : ℝ × ℝ, ∀ (s₁ s₂ s₃ : ℝ) (y₁ y₂ y₃ : ℝ),
+      |((2 * (s₁, y₁).1 * (s₂, y₂).1) • ContinuousLinearMap.fst ℝ ℝ ℝ) (s₃, y₃) -
+          s₁ * s₂ * s₃ * ((2 * ((1 : ℝ), (0 : ℝ)).1 * ((1 : ℝ), (0 : ℝ)).1) •
+            ContinuousLinearMap.fst ℝ ℝ ℝ) (1, 0)| ≤
+        2 * ((|s₁| + ‖y₁‖) * (|s₂| + ‖y₂‖) * (|s₃| + ‖y₃‖) - |s₁| * |s₂| * |s₃|) := by
+    intro p s₁ s₂ s₃ y₁ y₂ y₃
+    have h0 : ((2 * (s₁, y₁).1 * (s₂, y₂).1) • ContinuousLinearMap.fst ℝ ℝ ℝ) (s₃, y₃) -
+        s₁ * s₂ * s₃ * ((2 * ((1 : ℝ), (0 : ℝ)).1 * ((1 : ℝ), (0 : ℝ)).1) •
+          ContinuousLinearMap.fst ℝ ℝ ℝ) (1, 0) = 0 := by
+      simp
+      ring
+    rw [h0, abs_zero]
+    have a1 : |s₁| ≤ |s₁| + ‖y₁‖ := le_add_of_nonneg_right (norm_nonneg _)
+    have a2 : |s₂| ≤ |s₂| + ‖y₂‖ := le_add_of_nonneg_right (norm_nonneg _)
+    have a3 : |s₃| ≤ |s₃| + ‖y₃‖ := le_add_of_nonneg_right (norm_nonneg _)
+    have := mul_le_mul (mul_le_mul a1 a2 (abs_nonneg _) (by positivity)) a3 (abs_nonneg _)
+      (by positivity)
+    linarith
+  have hsrc := ridge_capHyp_C4 (E := ℝ) (f := h1ToyF)
+    (Df := fun p => (p.1 ^ 2 - 1 / 4) • ContinuousLinearMap.fst ℝ ℝ ℝ +
+      (-40 * p.2) • ContinuousLinearMap.snd ℝ ℝ ℝ)
+    (D2f := fun p => ((2 * p.1) • ContinuousLinearMap.fst ℝ ℝ ℝ).smulRight
+        (ContinuousLinearMap.fst ℝ ℝ ℝ) +
+      ((-40 : ℝ) • ContinuousLinearMap.snd ℝ ℝ ℝ).smulRight (ContinuousLinearMap.snd ℝ ℝ ℝ))
+    (T3 := fun _ a b => (2 * a.1 * b.1) • ContinuousLinearMap.fst ℝ ℝ ℝ) (Φ4 := fun _ => 0) (n := 0)
+    (DG := fun _ => ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ)
+    (H := fun _ => (-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) (Hx := fun _ => 0)
+    (Hr := fun _ _ => 0) (r := 1) (m := 2) (lam := 40) (ε := 1 / 2) one_pos (by norm_num)
+    (by norm_num) (fun p _ => hDf p) (fun p _ => hD2 p) (fun p _ a b => hD3 p a b)
+    (fun p _ => hT p) (fun p _ => hasFDerivAt_const _ p) (fun p _ => by simp) (by norm_num)
+    (fun p _ => hGs p) (fun p _ => hH p)
     (fun x _ => hasDerivAt_const x ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
     (fun x _ => by simp only [ContinuousLinearMap.opNorm_zero]; norm_num)
     (fun p _ s _ => hasDerivAt_const s ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
