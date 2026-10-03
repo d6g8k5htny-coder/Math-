@@ -4,7 +4,9 @@
 from fractions import Fraction as F
 import hashlib
 import json
+import os
 from pathlib import Path, PurePosixPath
+import subprocess
 
 
 def require(condition, message):
@@ -33,6 +35,45 @@ def contained_file(repo, relative):
     return target
 
 
+def source_git(repo, *args):
+    # Bind reads to this repository, not inherited Git directories/configuration.
+    env = {key: value for key, value in os.environ.items()
+           if not key.startswith('GIT_')}
+    env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+               GIT_NO_REPLACE_OBJECTS='1', GIT_NO_LAZY_FETCH='1',
+               GIT_TERMINAL_PROMPT='0', GIT_OPTIONAL_LOCKS='0')
+    try:
+        result = subprocess.run(
+            ['git', '--no-replace-objects', '--no-lazy-fetch', '--literal-pathspecs',
+             '-C', str(repo), *args],
+            env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+    except OSError as exc:
+        raise RuntimeError('Git is required to verify historical sources') from exc
+    require(result.returncode == 0, 'historical Git read failed: ' + args[0])
+    return result.stdout
+
+
+def verify_historical_source(repo, entry, data):
+    top = source_git(repo, 'rev-parse', '--show-toplevel')
+    require(Path(os.fsdecode(top.removesuffix(b'\n'))).resolve() == repo,
+            'historical source repository root mismatch')
+    require(source_git(repo, 'cat-file', '-t', SOURCE_COMMIT).strip() == b'commit',
+            'historical source object must be a commit')
+    records = source_git(repo, 'ls-tree', '-z', SOURCE_COMMIT, '--', entry['path']).split(b'\0')
+    require(len(records) == 2 and records[1] == b'',
+            'historical source path must name one tree entry')
+    fields = records[0].split(b'\t', 1)
+    require(len(fields) == 2 and fields[1] == os.fsencode(entry['path']),
+            'historical source path mismatch')
+    metadata = fields[0].split()
+    require(len(metadata) == 3 and metadata[0] in (b'100644', b'100755')
+            and metadata[1] == b'blob', 'historical source must be a regular blob')
+    require(metadata[2].decode('ascii') == entry['blob'],
+            'historical source Git blob mismatch')
+    historical_data = source_git(repo, 'cat-file', 'blob', entry['blob'])
+    require(historical_data == data, 'historical source bytes mismatch')
+
+
 def verify_source_entry(repo, entry):
     require(isinstance(entry, dict), 'source entry must be an object')
     require(entry.get('commit') == SOURCE_COMMIT, 'source commit mismatch')
@@ -44,6 +85,7 @@ def verify_source_entry(repo, entry):
             'source SHA-256 mismatch')
     blob = hashlib.sha1(b'blob ' + str(len(data)).encode('ascii') + b'\0' + data).hexdigest()
     require(blob == entry.get('blob'), 'source Git blob mismatch')
+    verify_historical_source(repo, entry, data)
     return entry['key']
 
 
@@ -70,7 +112,9 @@ def verify_sources():
     require(rejected_wrong_digest, 'wrong source digest was not rejected')
     return {'verified_keys': sorted(keys), 'source_commit': SOURCE_COMMIT,
             'checks': ['canonical_relative_paths', 'no_symlinks', 'repository_containment',
-                       'byte_lengths', 'sha256', 'git_blob'],
+                       'byte_lengths', 'sha256', 'git_blob', 'historical_commit_type',
+                       'historical_regular_blob', 'historical_blob_and_bytes',
+                       'git_environment_isolation', 'replacement_objects_disabled'],
             'wrong_digest_probe': 'REJECTED'}
 
 

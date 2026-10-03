@@ -36,6 +36,16 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+      - name: Ensure pinned source commit is available
+        env:
+          GIT_NO_REPLACE_OBJECTS: '1'
+          GIT_NO_LAZY_FETCH: '1'
+          GIT_TERMINAL_PROMPT: '0'
+        run: |
+          source_commit=044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43
+          if ! git --no-lazy-fetch cat-file -e "$source_commit^{commit}" 2>/dev/null; then
+            git -c fetch.recurseSubmodules=false fetch --no-tags --depth=1 origin "$source_commit"
+          fi
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11'
@@ -44,7 +54,9 @@ jobs:
           PYTHON_MODE: ${{ matrix.mode }}
         run: |
           if [ "$PYTHON_MODE" = optimized ]; then
+            python3 -B -O -S frontiers/unique_replacement_bar_intensity_20261001/test_sources.py
             python3 -B -O -S frontiers/unique_replacement_bar_intensity_20261001/check_exact.py
           else
+            python3 -B -S frontiers/unique_replacement_bar_intensity_20261001/test_sources.py
             python3 -B -S frontiers/unique_replacement_bar_intensity_20261001/check_exact.py
           fi
