@@ -101,6 +101,20 @@
   "CapFirstExit.transverse_hessian_le_D",
   "CapFirstExit.slices_strongConcave_D",
   "CapFirstExit.ridge_capHyp_source",
+  "CapFirstExit.convex_deriv_sign",
+  "CapFirstExit.two_node_deriv_bound",
+  "CapFirstExit.slice_gradient_deriv_bound",
+  "CapFirstExit.schur_max",
+  "CapFirstExit.trilinear_lower",
+  "CapFirstExit.l12_constants",
+  "CapFirstExit.transverse_hessian_eq",
+  "CapFirstExit.ridge_second_identity",
+  "CapFirstExit.ridge_hconv",
+  "CapFirstExit.dx_grad_increment",
+  "CapFirstExit.l9_arith",
+  "CapFirstExit.l12_lower",
+  "CapFirstExit.ridge_source_facts",
+  "CapFirstExit.ridge_capHyp_C3",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -125,7 +139,8 @@
   "CapFirstExit.h1ToyF",
   "CapFirstExit.h1Toy_capHyp",
   "CapFirstExit.h1Toy_ridge_differentiable",
-  "CapFirstExit.h1Toy_source"
+  "CapFirstExit.h1Toy_source",
+  "CapFirstExit.h1Toy_C3"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -468,6 +483,76 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.convex_deriv_sign": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.two_node_deriv_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_gradient_deriv_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.schur_max": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.trilinear_lower": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l12_constants": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.transverse_hessian_eq": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_second_identity": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_hconv": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.dx_grad_increment": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l9_arith": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l12_lower": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_source_facts": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -592,6 +677,11 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.h1Toy_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -602,18 +692,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 29659,
-   "sha256": "10782053794698dc6d292e2d5a7acd97811366b3a438a8979c3ab819f548b51e"
+   "bytes": 34860,
+   "sha256": "7842353cd4feecb8a3eabe72600b152b95c94c83e9f7136f6c7efe902cf9b213"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 132854,
-   "sha256": "c68114a718bff7736dadad0f0d96eeba468cea0819f7dfb81729fbf0d4ca80ff"
+   "bytes": 184629,
+   "sha256": "98783cc2d09646d8c43073459a1d2d6bcb7098062df8d91077af1bec2b15e941"
   },
   {
    "path": "README.md",
-   "bytes": 16490,
-   "sha256": "1026463c3c43057dca19c9623aeb9167e6599cb58c4b662da1846b7d8ed918f7"
+   "bytes": 19173,
+   "sha256": "5500aff4cca1ec06f7ad6d569ec7512fcb9ef604dbd544e927681bc05b7417a3"
   },
   {
    "path": "gate.py",
@@ -637,8 +727,8 @@
   },
   {
    "path": "test_gate.py",
-   "bytes": 6274,
-   "sha256": "000fe2c5c1daf29a2de30bf0522e737426b5b6eb623e5ad619b82fce93714d3c"
+   "bytes": 6275,
+   "sha256": "de4cbcad950d42d4b0fd87c4556929a518504af5e82c1806bec80780b6b7b1b8"
   }
  ]
 }
