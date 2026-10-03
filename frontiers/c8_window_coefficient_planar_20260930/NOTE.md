@@ -181,7 +181,9 @@ density sandwich of SIDE24 section 4 would give one and are left for a later rec
 
 ## 5. Exhaustion: what a window leaves out
 
-`1 - G_K = P(7/6, 12 k_-^2) + Q(7/6, 12 k_+^2)`, `Q = 1 - P`, with the elementary two-sided bounds (`s > 0`)
+`1 - G_K = P(7/6, 12 k_-^2) + Q(7/6, 12 k_+^2)`, `Q = 1 - P`, with the elementary bounds below. Both `P` bounds and the
+lower `Q` bound hold for `s > 0`; the upper `Q` bound needs `s > 1/6`, where its denominator is positive. Every use in this
+packet has `s = 12 k_+^2 >= 48`.
 
     e^-s s^(7/6) / Gamma(13/6) <= P(7/6, s) <= s^(7/6) / Gamma(13/6),
     s^(1/6) e^-s / Gamma(7/6) <= Q(7/6, s) <= s^(1/6) e^-s / (Gamma(7/6) (1 - 1/(6s))),
@@ -298,3 +300,8 @@ fixed `(h, a)`, `a <= 1`). No external numerical library is used.
   on Math-#205 by C43 (review 5377957341, finding C43-205-H-01), and are repaired in every packet of the series. Every tabulated
   window with a Theorem B reading has positive length, so no value changes. `window_coefficient.py` (blob `43b4f51b`), `RESULTS.json`,
   the rules and the mutants are unchanged.
+- **v1.2.1 (qualifier; NOTE only).** Section 5 gave one qualifier, `s > 0`, for all four bounds on `P(7/6, s)` and
+  `Q(7/6, s)`. The upper `Q` bound has denominator `1 - 1/(6s)` and needs `s > 1/6`; the other three hold for `s > 0`. Section 5
+  now states the two domains separately (finding C197-C-01, GPT-5.6 Sol review 5402270651). Every certified use has
+  `s = 12 k_+^2 >= 48`, so no rule, value or window changes. `window_coefficient.py` (blob `43b4f51b`), `RESULTS.json`, the rules
+  and the mutants are unchanged.

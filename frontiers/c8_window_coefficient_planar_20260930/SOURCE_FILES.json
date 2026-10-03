@@ -77,14 +77,24 @@
         "window_coefficient.py",
         "RESULTS.json"
       ]
+    },
+    {
+      "version": "v1.2.1",
+      "finding": "C197-C-01 (wording only): the Q(7/6, s) upper bound needs s > 1/6, not s > 0",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/197#pullrequestreview-5402270651",
+      "change": "NOTE.md only: section 5 states the domains separately (both P bounds and the lower Q bound for s > 0; the upper Q bound for s > 1/6); every certified use has s = 12 k_+^2 >= 48",
+      "unchanged": [
+        "window_coefficient.py",
+        "RESULTS.json"
+      ]
     }
   ],
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 25063,
-      "sha256": "7c0ea1a7b1d8e538881269264c0829a7ab27c90348f47cd23444c82e561f4f7f",
-      "git_blob": "1163314a3d06533a5ee006e432aeebf1ccb36d1d"
+      "bytes": 25754,
+      "sha256": "6484a79daf4232b5a5e4e92ab9857be54ee386fdf8d6a6c19a476b224da25d13",
+      "git_blob": "8d73ae387e69ca13bca73b4926a9b884248b3f24"
     },
     {
       "path": "RESULTS.json",
