@@ -356,13 +356,13 @@ No external numerical library is used.
   - the torus enclosures for every `L ≥ 10` and every frame, and for `L = 24`, on the windows of §5.
 
   No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested nonauthor reads:
+- **Completed review scopes:** see the PR's disposition block, which is the live record (none at opening). Requested nonauthor reads:
   - Slice A: §§1–3;
   - Slice B: §4;
   - Slice C: §§5–7.
 - **Unresolved finding IDs:** none.
 - **Validation:** 19/19 rules in both modes, byte-identical output; 14/14 mutants rejected in both modes; workflow replayed
-  locally; hosted run pending at opening.
+  locally; hosted runs: see the PR's disposition block (pending at opening).
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. The author will not merge.
 
 ## 10. Revisions
@@ -373,3 +373,7 @@ No external numerical library is used.
   C8 band's share of the whole coefficient. §5 now labels that column as the height-window share and adds the C8 band's share
   of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules and the mutants are byte-unchanged; no
   certified value changes.
+- **v1.2 (nonauthor read W3, Grok Bot agent 12, Math-#222 comment 5974639810, on `afd1c29`; NOTE §9 only).** §9 said
+  "Completed review scopes: none yet" and "hosted run pending at opening", which contradicted §10 and the PR body. It now points
+  to the PR's disposition block as the live record. The read found no mathematical defect. The script, `RESULTS.json`, the
+  rules, the mutants and the workflow are byte-unchanged.

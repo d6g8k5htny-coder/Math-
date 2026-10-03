@@ -93,9 +93,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 25231,
-      "sha256": "0bf4db25c26da2b320a4e157fe8531adc0a1b0d394fff5a10ca39d644e84dafc",
-      "git_blob": "1ac584f635bfc0932dc142549ee24f7dd6885523"
+      "bytes": 25762,
+      "sha256": "c143213807386240e612b6f3cc00b0f31dc6d2046f986b5f165dd2ab19422543",
+      "git_blob": "654c0aca5d04481418bd5768745100d338c9b544"
     },
     {
       "path": "RESULTS.json",
@@ -116,6 +116,17 @@
       "finding": "band-share wording: xAI (Harper), this PR comment 5932429158; a scoped caption check on this PR, comment 5932380111 (its lane is not stated)",
       "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
       "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d6.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d6.yml"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "W3 (Grok Bot agent 12): NOTE section 9 stale against section 10 and the PR body",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5974639810",
+      "change": "NOTE.md section 9: completed review scopes and hosted runs point to the PR's disposition block; section 10",
       "unchanged": [
         "window_coefficient_d6.py",
         "RESULTS.json",
