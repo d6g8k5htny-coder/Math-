@@ -49,6 +49,14 @@ Since v2.0, `ridge_capHyp_C4` also derives the one analytic input that `ridge_ca
 
 So the hypotheses of `ridge_capHyp_C4` are SP's (H1), (H2), the critical pins, the gap `r³/6` and the derivative data with the bounds `m` (on the collar) and `n` (on `D`). No step of L1–L20 remains a hypothesis.
 
+Since v2.1, the quantitative bounds enter on `D` only:
+- `ridge_capHyp_C5` derives six derivative-bound hypotheses of `ridge_capHyp_C4` from the block bound `m`, and from `|f_xxx| ≤ m` on the pin segment:
+  - L3's inputs `‖∂_x D_y² f‖ ≤ m` and `‖∂_ρ D_y² f‖ ≤ m‖y‖` (`hessian_x_bound`, `hessian_r_bound`);
+  - the convex and concave envelopes of `∂_y f(·, 0)` and `∂_x f(·, 0)`, which are the inputs of L5–L6 and L1–L2 (`axis_convexConcave`).
+- `ridge_capHyp_D` assumes the bounds `m`, `n`, (H1) and (H2) on SP's `D` only. On a collar of some width `ε₀ > 0` it assumes the derivatives, and some bound `K` on the `x`-derivative of the third derivatives (SP: `f ∈ C⁴` near `D`).
+  - The continuity step `block_bound_collar` gives the block bound `m + Kε` on the collar of width `ε`.
+  - Because (H1) is strict, some `ε > 0` keeps `8r(m + Kε)² < λ`.
+
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
@@ -105,6 +113,12 @@ single ridge path.
 | `fxxx_lower` | L4's `f_xxx ≥ 7/4` (v2.0). If `|∂_x f_xxx| ≤ n` and `‖D_y f_xxx‖ ≤ n` on `D`, `f_xxx(x₀, 0) ≥ 2` and (H2) `rn ≤ 1/20`, then `f_xxx ≥ 2 − 9rn/2 ≥ 7/4` on `D`. Move first in `x`, then along the ray to `y`, as in SP's L3 (SP rounds this to `2 − 5rn`) |
 | `ridge_capHyp_C4` | the cap from SP's hypotheses (v2.0): `ridge_capHyp_C3` with `f_xxx ≥ 7/4` replaced by a derivative `Φ4` of `f_xxx` on `D`, its two blocks bounded by `n`, and (H2) `rn ≤ 1/20` |
 | `h1Toy_C4` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C4` (`f_xxx = 2` constant, `n = 0`). The theorem gives its ridge and cap with neither `hconv` nor `f_xxx ≥ 7/4` supplied |
+| `hessian_x_bound`, `hessian_r_bound` | L3's inputs from the block bound (v2.1). `∂_x D_y² f (x, 0)[v, w] = T3(x, 0)[(0, v), (0, w), (1, 0)]` and `∂_ρ D_y² f (x, sy)[v, w] = T3(x, sy)[(0, v), (0, w), (0, y)]`. The identification uses derivatives within an interval, so collar endpoints and the sphere are allowed. So `‖∂_x D_y² f‖ ≤ m` and `‖∂_ρ D_y² f‖ ≤ m‖y‖` |
+| `axis_convexConcave` | the envelope inputs (v2.1). If `|∂_x² (Df(·, 0) u)| ≤ B` on `[a, c]`, then `Df(·, 0) u ± (B/2)t²` is convex, respectively concave. Take `u = (0, v)`, `B = m‖v‖` for `w` (L5–L6), and `u = (1, 0)`, `B = m` for `G0` (L1–L2) |
+| `block_nonneg`, `block_bound_collar` | the continuity step of I3 (v2.1). Assume the block bound `m` on `D`, and some bound `K` on the `x`-derivative of `T3` in block form on a collar of width `ε₀`. Then the block bound `m + Kε` holds on the collar of width `ε ≤ ε₀`, by the mean value inequality from the nearest point of `D` |
+| `ridge_capHyp_C5` | `ridge_capHyp_C4` with `hHxb`, `hHrb`, `hwcv`, `hwcc`, `hG0cv` and `hG0cc` derived from the block bound and `|f_xxx| ≤ m` on the pin segment (v2.1) |
+| `ridge_capHyp_D` | the cap from SP's bounds on `D` (v2.1). The bounds `m`, `n`, (H1) and (H2) are assumed on `D`, with qualitative derivative data and some `K ≥ 0` on a collar of width `ε₀`. It concludes the ridge on `(−2r − ε, 2r + ε)`, `h(∓r/2) = 0`, the cap and (C2⁺), for some `ε ∈ (0, ε₀]` |
+| `h1Toy_D` | `h1ToyF` meets every hypothesis of `ridge_capHyp_D` (`T4 = 0`, `K = 0`, `ε₀ = 1/2`). The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -128,13 +142,14 @@ that step.
 This packet does not formalize:
 
 - the source data themselves. Since v2.0 every analytic step of L1–L20 is proved: L1–L12, L13 and L16–L20, with L7's
-  existence, uniqueness and regularity of `h`. `ridge_capHyp_C4` takes, as hypotheses:
-  - the derivatives `Df`, `DG`, `H`, `D2f` and the third derivatives, with the bounds `m`, on the collar
-    `[−2r − ε, 2r + ε] × B̄(0, 2r)`;
-  - the derivative of `f_xxx`, with its block bound `n`, on `D`.
+  existence, uniqueness and regularity of `h`. Since v2.1 `ridge_capHyp_D` takes, as hypotheses:
+  - the quantitative bounds on SP's `D` only: the third-derivative block bound `m`, `|f_xxx| ≤ m` on the pin segment,
+    the block bound `n` on the derivative of `f_xxx`, (H1) and (H2);
+  - qualitative data on some collar `[−2r − ε₀, 2r + ε₀] × B̄(0, 2r)`: the derivatives `Df`, `DG`, `H`, `D2f`, the
+    third derivatives and their `x`-derivatives, with some bound `K` on the latter.
 
-  SP has `f ∈ C⁴` near `D` and bounds the third derivatives on `D`. On a thin enough collar the bound `m + η` holds by continuity, and (H1) stays strict for
-  small `η`; Lean does not prove this step;
+  The continuity step from `D` to the collar is proved (`block_bound_collar`). What stays informal is that SP's
+  `f ∈ C⁴` near `D` supplies these data and some `K`, by compactness of a closed collar;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -173,7 +188,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 113 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 121 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
