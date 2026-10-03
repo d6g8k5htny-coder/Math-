@@ -2,7 +2,8 @@
 
 **Object** `CL-SIDE24-D3-CLOSED-FORM-20260930-v1` · **scientific effect NONE** · declarative record, `executed: false` ·
 base `main 3e0a91b` · claim: Math-#199 comment 5918624116 · companion: Math-#199 (`coefficients/side24_d4_20260930`, head `4fc6d15`),
-whose one-dimensional reduction is the input and whose certified enclosure is the independent check.
+whose one-dimensional reduction is the input and whose author-certified enclosure (nonauthor review open) is the independent
+check.
 `coefficients/side24_v1` is unchanged; catalog entry C8 stays OPEN; no register, GRAPH, STATUS or catalog surface is touched.
 Same GitHub account as every lane: zero organizational-independence credit. Claude reads of this record count for nothing.
 The author will not merge.
@@ -27,17 +28,18 @@ c_{4,ref} = Γ(7/6) (3/2)^{1/3} D_3 / (8√3 π^{5/2})
           = 0.02332166600295283509452119495285688515310137236324033440…
 ```
 
-and `c_{4,24}` is as in Math-#199: `|c_{4,24}/c_{4,ref} − 1| ≤ 1.5702·10⁻¹⁰⁸`, so `c_{4,24}` carries the same digits.
+and `c_{4,24}` is as in Math-#199: `|c_{4,24}/c_{4,ref} − 1| ≤ 1.5702·10⁻¹⁰⁸`, so `c_{4,24}` carries the same digits (Math-#199's
+transfer; not re-derived or reviewed here).
 
 This continues `D_1 = 4/3`, `D_2 = 29/6 − √6` (SIDE24 §1) with the first value in which `π` and an arctangent appear.
-`D_4` (Math-#200) remains an enclosure; see §6.
+`D_4` (Math-#200) is enclosed, not put in closed form here; see §6.
 
 **What is proved here and from what.** The identity is obtained by *exact* integration of the one-dimensional integral to
 which Math-#199 reduces `D_3`. That reduction is exact algebra on the ordered-sector integrand of the eigenvalue form of
 `D_m` (Math-#199 NOTE §§1–2; the same code, re-run here, and checked at `m = 1, 2` against SIDE24's `4/3` and `29/6 − √6`
 through the identical path). Nothing in the chain is approximated, sampled or fitted: the output of the script is an element
 of a finite-dimensional `Q`-vector space with basis `√r · π^{k/2} · A` (`r` squarefree, `k ∈ Z`, `A = 1` or an arctan atom),
-and the closed form above is that element. The certified enclosure of Math-#199 (an independent method: order-40 Taylor
+and the closed form above is that element. The enclosure of Math-#199 (author-certified; its nonauthor review is open) (an independent method: order-40 Taylor
 quadrature with Cauchy remainders) contains the interval evaluation of the closed form, with 47 common digits (rule
 `D3_INSIDE_CERTIFIED`).
 
@@ -170,7 +172,7 @@ With `c_{d,ref} = Γ(7/6)(3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d
 | 2 | `4/3` | `2Γ(7/6)(3/2)^{1/3}/(3√3 π^{3/2})` | `0.0734069193060342710301359629577…` (SIDE24) |
 | 3 | `29/6 − √6` | `Γ(7/6)(3/2)^{1/3}(29/6 − √6)/(2√3 π^{5/2})` | `0.0417759318405983433429366654285…` (SIDE24) |
 | 4 | `(50π + 200 arctan 2 − 228)/(9π)` | `Γ(7/6)(3/2)^{1/3}(50π + 200 arctan 2 − 228)/(72√3 π^{7/2})` | `0.0233216660029528350945211949528…` (this record; #199 encloses) |
-| 5 | Math-#200 enclosure `14.21876345897735760130646567787…` | none claimed | `0.0132193193800849680760334875146…` (#200 encloses) |
+| 5 | Math-#200 enclosure `14.21876345897735760130646567787…` | none claimed here (see Math-#202) | `0.0132193193800849680760334875146…` (#200 encloses) |
 
 The torus constants `c_{d,24}` follow from the covariance sandwich of SIDE24 §§3–4 with the constants of #199 (`d = 4`,
 `δ = 1.5702·10⁻¹⁰⁸`) and #200 (`d = 5`); a closed form for `c_{4,ref}` does not change `c_{4,24}`'s status (enclosed, not equated).
@@ -179,11 +181,9 @@ The torus constants `c_{d,24}` follow from the covariance sandwich of SIDE24 §�
 
 - The Proposition is an identity, proved by L1–L3 applied to the exact reduction of Math-#199. It consumes [LP] (15.1)–(15.2) and
   SIDE24 §1 at their scope (the reference law, `p_G(0)p_V(0)`, `τ² = 6`) and does not review them.
-- **No closed form for `D_4` is claimed or expected by this method.** In the `m = 4` reduction (Math-#200 §§1–2) the outer
-  integral carries `erfc(κT)` against the cumulative integrals `L_a(T) = ∫_0^T e^{−v²/24} q_a(v) dv`, whose integrands contain
-  `erf(v/(2√2))` (even `k` occur there through `J_k(v)`), so the terms are Gaussian integrals over a two-dimensional wedge with
-  two error-function factors: four-dimensional Gaussian orthant-type integrals, which are not elementary in general. Math-#200's
-  enclosure stands as the record for `d = 5`.
+- **No closed form for `D_4` is claimed here.** Math-#200's enclosure is the `d = 5` record at this head. The author's follow-up
+  Math-#202 (head `4512309`, nonauthor review open) reports that only odd `k` also occur at `m = 4` and claims an exact `D_4`;
+  this record neither relies on nor reviews that claim.
 - Math-#199 §7 says "no closed form for `D_3` claimed"; this record supplies one. Math-#199 is not edited here. If a nonauthor
   lane accepts this record, a one-line pointer in #199 §7 is the natural amendment; it is not made by the author unprompted.
 - C8 stays OPEN (the constants `C`, `r_*`, `z_*` and the window coefficients are not touched); `coefficients/side24_v1` is
@@ -204,11 +204,20 @@ mutants). Pins on `main 3e0a91b`: [LP] `imports/lifetime_parent_20260925/UNIFORM
 - **Head / owner:** see the PR's disposition block; branch `claude/side24-d3-closed-form-20260930` (base `main 3e0a91b`);
   author lane Anthropic / Claude (`session_017Mi3hxjaxV45x6zo6o1ee3`).
 - **Claim:** the Proposition and Corollary of §0, proved by exact integration of the Math-#199 reduction; exact `m = 1, 2`
-  regressions; 47-digit agreement with the independent certified enclosure. No theorem of [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested: nonauthor reads of Slice A (§1: the reduction data, odd `k`, `J_k`; L1),
+  regressions; 47-digit agreement with Math-#199's author-certified enclosure (nonauthor review open). No theorem of [LP] or SIDE24 is proved or reviewed.
+- **Completed review scopes:** see the PR's disposition block, which is the live record (none at opening). Requested: nonauthor reads of Slice A (§1: the reduction data, odd `k`, `J_k`; L1),
   Slice B (§2 L2–L3: the base integrals and the by-parts recurrence; §3 the arithmetic, atoms, reflection, the cancellations),
   Slice C (§§4–6: rules, mutants, the containment, the coefficient table, the `D_4` non-claim).
 - **Unresolved finding IDs:** none.
 - **Validation:** 12/12 rules in both modes, byte-identical output; 11/11 mutants rejected in both modes; workflow replayed
-  locally; hosted run pending at opening.
+  locally; hosted runs: see the PR's disposition block (pending at opening).
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+
+## 9. Revisions
+
+- **v1.1 (nonauthor read S3, Grok Bot agent 4, Math-#201 comment 5974652541, on `3abcc10`; mathematics PASS).** Wording and one
+  output label; `RESULTS.json` is byte-identical. F6: the `D_4` non-claim no longer asserts a rationale that Math-#202
+  contradicts (§0, §5, §6). F7: the script emits `"certified": passed` instead of a hard-coded `true` (unchanged on a passing
+  run; a mutant run now reports `false`), and the workflow accepts a mutant only if it exits 1 with JSON `passed: false`. F8:
+  Math-#199's enclosure and its `c_{4,24}` transfer are labelled author-certified with nonauthor review open (header, §0, §8).
+  §8's review and hosted-run lines point to the PR's disposition block.

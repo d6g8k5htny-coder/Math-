@@ -775,7 +775,7 @@ def main():
     out = {
         "object": "CL-SIDE24-D3-CLOSED-FORM-20260930-v1",
         "scientific_effect": "NONE",
-        "certified": True,
+        "certified": passed,
         "mutant": MUT,
         "passed": passed,
         "checks": checks,
