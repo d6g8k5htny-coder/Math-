@@ -81,7 +81,7 @@ With Mehta's `Z_6` (2.5):
 
 ```
 I^ref_B = (1/(√3 Z_6)) ∫_{T>w″>w′>w>s>q>0} P e^{−T²/72 − w″²/120 − w′²/80 − w²/48 − s²/24 − q²/8} W_B(T) dq ds dw dw′ dw″ dT,
-P = Π μ_i² · Π_{i<j} (μ_i − μ_j),     W_B(T) = Φ((3/√2)(b_+ − T/9)) − Φ((3/√2)(b_− − T/9)).                          (2.1)
+P = Π μ_i² · Π_{i<j} (μ_j − μ_i),     W_B(T) = Φ((3/√2)(b_+ − T/9)) − Φ((3/√2)(b_− − T/9)).                          (2.1)
 ```
 
 **Five layers in closed form.** The script integrates (2.1) layer by layer in exact rationals, by Math-#222's recursion extended to
@@ -399,3 +399,8 @@ No external numerical library is used.
   every `K`), while it read as the C8 band's share of the whole coefficient. §5 now labels that row as the height-window share
   and adds a row with the C8 band's share of `c_{d,ref}`, `F^(d)_{[0,1]} G_{[1/2,2]}`. The script, `RESULTS.json`, the rules
   and the mutants are byte-unchanged; no certified value changes.
+- **v1.2 (nonauthor read W4, Grok Bot agent 8, Math-#226 comment 5974704137, on `e6ba833`; NOTE only).** With the ordering
+  `μ_1 < … < μ_6` of §2, every factor `μ_i − μ_j` with `i < j` is negative, and at `m = 6` there are 15 of them, so the product
+  displayed in (2.1) was `−|Δ(μ)|`. (2.1) now reads `Π_{i<j} (μ_j − μ_i) = |Δ(μ)|`, which is what the script, (2.2) and every
+  certified value use. At `m = 4` and `m = 5` (6 and 10 pairs) the inherited form had the right sign. The script,
+  `RESULTS.json`, the rules and the mutants are byte-unchanged; no certified value changes.

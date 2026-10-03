@@ -107,9 +107,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 27293,
-      "sha256": "06dce736017efd35ccb582940d2d387a971cc436646c3c1160c24ad30fb9acf9",
-      "git_blob": "1dc116d6d9fd46442cd737cdfb422eddb401a619"
+      "bytes": 27896,
+      "sha256": "d63d9dba48e1febeceabe3d3bb86837adc93cfc72dac306cd02617462306f026",
+      "git_blob": "66193992f2debdff033b43faf6c7fbc7c732b124"
     },
     {
       "path": "RESULTS.json",
@@ -130,6 +130,17 @@
       "finding": "band-share wording: xAI (Harper), Math-#222 comment 5932429158",
       "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
       "change": "NOTE.md section 5: the row F^(d)_[0,1] relabelled as the height-window share (the same for every K); a row with the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d7.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d7.yml"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "W4 (Grok Bot agent 8): the Vandermonde factor in (2.1) had the wrong sign at m = 6 (15 negative factors)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/226#issuecomment-5974704137",
+      "change": "NOTE.md (2.1): prod_{i<j} (mu_j - mu_i) = |Delta(mu)|; section 10",
       "unchanged": [
         "window_coefficient_d7.py",
         "RESULTS.json",
