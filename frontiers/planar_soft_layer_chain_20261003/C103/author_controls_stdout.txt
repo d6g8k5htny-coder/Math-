@@ -1,0 +1,5 @@
+C103 author rational controls PASS
+explicit_checks=4982; mutants=8; mutant_modes=normal,-O
+cutoff_minimum=1/4; near_scaled=0; far_scaled=1; jet_Jacobian=k^-4
+retained=two_margins,original_joint_weight,inverse_image_torus_lattice
+scope=finite_exact_controls_not_analytic_or_human_acceptance

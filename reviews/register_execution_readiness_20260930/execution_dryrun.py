@@ -32,9 +32,11 @@ import copy
 import hashlib
 import importlib.util
 import json
+import os
 import pathlib
 import re
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -164,6 +166,85 @@ def compose(out, skip_old_node_move, selector_node_only):
     return report
 
 
+def write_installed_outputs(root, outputs):
+    """Prepare all pins before replacing any; roll back recoverable install failures.
+
+    This maintenance operation requires an exclusively owned checkout. It is not
+    a cross-file atomic transaction against process termination or another writer.
+    Symlink paths are rejected; replacing a regular hardlinked pin preserves its
+    other names. A failed rollback retains its backup and reports its location.
+    """
+    root = root.resolve()
+    originals, modes = {}, {}
+    for name, (folder, _) in PACKETS.items():
+        target = root / folder / "RESULTS_INSTALLED.json"
+        relative = target.relative_to(root)
+        for i in range(1, len(relative.parts) + 1):
+            part = root.joinpath(*relative.parts[:i])
+            if part.is_symlink():
+                raise ValueError("symlink output path rejected: " + str(part))
+        if not target.parent.is_dir():
+            raise ValueError("output parent directory missing: " + str(target.parent))
+        if target.exists() and not stat.S_ISREG(target.stat().st_mode):
+            raise ValueError("regular output file required: " + str(target))
+        originals[target] = target.read_bytes() if target.exists() else None
+        modes[target] = stat.S_IMODE(target.stat().st_mode) if target.exists() else 0o644
+
+    temporary, retained, staged, backups, installed = [], set(), {}, {}, []
+
+    def stage(target, data):
+        fd, name = tempfile.mkstemp(prefix=".installed-result-", dir=target.parent)
+        path = pathlib.Path(name)
+        temporary.append(path)
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(data)
+        path.chmod(modes[target])
+        return path
+
+    primary_error = None
+    try:
+        for name, (folder, _) in PACKETS.items():
+            target = root / folder / "RESULTS_INSTALLED.json"
+            staged[target] = stage(target, outputs[name])
+            backups[target] = stage(target, originals[target]) if originals[target] is not None else None
+        try:
+            for target, replacement in staged.items():
+                os.replace(replacement, target)
+                installed.append(target)
+        except BaseException as error:
+            failures = []
+            for target in reversed(installed):
+                try:
+                    if backups[target] is None:
+                        target.unlink()
+                    else:
+                        os.replace(backups[target], target)
+                except OSError as rollback_error:
+                    if backups[target] is not None:
+                        retained.add(backups[target])
+                    failures.append(str(target) + ": " + str(rollback_error)
+                                    + "; backup=" + str(backups[target]))
+            if failures:
+                raise RuntimeError("output rollback incomplete: " + "; ".join(failures)) from error
+            raise
+    except BaseException as error:
+        primary_error = error
+        raise
+    finally:
+        cleanup_errors = []
+        for path in temporary:
+            if path not in retained:
+                try:
+                    path.unlink(missing_ok=True)
+                except OSError as error:
+                    cleanup_errors.append(str(path) + ": " + str(error))
+        if cleanup_errors:
+            prior = (str(primary_error) if primary_error is not None
+                     else "output installation completed")
+            raise RuntimeError(prior + "; temporary cleanup incomplete: "
+                               + "; ".join(cleanup_errors)) from primary_error
+
+
 def run_checkers(root, out, mutants, write_installed):
     """Run every checker (both interpreter modes, and every mutant if asked) on the executed copy; then, only if all of
     that passed, write the pinned installed outputs if asked; then compare with the pinned files."""
@@ -197,12 +278,18 @@ def run_checkers(root, out, mutants, write_installed):
             valid &= not not_rejected and len(rejected) == len(names)
         results[name] = entry
         outputs[name] = outs[("-B", "-S")]
+    if write_installed and valid:
+        try:
+            write_installed_outputs(root, outputs)
+        except (OSError, ValueError, RuntimeError) as error:
+            for entry in results.values():
+                entry.update(written=None, write_error=str(error), matches_RESULTS_INSTALLED=None)
+            return False, results
     ok = valid
     for name, (pdir, script) in PACKETS.items():
         entry = results[name]
         pinned = root / pdir / "RESULTS_INSTALLED.json"
         if write_installed and valid:                       # never on a failed run (Codex 4143661525)
-            pinned.write_bytes(outputs[name])
             entry["written"] = str(pinned.relative_to(root))
         elif write_installed:
             entry["written"] = None
@@ -260,7 +347,9 @@ def main():
             shutil.rmtree(tmp, ignore_errors=True)
     payload = {"object": "REGISTER-EXECUTION-DRYRUN-20260930-v1", "scenario": scenario, "composition": report,
                "checkers": checkers, "mutants_run": args.mutants, "passed": bool(composed and ok),
-               "scientific_effect": "NONE", "repository_written": bool(args.write_installed_results),
+               "scientific_effect": "NONE", "repository_write_requested": bool(args.write_installed_results),
+               "repository_written": (None if any("write_error" in entry for entry in checkers.values())
+                                      else any(entry.get("written") for entry in checkers.values())),
                "meaning": "composition of three declarative proposals on a scratch copy; validation by the hard gate; the "
                           "records' own checkers in their installed state; not an execution, not acceptance"}
     print(json.dumps(payload, indent=2, sort_keys=True))
