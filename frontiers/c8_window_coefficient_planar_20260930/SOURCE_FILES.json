@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-PLANAR-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_CONSTANT_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_ENCLOSURES_OF_THE_STATED_EXPRESSION_NO_REGISTER_CHANGE_C8_STAYS_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/195#issuecomment-5915784573",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "section 1 model and Theorem B; (11.3) the compact coefficient; section 15 the (f, V_u, A_u) / (G, t_u) factorization and the gamma integral; (5.4) contact law",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "section 1 reference covariances, tau^2 = 6, p_G p_V = (2 pi)^-d / sqrt3, cone law A = Q + sqrt(2/3) Z I_m, D_1 = 4/3, D_2 = 29/6 - sqrt6, formula (1); section 2 image bound (2) whose d = 2 form is rederived in NOTE section 3",
+      "workflow_checked": true
+    },
+    {
+      "label": "ENC",
+      "path": "coefficients/side24_v1/ENCLOSURE.json",
+      "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+      "role": "the d = 2 enclosure [0.07340691930603427103, 0.07340691930603427104] quoted in the script for rule SIDE24_CONSISTENT",
+      "workflow_checked": true
+    }
+  ],
+  "read_not_pinned": [
+    {
+      "path": "coefficients/side24_remainder_20260929/PROOF.md",
+      "git_blob_at_base": "0bcf0a6f5a608ce369e769103cd07fe71e0da844",
+      "role": "Theorem R (candidate): c_{2,24}/c_{2,ref} - 1 = P_2(24) e^-288 + O(10^-216); consistent with, and sharper than, the L = 24 transfer here"
+    },
+    {
+      "path": "reviews/candidates_pending_20260928/CANDIDATES.md",
+      "git_blob_at_base": "02455f0561d51990e1486e5d4fbb4229c8a34f5a",
+      "role": "catalog entry C8 listing c_{B,K} among the constants not supplied; C8 stays OPEN"
+    }
+  ],
+  "unmerged_companion": {
+    "label": "C8-Z",
+    "pr": 195,
+    "head": "16da75fe21a91181e24b1bfc2d7bcdab599694c8",
+    "files": [
+      {
+        "path": "frontiers/c8_normalizer_floor_planar_20260930/NOTE.md",
+        "git_blob": "a8b1f71dba5ee3930396423b5799efaab3ae1c62",
+        "role": "the declared C8 band b in [0, 1], k in [1/2, 2] (window W1 here) and the quoted contact law (5.4); z_* only, no c_{B,K}"
+      }
+    ],
+    "workflow_checked": false
+  },
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "author containment audit (the pattern of C41-205-C-01 on Math-#205)",
+      "review_context": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5373681438",
+      "change": "NOTE.md only: the L >= 10 torus intervals of section 0 and the section 6 coefficient table rounded outward (upper endpoints had been truncated downward); image-bound values stated as approximations",
+      "unchanged": [
+        "window_coefficient.py",
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "window hypothesis wording (Codex thread 4151593177 on Math-#213; C43-205-H-01 on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -inf < b_- < b_+ < inf and 0 < k_- < k_+ < inf (pinned [LP] lines 16 and 37); section 8 classes zero-touching or infinite gap windows, unbounded B and singleton windows as coefficient integrals only",
+      "unchanged": [
+        "window_coefficient.py",
+        "RESULTS.json"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 25063,
+      "sha256": "7c0ea1a7b1d8e538881269264c0829a7ab27c90348f47cd23444c82e561f4f7f",
+      "git_blob": "1163314a3d06533a5ee006e432aeebf1ccb36d1d"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 17646,
+      "sha256": "012b3f48d4029c4c1f3d75bd151c0d252144f5bf64d1f43ac2d8fddf1295c2b8",
+      "git_blob": "95443edfcfb8466a31e93b16fae9c19bada77e86"
+    },
+    {
+      "path": "window_coefficient.py",
+      "bytes": 36726,
+      "sha256": "efdc6e23a00fe95f26a9cd7e478d92aceab857e3c4eaaefa11a2ba5c2faf1e3a",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218"
+    }
+  ]
+}
