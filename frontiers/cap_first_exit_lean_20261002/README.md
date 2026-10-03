@@ -43,7 +43,7 @@ Since v1.9, `ridge_capHyp_C3` also derives L12's `hconv`, from the second and th
 - L9: the differentiated ridge equation gives `‖h'‖ ≤ 2s + 2s²`, with `s = mr/δ`.
 - L12: `F' = D²f[(1, h'), (1, 0)]` is the maximum of `ζ ↦ D²f[(1, ζ), (1, ζ)]`, so `F' − x/4` is monotone with no second derivative of `h`. With SP's constants, `F'' ≥ 7/4 − 48/121 · (3 + 72/121 + 576/14641) > 1/4`.
 
-Since v2.0, `ridge_capHyp_C4` also derives the one analytic input that `ridge_capHyp_C3` still takes, SP's L4 bound `f_xxx ≥ 7/4`:
+Since v2.0, `ridge_capHyp_C4` also derives the one analytic input that `ridge_capHyp_C3` still takes, SP's L4 bound `f_xxx ≥ 7/4` on `D = [−2r, 2r] × B̄(0, 2r)`:
 - L2's second statement: some point of the pin interval has `f_xxx ≥ 2`. This comes from a one-sided Hermite bound, by contradiction (`third_deriv_exists_two`).
 - L4: (H2) `rn ≤ 1/20`, with a bound `n` on the derivative of `f_xxx`, gives `f_xxx ≥ 2 − 3rn ≥ 7/4` on the collar (`fxxx_lower`).
 
@@ -99,7 +99,7 @@ single ridge path.
 | `ridge_second_identity`, `transverse_hessian_eq` | the differentiated ridge equation `D²f[(1, h'), (0, ·)] = 0` (L11's first identity), and `H = D²f[(0, ·), (0, ·)]` |
 | `trilinear_lower`, `l12_lower`, `l12_constants`, `l9_arith`, `dx_grad_increment` | L12's correction terms, `f_xxx − m((1 + ‖b‖)²(1 + ‖a‖) − 1)`. SP's constants: `m ≥ 2` and `δ > rm(8m − 5)` give `7/4 − m((1 + u)³ − 1) ≥ 1/4` for `u = 2s + 2s²`. Also L9's arithmetic, and L3 in `y` for `∂_x ∇_y f` |
 | `ridge_hconv` | L12 as `hconv`. Along the ridge, assume `D²f` is symmetric with negative-definite transverse part, `‖h'‖ ≤ u`, and `s ↦ D²f(s, h s)[(1, b), (1, b)]` has derivative `≥ 1/4` for `‖b‖ ≤ u`. Then `F − (x + r/2)(x − r/2)/8` is convex on `[−2r, 2r]`. For `η = h'(x₁)`: `F'(x₂) − F'(x₁) ≥ D²f(x₂)[(1, η), (1, η)] − D²f(x₁)[(1, η), (1, η)] ≥ (x₂ − x₁)/4` |
-| `ridge_source_facts`, `ridge_capHyp_C3` | the cap from SP's `C³` source data (v1.9). It assumes `ridge_capHyp_source`'s data, `D²f` and the third derivatives on the collar, the block bound `m` and `f_xxx ≥ 7/4`. It proves that a ridge exists, that `h(∓r/2) = 0`, and the cap with `M = (−r/2, 0)`, deriving L12's `hconv` rather than assuming it |
+| `ridge_source_facts`, `ridge_capHyp_C3` | the cap from SP's `C³` source data (v1.9). It assumes `ridge_capHyp_source`'s data, `D²f` and the third derivatives on the collar, the block bound `m`, and `f_xxx ≥ 7/4` on `D`. It proves that a ridge exists, that `h(∓r/2) = 0`, and the cap with `M = (−r/2, 0)`, deriving L12's `hconv` rather than assuming it |
 | `h1Toy_C3` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C3`: `D²f = diag(2x, −40)`, and only `f_xxx = 2` is nonzero among the third derivatives. The theorem gives its ridge and its cap without a supplied `hconv` |
 | `hermite_gap_le_concave`, `third_deriv_exists_two` | L1 from the concave half alone (`g''' ≤ m` weakly gives `g(a) − g(c) ≤ m(c − a)³/12`), and L2's second statement (v2.0). If `g'''` is continuous on the pin interval and the gap is `r³/6`, then `g''' ≥ 2` somewhere there. Otherwise its maximum `M' < 2` would give a gap `≤ M'r³/12 < r³/6` |
 | `fxxx_lower` | L4's `f_xxx ≥ 7/4` (v2.0): if `‖D f_xxx‖ ≤ n` on the collar, `f_xxx(x₀, 0) ≥ 2` and (H2) `rn ≤ 1/20`, then `f_xxx ≥ 2 − 3rn ≥ 7/4` (SP: `2 − 5rn`) |
