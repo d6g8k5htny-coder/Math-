@@ -97,6 +97,10 @@
   "CapFirstExit.ridge_hasStrictFDerivAt",
   "CapFirstExit.ridge_differentiable",
   "CapFirstExit.ridge_exists",
+  "CapFirstExit.hessian_increment_D",
+  "CapFirstExit.transverse_hessian_le_D",
+  "CapFirstExit.slices_strongConcave_D",
+  "CapFirstExit.ridge_capHyp_source",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -120,7 +124,8 @@
   "CapFirstExit.spToy_normalized",
   "CapFirstExit.h1ToyF",
   "CapFirstExit.h1Toy_capHyp",
-  "CapFirstExit.h1Toy_ridge_differentiable"
+  "CapFirstExit.h1Toy_ridge_differentiable",
+  "CapFirstExit.h1Toy_source"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -443,6 +448,26 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.hessian_increment_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.transverse_hessian_le_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slices_strongConcave_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_source": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -562,6 +587,11 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.h1Toy_source": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -572,18 +602,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 27115,
-   "sha256": "2225f0cd302587ca45afed146dfcbb7a1ae17152907f8ba47ce1429fa72aed6a"
+   "bytes": 29659,
+   "sha256": "10782053794698dc6d292e2d5a7acd97811366b3a438a8979c3ab819f548b51e"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 108623,
-   "sha256": "e15e738d864c06ad71f776940f107c8f2854589c7e246853c5fb8eb7ccfc8223"
+   "bytes": 132854,
+   "sha256": "c68114a718bff7736dadad0f0d96eeba468cea0819f7dfb81729fbf0d4ca80ff"
   },
   {
    "path": "README.md",
-   "bytes": 15579,
-   "sha256": "f578f8619be63f2aa4a9f852fd40a73fbbc119066f452f814e11ec56b7a03ff8"
+   "bytes": 16490,
+   "sha256": "1026463c3c43057dca19c9623aeb9167e6599cb58c4b662da1846b7d8ed918f7"
   },
   {
    "path": "gate.py",
@@ -608,7 +638,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6274,
-   "sha256": "45638c157104334c177218754a149cc23336e638a41adfca2648eedc17ac1df1"
+   "sha256": "000fe2c5c1daf29a2de30bf0522e737426b5b6eb623e5ad619b82fce93714d3c"
   }
  ]
 }
