@@ -2252,8 +2252,8 @@ theorem ridge_source_facts [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
 /-- **The cap from SP's `C³` source data (L1–L20 composed; L12 proved).** As
 `ridge_capHyp_source`, with L12's `hconv` derived instead of assumed. Additionally assume, on the
 collar: a second derivative `D2f` of `f`, third derivatives `T3 p a b` of `p ↦ D²f p [a, b]`, every
-third-derivative block other than `f_xxx` of norm at most `m` (combined form), and `f_xxx ≥ 7/4`
-(SP's L4, from L2 and (H2)). Then the ridge exists, and every ridge has `h(∓r/2) = 0` and yields
+third-derivative block other than `f_xxx` of norm at most `m` (combined form), and `f_xxx ≥ 7/4` on
+`D = [-2r, 2r] × B̄(0, 2r)` (SP's L4, from L2 and (H2), on SP's domain). Then the ridge exists, and every ridge has `h(∓r/2) = 0` and yields
 (C1)–(C3) and (C2⁺) on the cap. Inside: L5 gives `‖w‖ ≤ 2mr²` on `[-2r, 2r]`, L8 `‖h‖ ≤ 2mr²/δ`, L6
 `‖w'‖ ≤ 2mr`, L3 in `y` `‖∂_x∇_y f(x, h)‖ ≤ ‖w'‖ + m‖h‖`, L9 `‖h'‖ ≤ 2s + 2s²` with `s = mr/δ`,
 `trilinear_lower` and `l12_constants` give `F'' ≥ 1/4` in the form of `ridge_hconv`. -/
@@ -2270,7 +2270,8 @@ theorem ridge_capHyp_C3 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     (hT : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ (s₁ s₂ s₃ : ℝ) (y₁ y₂ y₃ : E),
       |T3 p (s₁, y₁) (s₂, y₂) (s₃, y₃) - s₁ * s₂ * s₃ * T3 p (1, 0) (1, 0) (1, 0)| ≤
         m * ((|s₁| + ‖y₁‖) * (|s₂| + ‖y₂‖) * (|s₃| + ‖y₃‖) - |s₁| * |s₂| * |s₃|))
-    (hxxx : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ T3 p (1, 0) (1, 0) (1, 0))
+    (hxxx : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      7 / 4 ≤ T3 p (1, 0) (1, 0) (1, 0))
     (hGs : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
       HasStrictFDerivAt (fun q => (Df q).comp (ContinuousLinearMap.inr ℝ ℝ E)) (DG p) p)
     (hH : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
@@ -2395,7 +2396,8 @@ theorem ridge_capHyp_C3 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     exact (hD3 _ (hridgeX x hx) (1, b) (1, b)).comp_hasDerivAt x hp
   exact ridge_hconv (Φ := fun x b => T3 (x, h x) (1, b) (1, b) (1, h' x)) hδ0 isOpen_Ioo hIU
     hridgeU hhd hD2r hsym hnegD hu hΦ
-    (fun x hx b hb => l12_lower hm0 (hT _ (hridgeX x hx)) (hxxx _ (hridgeX x hx)) hc (hu x hx) hb)
+    (fun x hx b hb => l12_lower hm0 (hT _ (hridgeX x hx)) (hxxx _ ⟨hx, hball x (hIU hx)⟩) hc
+      (hu x hx) hb)
 
 end Slice
 
