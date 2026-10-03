@@ -19,7 +19,7 @@ import sys
 import tempfile
 from fractions import Fraction as F
 
-MUTANTS = ("allow-symlink", "no-hash", "stale-fingerprint", "drop-required-edge", "executed-flag", "controlling-true",
+MUTANTS = ("partial-install", "allow-symlink", "no-hash", "stale-fingerprint", "drop-required-edge", "executed-flag", "controlling-true",
            "tail-reversed", "pair-identity-broken", "route-c-broken", "drop-review-needle",
            "installed-drift", "snapshot-omitted", "record-unreviewed", "reviewed-text-drift")
 MUT = None
@@ -72,8 +72,8 @@ INVENTORY = {
         "70d05080ed81c66b43261438cae3b9ec2840e637"
     ],
     "reviews/c6_residual_closure_20260930/RECONCILIATION.md": [
-        "b647a186d0cfd1662fc69e9d31dfd447dbb1b2f6ef4364bbd59c4956f18aed25",
-        "3cfd17c5ef0356dbd3e8f98a2d08cb404ddd982c"
+        "60ed9ca2df666bc31cf50dc1fc7f3f8e8527d5efe4b16c265c205e1e9d1e6b34",
+        "9668d06a41e14057fe6e03ac1bf469aa1ed18580"
     ],
     "reviews/c6_residual_closure_20260930/REVIEWED_SECTION_3_b3fac79.md": [
         "50daacbe7e244bc149dbf4568970d79f38a356daa1e88a850f2fc2d074db5b6c",
@@ -239,9 +239,21 @@ def installed_state(graph, spec):
     live_edges = {(e["from"], e["to"], e["required"], e["relation"]) for e in graph["edges"]}
     wanted = {(e["from"], e["to"], e["required"], e["relation"]) for e in spec["proposed_graph_edges"]
               if not e.get("deferred_with")}
-    return {"present": sorted(present), "mismatched": sorted(mismatched),
-            "residual": res.get("classification") if isinstance(res, dict) else None,
-            "edges_present": wanted <= live_edges}
+    res_cls = res.get("classification") if isinstance(res, dict) else None
+    all_ids = sorted(c["id"] for c in spec["proposed_graph_nodes"])
+    # exactly two accepted states (Codex 4143661501): 'installed' (residual PROVED_REVIEWED, every component and edge
+    # live) and 'baseline' (residual absent or OPEN_ACTIVE, no edge of this record, no component except the
+    # cross-record palm node that Math-#160 creates); anything else, the interim shape included, is 'partial'
+    if not mismatched and sorted(present) == all_ids and wanted <= live_edges and res_cls == "PROVED_REVIEWED":
+        state = "installed"
+    elif not mismatched and set(present) <= {PALM_NODE} and not (wanted & live_edges) and res_cls in (None, "OPEN_ACTIVE"):
+        state = "baseline"
+    else:
+        state = "partial"
+    if MUT == "partial-install" and state == "partial":
+        state = "baseline"
+    return {"present": sorted(present), "mismatched": sorted(mismatched), "residual": res_cls,
+            "edges_present": wanted <= live_edges, "state": state}
 
 
 def live_ok(graph, sel, spec):
@@ -255,7 +267,7 @@ def live_ok(graph, sel, spec):
         ok &= res.get("classification") in ("OPEN_ACTIVE", "PROVED_REVIEWED")
     ok &= "witness-collision" in sel.get("regions", [])
     st = installed_state(graph, spec)
-    ok &= not st["mismatched"]
+    ok &= not st["mismatched"] and st["state"] in ("baseline", "installed")
     if st["residual"] == "PROVED_REVIEWED":
         # a promoted residual must carry the whole proposal: every component by id and bytes, every edge, the reading rule
         ok &= set(c["id"] for c in spec["proposed_graph_nodes"]) <= set(st["present"]) and st["edges_present"]
@@ -473,16 +485,22 @@ def check_transitions(root, spec):
             ok &= all(nodes[d]["classification"] == "PROVED_REVIEWED" for d in req_after)
         ok &= len(req_after) == expected_required.get(stage, len(cids))
         builds[stage] = (old, new)
+    # the installed state, simulated (Codex 4140125558): the executed graph passes LIVE and re-building it is a no-op;
+    # on the installed register the simulation is the live graph itself, so the drift mutant is rejected in either state
+    sim = build(spec, graph, "final")[1]
+    if MUT == "installed-drift":
+        sim["nodes"]["math.c6r-component.spectral-closure-proof"]["fingerprint"] = "0" * 64
+    sim_ok, sim_st = live_ok(sim, sel, spec)
+    ok &= sim_ok and sim_st["residual"] == "PROVED_REVIEWED" and sim_st["present"] == sorted(cids)
+    ok &= sim_st["edges_present"] and not sim_st["mismatched"]
+    o2, n2 = build(spec, sim, "final")
+    ok &= o2 == n2
+    # the installed graph without one component (and its edges) is a partial install, never baseline (Codex 4143661501)
+    part = copy.deepcopy(sim)
+    part["nodes"].pop("math.c6r-component.spectral-closure-proof", None)
+    part["edges"] = [e for e in part["edges"] if "math.c6r-component.spectral-closure-proof" not in (e["from"], e["to"])]
+    ok &= installed_state(part, spec)["state"] == "partial"
     if not installed:
-        # the installed state, simulated (Codex 4140125558): the executed graph passes LIVE and re-building it is a no-op
-        sim = build(spec, graph, "final")[1]
-        if MUT == "installed-drift":
-            sim["nodes"]["math.c6r-component.spectral-closure-proof"]["fingerprint"] = "0" * 64
-        sim_ok, sim_st = live_ok(sim, sel, spec)
-        ok &= sim_ok and sim_st["residual"] == "PROVED_REVIEWED" and sim_st["present"] == sorted(cids)
-        ok &= sim_st["edges_present"] and not sim_st["mismatched"]
-        o2, n2 = build(spec, sim, "final")
-        ok &= o2 == n2
         builds["installed-simulated"] = (o2, n2)
     return bool(ok), builds
 
@@ -628,6 +646,7 @@ def main():
     passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "C6-RESIDUAL-CLOSURE-20260930-v1", "checks": checks, "passed": passed,
                       "inventory_files": len(INVENTORY), "component_nodes": len(spec["proposed_graph_nodes"]),
+                      "register_state": live_state.get("state"),
                       "live_state": live_state, "gate": gate,
                       "scope": "identity, verdict-row, live-register (including the installed state), reviewed-text, exact "
                                "finite bookkeeping of section 3, transition-shape, hard-gate replay with source snapshots in "

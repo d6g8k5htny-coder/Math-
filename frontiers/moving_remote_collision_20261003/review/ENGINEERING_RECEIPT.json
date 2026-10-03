@@ -1,0 +1,47 @@
+{
+  "recorded_at_utc": "2026-10-03T12:05:25.656869+00:00",
+  "verdict": "ACCEPT_ENGINEERING_SCOPED",
+  "reviewer": "OpenAI Codex /root/c107_nonauthor_review",
+  "original_analytic_vote_changed": false,
+  "organizational_independence_credit": 0,
+  "human_review": "NONE",
+  "scientific_register_effect": "NONE",
+  "resolved_findings": [
+    "Initial five-anchor verifier omitted all six frozen review artifacts; repaired to eleven anchors with substitution/prose/receipt failure tests"
+  ],
+  "unresolved_blocking_findings": [],
+  "target_files": {
+    ".github/workflows/moving-remote-collision.yml": {
+      "bytes": 4126,
+      "sha256": "73f6f6daa08f3695c8ec247c99f6822a5dc0fc6734bf4978662516dc76c71171"
+    },
+    "frontiers/moving_remote_collision_20261003/verify_sources.py": {
+      "bytes": 6441,
+      "sha256": "8120c84af4f7341077423ae86ed77252fdfcee310a3ab6a06de6bce2712bfbe1"
+    },
+    "frontiers/moving_remote_collision_20261003/test_verify_sources.py": {
+      "bytes": 8198,
+      "sha256": "8bf806c74861a0ea2ccaa4295d0b3d95c2799453d9723da4a0332d5bc090a5fa"
+    },
+    "frontiers/moving_remote_collision_20261003/README.md": {
+      "bytes": 3553,
+      "sha256": "8252a44ad04478f9086f406bcaf19b23b6cc1d26cfa0e92e714f178b3ad8c324"
+    }
+  },
+  "evidence": {
+    "ENGINEERING_REVIEW.md": {
+      "bytes": 8795,
+      "sha256": "43d8bdd07cc40f9792cf62b71bf4067b2101013a2a53215c50681aca93ebbf80"
+    },
+    "ENGINEERING_RUNS.json": {
+      "bytes": 8801,
+      "sha256": "ac99011d56f5fdd0674a798bace78de7560c160849c4bce9460b4f047ffbe5fe"
+    }
+  },
+  "original_six_review_files_copied_exactly": true,
+  "normal_and_optimized_custody_tests_per_mode": 17,
+  "additional_mutation_rejections": 11,
+  "additional_review_directory_symlink_rejection": true,
+  "remote_CI_observed": false,
+  "analytic_control_reexecution": false
+}

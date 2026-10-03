@@ -1,0 +1,927 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-SOFT-REJECTED-20261002-v1.5",
+ "kind": "author-side proof candidate and conjectures, every d >= 2 (v1.5: applies the C80 readback of v1.4 (OA-242-V14-01: the sensitivity written +-0.002*10^(5/3)/5 ~ +-0.0186 and the H0 comparison about 1.33e-5; OA-242-V14-02: C78 final-reviewer attribution); reporting and custody only; v1.4: applies the C78 delta review of v1.3 (OA-242-V13-01, V13-02, V13-03): wording of section 5 and the header only; the 2.0e-4 comparison of H is the largest difference observed at the 15 tabulated k, not a certified bound; the limits of the section 5(3) expansions are stated; the inherited sensitivity is +-0.002*10^(5/3)/5 ~ +-0.0186, the ranges stand; the raw Monte Carlo archive is pinned by hash; no statement, proof, control or tabulated value changes; v1.3: author correction AUTH-242-02 of section 5 only: two artifacts of the scanner dec1d.py in thin layers on either side of beta = 2 are disclosed, and H, H0, Delta_chi/k^4 -> 66.56, I~ = -0.5337 and R_{2/3} = -0.0488 (d = 2), -0.0614 (d = 3) are recomputed from the closed form of Math- #244, inside the v1.2 ranges; no statement, proof or control changes; v1.2: applies OA-242-A-01, B-01, B-02, B-03, C-01, C-02, D-01, D-02, E-01, E-02; exact (D-prime) witness; Lemma 2 now states that beta > 2, chi <= 0 is always rejected; prior work #170/#175 recorded, AUTH-242-01; Conjecture 6 status: existence merged (#170/#175), identification #243): Theorem 1 (the rejected cusp kernel decays like F0/kappa, F0 = (5/24) pi0 D with D the density at 0 of the smallest eigenvalue lambda_1 of -A weighted by gamma_1^6 (lambda_2...lambda_m)^2; d = 2: D = pA(0|b) E gamma^6); Corollary 1' (Gaussian kernel: int int F0 = 25 sqrt3/(48 pi^2) in d = 2, 125 sqrt30/(192 pi^3) in d = 3); the fold-scale soft model G_k with the jets B = d_u A and C3 = d_Theta^3 f along the soft direction; Lemma 2 (the elder decision in the model by a one-dimensional scan, including a case where the saddle is a slice minimum); Proposition 2' (d >= 3: the stiff directions at scale r^(3/2) decouple; same elder decision); Lemma 3 (an a priori elder region); Proposition 4 (Gaussian kernel, every d: the fold-scale rejection rate is F0(b) H(k) with H independent of b and d, H = 1 + (12/25) k^2 + O(k^3)); Lemma 5 (the composite density = (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4))); Conjecture 6 (the fold-scale limit) and Conjecture 7 (rho_rej + nu_eld^far = B_{d,L} + (I^cand - c1) l^(1/4) + R_{2/3} l^(2/3) + O(l^(3/4)); numerically R_{2/3} = -0.049 (d = 2) and -0.061 (d = 3) for the Gaussian kernel, not certified)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "a808ba25de9db22110db8b7555a64852f38e031d"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R5): the Gaussian decay of the pin density (Theorem 1, Lemma 5)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 finite-jet rank (nondegeneracy in (G1)-(G2)), through #220"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement (the elder mark is Borel), through #220"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged 2026-10-01 at 566b1a1): sections 0, 4, 6 (the cusp objects); the parity factorization of [P] section 15 as stated after (CU.2) (Corollary 1'); Theorem CU.1 (the transverse pins, Proposition 2'); Theorem CU.2(c) (the exact elder window)"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Math- #218 (merged 2026-10-01 at fb6ee97): section 0 (the candidate cusp kernel, I^cand, B_{d,L}); Remark 3 (adjacent pairs)"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "Math- #220 (merged 2026-10-01 at 0d79778): section 0 ((0.1) the elder cusp weight, (0.2) c1); section 1 (window coordinates, (1.1), Lemma Q, (M1)-(M6))"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Math- #229 (merged 2026-10-01 at 6f74f7a): (R+.1); section 0 (Y_r = Y' + 3k Delta_B); section 5 (the ledger)"
+  }
+ ],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2): the fold-scale rejected weight is O(r^3/k) (sections 2 and 6)"
+  },
+  {
+   "path": "frontiers/far_elder_rate_20260930/PROOF.md",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b",
+   "git_blob": "072601145601a1021037a2e91bf8826c1c971ecc",
+   "tag": "187",
+   "use": "Math- #187 (merged): (0.2), the far elder density is O(l^(2/3)) (why Conjecture 7 keeps the far term)"
+  },
+  {
+   "path": "frontiers/elder_cusp_parity_20261002/PROOF.md",
+   "bytes": 51848,
+   "sha256": "35b9c5943cf35919f2046ba194945ba759be654edf5d5ad77ba17b1f5c5377fd",
+   "git_blob": "16a1db0658918057ff741df888c13702763d9919",
+   "tag": "240",
+   "use": "Math- #240 (merged at 7636cae; blob unchanged): Lemma Q-prime (its margins, section 4 input (i)), Step N6 (the factor exp(-a' k^2)), Corollary N-prime, Remarks 1 and 4"
+  },
+  {
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "tag": "170",
+   "use": "Math- #170 (merged author-side candidate, OpenAI, at its stated conditional scope; prior work recorded in v1.2 as AUTH-242-01): section 3 (the critical chord, used in Lemma 2 Step 1), Theorem E (the same window decision as Lemma 2), Theorem S (r^-3 (1 - p_r) -> alpha_1 + alpha_2), section 9 (C_fail)"
+  },
+  {
+   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+   "bytes": 23416,
+   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+   "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+   "tag": "175",
+   "use": "Math- #175 (merged author-side candidate, OpenAI, at its stated conditional scope; prior work, AUTH-242-01): Theorem H (the hard-fibre transfer, the field version of Proposition 2-prime for the cubic), Theorem F, section 7"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/candidate_parity_rate_20261001/PROOF.md",
+   "bytes": 53499,
+   "sha256": "9d58a29bf725d0756c8d11b5a9aa538782e83bee62242bcb1a869d2b95ccce94",
+   "git_blob": "a97bf528b4e073c6e12fd2d4616be77e8bbae16b",
+   "tag": "237",
+   "use": "Math- #237 (open): Theorem P (candidate remainder l^(3/5)), Remark 4",
+   "head": "0add03bb806b6237e6aa0b29b06bedec54863e79",
+   "pr": "Math- #237"
+  },
+  {
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb",
+   "tag": "216",
+   "use": "Math- #216 (open): the full-field Monte Carlo of the lifetime densities (section 5; the raw records are exploration)",
+   "head": "04c08e1534122f210be888742fcd7a568e45b097",
+   "pr": "Math- #216"
+  },
+  {
+   "path": "frontiers/far_elder_flat_ridge_20260930/PROOF.md",
+   "bytes": 22806,
+   "sha256": "957f9c5e6557a558b2c055fa2a1f11ba301581995b8958658fad2edf47136f57",
+   "git_blob": "50cfbf4fcb9a3526f979eaedf885d42824a3c3a3",
+   "tag": "188",
+   "use": "Math- #188 (open): the far elder density O(l^N) (Conjecture 7: only to remove the far term)",
+   "head": "85f0586a468c2b2f73af0e340d251e33a52caade",
+   "pr": "Math- #188"
+  },
+  {
+   "path": "frontiers/soft_fold_limit_20261002/PROOF.md",
+   "bytes": 72742,
+   "sha256": "7716a113bcf8c1725f9ec771d58ef033767f0a7bb50d592b841ca0ffe86f31af",
+   "git_blob": "3d9faa87d717fbd68b784b2ae408505fb2cc56dc",
+   "tag": "243",
+   "use": "Math- #243 (open; its five nonauthor slice reviews are at this head): Theorem FL and Proposition FL.7 (Conjecture 6: the identification of the fold-scale limit with F, continuity, local uniformity), Lemma FL.2(c)",
+   "head": "11a4cd4e3b3f927eb9d4a743d8a43e387f1a66da",
+   "pr": "Math- #243"
+  },
+  {
+   "path": "frontiers/soft_closed_form_20261002/PROOF.md",
+   "bytes": 46949,
+   "sha256": "a6c29a529af87da69ea7929bccd2ad81cad313cecb235ad8bf2dea274d2acb96",
+   "git_blob": "310ef82832a51bc876494f72fc3f002ea2bfaea0",
+   "tag": "244",
+   "use": "Math- #244 (open; conditional on #170 Theorem E(1) and [CUB] Theorem C): Theorem A (the closed form of the rejected set and of I), Corollary A.1 (t* = 2/3), Theorem B (H to order k^4, the exact k^(7/2) and k^4 coefficients), section 5 (its numerics); section 5 here uses it for the v1.3 values",
+   "head": "1781c0fd37469a0840f3c768d2b505ef6319133e",
+   "pr": "Math- #244"
+  }
+ ],
+ "cited_external": [],
+ "mutants": {
+  "M1": "S1",
+  "M2": "S3",
+  "M3": "S4",
+  "M4": "S5",
+  "M5": "S7",
+  "M6": "S8",
+  "M7": "S9",
+  "M8": "S2",
+  "M9": "S6",
+  "M10": "S10",
+  "M11": "S11",
+  "M12": "S12",
+  "M13": "S13",
+  "M14": "S14"
+ },
+ "replayed": [
+  "soft_check.py"
+ ],
+ "referee": {
+  "kind": "one clean-context same-family referee (an Anthropic Claude subagent) before submission",
+  "verdict": "MAJOR REVISION, no BLOCKING finding: one MAJOR (Conjecture 7 must keep the far elder density and state the missing inputs), eight MINOR and nineteen NIT findings, all applied before submission (including a new control S10 for the limit field)",
+  "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_A.md",
+  "sha256": "ca8881ad05fcc56bbe0264ea1c69059b23e5097c90fe857dd2f231c2e279583a",
+  "bytes": 25437,
+  "limits": "same provider and same GitHub account as the author: organizational-independence credit 0; not a nonauthor review",
+  "delta": {
+   "verdict": "ACCEPT WITH MINOR FIXES, no BLOCKING or MAJOR finding: three new MINOR findings (Lemma 2 hypothesis; input (ii); H0 truncated the small-gamma end, R_{2/3} -0.050 -> -0.049) and seven NITs, all applied",
+   "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_A_DELTA.md",
+   "sha256": "5ccfb644e1a58abf4a022a1fe83a9c3969fdca448724de315a9eace5dc60ca01",
+   "bytes": 13940
+  },
+  "v1.1_delta": {
+   "verdict": "ACCEPT WITH MINOR FIXES, no BLOCKING or MAJOR finding: four MINOR (Theorem 1 Step 3 main term on the excluded sets; the d = 3 s-integral needed a refined grid; the d = 3 Monte Carlo statement overread #216's fit; packaging) and fourteen NIT findings, all applied",
+   "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_B.md",
+   "sha256": "095505d20ac264d6d8a4d3a39cb9d137999e7a3c7aac97105336f4561c7ed205",
+   "bytes": 27059,
+   "limits": "same provider and same GitHub account as the author: organizational-independence credit 0"
+  },
+  "v1.2_delta": {
+   "verdict": "ACCEPT WITH FIXES, no BLOCKING or MAJOR finding: nine MINOR (slice-fact wording; open-end exclusion; untested chi < 0 claim; S14 edge-factor identity; stale history sentence; Conjecture 6 status vs prior work; hedging; changed-bytes list; matched-asymptotics citation) and eight NIT findings, all applied",
+   "report": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/REFEREE_C_v12.md",
+   "sha256": "7c1bfe1712409e2bee5774171f6b940f9f3c671b10e87130517b83008e753407",
+   "bytes": 4134
+  }
+ },
+ "exploration": "project archive V2_2/frontiers_soft_rejected_pairs_20261002/exploration/ (numpy, scipy, mpmath, sympy; not part of the repository); the raw Monte Carlo records batchA2.npz and batch3B.npz are delivered as SIDE24_MC_raw_2026-10-01.zip",
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 91967,
+   "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75"
+  },
+  {
+   "path": "README.md",
+   "bytes": 18111,
+   "sha256": "17dbd735b22a01949148a29b8012fc6318ed7f8dce11451e35334877e7efe17d"
+  },
+  {
+   "path": "soft_check.py",
+   "bytes": 44804,
+   "sha256": "eea81fae5921103fccfece522925e3fc58b23dbf88fb00b3f5df52374c51aa15"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 3650,
+   "sha256": "3a0ec87a4a7d833a26a8d70ad0a1cda108f7835b2502264b79d0d87c963906fe"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-SOFT-REJECTED-20261002-v1.4",
+  "head": "ffc7005509554a378edd81136aa6e1f4fbd0eff8",
+  "proof_blob": "c15929151e9f82813b7993a31b6735bcff8dc6fa",
+  "note": "v1.4 PROOF sections 0-4 and 6-8, soft_check.py and RESULTS.json are byte-identical in v1.5"
+ },
+ "exploration_manifest": {
+  "location": "claude.ai project archive V2_2/frontiers_soft_rejected_pairs_20261002/ (and the local archive zip SIDE24_V2_2_2026-09-29.zip); not part of the repository",
+  "files": [
+   {
+    "path": "exploration/G3_merged_fine.log",
+    "bytes": 11853,
+    "sha256": "0d8d9df4acbea41e231778effcb0e9b8fdbe4ae681901642c92f46a010b65471"
+   },
+   {
+    "path": "exploration/G3fine_0.log",
+    "bytes": 5359,
+    "sha256": "32d14756f085776608f77f927d91485e190b1eb6f74d0ff7d377c2c5dfa3bc6e"
+   },
+   {
+    "path": "exploration/G3fine_1.log",
+    "bytes": 5333,
+    "sha256": "ad35927ec0f49bca6819c824c78250a7bb2c4b08e72360fc4deecdfa2aae1de8"
+   },
+   {
+    "path": "exploration/G3grid.py",
+    "bytes": 529,
+    "sha256": "c1862c3ffdbe34b0b2c9a83bd1862fab9f7d60d9ddb24dbb91721a825f6edcc2"
+   },
+   {
+    "path": "exploration/G3grid_0.log",
+    "bytes": 2120,
+    "sha256": "782ef8587cdb7225d5cee110db0b9b6073a16797ce1ac470baf110d725555d37"
+   },
+   {
+    "path": "exploration/G3grid_1.log",
+    "bytes": 2057,
+    "sha256": "7ed1e0a10175046b1e737405555e86db4861efe3ef9e7e9f5f3d56a82680783c"
+   },
+   {
+    "path": "exploration/G3grid_fine.py",
+    "bytes": 657,
+    "sha256": "6b5054cc3e651371c02dc6bf8d9d30735c0ad9eed525d0a4db60084d03ff4174"
+   },
+   {
+    "path": "exploration/G3grid_small.py",
+    "bytes": 504,
+    "sha256": "5fb0542e7c26a5b6f22f20a940143e52a79398e836029d9ca3b2d01868ec74be"
+   },
+   {
+    "path": "exploration/G3small_0.log",
+    "bytes": 1595,
+    "sha256": "a10ef061824bbab7826aba76da08c588097bc42a4b97b584e7bcb367dcaf86b6"
+   },
+   {
+    "path": "exploration/G3small_1.log",
+    "bytes": 1517,
+    "sha256": "af3edee2ee2d473e6116d7f064ab9b63b50a9c1fb7f0d98818ec14460047d936"
+   },
+   {
+    "path": "exploration/Gd.py",
+    "bytes": 3504,
+    "sha256": "34b817d5391ab322cd0feb4dec64c6d5d9e93e83a45f146479e003b1885cd21e"
+   },
+   {
+    "path": "exploration/Gkappa.log",
+    "bytes": 245,
+    "sha256": "1acb4bfa11301f2afd701ca3dff8cf1cc7bc381d587673434760d63c22aefd22"
+   },
+   {
+    "path": "exploration/Gkappa.npz",
+    "bytes": 185250,
+    "sha256": "521f882be16ef09b07ae091d573f3044097d6e9b695653d46abcf3c8dee3e9a7"
+   },
+   {
+    "path": "exploration/Gkappa.py",
+    "bytes": 994,
+    "sha256": "2ef34b5c7cf163ae3c252f1223211741d388d3f14852a16e4be09152f543cf6a"
+   },
+   {
+    "path": "exploration/Gphi.py",
+    "bytes": 3580,
+    "sha256": "6a3655a0eb2e96a8941b01125a5449cac8c97af162bb932c7c5a02e8ae5883d8"
+   },
+   {
+    "path": "exploration/H0.json",
+    "bytes": 2504,
+    "sha256": "7e7fa8778951347d4db93e444d60e3f0d2b78e2acbb928873c95b1df72b13a88"
+   },
+   {
+    "path": "exploration/H0b.json",
+    "bytes": 2506,
+    "sha256": "ae8d2011eb487a5cabc753e53ff85bb4f424a9c36e8bd78c3b54f043a59f881e"
+   },
+   {
+    "path": "exploration/H_dense2.json",
+    "bytes": 5796,
+    "sha256": "c89ddff42677f660c5558579d42336b78effa2833ea9065e35852b9bff3efffe"
+   },
+   {
+    "path": "exploration/H_dense3.json",
+    "bytes": 5487,
+    "sha256": "ae5f1470e9e65b9ffe82e7c4369fbac1826f3a42db1a95e335aabdd73ae873d3"
+   },
+   {
+    "path": "exploration/H_final2.json",
+    "bytes": 1283,
+    "sha256": "f9b2c3b1596f1b2e5ca86314b8205068a6bb81f14fbc06ccc32eeb334a43d962"
+   },
+   {
+    "path": "exploration/H_pin.json",
+    "bytes": 5671,
+    "sha256": "08cbb12331ea9e450f08a78defefd70655cb85cca71648c0cdec0d7d7c6ce7e8"
+   },
+   {
+    "path": "exploration/Hd4_fast_nochi.log",
+    "bytes": 378,
+    "sha256": "03f9931b2b8560a94089c86b5db2262e980018f60f9f83e9865a74aa331cf725"
+   },
+   {
+    "path": "exploration/Hd4_fast_on.log",
+    "bytes": 386,
+    "sha256": "4648865490cab481e0ecba60789a87e052f788a8428cbca5cb2e0bbc3110e0ec"
+   },
+   {
+    "path": "exploration/Hd4_ng48_nochi.log",
+    "bytes": 209,
+    "sha256": "2cdb144603711e60e93941605cbc88c2a876a3cdadcddf21ccca1feb9c3b874c"
+   },
+   {
+    "path": "exploration/Hd4_ng48_on.log",
+    "bytes": 213,
+    "sha256": "81ed91eed7b16cb645b5a1ed4cdc575ff2b1e4e92c93ef7d5231c2a0130ac0d7"
+   },
+   {
+    "path": "exploration/Hd4_nochi.log",
+    "bytes": 1449,
+    "sha256": "309c7a254551dd8c79e02c37401d11cc4e24246ba4c4cfaf8b403408ac1ae18f"
+   },
+   {
+    "path": "exploration/Hd4_on.log",
+    "bytes": 1476,
+    "sha256": "ae92d2ad9508399883e17e93d7ee14de3c5c2f67cbfd905b0d1e35adecfe00e4"
+   },
+   {
+    "path": "exploration/Hdirect4.py",
+    "bytes": 2440,
+    "sha256": "dc4072ca542a34c6e5885ee805ed0c98bd5c49b7f12d8387eb3401d027d361a2"
+   },
+   {
+    "path": "exploration/Hk0.log",
+    "bytes": 4042,
+    "sha256": "cf56dd821f63c223a36a958d6b74fec3669c5232880bef1b18bf28bede0ff00b"
+   },
+   {
+    "path": "exploration/Hk0.py",
+    "bytes": 3564,
+    "sha256": "db2db573bceedd6e87bbaae947801a9ba125787e1a31092b9cc6ba6ef09adcbd"
+   },
+   {
+    "path": "exploration/Hk0b.py",
+    "bytes": 2465,
+    "sha256": "7a9f0cd52e116d8866019c9f11f14e95312654701cc05a79352071cc11fb2e0c"
+   },
+   {
+    "path": "exploration/Hmc.py",
+    "bytes": 1418,
+    "sha256": "4ced3c4c66dcb6ae3a4a56422173ce11923e852191d44b666b14a02918509b43"
+   },
+   {
+    "path": "exploration/Hmc_03.json",
+    "bytes": 110,
+    "sha256": "df175e1205c35488c0ed714da51eab9ffd320dff8ebf95cb484959074aa33f35"
+   },
+   {
+    "path": "exploration/Ifast.py",
+    "bytes": 2097,
+    "sha256": "d86a9ab26e7c6fd85916c774f21d1bad668d56a720c6d90024ca08e1a11433a0"
+   },
+   {
+    "path": "exploration/Itab.py",
+    "bytes": 2107,
+    "sha256": "dcc4861f1d4c6c9aa80ef7c11e4da0c73c3bbab49d8bf4365f7c86b68109fd70"
+   },
+   {
+    "path": "exploration/Itab2d_v2.log",
+    "bytes": 230,
+    "sha256": "d7ca6740070cc7ef9bf99c2f9305c1ae5857e07813ef4a75a8ccd06f59797d02"
+   },
+   {
+    "path": "exploration/Itab2d_v2.npz",
+    "bytes": 100276,
+    "sha256": "0ad501c1ed5fac54d33cf8c11a77920c41919f90eb75e822d93bcc3d3b0df61b"
+   },
+   {
+    "path": "exploration/Itab2d_v2.py",
+    "bytes": 1169,
+    "sha256": "64397035de25110d2343fa4a4f35197d2a0d1ded37ac2ddb5f6a18486a742698"
+   },
+   {
+    "path": "exploration/Itab_chi0.npy",
+    "bytes": 10352,
+    "sha256": "5afd7a17015c7fb424607175c9484f774fd0d89d157a9219a5ead5c683937f48"
+   },
+   {
+    "path": "exploration/README.md",
+    "bytes": 10236,
+    "sha256": "a913f647710a0bdeb4ac1f48e90f09c028427aee1842c22f7a4a418c26620fb3"
+   },
+   {
+    "path": "exploration/assemble2.py",
+    "bytes": 2339,
+    "sha256": "fd9d1b63e86543be9a6271b7b767a1a3e7e9f7841fcf1a37acb2ab11d105c39b"
+   },
+   {
+    "path": "exploration/comp2d.py",
+    "bytes": 2431,
+    "sha256": "6ce8d69d9bd3ea7a59a999eb056a1c159908fb8bea1d6f852ddc55677b034030"
+   },
+   {
+    "path": "exploration/comp2d_final2.log",
+    "bytes": 2455,
+    "sha256": "98b83540fe822136af480470b2047f57bd9c06dbd581cbdede11cbf2e45e0066"
+   },
+   {
+    "path": "exploration/comp3d_final4.log",
+    "bytes": 4116,
+    "sha256": "50b7616c62258c54e0079acbd5d928ff3bbe40475c6bb3715e9906858317dbd0"
+   },
+   {
+    "path": "exploration/comp3d_pin.log",
+    "bytes": 4134,
+    "sha256": "ead6f10eebf7e893915c7ff4f7e304f32a8267075ca866f11eff9c6061a062fb"
+   },
+   {
+    "path": "exploration/compd.py",
+    "bytes": 5605,
+    "sha256": "ea0dfd7193fc1c07a0fc7c0fe059a3d7581466fd77a76dc95f18642c0543804c"
+   },
+   {
+    "path": "exploration/composite.py",
+    "bytes": 2779,
+    "sha256": "2feec092d830ec0a0deb46b3623757613e61eb441c54d8dbb3e505843e1f9655"
+   },
+   {
+    "path": "exploration/composite_final2.log",
+    "bytes": 2315,
+    "sha256": "ee84289591a23eb43d670b734cf9c5db1f72b963790451904686311367bb9572"
+   },
+   {
+    "path": "exploration/composite_final3.log",
+    "bytes": 2315,
+    "sha256": "bdbf019ab7026b45b114fd1fb161c3c0a637aee3d8e4196c139c330004c46a4a"
+   },
+   {
+    "path": "exploration/dec1d.py",
+    "bytes": 4682,
+    "sha256": "d9394d40e5d8b0ca8caccc93e64a5c284519d2c9473c8861bbdfe85ae9b808d8"
+   },
+   {
+    "path": "exploration/dense2.log",
+    "bytes": 399,
+    "sha256": "b77e2434b6bbcdf8146f4fe3d59c0a21999d795ccf1d32b0bfb30b05c74f1c63"
+   },
+   {
+    "path": "exploration/dense2.py",
+    "bytes": 3417,
+    "sha256": "f7d2ea76133d900d95c1f1610ca1c615cb28c1da93b8a66bc57fc006aa719c49"
+   },
+   {
+    "path": "exploration/fastk.py",
+    "bytes": 2374,
+    "sha256": "5141a9e77702d7547eb31335dc26c98a9afb24b2c9b310645a820290e227d0e9"
+   },
+   {
+    "path": "exploration/g3mc.py",
+    "bytes": 849,
+    "sha256": "2213999ce4f84750519c98c412cc947e90def0acca0816ad7cab0d5fcf45fec1"
+   },
+   {
+    "path": "exploration/g3mc_k1.log",
+    "bytes": 57,
+    "sha256": "05cd09bc82a9a28f03ff4fa59da333c5d283cf57f51ef5cad0c4de2f507301a5"
+   },
+   {
+    "path": "exploration/merge_g3.log",
+    "bytes": 200,
+    "sha256": "50060f47285903f4e946b25bdf2e80c7f8f9664b9bdac31d7a5cde9985e3023b"
+   },
+   {
+    "path": "exploration/merge_g3.py",
+    "bytes": 2175,
+    "sha256": "cd987fd744b8c375add2c9e90e1389218e2be634e17abb6f5f9be34183732488"
+   },
+   {
+    "path": "exploration/model2d.py",
+    "bytes": 2395,
+    "sha256": "3dc50f816a37dc84e6777ac5c21f686ca4b7bc014d49238670e1ecbbe4e88123"
+   },
+   {
+    "path": "exploration/norm2.py",
+    "bytes": 970,
+    "sha256": "e5c83a540e62d6b1a8c58361f77c21bf9d79059c8c40c088ba667d41e52fe38c"
+   },
+   {
+    "path": "exploration/perb3.py",
+    "bytes": 2749,
+    "sha256": "af5e2e6633641194b9c85bd15e6b96b6c9732f692917b81da581c8357bbcb9e6"
+   },
+   {
+    "path": "exploration/perb3_final.log",
+    "bytes": 769,
+    "sha256": "b527e7bf95187ffb7c47991ad4ab573fea8c761525140eb1a691f600ec79deb6"
+   },
+   {
+    "path": "exploration/ridge_t.py",
+    "bytes": 2261,
+    "sha256": "6b402d815a57f4b9731b5ce17cadf8434ae435b839c62324ebe17e636dc85cf4"
+   },
+   {
+    "path": "exploration/soft_d2.py",
+    "bytes": 2825,
+    "sha256": "6ae2af0faf64302c6bf9855b7810eb79b87dcd5e39f9b17a523c08c5b9912c9a"
+   },
+   {
+    "path": "exploration/sym_edge.py",
+    "bytes": 861,
+    "sha256": "352d80ede442b502ef7314293b49cbb37efa1fa5f1de30adc67a3021d38a5711"
+   },
+   {
+    "path": "exploration/sym_model.py",
+    "bytes": 1190,
+    "sha256": "14be3c1fa8cf8d517cd82c3d022d5c1c458865718efdcbf29da1479db2a18d0f"
+   },
+   {
+    "path": "exploration/validate_D2.log",
+    "bytes": 302,
+    "sha256": "7b1b18daa4855cdf1fa56e129b40e12a09d7ce5c02d98389aa44e0853bf7d21d"
+   },
+   {
+    "path": "exploration/validate_D2.py",
+    "bytes": 1587,
+    "sha256": "cd5084d643bfebc71b7b9bdcafae77ed2a9dddd351b9a79725ebec6ce333e78f"
+   }
+  ],
+  "raw_monte_carlo": {
+   "archive": "SIDE24_MC_raw_2026-10-01.zip",
+   "bytes": 30456459,
+   "sha256": "85ec255ec653377765aaf940050bbd22c7f889843e2196c005258db11cb6b3e3",
+   "members": [
+    {
+     "path": "batchA2.npz",
+     "bytes": 26880641,
+     "sha256": "d34030095cbeaf4b6ff2810d89f2828c13c28d617734ae8dfb9f425b7cd4340e"
+    },
+    {
+     "path": "batch3B.npz",
+     "bytes": 3580675,
+     "sha256": "20f53f39aaaf5da6f073f3f6223e45e4177df149a688f1954079043e5bb3461b"
+    },
+    {
+     "path": "README.md",
+     "bytes": 4770,
+     "sha256": "592552635479e8f5a7a50ecb67b65a4b98fd84138cf48735c28c6d3225ad120e"
+    }
+   ],
+   "note": "batchA2.npz (d = 2, L = 64) and batch3B.npz (d = 3, L = 16): the raw records of Math- #216 used in section 5(6); delivered to the owner as SIDE24_MC_raw_2026-10-01.zip (claude.ai outputs, 1 October 2026), not part of the repository; pinned by hash in v1.4 (v1.1-v1.3: named, not pinned)"
+  },
+  "status": "author-reported exploration, not independently reproduced (OA-242-E-01)",
+  "v13_files": [
+   {
+    "path": "exploration/v13/Hcf.py",
+    "bytes": 2651,
+    "sha256": "36787ccaf7dbd42ffcf21b4c138e2266aeb6e47a0e3f5b81553782124841ad96"
+   },
+   {
+    "path": "exploration/v13/Hcf_grid.log",
+    "bytes": 465,
+    "sha256": "b42481ae7c05551d0b7ee815ad7ab0f08ac337f44bf564a32f1a5c1b0f7852a1"
+   },
+   {
+    "path": "exploration/v13/Hcf_grid_nochi_v2.log",
+    "bytes": 465,
+    "sha256": "58dac2db3aa20d2f93eb5519f79448f27a852c071b690e4fdd339deffe1efe83"
+   },
+   {
+    "path": "exploration/v13/Itilde.py",
+    "bytes": 1306,
+    "sha256": "86f7bb01ceaa534550ab01f53ee2c7a42f11cc1202175300460e13e758f925be"
+   },
+   {
+    "path": "exploration/v13/Itilde_16_60.log",
+    "bytes": 258,
+    "sha256": "9703c947dbf2e027715f58a937ee4ed102bcb50bbe542cd58b53b3f26b3a222d"
+   },
+   {
+    "path": "exploration/v13/Itilde_24_80.log",
+    "bytes": 258,
+    "sha256": "545bcf4a273236cce107daef85f6f81fcf2c698673f51c510a30676be5db678f"
+   },
+   {
+    "path": "exploration/v13/Itilde_headfix.log",
+    "bytes": 480,
+    "sha256": "84fa0caa234243d9a780613c94de06a592bfa8f5d2c91f0ce696641f524dbbe4"
+   },
+   {
+    "path": "exploration/v13/Itilde_headfix.py",
+    "bytes": 778,
+    "sha256": "ee003377068c55ac8db454801b9d62ef99401f9b089e78367fbaa534373f4f46"
+   },
+   {
+    "path": "exploration/v13/README.md",
+    "bytes": 2365,
+    "sha256": "2ef3f9b975b93d635a0f4f9b25f230bdf0a042e0b88d0731f717d2ccab1104f6"
+   },
+   {
+    "path": "exploration/v13/cf.py",
+    "bytes": 1784,
+    "sha256": "5861010443118e0407fa78ba30e8ae9eaeb044a6fe1676ab4db02bb6be8f36af"
+   },
+   {
+    "path": "exploration/v13/g6i.py",
+    "bytes": 2261,
+    "sha256": "ec81a1631304f2dc17b254a61452a46f012e22797aedccc4d00fba20537ce1c3"
+   },
+   {
+    "path": "exploration/v13/itilde_split.py",
+    "bytes": 2042,
+    "sha256": "f2603cc204cc0f6ce07130d8d07100b62ba2df6be8f4a69a19eec471e1a8cefd"
+   },
+   {
+    "path": "exploration/v13/split_chi_16_60.log",
+    "bytes": 383,
+    "sha256": "55d0eaba57e0067bb6fc7807320352b1e46b3cd05967914cd6c368b782e8a73f"
+   },
+   {
+    "path": "exploration/v13/split_nochi_16_60.log",
+    "bytes": 381,
+    "sha256": "43273dc5535e41010c9338b89588abcf24e6b490ed5f4fd2a2e5b08e76b3205a"
+   },
+   {
+    "path": "exploration/v13/split_nochi_24_80.log",
+    "bytes": 381,
+    "sha256": "739406306a03d914c02c87185d013d215cbe79c4fc6b66e270380f1e37d94521"
+   }
+  ],
+  "v13_note": "v1.3 (AUTH-242-02): the scripts and logs behind section 5's corrected values (H and H0 rows, the I~ split by v-range, I~ with and without C3), evaluating the closed form of Math- #244; the comparison with the I table, the classification of its 97 outliers and the two dec1d.py artifacts are #244's exploration, pinned in #244's SOURCES.json"
+ },
+ "nonauthor_reviews": [
+  {
+   "slice": "A",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5390308599",
+   "at": "87912bd",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-242-A-01"
+   ],
+   "applied_in": "v1.2"
+  },
+  {
+   "slice": "B (model geometry, Proposition 2-prime)",
+   "reviewer": "OpenAI Codex",
+   "comment": "5948352439",
+   "at": "87912bd",
+   "verdict": "PASS_TECHNICAL",
+   "findings": [
+    "OA-242-B-01"
+   ],
+   "applied_in": "v1.2"
+  },
+  {
+   "slice": "C",
+   "reviewer": "OpenAI Codex",
+   "review": "pullrequestreview-5390667993",
+   "at": "87912bd",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-242-C-01",
+    "OA-242-C-02"
+   ],
+   "applied_in": "v1.2"
+  },
+  {
+   "slice": "D",
+   "reviewer": "OpenAI Codex",
+   "review": "pullrequestreview-5390555860",
+   "at": "87912bd",
+   "verdict": "PASS_TECHNICAL_SCOPED (Lemma 5)",
+   "findings": [
+    "OA-242-D-01",
+    "OA-242-D-02"
+   ],
+   "applied_in": "v1.2"
+  },
+  {
+   "slice": "B (formulas) and E",
+   "reviewer": "OpenAI Codex",
+   "review": "pullrequestreview-5391485205",
+   "at": "87912bd",
+   "verdict": "PASS_TECHNICAL_SCOPED; PASS for the checker correspondence",
+   "findings": [
+    "OA-242-B-02",
+    "OA-242-B-03",
+    "OA-242-E-01",
+    "OA-242-E-02"
+   ],
+   "applied_in": "v1.2"
+  },
+  {
+   "slice": "v1.2 bounded readback (B-01, D-01, exact D-prime witness, strengthened beta > 2, chi <= 0 rejection)",
+   "reviewer": "OpenAI Codex (agent review_soft_pair_scope; delegated AI review; same GitHub account; organizational independence 0)",
+   "comment": "5952577050",
+   "at": "1f86fea",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "applied_in": null
+  },
+  {
+   "slice": "v1.2 complementary delta (A-01, B-02, B-03, C-01, C-02, D-02, E-01, E-02, Schur paragraph, prior-work interfaces)",
+   "reviewer": "OpenAI Codex /root (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5391986303",
+   "at": "1f86fea",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-242-V12-01",
+    "OA-242-V12-02"
+   ],
+   "applied_in": "v1.2 README amendment",
+   "note": "its section 3 (D.1) is root-authored support: a direct model-integral proof of F = k A_* a_fail in every fixed d; not reviewed here"
+  },
+  {
+   "slice": "D.1 supplement (root-authored section 3 of review 5391986303): the direct model identity F = k A_* a_fail in every fixed d",
+   "reviewer": "OpenAI Codex agent prioritize_program_closure_work (delegated AI review; nonauthor of D.1; same GitHub account; organizational independence 0)",
+   "comment": "Math- #243 5954510413",
+   "at": "b82b0ca (PROOF blob ad4beb84)",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "note": "reviews D.1 against this PROOF's sections 2-3 (unchanged in v1.3); not a review of this packet's proofs"
+  },
+  {
+   "slice": "head receipt on the v1.2 README amendment",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5393329837",
+   "comment": "5955184422",
+   "at": "b82b0ca",
+   "verdict": "NOT READY (not a proof acceptance or a merge vote): behind main; Conjecture 7 open; R_{2/3} a sensitivity range, not a certified enclosure; the scanner disclosure must be in the landed note",
+   "findings": [],
+   "applied_in": "v1.3 (rebased on main; the disclosure is in PROOF section 5 and the README)"
+  },
+  {
+   "slice": "C78 bounded delta review of v1.3 (section 9 changed bytes, section 5 numerical disclosures and source bindings, README/SOURCES, unchanged checker)",
+   "reviewer": "OpenAI Codex root (final reviewer of review 5394316763; delegated AI review; same GitHub account; organizational independence 0)",
+   "comment": "5956579220",
+   "pickup": "5956488449",
+   "at": "d504cdb (PROOF blob 5fd29e63)",
+   "verdict": "AMEND (three minor reporting corrections); PASS_TECHNICAL for the unchanged-slice correspondence, the source identities checked and the executable-control correspondence",
+   "findings": [
+    "OA-242-V13-01",
+    "OA-242-V13-02",
+    "OA-242-V13-03"
+   ],
+   "applied_in": "v1.4",
+   "review": "pullrequestreview-5394316763",
+   "support": "the helper /root/c78_numerical_delta_review supplied preliminary findings and the script reconstruct.py, then hit a usage limit before completing a report: interrupted preliminary support, not a completed separate review (OA-242-V14-02)"
+  },
+  {
+   "slice": "C80 bounded readback of the v1.4 reporting fixes",
+   "reviewer": "OpenAI Codex root (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5394603905",
+   "pickup": "5957362074",
+   "at": "ffc7005 (PROOF blob c1592915)",
+   "verdict": "PASS_TECHNICAL_SCOPED for the corrected scope statements, tail directions, sensitivity formula and unchanged-proof/control correspondence; two minor amendments",
+   "findings": [
+    "OA-242-V14-01",
+    "OA-242-V14-02"
+   ],
+   "applied_in": "v1.5"
+  }
+ ],
+ "amendments": [
+  {
+   "label": "v1.2 README amendment",
+   "files_changed": [
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "PROOF.md",
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "findings": [
+    "OA-242-V12-01",
+    "OA-242-V12-02"
+   ]
+  },
+  {
+   "label": "v1.3",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "proof_sections_unchanged": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "findings": [
+    "AUTH-242-02 (author: two dec1d.py artifacts near beta = 2; section 5 numbers corrected; disclosed in 5953336662, corrected in 5955380848)"
+   ],
+   "requested_by": "xAI 5955184422 (disclosure in the landed note); Codex 5954054126 (PR242 held for the promised section 5 correction)"
+  },
+  {
+   "label": "v1.4",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "proof_sections_unchanged": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "6",
+    "7",
+    "8"
+   ],
+   "findings": [
+    "OA-242-V13-01",
+    "OA-242-V13-02",
+    "OA-242-V13-03"
+   ],
+   "requested_by": "Codex C78 delta review 5394316763 (findings first sent in 5956579220)",
+   "also": "C78 rounding note (not a finding): section 5(5) prints I~ = -0.5336676"
+  },
+  {
+   "label": "v1.5",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "soft_check.py",
+    "RESULTS.json"
+   ],
+   "proof_sections_unchanged": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "6",
+    "7",
+    "8"
+   ],
+   "findings": [
+    "OA-242-V14-01",
+    "OA-242-V14-02"
+   ],
+   "requested_by": "Codex C80 readback 5394603905"
+  }
+ ]
+}
