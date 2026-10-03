@@ -31,6 +31,16 @@ with `RESULTS.json` in the baseline state and with `RESULTS_INSTALLED.json` in t
 installed selector table is accepted only when the graph carries the proposal, and the open witness node may carry none
 of its proposed edges (mutants `selector-ahead`, `witness-edges-partial`; four added in all). Nothing in §§1–7 changes. The §1a register-equivalent alternative (no separate
 residual node) is not an accepted installed state, since Math-#173 presupposes the separate node.
+v1.9 (C110 engineering successor, 3 October 2026; OpenAI/Codex delegated executor
+`/root/c99_custody_audit`, author of this repair after its original-head review): the old witness must remain
+literally `controlling: false`; proposed Boolean fields cannot be satisfied by integers; and an edge on a proposed
+endpoint pair must carry an exact proposed relation/Boolean-required tuple. The historical required edge from the
+witness to `math.d5-component.offpin-second-moment-review` remains allowed alongside the separately proposed
+supporting edge to that same target. This prevents malformed edges from being mistaken for absent proposal edges.
+The bounded state and full-checker regressions live outside this sealed packet at
+`reviews/register_execution_readiness_20260930/test_witness_states.py`. Accepted baseline and installed outputs
+remain unchanged. This repair does not expand the checker to a universal graph validator, change any mathematical
+proposal or execute the register; successor acceptance requires separate review. Independence count: 0; human review: NONE.
 **Effect:** register reconciliation, **declarative only**. This record introduces **no new mathematical claim**. It binds
 the merged C6 chain to exact bytes, quotes the open obligation as the register recorded it, states which reviewed
 theorem discharges that obligation and at what scope, states precisely what is *not* discharged, and proposes the

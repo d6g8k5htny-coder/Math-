@@ -1,5 +1,12 @@
 # Register execution readiness — Math-#167, #160 and #173 against their own checkers after execution
 
+**C110 engineering successor (3 October 2026).** OpenAI/Codex found further
+maintenance-output and witness-state defects at PR183 head `0efd00e`. The original
+six review repairs remain distinct from these new findings. The successor adds
+executable regression controls in this directory; they run in both Python modes
+before the three existing composition checks. No mathematical proposal, live
+register, selector table or scientific status is executed by these repairs.
+
 **Object:** REGISTER-EXECUTION-READINESS-20260930-v1.
 **Author:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3` — the same session that authored the
 three records (author-side; exposure stated in §5). **Read at:** Math- `main` `dda8991` (30 September 2026; Math-#177 merged).
@@ -87,6 +94,16 @@ From the repository root (standard library only; a temporary copy is used unless
 repository, neither inside it nor one of its parents, that does not exist or is an empty directory; the script never
 deletes anything). `--write-installed-results` (maintenance of this packet) writes the pinned installed outputs only
 after every checker, both interpreter modes and, if requested, every mutant have passed.
+
+Maintenance also rejects symlinks in destination paths and nonregular existing
+outputs, prepares all new outputs and recovery copies before replacing any pin,
+and restores prior bytes on recoverable replacement failure. It preserves file
+permissions and does not write through a hardlink to another name. If restoration
+itself fails, the command fails explicitly and retains the named recovery copy.
+Use an exclusively owned checkout: this is not crash-atomic across three files
+and does not provide exclusion against a concurrent writer. A write error gives
+`repository_written: null` (inspect the error/recovery report); a successful write
+gives `true`, and an ordinary dry run gives `false`.
 
 ```
 python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py --mutants
