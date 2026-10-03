@@ -190,7 +190,7 @@ def check_verdicts(root):
 def check_obligation(root):
     graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
     node = graph["nodes"].get(WITNESS)
-    if not node or node.get("kind") != "region":
+    if not isinstance(node, dict) or node.get("kind") != "region" or node.get("controlling") is not False:
         return False
     if node.get("classification") == "OPEN_ACTIVE":
         ok = node.get("fingerprint") == "eta->0 mutual witness separation"
@@ -246,7 +246,9 @@ def check_negatives(src):
 
 
 def matches(live, fields):
-    return isinstance(live, dict) and all(live.get(k) == v for k, v in fields.items())
+    return isinstance(live, dict) and all(live.get(k) == v and
+                                         (type(v) is not bool or type(live.get(k)) is bool)
+                                         for k, v in fields.items())
 
 
 def installed_state(graph, proposed_nodes, proposed_edges):
@@ -257,7 +259,8 @@ def installed_state(graph, proposed_nodes, proposed_edges):
     node on a proposed source. 'installed': every node present, every edge not leaving the witness node live, and the
     witness node OPEN_ACTIVE with none of its proposed edges live (step 4 pending) or PROVED_REVIEWED with all of them
     live and their required targets PROVED_REVIEWED (Codex 4143661519). 'baseline': nothing of the proposal live.
-    Anything else is 'partial' and rejected."""
+    The old witness must remain literally noncontrolling. Edges on a proposed endpoint pair must match a proposed
+    tuple with a Boolean required flag, or the one preserved historical offpin edge. Anything else is 'partial'."""
     nodes = graph["nodes"]
     proposed = {n["id"]: n for n in proposed_nodes}
     present, mismatched = set(), set()
@@ -279,19 +282,30 @@ def installed_state(graph, proposed_nodes, proposed_edges):
             mismatched.add(nid)
     live_edges = {(e["from"], e["to"], e["required"], e["relation"]) for e in graph["edges"]}
     wanted = {(e["from"], e["to"], e["required"], e["relation"]) for e in proposed_edges}
+    # Count exact proposed edges only after rejecting malformed edges on their endpoint pairs. Otherwise, e.g.
+    # required=False in place of True vanishes from the intersection and masquerades as an untouched open witness.
+    # The baseline already carries this required offpin edge; section 7 separately proposes a supporting edge to
+    # the same target. Preserve both distinct relation slots rather than rejecting the historical tuple.
+    historical = (WITNESS, "math.d5-component.offpin-second-moment-review", True, "requires_evidence")
+    pairs = {(e[0], e[1]) for e in wanted}
+    allowed = wanted | {historical}
+    edges_ok = all(type(e["required"]) is bool and
+                   (e["from"], e["to"], e["required"], e["relation"]) in allowed
+                   for e in graph["edges"] if (e["from"], e["to"]) in pairs)
     wit_edges = {e for e in wanted if e[0] == WITNESS}
     other = wanted - wit_edges
     n_other, n_wit = len(other & live_edges), len(wit_edges & live_edges)
     wit = nodes.get(WITNESS) if isinstance(nodes.get(WITNESS), dict) else {}
     cls = wit.get("classification")
+    noncontrolling = wit.get("controlling") is False
     targets_ok = all(nodes.get(e[1], {}).get("classification") == "PROVED_REVIEWED" for e in wit_edges if e[2] is True)
     if MUT == "witness-edges-partial":
         wit_ok = cls == "OPEN_ACTIVE" or (cls == "PROVED_REVIEWED" and targets_ok)
     else:
         wit_ok = (cls == "OPEN_ACTIVE" and n_wit == 0) or (cls == "PROVED_REVIEWED" and n_wit == len(wit_edges) and targets_ok)
-    if not mismatched and set(present) == set(proposed) and n_other == len(other) and wit_ok:
+    if edges_ok and noncontrolling and not mismatched and set(present) == set(proposed) and n_other == len(other) and wit_ok:
         state = "installed"
-    elif not mismatched and not present and n_other == 0 and n_wit == 0:
+    elif edges_ok and noncontrolling and not mismatched and not present and n_other == 0 and n_wit == 0:
         state = "baseline"
     else:
         state = "partial"
