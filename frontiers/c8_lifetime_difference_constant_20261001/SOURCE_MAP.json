@@ -6,7 +6,7 @@
  "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
  "source_repository": "d6g8k5htny-coder/Math-",
  "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
- "note": "current_required sources ([LP], [CAP] and the mandatory parent amendments [E1], [E2], [REC]) are verified on the tree by the workflow; packet_copy sources ([E], [E3]) are verified against the packet's byte-identical engine copies; the remaining sources ([W], [W3], [G], [G3]) are read-only cross-checks and comparisons pinned for provenance",
+ "note": "current_required sources ([LP], [CAP], the mandatory parent amendments [E1], [E2], [REC], and the read-only comparison [G3]) are verified on the tree by the workflow; packet_copy sources ([E], [E3]) are verified against the packet's byte-identical engine copies; the remaining sources ([W], [W3], [G]) are read-only cross-checks and comparisons pinned for provenance",
  "sources": [
   {
    "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
