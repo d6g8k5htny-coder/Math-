@@ -32,6 +32,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           set -euo pipefail
+          python -B -S -m unittest discover -s reviews/register_execution_readiness_20260930 -p 'test_*.py' -v
+          python -B -O -S -m unittest discover -s reviews/register_execution_readiness_20260930 -p 'test_*.py' -v
           python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py --mutants
           python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py --skip-old-node-move
           python -B -S reviews/register_execution_readiness_20260930/execution_dryrun.py --selector-node-only
