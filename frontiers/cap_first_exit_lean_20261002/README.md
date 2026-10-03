@@ -22,9 +22,16 @@ That implication has two parts:
 This packet kernel-checks three things:
 - the whole topological part;
 - the one-variable and assembly steps of the analytic part (L13, L16, L17, L19, L20, in `ridge_capHyp`);
-- since v1.5, the slice steps: L7 (transverse maximum and uniqueness), L8 (ridge bound), L11's chain rule and L18 (curved side). These are derived from the outputs of L4 (strong concavity of each transverse slice) and L5 (the transverse-gradient bound), in `ridge_capHyp_of_slices` and `ridge_inputs_of_joint`. Lean also checks that SP's constants meet the curvature condition.
+- since v1.5, the slice steps:
+  - L5, the transverse-gradient bound, from the third-derivative bound `m`;
+  - L7, the transverse maximum and its uniqueness;
+  - L8, the ridge bound;
+  - L11's chain rule;
+  - L18, the curved side.
 
-The estimates L1–L6, L7's existence and regularity of `h`, and L9–L12 remain hypotheses.
+  These are derived from L4's output, the strong concavity of each transverse slice. `ridge_capHyp_sp` takes SP's normalized hypotheses directly: `m ≥ 2`, `δ > rm(8m − 5)` and gap `≤ r³/6`.
+
+The estimates L1–L4 and L6, L7's existence and regularity of `h`, and L9–L12 remain hypotheses.
 
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
@@ -56,6 +63,9 @@ single ridge path.
 | `slice_curved` | L18: on `‖y‖ = R` the slice is `< s` once `‖w‖ ≤ ω ≤ Rδ`, `g(x) ≤ b` and `2δ(b − s) < (Rδ − ω)²` |
 | `slice_hasFDerivAt`, `ridge_hasDerivAt`, `ridge_inputs_of_joint` | L11: with the ridge equation `∂_y f = 0` along `y = h(x)`, `g' = ∂_x f(x, h(x))`. Joint derivatives and a differentiable `h` supply `hh`, `hg` and the slice critical points |
 | `ridge_capHyp_of_slices` | (C1)–(C3) and (C2⁺) on the cylinder, with the transverse hypotheses of `ridge_capHyp` replaced by L4 (`hconc`), the critical points `h(x) ∈ B̄(0, 2r)`, L5 (`‖w‖ ≤ ω`) and `2δ(b − s) < (2rδ − ω)²` |
+| `convexOn_add_node`, `two_node_bound`, `slice_gradient_bound` | L5: if `u` vanishes at `a < c` and `|u''| ≤ m` (weak form), then `|u(x)| ≤ (m/2)|(x − a)(x − c)|`, inside and outside `[a, c]`. For the slice derivatives `w(x)` at `y = 0`, this gives `‖w(x)‖ ≤ (m/2)|x² − r²/4| ≤ 2mr²` on the cap |
+| `ridge_capHyp_sp` | the cap from SP's normalized hypotheses: `m ≥ 2` (L2), `δ > rm(8m − 5)` with `hconc` (L4), the weak third-derivative bound on `w` (L5), critical points with `h(∓r/2) = 0` (L7), L11, L12 and gap `≤ r³/6`. `ω`, `hωr` and `hcurv` are derived |
+| `spToyF`, `spToy_capHyp` | `x³/3 − x/4 − 12y²` (`m = 2`, `δ = 24 > 22`, gap `r³/6`) meets every hypothesis of `ridge_capHyp_sp` |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -78,10 +88,11 @@ that step.
 
 This packet does not formalize:
 
-- the analytic steps L1–L6 (the Hermite identity, increments, and the bounds that produce `δ` and `ω`), the existence
-  and implicit-function regularity of the transverse maximizer `h`, and L9–L12 (the `‖h'‖` and `F''` bounds). These
-  enter `ridge_capHyp_of_slices` and `ridge_inputs_of_joint` as hypotheses. L7's maximum and uniqueness, L8, L11's
-  chain rule, L13 and L16–L20 are proved from them;
+- the analytic steps L1–L4 and L6 (the Hermite identity, which gives `m ≥ 2`, the increments, the bound that
+  produces `δ`, and the `w'` bound), the existence and implicit-function regularity of the transverse maximizer `h`,
+  and L9–L12 (the `‖h'‖` and `F''` bounds). These enter `ridge_capHyp_sp`, `ridge_capHyp_of_slices` and
+  `ridge_inputs_of_joint` as hypotheses. L5, L7's maximum and uniqueness, L8, L11's chain rule, L13 and L16–L20 are
+  proved from them;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -120,7 +131,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 64 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 70 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
