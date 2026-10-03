@@ -38,7 +38,7 @@
       "id": "G3",
       "commit": "da483732664d128728950dcad6d4fdbe5181f7cd",
       "pull_request": "Math-#208",
-      "role": "Theorem G_d, the d = 3 contact law (Lemma 1: B ~ b I + GOE_2, v ~ N(0, I/2), Omega' ~ GOE_2, Y with variances 6, 2, 2, 6) and m_(3,0) = (7 - 4 sqrt2)/2, reproduced independently here; the certified lower end c_G^(3)(0, 2) >= 22424320.655069 (its RESULTS.json, below) is used only for the --check sanity rule C3 > c_G^(3)(0, 2) and for the comparisons in NOTE section 0; not consumed by the proof",
+      "role": "Theorem G_d, the d = 3 contact law (Lemma 1: B ~ b I + GOE_2, v ~ N(0, I/2), Omega' ~ GOE_2, Y with variances 6, 2, 2, 6) and m_(3,0) = (7 - 4 sqrt2)/2, reproduced independently here; the certified lower end c_G^(3)(0, 2) >= 22424320.655069 (its RESULTS.json, below) is used only for the --check sanity rule C3 > c_G^(3)(0, 2) and for the comparisons in NOTE section 0; not consumed by the proof; Math-#208 merged at b55b8f3, where NOTE.md has since changed by the C208-C-01 wording fix only (blob b42be5b8), so this NOTE pin stays historical",
       "current_required": false,
       "on_main": false
     },
@@ -50,9 +50,9 @@
       "id": "G3-RESULTS",
       "commit": "da483732664d128728950dcad6d4fdbe5181f7cd",
       "pull_request": "Math-#208",
-      "role": "the certified enclosure c_G^(3)(0, 2) in [22424320.655069, 22424320.655072]; comparison and sanity check only",
-      "current_required": false,
-      "on_main": false
+      "role": "the certified enclosure c_G^(3)(0, 2) in [22424320.655069, 22424320.655072]; comparison and sanity check only; Math-#208 merged at b55b8f3 with this RESULTS.json byte-identical, so the pin is checked on the tree",
+      "current_required": true,
+      "on_main": true
     },
     {
       "path": "frontiers/c8_theorem_a_constants_planar_20260930/NOTE.md",
