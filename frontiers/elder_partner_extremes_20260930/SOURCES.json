@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "scope": "Conditional exact interfaces; no parent revalidation or source-status change",
+  "sources": [
+    {
+      "id": "R",
+      "commit": "80059a97cd8eb32d1a17a0ad9cb22cb2a0d7b337",
+      "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
+      "bytes": 12533,
+      "git_blob": "0f14417ef7038b9c6f50e4b01e393a58b7b5e3a4",
+      "sha256": "250897858c8b314c0ff85ec1860a725efacfdae0ff7409fced4cadf7bfb85973",
+      "use": "R4-R13 exact root integral and Gaussian majorant; not pairing from counts."
+    },
+    {
+      "id": "C",
+      "commit": "56a7904f9ad7d409c31e23195c0e7eeab230613a",
+      "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md",
+      "bytes": 21891,
+      "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a",
+      "sha256": "b90cf745e2e67bc9b501c481552f7080d27c28245580668cf72aefa5b7f04715",
+      "use": "E10-E25 companion/height map, sectors, exact integrals. Author exposure."
+    },
+    {
+      "id": "D",
+      "commit": "56a7904f9ad7d409c31e23195c0e7eeab230613a",
+      "path": "frontiers/extreme_cluster_sampling_20260930/COMPANION_RATIO.md",
+      "bytes": 10032,
+      "git_blob": "56348f6765793cd8115041ba367b821eb173f695",
+      "sha256": "74ff3af5ec071f57d40938fbeca6bca1c189272d5c1bc0440e41cbe764c04d23",
+      "use": "D1-D7 exact square-coordinate density and heights only; reweighted anew here. Author exposure."
+    },
+    {
+      "id": "ELDER2",
+      "commit": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
+      "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+      "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "use": "d=2 Theorem E, failure measure and actual weak partner/lifetime law in Sections8.6-8.8. Conditional candidate interface, not promoted."
+    },
+    {
+      "id": "ELDERD",
+      "commit": "9c6a73489c5ed2465a3cf65dcc950eeeae074b05",
+      "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+      "use": "d>=3 H1/S1-S3/M1 actual selector/failure measure/weak marks. Conditional candidate interface, not promoted."
+    }
+  ]
+}

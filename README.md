@@ -2,7 +2,7 @@
 
 # Mathematics — proofs, calculations, and open reviews
 
-[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86) *(closed downstream record; not a live queue)*
+[Research home](https://github.com/d6g8k5htny-coder/main) · [Topic guide](https://github.com/d6g8k5htny-coder/main/blob/main/docs/RESEARCH_INDEX.md) · [Run the checks](https://github.com/d6g8k5htny-coder/main/blob/main/docs/REPRODUCE.md) · [How to cite](CITING.md) · [Claim manifest](claims/LANDING_CLAIMS.json) · [Proof availability](PROOF_INDEX.md) · [Work queue](https://github.com/d6g8k5htny-coder/main/issues/86) *(closed downstream record; not a live queue)*
 
 ## Read a result
 
