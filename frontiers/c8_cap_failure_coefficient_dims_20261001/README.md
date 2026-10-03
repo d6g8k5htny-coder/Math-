@@ -23,7 +23,8 @@ only). **Scientific effect:** NONE: no register, catalog, GRAPH or STATUS change
   - Every `d = 3` cap-route constant at the band corner exceeds `2.24 x 10^7`.
   - The `d = 3` cap route is informative only below `r = 3.55 x 10^-3`.
   - The cap criterion's overstatement of the true `d`-dimensional failure is the planar one times `J^(d)/J^(2)`:
-    `1 + O(1e-4)` for `k >= 1`, `1.135` at `k = 1/2`, and `5.12` at the SIDE24 gap `k = 1/6` (Monte Carlo).
+    `1 + O(1e-4)` for `k >= 1` (certified); Monte Carlo `1.0011` at `k = 3/4`, `1.135` at `k = 1/2` and `5.12` at the SIDE24
+    gap `k = 1/6`.
 
 **Files.**
 - `NOTE.md`: statement, Lemma 1 (the `d = 3` contact law, exact), the `d`-dimensional weight, the proof of Theorem G_d

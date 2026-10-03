@@ -96,8 +96,9 @@ At the band corner of Math-#195 and #206, `(b, k) = (0, 2)`:
 
          c_G^(d) / (alpha_1 + alpha_2)^(d)  =  [c_G / (alpha_1 + alpha_2)]^(2) . J^(d)(k) / J^(2)(k).
 
-   - In `d = 3` the ratio `J^(3)/J^(2)` is `1 + O(10^-4)` for `k >= 1`, `1.0011` at `k = 3/4` and `1.135` at `k = 1/2`
-     (Monte Carlo).
+   - In `d = 3` the ratio `J^(3)/J^(2)` is `1 + O(10^-4)` for `k >= 1`, from the certified enclosures. At smaller `k` it is
+     known from Monte Carlo only: `1.0011` at `k = 3/4` and `1.135` at `k = 1/2`. The certified `k = 3/4` enclosure is too
+     wide to certify `1.0011` (C208-C-01).
    - At the SIDE24 gap `k = 1/6` it is `5.12 ± 0.03` (Monte Carlo): in `d = 3` the free third derivatives dominate the cap
      criterion at small `k`.
 3. **Where the dimension enters.** Dimension enters `c_G^(d)` in two ways:
