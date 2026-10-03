@@ -70,6 +70,15 @@
   "CapFirstExit.ridge_profile",
   "CapFirstExit.ridge_capHyp",
   "CapFirstExit.ridge_saddle_strict",
+  "CapFirstExit.strongConcave_le_of_hasFDerivAt",
+  "CapFirstExit.slice_le",
+  "CapFirstExit.slice_ridge_bound",
+  "CapFirstExit.slice_curved",
+  "CapFirstExit.slice_hasFDerivAt",
+  "CapFirstExit.ridge_hasDerivAt",
+  "CapFirstExit.ridge_capHyp_of_slices",
+  "CapFirstExit.ridge_inputs_of_joint",
+  "CapFirstExit.sp_curved_side_constants",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -85,7 +94,9 @@
   "CapFirstExit.toy_needs_C3",
   "CapFirstExit.ridgeToyF",
   "CapFirstExit.ridgeToy_capHyp",
-  "CapFirstExit.ridgeToy_saddle_strict"
+  "CapFirstExit.ridgeToy_saddle_strict",
+  "CapFirstExit.ridgeToy_joint",
+  "CapFirstExit.ridgeToy_slices"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -273,6 +284,51 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.strongConcave_le_of_hasFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_le": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_ridge_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_curved": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_hasFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_hasDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_of_slices": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_inputs_of_joint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.sp_curved_side_constants": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -352,6 +408,16 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.ridgeToy_joint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_slices": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -362,18 +428,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 11887,
-   "sha256": "c55a89e0c5134f78d0051bda0f221a0f50f2802a72def8b2d37dc41d362821a8"
+   "bytes": 16597,
+   "sha256": "d78f6649259fa8661f2ad01cdccbf7e1709f168f7a5067633812a3b0f4f9d21c"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 42711,
-   "sha256": "2fe8943b74c6aa66a46b7b1db6fe5332f82dff2ee01ff27731188404ddad4ebd"
+   "bytes": 58522,
+   "sha256": "005a4152b248fd535b7eb6d9c8e0e05ca0d85ecb7a51cb1528ae449467bb5426"
   },
   {
    "path": "README.md",
-   "bytes": 9402,
-   "sha256": "5256f80e0e500f61098bac8cdd9e0a349573bf212ca5bcbf41af6566bf10c7f7"
+   "bytes": 11243,
+   "sha256": "6e5a6463648a842e5a0f6db2ead76537c2e47d03f7bbe32b50740a553fc22286"
   },
   {
    "path": "gate.py",
@@ -398,7 +464,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6274,
-   "sha256": "f7df7152065d3fb69aed839138575b0cca3f821d958f5849f617e69e390bc6b3"
+   "sha256": "ea3198cfdc33e400334c353f5778841d45be27019edc0b628f4051eac0711c7d"
   }
  ]
 }

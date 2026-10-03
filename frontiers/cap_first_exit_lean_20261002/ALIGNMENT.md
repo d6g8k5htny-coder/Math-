@@ -4,7 +4,7 @@
 
 | Source | Path | Role |
 |---|---|---|
-| SP | `reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md` | the line-numbered reconstruction of CAP §§2–5. L13, L16, L17 and L19–L22 are proved here. L7, L11, L12 and L18 enter `ridge_capHyp` as hypotheses. |
+| SP | `reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md` | the line-numbered reconstruction of CAP §§2–5. L13, L16, L17 and L19–L22 are proved here. Since v1.5, L7 (maximum and uniqueness), L8, L11's chain rule and L18 are also proved, from the outputs of L4 and L5 (`ridge_capHyp_of_slices`). Inputs that remain: L4, L5, L7's existence and regularity of `h`, and L12. |
 | CAP | `imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md` | the deterministic theorem that SP reconstructs |
 
 The source setting (SP §2) is as follows:
@@ -51,6 +51,14 @@ The source setting (SP §2) is as follows:
 | `ridge_profile` | on `D = [-2r, 2r]`: `g' = F`, `F(-r/2) = F(r/2) = 0`, `ConvexOn D (F - (x + r/2)(x - r/2)/8)` ⇒ `g ≤ g(-r/2)` on `[-2r, r/2]`; `g(r/2) ≤ g` on `[-r/2, 2r]`; `g(-2r) ≤ g(-r/2) - 9r³/32`; `g(r/2) + 9r³/32 ≤ g(2r)` | SP L13 (sign pattern), L16 (ceiling along the ridge), L17 (both exact integrals `9r³/32`), L20 (ridge minimum) | SP states L12 as `F'' − 1/4 > 0`; Lean takes the weaker convexity of `F − q`. L17's integrals come from comparing `g` with `Q = x³/24 − r²x/32`, `Q' = q`. |
 | `ridge_capHyp` | `CapHyp f C M z b s`, with `C = Icc (-2r) (r/2) ×ˢ closedBall 0 (2r)`, `M = (-r/2, h(-r/2))`, `z = (2r, h(2r))`, `b = g(-r/2)`, `s = g(r/2)` | SP L16, L17, L19, L20 | Hypotheses, all local as in SP: `hT` = L7's `f(x, y) ≤ g(x)` on `C`; `hg` = L11 on `[-2r, 2r]`; `hh` = continuity of `h` on `[-r/2, 2r]`; `hFa`, `hFc` = critical pins; `hconv` = L12 on `[-2r, 2r]`; `hside` = L18 (non-strict suffices); `hM` (`h(a) = 0` in SP); `hgap` (SP: `r³/6 < 9r³/32`). The ridge path does not need to stay in `C`. |
 | `ridge_saddle_strict` | under `hTs` (the unique transverse maximizer, L7) and a strict `hside`, every frontier point other than `S = (r/2, h(r/2))` has `f < s` | SP L19, "only `S` attains it" | The left face is strict through `hgap`; the right face is strict through uniqueness. |
+| `strongConcave_le_of_hasFDerivAt` | `StrongConcaveOn K δ φ`, `p ∈ K`, `HasFDerivAt φ L p`, `y ∈ K` ⇒ `φ y ≤ φ p + L (y - p) - δ/2 ‖y - p‖²` | SP L7 ("strong concavity about the maximizer"), L8, L18 | The engine of the slice rows. `p` need not be interior: only the segment from `p` to `y` is used. Mathlib's `StrongConcaveOn K δ` is uniform concavity with modulus `δ/2 · r²`. In an inner product space it is equivalent to the concavity of `φ + δ/2 ‖·‖²` (Mathlib's `strongConcaveOn_iff_convex`), i.e. SP's `D_y² f ≤ -δ I`. |
+| `slice_le` | `L = 0`: `φ y ≤ φ p - δ/2 ‖y - p‖²` | SP L7 (unique transverse maximizer), L16 (`f(x, y) ≤ g(x)`), L19 (`f(c, y) ≤ s - (δ/2)‖y‖²`) | With `δ > 0`, equality only at `y = p`. |
+| `slice_ridge_bound` | `0, p ∈ K`, `p` critical, `w` = derivative at `0` ⇒ `δ ‖p‖ ≤ ‖w‖` | SP L8 (`‖h‖ ≤ ‖w‖/δ`) | Two applications of the engine replace SP's strong-monotonicity step. Needs no sign of `δ`. |
+| `slice_curved` | on `sphere 0 R`: `φ y < s`, given `p ∈ B̄(0, R)` critical, `‖w‖ ≤ ω ≤ Rδ`, `φ p ≤ b` and `2δ(b - s) < (Rδ - ω)²` | SP L18 (`R = 2r`) | SP: `f ≤ g(x) - (δ/2)‖y - h‖²`, `‖y - h‖ ≥ 2r - ‖h‖`, `‖h‖ ≤ ‖w‖/δ`. Since `(δ/2)(2r - ω/δ)² = (2rδ - ω)²/(2δ)`, the stated condition is exactly SP's comparison, written without division. |
+| `slice_hasFDerivAt`, `ridge_hasDerivAt` | the slice's derivative is `D ∘ inr`; if `D ∘ inr = 0` at `(x, h x)` and `h` has derivative `h'`, then `g = f(·, h ·)` has derivative `D (1, 0)` | SP L11 (`F := g' = f_x(x, h(x))`; "the `∇_y f · h'` term vanishes on the ridge") | `D (1, 0)` is `f_x` at `(x, h x)`. |
+| `ridge_inputs_of_joint` | joint derivatives `D x` along the ridge, `HasDerivAt h (h' x) x` and `D x ∘ inr = 0` on `[-2r, 2r]` ⇒ `hh`, `hg` with `F x = D x (1, 0)`, and the slice critical points `hcrit` on `[-2r, r/2]` | SP L7 (the ridge equation `∇_y f(x, h(x)) = 0`, `h ∈ C³`), L11 | Differentiability of `h` is L7's implicit-function output. Only first derivatives are used. |
+| `ridge_capHyp_of_slices` | the conclusions of `ridge_capHyp` and `ridge_saddle_strict`, with `hT`, `hTs`, `hside` and `hM` replaced by: `hconc` (each slice `δ`-strongly concave on `B̄(0, 2r)` for `x ∈ [-2r, r/2]`, `δ > 0`), `hball` and `hcrit` (`h x ∈ B̄(0, 2r)` is a critical point of its slice), `hw` and `hω` (the slice derivative `w x` at `0` has `‖w x‖ ≤ ω`), `hωr` (`ω ≤ 2rδ`) and `hcurv` (`2δ(b - s) < (2rδ - ω)²`) | SP L4 (`hconc`), L5 (`hω`), L7, L8, L16, L18, L19 | SP takes strong concavity for `x ∈ [-2r, 2r]`; Lean needs it only on the cap's `x`-range. `w x` is a continuous linear functional; with `E` Euclidean, its operator norm is SP's `‖∇_y f(x, 0)‖`. |
+| `sp_curved_side_constants` | `r > 0`, `m ≥ 2`, `δ > r m (8m - 5)`, `0 ≤ ω ≤ 2 m r²` ⇒ `ω ≤ 2rδ` and `2δ · r³/6 < (2rδ - ω)²` | SP L2 (`m ≥ 2`), L4 (`δ > rmk`, `k = 8m - 5`), L5 (`‖w‖ ≤ (15/8) m r² < 2 m r²`), L18 (`4400r³/121 > r³/6`) | So SP's own constants meet `hωr` and `hcurv` at SP's gap `b - s = r³/6`. |
 | `CapHyp.congr` | from `g = f` on `closure C` and along one ridge `γ₀`, `CapHyp g C M z b s` | the audit's exterior-invariance corollary (Math-#193 deliverable 2) | `closure C ⊇ C ∪ frontier C`. In SP, `C` is closed. |
 
 ## 3. Non-vacuity and necessity, proved in Lean
@@ -78,6 +86,8 @@ Each necessity theorem is one conjunction, so it certifies its own premises, not
 
 `ridgeToy_capHyp` and `ridgeToy_saddle_strict` instantiate `ridge_capHyp` and `ridge_saddle_strict` at SP's normalization, with `r = 1`, `E = ℝ`, `f(x, y) = x³/3 − x/4 − y²`, `h = 0` and `F = x² − 1/4`. The gap there is exactly `r³/6`, so all ridge hypotheses are jointly satisfiable.
 
+`ridgeToy_joint` and `ridgeToy_slices` run the same toy through the slice route (v1.5). The joint derivative along `y = 0` is `D x = (x² − 1/4) · dx`, its transverse part vanishes, and each slice `y ↦ x³/3 − x/4 − y²` is `2`-strongly concave. With `w = 0`, `ω = 0` and `δ = 2`, the curvature condition reads `2/3 < 16`. Every input of `ridge_inputs_of_joint` and `ridge_capHyp_of_slices` is therefore jointly satisfiable, and the two theorems re-derive (C1)–(C3) and (C2⁺).
+
 The toy lives on `ℝ`, which is not compact. So the older-peak theorems (`older_peak`, `elder_death_level_peak`) have
 no concrete instance exhibited in Lean. Their extra hypotheses (compact, locally connected, continuous `f`) hold on the
 torus.
@@ -91,7 +101,7 @@ illustrates the hypotheses; it is not a model of the planar cap.
 |---|---|---|---|
 | I1 | Coordinates: SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a frame `φ` of the periodic lift, and SP's "boundary" is the topological frontier. The transport to the torus (`CapHyp.toTorus`) and the face list (`frontier_cylinder`) are proved; the transport needs no embedding radius | SP §2 | Only the identification of SP's objects with these Lean objects remains. |
 | I2 | Persistence bookkeeping: in H0 superlevel persistence with distinct critical values, the class born at a local maximum `M` dies at the largest level at which its component contains a strictly higher local maximum (the elder rule) | SP L22, P §8 | This is the definition of the elder pairing. On a compact, locally connected space, Lean proves that this level is `s` (`elder_death_level_peak`). Only the identification of the persistence module's pairing with that definition is informal. |
-| I3 | The multi-variable analytic steps L1–L12 and L18, which supply `hT`, `hTs`, `hg`, `hFa`, `hFc`, `hconv`, `hside` and `hgap` of `ridge_capHyp` from `G_r` | SP L1–L12, L18; CAP §§2–5 | Hermite identity, increments, strong concavity, implicit function theorem, ridge identity, `F''` bound and curved-side estimate, with exact constants checked by SP's script, not in Lean. L13, L16, L17, L19 and L20 are proved in Lean from these outputs. |
+| I3 | The analytic steps that produce the inputs of `ridge_capHyp_of_slices` and `ridge_inputs_of_joint` from `G_r`: L1–L6 (Hermite identity, increments, and the bounds giving `δ` in `hconc` and `ω` in `hω`); L7's existence of the transverse maximizer `h(x)` in the ball and the implicit-function regularity of `h`; and L9–L12 (`‖h'‖` and the `F''` bound giving `hconv`); plus `hgap` | SP L1–L7, L9–L12; CAP §§2–5 | These are checked with exact constants by SP's script, not in Lean. Since v1.5, Lean proves L7's maximum and uniqueness, L8, L11's chain rule and L18 from those outputs. It also proves that SP's constants satisfy the curvature condition (`sp_curved_side_constants`). L13, L16, L17, L19 and L20 were already proved in v1.4. |
 | I4 | Theorem A, measurability, `Q^W(G_r^c) ≤ C r³` | P §§7–8, C1, G1 | probability |
 
 ## 5. Review contract
@@ -106,5 +116,7 @@ names:
 For each row of §§1–2, the record gives ALIGNED, MISALIGNED (with the corrected statement), or NOT ASSESSED. For each
 row of §4, it says whether the interface is stated correctly.
 
-A changed Lean source, toolchain or pin makes an earlier review stale. A same-provider read, including any Claude
+A changed Lean source, toolchain or pin makes an earlier review stale.
+
+v1.5 is additive: it inserts the sections `Slice` and the slice-route toy, and updates the file's header comment. The 53 v1.4 declarations and their statements are unchanged, as the diff against v1.4 shows. The v1.4 alignment review ([5396110365](https://github.com/d6g8k5htny-coder/Math-/pull/246#pullrequestreview-5396110365), `ALIGNED_SCOPED`) therefore still covers the v1.4 rows once a reviewer confirms by diff that they are unchanged. A delta review assesses the new rows: the eight slice rows of §2, the slice-route toy paragraph of §3 and the revised I3. A same-provider read, including any Claude
 read, gives zero independence credit. A build or merge is not an alignment review.

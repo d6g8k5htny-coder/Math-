@@ -19,11 +19,12 @@ That implication has two parts:
   - (C3) a path from `M` to an older point `z`, `f(z) > b`, along which `f ≥ s`.
 - **Topological part (L21–L22).** From (C1)–(C3), deduce `M`'s global maximin level and its superlevel death level.
 
-This packet kernel-checks two things:
+This packet kernel-checks three things:
 - the whole topological part;
-- the one-variable and assembly steps of the analytic part (L13, L16, L17, L19, L20, in `ridge_capHyp`).
+- the one-variable and assembly steps of the analytic part (L13, L16, L17, L19, L20, in `ridge_capHyp`);
+- since v1.5, the slice steps: L7 (transverse maximum and uniqueness), L8 (ridge bound), L11's chain rule and L18 (curved side). These are derived from the outputs of L4 (strong concavity of each transverse slice) and L5 (the transverse-gradient bound), in `ridge_capHyp_of_slices` and `ridge_inputs_of_joint`. Lean also checks that SP's constants meet the curvature condition.
 
-The multi-variable estimates L1–L12 and L18 remain hypotheses.
+The estimates L1–L6, L7's existence and regularity of `h`, and L9–L12 remain hypotheses.
 
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
@@ -50,6 +51,13 @@ single ridge path.
 | `frontier_cylinder`, `isCompact_cylinder` | `frontier ([a, c] × B̄(0, R)) = {a, c} × B̄(0, R) ∪ [a, c] × S(0, R)`: exactly the end faces and curved side estimated in L17–L19; the cylinder is compact |
 | `ridge_profile` | L13, L16, L17 and L20 in one variable. Assume, on `[−2r, 2r]`, that `g' = F`, `F(∓r/2) = 0` and `F − (x + r/2)(x − r/2)/8` is convex. Then `g ≤ g(−r/2)` on `[−2r, r/2]` and `g ≥ g(r/2)` on `[−r/2, 2r]`. Also `g(−2r) ≤ g(−r/2) − 9r³/32` and `g(2r) ≥ g(r/2) + 9r³/32`: the exact face integrals |
 | `ridge_capHyp`, `ridge_saddle_strict` | (C1)–(C3), and (C2⁺), on the cylinder `[−2r, r/2] × B̄(0, 2r)`, derived from the multi-variable outputs, each assumed only where SP supplies it: L7 (transverse maximum, unique for (C2⁺)), L11 (`g' = F` on `[−2r, 2r]`), L12 (`F'' ≥ 1/4` as convexity on `[−2r, 2r]`), L18 (curved side), and the gap `b − s < 9r³/32` |
+| `strongConcave_le_of_hasFDerivAt`, `slice_le` | the engine: a `δ`-strongly concave `φ` with derivative `L` at `p ∈ K` satisfies `φ y ≤ φ p + L(y − p) − (δ/2)‖y − p‖²` on `K`. At a critical point this is L7, `f(x, y) ≤ g(x) − (δ/2)‖y − h(x)‖²` |
+| `slice_ridge_bound` | L8: `δ‖h(x)‖ ≤ ‖w(x)‖`, where `w(x)` is the slice derivative at `y = 0` |
+| `slice_curved` | L18: on `‖y‖ = R` the slice is `< s` once `‖w‖ ≤ ω ≤ Rδ`, `g(x) ≤ b` and `2δ(b − s) < (Rδ − ω)²` |
+| `slice_hasFDerivAt`, `ridge_hasDerivAt`, `ridge_inputs_of_joint` | L11: with the ridge equation `∂_y f = 0` along `y = h(x)`, `g' = ∂_x f(x, h(x))`. Joint derivatives and a differentiable `h` supply `hh`, `hg` and the slice critical points |
+| `ridge_capHyp_of_slices` | (C1)–(C3) and (C2⁺) on the cylinder, with the transverse hypotheses of `ridge_capHyp` replaced by L4 (`hconc`), the critical points `h(x) ∈ B̄(0, 2r)`, L5 (`‖w‖ ≤ ω`) and `2δ(b − s) < (2rδ − ω)²` |
+| `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
+| `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
 | `toy_capHyp`, `toy_death_level` | a concrete instance on `ℝ`, showing the hypotheses are satisfiable and the theorems are not vacuous |
 | `toy_needs_C1`, `toy_needs_C2`, `toy_needs_C3` | proved counterexamples: for each of (C1), (C2), (C3), Lean proves that the other two hold, that this one fails, and that the maximin conclusion fails |
@@ -70,9 +78,10 @@ that step.
 
 This packet does not formalize:
 
-- the multi-variable analytic steps L1–L12 and L18: the Hermite identity, increments, strong concavity and the
-  transverse maximizer, the implicit function theorem, the ridge identity, the `F''` bound, and the curved side. These
-  enter `ridge_capHyp` as hypotheses, and L13, L16, L17, L19 and L20 are proved from them;
+- the analytic steps L1–L6 (the Hermite identity, increments, and the bounds that produce `δ` and `ω`), the existence
+  and implicit-function regularity of the transverse maximizer `h`, and L9–L12 (the `‖h'‖` and `F''` bounds). These
+  enter `ridge_capHyp_of_slices` and `ridge_inputs_of_joint` as hypotheses. L7's maximum and uniqueness, L8, L11's
+  chain rule, L13 and L16–L20 are proved from them;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -111,7 +120,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 52 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 64 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
