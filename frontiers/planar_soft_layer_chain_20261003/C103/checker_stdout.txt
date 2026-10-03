@@ -1,0 +1,71 @@
+C103 independent rational controls; Python 3.12.14
+CUB_raw_shear: 54 passed
+CUB_weight_identity: 54 passed
+Hessian_pole_cancellation: 9 passed
+admissibility_Hessian_split: 1 passed
+admissibility_embedded_window: 1 passed
+admissibility_endpoint_split: 1 passed
+admissibility_level_width: 1 passed
+admissibility_physical_jet: 1 passed
+admissibility_selected_split: 1 passed
+admissibility_value_error: 1 passed
+anisotropic_determinant: 108 passed
+balance_Hessian_actual: 1 passed
+balance_Hessian_model: 1 passed
+balance_cap_exceptions: 1 passed
+balance_decision: 1 passed
+balance_decision_Markov: 1 passed
+balance_density: 1 passed
+balance_endpoint: 1 passed
+balance_endpoint_actual: 1 passed
+balance_failure_tail: 1 passed
+balance_radius: 1 passed
+balance_radius_actual: 1 passed
+balance_selected_actual: 1 passed
+balance_selected_value: 1 passed
+compact_gap_Taylor_constants: 3 passed
+conditional_positive_mass: 3 passed
+corrected_G_switch: 2 passed
+deterministic_polynomial_not_field_law: 162 passed
+endpoint_residual_integral: 4 passed
+entry_to_operator_Hessian_factor: 9 passed
+finite_r_strip_term: 12 passed
+fixed_moment_orders: 1 passed
+full_normalizer_once: 4 passed
+inertia_filtered_congruence: 216 passed
+inverse_image_lattice: 4 passed
+off_diagonal_square_loss: 54 passed
+physical_jet_jacobian: 6 passed
+probability_consumer: 1 passed
+quadratic_weight_bound: 54 passed
+radius_integrals: 3 passed
+rare_disintegration: 6 passed
+retained_exception_scale: 4 passed
+truncated_inverse: 36 passed
+two_chord_margins: 6 passed
+typed_model_weight: 54 passed
+unit_gap_Taylor_constants: 1 passed
+winding_displacement: 4 passed
+Positive controls: 894
+Rejected false-inference fixtures: 18
+REJECTED: same_square_torus_without_lattice_change
+REJECTED: factor_weighted_N_moment
+REJECTED: tilted_residual_scalar_stays_independent
+REJECTED: discard_finite_r_strip
+REJECTED: jet_TV_controls_unbounded_field_norm
+REJECTED: soft_r4_normalizer
+REJECTED: second_full_normalizer
+REJECTED: omit_far_exception
+REJECTED: endpoint_depth_is_normalized_midpoint_lambda
+REJECTED: saddle_margin_alone_ensures_older_endpoint
+REJECTED: endpoint_margin_alone_ensures_saddle_clearance
+REJECTED: axis_can_end_at_saddle
+REJECTED: essential_maximum_has_older_endpoint
+REJECTED: A2_unrestricted_reciprocal_domain
+REJECTED: radius_model_rho6_suffices_for_claimed_schedule
+REJECTED: finite_moment_order_proves_half_endpoint
+REJECTED: witness_second_multiplicity_is_failure_mass
+REJECTED: Boolean_complements_agree_off_T
+Mutant mode: none
+No Gaussian, topology, nullity, or continuum-rate proof is claimed by these controls.
+PASS_C103_INDEPENDENT_CONTROLS
