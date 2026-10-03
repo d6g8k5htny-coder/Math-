@@ -1,0 +1,141 @@
+{
+ "schema": 1,
+ "object": "CL-C8-LIFETIME-DIFFERENCE-CONSTANT-20261001-v1",
+ "scientific_effect": "NONE",
+ "certified": true,
+ "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
+ "source_repository": "d6g8k5htny-coder/Math-",
+ "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
+ "note": "current_required sources ([LP], [CAP] and the mandatory parent amendments [E1], [E2], [REC]) are verified on the tree by the workflow; packet_copy sources ([E], [E3]) are verified against the packet's byte-identical engine copies; the remaining sources ([W], [W3], [G], [G3]) are read-only cross-checks and comparisons pinned for provenance",
+ "sources": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "id": "LP",
+   "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
+   "current_required": true,
+   "on_main": true,
+   "role": "section 1: the model in every dimension and Theorem B with (1.2); section 3: the preconditioned pins (3.1)-(3.3); section 8: 1 - p_r <= Q^W(G_r^c); sections 9-11: the weighted Kac-Rice interface, the radial ledger (10.1)-(10.2) with A_r = 12 pi_r Z_r/r^2, and the lifetime pushforward (11.1)-(11.3); section 12: (12.1) and (12.3). Sections 8-12 are consumed as statements; section 11 records that the convergence A_r -> A_0 was not assigned a numerical rate, and section 16 lists numerical constants among the items not supplied"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "id": "CAP",
+   "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
+   "current_required": true,
+   "on_main": true,
+   "role": "section 1: the cylinder D, the partial-block norms M_3, M_4 and condition (1) defining G_r; consumed through the box-bound engines of Math-#206 and Math-#212"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "id": "E1",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "mandatory erratum to [LP] (corrected parent reading set P + CAP + E1 + E2 + REC, per REC section 1): the preconditioning congruence is diag(r^(-1/2), I)"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "id": "E2",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "mandatory repair of [LP] section 9: the marked Kac-Rice identity for the Borel (not necessarily continuous) elder indicator, by equality of finite measures on a generating cylinder algebra and a monotone-class extension; it replaces LP section 9 wherever sections 9-11 are consumed"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "id": "REC",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "chain reconciliation and reading rule for the parent: consumers cite P + CAP + E1 + E2 + REC; joint convergence in law; the embedding condition r < L/(4 sqrt 2), which r <= 1/64 and L >= 10 satisfy"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_planar_20260930/theorem_a.py",
+   "bytes": 52864,
+   "sha256": "c5ea8bf87c54761866315f28f6c93c6ce5c1e0f99d47c5a03f14d095d06871cc",
+   "git_blob": "ae279e9015483a666ece8deb2544cbc458a5e270",
+   "id": "E",
+   "commit": "13f932c2f6ec07d8c4c9996bd030ab22eaa32108",
+   "pull_request": 206,
+   "packet_copy": "engine_e2.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the planar certificate of Theorem E: exact covariance series and torus remainder, interval band laws, box_bound for sup Q^W(G_r^c)/r^3 on (b, k) boxes, band list; carried byte for byte as engine_e2.py and used as a library"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_d3_20261001/theorem_a3.py",
+   "bytes": 76209,
+   "sha256": "310d4ab3d3a38a377d753753f3b814591a9090a947f87d6843ab7389389572d3",
+   "git_blob": "267890232119b35206be7a8cc74d730de9a68644",
+   "id": "E3",
+   "commit": "250b90722e8c47adf8f7e7c41a61e8a8085d9741",
+   "pull_request": 212,
+   "packet_copy": "engine_e3.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the d = 3 certificate of Theorem E3: exact 3D covariance series, band laws with the regression on the transverse Hessian, contact moments E[det^a tr^c 1{B > 0}], box_bound, band list; carried byte for byte as engine_e3.py"
+  },
+  {
+   "path": "frontiers/c8_window_coefficient_planar_20260930/NOTE.md",
+   "bytes": 23551,
+   "sha256": "ebdda42ce51cd43a364cbd303abf314d4592042b7391f43d2fc0ebb736a6d8fa",
+   "git_blob": "4bd311630eed0d5f7f23a5c7b73b4f56d17664e3",
+   "id": "W",
+   "commit": "3dcf612df0dfac4e6d6f0daa075d88e9fae0ebb4",
+   "pull_request": 197,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only cross-check: the reference planar c_{B,K} = 0.0023869380211529483 on B x K (Owen-T closed form), which the certified enclosure of c^ref_{B,K} must contain"
+  },
+  {
+   "path": "frontiers/c8_window_coefficient_d3_torus_20260930/NOTE.md",
+   "bytes": 17401,
+   "sha256": "67839353382c8011627cdad08b96ac446fbc4ff01d1e5aff39ab326d8e32d071",
+   "git_blob": "380bbc7aa3a16f5c8497bd202c51dcd85963ae4a",
+   "id": "W3",
+   "commit": "c0d8e925955d7a23c58221006510f804ef3631fe",
+   "pull_request": 205,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only cross-check: the reference d = 3 c_{B,K} = 0.00097438236602425 on B x K; Math-#205 has since merged at 044d42d with a wording-only NOTE revision (blob 549dc7cc), and the cross-check value is unchanged"
+  },
+  {
+   "path": "frontiers/c8_cap_failure_coefficient_planar_20260930/NOTE.md",
+   "bytes": 28432,
+   "sha256": "0cb75475d9ee387a4045ff01ab9edb43a73c8c4edb6fc78d30518ced5bb02c5a",
+   "git_blob": "0b64f1c2828dfae7e6c104bac044004fc72c221d",
+   "id": "G",
+   "commit": "a388580eee356a88ce31aeed3999ab3fdc302312",
+   "pull_request": 203,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only comparison: c_G = R(b) J(k) with J(k) = 2359296 k^3 (1 + delta(k)), for the floating reference-kernel cap-route benchmark of C_{B,K}"
+  },
+  {
+   "path": "frontiers/c8_cap_failure_coefficient_dims_20261001/RESULTS.json",
+   "bytes": 6837,
+   "sha256": "1406d5138ac3d33bcb0358f6a3005a67e3a4a2dbfc2c43bc3ac2593667550608",
+   "git_blob": "e9fd6f377d1fd9dca9d09cc884d2bad2422e8b17",
+   "id": "G3",
+   "commit": "da483732664d128728950dcad6d4fdbe5181f7cd",
+   "pull_request": 208,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only comparison: the floating R_3(b) R(b) values and the J^(3)/J ratios, for the floating d = 3 reference-kernel cap-route benchmark"
+  }
+ ]
+}
