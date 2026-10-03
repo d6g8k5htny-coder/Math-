@@ -1,0 +1,201 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.2",
+ "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.; v1.2: status update (#191, #207 merged; #218/#229 cited; #229 Proposition W+ proves the section 2 heuristic up to log); no statement, proof, number or control changes",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "main_merged_in_v1_2": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "(Z2)-(Z4) definition of B_{d,L}; section 2 nondegeneracy and the regression form (Z10); section 4 (Z15)-(Z17) near-diagonal majorant; corollaries (Z7)-(Z9)"
+  },
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2) uniform nondegeneracy of the rescaled near-pair rows, (R3) regression form, Lemma R3.1 (R6) (Steps 1, 5)"
+  },
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "section 2: the pointwise bound behind (K1), with local seminorms (Lemma N)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 distinct-site jet rank; section 3 near-pair nondegeneracy; (5.1)-(5.3); the periodized Gaussian field"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "coefficients/side24_v1/PROOF.md",
+   "bytes": 10272,
+   "sha256": "c06daccc4ba4b9168522b9888b76a7d599934fc3b91bd753ee5d492262917769",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+   "tag": "side24_v1",
+   "use": "the value c_{3,24} = 0.0417759318... quoted in sections 0 and 3"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "interpretation: (R+.1)-(R+.2), B_{d,L} is the constant term of nu_cand; the elder density has none (merged since v1.1)"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "(CU-prime.2), the ell^(1/4) term of rho_rej, quoted in section 3 (merged since v1.1)"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Theorem T: nu_cand with B_{d,L} and the next terms (v1.2, section 0)"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Theorem T+; Proposition W+ ((W+.2) at k = 0, (W+.3)): the section 2 heuristic up to log(2/r) (v1.2)"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "BBKS",
+   "reference": "J. M. Bardeen, J. R. Bond, N. Kaiser, A. S. Szalay, The statistics of peaks of Gaussian random fields, Astrophys. J. 304 (1986) 15-61",
+   "use": "closed-form densities of maxima and saddles in d = 3 (control Q3)"
+  },
+  {
+   "tag": "Mehta",
+   "reference": "M. L. Mehta, Random Matrices, 3rd ed., Elsevier (2004), Selberg/Mehta integral",
+   "use": "GOE normalisation (control Q2)"
+  }
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3"
+ ],
+ "replayed": [
+  "equal_height_mass.py"
+ ],
+ "not_replayed": [
+  "gamma_explore.py"
+ ],
+ "referee": {
+  "kind": "pre-submission clean-context referee pass, same author family (Anthropic Claude subagent); NOT acceptance, NOT independent",
+  "result": "no error; one gap (Step 5 asserted the uniformity in L of the near-diagonal majorant (Z15), whose proof uses whole-torus norms) closed by Lemma N (the pointwise (K1) bound at k = 0 with local seminorms; moments through the covariance on a ball); minor points applied (normalized periodized kernel; c_{3,24} source; [C7-K] in the header; the (Z15) chain; the I(s) shape 0.70 at s = 2; the 200000 invocation; full scaled-GOE covariance in Q1; [R] (R6) citation; jet rank on R^d; e defined; the L^N prefactor; #191 marked unmerged); beta_2, beta_3 recomputed independently to 10 digits; gamma_3 = -0.0200 +- 0.0001 independently (10^6 samples per separation, control variate)"
+ },
+ "automated_nonauthor": [
+  {
+   "source": "Codex review comment 4151471466 on Math- #211 (P1, v1 NOTE.md line 42)",
+   "finding": "the SIDE24 value does not follow from an unquantified near-part o(1)",
+   "disposition": "v1.1: Step 5 rewritten through a uniformly nondegenerate rescaled jet vector, giving the same O(L^N e^{-L^2/8}) rate for the near part; the value B_{3,24} ~ 10.21 is stated as the asymptotic formula at L = 24 with an exponentially small remainder of uncomputed constants (exploration, not an enclosure)"
+  },
+  {
+   "source": "Codex review comment 4151471472 on Math- #211 (P2, gamma_explore.py)",
+   "finding": "sample counts not divisible by five were silently truncated",
+   "disposition": "v1.1: the count must be a positive multiple of five (exit 2 otherwise); GAMMA.json (200000) unchanged"
+  }
+ ],
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 18425,
+   "sha256": "6c671a132962fc7a1c7e5bd0bc5bce3730afeffadaa06bf3a238e0eec3f19def"
+  },
+  {
+   "path": "README.md",
+   "bytes": 3230,
+   "sha256": "3d42f1f4ece3f241af0e76016620f4506503634d93d2b84ef04f0991accb66d9"
+  },
+  {
+   "path": "equal_height_mass.py",
+   "bytes": 10792,
+   "sha256": "88a00dafb5710009bd1eeb6267a6b9a197e2cca304ce2f90df5cd138951d1ace"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 929,
+   "sha256": "9054e435878a57a6bea42b8af08c0bd51770474503990334687559f7260b06c3"
+  },
+  {
+   "path": "gamma_explore.py",
+   "bytes": 7591,
+   "sha256": "fb07dc5efea1def170ea14a6c7e4aa1afe391645f42a9f30d21ee6e4810b01d8"
+  },
+  {
+   "path": "GAMMA.json",
+   "bytes": 824,
+   "sha256": "60f512e83517b4aa37da4d4fbeeb45857ea1fed45dfd9346f60236a72fa6805a"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
+  "head": "8e89fe886368ae048e125c26f3ac51aa9bec83f6",
+  "note_blob": "ed0d3fa8e4c28d181fa7d21efcde74933cc6f03c"
+ },
+ "nonauthor_reviews": [
+  {
+   "slice": "A (Proposition V)",
+   "reviewer": "OpenAI Codex /root with /root/volume_far_review (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379568217",
+   "pickup": "5931994043",
+   "at": "8e89fe8 (NOTE blob ed0d3fa8)",
+   "verdict": "scoped analytic ACCEPT; no blocking finding; Slice B numerics not reviewed",
+   "findings": []
+  },
+  {
+   "slice": "arithmetic note",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379852902",
+   "at": "8e89fe8",
+   "verdict": "NOT READY (arithmetic closes; not a proof acceptance; behind main)",
+   "findings": []
+  }
+ ],
+ "status_updates": [
+  {
+   "version": "v1.2",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/equal-height-mass.yml"
+   ],
+   "unchanged": [
+    "equal_height_mass.py",
+    "RESULTS.json",
+    "gamma_explore.py",
+    "GAMMA.json"
+   ],
+   "proposition_v_and_proof": "unchanged"
+  }
+ ]
+}
