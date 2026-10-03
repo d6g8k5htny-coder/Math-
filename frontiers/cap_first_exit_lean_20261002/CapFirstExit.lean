@@ -2483,41 +2483,68 @@ theorem third_deriv_exists_two {g G G' φ : ℝ → ℝ} {r : ℝ} (hr : 0 < r)
   have hr3 : 0 < r ^ 3 := by positivity
   nlinarith
 
-/-- **L4 (`f_xxx ≥ 7/4`).** If `ψ = f_xxx` has derivative of norm at most `n` on the collar
-`[-2r - ε, 2r + ε] × B̄(0, 2r)` (`0 < ε ≤ r/2`), `ψ(x₀, 0) ≥ 2` at a point of the pin interval and
-(H2) `rn ≤ 1/20`, then `ψ ≥ 2 - 3rn ≥ 7/4` on the collar (SP: `2 - 5rn`; the product norm is the
-maximum of `|Δx| ≤ 3r` and `‖Δy‖ ≤ 2r`). -/
-theorem fxxx_lower {ψ : ℝ × E → ℝ} {Dψ : ℝ × E → ℝ × E →L[ℝ] ℝ} {r n ε x₀ : ℝ} (hr : 0 < r)
-    (hε : 0 < ε) (hεr : ε ≤ r / 2)
-    (hψ : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), HasFDerivAt ψ (Dψ p) p) (hn : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖Dψ p‖ ≤ n)
+/-- **L4 (`f_xxx ≥ 7/4`).** Let `ψ = f_xxx` have derivative `Dψ` on SP's domain
+`D = [-2r, 2r] × B̄(0, 2r)`, with the two fourth-order blocks bounded by `n = M_4` there:
+`|∂_x ψ| = |Dψ (1, 0)| ≤ n` and `‖D_y ψ‖ = ‖Dψ ∘ inr‖ ≤ n`. If `ψ(x₀, 0) ≥ 2` at a point of the pin
+interval and (H2) `rn ≤ 1/20`, then `ψ ≥ 2 - 9rn/2 ≥ 7/4` on `D`. As in SP's L3, move first in `x`
+along `y = 0` (`|Δx| ≤ 5r/2`), then along the ray to `y` (`‖Δy‖ ≤ 2r`); SP rounds `9r/2` up to `5r`. -/
+theorem fxxx_lower {ψ : ℝ × E → ℝ} {Dψ : ℝ × E → ℝ × E →L[ℝ] ℝ} {r n x₀ : ℝ} (hr : 0 < r)
+    (hψ : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), HasFDerivAt ψ (Dψ p) p)
+    (hnx : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), |Dψ p (1, 0)| ≤ n)
+    (hny : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖(Dψ p).comp (ContinuousLinearMap.inr ℝ ℝ E)‖ ≤ n)
     (hx₀ : x₀ ∈ Icc (-r / 2) (r / 2)) (h2 : 2 ≤ ψ (x₀, 0)) (hH2 : r * n ≤ 1 / 20) :
-    ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ ψ p := by
-  intro p hp
-  have hcvx : Convex ℝ (Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r)) := (convex_Icc _ _).prod (convex_closedBall _ _)
-  have h0 : ((x₀ : ℝ), (0 : E)) ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r) :=
-    ⟨⟨by linarith [hx₀.1], by linarith [hx₀.2]⟩, Metric.mem_closedBall_self (by positivity)⟩
-  have hmv := hcvx.norm_image_sub_le_of_norm_hasFDerivWithin_le
-    (fun q hq => (hψ q hq).hasFDerivWithinAt) hn h0 hp
-  have hdist : ‖p - (x₀, 0)‖ ≤ 3 * r := by
-    obtain ⟨⟨hp1, hp2⟩, hp3⟩ := hp
-    have hy : ‖p.2‖ ≤ 2 * r := by simpa [Metric.mem_closedBall, dist_zero_right] using hp3
-    rw [Prod.norm_def]
-    refine max_le ?_ ?_
-    · simp only [Prod.fst_sub, Real.norm_eq_abs]
-      rw [abs_le]; constructor <;> linarith [hx₀.1, hx₀.2]
-    · simp only [Prod.snd_sub, sub_zero]
-      linarith
-  have hn0 : 0 ≤ n := (norm_nonneg _).trans (hn p hp)
-  rw [Real.norm_eq_abs] at hmv
-  have h3 := (abs_le.mp hmv).1
-  have h4 := mul_le_mul_of_nonneg_left hdist hn0
+    ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ ψ p := by
+  rintro ⟨x, y⟩ ⟨hx, hy⟩
+  have h0Y : (0 : E) ∈ Metric.closedBall (0 : E) (2 * r) := Metric.mem_closedBall_self (by positivity)
+  have hyn : ‖y‖ ≤ 2 * r := by simpa [Metric.mem_closedBall, dist_zero_right] using hy
+  have hn0 : 0 ≤ n := (abs_nonneg _).trans (hnx (x, y) ⟨hx, hy⟩)
+  -- along `y = 0`
+  have hx₀D : x₀ ∈ Icc (-2 * r) (2 * r) := ⟨by linarith [hx₀.1], by linarith [hx₀.2]⟩
+  have hd1 : ∀ t ∈ Icc (-2 * r) (2 * r),
+      HasDerivAt (fun t : ℝ => ψ (t, 0)) (Dψ (t, 0) (1, 0)) t := by
+    intro t ht
+    have hp : HasDerivAt (fun s : ℝ => (s, (0 : E))) ((1 : ℝ), (0 : E)) t :=
+      (hasDerivAt_id t).prodMk (hasDerivAt_const t (0 : E))
+    exact (hψ (t, 0) ⟨ht, h0Y⟩).comp_hasDerivAt t hp
+  have h1 := (convex_Icc (-2 * r) (2 * r)).norm_image_sub_le_of_norm_hasDerivWithin_le
+    (f := fun t : ℝ => ψ (t, 0)) (fun t ht => (hd1 t ht).hasDerivWithinAt)
+    (fun t ht => by rw [Real.norm_eq_abs]; exact hnx (t, 0) ⟨ht, h0Y⟩) hx₀D hx
+  -- along the ray to `y`
+  have hseg : ∀ s ∈ Icc (0 : ℝ) 1, (x, s • y) ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r) := by
+    intro s hs
+    refine ⟨hx, ?_⟩
+    rw [Metric.mem_closedBall, dist_zero_right, norm_smul, Real.norm_eq_abs, abs_of_nonneg hs.1]
+    nlinarith [hs.2, norm_nonneg y]
+  have hd2 : ∀ s ∈ Icc (0 : ℝ) 1,
+      HasDerivAt (fun s : ℝ => ψ (x, s • y)) (Dψ (x, s • y) (0, y)) s := by
+    intro s hs
+    have hp : HasDerivAt (fun s : ℝ => (x, s • y)) ((0 : ℝ), y) s := by
+      simpa using (hasDerivAt_const s x).prodMk ((hasDerivAt_id s).smul_const y)
+    exact (hψ _ (hseg s hs)).comp_hasDerivAt s hp
+  have hb2 : ∀ s ∈ Icc (0 : ℝ) 1, ‖Dψ (x, s • y) (0, y)‖ ≤ n * ‖y‖ := by
+    intro s hs
+    have := ((Dψ (x, s • y)).comp (ContinuousLinearMap.inr ℝ ℝ E)).le_opNorm y
+    simp only [ContinuousLinearMap.comp_apply, ContinuousLinearMap.inr_apply] at this
+    exact this.trans (mul_le_mul_of_nonneg_right (hny _ (hseg s hs)) (norm_nonneg y))
+  have h2' := (convex_Icc (0 : ℝ) 1).norm_image_sub_le_of_norm_hasDerivWithin_le
+    (f := fun s : ℝ => ψ (x, s • y)) (fun s hs => (hd2 s hs).hasDerivWithinAt) hb2
+    (left_mem_Icc.mpr zero_le_one) (right_mem_Icc.mpr zero_le_one)
+  simp only [one_smul, zero_smul, sub_zero, norm_one, mul_one] at h2'
+  have h1' : |ψ (x, 0) - ψ (x₀, 0)| ≤ n * |x - x₀| := by simpa [Real.norm_eq_abs] using h1
+  rw [Real.norm_eq_abs] at h2'
+  have hdx : |x - x₀| ≤ 5 * r / 2 := by
+    rw [abs_le]; constructor <;> linarith [hx.1, hx.2, hx₀.1, hx₀.2]
+  have e1 := (abs_le.mp h1').1
+  have e2 := (abs_le.mp h2').1
+  have h5 : n * |x - x₀| ≤ n * (5 * r / 2) := mul_le_mul_of_nonneg_left hdx hn0
+  have h6 : n * ‖y‖ ≤ n * (2 * r) := mul_le_mul_of_nonneg_left hyn hn0
   nlinarith
 
 /-- **The cap from SP's hypotheses (H1), (H2) and the derivative bounds (L1–L20 composed).** As
 `ridge_capHyp_C3`, with `f_xxx ≥ 7/4` derived instead of assumed: from a derivative `Φ4` of `f_xxx`
-with `‖Φ4‖ ≤ n` on the collar (SP's `n = M_4` on that block) and (H2) `rn ≤ 1/20`. L2's second
-statement gives `f_xxx(x₀, 0) ≥ 2` on the pin interval (`third_deriv_exists_two`), and
-`fxxx_lower` gives `f_xxx ≥ 7/4` on the collar. -/
+on `D = [-2r, 2r] × B̄(0, 2r)` whose two blocks `∂_x f_xxx` and `D_y f_xxx` are bounded by
+`n = M_4` there, as in SP, and (H2) `rn ≤ 1/20`. L2's second statement gives `f_xxx(x₀, 0) ≥ 2` on
+the pin interval (`third_deriv_exists_two`), and `fxxx_lower` gives `f_xxx ≥ 7/4` on `D`. -/
 theorem ridge_capHyp_C4 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     {Df : ℝ × E → ℝ × E →L[ℝ] ℝ} {D2f : ℝ × E → ℝ × E →L[ℝ] ℝ × E →L[ℝ] ℝ}
     {T3 : ℝ × E → ℝ × E → ℝ × E → ℝ × E →L[ℝ] ℝ} {Φ4 : ℝ × E → ℝ × E →L[ℝ] ℝ} {n : ℝ}
@@ -2531,9 +2558,11 @@ theorem ridge_capHyp_C4 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     (hT : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ (s₁ s₂ s₃ : ℝ) (y₁ y₂ y₃ : E),
       |T3 p (s₁, y₁) (s₂, y₂) (s₃, y₃) - s₁ * s₂ * s₃ * T3 p (1, 0) (1, 0) (1, 0)| ≤
         m * ((|s₁| + ‖y₁‖) * (|s₂| + ‖y₂‖) * (|s₃| + ‖y₃‖) - |s₁| * |s₂| * |s₃|))
-    (hD4 : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
+    (hD4 : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
       HasFDerivAt (fun q => T3 q (1, 0) (1, 0) (1, 0)) (Φ4 p) p)
-    (hn : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖Φ4 p‖ ≤ n) (hH2 : r * n ≤ 1 / 20)
+    (hn4x : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), |Φ4 p (1, 0)| ≤ n)
+    (hn4y : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), ‖(Φ4 p).comp (ContinuousLinearMap.inr ℝ ℝ E)‖ ≤ n)
+    (hH2 : r * n ≤ 1 / 20)
     (hGs : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
       HasStrictFDerivAt (fun q => (Df q).comp (ContinuousLinearMap.inr ℝ ℝ E)) (DG p) p)
     (hH : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r),
@@ -2581,22 +2610,23 @@ theorem ridge_capHyp_C4 [FiniteDimensional ℝ E] {f : ℝ × E → ℝ}
     intro x hx
     exact (hD3 _ (hmem x hx) (1, 0) (1, 0)).comp_hasDerivAt x (hp x)
   have hc : Continuous (fun s : ℝ => (s, (0 : E))) := continuous_id.prodMk continuous_const
+  have hmemD : ∀ t ∈ Icc (-r / 2) (r / 2), (t, (0 : E)) ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r) := fun t ht =>
+    ⟨⟨by linarith [ht.1], by linarith [ht.2]⟩, Metric.mem_closedBall_self (by positivity)⟩
   have hφc : ContinuousOn (fun t => T3 (t, 0) (1, 0) (1, 0) (1, 0)) (Icc (-r / 2) (r / 2)) := by
     intro t ht
     have h1 : ContinuousAt (fun q => T3 q (1, 0) (1, 0) (1, 0)) (t, (0 : E)) :=
-      (hD4 _ (hmem t ht)).continuousAt
+      (hD4 _ (hmemD t ht)).continuousAt
     have h2 : ContinuousAt (fun s : ℝ => T3 (s, 0) (1, 0) (1, 0) (1, 0)) t :=
       ContinuousAt.comp (g := fun q => T3 q (1, 0) (1, 0) (1, 0)) (f := fun s : ℝ => (s, (0 : E)))
         h1 hc.continuousAt
     exact h2.continuousWithinAt
   have hGa : Df (-r / 2, 0) (1, 0) = 0 := by simp [hM]
   have hGc : Df (r / 2, 0) (1, 0) = 0 := by simp [hS]
-  have hxxx : ∀ p ∈ Icc (-2 * r - ε) (2 * r + ε) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ T3 p (1, 0) (1, 0) (1, 0) := by
+  have hxxx : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), 7 / 4 ≤ T3 p (1, 0) (1, 0) (1, 0) := by
     obtain ⟨x₀, hx₀, h2⟩ := third_deriv_exists_two hr hg hG hG' hφc hGa hGc hnorm
-    exact fxxx_lower (ψ := fun q => T3 q (1, 0) (1, 0) (1, 0)) hr hε hεr hD4 hn hx₀ h2 hH2
-  exact ridge_capHyp_C3 hr hε hεr hDf hD2 hD3 hT
-    (fun p hp => hxxx p ⟨⟨by linarith [hp.1.1], by linarith [hp.1.2]⟩, hp.2⟩) hGs hH hHx hHxb hHr
-    hHrb hlam hH1 hM hS hG0cv hG0cc hwcv hwcc hnorm
+    exact fxxx_lower (ψ := fun q => T3 q (1, 0) (1, 0) (1, 0)) hr hD4 hn4x hn4y hx₀ h2 hH2
+  exact ridge_capHyp_C3 hr hε hεr hDf hD2 hD3 hT hxxx hGs hH hHx hHxb hHr hHrb hlam hH1 hM hS
+    hG0cv hG0cc hwcv hwcc hnorm
 
 end Slice
 
@@ -3418,8 +3448,8 @@ theorem h1Toy_C3 :
     simp
 
 /-- **`ridge_capHyp_C4` is not vacuous.** `h1ToyF` meets every hypothesis of `ridge_capHyp_C4`
-on the collar `ε = 1/2`: the data of `h1Toy_C3`, with `f_xxx = 2` constant, so its derivative is `0`
-and (H2) holds with `n = 0`. The theorem gives the ridge and the cap with `M = (-1/2, 0)`, with
+on the collar `ε = 1/2`: the data of `h1Toy_C3`, with `f_xxx = 2` constant, so its derivative is `0`,
+both fourth-order blocks vanish and (H2) holds with `n = 0`. The theorem gives the ridge and the cap with `M = (-1/2, 0)`, with
 neither L12 nor `f_xxx ≥ 7/4` supplied. -/
 theorem h1Toy_C4 :
     (∃ h : ℝ → ℝ, ∀ x ∈ Ioo (-2 * 1 - 1 / 2 : ℝ) (2 * 1 + 1 / 2), h x ∈ Metric.ball (0 : ℝ) (2 * 1) ∧
@@ -3516,7 +3546,8 @@ theorem h1Toy_C4 :
     (H := fun _ => (-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) (Hx := fun _ => 0)
     (Hr := fun _ _ => 0) (r := 1) (m := 2) (lam := 40) (ε := 1 / 2) one_pos (by norm_num)
     (by norm_num) (fun p _ => hDf p) (fun p _ => hD2 p) (fun p _ a b => hD3 p a b)
-    (fun p _ => hT p) (fun p _ => hasFDerivAt_const _ p) (fun p _ => by simp) (by norm_num)
+    (fun p _ => hT p) (fun p _ => hasFDerivAt_const _ p) (fun p _ => by simp) (fun p _ => by simp)
+    (by norm_num)
     (fun p _ => hGs p) (fun p _ => hH p)
     (fun x _ => hasDerivAt_const x ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
     (fun x _ => by simp only [ContinuousLinearMap.opNorm_zero]; norm_num)
