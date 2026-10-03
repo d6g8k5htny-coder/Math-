@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "sources": [
+    {
+      "id": "P",
+      "commit": "3e0a91b69892b9717564c592e7a966492a81566a",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "use": "Exact normalized periodic covariance only; no revalidation of parent asymptotic theorem."
+    },
+    {
+      "id": "CU",
+      "commit": "826b8be512e86f2de73c33d6ac7a76908dc2e0e6",
+      "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+      "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+      "use": "Definition CU.2 of coefficient integral, not acceptance of CU.1 or CU prime."
+    },
+    {
+      "id": "NUM",
+      "commit": "3ac897a16d79d6c37aed29d59b71966058e75a00",
+      "path": "frontiers/cusp_coefficient_certified_20261001/NOTE.md",
+      "git_blob": "b20ab28f366e56ce024492dde5b3eaba3e0b963f",
+      "use": "Reference interval table is an explicitly conditional input; R.1 checked algebraically; overlapping Lemma S credited, not independently accepted."
+    }
+  ],
+  "identity_scope": "Each historical commit/path/blob is authenticated by the hosted verifier. P additionally has recorded size/SHA256. No absent source digest is invented."
+}
