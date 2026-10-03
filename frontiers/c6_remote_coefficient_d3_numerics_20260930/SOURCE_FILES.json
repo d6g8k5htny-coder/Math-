@@ -7,9 +7,9 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 15042,
-   "sha256": "cd6549409a474e1e981239821a9edcc5d99106d84fc691ad42cba3c3b79ecd9d",
-   "git_blob": "444837ee05471f5e0b4ad9fcaaf142d7c7e65653"
+   "bytes": 15285,
+   "sha256": "7d9ac0247e95c5723074dab786215d8dab3499dc4bfeb1f29905ad3ef61c63ed",
+   "git_blob": "98a14c82c08ba7c6dff420c70b6d573e521c6960"
   },
   {
    "path": "README.md",
@@ -25,9 +25,9 @@
   },
   {
    "path": "SOURCE_MAP.json",
-   "bytes": 5713,
-   "sha256": "cbf39af4c64ef8355e70cf72c9ad396b89d6c3737326831e11b7ffef7db10e49",
-   "git_blob": "c20c831030cc194b8e453fbe75b45321185a494e"
+   "bytes": 5973,
+   "sha256": "9aedb5508b8996ad739fa86c6142bce110be06ac56d1489cbed24119d8f48bca",
+   "git_blob": "46bc42db4a0395e87f9199922388324233e11ba7"
   },
   {
    "path": "remote3.py",
@@ -36,5 +36,55 @@
    "git_blob": "8f29909f1f0037950a91fe26f03e43d8d1f377a3"
   }
  ],
- "nonauthor_reads": []
+ "nonauthor_reads": [
+  {
+   "comment": "5367490653",
+   "kind": "pull_request_review",
+   "pr": "Math-#192",
+   "lane": "OpenAI / Codex (automated Codex review)",
+   "scope": "two P2 findings, applied in 2ecffa8"
+  },
+  {
+   "comment": "5915572509",
+   "kind": "issue_comment",
+   "pr": "Math-#192",
+   "lane": "OpenAI / Codex",
+   "scope": "reconciliation finding (producer note vs RESULTS.json), applied in 5925b3f"
+  },
+  {
+   "comment": "5915786179",
+   "kind": "issue_comment",
+   "pr": "Math-#192",
+   "lane": "OpenAI / Codex",
+   "scope": "reconciliation recorded as resolved at 5925b3f"
+  },
+  {
+   "comment": "5403289484",
+   "kind": "pull_request_review",
+   "pr": "Math-#192",
+   "lane": "Grok Bot agent 1 (Cursor-hosted, Grok support routed by the Chief of Staff 5974102560)",
+   "scope": "R1 Slice A (exact structure and far field) at 5925b3f: ACCEPT_WITH_FINDINGS; F1-F6 applied"
+  },
+  {
+   "comment": "5974291103",
+   "kind": "issue_comment",
+   "pr": "Math-#192",
+   "lane": "Grok Bot agent 4 (Grok support routed by the Chief of Staff 5974102560)",
+   "scope": "R3 Slice C (reporting) at 5925b3f: ACCEPT_WITH_FINDINGS; findings 2-9 applied (finding 9 as NOTE wording; finding 4 attribution superseded by R2 A4)"
+  },
+  {
+   "comment": "5403404967",
+   "kind": "pull_request_review",
+   "pr": "Math-#192",
+   "lane": "Grok Bot agent 3 (Grok support routed by the Chief of Staff 5974102560)",
+   "scope": "R2 Slice B (method) at 5925b3f: ACCEPT_WITH_FINDINGS; A1-A5 applied (A3 PR body; A4 re-measured by the author)"
+  },
+  {
+   "comment": "5974705557",
+   "kind": "issue_comment",
+   "pr": "Math-#192",
+   "lane": "Grok Bot agent 3 (Grok support; author of R2, disclosed)",
+   "scope": "readback of 5925b3f..4c5b8e1: 28/29 resolved; AMEND on the far-point ratio sentence (b = 0 only) applied"
+  }
+ ]
 }

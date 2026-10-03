@@ -117,7 +117,7 @@ and `4.00`–`4.28`).
 ## 4. Precision (empirical, not bounds)
 
 - Far field: quadrature orders `30`, `40` agree to `1e-12`; the Monte Carlo at the decoupled point `x_far` reproduces
-  `z_0 E[|det| 1{j}]` to within 1.5 % for the saddle indices and 14 % for the extremal indices (observed ratios, no
+  `z_0 E[|det| 1{j}]` at `b = 0` to within 1.5 % for the saddle indices and 14 % for the extremal indices (at `b = 1`: `1.234, 0.962, 1.003, 1.025`, i.e. 3.8 % for `j = 1` and 23 % for `j = 0`, which carries `3e-4` of the mass; observed ratios, no
   error computed; `1.052, 0.985, 1.001, 1.137` at `b = 0`, indices `j = 0..3`, from `40000` samples, seed `2026`, the
   sample `--check` uses; the maxima/minima indices carry `1.4 %` of the mass and have correspondingly larger errors:
   over the four seed batches `j = 3` is `1.113 ± 0.020` at `b = 0` and `1.027 ± 0.006` at `b = 1`).
@@ -132,7 +132,7 @@ and `4.00`–`4.28`).
   `-0.011`, `+0.005`, `-0.021`. The last is systematic (identical in both batches) and is a midpoint-grid alignment
   effect, not the cutoff: the `Rc = 5` run also shifts the `x_1` cell centres by `h/2` (`hr = 5/12`); shifting the
   centres at `Rc = 6` gives `-0.019`, `-0.021` on the same two seeds, while the cells of the `Rc = 6` grid outside the
-  `Rc = 5` box contribute `1e-5` (Slice B review 5403404967; on nested grids that review finds the shell
+  `Rc = 5` box contribute `1e-5` (measured here; on nested grids the Slice B review 5403404967 finds the shell
   `5 < |x| <= 6` at most `7e-5` over the six rows and `6 < |x| <= 8` below `1e-6`). Against `h = 0.1`, that review's
   paired runs give a grid error of the tabulated `h = 0.4` hole of about `-0.013` at `k = 1, b = 0` (`O(h^2)`:
   `-0.007` at `h = 0.31`, `-0.003` at `h = 0.2`), systematic and about `0.45` of the reported s.e. These differences
@@ -173,4 +173,5 @@ BBKS normalization, attribution and `6e-11` control precision are stated exactly
 stated in section 1; the Reading paragraph is corrected (the `d = 2` / `d = 3` share factor carries `R_3(b)`); the
 conditional status of the assembled columns, the grid rows' same-seed differences (the `Rc = 5` effect is grid
 alignment, per the Slice B review 5403404967, re-measured here), the cone-rule accuracy near the pin, the node
-allocation of the Monte Carlo budget and the ray-profile precision are stated; `--check` gains a `5 %` gate for `j = 1, 2`. `RESULTS.json` unchanged.
+allocation of the Monte Carlo budget and the ray-profile precision are stated; `--check` gains a `5 %` gate for `j = 1, 2`. The readback 5974705557 restricted the far-point ratio sentence to
+`b = 0` and added the `b = 1` ratios. `RESULTS.json` unchanged.
