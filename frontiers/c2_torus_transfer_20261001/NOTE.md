@@ -66,7 +66,8 @@ of each piece are:
 - **`c1/c`** comes from [CU] (Math-#219, certified arithmetic, merged at `5a836a8`). It is consumed, not accepted here.
 - **Math-#224** plays two separate roles:
   - its (T1) defines the torus kernel used throughout;
-  - its `c1` transfer is a separate unmerged author-side candidate, and nothing here inherits status from it.
+  - its `c1` transfer is merged at `d3a0b6c` (`PROOF.md` blob `de3d85fd`, byte-identical to the consumed head `a5e69ee`);
+    it is cited as the analogue, and nothing here inherits status from it.
 - **The identification as density coefficients** is conditional on the chain in §8.
 
 **Lemma E (no `r^1` term for every stationary kernel).** Let `K` be any smooth stationary covariance (no isotropy or
@@ -296,11 +297,12 @@ cancellation, the absolute moments, and the cone enlarged to the whole space. Th
     `5a836a8` and byte-identical to the consumed head `7a04873`. The `c1/c` interval is read from this file.
   - [E3] Math-#220 `frontiers/elder_third_order_20261001/PROOF.md` (blob `c8767dde`), on `main` since `0d79778` and
     byte-identical to the consumed head `70dcf31`. Cited for the elder identification only.
+  - [CT] Math-#224 `frontiers/cusp_torus_transfer_20261001/PROOF.md` (blob `de3d85fd`), on `main` since `d3a0b6c` and
+    byte-identical to the consumed head `a5e69ee`. Consumed for (T1); cited as the `c1` analogue.
 - **Recorded and not checked on this tree:**
   - [CU] Math-#219 `NOTE.md` at `7a04873` (blob `7dccfa97`). On `main` it has since changed by wording only (v1.4–v1.5);
     the certified values are in the unchanged `RESULTS.json`.
   - [D] Math-#216 `NOTE.md` (blob `aa078a9c`);
-  - [CT] Math-#224 `PROOF.md`, for (T1) and as the `c1` analogue (cited);
   - [L'] Math-#227 at `2d1ec7c`: `NOTE.md` (blob `138521e8`), cited only.
 - **On `main` since `7fe06b0`, cited only:** [FJ] Math-#232
   `frontiers/c2_finite_jet_transfer_20261001/PROOF.md` (blob `54cc4a1a`).
