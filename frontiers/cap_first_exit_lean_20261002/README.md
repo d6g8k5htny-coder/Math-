@@ -107,7 +107,8 @@ This packet does not formalize:
 - the full-domain ridge premises, and the composition of the L7 lemmas with the source route. `slices_strongConcave`
   and `ridge_capHyp_H1` derive or consume the slice data only for `x ∈ [−2r, r/2]`. `ridge_differentiable` needs strong
   concavity and critical points on an open `U ⊇ [−2r, 2r]`, and `ridge_exists` needs its derivatives and gradient bound
-  on the whole of `U`. SP states L4 on all of `D` (increment `9r/2 < 5r`), but no declaration proves this extension
+  on the whole of `U`. `ridge_differentiable` also takes `hG`, `hGs` and `hneg` along the ridge on `[−2r, 2r]` as
+  inputs. SP states L4 on all of `D` (increment `9r/2 < 5r`), but no declaration proves this extension
   beyond `r/2` or feeds `ridge_exists` and `ridge_differentiable` into `ridge_inputs_of_joint` and `ridge_capHyp_H1`.
   These premises remain inputs;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
