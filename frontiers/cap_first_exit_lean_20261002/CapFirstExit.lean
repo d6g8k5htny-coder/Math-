@@ -19,7 +19,9 @@
   What this file does NOT formalize: the analytic steps L6 and L9–L12 (the `w'` bound and the
   quantitative `‖h'‖` and `F''` bounds; they enter `ridge_capHyp_H1` as `hconv`). L1–L5, L7 (existence,
   uniqueness and implicit-function regularity of the ridge `h`: `ridge_exists`,
-  `ridge_differentiable`), L8, L11's chain rule, L13 and L16–L20 are proved. Also not formalized: the
+  `ridge_differentiable`), L8, L11's chain rule, L13 and L16–L20 are proved. The L7 lemmas take the
+  slice data on an open `U ⊇ [-2r, 2r]`; its extension from the cap's `x`-range `[-2r, r/2]` and
+  their composition with `ridge_capHyp_H1` are not formalized. Also not formalized: the
   identification of the H0 persistence pairing with the elder rule (L22, P §8); the
   unstable-branch analysis (L23); and every probabilistic statement.
 -/
@@ -1925,11 +1927,29 @@ theorem h1Toy_capHyp :
     norm_num
 
 
-/-- **`ridge_differentiable` is not vacuous.** For `h1ToyF` (`h = 0`, transverse gradient
-`-40 y`, `δ = 40`, `U = (-3, 3)`) every hypothesis holds. -/
+/-- **`ridge_differentiable` is not vacuous.** For `h1ToyF`, with `h = 0`, transverse gradient
+`G (x, y) = -40 y`, its constant derivative `DG = -40 · snd`, `δ = 40` and `U = (-3, 3)`, the
+statement lists every hypothesis of `ridge_differentiable` at this instance, and its last
+conjunct is that theorem's conclusion, obtained by applying it. -/
 theorem h1Toy_ridge_differentiable :
-    ∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1),
-      ∃ L : ℝ →L[ℝ] ℝ, HasStrictFDerivAt (fun _ : ℝ => (0 : ℝ)) L x := by
+    IsOpen (Ioo (-3 : ℝ) 3) ∧ Icc (-2 * (1 : ℝ)) (2 * 1) ⊆ Ioo (-3) 3 ∧
+      (∀ x ∈ Ioo (-3 : ℝ) 3,
+        StrongConcaveOn (Metric.closedBall (0 : ℝ) (2 * 1)) 40 (fun y => h1ToyF (x, y))) ∧
+      (∀ x ∈ Ioo (-3 : ℝ) 3, (0 : ℝ) ∈ Metric.closedBall (0 : ℝ) (2 * 1)) ∧
+      (∀ x ∈ Ioo (-3 : ℝ) 3, HasFDerivAt (fun y => h1ToyF (x, y)) (0 : ℝ →L[ℝ] ℝ) 0) ∧
+      (∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1), (0 : ℝ) ∈ Metric.ball (0 : ℝ) (2 * 1)) ∧
+      (∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1), ∀ᶠ v in nhds (x, (0 : ℝ)),
+        HasFDerivAt (fun y => h1ToyF (v.1, y)) (ContinuousLinearMap.mul ℝ ℝ (-40 * v.2)) v.2) ∧
+      (∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1),
+        HasStrictFDerivAt (fun p : ℝ × ℝ => ContinuousLinearMap.mul ℝ ℝ (-40 * p.2))
+          (((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ) (x, 0)) ∧
+      (∀ v : ℝ, ((((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ) ∘L
+        ContinuousLinearMap.inr ℝ ℝ ℝ) v v ≤ -40 * ‖v‖ ^ 2) ∧
+      ∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1), HasStrictFDerivAt (fun _ : ℝ => (0 : ℝ))
+        (-((((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ) ∘L
+            ContinuousLinearMap.inr ℝ ℝ ℝ).inverse ∘L
+          ((((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ) ∘L
+            ContinuousLinearMap.inl ℝ ℝ ℝ)) x := by
   have hslope : ∀ x y : ℝ, HasFDerivAt (fun y : ℝ => h1ToyF (x, y))
       (ContinuousLinearMap.mul ℝ ℝ (-40 * y)) y := by
     intro x y
@@ -1948,24 +1968,37 @@ theorem h1Toy_ridge_differentiable :
     funext q
     ext
     simp
-  intro x hx
-  exact ⟨_, ridge_differentiable (E := ℝ) (f := h1ToyF)
+  have hIU : Icc (-2 * (1 : ℝ)) (2 * 1) ⊆ Ioo (-3) 3 :=
+    fun t ht => ⟨by linarith [ht.1], by linarith [ht.2]⟩
+  have hconc : ∀ x ∈ Ioo (-3 : ℝ) 3,
+      StrongConcaveOn (Metric.closedBall (0 : ℝ) (2 * 1)) 40 (fun y => h1ToyF (x, y)) := by
+    intro t _
+    rw [strongConcaveOn_iff_convex]
+    refine (concaveOn_const (t ^ 3 / 3 - t / 4) (convex_closedBall (0 : ℝ) (2 * 1))).congr ?_
+    intro y _
+    simp only [h1ToyF, Real.norm_eq_abs, sq_abs]
+    ring
+  have hball : ∀ x ∈ Ioo (-3 : ℝ) 3, (0 : ℝ) ∈ Metric.closedBall (0 : ℝ) (2 * 1) :=
+    fun t _ => by simp
+  have hcrit : ∀ x ∈ Ioo (-3 : ℝ) 3, HasFDerivAt (fun y => h1ToyF (x, y)) (0 : ℝ →L[ℝ] ℝ) 0 :=
+    fun t _ => by simpa using hslope t 0
+  have hint : ∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1), (0 : ℝ) ∈ Metric.ball (0 : ℝ) (2 * 1) :=
+    fun t _ => by simp
+  have hG : ∀ x ∈ Icc (-2 * (1 : ℝ)) (2 * 1), ∀ᶠ v in nhds (x, (0 : ℝ)),
+      HasFDerivAt (fun y => h1ToyF (v.1, y)) (ContinuousLinearMap.mul ℝ ℝ (-40 * v.2)) v.2 :=
+    fun t _ => Filter.Eventually.of_forall (fun v => hslope v.1 v.2)
+  have hneg : ∀ v : ℝ, ((((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L
+      ContinuousLinearMap.snd ℝ ℝ ℝ) ∘L ContinuousLinearMap.inr ℝ ℝ ℝ) v v ≤ -40 * ‖v‖ ^ 2 := by
+    intro v
+    simp only [ContinuousLinearMap.comp_apply, ContinuousLinearMap.inr_apply,
+      ContinuousLinearMap.coe_snd', smul_apply, ContinuousLinearMap.mul_apply', smul_eq_mul,
+      Real.norm_eq_abs, sq_abs]
+    nlinarith [sq_nonneg v]
+  refine ⟨isOpen_Ioo, hIU, hconc, hball, hcrit, hint, hG, fun x _ => hGs (x, 0), hneg, ?_⟩
+  exact ridge_differentiable (E := ℝ) (f := h1ToyF)
     (G := fun p => ContinuousLinearMap.mul ℝ ℝ (-40 * p.2))
     (DG := fun _ => ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) ∘L ContinuousLinearMap.snd ℝ ℝ ℝ)
-    (h := fun _ => (0 : ℝ)) (U := Ioo (-3) 3) (r := 1) (δ := 40) (by norm_num) isOpen_Ioo
-    (fun t ht => ⟨by linarith [ht.1], by linarith [ht.2]⟩)
-    (fun t _ => by
-      rw [strongConcaveOn_iff_convex]
-      refine (concaveOn_const (t ^ 3 / 3 - t / 4) (convex_closedBall (0 : ℝ) (2 * 1))).congr ?_
-      intro y _
-      simp only [h1ToyF, Real.norm_eq_abs, sq_abs]
-      ring)
-    (fun t _ => by simp) (fun t _ => by simpa using hslope t 0) (fun t _ => by simp)
-    (fun t _ => Filter.Eventually.of_forall (fun v => hslope v.1 v.2)) (fun t _ => hGs _)
-    (fun t _ v => by
-      simp only [ContinuousLinearMap.comp_apply, ContinuousLinearMap.inr_apply,
-        ContinuousLinearMap.coe_snd', smul_apply, ContinuousLinearMap.mul_apply', smul_eq_mul,
-        Real.norm_eq_abs, sq_abs]
-      nlinarith [sq_nonneg v]) x hx⟩
+    (h := fun _ => (0 : ℝ)) (U := Ioo (-3) 3) (r := 1) (δ := 40) (by norm_num) isOpen_Ioo hIU
+    hconc hball hcrit hint hG (fun x _ => hGs (x, 0)) (fun _ _ => hneg)
 
 end CapFirstExit
