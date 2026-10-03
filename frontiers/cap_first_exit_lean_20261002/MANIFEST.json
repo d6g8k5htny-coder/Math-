@@ -88,6 +88,7 @@
   "CapFirstExit.ridge_capHyp_normalized",
   "CapFirstExit.strongConcaveOn_of_hessian",
   "CapFirstExit.transverse_hessian_le",
+  "CapFirstExit.hessian_increment",
   "CapFirstExit.slices_strongConcave",
   "CapFirstExit.ridge_capHyp_H1",
   "CapFirstExit.toyF",
@@ -390,6 +391,11 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.hessian_increment": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.slices_strongConcave": [
    "Classical.choice",
    "Quot.sound",
@@ -524,18 +530,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 22147,
-   "sha256": "fe801adba43a2e40f24a22b39ef8b379b7dc58dbe35dcdee19a2dbbcca4cc765"
+   "bytes": 22998,
+   "sha256": "73fc8bff14c9eb42650228f905fb229bec6a67725bec166fe1e9738fab84596d"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 90646,
-   "sha256": "20e82fc57695b7a5cd83be1125796a46abba5e3ebe4676359a275eddf3b6127e"
+   "bytes": 93791,
+   "sha256": "6d4dc00f7d20e2268b39f9b37fbd3fa4326d843678cab6727e73c714b7a25955"
   },
   {
    "path": "README.md",
-   "bytes": 13532,
-   "sha256": "af375f1331d97031e91d1206d8bb724a0f7e94d95ac2f1ecb11753496cdcf43e"
+   "bytes": 13713,
+   "sha256": "0ef7a243688759c71e4b4f2bc6848bbd932440c7fce65c67f0f8453338cd3d71"
   },
   {
    "path": "gate.py",
@@ -560,7 +566,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6274,
-   "sha256": "880a075aee91c10a16d7d1ad3628624b522d040437f3fb9f327be63c3724555e"
+   "sha256": "04249947dc69b95b37b7ca5ec8e496e195947983ead8b5e3380dcf0d4265dc46"
   }
  ]
 }

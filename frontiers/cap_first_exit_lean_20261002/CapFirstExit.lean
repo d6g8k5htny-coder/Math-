@@ -1166,6 +1166,39 @@ theorem transverse_hessian_le {H : ℝ × E → E →L[ℝ] E →L[ℝ] ℝ} {r 
   have := hlam v
   nlinarith
 
+/-- **L3 (increments of the transverse Hessian).** If `x ↦ H (x, 0)` has derivative `Hx x` with
+`‖Hx x‖ ≤ m` on `[-2r, r/2]` (the block `∂_x D_y² f`), and along each ray `s ↦ H (x, s • y)`,
+`s ∈ [0, 1]`, the derivative `Hr p s` has `‖Hr p s‖ ≤ m ‖y‖` (the block `D_y³ f` applied to `y`),
+then moving first in `x` along `y = 0` and then along the ray gives `‖H p - H M‖ ≤ m (|Δx| + ‖Δy‖)`
+from `M = (-r/2, 0)`, by the mean value inequality. -/
+theorem hessian_increment {H : ℝ × E → E →L[ℝ] E →L[ℝ] ℝ} {Hx : ℝ → E →L[ℝ] E →L[ℝ] ℝ}
+    {Hr : ℝ × E → ℝ → E →L[ℝ] E →L[ℝ] ℝ} {r m : ℝ} (hr : 0 < r)
+    (hHx : ∀ x ∈ Icc (-2 * r) (r / 2), HasDerivAt (fun t => H (t, 0)) (Hx x) x)
+    (hHxb : ∀ x ∈ Icc (-2 * r) (r / 2), ‖Hx x‖ ≤ m)
+    (hHr : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ s ∈ Icc (0 : ℝ) 1,
+      HasDerivAt (fun s : ℝ => H (p.1, s • p.2)) (Hr p s) s)
+    (hHrb : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ s ∈ Icc (0 : ℝ) 1,
+      ‖Hr p s‖ ≤ m * ‖p.2‖) :
+    ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ‖H p - H (-r / 2, 0)‖ ≤ m * (|p.1 - -r / 2| + ‖p.2‖) := by
+  rintro ⟨x, y⟩ hp
+  have hx := hp.1
+  have h1 : ‖H (x, (1 : ℝ) • y) - H (x, (0 : ℝ) • y)‖ ≤ m * ‖y‖ * ‖(1 : ℝ) - 0‖ :=
+    (convex_Icc (0 : ℝ) 1).norm_image_sub_le_of_norm_hasDerivWithin_le
+      (f := fun s : ℝ => H (x, s • y)) (fun s hs => (hHr (x, y) hp s hs).hasDerivWithinAt)
+      (fun s hs => hHrb (x, y) hp s hs) (left_mem_Icc.mpr zero_le_one)
+      (right_mem_Icc.mpr zero_le_one)
+  have ha : -r / 2 ∈ Icc (-2 * r) (r / 2) := ⟨by linarith, by linarith⟩
+  have h2 : ‖H (x, 0) - H (-r / 2, 0)‖ ≤ m * ‖x - -r / 2‖ :=
+    (convex_Icc (-2 * r) (r / 2)).norm_image_sub_le_of_norm_hasDerivWithin_le
+      (f := fun t => H (t, 0)) (fun t ht => (hHx t ht).hasDerivWithinAt) hHxb ha hx
+  simp only [one_smul, zero_smul, sub_zero, norm_one, mul_one] at h1
+  rw [Real.norm_eq_abs] at h2
+  calc ‖H (x, y) - H (-r / 2, 0)‖ ≤ ‖H (x, y) - H (x, 0)‖ + ‖H (x, 0) - H (-r / 2, 0)‖ :=
+        norm_sub_le_norm_sub_add_norm_sub (H (x, y)) (H (x, 0)) (H (-r / 2, 0))
+    _ ≤ m * ‖y‖ + m * |x - -r / 2| := add_le_add h1 h2
+    _ = m * (|(x, y).1 - -r / 2| + ‖(x, y).2‖) := by simp only; ring
+
 /-- **L4 (strong concavity of the slices).** Under `transverse_hessian_le`'s hypotheses, with the
 slice derivatives `Dφ` and Hessians `H` given on the cap, every slice `y ↦ f (x, y)`,
 `x ∈ [-2r, r/2]`, is `(λ - 5rm)`-strongly concave on `B̄(0, 2r)`. -/
@@ -1192,7 +1225,7 @@ derivatives and Hessians on the cap, the increment bound of `H` from `M` with co
 `H(M) ≤ -λ`, and (H1) `8 r m² < λ`. Then `δ = λ - 5rm > rm(8m - 5)`. -/
 theorem ridge_capHyp_H1 {f : ℝ × E → ℝ} {h : ℝ → E} {F G0 : ℝ → ℝ}
     {w : ℝ → E →L[ℝ] ℝ} {Dφ : ℝ × E → E →L[ℝ] ℝ} {H : ℝ × E → E →L[ℝ] E →L[ℝ] ℝ}
-    {r m lam : ℝ} (hr : 0 < r)
+    {Hx : ℝ → E →L[ℝ] E →L[ℝ] ℝ} {Hr : ℝ × E → ℝ → E →L[ℝ] E →L[ℝ] ℝ} {r m lam : ℝ} (hr : 0 < r)
     (hg0 : ∀ x ∈ Icc (-r / 2) (r / 2), HasDerivAt (fun x => f (x, 0)) (G0 x) x)
     (hG0cv : ConvexOn ℝ (Icc (-r / 2) (r / 2)) (fun t => G0 t + m / 2 * t ^ 2))
     (hG0cc : ConcaveOn ℝ (Icc (-r / 2) (r / 2)) (fun t => G0 t - m / 2 * t ^ 2))
@@ -1201,8 +1234,12 @@ theorem ridge_capHyp_H1 {f : ℝ × E → ℝ} {h : ℝ → E} {F G0 : ℝ → �
       HasFDerivAt (fun y => f (p.1, y)) (Dφ p) p.2)
     (hH : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r),
       HasFDerivAt (fun y => Dφ (p.1, y)) (H p) p.2)
-    (hlip : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r),
-      ‖H p - H (-r / 2, 0)‖ ≤ m * (|p.1 - -r / 2| + ‖p.2‖))
+    (hHx : ∀ x ∈ Icc (-2 * r) (r / 2), HasDerivAt (fun t => H (t, 0)) (Hx x) x)
+    (hHxb : ∀ x ∈ Icc (-2 * r) (r / 2), ‖Hx x‖ ≤ m)
+    (hHr : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ s ∈ Icc (0 : ℝ) 1,
+      HasDerivAt (fun s : ℝ => H (p.1, s • p.2)) (Hr p s) s)
+    (hHrb : ∀ p ∈ Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ s ∈ Icc (0 : ℝ) 1,
+      ‖Hr p s‖ ≤ m * ‖p.2‖)
     (hlam : ∀ v : E, H (-r / 2, 0) v v ≤ -lam * ‖v‖ ^ 2) (hH1 : 8 * r * m ^ 2 < lam)
     (hh : ContinuousOn h (Icc (-r / 2) (2 * r)))
     (hg : ∀ x ∈ Icc (-2 * r) (2 * r), HasDerivAt (fun x => f (x, h x)) (F x) x)
@@ -1222,6 +1259,7 @@ theorem ridge_capHyp_H1 {f : ℝ × E → ℝ} {h : ℝ → E} {F G0 : ℝ → �
         x ≠ (r / 2, h (r / 2)) → f x < f (r / 2, h (r / 2)) := by
   have hm : 2 ≤ m :=
     hermite_m_ge_two hr hg0 hG0cv hG0cc hG0a hG0c (by simpa [hha, hhc] using hnorm)
+  have hlip := hessian_increment hr hHx hHxb hHr hHrb
   have hconc := slices_strongConcave hr (by linarith) hD hH hlip hlam
   have hδ : r * m * (8 * m - 5) < lam - 5 * r * m := by nlinarith
   exact ridge_capHyp_normalized hr hg0 hG0cv hG0cc hG0a hG0c hδ hh hg hFa hFc hconv hconc hball
@@ -1682,9 +1720,14 @@ theorem h1Toy_capHyp :
   refine ridge_capHyp_H1 (E := ℝ) (f := h1ToyF) (h := fun _ => (0 : ℝ))
     (F := fun x => x ^ 2 - 1 / 4) (G0 := fun x => x ^ 2 - 1 / 4) (w := fun _ => 0)
     (Dφ := fun p => ContinuousLinearMap.mul ℝ ℝ (-40 * p.2))
-    (H := fun _ => (-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) (r := 1) (m := 2) (lam := 40)
+    (H := fun _ => (-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ) (Hx := fun _ => 0) (Hr := fun _ _ => 0)
+    (r := 1) (m := 2) (lam := 40)
     one_pos (fun x _ => hgx x) ?_ ?_ (by norm_num) (by norm_num)
-    (fun p _ => hslope p.1 p.2) (fun p _ => hhess p.2) ?_ ?_ (by norm_num)
+    (fun p _ => hslope p.1 p.2) (fun p _ => hhess p.2)
+    (fun x _ => hasDerivAt_const x ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
+    (fun x _ => by simp only [ContinuousLinearMap.opNorm_zero]; norm_num)
+    (fun p _ s _ => hasDerivAt_const s ((-40 : ℝ) • ContinuousLinearMap.mul ℝ ℝ))
+    (fun p _ s _ => by simp only [ContinuousLinearMap.opNorm_zero]; positivity) ?_ (by norm_num)
     continuousOn_const (fun x _ => hgx x) (by norm_num) (by norm_num) ?_
     (fun x _ => by simp) (fun x _ => hslice x) rfl rfl (fun x _ => hslice x) ?_ ?_ ?_
   · have hc : ConvexOn ℝ univ (fun x : ℝ => (2 : ℝ) • x ^ 2 + (-1 / 4 : ℝ)) :=
@@ -1696,10 +1739,6 @@ theorem h1Toy_capHyp :
   · refine (concaveOn_const (-1 / 4 : ℝ) (convex_Icc _ _)).congr ?_
     intro x _
     ring
-  · intro p hp
-    have hp2 : 0 ≤ |p.1 - -1 / 2| + ‖p.2‖ := by positivity
-    simp only [sub_self, ContinuousLinearMap.opNorm_zero]
-    linarith
   · intro v
     simp only [smul_apply, ContinuousLinearMap.mul_apply', smul_eq_mul,
       Real.norm_eq_abs, sq_abs]

@@ -24,7 +24,7 @@ This packet kernel-checks three things:
 - the one-variable and assembly steps of the analytic part (L13, L16, L17, L19, L20, in `ridge_capHyp`);
 - since v1.5, L1–L2 and the slice steps:
   - L1–L2, the Hermite bound `g(a) − g(c) ≤ m(c − a)³/12`, which under the normalization `b − s = r³/6` forces `m ≥ 2`;
-  - since v1.6, L3–L4, the slice strong concavity `δ = λ − 5rm` from SP's transverse Hessian at `M` and the third-derivative increment bound;
+  - since v1.6, L3–L4: the transverse Hessian's increments from its third-derivative bounds `m` (mean value inequality), then the slice strong concavity `δ = λ − 5rm` from SP's Hessian bound at `M`;
   - L5, the transverse-gradient bound, from the third-derivative bound `m`;
   - L7, the transverse maximum and its uniqueness;
   - L8, the ridge bound;
@@ -71,7 +71,8 @@ single ridge path.
 | `hermite_gap_le`, `hermite_m_ge_two` | L1–L2: if `g' = G` vanishes at `a < c` and `|G''| ≤ m` (weak form), then `g(a) − g(c) ≤ m(c − a)³/12`. At the gap `r³/6` on `[−r/2, r/2]`, this forces `m ≥ 2` |
 | `ridge_capHyp_normalized`, `spToy_normalized` | the cap with `m ≥ 2` derived from the normalization (L1–L2) instead of assumed; `spToyF` meets every hypothesis |
 | `strongConcaveOn_of_hessian` | second-order condition: `H y v v ≤ −δ‖v‖²` for the second derivative on a convex set gives `δ`-strong concavity |
-| `transverse_hessian_le`, `slices_strongConcave` | L3–L4: `H(M) ≤ −λ` and increments of `H` from `M` bounded by `m(|Δx| + ‖Δy‖)` give `H ≤ −(λ − 5rm)` on the cap, so each slice is `(λ − 5rm)`-strongly concave |
+| `hessian_increment` | L3: derivative bounds `m` on `∂_x H` (along `y = 0`) and on `D_y H` (along rays) give `‖H(p) − H(M)‖ ≤ m(|Δx| + ‖Δy‖)` |
+| `transverse_hessian_le`, `slices_strongConcave` | L4: `H(M) ≤ −λ` and those increments give `H ≤ −(λ − 5rm)` on the cap, so each slice is `(λ − 5rm)`-strongly concave |
 | `ridge_capHyp_H1`, `h1ToyF`, `h1Toy_capHyp` | the cap from SP's (H1) `λ > 8rm²` with Hessian data in place of `hconc`; `x³/3 − x/4 − 20y²` (`λ = 40 > 32`) meets every hypothesis |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
@@ -97,8 +98,8 @@ This packet does not formalize:
 
 - the analytic step L6 (the `w'` bound), the existence and implicit-function regularity of the transverse maximizer
   `h`, and L9–L12 (the `‖h'‖` and `F''` bounds). These enter `ridge_capHyp_H1`, `ridge_capHyp_of_slices` and
-  `ridge_inputs_of_joint` as hypotheses, together with the Hessian data and third-derivative bounds that L3 and L4
-  consume. L1–L5, L7's maximum and uniqueness, L8, L11's chain rule, L13 and L16–L20 are proved from them;
+  `ridge_inputs_of_joint` as hypotheses, together with the Hessian data and the third-derivative bounds `m` that L1,
+  L3 and L5 consume. L1–L5, L7's maximum and uniqueness, L8, L11's chain rule, L13 and L16–L20 are proved from them;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -137,7 +138,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 80 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 81 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
