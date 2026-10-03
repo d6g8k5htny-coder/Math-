@@ -1,0 +1,842 @@
+{
+ "schema": 1,
+ "object": "PLANAR-SOFT-LAYER-CHAIN-C91-C98-INCORPORATION-20261003-v1",
+ "kind": "additive incorporation of public native proof, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "pickup": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5969536391"
+ },
+ "requests": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963702976",
+  "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964002943",
+  "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964318195",
+  "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964828945"
+ ],
+ "source_issue": "https://github.com/d6g8k5htny-coder/main/issues/229",
+ "read_at": "2026-10-03T13:10Z (all bodies fetched through the GitHub API; updated_at equals created_at for every stored comment)",
+ "objects": [
+  {
+   "tag": "C91",
+   "object": "C91-PLANAR-WINDOW-TAYLOR-TRANSFER-20261003-v1",
+   "title": "Planar growing-window Taylor control and raw-to-rescaled Hessian bounds",
+   "author": "OpenAI/Codex root01a0bbb5",
+   "reviewer": "distinct OpenAI/Codex coordinating root, prior exposure disclosed; helper supporting only",
+   "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED, no amendment required (as recorded in 5963702976)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C91/PROOF.md",
+     "role": "frozen proof",
+     "comment": "5963566666",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963566666",
+     "created_at": "2026-10-03T00:22:20Z",
+     "bytes": 12433,
+     "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa"
+    },
+    {
+     "path": "C91/REVIEW.md",
+     "role": "full nonauthor review (contains the checker and its stdout)",
+     "comment": "5963668996",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963668996",
+     "created_at": "2026-10-03T00:33:55Z",
+     "bytes": 17914,
+     "sha256": "0c472af06e13f564d44c1723b5492c6c60681000f1f00d653b2bbb5f2e992eda"
+    },
+    {
+     "path": "C91/DELIVERY.md",
+     "role": "completion and delivery note",
+     "comment": "5963702976",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963702976",
+     "created_at": "2026-10-03T00:38:01Z",
+     "bytes": 3168,
+     "sha256": "73caaab8f1b87f68e46cd3d4a4afbea14fa1fbfe79215539999ff18ddab68c9f"
+    }
+   ],
+   "checker": {
+    "path": "C91/checker.py",
+    "bytes": 6510,
+    "sha256": "2d456e6da00c11a7b9a306c8d56d97b7868ddeda4924201d814a85818484d409",
+    "stdout_path": "C91/checker_stdout.txt",
+    "stdout_bytes": 276,
+    "stdout_sha256": "f583ed9982c2c9e31e3fea24c732fefc753c8a5e11d149deb979318440db3c92",
+    "extracted_from": "5963668996",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5963531813",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963531813",
+     "bytes": 1138,
+     "sha256": "7bd7cadfffa2dd49bc26d0a99f58869146127ec728bbf2f8e8dd60343b0546b7",
+     "first_line": "C91 author pickup — explicit planar growing-window Taylor estimate and Hessian transfer"
+    },
+    {
+     "comment": "5963597644",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963597644",
+     "bytes": 1159,
+     "sha256": "8433055d9e7a7692d99e9305faebcfe8042dfc7d8f0a1915254c138a326ac1af",
+     "first_line": "C91 actual nonauthor review pickup — full frozen candidate"
+    }
+   ],
+   "drive_delivery_as_published": "240404 bytes, 36 payloads, ZIP SHA256 cbf8cfc3a08c8a09dd2a64d7d256ac133c8df1ca8f9a3de338dc78af8bd5be68; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5961415030",
+    "5963200491",
+    "5963477339"
+   ]
+  },
+  {
+   "tag": "C92",
+   "object": "C92-PLANAR-COMPACT-SOFT-JET-WEIGHTED-TRANSFER-20261003-v1",
+   "title": "Quantitative planar soft-jet transfer under the actual determinant weight (Theorem J)",
+   "author": "OpenAI/Codex root01a0bbb5",
+   "reviewer": "distinct OpenAI/Codex coordinating-root reviewer, prior intake/outline/source/C91 exposure disclosed; one supporting helper",
+   "verdict_as_recorded": "complete nonauthor technical review, no amendment required (as recorded in 5964002943)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C92/PROOF.md",
+     "role": "frozen proof (Theorem J)",
+     "comment": "5963825788",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963825788",
+     "created_at": "2026-10-03T00:52:49Z",
+     "bytes": 19567,
+     "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a"
+    },
+    {
+     "path": "C92/REVIEW.md",
+     "role": "full nonauthor review (contains the checker and its stdout)",
+     "comment": "5963946854",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963946854",
+     "created_at": "2026-10-03T01:08:11Z",
+     "bytes": 24984,
+     "sha256": "298bbf9ccd75b57fde9d131551b32b9b5b3a5a7910e7c9df7ce796cdf3334fac"
+    },
+    {
+     "path": "C92/DELIVERY.md",
+     "role": "reviewed delivery note",
+     "comment": "5964002943",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964002943",
+     "created_at": "2026-10-03T01:15:30Z",
+     "bytes": 2923,
+     "sha256": "c28a8761e4e6fb4369c67d7eeea78137cf4a8e3c628310079915b357e4a1b0cd"
+    }
+   ],
+   "checker": {
+    "path": "C92/checker.py",
+    "bytes": 9983,
+    "sha256": "5a4529ab99723d52e0e21bb442f572f466a9dd1bf993d383f520aa1459e45c0a",
+    "stdout_path": "C92/checker_stdout.txt",
+    "stdout_bytes": 757,
+    "stdout_sha256": "13dc0bd8b380a9c9e30c7989242c7a7d320e3d28e78abea572f4c7c6096534e2",
+    "extracted_from": "5963946854",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5963743811",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963743811",
+     "bytes": 933,
+     "sha256": "0ed702b2fb9d281ee094f513482483f0a666924c784abcafcac4b434eac6d7fc",
+     "first_line": "C92 actual author pickup — compact soft-layer weighted jet transfer"
+    },
+    {
+     "comment": "5963845378",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963845378",
+     "bytes": 1346,
+     "sha256": "588eeb6d2b2248c23ba588c62ffaef087f32400525806fe88cc079e0c8215008",
+     "first_line": "C92 actual nonauthor review pickup — full frozen Theorem J"
+    }
+   ],
+   "drive_delivery_as_published": "335686 bytes, 31 payloads, SHA256 e2fdb6e16299f25100b7351dcddb3e2c40dcfd1abbe663e92837e83c63bd0202; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5963566666",
+    "5963668996"
+   ]
+  },
+  {
+   "tag": "C93",
+   "object": "C93-PLANAR-TYPING-EDGE-HESSIAN-TRANSFER-20261003-v1",
+   "title": "Actual weighted typing-edge control and planar Hessian transfer",
+   "author": "OpenAI/Codex root01a0bbb5",
+   "reviewer": "distinct OpenAI/Codex coordinating reviewer, C93 intake/target and C91/C92 exposure disclosed; helper supports E2-E12 only",
+   "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED for E2-E20, no amendment (as recorded in 5964318195)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C93/PROOF.md",
+     "role": "frozen proof",
+     "comment": "5964167051",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964167051",
+     "created_at": "2026-10-03T01:36:14Z",
+     "bytes": 15545,
+     "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c"
+    },
+    {
+     "path": "C93/REVIEW.md",
+     "role": "full nonauthor review (contains the checker and its stdout)",
+     "comment": "5964232937",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964232937",
+     "created_at": "2026-10-03T01:45:12Z",
+     "bytes": 21678,
+     "sha256": "ede5964069465cda02ae7d3c1d880fe6c3ed5e4d8d7bc9401302d223d1097b7f"
+    },
+    {
+     "path": "C93/DELIVERY.md",
+     "role": "completion and delivery note",
+     "comment": "5964318195",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964318195",
+     "created_at": "2026-10-03T01:53:21Z",
+     "bytes": 3226,
+     "sha256": "7251e1276557e0711c16d146e8cda625d98168bfe25b43823cd5af4a38f4d713"
+    }
+   ],
+   "checker": {
+    "path": "C93/checker.py",
+    "bytes": 7986,
+    "sha256": "8b3801e8ccf1e2128b119725551ed20d81fe871280f5f97349cebedb5cd6c9e2",
+    "stdout_path": "C93/checker_stdout.txt",
+    "stdout_bytes": 805,
+    "stdout_sha256": "119eeabb69d4456ef5092d6f151388ed043244d7d6a430567a64ca4983d4fa89",
+    "extracted_from": "5964232937",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5964058966",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964058966",
+     "bytes": 808,
+     "sha256": "895baf8502b92d585b50cd3d81ce6e9983a4a61743c696e09008e9bde44958b5",
+     "first_line": "C93 actual author pickup — weighted typing-edge strips and Hessian transfer"
+    }
+   ],
+   "drive_delivery_as_published": "312893 bytes, 28 payloads, ZIP SHA256 785ba293e70389c4135b0a9189955e86006baee61a540634057c94c786cd7fa8; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5961913750",
+    "5962025965",
+    "5962385282",
+    "5963566666",
+    "5963668996",
+    "5963825788",
+    "5963946854"
+   ]
+  },
+  {
+   "tag": "C94",
+   "object": "C94-PLANAR-WEIGHTED-TRAP-WINDOW-RANDOM-MARGIN-20261003-v1",
+   "title": "Actual weighted trap-window and random-margin transfer",
+   "author": "OpenAI/Codex root01a0bbb5",
+   "reviewer": "separate OpenAI/Codex coordinator root01a0adb2, prior source/target and C91-C93 exposure disclosed; helper c94_source_margin_audit supports C11-C13 only",
+   "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED for C6-C20, no required amendment; section 6 conditional on the geometric interface G (as recorded in 5964828945)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C94/PROOF.md",
+     "role": "frozen proof",
+     "comment": "5964517708",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964517708",
+     "created_at": "2026-10-03T02:18:00Z",
+     "bytes": 15407,
+     "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c"
+    },
+    {
+     "path": "C94/REVIEW.md",
+     "role": "full nonauthor review (contains the checker and its stdout)",
+     "comment": "5964735560",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964735560",
+     "created_at": "2026-10-03T02:39:59Z",
+     "bytes": 30074,
+     "sha256": "327abea538b814f279a936a71072960de08e53314f0f08dd32c2f8870a32d65e"
+    },
+    {
+     "path": "C94/DELIVERY.md",
+     "role": "reviewed delivery note",
+     "comment": "5964828945",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964828945",
+     "created_at": "2026-10-03T02:53:34Z",
+     "bytes": 3526,
+     "sha256": "78e51760dad257f7d2d799c3e0b7daa735f55df60dc48840788aa8a7149f5ee2"
+    }
+   ],
+   "checker": {
+    "path": "C94/checker.py",
+    "bytes": 13554,
+    "sha256": "45325eace87e01c23470676b31728798f029cc6bb5b10600d10c93d63d39c80a",
+    "stdout_path": "C94/checker_stdout.txt",
+    "stdout_bytes": 944,
+    "stdout_sha256": "35b833e94d7d06b79dfa6ec35a2ccd7f9c54a358706750a4c7ed7121a256c682",
+    "extracted_from": "5964735560",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5964545063",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964545063",
+     "bytes": 1251,
+     "sha256": "332b6e2f9c22f582ff951b6f62612e04133a130bc1612170b5b8b1b02db45d46",
+     "first_line": "Dylan Roy — delegated AI review. Actual performer: OpenAI/Codex `/root` in the coordinating review s"
+    }
+   ],
+   "drive_delivery_as_published": "405918 bytes, 41 payloads, ZIP SHA256 56de1933e993edd9b070887fbf4f2f4630f60b1238d0b9bb18cb55fe012761f6; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5959920397",
+    "5959988102",
+    "5961415030",
+    "5961913750",
+    "5962025965",
+    "5962385282",
+    "5963200491",
+    "5963477339",
+    "5963566666",
+    "5963668996",
+    "5963825788",
+    "5963946854",
+    "5964167051",
+    "5964232937"
+   ]
+  },
+  {
+   "tag": "C95",
+   "object": "C95-CORRECTED-TRAP-WEIGHTED-MAXIMIN-20261003-v1",
+   "title": "Corrected explicit trap and actual weighted maximin selection",
+   "author": "OpenAI/Codex root01a0bbb5 (integrator of the C90 corrections to A2 v1, author of the composition); original A2 author Anthropic Claude",
+   "reviewer": "OpenAI/Codex /root/c95_fresh_review, no preassignment C90-C94 authorship, source exposure disclosed",
+   "verdict_as_recorded": "fresh full nonauthor PASS for G1-G18, no required amendment; the corrected object is (A2 v1, C95 sections 1-3) with section 4 hypotheses (as recorded in 5965119984)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C95/PROOF.md",
+     "role": "frozen proof (sections 1-3 correct A2 v1)",
+     "comment": "5964938563",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964938563",
+     "created_at": "2026-10-03T03:09:41Z",
+     "bytes": 16185,
+     "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1"
+    },
+    {
+     "path": "C95/REVIEW.md",
+     "role": "fresh full nonauthor review",
+     "comment": "5965062739",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965062739",
+     "created_at": "2026-10-03T03:27:45Z",
+     "bytes": 25080,
+     "sha256": "350be6dc7699b7fc377074e1217937ceb53022f2de5d3cdb9c85f499d35bcaf6"
+    },
+    {
+     "path": "C95/CHECKER_COMMENT.md",
+     "role": "reviewer-helper controls: complete source and stdout",
+     "comment": "5965068742",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965068742",
+     "created_at": "2026-10-03T03:28:34Z",
+     "bytes": 14687,
+     "sha256": "1f74052955e8812bc9c14573acab9ff88eb0f180eff5ecedb83eb3910a504eda"
+    },
+    {
+     "path": "C95/DELIVERY.md",
+     "role": "completion and delivery note",
+     "comment": "5965119984",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965119984",
+     "created_at": "2026-10-03T03:36:03Z",
+     "bytes": 4319,
+     "sha256": "3e191e8d85296ae9023595d5472bc30b7ff72b41a7ef29bb9bbd634ad94b0c61"
+    }
+   ],
+   "checker": {
+    "path": "C95/checker.py",
+    "bytes": 10566,
+    "sha256": "179d64b556b337ddf966ba5f4f274d59910a6c045a242b26fff957f3167951d2",
+    "stdout_path": "C95/checker_stdout.txt",
+    "stdout_bytes": 1691,
+    "stdout_sha256": "484e9d61c77fcd6394ad97cae20e628e4ccb6c3163d7ff900fdd4ee0836c37f5",
+    "extracted_from": "5965068742",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5964877372",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964877372",
+     "bytes": 1049,
+     "sha256": "292b5d5cc1e50d73757d6d82f2b532cbd1166bec8e1e031e9e60457e801e1278",
+     "first_line": "Actual C95 integrator pickup under fresh R17 Work Events623 / claim f4597887-706f-4b57-b493-47587521"
+    },
+    {
+     "comment": "5964966168",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964966168",
+     "bytes": 1898,
+     "sha256": "42537cec48829cb39b914f359a246701ed29cb11264f544f1ecd98cf008bf143",
+     "first_line": "C95 actual fresh nonauthor review pickup"
+    }
+   ],
+   "drive_delivery_as_published": "590587 bytes, 44 payloads, SHA256 dc9a797240a592abf4c8a17b579b153f3af1adaf3a619a33ce1b252443d31c03; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5961415030",
+    "5963200491",
+    "5963376279",
+    "5963452713",
+    "5963477339",
+    "5964517708",
+    "5964735560"
+   ]
+  },
+  {
+   "tag": "C96",
+   "object": "C96-DESIGNATED-MAXIMIN-TO-H0-20261003-v1",
+   "title": "Designated maximin level equals the ordinary-superlevel H0 death",
+   "author": "OpenAI/Codex coordinating root01a0adb2",
+   "reviewer": "OpenAI/Codex /root/aud023_review, prior program/source exposure disclosed; not clean-context",
+   "verdict_as_recorded": "PASS, designated-pair scope (as recorded in 5965321526)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C96/PROOF.md",
+     "role": "full native proof comment (the frozen proof is its final 7657 bytes)",
+     "comment": "5965141133",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965141133",
+     "created_at": "2026-10-03T03:38:26Z",
+     "bytes": 7913,
+     "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5"
+    },
+    {
+     "path": "C96/REVIEW.md",
+     "role": "nonauthor source-bound review",
+     "comment": "5965199940",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965199940",
+     "created_at": "2026-10-03T03:46:48Z",
+     "bytes": 11275,
+     "sha256": "43f3933870585fbc216a5eeae0528f14ac893ff498ef7b24c66cd77d7f2ef3ae"
+    },
+    {
+     "path": "C96/COMPLETION.md",
+     "role": "author completion and read conventions",
+     "comment": "5965212531",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965212531",
+     "created_at": "2026-10-03T03:47:53Z",
+     "bytes": 3466,
+     "sha256": "634fdab86ef2d568fecba9da80ccd067e3dc12849d88731648f1b09e46861603"
+    },
+    {
+     "path": "C96/DELIVERY.md",
+     "role": "verified delivery and release note",
+     "comment": "5965321526",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965321526",
+     "created_at": "2026-10-03T03:59:57Z",
+     "bytes": 3907,
+     "sha256": "5364d09b2bd84166ab9d056f619549d10b865375ba8a0dd61e43d5a6723ed2e7"
+    }
+   ],
+   "not_stored_records": [
+    {
+     "comment": "5965119121",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965119121",
+     "bytes": 1913,
+     "sha256": "b6c3f81b3c9724e4fbb232831fc7c4b7fbea699e79a3390b0a9381284c18a483",
+     "first_line": "C96 actual author pickup — designated maximin event to finite ordinary-superlevel H0 bar"
+    }
+   ],
+   "drive_delivery_as_published": "405836 bytes, 27 payloads, ZIP SHA256 3f0c893acb04531a68ca5518cc9f34ed3aa3d2f61241ad11d51df2ad04aa4cfd; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5964938563",
+    "5965062739",
+    "5965119121"
+   ]
+  },
+  {
+   "tag": "C97",
+   "object": "C97-ACTUAL-WEIGHTED-REJECTED-CHORD-20261003-v1",
+   "title": "Actual weighted rejection from a finite cubic chord",
+   "author": "OpenAI/Codex root01a0bbb5; deterministic feasibility /root/clipped_surrogate_review (coauthor-side)",
+   "reviewer": "OpenAI/Codex /root/c95_fresh_review, prior C95 source/review exposure disclosed; no C97 author code reused",
+   "verdict_as_recorded": "PASS, no required amendment, bounded designated rejected-sector scope (as recorded in 5965620702)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C97/PROOF.md",
+     "role": "frozen proof",
+     "comment": "5965421543",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965421543",
+     "created_at": "2026-10-03T04:14:09Z",
+     "bytes": 16098,
+     "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57"
+    },
+    {
+     "path": "C97/REVIEW.md",
+     "role": "full nonauthor review",
+     "comment": "5965531981",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965531981",
+     "created_at": "2026-10-03T04:29:14Z",
+     "bytes": 23585,
+     "sha256": "1de14fcabaad502e6fe36f79bcb3992841551d766ef41ceaba9c8155b5655212"
+    },
+    {
+     "path": "C97/CHECKER_COMMENT.md",
+     "role": "independent checker and exact stdout",
+     "comment": "5965532148",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965532148",
+     "created_at": "2026-10-03T04:29:15Z",
+     "bytes": 13396,
+     "sha256": "999762b27bf4b285ef9b601fe0f9547a2ca1eea03d2b17d54da31dfba70fe659"
+    },
+    {
+     "path": "C97/DELIVERY.md",
+     "role": "verified delivery and release note",
+     "comment": "5965620702",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965620702",
+     "created_at": "2026-10-03T04:42:49Z",
+     "bytes": 4954,
+     "sha256": "3a4ec3db7b89d54f5f36942813254a1fbf341c082a6164f5514da42946d2e417"
+    }
+   ],
+   "checker": {
+    "path": "C97/checker.py",
+    "bytes": 10559,
+    "sha256": "863f0f80edc144e394e5e23149d0d048ff5c09a802a3086cafcaaeeceee3c334",
+    "stdout_path": "C97/checker_stdout.txt",
+    "stdout_bytes": 1737,
+    "stdout_sha256": "41f5d16c4dd0ad6ed90b7d18b1ba9a41c37a9feb3ab5ad214813918dd12cdb72",
+    "extracted_from": "5965532148",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5965350423",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965350423",
+     "bytes": 826,
+     "sha256": "9646e0c8667ec66206f718cc78abea967d829e36786fe5f04a3b3a2cfd29c447",
+     "first_line": "C97 pickup — actual weighted rejected-side chord estimate. R17 claim `75797b63-e1a2-4aa3-801b-f165e0"
+    },
+    {
+     "comment": "5965439551",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965439551",
+     "bytes": 1979,
+     "sha256": "f260cd6208bf1548088216f947aa52a947bd59bea5467324f4c7bb60dee31442",
+     "first_line": "# C97 actual full nonauthor-review pickup"
+    }
+   ],
+   "drive_delivery_as_published": "815368 bytes, 50 payloads, ZIP SHA256 0fa748c2cca84b8b0f299dc88a03eb29291452c922266298bdc5d5c589c22e04; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5959920397",
+    "5961415030",
+    "5963825788",
+    "5964167051",
+    "5964517708",
+    "5965141133",
+    "5965199940",
+    "5965212531"
+   ]
+  },
+  {
+   "tag": "C98",
+   "object": "C98-BOUNDED-LAYER-PAIRING-COMPARISON-20261003-v1",
+   "title": "Full bounded-layer comparison for the designated persistence pairing",
+   "author": "OpenAI/Codex root01a0bbb5",
+   "reviewer": "OpenAI/Codex /root/c95_fresh_review, prior C95/C97 exposure disclosed; no C98 authorship or author checker",
+   "verdict_as_recorded": "PASS sections 0-5/B1-B21, no amendment (as recorded in 5965904408)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "stored": [
+    {
+     "path": "C98/PROOF.md",
+     "role": "frozen proof",
+     "comment": "5965738339",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965738339",
+     "created_at": "2026-10-03T04:56:45Z",
+     "bytes": 15050,
+     "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198"
+    },
+    {
+     "path": "C98/REVIEW.md",
+     "role": "full nonauthor review",
+     "comment": "5965845044",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965845044",
+     "created_at": "2026-10-03T05:12:37Z",
+     "bytes": 22889,
+     "sha256": "733514e253eab9e7741c4fbdd3b54f86c046c7b68648f88d2d114cea3025e5e6"
+    },
+    {
+     "path": "C98/CHECKER_COMMENT.md",
+     "role": "independent checker and exact stdout",
+     "comment": "5965845201",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965845201",
+     "created_at": "2026-10-03T05:12:39Z",
+     "bytes": 12162,
+     "sha256": "e7fbf2a77178daf072f34020ca05bdbc8a9cb6759e948cda94a41ffa61037e7e"
+    },
+    {
+     "path": "C98/DELIVERY.md",
+     "role": "verified delivery note",
+     "comment": "5965904408",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965904408",
+     "created_at": "2026-10-03T05:21:27Z",
+     "bytes": 4373,
+     "sha256": "6b05b6550a90e62e92fa728f94df74b770f3c2c0046a9dac3efb5c726e758f4b"
+    }
+   ],
+   "checker": {
+    "path": "C98/checker.py",
+    "bytes": 9334,
+    "sha256": "f42b2a8c090cfb1cbb0cc30da6517db150712997ffa9fe815a1c740e5a681f3a",
+    "stdout_path": "C98/checker_stdout.txt",
+    "stdout_bytes": 1859,
+    "stdout_sha256": "9ddcf06779eab02446f29015ffff7d46c058022aeb15ff519b02490244184796",
+    "extracted_from": "5965845201",
+    "extraction": "first python fence and the following output fence, each saved with a final newline, as the review instructs"
+   },
+   "not_stored_records": [
+    {
+     "comment": "5965653006",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965653006",
+     "bytes": 1146,
+     "sha256": "2ed1f7d4dc0853555ce186d6eff11a0a48ed25c5de77f7ff7435995aec348ec4",
+     "first_line": "## C98 pickup — bounded-layer sector coverage"
+    },
+    {
+     "comment": "5965753584",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965753584",
+     "bytes": 1922,
+     "sha256": "bcabe1aaa697ee8643d56e0dc61362156cfe35f0044cf692d4c4331a57fecf7a",
+     "first_line": "# C98 actual full nonauthor-review pickup"
+    }
+   ],
+   "drive_delivery_as_published": "1093530 bytes, 56 payloads, SHA256 43828e443a3485cec0ff5a0badf8ca935049e77a1607bdeb4019204c111c8970; not downloaded or relied on here",
+   "main229_comments_named_in_proof": [
+    "5959038812",
+    "5959754319",
+    "5959920397",
+    "5959988102",
+    "5961281898",
+    "5963825788",
+    "5963946854",
+    "5964167051",
+    "5964232937",
+    "5964938563",
+    "5965062739",
+    "5965141133",
+    "5965199940",
+    "5965421543",
+    "5965531981"
+   ]
+  }
+ ],
+ "files": [
+  {
+   "path": "C91/PROOF.md",
+   "bytes": 12433,
+   "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa"
+  },
+  {
+   "path": "C91/REVIEW.md",
+   "bytes": 17914,
+   "sha256": "0c472af06e13f564d44c1723b5492c6c60681000f1f00d653b2bbb5f2e992eda"
+  },
+  {
+   "path": "C91/DELIVERY.md",
+   "bytes": 3168,
+   "sha256": "73caaab8f1b87f68e46cd3d4a4afbea14fa1fbfe79215539999ff18ddab68c9f"
+  },
+  {
+   "path": "C91/checker.py",
+   "bytes": 6510,
+   "sha256": "2d456e6da00c11a7b9a306c8d56d97b7868ddeda4924201d814a85818484d409"
+  },
+  {
+   "path": "C91/checker_stdout.txt",
+   "bytes": 276,
+   "sha256": "f583ed9982c2c9e31e3fea24c732fefc753c8a5e11d149deb979318440db3c92"
+  },
+  {
+   "path": "C92/PROOF.md",
+   "bytes": 19567,
+   "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a"
+  },
+  {
+   "path": "C92/REVIEW.md",
+   "bytes": 24984,
+   "sha256": "298bbf9ccd75b57fde9d131551b32b9b5b3a5a7910e7c9df7ce796cdf3334fac"
+  },
+  {
+   "path": "C92/DELIVERY.md",
+   "bytes": 2923,
+   "sha256": "c28a8761e4e6fb4369c67d7eeea78137cf4a8e3c628310079915b357e4a1b0cd"
+  },
+  {
+   "path": "C92/checker.py",
+   "bytes": 9983,
+   "sha256": "5a4529ab99723d52e0e21bb442f572f466a9dd1bf993d383f520aa1459e45c0a"
+  },
+  {
+   "path": "C92/checker_stdout.txt",
+   "bytes": 757,
+   "sha256": "13dc0bd8b380a9c9e30c7989242c7a7d320e3d28e78abea572f4c7c6096534e2"
+  },
+  {
+   "path": "C93/PROOF.md",
+   "bytes": 15545,
+   "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c"
+  },
+  {
+   "path": "C93/REVIEW.md",
+   "bytes": 21678,
+   "sha256": "ede5964069465cda02ae7d3c1d880fe6c3ed5e4d8d7bc9401302d223d1097b7f"
+  },
+  {
+   "path": "C93/DELIVERY.md",
+   "bytes": 3226,
+   "sha256": "7251e1276557e0711c16d146e8cda625d98168bfe25b43823cd5af4a38f4d713"
+  },
+  {
+   "path": "C93/checker.py",
+   "bytes": 7986,
+   "sha256": "8b3801e8ccf1e2128b119725551ed20d81fe871280f5f97349cebedb5cd6c9e2"
+  },
+  {
+   "path": "C93/checker_stdout.txt",
+   "bytes": 805,
+   "sha256": "119eeabb69d4456ef5092d6f151388ed043244d7d6a430567a64ca4983d4fa89"
+  },
+  {
+   "path": "C94/PROOF.md",
+   "bytes": 15407,
+   "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c"
+  },
+  {
+   "path": "C94/REVIEW.md",
+   "bytes": 30074,
+   "sha256": "327abea538b814f279a936a71072960de08e53314f0f08dd32c2f8870a32d65e"
+  },
+  {
+   "path": "C94/DELIVERY.md",
+   "bytes": 3526,
+   "sha256": "78e51760dad257f7d2d799c3e0b7daa735f55df60dc48840788aa8a7149f5ee2"
+  },
+  {
+   "path": "C94/checker.py",
+   "bytes": 13554,
+   "sha256": "45325eace87e01c23470676b31728798f029cc6bb5b10600d10c93d63d39c80a"
+  },
+  {
+   "path": "C94/checker_stdout.txt",
+   "bytes": 944,
+   "sha256": "35b833e94d7d06b79dfa6ec35a2ccd7f9c54a358706750a4c7ed7121a256c682"
+  },
+  {
+   "path": "C95/PROOF.md",
+   "bytes": 16185,
+   "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1"
+  },
+  {
+   "path": "C95/REVIEW.md",
+   "bytes": 25080,
+   "sha256": "350be6dc7699b7fc377074e1217937ceb53022f2de5d3cdb9c85f499d35bcaf6"
+  },
+  {
+   "path": "C95/CHECKER_COMMENT.md",
+   "bytes": 14687,
+   "sha256": "1f74052955e8812bc9c14573acab9ff88eb0f180eff5ecedb83eb3910a504eda"
+  },
+  {
+   "path": "C95/DELIVERY.md",
+   "bytes": 4319,
+   "sha256": "3e191e8d85296ae9023595d5472bc30b7ff72b41a7ef29bb9bbd634ad94b0c61"
+  },
+  {
+   "path": "C95/checker.py",
+   "bytes": 10566,
+   "sha256": "179d64b556b337ddf966ba5f4f274d59910a6c045a242b26fff957f3167951d2"
+  },
+  {
+   "path": "C95/checker_stdout.txt",
+   "bytes": 1691,
+   "sha256": "484e9d61c77fcd6394ad97cae20e628e4ccb6c3163d7ff900fdd4ee0836c37f5"
+  },
+  {
+   "path": "C96/PROOF.md",
+   "bytes": 7913,
+   "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5"
+  },
+  {
+   "path": "C96/REVIEW.md",
+   "bytes": 11275,
+   "sha256": "43f3933870585fbc216a5eeae0528f14ac893ff498ef7b24c66cd77d7f2ef3ae"
+  },
+  {
+   "path": "C96/COMPLETION.md",
+   "bytes": 3466,
+   "sha256": "634fdab86ef2d568fecba9da80ccd067e3dc12849d88731648f1b09e46861603"
+  },
+  {
+   "path": "C96/DELIVERY.md",
+   "bytes": 3907,
+   "sha256": "5364d09b2bd84166ab9d056f619549d10b865375ba8a0dd61e43d5a6723ed2e7"
+  },
+  {
+   "path": "C97/PROOF.md",
+   "bytes": 16098,
+   "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57"
+  },
+  {
+   "path": "C97/REVIEW.md",
+   "bytes": 23585,
+   "sha256": "1de14fcabaad502e6fe36f79bcb3992841551d766ef41ceaba9c8155b5655212"
+  },
+  {
+   "path": "C97/CHECKER_COMMENT.md",
+   "bytes": 13396,
+   "sha256": "999762b27bf4b285ef9b601fe0f9547a2ca1eea03d2b17d54da31dfba70fe659"
+  },
+  {
+   "path": "C97/DELIVERY.md",
+   "bytes": 4954,
+   "sha256": "3a4ec3db7b89d54f5f36942813254a1fbf341c082a6164f5514da42946d2e417"
+  },
+  {
+   "path": "C97/checker.py",
+   "bytes": 10559,
+   "sha256": "863f0f80edc144e394e5e23149d0d048ff5c09a802a3086cafcaaeeceee3c334"
+  },
+  {
+   "path": "C97/checker_stdout.txt",
+   "bytes": 1737,
+   "sha256": "41f5d16c4dd0ad6ed90b7d18b1ba9a41c37a9feb3ab5ad214813918dd12cdb72"
+  },
+  {
+   "path": "C98/PROOF.md",
+   "bytes": 15050,
+   "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198"
+  },
+  {
+   "path": "C98/REVIEW.md",
+   "bytes": 22889,
+   "sha256": "733514e253eab9e7741c4fbdd3b54f86c046c7b68648f88d2d114cea3025e5e6"
+  },
+  {
+   "path": "C98/CHECKER_COMMENT.md",
+   "bytes": 12162,
+   "sha256": "e7fbf2a77178daf072f34020ca05bdbc8a9cb6759e948cda94a41ffa61037e7e"
+  },
+  {
+   "path": "C98/DELIVERY.md",
+   "bytes": 4373,
+   "sha256": "6b05b6550a90e62e92fa728f94df74b770f3c2c0046a9dac3efb5c726e758f4b"
+  },
+  {
+   "path": "C98/checker.py",
+   "bytes": 9334,
+   "sha256": "f42b2a8c090cfb1cbb0cc30da6517db150712997ffa9fe815a1c740e5a681f3a"
+  },
+  {
+   "path": "C98/checker_stdout.txt",
+   "bytes": 1859,
+   "sha256": "9ddcf06779eab02446f29015ffff7d46c058022aeb15ff519b02490244184796"
+  }
+ ]
+}
