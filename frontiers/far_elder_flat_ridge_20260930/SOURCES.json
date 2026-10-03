@@ -1,0 +1,343 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.2",
+ "kind": "author-side proof candidate (Lemmas 1-3 deterministic; Theorem G conditional on the reconciled [P] interfaces and the standard Borell-TIS inequality; v1.1: Remark 5 rewritten for the merged expansions #191/#198/#220/#229, Remark 6 records the posted Codex consequences and proves C(rho, N) >= c_N rho^(1-4N) conditionally on their (2.4); Theorem G and its proof unchanged); nonauthor analytic review required",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333",
+  "main_merged_in_v1_1": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
+ },
+ "consumed": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "§1 field; §2 distinct-site rank (N + 2 sites); §4 regression / independent residual at fixed sites; §8 maximin d_f and the Borel elder mark; §9 as [E2]; §14 far pairs and (14.1)"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "§9.1-9.4: the marked Kac-Rice version (0.1) and measurability of e_y"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "§1 reading rule, §5 embedding radius, §7 consumption contract"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule only"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "§7 near/far decomposition, §8 moments (Remark 5)"
+  },
+  {
+   "path": "frontiers/c7_zero_gap_limit_20260929/PROOF.md",
+   "bytes": 17592,
+   "sha256": "f0e563c45c41333f2bb6e5bf5cb98f0d3b592e2abf2af1c1b098c21ad77cb777",
+   "git_blob": "5b6328ea3d6afcbeb731698b3834e536f72d1bcb",
+   "tag": "Z",
+   "use": "far rejected limit (Remark 1); OpenAI candidate, non-OpenAI review required"
+  },
+  {
+   "path": "frontiers/unrestricted_selection_difference_20260929/PROOF.md",
+   "bytes": 13028,
+   "sha256": "93a63002d32fd5c35ae994fe28b1205d8098026d6ddde19c67d4977dcf5817a9",
+   "git_blob": "5a55b179a974a90c65d257f3f93765cc6fb30bb8",
+   "tag": "U",
+   "use": "(U1) far rejected lower bound (Remark 1); OpenAI review reviews/c7_nonvanishing_openai_20260929"
+  },
+  {
+   "path": "reviews/c7_nonvanishing_openai_20260929/REVIEW.md",
+   "bytes": 10807,
+   "sha256": "68b6cd43351706745992c4af242abdc5bdabd46ab5ac99347f2c12b505e1a15d",
+   "git_blob": "64794e5801b70d950c7e1202f7b6b7d07055cbb6",
+   "tag": "U-review",
+   "use": "the nonauthor review binding for [U]"
+  },
+  {
+   "path": "frontiers/far_elder_rate_20260930/PROOF.md",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b",
+   "git_blob": "072601145601a1021037a2e91bf8826c1c971ecc",
+   "tag": "187",
+   "use": "cited only: predecessor rate O(ell^(2/3)) (Theorem F); merged at c2f1270 with blob 07260114, a status-only change from the 37dcf6ef that v1 read (#182 recorded as integrated); its (2.1)-(2.2) are restated in section 2 from [P]; nothing of it is consumed"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "cited only (Remark 5): (R+.2) nu_eld = c ell^(-1/3) + o(1); section 0, the admissible radius r_0^* <= L/(4 sqrt 2)"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "cited only (Remark 5): Theorem R++, nu_eld = c ell^(-1/3) + O(ell^(1/4)); a premise of the cited Codex consequence OA-MT (Remark 6(b)), not of this note"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "cited only (Remark 5): Theorem E3, (E3.0) and (E3.3), the far elder density at the fixed separation r_0^*"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "cited only (Remark 5): Theorem E3+ (E3+.0), (E3+.1), (R+.1) and the equivalence for 0 < theta <= 3/7"
+  }
+ ],
+ "literature": [
+  "Adler, Taylor, Random Fields and Geometry (Springer 2007), Theorem 2.1.1 (Borell-TIS)"
+ ],
+ "mutants": [
+  "M1",
+  "M2",
+  "M3",
+  "M4",
+  "M5"
+ ],
+ "referee": {
+  "kind": "clean-context Anthropic Claude subagent before landing (same provider, same account; not a nonauthor review)",
+  "findings": "no blocking; SHOULD-FIX applied: far-pin genericity stated (section 2(d)); pointwise Gaussian density bound (2.a) restated from [P] so that Math-#187 is cited only; Remark 1 three-way split of rejected far pairs (separated / dead-bar / third-maximum or H_1 case, the last also O(ell^N)); Remark 5 keeps A.3.2-prime and names (R16),(R18); Borell-TIS applied to v^T D^2 g v on X x S^(d-1); K_0 choice made explicit (m_*, C_2^2 >= max(32 sigma_*^2, 1/c)); Lemma 2 cone/handle wording and the sphere-crossing argument without embeddedness; Remarks 2-4 softened (no small-ball rate conjectured; Li-Shao pinpoint removed); controls: K = 21 on the component interval, death-level component, equality case, factor-2 mutant M5, dead F3 line removed"
+ },
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 29110,
+   "sha256": "967148439e32e8e5d6c06a12df5cc7c1eb2475fe6828e4aeb3748c48817a4cba"
+  },
+  {
+   "path": "flat_ridge_check.py",
+   "bytes": 12667,
+   "sha256": "00b362170202b63e75d6e80f5ac5a51b97da3ca2087ef47b3f9edd1c11712a82"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 1264,
+   "sha256": "f7ab1b00bbe105af18656ec314dc7d33499f36236f2982e8ca6be5b93b12c35f"
+  },
+  {
+   "path": "README.md",
+   "bytes": 6435,
+   "sha256": "247ba531f8c51e41d1ca5e54c0567d847775d0f175716522e64a87c92cff1cc5"
+  },
+  {
+   "path": "C89_V1_1_PROOF.md",
+   "bytes": 15039,
+   "sha256": "7d8d3063caa0dfb5edbfe75437d7ccff8ab74697d1dd92c4b47cca5926b02392"
+  },
+  {
+   "path": "C89_V1_PROOF.md",
+   "bytes": 14742,
+   "sha256": "74af6322bdcccec0b718b6abcbfb36b139c40d07398849af9a35ad2000bc31f1"
+  },
+  {
+   "path": "C89_V1_1_REVIEW.md",
+   "bytes": 26692,
+   "sha256": "d31e1aaf72986117c1fcae69062e5235660b8c06ab55865cbca850e2f2ff8bcd"
+  },
+  {
+   "path": "c89_reviewer_controls.py",
+   "bytes": 12190,
+   "sha256": "83982f11df2f145f8dcde55c1900ef8723d46b0820f269049e3c2f4f05da9fab"
+  },
+  {
+   "path": "c89_reviewer_stdout.json",
+   "bytes": 1068,
+   "sha256": "cee69d10a059a1cc62ef89624e85da7b035fa2e309c77bafe0eb87e8d450a074"
+  },
+  {
+   "path": "c89_replay.py",
+   "bytes": 4448,
+   "sha256": "e942e03e04a8d64fd98e4eeb567b42112a86a6f35272aa68dffabbe8893b505f"
+  }
+ ],
+ "supersedes": {
+  "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1",
+  "head": "85f0586a468c2b2f73af0e340d251e33a52caade",
+  "proof_blob": "50cfbf4fcb9a3526f979eaedf885d42824a3c3a3"
+ },
+ "cited_comments": [
+  {
+   "tag": "OA-FD",
+   "object": "OA-FAR-DIAGONAL-CUTOFF-20261001-v1",
+   "where": "Math- #188 comment 5938629116",
+   "author": "OpenAI Codex root, under Dylan Roy's delegation (same GitHub account)",
+   "input": "this note at 85f0586, PROOF blob 50cfbf4f: (0.1) and Theorem G (0.2)",
+   "use": "Remark 6(a): Proposition D (a diagonal cutoff), D-cum, and the nonnegative measure (D5)",
+   "review": "fresh nonauthor OpenAI scoped PASS disclosed in the comment (organizational independence 0)"
+  },
+  {
+   "tag": "OA-MT",
+   "object": "OA-ELDER-MOVING-CONTACT-TAIL-20261001-v1",
+   "where": "Math- #188 comment 5940268333",
+   "author": "OpenAI Codex /root/review_density_proof_gaps, under Dylan Roy's delegation (same GitHub account)",
+   "input": "merged #198 (blob abfb98ae: Theorem R++, the proof of W.2, W.3) with [P] and [R]; Theorem G is not a premise",
+   "use": "Remark 6(b)-(c): (2.1) a_0 > 0, (2.4) the uniform two-parameter estimate, (3.4); (R6.1) here is derived from (2.4)",
+   "review": "fresh nonauthor OpenAI conditional technical pass disclosed in the comment (organizational independence 0)"
+  }
+ ],
+ "nonauthor_reviews": [
+  {
+   "slice": "A (note; not an acceptance)",
+   "reviewer": "xAI / Grok team (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5379778152",
+   "at": "85f0586",
+   "verdict": "NOT READY (Lemma 1 checked as the standard uphill bound with its sharp equality case; living-bar hypothesis, shell count and Kac-Rice insertion not checked; behind main)",
+   "findings": []
+  },
+  {
+   "slice": "scoped deterministic check (not a review of Theorem G)",
+   "reviewer": "same-account lane (unsigned in the comment; organizational independence 0)",
+   "comment": "5932225117",
+   "at": "85f0586",
+   "verdict": "two control identities exact: Lemma 1 sharpness on f = b - K|x|^2/2, and the younger lifetime 16/15 in F1",
+   "findings": []
+  }
+ ],
+ "amendments": [
+  {
+   "label": "v1.1",
+   "files_changed": [
+    "PROOF.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/far-elder-flat-ridge.yml"
+   ],
+   "unchanged": [
+    "flat_ridge_check.py",
+    "RESULTS.json"
+   ],
+   "proof_parts_unchanged": [
+    "sections 1-3",
+    "Theorem G",
+    "Remarks 1-4",
+    "section 6"
+   ],
+   "reason": "status of #187 (merged); Remark 5 for the merged #191/#198/#220/#229; Remark 6 records OA-FD and OA-MT and derives (R6.1); requested context: xAI 5379778152 and the scoped check 5932225117 note that #191 and #198 have merged"
+  },
+  {
+   "label": "v1.2 (packet)",
+   "files_added": [
+    "C89_V1_1_PROOF.md",
+    "C89_V1_PROOF.md",
+    "C89_V1_1_REVIEW.md",
+    "c89_reviewer_controls.py",
+    "c89_reviewer_stdout.json",
+    "c89_replay.py"
+   ],
+   "files_changed": [
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/far-elder-flat-ridge.yml"
+   ],
+   "unchanged": [
+    "PROOF.md",
+    "flat_ridge_check.py",
+    "RESULTS.json"
+   ],
+   "reason": "incorporate the reviewed C89 v1.1 extension additively, as requested in Math- #188 comment 5963266074"
+  }
+ ],
+ "extensions": [
+  {
+   "tag": "C89",
+   "object": "OA-QSF-20261002-C89-v1.1",
+   "title": "Quantitative separated jets and a shrinking far-elder region (Theorem QSF)",
+   "author": "OpenAI / Codex root01a0bbb5, under Dylan Roy's delegation (same GitHub account; organizational independence 0)",
+   "proof": {
+    "comment": "Math- #188 comment 5963100306",
+    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/188#issuecomment-5963100306",
+    "copy": "C89_V1_1_PROOF.md",
+    "bytes": 15039,
+    "sha256": "7d8d3063caa0dfb5edbfe75437d7ccff8ab74697d1dd92c4b47cca5926b02392"
+   },
+   "historical": {
+    "comment": "Math- #188 comment 5963042579 (v1; AMEND retained: explicit constant was a maximum of bounds, product C_* = C_Q C_R C_Z required)",
+    "copy": "C89_V1_PROOF.md",
+    "bytes": 14742,
+    "sha256": "74af6322bdcccec0b718b6abcbfb36b139c40d07398849af9a35ad2000bc31f1"
+   },
+   "review": {
+    "comment": "Math- #188 comment 5963217842",
+    "url": "https://github.com/d6g8k5htny-coder/Math-/pull/188#issuecomment-5963217842",
+    "copy": "C89_V1_1_REVIEW.md",
+    "bytes": 26692,
+    "sha256": "d31e1aaf72986117c1fcae69062e5235660b8c06ab55865cbca850e2f2ff8bcd",
+    "reviewer": "OpenAI / Codex /root (coordinating session), distinct from the author root; prior feasibility exposure disclosed; helper /root/c86_fresh_review supporting only",
+    "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED for the exact v1.1 object with the imported [P]/[G]/E2/REC hypotheses retained; v1 remains AMEND",
+    "organizational_independence": 0
+   },
+   "reviewer_controls": {
+    "script": "c89_reviewer_controls.py",
+    "script_bytes": 12190,
+    "script_sha256": "83982f11df2f145f8dcde55c1900ef8723d46b0820f269049e3c2f4f05da9fab",
+    "stdout": "c89_reviewer_stdout.json",
+    "stdout_bytes": 1068,
+    "stdout_sha256": "cee69d10a059a1cc62ef89624e85da7b035fa2e309c77bafe0eb87e8d450a074",
+    "source": "extracted verbatim from the review comment 5963217842 (code block saved with a final newline, as the review instructs)",
+    "replay": "c89_replay.py: [P] + this PROOF.md as [G] + C89_V1_1_PROOF.md; stdout byte-identical under -B -S and -B -O -S (Python 3.11.15 locally; 3.12.14 in the review)"
+   },
+   "records": [
+    {
+     "what": "author pickup",
+     "comment": "5962988822",
+     "bytes": 946,
+     "sha256": "a4b1f2cbc786803f1f3e5b11fde8bc4576d3563897a7753850996feb0cf506d8"
+    },
+    {
+     "what": "review pickup",
+     "comment": "5963136913",
+     "bytes": 1724,
+     "sha256": "842de348c1b3b128554f133df50f858593fc81e0329a270107443ec200152b01"
+    },
+    {
+     "what": "delivery and incorporation request",
+     "comment": "5963266074",
+     "bytes": 2873,
+     "sha256": "bbc60807a9be78558ead57c54b2940216f05d9230a255c4425314a331e9470ef",
+     "drive_delivery": "C89-QUANTITATIVE-SHRINKING-FAR-ELDER-20261002.zip, 395810 bytes, SHA256 888f32cfa5e0781cc929f972ea371efc008a9bf99572965795c1f584d4bad6b3 as published; size read back from Drive metadata, contents not downloaded or relied on"
+    },
+    {
+     "what": "incorporation pickup",
+     "comment": "5969476982"
+    }
+   ],
+   "consumes_from_G": "(0.1), Lemmas 1-3, section 2(d), section 3 shells and the volume bound (3.1); not Remark 6",
+   "G_pin": "PROOF.md blob 0b089b894960b0ee53fc2885e054d73ab73472bd, unchanged in v1.2",
+   "incorporated_by": "Anthropic Claude (author of [G]), session https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU; author-side interface check of the [G] uses, not a review of C89",
+   "not_established": "contact/intermediate localization; regional multiple-witness collision; actual-field confinement; witness uniqueness; rejected-candidate control; two-sided canonical-witness/persistence correspondence; uniformity in d, L or q"
+  }
+ ]
+}
