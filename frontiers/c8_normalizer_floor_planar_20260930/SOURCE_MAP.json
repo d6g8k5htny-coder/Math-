@@ -6,7 +6,7 @@
   "review_status": "AUTHOR_SIDE_CERTIFIED_CONSTANT",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
-  "note": "First C8 constant: a certified lower bound z_* for the full normalizer Z_r / r^2 of [LP] section 1 (planar torus kernel, every frame, L >= 10) on the declared band r in [1/8, 1/2], b in [0, 1], k in [1/2, 2], by exact rational interval arithmetic. Consumes the definition of Q, W_r, Z_r and the asymptotic (5.4)-(5.5) of [LP] as statements only; the number z_* is new. The r -> 0 limit z_0 = 36 k^2 E[A^2 1{A < 0}], A ~ N(-b, 2), used as a floating control, is the planar contact law recorded in [NUM]. No register, catalog, GRAPH or STATUS change; C8 stays OPEN (C, r_*, c_{B,K}, c_{d,L} are not supplied).",
+  "note": "First C8 constant: certified lower bounds for the full normalizer Z_r / r^2 of [LP] section 1 (planar torus kernel, every frame, b in [0, 1], k in [1/2, 2]) on two declared bands, by exact rational interval arithmetic: the high band r in [1/8, 1/2] for L >= 10 (Z_r / r^2 >= 3.5044) and the low band r in [1/64, 1/8] for L >= 12 (Z_r / r^2 >= 7.0499), hence z_* = 3.5044 on the combined r in [1/64, 1/2] for L >= 12 only. Consumes the [LP] section 1 definitions of Q, W_r and Z_r; [LP] (5.4)-(5.5) are cited for context only (the finite-r certificate does not use them: (5.5) is the existential statement whose numerical instance is supplied here, and z_0 of (5.4) is a floating comparison). [NUM] supplies the planar contact law z_0 = 36 k^2 E[A^2 1{A < 0}], A ~ N(-b, 2), used as a floating control only. No register, catalog, GRAPH or STATUS change; C8 stays OPEN (C, r_*, c_{B,K}, c_{d,L} are not supplied).",
   "sources": [
     {
       "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
@@ -34,7 +34,7 @@
   "catalog_reference": {
     "path": "reviews/candidates_pending_20260928/CANDIDATES.md",
     "entry": "C8. Numerical constants (still open as of 2026-09-29): explicit finite C, r_*, z_*, c_{B,K}, c_{d,L} on a declared compact-mark / torus band; disposition OPEN",
-    "effect_here": "none; this packet supplies one certified z_* on one declared band and changes no disposition"
+    "effect_here": "none; this packet supplies certified z_* values on two declared bands (high: L >= 10, r in [1/8, 1/2]; low: L >= 12, r in [1/64, 1/8]; combined z_* = 3.5044 on r in [1/64, 1/2] for L >= 12) and changes no disposition"
   },
   "nonauthor_reads": [],
   "nonauthor_acceptance": false,
