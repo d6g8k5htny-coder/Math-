@@ -1,0 +1,31 @@
+C101 AUTHOR CONTROLS — finite exact algebra, not analytic acceptance
+Python 3.12.14
+Exact controls: 6859
+False-inference fixtures rejected: 23
+m=3: alpha=1/12 beta=1/4 w exponent=1/32 e exponent=7/8
+Consumer: r^3*(alpha_1+alpha_2) + O(r^(13/4))
+Fixed integer m=1..64: all 13 error powers and 7 cutoff powers verified
+REJECT: omit finite-r edge-strip term
+REJECT: bound omitted strip correction by same model power uniformly
+REJECT: positive parts always sum to 12lambda
+REJECT: finite untruncated model inverse second moment
+REJECT: finite untruncated actual inverse contribution
+REJECT: globally exhaust the unmarked model measure
+REJECT: count coefficient equals failure coefficient
+REJECT: omit dA=r dlambda
+REJECT: normalize by soft mass instead of full Z
+REJECT: factor correlated determinant/norm expectation
+REJECT: joint contact density equals conditional t density
+REJECT: determinant H3 integrated over lambda stays H3
+REJECT: saddle margin alone certifies the older endpoint
+REJECT: replace the chord endpoint margin 4h by mu
+REJECT: a standalone gamma^-2 pole is necessary in the raw Hessian bound
+REJECT: alpha=1/4 makes jet L1 error vanish
+REJECT: a fixed finite moment yields beta=1/2
+REJECT: endpoint depth is the midpoint soft coordinate
+REJECT: sqrt epsilon balances the cubic endpoint margin
+REJECT: W/r4 perturbation has zero weight outside model typing
+REJECT: all moment constants can be replaced by the first moment constant
+REJECT: total variation of raw jets proves TV for a moved height atom
+REJECT: accepted and failure mismatches agree outside model typing
+PASS_FINITE_CONTROLS; AUTHOR_SIDE/HOLD; no Gaussian/geometric theorem acceptance
