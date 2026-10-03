@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "object": "CL-SIDE24-D6-COEFFICIENT-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_CONSTANT_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_ENCLOSURE_OF_THE_STATED_EXPRESSION_IN_D6_NO_REGISTER_CHANGE_SIDE24_V1_UNCHANGED",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/200#issuecomment-5919618330",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(15.1) the cone moment D_u; (15.2) the coefficient c_{d,L}",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "section 1 reference law, D_1 = 4/3, D_2 = 29/6 - sqrt6; sections 2-4 image bound, covariance sandwich (C_ref >= I/3 in every d) and cone-moment comparison, generalized to d = 6 in NOTE section 4",
+      "workflow_checked": true
+    },
+    {
+      "label": "ENC",
+      "path": "coefficients/side24_v1/ENCLOSURE.json",
+      "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+      "role": "the d = 2, 3 enclosures quoted in the script for rule SIDE24_CONSISTENT",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "33d50de",
+      "path": "coefficients/side24_d5_20260930/RESULTS.json",
+      "git_blob": "b67c00f45d053b51c2ec15ce8d53c8a34e49a006",
+      "role": "the D_4 and c_{5,ref} enclosures quoted (rule SIDE24_CONSISTENT)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "33d50de",
+      "path": "coefficients/side24_d5_20260930/NOTE.md",
+      "git_blob": "ab3fe17d8fbed0b417a4844ff9490e2eefcb5134",
+      "role": "sections 1-3: the (T, u) decoupling and the certified cumulative machinery generalized here"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/201",
+      "commit": "3abcc10",
+      "path": "coefficients/side24_d4_closed_form_20260930/closed_form_d3.py",
+      "git_blob": "a0c9169227c9a0b42c66deaca2b4f2e3168046ab",
+      "role": "exact arithmetic and moments, reused verbatim; the D_3 closed form is rule D3_EXACT"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/202",
+      "commit": "4512309",
+      "path": "coefficients/side24_d5_closed_form_20260930/closed_form_d4.py",
+      "git_blob": "e087f4c0007ae2473d28230771588da57f794aab",
+      "role": "T-function layer, m = 4 pipelines and the D_4 closed form (rules D4_EXACT, D4_CERTIFIED_PATH), reused verbatim"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 17746,
+      "sha256": "aa8247ff8c5f2cb38c68e552a057e12f6cf5c3776e0ff0d303429bb0c16fb108",
+      "git_blob": "e5316fd24bbc48db0c4d7e812d89afbd4910bcb0"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 8319,
+      "sha256": "82d1c19f9f503fd9211c6dcf356ec62aee9ec9eda44792bc38be4f3690637832",
+      "git_blob": "031c8bbe38eeb473a2223cc58522803207b4d556"
+    },
+    {
+      "path": "cone_moment_d6.py",
+      "bytes": 68731,
+      "sha256": "263e3d7353fda17726b1051a084c3cef75f8770d74d7ed1aeaf5f164db17f4fd",
+      "git_blob": "c5e56694d96c885373a7b70868259eeb9fdfa746"
+    }
+  ]
+}
