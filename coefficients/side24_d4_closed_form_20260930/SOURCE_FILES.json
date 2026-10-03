@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "object": "CL-SIDE24-D3-CLOSED-FORM-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_EXACT_IDENTITY_NONAUTHOR_READS_OPEN",
+  "disposition": "EXACT_CLOSED_FORM_OF_D3_FROM_THE_MATH199_REDUCTION_NO_REGISTER_CHANGE_SIDE24_V1_UNCHANGED",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/199#issuecomment-5918624116",
+  "result": {
+    "D_3": "50/3 - 76/(3 pi) - (200/(9 pi)) arctan(1/2) = (50 pi + 200 arctan 2 - 228)/(9 pi)",
+    "c_4_ref": "Gamma(7/6) (3/2)^(1/3) (50 pi + 200 arctan 2 - 228)/(72 sqrt3 pi^(7/2))",
+    "D_1": "4/3",
+    "D_2": "29/6 - sqrt6"
+  },
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(15.1) the cone moment; (15.2) the coefficient c_{d,L}",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "section 1 reference law A = Q + sqrt(2/3) Z I_m, D_1 = 4/3, D_2 = 29/6 - sqrt6 (the m = 1, 2 regressions)",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "4fc6d15",
+      "path": "coefficients/side24_d4_20260930/RESULTS.json",
+      "git_blob": "187552f596576c9dcdecd1deabc0304412d8a1f7",
+      "role": "the certified enclosures of D_3 and c_{4,ref} quoted in the script (rules D3_INSIDE_CERTIFIED, C4_CLOSED, PINNED)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "4fc6d15",
+      "path": "coefficients/side24_d4_20260930/NOTE.md",
+      "git_blob": "20e9acdba67f36e83a9db640b8759ce03485d3dc",
+      "role": "sections 1-2, the one-dimensional reduction that is integrated exactly here; section 4, the coefficient formula"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 15525,
+      "sha256": "b0756af59a92f9c8397614c9b4775959fe20caa7254949a664ee8285dfec0b2c",
+      "git_blob": "cbf35dead9f20cb8e68c357c62aca6413fb870af"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 5092,
+      "sha256": "bfbe37fde021f47a878a9c565bd9f3790a4891c2b8f397bbcd89a6ac6e234d67",
+      "git_blob": "a44807969567a2091d909dc2a772bc1a91ec4eaa"
+    },
+    {
+      "path": "closed_form_d3.py",
+      "bytes": 33890,
+      "sha256": "bd471be7d8b9199a3f305b0e1418ccfaa11cb7020b3d7e24412b9bada224eab5",
+      "git_blob": "a0c9169227c9a0b42c66deaca2b4f2e3168046ab"
+    }
+  ]
+}
