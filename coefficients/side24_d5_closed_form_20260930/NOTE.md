@@ -15,7 +15,7 @@ density `∝ exp(−tr Q²/4)`, `Z` an independent standard normal), the cone mo
 
 ```
 D_4 = 6695/54 − (405/32)√6 − (1/π) [ (1375/72)√21 + (6695/27) arctan√(3/7) + (405/16)√6 arctan(1/√14) ]
-    = 14.21876345897735760130646567787407831734060231608202158418…
+    = 14.2187634589773576013064656778740783173406023160820215842…
 ```
 
 (`arctan√(3/7) = arctan(√21/7)`, `arctan(1/√14) = arctan(√14/14)`). The exact arithmetic returns the two last atoms as
@@ -29,13 +29,14 @@ D_4 = 6695/54 − (405/32)√6 − (1/π) [ (1375/72)√21 + (6695/27) arctan√
 c_{5,ref} = Γ(7/6) (3/2)^{1/3} D_4 / (12√3 π^{7/2}) = 0.01321931938008496807603348751464139652105289012569990545…
 ```
 
-and `c_{5,24}` is as in Math-#200: `|c_{5,24}/c_{5,ref} − 1| ≤ 1.8554·10⁻¹⁰⁷`.
+and `c_{5,24}` is enclosed in Math-#200 (unmerged): `|c_{5,24}/c_{5,ref} − 1| ≤ 1.8554·10⁻¹⁰⁷`.
 
-With SIDE24 §1 (`D_1 = 4/3`, `D_2 = 29/6 − √6`) and Math-#201 (`D_3 = (50π + 200 arctan 2 − 228)/(9π)`), the reference
-coefficients `c_{d,ref}` of [LP] (15.2) are now in closed form for every `d ≤ 5` (§5). `D_5` (`d = 6`) is not claimed (§6).
+With SIDE24 §1 (`D_1 = 4/3`, `D_2 = 29/6 − √6`; author-side, nonauthor review open) and Math-#201 (`D_3`, unmerged), the
+reference coefficients `c_{d,ref}` of [LP] (15.2) have closed forms for every `d ≤ 5` (§5), conditional on Math-#199/#200/#201
+and on SIDE24 at its stated scope. `D_5` (`d = 6`) is not claimed (§6).
 
 **What is proved here and from what.** The identity is obtained by exact integration of the integral to which Math-#200
-reduces `D_4` (that reduction is exact algebra on the ordered-sector integrand, re-run here by the same code, and checked at
+reduces `D_4` (unmerged; the Proposition is conditional on that reduction; the reduction is exact algebra on the ordered-sector integrand, re-run here by the same code, and checked at
 `m = 1, 2, 3` against `4/3`, `29/6 − √6` and Math-#201's `D_3` through the identical path). The computation lives in the
 finite-dimensional `Q`-vector space with basis `√r · π^{k/2} · A` (`r` squarefree, `k ∈ Z`, `A = 1` or an arctan atom), so its
 output is an identity. Math-#200's certified enclosure of `D_4` (an independent method: order-40 Taylor quadrature with Cauchy
@@ -155,9 +156,16 @@ by the structural check: without the Vandermonde factor even `p_3`-powers appear
 `λ + u² + v²` in L3), `jk-init`, `gauss-half`, `boundary-term`, `atom-pi`, `cumulative-init` (`G_1` sign), `cumulative-recurrence`
 (`n−1 → n` in L2). Runtime about two seconds.
 
+`certified` in `RESULTS.json` / `SOURCE_FILES.json` means exact arithmetic of the identity plus interval containment against
+Math-#200's author-side enclosure (unmerged, quoted in the script, not byte-checked against #200); it is not a review or
+acceptance.
+
 ## 5. The coefficient in every `d ≤ 5`
 
-With `c_{d,ref} = Γ(7/6)(3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d)` ([LP] (15.2); Math-#199 §4, Math-#200 §4):
+With `c_{d,ref} = Γ(7/6)(3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d)` ([LP] (15.2); Math-#199 §4, Math-#200 §4), the table
+below gives closed forms for every `d ≤ 5`, conditional on Math-#199/#200/#201 and on SIDE24 at its stated scope. SIDE24 (1) on
+`main` states the formula for `d = 2, 3` only; for `d = 4, 5` it is cited from the unmerged Math-#199 §4 and #200 §4. SIDE24
+itself is author-side with nonauthor review open.
 
 | `d` | `D_{d−1}` | `c_{d,ref}` | value |
 |---|---|---|---|
@@ -166,12 +174,14 @@ With `c_{d,ref} = Γ(7/6)(3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d
 | 4 | `(50π + 200 arctan 2 − 228)/(9π)` | `Γ(7/6)(3/2)^{1/3}(50π + 200 arctan 2 − 228)/(72√3 π^{7/2})` | `0.0233216660029528350945211949528…` (Math-#201; #199 encloses) |
 | 5 | Proposition above | `Γ(7/6)(3/2)^{1/3} D_4/(12√3 π^{7/2})` | `0.0132193193800849680760334875146…` (this record; #200 encloses) |
 
-The torus constants `c_{d,24}` remain enclosed through the SIDE24 §§3–4 sandwich with the constants of Math-#199 and #200.
+On main, SIDE24 §§3–4 encloses `c_{d,24}` only for `d = 2, 3`. The `d = 4, 5` enclosures are in the unmerged companions Math-#199
+and Math-#200 (nonauthor reads open), not on main.
 
 ## 6. Scope and non-claims
 
-- The Proposition is an identity, proved by L1–L4 applied to the exact reduction of Math-#200. It consumes [LP] (15.1)–(15.2) and
-  SIDE24 §1 at their scope and does not review them.
+- The Proposition is an identity, proved by L1–L4 applied to the reduction of Math-#200 (§§1–2 of its NOTE). That reduction is
+  unmerged and awaits nonauthor review, so the Proposition is conditional on it. It consumes [LP] (15.1)–(15.2) and SIDE24 §1 at
+  their scope and does not review them.
 - **No closed form for `D_5` (`d = 6`) is claimed or expected by this method.** The `m = 5` reduction needs a second cumulative
   layer: the first produces `erf(√μ v)` terms (L2), and a cumulative integral of `e^{−μ'v²} · polynomial · erf(√μ v)` is not
   elementary in its upper limit (it is an Owen-`T`-type function), so the outer integrand would carry a non-elementary factor;
@@ -186,25 +196,26 @@ The torus constants `c_{d,24}` remain enclosed through the SIDE24 §§3–4 sand
 `coefficients/side24_d5_closed_form_20260930/{NOTE.md, closed_form_d4.py, RESULTS.json, SOURCE_FILES.json}` and
 `.github/workflows/side24-d5-closed-form.yml` (manifest, pins, byte-identical replay in `-B -S` and `-B -O -S`, the stated
 closed-form string, the fourteen mutants). Pins on `main 3e0a91b`: [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
-blob `dfed3b8d`; SIDE24 `coefficients/side24_v1/PROOF.md` blob `44b66f04`. Companions, not on `main`: Math-#200 at `33d50de`
+blob `dfed3b8d`; SIDE24 `coefficients/side24_v1/PROOF.md` blob `44b66f04`. Companions, not on `main`: Math-#200 at `aa1d51e`
 (`coefficients/side24_d5_20260930/RESULTS.json` blob `b67c00f4`, the two enclosures quoted in the script; `NOTE.md` blob
-`ab3fe17d`, the reduction); Math-#201 at `3abcc10` (`closed_form_d3.py` blob `a0c91692`, the arithmetic and L1, L3–L4, reused
+`bb931d46`, the reduction); Math-#201 at `3abcc10` (`closed_form_d3.py` blob `a0c91692`, the arithmetic and L1, L3–L4, reused
 verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identical to `RESULTS.json`); `--mutant NAME` exits 1.
 
 ## 8. Current disposition
 
 - **Head / owner:** see the PR's disposition block; branch `claude/side24-d4-closed-form-20260930` (base `main 3e0a91b`);
   author lane Anthropic / Claude (`session_017Mi3hxjaxV45x6zo6o1ee3`).
-- **Claim:** the Proposition and Corollary of §0, proved by exact integration of the Math-#200 reduction; exact `m = 1, 2, 3`
-  and `Z_4` regressions; the closed form at the centre of the independent certified enclosure. No theorem of [LP] or SIDE24 is
-  proved or reviewed.
-- **Completed review scopes:** none yet. Requested: nonauthor reads of Slice A (§1: the reduction data, odd `k`, the constants;
-  L1), Slice B (§2 L2–L4 and §3: the T-function layer, the two-erf base integral, the by-parts recurrences, the atoms and
-  cancellations, the `Z_4` identity), Slice C (§§4–6: rules, mutants, containment, the coefficient table, the `D_5` non-claim).
-- **Unresolved finding IDs:** none.
-- **Validation:** 16/16 rules in both modes, byte-identical output; 14/14 mutants rejected in both modes; workflow replayed
-  locally; hosted run pending at opening.
-- **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+- **Claim:** the Proposition and Corollary of §0, proved by exact integration of the Math-#200 reduction (unmerged; the
+  Proposition is conditional on it); exact `m = 1, 2, 3` and `Z_4` regressions; the closed form at the centre of Math-#200's
+  author-side certified enclosure. No theorem of [LP] or SIDE24 is proved or reviewed.
+- **Completed review scopes:** Codex code review 5371784947 at `60e56ef` (two findings: one taken, one declined with reasons).
+  Nonauthor read S4 by Grok Bot agent 13 (Grok Bot support agent; non-Claude, nonauthor lane) at `4512309`, Slices A–C: AMEND,
+  no BLOCK, no numerical disagreement (an independent route reproduces `D_4` to `1.5·10⁻¹⁵`); F1–F7 applied in v1.2.
+- **Unresolved finding IDs:** 4149168070 (P1, the replay workflow vs the 2026-09-27 owner stop; declined with reasons; the
+  disposition is ledger task B on main#229, left to a non-Claude lane).
+- **Validation:** 16/16 rules in `-B -S` and `-B -O -S`, byte-identical output; 14/14 mutants rejected in both modes; the
+  workflow replayed locally; hosted runs on each head.
+- **Next action:** a readback of F1–F7; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
 
 ## 9. Revisions
 
@@ -216,3 +227,11 @@ verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identi
   2026-09-27), the owner's later directives quoted in `AGENTS.md` and the owner workflow of 2026-09-30 govern this record, and
   the workflow is path-scoped to this packet and its pins. The owner can direct its removal at any time; the record is
   runnable locally in two seconds without it. No certified value changed.
+- **v1.2 (nonauthor read S4, Grok Bot agent 13, Math-#202 comment 5974483504, on `4512309`).** Wording, carriers and pins
+  only; no certified value, script or `RESULTS.json` byte changed. F1: the Proposition is conditional on the unmerged Math-#200
+  reduction (§0, §6). F2: the `c_{d,ref}` closed forms for `d ≤ 5` are conditional on Math-#199/#200/#201 and on SIDE24 at its
+  stated scope (§0, §5 lead-in, PR title). F3: on `main`, SIDE24 §§3–4 encloses `c_{d,24}` only for `d = 2, 3`; the `d = 4, 5`
+  enclosures are in the unmerged Math-#199/#200 (§0, §5). F4: what `certified` means (§4). F5: the Math-#200 companion pin moves
+  to `aa1d51e` (`NOTE.md` blob `bb931d46`; `RESULTS.json` blob unchanged, `b67c00f4`). F6: the displayed digits of `D_4` end
+  `…0215842…` (the true digits are `…0215842092…`; the old trailing `18` lay beyond the certified prefix). F7: §8 synced with
+  the PR's disposition block.
