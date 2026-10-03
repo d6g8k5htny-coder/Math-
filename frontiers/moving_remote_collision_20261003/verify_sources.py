@@ -21,12 +21,22 @@ FROZEN_FILES = {
     "CONTROLS_DESIGN.md": (4171, "963a797c28c5872097421187d3332e7e9041435d1eb31fca0a186e8dab4f6de7"),
     "author_controls.py": (16587, "9063ffb1c09c3ea62cc5dd7e0663ba4a9dada240ff7f9504a5bebfd7e92fec87"),
     "author_controls.normal.stdout": (2228, "a73652695fffc2fa8275f0b9a1119394beca4b5a6e4c690ef615d88ffcbc1d97"),
+    "AUTHOR_CONTROL_RUNS.json": (3214, "ee15e53018b87d160a0824c684b0eac8b0b598bd24bd3bf49298a1d3edb79bfe"),
+    "AUTHOR_CONTROLS_FREEZE.json": (1127, "a055e23dce305cf8b454b6c9786902d131962e56640493a0bc14f21c3aa75d0d"),
+    "author_controls.normal.stderr": (0, "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+    "author_controls.optimized.stdout": (2228, "a73652695fffc2fa8275f0b9a1119394beca4b5a6e4c690ef615d88ffcbc1d97"),
+    "author_controls.optimized.stderr": (0, "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+    "author_controls.launch_failure.stdout": (0, "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+    "author_controls.launch_failure.stderr": (62, "4e74f59b4c51ae140112c2a67d336374a7b6afbbca5a9d0387ad98a7627359ef"),
     'review/AUTHOR_CHECKER_REPLAY.json': (2924, '4d0f7f0163875c4c363c6eef012f442052ed17fc124a5fd87a6be6173e457bf6'),
     'review/CONTROL_DESIGN.md': (4140, '161b0c0dc3b18db32a7ba61a868a944d5767c8b780281901ccc5c9f1435f51bb'),
     'review/INDEPENDENT_RUNS.json': (6623, '3ca33cc27729378744721b0a3bcc988b733410d3394b5dda4f2ca6048c29a424'),
     'review/REVIEW.md': (17536, 'df2785862ca5bc0620773d9ce71d1c5c11b4d53a6ebbbc93a3a3b0ed5e76fab8'),
     'review/REVIEW_RECEIPT.json': (1545, 'e27bcaa40d1c5d976e30de89e1748a4f66e27ae2c6f3155d41311d60e03d27ea'),
     'review/independent_controls.py': (11156, 'ae449870aa408a5437d5990b50d331a8af3d4eb063c8c7476f781677530ca873'),
+    'review/ENGINEERING_REVIEW.md': (8795, '43d8bdd07cc40f9792cf62b71bf4067b2101013a2a53215c50681aca93ebbf80'),
+    'review/ENGINEERING_RUNS.json': (8801, 'ac99011d56f5fdd0674a798bace78de7560c160849c4bce9460b4f047ffbe5fe'),
+    'review/ENGINEERING_RECEIPT.json': (1837, 'aa2e927079db8e6f4f6db0a9b998066e082e2b31f928cf7aa32838974516e87b'),
 }
 
 

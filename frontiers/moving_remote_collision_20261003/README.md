@@ -34,6 +34,20 @@ were byte-identical. The runtime-version line may differ on another Python;
 the mathematical check lines are deterministic. These finite checks are
 neither the continuum proof nor mathematical acceptance.
 
+[The original author run record](AUTHOR_CONTROL_RUNS.json), its
+[pre-run freeze](AUTHOR_CONTROLS_FREEZE.json), and all referenced stdout/stderr
+files are included byte-for-byte and bound by the verifier. The initial launch
+failed before the script ran because the executable basename was wrong; the
+later normal and optimized runs are separate recorded executions. Empty stderr
+files are intentional evidence, not missing attachments.
+
+The [first publication engineering review](review/ENGINEERING_REVIEW.md),
+[its execution record](review/ENGINEERING_RUNS.json) and
+[receipt](review/ENGINEERING_RECEIPT.json) are preserved as historical evidence
+for the initial publication commit e26ed4a. Their target hashes describe that
+version, before the subsequent attachment-completeness repair. Successor
+engineering dispositions are recorded in [PR #248](https://github.com/d6g8k5htny-coder/Math-/pull/248).
+
 The reviewer independently designed and ran 425 positive exact evaluations
 and 46 negative-control rejections before opening the author checker.
 [Independent run record](review/INDEPENDENT_RUNS.json).

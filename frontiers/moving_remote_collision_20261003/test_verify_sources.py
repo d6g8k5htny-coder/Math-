@@ -25,6 +25,11 @@ class PacketTests(unittest.TestCase):
         if not (self.packet/"review").exists():
             shutil.copytree(v.HERE/"review", self.packet/"review")
         shutil.copytree(v.HERE/"sources", self.packet/"sources")
+        # Copy the cited author history independently of verifier anchors so
+        # omission of those anchors is itself a detectable failure.
+        self.history = json.loads((v.HERE/"AUTHOR_CONTROL_RUNS.json").read_text())
+        for name in ["AUTHOR_CONTROL_RUNS.json", *self.history["files"]]:
+            shutil.copyfile(v.HERE/name, self.packet/name)
 
     def tearDown(self):
         self.temp.cleanup()
@@ -68,6 +73,30 @@ class PacketTests(unittest.TestCase):
             f.write(b"\nchanged\n")
         with self.assertRaisesRegex(ValueError, "source bytes mismatch"):
             v.verify(self.packet, v.ROOT)
+
+    def test_author_history_mutations_rejected(self):
+        for name in ["AUTHOR_CONTROL_RUNS.json", *self.history["files"]]:
+            with self.subTest(file=name):
+                path = self.packet/name
+                original = path.read_bytes()
+                path.write_bytes(original + b"\nchanged history\n")
+                try:
+                    with self.assertRaisesRegex(ValueError, "frozen anchor"):
+                        v.verify(self.packet, v.ROOT)
+                finally:
+                    path.write_bytes(original)
+
+    def test_author_history_omissions_rejected(self):
+        for name in ["AUTHOR_CONTROL_RUNS.json", *self.history["files"]]:
+            with self.subTest(file=name):
+                path = self.packet/name
+                original = path.read_bytes()
+                path.unlink()
+                try:
+                    with self.assertRaisesRegex(ValueError, "regular file"):
+                        v.verify(self.packet, v.ROOT)
+                finally:
+                    path.write_bytes(original)
 
     def test_resigned_manifest_rejected(self):
         manifest=json.loads((self.packet/"SOURCE_IDENTITIES.json").read_text())
