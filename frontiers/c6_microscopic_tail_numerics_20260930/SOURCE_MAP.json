@@ -4,7 +4,7 @@
   "scientific_effect": "NONE",
   "source_repository": "d6g8k5htny-coder/Math-",
   "main_at_creation": "02772ec0427f4dda1f2a6b9e980a031804e276a6",
-  "note": "Numerical evaluation only, planar (d = 2). The formulas evaluated are [R] (R13) for the point-intensity tail constant C_*, with the [SC] measure (17) reduced at d = 2 (c_1 = 1, no hard directions) to the exact contact regression of the merged Math-#168 note; the whole-cluster split and the second-order/signed coefficients are the formulas of the companions Math-#169 (E5-E6) and Math-#176 ((13), (16), (19), (21)-(22)), both merged on main and pinned here since v3. The near-mass identity check ties (R11) to the merged alpha_1, alpha_2 values. Floating-point quadrature with reported convergence, not enclosures. v3 also checks the exact cusp-integral identities T2 = -T1/12 and Tb sqrt(192 pi^3) = (12 k^2 + 1)/(36 k^3) and the rational factor 66451/11128 of c = C2/C_* stated in Math-#190 (certified enclosure of this table, not consumed, not merged).",
+  "note": "Numerical evaluation only, planar (d = 2). The formulas evaluated are [R] (R13) for the point-intensity tail constant C_*, with the [SC] measure (17) reduced at d = 2 (c_1 = 1, no hard directions) to the exact contact regression of the merged Math-#168 note; the whole-cluster split and the second-order/signed coefficients are the formulas of the companions Math-#169 (E5-E6) and Math-#176 ((13), (16), (19), (21)-(22)), both merged on main and pinned here since v3; their pinned bytes keep the disposition 'author-side conditional proof candidate', so those values are conditional on [E] and [Q] and their sources (v3.1, review 5974193134). The near-mass identity check ties (R11) to the merged alpha_1, alpha_2 values. Floating-point quadrature with reported convergence, not enclosures. v3 also checks the exact cusp-integral identities T2 = -T1/12 and Tb sqrt(192 pi^3) = (12 k^2 + 1)/(36 k^3) and the rational factor 66451/11128 of c = C2/C_* stated in Math-#190 (certified enclosure of this table; merged 2026-10-01 at 77b854c as a review record filed as certified-arithmetic information, not a promotion; not consumed).",
   "sources": [
     {
       "path": "frontiers/two_scale_cluster_geometry_20260929/RADIAL_TAIL.md",
@@ -85,14 +85,46 @@
     }
   ],
   "nonauthor_acceptance": false,
+  "nonauthor_reads": [
+    {
+      "comment": "5364178009",
+      "kind": "pull_request_review",
+      "pr": "Math-#178",
+      "lane": "OpenAI / Codex (automated Codex review)",
+      "scope": "three findings, applied in d025512"
+    },
+    {
+      "comment": "5974218952",
+      "kind": "issue_comment",
+      "pr": "Math-#178",
+      "lane": "Grok Bot agent 2 (Grok support routed by the Chief of Staff 5974102560)",
+      "scope": "R4 Slice A (planar reduction, NOTE sections 1-2) at effb934: ACCEPT_WITH_FINDINGS; F1-F3 applied in v3.1"
+    },
+    {
+      "comment": "5974449197",
+      "kind": "issue_comment",
+      "pr": "Math-#178",
+      "lane": "Grok Bot agent 11 (Grok support routed by the Chief of Staff 5974102560)",
+      "scope": "R5 Slice B (near-mass identity) at effb934: ACCEPT_WITH_FINDINGS; F1-F4 applied in v3.1"
+    },
+    {
+      "comment": "5974193134",
+      "kind": "issue_comment",
+      "pr": "Math-#178",
+      "lane": "Grok Bot agent 13 (Grok support routed by the Chief of Staff 5974102560)",
+      "scope": "R6 Slice C (numbers) at effb934: ACCEPT_WITH_FINDINGS; F1-F8 applied in v3.1"
+    }
+  ],
   "governing_status_changed": false,
   "main_at_update": "3e0a91b69892b9717564c592e7a966492a81566a",
   "related_records": [
     {
       "pull_request": "Math-#190",
-      "head": "65ac384e1b1cba434ee25db6a2c40cc7d0cbd907",
+      "head": "28747d8e3447b3c0e92833ef45ac6c374e4a84b0",
       "path": "reviews/c6_tail_constant_certified_20260930/",
-      "role": "certified interval enclosures of the same constants (author lane Anthropic / Claude, other session); reports every value of this RESULTS.json (blob 0b5ce76f) within 9e-16 relative of its enclosure; states the exact identities checked here; not consumed, not a review of this note"
+      "role": "certified interval enclosures of the same constants (author lane Anthropic / Claude, other session); reports every value of this RESULTS.json (blob 0b5ce76f) within 9e-16 relative of its enclosure; states the exact identities checked here; not consumed, not a review of this note",
+      "merge_commit": "77b854cac6017ecdc0ea7abf6f978f9c6c9cb787",
+      "merged_at": "2026-10-01T14:10:35Z"
     }
   ]
 }

@@ -5,8 +5,8 @@
 
 Evaluates, for the parent kernel `exp(-|z|^2/2)` in the plane, the point-intensity tail constant `C_*` of the
 already-formed microscopic measure ([R] (R13); `F(t) ~ C_* t^-11`), the whole-cluster split of that tail
-(Math-#169, merged), the second-order coefficient `C_2/C_0`, the TV coefficient `kappa |C_2/C_0|` and
-the signed constant `B_sign` (Math-#176, merged), for `k in {1/2, 1, 2}` and `b in {0, 1}`. In `d = 2`
+(Math-#169, merged; values conditional on it), the second-order coefficient `C_2/C_0`, the TV coefficient `kappa |C_2/C_0|` and
+the signed constant `B_sign` (Math-#176, merged; values conditional on it), for `k in {1/2, 1, 2}` and `b in {0, 1}`. In `d = 2`
 the [SC] measure reduces to the exact contact regression of Math-#168, so every constant is a one-dimensional
 Gaussian integral; the four-dimensional near-mass identity `alpha_1 + 2 alpha_2 = K_0 int Q |Z|^-12 p_odd` is
 evaluated as a control against the merged Math-#168 values.
