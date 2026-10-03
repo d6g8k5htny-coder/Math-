@@ -1,0 +1,117 @@
+{
+ "C1": {
+  "CUB_B": "-cp/12",
+  "CUB_D": "R/1152",
+  "CUB_T": "(psi-2cp)^2(psi+cp)/82944",
+  "Delta_1": "sigma^2 = cp^3",
+  "Sigma_1": "R^2 = g(psi)",
+  "identities_G_eq_P": 30
+ },
+ "C2": {
+  "bound_2_8": "(16/3)|cp|^3 + R^2/3",
+  "branches": {
+   "cardano": 371,
+   "trig": 229
+  },
+  "max_rel_dev_formula_vs_bisection_lt_1e-9": true,
+  "points": 600
+ },
+ "C3": {
+  "Delta_curve": {
+   "I_on_Delta": "(20/3) c'^3",
+   "points": 32,
+   "switch_at_psi": "3c'"
+  },
+  "I(0,0)": "20/3",
+  "I(2/3,0)": "4/81",
+  "I_series": [
+   "20/3",
+   "-20",
+   "52/3",
+   "-28/9",
+   "-7/27",
+   "-7/81"
+  ],
+  "catalan_terms": 12,
+  "fibre_3/4": {
+   "I(3/4,0)": "5/48",
+   "psi_points": 8,
+   "tie_at_psi": "3/4"
+  },
+  "identity_3_1": true,
+  "phi_e_series": [
+   "1/3",
+   "1/3",
+   "10/27"
+  ],
+  "points_3_3": 54,
+  "points_derivative": 54,
+  "slopes_at_2/3": [
+   "-13/9",
+   "5/9"
+  ],
+  "t_star": "2/3"
+ },
+ "C4": {
+  "I(1,chi0)": "(chi0 - 4)^2/48",
+  "identity_2_7": true,
+  "min_over_chi0": "(4/3)(1-t)_+^3",
+  "zero_set_positive_points": 200
+ },
+ "C5": {
+  "all_rejected": true,
+  "points_beta_gt_2_chi_le_0": 400
+ },
+ "C6": {
+  "bound_4_4_points": 300,
+  "phi_RR_reduction": true,
+  "points_a": 55,
+  "range": "[0, 1/16]"
+ },
+ "C7": {
+  "Lambda": [
+   "128/105",
+   "-2888/2835",
+   "-907/2835"
+  ],
+  "Lambda_float_12dp": -1.329047593991,
+  "even_series_first_terms": [
+   "-14/27",
+   "-2/27"
+  ],
+  "h72_10dp": -10.1440440225,
+  "quadrature_agrees_1e-12": true
+ },
+ "C8": {
+  "E_absB_7/2_quadrature": true,
+  "E_gamma6": "120",
+  "E_gamma6_t2": "576 k^2",
+  "H_k2": "12/25",
+  "h4": "728/25",
+  "h72_constant": "(216/25) sqrt6 Gamma(9/4) Lambda / pi",
+  "k4_constants": [
+   "32256",
+   "53248"
+  ]
+ },
+ "C9": {
+  "S8_agree": 16,
+  "S8_at_origin_on_Delta": 5,
+  "S8_cases": 16,
+  "section5_examples": true,
+  "witness_elder": true
+ },
+ "controls": {
+  "C1_lemma1_identification": true,
+  "C2_theorem_A": true,
+  "C3_corollary_A1_chi0_zero": true,
+  "C4_corollary_A2": true,
+  "C5_corollary_A4": true,
+  "C6_lemma_B2_Phi": true,
+  "C7_lemma_B1_Lambda_h72": true,
+  "C8_theorem_B_bookkeeping": true,
+  "C9_fixed_points": true
+ },
+ "object": "CL-SOFT-CLOSED-FORM-20261002-v1.2",
+ "scientific_effect": "NONE"
+}
