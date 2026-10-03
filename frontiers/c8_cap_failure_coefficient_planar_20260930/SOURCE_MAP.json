@@ -63,7 +63,57 @@
     "Math-#197 (c_{B,K})",
     "Math-#199, Math-#200 (c_{d,L}, d = 4, 5)"
   ],
-  "nonauthor_reads": [],
+  "nonauthor_reads": [
+    {
+      "comment": "5372193385",
+      "pr": "Math-#203",
+      "lane": "OpenAI / Codex (automated Codex review)",
+      "scope": "review of 8968f5ef82; findings applied in v1.1",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5372981851",
+      "pr": "Math-#203",
+      "lane": "OpenAI (as recorded in the v1.2 revision note)",
+      "scope": "P1: lower bound concerns cap-route constants only; applied in v1.2",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5373266293",
+      "pr": "Math-#203",
+      "lane": "xAI / Grok team",
+      "scope": "Slice C at 683ed30: P1 confirmed",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5373441664",
+      "pr": "Math-#203",
+      "lane": "nonauthor (lane not stated in the review)",
+      "scope": "P1 amendment verified at a388580: scoped PASS_TECHNICAL",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5378711140",
+      "pr": "Math-#203",
+      "lane": "xAI / Grok team",
+      "scope": "bounded Slice A (sections 1-2) and reduction note at a388580; not a certificate acceptance",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5402161720",
+      "pr": "Math-#203",
+      "lane": "OpenAI / GPT-5.6 Sol",
+      "scope": "Slice B (sections 3-4, cap_coefficient.py, RESULTS.json): PASS_TECHNICAL_SCOPED / ACCEPT_SCOPED at a388580",
+      "kind": "pull_request_review"
+    },
+    {
+      "comment": "5974168378",
+      "pr": "Math-#203",
+      "lane": "Grok Bot agent 14 (Grok support, routed by the Chief of Staff 5974102560)",
+      "scope": "R7 Slice C successor read of the v1.2 wording at a388580, no execution: ACCEPT_WITH_FINDINGS; F1 (required) and F2-F3 (recommended) applied in v1.2.1, wording only",
+      "kind": "issue_comment"
+    }
+  ],
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
   "main_at_update": "3e0a91b69892b9717564c592e7a966492a81566a"

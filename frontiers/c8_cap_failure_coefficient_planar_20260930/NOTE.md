@@ -61,19 +61,20 @@ and the products, all as rational enclosures (section 4). Two headline numbers:
 
     c_G(0, 2)     in  [5324360.4426, 5324360.4427]      (the maximum over the Math-#195 band B = [0, 1], K = [1/2, 2] among the grid points),
     c_G(6/5, 1/6) in  [35736.7352, 35736.8785]    (SIDE24's fixed-axis parameters, the only pair for which an explicit C is on record;
-                                                  SIDE24's torus has L = 24, where the jet-law deviation is below 1e-100 but not enclosed here).
+                                                  reference-kernel value only: no bound on SIDE24's finite-L jet-law deviation is claimed or enclosed here).
 
 **Corollary (what this says about `C_cap` and `r_*`).** Every cap-route constant `C_cap` at `(b, k)` (for a given kernel and
 frame) satisfies `C_cap >= c_G(b, k)` for that kernel and frame. This is not a lower bound for every constant `C` of [LP] (1.1):
 the only relation between the two events is `1 - p_r <= Q^W(G_r^c)`, and the smaller probability has the smaller coefficient
 `alpha_1 + alpha_2` of [S] (S2) (Remark (d); section 5, items 1 and 4). The certified numbers are the reference-kernel
 values `c_G^{ref}`; for the torus kernel `K_L` in a frame `R` the coefficient is `c_G^{L,R}`, the same formula on the exact
-torus jet law, whose deviation from `c_G^{ref}` (of order `L^6 e^{-L^2/2}`, section 6) is **not enclosed here**. So, as a
+torus jet law, whose deviation from `c_G^{ref}` is **not enclosed here** (section 6). So, as a
 reference-kernel statement (equivalently `L -> infinity`): every band containing `(0, 2)` needs `C_cap > 5.3 x 10^6`, and the
 cap route cannot give a nontrivial bound (`C_cap r^3 < 1`) above `r = c_G^{-1/3}`, which is `5.7 x 10^-3` at `(0, 2)`,
-`3.4 x 10^-2` at `(1, 1/2)`, and `3.0 x 10^-2` at `(6/5, 1/6)`; for a finite torus the same holds with `c_G^{L,R}` in place
-of `c_G^{ref}`, up to that unenclosed deviation. The recorded cap-route constant of [CAP] (2)–(3), `C3_new + C4_new / 20 < 2.4 x 10^23`
-at `(6/5, 1/6)`, exceeds the sharp cap coefficient there by a factor above `6 x 10^18`. Against the true failure coefficient `alpha_1 + alpha_2` of [S] (S2) (the
+`3.4 x 10^-2` at `(1, 1/2)`, and `3.0 x 10^-2` at `(6/5, 1/6)`; for a finite torus only the symbolic statements hold, with
+`c_G^{L,R}` in place of `c_G^{ref}`; no numerical value is claimed there. The recorded cap-route constant of [CAP] (2)–(3),
+`C3_new + C4_new / 20 ≈ 2.36 x 10^23` (`< 2.4 x 10^23`) at `(6/5, 1/6)`, exceeds the reference-kernel sharp cap coefficient
+`c_G^{ref}(6/5, 1/6)` by a factor above `6 x 10^18` (the comparison with SIDE24's own finite-`L` coefficient is not enclosed). Against the true failure coefficient `alpha_1 + alpha_2` of [S] (S2) (the
 actual elder-pairing failure, values from [NUM]) the cap criterion overstates the failure rate by the `b`-free factor
 `36 k^2 J(k) / (J_1(k) + J_2(k))`: `7.4 x 10^4` at `k = 1/2`, `4.9 x 10^5` at `k = 1`, `2.4 x 10^6` at `k = 2` (section 5).
 
@@ -270,8 +271,9 @@ and the exact arithmetic of [CAP] (3).
 
 ## 5. Consequences for `C_cap`, `r_*`, and the size of the cap criterion's slack
 
-All numbers in this section are reference-kernel values (`c_G^{ref}`); for the torus kernel `K_L` in a frame `R` they hold
-with `c_G^{L,R}` in place of `c_G^{ref}`, whose deviation is of order `L^6 e^{-L^2/2}` and is not enclosed here (section 6).
+All numbers in this section are reference-kernel values (`c_G^{ref}`). For the torus kernel `K_L` in a frame `R` only the
+symbolic statements transfer (`C_cap >= c_G^{L,R}`; `C_cap r^3 < 1` forces `r < (c_G^{L,R})^{-1/3}`); no numerical value of
+`c_G^{L,R}` is claimed, and its deviation from `c_G^{ref}` is not enclosed here (section 6).
 
 1. **Lower bound for every cap-route constant `C_cap`.** If `Q^W(G_r^c) <= C_cap r^3` for all small `r` at `(b, k)`, then
    `C_cap >= c_G(b, k)` (for the kernel and frame in question). This does not bound a constant `C` of [LP] (1.1) itself: the
@@ -285,8 +287,10 @@ with `c_G^{L,R}` in place of `c_G^{ref}`, whose deviation is of order `L^6 e^{-L
    for which the cap bound [LP] (7.8) is informative on the band is below `6 x 10^-3` at the band's corner, whatever the proof
    of (7.8). A proof of [LP] (1.1) that does not pass through `Q^W(G_r^c)` is not constrained by this item.
 3. **The recorded constant.** [CAP] (2)–(3) give, for the fixed-axis SIDE24 law (`b = 6/5`, `k = 1/6`),
-   `C3_new + C4_new/20 < 2.4 x 10^23` (exact rational arithmetic, replayed in `--check`), against `c_G(6/5, 1/6) = 35736.8`:
-   a factor above `6 x 10^18` between the recorded cap-route constant and the sharp cap coefficient. The slack is in the moment bounds
+   `C3_new + C4_new/20 ≈ 2.36 x 10^23` (`< 2.4 x 10^23`; exact rational arithmetic, replayed in `--check`), against the
+   reference-kernel value `c_G^{ref}(6/5, 1/6) = 35736.8`: a factor above `6 x 10^18` between the recorded cap-route constant
+   and the reference-kernel sharp cap coefficient (`--check` verifies it with `C3_new` alone against the upper end of the
+   enclosure; the comparison with SIDE24's own finite-`L` coefficient is not enclosed). The slack is in the moment bounds
    (`||T||_8 < 320` for a supremum over a set of diameter `<= 6r`, `||M_4||_8 < 340`), not in the geometry.
 4. **The criterion against the truth.** The actual elder-pairing failure has coefficient `alpha_1 + alpha_2` ([S] (S2)), and
    by [NUM] `alpha_j = (p_b(0)/z_0) J_j(k)` with the same `b`-factor as `c_G` (`R(b) = 36 k^2 p_b(0)/z_0`), so the ratio is `b`-free:
@@ -324,5 +328,9 @@ Revisions: v1.1 (Codex review 5372193385 on Math-#203: the `|v| > V_MAX` tail ma
 reference-kernel qualification, `delta(k)` on the grid only; `RESULTS.json` unchanged). v1.2 (OpenAI review 5372981851,
 confirmed by xAI review 5373266293: the lower bound concerns cap-route constants `C_cap` of [LP] (7.8) only, not the constant
 of [LP] (1.1); the domination step of 2.4 made explicit; no numerical change, `RESULTS.json` and `cap_coefficient.py` unchanged).
+v1.2.1 (Slice C successor read 5974168378 on Math-#203, findings F1–F3, wording only: the unenclosed finite-`L` bound for
+SIDE24 is removed from section 0; the [CAP] comparison is stated against `c_G^{ref}`, with the value `≈ 2.36 x 10^23`; only
+the symbolic statements transfer to a finite torus; no order is asserted for the deviation of `c_G` itself (Remark (c) derives
+it for the jet-law parameters only); `RESULTS.json` and `cap_coefficient.py` unchanged).
 
 Author lane Anthropic / Claude, 30 September 2026. Scientific effect NONE. The author will not merge.

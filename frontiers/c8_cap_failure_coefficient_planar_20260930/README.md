@@ -16,8 +16,8 @@ the finite-torus jet-law deviation, of order `L^6 e^{-L^2/2}`, is not enclosed).
 cap-route constant `C_cap` (any constant with `Q^W(G_r^c) <= C_cap r^3`) at `(b, k)` is at least `c_G(b, k)`; on the
 Math-#195 band `C_cap > 5.3 x 10^6` (not a lower bound for the constant of Theorem A's `1 - p_r <= C r^3`, which bounds a
 smaller probability); the cap route is informative only below `r = c_G^{-1/3}` (`6 x 10^-3` at the band's corner `(0, 2)`);
-the recorded cap-route constant `2.4 x 10^23` of [CAP] at `(6/5, 1/6)` exceeds the sharp coefficient there by more than
-`6 x 10^18`; the criterion overstates the true failure rate `alpha_1 + alpha_2` by `10^4`–`10^6`.
+the recorded cap-route constant `≈ 2.36 x 10^23` of [CAP] at `(6/5, 1/6)` exceeds the reference-kernel sharp cap coefficient
+`c_G^{ref}(6/5, 1/6)` by more than `6 x 10^18` (the comparison with SIDE24's own finite-`L` coefficient is not enclosed); the criterion overstates the true failure rate `alpha_1 + alpha_2` by `10^4`–`10^6`.
 
 - `NOTE.md` — statement, proof of Theorem G (coupling, regression on `f_yy(M)`, dominated convergence, parity), the
   one-dimensional reduction, certification method, tables, consequences, non-claims.
