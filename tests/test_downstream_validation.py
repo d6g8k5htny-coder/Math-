@@ -54,7 +54,7 @@ class ValidationTimeoutTests(unittest.TestCase):
             'timeout_seconds': 30, 'elapsed_seconds': 30.25, 'status': 'timed_out',
             'streams': {'stdout': {'present': True, 'bytes': 3},
                         'stderr': {'present': True, 'bytes': 3}},
-            'persistence_failures': [],
+            'persistence_failures': [], 'diagnostic_failures': [],
         })
 
     def test_none_and_empty_streams_are_distinguished(self):
@@ -189,6 +189,53 @@ class ValidationTimeoutTests(unittest.TestCase):
         self.assertTrue(any('REPORT.json' in note for note in timeout.__notes__))
         self.assertTrue((out / 'tests_normal.timeout.json').is_file())
         self.assertFalse((out / 'REPORT.json').exists())
+
+    def test_clock_failures_preserve_timeout_streams_and_available_metadata(self):
+        clocks = [
+            ('initial', [OSError('clock start unavailable')]),
+            ('elapsed', [100.0, OSError('clock end unavailable')]),
+            ('nan', [100.0, float('nan')]),
+            ('infinity', [100.0, float('inf')]),
+            ('negative', [100.0, 99.0]),
+        ]
+        for label, readings in clocks:
+            with self.subTest(label=label):
+                timeout = subprocess.TimeoutExpired(self.command, 30, output=b'out', stderr=b'err')
+                with mock.patch.object(M.time, 'monotonic', side_effect=readings):
+                    with mock.patch.object(M.subprocess, 'run', side_effect=timeout) as run:
+                        with self.assertRaises(subprocess.TimeoutExpired) as caught:
+                            M.execute(self.command, self.out, self.out, label, mode='normal')
+                self.assertIs(caught.exception, timeout)
+                self.assertEqual(run.call_count, 1)
+                self.assertEqual((self.out / (label + '.stdout')).read_bytes(), b'out')
+                self.assertEqual((self.out / (label + '.stderr')).read_bytes(), b'err')
+                def reject_non_json(value):
+                    raise ValueError(value)
+                record = json.loads((self.out / (label + '.timeout.json')).read_text(),
+                                    parse_constant=reject_non_json)
+                self.assertIsNone(record['elapsed_seconds'])
+                self.assertEqual(len(record['diagnostic_failures']), 1)
+                self.assertTrue(any('clock' in note or 'elapsed' in note for note in timeout.__notes__))
+
+    def test_timeout_cwd_is_the_supplied_path_without_filesystem_resolution(self):
+        timeout = subprocess.TimeoutExpired(self.command, 30, output=b'out', stderr=b'err')
+        with mock.patch.object(Path, 'resolve', side_effect=OSError('cwd unavailable')):
+            with mock.patch.object(M.subprocess, 'run', side_effect=timeout):
+                with self.assertRaises(subprocess.TimeoutExpired) as caught:
+                    M.execute(self.command, Path('relative-cwd'), self.out, 'cwd', mode='normal')
+        self.assertIs(caught.exception, timeout)
+        self.assertEqual((self.out / 'cwd.stdout').read_bytes(), b'out')
+        record = json.loads((self.out / 'cwd.timeout.json').read_text())
+        self.assertEqual(record['cwd'], 'relative-cwd')
+
+    def test_initial_clock_failure_does_not_change_completed_baseline(self):
+        completed = subprocess.CompletedProcess(self.command, 0, 'out', 'Ran 71 tests\nOK\n')
+        with mock.patch.object(M.time, 'monotonic', side_effect=OSError('clock unavailable')):
+            with mock.patch.object(M.subprocess, 'run', return_value=completed):
+                M.execute(self.command, self.out, self.out, 'baseline', mode='normal')
+        self.assertEqual((self.out / 'baseline.stdout').read_text(), 'out')
+        self.assertEqual((self.out / 'baseline.stderr').read_text(), completed.stderr)
+        self.assertFalse((self.out / 'baseline.timeout.json').exists())
 
     def test_real_child_partial_bytes_are_retained(self):
         # Only the test wrapper shortens the timeout. Production still supplies 30.

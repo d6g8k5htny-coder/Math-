@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -66,11 +67,15 @@ def identities():
 
 def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
     timeout_seconds = 30
-    started = time.monotonic()
+    started = None
+    clock_failure = None
+    try:
+        started = time.monotonic()
+    except Exception as error:
+        clock_failure = f'initial clock: {type(error).__name__}: {error}'
     try:
         result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=timeout_seconds)
     except subprocess.TimeoutExpired as timeout:
-        elapsed = time.monotonic() - started
         failures = []
         streams = {}
         # TimeoutExpired streams are bytes even with text=True. In particular,
@@ -84,13 +89,28 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
                 failure = f'{path.name}: {type(error).__name__}: {error}'
                 failures.append(failure)
                 timeout.add_note('Timeout evidence persistence failed: '+failure)
-        record = {'argv': list(command), 'cwd': str(Path(cwd).resolve()),
+        elapsed = None
+        if clock_failure is None:
+            try:
+                measured = time.monotonic() - started
+                if not math.isfinite(measured) or measured < 0:
+                    raise ValueError('elapsed time must be finite and nonnegative')
+                elapsed = measured
+            except Exception as error:
+                clock_failure = f'elapsed clock: {type(error).__name__}: {error}'
+        diagnostic_failures = [clock_failure] if clock_failure is not None else []
+        if clock_failure is not None:
+            timeout.add_note('Timeout evidence diagnostic failed: '+clock_failure)
+        # Preserve the cwd argument actually supplied; filesystem resolution is
+        # unnecessary and can itself fail while diagnosing the original timeout.
+        record = {'argv': list(command), 'cwd': str(cwd),
                   'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
                   'timeout_seconds': timeout_seconds, 'elapsed_seconds': elapsed,
-                  'status': 'timed_out', 'streams': streams, 'persistence_failures': failures}
+                  'status': 'timed_out', 'streams': streams, 'persistence_failures': failures,
+                  'diagnostic_failures': diagnostic_failures}
         path = out/(name+'.timeout.json')
         try:
-            path.write_text(json.dumps(record, sort_keys=True, indent=2)+'\n')
+            path.write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
         except Exception as error:
             timeout.add_note(f'Timeout evidence persistence failed: {path.name}: {type(error).__name__}: {error}')
         raise
