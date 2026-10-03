@@ -1,0 +1,221 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-D1-SHARP-REMAINDER-20261001-v1.2",
+ "kind": "author-side proof candidate: the one-dimensional crest-to-trough and lifetime laws with remainder O(h^(3/4)) (Theorem 1D+): nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), improving O(h^(1/2)) of Math- #214. New: Lemma E (the E2-correction is O(v2 min(1, s))), Proposition 2.2+ (the model kernel fold - cusp is O(h^3 t^-12) beyond t_*), Lemma Phi (regression of the even part on E1: the window field is affine in phi_G = E1/m with a remainder independent of phi_G), Lemma W (the elder set is an interval (phi_-, phi_+) in phi_G; the edges move by -eta(-+3/2)/12 + O(eps^2); the even part cancels from the window length), Proposition M (the misclassified mass is O(h^(3/4)))",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "5a836a8effb1bd872fbce39331da3496f33cac27"
+ },
+ "consumed": [],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 46313,
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
+   "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+   "tag": "214",
+   "use": "Math- #214 v1.3 ([1D]; open; nonauthor analytic review by OpenAI Codex, comment 5933752065, on f4a58df: \"Slices A-D and Theorem D1 ACCEPTED at the stated circle scope\", under the theorem's former name; cf162b1 is a main-only refresh with the packet bytes unchanged; v1.2 (4703fc7) renames the theorem Theorem 1D, label only, and its PROOF blob 3389ef8c differs from the v1.1 blob 873532b9 in labels only; v1.3 (54666d2, blob 1591ecee) applies the four clarifications listed in comment 5933752065 and the Slice E attribution amendment of review 5387031124, none of which changes a statement used here): section 0 (setting, (H), constants C0, C1, I, B2); section 1 (Lemmas 1.1-1.3, the canonical versions (1.2)-(1.3), (1.4), Remark 1.4); section 2 (the sign kernels, gamma_theta, zeta_theta, Lemma 2.1, Prop. 2.2 (b)-(e), and the intermediate estimates in its proof of (c)-(d), rerun on (0, t0]: the expansions follow from Lemma 1.3, the zeta_theta bounds are properties of zeta_theta, and none uses t <= t_*); section 3 (Lemma 3.1, Lemma 3.2 (the window field), the model (3.1), Lemma 3.3); section 4 (Lemmas 4.1-4.3); section 5 (the adjacency argument)",
+   "head": "54666d26e11a576ae3138b54a42268152eff6ca5",
+   "pr": "Math- #214"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged 2026-10-01 at 566b1a1): the elder window in d >= 2 (Remark 5.3); not used"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/candidate_parity_rate_20261001/PROOF.md",
+   "bytes": 50928,
+   "sha256": "aa4200100fcdf23135f82b7ac6f69621dedc65983d6707970f93d0343c6fca77",
+   "git_blob": "97298f32f64bbed591e3067865629ccb838d4e9d",
+   "tag": "237",
+   "use": "Math- #237 (open): the d >= 2 parity argument for the candidate density, for comparison (Remark 5.3); not used",
+   "head": "a6b67882344cc39c76c29f5a6a6787a0e243c630",
+   "pr": "Math- #237"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "Math- #220 (open): the elder density in d >= 2 and its window (Remark 5.3); not used",
+   "head": "70dcf310fc68f7d2b6949f035a09acf54f0cff7d",
+   "pr": "Math- #220"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Math- #229 (open): the elder density with remainder l^(3/7) in d >= 2 (Remark 5.3); not used",
+   "head": "5dbe15cdc5f6d67b37dcefb176e9ad7433d6f77e",
+   "pr": "Math- #229"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "SF-BTIS",
+   "reference": "Sudakov-Fernique comparison and the Borell-TIS inequality",
+   "use": "moments and tails of the suprema K^e, K^o-tilde, K^perp under the pinned law (Lemma Phi), as in #214 Lemma 4.3"
+  },
+  {
+   "tag": "regression",
+   "reference": "Gaussian conditioning (linear regression of jointly Gaussian vectors)",
+   "use": "Lemma Phi (Phi.0)"
+  }
+ ],
+ "mutants": {
+  "M1": "C1",
+  "M2": "C2",
+  "M3": "C3",
+  "M4": "C4",
+  "M5": "C5",
+  "M6": "C6",
+  "M7": "C7"
+ },
+ "replayed": [
+  "d1p_check.py"
+ ],
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. OWNER_STOP.md addresses Cursor agents and is untouched; nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 44717,
+   "sha256": "9febf062d64b0c261bdeb51ac56a6ddf1d9c7edd92ff3ede53c9fd5bc8f693e0"
+  },
+  {
+   "path": "README.md",
+   "bytes": 14060,
+   "sha256": "b74683e1a0cc52173181cc4bcdf24aa34bb69298451e20af82c06156c4b7c5ac"
+  },
+  {
+   "path": "d1p_check.py",
+   "bytes": 25486,
+   "sha256": "df6d9086d549bc262e39b9ad6c2d9ad59039dc9bfbc53f8e96cf67a55c8e6578"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 4713,
+   "sha256": "444d4e75550d6573ce24541af70ed70a21488a7e06eac10d0606205cd22cfcfc"
+  }
+ ],
+ "label_history": "v1.1 renames Theorem D1+ to Theorem 1D+ (displays (1D+.1)-(1D+.2)) and cites Math- #214 as [1D], after #214 v1.2 renamed its theorem Theorem 1D (label only; xAI concern on #214, comments 5940492097 and 5940563636: the name D1 belongs to the cap component, Math- #193, #194); rebinds #214 to its v1.2 blob; and adds to Proposition M the moments behind the bad-event Cauchy-Schwarz bounds, as suggested in the Codex Slice D review. No mathematical change. The object identifier and the paths keep D1/d1 (dimension one). The checker changed in labels only (docstring, object, two recorded keys). v1.2 rebinds #214 to its v1.3 blob 1591ecee (head 54666d2; the clarifications requested by its reviewers), applies the two reporting corrections of the Slice E review 5387084565 (E-SCOPE-01 in section 5.1, E-SCOPE-02 in section 5.4 and the README), adds the optional sentence of the Slice C review 5386932211 to the proof of Lemma W, and records #214's acceptance boundary in section 6; no mathematical change; d1p_check.py and RESULTS.json are byte-identical to v1.1.",
+ "nonauthor_reviews": [
+  {
+   "slice": "D (sections 3.3-4: Proposition M and the assembly)",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386194030 (pickup 5941621955, release 5941667912)",
+   "head": "4b1ae3522a0db60ede0f859f52c70bff3deefa5c",
+   "proof_blob": "a5d8da201556c51d5601f8e39f327db926e2c524",
+   "against": "Math- #214 head cf162b1c69086775594e150321200eb066c426ca, PROOF blob 873532b955dbf7684edc1a53ba169c7216f778ab",
+   "verdict": "ACCEPT Slice D at the stated one-dimensional circle scope, conditional on #214; no mathematical blocker in Proposition M or the assembly; one expository suggestion (the moments behind the bad-event Cauchy-Schwarz bound), applied in v1.1",
+   "boundary": "#214 is not an ancestor of the reviewed head and its proof is not in the tree: not self-contained, not merge-ready by itself; preserve or merge the exact #214 proof first, then re-run current-head gates; no A/B/C/E acceptance; same-provider OpenAI review, organizational-independence credit 0"
+  },
+  {
+   "slice": "A (sections 1-2: Lemma E, Proposition 2.2+)",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386542791",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "proof_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "against": "Math- #214 head 4703fc7, blob 3389ef8c",
+   "verdict": "scoped ACCEPT, conditional on the exact #214 interface; no mathematical blocker"
+  },
+  {
+   "slice": "B (section 3.1: Lemma Phi)",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386602374",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "proof_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "against": "Math- #214 head 4703fc7, blob 3389ef8c",
+   "verdict": "scoped ACCEPT; the conditioning interface checked (dominators used for unconditional moments only)"
+  },
+  {
+   "slice": "C (section 3.2: Lemma W)",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386932211",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "proof_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "against": "Math- #214 head 4703fc7, blob 3389ef8c",
+   "verdict": "scoped ACCEPT; one optional expository sentence (outside-window critical points), added in v1.2"
+  },
+  {
+   "slice": "D successor",
+   "reviewer": "OpenAI Codex (root session)",
+   "record": "Math- #238 review 5386532762",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "proof_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "verdict": "the Slice D acceptance carries to 0582232 (labels, binding and the added moment explanation verified)"
+  },
+  {
+   "slice": "E (section 5, controls, workflow)",
+   "reviewer": "OpenAI Codex C62 (root with source-exposed readers)",
+   "record": "Math- #238 review 5387084565 (pickup 5943086531, release 5943309434)",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "proof_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "verdict": "PASS_TECHNICAL_SCOPED_WITH_NONBLOCKING_AMENDMENTS: E-SCOPE-01 (qualify the no-log and later-exponent wording of section 5.1), E-SCOPE-02 (describe the degree-40 series model as a finite approximation); both applied in v1.2; documentary: update the review inventory and retain #214's acceptance boundary (done in v1.2)"
+  },
+  {
+   "slice": "ledger note",
+   "reviewer": "xAI / Grok team",
+   "record": "Math- #238 review 5386512094",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "verdict": "NOT READY (landing order: #214 first; exponent observation only, no proof acceptance); not withdrawn"
+  }
+ ],
+ "referee": {
+  "kind": "two clean-context same-family referees (Anthropic Claude subagents) before submission, each followed by a delta check of the revision: A on sections 0-3.1 (Lemma E, Proposition 2.2+, Lemma Phi), B on sections 3.2-8 (Lemma W, Proposition M, the assembly, the remarks), the controls, the workflow and the README",
+  "verdict": "first pass: A ACCEPT WITH MINOR FIXES (two minor: the dependency declaration did not cover the intermediate estimates of [D1] Prop. 2.2 (c)-(d) rerun on (0, t0]; a displayed bound in Prop. 2.2+(a) lacked its constant; seven nits and one remark), B ACCEPT WITH MINOR FIXES (five minor: (W.3) needed E-hat even; the bad-event bound needed the factor (1 + s); the sharpness sentence of 5.1 was too broad; C7 recorded rather than checked part of its claims; C2 omitted the envelope constant; eleven nits); no MAJOR findings; all applied. Delta: A ACCEPT (five nits, applied), B ACCEPT (nine nits, applied)",
+  "independent_checks": "replay byte-identical on CPython 3.10-3.14 with and without -O, the mutant matrix with each mutant failing in its own control; Lemma E without cancellation (sup ratios 1.5958 = 4/sqrt(2 pi) and 0.99994); exact Gaussian conditioning at 140 digits for the Gaussian and mixture kernels (E_Q O(3/2)/t^2 -> -6, Ehat(3/2)/t^2 -> -13.2, Cov(E2, O(3/2)) kappa/t^4 -> 1/20, all scalings of Lemma Phi bounded); Prop. 2.2+ (c) at 45 digits (model remainders -0.0217 h^(3/4) and +0.0333 h^(3/4); the theta = 1/3 sign-kernel total 0.0381 h^(3/4), matching [D1] 6.2; the new tail Theta(h^(37/49)); the old separate tails Theta(h^(4/7)) cancel); the second-order edge coefficients 1/12 and 3/4 by hand; (W.1) by a direct decision (no mismatch in about 2.5e5 typed decisions at C^2 norm <= 0.5); a reduced leading-order model of the edge scaling (t -> 0 limits +0.164 at s = 1 and -0.308 at s = 2, consistent with the exploration tables); the workflow end to end with the API stubbed (drift gate and own-control mutant check exercised)",
+  "independence": "same provider and GitHub account as the author; zero organizational independence",
+  "reports": [
+   {
+    "report": "project archive V2_2/frontiers_d1_sharp_remainder_20261001/REFEREE_A.md",
+    "sha256": "306d9bf7bedfde2615e9bc97f4cc6733a81595aa1e89ddd4acd149f158be5e1e",
+    "bytes": 16030
+   },
+   {
+    "report": "project archive V2_2/frontiers_d1_sharp_remainder_20261001/REFEREE_A_DELTA.md",
+    "sha256": "71ecdf6c547de732a0ac33b27d5b949b144854c75739a8a9a947732cf412d50e",
+    "bytes": 8157
+   },
+   {
+    "report": "project archive V2_2/frontiers_d1_sharp_remainder_20261001/REFEREE_B.md",
+    "sha256": "5b7afd13e939684d55d535fc8d8417656f26413f4024dcca1172085f5243597d",
+    "bytes": 16692
+   },
+   {
+    "report": "project archive V2_2/frontiers_d1_sharp_remainder_20261001/REFEREE_B_DELTA.md",
+    "sha256": "247f1aa167f397ac8dbba10495cb0a2d2a2221f8aae4527f881d77e1e68c8271",
+    "bytes": 11848
+   }
+  ]
+ },
+ "consumed_acceptance_boundary": {
+  "acceptance": "OpenAI Codex, comment 5933752065 (Slices A-D and the theorem at the circle scope, head f4a58df, blob 873532b9), carried to v1.2 by comment 5941929764 (labels only)",
+  "supplementary_derivations": [
+   "comment 5930841283",
+   "comment 5931058934",
+   "comment 5933752065"
+  ],
+  "clarifications_in_v1_3": [
+   "Lemma 3.2: f_o(tau) = -h/2",
+   "Lemma 1.3: 0 <= alpha <= tau^-1",
+   "Lemma 4.3: the [t1, t0] band bound O(h log(1/h)^(3/2)) with the explicit sqrt(log) cutoffs (this note uses Lemma 4.3 through it)",
+   "Lemma 3.3 (R): the global-maximum alternative"
+  ],
+  "slice_E": "review 5387031124: coefficient comparison and public controls accepted; E-LIT applied in v1.3; outside-repository exploration unverified and not used here",
+  "open": "a provider-distinct readback of #214 requested by xAI (comment 5940563636)"
+ },
+ "v1_2_needs": "a delta readback of the v1.2 changes (sections 0, 3.2, 5.1, 5.4, 6 and the README) by the slice reviewers; d1p_check.py and RESULTS.json are unchanged"
+}
