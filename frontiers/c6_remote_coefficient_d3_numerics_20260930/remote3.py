@@ -248,7 +248,8 @@ def m3(b, n=40):
 
 
 def far_field(b, n=40):
-    """Lambda_inf_j(b) = phi(b) (2 pi)^(-3/2) E[|det(-b I + G_3)| 1{index j}]: the decoupled far-field kernel."""
+    """Lambda_inf_j(b) = phi(b) (2 pi)^(-3/2) E[|det(-b I + G_3)| 1{index j}]: the decoupled far-field kernel.
+    Continuum kernel K on R^3 only; not a statement about K_L or the torus."""
     E = goe_functional(3, b, lambda l: abs(l[0] * l[1] * l[2]), n)
     pref = phi(b) * (2 * pi) ** (-1.5)
     return {'E_absdet_index': E, 'lambda_j': [pref * e for e in E], 'lambda': pref * sum(E)}
@@ -354,7 +355,7 @@ class Conditioning:
         second order on the cone boundary).  E[F_j(H_x) | A_0] is Monte Carlo on the supplied 6-dim standard normals zs
         (common random numbers across x), H_x | A_0 being Gaussian with mean affine in A_0 and fixed covariance; the
         sample budget len(zs) is allocated to the nodes in proportion to their weights (at least one sample per node),
-        so the effective sample size is the whole budget."""
+        approximately proportional; the floor of one draw per node overshoots the budget, see the reuse branch below."""
         if rules is None:
             if getattr(self, '_nodes', None) is None:
                 self._nodes = self.cone_nodes()
@@ -373,7 +374,8 @@ class Conditioning:
             block = zs[pos:pos + n]
             pos += n
             if not block:
-                # budget exhausted by rounding: reuse the first samples (deterministic, tiny weights only)
+                # budget exhausted by rounding: reuse the first samples (deterministic; about 4-5 % of the cone weight at 40000
+                # draws, 1 % at 160000)
                 block = zs[:n]
             part = [0.0] * 4
             for z in block:
@@ -483,8 +485,9 @@ def controls(zs):
         out['far_mc_over_quadrature_b%s' % b] = [Emc[j] / (z0 * Eq[j]) for j in range(4)]
     # E|det G_3| at b = 0 (the level-0 factor) and the level-integrated far field: integral_b Lambda_inf_j(b) db is the
     # density of index-j critical points of the unconditioned field, whose classical closed forms in this normalization
-    # (unit Gaussian kernel: sigma_0 = 1, per-component sigma_1 = 1, sigma_2^2 = 15) are (29 sqrt3 - 18 sqrt2)/(72 pi^2)
-    # for maxima and minima and (29 sqrt3 + 18 sqrt2)/(72 pi^2) for each saddle index (Bardeen-Bond-Kaiser-Szalay 1986)
+    # (unit Gaussian kernel: Var f = 1, Var f_i = 1 per component, i.e. BBKS sigma_1^2 = E|grad f|^2 = 3, and BBKS
+    # sigma_2^2 = E(Lap f)^2 = 15) are (29 sqrt3 - 18 sqrt2)/(72 pi^2) for maxima and minima (Bardeen-Bond-Kaiser-Szalay
+    # 1986, n_pk) and (29 sqrt3 + 18 sqrt2)/(72 pi^2) for each saddle index (opposite sign; cf. Azais-Delmas 2019)
     out['E_absdet_G3_quadrature'] = sum(goe_functional(3, 0.0, lambda l: abs(l[0] * l[1] * l[2])))
     rule = gauss_legendre(60)
     dens = [gl(lambda bb: far_field(bb, n=24)['lambda_j'][j], -8.0, 8.0, rule) for j in range(4)]
@@ -506,7 +509,8 @@ def full_run(fast=False):
     res = {'schema': 1, 'object': 'CL-C6-REMOTE-COEFF-D3-NUMERICS-20260930-v1', 'scientific_effect': 'NONE', 'certified': False,
            'kernel': 'exp(-|x|^2/2), continuum, d = 3', 'mutant': MUT, 'python_requirement': '>= 3.11',
            'samples_per_batch': per_batch, 'batches': nb, 'rules': list(RULES), 'seeds': [2026 + i for i in range(nb)]}
-    res['controls'] = controls(zs)
+    # the far-point Monte Carlo controls use the first batch (40000 samples, seed 2026), the sample --check uses
+    res['controls'] = controls(zbatches[0])
     res['far_field'] = {str(b): far_field(b) for b in (0.0, 1.0)}
     res['z0'] = {}
     res['hole'] = {}
@@ -577,6 +581,8 @@ def check_run():
     for j in range(3):
         r = ctl['far_mc_over_quadrature_b0.0'][j]
         require(0.9 < r < 1.1, 'far-point Monte Carlo within 10%% of z_0 E|det|1{j}, j = %d' % j)
+        if j in (1, 2):
+            require(0.95 < r < 1.05, 'far-point Monte Carlo within 5%% of z_0 E|det|1{j}, j = %d' % j)
     # replay one kernel point per (k = 1, b) with the stored sample (same seeds and lengths as the full run)
     zfull = [z for i in range(ref['batches']) for z in standard_normals(ref['samples_per_batch'], ref['seeds'][i])]
     for key, prof in ref['ray_profiles'].items():

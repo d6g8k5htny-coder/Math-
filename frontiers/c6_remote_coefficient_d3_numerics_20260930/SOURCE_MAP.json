@@ -8,7 +8,14 @@
   "review_status": "AUTHOR_SIDE_NUMERICAL_NOTE",
   "nonauthor_acceptance": false,
   "governing_status_changed": false,
-  "nonauthor_reads": [],
+  "nonauthor_reads": [
+    {"comment": "5367490653", "kind": "pull_request_review", "pr": "Math-#192", "lane": "OpenAI / Codex (automated Codex review)", "scope": "two P2 findings, applied in 2ecffa8"},
+    {"comment": "5915572509", "kind": "issue_comment", "pr": "Math-#192", "lane": "OpenAI / Codex", "scope": "reconciliation finding (producer note vs RESULTS.json), applied in 5925b3f"},
+    {"comment": "5915786179", "kind": "issue_comment", "pr": "Math-#192", "lane": "OpenAI / Codex", "scope": "reconciliation recorded as resolved at 5925b3f"},
+    {"comment": "5403289484", "kind": "pull_request_review", "pr": "Math-#192", "lane": "Grok Bot agent 1 (Cursor-hosted, Grok support routed by the Chief of Staff 5974102560)", "scope": "R1 Slice A (exact structure and far field) at 5925b3f: ACCEPT_WITH_FINDINGS; F1-F6 applied"},
+    {"comment": "5974291103", "kind": "issue_comment", "pr": "Math-#192", "lane": "Grok Bot agent 4 (Grok support routed by the Chief of Staff 5974102560)", "scope": "R3 Slice C (reporting) at 5925b3f: ACCEPT_WITH_FINDINGS; findings 2-9 applied (finding 9 as NOTE wording; finding 4 attribution superseded by R2 A4)"},
+    {"comment": "5403404967", "kind": "pull_request_review", "pr": "Math-#192", "lane": "Grok Bot agent 3 (Grok support routed by the Chief of Staff 5974102560)", "scope": "R2 Slice B (method) at 5925b3f: ACCEPT_WITH_FINDINGS; A1-A5 applied (A3 PR body; A4 re-measured by the author)"}
+  ],
   "sources": [
     {"id": "RM", "path": "frontiers/remote_window_20260924/PROOF.md", "bytes": 18355, "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7", "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "sections 2, 4, 5: the contact frame U_0 (4), the weight w_0 = (6k)^2 (det A_0)^2 1{A_0 < 0} (10), the full normalizer (11) and the contact kernel Lambda_j (13) in every fixed d >= 2; the object evaluated", "current_required": true, "on_main": true},
     {"id": "SC", "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md", "bytes": 25006, "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb", "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "(8) c_m; (20) the near coefficients a_1, a_2; (22) beta_far = k integral_X Lambda in every fixed d; nu_1 = a_1 + beta_far, nu_2 = a_2", "current_required": true, "on_main": true},
