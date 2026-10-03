@@ -1,0 +1,92 @@
+{
+  "object": "C107 author finite controls",
+  "recorded_utc": "2026-10-03T11:47:51.458053+00:00",
+  "role": "AUTHOR_SIDE",
+  "python": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "executable": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/venv/bin/python3.11",
+  "platform": "macOS-15.7.4-arm64-arm-64bit",
+  "initial_launch": {
+    "command": [
+      "work/venv/bin/python3.11.16",
+      "work/continuation107/author_controls.py"
+    ],
+    "exit_code": 127,
+    "script_executed": false,
+    "stdout": "author_controls.launch_failure.stdout",
+    "stderr": "author_controls.launch_failure.stderr",
+    "cause": "Version 3.11.16 was incorrectly used in executable basename; actual executable is python3.11. The initial freeze runtime_plan records that mistaken path; file identities remain unchanged."
+  },
+  "runs": [
+    {
+      "command": [
+        "work/venv/bin/python3.11",
+        "work/continuation107/author_controls.py"
+      ],
+      "exit_code": 0,
+      "stdout": "author_controls.normal.stdout",
+      "stderr": "author_controls.normal.stderr"
+    },
+    {
+      "command": [
+        "work/venv/bin/python3.11",
+        "-O",
+        "work/continuation107/author_controls.py"
+      ],
+      "exit_code": 0,
+      "stdout": "author_controls.optimized.stdout",
+      "stderr": "author_controls.optimized.stderr"
+    }
+  ],
+  "checks": 531,
+  "mutant_rejections": 29,
+  "normal_optimized_stdout_identical": true,
+  "proof_and_control_bytes_unchanged": true,
+  "files": {
+    "author_controls.py": {
+      "bytes": 16587,
+      "sha256": "9063ffb1c09c3ea62cc5dd7e0663ba4a9dada240ff7f9504a5bebfd7e92fec87",
+      "final_lf": true
+    },
+    "CONTROLS_DESIGN.md": {
+      "bytes": 4171,
+      "sha256": "963a797c28c5872097421187d3332e7e9041435d1eb31fca0a186e8dab4f6de7",
+      "final_lf": true
+    },
+    "AUTHOR_CONTROLS_FREEZE.json": {
+      "bytes": 1127,
+      "sha256": "a055e23dce305cf8b454b6c9786902d131962e56640493a0bc14f21c3aa75d0d",
+      "final_lf": true
+    },
+    "author_controls.normal.stdout": {
+      "bytes": 2228,
+      "sha256": "a73652695fffc2fa8275f0b9a1119394beca4b5a6e4c690ef615d88ffcbc1d97",
+      "final_lf": true
+    },
+    "author_controls.normal.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_lf": false
+    },
+    "author_controls.optimized.stdout": {
+      "bytes": 2228,
+      "sha256": "a73652695fffc2fa8275f0b9a1119394beca4b5a6e4c690ef615d88ffcbc1d97",
+      "final_lf": true
+    },
+    "author_controls.optimized.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_lf": false
+    },
+    "author_controls.launch_failure.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "final_lf": false
+    },
+    "author_controls.launch_failure.stderr": {
+      "bytes": 62,
+      "sha256": "4e74f59b4c51ae140112c2a67d336374a7b6afbbca5a9d0387ad98a7627359ef",
+      "final_lf": true
+    }
+  },
+  "limitation": "Finite author algebra controls; no mathematical acceptance, no source repository tests or full master."
+}
