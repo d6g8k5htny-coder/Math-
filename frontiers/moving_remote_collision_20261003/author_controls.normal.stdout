@@ -1,0 +1,62 @@
+C107 author finite controls; exact arithmetic; no theorem acceptance
+Python 3.11.16
+PASS confluent_order_four_sharp: 1
+PASS confluent_order_four_zero: 10
+PASS delta_power_ledger: 1
+PASS eighth_moment_exponent: 3
+PASS endpoint_inverse: 28
+PASS finite_fourier_support: 30
+PASS global_sine_collision_fixture: 1
+PASS hermite_integral_cancellation: 81
+PASS hermite_jet_match: 162
+PASS moving_rho_exponent: 1
+PASS moving_rho_threshold: 1
+PASS multiple_witness_integer_bound: 33
+PASS normalized_r_power: 1
+PASS ordered_factorial_count: 33
+PASS pair_probability_integer_bound: 33
+PASS periodic_pair_dual: 24
+PASS periodic_singleton_dual: 6
+PASS radial_integral_power: 3
+PASS radial_integral_split: 3
+PASS raw_to_V_jacobian: 3
+PASS real_fourier_symmetry: 30
+PASS regression_contraction: 3
+PASS regression_square_root_energy: 3
+PASS rho_exponent_ledger: 1
+PASS separated_r_power: 1
+PASS six_dimensional_covariance_determinant: 3
+PASS six_dimensional_density_exponent: 3
+PASS unnormalized_r_power: 1
+PASS witness_inverse: 28
+REJECTED endpoint_constant_correction
+REJECTED endpoint_linear_correction
+REJECTED witness_quadratic
+REJECTED witness_sign
+REJECTED contact_D_wrong_constant
+REJECTED hermite_cubic_difference_factor
+REJECTED pair_quotient_chain_rule_1/16
+REJECTED pair_chart_chain_rule_1/16
+REJECTED pair_quotient_chain_rule_1/64
+REJECTED pair_chart_chain_rule_1/64
+REJECTED singleton_missing_third_separator
+REJECTED single_separator_for_confluent_third_jet
+REJECTED covariance_floor_unsquared_1/2
+REJECTED regression_cost_understated_1/2
+REJECTED density_dimension_four_1/2
+REJECTED covariance_floor_unsquared_1/4
+REJECTED regression_cost_understated_1/4
+REJECTED density_dimension_four_1/4
+REJECTED covariance_floor_unsquared_1/16
+REJECTED regression_cost_understated_1/16
+REJECTED density_dimension_four_1/16
+REJECTED height_Jacobian_power_1/2
+REJECTED height_Jacobian_power_1/16
+REJECTED height_Jacobian_power_1/128
+REJECTED missing_second_small_witness_determinant
+REJECTED extra_full_normalizer
+REJECTED one_height_window_in_separated_branch
+REJECTED claim_endpoint_alpha_as_decay
+REJECTED ordered_count_divided_by_two
+TOTAL checks=531 mutants=29
+LIMIT: finite controls do not certify continuum, Gaussian, or Kac-Rice steps.
