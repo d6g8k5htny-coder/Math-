@@ -471,8 +471,15 @@ def document(raw):
 
 def compare(doc, raw):
     """Replay check: every replayed interval inside the published one, not looser by more than the margin."""
+    expected = document(raw)
+    if not isinstance(doc, dict) or set(doc) != set(expected):
+        return [('document', 'publication fields differ')]
     der = derived(raw)
     bad = []
+    for key in expected.keys() - {'results', 'leaves'}:
+        # JSON identity also distinguishes booleans from numeric substitutes.
+        if json.dumps(doc[key], sort_keys=True) != json.dumps(expected[key], sort_keys=True):
+            bad.append((key, doc[key], expected[key]))
 
     def rec(p, r, path):
         if isinstance(r, dict):

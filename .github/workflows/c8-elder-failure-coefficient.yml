@@ -68,6 +68,7 @@ jobs:
         run: |
           set -euo pipefail
           cd frontiers/c8_elder_failure_coefficient_20261001
+          python $FLAGS -m unittest test_replay_metadata -v
           python $FLAGS certificate.py --check --procs "$(nproc)"
           for m in vw-sign ww-drop corner-swap mid-branch k-weight; do
             set +e
