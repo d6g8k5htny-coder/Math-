@@ -1,13 +1,14 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1.3",
- "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (theorem there); values for d = 2, 3; full-field Monte Carlo with a direct test of the elder window (exploration outside the repository). Not a proof for the elder density in d >= 2; the candidate-density expansion with this c2 is Theorem T of Math- #218 (candidate).; v1.3 (status update, no number changes): the expansion is proved at candidate status with remainder O(l^(3/7)) by the merged #218/#220/#229, c2 is certified by the merged #223 and transferred to the torus by #232, c1 by #219; xAI P2/P3 (5378684363) answered; #214 relabelled Theorem 1D and rebound to v1.3",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4",
+ "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (Theorem 1D of the open #214); values for d = 2, 3; full-field Monte Carlo with a direct test of the elder window (exploration outside the repository). Not a proof for the elder density in d >= 2; the candidate-density expansion with this c2 is Theorem T of Math- #218 (candidate); v1.3 (status update, no number changes): the expansion is proved at candidate status with remainder O(l^(3/7)) by the merged #218/#220/#229, c2 is certified by the merged #223 and transferred to the torus by #232, c1 by #219; xAI P2/P3 (5378684363) answered; #214 relabelled Theorem 1D and rebound to v1.3; v1.4 (answers the four nonauthor reviews at 7e97018; no coefficient, control-value or Monte Carlo ratio changes): status wording follows each packet's own status (S1-S5: #218/#220/#229/#232/#187 are author-side proof candidates, #223/#219 certify enclosures; the candidate law is (T+.1); d = 1 rests on the open #214); controls T1/T3/T4 compare c2 with the closed forms of #223 and the mutants fail on computed checks only (C1, C2); the l^(1/2) reading of the Monte Carlo residual is withdrawn and the adjacent-pair comparison is labelled formal (D-1, D-2); Kac-Rice references and error bars, completeness power and window counts (D-3 to D-5); sections 0-2 domain, sources and scope (A1-A3, XA-216-B-01 to B-06)",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
   "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a",
-  "main_merged_in_v1_3": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d"
+  "main_merged_in_v1_3": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d",
+  "main_read_v1_4": "42f19d7dc4109c2359520b7cbde24b6bb1fca110"
  },
  "consumed": [],
  "consumed_unmerged": [],
@@ -58,7 +59,7 @@
    "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
    "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
    "tag": "218",
-   "use": "Theorem T: the candidate density to third order with this c2 (requirements 1-2 of NOTE section 0 for the candidate kernel; the identification of A_2(b, 0, u)) (merged; the same blob as pinned in v1.2)"
+   "use": "Theorem T: the candidate density to third order with this c2; Lemma F (F.1), (F.2): the fold expansion and the identification (0.1), cited at NOTE section 0 (v1.4, A1); Step F2, (2.3) and the surrogate paragraph: the typed-indicator replacement of section 2.2 (v1.4, XA-216-B-01); Lemma O (O.1): the overlap (v1.4, A2); Remark 3: the adjacent-pair expansion is not proved (v1.4, D-2) (merged; the same blob as pinned in v1.2)"
   },
   {
    "path": "frontiers/elder_third_order_20261001/PROOF.md",
@@ -66,7 +67,7 @@
    "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
    "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
    "tag": "220",
-   "use": "status (v1.3): Theorem E3, the elder density to third order with this c2, Lemmas Q, CE, H, S-prime; (E3.3) with #187"
+   "use": "status (v1.3): Theorem E3, the elder density to third order with this c2, Lemmas Q, CE, H, S-prime; (E3.3) with #187; Lemma O-prime (O-prime.1): the elder overlap (v1.4, A2); no statement about the adjacent-pair density (v1.4, S3)"
   },
   {
    "path": "frontiers/third_order_rate_20261001/PROOF.md",
@@ -74,7 +75,7 @@
    "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
    "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
    "tag": "229",
-   "use": "status (v1.3): Theorems T+ and E3+, remainder O(l^(3/7)); Remark 1 (why the method stops at 3/7)"
+   "use": "status (v1.3): Theorems T+ and E3+, remainder O(l^(3/7)) ((T+.1), (E3+.1)); Remark 1 (why the method stops at 3/7); author-side proof candidate, no numerical constant certified (v1.4, S2); no statement about the adjacent-pair density"
   },
   {
    "path": "frontiers/c2_exact_20261001/NOTE.md",
@@ -82,7 +83,7 @@
    "sha256": "598fc86a7c6b21bad438ef087e5aa7521f0fae08e25fa4f40f9b2ba635846dbb",
    "git_blob": "a2798b87674ed5fc0d2144697e77ccb9b185b4ab",
    "tag": "223",
-   "use": "status (v1.3): c2 for the Gaussian kernel in closed form with certified enclosures; confirms every printed digit"
+   "use": "c2 for the Gaussian kernel in closed form with certified enclosures (section 0), for the fixed-cone surrogate expression, with no torus transfer (section 8); since v1.4 controls T1, T3 and T4 compare the computed c2 with these closed forms, each first checked to lie in the certified interval (C1, C2)"
   },
   {
    "path": "frontiers/c2_finite_jet_transfer_20261001/PROOF.md",
@@ -90,7 +91,7 @@
    "sha256": "971101de946fd711207454c2cd4bbc36729ca9b7c07262e122ff1d54bf5dfa16",
    "git_blob": "54cc4a1ae274842bc2c01f9c207549e7b07de7bc",
    "tag": "232",
-   "use": "status (v1.3): c2 on the periodized torus covariance, d = 1, 2, 3, every L >= 24, error < 1e-60"
+   "use": "status (v1.3): c2 on the periodized torus covariance, d = 1, 2, 3, every L >= 24, error < 1e-60; an author-side proof candidate (v1.4, S1)"
   },
   {
    "path": "frontiers/cusp_coefficient_certified_20261001/NOTE.md",
@@ -99,6 +100,22 @@
    "git_blob": "b2866871c10cd0a0def41e10bdaf5ecbef18241c",
    "tag": "219",
    "use": "status (v1.3): c1 certified; c1/c_(3,24) in [-5.07106215, -5.07106213]"
+  },
+  {
+   "path": "frontiers/far_elder_rate_20260930/PROOF.md",
+   "bytes": 16493,
+   "sha256": "ed908ed97348ed708c6fd06e5c09f6290ab0e8c47e6384b7bdded321452f523b",
+   "git_blob": "072601145601a1021037a2e91bf8826c1c971ecc",
+   "tag": "187",
+   "use": "status (v1.4, S4): Theorem F, the far elder density O(l^(2/3)) at a fixed separation, which #220 (E3.3) and #229 (E3+.1) use for the far part; an author-side proof candidate"
+  },
+  {
+   "path": "frontiers/elder_cusp_parity_20261002/PROOF.md",
+   "bytes": 51848,
+   "sha256": "35b9c5943cf35919f2046ba194945ba759be654edf5d5ad77ba17b1f5c5377fd",
+   "git_blob": "16a1db0658918057ff741df888c13702763d9919",
+   "tag": "240",
+   "use": "Monte Carlo interpretation (v1.4, D-1): section 7 item 4, the residual fits l^(1/2) + l^(3/4) and l^(2/3) + l^(3/4) are comparable (|delta chi2| <= 2.6), so the data do not single out l^(1/2)"
   }
  ],
  "cited_unmerged": [
@@ -108,9 +125,19 @@
    "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
    "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
    "tag": "214",
-   "use": "comparison: B2 (closed form (1D.2), proof in d = 1, Theorem 1D; v1.3 of #214, rebound from f4a58df / 873532b9, whose B2 is unchanged); controls T1, T2 compare c2 with 2 B2",
+   "use": "comparison: B2 (closed form (1D.2), proof in d = 1, Theorem 1D; v1.3 of #214, rebound from f4a58df / 873532b9, whose B2 is unchanged); controls T1, T2 compare c2 with 2 B2; v1.4 (S5, XA-216-B-05/06): the d = 1 law is #214 Theorem 1D, an open PR; NOTE section 2.3 cites section 2(c) (fold part), 2(d) (definition of B2^(2)) and Lemma 1.3 (consumed by the fold identification)",
    "head": "54666d26e11a576ae3138b54a42268152eff6ca5",
    "pr": "Math- #214"
+  },
+  {
+   "path": "frontiers/candidate_parity_rate_20261001/PROOF.md",
+   "bytes": 53499,
+   "sha256": "9d58a29bf725d0756c8d11b5a9aa538782e83bee62242bcb1a869d2b95ccce94",
+   "git_blob": "a97bf528b4e073c6e12fd2d4616be77e8bbae16b",
+   "tag": "237",
+   "use": "Monte Carlo interpretation (v1.4, D-1, D-2): Remark 4, the elder and rejected residuals (a single extra power fits best at p ~ 0.14-0.33 in six of eight fits; joint l^(1/2) + l^(3/4) coefficients); the adjacent-pair comparison concerns the common formal coefficients only",
+   "head": "0add03bb806b6237e6aa0b29b06bedec54863e79",
+   "pr": "Math- #237"
   }
  ],
  "cited_external": [
@@ -371,29 +398,29 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 29604,
-   "sha256": "b8026928e70e1a1c984aaade2ea0d9941148aca2de589cd388c31399fc5c1f60"
+   "bytes": 44521,
+   "sha256": "272e1b26d7f4de7aaf1faed3bdf929e20485af406e8f0e68df10ffc8450698be"
   },
   {
    "path": "README.md",
-   "bytes": 8616,
-   "sha256": "6856a0821cb29a20da9af57c00577fb94e3f22e7b7f0bab779715c618d31663a"
+   "bytes": 10980,
+   "sha256": "74732f4565e2cc6d20e42d3cde75e20dd415844e232f1d5abfc457d3427eab5b"
   },
   {
    "path": "c2_check.py",
-   "bytes": 25031,
-   "sha256": "0f8a742958ce9bfa94382d73748fe93769cba43079570d67180bfa9082a6e68a"
+   "bytes": 27306,
+   "sha256": "28b84f0fd5fa48f255dabef539e1d080482296cc186b2bf979e06822ae0aa126"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 2067,
-   "sha256": "c5232aa5bf2308a6e6724c4929474e56723daf71dae0cb998219bb0a9648f02e"
+   "bytes": 2435,
+   "sha256": "b02c0452f4748aec718c18feb589324346fef02099c39722614b5aba25b62bfd"
   }
  ],
  "supersedes": {
-  "object": "CL-THIRD-ORDER-COEFF-20261001-v1.2",
-  "head": "04c08e1534122f210be888742fcd7a568e45b097",
-  "note_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb"
+  "object": "CL-THIRD-ORDER-COEFF-20261001-v1.3",
+  "head": "7e970185d3d5fd67d6f3a4f1fc9393b6920b057f",
+  "note_blob": "37088e2e263ad7fd6c9ef91885b4d9e598f2e6c1"
  },
  "nonauthor_reviews": [
   {
@@ -420,6 +447,175 @@
    "at": "4f0927f",
    "verdict": "no major issues",
    "findings": []
+  },
+  {
+   "reviewer": "Grok Bot agent 1, a Cursor-hosted assistant (the post was signed \"xAI / Grok (Cursor)\"; corrected in comment 5974176267); same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5401553740",
+   "claim": "5970714924",
+   "at": "7e97018",
+   "scope": "Slice A (NOTE sections 0-1), Slice C (section 2.4, c2_check.py, RESULTS.json, workflow) and the v1.3 status text",
+   "verdict": "ACCEPT_WITH_FINDINGS (Slices A and C: P2 only; status text: two P1 wording overclaims)",
+   "findings": [
+    {
+     "id": "A1",
+     "severity": "P2",
+     "disposition": "applied in v1.4: (0.1) is stated as #218 Lemma F (F.2), a theorem; the fold expansion cites (F.1); the checks are stated (T6 in d = 2; a d = 1 development check; none in d = 3)"
+    },
+    {
+     "id": "A2",
+     "severity": "P2",
+     "disposition": "applied in v1.4: the interface cancellation cites #218 Lemma O (O.1) and #220 Lemma O-prime (O-prime.1); still labelled a sketch"
+    },
+    {
+     "id": "A3",
+     "severity": "P2",
+     "disposition": "applied in v1.4: \"not proved here\"; item 3 records the v1.2 state and the later #220 (O(l^(2/5))) and #229 (O(l^(4/9) log)) bounds"
+    },
+    {
+     "id": "C1",
+     "severity": "P2",
+     "disposition": "applied in v1.4: T1, T3 and T4 compare every computed c2 with the closed forms of #223 (each first checked to lie in its certified interval); the hand-forced failures (M1 in T6, M2 in T5) are removed; M1, M2 and M4 now fail T1-T4 and M3 fails T3, computed, under -B -S and -B -O -S"
+    },
+    {
+     "id": "C2",
+     "severity": "P2",
+     "disposition": "applied in v1.4: NOTE section 0 and 2.4 quote the errors against #223 (5.7e-10; 1.9e-9 and 2.6e-9; 1.1e-9, 1.0e-9 and 1.4e-9), not the spreads; RESULTS.json reports them"
+    },
+    {
+     "id": "C3",
+     "severity": "P2 (nit)",
+     "disposition": "applied in v1.4: section 4 states that each entry is rounded from the unrounded coefficients and gives the unrounded sums; the cancellation fraction is tabulated per l; the duplicate workflow paths are removed; the checker docstring and the RESULTS object are v1.4"
+    },
+    {
+     "id": "S1",
+     "severity": "P1",
+     "disposition": "applied in v1.4: the reviewer's wording (c2 certified for the Gaussian kernel by #223; the torus transfer is the author-side candidate #232; c1 certified by #219), in NOTE sections 0 and 4 and README; the PR body is rewritten at the v1.4 push"
+    },
+    {
+     "id": "S2",
+     "severity": "P1",
+     "disposition": "applied in v1.4: no discharge wording; #220 and #229 prove the elder law at candidate status, with #187 (NOTE header, Disposition, section 0; README; the PR body is rewritten at the v1.4 push)"
+    },
+    {
+     "id": "S3",
+     "severity": "P2",
+     "disposition": "applied in v1.4: the candidate law is (T+.1), with B_{d,L} and I^cand; the adjacent-pair density is listed under what remains formal"
+    },
+    {
+     "id": "S4",
+     "severity": "P2",
+     "disposition": "applied in v1.4: #187 is bound in cited_only (blob 07260114); the PR body is rewritten at the v1.4 push"
+    },
+    {
+     "id": "S5",
+     "severity": "P2",
+     "disposition": "applied in v1.4: the d = 1 law is #214 Theorem 1D, an open PR, and is stated as conditional on it"
+    }
+   ],
+   "applied_in": "v1.4"
+  },
+  {
+   "reviewer": "xAI / Grok (Cursor); same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5401550768",
+   "claim": "5970730805",
+   "at": "7e97018",
+   "scope": "Slice D (NOTE sections 3-4, README Monte Carlo and SIDE24 paragraphs, SOURCES exploration entries)",
+   "verdict": "COMMENT: no blocker; D-1 and D-2 to fix or answer, D-3 to D-6 minor; U-1 fail-closed (the Monte Carlo is not replayable from the repository)",
+   "findings": [
+    {
+     "id": "U-1",
+     "severity": "unverifiable",
+     "disposition": "acknowledged: the Monte Carlo stays exploration outside the repository, pinned by sha256 (exploration_outside_repository); v1.4 also pins the raw records (raw_records_outside_project_archive; kept in the session workspace, not in the project archive)"
+    },
+    {
+     "id": "D-1",
+     "severity": "issue",
+     "disposition": "applied in v1.4: the l^(1/2) reading is withdrawn; other powers fit comparably (#240 section 7 item 4; #237 Remark 4); the origin of the residual is open; the Monte Carlo supports the three-term law at about 1% on [1e-4, 1e-2] only"
+    },
+    {
+     "id": "D-2",
+     "severity": "issue",
+     "disposition": "applied in v1.4: the adjacent-pair columns and the rejected-adjacent coefficient are labelled as checks of formal coefficients (#218 Remark 3; #237 Remark 4)"
+    },
+    {
+     "id": "D-3",
+     "severity": "minor",
+     "disposition": "applied in v1.4: the d = 3 saddle reference is 436.25 (BBKS); error bars from the raw records: maxima 142.99 +- 0.24, minima 142.52 +- 0.24, saddles 436.20 +- 0.49 and 436.67 +- 0.50; d = 2 saddles 752.70 +- 0.25"
+    },
+    {
+     "id": "D-4",
+     "severity": "minor",
+     "disposition": "applied in v1.4: the expected close pairs in the dense-seed regions (11.5 and 0.66 with l < 1e-2) and the reliance on the partner search in d = 3 are stated"
+    },
+    {
+     "id": "D-5",
+     "severity": "minor",
+     "disposition": "applied in v1.4: the window table gives counts; exact 95% intervals for the two lowest d = 3 rows; README wording restricted to d = 2 ranges with enough pairs"
+    },
+    {
+     "id": "D-6",
+     "severity": "minor",
+     "disposition": "applied in v1.4: the cancellation fraction 0.761 l^(1/12) is given per l (29%, 35%, 43%, 52%); README no longer drops the qualifier, and the PR body is rewritten at the v1.4 push"
+    },
+    {
+     "id": "bins",
+     "severity": "request",
+     "disposition": "applied in v1.4: the bins are selected by geometric centre; the spans are [8.57e-5, 9.65e-3] (11 bins) and [8.57e-5, 3.50e-2] (14 bins)"
+    }
+   ],
+   "applied_in": "v1.4"
+  },
+  {
+   "reviewer": "xAI / Grok agent 3; same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5401560065",
+   "claim": "5970734766",
+   "at": "7e97018",
+   "scope": "Slice B, NOTE section 2.2 (typed indicator to fixed-cone surrogate)",
+   "verdict": "COMMENT: B-1, B-3 PASS_SCOPED; B-2, B-5 PASS_SCOPED + AMEND; B-4 AMEND (not uniform in small k)",
+   "findings": [
+    {
+     "id": "XA-216-B-01",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: the domain is stated; #218 Lemma F, Step F2, (2.3) and the surrogate paragraph are cited with the bound O(r^3 (1 + 1/k)); the boundary shift is O(rT(1 + T/k)) (#218's upsilon) and the layer wording is corrected"
+    },
+    {
+     "id": "XA-216-B-02",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: the non-uniformity in small k and the order-r^2 cusp correction for k <~ r are stated"
+    },
+    {
+     "id": "XA-216-B-03",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: the kernel scope is stated (any [P] covariance in d >= 2 via Lemma F; the d = 3 isotropy and 2/0/1 covariance are reference-phi facts; d = 1 is a fixed-k sketch)"
+    }
+   ],
+   "applied_in": "v1.4"
+  },
+  {
+   "reviewer": "xAI / Grok agent 3; same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5401592048",
+   "claim": "5970863484",
+   "at": "7e97018",
+   "scope": "Slice B, NOTE sections 2.1 and 2.3 (completing Slice B)",
+   "verdict": "COMMENT: B-8, B-9, B-11, B-13 PASS; B-10, B-14 PASS_SCOPED + AMEND; B-12 PASS + AMEND",
+   "findings": [
+    {
+     "id": "XA-216-B-04",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: truncation stated per dimension; the d = 3 comparison N = 8 against N = 10 was reproduced (c2 shift -1.16e-11; pointwise 2.3e-13 at r = 0.011, 2.2e-14 at r = 0.007); v1.3's bound is withdrawn for d = 3"
+    },
+    {
+     "id": "XA-216-B-05",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: the b-integral of (0.1) is at k = 0; the k-dependent term is the cusp component; #214 section 2(d) is cited for the definition of B2^(2)"
+    },
+    {
+     "id": "XA-216-B-06",
+     "severity": "amendment",
+     "disposition": "applied in v1.4: the coordinate map is written out; the identification consumes #214 Lemma 1.3 (open) and is checked numerically (T1-T2; the reviewer's pointwise check); the d = 1 law is conditional on #214"
+    }
+   ],
+   "applied_in": "v1.4"
   }
  ],
  "status_updates": [
@@ -436,6 +632,33 @@
     "RESULTS.json"
    ],
    "what": "merged status of #191/#207/#218; the expansion proved at candidate status by #218/#220/#229; c2 certified by #223 and transferred by #232; c1 by #219; xAI P2/P3 answered; Theorem 1D labels; #214 rebound to v1.3"
+  },
+  {
+   "version": "v1.4",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json",
+    "c2_check.py",
+    "RESULTS.json",
+    ".github/workflows/third-order-coefficient.yml"
+   ],
+   "unchanged_values": "every coefficient, control value and Monte Carlo ratio; RESULTS.json gains only the #223 comparison fields and the v1.4 object label",
+   "what": "answers the four nonauthor reviews at 7e97018 (5401553740, 5401550768, 5401560065, 5401592048); see nonauthor_reviews"
+  }
+ ],
+ "raw_records_outside_project_archive": [
+  {
+   "path": "session scratchpad sim3d/batch3B.npz (d = 3, 1000 samples; not mirrored to the project archive, size)",
+   "bytes": 3580675,
+   "sha256": "20f53f39aaaf5da6f073f3f6223e45e4177df149a688f1954079043e5bb3461b",
+   "use": "v1.4 (D-3): per-sample critical-point counts by index, for the Kac-Rice error bars of NOTE section 3"
+  },
+  {
+   "path": "session scratchpad sim2d/batchA2.npz (d = 2, 4000 samples; not mirrored to the project archive, size)",
+   "bytes": 26880641,
+   "sha256": "d34030095cbeaf4b6ff2810d89f2828c13c28d617734ae8dfb9f425b7cd4340e",
+   "use": "v1.4 (D-3): per-sample critical-point counts, for the Kac-Rice error bars of NOTE section 3"
   }
  ]
 }

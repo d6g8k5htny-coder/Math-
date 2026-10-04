@@ -5,6 +5,8 @@
    "C0_closed": "0.110110378959",
    "c": "0.110110378959",
    "c2": "0.2300445808",
+   "c2_closed_223": "0.2300445803",
+   "c2_minus_closed_223": "5.7e-10",
    "passed": true
   },
   "T2_d1_mixture": {
@@ -17,17 +19,24 @@
   "T3_d2_gauss": {
    "c": "0.073406919306",
    "c2": "0.2215244125",
+   "c2_closed_223": "0.2215244106",
+   "c2_minus_closed_223": "1.9e-09",
    "c2_over_c": "3.01775929",
    "c2_second_rset": "0.2215244132",
+   "c2_second_rset_minus_closed_223": "2.6e-09",
    "c_2inf": "0.073406919306",
    "passed": true
   },
   "T4_d3_gauss": {
    "c": "0.0417759318406",
    "c2": "0.1612340502",
+   "c2_closed_223": "0.1612340491",
    "c2_grid_40_80_32": "0.1612340502",
+   "c2_grid_40_80_32_minus_closed_223": "1.0e-09",
+   "c2_minus_closed_223": "1.1e-09",
    "c2_over_c": "3.85949620",
    "c2_second_rset": "0.1612340505",
+   "c2_second_rset_minus_closed_223": "1.4e-09",
    "c_3inf": "0.0417759318406",
    "grids": "b 56, k 120, cone 48x48; comparisons b 40, k 80, cone 32x32 (both r-sets)",
    "passed": true
@@ -84,7 +93,7 @@
   }
  },
  "mutant": null,
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1.2 controls",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4 controls",
  "passed": true,
  "scientific_effect": "NONE"
 }

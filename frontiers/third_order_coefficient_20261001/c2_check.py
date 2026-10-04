@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1.2 (frontiers/third_order_coefficient_20261001/NOTE.md).
+"""Controls for CL-THIRD-ORDER-COEFF-20261001-v1.4 (frontiers/third_order_coefficient_20261001/NOTE.md).
 Standard library only. Run: python3 -B -S c2_check.py   (and with -O; output byte-identical). v1.1: every float sum is
 math.fsum (exactly rounded; the built-in sum of floats changed in CPython 3.12) and the r-fit uses the scaled variable
 r/max(r), so the output is the same on CPython 3.10-3.14 (checked). v1.2 (Codex P2 on v1.1): T4 runs at a refined grid
-and compares with the former production grid and with the second r-set, so that its own spreads justify eight digits
-(v1.1's coarse comparison grid under-resolved the height integral: 32 nodes in b moved c2 by 4.5e-8).
+and compares with the former production grid and with the second r-set (v1.1's coarse comparison grid under-resolved
+the height integral: 32 nodes in b moved c2 by 4.5e-8). v1.4 (nonauthor Slice C finding C1, review 5401553740): T1, T3
+and T4 also compare every computed c2 with the closed form of the merged Math- #223 (frontiers/c2_exact_20261001/NOTE.md
+section 0), to 1e-8 absolute, and report the observed error; each closed form is first checked to lie in #223's
+certified interval. The mutants now fail on computed checks only (v1.3 forced the M1 failure of T6 and the M2 failure
+of T5 by hand).
 Mutants: --mutant M1|M2|M3|M4 must exit 1; an unknown label exits 2.
 
 The two-point kernel of [R] (frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md):
@@ -14,11 +18,12 @@ A_r = A_0 + r^2 A_2 + O(r^3).  The fold-scale finite part gives
     c  = (1/3)|S^{d-1}| int db int A_0(b,k) k^{-2/3} dk,
     c2 = (1/3)|S^{d-1}| f.p. int db int A_2(b,k) k^{-4/3} dk = (1/3)|S^{d-1}| int db int [A_2(b,k) - A_2(b,0)] k^{-4/3} dk.
 
-  T1 d = 1, Gaussian kernel: c = C0 and c2 = 2 B2 of Math- #214 (closed forms)
+  T1 d = 1, Gaussian kernel: c = C0 and c2 = 2 B2 of Math- #214 (closed forms); c2 within 1e-8 of #223's closed form
   T2 d = 1, mixture (exp(-x^2/2) + exp(-2x^2))/2: c = C0 and c2 = 2 B2 (closed forms of #214, general spectral moments)
-  T3 d = 2, Gaussian kernel: c = c_{2,inf} (merged reviews/side24_v1_coefficient_claude_20260929); c2 reported; two r-sets agree
-  T4 d = 3, Gaussian kernel: c = c_{3,inf} = c_{3,24}(1 + O(e^{-288})) (merged coefficients/side24_v1); c2 reported at the
-     grid (b 56, k 120, cone 48^2) and within 1e-8 of the grid (40, 80, 32^2) and of the second r-set
+  T3 d = 2, Gaussian kernel: c = c_{2,inf} (merged reviews/side24_v1_coefficient_claude_20260929); c2 from two r-sets,
+     each within 1e-8 of #223's closed form
+  T4 d = 3, Gaussian kernel: c = c_{3,inf} = c_{3,24}(1 + O(e^{-288})) (merged coefficients/side24_v1); c2 at the grid
+     (b 56, k 120, cone 48^2), at the grid (40, 80, 32^2) and from the second r-set, each within 1e-8 of #223's closed form
   T5 the expansion A_r = A_0 + r^2 A_2 + O(r^3) has no r^1 term (d = 2, 3, three test points each)
   T6 the subtracted term is the small-s limit of the cusp loss: A_2(b, 0) = -12 pi_0 E_0[Y^2 1{A<0} | b] (d = 2)
 
@@ -431,6 +436,27 @@ def d1_closed(kernel):
     return C0, 2 * B2
 
 
+# ----------------------------------------------------------------------------------------------- closed forms of #223
+# merged Math- #223, frontiers/c2_exact_20261001/NOTE.md section 0 (Gaussian kernel): the closed forms of c2 and their
+# certified enclosures (interval arithmetic, outward to 16 digits)
+C2_223_INTERVAL = {1: ('0.2300445802661503', '0.2300445802661998'), 2: ('0.2215244106266632', '0.2215244106267110'),
+                   3: ('0.1612340491269447', '0.1612340491269810')}
+
+
+def c2_closed_223(d):
+    g = 12 ** (1 / 6) * math.gamma(5 / 6)
+    if d == 1:
+        val = 0.75 * g / math.pi ** 1.5
+    elif d == 2:
+        val = (13 / 18) * g / math.pi ** 1.5
+    else:
+        val = (5 / 48) * (33 - 7 * math.sqrt(6)) * g / math.pi ** 2.5
+    lo, hi = C2_223_INTERVAL[d]
+    if not float(lo) <= val <= float(hi):           # transcription control: the closed form lies in #223's enclosure
+        raise RuntimeError('closed form of #223 outside its certified interval, d = %d' % d)
+    return val
+
+
 C2INF = 0.073406919306034271030   # reviews/side24_v1_coefficient_claude_20260929 (merged)
 C3INF = 0.04177593184059834334    # coefficients/side24_v1 (merged), c_{3,24} = c_{3,inf}(1 + O(e^{-288}))
 RS = ['0.003', '0.005', '0.007', '0.009', '0.011']
@@ -447,27 +473,38 @@ def main():
         sys.stderr.write('unknown mutant label\n')
         return 2
     MUTANT = args.mutant
-    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1.2 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
+    out = {'object': 'CL-THIRD-ORDER-COEFF-20261001-v1.4 controls', 'scientific_effect': 'NONE', 'mutant': MUTANT, 'checks': {}}
     ok_all = True
     for name, kern, K, nt in (('T1_d1_gauss', 'gauss', 8.0, 80), ('T2_d1_mixture', 'mix', 27.0, 120)):
         c, c2 = coefficients(1, kern, 12, RS_D1, nt=nt, K=K)
         C0, twoB2 = d1_closed(kern)
         ok = abs(c / C0 - 1) < 1e-10 and abs(c2 / twoB2 - 1) < 1e-8
-        out['checks'][name] = {'c': '%.12f' % c, 'C0_closed': '%.12f' % C0, 'c2': '%.10f' % c2, '2B2_closed': '%.10f' % twoB2,
-                               'passed': ok}
+        out['checks'][name] = {'c': '%.12f' % c, 'C0_closed': '%.12f' % C0, 'c2': '%.10f' % c2, '2B2_closed': '%.10f' % twoB2}
+        if kern == 'gauss':     # v1.4: also against the merged closed form of #223 (Gaussian kernel only)
+            cl = c2_closed_223(1)
+            ok = ok and abs(c2 - cl) < 1e-8
+            out['checks'][name].update({'c2_closed_223': '%.10f' % cl, 'c2_minus_closed_223': '%.1e' % (c2 - cl)})
+        out['checks'][name]['passed'] = ok
         ok_all &= ok
+    cl = c2_closed_223(2)
     c, c2 = coefficients(2, 'gauss', 10, RS)
     cb, c2b = coefficients(2, 'gauss', 10, RS_B)
-    ok = abs(c / C2INF - 1) < 1e-10 and abs(c2b - c2) < 1e-8
+    ok = abs(c / C2INF - 1) < 1e-10 and abs(c2 - cl) < 1e-8 and abs(c2b - cl) < 1e-8
     out['checks']['T3_d2_gauss'] = {'c': '%.12f' % c, 'c_2inf': '%.12f' % C2INF, 'c2': '%.10f' % c2, 'c2_second_rset': '%.10f' % c2b,
+                                    'c2_closed_223': '%.10f' % cl, 'c2_minus_closed_223': '%.1e' % (c2 - cl),
+                                    'c2_second_rset_minus_closed_223': '%.1e' % (c2b - cl),
                                     'c2_over_c': '%.8f' % (c2 / c), 'passed': ok}
     ok_all &= ok
+    cl = c2_closed_223(3)
     c, c2 = coefficients(3, 'gauss', 8, RS, nb=56, nt=120, nq=48)
     c_g, c2_g = coefficients(3, 'gauss', 8, RS, nb=40, nt=80, nq=32)
     c_r, c2_r = coefficients(3, 'gauss', 8, RS_B, nb=40, nt=80, nq=32)
-    ok = abs(c / C3INF - 1) < 1e-10 and abs(c2 - c2_g) < 1e-8 and abs(c2 - c2_r) < 1e-8
+    ok = abs(c / C3INF - 1) < 1e-10 and abs(c2 - cl) < 1e-8 and abs(c2_g - cl) < 1e-8 and abs(c2_r - cl) < 1e-8
     out['checks']['T4_d3_gauss'] = {'c': '%.13f' % c, 'c_3inf': '%.13f' % C3INF, 'c2': '%.10f' % c2,
                                     'c2_grid_40_80_32': '%.10f' % c2_g, 'c2_second_rset': '%.10f' % c2_r,
+                                    'c2_closed_223': '%.10f' % cl, 'c2_minus_closed_223': '%.1e' % (c2 - cl),
+                                    'c2_grid_40_80_32_minus_closed_223': '%.1e' % (c2_g - cl),
+                                    'c2_second_rset_minus_closed_223': '%.1e' % (c2_r - cl),
                                     'c2_over_c': '%.8f' % (c2 / c),
                                     'grids': 'b 56, k 120, cone 48x48; comparisons b 40, k 80, cone 32x32 (both r-sets)',
                                     'passed': ok}
@@ -486,8 +523,6 @@ def main():
             mom = [kk.cone_moments(b, 0.0, 32) for kk in ks] if d == 3 else [None] * len(ks)
             vals = [kk.A(b, k, m) for kk, m in zip(ks, mom)]
             co = [math.fsum(float(inv[a][i]) * vals[i] for i in range(len(rf))) for a in range(5)]
-            if MUTANT == 'M2':
-                co[1] = co[2]
             rm = float(rmx5)
             rel1, rel2 = co[1] / rm / co[0], co[2] / rm ** 2 / co[0]
             t5['d%d_b%g_k%g' % (d, b, k)] = {'abs_r1_over_A0_below_1e-6': abs(rel1) < 1e-6, 'r2_over_A0': '%.4f' % rel2}
@@ -527,8 +562,6 @@ def main():
             tot += w * (hi - lo) / 2 * dens * ey2
         pred = -12 * P0.pi(v) * tot
         rel = A20 / pred - 1
-        if MUTANT == 'M1':
-            rel = 1.0
         t6['b%g' % b] = {'A2_b0': '%.8e' % A20, 'loss_limit': '%.8e' % pred, 'agree_1e-6': abs(rel) < 1e-6}
         ok6 &= abs(rel) < 1e-6
     t6['passed'] = bool(ok6)
