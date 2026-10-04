@@ -1,0 +1,250 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-FOLD-LIMIT-20261002-v1.5",
+ "supersedes": {
+  "object": "CL-FOLD-LIMIT-20261002-v1.4",
+  "head": "15870b638748eb3f4e152fbb77ff41dac264e923",
+  "proof_blob": "64091adf95bf21e4445c4effa70ee92f84ad2da6"
+ },
+ "kind": "author-side proof candidate, every d >= 2 (v1.5: rebinds #242 v1.5 (head ee56652, blob 271412db; reporting-only changes after C80), whose consumed sections 0-3 are byte-identical; no other change; v1.4: rebinds #242 v1.4 (head ffc7005, blob c1592915), whose consumed sections 0-3 are byte-identical to v1.2 and v1.3; the workflow requires the pinned #242 blob in the tree once #242 has merged (automated finding 4167121714 on #244, same pattern); no statement or proof changes; v1.3: applies the minor findings OA-243-B-01 (the m = 1 convention in Proposition FL.4), B-02 (the trivial case of the Trap fact), B-03 (the rectangle W fixed before the Q-dependent radii) and D-01 (the ordered domain lambda_1 < min(eps, lambda_2) in Step 5) of the nonauthor slice reviews of v1.2; records Codex's reviewed direct identity D.1 (F = k A_* a_fail in every fixed d); rebinds #242 v1.3, whose consumed sections 0-3 are byte-identical to v1.2; no statement changes in substance): Theorem FL (Conjecture 6 of Math- #242: the fold-scale limit (k/r) r^-2 A_r^rej(b, k, u) -> F(k; b, u), uniformly on compacts of (b, k); the limit defining F exists, F is continuous and positive; the existence of the limit, as r^-3 (1 - p_r) -> alpha_1 + alpha_2, was proved earlier by the merged #170 (d = 2) and #175 (d >= 3); the decision and convergence steps here take a different route, the cap-region domination is shared); Proposition FL.7 (G_k(X, zeta) = P_theta(X, k zeta)/k with theta = (-lt/k, gamma, B, C3): same typed domain, weight and maximin decision, so F = k A_* a_fail, directly in d = 2 and by uniqueness of limits in d >= 3); Corollaries FL.5-FL.6 (recover #170 Theorem S and section 9, #175 Theorem F and section 7, in #242 form; not new); Proposition FL.4 (re-proves the window-to-global decision transfer of #170 Theorem E(2)-(3) and #175 Theorem H in #242 normalization, by paths and traps); Lemma FL.2 (the generic set has full measure; d(M) >= L_S by the critical chord of #170 section 3, observed on #242 by OpenAI Codex; case (D-prime) needs chi > 0); Lemma FL.3 (crossing a nondegenerate saddle); Lemma FL.1 (the soft window, rate r in d = 2 and r^(1/2) in d >= 3)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "a808ba25de9db22110db8b7555a64852f38e031d"
+ },
+ "consumed": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 1 (Q, W_r, Z_r, p_r), section 2 (finite-jet rank), section 3 ((3.3)-(3.5)), sections 5-6 ((5.3), (6.2)), section 7 (the cap region where pairing holds, and (7.7)), section 8 (pinned genericity and the maximin), sections 10-12 ((10.2), (10.3), (11.1)-(11.2), (12.1), (12.3))"
+  },
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2)-(R3) (the covariance bounds and the coupling, from which the pathwise bound (3.2) is derived by Taylor's formula), (R5) (the pin density), (R11) (A_r -> A_*, written A_0 there)"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "tag": "CAP",
+   "use": "sections 1 and 5: the deterministic cap theorem, as used in [P] section 7 (on its cap region every C^4 field with the pins has maximin d_f(M) = f(S)); consumed in Step 4 of Theorem FL"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged): section 0 (the elder mark and the maximin), Theorem CU.1 (the pin identities used in Lemma FL.1), and the structure of Proposition CU.3 and Theorem CU.4"
+  },
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2): the bound E_Q[(W_r/r^2) 1_{G_r^c}] <= C (r^3/k) P^N used for dominated convergence in Corollary FL.6"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement (the elder mark is Borel), through #207 section 0"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule for [P]"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule for [P]"
+  },
+  {
+   "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+   "bytes": 39722,
+   "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+   "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+   "tag": "170",
+   "use": "Math- #170 (merged author-side candidate, OpenAI, at its stated conditional scope; prior work on the failure law in d = 2 and on the window-to-global decision transfer, recorded in v1.1 as AUTH-243-01): section 2 (the typed cubic P_theta, B', C(P), the null sets, Theorem E(1)), section 3 (the critical chord, d(M) >= P(S)), sections 7-8 (the classifier n, (S1), (S11), the mass alpha_1 + alpha_2), Theorem S ((S2): r^-3 (1 - p_r) -> alpha_1 + alpha_2), section 9 (C_fail); consumed by Proposition FL.7 only"
+  },
+  {
+   "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+   "bytes": 23416,
+   "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+   "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+   "tag": "175",
+   "use": "Math- #175 (merged author-side candidate, OpenAI, at its stated conditional scope; prior work on the failure law in fixed d >= 3 and on the hard-fibre decision transfer, recorded in v1.1 as AUTH-243-01): sections 1-2 (the model and the soft cubic, n in {0, 1, 2}), section 3 (Theorem H), section 5 (Theorem F, (S1)-(S3)), section 7 (L1); consumed by Proposition FL.7 only"
+  }
+ ],
+ "consumed_unmerged": [
+  {
+   "path": "frontiers/soft_rejected_pairs_20261002/PROOF.md",
+   "bytes": 91967,
+   "sha256": "ee2930c1434bb765d11da0690a2abf3ab330d544ce7ede1ae076a4c29e206c75",
+   "git_blob": "271412dbc96a29590f5f805258e15c9e335cb430",
+   "tag": "242",
+   "use": "Math- #242 (open; v1.5, whose sections 0-3 are byte-identical to v1.4, v1.3 and to v1.2 blob ad4beb84, which the v1.2 slice reviews of this note read): section 0, (2.1)-(2.6) (the soft model and its normalization), Lemma 2 (the model decision; v1.2 rewrites its proof at the exact level and states that beta > 2, chi <= 0 is rejected, as Lemma FL.2(c) here), Lemma 3 (the a priori elder region, used for domination in the identification of the limit), Proposition 2-prime (the stiff directions), (3.1) (the definition of F); Theorem 1 and Proposition 4 are cited",
+   "head": "ee56652e1b30f2bfbb476da269fab15eb24cecba",
+   "pr": "Math- #242"
+  }
+ ],
+ "cited_only": [
+  {
+   "path": "frontiers/elder_dimension_lift_20260928/PROOF.md",
+   "bytes": 23971,
+   "sha256": "b529fe3780e1909014b3cb144b9a74156d976bbdc19b6711d0c5b1a1da9e5669",
+   "git_blob": "7303bd791a68a1139251f0f6e403a9f7cc89b006",
+   "tag": "OA-lift",
+   "use": "OA elder dimension lift (merged): (A3), 1 - p_r >= c r^3, compared with Corollary FL.5"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Math- #229 (merged): (R+.1), the l^(1/4) term of the rejected density (Remark 2 after Corollary FL.6)"
+  }
+ ],
+ "cited_unmerged": [],
+ "cited_external": [],
+ "mutants": {
+  "M1": "F1",
+  "M2": "F2",
+  "M3": "F3",
+  "M4": "F4",
+  "M5": "F5",
+  "M6": "F6",
+  "M7": "F4",
+  "M8": "F7"
+ },
+ "replayed": [
+  "fold_check.py"
+ ],
+ "exploration": "project archive V2_2/frontiers_soft_fold_limit_20261002/exploration/ (numpy, scipy; not part of the repository)",
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 78874,
+   "sha256": "f972f46d6b7348a4ff5d2eea022694364895a5273265818533dd01204b4c06a0"
+  },
+  {
+   "path": "README.md",
+   "bytes": 12892,
+   "sha256": "acc6421222ad925c23aea29c6a309c4343c54c21133fbdc27b320ebaee9bd1aa"
+  },
+  {
+   "path": "fold_check.py",
+   "bytes": 40386,
+   "sha256": "762695347e6b46aab81759c299cbc2a5dd3860e53017fc1ddbda1b43994850ae"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 2903,
+   "sha256": "459bbdf3c84b77548e53824df889b13a8ebd0fe6b0d7d7cadf8a4d73821641e9"
+  }
+ ],
+ "nonauthor_reviews": [
+  {
+   "slice": "A",
+   "review": "pullrequestreview-5391585764 (supersedes 5391580522, transport-corrupted)",
+   "at": "0740b2c",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "B",
+   "review": "pullrequestreview-5392212174",
+   "at": "11a4cd4",
+   "verdict": "ACCEPT WITH THREE MINOR FIXES / PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-243-B-01",
+    "OA-243-B-02",
+    "OA-243-B-03"
+   ],
+   "applied_in": "v1.3",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "C",
+   "review": "pullrequestreview-5392145839",
+   "at": "11a4cd4",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "D",
+   "review": "pullrequestreview-5392277487",
+   "at": "11a4cd4",
+   "verdict": "ACCEPT WITH ONE MINOR CLARIFICATION / PASS_TECHNICAL_SCOPED",
+   "findings": [
+    "OA-243-D-01"
+   ],
+   "applied_in": "v1.3",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "E",
+   "review": "pullrequestreview-5392675391",
+   "at": "11a4cd4",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "D.1 supplement (Codex root-authored; section 3 of #242 review 5391986303)",
+   "comment": "5954510413",
+   "at": "#242 PROOF ad4beb84",
+   "verdict": "PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "use_here": "recorded as reviewed support in the Remark after Proposition FL.7 (v1.3)",
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "B/D/E v1.3+v1.4 consolidated amendment (C79)",
+   "review": "pullrequestreview-5394499570",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED for OA-243-B-01, B-02, B-03 and D-01, plus the D.1 adoption readback",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "D/E changed-source review (D-01, D.1 adoption)",
+   "review": "pullrequestreview-5394480716",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "ACCEPT / PASS_TECHNICAL_SCOPED",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  },
+  {
+   "slice": "v1.4 workflow/source-presence engineering verification",
+   "review": "pullrequestreview-5394576747",
+   "at": "15870b6 (PROOF blob 64091adf)",
+   "verdict": "PASS_TECHNICAL_SCOPED (historical fallback reproduced on v1.3 and rejected by v1.4)",
+   "findings": [],
+   "reviewer": "OpenAI Codex (delegated AI review; same GitHub account; organizational independence 0; Dylan personal reading pending)"
+  }
+ ]
+}

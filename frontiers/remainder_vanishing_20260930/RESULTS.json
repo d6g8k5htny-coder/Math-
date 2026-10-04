@@ -1,0 +1,85 @@
+{
+ "checks": {
+  "E1_axial_pins_quintic": {
+   "info": {
+    "alpha_M": "-6k + (r/12) f4 - (r^2/120) f5",
+    "points": 3,
+    "product": "-36k^2 + r^2 (f4^2/144 - k f5/10) - r^4 f5^2/14400"
+   },
+   "passed": true
+  },
+  "E2_parity_pinned_quintic_2d": {
+   "info": {
+    "constant": "-1296",
+    "degrees_present": [
+     0,
+     2,
+     4,
+     6,
+     8,
+     10
+    ],
+    "r2_coefficient": "-3851051/2025",
+    "reflection_identity": "det H_M(-r) = det H_S(r) at 3 rational r"
+   },
+   "passed": true
+  },
+  "E3_block_and_inertia": {
+   "info": {
+    "cases": 64,
+    "positive_eigenvalue_cases": 12
+   },
+   "passed": true
+  },
+  "E4_ledger": {
+   "info": {
+    "a^7/3 ell^-1/3": [
+     "2",
+     "0",
+     "-7"
+    ],
+    "ell kappa^-5/3": [
+     "7/12",
+     "0",
+     "0"
+    ],
+    "ell^2/3 a^-1/3": [
+     "1/3",
+     "0",
+     "1"
+    ],
+    "k^-2/3 r^2": [
+     "2/3",
+     "-4/3",
+     "0"
+    ],
+    "k^-2/3 r^3/k": [
+     "1",
+     "-8/3",
+     "0"
+    ],
+    "kappa^7/3": [
+     "7/12",
+     "0",
+     "0"
+    ],
+    "r^-2 (ell/r^3)^2 = ell^2 r^-8": [
+     "2",
+     "0",
+     "-8"
+    ]
+   },
+   "passed": true
+  },
+  "E5_layer_algebra": {
+   "info": {
+    "identity": "k^2 u^2 = C1^2 r^2 T^2 (k+T)^2",
+    "inequality": "r T^2 <= k u / C1"
+   },
+   "passed": true
+  }
+ },
+ "object": "CL-D2-REMAINDER-VANISHING-20260930-v1.1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}
