@@ -994,7 +994,7 @@ def main():
                               and c2.lo > c3.hi > c3.lo > c4.hi > c4.lo > c5.hi and c5.lo > 0)
     checks["IMAGE_BOUND"] = bool(Decimal("7e-111") < E5.lo and E5.hi < Decimal("8e-111"))
     # proving direction (v1.1, Codex 4148778791): 19 eps <= delta <= 21 eps for every represented value; the enclosures of
-    # delta and 20 eps intersect (delta - 20 eps ~ 210 eps^2 is far below the interval resolution, so it is recorded, not certified)
+    # delta and 20 eps intersect (delta - 20 eps ~ 200 eps^2 is far below the interval resolution, so it is recorded, not certified)
     checks["TRANSFER_BOUND"] = bool(delta.lo >= CC.multiply(Decimal(19), eps.hi) and delta.hi <= CF.multiply(Decimal(21), eps.lo)
                                     and delta.hi >= CF.multiply(Decimal(20), eps.lo) and delta.lo <= CC.multiply(Decimal(20), eps.hi)
                                     and c5_torus.contains(c5))

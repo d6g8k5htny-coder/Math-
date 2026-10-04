@@ -96,7 +96,7 @@ and every 3-jet covariance entry of `K_24` is within `E_5 = 60500 (76 . 24^6 + 1
 (`n_A = m(m+1)/2 = 10`), `b = d + n_A/2 = 10`; since `(1+eps)^{29/3} <= (1+eps)^{10}`, the ratio lies in `[1/(1+delta), 1+delta]`
 with `delta = (1+eps)^{10}/(1-eps)^{10} - 1 = 20 eps + O(eps^2)` (computed without cancellation; rule TRANSFER_BOUND
 certifies `19 eps <= delta <= 21 eps` for every represented value, `delta.lo >= 19 eps.hi` and `delta.hi <= 21 eps.lo`, and
-records that the enclosures of `delta` and `20 eps` intersect: the offset `delta - 20 eps ~ 210 eps^2 ~ 2e-214` lies far below
+records that the enclosures of `delta` and `20 eps` intersect: the offset `delta - 20 eps = 200 eps^2 + O(eps^3) ~ 1.7e-214` lies far below
 the arithmetic resolution of the two enclosures, so `20 eps <= delta` is not separable and is not claimed as certified). So `|c_{5,24}/c_{5,ref} - 1| <= 1.8554e-107`, below the arithmetic width; the printed
 digits of `c_{5,24}` are those of `c_{5,ref}`. The exact periodic constant is enclosed, not equated to the reference.
 
@@ -148,9 +148,10 @@ for nothing; the author will not merge.
 ## 8. Provenance
 
 Pins on `main 3e0a91b` ([LP] `dfed3b8d`, SIDE24 `PROOF.md` `44b66f04`, `ENCLOSURE.json` `57af39a0`) verified by the
-workflow; read, not pinned: the SIDE24 remainder record and the C8 catalog entry; unmerged companion Math-#199 at `4fc6d15`
-(the `d = 4` record whose `m = 2, 3` pipelines and interval toolkit are re-used verbatim and whose `D_3` enclosure is
-quoted). Mehta's integral at `m <= 4` is verified inside the record (`m = 4` by rule MEHTA_Z4). No external numerical
+workflow; read, not pinned: the SIDE24 remainder record and the C8 catalog entry; unmerged companion Math-#199 at `74fb27f`
+(the `d = 4` record whose `m = 2, 3` pipelines and interval toolkit are re-used, identical up to mutant hooks, one
+`Iv.frac` → `Iv.of` in the integral tail and #199 v1.3's added tail-bound precondition check; its `D_3` enclosure is quoted,
+`RESULTS.json` blob `187552f5`, unchanged since `4fc6d15`). Mehta's integral at `m <= 4` is verified inside the record (`m = 4` by rule MEHTA_Z4). No external numerical
 library is used.
 
 ## 9. Revisions
@@ -163,3 +164,8 @@ library is used.
   certifies `19 eps <= delta <= 21 eps` for every represented value (`delta.lo >= 19 eps.hi`, `delta.hi <= 21 eps.lo`) and
   records the intersection of the `delta` and `20 eps` enclosures (section 4). No certified value changed; the two rule
   thresholds tightened.
+- **v1.2 (nonauthor read S2, Grok Bot agent 2, Math-#200 comment 5974601850, on `aa1d51e`; wording only).** F1: the
+  uncertified remark on the transfer offset read `210 eps^2`; exactly, `((1+eps)/(1-eps))^10 - 1 = 20 eps + 200 eps^2 + O(eps^3)`,
+  so section 4 now reads `delta - 20 eps = 200 eps^2 + O(eps^3) ~ 1.7e-214`, and the script comment says `200 eps^2` (no
+  rule depends on it; `RESULTS.json` is byte-identical, checked by a fresh run). F2: the Math-#199 companion pin moves from
+  `4fc6d15` to `74fb27f` (S1's v1.3; its `D_3` enclosure is byte-identical, so `D3_PIN` is unchanged).
