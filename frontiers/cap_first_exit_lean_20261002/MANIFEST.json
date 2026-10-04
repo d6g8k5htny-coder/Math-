@@ -70,6 +70,65 @@
   "CapFirstExit.ridge_profile",
   "CapFirstExit.ridge_capHyp",
   "CapFirstExit.ridge_saddle_strict",
+  "CapFirstExit.strongConcave_le_of_hasFDerivAt",
+  "CapFirstExit.slice_le",
+  "CapFirstExit.slice_ridge_bound",
+  "CapFirstExit.slice_curved",
+  "CapFirstExit.slice_hasFDerivAt",
+  "CapFirstExit.ridge_hasDerivAt",
+  "CapFirstExit.ridge_capHyp_of_slices",
+  "CapFirstExit.ridge_inputs_of_joint",
+  "CapFirstExit.sp_curved_side_constants",
+  "CapFirstExit.convexOn_add_node",
+  "CapFirstExit.two_node_bound",
+  "CapFirstExit.slice_gradient_bound",
+  "CapFirstExit.ridge_capHyp_sp",
+  "CapFirstExit.hermite_gap_le",
+  "CapFirstExit.hermite_m_ge_two",
+  "CapFirstExit.ridge_capHyp_normalized",
+  "CapFirstExit.strongConcaveOn_of_hessian",
+  "CapFirstExit.transverse_hessian_le",
+  "CapFirstExit.hessian_increment",
+  "CapFirstExit.slices_strongConcave",
+  "CapFirstExit.ridge_capHyp_H1",
+  "CapFirstExit.slice_critical_unique",
+  "CapFirstExit.slice_critical_exists",
+  "CapFirstExit.isInvertible_of_negDef",
+  "CapFirstExit.ridge_hasStrictFDerivAt",
+  "CapFirstExit.ridge_differentiable",
+  "CapFirstExit.ridge_exists",
+  "CapFirstExit.hessian_increment_D",
+  "CapFirstExit.transverse_hessian_le_D",
+  "CapFirstExit.slices_strongConcave_D",
+  "CapFirstExit.ridge_capHyp_source",
+  "CapFirstExit.convex_deriv_sign",
+  "CapFirstExit.two_node_deriv_bound",
+  "CapFirstExit.slice_gradient_deriv_bound",
+  "CapFirstExit.schur_max",
+  "CapFirstExit.trilinear_lower",
+  "CapFirstExit.l12_constants",
+  "CapFirstExit.transverse_hessian_eq",
+  "CapFirstExit.ridge_second_identity",
+  "CapFirstExit.ridge_hconv",
+  "CapFirstExit.dx_grad_increment",
+  "CapFirstExit.l9_arith",
+  "CapFirstExit.l12_lower",
+  "CapFirstExit.ridge_source_facts",
+  "CapFirstExit.ridge_capHyp_C3",
+  "CapFirstExit.hermite_gap_le_concave",
+  "CapFirstExit.third_deriv_exists_two",
+  "CapFirstExit.fxxx_lower",
+  "CapFirstExit.ridge_capHyp_C4",
+  "CapFirstExit.hessian_x_bound",
+  "CapFirstExit.hessian_r_bound",
+  "CapFirstExit.axis_convexConcave",
+  "CapFirstExit.block_nonneg",
+  "CapFirstExit.block_bound_collar",
+  "CapFirstExit.ridge_capHyp_C5",
+  "CapFirstExit.ridge_capHyp_D",
+  "CapFirstExit.block_of_norm",
+  "CapFirstExit.collar_subset_open",
+  "CapFirstExit.ridge_capHyp_E",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -85,7 +144,22 @@
   "CapFirstExit.toy_needs_C3",
   "CapFirstExit.ridgeToyF",
   "CapFirstExit.ridgeToy_capHyp",
-  "CapFirstExit.ridgeToy_saddle_strict"
+  "CapFirstExit.ridgeToy_saddle_strict",
+  "CapFirstExit.ridgeToy_joint",
+  "CapFirstExit.ridgeToy_slices",
+  "CapFirstExit.spToyF",
+  "CapFirstExit.spToy_capHyp",
+  "CapFirstExit.spToy_normalized",
+  "CapFirstExit.h1ToyF",
+  "CapFirstExit.h1Toy_capHyp",
+  "CapFirstExit.h1Toy_ridge_differentiable",
+  "CapFirstExit.h1Toy_source",
+  "CapFirstExit.h1Toy_C3",
+  "CapFirstExit.h1Toy_C4",
+  "CapFirstExit.h1Toy_D",
+  "CapFirstExit.h1Toy_E",
+  "CapFirstExit.quarticToyF",
+  "CapFirstExit.quarticToy_E"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -273,6 +347,301 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.strongConcave_le_of_hasFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_le": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_ridge_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_curved": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_hasFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_hasDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_of_slices": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_inputs_of_joint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.sp_curved_side_constants": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convexOn_add_node": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.two_node_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_gradient_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_sp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hermite_gap_le": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hermite_m_ge_two": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_normalized": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.strongConcaveOn_of_hessian": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.transverse_hessian_le": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hessian_increment": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slices_strongConcave": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_H1": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_critical_unique": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_critical_exists": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.isInvertible_of_negDef": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_hasStrictFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_differentiable": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_exists": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hessian_increment_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.transverse_hessian_le_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slices_strongConcave_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_source": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_deriv_sign": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.two_node_deriv_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.slice_gradient_deriv_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.schur_max": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.trilinear_lower": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l12_constants": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.transverse_hessian_eq": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_second_identity": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_hconv": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.dx_grad_increment": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l9_arith": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.l12_lower": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_source_facts": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hermite_gap_le_concave": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.third_deriv_exists_two": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.fxxx_lower": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_C4": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hessian_x_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hessian_r_bound": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.axis_convexConcave": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.block_nonneg": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.block_bound_collar": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_C5": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.block_of_norm": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.collar_subset_open": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -352,6 +721,81 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.ridgeToy_joint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_slices": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.spToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.spToy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.spToy_normalized": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1ToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_ridge_differentiable": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_source": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_C4": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_D": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.h1Toy_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.quarticToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.quarticToy_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -362,18 +806,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 11887,
-   "sha256": "c55a89e0c5134f78d0051bda0f221a0f50f2802a72def8b2d37dc41d362821a8"
+   "bytes": 47642,
+   "sha256": "60433b419fd5b11569c83afad0cb226c79e6e5c90666849d2aa288d4fee16469"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 42711,
-   "sha256": "2fe8943b74c6aa66a46b7b1db6fe5332f82dff2ee01ff27731188404ddad4ebd"
+   "bytes": 274905,
+   "sha256": "fde8c26af78c5d2475c2af1332d98b54a550fe469cb0fcc097ea2f7754db5f51"
   },
   {
    "path": "README.md",
-   "bytes": 9402,
-   "sha256": "5256f80e0e500f61098bac8cdd9e0a349573bf212ca5bcbf41af6566bf10c7f7"
+   "bytes": 25901,
+   "sha256": "624368518e401c32c92c5e93a01f88b9326b450f60eea5ffc2f60259fe5fde27"
   },
   {
    "path": "gate.py",
@@ -397,8 +841,8 @@
   },
   {
    "path": "test_gate.py",
-   "bytes": 6274,
-   "sha256": "f7df7152065d3fb69aed839138575b0cca3f821d958f5849f617e69e390bc6b3"
+   "bytes": 6275,
+   "sha256": "04d262b9d5c202c777ce2d71dc7bfe4478ee7d3471957d1725d08b19dedf22e5"
   }
  ]
 }

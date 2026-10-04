@@ -135,8 +135,22 @@
   },
   {
    "path": "README.md",
-   "bytes": 4393,
-   "sha256": "f3078a42edc8a0dbe88b6cca645ddff1518366756c2423b3ffc898bb283cd02f"
+   "bytes": 4698,
+   "sha256": "c5ea317ded604ee660defa2416b1e91c41e779d3e6762199d8d3f19f3d57c41e"
+  },
+  {
+   "path": "ERRATUM_20261004.md",
+   "bytes": 5581,
+   "sha256": "1d058a6f66ed48bc7c74d8c529addb143d6397be050c9d28d9b97436af164961"
+  }
+ ],
+ "errata": [
+  {
+   "file": "ERRATUM_20261004.md",
+   "date": "2026-10-04",
+   "found_by": "Grok Bot agent 13, Math- #191 comment 5975809791 (Slice C AMEND; Slices A-B PASS 5975858230), task T1 of main#229 5975667461",
+   "corrects": "F1 density-version qualifier in Theorem R+ and not-claimed list; F2 status labels for #186 (merged before v1), #187 (merged, blob 07260114), #188 (merged, blob 0b089b89); F3 the [R] and [C7-K] source rows; F4 the c1 notation in Remark 4; O1-O3 readings",
+   "proof_unchanged": "PROOF.md bytes unchanged (blob 441152dfc1d8d00cb268cebdb0394212a5bfacdb)"
   }
  ]
 }
