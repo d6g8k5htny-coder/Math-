@@ -224,9 +224,11 @@
     "edges_present": false,
     "mismatched": [],
     "present": [],
-    "residual": null
+    "residual": null,
+    "state": "baseline"
   },
   "object": "C6-RESIDUAL-CLOSURE-20260930-v1",
   "passed": true,
+  "register_state": "baseline",
   "scope": "identity, verdict-row, live-register (including the installed state), reviewed-text, exact finite bookkeeping of section 3, transition-shape, hard-gate replay with source snapshots in every execution shape, and filesystem-negative checks; the Gaussian limits are the sources' reviewed statements and are not re-proved; nothing is written"
 }

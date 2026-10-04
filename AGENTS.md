@@ -1,9 +1,6 @@
 # Agent entry — `Math-`
 
-> **OWNER STOP (2026-09-27): all Cursor agents, automations, timers, watches and
-> loops must stop now. Do not push, commit, open or update PRs, comment, or
-> re-arm timers. Exit without writing. Resume only on a new explicit
-> instruction from Dylan. See [OWNER_STOP.md](OWNER_STOP.md).**
+> **OWNER STOP of 2026-09-27: historical, lifted.** The record is kept unchanged in [OWNER_STOP.md](OWNER_STOP.md). From 2026-10-03, by Dylan's instruction, xAI/Grok (including Cursor) agents work here **only as support** for the non-Grok lanes. They act at those lanes' request, and may also enter to see how they can assist. No self-assigned repository changes, no takeover of another lane, and no restarted timers or loops. Coordination: [main#229](https://github.com/d6g8k5htny-coder/main/issues/229).
 
 Mathematical candidates, proofs, programs, and reproducible calculations. Not a status register.
 
