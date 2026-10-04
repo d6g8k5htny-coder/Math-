@@ -30,6 +30,19 @@ jobs:
           import hashlib, json, pathlib, subprocess, sys
           root = pathlib.Path('frontiers/local_pairing_20260930').resolve()
           manifest = json.loads((root / 'SOURCES.json').read_text())
+          names = [entry['path'] for entry in manifest['files']]
+          if len(names) != len(set(names)) or 'SOURCES.json' in names:
+              raise ValueError('invalid packet inventory')
+          for name in names:
+              p = pathlib.PurePosixPath(name)
+              if p.is_absolute() or str(p) != name or '..' in p.parts:
+                  raise ValueError('unsafe packet path: ' + name)
+          present = list(root.rglob('*'))
+          if any(p.is_symlink() for p in present):
+              raise ValueError('symlink in packet inventory')
+          actual = {p.relative_to(root).as_posix() for p in present if p.is_file()}
+          if actual != set(names) | {'SOURCES.json'}:
+              raise ValueError('packet inventory drift')
           for entry in manifest['files']:
               path = root / entry['path']
               if path.is_symlink():

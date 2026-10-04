@@ -17,9 +17,10 @@ M (P > 0), and the merge cell is recorded; (iii) compares the grid death level w
 value (or -k when n = 0) and the merge cell with the position of the highest extra window saddle (or S).
 
 Boundary.  The grid covers the box |u|, |Z| <= R with R chosen from the window critical points (R <= 6).  A boundary cell
-with P > -k is marked "older" when P increases strictly along its outward ray from the origin at 1.5R, 2R,
-3R and is positive at 3R (the ray criterion of Lemma 2.1(b): such a cell is connected outward, inside
-{P > P(cell)}, to points with P > 0).  Other boundary cells are ordinary cells.
+with P > -k is marked "older" only when the quadratic derivative of t -> P(tu,tZ) is strictly positive
+throughout [1,3] and P(3u,3Z) > 0. Endpoints and any interior quadratic minimum are checked with exact
+rational arithmetic on the binary64 input values. Such a cell has an outward path, above its value
+after departure, to a positive point. Other boundary cells are ordinary cells.
 
 Limits.  Grid error near a nondegenerate saddle is of order h^2 (h the spacing) plus one cell of
 8-connectivity; ties of the two extra saddle heights closer than the tolerance are reported as ties.  Close to
@@ -37,6 +38,7 @@ import math
 import os
 import random
 import sys
+from fractions import Fraction
 
 
 def A(k, u):
@@ -96,6 +98,21 @@ def window_roots(k, cps):
     return [(u, Z, val) for (u, Z, val) in cps if -k < val < 0]
 
 
+def outward_ray_older(k, s, B, D, u, Z):
+    """Conservative full-segment ray test for the supplied (rounded) jet."""
+    k, s, B, D, u, Z = map(Fraction, (k, s, B, D, u, Z))
+    # P(tu,tZ) = a*t^3 + b*t^2 + c*t - k/2.
+    a = 2*k*u**3 + B*u*Z**2/2 + D*Z**3/3
+    b, c = s*Z**2/2, -3*k*u/2
+    derivative = lambda t: 3*a*t*t + 2*b*t + c
+    values = [derivative(1), derivative(3)]
+    if a > 0:
+        vertex = -b/(3*a)
+        if 1 < vertex < 3:
+            values.append(derivative(vertex))
+    return min(values) > 0 and 27*a + 9*b + 3*c - k/2 > 0
+
+
 def grid_death(k, s, B, D, cps, spacing):
     """Discrete elder rule on the box |u|,|Z| <= R.  Returns (death, merge_u, merge_Z, R, ncells)."""
     reach = 1.0
@@ -126,12 +143,8 @@ def grid_death(k, s, B, D, cps, spacing):
             if v > 0:
                 older[idx] = 1
             elif v > -k and (boundary_i or j == 0 or j == N - 1):
-                rho = math.hypot(u, Z)
-                if rho > 0:
-                    ru, rz = u/rho, Z/rho
-                    seq = [P(k, s, B, D, t*rho*ru, t*rho*rz) for t in (1.5, 2.0, 3.0)]
-                    if v < seq[0] < seq[1] < seq[2] and seq[2] > 0:
-                        older[idx] = 1
+                if outward_ray_older(k, s, B, D, u, Z):
+                    older[idx] = 1
     iM = int(round((-0.5 + R)/h)); jM = int(round(R/h))
     idxM = (iM + 1)*W + (jM + 1)
     vals[idxM] = 0.0                     # exact pin value

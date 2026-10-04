@@ -36,9 +36,15 @@ class PacketTests(unittest.TestCase):
     def setUp(self):
         t=tempfile.TemporaryDirectory();self.addCleanup(t.cleanup);self.root=Path(t.name)
         self.data=b'exact\n';(self.root/'payload').write_bytes(self.data)
-        self.entry={'path':'payload','bytes':len(self.data),'sha256':hashlib.sha256(self.data).hexdigest()}
+        self.entry={'path':'payload','bytes':len(self.data),'sha256':hashlib.sha256(self.data).hexdigest(),
+                    'git_blob':hashlib.sha1(b'blob 6\0'+self.data).hexdigest()}
         (self.root/'MANIFEST.json').write_text(json.dumps({'files':[self.entry]}))
     def test_membership(self):self.assertEqual(verify.inventory(self.root),1)
+    def test_stale_blob_with_refreshed_bytes_and_sha256(self):
+        data=b'updated payload\n';(self.root/'payload').write_bytes(data)
+        self.entry.update(bytes=len(data),sha256=hashlib.sha256(data).hexdigest())
+        (self.root/'MANIFEST.json').write_text(json.dumps({'files':[self.entry]}))
+        with self.assertRaises(ValueError):verify.inventory(self.root)
     def test_drift(self):
         (self.root/'payload').write_bytes(b'drift')
         with self.assertRaises(ValueError):verify.inventory(self.root)

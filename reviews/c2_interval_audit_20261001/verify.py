@@ -55,6 +55,8 @@ def inventory(root):
         data=p.read_bytes()
         if type(e['bytes']) is not int or e['bytes']!=len(data) or hashlib.sha256(data).hexdigest()!=e['sha256']:
             raise ValueError('payload byte mismatch')
+        if hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()!=e['git_blob']:
+            raise ValueError('payload Git blob mismatch')
     return len(es)
 
 def main():
