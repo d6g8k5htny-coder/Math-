@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "I0_I3_identities": {
+      "info": 144,
+      "passed": true
+    },
+    "N1_n0_grid": {
+      "info": {
+        "n0_points_with_U_hypothesis": 0,
+        "n0_typed_grid_points": 135
+      },
+      "passed": true
+    },
+    "P1_path_cases": {
+      "info": {
+        "cases": {
+          "U": 2160,
+          "V": 4680,
+          "V_at_other_root": 2160
+        },
+        "min_margin": "1/1200",
+        "samples": 6840
+      },
+      "passed": true
+    },
+    "P2_elder_witness": {
+      "info": {
+        "Z1_squared": "15/8",
+        "n": 2,
+        "saddle_height": "-7/32",
+        "u0": "-3/4",
+        "vertical_line_constant": true
+      },
+      "passed": true
+    }
+  },
+  "object": "CL-LOCAL-PAIRING-20260930-v1",
+  "passed": true,
+  "scientific_effect": "NONE"
+}
