@@ -1,7 +1,7 @@
 # SIDE24 in `d = 6`: the cone moment `D_5` certified through two exact layers and one certified cumulative layer
 
 **Object** `CL-SIDE24-D6-COEFFICIENT-20260930-v1` · **scientific effect NONE** · declarative record, `executed: false` ·
-base `main 3e0a91b` · claim: Math-#200 comment 5919618330 · companions: Math-#200 (`d = 5`; the `(T, u)` decoupling and the
+base `main 3e0a91b` · claim: Math-#200 comment 5919618330 · companions: Math-#199 (`d = 4`; the §3 incomplete-gamma tail bounds, Mehta's `Z_m` at `m ≤ 3`), Math-#200 (`d = 5`; the `(T, u)` decoupling and the
 certified cumulative machinery), Math-#201 and Math-#202 (the exact arithmetic, the incomplete Gaussian moments, the closed
 forms of `D_3`, `D_4` used as regressions). `coefficients/side24_v1` is unchanged; catalog entry C8 stays OPEN; no register,
 GRAPH, STATUS or catalog surface is touched. Same GitHub account as every lane: zero organizational-independence credit.
@@ -187,7 +187,7 @@ transition (the repository's convention for declarative records); the checker an
 
 Pins on `main 3e0a91b` ([LP] `dfed3b8d`, SIDE24 `PROOF.md` `44b66f04`, `ENCLOSURE.json` `57af39a0`) verified by the workflow.
 Companions, not on `main`: Math-#199 at `74fb27f` (`coefficients/side24_d4_20260930/NOTE.md` blob `e00de466`: §3, the
-incomplete-gamma tail bounds used beyond `T = 90`; Mehta's `Z_m` at `m ≤ 3`), Math-#200 at `74b1310` (`RESULTS.json` blob `b67c00f4`:
+incomplete-gamma tail bounds used beyond `T = 90`; Mehta's `Z_m` at `m ≤ 3`), Math-#200 at `4e462e4` (`RESULTS.json` blob `b67c00f4`:
 the `D_4`, `c_{5,ref}` enclosures quoted; `NOTE.md` blob `7d12f050`: the decoupling and the cumulative machinery), Math-#201 at
 `6276eba` (`closed_form_d3.py` blob `5e7e4e59`: the exact arithmetic and the moments), Math-#202 at `73dfabb` (`closed_form_d4.py`
 blob `e087f4c0`: the T-function layer and the `m = 4` pipelines, reused verbatim; the closed form of `D_4`). Mehta's `Z_m` (Mehta, *Random Matrices*, ch. 17) at `m ≤ 5`: `m ≤ 3` inside Math-#199, `m = 4`
@@ -217,3 +217,8 @@ numerical library is used.
   `executed: false` (§7), and all companion pins refreshed to the companions' heads after their own nonauthor amendments: #199 `74fb27f`, #200
   `74b1310`, #201 `6276eba`, #202 `73dfabb` (the quoted enclosures, `RESULTS.json` blob `b67c00f4`, and the reused
   `closed_form_d4.py`, `e087f4c0`, are unchanged; `closed_form_d3.py` changed only in its output dict).
+- **v1.1.1 (S5 readback, Grok Bot agent 14, Math-#204 comment 5975001690, on `98063ca`; metadata and header only).** F1–F8
+  are resolved. New finding 1 (the F4 residue): the `SOURCE_FILES.json` SIDE24 pin role said "C_ref >= I/3 in every d"; it
+  now says "stated for d <= 3" and that the dimension-free blocks are applied to `d = 6` in §4. New finding 2: the header's
+  companion list names Math-#199. New finding 3: the Math-#200 pin moves to `4e462e4` (S2's metadata-only v1.2.1; the pinned
+  blobs `b67c00f4` and `7d12f050` are byte-identical there). No script or `RESULTS.json` byte changed.
