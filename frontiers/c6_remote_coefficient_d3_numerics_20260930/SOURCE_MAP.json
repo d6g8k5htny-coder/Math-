@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "object": "CL-C6-REMOTE-COEFF-D3-NUMERICS-20260930-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333",
+  "note": "Numerical evaluation only: the remote contact kernel Lambda_j of [RM] (13) in dimension d = 3 for the continuum kernel exp(-|x|^2/2), its far field (exact shifted-GOE quadrature), the correlation-hole constant (Monte Carlo with common random numbers and reported standard errors) and the torus integral k (L^3 Lambda_inf + c_hole) entering nu(1) = a_1 + k integral Lambda ([SC] (22), [CL] (1.4)). The near coefficients a_j^(3) used in the assembly are the planar Math-#168 values times R_3(b) of Math-#184 (unmerged, conditional). Floating-point values with standard errors, not enclosures. No source theorem is consumed as accepted.",
+  "review_status": "AUTHOR_SIDE_NUMERICAL_NOTE",
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false,
+  "nonauthor_reads": [
+    {"comment": "5367490653", "kind": "pull_request_review", "pr": "Math-#192", "lane": "OpenAI / Codex (automated Codex review)", "scope": "two P2 findings, applied in 2ecffa8"},
+    {"comment": "5915572509", "kind": "issue_comment", "pr": "Math-#192", "lane": "OpenAI / Codex", "scope": "reconciliation finding (producer note vs RESULTS.json), applied in 5925b3f"},
+    {"comment": "5915786179", "kind": "issue_comment", "pr": "Math-#192", "lane": "OpenAI / Codex", "scope": "reconciliation recorded as resolved at 5925b3f"},
+    {"comment": "5403289484", "kind": "pull_request_review", "pr": "Math-#192", "lane": "Grok Bot agent 1 (Cursor-hosted, Grok support routed by the Chief of Staff 5974102560)", "scope": "R1 Slice A (exact structure and far field) at 5925b3f: ACCEPT_WITH_FINDINGS; F1-F6 applied"},
+    {"comment": "5974291103", "kind": "issue_comment", "pr": "Math-#192", "lane": "Grok Bot agent 4 (Grok support routed by the Chief of Staff 5974102560)", "scope": "R3 Slice C (reporting) at 5925b3f: ACCEPT_WITH_FINDINGS; findings 2-9 applied (finding 9 as NOTE wording; finding 4 attribution superseded by R2 A4)"},
+    {"comment": "5403404967", "kind": "pull_request_review", "pr": "Math-#192", "lane": "Grok Bot agent 3 (Grok support routed by the Chief of Staff 5974102560)", "scope": "R2 Slice B (method) at 5925b3f: ACCEPT_WITH_FINDINGS; A1-A5 applied (A3 PR body; A4 re-measured by the author)"},
+    {"comment": "5974705557", "kind": "issue_comment", "pr": "Math-#192", "lane": "Grok Bot agent 3 (Grok support; author of R2, disclosed)", "scope": "readback of 5925b3f..4c5b8e1: 28/29 resolved; AMEND on the far-point ratio sentence (b = 0 only) applied"}
+  ],
+  "sources": [
+    {"id": "RM", "path": "frontiers/remote_window_20260924/PROOF.md", "bytes": 18355, "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7", "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "sections 2, 4, 5: the contact frame U_0 (4), the weight w_0 = (6k)^2 (det A_0)^2 1{A_0 < 0} (10), the full normalizer (11) and the contact kernel Lambda_j (13) in every fixed d >= 2; the object evaluated", "current_required": true, "on_main": true},
+    {"id": "SC", "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md", "bytes": 25006, "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb", "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "(8) c_m; (20) the near coefficients a_1, a_2; (22) beta_far = k integral_X Lambda in every fixed d; nu_1 = a_1 + beta_far, nu_2 = a_2", "current_required": true, "on_main": true},
+    {"id": "CL", "path": "frontiers/c6_cluster_law_20260929/PROOF.md", "bytes": 70131, "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38", "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "(1.4) nu(1) = nu_near(1) + k integral_X Lambda; section 5.1 integrability at the pin", "current_required": true, "on_main": true},
+    {"id": "LP", "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md", "bytes": 40261, "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7", "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "section 2: the kernel exp(-|x|^2/2) and its periodization; the pins, W_r and z_0", "current_required": true, "on_main": true},
+    {"id": "NUM", "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json", "bytes": 4095, "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb", "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "Math-#168: planar alpha_1, alpha_2 (GH60, floating, not certified), read at run time and multiplied by R_3(b) in the assembly", "current_required": true, "on_main": true},
+    {"id": "NUM2", "path": "frontiers/c6_remote_coefficient_numerics_20260930/RESULTS.json", "bytes": 103899, "sha256": "e9af3b52761946b57d6f5fa50fdf6ccd8d26610461e471a2e97618da1611e48a", "git_blob": "3e4a7ddb850818c4477b99f678847e68ab2b92e4", "commit": "de54d1da2f6cdde59df3c34bb50ecd85c25ca333", "role": "Math-#174 (merged): the planar remote coefficient values quoted for comparison (far field, hole constants, depletion radius); not read at run time", "current_required": true, "on_main": true}
+  ],
+  "companions_unmerged": [
+    {"id": "HDF", "pr": 184, "path": "frontiers/c6_hard_direction_factorization_20260930/PROOF.md", "git_blob": "91d22fce0fd7d4630bfe2e2c93eab289babc97f2", "use": "Lemma 2: z_0^(3) = 36 k^2 m_(3,b) with m_(3,b) = E[(det A)^2 1{A neg. def.}], A = -b I + GOE_2(2, 1); Theorem 1 / Corollary 1: a_j^(3) = R_3(b) alpha_j^(2); recomputed here from the same displayed formulas and marked conditional"}
+  ]
+}
