@@ -45,7 +45,7 @@
     },
     {
       "path": "coefficients/side24_d4_20260930/NOTE.md",
-      "git_blob_at_base": "unmerged (Math-#199 head 4fc6d15)",
+      "git_blob_at_base": "unmerged (Math-#199 head 74fb27f)",
       "role": "the d = 4 record whose reduction, quadrature and D_3 enclosure this record generalizes and re-runs (rule D3_CONSISTENT)"
     }
   ],
@@ -80,7 +80,7 @@
       },
       {
         "path": "coefficients/side24_d4_20260930/cone_moment_d4.py",
-        "role": "the m = 2, 3 pipelines and the interval toolkit re-used verbatim"
+        "role": "the m = 2, 3 pipelines and the interval toolkit re-used, identical up to mutant hooks, one Iv.frac -> Iv.of in the integral tail and #199 v1.3's added tail-bound precondition check (NOTE section 8)"
       }
     ],
     "workflow_checked": false
