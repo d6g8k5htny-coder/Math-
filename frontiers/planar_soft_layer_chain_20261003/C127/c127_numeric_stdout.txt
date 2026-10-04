@@ -1,0 +1,6 @@
+ten-functional duals (U_r, A, f(x), grad f(x)): exactness and l1 cost as rho decreases
+  rho=0.400: max l1 pin/Hessian duals 3.530e+03 (x rho^7 = 5.784e+00); remote duals 6.570e+07 (x rho^9 = 1.722e+04); max |L(phi) - d| / l1 = 6.7e-11
+  rho=0.200: max l1 pin/Hessian duals 5.435e+04 (x rho^7 = 6.956e-01); remote duals 2.802e+10 (x rho^9 = 1.434e+04); max |L(phi) - d| / l1 = 5.8e-10
+  rho=0.100: max l1 pin/Hessian duals 1.830e+06 (x rho^7 = 1.830e-01); remote duals 2.284e+13 (x rho^9 = 2.284e+04); max |L(phi) - d| / l1 = 5.5e-09
+  rho=0.050: max l1 pin/Hessian duals 1.026e+08 (x rho^7 = 8.016e-02); remote duals 1.133e+16 (x rho^9 = 2.213e+04); max |L(phi) - d| / l1 = 2.8e-08
+  fitted growth: pin/Hessian duals rho^-4.94 (proof: rho^-7); remote duals rho^-9.12 (proof: rho^-9)

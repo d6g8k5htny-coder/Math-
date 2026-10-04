@@ -1,0 +1,33 @@
+{
+  "object": "C107 author finite controls",
+  "role": "AUTHOR_SIDE",
+  "scientific_effect": "NONE",
+  "human_review": "NONE",
+  "same_provider_independence_credit": 0,
+  "frozen_utc": "2026-10-03T11:46:09.513217+00:00",
+  "runtime_plan": "work/venv/bin/python3.11.16 normal and -O; no source repository tests or full master",
+  "files": {
+    "PROOF.md": {
+      "bytes": 29606,
+      "sha256": "d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df",
+      "final_lf": true
+    },
+    "SOURCE_IDENTITIES.json": {
+      "bytes": 2931,
+      "sha256": "f03da4be8cae14588d7e6e1d215091293dbad199bc9a0013cccca995a4c05a8c",
+      "final_lf": true
+    },
+    "CONTROLS_DESIGN.md": {
+      "bytes": 4171,
+      "sha256": "963a797c28c5872097421187d3332e7e9041435d1eb31fca0a186e8dab4f6de7",
+      "final_lf": true
+    },
+    "author_controls.py": {
+      "bytes": 16587,
+      "sha256": "9063ffb1c09c3ea62cc5dd7e0663ba4a9dada240ff7f9504a5bebfd7e92fec87",
+      "final_lf": true
+    }
+  },
+  "execution_at_freeze": "not yet executed",
+  "meaning": "Algebraic and finite symbolic controls only; no mathematical acceptance."
+}
