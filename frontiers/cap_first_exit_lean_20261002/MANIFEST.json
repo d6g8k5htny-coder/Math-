@@ -157,7 +157,9 @@
   "CapFirstExit.h1Toy_C3",
   "CapFirstExit.h1Toy_C4",
   "CapFirstExit.h1Toy_D",
-  "CapFirstExit.h1Toy_E"
+  "CapFirstExit.h1Toy_E",
+  "CapFirstExit.quarticToyF",
+  "CapFirstExit.quarticToy_E"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -784,6 +786,16 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.quarticToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.quarticToy_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -794,18 +806,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 46611,
-   "sha256": "31a13063fcbd53d12c4b3487a468de68bdad25fa5b8615697349e505374b104a"
+   "bytes": 47642,
+   "sha256": "60433b419fd5b11569c83afad0cb226c79e6e5c90666849d2aa288d4fee16469"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 267172,
-   "sha256": "c30c125004047eeaefc43a5e183319360a0d1a23d27051366ae5619171f1dce5"
+   "bytes": 274905,
+   "sha256": "fde8c26af78c5d2475c2af1332d98b54a550fe469cb0fcc097ea2f7754db5f51"
   },
   {
    "path": "README.md",
-   "bytes": 25154,
-   "sha256": "bd5dc3cdd87cd8c96b7aaac4b7a0521d56830dd2b7c7bfafd4b583b44bb9f7f5"
+   "bytes": 25901,
+   "sha256": "624368518e401c32c92c5e93a01f88b9326b450f60eea5ffc2f60259fe5fde27"
   },
   {
    "path": "gate.py",
@@ -830,7 +842,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6275,
-   "sha256": "cb3b08cc5b99f087b6ca2153fd028b2825a7a69cff5a42b2ac5e8d031d6f4039"
+   "sha256": "04d262b9d5c202c777ce2d71dc7bfe4478ee7d3471957d1725d08b19dedf22e5"
   }
  ]
 }
