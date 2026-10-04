@@ -1,0 +1,110 @@
+{
+ "controls": {
+  "Q1_ledger": true,
+  "Q2_reflection_evenness": true,
+  "Q3_second_coefficient": true,
+  "Q4_k_parity_reference": true,
+  "Q5_layer_algebra": true,
+  "Q6_bookkeeping": true
+ },
+ "ledger": {
+  "attained_by": [
+   "l rho^-2 (J3)",
+   "l^2 rho^-7 (cusp tail; J3; J4)",
+   "rho^3 (Lemma U, r^2 part; J2)"
+  ],
+  "least": "3/5",
+  "least_without_lemma_K": "3/5",
+  "optimal_split": "1/5",
+  "split": "1/5",
+  "terms": {
+   "l (J5)": "1",
+   "l rho^-2 (J3)": "3/5",
+   "l^(2/3) (Lemma U, r min(k,1/k) part)": "2/3",
+   "l^2 rho^-5 (A_2 finite part)": "1",
+   "l^2 rho^-7 (cusp tail; J3; J4)": "3/5",
+   "rho^3 (Lemma U, r^2 part; J2)": "3/5"
+  }
+ },
+ "object": "CL-CANDIDATE-PARITY-RATE-20261001-v1",
+ "pinned_fields_by_d": {
+  "1": 4,
+  "2": 4,
+  "3": 4,
+  "4": 2
+ },
+ "pinned_fields_checked": 14,
+ "reference_H_polynomials": {
+  "d1": {
+   "0": [
+    [
+     [],
+     "-5/24"
+    ]
+   ],
+   "2": [
+    [
+     [],
+     "9/2"
+    ]
+   ],
+   "4": [
+    [
+     [],
+     "108"
+    ]
+   ]
+  },
+  "d2": {
+   "0": [
+    [
+     [
+      0
+     ],
+     "-3/4"
+    ],
+    [
+     [
+      2
+     ],
+     "-13/96"
+    ],
+    [
+     [
+      4
+     ],
+     "-1/256"
+    ]
+   ],
+   "2": [
+    [
+     [
+      0
+     ],
+     "-18"
+    ],
+    [
+     [
+      2
+     ],
+     "57/8"
+    ],
+    [
+     [
+      4
+     ],
+     "-9/64"
+    ]
+   ],
+   "4": [
+    [
+     [
+      2
+     ],
+     "108"
+    ]
+   ]
+  }
+ },
+ "scientific_effect": "NONE"
+}

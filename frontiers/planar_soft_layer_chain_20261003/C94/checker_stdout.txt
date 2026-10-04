@@ -1,0 +1,15 @@
+C94 independent exact diagnostics
+radius-integrals: 136 PASS
+raw-polynomial: 108 PASS
+jacobians-poles: 756 PASS
+raw-box-radius: 480 PASS
+A1-tolerance: 1512 PASS
+value-truncation: 288 PASS
+random-margin-union: 432 PASS
+positive-sector: 25 PASS
+rates-normalization: 34 PASS
+correlated-Gaussian: 2 PASS
+positive controls: 3773
+false-inference fixtures: 17 REJECTED
+negative names: lost-B1-Jacobian, lost-gamma6-Jacobian, wrong-radius-integration-power, omitted-radius-residual, omitted-value-strip-residual, TV-times-unbounded-inverse, model-inverse-only-at-finite-r, factorized-weighted-norm, unweighted-bad-probability, independent-reference-cross-terms, psi-dependent-band-width, dropped-joint-slice-density, soft-layer-as-full-normalizer, global-Good-probability-one, overclaimed-rate-r4, unrestricted-window-growth, pointwise-gamma-zero-chart
+Scope: algebra/inference controls only; Gaussian bounds and conditional G require analytic review.

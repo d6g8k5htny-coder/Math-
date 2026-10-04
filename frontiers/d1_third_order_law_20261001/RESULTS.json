@@ -1,0 +1,173 @@
+{
+ "checks": {
+  "C1_constants": {
+   "info": {
+    "B2_part2_closed_form": true,
+    "B2_prefactor_2^(1/2)3^(1/3)": true,
+    "C0_from_fold_integral": true,
+    "C1_printed_forms_agree": true,
+    "CU2_at_d1_equals_C1": true,
+    "I_over_C1_is_3^(1/4)/2": true,
+    "cusp_assembly_gives_C1": true
+   },
+   "passed": true
+  },
+  "C2_mellin": {
+   "info": {
+    "k1": "32/7",
+    "k_(1/3)": "64/7 * 3^(-1/4)",
+    "quadrature_ratio_to_k_mu": {
+     "1": 1.0,
+     "1/3": 1.0
+    }
+   },
+   "passed": true
+  },
+  "C3_model_window": {
+   "info": {
+    "critical_values_(3.1)": true,
+    "decision_elder_iff_|phi|<1/3": true,
+    "identities": {
+     "g + 1 = (X-1/2)^2[2(X+1) + 3 phi (X+1/2)^2]": true,
+     "g = (X+1/2)^2[2(X-1) + 3 phi (X-1/2)^2]": true,
+     "g' = 6(X+1/2)(X-1/2)(1 + 2 phi X)": true
+    },
+    "lemma_3.3_extension_|phi|>=1": true,
+    "lemma_3.3_margins": true,
+    "n_phi": 117
+   },
+   "passed": true
+  },
+  "C4_pinned_series": {
+   "info": {
+    "(exp(-x^2/2)+exp(-2x^2))/2": {
+     "c2": "-2840/1137",
+     "checks": {
+      "c = tau(1 + c2 tau^2 + ...)": true,
+      "det = l4 D (1 + d2 tau^2 + ...)": true,
+      "inv33 = (l2/D)(1 + q2 tau^2 + ...)": true,
+      "parity": true,
+      "v1 = sigma4^2 tau^4/9 + ...": true,
+      "v2 = (tau^6/225) Var(a5|a1,a3) + ...": true,
+      "zero_blocks": true
+     },
+     "d2": "-268015/19329",
+     "lambda": {
+      "10": "968625/2",
+      "12": "42588315/2",
+      "2": "5/2",
+      "4": "51/2",
+      "6": "975/2",
+      "8": "26985/2"
+     },
+     "q2": "-5129/1895"
+    },
+    "exp(-x^2/2)": {
+     "c2": "-2/3",
+     "checks": {
+      "c = tau(1 + c2 tau^2 + ...)": true,
+      "det = l4 D (1 + d2 tau^2 + ...)": true,
+      "inv33 = (l2/D)(1 + q2 tau^2 + ...)": true,
+      "parity": true,
+      "v1 = sigma4^2 tau^4/9 + ...": true,
+      "v2 = (tau^6/225) Var(a5|a1,a3) + ...": true,
+      "zero_blocks": true
+     },
+     "d2": "-11/3",
+     "lambda": {
+      "10": "945",
+      "12": "10395",
+      "2": "1",
+      "4": "3",
+      "6": "15",
+      "8": "105"
+     },
+     "q2": "-1"
+    }
+   },
+   "passed": true
+  },
+  "C5_B2_assembly": {
+   "info": {
+    "gauss_Q_over_120l2l4D_is_3/4": true,
+    "identity_30l2l4D(2c2-d2/2-5q2/6)": true,
+    "identity_Q=4l2^2l4s4^2+D(24l4^2-D)": true,
+    "identity_sum_equals_Q": true,
+    "two_mode_1_40_eps1e-5_sign_not_fixed_by_H": {
+     "Q": "-7.08561071e+08",
+     "Q<0": true,
+     "l2l6/l4^2": "58.816210",
+     "l2l6>25l4^2": true
+    },
+    "values": {
+     "(exp(-x^2/2)+exp(-2x^2))/2": {
+      "Q/(120 l2 l4 D)": "66423/25772",
+      "Q>0": true,
+      "agree": true,
+      "bracket": "66423/25772",
+      "l2l6/l4^2": "1625/867",
+      "sufficient_l2l6<=25l4^2": true
+     },
+     "exp(-x^2/2)": {
+      "Q/(120 l2 l4 D)": "3/4",
+      "Q>0": true,
+      "agree": true,
+      "bracket": "3/4",
+      "l2l6/l4^2": "5/3",
+      "sufficient_l2l6<=25l4^2": true
+     }
+    }
+   },
+   "passed": true
+  },
+  "C6_rice_integral": {
+   "info": {
+    "(exp(-x^2/2)+exp(-2x^2))/2": {
+     "B2": 0.28802137,
+     "C0": 0.26951003,
+     "C1": -0.60195554,
+     "I": -0.39610902,
+     "a_pred_I/C0": -1.4697376,
+     "b_pred_B2/(C0/2)": 2.1373703,
+     "dev/h^(7/12)": {
+      "1e-11": -1.210789,
+      "1e-12": -1.256001,
+      "1e-13": -1.293318,
+      "1e-14": -1.32412,
+      "1e-15": -1.349544,
+      "1e-16": -1.370527
+     },
+     "fit_a": -1.4697,
+     "fit_b": 2.137,
+     "t0": 0.01,
+     "within_tolerance": true
+    },
+    "exp(-x^2/2)": {
+     "B2": 0.11502229,
+     "C0": 0.11011038,
+     "C1": -0.22760636,
+     "I": -0.14977341,
+     "a_pred_I/C0": -1.3602115,
+     "b_pred_B2/(C0/2)": 2.089218,
+     "dev/h^(7/12)": {
+      "1e-11": -1.107096,
+      "1e-12": -1.151288,
+      "1e-13": -1.187764,
+      "1e-14": -1.21787,
+      "1e-15": -1.242718,
+      "1e-16": -1.263223
+     },
+     "fit_a": -1.3602,
+     "fit_b": 2.089,
+     "t0": 0.04,
+     "within_tolerance": true
+    }
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-D1-THIRD-ORDER-20261001-v1.1 exact controls",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

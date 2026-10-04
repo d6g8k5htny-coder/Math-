@@ -1,0 +1,49 @@
+C101 independent reviewer exact controls
+Runtime: Python 3.9.6
+4 PASS: Boolean complement agreement on typed partition
+1 PASS: actual near scalar numerator r5 J10
+1 PASS: actual strip retains finite radius mass
+7 PASS: all admissibility powers positive in open interval
+13 PASS: all thirteen cutoff exponents
+1 PASS: correlated weight and norm are not independent
+3 PASS: decision band chart pole cancellation
+13 PASS: error exponents dominate target over entire beta interval
+3 PASS: exact finite jet evaluation rank
+20 PASS: fixed integer cutoff family
+9 PASS: fixed residual tail moment
+1 PASS: m3 actual and model moment orders
+1 PASS: m3 displayed specialization
+3 PASS: mass consumer and positive mass normalization
+3 PASS: model weight identity
+1 PASS: physical Jacobian soft determinant full normalizer
+3 PASS: radius B1 Jacobian
+3 PASS: radius integral and finite radius correction
+12 PASS: raw cubic shear including negative gamma
+3 PASS: raw to CUB parameter map
+4 PASS: requested beta finite moment selection
+1 PASS: saddle clearance alone loses older endpoint
+1 PASS: scaled far and derivative exceptions
+3 PASS: truncated actual inverse powers
+1 PASS: two margins certify chord and older endpoint
+60 PASS: typed determinant including boundaries
+60 PASS: typed weight quadratic envelope
+Positive exact controls: 235
+REJECTED: line samples certify all planar jets
+REJECTED: duplicated observation preserves full jet rank
+REJECTED: absolute determinants replace endpoint typing
+REJECTED: decision band Jacobian acquires extra factor twelve
+REJECTED: actual radius leading term has rho minus six power
+REJECTED: model strip substitutes for actual strip
+REJECTED: omit actual inverse correction v=3
+REJECTED: omit actual inverse correction v=4
+REJECTED: omit actual inverse correction v=6
+REJECTED: factor a correlated weighted moment
+REJECTED: divide by full normalizer twice
+REJECTED: discard finite radius cap exceptions
+REJECTED: Boolean complements agree outside the typed partition
+REJECTED: one margin certifies rejected chord
+REJECTED: endpoint beta one half has an exhausting cutoff
+REJECTED: beta beyond half satisfies Taylor balance
+REJECTED: omit growing H4 endpoint loss
+Rejected false shortcuts: 17
+Analytic Gaussian, topology and continuum conclusions require the written review.

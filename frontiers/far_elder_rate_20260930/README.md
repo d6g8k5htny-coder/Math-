@@ -1,5 +1,9 @@
 # Far elder density rate (CL-FAR-ELDER-RATE-20260930-v1)
 
+**Erratum 1 (4 October 2026):** `ERRATUM_20261004.md` records that the §0 SIDE24 manuscript and audit (F-02)
+citations are context only and not repository sources. It answers the second-provider read 5975813301; the mathematics
+reads PASS, and no mathematical change follows.
+
 Author-side proof candidate, Anthropic Claude, 30 September 2026. Scientific effect NONE. Nonauthor review required.
 
 **Statement.** For the periodized Gaussian field on the torus and a fixed separation `ρ`, the density (per unit

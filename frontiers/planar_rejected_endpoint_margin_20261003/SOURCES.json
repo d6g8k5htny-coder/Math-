@@ -1,0 +1,149 @@
+{
+ "schema": 2,
+ "object": "PLANAR-REJECTED-ENDPOINT-MARGIN-A4-INCORPORATION-20261003-v1",
+ "kind": "additive incorporation of public native proof, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973297507",
+  "note": "the incorporator is also the author of A4 (custody only; no proof byte is changed)"
+ },
+ "sequencing": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972971500",
+ "excluded": {
+  "A4.1": "QS addendum A4.1 (5973261552) is author-side and unreviewed",
+  "C117 reviewer program": "independent_controls.py (9063 bytes, SHA256 3ad506bf7c7eb9a9401bc62f249ff47829fbe2d377e032cba5b84bbe32fe3c94) is held in the owner-only Drive delivery named in A4/REVIEW_COMPLETION.md; recorded by identity only"
+ },
+ "source_issue": "https://github.com/d6g8k5htny-coder/main/issues/229",
+ "objects": [
+  {
+   "tag": "A4",
+   "object": "CL-QS-A4-LOCAL-ENDPOINT-PLANAR-RATES-20261003-v1",
+   "title": "A local endpoint margin for the rejected chord; planar sector errors O(r^(11/3-eps)) and the planar rate for every beta < 2/3",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU)",
+   "reviewer": "OpenAI/Codex /root/next_math_triage (C117), nonauthor of A4; author-checker exposure before control design disclosed in 5972529830",
+   "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED, conditional on the retained source interfaces; no required amendment (5972610615)",
+   "organizational_independence": 0,
+   "personal_reading": "PENDING",
+   "consumes": [
+    "C91",
+    "C92",
+    "C93",
+    "C94",
+    "C95",
+    "C96",
+    "C97",
+    "C101 (frontiers/planar_soft_layer_chain_20261003/)"
+   ],
+   "stored": [
+    {
+     "path": "A4/PROOF.md",
+     "role": "frozen proof (QS addendum A4)",
+     "comment": "5972396791",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972396791",
+     "created_at": "2026-10-03T18:53:16Z",
+     "bytes": 16544,
+     "sha256": "acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c"
+    },
+    {
+     "path": "A4/CLAIM.md",
+     "role": "author work claim",
+     "comment": "5972064837",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972064837",
+     "created_at": "2026-10-03T18:15:18Z",
+     "bytes": 1816,
+     "sha256": "36d176f7a2329c6a5fbf6e7f7b6a53c21ada281eb8574e3f0bf6f50df911e650"
+    },
+    {
+     "path": "A4/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a4_exact.py and its stdout)",
+     "comment": "5972399575",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972399575",
+     "created_at": "2026-10-03T18:53:33Z",
+     "bytes": 19342,
+     "sha256": "a96df3bf11cce0ed56334d999dc0d76ba0b1f89c819e4932f5f0f0ce8283b217"
+    },
+    {
+     "path": "A4/REVIEW_PICKUP.md",
+     "role": "C117 nonauthor review pickup",
+     "comment": "5972431044",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972431044",
+     "created_at": "2026-10-03T18:56:48Z",
+     "bytes": 1398,
+     "sha256": "f25350eac3a52532ed2d7ab9e056256ffe72d35ed6626e7f063ce54646dbe693"
+    },
+    {
+     "path": "A4/REVIEW_EXPOSURE_CORRECTION.md",
+     "role": "C117 review-exposure correction",
+     "comment": "5972529830",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972529830",
+     "created_at": "2026-10-03T19:05:10Z",
+     "bytes": 1209,
+     "sha256": "cadc3998c41e12f661231547f9dd14be898877834eb1590a9dd5cd8efd32c0bd"
+    },
+    {
+     "path": "A4/REVIEW.md",
+     "role": "C117 full nonauthor review",
+     "comment": "5972610615",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972610615",
+     "created_at": "2026-10-03T19:15:10Z",
+     "bytes": 18420,
+     "sha256": "b27f530d243d92a15302026eb66731de8f50464e71941bf1a03b983713b012f8"
+    },
+    {
+     "path": "A4/REVIEW_COMPLETION.md",
+     "role": "C117 completion and delivery note",
+     "comment": "5972720319",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972720319",
+     "created_at": "2026-10-03T19:29:23Z",
+     "bytes": 2354,
+     "sha256": "1ba2d4a304d3865de0dbb1a986b1a09981104ff5fc0f8fd3b3b0fc924b95a895"
+    },
+    {
+     "path": "A4/AUTHOR_ACK.md",
+     "role": "author acknowledgment of the C117 review",
+     "comment": "5972660633",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972660633",
+     "created_at": "2026-10-03T19:21:37Z",
+     "bytes": 2453,
+     "sha256": "4d62bb7522ded9f4afad86558458454f5861d759dc47c3cb908340c9d6a1fd3e"
+    },
+    {
+     "path": "A4/author_controls.py",
+     "role": "a4_exact.py, extracted verbatim from the author controls comment",
+     "comment": "5972399575",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972399575",
+     "extracted": true,
+     "bytes": 17262,
+     "sha256": "f880ffb044a3102781c71cb3b4ac65d65260c31588c6835520349e5c7bdc2b95"
+    },
+    {
+     "path": "A4/author_controls_stdout.txt",
+     "role": "its published stdout, extracted verbatim",
+     "comment": "5972399575",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972399575",
+     "extracted": true,
+     "bytes": 502,
+     "sha256": "022ff38c96e6378dd4dc9c00e14deebf167443d71fd6d2b0cee6f483d95cc28e"
+    }
+   ],
+   "replays": [
+    {
+     "name": "author controls",
+     "script": "A4/author_controls.py",
+     "stdout": "A4/author_controls_stdout.txt",
+     "mutants": [
+      "G_QUARTER",
+      "LOCAL_36",
+      "NO_PIN_GRAD",
+      "OLD_ENDPOINT",
+      "P_TWO",
+      "OMEGA_HALF"
+     ],
+     "invalid_label": "BOGUS"
+    }
+   ]
+  }
+ ]
+}
