@@ -34,29 +34,36 @@
   ],
   "companion_not_on_main": [
     {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "74fb27f",
+      "path": "coefficients/side24_d4_20260930/NOTE.md",
+      "git_blob": "e00de4665594bad39545046433989bfa5178cd65",
+      "role": "section 3: the incomplete-gamma tail bounds used beyond T = 90; Mehta's Z_m at m <= 3"
+    },
+    {
       "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
-      "commit": "33d50de",
+      "commit": "74b1310",
       "path": "coefficients/side24_d5_20260930/RESULTS.json",
       "git_blob": "b67c00f45d053b51c2ec15ce8d53c8a34e49a006",
       "role": "the D_4 and c_{5,ref} enclosures quoted (rule SIDE24_CONSISTENT)"
     },
     {
       "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
-      "commit": "33d50de",
+      "commit": "74b1310",
       "path": "coefficients/side24_d5_20260930/NOTE.md",
-      "git_blob": "ab3fe17d8fbed0b417a4844ff9490e2eefcb5134",
+      "git_blob": "7d12f0502d2e557e1c04e101827a554b53ce3def",
       "role": "sections 1-3: the (T, u) decoupling and the certified cumulative machinery generalized here"
     },
     {
       "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/201",
-      "commit": "3abcc10",
+      "commit": "6276eba",
       "path": "coefficients/side24_d4_closed_form_20260930/closed_form_d3.py",
-      "git_blob": "a0c9169227c9a0b42c66deaca2b4f2e3168046ab",
+      "git_blob": "5e7e4e59bb5de239e0c7a1b6bdb632f8300745dc",
       "role": "exact arithmetic and moments, reused verbatim; the D_3 closed form is rule D3_EXACT"
     },
     {
       "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/202",
-      "commit": "4512309",
+      "commit": "73dfabb",
       "path": "coefficients/side24_d5_closed_form_20260930/closed_form_d4.py",
       "git_blob": "e087f4c0007ae2473d28230771588da57f794aab",
       "role": "T-function layer, m = 4 pipelines and the D_4 closed form (rules D4_EXACT, D4_CERTIFIED_PATH), reused verbatim"
@@ -65,9 +72,9 @@
   "files": [
     {
       "path": "NOTE.md",
-      "bytes": 17746,
-      "sha256": "aa8247ff8c5f2cb38c68e552a057e12f6cf5c3776e0ff0d303429bb0c16fb108",
-      "git_blob": "e5316fd24bbc48db0c4d7e812d89afbd4910bcb0"
+      "bytes": 19240,
+      "sha256": "adcb2864782abbb3c95eca3401b780e63856d0cb4fa5f054a0ea6bc2e273167d",
+      "git_blob": "05e65a80acfb2d1736d57f421e8d9e08be435fda"
     },
     {
       "path": "RESULTS.json",

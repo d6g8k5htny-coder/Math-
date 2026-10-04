@@ -23,7 +23,8 @@ The same code returns exactly `D_1 = 4/3`, `D_2 = 29/6 − √6`, Math-#201's `D
 through the identical `m = 5` layers (rule `MEHTA_Z5`), and reproduces SIDE24's `d = 2, 3` intervals and Math-#200's `D_4` and
 `c_{5,ref}` enclosures (rule `SIDE24_CONSISTENT`). **No closed form for `D_5` is claimed** (§7).
 
-With SIDE24 (`d = 2, 3`), Math-#199/#201 (`d = 4`), Math-#200/#202 (`d = 5`) and this record, the reference coefficients are:
+With SIDE24 (d = 2, 3, on main), the companions Math-#199/#201 (d = 4) and Math-#200/#202 (d = 5) (not on main; nonauthor reads
+open) and this record (author-side; nonauthor reads open), the reference coefficients are:
 
 | `d` | `D_{d−1}` | `c_{d,ref}` |
 |---|---|---|
@@ -109,18 +110,19 @@ certified parts' absolute widths (`~10⁻³²`) times the prefactor.
 
 **Three end-to-end checks of the certified layer.** (i) `D_4` through it: at `m = 4` the `v`-layer (`∫_0^T e^{−v²/24} Σ_k e_k J_k`)
 is elementary, but the script also encloses it as certified cumulative factors (`Q_B(v)e^{−v²/24} + Q_C(v)e^{−v²/6}`, no `erf`)
-and the result contains the exact closed form of Math-#202 with width `4·10⁻⁴⁰` (rule `D4_CERTIFIED_PATH`). (ii) `Z_5`: Mehta's
+and the result contains the exact closed form of Math-#202 with width `4·10⁻⁴³` (rule `D4_CERTIFIED_PATH`). (ii) `Z_5`: Mehta's
 integral at `m = 5`, `Z_5 = 5!·(1/24)·2√(π/5) ∫_{0<q<v<w<T} V e^{−T²/80 − w²/48 − v²/24 − q²/8}` (`V` the Vandermonde of the
 gaps; the `a`-integral is the pure Gaussian `∫ e^{−(5a² + 2aT)/4} da = 2√(π/5) e^{T²/20}` and `Σt_j² = T²/4 + |u|²` gives the
 `T²/80`), goes through the same `q`, `v`, `w` layers, including `erf` inside the certified layer, and encloses `46080 π^{3/2}` with
 width `5.7·10⁻³⁵` (rule `MEHTA_Z5`). (iii) Two routes for `D_5`: the `e^{−μw²}` parts of the `w`-layer are computed exactly (default)
 or also routed through the certified layer; the two enclosures intersect (rule `ROUTE_CONSISTENT`). A coarser run (`K = 20`,
 cells of width `1`) contains the fine one and is wider (rule `TRUNCATION_NESTING`), and a float trapezoid evaluation of the same
-layer decomposition (`h = 0.02`, `T ≤ 70`) lands within `2·10⁻⁵` of the enclosure (rule `FLOAT_INSIDE`, control only).
+layer decomposition (`h = 0.02`, `T ≤ 70`) lands 9.3·10⁻⁴ below the enclosure (relative 2.1·10⁻⁵) (rule `FLOAT_INSIDE`, control
+only).
 
 ## 4. The coefficient and the torus transfer in `d = 6`
 
-`c_{d,ref} = Γ(7/6) (3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d)` ([LP] (15.2), Math-#199 §4); `|S⁵| = 2π³/Γ(3) = π³`, so
+`c_{d,ref} = Γ(7/6) (3/2)^{1/3} |S^{d−1}| D_{d−1} / (√3 √π (2π)^d)` ([LP] (15.2) with SIDE24 §1: `p_G(0)p_V(0) = (2π)^{−d}/√3`, `τ² = 6`); `|S⁵| = 2π³/Γ(3) = π³`, so
 `c_{6,ref} = Γ(7/6) (3/2)^{1/3} D_5 / (64√3 π^{7/2})` (rule `CLOSED_FORM_D6` against the general formula; `d = 2, 3` inside SIDE24's
 intervals, `d = 4, 5` inside Math-#199/#200's, rule `SIDE24_CONSISTENT`).
 
@@ -129,12 +131,13 @@ intervals, `d = 4, 5` inside Math-#199/#200's, rule `SIDE24_CONSISTENT`).
 `Σ_{n≠0} |n|⁶ e^{−288|n|²} ≤ 728·216 Σ_j j¹¹ e^{−288j²} ≤ 314496 e^{−288}` (successive terms have ratio far below `1/2`), and every
 3-jet covariance entry of `K_24` is within `E_6 = 314496 (76·24⁶ + 15) e^{−288} = 3.8272e-110` of its reference value.
 (ii) Sandwich: the jet `(G, t, svec H)` has dimension `n = d + 1 + d(d+1)/2 = 28`; spectral norm of the difference at most `2nE_6`;
-`C_ref ≥ I/3` in every `d` (SIDE24 §3: Hessian block eigenvalues `d + 2` and `2`, the `(G, tr H)` block `[[1, −3], [−3, 15]]` with
-eigenvalues `8 ± √58`, gradient variances `1`); hence `(1 − ε) C_ref ≤ C_24 ≤ (1 + ε) C_ref` with `ε = 168 E_6 = 6.4297e-108`.
+`C_ref ≥ I/3` for `d = 6` by the argument of SIDE24 §3, whose blocks are dimension-free (Hessian block eigenvalues `d + 2 = 8` on
+trace and `2` on traceless; the odd `(G_1, t)` block, `t = ∂_u³ f`, `[[1, −3], [−3, 15]]` with eigenvalues `8 ± √58`; remaining
+gradient variances `1`); hence `(1 − ε) C_ref ≤ C_24 ≤ (1 + ε) C_ref` with `ε = 168 E_6 = 6.4297e-108`.
 (iii) Ratios: `a = m + 2/3 + n_A/2 = 79/6` (`n_A = m(m+1)/2 = 15`), `b = d + n_A/2 = 27/2`; both are at most `14`, so the ratio lies in
 `[1/(1+δ), 1+δ]` with `δ = (1+ε)^{14}/(1−ε)^{14} − 1 = 28ε + O(ε²)` (computed without cancellation; rule `TRANSFER_BOUND` certifies
 `27ε ≤ δ ≤ 29ε` for every represented value, `δ.lo ≥ 27 ε.hi` and `δ.hi ≤ 29 ε.lo`, and records that the enclosures of `δ` and `28ε`
-intersect; the offset `δ − 28ε ~ 406 ε²` lies far below the arithmetic resolution and is not claimed as certified). So
+intersect; the offset `δ − 28ε ~ 392 ε²` lies far below the arithmetic resolution and is not claimed as certified). So
 `|c_{6,24}/c_{6,ref} − 1| ≤ 1.8004e-106`, below the arithmetic width; the printed digits of `c_{6,24}` are those of `c_{6,ref}`. The
 exact periodic constant is enclosed, not equated to the reference.
 
@@ -143,10 +146,10 @@ exact periodic constant is enclosed, not equated to the reference.
 | quantity | enclosure (common digits of both endpoints) | width |
 |---|---|---|
 | `D_1`, `D_2`, `D_3`, `D_4` | exact (`4/3`, `29/6 − √6`, Math-#201, Math-#202) | — |
-| `D_4` through the certified layer | `14.218763458977357601306465677874078317340602…` ∋ closed form | `4.1e-40` |
+| `D_4` through the certified layer | `14.218763458977357601306465677874078317340602…` ∋ closed form | `4.1e-43` |
 | `Z_5` (layered) | `256588.55409400509751072441261603594914…` ∋ `46080π^{3/2}` | `5.7e-35` |
 | `D_5` | `44.130651875074132710362024895402633148…` | `3.9e-37` |
-| `D_5`, second route | same digits, intersects | `4.2e-37` |
+| `D_5`, second route | agrees with `D_5` to 20 decimals (`44.13065187507413271036…`); intersects | `5.0e-22` |
 | `c_{6,ref}` | `0.0076928786292368482786666312812273900811…` | `6.9e-41` |
 | `c_{6,24}` | the same digits; `|c_{6,24}/c_{6,ref} − 1| ≤ 1.8004e-106` | |
 | `E_6`, `ε`, `δ` | `3.8272e-110`, `6.4297e-108`, `1.8004e-106` | |
@@ -177,15 +180,17 @@ a Gaussian integral over a three-dimensional wedge with two further error functi
 not elementary in general; the pattern `D_1..D_4` elementary, `D_5` not, is the expected one. Not `d ≥ 7`: at `m = 6` a further
 nested variable appears (denominator `8·15 = 120`) and the `w`-layer's certified factors would themselves have to be integrated
 cumulatively once more before the outer integral; the machinery nests in principle (a cumulative factor of a cumulative factor)
-but is not built here. Not a window coefficient, `C`, `r_*` or `z_*`. C8 stays OPEN. `executed: false`.
+but is not built here. Not a window coefficient, `C`, `r_*` or `z_*`. C8 stays OPEN. `executed: false`: this record executes no register or status
+transition (the repository's convention for declarative records); the checker and workflow runs reported here are replays.
 
 ## 8. Provenance
 
 Pins on `main 3e0a91b` ([LP] `dfed3b8d`, SIDE24 `PROOF.md` `44b66f04`, `ENCLOSURE.json` `57af39a0`) verified by the workflow.
-Companions, not on `main`: Math-#200 at `33d50de` (`RESULTS.json` blob `b67c00f4`: the `D_4`, `c_{5,ref}` enclosures quoted; `NOTE.md`
-blob `ab3fe17d`: the decoupling and the cumulative machinery), Math-#201 at `3abcc10` (`closed_form_d3.py` blob `a0c91692`: the exact
-arithmetic and the moments), Math-#202 at `4512309` (`closed_form_d4.py`: the T-function layer and the `m = 4` pipelines, reused
-verbatim; the closed form of `D_4`). Mehta's `Z_m` (Mehta, *Random Matrices*, ch. 17) at `m ≤ 5`: `m ≤ 3` inside Math-#199, `m = 4`
+Companions, not on `main`: Math-#199 at `74fb27f` (`coefficients/side24_d4_20260930/NOTE.md` blob `e00de466`: §3, the
+incomplete-gamma tail bounds used beyond `T = 90`; Mehta's `Z_m` at `m ≤ 3`), Math-#200 at `74b1310` (`RESULTS.json` blob `b67c00f4`:
+the `D_4`, `c_{5,ref}` enclosures quoted; `NOTE.md` blob `7d12f050`: the decoupling and the cumulative machinery), Math-#201 at
+`6276eba` (`closed_form_d3.py` blob `5e7e4e59`: the exact arithmetic and the moments), Math-#202 at `73dfabb` (`closed_form_d4.py`
+blob `e087f4c0`: the T-function layer and the `m = 4` pipelines, reused verbatim; the closed form of `D_4`). Mehta's `Z_m` (Mehta, *Random Matrices*, ch. 17) at `m ≤ 5`: `m ≤ 3` inside Math-#199, `m = 4`
 inside Math-#200/#202, `m = 5` inside this record (rule MEHTA_Z5). Cauchy's estimate and the Lagrange remainder are elementary.
 The interval class is the repaired class of Math-#190 v1.3 (exact negation, explicit contexts, rule LIBRARY_EXACT). No external
 numerical library is used.
@@ -197,10 +202,18 @@ numerical library is used.
 - **Claim:** the `m = 5` recursion of the decoupling; the layered exact/certified evaluation; the certified enclosures of `D_5`,
   `c_{6,ref}`, `c_{6,24}`; `Z_5 = 46080π^{3/2}`, `D_4` through the certified layer and the exact `D_1..D_4` as rules. No theorem of
   [LP] or SIDE24 is proved or reviewed.
-- **Completed review scopes:** none yet. Requested: nonauthor reads of Slice A (§1: nested coordinates, Jacobian, exponents, odd
-  `q`-powers, `pref`, `c_E`), Slice B (§§2–3: the exact layers, the certified `Ω` factors and their disc bounds, the tail at `T = 90`,
-  the three end-to-end checks), Slice C (§§4–7: coefficient, the `d = 6` transfer constants, values, non-claims).
-- **Unresolved finding IDs:** none.
-- **Validation:** 20/20 rules in both modes, byte-identical output; 14/14 mutants rejected in both modes; workflow replayed locally;
-  hosted run pending at opening.
+- **Review state, finding IDs, validation:** as of opening; current state in the PR's disposition block.
 - **Next action:** nonauthor reads; amendments on this branch, recorded in `SOURCE_FILES.json`. Author will not merge.
+
+## 10. Revisions
+
+- **v1.1 (nonauthor read S5, Grok Bot agent 14, Math-#204 comment 5974495664, on `5915af4`).** Numbers in prose, labels, citations
+  and pins only; no certified value, script or `RESULTS.json` byte changed. F1: the second-route width is `5.0e-22` (20 common
+  decimals with `D_5`), not `4.2e-37`. F2: the `D_4` certified-path width is `4.1e-43` (§3, §5, PR body). F3: the float control
+  lands `9.3·10⁻⁴` below the enclosure (relative `2.1·10⁻⁵`). F4: the odd block is `(G_1, t)`, `t = ∂_u³ f`; `C_ref ≥ I/3` for
+  `d = 6` is this record's application of SIDE24 §3's dimension-free blocks. F5: `δ − 28ε ~ 392 ε²`. F6: Math-#199 is pinned as a
+  companion (`74fb27f`, `NOTE.md` blob `e00de466`, §3 tail bounds), and the `c_{d,ref}` formula cites [LP] (15.2) with SIDE24 §1.
+  F7: the `d = 4, 5` rows rest on companions not on `main`. F8: §9 points to the PR's disposition block. Also: a gloss on
+  `executed: false` (§7), and all companion pins refreshed to the companions' heads after their own nonauthor amendments: #199 `74fb27f`, #200
+  `74b1310`, #201 `6276eba`, #202 `73dfabb` (the quoted enclosures, `RESULTS.json` blob `b67c00f4`, and the reused
+  `closed_form_d4.py`, `e087f4c0`, are unchanged; `closed_form_d3.py` changed only in its output dict).
