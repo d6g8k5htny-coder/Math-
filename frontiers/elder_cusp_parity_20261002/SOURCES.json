@@ -1,0 +1,207 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-ELDER-CUSP-PARITY-20261002-v1",
+ "kind": "author-side proof candidate: the elder cusp kernel with the candidate rate and without a linear term at fixed kappa, in every d >= 2. Lemma Q-prime (the elder decision of Math- #220 with relaxed margins: Gamma~ = |A^-1 gamma|, the ridge maximizer in a ball of radius max(1, 8 gbar/lambda), every phi decided); Proposition CE++ (the elder cusp kernel with error C r (1 + kappa), improving Math- #229 (CE+.1); 3/7 unchanged); Theorem N (for kappa in a compact subset of (0, inf), the elder and candidate cusp kernels are the cusp kernels + O(r^2), pointwise in the birth height: the O(r) term is r E[Q1 Psi_kappa] with Q1 = f5/120 - eta^T A^-1 gamma/12 + gamma^T A^-1 B A^-1 gamma/8 odd and Psi_kappa even, hence O(rk)); Corollary N-prime (in every fixed cusp window kappa0 <= l/r^4 <= kappa1 the elder, candidate and rejected densities are const l^(1/4) + O(l^(3/4)): no l^(1/2) term)",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "read_at": {
+  "branch_base": "6f74f7a77bae15d6aa07506bab38977e34dcc449"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "git_blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "tag": "R",
+   "use": "(R2)-(R5): pin densities (R5), moments"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "section 2 finite-jet rank and section 15 parity factorization, through #218 and #220"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "tag": "E1",
+   "use": "reading rule"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "section 9 replacement (the elder mark is Borel)"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "tag": "REC",
+   "use": "reading rule"
+  },
+  {
+   "path": "frontiers/remainder_vanishing_20260930/PROOF.md",
+   "bytes": 25353,
+   "sha256": "0cb5b949261476f10e539677e2744e3288752474393af25ba787e67b1350f32a",
+   "git_blob": "441152dfc1d8d00cb268cebdb0394212a5bfacdb",
+   "tag": "191",
+   "use": "Math- #191 (merged): Lemma E Step 3, det H_M(-r) = det H_S(r) (evenness of the product in Lemma Omega (a))"
+  },
+  {
+   "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+   "bytes": 52605,
+   "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+   "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+   "tag": "207",
+   "use": "Math- #207 (merged 2026-10-01 at 566b1a1): section 0 (cusp objects, the cusp polynomial (0.2)); Theorem CU.2 and Proposition CU.3 through #220; section 4 (4.1)"
+  },
+  {
+   "path": "frontiers/candidate_third_order_20261001/PROOF.md",
+   "bytes": 37220,
+   "sha256": "6c1279164499d4fe2fbeee244b40dafa2159758d20f04826cd67d7602ea97fe4",
+   "git_blob": "70ca57ef05199e75417d7d57928c1e1c93bf944e",
+   "tag": "218",
+   "use": "Math- #218 (merged 2026-10-01 at fb6ee97): Lemma D (1.1) and (1.2); Step F1 (2.1)-(2.2); Lemma C Step C1 (its three cases) and Step C3"
+  },
+  {
+   "path": "frontiers/elder_third_order_20261001/PROOF.md",
+   "bytes": 70544,
+   "sha256": "74b5f031ba5be6f50b5e543636136df1d9b5fad0fcd2c8210320cfef02f80e37",
+   "git_blob": "c8767ddecf1041d234f685e95af582073a7be393",
+   "tag": "220",
+   "use": "Math- #220 (merged 2026-10-01 at 0d79778): section 0; section 1 (the setting, Lemma CU.1-prime (1.1) and its proof, Lemma S (1.2), Lemma Q and its proof, (M1)-(M6)); section 2 (notation, (F1)-(F7), (2.1)-(2.2), Lemma G, Lemma CE and its proof, Steps E1-E6)"
+  },
+  {
+   "path": "frontiers/third_order_rate_20261001/PROOF.md",
+   "bytes": 37626,
+   "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
+   "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
+   "tag": "229",
+   "use": "Math- #229 (merged 2026-10-01 at 6f74f7a): Lemma L (L.1); Lemma CE+ (CE+.1) and its proof (Step E2+ with (3.1)-(3.2), Step E3+); section 5 (the ledger, for Remarks 1-2)"
+  },
+  {
+   "path": "frontiers/c2_finite_jet_transfer_20261001/PROOF.md",
+   "bytes": 25581,
+   "sha256": "971101de946fd711207454c2cd4bbc36729ca9b7c07262e122ff1d54bf5dfa16",
+   "git_blob": "54cc4a1ae274842bc2c01f9c207549e7b07de7bc",
+   "tag": "232",
+   "use": "Math- #232 (merged 2026-10-01 at 7fe06b0): section 2 (2.1)-(2.4) (the endpoint determinants to second order and the exact pinned family)"
+  }
+ ],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "(K2): the rejected fold mass (Remark 1)"
+  },
+  {
+   "path": "frontiers/remainder_rate_20260930/PROOF.md",
+   "bytes": 33131,
+   "sha256": "0b690df6ac40707ca06783f5641d8b480277c716df75b1031d84ee53a0575f72",
+   "git_blob": "abfb98ae41d66a86d3cb094162db6547d0f29e7e",
+   "tag": "198",
+   "use": "Math- #198 (merged): (3.1) and the sign window, through #220 (F1)"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "frontiers/candidate_parity_rate_20261001/PROOF.md",
+   "bytes": 53499,
+   "sha256": "9d58a29bf725d0756c8d11b5a9aa538782e83bee62242bcb1a869d2b95ccce94",
+   "git_blob": "a97bf528b4e073c6e12fd2d4616be77e8bbae16b",
+   "tag": "237",
+   "use": "Math- #237 (open): Lemma Pi (the expansion of Lemma Omega (a)), Lemma K and Lemma U (Remark 1), the cusp-scale statement after Lemma U (Remark 5), Remarks 3-4",
+   "head": "0add03bb806b6237e6aa0b29b06bedec54863e79",
+   "pr": "Math- #237"
+  },
+  {
+   "path": "frontiers/d1_sharp_remainder_20261001/PROOF.md",
+   "bytes": 41236,
+   "sha256": "ab3ef0aff42ec75346c321f57d7b2048ccb28b00bdaf7bd6fa0fd64793a3ce7c",
+   "git_blob": "3b2ec970507d4703619362464a068ed489ba833b",
+   "tag": "238",
+   "use": "Math- #238 (open): Lemma W, the d = 1 form of Lemma Q-double-prime",
+   "head": "0582232ef5b458dc47cd15ff97bbd536cbed2f71",
+   "pr": "Math- #238"
+  },
+  {
+   "path": "frontiers/third_order_coefficient_20261001/NOTE.md",
+   "bytes": 24186,
+   "sha256": "ae15c0ee173b9d01d258536a11780cc4b128c57811d1fb5db9db391ffc759ee5",
+   "git_blob": "aa078a9cbfc3aa859c089596892e34a8293831eb",
+   "tag": "216",
+   "use": "Math- #216 (open): the full-field Monte Carlo of the lifetime densities (Remark 4)",
+   "head": "04c08e1534122f210be888742fcd7a568e45b097",
+   "pr": "Math- #216"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Bernstein",
+   "reference": "Bernstein-basis positivity on an interval (with bisection)",
+   "use": "control X2: exact certificates of the bounds |Psi2| <= 90 and |omega| <= 120 on |t| <= 1/96"
+  },
+  {
+   "tag": "Haynsworth",
+   "reference": "E. V. Haynsworth, inertia additivity of the Schur complement (1968)",
+   "use": "through #218 Lemma C Step C1 (the typing rule in Case 1)"
+  }
+ ],
+ "mutants": {
+  "M1": "X3",
+  "M2": "X4",
+  "M3": "X5",
+  "M4": "X2",
+  "M5": "X1",
+  "M6": "X3",
+  "M7": "X6"
+ },
+ "replayed": [
+  "ecp_check.py"
+ ],
+ "referee": {
+  "kind": "one clean-context same-family referee (an Anthropic Claude subagent) before submission",
+  "verdict": "no BLOCKING error; one MAJOR finding (Step N2: the edge windows were integrated in f4 on an event that involves f4; repaired with the f4-free event G-double-prime) and eleven MINOR findings, all applied before submission",
+  "report": "project archive V2_2/frontiers_elder_cusp_parity_20261002/REFEREE_A.md",
+  "sha256": "68434ae46a9122728d61fa0975d5d783ebc50ebc7a4808980bb32768de0716d7",
+  "bytes": 7804,
+  "limits": "same provider and same GitHub account as the author: organizational-independence credit 0; not a nonauthor review"
+ },
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, never self-merge, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. Nothing is merged by its author.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 51848,
+   "sha256": "35b9c5943cf35919f2046ba194945ba759be654edf5d5ad77ba17b1f5c5377fd"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7376,
+   "sha256": "7443c5533d5f0e1039255f86f10eef0b5f13c9f0285094c57cff79281c6c83cc"
+  },
+  {
+   "path": "ecp_check.py",
+   "bytes": 38573,
+   "sha256": "673c553c629cb09fdead24b7ae2a390ec55ed6a197007bc5e5c0e1c53525a177"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 1636,
+   "sha256": "0ce8309e90b1c38870c04af3c4e7fb9a501f0551010ccae917eebbad76bf63dd"
+  }
+ ]
+}

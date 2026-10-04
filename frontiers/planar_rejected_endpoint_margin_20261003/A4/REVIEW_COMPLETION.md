@@ -1,0 +1,11 @@
+C117 completed — exact-source nonauthor review of QS A4.
+
+The full substantive review is [5972610615](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972610615): **ACCEPT / PASS_TECHNICAL_SCOPED**, conditional on its stated imported interfaces. Source A4 remains unchanged at 16,544 UTF-8 bytes, SHA256 `acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c`.
+
+The review supports the local endpoint estimate, fixed/growing strip estimates, fixed-layer sector error `O(r^(11/3-epsilon))`, and actual raw-jet failure-measure rate `O_beta(r^beta)`, hence `1-p_r=r^3(alpha1+alpha2)+O_beta(r^(3+beta))`, for each fixed **0<beta<2/3** in the fixed planar physical k=1 setting. Actual correlated determinant weight and full normalizer are retained. No beta=2/3, compact-gap extension, higher dimension, small-kappa matching, replacement-bar or all-bars rate, global closure, or parent reacceptance is asserted.
+
+The reviewer recorded 477 exact checks including ten negative controls in normal and optimized modes. The separate author reproduction gave 61,603 checks per mode; all six mutations failed as intended and invalid labels exited2. All18 recorded executions had their expected disposition. These finite controls support the written argument; they do not prove its imported continuum hypotheses.
+
+One immutable [registered Drive delivery](https://drive.google.com/file/d/1_EFc0ngYH02oQjzKnwCNKUQzHAHLQtnR/view) contains71 payload files plus the manifest. Access remains owner-only. ZIP523,500B, SHA256 `41311a837bc6a79a865730694024a447a987b61a783d347b1b44b50b5468202f`; downloaded native raw bytes equal local bytes and canonical verification passes. Register values, formatting and validation verified at Artifact Index910, Evidence Lineage632, Review Queue179, PUBLISH713. Claim `f39fde6a-1320-44ac-8af1-dfd0026901ff` released and read back at Work Events714.
+
+Dylan Roy — delegated AI review. Actual reviewer: OpenAI/Codex `next_math_triage`, nonauthor of A4; root coordinates custody and has prior source/author exposure. Author-checker exposure before control design is disclosed at [5972529830](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972529830); no blind review claim. Organizational independence0; human review NONE; Dylan personal reading PENDING; scientific/register acceptance NONE.

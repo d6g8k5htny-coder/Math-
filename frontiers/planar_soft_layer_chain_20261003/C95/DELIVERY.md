@@ -1,0 +1,21 @@
+## C95 completed: corrected trap and actual weighted maximin selection
+
+The [exact frozen C95 proof](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964938563) has received [fresh full nonauthor PASS for G1–G18](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965062739), under the retained local and analytic premises, with no required amendment. The accepted corrected object is **(A2v1, C95 sections 1–3)** with section 4's hypotheses. The literal original A2v1 remains AMEND; Claude's original authorship and the C90 repair provenance are preserved.
+
+The correction fixes the reciprocal domain, the sharpness segment's endpoint and the empty typed integration interval. It supplies the geometric G that C94's section 6 previously assumed. For the actual weighted Gaussian law, let A_r mean that the path maximin from the pinned maximum to a higher point equals the pinned saddle height. On the stated sector E:
+
+- Q_r^W(E minus A_r) <= C r^(7/2);
+- Q_r^W(E intersect A_r) = r^3 m_E/z0 + O(r^(7/2));
+- Q_r^W(A_r | E) = 1 - O(sqrt(r)).
+
+Scope remains d=2, k=1, fixed finite L, compact birth heights, all frames and fixed finite Lambda. The full normalizer Z_r is retained. This is conditional success within a rare sector of mass order r^3, not an unconditional success probability tending to one. No all-bars converse, rejected-side chord, unbounded-stratum/all-mark, regional collision or coarea closure is inferred.
+
+**Verification and handoff.** Author: 7,644 exact controls and eight rejected mutants. Fresh reviewer: 9,270 controls and 22 rejected false inferences; [complete source and stdout](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965068742). Reviewer code/output replayed exactly under Python 3.11.16 in normal, -O, -S and combined modes, matching original Python 3.12.14 output. Final stable-packet verification PASS. These controls support algebra/custody; written proofs and retained premises carry the analytic conclusions.
+
+[Single registered Drive delivery](https://drive.google.com/file/d/1vhTNN6Vt704KNFK6-NdJQAv5WpYwWHR5/view): 590,587 bytes, 44 payloads, SHA256 `dc9a797240a592abf4c8a17b579b153f3af1adaf3a619a33ce1b252443d31c03`. Downloaded bytes are identical; canonical manifest/handoff verification passed; permissions remain owner-only. Artifact Index889, Evidence Lineage611, Review Queue158 and Work Events624 publication/625 release all have exact full CellData readback. Claim `f4597887-706f-4b57-b493-475875214c5f` is RELEASED at 2026-10-03T03:34:30Z. This is native proof publication and registered delivery, not a repository commit, CI run or merge.
+
+**Next action and whole-project correction.** Before writing new genericity mathematics, consume retained parent P section 8 with its E1/E2 repairs and reconciliation: it already provides fixed-pin Morse/distinct critical values and the ordinary elder maximin interface. The next bounded target is the precise finite ordinary superlevel H0 corollary. State that M is the younger birth maximum whose component dies; do not substitute branch adjacency or infer a converse for all short bars.
+
+The [current proof-index snapshot](https://github.com/d6g8k5htny-coder/Math-/blob/7e2344166e989ae94e5732e445f445598fc75c4c/PROOF_INDEX.md) already records scoped D1 lifetime and D2 bounded-remainder acceptance. C95 refines a rare soft sector; it is not the first leading-law proof. Regional collision remains separately open. A final-theorem DAG should identify actual dependency edges, rather than assume every historical open regional target is required for every accepted theorem. The delivery's PERSPECTIVE_AUDIT and NEXT_SOURCE_AUDIT preserve the exact read-only evidence; no status/GRAPH transition is made here.
+
+Credit: Dylan Roy — delegated AI work/review. OpenAI/Codex root01a0bbb5 integrated corrections and authored the composition. Fresh mathematical reviewer /root/c95_fresh_review had no preassignment C90–C94 authorship/feasibility and disclosed source exposure. Coordinator root01a0adb2 provided custody/publication only, zero C95 mathematical acceptance credit. Requested reviewer routing gpt-6-astra/high; exact runtime variant UNKNOWN. Dylan personal reading PENDING; independent human review NONE; organizational independence 0; scientific effect NONE.
