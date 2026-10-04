@@ -16,7 +16,7 @@ off-diagonal `1`) and `Z` an independent standard normal, and the cone moment of
 
     D_m = E[ det(A)^2 1{A negative definite} ],        D_1 = 4/3,   D_2 = 29/6 - sqrt6.
 
-**Certified.** `D_3 = 5.323180268889896894923198739687260635784388529409...` (enclosure width `6.3e-47`), whence, by [LP]
+**Certified.** `D_3 = 5.3231802688898968949231987396872606357843885294...` (enclosure width `6.5e-47`), whence, by [LP]
 (15.2) with `|S^3| = 2 pi^2`, `p_G(0) p_V(0) = (2 pi)^-4/sqrt3`, `tau^2 = 6`,
 
     c_{4,ref} = Gamma(7/6) (3/2)^(1/3) D_3 / (8 sqrt3 pi^(5/2)) = 0.023321666002952835094521194952856885153101372363...
@@ -124,7 +124,7 @@ of the series integrates to at most
     int_{-h/2}^{h/2} sum_{n > K} |c_n| |x|^n dx <= M_F(rho) sum_{n > K} rho^{-n} 2 (h/2)^{n+1}/(n+1)
                                             <= M_F(rho) rho^{-(K+1)} . 2 (h/2)^{K+2}/(K+2) . 1/(1 - h/(2 rho))
 
-per cell (`1/(n+1) <= 1/(K+2)` and the geometric series in `h/(2 rho) = 1/24`; of order `1e-33` here). The v1.0 text
+per cell (`1/(n+1) <= 1/(K+2)` and the geometric series in `h/(2 rho) = 1/24`; at most `2.2e-48` per cell here, `3.3e-47` summed over the 120 cells, about half the `D_3` width). The v1.0 text
 applied Cauchy's estimate at an off-centre point `xi` with the full radius `rho`, which is not justified (the disc around
 `xi` inside the bounded disc has radius `rho - |xi - s_0|`); the centre-based tail bound above replaces it (Codex
 4148001628) and is what the script computes.
@@ -164,7 +164,7 @@ and the determinant factor). Since `(1+eps)^{20/3} <= (1+eps)^7`, the ratio lies
 `delta = (1+eps)^7/(1-eps)^7 - 1 = [sum_k (C(7,k) - (-1)^k C(7,k)) eps^k]/(1-eps)^7 = 14 eps + O(eps^2)`, computed without
 cancellation (rule TRANSFER_BOUND certifies `13 eps <= delta <= 15 eps` for every represented value, `delta.lo >= 13 eps.hi`
 and `delta.hi <= 15 eps.lo`, and records that the enclosures of `delta` and `14 eps` intersect: the offset
-`delta - 14 eps ~ 105 eps^2 ~ 1e-216` lies far below the arithmetic resolution of the two enclosures, so `14 eps <= delta`
+`delta - 14 eps = 98 eps^2 + O(eps^3) ~ 1.2e-216` lies far below the arithmetic resolution of the two enclosures, so `14 eps <= delta`
 is not separable and is not claimed as certified); positivity of every reference integrand lets the
 bound pass through the angular integral. So `|c_{4,24}/c_{4,ref} - 1| <= 1.5702e-108`, far below the arithmetic width of
 `c_{4,ref}`, and the printed digits of `c_{4,24}` are those of `c_{4,ref}`. The exact periodic constant is not claimed equal to
@@ -176,10 +176,10 @@ the reference constant; it is enclosed.
 |---|---|---|
 | `D_1` | `4/3` (rule D1_EXACT) | `< 1e-40` |
 | `D_2` | `2.38384359055015523513604925862744194136738585267666...` = `29/6 - sqrt6` (rule D2_EXACT) | `1e-50` |
-| `D_3` | `5.323180268889896894923198739687260635784388529409...` | `6.3e-47` |
-| `c_{2,ref}` | `0.07340691930603427103013596295777...` (inside SIDE24's `c_{2,24}` interval) | `2.4e-50` |
+| `D_3` | `5.3231802688898968949231987396872606357843885294...` | `6.5e-47` |
+| `c_{2,ref}` | `0.07340691930603427103013596295777...` (inside SIDE24's `c_{2,24}` interval) | `1.3e-54` |
 | `c_{3,ref}` | `0.04177593184059834334293666542857...` (inside SIDE24's `c_{3,24}` interval) | `1.9e-52` |
-| `c_{4,ref}` | `0.023321666002952835094521194952856885153101372363...` | `2.7e-49` |
+| `c_{4,ref}` | `0.023321666002952835094521194952856885153101372363...` | `2.9e-49` |
 | `c_{4,24}` | the same digits; `|c_{4,24}/c_{4,ref} - 1| <= 1.5702e-108` | |
 | `E_4`, `eps`, `delta` | `1.2462e-111`, `1.1215e-109`, `1.5702e-108` | |
 | `Z_3` | `48 sqrt2 pi = 213.25838103...` (floating cube quadrature `212.2`) | |
@@ -192,7 +192,7 @@ Floating controls (not part of the certificate; printed to ten digits): orthant 
 
 ## 6. Rules, mutants, verification
 
-`python3 -B -S cone_moment_d4.py` (also `-B -O -S`; about thirty seconds) prints `RESULTS.json` and exits `0` only if all
+`python3 -B -S cone_moment_d4.py` (also `-B -O -S`; about one minute) prints `RESULTS.json` and exits `0` only if all
 thirteen rules hold: FLOAT_INSIDE (the four floating controls and the `Z_3` cube within their tolerances), D1_EXACT,
 D2_EXACT, WIDTHS (`D_1`, `D_2` below `1e-40`, `D_3` and `c_{4,ref}` below `1e-30`), SIDE24_CONSISTENT, CLOSED_FORM_D4,
 TRUNCATION_NESTING, MONOTONE (`D_1 < D_2 < D_3`, `c_{2,ref} > c_{3,ref} > c_{4,ref} > 0`), IMAGE_BOUND (`E_4` in
@@ -212,8 +212,8 @@ Not a proof or review of [LP] or of SIDE24's sections 1-4, which are consumed at
 the identification of (15.2) with the persistence coefficient, the covariance sandwich). Not `d >= 5` (the `m = 4` sector
 integral has three remaining variables after the `a`-integration; whether a linear substitution decouples them as
 `s = 2p + q` does here is not examined). Not a window coefficient, a finite-radius quantity, `C`, `r_*` or `z_*`; not a
-closed form for `D_3` (the one-dimensional integral (2.1) is of `erf . erfc . Gaussian . polynomial` type and may have one
-in terms of `arctan` and square roots; none is claimed). No register, catalog, GRAPH or STATUS change; C8 stays OPEN.
+closed form for `D_3`: none is claimed here. Math-#201 proposes `(50 pi + 200 arctan 2 - 228)/(9 pi)`, which lies inside
+this enclosure; that identity is Math-#201's claim and is neither proved nor certified by this record. No register, catalog, GRAPH or STATUS change; C8 stays OPEN.
 Claude reads of this packet count for nothing; the author will not merge.
 
 ## 8. Provenance
@@ -236,4 +236,12 @@ negation, explicit contexts, rule LIBRARY_EXACT). No external numerical library 
   `14 eps <= delta <= 15 eps`; it now certifies `13 eps <= delta <= 15 eps` for every represented value (`delta.lo >= 13 eps.hi`,
   `delta.hi <= 15 eps.lo`) and records the intersection of the `delta` and `14 eps` enclosures (section 4). No certified value
   changed. Math-#201 gives `D_3` in closed form, `(50 pi + 200 arctan 2 - 228)/(9 pi)`, at 47 common digits with this record's
-  enclosure; this record is otherwise unchanged and its section 7 non-claim stands as written at v1.0.
+  enclosure; this record is otherwise unchanged and section 7 now cites it without claiming it.
+- **v1.3 (nonauthor read S1, Grok Bot agent 1, Math-#199 review 5403487705, on `617236d`; all findings P3).** No certified
+  value or `RESULTS.json` byte changed. F1: the displayed `D_3` digits end at the certified prefix `…3885294…` (the old trailing
+  `09` lay past it; the true digits are `…38852944092…`), and the width is `6.5e-47`. F2: the widths of `c_{2,ref}` (`1.3e-54`)
+  and `c_{4,ref}` (`2.9e-49`) and the runtime (about one minute) are updated. F3: the per-cell remainder is at most `2.2e-48`,
+  not of order `1e-33`. F4: `delta - 14 eps = 98 eps^2 + O(eps^3)`, in the NOTE and in the script comment. F5: section 7 cites
+  Math-#201's closed form without claiming it. F6: the workflow accepts a mutant only if it exits 1 with JSON `passed: false`
+  (rejection by rules, not a crash). F7: the script checks `gamma T^2 > a - 1` before the `Gamma(a, x)` tail bound for `a > 1`
+  (it holds here, `x >= 150`).

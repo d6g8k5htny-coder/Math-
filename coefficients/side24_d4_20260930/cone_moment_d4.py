@@ -581,6 +581,8 @@ def enclose_integral(branches, K=None, cell=None, T=None, rho=None, remainder=Tr
                 gpow = ipow(g, int(a))
             up = xa1 * (-x).exp()
             if a > 1:
+                if not x.lo > Iv.frac(a - 1).hi:
+                    raise ValueError("tail bound needs gamma T^2 > a - 1")
                 up = up / (1 - Iv.frac(a - 1) / x)
             tail = tail + Iv(const.mag()) * Iv.frac(abs(cj)) * up / gpow / 2
     return total + Iv(-tail.hi, tail.hi)
@@ -796,7 +798,7 @@ def main():
     checks["MONOTONE"] = bool(D1.hi < D2.lo < D2.hi < D3.lo and c2.lo > c3.hi > c3.lo > c4.hi and c4.lo > 0)
     checks["IMAGE_BOUND"] = bool(Decimal("1.2e-111") < E4.lo and E4.hi < Decimal("1.3e-111"))
     # proving direction (v1.2, Codex 4148778791 on Math-#200): 13 eps <= delta <= 15 eps for every represented value; the
-    # enclosures of delta and 14 eps intersect (delta - 14 eps ~ 105 eps^2 is far below the interval resolution: recorded, not certified)
+    # enclosures of delta and 14 eps intersect (delta - 14 eps ~ 98 eps^2 is far below the interval resolution: recorded, not certified)
     checks["TRANSFER_BOUND"] = bool(delta.lo >= CC.multiply(Decimal(13), eps.hi) and delta.hi <= CF.multiply(Decimal(15), eps.lo)
                                     and delta.hi >= CF.multiply(Decimal(14), eps.lo) and delta.lo <= CC.multiply(Decimal(14), eps.hi)
                                     and c4_torus.contains(c4))
