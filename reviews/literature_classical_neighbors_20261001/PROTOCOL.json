@@ -1,5 +1,5 @@
 {
- "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.1",
+ "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.2",
  "extends": {
   "object": "CL-LIT-RECON-LIFETIME-20260929-v1.1",
   "path": "reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md",
@@ -59,13 +59,13 @@
  ],
  "full_text_read": [
   "Rice 1944/1945 (archive.org OCR)",
-  "Cartwright & Longuet-Higgins 1956 (IFREMER copy)",
+  "Cartwright & Longuet-Higgins 1956 (IFREMER copy https://data-ww3.ifremer.fr/BIB/Cartwright_Longuet-Higgins_PRSLA1956.pdf; v1.2 re-checked the three quotations, through text extraction, at printed pp. 229, 230 and 231)",
   "Lindgren 2019 Statist. Sci. (Project Euclid)",
   "Rychlik, Johannesson & Leadbetter 1997 (university copy)",
   "Lindgren & Rychlik DTIC TR 282 (text extraction, possibly truncated)"
  ],
  "partial": [
-  "Longuet-Higgins 1957 (to section 2.4; section 2.9 unread)"
+  "Longuet-Higgins 1957 (to section 2.4; section 2.9 unread; an IFREMER copy is at https://data-ww3.ifremer.fr/BIB/Longuet-Higgins_PTRSLA1957.pdf, and a v1.2 re-read of it through text extraction again stopped inside section 2.4)"
  ],
  "not_accessible": [
   "Lindgren & Rychlik 1982 Ocean Eng.",
@@ -89,5 +89,24 @@
   "status": "computation recorded for the attribution wording; not a reviewed theorem"
  },
  "verdict": "no source located under this protocol states the small-gap exponent -1/3 (d = 1 or d >= 2) or a cusp-scale correction; Lindgren 2019 eq. (18) contains the d = 1 law implicitly (not expanded there); six works were inaccessible and three full-text/search tasks remain author-side (see not_accessible and still_author_side), so this is not a proof of novelty",
- "scientific_effect": "NONE"
+ "scientific_effect": "NONE",
+ "v1_2": {
+  "after": "Codex bounded source readback 5976264613 (AMEND INT-210-01, INT-210-02) and follow-up 5976466598",
+  "changes": [
+   "ADDENDUM section 2: the IFREMER copy of Cartwright & Longuet-Higgins 1956 is named, with printed pages 229, 230 and 231 for its three quotations (INT-210-02)",
+   "ADDENDUM section 4: an IFREMER copy of Longuet-Higgins 1957 is named; section 2.9 is still unread",
+   "PR body: the verdict sentence is bounded to the recorded protocol, and the Rice check reads \"downloaded OCR text\" (INT-210-01)"
+  ],
+  "independent_reads": [
+   "Codex 5976264613: printed pages of Rice 1945 (sections 3.4, 3.6), Lindgren 2019 p. 119 eq. (18), Rychlik-Johannesson-Leadbetter 1997 p. 33, Lindgren-Rychlik TR 282 p. 31",
+   "Codex 5976466598: Cartwright & Longuet-Higgins 1956 sections 8-9 through the OCR transcript https://www.scribd.com/document/146911494/The-Statistical-Distribution-of-the-Maxima-of-a-Random-Function-by-Cartwright-and-Longuet-Higgins"
+  ],
+  "unchanged": [
+   "the verdict",
+   "the d = 1 remark",
+   "d1_rice_check.py",
+   "D1_RICE.json",
+   "the workflow"
+  ]
+ }
 }
