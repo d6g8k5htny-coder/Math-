@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Verify the stored C91–C103 records and replay their published checkers (standard library only).
+"""Verify the stored C91–C103, C124 and C127 records and replay their exact checkers (standard library only).
 
-Every file in this packet except replay.py, README.md and SOURCES.json is one of two things:
+Every file in this packet except replay.py, README.md and SOURCES.json is one of three things:
   - an exact copy of a public comment body on main#229;
-  - a payload extracted verbatim from such a comment.
+  - a payload extracted verbatim from such a comment;
+  - an exact frozen-delivery record or its explicitly documented stdout extraction.
 SOURCES.json pins each file by byte count and SHA256. This script performs four checks.
 
   1. The packet tree equals SOURCES.json's file list, with no symlinks, and every stored file has its pinned
      identity. C96's frozen proof (7657 bytes, SHA256 7198ff63...) is the tail of its native comment.
   2. Each published checker in SOURCES.json runs under the current interpreter's -O/-S flags. Its stdout must
-     equal the published bytes. A few checkers print their interpreter version, and SOURCES.json records
-     which line. On that line only, the published version is replaced by the replaying interpreter's
-     version, and every other byte must be identical. This is the reconciliation the C99/C101/C103
+     equal the recorded baseline bytes. A few checkers print their interpreter version, and SOURCES.json records
+     which line. On that line only, the recorded version is replaced by the replaying interpreter's
+     version, and every other byte must be identical. A JSON-line template fixes every other field. This is the reconciliation the C99/C101/C103
      handoffs ask for; it does not claim whole-stdout identity across Python versions.
   3. C102's checker reads a source tree. It is assembled in a temporary directory from the stored copies
      and the repository paths named in C102/SOURCE_IDENTITIES.json, each identity-checked first.

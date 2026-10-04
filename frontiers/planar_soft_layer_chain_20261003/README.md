@@ -1,4 +1,4 @@
-# Planar soft-layer chain C91–C103 and C124: exact records and replayable checkers
+# Planar soft-layer chain C91–C103, C124 and C127: exact records and replayable checkers
 
 Incorporated on 3 October 2026. **Scientific effect: NONE. No new mathematics and no status change.**
 
@@ -21,6 +21,25 @@ The analytic authors are OpenAI/Codex root and next_math_triage. The actual nona
 A [second, provider-distinct review](C124/REVIEW_CLAUDE.md) by Anthropic Claude also records scoped acceptance without amendment. It discloses authorship of the consumed A4 input and a stake in A4.1/PD; organizational independence remains zero. Its prospective compact-gap and C98-composition observations do not expand C124's theorem. Its [independent controls](C124/CHECKER_CLAUDE_COMMENT.md) are retained separately.
 
 [SOURCE_IDENTITIES.json](C124/SOURCE_IDENTITIES.json) is the unchanged manifest named by the proof and first review. Its paths describe the original delivery snapshot. The additive `source_resolution` map in this packet's `SOURCES.json` points to byte-identical files already in the repository or to the original native comment with its exact extraction rule. Parent source files are not duplicated here.
+
+## C127 addition: a separate mixed inner/remote count estimate
+
+[C127's proof](C127/PROOF.md) and [finite-radius interpolation appendix](C127/FINITE_R_INTERPOLATION.md) retain the fixed planar torus, physical gap `k = 1`, compact births, all frames, each fixed `R >= 4` and fixed integer `p >= 0`. For the actual full determinant-weighted law, they give
+
+```
+E_W[N^p N_R N_far^{r^(1/100)}] = O_(R,p)(r^(427/100)),
+E_Q[W N^p N_R N_far^{r^(1/100)}] = O_(R,p)(r^(627/100)).
+```
+
+Here the two regional counts concern additional critical points of every index in one prescribed open height window, excluding the pins. They do not count two maximum/saddle persistence systems. The estimate supplies a quantitative mixed term for SC's regional count decomposition. It is auxiliary to the existing ordinary-bar leading density/cumulative route; no new requirement is imposed on that route. C127 does not consume C124: these records share the existing custody and replay machinery only. Growing `R`, shrinking gap marks, intermediate/coarea matching, once-counted barcode identification and a new lifetime-density theorem remain outside C127's scope. The stronger PR242 matching work remains in its existing owner lane.
+
+The [first full analytic review](C127/REVIEW.md) records `PASS_SCOPED`, and the [provider-distinct Claude review](C127/REVIEW_CLAUDE.md) records `ACCEPT / PASS_TECHNICAL_SCOPED`, both without required amendment. Their original exposure statements and organizational-independence credit **0** are preserved. The [author response](C127/AUTHOR_RESPONSE.md) retains the review's nonblocking C2/C4 Borel-extension precision; read it with proof §5. The [scope note](C127/HANDOFF_SCOPE_NOTE.md) distinguishes available partner/bar interfaces from the historical auxiliary target.
+
+The C127 analytic authors and C128 incorporation authors are OpenAI/Codex root and `next_math_triage`; this incorporation is not a nonauthor mathematical review. [C128 pickup5975420764](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975420764) binds the incorporation scope. All nine analytic inputs in the unchanged [inner source manifest](C127/SOURCES.json) already exist in the repository. The outer manifest's C127 `source_resolution` records their exact current paths and identities; source bodies are not duplicated or reaccepted.
+
+Full [author](C127/AUTHOR_PROOF_COMMENT.md), [author controls](C127/AUTHOR_CONTROLS_COMMENT.md), [first-reviewer](C127/REVIEW_COMMENT.md), and [Claude controls](C127/CLAUDE_CONTROLS_COMMENT.md) native bodies accompany the extracted files. The author and first-reviewer baseline stdout are exact frozen-delivery evidence, not invented native stdout fences. Claude's exact baseline is extracted from its published text fence. `SOURCES.json` records each origin and extraction rule. The [completion record](C127/COMPLETION.md) supplies the immutable delivery identity and correct execution accounting: 24 final-contract author invocations, 25 actual author calls including the development baseline, and 28 reviewer invocations. Older preparation-state labels remain historical source text.
+
+Three C127 baseline checkers join the existing replay: the author controls (525 finite checks), first-reviewer controls (334), and Claude exact controls (35,715). Their counts are finite checks, not theorem counts. The [floating-point companion](C127/c127_numeric.py) and its [recorded output](C127/c127_numeric_stdout.txt) are retained as exploratory material and are excluded from exact cross-platform replay. No C127 Lean formalization or scientific-status promotion is claimed.
 
 Two objects from the same run are left out:
 - **C100**, a reader-interface object;
@@ -50,9 +69,10 @@ Two objects from the same run are left out:
 | C102 | Original-law Gaussian transfer on a fixed compact gap interval `K ⊂ (0, ∞)`. It gives the physical-jet volume factor `r/k⁴`, correlated moment bounds, typing strips, `Z_r = r²z_r` with `z_r = z₀ + O(r)`, and `A_r = A₀ + O(r)`. | `C102/` |
 | C103 | Uniform on compact `K`, the designated-pair failure raw-jet measure has variation error `O_K(r^{1/4})`, and `1 − p_r = r³(α₁ + α₂) + O_K(r^{13/4})`. | `C103/` |
 | C124 | At physical `k = 1`, the failure raw-jet variation error is `O(r^(2/3) log(1/r)^(8/3))`, the failure-probability remainder is `O(r^(11/3) log(1/r)^(8/3))`, and each fixed-layer sector mismatch is `O(r^(11/3))`. Retains the exact C101/A4 source hypotheses. | [Proof and review](C124/) |
+| C127 | A separate auxiliary mixed critical-point estimate: `E_W[N^p N_R N_far^{r^(1/100)}] = O_(R,p)(r^(427/100))`, under its nine retained source interfaces, physical `k = 1` and fixed `R`. No canonical-pair or barcode identification is inferred. | [Proof, appendix and reviews](C127/) |
 
 **Common setting.** A normalized periodized Gaussian field on a fixed planar torus. Birth heights lie in a fixed compact set, all orthonormal frames are allowed, and the full weighted normalizer is used.
-- **Gap mark.** C91–C101 and C124 use physical gap mark `k = 1`. C102 and C103 cover a fixed compact `K` of positive gaps; C124 does not upgrade their variable-gap rate.
+- **Gap mark.** C91–C101, C124 and C127 use physical gap mark `k = 1`. C102 and C103 cover a fixed compact `K` of positive gaps; C124 and C127 do not upgrade their variable-gap scope.
 - **Soft layer.** C91–C98 work on a fixed bounded soft layer `Λ`.
 - **Rarity.** `E` is a rare sector of mass order `r³`, so the conditional statements are not unconditional probabilities tending to one.
 
@@ -75,7 +95,7 @@ From the delivery notes:
 - no growing-`Λ` or all-marks theorem;
 - no total-variation bound for the field or for real-valued marks;
 - no identification of all small bars, and no converse;
-- no regional shrinking multiple-witness, intermediate or coarea closure;
+- no full regional shrinking multiple-witness, intermediate or coarea closure; C127 supplies only its stated mixed configuration;
 - no gap tending to 0;
 - no higher-dimensional or infinite-volume result;
 - no Conjecture 7 closure, and no final global density or remainder closure.
@@ -89,8 +109,8 @@ C99 claims no quantitative rate. C101 and C103 count each designated candidate's
 
 `replay.py` uses the standard library only. It runs four checks:
 1. **Identities.** Every stored file has the identity pinned in `SOURCES.json`, and the tree holds nothing else. C96's frozen proof (7657 bytes, SHA256 `7198ff63…`) is the tail of its native comment.
-2. **Seventeen checkers.** Each reproduces its published stdout. These are the original fourteen independent checkers and author controls, plus C124's author controls and two independently written nonauthor checkers. C124's published baselines contain 1,740, 601 and 71,233 finite checks respectively; those counts are not theorem counts.
-   - Five of them print the interpreter version (`SOURCES.json` records the line). On that line only, the published version is replaced by the running one, and every other byte must be identical.
+2. **Twenty checkers.** Each reproduces its recorded baseline stdout. These are the original fourteen checkers and author controls, three C124 checkers and the three C127 exact checkers described above. C124's published baselines contain 1,740, 601 and 71,233 finite checks respectively; those counts are not theorem counts.
+   - Six print the interpreter version (`SOURCES.json` records the exact line template). Only the version value changes; every other byte must be identical. C127's first-reviewer template fixes all other fields of its single-line JSON output.
    - The rest must match byte for byte.
 3. **C102's source tree.** It is assembled in a temporary directory from the stored copies and the repository paths in `C102/SOURCE_IDENTITIES.json`, each checked by size and hash first.
 4. **Negative controls.** Three must be rejected:
