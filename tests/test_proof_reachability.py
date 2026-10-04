@@ -1,6 +1,8 @@
 """Tests for tools/check_proof_reachability.py: the real document passes, and adverse edits fail."""
 import pathlib
+import subprocess
 import sys
+import tempfile
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -8,6 +10,33 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import check_proof_reachability as cpr  # noqa: E402
 
 DOC = ROOT / 'docs' / 'integration' / '2026-10-02-proof-reachability.md'
+
+
+class CommandLineBytes(unittest.TestCase):
+    """A1: exercise actual file bytes across the CLI's input boundary in both modes."""
+
+    def _run_document(self, source, expected_code, expected_line):
+        with tempfile.TemporaryDirectory() as directory:
+            document = pathlib.Path(directory) / 'reachability.md'
+            document.write_bytes(source)
+            for mode in ([], ['-O']):
+                with self.subTest(mode=mode):
+                    result = subprocess.run(
+                        [sys.executable, '-B', '-S', *mode,
+                         str(ROOT / 'tools' / 'check_proof_reachability.py'), str(document)],
+                        cwd=ROOT, capture_output=True, text=True, timeout=30)
+                    self.assertEqual(result.returncode, expected_code, result.stdout + result.stderr)
+                    self.assertIn(expected_line, result.stdout.splitlines())
+                    self.assertEqual(result.stderr, '')
+
+    def test_authentic_file_bytes_pass(self):
+        self._run_document(DOC.read_bytes(), 0, 'proof-reachability: OK')
+
+    def test_historical_crlf_mutation_fails(self):
+        source = DOC.read_bytes()
+        mutant = source.replace(b'\n', b'\r\n', 1)
+        self.assertNotEqual(mutant, source)
+        self._run_document(mutant, 1, 'FAIL historical document changed')
 
 
 class RealDocument(unittest.TestCase):

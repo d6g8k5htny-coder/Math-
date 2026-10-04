@@ -208,7 +208,8 @@ def check(text):
 
 def main(argv):
     doc = argv[1] if len(argv) > 1 else DOC
-    with open(doc, encoding='utf-8') as fh:
+    # Preserve CR/LF bytes for the historical-prefix identity check.
+    with open(doc, encoding='utf-8', newline='') as fh:
         failures = check(fh.read())
     for f in failures:
         print('FAIL', f)
