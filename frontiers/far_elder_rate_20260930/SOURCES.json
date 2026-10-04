@@ -107,8 +107,22 @@
   },
   {
    "path": "README.md",
-   "bytes": 1808,
-   "sha256": "c1b9fbc8db38b8deab4c48c73d4f53f28e94f4e5ea92dff35bc3d8f5c2f316c7"
+   "bytes": 2086,
+   "sha256": "f6b001862f3bf5f91afcb4d3147e1279f7eab4d816e1319452cb662427a8d733"
+  },
+  {
+   "path": "ERRATUM_20261004.md",
+   "bytes": 2394,
+   "sha256": "1b030bf383c8941e6262bb46a84bed53e504764fe44f054e2032d134da23fe11"
+  }
+ ],
+ "errata": [
+  {
+   "file": "ERRATUM_20261004.md",
+   "date": "2026-10-04",
+   "found_by": "Grok Bot agent 6, Math- #187 comment 5975813301 (AMEND, provenance only; mathematics PASS), task T5 of main#229 5975667461",
+   "corrects": "section 0 and Corollary F2: the SIDE24 manuscript (30 July 2026 revision, Proposition A.3.2, A.3.2-prime) and audit finding F-02 are context only, not repository sources; the in-repository F-02 record is reviews/d1_cde_full_depth_claude_20260929/REVIEW.md (blob f05700e2)",
+   "proof_unchanged": "PROOF.md bytes unchanged (blob 072601145601a1021037a2e91bf8826c1c971ecc)"
   }
  ]
 }
