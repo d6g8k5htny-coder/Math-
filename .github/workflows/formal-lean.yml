@@ -33,7 +33,7 @@ jobs:
     env:
       LEAN_NUM_THREADS: 2
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
       - name: Gate tests and exact source identity
@@ -42,7 +42,7 @@ jobs:
           python3 -O -m unittest discover -s formal/tests -v
           python3 formal/gate.py
       - name: Install pinned Lean and retrieve dependency cache
-        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           lake-package-directory: formal
           auto-config: 'false'
@@ -58,7 +58,7 @@ jobs:
         run: python3 -B -S tools/required_formal_check.py receipt
       - name: Preserve logs and exact-run receipt
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: formal-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: formal/.lake/formal-evidence/
