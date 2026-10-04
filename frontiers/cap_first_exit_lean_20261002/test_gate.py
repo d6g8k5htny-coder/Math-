@@ -16,7 +16,7 @@ ALLOWED = ['propext', 'Classical.choice', 'Quot.sound']
 class SourceGate(unittest.TestCase):
     def test_tree_passes(self):
         m = gate.source_check()
-        self.assertEqual(len(m["targets"]), 74)
+        self.assertEqual(len(m["targets"]), 81)
         self.assertEqual(m['scientific_effect'], 'NONE')
 
     def copy(self):
