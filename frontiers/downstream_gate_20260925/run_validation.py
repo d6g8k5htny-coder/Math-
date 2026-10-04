@@ -3,9 +3,11 @@ from pathlib import Path
 import argparse
 import hashlib
 import json
+import math
 import shutil
 import subprocess
 import sys
+import time
 
 ROOT = Path(__file__).resolve().parent
 EXPECTED_TESTS = 71
@@ -63,8 +65,55 @@ def identities():
             for p in sorted(ROOT.rglob('*')) if p.is_file() and '__pycache__' not in p.parts}
 
 
-def execute(command, cwd, out, name, mutant=False):
-    result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=30)
+def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
+    timeout_seconds = 30
+    started = None
+    clock_failure = None
+    try:
+        started = time.monotonic()
+    except Exception as error:
+        clock_failure = f'initial clock: {type(error).__name__}: {error}'
+    try:
+        result = subprocess.run(command, cwd=cwd, capture_output=True, text=True, timeout=timeout_seconds)
+    except subprocess.TimeoutExpired as timeout:
+        failures = []
+        streams = {}
+        # TimeoutExpired streams are bytes even with text=True. In particular,
+        # a killed child can leave an incomplete UTF-8 sequence: never decode it.
+        for stream, raw in [('stdout', timeout.stdout), ('stderr', timeout.stderr)]:
+            streams[stream] = {'present': raw is not None, 'bytes': len(raw) if raw is not None else 0}
+            path = out/(name+'.'+stream)
+            try:
+                path.write_bytes(raw if raw is not None else b'')
+            except Exception as error:
+                failure = f'{path.name}: {type(error).__name__}: {error}'
+                failures.append(failure)
+                timeout.add_note('Timeout evidence persistence failed: '+failure)
+        elapsed = None
+        if clock_failure is None:
+            try:
+                measured = time.monotonic() - started
+                if not math.isfinite(measured) or measured < 0:
+                    raise ValueError('elapsed time must be finite and nonnegative')
+                elapsed = measured
+            except Exception as error:
+                clock_failure = f'elapsed clock: {type(error).__name__}: {error}'
+        diagnostic_failures = [clock_failure] if clock_failure is not None else []
+        if clock_failure is not None:
+            timeout.add_note('Timeout evidence diagnostic failed: '+clock_failure)
+        # Preserve the cwd argument actually supplied; filesystem resolution is
+        # unnecessary and can itself fail while diagnosing the original timeout.
+        record = {'argv': list(command), 'cwd': str(cwd),
+                  'run_name': name, 'mode': mode, 'mutation': mutation, 'mutant': mutant,
+                  'timeout_seconds': timeout_seconds, 'elapsed_seconds': elapsed,
+                  'status': 'timed_out', 'streams': streams, 'persistence_failures': failures,
+                  'diagnostic_failures': diagnostic_failures}
+        path = out/(name+'.timeout.json')
+        try:
+            path.write_text(json.dumps(record, sort_keys=True, indent=2, allow_nan=False)+'\n')
+        except Exception as error:
+            timeout.add_note(f'Timeout evidence persistence failed: {path.name}: {type(error).__name__}: {error}')
+        raise
     (out/(name+'.stdout')).write_text(result.stdout)
     (out/(name+'.stderr')).write_text(result.stderr)
     require(f'Ran {EXPECTED_TESTS} tests' in result.stderr and 'skipped=' not in result.stderr, 'unexpected test coverage: '+name)
@@ -92,7 +141,7 @@ def main():
     try:
         for mode, flags in [('normal', []), ('optimized', ['-O'])]:
             cmd = [sys.executable, '-B', *flags, '-S', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
-            execute(cmd, ROOT, out, 'tests_'+mode)
+            execute(cmd, ROOT, out, 'tests_'+mode, mode=mode)
             result = subprocess.run([sys.executable, '-B', *flags, '-S', 'hard_gate.py'], cwd=ROOT, capture_output=True, timeout=15)
             require(result.returncode == 0 and result.stdout == (ROOT/'RESULTS.json').read_bytes(), 'entry/result mismatch: '+mode)
             (out/('output_'+mode+'.json')).write_bytes(result.stdout)
@@ -103,12 +152,18 @@ def main():
                 scratch = out/'mutants'/mode/name
                 shutil.copytree(ROOT, scratch, ignore=shutil.ignore_patterns('__pycache__'))
                 (scratch/'hard_gate.py').write_text(mutated)
-                execute(cmd, scratch, out, 'mutation_'+mode+'_'+name, mutant=True)
+                execute(cmd, scratch, out, 'mutation_'+mode+'_'+name, mutant=True, mode=mode, mutation=name)
             report['modes'].append(mode)
         require(before == identities(), 'source files changed during replay')
         report.update(passed=True, sources_unchanged=True, source_files=before)
     finally:
-        (out/'REPORT.json').write_text(json.dumps(report, sort_keys=True, indent=2)+'\n')
+        active_error = sys.exc_info()[1]
+        try:
+            (out/'REPORT.json').write_text(json.dumps(report, sort_keys=True, indent=2)+'\n')
+        except Exception as error:
+            if not isinstance(active_error, subprocess.TimeoutExpired):
+                raise
+            active_error.add_note(f'Timeout evidence persistence failed: REPORT.json: {type(error).__name__}: {error}')
     print(json.dumps(report, sort_keys=True))
 
 

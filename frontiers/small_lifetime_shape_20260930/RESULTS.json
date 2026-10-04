@@ -1,0 +1,25 @@
+{
+  "critical_mean_log_coefficient": "27/52",
+  "finite_epsilon_companion_moment_threshold": 13,
+  "limiting_companion_moment_threshold": 1,
+  "limiting_companion_tail_coefficient": "81/52",
+  "mathematical_acceptance": false,
+  "moment_blowup_constants": {
+    "10": "3270/91",
+    "4": "30/13",
+    "7": "441/65"
+  },
+  "passed": true,
+  "rational_classifier_cases": 589,
+  "scientific_effect": "NONE",
+  "scope": "finite algebra and interval checks only",
+  "singleton_probability_coefficient": "(486/169)*2^(-2/3)",
+  "singleton_probability_exponent": "1/3",
+  "small_lifetime_w_density": "(81/13) w (1-w^4) on (0,1/sqrt(3))",
+  "small_lifetime_y_density": "4 y^3 on (0,1)",
+  "source_shape_moments": {
+    "0": "888807/280",
+    "1": "3524743221/1361360",
+    "2": "190490806059/87127040"
+  }
+}

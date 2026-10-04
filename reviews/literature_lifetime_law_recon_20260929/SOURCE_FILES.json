@@ -1,6 +1,15 @@
 {
   "author": "Anthropic Claude",
   "delivered_under": "explicit owner instruction, claude.ai session 2026-09-29; OWNER_STOP left in place; no self-merge",
+  "errata": [
+    {
+      "corrects": "RECONNAISSANCE.md section 2 (different-exponent bullet) and section 3 (table row arXiv:2012.09459): Perez does not state the smooth short-bar law as open; arXiv:2012.09459v3 section 1.1 calls smooth random-field topology an open research area",
+      "date": "2026-10-02",
+      "file": "ERRATUM_20261002.md",
+      "found_by": "OpenAI Codex, Math- #214 Slice E review 5387031124 (E-LIT)",
+      "memo_unchanged": "RECONNAISSANCE.md bytes unchanged (blob 003b98794f02fd5c1cd45ed263bf2818b556e6ab, pinned by Math- #214)"
+    }
+  ],
   "files": [
     {
       "bytes": 13738,
@@ -11,6 +20,11 @@
       "bytes": 4631,
       "path": "PROTOCOL.json",
       "sha256": "aed7eebebf7840a32efbc86632825ae533d2ef242d204e7fe9ed39ece94e7461"
+    },
+    {
+      "bytes": 2212,
+      "path": "ERRATUM_20261002.md",
+      "sha256": "87a7c5bab5d1fb5f99612cfa8ea900d7bc28e96bec57fce35ab1f3a757c9a238"
     }
   ],
   "kind": "literature reconnaissance memo (prose + machine-readable protocol); no checker",

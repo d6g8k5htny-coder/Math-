@@ -1,0 +1,110 @@
+{
+  "Gamma_shift": 40,
+  "Gamma_terms": 20,
+  "binary_float_used": false,
+  "dyadic_bits": 240,
+  "scientific_effect": "NONE",
+  "scope": "independent numerical certification of the nine supplied closed forms only",
+  "source_analytic_derivation_revalidated": false,
+  "values": {
+    "1.c": {
+      "independent_rational_interval": [
+        "0.1101103789590514065452039444366610750264",
+        "0.1101103789590514065452039444366610750265"
+      ],
+      "published_interval": [
+        "0.1101103789590410",
+        "0.1101103789590625"
+      ],
+      "strictly_inside": true
+    },
+    "1.c2": {
+      "independent_rational_interval": [
+        "0.2300445802661749520884735424539552034425",
+        "0.2300445802661749520884735424539552034426"
+      ],
+      "published_interval": [
+        "0.2300445802661503",
+        "0.2300445802661998"
+      ],
+      "strictly_inside": true
+    },
+    "1.ratio": {
+      "independent_rational_interval": [
+        "2.0892179505778060085066669206919920101495",
+        "2.0892179505778060085066669206919920101496"
+      ],
+      "published_interval": [
+        "2.089217950577392",
+        "2.089217950578207"
+      ],
+      "strictly_inside": true
+    },
+    "2.c": {
+      "independent_rational_interval": [
+        "0.0734069193060342710301359629577740500176",
+        "0.0734069193060342710301359629577740500177"
+      ],
+      "published_interval": [
+        "0.07340691930602738",
+        "0.07340691930604167"
+      ],
+      "strictly_inside": true
+    },
+    "2.c2": {
+      "independent_rational_interval": [
+        "0.2215244106266869909000115594001050107224",
+        "0.2215244106266869909000115594001050107225"
+      ],
+      "published_interval": [
+        "0.2215244106266632",
+        "0.2215244106267110"
+      ],
+      "strictly_inside": true
+    },
+    "2.ratio": {
+      "independent_rational_interval": [
+        "3.0177592619457197900651855521106551257715",
+        "3.0177592619457197900651855521106551257716"
+      ],
+      "published_interval": [
+        "3.017759261945122",
+        "3.017759261946299"
+      ],
+      "strictly_inside": true
+    },
+    "3.c": {
+      "independent_rational_interval": [
+        "0.0417759318405983433429366654285755564666",
+        "0.0417759318405983433429366654285755564667"
+      ],
+      "published_interval": [
+        "0.04177593184059426",
+        "0.04177593184060272"
+      ],
+      "strictly_inside": true
+    },
+    "3.c2": {
+      "independent_rational_interval": [
+        "0.1612340491269627375475895156318002608686",
+        "0.1612340491269627375475895156318002608687"
+      ],
+      "published_interval": [
+        "0.1612340491269447",
+        "0.1612340491269810"
+      ],
+      "strictly_inside": true
+    },
+    "3.ratio": {
+      "independent_rational_interval": [
+        "3.8594961745478909155664511588764160940108",
+        "3.8594961745478909155664511588764160940109"
+      ],
+      "published_interval": [
+        "3.859496174547095",
+        "3.859496174548665"
+      ],
+      "strictly_inside": true
+    }
+  }
+}
