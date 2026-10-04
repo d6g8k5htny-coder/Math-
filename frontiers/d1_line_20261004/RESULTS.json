@@ -1,0 +1,168 @@
+{
+ "controls": {
+  "C1": {
+   "cases_with_|g'(y)|>2osc/|Delta|_(osc_bounded_above)": 61,
+   "interval_lengths": [
+    "1/2",
+    "1",
+    "2",
+    "3",
+    "4",
+    "25/2"
+   ],
+   "nearly_affine_g=s+eps*s^2_unit_interval": {
+    "1/10": {
+     "S": "1/5",
+     "osc": "1",
+     "osc*S": "1/5",
+     "|g'(0)|": "1"
+    },
+    "1/100": {
+     "S": "1/50",
+     "osc": "1",
+     "osc*S": "1/50",
+     "|g'(0)|": "1"
+    },
+    "1/1000": {
+     "S": "1/500",
+     "osc": "1",
+     "osc*S": "1/500",
+     "|g'(0)|": "1"
+    },
+    "1/1000000": {
+     "S": "1/500000",
+     "osc": "1",
+     "osc*S": "1/500000",
+     "|g'(0)|": "1"
+    }
+   },
+   "polynomials_tested": 300,
+   "reading": "both terms are needed: the S-shaped cubics have |g'(y)| > 2 osc/|Delta|, and on the nearly affine family |g'(y)|^2 = 1 > osc*S = 2 eps"
+  },
+  "C2": {
+   "conclusion": "lambda_min >= 1 - 5/6 = 1/6 for every spacing w >= 2 and every N (Gershgorin)",
+   "monotone_for_w>=2": "((x^2-1) e^(-x^2/2))' = x (3 - x^2) e^(-x^2/2) < 0 for x >= 2",
+   "w=2": {
+    "lambda_min_lower": "0.17792335",
+    "row_sum_upper": "0.82207665"
+   },
+   "w=3": {
+    "lambda_min_lower": "0.82225498",
+    "row_sum_upper": "0.17774502"
+   },
+   "w=4": {
+    "lambda_min_lower": "0.98993612",
+    "row_sum_upper": "0.01006388"
+   }
+  },
+  "C3": {
+   "D": "6",
+   "Q": "1620",
+   "Q/(120 l2 l4 D)": "3/4",
+   "lambda_2j": [
+    "1",
+    "3",
+    "15",
+    "105"
+   ],
+   "rate_of_maxima": "0.27566445",
+   "sigma3^2": "6",
+   "sigma4^2": "30",
+   "values_8_decimals": {
+    "B2": "0.11502229",
+    "C0": "0.11011038",
+    "C1": "-0.22760636",
+    "I": "-0.14977341",
+    "per_crest_h^(-1/3)": "0.19971814",
+    "per_crest_h^(1/3)": "0.41725471",
+    "per_crest_h^(1/4)": "-0.27165891"
+   }
+  },
+  "C4": {
+   "interval_lengths": [
+    "1/2",
+    "1",
+    "2",
+    "4",
+    "25/2"
+   ],
+   "max_sup^2/(w^-1 int u^2 + w int u'^2)": "1.310680",
+   "polynomials_tested": 155,
+   "reading": "the bound holds with constant 2; constant 1 fails on the witness (9/4 > 103/60)",
+   "sharp_constant_coth(1)_float": "1.313035",
+   "witness_u=1+(s/w)^2/2": {
+    "w=1": {
+     "sup_u^2": "9/4",
+     "w^-1 int u^2 + w int u'^2": "103/60"
+    },
+    "w=1/2": {
+     "sup_u^2": "9/4",
+     "w^-1 int u^2 + w int u'^2": "103/60"
+    },
+    "w=2": {
+     "sup_u^2": "9/4",
+     "w^-1 int u^2 + w int u'^2": "103/60"
+    },
+    "w=25/2": {
+     "sup_u^2": "9/4",
+     "w^-1 int u^2 + w int u'^2": "103/60"
+    },
+    "w=4": {
+     "sup_u^2": "9/4",
+     "w^-1 int u^2 + w int u'^2": "103/60"
+    }
+   }
+  },
+  "C5": {
+   "N(t)": "N = floor((t - 2a)/w) + 1 >= 17 for t >= 2a + 16 w, and y_(N-1) <= tau - a (at a = 7/3, w = 5/2)",
+   "exponents": {
+    "h^(17 A^2/(16 sigma_F^2)) at A^2 = 2 sigma_F^2": "17/8",
+    "margin over h^2": "1/8",
+    "q^(17/4) with q = O(h^(1/2) log^(1/4))": "h^(17/8) log^(17/16)"
+   },
+   "geometric": "sum_{n=17}^{M} x^n = (x^17 - x^(M+1))/(1-x) and x^17/(1-x) <= 2 x^17 for x in {1/2, 1/3, 1/10, 1/1000}; the ratios are <= 1/2 when q <= 1/16 and h^(A^2/(16 sigma_F^2)) <= 1/2",
+   "square_root": "P^(1/2) <= exp(-N R^2/(16 sigma_F^2)) + q^(N/4)",
+   "union_bound_step": "2^N x^(N/2) = (4x)^(N/2) with x = 2 eps (pi lambda_*)^(-1/2), so 4x = q"
+  },
+  "C6": {
+   "R0_threshold": {
+    "(1/2 + 1/5)^2": "49/100",
+    "R0": "5 (M2^(1/2) + 1)",
+    "needed": "<= 1/2"
+   },
+   "factor_4_fails": "(1/2 + 1/4)^2 = 9/16 > 1/2",
+   "sum_k (1+a+k w)^-2 <= (1+1/w)/(1+a)": {
+    "a=0,w=1/2": {
+     "(1+1/w)/(1+a)": "3.00000000",
+     "sum_upper": "2.58086106"
+    },
+    "a=1,w=1": {
+     "(1+1/w)/(1+a)": "1.00000000",
+     "sum_upper": "0.64521527"
+    },
+    "a=100,w=1/10": {
+     "(1+1/w)/(1+a)": "0.10891090",
+     "sum_upper": "0.09910427"
+    },
+    "a=13,w=25/2": {
+     "(1+1/w)/(1+a)": "0.07714286",
+     "sum_upper": "0.00894238"
+    },
+    "a=4,w=2": {
+     "(1+1/w)/(1+a)": "0.30000000",
+     "sum_upper": "0.12265811"
+    }
+   }
+  }
+ },
+ "mutants": {
+  "M1": "C1: the Landau bound without the term 2 osc/|Delta|",
+  "M2": "C4: the cell Sobolev constant 1 in place of 2",
+  "M3": "C2: the Gaussian sample spacing w = 1 in place of 2",
+  "M4": "C3: C0 without its factor 2",
+  "M5": "C5: the band exponent 17 A^2/(32 sigma_F^2) in place of 17 A^2/(16 sigma_F^2)",
+  "M6": "C6: the threshold R0 = 4 (M2^(1/2) + 1) in place of 5 (M2^(1/2) + 1)"
+ },
+ "object": "CL-D1-LINE-20261004-v1",
+ "scientific_effect": "NONE"
+}

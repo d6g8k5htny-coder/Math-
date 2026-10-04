@@ -1,0 +1,145 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "object": "CL-D1-LINE-20261004-v1",
+ "kind": "author-side proof candidate: Theorems 1D and 1D+ for stationary Gaussian processes on the line under (H_R) = (R1) all spectral moments finite, (R2) s >= s0 > 0 on [omega1, omega2] with omega1 > 0, (R3) |rho^(j)(x)| <= C (1 + |x|)^-1 for j <= 2 and sup (1 + omega^6) s < infinity: nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), with the constants of Math- #214. New: Lemma 1.5_R and the process under Q; the Kac-Rice representation on R; Lemma 3.1_R (the compact middle range); Lemma 4.2_R (Landau on an interval); Lemma 4.3_R (Ingham + Schur complement); Lemma 4.4_R (Gaussian concentration for the number of rough cells); Lemma F_R (the far band is O(h^2))",
+ "author": "Anthropic Claude",
+ "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+ "attribution": "Dylan Roy - delegated AI work; actual performer Anthropic Claude",
+ "read_at": {
+  "branch_base": "57ede4ea045cc35923c6d90cfcd028958c6db105"
+ },
+ "consumed": [
+  {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "bytes": 46313,
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
+   "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+   "tag": "1D",
+   "pr": "Math- #214",
+   "merged_at": "e4ca2b3",
+   "use": "Theorem 1D on the circle (v1.3): section 0 (objects, constants C0, C1, I, B2); section 1 (pair coordinates, the pinned law Q, (1.2)-(1.4), Lemmas 1.2-1.3, Remark 1.4); section 2 (Proposition 2.2); section 3 (Lemmas 3.1-3.3, Corollary 3.4); section 4 (Lemma 4.1, the near form of Lemma 4.2, Lemma 4.3 on [t_*, t0], read with sup|f''| over the band); section 5 (the adjacency argument). Global parts replaced: Lemma 1.1, the normalization and reflection of (1.2)-(1.3), the far part of Lemma 4.3 and the co-banded case"
+  },
+  {
+   "path": "frontiers/d1_sharp_remainder_20261001/PROOF.md",
+   "bytes": 44717,
+   "sha256": "9febf062d64b0c261bdeb51ac56a6ddf1d9c7edd92ff3ede53c9fd5bc8f693e0",
+   "git_blob": "8dc558a735f8a8fdf82b698726b2881c2655281f",
+   "tag": "1D+",
+   "pr": "Math- #238",
+   "merged_at": "8404169",
+   "use": "Theorem 1D+ on the circle (v1.2): section 0, and sections 1-4 (Lemma E, Proposition 2.2+, Lemmas Phi and W, Proposition M, the assembly); the assembly is redone on the line in PROOF section 5"
+  }
+ ],
+ "consumed_unmerged": [],
+ "cited_only": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "tag": "P",
+   "use": "the marked two-point Kac-Rice convention (section 9), through [1D] section 1"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "tag": "E2",
+   "use": "the Borel repair of [P] section 9, through [1D] section 1"
+  }
+ ],
+ "cited_unmerged": [
+  {
+   "path": "reviews/literature_classical_neighbors_20261001/ADDENDUM.md",
+   "bytes": 16207,
+   "sha256": "5e3903ad05b0566a1e999b0e69b309a4165578705d687f4a3021d22ebd1e1e42",
+   "git_blob": "b289c7cd4be29fad6913aa4d753899cb0ef851aa",
+   "tag": "210",
+   "pr": "Math- #210",
+   "head": "213dd9eb8ba83de242516b10c999fbe56d17fd3f",
+   "use": "Math- #210 v1.3 (open): the classical crest-to-trough literature and the d = 1 remark whose leading constant 0.19971814 this note proves on the line (Remark 3); comparison only"
+  }
+ ],
+ "cited_external": [
+  {
+   "tag": "Ingham",
+   "reference": "A. E. Ingham, Some trigonometrical inequalities with applications to the theory of series, Math. Z. 41 (1936) 367-379; R. M. Young, An Introduction to Nonharmonic Fourier Series (2001), ch. 4 sec. 1",
+   "use": "Lemma 4.3_R: a lower bound for the covariance of w-separated f'-samples, uniform in their number"
+  },
+  {
+   "tag": "GC",
+   "reference": "Gaussian concentration for functions Lipschitz along the Cameron-Martin space (Borell; Tsirelson-Ibragimov-Sudakov); Bogachev, Gaussian Measures (1998), Thm 4.5.7; Ledoux, The Concentration of Measure Phenomenon (2001), sec. 2.1",
+   "use": "Lemma 4.4_R"
+  },
+  {
+   "tag": "SF-BTIS",
+   "reference": "Sudakov-Fernique comparison and the Borell-TIS inequality",
+   "use": "Lemmas 3.1_R and 4.4_R; the local parts of [1D] and [1D+]"
+  },
+  {
+   "tag": "Maruyama",
+   "reference": "a stationary Gaussian sequence with covariance tending to 0 is mixing",
+   "use": "Lemma 1.5_R"
+  },
+  {
+   "tag": "Bulinskaya",
+   "reference": "Bulinskaya's lemma",
+   "use": "Lemma 1.1_R and the process under Q"
+  }
+ ],
+ "mutants": {
+  "M1": "C1",
+  "M2": "C4",
+  "M3": "C2",
+  "M4": "C3",
+  "M5": "C5",
+  "M6": "C6"
+ },
+ "replayed": [
+  "line_check.py"
+ ],
+ "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU: \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know\", followed by \"Continue\"; standing: \"Any request or permissions are preapproved in advance by me Dylan Roy\", pull requests only, no register/GRAPH/STATUS/lemma_closed/prize/premise edits, OWNER_STOP.md untouched. The author does not merge its own PR.",
+ "files": [
+  {
+   "path": "PROOF.md",
+   "bytes": 35761,
+   "sha256": "ce2fae023c30feb19385d83573d0c3490e63d9802a9936ded0c61cb853056ec0"
+  },
+  {
+   "path": "README.md",
+   "bytes": 6152,
+   "sha256": "733f788a91fda2c36c5df860b04a76b7adcb2eadc4d27e3d5da84ae919bb1da9"
+  },
+  {
+   "path": "line_check.py",
+   "bytes": 19074,
+   "sha256": "013072427b398e6fa0ee452e1daa05a4a3074126d0e392dd1c0b3eaa8af23bfd"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 4388,
+   "sha256": "d008423e89458f84e099cf84e2079684a1e7d0587efb1b1449953477ff97df2d"
+  }
+ ],
+ "referee": {
+  "kind": "two clean-context same-family referees (Anthropic Claude subagents) on the draft before submission: A on slices A-B (sections 0-2 and 5, including a line-by-line search of [1D] and [1D+] for global objects), B on slices C-D (sections 3-5, the constants and line_check.py); same provider as the author, zero independence credit",
+  "verdict": "first pass: A ACCEPT WITH MINOR FIXES (slices A and B), B ACCEPT WITH MINOR FIXES (slices C and D), no MAJOR. Delta check of the revision: every finding FIXED; A: slice A ACCEPT, slice B one wrong reference introduced by the B3 fix (applied: E_Q(K^e)^2 is used in (Phi.1), (Phi.3) and Proposition M, not Lemma E) and two NITs (applied); B: slice C ACCEPT, slice D one provenance wording in the README (applied: the R0 correction was the author's, before the referees) and NITs (applied: T0 >= t0 in Lemma 3.1_R, the quotient-norm infimum, omega in SOURCES kind, the S-shaped cubic count now uses an upper bound for osc). The second referee's scratch import left a __pycache__ directory in the packet, which was removed",
+  "applied": [
+   "A1: the marks are defined Q-almost surely for every (t, alpha): the process under Q is m_{t,h} + X with a bounded mean and a residual X independent of V (section 1)",
+   "A2-A3: the Kac-Rice marks are compact-window Borel functions or increasing limits of them; the window space is C^2([-r, 1 + 1/eps + r])",
+   "A4: Lemma 1.5_R uses the Riemann-Lebesgue lemma, not (R3a)",
+   "A5: x_+- defined as an infimum/supremum (the first point above f(M) does not exist)",
+   "B1, B3-B6: section 2 lists the parts that transfer (including the adjacency estimate of [1D] section 5 and the (0, t_*] part of [1D+] section 4) and how each global part is replaced; the [t1, t0] step of [1D] Lemma 4.3 is read with the supremum over the band; the extra uses of [1D+] section 3 are listed",
+   "B2/C-3: symbol clashes removed (cell length w, pin margin a, count n_R, Lipschitz constant sigma_F, constants C_Y, C_m, C_q, C_K; delta is only [1D]'s exponent)",
+   "C-1/O2: Lemma 4.2_R stated for any interval with midpoint y; Lemma 3.1_R uses J = [y_i - t0/16, y_i + t0/16]",
+   "C-2: the Cameron-Martin space of the restricted conditioned residual, with the quotient norm",
+   "C-4: the geometric ratios are <= 1/2 for small h",
+   "C-5 to C-8: the truncation level b_h, the case osc = 0, T0 >= t0, M2 = (mu_w + 2 lambda4^(1/2))^2, and \"A >= 1\" removed",
+   "D-1 to D-4 and O1, O3, O4: RESULTS.json and SOURCES.json added; section 8 describes the S-shaped cubics, and C3 and C5 describe what is checked at sample values; Remark 3 cites #210 v1.3 for the O(1) claim",
+   "author before the referees: the threshold of Lemma 4.4_R was R0 = 4(M2^(1/2) + 1), which does not give R/sqrt(2) - R/4 >= R/2; it is now 5(M2^(1/2) + 1) (checker C6, mutant M6)"
+  ],
+  "independent_checks": "referee B: constants at 40 digits (mpmath) match the printed values; the Gaussian C2 row sums are 0.82207664, 0.17774501 and 0.010063879, and 1 - 5.2948e-7 at spacing 1; Plancherel and F(g)^2 <= sigma_F^2 ||g||^2 sampled on 200 RKHS elements (max ratio 0.069); Ingham with w = 4 pi on [1, 2] (min Gram eigenvalue 0.709 over 400 sets); the Lemma 4.3_R chain for the sinc kernel; Landau on 3000 random functions (max ratio 0.52)"
+ }
+}
