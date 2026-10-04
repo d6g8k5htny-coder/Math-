@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "object": "CL-SIDE24-D4-COEFFICIENT-20260930-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_CONSTANT_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_ENCLOSURE_OF_THE_STATED_EXPRESSION_IN_D4_NO_REGISTER_CHANGE_SIDE24_V1_UNCHANGED",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/197#issuecomment-5916664092",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(15.1) the cone moment D_u; (15.2) the coefficient c_{d,L} with the angular integral, p_G(0) p_Vu(0), tau_u^(4/3)",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "section 1 reference law A = Q + sqrt(2/3) Z I_m, p_G p_V = (2 pi)^-d/sqrt3, tau^2 = 6, D_1 = 4/3, D_2 = 29/6 - sqrt6; sections 2-4 image bound, covariance sandwich and cone-moment comparison generalized to d = 4 in NOTE section 4",
+      "workflow_checked": true
+    },
+    {
+      "label": "ENC",
+      "path": "coefficients/side24_v1/ENCLOSURE.json",
+      "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+      "role": "the d = 2, 3 enclosures quoted in the script for rule SIDE24_CONSISTENT",
+      "workflow_checked": true
+    }
+  ],
+  "read_not_pinned": [
+    {
+      "path": "coefficients/side24_remainder_20260929/PROOF.md",
+      "git_blob_at_base": "0bcf0a6f5a608ce369e769103cd07fe71e0da844",
+      "role": "Proposition V (first nearest-image variation for every d): not used; the transfer here is the section 3-4 sandwich"
+    },
+    {
+      "path": "reviews/candidates_pending_20260928/CANDIDATES.md",
+      "git_blob_at_base": "02455f0561d51990e1486e5d4fbb4229c8a34f5a",
+      "role": "catalog entry C8 listing c_{d,L} among the unsupplied constants; C8 stays OPEN"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 20408,
+      "sha256": "338ddfe869542d08e3595a34d11ca1c8cabc9248e167663e09a178ccb3066abc",
+      "git_blob": "e00de4665594bad39545046433989bfa5178cd65"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 5325,
+      "sha256": "804200e99d45e4b019a0e46709e912a14f0964730a461b448e4beb1d70ce2710",
+      "git_blob": "187552f596576c9dcdecd1deabc0304412d8a1f7"
+    },
+    {
+      "path": "cone_moment_d4.py",
+      "bytes": 37638,
+      "sha256": "6b13502fe00f331af679c02baa2816e1b668fd82c0c37c7e6102b2f3a156e7c3",
+      "git_blob": "3d9f42a833871e45c4a34152062238feb241154c"
+    }
+  ]
+}
