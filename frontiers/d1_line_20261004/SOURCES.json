@@ -1,13 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-LINE-20261004-v1",
- "kind": "author-side proof candidate: Theorems 1D and 1D+ for stationary Gaussian processes on the line under (H_R) = (R1) all spectral moments finite, (R2) s >= s0 > 0 on [omega1, omega2] with omega1 > 0, (R3) |rho^(j)(x)| <= C (1 + |x|)^-1 for j <= 2 and sup (1 + omega^6) s < infinity: nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), with the constants of Math- #214. New: Lemma 1.5_R and the process under Q; the Kac-Rice representation on R; Lemma 3.1_R (the compact middle range); Lemma 4.2_R (Landau on an interval); Lemma 4.3_R (Ingham + Schur complement); Lemma 4.4_R (Gaussian concentration for the number of rough cells); Lemma F_R (the far band is O(h^2))",
+ "object": "CL-D1-LINE-20261004-v1.1",
+ "kind": "author-side proof candidate: Theorems 1D and 1D+ for stationary Gaussian processes on the line under (H_R) = (R1) all spectral moments finite, (R2) s >= s0 > 0 on [omega1, omega2] with omega1 > 0, (R3) ess sup (1 + omega^6) s < infinity (no decay rate of rho is assumed): nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), with the constants of Math- #214. New: Lemma 1.5_R and the process under Q; the Kac-Rice representation on R; Lemma 3.1_R (the compact middle range); Lemma 4.1_R (the pin covariance, Riemann-Lebesgue); Lemma 4.2_R (Landau on an interval); Lemma 4.3_R (Ingham + interlacing: conditioning on the pins lowers at most three eigenvalues); Lemma 4.4_R (Gaussian concentration for the number of rough cells); Lemma F_R (the far band is O(h^2))",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "attribution": "Dylan Roy - delegated AI work; actual performer Anthropic Claude",
  "read_at": {
-  "branch_base": "57ede4ea045cc35923c6d90cfcd028958c6db105"
+  "branch_base": "f34ffd748ac00507fb3ef2abd01cdeb6eb7bb43e"
  },
  "consumed": [
   {
@@ -95,8 +95,10 @@
   "M3": "C2",
   "M4": "C3",
   "M5": "C5",
-  "M6": "C6"
+  "M6": "C6",
+  "M7": "C6"
  },
+ "label_history": "v1 (f34ffd7, opened 2026-10-04 06:46Z) assumed |rho^(j)(x)| <= C (1 + |x|)^-1 for j <= 2, and Lemma 4.3_R bounded the conditional covariance by a Schur complement with small cross-covariances. v1.1, before any nonauthor pickup, drops that hypothesis: Lemma 4.3_R uses interlacing (at most three eigenvalues drop) and loses three powers of eps; Lemma 4.1_R gets the pin covariance from Riemann-Lebesgue; Lemma F_R uses at least 23 cells. The theorem, its rates and its constants are unchanged; checker C5 and C6 updated, mutant M7 added.",
  "replayed": [
   "line_check.py"
  ],
@@ -104,23 +106,23 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 35761,
-   "sha256": "ce2fae023c30feb19385d83573d0c3490e63d9802a9936ded0c61cb853056ec0"
+   "bytes": 38349,
+   "sha256": "e8e401bd82cabd3f876812c1089f5c0bf3a6240c48b836776aed8f535489c7a9"
   },
   {
    "path": "README.md",
-   "bytes": 6152,
-   "sha256": "733f788a91fda2c36c5df860b04a76b7adcb2eadc4d27e3d5da84ae919bb1da9"
+   "bytes": 7259,
+   "sha256": "1ace3aa3cbaa0bb2b34ab954c9d9a742ffd9e1ef33845dcbc1ee9a1317a51f5b"
   },
   {
    "path": "line_check.py",
-   "bytes": 19074,
-   "sha256": "013072427b398e6fa0ee452e1daa05a4a3074126d0e392dd1c0b3eaa8af23bfd"
+   "bytes": 22809,
+   "sha256": "c65101264b1de6615518ee76eac584a4525b5bd363da96898b4f7eb8d193a6cf"
   },
   {
    "path": "RESULTS.json",
-   "bytes": 4388,
-   "sha256": "d008423e89458f84e099cf84e2079684a1e7d0587efb1b1449953477ff97df2d"
+   "bytes": 4245,
+   "sha256": "4ddcf4d664d4c115c172393be15f463764a49b0f730b540b3de1a40224c5bae2"
   }
  ],
  "referee": {
@@ -140,6 +142,7 @@
    "D-1 to D-4 and O1, O3, O4: RESULTS.json and SOURCES.json added; section 8 describes the S-shaped cubics, and C3 and C5 describe what is checked at sample values; Remark 3 cites #210 v1.3 for the O(1) claim",
    "author before the referees: the threshold of Lemma 4.4_R was R0 = 4(M2^(1/2) + 1), which does not give R/sqrt(2) - R/4 >= R/2; it is now 5(M2^(1/2) + 1) (checker C6, mutant M6)"
   ],
+  "v1_1_delta": "second delta check by the same referees on v1.1: A slice A ACCEPT WITH MINOR FIXES (the section 0 sentence on [1D] section 6.4's \"uniform nondegeneracy of separated values\", applied) and slice B ACCEPT; B slice C ACCEPT (one NIT: prove Gamma(x+1) >= (x/e)^x in the text, applied) and slice D ACCEPT WITH MINOR FIXES (regenerate SOURCES.json with M7, applied; README slice list, applied); other NITs applied (README table order, (R3) wording, provenance sentence). Referee B checked the interlacing under the actual pinned law for the sinc kernel (at most 2 eigenvalues of Cov(Y|V) below lambda_min(Sigma_YY) in 24 configurations with samples at the pins) and the ball-volume chain for k up to 10^6",
   "independent_checks": "referee B: constants at 40 digits (mpmath) match the printed values; the Gaussian C2 row sums are 0.82207664, 0.17774501 and 0.010063879, and 1 - 5.2948e-7 at spacing 1; Plancherel and F(g)^2 <= sigma_F^2 ||g||^2 sampled on 200 RKHS elements (max ratio 0.069); Ingham with w = 4 pi on [1, 2] (min Gram eigenvalue 0.709 over 400 sets); the Lemma 4.3_R chain for the sinc kernel; Landau on 3000 random functions (max ratio 0.52)"
  }
 }

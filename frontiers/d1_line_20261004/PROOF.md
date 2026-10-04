@@ -1,13 +1,22 @@
 # The one-dimensional lifetime and crest-to-trough laws on the line: Theorems 1D and 1D⁺ for stationary processes on `ℝ`
 
-Object: CL-D1-LINE-20261004-v1.
+Object: CL-D1-LINE-20261004-v1.1.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 4 October 2026. Dylan Roy — delegated AI
 work.
+**v1.1 (before any nonauthor pickup; v1 was `f34ffd7`).** The hypothesis loses v1's (R3a), the decay
+`|ρ^{(j)}(x)| ≤ C(1 + |x|)^{−1}` for `j ≤ 2`. (H_ℝ) is now purely spectral: (R1)–(R3) below. Lemma 4.3_ℝ no longer makes
+the cross-covariances between the samples and the pins small. Conditioning on the three pin observations lowers at most
+three eigenvalues of the samples' covariance (interlacing), and the density bound loses three powers of `ε`, which the
+growing number of samples absorbs. The decay needed elsewhere, `ρ, ρ', ρ'' → 0`, follows from (R1) by the Riemann–Lebesgue
+lemma (Lemma 4.1_ℝ). Lemma F_ℝ now uses at least `23` cells; its rate, and the theorem, are unchanged.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 Before submission, two clean-context same-family referees (Anthropic Claude subagents) read the draft: slices A–B and
-C–D of §9. Both returned ACCEPT WITH MINOR FIXES, with no major finding, and their fixes are applied here (`SOURCES.json`,
-`referee`).
+C–D of §9. Both returned ACCEPT WITH MINOR FIXES, with no major finding. Their fixes are applied here, and a delta check
+found them fixed (`SOURCES.json`, `referee`). v1.1's new material came after that pass: Lemma 4.1_ℝ, the interlacing
+form of Lemma 4.3_ℝ, and Lemma F_ℝ with `23` cells. A second delta check by the same referees returned:
+- slice C ACCEPT and slice B ACCEPT;
+- slices A and D ACCEPT WITH MINOR FIXES, for one sentence of §0 and the packaging. Both are applied.
 
 **What is new.** Math- #214 proves Theorem 1D on the circle `R/LZ`, and Math- #238 sharpens it to Theorem 1D⁺ (remainder
 `O(h^{3/4})`). #214 §6.4 notes that the near-pair analysis is local, and that on the line only the far bound of its
@@ -51,11 +60,14 @@ where the spectral measure has a density `s ≥ 0`. Write `λ_{2j} := (−1)^jρ
 > **(H_ℝ)**
 > - (R1) `∫(1 + |ω|)^n s(ω)dω < ∞` for every `n`.
 > - (R2) There are `0 < ω₁ < ω₂` and `s₀ > 0` with `s ≥ s₀` almost everywhere on `[ω₁, ω₂]`.
-> - (R3) (a) `|ρ^{(j)}(x)| ≤ C_ρ(1 + |x|)^{−1}` for `0 ≤ j ≤ 2` and `x ∈ ℝ`; (b) `S₆ := ess sup_ω (1 + ω⁶)s(ω) < ∞`.
+> - (R3) `S₆ := ess sup_ω (1 + ω⁶)s(ω) < ∞`.
 
 Example: `ρ(x) = e^{−x²/2}`, with `s(ω) = (2π)^{−1/2}e^{−ω²/2}` and `λ_{2j} = (2j − 1)!!`, satisfies (H_ℝ). Take `[ω₁, ω₂] = [1, 2]`,
-for instance. (R1) is [1D]'s smoothness, and (R2) replaces [1D]'s positivity of every Fourier coefficient. (R3) is the
-decorrelation that [1D] §6.4 asks for.
+for instance. (R1) is [1D]'s smoothness, and (R2) replaces [1D]'s positivity of every Fourier coefficient. (R3) bounds
+the spectral density with the weight `1 + ω⁶`. No decay rate of `ρ` is assumed: by (R1) and the Riemann–Lebesgue lemma,
+`ρ^{(j)}(x) → 0` as `|x| → ∞` for every `j`. [1D] §6.4 asks, on the line, for "uniform nondegeneracy of separated
+values". Here that comes from (R2) through Ingham's inequality and interlacing for the samples (Lemma 4.3_ℝ), and from
+the Riemann–Lebesgue lemma for the pins (Lemma 4.1_ℝ).
 
 **Objects** ([1D] §0, with `T` replaced by `ℝ`). By Lemma 1.1_ℝ, almost surely `f` is a Morse function with alternating
 maxima and minima and pairwise distinct critical values. By Lemma 1.5_ℝ, almost surely `f` exceeds every level on every
@@ -97,7 +109,8 @@ coefficient as `0.41725`.) The leading constant is the one of Math- #210.
 - Nothing for spectral measures with a singular part, or for spectral densities that are not bounded below on an interval
   away from `0` ((R2)). For example, a spectrum on finitely many points violates Lemma 1.1_ℝ; with two points `±1`, the
   process is `A cos x + B sin x`, and `H = 2√(A² + B²)` has no `h^{−1/3}` law (#210 §3).
-- Nothing for long-range dependence beyond (R3).
+- Nothing for spectral densities with `(1 + ω⁶)s` unbounded ((R3)). That excludes a spectral pole at `0` (long-range
+  dependence), and also spiky high-frequency tails, which (R1) alone would allow.
 
 ## 1. The process on `ℝ`
 
@@ -236,6 +249,14 @@ Integrating over the compact range gives the claim. ∎
 
 Fix `w := 4π/(ω₂ − ω₁)`. A **cell** is an interval of length `w`.
 
+**Lemma 4.1_ℝ (pins far apart).** `Σ_VV` has diagonal `(λ₂, λ₂, 2(ρ(0) − ρ(t)))` and off-diagonal entries `−ρ''(t)`,
+`ρ'(t)`, `ρ'(t)`. It is invertible for every `t > 0` (Lemma 1.1_ℝ). There is `T₁` such that
+`λ_min(Σ_VV) ≥ c_V := min(λ₂, ρ(0))/2` for `t ≥ T₁`.
+
+*Proof.* `Cov(f'(y), f'(z)) = −ρ''(z − y)` and `Cov(f'(y), f(z)) = −ρ'(z − y)` give the entries. By (R1), `s`, `ωs` and
+`ω²s` are integrable, so `ρ(t)`, `ρ'(t)` and `ρ''(t)` tend to `0` (Riemann–Lebesgue). Gershgorin's theorem then gives the
+bound for large `t`. ∎
+
 **Lemma 4.2_ℝ (Landau's inequality on an interval).** Let `Δ` be a compact interval with midpoint `y` and length `|Δ| > 0`,
 and `g ∈ C²(Δ)`. Put `osc := sup_Δ g − inf_Δ g` and `S := sup_Δ|g''|`. Then `|g'(y)| ≤ (osc·S)^{1/2} + 2osc/|Δ|`.
 
@@ -247,13 +268,13 @@ and `g ∈ C²(Δ)`. Put `osc := sup_Δ g − inf_Δ g` and `S := sup_Δ|g''|`. 
 
 (Checker C1.) ∎
 
-**Lemma 4.3_ℝ (a uniform density bound for many samples).** There are `a₀`, `T₁` and `λ_* > 0` with the following
-property. Let `t ≥ T₁` and `a ≥ a₀`, and let `y₀ < … < y_{N−1}` be points of `[−τ + a, τ − a]` with `y_{i+1} − y_i ≥ w`. Then
-for every `G ⊂ {0, …, N − 1}` and `ε > 0`,
+**Lemma 4.3_ℝ (a density bound for many samples).** There is `λ_* > 0`, depending only on `s₀`, `ω₁` and `ω₂`, with the
+following property. Let `t > 0`, and let `y₀ < … < y_{N−1}` be points of `[−τ, τ]` with `y_{i+1} − y_i ≥ w`. Then for every
+`G ⊂ {0, …, N − 1}` with `|G| ≥ 6` and every `ε > 0`,
 
-    P_Q(|f'(y_i)| ≤ ε for all i ∈ G) ≤ (2ε (πλ_*)^{−1/2})^{|G|}.                                (4.1)
+    P_Q(|f'(y_i)| ≤ ε for all i ∈ G) ≤ (ε(2e/λ_*)^{1/2})^{|G|−3}.                                (4.1)
 
-*Proof.* Let `Y := (f'(y_i))_{i∈G}`.
+*Proof.* Let `Y := (f'(y_i))_{i∈G}`, `k := |G|` and `m := k − 3`.
 
 - **Ingham's inequality.** For real `c_i`,
 
@@ -261,20 +282,18 @@ for every `G ⊂ {0, …, N − 1}` and `ε > 0`,
 
   The constant `c_I > 0` depends only on `w` and `ω₂ − ω₁`, and the last step is Ingham's inequality. The exponents `y_i`
   are `w`-separated, and the interval has length `ω₂ − ω₁ = 4π/w > 2π/w`. A translation of the interval multiplies each
-  term by `e^{iω_cy_i}`, a unit factor. So `λ_min(Σ_YY) ≥ λ_I := s₀ω₁²c_I`.
-- **The cross-covariances.** `Cov(f'(y), f'(z)) = −ρ''(z − y)` and `Cov(f'(y), f(z)) = −ρ'(z − y)`. By (R3a), every entry
-  of `Σ_YV` is at most `2C_ρ(1 + d_i)^{−1}`, where `d_i` is the distance from `y_i` to `{±τ}`. The `y_i` are `w`-separated
-  at distance `≥ a` from both pins. A row has three entries. Among the `y_i` nearer to `−τ`, the `k`-th (counting from
-  `k = 0`) has `d_i ≥ a + kw`, and likewise near `τ`. So
-  `‖Σ_YV‖²_op ≤ ‖Σ_YV‖_F² ≤ 12C_ρ²·2Σ_{k≥0}(1 + a + kw)^{−2} ≤ C_Y(1 + 1/w)(1 + a)^{−1}` with `C_Y := 24C_ρ²`. The last
-  step compares the sum with an integral (checker C6).
-- **The pin covariance.** `Σ_VV` has diagonal `(λ₂, λ₂, 2(ρ(0) − ρ(t)))` and off-diagonal entries `−ρ''(t)`, `ρ'(t)`,
-  `ρ'(t)`. By (R3a) and Gershgorin's theorem, there is `T₁` such that `λ_min(Σ_VV) ≥ c_V := min(λ₂, ρ(0))/2` for `t ≥ T₁`.
-- **The Schur complement.** `Cov(Y | V) = Σ_YY − Σ_YVΣ_VV^{−1}Σ_VY ⪰ (λ_I − ‖Σ_YV‖²_op/c_V)·Id ⪰ (λ_I/2)·Id` once
-  `1 + a ≥ 2C_Y(1 + 1/w)/(c_Vλ_I)`; take `a₀ := 2C_Y(1 + 1/w)/(c_Vλ_I)`.
-
-Under `Q`, `Y` is Gaussian with this covariance, given `V = (0, 0, h)`; its mean does not matter. Its density is at most
-`(2π·λ_I/2)^{−|G|/2}`, and integrating over the cube `[−ε, ε]^G` gives (4.1) with `λ_* := λ_I`. ∎
+  term by `e^{iω_cy_i}`, a unit factor. So `λ_min(Σ_YY) ≥ λ_* := s₀ω₁²c_I`.
+- **Conditioning on the pins costs at most three dimensions.** Under `Q`, `Y` is Gaussian, given `V = (0, 0, h)`, with
+  covariance `Σ := Σ_YY − P`, where `P := Σ_YVΣ_VV^{−1}Σ_VY` is positive semidefinite of rank at most `3`. Order
+  eigenvalues increasingly. For `j ≥ 4`, every `j`-dimensional subspace meets `ker P` in dimension at least `j − 3`, and on
+  `ker P` the quadratic forms of `Σ` and `Σ_YY` agree. By the Courant–Fischer theorem, `μ_j(Σ) ≥ μ_{j−3}(Σ_YY) ≥ λ_*`
+  (checker C6). So at most three eigenvalues of `Σ` are below `λ_*`. No decay of the cross-covariances `Σ_YV` is needed.
+- **Projection.** Let the rows of the `m × k` matrix `B` be orthonormal eigenvectors of `Σ` for `μ₄, …, μ_k`. Then `BY` is
+  Gaussian on `ℝ^m` with covariance `diag(μ₄, …, μ_k) ⪰ λ_*·Id`, so its density is at most `(2πλ_*)^{−m/2}`; its mean
+  does not matter. If `|f'(y_i)| ≤ ε` for all `i ∈ G`, then `‖BY‖₂ ≤ ‖Y‖₂ ≤ εk^{1/2}`. The ball of that radius in `ℝ^m`
+  has volume `π^{m/2}(εk^{1/2})^m/Γ(m/2 + 1) ≤ (2πek/m)^{m/2}ε^m`, by `Γ(x + 1) ≥ ∫_x^∞ u^xe^{−u}du ≥ x^xe^{−x}` (checker C6
+  spot-checks it for `3 ≤ m ≤ 300`).
+  Since `k ≥ 6`, `k/m ≤ 2`. Multiplying gives `(ekε²/(mλ_*))^{m/2} ≤ (2eε²/λ_*)^{m/2}`, which is (4.1). ∎
 
 **Lemma 4.4_ℝ (few rough cells).** Let `t ≥ T₁`, and let `J₀, …, J_{N−1}` be cells in `[−τ, τ]` with disjoint interiors.
 Put `S_i := sup_{J_i}|f''|` and `n_R := #{i : S_i > R}`. There are `σ_F`, `R₀` and `h₀`, depending only on `ρ` and `w` (not
@@ -284,7 +303,7 @@ on `N`, `t` or the cells), such that for `R ≥ R₀` and `h ≤ h₀`,
 
 *Proof.* Under `Q`, `f = m + X`, with `m := m_{t,h}` and `X` the residual of §1 (whose law is the same under `Q`).
 - `|m''| ≤ C_mh`. The entries of `Cov(f''(x), V)` are values of `ρ''` and `ρ'''`, bounded by (R1), and
-  `λ_min(Σ_VV) ≥ c_V` for `t ≥ T₁` (proof of Lemma 4.3_ℝ).
+  `λ_min(Σ_VV) ≥ c_V` for `t ≥ T₁` (Lemma 4.1_ℝ).
 - `X` is centered. Let `H` be the reproducing kernel Hilbert space of `f`, i.e. its Cameron–Martin space. The Cameron–Martin
   space of `X` is the orthogonal complement in `H` of the three representers of `V`, with the `H`-norm.
 - Let `Ū` be the smallest interval containing the cells. The law of `X` restricted to `Ū` is a centered Gaussian measure on
@@ -294,7 +313,7 @@ on `N`, `t` or the cells), such that for `R ≥ R₀` and `h ≤ h₀`,
 Put `F(k) := (Σ_i sup_{J_i}|k''|²)^{1/2}` for `k ∈ C²(Ū)`, a continuous seminorm.
 
 **`F` is Lipschitz along the Cameron–Martin space.** Every `g ∈ H` has the form `g(x) = ∫e^{iωx}φ(ω)s(ω)dω` with
-`‖g‖_H² = ∫|φ|²s`. By Plancherel, `∫_ℝ|g''|² = 2π∫ω⁴|φ|²s² ≤ 2πS₆‖g‖_H²`, and likewise for `g'''`, with `S₆` from (R3b).
+`‖g‖_H² = ∫|φ|²s`. By Plancherel, `∫_ℝ|g''|² = 2π∫ω⁴|φ|²s² ≤ 2πS₆‖g‖_H²`, and likewise for `g'''`, with `S₆` from (R3).
 On each cell, `sup_{J_i}|u|² ≤ 2(w^{−1}∫_{J_i}|u|² + w∫_{J_i}|u'|²)` (checker C4); apply this to `u = g''`. The cells have
 disjoint interiors, so
 
@@ -325,37 +344,37 @@ So `F(X) − EF(X) ≥ N^{1/2}R/2`, and concentration with `u = N^{1/2}R/2` give
 
 **Lemma F_ℝ (the far band).** There is `T₀ ≥ t₀` such that `∫_{T₀}^∞ K^{band}(t, h)dt = O(h²)` as `h ↓ 0`.
 
-*Proof.* Take `a := max(a₀, w)` and `T₀ := max(T₁, t₀, 2a + 16w)`. For `t ≥ T₀`, put `N := ⌊(t − 2a)/w⌋ + 1 ≥ 17` and
-`y_i := −τ + a + iw` for `0 ≤ i < N`; then `y_{N−1} ≤ τ − a`. Let `J_i` be the cell centred at `y_i`. These cells lie in
-`[−τ, τ]`, since `a ≥ w`, and have disjoint interiors.
+*Proof.* Take `T₀ := max(T₁, t₀, 24w)`. For `t ≥ T₀`, put `N := ⌊(t − 2w)/w⌋ + 1 ≥ 23` and `y_i := −τ + w + iw` for
+`0 ≤ i < N`; then `y_{N−1} ≤ τ − w`. Let `J_i` be the cell centred at `y_i`. These cells lie in `[−τ, τ]` and have
+disjoint interiors.
 
 *Banded pairs have small slopes at good cells.* On the banded event, `osc_{J_i}f ≤ h`. Lemma 4.2_ℝ gives
 `|f'(y_i)| ≤ (hS_i)^{1/2} + 2h/w`.
 
 *The good-cell bound.* Let `R := A(log(1/h))^{1/2}`, with `A` fixed and `A² ≥ 2σ_F²`.
 - Take `h ≤ h₀` so small that `R ≥ R₀`.
-- Put `ε := (hR)^{1/2} + 2h/w` and `q := 8ε(πλ_*)^{−1/2}`. Then `q ≤ C_qh^{1/2}(log(1/h))^{1/4}`. Take `h` so small that
+- Put `ε := (hR)^{1/2} + 2h/w` and `q := 4ε(2e/λ_*)^{1/2}`. Then `q ≤ C_qh^{1/2}(log(1/h))^{1/4}`. Take `h` so small that
   also `q ≤ 1/16` and `h^{A²/(16σ_F²)} ≤ 1/2`.
 - On `{n_R < N/2}`, more than `N/2` cells have `S_i ≤ R`, and on the banded event `|f'(y_i)| ≤ ε` at each of them. So some
-  `G ⊂ {0, …, N − 1}` with `|G| = ⌈N/2⌉` has `|f'(y_i)| ≤ ε` for all `i ∈ G`. There are at most `2^N` such `G`.
-- Use (4.1) for each `G`, and (4.2) for `{n_R ≥ N/2}`. Since `2ε(πλ_*)^{−1/2} = q/4 ≤ 1`, the exponent `⌈N/2⌉` may be
-  lowered to `N/2`:
+  `G ⊂ {0, …, N − 1}` with `|G| = ⌈N/2⌉ ≥ 12` has `|f'(y_i)| ≤ ε` for all `i ∈ G`. There are at most `2^N` such `G`.
+- Use (4.1) for each `G`, and (4.2) for `{n_R ≥ N/2}`. Since `ε(2e/λ_*)^{1/2} = q/4 ≤ 1`, the exponent `⌈N/2⌉ − 3` may be
+  lowered to `N/2 − 3`:
 
-      P_Q(banded) ≤ exp(−NR²/(8σ_F²)) + 2^N(2ε(πλ_*)^{−1/2})^{N/2} = exp(−NR²/(8σ_F²)) + q^{N/2}.
+      P_Q(banded) ≤ exp(−NR²/(8σ_F²)) + 2^N(q/4)^{N/2−3} = exp(−NR²/(8σ_F²)) + 64q^{N/2−3}.
 
 *The kernel.* By (1.1_ℝ), Cauchy–Schwarz and `(x + y)^{1/2} ≤ x^{1/2} + y^{1/2}`,
 
-    K^{band}(t, h) ≤ p_V(0, 0, h)·(E_Q[f''(−τ)²f''(τ)²])^{1/2}·P_Q(banded)^{1/2} ≤ C_K(exp(−NR²/(16σ_F²)) + q^{N/4}).
+    K^{band}(t, h) ≤ p_V(0, 0, h)·(E_Q[f''(−τ)²f''(τ)²])^{1/2}·P_Q(banded)^{1/2} ≤ C_K(exp(−NR²/(16σ_F²)) + 8q^{N/4−3/2}).
 
-The constant `C_K` is uniform in `t ≥ T₀`, for two reasons. First, `p_V(0, 0, h) ≤ (2πc_V)^{−3/2}`. Second, under `Q` each
-`f''(±τ)` is Gaussian with variance `≤ λ₄` and mean `m''(±τ)`, which is at most `C_mh`.
+The constant `C_K` is uniform in `t ≥ T₀`, for two reasons. First, `p_V(0, 0, h) ≤ (2πc_V)^{−3/2}` (Lemma 4.1_ℝ). Second,
+under `Q` each `f''(±τ)` is Gaussian with variance `≤ λ₄` and mean `m''(±τ)`, which is at most `C_mh`.
 
 *Summation.* The set `{t : N(t) = n}` has length `≤ w`, and `exp(−nR²/(16σ_F²)) = h^{nA²/(16σ_F²)}`. The two geometric
 series have ratios `h^{A²/(16σ_F²)} ≤ 1/2` and `q^{1/4} ≤ 1/2`, so each is at most twice its first term:
 
-    ∫_{T₀}^∞ K^{band} dt ≤ C_Kw Σ_{n≥17}(h^{nA²/(16σ_F²)} + q^{n/4}) ≤ 2C_Kw(h^{17A²/(16σ_F²)} + q^{17/4}).
+    ∫_{T₀}^∞ K^{band} dt ≤ C_Kw Σ_{n≥23}(h^{nA²/(16σ_F²)} + 8q^{n/4−3/2}) ≤ 2C_Kw(h^{23A²/(16σ_F²)} + 8q^{17/4}).
 
-Here `17A²/(16σ_F²) ≥ 17/8` and `q^{17/4} ≤ C_q^{17/4}h^{17/8}(log(1/h))^{17/16}`. So the integral is
+Here `23A²/(16σ_F²) ≥ 23/8` and `q^{17/4} ≤ C_q^{17/4}h^{17/8}(log(1/h))^{17/16}`. So the integral is
 `O(h^{17/8}(log(1/h))^{17/16})`, which is `O(h²)`. (Checker C5 checks this exponent bookkeeping and the geometric steps at
 sample values.) ∎
 
@@ -387,10 +406,11 @@ Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only
    - On `ℝ` the band can be arbitrarily long, so a fixed number of points does not make the kernel integrable in `t`. The
      number of cells must grow with `t`.
    - Two uniformities then replace compactness. Ingham's inequality gives a covariance lower bound that does not degrade
-     with the number of samples (Lemma 4.3_ℝ). Gaussian concentration controls the number of cells where `f''` is large
-     (Lemma 4.4_ℝ); a union bound over `N` cells would cost a factor `N`, which is not integrable.
-   - The price is (R2)–(R3): an absolutely continuous spectral part bounded below on an interval away from `0`, and
-     decorrelation at rate `(1 + |x|)^{−1}`.
+     with the number of samples, and conditioning on the three pin observations lowers at most three eigenvalues
+     (Lemma 4.3_ℝ). Gaussian concentration controls the number of cells where `f''` is large (Lemma 4.4_ℝ); a union bound
+     over `N` cells would cost a factor `N`, which is not integrable.
+   - The price is (R2)–(R3): an absolutely continuous spectrum, with a density bounded below on an interval away from `0`
+     and bounded with the weight `1 + ω⁶`. No decay rate of the covariance is needed.
 2. **The hypotheses.**
    - (R2) is used twice: in Lemma 1.1_ℝ, and through Ingham's inequality in Lemma 4.3_ℝ. In the latter, it is used for
      `f'`, whose spectral density `ω²s(ω)` vanishes at `0`, hence `ω₁ > 0`.
@@ -398,10 +418,10 @@ Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only
      `λ_min ≥ 1/6` uniformly in `N` (checker C2). Ingham's inequality is needed for covariances without such explicit
      decay. At spacing `1` the Gaussian row sum is `1 − 5.3·10⁻⁷`: the infinite Toeplitz matrix is then almost singular,
      and diagonal dominance gives no usable bound.
-   - (R3b) bounds the Lipschitz constant `σ_F`.
-   - (R3a) is used for the cross-covariances and for `Σ_VV`. Only `j ≤ 2` enters; the higher derivatives of `ρ` need only
-     be bounded, which (R1) gives. A rate `(1 + |x|)^{−β}` with `β > 1/2` would suffice for the cross-covariances.
-     Lemma 1.5_ℝ needs only `ρ(n) → 0`, which every spectral density gives.
+   - (R3) bounds the Lipschitz constant `σ_F`.
+   - The decorrelation used is qualitative: `ρ, ρ', ρ'' → 0` (Riemann–Lebesgue), in Lemma 1.5_ℝ and Lemma 4.1_ℝ. v1
+     assumed `|ρ^{(j)}(x)| ≤ C(1 + |x|)^{−1}` for `j ≤ 2`, to make the cross-covariances `Σ_YV` small; the interlacing step
+     of Lemma 4.3_ℝ makes that unnecessary.
 3. **Relation to the classical literature (#210).**
    - For `ρ = e^{−x²/2}`, (1D_ℝ.1) per crest is the small-amplitude law of crest-to-trough heights of a stationary
      Gaussian process on the line. Its leading constant `0.19971814` is #210's `C`.
@@ -450,13 +470,16 @@ Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only
   - The constant `1` is false: `u = 1 + (s/w)²/2` on `[0, w]` has `sup|u|² = 9/4 > 103/60 = w^{−1}∫u² + w∫u'²`. The sharp
     constant is `coth 1 = 1.313…`.
 - **C5 The summation of Lemma F_ℝ**, at sample values.
-  - `Σ_{n=17}^{M}x^n = (x^{17} − x^{M+1})/(1 − x)`, and `x^{17}/(1 − x) ≤ 2x^{17}`, for `x ∈ {1/2, 1/3, 1/10, 1/1000}`.
-  - `2^Nx^{N/2} = (4x)^{N/2}`, the step to `q^{N/2}`.
-  - `N ≥ 17` and `y_{N−1} ≤ τ − a` when `t − 2a ≥ 16w`, at sample values.
-  - The final exponents: `17A²/(16σ_F²) ≥ 17/8 > 2` for `A² ≥ 2σ_F²`, and `(1/2)·(17/4) = 17/8` with log power `17/16`.
-- **C6 The constants of Lemmas 4.3_ℝ–4.4_ℝ.**
-  - The integral comparison `Σ_{k≥0}(1 + a + kw)^{−2} ≤ (1 + 1/w)(1 + a)^{−1}`, with exact partial sums and the integral
-    tail, for five pairs `(a, w)`.
+  - `Σ_{n=23}^{M}x^n = (x^{23} − x^{M+1})/(1 − x)`, and `x^{23}/(1 − x) ≤ 2x^{23}`, for `x ∈ {1/2, 1/3, 1/10, 1/1000}`.
+  - `2^N(q/4)^{N/2−3} = 64q^{N/2−3}`, the step to the union bound's form.
+  - `N ≥ 23` and `y_{N−1} ≤ τ − w` when `t ≥ 24w`, at sample values.
+  - The final exponents: `23A²/(16σ_F²) ≥ 23/8 > 2` for `A² ≥ 2σ_F²`, and `(23 − 6)/4·(1/2) = 17/8` with log power `17/16`.
+- **C6 The ingredients of Lemmas 4.3_ℝ–4.4_ℝ.**
+  - Interlacing: for random rational `A = λ·Id + MMᵀ` and `P = Σ_{s≤r}u_su_sᵀ` with `r ≤ 3`, an exact `LDLᵀ` count
+    (Sylvester's law of inertia) shows that `A − P − λ·Id` has at most `r` negative eigenvalues. A deterministic family
+    attains `r`.
+  - Stirling: `Γ(m/2 + 1) ≥ (m/(2e))^{m/2}` for `3 ≤ m ≤ 300`, with rational bounds for `e` and `√π`; and `k/(k − 3) ≤ 2`
+    for `k ≥ 6`.
   - The threshold `R₀ = 5(M₂^{1/2} + 1)`: `(1/2 + 1/5)² ≤ 1/2`.
 
 **Mutants** (`--mutant M`) exit 1, each in its own control:
@@ -464,8 +487,9 @@ Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only
 - M2 uses the Sobolev constant `1` in place of `2` (C4);
 - M3 takes the spacing `w = 1` in place of `2` (C2);
 - M4 drops the factor `2` of `C₀` (C3);
-- M5 takes `17A²/(32σ_F²)` (C5);
-- M6 takes `R₀ = 4(M₂^{1/2} + 1)` (C6).
+- M5 takes `23A²/(32σ_F²)` (C5);
+- M6 takes `R₀ = 4(M₂^{1/2} + 1)` (C6);
+- M7 allows only `r − 1` small eigenvalues after a rank-`r` conditioning (C6).
 
 An unknown label exits 2.
 
@@ -474,6 +498,6 @@ An unknown label exits 2.
 - **A §§0–1.** The objects on `ℝ`; Lemma 1.1_ℝ, Lemma 1.5_ℝ, the process under `Q`, and the Kac–Rice representation on `ℝ`
   with the two marks.
 - **B §2.** The claim that the listed parts of [1D] and [1D⁺] are local. Check each for any use of compactness of `T`.
-- **C §§3–4.** Lemma 3.1_ℝ; Lemmas 4.2_ℝ–4.4_ℝ (Landau, Ingham with the Schur complement, Gaussian concentration); Lemma
-  F_ℝ.
+- **C §§3–4.** Lemma 3.1_ℝ; Lemmas 4.1_ℝ–4.4_ℝ (the pin covariance, Landau, Ingham with interlacing, Gaussian
+  concentration); Lemma F_ℝ.
 - **D §5 and the controls.** The assembly, the constants, `line_check.py`.

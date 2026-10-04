@@ -114,15 +114,15 @@
    }
   },
   "C5": {
-   "N(t)": "N = floor((t - 2a)/w) + 1 >= 17 for t >= 2a + 16 w, and y_(N-1) <= tau - a (at a = 7/3, w = 5/2)",
+   "N(t)": "N = floor((t - 2w)/w) + 1 >= 23 for t >= 24 w, y_(N-1) <= tau - w, and ceil(N/2) >= 12 (at w = 5/2)",
    "exponents": {
-    "h^(17 A^2/(16 sigma_F^2)) at A^2 = 2 sigma_F^2": "17/8",
+    "h^(23 A^2/(16 sigma_F^2)) at A^2 = 2 sigma_F^2": "23/8",
     "margin over h^2": "1/8",
-    "q^(17/4) with q = O(h^(1/2) log^(1/4))": "h^(17/8) log^(17/16)"
+    "q^(N/4 - 3/2) at N = 23, with q = O(h^(1/2) log^(1/4))": "h^(17/8) log^(17/16)"
    },
-   "geometric": "sum_{n=17}^{M} x^n = (x^17 - x^(M+1))/(1-x) and x^17/(1-x) <= 2 x^17 for x in {1/2, 1/3, 1/10, 1/1000}; the ratios are <= 1/2 when q <= 1/16 and h^(A^2/(16 sigma_F^2)) <= 1/2",
-   "square_root": "P^(1/2) <= exp(-N R^2/(16 sigma_F^2)) + q^(N/4)",
-   "union_bound_step": "2^N x^(N/2) = (4x)^(N/2) with x = 2 eps (pi lambda_*)^(-1/2), so 4x = q"
+   "geometric": "sum_{n=23}^{M} x^n = (x^23 - x^(M+1))/(1-x) and x^23/(1-x) <= 2 x^23 for x in {1/2, 1/3, 1/10, 1/1000}; the ratios are <= 1/2 when q <= 1/16 and h^(A^2/(16 sigma_F^2)) <= 1/2",
+   "square_root": "P^(1/2) <= exp(-N R^2/(16 sigma_F^2)) + 8 q^(N/4 - 3/2)",
+   "union_bound_step": "2^N (q/4)^(N/2-3) = 64 q^(N/2-3) with q/4 = eps (2e/lambda_*)^(1/2)"
   },
   "C6": {
    "R0_threshold": {
@@ -131,28 +131,12 @@
     "needed": "<= 1/2"
    },
    "factor_4_fails": "(1/2 + 1/4)^2 = 9/16 > 1/2",
-   "sum_k (1+a+k w)^-2 <= (1+1/w)/(1+a)": {
-    "a=0,w=1/2": {
-     "(1+1/w)/(1+a)": "3.00000000",
-     "sum_upper": "2.58086106"
-    },
-    "a=1,w=1": {
-     "(1+1/w)/(1+a)": "1.00000000",
-     "sum_upper": "0.64521527"
-    },
-    "a=100,w=1/10": {
-     "(1+1/w)/(1+a)": "0.10891090",
-     "sum_upper": "0.09910427"
-    },
-    "a=13,w=25/2": {
-     "(1+1/w)/(1+a)": "0.07714286",
-     "sum_upper": "0.00894238"
-    },
-    "a=4,w=2": {
-     "(1+1/w)/(1+a)": "0.30000000",
-     "sum_upper": "0.12265811"
-    }
-   }
+   "interlacing": {
+    "attaining_cases": 15,
+    "random_cases": 90,
+    "statement": "A - P - lam Id has at most rank(P) negative eigenvalues when A - lam Id >= 0"
+   },
+   "stirling": "Gamma(m/2 + 1) >= (m/(2e))^(m/2) for 3 <= m <= 300; k/(k-3) <= 2 for k >= 6"
   }
  },
  "mutants": {
@@ -160,9 +144,10 @@
   "M2": "C4: the cell Sobolev constant 1 in place of 2",
   "M3": "C2: the Gaussian sample spacing w = 1 in place of 2",
   "M4": "C3: C0 without its factor 2",
-  "M5": "C5: the band exponent 17 A^2/(32 sigma_F^2) in place of 17 A^2/(16 sigma_F^2)",
-  "M6": "C6: the threshold R0 = 4 (M2^(1/2) + 1) in place of 5 (M2^(1/2) + 1)"
+  "M5": "C5: the band exponent 23 A^2/(32 sigma_F^2) in place of 23 A^2/(16 sigma_F^2)",
+  "M6": "C6: the threshold R0 = 4 (M2^(1/2) + 1) in place of 5 (M2^(1/2) + 1)",
+  "M7": "C6: only r - 1 small eigenvalues allowed after a rank-r conditioning"
  },
- "object": "CL-D1-LINE-20261004-v1",
+ "object": "CL-D1-LINE-20261004-v1.1",
  "scientific_effect": "NONE"
 }

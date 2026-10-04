@@ -2,14 +2,21 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-D1-LINE-20261004-v1`. Full text: [`PROOF.md`](PROOF.md). Dylan Roy — delegated AI work.
+Object `CL-D1-LINE-20261004-v1.1`. Full text: [`PROOF.md`](PROOF.md). Dylan Roy — delegated AI work.
+
+**v1.1** was made before any nonauthor pickup; v1 was `f34ffd7`. It drops v1's decay hypothesis on `ρ, ρ', ρ''`, so
+(H_ℝ) is now purely spectral. Lemma 4.3_ℝ now uses interlacing: conditioning on the three pin observations lowers at
+most three eigenvalues of the samples' covariance, whatever the cross-covariances. The theorem and its rates are
+unchanged.
 
 ## Result
 
 Let `f` be a centered stationary Gaussian process on `ℝ` whose spectral measure has a density `s`. Assume (H_ℝ):
 - (R1) all moments `∫|ω|^n s` are finite;
 - (R2) `s ≥ s₀ > 0` on some interval `[ω₁, ω₂]` with `ω₁ > 0`;
-- (R3) `|ρ^{(j)}(x)| ≤ C(1 + |x|)^{−1}` for `j ≤ 2`, and `(1 + ω⁶)s(ω)` is bounded.
+- (R3) `(1 + ω⁶)s(ω)` is bounded.
+
+No decay rate of the covariance is assumed. `ρ, ρ', ρ'' → 0` follows from (R1) by the Riemann–Lebesgue lemma.
 
 Then, per unit length, as `h ↓ 0` and `ℓ ↓ 0`:
 
@@ -37,10 +44,11 @@ the number of sample points has to grow with the length of the band.
 | §1 | Nondegeneracy (Lemma 1.1_ℝ); `f` unbounded on half-lines (Lemma 1.5_ℝ), also under the pinned law; the marked two-point Kac–Rice formula on `ℝ` | entire functions; Maruyama + Birkhoff; Gaussian regression; monotone limits of compact-window marks |
 | §2 | The parts of #214 and #238 that are local transfer verbatim | review of each step for global objects |
 | Lemma 3.1_ℝ | `∫_{t₀}^{T₀}K^{band} = O(h²log(1/h))` | #214 Lemma 4.3's far argument on a compact range |
+| Lemma 4.1_ℝ | the pin covariance is uniformly nondegenerate for `t ≥ T₁` | Riemann–Lebesgue + Gershgorin |
 | Lemma 4.2_ℝ | `\|g'(y)\| ≤ (osc·S)^{1/2} + 2osc/\|Δ\|` at the midpoint `y` of an interval `Δ` | Landau |
-| Lemma 4.3_ℝ | `P_Q(\|f'(y_i)\| ≤ ε, i ∈ G) ≤ (2ε(πλ_*)^{−1/2})^{\|G\|}` for `w`-separated samples far from the pins | Ingham's inequality + Schur complement |
+| Lemma 4.3_ℝ | `P_Q(\|f'(y_i)\| ≤ ε, i ∈ G) ≤ (ε(2e/λ_*)^{1/2})^{\|G\|−3}` for `w`-separated samples, `\|G\| ≥ 6` | Ingham's inequality + interlacing (at most three eigenvalues drop) |
 | Lemma 4.4_ℝ | `P_Q(at least N/2 of N cells have sup\|f''\| > R) ≤ exp(−NR²/(8σ_F²))` | Gaussian concentration along the Cameron–Martin space |
-| Lemma F_ℝ | `∫_{T₀}^∞K^{band} = O(h^{17/8}(log(1/h))^{17/16}) = O(h²)` | the three lemmas above |
+| Lemma F_ℝ | `∫_{T₀}^∞K^{band} = O(h^{17/8}(log(1/h))^{17/16}) = O(h²)` | Lemmas 4.1_ℝ–4.4_ℝ, with at least `23` cells |
 
 ## Dependencies
 
@@ -63,13 +71,13 @@ constants in floating point. Its output is `RESULTS.json`, byte-identical with a
 | C2 | For the Gaussian kernel, the `f'`-sample covariance at spacing `w ≥ 2` is diagonally dominant with `λ_min ≥ 1/6`, using rigorous rational bounds for `e^{−x}` |
 | C3 | `C₀, C₁, I, B₂` and the per-crest coefficients against the printed values; `𝒬 = 1620` and `𝒬/(120λ₂λ₄D) = 3/4` exactly |
 | C4 | The cell Sobolev bound with constant `2`, on 155 polynomials; the witness `1 + (s/w)²/2` shows that the constant `1` is false |
-| C5 | The geometric steps and exponent bookkeeping of Lemma F_ℝ, at sample values |
-| C6 | The integral comparison of Lemma 4.3_ℝ, and the threshold `R₀ = 5(M₂^{1/2} + 1)` of Lemma 4.4_ℝ |
+| C5 | The geometric steps and exponent bookkeeping of Lemma F_ℝ (at least `23` cells), at sample values |
+| C6 | Interlacing by exact inertia counts (`LDLᵀ`, Sylvester), with a family attaining the bound; Stirling's lower bound for the ball volume; the threshold `R₀ = 5(M₂^{1/2} + 1)` of Lemma 4.4_ℝ |
 
 Replay:
 
     python3 -B -S line_check.py                 # exit 0; stdout = RESULTS.json
-    python3 -B -S line_check.py --mutant M1     # M1–M6 exit 1, each in its own control
+    python3 -B -S line_check.py --mutant M1     # M1–M7 exit 1, each in its own control
     python3 -B -S line_check.py --mutant XX     # exit 2
 
 The workflow `.github/workflows/d1-line.yml` checks the packet tree and file identities, the consumed and cited sources,
@@ -79,7 +87,10 @@ both replay modes, the mutants and the bad arguments.
 
 Before submission, two clean-context same-family referees (Anthropic Claude subagents) read the draft. Both returned
 ACCEPT WITH MINOR FIXES on their slices, with no major finding. Their fixes are applied, and a delta check of the
-revision found them fixed; `SOURCES.json` (`referee`) lists what they found and what changed. One author-side
+revision found them fixed; `SOURCES.json` (`referee`) lists what they found and what changed. v1.1's new material
+(Lemma 4.1_ℝ, the interlacing Lemma 4.3_ℝ, and Lemma F_ℝ with `23` cells) came after that pass. A second delta check
+returned ACCEPT on slices B and C, and ACCEPT WITH MINOR FIXES on slices A and D, for one sentence of §0 and the
+packaging; both are applied. One author-side
 correction, made before the referee pass, changed a constant: the threshold of Lemma 4.4_ℝ is `R₀ = 5(M₂^{1/2} + 1)`,
 because the factor `4` does not give `R/√2 − R/4 ≥ R/2`. These referees share a provider with the author and give no
 independence credit.
@@ -87,11 +98,12 @@ independence credit.
 **Requested:** a nonauthor review, by slices (PROOF §9):
 - **A** §§0–1: the objects on `ℝ`, Lemmas 1.1_ℝ and 1.5_ℝ, the process under `Q`, and the Kac–Rice representation;
 - **B** §2: that the listed parts of #214 and #238 are local;
-- **C** §§3–4: Lemma 3.1_ℝ, Lemmas 4.2_ℝ–4.4_ℝ and Lemma F_ℝ;
+- **C** §§3–4: Lemma 3.1_ℝ, Lemmas 4.1_ℝ–4.4_ℝ and Lemma F_ℝ;
 - **D** §5 and the controls.
 
 ## Not claimed
 
 - No uniformity in the covariance, and no explicit constant in any `O(·)`.
 - No sharpness of the remainder `3/4`.
-- Nothing without (R2) (for instance, spectra on finitely many points), or under long-range dependence beyond (R3).
+- Nothing without (R2) (for instance, spectra on finitely many points), or for spectral densities with `(1 + ω⁶)s`
+  unbounded ((R3)), such as a spectral pole at `0` (long-range dependence) or spiky high-frequency tails.

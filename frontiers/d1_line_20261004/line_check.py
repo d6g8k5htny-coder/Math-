@@ -9,8 +9,8 @@ document on stdout, equal to RESULTS.json.
     python3 -B -S line_check.py --mutant M3     # exit 1 (each mutant breaks its own control)
     python3 -B -S line_check.py --mutant XX     # exit 2 (unknown label)
 
-Notation as in PROOF.md section 4: w is an interval (cell) length or a sample spacing, a the distance kept from the
-pins, sigma_F the Lipschitz constant of Lemma 4.4_R.
+Notation as in PROOF.md section 4: w is an interval (cell) length or a sample spacing, sigma_F the Lipschitz constant
+of Lemma 4.4_R.
 
 Scientific effect: NONE.  The controls check the elementary inequalities, constants and summations that the proof uses
 (PROOF.md section 8).  They do not check the probabilistic steps.
@@ -20,15 +20,16 @@ import math
 import sys
 from fractions import Fraction as Fr
 
-OBJECT = 'CL-D1-LINE-20261004-v1'
+OBJECT = 'CL-D1-LINE-20261004-v1.1'
 
 MUTANTS = {
     'M1': 'C1: the Landau bound without the term 2 osc/|Delta|',
     'M2': 'C4: the cell Sobolev constant 1 in place of 2',
     'M3': 'C2: the Gaussian sample spacing w = 1 in place of 2',
     'M4': 'C3: C0 without its factor 2',
-    'M5': 'C5: the band exponent 17 A^2/(32 sigma_F^2) in place of 17 A^2/(16 sigma_F^2)',
+    'M5': 'C5: the band exponent 23 A^2/(32 sigma_F^2) in place of 23 A^2/(16 sigma_F^2)',
     'M6': 'C6: the threshold R0 = 4 (M2^(1/2) + 1) in place of 5 (M2^(1/2) + 1)',
+    'M7': 'C6: only r - 1 small eigenvalues allowed after a rank-r conditioning',
 }
 
 
@@ -48,7 +49,7 @@ def parse_args(argv):
         a = rest.pop(0)
         if a == '--mutant':
             if not rest:
-                print('usage: line_check.py [--mutant M1..M6]', file=sys.stderr)
+                print('usage: line_check.py [--mutant M1..M7]', file=sys.stderr)
                 sys.exit(2)
             mutant = rest.pop(0)
             if mutant not in MUTANTS:
@@ -176,7 +177,8 @@ def landau_case(c, w, grid=64, steps=40):
 
 
 def landau_holds(a, osc, S, w, mutant):
-    """|g'(y)| <= (osc S)^(1/2) + 2 osc/|Delta|, decided exactly: with b = 2 osc/|Delta|, a <= b or (a - b)^2 <= osc S"""
+    """|g'(y)| <= (osc S)^(1/2) + 2 osc/|Delta|, decided exactly:
+    with b = 2 osc/|Delta|, either a <= b or (a - b)^2 <= osc S"""
     b = Fr(0) if mutant == 'M1' else 2 * osc / w
     return a <= b or (a - b) ** 2 <= osc * S
 
@@ -215,8 +217,8 @@ def control_c1(mutant):
     return {'interval_lengths': [str(w) for w in lengths], 'polynomials_tested': n,
             "cases_with_|g'(y)|>2osc/|Delta|_(osc_bounded_above)": sqrt_needed,
             'nearly_affine_g=s+eps*s^2_unit_interval': affine,
-            'reading': "both terms are needed: the S-shaped cubics have |g'(y)| > 2 osc/|Delta|, and on the nearly affine "
-                       "family |g'(y)|^2 = 1 > osc*S = 2 eps"}
+            'reading': "both terms are needed: the S-shaped cubics have |g'(y)| > 2 osc/|Delta|, and on the nearly "
+                       "affine family |g'(y)|^2 = 1 > osc*S = 2 eps"}
 
 
 # ---------------------------------------------------------------- C2: Gaussian f'-samples, diagonal dominance
@@ -348,51 +350,129 @@ def control_c4(mutant):
 def control_c5(mutant):
     res = {}
     for x in (Fr(1, 2), Fr(1, 3), Fr(1, 10), Fr(1, 1000)):
-        for M in (17, 20, 40):
-            s = sum(x ** n for n in range(17, M + 1))
-            check(s == (x ** 17 - x ** (M + 1)) / (1 - x), 'C5 geometric partial sum')
-        check(x ** 17 / (1 - x) <= 2 * x ** 17, 'C5 x^17/(1-x) <= 2 x^17')
+        for M in (23, 30, 50):
+            s = sum(x ** n for n in range(23, M + 1))
+            check(s == (x ** 23 - x ** (M + 1)) / (1 - x), 'C5 geometric partial sum')
+        check(x ** 23 / (1 - x) <= 2 * x ** 23, 'C5 x^23/(1-x) <= 2 x^23')
     check(Fr(1, 2) ** 4 == Fr(1, 16), 'C5 q^(1/4) <= 1/2 iff q <= 1/16')
-    res['geometric'] = ('sum_{n=17}^{M} x^n = (x^17 - x^(M+1))/(1-x) and x^17/(1-x) <= 2 x^17 for x in '
+    res['geometric'] = ('sum_{n=23}^{M} x^n = (x^23 - x^(M+1))/(1-x) and x^23/(1-x) <= 2 x^23 for x in '
                         '{1/2, 1/3, 1/10, 1/1000}; the ratios are <= 1/2 when q <= 1/16 and '
                         'h^(A^2/(16 sigma_F^2)) <= 1/2')
     for r in (Fr(1, 3), Fr(2, 7), Fr(1, 100)):
-        for N in range(17, 41):
-            check(2 ** N * r ** N == (4 * r * r) ** (N // 2) * (2 * r) ** (N % 2), 'C5 2^N x^(N/2) = (4x)^(N/2)')
-    res['union_bound_step'] = '2^N x^(N/2) = (4x)^(N/2) with x = 2 eps (pi lambda_*)^(-1/2), so 4x = q'
-    a, w = Fr(7, 3), Fr(5, 2)
-    T0 = 2 * a + 16 * w
+        q = 4 * r * r                                                  # q = 4 r^2, so q/4 = r^2 and q^(1/2) = 2 r
+        for N in range(23, 61, 2):                                     # odd N: N/2 - 3 = (N - 6)/2, half-integer
+            lhs = 2 ** N * (r * r) ** ((N - 7) // 2) * r              # (q/4)^(N/2 - 3) = r^(N - 6)
+            rhs = 64 * q ** ((N - 7) // 2) * (2 * r)                  # 64 q^(N/2 - 3) = 64 q^((N-7)/2) q^(1/2)
+            check(lhs == rhs, 'C5 2^N (q/4)^(N/2-3) = 64 q^(N/2-3)')
+        for N in range(24, 61, 2):
+            check(2 ** N * (r * r) ** ((N - 6) // 2) == 64 * q ** ((N - 6) // 2), 'C5 2^N (q/4)^(N/2-3) = 64 q^(N/2-3)')
+    res['union_bound_step'] = '2^N (q/4)^(N/2-3) = 64 q^(N/2-3) with q/4 = eps (2e/lambda_*)^(1/2)'
+    w = Fr(5, 2)
+    T0 = 24 * w
     for t in (T0, T0 + Fr(1, 7), T0 + 3 * w, T0 + 100):
-        N = (t - 2 * a) // w + 1
-        check(N >= 17, 'C5 N >= 17')
-        check(-t / 2 + a + (N - 1) * w <= t / 2 - a, 'C5 the last point lies in [-tau + a, tau - a]')
-    res['N(t)'] = 'N = floor((t - 2a)/w) + 1 >= 17 for t >= 2a + 16 w, and y_(N-1) <= tau - a (at a = 7/3, w = 5/2)'
+        N = (t - 2 * w) // w + 1
+        check(N >= 23, 'C5 N >= 23')
+        check(-t / 2 + w + (N - 1) * w <= t / 2 - w, 'C5 the last point lies in [-tau + w, tau - w]')
+        check((N + 1) // 2 >= 12, 'C5 |G| = ceil(N/2) >= 12 >= 6')
+    res['N(t)'] = 'N = floor((t - 2w)/w) + 1 >= 23 for t >= 24 w, y_(N-1) <= tau - w, and ceil(N/2) >= 12 (at w = 5/2)'
     A2_over_sigma2 = Fr(2)                                             # the smallest admissible A^2/sigma_F^2
-    exp_h = (Fr(17, 32) if mutant == 'M5' else Fr(17, 16)) * A2_over_sigma2
+    exp_h = (Fr(23, 32) if mutant == 'M5' else Fr(23, 16)) * A2_over_sigma2
     check(exp_h > 2, 'C5 band exponent %s not > 2' % exp_h)
-    exp_q, log_q = Fr(1, 2) * Fr(17, 4), Fr(1, 4) * Fr(17, 4)
+    exp_q = (Fr(23, 4) - Fr(3, 2)) * Fr(1, 2)                         # q^(23/4 - 3/2) = q^(17/4), q ~ h^(1/2)
+    log_q = (Fr(23, 4) - Fr(3, 2)) * Fr(1, 4)
     check(exp_q == Fr(17, 8) and exp_q > 2 and log_q == Fr(17, 16), 'C5 q-exponents')
-    res['exponents'] = {'h^(17 A^2/(16 sigma_F^2)) at A^2 = 2 sigma_F^2': str(exp_h),
-                        'q^(17/4) with q = O(h^(1/2) log^(1/4))': 'h^(%s) log^(%s)' % (exp_q, log_q),
+    res['exponents'] = {'h^(23 A^2/(16 sigma_F^2)) at A^2 = 2 sigma_F^2': str(exp_h),
+                        'q^(N/4 - 3/2) at N = 23, with q = O(h^(1/2) log^(1/4))': 'h^(%s) log^(%s)' % (exp_q, log_q),
                         'margin over h^2': str(min(exp_h, exp_q) - 2)}
     check(Fr(1, 2) * Fr(1, 8) == Fr(1, 16), 'C5 square root of the banded probability')
-    res['square_root'] = 'P^(1/2) <= exp(-N R^2/(16 sigma_F^2)) + q^(N/4)'
+    res['square_root'] = 'P^(1/2) <= exp(-N R^2/(16 sigma_F^2)) + 8 q^(N/4 - 3/2)'
     return res
 
 
-# ---------------------------------------------------------------- C6: the constants of Lemmas 4.3_R and 4.4_R
+# ---------------------------------------------------------------- C6: the ingredients of Lemmas 4.3_R and 4.4_R
+
+def negative_pivots(S):
+    """number of negative eigenvalues of the symmetric rational matrix S, by exact LDL^T without pivoting
+    (Sylvester's law of inertia); returns None if a zero pivot occurs"""
+    n = len(S)
+    M = [row[:] for row in S]
+    neg = 0
+    for i in range(n):
+        piv = M[i][i]
+        if piv == 0:
+            return None
+        if piv < 0:
+            neg += 1
+        for r in range(i + 1, n):
+            f = M[r][i] / piv
+            if f:
+                for c in range(i, n):
+                    M[r][c] -= f * M[i][c]
+    return neg
+
+
+def e_bounds():
+    lo, t = Fr(0), Fr(1)
+    for j in range(30):
+        lo += t
+        t = t / (j + 1)
+    return lo, lo + 2 * t                    # the tail after 30 terms is below twice the next term
+
 
 def control_c6(mutant):
     res = {}
-    rows = {}
-    for a, w in ((Fr(0), Fr(1, 2)), (Fr(1), Fr(1)), (Fr(4), Fr(2)), (Fr(13), Fr(25, 2)), (Fr(100), Fr(1, 10))):
-        K = 40
-        part = sum(1 / (1 + a + k * w) ** 2 for k in range(K + 1))
-        tail = 1 / (w * (1 + a + K * w))                               # int_K^infty (1 + a + x w)^(-2) dx
-        bound = (1 + 1 / w) / (1 + a)
-        check(part + tail <= bound, 'C6 Frobenius sum bound fails at a=%s, w=%s' % (a, w))
-        rows['a=%s,w=%s' % (a, w)] = {'sum_upper': ceil_dec(part + tail, 8), '(1+1/w)/(1+a)': ceil_dec(bound, 8)}
-    res['sum_k (1+a+k w)^-2 <= (1+1/w)/(1+a)'] = rows
+    rng = Lcg(97531)
+    lam = Fr(1, 3)
+    cases = attained = 0
+    for k in (4, 5, 6, 8, 10):
+        for r in (1, 2, 3):
+            for _ in range(6):
+                Mx = [[rng.frac(5) for _ in range(k)] for _ in range(k)]
+                MMt = [[sum(Mx[i][l] * Mx[j][l] for l in range(k)) for j in range(k)] for i in range(k)]
+                us = [[rng.frac(7) for _ in range(k)] for _ in range(r)]
+                S = [[MMt[i][j] - sum(u[i] * u[j] for u in us) for j in range(k)] for i in range(k)]
+                neg = negative_pivots(S)                                # A - P - lam Id = M M^T - P
+                if neg is None:
+                    continue
+                check(neg <= r, 'C6 interlacing: %d negative eigenvalues after a rank-%d downdate' % (neg, r))
+                cases += 1
+            # a family that attains r: P = c sum_{s<=r} e_s e_s^T with c > trace(M M^T)
+            Mx = [[rng.frac(5) for _ in range(k)] for _ in range(k)]
+            MMt = [[sum(Mx[i][l] * Mx[j][l] for l in range(k)) for j in range(k)] for i in range(k)]
+            c = sum(MMt[i][i] for i in range(k)) + 1
+            S = [[MMt[i][j] - (c if i == j and i < r else 0) for j in range(k)] for i in range(k)]
+            neg = negative_pivots(S)
+            check(neg is not None and neg == r, 'C6 the attaining family')
+            allowed = r - 1 if mutant == 'M7' else r
+            check(neg <= allowed,
+                  'C6 interlacing allows only %d small eigenvalues after a rank-%d conditioning' % (allowed, r))
+            attained += 1
+    res['interlacing'] = {'random_cases': cases, 'attaining_cases': attained,
+                          'statement': 'A - P - lam Id has at most rank(P) negative eigenvalues when A - lam Id >= 0'}
+    elo, ehi = e_bounds()
+    sqrtpi_lo = Fr(17724, 10000)                                       # sqrt(pi) = 1.77245...
+    check(sqrtpi_lo ** 2 < Fr(314159, 100000), 'C6 sqrt(pi) lower bound')
+    for m in range(3, 301):
+        # Gamma(m/2 + 1) >= (m/(2e))^(m/2), i.e. Gamma(m/2 + 1)^2 >= (m/(2e))^m; use e >= elo
+        if m % 2 == 0:
+            n = m // 2
+            g2 = Fr(1)
+            for i in range(2, n + 1):
+                g2 *= i
+            g2 = g2 * g2
+        else:
+            # Gamma(n + 3/2) = (2n+2)! sqrt(pi)/(4^(n+1) (n+1)!)
+            n = (m - 1) // 2
+            num, den = 1, 1
+            for i in range(2, 2 * n + 3):
+                num *= i
+            for i in range(2, n + 2):
+                den *= i
+            g2 = (Fr(num, 4 ** (n + 1) * den) * sqrtpi_lo) ** 2
+        check(g2 >= (Fr(m, 2) / elo) ** m, 'C6 Stirling lower bound fails at m=%d' % m)
+    for k in range(6, 200):
+        check(Fr(k, k - 3) <= 2, 'C6 k/(k-3) <= 2')
+    res['stirling'] = 'Gamma(m/2 + 1) >= (m/(2e))^(m/2) for 3 <= m <= 300; k/(k-3) <= 2 for k >= 6'
     c = Fr(4) if mutant == 'M6' else Fr(5)
     check((Fr(1, 2) + 1 / c) ** 2 <= Fr(1, 2),
           'C6 threshold R0 = %s (M2^(1/2) + 1) does not give R/sqrt(2) - R/%s >= R/2' % (c, c))
