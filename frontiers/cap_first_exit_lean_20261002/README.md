@@ -57,6 +57,11 @@ Since v2.1, the quantitative bounds enter on `D` only:
   - The continuity step `block_bound_collar` gives the block bound `m + Kε` on the collar of width `ε`.
   - Because (H1) is strict, some `ε > 0` keeps `8r(m + Kε)² < λ`.
 
+Since v2.2, `ridge_capHyp_E` assumes only that `f` is `C⁴` on an open `U ⊇ D`, together with SP's quantitative bounds on `D` written with the iterated derivatives `D^k f = iteratedFDeriv ℝ k f`:
+- every derivative datum of `ridge_capHyp_D` is a Fréchet derivative of `f`, and `T3`, `T4` and `Φ4` are slices of `D³f` and `D⁴f`;
+- the collar width `ε₀` comes from `collar_subset_open`: `D` is compact, so a closed thickening of it lies in `U`;
+- `K` bounds `‖D⁴f‖` on the compact collar, and `block_of_norm` turns that norm bound into the block bound.
+
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
@@ -119,6 +124,10 @@ single ridge path.
 | `ridge_capHyp_C5` | `ridge_capHyp_C4` with `hHxb`, `hHrb`, `hwcv`, `hwcc`, `hG0cv` and `hG0cc` derived from the block bound and `|f_xxx| ≤ m` on the pin segment (v2.1) |
 | `ridge_capHyp_D` | the cap from SP's bounds on `D` (v2.1). The bounds `m`, `n`, (H1) and (H2) are assumed on `D`, with qualitative derivative data and some `K ≥ 0` on a collar of width `ε₀`. It concludes the ridge on `(−2r − ε, 2r + ε)`, `h(∓r/2) = 0`, the cap and (C2⁺), for some `ε ∈ (0, ε₀]` |
 | `h1Toy_D` | `h1ToyF` meets every hypothesis of `ridge_capHyp_D` (`T4 = 0`, `K = 0`, `ε₀ = 1/2`). The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
+| `block_of_norm` | the block bound from the norm (v2.2). A trilinear form `B` on `ℝ × E` with `‖B‖ ≤ K` satisfies the block bound with constant `K`. Replacing one slot at a time by `sᵢ(1, 0)` leaves three terms, each with a transverse argument `(0, yᵢ)` |
+| `collar_subset_open` | a closed collar `[−2r − ε₀, 2r + ε₀] × B̄(0, 2r)` with `ε₀ > 0` inside any open `U ⊇ D` (v2.2) |
+| `ridge_capHyp_E` | the cap from `f ∈ C⁴` on an open `U ⊇ D` and SP's quantitative bounds on `D` (v2.2). It concludes the ridge on `(−2r − ε, 2r + ε)` for some `ε > 0`, `h(∓r/2) = 0`, the cap and (C2⁺). No derivative datum and no bound off `D` is assumed |
+| `h1Toy_E` | `h1ToyF` meets every hypothesis of `ridge_capHyp_E` with `U = ℝ²`: `D³f[a, b, c] = 2a₁b₁c₁` and `D⁴f = 0`, so `m = 2` and `n = 0`. The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -143,15 +152,16 @@ This packet does not formalize:
 
 - the source data themselves. Since v2.0 every analytic step of L1–L20 that `ridge_capHyp_C4` uses is proved: L1–L13
   and L16–L20, with L7's existence, uniqueness and regularity of `h`. L14 (the critical-point count in `D`) and L15
-  (Morse indices) are not formalized and are not used by the cap theorem. Since v2.1 `ridge_capHyp_D` takes, as
-  hypotheses:
-  - the quantitative bounds on SP's `D` only: the third-derivative block bound `m`, `|f_xxx| ≤ m` on the pin segment,
-    the block bound `n` on the derivative of `f_xxx`, (H1) and (H2);
-  - qualitative data on some collar `[−2r − ε₀, 2r + ε₀] × B̄(0, 2r)`: the derivatives `Df`, `DG`, `H`, `D2f`, the
-    third derivatives and their `x`-derivatives, with some bound `K` on the latter.
+  (Morse indices) are not formalized and are not used by the cap theorem. Since v2.2 `ridge_capHyp_E` takes, as
+  hypotheses, only SP's §2 setting:
+  - `f ∈ C⁴` on an open neighbourhood `U` of `D` (SP: `f ∈ C⁴` near `D`);
+  - the quantitative bounds on SP's `D`: the third-derivative block bound `m`, `|f_xxx| ≤ m` on the pin segment,
+    the two fourth-order blocks `n`, (H1) and (H2);
+  - the critical pins and the gap `r³/6`.
 
-  The continuity step from `D` to the collar is proved (`block_bound_collar`). What stays informal is that SP's
-  `f ∈ C⁴` near `D` supplies these data and some `K`, by compactness of a closed collar;
+  The derivative data, a collar inside `U` and the bound `K` on it are derived (`collar_subset_open`,
+  `block_of_norm`, `block_bound_collar`). That the local field on `G_r` satisfies SP's §2 setting is SP's input and
+  is not formalized;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -190,7 +200,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 121 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 125 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

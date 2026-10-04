@@ -126,6 +126,9 @@
   "CapFirstExit.block_bound_collar",
   "CapFirstExit.ridge_capHyp_C5",
   "CapFirstExit.ridge_capHyp_D",
+  "CapFirstExit.block_of_norm",
+  "CapFirstExit.collar_subset_open",
+  "CapFirstExit.ridge_capHyp_E",
   "CapFirstExit.toyF",
   "CapFirstExit.toyRidge",
   "CapFirstExit.toy_ridge_ge",
@@ -153,7 +156,8 @@
   "CapFirstExit.h1Toy_source",
   "CapFirstExit.h1Toy_C3",
   "CapFirstExit.h1Toy_C4",
-  "CapFirstExit.h1Toy_D"
+  "CapFirstExit.h1Toy_D",
+  "CapFirstExit.h1Toy_E"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -621,6 +625,21 @@
    "Quot.sound",
    "propext"
   ],
+  "CapFirstExit.block_of_norm": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.collar_subset_open": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
   "CapFirstExit.toyF": [
    "Classical.choice",
    "Quot.sound",
@@ -760,6 +779,11 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.h1Toy_E": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -770,18 +794,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 43249,
-   "sha256": "b5c6149055a5065cfd68974eb63e5efe22bc1f8ba245529178097399eedce4a9"
+   "bytes": 46611,
+   "sha256": "31a13063fcbd53d12c4b3487a468de68bdad25fa5b8615697349e505374b104a"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 243630,
-   "sha256": "734fb06e60344306d45bc7a4d58569014f3edd1c12d35e7abb64fb0d9c3dc26f"
+   "bytes": 267172,
+   "sha256": "c30c125004047eeaefc43a5e183319360a0d1a23d27051366ae5619171f1dce5"
   },
   {
    "path": "README.md",
-   "bytes": 23706,
-   "sha256": "c03b290cab94245f1c61aaa057f385eca333934c9b1ef090409d7a7d123860ad"
+   "bytes": 25154,
+   "sha256": "bd5dc3cdd87cd8c96b7aaac4b7a0521d56830dd2b7c7bfafd4b583b44bb9f7f5"
   },
   {
    "path": "gate.py",
@@ -806,7 +830,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6275,
-   "sha256": "f08f5dafe37645d68ea582034b32106c1771c467afb48b9ac355ee1512570daf"
+   "sha256": "cb3b08cc5b99f087b6ca2153fd028b2825a7a69cff5a42b2ac5e8d031d6f4039"
   }
  ]
 }
