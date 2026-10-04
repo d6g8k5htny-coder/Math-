@@ -1,0 +1,62 @@
+{
+  "companion_over_elder_moment_threshold": 13,
+  "constants": {
+    "double_given_extreme_elder": {
+      "lower": "0.034580720107731639",
+      "upper": "0.034580720107731640"
+    },
+    "elder_to_maximum_tail_ratio": {
+      "lower": "0.457796705679599976",
+      "upper": "0.457796705679599977"
+    },
+    "elder_to_point_tail_ratio": {
+      "lower": "0.450662297994548286",
+      "upper": "0.450662297994548287"
+    },
+    "mean_lifetime_fraction": {
+      "lower": "0.815652296148161094",
+      "upper": "0.815652296148161095"
+    },
+    "outer_over_elder_ratio_tail_constant": {
+      "lower": "187.906062596204997257",
+      "upper": "187.906062596204997258"
+    },
+    "second_lifetime_fraction_moment": {
+      "lower": "0.688765879594061834",
+      "upper": "0.688765879594061835"
+    }
+  },
+  "height_density_values": {
+    "1/100": {
+      "lower": "0.000001295538683393",
+      "upper": "0.000001295538683394"
+    },
+    "1/2": {
+      "lower": "0.411333720068101484",
+      "upper": "0.411333720068101485"
+    },
+    "1/4": {
+      "lower": "0.039478044779395017",
+      "upper": "0.039478044779395018"
+    },
+    "3/4": {
+      "lower": "1.649750418945205199",
+      "upper": "1.649750418945205200"
+    },
+    "99/100": {
+      "lower": "4.279300396681162358",
+      "upper": "4.279300396681162359"
+    }
+  },
+  "inverse_lifetime_moment_threshold": 4,
+  "mathematical_acceptance": false,
+  "rational_shape_cases": 893,
+  "scientific_effect": "NONE",
+  "scope": "finite algebra, not validation of Gaussian or elder premises",
+  "selected_shape_moments": {
+    "0": "888807/280",
+    "1": "3524743221/1361360",
+    "2": "190490806059/87127040"
+  },
+  "small_lifetime_cdf_coefficient": "232960/888807"
+}

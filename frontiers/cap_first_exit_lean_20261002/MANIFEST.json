@@ -1,0 +1,404 @@
+{
+ "object": "CAP-FIRST-EXIT-LEAN-20261002-v1",
+ "scientific_effect": "NONE",
+ "mathematical_acceptance": false,
+ "alignment_review": "NOT_CLAIMED",
+ "module": "CapFirstExit",
+ "toolchain": "leanprover/lean4:v4.34.1",
+ "mathlib_rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+ "dependency_revisions": {
+  "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+  "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+  "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+  "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+  "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+  "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+  "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+  "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+ },
+ "pins_on_main": [
+  {
+   "path": "reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md",
+   "git_blob": "a653dbc7bd8bd692433587f050ab8678713c297e"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1"
+  }
+ ],
+ "allowed_axioms": [
+  "Classical.choice",
+  "Quot.sound",
+  "propext"
+ ],
+ "targets": [
+  "CapFirstExit.path_meets_frontier",
+  "CapFirstExit.preconnected_subset_of_frontier_disjoint",
+  "CapFirstExit.CapHyp",
+  "CapFirstExit.CapHyp.s_le_f_M",
+  "CapFirstExit.CapHyp.barrier",
+  "CapFirstExit.connectionLevels",
+  "CapFirstExit.CapHyp.maximin_isGreatest",
+  "CapFirstExit.CapHyp.maximin_eq",
+  "CapFirstExit.CapHyp.component_separated",
+  "CapFirstExit.component_joined",
+  "CapFirstExit.CapHyp.elder_merge_iff_closed",
+  "CapFirstExit.CapHyp.elder_merge_iff_open",
+  "CapFirstExit.CapHyp.joinedLevels",
+  "CapFirstExit.CapHyp.elder_death_level",
+  "CapFirstExit.CapHyp.path_through_saddle",
+  "CapFirstExit.CapHyp.saddle_cut",
+  "CapFirstExit.CapHyp.congr",
+  "CapFirstExit.isClosed_connectedComponentIn",
+  "CapFirstExit.CapHyp.older_peak",
+  "CapFirstExit.CapHyp.elder_alive",
+  "CapFirstExit.CapHyp.olderPeakLevels",
+  "CapFirstExit.CapHyp.elder_death_level_peak",
+  "CapFirstExit.frontier_image_subset",
+  "CapFirstExit.CapHyp.map",
+  "CapFirstExit.CapHyp.map_saddle",
+  "CapFirstExit.frontier_cylinder",
+  "CapFirstExit.isCompact_cylinder",
+  "CapFirstExit.torusCover",
+  "CapFirstExit.torusCover_continuous",
+  "CapFirstExit.torusCover_isOpenMap",
+  "CapFirstExit.CapHyp.toTorus",
+  "CapFirstExit.convex_zeros_between",
+  "CapFirstExit.convex_zeros_right",
+  "CapFirstExit.convex_zeros_left",
+  "CapFirstExit.ridge_profile",
+  "CapFirstExit.ridge_capHyp",
+  "CapFirstExit.ridge_saddle_strict",
+  "CapFirstExit.toyF",
+  "CapFirstExit.toyRidge",
+  "CapFirstExit.toy_ridge_ge",
+  "CapFirstExit.toy_frontier",
+  "CapFirstExit.toy_capHyp",
+  "CapFirstExit.toy_saddle_strict",
+  "CapFirstExit.toy_saddle_cut",
+  "CapFirstExit.toy_death_level",
+  "CapFirstExit.toy_f_M",
+  "CapFirstExit.toy_f_S",
+  "CapFirstExit.toy_needs_C2",
+  "CapFirstExit.toy_needs_C1",
+  "CapFirstExit.toy_needs_C3",
+  "CapFirstExit.ridgeToyF",
+  "CapFirstExit.ridgeToy_capHyp",
+  "CapFirstExit.ridgeToy_saddle_strict"
+ ],
+ "expected_axioms": {
+  "CapFirstExit.path_meets_frontier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.preconnected_subset_of_frontier_disjoint": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.s_le_f_M": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.barrier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.connectionLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.maximin_isGreatest": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.maximin_eq": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.component_separated": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.component_joined": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_merge_iff_closed": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_merge_iff_open": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.joinedLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_death_level": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.path_through_saddle": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.saddle_cut": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.congr": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.isClosed_connectedComponentIn": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.older_peak": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_alive": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.olderPeakLevels": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.elder_death_level_peak": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.frontier_image_subset": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.map": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.map_saddle": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.frontier_cylinder": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.isCompact_cylinder": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torusCover": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torusCover_continuous": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torusCover_isOpenMap": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.CapHyp.toTorus": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_zeros_between": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_zeros_right": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.convex_zeros_left": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_profile": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toyRidge": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_ridge_ge": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_frontier": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_saddle_cut": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_death_level": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_f_M": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_f_S": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C2": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C1": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.toy_needs_C3": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_capHyp": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridgeToy_saddle_strict": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ]
+ },
+ "files": [
+  {
+   "path": ".gitignore",
+   "bytes": 20,
+   "sha256": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374"
+  },
+  {
+   "path": "ALIGNMENT.md",
+   "bytes": 11887,
+   "sha256": "c55a89e0c5134f78d0051bda0f221a0f50f2802a72def8b2d37dc41d362821a8"
+  },
+  {
+   "path": "CapFirstExit.lean",
+   "bytes": 42711,
+   "sha256": "2fe8943b74c6aa66a46b7b1db6fe5332f82dff2ee01ff27731188404ddad4ebd"
+  },
+  {
+   "path": "README.md",
+   "bytes": 9402,
+   "sha256": "5256f80e0e500f61098bac8cdd9e0a349573bf212ca5bcbf41af6566bf10c7f7"
+  },
+  {
+   "path": "gate.py",
+   "bytes": 12390,
+   "sha256": "eaceb18e3ad096a0b1fab332dc095b78221867d79f9ba0e120b2c2e4812c7395"
+  },
+  {
+   "path": "lake-manifest.json",
+   "bytes": 3547,
+   "sha256": "04549ed79e36b417686b94d91994aad4dad7bb78d896bd2e74099ff95265935b"
+  },
+  {
+   "path": "lakefile.toml",
+   "bytes": 252,
+   "sha256": "3fa8afe35db80e433b9ff59fab399df0b44ade73aeda1452b884a24ed1b01a52"
+  },
+  {
+   "path": "lean-toolchain",
+   "bytes": 25,
+   "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  {
+   "path": "test_gate.py",
+   "bytes": 6274,
+   "sha256": "f7df7152065d3fb69aed839138575b0cca3f821d958f5849f617e69e390bc6b3"
+  }
+ ]
+}
