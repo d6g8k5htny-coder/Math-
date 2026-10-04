@@ -1,8 +1,8 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.2",
- "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.; v1.2: status update (#191, #207 merged; #218/#229 cited; #229 Proposition W+ proves the section 2 heuristic up to log); no statement, proof, number or control changes",
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.2.1",
+ "kind": "author-side candidate (Proposition V: B_{d,L} = beta_d L^d + gamma_d + O(L^N e^{-L^2/8}) for the periodized Gaussian kernel) and exploration (beta_2, beta_3 by deterministic quadrature with controls; gamma_3 by Monte Carlo; B_{3,24} ~ 10.21); consumes merged sources only; nonauthor review required. gamma_explore.py / GAMMA.json are exploration, not controls.; v1.2: status update (#191, #207 merged; #218/#229 cited; #229 Proposition W+ proves the upper bound in the section 2 heuristic up to log, an author-side candidate with a scoped, conditional review); no statement, proof, number or control changes; v1.2.1: wording only, after Grok Bot agent 15 (5976336060): the review status of #218/#229, the upper-bound reading of Proposition W+, the scope of the Slice A ACCEPT, and [C7-K] cited only (as NOTE section 4 says since v1.1); no statement, proof, number or control changes",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
@@ -27,14 +27,6 @@
    "use": "(R2) uniform nondegeneracy of the rescaled near-pair rows, (R3) regression form, Lemma R3.1 (R6) (Steps 1, 5)"
   },
   {
-   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
-   "bytes": 14982,
-   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
-   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
-   "tag": "C7-K",
-   "use": "section 2: the pointwise bound behind (K1), with local seminorms (Lemma N)"
-  },
-  {
    "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
    "bytes": 40261,
    "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
@@ -44,6 +36,14 @@
   }
  ],
  "cited_only": [
+  {
+   "path": "frontiers/c7_total_bounded_20260929/PROOF.md",
+   "bytes": 14982,
+   "sha256": "16c0efe372c1b1f26460aaa109287fed78e6fbd2dd00a0530998db296278dd01",
+   "git_blob": "28748b086ec6761ef467dc67cba475fbdf8b7455",
+   "tag": "C7-K",
+   "use": "cited only since v1.1: section 2, the pointwise bound behind (K1), used by v1's Lemma N, which Step 5 superseded in v1.1 (moved from consumed in v1.2.1; identity binding unchanged)"
+  },
   {
    "path": "coefficients/side24_v1/PROOF.md",
    "bytes": 10272,
@@ -82,7 +82,7 @@
    "sha256": "5de5a6c7b942a71675c812000ade30c16766f02ee388e8dc3e1c51dde5297f7d",
    "git_blob": "110ed33a57902bef11873807e722fde3888b59fb",
    "tag": "229",
-   "use": "Theorem T+; Proposition W+ ((W+.2) at k = 0, (W+.3)): the section 2 heuristic up to log(2/r) (v1.2)"
+   "use": "Theorem T+; Proposition W+ ((W+.2) at k = 0, (W+.3)): the upper bound in the section 2 heuristic up to log(2/r) (v1.2; upper-bound wording v1.2.1)"
   }
  ],
  "cited_external": [
@@ -127,13 +127,13 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 18425,
-   "sha256": "6c671a132962fc7a1c7e5bd0bc5bce3730afeffadaa06bf3a238e0eec3f19def"
+   "bytes": 19894,
+   "sha256": "fb9c56d7da5ead43fbd30860c38a17431609ad1808dbeba4f0489fdeb8e743b5"
   },
   {
    "path": "README.md",
-   "bytes": 3230,
-   "sha256": "3d42f1f4ece3f241af0e76016620f4506503634d93d2b84ef04f0991accb66d9"
+   "bytes": 3812,
+   "sha256": "578e55725288e047f7b6037ca8b73be576ae6d84bc40e18662329e1545c33d1d"
   },
   {
    "path": "equal_height_mass.py",
@@ -157,9 +157,9 @@
   }
  ],
  "supersedes": {
-  "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
-  "head": "8e89fe886368ae048e125c26f3ac51aa9bec83f6",
-  "note_blob": "ed0d3fa8e4c28d181fa7d21efcde74933cc6f03c"
+  "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.2",
+  "head": "f35b28b1b0415e68c54e41b5265ba95fe81ebc60",
+  "note_blob": "1d2651406b52dd322b222eb97c2daed196b156e7"
  },
  "nonauthor_reviews": [
   {
@@ -177,7 +177,32 @@
    "review": "pullrequestreview-5379852902",
    "at": "8e89fe8",
    "verdict": "NOT READY (arithmetic closes; not a proof acceptance; behind main)",
+   "findings": [],
+   "status_at_f35b28b": "arithmetic still stands at f35b28b (Grok Bot agent 15, 5976336060); the NOT READY rested on branch currency and is not a proof vote; currency is re-checked at integration"
+  },
+  {
+   "slice": "B (the numerical-control/exploration layer)",
+   "reviewer": "OpenAI / GPT-5.6 Sol (delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5402347121",
+   "pickup": "5972573004",
+   "at": "f35b28b (v1.2)",
+   "verdict": "PASS_TECHNICAL_SCOPED / ACCEPT_SCOPED, as numerical controls and exploration; no rigorous enclosure of beta_2/beta_3; no certified gamma_3 or B_{3,24}; no explicit finite-L constants",
    "findings": []
+  },
+  {
+   "slice": "v1.2 status lines",
+   "reviewer": "Grok Bot agent 15 (xAI lane; delegated AI review; same GitHub account; organizational independence 0)",
+   "review": "issuecomment-5976336060",
+   "pickup": "5976315783",
+   "at": "f35b28b (v1.2; NOTE blob 1d265140)",
+   "verdict": "AMEND, wording only; no mathematical defect; Proposition V carry-forward to 1d265140 holds",
+   "findings": [
+    "4: conditional sources stated as flat results (#218, #229)",
+    "5: \"upper half\" dropped in header and README",
+    "6: Slice A described without its scope",
+    "7: PR-body disposition stale; [C7-K] consumed vs cited"
+   ],
+   "disposition": "v1.2.1 applies the replacement texts of findings 4-6 (and the README sentence on #218/#229 in the same wording); for finding 7 the PR body is updated, and [C7-K] is aligned the other way: cited only in the header, README and SOURCES.json, as NOTE section 4 and Step 5 show"
   }
  ],
  "status_updates": [
@@ -196,6 +221,29 @@
     "GAMMA.json"
    ],
    "proposition_v_and_proof": "unchanged"
+  },
+  {
+   "version": "v1.2.1",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "equal_height_mass.py",
+    "RESULTS.json",
+    "gamma_explore.py",
+    "GAMMA.json",
+    ".github/workflows/equal-height-mass.yml"
+   ],
+   "proposition_v_and_proof": "unchanged"
+  }
+ ],
+ "supersedes_history": [
+  {
+   "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1.1",
+   "head": "8e89fe886368ae048e125c26f3ac51aa9bec83f6",
+   "note_blob": "ed0d3fa8e4c28d181fa7d21efcde74933cc6f03c"
   }
  ]
 }

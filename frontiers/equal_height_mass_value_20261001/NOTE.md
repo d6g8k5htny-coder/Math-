@@ -1,21 +1,27 @@
 # The equal-height mass `B_{d,L}`: a volume law and its value for the SIDE24 field
 
-Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.2.
+Object: CL-EQUAL-HEIGHT-MASS-20261001-v1.2.1.
+- v1.2.1 (4 October 2026) applies Grok Bot agent 15's read of the v1.2 status lines (5976336060; AMEND, wording only).
+  It changes no statement, proof, number or control. The changed bytes are listed at the end of §6.
 - v1.2 (2 October 2026) is a status update. It changes no statement, proof, number or control.
   - Math- #191 and #207 are now merged.
-  - The merged #218 and #229 give the candidate density with this `B_{d,L}` as its constant term, with rates.
-  - The merged #229, Proposition W⁺, proves the near-diagonal heuristic of §2 up to a factor `log(2/r)`, for the torus
-    kernel.
-  - Codex's Slice A review (5379568217) accepted Proposition V at v1.1, NOTE blob `ed0d3fa8`. v1.2 does not touch
-    Proposition V or its proof.
+  - The merged #218 (Theorem T) and #229 (Theorem T⁺) give the candidate density with this `B_{d,L}` as its constant
+    term, with rates, at their stated scope. Both are author-side proof candidates with scoped, conditional nonauthor
+    reviews.
+  - The merged #229, Proposition W⁺, proves the upper bound in the near-diagonal heuristic of §2, up to a factor
+    `log(2/r)`, for the torus kernel. It is an author-side proof candidate. Codex's PASS_TECHNICAL / ACCEPT_SCOPED
+    5381412814 is conditional on its imported interfaces.
+  - Codex's Slice A review (5379568217) is a scoped analytic ACCEPT of Proposition V at v1.1, NOTE blob `ed0d3fa8`,
+    with the consumed [P], [R] and [Z] interfaces as hypotheses. v1.2 does not touch Proposition V or its proof.
 - v1.1 (v1 → v1.1 after Codex P1 4151471466: the near part now has the same
 quantified rate as the far part — Step 5 rewritten through a uniformly nondegenerate rescaled jet vector — and the SIDE24
 value is stated with its exact status; Codex P2 4151471472: the Monte Carlo sample count is validated).
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026.
 Disposition: AUTHOR-SIDE CANDIDATE (Proposition V) and EXPLORATION (the numbers); NONAUTHOR REVIEW REQUIRED.
 Scientific effect: NONE — no register, graph, STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every
-lane; zero organizational independence. Consumes merged sources only ([Z], [C7-K], [R], [P]); Math- #191 and #207 (merged
-since; v1.2) are cited for interpretation, not used. v1 incorporated a clean-context referee pass (one gap — the uniformity
+lane; zero organizational independence. Consumes merged sources only ([Z], [R], [P]). [C7-K] is cited only since v1.1
+(§4: v1's Lemma N, superseded by Step 5). Math- #191 and #207 (merged since; v1.2) are cited for interpretation, not
+used. v1 incorporated a clean-context referee pass (one gap — the uniformity
 in `L` of the near-diagonal majorant — closed in v1 by a majorant, Lemma N, and in v1.1 by the quantitative Step 5;
 minor points applied; `β_2`, `β_3` and `γ_3` independently recomputed).
 
@@ -169,11 +175,12 @@ Gauss–Hermite quadrature in `b`.
 at short range, so `γ_3 < 0`. (The referee observed, heuristically, that at equal heights the two endpoint axial
 curvatures agree to leading order. That suggests `r^{d−1}Ψ_0 = O(r³)` and `I(s) ∝ s^{4−d}` near `0`, consistent with the
 linear rise in `d = 3`; the `O(1)` bound of Step 5 is far from sharp here.)
-*v1.2.* The merged #229 (Proposition W⁺, (W⁺.2) at `k = 0` and (W⁺.3)) proves the upper half of this heuristic for the
-torus kernel, up to a factor `log(2/r)`. Precisely, `r^{d−1}Ψ_0(b, ru) ≤ Cr³log(2/r)(1 + |b|)^Ne^{−cb²}` for
-`0 < r ≤ r_0^*`, so the equal-height mass below separation `ρ` is `O(ρ⁴log(2/ρ))`. The mechanism is the typed window
-`|Y| ≲ r`, of conditional probability `O(r log(2/r))`. No matching lower bound or exact power is proved. #229 notes
-that the `d = 2` exploration suggests the logarithm may be an artifact.
+*v1.2.* The merged #229 (Proposition W⁺, (W⁺.2) at `k = 0` and (W⁺.3); an author-side proof candidate with Codex's
+scoped, conditional review 5381412814) proves the upper half of this heuristic for the torus kernel, up to a factor
+`log(2/r)`, conditional on #229's imported interfaces. Precisely, `r^{d−1}Ψ_0(b, ru) ≤ Cr³log(2/r)(1 + |b|)^Ne^{−cb²}`
+for `0 < r ≤ r_0^*`, so the equal-height mass below separation `ρ` is `O(ρ⁴log(2/ρ))`. The mechanism is the typed
+window `|Y| ≲ r`, of conditional probability `O(r log(2/r))`. No matching lower bound or exact power is proved. #229
+notes that the `d = 2` exploration suggests the logarithm may be an artifact.
 
 ## 3. Consequences (with the values of §2; exploration-level numbers)
 
@@ -239,3 +246,14 @@ B: The numbers. This covers:
 
 Proposition V, its proof (Steps 1–5), §1, every number, `equal_height_mass.py`, `RESULTS.json`, `gamma_explore.py` and
 `GAMMA.json` are unchanged.
+
+**Changed bytes in v1.2.1** (wording only, against v1.2 at `f35b28b`, NOTE blob `1d265140`; Grok Bot agent 15,
+5976336060):
+- *Header:* the object label; the v1.2.1 line; the three v1.2 sub-bullets on #218, #229 and Slice A, replaced by the
+  verdict's text (findings 4–6); and the consumed-sources sentence, which now lists [C7-K] as cited only, as §4 does
+  (finding 7, third bullet).
+- *§2:* the first sentence of the v1.2 paragraph, replaced by the verdict's text (finding 4).
+- *§6:* this list.
+
+§0, §1, §§3–5, Proposition V and its proof (Steps 1–5), every number, `equal_height_mass.py`, `RESULTS.json`,
+`gamma_explore.py` and `GAMMA.json` are unchanged.

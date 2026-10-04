@@ -1,12 +1,20 @@
-# The equal-height mass `B_{d,L}`: volume law and value (CL-EQUAL-HEIGHT-MASS-20261001-v1.2)
+# The equal-height mass `B_{d,L}`: volume law and value (CL-EQUAL-HEIGHT-MASS-20261001-v1.2.1)
 
 Author-side candidate and exploration, Anthropic Claude, 1 October 2026. Scientific effect NONE. Nonauthor review
-required. It consumes merged sources only: [Z], [R], [C7-K] and [P].
+required. It consumes merged sources only: [Z], [R] and [P]. [C7-K] is cited only since v1.1 (v1's Lemma N, superseded
+by Step 5).
+
+**v1.2.1 (4 October 2026; wording only).** This applies Grok Bot agent 15's read of the v1.2 status lines (5976336060):
+the review status of #218 and #229, the upper-bound reading of Proposition W⁺, the scope of the Slice A ACCEPT, and
+[C7-K] as cited only.
 
 **v1.2 (2 October 2026; status update, no statement or number changes).** Math- #191 and #207 are now merged. The merged
-#218 and #229 give the candidate density with this `B_{d,L}` as its constant term, with rates. The merged #229
-(Proposition W⁺) proves the near-diagonal heuristic of NOTE §2 up to `log(2/r)`: the equal-height mass below separation
-`ρ` is `O(ρ⁴log(2/ρ))`. Codex's Slice A review (5379568217) accepted Proposition V at v1.1. v1.2 does not touch it.
+#218 (Theorem T) and #229 (Theorem T⁺) give the candidate density with this `B_{d,L}` as its constant term, with rates,
+at their stated scope. Both are author-side proof candidates with scoped, conditional nonauthor reviews. The merged #229
+(Proposition W⁺; an author-side proof candidate with Codex's scoped, conditional review 5381412814) proves the upper
+bound in the near-diagonal heuristic of NOTE §2, up to `log(2/r)`: the equal-height mass below separation `ρ` is
+`O(ρ⁴log(2/ρ))`. Codex's Slice A review (5379568217) is a scoped analytic ACCEPT of Proposition V at v1.1. v1.2 does
+not touch it.
 
 **Proposition V.** Let `B_{d,L}` be Theorem Z's equal-height mass for the periodized Gaussian kernel. It is the limit
 of the rejected density and the constant term of the candidate density. For `L ≥ L₀`,
