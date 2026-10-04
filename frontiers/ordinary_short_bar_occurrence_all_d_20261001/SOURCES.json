@@ -1,0 +1,102 @@
+{
+ "version": 1,
+ "object": "C52-ALL-D-ORDINARY-SHORT-BAR-OCCURRENCE-20261001-v1",
+ "scientific_effect": "NONE",
+ "status": "additive conditional consumer; mandatory P/CAP/E1/E2/REC reading rule retained; no source reacceptance",
+ "current_required": [
+  {
+   "key": "P",
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "local_path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "role": "lifetime parent: Sections 2-5, 8, 10, 13-15 in every d>=2"
+  },
+  {
+   "key": "CAP",
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "local_path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "role": "deterministic cap predecessor (d>=2)"
+  },
+  {
+   "key": "E1",
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "local_path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "role": "corrected endpoint congruence"
+  },
+  {
+   "key": "E2",
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "local_path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "role": "replacement Section 9: Borel elder mark in weighted pair Kac-Rice"
+  },
+  {
+   "key": "REC",
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "local_path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "role": "mandatory reading rule, W1, embedding radius; fixed d>=2"
+  },
+  {
+   "key": "R",
+   "path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "local_path": "frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "bytes": 17734,
+   "sha256": "380b7d0abdb0fe2de5a6564565af9560d3f1b1ce22fd5538927db0c52f4f3a4a",
+   "blob": "247b3ecf80bfbe896948d5d489b2d5842a81c481",
+   "role": "Section 2 whole-field regression coupling formula"
+  },
+  {
+   "key": "T",
+   "path": "frontiers/short_bar_endpoint_law_20261001/PROOF.md",
+   "local_path": "frontiers/short_bar_endpoint_law_20261001/PROOF.md",
+   "commit": "7fe06b01489af8181e53f26d520810829f146094",
+   "bytes": 13815,
+   "sha256": "4fc567b5bed7967bba7b7fc609da8219b6cd2c605e9291b7b82c8a538ced1a29",
+   "blob": "0d47dbc1d92863d8c51b918aa47d1fa8b605cfdc",
+   "role": "Proposition 3 / (T4): ordinary-bar marked intensity law in every d>=2"
+  }
+ ],
+ "cited": [
+  {
+   "key": "C52-FOLD",
+   "path": "frontiers/ordinary_short_bar_occurrence_20261001/FOLD_ISOLATION.md",
+   "pr": "Math-#235",
+   "commit": "7e2344166e989ae94e5732e445f445598fc75c4c",
+   "blob": "a3d4e7c4c4c23d22af9d259db74afc9ba6fdac1e",
+   "bytes": 20771,
+   "sha256": "3889a0898901d03716d277e3afc2964bdbc7566d3a85803c4ad73673bdff1b52",
+   "role": "source of the planar argument generalized here; cited, not consumed as a premise; merged to main at 7e23441; d=2 case",
+   "local_path": "frontiers/ordinary_short_bar_occurrence_20261001/FOLD_ISOLATION.md"
+  },
+  {
+   "key": "C52-PROOF",
+   "path": "frontiers/ordinary_short_bar_occurrence_20261001/PROOF.md",
+   "pr": "Math-#235",
+   "commit": "7e2344166e989ae94e5732e445f445598fc75c4c",
+   "blob": "69ff20a6c514629373f3ad12eb2db2a2596777d6",
+   "bytes": 14146,
+   "sha256": "16d2c5f6c1fe45dd6ce8f6b69455db4908b8e6319e57d58c4ad7c9d1881bdd4d",
+   "role": "source of the planar consumer (Sections 3-6) generalized here; cited, not consumed as a premise; merged to main at 7e23441",
+   "local_path": "frontiers/ordinary_short_bar_occurrence_20261001/PROOF.md"
+  }
+ ]
+}
