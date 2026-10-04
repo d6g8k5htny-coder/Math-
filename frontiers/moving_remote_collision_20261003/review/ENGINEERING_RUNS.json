@@ -1,0 +1,124 @@
+{
+  "recorded_at_utc": "2026-10-03T12:02:24.691513+00:00",
+  "python": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+  "scope": "publication engineering only; no analytic rerun",
+  "candidate_hashes": {
+    "verify_sources.py": "8120c84af4f7341077423ae86ed77252fdfcee310a3ab6a06de6bce2712bfbe1",
+    "test_verify_sources.py": "8bf806c74861a0ea2ccaa4295d0b3d95c2799453d9723da4a0332d5bc090a5fa",
+    "README.md": "8252a44ad04478f9086f406bcaf19b23b6cc1d26cfa0e92e714f178b3ad8c324"
+  },
+  "workflow_sha256": "73f6f6daa08f3695c8ec247c99f6822a5dc0fc6734bf4978662516dc76c71171",
+  "runs": [
+    {
+      "command": [
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/venv/bin/python3.11",
+        "-B",
+        "-S",
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation107/checkout/frontiers/moving_remote_collision_20261003/verify_sources.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"current_sources_checked\": true, \"frozen_files\": 11, \"historical_pins_checked\": true, \"mathematical_acceptance\": false, \"remote_review_authenticity_checked\": false, \"scientific_effect\": \"NONE\", \"verified_sources\": 6}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/venv/bin/python3.11",
+        "-B",
+        "-S",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation107/checkout/frontiers/moving_remote_collision_20261003",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_current_source_drift_rejected (test_verify_sources.HistoricalTests.test_current_source_drift_rejected) ... ok\ntest_real_historical_binding_and_wrong_commit (test_verify_sources.HistoricalTests.test_real_historical_binding_and_wrong_commit) ... ok\ntest_replacement_objects_cannot_redirect_pins (test_verify_sources.HistoricalTests.test_replacement_objects_cannot_redirect_pins) ... ok\ntest_symlink_git_mode_rejected (test_verify_sources.HistoricalTests.test_symlink_git_mode_rejected) ... ok\ntest_wrong_path_and_noncommit_rejected (test_verify_sources.HistoricalTests.test_wrong_path_and_noncommit_rejected) ... ok\ntest_actual_packet_and_historical_sources (test_verify_sources.PacketTests.test_actual_packet_and_historical_sources) ... ok\ntest_control_mutation_rejected (test_verify_sources.PacketTests.test_control_mutation_rejected) ... ok\ntest_independent_control_substitution_rejected (test_verify_sources.PacketTests.test_independent_control_substitution_rejected) ... ok\ntest_missing_source_rejected (test_verify_sources.PacketTests.test_missing_source_rejected) ... ok\ntest_proof_mutation_rejected (test_verify_sources.PacketTests.test_proof_mutation_rejected) ... ok\ntest_resigned_manifest_rejected (test_verify_sources.PacketTests.test_resigned_manifest_rejected) ... ok\ntest_review_prose_drift_rejected (test_verify_sources.PacketTests.test_review_prose_drift_rejected) ... ok\ntest_review_receipt_drift_rejected (test_verify_sources.PacketTests.test_review_receipt_drift_rejected) ... ok\ntest_snapshot_mutation_rejected (test_verify_sources.PacketTests.test_snapshot_mutation_rejected) ... ok\ntest_symlink_ancestor_rejected (test_verify_sources.PacketTests.test_symlink_ancestor_rejected) ... ok\ntest_symlink_leaf_rejected_even_when_bytes_match (test_verify_sources.PacketTests.test_symlink_leaf_rejected_even_when_bytes_match) ... ok\ntest_unsafe_paths_and_duplicate_keys_rejected (test_verify_sources.PacketTests.test_unsafe_paths_and_duplicate_keys_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 1.120s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/venv/bin/python3.11",
+        "-B",
+        "-S",
+        "-O",
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation107/checkout/frontiers/moving_remote_collision_20261003/verify_sources.py"
+      ],
+      "returncode": 0,
+      "stdout": "{\"current_sources_checked\": true, \"frozen_files\": 11, \"historical_pins_checked\": true, \"mathematical_acceptance\": false, \"remote_review_authenticity_checked\": false, \"scientific_effect\": \"NONE\", \"verified_sources\": 6}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/venv/bin/python3.11",
+        "-B",
+        "-S",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation107/checkout/frontiers/moving_remote_collision_20261003",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_current_source_drift_rejected (test_verify_sources.HistoricalTests.test_current_source_drift_rejected) ... ok\ntest_real_historical_binding_and_wrong_commit (test_verify_sources.HistoricalTests.test_real_historical_binding_and_wrong_commit) ... ok\ntest_replacement_objects_cannot_redirect_pins (test_verify_sources.HistoricalTests.test_replacement_objects_cannot_redirect_pins) ... ok\ntest_symlink_git_mode_rejected (test_verify_sources.HistoricalTests.test_symlink_git_mode_rejected) ... ok\ntest_wrong_path_and_noncommit_rejected (test_verify_sources.HistoricalTests.test_wrong_path_and_noncommit_rejected) ... ok\ntest_actual_packet_and_historical_sources (test_verify_sources.PacketTests.test_actual_packet_and_historical_sources) ... ok\ntest_control_mutation_rejected (test_verify_sources.PacketTests.test_control_mutation_rejected) ... ok\ntest_independent_control_substitution_rejected (test_verify_sources.PacketTests.test_independent_control_substitution_rejected) ... ok\ntest_missing_source_rejected (test_verify_sources.PacketTests.test_missing_source_rejected) ... ok\ntest_proof_mutation_rejected (test_verify_sources.PacketTests.test_proof_mutation_rejected) ... ok\ntest_resigned_manifest_rejected (test_verify_sources.PacketTests.test_resigned_manifest_rejected) ... ok\ntest_review_prose_drift_rejected (test_verify_sources.PacketTests.test_review_prose_drift_rejected) ... ok\ntest_review_receipt_drift_rejected (test_verify_sources.PacketTests.test_review_receipt_drift_rejected) ... ok\ntest_snapshot_mutation_rejected (test_verify_sources.PacketTests.test_snapshot_mutation_rejected) ... ok\ntest_symlink_ancestor_rejected (test_verify_sources.PacketTests.test_symlink_ancestor_rejected) ... ok\ntest_symlink_leaf_rejected_even_when_bytes_match (test_verify_sources.PacketTests.test_symlink_leaf_rejected_even_when_bytes_match) ... ok\ntest_unsafe_paths_and_duplicate_keys_rejected (test_verify_sources.PacketTests.test_unsafe_paths_and_duplicate_keys_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 1.433s\n\nOK\n"
+    }
+  ],
+  "independent_additional_negatives": [
+    {
+      "case": "mutated PROOF.md",
+      "rejection": "frozen anchor mismatch: PROOF.md"
+    },
+    {
+      "case": "mutated SOURCE_IDENTITIES.json",
+      "rejection": "frozen anchor mismatch: SOURCE_IDENTITIES.json"
+    },
+    {
+      "case": "mutated CONTROLS_DESIGN.md",
+      "rejection": "frozen anchor mismatch: CONTROLS_DESIGN.md"
+    },
+    {
+      "case": "mutated author_controls.py",
+      "rejection": "frozen anchor mismatch: author_controls.py"
+    },
+    {
+      "case": "mutated author_controls.normal.stdout",
+      "rejection": "frozen anchor mismatch: author_controls.normal.stdout"
+    },
+    {
+      "case": "mutated review/AUTHOR_CHECKER_REPLAY.json",
+      "rejection": "frozen anchor mismatch: review/AUTHOR_CHECKER_REPLAY.json"
+    },
+    {
+      "case": "mutated review/CONTROL_DESIGN.md",
+      "rejection": "frozen anchor mismatch: review/CONTROL_DESIGN.md"
+    },
+    {
+      "case": "mutated review/INDEPENDENT_RUNS.json",
+      "rejection": "frozen anchor mismatch: review/INDEPENDENT_RUNS.json"
+    },
+    {
+      "case": "mutated review/REVIEW.md",
+      "rejection": "frozen anchor mismatch: review/REVIEW.md"
+    },
+    {
+      "case": "mutated review/REVIEW_RECEIPT.json",
+      "rejection": "frozen anchor mismatch: review/REVIEW_RECEIPT.json"
+    },
+    {
+      "case": "mutated review/independent_controls.py",
+      "rejection": "frozen anchor mismatch: review/independent_controls.py"
+    },
+    {
+      "case": "byte-matching review directory symlink",
+      "rejection": "symlink path: review/AUTHOR_CHECKER_REPLAY.json"
+    }
+  ],
+  "analytic_controls_rerun": false
+}
