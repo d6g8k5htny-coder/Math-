@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "object": "OA-C127-MIXED-INNER-REMOTE-20261004-v1",
+  "repository": "d6g8k5htny-coder/Math-",
+  "commit": "bbe85e270f2c8b747f2d5d9477c86e86e323fe15",
+  "tree": "4087029fb662c31c7239d6114b290a19fcffced5",
+  "sources": [
+    {
+      "id": "SC",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "consumed_interface": "Section3 deterministic exclusion, reproved in planar form; Section7 fixed-cutoff context only."
+    },
+    {
+      "id": "C107",
+      "path": "frontiers/moving_remote_collision_20261003/PROOF.md",
+      "bytes": 29606,
+      "sha256": "d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df",
+      "git_blob": "596782786a200412a58169440b45d4f5bb36aadf",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/moving_remote_collision_20261003/PROOF.md",
+      "consumed_interface": "Actual finite-r pin frame and periodic interpolation/covariance-duality method, reproduced in appendix; no outer-pair theorem imported."
+    },
+    {
+      "id": "C6",
+      "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/c6_palm_route_20260929/PROOF.md",
+      "consumed_interface": "Theorem Q at d2, all fixed factorial moments; Lemma5.1 canonical Borel marked one-point Kac\u2013Rice with E2."
+    },
+    {
+      "id": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "consumed_interface": "Sections2\u20135, actual Gaussian pins, Fourier spectrum, uniform norm moments, full Z_r floor/ceiling; read with E1/E2/REC/CAP."
+    },
+    {
+      "id": "E1",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "consumed_interface": "Corrected congruence and endpoint weight scope from the retained parent."
+    },
+    {
+      "id": "E2",
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "consumed_interface": "C4 whole-field Borel marked Kac\u2013Rice and canonical Gaussian kernel repair."
+    },
+    {
+      "id": "REC",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "consumed_interface": "Reconciled P+CAP+E1+E2+REC source set, W1 wording and embedding restrictions."
+    },
+    {
+      "id": "DL",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "consumed_interface": "Theorem G_d (1.7), planar ordinary first moment only, with its retained regional hypotheses."
+    },
+    {
+      "id": "CAP",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "bytes": 15160,
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "consumed_interface": "Retained reconciliation dependency context; no new elder/persistence implication imported."
+    }
+  ],
+  "note": "Exact retained source interfaces, not a promotion of all source conclusions. Cache equality was rechecked; scope is defined in PROOF.md."
+}

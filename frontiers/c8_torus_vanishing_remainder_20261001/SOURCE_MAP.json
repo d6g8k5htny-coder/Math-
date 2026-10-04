@@ -1,0 +1,131 @@
+{
+ "schema": 1,
+ "object": "CL-C8-TORUS-VANISHING-REMAINDER-20261001-v1",
+ "scientific_effect": "NONE",
+ "certified": true,
+ "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
+ "source_repository": "d6g8k5htny-coder/Math-",
+ "main_at_creation": "c2f1270d28192b3c06dd31f728ebf04d03d4246e",
+ "delivered_under": "explicit owner instructions of Dylan Roy in Claude Code session session_015wNj8LPTKXsaT68G3DgPPh, given after OWNER_STOP (2026-09-27): 2026-09-28 \"you have my full permisions and approval to make the proper changes and uploads\"; 2026-09-30 \"Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub. Also advance the mathematics in every place that's justified based on what we currently know. Ultra tokens, ultra depth @GitHub @Superpowers\" (repeated 2026-09-30 as \"Continue to Work on closing ...\"). Pull requests only, never merged by their author; no register, GRAPH, STATUS, lemma_closed, prize or premise edits. OWNER_STOP.md addresses Cursor agents and automations and is untouched.",
+ "note": "current_required sources ([LP], [CAP] and the mandatory parent amendments [E1], [E2], [REC]) are verified on the tree by the workflow; packet_copy sources ([B], [E], [E3]) are verified against the packet copies byte for byte; [B-NOTE] and [B-RESULTS] are read-only provenance pinned by identity",
+ "sources": [
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "bytes": 40261,
+   "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "id": "LP",
+   "commit": "c2f1270d28192b3c06dd31f728ebf04d03d4246e",
+   "current_required": true,
+   "on_main": true,
+   "role": "sections 1, 3, 8-12: the model, the preconditioned pins, the radial ledger A_r = 12 pi_r Z_r / r^2 (10.2) and its limit A_0 (10.3), the lifetime pushforward (11.1)-(11.3); section 11 records that A_r -> A_0 was not assigned a numerical rate. Consumed as statements, as in Math-#215"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+   "bytes": 15160,
+   "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+   "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+   "id": "CAP",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "section 1: the marked-cylinder good event G_r and the cap criterion; part of the corrected parent P + CAP + E1 + E2 + REC that every scope of Corollary L'1 retains (review C63), and through [B] and [E], [E3] the cap route behind the elder line's C_{B,K}"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+   "bytes": 1782,
+   "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+   "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+   "id": "E1",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "mandatory erratum to [LP]: the preconditioning congruence is diag(r^(-1/2), I) (corrected parent P + CAP + E1 + E2 + REC; review C61)"
+  },
+  {
+   "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+   "bytes": 9062,
+   "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+   "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+   "id": "E2",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "mandatory repair of [LP] section 9: the marked Kac-Rice identity for the Borel elder indicator (replaces LP section 9 wherever sections 9-11 are consumed)"
+  },
+  {
+   "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+   "bytes": 23312,
+   "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+   "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+   "id": "REC",
+   "commit": "6f74f7a77bae15d6aa07506bab38977e34dcc449",
+   "current_required": true,
+   "on_main": true,
+   "role": "chain reconciliation and reading rule for the parent: consumers cite P + CAP + E1 + E2 + REC; embedding condition r < L/(4 sqrt 2), met by r <= 1/64, L >= 10"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/theorem_b.py",
+   "bytes": 53141,
+   "sha256": "1e510cc385b2ed6502e2864cfdbd60514d92ed4217b035083dbf822d6e1543a1",
+   "git_blob": "36b39dbd33ef2e6d277ce1c3820b3f0d6659d779",
+   "id": "B",
+   "commit": "1aa250df3020dd71db8b091d1d4516bc5054e2b8",
+   "pull_request": 215,
+   "packet_copy": "theorem_b.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "Math-#215 Theorem L certificate: the Taylor-model law (tm_law), the second-order term bounds of bounds_d2/bounds_d3 (reproduced in theorem_v.py with the new increments), the reference integrals (reference, b_cells, k_integral, K_const) and eps_0; carried byte for byte and used as a library"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/NOTE.md",
+   "bytes": 31488,
+   "sha256": "dfb4f7053354a9616239c833c6e7d05799a2e391c42e0ea6e90dde691a4db830",
+   "git_blob": "2e6a364297e19a6d3224dc78a225d75e58828452",
+   "id": "B-NOTE",
+   "commit": "d77cabf4fee5d36de2a85a810359c1c8812fc28c",
+   "pull_request": 215,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only provenance: Theorem L and Corollary L1 with the r-independent eps_d, sections 2-5 (exact expansions, first-order cancellations, Hoelder bounds, Loewner coupling), whose algebra theorem_v.py reuses"
+  },
+  {
+   "path": "frontiers/c8_lifetime_difference_constant_20261001/RESULTS.json",
+   "bytes": 463344,
+   "sha256": "77703dbdd7969ab62c179aa49391c6cddb545d37e0d59654476a09166a0b938f",
+   "git_blob": "894fae2e48e67dd1f21ab2ffffaf7050260cfbc1",
+   "id": "B-RESULTS",
+   "commit": "d77cabf4fee5d36de2a85a810359c1c8812fc28c",
+   "pull_request": 215,
+   "current_required": false,
+   "on_main": false,
+   "role": "read-only comparison: Theorem L a(R) and eps_d, Corollary L1 ratios, which theorem_v.py reproduces (a) and removes (eps)"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_planar_20260930/theorem_a.py",
+   "bytes": 52864,
+   "sha256": "c5ea8bf87c54761866315f28f6c93c6ce5c1e0f99d47c5a03f14d095d06871cc",
+   "git_blob": "ae279e9015483a666ece8deb2544cbc458a5e270",
+   "id": "E",
+   "commit": "13f932c2f6ec07d8c4c9996bd030ab22eaa32108",
+   "pull_request": 206,
+   "packet_copy": "engine_e2.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the planar engine of Math-#206 (as carried by Math-#215): exact covariance series pair_series, the truncation tail (NOTE 2(b)) and the torus remainder M_1 with its coefficient majorant (NOTE 2(c)), interval band laws, transcendentals"
+  },
+  {
+   "path": "frontiers/c8_theorem_a_constants_d3_20261001/theorem_a3.py",
+   "bytes": 76209,
+   "sha256": "310d4ab3d3a38a377d753753f3b814591a9090a947f87d6843ab7389389572d3",
+   "git_blob": "267890232119b35206be7a8cc74d730de9a68644",
+   "id": "E3",
+   "commit": "250b90722e8c47adf8f7e7c41a61e8a8085d9741",
+   "pull_request": 212,
+   "packet_copy": "engine_e3.py",
+   "current_required": false,
+   "on_main": false,
+   "role": "the d = 3 engine of Math-#212 (as carried by Math-#215): exact 3D covariance series, band laws, contact moments E[det^a tr^c 1{B > 0}], Frobenius moment bounds"
+  }
+ ]
+}
