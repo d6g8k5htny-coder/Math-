@@ -5,7 +5,7 @@ name: Third-order coefficient controls
     paths:
       - 'frontiers/third_order_coefficient_20261001/**'
       - '.github/workflows/third-order-coefficient.yml'
-      # merged sources cited in SOURCES.json (cited_only, v1.4): a change to any of them re-runs the identity check
+      # merged sources cited in SOURCES.json (cited_only, v1.4.1): a change to any of them re-runs the identity check
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'reviews/side24_v1_coefficient_claude_20260929/RESULTS.json'
       - 'coefficients/side24_v1/ENCLOSURE.json'
@@ -19,6 +19,8 @@ name: Third-order coefficient controls
       - 'frontiers/cusp_coefficient_certified_20261001/NOTE.md'
       - 'frontiers/far_elder_rate_20260930/PROOF.md'
       - 'frontiers/elder_cusp_parity_20261002/PROOF.md'
+      - 'frontiers/d1_third_order_law_20261001/PROOF.md'
+      - 'frontiers/candidate_parity_rate_20261001/PROOF.md'
   workflow_dispatch:
 
 permissions:

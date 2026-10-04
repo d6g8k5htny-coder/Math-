@@ -1,14 +1,15 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4",
- "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (Theorem 1D of the open #214); values for d = 2, 3; full-field Monte Carlo with a direct test of the elder window (exploration outside the repository). Not a proof for the elder density in d >= 2; the candidate-density expansion with this c2 is Theorem T of Math- #218 (candidate); v1.3 (status update, no number changes): the expansion is proved at candidate status with remainder O(l^(3/7)) by the merged #218/#220/#229, c2 is certified by the merged #223 and transferred to the torus by #232, c1 by #219; xAI P2/P3 (5378684363) answered; #214 relabelled Theorem 1D and rebound to v1.3; v1.4 (answers the four nonauthor reviews at 7e97018; no coefficient, control-value or Monte Carlo ratio changes): status wording follows each packet's own status (S1-S5: #218/#220/#229/#232/#187 are author-side proof candidates, #223/#219 certify enclosures; the candidate law is (T+.1); d = 1 rests on the open #214); controls T1/T3/T4 compare c2 with the closed forms of #223 and the mutants fail on computed checks only (C1, C2); the l^(1/2) reading of the Monte Carlo residual is withdrawn and the adjacent-pair comparison is labelled formal (D-1, D-2); Kac-Rice references and error bars, completeness power and window counts (D-3 to D-5); sections 0-2 domain, sources and scope (A1-A3, XA-216-B-01 to B-06)",
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4.1",
+ "kind": "formal coefficient with numerical evidence: the ell^(1/3) coefficient c2 of the short-lifetime law as the fold-scale Hadamard finite part of the r^2 coefficient of [R]'s two-point kernel; equals 2 B2 of Math- #214 in d = 1 (Theorem 1D of the open #214); values for d = 2, 3; full-field Monte Carlo with a direct test of the elder window (exploration outside the repository). Not a proof for the elder density in d >= 2; the candidate-density expansion with this c2 is Theorem T of Math- #218 (candidate); v1.3 (status update, no number changes): the expansion is proved at candidate status with remainder O(l^(3/7)) by the merged #218/#220/#229, c2 is certified by the merged #223 and transferred to the torus by #232, c1 by #219; xAI P2/P3 (5378684363) answered; #214 relabelled Theorem 1D and rebound to v1.3; v1.4 (answers the four nonauthor reviews at 7e97018; no coefficient, control-value or Monte Carlo ratio changes): status wording follows each packet's own status (S1-S5: #218/#220/#229/#232/#187 are author-side proof candidates, #223/#219 certify enclosures; the candidate law is (T+.1); d = 1 rests on the open #214); controls T1/T3/T4 compare c2 with the closed forms of #223 and the mutants fail on computed checks only (C1, C2); the l^(1/2) reading of the Monte Carlo residual is withdrawn and the adjacent-pair comparison is labelled formal (D-1, D-2); Kac-Rice references and error bars, completeness power and window counts (D-3 to D-5); sections 0-2 domain, sources and scope (A1-A3, XA-216-B-01 to B-06); v1.4.1 (answers the readbacks C129 5404127976 and 5976332101, no number changes): the finite-r transverse covariance with its contact limit 2/0/1 (C129-A1); numerical inputs separated from the analytic identifications (C129-A2); nominal binomial window intervals (C129-R1); #214 and #237 merged and bound from the tree",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "read_at": {
   "branch_base": "3e0a91b69892b9717564c592e7a966492a81566a",
   "main_merged_in_v1_3": "2d8616ef1b45c4d5bb0970dcc20453bb4126114d",
-  "main_read_v1_4": "42f19d7dc4109c2359520b7cbde24b6bb1fca110"
+  "main_read_v1_4": "42f19d7dc4109c2359520b7cbde24b6bb1fca110",
+  "main_merged_in_v1_4_1": "cb73b11717d9389055b91e564bec7dcf71e58688"
  },
  "consumed": [],
  "consumed_unmerged": [],
@@ -116,18 +117,16 @@
    "git_blob": "16a1db0658918057ff741df888c13702763d9919",
    "tag": "240",
    "use": "Monte Carlo interpretation (v1.4, D-1): section 7 item 4, the residual fits l^(1/2) + l^(3/4) and l^(2/3) + l^(3/4) are comparable (|delta chi2| <= 2.6), so the data do not single out l^(1/2)"
-  }
- ],
- "cited_unmerged": [
+  },
   {
    "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
    "bytes": 46313,
    "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
    "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
    "tag": "214",
-   "use": "comparison: B2 (closed form (1D.2), proof in d = 1, Theorem 1D; v1.3 of #214, rebound from f4a58df / 873532b9, whose B2 is unchanged); controls T1, T2 compare c2 with 2 B2; v1.4 (S5, XA-216-B-05/06): the d = 1 law is #214 Theorem 1D, an open PR; NOTE section 2.3 cites section 2(c) (fold part), 2(d) (definition of B2^(2)) and Lemma 1.3 (consumed by the fold identification)",
-   "head": "54666d26e11a576ae3138b54a42268152eff6ca5",
-   "pr": "Math- #214"
+   "use": "comparison: B2 (closed form (1D.2), proof in d = 1, Theorem 1D; v1.3 of #214, rebound from f4a58df / 873532b9, whose B2 is unchanged); controls T1, T2 compare c2 with 2 B2; v1.4 (S5, XA-216-B-05/06): the d = 1 law is #214 Theorem 1D, an open PR; NOTE section 2.3 cites section 2(c) (fold part), 2(d) (definition of B2^(2)) and Lemma 1.3 (consumed by the fold identification); merged as e4ca2b3 with this blob, bound from the tree since v1.4.1 (previously cited_unmerged at head 54666d2)",
+   "pr": "Math- #214",
+   "merge_commit": "e4ca2b3f8e0b76e000d5a85fe09b8ddd52328191"
   },
   {
    "path": "frontiers/candidate_parity_rate_20261001/PROOF.md",
@@ -135,11 +134,12 @@
    "sha256": "9d58a29bf725d0756c8d11b5a9aa538782e83bee62242bcb1a869d2b95ccce94",
    "git_blob": "a97bf528b4e073c6e12fd2d4616be77e8bbae16b",
    "tag": "237",
-   "use": "Monte Carlo interpretation (v1.4, D-1, D-2): Remark 4, the elder and rejected residuals (a single extra power fits best at p ~ 0.14-0.33 in six of eight fits; joint l^(1/2) + l^(3/4) coefficients); the adjacent-pair comparison concerns the common formal coefficients only",
-   "head": "0add03bb806b6237e6aa0b29b06bedec54863e79",
-   "pr": "Math- #237"
+   "use": "Monte Carlo interpretation (v1.4, D-1, D-2): Remark 4, the elder and rejected residuals (a single extra power fits best at p ~ 0.14-0.33 in six of eight fits; joint l^(1/2) + l^(3/4) coefficients); the adjacent-pair comparison concerns the common formal coefficients only; merged as cb73b11 with this blob, bound from the tree since v1.4.1 (previously cited_unmerged at head 0add03b)",
+   "pr": "Math- #237",
+   "merge_commit": "cb73b11717d9389055b91e564bec7dcf71e58688"
   }
  ],
+ "cited_unmerged": [],
  "cited_external": [
   {
    "tag": "Isserlis",
@@ -398,13 +398,13 @@
  "files": [
   {
    "path": "NOTE.md",
-   "bytes": 44521,
-   "sha256": "272e1b26d7f4de7aaf1faed3bdf929e20485af406e8f0e68df10ffc8450698be"
+   "bytes": 47631,
+   "sha256": "cbb59eb8df5d492c5183e110219703559307441b0d9fb281434b5193e3ef8078"
   },
   {
    "path": "README.md",
-   "bytes": 10980,
-   "sha256": "74732f4565e2cc6d20e42d3cde75e20dd415844e232f1d5abfc457d3427eab5b"
+   "bytes": 11824,
+   "sha256": "fe7dc3f3140320511be9a8cb35a9123042e7de2375d1783f1f1491bcc6c3a890"
   },
   {
    "path": "c2_check.py",
@@ -418,9 +418,10 @@
   }
  ],
  "supersedes": {
-  "object": "CL-THIRD-ORDER-COEFF-20261001-v1.3",
-  "head": "7e970185d3d5fd67d6f3a4f1fc9393b6920b057f",
-  "note_blob": "37088e2e263ad7fd6c9ef91885b4d9e598f2e6c1"
+  "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4",
+  "head": "e475107254fe1f64ff813e503f3d5b7a8058061a",
+  "commit": "1bfdf28b2e9baa3aa3fcc9d00c974bce56045f83",
+  "note_blob": "5b2c5c024db393c6eabceedc293fe4acb5126de1"
  },
  "nonauthor_reviews": [
   {
@@ -550,7 +551,7 @@
     {
      "id": "D-5",
      "severity": "minor",
-     "disposition": "applied in v1.4: the window table gives counts; exact 95% intervals for the two lowest d = 3 rows; README wording restricted to d = 2 ranges with enough pairs"
+     "disposition": "applied in v1.4: the window table gives counts; exact 95% intervals for the two lowest d = 3 rows; README wording restricted to d = 2 ranges with enough pairs; v1.4.1 (C129-R1): the intervals are labelled nominal 95% binomial counting intervals (Clopper-Pearson, pairs treated as independent); their coverage under within-field dependence is not assessed"
     },
     {
      "id": "D-6",
@@ -616,6 +617,64 @@
     }
    ],
    "applied_in": "v1.4"
+  },
+  {
+   "reviewer": "OpenAI/Codex /root with /root/next_math_triage, /root/c99_custody_audit, /root/next_ui_triage (C129); same GitHub account; organizational independence 0",
+   "review": "pullrequestreview-5404127976",
+   "claim": "5976154917",
+   "delivery": "5976349213",
+   "at": "e475107",
+   "scope": "successor readback of the v1.4 changed bytes (1bfdf28 over 7e97018)",
+   "verdict": "AMEND_SCOPED: three P2 amendments, one optional display correction; no coefficient or checker defect",
+   "findings": [
+    {
+     "id": "C129-A1",
+     "severity": "P2",
+     "disposition": "applied in v1.4.1: section 2.2 states 2/0/1 as the contact limit and the finite-r covariance 2 + s, s, 1 with s = Var(f(0) | U_r) = r^8/6144 + O(r^10) (checked at 60 digits); rotation invariance and the checker are unaffected"
+    },
+    {
+     "id": "C129-A2",
+     "severity": "P2",
+     "disposition": "applied in v1.4.1: NOTE and README separate numerical inputs (none consumed; the checker implements [R] directly) from the analytic identifications (#214 Lemma 1.3, #218 (F.2), #218 Lemma O with #220 Lemma O-prime); the PR body is rewritten; consumed/consumed_unmerged keep their runtime meaning"
+    },
+    {
+     "id": "C129-R1",
+     "severity": "P2",
+     "disposition": "applied in v1.4.1: the two d = 3 window intervals are labelled nominal binomial counting intervals with coverage under within-field dependence not assessed; the D-5 disposition is synchronized; U-1 stands"
+    },
+    {
+     "id": "C129-N1",
+     "severity": "optional",
+     "disposition": "applied in v1.4.1: 355/19215 is printed as 1.8%"
+    }
+   ],
+   "applied_in": "v1.4.1"
+  },
+  {
+   "reviewer": "Grok Bot agent 1, a Cursor-hosted Grok Bot support agent (non-Claude); original Slice A/C reviewer, so a confirming re-read; same GitHub account; organizational independence 0",
+   "review": "comment 5976332101",
+   "claim": "5976273625",
+   "at": "e475107",
+   "scope": "confirming readback of v1.4, Slices A and C and the status text",
+   "verdict": "AMEND (scoped; no blocker): all eleven findings of 5401553740 RESOLVED; one required change (= C129-A2)",
+   "findings": [
+    {
+     "id": "N6-1",
+     "severity": "P2 (= C129-A2)",
+     "disposition": "applied in v1.4.1: the reviewer's sentence is used, with #214 now recorded as merged"
+    },
+    {
+     "id": "N6-2",
+     "severity": "P3 (optional)",
+     "disposition": "applied in v1.4.1: \"the d = 1 comparison with #214\" in README and NOTE section 7"
+    },
+    {
+     "id": "C129-N1 (concur)",
+     "severity": "P3",
+     "disposition": "applied in v1.4.1"
+    }
+   ],
+   "applied_in": "v1.4.1"
   }
  ],
  "status_updates": [
@@ -645,6 +704,20 @@
    ],
    "unchanged_values": "every coefficient, control value and Monte Carlo ratio; RESULTS.json gains only the #223 comparison fields and the v1.4 object label",
    "what": "answers the four nonauthor reviews at 7e97018 (5401553740, 5401550768, 5401560065, 5401592048); see nonauthor_reviews"
+  },
+  {
+   "version": "v1.4.1",
+   "files_changed": [
+    "NOTE.md",
+    "README.md",
+    "SOURCES.json",
+    ".github/workflows/third-order-coefficient.yml"
+   ],
+   "unchanged": [
+    "c2_check.py",
+    "RESULTS.json"
+   ],
+   "what": "answers C129 (5404127976) and Grok Bot agent 1 (5976332101); #214 (e4ca2b3) and #237 (cb73b11) merged with their pinned blobs and now bound from the tree"
   }
  ],
  "raw_records_outside_project_archive": [

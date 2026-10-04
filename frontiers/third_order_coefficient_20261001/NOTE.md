@@ -1,8 +1,21 @@
 # The third-order coefficient of the short-lifetime law: the fold-scale finite part, `d = 1, 2, 3`
 
-Object: CL-THIRD-ORDER-COEFF-20261001-v1.4.
-Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026 (v1.3: 2 October; v1.4:
-4 October 2026).
+Object: CL-THIRD-ORDER-COEFF-20261001-v1.4.1.
+Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 1 October 2026 (v1.3: 2 October; v1.4
+and v1.4.1: 4 October 2026).
+**v1.4.1 (answers the two readbacks of v1.4; no number changes).** C129 (OpenAI/Codex, review 5404127976,
+AMEND_SCOPED) and Grok Bot agent 1's confirming readback (5976332101, AMEND, scoped) found no blocker. They found no
+error in the coefficients or the checker.
+- *C129-A1.* In §2.2, the transverse covariance `2/0/1` is the contact limit. At finite `r` it is `2 + σ_r²`, `σ_r²`
+  and `1`, with `σ_r² = Var(f(0) | U_r) = r⁸/6144 + O(r¹⁰)`. No number changes.
+- *C129-A2 (= N6-1).* The dependency sentence separates numerical inputs (none consumed) from the analytic
+  identifications: #214 Lemma 1.3, #218 (F.2), and #218 Lemma O with #220 Lemma O′.
+- *C129-R1.* The window intervals are labelled as nominal binomial counting intervals. Their coverage under
+  within-field dependence is not assessed.
+- *C129-N1 and N6-2.* `1.9%` becomes `1.8%` (355/19215). §7 and the README say "the `d = 1` comparison with #214".
+- *Merged since v1.4.* #214 (as `e4ca2b3`) and #237 (as `cb73b11`), with the pinned blobs unchanged. Both are now bound
+  from the tree, and the text calls them merged author-side proof candidates.
+
 **v1.4 (answers the four nonauthor reviews at `7e97018`; no coefficient or Monte Carlo ratio changes).** The reviews are
 Grok Bot agent 1 on Slices A and C and the status text (5401553740; signature corrected in 5974176267), xAI/Grok on
 Slice D (5401550768), and xAI/Grok agent 3 on Slice B (5401560065, 5401592048). No finding is a blocker.
@@ -16,7 +29,7 @@ The changes, by group:
   - #218, #220, #229, #232 and #187 are author-side proof candidates. #223 and #219 certify enclosures of explicit
     expressions; #223's is the Gaussian-kernel surrogate, with no torus transfer.
   - The candidate law ((T.1) of #218, (T⁺.1) of #229) is not (0.2). The adjacent-pair density is formal.
-  - `d = 1` rests on #214, which is open. #187 is now bound.
+  - `d = 1` rests on #214, which was open at v1.4 (merged since; v1.4.1). #187 is now bound.
 - *Checker (C1, C2).* T1, T3 and T4 compare every computed `c₂` with #223's closed forms; the observed errors are at most
   `2.6·10⁻⁹`. The mutants now fail on computed checks only. §0 and §2.4 quote the errors, not the spreads.
 - *Monte Carlo (D-1 to D-6, C3).*
@@ -64,22 +77,28 @@ The coefficients are unchanged.
 - *Provenance.* The owner's post-stop instructions are recorded exactly (`SOURCES.json`, `delivered_under`).
 The coefficients are unchanged.
 
-Disposition: FORMAL COEFFICIENT WITH NUMERICAL EVIDENCE. In `d = 1` the law is Theorem 1D of Math- #214, an open
-author-side PR. In `d ≥ 2` the expansion (0.2) is not proved here. For the elder density, the merged author-side proof
-candidates #220 and #229 prove it with remainder `O(ℓ^{3/7})`, using the merged #187 for the far part. For the
-candidate density, #218 ((T.1)) and #229 ((T⁺.1)) prove the analogous candidate law, which has `B_{d,L}` and `I^{cand}`
+Disposition: FORMAL COEFFICIENT WITH NUMERICAL EVIDENCE. In `d = 1` the law is Theorem 1D of Math- #214, a merged
+author-side proof candidate. In `d ≥ 2` the expansion (0.2) is not proved here. For the elder density, the merged
+author-side proof candidates #220 and #229 prove it with remainder `O(ℓ^{3/7})`, using the merged #187 for the far
+part. For the candidate density, #218 ((T.1)) and #229 ((T⁺.1)) prove the analogous candidate law, which has `B_{d,L}` and `I^{cand}`
 (§0, "Status since v1.2"). Nonauthor review required. Scientific effect: NONE — no register, graph, STATUS,
 PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
-**Dependencies:** none consumed. The computation uses only the merged two-point kernel of [R]
-(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, blob `247b3ecf`). The following are cited for comparison:
-- Math- #214 (`d = 1`, Theorem 1D; open);
+**Dependencies (v1.4.1, C129-A2).** No numerical input is consumed: the checker implements the merged kernel of [R]
+(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, blob `247b3ecf`) directly. The analytic identifications
+use, at their own status:
+- #214 Lemma 1.3 (the `d = 1` fold identification, §2.3);
+- #218 Lemma F, (F.2) ((0.1));
+- #218 Lemma O with #220 Lemma O′ (the interface cancellation, §1).
+
+All three are merged author-side proof candidates. The following are cited for comparison:
+- Math- #214 (`d = 1`, Theorem 1D; merged as `e4ca2b3`);
 - Math- #207 (Theorem CU: `c₁` and the cusp loss; merged);
 - Math- #191 (the even contact expansion; merged);
 - the merged values of `c_{2,∞}` and `c_{3,∞}`;
 - since v1.3, the merged #218 (Theorem T), #220 (Theorem E3), #229 (Theorems T⁺ and E3⁺), #223 (`c₂` in closed form),
   #232 (`c₂` on the torus) and #219 (`c₁` certified);
-- since v1.4, the merged #187 (Theorem F, the far part of #220 and #229) and #240 (§7 item 4), and the open #237
-  (Remark 4).
+- since v1.4, the merged #187 (Theorem F, the far part of #220 and #229) and #240 (§7 item 4), and #237 (Remark 4;
+  merged as `cb73b11`).
 
 ## 0. Statement
 
@@ -94,8 +113,8 @@ PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero or
   so that the near part of the elder lifetime density is `∫dσ(u)∫db∫dr r^{−2}A_r^{eld}(b, ℓ/r³, u)` (#207 (0.1)).
 
 In `d ≥ 2`, at fixed `(b, k, u)` with `k > 0`, `A_r = A₀ + r²A₂ + O(r³(1 + k^{−1}))` (#218 Lemma F, (F.1)); `d = 1`
-rests on #214 (open; §2.2–§2.3). There is no `r¹` term (#191's even contact expansion; #218 (2.2); checker T5). Here
-`A₀ = 12π₀(v₀)·36k²E[Δ²1{A<0} | v₀]` is the contact kernel, and
+rests on #214 (merged; an author-side proof candidate; §2.2–§2.3). There is no `r¹` term (#191's even contact
+expansion; #218 (2.2); checker T5). Here `A₀ = 12π₀(v₀)·36k²E[Δ²1{A<0} | v₀]` is the contact kernel, and
 
     A₂(b, 0, u) = −12 π₀(u; v₀(b, 0)) E₀[ Y² 1{A < 0} | b ]                                              (0.1)
 
@@ -129,7 +148,8 @@ Nothing on file proves that expansion (#218 Remark 3; #220 and #229 list it as n
    - The total is checked numerically to `10⁻⁹` for two kernels (checkers T1, T2). For the Gaussian kernel the merged
      #223 gives `c₂ = 2B₂` as an identity of exact numbers.
 
-   In `d = 1`, (0.2) is #214's Theorem 1D. #214 is an open author-side PR, so the `d = 1` law is conditional on it.
+   In `d = 1`, (0.2) is #214's Theorem 1D. #214 is a merged author-side proof candidate, so the `d = 1` law holds at
+   that status.
 2. **Values for the Gaussian kernel `e^{−|z|²/2}`** (the SIDE24 covariance up to factors `1 + O(e^{−L²/8})`):
 
    | `d` | `c` (recomputed; equals the merged value) | `c₂` | `c₂/c` | `c₁/c` (#207, #214) |
@@ -279,7 +299,7 @@ In `d = 1` this is exactly the structure of #214's Proposition 2.2:
 - the cusp part (d), split as `p₃(α) = p₃(0) + (p₃(α) − p₃(0))`, gives the Mellin term `(I_θ/2)h^{1/4}` and the finite
   part `B₂^{(2)}`.
 
-There it is proved, in #214 (an open PR).
+There it is proved, in #214 (merged; an author-side proof candidate).
 
 ## 2. The computation
 
@@ -316,8 +336,13 @@ There it is proved, in #214 (an open PR).
     truncated Gaussian moments.
 - **`d = 3`.** `1{typed} = 1{A < 0}`, with `A = D_y²f(0)` (`2 × 2`), again up to `O(r³(1 + k^{−1}))` (Lemma F with
   `m = 2`).
-  - The conditional law of `A` is invariant under transverse rotations. It is `Var a₁₁ = Var a₂₂ = 2`,
-    `Cov(a₁₁, a₂₂) = 0` and `Var a₁₂ = 1`, given the pins.
+  - The conditional law of `A` is invariant under transverse rotations.
+  - Its covariance is `Var a₁₁ = Var a₂₂ = 2`, `Cov(a₁₁, a₂₂) = 0` and `Var a₁₂ = 1` in the contact limit.
+  - At finite `r` (reference kernel; v1.4.1, C129-A1), `A + f(0)I` is independent of the pins with this GOE covariance.
+    So `Var a₁₁ = Var a₂₂ = 2 + σ_r²`, `Cov(a₁₁, a₂₂) = σ_r²` and `Var a₁₂ = 1`, where
+    `σ_r² := Var(f(0) | U_r) = r⁸/6144 + O(r¹⁰)` (checked at 60 digits: `1.6276·10⁻¹²` at `r = 0.1`).
+  - Rotation invariance and the eigenvalue reduction are unaffected. The checker uses the full conditional covariance
+    of its truncated-jet model, so no number changes.
   - So `E[det H_M det H_S | A]` depends only on the eigenvalues. It is a polynomial of degree `≤ 6` in
     `(b_eff, k, λ₁, λ₂)`, obtained from Isserlis' formula over the 76 partial matchings of each of the 36 permutation
     products.
@@ -336,12 +361,12 @@ There it is proved, in #214 (an open PR).
 - **Kernel scope (v1.4, XA-216-B-03).**
   - For `d ≥ 2` the replacement holds for any [P] covariance, including the torus covariance `K_L` at fixed `L` (Lemma F;
     its constants are not uniform in `L`).
-  - The `d = 3` rotation invariance and the covariance `2/0/1` above are facts about the reference kernel `φ`. For `φ`,
-    pins on `e₁` make the transverse law isotropic; `K_L` has only cubic symmetry.
+  - The `d = 3` rotation invariance and the covariance above (`2/0/1` in the contact limit) are facts about the
+    reference kernel `φ`. For `φ`, pins on `e₁` make the transverse law isotropic; `K_L` has only cubic symmetry.
   - The `d = 1` statement is the fixed-`k` sketch above.
 
-**2.3 The finite part in `d = 1`.** This section uses #214, an open PR. (#214's `c₂` in its Lemma 1.3 is a jet
-coefficient, unrelated to this note's `c₂`.) `∫A₂(b, k)db` has two components.
+**2.3 The finite part in `d = 1`.** This section uses #214 (merged; an author-side proof candidate). (#214's `c₂` in
+its Lemma 1.3 is a jet coefficient, unrelated to this note's `c₂`.) `∫A₂(b, k)db` has two components.
 - *The cusp component (v1.4, XA-216-B-05).* With `Y = f₄/12` and `∫π₀E₀[f₄²]db = p₁₂p₃·σ₄²`, the expression of (0.1)
   evaluated at `v₀(b, k)` instead of `v₀(b, 0)` has `b`-integral `−(σ₄²/12)p₁₂p₃(12k)`. At `k = 0` this is the
   `b`-integral of (0.1) itself, `−(σ₄²/12)p₁₂p₃(0)`.
@@ -451,7 +476,7 @@ The interim runs (1150 and 240 samples) gave consistent ratios.
   `0.031 ± 0.007` in `d = 3`. On `[10⁻⁴, 10⁻²]` the same fit is not significant: `0.03 ± 0.02` and `0.01 ± 0.03`.
 - Other powers fit comparably.
   - On `[10⁻⁴, 0.3]`, fits with `ℓ^{1/2} + ℓ^{3/4}` and with `ℓ^{2/3} + ℓ^{3/4}` differ by `|Δχ²| ≤ 2.6` (#240 §7 item 4).
-  - A single extra power fits best at `p ≈ 0.14–0.33` in six of eight elder and rejected fits (#237 Remark 4, open).
+  - A single extra power fits best at `p ≈ 0.14–0.33` in six of eight elder and rejected fits (#237 Remark 4).
   - So the data do not single out `ℓ^{1/2}`. Whether the residual comes from decision effects or from Monte Carlo
     systematics is open.
 - v1.3 read it as "about `0.03ℓ^{1/2}`" and as consistent with the formal `O(ℓ^{1/2})` remainder. Nothing contradicts
@@ -481,7 +506,7 @@ the rate at which the rule `1{|φ| < 1/3}` disagrees with the computed elder mar
 | `[10⁻⁶, 10⁻⁴)` | (too few near `1/3`) | `0.16%` (6/3795) | (too few) | `0.4%` (2/503) |
 | `[10⁻⁴, 3·10⁻⁴)` | `0.329` | `0.40%` (17/4244) | `0.334` | `0.0%` (0/568) |
 | `[3·10⁻⁴, 10⁻³)` | `0.347` | `0.91%` (90/9876) | `0.395` (few) | `1.7%` (23/1392) |
-| `[10⁻³, 3·10⁻³)` | `0.337` | `1.9%` (355/19215) | `0.357` | `2.4%` (66/2704) |
+| `[10⁻³, 3·10⁻³)` | `0.337` | `1.8%` (355/19215) | `0.357` | `2.4%` (66/2704) |
 | `[3·10⁻³, 10⁻²)` | `0.343` | `4.3%` (1936/45256) | `0.329` | `6.0%` (374/6252) |
 | `[10⁻², 3·10⁻²)` | `0.335` | `8.2%` (6932/84812) | `0.339` | `11.7%` (1353/11560) |
 
@@ -490,8 +515,10 @@ the rate at which the rule `1{|φ| < 1/3}` disagrees with the computed elder mar
   disagreement falls steadily as `ℓ ↓ 0`, roughly like `ℓ^{2/3}`: a log–log fit of the five rows above `10⁻⁴` gives
   slope `0.66`.
 - In `d = 3` the crossings lie between `0.329` and `0.395`. The lowest range has no crossing.
-- The two lowest `d = 3` rows rest on few events. The exact 95% intervals are `0.05–1.4%` for 2/503 and `0–0.65%` for
-  0/568. So below `10⁻³` the `d = 3` disagreement is small but not resolved as monotone.
+- The two lowest `d = 3` rows rest on few events. Their nominal 95% binomial counting intervals (Clopper–Pearson,
+  treating the pairs as independent) are `0.05–1.4%` for 2/503 and `0–0.65%` for 0/568. Their coverage under
+  within-field dependence has not been assessed (v1.4.1, C129-R1). So below `10⁻³` the `d = 3` disagreement is small
+  but not resolved as monotone.
 
 The archived figure `results/mc_final.png` shows three panels for each of `d = 2, 3`:
 - the elder density divided by `cℓ^{−1/3}`, with the leading, two-term and three-term laws;
@@ -547,10 +574,11 @@ Cited, merged, bound since v1.4:
 - #187 `frontiers/far_elder_rate_20260930/PROOF.md` (`07260114`): Theorem F, the far part of (E3.3) and (E3⁺.1);
 - #240 `frontiers/elder_cusp_parity_20261002/PROOF.md` (`16a1db06`): §7 item 4, fits of the Monte Carlo residual.
 
-Cited, unmerged:
-- #214 `frontiers/d1_third_order_law_20261001/PROOF.md` (v1.3 at `54666d2`): `B₂` and its proof in `d = 1` (Theorem 1D);
-- #237 `frontiers/candidate_parity_rate_20261001/PROOF.md` (at `0add03b`, blob `a97bf528`): Remark 4, the Monte Carlo
-  residuals (since v1.4).
+Cited, merged since v1.4 (verified from the tree; the pinned blobs are unchanged; v1.4.1):
+- #214 `frontiers/d1_third_order_law_20261001/PROOF.md` (`1591ecee`; merged as `e4ca2b3`): `B₂` and its proof in
+  `d = 1` (Theorem 1D);
+- #237 `frontiers/candidate_parity_rate_20261001/PROOF.md` (`a97bf528`; merged as `cb73b11`): Remark 4, the Monte
+  Carlo residuals.
 
 ## 6. Controls
 
@@ -583,7 +611,7 @@ What the controls do not test: the formal derivation of §1 in `d ≥ 2`, and th
 
 - **A** §0 and §1: the definition of `c₂`, and whether the composite-expansion argument is right. In particular, that the
   overlap term is exactly (0.1).
-- **B** §2.1–§2.3: the pinned structure, the `O(r³)` indicator replacement, and the `d = 1` identity with #214.
+- **B** §2.1–§2.3: the pinned structure, the `O(r³)` indicator replacement, and the `d = 1` comparison with #214.
 - **C** §2.4 and `c2_check.py`: the numerics and their convergence.
 - **D** §3–§4: the Monte Carlo method and its interpretation (exploration).
 
@@ -607,6 +635,15 @@ What the controls do not test: the formal derivation of §1 in `d ≥ 2`, and th
 - *§4:* the rounding note (C3) and the status paragraph (S1).
 - *§5:* #187, #240 and #237. *§6:* T1, T3, T4 and the mutants (C1). *§7:* this list.
 
-`c2_check.py` adds the #223 comparisons and drops the two hand-forced mutant failures. `RESULTS.json` changes only by
-the new fields and the object label. No coefficient value, control value or Monte Carlo ratio changes. v1.3 changed only
-status text (against v1.2 at `04c08e1`).
+**Changed bytes in v1.4.1** (against v1.4 at `1bfdf28`):
+- *Header:* the object label and the v1.4.1 block.
+- *Disposition and dependencies:* #214 and #237 are merged, and the dependency sentence is reworded (C129-A2).
+- *§0:* "rests on #214 (merged; …)" and item 1's status sentence.
+- *§1:* "in #214 (merged; …)". *§2.2:* the finite-`r` covariance (C129-A1) and the kernel-scope wording.
+- *§2.3:* its first sentence. *§3:* `1.8%` (C129-N1), the interval label (C129-R1) and "(#237 Remark 4)".
+- *§5:* #214 and #237 move to the merged list. *§7:* "comparison" (N6-2) and this list.
+
+`c2_check.py` and `RESULTS.json` are unchanged in v1.4.1. In v1.4, `c2_check.py` adds the #223 comparisons and drops
+the two hand-forced mutant failures, and `RESULTS.json` changes only by the new fields and the object label. No
+coefficient value, control value or Monte Carlo ratio changes in either version. v1.3 changed only status text (against
+v1.2 at `04c08e1`).

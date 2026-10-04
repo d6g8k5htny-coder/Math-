@@ -1,7 +1,15 @@
-# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.4)
+# The third-order coefficient of the short-lifetime law (CL-THIRD-ORDER-COEFF-20261001-v1.4.1)
 
-Formal coefficient with numerical evidence. Anthropic Claude, 1 October 2026 (v1.4: 4 October). Scientific effect
-NONE. Nonauthor review required.
+Formal coefficient with numerical evidence. Anthropic Claude, 1 October 2026 (v1.4 and v1.4.1: 4 October). Scientific
+effect NONE. Nonauthor review required.
+
+**v1.4.1 (no number changes)** answers the two readbacks of v1.4: C129 (5404127976) and Grok Bot agent 1
+(5976332101), both AMEND (scoped) with no blocker.
+- The finite-`r` transverse covariance is stated; `2/0/1` is its contact limit (C129-A1).
+- Numerical inputs (none consumed) are separated from the analytic identifications (C129-A2).
+- The window intervals are labelled as nominal binomial intervals (C129-R1).
+- Two display fixes (N1, N6-2).
+- #214 and #237 are recorded as merged.
 
 **v1.4 (answers the four nonauthor reviews at `7e97018`; no coefficient or Monte Carlo ratio changes).** The reviews
 are 5401553740 (Slices A and C and the status text, Grok Bot agent 1), 5401550768 (Slice D, xAI/Grok), and 5401560065
@@ -11,7 +19,7 @@ cannot be replayed from the repository), which is acknowledged (NOTE header and 
   - #218, #220, #229, #232 and #187 are author-side proof candidates. #223 and #219 certify enclosures of explicit
     expressions.
   - The candidate law ((T.1) of #218, (T⁺.1) of #229) is not (0.2). The adjacent-pair density is formal.
-    `d = 1` rests on the open #214.
+    `d = 1` rests on #214, which was open at v1.4 and is merged since (v1.4.1).
 - **Checker.** T1, T3 and T4 compare every computed `c₂` with #223's closed forms (observed errors `≤ 2.6·10⁻⁹`). The
   mutants fail on computed checks only.
 - **Monte Carlo.**
@@ -37,9 +45,17 @@ P3 on v1.2 (5378684363). v1.4 rewords its status sentences.
 - blob-id verification of the cited unmerged sources;
 - exact owner provenance.
 
-The coefficients are unchanged and are quoted to 8 digits. Nothing is consumed. The computation implements the merged two-point kernel of [R]
-(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`). Math- #207, #214 and #191 are cited for comparison;
-since v1.3 also the merged #218, #220, #229, #223, #232 and #219; since v1.4 the merged #187 and #240 and the open #237.
+The coefficients are unchanged and are quoted to 8 digits.
+
+**Dependencies (v1.4.1).** No numerical input is consumed: the checker implements the merged two-point kernel of [R]
+(`frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md`, `247b3ecf`) directly. The analytic identifications use, at
+their own status:
+- #214 Lemma 1.3 (the `d = 1` fold identification);
+- #218 Lemma F, (F.2) ((0.1));
+- #218 Lemma O with #220 Lemma O′ (the interface cancellation).
+
+All are merged author-side proof candidates. Cited for comparison: #207, #214 and #191; since v1.3 also #218, #220,
+#229, #223, #232 and #219; since v1.4 #187, #240 and #237. All are merged.
 
 **What it is.** The elder lifetime density has a third term:
 
@@ -56,7 +72,8 @@ file proves its expansion (#218 Remark 3). The reason for the common `c₂` is t
 elder rule enters only through the cusp window.
 
 **Status by dimension.**
-- **`d = 1`.** The formula gives #214's `2B₂`. #214 (Theorem 1D) is an open PR, so the `d = 1` law is conditional on it.
+- **`d = 1`.** The formula gives #214's `2B₂`. #214 (Theorem 1D) is a merged author-side proof candidate, so the
+  `d = 1` law holds at that status.
   - The cusp part of the finite part is an algebraic identity.
   - The fold part rests on an identification not derived here, which consumes #214's Lemma 1.3.
   - The total matches to `10⁻⁹` for two kernels. For the Gaussian kernel the merged #223 gives `c₂ = 2B₂` exactly.
@@ -136,7 +153,7 @@ Final counts are 4000 samples (volume `1.64·10⁷`) in `d = 2` and 996 samples 
   (NOTE §3).
 
 **Files.**
-- `NOTE.md`: the definition and its formal derivation (§1); the computation (§2, including the `d = 1` identity with #214);
+- `NOTE.md`: the definition and its formal derivation (§1); the computation (§2, including the `d = 1` comparison with #214);
   the Monte Carlo (§3); the SIDE24 correction sizes (§4).
 - `c2_check.py`: standard library. Its output is `RESULTS.json`, byte-identical under `-O` and on CPython 3.10–3.14. Mutants M1–M4 exit 1
   on computed checks, and an unknown label exits 2. The run takes about 30 s. Its controls:
