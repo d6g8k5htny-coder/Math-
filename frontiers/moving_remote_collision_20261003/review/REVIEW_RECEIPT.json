@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-10-03T11:57:08.471592+00:00",
+  "verdict": "ACCEPT_CONDITIONAL_SCOPED",
+  "reviewer": "OpenAI Codex /root/c107_nonauthor_review",
+  "nonauthor": true,
+  "organizational_independence_credit": 0,
+  "human_review": "NONE",
+  "scientific_register_effect": "NONE",
+  "proof_sha256": "d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df",
+  "source_manifest_sha256": "f03da4be8cae14588d7e6e1d215091293dbad199bc9a0013cccca995a4c05a8c",
+  "source_cut": "7e2344166e989ae94e5732e445f445598fc75c4c",
+  "required_mathematical_amendments": [],
+  "scope": "Planar E_Q^W[(N(E))_2] <= C r^5 rho^-98 |E|, deterministic Borel E outside rho ball, compact positive-gap marks, fixed L, all frames, r<=min(r_*,rho/8); no inner/mixed/global persistence extension",
+  "files": {
+    "AUTHOR_CHECKER_REPLAY.json": {
+      "bytes": 2924,
+      "sha256": "4d0f7f0163875c4c363c6eef012f442052ed17fc124a5fd87a6be6173e457bf6"
+    },
+    "CONTROL_DESIGN.md": {
+      "bytes": 4140,
+      "sha256": "161b0c0dc3b18db32a7ba61a868a944d5767c8b780281901ccc5c9f1435f51bb"
+    },
+    "INDEPENDENT_RUNS.json": {
+      "bytes": 6623,
+      "sha256": "3ca33cc27729378744721b0a3bcc988b733410d3394b5dda4f2ca6048c29a424"
+    },
+    "REVIEW.md": {
+      "bytes": 17536,
+      "sha256": "df2785862ca5bc0620773d9ce71d1c5c11b4d53a6ebbbc93a3a3b0ed5e76fab8"
+    },
+    "independent_controls.py": {
+      "bytes": 11156,
+      "sha256": "ae449870aa408a5437d5990b50d331a8af3d4eb063c8c7476f781677530ca873"
+    }
+  },
+  "publication_packet_reviewed": false
+}
