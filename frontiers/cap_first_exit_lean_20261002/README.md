@@ -33,7 +33,12 @@ This packet kernel-checks three things:
 
   These are derived from L4's output, the strong concavity of each transverse slice. `ridge_capHyp_sp` takes SP's hypotheses with `m ≥ 2` assumed. `ridge_capHyp_normalized` derives `m ≥ 2` from SP's normalization (gap exactly `r³/6`, pins critical, third derivatives bounded by `m`). `ridge_capHyp_H1` (v1.6) also derives `hconc` and `δ > rm(8m − 5)` from SP's hypothesis (H1) `λ > 8rm²`.
 
-The estimates L6 and L9–L12 (which give `hconv`) remain hypotheses. So do the full-domain ridge premises: the L7 lemmas need the slice data on an open `U ⊇ [−2r, 2r]`, beyond the cap's `x`-range `[−2r, r/2]`, and no declaration composes them with the source route (see [What is not proved here](#what-is-not-proved-here)).
+Since v1.8, `ridge_capHyp_source` composes these steps from SP's source data on a collar `[−2r − ε, 2r + ε] × B̄(0, 2r)` of `D` (`0 < ε ≤ r/2`). The data are the derivatives of `f` with the third-derivative bounds `m`, (H1), the critical pins and the gap `r³/6`. From them it proves:
+- that a ridge `h` exists, and `h(∓r/2) = 0`;
+- L8's interior bound, and the implicit-function regularity of `h` on `[−2r, 2r]`;
+- L11, and then (C1)–(C3) and (C2⁺) on the cap.
+
+The estimates L6 and L9–L12 (which give `hconv`) remain hypotheses.
 
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
@@ -77,6 +82,9 @@ single ridge path.
 | `slice_critical_unique`, `slice_critical_exists`, `ridge_exists` | L7 existence: a `δ`-strongly concave slice with `‖∂_y f(x, 0)‖ < δ · 2r` has exactly one critical point, and it lies in the open ball; a ridge map `h` exists |
 | `isInvertible_of_negDef`, `ridge_hasStrictFDerivAt`, `ridge_differentiable` | L7 regularity: a negative definite transverse Hessian is invertible, and the implicit function of `∂_y f = 0` agrees with `h`, so `h` is strictly differentiable on `[−2r, 2r]` with `h' = −(∂_y G)⁻¹ ∂_x G` |
 | `h1Toy_ridge_differentiable` | every hypothesis of `ridge_differentiable` at `h1ToyF` (`h = 0`, `G = −40y`, `δ = 40`, `U = (−3, 3)`), listed in the proposition itself, and its conclusion |
+| `hessian_increment_D`, `transverse_hessian_le_D`, `slices_strongConcave_D` | L3–L4 on a collar of SP's `D`: on the collar `x ∈ [−2r − ε, 2r + ε]`, `0 < ε ≤ r/2`, the increment is at most `3r + 2r = 5r` (SP: `9r/2 < 5r` on `D`), so every slice is `(λ − 5rm)`-strongly concave |
+| `ridge_capHyp_source` | the composed source route (v1.8). From the source data on the collar it proves that a ridge exists on `(−2r − ε, 2r + ε)`. For any such ridge with L12's `hconv`, it proves `h(∓r/2) = 0` and the cap with `M = (−r/2, 0)` and `S = (r/2, 0)`. Inside: L5 gives `‖w‖ ≤ 3mr² < 2rδ`, L8 gives the open ball, `DG ∘ inr = H` is negative definite, the IFT gives `h'`, and then L11 and `ridge_capHyp_H1` follow |
+| `h1Toy_source` | `h1ToyF` meets every hypothesis of `ridge_capHyp_source` (`ε = 1/2`, joint derivative `(x² − 1/4, −40y)`); the theorem gives its ridge and its cap |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -104,13 +112,10 @@ This packet does not formalize:
   The remaining inputs enter `ridge_capHyp_H1`, `ridge_capHyp_of_slices` and
   `ridge_inputs_of_joint` as hypotheses, together with the Hessian data and the third-derivative bounds `m` that L1,
   L3 and L5 consume. L1–L5, L7's maximum and uniqueness, L8, L11's chain rule, L13 and L16–L20 are proved from them;
-- the full-domain ridge premises, and the composition of the L7 lemmas with the source route. `slices_strongConcave`
-  and `ridge_capHyp_H1` derive or consume the slice data only for `x ∈ [−2r, r/2]`. `ridge_differentiable` needs strong
-  concavity and critical points on an open `U ⊇ [−2r, 2r]`, and `ridge_exists` needs its derivatives and gradient bound
-  on the whole of `U`. `ridge_differentiable` also takes `hG`, `hGs` and `hneg` along the ridge on `[−2r, 2r]` as
-  inputs. SP states L4 on all of `D` (increment `9r/2 < 5r`), but no declaration proves this extension
-  beyond `r/2` or feeds `ridge_exists` and `ridge_differentiable` into `ridge_inputs_of_joint` and `ridge_capHyp_H1`.
-  These premises remain inputs;
+- the source data themselves. `ridge_capHyp_source` takes, as hypotheses, the derivatives `Df`, `DG` and `H` and the
+  third-derivative bounds `m` on the collar `[−2r − ε, 2r + ε] × B̄(0, 2r)`. SP has `f ∈ C⁴` near `D` and bounds the
+  third derivatives on `D`. On a thin enough collar the bound `m + η` holds by continuity, and (H1) stays strict for
+  small `η`; Lean does not prove this step;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -149,7 +154,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 88 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 93 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
