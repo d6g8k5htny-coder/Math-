@@ -32,6 +32,10 @@ jobs:
         run: |
           python3 -B -S -m unittest discover -s tests -p test_required_formal_check.py -v
           python3 -B -O -S -m unittest discover -s tests -p test_required_formal_check.py -v
+      - name: Validation timeout evidence controls in both Python modes
+        run: |
+          python3 -B -S -m unittest discover -s tests -p test_downstream_validation.py -v
+          python3 -B -O -S -m unittest discover -s tests -p test_downstream_validation.py -v
       - name: Verify exact sources, transition inputs and regressions
         env:
           PYTHONDONTWRITEBYTECODE: '1'
