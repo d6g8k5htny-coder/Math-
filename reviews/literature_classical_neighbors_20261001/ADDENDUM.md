@@ -1,6 +1,6 @@
 # Literature addendum — the classical 1-D neighbours read in full; forward citations — 2026-10-01
 
-**Object:** CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.2 (v1.1 → v1.2, 4 October 2026, after Codex's bounded source readback 5976264613, AMEND INT-210-01 and INT-210-02, and its follow-up 5976466598: the copy of Cartwright–Longuet-Higgins 1956 is named, with the printed page of each quotation, and so is a copy of Longuet-Higgins 1957; the verdict sentence of the PR body is bounded to the protocol; nothing else changes. v1 → v1.1 after Codex review of v1, comments 4151188790–4151188834: hypotheses for the `d = 1` law; the `[P]` source identified; the machine-readable verdict qualified; the provenance made exact; the NumPy simulation replaced by a deterministic standard-library Rice check, `d1_rice_check.py`). **Author:** Anthropic Claude (claude.ai session
+**Object:** CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.3 (v1.2 → v1.3, 4 October 2026, a status note in §3: on the circle the `d = 1` law is now Theorem 1D of the merged Math-#214, whose proof also settles the check's regular-part assertion, and the persistence density's per-maximum constant is `2C`. v1.1 → v1.2, 4 October 2026, after Codex's bounded source readback 5976264613, AMEND INT-210-01 and INT-210-02, and its follow-up 5976466598: the copy of Cartwright–Longuet-Higgins 1956 is named, with the printed page of each quotation, and so is a copy of Longuet-Higgins 1957; the verdict sentence of the PR body is bounded to the protocol; nothing else changes. v1 → v1.1 after Codex review of v1, comments 4151188790–4151188834: hypotheses for the `d = 1` law; the `[P]` source identified; the machine-readable verdict qualified; the provenance made exact; the NumPy simulation replaced by a deterministic standard-library Rice check, `d1_rice_check.py`). **Author:** Anthropic Claude (claude.ai session
 `session_01NMeKEismAyeqgdB4sy2NJU`; the searches and full-text reads were run by a clean-context Claude subagent of that
 session, the d = 1 computation and its deterministic check by the session). **Scientific effect:** NONE. **No priority or novelty claim
 follows from this memo.** It extends CL-LIT-RECON-LIFETIME-20260929-v1.1
@@ -42,7 +42,7 @@ L. D. Lutes, Prob. Eng. Mech. 23, 254–266 (2008), doi:10.1016/j.probengmech.20
 small amplitudes. OpenCitations lists 37, 65, 23, 10 and 3 citing works for Lindgren 1972, Lindgren–Rychlik 1982,
 Rychlik 1987, Lindgren–Broberg 2004 and Lutes 2008; no title suggests a small-amplitude asymptotic.
 
-## 3. The `d = 1` analogue, made explicit (a remark for the attribution wording; not a theorem of this repository)
+## 3. The `d = 1` analogue, made explicit (a remark for the attribution wording; on the circle, now Theorem 1D of Math-#214)
 
 **Source.** The contact computation of the parent `[P]` = `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
 (blob `dfed3b8d`), (15.2), uses `d ≥ 2` only through the transverse block. That block is empty in `d = 1` (cone moment
@@ -77,6 +77,29 @@ It is then integrated over separations `t ≤ 1.5`. `h^{1/3}f(h)/(Cν_max)` equa
 per decade, i.e. roughly as `h^{0.57}`, consistent with a relative correction of order `h^{7/12}` (the cusp scale).
 This checks the constant's arithmetic through the exact two-point Rice formula. It is not an independent proof of the
 law, since intermediate extrema are not excluded, which affects only the regular part.
+
+**Status (v1.3, 4 October 2026).** On the circle `R/LZ`, under #214's hypothesis (H) (`ρ ∈ C^∞`, every Fourier
+coefficient positive), this law is now a theorem of the repository. It is Theorem 1D of Math-#214
+(`frontiers/d1_third_order_law_20261001/PROOF.md`, blob `1591ecee`, merged at `e4ca2b3`), an author-side proof
+candidate with OpenAI ACCEPT on all slices and a Grok Bot PASS. Per unit length it gives:
+- the crest-to-trough density: `ν₊(h) = (C₀/2)h^{−1/3} + (I/2)h^{1/4} + B₂h^{1/3} + O(h^{1/2})`;
+- the persistence lifetimes: `ν(ℓ) = C₀ℓ^{−1/3} + C₁ℓ^{1/4} + 2B₂ℓ^{1/3} + O(ℓ^{1/2})`.
+
+Per crest, #214 §0 gives `f_H(h) = 0.19971814h^{−1/3} − …` for the Gaussian kernel. That is the constant `C` above.
+
+Two readings follow.
+- **The per-maximum constant.** The persistence density counts a fold pair in either orientation, so per maximum its
+  leading constant is `2C`. The sentence above, "the same constant should govern the elder (persistence) lifetimes",
+  holds per orientation.
+- **The regular-part assertion** (Codex's scope limit, 5976264613) is part of #214's proof on the circle.
+  - On `(0, t_*]`, non-adjacency forces `K₅ ≥ ct^{−δ}` (Lemma 3.1), an `O(h^N)` event (§5).
+  - On `[t_*, t₀]`, the sign kernel `K₁^{sign}`, which is the check's integrand without the adjacency mark, is bounded.
+    This follows from Lemma 1.3: `G₁ ≤ m² + v₂`, with `(12/t⁴)m² ≍ α²/τ² ≤ C` and `(12/t⁴)v₂ = O(τ²)`.
+  - So the non-adjacent pairs add `O(1)`, a regular part that does not touch the `h^{−1/3}` constant the check tests.
+    #214 §6.2 sees the same `O(1)` numerically as the `rh^{−1/4}` term of `dev/h^{7/12}`.
+  - The check's covariance `e^{−t²/2}` lives on the line. #214 §6.4 claims nothing there, but its near-pair argument is
+    local, and it applies to the check's finite range `t ≤ 1.5` given the jet nondegeneracy of #214 Lemma 1.1. That
+    extension is author-side and is not claimed by #214.
 
 So the exponent is implicit in exact classical formulas (Lindgren 2019, (18)), but on the evidence read it is not stated
 in print. **Suggested manuscript wording:** *"In dimension one the same contact computation gives the small-amplitude

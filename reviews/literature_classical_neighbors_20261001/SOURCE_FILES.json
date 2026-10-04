@@ -1,5 +1,14 @@
 {
   "author": "Anthropic Claude",
+  "cited_merged": [
+    {
+      "bytes": 46313,
+      "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+      "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+      "role": "Theorem 1D (Math-#214, merged e4ca2b3), cited in ADDENDUM section 3 (v1.3)",
+      "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804"
+    }
+  ],
   "delivered_under": "explicit owner instructions of Dylan Roy in claude.ai session session_01NMeKEismAyeqgdB4sy2NJU, given after OWNER_STOP (2026-09-27): 2026-09-30 \"Continue to Work on closing as many mathematical items as possible while working with and supporting the other models in the GitHub\" and the same session's \"Continue\" (2026-09-30 18:02 local), with the standing statement \"Any request or permissions are preapproved in advance by me Dylan Roy\" and the push authorization \"PRs only, never self-merge\"; OWNER_STOP.md (addressed to Cursor agents) left untouched; no self-merge",
   "extends": {
     "git_blob": "003b98794f02fd5c1cd45ed263bf2818b556e6ab",
@@ -7,14 +16,14 @@
   },
   "files": [
     {
-      "bytes": 13947,
+      "bytes": 16207,
       "path": "ADDENDUM.md",
-      "sha256": "bbe1cec152580d4be926a0405aa9e90df075749b31bed48742e9ce316dffa046"
+      "sha256": "5e3903ad05b0566a1e999b0e69b309a4165578705d687f4a3021d22ebd1e1e42"
     },
     {
-      "bytes": 8010,
+      "bytes": 9025,
       "path": "PROTOCOL.json",
-      "sha256": "d21356f5c6a7c5717e821885bb49e2d3d7e4732ab5e3f357a42b4545a6e6044b"
+      "sha256": "a265bb4718e830f088811633883591d0ba9c9fb5c1b4730ba4d5c1b6580dbc27"
     },
     {
       "bytes": 7618,
@@ -33,7 +42,7 @@
     "M2"
   ],
   "novelty_claim": false,
-  "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.2",
+  "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.3",
   "replayed": [
     "d1_rice_check.py"
   ],

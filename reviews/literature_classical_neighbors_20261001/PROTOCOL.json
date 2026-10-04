@@ -1,5 +1,5 @@
 {
- "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.2",
+ "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.3",
  "extends": {
   "object": "CL-LIT-RECON-LIFETIME-20260929-v1.1",
   "path": "reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md",
@@ -86,7 +86,7 @@
   "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md (git blob dfed3b8d318a3ab1950957f393307733a4bef3f2), (15.2), specialized to d = 1",
   "value_gaussian_covariance": "0.199718135",
   "check": "d1_rice_check.py (stdlib, deterministic two-point Rice evaluation; D1_RICE.json): h^(1/3) f(h)/(C nu_max) -> 1 (0.9999983 at h = 1e-9)",
-  "status": "computation recorded for the attribution wording; not a reviewed theorem"
+  "status": "computation recorded for the attribution wording; v1.3: on the circle under (H) the law is Theorem 1D of the merged Math-#214 (PROOF.md blob 1591ecee, merge e4ca2b3; OpenAI ACCEPT all slices + Grok Bot PASS), with two further terms; per maximum the persistence density leading constant is 2C; the line is not covered by #214"
  },
  "verdict": "no source located under this protocol states the small-gap exponent -1/3 (d = 1 or d >= 2) or a cusp-scale correction; Lindgren 2019 eq. (18) contains the d = 1 law implicitly (not expanded there); six works were inaccessible and three full-text/search tasks remain author-side (see not_accessible and still_author_side), so this is not a proof of novelty",
  "scientific_effect": "NONE",
@@ -108,5 +108,17 @@
    "D1_RICE.json",
    "the workflow"
   ]
+ },
+ "v1_3": {
+  "change": "ADDENDUM section 3: title and a status paragraph; no change to the verdict, the d = 1 computation, the check or its output",
+  "cited_merged": {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
+   "bytes": 46313,
+   "merged_at": "e4ca2b3 (Math-#214)",
+   "used": "Theorem 1D (1D.1)-(1D.2); section 0 constants; Lemma 1.3; Lemma 3.1; section 5; Remarks 6.2 and 6.4"
+  },
+  "regular_part_assertion": "on the circle: part of #214 proof (Lemma 3.1 on (0, t_*], bounded sign kernel on [t_*, t0] from Lemma 1.3); for the check covariance on the line: the same local argument, author-side"
  }
 }
