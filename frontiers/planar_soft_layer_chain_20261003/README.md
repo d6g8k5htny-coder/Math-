@@ -131,7 +131,7 @@ C99 claims no quantitative rate. C101 and C103 count each designated candidate's
 - **`SOURCES.json`** gives the exact identities of every stored file. For each object it also records:
   - author, reviewer and the verdict as recorded;
   - the unstored pickup and ownership comments (with hashes);
-  - the published Drive delivery identity (not downloaded or relied on);
+  - the published Drive delivery identity; C91–C103 and C124 use the native-comment sources described above, while C127 also uses the explicitly identified frozen-delivery records;
   - the main#229 comments its proof names;
   - the extraction rule and version line of each checker.
 - **`replay.py`** is the replay described above.
