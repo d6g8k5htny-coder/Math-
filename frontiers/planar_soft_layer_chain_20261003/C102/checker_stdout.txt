@@ -1,0 +1,41 @@
+C102 reviewer independent finite controls PASS
+Python 3.11.16
+anisotropic_congruence: 3430
+candidate_ledger: 16
+centered_monomials: 56
+contact_frame: 64
+cubic_endpoint: 5145
+cutoff_moment_ledger: 216
+full_normalizer_congruence: 2058
+full_normalizer_reference: 35
+jet_rank_witness: 5
+normalization_ledger: 16
+offdiagonal_quadratic: 686
+outside_model_leakage: 9
+physical_jacobian: 40
+prospective_consumer: 12
+regression_algebra: 16
+source_binding: 22
+typed_model: 5145
+typing_strips: 2205
+exact controls: 19176
+rejected mutants: 18
+REJECT amplitude-scaled residual retains original covariance
+REJECT physical Jacobian omits k^-4
+REJECT physical Jacobian inverts k^-4
+REJECT extra k^4 on determinant product
+REJECT saddle uses absolute determinant without type
+REJECT maximum uses positive determinant without type
+REJECT model uses absolute rather than positive factors
+REJECT actual off-T weight assumed zero
+REJECT sqrt-r congruence replaces inverse-sqrt-r
+REJECT offdiagonal filtered determinant change discarded
+REJECT full normalizer replaced by soft r^5 scale
+REJECT joint density loses A marginal
+REJECT pin density drops factor 12
+REJECT ordered maximum/saddle population divided by two
+REJECT height transformation drops r^3
+REJECT prospective loss coefficient has k^-2/3
+REJECT prefactor permits arbitrary beta>1 error
+REJECT finite-r law inferred from contact parity
+No author checker read/imported/executed; finite checks do not prove analytic rates.

@@ -1,0 +1,583 @@
+# C124 source-identity manifest — exact frozen bytes
+
+This is the unchanged author snapshot manifest referenced by C124 and its nonauthor review: 26,552 bytes; SHA-256 `a0371bd1985358820250e0d75936d6ec5112f165824df7a9f6e29e25e3f46f6d`. Paths name the original delivery snapshot; incorporation may supply an additive path-resolution map without altering this manifest. Full proof5974162498; review5974327730. The file is the UTF-8 content inside the following five-backtick fence, including its final LF.
+
+`````json
+{
+  "schema": 1,
+  "kind": "C124 source inventory and custody only; no mathematical vote",
+  "created_utc": "2026-10-03T22:23:26.437721+00:00",
+  "claim_id": "33e06044-3ffa-4d61-81d8-937ad54e3fb4",
+  "claim_row": 733,
+  "native_pickup": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974059664",
+  "main_head_readback": "4aadc771e8ffc08ee56bac63991a6ceb282a4292",
+  "math_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+  "source_count": 21,
+  "source_bytes": 353932,
+  "sources": [
+    {
+      "key": "C91",
+      "path": "sources/C91.md",
+      "bytes": 12433,
+      "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963566666",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C91.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5963566666,
+        "created_at": "2026-10-03T00:22:20Z",
+        "updated_at": "2026-10-03T00:22:20Z",
+        "full_native_body": {
+          "bytes": 12433,
+          "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa"
+        },
+        "readback_path": "entry/native-sources/5963566666.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C91/PROOF.md",
+        "full_git_blob": {
+          "bytes": 12433,
+          "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C92",
+      "path": "sources/C92.md",
+      "bytes": 19567,
+      "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963825788",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C92.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5963825788,
+        "created_at": "2026-10-03T00:52:49Z",
+        "updated_at": "2026-10-03T00:52:49Z",
+        "full_native_body": {
+          "bytes": 19567,
+          "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a"
+        },
+        "readback_path": "entry/native-sources/5963825788.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C92/PROOF.md",
+        "full_git_blob": {
+          "bytes": 19567,
+          "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C93",
+      "path": "sources/C93.md",
+      "bytes": 15545,
+      "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964167051",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C93.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5964167051,
+        "created_at": "2026-10-03T01:36:14Z",
+        "updated_at": "2026-10-03T01:36:14Z",
+        "full_native_body": {
+          "bytes": 15545,
+          "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c"
+        },
+        "readback_path": "entry/native-sources/5964167051.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C93/PROOF.md",
+        "full_git_blob": {
+          "bytes": 15545,
+          "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C94",
+      "path": "sources/C94.md",
+      "bytes": 15407,
+      "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964517708",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C94.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5964517708,
+        "created_at": "2026-10-03T02:18:00Z",
+        "updated_at": "2026-10-03T02:18:00Z",
+        "full_native_body": {
+          "bytes": 15407,
+          "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c"
+        },
+        "readback_path": "entry/native-sources/5964517708.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C94/PROOF.md",
+        "full_git_blob": {
+          "bytes": 15407,
+          "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C95",
+      "path": "sources/C95.md",
+      "bytes": 16185,
+      "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964938563",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C95.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5964938563,
+        "created_at": "2026-10-03T03:09:41Z",
+        "updated_at": "2026-10-03T03:09:41Z",
+        "full_native_body": {
+          "bytes": 16185,
+          "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1"
+        },
+        "readback_path": "entry/native-sources/5964938563.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C95/PROOF.md",
+        "full_git_blob": {
+          "bytes": 16185,
+          "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C96",
+      "path": "sources/C96.md",
+      "bytes": 7657,
+      "sha256": "7198ff636e330749428ded6938776dad612f6bdb51ad62359b445f016df13a7a",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965141133",
+      "extraction": "explicitly published mathematical suffix; 256-byte native preface excluded",
+      "full_native_identity_recorded_but_not_claimed_as_local": {
+        "bytes": 7913,
+        "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5"
+      },
+      "suffix_extraction": "Suffix beginning '# Designated maximin level equals the ordinary-superlevel H0 death', final LF retained; full native preface is 256 bytes.",
+      "copied_from": "work/continuation101/sources/C96.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5965141133,
+        "created_at": "2026-10-03T03:38:26Z",
+        "updated_at": "2026-10-03T03:38:26Z",
+        "full_native_body": {
+          "bytes": 7913,
+          "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5"
+        },
+        "readback_path": "entry/native-sources/5965141133.json",
+        "extraction_checked": "Exact 7657-byte suffix after the native 256-byte preface",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C96/PROOF.md",
+        "full_git_blob": {
+          "bytes": 7913,
+          "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5"
+        },
+        "extraction": "256-byte preface excluded",
+        "matches": true
+      }
+    },
+    {
+      "key": "C97",
+      "path": "sources/C97.md",
+      "bytes": 16098,
+      "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965421543",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C97.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5965421543,
+        "created_at": "2026-10-03T04:14:09Z",
+        "updated_at": "2026-10-03T04:14:09Z",
+        "full_native_body": {
+          "bytes": 16098,
+          "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57"
+        },
+        "readback_path": "entry/native-sources/5965421543.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C97/PROOF.md",
+        "full_git_blob": {
+          "bytes": 16098,
+          "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C98",
+      "path": "sources/C98.md",
+      "bytes": 15050,
+      "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965738339",
+      "extraction": "full native body",
+      "copied_from": "work/continuation101/sources/C98.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5965738339,
+        "created_at": "2026-10-03T04:56:45Z",
+        "updated_at": "2026-10-03T04:56:45Z",
+        "full_native_body": {
+          "bytes": 15050,
+          "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198"
+        },
+        "readback_path": "entry/native-sources/5965738339.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C98/PROOF.md",
+        "full_git_blob": {
+          "bytes": 15050,
+          "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "P",
+      "path": "sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "copied_from": "work/continuation101/sources/P.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "E1",
+      "path": "sources/E1.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "copied_from": "work/continuation101/sources/E1.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "E2",
+      "path": "sources/E2.md",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "copied_from": "work/continuation101/sources/E2.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "REC",
+      "path": "sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "copied_from": "work/continuation101/sources/REC.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "CUB",
+      "path": "sources/CUB.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "copied_from": "work/continuation101/sources/CUB.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "ELDER",
+      "path": "sources/ELDER.md",
+      "bytes": 39722,
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/frontiers/local_elder_geometry_20260930/PROOF.md",
+      "extraction": "complete immutable Git object",
+      "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "git_path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+      "copied_from": "work/continuation101/sources/ELDER.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "immutable_git_binding": {
+        "original_commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+        "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+        "exact_original_blob": true,
+        "live_head_readback": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "same_current_bytes": true
+      }
+    },
+    {
+      "key": "C96_COMPLETION",
+      "path": "sources/C96_COMPLETION.md",
+      "bytes": 3466,
+      "sha256": "634fdab86ef2d568fecba9da80ccd067e3dc12849d88731648f1b09e46861603",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965212531",
+      "extraction": "Exact UTF-8 native body",
+      "role": "Closed-manifold and measurable-event conventions",
+      "copied_from": "work/continuation101/custody/antecedents/C96_COMPLETION.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5965212531,
+        "created_at": "2026-10-03T03:47:53Z",
+        "updated_at": "2026-10-03T03:47:53Z",
+        "full_native_body": {
+          "bytes": 3466,
+          "sha256": "634fdab86ef2d568fecba9da80ccd067e3dc12849d88731648f1b09e46861603"
+        },
+        "readback_path": "entry/native-sources/5965212531.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      }
+    },
+    {
+      "key": "C82_NATIVE",
+      "path": "sources/C82_NATIVE.md",
+      "bytes": 11645,
+      "sha256": "1b7523bf145f03dbaf73ceae2aa256e17505bbb1c2693e339bc399c64e1654c9",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959920397",
+      "extraction": "Exact UTF-8 body",
+      "role": "scoped analytic source or its disposition",
+      "copied_from": "work/continuation101/custody/antecedents/C82_NATIVE.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5959920397,
+        "created_at": "2026-10-02T19:30:38Z",
+        "updated_at": "2026-10-02T19:30:38Z",
+        "full_native_body": {
+          "bytes": 11645,
+          "sha256": "1b7523bf145f03dbaf73ceae2aa256e17505bbb1c2693e339bc399c64e1654c9"
+        },
+        "readback_path": "entry/native-sources/5959920397.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      }
+    },
+    {
+      "key": "C82",
+      "path": "sources/C82.md",
+      "bytes": 11253,
+      "sha256": "f390ad99b07ec4eda9160191d776cfc3a53ca628976165987d9a61ab79816827",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959920397",
+      "extraction": "11253-byte proof prefix before native footer",
+      "role": "scoped analytic source or its disposition",
+      "copied_from": "work/continuation101/custody/antecedents/C82_PROOF.md",
+      "original_manifest": "work/continuation101/SOURCE_IDENTITIES.json",
+      "fresh_native_binding": {
+        "comment_id": 5959920397,
+        "created_at": "2026-10-02T19:30:38Z",
+        "updated_at": "2026-10-02T19:30:38Z",
+        "full_native_body": {
+          "bytes": 11645,
+          "sha256": "1b7523bf145f03dbaf73ceae2aa256e17505bbb1c2693e339bc399c64e1654c9"
+        },
+        "readback_path": "entry/native-sources/5959920397.json",
+        "extraction_checked": "Exact 11253-byte prefix; 392-byte native footer excluded",
+        "matches_cached_source": true
+      }
+    },
+    {
+      "key": "C101",
+      "path": "sources/C101.md",
+      "bytes": 36333,
+      "sha256": "300d0d18abb74332e593e389485c817a3c0ea7c31345194e3cfdd4039ac3b5c4",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5967063473",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "copied_from": "work/continuation101/PROOF.md",
+      "fresh_native_binding": {
+        "comment_id": 5967063473,
+        "created_at": "2026-10-03T08:11:34Z",
+        "updated_at": "2026-10-03T08:11:34Z",
+        "full_native_body": {
+          "bytes": 36333,
+          "sha256": "300d0d18abb74332e593e389485c817a3c0ea7c31345194e3cfdd4039ac3b5c4"
+        },
+        "readback_path": "entry/native-sources/5967063473.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "landed_native_incorporation": {
+        "commit": "b55b8f34d09084300088105b90fe60759fd7e144",
+        "path": "frontiers/planar_soft_layer_chain_20261003/C101/PROOF.md",
+        "full_git_blob": {
+          "bytes": 36333,
+          "sha256": "300d0d18abb74332e593e389485c817a3c0ea7c31345194e3cfdd4039ac3b5c4"
+        },
+        "extraction": "full blob",
+        "matches": true
+      }
+    },
+    {
+      "key": "C82_REVIEW",
+      "path": "sources/C82_REVIEW.md",
+      "bytes": 4301,
+      "sha256": "bf6425b5fa878aafcf60b618ba85c16c22f9b2548615f790c1a1f43d138e1e72",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959988102",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "copied_from": "work/continuation82/review/NONAUTHOR_REVIEW.md",
+      "fresh_native_binding": {
+        "comment_id": 5959988102,
+        "created_at": "2026-10-02T19:35:11Z",
+        "updated_at": "2026-10-02T19:35:11Z",
+        "full_native_body": {
+          "bytes": 4301,
+          "sha256": "bf6425b5fa878aafcf60b618ba85c16c22f9b2548615f790c1a1f43d138e1e72"
+        },
+        "readback_path": "entry/native-sources/5959988102.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      }
+    },
+    {
+      "key": "A4",
+      "path": "sources/A4.md",
+      "bytes": 16544,
+      "sha256": "acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972396791",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "copied_from": "work/continuation123/checkout/frontiers/planar_rejected_endpoint_margin_20261003/A4/PROOF.md",
+      "fresh_native_binding": {
+        "comment_id": 5972396791,
+        "created_at": "2026-10-03T18:53:16Z",
+        "updated_at": "2026-10-03T18:53:16Z",
+        "full_native_body": {
+          "bytes": 16544,
+          "sha256": "acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c"
+        },
+        "readback_path": "entry/native-sources/5972396791.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "historical_incorporation_binding": {
+        "commit": "5217c22a9e2921a5d46192654cc5ce890fddd7e1",
+        "path": "frontiers/planar_rejected_endpoint_margin_20261003/A4/PROOF.md",
+        "matches": true,
+        "boundary": "Historical author PR256 snapshot; no current branch or integration claim"
+      }
+    },
+    {
+      "key": "A4_REVIEW",
+      "path": "sources/A4_REVIEW.md",
+      "bytes": 18420,
+      "sha256": "b27f530d243d92a15302026eb66731de8f50464e71941bf1a03b983713b012f8",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972610615",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "copied_from": "work/continuation123/checkout/frontiers/planar_rejected_endpoint_margin_20261003/A4/REVIEW.md",
+      "fresh_native_binding": {
+        "comment_id": 5972610615,
+        "created_at": "2026-10-03T19:15:10Z",
+        "updated_at": "2026-10-03T19:15:10Z",
+        "full_native_body": {
+          "bytes": 18420,
+          "sha256": "b27f530d243d92a15302026eb66731de8f50464e71941bf1a03b983713b012f8"
+        },
+        "readback_path": "entry/native-sources/5972610615.json",
+        "extraction_checked": "Entire native UTF-8 body; no normalization or added LF",
+        "matches_cached_source": true
+      },
+      "historical_incorporation_binding": {
+        "commit": "5217c22a9e2921a5d46192654cc5ce890fddd7e1",
+        "path": "frontiers/planar_rejected_endpoint_margin_20261003/A4/REVIEW.md",
+        "matches": true,
+        "boundary": "Historical author PR256 snapshot; no current branch or integration claim"
+      }
+    }
+  ],
+  "prior_manifest": {
+    "path": "work/continuation101/SOURCE_IDENTITIES.json",
+    "bytes": 7191,
+    "sha256": "f9f14a3ff629344a4bf7650587c40725bd3fb8c4b7c7c2b1704add677d589de9"
+  },
+  "scope": "Planar k=1 correlated saddle-band and endpoint Gaussian-tail rate candidate only",
+  "boundary": "Exact cached bytes copied; 14 fresh native comment readbacks, 6 immutable Git/current-source bindings, 9 current landed native-proof bindings, 2 historical A4 incorporation bindings. No source payload execution, project test, master, proof edit, source-status promotion or review vote. Historical owner-reading labels are preserved bytes; current5973603003 clarification applies."
+}
+`````
