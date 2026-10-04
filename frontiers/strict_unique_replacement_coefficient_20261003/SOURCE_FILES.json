@@ -1,0 +1,107 @@
+{
+  "object": "C113-STRICT-UNIQUE-REPLACEMENT-COEFFICIENT-20261003-v1",
+  "scientific_effect": "NONE",
+  "status": "Exact source identities; analytic interfaces retained, not newly accepted",
+  "sources": [
+    {
+      "key": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "consumed_slices": "Sections 1-5, (7.8), Sections 8-10 as retained by U; positive Gaussian density and one full normalizer",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "CAP",
+      "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "bytes": 15160,
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+      "consumed_slices": "Marked cylinder-cap interface retained by U; not reaccepted",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "E1",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "consumed_slices": "Congruence correction retained by U; not reaccepted",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "E2",
+      "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "consumed_slices": "Full-field Borel marked identity retained by U; not reaccepted",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "REC",
+      "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "consumed_slices": "W1/embedded-chart and source-reading rules retained by U",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "CUB",
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "consumed_slices": "C1-C8: cubic, root types, source polynomial notation; G6-G13: original joint Gaussian law and positive finite failure measure",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "ELDER",
+      "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+      "commit": "044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43",
+      "blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "bytes": 39722,
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "consumed_slices": "Theorem E and Section 7: actual elder partner is the unique highest continued window saddle; U retained tail and coefficient interfaces",
+      "status": "Retained analytic hypothesis; no new acceptance"
+    },
+    {
+      "key": "U",
+      "commit": "b5bf02879a5645da9a69d9944dee610e6bb14bf6",
+      "path": "frontiers/unique_replacement_bar_intensity_20261001/PROOF.md",
+      "blob": "9c79a672f5d81e04972032b2f1faf185f4664fa5",
+      "bytes": 17545,
+      "sha256": "ba1901cbb4bac037befb21d648172ac3ba04aa370f5377a2919c0da988572552",
+      "consumed_slices": "Sections 1-3, (3)-(6): exact fixed population, coefficient measure, reciprocal count and D in {1,2}",
+      "status": "Explicit conditional candidate input; disposition unchanged"
+    },
+    {
+      "key": "U_ROOTS",
+      "commit": "b5bf02879a5645da9a69d9944dee610e6bb14bf6",
+      "path": "frontiers/unique_replacement_bar_intensity_20261001/ROOTS.md",
+      "blob": "b27d9ac8111c83f4967d837eee22057583c41eae",
+      "bytes": 11969,
+      "sha256": "29e79b60a382b95cc0fa2375b82845a5558942cf81a2a836262e7479f9d570e6",
+      "consumed_slices": "R1-R3: all roots, retained exclusions, boundary nullity and exact rejected count",
+      "status": "Explicit conditional candidate input; disposition unchanged"
+    },
+    {
+      "key": "O",
+      "commit": "a38449c30c44733dfb5cd128d11071fac2e0ea98",
+      "path": "frontiers/replacement_bar_occurrence_20261001/PROOF.md",
+      "blob": "724258d33408f754ffc21848196e1fdd80c8bf6a",
+      "bytes": 12965,
+      "sha256": "b49f2ea5975dc05270f51fea4a3574093f726258cdab94888742507c2caa275f",
+      "consumed_slices": "O1-O4 only for optional lambda_U=L^2 C_U(1) occurrence corollary",
+      "status": "Explicit conditional candidate input; disposition unchanged"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+ "checks": {
+  "T1_exponent_ledger": {
+   "exponents": {
+    "l": "1",
+    "l rho_c^-2": "5/9",
+    "l rho_f^-2": "5/11",
+    "l^2 rho_c^-7": "4/9",
+    "l^2 rho_f^-6": "4/11",
+    "rho_c^2": "4/9",
+    "rho_c^3": "2/3",
+    "rho_f^2": "6/11",
+    "rho_f^5/l": "4/11"
+   },
+   "least": "4/11",
+   "margin_over_1/3": "1/33",
+   "passed": true
+  },
+  "T2_lemma_C_cases": {
+   "cases_both": 2101,
+   "cases_exactly_one": 567,
+   "cases_neither": 1332,
+   "passed": true,
+   "sign_window_cases": 2412
+  },
+  "T3_lipschitz": {
+   "passed": true,
+   "trials": 4000
+  },
+  "T4_vandermonde": {
+   "m": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "passed": true,
+   "trials_per_m": 800
+  },
+  "T5_pinned_product_d2_d3": {
+   "passed": true,
+   "trials": [
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 2,
+     "deg_product": 18,
+     "k": "0",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": true
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 2,
+     "deg_product": 18,
+     "k": "241/100",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": null
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 2,
+     "deg_product": 18,
+     "k": "0",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": true
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 2,
+     "deg_product": 18,
+     "k": "32/25",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": null
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 3,
+     "deg_product": 28,
+     "k": "0",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": true
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 3,
+     "deg_product": 28,
+     "k": "27/20",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": null
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 3,
+     "deg_product": 28,
+     "k": "0",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": true
+    },
+    {
+     "common_Y": true,
+     "const_ok": true,
+     "d": 3,
+     "deg_product": 28,
+     "k": "49/25",
+     "r1_zero": true,
+     "r2_is_Y2_at_k0": null
+    }
+   ]
+  }
+ },
+ "mutant": null,
+ "object": "CL-CANDIDATE-THIRD-ORDER-20261001-v1 controls",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

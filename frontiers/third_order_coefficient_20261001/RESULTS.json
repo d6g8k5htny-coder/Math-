@@ -1,0 +1,99 @@
+{
+ "checks": {
+  "T1_d1_gauss": {
+   "2B2_closed": "0.2300445803",
+   "C0_closed": "0.110110378959",
+   "c": "0.110110378959",
+   "c2": "0.2300445808",
+   "c2_closed_223": "0.2300445803",
+   "c2_minus_closed_223": "5.7e-10",
+   "passed": true
+  },
+  "T2_d1_mixture": {
+   "2B2_closed": "0.5760427425",
+   "C0_closed": "0.269510028583",
+   "c": "0.269510028583",
+   "c2": "0.5760427428",
+   "passed": true
+  },
+  "T3_d2_gauss": {
+   "c": "0.073406919306",
+   "c2": "0.2215244125",
+   "c2_closed_223": "0.2215244106",
+   "c2_minus_closed_223": "1.9e-09",
+   "c2_over_c": "3.01775929",
+   "c2_second_rset": "0.2215244132",
+   "c2_second_rset_minus_closed_223": "2.6e-09",
+   "c_2inf": "0.073406919306",
+   "passed": true
+  },
+  "T4_d3_gauss": {
+   "c": "0.0417759318406",
+   "c2": "0.1612340502",
+   "c2_closed_223": "0.1612340491",
+   "c2_grid_40_80_32": "0.1612340502",
+   "c2_grid_40_80_32_minus_closed_223": "1.0e-09",
+   "c2_minus_closed_223": "1.1e-09",
+   "c2_over_c": "3.85949620",
+   "c2_second_rset": "0.1612340505",
+   "c2_second_rset_minus_closed_223": "1.4e-09",
+   "c_3inf": "0.0417759318406",
+   "grids": "b 56, k 120, cone 48x48; comparisons b 40, k 80, cone 32x32 (both r-sets)",
+   "passed": true
+  },
+  "T5_no_r1_term": {
+   "d2_b-1_k0.2": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "-1.1117"
+   },
+   "d2_b0.3_k0.7": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "1.4342"
+   },
+   "d2_b1.5_k1.3": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "5.1331"
+   },
+   "d3_b-1_k0.2": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "-3.2392"
+   },
+   "d3_b0.3_k0.7": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "0.9682"
+   },
+   "d3_b1.5_k1.3": {
+    "abs_r1_over_A0_below_1e-6": true,
+    "r2_over_A0": "5.0519"
+   },
+   "passed": true
+  },
+  "T6_overlap_term_d2": {
+   "b-1.2": {
+    "A2_b0": "-1.18081920e-03",
+    "agree_1e-6": true,
+    "loss_limit": "-1.18081920e-03"
+   },
+   "b0": {
+    "A2_b0": "-7.56455053e-03",
+    "agree_1e-6": true,
+    "loss_limit": "-7.56455054e-03"
+   },
+   "b0.7": {
+    "A2_b0": "-7.28360713e-03",
+    "agree_1e-6": true,
+    "loss_limit": "-7.28360714e-03"
+   },
+   "b2": {
+    "A2_b0": "-1.48947166e-03",
+    "agree_1e-6": true,
+    "loss_limit": "-1.48947166e-03"
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-THIRD-ORDER-COEFF-20261001-v1.4 controls",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

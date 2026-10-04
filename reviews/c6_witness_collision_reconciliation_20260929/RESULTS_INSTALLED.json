@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "IDENTITIES": true,
+    "MONOTONE": true,
+    "NEGATIVES": true,
+    "OBLIGATION": true,
+    "OPEN_RESIDUAL": true,
+    "SELECTOR": true,
+    "TRANSITIONS": true,
+    "VERDICTS": true
+  },
+  "inventory_files": 22,
+  "object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1",
+  "passed": true,
+  "register_state": "installed",
+  "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain (live register baseline or exactly installed), monotonicity, open-item and selector-cell checks; no mathematics is re-proved"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "source_scope": "Conditional exact interfaces; no parent revalidation",
+  "sources": [
+    {
+      "id": "E",
+      "commit": "ae343a1c2a0070476fed4d31a15b6911831edd4d",
+      "path": "frontiers/elder_partner_extremes_20260930/PROOF.md",
+      "bytes": 17895,
+      "git_blob": "91f88e392fb8aa947dac4fc81c2b45f783fa66cd",
+      "sha256": "db6a857879e5829c0da62e3812faa55be5c140589d6d800a479197c68cc8ddd7",
+      "use": "Explicit selected density and normalization, deterministic root selector, square doublet law and lifetime map. Gaussian interpretation remains conditional; author exposure."
+    },
+    {
+      "id": "C",
+      "commit": "56a7904f9ad7d409c31e23195c0e7eeab230613a",
+      "path": "frontiers/extreme_cluster_sampling_20260930/PROOF.md",
+      "bytes": 21891,
+      "git_blob": "19a6044f2066643b5baab34ce5b6b6efb431e84a",
+      "sha256": "b90cf745e2e67bc9b501c481552f7080d27c28245580668cf72aefa5b7f04715",
+      "use": "E12-E17 deterministic companion and doublet classification only; no additional Gaussian source claim. Author exposure."
+    }
+  ]
+}
