@@ -1,0 +1,8 @@
+L0 raw cubic: G = P o chart; pins at raw M and raw S           7/7     PASS
+L1 LE margin: 4h >= 2 min(1, a_M/(g^2+72))|v|^2            57005/57005 PASS
+L2 LE Taylor identity with exact pins                       1250/1250  PASS
+L3 Good_LE scalar margin bookkeeping                        3309/3309  PASS
+L4 fixed-Lambda ledgers: exponent 2/3 - eps                    9/9     PASS
+L5 growing-Lambda ledger: every beta < 2/3                    23/23    PASS
+mutant: none
+total checks: 61603; failures: 0

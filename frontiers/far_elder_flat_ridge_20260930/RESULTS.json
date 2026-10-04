@@ -1,0 +1,67 @@
+{
+ "checks": {
+  "F1_flat_component_two_maxima": {
+   "info": {
+    "above_death_level": {
+     "K": 21,
+     "component_points": 4873,
+     "elder_component_present": true,
+     "grid_points_above_t": 10907,
+     "max_ratio_|grad|^2/(2K(b-f))": "350/451",
+     "x_interval": [
+      "3/25",
+      "38/25"
+     ]
+    },
+    "at_death_level": {
+     "K": 21,
+     "component_points": 4884,
+     "elder_component_present": true,
+     "grid_points_above_t": 10923,
+     "max_ratio_|grad|^2/(2K(b-f))": "350/451",
+     "x_interval": [
+      "1/10",
+      "38/25"
+     ]
+    }
+   },
+   "passed": true
+  },
+  "F2_uphill_segment": {
+   "info": {
+    "K": 21,
+    "segments": 16
+   },
+   "passed": true
+  },
+  "F3_near_cubic_consistency": {
+   "info": {
+    "points": 189
+   },
+   "passed": true
+  },
+  "F4_lemma3_constants": {
+   "info": {
+    "gradient_constant": "3",
+    "value_constant": "3"
+   },
+   "passed": true
+  },
+  "F5_exponent_ledger": {
+   "info": {
+    "ledger": "K0^(dN) ell^N"
+   },
+   "passed": true
+  },
+  "F6_shell_geometry": {
+   "info": {
+    "N_range": "1..6",
+    "separation": "rho/(4N) between sites, rho/4 from y"
+   },
+   "passed": true
+  }
+ },
+ "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

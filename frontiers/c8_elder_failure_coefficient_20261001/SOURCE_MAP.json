@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "object": "CL-C8-ELDER-FAILURE-COEFFICIENT-20261001-v1",
+  "scientific_effect": "NONE",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "main_at_creation": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "note": "Certified interval enclosures of explicit Gaussian integrals that [NUM] (from [CL]/[CUB]) and [S] define, for the reference (continuum) kernel. The identifications of alpha_1, alpha_2, a_fail and C_fail^{B,K} with model quantities are those of the sources and are not re-proved or accepted here. [LDC] is an open pull request, used only for comparison constants. The d = 3 corollary is conditional in addition on [FIB] (Math-#175) and [HD] (Math-#184), both open.",
+  "sources": [
+    {
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/NOTE.md",
+      "bytes": 11018,
+      "sha256": "f20c1ac96b00edc071e428bd2e5dc4c91b8546a3ee0693367b783109b26aa518",
+      "git_blob": "845881d40520d4acbe15ee196a1ba0d5412eafa1",
+      "id": "NUM",
+      "commit": "e27b4c80a4f2b11227a7139f819b3e9ba4de8493",
+      "role": "section 2: the jet covariances, the even/odd regression, A ~ N(-b, 2), p_b(0) = phi(b/sqrt2)/sqrt2, z_0 = 36 k^2 m_(2,b), (a, beta, c) ~ N(0, diag(2, 2, 6)) and alpha_j = [phi(b/sqrt2)/(sqrt2 36 k^2 m_(2,b))] J_j(k); section 3: B, D, the typed domain s < -|B|/2, the weight 9k^2 (4s^2 - B^2), the classifier (n = 2 iff s > B and g(s) > 0; n = 1 iff g(s) < 0) and I_j; the floating values compared in section 9",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/local_elder_geometry_20260930/PROOF.md",
+      "bytes": 39722,
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "git_blob": "ef2aa57959ea9f721bbf2316ce94cf616c1c9113",
+      "id": "S",
+      "commit": "79f18f0cb318fceccd5bdf4e6dad29815165bc7d",
+      "role": "Theorem S, (S2): r^-3 (1 - p_r) -> a_fail = alpha_1 + alpha_2; section 9: C_fail^{B,K} = int_{B x K x S^1} A_0 a_fail/(3k^(5/3)), nu_rej ~ C_fail ell^(2/3), E N_rej(0, t] ~ (3/5) C_fail t^(5/3). AUTHOR_SIDE / HOLD in its own README; consumed as a statement, not reviewed",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "id": "LP",
+      "commit": "b6282ecc44cf63664a989efd055e473aa1abc50b",
+      "role": "section 2: the kernel; (10.2)-(10.3): A_r = 12 pi_r Z_r / r^2 -> A_0 = 12 pi_0 z_0; section 15: pi_0 = p_(f,V_u)(b, 0) p_G(0) phi_tau_u(12k), z_0 = (6k)^2 E[(det A_u)^2 1{A_u < 0} | f = b, V_u = 0]",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_law_20260929/PROOF.md",
+      "bytes": 70131,
+      "sha256": "96b8e2d59defee6059bf151a896b7fc7c91fc529b385a3db8a87574901197b38",
+      "git_blob": "ba492c8e62e58bfc055fc8254c790e893d346ba5",
+      "id": "CL",
+      "commit": "4807bfffb880ce9e4ae3b04a3faf0dd777a9945c",
+      "role": "Theorem N, (1.3) and (3.11): the near coefficients alpha_1, alpha_2 and nu(2) = alpha_2 (through [NUM]); nonauthor-accepted (OpenAI review 5360192822) and merged",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "git_blob": "bb446d08db8a944537a743ad550b88c1c2ad5758",
+      "id": "CUB",
+      "commit": "325c5ebdc2ca0165b483cddce8972ee2d0252c79",
+      "role": "Theorem C (the classifier of the sheared cubic), Theorem F (alpha_1, alpha_2 finite and positive), Theorem B (parity factorization), through [NUM]",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+      "bytes": 4095,
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb",
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f",
+      "id": "NUM-R",
+      "commit": "0b35e76ff05676e6ad5c89171d65807668c8de15",
+      "role": "floating Gauss-Hermite and Monte Carlo values of J_1, J_2; read only by controls.py for the comparison table (not part of the certificate)",
+      "current_required": true,
+      "on_main": true
+    },
+    {
+      "path": "frontiers/c8_lifetime_difference_constant_20261001/NOTE.md",
+      "bytes": 30864,
+      "sha256": "d77c9ab1792f1cba55c512828ad0601216068167b56bc4c912f9e8e7d985ae3e",
+      "git_blob": "0f6c7fb79988b52e26c1e2f1456ab196f075ecf0",
+      "id": "LDC",
+      "commit": "d748c2abee2cbfbad6504b5700c70bbd83ba5785",
+      "role": "Math-#215 (open, not on main): C_{B,K}(1/4096) = 402.5297, Gamma_2 = 307.51 (floating) and Theorem L (eps_2 <= 3.96e-10); comparison and scope remarks only",
+      "current_required": false,
+      "on_main": false
+    },
+    {
+      "path": "frontiers/concave_fibre_elder_20260930/PROOF.md",
+      "bytes": 23416,
+      "sha256": "5681896a6808f48fb7508914d0860ec508af7646e9e706fc260d935dd951c75e",
+      "git_blob": "923d3236b5291a29bd162937f172190db84dcef5",
+      "id": "FIB",
+      "commit": "701dff49119897932ebe1891657126eafe395711",
+      "role": "Math-#175 (OpenAI/Codex, open, AUTHOR_SIDE/HOLD): Theorem F (S3), (1 - p_r)/r^3 -> a1 + a2 in fixed d >= 3, and (L1), C_fail^{B,K} = int_{B x K x S^(d-1)} A0 a_fail/(3k^(5/3)); consumed as statements for the d = 3 corollary only",
+      "current_required": false,
+      "on_main": false
+    },
+    {
+      "path": "frontiers/c6_hard_direction_factorization_20260930/PROOF.md",
+      "bytes": 22456,
+      "sha256": "26743f82bf4b86d4ae4c7dfb085d4d15bf36014aa627dee5edfc86a75ca64c05",
+      "git_blob": "91d22fce0fd7d4630bfe2e2c93eab289babc97f2",
+      "id": "HD",
+      "commit": "d37ff5d0315a4f71453d37f0cae2da1f40fdef3c",
+      "role": "Math-#184 (Anthropic/Claude, open; OpenAI nonauthor ACCEPTs 5366497205 (Slices A/B) and 5366261768 (Slice C)): Theorem 1 and Corollary 1, a_j^(d) = R_d(b) a_j^(2), R_d = N_d m_(2,b)/m_(d,b), N_3(b) = pi (2 pi)^(-1/2) int_0^inf h^3 phi_2(h - b) dh, R_3(0) = (32 + 28 sqrt2)/17; consumed for the d = 3 corollary only",
+      "current_required": false,
+      "on_main": false
+    }
+  ],
+  "nonauthor_acceptance": false,
+  "governing_status_changed": false
+}
