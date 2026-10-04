@@ -2,7 +2,7 @@
 
 **Object** `CL-SIDE24-D4-CLOSED-FORM-20260930-v1` · **scientific effect NONE** · declarative record, `executed: false` ·
 base `main 3e0a91b` · claim: Math-#200 comment 5918942608 · companions: Math-#200 (`coefficients/side24_d5_20260930`, head
-`33d50de`), whose reduction is the input and whose certified enclosure is the independent check, and Math-#201
+`74b1310`), whose reduction is the input and whose author-side certified enclosure is the independent check, and Math-#201
 (`coefficients/side24_d4_closed_form_20260930`), whose exact arithmetic and lemmas are extended here by one cumulative layer.
 `coefficients/side24_v1` is unchanged; catalog entry C8 stays OPEN; no register, GRAPH, STATUS or catalog surface is touched.
 Same GitHub account as every lane: zero organizational-independence credit. Claude reads of this record count for nothing.
@@ -39,7 +39,7 @@ and on SIDE24 at its stated scope. `D_5` (`d = 6`) is not claimed (§6).
 reduces `D_4` (unmerged; the Proposition is conditional on that reduction; the reduction is exact algebra on the ordered-sector integrand, re-run here by the same code, and checked at
 `m = 1, 2, 3` against `4/3`, `29/6 − √6` and Math-#201's `D_3` through the identical path). The computation lives in the
 finite-dimensional `Q`-vector space with basis `√r · π^{k/2} · A` (`r` squarefree, `k ∈ Z`, `A = 1` or an arctan atom), so its
-output is an identity. Math-#200's certified enclosure of `D_4` (an independent method: order-40 Taylor quadrature with Cauchy
+output is an identity. Math-#200's author-side certified enclosure of `D_4` (an independent method: order-40 Taylor quadrature with Cauchy
 remainders and certified cumulative integrals) contains the interval evaluation of the closed form, which lies at its centre
 (`1.94·10⁻⁴²` from either endpoint of a `3.9·10⁻⁴²`-wide enclosure; 43 common digits; rule `D4_INSIDE_CERTIFIED`). Mehta's
 `Z_4 = 1536π` is reproduced **exactly** by the same triangle machinery (rule `MEHTA_Z4_EXACT`).
@@ -196,9 +196,9 @@ and Math-#200 (nonauthor reads open), not on main.
 `coefficients/side24_d5_closed_form_20260930/{NOTE.md, closed_form_d4.py, RESULTS.json, SOURCE_FILES.json}` and
 `.github/workflows/side24-d5-closed-form.yml` (manifest, pins, byte-identical replay in `-B -S` and `-B -O -S`, the stated
 closed-form string, the fourteen mutants). Pins on `main 3e0a91b`: [LP] `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`
-blob `dfed3b8d`; SIDE24 `coefficients/side24_v1/PROOF.md` blob `44b66f04`. Companions, not on `main`: Math-#200 at `aa1d51e`
+blob `dfed3b8d`; SIDE24 `coefficients/side24_v1/PROOF.md` blob `44b66f04`. Companions, not on `main`: Math-#200 at `74b1310`
 (`coefficients/side24_d5_20260930/RESULTS.json` blob `b67c00f4`, the two enclosures quoted in the script; `NOTE.md` blob
-`bb931d46`, the reduction); Math-#201 at `3abcc10` (`closed_form_d3.py` blob `a0c91692`, the arithmetic and L1, L3–L4, reused
+`7d12f050`, the reduction); Math-#201 at `6276eba` (`closed_form_d3.py` blob `5e7e4e59`, the arithmetic and L1, L3–L4, reused
 verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identical to `RESULTS.json`); `--mutant NAME` exits 1.
 
 ## 8. Current disposition
@@ -210,7 +210,7 @@ verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identi
   author-side certified enclosure. No theorem of [LP] or SIDE24 is proved or reviewed.
 - **Completed review scopes:** Codex code review 5371784947 at `60e56ef` (two findings: one taken, one declined with reasons).
   Nonauthor read S4 by Grok Bot agent 13 (Grok Bot support agent; non-Claude, nonauthor lane) at `4512309`, Slices A–C: AMEND,
-  no BLOCK, no numerical disagreement (an independent route reproduces `D_4` to `1.5·10⁻¹⁵`); F1–F7 applied in v1.2.
+  no BLOCK, no numerical disagreement (an independent route reproduces `D_4` to `1.5·10⁻¹⁵`, relative, float evidence); F1–F7 applied in v1.2.
 - **Unresolved finding IDs:** 4149168070 (P1, the replay workflow vs the 2026-09-27 owner stop; declined with reasons; the
   disposition is ledger task B on main#229, left to a non-Claude lane).
 - **Validation:** 16/16 rules in `-B -S` and `-B -O -S`, byte-identical output; 14/14 mutants rejected in both modes; the
@@ -235,3 +235,10 @@ verbatim). Run: `python3 -B -S closed_form_d4.py` (exit 0, JSON on stdout identi
   to `aa1d51e` (`NOTE.md` blob `bb931d46`; `RESULTS.json` blob unchanged, `b67c00f4`). F6: the displayed digits of `D_4` end
   `…0215842…` (the true digits are `…0215842092…`; the old trailing `18` lay beyond the certified prefix). F7: §8 synced with
   the PR's disposition block.
+- **v1.3 (S4 readback, Math-#202 comment 5974757288, on `db3d389`; header pin and companions only).** R1: the NOTE header
+  still pinned Math-#200 at `33d50de`; it now names `74b1310`. The companion pins follow the companions' own nonauthor
+  amendments: Math-#200 moves to `74b1310` (S2's v1.2; `NOTE.md` blob `7d12f050`, `RESULTS.json` blob unchanged,
+  `b67c00f4`, so the quoted enclosures are unchanged), and Math-#201 moves to `6276eba` (S3's v1.1; `closed_form_d3.py`
+  blob `5e7e4e59`, whose only change is `"certified": passed` in the output dict, so every reused function is identical).
+  N1, N2: "author-side certified enclosure" in the header and §0, and "relative, float evidence" in §8. No script or
+  `RESULTS.json` byte changed.
