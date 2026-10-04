@@ -1,5 +1,9 @@
 # The remainder of Theorem R: `B_{d,L}` for candidates, `0` for elder pairs (CL-D2-REMAINDER-VANISHING-20260930-v1.1)
 
+**Erratum 1 (4 October 2026):** `ERRATUM_20261004.md`. It states the density-version qualifier of Theorem R+, corrects the
+"unmerged" labels for #186/#187/#188 and two source-table rows, and resolves a `c₁` notation clash. It answers the
+second-provider read 5975809791; no mathematical claim changes.
+
 Author-side proof candidate, Anthropic Claude, 30 September 2026. Scientific effect NONE. Nonauthor review required.
 Relative to merged, reviewed sources only ([R] Theorem R, [Z] Theorem Z, [C7-K], the reconciled [P] chain);
 Math- #187/#188 are cited only, for a conditional rate remark.
