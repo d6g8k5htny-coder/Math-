@@ -24,13 +24,15 @@ polynomial exponent, offered for nonauthor review — not a replacement of a rev
   bound is informative only for `ρ ≫ ℓ^{1/4}`. Whether all-order decay holds for `ρ ≥ ℓ^a`, `a < 1/4`, is open.
 
 **Extension C89 (incorporated 3 October 2026; `PROOF.md` and Theorem G unchanged).** OpenAI / Codex
-(`root01a0bbb5`) proved a quantitative, moving-cutoff form of Theorem G on this PR. A separate OpenAI / Codex
-reviewer passed it as PASS_TECHNICAL_SCOPED, with organizational independence 0. It is kept here byte for byte.
+(`root01a0bbb5`) posted on this PR an additive analytic candidate: a quantitative, moving-cutoff form of Theorem G,
+with the imported [P]/[G]/E2/REC hypotheses retained. A separate OpenAI / Codex reviewer passed that exact object as
+PASS_TECHNICAL_SCOPED, with organizational independence 0. Dylan Roy's personal reading is PENDING (the source's own
+label; by the owner's clarification 5973603003 it is not a pending gate). It is kept here byte for byte.
 - `C89_V1_1_PROOF.md`, Theorem QSF (comment 5963100306). Write `F(ℓ, ρ)` for [G]'s density (0.1) at separation `≥ ρ`.
   For every integer `q ≥ 1` put `N = 2(q + 1)`, `J = (d + 1)(d + 2)/2` and `A_N = 24J + 12dN + 12N(N + 1)(d + 1)`.
   Then `F(ℓ, ρ) ≤ C_q ρ^{−A_N} ℓ^{q+1}` for `0 < ρ ≤ min(1, L/4)` and `0 < ℓ ≤ ρ²/(64N²)`. Consequences:
   - `F(ℓ, ℓ^β) = O(ℓ^q)` for each fixed `0 < β ≤ 1/A_N`;
-  - `F(ℓ, c[log(e/ℓ)]^{−a}) = O(ℓ^q)` for every fixed `q`.
+  - `F(ℓ, c[log(e/ℓ)]^{−a}) = O(ℓ^q)` for every fixed `q`, for fixed `a, c > 0`.
 
   In `d = 2` with `q = 1`, `A_N = 960`, so `F(ℓ, ℓ^{1/960}) = O(ℓ)`.
 - `C89_V1_PROOF.md`, the historical v1 (comment 5963042579). It keeps its AMEND: its explicit constant was a
@@ -44,10 +46,11 @@ reviewer passed it as PASS_TECHNICAL_SCOPED, with organizational independence 0.
 does not use Remark 6. This packet's author checked those uses against `PROOF.md`; that is an author-side
 interface check, not a review of C89.
 
-**How it bears on Remark 6.** Remark 6 shows, conditionally on merged #198, that Theorem G's constant must grow
-at least like `ρ^{1−4N}` as `ρ ↓ 0`. C89 gives an explicit polynomial upper growth `ρ^{−A_N}`. It does not settle
-all-order decay at any fixed power cutoff `ρ = ℓ^a`, because order `q` needs `β ≤ 1/A_{2(q+1)}`, which shrinks as
-`q` grows. All orders do hold at logarithmic cutoffs.
+**How it bears on Remark 6.** Remark 6 shows, conditionally on merged #198, that Theorem G's constant at order `n`
+must grow at least like `ρ^{1−4n}` as `ρ ↓ 0`. At the same order `n = q + 1`, C89 gives an explicit polynomial upper
+growth `ρ^{−A_{2n}}` (C89's `N = 2(q + 1)` is a site count, not the order). It does not settle all-order decay at
+any fixed power cutoff `ρ = ℓ^a`, because C89's bound for order `q` requires `β ≤ 1/A_{2(q+1)}`, which shrinks as
+`q` grows. At a fixed logarithmic cutoff, each fixed order `q` holds separately (no uniformity in `q`).
 
 **Not established by C89** (its §5 and the review): contact or intermediate localization; regional
 multiple-witness collision; actual-field confinement; witness uniqueness; control of rejected candidates; and the

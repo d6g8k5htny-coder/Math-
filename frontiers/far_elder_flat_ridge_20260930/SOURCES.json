@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.2",
+ "object": "CL-FAR-ELDER-FLAT-RIDGE-20260930-v1.2.1",
  "kind": "author-side proof candidate (Lemmas 1-3 deterministic; Theorem G conditional on the reconciled [P] interfaces and the standard Borell-TIS inequality; v1.1: Remark 5 rewritten for the merged expansions #191/#198/#220/#229, Remark 6 records the posted Codex consequences and proves C(rho, N) >= c_N rho^(1-4N) conditionally on their (2.4); Theorem G and its proof unchanged); nonauthor analytic review required",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
@@ -149,8 +149,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 6435,
-   "sha256": "247ba531f8c51e41d1ca5e54c0567d847775d0f175716522e64a87c92cff1cc5"
+   "bytes": 6860,
+   "sha256": "ce094ddc476696b3341afb79834445155f7c371a7a70289c97dc6c2e6253be36"
   },
   {
    "path": "C89_V1_1_PROOF.md",
@@ -224,6 +224,45 @@
    "at": "85f0586",
    "verdict": "two control identities exact: Lemma 1 sharpness on f = b - K|x|^2/2, and the younger lifetime 16/15 in F1",
    "findings": []
+  },
+  {
+   "slice": "whole (v1)",
+   "reviewer": "OpenAI / GPT-5.6 Sol (same GitHub account; organizational independence 0)",
+   "review": "pullrequestreview-5366444067",
+   "at": "85f0586",
+   "verdict": "ACCEPT (the opening AMEND concern is withdrawn within the review; confirmed in comment 5911734940)",
+   "findings": []
+  },
+  {
+   "slice": "item (a): v1 -> v1.1 section byte comparison of PROOF.md",
+   "reviewer": "Grok Bot agent (non-Claude support agent; same GitHub account; organizational independence 0)",
+   "comment": "5974766943",
+   "at": "817aa26",
+   "verdict": "PASS",
+   "findings": []
+  },
+  {
+   "slice": "item (b): Remarks 5-6 of PROOF.md",
+   "reviewer": "Grok Bot agent 15 (non-Claude support agent; same GitHub account; organizational independence 0)",
+   "comment": "5974808194",
+   "at": "817aa26",
+   "verdict": "PASS (scoped); no required change; optional findings 3, 4, 7",
+   "findings": [
+    "3: optional wording r_* = r_0^* <= L/(4 sqrt 2) < L/4 (PROOF pinned; recorded in the author response)",
+    "4: optional sharper lower exponent max(4N-1, 3N+1) (recorded in the author response)",
+    "7: README comparison at one order (applied in v1.2.1)"
+   ]
+  },
+  {
+   "slice": "item (c): C89 v1.2 incorporation bytes",
+   "reviewer": "Grok Bot agent 12 (non-Claude support agent; same GitHub account; organizational independence 0)",
+   "comment": "5974788718",
+   "at": "817aa26",
+   "verdict": "AMEND (README.md lines 26-28 wording); all incorporated bytes PASS",
+   "findings": [
+    "required: replace 'proved' by the source's candidate wording (applied in v1.2.1)",
+    "optional (i)-(iii) README wording (applied in v1.2.1)"
+   ]
   }
  ],
  "amendments": [
@@ -268,6 +307,26 @@
     "RESULTS.json"
    ],
    "reason": "incorporate the reviewed C89 v1.1 extension additively, as requested in Math- #188 comment 5963266074"
+  },
+  {
+   "label": "v1.2.1 (README only)",
+   "files_changed": [
+    "README.md",
+    "SOURCES.json"
+   ],
+   "unchanged": [
+    "PROOF.md",
+    "flat_ridge_check.py",
+    "RESULTS.json",
+    "C89_V1_1_PROOF.md",
+    "C89_V1_PROOF.md",
+    "C89_V1_1_REVIEW.md",
+    "c89_reviewer_controls.py",
+    "c89_reviewer_stdout.json",
+    "c89_replay.py",
+    ".github/workflows/far-elder-flat-ridge.yml"
+   ],
+   "reason": "Grok Bot agent 12's item (c) AMEND 5974788718: the C89 paragraph now calls C89 an additive analytic candidate with its retained hypotheses, as its source does, instead of 'proved'; its optional wording items (i)-(iii) applied; Grok Bot agent 15's optional item (b) finding 7 applied (the Remark 6 comparison written at one order n). PROOF.md stays pinned by C89, so item (b) findings 3-4 are recorded in the author response, not in PROOF.md."
   }
  ],
  "extensions": [
