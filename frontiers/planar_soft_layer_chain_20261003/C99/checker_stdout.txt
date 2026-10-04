@@ -1,0 +1,58 @@
+C99 independent exact rational controls
+Python 3.12.14
+coarea_mass: 6 passed
+critical_value_chain_rule: 3 passed
+cubic_scaling: 25 passed
+derivative_denominator: 6 passed
+discontinuous_weight_coarea: 6 passed
+escaping_tail_fixture: 1 passed
+exact_root_determinants: 20 passed
+exact_root_heights: 20 passed
+exact_roots: 20 passed
+field_first: 9 passed
+field_first_mass: 9 passed
+field_first_normalization: 1 passed
+full_normalizer: 3 passed
+generic_failure: 5 passed
+global_mass_completion: 64 passed
+gradient_scaling: 25 passed
+h_power: 3 passed
+hessian_scaling: 25 passed
+inverse_boundary_transfer: 3 passed
+kernel_variation: 1 passed
+moving_endpoints_control: 6 passed
+radial_density: 12 passed
+radial_reciprocal_mass: 3 passed
+radial_support: 12 passed
+rare_scale: 3 passed
+regression_affinity: 3 passed
+scaled_shear: 5 passed
+uniform_not_C1: 15 passed
+weak_not_L1: 5 passed
+weight_and_eta_jacobian: 5 passed
+weighted_pushforward_split: 6 passed
+Positive controls: 330
+Rejected false-inference fixtures: 21
+REJECTED: raw_field_scaling_is_not_target_regression
+REJECTED: differentiate_count_and_ignore_jump_mass
+REJECTED: omit_scalar_jacobian
+REJECTED: drop_reciprocal_count
+REJECTED: replace_reciprocal_by_one_half
+REJECTED: uniform_maps_alone_force_L1
+REJECTED: weak_limit_plus_mass_force_L1_without_local_L1
+REJECTED: radial_density_missing_factor_three
+REJECTED: second_full_normalizer
+REJECTED: full_normalizer_has_soft_scale_r4
+REJECTED: omit_eta_jacobian_k4
+REJECTED: unordered_pair_half_factor
+REJECTED: actual_pair_needs_rejected_reciprocal
+REJECTED: finite_h_death_jacobian_is_h_minus3
+REJECTED: fixed_k_pin_boundary_is_null_by_scaling
+REJECTED: zero_gap_has_positive_scalar_jacobian
+REJECTED: negative_affine_rescaling_preserves_older_endpoints
+REJECTED: variation_of_integral_equals_integral_variation
+REJECTED: local_L1_without_mass_excludes_escape
+REJECTED: D18a_without_nonnegativity
+REJECTED: omit_area_factor_in_occurrence
+No Gaussian/topological/null-set/convergence theorem is certified by these finite controls.
+PASS_EXACT_SUPPORTING_CONTROLS
