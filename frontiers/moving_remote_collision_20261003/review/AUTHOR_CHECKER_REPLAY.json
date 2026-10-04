@@ -1,0 +1,16 @@
+{
+  "recorded_at_utc": "2026-10-03T11:53:16.980274+00:00",
+  "exposure_order": "Opened only after CONTROL_DESIGN.md, independent_controls.py and INDEPENDENT_RUNS.json were frozen",
+  "scope": "author finite-control engineering read and replay only",
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "-S",
+    "work/continuation107/author_controls.py"
+  ],
+  "returncode": 0,
+  "stdout": "C107 author finite controls; exact arithmetic; no theorem acceptance\nPython 3.9.6\nPASS confluent_order_four_sharp: 1\nPASS confluent_order_four_zero: 10\nPASS delta_power_ledger: 1\nPASS eighth_moment_exponent: 3\nPASS endpoint_inverse: 28\nPASS finite_fourier_support: 30\nPASS global_sine_collision_fixture: 1\nPASS hermite_integral_cancellation: 81\nPASS hermite_jet_match: 162\nPASS moving_rho_exponent: 1\nPASS moving_rho_threshold: 1\nPASS multiple_witness_integer_bound: 33\nPASS normalized_r_power: 1\nPASS ordered_factorial_count: 33\nPASS pair_probability_integer_bound: 33\nPASS periodic_pair_dual: 24\nPASS periodic_singleton_dual: 6\nPASS radial_integral_power: 3\nPASS radial_integral_split: 3\nPASS raw_to_V_jacobian: 3\nPASS real_fourier_symmetry: 30\nPASS regression_contraction: 3\nPASS regression_square_root_energy: 3\nPASS rho_exponent_ledger: 1\nPASS separated_r_power: 1\nPASS six_dimensional_covariance_determinant: 3\nPASS six_dimensional_density_exponent: 3\nPASS unnormalized_r_power: 1\nPASS witness_inverse: 28\nREJECTED endpoint_constant_correction\nREJECTED endpoint_linear_correction\nREJECTED witness_quadratic\nREJECTED witness_sign\nREJECTED contact_D_wrong_constant\nREJECTED hermite_cubic_difference_factor\nREJECTED pair_quotient_chain_rule_1/16\nREJECTED pair_chart_chain_rule_1/16\nREJECTED pair_quotient_chain_rule_1/64\nREJECTED pair_chart_chain_rule_1/64\nREJECTED singleton_missing_third_separator\nREJECTED single_separator_for_confluent_third_jet\nREJECTED covariance_floor_unsquared_1/2\nREJECTED regression_cost_understated_1/2\nREJECTED density_dimension_four_1/2\nREJECTED covariance_floor_unsquared_1/4\nREJECTED regression_cost_understated_1/4\nREJECTED density_dimension_four_1/4\nREJECTED covariance_floor_unsquared_1/16\nREJECTED regression_cost_understated_1/16\nREJECTED density_dimension_four_1/16\nREJECTED height_Jacobian_power_1/2\nREJECTED height_Jacobian_power_1/16\nREJECTED height_Jacobian_power_1/128\nREJECTED missing_second_small_witness_determinant\nREJECTED extra_full_normalizer\nREJECTED one_height_window_in_separated_branch\nREJECTED claim_endpoint_alpha_as_decay\nREJECTED ordered_count_divided_by_two\nTOTAL checks=531 mutants=29\nLIMIT: finite controls do not certify continuum, Gaussian, or Kac-Rice steps.\n",
+  "stderr": "",
+  "author_control_sha256": "9063ffb1c09c3ea62cc5dd7e0663ba4a9dada240ff7f9504a5bebfd7e92fec87",
+  "author_design_sha256": "963a797c28c5872097421187d3332e7e9041435d1eb31fca0a186e8dab4f6de7"
+}

@@ -1,0 +1,167 @@
+{
+  "recorded_at_utc": "2026-10-03T11:52:05.270348+00:00",
+  "author_checker_exposure_at_recording": "NONE",
+  "script_sha256": "ae449870aa408a5437d5990b50d331a8af3d4eb063c8c7476f781677530ca873",
+  "control_design_sha256": "161b0c0dc3b18db32a7ba61a868a944d5767c8b780281901ccc5c9f1435f51bb",
+  "proof_sha256": "d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df",
+  "manifest_sha256": "f03da4be8cae14588d7e6e1d215091293dbad199bc9a0013cccca995a4c05a8c",
+  "source_snapshot_checks": {
+    "RC": {
+      "bytes": 26002,
+      "sha256": "b9b8b58fd8266db7ffe6537078003888ef138b445d3289ec5588f116af9050c2",
+      "same_as_manifest": true
+    },
+    "RM": {
+      "bytes": 18355,
+      "sha256": "a332bae9bdc0106ce17047f7e0409cc3d94eb610a0c7b74ba5ba2d01a1620cb7",
+      "same_as_manifest": true
+    },
+    "P": {
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "same_as_manifest": true
+    },
+    "E1": {
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "same_as_manifest": true
+    },
+    "E2": {
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "same_as_manifest": true
+    },
+    "REC": {
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "same_as_manifest": true
+    }
+  },
+  "runs": [
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "-S",
+        "work/continuation107/review/independent_controls.py"
+      ],
+      "returncode": 0,
+      "result": {
+        "positive_evaluations": 425,
+        "positive_families": {
+          "Hermite cubic integral cancellation": 21,
+          "Hermite quadratic integral cancellation": 21,
+          "Schur floor exact": 4,
+          "exact radial integral": 3,
+          "example alpha exponent": 1,
+          "factorial event inequality": 50,
+          "factorial multiplicity inequality": 50,
+          "fold both Hessian determinants": 3,
+          "fold both gradients zero": 3,
+          "fold exact height difference": 3,
+          "full covariance quantitative floor": 4,
+          "joint covariance determinant": 4,
+          "mixed eigenvalue fixed tail scale": 4,
+          "periodic Fourier-degree bound": 36,
+          "periodic killed full jets": 36,
+          "periodic surviving full jets": 36,
+          "pin right inverse all basis data": 18,
+          "radial and radius powers": 1,
+          "regression energy is sharp": 4,
+          "regression mutant violation grows as rho shrinks": 1,
+          "repeated separator annihilates order through three": 30,
+          "separated singleton full jets": 18,
+          "separated singleton killed jets": 18,
+          "separated-volume absorption": 8,
+          "singleton Fourier-degree bound": 18,
+          "six-coordinate exact Jacobian": 3,
+          "six-density eighth-moment exponent": 4,
+          "square-root regression cost": 4,
+          "strict alpha boundary": 1,
+          "witness right inverse all basis data": 18
+        },
+        "rejected_mutant_evaluations": 46,
+        "rejected_mutant_families": {
+          "dropped witness determinant": 3,
+          "little-o claimed at threshold": 1,
+          "missing inverse-chart gradient chain rule": 6,
+          "missing killed-site separator": 6,
+          "nonsaturating second-window factor": 3,
+          "omitted pin cubic correction": 3,
+          "rho-independent regression bound": 4,
+          "rho^-6 regression bound": 4,
+          "simple zero claimed to kill full gradient": 3,
+          "small-variance scale imposed on every tail direction": 4,
+          "wrong Hermite cubic factor": 3,
+          "wrong density Jacobian": 3,
+          "wrong mixed coefficient": 3
+        },
+        "scope": "finite exact controls only; no continuum acceptance or independence credit",
+        "status": "PASS"
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "-S",
+        "-O",
+        "work/continuation107/review/independent_controls.py"
+      ],
+      "returncode": 0,
+      "result": {
+        "positive_evaluations": 425,
+        "positive_families": {
+          "Hermite cubic integral cancellation": 21,
+          "Hermite quadratic integral cancellation": 21,
+          "Schur floor exact": 4,
+          "exact radial integral": 3,
+          "example alpha exponent": 1,
+          "factorial event inequality": 50,
+          "factorial multiplicity inequality": 50,
+          "fold both Hessian determinants": 3,
+          "fold both gradients zero": 3,
+          "fold exact height difference": 3,
+          "full covariance quantitative floor": 4,
+          "joint covariance determinant": 4,
+          "mixed eigenvalue fixed tail scale": 4,
+          "periodic Fourier-degree bound": 36,
+          "periodic killed full jets": 36,
+          "periodic surviving full jets": 36,
+          "pin right inverse all basis data": 18,
+          "radial and radius powers": 1,
+          "regression energy is sharp": 4,
+          "regression mutant violation grows as rho shrinks": 1,
+          "repeated separator annihilates order through three": 30,
+          "separated singleton full jets": 18,
+          "separated singleton killed jets": 18,
+          "separated-volume absorption": 8,
+          "singleton Fourier-degree bound": 18,
+          "six-coordinate exact Jacobian": 3,
+          "six-density eighth-moment exponent": 4,
+          "square-root regression cost": 4,
+          "strict alpha boundary": 1,
+          "witness right inverse all basis data": 18
+        },
+        "rejected_mutant_evaluations": 46,
+        "rejected_mutant_families": {
+          "dropped witness determinant": 3,
+          "little-o claimed at threshold": 1,
+          "missing inverse-chart gradient chain rule": 6,
+          "missing killed-site separator": 6,
+          "nonsaturating second-window factor": 3,
+          "omitted pin cubic correction": 3,
+          "rho-independent regression bound": 4,
+          "rho^-6 regression bound": 4,
+          "simple zero claimed to kill full gradient": 3,
+          "small-variance scale imposed on every tail direction": 4,
+          "wrong Hermite cubic factor": 3,
+          "wrong density Jacobian": 3,
+          "wrong mixed coefficient": 3
+        },
+        "scope": "finite exact controls only; no continuum acceptance or independence credit",
+        "status": "PASS"
+      }
+    }
+  ]
+}
