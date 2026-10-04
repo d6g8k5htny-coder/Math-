@@ -153,3 +153,7 @@ The packets below landed on `main` after this index was last checked (2026-09-26
 ## Repository rule
 
 A reviewed/closed theorem or lemma must have its full proof or immutable byte-bound mirror in this repository plus the exact review/certificate. An open theorem with a complete candidate proof must link it here. An open item without a complete proof must link the strongest partial derivation and state the missing proof explicitly. Superseded/refuted work stays available. Tests and hashes are evidence, not substitutes for analytic proof. A navigation refresh records source availability and existing review scope; any change to [claims/LANDING_CLAIMS.json](claims/LANDING_CLAIMS.json) or the D0-D7 graph requires its own source-bound reconciliation through the existing validators.
+
+## Later frontier proof paths
+
+[Frontier proof reachability and the post-C126 supplement](docs/integration/2026-10-02-proof-reachability.md) retain the original 2 October inventory and add a separately pinned 3 October cut, including routes to the nested soft-layer and A4 records. These are dated availability inventories, not new verdicts or a count of distinct theorems.
