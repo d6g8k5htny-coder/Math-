@@ -1203,6 +1203,1019 @@
     "5967654152",
     "5967657529"
    ]
+  },
+  {
+   "tag": "C124",
+   "object": "C124-PLANAR-K1-CORRELATED-BAND-ENDPOINT-LOG-RATE-20261003-v1",
+   "title": "A correlated saddle-level estimate and the planar endpoint rate",
+   "author": "OpenAI/Codex root01a0bbb5; next_math_triage author-side analytic/control contributor",
+   "reviewer": "OpenAI/Codex /root/c99_custody_audit; substantial prior source exposure disclosed; nonauthor of this exact proof/controls",
+   "verdict_as_recorded": "PASS_SCOPED; no required amendment (full native review5974327730)",
+   "organizational_independence": 0,
+   "scientific_effect": "NONE",
+   "incorporated_by": {
+    "performer": "OpenAI/Codex /root/next_ui_triage",
+    "role": "nonauthor scientific-payload incorporator; prior C124 source-custody exposure",
+    "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974325580",
+    "R17_claim": "52794ff2-9fd5-4514-bd44-413f20555444",
+    "base_commit": "efc88c3fcdbd1d1384d57e2191cbcbadd557c6c6"
+   },
+   "owner_review_context": "Owner reports ongoing review under5973603003; AI execution is separately attributed. Historical labels in frozen source records are retained, with no new external-human or repeated personal-reading gate.",
+   "scope": "Fixed planar torus, compact birth set, all frames and physical k=1. Failure raw-jet variation O(r^(2/3)log(1/r)^(8/3)); failure probability remainder O(r^(11/3)log(1/r)^(8/3)); fixed soft-layer sector mismatch O(r^(11/3)). Retain full weighted normalizer and imported analytic/geometric interfaces. No global no-log rate, variable-k uniformity, replacement-bar counting, lifetime-density rate, moving-mark total variation or global closure.",
+   "stored": [
+    {
+     "path": "C124/PROOF.md",
+     "role": "exact frozen C124 mathematical proof",
+     "comment": "5974162498",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974162498",
+     "created_at": "2026-10-03T22:30:33Z",
+     "updated_at": "2026-10-03T22:30:33Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 20668,
+     "sha256": "90148657397dcce31e8039afa9015c022f74b2ed0d41e75f2f2339074a8a520f"
+    },
+    {
+     "path": "C124/REVIEW.md",
+     "role": "exact full nonauthor analytic review; original scope and exposure retained",
+     "comment": "5974327730",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974327730",
+     "created_at": "2026-10-03T22:51:24Z",
+     "updated_at": "2026-10-03T22:51:24Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 22542,
+     "sha256": "19c405c68a93c3f5506629f0ebf1ffa78d5c25ad92f17fc4fd04ef0066deb6cf"
+    },
+    {
+     "path": "C124/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "full published author finite-controls record",
+     "comment": "5974185757",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974185757",
+     "created_at": "2026-10-03T22:33:08Z",
+     "updated_at": "2026-10-03T22:33:08Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 23018,
+     "sha256": "c8387191a6b11b2e9a1f67e7f22a5ad58b667cc11d29b90fded1c0b33e459dc4"
+    },
+    {
+     "path": "C124/CHECKER_COMMENT.md",
+     "role": "full published independent reviewer finite-controls record",
+     "comment": "5974332463",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974332463",
+     "created_at": "2026-10-03T22:52:06Z",
+     "updated_at": "2026-10-03T22:52:06Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 13660,
+     "sha256": "78bd11456ef50d4e7652856fe31b055b544b078871419276a7fea7f6c8941c83"
+    },
+    {
+     "path": "C124/author_controls.py",
+     "role": "author finite arithmetic controls",
+     "comment": "5974185757",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974185757",
+     "created_at": "2026-10-03T22:33:08Z",
+     "updated_at": "2026-10-03T22:33:08Z",
+     "extraction": "Exact five-backtick fence labelled controls.py; terminating LF retained",
+     "bytes": 12062,
+     "sha256": "3cc864185ba8e9cee780544ea1559c5591bda45110745f73f0cd9b4277745bcb"
+    },
+    {
+     "path": "C124/CONTROLS.md",
+     "role": "author design, exact execution summary and limitations",
+     "comment": "5974185757",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974185757",
+     "created_at": "2026-10-03T22:33:08Z",
+     "updated_at": "2026-10-03T22:33:08Z",
+     "extraction": "Exact five-backtick fence labelled CONTROLS.md; terminating LF retained",
+     "bytes": 10113,
+     "sha256": "400a043d664f2ad894bbc669c38203d9809a14743522c031cc86bdbef923e399"
+    },
+    {
+     "path": "C124/checker.py",
+     "role": "independent nonauthor reviewer finite controls",
+     "comment": "5974332463",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974332463",
+     "created_at": "2026-10-03T22:52:06Z",
+     "updated_at": "2026-10-03T22:52:06Z",
+     "extraction": "Exact five-backtick fence labelled independent_controls.py; terminating LF retained",
+     "bytes": 8759,
+     "sha256": "1d77a571133c7803704ee5e0c0dfd5f13bb0d33249748b09291205646d2c2cdc"
+    },
+    {
+     "path": "C124/REVIEW_DESIGN.md",
+     "role": "independent nonauthor reviewer design and exposure",
+     "comment": "5974332463",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974332463",
+     "created_at": "2026-10-03T22:52:06Z",
+     "updated_at": "2026-10-03T22:52:06Z",
+     "extraction": "Exact five-backtick fence labelled DESIGN.md; terminating LF retained",
+     "bytes": 3213,
+     "sha256": "457b7a19db5ae1a9ee7dc24e08f4b277d4493d36787c9bb7d84747a3e49c0bdb"
+    },
+    {
+     "path": "C124/checker_stdout.txt",
+     "role": "published independent baseline stdout",
+     "comment": "5974332463",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974332463",
+     "created_at": "2026-10-03T22:52:06Z",
+     "updated_at": "2026-10-03T22:52:06Z",
+     "extraction": "Exact five-backtick fence labelled normal-baseline.stdout; terminating LF retained",
+     "bytes": 255,
+     "sha256": "988e0f97d1a4cda0cd92c01800991d5cbd89b84e6eaa6349e477ee75b7faf25e"
+    },
+    {
+     "path": "C124/author_controls_stdout.txt",
+     "role": "published author baseline stdout",
+     "comment": "5974185757",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974185757",
+     "created_at": "2026-10-03T22:33:08Z",
+     "updated_at": "2026-10-03T22:33:08Z",
+     "extraction": "Exact JSON fence inside published CONTROLS.md fence; terminating LF retained",
+     "bytes": 591,
+     "sha256": "14b587bd72fd8b16ce56791178c2fab4f57535534e5c0f4e1697daf9692cdcdd"
+    },
+    {
+     "path": "C124/SOURCE_IDENTITIES.json",
+     "role": "frozen original author snapshot source identities",
+     "comment": "5974391189",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974391189",
+     "created_at": "2026-10-03T23:00:31Z",
+     "updated_at": "2026-10-03T23:00:31Z",
+     "extraction": "Exact five-backtick JSON fence; terminating LF retained",
+     "bytes": 26552,
+     "sha256": "a0371bd1985358820250e0d75936d6ec5112f165824df7a9f6e29e25e3f46f6d"
+    },
+    {
+     "path": "C124/SOURCES_COMMENT.md",
+     "role": "public manifest publication and extraction rule",
+     "comment": "5974391189",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974391189",
+     "created_at": "2026-10-03T23:00:31Z",
+     "updated_at": "2026-10-03T23:00:31Z",
+     "extraction": "Entire native UTF-8 body; no normalization",
+     "bytes": 27075,
+     "sha256": "0e9d94a6dcec40608faedf1e730e9913223f859457df0f5cfd7dc85eff387cf1"
+    },
+    {
+     "path": "C124/REVIEW_CLAUDE.md",
+     "role": "full second provider-distinct nonauthor review; A4 authorship/stake disclosed; no organizational independence",
+     "comment": "5974335101",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974335101",
+     "created_at": "2026-10-03T22:52:29Z",
+     "updated_at": "2026-10-03T22:52:29Z",
+     "extraction": "Entire native UTF-8 body, including provider footer",
+     "bytes": 7490,
+     "sha256": "1ebe3e0faa30d1e2f81a4a6f292bf953811ca9ea8efa4b12f2a9ac6f4a2d5f2b"
+    },
+    {
+     "path": "C124/CHECKER_CLAUDE_COMMENT.md",
+     "role": "full public second-review checker and execution record",
+     "comment": "5974337824",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974337824",
+     "created_at": "2026-10-03T22:52:53Z",
+     "updated_at": "2026-10-03T22:52:53Z",
+     "extraction": "Entire native UTF-8 body, including provider footer",
+     "bytes": 16409,
+     "sha256": "c82edca3b2305b130e25a2dff433e0a71d2f96547d5ded1e1f9bb00abf7a1e68"
+    },
+    {
+     "path": "C124/checker_claude.py",
+     "role": "second nonauthor reviewer finite exact controls",
+     "comment": "5974337824",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974337824",
+     "created_at": "2026-10-03T22:52:53Z",
+     "updated_at": "2026-10-03T22:52:53Z",
+     "extraction": "Exact python fence under c124_exact.py; terminating LF retained",
+     "bytes": 12724,
+     "sha256": "92620eb802a4400f5a77784bbe0a4b3bd4a412cb0bec1e3fbc78acf0f45c46f4"
+    },
+    {
+     "path": "C124/checker_claude_stdout.txt",
+     "role": "published second-review baseline stdout",
+     "comment": "5974337824",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974337824",
+     "created_at": "2026-10-03T22:52:53Z",
+     "updated_at": "2026-10-03T22:52:53Z",
+     "extraction": "Exact following text fence; terminating LF retained",
+     "bytes": 508,
+     "sha256": "fa2f4e088b61c8b4ce37647635101bb5d127be3547ada9d265a0ec0e952dee2b"
+    }
+   ],
+   "replays": [
+    {
+     "name": "author_controls",
+     "role": "author (not independent)",
+     "script": "C124/author_controls.py",
+     "script_bytes": 12062,
+     "script_sha256": "3cc864185ba8e9cee780544ea1559c5591bda45110745f73f0cd9b4277745bcb",
+     "stdout": "C124/author_controls_stdout.txt",
+     "stdout_bytes": 591,
+     "stdout_sha256": "14b587bd72fd8b16ce56791178c2fab4f57535534e5c0f4e1697daf9692cdcdd",
+     "extracted_from": "5974185757",
+     "extraction": "Exact five-backtick fence labelled controls.py; terminating LF retained; stdout: Exact JSON fence inside published CONTROLS.md fence; terminating LF retained"
+    },
+    {
+     "name": "checker",
+     "role": "independent nonauthor reviewer; original exposure retained",
+     "script": "C124/checker.py",
+     "script_bytes": 8759,
+     "script_sha256": "1d77a571133c7803704ee5e0c0dfd5f13bb0d33249748b09291205646d2c2cdc",
+     "stdout": "C124/checker_stdout.txt",
+     "stdout_bytes": 255,
+     "stdout_sha256": "988e0f97d1a4cda0cd92c01800991d5cbd89b84e6eaa6349e477ee75b7faf25e",
+     "extracted_from": "5974332463",
+     "extraction": "Exact five-backtick fence labelled independent_controls.py; terminating LF retained; stdout: Exact five-backtick fence labelled normal-baseline.stdout; terminating LF retained"
+    },
+    {
+     "name": "checker_claude",
+     "role": "provider-distinct nonauthor reviewer; A4 authorship disclosed",
+     "script": "C124/checker_claude.py",
+     "script_bytes": 12724,
+     "script_sha256": "92620eb802a4400f5a77784bbe0a4b3bd4a412cb0bec1e3fbc78acf0f45c46f4",
+     "stdout": "C124/checker_claude_stdout.txt",
+     "stdout_bytes": 508,
+     "stdout_sha256": "fa2f4e088b61c8b4ce37647635101bb5d127be3547ada9d265a0ec0e952dee2b",
+     "extracted_from": "5974337824",
+     "extraction": "Exact python fence and following text fence, each including its terminating LF; stdout must match byte for byte."
+    }
+   ],
+   "source_resolution": {
+    "kind": "additive incorporation metadata; original SOURCE_IDENTITIES.json bytes are unchanged",
+    "original_manifest_bytes": 26552,
+    "original_manifest_sha256": "a0371bd1985358820250e0d75936d6ec5112f165824df7a9f6e29e25e3f46f6d",
+    "repository_base": "efc88c3fcdbd1d1384d57e2191cbcbadd557c6c6",
+    "rule": "Original snapshot paths identify the reviewed delivery layout. The following map resolves equal bytes already in this repository, or the original public native source, without duplicating the parent source tree. A native proof prefix/suffix is not mislabeled as a whole comment.",
+    "sources": [
+     {
+      "key": "C91",
+      "original_snapshot_path": "sources/C91.md",
+      "bytes": 12433,
+      "sha256": "74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963566666",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C91/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C92",
+      "original_snapshot_path": "sources/C92.md",
+      "bytes": 19567,
+      "sha256": "6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5963825788",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C92/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C93",
+      "original_snapshot_path": "sources/C93.md",
+      "bytes": 15545,
+      "sha256": "f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964167051",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C93/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C94",
+      "original_snapshot_path": "sources/C94.md",
+      "bytes": 15407,
+      "sha256": "0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964517708",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C94/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C95",
+      "original_snapshot_path": "sources/C95.md",
+      "bytes": 16185,
+      "sha256": "c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5964938563",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C95/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C96",
+      "original_snapshot_path": "sources/C96.md",
+      "bytes": 7657,
+      "sha256": "7198ff636e330749428ded6938776dad612f6bdb51ad62359b445f016df13a7a",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965141133",
+      "extraction": "explicitly published mathematical suffix; 256-byte native preface excluded",
+      "repository_paths_at_base": [],
+      "resolution": "original native source with the recorded extraction rule"
+     },
+     {
+      "key": "C97",
+      "original_snapshot_path": "sources/C97.md",
+      "bytes": 16098,
+      "sha256": "acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965421543",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C97/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C98",
+      "original_snapshot_path": "sources/C98.md",
+      "bytes": 15050,
+      "sha256": "3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965738339",
+      "extraction": "full native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C98/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "P",
+      "original_snapshot_path": "sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+       "frontiers/lifetime_moment_boundary_20260930/sources/P.md",
+       "frontiers/moving_remote_collision_20261003/sources/P.md",
+       "reviews/radial_moment_corollaries_20260930/P.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "E1",
+      "original_snapshot_path": "sources/E1.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+       "frontiers/lifetime_moment_boundary_20260930/sources/ERR.md",
+       "frontiers/moving_remote_collision_20261003/sources/E1.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "E2",
+      "original_snapshot_path": "sources/E2.md",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+       "frontiers/lifetime_moment_boundary_20260930/sources/BOREL.md",
+       "frontiers/moving_remote_collision_20261003/sources/E2.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "REC",
+      "original_snapshot_path": "sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+       "frontiers/lifetime_moment_boundary_20260930/sources/REC.md",
+       "frontiers/moving_remote_collision_20261003/sources/REC.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "CUB",
+      "original_snapshot_path": "sources/CUB.md",
+      "bytes": 19889,
+      "sha256": "117e9299a71e6139270266889eb772ed97518e402d9af029bbdb67caf9d4a0f0",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/frontiers/planar_cubic_cluster_20260929/PROOF.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "frontiers/planar_cubic_cluster_20260929/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "ELDER",
+      "original_snapshot_path": "sources/ELDER.md",
+      "bytes": 39722,
+      "sha256": "f68038be79b46124b0f9b31205aa6e3682b34b6f5ef81f4a5697ae81f07cc46b",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/044d42d5bd7f31df6f7e6b9034d6711e8fb7ee43/frontiers/local_elder_geometry_20260930/PROOF.md",
+      "extraction": "complete immutable Git object",
+      "repository_paths_at_base": [
+       "frontiers/local_elder_geometry_20260930/PROOF.md",
+       "frontiers/lifetime_moment_boundary_20260930/sources/MARK_2.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C96_COMPLETION",
+      "original_snapshot_path": "sources/C96_COMPLETION.md",
+      "bytes": 3466,
+      "sha256": "634fdab86ef2d568fecba9da80ccd067e3dc12849d88731648f1b09e46861603",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5965212531",
+      "extraction": "Exact UTF-8 native body",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C96/COMPLETION.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C82_NATIVE",
+      "original_snapshot_path": "sources/C82_NATIVE.md",
+      "bytes": 11645,
+      "sha256": "1b7523bf145f03dbaf73ceae2aa256e17505bbb1c2693e339bc399c64e1654c9",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959920397",
+      "extraction": "Exact UTF-8 body",
+      "repository_paths_at_base": [],
+      "resolution": "original native source with the recorded extraction rule"
+     },
+     {
+      "key": "C82",
+      "original_snapshot_path": "sources/C82.md",
+      "bytes": 11253,
+      "sha256": "f390ad99b07ec4eda9160191d776cfc3a53ca628976165987d9a61ab79816827",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959920397",
+      "extraction": "11253-byte proof prefix before native footer",
+      "repository_paths_at_base": [],
+      "resolution": "original native source with the recorded extraction rule"
+     },
+     {
+      "key": "C101",
+      "original_snapshot_path": "sources/C101.md",
+      "bytes": 36333,
+      "sha256": "300d0d18abb74332e593e389485c817a3c0ea7c31345194e3cfdd4039ac3b5c4",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5967063473",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "repository_paths_at_base": [
+       "frontiers/planar_soft_layer_chain_20261003/C101/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "C82_REVIEW",
+      "original_snapshot_path": "sources/C82_REVIEW.md",
+      "bytes": 4301,
+      "sha256": "bf6425b5fa878aafcf60b618ba85c16c22f9b2548615f790c1a1f43d138e1e72",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5959988102",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "repository_paths_at_base": [],
+      "resolution": "original native source with the recorded extraction rule"
+     },
+     {
+      "key": "A4",
+      "original_snapshot_path": "sources/A4.md",
+      "bytes": 16544,
+      "sha256": "acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972396791",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "repository_paths_at_base": [
+       "frontiers/planar_rejected_endpoint_margin_20261003/A4/PROOF.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     },
+     {
+      "key": "A4_REVIEW",
+      "original_snapshot_path": "sources/A4_REVIEW.md",
+      "bytes": 18420,
+      "sha256": "b27f530d243d92a15302026eb66731de8f50464e71941bf1a03b983713b012f8",
+      "original_source_url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972610615",
+      "extraction": "Entire native UTF-8 comment body; no newline added",
+      "repository_paths_at_base": [
+       "frontiers/planar_rejected_endpoint_margin_20261003/A4/REVIEW.md"
+      ],
+      "resolution": "existing byte-identical repository source"
+     }
+    ]
+   },
+   "additional_reviews": [
+    {
+     "reviewer": "Anthropic Claude session_01NMeKEismAyeqgdB4sy2NJU",
+     "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED, no amendment for Theorem ER (1)-(18) and JB/DB/ES/FT",
+     "comment": "5974335101",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974335101",
+     "stored": "C124/REVIEW_CLAUDE.md",
+     "provider_distinct": true,
+     "organizational_independence": 0,
+     "exposure": "Authored consumed A4 and affected A4.1/PD; prior C91-C103 reviews; first C124 review read after own verdict; author controls unopened as recorded.",
+     "boundary": "O1 C98 composition and O2 compact-K/PD extension are observations, not additional claims of the frozen C124 theorem. Separate author work5974351360 remains excluded."
+    }
+   ]
+  },
+  {
+   "tag": "C127",
+   "object": "OA-C127-MIXED-INNER-REMOTE-20261004-v1",
+   "title": "Quantitative mixed inner/remote window-witness estimate",
+   "author": "OpenAI/Codex root01a0bbb5 and /root/next_math_triage",
+   "reviewer": "OpenAI/Codex /root/c99_custody_audit; consumed C107 authorship and C124 review exposure disclosed",
+   "verdict_as_recorded": "PASS_SCOPED; no required amendment; published full review5975150796",
+   "organizational_independence": 0,
+   "scientific_effect": "NONE",
+   "incorporated_by": {
+    "performer": "OpenAI/Codex root and /root/next_math_triage",
+    "role": "source-preserving incorporation; both are C127 analytic authors, not nonauthor integrators",
+    "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975420764",
+    "R17_claim": "a3d59990-b5ac-4430-8c67-f37e52382480",
+    "work_events_row": 753,
+    "base_commit": "42f19d7dc4109c2359520b7cbde24b6bb1fca110"
+   },
+   "owner_review_context": "Owner reports ongoing review under5973603003; this AI execution and the exact scoped reviews are separately attributed. Frozen historical labels are preserved.",
+   "scope": "Fixed planar torus, physical k=1, compact births, all frames, fixed R>=4 and each fixed integer p>=0. E_W[N^p N_R N_far^{r^(1/100)}]=O(r^(427/100)); original weighted numerator O(r^(627/100)); one full W/Z and nine retained source interfaces. Additional all-index critical points in one prescribed open window. Auxiliary to the existing ordinary-bar leading route; no growing-R, shrinking-k, intermediate/coarea, barcode identification or global closure.",
+   "delivery": {
+    "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+    "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+    "bytes": 4967739,
+    "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+    "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+   },
+   "stored": [
+    {
+     "path": "C127/AUTHOR_PROOF_COMMENT.md",
+     "role": "full published author proof, appendix and sources record",
+     "comment": "5975032676",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975032676",
+     "created_at": "2026-10-04T00:34:37Z",
+     "updated_at": "2026-10-04T00:34:37Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 38450,
+     "sha256": "57f8a95a75f6c72883c6a85d83b2fc2bc372ad9ebc7082839c9d5bd3e77acff6"
+    },
+    {
+     "path": "C127/PROOF.md",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975032676",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975032676",
+     "created_at": "2026-10-04T00:34:37Z",
+     "updated_at": "2026-10-04T00:34:37Z",
+     "extraction": "Exact four-backtick markdown fence between unique C127 markers for PROOF.md; terminal newline retained",
+     "bytes": 12618,
+     "sha256": "cf0dd27ef303d68b7eca79ab1cc656904d35841c0e5e3187ed214e5420aabf44"
+    },
+    {
+     "path": "C127/FINITE_R_INTERPOLATION.md",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975032676",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975032676",
+     "created_at": "2026-10-04T00:34:37Z",
+     "updated_at": "2026-10-04T00:34:37Z",
+     "extraction": "Exact four-backtick markdown fence between unique C127 markers for FINITE_R_INTERPOLATION.md; terminal newline retained",
+     "bytes": 18630,
+     "sha256": "c4f169c270bacd90ab357eb8b69a66533cc917c74279d5725b0dcd3673918187"
+    },
+    {
+     "path": "C127/SOURCES.json",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975032676",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975032676",
+     "created_at": "2026-10-04T00:34:37Z",
+     "updated_at": "2026-10-04T00:34:37Z",
+     "extraction": "Exact four-backtick json fence between unique C127 markers for SOURCES.json; terminal newline retained",
+     "bytes": 5408,
+     "sha256": "1f9015f24c56c794fe90f3b48b2ae09cde18ea05dab6cce060c49efbe72535f0"
+    },
+    {
+     "path": "C127/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "full published author controls record; historical invocation wording retained",
+     "comment": "5975038530",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975038530",
+     "created_at": "2026-10-04T00:35:31Z",
+     "updated_at": "2026-10-04T00:35:31Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 10914,
+     "sha256": "1120eb5a05b16c5cc881724969cb26ebb485128ea24bc2bfc4c12bb1c3b2d562"
+    },
+    {
+     "path": "C127/CONTROL_DESIGN.md",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975038530",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975038530",
+     "created_at": "2026-10-04T00:35:31Z",
+     "updated_at": "2026-10-04T00:35:31Z",
+     "extraction": "Exact four-backtick markdown fence between unique C127-CONTROL markers for CONTROL_DESIGN.md; terminal newline retained",
+     "bytes": 2219,
+     "sha256": "8841f29129305f3e170e420e3e794686c0388db150b76cfad4b2854fab73d8b8"
+    },
+    {
+     "path": "C127/verify_controls.py",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975038530",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975038530",
+     "created_at": "2026-10-04T00:35:31Z",
+     "updated_at": "2026-10-04T00:35:31Z",
+     "extraction": "Exact four-backtick python fence between unique C127-CONTROL markers for verify_controls.py; terminal newline retained",
+     "bytes": 7276,
+     "sha256": "4a589f4cdd4de9b0c05f920385502148684ee4605a982457f52e30566678aeb1"
+    },
+    {
+     "path": "C127/REVIEW_COMMENT.md",
+     "role": "full first nonauthor review, design and checker publication",
+     "comment": "5975150796",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975150796",
+     "created_at": "2026-10-04T00:52:25Z",
+     "updated_at": "2026-10-04T00:52:25Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 37171,
+     "sha256": "e19818abe3e539c419d4b3abc88f4abd5bb1de4a3bb2eb4edabc1697719015bc"
+    },
+    {
+     "path": "C127/REVIEW.md",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975150796",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975150796",
+     "created_at": "2026-10-04T00:52:25Z",
+     "updated_at": "2026-10-04T00:52:25Z",
+     "extraction": "Exact four-backtick markdown fence between unique C127-REVIEW markers for REVIEW.md; terminal newline retained",
+     "bytes": 20062,
+     "sha256": "9c8e8192265b7d427caf09767a4b34b9736367d51ff9adea3be9a23eb1416891"
+    },
+    {
+     "path": "C127/DESIGN.md",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975150796",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975150796",
+     "created_at": "2026-10-04T00:52:25Z",
+     "updated_at": "2026-10-04T00:52:25Z",
+     "extraction": "Exact four-backtick markdown fence between unique C127-REVIEW markers for DESIGN.md; terminal newline retained",
+     "bytes": 4606,
+     "sha256": "8b4d6c1037fa5ac5230b0da204823ac718bc3d09c60707df07b4fef46856e5b9"
+    },
+    {
+     "path": "C127/independent_controls.py",
+     "role": "exact frozen payload extracted from the full native record",
+     "comment": "5975150796",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975150796",
+     "created_at": "2026-10-04T00:52:25Z",
+     "updated_at": "2026-10-04T00:52:25Z",
+     "extraction": "Exact four-backtick python fence between unique C127-REVIEW markers for independent_controls.py; terminal newline retained",
+     "bytes": 10422,
+     "sha256": "7c7e17b0f9564b690ca6b376b635994a3fcdf555cb9a6468cd98d0699a17415e"
+    },
+    {
+     "path": "C127/REVIEW_CLAUDE.md",
+     "role": "full provider-distinct analytic review; original scope and exposure retained",
+     "comment": "5975277745",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975277745",
+     "created_at": "2026-10-04T01:11:02Z",
+     "updated_at": "2026-10-04T01:11:02Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 9222,
+     "sha256": "d86a8ece457fb54c483b1ff627be4c19e3a0513bc168b72a99c418e5ddebb00c"
+    },
+    {
+     "path": "C127/CLAUDE_CONTROLS_COMMENT.md",
+     "role": "full second reviewer exact and exploratory control record",
+     "comment": "5975291091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975291091",
+     "created_at": "2026-10-04T01:13:06Z",
+     "updated_at": "2026-10-04T01:13:06Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 27972,
+     "sha256": "f9dc8f192cd29cdb74a6eda8f2420870784478d452f62cff74a6e81909f48000"
+    },
+    {
+     "path": "C127/c127_exact.py",
+     "role": "second reviewer exact checker or its published baseline output",
+     "comment": "5975291091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975291091",
+     "created_at": "2026-10-04T01:13:06Z",
+     "updated_at": "2026-10-04T01:13:06Z",
+     "extraction": "Exact python fence under c127_exact.py, including terminal newline; author extraction rule",
+     "bytes": 14936,
+     "sha256": "627279ef674f6f45c3b7d9202e422d978a34467c67933c7dcfc4f0c8ca966fc6"
+    },
+    {
+     "path": "C127/c127_exact_stdout.txt",
+     "role": "second reviewer exact checker or its published baseline output",
+     "comment": "5975291091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975291091",
+     "created_at": "2026-10-04T01:13:06Z",
+     "updated_at": "2026-10-04T01:13:06Z",
+     "extraction": "Exact text fence under c127_exact.py, including terminal newline; author extraction rule",
+     "bytes": 286,
+     "sha256": "af8b370b9c2f933271ce81bbb451609f469b52aa458a0aba7a4c37df3c677265"
+    },
+    {
+     "path": "C127/c127_numeric.py",
+     "role": "exploratory floating-point companion or recorded output; not an exact replay",
+     "comment": "5975291091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975291091",
+     "created_at": "2026-10-04T01:13:06Z",
+     "updated_at": "2026-10-04T01:13:06Z",
+     "extraction": "Exact python fence under c127_numeric.py, including terminal newline; author extraction rule",
+     "bytes": 7351,
+     "sha256": "1cec8251e10e53a3f1b793cb1850ce78dacc349d0c108a22bb36a1bacf779234"
+    },
+    {
+     "path": "C127/c127_numeric_stdout.txt",
+     "role": "exploratory floating-point companion or recorded output; not an exact replay",
+     "comment": "5975291091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975291091",
+     "created_at": "2026-10-04T01:13:06Z",
+     "updated_at": "2026-10-04T01:13:06Z",
+     "extraction": "Exact text fence under c127_numeric.py, including terminal newline; author extraction rule",
+     "bytes": 784,
+     "sha256": "03861cf52022af263afc02adc7464097894faff96bda88a38024aa5a29963517"
+    },
+    {
+     "path": "C127/author_controls_stdout.txt",
+     "role": "actual frozen author baseline stdout; delivery-derived, not a published stdout fence",
+     "delivery": {
+      "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+      "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+      "bytes": 4967739,
+      "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+      "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+     },
+     "archive_member": "author/execution/normal-baseline.json",
+     "archive_member_identity": {
+      "bytes": 457,
+      "sha256": "f7a9d1187d33757967375fead3bdeab5531cc630ab0d8f3c01093081d1b1d526"
+     },
+     "extraction": "UTF-8 encoding of the exact decoded stdout string in this archive JSON record",
+     "bytes": 152,
+     "sha256": "6a6743be4f52cf9931a171c4e61eac21f200086171a49dd1a731b3de86001c3e"
+    },
+    {
+     "path": "C127/independent_controls_stdout.txt",
+     "role": "actual first-reviewer frozen baseline stdout; delivery-derived, not a published stdout fence",
+     "delivery": {
+      "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+      "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+      "bytes": 4967739,
+      "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+      "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+     },
+     "archive_member": "review/controls.normal.stdout",
+     "archive_member_identity": {
+      "bytes": 129,
+      "sha256": "10ed73b2e6bde56e53c8a5d5d59dd38a9604fda2c5449100cccc36d52b18329c"
+     },
+     "extraction": "Exact archive member bytes; no normalization or added newline",
+     "bytes": 129,
+     "sha256": "10ed73b2e6bde56e53c8a5d5d59dd38a9604fda2c5449100cccc36d52b18329c"
+    },
+    {
+     "path": "C127/AUTHOR_RESPONSE.md",
+     "role": "frozen delivery reading/scope context; not a new proof or source premise",
+     "delivery": {
+      "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+      "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+      "bytes": 4967739,
+      "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+      "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+     },
+     "archive_member": "AUTHOR_RESPONSE.md",
+     "archive_member_identity": {
+      "bytes": 1207,
+      "sha256": "cede5a4ee1e66dd3fef39441b1b35ce62d967be43bd30a2205d95875a391ef8c"
+     },
+     "extraction": "Exact archive member bytes; no normalization or added newline",
+     "bytes": 1207,
+     "sha256": "cede5a4ee1e66dd3fef39441b1b35ce62d967be43bd30a2205d95875a391ef8c"
+    },
+    {
+     "path": "C127/HANDOFF_SCOPE_NOTE.md",
+     "role": "frozen delivery reading/scope context; not a new proof or source premise",
+     "delivery": {
+      "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+      "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+      "bytes": 4967739,
+      "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+      "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+     },
+     "archive_member": "HANDOFF_SCOPE_NOTE.md",
+     "archive_member_identity": {
+      "bytes": 3411,
+      "sha256": "17be6529e6337e112decdb719a0287093be7f5c2955cdc1be80645ae90309572"
+     },
+     "extraction": "Exact archive member bytes; no normalization or added newline",
+     "bytes": 3411,
+     "sha256": "17be6529e6337e112decdb719a0287093be7f5c2955cdc1be80645ae90309572"
+    },
+    {
+     "path": "C127/SCOPE_AUDIT_IDENTITIES.json",
+     "role": "frozen delivery reading/scope context; not a new proof or source premise",
+     "delivery": {
+      "url": "https://drive.google.com/file/d/1TI_W5fJ-z8SWWq5y9rilymnkDS9ogaYK/view",
+      "archive": "C127-MIXED-INNER-REMOTE-VERIFIED-PROOF-20261004-v1.zip",
+      "bytes": 4967739,
+      "sha256": "f758dbbaa7f451ee738864b5a4482e554348bca3cd803c5f5a78288f04f52051",
+      "completion": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387"
+     },
+     "archive_member": "SCOPE_AUDIT_IDENTITIES.json",
+     "archive_member_identity": {
+      "bytes": 2994,
+      "sha256": "36e31d63eff15dbb2a0132b2fe7b3e1707da01b172ee966f150798c2edc6b13c"
+     },
+     "extraction": "Exact archive member bytes; no normalization or added newline",
+     "bytes": 2994,
+     "sha256": "36e31d63eff15dbb2a0132b2fe7b3e1707da01b172ee966f150798c2edc6b13c"
+    },
+    {
+     "path": "C127/COMPLETION.md",
+     "role": "exact completed delivery record; supersedes preparation-state labels without altering them",
+     "comment": "5975371387",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975371387",
+     "created_at": "2026-10-04T01:24:50Z",
+     "updated_at": "2026-10-04T01:24:50Z",
+     "extraction": "Entire native UTF-8 body; no normalization or added newline",
+     "bytes": 4669,
+     "sha256": "124c2654bd34a21a34de3a13066f11d4244a1c293d46545c075f0e65f660728e"
+    }
+   ],
+   "source_resolution": [
+    {
+     "key": "SC",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/spectral_cluster_closure_20260929/PROOF.md",
+     "original_snapshot_path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+     "repository_paths_at_base": [
+      "frontiers/spectral_cluster_closure_20260929/PROOF.md"
+     ],
+     "git_blob_at_base": "16c56821b52fd76b0be791622b9c3809eafde75a",
+     "bytes": 25006,
+     "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+     "consumed_interface": "Section3 deterministic exclusion, reproved in planar form; Section7 fixed-cutoff context only.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "C107",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/moving_remote_collision_20261003/PROOF.md",
+     "original_snapshot_path": "frontiers/moving_remote_collision_20261003/PROOF.md",
+     "repository_paths_at_base": [
+      "frontiers/moving_remote_collision_20261003/PROOF.md"
+     ],
+     "git_blob_at_base": "596782786a200412a58169440b45d4f5bb36aadf",
+     "bytes": 29606,
+     "sha256": "d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df",
+     "consumed_interface": "Actual finite-r pin frame and periodic interpolation/covariance-duality method, reproduced in appendix; no outer-pair theorem imported.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "C6",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/c6_palm_route_20260929/PROOF.md",
+     "original_snapshot_path": "frontiers/c6_palm_route_20260929/PROOF.md",
+     "repository_paths_at_base": [
+      "frontiers/c6_palm_route_20260929/PROOF.md"
+     ],
+     "git_blob_at_base": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
+     "bytes": 53364,
+     "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+     "consumed_interface": "Theorem Q at d2, all fixed factorial moments; Lemma5.1 canonical Borel marked one-point Kac–Rice with E2.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "P",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+     "original_snapshot_path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+     "repository_paths_at_base": [
+      "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md"
+     ],
+     "git_blob_at_base": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+     "bytes": 40261,
+     "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+     "consumed_interface": "Sections2–5, actual Gaussian pins, Fourier spectrum, uniform norm moments, full Z_r floor/ceiling; read with E1/E2/REC/CAP.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "E1",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+     "original_snapshot_path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+     "repository_paths_at_base": [
+      "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md"
+     ],
+     "git_blob_at_base": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+     "bytes": 1782,
+     "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+     "consumed_interface": "Corrected congruence and endpoint weight scope from the retained parent.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "E2",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+     "original_snapshot_path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+     "repository_paths_at_base": [
+      "reviews/d1_section9_borel_repair_20260925/REPAIR.md"
+     ],
+     "git_blob_at_base": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+     "bytes": 9062,
+     "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+     "consumed_interface": "C4 whole-field Borel marked Kac–Rice and canonical Gaussian kernel repair.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "REC",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+     "original_snapshot_path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+     "repository_paths_at_base": [
+      "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md"
+     ],
+     "git_blob_at_base": "75da2597971510f843f8d90c743950cb8c177342",
+     "bytes": 23312,
+     "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+     "consumed_interface": "Reconciled P+CAP+E1+E2+REC source set, W1 wording and embedding restrictions.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "DL",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/d5_dimension_lift_20260929/PROOF.md",
+     "original_snapshot_path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+     "repository_paths_at_base": [
+      "frontiers/d5_dimension_lift_20260929/PROOF.md"
+     ],
+     "git_blob_at_base": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+     "bytes": 53727,
+     "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+     "consumed_interface": "Theorem G_d (1.7), planar ordinary first moment only, with its retained regional hypotheses.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    },
+    {
+     "key": "CAP",
+     "original_source_url": "https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+     "original_snapshot_path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+     "repository_paths_at_base": [
+      "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md"
+     ],
+     "git_blob_at_base": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+     "bytes": 15160,
+     "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+     "consumed_interface": "Retained reconciliation dependency context; no new elder/persistence implication imported.",
+     "resolution": "existing byte-identical repository source; original inner manifest unchanged"
+    }
+   ],
+   "replays": [
+    {
+     "name": "author_controls",
+     "role": "author controls; not independent",
+     "script": "C127/verify_controls.py",
+     "script_bytes": 7276,
+     "script_sha256": "4a589f4cdd4de9b0c05f920385502148684ee4605a982457f52e30566678aeb1",
+     "stdout": "C127/author_controls_stdout.txt",
+     "stdout_bytes": 152,
+     "stdout_sha256": "6a6743be4f52cf9931a171c4e61eac21f200086171a49dd1a731b3de86001c3e",
+     "extracted_from": "5975038530",
+     "extraction": "Script: marked native fence; stdout: exact frozen delivery JSON stdout string, as recorded in stored provenance"
+    },
+    {
+     "name": "checker",
+     "role": "first nonauthor analytic reviewer; original source exposure retained",
+     "script": "C127/independent_controls.py",
+     "script_bytes": 10422,
+     "script_sha256": "7c7e17b0f9564b690ca6b376b635994a3fcdf555cb9a6468cd98d0699a17415e",
+     "stdout": "C127/independent_controls_stdout.txt",
+     "stdout_bytes": 129,
+     "stdout_sha256": "10ed73b2e6bde56e53c8a5d5d59dd38a9604fda2c5449100cccc36d52b18329c",
+     "extracted_from": "5975150796",
+     "extraction": "Script: marked native fence; stdout: exact frozen delivery transcript",
+     "version_line": {
+      "index": 0,
+      "template": "{{\"analytic_proof\": false, \"arithmetic\": \"exact fractions\", \"checks\": 334, \"mutant\": null, \"python\": \"{version}\", \"result\": \"PASS\"}}",
+      "published_version": "3.11.16",
+      "rule": "The exact single-line JSON template permits only its python version value to change; all other bytes must match. Baseline is delivery-recorded, not a claimed native stdout fence."
+     }
+    },
+    {
+     "name": "checker_claude",
+     "role": "provider-distinct nonauthor analytic reviewer; original exposure retained",
+     "script": "C127/c127_exact.py",
+     "script_bytes": 14936,
+     "script_sha256": "627279ef674f6f45c3b7d9202e422d978a34467c67933c7dcfc4f0c8ca966fc6",
+     "stdout": "C127/c127_exact_stdout.txt",
+     "stdout_bytes": 286,
+     "stdout_sha256": "af8b370b9c2f933271ce81bbb451609f469b52aa458a0aba7a4c37df3c677265",
+     "extracted_from": "5975291091",
+     "extraction": "Exact python fence and following text fence under c127_exact.py, including terminal newlines"
+    }
+   ],
+   "additional_reviews": [
+    {
+     "reviewer": "Anthropic Claude session_01NMeKEismAyeqgdB4sy2NJU",
+     "verdict_as_recorded": "ACCEPT / PASS_TECHNICAL_SCOPED; no amendment",
+     "comment": "5975277745",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975277745",
+     "stored": "C127/REVIEW_CLAUDE.md",
+     "provider_distinct": true,
+     "organizational_independence": 0,
+     "exposure": "Prior C107 provider-distinct review and source exposure; exact full native disclosure retained",
+     "controls_comment": "5975291091",
+     "exploratory_only": [
+      "C127/c127_numeric.py",
+      "C127/c127_numeric_stdout.txt"
+     ]
+    }
+   ]
   }
  ],
  "files": [
@@ -1605,6 +2618,201 @@
    "path": "C103/author_controls_stdout.txt",
    "bytes": 290,
    "sha256": "edf94d5a85b967b80d55b6c0eab5f275b5f76a8cfaee137fccacfc9bae020ed9"
+  },
+  {
+   "path": "C124/PROOF.md",
+   "bytes": 20668,
+   "sha256": "90148657397dcce31e8039afa9015c022f74b2ed0d41e75f2f2339074a8a520f"
+  },
+  {
+   "path": "C124/REVIEW.md",
+   "bytes": 22542,
+   "sha256": "19c405c68a93c3f5506629f0ebf1ffa78d5c25ad92f17fc4fd04ef0066deb6cf"
+  },
+  {
+   "path": "C124/AUTHOR_CONTROLS_COMMENT.md",
+   "bytes": 23018,
+   "sha256": "c8387191a6b11b2e9a1f67e7f22a5ad58b667cc11d29b90fded1c0b33e459dc4"
+  },
+  {
+   "path": "C124/CHECKER_COMMENT.md",
+   "bytes": 13660,
+   "sha256": "78bd11456ef50d4e7652856fe31b055b544b078871419276a7fea7f6c8941c83"
+  },
+  {
+   "path": "C124/author_controls.py",
+   "bytes": 12062,
+   "sha256": "3cc864185ba8e9cee780544ea1559c5591bda45110745f73f0cd9b4277745bcb"
+  },
+  {
+   "path": "C124/CONTROLS.md",
+   "bytes": 10113,
+   "sha256": "400a043d664f2ad894bbc669c38203d9809a14743522c031cc86bdbef923e399"
+  },
+  {
+   "path": "C124/checker.py",
+   "bytes": 8759,
+   "sha256": "1d77a571133c7803704ee5e0c0dfd5f13bb0d33249748b09291205646d2c2cdc"
+  },
+  {
+   "path": "C124/REVIEW_DESIGN.md",
+   "bytes": 3213,
+   "sha256": "457b7a19db5ae1a9ee7dc24e08f4b277d4493d36787c9bb7d84747a3e49c0bdb"
+  },
+  {
+   "path": "C124/checker_stdout.txt",
+   "bytes": 255,
+   "sha256": "988e0f97d1a4cda0cd92c01800991d5cbd89b84e6eaa6349e477ee75b7faf25e"
+  },
+  {
+   "path": "C124/author_controls_stdout.txt",
+   "bytes": 591,
+   "sha256": "14b587bd72fd8b16ce56791178c2fab4f57535534e5c0f4e1697daf9692cdcdd"
+  },
+  {
+   "path": "C124/SOURCE_IDENTITIES.json",
+   "bytes": 26552,
+   "sha256": "a0371bd1985358820250e0d75936d6ec5112f165824df7a9f6e29e25e3f46f6d"
+  },
+  {
+   "path": "C124/SOURCES_COMMENT.md",
+   "bytes": 27075,
+   "sha256": "0e9d94a6dcec40608faedf1e730e9913223f859457df0f5cfd7dc85eff387cf1"
+  },
+  {
+   "path": "C124/REVIEW_CLAUDE.md",
+   "bytes": 7490,
+   "sha256": "1ebe3e0faa30d1e2f81a4a6f292bf953811ca9ea8efa4b12f2a9ac6f4a2d5f2b"
+  },
+  {
+   "path": "C124/CHECKER_CLAUDE_COMMENT.md",
+   "bytes": 16409,
+   "sha256": "c82edca3b2305b130e25a2dff433e0a71d2f96547d5ded1e1f9bb00abf7a1e68"
+  },
+  {
+   "path": "C124/checker_claude.py",
+   "bytes": 12724,
+   "sha256": "92620eb802a4400f5a77784bbe0a4b3bd4a412cb0bec1e3fbc78acf0f45c46f4"
+  },
+  {
+   "path": "C124/checker_claude_stdout.txt",
+   "bytes": 508,
+   "sha256": "fa2f4e088b61c8b4ce37647635101bb5d127be3547ada9d265a0ec0e952dee2b"
+  },
+  {
+   "path": "C127/AUTHOR_CONTROLS_COMMENT.md",
+   "bytes": 10914,
+   "sha256": "1120eb5a05b16c5cc881724969cb26ebb485128ea24bc2bfc4c12bb1c3b2d562"
+  },
+  {
+   "path": "C127/AUTHOR_PROOF_COMMENT.md",
+   "bytes": 38450,
+   "sha256": "57f8a95a75f6c72883c6a85d83b2fc2bc372ad9ebc7082839c9d5bd3e77acff6"
+  },
+  {
+   "path": "C127/AUTHOR_RESPONSE.md",
+   "bytes": 1207,
+   "sha256": "cede5a4ee1e66dd3fef39441b1b35ce62d967be43bd30a2205d95875a391ef8c"
+  },
+  {
+   "path": "C127/CLAUDE_CONTROLS_COMMENT.md",
+   "bytes": 27972,
+   "sha256": "f9dc8f192cd29cdb74a6eda8f2420870784478d452f62cff74a6e81909f48000"
+  },
+  {
+   "path": "C127/COMPLETION.md",
+   "bytes": 4669,
+   "sha256": "124c2654bd34a21a34de3a13066f11d4244a1c293d46545c075f0e65f660728e"
+  },
+  {
+   "path": "C127/CONTROL_DESIGN.md",
+   "bytes": 2219,
+   "sha256": "8841f29129305f3e170e420e3e794686c0388db150b76cfad4b2854fab73d8b8"
+  },
+  {
+   "path": "C127/DESIGN.md",
+   "bytes": 4606,
+   "sha256": "8b4d6c1037fa5ac5230b0da204823ac718bc3d09c60707df07b4fef46856e5b9"
+  },
+  {
+   "path": "C127/FINITE_R_INTERPOLATION.md",
+   "bytes": 18630,
+   "sha256": "c4f169c270bacd90ab357eb8b69a66533cc917c74279d5725b0dcd3673918187"
+  },
+  {
+   "path": "C127/HANDOFF_SCOPE_NOTE.md",
+   "bytes": 3411,
+   "sha256": "17be6529e6337e112decdb719a0287093be7f5c2955cdc1be80645ae90309572"
+  },
+  {
+   "path": "C127/PROOF.md",
+   "bytes": 12618,
+   "sha256": "cf0dd27ef303d68b7eca79ab1cc656904d35841c0e5e3187ed214e5420aabf44"
+  },
+  {
+   "path": "C127/REVIEW.md",
+   "bytes": 20062,
+   "sha256": "9c8e8192265b7d427caf09767a4b34b9736367d51ff9adea3be9a23eb1416891"
+  },
+  {
+   "path": "C127/REVIEW_CLAUDE.md",
+   "bytes": 9222,
+   "sha256": "d86a8ece457fb54c483b1ff627be4c19e3a0513bc168b72a99c418e5ddebb00c"
+  },
+  {
+   "path": "C127/REVIEW_COMMENT.md",
+   "bytes": 37171,
+   "sha256": "e19818abe3e539c419d4b3abc88f4abd5bb1de4a3bb2eb4edabc1697719015bc"
+  },
+  {
+   "path": "C127/SCOPE_AUDIT_IDENTITIES.json",
+   "bytes": 2994,
+   "sha256": "36e31d63eff15dbb2a0132b2fe7b3e1707da01b172ee966f150798c2edc6b13c"
+  },
+  {
+   "path": "C127/SOURCES.json",
+   "bytes": 5408,
+   "sha256": "1f9015f24c56c794fe90f3b48b2ae09cde18ea05dab6cce060c49efbe72535f0"
+  },
+  {
+   "path": "C127/author_controls_stdout.txt",
+   "bytes": 152,
+   "sha256": "6a6743be4f52cf9931a171c4e61eac21f200086171a49dd1a731b3de86001c3e"
+  },
+  {
+   "path": "C127/c127_exact.py",
+   "bytes": 14936,
+   "sha256": "627279ef674f6f45c3b7d9202e422d978a34467c67933c7dcfc4f0c8ca966fc6"
+  },
+  {
+   "path": "C127/c127_exact_stdout.txt",
+   "bytes": 286,
+   "sha256": "af8b370b9c2f933271ce81bbb451609f469b52aa458a0aba7a4c37df3c677265"
+  },
+  {
+   "path": "C127/c127_numeric.py",
+   "bytes": 7351,
+   "sha256": "1cec8251e10e53a3f1b793cb1850ce78dacc349d0c108a22bb36a1bacf779234"
+  },
+  {
+   "path": "C127/c127_numeric_stdout.txt",
+   "bytes": 784,
+   "sha256": "03861cf52022af263afc02adc7464097894faff96bda88a38024aa5a29963517"
+  },
+  {
+   "path": "C127/independent_controls.py",
+   "bytes": 10422,
+   "sha256": "7c7e17b0f9564b690ca6b376b635994a3fcdf555cb9a6468cd98d0699a17415e"
+  },
+  {
+   "path": "C127/independent_controls_stdout.txt",
+   "bytes": 129,
+   "sha256": "10ed73b2e6bde56e53c8a5d5d59dd38a9604fda2c5449100cccc36d52b18329c"
+  },
+  {
+   "path": "C127/verify_controls.py",
+   "bytes": 7276,
+   "sha256": "4a589f4cdd4de9b0c05f920385502148684ee4605a982457f52e30566678aeb1"
   }
  ]
 }
