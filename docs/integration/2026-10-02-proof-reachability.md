@@ -100,3 +100,73 @@ Limits, stated so that the chain is not over-read:
 - **Later model-level work.** It lives in issue comments on main#229, not in repository sources, so it is not indexed here. This includes the signed elder margin (5959038812, amended in 5961281898), exact-pin decision stability (5961415030), and the signed-coordinate and level-band bounds (5957815904, 5959878294, 5959920397).
 - **Where the status lives.** Review records and status are in each PR's conversation and disposition block.
 
+<!-- post-c126:start -->
+## Post-C126 supplement — 3 October 2026
+
+Post-C126 cut: `bbe85e270f2c8b747f2d5d9477c86e86e323fe15`.
+
+The original document above, including its 62-row inventory and statements about
+then-available sources, is preserved byte for byte from #247 v1.1 (`ee087cea`).
+This supplement records availability at the later cut where #261 incorporated
+C124. It does not update the mathematical scope of any historical statement.
+The [69-packet historical record](https://github.com/d6g8k5htny-coder/Math-/blob/4ff4f1dacd8ab4f22c8e5307fb5eba69cbacf2ba/docs/integration/2026-09-29-navigation-refresh.md)
+and the [proof availability index](../../PROOF_INDEX.md) are separate reading routes.
+
+One-level inventory: 68 paths; 62 retained; 6 added; 0 removed.
+
+The rule is exactly `frontiers/<one directory>/PROOF.md`. All 62 retained proof
+blobs are unchanged between the two cuts. Nested files, `sources/` copies,
+coefficient packets, files with other names, and issue-only payloads are outside
+this count. A path count is not a count of distinct theorems or accepted results.
+Rows below pin the later commit in their links and record the full Git blob and
+SHA-256 of each proof. Their order is lexical by path, not integration order.
+
+### Six additional one-level proof paths
+
+| Source path at the later cut | Git blob | SHA-256 |
+|---|---|---|
+| [source: `frontiers/cusp_torus_transfer_20261001/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/cusp_torus_transfer_20261001/PROOF.md) | `de3d85fdcf65487adc982bae7318246c1b8f016c` | `6b818bdc34c6908505c6b2ad65584f740254a8525ddc8a45197d560386243bb0` |
+| [source: `frontiers/moving_remote_collision_20261003/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/moving_remote_collision_20261003/PROOF.md) | `596782786a200412a58169440b45d4f5bb36aadf` | `d94f8f2f7e809da37465729d3eca5f9793bce5fc5410d9f83e61db259ddf73df` |
+| [source: `frontiers/ordinary_short_bar_occurrence_20261001/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/ordinary_short_bar_occurrence_20261001/PROOF.md) | `69ff20a6c514629373f3ad12eb2db2a2596777d6` | `16d2c5f6c1fe45dd6ce8f6b69455db4908b8e6319e57d58c4ad7c9d1881bdd4d` |
+| [source: `frontiers/replacement_bar_occurrence_20261001/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/replacement_bar_occurrence_20261001/PROOF.md) | `724258d33408f754ffc21848196e1fdd80c8bf6a` | `b49f2ea5975dc05270f51fea4a3574093f726258cdab94888742507c2caa275f` |
+| [source: `frontiers/strict_unique_replacement_coefficient_20261003/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/strict_unique_replacement_coefficient_20261003/PROOF.md) | `eff422d197fcc1ff41c155c783bfeca101330a20` | `2b8949f7be425861275db49563c9dc81fee20d7118e5c6703f25f9d40e4f4188` |
+| [source: `frontiers/unique_replacement_bar_intensity_20261001/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/unique_replacement_bar_intensity_20261001/PROOF.md) | `9c79a672f5d81e04972032b2f1faf185f4664fa5` | `ba1901cbb4bac037befb21d648172ac3ba04aa370f5377a2919c0da988572552` |
+
+### Nested records, counted separately
+
+Nested inventory: 14 proof paths in the two named collections below.
+
+The [soft-layer collection README](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/README.md)
+routes to C91–C99, C101–C103 and C124, their full reviews, source crosswalk and
+checkers. The [A4 collection README](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_rejected_endpoint_margin_20261003/README.md)
+routes to A4, its full review and exposure correction. These 13 plus 1 proof
+records are not added to the 68 one-level paths. C100 and C104 are outside the
+soft-layer collection. Copied dependencies elsewhere in `sources/` are not
+new entries in either inventory. The linked proof statements and reviews govern;
+this route adds no review verdict or extension to small-gap/global-bar claims.
+
+| Nested source path at the later cut | Git blob | SHA-256 |
+|---|---|---|
+| [source: `frontiers/planar_rejected_endpoint_margin_20261003/A4/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_rejected_endpoint_margin_20261003/A4/PROOF.md) | `f1a71b2a0db6fc43636583af6c9f471d6c040488` | `acd172c5f8626aa3b7be5ac691786eefa6d6f243a32909502dfdbd79c8066a7c` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C101/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C101/PROOF.md) | `6dcbdf68db9d10014f1a1fe09104e3397480d229` | `300d0d18abb74332e593e389485c817a3c0ea7c31345194e3cfdd4039ac3b5c4` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C102/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C102/PROOF.md) | `0e35fe954fedf144baa647103d303efcd4ffab7e` | `1a89b365bec20e353b84d5ac17b1acbe9179d48e4e4137e04d3c7e40ad207628` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C103/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C103/PROOF.md) | `b9920348bef731b1fcaaa9e5aa6cadaed77ec837` | `652e66f8645eb1a34c28a85900b05405d424bb0e282b86a7d5597f10b8f9c8e3` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C124/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C124/PROOF.md) | `d99cec53ecabfe3fb9d4a1e4a085cd026134fd5c` | `90148657397dcce31e8039afa9015c022f74b2ed0d41e75f2f2339074a8a520f` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C91/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C91/PROOF.md) | `92c9c4797081d884080622c276c6c7fe6c843533` | `74a9ee276c3647276deb544c6d83e3cf21f708f55f9009fa4db5cc49c9d0e9aa` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C92/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C92/PROOF.md) | `4f6598a15dd9a64b26b5b8c6904ec4be45152409` | `6fa4c3d6d1e8c3d8590c865802d5df061ad5b17652ddc7fd7bf5c5e8b8de084a` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C93/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C93/PROOF.md) | `204fd6f3d3a1bb04945dc3e1556bd1ee8e7af35e` | `f25f86cc66ae335b4832ea53670646815567ec7854fa0386f8c57f6939e0af1c` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C94/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C94/PROOF.md) | `a9f2695b4b2c45a3fa059ee3e2f889647374bffa` | `0fe4fa2028f8ddbbf5a79df3879bcbd3789f19409fb44ad739caeabedff1af3c` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C95/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C95/PROOF.md) | `25faf41278c5b0f52603fbca8287b4b0c047b5da` | `c0d9ee72352fafe91f96a8b6187c978f09ee3c187d5f4c7c2462c0187750d2e1` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C96/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C96/PROOF.md) | `93e3734279f024a7d253076a7d93712def5779ab` | `0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C97/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C97/PROOF.md) | `49e304440987e19ec4c1a407271093d2fc879f0a` | `acf83958e6ea650d83bf811b2beacc03b553637dc4a3160012567c7f0a300a57` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C98/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C98/PROOF.md) | `ae0def45e3109f13b917f85b5d617f582cc5d0e2` | `3ca1622197bf22cf71ab64f2938ecc0b022ed09487b691d50ae8d2ad1f46d198` |
+| [source: `frontiers/planar_soft_layer_chain_20261003/C99/PROOF.md`](https://github.com/d6g8k5htny-coder/Math-/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/frontiers/planar_soft_layer_chain_20261003/C99/PROOF.md) | `f8a68df60da33d59fac617267f5ab66f94fb856d` | `55eb6c33105190da4194e63d90ceeb40f3434b14b92803700ab840df67e9295e` |
+
+This is a bounded dated inventory, not an exhaustive index of every proof format
+or later repository addition. The checker verifies the retained prefix, the two
+cut relationship, exact one-level delta, unchanged retained blobs, the named
+nested inventory, and every listed byte identity and immutable link.
+
+Supplement author: OpenAI/Codex, assisting the original Anthropic/Claude proposal
+under Dylan Roy's explicit authorization. Scientific effect: NONE.
+<!-- post-c126:end -->

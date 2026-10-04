@@ -144,5 +144,50 @@ class ChainTableIdentities(unittest.TestCase):
         self.assertIn('chain-table identity mismatch: ' + self.chain['folder'], cpr.check(self.text.replace(self.row, bad)))
 
 
+class PostC126Inventory(unittest.TestCase):
+    """Reject stale counts, missing nested routes, mutable pins and copied sources."""
+
+    def setUp(self):
+        self.text = DOC.read_text(encoding='utf-8')
+        self.rows = [line for line in self.text.splitlines() if line.startswith('| [source:')]
+
+    def test_real_supplement_passes(self):
+        self.assertEqual(cpr.check(self.text), [])
+
+    def test_missing_or_duplicate_supplement_fails(self):
+        original, supplement = self.text.split('<!-- post-c126:start -->')
+        self.assertTrue(cpr.check(original))
+        self.assertTrue(cpr.check(self.text + '<!-- post-c126:start -->' + supplement))
+
+    def test_wrong_count_fails(self):
+        self.assertTrue(cpr.check(self.text.replace('One-level inventory: 68 paths', 'One-level inventory: 82 paths')))
+
+    def test_dropped_added_proof_fails(self):
+        self.assertTrue(cpr.check(self.text.replace(self.rows[0] + '\n', '')))
+
+    def test_dropped_nested_proof_fails(self):
+        row = next(row for row in self.rows if '/C124/PROOF.md' in row)
+        self.assertTrue(cpr.check(self.text.replace(row + '\n', '')))
+
+    def test_duplicate_source_fails(self):
+        self.assertTrue(cpr.check(self.text.replace(self.rows[0], self.rows[0] + '\n' + self.rows[0])))
+
+    def test_wrong_hash_or_mutable_url_fails(self):
+        row = self.rows[0]
+        digest = row.split('`')[-2]
+        failures = cpr.check(self.text.replace(row, row.replace(digest, '0' * 64)))
+        self.assertTrue(any(f.startswith('post-cut source identity mismatch:') for f in failures))
+        bad = row.replace('/blob/bbe85e270f2c8b747f2d5d9477c86e86e323fe15/', '/blob/main/')
+        self.assertIn('malformed post-cut source row', cpr.check(self.text.replace(row, bad)))
+
+    def test_copied_source_substitution_fails(self):
+        row = next(row for row in self.rows if 'frontiers/replacement_bar_occurrence_20261001/PROOF.md' in row)
+        bad = row.replace('replacement_bar_occurrence_20261001/PROOF.md', 'replacement_bar_occurrence_20261001/sources/c50/PROOF.md')
+        self.assertTrue(cpr.check(self.text.replace(row, bad)))
+
+    def test_historical_prose_edit_fails(self):
+        self.assertTrue(cpr.check(self.text.replace('other 51 are reachable', 'other 99 are reachable')))
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -8,11 +8,14 @@ agree with PROOF_INDEX.md at the cut; every frontiers/*/PROOF.md at the cut must
 the rows must follow first-parent integration order (position in `git rev-list --first-parent --reverse
 <cut>`, ties by folder name); the commit and blob prefixes of the second (chain) table must agree with
 the first; and no line of either table may carry a verdict word. Availability only: nothing here reads
-or grades a proof.
+or grades a proof. The additive post-C126 supplement also preserves the historical
+document bytes and checks its separately pinned one-level delta, named nested
+collections, full proof identities and immutable links.
 
 Usage: python3 -B -S tools/check_proof_reachability.py [document]   (exit 0 iff every check passes)
 """
 import functools
+import hashlib
 import re
 import subprocess
 import sys
@@ -29,6 +32,13 @@ CHAIN_RE = re.compile(
     r'^\| `(?P<folder>[A-Za-z0-9_]+)` \| #(?P<pr>\d+) \| `(?P<commit>[0-9a-f]{12})` '
     r'\| `(?P<blob>[0-9a-f]{12})` \| (?P<receipt>\d+) \|$')
 VERDICT_WORDS = ('ACCEPT', 'AMEND', 'HOLD', 'CONFIRMED', 'VERIFIED', 'PASS', 'REJECT', 'APPROVED', 'FAIL')
+POST_START = '<!-- post-c126:start -->'
+POST_END = '<!-- post-c126:end -->'
+HISTORICAL_HEAD = 'ee087cea7cfa932daf0122aaee8227d1dfbadef4'
+POST_ROW = re.compile(
+    r'^\| \[source: `(?P<path>frontiers/[A-Za-z0-9_/]+/PROOF\.md)`\]'
+    r'\(https://github\.com/d6g8k5htny-coder/Math-/blob/(?P<cut>[0-9a-f]{40})/(?P=path)\) '
+    r'\| `(?P<blob>[0-9a-f]{40})` \| `(?P<sha256>[0-9a-f]{64})` \|$')
 
 
 @functools.lru_cache(maxsize=None)
@@ -72,6 +82,73 @@ def verdict_words(lines):
             if re.search(r'\b' + w + r'\b', line, flags=re.I):
                 bad.append((w, line[:80]))
     return bad
+
+
+@functools.lru_cache(maxsize=None)
+def source_bytes(cut, path):
+    """Retain every byte, including terminal newlines, for identity checks."""
+    return subprocess.run(['git', 'show', cut + ':' + path],
+                          capture_output=True, check=True).stdout
+
+
+def check_post_cut(text, old_cut):
+    """Check the additive later-cut inventory without replacing the historical cut."""
+    if text.count(POST_START) != 1 or text.count(POST_END) != 1:
+        return ['post-cut supplement must occur exactly once']
+    original, rest = text.split(POST_START)
+    supplement, tail = rest.split(POST_END)
+    failures = []
+    if tail.strip():
+        failures.append('unexpected content after post-cut supplement')
+    if original.encode('utf-8') != source_bytes(HISTORICAL_HEAD, DOC):
+        failures.append('historical document changed')
+    cuts = re.findall(r'^Post-C126 cut: `([0-9a-f]{40})`\.$', supplement, re.M)
+    if len(cuts) != 1:
+        return failures + ['post-cut commit must occur exactly once']
+    cut = cuts[0]
+    try:
+        if git('merge-base', old_cut, cut) != old_cut:
+            return failures + ['post-cut does not descend from historical cut']
+        old_paths = set(git('ls-tree', '-r', '--name-only', old_cut).splitlines())
+        new_paths = set(git('ls-tree', '-r', '--name-only', cut).splitlines())
+    except subprocess.CalledProcessError:
+        return failures + ['post-cut commit unavailable']
+    old_one = {p for p in old_paths if re.fullmatch(r'frontiers/[^/]+/PROOF\.md', p)}
+    new_one = {p for p in new_paths if re.fullmatch(r'frontiers/[^/]+/PROOF\.md', p)}
+    added, retained, removed = new_one - old_one, new_one & old_one, old_one - new_one
+    nested = {p for p in new_paths if re.fullmatch(
+        r'frontiers/(planar_soft_layer_chain_20261003/C\d+|'
+        r'planar_rejected_endpoint_margin_20261003/A4)/PROOF\.md', p)}
+    counts = 'One-level inventory: %d paths; %d retained; %d added; %d removed.' % (
+        len(new_one), len(retained), len(added), len(removed))
+    nested_count = 'Nested inventory: %d proof paths in the two named collections below.' % len(nested)
+    if supplement.splitlines().count(counts) != 1 or supplement.splitlines().count(nested_count) != 1:
+        failures.append('post-cut inventory count mismatch')
+    for path in retained:
+        if git('rev-parse', old_cut + ':' + path) != git('rev-parse', cut + ':' + path):
+            failures.append('retained proof changed: ' + path)
+    seen = []
+    for line in supplement.splitlines():
+        if not line.startswith('| [source:'):
+            continue
+        match = POST_ROW.fullmatch(line)
+        if not match:
+            failures.append('malformed post-cut source row')
+            continue
+        row = match.groupdict()
+        path = row['path']
+        seen.append(path)
+        if path not in added | nested:
+            failures.append('unexpected post-cut source: ' + path)
+            continue
+        if (row['cut'] != cut or row['blob'] != git('rev-parse', cut + ':' + path)
+                or row['sha256'] != hashlib.sha256(source_bytes(cut, path)).hexdigest()):
+            failures.append('post-cut source identity mismatch: ' + path)
+    if len(seen) != len(set(seen)) or set(seen) != added | nested:
+        failures.append('post-cut source membership mismatch')
+    if seen != sorted(added) + sorted(nested):
+        failures.append('post-cut source order mismatch')
+    return failures
 
 
 def check(text):
@@ -125,6 +202,7 @@ def check(text):
         pr, commit, blob = computed[c['folder']]
         if c['pr'] != pr or not commit.startswith(c['commit']) or not blob.startswith(c['blob']):
             failures.append('chain-table identity mismatch: ' + c['folder'])
+    failures.extend(check_post_cut(text, cut))
     return failures
 
 
