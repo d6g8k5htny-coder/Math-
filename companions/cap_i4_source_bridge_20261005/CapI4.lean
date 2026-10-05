@@ -19,7 +19,7 @@ open scoped ENNReal
 
 set_option autoImplicit false
 
-variable {Ω Ξ : Type*} [MeasurableSpace Ω] [MeasurableSpace Ξ]
+variable {Ω Ξ : Type*}
 
 def depthEvent (k r : ℝ) (lam M3 : Ω → ℝ) : Set Ω :=
   {x | lam x ≤ (4 / (3 * k)) * r * M3 x ^ 2}
@@ -36,7 +36,7 @@ theorem cap_failure_eq_union (k r : ℝ) (lam M3 M4 : Ω → ℝ) :
   classical
   ext x
   simp only [goodCap, depthEvent, fourthEvent, Set.mem_compl_iff,
-    Set.mem_setOf_eq, Set.mem_union, not_and_or, not_lt, not_le]
+    Set.mem_ofPred_eq, Set.mem_union, not_and_or, not_lt, not_le]
 
 /-- A supplied deterministic implication transfers the same union to a target event. -/
 theorem cap_failure_subset (k r : ℝ) (lam M3 M4 : Ω → ℝ) (G : Set Ω)
@@ -44,6 +44,8 @@ theorem cap_failure_subset (k r : ℝ) (lam M3 M4 : Ω → ℝ) (G : Set Ω)
     Gᶜ ⊆ depthEvent k r lam M3 ∪ fourthEvent k r M4 := by
   rw [← cap_failure_eq_union]
   exact Set.compl_subset_compl.mpr hcap
+
+variable [MeasurableSpace Ω] [MeasurableSpace Ξ]
 
 /-- A fourth-moment specialization of the EXISTING finite-measure Markov interface.
 Use with the tilted law itself; its joint weighted moment is an explicit premise. -/
@@ -55,6 +57,7 @@ theorem fourth_moment_tail
     (ν {x | ε < r * R x}).toReal ≤ (M / ε ^ 4) * r ^ 4 := by
   have hsub : {x | ε < r * R x} ⊆ {x | (ε / r) ^ 4 ≤ R x ^ 4} := by
     intro x hx
+    simp only [Set.mem_ofPred_eq] at hx ⊢
     have ht : ε / r ≤ R x :=
       ((div_lt_iff₀ hr).2 (by simpa only [mul_comm] using hx)).le
     exact pow_le_pow_left₀ (div_pos hε hr).le ht 4
@@ -84,13 +87,14 @@ theorem double_soft_integral (a b : ℝ) :
   have hp : (fun x : ℝ => x * (x + b)) = (fun x => x ^ 2 + b * x) := by
     funext x
     ring
-  rw [hp, intervalIntegral.integral_add
-    ((continuous_id.pow 2).intervalIntegrable 0 a)
-    ((continuous_const.mul continuous_id).intervalIntegrable 0 a),
+  have h₂ : IntervalIntegrable (fun x : ℝ => x ^ 2) volume 0 a :=
+    (by fun_prop : Continuous (fun x : ℝ => x ^ 2)).intervalIntegrable 0 a
+  have hb : IntervalIntegrable (fun x : ℝ => b * x) volume 0 a :=
+    (by fun_prop : Continuous (fun x : ℝ => b * x)).intervalIntegrable 0 a
+  rw [hp, intervalIntegral.integral_add h₂ hb,
     intervalIntegral.integral_const_mul, intervalIntegral.integral_pow,
     intervalIntegral.integral_id]
-  norm_num
-  <;> ring
+  ring
 
 /-- Exact source (7.3); U is NOT a constant independent of the remaining eigenvalues. -/
 theorem matrix_soft_integral (r D E U : ℝ) :
@@ -170,7 +174,6 @@ theorem weighted_depth_r3
       div_le_div_of_nonneg_left (by positivity) (mul_pos hcZ (sq_pos_of_pos hr)) hz
     _ = (M / cZ) * r ^ 3 := by
       field_simp [ne_of_gt hr, ne_of_gt hcZ]
-      <;> ring
 
 /-- Source (7.5): retaining the strict far branch is essential in m=1. -/
 theorem scalar_near_or_far (lam J D r : ℝ)
@@ -205,10 +208,10 @@ theorem scalar_far_fourth_moment
     (ν {x | 1 / (4 * D * r) < lam x}).toReal ≤ (M / (1 / (4 * D)) ^ 4) * r ^ 4 := by
   have he : {x | 1 / (4 * D * r) < lam x} = {x | 1 / (4 * D) < r * lam x} := by
     ext x
-    simp only [Set.mem_setOf_eq]
+    simp only [Set.mem_ofPred_eq]
     rw [div_lt_iff₀ (by positivity : 0 < 4 * D * r),
       div_lt_iff₀ (by positivity : 0 < 4 * D)]
-    congr 1 <;> ring
+    rw [show lam x * (4 * D * r) = (r * lam x) * (4 * D) by ring]
   rw [he]
   exact fourth_moment_tail ν lam r (1 / (4 * D)) M hr (by positivity) hi hM
 
@@ -239,7 +242,7 @@ theorem cap_cubic_of_tails
     _ ≤ (ν (depthEvent k r lam M3)).toReal + (ν (fourthEvent k r M4)).toReal :=
       cap_union_mass ν k r lam M3 M4
     _ ≤ C3 * r ^ 3 + C4 * r ^ 4 := add_le_add hdepth hfourth
-    _ ≤ C3 * r ^ 3 + C4 * r ^ 3 := add_le_add_left (mul_le_mul_of_nonneg_left hp hC4) _
+    _ ≤ C3 * r ^ 3 + C4 * r ^ 3 := add_le_add le_rfl (mul_le_mul_of_nonneg_left hp hC4)
     _ = (C3 + C4) * r ^ 3 := by ring
 
 end CapI4
