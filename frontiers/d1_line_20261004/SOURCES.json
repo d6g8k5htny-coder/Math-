@@ -1,13 +1,13 @@
 {
  "schema": 1,
  "scientific_effect": "NONE",
- "object": "CL-D1-LINE-20261004-v1.1",
+ "object": "CL-D1-LINE-20261004-v1.2",
  "kind": "author-side proof candidate: Theorems 1D and 1D+ for stationary Gaussian processes on the line under (H_R) = (R1) all spectral moments finite, (R2) s >= s0 > 0 on [omega1, omega2] with omega1 > 0, (R3) ess sup (1 + omega^6) s < infinity (no decay rate of rho is assumed): nu_+ = (C0/2) h^(-1/3) + (I/2) h^(1/4) + B2 h^(1/3) + O(h^(3/4)) and nu = C0 l^(-1/3) + C1 l^(1/4) + 2 B2 l^(1/3) + O(l^(3/4)), with the constants of Math- #214. New: Lemma 1.5_R and the process under Q; the Kac-Rice representation on R; Lemma 3.1_R (the compact middle range); Lemma 4.1_R (the pin covariance, Riemann-Lebesgue); Lemma 4.2_R (Landau on an interval); Lemma 4.3_R (Ingham + interlacing: conditioning on the pins lowers at most three eigenvalues); Lemma 4.4_R (Gaussian concentration for the number of rough cells); Lemma F_R (the far band is O(h^2))",
  "author": "Anthropic Claude",
  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
  "attribution": "Dylan Roy - delegated AI work; actual performer Anthropic Claude",
  "read_at": {
-  "branch_base": "f34ffd748ac00507fb3ef2abd01cdeb6eb7bb43e"
+  "branch_base": "d47b90e7d5baaf599b6fcd2e3f1bc94ca4dc9648"
  },
  "consumed": [
   {
@@ -48,20 +48,17 @@
    "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
    "tag": "E2",
    "use": "the Borel repair of [P] section 9, through [1D] section 1"
-  }
- ],
- "cited_unmerged": [
+  },
   {
    "path": "reviews/literature_classical_neighbors_20261001/ADDENDUM.md",
    "bytes": 16207,
    "sha256": "5e3903ad05b0566a1e999b0e69b309a4165578705d687f4a3021d22ebd1e1e42",
    "git_blob": "b289c7cd4be29fad6913aa4d753899cb0ef851aa",
    "tag": "210",
-   "pr": "Math- #210",
-   "head": "213dd9eb8ba83de242516b10c999fbe56d17fd3f",
-   "use": "Math- #210 v1.3 (open): the classical crest-to-trough literature and the d = 1 remark whose leading constant 0.19971814 this note proves on the line (Remark 3); comparison only"
+   "use": "Math- #210 v1.3 (merged at 0cdc19f; the blob read at head 213dd9e): the classical crest-to-trough literature and the d = 1 remark whose leading constant 0.19971814 this note proves on the line (Remark 3); comparison only"
   }
  ],
+ "cited_unmerged": [],
  "cited_external": [
   {
    "tag": "Ingham",
@@ -98,7 +95,7 @@
   "M6": "C6",
   "M7": "C6"
  },
- "label_history": "v1 (f34ffd7, opened 2026-10-04 06:46Z) assumed |rho^(j)(x)| <= C (1 + |x|)^-1 for j <= 2, and Lemma 4.3_R bounded the conditional covariance by a Schur complement with small cross-covariances. v1.1, before any nonauthor pickup, drops that hypothesis: Lemma 4.3_R uses interlacing (at most three eigenvalues drop) and loses three powers of eps; Lemma 4.1_R gets the pin covariance from Riemann-Lebesgue; Lemma F_R uses at least 23 cells. The theorem, its rates and its constants are unchanged; checker C5 and C6 updated, mutant M7 added.",
+ "label_history": "v1 (f34ffd7, opened 2026-10-04 06:46Z) assumed |rho^(j)(x)| <= C (1 + |x|)^-1 for j <= 2, and Lemma 4.3_R bounded the conditional covariance by a Schur complement with small cross-covariances. v1.1, before any nonauthor pickup, drops that hypothesis: Lemma 4.3_R uses interlacing (at most three eigenvalues drop) and loses three powers of eps; Lemma 4.1_R gets the pin covariance from Riemann-Lebesgue; Lemma F_R uses at least 23 cells. The theorem, its rates and its constants are unchanged; checker C5 and C6 updated, mutant M7 added. v1.2 is wording only: after the four nonauthor slice reads of v1.1 (2635309, merged with Math- #271 at 4242ab9) it carries their optional notes and records Math- #210 as merged. The theorem, its hypotheses, rates and constants, and line_check.py, are unchanged.",
  "replayed": [
   "line_check.py"
  ],
@@ -106,13 +103,13 @@
  "files": [
   {
    "path": "PROOF.md",
-   "bytes": 38349,
-   "sha256": "e8e401bd82cabd3f876812c1089f5c0bf3a6240c48b836776aed8f535489c7a9"
+   "bytes": 41713,
+   "sha256": "6866f364450ecc393b652e74728abcf5b6b498b99279fdcfa0c9a2deb038a10e"
   },
   {
    "path": "README.md",
-   "bytes": 7259,
-   "sha256": "1ace3aa3cbaa0bb2b34ab954c9d9a742ffd9e1ef33845dcbc1ee9a1317a51f5b"
+   "bytes": 7670,
+   "sha256": "c47b3d46d64198c4efe780e3337d0253e85be8d4c62a6e2a28698f2c27f6e0f6"
   },
   {
    "path": "line_check.py",
