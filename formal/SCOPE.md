@@ -39,7 +39,7 @@ manifest and scope require a fresh separately authenticated alignment review.
 
 ## Additive weighted probability law (nine further declarations)
 
-The total inventory is now 29 theorem targets. [WEIGHTED_LAW.md](WEIGHTED_LAW.md)
+This retained layer has 29 theorem targets. [WEIGHTED_LAW.md](WEIGHTED_LAW.md)
 is the hash-bound exact scope for the new `WeightedLaw.lean` module. It consumes
 all earlier formal source unchanged and supplies the abstract PT1 construction
 excluded by MeasureBridge: an integrable a.e.-nonnegative weight with positive
@@ -54,6 +54,20 @@ The previous scope exclusions describe their respective modules; the abstract
 construction alone is added here. The executable gate and five negative controls
 are unchanged, and all nine new targets enter its transitive axiom inventory.
 No existing review is silently rebound to the changed manifest or scope.
+
+## Additive moment-to-tail composition (seven further declarations)
+
+The current total is 36 theorem targets. [MOMENT_TAIL.md](MOMENT_TAIL.md) is the
+hash-bound scope for `MomentTail.lean`: actual finite-measure Markov inequality,
+strict-event measurability/threshold inclusion, the fortieth-moment-to-eighth-order
+event tail, fourth-order and cubic weighted probability bounds, and an explicit
+uniform-family assembly. The event is exactly {epsilon < r R^5}, not the entire
+research good-event complement. Its moment bound, the weight's second moment,
+positive lower normalizer and uniform-family premises remain assumptions.
+No concrete Gaussian jet/Palm construction, derivative-supremum bound, P0.2 or
+parent theorem is established. All earlier29 proof bytes, the executable gate
+and its five rejection controls are unchanged. Existing package-level alignment
+records do not automatically cover these new targets or changed scope.
 
 ## Review contract
 The source manifest is an evidence sidecar, not another scientific register. A trusted successful workflow establishes kernel evidence only for these target declarations and their displayed hypotheses, relative to Lean's kernel/standard foundations/toolchain. Independent review must compare each Lean statement and definition to this scope note and the source actually cited. Review author, provider, family and agent must be explicit. Validate an authenticated record with `python formal/gate.py --alignment review.json`; then the existing controlling gate must decide whether its wider requirements are met. The validator does not authenticate a review merely because a JSON string names a reviewer.
