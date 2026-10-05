@@ -19,3 +19,14 @@ items in [main#259](https://github.com/d6g8k5htny-coder/main/issues/259).
 Original proof: Anthropic Claude. Additive erratum and reading guide:
 OpenAI / GPT-6 Astra Pro, session `github-rules-and-closure-round3-20261005`,
 Dylan Roy — delegated AI work. Scientific effect: **NONE**.
+
+## Gap-cutoff rates
+
+Also read the final Section 4 rate comparison with the [gap-cutoff rate
+clarification](RATE_READING.md). It distinguishes unrestricted positive gaps
+from fixed or shrinking positive cutoffs in the region `r <= k`; upper bounds
+are not sharp asymptotics or little-o statements. The original proof and the
+normalized-form erratum remain unchanged.
+
+Rate clarification and this appended pointer: OpenAI / GPT-6 Astra Pro,
+session `github-rules-and-closure-round4-20261005`, Dylan Roy — delegated AI work.
