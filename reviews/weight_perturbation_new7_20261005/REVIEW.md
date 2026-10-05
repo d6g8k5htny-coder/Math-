@@ -13,13 +13,14 @@ Runtime: Cursor-managed cloud VM, public worker. No self-hosted worker was
 connected. `lake`, `lean`, and `leanchecker` are absent on this VM, so no local
 kernel replay was run or claimed.
 
-Reviewed source (frozen at verdict time):
-`d6g8k5htny-coder/Math-` branch `chatgpt/lean-weight-perturbation-20261005`
-head `559e1223658f9b7cc20154824e3d13e6348b9b2f`,
+Reviewed source:
+`d6g8k5htny-coder/Math-` branch `chatgpt/lean-weight-perturbation-20261005`,
 base `dcd2a886e322738324a745adcad12fd3735bd2c5`.
+The read opened on head `559e1223658f9b7cc20154824e3d13e6348b9b2f`.
+Before this record was pushed, the branch moved to successor
+`8739dbe20ecc7321cfc640738405c2c995edca94`. The readback of that successor
+is below. This review branch does not edit the source branch.
 Source author: OpenAI / GPT-6 Astra Pro, session `lean-weight-perturbation-20261005`.
-Remote head was still `559e1223658f9b7cc20154824e3d13e6348b9b2f` when this
-verdict was written. This review branch does not edit that head.
 
 ## Verdict
 
@@ -84,6 +85,10 @@ ride with the repair. A later readback checks the byte diff.
 This ID is the one already published in PR #292 comment 6001159217.
 The log line and the pinned `mabs_mul_le` / `abs_add_le` declaration were
 checked again here. No second identifier, and no parallel repair branch.
+
+Current source disposition: `8739dbe` contains that repair. See the successor
+readback. The open item on `8739dbe` is the hosted kernel run, which had not
+finished when this file was written.
 
 ## Statement read of the new seven
 
@@ -160,6 +165,34 @@ python3 -B -O -S -m unittest formal.tests.test_weight_perturbation formal.tests.
 Both runs: 28 tests, OK. The weight-perturbation file contributes 16, and both modes agree. The hosted gate step of run `37360023323` also logged those 16 as ok before the Lean build failed.
 
 A separate fraction script, not the package test, checked the scalar identity, sharpness of factor 2, a negative `b`, the reference-denominator direction, a non-probability ambient mass with a null atom, `r = 7` cancellation, distinct base measures, signed-integral cancellation against `∫|W−V|`, the half-budget endpoint, and a vanishing-normalizer pair whose probability gap stays 1. That script printed `independent finite checks PASS`.
+
+## Successor readback — `559e122..8739dbe`
+
+Commit `8739dbe20ecc7321cfc640738405c2c995edca94`, message
+`formal: repair pinned triangle-inequality lemma reference`, changes three paths:
+
+- `WeightPerturbation.lean`: `abs_add` becomes `abs_add_le` at the quotient
+  triangle step, and the unused ` <;> ring` after `field_simp` is deleted.
+- `manifest.json`: the module digest becomes
+  `50ce15709a133da12a0b4333cc653d26c5fd8a412976c975a7c2f3b25ed5c00f`,
+  and the failure log is bound. Manifest SHA256
+  `db678e22bc6cee792a3918fd501b94b6253d4bac276909ea5663cd8c4710d14b`.
+- `formal/evidence/weight-perturbation-initial-build-failure.log`, SHA256
+  `2abe4ec4bcfa4de282e7983ffebb225af21308c60b84083a1696bcced31b9c7c`.
+  `cmp` against artifact `11366965020`'s `build.log` was equal.
+
+`grep '^theorem'` is identical on the two heads. SCOPE, the extension note,
+the test, the target list, the gate, and `WeightedLaw.lean` are outside the
+diff. The statement read above therefore stands on `8739dbe`.
+
+WP-CI-001 is closed as a source defect on `8739dbe`. That closure is the
+byte readback. It is not kernel success.
+
+Hosted run `37360921503` on `8739dbe` was **in progress** when this readback
+was recorded
+(https://github.com/d6g8k5htny-coder/Math-/actions/runs/37360921503).
+`leanchecker`, the axiom audit, and the rejection controls are not claimed
+for `8739dbe`.
 
 ## Reconciliation and limits
 
