@@ -1,0 +1,86 @@
+/-
+L7 / MT-N1 PROPOSAL — UNCOMPILED
+Frozen Math-#275 head: 7206526ed53f7539838711ee45257a13b4b07e99
+Source ask: main#229 comment 5995761095
+Worker: Grok Bot agent 7 (non-Claude, nonauthor lane)
+Status: UNCOMPILED — not kernel-checked; do NOT treat as accepted Lean.
+Do not edit/rename the accepted theorem p02_lm009_moment40_family_r3.
+This file is an isolated companion proposal under reviews/ only.
+-/
+
+import ResearchFormalCoreR1.MomentTail
+
+namespace ResearchFormalCoreR1
+
+open MeasureTheory
+open scoped ENNReal
+
+set_option autoImplicit false
+
+variable {Ω : Type*} [MeasurableSpace Ω]
+
+/-- Interval-only companion to `p02_lm009_moment40_family_r3` (MT-N1).
+
+Same conclusion shape (one `C` fixed from `M,cW,cZ,ε`, cubic bound on
+`0 < r ≤ r0`), but probability is required **only** for those `r` in the
+interval — introduced as an explicit hypothesis inside each quantified case
+of `hdata`, not as a global instance `[∀ r, IsProbabilityMeasure (μ r)]`.
+
+Rationale (frozen #276 REVIEW.md §MT-N1): the accepted family theorem's type
+demands `μ r` be a probability measure for every real `r`, while premises and
+conclusion quantify only over `0 < r ≤ r0`. That extra instance is stronger
+than needed; it is not silently relaxed here by editing the frozen theorem.
+
+This declaration is separately named. It does not rename, edit, or replace
+`p02_lm009_moment40_family_r3`. Unweighted / finite-measure (MT-N2) work is
+out of L7 scope.
+-/
+theorem p02_lm009_moment40_family_r3_interval
+    (μ : ℝ → Measure Ω)
+    (W R : ℝ → Ω → ℝ) (r0 ε M cW cZ : ℝ)
+    (hr0 : 0 < r0 ∧ r0 ≤ 1) (hε : 0 < ε)
+    (hM : 0 ≤ M) (hcW : 0 ≤ cW) (hcZ : 0 < cZ)
+    (hdata : ∀ r, 0 < r → r ≤ r0 →
+      IsProbabilityMeasure (μ r) ∧
+      MemLp (W r) 2 (μ r) ∧ (0 ≤ᵐ[μ r] W r) ∧ Measurable (R r) ∧
+      Integrable (fun x => R r x ^ 40) (μ r) ∧
+      (∫ x, R r x ^ 40 ∂(μ r)) ≤ M ∧
+      (∫ x, W r x ^ 2 ∂(μ r)) ≤ cW * r ^ 4 ∧
+      cZ * r ^ 2 ≤ ∫ x, W r x ∂(μ r)) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ r, 0 < r → r ≤ r0 →
+      IsProbabilityMeasure (weightedLaw (μ r) (W r)) ∧
+      (weightedLaw (μ r) (W r) (badJetEvent (R r) r ε)).toReal ≤ C * r ^ 3 := by
+  refine ⟨(Real.sqrt cW / cZ) * Real.sqrt (M / ε ^ 8), by positivity, ?_⟩
+  intro r hr hrr0
+  obtain ⟨hProb, hW, hW0, hR, hRi, hMb, hsecond, hlower⟩ := hdata r hr hrr0
+  -- Instance for this r only (inside the quantified case), not for all ℝ.
+  letI : IsProbabilityMeasure (μ r) := hProb
+  exact p02_lm009_moment40_weighted_r3 (μ r) (W r) (R r) hW hW0 hR
+    r ε M cW cZ hr (hrr0.trans hr0.2) hε hM hcW hcZ hRi hMb hsecond hlower
+
+/-- Optional bridge: the accepted global-instance family theorem follows from
+the interval companion once probability is supplied for every real `r`.
+Kept as a named corollary for the L7 checklist; not a rewrite of the frozen
+module. -/
+theorem p02_lm009_moment40_family_r3_of_interval
+    (μ : ℝ → Measure Ω) [∀ r, IsProbabilityMeasure (μ r)]
+    (W R : ℝ → Ω → ℝ) (r0 ε M cW cZ : ℝ)
+    (hr0 : 0 < r0 ∧ r0 ≤ 1) (hε : 0 < ε)
+    (hM : 0 ≤ M) (hcW : 0 ≤ cW) (hcZ : 0 < cZ)
+    (hdata : ∀ r, 0 < r → r ≤ r0 →
+      MemLp (W r) 2 (μ r) ∧ (0 ≤ᵐ[μ r] W r) ∧ Measurable (R r) ∧
+      Integrable (fun x => R r x ^ 40) (μ r) ∧
+      (∫ x, R r x ^ 40 ∂(μ r)) ≤ M ∧
+      (∫ x, W r x ^ 2 ∂(μ r)) ≤ cW * r ^ 4 ∧
+      cZ * r ^ 2 ≤ ∫ x, W r x ∂(μ r)) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ r, 0 < r → r ≤ r0 →
+      IsProbabilityMeasure (weightedLaw (μ r) (W r)) ∧
+      (weightedLaw (μ r) (W r) (badJetEvent (R r) r ε)).toReal ≤ C * r ^ 3 :=
+  p02_lm009_moment40_family_r3_interval μ W R r0 ε M cW cZ hr0 hε hM hcW hcZ
+    (fun r hr hrr0 =>
+      ⟨inferInstance, (hdata r hr hrr0).1, (hdata r hr hrr0).2.1,
+        (hdata r hr hrr0).2.2.1, (hdata r hr hrr0).2.2.2.1,
+        (hdata r hr hrr0).2.2.2.2.1, (hdata r hr hrr0).2.2.2.2.2.1,
+        (hdata r hr hrr0).2.2.2.2.2.2⟩)
+
+end ResearchFormalCoreR1
