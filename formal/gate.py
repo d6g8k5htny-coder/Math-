@@ -56,6 +56,20 @@ def check_blueprint(text, targets):
     require('\\leanok' not in text, 'unreviewed Blueprint completion label')
     return links
 
+def lineage_identity(party, role):
+    """Validate declared identity text, not the truth or completeness of authorship."""
+    require(isinstance(party, dict), 'malformed review lineage: ' + role)
+    placeholders = {'unknown', 'unverified', 'unspecified', 'tbd', 'n/a',
+                    'none', 'null', '?', 'not known', 'not available'}
+    result = {}
+    for key in ('provider', 'family', 'agent'):
+        value = party.get(key)
+        require(isinstance(value, str) and value.strip(), 'missing review lineage: ' + role + '.' + key)
+        normalized = ' '.join(value.split()).casefold()
+        require(normalized not in placeholders, 'ambiguous review lineage: ' + role + '.' + key)
+        result[key] = normalized
+    return result
+
 def check_alignment(review, manifest_digest, targets, scope_digest):
     require(isinstance(review, dict), 'review must be object')
     require(review.get('disposition') == 'ACCEPTED', 'alignment not accepted')
@@ -63,10 +77,24 @@ def check_alignment(review, manifest_digest, targets, scope_digest):
     require(review.get('scope_sha256') == scope_digest, 'stale alignment scope')
     covered = review.get('targets', [])
     require(isinstance(covered, list) and len(covered) == len(set(covered)) and set(covered) == set(targets), 'partial or ambiguous review')
-    a, r = review.get('author', {}), review.get('reviewer', {})
-    for key in ('provider', 'family', 'agent'):
-        require(isinstance(a.get(key), str) and a[key].strip() and isinstance(r.get(key), str) and r[key].strip(), 'missing review lineage')
-        require(a[key].strip().casefold() != r[key].strip().casefold(), 'lineage not independent: ' + key)
+    r = lineage_identity(review.get('reviewer'), 'reviewer')
+    authors = [('author', lineage_identity(review.get('author'), 'author'))]
+    # Absence preserves the historical single-author schema. Declared proposers
+    # are additional authors, never ignored metadata or a substitute for author.
+    proposers = review.get('proposal_authors', [])
+    require(isinstance(proposers, list), 'malformed review lineage: proposal_authors')
+    for index, proposer in enumerate(proposers):
+        role = 'proposal_authors[' + str(index) + ']'
+        identity = lineage_identity(proposer, role)
+        if 'targets' in proposer:
+            scope = proposer['targets']
+            require(isinstance(scope, list) and scope and
+                    all(isinstance(name, str) and name in targets for name in scope) and
+                    len(scope) == len(set(scope)), 'invalid proposal target scope: ' + role)
+        authors.append((role, identity))
+    for role, author in authors:
+        for key in ('provider', 'family', 'agent'):
+            require(author[key] != r[key], 'lineage not independent: ' + role + '.' + key)
     e = review.get('evidence', {})
     require(isinstance(e.get('repository'), str) and re.fullmatch(r'[^/\s]+/[^/\s]+', e['repository']), 'missing evidence repo')
     require(isinstance(e.get('commit'), str) and COMMIT.fullmatch(e['commit']), 'mutable review ref')
@@ -89,7 +117,7 @@ def source_check():
     m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
     require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
-    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex'}
+    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
     require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')

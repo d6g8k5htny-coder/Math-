@@ -1,0 +1,30 @@
+{
+ "B_3_24": 10.2097,
+ "I_of_s": {
+  "0.25": 6.719e-05,
+  "0.50": 0.0001348,
+  "0.75": 0.0001937,
+  "1.00": 0.0002535,
+  "1.25": 0.0003173,
+  "1.50": 0.0003809,
+  "1.75": 0.0004374,
+  "2.00": 0.0005175,
+  "2.25": 0.000584,
+  "2.50": 0.0006492,
+  "2.75": 0.0006933,
+  "3.00": 0.0006943,
+  "3.25": 0.000719,
+  "3.50": 0.0007273,
+  "3.75": 0.000735,
+  "4.00": 0.0007427,
+  "4.25": 0.0007512,
+  "4.50": 0.0007334
+ },
+ "beta_3": 0.0007400614572,
+ "gamma_3": -0.02095,
+ "gamma_3_se_batches": 0.0013,
+ "method": "two-point conditional Gaussian law (exact Hermite covariance derivatives), Monte Carlo over the Hessian residual with common random numbers in b, Gauss-Hermite (20) in b, trapezoid in s, step 0.25",
+ "not_a_control": true,
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1 exploration",
+ "samples_per_separation": 200000
+}

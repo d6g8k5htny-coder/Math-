@@ -1,0 +1,54 @@
+{
+  "disposition": "ACCEPTED",
+  "manifest_sha256": "d843ba7b96457a95e6485a4bc30678a8a252acf405d369b26dab81832c596c39",
+  "scope_sha256": "e8ef291bb7daa334812451a675788b4ee902c0974d9bcd3197407b6b56b63548",
+  "targets": [
+    "ResearchFormalCoreR1.ec005_fold_gap",
+    "ResearchFormalCoreR1.ec008_factor_expansion",
+    "ResearchFormalCoreR1.ec010_generic",
+    "ResearchFormalCoreR1.ec010_transverse",
+    "ResearchFormalCoreR1.ec011_scalar_cancellation",
+    "ResearchFormalCoreR1.ec014_contact_power",
+    "ResearchFormalCoreR1.p02_lm008_r2_cancel",
+    "ResearchFormalCoreR1.p02_lm008_cross_multiplied",
+    "ResearchFormalCoreR1.p02_lm008_quotient_bound",
+    "ResearchFormalCoreR1.p02_lm009_bad_event_threshold",
+    "ResearchFormalCoreR1.p02_lm009_power40_identity",
+    "ResearchFormalCoreR1.p02_lm009_r4_le_r3",
+    "ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_integral_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_numerator",
+    "ResearchFormalCoreR1.p02_lm008_measure_transfer",
+    "ResearchFormalCoreR1.p02_lm009_measure_transfer_r8_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_sqrt_counterexample",
+    "ResearchFormalCoreR1.p02_lm008_upper_normalizer_counterexample",
+    "ResearchFormalCoreR1.weightedLaw_apply",
+    "ResearchFormalCoreR1.weightedLaw_isProbabilityMeasure",
+    "ResearchFormalCoreR1.weightedLaw_event_real",
+    "ResearchFormalCoreR1.weightedLaw_absolutelyContinuous",
+    "ResearchFormalCoreR1.weightedLaw_congr_ae",
+    "ResearchFormalCoreR1.weightedLaw_zero",
+    "ResearchFormalCoreR1.weightedLaw_one",
+    "ResearchFormalCoreR1.p02_lm008_probability_transfer",
+    "ResearchFormalCoreR1.p02_lm009_probability_transfer_r8_to_r3"
+  ],
+  "author": {
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "agent": "GPT-6 Astra Pro"
+  },
+  "reviewer": {
+    "provider": "xAI",
+    "family": "Grok",
+    "agent": "Grok 4.7 Cursor Cloud Agent"
+  },
+  "evidence": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "path": "reviews/lean_probability_alignment_20261005/REVIEW.md",
+    "commit": "8f70c102550a6080c2b8f472df8a601fc7f61081",
+    "sha256": "f061aae9e9d1f98b4e5de373d3e0b9f244f43fa37c594d23981ebbb650e2ffbd"
+  },
+  "scientific_effect": "NONE",
+  "notes": "Statement alignment for the 29-target package at Math- head dce1b197be3431673289905259be38b450e9b898. Distinct from the Math-#272 manifest. Does not change formal/manifest.json alignment_status."
+}

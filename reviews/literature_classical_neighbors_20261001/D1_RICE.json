@@ -1,0 +1,36 @@
+{
+ "checks": {
+  "R1_spectral_moments": {
+   "info": {
+    "lambda2": "1",
+    "lambda4": "3",
+    "lambda6": "15",
+    "tau2": "6"
+   },
+   "passed": true
+  },
+  "R2_two_point_rice_ratio": {
+   "info": {
+    "C": 0.199718135,
+    "C_nu_max": 0.0550551895,
+    "nu_max": 0.275664448,
+    "ratio_h^(1/3)f(h)/(C nu_max)": {
+     "1e-10": 1.0000003,
+     "1e-2": 1.0047933,
+     "1e-3": 0.9970508,
+     "1e-4": 0.9983637,
+     "1e-5": 0.999405,
+     "1e-6": 0.9998175,
+     "1e-7": 0.9999508,
+     "1e-8": 0.9999888,
+     "1e-9": 0.9999983
+    }
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.1 d1 Rice check",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

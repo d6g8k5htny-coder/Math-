@@ -55,7 +55,7 @@ class MomentGeneralitySourceTests(unittest.TestCase):
         pins = {
             'ResearchFormalCoreR1/MomentTail.lean': '87fe3ee90afc52d8c2652881f1ae195d1b0b15a2ffc18c84d6166d1a4d0de2aa',
             'ResearchFormalCoreR1/WeightedLaw.lean': 'f31dfd2cd048cc0c0446c54c46d89c9cdd5d7bb9d76e9d8d16b7c034f351d736',
-            'gate.py': '4f14a78bbc6e9b7f929648b13ad3a9ae467256db4be9792e3667680e697a5c94',
+            'gate.py': '958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68',
         }
         for path, digest in pins.items():
             self.assertEqual(m['files'][path], digest)
