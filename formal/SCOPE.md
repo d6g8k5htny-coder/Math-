@@ -18,7 +18,7 @@ GP214's upper bound Z_r <= 15 r^2 cannot discharge the required lower bound cZ r
 
 ## Additive measure-theoretic bridge (seven new declarations)
 
-The package now registers 20 declarations: the original 13 above and seven in
+This retained layer consists of 20 declarations: the original 13 above and seven in
 `ResearchFormalCoreR1/MeasureBridge.lean`. The exact statement mapping and retained
 hypotheses are in the hash-bound [bridge scope](MEASURE_BRIDGE.md).
 
@@ -36,6 +36,24 @@ transfer historical reviews to new bytes. The original two modules, their proofs
 the gate and its five executable rejection controls remain unchanged. The two
 new counterexamples are included in the normal target/axiom inventory. The changed
 manifest and scope require a fresh separately authenticated alignment review.
+
+## Additive weighted probability law (nine further declarations)
+
+The total inventory is now 29 theorem targets. [WEIGHTED_LAW.md](WEIGHTED_LAW.md)
+is the hash-bound exact scope for the new `WeightedLaw.lean` module. It consumes
+all earlier formal source unchanged and supplies the abstract PT1 construction
+excluded by MeasureBridge: an integrable a.e.-nonnegative weight with positive
+normalizer defines a probability measure, whose real mass on measurable events
+is the same-law integral ratio. Null sets and a.e.-equal weights are respected;
+zero and unit weights are checked. The two final declarations compose this
+constructed measure with the existing conditional square-root and cubic bounds.
+
+This construction does not identify a concrete Gaussian/typed Palm law or prove
+its moment, lower-normalizer, event-tail, uniformity or persistence hypotheses.
+The previous scope exclusions describe their respective modules; the abstract
+construction alone is added here. The executable gate and five negative controls
+are unchanged, and all nine new targets enter its transitive axiom inventory.
+No existing review is silently rebound to the changed manifest or scope.
 
 ## Review contract
 The source manifest is an evidence sidecar, not another scientific register. A trusted successful workflow establishes kernel evidence only for these target declarations and their displayed hypotheses, relative to Lean's kernel/standard foundations/toolchain. Independent review must compare each Lean statement and definition to this scope note and the source actually cited. Review author, provider, family and agent must be explicit. Validate an authenticated record with `python formal/gate.py --alignment review.json`; then the existing controlling gate must decide whether its wider requirements are met. The validator does not authenticate a review merely because a JSON string names a reviewer.
