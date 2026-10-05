@@ -91,3 +91,12 @@ binds targets29:36 and total36, with the unchanged gate still enforcing complete
 source inventory. Every old proof byte remains frozen. Any successful audit
 must state actual identity/exposure and exact new manifest/scope, not silently
 transfer a previous29-target review to36 targets.
+
+## Initial compiler readback
+
+The first hosted run37315764990 failed before kernel evidence. The threshold
+subset proof needed an explicit `change` from set membership to its inequality
+goal; a `simpa only` list did not reduce that membership. The compiler-only
+repair states this goal explicitly and removes a redundant `ring` after
+`field_simp`. Every theorem type is unchanged. The original output is preserved
+in `evidence/moment-tail-initial-build-failure.log`; it is not a success receipt.

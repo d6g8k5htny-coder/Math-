@@ -51,6 +51,7 @@ theorem p02_lm009_badJet_subset
     badJetEvent R r ε ⊆ {x | (ε / r) ^ 8 ≤ R x ^ 40} := by
   intro x hx
   change ε < r * R x ^ 5 at hx
+  change (ε / r) ^ 8 ≤ R x ^ 40
   have ht := p02_lm009_bad_event_threshold r (R x) ε hr hx
   have hp := pow_le_pow_left₀ (le_of_lt (div_pos hε hr)) ht.le 8
   simpa only [p02_lm009_power40_identity] using hp
@@ -74,7 +75,7 @@ theorem p02_lm009_moment40_tail
         hRi hnonneg ((ε / r) ^ 8) ha (p02_lm009_badJet_subset R r ε hr hε)
     _ ≤ M / (ε / r) ^ 8 := div_le_div_of_nonneg_right hMbound ha.le
     _ = (M / ε ^ 8) * r ^ 8 := by
-      field_simp [ne_of_gt hr, ne_of_gt hε] <;> ring
+      field_simp [ne_of_gt hr, ne_of_gt hε]
 
 /-- The constructed weighted probability law satisfies the stronger fourth-
 order tail. The model's moment and positive lower-normalizer bounds are premises. -/
