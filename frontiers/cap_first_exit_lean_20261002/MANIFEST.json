@@ -159,7 +159,12 @@
   "CapFirstExit.h1Toy_D",
   "CapFirstExit.h1Toy_E",
   "CapFirstExit.quarticToyF",
-  "CapFirstExit.quarticToy_E"
+  "CapFirstExit.quarticToy_E",
+  "CapFirstExit.CapHyp.of_const_mul",
+  "CapFirstExit.hasFDerivAt_zero_const_mul_iff",
+  "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen",
+  "CapFirstExit.ridge_capHyp_K",
+  "CapFirstExit.ridge_capHyp_norm_K"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -796,6 +801,31 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.CapHyp.of_const_mul": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.hasFDerivAt_zero_const_mul_iff": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.iteratedFDeriv_const_mul_of_isOpen": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_K": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.ridge_capHyp_norm_K": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -806,18 +836,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 47642,
-   "sha256": "60433b419fd5b11569c83afad0cb226c79e6e5c90666849d2aa288d4fee16469"
+   "bytes": 50298,
+   "sha256": "0ff1cac44071631810e347466ba485e413c70fa065b426e7dc48ce6ae928e441"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 274905,
-   "sha256": "fde8c26af78c5d2475c2af1332d98b54a550fe469cb0fcc097ea2f7754db5f51"
+   "bytes": 287184,
+   "sha256": "15715eb444368202f88203f8c22414a94b042de9f18058c1edc6241f187c0839"
   },
   {
    "path": "README.md",
-   "bytes": 25901,
-   "sha256": "624368518e401c32c92c5e93a01f88b9326b450f60eea5ffc2f60259fe5fde27"
+   "bytes": 27180,
+   "sha256": "89ab09a53701c4f3f49c1adb21650a7ff79737878e60cc8efccddbf81e083667"
   },
   {
    "path": "gate.py",
@@ -842,7 +872,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6275,
-   "sha256": "04d262b9d5c202c777ce2d71dc7bfe4478ee7d3471957d1725d08b19dedf22e5"
+   "sha256": "7bb42e28c76271f27006bfa8d4f543c24aba410998dddc8865b330d7d9d73c0d"
   }
  ]
 }

@@ -64,6 +64,8 @@ Since v2.2, `ridge_capHyp_E` assumes only that `f` is `C⁴` on an open `U ⊇ D
 
 Since v2.3, `quarticToy_E` also instantiates `ridge_capHyp_E` away from the degenerate face. `quarticToyF = x³/3 − x/4 − 20y² + (x² − 1/4)²/480` keeps both pins critical and the gap at `1/6`, while `f_xxx = 2 + x/20` varies and `D⁴f = 1/20 ≠ 0`. So (H2) holds with equality (`rn = 1/20`), `fxxx_lower` runs with `n > 0`, and the collar bound `K` is positive.
 
+Since v2.4, `ridge_capHyp_K` states the cap for every pin gap `k > 0`, on exactly P §7's event `G_r = {λ_min(−A_M) > [4/(3k)] r M3², r M4 ≤ 3k/10}` with `f(M) − f(S) = k r³`. It applies `ridge_capHyp_E` to `f/(6k)`. That divides every derivative bound and the transverse curvature by `6k`, and leaves the critical points, the ridge and the cap unchanged (`CapHyp.of_const_mul`, `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen`). `ridge_capHyp_norm_K` takes `M3` and `M4` as bounds on the operator norms of `D³f` and `D⁴f` over `D`, the jet suprema whose tails the probability side bounds.
+
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
@@ -131,6 +133,10 @@ single ridge path.
 | `ridge_capHyp_E` | the cap from `f ∈ C⁴` on an open `U ⊇ D` and SP's quantitative bounds on `D` (v2.2). It concludes the ridge on `(−2r − ε, 2r + ε)` for some `ε > 0`, `h(∓r/2) = 0`, the cap and (C2⁺). No derivative datum and no bound off `D` is assumed |
 | `h1Toy_E` | `h1ToyF` meets every hypothesis of `ridge_capHyp_E` with `U = ℝ²`: `D³f[a, b, c] = 2a₁b₁c₁` and `D⁴f = 0`, so `m = 2` and `n = 0`. The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
 | `quarticToyF`, `quarticToy_E` | a pin-preserving quartic perturbation of `h1ToyF` that meets every hypothesis of `ridge_capHyp_E` with `U = ℝ²`, `m = 81/40`, `n = 1/20` and `λ = 40` (v2.3). `D³f[a, b, c] = (2 + x/20)a₁b₁c₁` and `D⁴f[a, b, c, d] = a₁b₁c₁d₁/20`, so (H2) is sharp and (H1) reads `32.805 < 40`. The theorem gives the ridge and the cap |
+| `CapHyp.of_const_mul` | a cap for `c f` at the levels `c b`, `c s` with `c > 0` is a cap for `f` at `b`, `s` (v2.4) |
+| `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen` | a nonzero factor leaves the zeros of the derivative in place; on an open set where `f ∈ C⁴`, `D^i(c f) = c · D^i f` for `i ≤ 4` (v2.4) |
+| `ridge_capHyp_K` | the cap on P §7's `G_r` for every gap `k > 0`: `f(M) − f(S) = k r³`, `(4/(3k)) r m² < λ` and `r n ≤ 3k/10` (v2.4). The case `k = 1/6` is `ridge_capHyp_E` |
+| `ridge_capHyp_norm_K` | `ridge_capHyp_K` with operator-norm bounds `‖D³f‖ ≤ M3` and `‖D⁴f‖ ≤ M4` on `D` (v2.4) |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -203,7 +209,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 127 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 132 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
