@@ -1,0 +1,51 @@
+{
+ "base": "main 54ebced",
+ "files": [
+  {
+   "bytes": 10164,
+   "git_blob": "852f7403a8a06a1ef061e363df9502ae16f7a341",
+   "path": "NOTE.md",
+   "sha256": "407828facb8dde26a036a08a5b3978eb74d6d8a508c68e2758c291e16e911588"
+  },
+  {
+   "bytes": 7624,
+   "git_blob": "30c5467e42d32f455b64c01331abec67a18e3ac7",
+   "path": "RESULTS.json",
+   "sha256": "bb3b272d398f77f36ab5cefeb0b394b82032adba65e6355129546c9c282f7d70"
+  },
+  {
+   "bytes": 18917,
+   "git_blob": "6fd5b751cc4157136ae92225838c12d33dc997f3",
+   "path": "certified_d2.py",
+   "sha256": "92c7fc0939495f287d36fb21db976d1800e6d78dc9e63ae9b5b8533931960e01"
+  }
+ ],
+ "object": "CL-SIDE24-D2-CERTIFIED-SMALL-L-20261005-v1",
+ "pins_on_main": [
+  {
+   "bytes": 8073,
+   "git_blob": "c2d3ff339f2b9953ec08e676240cdc5edcb17a3e",
+   "kind": "pins_on_main",
+   "path": "coefficients/side24_v1/coefficient.py",
+   "sha256": "03ae6d0f15160cb681f9bbb19a84dc861c3a0db3e881291ea621061cc90c86ab",
+   "used_for": "interval library, pi/log/exp/root/Gamma(7/6) enclosures and the reference closed form (imported after blob check)"
+  },
+  {
+   "bytes": 1090,
+   "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+   "kind": "pins_on_main",
+   "path": "coefficients/side24_v1/ENCLOSURE.json",
+   "sha256": "72b6cd92d31394cdaf5da8919a5d548e902228af1f095cc184158a71d8287811",
+   "used_for": "published d = 2 interval for check C2"
+  },
+  {
+   "bytes": 5253,
+   "git_blob": "c1e5849cb198c1dbd965cc04806642800ec5a012",
+   "kind": "pins_on_main",
+   "path": "reviews/iba1_periodic_jet_claude_20261005/RESULTS.json",
+   "sha256": "4dbf00f768486dbd3079463699b62ca461d4bf94ead398ce19671769467124f5",
+   "used_for": "merged diagnostic values for check C6"
+  }
+ ],
+ "scientific_effect": "NONE"
+}
