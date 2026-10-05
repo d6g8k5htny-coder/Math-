@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "object": "CL-IBA1-ITEM2-PERIODIC-JET-20261005-v1",
+ "scientific_effect": "NONE",
+ "author": {
+  "provider": "Anthropic / Claude",
+  "session": "017Mi3hx",
+  "attribution": "Dylan Roy - delegated AI work"
+ },
+ "audit": "https://github.com/d6g8k5htny-coder/main/issues/252",
+ "audit_item": "Remaining work 2 (and part of 3)",
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 7705,
+   "sha256": "c9e44b8ea00e07e4db0954904c69b403d4ed5327aebbdef413d112467557111a",
+   "git_blob": "845e91c7f31f2668c943d28a9296fec501cac138"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 5073,
+   "sha256": "f490077da285ee47922d65853584e206715b6faabc521dbc7d00ac3f905d5955",
+   "git_blob": "3e9a66cdeb968171566d6e5aa995d1f679bceb33"
+  },
+  {
+   "path": "periodic_jet_check.py",
+   "bytes": 14232,
+   "sha256": "f3f7ce388cf0a4ffc2238534ac2ced5305c83833b7d6be6793f2b54f3b1c5a35",
+   "git_blob": "98012028ebf4c10581c1833341edae290855d6aa"
+  }
+ ],
+ "pins_on_main": [
+  {
+   "path": "coefficients/side24_v1/ENCLOSURE.json",
+   "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+   "kind": "pins_on_main"
+  },
+  {
+   "path": "coefficients/side24_v1/PROOF.md",
+   "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+   "kind": "pins_on_main"
+  },
+  {
+   "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+   "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+   "kind": "pins_on_main"
+  }
+ ]
+}
