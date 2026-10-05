@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "purpose": "Sources and consumed scopes, not a scientific status register",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "cross-source-closure-round9-20261005"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "7caac254cbba5f513b2dc0afb56b78a598bc0c93",
+      "path": "drive/mirrors/02_RESEARCH_CARRY_FORWARD_CANON/00 — PRIORITY OPEN MATHEMATICAL TARGETS/P0.1 — UNIFORM ADJACENCY POSITIVITY/04_REVIEW_AND_FALSIFIERS/57_P02_LM006_EXACT_NORMALIZER_REVIEW/LCR-DER-019-v1.0 — P02-LM-006 Exact Full-Field Normalizer r2 Asymptotic.export.txt",
+      "git_blob": "e8d2e822eb49b2fcf3459a58868ce911e6d4ff80",
+      "frozen_body_bytes": 9147,
+      "frozen_body_sha256": "239ed094f70aa4352021572ad8bdc0c6ac6404edab4e1d7e61addec0c6659150",
+      "extraction": "Text after LF ending literal BEGIN_FROZEN_LEMMA_BODY line, before subsequent END_FROZEN_LEMMA_BODY line; CRLF/CR to LF; strip trailing LFs; append exactly one LF; UTF-8 without BOM. No blank-run halving.",
+      "consumed_sections": [
+        "1 exact law and six pins",
+        "2 adjusted endpoint definitions",
+        "3 target conditional limit",
+        "4 exact determinant factorization",
+        "7 target endpoint eighth-moment premise"
+      ],
+      "review_transfer": false
+    },
+    {
+      "id": "S2",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6002603423",
+      "role": "historical-body conditional review; not a review of new note"
+    },
+    {
+      "id": "S3",
+      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6002756269",
+      "role": "separate conditional Gram witness; application and review remain separately scoped"
+    },
+    {
+      "id": "EXT1",
+      "authors": [
+        "Louis Gass",
+        "Michele Stecconi"
+      ],
+      "title": "The number of critical points of a Gaussian field: finiteness of moments",
+      "doi": "10.1007/s00440-024-01273-5",
+      "journal_year": 2024,
+      "preprint": "https://arxiv.org/abs/2305.17586v2",
+      "preprint_year": 2023,
+      "consensus_id": "c85c28354f825e53a6abcf2c1f8cb049",
+      "role": "external methodological context only; not a consumed theorem premise"
+    }
+  ],
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6002912204"
+}
