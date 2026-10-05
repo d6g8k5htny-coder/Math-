@@ -4,3 +4,4 @@ import ResearchFormalCoreR1.MeasureBridge
 import ResearchFormalCoreR1.WeightedLaw
 import ResearchFormalCoreR1.MomentTail
 import ResearchFormalCoreR1.MomentGenerality
+import ResearchFormalCoreR1.WeightPerturbation
