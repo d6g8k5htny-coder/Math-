@@ -14,7 +14,7 @@ cd ..
 python formal/gate.py --execute
 ```
 
-The source-only command does not run Lean. The execute command fails unless the pinned project builds, `leanchecker` rechecks the package, all 29 declarations have transitive axiom reports restricted to propext/Classical.choice/Quot.sound, and five executable negative controls are rejected. It writes logs and a receipt in `.lake/formal-evidence/`; the workflow uploads them even on failure. A receipt from arbitrary input is not trusted evidence: use the successful read-only workflow and checked Git commit.
+The source-only command does not run Lean. The execute command fails unless the pinned project builds, `leanchecker` rechecks the package, all 36 declarations have transitive axiom reports restricted to propext/Classical.choice/Quot.sound, and five executable negative controls are rejected. It writes logs and a receipt in `.lake/formal-evidence/`; the workflow uploads them even on failure. A receipt from arbitrary input is not trusted evidence: use the successful read-only workflow and checked Git commit.
 
 Sources: [scope](SCOPE.md), [glossary](GLOSSARY.md), [manifest](manifest.json), [blueprint source](blueprint/src/content.tex). The original GP-FOR-192 bytes are preserved under originals/*.lean.txt; separately named V2 companions carry the documented compiler-only repairs in [COMPATIBILITY.md](COMPATIBILITY.md). No historical Status.lean or claimed status is imported. [Alignment contract](SCOPE.md#review-contract) remains distinct from kernel evidence.
 
@@ -29,6 +29,10 @@ The additive [MeasureBridge](MEASURE_BRIDGE.md) contributes five same-law measur
 ## Constructed weighted probability law
 
 The additive [WeightedLaw](WEIGHTED_LAW.md) contributes nine declarations. It constructs the normalized nonnegative density measure, proves total mass one and the event-ratio identity, and applies the retained transfer bounds to its actual event probabilities. It also proves absolute continuity, almost-everywhere invariance, and zero/unit-weight controls. The original 20 theorem statements and proofs are unchanged; concrete Palm-model identification and field estimates remain separate.
+
+## Moment-to-tail composition
+
+The additive [MomentTail](MOMENT_TAIL.md) contributes seven declarations. It proves the actual Markov step from an integrable fortieth-moment bound to the strict fifth-power event's eighth-order probability bound, then the constructed weighted law's fourth-order and cubic bounds. A family theorem supplies one constant only when the model premises are explicitly uniform. Concrete Gaussian/Palm moments and normalizers are not proved by this implication.
 
 ## Next agents
 
