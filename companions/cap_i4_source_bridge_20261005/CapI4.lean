@@ -1,5 +1,5 @@
 import ResearchFormalCoreR1.MomentTail
-import Mathlib.Analysis.SpecialFunctions.Integrals
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 import Mathlib.Tactic
 
 /-!
@@ -10,9 +10,9 @@ This file does NOT construct the Gaussian matrix law or prove MatrixDepthTranspo
 It preserves both soft factors, the full normalizer, and the scalar far branch.
 -/
 
-namespace CapI4
-
 noncomputable section
+
+namespace CapI4
 
 open MeasureTheory ResearchFormalCoreR1
 open scoped ENNReal
