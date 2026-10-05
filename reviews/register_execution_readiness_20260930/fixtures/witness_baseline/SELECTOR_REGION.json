@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "object": "RN-SELECTOR-REGION-CROSSWALK-20260925-v1",
+  "meaning": "D4 inventory: which historical selectors/walls a region still needs; not theorem acceptance",
+  "no_event_to_expectation_reversal": true,
+  "legacy_24jet_discharged": false,
+  "regions": [
+    "fixed-remote",
+    "mesoscopic-scaled-annulus",
+    "pin-collision",
+    "intermediate-r-to-rho",
+    "witness-collision"
+  ],
+  "selectors": {
+    "ALLCELL-FDZ-Q4": {
+      "fixed-remote": "NOT_REQUIRED",
+      "mesoscopic-scaled-annulus": "NOT_REQUIRED",
+      "pin-collision": "OPEN_HISTORICAL",
+      "intermediate-r-to-rho": "OPEN_HISTORICAL",
+      "witness-collision": "OPEN_HISTORICAL",
+      "notes": "Fixed-remote analytic route does not consume the old cell carrier"
+    },
+    "CH-LIFT": {
+      "fixed-remote": "BYPASSED_BY_FIXED_RHO",
+      "mesoscopic-scaled-annulus": "REOPENED",
+      "pin-collision": "OPEN_ACTIVE",
+      "intermediate-r-to-rho": "OPEN_ACTIVE",
+      "witness-collision": "NOT_APPLICABLE",
+      "notes": "Fixed rho avoids shrinking singularity; scaled charts reopen CH-LIFT"
+    },
+    "Piece-2-annulus": {
+      "fixed-remote": "PARTIAL_COVER_ONLY",
+      "mesoscopic-scaled-annulus": "PARTIAL_PR7_REDUCTION",
+      "pin-collision": "OPEN_ACTIVE",
+      "intermediate-r-to-rho": "OPEN_ACTIVE",
+      "witness-collision": "OPEN_ACTIVE",
+      "notes": "Active mathematical blocker outside fixed-remote and unfinished PR7 ledger"
+    },
+    "H5-REMOTE-THRESHOLD": {
+      "fixed-remote": "PARTIAL_COVER_DECLARED_REGION",
+      "mesoscopic-scaled-annulus": "OPEN_ACTIVE",
+      "pin-collision": "OPEN_ACTIVE",
+      "intermediate-r-to-rho": "OPEN_ACTIVE",
+      "witness-collision": "OPEN_ACTIVE",
+      "notes": "Cubic expected count only on declared height/spatial region"
+    },
+    "OBL-H5-JETMOD": {
+      "fixed-remote": "NOT_DISCHARGED",
+      "mesoscopic-scaled-annulus": "NOT_DISCHARGED",
+      "pin-collision": "NOT_DISCHARGED",
+      "intermediate-r-to-rho": "NOT_DISCHARGED",
+      "witness-collision": "NOT_DISCHARGED",
+      "notes": "No 2026-09-24 proof claims certified 24-jet enclosure"
+    },
+    "ENV-RESCOV": {
+      "fixed-remote": "REDERIVED_QUALITATIVELY",
+      "mesoscopic-scaled-annulus": "REDERIVED_QUALITATIVELY",
+      "pin-collision": "OPEN_HISTORICAL",
+      "intermediate-r-to-rho": "OPEN_HISTORICAL",
+      "witness-collision": "OPEN_HISTORICAL",
+      "notes": "Historical D3 still OPEN; newer routes use positive Fourier spectrum"
+    }
+  },
+  "covered_region_ids": ["math.rn-region.fixed-remote"],
+  "open_region_ids": [
+    "math.rn-region.mesoscopic-scaled-annulus",
+    "math.rn-region.pin-collision",
+    "math.rn-region.intermediate-r-to-rho",
+    "math.rn-region.witness-collision"
+  ]
+}
