@@ -5,6 +5,7 @@ name: SIDE24 d=2 certified small-L coefficients (outward interval replay)
     paths:
       - 'reviews/side24_d2_certified_small_L_claude_20261005/**'
       - '.github/workflows/side24-d2-certified.yml'
+      - 'tests/test_certified_d2_workflow.py'
       - 'coefficients/side24_v1/coefficient.py'
       - 'coefficients/side24_v1/ENCLOSURE.json'
       - 'reviews/iba1_periodic_jet_claude_20261005/RESULTS.json'
@@ -90,3 +91,5 @@ jobs:
           for line in accepted:
               print('  ' + line)
           PY
+      - name: Reject crashes and wrong-cause mutant diagnostics
+        run: python ${{ matrix.flags }} -m unittest discover -s tests -p test_certified_d2_workflow.py -v
