@@ -1,0 +1,61 @@
+{
+  "disposition": "ACCEPTED",
+  "manifest_sha256": "ddaa37078805089b57a81f302c069fba7411a23af047c49fd3a4d2897b545e59",
+  "scope_sha256": "21c4ce34ff1e7536c88de86661c796a0751ad8572b034650631052ad0791f4a1",
+  "targets": [
+    "ResearchFormalCoreR1.ec005_fold_gap",
+    "ResearchFormalCoreR1.ec008_factor_expansion",
+    "ResearchFormalCoreR1.ec010_generic",
+    "ResearchFormalCoreR1.ec010_transverse",
+    "ResearchFormalCoreR1.ec011_scalar_cancellation",
+    "ResearchFormalCoreR1.ec014_contact_power",
+    "ResearchFormalCoreR1.p02_lm008_r2_cancel",
+    "ResearchFormalCoreR1.p02_lm008_cross_multiplied",
+    "ResearchFormalCoreR1.p02_lm008_quotient_bound",
+    "ResearchFormalCoreR1.p02_lm009_bad_event_threshold",
+    "ResearchFormalCoreR1.p02_lm009_power40_identity",
+    "ResearchFormalCoreR1.p02_lm009_r4_le_r3",
+    "ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_integral_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_numerator",
+    "ResearchFormalCoreR1.p02_lm008_measure_transfer",
+    "ResearchFormalCoreR1.p02_lm009_measure_transfer_r8_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_sqrt_counterexample",
+    "ResearchFormalCoreR1.p02_lm008_upper_normalizer_counterexample",
+    "ResearchFormalCoreR1.weightedLaw_apply",
+    "ResearchFormalCoreR1.weightedLaw_isProbabilityMeasure",
+    "ResearchFormalCoreR1.weightedLaw_event_real",
+    "ResearchFormalCoreR1.weightedLaw_absolutelyContinuous",
+    "ResearchFormalCoreR1.weightedLaw_congr_ae",
+    "ResearchFormalCoreR1.weightedLaw_zero",
+    "ResearchFormalCoreR1.weightedLaw_one",
+    "ResearchFormalCoreR1.p02_lm008_probability_transfer",
+    "ResearchFormalCoreR1.p02_lm009_probability_transfer_r8_to_r3",
+    "ResearchFormalCoreR1.p02_lm009_markov_event",
+    "ResearchFormalCoreR1.p02_lm009_badJet_measurable",
+    "ResearchFormalCoreR1.p02_lm009_badJet_subset",
+    "ResearchFormalCoreR1.p02_lm009_moment40_tail",
+    "ResearchFormalCoreR1.p02_lm009_moment40_weighted_r4",
+    "ResearchFormalCoreR1.p02_lm009_moment40_weighted_r3",
+    "ResearchFormalCoreR1.p02_lm009_moment40_family_r3"
+  ],
+  "author": {
+    "provider": "OpenAI",
+    "family": "GPT-6",
+    "agent": "GPT-6 Astra Pro"
+  },
+  "reviewer": {
+    "provider": "xAI",
+    "family": "Grok",
+    "agent": "Grok 4.7 Cursor Cloud Agent bc-7023823a-e5a0-4485-abde-ef11860647cb"
+  },
+  "evidence": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "path": "reviews/moment_tail_alignment_20261005/REVIEW.md",
+    "commit": "0cb17c1b836651144486d55788eef8d7cf532081",
+    "sha256": "65c9be8feae9adda69925e5427856e751428b7550abf5cc0d886b5a5be9a1f79"
+  },
+  "scientific_effect": "NONE",
+  "notes": "Statement alignment for 36 targets at Math- head 7206526ed53f7539838711ee45257a13b4b07e99. The earlier 29 statements are carried by byte-identity with Math-#274 head dce1b197be3431673289905259be38b450e9b898; that review JSON is not relabeled. Kernel receipt is hosted run 37316631037 at merge commit f934f9a1467d99f3f0d3121bc3385342b95294ec, tree-identical to the frozen head. Does not change formal/manifest.json alignment_status."
+}
