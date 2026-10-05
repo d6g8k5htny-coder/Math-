@@ -75,7 +75,7 @@ theorem weightPerturbation_quotient_bound
     |a / z - b / t| = |(a - b) + (a / z) * (t - z)| / t := by
       rw [heq, abs_div, abs_of_pos ht]
     _ ≤ (|a - b| + |(a / z) * (t - z)|) / t :=
-      div_le_div_of_nonneg_right (abs_add _ _) ht.le
+      div_le_div_of_nonneg_right (abs_add_le _ _) ht.le
     _ ≤ (δ + δ) / t := by
       apply div_le_div_of_nonneg_right _ ht.le
       rw [abs_mul]
@@ -135,7 +135,7 @@ theorem weightedLaw_event_perturbation_r2
   refine ⟨hlower, hpW, hpV, ?_⟩
   intro A hmeas
   have heq : 2 * (η * r ^ 2) / (c * r ^ 2) = 2 * η / c := by
-    field_simp [ne_of_gt hr, ne_of_gt hc] <;> ring
+    field_simp [ne_of_gt hr, ne_of_gt hc]
   simpa only [heq] using hA A hmeas
 
 end ResearchFormalCoreR1
