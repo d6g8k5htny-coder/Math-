@@ -66,6 +66,8 @@ Since v2.3, `quarticToy_E` also instantiates `ridge_capHyp_E` away from the dege
 
 Since v2.4, `ridge_capHyp_K` states the cap for every pin gap `k > 0`, on exactly P §7's event `G_r = {λ_min(−A_M) > [4/(3k)] r M3², r M4 ≤ 3k/10}` with `f(M) − f(S) = k r³`. It applies `ridge_capHyp_E` to `f/(6k)`. That divides every derivative bound and the transverse curvature by `6k`, and leaves the critical points, the ridge and the cap unchanged (`CapHyp.of_const_mul`, `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen`). `ridge_capHyp_norm_K` takes `M3` and `M4` as bounds on the operator norms of `D³f` and `D⁴f` over `D`, the jet suprema whose tails the probability side bounds.
 
+Since v2.5, `ridge_capHyp_blocks` takes CAP (1) as written. CAP states its hypotheses with the partial-block norms `M_j = max_{a+c=j} sup_D ‖∂_x^a D_y^c f‖_op`, whereas `ridge_capHyp_K` takes the third derivative as one block inequality. `block_of_partial` derives that inequality from the partial blocks with `c = 1, 2, 3`: it expands `D³f` multilinearly and uses its symmetry. Lean proves that symmetry for `f ∈ C³` (`iteratedFDeriv_three_swap₁₂`, `iteratedFDeriv_three_swap₂₃`); Mathlib has the symmetry of higher derivatives only for analytic functions. `mixedToy_blocks` instantiates the theorem with the nonzero mixed block `∂_x D_y² f = 2`.
+
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
@@ -137,6 +139,10 @@ single ridge path.
 | `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen` | a nonzero factor leaves the zeros of the derivative in place; on an open set where `f ∈ C⁴`, `D^i(c f) = c · D^i f` for `i ≤ 4` (v2.4) |
 | `ridge_capHyp_K` | the cap on P §7's `G_r` for every gap `k > 0`: `f(M) − f(S) = k r³`, `(4/(3k)) r m² < λ` and `r n ≤ 3k/10` (v2.4). The case `k = 1/6` is `ridge_capHyp_E` |
 | `ridge_capHyp_norm_K` | `ridge_capHyp_K` with operator-norm bounds `‖D³f‖ ≤ M3` and `‖D⁴f‖ ≤ M4` on `D` (v2.4) |
+| `iteratedFDeriv_three_swap₁₂`, `iteratedFDeriv_three_swap₂₃` | the third derivative of a `C³` function is symmetric (v2.5) |
+| `block_of_partial` | for a symmetric trilinear form, CAP's partial-block bounds with `c = 1, 2, 3` give the block inequality (v2.5) |
+| `ridge_capHyp_blocks` | the cap under CAP (1) as written, with CAP's partial-block norms `M3`, `M4` (v2.5) |
+| `mixedToyF`, `mixedToy_blocks` | `h1ToyF + xy²` meets every hypothesis of `ridge_capHyp_blocks` with `M3 = 2`, `M4 = 0` and `λ = 41`; its mixed block `∂_x D_y² f = 2` is nonzero (v2.5) |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -169,8 +175,9 @@ This packet does not formalize:
   - the critical pins and the gap `r³/6`.
 
   The derivative data, a collar inside `U` and the bound `K` on it are derived (`collar_subset_open`,
-  `block_of_norm`, `block_bound_collar`). That the local field on `G_r` satisfies SP's §2 setting is SP's input and
-  is not formalized;
+  `block_of_norm`, `block_bound_collar`). Since v2.5 the block bound `m` is derived too, from CAP's
+  partial-block norm `M3` (`block_of_partial`, `ridge_capHyp_blocks`). That the local field on `G_r` satisfies
+  SP's §2 setting is SP's input and is not formalized;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -209,7 +216,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 132 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 138 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 
