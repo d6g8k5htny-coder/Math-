@@ -68,12 +68,14 @@ Since v2.4, `ridge_capHyp_K` states the cap for every pin gap `k > 0`, on exactl
 
 Since v2.5, `ridge_capHyp_blocks` takes CAP (1) as written. CAP states its hypotheses with the partial-block norms `M_j = max_{a+c=j} sup_D ‖∂_x^a D_y^c f‖_op`, whereas `ridge_capHyp_K` takes the third derivative as one block inequality. `block_of_partial` derives that inequality from the partial blocks with `c = 1, 2, 3`: it expands `D³f` multilinearly and uses its symmetry. Lean proves that symmetry for `f ∈ C³` (`iteratedFDeriv_three_swap₁₂`, `iteratedFDeriv_three_swap₂₃`); Mathlib has the symmetry of higher derivatives only for analytic functions. `mixedToy_blocks` instantiates the theorem with the nonzero mixed block `∂_x D_y² f = 2`.
 
+Since v2.6, the cap and the elder death level are stated on the torus. `torus_capHyp_blocks` takes CAP (1) for the periodic lift `f ∘ torusCover L d ∘ φ` of a field `f` on `(ℝ/Lℤ)^d`, in any frame `φ : ℝ × E ≃ₜ ℝ^d`, and concludes (C1)–(C3) and (C2⁺) on the torus. `torus_elder_death_level_blocks` adds the elder death level there, via `elder_death_level_peak`: the torus is compact for `L > 0` and locally connected (`torus_locallyConnectedSpace`). `torusToy_elder` is a concrete instance on `(ℝ/16ℤ)²`, the first for the older-peak theorems.
+
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
 - The core theorems use only (C1)–(C3): no metric, smoothness, Morse, compactness or probability hypothesis. Their
   separation steps do not even use continuity of `f`.
 - The two older-peak theorems, `older_peak` and `elder_death_level_peak`, add compactness, local connectedness and
-  continuity of `f`. All three hold on the torus.
+  continuity of `f`. All three hold on the torus. Since v2.6 `torusToy_elder` is a concrete instance on `(ℝ/16ℤ)²`.
 
 | Lean declaration | Statement |
 |---|---|
@@ -143,6 +145,12 @@ single ridge path.
 | `block_of_partial` | for a symmetric trilinear form, CAP's partial-block bounds with `c = 1, 2, 3` give the block inequality (v2.5) |
 | `ridge_capHyp_blocks` | the cap under CAP (1) as written, with CAP's partial-block norms `M3`, `M4` (v2.5) |
 | `mixedToyF`, `mixedToy_blocks` | `h1ToyF + xy²` meets every hypothesis of `ridge_capHyp_blocks` with `M3 = 2`, `M4 = 0` and `λ = 41`; its mixed block `∂_x D_y² f = 2` is nonzero (v2.5) |
+| `addCircle_locallyConnectedSpace`, `torus_locallyConnectedSpace` | `ℝ/Lℤ` and the torus `(ℝ/Lℤ)^d` are locally connected (v2.6) |
+| `torus_capHyp_blocks` | the cap and (C2⁺) on the torus for a field whose periodic lift meets CAP (1) in any frame `φ` (v2.6) |
+| `torus_elder_death_level_blocks` | with `L > 0` and `f` continuous, the elder death level of the class born at `M` on the torus is `f(S)` (v2.6) |
+| `circleChart`, `circleChart_continuous`, `circleChart_coe` | a continuous chart `‖θ + L/4‖ − L/4` of `ℝ/Lℤ` that inverts the covering map on `[−L/4, L/4]` (v2.6) |
+| `mixedToy_hasFDerivAt`, `mixedToy_contDiff`, `mixedToy_iteratedFDeriv_two`, `_three`, `_four` | the derivatives of `mixedToyF` as lemmas (v2.6) |
+| `torusToyF`, `torusToy_elder` | `mixedToyF` read through `circleChart` on `(ℝ/16ℤ)²`; its lift meets CAP (1) near the cap, and the elder death level of the image of `M` is the value at the image of `S` (v2.6) |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -180,7 +188,9 @@ This packet does not formalize:
   SP's §2 setting is SP's input and is not formalized;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
-  proved (`CapHyp.toTorus`, `frontier_cylinder`);
+  proved (`CapHyp.toTorus`, `frontier_cylinder`). Since v2.6 the composition with CAP (1) is proved too
+  (`torus_capHyp_blocks`, `torus_elder_death_level_blocks`), so only the reading of P's contact frame and field as
+  these objects is informal;
 - the definition of the H0 superlevel persistence pairing itself: that the class born at a local maximum `M` dies at
   the largest level at which its component contains a strictly higher local maximum. On a compact, locally connected
   space Lean proves that this level is `s` (`elder_death_level_peak`); only the persistence-module bookkeeping is
@@ -216,7 +226,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 138 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 152 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

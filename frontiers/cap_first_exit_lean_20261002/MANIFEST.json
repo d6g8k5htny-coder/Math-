@@ -170,7 +170,21 @@
   "CapFirstExit.block_of_partial",
   "CapFirstExit.ridge_capHyp_blocks",
   "CapFirstExit.mixedToyF",
-  "CapFirstExit.mixedToy_blocks"
+  "CapFirstExit.mixedToy_blocks",
+  "CapFirstExit.addCircle_locallyConnectedSpace",
+  "CapFirstExit.torus_locallyConnectedSpace",
+  "CapFirstExit.torus_capHyp_blocks",
+  "CapFirstExit.torus_elder_death_level_blocks",
+  "CapFirstExit.circleChart",
+  "CapFirstExit.circleChart_continuous",
+  "CapFirstExit.circleChart_coe",
+  "CapFirstExit.mixedToy_hasFDerivAt",
+  "CapFirstExit.mixedToy_contDiff",
+  "CapFirstExit.mixedToy_iteratedFDeriv_two",
+  "CapFirstExit.mixedToy_iteratedFDeriv_three",
+  "CapFirstExit.mixedToy_iteratedFDeriv_four",
+  "CapFirstExit.torusToyF",
+  "CapFirstExit.torusToy_elder"
  ],
  "expected_axioms": {
   "CapFirstExit.path_meets_frontier": [
@@ -862,6 +876,76 @@
    "Classical.choice",
    "Quot.sound",
    "propext"
+  ],
+  "CapFirstExit.addCircle_locallyConnectedSpace": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torus_locallyConnectedSpace": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torus_capHyp_blocks": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torus_elder_death_level_blocks": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.circleChart": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.circleChart_continuous": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.circleChart_coe": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.mixedToy_hasFDerivAt": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.mixedToy_contDiff": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.mixedToy_iteratedFDeriv_two": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.mixedToy_iteratedFDeriv_three": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.mixedToy_iteratedFDeriv_four": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torusToyF": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
+  ],
+  "CapFirstExit.torusToy_elder": [
+   "Classical.choice",
+   "Quot.sound",
+   "propext"
   ]
  },
  "files": [
@@ -872,18 +956,18 @@
   },
   {
    "path": "ALIGNMENT.md",
-   "bytes": 53896,
-   "sha256": "bd516fef651e7b233d1309e7d7f9f774a1eeee5f3584030a838a6a80e1d94fb8"
+   "bytes": 57035,
+   "sha256": "91b086c04d083d2220821c8b6900e2bd070ad11f4be03bf2255bdbd83d677f21"
   },
   {
    "path": "CapFirstExit.lean",
-   "bytes": 307724,
-   "sha256": "f3993aab9348f24a090f2ecbb5fc9e12acc03fc2576045e3ca689d3443425688"
+   "bytes": 326607,
+   "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
   },
   {
    "path": "README.md",
-   "bytes": 28556,
-   "sha256": "cc4090d652f0ed03dbd19499b17c5f8d246a21aa1fd8124b4ff443724ea5a7c7"
+   "bytes": 30364,
+   "sha256": "826c0d67f25119f242575f65c29e70c2621266980b96527a428bbba6aa04a2ab"
   },
   {
    "path": "gate.py",
@@ -908,7 +992,7 @@
   {
    "path": "test_gate.py",
    "bytes": 6275,
-   "sha256": "a3600f82b6d86b37c30ba3752b6982f12435057bb5b0274d59ce74f2b9082c94"
+   "sha256": "4d6f32d2fd4c669a81bb5d23e600231305209af503806dabfb08c93a97720bba"
   }
  ]
 }
