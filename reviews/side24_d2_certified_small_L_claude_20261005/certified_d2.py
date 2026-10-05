@@ -377,9 +377,37 @@ def dec(x, digits=30):
     return S24.decimals(x, digits)
 
 
-def sci(x, digits=4):
-    v = x if isinstance(x, Q) else (x.lo + x.hi) / 2
-    return format(float(v), '.%de' % (digits - 1))
+def sci(q, digits, up):
+    """Exact rational q in scientific notation, rounded toward +infinity (up) or -infinity (down)."""
+    q = Q(q)
+    if q == 0:
+        return '0'
+    a = abs(q)
+    e = 0
+    while a >= Q(10) ** (e + 1):
+        e += 1
+    while a < Q(10) ** e:
+        e -= 1
+    scaled = q / Q(10) ** (e - digits + 1)
+    m = -((-scaled.numerator) // scaled.denominator) if up else scaled.numerator // scaled.denominator
+    if abs(m) >= 10 ** digits:            # rounding carried into a new decade
+        m = -((-m) // 10) if up else m // 10
+        e += 1
+    sign = '-' if m < 0 else ''
+    t = str(abs(m)).rjust(digits, '0')
+    return '%s%s.%se%s%02d' % (sign, t[0], t[1:], '-' if e < 0 else '+', abs(e))
+
+
+def sci_upper(q, digits=4):
+    return sci(q, digits, True)
+
+
+def sci_lower(q, digits=4):
+    return sci(q, digits, False)
+
+
+def sci_interval(x, digits=8):
+    return {'lower': sci_lower(x.lo, digits), 'upper': sci_upper(x.hi, digits)}
 
 
 def overlap(a, b):
@@ -465,13 +493,13 @@ def main():
             check('C2_L24_inside_side24_interval', lo <= c2.lo and c2.hi <= hi)
         out['cases'][name] = {
             'c_2L': dec(c2), 'ratio_to_reference': dec(c2 / cref, 25),
-            'k2': dec(k[0], 25), 'k4_over_k2sq': sci(k[1] / (k[0] * k[0]), 8),
-            'k6_over_k2cu': sci(k[2] / (k[0] * k[0] * k[0]), 8),
+            'k2': dec(k[0], 25), 'k4_over_k2sq': sci_interval(k[1] / (k[0] * k[0])),
+            'k6_over_k2cu': sci_interval(k[2] / (k[0] * k[0] * k[0])),
             'strip_half_width_a': str(info['a']), 'trapezoid_nodes_N': info['N'],
-            'modulus_bound_M': sci(info['M']), 'quadrature_error_bound': sci(info['error_bound'], 3),
+            'modulus_bound_M_upper': sci_upper(info['M']), 'quadrature_error_bound_upper': sci_upper(info['error_bound'], 3),
             'coarse_rule_nodes': coarse_N,
-            'min_over_directions': {key: sci(val, 8) for key, val in sorted(pos.items())},
-            'gram_floor_margin': {'V2': sci(V2.lo - fV.hi, 6), 'Delta': sci(Dl.lo - fD.hi, 6)}}
+            'min_over_directions_lower': {key: sci_lower(val, 8) for key, val in sorted(pos.items())},
+            'gram_floor_margin_lower': {'V2': sci_lower(V2.lo - fV.hi, 6), 'Delta': sci_lower(Dl.lo - fD.hi, 6)}}
     out['checks'] = {key: val for key, val in sorted(checks.items())}
     out['passed'] = all(checks.values())
     print(json.dumps(out, indent=1, sort_keys=True))

@@ -60,22 +60,22 @@ The Gaussian reference (`k2 = 1`, `k4 = k6 = 0`) gives `det V = 3`, `Σ_{A|V} = 
 
 ## 4. Results
 
-From `RESULTS.json`, rounded outward to 30 decimals:
+From `RESULTS.json`. Enclosures are rounded outward to 30 decimals. Every auxiliary number there is also rounded outward: upper bounds (`M`, the quadrature bound) up, lower bounds (directional minima, Gram margins) down, and ratios as two-sided intervals.
 
-| `L` | `c_{2,L}` enclosure | `c_{2,L}/c_2` | `a`, `N` | min τ² over directions |
+| `L` | `c_{2,L}` enclosure | `c_{2,L}/c_2` | `a`, `N` | lower bound of min τ² over directions |
 |---|---|---|---|---|
 | ref | `0.073406919306034271030135962957 … 958` | 1 | 1, 128 | 6 |
-| 24 | `0.073406919306034271030135962957 … 958` | `1 ± 1e-25` | 1, 128 | 6.0000000 |
-| 8 | `0.073406919277779905473535403534 … 535` | `0.99999999961509942354605845` | 1, 128 | 6.0000000 |
+| 24 | `0.073406919306034271030135962957 … 958` | `1 ± 1e-25` | 1, 128 | 5.9999999 |
+| 8 | `0.073406919277779905473535403534 … 535` | `0.99999999961509942354605845` | 1, 128 | 5.9999999 |
 | 2π | `0.073405684662965293708694735170 … 171` | `0.99998318083525845730400135` | 1, 128 | 5.9997420 |
 | 4 | `0.067568657600538789457649064979 … 980` | `0.92046714722959966550359775` | 1, 128 | 4.5857514 |
-| 3 | `0.049879432666614182044489927839 … 840` | `0.67949224866209501388496905` | 1/4, 512 | 0.76518610 |
+| 3 | `0.049879432666614182044489927839 … 840` | `0.67949224866209501388496905` | 1/4, 512 | 0.76518609 |
 | 2 | `0.012617593130692105902277303954 … 955` | `0.17188561037535465056755305` | 1/64, 8192 | 1.8255735e-4 |
 
 - **The `L = 24` enclosure lies inside `side24_v1`'s published interval** `[…427103, …427104]` (check C2). It equals the reference to far below that width, consistent with the measured anisotropy of about `4e-118` (#297).
 - **The `L ∈ {8, 2π, 4, 3}` enclosures contain #297's diagnostic values** to within half a unit in their last printed digit (check C6).
 - **`L = 2`.** The certified value differs from the 4096-direction diagnostic trapezoid by `1.04e-25`. The branch point of `(τ²)^{2/3}` at `Im φ ≈ 0.0412` predicts that residual for that grid: successive differences there shrink by `e^{0.0412·N_φ}`.
-- **Positivity.** τ², `det V` and `Σ_{A|V}` have certified positive minima at every `L`. At `L = 2` the minimum of τ² is `Δ = 1.8256e-4`, attained on the axes.
+- **Positivity.** τ², `det V` and `Σ_{A|V}` have certified positive minima at every `L`. At `L = 2` the minimum of τ² is `Δ ≈ 1.8256e-4`, attained on the axes.
 - **Gram floors** (Astra, main#229 6002455230): `V2 ≥ 9h⁴p₁p₂` and `Δ ≥ 36h⁸p₁p₂/m2` hold at every `L` (check C7). At `L = 2` the `Δ` floor is nearly attained, with a margin of `5.6e-14`.
 
 ## 5. Checks and falsification controls
