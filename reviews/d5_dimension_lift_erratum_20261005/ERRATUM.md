@@ -77,8 +77,20 @@ consumers, pinned at Math- `main` `c08e83597f94f923b8411dc13cdf28be3f214b37`:
 The other two places where a short column or an axial displacement enters a
 determinant bound already carry the Lipschitz factor through `K`: line 210
 (`O(r |p| K)`) and line 506 (`A_i = S_0 + O(rK)`), and lines 405 and 516 cite the
-segment identity correctly. Both slips, (a) the omitted factor and (b) the
-"(5.3)" citation, are confined to the single display at line 524.
+segment identity correctly. **Within `PROOF.md`**, both slips, (a) the omitted
+factor and (b) the "(5.3)" citation, are confined to the single display at
+line 524.
+
+**Consumer occurrence (AUD-308-CONSUMER-CITE-01).** The C6 Palm route,
+`frontiers/c6_palm_route_20260929/PROOF.md` (blob `89eb8adf…`), §6.2 row R3a,
+line 602, repeats the same citation: "short columns `H_M e_x`, `H_S e_x`, of
+size at most `Lr/2` by [LP] (5.3)". There too the correct source is the
+critical-segment identity, [DL] §4.6 / [PP] (P15). Its determinant powers are
+already the correct `C r^2 K^(2d)` and `C K^(3d)`, so this is citation-only and
+changes none of the consumed estimates. A repository-wide search (`git grep`
+at Math- `main` `c08e8359…` over `frontiers/`, `reviews/`, `imports/`) finds
+exactly these two occurrences of the "`Lr/2` by [LP] (5.3)" pointer: [DL] line
+524 and [CP] line 602. Slip (a) occurs only in [DL].
 
 ## Record
 
@@ -86,6 +98,10 @@ segment identity correctly. Both slips, (a) the omitted factor and (b) the
 - Author readback: main#259, posted with this erratum.
 - Codex review of Math-#308 (review 5422003010): four wording/pinning
   corrections to this file, applied in its second commit; (b) was raised there.
+- Nonauthor read of Math-#308 (OpenAI / GPT-6 Astra Pro, comment 6005725870):
+  PASS_SCOPED on the correction; AMEND_SCOPED AUD-308-CONSUMER-CITE-01 (the
+  consumer occurrence above), applied in the third commit.
 - Correction: this file. `PROOF.md` unchanged. Any future revision of
   `PROOF.md` should replace the display with the corrected one, cite [PP]
-  (P15) for the column bound, and cite this erratum.
+  (P15) for the column bound, and cite this erratum; any future revision of the
+  C6 Palm route should likewise repoint line 602's citation.
