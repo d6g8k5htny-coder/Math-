@@ -21,7 +21,8 @@
   },
   "source_modules": [
     "ResearchFormalCoreR1/AlgebraV2.lean",
-    "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean"
+    "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean",
+    "ResearchFormalCoreR1/MeasureBridge.lean"
   ],
   "targets": [
     "ResearchFormalCoreR1.ec005_fold_gap",
@@ -36,18 +37,25 @@
     "ResearchFormalCoreR1.p02_lm009_bad_event_threshold",
     "ResearchFormalCoreR1.p02_lm009_power40_identity",
     "ResearchFormalCoreR1.p02_lm009_r4_le_r3",
-    "ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3"
+    "ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_integral_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_cs",
+    "ResearchFormalCoreR1.p02_lm008_event_numerator",
+    "ResearchFormalCoreR1.p02_lm008_measure_transfer",
+    "ResearchFormalCoreR1.p02_lm009_measure_transfer_r8_to_r3",
+    "ResearchFormalCoreR1.p02_lm008_sqrt_counterexample",
+    "ResearchFormalCoreR1.p02_lm008_upper_normalizer_counterexample"
   ],
   "files": {
     ".gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
     "COMPATIBILITY.md": "33721aad32f82131a6956a06b58c5bc41f5d28f26efe840a99a4d51ad60cf247",
     "GLOSSARY.md": "6bdda2ce054915efc26e8db462dbe8fd9d0c1db30e02328857bebc6568e05ce9",
-    "README.md": "0ff3f68d79369b681691c93f0bc99fbff2ac75460a6946d7f7d1a146de499cf9",
+    "README.md": "6f6f5d235d913b3fdcbfa6c08f739ca34629da7d02d86fb6abcb0684f5ba46f1",
     "ResearchFormalCoreR1/AlgebraV2.lean": "4480708263c40a2f7f03f12ef7e15f0eb4f8193c2dccbb253921a7ec251863c3",
     "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean": "338452a0c2ba24d016059354d543cc995b8cb29c9d4a41d98bb93499f5f8cb8f",
-    "ResearchFormalCoreR1.lean": "f905b97411b4a8a5e0ba046ba0805dd9889e2276eac072a0e44c0e9b6ee5fe3f",
-    "SCOPE.md": "350732d7a501fd37d15632b13bd2ac30b8a6d87259b9a3b0931639041a1cfb84",
-    "blueprint/src/content.tex": "3e86863669d164bbf1e78347b6d027889c27adb660deebce47706d16694bb90c",
+    "ResearchFormalCoreR1.lean": "d091b1dc7c7d7551040092781ac80afc827109330fdccfb4e1381879df7526e5",
+    "SCOPE.md": "e303550bdd71aa969703fd33dc9808383db13b08072437577d192a7f149a3edb",
+    "blueprint/src/content.tex": "e00ee78344ed27c097bccb8c6360f6bb86a223ab06319a407de2dd0104fd2e28",
     "evidence/initial-build-failure.log": "43393d2e2b3148a2453e3092a1ff04e257dbd4a6dc97eb2853a8bc0451002591",
     "gate.py": "4f14a78bbc6e9b7f929648b13ad3a9ae467256db4be9792e3667680e697a5c94",
     "lake-manifest.json": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043",
@@ -55,6 +63,9 @@
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "originals/Algebra.lean.txt": "4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae",
     "originals/ProbabilityCompanions.lean.txt": "4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d",
-    "tests/test_gate.py": "5df769901bbf53a7a434c2794c8685242ecfdc32f15d72fae8c2030dff7a9aa2"
+    "tests/test_gate.py": "5df769901bbf53a7a434c2794c8685242ecfdc32f15d72fae8c2030dff7a9aa2",
+    "ResearchFormalCoreR1/MeasureBridge.lean": "28ac130db490c3c3e2fbfabf3ac5be43c854ab1468bf573bf5a8c0dd2c50955f",
+    "MEASURE_BRIDGE.md": "bdb6c06f359f17d493d6057adbed61edb20236b7a3a3ca4880ae0b33d8a7200e",
+    "tests/test_measure_bridge.py": "4df86de602d7beffb988b398fe8090b3bb11d0a3dde44685edd584f4864ebe25"
   }
 }
