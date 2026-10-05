@@ -1,0 +1,243 @@
+{
+ "cases": {
+  "2": {
+   "c_2L": {
+    "lower": "0.012617593130692105902277303954",
+    "upper": "0.012617593130692105902277303955"
+   },
+   "coarse_rule_nodes": 2048,
+   "gram_floor_margin": {
+    "Delta": "5.61995e-14",
+    "V2": "1.36166e+00"
+   },
+   "k2": {
+    "lower": "0.1399492996474460544657794",
+    "upper": "0.1399492996474460544657795"
+   },
+   "k4_over_k2sq": "6.7523029e+01",
+   "k6_over_k2cu": "3.9457187e+03",
+   "min_over_directions": {
+    "S": "3.6972339e-02",
+    "detV": "2.7052903e-02",
+    "tau2": "1.8255735e-04"
+   },
+   "modulus_bound_M": "1.300e-01",
+   "quadrature_error_bound": "4.20e-56",
+   "ratio_to_reference": {
+    "lower": "0.1718856103753546505675530",
+    "upper": "0.1718856103753546505675531"
+   },
+   "strip_half_width_a": "1/64",
+   "trapezoid_nodes_N": 8192
+  },
+  "24": {
+   "c_2L": {
+    "lower": "0.073406919306034271030135962957",
+    "upper": "0.073406919306034271030135962958"
+   },
+   "coarse_rule_nodes": 32,
+   "gram_floor_margin": {
+    "Delta": "5.99997e+00",
+    "V2": "1.99845e+00"
+   },
+   "k2": {
+    "lower": "0.9999999999999999999999999",
+    "upper": "1.0000000000000000000000001"
+   },
+   "k4_over_k2sq": "3.3177150e-75",
+   "k6_over_k2cu": "-1.9110295e-72",
+   "min_over_directions": {
+    "S": "2.6666667e+00",
+    "detV": "3.0000000e+00",
+    "tau2": "6.0000000e+00"
+   },
+   "modulus_bound_M": "8.048e-02",
+   "quadrature_error_bound": "2.60e-56",
+   "ratio_to_reference": {
+    "lower": "0.9999999999999999999999999",
+    "upper": "1.0000000000000000000000001"
+   },
+   "strip_half_width_a": "1",
+   "trapezoid_nodes_N": 128
+  },
+  "2pi": {
+   "c_2L": {
+    "lower": "0.073405684662965293708694735170",
+    "upper": "0.073405684662965293708694735171"
+   },
+   "coarse_rule_nodes": 32,
+   "gram_floor_margin": {
+    "Delta": "4.11849e+00",
+    "V2": "1.52970e+00"
+   },
+   "k2": {
+    "lower": "0.9999997887677280831117230",
+    "upper": "0.9999997887677280831117231"
+   },
+   "k4_over_k2sq": "8.3391192e-06",
+   "k6_over_k2cu": "-3.2921528e-04",
+   "min_over_directions": {
+    "S": "2.6666674e+00",
+    "detV": "3.0000058e+00",
+    "tau2": "5.9997420e+00"
+   },
+   "modulus_bound_M": "8.048e-02",
+   "quadrature_error_bound": "2.60e-56",
+   "ratio_to_reference": {
+    "lower": "0.9999831808352584573040013",
+    "upper": "0.9999831808352584573040014"
+   },
+   "strip_half_width_a": "1",
+   "trapezoid_nodes_N": 128
+  },
+  "3": {
+   "c_2L": {
+    "lower": "0.049879432666614182044489927839",
+    "upper": "0.049879432666614182044489927840"
+   },
+   "coarse_rule_nodes": 128,
+   "gram_floor_margin": {
+    "Delta": "2.11903e-04",
+    "V2": "2.93185e+00"
+   },
+   "k2": {
+    "lower": "0.8043831847582616279147440",
+    "upper": "0.8043831847582616279147441"
+   },
+   "k4_over_k2sq": "2.5435863e+00",
+   "k6_over_k2cu": "-2.0952239e+01",
+   "min_over_directions": {
+    "S": "1.9620041e+00",
+    "detV": "2.3208269e+00",
+    "tau2": "7.6518610e-01"
+   },
+   "modulus_bound_M": "8.670e-02",
+   "quadrature_error_bound": "2.80e-56",
+   "ratio_to_reference": {
+    "lower": "0.6794922486620950138849690",
+    "upper": "0.6794922486620950138849691"
+   },
+   "strip_half_width_a": "1/4",
+   "trapezoid_nodes_N": 512
+  },
+  "4": {
+   "c_2L": {
+    "lower": "0.067568657600538789457649064979",
+    "upper": "0.067568657600538789457649064980"
+   },
+   "coarse_rule_nodes": 32,
+   "gram_floor_margin": {
+    "Delta": "1.54400e-01",
+    "V2": "1.94860e+00"
+   },
+   "k2": {
+    "lower": "0.9892723933277496349347860",
+    "upper": "0.9892723933277496349347861"
+   },
+   "k4_over_k2sq": "1.7503166e-01",
+   "k6_over_k2cu": "-2.8080911e+00",
+   "min_over_directions": {
+    "S": "2.6462438e+00",
+    "detV": "3.0409664e+00",
+    "tau2": "4.5857514e+00"
+   },
+   "modulus_bound_M": "8.137e-02",
+   "quadrature_error_bound": "2.63e-56",
+   "ratio_to_reference": {
+    "lower": "0.9204671472295996655035977",
+    "upper": "0.9204671472295996655035978"
+   },
+   "strip_half_width_a": "1",
+   "trapezoid_nodes_N": 128
+  },
+  "8": {
+   "c_2L": {
+    "lower": "0.073406919277779905473535403534",
+    "upper": "0.073406919277779905473535403535"
+   },
+   "coarse_rule_nodes": 32,
+   "gram_floor_margin": {
+    "Delta": "5.56213e+00",
+    "V2": "1.71231e+00"
+   },
+   "k2": {
+    "lower": "0.9999999999983789868097159",
+    "upper": "0.9999999999983789868097160"
+   },
+   "k4_over_k2sq": "1.0374484e-10",
+   "k6_over_k2cu": "-6.6396700e-09",
+   "min_over_directions": {
+    "S": "2.6666667e+00",
+    "detV": "3.0000000e+00",
+    "tau2": "6.0000000e+00"
+   },
+   "modulus_bound_M": "8.048e-02",
+   "quadrature_error_bound": "2.60e-56",
+   "ratio_to_reference": {
+    "lower": "0.9999999996150994235460584",
+    "upper": "0.9999999996150994235460585"
+   },
+   "strip_half_width_a": "1",
+   "trapezoid_nodes_N": 128
+  }
+ },
+ "checks": {
+  "C1_reference_equals_side24_closed_form": true,
+  "C2_L24_inside_side24_interval": true,
+  "C3_moment_routes_agree_L2": true,
+  "C3_moment_routes_agree_L24": true,
+  "C3_moment_routes_agree_L2pi": true,
+  "C3_moment_routes_agree_L3": true,
+  "C3_moment_routes_agree_L4": true,
+  "C3_moment_routes_agree_L8": true,
+  "C4_strip_and_error_bound_L2": true,
+  "C4_strip_and_error_bound_L24": true,
+  "C4_strip_and_error_bound_L2pi": true,
+  "C4_strip_and_error_bound_L3": true,
+  "C4_strip_and_error_bound_L4": true,
+  "C4_strip_and_error_bound_L8": true,
+  "C5_positive_every_direction_L2": true,
+  "C5_positive_every_direction_L24": true,
+  "C5_positive_every_direction_L2pi": true,
+  "C5_positive_every_direction_L3": true,
+  "C5_positive_every_direction_L4": true,
+  "C5_positive_every_direction_L8": true,
+  "C6_matches_iba1_diagnostic_L2pi": true,
+  "C6_matches_iba1_diagnostic_L3": true,
+  "C6_matches_iba1_diagnostic_L4": true,
+  "C6_matches_iba1_diagnostic_L8": true,
+  "C7_gram_floors_L2": true,
+  "C7_gram_floors_L24": true,
+  "C7_gram_floors_L2pi": true,
+  "C7_gram_floors_L3": true,
+  "C7_gram_floors_L4": true,
+  "C7_gram_floors_L8": true,
+  "C8_width_L2": true,
+  "C8_width_L24": true,
+  "C8_width_L2pi": true,
+  "C8_width_L3": true,
+  "C8_width_L4": true,
+  "C8_width_L8": true,
+  "C9_coarse_rule_consistent_L2": true,
+  "C9_coarse_rule_consistent_L24": true,
+  "C9_coarse_rule_consistent_L2pi": true,
+  "C9_coarse_rule_consistent_L3": true,
+  "C9_coarse_rule_consistent_L4": true,
+  "C9_coarse_rule_consistent_L8": true
+ },
+ "method": "outward rational intervals (side24_v1 library); image and Poisson-dual moment sums with explicit tails; trapezoid rule in phi = 4 theta with the analytic-strip bound",
+ "object": "CL-SIDE24-D2-CERTIFIED-SMALL-L-20261005-v1",
+ "passed": true,
+ "reference": {
+  "N": 128,
+  "c_2": {
+   "lower": "0.073406919306034271030135962957",
+   "upper": "0.073406919306034271030135962958"
+  },
+  "side24_v1_closed_form": {
+   "lower": "0.073406919306034271030135962957",
+   "upper": "0.073406919306034271030135962958"
+  }
+ },
+ "scientific_effect": "NONE"
+}
