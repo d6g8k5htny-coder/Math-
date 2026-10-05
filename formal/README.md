@@ -14,7 +14,7 @@ cd ..
 python formal/gate.py --execute
 ```
 
-The source-only command does not run Lean. The execute command fails unless the pinned project builds, `leanchecker` rechecks the package, all 40 declarations have transitive axiom reports restricted to propext/Classical.choice/Quot.sound, and five executable negative controls are rejected. It writes logs and a receipt in `.lake/formal-evidence/`; the workflow uploads them even on failure. A receipt from arbitrary input is not trusted evidence: use the successful read-only workflow and checked Git commit.
+The source-only command does not run Lean. The execute command fails unless the pinned project builds, `leanchecker` rechecks the package, all 47 declarations have transitive axiom reports restricted to propext/Classical.choice/Quot.sound, and five executable negative controls are rejected. It writes logs and a receipt in `.lake/formal-evidence/`; the workflow uploads them even on failure. A receipt from arbitrary input is not trusted evidence: use the successful read-only workflow and checked Git commit.
 
 Sources: [scope](SCOPE.md), [glossary](GLOSSARY.md), [manifest](manifest.json), [blueprint source](blueprint/src/content.tex). The original GP-FOR-192 bytes are preserved under originals/*.lean.txt; separately named V2 companions carry the documented compiler-only repairs in [COMPATIBILITY.md](COMPATIBILITY.md). No historical Status.lean or claimed status is imported. [Alignment contract](SCOPE.md#review-contract) remains distinct from kernel evidence.
 
@@ -37,6 +37,10 @@ The additive [MomentTail](MOMENT_TAIL.md) contributes seven declarations. It pro
 ## Generality companions
 
 The additive [MomentGenerality](MOMENT_GENERALITY.md) registers the agent 6/7 proposal adaptations: finite-measure unweighted tail and interval-only probability-family assembly, plus two specialization bridges. It preserves the exact tail constant and all concrete model hypotheses. Earlier proof bytes and the verification gate remain unchanged; the two proposal PRs are not themselves compiled evidence.
+
+## Weight perturbation and stable normalization
+
+The additive [WeightPerturbation](WEIGHT_PERTURBATION.md) supplies seven declarations. A positive reference normalizer and a same-law L1 weight-error budget yield a positive perturbed normalizer and a uniform bound on measurable-event probabilities. Its r² specialization cancels the common vanishing scale. Concrete field error estimates, reference lower bounds and any common-law identification remain premises; earlier forty proof bytes and the hardened gate stay unchanged.
 
 ## Next agents
 
