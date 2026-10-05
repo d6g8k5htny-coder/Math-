@@ -5,6 +5,7 @@ name: SIDE24 d=2 certified small-L coefficients (outward interval replay)
     paths:
       - 'reviews/side24_d2_certified_small_L_claude_20261005/**'
       - '.github/workflows/side24-d2-certified.yml'
+      - 'tests/test_certified_d2_workflow.py'
       - 'coefficients/side24_v1/coefficient.py'
       - 'coefficients/side24_v1/ENCLOSURE.json'
       - 'reviews/iba1_periodic_jet_claude_20261005/RESULTS.json'
@@ -58,9 +59,36 @@ jobs:
           run = subprocess.run([sys.executable] + flags + [checker], capture_output=True, cwd=root)
           if run.returncode != 0 or run.stdout != (root / 'RESULTS.json').read_bytes():
               raise ValueError('replay differs from RESULTS.json')
-          for label, code in (('M1', 1), ('M2', 1), ('M3', 1), ('M4', 1), ('M9', 2)):
+          def unique_object(pairs):
+              result = {}
+              for key, value in pairs:
+                  if key in result:
+                      raise ValueError('duplicate diagnostic key: ' + key)
+                  result[key] = value
+              return result
+          expected_failures = (
+              ('M1', 1, 'C4_strip_and_error_bound_L4'),
+              ('M2', 1, 'C1_reference_equals_side24_closed_form'),
+              ('M3', 1, 'C6_matches_iba1_diagnostic_L4'),
+              ('M4', 1, 'C9_coarse_rule_consistent_L4'),
+              ('M9', 2, None),
+          )
+          for label, code, failed_check in expected_failures:
               m = subprocess.run([sys.executable] + flags + [checker, '--mutant', label], capture_output=True, cwd=root)
               if m.returncode != code:
                   raise ValueError('mutant %s exited %d, expected %d' % (label, m.returncode, code))
+              if m.stderr:
+                  raise ValueError('mutant %s wrote unexpected stderr: %r' % (label, m.stderr))
+              if failed_check is None:
+                  if m.stdout.strip() != b'unknown mutant':
+                      raise ValueError('unknown-label rejection has the wrong diagnostic: %r' % m.stdout)
+              else:
+                  diagnostic = json.loads(m.stdout, object_pairs_hook=unique_object)
+                  if diagnostic != {'mutant': label, 'failed_check': failed_check}:
+                      raise ValueError('mutant %s failed for the wrong reason: %r' % (label, diagnostic))
+              print(json.dumps({'flags': flags, 'mutant': label, 'exit_code': m.returncode,
+                                'failed_check': failed_check}, sort_keys=True))
           print('certified d=2 replay: manifest, pins, replay and mutants PASS')
           PY
+      - name: Reject crashes and wrong-cause mutant diagnostics
+        run: python ${{ matrix.flags }} -m unittest discover -s tests -p test_certified_d2_workflow.py -v
