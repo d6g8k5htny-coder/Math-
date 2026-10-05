@@ -115,7 +115,7 @@ example : CapI4.fourthEvent 1 1 (fun _ : Unit => 3/10) = ∅ := by
   ext x; norm_num [CapI4.fourthEvent]
 example : (∫ x in (0 : ℝ)..1, x * (x + 1)) = 5/6 := by
   rw [CapI4.double_soft_integral]; norm_num
-example : (8 : ℝ) ≤ 4 * 1 * 1 * (1 : ℝ)^2 ∨ 1/(4*1*1) < 8 :=
+example : (8 : ℝ) ≤ 4 * 1 * 1 * (1 : ℝ)^2 ∨ (1 : ℝ)/(4*1*1) < 8 :=
   CapI4.scalar_near_or_far 8 1 1 1 (by norm_num) (by norm_num) (by norm_num) (by norm_num)
 example : ¬ ((8 : ℝ) ≤ 4 * 1 * 1 * (1 : ℝ)^2) := by norm_num
 ''')
