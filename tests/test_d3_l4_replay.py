@@ -211,6 +211,12 @@ class ReplayTests(unittest.TestCase):
             self.assertIn(b'evidence_directory_already_exists', run.stderr)
             self.assertEqual(old.read_text(), 'historical receipt')
 
+    def test_workflow_fetches_history_for_proof_reachability(self):
+        text = (ROOT / '.github/workflows/d3-l4-anisotropic.yml').read_text()
+        checkout = text.split('uses: actions/checkout@', 1)[1].split('      - ', 1)[0]
+        self.assertIn('fetch-depth: 0', checkout,
+                      'proof-reachability tests consume historical Git objects')
+
     def test_workflow_covers_packet_dependencies_and_both_modes(self):
         self.load(); wf = ROOT / '.github/workflows/d3-l4-anisotropic.yml'
         self.assertTrue(wf.is_file())
