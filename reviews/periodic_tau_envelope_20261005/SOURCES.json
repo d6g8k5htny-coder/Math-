@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "object": "PERIODIC-TAU-ENVELOPE-20261005",
+  "scientific_effect": "NONE",
+  "review_status": "PENDING_NONAUTHOR_REVIEW",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "periodic-tau-envelope-20261005",
+    "attribution": "Dylan Roy — delegated AI work"
+  },
+  "base_commit": "90790a44c01b3a2c347fa712fbfaeed7fae1024b",
+  "sources": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "d8be92076dae46f9504d279b286da0432d01e088",
+      "path": "reviews/iba1_periodic_jet_claude_20261005/periodic_jet_check.py",
+      "git_blob": "a2beeeee90abfc2988cf8f491d54ea835b23a1c5",
+      "sha256": "59b53e5c2e8fdcacc9983f705b9d301fcfcf9242ac6c4d8b7bfbcf0ada7caf9f",
+      "scope": "Product-cumulant cov/Schur definition and listed direction representatives. Hash reported by pinned SOURCE_FILES.json; native blob checked; not a full new source replay."
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "pr": 297,
+      "comment_id": 6001649072,
+      "scope": "Earlier OpenAI-derived tau polynomial identity and covariance-sign reconstruction; source of hypothesis, not independent review of new extremum theorem."
+    }
+  ],
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 10021,
+      "sha256": "5534b03a332f3a3a7980a9c5a8c40c53f3b08d3c02b387d025ed31915ad825df",
+      "git_blob": "2166869f20eb4d50249920691b90415943c4b5ff"
+    },
+    {
+      "path": "envelope_check.py",
+      "bytes": 5473,
+      "sha256": "e5150f2255e6245bb2fcee56f1c9768c57c7cdc36025472a4bdbdde8658d9e8a",
+      "git_blob": "4f1e53feec8c2c178a7a779b34276ce6c119f6d5"
+    },
+    {
+      "path": "test_envelope.py",
+      "bytes": 6373,
+      "sha256": "bdd10eba112267fec170672d33a9d323957f236a134d7b46e8732cd760be9d37",
+      "git_blob": "81f7c9dabcb74277808f6825be35491af6f380fc"
+    }
+  ]
+}
