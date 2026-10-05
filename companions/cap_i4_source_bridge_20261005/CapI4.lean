@@ -92,8 +92,8 @@ theorem double_soft_integral (a b : ℝ) :
   have hb : IntervalIntegrable (fun x : ℝ => b * x) volume 0 a :=
     (by fun_prop : Continuous (fun x : ℝ => b * x)).intervalIntegrable 0 a
   rw [hp, intervalIntegral.integral_add h₂ hb,
-    intervalIntegral.integral_const_mul, intervalIntegral.integral_pow,
-    intervalIntegral.integral_id]
+    intervalIntegral.integral_const_mul, _root_.integral_pow,
+    _root_.integral_id]
   ring
 
 /-- Exact source (7.3); U is NOT a constant independent of the remaining eigenvalues. -/
