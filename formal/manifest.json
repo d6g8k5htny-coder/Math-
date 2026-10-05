@@ -25,7 +25,8 @@
     "ResearchFormalCoreR1/MeasureBridge.lean",
     "ResearchFormalCoreR1/WeightedLaw.lean",
     "ResearchFormalCoreR1/MomentTail.lean",
-    "ResearchFormalCoreR1/MomentGenerality.lean"
+    "ResearchFormalCoreR1/MomentGenerality.lean",
+    "ResearchFormalCoreR1/WeightPerturbation.lean"
   ],
   "targets": [
     "ResearchFormalCoreR1.ec005_fold_gap",
@@ -67,17 +68,24 @@
     "ResearchFormalCoreR1.p02_lm009_moment40_tail_finite",
     "ResearchFormalCoreR1.p02_lm009_moment40_tail_of_finite",
     "ResearchFormalCoreR1.p02_lm009_moment40_family_r3_interval",
-    "ResearchFormalCoreR1.p02_lm009_moment40_family_r3_of_interval"
+    "ResearchFormalCoreR1.p02_lm009_moment40_family_r3_of_interval",
+    "ResearchFormalCoreR1.weightPerturbation_integral",
+    "ResearchFormalCoreR1.weightPerturbation_setIntegral",
+    "ResearchFormalCoreR1.weightPerturbation_normalizer_lower",
+    "ResearchFormalCoreR1.weightPerturbation_event_integral_bounds",
+    "ResearchFormalCoreR1.weightPerturbation_quotient_bound",
+    "ResearchFormalCoreR1.weightedLaw_event_perturbation",
+    "ResearchFormalCoreR1.weightedLaw_event_perturbation_r2"
   ],
   "files": {
     ".gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
     "COMPATIBILITY.md": "33721aad32f82131a6956a06b58c5bc41f5d28f26efe840a99a4d51ad60cf247",
     "GLOSSARY.md": "6bdda2ce054915efc26e8db462dbe8fd9d0c1db30e02328857bebc6568e05ce9",
-    "README.md": "35f4aab13f9dc69c0810d7fcd16d9e13bf03f41e227423e9e254983978fa2b08",
+    "README.md": "35e3a29206c592947ff7ff44e2ee6eb796ca9791937adbe3eb03bfa0ed6aa1bf",
     "ResearchFormalCoreR1/AlgebraV2.lean": "4480708263c40a2f7f03f12ef7e15f0eb4f8193c2dccbb253921a7ec251863c3",
     "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean": "338452a0c2ba24d016059354d543cc995b8cb29c9d4a41d98bb93499f5f8cb8f",
-    "ResearchFormalCoreR1.lean": "bfb77a7b6c3d7cbd550ddcbac3842a5581f28c0ae68f861c795bf5f715fabb30",
-    "SCOPE.md": "198bbc6c60fdb9148ae21c0f25b52d3b612de20c373dc1e6df818767987da452",
+    "ResearchFormalCoreR1.lean": "e648c41573b1ddc4e12af2ef1e3d3bff0d2c923f01b63e75186735f10eb35860",
+    "SCOPE.md": "36e0714bcb79a158a6e50ff5b1e5e772939800ba023d865944901e4e7ae34838",
     "blueprint/src/content.tex": "e00ee78344ed27c097bccb8c6360f6bb86a223ab06319a407de2dd0104fd2e28",
     "evidence/initial-build-failure.log": "43393d2e2b3148a2453e3092a1ff04e257dbd4a6dc97eb2853a8bc0451002591",
     "gate.py": "958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68",
@@ -99,8 +107,11 @@
     "evidence/moment-tail-initial-build-failure.log": "61bee2d55d0dd548b0bccc4d2e40970f654fca8ab1385af7f371592d45c0ab08",
     "ResearchFormalCoreR1/MomentGenerality.lean": "fdec55f1602938cd8fdb5b71535962e76a9671bf230dea53868b14147fb3b509",
     "MOMENT_GENERALITY.md": "5386c763f95ecd0946e0f23a22d1ba90e7956ff1a1bfcada0d454d1b5ace0cf2",
-    "tests/test_moment_generality.py": "7cd25876b9b0f4ed46168e4cf493030470cd7300d6ff06b9d242642eb9659a17",
+    "tests/test_moment_generality.py": "cba72a9747670e269bbec414f89fd2e8291dcf331d01a8e1e88ad6c7f2841383",
     "tests/test_alignment_lineage.py": "c510c6566d7689bebde76843582e9936dfa9e62e783b816b5e4f63d83434b893",
-    "LINEAGE_VALIDATION.md": "bba9d0a859f1ba45670fe122e4e72ae1094a2226de98aa814d838b0baaf61815"
+    "LINEAGE_VALIDATION.md": "bba9d0a859f1ba45670fe122e4e72ae1094a2226de98aa814d838b0baaf61815",
+    "ResearchFormalCoreR1/WeightPerturbation.lean": "27d9714eef848d180700fb0fb1d82da2388393ae5e6dfa5be603b0287cfccd13",
+    "WEIGHT_PERTURBATION.md": "0ac969b86f5b2cc4e84b4bb61790c7497164b923dc5f3fc5be99195b75b1b212",
+    "tests/test_weight_perturbation.py": "a83f272236a2d315d20561b862c952963b825c24baef42972f368eba11a897d7"
   }
 }
