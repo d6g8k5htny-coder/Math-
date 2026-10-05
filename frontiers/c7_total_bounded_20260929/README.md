@@ -7,8 +7,9 @@ strictly positive compact gap intervals; do not quote it as uniform over every
 positive gap mark.
 
 The original proof, its unnormalized K1/K2 estimates, Corollary T, checker,
-results and source inventory are retained unchanged. The erratum identifies
-its exact source and supplies the compact-window derivation. It neither
+results and original source-inventory entries are retained unchanged. The
+inventory additionally binds this erratum and reading guide by exact size/hash.
+The erratum identifies its source and supplies the compact-window derivation. It neither
 promotes the original proof candidate nor resolves the broader audit coverage
 items in [main#259](https://github.com/d6g8k5htny-coder/main/issues/259).
 

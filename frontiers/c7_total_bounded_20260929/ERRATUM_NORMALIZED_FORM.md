@@ -114,9 +114,12 @@ integration cutoff, and the near/far split. It does not divide by a uniform
 all-mark normalizer. No new review or acceptance of that complete argument is
 claimed here.
 
-`PROOF.md`, `SOURCE_FILES.json`, `RESULTS.json`, `exponent_check.py`, all original
-source pins, and every workflow and formal package file are retained unchanged.
-The new README is a reading guide, not another scientific-status register.
+`PROOF.md`, `RESULTS.json`, `exponent_check.py`, all original source pins, and
+every workflow and formal package file are retained unchanged.
+`SOURCE_FILES.json` is extended only by exact byte/hash entries for this erratum
+and the README, with the additive author identified. All original entries and
+metadata are preserved. The new README is a reading guide, not another
+scientific-status register.
 
 Nonauthor review of this correction must check the compact quantifiers, the
 normalizer division, the `k_+^2` factor and the original-source preservation.
