@@ -1,0 +1,67 @@
+/- 
+L6 / MT-N2 PROPOSAL — UNCOMPILED
+Frozen Math-#275 head: 7206526ed53f7539838711ee45257a13b4b07e99
+Source ask: main#229 comment 5995761095
+Worker: Grok Bot agent 6 (non-Claude, nonauthor lane)
+Status: UNCOMPILED — not kernel-checked; do NOT treat as accepted Lean.
+Do not edit/rename the accepted theorem p02_lm009_moment40_tail.
+This file is an isolated companion proposal under reviews/ only.
+-/
+
+import ResearchFormalCoreR1.MomentTail
+
+namespace ResearchFormalCoreR1
+
+open MeasureTheory
+open scoped ENNReal
+
+set_option autoImplicit false
+
+variable {Ω : Type*} [MeasurableSpace Ω]
+
+/-- Finite-measure companion to `p02_lm009_moment40_tail` (MT-N2).
+
+Same statement and exact constant `(M / ε ^ 8) * r ^ 8`, with the same
+`Integrable (fun x => R x ^ 40) μ` premise, but the ambient measure is only
+required to be finite, not a probability measure.
+
+Rationale (from frozen #276 note MT-N2 / REVIEW.md): the proof of
+`p02_lm009_moment40_tail` invokes only `p02_lm009_markov_event`, which already
+takes `[IsFiniteMeasure μ]`, plus algebraic identities that do not use
+`μ(Ω) = 1`. The probability instance on the accepted theorem is therefore
+stronger than needed for the unweighted tail.
+
+This declaration is separately named. It does not rename, edit, or replace
+`p02_lm009_moment40_tail`. Weighted / family theorems are out of L6 scope.
+-/
+theorem p02_lm009_moment40_tail_finite
+    (μ : Measure Ω) [IsFiniteMeasure μ] (R : Ω → ℝ)
+    (r ε M : ℝ) (hr : 0 < r) (hε : 0 < ε)
+    (hRi : Integrable (fun x => R x ^ 40) μ)
+    (hMbound : (∫ x, R x ^ 40 ∂μ) ≤ M) :
+    (μ (badJetEvent R r ε)).toReal ≤ (M / ε ^ 8) * r ^ 8 := by
+  have hnonneg : 0 ≤ᵐ[μ] (fun x => R x ^ 40) := by
+    apply Filter.Eventually.of_forall
+    intro x
+    positivity
+  have ha : 0 < (ε / r) ^ 8 := pow_pos (div_pos hε hr) 8
+  calc
+    (μ (badJetEvent R r ε)).toReal ≤ (∫ x, R x ^ 40 ∂μ) / (ε / r) ^ 8 :=
+      p02_lm009_markov_event μ (fun x => R x ^ 40) (badJetEvent R r ε)
+        hRi hnonneg ((ε / r) ^ 8) ha (p02_lm009_badJet_subset R r ε hr hε)
+    _ ≤ M / (ε / r) ^ 8 := div_le_div_of_nonneg_right hMbound ha.le
+    _ = (M / ε ^ 8) * r ^ 8 := by
+      field_simp [ne_of_gt hr, ne_of_gt hε]
+
+/-- Optional specialization: the accepted probability theorem follows from the
+finite-measure companion (IsProbabilityMeasure ⇒ IsFiniteMeasure). Kept as a
+named corollary for the L6 check list; not a rewrite of the frozen module. -/
+theorem p02_lm009_moment40_tail_of_finite
+    (μ : Measure Ω) [IsProbabilityMeasure μ] (R : Ω → ℝ)
+    (r ε M : ℝ) (hr : 0 < r) (hε : 0 < ε)
+    (hRi : Integrable (fun x => R x ^ 40) μ)
+    (hMbound : (∫ x, R x ^ 40 ∂μ) ≤ M) :
+    (μ (badJetEvent R r ε)).toReal ≤ (M / ε ^ 8) * r ^ 8 :=
+  p02_lm009_moment40_tail_finite μ R r ε M hr hε hRi hMbound
+
+end ResearchFormalCoreR1

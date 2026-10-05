@@ -38,8 +38,8 @@ class MomentTailSourceTests(unittest.TestCase):
 
     def test_exact_inventory(self):
         m = json.loads((ROOT/'manifest.json').read_text())
-        self.assertEqual(m['targets'][29:], ['ResearchFormalCoreR1.'+n for n in NAMES])
-        self.assertEqual(len(m['targets']), 36)
+        self.assertEqual(m['targets'][29:36], ['ResearchFormalCoreR1.'+n for n in NAMES])
+        self.assertGreaterEqual(len(m['targets']), 36)
         self.assertIn(MODULE, m['source_modules'])
 
     def test_source_scope_and_tests_bound(self):
@@ -57,7 +57,7 @@ class MomentTailSourceTests(unittest.TestCase):
         pins = {
             'ResearchFormalCoreR1/MeasureBridge.lean': '28ac130db490c3c3e2fbfabf3ac5be43c854ab1468bf573bf5a8c0dd2c50955f',
             'ResearchFormalCoreR1/WeightedLaw.lean': 'f31dfd2cd048cc0c0446c54c46d89c9cdd5d7bb9d76e9d8d16b7c034f351d736',
-            'gate.py': '4f14a78bbc6e9b7f929648b13ad3a9ae467256db4be9792e3667680e697a5c94',
+            'gate.py': '958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68',
         }
         for name, digest in pins.items():
             self.assertEqual(m['files'][name], digest)

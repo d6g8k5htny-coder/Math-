@@ -1,0 +1,44 @@
+{
+ "checks": {
+  "Q1_conditional_hessian_law": {
+   "info": "scaled GOE: Var f_ii = 2, Var f_ij = 1, all other pairs 0; E[f_ii | f = b] = -b",
+   "passed": true
+  },
+  "Q2_scaled_GOE_normalisation": {
+   "info": {
+    "2": 20.0530262,
+    "3": 213.258381
+   },
+   "passed": true
+  },
+  "Q3_total_densities_closed_forms": {
+   "info": {
+    "2": {
+     "n_max": 0.09188814923,
+     "n_max_closed": 0.09188814924,
+     "n_sad": 0.1837762985,
+     "n_sad_closed": 0.1837762985
+    },
+    "3": {
+     "n_max": 0.03486240891,
+     "n_max_closed": 0.03486240894,
+     "n_sad": 0.106507305,
+     "n_sad_closed": 0.106507305
+    }
+   },
+   "passed": true
+  },
+  "Q4_beta_two_resolutions": {
+   "info": {
+    "24^3 beta_3": 10.23061,
+    "beta_2": 0.003122769186,
+    "beta_3": 0.0007400614572
+   },
+   "passed": true
+  }
+ },
+ "mutant": null,
+ "object": "CL-EQUAL-HEIGHT-MASS-20261001-v1",
+ "passed": true,
+ "scientific_effect": "NONE"
+}

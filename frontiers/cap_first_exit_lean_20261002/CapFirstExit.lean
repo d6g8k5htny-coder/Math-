@@ -30,6 +30,10 @@
   and SP's quantitative bounds on `D`: it builds every derivative datum from `f`, and the collar
   and its bound `K` come from compactness.
   `quarticToy_E` (v2.3) exercises it away from the degenerate face, with `D⁴f ≠ 0` and (H2) sharp.
+  Since v2.4 `ridge_capHyp_K` states the cap on P §7's event `G_r` for every pin gap
+  `f(M) − f(S) = k r³` with `k > 0`, namely `(4/(3k)) r m² < λ` and `r n ≤ 3k/10`, by rescaling
+  `f ↦ f/(6k)` (`ridge_capHyp_E` is the case `k = 1/6`). `ridge_capHyp_norm_K` takes the bounds as
+  operator norms `‖D³f‖ ≤ M3`, `‖D⁴f‖ ≤ M4` on `D`.
   Also not formalized: the
   identification of the H0 persistence pairing with the elder rule (L22, P §8); the
   unstable-branch analysis (L23); and every probabilistic statement.
@@ -4623,5 +4627,218 @@ theorem quarticToy_E :
     simp
   obtain ⟨-, -, hC, -⟩ := hcap (fun _ => 0) (fun x _ => ⟨by simp, hcrit0 x⟩)
   exact ⟨⟨ε, hε, hex⟩, hC⟩
+
+/-! ### v2.4: the cap on P §7's event `G_r`, for every pin gap `k > 0`
+
+P §7 (`imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md`) uses the deterministic
+cap on `G_r = {λ_min(−A_M) > [4/(3k)] r M3², r M4 ≤ 3k/10}` with the pin gap `f(M) − f(S) = k r³`.
+`ridge_capHyp_E` is the case `k = 1/6`. A positive factor `f ↦ c f` multiplies every derivative
+bound and the transverse curvature by `c`, and changes neither the critical points nor the cap. -/
+
+namespace CapHyp
+
+variable {f : X → ℝ} {C : Set X} {M z : X} {b s : ℝ}
+
+/-- A positive factor. A cap for `c f` at the levels `c b`, `c s` is a cap for `f` at `b`, `s`. -/
+theorem of_const_mul {c : ℝ} (hc : 0 < c)
+    (H : CapHyp (fun x => c * f x) C M z (c * b) (c * s)) : CapHyp f C M z b s where
+  mem := H.mem
+  ceiling x hx := le_of_mul_le_mul_left (H.ceiling x hx) hc
+  frontier_le x hx := le_of_mul_le_mul_left (H.frontier_le x hx) hc
+  older := lt_of_mul_lt_mul_left H.older hc.le
+  ridge := by
+    obtain ⟨γ, hγ⟩ := H.ridge
+    exact ⟨γ, fun t => le_of_mul_le_mul_left (hγ t) hc⟩
+
+end CapHyp
+
+section GapK
+
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+
+/-- A nonzero factor does not move the points where the derivative vanishes. -/
+theorem hasFDerivAt_zero_const_mul_iff {φ : E → ℝ} {c : ℝ} (hc : c ≠ 0) {y : E} :
+    HasFDerivAt (fun y => c * φ y) (0 : E →L[ℝ] ℝ) y ↔ HasFDerivAt φ (0 : E →L[ℝ] ℝ) y := by
+  constructor
+  · intro h
+    have h' := h.const_mul c⁻¹
+    rw [smul_zero] at h'
+    exact h'.congr_of_eventuallyEq
+      (Filter.Eventually.of_forall fun y => (inv_mul_cancel_left₀ hc (φ y)).symm)
+  · intro h
+    have h' := h.const_mul c
+    rwa [smul_zero] at h'
+
+/-- On an open set where `f ∈ C⁴`, the derivatives of order `≤ 4` of `c f` are `c` times those of
+`f`. -/
+theorem iteratedFDeriv_const_mul_of_isOpen {f : ℝ × E → ℝ} {U : Set (ℝ × E)} (hU : IsOpen U)
+    (hf : ContDiffOn ℝ 4 f U) (c : ℝ) {i : ℕ} (hi : i ≤ 4) {p : ℝ × E} (hp : p ∈ U) :
+    iteratedFDeriv ℝ i (fun q => c * f q) p = c • iteratedFDeriv ℝ i f p := by
+  have hfa : ContDiffAt ℝ i f p :=
+    (hf.contDiffAt (hU.mem_nhds hp)).of_le (by exact_mod_cast hi)
+  exact iteratedFDeriv_const_smul_apply' (a := c) hfa
+
+/-- **The cap for every gap `k > 0`** (P §7's event `G_r`). With the pin gap
+`f(M) − f(S) = k r³`, the hypotheses `(4/(3k)) r m² < λ` and `r n ≤ 3k/10` give the conclusion of
+`ridge_capHyp_E`. That theorem is the case `k = 1/6`; the proof applies it to `f / (6k)`. -/
+theorem ridge_capHyp_K [FiniteDimensional ℝ E] {f : ℝ × E → ℝ} {U : Set (ℝ × E)}
+    {r k m n lam : ℝ} (hr : 0 < r) (hk : 0 < k) (hU : IsOpen U)
+    (hDU : Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r) ⊆ U)
+    (hf : ContDiffOn ℝ 4 f U)
+    (hT : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ∀ (s₁ s₂ s₃ : ℝ) (y₁ y₂ y₃ : E),
+      |iteratedFDeriv ℝ 3 f p ![(s₁, y₁), (s₂, y₂), (s₃, y₃)] -
+          s₁ * s₂ * s₃ * iteratedFDeriv ℝ 3 f p ![(1, 0), (1, 0), (1, 0)]| ≤
+        m * ((|s₁| + ‖y₁‖) * (|s₂| + ‖y₂‖) * (|s₃| + ‖y₃‖) - |s₁| * |s₂| * |s₃|))
+    (hTe : ∀ x ∈ Icc (-r / 2) (r / 2), |iteratedFDeriv ℝ 3 f (x, 0) ![(1, 0), (1, 0), (1, 0)]| ≤ m)
+    (hn4x : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      |iteratedFDeriv ℝ 4 f p ![(1, 0), (1, 0), (1, 0), (1, 0)]| ≤ n)
+    (hn4y : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), ∀ v : E,
+      |iteratedFDeriv ℝ 4 f p ![(0, v), (1, 0), (1, 0), (1, 0)]| ≤ n * ‖v‖)
+    (hH2 : r * n ≤ 3 * k / 10)
+    (hlam : ∀ v : E, iteratedFDeriv ℝ 2 f (-r / 2, 0) ![(0, v), (0, v)] ≤ -lam * ‖v‖ ^ 2)
+    (hH1 : 4 / (3 * k) * r * m ^ 2 < lam)
+    (hM : fderiv ℝ f (-r / 2, 0) = 0) (hS : fderiv ℝ f (r / 2, 0) = 0)
+    (hnorm : f (-r / 2, 0) - f (r / 2, 0) = k * r ^ 3) :
+    ∃ ε, 0 < ε ∧
+    (∃ h : ℝ → E, ∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε), h x ∈ Metric.ball (0 : E) (2 * r) ∧
+        HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) ∧
+      ∀ h : ℝ → E, (∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε),
+          h x ∈ Metric.closedBall (0 : E) (2 * r) ∧
+            HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) →
+        h (-r / 2) = 0 ∧ h (r / 2) = 0 ∧
+          CapHyp f (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)) (-r / 2, 0)
+            (2 * r, h (2 * r)) (f (-r / 2, 0)) (f (r / 2, 0)) ∧
+          ∀ x ∈ frontier (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)),
+            x ≠ (r / 2, 0) → f x < f (r / 2, 0) := by
+  obtain ⟨c, hc_def⟩ : ∃ c : ℝ, c = 1 / (6 * k) := ⟨_, rfl⟩
+  have hk0 : k ≠ 0 := hk.ne'
+  have hc : 0 < c := by rw [hc_def]; positivity
+  have hD : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r), p ∈ U :=
+    fun p hp => hDU hp
+  have hseg : ∀ x ∈ Icc (-r / 2) (r / 2), ((x, 0) : ℝ × E) ∈ U := by
+    intro x hx
+    apply hDU
+    refine ⟨⟨by linarith [hx.1], by linarith [hx.2]⟩, ?_⟩
+    simp only [Metric.mem_closedBall, dist_self]
+    linarith
+  have hsc : ∀ {i : ℕ}, i ≤ 4 → ∀ p ∈ U,
+      iteratedFDeriv ℝ i (fun q => c * f q) p = c • iteratedFDeriv ℝ i f p :=
+    fun hi p hp => iteratedFDeriv_const_mul_of_isOpen hU hf c hi hp
+  have hdiff : ∀ p ∈ U, DifferentiableAt ℝ f p := fun p hp =>
+    (hf.contDiffAt (hU.mem_nhds hp)).differentiableAt (by norm_num)
+  have hMU : ((-r / 2, 0) : ℝ × E) ∈ U := hseg _ ⟨le_refl _, by linarith⟩
+  have hSU : ((r / 2, 0) : ℝ × E) ∈ U := hseg _ ⟨by linarith, le_refl _⟩
+  have key := ridge_capHyp_E (E := E) (f := fun q => c * f q) (U := U) (m := c * m)
+    (n := c * n) (lam := c * lam) hr hU hDU (contDiffOn_const.mul hf)
+    (fun p hp s₁ s₂ s₃ y₁ y₂ y₃ => by
+      rw [hsc (by norm_num) p (hD p hp)]
+      simp only [smul_apply, smul_eq_mul]
+      have h := hT p hp s₁ s₂ s₃ y₁ y₂ y₃
+      generalize iteratedFDeriv ℝ 3 f p ![(s₁, y₁), (s₂, y₂), (s₃, y₃)] = A at h ⊢
+      generalize iteratedFDeriv ℝ 3 f p ![(1, 0), (1, 0), (1, 0)] = B at h ⊢
+      rw [show c * A - s₁ * s₂ * s₃ * (c * B) = c * (A - s₁ * s₂ * s₃ * B) by ring, abs_mul,
+        abs_of_pos hc, mul_assoc c m]
+      exact mul_le_mul_of_nonneg_left h hc.le)
+    (fun x hx => by
+      rw [hsc (by norm_num) _ (hseg x hx)]
+      simp only [smul_apply, smul_eq_mul]
+      rw [abs_mul, abs_of_pos hc]
+      exact mul_le_mul_of_nonneg_left (hTe x hx) hc.le)
+    (fun p hp => by
+      rw [hsc (by norm_num) p (hD p hp)]
+      simp only [smul_apply, smul_eq_mul]
+      rw [abs_mul, abs_of_pos hc]
+      exact mul_le_mul_of_nonneg_left (hn4x p hp) hc.le)
+    (fun p hp v => by
+      rw [hsc (by norm_num) p (hD p hp)]
+      simp only [smul_apply, smul_eq_mul]
+      rw [abs_mul, abs_of_pos hc, mul_assoc]
+      exact mul_le_mul_of_nonneg_left (hn4y p hp v) hc.le)
+    (by
+      rw [hc_def, show r * (1 / (6 * k) * n) = r * n / (6 * k) by ring,
+        div_le_iff₀ (by positivity)]
+      linarith)
+    (fun v => by
+      rw [hsc (by norm_num) _ hMU]
+      simp only [smul_apply, smul_eq_mul]
+      calc c * iteratedFDeriv ℝ 2 f (-r / 2, 0) ![(0, v), (0, v)]
+          ≤ c * (-lam * ‖v‖ ^ 2) := mul_le_mul_of_nonneg_left (hlam v) hc.le
+        _ = -(c * lam) * ‖v‖ ^ 2 := by ring)
+    (by
+      have h8 : 8 * r * (c * m) ^ 2 = c * (4 / (3 * k) * r * m ^ 2) := by
+        rw [hc_def]; field_simp; ring
+      rw [h8]
+      exact mul_lt_mul_of_pos_left hH1 hc)
+    (by rw [fderiv_const_mul (hdiff _ hMU) c, hM, smul_zero])
+    (by rw [fderiv_const_mul (hdiff _ hSU) c, hS, smul_zero])
+    (by
+      show c * f (-r / 2, 0) - c * f (r / 2, 0) = r ^ 3 / 6
+      rw [← mul_sub, hnorm, hc_def]
+      field_simp)
+  obtain ⟨ε, hε, hex, hcap⟩ := key
+  refine ⟨ε, hε, ?_, ?_⟩
+  · obtain ⟨h, hh⟩ := hex
+    exact ⟨h, fun x hx => ⟨(hh x hx).1, (hasFDerivAt_zero_const_mul_iff hc.ne').1 (hh x hx).2⟩⟩
+  · intro h hh
+    obtain ⟨h1, h2, hC, hfr⟩ := hcap h fun x hx =>
+      ⟨(hh x hx).1, (hasFDerivAt_zero_const_mul_iff hc.ne').2 (hh x hx).2⟩
+    exact ⟨h1, h2, hC.of_const_mul hc, fun x hx hne => lt_of_mul_lt_mul_left (hfr x hx hne) hc.le⟩
+
+/-- **P §7's `G_r` with operator norms.** If `‖D³f‖ ≤ M3` and `‖D⁴f‖ ≤ M4` on
+`D = [−2r, 2r] × B̄(0, 2r)`, then `(4/(3k)) r M3² < λ` and `r M4 ≤ 3k/10` give the cap. Each
+partial-block bound used by `ridge_capHyp_K` is at most the operator norm (`block_of_norm`). -/
+theorem ridge_capHyp_norm_K [FiniteDimensional ℝ E] {f : ℝ × E → ℝ} {U : Set (ℝ × E)}
+    {r k M3 M4 lam : ℝ} (hr : 0 < r) (hk : 0 < k) (hU : IsOpen U)
+    (hDU : Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r) ⊆ U)
+    (hf : ContDiffOn ℝ 4 f U)
+    (h3 : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ‖iteratedFDeriv ℝ 3 f p‖ ≤ M3)
+    (h4 : ∀ p ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r),
+      ‖iteratedFDeriv ℝ 4 f p‖ ≤ M4)
+    (hH2 : r * M4 ≤ 3 * k / 10)
+    (hlam : ∀ v : E, iteratedFDeriv ℝ 2 f (-r / 2, 0) ![(0, v), (0, v)] ≤ -lam * ‖v‖ ^ 2)
+    (hH1 : 4 / (3 * k) * r * M3 ^ 2 < lam)
+    (hM : fderiv ℝ f (-r / 2, 0) = 0) (hS : fderiv ℝ f (r / 2, 0) = 0)
+    (hnorm : f (-r / 2, 0) - f (r / 2, 0) = k * r ^ 3) :
+    ∃ ε, 0 < ε ∧
+    (∃ h : ℝ → E, ∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε), h x ∈ Metric.ball (0 : E) (2 * r) ∧
+        HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) ∧
+      ∀ h : ℝ → E, (∀ x ∈ Ioo (-2 * r - ε) (2 * r + ε),
+          h x ∈ Metric.closedBall (0 : E) (2 * r) ∧
+            HasFDerivAt (fun y => f (x, y)) (0 : E →L[ℝ] ℝ) (h x)) →
+        h (-r / 2) = 0 ∧ h (r / 2) = 0 ∧
+          CapHyp f (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)) (-r / 2, 0)
+            (2 * r, h (2 * r)) (f (-r / 2, 0)) (f (r / 2, 0)) ∧
+          ∀ x ∈ frontier (Icc (-2 * r) (r / 2) ×ˢ Metric.closedBall (0 : E) (2 * r)),
+            x ≠ (r / 2, 0) → f x < f (r / 2, 0) := by
+  have he : ‖((1 : ℝ), (0 : E))‖ = 1 := by simp [Prod.norm_def]
+  have hv : ∀ v : E, ‖((0 : ℝ), v)‖ = ‖v‖ := fun v => by simp [Prod.norm_def]
+  refine ridge_capHyp_K hr hk hU hDU hf
+    (fun p hp s₁ s₂ s₃ y₁ y₂ y₃ => block_of_norm (h3 p hp) s₁ s₂ s₃ y₁ y₂ y₃)
+    (fun x hx => ?_) (fun p hp => ?_) (fun p hp v => ?_) hH2 hlam hH1 hM hS hnorm
+  · have hp : ((x, 0) : ℝ × E) ∈ Icc (-2 * r) (2 * r) ×ˢ Metric.closedBall (0 : E) (2 * r) := by
+      refine ⟨⟨by linarith [hx.1], by linarith [hx.2]⟩, ?_⟩
+      simp only [Metric.mem_closedBall, dist_self]
+      linarith
+    have h := (iteratedFDeriv ℝ 3 f (x, 0)).le_opNorm ![(1, 0), (1, 0), (1, 0)]
+    simp only [Fin.prod_univ_three, Matrix.cons_val_zero, Matrix.cons_val_one,
+      Matrix.cons_val_two, Matrix.tail_cons, Matrix.head_cons, he, mul_one] at h
+    rw [← Real.norm_eq_abs]
+    exact h.trans (h3 _ hp)
+  · have h := (iteratedFDeriv ℝ 4 f p).le_opNorm ![(1, 0), (1, 0), (1, 0), (1, 0)]
+    simp only [Fin.prod_univ_four, Matrix.cons_val_zero, Matrix.cons_val_one,
+      Matrix.cons_val_two, Matrix.cons_val_three, Matrix.tail_cons, Matrix.head_cons, he,
+      mul_one] at h
+    rw [← Real.norm_eq_abs]
+    exact h.trans (h4 p hp)
+  · have h := (iteratedFDeriv ℝ 4 f p).le_opNorm ![(0, v), (1, 0), (1, 0), (1, 0)]
+    simp only [Fin.prod_univ_four, Matrix.cons_val_zero, Matrix.cons_val_one,
+      Matrix.cons_val_two, Matrix.cons_val_three, Matrix.tail_cons, Matrix.head_cons, he, hv,
+      mul_one] at h
+    rw [← Real.norm_eq_abs]
+    exact h.trans (mul_le_mul_of_nonneg_right (h4 p hp) (norm_nonneg v))
+
+end GapK
 
 end CapFirstExit
