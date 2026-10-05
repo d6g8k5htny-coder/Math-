@@ -20,13 +20,13 @@ set -euo pipefail
 export LEAN_PATH="$CAP_I4_SIDE:${LEAN_PATH:-}"
 export LEAN_SRC_PATH="$CAP_I4_SIDE:${LEAN_SRC_PATH:-}"
 lean --version | tee "$CAP_I4_OUT/toolchain.log"
-lean --wfail --root="$CAP_I4_SIDE" -o "$CAP_I4_SIDE/CapI4.olean" "$CAP_I4_SIDE/CapI4.lean" 2>&1 | tee "$CAP_I4_OUT/build.log"
-lean --wfail "$CAP_I4_OUT/Positive.lean" 2>&1 | tee "$CAP_I4_OUT/positive.log"
-lean --wfail "$CAP_I4_OUT/Audit.lean" 2>&1 | tee "$CAP_I4_OUT/axioms.log"
+lean -DwarningAsError=true --root="$CAP_I4_SIDE" -o "$CAP_I4_SIDE/CapI4.olean" "$CAP_I4_SIDE/CapI4.lean" 2>&1 | tee "$CAP_I4_OUT/build.log"
+lean -DwarningAsError=true --root="$CAP_I4_OUT" "$CAP_I4_OUT/Positive.lean" 2>&1 | tee "$CAP_I4_OUT/positive.log"
+lean -DwarningAsError=true --root="$CAP_I4_OUT" "$CAP_I4_OUT/Audit.lean" 2>&1 | tee "$CAP_I4_OUT/axioms.log"
 python3 "$CAP_I4_SIDE/gate.py" audit "$CAP_I4_OUT/axioms.log" | tee "$CAP_I4_OUT/axiom-audit.json"
 leanchecker --fresh CapI4 2>&1 | tee "$CAP_I4_OUT/leanchecker.log"
 for control in RejectDroppedSoft RejectDroppedFar; do
-  if lean --wfail "$CAP_I4_OUT/$control.lean" >"$CAP_I4_OUT/$control.log" 2>&1; then
+  if lean -DwarningAsError=true --root="$CAP_I4_OUT" "$CAP_I4_OUT/$control.lean" >"$CAP_I4_OUT/$control.log" 2>&1; then
     echo "FAIL: negative control unexpectedly compiled: $control" >&2
     exit 1
   fi
