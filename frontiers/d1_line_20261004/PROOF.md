@@ -1,6 +1,6 @@
 # The one-dimensional lifetime and crest-to-trough laws on the line: Theorems 1D and 1D⁺ for stationary processes on `ℝ`
 
-Object: CL-D1-LINE-20261004-v1.1.
+Object: CL-D1-LINE-20261004-v1.2.
 Author: Anthropic Claude (claude.ai session `session_01NMeKEismAyeqgdB4sy2NJU`), 4 October 2026. Dylan Roy — delegated AI
 work.
 **v1.1 (before any nonauthor pickup; v1 was `f34ffd7`).** The hypothesis loses v1's (R3a), the decay
@@ -9,6 +9,15 @@ the cross-covariances between the samples and the pins small. Conditioning on th
 three eigenvalues of the samples' covariance (interlacing), and the density bound loses three powers of `ε`, which the
 growing number of samples absorbs. The decay needed elsewhere, `ρ, ρ', ρ'' → 0`, follows from (R1) by the Riemann–Lebesgue
 lemma (Lemma 4.1_ℝ). Lemma F_ℝ now uses at least `23` cells; its rate, and the theorem, are unchanged.
+**v1.2 (wording only; no statement, hypothesis, constant, rate or control changes).** v1.1 (`2635309`) passed all
+four nonauthor slice reads with no required amendment: A (Grok Bot agent 8), B (Grok Bot agent 1; OpenAI / GPT-6
+Astra Pro supplemental), C (OpenAI/Codex C137) and D (Grok Bot agent 3). v1.2 carries their optional notes. Slice B's
+notes coincide in part with an author-side check of §2 (same provider; not review evidence). §2 now says that the
+global-maximum alternative is excluded under `Q` also for [1D⁺] Lemma W and the fields `f_φ` of Proposition M, defines
+`t₁`, fixes the domain of a Taylor remainder, and lists the inputs and the replaced circle-only parts in full. §0–§1
+state the evenness of `s`, the smooth version and the window-determined marks. §5 records the void cap `t₀ ≤ L/4`
+and names the source of each term of (5.1). The dependency labels are narrowed (header, §7). `SOURCES.json` records
+Math- #210 as merged.
 Disposition: AUTHOR-SIDE PROOF CANDIDATE; NONAUTHOR REVIEW REQUIRED. Scientific effect: NONE — no register, graph,
 STATUS, PROOF_INDEX, prize or Boolean change. Same GitHub account as every lane; zero organizational independence.
 Before submission, two clean-context same-family referees (Anthropic Claude subagents) read the draft: slices A–B and
@@ -24,7 +33,8 @@ Lemma 4.3 needs a decorrelation hypothesis. This note supplies that bound, and w
 under the hypothesis (H_ℝ) of §0. The new ingredient is Lemma F_ℝ (§4): a pair that is *banded* (its process stays between
 the two endpoint values) over a long interval is unlikely, with an exponential rate in the length. The proof uses three
 standard tools:
-- Ingham's inequality, for a uniform lower bound on the conditional covariance of many well-separated derivative samples;
+- Ingham's inequality, for a lower bound on all but at most three eigen-directions of the conditional covariance of
+  many well-separated derivative samples;
 - Landau's inequality, on cells of fixed length;
 - Gaussian concentration, for the number of cells where the second derivative is large.
 
@@ -36,9 +46,10 @@ the classical object of Rice (1944/45), Cartwright–Longuet-Higgins (1956) and 
 - Math- #214, `frontiers/d1_third_order_law_20261001/PROOF.md`, blob `1591ecee`, merged at `e4ca2b3` ([1D]). Used: §0, the
   objects and constants; §1, the pair coordinates, the pinned law `Q = Q_{t,α}`, (1.2)–(1.4), Lemma 1.2, Lemma 1.3 and
   Remark 1.4; §2, Proposition 2.2; §3, Lemmas 3.1–3.3 and Corollary 3.4; §4, Lemma 4.1, Lemma 4.2 (near form), and the
-  part of Lemma 4.3 on `[t_*, t₀]`; §5.
+  part of Lemma 4.3 on `[t_*, t₀]`; in §5, the adjacency estimate only.
 - Math- #238, `frontiers/d1_sharp_remainder_20261001/PROOF.md`, blob `8dc558a7`, merged at `8404169` ([1D⁺]). Used: §0, and
-  §§1–4 (Lemma E, Proposition 2.2⁺, Lemmas Φ and W, Proposition M, and the assembly).
+  §§1–3 (Lemma E, Proposition 2.2⁺, Lemmas Φ and W, Proposition M) and the part of §4 on `(0, t_*]`; the assembly is
+  redone in §5.
 
 **External (standard).**
 - Ingham's inequality: A. E. Ingham, *Some trigonometrical inequalities with applications to the theory of series*,
@@ -55,7 +66,9 @@ the classical object of Rice (1944/45), Cartwright–Longuet-Higgins (1956) and 
 ## 0. Statement
 
 **Setting.** `f` is a centered stationary Gaussian process on `ℝ` with covariance `ρ(x) = E f(0)f(x) = ∫_ℝ e^{iωx}s(ω)dω`,
-where the spectral measure has a density `s ≥ 0`. Write `λ_{2j} := (−1)^jρ^{(2j)}(0) = ∫ω^{2j}s(ω)dω`.
+where the spectral measure has a density `s ≥ 0`. Since `f` is real, `s` is even, so (R2) below also holds on
+`[−ω₂, −ω₁]`; and (R1) gives a version with `C^∞` sample paths (Bulinskaya's lemma and the window space of §1 use
+`C³`). Write `λ_{2j} := (−1)^jρ^{(2j)}(0) = ∫ω^{2j}s(ω)dω`.
 
 > **(H_ℝ)**
 > - (R1) `∫(1 + |ω|)^n s(ω)dω < ∞` for every `n`.
@@ -153,13 +166,14 @@ So the objects of §0, and the marks below, are defined `Q`-almost surely for ev
 **The Kac–Rice representation on `ℝ`.** The marked two-point Kac–Rice formula of [1D] §1 holds on `ℝ` for pairs with
 `x ∈ [0, 1)` and `y = x + t`, `t > 0`. The marks are Borel functions of `f` on a compact window around the pair, or
 increasing limits of such functions. The argument is this:
-- On the domain `{x ∈ [0, 1], t ∈ [ε, 1/ε]}`, the pair law is nondegenerate (Lemma 1.1_ℝ). A mark that depends on `f`
+- On the domain `{x ∈ [0, 1], t ∈ [ε, 1/ε]}` (the intensities use `[0, 1)`; the point `x = 1` is a null event), the pair
+  law is nondegenerate (Lemma 1.1_ℝ). A mark that depends on `f`
   restricted to `[x − r, x + r]` is a Borel function on the Polish space `C²([−r, 1 + 1/ε + r])`, which also carries the
   pair's segment `[x, x + t]`. The argument of [1D] §1 ([P] §9 as repaired in [E2]) therefore applies verbatim.
 - Let `ε ↓ 0`, by monotone convergence.
 - The crest-to-trough mark `1{f' < 0 on (−τ, τ)}` depends on `f` on the pair's segment.
 - The elder mark `𝔪 := 1{τ = S(−τ)}` is the increasing limit, as `r → ∞`, of
-  `𝔪·1{x₋ and x₊ of the maximum −τ lie within distance r of −τ}`. Each term is a Borel function of `f` on
+  `𝔪·1{x₋ and x₊ of the maximum −τ lie within distance < r of −τ}`. Each term is a Borel function of `f` on
   `[−τ − r, −τ + r]`. The limit holds `Q`-almost surely by the preceding paragraph, so monotone convergence applies on both
   sides of the formula.
 
@@ -182,7 +196,8 @@ The following parts of [1D] and [1D⁺] concern a pair at separation `t ≤ t₀
 
 Their proofs use the following, all available on `ℝ`:
 - the moments `λ_{2j}`;
-- the nondegeneracy of finitely many derivatives at one or two points (Lemma 1.1_ℝ, in place of [1D] Lemma 1.1);
+- the nondegeneracy of finitely many derivatives at finitely many distinct points: the pins, the midpoint and the
+  sample points of [1D] Lemma 4.2 (Lemma 1.1_ℝ, in place of [1D] Lemma 1.1);
 - the parity split of [1D] Remark 1.4, which needs only that `ρ` is even;
 - Borell–TIS and Sudakov–Fernique for suprema over compact intervals.
 
@@ -191,10 +206,19 @@ So they hold on `ℝ` with the same proofs. The global parts of [1D] §§0–1 a
 - the normalization `L^{−1}`, the range `t ∈ (0, L)` and the reflection `K(t) = K(L − t)` in (1.2)–(1.3), by
   (1.2_ℝ)–(1.3_ℝ);
 - the finiteness of the critical set, by its local finiteness (the Morse property, Lemma 1.1_ℝ); and the exclusion of the
-  global maximum, by Lemma 1.5_ℝ, under which no global maximum exists.
+  global maximum, by Lemma 1.5_ℝ and its form under `Q` in §1: `Q`-almost surely, for every `(t, α)`, no global maximum
+  exists and `x_±` are finite;
+- the far form of [1D] Lemma 4.2 and the part of [1D] Lemma 4.3 on `[t₀, L)` with its co-banded bound, by Lemma 3.1_ℝ
+  and Lemma F_ℝ; and the circle assemblies ([1D] §5 apart from the adjacency estimate, [1D⁺] §4 on `[t_*, L)`), by §5.
 
 Three points need a word.
-- [1D] Lemma 3.3 holds on `ℝ`, and its global-maximum alternative does not occur.
+- [1D] Lemma 3.3 holds on `ℝ`, and its global-maximum alternative does not occur: under `Q` every maximum of `f` has a
+  finite bar (§1). The same holds for [1D⁺] Lemma W, read with "a function `f_φ` on `ℝ`", and for its use in [1D⁺]
+  Proposition M on the fields `f_φ = f + (φ − φ_G)m(ψ − ψ(τ))`, for every `φ` given `ω`. There
+  `ψ(x) = Cov_Q(f_e(x), E₁)/v₁` is built from `ρ′(τ ± x)` and `ρ″(τ ± x)`, so it is bounded by (R1), and each `f_φ`
+  differs from `f` by a bounded function. So, on the `Q`-almost sure event of §1, each `f_φ` is unbounded above on both
+  half-lines, and every maximum of `f_φ` has a finite bar. In particular, when both arcs fall below `−1` (the edge `J₋`
+  with `μ₋(φ) ≤ 0`, or the negative case of [1D] Lemma 3.3 (R)), `𝔖` is not the death point of `𝔐`.
 - In the step of [1D] Lemma 4.3 on `[t₁, t₀]`, `sup|f''|` is the supremum over the band `[−τ, τ]`; Landau's inequality on
   the band needs nothing more. (On `ℝ`, `sup_ℝ|f''| = ∞` almost surely.) With this reading, the near part of [1D] Lemma 4.3
   gives
@@ -202,14 +226,18 @@ Three points need a word.
       ∫_{t_*}^{t₀} K^{band}(t, h) dt = O(h^{3/4}).                                                (2.1)
 
   Here `K^{band}(t, h) := (12/t⁴)p_t(α)E_Q[|f''(−τ)f''(τ)|1{banded}]`, and "banded" means `f(τ) ≤ f ≤ f(−τ)` on `[−τ, τ]`.
-  Also `t_* := (12h)^{1/(5−δ)}` with `δ ∈ (0, 1/10]`, as in [1D] Proposition 2.2; §5 takes `δ = 1/10`.
+  Also `t_* := (12h)^{1/(5−δ)}` with `δ ∈ (0, 1/10]`, as in [1D] Proposition 2.2; §5 takes `δ = 1/10`. Here
+  `t₁ := h^{1/10}` is [1D]'s notation (its Lemma 4.3), unrelated to `T₁` of Lemma 4.1_ℝ. The same band reading applies
+  to the Taylor remainders `τ^K sup|f^{(K+1)}|` in the proof of [1D] Lemma 1.3: the supremum is over `[−τ, τ]`.
 - Beyond the list above, [1D⁺] uses the following:
   - `E_Q(K^e)² ≤ C` with `K^e = sup_{[−2t,2t]}|f_e^{(6)}|`, in (Φ.1) and, through `K^⊥`, in (Φ.3) and Proposition M;
   - the invertibility of `Cov(U₁, U₃)` for `t > 0` in (Φ.2), now by Lemma 1.1_ℝ;
   - uniform Gaussian tails of `K̃^o` and `K^⊥` in (Φ.3);
   - `E_Q[O(3/2)⁴] ≤ C` in Proposition M.
 
-  Each is a supremum or a moment over `[−2t, 2t]`, bounded by Sudakov–Fernique and Borell–TIS on a compact interval.
+  The first, third and fourth are suprema or moments over `[−2t, 2t]`, bounded by Sudakov–Fernique and Borell–TIS on
+  a compact interval. The second also gives `sup_{t≤t₀}sup_{[−2t,2t]}|μ_t^{(5)}| < ∞` in (Φ.2), through the continuity
+  of `(t, x) ↦ μ_t^{(5)}(x)` (by (R1)) and the nondegenerate limit of [1D] Lemma 1.3.
 
 Two facts from [1D] §4 are used in the following form.
 - An adjacent typed pair is banded: `f' < 0` on `(−τ, τ)`, so `f` is monotone there.
@@ -380,8 +408,9 @@ sample values.) ∎
 
 ## 5. Proof of Theorem 1D_ℝ
 
-Fix `δ = 1/10` and `t₀` as in [1D⁺] §4 (small enough for [1D] Lemma 4.3), and `T₀ ≥ t₀` as in Lemma F_ℝ. By (2.1),
-Lemma 3.1_ℝ and Lemma F_ℝ,
+Fix `δ = 1/10` and `t₀` as in [1D⁺] §4 (small enough for [1D] Lemma 4.3), and `T₀ ≥ t₀` as in Lemma F_ℝ. On `ℝ` the cap
+`t₀ ≤ L/4`, which [1D⁺] §4 inherits from the far form of [1D] Lemma 4.2, is void: that form is not used. The three
+terms of (5.1) come from (2.1) on `[t_*, t₀]`, Lemma 3.1_ℝ on `[t₀, T₀]` and Lemma F_ℝ on `[T₀, ∞)`:
 
     ∫_{t_*}^∞ K^{band}(t, h) dt = O(h^{3/4}) + O(h²log(1/h)) + O(h²) = O(h^{3/4}).                (5.1)
 
@@ -397,7 +426,7 @@ Lemma 3.1_ℝ and Lemma F_ℝ,
 - On `[t_*, ∞)`, an elder pair is banded (§2), so `K ≤ K^{band}`, and (5.1) applies.
 
 Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only on `λ₂, λ₄, λ₆, λ₈`, through `p₁₂`, `σ₃`, `σ₄`,
-`D` and `𝒬`. ∎
+`D` and `𝒬`. For `e^{−x²/2}` their values, and the per-crest constants, are given in §0. ∎
 
 ## 6. Remarks
 
@@ -435,10 +464,10 @@ Doubling gives (1D_ℝ.2). The constants are those of [1D] §0. They depend only
 
 | Tag | Path | Role |
 |---|---|---|
-| [1D] | `frontiers/d1_third_order_law_20261001/PROOF.md` (blob `1591ecee`, merged `e4ca2b3`) | consumed: §§0–5 as listed above |
-| [1D⁺] | `frontiers/d1_sharp_remainder_20261001/PROOF.md` (blob `8dc558a7`, merged `8404169`) | consumed: §§0–4 |
+| [1D] | `frontiers/d1_third_order_law_20261001/PROOF.md` (blob `1591ecee`, merged `e4ca2b3`) | consumed: the parts listed in §2 (§§0–4, and the adjacency estimate of §5) |
+| [1D⁺] | `frontiers/d1_sharp_remainder_20261001/PROOF.md` (blob `8dc558a7`, merged `8404169`) | consumed: §§0–3, and §4 on `(0, t_*]` |
 | [P], [E2] | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` (blob `dfed3b8d`), `reviews/d1_section9_borel_repair_20260925/REPAIR.md` (blob `fe9b9ce4`) | the marked Kac–Rice convention, through [1D] §1 — cited |
-| #210 | `reviews/literature_classical_neighbors_20261001/ADDENDUM.md` (Math- #210, open; head `213dd9e`, blob `b289c7cd`) | comparison only (Remark 3) |
+| #210 | `reviews/literature_classical_neighbors_20261001/ADDENDUM.md` (Math- #210, merged at `0cdc19f`; blob `b289c7cd`, as read at head `213dd9e`) | comparison only (Remark 3) |
 
 ## 8. Exact controls (`line_check.py`; standard library; exact rationals except C3; byte-identical under `-O`)
 

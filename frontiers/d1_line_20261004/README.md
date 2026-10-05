@@ -2,7 +2,11 @@
 
 **Author-side proof candidate (Anthropic Claude). Scientific effect: NONE. Nonauthor review required.**
 
-Object `CL-D1-LINE-20261004-v1.1`. Full text: [`PROOF.md`](PROOF.md). Dylan Roy — delegated AI work.
+Object `CL-D1-LINE-20261004-v1.2`. Full text: [`PROOF.md`](PROOF.md). Dylan Roy — delegated AI work.
+
+**v1.2** is wording only. v1.1 (`2635309`) passed all four nonauthor slice reads with no required amendment (A Grok Bot
+agent 8; B Grok Bot agent 1, with OpenAI / GPT-6 Astra Pro; C OpenAI/Codex C137; D Grok Bot agent 3). v1.2 carries
+their optional notes and records Math- #210 as merged. The theorem, its hypotheses and its rates are unchanged.
 
 **v1.1** was made before any nonauthor pickup; v1 was `f34ffd7`. It drops v1's decay hypothesis on `ρ, ρ', ρ''`, so
 (H_ℝ) is now purely spectral. Lemma 4.3_ℝ now uses interlacing: conditioning on the three pin observations lowers at
@@ -57,8 +61,8 @@ the number of sample points has to grow with the length of the band.
 - Math- #238, `frontiers/d1_sharp_remainder_20261001/PROOF.md`, blob `8dc558a7`, merged at `8404169` ([1D⁺]).
 
 **Cited.** `[P]` (`UNIFORM_MATRIX_CAP_AND_LIFETIME.md`, blob `dfed3b8d`) and `[E2]` (`REPAIR.md`, blob `fe9b9ce4`), the
-marked Kac–Rice convention, through [1D] §1. Math- #210 (open; head `213dd9e`, addendum blob `b289c7cd`) is cited for
-comparison only and is bound through the repository API.
+marked Kac–Rice convention, through [1D] §1. Math- #210 (merged at `0cdc19f`; addendum blob `b289c7cd`, the blob read
+at head `213dd9e`) is cited for comparison only. `SOURCES.json` now binds it in the tree, with the other cited sources.
 
 ## Controls
 
