@@ -11,11 +11,12 @@ k2 = m2, k4 = m4 - 3 m2^2, k6 = m6 - 15 m4 m2 + 30 m2^3, the moment E[prod <xi, 
 partitions into even blocks of k2 <v_a, v_b> (pairs) and k_{2j} sum_i prod v_{k,i} (blocks of size 4, 6).
 Cov(d_A f, d_B f) = (-1)^|B| (-1)^((|A|+|B|)/2) E[prod_{A+B} <xi, v>] for |A|+|B| even, else 0.
 
-Usage:  python3 -B -S periodic_jet_check.py [--mutant M1|M2|M3]
+Usage:  python3 -B -S periodic_jet_check.py [--mutant M1|M2|M3|M4]
 Normal run prints RESULTS.json and exits 0.  A mutant must make a check fail (exit 1):
   M1  isotropic surrogate for the fourth- and sixth-order tensors (q4 = 3 q2^2, q6 = -15 (-q2)^3);
   M2  transverse Hessian block not conditioned on V = 0;
-  M3  prefactor of (15.2) divided by 12.
+  M3  prefactor of (15.2) divided by 12;
+  M4  raw upper-triangle trace of the transverse block (frame-dependent; finding PJ-A-001).
 An unknown mutant label exits 2.
 """
 import decimal
@@ -210,6 +211,15 @@ def schur(Saa, Sav, Svv):
     return [[Saa[i][j] - dot(Sav[i], cols[j]) for j in range(len(Saa))] for i in range(len(Saa))]
 
 
+def frobenius_trace(S, idx):
+    # trace of the conditional covariance of A as a symmetric matrix (Frobenius inner product): an
+    # off-diagonal entry counts twice, so the value does not depend on the transverse frame; the raw
+    # upper-triangle sum would (main#252 / Math-#297 finding PJ-A-001)
+    if MUTANT == 'M4':
+        return sum(S[a][a] for a in range(len(idx)))      # raw upper-triangle trace
+    return sum(S[a][a] * (1 if i == j else 2) for a, (i, j) in enumerate(idx))
+
+
 def frame(u):
     d = len(u)
     basis = [u]
@@ -233,14 +243,17 @@ def normalize(v):
     return [x / n for x in v]
 
 
-def jet_data(u, k):
+def jet_data(u, k, w=None):
     fr = frame(u)
-    w = fr[1:]
+    if w is None:
+        w = fr[1:]
+    fr = [u] + list(w)
     m = len(w)
     G = [[x] for x in fr]
     t = [u, u, u]
     V = [[u, u]] + [[u, wj] for wj in w]
-    A = [[w[i], w[j]] for i in range(m) for j in range(i, m)]
+    idx = [(i, j) for i in range(m) for j in range(i, m)]
+    A = [[w[i], w[j]] for i, j in idx]
     S_GG = [[cov(a, b, k) for b in G] for a in G]
     c_tG = [cov(t, b, k) for b in G]
     var_t = cov(t, t, k)
@@ -260,7 +273,7 @@ def jet_data(u, k):
     pa, _ = cholesky_pivots(S_AgV)
     return {
         'det_G': det_pd(S_GG), 'det_V': det_pd(S_VV), 'tau2': tau2,
-        'det_AgV': det_pd(S_AgV), 'tr_AgV': sum(S_AgV[i][i] for i in range(len(S_AgV))),
+        'det_AgV': det_pd(S_AgV), 'tr_AgV': frobenius_trace(S_AgV, idx),
         'S_AgV': S_AgV, 'min_pivot': min(pe + po + pa),
     }
 
@@ -330,7 +343,7 @@ def coefficient_d2(k, N):
 def main():
     global MUTANT
     if len(sys.argv) == 3 and sys.argv[1] == '--mutant':
-        if sys.argv[2] not in ('M1', 'M2', 'M3'):
+        if sys.argv[2] not in ('M1', 'M2', 'M3', 'M4'):
             print('unknown mutant'); sys.exit(2)
         MUTANT = sys.argv[2]
     elif len(sys.argv) != 1:
@@ -347,7 +360,7 @@ def main():
     checks['R1_reference_jet'] = (jr['det_G'] == 1 and jr['det_V'] == 3 and jr['tau2'] == 6
                                   and abs(jr['S_AgV'][0][0] - D(8) / 3) < D('1e-250'))
     jr3 = jet_data(normalize((1, 2, 3)), kref)
-    checks['R1_reference_d3_trace_shared'] = abs(jr3['tr_AgV'] - D(19) / 3) < D('1e-250')
+    checks['R1_reference_d3_trace_frobenius'] = abs(jr3['tr_AgV'] - D(22) / 3) < D('1e-250')
 
     Ls = [('24', D(24)), ('8', D(8)), ('2pi', 2 * PI), ('4', D(4)), ('3', D(3))]
     aniso = {}
@@ -376,6 +389,24 @@ def main():
     # at L = 4 it is of order one-tenth and must be seen (an isotropic surrogate is rejected).
     checks['R3_L24_anisotropy_measured'] = all(D('1e-130') < aniso[('24', d)] < D('1e-106') for d in (2, 3, 4))
     checks['R3_L4_anisotropy_visible'] = all(aniso[('4', d)] > D('1e-3') for d in (2, 3, 4))
+
+    # R6: at fixed u = e_1, rotating the transverse frame by (cos, sin) = (3/5, 4/5) leaves every invariant
+    # unchanged (L = 4, d = 3 and d = 4), including the Frobenius trace.
+    q2, q4, q6, _ = q_derivatives(D(4))
+    m2, m4, m6 = -q2, q4, -q6
+    k4L = {2: m2, 4: m4 - 3 * m2 * m2, 6: m6 - 15 * m4 * m2 + 30 * m2 ** 3}
+    rot = {}
+    for d in (3, 4):
+        u = [D(1)] + [D(0)] * (d - 1)
+        base = jet_data(u, k4L)
+        e = [[D(1) if i == j else D(0) for i in range(d)] for j in range(1, d)]
+        cs, sn = D(3) / 5, D(4) / 5
+        w = [[cs * a - sn * b for a, b in zip(e[0], e[1])], [sn * a + cs * b for a, b in zip(e[0], e[1])]] + e[2:]
+        turned = jet_data(u, k4L, w)
+        dev = max(abs(turned[key] - base[key]) for key in ('det_G', 'det_V', 'tau2', 'det_AgV', 'tr_AgV'))
+        rot[str(d)] = fmt(dev, 3)
+        checks['R6_transverse_frame_invariance_d%d' % d] = dev < D('1e-250')
+    out['transverse_rotation_max_abs_change_L4'] = rot
 
     # R4: c_{2,24} by directional quadrature lies in side24_v1's published interval and equals the
     # reference closed form to far below that interval's width.

@@ -58,7 +58,7 @@ jobs:
           run = subprocess.run([sys.executable] + flags + [checker], capture_output=True, cwd=root)
           if run.returncode != 0 or run.stdout != (root / 'RESULTS.json').read_bytes():
               raise ValueError('replay differs from RESULTS.json')
-          for label, code in (('M1', 1), ('M2', 1), ('M3', 1), ('M9', 2)):
+          for label, code in (('M1', 1), ('M2', 1), ('M3', 1), ('M4', 1), ('M9', 2)):
               m = subprocess.run([sys.executable] + flags + [checker, '--mutant', label], capture_output=True, cwd=root)
               if m.returncode != code:
                   raise ValueError('mutant %s exited %d, expected %d' % (label, m.returncode, code))

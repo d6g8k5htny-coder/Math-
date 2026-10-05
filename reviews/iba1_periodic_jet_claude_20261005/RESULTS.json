@@ -158,7 +158,7 @@
   }
  },
  "checks": {
-  "R1_reference_d3_trace_shared": true,
+  "R1_reference_d3_trace_frobenius": true,
   "R1_reference_jet": true,
   "R2_positive_L24_d2": true,
   "R2_positive_L24_d3": true,
@@ -182,10 +182,16 @@
   "R5_quadrature_settled_L2pi": true,
   "R5_quadrature_settled_L3": true,
   "R5_quadrature_settled_L4": true,
-  "R5_quadrature_settled_L8": true
+  "R5_quadrature_settled_L8": true,
+  "R6_transverse_frame_invariance_d3": true,
+  "R6_transverse_frame_invariance_d4": true
  },
  "object": "CL-IBA1-ITEM2-PERIODIC-JET-20261005-v1",
  "passed": true,
  "precision_digits": 270,
- "scientific_effect": "NONE"
+ "scientific_effect": "NONE",
+ "transverse_rotation_max_abs_change_L4": {
+  "3": "3.00e-269",
+  "4": "1.00e-268"
+ }
 }
