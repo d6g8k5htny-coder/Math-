@@ -26,14 +26,45 @@ This packet kernel-checks three things:
   - L1–L2, the Hermite bound `g(a) − g(c) ≤ m(c − a)³/12`, which under the normalization `b − s = r³/6` forces `m ≥ 2`;
   - since v1.6, L3–L4: the transverse Hessian's increments from its third-derivative bounds `m` (mean value inequality), then the slice strong concavity `δ = λ − 5rm` from SP's Hessian bound at `M`;
   - L5, the transverse-gradient bound, from the third-derivative bound `m`;
-  - L7, the transverse maximum and its uniqueness;
+  - L7, the transverse maximum and its uniqueness; since v1.7 also the existence of the ridge `h` (compactness) and its strict differentiability (Mathlib's implicit function theorem plus uniqueness of the critical point);
   - L8, the ridge bound;
   - L11's chain rule;
   - L18, the curved side.
 
   These are derived from L4's output, the strong concavity of each transverse slice. `ridge_capHyp_sp` takes SP's hypotheses with `m ≥ 2` assumed. `ridge_capHyp_normalized` derives `m ≥ 2` from SP's normalization (gap exactly `r³/6`, pins critical, third derivatives bounded by `m`). `ridge_capHyp_H1` (v1.6) also derives `hconc` and `δ > rm(8m − 5)` from SP's hypothesis (H1) `λ > 8rm²`.
 
-The estimate L6, L7's existence and regularity of `h`, and L9–L12 remain hypotheses.
+Since v1.8, `ridge_capHyp_source` composes these steps from SP's source data on a collar `[−2r − ε, 2r + ε] × B̄(0, 2r)` of `D` (`0 < ε ≤ r/2`). The data are the derivatives of `f` with the third-derivative bounds `m`, (H1), the critical pins and the gap `r³/6`. From them it proves:
+- that a ridge `h` exists, and `h(∓r/2) = 0`;
+- L8's interior bound, and the implicit-function regularity of `h` on `[−2r, 2r]`;
+- L11, and then (C1)–(C3) and (C2⁺) on the cap.
+
+Since v1.9, `ridge_capHyp_C3` also derives L12's `hconv`, from the second and third derivatives of `f` on the collar:
+- L6: chord slopes of L5's convexity pair give `‖w'‖ ≤ m · max(|x|, r/2) ≤ 2mr`.
+- L9: the differentiated ridge equation gives `‖h'‖ ≤ 2s + 2s²`, with `s = mr/δ`.
+- L12: `F' = D²f[(1, h'), (1, 0)]` is the maximum of `ζ ↦ D²f[(1, ζ), (1, ζ)]`, so `F' − x/4` is monotone with no second derivative of `h`. With SP's constants, `F'' ≥ 7/4 − 48/121 · (3 + 72/121 + 576/14641) > 1/4`.
+
+Since v2.0, `ridge_capHyp_C4` also derives the one analytic input that `ridge_capHyp_C3` still takes, SP's L4 bound `f_xxx ≥ 7/4` on `D = [−2r, 2r] × B̄(0, 2r)`:
+- L2's second statement: some point of the pin interval has `f_xxx ≥ 2`. This comes from a one-sided Hermite bound, by contradiction (`third_deriv_exists_two`).
+- L4: SP's fourth-order blocks `∂_x f_xxx` and `D_y f_xxx` are bounded by `n = M₄` on `D`. With (H2) `rn ≤ 1/20`, they give `f_xxx ≥ 7/4` on `D` by SP's two-segment estimate (`fxxx_lower`; the proof bounds `f_xxx ≥ 2 − 9rn/2`, and the statement exports `7/4`).
+
+So the hypotheses of `ridge_capHyp_C4` are SP's (H1), (H2), the critical pins, the gap `r³/6` and the derivative data with the bounds `m` (on the collar) and `n` (on `D`). No step of L1–L20 remains a hypothesis.
+
+Since v2.1, the quantitative bounds enter on `D` only:
+- `ridge_capHyp_C5` derives six derivative-bound hypotheses of `ridge_capHyp_C4` from the block bound `m`, and from `|f_xxx| ≤ m` on the pin segment:
+  - L3's inputs `‖∂_x D_y² f‖ ≤ m` and `‖∂_ρ D_y² f‖ ≤ m‖y‖` (`hessian_x_bound`, `hessian_r_bound`);
+  - the convex and concave envelopes of `∂_y f(·, 0)` and `∂_x f(·, 0)`, which are the inputs of L5–L6 and L1–L2 (`axis_convexConcave`).
+- `ridge_capHyp_D` assumes the bounds `m`, `n`, (H1) and (H2) on SP's `D` only. On a collar of some width `ε₀ > 0` it assumes the derivatives, and some bound `K` on the `x`-derivative of the third derivatives (SP: `f ∈ C⁴` near `D`).
+  - The continuity step `block_bound_collar` gives the block bound `m + Kε` on the collar of width `ε`.
+  - Because (H1) is strict, some `ε > 0` keeps `8r(m + Kε)² < λ`.
+
+Since v2.2, `ridge_capHyp_E` assumes only that `f` is `C⁴` on an open `U ⊇ D`, together with SP's quantitative bounds on `D` written with the iterated derivatives `D^k f = iteratedFDeriv ℝ k f`:
+- every derivative datum of `ridge_capHyp_D` is a Fréchet derivative of `f`, and `T3`, `T4` and `Φ4` are slices of `D³f` and `D⁴f`;
+- the collar width `ε₀` comes from `collar_subset_open`: `D` is compact, so a closed thickening of it lies in `U`;
+- `K` bounds `‖D⁴f‖` on the compact collar, and `block_of_norm` turns that norm bound into the block bound.
+
+Since v2.3, `quarticToy_E` also instantiates `ridge_capHyp_E` away from the degenerate face. `quarticToyF = x³/3 − x/4 − 20y² + (x² − 1/4)²/480` keeps both pins critical and the gap at `1/6`, while `f_xxx = 2 + x/20` varies and `D⁴f = 1/20 ≠ 0`. So (H2) holds with equality (`rn = 1/20`), `fxxx_lower` runs with `n > 0`, and the collar bound `K` is positive.
+
+Since v2.4, `ridge_capHyp_K` states the cap for every pin gap `k > 0`, on exactly P §7's event `G_r = {λ_min(−A_M) > [4/(3k)] r M3², r M4 ≤ 3k/10}` with `f(M) − f(S) = k r³`. It applies `ridge_capHyp_E` to `f/(6k)`. That divides every derivative bound and the transverse curvature by `6k`, and leaves the critical points, the ridge and the cap unchanged (`CapHyp.of_const_mul`, `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen`). `ridge_capHyp_norm_K` takes `M3` and `M4` as bounds on the operator norms of `D³f` and `D⁴f` over `D`, the jet suprema whose tails the probability side bounds.
 
 In the topological theorems, `X` is any topological space, and nothing is assumed about `f` outside `C` except along the
 single ridge path.
@@ -74,6 +105,38 @@ single ridge path.
 | `hessian_increment` | L3: derivative bounds `m` on `∂_x H` (along `y = 0`) and on `D_y H` (along rays) give `‖H(p) − H(M)‖ ≤ m(|Δx| + ‖Δy‖)` |
 | `transverse_hessian_le`, `slices_strongConcave` | L4: `H(M) ≤ −λ` and those increments give `H ≤ −(λ − 5rm)` on the cap, so each slice is `(λ − 5rm)`-strongly concave |
 | `ridge_capHyp_H1`, `h1ToyF`, `h1Toy_capHyp` | the cap from SP's (H1) `λ > 8rm²` with Hessian data in place of `hconc`; `x³/3 − x/4 − 20y²` (`λ = 40 > 32`) meets every hypothesis |
+| `slice_critical_unique`, `slice_critical_exists`, `ridge_exists` | L7 existence: a `δ`-strongly concave slice with `‖∂_y f(x, 0)‖ < δ · 2r` has exactly one critical point, and it lies in the open ball; a ridge map `h` exists |
+| `isInvertible_of_negDef`, `ridge_hasStrictFDerivAt`, `ridge_differentiable` | L7 regularity: a negative definite transverse Hessian is invertible, and the implicit function of `∂_y f = 0` agrees with `h`, so `h` is strictly differentiable on `[−2r, 2r]` with `h' = −(∂_y G)⁻¹ ∂_x G` |
+| `h1Toy_ridge_differentiable` | every hypothesis of `ridge_differentiable` at `h1ToyF` (`h = 0`, `G = −40y`, `δ = 40`, `U = (−3, 3)`), listed in the proposition itself, and its conclusion |
+| `hessian_increment_D`, `transverse_hessian_le_D`, `slices_strongConcave_D` | L3–L4 on a collar of SP's `D`: on the collar `x ∈ [−2r − ε, 2r + ε]`, `0 < ε ≤ r/2`, the increment is at most `3r + 2r = 5r` (SP: `9r/2 < 5r` on `D`), so every slice is `(λ − 5rm)`-strongly concave |
+| `ridge_capHyp_source` | the composed source route (v1.8). From the source data on the collar it proves that a ridge exists on `(−2r − ε, 2r + ε)`. For any such ridge with L12's `hconv`, it proves `h(∓r/2) = 0` and the cap with `M = (−r/2, 0)` and `S = (r/2, 0)`. Inside: L5 gives `‖w‖ ≤ 3mr² < 2rδ`, L8 gives the open ball, `DG ∘ inr = H` is negative definite, the IFT gives `h'`, and then L11 and `ridge_capHyp_H1` follow |
+| `h1Toy_source` | `h1ToyF` meets every hypothesis of `ridge_capHyp_source` (`ε = 1/2`, joint derivative `(x² − 1/4, −40y)`); the theorem gives its ridge and its cap |
+| `convex_deriv_sign`, `two_node_deriv_bound`, `slice_gradient_deriv_bound` | L6 (v1.9). If `u` vanishes at `∓r/2` and `|u''| ≤ m` holds in the weak form, then `|u'(x)| ≤ m · max(|x|, r/2)`. Outside the pins the chord through them has slope `0`; between them the chord to a pin and L5 give `mr/2`. For the slice derivatives at `y = 0` this is SP's `‖w'‖ ≤ 2mr` on `[−2r, 2r]` |
+| `schur_max` | L9 and the Schur maximum. Take a bilinear `Q` on `ℝ × E` with `δ`-negative-definite transverse part, and `η` with `Q (1, η) (0, ·) = 0`. Then `δ‖η‖ ≤ ‖Q (1, 0) (0, ·)‖`, and `Q (1, η) (1, η) = Q (1, η) (1, 0)`. If `Q` is symmetric, `Q (1, ζ) (1, ζ) ≤ Q (1, η) (1, η)` for every `ζ` |
+| `ridge_second_identity`, `transverse_hessian_eq` | the differentiated ridge equation `D²f[(1, h'), (0, ·)] = 0` (L11's first identity), and `H = D²f[(0, ·), (0, ·)]` |
+| `trilinear_lower`, `l12_lower`, `l12_constants`, `l9_arith`, `dx_grad_increment` | L12's correction terms, `f_xxx − m((1 + ‖b‖)²(1 + ‖a‖) − 1)`. SP's constants: `m ≥ 2` and `δ > rm(8m − 5)` give `7/4 − m((1 + u)³ − 1) ≥ 1/4` for `u = 2s + 2s²`. Also L9's arithmetic, and L3 in `y` for `∂_x ∇_y f` |
+| `ridge_hconv` | L12 as `hconv`. Along the ridge, assume `D²f` is symmetric with negative-definite transverse part, `‖h'‖ ≤ u`, and `s ↦ D²f(s, h s)[(1, b), (1, b)]` has derivative `≥ 1/4` for `‖b‖ ≤ u`. Then `F − (x + r/2)(x − r/2)/8` is convex on `[−2r, 2r]`. For `η = h'(x₁)`: `F'(x₂) − F'(x₁) ≥ D²f(x₂)[(1, η), (1, η)] − D²f(x₁)[(1, η), (1, η)] ≥ (x₂ − x₁)/4` |
+| `ridge_source_facts`, `ridge_capHyp_C3` | the cap from SP's `C³` source data (v1.9). It assumes `ridge_capHyp_source`'s data, `D²f` and the third derivatives on the collar, the block bound `m`, and `f_xxx ≥ 7/4` on `D`. It proves that a ridge exists, that `h(∓r/2) = 0`, and the cap with `M = (−r/2, 0)`, deriving L12's `hconv` rather than assuming it |
+| `h1Toy_C3` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C3`: `D²f = diag(2x, −40)`, and only `f_xxx = 2` is nonzero among the third derivatives. The theorem gives its ridge and its cap without a supplied `hconv` |
+| `hermite_gap_le_concave`, `third_deriv_exists_two` | L1 from the concave half alone (`g''' ≤ m` weakly gives `g(a) − g(c) ≤ m(c − a)³/12`), and L2's second statement (v2.0). If `g'''` is continuous on the pin interval and the gap is `r³/6`, then `g''' ≥ 2` somewhere there. Otherwise its maximum `M' < 2` would give a gap `≤ M'r³/12 < r³/6` |
+| `fxxx_lower` | L4's `f_xxx ≥ 7/4` (v2.0). If `|∂_x f_xxx| ≤ n` and `‖D_y f_xxx‖ ≤ n` on `D`, `f_xxx(x₀, 0) ≥ 2` and (H2) `rn ≤ 1/20`, then `f_xxx ≥ 7/4` on `D` (the proof bounds `f_xxx ≥ 2 − 9rn/2`, and the statement exports `7/4`). Move first in `x`, then along the ray to `y`, as in SP's L3 (SP rounds this to `2 − 5rn`) |
+| `ridge_capHyp_C4` | the cap from SP's hypotheses (v2.0): `ridge_capHyp_C3` with `f_xxx ≥ 7/4` replaced by a derivative `Φ4` of `f_xxx` on `D`, its two blocks bounded by `n`, and (H2) `rn ≤ 1/20` |
+| `h1Toy_C4` | `h1ToyF` meets every hypothesis of `ridge_capHyp_C4` (`f_xxx = 2` constant, `n = 0`). The theorem gives its ridge and cap with neither `hconv` nor `f_xxx ≥ 7/4` supplied |
+| `hessian_x_bound`, `hessian_r_bound` | L3's inputs from the block bound (v2.1). `∂_x D_y² f (x, 0)[v, w] = T3(x, 0)[(0, v), (0, w), (1, 0)]` and `∂_ρ D_y² f (x, sy)[v, w] = T3(x, sy)[(0, v), (0, w), (0, y)]`. The identification uses derivatives within an interval, so collar endpoints and the sphere are allowed. So `‖∂_x D_y² f‖ ≤ m` and `‖∂_ρ D_y² f‖ ≤ m‖y‖` |
+| `axis_convexConcave` | the envelope inputs (v2.1). If `|∂_x² (Df(·, 0) u)| ≤ B` on `[a, c]`, then `Df(·, 0) u ± (B/2)t²` is convex, respectively concave. Take `u = (0, v)`, `B = m‖v‖` for `w` (L5–L6), and `u = (1, 0)`, `B = m` for `G0` (L1–L2) |
+| `block_nonneg`, `block_bound_collar` | the continuity step of I3 (v2.1). Assume the block bound `m` on `D`, and some bound `K` on the `x`-derivative of `T3` in block form on a collar of width `ε₀`. Then the block bound `m + Kε` holds on the collar of width `ε ≤ ε₀`, by the mean value inequality from the nearest point of `D` |
+| `ridge_capHyp_C5` | `ridge_capHyp_C4` with `hHxb`, `hHrb`, `hwcv`, `hwcc`, `hG0cv` and `hG0cc` derived from the block bound and `|f_xxx| ≤ m` on the pin segment (v2.1) |
+| `ridge_capHyp_D` | the cap from SP's bounds on `D` (v2.1). The bounds `m`, `n`, (H1) and (H2) are assumed on `D`, with qualitative derivative data and some `K ≥ 0` on a collar of width `ε₀`. It concludes the ridge on `(−2r − ε, 2r + ε)`, `h(∓r/2) = 0`, the cap and (C2⁺), for some `ε ∈ (0, ε₀]` |
+| `h1Toy_D` | `h1ToyF` meets every hypothesis of `ridge_capHyp_D` (`T4 = 0`, `K = 0`, `ε₀ = 1/2`). The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
+| `block_of_norm` | the block bound from the norm (v2.2). A trilinear form `B` on `ℝ × E` with `‖B‖ ≤ K` satisfies the block bound with constant `K`. Replacing one slot at a time by `sᵢ(1, 0)` leaves three terms, each with a transverse argument `(0, yᵢ)` |
+| `collar_subset_open` | a closed collar `[−2r − ε₀, 2r + ε₀] × B̄(0, 2r)` with `ε₀ > 0` inside any open `U ⊇ D` (v2.2) |
+| `ridge_capHyp_E` | the cap from `f ∈ C⁴` on an open `U ⊇ D` and SP's quantitative bounds on `D` (v2.2). It concludes the ridge on `(−2r − ε, 2r + ε)` for some `ε > 0`, `h(∓r/2) = 0`, the cap and (C2⁺). No derivative datum and no bound off `D` is assumed |
+| `h1Toy_E` | `h1ToyF` meets every hypothesis of `ridge_capHyp_E` with `U = ℝ²`: `D³f[a, b, c] = 2a₁b₁c₁` and `D⁴f = 0`, so `m = 2` and `n = 0`. The theorem gives a ridge on `(−2 − ε, 2 + ε)` for some `ε > 0`, and the cap |
+| `quarticToyF`, `quarticToy_E` | a pin-preserving quartic perturbation of `h1ToyF` that meets every hypothesis of `ridge_capHyp_E` with `U = ℝ²`, `m = 81/40`, `n = 1/20` and `λ = 40` (v2.3). `D³f[a, b, c] = (2 + x/20)a₁b₁c₁` and `D⁴f[a, b, c, d] = a₁b₁c₁d₁/20`, so (H2) is sharp and (H1) reads `32.805 < 40`. The theorem gives the ridge and the cap |
+| `CapHyp.of_const_mul` | a cap for `c f` at the levels `c b`, `c s` with `c > 0` is a cap for `f` at `b`, `s` (v2.4) |
+| `hasFDerivAt_zero_const_mul_iff`, `iteratedFDeriv_const_mul_of_isOpen` | a nonzero factor leaves the zeros of the derivative in place; on an open set where `f ∈ C⁴`, `D^i(c f) = c · D^i f` for `i ≤ 4` (v2.4) |
+| `ridge_capHyp_K` | the cap on P §7's `G_r` for every gap `k > 0`: `f(M) − f(S) = k r³`, `(4/(3k)) r m² < λ` and `r n ≤ 3k/10` (v2.4). The case `k = 1/6` is `ridge_capHyp_E` |
+| `ridge_capHyp_norm_K` | `ridge_capHyp_K` with operator-norm bounds `‖D³f‖ ≤ M3` and `‖D⁴f‖ ≤ M4` on `D` (v2.4) |
 | `sp_curved_side_constants` | SP's constants (`m ≥ 2`, `δ > rm(8m − 5)`, `ω ≤ 2mr²`, gap `r³/6`) satisfy `ω ≤ 2rδ` and the curvature condition |
 | `ridgeToy_joint`, `ridgeToy_slices` | the ridge toy (`δ = 2`, `ω = 0`) meets every input of the slice route, which re-derives (C1)–(C3) and (C2⁺) |
 | `ridgeToy_capHyp`, `ridgeToy_saddle_strict` | SP's normalization at `r = 1` (`f = x³/3 − x/4 − y²`, gap exactly `r³/6`) satisfies every ridge hypothesis, so they are jointly satisfiable |
@@ -96,10 +159,18 @@ that step.
 
 This packet does not formalize:
 
-- the analytic step L6 (the `w'` bound), the existence and implicit-function regularity of the transverse maximizer
-  `h`, and L9–L12 (the `‖h'‖` and `F''` bounds). These enter `ridge_capHyp_H1`, `ridge_capHyp_of_slices` and
-  `ridge_inputs_of_joint` as hypotheses, together with the Hessian data and the third-derivative bounds `m` that L1,
-  L3 and L5 consume. L1–L5, L7's maximum and uniqueness, L8, L11's chain rule, L13 and L16–L20 are proved from them;
+- the source data themselves. Since v2.0 every analytic step of L1–L20 that `ridge_capHyp_C4` uses is proved: L1–L13
+  and L16–L20, with L7's existence, uniqueness and regularity of `h`. L14 (the critical-point count in `D`) and L15
+  (Morse indices) are not formalized and are not used by the cap theorem. Since v2.2 `ridge_capHyp_E` takes, as
+  hypotheses, only SP's §2 setting:
+  - `f ∈ C⁴` on an open neighbourhood `U` of `D` (SP: `f ∈ C⁴` near `D`);
+  - the quantitative bounds on SP's `D`: the third-derivative block bound `m`, `|f_xxx| ≤ m` on the pin segment,
+    the two fourth-order blocks `n`, (H1) and (H2);
+  - the critical pins and the gap `r³/6`.
+
+  The derivative data, a collar inside `U` and the bound `K` on it are derived (`collar_subset_open`,
+  `block_of_norm`, `block_bound_collar`). That the local field on `G_r` satisfies SP's §2 setting is SP's input and
+  is not formalized;
 - the match between the source's coordinates and the Lean objects: that SP's cap is `[-2r, r/2] × B̄(0, 2r)` in a
   frame `φ` and that SP analyses the periodic lift. The transport to the torus and the face list are themselves
   proved (`CapHyp.toTorus`, `frontier_cylinder`);
@@ -138,7 +209,7 @@ The source gate checks:
   bound);
 - rebuilds the package fresh;
 - replays the module with `leanchecker`;
-- prints the axioms of all 81 declarations, requiring exactly the manifest's report: each uses only `propext`,
+- prints the axioms of all 132 declarations, requiring exactly the manifest's report: each uses only `propext`,
   `Classical.choice`, `Quot.sound`;
 - runs three negative controls (an injected `sorry`, a custom axiom, and `native_decide`). The audit must reject each.
 

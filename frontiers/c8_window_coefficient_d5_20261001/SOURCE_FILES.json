@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-D5-20261001-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_ENCLOSURE_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_REFERENCE_AND_TORUS_ENCLOSURES_OF_THE_D5_WINDOW_COEFFICIENT_NO_REGISTER_CHANGE_C8_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/209#issuecomment-5923710923",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(11.3) the window coefficient in every d; section 15 factorization p_(f,V)(b,0) p_G(0) phi_tau(12k), z_0 = 36 k^2 E[det(A)^2 1{A<0} | f=b, V=0]",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "sections 1-4: the reference law A = Q + sqrt(2/3) Z I, the image-bound pattern (76|x|^6 contraction bound, normalization), the covariance-sandwich scaling argument",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "3dcf612",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/window_coefficient.py",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218",
+      "role": "interval class, erf, arctan, Owen's T, Owen primitives G_0..G_4, incomplete gamma, gap factor G_K, library_exact (reused verbatim through Math-#205's copy; C41 PASS_TECHNICAL, review 5373681556)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/205",
+      "commit": "01d09e9",
+      "path": "frontiers/c8_window_coefficient_d3_torus_20260930/window_coefficient_d3.py",
+      "git_blob": "ba24b3802eb0baf5ade65d49fd47ca862972f8bd",
+      "role": "the toolkit section and I3_ref (rule CROSSCHECK_M2_M3, m = 2) reused verbatim; Lemma S (its NOTE section 2) applied with n = 11, degree 8"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "617236d",
+      "path": "coefficients/side24_d4_20260930/cone_moment_d4.py",
+      "git_blob": "4787d6bf5a3bc469ae62075dde24e913b786e44a",
+      "role": "exact polynomial algebra (padd, pmul, pscale, pconst, pvar) reused verbatim"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/209",
+      "commit": "ea3a415",
+      "path": "frontiers/c8_window_coefficient_d4_20261001/window_coefficient_d4.py",
+      "git_blob": "f77f7d2d158f9513f23f1b55fe0f839eb112d387",
+      "role": "the total-trace reduction, the Taylor quadrature with the Phi factor, the d = 4 band factor F^(4)_[0,1] (rule CROSSCHECK_M2_M3, m = 3), extended here to m = 4"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/200",
+      "commit": "aa1d51e",
+      "path": "coefficients/side24_d5_20260930/RESULTS.json",
+      "git_blob": "b67c00f45d053b51c2ec15ce8d53c8a34e49a006",
+      "role": "c_{5,ref} digits quoted in the script (rule C5_CONSISTENT); its E_5 = 60500 (76 L^6 + 15) e^{-L^2/2} constant"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/202",
+      "commit": "4512309",
+      "path": "coefficients/side24_d5_closed_form_20260930/RESULTS.json",
+      "git_blob": "52ce9b5726b8ea92c429ea1193b1812869afe701",
+      "role": "the closed form of D_4 (rule D4_EXACT) and Z_4 = 1536 pi"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 22577,
+      "sha256": "063854ab42a8216ce40083976bad9fa2f5ca2c1290d0b897a754b52c5f7e6598",
+      "git_blob": "8399c6baf6d6dc9e2eae3a50d53abdf4d60d0651"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 21231,
+      "sha256": "53cf8ecd2f606967fd716d6c13a6b86357ed0de26a0bf7ffb6af880ff4b6a3ce",
+      "git_blob": "d4719bdd9686f1ddd12b92f3ca866343ddadbfe1"
+    },
+    {
+      "path": "window_coefficient_d5.py",
+      "bytes": 62446,
+      "sha256": "9f34ad2c20cb38f6bd21714583676d861040b83f9283ad170d7b0a4c9460145b",
+      "git_blob": "da68e6ec22310c35904a70e203cc32cb9e5b19fc"
+    }
+  ],
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "Codex code review at 7ab39d2: threads 4151593189 (cancelled layers), 4151593177 (gap window), 4151593183 (module documentation)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593189",
+      "change": "window_coefficient_d5.py: INNER_LAYERS also requires the set of generated kinds that cancel to equal exactly the two Owen-type kinds, the constant and E_{3/16}; new mutant layer-dropped (fails INNER_LAYERS alone); module docstring rewritten for d = 5. NOTE.md: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity; section 7 classes windows touching k = 0 or infinity and unbounded B as coefficient integrals only; sections 2, 6, 9, 10. Workflow: mutant list includes layer-dropped",
+      "unchanged": [
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "C43-205-H-01 (positive lengths; found on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows outside the hypothesis. window_coefficient_d5.py: module docstring states the same hypothesis (no code change)",
+      "unchanged": [
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.3",
+      "finding": "xAI band-share wording, Math-#222 comment 5932429158",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
+      "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d5.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d5.yml"
+      ]
+    }
+  ]
+}
