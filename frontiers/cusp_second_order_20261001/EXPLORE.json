@@ -1,0 +1,138 @@
+{
+ "X1": {
+  "agree_with_window_1_3": 32,
+  "disagreements": [],
+  "r": 0.01,
+  "random_trials": 40,
+  "targeted_r_0.003": [
+   {
+    "elder": true,
+    "kappa": 0.799,
+    "phi_target": 0.3,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 0.61,
+    "phi_target": 0.3,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 1.483,
+    "phi_target": 0.32,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 2.774,
+    "phi_target": 0.32,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 0.419,
+    "phi_target": 0.345,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 1.618,
+    "phi_target": 0.345,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 1.494,
+    "phi_target": 0.36,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 2.471,
+    "phi_target": 0.36,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 1.776,
+    "phi_target": -0.3,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 0.885,
+    "phi_target": -0.3,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 1.088,
+    "phi_target": -0.32,
+    "typed": true
+   },
+   {
+    "elder": true,
+    "kappa": 0.802,
+    "phi_target": -0.32,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 0.932,
+    "phi_target": -0.345,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 0.484,
+    "phi_target": -0.345,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 0.482,
+    "phi_target": -0.36,
+    "typed": true
+   },
+   {
+    "elder": false,
+    "kappa": 1.798,
+    "phi_target": -0.36,
+    "typed": true
+   }
+  ],
+  "typed": 32
+ },
+ "X2": {
+  "d2": {
+   "I_cand": -0.1772744,
+   "J": 0.5518754382,
+   "J_coarse": 0.5518754382,
+   "c": 0.073406919306,
+   "c1": -0.26939883,
+   "c1_over_c": -3.669938,
+   "method": "composite Gauss-Legendre, a = -w^4: 24x12 by 56x12 nodes (coarse: 12x12 by 28x12)",
+   "rejected_coefficient": 0.09212443
+  },
+  "d3": {
+   "I_cand": -0.13940406,
+   "J": 1.363390706,
+   "J_coarse": 1.363390722,
+   "c": 0.041775931841,
+   "c1": -0.21184835,
+   "c1_over_c": -5.071062,
+   "mc_check": {
+    "J": 1.36198,
+    "J_se": 0.00089,
+    "c1": -0.21163,
+    "c1_se": 0.00014,
+    "method": "Monte Carlo on the cone, 8000000 samples, seed 1001, 10 batches"
+   },
+   "method": "cone quadrature: Gauss-Legendre 64 x 64 in (rho, u), trapezoid 9 in theta, Gauss-Laguerre 64 in s (coarse: Laguerre 32)",
+   "rejected_coefficient": 0.0724443
+  }
+ },
+ "not_a_control": true,
+ "object": "CL-CUSP-SECOND-ORDER-20261001-v1.1 exploration"
+}

@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "object": "CL-C8-WINDOW-COEFFICIENT-D4-20261001-v1",
+  "scientific_effect": "NONE",
+  "certified": true,
+  "review_status": "AUTHOR_SIDE_CERTIFIED_ENCLOSURE_NONAUTHOR_READS_OPEN",
+  "disposition": "CERTIFIED_REFERENCE_AND_TORUS_ENCLOSURES_OF_THE_D4_WINDOW_COEFFICIENT_NO_REGISTER_CHANGE_C8_OPEN",
+  "declarative": true,
+  "executed": false,
+  "base": "3e0a91b69892b9717564c592e7a966492a81566a",
+  "claim": "https://github.com/d6g8k5htny-coder/Math-/pull/205#issuecomment-5922418823",
+  "pins_on_main": [
+    {
+      "label": "LP",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "(11.3) the window coefficient in every d; section 15 factorization p_(f,V)(b,0) p_G(0) phi_tau(12k), z_0 = 36 k^2 E[det(A)^2 1{A<0} | f=b, V=0]",
+      "workflow_checked": true
+    },
+    {
+      "label": "S24",
+      "path": "coefficients/side24_v1/PROOF.md",
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "role": "sections 1-4: the reference law A = Q + sqrt(2/3) Z I, the image-bound pattern (76|x|^6 contraction bound, normalization), the covariance-sandwich scaling argument",
+      "workflow_checked": true
+    }
+  ],
+  "companion_not_on_main": [
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/197",
+      "commit": "63e123f",
+      "path": "frontiers/c8_window_coefficient_planar_20260930/window_coefficient.py",
+      "git_blob": "43b4f51ba0e29c38468c40b4648f683848a3b218",
+      "role": "interval class, erf, arctan, Owen's T, Owen primitives G_0..G_4, incomplete gamma, gap factor G_K, library_exact (reused verbatim through Math-#205's copy)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/205",
+      "commit": "b875a46",
+      "path": "frontiers/c8_window_coefficient_d3_torus_20260930/window_coefficient_d3.py",
+      "git_blob": "ba24b3802eb0baf5ade65d49fd47ca862972f8bd",
+      "role": "the toolkit section and I3_ref (the d = 3 reference window integral, rule M2_CROSSCHECK) reused verbatim; Lemma S (its NOTE section 2) applied with n = 7, degree 6"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "617236d",
+      "path": "coefficients/side24_d4_20260930/cone_moment_d4.py",
+      "git_blob": "4787d6bf5a3bc469ae62075dde24e913b786e44a",
+      "role": "exact polynomial algebra (padd, pmul, pscale, pconst, pvar) reused verbatim; the Taylor quadrature with Cauchy remainders (section 3) adapted; Mehta's Z_3 = 48 sqrt2 pi"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/199",
+      "commit": "617236d",
+      "path": "coefficients/side24_d4_20260930/RESULTS.json",
+      "git_blob": "187552f596576c9dcdecd1deabc0304412d8a1f7",
+      "role": "c_{4,ref} digits quoted in the script (rule C4_CONSISTENT)"
+    },
+    {
+      "pr": "https://github.com/d6g8k5htny-coder/Math-/pull/201",
+      "commit": "3abcc10",
+      "path": "coefficients/side24_d4_closed_form_20260930/NOTE.md",
+      "git_blob": "cbf35dead9f20cb8e68c357c62aca6413fb870af",
+      "role": "D_3 = (50 pi + 200 arctan 2 - 228)/(9 pi) (rule D3_EXACT)"
+    }
+  ],
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 24546,
+      "sha256": "50288f5fcf2676f32bad0ca7afb3ac7163d77ff1f958f8db5b86dacfd93d6924",
+      "git_blob": "d09612387e01866ea9d6fef7098aee26e226ed1a"
+    },
+    {
+      "path": "RESULTS.json",
+      "bytes": 21015,
+      "sha256": "9d97628a73ca25ece9732c7c00a03acc74456ea21c32b8dc18f370db934908b2",
+      "git_blob": "eb1b28c274494eec3dbe3d1454b83d55c6367baa"
+    },
+    {
+      "path": "window_coefficient_d4.py",
+      "bytes": 54785,
+      "sha256": "96cb6963993102a48436163acc40132e7b99fade96361d43b1c9c491688e0d5c",
+      "git_blob": "f77f7d2d158f9513f23f1b55fe0f839eb112d387"
+    }
+  ],
+  "revisions": [
+    {
+      "version": "v1.1",
+      "finding": "gap-window hypothesis wording (same defect as Codex thread 4151593177 on Math-#213)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/213#discussion_r4151593177",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis 0 < k_- <= k_+ < infinity instead of k_- >= 0; section 7 says windows touching k = 0 or infinity (including the tabulated K = (0,infinity)) and unbounded B are coefficient integrals only",
+      "unchanged": [
+        "window_coefficient_d4.py",
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.2",
+      "finding": "C43-205-H-01 (positive lengths; found on Math-#205)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/205#pullrequestreview-5377957341",
+      "change": "NOTE.md only: section 0 states [LP] Theorem B hypothesis as compact windows of positive length, -infinity < b_- < b_+ < infinity and 0 < k_- < k_+ < infinity (pinned [LP] lines 16 and 37); section 7 classes singleton windows (b_- = b_+ or k_- = k_+) outside the hypothesis",
+      "unchanged": [
+        "window_coefficient_d4.py",
+        "RESULTS.json"
+      ]
+    },
+    {
+      "version": "v1.3",
+      "finding": "band-share wording: xAI (Harper), Math-#222 comment 5932429158; a scoped caption check on this PR, comment 5932367935 (its lane is not stated)",
+      "review": "https://github.com/d6g8k5htny-coder/Math-/pull/222#issuecomment-5932429158",
+      "change": "NOTE.md section 5: the column F^(d)_[0,1] relabelled as the height-window share (the same for every K); the C8 band's share of c_{d,ref}, F^(d)_[0,1] G_[1/2,2], added; section 10",
+      "unchanged": [
+        "window_coefficient_d4.py",
+        "RESULTS.json",
+        ".github/workflows/c8-window-coefficient-d4.yml"
+      ]
+    }
+  ]
+}

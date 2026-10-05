@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "scientific_effect": "NONE",
+ "certified": true,
+ "review_status": "AUTHOR_SIDE_THEOREM_WITH_CERTIFIED_CONSTANTS",
+ "object": "CL-C8-LIFETIME-DIFFERENCE-CONSTANT-20261001-v1",
+ "files": [
+  {
+   "path": "NOTE.md",
+   "bytes": 35377,
+   "sha256": "8a19d5c07f1b6a7053503b6ee2d105dac2a2c0562eb5db14bf93e17958ba7c67",
+   "git_blob": "845112c909e61f6b392fa9485125a9bf038e0f13"
+  },
+  {
+   "path": "README.md",
+   "bytes": 3622,
+   "sha256": "55ca70ff374720dd55fbf1d1855a8a29604639b9efb1f519f1b3dfe588c48b7c",
+   "git_blob": "d14fafdfa159bd714fe6e673b5d0fa02898500c5"
+  },
+  {
+   "path": "RESULTS.json",
+   "bytes": 463344,
+   "sha256": "77703dbdd7969ab62c179aa49391c6cddb545d37e0d59654476a09166a0b938f",
+   "git_blob": "894fae2e48e67dd1f21ab2ffffaf7050260cfbc1"
+  },
+  {
+   "path": "SOURCE_MAP.json",
+   "bytes": 7728,
+   "sha256": "eb6d0726cf0807272cb1eb67d4f5014a451a1903799c6b91542bd2987619557b",
+   "git_blob": "2118c7ae5820a28b2dbcdab0cf567b4e6fdddf07"
+  },
+  {
+   "path": "engine_e2.py",
+   "bytes": 52864,
+   "sha256": "c5ea8bf87c54761866315f28f6c93c6ce5c1e0f99d47c5a03f14d095d06871cc",
+   "git_blob": "ae279e9015483a666ece8deb2544cbc458a5e270"
+  },
+  {
+   "path": "engine_e3.py",
+   "bytes": 76209,
+   "sha256": "310d4ab3d3a38a377d753753f3b814591a9090a947f87d6843ab7389389572d3",
+   "git_blob": "267890232119b35206be7a8cc74d730de9a68644"
+  },
+  {
+   "path": "theorem_b.py",
+   "bytes": 53141,
+   "sha256": "1e510cc385b2ed6502e2864cfdbd60514d92ed4217b035083dbf822d6e1543a1",
+   "git_blob": "36b39dbd33ef2e6d277ce1c3820b3f0d6659d779"
+  }
+ ],
+ "nonauthor_reads": [
+  {
+   "lane": "OpenAI / Codex",
+   "review": "https://github.com/d6g8k5htny-coder/Math-/pull/215#pullrequestreview-5378815703",
+   "head": "d748c2abee2cbfbad6504b5700c70bbd83ba5785",
+   "scope": "ACCEPT the d748c2a amendment (additive-remainder scope only); requested the reference-kernel benchmark wording applied in v1.2"
+  }
+ ]
+}

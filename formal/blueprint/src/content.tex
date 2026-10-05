@@ -34,3 +34,25 @@ Let $p,C,r$ be real, $C\ge0$, $0\le r\le1$ and $p\le Cr^4$.
 Then $p\le Cr^3$. This supplies no new probabilistic bound on $p$.
 \end{lemma}
 \begin{proof}Use $r^4\le r^3$ and multiply by nonnegative $C$.\end{proof}
+
+\section{Same-law measure-theoretic bridge}
+\begin{lemma}[Event Cauchy--Schwarz]
+\label{lem:event-cs}
+\lean{ResearchFormalCoreR1.p02_lm008_event_cs}
+Let $\mu$ be a probability measure, $W\in L^2(\mu)$ nonnegative almost
+surely and $A$ measurable. Then
+$\int_A W\,d\mu\le\sqrt{\int W^2\,d\mu}\sqrt{\mu(A)}$.
+No independence between $A$ and $W$ is assumed.
+\end{lemma}
+\begin{proof}Apply Holder with exponents $2,2$ to $W$ and $1_A$.\end{proof}
+\begin{lemma}[Same-law ratio transfer]
+\label{lem:measure-transfer}
+\lean{ResearchFormalCoreR1.p02_lm008_measure_transfer}
+\uses{lem:event-cs,lem:quotient}
+Under the preceding assumptions, also suppose $r>0$, $c_W\ge0$, $c_Z>0$,
+$\int W^2\,d\mu\le c_Wr^4$ and $c_Zr^2\le\int W\,d\mu$.
+Then $(\int_A W\,d\mu)/(\int W\,d\mu)\le(\sqrt{c_W}/c_Z)\sqrt{\mu(A)}$.
+The two model bounds remain premises; no Palm measure is constructed here.
+\end{lemma}
+\begin{proof}Bound the numerator, derive a positive normalizer, and use
+the unchanged scalar quotient theorem.\end{proof}
