@@ -53,11 +53,12 @@ Whitespace-normalized theorem tokens, comments removed:
 
 Not checked, and not claimed:
 
-- a local `lake` build, `leanchecker` replay, elaborated-type dump, or axiom audit
-- a completed hosted receipt for this 40-target head
+- a local `lake` build or local `leanchecker` replay
 - re-derivation of the earlier 29 proofs
 - re-opening the pinned mathlib file for `mul_meas_ge_le_integral_of_nonneg` (the local Markov wrapper is the byte-identical theorem #276 cited)
 - any concrete Gaussian, Palm, supremum, lower-normalizer estimate, uniformity theorem, good-event complement, P0.2 statement, or parent persistence closure
+
+The hosted receipt, elaborated types, axiom audit, and negative controls were downloaded after the first commit on this branch. They are recorded below. They do not change `alignment_status`.
 
 ## Pins checked at this head
 
@@ -85,9 +86,32 @@ The #276 record's manifest `ddaa37078805089b57a81f302c069fba7411a23af047c49fd3a4
 
 `python3 -B -S -m unittest discover -s formal/tests` and the same command with `-O` each ran **86** tests and passed. `test_moment_generality.py` is 12 of those, and its grid counter reaches 729. These are standard-library source and finite-model checks. They are not a Lean kernel run and not the hosted workflow.
 
-## Hosted execution at publication
+## Hosted execution
 
-[Run 37334385439](https://github.com/d6g8k5htny-coder/Math-/actions/runs/37334385439) was still **in progress** on head `f6672c1a77d67b6257c43acaf5a4481b28fd87e0` at publication. `downstream-replay` had completed with success. `formal / formal-evidence` had no conclusion. No receipt, elaborated-type log, axiom report, or negative-control result for this head was downloaded. The earlier 36-target receipt on run 37316631037 is not rebound here. Success of the replay job is not kernel evidence.
+The first commit on this review branch recorded [run 37334385439](https://github.com/d6g8k5htny-coder/Math-/actions/runs/37334385439) while `formal / formal-evidence` was still open. That job then completed with success, and this successor records the artifact actually downloaded.
+
+Artifact `formal-evidence-37334385439-1`. `required-check-binding.json` names checked commit `494551a02d87dff751b5e08dab00a0d24096d732`, run `37334385439`, attempt `1`, receipt SHA-256 `a51c2be316b57505bbf412ccdb21063cac67f17e87b78595cf772e0952591d26`. Rehashing the downloaded `receipt.json` reproduced that digest. Every log digest in the receipt matches the downloaded log bytes.
+
+That checked commit is the pull-request merge of `f6672c1a77d67b6257c43acaf5a4481b28fd87e0` into `a44db48f10ea27c93595840118457a39a5bbbea4`. Its tree equals the frozen head's tree `a5a8efaa0421ee974f6bd97dcf42b0bd7c4cdef6`. `git diff` between them is empty. The receipt's `manifest_sha256` is the frozen manifest. The required-check contract records this synthetic merge; it is not a different source tree. The 36-target receipt on run 37316631037 is not rebound.
+
+Receipt contents used here:
+
+- `formalization_status` `kernel-checked`; `alignment_status` remains `PENDING_INDEPENDENT_REVIEW`
+- Lean `version 4.34.1`, commit `5045d0056413266e57c625dcd7c365b10e377c52`
+- mathlib revision `d13f23b723b8a846827a245b89c10fc7d3f11612`
+- 40 axiom entries, exactly the manifest targets, each `{Classical.choice, Quot.sound, propext}`
+- negative controls: `custom_imported`, `native`, and `sorry` are `REJECTED_BY_AXIOM_GATE`; `false_fold` and `false_power` are `REJECTED_BY_LEAN`
+- `build.log` ends `Build completed successfully (8931 jobs)` and includes `Built ResearchFormalCoreR1.MomentGenerality`
+- `leanchecker.log` is empty. Its digest is the empty-file SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b855`. The hosted gate accepted that exit. This session did not re-run `leanchecker`.
+
+The same job log, step "Gate tests and exact source identity", records `Ran 86 tests` and `OK` twice, then `SOURCE_IDENTITY_PASS` for manifest `74c5a33861e282ef8432084f3cae0a9493e0d2273a1e8424d4571eddd8adcb54`. That is the hosted Python suite in both modes. It is not a second kernel.
+
+Hosted elaboration of the four new declarations, from `elaborated-types.log`:
+
+- `p02_lm009_moment40_tail_finite` has `[IsFiniteMeasure μ]`, `Integrable` of `R ^ 40`, and conclusion `(μ (badJetEvent R r ε)).toReal ≤ (M / ε ^ 8) * r ^ 8`. It has no probability binder.
+- `p02_lm009_moment40_tail_of_finite` has `[IsProbabilityMeasure μ]` and the same conclusion. The build accepted the one-line specialization.
+- `p02_lm009_moment40_family_r3_interval` has no `[∀ r, IsProbabilityMeasure (μ r)]`. `IsProbabilityMeasure (μ r)` is the first conjunct inside `hdata`'s `0 < r → r ≤ r0` quantifier. The lower conjunct is `cZ * r ^ 2 ≤ ∫ W r`. The conclusion is `∃ C, 0 ≤ C ∧ ∀ r, … ≤ C * r ^ 3`.
+- `p02_lm009_moment40_family_r3_of_interval` has `[∀ r, IsProbabilityMeasure (μ r)]`. Its `hdata` starts at `MemLp`, not at a probability conjunct, and the conclusion matches the interval theorem. The simplified constructor elaborated.
 
 ## Findings
 
@@ -127,7 +151,7 @@ The family witness is chosen before `intro r`:
 
 ### MG-A7 — specialization bridges — no-finding
 
-`p02_lm009_moment40_tail_of_finite` is the probability statement applied to the finite-measure theorem. Elaboration of `IsProbabilityMeasure` to `IsFiniteMeasure` is the standard instance path and was not re-run in Lean here.
+`p02_lm009_moment40_tail_of_finite` is the probability statement applied to the finite-measure theorem. The hosted build accepted that specialization: its elaborated type has `[IsProbabilityMeasure μ]` and the same unnormalized bound.
 
 `p02_lm009_moment40_family_r3_of_interval` passes `⟨inferInstance, hdata r hr hrr0⟩`. The expected conjunct is `IsProbabilityMeasure (μ r) ∧` followed by the seven-conjunct package that `hdata` already returns. `And` has two fields, so the second field is that whole conjunction. This is the same type as the #278 projection tower. It does not add a conclusion. The interval theorem still concludes only `IsProbabilityMeasure (weightedLaw (μ r) (W r))` and the cubic bound on `0 < r ≤ r0`.
 
@@ -135,9 +159,13 @@ The family witness is chosen before `intro r`:
 
 The five predecessor Lean modules, `gate.py`, the toolchain, the lockfile, and `formal-lean.yml` match the base blobs above. The moment-tail inventory test changes two lines: `targets[29:]` with length 36 becomes `targets[29:36]` with length at least 36. The seven names at that slice are unchanged. `test_moment_generality.py` binds `targets[36:]` to the four new names and `len(targets) == 40`. The unchanged gate requires the declaration list to equal `targets`. `README.md` now says the execute path audits 40 declarations; `gate.py` still takes that count from the manifest rather than from a hardcoded 36.
 
-### MG-B2 — hosted 40-target kernel evidence — not observed
+### MG-B2 — hosted 40-target kernel evidence — observed, not alignment
 
-Run 37334385439 had not finished when this review was written. `downstream-replay` had succeeded; `formal / formal-evidence` had not concluded. No axiom report, type log, or negative-control result for the four new names is claimed. `alignment_status` stays `PENDING_INDEPENDENT_REVIEW`.
+Run 37334385439 completed success for `downstream-replay`, `formal / formal-evidence`, and `math-downstream-gates`. The downloaded receipt is kernel evidence for these 40 declarations at the tree-identical merge `494551a02d87dff751b5e08dab00a0d24096d732`. `alignment_status` in that receipt stays `PENDING_INDEPENDENT_REVIEW`. This read does not write an alignment record.
+
+### MG-N1 — `letI` linter hint, non-blocking
+
+`build.log` reports a style hint at `MomentGenerality.lean:72`: in a proof, `let` is preferred to `letI`. The build still completed, and `letI` is the proposal's instance introduction. No change is requested.
 
 ## Carry-forward of the earlier 36
 
