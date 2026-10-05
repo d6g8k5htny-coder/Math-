@@ -5,3 +5,4 @@ import ResearchFormalCoreR1.WeightedLaw
 import ResearchFormalCoreR1.MomentTail
 import ResearchFormalCoreR1.MomentGenerality
 import ResearchFormalCoreR1.WeightPerturbation
+import ResearchFormalCoreR1.D2Schur
