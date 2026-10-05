@@ -155,7 +155,7 @@ def check_negative_text(control: str, status: int, text: str) -> None:
         raise ValueError('negative did not fail solely on the intended False goal')
 
 def check_types(text: str) -> None:
-    names = re.findall(r'^@?CapI4\.(\w+)(?:\.\{[^}\n]*\})?\s*:', text, re.M)
+    names = re.findall(r'^@?CapI4\.(\w+)(?:\.\{[^}]*\})?\s*:', text, re.M)
     if names != TARGETS:
         raise ValueError('elaborated type inventory mismatch')
 
@@ -216,6 +216,11 @@ class EvidenceControls(unittest.TestCase):
                      'RejectDroppedSoft.lean:3:50: error: unsolved goals\n⊢ True\n', '']:
             with self.subTest(text=text), self.assertRaises(ValueError):
                 check_negative_text('RejectDroppedSoft', 1, text)
+    def test_line_wrapped_universe_headers(self) -> None:
+        text = '\n'.join(f'@CapI4.{n}.{{u_1,\n    u_2}} : Prop' for n in TARGETS)
+        check_types(text)
+        with self.assertRaises(ValueError):
+            check_types(text.replace('u_2} :', 'u_2 :', 1))
     def test_type_universes_and_missing_or_duplicate(self) -> None:
         text = '\n'.join(f'@CapI4.{n}.{{u_1, u_2}} : Prop' for n in TARGETS)
         check_types(text)
