@@ -29,10 +29,15 @@ if len(sys.argv) == 1:
     if mode == 'baseline_bad':
         print('not the expected baseline'); sys.exit(0)
     print('{"fixture": true}')
+    if mode == 'baseline_stderr':
+        print('unexpected baseline diagnostic', file=sys.stderr)
     sys.exit(0)
 label = sys.argv[2]
 if label == 'M9':
-    print('other argparse problem' if mode == 'unknown_wrong' else 'unknown mutant')
+    if mode == 'unknown_whitespace':
+        print(' unknown mutant ')
+    else:
+        print('other argparse problem' if mode == 'unknown_wrong' else 'unknown mutant')
     sys.exit(2)
 if mode == 'crash':
     raise RuntimeError('synthetic mutant-only runtime failure, not a mathematical rejection')
@@ -152,6 +157,12 @@ class WorkflowProtocol(unittest.TestCase):
 
     def test_baseline_output_mismatch_stays_rejected(self):
         self.assert_disposition('baseline_bad')
+
+    def test_baseline_stderr_stays_rejected(self):
+        self.assert_disposition('baseline_stderr')
+
+    def test_unknown_label_whitespace_stays_rejected(self):
+        self.assert_disposition('unknown_whitespace')
 
     def test_manifest_mismatch_stays_rejected(self):
         self.assert_disposition('bad_manifest')
