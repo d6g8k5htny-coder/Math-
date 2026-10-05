@@ -1,0 +1,124 @@
+{
+ "object": "CL-LIT-CLASSICAL-NEIGHBORS-20261001-v1.3",
+ "extends": {
+  "object": "CL-LIT-RECON-LIFETIME-20260929-v1.1",
+  "path": "reviews/literature_lifetime_law_recon_20260929/RECONNAISSANCE.md",
+  "git_blob": "003b98794f02fd5c1cd45ed263bf2818b556e6ab"
+ },
+ "coverage_target": "through 2026-10-01",
+ "exclusions": [
+  "github.com/d6g8k5htny-coder",
+  "mirrors of the project's own repositories"
+ ],
+ "executed_by": "clean-context Anthropic Claude subagent of session_01NMeKEismAyeqgdB4sy2NJU, 2026-10-01 ~01:00-01:55 UTC",
+ "websearch_queries": [
+  "Rice 1944 \"Mathematical analysis of random noise\" Bell System Technical Journal pdf archive.org",
+  "Cartwright Longuet-Higgins 1956 \"The statistical distribution of the maxima of a random function\" Proc. R. Soc. A 237",
+  "Longuet-Higgins 1957 \"The statistical analysis of a random, moving surface\" Phil. Trans. R. Soc. A 249",
+  "Longuet-Higgins 1983 \"On the joint distribution of wave periods and amplitudes in a random wave field\" pdf",
+  "rainflow counting persistent homology equivalence local maxima minima pairing persistence diagram",
+  "Gaussian process crest-trough amplitude density \"small amplitudes\" singular at zero exponent \"-1/3\"",
+  "Lindgren Rychlik \"Wave characteristic distributions for Gaussian waves\" Lund University report pdf",
+  "rainflow cycle range distribution smooth Gaussian process small ranges density behaviour near zero",
+  "\"persistence diagram\" \"Gaussian random field\" short bars \"2/3\" OR \"-1/3\" lifetime density small persistence exponent",
+  "Cadiou Pichon Codis \"When do cosmic peaks, filaments or walls merge\" critical events Gaussian random field",
+  "Lindgren Broberg 2004 \"Cycle range distributions for Gaussian processes\" Extremes pdf",
+  "persistence diagram random function near-degenerate critical points cusp singularity correction small persistence asymptotic expansion",
+  "\"wave amplitude\" OR \"crest-to-trough\" distribution Gaussian process \"density\" \"infinite at the origin\" OR \"tends to infinity\" small waves broad spectrum",
+  "expected persistence diagram smooth stationary Gaussian process one dimension near the diagonal density maxima minima pairs",
+  "smallest gaps between zeros of stationary Gaussian processes Feng Yao critical points closest pairs",
+  "Adler Bobrowski Borman Subag Weinberger \"Persistent homology for random fields and complexes\" Gaussian persistence diagram",
+  "Lindgren \"Lectures on Stationary Stochastic Processes\" pdf wave amplitude wavelength Slepian model",
+  "WAFO tutorial pdf \"min-to-max\" OR \"max-to-min\" density wave characteristics Brodtkorb Rychlik Lindgren",
+  "\"cusp\" catastrophe statistics Gaussian random function pair of critical points small height difference fold \"separation cubed\" OR \"fourth power\"",
+  "distribution of barrier heights between adjacent minima smooth Gaussian random potential small barriers power law exponent",
+  "number of persistence bars of length at most epsilon \"epsilon^{2/3}\" OR \"ε^{2/3}\" smooth random function Morse",
+  "\"statistical analysis of a random, moving surface\" Longuet-Higgins pdf \"heights of maxima\" narrow spectrum",
+  "Sousbie 2011 persistent cosmic web DisPerSE persistence ratio distribution Gaussian random field critical point pairs low persistence",
+  "\"persistence diagram\" Gaussian field \"near the diagonal\" second-order expansion correction \"birth-death\" fold cusp random Morse function",
+  "crest trough small waves \"riding waves\" density amplitude near zero Gaussian broad-band spectrum theoretical asymptotic Lindgren Rychlik exact"
+ ],
+ "consensus_queries": [
+  "crest-to-trough amplitude distribution small amplitudes Gaussian process",
+  "joint density of adjacent maximum and minimum heights stationary Gaussian process",
+  "persistence diagram smooth Gaussian random field short bars near diagonal asymptotics (rate-limited, no result)",
+  "density of low persistence pairs near diagonal persistence diagram smooth Gaussian random field asymptotic",
+  "Rychlik regression approximations of wavelength and amplitude distributions",
+  "distribution of height difference between neighbouring local maximum and saddle point Gaussian random surface",
+  "Rychlik new bounds for the first passage, wave-length and amplitude densities"
+ ],
+ "apis": [
+  "arXiv export",
+  "Crossref",
+  "OpenCitations v2",
+  "INSPIRE (refersto:recid:1747978)",
+  "Semantic Scholar (HTTP 429, unreachable)",
+  "OpenAlex (HTTP 429, unreachable)",
+  "zbMATH Open ci: (no citing documents returned)",
+  "archive.org advancedsearch"
+ ],
+ "full_text_read": [
+  "Rice 1944/1945 (archive.org OCR)",
+  "Cartwright & Longuet-Higgins 1956 (IFREMER copy https://data-ww3.ifremer.fr/BIB/Cartwright_Longuet-Higgins_PRSLA1956.pdf; v1.2 re-checked the three quotations, through text extraction, at printed pp. 229, 230 and 231)",
+  "Lindgren 2019 Statist. Sci. (Project Euclid)",
+  "Rychlik, Johannesson & Leadbetter 1997 (university copy)",
+  "Lindgren & Rychlik DTIC TR 282 (text extraction, possibly truncated)"
+ ],
+ "partial": [
+  "Longuet-Higgins 1957 (to section 2.4; section 2.9 unread; an IFREMER copy is at https://data-ww3.ifremer.fr/BIB/Longuet-Higgins_PTRSLA1957.pdf, and a v1.2 re-read of it through text extraction again stopped inside section 2.4)"
+ ],
+ "not_accessible": [
+  "Lindgren & Rychlik 1982 Ocean Eng.",
+  "Longuet-Higgins 1983 Proc. R. Soc. A",
+  "Rychlik 1987",
+  "Rychlik 1990",
+  "Lindgren & Broberg 2004",
+  "Lutes 2008"
+ ],
+ "still_author_side": [
+  "MathSciNet and zbMATH paywalled queries of the 2026-09-29 memo section 4-E",
+  "Google-Scholar-level cited-by enumeration",
+  "Longuet-Higgins 1957 section 2.9, Lindgren-Rychlik 1982, Longuet-Higgins 1983 full texts"
+ ],
+ "d1_remark": {
+  "formula": "f_H(h) ~ C h^(-1/3), C = Gamma(7/6) 72^(-1/6) (2 pi)^(-1/2) (lambda6 - lambda4^2/lambda2)^(2/3) / lambda4",
+  "hypotheses": "stationary Gaussian process with C^4 paths and jointly nondegenerate jets (X', X'', X'''), in particular tau^2 = lambda6 - lambda4^2/lambda2 > 0",
+  "source": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md (git blob dfed3b8d318a3ab1950957f393307733a4bef3f2), (15.2), specialized to d = 1",
+  "value_gaussian_covariance": "0.199718135",
+  "check": "d1_rice_check.py (stdlib, deterministic two-point Rice evaluation; D1_RICE.json): h^(1/3) f(h)/(C nu_max) -> 1 (0.9999983 at h = 1e-9)",
+  "status": "computation recorded for the attribution wording; v1.3: on the circle under (H) the law is Theorem 1D of the merged Math-#214 (PROOF.md blob 1591ecee, merge e4ca2b3; OpenAI ACCEPT all slices + Grok Bot PASS), with two further terms; per maximum the persistence density leading constant is 2C; the line is not covered by #214"
+ },
+ "verdict": "no source located under this protocol states the small-gap exponent -1/3 (d = 1 or d >= 2) or a cusp-scale correction; Lindgren 2019 eq. (18) contains the d = 1 law implicitly (not expanded there); six works were inaccessible and three full-text/search tasks remain author-side (see not_accessible and still_author_side), so this is not a proof of novelty",
+ "scientific_effect": "NONE",
+ "v1_2": {
+  "after": "Codex bounded source readback 5976264613 (AMEND INT-210-01, INT-210-02) and follow-up 5976466598",
+  "changes": [
+   "ADDENDUM section 2: the IFREMER copy of Cartwright & Longuet-Higgins 1956 is named, with printed pages 229, 230 and 231 for its three quotations (INT-210-02)",
+   "ADDENDUM section 4: an IFREMER copy of Longuet-Higgins 1957 is named; section 2.9 is still unread",
+   "PR body: the verdict sentence is bounded to the recorded protocol, and the Rice check reads \"downloaded OCR text\" (INT-210-01)"
+  ],
+  "independent_reads": [
+   "Codex 5976264613: printed pages of Rice 1945 (sections 3.4, 3.6), Lindgren 2019 p. 119 eq. (18), Rychlik-Johannesson-Leadbetter 1997 p. 33, Lindgren-Rychlik TR 282 p. 31",
+   "Codex 5976466598: Cartwright & Longuet-Higgins 1956 sections 8-9 through the OCR transcript https://www.scribd.com/document/146911494/The-Statistical-Distribution-of-the-Maxima-of-a-Random-Function-by-Cartwright-and-Longuet-Higgins"
+  ],
+  "unchanged": [
+   "the verdict",
+   "the d = 1 remark",
+   "d1_rice_check.py",
+   "D1_RICE.json",
+   "the workflow"
+  ]
+ },
+ "v1_3": {
+  "change": "ADDENDUM section 3: title and a status paragraph; no change to the verdict, the d = 1 computation, the check or its output",
+  "cited_merged": {
+   "path": "frontiers/d1_third_order_law_20261001/PROOF.md",
+   "git_blob": "1591ecee3c82c8b42cb3220189ea0a4ce4bf195f",
+   "sha256": "a1b5e6ecc97341ad72d74973c69c0f94304b22c559ab0187310ef2bd73455804",
+   "bytes": 46313,
+   "merged_at": "e4ca2b3 (Math-#214)",
+   "used": "Theorem 1D (1D.1)-(1D.2); section 0 constants; Lemma 1.3; Lemma 3.1; section 5; Remarks 6.2 and 6.4"
+  },
+  "regular_part_assertion": "on the circle: part of #214 proof (Lemma 3.1 on (0, t_*], bounded sign kernel on [t_*, t0] from Lemma 1.3); for the check covariance on the line: the same local argument, author-side"
+ }
+}
