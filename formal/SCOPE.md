@@ -71,7 +71,7 @@ records do not automatically cover these new targets or changed scope.
 
 ## Additive generality companions (four further declarations)
 
-The total is now 40 theorem targets. [MOMENT_GENERALITY.md](MOMENT_GENERALITY.md)
+This retained layer has 40 theorem targets. [MOMENT_GENERALITY.md](MOMENT_GENERALITY.md)
 binds the exact scope and contributor/source identities for `MomentGenerality.lean`.
 The finite-measure fortieth-moment tail keeps the exact `(M/epsilon^8)r^8`
 constant, with no normalization by total mass. The interval-only family requires
@@ -81,6 +81,23 @@ interfaces. The earlier 36 proof bytes and their stronger types remain unchanged
 No concrete model moment, Palm identification, lower normalizer or uniform bound
 is supplied; all corresponding assumptions remain explicit. The old 36-target
 alignment does not cover this changed manifest/scope without a new review.
+
+## Additive same-law weight perturbation (seven further declarations)
+
+The total is now 47 theorem targets. [WEIGHT_PERTURBATION.md](WEIGHT_PERTURBATION.md)
+binds the new WeightPerturbation module's exact seven-target scope. Genuine L1
+weight error controls ordinary/set integral differences; a reference lower
+normalizer loses at most that error. Under a common measure and nonnegative
+integrable weights, reference integral >= c > 0 and error <= delta <= c/2 give
+perturbed integral >= c/2, both probability properties, and every measurable-event
+probability error <= 2delta/c. The r^2-scaled version gives 2eta/c from error
+<= eta*r^2 and reference integral >= c*r^2. The constant is not claimed optimal.
+
+No underlying measure transfer, concrete field estimate, reference normalizer
+floor, asymptotic convergence or parent theorem is established. Earlier forty
+proof bytes, the gate, dependency pins and historical review records remain
+unchanged. The prior withheld lineage does not become accepted through this
+extension or through successful execution; a new scoped review is required.
 
 ## Review contract
 The source manifest is an evidence sidecar, not another scientific register. A trusted successful workflow establishes kernel evidence only for these target declarations and their displayed hypotheses, relative to Lean's kernel/standard foundations/toolchain. Independent review must compare each Lean statement and definition to this scope note and the source actually cited. Review author, provider, family and agent must be explicit. Validate an authenticated record with `python formal/gate.py --alignment review.json`; then the existing controlling gate must decide whether its wider requirements are met. The validator does not authenticate a review merely because a JSON string names a reviewer.
