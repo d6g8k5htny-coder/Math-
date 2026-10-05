@@ -23,7 +23,8 @@
     "ResearchFormalCoreR1/AlgebraV2.lean",
     "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean",
     "ResearchFormalCoreR1/MeasureBridge.lean",
-    "ResearchFormalCoreR1/WeightedLaw.lean"
+    "ResearchFormalCoreR1/WeightedLaw.lean",
+    "ResearchFormalCoreR1/MomentTail.lean"
   ],
   "targets": [
     "ResearchFormalCoreR1.ec005_fold_gap",
@@ -54,17 +55,24 @@
     "ResearchFormalCoreR1.weightedLaw_zero",
     "ResearchFormalCoreR1.weightedLaw_one",
     "ResearchFormalCoreR1.p02_lm008_probability_transfer",
-    "ResearchFormalCoreR1.p02_lm009_probability_transfer_r8_to_r3"
+    "ResearchFormalCoreR1.p02_lm009_probability_transfer_r8_to_r3",
+    "ResearchFormalCoreR1.p02_lm009_markov_event",
+    "ResearchFormalCoreR1.p02_lm009_badJet_measurable",
+    "ResearchFormalCoreR1.p02_lm009_badJet_subset",
+    "ResearchFormalCoreR1.p02_lm009_moment40_tail",
+    "ResearchFormalCoreR1.p02_lm009_moment40_weighted_r4",
+    "ResearchFormalCoreR1.p02_lm009_moment40_weighted_r3",
+    "ResearchFormalCoreR1.p02_lm009_moment40_family_r3"
   ],
   "files": {
     ".gitignore": "b34af236d1df9e39ed4f98fca51702530ce76bdee4e1a69512f6caed933c3374",
     "COMPATIBILITY.md": "33721aad32f82131a6956a06b58c5bc41f5d28f26efe840a99a4d51ad60cf247",
     "GLOSSARY.md": "6bdda2ce054915efc26e8db462dbe8fd9d0c1db30e02328857bebc6568e05ce9",
-    "README.md": "638d8d9e8354462f5e309d6b249def1f0ed0b38ca83a36521106ab5c69bfca81",
+    "README.md": "dec5318053317dde0f0b1158d1359804a64d23b72199a4fc0e8dd89d33fb1d02",
     "ResearchFormalCoreR1/AlgebraV2.lean": "4480708263c40a2f7f03f12ef7e15f0eb4f8193c2dccbb253921a7ec251863c3",
     "ResearchFormalCoreR1/ProbabilityCompanionsV2.lean": "338452a0c2ba24d016059354d543cc995b8cb29c9d4a41d98bb93499f5f8cb8f",
-    "ResearchFormalCoreR1.lean": "b6077abc3522043216eface2da88a1d0f7a2c54a7519229b6f5d1ceb67bbb4a9",
-    "SCOPE.md": "e8ef291bb7daa334812451a675788b4ee902c0974d9bcd3197407b6b56b63548",
+    "ResearchFormalCoreR1.lean": "ffe0de34c8d3830357d6952d150a21ff12cef27e750cde8950362b92b4f285fb",
+    "SCOPE.md": "21c4ce34ff1e7536c88de86661c796a0751ad8572b034650631052ad0791f4a1",
     "blueprint/src/content.tex": "e00ee78344ed27c097bccb8c6360f6bb86a223ab06319a407de2dd0104fd2e28",
     "evidence/initial-build-failure.log": "43393d2e2b3148a2453e3092a1ff04e257dbd4a6dc97eb2853a8bc0451002591",
     "gate.py": "4f14a78bbc6e9b7f929648b13ad3a9ae467256db4be9792e3667680e697a5c94",
@@ -79,6 +87,10 @@
     "tests/test_measure_bridge.py": "0e54b2ed7c2e197967180993b4c0c1ece1e63576ad34fd74ac232a4d507628a2",
     "ResearchFormalCoreR1/WeightedLaw.lean": "f31dfd2cd048cc0c0446c54c46d89c9cdd5d7bb9d76e9d8d16b7c034f351d736",
     "WEIGHTED_LAW.md": "a530dc957923c4c9111b734d8fcc0f4cd3cdba45b08480cfc2e241ecefc5fba4",
-    "tests/test_weighted_law.py": "3367e505664cbcd1626b175f1c211d74241803113dbca909e2e71fae38776785"
+    "tests/test_weighted_law.py": "a65005e48c356175592cdc24c02270825dcf11d80975134c072775c693667607",
+    "ResearchFormalCoreR1/MomentTail.lean": "87fe3ee90afc52d8c2652881f1ae195d1b0b15a2ffc18c84d6166d1a4d0de2aa",
+    "MOMENT_TAIL.md": "20ecddcd830c41935dc4b366882db4d0432240932af6632d025b981f90e044bd",
+    "tests/test_moment_tail.py": "a75c575bc0e1853f3a597c338085932aefe05b52e8ea3bcf3277f5cc3753ec81",
+    "evidence/moment-tail-initial-build-failure.log": "61bee2d55d0dd548b0bccc4d2e40970f654fca8ab1385af7f371592d45c0ab08"
   }
 }
