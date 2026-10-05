@@ -1,0 +1,60 @@
+{
+  "certificate_normal_optimized_byte_identical": true,
+  "crosschecks_normal_optimized_byte_identical": true,
+  "hosted_checks_claimed": false,
+  "lean_verification": false,
+  "libmpdec": "2.5.1",
+  "new_independent_review": false,
+  "normal_command": "python -B -S certificate.py --n 128",
+  "object": "D3-L4-ANISOTROPIC-20261005-v1",
+  "optimized_command": "python -B -O -S certificate.py --n 128",
+  "performer": "OpenAI / GPT-6 Astra Pro; Dylan Roy \u2014 delegated AI work",
+  "python": "3.13.5",
+  "records": [
+    {
+      "bytes": 14562,
+      "git_blob": "b1ac024beec3415edcc00c677f3a9e5b011d3732",
+      "path": "certificate.py",
+      "sha256": "7707c68fe5b9f487745008106c18e5fc1c6370f7e2d8a0babd818324d07b3f80"
+    },
+    {
+      "bytes": 4461,
+      "git_blob": "4a58bb1a303fde8fd37089d7a305e9f7825bd215",
+      "path": "RESULTS.json",
+      "sha256": "e2d8a78ce4f075a75fc4d53b998f5329f6ecc319d3a7badc473f80bbfe83acfd"
+    },
+    {
+      "bytes": 2721,
+      "git_blob": "bb0e9d61b2dd4026d0a1ad598097094960e5bc92",
+      "path": "REFERENCE.json",
+      "sha256": "a396d62776db7e0b111015d9bca56d7a411009a85a96d4a3aa4990ba6b3f045c"
+    },
+    {
+      "bytes": 5228,
+      "git_blob": "54d7462a7e327a4b8905ce8edc30aedfe57a9c02",
+      "path": "CROSSCHECKS.json",
+      "sha256": "6babe455029a1b4caa22e3e5f552213d8251e24d74f064e0e2078605abb847a3"
+    },
+    {
+      "bytes": 2871,
+      "git_blob": "f02b83e6789e754b21aca011e583adf20d9ac889",
+      "path": "test_certificate.py",
+      "sha256": "399a2ef8631cfc816efe4e5c5e7894c00d98da72e5e328b59914d1f3159c6a0c"
+    },
+    {
+      "bytes": 5722,
+      "git_blob": "336196cf08c465ffe1e0ff2714eb33cd25a06d51",
+      "path": "source_crosscheck.py",
+      "sha256": "98b62895e3364419164d4614e8d9152d3b12c02a6cdc43a410244b7257489efc"
+    }
+  ],
+  "reference_ratio_contains_one": true,
+  "repository_wide_tests_run": false,
+  "scientific_acceptance": false,
+  "source_crosscheck_command": "python -B -S source_crosscheck.py --source <pinned-periodic_jet_check.py>",
+  "unit_tests_failures": 0,
+  "unit_tests_normal": 7,
+  "unit_tests_optimized": 7,
+  "upstream_replay_matches_pinned_manifest": true,
+  "upstream_replay_sha256": "4dbf00f768486dbd3079463699b62ca461d4bf94ead398ce19671769467124f5"
+}
