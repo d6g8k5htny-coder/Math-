@@ -1,0 +1,45 @@
+name: Cap I4 isolated source bridge
+on:
+  push:
+    branches: [chatgpt/cap-i4-source-bridge-20261005]
+    paths:
+      - companions/cap_i4_source_bridge_20261005/**
+      - .github/workflows/cap-i4-source-bridge.yml
+permissions:
+  contents: read
+concurrency:
+  group: cap-i4-source-bridge-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Install pinned project toolchain and cached dependencies
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Source gates, existing core replay, isolated companion and negative controls
+        shell: bash
+        run: bash companions/cap_i4_source_bridge_20261005/replay.sh
+      - name: Preserve exact-head execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cap-i4-evidence-${{ github.sha }}
+          path: |
+            .lake/cap-i4-evidence/
+            .lake/formal-evidence/
+            formal/.lake/formal-evidence/
+          include-hidden-files: true
+          if-no-files-found: warn
