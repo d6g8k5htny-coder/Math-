@@ -71,7 +71,7 @@ def check_contract(text: str) -> None:
         raise ValueError('source equation/explicit premise contract changed')
     imports = re.findall(r'^import (.+)$', code, re.M)
     if imports != ['ResearchFormalCoreR1.MomentTail',
-                   'Mathlib.Analysis.SpecialFunctions.Integrals', 'Mathlib.Tactic']:
+                   'Mathlib.Analysis.SpecialFunctions.Integrals.Basic', 'Mathlib.Tactic']:
         raise ValueError('import boundary changed')
     if re.findall(r'^set_option (.+)$', code, re.M) != ['autoImplicit false']:
         raise ValueError('options boundary changed')
