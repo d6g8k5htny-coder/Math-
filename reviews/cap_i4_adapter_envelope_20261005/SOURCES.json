@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "session": "cap-i4-adapter-envelope-audit-20261005",
+  "publication_base": "6a2284ddda6efdf26e25f47b783b51884d4b93af",
+  "source_commit": "f4079f65a3e5e95c9993e51ac5995a54344d4130",
+  "files": [
+    {
+      "path": "ADAPTER_ENVELOPE.md",
+      "bytes": 10434,
+      "git_blob": "5f7e20d44452968d82da9d12fd0f72a9109db793",
+      "sha256": "ebcd77700f7012fb6a1fde88dc021872b48d913afb16550c4f0a9a26e5f3deb1"
+    },
+    {
+      "path": "test_adapter_envelope.py",
+      "bytes": 6302,
+      "git_blob": "c482950d70634773a5d292c7be58035543b9bc14",
+      "sha256": "3d6af2fe76633ab5322208f9dfb9a6ce35d7b40d819d2aa4fd50d88091a5e34c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2300,
+      "git_blob": "24e7141e3f8e71650918112d3db2f328eb572132",
+      "sha256": "9774194438c97433241451076c1f8ae03aa5e95b29d628783c62daf685ced3da"
+    }
+  ],
+  "sources": [
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed": "(3.5), (4.2)-(4.3), (5.5), (6.2), (7.1)-(7.7)"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "consumed": "The inverse-congruence correction in the full normalizer."
+    },
+    {
+      "path": "companions/cap_i4_source_bridge_20261005/CapI4.lean",
+      "git_blob": "4769930d132a485f88b75c4f4d901a3c4db7d43e",
+      "consumed": "Exact existing conditional transport and envelope consumer; no Lean source edits."
+    }
+  ],
+  "local_test_methods": 12,
+  "stdout_sha256_both_modes": "7dd877798a999e04d4d6f9f5c46a154bf3a5a5180e2fc0f1ec6efd5b508da8a1",
+  "review_request": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6006128867",
+  "limits": "Author-side analytic derivation and finite algebra only. No concrete Gaussian adapter in Lean, delivered independent alignment, numerical coefficient certification, or scientific promotion."
+}
