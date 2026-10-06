@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "r20-sign-coefficient-enclosure-20261006-1105"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 12359,
+      "sha256": "1a145132e05aa2721397d30fd3c422bbaab496ac8c24b947e416a3f4e0e0a526",
+      "git_blob": "a79f080851bba69a03ec4b8348dc93d04143bf62"
+    },
+    "RESULTS.json": {
+      "bytes": 624,
+      "sha256": "98eff91444a190a4bc521e010e1e2b8071affe5175b6d2403516777e92d0d17f",
+      "git_blob": "53b5921f40f95a2623795b6cfe9ec47420705ad3"
+    },
+    "enclose.py": {
+      "bytes": 7215,
+      "sha256": "157e02ee22699b4fa2efdde1894824b92b962900dbb8da9bd65acee41ae91e88",
+      "git_blob": "e680ddb7aa0abd4b6aab2cac6a54c1ff28efc782"
+    },
+    "test_enclosure.py": {
+      "bytes": 6738,
+      "sha256": "a065f504272630c1a3fadc9e85500982af38902acadc1059b0503ad3aa571bec",
+      "git_blob": "a05992a4e5d9845618aee6ea53d62e08ee776940"
+    }
+  },
+  "dependencies": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "64c0a203b94105f0fccbe6f8116a94e13431f84e",
+      "path": "reviews/lm006_wrong_sign_asymptotic_20261006/NOTE.md",
+      "git_blob": "ea914c1b8e0b8180b645f3f626e2081ab87700b9",
+      "sha256": "00d57d987c28ef5f2e3f6467c9e343fb60ffb3ad5806d004f245fe16914fbb61",
+      "consumed": "Equations (3)-(5),(18)-(20): exact coefficient and fixed object, not a new proof of the asymptotic theorem"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "a952d25d11400561da10324dbb40e42c9da4ea6c",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed": "Section1 image-sum covariance definition only; no global theorem imported"
+    }
+  ],
+  "external_context": {
+    "source": "NIST DLMF 7.6.1",
+    "url": "https://dlmf.nist.gov/7.6",
+    "scope": "Classical power-series context; explicit alternating bounds derived in NOTE"
+  }
+}
