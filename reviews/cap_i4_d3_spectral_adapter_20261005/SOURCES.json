@@ -1,0 +1,60 @@
+{
+  "files": {
+    "PROOF.md": {
+      "bytes": 16999,
+      "git_blob": "c30e3f5ff600b058a30087ff794c7cf304e4aafc",
+      "sha256": "3b79ca614682a453a9bbb35e95f65d9891155bcbc531ffcfaf55ba0d5d840633"
+    },
+    "README.md": {
+      "bytes": 2487,
+      "git_blob": "d4cdeb9c02eb6b0d154423254b1c8c8801ce0c81",
+      "sha256": "253e99a49359bfe80d8f306d1c6e46a9b82813621b18322aed2af56033d41166"
+    },
+    "algebra.py": {
+      "bytes": 3155,
+      "git_blob": "15105cfade673679f067586ad4012d7999340a7d",
+      "sha256": "78304cb360e050102b031d14719b7dd11b312a1a37a1454a4cc05394e09fbf0c"
+    },
+    "replay.py": {
+      "bytes": 5024,
+      "git_blob": "66dabbc728e8a8f7b74fd3ca38ed5b0b850c6d28",
+      "sha256": "b0dfc58bba0933d05fce31288af43f09f1d2802c92245b2cbbfcb6dd30bb9767"
+    },
+    "test_adapter.py": {
+      "bytes": 8339,
+      "git_blob": "72eb98c29af4ca3e83819c400bc35a032acb9850",
+      "sha256": "54fdee783095fd36d81fa284bf4353c264749ac5c001de83514256bdfd76d9bb"
+    }
+  },
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "source_cut": "f4c33a98a982d50aa490e49ce9327c755682527c",
+  "sources": [
+    {
+      "blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed": "(3.5),(4.2)-(4.3),(5.5),(6.2),section7; section5 with existing congruence erratum",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "repo": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "consumed": "inverse congruence required for P section5 full-normalizer argument",
+      "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+      "repo": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "blob": "4769930d132a485f88b75c4f4d901a3c4db7d43e",
+      "commit": "f4079f65a3e5e95c9993e51ac5995a54344d4130",
+      "consumed": "conditional scalar primitive and full-normalizer interface only",
+      "path": "companions/cap_i4_source_bridge_20261005/CapI4.lean",
+      "repo": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "blob": "053dcbf1bcd84f42dcc8273dd4afb0d87a6755e6",
+      "commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "consumed": "nonnegative polar change-of-variables interface; no new Lean implementation claimed",
+      "path": "Mathlib/Analysis/SpecialFunctions/PolarCoord.lean",
+      "repo": "leanprover-community/mathlib4"
+    }
+  ]
+}

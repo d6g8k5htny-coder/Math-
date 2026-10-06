@@ -1,0 +1,82 @@
+{
+  "files": [
+    {
+      "bytes": 2838,
+      "git_blob": "f8fec39ebf07abf140c0ee5e4fbdd4abf625bbf1",
+      "path": "README.md",
+      "sha256": "85cd39c5e84fe6599a30a8566fd445ab7e468cd4949a08d3ec359b0a8839130d"
+    },
+    {
+      "bytes": 24083,
+      "git_blob": "f21996b2a98ade7195e51971c156f2fe472cb85e",
+      "path": "PROOF.md",
+      "sha256": "60f1dc71b16b2de241780ca57ebd60daba569c2c38cf132fada61bb62222603d"
+    },
+    {
+      "bytes": 14562,
+      "git_blob": "b1ac024beec3415edcc00c677f3a9e5b011d3732",
+      "path": "certificate.py",
+      "sha256": "7707c68fe5b9f487745008106c18e5fc1c6370f7e2d8a0babd818324d07b3f80"
+    },
+    {
+      "bytes": 2871,
+      "git_blob": "f02b83e6789e754b21aca011e583adf20d9ac889",
+      "path": "test_certificate.py",
+      "sha256": "399a2ef8631cfc816efe4e5c5e7894c00d98da72e5e328b59914d1f3159c6a0c"
+    },
+    {
+      "bytes": 5722,
+      "git_blob": "336196cf08c465ffe1e0ff2714eb33cd25a06d51",
+      "path": "source_crosscheck.py",
+      "sha256": "98b62895e3364419164d4614e8d9152d3b12c02a6cdc43a410244b7257489efc"
+    },
+    {
+      "bytes": 4461,
+      "git_blob": "4a58bb1a303fde8fd37089d7a305e9f7825bd215",
+      "path": "RESULTS.json",
+      "sha256": "e2d8a78ce4f075a75fc4d53b998f5329f6ecc319d3a7badc473f80bbfe83acfd"
+    },
+    {
+      "bytes": 2721,
+      "git_blob": "bb0e9d61b2dd4026d0a1ad598097094960e5bc92",
+      "path": "REFERENCE.json",
+      "sha256": "a396d62776db7e0b111015d9bca56d7a411009a85a96d4a3aa4990ba6b3f045c"
+    },
+    {
+      "bytes": 5228,
+      "git_blob": "54d7462a7e327a4b8905ce8edc30aedfe57a9c02",
+      "path": "CROSSCHECKS.json",
+      "sha256": "6babe455029a1b4caa22e3e5f552213d8251e24d74f064e0e2078605abb847a3"
+    },
+    {
+      "bytes": 2252,
+      "git_blob": "cd2e89d8907815af1c6bc6fbee892a45fb091d09",
+      "path": "VALIDATION.json",
+      "sha256": "962dc8d1c0eb946f2553c58214385fade6c7f380f5b8bb8601846e7c8b74273e"
+    }
+  ],
+  "independent_review": false,
+  "object": "D3-L4-ANISOTROPIC-20261005-v1",
+  "scientific_effect": "NONE",
+  "source_commit": "2f8d721e300850e36ab17464dc541c977b3ffcbf",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "upstream_pins": [
+    {
+      "git_blob": "a2beeeee90abfc2988cf8f491d54ea835b23a1c5",
+      "path": "reviews/iba1_periodic_jet_claude_20261005/periodic_jet_check.py",
+      "sha256": "59b53e5c2e8fdcacc9983f705b9d301fcfcf9242ac6c4d8b7bfbcf0ada7caf9f"
+    },
+    {
+      "git_blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd",
+      "path": "coefficients/side24_v1/PROOF.md"
+    },
+    {
+      "git_blob": "57af39a05e14ed0ba8ebc00a9b4aca4dffb067c7",
+      "path": "coefficients/side24_v1/ENCLOSURE.json"
+    },
+    {
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md"
+    }
+  ]
+}
