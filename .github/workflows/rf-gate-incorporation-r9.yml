@@ -1,0 +1,168 @@
+name: RF-GATE source-preserving incorporation rehearsal (never merge)
+on:
+  push:
+    branches:
+      - 'chatgpt/rf-gate-incorporation-rehearsal-20261006-r9'
+permissions:
+  contents: read
+jobs:
+  rehearse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Fetch immutable production and helper inputs
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin 38ec7fcf0765dd85657c226f3bd21dc0a8bd877b
+          git fetch --no-tags --depth=1 origin 22393e7ba3c24b6af57e9c0709bdf4f911583a65
+      - name: Rehearse exact incorporation without a source commit or Lean receipt
+        run: |
+          python3 -B -S - <<'PYCODE'
+          """Finite, uncommitted incorporation rehearsal. Never a kernel/merge receipt."""
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+          import tarfile
+          
+          HELPER = '22393e7ba3c24b6af57e9c0709bdf4f911583a65'
+          SOL = '38ec7fcf0765dd85657c226f3bd21dc0a8bd877b'
+          PATHS = ['GATE_HARDENING.md', 'README.md', 'gate.py', 'manifest.json',
+                   'tests/test_inventory_gate.py', 'tests/test_d2_schur.py',
+                   'tests/test_moment_generality.py', 'tests/test_moment_tail.py',
+                   'tests/test_weight_perturbation.py', 'tests/test_weighted_law.py']
+          PRESERVE = {
+              'tests/test_declaration_admission.py': '6a869f853e886772a825794f06a8399fb62a541fa45e6d881029bb57e4dd7af7',
+              'DECLARATION_ADMISSION.md': 'd0ea2f3875e6f0ad8ff38e57c9e366953f06dcb6bbe275ec0bbb690fb03d7769',
+              'LINEAGE_VALIDATION.md': '593f8cbdb0a9261a57eded9c559963a9247a1036d5e501c9d6bbd77efe9b0c3a',
+          }
+          REPO = Path.cwd()
+          OUT = Path(os.environ['RUNNER_TEMP']) / 'rf-incorporation-r9-evidence'
+          WORK = Path(os.environ['RUNNER_TEMP']) / 'rf-incorporation-r9-copy'
+          CHECK = Path(os.environ['RUNNER_TEMP']) / 'rf-incorporation-r9-apply'
+          OUT.mkdir(exist_ok=False)
+          
+          def need(ok, message):
+              if not ok:
+                  raise ValueError(message)
+          
+          def git(*args, cwd=REPO):
+              return subprocess.check_output(['git', *args], cwd=cwd, timeout=120)
+          
+          def sha(raw):
+              return hashlib.sha256(raw).hexdigest()
+          
+          def identity(raw):
+              return dict(bytes=len(raw), sha256=sha(raw),
+                          git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest())
+          
+          def run(label, args):
+              cp = subprocess.run(args, cwd=WORK, capture_output=True, timeout=180)
+              (OUT/(label+'.stdout')).write_bytes(cp.stdout)
+              (OUT/(label+'.stderr')).write_bytes(cp.stderr)
+              (OUT/(label+'.exit')).write_text(str(cp.returncode)+'\n')
+              print(label, 'exit', cp.returncode, flush=True)
+              return cp
+          
+          def tracked(root):
+              paths = git('ls-files', '-z', '--', 'formal', cwd=root).split(b'\0')
+              result = {}
+              for raw in filter(None, paths):
+                  rel = raw.decode('utf-8')
+                  p = root/rel
+                  need(p.is_file() and not p.is_symlink(), 'nonregular source '+rel)
+                  result[rel] = identity(p.read_bytes())
+              return result
+          
+          need(git('rev-parse', HELPER).decode().strip()==HELPER, 'helper object mismatch')
+          need(git('rev-parse', SOL).decode().strip()==SOL, 'production object mismatch')
+          git('worktree', 'add', '--detach', str(WORK), SOL)
+          git('worktree', 'add', '--detach', str(CHECK), SOL)
+          try:
+              before = tracked(WORK)
+              old_manifest = json.loads((WORK/'formal/manifest.json').read_text())
+              (OUT/'production-manifest.json').write_bytes((WORK/'formal/manifest.json').read_bytes())
+              helper_manifest_raw = git('show', HELPER+':formal/manifest.json')
+              need(sha(helper_manifest_raw)=='e4f0b7195315068b87141beb442adb489384cf09c7dd0e7d171afc6b5970d9e9', 'helper manifest identity')
+              (OUT/'helper-manifest.json').write_bytes(helper_manifest_raw)
+              for path in PATHS:
+                  p = WORK/'formal'/path
+                  p.parent.mkdir(parents=True, exist_ok=True)
+                  p.write_bytes(git('show', HELPER+':formal/'+path))
+              need(sha((WORK/'formal/gate.py').read_bytes())=='ff8a5374597772b2d37054fd722c2243c4b552a63802c69f7c605519832be6c4', 'helper gate identity')
+              for path, digest in PRESERVE.items():
+                  need(sha((WORK/'formal'/path).read_bytes())==digest, 'production-only bytes changed '+path)
+                  need(old_manifest['files'][path]==digest, 'production binding mismatch '+path)
+              # Genuine RED, before reconciling the manifest. An unrelated exception cannot count.
+              red = run('blind-manifest-red', [sys.executable, '-B', '-S', 'formal/gate.py'])
+              need(red.returncode==1 and red.stdout==b'' and
+                   red.stderr==b'FORMAL_GATE_FAIL: source hash mismatch: LINEAGE_VALIDATION.md\n',
+                   'blind-manifest precondition did not fail for the exact expected reason')
+              m = json.loads(helper_manifest_raw)
+              for path, digest in PRESERVE.items():
+                  m['files'][path] = digest
+              need(m['targets']==old_manifest['targets'], 'targets changed')
+              need(m['dependency_revisions']==old_manifest['dependency_revisions'], 'dependency pins changed')
+              (WORK/'formal/manifest.json').write_text(json.dumps(m, indent=2)+'\n')
+              staged_digest = sha((WORK/'formal/manifest.json').read_bytes())
+              tests = {}
+              for mode, flags in [('normal', ['-B','-S']), ('optimized', ['-B','-O','-S'])]:
+                  cp = run('source-'+mode, [sys.executable, *flags, 'formal/gate.py'])
+                  need(cp.returncode==0 and cp.stderr==b'' and staged_digest.encode() in cp.stdout, 'source gate '+mode)
+                  cp = run('tests-'+mode, [sys.executable, *flags, '-m', 'unittest', 'discover', '-s', 'formal/tests', '-v'])
+                  need(cp.returncode==0 and cp.stdout==b'' and re.search(rb'Ran 223 tests in .*\n\nOK\n\Z', cp.stderr), 'complete reconciled suite '+mode)
+                  need(cp.stderr.count(b'test_declaration_admission.DeclarationAdmissionRegressionTests.')==4, 'four original methods not all executed')
+                  tests[mode] = {'methods':223, 'original_declaration_methods':4, 'exit':cp.returncode}
+              git('add', '--', *['formal/'+p for p in PATHS], cwd=WORK)
+              changed = git('diff','--cached','--name-only',cwd=WORK).decode().splitlines()
+              need(set(changed)=={'formal/'+p for p in PATHS}, 'unexpected changed-path inventory')
+              need(git('diff','--name-only',cwd=WORK)==b'', 'unexpected unstaged tracked edit')
+              after = tracked(WORK)
+              for path, data in before.items():
+                  if path not in {'formal/'+p for p in PATHS}:
+                      need(after[path]==data, 'unrelated formal bytes changed '+path)
+              for path in PATHS:
+                  if path!='manifest.json':
+                      need((WORK/'formal'/path).read_bytes()==git('show',HELPER+':formal/'+path), 'helper bytes changed '+path)
+              patch = git('diff','--cached','--binary','--full-index',cwd=WORK)
+              patch_path = OUT/'sol-incorporation.patch'
+              patch_path.write_bytes(patch)
+              git('apply','--check','--index',str(patch_path),cwd=CHECK)
+              git('apply','--index',str(patch_path),cwd=CHECK)
+              tree = git('write-tree',cwd=WORK).decode().strip()
+              need(git('write-tree',cwd=CHECK).decode().strip()==tree, 'applied tree differs')
+              need(tracked(CHECK)==after, 'roundtrip source inventory differs')
+              with tarfile.open(OUT/'reconciled-formal.tar.gz','w:gz') as archive:
+                  for path in sorted(after):
+                      archive.add(WORK/path, arcname=path, recursive=False)
+              report = dict(schema_version=1, scientific_effect='NONE',
+                  scope='uncommitted incorporation rehearsal; NOT a Lean execution or current-main integration receipt',
+                  driver_commit=git('rev-parse','HEAD').decode().strip(), helper_commit=HELPER,
+                  production_commit=SOL, proposed_tree=tree, manifest_sha256=staged_digest,
+                  changed_paths=changed, preserved_bindings=PRESERVE,
+                  tests=tests, patch=identity(patch), source_before=before, source_after=after,
+                  patch_apply_check=True, patch_applied_tree_equal=True,
+                  python_version=sys.version, git_version=git('--version').decode().strip(),
+                  artifacts={p.name:identity(p.read_bytes()) for p in sorted(OUT.iterdir()) if p.is_file()})
+              (OUT/'rehearsal.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+              print(json.dumps({k:report[k] for k in ['scope','production_commit','helper_commit','proposed_tree','manifest_sha256','tests','patch_apply_check']},indent=2))
+          finally:
+              for work in (WORK,CHECK):
+                  git('worktree','remove','--force',str(work))
+          need(git('diff','--name-only')==b'', 'driver checkout changed')
+          PYCODE
+      - name: Retain original rehearsal outputs, patch and source snapshot
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: rf-gate-incorporation-r9-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/rf-incorporation-r9-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
