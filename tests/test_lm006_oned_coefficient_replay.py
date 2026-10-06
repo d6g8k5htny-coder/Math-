@@ -63,9 +63,7 @@ class ReplayTests(unittest.TestCase):
             def __init__(self,*args,**kwargs):
                 kwargs['stdout'].write(b'started\\n');kwargs['stdout'].flush()
                 kwargs['stderr'].write(b'partial\\n');kwargs['stderr'].flush()
-                self.calls=0
             def wait(self,timeout=None):
-                self.calls+=1
                 raise subprocess.TimeoutExpired(['fake'],timeout)
         with mock.patch.object(self.m.subprocess,'Popen',Stuck), mock.patch.object(self.m.os,'killpg') as kill:
             with self.assertRaisesRegex(self.m.ReplayError,'timeout'):
@@ -76,7 +74,11 @@ class ReplayTests(unittest.TestCase):
         self.assertIn('did not finish',row['detail'])
         self.assertEqual((self.logs/'stuck.stdout').read_bytes(),b'started\\n')
         self.assertEqual((self.logs/'stuck.stderr').read_bytes(),b'partial\\n')
-        self.assertRegex(row['stdout_sha256'],'^[0-9a-f]{64}        self.child("print('ok')");before={p.name:p.read_bytes() for p in self.logs.iterdir()}
+        self.assertRegex(row['stdout_sha256'],r'^[0-9a-f]{64}$')
+        self.assertRegex(row['stderr_sha256'],r'^[0-9a-f]{64}$')
+
+    def test_existing_evidence_not_overwritten(self):
+        self.child("print('ok')");before={p.name:p.read_bytes() for p in self.logs.iterdir()}
         with self.assertRaisesRegex(self.m.ReplayError,'step_evidence_exists'): self.child("print('changed')")
         self.assertEqual(before,{p.name:p.read_bytes() for p in self.logs.iterdir()})
 
