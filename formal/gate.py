@@ -48,9 +48,41 @@ def strip_lean_noncode(text):
     require(block==0 and not string,'unterminated Lean comment or string')
     return ''.join(out)
 
-def scan_module_declarations(text,path):
-    clean=strip_lean_noncode(text)
-    namespaces=re.findall(r'^\\s*namespace\\s+(' + NAME + r')\\s*    require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
+def scan_module_declarations(text, path):
+    """Fail-closed grammar for primary source modules; not a general Lean parser."""
+    clean = strip_lean_noncode(text)
+    namespaces = re.findall(r'^\\s*namespace\\s+(' + NAME + r')\\s*$', clean, re.M)
+    require(namespaces == ['ResearchFormalCoreR1'],
+            'unsupported namespace structure: ' + path)
+    declarations = []
+    targets = []
+    for lineno, line in enumerate(clean.splitlines(), 1):
+        if not line.strip():
+            continue
+        match = DECL_LINE.match(line)
+        if match:
+            kind, name = match.groups()
+            full = 'ResearchFormalCoreR1.' + name
+            declarations.append(full)
+            if kind in ('theorem', 'lemma'):
+                targets.append(full)
+            continue
+        stripped = line.lstrip()
+        if line != stripped and re.match(
+                r'(?:noncomputable\\s+)?(?:def|theorem|lemma)\\b', stripped):
+            raise ValueError(
+                'indented declaration outside supported grammar: ' +
+                path + ':' + str(lineno))
+        if any(stripped.startswith(prefix) for prefix in UNSUPPORTED_COMMANDS):
+            raise ValueError(
+                'unsupported declaration-bearing command: ' +
+                path + ':' + str(lineno))
+    require(len(declarations) == len(set(declarations)),
+            'duplicate source declaration: ' + path)
+    return declarations, targets
+
+def audit_axioms(text, targets):
+    require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
     records = {}
     for match in AXIOM.finditer(text):
         name, raw = match.groups()
@@ -62,7 +94,6 @@ def scan_module_declarations(text,path):
     require(not AXIOM.sub('', text).strip(), 'unrecognized audit output')
     require(set(records) == set(targets), 'missing target axiom report')
     return records
-
 def check_files(root, files):
     require(isinstance(files, dict) and files, 'empty file manifest')
     root = root.resolve()
