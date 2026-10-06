@@ -38,7 +38,7 @@ theorem radial_positive_tonelli (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable
       apply lintegral_congr
       intro r
       by_cases hr : 0 < r <;> by_cases ht : r < t <;>
-        simp [Set.indicator, hr, ht, sub_pos, mul_ite]
+        simp [Set.indicator, hr, ht, sub_pos]
 
 /-- The three-entry convention is exactly e=(a,(b,d)). -/
 theorem entry_spectral_radial (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G) :
