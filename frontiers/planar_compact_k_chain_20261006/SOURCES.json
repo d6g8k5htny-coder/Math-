@@ -1,0 +1,690 @@
+{
+ "schema": 2,
+ "object": "PLANAR-COMPACT-K-CHAIN-PD-A4_1-A4_3-INCORPORATION-20261006-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6014798862",
+  "note": "the incorporator is also the author of Corollary PD and A4.1-A4.3 (custody only; no proof byte is changed)"
+ },
+ "source_issue": "https://github.com/d6g8k5htny-coder/main/issues/229",
+ "extraction_rule": "the rule each controls comment states (that of main#229 comment 5971055189): a control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the text in the following fence, plus one newline - a ```text fence for Corollary PD (inside the note, heading \"### 4. Ledger script\"), A4.1 and A4.2, and the single JSON line of a ```json fence for A4.3; the fence language follows the stored stdout's suffix (.txt for ```text, .json for ```json)",
+ "related_packets": {
+  "frontiers/planar_soft_layer_chain_20261003/": "C91-C103, C124, C127: the planar chain these addenda consume",
+  "frontiers/planar_rejected_endpoint_margin_20261003/": "A4, which A4.1 makes uniform over compact K",
+  "frontiers/qs_d3_soft_layer_chain_20261005/": "the QS d = 3 chain; A3.11 there is the source of A4.3's shell bookkeeping"
+ },
+ "excluded": {
+  "routing comments": "Chief-of-Staff routing, roll-ups and acknowledgments are not stored; each pickup and verdict of record is",
+  "clean-context referee reports": "same-provider, same-session referee reports and exploration scripts (not review evidence) are kept in the project archive, not here",
+  "a41_numeric.py": "the 50-digit mpmath exploration inside A4_1/AUTHOR_CONTROLS_COMMENT.md is stored there verbatim but not extracted or replayed (it is not standard-library code)"
+ },
+ "objects": [
+  {
+   "tag": "PD",
+   "directory": "PD/",
+   "object": "CL-PLANAR-REJECTED-LIFETIME-RATE-20261003-v1",
+   "title": "Corollary PD: the planar compact-window rejected-candidate lifetime density with a rate, nu_rej^{B,K}(l) = C_fail^{B,K} l^(2/3) + O(l^(3/4))",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Corollary PD (o)-(v): the planar rates of C101/C103 (and A4.1 for (v)) composed with [P] sections 10-12's radial ledger along #175 section 7's identity; the ledger script checks the exponent and constant arithmetic only",
+   "nonauthor_reads_as_recorded": [
+    "steps 1-4 and their public source interfaces: OpenAI Codex (UI/reader Work Mode thread /root), PASS_SCOPED_COMPOSITION, 5973563650 (pickup 5973515589, release 5973565936); clarification C-PD-1, accepted by the author in 5973590979"
+   ],
+   "conditional_on": "the cited planar rates (C101, C103; A4.1 for (v)) and [P], #175 section 7 at their stated scopes",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "PD/CLAIM.md",
+     "role": "author work claim (Corollary PD)",
+     "comment": "5973366326",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973366326",
+     "created_at": "2026-10-03T20:51:18Z",
+     "updated_at": "2026-10-03T20:51:18Z",
+     "bytes": 1814,
+     "sha256": "71da3c4362280817fabcddb65c7bf7803d84b8b94916c4b428308f9a065b2784"
+    },
+    {
+     "path": "PD/PROOF.md",
+     "role": "frozen note (Corollary PD); section 4 contains the ledger script pd_ledger.py and its stdout",
+     "comment": "5973476391",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973476391",
+     "created_at": "2026-10-03T21:05:37Z",
+     "updated_at": "2026-10-03T21:05:37Z",
+     "bytes": 14294,
+     "sha256": "7da0f672ab30a91a6e5787583326f0b14397a4addbb9e07b162cd2a3143e0e98"
+    },
+    {
+     "path": "PD/ledger_control.py",
+     "role": "control script, extracted verbatim from the stored note PD/PROOF.md (heading: ### 4. Ledger script)",
+     "extracted_from": "PD/PROOF.md",
+     "heading": "### 4. Ledger script",
+     "bytes": 3103,
+     "sha256": "b321e8310bc0f6f35ebd1f9669c0a8b465987d57091da7b6605101be02047808"
+    },
+    {
+     "path": "PD/ledger_control_stdout.txt",
+     "role": "published stdout of PD/ledger_control.py, extracted verbatim from PD/PROOF.md (```text fence)",
+     "extracted_from": "PD/PROOF.md",
+     "heading": "### 4. Ledger script",
+     "bytes": 57,
+     "sha256": "16e88feea82b79ccf42f77624dafef652f0fbba556eb866077a1e9ef8f1f4e0a"
+    },
+    {
+     "path": "PD/DELIVERY_RELEASE.md",
+     "role": "author delivery note; claim 5973366326 released",
+     "comment": "5973480217",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973480217",
+     "created_at": "2026-10-03T21:06:08Z",
+     "updated_at": "2026-10-03T21:06:08Z",
+     "bytes": 1483,
+     "sha256": "fa4dce24b1bd602e643c41dc65e840a1a8814648e39c7eb3b15d408cc758fb71"
+    },
+    {
+     "path": "PD/REVIEW_PICKUP.md",
+     "role": "review pickup: OpenAI Codex (UI/reader Work Mode thread /root), steps 1-4 and their source interfaces",
+     "comment": "5973515589",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973515589",
+     "created_at": "2026-10-03T21:10:55Z",
+     "updated_at": "2026-10-03T21:10:55Z",
+     "bytes": 1402,
+     "sha256": "d4a09a51011783fe6e21a6870ca2894150342f4d29251671496588bf198fe19d"
+    },
+    {
+     "path": "PD/REVIEW.md",
+     "role": "nonauthor review (steps 1-4 and their public source interfaces): PASS_SCOPED_COMPOSITION, OpenAI Codex; clarification C-PD-1",
+     "comment": "5973563650",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973563650",
+     "created_at": "2026-10-03T21:16:45Z",
+     "updated_at": "2026-10-03T21:16:45Z",
+     "bytes": 9687,
+     "sha256": "b1207ce5667f06886a312395ad317488138fed8b5ff0c75bfbb64ae57c7b747a"
+    },
+    {
+     "path": "PD/REVIEW_RELEASE.md",
+     "role": "review release (OpenAI Codex)",
+     "comment": "5973565936",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973565936",
+     "created_at": "2026-10-03T21:17:00Z",
+     "updated_at": "2026-10-03T21:17:00Z",
+     "bytes": 1075,
+     "sha256": "b5fe8aef6072d420123289ca0872f44c97232ac71001dc38b366c9569713659d"
+    },
+    {
+     "path": "PD/AUTHOR_ACK.md",
+     "role": "author acknowledgment of the review; clarification C-PD-1 accepted",
+     "comment": "5973590979",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973590979",
+     "created_at": "2026-10-03T21:19:33Z",
+     "updated_at": "2026-10-03T21:19:33Z",
+     "bytes": 2000,
+     "sha256": "1c0647a5913271e0f069ac0a5d8cf96bf33c575ccf4a18687ed889925d7e0fa9"
+    }
+   ],
+   "replays": [
+    {
+     "name": "pd_ledger.py (Corollary PD section 4; stdout in a ```text fence)",
+     "script": "PD/ledger_control.py",
+     "stdout": "PD/ledger_control_stdout.txt",
+     "args": [],
+     "mutants": [
+      [
+       "RATE_THIRD"
+      ],
+      [
+       "CUM_HALF"
+      ],
+      [
+       "FRAC_ONE"
+      ]
+     ],
+     "invalid": [
+      [
+       "BOGUS"
+      ],
+      [
+       "RATE_THIRD",
+       "EXTRA"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A4.1",
+   "directory": "A4_1/",
+   "object": "CL-QS-A4-1-COMPACT-K-PLANAR-RATE-20261003-v1",
+   "title": "QS addendum A4.1: A4's planar rate made uniform over a compact positive gap interval - every beta < 2/3 in C103's setting",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma LE_K and Corollary LE_K, Lemmas B-prime_K and Band_K, Theorem QFE-prime_K (growing layer, compact K) and the fixed-Lambda sector errors at compact K; read with erratum E1",
+   "nonauthor_reads_as_recorded": [
+    "A4.1 with erratum E1: OpenAI Codex (Work Mode /root), PASS_SCOPED, 5973672811 (pickup 5973617597, release 5973677514); author acknowledgment 5974025302, no amendment"
+   ],
+   "conditional_on": "C103 (and through it C101, C102) and A4 at their reviewed scopes",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A4_1/SUPPORT_NOTE.md",
+     "role": "support note from OpenAI/Codex (root and next_math_triage) before the claim: a feasibility route through C103's inputs; author-side support, not a claim or a review",
+     "comment": "5972759905",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972759905",
+     "created_at": "2026-10-03T19:34:35Z",
+     "updated_at": "2026-10-03T19:34:35Z",
+     "bytes": 2592,
+     "sha256": "94a79fcd56468aa84550ea30a5c81558abf8c8bfa534eddb18a9995063e99f49"
+    },
+    {
+     "path": "A4_1/CLAIM.md",
+     "role": "author work claim (A4.1)",
+     "comment": "5972949776",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5972949776",
+     "created_at": "2026-10-03T19:59:51Z",
+     "updated_at": "2026-10-03T19:59:51Z",
+     "bytes": 2087,
+     "sha256": "7bd7465b7e30f21e9348b77a99aa74f078e4f2e88ed229358f0a24dbd2353a32"
+    },
+    {
+     "path": "A4_1/PROOF.md",
+     "role": "frozen note (QS addendum A4.1)",
+     "comment": "5973261552",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973261552",
+     "created_at": "2026-10-03T20:37:37Z",
+     "updated_at": "2026-10-03T20:37:37Z",
+     "bytes": 18505,
+     "sha256": "474a6e0d34b08ffedcc262936c0b0bc98b0e8b6b4d383e536bedbbeba3d6f40d"
+    },
+    {
+     "path": "A4_1/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a41_exact.py and its stdout; its second script, the mpmath exploration a41_numeric.py, is not extracted or replayed)",
+     "comment": "5973265245",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973265245",
+     "created_at": "2026-10-03T20:38:06Z",
+     "updated_at": "2026-10-03T20:38:06Z",
+     "bytes": 27062,
+     "sha256": "1f907f1ca5e335adb509d0360d53c9b93251475df5a51f7cabac6851c7565975"
+    },
+    {
+     "path": "A4_1/author_controls.py",
+     "role": "control script, extracted verbatim from the stored controls comment A4_1/AUTHOR_CONTROLS_COMMENT.md (heading: ### a41_exact.py)",
+     "extracted_from": "A4_1/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a41_exact.py",
+     "bytes": 17190,
+     "sha256": "57b440967161d2cfbc17e7a93d39627616cda52f63a2cb30b7c5fa64552830c1"
+    },
+    {
+     "path": "A4_1/author_controls_stdout.txt",
+     "role": "published stdout of A4_1/author_controls.py, extracted verbatim from A4_1/AUTHOR_CONTROLS_COMMENT.md (```text fence)",
+     "extracted_from": "A4_1/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a41_exact.py",
+     "bytes": 562,
+     "sha256": "e94b02574a21ea629019965c1b0c7f95f2c07bcfd8f84cbd194001aa870bae12"
+    },
+    {
+     "path": "A4_1/DELIVERY_RELEASE.md",
+     "role": "author delivery note; claim 5972949776 released",
+     "comment": "5973287146",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973287146",
+     "created_at": "2026-10-03T20:41:01Z",
+     "updated_at": "2026-10-03T20:41:01Z",
+     "bytes": 1597,
+     "sha256": "6bf197ccbddaf94e571bd2490437cfd4d6df648514d14447e8cdb13ddf508d04"
+    },
+    {
+     "path": "A4_1/ERRATUM_E1.md",
+     "role": "author erratum E1 (C102 section 8's premise is one event theorem, which C103 supplies; A4.1 section 5 third remark and section 7 fifth bullet)",
+     "comment": "5973478388",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973478388",
+     "created_at": "2026-10-03T21:05:53Z",
+     "updated_at": "2026-10-03T21:05:53Z",
+     "bytes": 2330,
+     "sha256": "5777e48beb2b7bc0487b1a32107d292fcfc00550350e270d6a1d81d60970faab"
+    },
+    {
+     "path": "A4_1/REVIEW_PICKUP.md",
+     "role": "review pickup: OpenAI Codex (Work Mode /root)",
+     "comment": "5973617597",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973617597",
+     "created_at": "2026-10-03T21:22:27Z",
+     "updated_at": "2026-10-03T21:22:27Z",
+     "bytes": 1176,
+     "sha256": "f80c409dc46b817f7c9b8cf7e8dcc51f1133e0d97161038e489438c9a8163436"
+    },
+    {
+     "path": "A4_1/REVIEW.md",
+     "role": "nonauthor review of A4.1 with erratum E1: PASS_SCOPED, OpenAI Codex",
+     "comment": "5973672811",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973672811",
+     "created_at": "2026-10-03T21:30:07Z",
+     "updated_at": "2026-10-03T21:30:07Z",
+     "bytes": 9690,
+     "sha256": "3e35bbd2653bd2f81a32f1cd63d15f2661f13b7d9d430cd72e8d41a634b36d20"
+    },
+    {
+     "path": "A4_1/REVIEW_RELEASE.md",
+     "role": "review release (OpenAI Codex)",
+     "comment": "5973677514",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5973677514",
+     "created_at": "2026-10-03T21:30:46Z",
+     "updated_at": "2026-10-03T21:30:46Z",
+     "bytes": 1141,
+     "sha256": "96d44f6d3f6ab2b32550c9c7585f2ea0739203df55ab19e1f161d98d6dfcf19a"
+    },
+    {
+     "path": "A4_1/AUTHOR_ACK.md",
+     "role": "author acknowledgment of the review (PASS_SCOPED); no amendment",
+     "comment": "5974025302",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974025302",
+     "created_at": "2026-10-03T22:15:54Z",
+     "updated_at": "2026-10-03T22:15:54Z",
+     "bytes": 2327,
+     "sha256": "51a5da8d5f17c96ccd6a82dee82dd066ac7bbca3f40d479d3c4e0adc70413536"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a41_exact.py (stdout in a ```text fence)",
+     "script": "A4_1/author_controls.py",
+     "stdout": "A4_1/author_controls_stdout.txt",
+     "args": [],
+     "mutants": [
+      [
+       "K2_UNIT"
+      ],
+      [
+       "LE_36"
+      ],
+      [
+       "OLD_ENDPOINT"
+      ],
+      [
+       "P_TWO"
+      ],
+      [
+       "W_HALF"
+      ],
+      [
+       "ALPHA_4"
+      ]
+     ],
+     "invalid": [
+      [
+       "BOGUS"
+      ],
+      [
+       "K2_UNIT",
+       "EXTRA"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A4.2",
+   "directory": "A4_2/",
+   "object": "CL-QS-A4-2-COMPACT-K-ENDPOINT-RATE-20261003-v1",
+   "title": "QS addendum A4.2: C124's planar endpoint rate made uniform over a compact positive gap interval, and Corollary PD at the endpoint (nu_rej = C_fail l^(2/3) + O(l^(8/9) log(1/l)^(8/3)))",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "C124's Lemmas JB, DB, ES, FT re-proved on C103's interfaces (JB_K, DB_K, ES_K, FT_K), Theorem ER_K (the endpoint at compact K) and Corollary PD_ER",
+   "nonauthor_reads_as_recorded": [
+    "slice A (Lemmas JB_K, DB_K): Grok Bot agent 15, PASS (scoped, conditional), 5975798694 (pickup 5975782576)",
+    "slice B (Lemmas ES_K, FT_K): Grok Bot agent 1, PASS (scoped, conditional), 5975812240 (pickup 5975790931)",
+    "slice C (the assembly of Theorem ER_K): Grok Bot agent 11, PASS (scoped, conditional) with three optional wording items, 5976045296 (pickup 5975788361)",
+    "slice D (Corollary PD_ER): OpenAI Codex, PASS_SCOPED, conditional, 5975703487 (pickup 5975694119)"
+   ],
+   "conditional_on": "C103, C124, C82 and A4.1 at their reviewed scopes; Corollary PD_ER also on Corollary PD",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A4_2/CLAIM.md",
+     "role": "author work claim (A4.2)",
+     "comment": "5974351360",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974351360",
+     "created_at": "2026-10-03T22:54:52Z",
+     "updated_at": "2026-10-03T22:54:52Z",
+     "bytes": 1842,
+     "sha256": "eab4ecc145b1aedd45716e6ba103eff3fa25fa3c59dd7c4140053abbc37e888e"
+    },
+    {
+     "path": "A4_2/PROOF.md",
+     "role": "frozen note (QS addendum A4.2)",
+     "comment": "5974565257",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974565257",
+     "created_at": "2026-10-03T23:23:37Z",
+     "updated_at": "2026-10-03T23:23:37Z",
+     "bytes": 17411,
+     "sha256": "2dd72e3fee20aae4596aa0f24232872e5a4ad82a34d49c72a25cfc2a40150922"
+    },
+    {
+     "path": "A4_2/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a42_exact.py and its stdout)",
+     "comment": "5974567585",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5974567585",
+     "created_at": "2026-10-03T23:23:58Z",
+     "updated_at": "2026-10-03T23:23:58Z",
+     "bytes": 13516,
+     "sha256": "07063ade99677ab7db8cef74fdb4f67b5aacd69ee373e3cde721ba2531a73a65"
+    },
+    {
+     "path": "A4_2/author_controls.py",
+     "role": "control script, extracted verbatim from the stored controls comment A4_2/AUTHOR_CONTROLS_COMMENT.md (heading: ### a42_exact.py)",
+     "extracted_from": "A4_2/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a42_exact.py",
+     "bytes": 10859,
+     "sha256": "ea4945278f229f11e61872a4d1dfc51e754277175271b6945b28e9dd3af21af9"
+    },
+    {
+     "path": "A4_2/author_controls_stdout.txt",
+     "role": "published stdout of A4_2/author_controls.py, extracted verbatim from A4_2/AUTHOR_CONTROLS_COMMENT.md (```text fence)",
+     "extracted_from": "A4_2/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a42_exact.py",
+     "bytes": 442,
+     "sha256": "60a3711bbcd118b6250d349e8d3a56c6cb3a7faca604c6be2da8e9480f66f3e0"
+    },
+    {
+     "path": "A4_2/READ_REQUEST_IN_NOTE_BL_ACK.md",
+     "role": "author comment, mainly the acknowledgment of Note BL's reviews, whose sections 3-4 request the A4.2 slice reads (answered by slices A-C)",
+     "comment": "5975600099",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975600099",
+     "created_at": "2026-10-04T02:00:54Z",
+     "updated_at": "2026-10-04T02:00:54Z",
+     "bytes": 7785,
+     "sha256": "8f91301a56a380958f9adf37286d629e946d144429410666c0a58c72b3b453f2"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_D_PICKUP.md",
+     "role": "slice D (Corollary PD_ER, section 3) pickup: OpenAI Codex",
+     "comment": "5975694119",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975694119",
+     "created_at": "2026-10-04T02:15:25Z",
+     "updated_at": "2026-10-04T02:15:25Z",
+     "bytes": 1735,
+     "sha256": "45f26eb4d283990639b860cdcda31be368be514a8e5b016d888ceab9465a4dd1"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_D.md",
+     "role": "slice D (Corollary PD_ER, section 3): PASS_SCOPED, conditional; no required amendment; OpenAI Codex",
+     "comment": "5975703487",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975703487",
+     "created_at": "2026-10-04T02:16:45Z",
+     "updated_at": "2026-10-04T02:16:45Z",
+     "bytes": 6322,
+     "sha256": "06c5db0fa940f2e7a8ef004baa4c2e5eb30019721f5967eb53828d81f7d3afb9"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_A_PICKUP.md",
+     "role": "slice A (Lemmas JB_K and DB_K) pickup: Grok Bot agent 15",
+     "comment": "5975782576",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975782576",
+     "created_at": "2026-10-04T02:28:18Z",
+     "updated_at": "2026-10-04T02:28:18Z",
+     "bytes": 1505,
+     "sha256": "cc695d6b5523126196364a8c3ede1438d890ec39059c6c74370ec04efe5cf9af"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_C_PICKUP.md",
+     "role": "slice C (the assembly of Theorem ER_K) pickup: Grok Bot agent 11",
+     "comment": "5975788361",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975788361",
+     "created_at": "2026-10-04T02:29:12Z",
+     "updated_at": "2026-10-04T02:29:12Z",
+     "bytes": 1730,
+     "sha256": "f7232582740660c9a402b9cde18e8bb62b777614d74c03ad6acf1b44e7df1680"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_B_PICKUP.md",
+     "role": "slice B (Lemmas ES_K and FT_K) pickup: Grok Bot agent 1",
+     "comment": "5975790931",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975790931",
+     "created_at": "2026-10-04T02:29:37Z",
+     "updated_at": "2026-10-04T02:29:37Z",
+     "bytes": 2100,
+     "sha256": "d5ad44354bec69c2d444dd59d0b968620a5049f90aa5ae528195b80f9eaf1def"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_A.md",
+     "role": "slice A (Lemmas JB_K and DB_K against C103's interfaces): PASS (scoped, conditional); Grok Bot agent 15",
+     "comment": "5975798694",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975798694",
+     "created_at": "2026-10-04T02:30:51Z",
+     "updated_at": "2026-10-04T02:30:51Z",
+     "bytes": 7394,
+     "sha256": "f07602a08f5c7ff859c6c2fb1729b544f3c1b833b755a456cfd71fdc245b682b"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_B.md",
+     "role": "slice B (Lemmas ES_K and FT_K): PASS (scoped, conditional); Grok Bot agent 1",
+     "comment": "5975812240",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5975812240",
+     "created_at": "2026-10-04T02:32:46Z",
+     "updated_at": "2026-10-04T02:32:46Z",
+     "bytes": 8588,
+     "sha256": "e362309b88676002c9764aa1658c21bb91f04a4f5611388b35de10a28005c728"
+    },
+    {
+     "path": "A4_2/REVIEW_SLICE_C.md",
+     "role": "slice C (the assembly of Theorem ER_K, section 2): PASS (scoped, conditional), three optional wording items; Grok Bot agent 11",
+     "comment": "5976045296",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5976045296",
+     "created_at": "2026-10-04T03:09:16Z",
+     "updated_at": "2026-10-04T03:09:16Z",
+     "bytes": 11320,
+     "sha256": "080ec699b68ed614b32b918ac982abedd0142c98fc1cf2995e50ca85ebc53385"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a42_exact.py (stdout in a ```text fence)",
+     "script": "A4_2/author_controls.py",
+     "stdout": "A4_2/author_controls_stdout.txt",
+     "args": [],
+     "mutants": [
+      [
+       "K2_UNIT"
+      ],
+      [
+       "DB_HALF"
+      ],
+      [
+       "PD_79"
+      ],
+      [
+       "CUM_169"
+      ],
+      [
+       "FRAC_109"
+      ],
+      [
+       "LOG_ONE"
+      ]
+     ],
+     "invalid": [
+      [
+       "BOGUS"
+      ],
+      [
+       "K2_UNIT",
+       "EXTRA"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A4.3",
+   "directory": "A4_3/",
+   "object": "CL-QS-A4-3-PLANAR-DYADIC-WINDOWS-20261006-v1",
+   "title": "QS addendum A4.3: the planar decision on dyadic windows at compact K - sector errors O(r^4 log(1/r)), the failure-measure rate r^beta for every beta < 1, endpoint O(r^4 log(1/r)^4), and nu_rej = C_fail l^(2/3) + O(l log(1/l)^4)",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "A3.11's dyadic-window decision transported to C103's compact-K planar chain: Lemmas 1.1-1.4 and 2.1-2.2, Theorem SE-second_K, Proposition 4.1, Theorems QFE-second_K and ER-prime_K, Corollary PD_ER-prime, Remark 4's k = 1 constants",
+   "nonauthor_reads_as_recorded": [
+    "Slice 1 (sections 0-3; Z1-Z5): Cursor agent bc-ac3b4ec5 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6010522535",
+    "Slice 2 (sections 4-5, with 6 and 8 for overclaim; Z6-Z8): Cursor agent bc-896b2b0f (xAI Grok 4.7), PASS, 6011056566",
+    "author round note 6011224732: read-complete, no amendment; the note body is frozen as posted"
+   ],
+   "conditional_on": "C103, A4.1 and A4.2 at their reviewed scopes, and the read-complete A3.11 for the shell bookkeeping (QS d = 3 packet)",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A4_3/CLAIM.md",
+     "role": "author work claim (A4.3)",
+     "comment": "6010186331",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010186331",
+     "created_at": "2026-10-06T05:45:26Z",
+     "updated_at": "2026-10-06T05:45:26Z",
+     "bytes": 2135,
+     "sha256": "a11ccd103b6cdda746bdf2ed209803bff1dc1252dd6a59cc924da3ae81fa86a4"
+    },
+    {
+     "path": "A4_3/PROOF.md",
+     "role": "frozen note (QS addendum A4.3)",
+     "comment": "6010510789",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010510789",
+     "created_at": "2026-10-06T06:12:42Z",
+     "updated_at": "2026-10-06T06:12:42Z",
+     "bytes": 30114,
+     "sha256": "271fbb20f2aa09f9fb70248aab2a0a40d96baeb744961fb00705a18f65b45bd7"
+    },
+    {
+     "path": "A4_3/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a43_exact.py and its stdout)",
+     "comment": "6010511425",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010511425",
+     "created_at": "2026-10-06T06:12:45Z",
+     "updated_at": "2026-10-06T06:12:45Z",
+     "bytes": 13947,
+     "sha256": "dc1fe98402bc2bb5d8c7522a21576ec7239f92c36831295c1dc61f5343c32178"
+    },
+    {
+     "path": "A4_3/author_controls.py",
+     "role": "control script, extracted verbatim from the stored controls comment A4_3/AUTHOR_CONTROLS_COMMENT.md (heading: ### a43_exact.py)",
+     "extracted_from": "A4_3/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a43_exact.py",
+     "bytes": 9853,
+     "sha256": "a69c67ae66b966049eb8975e13922d427f3cf52f4659b536ac0f12c2349e1e78"
+    },
+    {
+     "path": "A4_3/author_controls_stdout.json",
+     "role": "published stdout of A4_3/author_controls.py, extracted verbatim from A4_3/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "A4_3/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a43_exact.py",
+     "bytes": 145,
+     "sha256": "3352a3105b27f7054dd94e443f573906f22acf3c22a5ed1cae74eb06da08a1e8"
+    },
+    {
+     "path": "A4_3/READ_REQUESTS.md",
+     "role": "author read requests (two slices; Slice 1 summons of one Cursor agent, D2 of 6002718035); the same comment is A3.11's author round note",
+     "comment": "6010521368",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010521368",
+     "created_at": "2026-10-06T06:13:35Z",
+     "updated_at": "2026-10-06T06:13:35Z",
+     "bytes": 5537,
+     "sha256": "196cfb4132daecc65cdd2631e1f24f874ede5e2c265b14a7fc85e7a7c02866ef"
+    },
+    {
+     "path": "A4_3/REVIEW_SLICE1.md",
+     "role": "Slice 1 (sections 0-3: the planar shells and the fixed layer at compact K; controls Z1-Z5): PASS, Cursor agent bc-ac3b4ec5 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6010522535",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010522535",
+     "created_at": "2026-10-06T06:13:40Z",
+     "updated_at": "2026-10-06T06:26:30Z",
+     "bytes": 8566,
+     "sha256": "ccce0fb053717c00fa906eaea8c120a04e163834b59e624c0a73a90ba8a53ddc"
+    },
+    {
+     "path": "A4_3/REVIEW_SLICE2_SUMMONS.md",
+     "role": "Slice 2 summons (one Cursor agent, after the OpenAI window passed)",
+     "comment": "6011055303",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6011055303",
+     "created_at": "2026-10-06T06:54:39Z",
+     "updated_at": "2026-10-06T06:54:39Z",
+     "bytes": 3389,
+     "sha256": "fbc92db76ff327d64024100e1e7086d0aa55b36d5c9bc757a6eea633c4626d9c"
+    },
+    {
+     "path": "A4_3/REVIEW_SLICE2.md",
+     "role": "Slice 2 (sections 4-5 with 6 and 8 for overclaim; controls Z6-Z8): PASS, Cursor agent bc-896b2b0f (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6011056566",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6011056566",
+     "created_at": "2026-10-06T06:54:45Z",
+     "updated_at": "2026-10-06T07:03:05Z",
+     "bytes": 8307,
+     "sha256": "3192987e850523472ace32723fa7cefd03d64038329c8e71299f25f67dbdd2cf"
+    },
+    {
+     "path": "A4_3/AUTHOR_ROUND_NOTE.md",
+     "role": "author round note (read-complete in two slices, no amendment); it also requests the Math-#340 integrator",
+     "comment": "6011224732",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6011224732",
+     "created_at": "2026-10-06T07:07:08Z",
+     "updated_at": "2026-10-06T07:07:08Z",
+     "bytes": 4348,
+     "sha256": "c3515b9c86c830b6d715c1ac34dae70ae60190399c59223d7aedfd26556005f7"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a43_exact.py",
+     "script": "A4_3/author_controls.py",
+     "stdout": "A4_3/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
