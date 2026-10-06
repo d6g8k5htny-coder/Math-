@@ -133,11 +133,17 @@ def check_audit(log: Path) -> None:
     text = log.read_text()
     found: dict[str, list[str]] = {}
     pat = r"'?CapI4\.(\w+)'?\s+(?:depends on axioms:\s*\[([^\]]*)\]|does not depend on any axioms)"
+    cursor = 0
     for match in re.finditer(pat, text, flags=re.S):
+        if text[cursor:match.start()].strip():
+            raise ValueError('unconsumed axiom audit output')
+        cursor = match.end()
         name = match.group(1)
         if name in found:
             raise ValueError(f'duplicate audit declaration: {name}')
         found[name] = [s.strip() for s in (match.group(2) or '').split(',') if s.strip()]
+    if text[cursor:].strip():
+        raise ValueError('unconsumed axiom audit output')
     if set(found) != set(TARGETS):
         raise ValueError(f'audit inventory mismatch: {sorted(set(TARGETS)-set(found))}')
     for name, axioms in found.items():
@@ -221,11 +227,62 @@ class EvidenceControls(unittest.TestCase):
         check_types(text)
         with self.assertRaises(ValueError):
             check_types(text.replace('u_2} :', 'u_2 :', 1))
+    def test_axiom_noise_is_rejected(self) -> None:
+        text = '\n'.join(f"'CapI4.{n}' depends on axioms: [propext]" for n in TARGETS)
+        with tempfile.TemporaryDirectory() as td:
+            log = Path(td)/'audit.log'
+            for noise in ['error: unknown module\n',
+                          "'Other.bad' depends on axioms: [sorryAx]\n", 'garbage\n']:
+                for candidate in [noise+text, text+'\n'+noise]:
+                    log.write_text(candidate)
+                    with self.subTest(noise=noise), self.assertRaises(ValueError):
+                        check_audit(log)
+    def test_axiom_interstitial_output_is_rejected(self) -> None:
+        text = '\n'.join(f"'CapI4.{n}' depends on axioms: [propext]" for n in TARGETS)
+        with tempfile.TemporaryDirectory() as td:
+            log = Path(td)/'audit.log'
+            log.write_text(text.replace('\n', '\nerror: unexpected\n', 1))
+            with self.assertRaises(ValueError):
+                check_audit(log)
     def test_type_universes_and_missing_or_duplicate(self) -> None:
         text = '\n'.join(f'@CapI4.{n}.{{u_1, u_2}} : Prop' for n in TARGETS)
         check_types(text)
         for bad in [text.split('\n', 1)[1], text+'\n'+text.split('\n')[0], '']:
             with self.assertRaises(ValueError): check_types(bad)
+
+class ShellBindingTests(unittest.TestCase):
+    def epilogue(self, changed):
+        with tempfile.TemporaryDirectory() as td:
+            r=Path(td); out=r/'out'; out.mkdir(); side=r/'side'; side.mkdir()
+            before={'source_gate':'PASS','head':'1'*40,'scientific_effect':'NONE'}
+            after=dict(before)
+            if changed: after['head']='2'*40
+            (out/'source.json').write_text(json.dumps(before)+'\n')
+            (side/'gate.py').write_text('print('+repr(json.dumps(after))+')\n')
+            (out/'run.log').write_text('synthetic protocol fixture\n')
+            (out/'Test.lean').write_text('-- fixture, not a Lean replay\n')
+            (out/'execution-context.txt').write_text('synthetic=1\n')
+            tail=(HERE/'replay.sh').read_text().split('INNER\ncd "$ROOT"\n',1)[1]
+            text=f'set -euo pipefail\nROOT="{r}"\nSIDE="{side}"\nOUT="{out}"\n'+tail
+            return subprocess.run(['bash','-c',text],text=True,capture_output=True)
+    def test_unchanged_execution_record_is_accepted(self):
+        p=self.epilogue(False); self.assertEqual(p.returncode,0,p.stderr)
+    def test_changed_execution_record_is_rejected(self):
+        p=self.epilogue(True); self.assertNotEqual(p.returncode,0)
+        self.assertNotIn('PASS: Cap I4',p.stdout)
+    def test_old_output_is_preserved_but_not_reused(self):
+        with tempfile.TemporaryDirectory() as td:
+            r=Path(td); out=r/'.lake/cap-i4-evidence'; out.mkdir(parents=True)
+            (out/'old-axioms.log').write_text('stale result\n')
+            preface=(HERE/'replay.sh').read_text().split('OUT="$ROOT/.lake/cap-i4-evidence"',1)[1].split('cd "$ROOT"',1)[0]
+            script=f'set -euo pipefail\nROOT="{r}"\nOUT="$ROOT/.lake/cap-i4-evidence"\n'+preface
+            p=subprocess.run(['bash','-c',script],text=True,capture_output=True)
+            self.assertEqual(p.returncode,0,p.stderr)
+            self.assertFalse((out/'old-axioms.log').exists(),'stale evidence retained in active output')
+            kept=list((r/'.lake').glob('cap-i4-evidence.previous.*/retained/old-axioms.log'))
+            self.assertEqual(len(kept),1,'old evidence must not be deleted')
+            self.assertEqual(kept[0].read_text(),'stale result\n')
+
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
@@ -237,7 +294,7 @@ if __name__ == '__main__':
     if args.mode == 'source': source_check()
     elif args.mode == 'self-test':
         suite = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(c)
-                                   for c in [Controls, EvidenceControls])
+                                   for c in [Controls, EvidenceControls, ShellBindingTests])
         raise SystemExit(not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful())
     elif args.mode == 'emit':
         if args.path is None: ap.error('emit requires output directory')
