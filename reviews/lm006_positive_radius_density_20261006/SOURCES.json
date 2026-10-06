@@ -1,0 +1,58 @@
+{
+  "object": "LM006-POSITIVE-RADIUS-DENSITY-20261006",
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "session": "lm006-density-premise-followthrough-20261006",
+  "scientific_effect": "NONE",
+  "independent_review": false,
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 12435,
+      "sha256": "2df0973dfc4f1682fafe69a044c515a6a9173dc835f55f57c769f7be00edbf91",
+      "git_blob": "a6d5209a64d37b3ea28cb7dd64d92888a74acfe1"
+    },
+    {
+      "path": "joint_rank.py",
+      "bytes": 5194,
+      "sha256": "db369ae188643b99821469ef4a41554aabc5b07b1713f136ed40eac0da1a92bc",
+      "git_blob": "512d23ba8b9ce8dcc79ea889e3ec5756d50da711"
+    },
+    {
+      "path": "test_joint_rank.py",
+      "bytes": 2766,
+      "sha256": "b8e7d657dfa6d6c880e959c85eaab7562b2d54cad23891099a8c8e97b5e7a5d5",
+      "git_blob": "c35267cd9dc0653f7c04203abecd4ad26b462316"
+    }
+  ],
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "sources": [
+    {
+      "tag": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "scope": "Sections 1-4 and physical Hessian definitions in Section 5"
+    },
+    {
+      "tag": "E",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "scope": "Sections 1 and 3-5"
+    },
+    {
+      "tag": "N",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "scope": "Sections 1-2 and 5"
+    },
+    {
+      "tag": "T",
+      "path": "reviews/lm006_tilted_endpoint_law_20261005/NOTE.md",
+      "commit": "ecafa5206c528b0c662ea0bcbb26938681251aa5",
+      "git_blob": "6633cdf0bfee55e2fc2046176effbf44634454b3",
+      "scope": "Sections 1, 3 and 5; explicit density premise only"
+    }
+  ]
+}
