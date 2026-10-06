@@ -589,18 +589,30 @@ def check_admission(text, label, injected, expected, targets, modules, allow_loc
     once, and be rejected with exactly the expected findings.
 
     `injected` is (kind, origin, user-facing name, is_private, module or None); `expected` is a
-    set of (code, user-facing name, is_private). A protocol error, a missing injection, a pass,
-    or any other set of findings fails the experiment instead of counting as a rejection.
+    set of (code, user-facing name, is_private). The user-facing name only locates the injected
+    constant. Findings are then compared by FULL decoded name and multiplicity: an expected
+    entry naming the injection stands for that exact constant, every other expected entry must
+    be a public name, and any further finding (an unrelated private constant with the same short
+    name in another module, say) fails the experiment (RF312-CONTROL-PRIVATE-IDENTITY-006). A
+    protocol error, a missing injection or a pass also fails instead of counting as a rejection.
     """
     inventory = parse_inventory(text)
     kind, origin, name, private, module = injected
     hits = [c for c in inventory['constants'] if c[0] == kind and c[1] == origin and user_name(c[3]) == (name, private) and (module is None or c[2] == module)]
     require(len(hits) == 1, 'admission control did not inject exactly one ' + kind + ' ' + render(name) + ': ' + label)
+    full = hits[0][3]
+    wanted = []
+    for code, short, is_private in expected:
+        if (short, is_private) == (name, private):
+            wanted.append((code, encode(full)))
+        else:
+            require(not is_private, 'expected private finding other than the injection is not identifiable: ' + label)
+            wanted.append((code, encode(short)))
     found = inventory_violations(inventory, targets, modules, allow_local, bound=bound)
-    got = {(code,) + user_name(n) for code, n, note in found}
-    require(got == expected, 'admission control rejected for an unexpected reason: ' + label + ' expected=' +
-            repr(sorted((c, render(n), p) for c, n, p in expected)) + ' got=' + repr(sorted((c, render(n), p) for c, n, p in got)))
-    return dict(outcome='REJECTED_FOR_EXPECTED_REASON', injected=render(hits[0][3]),
+    got = [(code, encode(n)) for code, n, note in found]
+    require(sorted(got) == sorted(wanted), 'admission control rejected for an unexpected reason: ' + label + ' expected=' +
+            repr(sorted(code + ' ' + render(decode(e)) for code, e in wanted)) + ' got=' + repr(sorted(code + ' ' + render(decode(e)) for code, e in got)))
+    return dict(outcome='REJECTED_FOR_EXPECTED_REASON', injected=render(full),
                 violations=[code + ' ' + render(n) for code, n, note in found])
 
 COMPILED_INJECTIONS = (

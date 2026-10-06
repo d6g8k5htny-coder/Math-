@@ -125,8 +125,10 @@ Finding RF-GATE-01 (main#229).
    | `outside_namespace` | column-0 `theorem outsideNamespaceAdmission` outside the namespace | `extra_theorem outsideNamespaceAdmission` |
 
    For each, the transcript must parse, the injected constant must appear exactly once with
-   the expected kind, provenance, privacy and module, and the set of findings must equal the
-   required set. A protocol error, a pass, a missing injection or any other set of findings
+   the expected kind, provenance, privacy and module, and the findings must equal the
+   required ones by FULL decoded name and multiplicity: the short user-facing name only
+   locates the injection, so an unrelated private constant with the same short name in
+   another module is an extra finding and fails the control. A protocol error, a pass, a missing injection or any other set of findings
    fails the run; there is no "any `ValueError` counts" path.
 
 4. **Compiled-package admission experiments (`compiled_admission`).** The controls above
@@ -167,7 +169,10 @@ RF312-SUCCESSOR-COMMAND-004, wrapped and term-level elaborators passed the line-
 pre-check, and a theorem added by `Lean.addDecl` was then admitted as a range-less
 auxiliary under a real parent (confirmed compiled in 6009707611); and
 RF312-COMPILED-RECHECK-005, the modified package copy was not rechecked by `leanchecker` or
-the axiom audit.
+the axiom audit. The audit of `96606a6d` (6014639706) found RF312-CONTROL-PRIVATE-IDENTITY-006:
+`check_admission` compared findings after shortening private names, so a second private
+`compiledAdmission` in another module collapsed into the expected finding. Findings are now
+compared by full name and multiplicity.
 
 ## What the receipt gains
 

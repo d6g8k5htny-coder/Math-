@@ -535,6 +535,28 @@ class AdmissionCheckTests(unittest.TestCase):
                        expected={('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', (P, 'otherName'), False)})
         self.assertIn('did not inject', str(cm.exception))
 
+    def test_same_short_private_name_elsewhere_fails_the_experiment(self):
+        # RF312-CONTROL-PRIVATE-IDENTITY-006 (#312, 6014639706): an unrelated private theorem with
+        # the same short name in another module must not collapse into the expected finding.
+        injected = ('theorem', 'user', (P, 'compiledAdmission'), True, name(ALPHA))
+        expected = {('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', (P, 'compiledAdmission'), True)}
+        mine = ('_private',) + name(ALPHA) + (0, P, 'compiledAdmission')
+        other = ('_private',) + name(BETA) + (0, P, 'compiledAdmission')
+        alone = plus(inv('theorem', 'user', ALPHA, mine), axioms=STD + ('sorryAx',), alpha=6)
+        result = gate.check_admission(alone, 'compiled_admission', injected, expected, TARGETS, MODULES, False, BOUND)
+        self.assertEqual(result['injected'], gate.render(mine))
+        both = plus(inv('theorem', 'user', ALPHA, mine), inv('theorem', 'user', BETA, other), axioms=STD + ('sorryAx',), alpha=6, beta=5)
+        with self.assertRaises(ValueError) as cm:
+            gate.check_admission(both, 'compiled_admission', injected, expected, TARGETS, MODULES, False, BOUND)
+        self.assertIn('unexpected reason', str(cm.exception))
+        self.assertIn(gate.render(other), str(cm.exception))
+
+    def test_unidentifiable_private_expectation_refused(self):
+        injected = ('theorem', 'user', (P, 'hiddenAdmission'), True, LOCAL)
+        expected = {('extra_theorem', (P, 'hiddenAdmission'), True), ('extra_theorem', (P, 'otherPrivate'), True)}
+        with self.assertRaises(ValueError):
+            gate.check_admission(plus(inv('theorem', 'user', LOCAL, self.PRIVATE)), 'x', injected, expected, TARGETS, MODULES, True, BOUND)
+
     def test_injection_in_wrong_module_fails_the_experiment(self):
         with self.assertRaises(ValueError):
             self.check(plus(inv('theorem', 'user', ALPHA, self.PRIVATE), axioms=STD + ('sorryAx',), alpha=6))
