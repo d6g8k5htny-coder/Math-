@@ -1,0 +1,54 @@
+name: Soft fold protocol observation ONLY
+'on':
+  pull_request:
+    paths:
+      - '.github/workflows/soft-fold-protocol-observe.yml'
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11.16'
+      - name: Authenticate original preflight and observe unchanged native CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S - <<'PY'
+          import hashlib, json, pathlib, subprocess, sys, textwrap
+          workflow = pathlib.Path('.github/workflows/soft-fold-limit.yml').read_bytes()
+          blob = hashlib.sha1(b'blob %d\0' % len(workflow) + workflow).hexdigest()
+          if blob != '839b99a47a4b9d0a79525216118717b22bad4614':
+              raise ValueError('original workflow identity mismatch')
+          text = workflow.decode('utf-8')
+          start = text.index('          import base64, hashlib, json, os, pathlib, subprocess, sys, urllib.parse, urllib.request\n')
+          end = text.index("          script = str(root / 'fold_check.py')\n", start)
+          exec(compile(textwrap.dedent(text[start:end]), '<authenticated-original-preflight>', 'exec'))
+          checker = root / 'fold_check.py'
+          data = checker.read_bytes()
+          if hashlib.sha1(b'blob %d\0' % len(data) + data).hexdigest() != 'c2e1e77e9f16bc7c62fbb855b55dc2f72e5a8cc2':
+              raise ValueError('original checker identity mismatch')
+          expected = (root / 'RESULTS.json').read_bytes()
+          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
+              for label in ('baseline', *manifest['mutants'], 'M99'):
+                  args = [] if label == 'baseline' else ['--mutant', label]
+                  process = subprocess.run([sys.executable, *flags, str(checker), *args], capture_output=True, timeout=600)
+                  print(json.dumps({'observation_only': True, 'intended_rejection_verified': False,
+                                    'flags': flags, 'stage': label, 'returncode': process.returncode,
+                                    'stdout_bytes': len(process.stdout), 'stdout_sha256': hashlib.sha256(process.stdout).hexdigest(),
+                                    'stderr_hex': process.stderr.hex(), 'stderr_sha256': hashlib.sha256(process.stderr).hexdigest()}, sort_keys=True), flush=True)
+                  if label == 'baseline' and (process.returncode != 0 or process.stdout != expected):
+                      raise ValueError('original baseline failed')
+          subprocess.run(['git', 'diff', '--exit-code'], check=True)
+          print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False, 'observation_only': True}))
+          PY
