@@ -43,8 +43,12 @@ retained. Eight finite/source tests per mode include 864 rational determinant
 comparisons and counterexamples to omitting radius/derivative/mark hypotheses.
 Those tests are not continuum, Gaussian or kernel evidence.
 
-The first child is intentionally imports-only to observe the unsatisfied exact
-contract before proof implementation. An actual complete successful hosted
-successor is required; no kernel success is presumed from this README or local
-source tests. The separate nonauthor alignment of this child and unreturned
-parent alignment requests are not transferred or declared completed by CI.
+The first child was imports-only. Actual run37463555390 compiled all seven
+parents and the stub, then the exact Contract failed with nine unknown-name
+diagnostics: four occurrences of depthKernel and the five missing theorem names.
+There were no other compiler diagnostics. Original artifact11413193585 is retained.
+Implementation follows that observed failure and preserves Contract.lean exactly.
+An actual complete successful hosted successor is still required before any
+kernel-success claim; later execution outcomes belong in the exact-head work
+record. Separate nonauthor alignment of this child and unreturned parent
+alignment requests are not transferred or declared completed by CI.
