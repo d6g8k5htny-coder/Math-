@@ -31,8 +31,9 @@ theorem gap_integral_exact (a b T : ℝ) :
   rw [hp, intervalIntegral.integral_sub ((hT2.add hTb).sub h3) hb2,
     intervalIntegral.integral_sub (hT2.add hTb) h3,
     intervalIntegral.integral_add hT2 hTb]
-  simp only [intervalIntegral.integral_const_mul, _root_.integral_pow, _root_.integral_id]
-  norm_num <;> ring
+  simp only [intervalIntegral.integral_const_mul, _root_.integral_pow]
+  rw [intervalIntegral.integral_const_mul, _root_.integral_id]
+  ring
 
 /-- Nonnegativity uses a <= T, and does not hold on an arbitrarily enlarged interval. -/
 theorem clipped_integral_nonneg (T L b : ℝ) (hT : 0 ≤ T) (hL : 0 ≤ L) (hb : 0 ≤ b) :
