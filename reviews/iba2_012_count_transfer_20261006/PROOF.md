@@ -1,276 +1,193 @@
-# IBA2-012: count-weighted transfer on shrinking multi-soft sectors
+# IBA2-012: count-weighted transfer for finite-radius multi-soft sectors
 
 Object: IBA2-012-COUNT-TRANSFER-20261006-v1.
-Dylan Roy — delegated AI mathematical work. Actual author OpenAI / GPT-6 Astra Pro,
-continuation `iba2-count-weight-transfer-r6-20261006`, under main#259/6007422896
-and resumption6007796915. The author also authored the finite-radius precursor.
-Source-exposed; organizational-independence credit0; scientific effect NONE.
-**Author-side conditional proof candidate. Nonauthor analytic review required.**
-No existing proof, scientific register, acceptance record or formal manifest changes.
+Author: OpenAI / GPT-6 Astra Pro, session `iba2-count-weight-transfer-r6-20261006`, Dylan Roy — delegated AI work.
+Disposition: AUTHOR-SIDE MATHEMATICAL CANDIDATE; nonauthor source review required.
+Scientific effect NONE. No prior proof, review, status, catalog, formal manifest or prize changes.
+The author wrote the FR precursor and is exposed to prior reviews; organizational-independence credit0.
 
-## 1. Exact source cut and the gap being addressed
+## 1. The precise gap addressed
 
-Repository `d6g8k5htny-coder/Math-`, source cut
-`99ba2dfe33ef0052694510355b0c4d811fd66441`.
+The landed finite-radius packet FR, Math-#306, §5 explicitly says that inserting a factor N_R^j needs a separate count-moment argument. Its §8 proves an unequal-soft-threshold occurrence estimate, not a count-weighted estimate. This note supplies that missing transfer, conditional on the sharp C6 fixed-order count moments and the matching first moment. It does not re-prove P §7, FR's eigenvalue integration, or C6's witness/collision proof.
 
-| Tag | Path | Full Git blob | Consumed slice |
+The result preserves the rare r^3 scale, proves negligibility for every fixed polynomial count weight on these sectors, and explains why loss-free preservation of the full soft exponent does NOT follow from these inputs. The last assertion is an abstract countermodel to an inference, not a Gaussian-field counterexample.
+
+## 2. Exact source bindings and interface alignment
+
+Repository `d6g8k5htny-coder/Math-`; source cut `2f8b6f372be383d752e9dd30d38234faa977243c`.
+
+| Tag | Path | Full Git blob | Consumed interface |
 |---|---|---|---|
-| FR | `reviews/iba2_012_finite_radius_20261005/PROOF.md` | `5ed684c9bb446efc9bef5f3980717c6dc039abfd` | Sections3–5 and8: same-law finite-radius derivative-weighted nonempty-sector bounds, especially FR-mixed |
-| CP | `frontiers/c6_palm_route_20260929/PROOF.md` | `89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5` | Sections1.1–1.3: law/count, Theorem Q(1.1), all inherited scope/dependency qualifications |
-| ERR | `reviews/d5_dimension_lift_erratum_20261005/ERRATUM.md` | `23df87bbe4ffd3b2d786cd695fb9f5448cfa1d05` | Entire additive correction, including CP section6.2 R3a's repeated citation |
+| FR | `reviews/iba2_012_finite_radius_20261005/PROOF.md` | `5ed684c9bb446efc9bef5f3980717c6dc039abfd` | §§3,5,8: finite-r event bound with every fixed derivative-norm power and mixed thresholds |
+| C6 | `frontiers/c6_palm_route_20260929/PROOF.md` | `89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5` | §1.1 same tilted law and all-index torus window count; §1.2 Theorem Q; Corollary Theta only for optional normalized consequences |
+| DL | `frontiers/d5_dimension_lift_20260929/PROOF.md` | `9d82c707fdb17d3072a8930f26dabedf59e456fc` | §1.2 Theorem G_d (1.7), summed over d+1 indices |
+| DE | `reviews/d5_dimension_lift_erratum_20261005/ERRATUM.md` | `23df87bbe4ffd3b2d786cd695fb9f5448cfa1d05` | Original DL and C6 are read with the additive Lipschitz-factor/citation correction; their consumed final estimates are unchanged |
+| P | `imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md` | `dfed3b8d318a3ab1950957f393307733a4bef3f2` | Same field/pins/full normalizer; §5 (5.5) only for the optional unnormalized numerator statement |
+| SC | `frontiers/spectral_cluster_closure_20260929/PROOF.md` | `16c56821b52fd76b0be791622b9c3809eafde75a` | FR's deterministic-exclusion ancestry; no new quantitative premise or re-review here |
 
-FR section5 explicitly says that inserting N_R^j needs a separate count-moment
-argument. This note supplies that argument. It neither re-proves P section7 nor
-reclaims the existing limiting multi-soft measure. FR was integrated by #306 with
-scoped nonauthor review6005379068; its original author-side source header remains
-historical. CP is imported at Theorem Q's stated scope, not promoted by its merge,
-and ERR is read with the unchanged original. No mistaken intermediate Lipschitz
-display or doubled normalizer is imported. A defect in an imported interface
-invalidates the corresponding application here. No fresh full audit of CP's
-ancestors is claimed.
+FR's scoped nonauthor review is Math-#306/6005379068; its landing is f4c33a98a982d50aa490e49ce9327c755682527c. C6 and DL retain the source-exposed review/ancestor limitations recorded in their own introductions and §2. This note neither creates another vote for those ancestors nor erases inherited obligations. Every conclusion here is conditional on the quoted interfaces at these exact bytes. A defect in an imported estimate blocks the corresponding inference.
 
-The argument needs only one fixed factorial moment order for each chosen bound.
-It does not infer a global first moment from higher factorial moments, assume
-count/curvature independence, or assert conditional derivative moments under an
-additional witness law. The localization below handles the missing first moment.
+Fix d>=3, L>0, a compact birth interval, a gap-mark interval [k_-,k_+] with k_->0, all orthonormal frames, and a fixed observation radius R>=1. Use the variance-one normalized periodized Gaussian field, pins M=-(r/2)u and S=(r/2)u, heights b and b-kr^3, and zero endpoint gradients. In all sources,
 
-## 2. Setting, notation and claimed result
+    Q_r = original Gaussian pin law,
+    W_r = F_d(H_M) F_(d-1)(H_S),
+    Z_r = E_Q[W_r],   P_r = Q_r^W = (W_r/Z_r) Q_r.
 
-Keep FR's fixed dimension d>=3, torus side L>0, observation radius R>=1, compact
-birth interval and compact gap marks 0<k_-<=k<=k_+. Frames range over the compact
-orthogonal group. Reduce the common positive radius cutoff so FR and the chosen
-instance of CP hold and r<=1. Constants may depend on these fixed data and the
-chosen moment orders, but not on r, frames, marks within their sets or thresholds.
+There is ONE tilted law and ONE full normalizer, not a separately normalized soft-sector law. Restrict r to the minimum of the finitely many source cutoffs needed for a chosen moment order. Constants may depend on that order, d,L,R and the fixed mark compacts.
 
-Write P_r=Q_r^W, using the exact same Gaussian pin law, typed maximum/saddle weight
-and full normalizer as FR and CP. P_r is a probability measure, not source P.
-Let N be CP's torus-wide count of all-index critical points between the pin heights,
-excluding pins. Let N_R be FR's count in the Rr-ball. Then 0<=N_R<=N pathwise.
-Let K>=1 be FR's C4 derivative control; CP's unrelated use of K for a C6 norm
-introduces no new assumption about this K.
+Let N be C6's all-index count on the whole torus, pins removed, with heights strictly in (b-kr^3,b). Let N_R be FR's count in the physical ball of radius Rr. Thus 0<=N_R<=N pathwise. Write K>=1 for FR's fixed multiple of 1+||f||_(C^4). C6 also uses the letter K for a C^6 control; that variable is NOT identified with ours and is not inserted into its moment theorem.
 
-Fix 1<=q<=d-2 and ordered deterministic thresholds
-0<=eta_2<=...<=eta_(q+1)<=1. With FR's ordered midpoint eigenvalues h_j, define
+Put m=d-1. For 1<=q<=m-1, choose deterministic 0<=eta_2<=...<=eta_(q+1)<=1/2, and take r<=1/2. Let h_j be the ordered eigenvalues of the negative midpoint transverse Hessian, exactly as in FR. They need not be positive at finite r. Define
 
-    S = {h_j<=eta_j for 2<=j<=q+1},
-    E = {N_R>0} intersect S,
-    Xi = product_{j=2}^{q+1}(eta_j+r)^(j+2),
-    beta_q = sum_{j=2}^{q+1}(j+2) = q(q+7)/2.
+    E_r = {N_R>0, h_j<=eta_j for 2<=j<=q+1},
+    Pi_r = product_(j=2)^(q+1) (eta_j+r)^(j+2),
+    beta_q = sum_(j=2)^(q+1)(j+2) = q(q+7)/2.
 
-The h_j need not be positive at finite r. Remaining eigenvalues have no hard
-lower bound; the all-soft transverse case is allowed. FR gives, for every fixed t>=0,
+Here 0<Pi_r<=1. Extra eigenvalues have no unstated lower bound. The all-soft case q=m-1 is allowed. The local-occurrence condition N_R>0 is essential: nothing here controls {N>0,h_j<=eta_j} when no local witness occurs.
 
-    E_{P_r}[K^t 1_E] <= A_t r^3 Xi.                     (F)
+FR supplies, for every fixed t>=0,
 
-CP gives, for every fixed integer m>=2,
+    E_(P_r)[K^t ; E_r] <= A_t r^3 Pi_r.                    (F)
 
-    E_{P_r}[(N)_m] <= B_m r^3.                         (C)
+DL and C6 supply
 
-Here (n)_m=n(n-1)...(n-m+1), with value0 for integers 0<=n<m.
-These are the only quantitative inputs.
+    E_(P_r)[N] <= B_1 r^3,
+    E_(P_r)[(N)_j] <= B_j r^3 for every fixed integer j>=2. (C)
 
-**Theorem CT.** Fix real a>=0, p>0 and an integer m>=2 with m>p. Then
+## 3. The count-weighted transfer theorem
 
-    E_{P_r}[K^a N^p 1_E] <= C_{a,p,m} r^3 Xi^(1-p/m).  (CT)
+**Theorem CT.** Fix a>=0, s>0, and an integer p>s. Put theta=1-s/p in (0,1). Under the exact interfaces above,
 
-Consequently
+    E_(P_r)[K^a N^s ; E_r] <= C_(a,s,p) r^3 Pi_r^theta.    (CT)
 
-    E_{P_r}[K^a N_R^p 1_S] <= C_{a,p,m} r^3 Xi^(1-p/m). (CT-local)
+The same upper bound holds with N_R^s or (N_R)_j, s=j, in place of N^s. In particular, for every fixed delta in (0,1), choosing one fixed integer p>=s/delta and p>s gives
 
-For p=0 use (F) directly, with E retained. There is no convention turning
-N_R^0 1_S into a nonempty-sector event. The theorem does not bound N^p 1_S
-when all witnesses are remote and N_R=0.
+    E_(P_r)[K^a N^s ; E_r] <= C_(a,s,delta) r^3 Pi_r^(1-delta). (CT-delta)
 
-## 3. Proof
+No constant is asserted uniform in p, delta->0, R->infinity, k->0, L or d.
 
-### 3.1 A localized ordinary moment, without a global first-moment premise
+*Proof.* The Stirling identity for nonnegative integers is
 
-For every nonnegative integer n and integer m>=2,
+    N^p = sum_(j=1)^p S(p,j) (N)_j,
 
-    n^m <= m^m [1+(n)_m].                              (3.1)
+with nonnegative Stirling numbers S(p,j). It has no constant term. Applying (C), including the first-moment term j=1, gives
 
-If n<m the constant suffices. If n>=m, each factor n-i, 0<=i<m, is at least n/m,
-since n-m+1>=n/m. Therefore (n)_m>=(n/m)^m. Multiplying by 1_E and using (C)
-and (F) at t=0 gives
+    E[N^p] <= M_p r^3,   M_p=sum_(j=1)^p S(p,j) B_j.       (1)
 
-    E[N^m 1_E] <= m^m[P_r(E)+E[(N)_m]]
-               <= m^m(A_0 Xi+B_m)r^3 <= D_m r^3,       (3.2)
+This also shows N<infinity almost surely. Merely knowing E[N^p]=O(1) would be insufficient to preserve the r^3 scale in the next step.
 
-because Xi<=2^beta_q. Finiteness is licensed by the count interface; alternatively
-(C) excludes an infinite count, and truncation proves the same displayed bounds.
-The +1 in (3.1) and the event localization are essential: N=1 has all factorial
-moments of order>=2 equal to0. We do not replace (3.2) by an unproved global
-E N^m=O(r^3).
+Apply Holder under the SAME probability law P_r, with conjugate exponents 1/theta and p/s:
 
-### 3.2 Holder on the same probability measure
+    E[K^a N^s 1_E]
+      <= (E[K^(a/theta) 1_E])^theta (E[N^p])^(s/p)
+      <= A_(a/theta)^theta M_p^(s/p)
+           (r^3 Pi_r)^theta (r^3)^(s/p)
+      =  A_(a/theta)^theta M_p^(s/p) r^3 Pi_r^theta.
 
-Put u=m/(m-p) and v=m/p. These are conjugate exponents greater than1. Holder gives
+The indicator is retained in the first factor; no independence of counts, K, Hessian, or E is used. Since a/theta is fixed, (F) applies. Since theta+s/p=1, the radial factor is exactly r^3, not r^(3theta). Monotonicity gives the local-count and factorial-count claims. Finally theta>=1-delta and Pi_r<=1 imply CT-delta. This chooses p ONCE for a specified delta; p is not a function of r. QED.
 
-    E[K^a N^p 1_E]
-      <= (E[N^m 1_E])^(p/m)
-         (E[K^(a m/(m-p)) 1_E])^(1-p/m).              (3.3)
+**Unnormalized numerator.** If needed, P(5.5)'s upper bound Z_r<=z^*r^2 gives
 
-Use (3.2) and (F) at the fixed larger derivative moment a m/(m-p):
+    E_Q[W_r K^a N^s ; E_r] <= C r^5 Pi_r^theta.
 
-    <= (D_m r^3)^(p/m)
-       (A_(a m/(m-p)) r^3 Xi)^(1-p/m)
-     = C_{a,p,m} r^3 Xi^(1-p/m).
+This multiplies by the one existing Z_r. It does not divide by Z_r again or change the probability law.
 
-The radial exponent is 3, not 3(1-p/m): both factors contain r^3. No independence
-is used and no additional division by Z occurs. FR already charged the derivative
-tails. There is no joint count/derivative-moment premise or exchange of a limiting
-law with shrinking thresholds. For p>0, N_R^p 1_S=N_R^p 1_E<=N^p 1_E. This proves
-CT-local and completes the proof.
+## 4. Scaling and a useful positive-count measure consequence
 
-## 4. Consequences at the r^3 cluster scale
+For equal eta_j=r^alpha, alpha>0,
 
-### 4.1 Shrinking thresholds and the quantified loss
+    CT = O(r^[3+theta beta_q min(alpha,1)]).               (2)
 
-For eta_j=r^alpha_j with fixed alpha_2>=...>=alpha_(q+1)>0, let
+For eta_j=r^alpha_j with alpha_2>=...>=alpha_(q+1)>0,
 
-    B = sum_{j=2}^{q+1}(j+2) min(alpha_j,1)>0.
+    CT = O(r^[3+theta sum_(j=2)^(q+1)(j+2)min(alpha_j,1)]). (3)
 
-Each eta_j+r<=2 r^min(alpha_j,1), so
+The ordering is reversed for alpha because 0<r<1. The saturation min(alpha,1) is inherited from the retained finite-r saddle factor in FR, not replaced by alpha below scale r.
 
-    E[K^a N_R^p 1_S] = O(r^[3+B(1-p/m)]) = o(r^3).     (4.1)
+Examples with eta=r:
 
-Saturation below the perturbation scale r is unchanged. For equal thresholds r,
-B=beta_q. Taking m=2p for a fixed positive integer p gives:
+| q | beta_q | count power s | imported moment p | exponent of r |
+|---:|---:|---:|---:|---:|
+| 1 | 4 | 1 | 2 | 5 |
+| 1 | 4 | 1 | 4 | 6 |
+| 1 | 4 | 2 | 6 | 17/3 |
+| 2 | 9 | 2 | 4 | 15/2 |
+| 3 | 15 | 3 | 6 | 21/2 |
 
-| Additional soft directions q | FR event bound | Count-weighted bound with m=2p |
-|---:|---:|---:|
-| 1 | O(r^7) | O(r^5) |
-| 2 | O(r^12) | O(r^(15/2)) |
-| 3 | O(r^18) | O(r^(21/2)) |
+Rows require d>=q+2. With q=2, eta_2=r^(1/2), eta_3=r^(1/4), s=1,p=4, the exponent is 87/16. These are upper bounds with fixed-order constants, not sharp asymptotics or lower bounds.
 
-Rows require d>=q+2. For q=2, thresholds (r^(1/2),r^(1/4)) give B=13/4;
-p=1,m=2 gives O(r^(37/8)), still o(r^3).
+For any deterministic shrinking thresholds eta_j(r)->0, Pi_r->0. Therefore every fixed polynomial-count/norm weighted contribution in CT is o(r^3). It is enough to let one factor of Pi_r tend to zero; requiring all thresholds to shrink is a simple sufficient condition.
 
-For every fixed epsilon in (0,1), choose a fixed integer m>=2 with m>p and
-p/m<=epsilon. Then CT implies O(r^3 Xi^(1-epsilon)); for Xi>1 absorb the bounded
-range Xi<=2^beta_q into the constant. Neither B_m nor A_t is controlled uniformly
-as m grows. Setting epsilon=0 by taking a limit of these inequalities is invalid.
-Section5 supplies countermodels. No r-dependent moment order is allowed here.
+Here is a measure statement that does not presume convergence of the cluster law. Let Y=N or Y=N_R and define positive-count intensities
 
-More generally, ordered thresholds all tending to0 give Xi->0 and o(r^3), without
-a prescribed power-law rate. Fixed nonshrinking thresholds give a bound, not an
-assertion of negligible contribution as r tends to0.
+    mu_r(n) = r^-3 P_r(Y=n),  n>=1.
 
-### 4.2 Factorial intensity measures and polynomial observables
+Delete the exceptional outcomes by Y'=Y 1_(E_r^c), and let mu'_r be its positive-count intensity. Since Y>=1 on E_r,
 
-For each fixed integer s>=1, (N_R)_s<=N_R^s. CT-local with p=s bounds the mass of
-ordered s-tuples of distinct local window points on S. Let nu_(r,s) be r^-3 times
-the expected positive measure of these tuples, with measurable positional or
-rescaled-coordinate marks; let nu_(r,s)^keep delete configurations in S. Then
+    sum_(n>=1) n^s |mu_r(n)-mu'_r(n)|
+      = r^-3 E[Y^s ; E_r] <= C Pi_r^theta.                (4)
 
-    ||nu_(r,s)-nu_(r,s)^keep||_variation
-      = r^-3 E[(N_R)_s 1_S] <= C Xi^(1-s/m),           (4.2)
+The analogous nonnegative measure with K^a inserted obeys the same identity and CT. For s=0, use FR directly and obtain C Pi_r without a loss. The norm in (4) is on POSITIVE counts: including the transferred mass at zero would add another term. This does not assert that either family mu_r converges, give its coefficients, or control locations/elder labels. It shows that deleting THESE sectors cannot change any existing weighted-l1 limit or subsequential limit in a fixed polynomial norm.
 
-where m>=2 and m>s. This uses total mass as the norm of a positive measure, not
-the half-L1 convention for probability distributions. These are finite measures
-at each fixed r: (3.1) and (C) also give finite unlocalized ordinary moments,
-though not the r^3 order used in (3.2). There is no assertion that the entire
-intensity measures converge; only the deleted mass is controlled.
+## 5. Normalized consequences and a denominator boundary
 
-For a signed tuple observable bounded pointwise by K^a, its deleted expectation
-is bounded in absolute value by r^-3 E[K^a(N_R)_s 1_S]. Nonnegative sums of fixed
-powers, or polynomials whose constant term is multiplied by 1_{N_R>0}, follow
-term by term. Factorial degrees and polynomial degrees stay fixed.
+C6 Corollary Theta and DL give
 
-An additional local lower bound P_r(N_R>0)>=c r^3 would allow division to obtain
-conditional-on-local-occurrence bounds of order Xi^(1-p/m). That lower bound is
-not assumed or proved here. Size-biased normalization needs its own lower bound.
-A torus-wide lower obstruction is not silently substituted for a local one.
+    P_r(N>=1) >= P_r(N>=2) >= c r^3,
+    E[N] >= 2P_r(N>=2) >= c r^3,
+    E[(N)_2] >= c r^3.
 
-## 5. What the listed interfaces cannot prove
+Only in this paragraph do we consume those lower statements. Divide CT by these explicit denominators. It follows that the E_r contribution tends to zero in polynomial moments under global nonempty conditioning, and its probability tends to zero under the first and second factorial size-biased laws. For example, for j=1,2 and p>j,
 
-### 5.1 Optimal exponent with one fixed factorial order
+    E[(N)_j 1_E]/E[(N)_j] <= C Pi_r^(1-j/p).             (5)
 
-Fix m>=2 and 0<p<m; use d=3, beta_1=4. On an abstract finite probability space,
-set r_n=2^(-mn), K=1. An ordinary atom has mass r_n^3, N_R=N=2 and h_2=2.
-A rare atom has mass r_n^7, N_R=N=2^(4n) and h_2=r_n. The remainder has count0;
-put h_1=r_n/2 throughout. Probabilities sum to less than1 for n>=1.
+Additional K^a or polynomial weights are treated by CT at the corresponding larger s.
 
-For every eta in [0,1], E is empty if eta<r_n and consists of the rare atom
-otherwise. Thus (F) holds for every derivative power. Also (N)_m<=N^m and
-r_n^7 2^(4nm)=r_n^3, proving the mth instance of (C). Yet
+For factorial order j>=3, (5) is CONDITIONAL on a separately supplied lower denominator c_j r^3. C6 supplies only upper bounds at those orders. The distribution P(N=2)=r^3, P(N=0)=1-r^3 has all fixed upper moment bounds and E[(N)_2]=2r^3, but E[(N)_3]=0. No third factorial Palm law exists for that example. Likewise no lower bound on P(N_R>0) is imported for arbitrary R; global nonempty conditioning is not silently changed to local nonempty conditioning.
 
-    E[N^p;E_(eta=r_n)] = r_n^3 r_n^[4(1-p/m)].          (5.1)
+## 6. Why the loss-free soft exponent is not implied
 
-Consequently a uniformly larger Xi exponent is not deducible from (F) and that
-one factorial-moment bound. Higher factorial orders need not be O(r^3) for this
-family; this is not the all-orders countermodel below.
+**Proposition NL (abstract obstruction).** The interfaces F and C, even with K=1 and every finite count moment, do not imply E[N^s;E_r]=O(r^3 Pi_r) for any fixed s>0.
 
-### 5.2 All fixed factorial orders still do not give loss-free transfer
+It suffices to give a family along r_n=2^-n, n>=1, in the q=1 case beta=4. On a three-atom probability space, set
 
-Use d=3 again, but now r_n=2^(-n), K=1. The ordinary atom has mass r_n^3,
-N_R=N=2,h_2=2; the rare atom has mass r_n^7,N_R=N=n+2,h_2=r_n; the remainder has
-count0. Set h_1=r_n/2. This is one family for all moment orders simultaneously.
-The same all-threshold calculation proves (F), and for every fixed integer s>=2,
+    P(N=0)=1-r_n^3-r_n^7,
+    P(N=2)=r_n^3,
+    P(N=n+3)=r_n^7.
 
-    E[(N)_s] <= E[N^s]
-      = r_n^3[2^s+2^(-4n)(n+2)^s] <= C_s r_n^3.       (5.2)
+Let E_n be the last atom, take K=1, N_R=N, and set h_2=r_n there and h_2=2 on the other atoms. For any threshold 0<=eta<=1/2, the event {N_R>0,h_2<=eta} is empty if eta<r_n and equals E_n otherwise. Consequently its probability is bounded by r_n^3(eta+r_n)^4 for EVERY allowed eta; all K^t bounds in F hold with A_t=1. This is more than an estimate only on one diagonal.
 
-For example n+2<=3n and
-n^s<=s! binomial(n+s-1,s)<=s!2^(n+s-1) for n>=1 give an explicit finite C_s.
-The family also satisfies P(N_R>0)>=r_n^3 and E[(N)_2]>=2r_n^3. Nevertheless,
-for every p>0 at eta=r_n,
+For every fixed integer p>=1,
 
-    E[N_R^p;S]/[r_n^3(eta+r_n)^4] = (n+2)^p/16 -> infinity. (5.3)
+    E[N^p] = r_n^3 [2^p+(n+3)^p 2^-4n] <= C_p r_n^3,
 
-Loss-free O(r^3 Xi) count transfer therefore does not follow even from the entire
-collection (C),(F) and those occurrence/second-factorial lower bounds. In fact
-r_n^-3 E[exp(tN);N>0] is bounded for each fixed 0<t<4 log2: its rare term is
-exp(2t) exp[-n(4log2-t)]. Even that additional property does not give a constant
-loss-free bound on this sector. The inequality fails already on a sequence r_n;
-no continuous interpolation of the family is needed to refute a uniform deduction.
+because a polynomial times a decreasing exponential is bounded. Hence all fixed factorial upper bounds hold. Also P(N>=2)>=r_n^3 and E[(N)_2]>=2r_n^3, so the first/second lower-scale consequences hold as well.
 
-These are abstract count/mark models, not Gaussian fields, Hessian realizations,
-or fixed Gaussian residual counterexamples. They limit an inference from the
-stated interfaces, not a stronger independently proved field theorem.
+Yet at eta=r_n, Pi_r=(2r_n)^4,
 
-### 5.3 A sufficient additional interface for a loss-free bound
+    E[N^s;E_n]/(r_n^3 Pi_r) = (n+3)^s/16 -> infinity.   (6)
 
-One natural sufficient strengthening is a uniform conditional count moment under
-the derivative-weighted sector measure:
+Thus no loss-free estimate follows from these abstract premises. No Gaussian covariance, Hessian geometry, analytic sample path, or actual field realization is asserted for this countermodel. It blocks an inference from the quoted estimates, not a possible sharper theorem for the real Gaussian model.
 
-    E[K^a N_R^p 1_E] <= C E[K^a 1_E].                 (5.4)
+In particular, taking p->infinity in CT is invalid without control of M_p and A_(a/theta). A sufficient additional lemma for loss-free transfer would be a uniform conditional sector bound E[K^a N^s | E_r]<=C whenever P(E_r)>0, combined with F at t=0; or a direct source-bound spectral/witness estimate with the count insertion. Neither is supplied here. The smallest remaining question for that stronger goal is the joint count/soft-sector estimate, not another proof of the cap layer or of the unweighted event.
 
-Where the right-hand denominator is positive, this states a bounded pth count
-moment after normalizing K^a 1_E dP_r; otherwise both integrals vanish. Combining
-(5.4) with (F) gives O(r^3 Xi) without exponent loss. This is not claimed to be
-logically necessary or already proved by CP. It is a precise missing interface
-for that natural route; it needs a sector-conditioned count estimate, not just
-unconditional fixed-order moments. The present CT already proves the required
-o(r^3) negligibility on shrinking sectors without (5.4).
+## 7. Sector ledger and scientific boundaries
 
-## 6. Verification and limits
+| Sector/interface | Disposition at the exact bindings of §2 |
+|---|---|
+| Finite-radius occurrence with extra soft eigenvalues, including unequal scales and norm tails | Covered by FR §§3,8; inherited scoped result, not this author's new PASS |
+| Fixed polynomial/factorial count insertion on the SAME event/law | New CT proof candidate, conditional on FR + C6 + DL/DE; source-bound nonauthor review required |
+| Same full soft power with no count/exponent loss | AMEND_EXTRAPOLATION: does not follow from these inputs, by the explicit NL family |
+| First/second factorial normalization and global nonempty conditioning | CT plus explicit r^3 denominator lower bounds only |
+| Higher factorial or arbitrary local-nonempty normalization | Lower denominator missing; not asserted |
+| Small k, escaping marks, R->infinity, hard-Hessian higher-jet degeneracy, remote-only soft events, full cluster-law convergence, elder matching | Not controlled here; general IBA2-012 and IBA2-009 remain OPEN |
 
-The standard-library test_count_transfer.py contains thirteen finite test methods.
-They check the factorial envelope including counts below m, event-localized moments,
-finite Holder inequalities with correlated derivative/count marks, common radial
-power, unequal exponents, saturation, the all-order spike model and ordered-tuple
-mass. M1 drops a radial factor, M2 discards Holder's exponent loss, M3 reverses
-unequal threshold weights, and M4 removes the indispensable +1 in (3.1).
-Intended failures must be assertions with no unexpected errors; an invalid label
-must exit2. These tests do not prove the continuum or imported field interfaces.
+There is no spatial radial integration in CT: r is the fixed pin separation and the height window is kr^3. In particular an o(r^3) probability/count statement on compact marks is not an all-mark lifetime-density expansion. The codimension/determinant/Vandermonde powers remain those already derived in FR; Holder transfers their integrated bound and is not a new spectral power count.
 
-At initial publication the author's container/Python execution tools returned
-InvalidArgumentError before execution. The test source was written but no new
-local execution or SHA-256 calculation is claimed. Native Git blobs bind the
-published text; actual runs, review and their exact source identities belong in
-subsequent PR receipts. No standalone test is secretly covered by the existing
-repository CI, which does not discover tests in this packet automatically.
+## 8. Reproduction and review
 
-The smallest nonauthor read is (3.1)–(3.3), with the exact (F)/(C) law alignment,
-and the all-threshold countermodel (5.2)–(5.3). Check real p, zero thresholds,
-p=0 exclusion, derivative moment order, all-soft dimensions and intensity marking.
-Review may reuse the unchanged imported interfaces without repeating their whole
-proof chains, while retaining every inherited qualification.
+Run `python -B -S test_transfer.py`, its `-O` equivalent, and `python -B -S transfer_check.py`. The tests check finite exact Holder inequalities, the Stirling/factorial identity, the exponent ledger, positive-count histogram deletion, the rare-spike formula and the missing higher denominator. Five named mutants exercise incorrect exponents, omitted first moments, a loss-free inference and a fabricated third-order lower bound. Unknown labels exit2. No unhandled crash is an intended mathematical rejection.
 
-IBA2-012 remains open globally: no all-mark limit, growing observation radius,
-general higher-jet classification, remote-only sector bound, lifetime pushforward,
-elder-selection theorem, loss-free conditional moment, or full cluster-law rate
-is established. IBA2-009 matching is untouched. No numerical field constant,
-new Lean theorem, scientific acceptance or claim of independent organization is
-created by this note.
+These finite tests do NOT prove the arbitrary-law Holder theorem, the asymptotic countermodel, FR, C6, or Gaussian-field facts; the ordinary proofs above provide the new argument. No local Lean execution or new formal target is claimed. Existing repository checks do not automatically run these standalone tests.
+
+The smallest useful nonauthor review is §2 law/count alignment; the two factors and r^3 cancellation in CT; weighted-intensity and denominator conventions; and NL's simultaneous all-fixed-moment/threshold premises. No repeat review of unchanged ancestor proofs is requested. Consensus Primary returned quota exhaustion; no external paper was retrieved or used as a new premise. No claim of literature novelty is made.

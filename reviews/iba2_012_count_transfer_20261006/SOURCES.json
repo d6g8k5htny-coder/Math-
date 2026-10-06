@@ -1,51 +1,78 @@
 {
   "object": "IBA2-012-COUNT-TRANSFER-20261006-v1",
-  "repository": "d6g8k5htny-coder/Math-",
-  "source_cut": "99ba2dfe33ef0052694510355b0c4d811fd66441",
-  "author": "OpenAI / GPT-6 Astra Pro / iba2-count-weight-transfer-r6-20261006",
-  "principal": "Dylan Roy — delegated AI work",
   "scientific_effect": "NONE",
-  "organizational_independence_credit": 0,
-  "status_at_publication": "AUTHOR_SIDE_CONDITIONAL_PROOF_CANDIDATE",
-  "inputs": [
+  "disposition": "author-side candidate; nonauthor review required",
+  "source_commit": "2f8b6f372be383d752e9dd30d38234faa977243c",
+  "repository": "d6g8k5htny-coder/Math-",
+  "sources": [
     {
-      "tag": "FR",
       "path": "reviews/iba2_012_finite_radius_20261005/PROOF.md",
+      "bytes": 17362,
       "git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd",
-      "consumed_sections": "3–5 and 8; finite-r same-law derivative-weighted event estimates",
-      "scope": "fixed d>=3,L,R; compact birth and strictly positive compact gap marks; original full normalizer"
+      "sha256": "cad7fa81a70dc218286d7ec62f7a86daf337677d65398ff906c455157067f93f",
+      "consumed": "FR \u00a7\u00a73,5,8"
     },
     {
-      "tag": "CP",
       "path": "frontiers/c6_palm_route_20260929/PROOF.md",
+      "bytes": 53364,
       "git_blob": "89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5",
-      "consumed_sections": "1.1–1.3; Theorem Q(1.1) and all inherited dependency qualifications",
-      "scope": "same tilted law and torus-wide between-pin count; each fixed factorial order m>=2; no new ancestor review"
+      "sha256": "aa37f16040ab9e05bb2e4e3f1d678367497e8dc2cf43eef197a4d6592c2f129b",
+      "consumed": "C6 \u00a71.1-1.3, Theorem Q; optional lower corollaries"
     },
     {
-      "tag": "ERR",
+      "path": "frontiers/d5_dimension_lift_20260929/PROOF.md",
+      "bytes": 53727,
+      "git_blob": "9d82c707fdb17d3072a8930f26dabedf59e456fc",
+      "sha256": "6fb94b247e8e45bca9dc02f46670ac6029fb54e0ef906001efe48fe908549b80",
+      "consumed": "DL \u00a71.2 G_d (1.7), summed over indices"
+    },
+    {
       "path": "reviews/d5_dimension_lift_erratum_20261005/ERRATUM.md",
+      "bytes": 6160,
       "git_blob": "23df87bbe4ffd3b2d786cd695fb9f5448cfa1d05",
-      "consumed_sections": "entire additive correction; original DL/CP bodies stay unchanged",
-      "scope": "retains the missing Lipschitz factor and both corrected citation locations; no exponent change"
+      "sha256": "2d239478285a9741ed68334f52d16405ee440aa8ff445ddbb4947b7f60066238",
+      "consumed": "DL/C6 additive correction, entire file"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "bytes": 40261,
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "consumed": "P law/normalizer \u00a75 (5.5), optional numerator"
+    },
+    {
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "bytes": 25006,
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "sha256": "e971b2cbe50a8a06b47c1219191201e0d1037c9adac23e5e3b7d2051bb70c2eb",
+      "consumed": "SC ancestor of FR; no new quantitative premise"
     }
   ],
   "payloads": [
-    {"path": "PROOF.md", "git_blob": "3630e479461b7edf0c698484c58469aab04b34ac"},
-    {"path": "test_count_transfer.py", "git_blob": "629ba742ee777e7da992cf0a975cb7384ad1763f"}
+    {
+      "path": "PROOF.md",
+      "bytes": 14855,
+      "git_blob": "752bc9da5e49af3d0724d80c91cffc0dde35a2d8",
+      "sha256": "63eb5fd131d440d918c86269b1b613b3d62b897b1349135405ada04d2a611061"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1784,
+      "git_blob": "7a58357c825d9737b9fa5251b5b55c31cd467fa9",
+      "sha256": "4b6fd24e670d44d63bff2c2b70e352aa1aad0781337414136807b612ad3a1069"
+    },
+    {
+      "path": "test_transfer.py",
+      "bytes": 5020,
+      "git_blob": "175388b9047abb4e88d98c855b9ffe38cb45aad7",
+      "sha256": "d3bb0a8ae352707b809ffa79aee805ee7945fb5db4e62da396631336104a5382"
+    },
+    {
+      "path": "transfer_check.py",
+      "bytes": 5941,
+      "git_blob": "b36abff316da46eaa08a20dd5641e9d6d18e3d06",
+      "sha256": "e73868774cbf7a865621330e27fdda3987986508a20e006f2f4fe274bc9b0952"
+    }
   ],
-  "identity_note": "Payload identities were returned by native Git create_blob; no local SHA-256 or execution is asserted. README and this source inventory are contextual files, not self-hashed payloads. The exact branch commit/tree binds all four files.",
-  "local_execution_at_publication": {
-    "ran": false,
-    "reason": "Container and Python tools returned InvalidArgumentError before any command executed."
-  },
-  "reviews_and_execution": "Read later exact-head PR receipts; original author-side labels are historical, not a second status register.",
-  "nonclaims": [
-    "No full IBA2-012 or IBA2-009 closure",
-    "No exponent-loss-free count transfer from unconditional moment bounds",
-    "No local nonempty or size-biased lower normalizer is assumed",
-    "No remote-only sector estimate, growing radius or all-mark extension",
-    "No field realization of the abstract countermodels",
-    "No new formal target or scientific acceptance"
-  ]
+  "self_hash": "This manifest is bound by the external Git blob/delivery manifest, not by a circular self-hash."
 }
