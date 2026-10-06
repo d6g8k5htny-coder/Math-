@@ -22,9 +22,15 @@ SOURCES.json pins each file by byte count and SHA-256 and lists each replay. Thi
 Reproducibility only. The analytic notes and their reads carry the mathematics. These finite checks support
 algebra, as the reads say. Nothing here reads or grades a proof.
 
+Set QS_REPLAY_EVIDENCE_DIR to a NEW directory outside the checkout to retain
+raw child streams and process records. Capture is execution evidence, not a verdict.
+Without this variable the original invocation/output behavior is unchanged.
+
 Usage: python3 -B -S frontiers/qs_d3_soft_layer_chain_20261005/replay.py   (exit 0 iff every check passes)
 """
 import hashlib
+import math
+import os
 import json
 import pathlib
 import re
@@ -32,6 +38,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 
 HERE = pathlib.Path(__file__).resolve().parent
 OWN = {'README.md', 'SOURCES.json', 'replay.py'}
@@ -279,11 +286,120 @@ def extraction_failures(root, manifest):
     return failures
 
 
+class ChildEvidenceError(RuntimeError):
+    """Required capture failed; the completed child result remains inspectable."""
+
+
+class ChildEvidence:
+    """One fresh external directory, unique records, no output decoding or verdict."""
+
+    def __init__(self, directory):
+        if not str(directory).strip():
+            raise ValueError('evidence directory must be nonempty')
+        self.directory = pathlib.Path(directory).resolve()
+        checkout = HERE.parents[1].resolve()
+        if self.directory == checkout or checkout in self.directory.parents:
+            raise ValueError('evidence directory must be outside the checkout')
+        self.directory.mkdir()  # No reuse, overwrite, or implicit parent creation.
+        self.sequence = 0
+
+    @staticmethod
+    def _write(path, data):
+        with path.open('xb') as stream:
+            stream.write(data)
+
+    @staticmethod
+    def _clock():
+        try:
+            value = time.monotonic()
+            if type(value) not in (int, float) or not math.isfinite(value):
+                raise ValueError('invalid monotonic clock value')
+            return value, None
+        except Exception as exc:
+            return None, type(exc).__name__ + ': ' + str(exc)
+
+    def _record(self, directory, command, cwd, timeout, start, status,
+                code, out, err, exception):
+        stop = self._clock()
+        clock_error = start[1] or stop[1]
+        elapsed = None
+        if clock_error is None:
+            duration = stop[0] - start[0]
+            if not math.isfinite(duration) or duration < 0:
+                clock_error = 'invalid elapsed time'
+            else:
+                elapsed = round(duration, 6)  # Validate BEFORE rounding.
+        record = dict(schema=1, sequence=self.sequence, command=list(command), cwd=str(cwd),
+                      timeout_seconds=timeout, status=status, returncode=code,
+                      capture_complete=(status == 'completed'), elapsed_seconds=elapsed,
+                      clock_error=clock_error, exception=exception,
+                      streams={}, evidence_errors=[],
+                      meaning='raw subprocess capture only; no verification verdict')
+        for name, data in (('stdout', out), ('stderr', err)):
+            row = dict(available=data is not None, bytes=None, sha256=None, saved=False)
+            record['streams'][name] = row
+            if data is None:
+                continue  # Absent capture is not an empty captured byte stream.
+            if type(data) is not bytes:
+                record['capture_complete'] = False
+                record['evidence_errors'].append(name + ': non-bytes capture')
+                continue
+            row.update(bytes=len(data), sha256=hashlib.sha256(data).hexdigest())
+            try:
+                self._write(directory / (name + '.bin'), data)
+                row['saved'] = True
+            except OSError as exc:
+                record['evidence_errors'].append(name + ': ' + type(exc).__name__ + ': ' + str(exc))
+        try:
+            self._write(directory / 'process.json',
+                        (json.dumps(record, sort_keys=True, indent=2, allow_nan=False) + '\n').encode('utf-8'))
+        except OSError as exc:
+            record['evidence_errors'].append('process.json: ' + type(exc).__name__ + ': ' + str(exc))
+        return record
+
+    def run(self, command, *, cwd, timeout):
+        self.sequence += 1
+        directory = self.directory / ('%04d' % self.sequence)
+        directory.mkdir()  # Fail before child execution if the slot is not fresh.
+        start = self._clock()
+        try:
+            proc = subprocess.run(command, capture_output=True, timeout=timeout, cwd=cwd)
+        except Exception as exc:
+            is_timeout = isinstance(exc, subprocess.TimeoutExpired)
+            try:
+                record = self._record(directory, command, cwd, timeout, start,
+                                      'timeout' if is_timeout else 'execution_error', None,
+                                      exc.stdout if is_timeout else None,
+                                      exc.stderr if is_timeout else None,
+                                      dict(type=type(exc).__name__, message=str(exc)))
+                exc.qs_evidence = record
+                if record['evidence_errors']:
+                    exc.add_note('QS capture errors: ' + '; '.join(record['evidence_errors']))
+            except Exception as capture_error:
+                # Even an unexpected capture bug cannot replace the primary exception.
+                exc.add_note('QS capture could not finish: ' + type(capture_error).__name__ + ': ' + str(capture_error))
+            raise
+        record = self._record(directory, command, cwd, timeout, start, 'completed',
+                              proc.returncode, proc.stdout, proc.stderr, None)
+        result = proc.returncode, proc.stdout, proc.stderr
+        if record['evidence_errors']:
+            error = ChildEvidenceError('QS child evidence could not be completely saved')
+            error.qs_evidence = record
+            error.child_result = result
+            raise error
+        return result
+
+
+ACTIVE_EVIDENCE = None
+
+
 def run(script, *args):
+    if ACTIVE_EVIDENCE is not None:
+        return ACTIVE_EVIDENCE.run([sys.executable, *interpreter_flags(), str(script), *args],
+                                   timeout=1800, cwd=str(script.parent))
     proc = subprocess.run([sys.executable, *interpreter_flags(), str(script), *args], capture_output=True,
                           timeout=1800, cwd=str(script.parent))
     return proc.returncode, proc.stdout, proc.stderr
-
 
 def replay_failures(root, manifest):
     failures = rejection_inventory_failures(manifest)
@@ -342,7 +458,7 @@ def negative_control_failures(root, manifest):
     return failures
 
 
-def main():
+def _replay_main():
     manifest = json.loads((HERE / 'SOURCES.json').read_text(encoding='utf-8'))
     failures = tree_failures(HERE, manifest)
     if not failures:
@@ -364,6 +480,19 @@ def main():
     print('QS d = 3 chain (A3-A3.6) incorporation replay (%s): %d stored identities, %d extractions, %d checker stdouts, '
           '%d mutants, %d invalid invocations and 2 negative controls PASS' % (mode, n_files, 2 * n_scripts, n_scripts, n_mut, n_inv))
     return 0
+
+
+def main():
+    global ACTIVE_EVIDENCE
+    directory = os.environ.get('QS_REPLAY_EVIDENCE_DIR')
+    if directory is None:
+        return _replay_main()
+    previous = ACTIVE_EVIDENCE
+    ACTIVE_EVIDENCE = ChildEvidence(directory)
+    try:
+        return _replay_main()
+    finally:
+        ACTIVE_EVIDENCE = previous
 
 
 if __name__ == '__main__':
