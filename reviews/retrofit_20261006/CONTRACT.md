@@ -40,7 +40,7 @@ The inventory map of dispatch row I is out of scope for v0.1. Its membership cla
                  {"kind": "github_comment", "repository": "main", "ref": "6018658478"},
                  {"kind": "github_review", "repository": "Math-", "ref": "<review id>", "commit": "<40 hex>"},
                  {"kind": "workflow_run", "repository": "Math-", "ref": "<run id>", "attempt": 1, "job": null,
-                  "tested_commit": "<40 hex>", "purpose": "check", "conclusion": "failure",
+                  "run_head_sha": "<40 hex>", "checked_commit": null, "purpose": "check", "conclusion": "failure",
                   "expected_conclusion": "success"}],
     "performer": {"provider": "...", "model_or_agent": "...", "session": "... or UNKNOWN"},
     "exposure": "what the performer had read",
@@ -61,7 +61,7 @@ Every object has exactly the keys shown, and no others. In particular there is n
 | `subject` | An exact object: repository, commit, path and Git blob. With `delta: false` the commit is the baseline. A candidate object sets `delta: true` and pins its own commit. When verified against a clone, the commit must be a commit object and the path must name a blob in it (not a tree or a submodule) |
 | `axis` | `source_review`, `provider_distinct_review`, `blind_reconstruction`, `adversarial_attack`, `formal_evidence`, `numerical_reproduction`, `novelty`, `human_reading`, `custody`, `observable_statement` |
 | `state` | `recorded` (evidence linked), `not_recorded` (checked, none found), `unknown` (not checked), `not_applicable`. Availability only; see below |
-| `evidence` | Required for `recorded`, empty for `not_recorded` and `not_applicable`. One item per native object. A `file` item carries commit, path and blob. `github_comment`, `github_review` and `workflow_run` items carry the numeric GitHub id as `ref`. A `github_review` also carries its native `commit_id` as `commit`. A `github_comment` has no commit: a SHA quoted in a comment body is never a native binding. A `workflow_run` also carries `attempt` (positive integer), `job` (numeric job id as a string, or `null` for the whole run), `tested_commit` (the run's native `head_sha`), `purpose` (`check` or `negative_control`), `conclusion` (GitHub's native value, copied as served: `success`, `failure`, `cancelled`, `skipped`, `timed_out`, `neutral`, `action_required`, `stale` or `startup_failure`) and `expected_conclusion` (`success` or `failure`) |
+| `evidence` | Required for `recorded`, empty for `not_recorded` and `not_applicable`. One item per native object. A `file` item carries commit, path and blob. `github_comment`, `github_review` and `workflow_run` items carry the numeric GitHub id as `ref`. A `github_review` also carries its native `commit_id` as `commit`. A `github_comment` has no commit: a SHA quoted in a comment body is never a native binding. A `workflow_run` also carries `attempt` (positive integer), `job` (numeric job id as a string, or `null` for the whole run), `run_head_sha` (the run's native `head_sha`), `checked_commit` (see below, or `null`), `purpose` (`check` or `negative_control`), `conclusion` (GitHub's native value, copied as served: `success`, `failure`, `cancelled`, `skipped`, `timed_out`, `neutral`, `action_required`, `stale` or `startup_failure`) and `expected_conclusion` (`success` or `failure`) |
 | `performer` | Who produced the evidence, not who wrote the record. `UNKNOWN` where unknown; never `Human` or Dylan's name for an AI executor. This is the writer's obligation and a reviewer's check: the validator enforces the shape only and cannot tell whether an attribution is true |
 | `exposure` | What that performer had read. Required |
 | `independence_credit` | Always the integer `0`. Organizational independence is not established by these records |
@@ -78,6 +78,16 @@ that fails as intended is recorded with `purpose: negative_control`, `conclusion
 `expected_conclusion: failure`, so it is not mistaken for a failed check. A later event never relabels an earlier
 one: a later successful run is a new item and the earlier failure stays as served.
 
+### Run head is not the checked commit
+
+`run_head_sha` is the run's native `head_sha`. For a `pull_request` run that is the pull request's head, while the
+default checkout is the merge ref (`refs/pull/<n>/merge`), a different commit; an explicit checkout can differ again.
+`checked_commit` is the commit the job actually checked out, taken only from that run's own evidence (its checkout
+step or a receipt it produced), and that evidence is recorded as its own item in the same record. When the checkout was
+not inspected, `checked_commit` is `null`; it is never copied from `run_head_sha`. For example, Math- run
+`37412915949` (`pull_request`) has `run_head_sha` `89170cf0…` and checked the merge commit `3e56e964…`, whose parents
+are the base `532bc63f…` and that head.
+
 ## Validation
 
 ```sh
@@ -92,8 +102,8 @@ The checker rejects:
 - a `subject` or `file` blob that differs from Git (with `--repo` or `--main-repo`);
 - a `recorded` state without evidence;
 - a `github_review` without its native 40-hex `commit`, or a `github_comment` that carries a commit;
-- a `workflow_run` without the full binding (attempt, job, tested commit, purpose, native conclusion, expected
-  conclusion), or with a value outside those enums;
+- a `workflow_run` without the full binding (attempt, job, run head, checked commit or `null`, purpose, native
+  conclusion, expected conclusion), or with a value outside those enums;
 - non-zero or Boolean independence credit;
 - an `alias_of` that dangles, names itself or another alias, or differs from its canonical record in axis, state or
   evidence;
@@ -115,7 +125,8 @@ graph view (Math-#381). That join is not part of v0.1.
 - No schema for the inventory map.
 - No automatic import into GRAPH, STATUS or PROOF_INDEX.
 - No selection of a run as a success. A later consumer may use a `workflow_run` item for a claim only when its
-  `tested_commit`, `job` and `purpose` bind to that claim and its `conclusion` equals its `expected_conclusion`.
+  `checked_commit` is not `null` and, with its `job` and `purpose`, binds to that claim, and its `conclusion` equals
+  its `expected_conclusion`. Run success or a matching pull-request head never establishes coverage of a base.
 
 Changes to this contract take a new version and their own nonauthor review. Records written under v0.1 stay valid
 under v0.1.

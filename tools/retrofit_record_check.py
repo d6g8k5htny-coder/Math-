@@ -6,9 +6,10 @@ that cannot carry a scientific status. This checker parses strictly (duplicate k
 rejected), enforces the closed keys and enums of the contract, and with --repo verifies every subject and file
 evidence blob against git. --aggregate summarizes several valid files without writing anything.
 
-A record's state says only whether evidence is linked. A workflow_run item keeps its own attempt, tested commit,
-purpose, native conclusion and expected conclusion, so a failed run stays recorded as failed and a negative control
-that fails as expected is not mistaken for a failed check. Nothing here selects a run as a success.
+A record's state says only whether evidence is linked. A workflow_run item keeps its own attempt, run head, checked
+commit (or null), purpose, native conclusion and expected conclusion, so a failed run stays recorded as failed, a
+negative control that fails as expected is not mistaken for a failed check, and a pull request head is not mistaken for
+the commit a job checked out. Nothing here selects a run as a success.
 
 Scientific effect: NONE. A valid record is not a review, an acceptance or a register transition.
 
@@ -37,8 +38,8 @@ EVIDENCE_KEYS = {
     'file': {'kind', 'repository', 'commit', 'path', 'blob'},
     'github_comment': {'kind', 'repository', 'ref'},
     'github_review': {'kind', 'repository', 'ref', 'commit'},
-    'workflow_run': {'kind', 'repository', 'ref', 'attempt', 'job', 'tested_commit', 'purpose', 'conclusion',
-                     'expected_conclusion'},
+    'workflow_run': {'kind', 'repository', 'ref', 'attempt', 'job', 'run_head_sha', 'checked_commit', 'purpose',
+                     'conclusion', 'expected_conclusion'},
 }
 RUN_PURPOSES = ('check', 'negative_control')
 RUN_CONCLUSIONS = ('success', 'failure', 'cancelled', 'skipped', 'timed_out', 'neutral', 'action_required', 'stale',
@@ -247,8 +248,11 @@ def _evidence(item, where, errors, repos):
             errors.append(where + '.attempt: positive integer required')
         if item['job'] is not None and (not isinstance(item['job'], str) or not DIGITS.fullmatch(item['job'])):
             errors.append(where + '.job: null or a numeric job id as a string')
-        if not isinstance(item['tested_commit'], str) or not HEX40.fullmatch(item['tested_commit']):
-            errors.append(where + '.tested_commit: the run\'s native head_sha (40 hex) required')
+        if not isinstance(item['run_head_sha'], str) or not HEX40.fullmatch(item['run_head_sha']):
+            errors.append(where + '.run_head_sha: the run\'s native head_sha (40 hex) required')
+        if item['checked_commit'] is not None and (not isinstance(item['checked_commit'], str)
+                                                   or not HEX40.fullmatch(item['checked_commit'])):
+            errors.append(where + '.checked_commit: null or the 40-hex commit the job checked out')
         if item['purpose'] not in RUN_PURPOSES:
             errors.append(where + '.purpose: one of ' + ', '.join(RUN_PURPOSES))
         if item['conclusion'] not in RUN_CONCLUSIONS:

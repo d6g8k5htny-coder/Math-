@@ -188,14 +188,17 @@ class Aggregate(unittest.TestCase):
             rc.load_strict(text.replace('"independence_credit": 0', '"independence_credit": NaN', 1))
 
 
-def run_item(ref, job, tested, conclusion, purpose='check', expected='success', attempt=1):
+def run_item(ref, job, head, conclusion, purpose='check', expected='success', attempt=1, checked=None):
     return {'kind': 'workflow_run', 'repository': 'Math-', 'ref': ref, 'attempt': attempt, 'job': job,
-            'tested_commit': tested, 'purpose': purpose, 'conclusion': conclusion, 'expected_conclusion': expected}
+            'run_head_sha': head, 'checked_commit': checked, 'purpose': purpose, 'conclusion': conclusion,
+            'expected_conclusion': expected}
 
 
 # Native objects read from the GitHub API on 2026-10-06. The two #343 runs (D2 square/Schur companion) are the
 # failed and successful executions named in main#275 6019011163; the custody chain is the six records of
-# main#275 6019173460 plus the landing push run of Math-#250.
+# main#275 6019173460 plus the landing push run of Math-#250. Their checkouts were not inspected, so checked_commit is
+# null. The run-identity pair is from Math-#383 6019566432: PR run 37412915949 checked the merge commit 3e56e964 (its
+# API parents are 532bc63f and the run head 89170cf0); push run 37458652010 checked its own head 3ab51620.
 FAILED_RUN = run_item('37414215874', '112109136502', '3479b6e127b05e953f84feef3f3fb7e88de625ac', 'failure')
 PASSED_RUN = run_item('37416061763', '112114814333', 'cc8b2d5bd7505b7f185607880bc0aa1403c8c148', 'success')
 CUSTODY_CHAIN = [
@@ -238,7 +241,12 @@ class EvidenceBindings(unittest.TestCase):
             'attempt string': dict(FAILED_RUN, attempt='1'),
             'job integer': dict(FAILED_RUN, job=112109136502),
             'job text': dict(FAILED_RUN, job='d2-square-schur'),
-            'tested commit short': dict(FAILED_RUN, tested_commit='3479b6e1'),
+            'run head short': dict(FAILED_RUN, run_head_sha='3479b6e1'),
+            'old tested_commit key': dict({k: v for k, v in FAILED_RUN.items() if k != 'run_head_sha'},
+                                          tested_commit=FAILED_RUN['run_head_sha']),
+            'missing checked_commit': {k: v for k, v in FAILED_RUN.items() if k != 'checked_commit'},
+            'checked commit short': dict(FAILED_RUN, checked_commit='3e56e964'),
+            'checked commit boolean': dict(FAILED_RUN, checked_commit=False),
             'purpose build': dict(FAILED_RUN, purpose='build'),
             'verdict as conclusion': dict(FAILED_RUN, conclusion='PASS'),
             'expected cancelled': dict(FAILED_RUN, expected_conclusion='cancelled'),
@@ -248,6 +256,18 @@ class EvidenceBindings(unittest.TestCase):
         for name, item in cases.items():
             with self.subTest(case=name):
                 self.assertNotEqual(rc.validate(self.with_evidence([item])), [])
+
+    def test_run_head_and_checked_commit_are_separate_roles(self):
+        merge_checkout = run_item('37412915949', None, '89170cf085d8789cf90a93ff9c2b17a23d23dc44', 'success',
+                                  checked='3e56e9644d89397b7eb3b1a96b4eff6fdd7c2b75')
+        push_checkout = run_item('37458652010', None, '3ab51620df9f095a77bb8aa92886428f6cb633ab', 'success',
+                                 checked='3ab51620df9f095a77bb8aa92886428f6cb633ab')
+        data = self.with_evidence([merge_checkout, push_checkout, FAILED_RUN])
+        self.assertEqual(rc.validate(data), [])
+        items = data['records'][0]['evidence']
+        self.assertNotEqual(items[0]['run_head_sha'], items[0]['checked_commit'])
+        self.assertEqual(items[1]['run_head_sha'], items[1]['checked_commit'])
+        self.assertIsNone(items[2]['checked_commit'])
 
     def test_review_commit_is_native_and_comments_carry_none(self):
         data = self.with_evidence(CUSTODY_CHAIN)
