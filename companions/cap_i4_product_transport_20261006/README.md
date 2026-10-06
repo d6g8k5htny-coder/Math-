@@ -18,9 +18,15 @@ composition, its separate author's branch, production formal/, or the main queue
 6. An arbitrary orientation-dependent weight pointwise bounded by the positive
    spectral/residual kernel inherits the integral bound.
 
-All six exact types are frozen in Contract.lean. The initial source is a stub:
-it deliberately cannot satisfy those contract applications. A successful full
-hosted run is required before saying the new statements are kernel-checked.
+All six corrected exact types are frozen in Contract.lean. The initial source
+was an imports-only stub and could not satisfy the contract applications. Run
+37451087737 also exposed a contract-notation defect: the residual measure bound
+to the inner rather than outer integral. Four parentheses pairs corrected that
+notation before implementation. Run37451970410 then compiled all five parents
+and the stub and failed ONLY on the six intended missing theorem names. Both
+original failed artifacts remain preserved. The current source supplies all six
+proof bodies; a successful complete hosted run is required before calling this
+new child kernel-checked. Later results belong in the exact-head work discussion.
 
 The density p, spectral envelope H and kernel K have explicit measurable-input
 requirements. The matrix law is s-finite where Tonelli needs it; an actual
