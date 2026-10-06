@@ -181,5 +181,135 @@ class QuoteSemantics(unittest.TestCase):
         self.assertEqual((report['quotes'], report['summaries']), (0, 1))
 
 
+class GitHubLocatorIdentity(unittest.TestCase):
+    """Controlled HTTP bytes exercise real parsing/CLI; these are not live-source claims."""
+
+    def response(self, kind='issuecomment'):
+        marker = kind + ('' if kind == 'discussion_r' else '-')
+        parent = 'issue_url' if kind == 'issuecomment' else 'pull_request_url'
+        family = 'issues' if kind == 'issuecomment' else 'pulls'
+        return {'id': 12345, 'body': 'Exact source text. ACCEPT at scope.',
+                'html_url': 'https://github.com/Example/Research/pull/31#' + marker + '12345',
+                parent: 'https://api.github.com/repos/Example/Research/' + family + '/31'}
+
+    def execute(self, target, response, *, online=True, required=True, transport=False):
+        import contextlib
+        import io
+        import json
+        import os
+        from unittest import mock
+
+        calls = []
+        def fetch(request, timeout):
+            calls.append((request.full_url, timeout))
+            if transport:
+                raise OSError('synthetic unreachable transport')
+            return io.BytesIO(json.dumps(response).encode('utf-8'))
+        with tempfile.TemporaryDirectory() as directory:
+            doc = pathlib.Path(directory) / 'table.md'
+            doc.write_text('| Source | Passage |\n|---|---|\n| row | [record](' + target +
+                           ') “Exact source text.” |\n', encoding='utf-8')
+            args = [str(doc), '--root', directory]
+            if online:
+                args.append('--github')
+            if required:
+                args.append('--require-online')
+            output = io.StringIO()
+            with mock.patch.object(check_doc_quotes.urllib.request, 'urlopen', side_effect=fetch), \
+                 mock.patch.dict(os.environ, {'GITHUB_TOKEN': ''}), contextlib.redirect_stdout(output):
+                try:
+                    code = check_doc_quotes.main(args)
+                except Exception as exc:
+                    self.fail('source response must fail explicitly, not escape as ' + type(exc).__name__)
+            report = json.loads(output.getvalue())
+            return code, next(iter(report['documents'].values())), calls
+
+    def test_all_three_canonical_families_and_repository_case(self):
+        for kind in ('issuecomment', 'pullrequestreview', 'discussion_r'):
+            for case in (False, True):
+                with self.subTest(kind=kind, case=case):
+                    response = self.response(kind)
+                    target = response['html_url']
+                    if case:
+                        target = target.replace('/Example/Research/', '/example/research/')
+                    code, report, calls = self.execute(target, response)
+                    self.assertEqual(code, 0)
+                    self.assertEqual(report['failures'], [])
+                    self.assertEqual((report['checked'], report['unchecked_offline']), (1, 0))
+                    self.assertEqual(len(calls), 1)
+                    self.assertEqual(calls[0][1], 60)
+
+    def test_wrong_pr_number_never_authenticates_another_comments_body(self):
+        for kind in ('issuecomment', 'pullrequestreview', 'discussion_r'):
+            with self.subTest(kind=kind):
+                response = self.response(kind)
+                code, report, _ = self.execute(response['html_url'].replace('/31#', '/32#'), response)
+                self.assertEqual(code, 1)
+                self.assertEqual([f[0] for f in report['failures']], ['source-identity-mismatch'])
+                self.assertEqual(report['unchecked_offline'], 0)
+
+    def test_suffix_and_wrong_fragment_separator_fail_before_transport(self):
+        for kind in ('issuecomment', 'pullrequestreview', 'discussion_r'):
+            response = self.response(kind)
+            canonical = response['html_url']
+            wrong = canonical.replace('discussion_r', 'discussion_r-') if kind == 'discussion_r' else canonical.replace(kind+'-', kind)
+            for target in [canonical+'junk', canonical+'#other', canonical+'/tail', wrong]:
+                with self.subTest(target=target):
+                    code, report, calls = self.execute(target, response)
+                    self.assertEqual(code, 1)
+                    self.assertEqual([f[0] for f in report['failures']], ['source-invalid-locator'])
+                    self.assertEqual(calls, [])
+
+    def test_missing_mismatched_or_noninteger_response_identity_fails(self):
+        for kind in ('issuecomment', 'pullrequestreview', 'discussion_r'):
+            parent = 'issue_url' if kind == 'issuecomment' else 'pull_request_url'
+            variants = [('id', 7), ('id', True), ('id', '12345'), ('id', None),
+                        ('html_url', 'https://github.com/Example/Research/pull/32#issuecomment-12345'),
+                        (parent, 'https://api.github.com/repos/Example/Research/pulls/32'),
+                        (parent, None), ('body', None), ('body', 17)]
+            for field, value in variants:
+                with self.subTest(kind=kind, field=field, value=value):
+                    response = self.response(kind); target = response['html_url']
+                    response[field] = value
+                    code, report, _ = self.execute(target, response)
+                    self.assertEqual(code, 1)
+                    self.assertEqual([f[0] for f in report['failures']], ['source-identity-mismatch'])
+
+    def test_wrong_response_shape_is_explicit_failure(self):
+        target = self.response()['html_url']
+        for response in (None, [], 'not-an-object', {}, {'body': 'Exact source text.'}):
+            with self.subTest(response=response):
+                code, report, _ = self.execute(target, response)
+                self.assertEqual(code, 1)
+                self.assertEqual([f[0] for f in report['failures']], ['source-identity-mismatch'])
+
+    def test_failed_identity_is_cached_without_becoming_success(self):
+        import io
+        import json
+        from unittest import mock
+        response = self.response(); response['id'] = 0
+        with mock.patch.object(check_doc_quotes.urllib.request, 'urlopen',
+                               side_effect=lambda *a, **k: io.BytesIO(json.dumps(response).encode())) as fetch:
+            sources = check_doc_quotes.Sources('/unused', '/unused', True, None)
+            first = sources.body(response['html_url'])
+            second = sources.body(response['html_url'])
+        self.assertEqual(first, (None, 'identity-mismatch'))
+        self.assertEqual(second, first)
+        self.assertEqual(fetch.call_count, 1)
+
+    def test_transport_failure_and_default_offline_remain_distinct(self):
+        response = self.response(); target = response['html_url']
+        code, report, calls = self.execute(target, response, transport=True)
+        self.assertEqual(code, 1)
+        self.assertEqual([f[0] for f in report['failures']], ['source-unreachable'])
+        self.assertEqual(len(calls), 1)
+        for required in (False, True):
+            with self.subTest(required=required):
+                code, report, calls = self.execute(target, response, online=False, required=required)
+                self.assertEqual(code, int(required))
+                self.assertEqual(report['unchecked_offline'], 1)
+                self.assertEqual(calls, [])
+
+
 if __name__ == '__main__':
     unittest.main()
