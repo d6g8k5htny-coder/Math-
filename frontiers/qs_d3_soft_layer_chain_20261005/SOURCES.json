@@ -1,22 +1,22 @@
 {
  "schema": 2,
- "object": "QS-D3-SOFT-LAYER-CHAIN-A3-A3_6-INCORPORATION-20261005-v1",
+ "object": "QS-D3-SOFT-LAYER-CHAIN-A3-A3_7-INCORPORATION-20261006-v2",
  "kind": "additive incorporation of public native note, review, erratum, successor and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
   "performer": "Anthropic Claude",
   "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
   "attribution": "Dylan Roy - delegated AI work",
-  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004719823",
-  "note": "the incorporator is also the author of A3-A3.6 (custody only; no proof byte is changed)"
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004719823 (A3-A3.6); A3.7: the successor claim named in the PR",
+  "note": "the incorporator is also the author of A3-A3.7 (custody only; no proof byte is changed)"
  },
  "source_issue": "https://github.com/d6g8k5htny-coder/main/issues/229",
  "extraction_rule": "the rule of main#229 comment 5971055189: a control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line in the following ```json fence, plus one newline",
  "excluded": {
-  "A3.7": "QS addendum A3.7 (6004622009, controls 6004629351) is author-side with reads requested and none delivered; it can follow in a successor commit once read",
   "A4, A4.1, A4.2": "planar (d = 2) addenda; A4 is stored in frontiers/planar_rejected_endpoint_margin_20261003/; A4.1 and A4.2 are not stored in the repository",
   "clean-context referee reports": "same-provider, same-session referee reports and exploration scripts (not review evidence) are kept in the project archive, not here",
-  "routing comments": "Chief-of-Staff routing and acknowledgment comments are not stored; each pickup and verdict of record is"
+  "routing comments": "Chief-of-Staff routing and acknowledgment comments are not stored; each pickup and verdict of record is",
+  "A3.8, A3.9, A3.10": "QS addenda A3.8 (6007704303, controls 6007706590; Slice 2 PASS, Slice 3 PASS_SCOPED_CONDITIONAL with successor text 6008104016, Slice 1 open), A3.9 (6008067902) and A3.10 (6008550120) are author-side with reads open or requested; they follow in a successor once read"
  },
  "objects": [
   {
@@ -1340,6 +1340,240 @@
       [
        "--mutant",
        "M14"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A3.7",
+   "directory": "A3_7/",
+   "object": "CL-QS-A3-7-CORRELATED-BAND-ENDPOINT-20261005-v1",
+   "title": "C124's correlated band and A4's endpoint margin in d = 3: the bounded-layer decision at O(r^(11/3))",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemmas LB3-prime, SC-prime, LE3 and Corollary LE3 deterministic; Lemmas JB3, MB3, B3 and Theorems E3-prime, R3-prime, BL3-prime conditional on A3.4",
+   "nonauthor_reads_as_recorded": [
+    "Slice 1 (Lemmas LB3-prime, JB3, MB3; Y1-Y2): Cursor agent bc-e6c400aa (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6008568465",
+    "Slice 2 (Lemmas SC-prime, LE3, Corollary LE3, Lemma B3; Y3-Y6): Cursor agent bc-158f9ff6 (xAI Grok 4.7), PASS, 6005596779",
+    "Slice 3 (Theorems E3-prime, R3-prime, BL3-prime, section 6, Appendix A; Y7-Y8): Cursor agent bc-758dabf4 (xAI Grok 4.7), PASS, 6008215645",
+    "author round note 6008678339: read-complete, no amendment; the note body is frozen as posted"
+   ],
+   "conditional_on": "A3.4, and through it A3.3, for every weighted statement; the certificates (Lemmas SC-prime, LE3, Corollary LE3) carry no such condition",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A3_7/CLAIM.md",
+     "role": "author work claim (A3.7)",
+     "comment": "6002580795",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6002580795",
+     "created_at": "2026-10-05T20:44:26Z",
+     "updated_at": "2026-10-05T20:44:26Z",
+     "bytes": 2124,
+     "sha256": "927173e0e8c96512dfbeb217fae39edab163148d970626bc5c70711414009503"
+    },
+    {
+     "path": "A3_7/PROOF.md",
+     "role": "frozen note (QS addendum A3.7)",
+     "comment": "6004622009",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004622009",
+     "created_at": "2026-10-05T22:38:57Z",
+     "updated_at": "2026-10-05T22:38:57Z",
+     "bytes": 26122,
+     "sha256": "e23a80b7e5b7b238fe7352d92620efab1b67ef975b61c82e8164916782338116"
+    },
+    {
+     "path": "A3_7/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a37_exact.py and its stdout)",
+     "comment": "6004629351",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004629351",
+     "created_at": "2026-10-05T22:39:26Z",
+     "updated_at": "2026-10-05T22:39:26Z",
+     "bytes": 27200,
+     "sha256": "00a070aa4349852dc59d3d1c847e80f8eece70a2d9afc1c7260e15ed6d2aa337"
+    },
+    {
+     "path": "A3_7/author_controls.py",
+     "role": "control script, extracted verbatim from A3_7/AUTHOR_CONTROLS_COMMENT.md (heading: ### a37_exact.py)",
+     "extracted_from": "A3_7/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a37_exact.py",
+     "bytes": 23110,
+     "sha256": "0663bb8f6e7cc540a9f4cb82b3b22bcf2c880c000676e61f61ef52a8b771af24"
+    },
+    {
+     "path": "A3_7/author_controls_stdout.json",
+     "role": "published stdout of A3_7/author_controls.py, extracted verbatim from A3_7/AUTHOR_CONTROLS_COMMENT.md",
+     "extracted_from": "A3_7/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a37_exact.py",
+     "bytes": 316,
+     "sha256": "02f5616de08d8b61a581c8661b82ce09551067df6f2e0d9be1940f3e67850c2c"
+    },
+    {
+     "path": "A3_7/READ_REQUESTS.md",
+     "role": "author read requests (three slices)",
+     "comment": "6004638616",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004638616",
+     "created_at": "2026-10-05T22:40:10Z",
+     "updated_at": "2026-10-05T22:40:10Z",
+     "bytes": 3803,
+     "sha256": "3839a341491817738655911972ded53005046e565e57db8d7040ec5f4774aa54"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE2_SUMMONS.md",
+     "role": "Slice 2 summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6005595525",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6005595525",
+     "created_at": "2026-10-05T23:39:30Z",
+     "updated_at": "2026-10-05T23:39:30Z",
+     "bytes": 2417,
+     "sha256": "61fcdbe4bdf7206773092f5b49f7d120f73bffa024d0d6e4319a0ff35b384be4"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE2.md",
+     "role": "Slice 2 (Lemmas SC-prime, LE3, Corollary LE3, Lemma B3; controls Y3-Y6): PASS, Cursor agent bc-158f9ff6 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6005596779",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6005596779",
+     "created_at": "2026-10-05T23:39:35Z",
+     "updated_at": "2026-10-05T23:47:55Z",
+     "bytes": 5774,
+     "sha256": "484404ad3f51e99160692045e500b4c09554f4f8eae48950f30b1516b2b4af52"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE3_SUMMONS.md",
+     "role": "Slice 3 summons (one Cursor agent) with the A3.8 status note",
+     "comment": "6008201605",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008201605",
+     "created_at": "2026-10-06T02:38:33Z",
+     "updated_at": "2026-10-06T02:38:33Z",
+     "bytes": 3897,
+     "sha256": "66a78527b4abe0ca91c1e8162d788121bbf59167af5668e440bcd88decc730bb"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE3.md",
+     "role": "Slice 3 (Theorems E3-prime, R3-prime, BL3-prime, section 6, Appendix A; controls Y7-Y8): PASS, Cursor agent bc-758dabf4 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6008215645",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008215645",
+     "created_at": "2026-10-06T02:39:49Z",
+     "updated_at": "2026-10-06T02:48:30Z",
+     "bytes": 7103,
+     "sha256": "15e258afcc97e7103d77f66a51f85dd7c24a484abd537d8cb0d23315a29f484c"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE1_SUMMONS.md",
+     "role": "Slice 1 summons (one Cursor agent)",
+     "comment": "6008567550",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008567550",
+     "created_at": "2026-10-06T03:12:35Z",
+     "updated_at": "2026-10-06T03:12:35Z",
+     "bytes": 3597,
+     "sha256": "bb9f66f86f0ac9fdf313fae022ce20649c5f98e0b45458434230a088d9cceffd"
+    },
+    {
+     "path": "A3_7/REVIEW_SLICE1.md",
+     "role": "Slice 1 (Lemmas LB3-prime, JB3, MB3; controls Y1-Y2): PASS, Cursor agent bc-e6c400aa (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6008568465",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008568465",
+     "created_at": "2026-10-06T03:12:40Z",
+     "updated_at": "2026-10-06T03:19:56Z",
+     "bytes": 6056,
+     "sha256": "c788cbf0cb80dfbaf738284608e750dac74390f3fa0895bb0f8f66b94a42b12d"
+    },
+    {
+     "path": "A3_7/AUTHOR_ROUND_NOTE.md",
+     "role": "author round note (read-complete, no amendment), carried in the A3.8 Slice 1 summons comment",
+     "comment": "6008678339",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008678339",
+     "created_at": "2026-10-06T03:22:55Z",
+     "updated_at": "2026-10-06T03:22:55Z",
+     "bytes": 5224,
+     "sha256": "57d43a646c89e8f37a675cd583c3016970aa0e7fa77d970a373b0b72355cacf6"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a37_exact.py",
+     "script": "A3_7/author_controls.py",
+     "stdout": "A3_7/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ],
+      [
+       "--mutant",
+       "M13"
+      ],
+      [
+       "--mutant",
+       "M14"
+      ],
+      [
+       "--mutant",
+       "M15"
+      ],
+      [
+       "--mutant",
+       "M16"
+      ],
+      [
+       "--mutant",
+       "M17"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M18"
       ],
       [
        "--mutant"

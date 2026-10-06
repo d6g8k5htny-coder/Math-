@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the stored QS A3-A3.6 records and replay their published author controls (standard library only).
+"""Verify the stored QS A3-A3.7 records and replay their published author controls (standard library only).
 
 Every file in this packet except replay.py, README.md and SOURCES.json is one of two things:
   - an exact copy of a public comment body on main#229 (a note, claim, controls comment, review, readback,
@@ -36,10 +36,12 @@ import tempfile
 HERE = pathlib.Path(__file__).resolve().parent
 OWN = {'README.md', 'SOURCES.json', 'replay.py'}
 
-# Exact rejection fingerprints from the UNCHANGED source packet at b157df1b57da41d2d75d6515b5e795b234ee7d34.
+# Exact rejection fingerprints from the UNCHANGED source packet at b157df1b57da41d2d75d6515b5e795b234ee7d34 (A3-A3.6)
+# and, for A3.7, from its extracted author control a37_exact.py (main#229 comment 6004629351), computed under both
+# interpreter modes at incorporation and found identical.
 # Each key is (script path, complete argv tail); each value is (exit, stdout SHA256,
 # stderr SHA256, readable reason). References are frozen independently of this run.
-# All 48 mutants and 14 invalid invocations were executed and their named reasons
+# All 65 mutants and 17 invalid invocations were executed and their named reasons
 # checked against their source. Different checkers intentionally use different
 # streams/formats. Exact fingerprints enforce those full contracts, including
 # JSON structure/types, labels, counts, usage text, and empty/nonempty streams.
@@ -170,6 +172,46 @@ REJECTION_CONTRACTS = {
         (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '230b5ecba1d2582ee0d266ad94e94441c000ff845246535c4c88289d8c454610', 'usage: a36_exact.py [--mutant M1..M13]'),
     ('A3_6/author_controls.py', ('--mutant',)):
         (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '230b5ecba1d2582ee0d266ad94e94441c000ff845246535c4c88289d8c454610', 'usage: a36_exact.py [--mutant M1..M13]'),
+    ('A3_7/author_controls.py', ('--mutant', 'M1')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'f1a2e4df0e9f6fcd9e0b5c0cc5e22e4fc75e6349c25cd3c2a3ad95297385a30b', 'FAILED: Y1_LB3prime'),
+    ('A3_7/author_controls.py', ('--mutant', 'M2')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'd7b443309b8b02c9ac37bef3e8971bcde1b4273b2760c5a7924156334066e4b3', 'FAILED: Y2_MB3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M3')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e8ac6a8e2e09aab66b1b991f4b829bd48659d8f2583290c8be22c2e7eb908169', 'FAILED: Y2_MB3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M4')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'fa8620cec75b4e1220e05273f7099b6d277569942ade99e021e1bd9bbed77b6a', 'FAILED: Y3_LE3_margin'),
+    ('A3_7/author_controls.py', ('--mutant', 'M5')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '30679a441a94a9f0735e7223b452837926508c63421ad328a5444995684eb6a5', 'FAILED: Y3_LE3_margin'),
+    ('A3_7/author_controls.py', ('--mutant', 'M6')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '6365ec18e6699d99164c5d855dd193b47d93f4a5321de7d7cd6fe53e9843e973', 'FAILED: Y4_LE3_taylor'),
+    ('A3_7/author_controls.py', ('--mutant', 'M7')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '79d9bb9208131642fcfb2a313737c911dfe94c2a1671fb4a94b398dbe7423de9', 'FAILED: Y5_B3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M8')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '405b690812c0bfa5a29225a76418d7ae67aa4998a551c8db70a9979ceca0ba99', 'FAILED: Y6_corLE3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M9')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '2c5a53d765f73d0fd3f2c7e1c5e10f720aaa927ded56ed4ba45d8d0d2d91d780', 'FAILED: Y7_ledgers'),
+    ('A3_7/author_controls.py', ('--mutant', 'M10')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '4072f5dbc106e536950f7c0c7ec751ecc1a3b6d5a6002dd69d267c4d4062263a', 'FAILED: Y7_ledgers'),
+    ('A3_7/author_controls.py', ('--mutant', 'M11')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e15876074185e9a7089a6e1ab05e3d950a2d31d57e6d9774b9e5f2289e5f63a8', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M12')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e4b4060075d92a81e29cb66b5de5a4001440b051ea2cecd8fdf8bcac50c1374a', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M13')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'a17fe1d763672006b91ba0896d0436263ca37353c9f35a949ad28ab560c7b21a', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M14')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'b9e3132356a548097f82336a297e5688bd0a65859c3db40c7db44b981630870b', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M15')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '711a5938a697c8fb693d00b89f3ccad8a4949df6c0a0e35f6c1a523a8c8db78b', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M16')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'b04a202f970b0d6ffb009a62b5fc8460cc8f608c15bb1191ed9115e866b1b0f6', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M17')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e76827691d6b12b9d3ed8bcf0fd26218ffd816d820097d8d991f01b5c47f8676', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--bogus',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
+    ('A3_7/author_controls.py', ('--mutant', 'M18')):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
+    ('A3_7/author_controls.py', ('--mutant',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
 }
 
 # Replacing A3.6's 5/4 by 1/4 with MUT=None omits the usual mutant-description line.
@@ -359,9 +401,9 @@ def main():
     if failures:
         for f in failures:
             print('FAIL ' + f)
-        print('QS d = 3 chain (A3-A3.6) incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
+        print('QS d = 3 chain (A3-A3.7) incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
         return 1
-    print('QS d = 3 chain (A3-A3.6) incorporation replay (%s): %d stored identities, %d extractions, %d checker stdouts, '
+    print('QS d = 3 chain (A3-A3.7) incorporation replay (%s): %d stored identities, %d extractions, %d checker stdouts, '
           '%d mutants, %d invalid invocations and 2 negative controls PASS' % (mode, n_files, 2 * n_scripts, n_scripts, n_mut, n_inv))
     return 0
 
