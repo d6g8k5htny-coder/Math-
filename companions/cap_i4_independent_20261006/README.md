@@ -31,9 +31,11 @@ Probability/Independence/Basic.lean blob3f348954b4478a5a81be29aaff1bb761d4eb197b
 indepFun_iff_map_prod_eq_prod_map_map and IndepFun.map_prod_eq_prod_map_map.
 Source law applicability still comes from P(3.5),(4.2)-(4.3), not this code.
 
-The initial Lean module is an imports-only stub, deliberately failing the three
-exact Contract applications. No passing kernel execution is claimed by this
-README; actual frozen-head outcomes and original failures belong in the hub.
+The initial imports-only stub at95d961cc was actually executed in run37457881542.
+All six parent modules and the stub compiled; exactly the three missing theorem
+names failed in the byte-identical Contract. The successor supplies those proofs.
+A complete fresh hosted result is required before claiming kernel execution;
+actual frozen-head outcomes and original failures belong in the hub.
 Run in a complete pinned checkout:
 
 ```sh
