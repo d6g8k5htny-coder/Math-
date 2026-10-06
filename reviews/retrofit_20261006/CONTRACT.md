@@ -80,8 +80,9 @@ one: a later successful run is a new item and the earlier failure stays as serve
 
 ### Run head is not the checked commit
 
-`run_head_sha` is the run's native `head_sha`. For a `pull_request` run that is the pull request's head, while the
-default checkout is the merge ref (`refs/pull/<n>/merge`), a different commit; an explicit checkout can differ again.
+`run_head_sha` is the run's native `head_sha`: the run-associated source head only, never evidence of what was checked
+out or executed. For a `pull_request` run it is the pull request's head, while the default checkout is the merge ref
+(`refs/pull/<n>/merge`), a different commit; an explicit checkout can differ again.
 `checked_commit` is the commit the job actually checked out, taken only from that run's own evidence (its checkout
 step or a receipt it produced), and that evidence is recorded as its own item in the same record. When the checkout was
 not inspected, `checked_commit` is `null`; it is never copied from `run_head_sha`. For example, Math- run
@@ -126,7 +127,9 @@ graph view (Math-#381). That join is not part of v0.1.
 - No automatic import into GRAPH, STATUS or PROOF_INDEX.
 - No selection of a run as a success. A later consumer may use a `workflow_run` item for a claim only when its
   `checked_commit` is not `null` and, with its `job` and `purpose`, binds to that claim, and its `conclusion` equals
-  its `expected_conclusion`. Run success or a matching pull-request head never establishes coverage of a base.
+  its `expected_conclusion`. These are necessary filters, never sufficient: the consumer must also read the checkout
+  evidence recorded beside the run, and a `checked_commit` without such an item is treated as unknown. Run success or
+  a matching pull-request head never establishes coverage of a base.
 
 Changes to this contract take a new version and their own nonauthor review. Records written under v0.1 stay valid
 under v0.1.
