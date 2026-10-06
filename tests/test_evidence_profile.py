@@ -118,6 +118,18 @@ class SyntheticGraph(unittest.TestCase):
         GATE.validate_graph_fail_closed(graph)
         self.assertEqual(ep.roots(graph), ['math.top', 'math.a'])
 
+    def test_positive_identity_grammar(self):
+        # EP381-02 residual (6018757501): only the documented positive form names a family.
+        for text, expected in (('OpenAI / GPT-6 Astra Pro', 'OpenAI'), ('Grok 4.7', 'xAI'),
+                               ('xAI/Grok via Cursor (D1-A-E, section 9 v1.1, partial slices)', 'xAI'),
+                               ('Claude Code session', 'Anthropic'), ('Google DeepMind Gemini', 'Google')):
+            with self.subTest(text=text):
+                self.assertEqual(ep.family(text), expected)
+        for text in ('possibly OpenAI', 'OpenAI or unspecified', 'review requested from OpenAI',
+                     'OpenAI reviewed by xAI', 'OpenAI (a) (b)', 'OpenAI, probably', 'Claude/Grok'):
+            with self.subTest(text=text):
+                self.assertIsNone(ep.family(text))
+
     def test_family_matches_whole_tokens_only(self):
         # 6018400003 item 2: substring hits such as 'notopenai' or 'claudette' name no family.
         for text in ('notopenai', 'claudette', 'xairline', 'grokking-free', 'googleplex', ''):
@@ -186,6 +198,11 @@ class ProviderAttributionCLI(unittest.TestCase):
         'math.chatgpt-codex': ('OpenAI', ['ChatGPT/Codex'], 'no'),
         'math.xai-grok-cursor': ('OpenAI', ['xAI/Grok via Cursor'], 'yes'),
         'math.all-same': ('xAI', ['xAI/Grok via Cursor', 'Grok 4.7'], 'no'),
+        # Delta 6018757501: prose around a provider name is not a positive identity.
+        'math.possibly': ('Anthropic', ['possibly OpenAI'], 'not recorded'),
+        'math.or-unspecified': ('Anthropic', ['OpenAI or unspecified'], 'not recorded'),
+        'math.invitation': ('Anthropic', ['review requested from OpenAI'], 'not recorded'),
+        'math.astra-control': ('Anthropic', ['OpenAI / GPT-6 Astra Pro'], 'yes'),
     }
 
     def test_cli_json_reports_conservative_provider_attribution(self):

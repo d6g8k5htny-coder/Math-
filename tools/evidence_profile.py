@@ -28,11 +28,22 @@ AXES_OUTSIDE_GRAPH = (
     'blind_reconstruction', 'adversarial_attack', 'formal_evidence',
     'numerical_reproduction', 'novelty', 'human_reading',
 )
-# A record string carrying any of these words is not read as naming a provider (EP381-02: 'not OpenAI').
-NEGATIONS = frozenset({'not', 'no', 'non', 'never', 'without', 'except', 'excluding', 'unknown', 'undisclosed',
-                       'unnamed', 'unidentified', 'unattributed', 'other', 'than'})
-FAMILIES = (('openai', 'OpenAI'), ('chatgpt', 'OpenAI'), ('codex', 'OpenAI'), ('anthropic', 'Anthropic'),
-            ('claude', 'Anthropic'), ('xai', 'xAI'), ('grok', 'xAI'), ('google', 'Google'), ('gemini', 'Google'))
+# Provider attribution grammar (EP381-02, review 5430026100 and delta 6018757501). A record string names a provider
+# family only in this positive form, compared case-insensitively:
+#     FAMILY_ALIAS ( ('/' | ' ') (FAMILY_ALIAS | DECORATION | VERSION) )*  [ ' (' note ')' ]
+# where every alias belongs to the same family, DECORATION is one of the listed product/agent/session words, VERSION is
+# a model or version identifier containing a digit (gpt-6, 4.7, grok-4.7-high-fast), and one trailing parenthetical
+# scope note is ignored. Anything else ('possibly OpenAI', 'OpenAI or Anthropic', 'review requested from OpenAI',
+# 'not OpenAI', 'claudette') names no family and is reported verbatim as unresolved.
+FAMILY_ALIASES = {
+    'openai': 'OpenAI', 'chatgpt': 'OpenAI', 'codex': 'OpenAI', 'gpt': 'OpenAI',
+    'anthropic': 'Anthropic', 'claude': 'Anthropic',
+    'xai': 'xAI', 'grok': 'xAI',
+    'google': 'Google', 'gemini': 'Google',
+}
+DECORATIONS = frozenset({'via', 'cursor', 'pro', 'code', 'session', 'agent', 'cloud', 'bot', 'model', 'astra', 'sol',
+                         'deepmind', 'high', 'fast'})
+VERSION = re.compile(r'[a-z]*-?\d[a-z0-9.\-]*')
 
 
 def load_gate():
@@ -43,14 +54,21 @@ def load_gate():
 
 
 def family(text):
-    """Provider family named by a free-form record string, or None when it names none, several, or is negated.
-    Matching is on whole alphanumeric tokens, so 'xAI/Grok via Cursor' names xAI but 'notopenai' names nothing;
-    a string with a negation word ('not OpenAI', 'provider not disclosed') is unresolved rather than guessed."""
-    tokens = set(re.findall(r'[a-z0-9]+', text.lower()))
-    if tokens & NEGATIONS:
+    """Provider family named by a record string in the positive grammar above, else None (unresolved)."""
+    match = re.fullmatch(r'\s*([^()]*?)\s*(?:\([^()]*\))?\s*', text)
+    if match is None:
         return None
-    found = {name for token, name in FAMILIES if token in tokens}
-    return found.pop() if len(found) == 1 else None
+    tokens = [t for t in re.split(r'[\s/]+', match.group(1).lower()) if t]
+    if not tokens or tokens[0] not in FAMILY_ALIASES:
+        return None
+    name = FAMILY_ALIASES[tokens[0]]
+    for token in tokens[1:]:
+        if token in FAMILY_ALIASES:
+            if FAMILY_ALIASES[token] != name:
+                return None
+        elif token not in DECORATIONS and not VERSION.fullmatch(token):
+            return None
+    return name
 
 
 def reviewer_strings(node):
