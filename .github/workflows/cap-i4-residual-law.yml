@@ -33,6 +33,12 @@ jobs:
           ROOT="$PWD"
           cd formal
           lake env python3 -B -S "$ROOT/companions/cap_i4_residual_law_20261006/replay.py"
+          cd "$ROOT/.lake/cap-i4-residual-law"
+          sha256sum --check SHA256SUMS
+          for record in before.json after.json processes.json verdict.json source-normal.log source-optimized.log toolchain.log module.log contract.log axioms.log types.log leanchecker.log RejectMoment.log RejectSupport.log SHA256SUMS; do
+            printf '\n--- %s ---\n' "$record"
+            cat "$record"
+          done
       - name: Preserve original execution including failures
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
