@@ -70,7 +70,8 @@ def run_step(argv,cwd,logs,name,expected,kind,timeout=900):
                 record['timed_out']=True;failure='timeout'
                 try: os.killpg(child.pid,signal.SIGKILL)
                 except ProcessLookupError: pass
-                record['returncode']=child.wait(timeout=5)
+                try: record['returncode']=child.wait(timeout=5)
+                except subprocess.TimeoutExpired: record['detail']='process-group termination did not finish in 5 seconds'
         except OSError as exc: failure='spawn_error';record['detail']=type(exc).__name__+': '+str(exc)
     record['elapsed_ns']=time.monotonic_ns()-start;sizes=(out.stat().st_size,err.stat().st_size)
     if max(sizes)>MAX_STREAM_BYTES: failure=failure or 'output_too_large';record.update(stdout_bytes=sizes[0],stderr_bytes=sizes[1])
