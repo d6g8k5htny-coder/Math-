@@ -1,0 +1,48 @@
+{
+  "core_tree": "d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14",
+  "files": {
+    ".github/workflows/d2-square-schur.yml": {
+      "bytes": 1650,
+      "git_blob": "cfb4b10be7662fb8f01cc8d248c8f68e065de4fb",
+      "sha256": "1e597b0a0b9f2956153a97bb24578f5cb80cac6f8f93a0845e75c57869c2afb1"
+    },
+    "companions/d2_square_schur_20261006/Contract.lean": {
+      "bytes": 869,
+      "git_blob": "1ba8dc0d38ca1e3afdd6b8044d2298a2dbd2275c",
+      "sha256": "17d29f16a788be98145ac76e55ab4103378e453770eb8ac4bde58281747d2eea"
+    },
+    "companions/d2_square_schur_20261006/D2SquareSchur.lean": {
+      "bytes": 3004,
+      "git_blob": "4855c92d55254969e1de7f8cf8dec2bdc027cf69",
+      "sha256": "e0f9560e6f129216cd989cea3cdf97254972ca9b1cae7bab57df664329ae78fa"
+    },
+    "companions/d2_square_schur_20261006/SCOPE.md": {
+      "bytes": 4725,
+      "git_blob": "411e410b4c5ee3dbbb07372c74730520d2aee8b0",
+      "sha256": "f35a30b7221800489f8fb97fb573434273876d9d43937a631a0c52b6abe9e0d7"
+    },
+    "companions/d2_square_schur_20261006/check.py": {
+      "bytes": 7611,
+      "git_blob": "bdeba903304f39e775ee0f9d2d7e1eb2904d0a48",
+      "sha256": "3e96eeca42e3f17997b2cbea97bee01da3f3f88bbbaed414c1683403ecc80367"
+    },
+    "companions/d2_square_schur_20261006/replay.sh": {
+      "bytes": 2473,
+      "git_blob": "f5bc850272b3823fde320894142078abafdc6d0d",
+      "sha256": "2240cd236425f31e9cd549b1d180645da50e0e19099d9f1a53ec4b17a2217934"
+    },
+    "companions/d2_square_schur_20261006/test_check.py": {
+      "bytes": 4038,
+      "git_blob": "547ac0e50e36846c98999fc2d94150054468829e",
+      "sha256": "95277602acfddce10e585722144bb9759a69d76a597a1511788a93d143f9ea60"
+    }
+  },
+  "scientific_effect": "NONE",
+  "targets": [
+    "D2SquareSchur.weighted_square_identity",
+    "D2SquareSchur.weighted_square_lower",
+    "D2SquareSchur.schur_no_upper",
+    "D2SquareSchur.schur_from_lower_inputs"
+  ],
+  "version": 1
+}
