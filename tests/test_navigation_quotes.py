@@ -122,5 +122,143 @@ class QuoteSemantics(unittest.TestCase):
         self.assertEqual((report['quotes'], report['summaries']), (0, 1))
 
 
+class VerdictVocabulary(unittest.TestCase):
+    """Lexical family checks, not semantic entailment or scope verification."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='verdict-vocabulary-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.source = self.root / 'record.md'
+        self.doc = self.root / 'nav.md'
+
+    def _report(self, body, summary):
+        self.source.write_text(body, encoding='utf-8')
+        self.doc.write_text(HEADER + '| #1 | [r](record.md) — summary: '
+                            + summary + ' |\n', encoding='utf-8')
+        return check_doc_quotes.check_document(str(self.doc), str(self.root))
+
+    def _rejected(self, body, word):
+        report = self._report(body, word)
+        self.assertEqual([f[0] for f in report['failures']],
+                         ['verdict-word-not-in-source'])
+        self.assertTrue(report['failures'][0][2].startswith(word + ': '))
+        self.assertEqual((report['checked'], report['summaries']), (1, 1))
+
+    def test_all_bare_verdicts_remain_valid(self):
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                self.assertEqual(self._report(word, word)['failures'], [])
+
+    def test_inflected_verdicts_share_the_explicit_family(self):
+        for root in ('ACCEPT', 'AMEND', 'REJECT'):
+            for body in (root, root + 'ED'):
+                for summary in (root, root + 'ED'):
+                    with self.subTest(body=body, summary=summary):
+                        self.assertEqual(self._report(body, summary)['failures'], [])
+
+    def test_uppercase_scope_tags_remain_valid(self):
+        for word in check_doc_quotes.VERDICT:
+            for suffix in ('_SCOPED', '_ENGINEERING_SCOPED', '_R1', '_A_23'):
+                with self.subTest(word=word, suffix=suffix):
+                    self.assertEqual(self._report(word + suffix, word)['failures'], [])
+                    self.assertEqual(self._report(word, word + suffix)['failures'], [])
+
+    def test_embedded_word_prefixes_cannot_supply_a_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            for prefix in ('UN', 'PRE', 'x'):
+                with self.subTest(word=word, prefix=prefix):
+                    self._rejected(prefix + word, word)
+
+    def test_embedded_word_suffixes_cannot_supply_a_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            for suffix in ('NESS', 'LIKE', 'x'):
+                with self.subTest(word=word, suffix=suffix):
+                    self._rejected(word + suffix, word)
+
+    def test_underscore_prefixes_cannot_supply_a_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            for prefix in ('NOT_', 'OTHER_', '_'):
+                with self.subTest(word=word, prefix=prefix):
+                    self._rejected(prefix + word, word)
+
+    def test_unicode_word_boundaries_are_preserved(self):
+        for word in check_doc_quotes.VERDICT:
+            for body in ('α' + word, word + 'β', '９' + word):
+                with self.subTest(body=body):
+                    self._rejected(body, word)
+
+    def test_malformed_scope_tags_cannot_supply_a_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            for suffix in ('_', '__SCOPED', '_scoped'):
+                with self.subTest(word=word, suffix=suffix):
+                    self._rejected(word + suffix, word)
+
+    def test_nonverdict_summary_words_do_not_invent_status_claims(self):
+        for word in check_doc_quotes.VERDICT:
+            for summary in ('UN' + word, word + 'NESS', 'NOT_' + word):
+                with self.subTest(summary=summary):
+                    self.assertEqual(self._report('No status supplied.', summary)['failures'], [])
+
+    def test_different_verdict_families_still_reject(self):
+        for body in check_doc_quotes.VERDICT:
+            for summary in check_doc_quotes.VERDICT:
+                if body != summary:
+                    with self.subTest(body=body, summary=summary):
+                        self._rejected(body, summary)
+
+    def test_each_claimed_family_is_checked(self):
+        report = self._report('ACCEPT_SCOPED', 'ACCEPT; HOLD; VERIFIED')
+        self.assertEqual([f[2].split(':', 1)[0] for f in report['failures']],
+                         ['HOLD', 'VERIFIED'])
+
+    def test_markdown_and_punctuation_do_not_hide_real_tokens(self):
+        for word in check_doc_quotes.VERDICT:
+            for wrapped in ('**' + word + '**', '`' + word + '`', '(' + word + ')'):
+                with self.subTest(wrapped=wrapped):
+                    self.assertEqual(self._report(wrapped, wrapped)['failures'], [])
+
+    def test_quotation_matching_is_unchanged(self):
+        self.source.write_text('Recorded word UNVERIFIED.', encoding='utf-8')
+        self.doc.write_text(HEADER + '| #1 | [r](record.md) — “UNVERIFIED.” |\n',
+                            encoding='utf-8')
+        report = check_doc_quotes.check_document(str(self.doc), str(self.root))
+        self.assertEqual(report['failures'], [])
+        self.assertEqual((report['quotes'], report['summaries']), (1, 0))
+
+    def test_offline_links_remain_explicitly_unchecked(self):
+        self.doc.write_text(HEADER + '| #1 | [r](https://github.com/o/r/pull/1'
+                            '#issuecomment-2) — summary: VERIFIED |\n', encoding='utf-8')
+        report = check_doc_quotes.check_document(str(self.doc), str(self.root))
+        self.assertEqual((report['checked'], report['unchecked_offline']), (0, 1))
+        self.assertEqual(report['failures'], [])
+
+    def test_fetched_source_uses_the_same_lexical_boundary(self):
+        # Synthetic source transport only; not an actual remote verification.
+        from unittest.mock import patch
+        self.doc.write_text(HEADER + '| #1 | [r](https://github.com/o/r/pull/1'
+                            '#issuecomment-2) — summary: VERIFIED |\n', encoding='utf-8')
+        with patch.object(check_doc_quotes.Sources, '_fetch', return_value=('UNVERIFIED', 'ok')):
+            report = check_doc_quotes.check_document(str(self.doc), str(self.root), github=True)
+        self.assertEqual(report['unchecked_offline'], 0)
+        self.assertEqual([f[0] for f in report['failures']], ['verdict-word-not-in-source'])
+
+    def test_cli_fails_for_a_lookalike_source(self):
+        import contextlib
+        import io
+        import json
+        self._report('UNVERIFIED', 'VERIFIED')
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            rc = check_doc_quotes.main([str(self.doc), '--root', str(self.root)])
+        self.assertEqual(rc, 1)
+        self.assertFalse(json.loads(output.getvalue())['passed'])
+
+    def test_negation_and_scope_entailment_are_not_claimed(self):
+        # This comparator checks vocabulary presence only, not what it means.
+        self.assertEqual(self._report('not VERIFIED', 'VERIFIED')['failures'], [])
+        self.assertEqual(self._report('AMEND_ENGINEERING_SCOPED', 'AMEND')['failures'], [])
+
+
 if __name__ == '__main__':
     unittest.main()

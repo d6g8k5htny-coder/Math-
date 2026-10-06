@@ -13,8 +13,11 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
 * a GitHub pull-request review / comment link is checked against the live body only with
   ``--github`` (token read from ``GITHUB_TOKEN``); without it the passage is reported as
   ``unchecked_offline`` and does not fail the check;
-* a ``summary:`` passage must not use a verdict word (ACCEPT, AMEND, HOLD, CONFIRMED,
-  VERIFIED, REJECT) that the linked record does not use, under the same offline rule;
+* a ``summary:`` passage must not use a verdict family (ACCEPT/ACCEPTED,
+  AMEND/AMENDED, HOLD, CONFIRMED, VERIFIED, REJECT/REJECTED) absent from the linked
+  record, under the same offline rule. Complete tokens may have underscore-delimited
+  uppercase alphanumeric scope tags; embedded lookalikes such as UNVERIFIED do not
+  supply VERIFIED. This is lexical presence, not negation or scope entailment;
 * a passage with no preceding link in its segment fails (``no-source-link``).
 
 Header and separator rows are skipped. Exit status 0 only when no checked passage fails;
@@ -36,6 +39,14 @@ LINK = re.compile(r'(?<!!)\[[^\]]*\]\(([^)]*)\)')
 QUOTE = re.compile(r'“([^”]*)”')
 SUMMARY = re.compile(r'(?<![\w-])summary:\s*')
 VERDICT = ('ACCEPT', 'AMEND', 'HOLD', 'CONFIRMED', 'VERIFIED', 'REJECT')
+# Use the same closed lexical policy on both sides of a summary comparison.
+# Python's Unicode word boundary also excludes embedded underscores and letters.
+VERDICT_PATTERNS = {
+    word: re.compile(r'(?<!\w)' + word
+                     + (r'(?:ED)?' if word in ('ACCEPT', 'AMEND', 'REJECT') else '')
+                     + r'(?:_[A-Z0-9]+)*(?!\w)')
+    for word in VERDICT
+}
 GITHUB = re.compile(r'https://github\.com/([^/]+)/([^/]+)/pull/(\d+)#(issuecomment|pullrequestreview|discussion_r)-?(\d+)')
 
 
@@ -176,8 +187,8 @@ def check_document(doc_path, root, github=False, token=None):
                         if not pieces_in_order(passage, body):
                             report['failures'].append(['not-verbatim', source, prefix])
                     else:
-                        for word in VERDICT:
-                            if re.search(r'\b' + word, passage) and word not in body:
+                        for word, pattern in VERDICT_PATTERNS.items():
+                            if pattern.search(passage) and not pattern.search(body):
                                 report['failures'].append(['verdict-word-not-in-source', source, word + ': ' + prefix])
     return report
 
