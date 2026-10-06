@@ -51,3 +51,8 @@ Blueprint declaration links are checked against the target inventory and compile
 ## D2 Schur and endpoint positivity
 
 The additive [D2Schur](D2_SCHUR.md) supplies sixteen real-algebra declarations: exact Schur cancellation, determinant endpoint interpolation, positive conditional-expression bounds, cubic-variance cumulant conversion, and reference/singular controls. The earlier47 Lean proof bytes and the gate remain unchanged. The total inventory is63. Moment realizability, Gaussian/Palm identification and coefficient quadrature are not formalized by these conditional expressions; independent alignment remains pending.
+
+
+## Declaration admission
+
+[DECLARATION_ADMISSION.md](DECLARATION_ADMISSION.md) records RF-GATE-01 hardening. The theorem target list remains the proof inventory; definitions are now also transitive-axiom audited.
