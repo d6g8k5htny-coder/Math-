@@ -161,7 +161,7 @@ class ReferenceContractTests(unittest.TestCase):
                         key = replay['script'], tuple(args)
                         self.assertNotIn(key, listed)
                         listed[key] = code
-        self.assertEqual(len(listed), 62)
+        self.assertEqual(len(listed), 82)   # A3-A3.6: 48 mutants + 14 invalid; A3.7: 17 mutants + 3 invalid
         self.assertEqual(set(self.m.REJECTION_CONTRACTS), set(listed))
         for key, value in self.m.REJECTION_CONTRACTS.items():
             self.assertEqual(len(value), 4)
