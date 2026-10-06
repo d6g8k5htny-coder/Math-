@@ -1,0 +1,64 @@
+{
+  "object": "IBA2-MARKED-SECTOR-20261006-R8-v1",
+  "principal": "Dylan Roy — delegated AI work",
+  "author": "OpenAI / GPT-6 Astra Pro / iba2-marked-entropy-audit-20261006-r8",
+  "status": "AUTHOR_SIDE_CONDITIONAL_CANDIDATE_AT_PUBLICATION",
+  "scientific_effect": "NONE",
+  "organizational_credit": 0,
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "39c10a4bb6a670b12aed47c13cba43f846b61baa",
+  "inputs": [
+    {
+      "tag": "FR",
+      "path": "reviews/iba2_012_finite_radius_20261005/PROOF.md",
+      "native_git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd",
+      "bytes": 17362,
+      "sha256": "cad7fa81a70dc218286d7ec62f7a86daf337677d65398ff906c455157067f93f",
+      "computed_git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd"
+    },
+    {
+      "tag": "MF",
+      "path": "frontiers/c6_marked_fourier_20260929/PROOF.md",
+      "native_git_blob": "efb702f601eb0c0a24dad6d125061158158867b9",
+      "bytes": 15304,
+      "sha256": "a5163679400d7d68c1c51538c9ed4ac111015487f79e820057f4ff3e20d09544",
+      "computed_git_blob": "efb702f601eb0c0a24dad6d125061158158867b9"
+    }
+  ],
+  "payloads": [
+    {
+      "path": "NOTE.md",
+      "bytes": 14975,
+      "sha256": "9293821dc1b1b13e2d00c0b9fbfa4e65a054e46a95963e492d5ed2d9103ebedb",
+      "git_blob": "aaa5126088b8b8542a5a0ca03b3d6f1dcf9f85d4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2343,
+      "sha256": "f4ae08d15f7cc74965e93047d0f68f0efe1a12d0619294875062c618f18fc47a",
+      "git_blob": "969c156f5be3e1c542d2ccc3f2fe4a2d6f79d79f"
+    },
+    {
+      "path": "marked_entropy_check.py",
+      "bytes": 2147,
+      "sha256": "4b511af1c8c51ed1fa343ebe461315eafcd8553cffcbbcab3c3038c874e9f339",
+      "git_blob": "9a667f0d01b2ce9d5aaf204a953e46e5824d1d00"
+    },
+    {
+      "path": "test_marked_entropy.py",
+      "bytes": 6944,
+      "sha256": "d4768f5bd20f3696b11c094b401e8935fb30819b37ee8861bef5de8599ba8436",
+      "git_blob": "5d58754736ff5fbd46983c39108eb5a5b1ac03ef"
+    }
+  ],
+  "review_required": true,
+  "intended_disjoint_path": "reviews/iba2_012_marked_sector_20261006/",
+  "transitive_ancestry_note": "Only direct quantitative sources are inputs here; their inherited premises and reviews retain their limitations. No full ancestor audit is claimed. Additional comparison sources are archival context.",
+  "publication_author": "OpenAI / GPT-6 Astra Pro / iba2-marked-sector-publication-20261006-r9",
+  "publication_source_cut": "516235290e12decdcd223cfb20928a2d97b824f1",
+  "predecessor_zip": {
+    "bytes": 401470,
+    "sha256": "b7416404ec7a1627251f902ea99da493a376ced40390b4204675100b5dbb8ee3"
+  },
+  "publication_scope": "Only NOTE publication metadata, README and source inventory changed; mathematical sections2–5 and both Python files are byte-identical. Native commit/tree will bind SOURCES itself."
+}
