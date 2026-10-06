@@ -138,7 +138,7 @@ class LegacyWorkflowTests(unittest.TestCase):
             # Only source authentication is re-bound for this synthetic fixture.
             (repo/'tools/legacy_json_contracts.json').write_text(json.dumps(contract))
             env=os.environ.copy();env.update({'LEGACY_TRACE':str(trace),'LEGACY_TARGET':label,'LEGACY_MODE':mode,'LEGACY_FAULT':fault,'PYTHONDONTWRITEBYTECODE':'1','PYTHONHASHSEED':'0'})
-            for cmd in [['git','init','-q'],['git','add','.'],['git','-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','synthetic fixture']]:
+            for cmd in [['git','init','-q'],['git','add','.'],['git','-c','user.name=Fixture','-c','user.email=fixture@example.invalid','-c','commit.gpgsign=false','commit','-qm','synthetic fixture']]:
                 subprocess.run(cmd,cwd=repo,check=True,capture_output=True,timeout=15,env=env)
             if tamper=='packet':(directory/entry['script']).write_bytes(data+b'\n')
             if tamper=='upstream':(repo/'upstream.txt').write_bytes(upstream+b'x')
@@ -296,6 +296,96 @@ print(json.dumps({'tty':sys.stdout.isatty(), 'width':os.get_terminal_size(1).col
                 for optimized in (False, True):
                     with self.subTest(width=width, columns=columns, optimized=optimized):
                         self.diagnostic_case(width, columns, optimized)
+
+
+@unittest.skipUnless(os.name == 'posix', 'synthetic signer probe requires POSIX')
+class LegacySigningTests(unittest.TestCase):
+    """Exercise real Git with an inert signer, without any real signing key."""
+
+    def signing_environment(self, folder):
+        signer = folder/'inert-signer'
+        signer.write_text('#!/bin/sh\nprintf "invoked\\n" >> "$LEGACY_SIGN_TRACE"\nexit 17\n')
+        signer.chmod(0o700)
+        env = {k:v for k,v in os.environ.items() if not k.startswith('GIT_')}
+        settings = [('commit.gpgsign', 'true'), ('gpg.format', 'openpgp'),
+                    ('gpg.program', str(signer.resolve())),
+                    ('user.signingkey', 'synthetic-test-key-not-a-real-key')]
+        env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+                   GIT_CONFIG_COUNT=str(len(settings)),
+                   GIT_TRACE2_EVENT=str((folder/'git-trace.jsonl').resolve()),
+                   LEGACY_SIGN_TRACE=str((folder/'signer.calls').resolve()))
+        for i,(key,value) in enumerate(settings):
+            env['GIT_CONFIG_KEY_'+str(i)] = key
+            env['GIT_CONFIG_VALUE_'+str(i)] = value
+        return env
+
+    def test_disposable_commits_never_invoke_inherited_signer(self):
+        code = '''
+import importlib.util,json,subprocess,sys
+from pathlib import Path
+p=Path(sys.argv[1])
+spec=importlib.util.spec_from_file_location('signing_fixture',p)
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+def configured():
+    return subprocess.check_output(['git','config','--bool','--get','commit.gpgsign'],text=True).strip()
+before=configured()
+r,events=m.LegacyWorkflowTests().case(sys.argv[2])
+after=configured()
+print(json.dumps({'before':before,'after':after,'returncode':r.returncode,
+                  'stderr':r.stderr.decode(),'events':events}))
+'''
+        flags = ['-B','-O','-S'] if sys.flags.optimize else ['-B','-S']
+        for family in ACTIVE:
+            with self.subTest(family=family), tempfile.TemporaryDirectory() as td:
+                folder = Path(td)
+                env = self.signing_environment(folder)
+                result = subprocess.run([sys.executable,*flags,'-c',code,
+                                         str(Path(__file__).resolve()),family],
+                                        cwd=folder,env=env,capture_output=True,timeout=60)
+                calls = folder/'signer.calls'
+                called = calls.read_text() if calls.exists() else ''
+                self.assertEqual(result.returncode,0,
+                                 (called,result.stderr.decode(errors='replace')))
+                self.assertEqual(result.stderr,b'')
+                report = json.loads(result.stdout)
+                self.assertEqual(report['returncode'],0,report)
+                self.assertEqual(report['stderr'],'')
+                self.assertEqual((report['before'],report['after']),('true','true'))
+                labels = ['baseline',*ORDERS[family],UNKNOWN[family]]
+                self.assertEqual(report['events'],[[label,mode] for mode in
+                                 ['normal','optimized'] for label in labels])
+                trace = [json.loads(line) for line in
+                         (folder/'git-trace.jsonl').read_text().splitlines() if line]
+                commits = [e for e in trace if e.get('event')=='start'
+                           and 'commit' in e.get('argv',[])]
+                self.assertEqual(len(commits),1,'must observe actual fixture commit')
+                self.assertEqual(called,'','disposable commit invoked inherited signer')
+
+    def test_inert_signer_is_reached_when_signing_is_requested(self):
+        with tempfile.TemporaryDirectory() as td:
+            folder = Path(td)
+            env = self.signing_environment(folder)
+            repo = folder/'positive-control';repo.mkdir()
+            (repo/'payload').write_text('synthetic positive control\n')
+            for command in (['git','init','-q'],['git','add','.']):
+                subprocess.run(command,cwd=repo,env=env,check=True,
+                               capture_output=True,timeout=15)
+            result = subprocess.run(['git','-c','user.name=Fixture',
+                                     '-c','user.email=fixture@example.invalid',
+                                     'commit','-qm','signer positive control'],
+                                    cwd=repo,env=env,capture_output=True,timeout=15)
+            self.assertNotEqual(result.returncode,0)
+            self.assertEqual((folder/'signer.calls').read_text(),'invoked\n')
+            trace = [json.loads(line) for line in
+                     (folder/'git-trace.jsonl').read_text().splitlines() if line]
+            self.assertTrue(any(e.get('event')=='child_start' and any(
+                str(arg)==str((folder/'inert-signer').resolve())
+                for arg in e.get('argv',[])) for e in trace),
+                'positive control must observe a real signer child')
+            configured = subprocess.check_output(
+                ['git','config','--bool','--get','commit.gpgsign'],
+                cwd=repo,env=env,text=True).strip()
+            self.assertEqual(configured,'true')
 
 
 ORDERS={'local-pairing':['M1','M2','M3','M4'],'far-elder':['M1','M2','M3','M4'],'c6-cluster':['pins-not-critical','wrong-pin-hessian','drop-sigma-jacobian','three-extra-points','shear-drop-cubic','s-bound-constant','cross-term-not-small','window-closed','index-sign']}
