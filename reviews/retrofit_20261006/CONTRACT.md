@@ -58,14 +58,14 @@ Every object has exactly the keys shown, and no others. In particular there is n
 |---|---|
 | `shard` | Matches its directory name (`[A-Z][A-Za-z0-9_]*`) |
 | `baseline` | Exactly the pinned v0.1 cut. A later cut is a new contract version |
-| `subject` | An exact object: repository, commit, path and Git blob. With `delta: false` the commit is the baseline. A candidate object sets `delta: true` and pins its own commit |
+| `subject` | An exact object: repository, commit, path and Git blob. With `delta: false` the commit is the baseline. A candidate object sets `delta: true` and pins its own commit. When verified against a clone, the commit must be a commit object and the path must name a blob in it (not a tree or a submodule) |
 | `axis` | `source_review`, `provider_distinct_review`, `blind_reconstruction`, `adversarial_attack`, `formal_evidence`, `numerical_reproduction`, `novelty`, `human_reading`, `custody`, `observable_statement` |
 | `state` | `recorded` (evidence linked), `not_recorded` (checked, none found), `unknown` (not checked), `not_applicable`. Availability only; see below |
 | `evidence` | Required for `recorded`, empty for `not_recorded` and `not_applicable`. One item per native object. A `file` item carries commit, path and blob. `github_comment`, `github_review` and `workflow_run` items carry the numeric GitHub id as `ref`. A `github_review` also carries its native `commit_id` as `commit`. A `github_comment` has no commit: a SHA quoted in a comment body is never a native binding. A `workflow_run` also carries `attempt` (positive integer), `job` (numeric job id as a string, or `null` for the whole run), `tested_commit` (the run's native `head_sha`), `purpose` (`check` or `negative_control`), `conclusion` (GitHub's native value, copied as served: `success`, `failure`, `cancelled`, `skipped`, `timed_out`, `neutral`, `action_required`, `stale` or `startup_failure`) and `expected_conclusion` (`success` or `failure`) |
-| `performer` | Who produced the evidence, not who wrote the record. `UNKNOWN` where unknown; never `Human` or Dylan's name for an AI executor |
+| `performer` | Who produced the evidence, not who wrote the record. `UNKNOWN` where unknown; never `Human` or Dylan's name for an AI executor. This is the writer's obligation and a reviewer's check: the validator enforces the shape only and cannot tell whether an attribution is true |
 | `exposure` | What that performer had read. Required |
 | `independence_credit` | Always the integer `0`. Organizational independence is not established by these records |
-| `alias_of` | Another record's `id` when this record restates the same evidence (for example a byte alias or a copied verdict). Aliases are counted separately and never as additional evidence |
+| `alias_of` | `null`, or the `id` of a canonical record in the same file (one whose own `alias_of` is `null`) when this record restates exactly that record's evidence, for example for a byte alias of its subject. The alias has the same axis, the same state and the same evidence items (in any order). There are no chains, so there are no cycles. A copy of a verdict posted as a separate native object is its own evidence item in its own record, with the original named in `notes`. Aliases are counted separately and never as additional evidence. Aliasing is within one file; the aggregate does not deduplicate across shards |
 
 Quoted verdict words may appear inside `notes` as quotations. They never become a field value.
 
@@ -95,10 +95,17 @@ The checker rejects:
 - a `workflow_run` without the full binding (attempt, job, tested commit, purpose, native conclusion, expected
   conclusion), or with a value outside those enums;
 - non-zero or Boolean independence credit;
-- a dangling `alias_of`.
+- an `alias_of` that dangles, names itself or another alias, or differs from its canonical record in axis, state or
+  evidence;
+- a commit that is not a commit object, or a path that is not a blob, when verified against a clone;
+- the same input file twice (under any spelling) and two inputs that declare the same shard.
 
-`--aggregate` prints, per exact subject and axis, the states recorded by each shard, with aliases counted
-separately. It writes nothing. A later, separately reviewed change may join landed records onto the downstream-gate
+A malformed value of any JSON type is reported as a violation of its file; the remaining files are still read.
+
+`--aggregate` prints, per exact subject (full repository, commit, path and blob) and axis, the states recorded by
+each shard, with aliases counted separately. `evidence_items_non_alias` counts evidence items as listed;
+`distinct_evidence_items` counts identical items once across all inputs. Neither is a count of independent evidence
+or of coverage of any inventory. It writes nothing. A later, separately reviewed change may join landed records onto the downstream-gate
 graph view (Math-#381). That join is not part of v0.1.
 
 ## Not in v0.1

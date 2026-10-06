@@ -82,10 +82,18 @@ def _safe_path(value):
             and all(part not in ('', '.', '..') for part in value.split('/')))
 
 
-def _git_blob(repo, commit, path):
-    run = subprocess.run(['git', '-C', str(repo), 'rev-parse', '--verify', '--quiet', commit + ':' + path],
-                         capture_output=True, text=True)
+def _git(repo, *args):
+    run = subprocess.run(['git', '-C', str(repo), *args], capture_output=True, text=True)
     return run.stdout.strip() if run.returncode == 0 else None
+
+
+def _git_blob(repo, commit, path):
+    """The blob id at commit:path; None unless commit names a commit object and path a blob in its tree."""
+    if _git(repo, 'cat-file', '-t', commit) != 'commit':
+        return None
+    if _git(repo, 'cat-file', '-t', commit + ':' + path) != 'blob':
+        return None
+    return _git(repo, 'rev-parse', '--verify', '--quiet', commit + ':' + path)
 
 
 def _person(value, where, errors):
@@ -118,7 +126,10 @@ def validate(data, *, shard_dir=None, repos=None):
     records = data['records']
     if not isinstance(records, list) or not records:
         return errors + ['records must be a non-empty list']
-    ids = [r.get('id') for r in records if isinstance(r, dict)]
+    by_id = {}
+    for record in records:
+        if isinstance(record, dict) and isinstance(record.get('id'), str) and record['id'] not in by_id:
+            by_id[record['id']] = record
     seen = set()
     for index, record in enumerate(records):
         where = 'records[%d]' % index
@@ -137,8 +148,9 @@ def validate(data, *, shard_dir=None, repos=None):
             errors.append(where + '.subject: requires exactly repository, commit, path, blob')
         else:
             repo_name = subject['repository']
-            if repo_name not in REPOSITORIES:
+            if not isinstance(repo_name, str) or repo_name not in REPOSITORIES:
                 errors.append(where + '.subject.repository: unknown repository')
+                repo_name = None
             if not isinstance(subject['commit'], str) or not HEX40.fullmatch(subject['commit']):
                 errors.append(where + '.subject.commit: 40 lowercase hex digits required')
             if not _safe_path(subject['path']):
@@ -147,12 +159,12 @@ def validate(data, *, shard_dir=None, repos=None):
                 errors.append(where + '.subject.blob: 40 lowercase hex digits required')
             if type(record['delta']) is not bool:
                 errors.append(where + '.delta: Boolean required')
-            elif not record['delta'] and BASELINE.get(repo_name) != subject['commit']:
+            elif not record['delta'] and (repo_name is None or BASELINE.get(repo_name) != subject['commit']):
                 errors.append(where + '.subject.commit: not the pinned baseline; mark a candidate with delta true')
-            if repos and repo_name in repos and not errors_for(where, errors):
+            if repos and repo_name is not None and repo_name in repos and not errors_for(where, errors):
                 got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
                 if got != subject['blob']:
-                    errors.append(where + '.subject: blob does not match git (%s)' % (got or 'path or commit absent'))
+                    errors.append(where + '.subject: blob does not match git (%s)' % (got or 'no blob at commit:path'))
         if record['axis'] not in AXES:
             errors.append(where + '.axis: one of ' + ', '.join(AXES))
         if record['state'] not in STATES:
@@ -172,12 +184,30 @@ def validate(data, *, shard_dir=None, repos=None):
             errors.append(where + '.exposure: non-empty string required (state what was read)')
         if type(record['independence_credit']) is not int or record['independence_credit'] != 0:
             errors.append(where + '.independence_credit: must be the integer 0')
-        alias = record['alias_of']
-        if alias is not None and (alias == rid or alias not in ids):
-            errors.append(where + '.alias_of: null or the id of another record in this file')
+        _alias(record, by_id, where, errors)
         if not isinstance(record['notes'], str):
             errors.append(where + '.notes: string required (may be empty)')
     return errors
+
+
+def _canonical(evidence):
+    return sorted(json.dumps(item, sort_keys=True) for item in evidence) if isinstance(evidence, list) else None
+
+
+def _alias(record, by_id, where, errors):
+    """alias_of names a canonical record (alias_of null) in this file with the same axis, state and evidence."""
+    alias = record['alias_of']
+    if alias is None:
+        return
+    target = by_id.get(alias) if isinstance(alias, str) else None
+    if target is None or target is record:
+        errors.append(where + '.alias_of: null or the id of another record in this file')
+    elif target.get('alias_of') is not None:
+        errors.append(where + '.alias_of: must name a canonical record (one whose alias_of is null); no chains')
+    elif (target.get('axis'), target.get('state')) != (record['axis'], record['state']):
+        errors.append(where + '.alias_of: an alias has the axis and state of its canonical record')
+    elif _canonical(target.get('evidence')) != _canonical(record['evidence']):
+        errors.append(where + '.alias_of: an alias restates exactly the evidence of its canonical record')
 
 
 def errors_for(where, errors):
@@ -196,14 +226,15 @@ def _evidence(item, where, errors, repos):
     if set(item) != keys:
         errors.append(where + ': %s evidence requires exactly %s' % (kind, ', '.join(sorted(keys))))
         return
-    if item['repository'] not in REPOSITORIES:
+    known = isinstance(item['repository'], str) and item['repository'] in REPOSITORIES
+    if not known:
         errors.append(where + '.repository: unknown repository')
     if kind == 'file':
         ok = (isinstance(item['commit'], str) and HEX40.fullmatch(item['commit'])
               and isinstance(item['blob'], str) and HEX40.fullmatch(item['blob']) and _safe_path(item['path']))
         if not ok:
             errors.append(where + ': file evidence needs 40-hex commit and blob and a relative path')
-        elif repos and item['repository'] in repos:
+        elif known and repos and item['repository'] in repos:
             if _git_blob(repos[item['repository']], item['commit'], item['path']) != item['blob']:
                 errors.append(where + ': file evidence blob does not match git')
         return
@@ -230,6 +261,7 @@ def aggregate(datasets):
     """Per subject object and axis, the states recorded across files; aliases counted separately."""
     out = {}
     counts = {'files': len(datasets), 'records': 0, 'aliases': 0, 'evidence_items_non_alias': 0}
+    distinct = set()
     for data in datasets:
         for record in data['records']:
             counts['records'] += 1
@@ -237,11 +269,13 @@ def aggregate(datasets):
                 counts['aliases'] += 1
             else:
                 counts['evidence_items_non_alias'] += len(record['evidence'])
+                distinct.update(_canonical(record['evidence']))
             s = record['subject']
-            key = '%s@%s:%s#%s' % (s['repository'], s['commit'][:12], s['path'], s['blob'][:12])
+            key = '%s@%s:%s#%s' % (s['repository'], s['commit'], s['path'], s['blob'])
             out.setdefault(key, {}).setdefault(record['axis'], []).append(
                 {'shard': data['shard'], 'id': record['id'], 'state': record['state'],
                  'alias_of': record['alias_of']})
+    counts['distinct_evidence_items'] = len(distinct)
     return {'subjects': out, 'counts': counts, 'status_authority': False, 'scientific_effect': 'NONE',
             'meaning': 'derived summary of retrofit records; not a status record or acceptance'}
 
@@ -258,18 +292,29 @@ def main(argv=None):
         repos['Math-'] = pathlib.Path(args.repo)
     if args.main_repo:
         repos['main'] = pathlib.Path(args.main_repo)
-    report, datasets, ok = {'files': {}}, [], True
+    report, datasets, ok = {'files': {}, 'input_errors': []}, [], True
+    resolved, shards = {}, {}
     for name in args.files:
         path = pathlib.Path(name)
+        real = path.resolve()
+        if real in resolved:
+            report['input_errors'].append('%s: same file as %s; each input is read once' % (name, resolved[real]))
+            ok = False
+            continue
+        resolved[real] = name
         try:
             data = load_strict(path.read_text(encoding='utf-8'))
             shard_dir = path.parent.name if path.name == 'RECORDS.json' else None
             errors = validate(data, shard_dir=shard_dir, repos=repos)
         except (OSError, ValueError, UnicodeDecodeError) as exc:
             data, errors = None, [str(exc)]
+        if not errors and data['shard'] in shards:
+            errors = ['shard %s already supplied by %s; one RECORDS.json per shard' % (data['shard'],
+                                                                                    shards[data['shard']])]
         report['files'][name] = {'valid': not errors, 'errors': errors}
         ok &= not errors
         if not errors:
+            shards[data['shard']] = name
             datasets.append(data)
     report['passed'] = ok
     report['scientific_effect'] = 'NONE'
