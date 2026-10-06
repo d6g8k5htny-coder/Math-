@@ -64,8 +64,9 @@ theorem map_spectralPair :
   have hdet : LinearMap.det spectralPair ≠ 0 := by rw [det_spectralPair]; norm_num
   have h := Measure.map_linearMap_addHaar_eq_smul_addHaar
     (volume : Measure (ℝ × ℝ)) hdet
-  norm_num [det_spectralPair,
-    ENNReal.ofReal_inv_of_pos (by norm_num : (0 : ℝ) < 2)] at h
+  norm_num [det_spectralPair] at h
+  rw [ENNReal.ofReal_div_of_pos (by norm_num : (0 : ℝ) < 2)] at h
+  norm_num at h
   exact h
 
 theorem lintegral_tracePair (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G) :
@@ -97,7 +98,7 @@ theorem positive_chamber_change (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable
   calc
     _ = ∫⁻ q : ℝ × ℝ in spectralPair ⁻¹' {e : ℝ × ℝ | 0 < e.1 ∧ e.1 < e.2},
         G (spectralPair q) := by simp only [he, spectralPair_apply]
-    _ = ∫⁻ e : ℝ × ℝ in {e : ℝ × ℝ | 0 < e.1 ∧ e.1 < e.2},
+    _ = ∫⁻ e : ℝ × ℝ in {e | 0 < e.1 ∧ e.1 < e.2},
         G e ∂Measure.map spectralPair volume :=
       (setLIntegral_map hs hG spectralPair.continuous_of_finiteDimensional.measurable).symm
     _ = _ := by simp only [map_spectralPair, Measure.restrict_smul, lintegral_smul_measure, smul_eq_mul]
