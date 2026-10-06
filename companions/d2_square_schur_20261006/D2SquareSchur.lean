@@ -14,7 +14,7 @@ theorem weighted_square_identity (u v a b c : ℝ) (huv : u + v ≠ 0) :
     u * (a-c)^2 + v * (b-c)^2 =
       u*v/(u+v)*(a-b)^2 + (u+v)*(c-(u*a+v*b)/(u+v))^2 := by
   field_simp [huv]
-  <;> ring
+  ring
 
 theorem weighted_square_lower (u v a b c : ℝ) (hu : 0 < u) (hv : 0 < v) :
     u*v/(u+v)*(a-b)^2 ≤ u*(a-c)^2 + v*(b-c)^2 := by
