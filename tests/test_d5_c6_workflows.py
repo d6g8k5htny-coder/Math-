@@ -170,9 +170,12 @@ def run_fixture(family, behavior='valid', target=None, mode=0):
             shutil.copyfile(ROOT / HELPER, root / HELPER)
         env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', PYTHONPATH='')
         env.pop('PYTHONOPTIMIZE', None)
+        # A disposable repository must not leave detached maintenance writing
+        # into .git after this fixture starts cleanup (Math-#339).
         for cmd in (['git', 'init', '-q'], ['git', 'add', '.'],
                     ['git', '-c', 'user.name=Protocol Fixture', '-c', 'user.email=fixture@example.invalid',
-                     '-c', 'commit.gpgsign=false', 'commit', '-qm', 'synthetic test sources']):
+                     '-c', 'commit.gpgsign=false', '-c', 'maintenance.auto=false',
+                     'commit', '-qm', 'synthetic test sources']):
             subprocess.run(cmd, cwd=root, env=env, check=True, capture_output=True)
         if behavior == 'bad_manifest':
             manifest['files'][0]['sha256']='0'*64

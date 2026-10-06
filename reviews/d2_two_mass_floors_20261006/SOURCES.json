@@ -1,0 +1,38 @@
+{
+  "files": {
+    ".github/workflows/d2-two-mass-floors.yml": {
+      "bytes": 4326,
+      "git_blob": "cb27256abc00337b6b6625ab03d5a76cb69c1817",
+      "sha256": "799a3b99a3c6972cac2c2a5916ffc6cc1517e2fc9f1569ff734d81b34c89ec71"
+    },
+    "reviews/d2_two_mass_floors_20261006/NOTE.md": {
+      "bytes": 9509,
+      "git_blob": "b3e3b337697e4bf8c15bdab3666e49dc8833ca80",
+      "sha256": "6d8a41ada3dc7a104765c33f85aa58938d3572786b6ec7e7963f3e5b9f9c04c9"
+    },
+    "reviews/d2_two_mass_floors_20261006/RESULTS.json": {
+      "bytes": 376,
+      "git_blob": "f5cb50038b22340692acd89ab684a0282e17a847",
+      "sha256": "aeedeab1a1e387a902f6a8c0593ceda81510c76d50e9731dd7d962314dcf4e4b"
+    },
+    "reviews/d2_two_mass_floors_20261006/test_two_mass.py": {
+      "bytes": 4929,
+      "git_blob": "88041eaf70e720f1a10e0dcda643e42a7e9cbf47",
+      "sha256": "b055156564b0ae768825adaac64bdbc87041b967aad095d0020dea9714e7e44c"
+    },
+    "reviews/d2_two_mass_floors_20261006/two_mass.py": {
+      "bytes": 5667,
+      "git_blob": "c56170026bc4e9328c0a8eddf4100dc094d808f6",
+      "sha256": "344c070966d2836fc12712b60f805c4b62d858789414f9ebe309d689e65afb9b"
+    }
+  },
+  "object": "D2-TWO-MASS-FLOORS-20261006-v1",
+  "scientific_effect": "NONE",
+  "upstream": {
+    "commit": "2f8b6f372be383d752e9dd30d38234faa977243c",
+    "files": {
+      "formal/ResearchFormalCoreR1/D2Schur.lean": "b95460c0d263a32ea274b347079cca6aaab3d2e9",
+      "reviews/side24_d2_certified_small_L_claude_20261005/NOTE.md": "852f7403a8a06a1ef061e363df9502ae16f7a341"
+    }
+  }
+}
