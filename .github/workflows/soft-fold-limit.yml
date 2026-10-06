@@ -5,6 +5,7 @@ name: Soft fold limit exact controls
     paths:
       - 'frontiers/soft_fold_limit_20261002/**'
       - '.github/workflows/soft-fold-limit.yml'
+      - 'tests/test_soft_fold_workflow.py'
       # bound merged sources (consumed and cited in SOURCES.json); the cited unmerged sources are bound through the API
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
@@ -37,6 +38,13 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Exercise complete-shell output contracts in both modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -p test_soft_fold_workflow.py -v
+          python -B -O -S -m unittest discover -s tests -p test_soft_fold_workflow.py -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -150,17 +158,30 @@ jobs:
                                     'via': where, 'current_ref_checked': now, 'dependency_merged': merged}))
           script = str(root / 'fold_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
+          # Fixed native carriers measured at original checker c2e1e77e in run37464626067.
+          failures = {
+              'M1': b'mutant M1: failing controls F1_model_pins_and_weight\n',
+              'M2': b'mutant M2: failing controls F2_lemma_FL2_generic\n',
+              'M3': b'mutant M3: failing controls F3_lemma_FL1_window\n',
+              'M4': b'mutant M4: failing controls F4_proposition_FL4_certificates\n',
+              'M5': b'mutant M5: failing controls F5_theorem_FL_bookkeeping\n',
+              'M6': b'mutant M6: failing controls F6_corollaries\n',
+              'M7': b'mutant M7: failing controls F4_proposition_FL4_certificates\n',
+              'M8': b'mutant M8: failing controls F7_proposition_FL7_identification\n',
+          }
+          if type(manifest['mutants']) is not list or manifest['mutants'] != list(failures):
+              raise RuntimeError('complete ordered M1-M8 inventory required')
+          stages = [('baseline', [], 0, expected, b'')]
+          stages += [(m, ['--mutant', m], 1, b'', carrier) for m, carrier in failures.items()]
+          stages += [('M99', ['--mutant', 'M99'], 2, b'', b'unknown mutant label\n')]
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script], check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in manifest['mutants']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m], capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-              rc = subprocess.run([sys.executable, *flags, script, '--mutant', 'M99'], capture_output=True, timeout=600).returncode
-              if rc != 2:
-                  raise RuntimeError('unknown mutant label not rejected with exit 2')
+              for label, args, code, stdout, stderr in stages:
+                  result = subprocess.run([sys.executable, *flags, script, *args], capture_output=True, timeout=600)
+                  if (result.returncode, result.stdout, result.stderr) != (code, stdout, stderr):
+                      raise RuntimeError(label + ': complete exit/stdout/stderr contract differs under ' + ' '.join(flags))
+                  print(json.dumps({'stage': label, 'flags': flags, 'returncode': result.returncode,
+                                    'stdout_sha256': hashlib.sha256(result.stdout).hexdigest(),
+                                    'stderr_sha256': hashlib.sha256(result.stderr).hexdigest()}, sort_keys=True), flush=True)
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code
