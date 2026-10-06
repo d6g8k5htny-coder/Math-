@@ -68,6 +68,15 @@ class Controls(unittest.TestCase):
         self.assertGreater(max(F(1),F(2)),F(3,2))
         self.assertGreater(min(F(1),F(2)),F(-3))
 
+    def test_workflow_fetches_required_history(self):
+        # The complete root suite resolves historical proof commits.
+        text = (SIDE.parents[1]/'.github/workflows/d2-square-schur.yml').read_text()
+        checkout = text.split('uses: actions/checkout@', 1)[1].split('\n      - ', 1)[0]
+        settings = [line.strip() for line in checkout.splitlines()
+                    if not line.lstrip().startswith('#')]
+        self.assertIn('fetch-depth: 0', settings)
+        self.assertIn('persist-credentials: false', settings)
+
     def test_identity_binds_every_byte(self):
         a=self.c.identity(b'abc\n');b=self.c.identity(b'abc')
         self.assertEqual(a['bytes'],4)
