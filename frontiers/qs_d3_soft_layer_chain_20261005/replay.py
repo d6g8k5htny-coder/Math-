@@ -23,9 +23,13 @@ Reproducibility only. The analytic notes and their reads carry the mathematics. 
 algebra, as the reads say. Nothing here reads or grades a proof.
 
 Usage: python3 -B -S frontiers/qs_d3_soft_layer_chain_20261005/replay.py   (exit 0 iff every check passes)
+Optional QS_REPLAY_EVIDENCE_DIR (outside the checkout) retains raw child streams and process records.
+Each invocation gets a new directory; records describe execution, never mathematical acceptance.
+Required evidence I/O fails the run; a timeout/spawn error remains the primary exception.
 """
 import hashlib
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -279,9 +283,70 @@ def extraction_failures(root, manifest):
     return failures
 
 
+PROCESS_TIMEOUT_SECONDS = 1800  # Unchanged production budget; tests shorten it for real timeout children.
+
+
+def evidence_directory(script):
+    """An explicit destination opts in; never put generated evidence in source directories."""
+    raw = os.environ.get('QS_REPLAY_EVIDENCE_DIR')
+    if raw is None:
+        return None
+    if not raw:
+        raise ValueError('QS_REPLAY_EVIDENCE_DIR must not be empty')
+    root = pathlib.Path(raw).expanduser().resolve()
+    if root.is_relative_to(HERE.resolve().parents[1]) or root.is_relative_to(script.parent.resolve()):
+        raise ValueError('QS replay evidence must be outside the checkout and child source directory')
+    root.mkdir(parents=True, exist_ok=True)
+    return pathlib.Path(tempfile.mkdtemp(prefix='invocation-', dir=root))
+
+
+def save_process_evidence(folder, record, out, err):
+    """Attempt every write independently. None is unavailable, not an observed empty stream."""
+    record['streams'] = {}
+    record['evidence_errors'] = []
+    for name, data in (('stdout', out), ('stderr', err)):
+        entry = dict(available=data is not None, bytes=len(data) if data is not None else None,
+                     sha256=hashlib.sha256(data).hexdigest() if data is not None else None, saved=False)
+        record['streams'][name] = entry
+        try:
+            (folder / (name + '.bin')).write_bytes(data if data is not None else b'')
+            entry['saved'] = True
+        except Exception as exc:
+            record['evidence_errors'].append('%s.bin: %s: %s' % (name, type(exc).__name__, exc))
+    try:
+        data = (json.dumps(record, sort_keys=True, indent=2, allow_nan=False) + '\n').encode('utf-8')
+        (folder / 'process.json').write_bytes(data)
+    except Exception as exc:
+        record['evidence_errors'].append('process.json: %s: %s' % (type(exc).__name__, exc))
+
+
 def run(script, *args):
-    proc = subprocess.run([sys.executable, *interpreter_flags(), str(script), *args], capture_output=True,
-                          timeout=1800, cwd=str(script.parent))
+    command = [sys.executable, *interpreter_flags(), str(script), *args]
+    folder = evidence_directory(script)  # Invalid/unwritable setup stops before starting a child.
+    record = dict(schema=1, command=command, cwd=str(script.parent),
+                  timeout_seconds=PROCESS_TIMEOUT_SECONDS, scientific_effect='NONE')
+    try:
+        proc = subprocess.run(command, capture_output=True, timeout=PROCESS_TIMEOUT_SECONDS,
+                              cwd=str(script.parent))
+    except (subprocess.TimeoutExpired, OSError) as exc:
+        if folder is not None:
+            record.update(status='timeout' if isinstance(exc, subprocess.TimeoutExpired) else 'spawn_error',
+                          returncode=None, exception=dict(type=type(exc).__name__, message=str(exc)))
+            exc.evidence_record = record
+            try:
+                save_process_evidence(folder, record, getattr(exc, 'stdout', None), getattr(exc, 'stderr', None))
+                if record['evidence_errors']:
+                    exc.add_note('QS replay evidence errors: ' + '; '.join(record['evidence_errors']))
+            except Exception as secondary:
+                exc.add_note('QS replay evidence recording failed: %s: %s' % (type(secondary).__name__, secondary))
+        raise  # Never replace the primary timeout or launch error with a recording error.
+    if folder is not None:
+        record.update(status='completed', returncode=proc.returncode, exception=None)
+        save_process_evidence(folder, record, proc.stdout, proc.stderr)
+        if record['evidence_errors']:
+            exc = RuntimeError('QS replay evidence errors: ' + '; '.join(record['evidence_errors']))
+            exc.evidence_record = record
+            raise exc  # Even exit 0 is not success when explicitly required evidence is missing.
     return proc.returncode, proc.stdout, proc.stderr
 
 
