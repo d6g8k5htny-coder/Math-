@@ -128,7 +128,7 @@ theorem density_polar_bound (t : ℝ) (p w F : ℝ × ℝ → ℝ≥0∞)
         ENNReal.ofReal q.1 * (w (t - q.1, t + q.1) * F (t - q.1, t + q.1)) := by
   calc
     _ ≤ ∫⁻ z : ℝ × ℝ, w (spectrum t z) * F (spectrum t z) :=
-      lintegral_mono (fun z => by gcongr <;> exact hdom z)
+      lintegral_mono (fun z => by gcongr; exact hdom z)
     _ = _ := polar_spectral_lintegral t (fun e => w e * F e)
 
 theorem density_positive_polar_bound (t : ℝ) (p w F : ℝ × ℝ → ℝ≥0∞)
