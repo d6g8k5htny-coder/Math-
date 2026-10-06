@@ -134,15 +134,48 @@ def compare_output(actual, expected, kind, stderr=b''):
     require(canonical(got) == canonical(want), 'crosscheck_exact_fields')
 
 
+def timeout_evidence(exc, argv, cwd, logs, name, started):
+    """Best-effort failure evidence; no exit status is inferred from a timeout."""
+    record = dict(name=name, status='TIMEOUT', command=list(argv), cwd=os.fspath(cwd),
+                  timeout_seconds=exc.timeout, returncode=None, elapsed_seconds=None,
+                  evidence_errors={})
+    errors = record['evidence_errors']
+    try:
+        elapsed = time.monotonic() - started
+        require(math.isfinite(elapsed) and elapsed >= 0, 'invalid_elapsed_time')
+        record['elapsed_seconds'] = round(elapsed, 6)
+    except Exception as evidence_error:
+        errors['elapsed_seconds'] = type(evidence_error).__name__ + ': ' + str(evidence_error)
+    for stream, data in (('stdout', exc.stdout), ('stderr', exc.stderr)):
+        # None means unavailable, not a fabricated empty captured stream.
+        record[stream + '_available'] = data is not None
+        record[stream + '_bytes'] = None if data is None else len(data)
+        record[stream + '_sha256'] = None if data is None else hashlib.sha256(data).hexdigest()
+        record[stream + '_saved'] = False
+        try:
+            (logs / (name + '.' + stream)).write_bytes(b'' if data is None else data)
+            record[stream + '_saved'] = True
+        except Exception as evidence_error:
+            errors[stream] = type(evidence_error).__name__ + ': ' + str(evidence_error)
+    try:
+        (logs / (name + '.process.json')).write_text(
+            json.dumps(record, indent=2, sort_keys=True, allow_nan=False) + '\n')
+    except Exception as evidence_error:
+        errors['process_metadata'] = type(evidence_error).__name__ + ': ' + str(evidence_error)
+    return record
+
+
 def run_step(argv, cwd, logs, name, expected, kind, timeout=900):
     started = time.monotonic()
     try:
         run = subprocess.run(argv, cwd=cwd, capture_output=True, timeout=timeout,
                              env={**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'})
     except subprocess.TimeoutExpired as exc:
-        (logs / (name + '.stdout')).write_bytes(exc.stdout or b'')
-        (logs / (name + '.stderr')).write_bytes(exc.stderr or b'')
-        raise ReplayError(name + ': timeout') from exc
+        failure = ReplayError(name + ': timeout')
+        failure.timeout_record = timeout_evidence(exc, argv, cwd, logs, name, started)
+        for key, error in failure.timeout_record['evidence_errors'].items():
+            failure.add_note('timeout evidence ' + key + ': ' + error)
+        raise failure from exc
     (logs / (name + '.stdout')).write_bytes(run.stdout)
     (logs / (name + '.stderr')).write_bytes(run.stderr)
     record = dict(command=argv, returncode=run.returncode,
@@ -186,6 +219,7 @@ def main():
                    github_run_attempt=os.environ.get('GITHUB_RUN_ATTEMPT'),
                    github_event=os.environ.get('GITHUB_EVENT_NAME'),
                    status='FAIL', steps={})
+    primary_failure = None
     try:
         validate_snapshot(root)
         head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=root, check=True,
@@ -213,10 +247,19 @@ def main():
         require(execution_identities(root, head) == receipt['execution_sources'], 'execution_source_drift')
         receipt['status'] = 'PASS'
     except Exception as exc:
+        primary_failure = exc
         receipt['failure'] = type(exc).__name__ + ': ' + str(exc)
+        if isinstance(exc, ReplayError) and hasattr(exc, 'timeout_record'):
+            receipt['failed_step'] = exc.timeout_record
         raise
     finally:
-        (logs / 'receipt.json').write_text(json.dumps(receipt, sort_keys=True, indent=2) + '\n')
+        try:
+            (logs / 'receipt.json').write_text(json.dumps(receipt, sort_keys=True, indent=2) + '\n')
+        except Exception as evidence_error:
+            if primary_failure is None:
+                raise  # A successful calculation without its required receipt still fails.
+            primary_failure.add_note('receipt write failed: ' + type(evidence_error).__name__
+                                     + ': ' + str(evidence_error))
     print(json.dumps(receipt, sort_keys=True, indent=2))
 
 
