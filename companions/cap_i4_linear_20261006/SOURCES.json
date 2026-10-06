@@ -1,0 +1,60 @@
+{
+  "declarations": [
+    "CapI4Linear.tracePair",
+    "CapI4Linear.spectralPair",
+    "CapI4Linear.tracePair_apply",
+    "CapI4Linear.spectralPair_apply",
+    "CapI4Linear.det_tracePair",
+    "CapI4Linear.det_spectralPair",
+    "CapI4Linear.tracePair_spectralPair",
+    "CapI4Linear.spectralPair_tracePair",
+    "CapI4Linear.map_tracePair",
+    "CapI4Linear.map_spectralPair",
+    "CapI4Linear.lintegral_tracePair",
+    "CapI4Linear.lintegral_spectralPair",
+    "CapI4Linear.positive_chamber_change",
+    "CapI4Linear.weighted_positive_chamber_change"
+  ],
+  "files": {
+    "CapI4Linear.lean": {
+      "blob": "4ac91641fa0dfc080e899d7d0e2bf91216941527",
+      "bytes": 6459,
+      "sha256": "fa8aee7988a777f6c45834b503c173fa6a7af78c4717d51a5b9547fcf0f50af8"
+    },
+    "Contract.lean": {
+      "blob": "246fd9d7779fe45943592b136c2de04edc497db9",
+      "bytes": 822,
+      "sha256": "4ee75596f68576f33377fd99a170b31bbf66b57cbef7c4c9c1f5521954c32fde"
+    },
+    "README.md": {
+      "blob": "245f35ce67b92a6d0460c0bb140ff17c94a892bb",
+      "bytes": 4288,
+      "sha256": "91fea306331eccfee3476a56c7f0fffafe9805943408c66d64aa6e41f546c650"
+    },
+    "replay.py": {
+      "blob": "01ccc2ef0c0af691a89d5836346a8d87535e4b2d",
+      "bytes": 6790,
+      "sha256": "1920e9cc5e282bc184c56cc61623f1698ed0e168a6831f45e03eb3d56c8ee4d1"
+    },
+    "test_evidence.py": {
+      "blob": "a13acaf8b8ccc8bb5c91d5803fcc4fa426dd270d",
+      "bytes": 2007,
+      "sha256": "da109403a2fff1039e73ea9fc47af7a4b9967b53c10f0f311abd87af295aa268"
+    },
+    "test_linear.py": {
+      "blob": "3b223b8b98bdfa715cb9e44864726f7534f25a36",
+      "bytes": 2180,
+      "sha256": "c5434f23d2dff4c6abca5c76300d5eafff2f893cb1fd0a158f1eb0a9c3348c79"
+    }
+  },
+  "parent": "778805dbe6635f82488098b478739a0ed4026130",
+  "schema": 1,
+  "scope": "linear Lebesgue changes only; concrete Gaussian Cap I4 open",
+  "source_blobs": {
+    "formal/lake-manifest.json": "d482b5f1e038b90397e239d2c0af82792cb0bd09",
+    "formal/lakefile.toml": "8117eae1b2897b7d95f5b2c42e8cf15222a1c5e8",
+    "formal/lean-toolchain": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+    "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+    "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+  }
+}
