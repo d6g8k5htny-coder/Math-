@@ -145,6 +145,9 @@ def replay(script, expected, mutants, family, flags, timeout):
         result = subprocess.run(command, capture_output=True, timeout=timeout)
         require(result.returncode == 1 and result.stderr == b'',
                 family + '/' + mutant + ': unexpected exit/stderr (not intended rejection)')
+        if family != 'factorial':
+            require(result.stdout == (json.dumps(wanted, sort_keys=True) + '\n').encode('utf-8'),
+                    family + '/' + mutant + ': extra or noncanonical assertion-carrier stdout')
         require(exact_value(strict_json(result.stdout), wanted),
                 family + '/' + mutant + ': wrong rejection identity, fields, types, or failed-check set')
 

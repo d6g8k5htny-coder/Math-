@@ -92,6 +92,7 @@ if ACTIVE and BEHAVIOR=='empty': raise SystemExit(1)
 if ACTIVE and BEHAVIOR=='exit_zero': raise SystemExit(0)
 if ACTIVE and BEHAVIOR=='stderr': sys.stderr.write('unexpected mutant stderr\\n')
 if ACTIVE and BEHAVIOR=='prefix': sys.stdout.write('unexpected prefix\\n')
+if ACTIVE and BEHAVIOR=='whitespace': sys.stdout.write(' \\n\\t')
 '''
     if family == 'factorial':
         start += '''doc=json.loads(BASELINE)
@@ -109,6 +110,7 @@ if ACTIVE:
     elif BEHAVIOR=='object': doc['object']='other packet'
     elif BEHAVIOR=='scope': doc['scope']='unbounded mathematical acceptance'
 raw=json.dumps(doc,sort_keys=True)
+if ACTIVE and BEHAVIOR=='formatting': raw=json.dumps(doc,indent=2,sort_keys=False)
 if ACTIVE:
     if BEHAVIOR=='duplicate': raw=raw[:-1]+',"passed":false}'
     elif BEHAVIOR=='nested_duplicate': raw=raw.replace('"CAP_ATTAINED": true','"CAP_ATTAINED":true,"CAP_ATTAINED":true')
@@ -208,6 +210,13 @@ class WorkflowProtocolTests(unittest.TestCase):
 
     def test_every_named_mutant_crash_is_rejected(self):
         for family in CONFIG: self.verify(family,'crash',targets=CONTRACTS[family])
+
+    def test_assertion_whitespace_output_is_rejected(self):
+        for family in ('d5','palm'):
+            self.verify(family,'whitespace')
+
+    def test_factorial_valid_json_formatting_is_accepted(self):
+        self.verify('factorial','formatting',True)
 
     def test_baseline_stderr_is_rejected(self):
         for family in CONFIG: self.verify(family,'baseline_stderr')

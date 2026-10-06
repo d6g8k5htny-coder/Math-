@@ -19,7 +19,8 @@ D5/Palm controls. The repair translates only their authentic assertion carrier.
 `tools/d5_c6_replay.py` runs the full original script in a fresh child process.
 For D5/Palm it accepts only an exact AssertionError class, argument message,
 checker filename and final `(check_group, require)` traceback pair. It then emits
-an identified JSON rejection with empty stderr. Output preceding the exception
+an identified JSON rejection with empty stderr. The parent also requires the
+adapter's exact serialized bytes, including its single final newline. Output preceding the exception
 is not suppressed and therefore fails the parent. All other exceptions propagate
 as failures. The parent requires exit 1, empty stderr and an exact typed JSON
 record. Normal completion is not rejection.
@@ -71,7 +72,7 @@ python -B -S -m unittest discover -s tests -p test_d5_c6_workflows.py -v
 python -B -O -S -m unittest discover -s tests -p test_d5_c6_workflows.py -v
 ```
 
-The suite has 14 methods. Its workflow tests use 232 real committed temporary
+The suite has 16 methods. Its workflow tests use 238 real committed temporary
 Git repositories per outer mode, with hash-consistent synthetic checker/output
 fixtures. They execute the entire original or repaired verification shell step,
 including its membership/hash checks and final Git-diff command. No subprocess
