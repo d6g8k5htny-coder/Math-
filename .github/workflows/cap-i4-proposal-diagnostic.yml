@@ -41,7 +41,7 @@ jobs:
               return subprocess.check_output(['git',*args],text=True).strip()
           side='companions/cap_i4_spectral_assembly_20261006/'
           pins={side+'replay.py':'03169fcc86253431dec52bbe103830866f241739',
-                side+'CapI4SpectralAssembly.lean':'21fe24918e9379d8fa14f944ebb00332dc17d991',
+                side+'CapI4SpectralAssembly.lean':'fa62f66933bf18f7eea8061fd8b207606d9484a8',
                 side+'Contract.lean':'f789d5fb41067dbfdd07489b62461158aeae02ba'}
           for path,expected in pins.items():
               if Path(path).is_symlink() or git('hash-object',path)!=expected:

@@ -26,14 +26,19 @@ theorem radial_positive_tonelli (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable
       G (q.1-q.2,q.1+q.2)) := by fun_prop
   symm
   rw [← lintegral_indicator hs]
-  rw [lintegral_prod _ (hW.indicator hs).aemeasurable]
-  apply lintegral_congr
-  intro t
-  rw [← lintegral_indicator measurableSet_Ioi]
-  apply lintegral_congr
-  intro r
-  by_cases hr : 0 < r <;> by_cases ht : r < t <;>
-    simp [Set.indicator, hr, ht, sub_pos, mul_ite]
+  calc
+    _ = ∫⁻ t : ℝ, ∫⁻ r : ℝ,
+        {q : ℝ × ℝ | 0 < q.2 ∧ q.2 < q.1}.indicator
+          (fun q => ENNReal.ofReal q.2 * G (q.1-q.2,q.1+q.2)) (t,r) :=
+      lintegral_prod _ (hW.indicator hs).aemeasurable
+    _ = _ := by
+      apply lintegral_congr
+      intro t
+      rw [← lintegral_indicator measurableSet_Ioi]
+      apply lintegral_congr
+      intro r
+      by_cases hr : 0 < r <;> by_cases ht : r < t <;>
+        simp [Set.indicator, hr, ht, sub_pos, mul_ite]
 
 /-- The three-entry convention is exactly e=(a,(b,d)). -/
 theorem entry_spectral_radial (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G) :
@@ -52,7 +57,8 @@ theorem entry_spectral_radial (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G
         CapI4EntryVolume.traceCoordinates_lintegral _ hPhi
     _ = (2 : ℝ≥0∞) * ∫⁻ t : ℝ, ∫⁻ z : ℝ × ℝ,
         G (CapI4Polar.spectrum t z) := by
-      rw [lintegral_prod _ hPhi.aemeasurable]
+      congr 1
+      exact lintegral_prod _ hPhi.aemeasurable
     _ = (2 : ℝ≥0∞) * ∫⁻ t : ℝ, ENNReal.ofReal (2*Real.pi) *
         ∫⁻ r : ℝ in Ioi 0, ENNReal.ofReal r * G (t-r,t+r) := by
       congr 1
@@ -111,7 +117,7 @@ theorem density_positive_spectral_bound
   calc
     _ ≤ ∫⁻ e : ℝ × (ℝ × ℝ), H (CapI4Polar.eigenvalues e) *
         (if 0 < (CapI4Polar.eigenvalues e).1 then G (CapI4Polar.eigenvalues e) else 0) :=
-      lintegral_mono (fun e => mul_le_mul_right' (hdom e) _)
+      lintegral_mono (fun e => by gcongr; exact hdom e)
     _ = ∫⁻ e : ℝ × (ℝ × ℝ),
         if 0 < (CapI4Polar.eigenvalues e).1 then
           H (CapI4Polar.eigenvalues e) * G (CapI4Polar.eigenvalues e) else 0 := by
