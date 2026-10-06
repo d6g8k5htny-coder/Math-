@@ -35,9 +35,10 @@ moment-nine envelope already appears in PR313; no new moment-optimality claim.
 
 ## Execution boundary
 
-The initial file contains imports only. Contract.lean fixes all six statements;
-the first hosted contract run must fail at those absent declarations before proof
-implementation. A finished child requires its actual warnings-as-errors build,
+The initial imports-only source at bc04723c produced actual run37467529583: the
+stub compiled, then Contract.lean failed ONLY at its six absent declarations.
+Original artifact11415057753 is retained. The current source supplies proof bodies
+with the exact same Contract. A finished child requires its warnings-as-errors build,
 exact Contract, all six axiom/type reports, fresh leanchecker, intended negative
 controls and equal source-before/after records. Pending or failed runs are not PASS.
 The factor/sign negative probes are scalar controls, not independent integral proofs.
