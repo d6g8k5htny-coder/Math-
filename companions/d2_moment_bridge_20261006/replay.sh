@@ -41,5 +41,5 @@ for control in RejectZeroAtom RejectSameRadius; do
 done
 INNER
 cd "$ROOT"
-python3 -B -S "$SIDE/check.py" finish "$OUT" | tee "$OUT/result.json"
+python3 -B -S "$SIDE/check.py" finish "$OUT"
 echo 'PASS: actual-law D2 companion; concrete periodic law and scientific acceptance remain unproved here.'

@@ -45,8 +45,15 @@ theorem residual_integral_eq_delta (μ : Measure Ω) (X : Ω → ℝ)
     (∫ w, cubicResidual (moment μ X 4 / moment μ X 2) (X w) ^ 2 ∂μ) =
       d2Delta (moment μ X 2) (moment μ X 4) (moment μ X 6) := by
   simp_rw [residual_sq_expand]
-  rw [integral_add (h6.sub (h4.const_mul _)) (h2.const_mul _),
-    integral_sub h6 (h4.const_mul _), integral_const_mul, integral_const_mul]
+  have hs : Integrable
+      (fun w => X w ^ 6 - (2 * (moment μ X 4 / moment μ X 2)) * X w ^ 4) μ :=
+    h6.sub (h4.const_mul (2 * (moment μ X 4 / moment μ X 2)))
+  have hl : Integrable
+      (fun w => (moment μ X 4 / moment μ X 2) ^ 2 * X w ^ 2) μ :=
+    h2.const_mul ((moment μ X 4 / moment μ X 2) ^ 2)
+  rw [integral_add hs hl,
+    integral_sub h6 (h4.const_mul (2 * (moment μ X 4 / moment μ X 2))),
+    integral_const_mul, integral_const_mul]
   change moment μ X 6 - (2 * (moment μ X 4 / moment μ X 2)) * moment μ X 4 +
     (moment μ X 4 / moment μ X 2) ^ 2 * moment μ X 2 =
       d2Delta (moment μ X 2) (moment μ X 4) (moment μ X 6)
@@ -179,8 +186,12 @@ theorem square_gap_integral (μ : Measure Ω) [IsProbabilityMeasure μ] (X : Ω 
       (fun w => X w ^ 4 - (2 * moment μ X 2) * X w ^ 2 + (moment μ X 2) ^ 2) := by
     funext w
     ring
-  rw [hf, integral_add (h4.sub (h2.const_mul _)) (integrable_const _),
-    integral_sub h4 (h2.const_mul _), integral_const_mul]
+  have hs : Integrable
+      (fun w => X w ^ 4 - (2 * moment μ X 2) * X w ^ 2) μ :=
+    h4.sub (h2.const_mul (2 * moment μ X 2))
+  have hc : Integrable (fun _ : Ω => (moment μ X 2) ^ 2) μ := integrable_const _
+  rw [hf, integral_add hs hc,
+    integral_sub h4 (h2.const_mul (2 * moment μ X 2)), integral_const_mul]
   simp only [integral_const, measureReal_univ_eq_one, one_smul]
   change moment μ X 4 - (2 * moment μ X 2) * moment μ X 2 + (moment μ X 2) ^ 2 = _
   ring

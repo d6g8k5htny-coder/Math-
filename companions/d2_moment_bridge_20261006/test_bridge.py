@@ -6,6 +6,10 @@ import json
 from pathlib import Path
 import re
 import unittest
+import subprocess
+import tempfile
+import hashlib
+import os
 
 SIDE = Path(__file__).resolve().parent
 THEOREMS = '''residual_sq_expand residual_sq_integrable residual_integral_eq_delta delta_nonneg delta_eq_zero_iff_residual cubicResidual_eq_zero_iff delta_eq_zero_iff_support delta_pos_iff_not_support property_of_ae_of_atom moment_two_pos_of_atom delta_pos_of_two_atoms square_gap_integrable square_gap_integral fourth_gt_second_sq_of_two_atoms tau_pos_of_two_atoms zero_atom_counterexample'''.split()
@@ -115,6 +119,25 @@ class BridgeTests(unittest.TestCase):
             with self.subTest(bad=bad,status=status), self.assertRaises(ValueError):
                 m.negative(bad,'RejectZeroAtom',status)
         with self.assertRaises(ValueError):m.negative(text,'Unknown',1)
+
+    def test_final_command_does_not_hash_a_live_tee_output(self):
+        # Execute the actual final shell invocation against a synthetic snapshot writer.
+        # A live tee destination must not change after the receipt hashes that directory.
+        command=next(line for line in (SIDE/'replay.sh').read_text().splitlines()
+                     if 'check.py" finish' in line)
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp); out=root/'evidence'; out.mkdir()
+            (root/'check.py').write_text("import pathlib,json,hashlib,time,sys\n"
+                "out=pathlib.Path(sys.argv[-1]);time.sleep(0.05)\n"
+                "r={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir()}\n"
+                "(out/'receipt.json').write_text(json.dumps(r))\nprint('completed synthetic fixture')\n")
+            run=subprocess.run(['bash','-c','set -euo pipefail\n'+command],
+                capture_output=True,env={**os.environ,'SIDE':str(root),'OUT':str(out)})
+            self.assertEqual(run.returncode,0,run.stderr)
+            recorded=json.loads((out/'receipt.json').read_text())
+            for name,digest in recorded.items():
+                self.assertEqual(hashlib.sha256((out/name).read_bytes()).hexdigest(),digest,
+                                 'receipt hashed an output that was still being written')
 
     def test_type_inventory_missing_duplicate_unrecognized(self):
         m=self.checker(); names=['D2MomentBridge.a','D2MomentBridge.b']

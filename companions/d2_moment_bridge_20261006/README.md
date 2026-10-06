@@ -14,9 +14,9 @@ The complete unchanged primary `formal/` tree is
 `ResearchFormalCoreR1.D2Schur` is the consumed scalar companion, blob
 `b95460c0d263a32ea274b347079cca6aaab3d2e9`.
 The source note is #302 `reviews/side24_d2_certified_small_L_claude_20261005/NOTE.md`,
-blob `852f7403a8a06a1ef061e363df9502ae16f7a341`. Its C7 / section4 already proves
-positivity for the actual periodic spectral law using distinct nonzero modes.
-This packet neither replaces that proof nor supplies another numerical bound.
+blob `852f7403a8a06a1ef061e363df9502ae16f7a341`. Its section4 and C7 record
+certified positive minima and the existing Gram floors at the listed periods.
+This packet neither replaces those results nor supplies another numerical bound.
 
 Motivation: review correction AUD-309-REVIEW-STRICTNESS-01 (#309/6006934456;
 reviewer acknowledgment6007155271). Strict Jensen for X^2 does not imply strict
@@ -105,3 +105,17 @@ alignment and scientific acceptance are separate predicates. No uniform spectral
 floor, concrete periodic probability law, moment summability for that law,
 trigonometric q map, Gaussian/Palm identification, interval quadrature, numerical
 coefficient or persistence/cap theorem is proved by this packet.
+
+## Initial failure and author repair
+
+The original dedicated run37399665489 failed in the new Lean module at two
+integral-linearity rewrites: implicit scalar metavariables were not inferred
+through the pointwise function operations. Its unchanged63-target core replay
+passed. The successor names the two exact integrable summands and explicit
+scalar multipliers; no theorem statement, hypothesis or warning policy changes.
+Separately, a new real-shell regression exposed that piping the final receipt
+producer through tee into its own hashed directory would record a still-changing
+output. The successor removes that tee. The failing original artifact and
+separate red/green shell test are retained; the hosted failure did not reach the
+final receipt step. Ten local test methods now cover this additional regression.
+A successor kernel pass is not claimed by this historical explanation.
