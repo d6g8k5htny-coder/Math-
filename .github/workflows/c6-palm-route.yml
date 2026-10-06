@@ -5,6 +5,8 @@ name: C6 Palm-route checks
     paths:
       - 'frontiers/c6_palm_route_20260929/**'
       - '.github/workflows/c6-palm-route.yml'
+      - 'tools/d5_c6_replay.py'
+      - 'tests/**'
   workflow_dispatch:
 
 permissions:
@@ -18,16 +20,23 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Full repository regression suite in both Python modes
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -v
+          python -B -O -S -m unittest discover -s tests -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           set -euo pipefail
           python -B -S - <<'PY'
-          import hashlib, json, pathlib, subprocess, sys
+          import hashlib, json, pathlib
+          from tools.d5_c6_replay import replay
           root = pathlib.Path('frontiers/c6_palm_route_20260929').resolve()
           manifest = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           present = sorted(p.name for p in root.iterdir())
@@ -46,15 +55,7 @@ jobs:
           mutants = ['no-slab', 'weak-zeta', 'lambda-too-large', 'series-ratio', 'factorial-power', 'schur-upper',
                      'forget-mark-power']
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script],
-                                   check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in mutants:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
-                                      capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
+              replay(script, expected, mutants, 'palm', flags, timeout=600)
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code
