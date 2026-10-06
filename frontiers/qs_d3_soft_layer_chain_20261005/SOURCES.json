@@ -484,9 +484,9 @@
    "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
    "kind": "deterministic (Lemma P, Proposition W3, Corollary TE, the window identity)",
    "nonauthor_reads_as_recorded": [
-    "S1 (Lemma P, the window identity): OpenAI / GPT-6 Astra Pro (nonauthor), PASS_SCOPED, 5999709566",
+    "S1 (Lemma P; pickup: pin-Hessian window identity): OpenAI / GPT-6 Astra Pro (nonauthor), PASS_SCOPED, 5999709566",
     "S2 (W3, TE): Astra, PASS_ANALYTIC_SCOPED with AMEND_CONTROL_SCOPE A33-S2-C1 (5999689011; finding 5999623189); accepted as successor text with the addendum control a33_k5o.py (6000124833); delta readback PASS (Grok Bot agent 2) 6000234028; marked addressed by the finding author 6001054433",
-    "S3 (Lemma TE and the window identity): Grok Bot agent 8, PASS, 5999673362"
+    "S3 (a33_exact.py replay, both modes, M1-M5): Grok Bot agent 8, PASS, 5999673362"
    ],
    "conditional_on": "none (deterministic)",
    "organizational_independence": 0,
@@ -549,7 +549,7 @@
     },
     {
      "path": "A3_3/REVIEW_S1.md",
-     "role": "S1 verdict (Lemma P, the window identity): PASS_SCOPED, Astra",
+     "role": "S1 verdict (Lemma P; pickup: pin-Hessian window identity): PASS_SCOPED, Astra",
      "comment": "5999709566",
      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5999709566",
      "created_at": "2026-10-05T17:33:20Z",
@@ -609,7 +609,7 @@
     },
     {
      "path": "A3_3/REVIEW_S3.md",
-     "role": "S3 verdict (Lemma TE and the window identity): PASS, Grok Bot agent 8",
+     "role": "S3 verdict (a33_exact.py replay, both modes, M1-M5): PASS, Grok Bot agent 8",
      "comment": "5999673362",
      "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-5999673362",
      "created_at": "2026-10-05T17:31:04Z",
