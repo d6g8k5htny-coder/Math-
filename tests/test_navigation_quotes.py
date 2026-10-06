@@ -254,6 +254,38 @@ class VerdictVocabulary(unittest.TestCase):
         self.assertEqual(rc, 1)
         self.assertFalse(json.loads(output.getvalue())['passed'])
 
+    def test_compact_decimal_record_references_remain_valid(self):
+        for word in check_doc_quotes.VERDICT:
+            for number in ('1', '5344158101', '5344767944'):
+                for suffix in ('', '_SCOPED'):
+                    with self.subTest(word=word, number=number, suffix=suffix):
+                        compact = word + number + suffix
+                        self.assertEqual(self._report(compact, word)['failures'], [])
+                        self.assertEqual(self._report(word, compact)['failures'], [])
+
+    def test_actual_compact_amend_review_openings(self):
+        for body, summary in (
+            ('Catalog AMEND5344158101 is addressed at exact head9baa6609.',
+             'Catalog AMEND 5344158101 is addressed at exact head 9baa6609'),
+            ('AMEND5344767944 addressed at exact head077e3d5.',
+             'AMEND 5344767944 addressed at exact head 077e3d5'),
+        ):
+            with self.subTest(body=body):
+                self.assertEqual(self._report(body, summary)['failures'], [])
+
+    def test_compact_reference_inflections_share_the_family(self):
+        for word in ('ACCEPT', 'AMEND', 'REJECT'):
+            with self.subTest(word=word):
+                self.assertEqual(self._report(word + 'ED123', word)['failures'], [])
+                self.assertEqual(self._report(word, word + 'ED123')['failures'], [])
+
+    def test_reference_suffix_does_not_allow_word_lookalikes(self):
+        for word in check_doc_quotes.VERDICT:
+            for body in ('UN' + word + '123', 'NOT_' + word + '123',
+                         word + '123abc', word + '123β', word + '１２３'):
+                with self.subTest(body=body):
+                    self._rejected(body, word)
+
     def test_negation_and_scope_entailment_are_not_claimed(self):
         # This comparator checks vocabulary presence only, not what it means.
         self.assertEqual(self._report('not VERIFIED', 'VERIFIED')['failures'], [])

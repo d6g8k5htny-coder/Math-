@@ -15,8 +15,9 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
   ``unchecked_offline`` and does not fail the check;
 * a ``summary:`` passage must not use a verdict family (ACCEPT/ACCEPTED,
   AMEND/AMENDED, HOLD, CONFIRMED, VERIFIED, REJECT/REJECTED) absent from the linked
-  record, under the same offline rule. Complete tokens may have underscore-delimited
-  uppercase alphanumeric scope tags; embedded lookalikes such as UNVERIFIED do not
+  record, under the same offline rule. Complete tokens may carry a decimal record
+  reference (AMEND123) and uppercase alphanumeric underscore-delimited scope tags;
+  embedded lookalikes such as UNVERIFIED do not
   supply VERIFIED. This is lexical presence, not negation or scope entailment;
 * a passage with no preceding link in its segment fails (``no-source-link``).
 
@@ -44,7 +45,7 @@ VERDICT = ('ACCEPT', 'AMEND', 'HOLD', 'CONFIRMED', 'VERIFIED', 'REJECT')
 VERDICT_PATTERNS = {
     word: re.compile(r'(?<!\w)' + word
                      + (r'(?:ED)?' if word in ('ACCEPT', 'AMEND', 'REJECT') else '')
-                     + r'(?:_[A-Z0-9]+)*(?!\w)')
+                     + r'(?:[0-9]+)?(?:_[A-Z0-9]+)*(?!\w)')
     for word in VERDICT
 }
 GITHUB = re.compile(r'https://github\.com/([^/]+)/([^/]+)/pull/(\d+)#(issuecomment|pullrequestreview|discussion_r)-?(\d+)')
