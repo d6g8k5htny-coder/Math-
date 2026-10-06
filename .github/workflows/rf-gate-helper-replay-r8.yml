@@ -1,0 +1,12 @@
+# Execution-only snapshot. Do not merge this caller into main or the production PR.
+# All pre-existing source bytes equal helper 22393e7b; receipt binds this caller's commit.
+name: RF-GATE 22393e7b isolated formal replay
+on:
+  push:
+    branches:
+      - 'chatgpt/rf-gate-helper-replay-22393e7b-20261006-r8'
+permissions:
+  contents: read
+jobs:
+  formal:
+    uses: d6g8k5htny-coder/Math-/.github/workflows/formal-lean.yml@22393e7ba3c24b6af57e9c0709bdf4f911583a65
