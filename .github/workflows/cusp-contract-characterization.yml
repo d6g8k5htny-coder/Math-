@@ -1,0 +1,101 @@
+name: Cusp original CLI characterization (isolated, never merge)
+'on':
+  push:
+    branches: ['chatgpt/cusp-contract-characterization-20261006-rfgate']
+permissions:
+  contents: read
+jobs:
+  characterize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: '3.11.16'
+      - name: Authenticate packet and retain genuine original CLI outputs
+        run: |
+          python -B -S - <<'PY'
+          """Finite original-CLI characterization; not a numerical-proof acceptance gate."""
+          from pathlib import Path
+          import hashlib
+          import json
+          import os
+          import platform
+          import subprocess
+          import sys
+          
+          CUT = '11f9127f00ce922e5d39b0da42af76134eb78a21'
+          PACKET = Path('frontiers/cusp_second_order_20261001')
+          OUT = Path('cusp-characterization')
+          OUT.mkdir(exist_ok=False)
+          manifest = json.loads((PACKET / 'SOURCES.json').read_text())
+          if manifest['mutants'] != ['M1', 'M2', 'M3', 'M4', 'M5']:
+              raise ValueError('unexpected original mutant inventory')
+          expected_names = sorted([r['path'] for r in manifest['files']] + ['SOURCES.json'])
+          if sorted(p.name for p in PACKET.iterdir()) != expected_names:
+              raise ValueError('packet membership mismatch')
+          for row in manifest['files']:
+              p = PACKET / row['path']
+              data = p.read_bytes()
+              if p.is_symlink() or len(data) != row['bytes'] or hashlib.sha256(data).hexdigest() != row['sha256']:
+                  raise ValueError('packet identity mismatch: ' + row['path'])
+          paths = [str(PACKET), '.github/workflows/cusp-second-order.yml']
+          with (OUT / 'source.tar').open('wb') as stream:
+              subprocess.run(['git', 'archive', '--format=tar', CUT, '--', *paths], stdout=stream, check=True)
+          head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
+          if head != os.environ['GITHUB_SHA']:
+              raise ValueError('checkout does not match actual workflow SHA')
+          records = []
+          report = {'source_commit': CUT, 'checked_commit': head, 'repository': os.environ['GITHUB_REPOSITORY'],
+                    'run_id': os.environ['GITHUB_RUN_ID'], 'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+                    'python': platform.python_version(), 'scientific_effect': 'NONE', 'records': records}
+          def save():
+              (OUT / 'characterization.json').write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
+          save()
+          for optimized in (False, True):
+              flags = ['-B', '-O', '-S'] if optimized else ['-B', '-S']
+              for label in ['baseline', *manifest['mutants'], 'M9']:
+                  args = [] if label == 'baseline' else ['--mutant', label]
+                  stem = ('optimized-' if optimized else 'normal-') + label
+                  command = [sys.executable, *flags, str(PACKET / 'cusp_check.py'), *args]
+                  record = {'label': label, 'optimized': optimized, 'command': command, 'status': 'started'}
+                  records.append(record)
+                  save()
+                  try:
+                      with (OUT / (stem + '.stdout')).open('wb') as stdout, (OUT / (stem + '.stderr')).open('wb') as stderr:
+                          cp = subprocess.run(command, stdout=stdout, stderr=stderr, timeout=600)
+                      record.update(status='completed', returncode=cp.returncode)
+                  except (OSError, subprocess.TimeoutExpired) as error:
+                      record.update(status='error', error=type(error).__name__, detail=str(error))
+                      save()
+                      raise
+                  for channel in ('stdout', 'stderr'):
+                      p = OUT / (stem + '.' + channel)
+                      data = p.read_bytes()
+                      record[channel] = {'path': p.name, 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+                  save()
+                  print(stem, 'exit', cp.returncode, flush=True)
+                  expected_exit = 0 if label == 'baseline' else 2 if label == 'M9' else 1
+                  if cp.returncode != expected_exit:
+                      raise ValueError('original CLI exit differs: ' + stem)
+                  if label == 'baseline' and ((OUT / (stem + '.stdout')).read_bytes() != (PACKET / 'RESULTS.json').read_bytes()
+                                              or (OUT / (stem + '.stderr')).stat().st_size):
+                      raise ValueError('original baseline output differs: ' + stem)
+          subprocess.run(['git', 'diff', '--exit-code'], check=True)
+          report['characterization_completed'] = True
+          report['source_tar_sha256'] = hashlib.sha256((OUT / 'source.tar').read_bytes()).hexdigest()
+          save()
+          print('14 original CLI invocations characterized; no mathematical acceptance', flush=True)
+          PY
+      - name: Retain source and original outputs
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: cusp-characterization-${{ github.run_id }}-${{ github.run_attempt }}
+          path: cusp-characterization/
+          if-no-files-found: error
+          retention-days: 14
