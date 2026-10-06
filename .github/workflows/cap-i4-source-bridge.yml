@@ -1,7 +1,8 @@
-name: Cap I4 isolated source bridge
+# Evidence-only child of f4079f65; original Cap branch and sealed formal tree are unchanged.
+name: Cap I4 isolated evidence successor
 on:
   push:
-    branches: [chatgpt/cap-i4-source-bridge-20261005]
+    branches: [chatgpt/cap-i4-evidence-r2-20261005]
     paths:
       - companions/cap_i4_source_bridge_20261005/**
       - .github/workflows/cap-i4-source-bridge.yml
