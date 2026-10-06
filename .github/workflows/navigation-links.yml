@@ -9,6 +9,7 @@ name: Navigation document links and quotations
       - 'tools/check_doc_quotes.py'
       - 'tests/test_navigation_links.py'
       - 'tests/test_navigation_quotes.py'
+      - 'tests/test_navigation_source_identity.py'
       - '.github/workflows/navigation-links.yml'
   workflow_dispatch:
 
@@ -36,6 +37,6 @@ jobs:
           python -B -O -S tools/check_doc_links.py PROOF_INDEX.md docs/integration/*.md
           python -B -S tools/check_doc_quotes.py --github --require-online PROOF_INDEX.md docs/integration/2026-09-29-navigation-refresh.md
           python -B -O -S tools/check_doc_quotes.py --github --require-online PROOF_INDEX.md docs/integration/2026-09-29-navigation-refresh.md
-          python -B -S -m unittest -v tests.test_navigation_links tests.test_navigation_quotes
-          python -B -O -S -m unittest -v tests.test_navigation_links tests.test_navigation_quotes
+          python -B -S -m unittest -v tests.test_navigation_links tests.test_navigation_quotes tests.test_navigation_source_identity
+          python -B -O -S -m unittest -v tests.test_navigation_links tests.test_navigation_quotes tests.test_navigation_source_identity
           git diff --exit-code

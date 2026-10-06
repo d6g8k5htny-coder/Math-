@@ -12,7 +12,9 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
   Markdown emphasis, curly quotes/dashes and table-cell pipe escapes;
 * a GitHub pull-request review / comment link is checked against the live body only with
   ``--github`` (token read from ``GITHUB_TOKEN``); without it the passage is reported as
-  ``unchecked_offline`` and does not fail the check;
+  ``unchecked_offline`` and does not fail the check. Online records must match the
+  complete citation's record ID, repository, PR, kind and returned parent URL;
+  partial URLs and mismatched records never supply a checked passage;
 * a ``summary:`` passage must not use a verdict word (ACCEPT, AMEND, HOLD, CONFIRMED,
   VERIFIED, REJECT) that the linked record does not use, under the same offline rule.
   The same leading word boundary applies to both texts; suffix forms remain allowed.
@@ -84,16 +86,48 @@ def table_data_rows(lines):
         yield index + 1, line
 
 
+def record_matches(match, data):
+    """Bind a returned GitHub record to its full citation, not just its body.
+
+    Comments are fetched through repository-wide endpoints: their IDs alone do
+    not verify the PR named in the browser URL. Use both returned locators and
+    the integer record ID. Review objects need not have a top-level REST `url`.
+    This checks identity consistency, not semantic entailment or review quality.
+    """
+    if not isinstance(data, dict) or type(data.get('id')) is not int:
+        return False
+    owner, repo, number, kind, ident = match.groups()
+    if data['id'] != int(ident):
+        return False
+    if 'body' not in data or (data['body'] is not None and not isinstance(data['body'], str)):
+        return False
+    html = data.get('html_url')
+    actual = GITHUB.fullmatch(html) if isinstance(html, str) else None
+    if actual is None:
+        return False
+    actual_owner, actual_repo, actual_number, actual_kind, actual_id = actual.groups()
+    if (actual_owner.casefold(), actual_repo.casefold(), int(actual_number), actual_kind, int(actual_id)) != (
+            owner.casefold(), repo.casefold(), int(number), kind, int(ident)):
+        return False
+    key = 'issue_url' if kind == 'issuecomment' else 'pull_request_url'
+    endpoint = 'issues' if kind == 'issuecomment' else 'pulls'
+    parent = data.get(key)
+    if not isinstance(parent, str):
+        return False
+    expected = 'https://api.github.com/repos/%s/%s/%s/%s' % (owner, repo, endpoint, number)
+    return parent.casefold() == expected.casefold()
+
+
 class Sources:
     def __init__(self, root, doc_dir, github, token):
         self.root, self.doc_dir, self.github, self.token = root, doc_dir, github, token
         self.cache = {}
 
     def body(self, target):
-        """Return (normalised body, status) with status in {'ok','offline','unreachable','missing'}."""
+        """Return (normalised body, status) with status in {'ok','offline','unreachable','missing','identity-mismatch'}."""
         if target in self.cache:
             return self.cache[target]
-        match = GITHUB.match(target)
+        match = GITHUB.fullmatch(target)
         if match:
             if not self.github:
                 result = (None, 'offline')
@@ -130,6 +164,8 @@ class Sources:
                 data = json.load(response)
         except Exception:  # noqa: BLE001 - any transport failure is reported, never hidden
             return (None, 'unreachable')
+        if not record_matches(match, data):
+            return (None, 'identity-mismatch')
         return (normalise(data.get('body') or ''), 'ok')
 
 
