@@ -18,7 +18,7 @@ import sys
 import tempfile
 import unittest
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = ROOT / '.github/workflows/third-order-rate.yml'
 PACKET = 'frontiers/third_order_rate_20261001'
 MUTANTS = tuple('M'+str(i) for i in range(1, 9))
@@ -291,9 +291,10 @@ class ThirdOrderProtocolTests(unittest.TestCase):
 
     def test_unconditional_two_mode_wiring(self):
         text=WORKFLOW.read_text()
-        self.assertIn("      - 'tests/test_third_order_rate_workflow.py'",text)
+        self.assertIn("      - 'reviews/third_order_protocol_20261006/test_third_order_rate_workflow.py'",text)
+        self.assertFalse((ROOT/'tests/test_third_order_rate_workflow.py').exists())
         for flags in ('-B -S','-B -O -S'):
-            self.assertIn('python '+flags+' -m unittest discover -s tests -p test_third_order_rate_workflow.py -v',text)
+            self.assertIn('python '+flags+' -m unittest discover -s reviews/third_order_protocol_20261006 -p test_third_order_rate_workflow.py -v',text)
 
 
 if __name__=='__main__':

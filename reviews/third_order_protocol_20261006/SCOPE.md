@@ -22,7 +22,7 @@ path as a candidate; this work supplies its specific executable counterexample
 and repair. No scientific packet, proof, original checker, RESULTS, source map,
 formal source, theorem annotation, dependency or scientific register changes.
 
-Only the existing workflow, one new root regression, and this scope are changed.
+Only the existing workflow, one dedicated regression, and this scope are changed.
 The 7056-byte original dependency/packet preflight and 137-byte final report/Git
 postflight remain byte-identical. The tracked-tree regular-file, source hash,
 commit/path/blob API, live dependency-PR drift and untracked-path guards are
@@ -65,7 +65,7 @@ sandbox: a malicious executable can print the expected report. Source identity,
 process output, mathematical validity and independent alignment remain distinct.
 Output-memory/durable-artifact/process-group guarantees are not introduced.
 
-## Test-first whole-shell evidence
+## Test-first whole-shell evidence — initial root-suite publication
 
 The same final ten-method test source was run against the exact original and
 repaired workflow in BOTH outer Python modes. Each completed suite runs146
@@ -109,11 +109,11 @@ local execution-driver histories remain in the owner's evidence delivery.
 ## Reproduction and integration boundary
 
 ```sh
-python -B -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
-python -B -O -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
+python -B -S -m unittest discover -s reviews/third_order_protocol_20261006 -p test_third_order_rate_workflow.py -v
+python -B -O -S -m unittest discover -s reviews/third_order_protocol_20261006 -p test_third_order_rate_workflow.py -v
 ```
 
-The new root-test path triggers the dedicated workflow, which runs both commands
+The dedicated review-folder test path triggers its workflow, which runs both commands
 unconditionally before its original verification step. There is no new imported
 helper/package-resolution dependency. Local development used an authenticated
 selected-source repository after direct GitHub DNS failed, not a full upstream
@@ -130,3 +130,48 @@ refs/queue/full diff/reviews/threads/dependencies and every applicable check,
 use ordinary expected-head merge, and read back the landed tree/push evidence.
 This author will not merge. #322 remains open for its broader affected class;
 #312, soft-fold, equal-height, factorial budget and all other owners keep scope.
+
+## Placement amendment — review6018064228 / author6018127566
+
+The first published head f8ef14235d9f6ebb71c54a1bd7359fa7f3ef768a placed
+the suite at tests/test_third_order_rate_workflow.py. Actual nonauthor xAI/Grok4.7
+Cursor bc-72db5126-ae87-41f1-ab3e-4de522fb26a6 confirmed the complete report
+contract and independently reproduced the original98 failures and repaired146
+outcomes per mode, but returned AMEND for repeated broad-suite workload.
+
+Its original factorial37474577146/job112306533590 remains CANCELLED. Both240
+repository methods/mode passed (281.005s/281.295s), but the replay step did not
+complete. Its final JSON printed immediately before cancellation at14:04:48Z,
+approximately10minutes after job setup. Timing supports budget expiry; the actor
+is not identified by the log. Final JSON is not final Git/step success.
+
+The amendment moves ALL ten methods/146 scenarios to
+reviews/third_order_protocol_20261006/test_third_order_rate_workflow.py.
+ROOT changes parents[1] to parents[2]. Only the wiring method changes its three
+path expectations and additionally rejects a duplicate root test. All other
+module AST nodes, helpers, fixed reference deltas, nine behavioral test methods,
+case inventory, fixture isolation, timeout values and concurrency are identical.
+The workflow changes only its new trigger and two discovery commands; its entire
+verification shell, including every source/API/control/postflight predicate,
+remains byte-identical to the first repair. No factorial workflow/budget change.
+
+Test-first route checks retain one intended wiring assertion in EACH mode against
+the original routing, then success after relocation. A separate deliberate root
+copy also fails the duplicate-file check. Complete relocated ten-method suites
+then run normally and optimized with the same146 scenarios, saved raw streams
+and exact stop-order checks; these are new executions, distinct from the initial
+584 records. No existing test case was dropped or hidden by a skip.
+
+The dedicated workflow still runs both full modes before authentic numerical
+replay, and triggers when either its source test or workflow changes. Avoiding
+unrelated broad discovery does not clear the historical factorial cancellation.
+A new actual factorial execution on the exact resulting current-base candidate,
+including its unchanged full repository suites, authentic replay and Git
+postflight within the existing10minute limit, is still required. A bounded
+successor source review must reconcile this amendment. No old green result,
+path-filter absence or manual-dispatch request counts as that completion.
+
+The base-only inputs from37bd017b to08f86862 are separately reconciled unrelated
+LM006 certificate/direct-import changes. They are not new third-order sources.
+The author does not self-review or self-merge, and #374's separate budget repair
+and all existing integration owners retain their scopes.

@@ -5,7 +5,7 @@ name: Third-order rate 3/7 exact controls
     paths:
       - 'frontiers/third_order_rate_20261001/**'
       - '.github/workflows/third-order-rate.yml'
-      - 'tests/test_third_order_rate_workflow.py'
+      - 'reviews/third_order_protocol_20261006/test_third_order_rate_workflow.py'
       # bound merged sources (consumed in SOURCES.json) and the pinned unmerged dependencies
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
@@ -43,8 +43,8 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           set -euo pipefail
-          python -B -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
-          python -B -O -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
+          python -B -S -m unittest discover -s reviews/third_order_protocol_20261006 -p test_third_order_rate_workflow.py -v
+          python -B -O -S -m unittest discover -s reviews/third_order_protocol_20261006 -p test_third_order_rate_workflow.py -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
