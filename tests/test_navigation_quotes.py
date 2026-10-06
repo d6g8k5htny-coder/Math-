@@ -122,5 +122,90 @@ class QuoteSemantics(unittest.TestCase):
         self.assertEqual((report['quotes'], report['summaries']), (0, 1))
 
 
+class VerdictSourceBoundaries(unittest.TestCase):
+    """Source verdict prefixes obey the same left boundary as summary prefixes.
+
+    These are lexical checks, not an entailment or negation classifier. Suffixes,
+    case sensitivity and literal quotation behavior retain the existing policy.
+    """
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='verdict-boundary-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.source = self.root / 'source.md'
+        self.doc = self.root / 'table.md'
+
+    def report(self, source, passage, kind='summary'):
+        self.source.write_text(source, encoding='utf-8')
+        claim = 'summary: ' + passage if kind == 'summary' else '“' + passage + '”'
+        self.doc.write_text(HEADER + '| #1 | [r](source.md) — ' + claim + ' |\n', encoding='utf-8')
+        return check_doc_quotes.check_document(str(self.doc), str(self.root))
+
+    def test_attached_word_prefix_cannot_supply_source_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            for prefix in ('UN', 'PRE', 'NON', '_', '9', 'λ'):
+                with self.subTest(word=word, prefix=prefix):
+                    result = self.report(prefix + word, word)
+                    self.assertEqual(result['checked'], 1)
+                    self.assertEqual(result['unchecked_offline'], 0)
+                    self.assertEqual(result['failures'], [
+                        ['verdict-word-not-in-source', 'source.md', word + ': ' + word + ' ']])
+
+    def test_existing_suffix_and_punctuation_policy_is_preserved(self):
+        for word in check_doc_quotes.VERDICT:
+            for left in ('', ' ', '(', ':', '—', '“', '**', '`'):
+                for right in ('', '_SCOPED', '-WITH-SCOPE', 'ED'):
+                    with self.subTest(word=word, left=left, right=right):
+                        self.assertEqual(self.report(left + word + right, word)['failures'], [])
+
+    def test_later_valid_occurrence_can_supply_source_verdict(self):
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                self.assertEqual(self.report('UN' + word + '; later: ' + word, word)['failures'], [])
+
+    def test_verdict_cannot_be_borrowed_from_another_linked_record(self):
+        self.source.write_text('UNVERIFIED', encoding='utf-8')
+        (self.root / 'other.md').write_text('VERIFIED', encoding='utf-8')
+        self.doc.write_text(HEADER + '| #1 | [r](source.md) — summary: VERIFIED'
+                            '<br>[s](other.md) — summary: VERIFIED |\n', encoding='utf-8')
+        result = check_doc_quotes.check_document(str(self.doc), str(self.root))
+        self.assertEqual((result['checked'], result['summaries']), (2, 2))
+        self.assertEqual(len(result['failures']), 1)
+        self.assertEqual(result['failures'][0][:2], ['verdict-word-not-in-source', 'source.md'])
+
+    def test_summary_word_prefix_and_case_policy_is_unchanged(self):
+        for word in check_doc_quotes.VERDICT:
+            for passage in ('UN' + word, '_' + word, word.lower()):
+                with self.subTest(passage=passage):
+                    self.assertEqual(self.report('no selected vocabulary', passage)['failures'], [])
+
+    def test_literal_quote_semantics_is_unchanged(self):
+        self.assertEqual(self.report('UNVERIFIED', 'UNVERIFIED', kind='quote')['failures'], [])
+        # A literal excerpt remains a substring check; this patch changes summaries only.
+        self.assertEqual(self.report('UNVERIFIED', 'VERIFIED', kind='quote')['failures'], [])
+
+    def test_negation_and_suffixes_are_not_semantic_entailment(self):
+        for source in ('not VERIFIED', 'VERIFIED only for a different scope', 'VERIFIED_SCOPED'):
+            with self.subTest(source=source):
+                self.assertEqual(self.report(source, 'VERIFIED')['failures'], [])
+
+    def test_real_cli_rejects_false_support_and_preserves_valid_exit(self):
+        import json
+        import subprocess
+        flags = ['-B', '-S']
+        if sys.flags.optimize:
+            flags.append('-O')
+        for source, expected in [('UNVERIFIED', 1), ('VERIFIED_SCOPED', 0)]:
+            with self.subTest(source=source):
+                self.report(source, 'VERIFIED')
+                result = subprocess.run(
+                    [sys.executable, *flags, str(ROOT / 'tools' / 'check_doc_quotes.py'),
+                     str(self.doc), '--root', str(self.root)],
+                    capture_output=True, text=True, timeout=10, check=False)
+                self.assertEqual(result.returncode, expected)
+                self.assertEqual(result.stderr, '')
+                self.assertEqual(json.loads(result.stdout)['passed'], expected == 0)
+
+
 if __name__ == '__main__':
     unittest.main()
