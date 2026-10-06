@@ -57,7 +57,7 @@ class MomentTailSourceTests(unittest.TestCase):
         pins = {
             'ResearchFormalCoreR1/MeasureBridge.lean': '28ac130db490c3c3e2fbfabf3ac5be43c854ab1468bf573bf5a8c0dd2c50955f',
             'ResearchFormalCoreR1/WeightedLaw.lean': 'f31dfd2cd048cc0c0446c54c46d89c9cdd5d7bb9d76e9d8d16b7c034f351d736',
-            'gate.py': '1812c6310323903d658804c0254e4a75154ca8b068cbe73ffffb01720ed885b1',
+            'gate.py': 'a0af17e349f7db91ddfe856eb2fed8bacd2b66625955f5d86170eb6c13e40348',
         }
         for name, digest in pins.items():
             self.assertEqual(m['files'][name], digest)

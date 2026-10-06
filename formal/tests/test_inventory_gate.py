@@ -1,10 +1,18 @@
 """RF-GATE-01: the environment inventory, grammar pre-check and comment stripper.
 
 Synthetic fixtures only; nothing here compiles Lean. The authoritative inventory is produced
-by `inventory_source()` inside `gate.py --execute` and audited by `audit_inventory`.
+by `inventory_source()` inside `gate.py --execute` and audited by `audit_inventory`. The
+source-gate regression cases first published by Sol on PR #312 are replayed against a copied
+formal tree in `SourceGateRegressionTests`.
 """
+import hashlib
 import importlib.util
+import json
 from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,36 +21,70 @@ gate = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(gate)
 
 P = gate.PACKAGE
-MODULES = {P + '.Alpha', P + '.Beta'}
+ALPHA, BETA = P + '.Alpha', P + '.Beta'
+MODULES = {ALPHA, BETA}
 TARGETS = [P + '.first', P + '.second']
-STD = 'Classical.choice, Quot.sound, propext'
+STD = ('Classical.choice', 'Quot.sound', 'propext')
+LOCAL = ('_local',)
+# The private name Lean gave the dec3f646 hidden_sorry control (file .lake/formal-evidence/hidden_sorry.lean).
+QUOTED_PRIVATE = ('_private', '.lake', 'formal-evidence', 'hidden_sorry', 0, P, 'hiddenAdmission')
 
 
-def inv(kind, module, name):
-    return 'INV|' + kind + '|' + module + '|' + name
+def name(value):
+    return tuple(value.split('.')) if isinstance(value, str) else tuple(value)
 
 
-def table(alpha=4, beta=4, root='0', is_module='false', extra='0'):
+def enc(value):
+    return gate.encode(name(value))
+
+
+def inv(kind, origin, module, constant):
+    return 'INV|' + kind + '|' + origin + '|' + enc(module) + '|' + enc(constant)
+
+
+def table(alpha=5, beta=4, root='0', is_module='false', extra='0'):
     return [
-        'MODULE|' + P + '.Alpha|' + is_module + '|' + str(alpha) + '|' + extra,
-        'MODULE|' + P + '.Beta|' + is_module + '|' + str(beta) + '|' + extra,
-        'MODULE|' + P + '|false|' + root + '|' + root,
+        'MODULE|' + enc(ALPHA) + '|' + is_module + '|' + str(alpha) + '|' + extra,
+        'MODULE|' + enc(BETA) + '|' + is_module + '|' + str(beta) + '|' + extra,
+        'MODULE|' + enc(P) + '|false|' + root + '|' + root,
     ]
+
+
+def axioms_line(axioms=STD):
+    return 'AXIOMS|' + ','.join(sorted(enc(a) for a in axioms))
 
 
 def clean(axioms=STD, closure='500', **kw):
     return '\n'.join(table(**kw) + [
-        inv('theorem', P + '.Alpha', P + '.first'),
-        inv('theorem', P + '.Beta', P + '.second'),
-        inv('def', P + '.Alpha', P + '.helper'),
-        inv('theorem', P + '.Alpha', P + '.first.proof_1'),
-        inv('theorem', P + '.Alpha', P + '.helper._simp_1'),
-        inv('inductive', P + '.Beta', P + '.Shape'),
-        inv('ctor', P + '.Beta', P + '.Shape.circle'),
-        inv('rec', P + '.Beta', P + '.Shape.rec'),
-        'AXIOMS|[' + axioms + ']',
+        inv('theorem', 'user', ALPHA, P + '.first'),
+        inv('theorem', 'user', BETA, P + '.second'),
+        inv('def', 'user', ALPHA, P + '.helper'),
+        inv('theorem', 'aux', ALPHA, P + '.first._proof_1'),
+        inv('theorem', 'aux', ALPHA, P + '.helper._simp_1_2'),
+        inv('theorem', 'aux', ALPHA, P + '.helper.eq_1'),
+        inv('inductive', 'user', BETA, P + '.Shape'),
+        inv('ctor', 'user', BETA, P + '.Shape.circle'),
+        inv('rec', 'aux', BETA, P + '.Shape.rec'),
+        axioms_line(axioms),
         'CLOSURE|' + closure,
     ])
+
+
+def plus(*lines, **kw):
+    return clean(**kw) + '\n' + '\n'.join(lines)
+
+
+def codes(text, targets=TARGETS, modules=MODULES, **kw):
+    """The exact (code, rendered name) findings of a well-formed but rejected inventory."""
+    try:
+        gate.audit_inventory(text, targets, modules, **kw)
+    except gate.InventoryRejected as e:
+        return {(code, gate.render(n)) for code, n, note in e.violations}
+    raise AssertionError('inventory unexpectedly passed')
+
+
+def wrap(body):
+    return 'namespace ' + P + '\n' + body + 'end ' + P + '\n'
 
 
 class StripCommentsTests(unittest.TestCase):
@@ -61,7 +103,6 @@ class StripCommentsTests(unittest.TestCase):
     def test_newline_positions_preserved(self):
         text = 'a -- c\n/- b\n c -/ d\n/- x /- y\n -/ -/ e\n'
         stripped = gate.strip_lean_comments(text)
-        self.assertEqual([i for i, ch in enumerate(text) if ch == '\n'][-1:], [len(text) - 1])
         self.assertEqual(stripped.count('\n'), text.count('\n'))
         self.assertEqual(stripped.splitlines()[2], ' d')
 
@@ -73,250 +114,334 @@ class StripCommentsTests(unittest.TestCase):
         text = 'theorem a : True := trivial\n'
         self.assertEqual(gate.strip_lean_comments(text), text)
 
+    def test_comment_markers_inside_string_are_not_comments(self):
+        # The old stripper cut the rest of this line, hiding the code after the string.
+        self.assertEqual(gate.strip_lean_comments('def s := "a -- b" ++ sorry'), 'def s := "a -- b" ++ sorry')
+        self.assertEqual(gate.strip_lean_comments('def s := "/-" ++ x -- "-/"'), 'def s := "/-" ++ x ')
+
+    def test_escaped_quote_does_not_end_string(self):
+        self.assertEqual(gate.strip_lean_comments('def s := "a \\" -- b" -- c'), 'def s := "a \\" -- b" ')
+
+    def test_character_literals(self):
+        self.assertEqual(gate.strip_lean_comments("def c := '\"' -- \"\nx"), "def c := '\"' \nx")
+        self.assertEqual(gate.strip_lean_comments("def c := '\\'' -- q"), "def c := '\\'' ")
+
+    def test_apostrophe_in_identifier_is_not_a_literal(self):
+        self.assertEqual(gate.strip_lean_comments("theorem h' : x' = x' := rfl -- c"), "theorem h' : x' = x' := rfl ")
+
+    def test_raw_strings(self):
+        self.assertEqual(gate.strip_lean_comments('def s := r"--" -- c'), 'def s := r"--" ')
+        self.assertEqual(gate.strip_lean_comments('def s := r#"a "-- b"# -- c'), 'def s := r#"a "-- b"# ')
+
+    def test_comment_contents_never_open_strings(self):
+        self.assertEqual(gate.strip_lean_comments('-- an "unterminated\n/- also " -/ ok'), '\n ok')
+
+    def test_unsupported_literals_refused(self):
+        for text in ('def s := s!"x"', 'def s := "{x}"', 'def s := "open', "def c := f ' x", 'def s := r#"open', "def c := 'ab'"):
+            with self.assertRaises(ValueError, msg=text):
+                gate.strip_lean_comments(text)
+
 
 class GrammarCheckTests(unittest.TestCase):
     def test_canonical_names(self):
-        text = 'namespace X\ntheorem first : True := trivial\nlemma second : True := trivial\nend X\n'
+        text = wrap('theorem first : True := trivial\nlemma second : True := trivial\nnoncomputable def third : Nat := 1\n')
         self.assertEqual(gate.grammar_check(text, 'm.lean'), ['first', 'second'])
 
-    def test_indented_theorem_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('namespace X\n  theorem hidden : True := trivial\nend X\n', 'm.lean')
+    def test_refused_spellings(self):
+        for body in ('  theorem hidden : True := trivial\n', 'private theorem hidden : True := trivial\n',
+                     'protected theorem hidden : True := trivial\n', '@[simp] theorem hidden : True := trivial\n',
+                     '  def hidden : Nat := 1\n', 'private def hidden : Nat := 1\n',
+                     'def a : Nat := 1 theorem b : True := trivial\n',
+                     'def s : String := "a theorem walks in"\n',
+                     'private\ttheorem hidden : True := trivial\n', 'public theorem hidden : True := trivial\n',
+                     'theorem\thidden : True := trivial\n'):
+            with self.assertRaises(ValueError, msg=body):
+                gate.grammar_check(wrap(body), 'm.lean')
 
-    def test_private_theorem_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('private theorem hidden : True := trivial\n', 'm.lean')
-
-    def test_protected_theorem_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('protected theorem hidden : True := trivial\n', 'm.lean')
-
-    def test_attribute_same_line_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('@[simp] theorem hidden : True := trivial\n', 'm.lean')
+    def test_unsupported_commands_refused(self):
+        for body in ('opaque hidden : Nat\n', 'abbrev hidden : Nat := 1\n', 'instance : Inhabited Nat := ⟨0⟩\n',
+                     'example : True := trivial\n', 'structure S where\n  x : Nat\n', 'inductive T where\n  | a\n',
+                     'mutual\nend\n', 'macro "m" : term => `(1)\n', 'elab "e" : term => pure default\n',
+                     'attribute [simp] first\n', 'notation "n" => 1\n', 'run_cmd pure ()\n', '#eval 1\n',
+                     '  #print axioms first\n', 'initialize pure ()\n', 'local notation "n" => 1\n',
+                     'section\nend\n', 'class C where\n'):
+            with self.assertRaises(ValueError, msg=body):
+                gate.grammar_check(wrap(body), 'm.lean')
 
     def test_attribute_previous_line_allowed(self):
-        self.assertEqual(gate.grammar_check('@[simp]\ntheorem ok : True := trivial\n', 'm.lean'), ['ok'])
+        self.assertEqual(gate.grammar_check(wrap('@[simp]\ntheorem ok : True := trivial\n'), 'm.lean'), ['ok'])
 
     def test_keyword_inside_comment_ignored(self):
-        text = '-- theorem commented : False\n/- lemma also : False -/\ntheorem ok : True := trivial\n'
+        text = wrap('-- theorem commented : False\n/- lemma also : False\nprivate theorem x -/\ntheorem ok : True := trivial\n')
         self.assertEqual(gate.grammar_check(text, 'm.lean'), ['ok'])
 
     def test_keyword_as_identifier_part_ignored(self):
-        self.assertEqual(gate.grammar_check('def my_theorem_count : Nat := 1\ntheorem ok : True := trivial\n', 'm.lean'), ['ok'])
+        self.assertEqual(gate.grammar_check(wrap('def my_theorem_count : Nat := 1\ntheorem ok : True := Function.eq_def\n'), 'm.lean'), ['ok'])
 
-    def test_keyword_in_string_refused(self):
-        # Conservative: the pre-check cannot parse string literals, so it refuses rather than guesses.
+    def test_comment_marker_in_string_cannot_hide_code(self):
         with self.assertRaises(ValueError):
-            gate.grammar_check('def s : String := "a theorem walks in"\n', 'm.lean')
+            gate.grammar_check(wrap('def s : String := "--" ++ by sorry\n'), 'm.lean')
 
     def test_apostrophe_and_unicode_names_refused(self):
-        for name in ("foo'", '\u00abhidden\u00bb', 'foo\u2713'):
+        for bad in ("foo'", '«hidden»', 'foo✓'):
             with self.assertRaises(ValueError):
-                gate.grammar_check('theorem ' + name + ' : True := trivial\n', 'm.lean')
+                gate.grammar_check(wrap('theorem ' + bad + ' : True := trivial\n'), 'm.lean')
 
-    def test_tab_and_public_modifiers_refused(self):
-        for line in ('private\ttheorem hidden : True := trivial\n', 'public theorem hidden : True := trivial\n', 'theorem\thidden : True := trivial\n'):
-            with self.assertRaises(ValueError, msg=line):
-                gate.grammar_check(line, 'm.lean')
+    def test_namespace_structure(self):
+        gate.grammar_check(wrap(''), 'm.lean')
+        for text in ('theorem a : True := trivial\n', 'namespace Other\ntheorem a : True := trivial\nend Other\n',
+                     wrap('namespace Nested\ntheorem a : True := trivial\nend Nested\n'), wrap('') + wrap(''),
+                     'namespace ' + P + '\n', '  namespace ' + P + '\nend ' + P + '\n'):
+            with self.assertRaises(ValueError, msg=text):
+                gate.grammar_check(text, 'm.lean')
+
+    def test_duplicate_declaration_refused(self):
+        with self.assertRaises(ValueError):
+            gate.grammar_check(wrap('theorem a : True := trivial\ntheorem a : True := trivial\n'), 'm.lean')
 
     def test_refusal_names_original_line_number(self):
-        text = '/- a\n b -/\n-- c\nnamespace X\n  theorem hidden : True := trivial\nend X\n'
+        text = '/- a\n b -/\n-- c\nnamespace ' + P + '\n  theorem hidden : True := trivial\nend ' + P + '\n'
         with self.assertRaises(ValueError) as cm:
             gate.grammar_check(text, 'm.lean')
         self.assertIn('m.lean:5', str(cm.exception))
 
-    def test_sorry_refused(self):
+    def test_forbidden_tokens(self):
+        for body in ('theorem bad : False := by sorry\n', 'axiom hidden : False\n', 'theorem t : 2 + 2 = 4 := by native_decide\n',
+                     '@[implemented_by f]\ndef g : Nat := 0\n', '@[extern "c"]\ndef g : Nat := 0\n', 'unsafe def g : Nat := 0\n'):
+            with self.assertRaises(ValueError, msg=body):
+                gate.grammar_check(wrap(body), 'm.lean')
+
+    def test_forbidden_token_inside_string_refused(self):
         with self.assertRaises(ValueError):
-            gate.grammar_check('theorem bad : False := by sorry\n', 'm.lean')
+            gate.grammar_check(wrap('def s : String := "sorry"\n'), 'm.lean')
 
-    def test_sorry_in_comment_allowed(self):
-        self.assertEqual(gate.grammar_check('-- no sorry here\ntheorem ok : True := trivial\n', 'm.lean'), ['ok'])
-
-    def test_axiom_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('axiom hidden : False\n', 'm.lean')
-
-    def test_native_decide_refused(self):
-        with self.assertRaises(ValueError):
-            gate.grammar_check('theorem t : 2 + 2 = 4 := by native_decide\n', 'm.lean')
-
-    def test_implemented_by_extern_unsafe_refused(self):
-        for token in ('@[implemented_by f]', '@[extern "c"]', 'unsafe'):
-            with self.assertRaises(ValueError):
-                gate.grammar_check(token + ' def g : Nat := 0\n', 'm.lean')
-
-    def test_sorryAx_identifier_not_matched_as_sorry(self):
-        # `sorryAx` is a different token; the transitive audit catches it, not the grammar.
-        self.assertEqual(gate.grammar_check('theorem ok : True := trivial -- sorryAx\n', 'm.lean'), ['ok'])
+    def test_tokens_in_comments_and_identifiers_allowed(self):
+        self.assertEqual(gate.grammar_check(wrap('-- no sorry here\ntheorem ok : True := trivial -- sorryAx\n'), 'm.lean'), ['ok'])
 
     def test_unterminated_comment_refused(self):
         with self.assertRaises(ValueError):
-            gate.grammar_check('/- theorem a : True := trivial\n', 'm.lean')
+            gate.grammar_check(wrap('/- theorem a : True := trivial\n'), 'm.lean')
+
+
+class NameEncodingTests(unittest.TestCase):
+    def test_round_trip(self):
+        for n in (('a',), (P, 'first'), QUOTED_PRIVATE, ('', 'x'), ('été', 7), ('a.b',)):
+            self.assertEqual(gate.decode(gate.encode(n)), n)
+
+    def test_lossless_where_dotted_rendering_collides(self):
+        pairs = ((('a.b',), ('a', 'b')), (('0',), (0,)), (('x', '1'), ('x', 1)))
+        for left, right in pairs:
+            self.assertNotEqual(gate.encode(left), gate.encode(right))
+
+    def test_malformed_encodings_refused(self):
+        for bad in ('s6', 's6G', 'sC3', 'n01', 'n', 'sff', 's61/n1x'):
+            with self.assertRaises(gate.InventoryProtocolError, msg=bad):
+                gate.decode(bad)
+
+    def test_render_marks_quoted_components(self):
+        self.assertEqual(gate.render(QUOTED_PRIVATE), '_private.«.lake».«formal-evidence».hidden_sorry.0.' + P + '.hiddenAdmission')
+
+    def test_private_user_name(self):
+        self.assertEqual(gate.user_name(QUOTED_PRIVATE), ((P, 'hiddenAdmission'), True))
+        self.assertEqual(gate.user_name((P, 'first')), ((P, 'first'), False))
+
+    def test_simple_name_refuses_unrepresentable_targets(self):
+        for bad in ('a..b', 'a.', "a'", '«x»'):
+            with self.assertRaises(ValueError):
+                gate.simple_name(bad)
 
 
 class InventorySourceTests(unittest.TestCase):
     def test_package_import_and_module_table_enumeration(self):
         src = gate.inventory_source()
         self.assertTrue(src.startswith('import ' + P + '\nimport Lean\n'))
-        self.assertIn('header.moduleData[idx]!', src)
-        self.assertIn('pkg.isPrefixOf m', src)
-        self.assertIn('data.constNames', src)
-        self.assertIn('e.getUsedConstants.forM', src)
+        for piece in ('header.moduleData[idx]!', 'pkg.isPrefixOf m', 'data.constNames', 'e.getUsedConstants.forM',
+                      'findDeclarationRanges? c', '_inv.enc m', '_inv.enc c', 's.toUTF8.foldl', '| .num p k =>'):
+            self.assertIn(piece, src, piece)
         for rule in ('.axiomInfo v', '.defnInfo v', '.thmInfo v', '.opaqueInfo v', '.quotInfo _', '.ctorInfo v', '.recInfo v', '.inductInfo v', '| none'):
             self.assertIn(rule, src, rule)
-        self.assertIn('if includeLocal then', src)
+        self.assertNotIn('toString c', src)
         self.assertTrue(src.rstrip().endswith('`' + P + ' false'))
 
     def test_local_mode_adds_current_file_constants(self):
         src = gate.inventory_source(include_local=True)
-        self.assertIn('map\u2082', src)
+        self.assertIn('map₂', src)
         self.assertIn('`_local', src)
         self.assertEqual(src.count('import Lean\n'), 1)
         self.assertTrue(src.rstrip().endswith('`' + P + ' true'))
 
     def test_missing_constant_is_fatal_in_lean(self):
-        self.assertIn('throw (IO.userError', gate.inventory_source())
+        self.assertIn('throwError "constant', gate.inventory_source())
 
 
 class AuditInventoryTests(unittest.TestCase):
     def test_clean_passes(self):
         report = gate.audit_inventory(clean(), TARGETS, MODULES)
         self.assertEqual(report['public_theorems'], sorted(TARGETS))
-        self.assertEqual(report['declarations'], 8)
+        self.assertEqual(report['declarations'], 9)
+        self.assertEqual(report['auxiliary_theorems'], 3)
         self.assertEqual(report['axioms'], ['Classical.choice', 'Quot.sound', 'propext'])
         self.assertEqual(report['closure'], 500)
         self.assertEqual(len(report['sha256']), 64)
 
     def test_axiom_free_closure_passes(self):
-        self.assertEqual(gate.audit_inventory(clean(axioms=''), TARGETS, MODULES)['axioms'], [])
+        self.assertEqual(gate.audit_inventory(clean(axioms=()), TARGETS, MODULES)['axioms'], [])
 
     def test_report_is_deterministic(self):
         self.assertEqual(gate.audit_inventory(clean(), TARGETS, MODULES), gate.audit_inventory(clean(), TARGETS, MODULES))
 
     def test_noise_lines_ignored_but_inventory_required(self):
         gate.audit_inventory('warning: something\n' + clean() + '\ntrailing', TARGETS, MODULES)
-        with self.assertRaises(ValueError):
+        with self.assertRaises(gate.InventoryProtocolError):
             gate.audit_inventory('warning: only\n', TARGETS, MODULES)
 
-    def test_hidden_sorry_anywhere_in_closure_rejected(self):
-        text = clean(axioms=STD + ', sorryAx', alpha=5) + '\n' + inv('theorem', P + '.Alpha', '_private.' + P + '.Alpha.0.' + P + '.hidden')
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('sorryAx', str(cm.exception))
+    def test_quoted_private_sorry_rejected_for_both_reasons(self):
+        # The dec3f646 helper stopped at a malformed-line error on this name; it now parses.
+        text = plus(inv('theorem', 'user', ALPHA, QUOTED_PRIVATE), axioms=STD + ('sorryAx',), alpha=6)
+        self.assertEqual(codes(text), {('forbidden_axiom', 'sorryAx'), ('extra_theorem', gate.render(QUOTED_PRIVATE))})
 
     def test_custom_axiom_in_closure_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(axioms=STD + ', Other.hidden'), TARGETS, MODULES)
+        self.assertEqual(codes(clean(axioms=STD + ('Other.hidden',))), {('forbidden_axiom', 'Other.hidden')})
 
-    def test_extra_public_theorem_rejected(self):
-        text = clean(alpha=5) + '\n' + inv('theorem', P + '.Alpha', P + '.indentedExtra')
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('indentedExtra', str(cm.exception))
+    def test_extra_user_theorem_rejected_whatever_its_name(self):
+        # Astra's synthetic records (#312, 6009106591) and an underscore name: shape is irrelevant.
+        for extra in (P + '.indentedExtra', P + '._unregistered', P + '.proof_999', P + '.first.eq_99',
+                      P + '.helper._simp_999_999', P + '.first._proof_7'):
+            self.assertEqual(codes(plus(inv('theorem', 'user', ALPHA, extra), alpha=6)), {('extra_theorem', extra)}, extra)
+
+    def test_auxiliary_theorem_needs_user_parent_in_same_module(self):
+        ok = (P + '.first.match_1.eq_1', P + '.helper.eq_def', P + '.first._proof_1._simp_2_3')
+        for aux in ok:
+            gate.audit_inventory(plus(inv('theorem', 'aux', ALPHA, aux), alpha=6), TARGETS, MODULES)
+        bad = ((ALPHA, P + '.orphan._proof_1'), (ALPHA, P + '._proof_1'), (BETA, P + '.first._proof_9'),
+               (ALPHA, P + '.first.helperLemma'), (ALPHA, P + '.first.proof_1'), (ALPHA, P + '.first.eq_1.extra'))
+        for module, aux in bad:
+            counts = dict(alpha=6) if module == ALPHA else dict(beta=5)
+            self.assertEqual(codes(plus(inv('theorem', 'aux', module, aux), **counts)), {('unbound_auxiliary', aux)}, aux)
+
+    def test_auxiliary_parent_must_be_user_written(self):
+        text = plus(inv('theorem', 'aux', ALPHA, P + '.first._proof_1.eq_1'), alpha=6)
+        gate.audit_inventory(text, TARGETS, MODULES)  # parent first is user-written; suffix is compiler-shaped
+        text = plus(inv('def', 'aux', ALPHA, P + '.gen'), inv('theorem', 'aux', ALPHA, P + '.gen.eq_1'), alpha=7)
+        self.assertEqual(codes(text), {('unbound_auxiliary', P + '.gen.eq_1')})
+
+    def test_non_theorem_auxiliaries_are_closure_only(self):
+        gate.audit_inventory(plus(inv('def', 'aux', ALPHA, P + '.helper._unsafe_rec'), inv('opaque', 'aux', ALPHA, P + '.x'), alpha=7), TARGETS, MODULES)
 
     def test_axiom_kind_rejected_even_if_unused(self):
-        text = clean(alpha=5) + '\n' + inv('axiom', P + '.Alpha', P + '.hiddenPremise')
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('axiom declared inside package', str(cm.exception))
+        self.assertEqual(codes(plus(inv('axiom', 'user', ALPHA, P + '.hiddenPremise'), alpha=6)), {('package_axiom', P + '.hiddenPremise')})
 
-    def test_unregistered_module_rejected(self):
-        text = clean() + '\nMODULE|' + P + '.Gamma|false|1|0\n' + inv('def', P + '.Gamma', P + '.stray')
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('not registered', str(cm.exception))
+    def test_module_table_findings(self):
+        self.assertEqual(codes(plus('MODULE|' + enc(P + '.Gamma') + '|false|1|0', inv('def', 'user', P + '.Gamma', P + '.stray'))),
+                         {('unregistered_module', P + '.Gamma'), ('outside_module', P + '.stray')})
+        self.assertEqual(codes(plus(inv('def', 'user', P + '.Gamma', P + '.stray'))), {('outside_module', P + '.stray')})
+        text = '\n'.join(line for line in clean().splitlines() if not line.startswith('MODULE|' + enc(BETA) + '|'))
+        self.assertEqual(codes(text), {('missing_module', BETA)})
+        self.assertEqual(codes(clean(is_module='true')), {('module_system', ALPHA), ('module_system', BETA)})
+        self.assertEqual(codes(clean(root='1')), {('root_not_empty', P)})
+        self.assertEqual(codes(clean(extra='1')), {('codegen_extra', ALPHA), ('codegen_extra', BETA)})
+        self.assertEqual(codes(clean(alpha=4)), {('count_mismatch', ALPHA)})
+        self.assertEqual(codes(plus('MODULE|' + enc(ALPHA) + '|false|5|0')), {('duplicate_module', ALPHA)})
 
-    def test_declaration_outside_table_rejected(self):
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(clean() + '\n' + inv('def', P + '.Gamma', P + '.stray'), TARGETS, MODULES)
-        self.assertIn('outside registered modules', str(cm.exception))
-
-    def test_registered_module_missing_from_table_rejected(self):
-        text = '\n'.join(line for line in clean().splitlines() if not line.startswith('MODULE|' + P + '.Beta|'))
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('module table differs', str(cm.exception))
-
-    def test_module_system_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(is_module='true'), TARGETS, MODULES)
-
-    def test_root_module_must_be_empty(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(root='1'), TARGETS, MODULES)
-
-    def test_codegen_extra_constants_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(extra='1'), TARGETS, MODULES)
-
-    def test_count_mismatch_rejected(self):
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(clean(alpha=3), TARGETS, MODULES)
-        self.assertIn('count differs', str(cm.exception))
-
-    def test_local_module_rejected_unless_allowed(self):
-        text = clean() + '\n' + inv('def', '_local', '_inv.kind')
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(text, TARGETS, MODULES)
+    def test_local_module_only_when_allowed(self):
+        text = plus(inv('def', 'user', LOCAL, '_eval'))
+        self.assertEqual(codes(text), {('outside_module', '_eval')})
         gate.audit_inventory(text, TARGETS, MODULES, allow_local=True)
 
-    def test_local_public_theorem_rejected_even_when_local_allowed(self):
-        text = clean() + '\n' + inv('theorem', '_local', P + '.indentedAdmission')
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(text, TARGETS, MODULES, allow_local=True)
+    def test_local_user_theorem_rejected_even_when_local_allowed(self):
+        text = plus(inv('theorem', 'user', LOCAL, P + '.indentedAdmission'))
+        self.assertEqual(codes(text, allow_local=True), {('extra_theorem', P + '.indentedAdmission')})
 
     def test_missing_target_rejected(self):
-        text = '\n'.join(line for line in clean(beta=3).splitlines() if P + '.second' not in line)
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(text, TARGETS, MODULES)
-        self.assertIn('missing', str(cm.exception))
+        text = '\n'.join(line for line in clean(beta=3).splitlines() if enc(P + '.second') not in line)
+        self.assertEqual(codes(text), {('missing_theorem', P + '.second')})
+
+    def test_target_only_as_auxiliary_or_private_is_missing(self):
+        text = '\n'.join(line for line in clean().splitlines() if enc(P + '.second') not in line)
+        self.assertIn(('missing_theorem', P + '.second'), codes(text + '\n' + inv('theorem', 'aux', BETA, P + '.second')))
+        private = ('_private', P, 'Beta', 0, P, 'second')
+        self.assertEqual(codes(text + '\n' + inv('theorem', 'user', BETA, private)),
+                         {('missing_theorem', P + '.second'), ('extra_theorem', gate.render(private))})
 
     def test_duplicate_name_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(alpha=5) + '\n' + inv('theorem', P + '.Alpha', P + '.first'), TARGETS, MODULES)
-
-    def test_duplicate_module_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean() + '\nMODULE|' + P + '.Alpha|false|4|0', TARGETS, MODULES)
+        self.assertEqual(codes(plus(inv('theorem', 'user', ALPHA, P + '.first'), alpha=6)), {('duplicate_name', P + '.first')})
 
     def test_axiom_closure_line_required_exactly_once(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean() + '\nAXIOMS|[]', TARGETS, MODULES)
-        with self.assertRaises(ValueError):
-            gate.audit_inventory('\n'.join(l for l in clean().splitlines() if not l.startswith('AXIOMS|')), TARGETS, MODULES)
-        with self.assertRaises(ValueError):
-            gate.audit_inventory('\n'.join(l for l in clean().splitlines() if not l.startswith('CLOSURE|')), TARGETS, MODULES)
+        with self.assertRaises(gate.InventoryProtocolError):
+            gate.audit_inventory(plus('AXIOMS|'), TARGETS, MODULES)
+        for prefix in ('AXIOMS|', 'CLOSURE|'):
+            with self.assertRaises(gate.InventoryProtocolError):
+                gate.audit_inventory('\n'.join(l for l in clean().splitlines() if not l.startswith(prefix)), TARGETS, MODULES)
 
     def test_closure_smaller_than_inventory_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(closure='3'), TARGETS, MODULES)
+        self.assertEqual(codes(clean(closure='3')), {('impossible_closure', 'CLOSURE')})
 
     def test_per_target_audit_cross_check(self):
         gate.audit_inventory(clean(), TARGETS, MODULES, reported_axioms={TARGETS[0]: ['propext'], TARGETS[1]: []})
         gate.audit_inventory(clean(), TARGETS, MODULES, reported_axioms={})
-        with self.assertRaises(ValueError) as cm:
-            gate.audit_inventory(clean(axioms='propext'), TARGETS, MODULES, reported_axioms={TARGETS[0]: ['propext', 'Quot.sound']})
-        self.assertIn('closure omits', str(cm.exception))
+        self.assertEqual(codes(clean(axioms=('propext',)), reported_axioms={TARGETS[0]: ['propext', 'Quot.sound']}),
+                         {('reported_axiom_omitted', 'Quot.sound')})
 
-    def test_malformed_line_rejected(self):
-        for bad in ('INV|theorem|' + P + '.Alpha', 'INV|macro|' + P + '.Alpha|x', 'INV|theorem|' + P + '.Alpha|bad name', 'MODULE|' + P + '.Alpha|maybe|1|0', 'AXIOMS|propext'):
-            with self.assertRaises(ValueError):
-                gate.audit_inventory(clean() + '\n' + bad, TARGETS, MODULES)
+    def test_malformed_lines_are_protocol_errors(self):
+        for bad in ('INV|theorem|user|' + enc(ALPHA), 'INV|macro|user|' + enc(ALPHA) + '|' + enc('x'),
+                    'INV|theorem|' + enc(ALPHA) + '|' + enc(P + '.first'), 'INV|theorem|maybe|' + enc(ALPHA) + '|' + enc('x'),
+                    'INV|theorem|user|' + ALPHA + '|' + P + '.x', 'INV|theorem|user|' + enc(ALPHA) + '|s6',
+                    'MODULE|' + enc(ALPHA) + '|maybe|1|0', 'AXIOMS|[propext]', 'CLOSURE|x'):
+            with self.assertRaises(gate.InventoryProtocolError, msg=bad):
+                gate.audit_inventory(plus(bad), TARGETS, MODULES)
+
+    def test_every_finding_is_reported(self):
+        text = plus(inv('theorem', 'user', ALPHA, P + '.extra'), inv('axiom', 'user', BETA, P + '.ax'), axioms=STD + ('sorryAx',), alpha=6, beta=5)
+        self.assertEqual(codes(text), {('extra_theorem', P + '.extra'), ('package_axiom', P + '.ax'), ('forbidden_axiom', 'sorryAx')})
 
     def test_empty_targets_or_modules_rejected(self):
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(), [], MODULES)
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(), TARGETS + [TARGETS[0]], MODULES)
-        with self.assertRaises(ValueError):
-            gate.audit_inventory(clean(), TARGETS, set())
+        for targets, modules in (([], MODULES), (TARGETS + [TARGETS[0]], MODULES), (TARGETS, set())):
+            with self.assertRaises(ValueError):
+                gate.audit_inventory(clean(), targets, modules)
 
-    def test_aux_pattern_scope(self):
-        for aux in (P + '.first.proof_1', P + '.first.match_2', P + '.helper._eq_1', P + '.first.eq_3', P + '._auxLemma.1', '_private.' + P + '.Alpha.0.' + P + '.hidden'):
-            self.assertTrue(gate.AUX.search(aux), aux)
-        for public in (P + '.first', P + '.helper.proof', P + '.proofs_of_first', P + '.matching'):
-            self.assertFalse(gate.AUX.search(public), public)
+
+class AdmissionCheckTests(unittest.TestCase):
+    INJECTED = ('theorem', 'user', (P, 'hiddenAdmission'), True, LOCAL)
+    EXPECTED = {('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', (P, 'hiddenAdmission'), True)}
+    PRIVATE = ('_private', '.lake', 'formal-evidence', 'hidden_sorry', 0, P, 'hiddenAdmission')
+
+    def check(self, text, injected=None, expected=None):
+        return gate.check_admission(text, 'hidden_sorry', injected or self.INJECTED, self.EXPECTED if expected is None else expected, TARGETS, MODULES, True)
+
+    def test_expected_reason_counts(self):
+        result = self.check(plus(inv('theorem', 'user', LOCAL, self.PRIVATE), axioms=STD + ('sorryAx',)))
+        self.assertEqual(result['outcome'], 'REJECTED_FOR_EXPECTED_REASON')
+        self.assertEqual(result['injected'], gate.render(self.PRIVATE))
+
+    def test_passing_inventory_fails_the_experiment(self):
+        with self.assertRaises(ValueError) as cm:
+            self.check(plus(inv('theorem', 'aux', LOCAL, self.PRIVATE)), injected=('theorem', 'aux', (P, 'hiddenAdmission'), True, LOCAL))
+        self.assertIn('unexpected reason', str(cm.exception))
+
+    def test_other_reason_fails_the_experiment(self):
+        # sorryAx missing from the closure: rejected, but not for the control's reason.
+        with self.assertRaises(ValueError) as cm:
+            self.check(plus(inv('theorem', 'user', LOCAL, self.PRIVATE)))
+        self.assertIn('unexpected reason', str(cm.exception))
+        with self.assertRaises(ValueError):
+            self.check(plus(inv('theorem', 'user', LOCAL, self.PRIVATE), inv('axiom', 'user', LOCAL, P + '.extraAx'), axioms=STD + ('sorryAx',)))
+
+    def test_protocol_error_fails_the_experiment(self):
+        # The historical dec3f646 transcript shape: the private name was printed with
+        # Name.toString and failed the old pattern. Such output is never a rejection.
+        old = plus('INV|theorem|_local|_private.«.lake».«formal-evidence».hidden_sorry.0.' + P + '.hiddenAdmission', axioms=STD + ('sorryAx',))
+        with self.assertRaises(gate.InventoryProtocolError):
+            self.check(old)
+
+    def test_missing_injection_fails_the_experiment(self):
+        with self.assertRaises(ValueError) as cm:
+            self.check(plus(inv('theorem', 'user', LOCAL, (P, 'otherName')), axioms=STD + ('sorryAx',)),
+                       expected={('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', (P, 'otherName'), False)})
+        self.assertIn('did not inject', str(cm.exception))
+
+    def test_injection_in_wrong_module_fails_the_experiment(self):
+        with self.assertRaises(ValueError):
+            self.check(plus(inv('theorem', 'user', ALPHA, self.PRIVATE), axioms=STD + ('sorryAx',), alpha=6))
 
 
 class SourceCheckIntegrationTests(unittest.TestCase):
@@ -329,8 +454,50 @@ class SourceCheckIntegrationTests(unittest.TestCase):
 
     def test_required_files_bound(self):
         m = gate.load_json((ROOT / 'manifest.json').read_text())
-        for name in ('tests/test_inventory_gate.py', 'GATE_HARDENING.md', 'gate.py'):
-            self.assertIn(name, m['files'])
+        for required in ('tests/test_inventory_gate.py', 'GATE_HARDENING.md', 'gate.py'):
+            self.assertIn(required, m['files'])
+
+
+class SourceGateRegressionTests(unittest.TestCase):
+    """Sol's #312 source-gate regression cases, replayed against a copied formal tree."""
+    MODULE = 'ResearchFormalCoreR1/AlgebraV2.lean'
+
+    def fixture(self, extra, targets=()):
+        td = tempfile.TemporaryDirectory()
+        self.addCleanup(td.cleanup)
+        root = Path(td.name) / 'formal'
+        shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.lake', '__pycache__', '*.pyc'))
+        path = root / self.MODULE
+        marker = '\nend ' + P + '\n'
+        text = path.read_text()
+        self.assertEqual(text.count(marker), 1)
+        path.write_text(text.replace(marker, '\n' + extra + '\n' + marker))
+        manifest = json.loads((root / 'manifest.json').read_text())
+        manifest['files'][self.MODULE] = hashlib.sha256(path.read_bytes()).hexdigest()
+        at = manifest['targets'].index(P + '.ec014_contact_power') + 1
+        manifest['targets'][at:at] = list(targets)
+        (root / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
+        return subprocess.run([sys.executable, 'gate.py'], cwd=root, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=120)
+
+    def test_hidden_declaration_forms_are_rejected(self):
+        for extra in ('  theorem rf_gate_indented : False := by sorry', 'private theorem rf_gate_private : False := by sorry',
+                      '@[simp] theorem rf_gate_attributed : False := by sorry', 'def rf_gate_unused : False := by sorry',
+                      'opaque rf_gate_opaque : False', 'axiom rf_gate_axiom : False',
+                      'def rf_gate_string : String := "--" ++ "x"\nprivate theorem rf_gate_after : True := trivial'):
+            with self.subTest(extra=extra):
+                self.assertNotEqual(self.fixture(extra).returncode, 0)
+
+    def test_comment_text_is_not_inventoried_as_a_declaration(self):
+        result = self.fixture('/-\ntheorem rf_gate_comment_ghost : False := by sorry\n-/')
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
+    def test_duplicate_target_list_is_rejected_source_side(self):
+        result = self.fixture('theorem ec005_fold_gap (s : ℝ) : True := by trivial', [P + '.ec005_fold_gap'])
+        self.assertNotEqual(result.returncode, 0)
+
+    def test_nested_namespace_cannot_be_misprefixed(self):
+        result = self.fixture('namespace Nested\ntheorem rf_gate_nested : True := by trivial\nend Nested', [P + '.rf_gate_nested'])
+        self.assertNotEqual(result.returncode, 0)
 
 
 if __name__ == '__main__':

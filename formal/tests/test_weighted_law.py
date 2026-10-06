@@ -57,7 +57,7 @@ class WeightedLawSourceTests(unittest.TestCase):
         m = json.loads((ROOT/'manifest.json').read_text())
         pins = {
             'ResearchFormalCoreR1/MeasureBridge.lean': '28ac130db490c3c3e2fbfabf3ac5be43c854ab1468bf573bf5a8c0dd2c50955f',
-            'gate.py': '1812c6310323903d658804c0254e4a75154ca8b068cbe73ffffb01720ed885b1',
+            'gate.py': 'a0af17e349f7db91ddfe856eb2fed8bacd2b66625955f5d86170eb6c13e40348',
             'lean-toolchain': 'd5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b',
         }
         for path, digest in pins.items():
