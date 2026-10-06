@@ -53,7 +53,7 @@ theorem spectralPair_tracePair (q : ℝ × ℝ) :
 theorem map_tracePair :
     Measure.map tracePair (volume : Measure (ℝ × ℝ)) = (2 : ℝ≥0∞) • volume := by
   have hdet : LinearMap.det tracePair ≠ 0 := by rw [det_tracePair]; norm_num
-  have h := map_linearMap_addHaar_eq_smul_addHaar
+  have h := Measure.map_linearMap_addHaar_eq_smul_addHaar
     (volume : Measure (ℝ × ℝ)) hdet
   norm_num [det_tracePair] at h
   exact h
@@ -62,9 +62,10 @@ theorem map_tracePair :
 theorem map_spectralPair :
     Measure.map spectralPair (volume : Measure (ℝ × ℝ)) = (1/2 : ℝ≥0∞) • volume := by
   have hdet : LinearMap.det spectralPair ≠ 0 := by rw [det_spectralPair]; norm_num
-  have h := map_linearMap_addHaar_eq_smul_addHaar
+  have h := Measure.map_linearMap_addHaar_eq_smul_addHaar
     (volume : Measure (ℝ × ℝ)) hdet
-  norm_num [det_spectralPair] at h
+  norm_num [det_spectralPair,
+    ENNReal.ofReal_inv_of_pos (by norm_num : (0 : ℝ) < 2)] at h
   exact h
 
 theorem lintegral_tracePair (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G) :
@@ -91,8 +92,7 @@ theorem positive_chamber_change (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable
   have he : spectralPair ⁻¹' {e : ℝ × ℝ | 0 < e.1 ∧ e.1 < e.2} =
       {q : ℝ × ℝ | 0 < q.2 ∧ q.2 < q.1} := by
     ext q
-    simp only [mem_preimage, mem_setOf_eq, spectralPair_apply]
-    dsimp
+    simp only [mem_preimage, mem_ofPred_eq, spectralPair_apply]
     constructor <;> intro h <;> constructor <;> linarith [h.1,h.2]
   calc
     _ = ∫⁻ q : ℝ × ℝ in spectralPair ⁻¹' {e : ℝ × ℝ | 0 < e.1 ∧ e.1 < e.2},
@@ -114,6 +114,7 @@ theorem weighted_positive_chamber_change (G : ℝ × ℝ → ℝ≥0∞) (hG : M
       (1/2 : ℝ≥0∞) * ENNReal.ofReal (e.2-e.1) := by
     rw [show (e.2-e.1)/2 = (1/2 : ℝ)*(e.2-e.1) by ring,
       ENNReal.ofReal_mul (by norm_num : (0 : ℝ) ≤ 1/2)]
+    rw [ENNReal.ofReal_div_of_pos (by norm_num : (0 : ℝ) < 2)]
     norm_num
   calc
     _ = ∫⁻ q : ℝ × ℝ in {q | 0 < q.2 ∧ q.2 < q.1},
@@ -129,6 +130,15 @@ theorem weighted_positive_chamber_change (G : ℝ × ℝ → ℝ≥0∞) (hG : M
           ENNReal.ofReal (e.2-e.1) * G e) := by
       simp_rw [hweight, mul_assoc]
       rw [lintegral_const_mul _ (by fun_prop)]
-    _ = _ := by rw [← mul_assoc]; norm_num
+    _ = _ := by
+      have hhalf : ENNReal.ofReal (1/2 : ℝ) = (1/2 : ℝ≥0∞) := by
+        rw [ENNReal.ofReal_div_of_pos (by norm_num : (0 : ℝ) < 2)]
+        norm_num
+      have hquarter : ENNReal.ofReal (1/4 : ℝ) = (1/4 : ℝ≥0∞) := by
+        rw [ENNReal.ofReal_div_of_pos (by norm_num : (0 : ℝ) < 4)]
+        norm_num
+      rw [← mul_assoc, ← hhalf, ← hquarter,
+        ← ENNReal.ofReal_mul (by norm_num : (0 : ℝ) ≤ 1/2)]
+      norm_num
 
 end CapI4Linear
