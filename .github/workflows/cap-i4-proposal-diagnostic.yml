@@ -1,0 +1,76 @@
+name: Cap I4 proposal diagnostic only
+on:
+  push:
+    branches: [chatgpt/cap-i4-proposal-diagnostic-20261006-r12]
+    paths:
+      - .github/workflows/cap-i4-proposal-diagnostic.yml
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Install the existing pinned Lean toolchain and dependencies
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Execute the unchanged source-bound proposal replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="$PWD"
+          OUT="$ROOT/.lake/cap-i4-proposal-diagnostic"
+          test ! -e "$OUT" && test ! -L "$OUT"
+          mkdir -p "$OUT"
+          record() {
+            python3 -B -S - <<'PY'
+          import hashlib,json,os,subprocess
+          from pathlib import Path
+          def git(*args):
+              return subprocess.check_output(['git',*args],text=True).strip()
+          side='companions/cap_i4_spectral_assembly_20261006/'
+          pins={side+'replay.py':'03169fcc86253431dec52bbe103830866f241739',
+                side+'CapI4SpectralAssembly.lean':'21fe24918e9379d8fa14f944ebb00332dc17d991',
+                side+'Contract.lean':'f789d5fb41067dbfdd07489b62461158aeae02ba'}
+          for path,expected in pins.items():
+              if Path(path).is_symlink() or git('hash-object',path)!=expected:
+                  raise ValueError('unchanged candidate source mismatch: '+path)
+          workflow='.github/workflows/cap-i4-proposal-diagnostic.yml'
+          if git('diff','--name-only','HEAD','--',workflow,*pins):
+              raise ValueError('dirty diagnostic or proposal source')
+          head=git('rev-parse','HEAD')
+          if head!=os.environ['GITHUB_SHA']:
+              raise ValueError('actual tested head mismatch')
+          print(json.dumps({'head':head,'run':os.environ['GITHUB_RUN_ID'],
+              'attempt':os.environ['GITHUB_RUN_ATTEMPT'],'proposal_blobs':pins,
+              'workflow_sha256':hashlib.sha256(Path(workflow).read_bytes()).hexdigest()},sort_keys=True))
+          PY
+          }
+          record | tee "$OUT/before.json"
+          cd formal
+          lake env python3 -B -S "$ROOT/companions/cap_i4_spectral_assembly_20261006/replay.py"
+          cd "$ROOT"
+          record | tee "$OUT/after.json"
+          cmp "$OUT/before.json" "$OUT/after.json"
+          (cd "$OUT" && sha256sum before.json after.json > SHA256SUMS)
+      - name: Retain actual diagnostic and proposal evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cap-i4-proposal-diagnostic-${{ github.sha }}
+          path: |
+            .lake/cap-i4-proposal-diagnostic/
+            .lake/cap-i4-spectral-assembly/
+          include-hidden-files: true
+          if-no-files-found: warn
