@@ -5,6 +5,7 @@ name: Third-order rate 3/7 exact controls
     paths:
       - 'frontiers/third_order_rate_20261001/**'
       - '.github/workflows/third-order-rate.yml'
+      - 'tests/test_third_order_rate_workflow.py'
       # bound merged sources (consumed in SOURCES.json) and the pinned unmerged dependencies
       - 'frontiers/three_fronts_20260924/LIFETIME_REMAINDER.md'
       - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
@@ -37,6 +38,13 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Verify complete child contracts in both Python modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
+          python -B -O -S -m unittest discover -s tests -p test_third_order_rate_workflow.py -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -142,19 +150,62 @@ jobs:
                   now = current(entry) if kind == 'consumed_unmerged' else None
                   print(json.dumps({kind + '_bound': entry['path'], 'git_blob': entry['git_blob'], 'head': entry['head'],
                                     'via': where, 'current_ref_checked': now}))
+          # Complete typed JSON fingerprints measured from unchanged r37_check.py
+          # d521770d56d7c59604a949645332820091d69b8e in both Python modes.
+          # Fixed expectations, never learned from the child executing in this job.
+          mutants = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8']
+          if manifest.get('mutants') != mutants:
+              raise ValueError('third-order mutant inventory differs from the exact contract')
+          report_sha256 = {
+              'M1': '1c8ee21898e24815a92e25d857eb9ebd1e37e986c2b8e05cde8c517fc85fd783',
+              'M2': 'ca947f31b05b42df18711d83ae41b093f0364518daaa05197cc12e2f19139ed4',
+              'M3': '1cd08221647a8e4d09103ac4f062041fa87a986a34600d9833389e373d9d3b91',
+              'M4': 'ccb57cb465ef6fc3eddddc44152563d8cd60fad742cc58fc6c44b4fe6fca2f82',
+              'M5': '359b1200abec0231f68302fb88c62d4df026e4a28fc94e176aada0959a21bc53',
+              'M6': '6ef4e23a74fd63529b3482c634626f2cf32529c099ed717bee3556345b29bfc8',
+              'M7': 'c18c8977019114dce23b6659d3d82e881bbaafa9c2ddcca2f09de1f67dba8340',
+              'M8': '2b6da63037130a77ab2bd87d520b2b724dc28653001d01ee006f829e3ca8b682',
+          }
+          def unique_fields(pairs):
+              result = {}
+              for key, value in pairs:
+                  if key in result:
+                      raise ValueError('duplicate third-order report field: ' + key)
+                  result[key] = value
+              return result
+
+          def invalid_number(value):
+              raise ValueError('floating/nonfinite third-order report number: ' + value)
+
+          def report_digest(raw):
+              value = json.loads(raw.decode('utf-8'), object_pairs_hook=unique_fields,
+                                 parse_float=invalid_number, parse_constant=invalid_number)
+              canonical = json.dumps(value, sort_keys=True, separators=(',', ':'),
+                                     ensure_ascii=False, allow_nan=False).encode('utf-8')
+              return hashlib.sha256(canonical).hexdigest()
+
           script = str(root / 'r37_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script], check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in manifest['mutants']:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m], capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-              rc = subprocess.run([sys.executable, *flags, script, '--mutant', 'M9'], capture_output=True, timeout=600).returncode
-              if rc != 2:
-                  raise RuntimeError('unknown mutant label not rejected with exit 2')
+              for mutant in (None, *mutants, 'M9'):
+                  args = [sys.executable, *flags, script]
+                  if mutant is not None:
+                      args.extend(['--mutant', mutant])
+                  process = subprocess.run(args, capture_output=True, timeout=600)
+                  if mutant is None:
+                      valid = process.returncode == 0 and not process.stderr and process.stdout == expected
+                  elif mutant == 'M9':
+                      valid = (process.returncode == 2 and process.stdout == b''
+                               and process.stderr == b'unknown mutant label\n')
+                  else:
+                      valid = (process.returncode == 1 and not process.stderr
+                               and report_digest(process.stdout) == report_sha256[mutant])
+                  if not valid:
+                      raise RuntimeError('third-order child contract mismatch: ' + str(mutant))
+                  print(json.dumps({'flags': flags, 'mutant': mutant, 'returncode': process.returncode,
+                                    'stdout_sha256': hashlib.sha256(process.stdout).hexdigest(),
+                                    'stderr_sha256': hashlib.sha256(process.stderr).hexdigest(),
+                                    'scientific_effect': 'NONE'}, sort_keys=True))
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code
