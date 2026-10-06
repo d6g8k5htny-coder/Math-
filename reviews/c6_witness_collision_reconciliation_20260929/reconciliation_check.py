@@ -19,6 +19,8 @@ Stdlib only; run from the repository root.
   MONOTONE       exact enumeration: (n_A)_q <= (n)_q for every sub-count and q <= 4; 2*1{n>=2} <= n(n-1) <= n*Psi for
                  Psi >= n; the Theta(r^3) bracket needs both the upper and the lower row.
   OPEN_RESIDUAL  the open items of section 5 are recorded and the residual node is proposed open.
+Every JSON input is parsed strictly: a duplicate key or a NaN/Infinity constant stops the run with passed false and an
+input_error, as hard_gate.load_json_strict does (R-2).
 Mutants (each must fail): allow-symlink, no-hash, drop-edge, stale-fingerprint, executed-flag, close-residual,
 drop-lower-bound, regional-strict.
 """
@@ -164,6 +166,26 @@ def no_symlink_on_path(root, path):
     return not any((root / pathlib.PurePosixPath(*parts[:i])).is_symlink() for i in range(1, len(parts) + 1))
 
 
+class InputError(ValueError):
+    """A JSON input that a strict parse refuses (R-2)."""
+
+
+def load_json(path):
+    """json.loads that rejects duplicate keys and NaN/Infinity, the rule of hard_gate.load_json_strict (R-2)."""
+    def pairs(items):
+        out = {}
+        for key, value in items:
+            if key in out:
+                raise InputError("%s: duplicate JSON key %r" % (path.name, key))
+            out[key] = value
+        return out
+
+    def constant(name):
+        raise InputError("%s: non-finite JSON constant %s" % (path.name, name))
+
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=pairs, parse_constant=constant)
+
+
 def check_identities(root):
     for path, (sha, blob) in INVENTORY.items():
         p = root / path
@@ -188,7 +210,7 @@ def check_verdicts(root):
 
 
 def check_obligation(root):
-    graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
+    graph = load_json(root / GRAPH)
     node = graph["nodes"].get(WITNESS)
     if not isinstance(node, dict) or node.get("kind") != "region" or node.get("controlling") is not False:
         return False
@@ -199,7 +221,7 @@ def check_obligation(root):
         ok &= all(graph["nodes"].get(x, {}).get("classification") == "PROVED_REVIEWED" for x in node.get("reading_rule", []))
     else:
         ok = node.get("classification") == "PROVED_REVIEWED"
-    sel = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
+    sel = load_json(root / SELECTOR)
     ok &= "witness-collision" in sel.get("regions", [])
     index = (root / "PROOF_INDEX.md").read_text(encoding="utf-8")
     ok &= ("NO COMPLETE PROOF YET: shrinking-separation factorial-moment/collision estimate." in index      # through bb429d3
@@ -324,15 +346,15 @@ def installed_state(graph, proposed_nodes, proposed_edges):
 
 
 def register_state(root):
-    spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
-    graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
+    spec = load_json(root / HERE / "PROPOSED_TRANSITIONS.json")
+    graph = load_json(root / GRAPH)
     return installed_state(graph, spec["proposed_graph_nodes"], spec["proposed_graph_edges"])["state"]
 
 
 def check_transitions(root):
-    spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
-    d5 = json.loads((root / D5_TRANSITIONS).read_text(encoding="utf-8"))
-    graph = json.loads((root / GRAPH).read_text(encoding="utf-8"))
+    spec = load_json(root / HERE / "PROPOSED_TRANSITIONS.json")
+    d5 = load_json(root / D5_TRANSITIONS)
+    graph = load_json(root / GRAPH)
     live = graph["nodes"]
     d5_nodes = {n["id"] for n in d5["proposed_graph_nodes"]}
     nodes = {n["id"]: n for n in spec["proposed_graph_nodes"]}
@@ -495,8 +517,8 @@ def check_selector(root):
     region ids from open to covered (Codex 4139312863). Once the table carries every proposed cell, the three region
     ids must be covered and not open, and the graph must carry the proposal (installed); a table carrying part of the
     proposal, or the proposal ahead of the graph, is rejected (v1.8)."""
-    spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
-    live = json.loads((root / SELECTOR).read_text(encoding="utf-8"))
+    spec = load_json(root / HERE / "PROPOSED_TRANSITIONS.json")
+    live = load_json(root / SELECTOR)
     prop = spec["selector_region_proposal"]
     cells = dict(prop["cells"])
     if MUT == "open-cell-left":
@@ -562,7 +584,7 @@ def check_open_residual(root):
     ok = "**Numerical constants**" in text and "leading-mass-localization" in text
     ok &= "localization of the leading-order mass at scale `r`" in text and "M(R, s_0)" in text
     ok &= "not supplied by the landed reviewed chain" in text and "candidates only" in text
-    spec = json.loads((root / HERE / "PROPOSED_TRANSITIONS.json").read_text(encoding="utf-8"))
+    spec = load_json(root / HERE / "PROPOSED_TRANSITIONS.json")
     res = next(e for e in spec["graph"] if e["node"] == RESIDUAL)
     ok &= res["proposed"] == "OPEN_ACTIVE" and MUT != "close-residual"
     return ok
@@ -574,14 +596,20 @@ def main():
     ap.add_argument("--mutant", choices=MUTANTS)
     MUT = ap.parse_args().mutant
     root = pathlib.Path(".").resolve()
-    ident = check_identities(root)
-    checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "OBLIGATION": check_obligation(root),
-              "NEGATIVES": check_negatives(root), "TRANSITIONS": check_transitions(root),
-              "MONOTONE": check_monotone(), "OPEN_RESIDUAL": check_open_residual(root),
-              "SELECTOR": check_selector(root)}
+    try:
+        ident = check_identities(root)
+        checks = {"IDENTITIES": ident, "VERDICTS": ident and check_verdicts(root), "OBLIGATION": check_obligation(root),
+                  "NEGATIVES": check_negatives(root), "TRANSITIONS": check_transitions(root),
+                  "MONOTONE": check_monotone(), "OPEN_RESIDUAL": check_open_residual(root),
+                  "SELECTOR": check_selector(root)}
+        state = register_state(root)
+    except InputError as exc:
+        print(json.dumps({"object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1", "passed": False,
+                          "input_error": str(exc)}, indent=2, sort_keys=True))
+        return 1
     passed = all(checks.values()) and len(checks) == 8
     print(json.dumps({"object": "C6-WITNESS-COLLISION-RECONCILIATION-20260929-v1", "checks": checks, "passed": passed,
-                      "inventory_files": len(INVENTORY), "register_state": register_state(root),
+                      "inventory_files": len(INVENTORY), "register_state": state,
                       "scope": "identity, verdict-row, obligation, filesystem-negative, transition-chain (live register baseline "
                                "or exactly installed), monotonicity, open-item and selector-cell checks; no mathematics is "
                                "re-proved"}, indent=2, sort_keys=True))

@@ -17,6 +17,16 @@ proposals carry no compared Boolean below a node's top level (their only compare
 flags, which the hard gate types exactly); a guard test fails if that ever changes. Pinned outputs, proposals and the
 workflow mutant list are unchanged. Nothing is executed.
 
+**R-2 successor (6 October 2026).** The same checker parsed GRAPH, SELECTOR_REGION and the proposals with plain
+`json.loads`, which keeps the last of a duplicate key and accepts `NaN` and `Infinity`; a GRAPH or SELECTOR_REGION text
+with a duplicate witness `classification`, a duplicate `regions` key or a non-finite constant reached the pinned
+installed output with exit 0 (disposition [382/6018648978](https://github.com/d6g8k5htny-coder/Math-/pull/382#issuecomment-6018648978)).
+Every JSON input now goes through one strict loader with the rule of `hard_gate.load_json_strict`; a refused input prints
+`passed: false` with an `input_error` and exits 1. `test_witness_states.py` covers both duplicate kinds and `NaN`,
+`Infinity` and `-Infinity` through the full checker and guards the single parse site. Pinned outputs, proposals and the
+workflow mutant list are unchanged. `hard_gate.load_selector_region` still parses SELECTOR_REGION loosely; it belongs to
+the downstream-gate package and is left to that package's owner. Nothing is executed.
+
 **Object:** REGISTER-EXECUTION-READINESS-20260930-v1.
 **Author:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3` — the same session that authored the
 three records (author-side; exposure stated in §5). **Read at:** Math- `main` `dda8991` (30 September 2026; Math-#177 merged).
