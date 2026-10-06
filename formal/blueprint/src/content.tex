@@ -56,3 +56,17 @@ The two model bounds remain premises; no Palm measure is constructed here.
 \end{lemma}
 \begin{proof}Bound the numerator, derive a positive normalizer, and use
 the unchanged scalar quotient theorem.\end{proof}
+
+
+\section{D2 Schur algebra and endpoint positivity}
+\begin{lemma}[Endpoint lower bound for the conditional expression]
+\label{lem:d2-schur}
+\lean{ResearchFormalCoreR1.d2_schur_endpoint_lower}
+For the expressions defined in D2Schur, assume $m_2>0$, $m_4>m_2^2$
+and $0\le q\le1/4$. Put $N=m_2^2(m_4^2-m_2^4)$ and
+$D(q)=m_2^2m_4+(m_4-3m_2^2)(m_4+m_2^2)q$.
+Then $N/\max\{D(0),D(1/4)\}\le S(q)$, and $S(q)>0$.
+The scalar-to-Gaussian covariance identification is not formalized here.
+\end{lemma}
+\begin{proof}Cancel the Schur numerator, bound the positive affine denominator
+by its endpoint maximum, and reverse that comparison upon reciprocation.\end{proof}
