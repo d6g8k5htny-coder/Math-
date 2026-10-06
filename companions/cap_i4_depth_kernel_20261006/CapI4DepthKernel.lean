@@ -75,13 +75,13 @@ theorem typed_depth_weight_le (r K k0 k j lam top h w : ℝ) (hr : 0 ≤ r) (hr1
       have hcut := depth_cutoff r K k0 k j lam top h hr hK hk0 hk hj htop hh hhU hfail
       have hbound := hw.trans
         (double_soft_majorant r K j lam top h hr hr1 hK hj (le_of_lt hlam) htop hh hhU)
-      simpa only [if_pos hfail, if_pos hlam, depthKernel, if_pos hcut] using
+      simpa only [ite_eq_left hfail, ite_eq_left hlam, depthKernel, ite_eq_left hcut] using
         ENNReal.ofReal_le_ofReal hbound
     · have hw : w ≤ 0 := le_of_not_gt hwpos
-      simp only [if_pos hfail, ENNReal.ofReal_eq_zero.mpr hw]
-      exact zero_le _
-  · simp only [if_neg hfail, ENNReal.ofReal_zero]
-    exact zero_le _
+      simp only [ite_eq_left hfail, ENNReal.ofReal_eq_zero.mpr hw]
+      exact zero_le
+  · simp only [ite_eq_right hfail, ENNReal.ofReal_zero]
+    exact zero_le
 
 /-- The actual depth-truncated weight uses the explicit kernel, not an assumed final bound. -/
 theorem independent_depth_bound_ae {Ω : Type*} [MeasurableSpace Ω] (Q : Measure Ω) [IsProbabilityMeasure Q]
