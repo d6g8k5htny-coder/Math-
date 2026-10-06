@@ -47,7 +47,9 @@ theorem entryMatrix_posDef_iff (e : ℝ × (ℝ × ℝ)) :
       have h0 := congrFun h 0
       norm_num at h0
     have ha : 0 < e.1 := by
-      simpa [entryMatrix_quadratic] using hM.dotProduct_mulVec_pos hu
+      have hq := hM.dotProduct_mulVec_pos hu
+      rw [entryMatrix_quadratic] at hq
+      simpa using hq
     have hw : (![-e.2.1, e.1] : Fin 2 → ℝ) ≠ 0 := by
       intro h
       have h1 := congrFun h 1
@@ -152,6 +154,7 @@ theorem entryMatrix_mem_spectrum_iff (e : ℝ × (ℝ × ℝ)) (s : ℝ) :
       s = (CapI4Polar.eigenvalues e).1 ∨ s = (CapI4Polar.eigenvalues e).2 := by
   simp [spectrum.mem_iff, Matrix.isUnit_iff_isUnit_det, entryMatrix_char_det,
     mul_eq_zero, sub_eq_zero]
+  tauto
 
 theorem entryMatrix_spectrum (e : ℝ × (ℝ × ℝ)) :
     spectrum ℝ (entryMatrix e) =
