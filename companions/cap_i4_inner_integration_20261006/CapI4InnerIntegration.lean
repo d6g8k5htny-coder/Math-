@@ -120,7 +120,10 @@ theorem gaussian_depth_slice_le (C0 c r K k0 j T : ℝ) (hC0 : 0 ≤ C0) (hc : 0
       intro x
       calc
         _ ≤ ENNReal.ofReal (T-x)*(ENNReal.ofReal (C0*Real.exp (-c*T^2))*
-            CapI4DepthKernel.depthKernel r K k0 (j,(x,T))) := by gcongr
+            CapI4DepthKernel.depthKernel r K k0 (j,(x,T))) := by
+          dsimp only
+          have hd := hdrop x
+          gcongr
         _ = _ := by ac_rfl
     _ = ENNReal.ofReal (C0*Real.exp (-c*T^2)) *
         ∫⁻ x : ℝ in Ioo 0 T, ENNReal.ofReal (T-x)*
