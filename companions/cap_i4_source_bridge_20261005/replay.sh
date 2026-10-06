@@ -3,6 +3,11 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SIDE="$ROOT/companions/cap_i4_source_bridge_20261005"
 OUT="$ROOT/.lake/cap-i4-evidence"
+# Retain prior evidence separately; an early failure must not inherit old results.
+if [[ -e "$OUT" || -L "$OUT" ]]; then
+  OLD="$(mktemp -d "$ROOT/.lake/cap-i4-evidence.previous.XXXXXX")"
+  mv -- "$OUT" "$OLD/retained"
+fi
 mkdir -p "$OUT"
 cd "$ROOT"
 printf 'commit=%s\nrun_id=%s\nrun_attempt=%s\n' "$(git rev-parse HEAD)" "${GITHUB_RUN_ID:-local}" "${GITHUB_RUN_ATTEMPT:-local}" > "$OUT/execution-context.txt"
@@ -37,5 +42,6 @@ done | tee "$CAP_I4_OUT/negative-controls.log"
 INNER
 cd "$ROOT"
 python3 "$SIDE/gate.py" source | tee "$OUT/final-source.json"
+cmp -- "$OUT/source.json" "$OUT/final-source.json"
 (cd "$OUT" && sha256sum -- *.log *.json *.lean execution-context.txt > SHA256SUMS)
 echo 'PASS: Cap I4 companion replay; matrix transport remains OPEN; scientific effect NONE.'
