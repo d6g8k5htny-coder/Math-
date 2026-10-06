@@ -7,7 +7,8 @@ required dependencies that do not yet satisfy the hard gate. The graph is loaded
 gate's own strict loader; the dependency rule is the gate's (an edge is required unless it says
 otherwise; only PROVED_REVIEWED satisfies a required premise).
 
-This is the derived view adopted in main#275 and governance/OP-CLOSURE-EVIDENCE-20261006.md: it writes
+This is the derived view proposed in main#275 (decision record v1.1, rows PROPOSED) and main#276
+(governance/OP-CLOSURE-EVIDENCE-20261006.md, unmerged at publication): it writes
 nothing, promotes nothing and is not a status record. Axes the graph does not record (blind
 reconstruction, adversarial attack, formal evidence, numerical reproduction, novelty, human reading)
 are listed as outside the graph rather than reported as passed or failed. Scientific effect: NONE.
@@ -18,6 +19,7 @@ import argparse
 import importlib.util
 import json
 import pathlib
+import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -26,6 +28,9 @@ AXES_OUTSIDE_GRAPH = (
     'blind_reconstruction', 'adversarial_attack', 'formal_evidence',
     'numerical_reproduction', 'novelty', 'human_reading',
 )
+# A record string carrying any of these words is not read as naming a provider (EP381-02: 'not OpenAI').
+NEGATIONS = frozenset({'not', 'no', 'non', 'never', 'without', 'except', 'excluding', 'unknown', 'undisclosed',
+                       'unnamed', 'unidentified', 'unattributed', 'other', 'than'})
 FAMILIES = (('openai', 'OpenAI'), ('chatgpt', 'OpenAI'), ('codex', 'OpenAI'), ('anthropic', 'Anthropic'),
             ('claude', 'Anthropic'), ('xai', 'xAI'), ('grok', 'xAI'), ('google', 'Google'), ('gemini', 'Google'))
 
@@ -38,8 +43,13 @@ def load_gate():
 
 
 def family(text):
-    """Provider family named by a free-form record string, or None when it names none or several."""
-    found = {name for token, name in FAMILIES if token in text.lower()}
+    """Provider family named by a free-form record string, or None when it names none, several, or is negated.
+    Matching is on whole alphanumeric tokens, so 'xAI/Grok via Cursor' names xAI but 'notopenai' names nothing;
+    a string with a negation word ('not OpenAI', 'provider not disclosed') is unresolved rather than guessed."""
+    tokens = set(re.findall(r'[a-z0-9]+', text.lower()))
+    if tokens & NEGATIONS:
+        return None
+    found = {name for token, name in FAMILIES if token in tokens}
     return found.pop() if len(found) == 1 else None
 
 
@@ -57,15 +67,19 @@ def reviewer_strings(node):
 
 
 def provider_distinct(node):
-    """'yes' if a recorded reviewer family differs from the recorded author family; 'no' if every
-    recorded reviewer shares it; 'not recorded' if either side is missing or names no single family."""
+    """'yes' if some recorded reviewer resolves to a family other than the recorded author's; 'no' only if
+    every recorded reviewer resolves to the author's family; otherwise 'not recorded' (missing author or
+    reviewers, or a reviewer string naming no single family). Never organizational independence."""
     author = node.get('author_provider')
     author_family = family(author) if isinstance(author, str) else None
     reviewer_families = [family(s) for s in reviewer_strings(node)]
-    known = [f for f in reviewer_families if f is not None]
-    if author_family is None or not known:
+    if author_family is None or not reviewer_families:
         return 'not recorded'
-    return 'yes' if any(f != author_family for f in known) else 'no'
+    if any(f is not None and f != author_family for f in reviewer_families):
+        return 'yes'
+    if all(f == author_family for f in reviewer_families):
+        return 'no'
+    return 'not recorded'
 
 
 def profile(gate, graph, node_id):
@@ -79,6 +93,7 @@ def profile(gate, graph, node_id):
         'author_provider': node.get('author_provider', 'not recorded'),
         'reviewer_providers': reviewer_strings(node) or ['not recorded'],
         'provider_distinct': provider_distinct(node),
+        'unresolved_reviewer_providers': [s for s in reviewer_strings(node) if family(s) is None],
         'unsatisfied_required': [{'node': dep, 'classification': graph['nodes'][dep]['classification']}
                                  for dep in unsatisfied],
         'axes_outside_graph': list(AXES_OUTSIDE_GRAPH),
@@ -86,8 +101,29 @@ def profile(gate, graph, node_id):
 
 
 def roots(graph):
+    """math.* nodes without an incoming edge, then, in sorted order, any math.* node not reached from those
+    (a component whose math nodes all have incoming edges, e.g. a context-only cycle), so none is omitted."""
     targets = {e['to'] for e in graph['edges']}
-    return sorted(n for n in graph['nodes'] if n.startswith('math.') and n not in targets)
+    math_nodes = sorted(n for n in graph['nodes'] if n.startswith('math.'))
+    chosen = [n for n in math_nodes if n not in targets]
+    reached = set()
+
+    def reach(nid):
+        stack = [nid]
+        while stack:
+            cur = stack.pop()
+            if cur in reached:
+                continue
+            reached.add(cur)
+            stack.extend(e['to'] for e in graph['edges'] if e['from'] == cur)
+
+    for n in chosen:
+        reach(n)
+    for n in math_nodes:
+        if n not in reached:
+            chosen.append(n)
+            reach(n)
+    return chosen
 
 
 def tree_lines(gate, graph, node_id):
