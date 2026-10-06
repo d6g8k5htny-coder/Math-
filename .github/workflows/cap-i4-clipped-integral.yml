@@ -1,0 +1,43 @@
+name: Cap I4 clipped soft integral
+on:
+  push:
+    branches: [chatgpt/cap-i4-clipped-integral-20261006-r17]
+    paths:
+      - companions/cap_i4_clipped_integral_20261006/**
+      - .github/workflows/cap-i4-clipped-integral.yml
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - name: Install exact existing Lean and dependencies
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Execute isolated clipped-integral contracts and proof checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="$PWD"
+          cd formal
+          lake env python3 -B -S "$ROOT/companions/cap_i4_clipped_integral_20261006/replay.py"
+      - name: Retain original execution evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cap-i4-clipped-${{ github.sha }}
+          path: .lake/cap-i4-clipped-integral/
+          include-hidden-files: true
+          if-no-files-found: warn
