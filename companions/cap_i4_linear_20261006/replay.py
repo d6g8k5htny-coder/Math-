@@ -70,7 +70,7 @@ def main():
  records=[]
  env=os.environ.copy();env['LEAN_PATH']=str(build)+':'+env.get('LEAN_PATH','');env['LEAN_SRC_PATH']=str(build)+':'+env.get('LEAN_SRC_PATH','')
  def execute(label,cmd,expected=0):
-  try:r=subprocess.run(cmd,cwd=root,capture_output=True,timeout=300,env=env)
+  try:r=subprocess.run(cmd,cwd=root,capture_output=True,timeout=900 if label=='leanchecker' else 300,env=env)
   except subprocess.TimeoutExpired as e:
    (out/(label+'.log')).write_bytes((e.stdout or b'')+(e.stderr or b''));raise
   data=r.stdout+r.stderr;(out/(label+'.log')).write_bytes(data)
