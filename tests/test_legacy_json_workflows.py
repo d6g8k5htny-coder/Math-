@@ -138,7 +138,7 @@ class LegacyWorkflowTests(unittest.TestCase):
             # Only source authentication is re-bound for this synthetic fixture.
             (repo/'tools/legacy_json_contracts.json').write_text(json.dumps(contract))
             env=os.environ.copy();env.update({'LEGACY_TRACE':str(trace),'LEGACY_TARGET':label,'LEGACY_MODE':mode,'LEGACY_FAULT':fault,'PYTHONDONTWRITEBYTECODE':'1','PYTHONHASHSEED':'0'})
-            for cmd in [['git','init','-q'],['git','add','.'],['git','-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','synthetic fixture']]:
+            for cmd in [['git','init','-q'],['git','add','.'],['git','-c','user.name=Fixture','-c','user.email=fixture@example.invalid','-c','commit.gpgsign=false','commit','-qm','synthetic fixture']]:
                 subprocess.run(cmd,cwd=repo,check=True,capture_output=True,timeout=15,env=env)
             if tamper=='packet':(directory/entry['script']).write_bytes(data+b'\n')
             if tamper=='upstream':(repo/'upstream.txt').write_bytes(upstream+b'x')
