@@ -99,6 +99,26 @@ proof bytes, the gate, dependency pins and historical review records remain
 unchanged. The prior withheld lineage does not become accepted through this
 extension or through successful execution; a new scoped review is required.
 
+## Additive D2 Schur and endpoint positivity (sixteen further declarations)
+
+The total is now 63 theorem targets. [D2_SCHUR.md](D2_SCHUR.md) gives the
+hash-bound declaration-by-declaration mapping. D2Schur.lean proves exact
+polynomial Schur cancellation, its quotient form only for a nonzero denominator,
+affine determinant endpoint identities, positivity and an endpoint-based lower
+bound from explicit strict moment and q-interval hypotheses, and the cubic
+variance cumulant conversion with positive-mixture consequences. Two ordinary
+audited declarations retain the Gaussian-reference and singular-moment controls.
+They are not two additional rejection runs.
+
+Earlier47 Lean proof bytes, gate.py, dependencies, the original5 executable
+negative controls and historical reviews remain unchanged. The old weight test
+continues to check its exact40:47 slice; the new test checks the exact16-target
+suffix and total63. No realizability of the raw moments, actual matrix/field
+identification, trigonometric parametrization, interval arithmetic, coefficient
+quadrature or persistence theorem is supplied. The informal numerical packet
+is unchanged. Kernel execution and a new source-specific alignment review remain
+distinct; older withheld lineage and all wider scientific obligations survive.
+
 ## Review contract
 The source manifest is an evidence sidecar, not another scientific register. A trusted successful workflow establishes kernel evidence only for these target declarations and their displayed hypotheses, relative to Lean's kernel/standard foundations/toolchain. Independent review must compare each Lean statement and definition to this scope note and the source actually cited. Review author, provider, family and agent must be explicit. Validate an authenticated record with `python formal/gate.py --alignment review.json`; then the existing controlling gate must decide whether its wider requirements are met. The validator does not authenticate a review merely because a JSON string names a reviewer.
 
