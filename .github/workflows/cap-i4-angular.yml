@@ -1,0 +1,38 @@
+name: Cap I4 isolated angular formal bridge
+on:
+  push:
+    branches: [chatgpt/cap-i4-angular-formal-20261006]
+    paths:
+      - companions/cap_i4_angular_20261006/**
+      - .github/workflows/cap-i4-angular.yml
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+      - uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Compile exact parent and angular contract with kernel evidence
+        shell: bash
+        run: bash companions/cap_i4_angular_20261006/replay.sh
+      - name: Preserve actual evidence on success or failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: cap-i4-angular-${{ github.sha }}
+          path: .lake/cap-i4-angular/
+          include-hidden-files: true
+          if-no-files-found: warn
