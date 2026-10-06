@@ -1,0 +1,60 @@
+{
+  "object": "LM006-WRONG-SIGN-ASYMPTOTIC-20261006",
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "session": "lm006-sign-asymptotic-20261006-r12",
+  "claim": "main#229/6009740815",
+  "scientific_effect": "NONE",
+  "nonauthor_review": "PENDING",
+  "source_repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "8d78be3aebf7320d8df544c3961d16f25f6ec6ab",
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 15192,
+      "sha256": "00d57d987c28ef5f2e3f6467c9e343fb60ffb3ad5806d004f245fe16914fbb61",
+      "git_blob": "ea914c1b8e0b8180b645f3f626e2081ab87700b9"
+    },
+    {
+      "path": "sign_coefficient.py",
+      "bytes": 7007,
+      "sha256": "397954c86154e561f5316e63d0c599151b75b26e6b31b8933ac75dcc73fb571f",
+      "git_blob": "c088c00736e6720a9cae399ee7da0b9aff34d0c7"
+    },
+    {
+      "path": "test_sign_coefficient.py",
+      "bytes": 5451,
+      "sha256": "65c68417aa5b3a8f457bb374a30da8ea5d386ee52927de6ac38126dc1608f938",
+      "git_blob": "b614f6b388990a9167b38b00907e28fdeff7a29e"
+    }
+  ],
+  "sources": [
+    {
+      "tag": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "commit": "8d78be3aebf7320d8df544c3961d16f25f6ec6ab",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Model and pins in section 1; positive product spectrum and regularity in section 2. No global theorem imported."
+    },
+    {
+      "tag": "E",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "commit": "8d78be3aebf7320d8df544c3961d16f25f6ec6ab",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "role": "Sections 1-5: exact six-pin adjusted endpoint interface, conditional mean/covariance convergence and Gaussian moments."
+    },
+    {
+      "tag": "N",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "commit": "8d78be3aebf7320d8df544c3961d16f25f6ec6ab",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "role": "Sections 1-2 and 5: exact T_r=W_r/r^2, contact weight and full-normalizer limit."
+    },
+    {
+      "tag": "C",
+      "path": "reviews/lm006_cubic_sign_band_20261006/NOTE.md",
+      "commit": "771913a7dffdc1283e491166d0faa9ec53e1f06a",
+      "git_blob": "88dae06c5eefd102239f976513eb5e97c4ac7580",
+      "role": "Prior-work credit only: cubic upper bound and abstract sharpness. Fetched at its immutable PR source; not asserted present on this branch."
+    }
+  ]
+}
