@@ -14,6 +14,7 @@ import contextlib
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -106,10 +107,19 @@ def _contract(family: str) -> dict[str, Any]:
 def _unknown_stderr(family: str, script_name: str) -> bytes:
     if family != 'c6-cluster':
         return b'unknown mutant label\n'
-    # Reproduce only argparse's frozen grammar in the parent process. This does
-    # NOT execute or learn from the checker. Its version-specific usage wrapping
-    # matches the child because both use the exact same Python interpreter.
-    parser = argparse.ArgumentParser(prog=script_name)
+    # Reproduce the frozen grammar, not output learned from the checker. The
+    # child has captured stdout, so shutil's terminal-width query cannot use the
+    # parent's TTY. Match its positive COLUMNS override or 80-column pipe fallback.
+    try:
+        columns = int(os.environ.get('COLUMNS', '0'))
+    except ValueError:
+        columns = 0
+    if columns <= 0:
+        columns = 80
+    # CPython 3.11--3.13 HelpFormatter subtracts two from the terminal columns.
+    parser = argparse.ArgumentParser(
+        prog=script_name,
+        formatter_class=lambda prog: argparse.HelpFormatter(prog, width=columns - 2))
     parser.add_argument('--mutant', choices=C6_CHOICES)
     stream = io.StringIO()
     try:
