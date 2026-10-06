@@ -169,8 +169,11 @@ jobs:
               'M7': b'mutant M7: failing controls F4_proposition_FL4_certificates\n',
               'M8': b'mutant M8: failing controls F7_proposition_FL7_identification\n',
           }
-          if type(manifest['mutants']) is not list or manifest['mutants'] != list(failures):
-              raise RuntimeError('complete ordered M1-M8 inventory required')
+          inventory = {'M1': 'F1', 'M2': 'F2', 'M3': 'F3', 'M4': 'F4',
+                       'M5': 'F5', 'M6': 'F6', 'M7': 'F4', 'M8': 'F7'}
+          if (type(manifest['mutants']) is not dict or list(manifest['mutants']) != list(inventory)
+                  or manifest['mutants'] != inventory):
+              raise RuntimeError('complete ordered M1-M8 control mapping required')
           stages = [('baseline', [], 0, expected, b'')]
           stages += [(m, ['--mutant', m], 1, b'', carrier) for m, carrier in failures.items()]
           stages += [('M99', ['--mutant', 'M99'], 2, b'', b'unknown mutant label\n')]

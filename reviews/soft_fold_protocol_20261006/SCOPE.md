@@ -50,8 +50,8 @@ workflow is removed from the final proposed tree, retained only in history.
 
 ## Repair and preservation
 
-Only the existing inline process loop changes behavior. Require the exact ordered
-list M1-M8 before children; construct the fixed20-command inventory; compare each
+Only the existing inline process loop changes behavior. Require the exact native
+ordered M1-M8 control mapping before children; construct the fixed20-command inventory; compare each
 actual exit/stdout/stderr tuple with its independently measured complete contract.
 The baseline retains byte-exact RESULTS and now requires empty stderr. Mutants
 and M99 require empty stdout and their entire stderr, including the newline.
@@ -76,13 +76,13 @@ separate complete repository discovery on the actual candidate.
 
 Actual CPython3.13.5/Git2.47.3; nine unittest methods,147 distinct committed real-Git
 whole-shell scenarios. Full uninterrupted original command:111 intended assertion
-failures,0 errors (130.091s). Breakdown:96 named-mutant false admissions,2 baseline
+failures,0 errors (132.243s). Breakdown:96 named-mutant false admissions,2 baseline
 stderr false admissions,8 unknown-label false admissions,4 malformed-inventory
 admissions,1 missing-wiring assertion. One valid admission and36 correct rejecting
 controls remain. The original executes2504 child commands.
 
 The unchanged final test file runs against the repaired workflow:9/9 methods,
-147/147 expected outcomes in EACH normal/optimized outer mode (68.303s/68.144s).
+147/147 expected outcomes in EACH normal/optimized outer mode (65.548s/65.565s).
 Each has one valid admission and146 rejections,1444 actual children. No skipped
 or partitioned cases and no subprocess mocks. Across the three completed runs:
 441 fixture records,882 raw shell streams and5392 child invocations. These are
@@ -103,6 +103,36 @@ current ref54c6759e8434846941eb5218601dfef69c2c9d98 and source blob
 271412dbc96a29590f5f805258e15c9e335cb430 via TREE. The unchanged historical
 head/path/blob fallback was not exercised by that observation. The final dedicated
 workflow must supply its own actual full-packet candidate execution.
+
+## Required author correction after the first candidate failed
+
+Initial published head77b1b76f1c0b4a62e2359e83903c7b86a0c0db53 had a wrong
+list-only inventory assumption, mirrored in its synthetic fixtures. Actual
+SOURCES.json blob37b8a38a42a2dddbc4b2fdfdbae3a9cd4e28d7a6 stores an ordered
+object: M1:F1,M2:F2,M3:F3,M4:F4,M5:F5,M6:F6,M7:F4,M8:F7. The observation
+loop had correctly expanded its keys, but the first implementation wrongly
+required a list. Dedicated37466840210/1/job112279898907 therefore failed
+at that inventory check BEFORE any genuine checker invocation, after its
+complete focused suites passed74.486s/73.334s and source preflight succeeded.
+This is an author implementation/fixture error, not runner failure or a false
+scientific result. Original failed execution is retained in370/6016816642.
+
+The positive fixture was corrected FIRST to the native object. Its valid-case
+test then produced exactly one intended assertion failure and zero errors in
+each mode against77b1. Only afterwards the matcher was corrected to validate
+the exact dictionary type, key order AND all control values. Missing/reordered
+mappings, duplicate-label lists and wrong value types remain rejecting controls.
+The original scientific manifest was not edited. The complete147-case local
+results above are the successor mapping-based tests, not the older list-fixture
+results. The same147 keys and nine methods are retained, with four fixture
+construction lines corrected. All earlier list-fixture executions and original
+failed CI remain separate historical evidence; none is overwritten as success.
+
+The correction changes only the inventory predicate/fixed native mapping, the
+fixture's native inventory construction and this scope record. Full failure
+carriers, source preflight, postflight and all scientific bytes stay unchanged.
+An original review of77b1 cannot be represented as final successor review. The
+corrected source requires its own applicable fresh CI and exact-source review.
 
 ## Review and integration boundary
 

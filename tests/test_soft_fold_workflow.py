@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / '.github/workflows/soft-fold-limit.yml'
 PACKET = 'frontiers/soft_fold_limit_20261002'
 MUTANTS = tuple('M' + str(i) for i in range(1, 9))
+INVENTORY = dict(zip(MUTANTS, ('F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F4', 'F7')))
 STAGES = ('baseline', *MUTANTS, 'M99')
 ORDER = [[mode, stage] for mode in (0, 1) for stage in STAGES]
 # Independent reference carriers from original hosted job112272450916.
@@ -103,7 +104,7 @@ class SoftFoldWorkflowTests(unittest.TestCase):
             script.write_text(synthetic_checker(), encoding='utf-8')
             (packet / 'RESULTS.json').write_bytes(BASELINE)
             manifest = {'files': [file_identity(p.name, p.read_bytes()) for p in sorted(packet.iterdir())],
-                        'mutants': list(MUTANTS), 'consumed': [], 'cited_only': [],
+                        'mutants': dict(INVENTORY), 'consumed': [], 'cited_only': [],
                         'consumed_unmerged': [], 'cited_unmerged': []}
             for kind in ('consumed', 'cited_only'):
                 name = kind + '.txt'
@@ -151,8 +152,8 @@ class SoftFoldWorkflowTests(unittest.TestCase):
                 git('rm', '--cached', 'consumed.txt')
                 git('commit', '-qm', 'untracked consumed file')
             elif guard and guard.startswith('inventory-'):
-                variants = {'inventory-missing': list(MUTANTS[:-1]),
-                            'inventory-order': list(reversed(MUTANTS)),
+                variants = {'inventory-missing': {m: INVENTORY[m] for m in MUTANTS[:-1]},
+                            'inventory-order': {m: INVENTORY[m] for m in reversed(MUTANTS)},
                             'inventory-duplicate': [*MUTANTS, 'M8'],
                             'inventory-object': dict.fromkeys(MUTANTS, 1)}
                 manifest['mutants'] = variants[guard]
