@@ -16,7 +16,8 @@ side=Path('companions/cap_i4_entry_volume_20261006')
 def git(*args): return subprocess.check_output(['git',*args],text=True).strip()
 pins={
  'companions/cap_i4_polar_20261006/CapI4Polar.lean':'9d0bdbfb5ad77c159fe623cf2dcad31cc9402ba4',
- 'companions/cap_i4_linear_20261006/CapI4Linear.lean':'12bc0dbd13cdb482a1631370ad876af4b3c2b57f',
+ 'companions/cap_i4_linear_20261006/CapI4Linear.lean':'3c571603f2aabae49144cdba4bc52cd94a6f4d82',
+ 'companions/cap_i4_linear_20261006/replay.py':'01ccc2ef0c0af691a89d5836346a8d87535e4b2d',
  'formal/lean-toolchain':'ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5',
  'formal/lakefile.toml':'8117eae1b2897b7d95f5b2c42e8cf15222a1c5e8',
  'formal/lake-manifest.json':'d482b5f1e038b90397e239d2c0af82792cb0bd09',

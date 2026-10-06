@@ -67,7 +67,7 @@ theorem map_spectralPair :
   norm_num [det_spectralPair] at h
   rw [ENNReal.ofReal_div_of_pos (by norm_num : (0 : ℝ) < 2)] at h
   norm_num at h
-  exact h
+  simpa only [one_div] using h
 
 theorem lintegral_tracePair (G : ℝ × ℝ → ℝ≥0∞) (hG : Measurable G) :
     (∫⁻ q : ℝ × ℝ, G (tracePair q)) = (2 : ℝ≥0∞) * ∫⁻ q : ℝ × ℝ, G q := by

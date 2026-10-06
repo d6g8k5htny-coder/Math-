@@ -18,18 +18,23 @@ already explicit pair map to (a,d), and regroup the x,b plane. Measurability
 is retained throughout. Infinite integrals are allowed; no Bochner integral
 is used and no integrability premise is silently dropped.
 
-The exact-type Contract is published before the implementation. An initial
-failed missing-module run is evidence for that contract only. No successful
-Lean statement is claimed until the actual complete successor runs. Later
-status and source-alignment dispositions belong in main#229, not retroactive
-edits that relabel the initial failure.
+The exact-type Contract is published before the implementation. The first
+run37407234767 stopped in the parent linear module, not the absent child;
+this is not the intended missing-module RED. The parent's explicit one_div
+repair at9ab41dc815f94aff9cdfeeb535938bad2fbc02c8 is adopted unchanged here.
+The exact missing-module contract is rerun before adding the implementation.
+No successful Lean statement is claimed until the actual complete successor
+runs. Later source-alignment dispositions belong in main#229 and do not
+retroactively change a failed attempt into successful execution.
 
 ## Source and scope
 
-Isolated child of linear head29fa17b54559a30a389fb6cae899baf2dae71fdb.
+Initially based on linear29fa17b54559a30a389fb6cae899baf2dae71fdb;
+source-preserving adoption now includes linear9ab41dc815f94aff9cdfeeb535938bad2fbc02c8.
 The compiled parents are pinned as source files: CapI4Polar blob
 9d0bdbfb5ad77c159fe623cf2dcad31cc9402ba4 and CapI4Linear blob
-12bc0dbd13cdb482a1631370ad876af4b3c2b57f. Their separate reviews are not
+3c571603f2aabae49144cdba4bc52cd94a6f4d82. The reused evidence parser is also
+pinned, at blob01ccc2ef0c0af691a89d5836346a8d87535e4b2d. Parent reviews are not
 extended to this new composition. No parent branch or production formal/
 source/manifest/receipt is changed. No primary-package theorem-count change.
 
