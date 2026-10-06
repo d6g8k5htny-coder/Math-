@@ -15,7 +15,7 @@ NAME = r'[A-Za-z_][A-Za-z0-9_.]*'
 AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does not depend on any axioms)")
 SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
-DECL_LINE = re.compile(r'^(?:noncomputable\\s+)?(def|theorem|lemma)\\s+(' + NAME + r')\\b')
+DECL_LINE = re.compile(r'^(?:noncomputable\s+)?(def|theorem|lemma)\s+(' + NAME + r')\b')
 UNSUPPORTED_COMMANDS = ('private ', 'protected ', '@[', 'opaque ', 'axiom ', 'abbrev ', 'structure ', 'class ', 'instance ', 'local instance ', 'inductive ', 'mutual', 'syntax ', 'macro ', 'elab ', 'initialize ', 'example ')
 ROOT = Path(__file__).resolve().parent
 
@@ -51,7 +51,7 @@ def strip_lean_noncode(text):
 def scan_module_declarations(text, path):
     """Fail-closed grammar for primary source modules; not a general Lean parser."""
     clean = strip_lean_noncode(text)
-    namespaces = re.findall(r'^\\s*namespace\\s+(' + NAME + r')\\s*$', clean, re.M)
+    namespaces = re.findall(r'^\s*namespace\s+(' + NAME + r')\s*$', clean, re.M)
     require(namespaces == ['ResearchFormalCoreR1'],
             'unsupported namespace structure: ' + path)
     declarations = []
@@ -69,7 +69,7 @@ def scan_module_declarations(text, path):
             continue
         stripped = line.lstrip()
         if line != stripped and re.match(
-                r'(?:noncomputable\\s+)?(?:def|theorem|lemma)\\b', stripped):
+                r'(?:noncomputable\s+)?(?:def|theorem|lemma)\b', stripped):
             raise ValueError(
                 'indented declaration outside supported grammar: ' +
                 path + ':' + str(lineno))
