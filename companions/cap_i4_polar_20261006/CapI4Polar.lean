@@ -110,6 +110,8 @@ theorem polar_spectral_lintegral (t : ℝ) (F : ℝ × ℝ → ℝ≥0∞) :
     _ = _ := by
       apply setLIntegral_congr_fun polarCoord.open_target.measurableSet
       intro p hp
+      change ENNReal.ofReal p.1 * F (spectrum t (polarCoord.symm p)) =
+        ENNReal.ofReal p.1 * F (t - p.1, t + p.1)
       rw [spectrum_polar t p (le_of_lt hp.1)]
 
 theorem polar_positive_lintegral (t : ℝ) (F : ℝ × ℝ → ℝ≥0∞) :
@@ -126,7 +128,7 @@ theorem density_polar_bound (t : ℝ) (p w F : ℝ × ℝ → ℝ≥0∞)
         ENNReal.ofReal q.1 * (w (t - q.1, t + q.1) * F (t - q.1, t + q.1)) := by
   calc
     _ ≤ ∫⁻ z : ℝ × ℝ, w (spectrum t z) * F (spectrum t z) :=
-      lintegral_mono (fun z => mul_le_mul_right' (hdom z) _)
+      lintegral_mono (fun z => by gcongr <;> exact hdom z)
     _ = _ := polar_spectral_lintegral t (fun e => w e * F e)
 
 theorem density_positive_polar_bound (t : ℝ) (p w F : ℝ × ℝ → ℝ≥0∞)
