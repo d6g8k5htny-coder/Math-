@@ -122,5 +122,101 @@ class QuoteSemantics(unittest.TestCase):
         self.assertEqual((report['quotes'], report['summaries']), (0, 1))
 
 
+class VerdictWordStart(unittest.TestCase):
+    """Vocabulary membership only: not negation, suffix equality or entailment."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory(prefix='verdict-boundary-')
+        self.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.source = self.root / 'record.md'
+        self.doc = self.root / 'navigation.md'
+
+    def _report(self, source, passage):
+        self.source.write_text(source, encoding='utf-8')
+        self.doc.write_text(HEADER + '| #1 | [r](record.md) — summary: ' + passage + '|\n',
+                            encoding='utf-8')
+        return check_doc_quotes.check_document(str(self.doc), str(self.root))
+
+    def test_prefixed_source_words_do_not_supply_verdict_roots(self):
+        for word in check_doc_quotes.VERDICT:
+            for prefix in ('UN', 'NON_', 'x', '_', '0', 'é'):
+                with self.subTest(word=word, prefix=prefix):
+                    report = self._report(prefix + word, word)
+                    self.assertEqual(report['failures'],
+                        [['verdict-word-not-in-source', 'record.md', word + ': ' + word]])
+                    self.assertEqual((report['checked'], report['unchecked_offline']), (1, 0))
+
+    def test_scoped_summary_cannot_use_a_prefixed_source_word(self):
+        report = self._report('UNVERIFIED_SCOPED', 'VERIFIED_SCOPED')
+        self.assertEqual(report['failures'],
+            [['verdict-word-not-in-source', 'record.md', 'VERIFIED: VERIFIED_SCOPED']])
+
+    def test_existing_word_start_families_and_punctuation_remain_supported(self):
+        for word, family in zip(check_doc_quotes.VERDICT,
+                ('ACCEPTED', 'AMEND_REQUIRED', 'HOLD_PENDING', 'CONFIRMED_SCOPED',
+                 'VERIFIED_SCOPED', 'REJECTED')):
+            for source in (word, family, '**' + word + '**.', '`' + family + '`',
+                           'Disposition:\n(' + family + ');'):
+                with self.subTest(word=word, source=source):
+                    self.assertEqual(self._report(source, word)['failures'], [])
+                    self.assertEqual(self._report(source, family)['failures'], [])
+
+    def test_missing_roots_and_multiple_failures_keep_exact_diagnostics(self):
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                self.assertEqual(self._report('No disposition.', word)['failures'],
+                    [['verdict-word-not-in-source', 'record.md', word + ': ' + word]])
+        passage = 'ACCEPT HOLD VERIFIED'
+        self.assertEqual(self._report('ACCEPT UNVERIFIED', passage)['failures'],
+            [['verdict-word-not-in-source', 'record.md', 'HOLD: ' + passage],
+             ['verdict-word-not-in-source', 'record.md', 'VERIFIED: ' + passage]])
+
+    def test_embedded_summary_words_are_not_new_verdict_claims(self):
+        # Preserve the existing left-boundary policy on the summary side.
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                self.assertEqual(self._report('No disposition.', 'UN' + word)['failures'], [])
+
+    def test_case_sensitivity_and_semantic_limits_are_explicit(self):
+        self.assertEqual(self._report('verified', 'VERIFIED')['failures'],
+            [['verdict-word-not-in-source', 'record.md', 'VERIFIED: VERIFIED']])
+        self.assertEqual(self._report('No disposition.', 'verified')['failures'], [])
+        # Presence does not establish entailment or equality of scoped verdicts.
+        self.assertEqual(self._report('NOT VERIFIED', 'VERIFIED')['failures'], [])
+        self.assertEqual(self._report('VERIFIED_A', 'VERIFIED_B')['failures'], [])
+
+    def test_other_source_segments_cannot_supply_the_missing_verdict(self):
+        self.source.write_text('UNVERIFIED', encoding='utf-8')
+        (self.root / 'other.md').write_text('VERIFIED', encoding='utf-8')
+        self.doc.write_text(HEADER + '| #1 | [r](record.md) summary: VERIFIED'
+                            '<br>[s](other.md) summary: VERIFIED |\n', encoding='utf-8')
+        report = check_doc_quotes.check_document(str(self.doc), str(self.root))
+        self.assertEqual(report['failures'],
+            [['verdict-word-not-in-source', 'record.md', 'VERIFIED: VERIFIED']])
+        self.assertEqual((report['checked'], report['summaries']), (2, 2))
+
+    def test_cli_reports_boundary_failure_and_genuine_success(self):
+        import json
+        import subprocess
+        flags = ['-B', '-S'] if not sys.flags.optimize else ['-B', '-O', '-S']
+        for source, expected_exit in (('UNVERIFIED', 1), ('VERIFIED_SCOPED', 0)):
+            with self.subTest(source=source):
+                self._report(source, 'VERIFIED')
+                process = subprocess.run(
+                    [sys.executable, *flags, str(ROOT / 'tools/check_doc_quotes.py'),
+                     str(self.doc), '--root', str(self.root), '--require-online'],
+                    capture_output=True, text=True, timeout=15)
+                self.assertEqual(process.returncode, expected_exit, process.stderr)
+                self.assertEqual(process.stderr, '')
+                report = json.loads(process.stdout)
+                self.assertIs(report['passed'], expected_exit == 0)
+                result = report['documents'][str(self.doc)]
+                self.assertEqual((result['checked'], result['unchecked_offline']), (1, 0))
+                expected = [] if expected_exit == 0 else [
+                    ['verdict-word-not-in-source', 'record.md', 'VERIFIED: VERIFIED']]
+                self.assertEqual(result['failures'], expected)
+
+
 if __name__ == '__main__':
     unittest.main()

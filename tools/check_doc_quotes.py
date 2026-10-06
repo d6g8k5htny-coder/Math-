@@ -14,7 +14,10 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
   ``--github`` (token read from ``GITHUB_TOKEN``); without it the passage is reported as
   ``unchecked_offline`` and does not fail the check;
 * a ``summary:`` passage must not use a verdict word (ACCEPT, AMEND, HOLD, CONFIRMED,
-  VERIFIED, REJECT) that the linked record does not use, under the same offline rule;
+  VERIFIED, REJECT) that the linked record does not use, under the same offline rule.
+  Both sides use the existing case-sensitive word-start rule: ACCEPTED and
+  AMEND_REQUIRED retain their root, but UNVERIFIED does not supply VERIFIED.
+  Root presence does not check negation, scoped-suffix equality or entailment;
 * a passage with no preceding link in its segment fails (``no-source-link``).
 
 Header and separator rows are skipped. Exit status 0 only when no checked passage fails;
@@ -177,7 +180,7 @@ def check_document(doc_path, root, github=False, token=None):
                             report['failures'].append(['not-verbatim', source, prefix])
                     else:
                         for word in VERDICT:
-                            if re.search(r'\b' + word, passage) and word not in body:
+                            if re.search(r'\b' + word, passage) and not re.search(r'\b' + word, body):
                                 report['failures'].append(['verdict-word-not-in-source', source, word + ': ' + prefix])
     return report
 
