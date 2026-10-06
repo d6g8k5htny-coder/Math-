@@ -1,0 +1,104 @@
+name: Isolated navigation corpus observation (never merge)
+
+'on':
+  push:
+    branches: ['chatgpt/navigation-corpus-observation-20261006']
+
+permissions:
+  contents: read
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.16'
+      - name: Observe the unchanged prepared navigation commands
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, sys, time
+          root = pathlib.Path.cwd()
+          out = root / '.navigation-corpus-evidence'
+          out.mkdir(exist_ok=False)
+          prepared = '7028efbabe6c20228aa775911be789acdc44adfa'
+          workflow = '.github/workflows/navigation-corpus-observation.yml'
+          def git(*args):
+              return subprocess.check_output(['git', *args], text=True).strip()
+          def save(report):
+              (out / 'observation.json').write_text(json.dumps(report, indent=2, sort_keys=True)+'\n')
+          def require(test, message):
+              if not test:
+                  raise RuntimeError(message)
+          report = {'kind':'execution-only observation, not integration or scientific acceptance',
+                    'prepared':prepared, 'repository':os.environ['GITHUB_REPOSITORY'],
+                    'run_id':os.environ['GITHUB_RUN_ID'], 'attempt':os.environ['GITHUB_RUN_ATTEMPT'],
+                    'sha':os.environ['GITHUB_SHA'], 'python':sys.version,
+                    'passed':False, 'commands':[]}
+          save(report)
+          try:
+              require(git('rev-parse','HEAD') == report['sha'], 'actual HEAD differs from host SHA')
+              require(git('show','-s','--format=%P','HEAD').split() == [prepared], 'wrong execution parent')
+              require(git('diff','--name-only',prepared,'HEAD').splitlines() == [workflow], 'non-observer source changed')
+              paths = ['tools/check_doc_links.py','tools/check_doc_quotes.py',
+                       'tests/test_navigation_links.py','tests/test_navigation_quotes.py',
+                       '.github/workflows/navigation-links.yml', 'PROOF_INDEX.md']
+              paths += [str(p) for p in sorted(pathlib.Path('docs/integration').glob('*.md'))]
+              report['sources'] = []
+              for name in paths:
+                  raw=(root/name).read_bytes()
+                  expected=git('rev-parse',prepared+':'+name)
+                  actual=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+                  require(actual == expected, 'source identity mismatch: '+name)
+                  report['sources'].append({'path':name,'bytes':len(raw),'blob':actual,
+                                            'sha256':hashlib.sha256(raw).hexdigest()})
+              save(report)
+              docs=[str(p) for p in sorted(pathlib.Path('docs/integration').glob('*.md'))]
+              for mode, flags in [('normal',['-B','-S']),('optimized',['-B','-O','-S'])]:
+                  tasks=[('links',['tools/check_doc_links.py','PROOF_INDEX.md',*docs]),
+                         ('quotes',['tools/check_doc_quotes.py','--github','--require-online',
+                                    'PROOF_INDEX.md','docs/integration/2026-09-29-navigation-refresh.md']),
+                         ('tests',['-m','unittest','-v','tests.test_navigation_links','tests.test_navigation_quotes'])]
+                  for label, args in tasks:
+                      key=mode+'.'+label
+                      record={'key':key,'argv':[sys.executable,*flags,*args], 'state':'started'}
+                      report['commands'].append(record); save(report)
+                      start=time.monotonic()
+                      with (out/(key+'.stdout')).open('xb') as stdout, (out/(key+'.stderr')).open('xb') as stderr:
+                          result=subprocess.run(record['argv'],stdout=stdout,stderr=stderr,check=False)
+                      record.update(state='completed',returncode=result.returncode,elapsed_seconds=time.monotonic()-start)
+                      for stream in ('stdout','stderr'):
+                          data=(out/(key+'.'+stream)).read_bytes()
+                          record[stream]={'path':key+'.'+stream,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}
+                      save(report)
+                      print(key, 'exit', result.returncode, flush=True)
+                      require(result.returncode == 0, 'command failed: '+key)
+              require(git('diff','--name-only') == '', 'tracked source changed during execution')
+              for item in report['sources']:
+                  require(hashlib.sha256((root/item['path']).read_bytes()).hexdigest() == item['sha256'],
+                          'source postflight failed: '+item['path'])
+              report['passed']=True; save(report)
+              print('Completed six original navigation commands; no integration or scientific acceptance.', flush=True)
+          except BaseException as exc:
+              report['error']={'type':type(exc).__name__,'message':str(exc)}
+              save(report)
+              raise
+          PY
+      - name: Preserve the original observation and streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: navigation-corpus-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .navigation-corpus-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
