@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "04f47774bace871e3ad7dedc409e04f0280dfdd7",
+  "files": [
+    {
+      "path": "PROOF.md",
+      "bytes": 17362,
+      "git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd",
+      "sha256": "cad7fa81a70dc218286d7ec62f7a86daf337677d65398ff906c455157067f93f"
+    },
+    {
+      "path": "test_finite_radius_cluster.py",
+      "bytes": 6977,
+      "git_blob": "41c8f24d21658ad152ed64e19cbae130f910c643",
+      "sha256": "9aca39263f02d4092a604fbf52e41c670c325aa0854871cd8b3f8249ec7ee4a5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2556,
+      "git_blob": "13d0397269d8efa62f8e1c91bf785d7ec4415a9b",
+      "sha256": "c5465da6e0048de5f92f66a57e2b0fd94ad3368e449b613c3fb9ea931005271f"
+    }
+  ],
+  "sources": [
+    {
+      "id": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed": "(3.5), (4.1)-(4.3), (5.1)-(5.5), (6.2); Lebesgue spectral change of variables in section7. No numerical or acceptance upgrade.",
+      "fresh_read_lines": [
+        [
+          86,
+          124
+        ],
+        [
+          120,
+          282
+        ]
+      ]
+    },
+    {
+      "id": "SC",
+      "path": "frontiers/spectral_cluster_closure_20260929/PROOF.md",
+      "git_blob": "16c56821b52fd76b0be791622b9c3809eafde75a",
+      "consumed": "Section3 deterministic exclusion (11) and its proof only; section4 credited as predecessor, not quantitative premise.",
+      "fresh_read_lines": [
+        [
+          110,
+          235
+        ]
+      ]
+    }
+  ],
+  "evidence_limits": "Source hashes establish identity, not proof acceptance. Tests are exact finite algebra; no hosted or Lean result is asserted in this inventory. The preceding small-k author proposal is not a premise."
+}
