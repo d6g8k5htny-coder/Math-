@@ -3,6 +3,8 @@ name: C6 cluster coefficient numerics (replay)
 'on':
   pull_request:
     paths:
+      - 'tools/**'
+      - 'tests/test_direct_replay_import_triggers.py'
       - 'frontiers/c6_cluster_coefficients_numerics_20260930/**'
       - '.github/workflows/c6-cluster-coefficients-numerics.yml'
       - 'tools/c6_coefficient_numerics_replay.py'
@@ -23,6 +25,10 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Check direct-helper import trigger coverage
+        run: |
+          python -B -S tests/test_direct_replay_import_triggers.py
+          python -B -O -S tests/test_direct_replay_import_triggers.py
       - name: Verify full-shell output contracts in both Python modes
         env:
           PYTHONDONTWRITEBYTECODE: '1'
