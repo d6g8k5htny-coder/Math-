@@ -54,6 +54,24 @@ def graph_fixture(stage):
     return graph
 
 
+def nested_booleans(value, path=()):
+    """Paths of every Boolean strictly below a node's top level (R-1 class)."""
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield from nested_booleans(item, path + (key,))
+    elif isinstance(value, list):
+        for index, item in enumerate(value):
+            yield from nested_booleans(item, path + (index,))
+    elif isinstance(value, bool) and len(path) > 1:
+        yield path
+
+
+def set_path(record, path, value):
+    for key in path[:-1]:
+        record = record[key]
+    record[path[-1]] = value
+
+
 def state(graph):
     return witness.installed_state(graph, PROPOSAL["proposed_graph_nodes"],
                                    PROPOSAL["proposed_graph_edges"])["state"]
@@ -87,6 +105,26 @@ class WitnessStates(unittest.TestCase):
                     graph = graph_fixture("open")
                     graph["nodes"][node["id"]]["controlling"] = 0
                     self.assertEqual(state(graph), "partial")
+
+    def test_nested_boolean_cannot_be_number_or_string(self):
+        # R-1 (Math-#250 5972612166, reproduced by Codex at 08f86862): a nested Boolean such as
+        # review_basis[i].source_exposed must keep its exact type; 1 == True must not pass as the proposal.
+        cases = [(node["id"], path, node) for node in PROPOSAL["proposed_graph_nodes"]
+                 for path in nested_booleans({k: v for k, v in node.items() if k != "id"})]
+        self.assertEqual(len(cases), 5)
+        for nid, path, proposed in cases:
+            current = proposed
+            for key in path:
+                current = current[key]
+            substitutes = (1, 1.0, "true") if current is True else (0, 0.0, "false")
+            for stage in ("open", "reviewed"):
+                for value in substitutes:
+                    with self.subTest(node=nid, path=path, stage=stage, value=value):
+                        graph = graph_fixture(stage)
+                        set_path(graph["nodes"][nid], path, value)
+                        self.assertEqual(state(graph), "partial")
+                        set_path(graph["nodes"][nid], path, current)
+                        self.assertEqual(state(graph), "installed")
 
     def test_malformed_proposal_edge_is_not_absent_or_exact(self):
         # Even an extra malformed parallel edge must not disappear in set intersection.
@@ -194,6 +232,36 @@ class WitnessCLI(unittest.TestCase):
         self.assertEqual(run.returncode, 1)
         self.assertFalse(result["checks"]["TRANSITIONS"])
         self.assertFalse(result["passed"])
+
+    def test_nested_integer_boolean_is_rejected_by_full_checker(self):
+        for stage in ("open", "reviewed"):
+            with self.subTest(stage=stage):
+                graph = graph_fixture(stage)
+                graph["nodes"]["math.c6-component.palm-proof"]["review_basis"][0]["source_exposed"] = 1
+                run, result = self.run_graph(graph)
+                self.assertEqual(run.returncode, 1)
+                self.assertFalse(result["checks"]["TRANSITIONS"])
+                self.assertFalse(result["passed"])
+                self.assertNotEqual(run.stdout, (PACKET / "RESULTS_INSTALLED.json").read_bytes())
+
+
+class SiblingProposals(unittest.TestCase):
+    """Math-#167 and Math-#173 compare proposed fields with plain equality. That is exact today only because every
+    Boolean they compare on a live node is a top-level controlling flag, which the hard gate types exactly. Fail if a
+    nested or other compared Boolean is ever proposed there, so R-1 cannot reappear unnoticed."""
+
+    META = ("id", "create_if_absent", "cross_record")
+
+    def test_compared_booleans_are_top_level_controlling_only(self):
+        for record in ("reviews/register_alignment_20260930", "reviews/c6_residual_closure_20260930"):
+            data = json.loads((ROOT / record / "PROPOSED_TRANSITIONS.json").read_text())
+            fields = [{k: v for k, v in n.items() if k not in self.META} for n in data["proposed_graph_nodes"]]
+            fields += [t["proposed"] for t in data["transitions"] if isinstance(t.get("proposed"), dict)]
+            self.assertTrue(fields)
+            for compared in fields:
+                with self.subTest(record=record, node=compared.get("source") or compared.get("kind")):
+                    self.assertEqual(list(nested_booleans(compared)), [])
+                    self.assertEqual({k for k, v in compared.items() if isinstance(v, bool)} - {"controlling"}, set())
 
 
 if __name__ == "__main__":
