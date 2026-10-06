@@ -54,6 +54,18 @@ def graph_fixture(stage):
     return graph
 
 
+def selector_fixture(installed):
+    selector = json.loads(baseline_bytes("SELECTOR_REGION.json"))
+    if installed:
+        proposal = PROPOSAL["selector_region_proposal"]
+        for name, value in proposal["cells"].items():
+            for region in proposal["regions"]:
+                selector["selectors"][name][region] = value
+        selector["covered_region_ids"] = proposal["resulting_covered_region_ids"]
+        selector["open_region_ids"] = proposal["resulting_open_region_ids"]
+    return selector
+
+
 def nested_booleans(value, path=()):
     """Paths of every Boolean strictly below a node's top level (R-1 class)."""
     if isinstance(value, dict):
@@ -182,16 +194,11 @@ class WitnessCLI(unittest.TestCase):
             target.write_bytes(baseline_bytes(name))
 
     def run_graph(self, graph, installed_selector=True):
-        (self.root / witness.GRAPH).write_text(json.dumps(graph))
-        selector = json.loads(baseline_bytes("SELECTOR_REGION.json"))
-        if installed_selector:
-            proposal = PROPOSAL["selector_region_proposal"]
-            for name, value in proposal["cells"].items():
-                for region in proposal["regions"]:
-                    selector["selectors"][name][region] = value
-            selector["covered_region_ids"] = proposal["resulting_covered_region_ids"]
-            selector["open_region_ids"] = proposal["resulting_open_region_ids"]
-        (self.root / witness.SELECTOR).write_text(json.dumps(selector))
+        return self.run_text(json.dumps(graph), json.dumps(selector_fixture(installed_selector)))
+
+    def run_text(self, graph_text, selector_text):
+        (self.root / witness.GRAPH).write_text(graph_text)
+        (self.root / witness.SELECTOR).write_text(selector_text)
         flags = ["-O"] if sys.flags.optimize else []
         run = subprocess.run([sys.executable, "-B", *flags, "-S", str(ENTRY)], cwd=self.root,
                              capture_output=True, timeout=60)
@@ -243,6 +250,40 @@ class WitnessCLI(unittest.TestCase):
                 self.assertFalse(result["checks"]["TRANSITIONS"])
                 self.assertFalse(result["passed"])
                 self.assertNotEqual(run.stdout, (PACKET / "RESULTS_INSTALLED.json").read_bytes())
+
+
+    def test_duplicate_keys_and_non_finite_constants_are_rejected_by_full_checker(self):
+        # R-2: a loose parse keeps the last duplicate and accepts NaN/Infinity, so each text below would reach the
+        # pinned installed output. The checker must refuse the input instead.
+        graph = json.dumps(graph_fixture("open"))
+        selector = json.dumps(selector_fixture(True))
+        node = '"%s": {' % witness.WITNESS
+        self.assertEqual(graph.count(node), 1)
+        self.assertTrue(selector.startswith("{"))
+        cases = {
+            "duplicate GRAPH key": (graph.replace(node, node + '"classification": "REFUTED", ', 1), selector,
+                                    "duplicate JSON key"),
+            "duplicate SELECTOR key": (graph, selector.replace("{", '{"regions": [], ', 1), "duplicate JSON key"),
+            "NaN in GRAPH": (graph.replace(node, node + '"note": NaN, ', 1), selector, "non-finite"),
+            "-Infinity in GRAPH": (graph.replace(node, node + '"note": -Infinity, ', 1), selector, "non-finite"),
+            "Infinity in SELECTOR": (graph, selector.replace("{", '{"note": Infinity, ', 1), "non-finite"),
+        }
+        for name, (graph_text, selector_text, reason) in cases.items():
+            with self.subTest(case=name):
+                run, result = self.run_text(graph_text, selector_text)
+                self.assertEqual(run.returncode, 1)
+                self.assertFalse(result["passed"])
+                self.assertIn(reason, result["input_error"])
+                self.assertNotEqual(run.stdout, (PACKET / "RESULTS_INSTALLED.json").read_bytes())
+        run, result = self.run_text(graph, selector)
+        self.assertEqual((run.returncode, run.stdout), (0, (PACKET / "RESULTS_INSTALLED.json").read_bytes()))
+
+    def test_every_json_input_goes_through_the_strict_loader(self):
+        # GRAPH is read in several checks; one strict read is enough to refuse the run, so the full-CLI cases above
+        # cannot see a single loose call site. This guard keeps json.loads inside load_json only.
+        source = ENTRY.read_text(encoding="utf-8")
+        self.assertEqual(source.count("json.loads("), 1)
+        self.assertIn("object_pairs_hook=pairs, parse_constant=constant)", source)
 
 
 class SiblingProposals(unittest.TestCase):
