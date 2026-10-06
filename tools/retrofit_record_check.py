@@ -6,6 +6,10 @@ that cannot carry a scientific status. This checker parses strictly (duplicate k
 rejected), enforces the closed keys and enums of the contract, and with --repo verifies every subject and file
 evidence blob against git. --aggregate summarizes several valid files without writing anything.
 
+A record's state says only whether evidence is linked. A workflow_run item keeps its own attempt, tested commit,
+purpose, native conclusion and expected conclusion, so a failed run stays recorded as failed and a negative control
+that fails as expected is not mistaken for a failed check. Nothing here selects a run as a success.
+
 Scientific effect: NONE. A valid record is not a review, an acceptance or a register transition.
 
 Usage:
@@ -29,6 +33,17 @@ AXES = ('source_review', 'provider_distinct_review', 'blind_reconstruction', 'ad
         'numerical_reproduction', 'novelty', 'human_reading', 'custody', 'observable_statement')
 STATES = ('recorded', 'not_recorded', 'unknown', 'not_applicable')
 EVIDENCE_KINDS = ('github_comment', 'github_review', 'workflow_run', 'file')
+EVIDENCE_KEYS = {
+    'file': {'kind', 'repository', 'commit', 'path', 'blob'},
+    'github_comment': {'kind', 'repository', 'ref'},
+    'github_review': {'kind', 'repository', 'ref', 'commit'},
+    'workflow_run': {'kind', 'repository', 'ref', 'attempt', 'job', 'tested_commit', 'purpose', 'conclusion',
+                     'expected_conclusion'},
+}
+RUN_PURPOSES = ('check', 'negative_control')
+RUN_CONCLUSIONS = ('success', 'failure', 'cancelled', 'skipped', 'timed_out', 'neutral', 'action_required', 'stale',
+                   'startup_failure')
+EXPECTED_CONCLUSIONS = ('success', 'failure')
 REPOSITORIES = ('Math-', 'main', 'Universal-Law-Workspace', 'd6g8k5htny-coder', 'google-drive', 'governance-',
                 'meta-framework', 'query-', 'sandbox', 'trial')
 TOP_KEYS = {'schema', 'shard', 'baseline', 'author', 'scientific_effect', 'status_authority', 'records'}
@@ -177,10 +192,7 @@ def _evidence(item, where, errors, repos):
     if kind not in EVIDENCE_KINDS:
         errors.append(where + '.kind: one of ' + ', '.join(EVIDENCE_KINDS))
         return
-    if kind == 'file':
-        keys = {'kind', 'repository', 'commit', 'path', 'blob'}
-    else:
-        keys = {'kind', 'repository', 'ref'}
+    keys = EVIDENCE_KEYS[kind]
     if set(item) != keys:
         errors.append(where + ': %s evidence requires exactly %s' % (kind, ', '.join(sorted(keys))))
         return
@@ -194,8 +206,24 @@ def _evidence(item, where, errors, repos):
         elif repos and item['repository'] in repos:
             if _git_blob(repos[item['repository']], item['commit'], item['path']) != item['blob']:
                 errors.append(where + ': file evidence blob does not match git')
-    elif not isinstance(item['ref'], str) or not DIGITS.fullmatch(item['ref']):
+        return
+    if not isinstance(item['ref'], str) or not DIGITS.fullmatch(item['ref']):
         errors.append(where + '.ref: numeric GitHub id as a string required')
+    if kind == 'github_review' and not (isinstance(item['commit'], str) and HEX40.fullmatch(item['commit'])):
+        errors.append(where + '.commit: the review\'s native commit_id (40 hex) required')
+    if kind == 'workflow_run':
+        if type(item['attempt']) is not int or item['attempt'] < 1:
+            errors.append(where + '.attempt: positive integer required')
+        if item['job'] is not None and (not isinstance(item['job'], str) or not DIGITS.fullmatch(item['job'])):
+            errors.append(where + '.job: null or a numeric job id as a string')
+        if not isinstance(item['tested_commit'], str) or not HEX40.fullmatch(item['tested_commit']):
+            errors.append(where + '.tested_commit: the run\'s native head_sha (40 hex) required')
+        if item['purpose'] not in RUN_PURPOSES:
+            errors.append(where + '.purpose: one of ' + ', '.join(RUN_PURPOSES))
+        if item['conclusion'] not in RUN_CONCLUSIONS:
+            errors.append(where + '.conclusion: the native GitHub conclusion, one of ' + ', '.join(RUN_CONCLUSIONS))
+        if item['expected_conclusion'] not in EXPECTED_CONCLUSIONS:
+            errors.append(where + '.expected_conclusion: one of ' + ', '.join(EXPECTED_CONCLUSIONS))
 
 
 def aggregate(datasets):

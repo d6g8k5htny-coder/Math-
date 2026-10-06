@@ -37,7 +37,11 @@ The inventory map of dispatch row I is out of scope for v0.1. Its membership cla
     "axis": "numerical_reproduction",
     "state": "recorded",
     "evidence": [{"kind": "file", "repository": "Math-", "commit": "<40 hex>", "path": "...", "blob": "<40 hex>"},
-                 {"kind": "github_comment", "repository": "main", "ref": "6018658478"}],
+                 {"kind": "github_comment", "repository": "main", "ref": "6018658478"},
+                 {"kind": "github_review", "repository": "Math-", "ref": "<review id>", "commit": "<40 hex>"},
+                 {"kind": "workflow_run", "repository": "Math-", "ref": "<run id>", "attempt": 1, "job": null,
+                  "tested_commit": "<40 hex>", "purpose": "check", "conclusion": "failure",
+                  "expected_conclusion": "success"}],
     "performer": {"provider": "...", "model_or_agent": "...", "session": "... or UNKNOWN"},
     "exposure": "what the performer had read",
     "independence_credit": 0,
@@ -56,14 +60,23 @@ Every object has exactly the keys shown, and no others. In particular there is n
 | `baseline` | Exactly the pinned v0.1 cut. A later cut is a new contract version |
 | `subject` | An exact object: repository, commit, path and Git blob. With `delta: false` the commit is the baseline. A candidate object sets `delta: true` and pins its own commit |
 | `axis` | `source_review`, `provider_distinct_review`, `blind_reconstruction`, `adversarial_attack`, `formal_evidence`, `numerical_reproduction`, `novelty`, `human_reading`, `custody`, `observable_statement` |
-| `state` | `recorded` (evidence linked), `not_recorded` (checked, none found), `unknown` (not checked), `not_applicable` |
-| `evidence` | Required for `recorded`, empty for `not_recorded` and `not_applicable`. A `file` item carries commit, path and blob. `github_comment`, `github_review` and `workflow_run` items carry the numeric GitHub id as `ref` |
+| `state` | `recorded` (evidence linked), `not_recorded` (checked, none found), `unknown` (not checked), `not_applicable`. Availability only; see below |
+| `evidence` | Required for `recorded`, empty for `not_recorded` and `not_applicable`. One item per native object. A `file` item carries commit, path and blob. `github_comment`, `github_review` and `workflow_run` items carry the numeric GitHub id as `ref`. A `github_review` also carries its native `commit_id` as `commit`. A `github_comment` has no commit: a SHA quoted in a comment body is never a native binding. A `workflow_run` also carries `attempt` (positive integer), `job` (numeric job id as a string, or `null` for the whole run), `tested_commit` (the run's native `head_sha`), `purpose` (`check` or `negative_control`), `conclusion` (GitHub's native value, copied as served: `success`, `failure`, `cancelled`, `skipped`, `timed_out`, `neutral`, `action_required`, `stale` or `startup_failure`) and `expected_conclusion` (`success` or `failure`) |
 | `performer` | Who produced the evidence, not who wrote the record. `UNKNOWN` where unknown; never `Human` or Dylan's name for an AI executor |
 | `exposure` | What that performer had read. Required |
 | `independence_credit` | Always the integer `0`. Organizational independence is not established by these records |
 | `alias_of` | Another record's `id` when this record restates the same evidence (for example a byte alias or a copied verdict). Aliases are counted separately and never as additional evidence |
 
 Quoted verdict words may appear inside `notes` as quotations. They never become a field value.
+
+### State is availability, not outcome
+
+`recorded` means linked evidence exists. It does not mean the referenced event succeeded or that it supports the
+subject. A failed run, a review that asks for changes, an integration intention and a landing receipt are each
+`recorded` as their own evidence items; none of them is collapsed into another or into a pass. A negative control
+that fails as intended is recorded with `purpose: negative_control`, `conclusion: failure` and
+`expected_conclusion: failure`, so it is not mistaken for a failed check. A later event never relabels an earlier
+one: a later successful run is a new item and the earlier failure stays as served.
 
 ## Validation
 
@@ -78,6 +91,9 @@ The checker rejects:
 - a non-baseline commit without `delta: true`;
 - a `subject` or `file` blob that differs from Git (with `--repo` or `--main-repo`);
 - a `recorded` state without evidence;
+- a `github_review` without its native 40-hex `commit`, or a `github_comment` that carries a commit;
+- a `workflow_run` without the full binding (attempt, job, tested commit, purpose, native conclusion, expected
+  conclusion), or with a value outside those enums;
 - non-zero or Boolean independence credit;
 - a dangling `alias_of`.
 
@@ -91,6 +107,8 @@ graph view (Math-#381). That join is not part of v0.1.
 - No shared manifest or index.
 - No schema for the inventory map.
 - No automatic import into GRAPH, STATUS or PROOF_INDEX.
+- No selection of a run as a success. A later consumer may use a `workflow_run` item for a claim only when its
+  `tested_commit`, `job` and `purpose` bind to that claim and its `conclusion` equals its `expected_conclusion`.
 
 Changes to this contract take a new version and their own nonauthor review. Records written under v0.1 stay valid
 under v0.1.

@@ -89,6 +89,84 @@ class Shape(unittest.TestCase):
             rc.load_strict(text.replace('"independence_credit": 0', '"independence_credit": NaN', 1))
 
 
+def run_item(ref, job, tested, conclusion, purpose='check', expected='success', attempt=1):
+    return {'kind': 'workflow_run', 'repository': 'Math-', 'ref': ref, 'attempt': attempt, 'job': job,
+            'tested_commit': tested, 'purpose': purpose, 'conclusion': conclusion, 'expected_conclusion': expected}
+
+
+# Native objects read from the GitHub API on 2026-10-06. The two #343 runs (D2 square/Schur companion) are the
+# failed and successful executions named in main#275 6019011163; the custody chain is the six records of
+# main#275 6019173460 plus the landing push run of Math-#250.
+FAILED_RUN = run_item('37414215874', '112109136502', '3479b6e127b05e953f84feef3f3fb7e88de625ac', 'failure')
+PASSED_RUN = run_item('37416061763', '112114814333', 'cc8b2d5bd7505b7f185607880bc0aa1403c8c148', 'success')
+CUSTODY_CHAIN = [
+    {'kind': 'github_review', 'repository': 'Math-', 'ref': '5365065925',
+     'commit': '4e25b9159b7711f4625ec2f6b34b00f819fa29a6'},
+    {'kind': 'github_review', 'repository': 'Math-', 'ref': '5401199597',
+     'commit': '0efd00e64446f1859cd2c6bb1833068bb16e03a3'},
+    {'kind': 'github_review', 'repository': 'Math-', 'ref': '5401287158',
+     'commit': '5634edade1db84ddefa25f2cbf92e79da6cce7eb'},
+    {'kind': 'github_comment', 'repository': 'Math-', 'ref': '5970327030'},
+    {'kind': 'github_comment', 'repository': 'Math-', 'ref': '5970508391'},
+    run_item('37131496772', None, '7858329974e28be79f29b22644370084ff43da4f', 'success'),
+    {'kind': 'github_comment', 'repository': 'Math-', 'ref': '5972612166'},
+]
+
+
+class EvidenceBindings(unittest.TestCase):
+    """State records availability; each event keeps its own binding and outcome."""
+
+    def with_evidence(self, items):
+        data = example()
+        data['records'][0]['evidence'] = copy.deepcopy(items)
+        return data
+
+    def test_failed_and_successful_runs_are_both_recorded(self):
+        data = self.with_evidence([FAILED_RUN, PASSED_RUN])
+        self.assertEqual(rc.validate(data), [])
+        self.assertEqual(data['records'][0]['state'], 'recorded')
+        self.assertEqual([e['conclusion'] for e in data['records'][0]['evidence']], ['failure', 'success'])
+        self.assertEqual(rc.aggregate([data])['counts']['evidence_items_non_alias'], 2)
+
+    def test_expected_failure_of_a_negative_control_is_well_formed(self):
+        control = dict(FAILED_RUN, purpose='negative_control', expected_conclusion='failure')
+        self.assertEqual(rc.validate(self.with_evidence([control])), [])
+
+    def test_run_binding_is_closed(self):
+        cases = {
+            'attempt zero': dict(FAILED_RUN, attempt=0),
+            'attempt boolean': dict(FAILED_RUN, attempt=True),
+            'attempt string': dict(FAILED_RUN, attempt='1'),
+            'job integer': dict(FAILED_RUN, job=112109136502),
+            'job text': dict(FAILED_RUN, job='d2-square-schur'),
+            'tested commit short': dict(FAILED_RUN, tested_commit='3479b6e1'),
+            'purpose build': dict(FAILED_RUN, purpose='build'),
+            'verdict as conclusion': dict(FAILED_RUN, conclusion='PASS'),
+            'expected cancelled': dict(FAILED_RUN, expected_conclusion='cancelled'),
+            'missing purpose': {k: v for k, v in FAILED_RUN.items() if k != 'purpose'},
+            'extra verdict': dict(FAILED_RUN, verdict='success'),
+        }
+        for name, item in cases.items():
+            with self.subTest(case=name):
+                self.assertNotEqual(rc.validate(self.with_evidence([item])), [])
+
+    def test_review_commit_is_native_and_comments_carry_none(self):
+        data = self.with_evidence(CUSTODY_CHAIN)
+        self.assertEqual(rc.validate(data), [])
+        self.assertEqual(rc.aggregate([data])['counts']['evidence_items_non_alias'], 7)
+        cases = {
+            'review without commit': (0, lambda e: e.pop('commit')),
+            'review commit short': (0, lambda e: e.update(commit='4e25b915')),
+            'comment with a commit': (3, lambda e: e.update(commit='5634edade1db84ddefa25f2cbf92e79da6cce7eb')),
+            'comment with a verdict': (4, lambda e: e.update(verdict='PASS')),
+        }
+        for name, (index, change) in cases.items():
+            with self.subTest(case=name):
+                items = copy.deepcopy(CUSTODY_CHAIN)
+                change(items[index])
+                self.assertNotEqual(rc.validate(self.with_evidence(items)), [])
+
+
 class GitVerification(unittest.TestCase):
     def test_subject_and_file_blobs_are_checked_against_git(self):
         head = git('rev-parse', 'HEAD')
