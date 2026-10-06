@@ -1,0 +1,55 @@
+{
+  "object": "PERIODIC-TAU-POSITIVE-FLOOR-20261005-v1",
+  "scientific_effect": "NONE",
+  "scientific_acceptance": false,
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "github-closure-directional-tau-20261005",
+    "principal": "Dylan Roy — delegated AI work"
+  },
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 8664,
+      "sha256": "2103f7a3c4383bd6d9fc2906e3721a180e46b3d1e9962db3a5cc3f4f5779bc4e",
+      "git_blob": "50d7ea3511dc11ad01adb2aa9786c20064e03421"
+    },
+    {
+      "path": "positive_tau.py",
+      "bytes": 5402,
+      "sha256": "b29bda5d171b7082bbea889d1e81e7ece7ce1eb46518ae61c7057bace513a401",
+      "git_blob": "e0bbab664854d260cf3db71abf6e438b3486b742"
+    },
+    {
+      "path": "test_positive_tau.py",
+      "bytes": 4409,
+      "sha256": "69d7faf82ad378c67db2c8afa36313d1a0ed5b769b837334027f6dd26e9f2317",
+      "git_blob": "b43de099b4bda928dec7fdfd7ba68dfedc59dda1"
+    }
+  ],
+  "inputs": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "90790a44c01b3a2c347fa712fbfaeed7fae1024b",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "scope": "P sections 1–2: exact product spectrum and positive full lattice weights"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "d8be92076dae46f9504d279b286da0432d01e088",
+      "path": "reviews/iba1_periodic_jet_claude_20261005/periodic_jet_check.py",
+      "git_blob": "a2beeeee90abfc2988cf8f491d54ea835b23a1c5",
+      "scope": "tau Schur-covariance interface and derivative convention; no executable import"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "9deebd17dd696f72c6246d11bafb9e8265fd8f68",
+      "path": "reviews/periodic_tau_envelope_20261005/REPORT.md",
+      "git_blob": "2166869f20eb4d50249920691b90415943c4b5ff",
+      "scope": "attribution and notation crosswalk; extrema theorem not repeated or used to prove P1/P2"
+    }
+  ],
+  "validation": "Standalone exact tests and four negative controls. Existing hosted workflows do not run this script."
+}
