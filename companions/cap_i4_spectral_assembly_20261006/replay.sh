@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT="$(cd "$(dirname "\${BASH_SOURCE[0]}")/../.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SIDE="$ROOT/companions/cap_i4_spectral_assembly_20261006"
 OUT="$ROOT/.lake/cap-i4-spectral-assembly"
 test ! -e "$OUT" && test ! -L "$OUT"
@@ -50,8 +50,8 @@ cd "$ROOT/formal"
 export ASSEMBLY_OUT="$OUT"
 lake env bash <<'INNER'
 set -euo pipefail
-export LEAN_PATH="$ASSEMBLY_OUT/build:\${LEAN_PATH:-}"
-export LEAN_SRC_PATH="$ASSEMBLY_OUT/build:\${LEAN_SRC_PATH:-}"
+export LEAN_PATH="$ASSEMBLY_OUT/build:${LEAN_PATH:-}"
+export LEAN_SRC_PATH="$ASSEMBLY_OUT/build:${LEAN_SRC_PATH:-}"
 run() {
   local name="$1"; shift
   local status=0
