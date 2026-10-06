@@ -11,7 +11,7 @@ NAMES=['positive_test_measurable','withDensity_positive_spectral_bound',
 class ContractTests(unittest.TestCase):
     def test_exact_contract(self):
         self.assertEqual(hashlib.sha256((HERE/'Contract.lean').read_bytes()).hexdigest(),
-            '9726ffd325d58f936c981c306ba3d954a03885bd47d82ae28dac2d48d794ef49')
+            '9ab20bb7ddf1534947f34b6782d5e9fc9235f329a4a94fb93266e559a187ae8c')
     def test_no_admission(self):
         text=(HERE/'CapI4ProductTransport.lean').read_text()
         text=re.sub(r'/\-.*?\-/','',text,flags=re.S)

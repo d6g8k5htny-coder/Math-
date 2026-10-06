@@ -25,8 +25,8 @@ example (ν : Measure ℝ) (p : ℝ × (ℝ × ℝ) → ℝ≥0∞)
     (∫⁻ j, ∫⁻ e : ℝ × (ℝ × ℝ),
       if 0 < (CapI4Polar.eigenvalues e).1 then K (j,CapI4Polar.eigenvalues e) else 0
       ∂(volume : Measure (ℝ × (ℝ × ℝ))).withDensity p ∂ν) ≤
-    ∫⁻ j, ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
-      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l)) ∂ν :=
+    ∫⁻ j, (ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
+      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l))) ∂ν :=
   CapI4ProductTransport.residual_iterated_positive_spectral_bound ν p H K hp hH hK hdom
 
 example (ν : Measure ℝ) (p : ℝ × (ℝ × ℝ) → ℝ≥0∞)
@@ -37,8 +37,8 @@ example (ν : Measure ℝ) (p : ℝ × (ℝ × ℝ) → ℝ≥0∞)
     (∫⁻ z : ℝ × (ℝ × (ℝ × ℝ)),
       if 0 < (CapI4Polar.eigenvalues z.2).1 then K (z.1,CapI4Polar.eigenvalues z.2) else 0
       ∂ν.prod ((volume : Measure (ℝ × (ℝ × ℝ))).withDensity p)) ≤
-    ∫⁻ j, ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
-      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l)) ∂ν :=
+    ∫⁻ j, (ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
+      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l))) ∂ν :=
   CapI4ProductTransport.product_positive_spectral_bound ν p H K hp hH hK hdom
 
 example {Ω : Type*} [MeasurableSpace Ω] (Q : Measure Ω)
@@ -52,8 +52,8 @@ example {Ω : Type*} [MeasurableSpace Ω] (Q : Measure Ω)
       ν.prod ((volume : Measure (ℝ × (ℝ × ℝ))).withDensity p)) :
     (∫⁻ ω, if 0 < (CapI4Polar.eigenvalues (B ω)).1 then
       K (J ω,CapI4Polar.eigenvalues (B ω)) else 0 ∂Q) ≤
-    ∫⁻ j, ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
-      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l)) ∂ν :=
+    ∫⁻ j, (ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
+      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l))) ∂ν :=
   CapI4ProductTransport.jointLaw_positive_spectral_bound Q J B hJ hB ν p H K hp hH hK hdom hlaw
 
 example {Ω : Type*} [MeasurableSpace Ω] (Q : Measure Ω)
@@ -69,6 +69,6 @@ example {Ω : Type*} [MeasurableSpace Ω] (Q : Measure Ω)
     (hW : ∀ ω, W ω ≤ if 0 < (CapI4Polar.eigenvalues (B ω)).1 then
       K (J ω,CapI4Polar.eigenvalues (B ω)) else 0) :
     (∫⁻ ω, W ω ∂Q) ≤
-    ∫⁻ j, ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
-      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l)) ∂ν :=
+    ∫⁻ j, (ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
+      ENNReal.ofReal (l.2-l.1) * (H l * K (j,l))) ∂ν :=
   CapI4ProductTransport.dominated_weight_spectral_bound Q J B hJ hB ν p H K hp hH hK hdom hlaw W hW
