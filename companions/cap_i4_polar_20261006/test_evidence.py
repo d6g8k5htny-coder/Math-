@@ -1,5 +1,6 @@
 """Evidence-parser controls; synthetic logs never count as Lean execution."""
 import importlib.util
+import ast
 from pathlib import Path
 import unittest
 HERE=Path(__file__).resolve().parent
@@ -11,7 +12,16 @@ class EvidenceChecks(unittest.TestCase):
         self.mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(self.mod)
         self.names=['CapI4Polar.a','CapI4Polar.b']
         self.good="'CapI4Polar.a' depends on axioms: [propext, Classical.choice, Quot.sound]\n'CapI4Polar.b' does not depend on any axioms\n"
-    def test_valid(self): self.mod.audit_axioms(self.good,self.names)
+    def test_valid(self):
+        self.mod.audit_axioms(self.good,self.names)
+        # The genuine third hosted attempt found an ambiguous `spectrum`
+        # in a generated simp list. Check the actual emitted literal sources.
+        tree=ast.parse((HERE/'check_evidence.py').read_text())
+        probes=[node.value for node in ast.walk(tree) if isinstance(node,ast.Constant)
+                and isinstance(node.value,str) and 'example' in node.value]
+        self.assertEqual(len(probes),3)
+        for text in probes:
+            self.assertNotRegex(text,r'(?<![.\w])(?:spectrum|radius|eigenvalues)\b')
     def test_foreign_text(self):
         for bad in ['error: import failed\n','unrelated\n',"'foreign' depends on axioms: [sorryAx]\n"]:
             with self.assertRaises(ValueError): self.mod.audit_axioms(self.good+bad,self.names)

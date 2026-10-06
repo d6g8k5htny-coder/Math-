@@ -60,9 +60,9 @@ def main():
     if a.mode=='emit':
         (a.out/'Audit.lean').write_text('import CapI4Polar\n'+''.join('#print axioms '+n+'\n' for n in names))
         (a.out/'Types.lean').write_text('import CapI4Polar\nset_option pp.universes true\n'+''.join('#check @'+n+'\n' for n in names))
-        (a.out/'Positive.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : spectrum 0 (0, 0) = (0, 0) := by norm_num [spectrum, radius]\nexample (t : ℝ) (z : ℝ × ℝ) : (spectrum t z).1 ≤ (spectrum t z).2 := spectrum_ordered t z\n')
-        (a.out/'RejectOrder.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : (spectrum 0 (1, 0)).1 = (spectrum 0 (1, 0)).2 := by\n  norm_num [spectrum, radius]\n')
-        (a.out/'RejectOffDiagonal.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : (eigenvalues (0, (1, 0))).1 * (eigenvalues (0, (1, 0))).2 = 0 := by\n  rw [eigenvalues_product]\n  norm_num\n'); return
+        (a.out/'Positive.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : CapI4Polar.spectrum 0 (0, 0) = (0, 0) := by norm_num [CapI4Polar.spectrum, CapI4Polar.radius]\nexample (t : ℝ) (z : ℝ × ℝ) : (CapI4Polar.spectrum t z).1 ≤ (CapI4Polar.spectrum t z).2 := CapI4Polar.spectrum_ordered t z\n')
+        (a.out/'RejectOrder.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : (CapI4Polar.spectrum 0 (1, 0)).1 = (CapI4Polar.spectrum 0 (1, 0)).2 := by\n  norm_num [CapI4Polar.spectrum, CapI4Polar.radius]\n')
+        (a.out/'RejectOffDiagonal.lean').write_text('import CapI4Polar\nopen CapI4Polar\nexample : (CapI4Polar.eigenvalues (0, (1, 0))).1 * (CapI4Polar.eigenvalues (0, (1, 0))).2 = 0 := by\n  rw [CapI4Polar.eigenvalues_product]\n  norm_num\n'); return
     audit_axioms((a.out/'axioms.log').read_text(),names)
     audit_types((a.out/'types.log').read_text(),names)
     for control in ['RejectOrder','RejectOffDiagonal']:
