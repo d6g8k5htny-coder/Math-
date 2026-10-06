@@ -1,0 +1,68 @@
+{
+  "declarations": [
+    "CapI4Polar.radius",
+    "CapI4Polar.spectrum",
+    "CapI4Polar.traceCoordinates",
+    "CapI4Polar.eigenvalues",
+    "CapI4Polar.radius_nonneg",
+    "CapI4Polar.radius_sq",
+    "CapI4Polar.continuous_radius",
+    "CapI4Polar.spectrum_ordered",
+    "CapI4Polar.continuous_spectrum",
+    "CapI4Polar.spectrum_sum",
+    "CapI4Polar.spectrum_product",
+    "CapI4Polar.spectrum_sq_sum",
+    "CapI4Polar.continuous_eigenvalues",
+    "CapI4Polar.eigenvalues_sum",
+    "CapI4Polar.eigenvalues_product",
+    "CapI4Polar.positive_trace_measurable",
+    "CapI4Polar.radius_polar",
+    "CapI4Polar.spectrum_polar",
+    "CapI4Polar.polar_spectral_lintegral",
+    "CapI4Polar.polar_positive_lintegral",
+    "CapI4Polar.density_polar_bound",
+    "CapI4Polar.density_positive_polar_bound",
+    "CapI4Polar.integrated_density_polar_bound"
+  ],
+  "files": {
+    "CapI4Polar.lean": {
+      "blob": "a68d0c5e4401b646df1562104391de21923d4ae8",
+      "bytes": 6087,
+      "sha256": "5209dd3e62aa3adb6396658eaec56e4acb4eaa906c1fb566a255be5dffa75055"
+    },
+    "README.md": {
+      "blob": "6ebe052d861dceea51327d9faddfbddc610ee8c3",
+      "bytes": 3029,
+      "sha256": "0136d15962a8a38ee1b1d59df4647d6c973e66c2a38b8d4b3c99f12e151034e4"
+    },
+    "check_evidence.py": {
+      "blob": "4b5416a2495f813d57646a7edb3c4a7a92a46a97",
+      "bytes": 4074,
+      "sha256": "69f1c79dfcea794b1f64538cf9503866437e18f48e7eda24babeaddc91cc0e3f"
+    },
+    "replay.sh": {
+      "blob": "88265e9c14a656bfa471a3480a9bd163c7816714",
+      "bytes": 2876,
+      "sha256": "03c2e6d73278652411f3b2951ad81c5ec5ab3e29b458dd2c3b3843b0e674a08e"
+    },
+    "test_evidence.py": {
+      "blob": "f1aab24cf0f1bb0701ea5771ab674dde225588ec",
+      "bytes": 2213,
+      "sha256": "0b380fdda02c10b7846eae3543617fd7c19f442cd447d9226ab5f1bf95716bbc"
+    },
+    "test_polar.py": {
+      "blob": "a1e6304ff55b0821406b989e3dd19028477b4603",
+      "bytes": 2810,
+      "sha256": "615a6b9cf8f96b66b985e28bf0dbf1d1de4e195658c7a3b285a3e48c0860f3bd"
+    }
+  },
+  "local_source_blobs": {
+    "formal/lake-manifest.json": "d482b5f1e038b90397e239d2c0af82792cb0bd09",
+    "formal/lakefile.toml": "8117eae1b2897b7d95f5b2c42e8cf15222a1c5e8",
+    "formal/lean-toolchain": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+    "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+    "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md": "dfed3b8d318a3ab1950957f393307733a4bef3f2"
+  },
+  "schema": 1,
+  "source_commit": "2f8b6f372be383d752e9dd30d38234faa977243c"
+}
