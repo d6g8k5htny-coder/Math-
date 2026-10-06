@@ -15,7 +15,8 @@ namespace CapI4GaussianEnvelope
 /-- Gaussian decay supplies every natural absolute moment, not an assumed finite integral. -/
 theorem gaussian_abs_moment_integrable (c : ℝ) (hc : 0 < c) (n : ℕ) :
     Integrable (fun t : ℝ => |t|^n * Real.exp (-c*t^2)) := by
-  have hn : (-1 : ℝ) < (n : ℝ) := by positivity
+  have hn : (-1 : ℝ) < (n : ℝ) :=
+    lt_of_lt_of_le (by norm_num : (-1 : ℝ) < 0) (Nat.cast_nonneg n)
   have h : Integrable (fun t : ℝ => t^n * Real.exp (-c*t^2)) := by
     simpa only [Real.rpow_natCast] using (integrable_rpow_mul_exp_neg_mul_sq hc hn)
   simpa only [Real.norm_eq_abs, abs_mul, abs_pow, abs_of_pos (Real.exp_pos _)] using h.norm
@@ -51,7 +52,7 @@ theorem mixed_envelope_integrable (ν : Measure ℝ) [IsFiniteMeasure ν]
       (ν.prod (volume.restrict (Ioi 0))) := by
   have h2 : Integrable (fun t : ℝ => t^2*Real.exp (-c*t^2))
       (volume.restrict (Ioi 0)) := by
-    simpa only [sq_abs] using (gaussian_abs_moment_integrable c hc 2).integrableOn
+    simpa only [IntegrableOn, sq_abs] using (gaussian_abs_moment_integrable c hc 2).integrableOn
   have h11 : Integrable (fun t : ℝ => |t|^11*Real.exp (-c*t^2))
       (volume.restrict (Ioi 0)) := (gaussian_abs_moment_integrable c hc 11).integrableOn
   have hconst : Integrable (fun _ : ℝ => (1 : ℝ)) ν := integrable_const 1
@@ -70,7 +71,7 @@ theorem mixed_envelope_integral_le (ν : Measure ℝ) [IsFiniteMeasure ν]
         ν.real univ*(∫ t : ℝ in Ioi 0, |t|^11*Real.exp (-c*t^2))) := by
   have h2 : Integrable (fun t : ℝ => t^2*Real.exp (-c*t^2))
       (volume.restrict (Ioi 0)) := by
-    simpa only [sq_abs] using (gaussian_abs_moment_integrable c hc 2).integrableOn
+    simpa only [IntegrableOn, sq_abs] using (gaussian_abs_moment_integrable c hc 2).integrableOn
   have h11 : Integrable (fun t : ℝ => |t|^11*Real.exp (-c*t^2))
       (volume.restrict (Ioi 0)) := (gaussian_abs_moment_integrable c hc 11).integrableOn
   have hconst : Integrable (fun _ : ℝ => (1 : ℝ)) ν := integrable_const 1
@@ -82,7 +83,8 @@ theorem mixed_envelope_integral_le (ν : Measure ℝ) [IsFiniteMeasure ν]
         (fun z => mixed_envelope_pointwise_le c z.1 z.2)
     _ = _ := by
       rw [integral_const_mul, integral_add (h9.mul_prod h2) (hconst.mul_prod h11),
-        integral_prod_mul, integral_prod_mul]
+        integral_prod_mul (fun j : ℝ => |j|^9) (fun t : ℝ => t^2*Real.exp (-c*t^2)),
+        integral_prod_mul (fun _ : ℝ => (1 : ℝ)) (fun t : ℝ => |t|^11*Real.exp (-c*t^2))]
       simp only [integral_const, smul_eq_mul, mul_one]
 
 /-- The finite Bochner calculation legitimately controls the nonnegative measure integral. -/
