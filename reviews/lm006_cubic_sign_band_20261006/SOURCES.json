@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "round18-cubic-sign-band-audit-20261006"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 15359,
+      "sha256": "21284fa5945752736483437a59e5c98477b9ded3e90c6107d1454bf5f3d8ce9c",
+      "git_blob": "88dae06c5eefd102239f976513eb5e97c4ac7580"
+    },
+    "cubic_band.py": {
+      "bytes": 7865,
+      "sha256": "932a9ec1f038dce87e27007c917efa40cc07702e77e789a055ccacf5aa1e67cb",
+      "git_blob": "ea3225adc01311f6bd50e80c9d629c3c04b42345"
+    },
+    "test_cubic_band.py": {
+      "bytes": 4983,
+      "sha256": "ab92fbd9d36a0342f0bd277e705b85286645c574afb6061b4e7814b30d66ff27",
+      "git_blob": "bd565daa715a3532f7b7d1e0e0a432ef2acef2f7"
+    }
+  },
+  "sources": [
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "b25cac0bcbb4032d624f14795257d9578c90d105",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "consumed": "sections1-2 model, pin convention, positive spectrum; sections6-7 prior-methodology credit only, no global theorem imported"
+    },
+    {
+      "id": "E",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "consumed": "sections2-3 exact pin frame and adjusted coordinates"
+    },
+    {
+      "id": "N",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "consumed": "exact normalized physical weight; new deterministic bound rederived"
+    },
+    {
+      "id": "R",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5b22d6f8d3335e2d863702fb7bbd75b5a891178e",
+      "path": "reviews/lm006_quantified_regression_20261005/NOTE.md",
+      "git_blob": "a58948d251abdb34b334e1a1da83ec8982de29dc",
+      "sha256": "b68e077adbfdc551e6211cf8e61aa2d98719f1de4f653abcdbd5d90c613a11b1",
+      "consumed": "sections2-5 specified RMS coupling and uniform Gaussian moments/normalized lower floor; published immutable source, not a claim of merge"
+    },
+    {
+      "id": "S",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "1dfe801eb61a8335a2e42b886fca9b000fb3598c",
+      "path": "reviews/lm006_typed_sign_suppression_20261005/NOTE.md",
+      "git_blob": "9015971fa03f44ae99d410facc6f3d8c26cdc945",
+      "consumed": "prior r e+e^4 comparison only; not used to prove new band estimate"
+    }
+  ],
+  "external_context": {
+    "arxiv": "1710.09285",
+    "read": "abstract record only",
+    "role": "prior linear Gaussian conditioning; not proof premise"
+  }
+}
