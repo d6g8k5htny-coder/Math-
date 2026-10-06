@@ -245,10 +245,20 @@ def check_negatives(src):
     return all(rejected) and len(rejected) == 4
 
 
+def same(a, b):
+    """Exact JSON equality: equal values of the same type at every nesting level, so 1, 1.0 or "true" never
+    stand in for a proposed Boolean inside review_basis or any other nested field (R-1, Math-#250 5972612166)."""
+    if type(a) is not type(b):
+        return False
+    if isinstance(a, dict):
+        return a.keys() == b.keys() and all(same(a[k], b[k]) for k in a)
+    if isinstance(a, list):
+        return len(a) == len(b) and all(same(x, y) for x, y in zip(a, b))
+    return a == b
+
+
 def matches(live, fields):
-    return isinstance(live, dict) and all(live.get(k) == v and
-                                         (type(v) is not bool or type(live.get(k)) is bool)
-                                         for k, v in fields.items())
+    return isinstance(live, dict) and all(k in live and same(live[k], v) for k, v in fields.items())
 
 
 def installed_state(graph, proposed_nodes, proposed_edges):

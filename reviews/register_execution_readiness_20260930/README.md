@@ -7,6 +7,16 @@ executable regression controls in this directory; they run in both Python modes
 before the three existing composition checks. No mathematical proposal, live
 register, selector table or scientific status is executed by these repairs.
 
+**R-1 successor (6 October 2026).** Post-merge read [250/5972612166](https://github.com/d6g8k5htny-coder/Math-/pull/250#issuecomment-5972612166)
+found that the Math-#160 witness checker compared nested proposal fields by plain equality, so `source_exposed: 1` (or
+`1.0`) inside `review_basis` passed as the proposed `true`; Codex reproduced it at `08f86862`
+([main#229 6018032227](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018032227)). `matches()` now
+requires equal type at every nesting level, and `test_witness_states.py` rejects numeric and string substitutes for each
+of the five nested Booleans in both documented installed states and through the full checker. The Math-#167 and #173
+proposals carry no compared Boolean below a node's top level (their only compared Booleans are top-level `controlling`
+flags, which the hard gate types exactly); a guard test fails if that ever changes. Pinned outputs, proposals and the
+workflow mutant list are unchanged. Nothing is executed.
+
 **Object:** REGISTER-EXECUTION-READINESS-20260930-v1.
 **Author:** Anthropic Claude, Claude Code session `session_017Mi3hxjaxV45x6zo6o1ee3` — the same session that authored the
 three records (author-side; exposure stated in §5). **Read at:** Math- `main` `dda8991` (30 September 2026; Math-#177 merged).
