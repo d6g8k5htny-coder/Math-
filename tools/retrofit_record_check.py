@@ -1,0 +1,255 @@
+#!/usr/bin/env python3
+"""Validate retrofit evidence records against reviews/retrofit_20261006/CONTRACT.md v0.1 (standard library only).
+
+A RECORDS.json file states, for exact source objects, which evidence axes have a record, using a closed vocabulary
+that cannot carry a scientific status. This checker parses strictly (duplicate keys and non-finite numbers are
+rejected), enforces the closed keys and enums of the contract, and with --repo verifies every subject and file
+evidence blob against git. --aggregate summarizes several valid files without writing anything.
+
+Scientific effect: NONE. A valid record is not a review, an acceptance or a register transition.
+
+Usage:
+  python3 -B -S tools/retrofit_record_check.py [--repo PATH] RECORDS.json [...]
+  python3 -B -S tools/retrofit_record_check.py --aggregate [--repo PATH] RECORDS.json [...]
+Exit status 0 iff every file is valid.
+"""
+import argparse
+import json
+import pathlib
+import re
+import subprocess
+import sys
+
+SCHEMA = 'retrofit-records/v0.1'
+BASELINE = {
+    'Math-': '08f86862f859ac4804b4fd6c6477a7ed0421e37f',
+    'main': 'cddbb7f6cf3f57f3b495277f7da148287e027b19',
+}
+AXES = ('source_review', 'provider_distinct_review', 'blind_reconstruction', 'adversarial_attack', 'formal_evidence',
+        'numerical_reproduction', 'novelty', 'human_reading', 'custody', 'observable_statement')
+STATES = ('recorded', 'not_recorded', 'unknown', 'not_applicable')
+EVIDENCE_KINDS = ('github_comment', 'github_review', 'workflow_run', 'file')
+REPOSITORIES = ('Math-', 'main', 'Universal-Law-Workspace', 'd6g8k5htny-coder', 'google-drive', 'governance-',
+                'meta-framework', 'query-', 'sandbox', 'trial')
+TOP_KEYS = {'schema', 'shard', 'baseline', 'author', 'scientific_effect', 'status_authority', 'records'}
+RECORD_KEYS = {'id', 'subject', 'delta', 'axis', 'state', 'evidence', 'performer', 'exposure', 'independence_credit',
+               'alias_of', 'notes'}
+SUBJECT_KEYS = {'repository', 'commit', 'path', 'blob'}
+PERSON_KEYS = {'provider', 'model_or_agent', 'session'}
+HEX40 = re.compile(r'[0-9a-f]{40}')
+SHARD = re.compile(r'[A-Z][A-Za-z0-9_]{0,39}')
+RECORD_ID = re.compile(r'[A-Za-z0-9][A-Za-z0-9_.-]{0,63}')
+DIGITS = re.compile(r'[1-9][0-9]{0,19}')
+
+
+def load_strict(text):
+    """json.loads that rejects duplicate keys and NaN/Infinity (the R-2 rule)."""
+    def pairs(items):
+        out = {}
+        for key, value in items:
+            if key in out:
+                raise ValueError('duplicate JSON key: ' + key)
+            out[key] = value
+        return out
+
+    def constant(name):
+        raise ValueError('non-finite JSON constant: ' + name)
+
+    return json.loads(text, object_pairs_hook=pairs, parse_constant=constant)
+
+
+def _is_text(value):
+    return isinstance(value, str) and value.strip() != ''
+
+
+def _safe_path(value):
+    return (_is_text(value) and not value.startswith('/') and '\\' not in value
+            and all(part not in ('', '.', '..') for part in value.split('/')))
+
+
+def _git_blob(repo, commit, path):
+    run = subprocess.run(['git', '-C', str(repo), 'rev-parse', '--verify', '--quiet', commit + ':' + path],
+                         capture_output=True, text=True)
+    return run.stdout.strip() if run.returncode == 0 else None
+
+
+def _person(value, where, errors):
+    if not isinstance(value, dict) or set(value) != PERSON_KEYS:
+        errors.append(where + ': requires exactly provider, model_or_agent, session')
+        return
+    for key in sorted(PERSON_KEYS):
+        if not _is_text(value[key]):
+            errors.append(where + '.' + key + ': non-empty string required (use UNKNOWN when unavailable)')
+
+
+def validate(data, *, shard_dir=None, repos=None):
+    """Return the list of contract violations in one parsed RECORDS.json (empty when valid)."""
+    errors = []
+    if not isinstance(data, dict) or set(data) != TOP_KEYS:
+        return ['top level requires exactly: ' + ', '.join(sorted(TOP_KEYS))]
+    if data['schema'] != SCHEMA:
+        errors.append('schema must be ' + SCHEMA)
+    if not isinstance(data['shard'], str) or not SHARD.fullmatch(data['shard']):
+        errors.append('shard must match ' + SHARD.pattern)
+    elif shard_dir is not None and shard_dir != data['shard']:
+        errors.append('shard %r does not match its directory %r' % (data['shard'], shard_dir))
+    if data['baseline'] != BASELINE:
+        errors.append('baseline must be exactly the pinned v0.1 cut %r' % BASELINE)
+    _person(data['author'], 'author', errors)
+    if data['scientific_effect'] != 'NONE':
+        errors.append('scientific_effect must be NONE')
+    if data['status_authority'] is not False:
+        errors.append('status_authority must be the Boolean false')
+    records = data['records']
+    if not isinstance(records, list) or not records:
+        return errors + ['records must be a non-empty list']
+    ids = [r.get('id') for r in records if isinstance(r, dict)]
+    seen = set()
+    for index, record in enumerate(records):
+        where = 'records[%d]' % index
+        if not isinstance(record, dict) or set(record) != RECORD_KEYS:
+            errors.append(where + ': requires exactly ' + ', '.join(sorted(RECORD_KEYS)))
+            continue
+        rid = record['id']
+        if not isinstance(rid, str) or not RECORD_ID.fullmatch(rid):
+            errors.append(where + '.id: must match ' + RECORD_ID.pattern)
+        elif rid in seen:
+            errors.append(where + '.id: duplicate ' + rid)
+        else:
+            seen.add(rid)
+        subject = record['subject']
+        if not isinstance(subject, dict) or set(subject) != SUBJECT_KEYS:
+            errors.append(where + '.subject: requires exactly repository, commit, path, blob')
+        else:
+            repo_name = subject['repository']
+            if repo_name not in REPOSITORIES:
+                errors.append(where + '.subject.repository: unknown repository')
+            if not isinstance(subject['commit'], str) or not HEX40.fullmatch(subject['commit']):
+                errors.append(where + '.subject.commit: 40 lowercase hex digits required')
+            if not _safe_path(subject['path']):
+                errors.append(where + '.subject.path: relative repository path required')
+            if not isinstance(subject['blob'], str) or not HEX40.fullmatch(subject['blob']):
+                errors.append(where + '.subject.blob: 40 lowercase hex digits required')
+            if type(record['delta']) is not bool:
+                errors.append(where + '.delta: Boolean required')
+            elif not record['delta'] and BASELINE.get(repo_name) != subject['commit']:
+                errors.append(where + '.subject.commit: not the pinned baseline; mark a candidate with delta true')
+            if repos and repo_name in repos and not errors_for(where, errors):
+                got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
+                if got != subject['blob']:
+                    errors.append(where + '.subject: blob does not match git (%s)' % (got or 'path or commit absent'))
+        if record['axis'] not in AXES:
+            errors.append(where + '.axis: one of ' + ', '.join(AXES))
+        if record['state'] not in STATES:
+            errors.append(where + '.state: one of ' + ', '.join(STATES) + ' (no status words)')
+        evidence = record['evidence']
+        if not isinstance(evidence, list):
+            errors.append(where + '.evidence: list required')
+            evidence = []
+        if record['state'] == 'recorded' and not evidence:
+            errors.append(where + ': state recorded requires evidence')
+        if record['state'] in ('not_recorded', 'not_applicable') and evidence:
+            errors.append(where + ': state %s takes no evidence' % record['state'])
+        for k, item in enumerate(evidence):
+            _evidence(item, '%s.evidence[%d]' % (where, k), errors, repos)
+        _person(record['performer'], where + '.performer', errors)
+        if not _is_text(record['exposure']):
+            errors.append(where + '.exposure: non-empty string required (state what was read)')
+        if type(record['independence_credit']) is not int or record['independence_credit'] != 0:
+            errors.append(where + '.independence_credit: must be the integer 0')
+        alias = record['alias_of']
+        if alias is not None and (alias == rid or alias not in ids):
+            errors.append(where + '.alias_of: null or the id of another record in this file')
+        if not isinstance(record['notes'], str):
+            errors.append(where + '.notes: string required (may be empty)')
+    return errors
+
+
+def errors_for(where, errors):
+    return any(e.startswith(where + '.subject') or e.startswith(where + '.delta') for e in errors)
+
+
+def _evidence(item, where, errors, repos):
+    if not isinstance(item, dict) or 'kind' not in item:
+        errors.append(where + ': object with kind required')
+        return
+    kind = item['kind']
+    if kind not in EVIDENCE_KINDS:
+        errors.append(where + '.kind: one of ' + ', '.join(EVIDENCE_KINDS))
+        return
+    if kind == 'file':
+        keys = {'kind', 'repository', 'commit', 'path', 'blob'}
+    else:
+        keys = {'kind', 'repository', 'ref'}
+    if set(item) != keys:
+        errors.append(where + ': %s evidence requires exactly %s' % (kind, ', '.join(sorted(keys))))
+        return
+    if item['repository'] not in REPOSITORIES:
+        errors.append(where + '.repository: unknown repository')
+    if kind == 'file':
+        ok = (isinstance(item['commit'], str) and HEX40.fullmatch(item['commit'])
+              and isinstance(item['blob'], str) and HEX40.fullmatch(item['blob']) and _safe_path(item['path']))
+        if not ok:
+            errors.append(where + ': file evidence needs 40-hex commit and blob and a relative path')
+        elif repos and item['repository'] in repos:
+            if _git_blob(repos[item['repository']], item['commit'], item['path']) != item['blob']:
+                errors.append(where + ': file evidence blob does not match git')
+    elif not isinstance(item['ref'], str) or not DIGITS.fullmatch(item['ref']):
+        errors.append(where + '.ref: numeric GitHub id as a string required')
+
+
+def aggregate(datasets):
+    """Per subject object and axis, the states recorded across files; aliases counted separately."""
+    out = {}
+    counts = {'files': len(datasets), 'records': 0, 'aliases': 0, 'evidence_items_non_alias': 0}
+    for data in datasets:
+        for record in data['records']:
+            counts['records'] += 1
+            if record['alias_of'] is not None:
+                counts['aliases'] += 1
+            else:
+                counts['evidence_items_non_alias'] += len(record['evidence'])
+            s = record['subject']
+            key = '%s@%s:%s#%s' % (s['repository'], s['commit'][:12], s['path'], s['blob'][:12])
+            out.setdefault(key, {}).setdefault(record['axis'], []).append(
+                {'shard': data['shard'], 'id': record['id'], 'state': record['state'],
+                 'alias_of': record['alias_of']})
+    return {'subjects': out, 'counts': counts, 'status_authority': False, 'scientific_effect': 'NONE',
+            'meaning': 'derived summary of retrofit records; not a status record or acceptance'}
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument('files', nargs='+')
+    ap.add_argument('--repo', help='local clone used to verify Math- blobs (main is verified only with --main-repo)')
+    ap.add_argument('--main-repo', help='local clone of main for main-repository blobs')
+    ap.add_argument('--aggregate', action='store_true')
+    args = ap.parse_args(argv)
+    repos = {}
+    if args.repo:
+        repos['Math-'] = pathlib.Path(args.repo)
+    if args.main_repo:
+        repos['main'] = pathlib.Path(args.main_repo)
+    report, datasets, ok = {'files': {}}, [], True
+    for name in args.files:
+        path = pathlib.Path(name)
+        try:
+            data = load_strict(path.read_text(encoding='utf-8'))
+            shard_dir = path.parent.name if path.name == 'RECORDS.json' else None
+            errors = validate(data, shard_dir=shard_dir, repos=repos)
+        except (OSError, ValueError, UnicodeDecodeError) as exc:
+            data, errors = None, [str(exc)]
+        report['files'][name] = {'valid': not errors, 'errors': errors}
+        ok &= not errors
+        if not errors:
+            datasets.append(data)
+    report['passed'] = ok
+    report['scientific_effect'] = 'NONE'
+    if args.aggregate and ok:
+        report['aggregate'] = aggregate(datasets)
+    print(json.dumps(report, indent=2, sort_keys=True))
+    return 0 if ok else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
