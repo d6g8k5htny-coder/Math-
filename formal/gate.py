@@ -45,6 +45,13 @@ UNSUPPORTED_COMMAND = re.compile(r'^\s*(?:#|(?:@\[[^\]]*\]\s*)?(?:noncomputable\
                                  r'inductive|mutual|syntax|macro|macro_rules|elab|elab_rules|initialize|builtin_initialize|example|'
                                  r'attribute|notation|infix|infixl|infixr|prefix|postfix|deriving|local|scoped|section|run_cmd|run_elab|run_meta)(?![A-Za-z0-9_]))')
 SCOPE_COMMAND = re.compile(r'^\s*(?:namespace|end)(?![A-Za-z0-9_]).*$')
+# Metaprogramming, declaration-bearing and elaborator tokens refused anywhere in the code,
+# not only at the start of a line, so `set_option ... in run_elab`, `open Lean in ...` and
+# term-level `by_elab` cannot slip past the line-anchored check (RF312-SUCCESSOR-COMMAND-004).
+UNSUPPORTED_TOKEN = re.compile(r'(?<![A-Za-z0-9_.])(?:run_elab|run_cmd|run_meta|run_tac|by_elab|elab|elab_rules|macro|macro_rules|syntax|'
+                               r'declare_syntax_cat|initialize|builtin_initialize|private|protected|opaque|abbrev|structure|class|'
+                               r'instance|inductive|mutual|example|attribute|notation|infix|infixl|infixr|prefix|postfix|deriving|'
+                               r'section|Lean|MetaM|TermElabM|TacticM|CoreM|CommandElabM|addDecl|evalTactic)(?![A-Za-z0-9_])|#[A-Za-z]')
 
 def sha(data):
     return hashlib.sha256(data).hexdigest()
@@ -98,7 +105,8 @@ def strip_lean_comments(text):
     (`s!"..."`, and any plain string containing a brace, since macros such as `throwError`
     interpolate plain literals) and unterminated strings, characters or block comments
     are refused rather than guessed. Newlines are kept, so line numbers in refusals refer to
-    the original file.
+    the original file, and a block comment is replaced by one space so that the tokens on
+    either side are never joined (`opaque/-x-/hidden` stays two tokens).
     """
     out, i, depth, n = [], 0, 0, len(text)
     while i < n:
@@ -108,6 +116,8 @@ def strip_lean_comments(text):
                 depth += 1; i += 2
             elif two == '-/':
                 depth -= 1; i += 2
+                if not depth:
+                    out.append(' ')  # a comment separates tokens; never join its neighbours
             else:
                 if text[i] == '\n':
                     out.append('\n')
@@ -142,15 +152,19 @@ def strip_lean_comments(text):
     require(depth == 0, 'unterminated block comment')
     return ''.join(out)
 
-def grammar_check(text, path):
+def grammar_check(text, path, definitions=None):
     """Refuse declaration spellings the column-0 scanner cannot inventory, and admission tokens.
 
     The source scanner is only a pre-check (see GATE_HARDENING.md); the authoritative
     package-wide admission check is `audit_inventory` on the compiled environment.
-    Returns the canonical theorem names in source order.
+    Returns the canonical theorem names in source order; canonical definition names are
+    appended to `definitions` when a list is given.
     """
     code = strip_lean_comments(text)
     require(not FORBIDDEN_TOKENS.search(code), 'forbidden token in source module: ' + path)
+    token = UNSUPPORTED_TOKEN.search(code)
+    if token:
+        raise ValueError('unsupported metaprogramming or declaration token ' + repr(token.group()) + ' at ' + path + ':' + str(code.count('\n', 0, token.start()) + 1))
     names, declared, scopes = [], [], []
     for number, line in enumerate(code.splitlines(), 1):
         where = path + ':' + str(number)
@@ -165,6 +179,8 @@ def grammar_check(text, path):
         declared.append(canonical.group(2))
         if canonical.group(1):
             names.append(canonical.group(2))
+        elif definitions is not None:
+            definitions.append(canonical.group(2))
     require(scopes == ['namespace ' + PACKAGE, 'end ' + PACKAGE], 'unsupported namespace structure (exactly one column-0 namespace ' + PACKAGE + ' block is allowed): ' + path)
     require(len(declared) == len(set(declared)), 'duplicate source declaration: ' + path)
     return names
@@ -294,6 +310,31 @@ def user_name(name):
 
 ALLOWED_NAMES = frozenset(simple_name(a) for a in ALLOWED)
 
+KINDS = ('theorem', 'def', 'axiom', 'opaque', 'inductive', 'ctor', 'rec', 'quot')
+
+def bound_inventory(records, targets, modules):
+    """The manifest's reviewed, exact non-target compiled inventory as a set of tuples.
+
+    Each record is [kind, origin, module, name] with simple dotted names. Every constant of a
+    package module that is not a user-written target theorem must appear here, and every
+    entry must be present; admission therefore does not depend on the source pre-check or
+    on Lean's provenance alone (RF312-SUCCESSOR-COMMAND-004).
+    """
+    require(isinstance(records, list), 'missing compiled inventory binding')
+    registered, wanted = {simple_name(m) for m in modules}, {simple_name(t) for t in targets}
+    result = set()
+    for record in records:
+        require(isinstance(record, list) and len(record) == 4 and all(isinstance(x, str) for x in record), 'malformed compiled inventory record: ' + repr(record))
+        kind, origin, module, name = record
+        require(kind in KINDS and kind != 'axiom' and origin in ('user', 'aux'), 'invalid compiled inventory kind or origin: ' + repr(record))
+        entry = (kind, origin, simple_name(module), simple_name(name))
+        require(entry[2] in registered, 'compiled inventory record outside registered modules: ' + repr(record))
+        require(not (kind == 'theorem' and origin == 'user'), 'user-written theorems belong in targets, not the compiled inventory: ' + repr(record))
+        require(entry[3] not in wanted and entry not in result, 'duplicate or target-shadowing compiled inventory record: ' + repr(record))
+        result.add(entry)
+    require(len({e[3] for e in result}) == len(result), 'duplicate name in compiled inventory')
+    return frozenset(result)
+
 def parse_inventory(text):
     """Strictly parse the protocol lines; any malformed or missing record is a protocol error."""
     lines = [line for line in text.splitlines() if line.startswith(('INV|', 'MODULE|', 'AXIOMS|', 'CLOSURE|'))]
@@ -326,7 +367,7 @@ def parse_inventory(text):
         raise InventoryProtocolError('inventory must report exactly one axiom closure')
     return dict(modules=modules, constants=constants, axioms=axioms[0], closure=closures[0], lines=lines)
 
-def inventory_violations(inventory, targets, modules, allow_local=False, reported_axioms=None):
+def inventory_violations(inventory, targets, modules, allow_local=False, reported_axioms=None, bound=frozenset()):
     """Every admission-policy finding on a parsed inventory, as sorted (code, name, note) triples.
 
     - the module table is exactly the registered modules plus an empty root module, none
@@ -337,6 +378,9 @@ def inventory_violations(inventory, targets, modules, allow_local=False, reporte
       the manifest targets;
     - every compiler-generated (`aux`) theorem-kind constant hangs below a user-written
       constant of the same module through compiler suffix components only;
+    - every other constant of a registered module (definitions, compiler theorems, anything
+      added by a metaprogram) is exactly one of the manifest's bound `compiled_inventory`
+      records, and every bound record is present;
     - the axiom closure of all constants together is inside ALLOWED, and contains every
       axiom the per-target audit reported.
     """
@@ -397,6 +441,16 @@ def inventory_violations(inventory, targets, modules, allow_local=False, reporte
             flag('unbound_auxiliary', name)
     for name in sorted(wanted - public, key=encode):
         flag('missing_theorem', name)
+    observed = set()
+    for kind, origin, module, name in inventory['constants']:
+        if module not in registered or (kind == 'theorem' and origin == 'user'):
+            continue
+        entry = (kind, origin, module, name)
+        observed.add(entry)
+        if entry not in bound:
+            flag('unregistered_constant', name, kind + '/' + origin)
+    for kind, origin, module, name in sorted(set(bound) - observed, key=lambda e: encode(e[3])):
+        flag('missing_constant', name, kind + '/' + origin)
     closure = set(inventory['axioms'])
     if len(closure) != len(inventory['axioms']):
         flag('duplicate_axiom', ('AXIOMS',))
@@ -410,14 +464,14 @@ def inventory_violations(inventory, targets, modules, allow_local=False, reporte
         flag('impossible_closure', ('CLOSURE',), str(inventory['closure']))
     return [(code, decode(name), note) for code, name, note in sorted(found)]
 
-def audit_inventory(text, targets, modules, allow_local=False, reported_axioms=None):
+def audit_inventory(text, targets, modules, allow_local=False, reported_axioms=None, bound=frozenset()):
     """Package-wide admission check on the compiled environment, not on source text.
 
     Raises InventoryProtocolError on a malformed transcript and InventoryRejected (with the
     complete violation list) on any policy finding; see `inventory_violations`.
     """
     inventory = parse_inventory(text)
-    violations = inventory_violations(inventory, targets, modules, allow_local, reported_axioms)
+    violations = inventory_violations(inventory, targets, modules, allow_local, reported_axioms, bound)
     if violations:
         raise InventoryRejected(violations, inventory)
     public = sorted(render(name) for kind, origin, module, name in inventory['constants'] if kind == 'theorem' and origin == 'user')
@@ -502,17 +556,22 @@ def source_check():
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
     expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
     require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
-    names = []
+    names, definitions = [], []
     for path in m['source_modules']:
         require(path in m['files'], 'unbound source module')
         require(path.startswith(PACKAGE + '/') and path.endswith('.lean') and path.count('/') == 1, 'source module outside the package directory: ' + path)
         text = (ROOT / path).read_text()
         # Pre-check only: the scanner refuses any theorem spelling it cannot count, and the
         # compiled environment is audited package-wide in execute() (RF-GATE-01).
-        names.extend(PACKAGE + '.' + n for n in grammar_check(text, path))
+        names.extend(PACKAGE + '.' + n for n in grammar_check(text, path, definitions))
     require(isinstance(m.get('targets'), list) and len(m['targets']) == len(set(m['targets'])), 'empty or duplicate target list')
     require(len(names) == len(set(names)), 'duplicate source theorem')
     require(names == m['targets'], 'target inventory differs from source declarations')
+    modules = {PACKAGE + '.' + path[len(PACKAGE) + 1:-5] for path in m['source_modules']}
+    bound = bound_inventory(m.get('compiled_inventory'), m['targets'], modules)
+    bound_definitions = {render(e[3]) for e in bound if e[:2] == ('def', 'user')}
+    require(bound_definitions == {PACKAGE + '.' + d for d in definitions} and len(definitions) == len(set(definitions)),
+            'compiled inventory user definitions differ from source definitions')
     check_blueprint((ROOT / 'blueprint/src/content.tex').read_text(), names)
     lean_files = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.lean') if '.lake' not in p.relative_to(ROOT).parts}
     require(lean_files == set(m['source_modules']) | {'ResearchFormalCoreR1.lean'}, 'unregistered Lean module')
@@ -525,7 +584,7 @@ def run(command, label, out, expect_success=True, cwd=ROOT):
     require((result.returncode == 0) == expect_success, 'unexpected process outcome: ' + label + '\n' + result.stdout[-6000:])
     return result.stdout
 
-def check_admission(text, label, injected, expected, targets, modules, allow_local):
+def check_admission(text, label, injected, expected, targets, modules, allow_local, bound):
     """One admission experiment: the transcript must parse, contain the injected constant exactly
     once, and be rejected with exactly the expected findings.
 
@@ -537,27 +596,47 @@ def check_admission(text, label, injected, expected, targets, modules, allow_loc
     kind, origin, name, private, module = injected
     hits = [c for c in inventory['constants'] if c[0] == kind and c[1] == origin and user_name(c[3]) == (name, private) and (module is None or c[2] == module)]
     require(len(hits) == 1, 'admission control did not inject exactly one ' + kind + ' ' + render(name) + ': ' + label)
-    found = inventory_violations(inventory, targets, modules, allow_local)
+    found = inventory_violations(inventory, targets, modules, allow_local, bound=bound)
     got = {(code,) + user_name(n) for code, n, note in found}
     require(got == expected, 'admission control rejected for an unexpected reason: ' + label + ' expected=' +
             repr(sorted((c, render(n), p) for c, n, p in expected)) + ' got=' + repr(sorted((c, render(n), p) for c, n, p in got)))
     return dict(outcome='REJECTED_FOR_EXPECTED_REASON', injected=render(hits[0][3]),
                 violations=[code + ' ' + render(n) for code, n, note in found])
 
-def compiled_admission(m, modules, baseline, out):
-    """Inject a private `sorry` theorem into a compiled copy of the package and require rejection.
+COMPILED_INJECTIONS = (
+    # A private theorem proved by sorry: kernel-valid, so build, recheck and the per-target
+    # axiom audit all pass; only the package-wide inventory can reject it.
+    ('compiled_admission', 'private theorem compiledAdmission : (1 : Nat) = 1 := by sorry\n',
+     ('theorem', 'user', (PACKAGE, 'compiledAdmission'), True),
+     {('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', (PACKAGE, 'compiledAdmission'), True)}),
+    # RF312-SUCCESSOR-COMMAND-004: a wrapped elaborator adds a range-less theorem under a real
+    # user parent with a compiler-shaped suffix. It must fail the bound compiled inventory.
+    ('compiled_metaprogram', 'set_option maxRecDepth 1000 in run_elab\n  Lean.addDecl <| .thmDecl {\n'
+     '    name := `ResearchFormalCoreR1.ec005_fold_gap._proof_999\n    levelParams := []\n'
+     '    type := Lean.mkConst ``True\n    value := Lean.mkConst ``True.intro\n  }\n',
+     ('theorem', 'aux', (PACKAGE, 'ec005_fold_gap', '_proof_999'), False),
+     {('unregistered_constant', (PACKAGE, 'ec005_fold_gap', '_proof_999'), False)}))
+
+def compiled_admission(m, modules, baseline, bound, out):
+    """Inject declarations into a compiled copy of the package and require each to be rejected.
 
     The package is copied (sources plus the fresh `.lake/build`, dependencies by symlink) and
     first audited unchanged: it must pass with the same inventory digest as the real package
-    (positive baseline). Then one module gains `private theorem compiledAdmission ... := by
-    sorry`, `lake build` recompiles it, and the inventory must reject exactly for `sorryAx` in
-    the closure and the extra private theorem in that module. The copy lives under `.lake`
-    outside the uploaded evidence directory and is removed afterwards; only its logs remain.
+    (positive baseline). Then, for each entry of COMPILED_INJECTIONS in turn, the first source
+    module gains the declaration and the copy runs the same stages as the real package:
+    `lake build`, `leanchecker`, the per-target `#print axioms` audit (each must succeed; an
+    unrelated failure fails the run, it is never counted as a rejection), and finally the
+    inventory, which must contain the injected constant and reject with exactly the expected
+    findings (RF312-COMPILED-RECHECK-005). The copy lives under `.lake` outside the uploaded
+    evidence directory and is removed afterwards; only its logs remain.
     """
     work = ROOT / '.lake' / 'compiled-admission'  # outside the uploaded evidence directory
     require(not work.is_symlink(), 'symlink compiled-admission directory')
     if work.exists():
         shutil.rmtree(work)
+    path = m['source_modules'][0]
+    module = simple_name(PACKAGE + '.' + path[len(PACKAGE) + 1:-5])
+    results = {}
     try:
         pkg = work / 'formal'
         shutil.copytree(ROOT, pkg, ignore=lambda d, names: ['.lake'] if Path(d) == ROOT else [])
@@ -565,25 +644,29 @@ def compiled_admission(m, modules, baseline, out):
         (pkg / '.lake' / 'packages').symlink_to(ROOT / '.lake' / 'packages', target_is_directory=True)
         program = work / 'Inventory.lean'
         program.write_text(inventory_source())
-        clean = audit_inventory(run(['lake', 'env', 'lean', str(program)], 'compiled_admission_baseline', out, cwd=pkg), m['targets'], modules)
+        audit = work / 'Audit.lean'
+        audit.write_text('import ' + PACKAGE + '\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
+        clean = audit_inventory(run(['lake', 'env', 'lean', str(program)], 'compiled_baseline', out, cwd=pkg), m['targets'], modules, bound=bound)
         require(clean['sha256'] == baseline['sha256'], 'compiled-admission copy does not reproduce the package inventory')
-        path = m['source_modules'][0]
+        original = (pkg / path).read_text()
         marker = '\nend ' + PACKAGE + '\n'
-        text = (pkg / path).read_text()
-        require(text.count(marker) == 1, 'compiled-admission module has no unique namespace end: ' + path)
-        injected = text.replace(marker, '\nprivate theorem compiledAdmission : (1 : Nat) = 1 := by sorry\n' + marker)
-        (pkg / path).write_text(injected)
-        run(['lake', 'build'], 'compiled_admission_build', out, cwd=pkg)
-        log = run(['lake', 'env', 'lean', str(program)], 'compiled_admission', out, cwd=pkg)
+        require(original.count(marker) == 1, 'compiled-admission module has no unique namespace end: ' + path)
+        for label, declaration, (kind, origin, name, private), expected in COMPILED_INJECTIONS:
+            injected = original.replace(marker, '\n' + declaration + marker)
+            (pkg / path).write_text(injected)
+            run(['lake', 'build'], label + '_build', out, cwd=pkg)
+            run(['lake', 'env', 'leanchecker', PACKAGE], label + '_leanchecker', out, cwd=pkg)
+            audit_axioms(run(['lake', 'env', 'lean', str(audit)], label + '_axioms', out, cwd=pkg), m['targets'])
+            log = run(['lake', 'env', 'lean', str(program)], label, out, cwd=pkg)
+            result = check_admission(log, label, (kind, origin, name, private, module), expected, m['targets'], modules, False, bound)
+            result.update(module=render(module), module_sha256=sha(injected.encode()),
+                          stages=['build', 'leanchecker', 'axioms', 'inventory'])
+            results[label] = result
+            (pkg / path).write_text(original)
     finally:
         if work.exists():
             shutil.rmtree(work)
-    module = simple_name(PACKAGE + '.' + path[len(PACKAGE) + 1:-5])
-    name = simple_name(PACKAGE + '.compiledAdmission')
-    result = check_admission(log, 'compiled_admission', ('theorem', 'user', name, True, module),
-                             {('forbidden_axiom', ('sorryAx',), False), ('extra_theorem', name, True)}, m['targets'], modules, False)
-    result.update(module=render(module), module_sha256=sha(injected.encode()), baseline_sha256=clean['sha256'])
-    return result
+    return dict(baseline_sha256=clean['sha256'], injections=results)
 
 def execute(m, digest):
     out = ROOT / '.lake' / 'formal-evidence'
@@ -606,7 +689,8 @@ def execute(m, digest):
     modules = {PACKAGE + '.' + path[len(PACKAGE) + 1:-5] for path in m['source_modules']}
     inventory = out / 'Inventory.lean'
     inventory.write_text(inventory_source())
-    inventory_report = audit_inventory(run(['lake', 'env', 'lean', str(inventory)], 'inventory', out), m['targets'], modules, reported_axioms=axioms)
+    bound = bound_inventory(m['compiled_inventory'], m['targets'], modules)
+    inventory_report = audit_inventory(run(['lake', 'env', 'lean', str(inventory)], 'inventory', out), m['targets'], modules, reported_axioms=axioms, bound=bound)
     # Admission controls: declarations the source scanner could never see, or would
     # mis-prefix, must be caught by the environment inventory for their own reason. Each
     # compiles (sorry only warns), must appear in the inventory, and must be rejected with
@@ -630,8 +714,8 @@ def execute(m, digest):
         path = out / (label + '.lean')
         path.write_text(inventory_source(include_local=True).replace('import Lean\n', 'import Lean\n' + declaration, 1))
         log = run(['lake', 'env', 'lean', str(path)], label, out)
-        admission_outcomes[label] = check_admission(log, label, injected, expected, m['targets'], modules, True)
-    compiled = compiled_admission(m, modules, inventory_report, out)
+        admission_outcomes[label] = check_admission(log, label, injected, expected, m['targets'], modules, True, bound)
+    compiled = compiled_admission(m, modules, inventory_report, bound, out)
     # Real counterexample/mutation controls, not comparisons of fixed labels.
     cases = {
         'false_fold': ('import ResearchFormalCoreR1\nexample : ResearchFormalCoreR1.foldPotential 1 1 - ResearchFormalCoreR1.foldPotential 1 (-1) = (2 : Real)^3 / 7 := by\n  norm_num [ResearchFormalCoreR1.foldPotential]\n', False, None),
