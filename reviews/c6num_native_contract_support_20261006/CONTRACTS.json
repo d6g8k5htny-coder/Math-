@@ -1,0 +1,159 @@
+{
+  "actor": "OpenAI / GPT-6 Astra Pro",
+  "completed_processes": 10,
+  "issue": 334,
+  "limits": [
+    "Not a full packet or consumed-source membership replay.",
+    "Not hosted Python 3.11.16 evidence or Lean execution.",
+    "Two interrupted baseline attempts were not counted; four completed cases were reused after rehashing.",
+    "Unknown-label wrapping is runtime-sensitive and is not an existing workflow control.",
+    "Identical cubic-sign and typed-boundary diagnostics are authentic; do not invent different reasons."
+  ],
+  "observations": [
+    {
+      "argv_suffix": [
+        "--check"
+      ],
+      "identical_mode_streams": true,
+      "label": "baseline",
+      "modes": [
+        "-B -S",
+        "-B -O -S"
+      ],
+      "returncode": 0,
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "utf8": ""
+      },
+      "stdout": {
+        "bytes": 63,
+        "sha256": "c54d375daf9298c6a7cc591191dd9e3508b80213ddd24e5320859b429acefff6",
+        "utf8": "{\"mode\": \"check\", \"passed\": true, \"scientific_effect\": \"NONE\"}\n"
+      }
+    },
+    {
+      "argv_suffix": [
+        "--check",
+        "--mutant",
+        "cubic-sign"
+      ],
+      "identical_mode_streams": true,
+      "label": "cubic-sign",
+      "modes": [
+        "-B -S",
+        "-B -O -S"
+      ],
+      "returncode": 1,
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "utf8": ""
+      },
+      "stdout": {
+        "bytes": 105,
+        "sha256": "b0271f45b76f6b28702624c2e6efce69bbd54e1d2246fdca3d09aa553d9095b0",
+        "utf8": "{\"error\": \"classifier agrees with the direct critical-point count on the typed domain\", \"passed\": false}\n"
+      }
+    },
+    {
+      "argv_suffix": [
+        "--check",
+        "--mutant",
+        "antiderivative"
+      ],
+      "identical_mode_streams": true,
+      "label": "antiderivative",
+      "modes": [
+        "-B -S",
+        "-B -O -S"
+      ],
+      "returncode": 1,
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "utf8": ""
+      },
+      "stdout": {
+        "bytes": 62,
+        "sha256": "2f60570838650467fb3deeadf8138cf1809f355da1db0511e68cabca7f263ad5",
+        "utf8": "{\"error\": \"[LM] cubic mass 48 k^5 on n = 2\", \"passed\": false}\n"
+      }
+    },
+    {
+      "argv_suffix": [
+        "--check",
+        "--mutant",
+        "typed-boundary"
+      ],
+      "identical_mode_streams": true,
+      "label": "typed-boundary",
+      "modes": [
+        "-B -S",
+        "-B -O -S"
+      ],
+      "returncode": 1,
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "utf8": ""
+      },
+      "stdout": {
+        "bytes": 105,
+        "sha256": "b0271f45b76f6b28702624c2e6efce69bbd54e1d2246fdca3d09aa553d9095b0",
+        "utf8": "{\"error\": \"classifier agrees with the direct critical-point count on the typed domain\", \"passed\": false}\n"
+      }
+    },
+    {
+      "argv_suffix": [
+        "--check",
+        "--mutant",
+        "unknown"
+      ],
+      "identical_mode_streams": true,
+      "label": "unknown",
+      "modes": [
+        "-B -S",
+        "-B -O -S"
+      ],
+      "returncode": 2,
+      "stderr": {
+        "bytes": 241,
+        "sha256": "7445b56d58bfab6ed7f1473ec1a9dc35cf6fad72b91f1f41367439912e09c6a1",
+        "utf8": "usage: coefficients.py [-h] [--check]\n                       [--mutant {cubic-sign,antiderivative,typed-boundary}]\ncoefficients.py: error: argument --mutant: invalid choice: 'unknown' (choose from cubic-sign, antiderivative, typed-boundary)\n"
+      },
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "utf8": ""
+      }
+    }
+  ],
+  "repair_implemented": false,
+  "runtime": "CPython 3.13.5",
+  "schema": 1,
+  "scientific_effect": "NONE",
+  "session": "pr334-native-contract-support-20261006",
+  "source_commit": "07ff1191f3f99987060517b6413417287b5adf21",
+  "source_files": [
+    {
+      "bytes": 18825,
+      "git_blob": "bd45a9fdecf300111b646644384dcead20c2e529",
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/coefficients.py",
+      "sha256": "bcd63f0806a58a76a85189372bc6eee99fc3847c74dcc34906ef63464a64b97b"
+    },
+    {
+      "bytes": 4095,
+      "git_blob": "2648314f8c11f0637ce301ba76360142a8309e8f",
+      "path": "frontiers/c6_cluster_coefficients_numerics_20260930/RESULTS.json",
+      "sha256": "9c88ea85b6ba08199996c9b5ff74ecd06afc0f458e08c28b4c3af6191f437fcb"
+    },
+    {
+      "bytes": 3180,
+      "git_blob": "268ca3fb856b818022784f87bea96d0714c146aa",
+      "path": ".github/workflows/c6-cluster-coefficients-numerics.yml",
+      "sha256": "06ee6f3beed34eb85ee45e0bbc19ce5e94aeab474a0dd31a492f48b93ca5f78c"
+    }
+  ],
+  "support_comment": 6009067890
+}
