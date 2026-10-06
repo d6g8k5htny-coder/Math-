@@ -46,7 +46,7 @@ theorem independent_weight_bound_ae {Ω : Type*} [MeasurableSpace Ω]
     (∫⁻ ω, W ω ∂Q) ≤
     ∫⁻ j, (ENNReal.ofReal Real.pi * ∫⁻ l : ℝ × ℝ in {l | 0 < l.1 ∧ l.1 < l.2},
       ENNReal.ofReal (l.2-l.1) * (H l * K (j,l))) ∂Measure.map J Q := by
-  letI : IsFiniteMeasure ((volume : Measure (ℝ × (ℝ × ℝ))).withDensity p) := by
+  let : IsFiniteMeasure ((volume : Measure (ℝ × (ℝ × ℝ))).withDensity p) := by
     rw [← hB_law]
     infer_instance
   have hlaw := jointLaw_of_independence Q J B hJ hB hI p hB_law
