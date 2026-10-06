@@ -19,7 +19,7 @@ certified positive minima and the existing Gram floors at the listed periods.
 This packet neither replaces those results nor supplies another numerical bound.
 
 Motivation: review correction AUD-309-REVIEW-STRICTNESS-01 (#309/6006934456;
-reviewer acknowledgment6007155271). Strict Jensen for X^2 does not imply strict
+reviewer correction in6006807347). Strict Jensen for X^2 does not imply strict
 Cauchy--Schwarz for X and X^3: P(0)=1/2, P(+-1)=1/4 has m4-m2^2=1/4 but Delta=0.
 The old Lean statement already assumes Delta>0 separately and remains unchanged.
 
@@ -119,3 +119,9 @@ output. The successor removes that tee. The failing original artifact and
 separate red/green shell test are retained; the hosted failure did not reach the
 final receipt step. Ten local test methods now cover this additional regression.
 A successor kernel pass is not claimed by this historical explanation.
+
+The next hosted run37400492648 reached one remaining probability-normalization
+lemma-name error. The pinned mathlib Probability.lean exposes `probReal_univ`;
+that name replaces the unavailable shorthand without changing the proof target.
+The correction reference above points to the actual updated review6006807347;
+the initial auxiliary acknowledgment identifier was not retrievable.

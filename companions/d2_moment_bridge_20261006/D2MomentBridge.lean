@@ -192,7 +192,7 @@ theorem square_gap_integral (μ : Measure Ω) [IsProbabilityMeasure μ] (X : Ω 
   have hc : Integrable (fun _ : Ω => (moment μ X 2) ^ 2) μ := integrable_const _
   rw [hf, integral_add hs hc,
     integral_sub h4 (h2.const_mul (2 * moment μ X 2)), integral_const_mul]
-  simp only [integral_const, measureReal_univ_eq_one, one_smul]
+  simp only [integral_const, probReal_univ, one_smul]
   change moment μ X 4 - (2 * moment μ X 2) * moment μ X 2 + (moment μ X 2) ^ 2 = _
   ring
 
