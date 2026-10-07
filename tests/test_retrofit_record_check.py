@@ -2,6 +2,7 @@
 import copy
 import importlib.util
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -405,6 +406,158 @@ class CommandLine(unittest.TestCase):
             self.assertTrue(report['files'][str(EXAMPLE)]['valid'])
             self.assertTrue(any('already supplied' in e for e in report['files'][str(copy_path)]['errors']))
             self.assertNotIn('aggregate', report)
+
+
+class RawGitIdentity(unittest.TestCase):
+    """The supplied clone and raw commit determine identity, not ambient Git overrides."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.repo = self.root / 'selected'
+        self.env = {key: value for key, value in os.environ.items()
+                    if not key.startswith('GIT_') and key != 'PYTHONOPTIMIZE'}
+        self.env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull)
+        self.repo.mkdir()
+        self.git('init', '-q', '--object-format=sha1')
+        (self.repo / 'STABLE.md').write_text('stable\n', encoding='utf-8')
+        self.commit('seed')
+        seed = self.git('rev-parse', 'HEAD')
+        (self.repo / 'TARGET.md').write_text('original\n', encoding='utf-8')
+        (self.repo / 'folder').mkdir()
+        (self.repo / 'folder' / 'NESTED.md').write_text('nested\n', encoding='utf-8')
+        self.git('add', '.')
+        self.git('update-index', '--add', '--cacheinfo', '160000,' + seed + ',SUBMODULE')
+        self.commit('original', stage=False)
+        self.original = self.git('rev-parse', 'HEAD')
+        self.original_blob = self.git('rev-parse', self.original + ':TARGET.md')
+        (self.repo / 'TARGET.md').write_text('replacement\n', encoding='utf-8')
+        self.commit('replacement')
+        self.replacement = self.git('rev-parse', 'HEAD')
+        self.replacement_blob = self.git('rev-parse', self.replacement + ':TARGET.md')
+        self.git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
+                 '-c', 'tag.gpgSign=false', 'tag', '-a', 'annotated', '-m', 'tag', self.original)
+
+    def git(self, *args, repo=None):
+        return subprocess.run(['git', '--no-replace-objects', '-C', str(repo or self.repo), *args],
+                              env=self.env, capture_output=True, text=True, check=True,
+                              timeout=30).stdout.strip()
+
+    def commit(self, message, repo=None, stage=True):
+        if stage:
+            self.git('add', '.', repo=repo)
+        self.git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
+                 '-c', 'commit.gpgSign=false', 'commit', '-qm', message, repo=repo)
+
+    def snapshot(self):
+        # Includes HEAD, every ref, index, config, object and worktree/input bytes.
+        return {str(path.relative_to(self.root)): path.read_bytes()
+                for path in self.root.rglob('*') if path.is_file()}
+
+    def check_reference(self, route, commit, path, blob, expected, *, env=None, repository='Math-'):
+        data = example()
+        record = data['records'][0]
+        record.update(delta=True, alias_of=None)
+        ref = {'repository': repository, 'commit': commit, 'path': path, 'blob': blob}
+        if route == 'subject':
+            record.update(subject=ref, state='unknown', evidence=[])
+            diagnostic = '.subject: blob does not match git'
+        else:
+            # Deliberately unmapped subject isolates the file-evidence entry point.
+            record['subject']['repository'] = 'query-'
+            record.update(state='recorded', evidence=[dict(ref, kind='file')])
+            diagnostic = '.evidence[0]: file evidence blob does not match git'
+        data['records'] = [record]
+        source = self.root / 'input.json'
+        source.write_text(json.dumps(data), encoding='utf-8')
+        before = self.snapshot()
+        child_env = dict(self.env, **(env or {}))
+        option = '--repo' if repository == 'Math-' else '--main-repo'
+        for flags in ([], ['-O']):
+            with self.subTest(route=route, commit=commit, blob=blob, optimize=bool(flags), env=env,
+                              repository=repository):
+                run = subprocess.run([sys.executable, '-B', *flags, '-S', str(TOOL), '--aggregate',
+                                      option, str(self.repo), str(source)], env=child_env,
+                                     capture_output=True, text=True, timeout=60)
+                self.assertEqual(self.snapshot(), before, 'checker changed the fixture')
+                self.assertEqual(run.stderr, '')
+                self.assertEqual(run.returncode, 0 if expected else 1, run.stdout)
+                report = json.loads(run.stdout)
+                self.assertIs(report['passed'], expected)
+                self.assertEqual(report['scientific_effect'], 'NONE')
+                errors = report['files'][str(source)]['errors']
+                if expected:
+                    self.assertEqual(errors, [])
+                    self.assertIs(report['aggregate']['status_authority'], False)
+                else:
+                    self.assertEqual(len(errors), 1, errors)
+                    self.assertIn(diagnostic, errors[0])
+                    self.assertNotIn('aggregate', report)
+
+    def replacement_cases(self, env=None):
+        for route in ('subject', 'evidence'):
+            self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True, env=env)
+            self.check_reference(route, self.original, 'TARGET.md', self.replacement_blob, False, env=env)
+
+    def test_commit_replacement_cannot_rebind_either_reference(self):
+        self.git('replace', self.original, self.replacement)
+        self.replacement_cases()
+
+    def test_tree_replacement_cannot_rebind_either_reference(self):
+        original_tree = self.git('rev-parse', self.original + '^{tree}')
+        replacement_tree = self.git('rev-parse', self.replacement + '^{tree}')
+        self.git('replace', original_tree, replacement_tree)
+        self.replacement_cases()
+
+    def test_custom_replacement_namespace_cannot_rebind_either_reference(self):
+        self.git('update-ref', 'refs/custom-replacements/' + self.original, self.replacement)
+        self.replacement_cases(env={'GIT_REPLACE_REF_BASE': 'refs/custom-replacements/'})
+
+    def test_inherited_repository_and_object_directories_do_not_redirect(self):
+        foreign = self.root / 'foreign'
+        foreign.mkdir()
+        self.git('init', '-q', '--object-format=sha1', repo=foreign)
+        (foreign / 'TARGET.md').write_text('foreign\n', encoding='utf-8')
+        self.commit('foreign', repo=foreign)
+        commit = self.git('rev-parse', 'HEAD', repo=foreign)
+        blob = self.git('rev-parse', 'HEAD:TARGET.md', repo=foreign)
+        environments = (
+            {'GIT_DIR': str(foreign / '.git')},
+            {'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(foreign)},
+            {'GIT_COMMON_DIR': str(foreign / '.git')},
+            {'GIT_OBJECT_DIRECTORY': str(foreign / '.git' / 'objects')},
+            {'GIT_ALTERNATE_OBJECT_DIRECTORIES': str(foreign / '.git' / 'objects')},
+        )
+        for env in environments:
+            for route in ('subject', 'evidence'):
+                self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True, env=env)
+                self.check_reference(route, commit, 'TARGET.md', blob, False, env=env)
+
+    def test_main_clone_uses_the_same_raw_object_guards(self):
+        self.git('replace', self.original, self.replacement)
+        for route in ('subject', 'evidence'):
+            for blob, expected in ((self.original_blob, True), (self.replacement_blob, False)):
+                self.check_reference(route, self.original, 'TARGET.md', blob, expected, repository='main')
+
+    def test_inherited_config_cannot_refuse_selected_objects(self):
+        for route in ('subject', 'evidence'):
+            self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True,
+                                 env={'GIT_CONFIG_COUNT': 'invalid'})
+
+    def test_noncommits_and_nonblob_paths_still_fail(self):
+        tree = self.git('rev-parse', self.original + '^{tree}')
+        tag = self.git('rev-parse', 'annotated')
+        folder = self.git('rev-parse', self.original + ':folder')
+        submodule = self.git('rev-parse', self.original + ':SUBMODULE')
+        cases = ((self.original_blob, 'TARGET.md', self.original_blob),
+                 (tree, 'TARGET.md', self.original_blob), (tag, 'TARGET.md', self.original_blob),
+                 (self.original, 'folder', folder), (self.original, 'SUBMODULE', submodule),
+                 (self.original, 'absent', self.original_blob))
+        for route in ('subject', 'evidence'):
+            for commit, path, blob in cases:
+                self.check_reference(route, commit, path, blob, False)
+            self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True)
 
 
 if __name__ == '__main__':
