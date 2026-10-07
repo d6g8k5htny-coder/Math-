@@ -1,0 +1,76 @@
+{
+  "schema": "retrofit-records/v0.1",
+  "shard": "EXAMPLE",
+  "baseline": {
+    "Math-": "08f86862f859ac4804b4fd6c6477a7ed0421e37f",
+    "main": "cddbb7f6cf3f57f3b495277f7da148287e027b19"
+  },
+  "author": {
+    "provider": "Anthropic",
+    "model_or_agent": "Claude (Claude Code)",
+    "session": "session_017Mi3hxjaxV45x6zo6o1ee3"
+  },
+  "scientific_effect": "NONE",
+  "status_authority": false,
+  "records": [
+    {
+      "id": "EX-001",
+      "subject": {
+        "repository": "Math-",
+        "commit": "08f86862f859ac4804b4fd6c6477a7ed0421e37f",
+        "path": "coefficients/side24_v1/PROOF.md",
+        "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+      },
+      "delta": false,
+      "axis": "numerical_reproduction",
+      "state": "recorded",
+      "evidence": [
+        {
+          "kind": "file",
+          "repository": "Math-",
+          "commit": "08f86862f859ac4804b4fd6c6477a7ed0421e37f",
+          "path": "reviews/side24_v1_coefficient_claude_20260929/REVIEW.md",
+          "blob": "665d1683f33a7180957923c3cb2abce8ade235d1"
+        },
+        {
+          "kind": "file",
+          "repository": "Math-",
+          "commit": "08f86862f859ac4804b4fd6c6477a7ed0421e37f",
+          "path": "reviews/side24_v1_coefficient_claude_20260929/coefficient_review_check.py",
+          "blob": "c47d337d6601b7fce5a2436836635837b46cfe35"
+        }
+      ],
+      "performer": {
+        "provider": "Anthropic",
+        "model_or_agent": "Claude (Claude Code)",
+        "session": "session_01NMeKEismAyeqgdB4sy2NJU"
+      },
+      "exposure": "Per the review's provenance table: the reviewer had consumed the published side24_v1 endpoints in earlier work and redid the derivations from the note's text before reading the first review.",
+      "independence_credit": 0,
+      "alias_of": null,
+      "notes": "Illustrative example of the v0.1 shape only. The recomputation uses the same Stirling-series method family with different parameters (precision 90, shift 120, B2..B40, own pi); it is not a structurally different method. Shard B1 owns the authoritative SIDE24 records."
+    },
+    {
+      "id": "EX-002",
+      "subject": {
+        "repository": "Math-",
+        "commit": "08f86862f859ac4804b4fd6c6477a7ed0421e37f",
+        "path": "coefficients/side24_v1/PROOF.md",
+        "blob": "44b66f04f89fcd87383b3603fa69f1feb64cdddd"
+      },
+      "delta": false,
+      "axis": "adversarial_attack",
+      "state": "unknown",
+      "evidence": [],
+      "performer": {
+        "provider": "UNKNOWN",
+        "model_or_agent": "UNKNOWN",
+        "session": "UNKNOWN"
+      },
+      "exposure": "Not searched for this example.",
+      "independence_credit": 0,
+      "alias_of": null,
+      "notes": "Illustrative: 'unknown' means not checked, which is different from 'not_recorded' (checked and none found)."
+    }
+  ]
+}
