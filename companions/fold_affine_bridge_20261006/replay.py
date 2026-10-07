@@ -8,6 +8,8 @@ import json
 import os
 from pathlib import Path
 import re
+import resource
+import threading
 import signal
 import subprocess
 import sys
@@ -95,18 +97,81 @@ def validate_negative(label,status,stdout,stderr):
     require(re.fullmatch(pattern,stdout) is not None,'not the intended named False-goal diagnostic')
     return label
 
-def run_process(out,label,argv,timeout=600,require_success=True,cwd=ROOT,env=None):
+def parse_proc_stat(text,ticks,page_size):
+    prefix,separator,tail=text.rpartition(')')
+    require(bool(separator),'malformed proc stat')
+    pid,comm=prefix.split(' (',1);fields=tail.split()
+    require(len(fields)>=22,'short proc stat')
+    return {'pid':int(pid),'name':comm,'process_group':int(fields[2]),'start_ticks':int(fields[19]),
+            'user_cpu_seconds':int(fields[11])/ticks,'system_cpu_seconds':int(fields[12])/ticks,
+            'rss_kib':max(0,int(fields[21]))*page_size//1024}
+
+def read_process_group(group):
+    items=[];unreadable=0
+    ticks=os.sysconf('SC_CLK_TCK');page_size=os.sysconf('SC_PAGE_SIZE')
+    for path in Path('/proc').iterdir():
+        if not path.name.isdecimal():continue
+        try:item=parse_proc_stat((path/'stat').read_text(),ticks,page_size)
+        except (FileNotFoundError,ProcessLookupError):continue
+        except PermissionError:unreadable+=1;continue
+        if item['process_group']!=group:continue
+        try:
+            match=re.search(r'^VmHWM:\s+([0-9]+)\s+kB$',(path/'status').read_text(),re.M)
+            item['hwm_kib']=int(match.group(1)) if match else None
+        except (FileNotFoundError,ProcessLookupError):item['hwm_kib']=None
+        items.append(item)
+    return {'processes':items,'unreadable_stat_entries':unreadable}
+
+def run_process(out,label,argv,timeout=600,require_success=True,cwd=ROOT,env=None,
+                capture_resources=False,resource_interval=.5):
+    require(resource_interval>0,'resource interval must be positive')
     started=time.monotonic();timed_out=False
+    usage_before=resource.getrusage(resource.RUSAGE_CHILDREN) if capture_resources else None
     process=subprocess.Popen(argv,cwd=cwd,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
-    try:stdout,stderr=process.communicate(timeout=timeout)
-    except subprocess.TimeoutExpired:
-        timed_out=True;os.killpg(process.pid,signal.SIGKILL);stdout,stderr=process.communicate()
+    stop=threading.Event();samples=[];capture_errors=[]
+    def monitor():
+        try:
+            with (out/(label+'.resources.jsonl')).open('w') as stream:
+                while True:
+                    sample={'elapsed_seconds':round(time.monotonic()-started,6),**read_process_group(process.pid)}
+                    stream.write(json.dumps(sample,sort_keys=True)+'\n');stream.flush();samples.append(sample)
+                    if stop.wait(resource_interval):break
+        except Exception as error:capture_errors.append(repr(error))
+    worker=threading.Thread(target=monitor,name='bounded-resource-sampler',daemon=True) if capture_resources else None
+    if worker:worker.start()
+    try:
+        try:stdout,stderr=process.communicate(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            timed_out=True;os.killpg(process.pid,signal.SIGKILL);stdout,stderr=process.communicate()
+    finally:
+        if worker:stop.set();worker.join()
     (out/(label+'.stdout')).write_bytes(stdout);(out/(label+'.stderr')).write_bytes(stderr)
     record={'argv':argv,'exit_code':process.returncode,'timed_out':timed_out,'seconds':round(time.monotonic()-started,6)}
+    if capture_resources:
+        after=resource.getrusage(resource.RUSAGE_CHILDREN);seen={}
+        for sample in samples:
+            for item in sample['processes']:
+                key=(item['pid'],item['start_ticks']);old=seen.get(key,{'user_cpu_seconds':0,'system_cpu_seconds':0})
+                seen[key]={'user_cpu_seconds':max(old['user_cpu_seconds'],item['user_cpu_seconds']),
+                           'system_cpu_seconds':max(old['system_cpu_seconds'],item['system_cpu_seconds'])}
+        summary={'observations_only':True,'sample_interval_seconds':resource_interval,'sample_count':len(samples),
+          'capture_error':'; '.join(capture_errors) if capture_errors else None,
+          'observed_peak_group_rss_sum_kib':max((sum(p['rss_kib'] for p in v['processes']) for v in samples),default=0),
+          'observed_peak_process_hwm_kib':max((p['hwm_kib'] or 0 for v in samples for p in v['processes']),default=0),
+          'observed_process_cpu_user_seconds':sum(v['user_cpu_seconds'] for v in seen.values()),
+          'observed_process_cpu_system_seconds':sum(v['system_cpu_seconds'] for v in seen.values()),
+          'children_user_cpu_delta_seconds':after.ru_utime-usage_before.ru_utime,
+          'children_system_cpu_delta_seconds':after.ru_stime-usage_before.ru_stime,
+          'children_cumulative_maxrss_before_kib':usage_before.ru_maxrss,
+          'children_cumulative_maxrss_after_kib':after.ru_maxrss,
+          'limits':'Samples can miss fast/exited processes or final peaks; group RSS sums may double-count shared pages. Child CPU deltas may exclude unreaped descendants on forced kill. Cumulative maxrss is not the checker-only peak.'}
+        (out/(label+'.resources.json')).write_text(json.dumps(summary,sort_keys=True,indent=2)+'\n')
+        record['resource_capture_error']=summary['capture_error']
     (out/(label+'.status.json')).write_text(json.dumps(record,sort_keys=True,indent=2)+'\n')
     sys.stdout.buffer.write(stdout);sys.stderr.buffer.write(stderr)
     if timed_out:raise RuntimeError(label+' timed out')
     if require_success and process.returncode!=0:raise RuntimeError(label+' exit '+str(process.returncode))
+    if capture_errors:raise RuntimeError(label+' resource capture failed: '+str(capture_errors))
     return process.returncode
 
 def rational_controls():
@@ -152,15 +217,15 @@ def execute(out):
     build=out/'build';build.mkdir()
     env={**os.environ,'BQ_BUILD':str(build),'BQ_SIDE':str(SIDE)}
     prefix=['lake','env','bash','-c','export LEAN_PATH="$BQ_BUILD:$BQ_SIDE:${LEAN_PATH:-}"; export LEAN_SRC_PATH="$BQ_SIDE:${LEAN_SRC_PATH:-}"; exec "$@"','--']
-    def lean(label,args,success=True):
-        return run_process(out,label,prefix+args,require_success=success,cwd=ROOT/'formal',env=env)
+    def lean(label,args,success=True,timeout=600,capture_resources=False):
+        return run_process(out,label,prefix+args,timeout=timeout,require_success=success,cwd=ROOT/'formal',env=env,capture_resources=capture_resources)
     lean('toolchain',['lean','--version'])
     require((out/'toolchain.stdout').read_text().startswith('Lean (version 4.34.1,'),'wrong Lean version')
     lean('build',['lean','-DwarningAsError=true','--root='+str(SIDE),'-o',str(build/'FoldAffineBridge.olean'),str(SIDE/'FoldAffineBridge.lean')])
     lean('contract',['lean','-DwarningAsError=true','--root='+str(SIDE),str(SIDE/'Contract.lean')])
     lean('axioms',['lean','-DwarningAsError=true','--root='+str(out),str(out/'Audit.lean')])
     lean('types',['lean','-DwarningAsError=true','--root='+str(out),str(out/'Types.lean')])
-    lean('leanchecker',['leanchecker','--fresh','FoldAffineBridge'])
+    lean('leanchecker',['leanchecker','--fresh','FoldAffineBridge'],timeout=1200,capture_resources=True)
     for label in CONTROLS:
         status=lean(label,['lean','-DwarningAsError=true','--root='+str(out),str(out/(label+'.lean'))],False)
         validate_negative(label,status,(out/(label+'.stdout')).read_bytes(),(out/(label+'.stderr')).read_bytes())

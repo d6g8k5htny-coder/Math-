@@ -130,3 +130,25 @@ No nonlinear/approximate chart, random-field construction, stochastic or Palm
 realization, persistence pairing, probability, multiplicity or parent theorem
 is claimed. There is no primary target registration, formal-manifest change,
 scientific-status promotion or transfer of older review acceptance.
+
+## Proposed source-specific runtime budget
+
+The exact runtime profile is retained at PR391 comment6029164512. The required
+AlgebraV2 import contributes778683eligible constants; this candidate adds45,
+while the narrower D2Schur baseline has433798. Import loading is about3.4seconds;
+that is not fresh-kernel runtime or a linear time estimate.
+
+This successor proposes only the fresh-checker child cap1200seconds and overall
+job cap35minutes; all other child limits and all positive/type/axiom/negative/
+full-suite gates remain. No ordinary checker replaces --fresh. No proof or
+Contract source changes. Execution requires a distinct nonauthor engineering
+read of this exact delta and a finite confirmed continuation.
+
+The fresh-checker process group receives0.5second Linux/proc observations,
+flushed as raw JSONL, plus a summary and separate RUSAGE_CHILDREN CPU deltas.
+Observed peak process VmHWM and summed group RSS are diagnostic observations,
+not guaranteed whole-run maxima: fast/exited children and final spikes can be
+missed; RSS sums may double-count shared pages. Cumulative child maxrss is
+labelled cumulative, not checker-only. Forced kill can exclude unreaped
+descendants from child-CPU deltas. Raw streams/status and partial observations
+survive timeout; capture failures cannot mint a passing receipt.

@@ -17,7 +17,7 @@ permissions:
 jobs:
   fold-affine-bridge:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     env:
       LEAN_NUM_THREADS: 2
     steps:

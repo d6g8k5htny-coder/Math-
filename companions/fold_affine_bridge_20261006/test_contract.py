@@ -1,6 +1,7 @@
 """Bounded driver tests and exact rational supplements; not kernel evidence."""
 import importlib.util
 import json
+import inspect
 from pathlib import Path
 import sys
 import tempfile
@@ -18,6 +19,38 @@ class DriverTest(unittest.TestCase):
         self.assertIsNotNone(replay,'bounded replay driver is missing')
         self.assertTrue(callable(getattr(replay,name,None)), 'missing driver behavior '+name)
         return getattr(replay,name)
+
+    def test_proc_stat_accounting_fields(self):
+        fn=self.api('parse_proc_stat')
+        fields=['S','1','77','77','0','0','0','0','0','0','0','10','5','0','0','20','0','1','0','123','4096','7']
+        got=fn('88 (name with ) spaces) '+' '.join(fields),100,4096)
+        self.assertEqual(got['pid'],88);self.assertEqual(got['process_group'],77)
+        self.assertEqual(got['start_ticks'],123);self.assertEqual(got['rss_kib'],28)
+        self.assertEqual(got['user_cpu_seconds'],.1);self.assertEqual(got['system_cpu_seconds'],.05)
+
+    def test_resource_capture_normal_and_fast_exit(self):
+        fn=self.api('run_process')
+        self.assertIn('capture_resources',inspect.signature(fn).parameters)
+        for label,body in [('normal','import time; a=bytearray(8*1024*1024); time.sleep(.2)'),('fast','pass')]:
+            with self.subTest(label=label),tempfile.TemporaryDirectory() as d:
+                out=Path(d);fn(out,label,[sys.executable,'-c',body],timeout=3,capture_resources=True,resource_interval=.02)
+                data=json.loads((out/(label+'.resources.json')).read_text())
+                self.assertTrue(data['observations_only']);self.assertGreaterEqual(data['sample_count'],1)
+                self.assertIsNone(data['capture_error']);self.assertGreaterEqual(data['children_user_cpu_delta_seconds'],0)
+                if label=='normal':self.assertGreater(data['observed_peak_group_rss_sum_kib'],0)
+
+    def test_resource_capture_timeout_retains_partial(self):
+        fn=self.api('run_process')
+        self.assertIn('capture_resources',inspect.signature(fn).parameters)
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d)
+            with self.assertRaisesRegex(RuntimeError,'timed out'):
+                fn(out,'limit',[sys.executable,'-u','-c','import time; a=bytearray(8*1024*1024); print("ready"); time.sleep(10)'],timeout=.2,capture_resources=True,resource_interval=.02)
+            data=json.loads((out/'limit.resources.json').read_text())
+            self.assertGreater(data['sample_count'],0);self.assertGreater(data['observed_peak_group_rss_sum_kib'],0)
+            self.assertTrue(json.loads((out/'limit.status.json').read_text())['timed_out'])
+            self.assertIn(b'ready', (out/'limit.stdout').read_bytes())
+            self.assertGreater(len((out/'limit.resources.jsonl').read_bytes()),0)
 
     def test_absolute_value_token_spacing(self):
         for name in ('FoldAffineBridge.lean','Contract.lean'):
