@@ -1,3 +1,33 @@
+# NEVER-MERGE diagnostic carrier: import inventory only
+
+This separate carrier is authorized by
+https://github.com/d6g8k5htny-coder/Math-/pull/389#issuecomment-6029010837.
+PR389 and frozen candidate9c3246ddc22783b3933d6125798a19cbce4a7b4b stay unchanged.
+Only replay/test/README/SOURCE_FILES and the dedicated workflow differ here;
+FoldAffineBridge.lean and Contract.lean must remain byte-identical.
+
+Exactly one profile-only hosted job, maximum10minutes; each profile<=90seconds.
+No leanchecker, fresh replay, negative/full-suite result or proof receipt is
+produced by the profile command. A successful inventory is measurement only.
+The ordinary execute command remains defined but is not invoked on this carrier.
+No merge or mathematical acceptance is authorized.
+
+The generated temporary Lean program calls the pinned withImportModules API
+and counts the same map1 constants and unsafe/partial exclusion used by pinned
+Lean.Replay. It does not replay declarations. It records actual module names,
+resolved .olean paths, effective Lean environment paths and binary/version.
+Import-load wall milliseconds are measured inside withImportModules;
+GNU-time CPU/maximum RSS/elapsed values cover the entire profile process,
+including Lean startup and counting. Those resource scopes are kept distinct.
+Failure stdout/stderr/status and any partial resource output are retained.
+
+The sole intended command is:
+
+    python3 -B -S companions/fold_affine_bridge_20261006/replay.py profile
+
+The preserved mathematical source scope and prior failures follow below;
+they are not new verification claims for this diagnostic carrier.
+
 # Exact fold derivatives and affine coordinates
 
 Scientific effect: NONE. Author: OpenAI, `fold-affine-bridge-author-20261006`,
