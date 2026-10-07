@@ -1,0 +1,74 @@
+{
+  "core_tree": "d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14",
+  "definitions": [
+    "FoldAffineBridge.affinePotential",
+    "FoldAffineBridge.plusPoint",
+    "FoldAffineBridge.minusPoint",
+    "FoldAffineBridge.physicalSeparation"
+  ],
+  "files": {
+    ".github/workflows/fold-affine-bridge.yml": {
+      "bytes": 1684,
+      "git_blob": "c35ae86d1d74c8ee7aad9df4b0c7e55718d51ac0",
+      "sha256": "33dd9770af74c79461372089ef18eef0451a67d8a6db3c514259285be8c25299"
+    },
+    "companions/fold_affine_bridge_20261006/Contract.lean": {
+      "bytes": 5668,
+      "git_blob": "d9246a729c92e0c9a2aa6024d40969824409654e",
+      "sha256": "0090b6c004a6d348417957fd4f766264548178ad3f5a36cc5cce240fae67ac50"
+    },
+    "companions/fold_affine_bridge_20261006/FoldAffineBridge.lean": {
+      "bytes": 254,
+      "git_blob": "2529672e6d0c785ae645a10f9c167a09645d334d",
+      "sha256": "7a5a4ad29868c747957d652ab89a905a96576051e5d57368e8d4f3f3e8c256c9"
+    },
+    "companions/fold_affine_bridge_20261006/README.md": {
+      "bytes": 6174,
+      "git_blob": "6411817cd5e07e5b62e1a9a09139a9da745ec28a",
+      "sha256": "ea57819c6c39dc83be72b858c56fd7e0c231e03d1c3280f73b1cd6f8d5ba337c"
+    },
+    "companions/fold_affine_bridge_20261006/replay.py": {
+      "bytes": 12704,
+      "git_blob": "0cec9c6bb4d6c28b570b6aa5313996109706f1c1",
+      "sha256": "05bd82d209f0e345a65e08d8ca7e94cbdd786cb2a8524b53c0e73bcafdbf5eb4"
+    },
+    "companions/fold_affine_bridge_20261006/test_contract.py": {
+      "bytes": 5377,
+      "git_blob": "dc8b0e43a02abb777c0f8673e1c8f8ce39f8f524",
+      "sha256": "26b37efe13693041eabba7fa5c58eefa87415a5cf7b02c6be93d366b84a58aa8"
+    }
+  },
+  "scientific_effect": "NONE",
+  "targets": [
+    "FoldAffineBridge.fold_hasDerivAt",
+    "FoldAffineBridge.fold_deriv",
+    "FoldAffineBridge.fold_second",
+    "FoldAffineBridge.fold_critical",
+    "FoldAffineBridge.fold_nondegenerate",
+    "FoldAffineBridge.fold_curvature",
+    "FoldAffineBridge.affine_hasDerivAt",
+    "FoldAffineBridge.affine_deriv",
+    "FoldAffineBridge.affine_hasDerivAt_deriv",
+    "FoldAffineBridge.affine_second",
+    "FoldAffineBridge.affine_coordinates",
+    "FoldAffineBridge.affine_critical",
+    "FoldAffineBridge.affine_orientation",
+    "FoldAffineBridge.affine_distinct",
+    "FoldAffineBridge.affine_curvature",
+    "FoldAffineBridge.affine_nondegenerate",
+    "FoldAffineBridge.affine_curvature_sign",
+    "FoldAffineBridge.separation_eq",
+    "FoldAffineBridge.separation_nonneg",
+    "FoldAffineBridge.separation_zero",
+    "FoldAffineBridge.affine_signed_gap",
+    "FoldAffineBridge.affine_absolute_gap",
+    "FoldAffineBridge.affine_increments",
+    "FoldAffineBridge.affine_local_signs",
+    "FoldAffineBridge.affine_zero_degenerate",
+    "FoldAffineBridge.affine_zero_increment",
+    "FoldAffineBridge.affine_zero_crossing",
+    "FoldAffineBridge.affine_constant_a",
+    "FoldAffineBridge.affine_constant_c"
+  ],
+  "version": 1
+}
