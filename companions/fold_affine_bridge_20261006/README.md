@@ -29,6 +29,12 @@ bars/multiplication formed the Lean |* token. Original artifact11453177336
 (45870bytes, SHA25686036e287059a5d8540bad534ae1a8348e4cd5bd7075b3a0571e9b6717cfc0c5)
 is retained. The successor repairs these source issues without changing target
 hypotheses; candidate contract/axiom/recheck/negative stages were unrun there.
+The next exact run37552472542/1 at ea86cd53 failed only on unreachable
+tactics in unused extensionality branches and a trailing ring after field_simp
+had closed the absolute-gap goal. Artifact11453480961 retains that failure
+(23452bytes, SHA256a51829d0a2bbb1666bd859abd10f2fe71b7d08e47224fea688f9d1665e2a1b73).
+The successor removes those dead tactics without disabling any linter or
+changing theorem statements. Its later stages still require actual execution.
 
 ## Exact mathematical contract
 
