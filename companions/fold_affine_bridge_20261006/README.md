@@ -21,7 +21,14 @@ failed on absent new declarations (exit1). Its original artifact11451893422
 is retained,48344bytes/SHA2566060fc6658508d97b544290742c759512513f9216f27ae04bce8619ba7da41bf.
 Proof bodies are supplied only after that observed failure. Their compilation,
 current-source kernel evidence and independently authenticated statement/source
-alignment remain separate pending stages. Failed attempts stay in the PR record.
+alignment remain separate pending stages. Failed attempts stay in the PR record. The first proof-source head48544ac5
+failed candidate compilation in37551282778/1 after the full suites and unchanged
+core passed: pointwise function equalities needed explicit extensionality, one
+tactic was unreachable under warnings-as-errors, and adjacent absolute-value
+bars/multiplication formed the Lean |* token. Original artifact11453177336
+(45870bytes, SHA25686036e287059a5d8540bad534ae1a8348e4cd5bd7075b3a0571e9b6717cfc0c5)
+is retained. The successor repairs these source issues without changing target
+hypotheses; candidate contract/axiom/recheck/negative stages were unrun there.
 
 ## Exact mathematical contract
 
@@ -87,10 +94,12 @@ From the repository root:
     python3 -B -S companions/fold_affine_bridge_20261006/replay.py execute
 
 Execute requires the existing pinned toolchain already available. Its fresh
-output directory defaults to .lake/fold-affine-bridge-evidence. It runs both
-full root and formal Python suites, the unchanged primary kernel gate, then
-candidate warnings-as-errors build, exact-type consumers, transitive axiom/type
-audits, fresh leanchecker and reason-specific controls. The companion .olean
+output directory defaults to .lake/fold-affine-bridge-evidence. It runs the unchanged primary kernel gate, then candidate warnings-as-errors
+build, exact-type consumers, transitive axiom/type audits, fresh leanchecker
+and reason-specific controls. Both full root/formal Python suites and companion
+tests in normal and optimized modes remain mandatory before any final receipt.
+This early-positive ordering changes failure latency only; unrun stages never
+inherit earlier results. The companion .olean
 is written only under the separate output/build directory. Every child keeps
 raw stdout/stderr/status, including failure and timeout. Receipt creation is
 last and cannot turn a partial run into success. The dedicated read-only

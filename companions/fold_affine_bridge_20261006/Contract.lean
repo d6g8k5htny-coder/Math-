@@ -51,7 +51,7 @@ example (s a b c : ℝ) (ha : a ≠ 0) :
       c*(2*s)^3/6 := affine_signed_gap s a b c ha
 example (s a b c : ℝ) (ha : a ≠ 0) :
     |affinePotential s a b c (plusPoint s a b)-affinePotential s a b c (minusPoint s a b)|=
-      |c|*|a|^3*(physicalSeparation s a)^3/6 := affine_absolute_gap s a b c ha
+      |c| * |a|^3*(physicalSeparation s a)^3/6 := affine_absolute_gap s a b c ha
 example (s a b c h : ℝ) (ha : a ≠ 0) :
     affinePotential s a b c (plusPoint s a b+h)-affinePotential s a b c (plusPoint s a b)=
       -c*(a*h)^2*(s+a*h/3) ∧

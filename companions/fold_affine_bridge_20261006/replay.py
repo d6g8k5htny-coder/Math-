@@ -148,10 +148,6 @@ def execute(out):
     require(not out.exists(),'output already exists');out.mkdir(parents=True)
     before=source();(out/'source.json').write_text(json.dumps(before,sort_keys=True,indent=2)+'\n')
     emit(out)
-    for mode,flags in [('normal',[]),('optimized',['-O'])]:
-        run_process(out,'companion-tests-'+mode,[sys.executable,'-B',*flags,'-S',str(SIDE/'test_contract.py')])
-        for suite in ('tests','formal/tests'):
-            run_process(out,suite.replace('/','-')+'-'+mode,[sys.executable,'-B',*flags,'-S','-m','unittest','discover','-s',suite,'-v'])
     run_process(out,'core-execute',[sys.executable,'-B','-S','formal/gate.py','--execute'],timeout=1200)
     build=out/'build';build.mkdir()
     env={**os.environ,'BQ_BUILD':str(build),'BQ_SIDE':str(SIDE)}
@@ -168,6 +164,10 @@ def execute(out):
     for label in CONTROLS:
         status=lean(label,['lean','-DwarningAsError=true','--root='+str(out),str(out/(label+'.lean'))],False)
         validate_negative(label,status,(out/(label+'.stdout')).read_bytes(),(out/(label+'.stderr')).read_bytes())
+    for mode,flags in [('normal',[]),('optimized',['-O'])]:
+        run_process(out,'companion-tests-'+mode,[sys.executable,'-B',*flags,'-S',str(SIDE/'test_contract.py')])
+        for suite in ('tests','formal/tests'):
+            run_process(out,suite.replace('/','-')+'-'+mode,[sys.executable,'-B',*flags,'-S','-m','unittest','discover','-s',suite,'-v'])
     require(source()==before,'source changed during execution')
     gate_path=ROOT/'formal/gate.py'
     require(identity(gate_path.read_bytes())['sha256']==CORE_GATE,'core audit changed')

@@ -19,6 +19,11 @@ class DriverTest(unittest.TestCase):
         self.assertTrue(callable(getattr(replay,name,None)), 'missing driver behavior '+name)
         return getattr(replay,name)
 
+    def test_absolute_value_token_spacing(self):
+        for name in ('FoldAffineBridge.lean','Contract.lean'):
+            with self.subTest(name=name):
+                self.assertNotIn('|*',(SIDE/name).read_text(), 'absolute-value close must not form the Lean |* token')
+
     def test_strict_json_accepts_object(self):
         self.assertEqual(self.api('strict_json')('{"x":1}'), {'x':1})
 
