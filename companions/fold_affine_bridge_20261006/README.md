@@ -21,7 +21,8 @@ failed on absent new declarations (exit1). Its original artifact11451893422
 is retained,48344bytes/SHA2566060fc6658508d97b544290742c759512513f9216f27ae04bce8619ba7da41bf.
 Proof bodies are supplied only after that observed failure. Their compilation,
 current-source kernel evidence and independently authenticated statement/source
-alignment remain separate pending stages. Failed attempts stay in the PR record. The first proof-source head48544ac5
+alignment are separate evidence stages. The PR records their actual completion
+at exact source identities; this static scope note does not award acceptance. Failed attempts stay in the PR record. The first proof-source head48544ac5
 failed candidate compilation in37551282778/1 after the full suites and unchanged
 core passed: pointwise function equalities needed explicit extensionality, one
 tactic was unreachable under warnings-as-errors, and adjacent absolute-value
@@ -39,7 +40,12 @@ two unnecessarySeqFocus lint errors for single-goal derivative conversions;
 artifact11454255745 (23429bytes, SHA256c6ece3872717be3ffd1a5cae715def936e280749ed6050436bc46150f07e86e8)
 preserves that attempt. The next successor uses the requested ordinary tactic
 sequencing at those two sites. No linter is disabled, and all later stages
-still require actual execution.
+still require actual execution. Run37553676722/1 at60b5ef19 then compiled
+all29theorems/4definitions with warnings-as-errors, but the numeric Hessian
+consumer failed because simp left2*3*2^2 unevaluated rather than24. Its original
+artifact11453487543 is416601bytes with SHA2565766ec45c8184ac73de883e3bea84ccbcf275cb70f2c38b2a27fdf456bc29e49.
+The consumer now invokes explicit norm_num without changing its statement.
+A module build alone is not the final axiom/recheck/negative-control receipt.
 
 ## Exact mathematical contract
 

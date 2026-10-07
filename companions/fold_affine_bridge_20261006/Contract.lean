@@ -87,7 +87,9 @@ example (b : ℝ) : physicalSeparation 1 2=1 ∧
     norm_num [physicalSeparation]
 example (b : ℝ) : deriv (deriv (affinePotential 1 2 b 3)) (plusPoint 1 2 b)= -24 ∧
     deriv (deriv (affinePotential 1 2 b 3)) (minusPoint 1 2 b)=24 := by
-  simpa using affine_curvature 1 2 b 3 (by norm_num)
+  have h := affine_curvature 1 2 b 3 (by norm_num)
+  norm_num at h
+  exact h
 example : deriv (deriv (foldPotential (-1))) (-1)=2 := by norm_num [fold_second]
 example (b : ℝ) : plusPoint 1 (-2) b-minusPoint 1 (-2) b= -1 := by
   rw [affine_orientation]; norm_num
