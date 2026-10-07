@@ -13,11 +13,15 @@ Reservation and source-bound statement contract:
 
 ## Publication phase
 
-This first commit is the test-first stub. Contract.lean must fail because the
-named new declarations are not present; it is not a proof publication or a
-successful kernel run. Source-supplied, current-commit kernel evidence and
-independently authenticated statement/source alignment are separate stages.
-Original failed attempts remain part of the PR record.
+The initial commit f83bb592 was an intentionally empty test-first stub.
+Dedicated run37549682550/1 at merge checkout
+fcf5c6ba05d15323f10d8e555c9a3e125a079d8b passed both full Python modes, the
+unchanged primary kernel gate and the stub module build, then Contract.lean
+failed on absent new declarations (exit1). Its original artifact11451893422
+is retained,48344bytes/SHA2566060fc6658508d97b544290742c759512513f9216f27ae04bce8619ba7da41bf.
+Proof bodies are supplied only after that observed failure. Their compilation,
+current-source kernel evidence and independently authenticated statement/source
+alignment remain separate pending stages. Failed attempts stay in the PR record.
 
 ## Exact mathematical contract
 

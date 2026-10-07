@@ -1,6 +1,7 @@
 import FoldAffineBridge
 
 open ResearchFormalCoreR1 FoldAffineBridge
+set_option autoImplicit false
 
 example (s x : ℝ) : HasDerivAt (foldPotential s) (s^2-x^2) x := fold_hasDerivAt s x
 example (s x : ℝ) : deriv (foldPotential s) x = s^2-x^2 := fold_deriv s x
