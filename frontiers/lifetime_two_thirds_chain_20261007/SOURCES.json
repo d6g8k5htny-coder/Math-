@@ -1,0 +1,757 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-TWO-THIRDS-CHAIN-INCORPORATION-20261007-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028562633",
+  "note": "the incorporator is also the author of addendum EM.1 and notes LU, C3 and SL (custody only; no proof byte is changed)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229"
+ ],
+ "extraction_rule": "the rule each controls comment states (that of main#229 comment 5971055189): the control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line of the following ```json fence, plus one newline",
+ "related_packets": {
+  "frontiers/em_intermediate_elder_20261006/": "note EM (Lemma X, Lemma V, section 4), consumed by EM.1 and LU, if Math-#388 has landed; otherwise main#229 6023010944",
+  "frontiers/ts_small_kappa_20261006/": "note TS (Theorem TL-, section 5), consumed by EM.1 and LU, if Math-#387 has landed; otherwise main#229 6020794123",
+  "frontiers/tl_soft_layer_20261006/": "note TL (Theorem TL, section 5, Remark 2), consumed by SL, if Math-#384 has landed; otherwise main#229 6017975404",
+  "frontiers/candidate_parity_rate_20261001/": "#237: Lemma U, Lemma K, the polynomials (2.1), section 5",
+  "frontiers/candidate_third_order_20261001/": "#218: section 0, Lemma D, (1.2), Step F1",
+  "frontiers/cusp_second_order_20261001/": "#207: (7.1), (7.2), I^cand",
+  "frontiers/third_order_rate_20261001/": "#229: (W+.2), (W+.3)",
+  "frontiers/elder_third_order_20261001/": "#220: section 0, Lemma H, (H.1)",
+  "frontiers/far_elder_rate_20260930/": "#187: the far bound",
+  "frontiers/soft_rejected_pairs_20261002/": "#242: section 0, (3.1), Theorem 1, Corollary 1'",
+  "frontiers/soft_fold_limit_20261002/": "#243: Theorem FL",
+  "frontiers/c7_total_bounded_20260929/": "[K]: (K2)",
+  "frontiers/three_fronts_20260924/": "[R]: (R5)",
+  "frontiers/fixed_r_inverse_lifetime_20260930/": "[182]: (2), through Lemma X"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that record no pickup, verdict or author response are not stored",
+  "clean-context referee reports": "same-provider, same-session referee reports are kept in the project archive, not here",
+  "exploration scripts": "the exploration scripts (toy_diff.py in the LU controls comment; the C3 exploration comment) use numpy, scipy or mpmath; they are stored only inside their comment bodies and are neither extracted nor run",
+  "note EM": "stored by Math-#388 (frontiers/em_intermediate_elder_20261006/); EM1/CLAIM.md is the same comment as that packet's EM/AUTHOR_READ_COMPLETE_AND_CLAIM.md, stored again here as EM.1's claim"
+ },
+ "objects": [
+  {
+   "tag": "EM1",
+   "directory": "EM1/",
+   "object": "CL-EM1-BAD-REGION-20261006-v1",
+   "title": "Lifetime addendum EM.1: the bad region of Lemma S''' through the sheared box, and the intermediate elder mass O(l^(2/3) log(1/l)) on kappa <= r",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma V' ((V.4), a fourth small ball), Lemma B (the bad region: E_Q[(W_r/r^2) e 1_B] <= C r^2 [r kappa + r^2 kappa^(2/3)] P^N for 0 < k <= r^2), Theorem S'''+ (the same bound for the elder weight, and 0 <= T_r^eld(k, u) <= C (r kappa + r^2 kappa^(2/3))) and Corollary EM.1 (the intermediate elder mass on [l^(1/5), r_0^*] is O(l^(2/3) log(1/l))); the control script checks finite algebra only",
+   "read_complete": "LU/CLAIM.md (6024580296)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-1, section 2 (a)-(c); B1-B3 with M1, M2, M7, M8): Cursor agent bc-2a80b870 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6024106995",
+    "Slice B (section 2 (d)-(e), sections 3-4, header; B4-B5 with M3-M6): Cursor agent bc-18f6b872 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6024112289"
+   ],
+   "conditional_on": "note EM (main#229 6023010944 with its successor text 6023434026; custody packet Math-#388), note TS (6020794123 with its successor text 6021299833; custody packet Math-#387), #220, [R], [182], #229, #187 and #237, at their stated scopes (blobs listed in the addendum header)",
+   "not_claimed": "no improvement of Corollary EM's 9/14, of rho_rej's 3/5, or of any statement of note TS beyond (S''.1)-(S''.2) on kappa <= r; no sharpness of any term; nothing pointwise in b; no certified number; no uniformity in d or L",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "EM1/CLAIM.md",
+     "role": "author note: note EM read in every slice, with two D5 claims (claim 1: EM custody, delivered as Math-#388; claim 2: this addendum)",
+     "comment": "6024074852",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024074852",
+     "created_at": "2026-10-06T19:40:10Z",
+     "updated_at": "2026-10-06T19:40:10Z",
+     "bytes": 3453,
+     "sha256": "dc9cd57371838a63c607abf9827a56a2128742a59f4aab86b589a99891aa55d2"
+    },
+    {
+     "path": "EM1/PROOF.md",
+     "role": "frozen addendum (lifetime addendum EM.1)",
+     "comment": "6024077582",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024077582",
+     "created_at": "2026-10-06T19:40:21Z",
+     "updated_at": "2026-10-06T19:40:21Z",
+     "bytes": 20844,
+     "sha256": "e2b73535aec78c812b22548115e5e52032ebf4725af7a6d6c8dd16925bc11c91"
+    },
+    {
+     "path": "EM1/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains em1_exact.py and its stdout)",
+     "comment": "6024090900",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024090900",
+     "created_at": "2026-10-06T19:41:10Z",
+     "updated_at": "2026-10-06T19:41:10Z",
+     "bytes": 18607,
+     "sha256": "7d535deecb1f67d9c5a7cc513ea577b59bd028b1bff1e47e112d255217a0bda6"
+    },
+    {
+     "path": "EM1/author_controls.py",
+     "role": "control script em1_exact.py, extracted verbatim from the stored controls comment EM1/AUTHOR_CONTROLS_COMMENT.md (heading: ### em1_exact.py)",
+     "extracted_from": "EM1/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### em1_exact.py",
+     "bytes": 12720,
+     "sha256": "80d3f0452732ab6eceb48ce63baaed35f6cc6336417719bb55d1820aaa55e8bb"
+    },
+    {
+     "path": "EM1/author_controls_stdout.json",
+     "role": "published stdout of EM1/author_controls.py, extracted verbatim from EM1/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "EM1/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### em1_exact.py",
+     "bytes": 162,
+     "sha256": "50001f8a77a3babe1d3b93f311f111b715eafcdbe0b2ec5d42ea322faa3bffa8"
+    },
+    {
+     "path": "EM1/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (two slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6024105685",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024105685",
+     "created_at": "2026-10-06T19:42:05Z",
+     "updated_at": "2026-10-06T19:42:05Z",
+     "bytes": 4354,
+     "sha256": "24af65a8ca1c7df6014e745d09a2fc34d7aa926a9105482ec2e9c549abca6522"
+    },
+    {
+     "path": "EM1/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-1 and section 2 (a)-(c): Lemma V', the shear, the cubic coefficient, Lemma X on the bad region; B1-B3 with M1, M2, M7, M8): PASS, Cursor agent bc-2a80b870 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6024106995",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024106995",
+     "created_at": "2026-10-06T19:42:10Z",
+     "updated_at": "2026-10-06T19:49:58Z",
+     "bytes": 7170,
+     "sha256": "e0191887ca16597d81a4c30749f5392acf6a6f841c52961bddfabb19a62621dc"
+    },
+    {
+     "path": "EM1/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6024111114",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024111114",
+     "created_at": "2026-10-06T19:42:26Z",
+     "updated_at": "2026-10-06T19:42:26Z",
+     "bytes": 3326,
+     "sha256": "c5ac8fe170943a35049a026c1c0a9546a89338a26485258589260f9d68896d57"
+    },
+    {
+     "path": "EM1/REVIEW_SLICE_B.md",
+     "role": "Slice B (section 2 (d)-(e), sections 3-4 and the header: the expectations, Theorem S'''+, Corollary EM.1, the ledger; B4-B5 with M3-M6): PASS, Cursor agent bc-18f6b872 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6024112289",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024112289",
+     "created_at": "2026-10-06T19:42:30Z",
+     "updated_at": "2026-10-06T19:53:27Z",
+     "bytes": 9735,
+     "sha256": "152152e16e84ec39151989d92b672322280bfd1be3623bbfa569829894017ba5"
+    }
+   ],
+   "replays": [
+    {
+     "name": "em1_exact.py (stdout in a ```json fence)",
+     "script": "EM1/author_controls.py",
+     "stdout": "EM1/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "LU",
+   "directory": "LU/",
+   "object": "CL-LU-GAP-DIFFERENCE-20261006-v1",
+   "title": "Lifetime note LU: Lemma U for differences, and the three densities with remainder O(l^(2/3)) up to a logarithm",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma U_0 (|T_r(k, u) - T_r(0, u) - Lambda_kappa(u)| <= C r k for kappa <= 1), Theorem U= (Lemma U for differences, for every k > 0, with error C(r^2 min(1, kappa) + r min(k, 1/k))), Theorem P+ (nu_cand with remainder O(l^(2/3))) and Corollary LU (nu_eld and rho_rej with remainder O(l^(2/3) log(1/l)); SIDE24 relative remainder O(l log(1/l))); the control script checks finite algebra only",
+   "read_with": "the author successor text https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6026230530 (section 2), which applies the AMEND https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025531584 exactly: one replacement in section 3 Step 3, I_1, the second term, the case c_tau < 4 eta (now routed through the f_4-coordinate absorption); readback PASS https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6026231785. No statement changes; the stored note body and lu_exact.py are unchanged.",
+   "read_complete": "C3/CLAIM.md (6026342638)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-2; L1-L3 with M1-M3, M7): Cursor agent bc-3848290a (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6025530037",
+    "Slice B (section 3; L6 with M6): Cursor agent bc-13c58f23 (xAI Grok 4.7; non-Claude, nonauthor), AMEND, 6025531584",
+    "Slice C (sections 4-6, header; L4-L5 with M4-M5): Cursor agent bc-87b46e7a (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6025535376",
+    "author successor text 6026230530: the AMEND applied exactly (one replacement in section 3 Step 3; no statement changes)",
+    "readback of the successor text: Cursor agent bc-0cf04834 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6026231785"
+   ],
+   "conditional_on": "#237, #218, #207 and #229; for Corollary LU also note TS (6020794123 with 6021299833; Math-#387), note EM (6023010944 with 6023434026; Math-#388), addendum EM.1 (stored here) and #187; at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no sharpness of 2/3 and no identification of an l^(2/3) coefficient (remainders bounded, not expanded); nothing about #242's Conjecture 7; no change to any statement of #237, note TS, note EM or EM.1; nothing pointwise in b; no certified number; no uniformity in d or L; whether IBA2-009 closes is for the audit's owners",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "LU/CLAIM.md",
+     "role": "author note: addendum EM.1 read in both slices and its claim released (EM custody delivered as Math-#388); D5 claim for note LU",
+     "comment": "6024580296",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024580296",
+     "created_at": "2026-10-06T20:12:14Z",
+     "updated_at": "2026-10-06T20:12:14Z",
+     "bytes": 3780,
+     "sha256": "f4be56acf8b3b0eef3d178aa67d13f70fe402faf3e7cffa21d55dfdd82b25374"
+    },
+    {
+     "path": "LU/PROOF.md",
+     "role": "frozen note (lifetime note LU)",
+     "comment": "6025486512",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025486512",
+     "created_at": "2026-10-06T21:08:39Z",
+     "updated_at": "2026-10-06T21:08:39Z",
+     "bytes": 43217,
+     "sha256": "373710a50e981e41472e51f49be4d50bcf5da70c01b518f833cb49b1e0680dac"
+    },
+    {
+     "path": "LU/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains lu_exact.py and its stdout; its appendix holds the exploration script toy_diff.py of Remark 3 with its output, which uses numpy and scipy, is not a control, and is neither extracted nor run here)",
+     "comment": "6025504196",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025504196",
+     "created_at": "2026-10-06T21:09:48Z",
+     "updated_at": "2026-10-06T21:09:48Z",
+     "bytes": 28313,
+     "sha256": "eb6184ddcc452e6d40b1e7e19d08717e80ebbb9d30a8ea6401a77e64fffd9c85"
+    },
+    {
+     "path": "LU/author_controls.py",
+     "role": "control script lu_exact.py, extracted verbatim from the stored controls comment LU/AUTHOR_CONTROLS_COMMENT.md (heading: ### lu_exact.py)",
+     "extracted_from": "LU/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### lu_exact.py",
+     "bytes": 13287,
+     "sha256": "c5bf756c5a6f417da58ab50c20f838d445a51c45b8a50a10244520d017e76c0a"
+    },
+    {
+     "path": "LU/author_controls_stdout.json",
+     "role": "published stdout of LU/author_controls.py, extracted verbatim from LU/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "LU/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### lu_exact.py",
+     "bytes": 180,
+     "sha256": "8f47c8f039173bfd17f0bd8b4793a941127c93de7ffc413ca5fd6f64b738832e"
+    },
+    {
+     "path": "LU/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (three slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6025528584",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025528584",
+     "created_at": "2026-10-06T21:11:22Z",
+     "updated_at": "2026-10-06T21:11:22Z",
+     "bytes": 4695,
+     "sha256": "992dae44298d1bc5ae6d5959f6322c9f51e62521b8476d9372be8e92284abed3"
+    },
+    {
+     "path": "LU/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-2: the statements, the identity (0.2), Lemma S and Lemma E; L1-L3 with M1-M3, M7): PASS, Cursor agent bc-3848290a (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6025530037",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025530037",
+     "created_at": "2026-10-06T21:11:28Z",
+     "updated_at": "2026-10-06T21:21:17Z",
+     "bytes": 8127,
+     "sha256": "3df3419fbd6cc458a2d8e946929e162296b3e71ed430ca61337234403abb66bf"
+    },
+    {
+     "path": "LU/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6025530573",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025530573",
+     "created_at": "2026-10-06T21:11:30Z",
+     "updated_at": "2026-10-06T21:11:30Z",
+     "bytes": 3408,
+     "sha256": "dbe2c87a7414a687c3965b43dbe7f7b0b7be433d8e440ba54d2a5ac0edb7974a"
+    },
+    {
+     "path": "LU/REVIEW_SLICE_B.md",
+     "role": "Slice B (section 3: the proof of Lemma U_0; L6 with M6): AMEND (one bullet of I_1 in section 3 Step 3, the case c_tau < 4 eta; no statement changes), Cursor agent bc-13c58f23 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6025531584",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025531584",
+     "created_at": "2026-10-06T21:11:34Z",
+     "updated_at": "2026-10-06T21:26:50Z",
+     "bytes": 4660,
+     "sha256": "40557b3585a61cb16e6baebcb0812f9696c7ed68e1fdd50e6192f2a6923c2c52"
+    },
+    {
+     "path": "LU/REVIEW_SLICE_C_SUMMONS.md",
+     "role": "Slice C summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6025532030",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025532030",
+     "created_at": "2026-10-06T21:11:36Z",
+     "updated_at": "2026-10-06T21:11:36Z",
+     "bytes": 4027,
+     "sha256": "460bd0d5dad2ea46ee5e862e6fdbd5090414b3967faef59f1a6fae4c6881d945"
+    },
+    {
+     "path": "LU/REVIEW_SLICE_C.md",
+     "role": "Slice C (sections 4-6 and the header: Theorem U=, Theorem P+, Corollary LU and its ledger, the remarks; L4-L5 with M4-M5): PASS, Cursor agent bc-87b46e7a (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6025535376",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6025535376",
+     "created_at": "2026-10-06T21:11:49Z",
+     "updated_at": "2026-10-06T21:21:11Z",
+     "bytes": 9969,
+     "sha256": "2846fbc46051759e1136f49e39a37f4174477de40585a93f339a085e8a4ffd1a"
+    },
+    {
+     "path": "LU/AUTHOR_SUCCESSOR_TEXT_AND_READBACK_SUMMONS.md",
+     "role": "author round note: the three verdicts, the successor text applying the AMEND exactly (one replacement in section 3 Step 3), and the readback summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6026230530",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6026230530",
+     "created_at": "2026-10-06T21:59:48Z",
+     "updated_at": "2026-10-06T21:59:48Z",
+     "bytes": 9192,
+     "sha256": "5c9d403e0b38bc6acc738760ffdbd8cba3c0722641c90be0a69088a39fc03a73"
+    },
+    {
+     "path": "LU/READBACK_SUCCESSOR_TEXT.md",
+     "role": "readback of the successor text against the AMEND: PASS, Cursor agent bc-0cf04834 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6026231785",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6026231785",
+     "created_at": "2026-10-06T21:59:54Z",
+     "updated_at": "2026-10-06T22:06:01Z",
+     "bytes": 4579,
+     "sha256": "7e9552a7af08a7243a3ebbc566b7b50ceade8c33ed0944f00f482ebeeb1c053c"
+    }
+   ],
+   "replays": [
+    {
+     "name": "lu_exact.py (stdout in a ```json fence)",
+     "script": "LU/author_controls.py",
+     "stdout": "LU/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "C3",
+   "directory": "C3/",
+   "object": "CL-C3-CANDIDATE-TWO-THIRDS-20261006-v1",
+   "title": "Lifetime note C3: the l^(2/3) term of the candidate density",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma F_3 ((T_r(k) - S_r(k))/r -> L_F(k) at every fixed k > 0, with L_F(k) = (12/(9k)) p_V0(v(k)) E_k[P^2 |U_red|^3; lambda_max(A) = 0-]), Lemma T_1 (kappa (A(kappa) - A_2(0)) -> a_1 = (1/10) int F_0 db), Theorem C3 (nu_cand = c l^(-1/3) + B_{d,L} + I^cand l^(1/4) + c_2 l^(1/3) + c_3 l^(2/3) + o(l^(2/3)), with c_3 = (1/3) int int E k^(-5/3) dk dsigma), Proposition G (model value c_3 = (J/30) int int F_0, J > 0 by a Gamma-function identity), Corollary G' (the model value of c_3 is positive) and Proposition G'' (c_3 is continuous on parity-split jet laws, so c_3(L) > 0 for L >= L_0(d), with L_0(d) unquantified); the control script checks finite algebra only",
+   "recorded_remark": "Slice A's remark, marked as not a required change and recorded in the author note https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028351320 (SL/CLAIM.md): for m = 1 the relation in section 2 Step 4 is sigma_M <= alpha_M < 0 (equality when beta_M . e = 0), not sigma_M < alpha_M < 0; sigma_M < 0 and Lambda_2 = 0 are unaffected. The stored note body is unchanged.",
+   "read_complete": "SL/CLAIM.md (6028351320)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-2; E1, E2, E7, E8 with M1, M2, M7, M8): Cursor agent bc-7582fb4c (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6027878271",
+    "Slice B (sections 3-4; E5, E6, E9 with M5, M6, M9): Cursor agent bc-b7769d90 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6027885396",
+    "Slice C (sections 5-6, header; E3, E4, E5 (G.3) with M3, M4, M10): Cursor agent bc-4708b545 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6028019347 (summoned by 6028017654; the first summons 6027884438 drew no pickup)"
+   ],
+   "conditional_on": "note LU (stored here; with its successor text), #237, #218, #229 and #242 (Theorem 1, Corollary 1', section 0), at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no rate (the remainder is o(l^(2/3))); nothing about nu_eld or rho_rej beyond one equivalence (Remark 3: Conjecture 7 of #242 in o-form is equivalent to an l^(2/3) term (c_3 - R_{2/3}) of the near elder density; that conjecture stays open); no change to any statement of #218, #237, #242 or note LU; no certified number; nothing proved at L = 24; nothing pointwise in b; no uniformity in d or L",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "C3/CLAIM.md",
+     "role": "author note: note LU read in every slice and its claim released; D5 claim for note C3",
+     "comment": "6026342638",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6026342638",
+     "created_at": "2026-10-06T22:08:05Z",
+     "updated_at": "2026-10-06T22:08:05Z",
+     "bytes": 5038,
+     "sha256": "f1becd428441a7ee7cecf2c40d1da6ac9937182607b7987b6d9ccb3dd0320c5e"
+    },
+    {
+     "path": "C3/PROOF.md",
+     "role": "frozen note (lifetime note C3)",
+     "comment": "6027862273",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027862273",
+     "created_at": "2026-10-07T00:08:15Z",
+     "updated_at": "2026-10-07T00:08:15Z",
+     "bytes": 51701,
+     "sha256": "0764d004f2f36d2fda79f7bea3b161fb1876c918b6a2dfc72110bcb89f623968"
+    },
+    {
+     "path": "C3/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains c3_exact.py and its stdout, and the author-side referee record, which is not review evidence)",
+     "comment": "6027863516",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027863516",
+     "created_at": "2026-10-07T00:08:21Z",
+     "updated_at": "2026-10-07T00:08:21Z",
+     "bytes": 25650,
+     "sha256": "9e9bce96b9dabaa520213442f2eeb608ac1d992b34c802a058201ab5862582e8"
+    },
+    {
+     "path": "C3/author_controls.py",
+     "role": "control script c3_exact.py, extracted verbatim from the stored controls comment C3/AUTHOR_CONTROLS_COMMENT.md (heading: ### c3_exact.py)",
+     "extracted_from": "C3/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### c3_exact.py",
+     "bytes": 17353,
+     "sha256": "da501d5096664350290e37a4998ab1bd0449b4693e70561b1a906acb380372f0"
+    },
+    {
+     "path": "C3/author_controls_stdout.json",
+     "role": "published stdout of C3/author_controls.py, extracted verbatim from C3/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "C3/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### c3_exact.py",
+     "bytes": 228,
+     "sha256": "87454072e0f11f5de984cb97dbb53d62bcca346646051de5db26bfe13792fb9b"
+    },
+    {
+     "path": "C3/EXPLORATION_COMMENT.md",
+     "role": "author exploration comment: the scripts and outputs behind section 5 (Values) and Remarks 2, 3 and 6 (mpmath, numpy, scipy; same provider and session; not controls, not review evidence; neither extracted nor run here)",
+     "comment": "6027864820",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027864820",
+     "created_at": "2026-10-07T00:08:27Z",
+     "updated_at": "2026-10-07T00:08:27Z",
+     "bytes": 47772,
+     "sha256": "511772665700dcec20356660e042e692bc7447b8695c2d9e7583197ef4df65b2"
+    },
+    {
+     "path": "C3/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (three slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6027877173",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027877173",
+     "created_at": "2026-10-07T00:09:30Z",
+     "updated_at": "2026-10-07T00:09:30Z",
+     "bytes": 5755,
+     "sha256": "22f7a4f85e2a555e877190e16a5e1f391d45185aedc5dc9a5cbab064d39b4d63"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-2: the statements, Lemma 0, the identities (I.1)-(I.2), the proof of Lemma F_3; E1, E2, E7, E8 with M1, M2, M7, M8): PASS, Cursor agent bc-7582fb4c (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6027878271",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027878271",
+     "created_at": "2026-10-07T00:09:35Z",
+     "updated_at": "2026-10-07T00:19:50Z",
+     "bytes": 8406,
+     "sha256": "0e523635b2956b6b046f04cc2a3a76212b6abaac116fb968deafa682460a2658"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6027884186",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027884186",
+     "created_at": "2026-10-07T00:10:06Z",
+     "updated_at": "2026-10-07T00:10:06Z",
+     "bytes": 3887,
+     "sha256": "fb57738afe833bc2d27e62e92302a1ea7f1e07fc0a6f743eca94953830549513"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_B.md",
+     "role": "Slice B (sections 3-4: Lemma T_1, the identity a_1 = (1/10) int F_0 db, the proof of Theorem C3; E5, E6, E9 with M5, M6, M9): PASS, Cursor agent bc-b7769d90 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6027885396",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027885396",
+     "created_at": "2026-10-07T00:10:12Z",
+     "updated_at": "2026-10-07T00:17:54Z",
+     "bytes": 10614,
+     "sha256": "269f54d9beba393e224bced2307555ae670f914dd40c16e3fb6b8a44f4322c40"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_C_SUMMONS_FIRST.md",
+     "role": "first Slice C summons (one Cursor agent, D2 of 6002718035); it drew no pickup",
+     "comment": "6027884438",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6027884438",
+     "created_at": "2026-10-07T00:10:07Z",
+     "updated_at": "2026-10-07T00:10:07Z",
+     "bytes": 3880,
+     "sha256": "87e194f862c7a902b4921e607e9422b211ca9d2c83bbe86c1d8a446b268b7f4d"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_C_SUMMONS.md",
+     "role": "Slice C summons, repeated because the first drew no pickup (one Cursor agent, D2 of 6002718035)",
+     "comment": "6028017654",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028017654",
+     "created_at": "2026-10-07T00:21:26Z",
+     "updated_at": "2026-10-07T00:21:26Z",
+     "bytes": 4279,
+     "sha256": "2e03b49ea0aa6c69fe06d1f2d424482baa6d694d6b2cb3251dd4e49e4e9e8ef7"
+    },
+    {
+     "path": "C3/REVIEW_SLICE_C.md",
+     "role": "Slice C (sections 5-6 and the header: Proposition G, Corollary G', Proposition G'' and Remarks 1-6; E3, E4 and the (G.3) checks of E5 with M3, M4, M10): PASS, Cursor agent bc-4708b545 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6028019347",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028019347",
+     "created_at": "2026-10-07T00:21:34Z",
+     "updated_at": "2026-10-07T00:32:27Z",
+     "bytes": 12130,
+     "sha256": "230d7ab5710a37db1c107c1c76fbf6aadf6e260f2fe6ec06814dd35431ebd770"
+    }
+   ],
+   "replays": [
+    {
+     "name": "c3_exact.py (stdout in a ```json fence)",
+     "script": "C3/author_controls.py",
+     "stdout": "C3/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "SL",
+   "directory": "SL/",
+   "object": "CL-SL-SOFT-LAYER-TWO-THIRDS-20261007-v1",
+   "title": "Lifetime note SL: the rejected density's l^(2/3) term on the soft layer kappa >= 1, and the matching F -> F_0",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma SL_0 (kappa T_r^rej(k, u) -> F(k, u) := int F(k; b, u) db at every fixed k > 0), Corollary SL_1 (|F(k, u) - F_0(u)| <= C k^2 for k <= 1: the matching of #243's fold-scale limit with #242's cusp-scale limit for the torus field after birth integration) and Theorem SL (the separations with kappa = l/r^4 >= 1 contribute l^(1/4) int_0^1 int A^rej(s^(-4), u) dsigma ds + R_{2/3} l^(2/3) + o(l^(2/3)) to the rejected density, with R_{2/3} = int int v^4 (F(v^(-3), u) - F_0(u)) dv dsigma); the control script checks finite algebra only",
+   "read_complete": "SL/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md (6028562633)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-1; S1-S4 with M1-M4): Cursor agent bc-7e9802f3 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6028372615",
+    "Slice B (section 2, header): Cursor agent bc-b3e1fc99 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6028379432"
+   ],
+   "conditional_on": "note TL (main#229 6017975404; custody packet Math-#384), #242 (section 0 with (0.2) and (G2), (3.1), Theorem 1), #243 (Theorem FL), [K] (K2) and [R] (R5), at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no rate (#242's O(l^(3/4)) form of input (i) is not claimed); input (ii) of #242 section 4 (the separations with kappa <= 1) and Conjecture 7 stay open; nothing pointwise in b; no value of R_{2/3} for the torus field; no certified number; no uniformity in d or L",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "SL/CLAIM.md",
+     "role": "author note: note C3 read in every slice and its claim released; D5 claim for note SL",
+     "comment": "6028351320",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028351320",
+     "created_at": "2026-10-07T00:45:40Z",
+     "updated_at": "2026-10-07T00:45:40Z",
+     "bytes": 4510,
+     "sha256": "ba52972fe25150fe8836ce1a4bbe07ae16dd3f38491d332aad8540714e16f21d"
+    },
+    {
+     "path": "SL/PROOF.md",
+     "role": "frozen note (lifetime note SL)",
+     "comment": "6028358916",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028358916",
+     "created_at": "2026-10-07T00:46:11Z",
+     "updated_at": "2026-10-07T00:46:11Z",
+     "bytes": 18350,
+     "sha256": "83ee9c021ab2743bfd0a9e14793ff76fbf1735ab2ef486083459cf01699cd192"
+    },
+    {
+     "path": "SL/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains sl_exact.py and its stdout, and the author-side referee record, which is not review evidence)",
+     "comment": "6028361271",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028361271",
+     "created_at": "2026-10-07T00:46:20Z",
+     "updated_at": "2026-10-07T00:46:20Z",
+     "bytes": 10159,
+     "sha256": "b77decda6450b6e147747f8253c1f9e15f19e2345ef57cea01a3e17f1dffaabe"
+    },
+    {
+     "path": "SL/author_controls.py",
+     "role": "control script sl_exact.py, extracted verbatim from the stored controls comment SL/AUTHOR_CONTROLS_COMMENT.md (heading: ### sl_exact.py)",
+     "extracted_from": "SL/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### sl_exact.py",
+     "bytes": 5395,
+     "sha256": "745e7468b5c5ec71761820953c6e167477c9c8a5c52b94fb192639f114e61dc0"
+    },
+    {
+     "path": "SL/author_controls_stdout.json",
+     "role": "published stdout of SL/author_controls.py, extracted verbatim from SL/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "SL/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### sl_exact.py",
+     "bytes": 178,
+     "sha256": "4aa5b6175488fb1de8b9b22f0adf7059091083f1eaaccf2f39666076a998a521"
+    },
+    {
+     "path": "SL/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (two slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6028371429",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028371429",
+     "created_at": "2026-10-07T00:47:00Z",
+     "updated_at": "2026-10-07T00:47:00Z",
+     "bytes": 4703,
+     "sha256": "c2ba59c160ba9266a012101291c4589382723f42967c1d07b20a7778e86aabd5"
+    },
+    {
+     "path": "SL/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-1: the statements and the proofs of Lemma SL_0, Corollary SL_1 and Theorem SL; S1-S4 with M1-M4): PASS, Cursor agent bc-7e9802f3 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6028372615",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028372615",
+     "created_at": "2026-10-07T00:47:05Z",
+     "updated_at": "2026-10-07T00:54:51Z",
+     "bytes": 11446,
+     "sha256": "37cb5193eba753ba0b9f2aa2a20c7d1775364998700407c6c86f8696fe075a1e"
+    },
+    {
+     "path": "SL/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6028378560",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028378560",
+     "created_at": "2026-10-07T00:47:27Z",
+     "updated_at": "2026-10-07T00:47:27Z",
+     "bytes": 2911,
+     "sha256": "066d08b7d246d96ab63718bcaf097c3574e1638030397a008c408ee56176ad9a"
+    },
+    {
+     "path": "SL/REVIEW_SLICE_B.md",
+     "role": "Slice B (section 2 and the header: Remarks 1-5, the consumed and cited sources, the header for accuracy, attribution and overclaim): PASS, Cursor agent bc-b3e1fc99 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6028379432",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028379432",
+     "created_at": "2026-10-07T00:47:31Z",
+     "updated_at": "2026-10-07T00:56:04Z",
+     "bytes": 11373,
+     "sha256": "5b09921794b68d7ff1467e26d60a5c616201a2aeeacd345f6cde50f13c01c490"
+    },
+    {
+     "path": "SL/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
+     "role": "author note: note SL read in both slices and its claim released; D5 claim for this custody packet",
+     "comment": "6028562633",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6028562633",
+     "created_at": "2026-10-07T00:59:49Z",
+     "updated_at": "2026-10-07T00:59:49Z",
+     "bytes": 4258,
+     "sha256": "98a903d57f7a02921f0825b28aafe5e3f66b5136ed459cc55391731a93f6188d"
+    }
+   ],
+   "replays": [
+    {
+     "name": "sl_exact.py (stdout in a ```json fence)",
+     "script": "SL/author_controls.py",
+     "stdout": "SL/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

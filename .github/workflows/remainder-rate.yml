@@ -3,6 +3,8 @@ name: Remainder rate exact controls
 'on':
   pull_request:
     paths:
+      - 'tools/**'
+      - 'tests/test_direct_replay_import_triggers.py'
       - 'frontiers/remainder_rate_20260930/**'
       - '.github/workflows/remainder-rate.yml'
       - 'tools/remainder_rate_replay.py'
@@ -33,6 +35,10 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Check direct-helper import trigger coverage
+        run: |
+          python -B -S tests/test_direct_replay_import_triggers.py
+          python -B -O -S tests/test_direct_replay_import_triggers.py
       - name: Exercise full-shell rejection contracts in both modes
         env:
           PYTHONDONTWRITEBYTECODE: '1'
