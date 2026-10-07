@@ -13,7 +13,11 @@ nothing, promotes nothing and is not a status record. Axes the graph does not re
 reconstruction, adversarial attack, formal evidence, numerical reproduction, novelty, human reading)
 are listed as outside the graph rather than reported as passed or failed. Scientific effect: NONE.
 
-Usage: python3 -B -S tools/evidence_profile.py [--graph PATH] [--node ID] [--json]
+With --eligibility, selected nodes also show the gate's own CONTROLLING eligibility decision and
+reasons. This describes the supplied graph, not review sufficiency, an executed promotion or theorem
+acceptance. The default text and JSON output are unchanged when this option is absent.
+
+Usage: python3 -B -S tools/evidence_profile.py [--graph PATH] [--node ID] [--json] [--eligibility]
 """
 import argparse
 import importlib.util
@@ -100,11 +104,11 @@ def provider_distinct(node):
     return 'not recorded'
 
 
-def profile(gate, graph, node_id):
+def profile(gate, graph, node_id, include_eligibility=False):
     node = gate.require_node(graph, node_id)
     unsatisfied = [dep for dep in gate.transitive_required(graph, node_id)
                    if graph['nodes'][dep]['classification'] not in gate.REQUIRED_SATISFIED]
-    return {
+    result = {
         'node': node_id,
         'classification': node['classification'],
         'review_disposition': node.get('review_disposition', 'not recorded'),
@@ -116,6 +120,12 @@ def profile(gate, graph, node_id):
                                  for dep in unsatisfied],
         'axes_outside_graph': list(AXES_OUTSIDE_GRAPH),
     }
+    if include_eligibility:
+        result['controlling_eligibility'] = {
+            'target': 'CONTROLLING',
+            'decision': gate.promotion_allowed(graph, node_id),
+        }
+    return result
 
 
 def roots(graph):
@@ -144,7 +154,7 @@ def roots(graph):
     return chosen
 
 
-def tree_lines(gate, graph, node_id):
+def tree_lines(gate, graph, node_id, include_eligibility=False):
     lines = []
     seen = set()
 
@@ -176,13 +186,19 @@ def tree_lines(gate, graph, node_id):
             '%s (%s)' % (u['node'], u['classification']) for u in unsatisfied)))
     else:
         lines.append('Unsatisfied required dependencies: none')
+    if include_eligibility:
+        decision = gate.promotion_allowed(graph, node_id)
+        lines.append('Selected-node CONTROLLING eligibility (recorded graph): '
+                     + ('yes' if decision['allowed'] else 'no'))
+        lines.extend('  - ' + reason for reason in decision['reasons'])
+        lines.append('  ' + decision['meaning'])
     return lines
 
 
-def report(gate, graph, node_ids):
+def report(gate, graph, node_ids, include_eligibility=False):
     return {
         'object': graph.get('object'),
-        'profiles': [profile(gate, graph, nid) for nid in node_ids],
+        'profiles': [profile(gate, graph, nid, include_eligibility) for nid in node_ids],
         'axes_outside_graph': list(AXES_OUTSIDE_GRAPH),
         'meaning': 'derived read-only view of recorded graph fields; not a status record or acceptance',
         'status_authority': False,
@@ -196,6 +212,8 @@ def main(argv=None):
     ap.add_argument('--graph', default=str(GATE_DIR / 'GRAPH.json'))
     ap.add_argument('--node', action='append', help='node id (repeatable); default: every math.* root')
     ap.add_argument('--json', action='store_true', help='print the profiles as JSON instead of trees')
+    ap.add_argument('--eligibility', action='store_true',
+                    help='include the selected-node gate decision; not theorem acceptance')
     args = ap.parse_args(argv)
     gate = load_gate()
     graph = gate.load_graph(pathlib.Path(args.graph))
@@ -203,12 +221,12 @@ def main(argv=None):
     for nid in node_ids:
         gate.require_node(graph, nid)
     if args.json:
-        print(json.dumps(report(gate, graph, node_ids), indent=2, sort_keys=True))
+        print(json.dumps(report(gate, graph, node_ids, args.eligibility), indent=2, sort_keys=True))
         return 0
     for index, nid in enumerate(node_ids):
         if index:
             print()
-        print('\n'.join(tree_lines(gate, graph, nid)))
+        print('\n'.join(tree_lines(gate, graph, nid, args.eligibility)))
     print()
     print('Not in the graph (consult review records): ' + ', '.join(AXES_OUTSIDE_GRAPH))
     print('Derived view only: no status authority; scientific effect NONE.')
