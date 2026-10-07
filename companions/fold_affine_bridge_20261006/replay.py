@@ -187,9 +187,80 @@ def execute(out):
     (out/'receipt.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
     return result
 
+PROFILE_TARGETS=('ResearchFormalCoreR1.AlgebraV2','ResearchFormalCoreR1.D2Schur','FoldAffineBridge')
+FROZEN_CANDIDATE='9c3246ddc22783b3933d6125798a19cbce4a7b4b'
+
+def profile_program(target):
+    require(target in PROFILE_TARGETS,'unknown profile target')
+    return r'''import Lean
+open Lean
+unsafe def main : IO Unit := do
+  initSearchPath (← findSysroot)
+  let target : Name := `TARGET
+  let started ← IO.monoMsNow
+  withImportModules #[{ module := target }] {} fun env => do
+    let loaded ← IO.monoMsNow
+    let cs := env.constants.map₁
+    let mut eligible : Nat := 0
+    for (_, ci) in cs.toList do
+      if !ci.isUnsafe && !ci.isPartial then
+        eligible := eligible + 1
+    IO.println s!"BQ_PROFILE module={target} loaded_modules={env.header.moduleNames.size} constants={cs.size} eligible={eligible} import_load_ms={loaded - started}"
+    for name in [`FoldAffineBridge, `ResearchFormalCoreR1.AlgebraV2, `ResearchFormalCoreR1.D2Schur, `Mathlib, `Mathlib.Tactic] do
+      let path ← findOLean name
+      IO.println s!"BQ_OLEAN module={name} path={path}"
+'''.replace('TARGET',target)
+
+def parse_profile(text,target):
+    pattern=r'^BQ_PROFILE module=([A-Za-z0-9_.]+) loaded_modules=([0-9]+) constants=([0-9]+) eligible=([0-9]+) import_load_ms=([0-9]+)$'
+    matches=re.findall(pattern,text,re.M)
+    require(len(matches)==1,'missing/duplicate/malformed profile')
+    name,*values=matches[0]
+    require(name==target,'profile target mismatch')
+    result={'module':name,**dict(zip(('loaded_modules','constants','eligible','import_load_ms'),map(int,values)))}
+    require(0<result['constants'] and result['eligible']<=result['constants'],'invalid constant inventory')
+    return result
+
+def profile(out):
+    require(not out.exists(),'output already exists');out.mkdir(parents=True)
+    before=source();(out/'source.json').write_text(json.dumps(before,sort_keys=True,indent=2)+'\n')
+    for name in ('FoldAffineBridge.lean','Contract.lean'):
+        require(git('rev-parse','HEAD:'+PACKAGE+'/'+name)==git('rev-parse',FROZEN_CANDIDATE+':'+PACKAGE+'/'+name),'frozen proof/contract changed')
+    require(Path('/usr/bin/time').is_file(),'GNU time unavailable; no resource measurement')
+    run_process(out,'profile-driver-tests',[sys.executable,'-B','-S',str(SIDE/'test_contract.py')],timeout=30)
+    run_process(out,'setup-import-build',['lake','build','ResearchFormalCoreR1.AlgebraV2','ResearchFormalCoreR1.D2Schur'],timeout=120,cwd=ROOT/'formal')
+    build=out/'build';build.mkdir()
+    env={**os.environ,'BQ_BUILD':str(build),'BQ_SIDE':str(SIDE),'LC_ALL':'C'}
+    prefix=['lake','env','bash','-c','export LEAN_PATH="$BQ_BUILD:$BQ_SIDE:${LEAN_PATH:-}"; export LEAN_SRC_PATH="$BQ_SIDE:${LEAN_SRC_PATH:-}"; exec "$@"','--']
+    def command(label,args,timeout=90):
+        return run_process(out,label,prefix+args,timeout=timeout,cwd=ROOT/'formal',env=env)
+    command('toolchain',['lean','--version'],30)
+    command('lean-prefix',['lean','--print-prefix'],30)
+    command('effective-paths',[sys.executable,'-c','import os,json,shutil; print(json.dumps({"LEAN_PATH":os.environ.get("LEAN_PATH"),"LEAN_SRC_PATH":os.environ.get("LEAN_SRC_PATH"),"lean_command":shutil.which("lean"),"lake_command":shutil.which("lake")},sort_keys=True))'],30)
+    binary=Path((out/'lean-prefix.stdout').read_text().strip())/'bin/lean'
+    require(binary.is_file(),'reported Lean binary missing')
+    (out/'lean-binary.json').write_text(json.dumps({'path':str(binary.resolve()),**identity(binary.read_bytes())},sort_keys=True,indent=2)+'\n')
+    command('setup-candidate-build',['lean','-DwarningAsError=true','--root='+str(SIDE),'-o',str(build/'FoldAffineBridge.olean'),str(SIDE/'FoldAffineBridge.lean')])
+    records=[]
+    for index,target in enumerate(PROFILE_TARGETS):
+        label='import-profile-'+str(index)
+        program=out/(label+'.lean');program.write_text(profile_program(target))
+        resource_file=out/(label+'.resource.json')
+        fmt='{"user_seconds":%U,"system_seconds":%S,"maxrss_kib":%M,"elapsed_seconds":%e,"exit_code":%x}'
+        command(label,['/usr/bin/time','-f',fmt,'-o',str(resource_file),'lean','--run',str(program)])
+        record=parse_profile((out/(label+'.stdout')).read_text(),target)
+        record['whole_process_resources']=strict_json(resource_file.read_bytes())
+        record['scope_note']='Import-load milliseconds are internal; CPU/RSS and elapsed resource values include Lean startup and inventory work. No kernel replay.'
+        records.append(record)
+    require(source()==before,'source changed during profile')
+    result={**before,'frozen_candidate':FROZEN_CANDIDATE,'diagnostic_only':True,'fresh_replay_run':False,'proof_receipt':False,'profiles':records}
+    (out/'profile.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')
+    return result
+
+
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('command',choices=('source','controls','execute'))
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('command',choices=('source','controls','execute','profile'))
     ap.add_argument('--out',type=Path,default=ROOT/'.lake/fold-affine-bridge-evidence');a=ap.parse_args()
-    result=source() if a.command=='source' else rational_controls() if a.command=='controls' else execute(a.out.resolve())
+    result=source() if a.command=='source' else rational_controls() if a.command=='controls' else profile(a.out.resolve()) if a.command=='profile' else execute(a.out.resolve())
     print(json.dumps(result,sort_keys=True,indent=2))
 if __name__=='__main__':main()

@@ -19,6 +19,25 @@ class DriverTest(unittest.TestCase):
         self.assertTrue(callable(getattr(replay,name,None)), 'missing driver behavior '+name)
         return getattr(replay,name)
 
+    def test_profile_program_is_inventory_only(self):
+        fn=self.api('profile_program')
+        for target in ('ResearchFormalCoreR1.AlgebraV2','ResearchFormalCoreR1.D2Schur','FoldAffineBridge'):
+            program=fn(target)
+            self.assertIn('withImportModules',program)
+            self.assertIn('!ci.isUnsafe && !ci.isPartial',program)
+            self.assertNotIn('replay',program)
+            self.assertNotIn('leanchecker',program)
+        with self.assertRaises(ValueError):fn('Other')
+
+    def test_profile_parser_is_strict(self):
+        fn=self.api('parse_profile')
+        raw='BQ_PROFILE module=FoldAffineBridge loaded_modules=10 constants=30 eligible=20 import_load_ms=4\n'
+        got=fn(raw,'FoldAffineBridge')
+        self.assertEqual(got,{'module':'FoldAffineBridge','loaded_modules':10,'constants':30,'eligible':20,'import_load_ms':4})
+        for bad in [raw+raw,raw.replace('eligible=20','eligible=31'),raw.replace('import_load_ms=4','import_load_ms=NaN'),'']:
+            with self.assertRaises(ValueError):fn(bad,'FoldAffineBridge')
+        with self.assertRaises(ValueError):fn(raw,'ResearchFormalCoreR1.AlgebraV2')
+
     def test_absolute_value_token_spacing(self):
         for name in ('FoldAffineBridge.lean','Contract.lean'):
             with self.subTest(name=name):
