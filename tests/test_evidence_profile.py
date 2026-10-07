@@ -245,5 +245,120 @@ class LiveGraph(unittest.TestCase):
         self.assertEqual(hashlib.sha256(GRAPH.read_bytes()).hexdigest(), before)
 
 
+class ControllingEligibilityCLI(unittest.TestCase):
+    """Opt-in graph eligibility is not scientific acceptance; use the real gate and real CLI."""
+
+    def fixture(self):
+        graph = {
+            'schema_version': 1, 'object': 'ELIGIBILITY-FIXTURE',
+            'nodes': {
+                'math.candidate': node('AUTHOR_SIDE_CANDIDATE'),
+                'math.good': node('PROVED_REVIEWED'),
+                'math.done': node('PROVED_REVIEWED'),
+                'math.missing': node('PROVED_REVIEWED'),
+                'math.context': node('PROVED_REVIEWED'),
+                'math.refuted': node('REFUTED'),
+                'math.blocked': node('PROVED_REVIEWED'),
+                'math.refuted-root': node('PROVED_REVIEWED'),
+                'math.revalidate': node('REVALIDATION_REQUIRED'),
+                'aux.absent': node('BLOCKED_ABSENT'),
+                'hist.lemma_closed': node('FALSE'),
+            },
+            'edges': [
+                {'from': 'math.good', 'to': 'math.done', 'required': True, 'relation': 'uses'},
+                {'from': 'math.missing', 'to': 'math.candidate', 'required': True, 'relation': 'uses'},
+                {'from': 'math.context', 'to': 'math.refuted', 'required': False, 'relation': 'context'},
+                {'from': 'math.blocked', 'to': 'aux.absent', 'required': True, 'relation': 'uses'},
+                {'from': 'math.refuted-root', 'to': 'math.refuted', 'required': True, 'relation': 'uses'},
+            ],
+        }
+        GATE.validate_graph_fail_closed(graph)
+        return graph
+
+    def invoke(self, graph, *args):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / 'graph.json'
+            path.write_text(json.dumps(graph), encoding='utf-8')
+            before = path.read_bytes()
+            flags = ['-O'] if sys.flags.optimize else []
+            process = subprocess.run(
+                [sys.executable, '-B', *flags, '-S', str(ROOT / 'tools' / 'evidence_profile.py'),
+                 '--graph', str(path), *args], capture_output=True, timeout=60)
+            self.assertEqual(path.read_bytes(), before)
+            return process
+
+    def test_opt_in_json_returns_exact_gate_decisions(self):
+        graph = self.fixture()
+        expected = {
+            'math.candidate': False, 'math.good': True, 'math.done': True,
+            'math.missing': False, 'math.context': True, 'math.refuted': False,
+            'math.blocked': False, 'math.refuted-root': False,
+            'math.revalidate': False, 'hist.lemma_closed': False,
+        }
+        args = ['--eligibility', '--json']
+        for nid in expected:
+            args += ['--node', nid]
+        process = self.invoke(graph, *args)
+        self.assertEqual((process.returncode, process.stderr), (0, b''))
+        data = json.loads(process.stdout)
+        self.assertIs(data['status_authority'], False)
+        self.assertIs(data['lemma_closed'], False)
+        self.assertEqual(data['scientific_effect'], 'NONE')
+        self.assertIn('formal_evidence', data['axes_outside_graph'])
+        profiles = {p['node']: p for p in data['profiles']}
+        self.assertEqual(set(profiles), set(expected))
+        for nid, allowed in expected.items():
+            with self.subTest(node=nid):
+                self.assertEqual(profiles[nid]['controlling_eligibility'], {
+                    'target': 'CONTROLLING', 'decision': GATE.promotion_allowed(graph, nid)})
+                self.assertIs(profiles[nid]['controlling_eligibility']['decision']['allowed'], allowed)
+        self.assertEqual(profiles['math.candidate']['unsatisfied_required'], [])
+        self.assertFalse(profiles['math.candidate']['controlling_eligibility']['decision']['allowed'])
+
+    def test_opt_in_text_reports_reasons_and_acceptance_limit(self):
+        graph = self.fixture()
+        for nid in ('math.candidate', 'math.good', 'math.missing', 'math.blocked', 'math.revalidate'):
+            with self.subTest(node=nid):
+                process = self.invoke(graph, '--node', nid, '--eligibility')
+                self.assertEqual((process.returncode, process.stderr), (0, b''))
+                text = process.stdout.decode('utf-8')
+                decision = GATE.promotion_allowed(graph, nid)
+                self.assertIn('Selected-node CONTROLLING eligibility (recorded graph): '
+                              + ('yes' if decision['allowed'] else 'no'), text)
+                for reason in decision['reasons']:
+                    self.assertIn('  - ' + reason, text)
+                self.assertIn('integrity decision only; not theorem acceptance', text)
+                self.assertIn('no status authority; scientific effect NONE', text)
+
+    def test_no_flag_output_is_byte_identical_to_predecessor(self):
+        graph = {'schema_version': 1, 'object': 'ELIGIBILITY-GOLDEN',
+                 'nodes': {'math.candidate': node('AUTHOR_SIDE_CANDIDATE')}, 'edges': []}
+        # SHA256 of complete predecessor stdout: no fixture paths or runtime-specific values.
+        expected = {False: 'f04f9e77e7e65c2c1ecb9875ed7209946a3a3b675028eb4a92dfb9d51a82dc0f', True: 'e6d3a4d3287d2378ee06f9c6303035d7dc8ae4efa93f271a63c1feadf6bde187'}
+        for as_json, digest in expected.items():
+            with self.subTest(as_json=as_json):
+                args = ['--node', 'math.candidate'] + (['--json'] if as_json else [])
+                process = self.invoke(graph, *args)
+                self.assertEqual((process.returncode, process.stderr), (0, b''))
+                self.assertEqual(hashlib.sha256(process.stdout).hexdigest(), digest)
+                self.assertNotIn(b'controlling_eligibility', process.stdout)
+                self.assertNotIn(b'Selected-node CONTROLLING eligibility', process.stdout)
+
+    def test_opt_in_unknown_node_refuses_before_any_output(self):
+        process = self.invoke(self.fixture(), '--eligibility', '--json',
+                              '--node', 'math.good', '--node', 'math.absent')
+        self.assertEqual((process.returncode, process.stdout), (1, b''))
+        self.assertIn(b'unknown node: math.absent', process.stderr)
+        self.assertNotIn(b'unrecognized arguments', process.stderr)
+
+    def test_opt_in_invalid_graph_still_fails_closed(self):
+        graph = self.fixture()
+        graph['edges'].append({'from': 'math.done', 'to': 'math.good', 'required': True, 'relation': 'uses'})
+        process = self.invoke(graph, '--eligibility', '--json')
+        self.assertEqual((process.returncode, process.stdout), (1, b''))
+        self.assertIn(b'required dependency cycle', process.stderr)
+        self.assertNotIn(b'unrecognized arguments', process.stderr)
+
+
 if __name__ == '__main__':
     unittest.main()
