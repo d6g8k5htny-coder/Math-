@@ -34,7 +34,12 @@ tactics in unused extensionality branches and a trailing ring after field_simp
 had closed the absolute-gap goal. Artifact11453480961 retains that failure
 (23452bytes, SHA256a51829d0a2bbb1666bd859abd10f2fe71b7d08e47224fea688f9d1665e2a1b73).
 The successor removes those dead tactics without disabling any linter or
-changing theorem statements. Its later stages still require actual execution.
+changing theorem statements. Run37553111010/1 at cc3681cc then reported only
+two unnecessarySeqFocus lint errors for single-goal derivative conversions;
+artifact11454255745 (23429bytes, SHA256c6ece3872717be3ffd1a5cae715def936e280749ed6050436bc46150f07e86e8)
+preserves that attempt. The next successor uses the requested ordinary tactic
+sequencing at those two sites. No linter is disabled, and all later stages
+still require actual execution.
 
 ## Exact mathematical contract
 

@@ -24,7 +24,7 @@ theorem fold_second (s x : ℝ) : deriv (deriv (foldPotential s)) x = -2*x := by
   have hf : deriv (foldPotential s) = fun z => s^2-z^2 := funext (fold_deriv s)
   rw [hf]
   have hd : HasDerivAt (fun z : ℝ => s^2-z^2) (-2*x) x := by
-    convert (hasDerivAt_const x (s^2)).sub (hasDerivAt_pow 2 x) using 1 <;> first | rfl | ring
+    convert (hasDerivAt_const x (s^2)).sub (hasDerivAt_pow 2 x) using 1; first | rfl | ring
   exact hd.deriv
 
 theorem fold_critical (s x : ℝ) : deriv (foldPotential s) x = 0 ↔ x=s ∨ x= -s := by
@@ -71,7 +71,7 @@ theorem affine_hasDerivAt_deriv (s a b c y : ℝ) :
   rw [hf]
   have hl : HasDerivAt (fun z : ℝ => a*z+b) a y := by
     simpa using ((hasDerivAt_id y).const_mul a).add_const b
-  convert ((hasDerivAt_const y (s^2)).sub (hl.pow 2)).const_mul (c*a) using 1 <;> first | rfl | ring
+  convert ((hasDerivAt_const y (s^2)).sub (hl.pow 2)).const_mul (c*a) using 1; first | rfl | ring
 
 theorem affine_second (s a b c y : ℝ) : deriv (deriv (affinePotential s a b c)) y =
     -2*c*a^2*(a*y+b) := (affine_hasDerivAt_deriv s a b c y).deriv
