@@ -6,6 +6,11 @@ that cannot carry a scientific status. This checker parses strictly (duplicate k
 rejected), enforces the closed keys and enums of the contract, and with --repo verifies every subject and file
 evidence blob against git. --aggregate summarizes several valid files without writing anything.
 
+Mapped source verification (--repo/--main-repo), including complete local clones, requires a Git executable
+supporting --no-lazy-fetch. Check this capability without a repository: git --no-lazy-fetch --version. A failed
+capability check is a structured backend refusal before repository-object lookup. Schema-only validation and
+unmapped references do not require this capability.
+
 A record's state says only whether evidence is linked. A workflow_run item keeps its own attempt, run head, checked
 commit (or null), purpose, native conclusion and expected conclusion, so a failed run stays recorded as failed, a
 negative control that fails as expected is not mistaken for a failed check, and a pull request head is not mistaken for
@@ -20,6 +25,7 @@ Exit status 0 iff every file is valid.
 """
 import argparse
 import json
+import os
 import pathlib
 import re
 import subprocess
@@ -83,13 +89,37 @@ def _safe_path(value):
             and all(part not in ('', '.', '..') for part in value.split('/')))
 
 
+class _GitBackendError(ValueError):
+    """A backend limitation, distinct from a source-object mismatch."""
+
+
+_CAPABILITY_PROBE = object()
+
+
 def _git(repo, *args):
-    run = subprocess.run(['git', '-C', str(repo), *args], capture_output=True, text=True)
+    # The explicit clone and raw objects define identity. Ambient Git routing/config
+    # must not redirect it, and replacement refs must not rebind a named commit.
+    # A caller's discovery ceiling only restricts ancestor search; retain it.
+    env = {key: value for key, value in os.environ.items()
+           if not key.startswith('GIT_') or key == 'GIT_CEILING_DIRECTORIES'}
+    # Missing promisor objects must be refused without fetching or writing the clone.
+    env['GIT_NO_LAZY_FETCH'] = '1'
+    command = ['git', '--no-replace-objects', '--no-lazy-fetch']
+    if repo is not _CAPABILITY_PROBE:
+        command.extend(['-C', str(repo)])
+    try:
+        run = subprocess.run([*command, *args], capture_output=True, text=True, env=env)
+    except OSError:
+        raise _GitBackendError('Git backend could not be launched for source verification') from None
     return run.stdout.strip() if run.returncode == 0 else None
 
 
 def _git_blob(repo, commit, path):
     """The blob id at commit:path; None unless commit names a commit object and path a blob in its tree."""
+    # Probe without a repository, before any object lookup. Check the actual
+    # capability, not a version string; real reads retain the same safety flag.
+    if _git(_CAPABILITY_PROBE, '--version') is None:
+        raise _GitBackendError('Git capability check failed: --no-lazy-fetch is required for source verification')
     if _git(repo, 'cat-file', '-t', commit) != 'commit':
         return None
     if _git(repo, 'cat-file', '-t', commit + ':' + path) != 'blob':
@@ -163,9 +193,14 @@ def validate(data, *, shard_dir=None, repos=None):
             elif not record['delta'] and (repo_name is None or BASELINE.get(repo_name) != subject['commit']):
                 errors.append(where + '.subject.commit: not the pinned baseline; mark a candidate with delta true')
             if repos and repo_name is not None and repo_name in repos and not errors_for(where, errors):
-                got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
-                if got != subject['blob']:
-                    errors.append(where + '.subject: blob does not match git (%s)' % (got or 'no blob at commit:path'))
+                try:
+                    got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
+                except _GitBackendError as exc:
+                    errors.append(where + '.subject: ' + str(exc))
+                else:
+                    if got != subject['blob']:
+                        errors.append(where + '.subject: blob does not match git (%s)' %
+                                      (got or 'no blob at commit:path'))
         if record['axis'] not in AXES:
             errors.append(where + '.axis: one of ' + ', '.join(AXES))
         if record['state'] not in STATES:
@@ -236,8 +271,13 @@ def _evidence(item, where, errors, repos):
         if not ok:
             errors.append(where + ': file evidence needs 40-hex commit and blob and a relative path')
         elif known and repos and item['repository'] in repos:
-            if _git_blob(repos[item['repository']], item['commit'], item['path']) != item['blob']:
-                errors.append(where + ': file evidence blob does not match git')
+            try:
+                got = _git_blob(repos[item['repository']], item['commit'], item['path'])
+            except _GitBackendError as exc:
+                errors.append(where + ': ' + str(exc))
+            else:
+                if got != item['blob']:
+                    errors.append(where + ': file evidence blob does not match git')
         return
     if not isinstance(item['ref'], str) or not DIGITS.fullmatch(item['ref']):
         errors.append(where + '.ref: numeric GitHub id as a string required')
@@ -285,10 +325,19 @@ def aggregate(datasets):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    capability_help = ('Mapped verification, including complete local clones, requires Git\n'
+                       '--no-lazy-fetch support. Check without a repository:\n'
+                       '  git --no-lazy-fetch --version\n'
+                       'A failed capability check is a structured backend refusal before\n'
+                       'repository-object lookup. Schema-only validation and unmapped references\n'
+                       'do not require this capability.')
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0], epilog=capability_help,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('files', nargs='+')
-    ap.add_argument('--repo', help='local clone used to verify Math- blobs (main is verified only with --main-repo)')
-    ap.add_argument('--main-repo', help='local clone of main for main-repository blobs')
+    ap.add_argument('--repo', help='requires Git --no-lazy-fetch support; local clone used to verify Math- blobs '
+                                  '(main is verified only with --main-repo)')
+    ap.add_argument('--main-repo', help='requires Git --no-lazy-fetch support; local clone of main '
+                                       'for main-repository blobs')
     ap.add_argument('--aggregate', action='store_true')
     args = ap.parse_args(argv)
     repos = {}
