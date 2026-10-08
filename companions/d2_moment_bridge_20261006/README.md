@@ -125,3 +125,53 @@ lemma-name error. The pinned mathlib Probability.lean exposes `probReal_univ`;
 that name replaces the unavailable shorthand without changing the proof target.
 The correction reference above points to the actual updated review6006807347;
 the initial auxiliary acknowledgment identifier was not retrievable.
+
+## Engineering core-binding successor — 2026-10-08
+
+The original source and execution history above keeps its original identities.
+The current checker binds the coordinated version-guard successor from Math main
+`f3111de9c7fe10772c2cf01ae7315d9522c637ae` under
+[main307 pickup6067951301](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6067951301):
+whole primary formal tree `3da1086003250f332c57b56eebd9812b2f532cee`, manifest SHA256
+`a1c27f6257cac904861b7e0ddedaf55aab3f13ec67b0106c9b2f2e64f3f66925`, and gate SHA256
+`976bf25680c791597d6096ef670d0e50be420fc533ad993a53e67c13af345479`.
+Only the exact Lean4.34.1 Release record validator, its pre-build and final
+checks, Python regression tests and their identity pins change in the core.
+All Lean proofs/imports, dependency pins, target inventories and five core
+negative controls retain their original bytes and semantics. Companion proofs,
+contracts, imported Lean-module pins, workflows and replay scripts are unchanged.
+
+Actual proposal author OpenAI/Codex `/root/pr315_hold_audit`; source exposed,
+organizational-independence credit0, scientific effect NONE. Synthetic process
+orchestration tests establish Python behavior only. This successor has no fresh
+Lean or hosted execution receipt yet; historical successful runs above cover
+their original sources. Current-commit core and companion replay, source-bound
+composition with the separately owned Math312 gate proposal, engineering review
+and protected integration remain distinct requirements. No alignment or
+scientific acceptance is transferred.
+
+## Exact release commit binding successor — 2026-10-08
+
+PR412 review comment4224548871 identified that the complete version record
+still accepted truncated or different hexadecimal commits. This successor
+requires the full official Lean4.34.1 release commit
+`5045d0056413266e57c625dcd7c365b10e377c52` before build removal and again
+before receipt creation. The primary identity is the official
+[v4.34.1 tag](https://github.com/leanprover/lean4/releases/tag/v4.34.1),
+whose native Git reference was read as that commit on2026-10-08.
+
+This consumer now pins whole formal tree `38b6d1a7746075b560349d184a461933745c11ce`,
+manifest SHA256 `40cb6ffc6776717a26d2a0a66815aeef508b0c8411588fff06ff2cec43a752a1`,
+and gate SHA256 `278989bbba7e1f90870ea0d197a996bc0a65b2a4b217e2eb284accb1282356c1`.
+The three new behavioral controls reject short/wrong commits, preserve
+the old build on preflight refusal and withhold a receipt on postflight
+refusal. Synthetic external-process tests do not execute Lean.
+
+All earlier document text is preserved as the historical prefix. Proofs,
+imports, toolchain/dependency locks, workflows, contracts and replay
+scripts retain their previous bytes. All39 formal inventory members,
+63 targets, eight modules and nine revisions remain unchanged in scope.
+The pin checks the reported compiler identity; it is not executable-byte
+authentication or independent source alignment. New current-commit
+kernel receipts and hosted checks are still required after publication.
+Alignment remains PENDING_INDEPENDENT_REVIEW; scientific effect NONE.

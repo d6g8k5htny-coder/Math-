@@ -24,6 +24,12 @@ def require(condition, message):
     if not condition:
         raise ValueError(message)
 
+def check_lean_version(text):
+    version = text.strip()
+    require(re.fullmatch(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)', version) is not None,
+            'unexpected running Lean version: ' + repr(version))
+    return version
+
 def audit_axioms(text, targets):
     require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
     records = {}
@@ -154,6 +160,7 @@ def execute(m, digest):
     out = ROOT / '.lake' / 'formal-evidence'
     out.mkdir(parents=True, exist_ok=True)
     require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink(), 'symlink build directory')
+    check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-preflight', out))
     if (ROOT / '.lake/build').exists():
         shutil.rmtree(ROOT / '.lake/build')  # fresh local-package build; dependency cache is untouched
     run(['lake', 'build'], 'build', out)
@@ -193,8 +200,7 @@ def execute(m, digest):
             outcomes[label] = 'REJECTED_BY_LEAN'
     # Recheck after compilation: a build hook must not rewrite bound sources/lock.
     _, after = source_check(); require(after == digest, 'manifest changed during execution')
-    version = run(['lake', 'env', 'lean', '--version'], 'version', out).strip()
-    require('version 4.34.1' in version, 'unexpected running Lean version')
+    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out))
     actual_dependencies = {name: subprocess.check_output(['git', '-C', str(ROOT / '.lake/packages' / name), 'rev-parse', 'HEAD'], text=True).strip() for name in m['dependency_revisions']}
     require(actual_dependencies == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
