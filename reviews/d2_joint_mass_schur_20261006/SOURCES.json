@@ -1,0 +1,56 @@
+{
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "author_task": "canonical-joint-mass-schur-20261006-r6",
+  "files": [
+    {
+      "bytes": 12935,
+      "path": "reviews/d2_joint_mass_schur_20261006/NOTE.md",
+      "sha256": "b3933d7fcbf6ed67d6a53f33d8c6a75c73b69a6e9a106c971b4fbb16d0658890"
+    },
+    {
+      "bytes": 5453,
+      "path": "reviews/d2_joint_mass_schur_20261006/joint_mass.py",
+      "sha256": "4d3287c79336c41027b049213e719a355ede211466fef1dafafc0149c18b8a16"
+    },
+    {
+      "bytes": 1576,
+      "path": "reviews/d2_joint_mass_schur_20261006/RESULTS.json",
+      "sha256": "a27d86325c8f7ff8bfcf812b460ed7b2af9cbdd7dbe6588ae89c59c215d5a4cf"
+    },
+    {
+      "bytes": 8080,
+      "path": "tests/test_d2_joint_mass_schur.py",
+      "sha256": "f8370cb1c2458e7b892771e5add609ddc035d9676a17dc166a0f23045f3b9740"
+    }
+  ],
+  "review_status": "PENDING_NONAUTHOR_SOURCE_REVIEW",
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "upstream_correspondence": [
+    {
+      "commit": "544499292f1cf09fe1bd030ce25d7cd0d80fc38c",
+      "git_blob": "b3e3b337697e4bf8c15bdab3666e49dc8833ca80",
+      "path": "reviews/d2_two_mass_floors_20261006/NOTE.md",
+      "role": "prior floors and separate attainment, not inherited verdict"
+    },
+    {
+      "commit": "31f7a6b5a36045be7795a6461da067a8ada96343",
+      "git_blob": "cedbb44a237d1a158111dca81c30983f7efd37f1",
+      "path": "reviews/d2_two_atom_floors_20261006/NOTE.md",
+      "role": "scalar formulas and example"
+    },
+    {
+      "commit": "2f8b6f372be383d752e9dd30d38234faa977243c",
+      "git_blob": "b95460c0d263a32ea274b347079cca6aaab3d2e9",
+      "path": "formal/ResearchFormalCoreR1/D2Schur.lean",
+      "role": "scalar-definition correspondence, no new Lean execution"
+    },
+    {
+      "comment_id": 6008747995,
+      "pr": 328,
+      "repository": "d6g8k5htny-coder/Math-",
+      "role": "Part B monotonicity identities; independently derived joint-envelope extension here",
+      "updated_at": "2026-10-06T03:29:55Z"
+    }
+  ]
+}
