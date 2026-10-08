@@ -360,5 +360,161 @@ class ControllingEligibilityCLI(unittest.TestCase):
         self.assertNotIn(b'unrecognized arguments', process.stderr)
 
 
+class GraphInputIdentity(unittest.TestCase):
+    """The optional digest identifies the single consumed byte buffer, not a canonicalized graph."""
+
+    MEANING = ('identity of graph input bytes only; not freshness, Git provenance, '
+               'program identity or acceptance')
+
+    def invoke(self, raw, *args):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / 'private-local-name.json'
+            path.write_bytes(raw)
+            flags = ['-O'] if sys.flags.optimize else []
+            result = subprocess.run(
+                [sys.executable, '-B', *flags, '-S', str(ROOT / 'tools' / 'evidence_profile.py'),
+                 '--graph', str(path), *args], capture_output=True, timeout=60)
+            self.assertEqual(path.read_bytes(), raw)
+            self.assertNotIn(str(path).encode(), result.stdout)
+            return result
+
+    def expected_identity(self, raw):
+        return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest(),
+                'meaning': self.MEANING}
+
+    def test_json_binds_exact_bytes_and_composes_with_eligibility(self):
+        graph = synthetic()
+        graph['object'] = 'INPUT-IDENTITY-\u03c0'
+        texts = [json.dumps(graph, ensure_ascii=False),
+                 json.dumps(graph, ensure_ascii=False, indent=2),
+                 json.dumps(graph, ensure_ascii=False, indent=2).replace('\n', '\r\n') + '\r\n',
+                 json.dumps(graph, ensure_ascii=True, sort_keys=True)]
+        digests = set()
+        for text in texts:
+            raw = text.encode('utf-8')
+            with self.subTest(raw_bytes=len(raw)):
+                args = ('--json', '--eligibility', '--node', 'math.top', '--node', 'math.mid')
+                plain = self.invoke(raw, *args)
+                identified = self.invoke(raw, '--input-identity', *args)
+                self.assertEqual((plain.returncode, plain.stderr), (0, b''))
+                self.assertEqual((identified.returncode, identified.stderr), (0, b''))
+                data = json.loads(identified.stdout)
+                self.assertEqual(data.pop('input_identity'), self.expected_identity(raw))
+                self.assertEqual(data, json.loads(plain.stdout))
+                self.assertEqual([p['node'] for p in data['profiles']], ['math.top', 'math.mid'])
+                for profile in data['profiles']:
+                    self.assertEqual(profile['controlling_eligibility']['decision'],
+                                     GATE.promotion_allowed(graph, profile['node']))
+                digests.add(hashlib.sha256(raw).hexdigest())
+        self.assertEqual(len(digests), len(texts))
+
+    def test_text_adds_one_identity_without_disclosing_paths(self):
+        raw = json.dumps(synthetic()).encode('utf-8')
+        for extra in ((), ('--eligibility',)):
+            with self.subTest(extra=extra):
+                plain = self.invoke(raw, *extra)
+                identified = self.invoke(raw, '--input-identity', *extra)
+                self.assertEqual((plain.returncode, plain.stderr), (0, b''))
+                self.assertEqual((identified.returncode, identified.stderr), (0, b''))
+                prefix = ('Graph input SHA-256: %s (%d bytes)\n%s\n\n' % (
+                    hashlib.sha256(raw).hexdigest(), len(raw), self.MEANING)).encode('utf-8')
+                self.assertEqual(identified.stdout, prefix + plain.stdout)
+
+    def test_invalid_inputs_refuse_before_any_identity_or_report(self):
+        valid = json.dumps(synthetic())
+        bad_class = synthetic()
+        bad_class['nodes']['math.top']['classification'] = 'CLOSED'
+        cycle = synthetic()
+        cycle['edges'].append({'from': 'math.leaf', 'to': 'math.top',
+                               'required': True, 'relation': 'uses'})
+        cases = [(b'{"schema_version":1,' + valid[1:].encode(), b'duplicate JSON key'),
+                 (valid.replace('"SYNTHETIC"', 'NaN').encode(), b'non-finite JSON constant'),
+                 (valid.replace('"SYNTHETIC"', 'Infinity').encode(), b'non-finite JSON constant'),
+                 (json.dumps(bad_class).encode(), b'unknown node classification'),
+                 (json.dumps(cycle).encode(), b'required dependency cycle'),
+                 (b'{not-json', b'JSONDecodeError'),
+                 (b'\xff', b'UnicodeDecodeError')]
+        for raw, diagnostic in cases:
+            for output in ((), ('--json',)):
+                with self.subTest(diagnostic=diagnostic, output=output):
+                    result = self.invoke(raw, '--input-identity', *output)
+                    self.assertEqual((result.returncode, result.stdout), (1, b''))
+                    self.assertIn(diagnostic, result.stderr)
+                    self.assertNotIn(b'unrecognized arguments', result.stderr)
+
+    def test_unknown_node_and_missing_path_emit_no_partial_identity(self):
+        raw = json.dumps(synthetic()).encode()
+        for output in ((), ('--json',)):
+            result = self.invoke(raw, '--input-identity', '--node', 'math.mid',
+                                 '--node', 'math.absent', *output)
+            self.assertEqual((result.returncode, result.stdout), (1, b''))
+            self.assertIn(b'unknown node: math.absent', result.stderr)
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = pathlib.Path(tmp) / 'absent.json'
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                try:
+                    ep.main(['--graph', str(missing), '--input-identity', '--json'])
+                except FileNotFoundError:
+                    pass
+                except SystemExit as exc:
+                    self.fail('input identity CLI unavailable: %s' % exc)
+                else:
+                    self.fail('missing graph unexpectedly accepted')
+            self.assertEqual(out.getvalue(), '')
+
+    def test_identity_and_report_use_one_read_despite_backing_path_change(self):
+        from unittest import mock
+        first = synthetic()
+        first['object'] = 'FIRST-CONSUMED'
+        later = synthetic()
+        later['object'] = 'LATER-PATH-CONTENT'
+        raw = json.dumps(first).encode()
+        replacement = json.dumps(later).encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / 'graph.json'
+            path.write_bytes(raw)
+            original = pathlib.Path.read_bytes
+            calls = []
+
+            def capture_then_change(p):
+                data = original(p)
+                if p == path:
+                    calls.append(p)
+                    # The parser and hash must consume the returned bytes, not reread this path.
+                    path.write_bytes(replacement)
+                return data
+
+            out, err = io.StringIO(), io.StringIO()
+            with mock.patch.object(pathlib.Path, 'read_bytes', capture_then_change):
+                with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+                    try:
+                        code = ep.main(['--graph', str(path), '--input-identity', '--json'])
+                    except SystemExit as exc:
+                        self.fail('input identity CLI unavailable: %s; %s' % (exc, err.getvalue()))
+            self.assertEqual(code, 0)
+            self.assertEqual(err.getvalue(), '')
+            self.assertEqual(calls, [path])
+            data = json.loads(out.getvalue())
+            self.assertEqual(data['object'], 'FIRST-CONSUMED')
+            self.assertEqual(data['input_identity'], self.expected_identity(raw))
+            self.assertEqual(path.read_bytes(), replacement)
+
+    def test_no_flag_keeps_existing_loader_and_report_contract(self):
+        from unittest import mock
+        graph = synthetic()
+        raw = json.dumps(graph).encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / 'graph.json'
+            path.write_bytes(raw)
+            # No flag means no new binary acquisition path at all.
+            with mock.patch.object(pathlib.Path, 'read_bytes', side_effect=AssertionError('new read without opt-in')):
+                code, text = run(['--graph', str(path), '--json'])
+            self.assertEqual(code, 0)
+            self.assertEqual(json.loads(text), ep.report(GATE, graph, ep.roots(graph)))
+            self.assertNotIn('input_identity', json.loads(text))
+            self.assertEqual(path.read_bytes(), raw)
+
+
 if __name__ == '__main__':
     unittest.main()
