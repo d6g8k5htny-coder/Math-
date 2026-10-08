@@ -23,6 +23,7 @@ load_strict = _retrofit.load_strict
 
 REPOSITORY = 'd6g8k5htny-coder/Math-'
 SOURCE_COMMIT = '9fd261135b41daf1e377f9ef2db193fee6ec36be'
+PILOT_INVENTORY_PATH = 'reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json'
 INVENTORY_SCHEMA = 'proof-unit-inventory/v0-provisional-5'
 SLICE_SCHEMA = 'proof-slice/v0-provisional-5'
 KINDS = ('premise', 'context', 'reading_correction', 'scope_guard', 'check')
@@ -403,11 +404,16 @@ def authenticate(ctx, source_bytes, snapshots):
                 require(selection['lines'][1] <= len(source_lines(raw,where)),where,'Source range exceeds authenticated original LF lines','SOURCE_JOIN_MISMATCH')
 
 
-def joins(ctx, expected, source_bytes):
+def joins(ctx, expected, source_bytes, pilot=False):
     where = ctx['where']
     expunits = {u['id']:u for u in expected['expected_units']}
     expuses = {u['id']:u for u in expected['expected_uses']}
     if ctx['expected']:
+        if pilot:
+            current = [expected['source']] + [s['identity'] for s in ctx['sources'].values()]
+            require(all(i['repository'] == REPOSITORY and i['commit'] == SOURCE_COMMIT for i in current),
+                    where,'P-C pilot current inventory sources must use the fixed repository/source cut',
+                    'SOURCE_JOIN_MISMATCH')
         require('P' in ctx['sources'] and typed_equal(ctx['sources']['P']['identity'],expected['source']),where,'Inventory P source contradicts source tuple','SOURCE_JOIN_MISMATCH')
         raw = source_bytes[file_key(expected['source'])]
         count = len(source_lines(raw,where))
@@ -746,7 +752,9 @@ def preflight(expected, companion, expected_identity):
     if companion is not None:
         shape(companion,'Slice','companion')
         comp=context(companion,False,'companion')
+    if companion is not None or expected_identity is not None:
         shape(expected_identity,'File','expected_pin')
+    if companion is not None:
         require(typed_equal(companion['inventory_binding']['expected_inventory'],expected_identity),
                 'expected_pin','Companion cannot replace the independently supplied inventory identity','IDENTITY_MISMATCH')
     return exp,comp
@@ -761,7 +769,11 @@ def _validate(expected, companion, expected_identity, source_bytes, snapshots):
     authenticate(exp,source_bytes,snapshots['expected'] if comp else snapshots)
     if comp:
         authenticate(comp,source_bytes,snapshots['companion'])
-    joins(exp,expected,source_bytes)
+    # Scope comes only from the caller's independently authenticated outer
+    # inventory identity, never from candidate content or supplier identities.
+    pilot = (expected_identity is not None and expected_identity['repository'] == REPOSITORY
+             and expected_identity['path'] == PILOT_INVENTORY_PATH)
+    joins(exp,expected,source_bytes,pilot)
     if comp:
         joins(comp,expected,source_bytes)
     composition_unsupported(exp)
@@ -773,6 +785,9 @@ def _validate(expected, companion, expected_identity, source_bytes, snapshots):
         compare_expected(exp,comp)
         cycles(comp)
     report = {'valid':True,'phase':'paired' if comp else 'inventory-only','counts':counts(expected),'scientific_effect':'NONE','status_authority':False,'independence_credit':0}
+    report['validation_scope'] = 'pc-pilot-fixed-source' if pilot else 'generic-conformance'
+    if pilot:
+        report['fixed_source_commit'] = SOURCE_COMMIT
     if comp:
         matches = []
         for use in comp['uses'].values():
@@ -785,9 +800,10 @@ def _validate(expected, companion, expected_identity, source_bytes, snapshots):
     return report
 
 
-def validate_expected_inventory(data, source_bytes, record_snapshots):
+def validate_expected_inventory(data, source_bytes, record_snapshots, *, expected_identity=None):
+    """Validate acquired inputs; omitted independent outer identity is generic."""
     try:
-        return _validate(data,None,None,source_bytes,record_snapshots)
+        return _validate(data,None,expected_identity,source_bytes,record_snapshots)
     except ContractError as exc:
         return refusal(exc)
     except RecursionError:
@@ -923,7 +939,7 @@ def main(argv=None):
         sources = {}
         es,er = acquire_sources(expected,expected_identity,args.repo,sources)
         if companion is None:
-            report = validate_expected_inventory(expected,sources,es)
+            report = validate_expected_inventory(expected,sources,es,expected_identity=expected_identity)
             inputs = {'inventory':expected_identity,'inventory_records':er}
         else:
             cs,cr = acquire_sources(companion,companion_identity,args.repo,sources)

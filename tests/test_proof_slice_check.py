@@ -57,6 +57,135 @@ class ContractTests(unittest.TestCase):
             self.f['snapshots'])
         self.assertTrue(r['valid'], r)
 
+    def pilot_fixture(self):
+        # Memory APIs receive preauthenticated buffers. These remain synthetic
+        # bytes; actual commit membership is covered separately by CLI controls.
+        for doc in (self.f['expected'],self.f['companion']):
+            for obj in CHECKER.walk(doc):
+                if set(obj)==set(CHECKER.FILE_KEYS) and obj['path']=='synthetic/proof.md':
+                    obj['commit']='9fd261135b41daf1e377f9ef2db193fee6ec36be'
+        self.f['expected_pin']['path']='reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json'
+        self.f['companion']['inventory_binding']['expected_inventory']=copy.deepcopy(self.f['expected_pin'])
+
+    def fixture_buffers(self):
+        return {CHECKER.file_key(obj):self.f['source_text'].encode()
+                for doc in (self.f['expected'],self.f['companion']) for obj in CHECKER.walk(doc)
+                if set(obj)==set(CHECKER.FILE_KEYS) and not obj['path'].endswith('EXPECTED_INVENTORY.json')}
+
+    def scoped_report(self):
+        return CHECKER.validate_proof_slice(self.f['companion'],self.f['expected'],self.f['expected_pin'],
+            self.fixture_buffers(),{'expected':self.f['snapshots'],'companion':self.f['snapshots']})
+
+    def test_pilot_scope_requires_caller_repository_and_literal_path(self):
+        self.pilot_fixture()
+        r=self.scoped_report()
+        self.assertTrue(r['valid'],r)
+        self.assertEqual(r.get('validation_scope'),'pc-pilot-fixed-source')
+        self.assertEqual(r.get('fixed_source_commit'),'9fd261135b41daf1e377f9ef2db193fee6ec36be')
+        for field,value in [('path','relocated/EXPECTED_INVENTORY.json'),('repository','other/repository')]:
+            with self.subTest(field=field):
+                pin=copy.deepcopy(self.f['expected_pin']);pin[field]=value
+                self.f['companion']['inventory_binding']['expected_inventory']=pin
+                r=CHECKER.validate_proof_slice(self.f['companion'],self.f['expected'],pin,self.fixture_buffers(),
+                    {'expected':self.f['snapshots'],'companion':self.f['snapshots']})
+                self.assertTrue(r['valid'],r)
+                self.assertEqual(r.get('validation_scope'),'generic-conformance')
+                self.assertNotIn('fixed_source_commit',r)
+
+    def test_pilot_coherent_off_cut_replacement_is_refused(self):
+        self.pilot_fixture()
+        for doc in (self.f['expected'],self.f['companion']):
+            for obj in CHECKER.walk(doc):
+                if set(obj)==set(CHECKER.FILE_KEYS) and obj['path']=='synthetic/proof.md':obj['commit']='9'*40
+        r=self.scoped_report()
+        self.assertFalse(r['valid'],r)
+        self.assertEqual(r['reason'],'SOURCE_JOIN_MISMATCH',r)
+        self.assertNotIn('counts',r)
+
+    def test_pilot_all_current_reading_sources_are_fixed(self):
+        for field,value in [('commit','9'*40),('repository','other/repository')]:
+            with self.subTest(field=field):
+                self.f=copy.deepcopy(FIXTURE);self.pilot_fixture()
+                reading=copy.deepcopy(self.f['expected']['source'])
+                reading['path']='synthetic/reading.md'
+                self.f['expected']['sources'].append({'id':'READING_ALIAS','identity':reading})
+                self.f['expected']['root_boundary']['reading_boundaries'][0]['source_id']='READING_ALIAS'
+                self.f['companion']['sources'].append({'id':'READING_ALIAS','identity':copy.deepcopy(reading)})
+                self.f['companion']['root']['reading_boundaries'][0]['source_id']='READING_ALIAS'
+                self.assertTrue(self.scoped_report()['valid'])
+                reading[field]=value
+                r=self.scoped_report()
+                self.assertFalse(r['valid'],r)
+                self.assertEqual(r['reason'],'SOURCE_JOIN_MISMATCH',r)
+
+    def test_inventory_api_omitted_context_is_explicitly_generic(self):
+        self.pilot_fixture()
+        # Candidate bindings/text cannot grant caller-selected production scope.
+        r=CHECKER.validate_expected_inventory(self.f['expected'],self.fixture_buffers(),self.f['snapshots'])
+        self.assertTrue(r['valid'],r)
+        self.assertEqual(r.get('validation_scope'),'generic-conformance')
+        self.assertNotIn('fixed_source_commit',r)
+        self.f['expected']['validation_scope']='pc-pilot-fixed-source'
+        r=CHECKER.validate_expected_inventory(self.f['expected'],self.fixture_buffers(),self.f['snapshots'])
+        self.assertFalse(r['valid'],r)
+        self.assertEqual(r['reason'],'CONTRACT_SHAPE')
+
+    def test_inventory_api_accepts_independent_pilot_identity(self):
+        self.pilot_fixture()
+        r=CHECKER.validate_expected_inventory(self.f['expected'],self.fixture_buffers(),self.f['snapshots'],
+            expected_identity=self.f['expected_pin'])
+        self.assertTrue(r['valid'],r)
+        self.assertEqual(r.get('validation_scope'),'pc-pilot-fixed-source')
+        for obj in CHECKER.walk(self.f['expected']):
+            if set(obj)==set(CHECKER.FILE_KEYS):obj['commit']='9'*40
+        r=CHECKER.validate_expected_inventory(self.f['expected'],self.fixture_buffers(),self.f['snapshots'],
+            expected_identity=self.f['expected_pin'])
+        self.assertFalse(r['valid'],r)
+        self.assertEqual(r['reason'],'SOURCE_JOIN_MISMATCH')
+
+    def test_candidate_generic_binding_cannot_replace_pilot_caller(self):
+        self.pilot_fixture()
+        self.f['companion']['inventory_binding']['expected_inventory']['path']='synthetic/EXPECTED_INVENTORY.json'
+        r=self.scoped_report()
+        self.assertFalse(r['valid'],r)
+        self.assertEqual(r['reason'],'IDENTITY_MISMATCH')
+        self.assertEqual(r['failed_input'],'expected_pin')
+
+    def test_pilot_preserves_older_targets_git_records_and_companion_imports(self):
+        self.pilot_fixture()
+        old=self.add_review()['reviewed_use']
+        for obj in CHECKER.walk(old):
+            if set(obj)==set(CHECKER.FILE_KEYS):obj['commit']='8'*40
+        evidence=copy.deepcopy(self.f['expected']['records'][0])
+        evidence['id']='OLD-GIT';evidence['role']='design'
+        evidence['identity']={'kind':'git_file','file':{**self.f['expected']['source'],'commit':'7'*40}}
+        self.f['expected']['records'].append(evidence)
+        external={**self.f['expected']['source'],'commit':'6'*40,'path':'synthetic/external.md'}
+        self.f['companion']['sources'].append({'id':'EXTERNAL','identity':external})
+        supplier=self.f['companion']['suppliers'][0]
+        supplier['kind']='import';supplier['source_refs'][0]['source_id']='EXTERNAL'
+        r=self.scoped_report()
+        self.assertTrue(r['valid'],r)
+        self.assertEqual(r.get('validation_scope'),'pc-pilot-fixed-source')
+        self.assertFalse(r['review_targets'][0]['matches_current'])
+
+    def test_pilot_cut_guard_preserves_earlier_refusal_phases(self):
+        faults=[('mode','UNSUPPORTED_INFERENCE'),('duplicate','CONTRACT_SHAPE'),
+                ('pin','IDENTITY_MISMATCH'),('authentication','IDENTITY_MISMATCH')]
+        for fault,reason in faults:
+            with self.subTest(fault=fault):
+                self.f=copy.deepcopy(FIXTURE);self.pilot_fixture()
+                for doc in (self.f['expected'],self.f['companion']):
+                    for obj in CHECKER.walk(doc):
+                        if set(obj)==set(CHECKER.FILE_KEYS) and obj['path']=='synthetic/proof.md':obj['commit']='9'*40
+                if fault=='mode':self.f['expected']['expected_groups'][0]['combination']='OR'
+                elif fault=='duplicate':self.f['expected']['expected_units']*=2
+                elif fault=='pin':self.f['companion']['inventory_binding']['expected_inventory']['commit']='7'*40
+                elif fault=='authentication':self.f['snapshots']['R11']['body']+='wrong'
+                r=self.scoped_report()
+                self.assertFalse(r['valid'],r)
+                self.assertEqual(r['reason'],reason,r)
+
     def test_declared_conformance_vectors(self):
         for case in FIXTURE['cases']:
             with self.subTest(case=case['name']):
@@ -621,6 +750,126 @@ class GitInputTests(unittest.TestCase):
         self.assertEqual(code,0,r);self.assertEqual(r['phase'],'paired')
         self.assertEqual(r['inputs']['companion']['commit'],b)
         self.assertIn('checker',r['tools']);self.assertIn('retrofit',r['tools'])
+
+    def prepare_pilot_path_pair(self):
+        f,a,b=self.prepare_pair()
+        ep='reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json'
+        cp='reviews/proof_dependencies_20261008/P_C/PROOF_SLICE.json'
+        self.write(ep,f['expected'])
+        for record in f['expected']['records']:
+            self.write(CHECKER.snapshot_path(ep,record['identity']),f['snapshots'][record['id']])
+        a=self.commit('Externally selected pilot artifact with off-cut synthetic sources')
+        f['companion']['inventory_binding']['expected_inventory']=self.identity_at(a,ep)
+        self.write(cp,f['companion']);b=self.commit('Off-cut companion descendant')
+        return f,a,b,ep,cp
+
+    def test_generic_cli_arbitrary_commits_are_explicitly_generic(self):
+        f,a,b=self.prepare_pair()
+        for args in [('--inventory-commit',a,'--inventory-path','synthetic/EXPECTED_INVENTORY.json'),
+                     ('--expected-commit',a,'--expected-path','synthetic/EXPECTED_INVENTORY.json',
+                      '--companion-commit',b,'--companion-path','synthetic/PROOF_SLICE.json')]:
+            with self.subTest(args=args):
+                code,r=self.cli(*args)
+                self.assertEqual(code,0,r)
+                self.assertEqual(r.get('validation_scope'),'generic-conformance')
+                self.assertNotIn('fixed_source_commit',r)
+
+    def test_pilot_path_cli_refuses_authenticated_off_cut_sources(self):
+        f,a,b,ep,cp=self.prepare_pilot_path_pair()
+        for args in [('--inventory-commit',a,'--inventory-path',ep),
+                     ('--expected-commit',a,'--expected-path',ep,'--companion-commit',b,'--companion-path',cp)]:
+            with self.subTest(args=args):
+                code,r=self.cli(*args)
+                self.assertEqual(code,2,r)
+                self.assertEqual(r['reason'],'SOURCE_JOIN_MISMATCH',r)
+                self.assertNotIn('counts',r)
+
+    def test_relocated_artifact_never_falls_back_from_literal_pilot_path(self):
+        f,a,b,ep,cp=self.prepare_pilot_path_pair()
+        self.git('rm',ep);deleted=self.commit('Remove literal pilot inventory')
+        code,r=self.cli('--inventory-commit',deleted,'--inventory-path',ep)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'INPUT_UNAVAILABLE')
+        # The retained synthetic copy is a separately, explicitly selected input.
+        code,r=self.cli('--inventory-commit',deleted,'--inventory-path','synthetic/EXPECTED_INVENTORY.json')
+        self.assertEqual(code,0,r)
+        self.assertEqual(r.get('validation_scope'),'generic-conformance')
+        self.assertNotIn('fixed_source_commit',r)
+
+    def test_pilot_cli_candidate_generic_binding_keeps_pin_failure_priority(self):
+        f,a,b,ep,cp=self.prepare_pilot_path_pair()
+        f['companion']['inventory_binding']['expected_inventory']['path']='synthetic/EXPECTED_INVENTORY.json'
+        self.write(cp,f['companion']);b=self.commit('Candidate tries generic inventory binding')
+        code,r=self.cli('--expected-commit',a,'--expected-path',ep,'--companion-commit',b,'--companion-path',cp)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'IDENTITY_MISMATCH')
+        self.assertEqual(r['failed_input'],'expected_pin')
+
+    def test_cli_authenticates_older_targets_git_records_and_extra_import(self):
+        f,a,b=self.prepare_pair()
+        c=f['companion'];use=c['units'][0]['uses'][0]
+        old=CHECKER.resolve_use_target(c,'U1')
+        for doc in (f['expected'],c):
+            for obj in CHECKER.walk(doc):
+                if set(obj)==set(CHECKER.FILE_KEYS) and obj['path']=='synthetic/proof.md':obj['commit']=b
+        use['applicability_reviews']=[{'record':{'record_id':'R14','locator':'Synthetic record'},
+            'reviewed_use':old,'scope':copy.deepcopy(use['binding']['context']),
+            'disposition_as_recorded':'Synthetic earlier target','limitations':[],'later_disposition_records':[]}]
+        record=copy.deepcopy(f['expected']['records'][0]);record['id']='GIT-OLD';record['role']='design'
+        record['identity']={'kind':'git_file','file':self.identity}
+        f['expected']['records'].append(record)
+        c['sources'].append({'id':'EXTRA','identity':self.identity})
+        supplier=c['suppliers'][0];supplier['kind']='import'
+        supplier['source_refs']=[{'source_id':'EXTRA','lines':[1,1],'locator':'Actual older raw source','precision':'exact_lines'}]
+        self.write('synthetic/EXPECTED_INVENTORY.json',f['expected']);a=self.commit('Current inventory with old GitRecord')
+        c['inventory_binding']['expected_inventory']=self.identity_at(a,'synthetic/EXPECTED_INVENTORY.json')
+        self.write('synthetic/PROOF_SLICE.json',c);b=self.commit('Historical target and independently authenticated import')
+        code,r=self.paired_cli(a,b)
+        self.assertEqual(code,0,r)
+        self.assertFalse(r['review_targets'][0]['matches_current'])
+        self.assertEqual(r.get('validation_scope'),'generic-conformance')
+
+    def test_pilot_cli_preserves_authenticated_historical_and_import_cuts(self):
+        # Real source objects are read through an isolated fixture clone's
+        # alternate store; no production file/ref or checker constant changes.
+        objects=subprocess.run(['git','-C',str(ROOT),'rev-parse','--git-path','objects'],
+            capture_output=True,text=True,check=True).stdout.strip()
+        objects=Path(objects) if Path(objects).is_absolute() else ROOT/objects
+        (self.repo/'.git/objects/info/alternates').write_text(str(objects.resolve())+'\n')
+        f=copy.deepcopy(FIXTURE)
+        source=self.identity_at('9fd261135b41daf1e377f9ef2db193fee6ec36be',
+            'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md')
+        for doc in (f['expected'],f['companion']):
+            for obj in CHECKER.walk(doc):
+                if set(obj)==set(CHECKER.FILE_KEYS) and obj['path']=='synthetic/proof.md':
+                    obj.clear();obj.update(source)
+        c=f['companion'];use=c['units'][0]['uses'][0]
+        old=CHECKER.resolve_use_target(c,'U1')
+        historical=self.identity_at('2ca3bf262f34a729589ad87eefe6cf6af5adcb6c',source['path'])
+        for obj in CHECKER.walk(old):
+            if set(obj)==set(CHECKER.FILE_KEYS):obj.clear();obj.update(historical)
+        use['applicability_reviews']=[{'record':{'record_id':'R14','locator':'Synthetic record'},
+            'reviewed_use':old,'scope':copy.deepcopy(use['binding']['context']),
+            'disposition_as_recorded':'Synthetic retained target','limitations':[],'later_disposition_records':[]}]
+        record=copy.deepcopy(f['expected']['records'][0]);record['id']='OLD-GIT';record['role']='design'
+        record['identity']={'kind':'git_file','file':self.identity}
+        f['expected']['records'].append(record)
+        c['sources'].append({'id':'IMPORT','identity':self.identity})
+        c['suppliers'][0]['kind']='import'
+        c['suppliers'][0]['source_refs']=[{'source_id':'IMPORT','lines':[1,1],'locator':'Other authenticated cut','precision':'exact_lines'}]
+        ep='reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json'
+        cp='reviews/proof_dependencies_20261008/P_C/PROOF_SLICE.json'
+        self.write(ep,f['expected'])
+        for record in f['expected']['records']:
+            if record['identity']['kind']!='git_file':
+                self.write(CHECKER.snapshot_path(ep,record['identity']),f['snapshots'][record['id']])
+        a=self.commit('Synthetic pilot at actual fixed source cut with old GitRecord')
+        c['inventory_binding']['expected_inventory']=self.identity_at(a,ep)
+        self.write(cp,c);b=self.commit('Synthetic companion with retained noncurrent source cuts')
+        code,r=self.cli('--expected-commit',a,'--expected-path',ep,'--companion-commit',b,'--companion-path',cp)
+        self.assertEqual(code,0,r)
+        self.assertEqual(r.get('validation_scope'),'pc-pilot-fixed-source')
+        self.assertFalse(r['review_targets'][0]['matches_current'])
+        self.assertEqual({source['commit'],historical['commit'],self.source_commit},
+                         {identity['commit'] for identity in r['sources']})
 
     def test_cli_refuses_modified_expected_file_in_descendant(self):
         f,a,b=self.prepare_pair()
