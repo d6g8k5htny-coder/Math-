@@ -1,0 +1,50 @@
+{
+  "core_tree": "d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14",
+  "files": {
+    ".github/workflows/d2-atom-integral.yml": {
+      "bytes": 1942,
+      "git_blob": "e656ee5df02cffa29947342a8e2f172f950a2401",
+      "sha256": "27a5d61d97ad5e502111a8a7815fe2474cd9dde3cd37ce8b0aa3bfdb6a8dd69b"
+    },
+    "companions/d2_atom_integral_20261006/Contract.lean": {
+      "bytes": 3433,
+      "git_blob": "06b8329fb2d7229e84fff7c5e65203086cb24b41",
+      "sha256": "746523ec422f3325029bb476f254b8d584692534f9cde00d95901209e6d81ccb"
+    },
+    "companions/d2_atom_integral_20261006/D2AtomIntegral.lean": {
+      "bytes": 7278,
+      "git_blob": "adbbf555771830a9c4c6c3262a485cd9a1ab0273",
+      "sha256": "247507c4b7aeaccc033cd4d648442172d61227bb27239a7dacccd0f2fa1ba6c3"
+    },
+    "companions/d2_atom_integral_20261006/SCOPE.md": {
+      "bytes": 6299,
+      "git_blob": "4b1f897400f0c0eb11f33abf3fde588036ec40c6",
+      "sha256": "d9b69c99bf6dc4c486b6677875dcfe6ae065b39398217699bdb8bd2707293c4d"
+    },
+    "companions/d2_atom_integral_20261006/check.py": {
+      "bytes": 7852,
+      "git_blob": "ab02ee91b989f2f2357cc94932ea4c9cec870825",
+      "sha256": "6c5f5abced836580c5a1d25b9f1d282fcfbe7b4319383eca2a668f319edf0ffe"
+    },
+    "companions/d2_atom_integral_20261006/replay.sh": {
+      "bytes": 2879,
+      "git_blob": "a4247be9ff3eff0229fef62c9b4a6b792159a6c7",
+      "sha256": "66387fcea3e2795fbe69856b0b0c37013f3b0540c2fe2e11dc2a97b373285bcf"
+    },
+    "companions/d2_atom_integral_20261006/test_check.py": {
+      "bytes": 5418,
+      "git_blob": "cd9a642876878d1f18b494f5bee2cf30a6da3f83",
+      "sha256": "b6448618b35e44a2181a12703a7ec464409a1b35ea641b95c690a60c6184247d"
+    }
+  },
+  "scientific_effect": "NONE",
+  "targets": [
+    "D2AtomIntegral.two_event_integral_lower",
+    "D2AtomIntegral.two_radius_integral_lower",
+    "D2AtomIntegral.second_moment_floor",
+    "D2AtomIntegral.fourth_gap_floor",
+    "D2AtomIntegral.residual_moment_floor",
+    "D2AtomIntegral.schur_floor_of_radius_masses"
+  ],
+  "version": 1
+}
