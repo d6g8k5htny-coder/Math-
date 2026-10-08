@@ -282,6 +282,7 @@ def context(doc, expected, where):
                 groups=indexed(groups,'group_id',where), bundles=indexed(doc['expected_bundles' if expected else 'bundles'],'id',where),
                 sources=indexed(doc['sources'],'id',where), records=indexed(doc['records'],'id',where),
                 unknowns=indexed(doc['unknowns'],'id',where), boundaries=indexed(root['reading_boundaries'],'id',where),
+                history={} if expected else indexed(doc['history'],'id',where),
                 suppliers={} if expected else indexed(doc['suppliers'],'id',where))
 
 
@@ -464,6 +465,32 @@ def ranges_valid(boundary, identity, source_bytes, where):
     require(not any(a[0] <= b[1] and b[0] <= a[1] for a in boundary['consumed_lines'] for b in boundary['excluded_lines']),where,'Consumed reading overlaps an exclusion')
 
 
+def selections_within_boundary(boundary, identity, selections, where):
+    """Apply ranges to this exact file; local aliases never choose the rule."""
+    for selection in selections:
+        if typed_equal(selection['file'],identity) and selection['lines'] is not None:
+            require(any(a <= selection['lines'][0] <= selection['lines'][1] <= z
+                        for a,z in boundary['consumed_lines']),
+                    where,'Reading selection is outside consumed ranges')
+
+
+def supplier_intrinsics(supplier, where, expanded=False):
+    """Constraints intrinsic to a supplier, without consulting another cut."""
+    if supplier['kind'] == 'inventory_unit':
+        require(supplier['unit_ids'],where,'Inventory supplier must resolve its included units')
+        if expanded:
+            require(any(s['precision'] == 'exact_lines' for s in supplier['source_refs']),
+                    where,'Historical inventory supplier lacks its exact source selection')
+    elif supplier['kind'] in ('source_section','import'):
+        require(supplier['source_refs'],where,'Source/import supplier requires authenticated source')
+        require(supplier['expansion'] != 'in_slice' or supplier['unit_ids'],where,'Expanded supplier requires included derivation')
+    else:
+        require(supplier['expansion'] == 'unexpanded',where,'External/unnamed mechanisms remain unexpanded')
+        if supplier['kind'] == 'external' and (supplier['external_ref'] is None or
+                any(supplier['external_ref'][k] is None for k in ('edition_or_version','theorem_or_section','url'))):
+            require(supplier['unknowns' if expanded else 'unknown_refs'],where,'Unresolved external reference needs attributed unknown')
+
+
 def within_file(ctx, expected, source_bytes):
     where = ctx['where']
     root = ctx['root']
@@ -507,7 +534,6 @@ def within_file(ctx, expected, source_bytes):
         for key,role in [('inventory_record','inventory'),('omission_read_record','omission_read')]:
             require(get(ctx['records'],ctx['doc'][key]['record_id'],where)['role'] == role,where,'Inventory evidence role mismatch')
         return
-    indexed(ctx['doc']['history'],'id',where)
     for unit in ctx['units'].values():
         for uid in unit['related_unit_ids']:
             get(ctx['units'],uid,where)
@@ -518,21 +544,14 @@ def within_file(ctx, expected, source_bytes):
             get(ctx['uses'],uid,where)
     expunits = {u['id']:u for u in expected['expected_units']}
     for supplier in ctx['suppliers'].values():
+        supplier_intrinsics(supplier,where)
         for uid in supplier['unit_ids']:
             get(ctx['units'],uid,where)
             get(expunits,uid,where)
         if supplier['kind'] == 'inventory_unit':
-            require(supplier['unit_ids'],where,'Inventory supplier must resolve its included units')
             selections = [resolved_selection(s,ctx) for s in supplier['source_refs']]
             for uid in supplier['unit_ids']:
                 require(any(typed_equal(s,expected_selection(expunits[uid],expected)) for s in selections),where,'Inventory supplier lacks exact expected source','SOURCE_JOIN_MISMATCH')
-        elif supplier['kind'] in ('source_section','import'):
-            require(supplier['source_refs'],where,'Source/import supplier requires authenticated source')
-            require(supplier['expansion'] != 'in_slice' or supplier['unit_ids'],where,'Expanded supplier requires included derivation')
-        else:
-            require(supplier['expansion'] == 'unexpanded',where,'External/unnamed mechanisms remain unexpanded')
-            if supplier['kind'] == 'external' and (supplier['external_ref'] is None or any(supplier['external_ref'][k] is None for k in ('edition_or_version','theorem_or_section','url'))):
-                require(supplier['unknown_refs'],where,'Unresolved external reference needs attributed unknown')
     for use in ctx['uses'].values():
         for sid in use['binding']['supplier_ids']:
             get(ctx['suppliers'],sid,where)
@@ -543,13 +562,12 @@ def within_file(ctx, expected, source_bytes):
             selections = list(reading['applies_to'])
             for sid in reading['supplier_ids']:
                 selections.extend(get(ctx['suppliers'],sid,where)['source_refs'])
-            for s in selections:
-                if s['source_id'] == b['source_id'] and s['lines'] is not None:
-                    require(any(a <= s['lines'][0] <= s['lines'][1] <= z for a,z in b['consumed_lines']),where,'Reading selection is outside consumed ranges')
+            identity=get(ctx['sources'],b['source_id'],where)['identity']
+            selections_within_boundary(b,identity,[resolved_selection(s,ctx) for s in selections],where)
         for review in use['applicability_reviews']:
             record = get(ctx['records'],review['record']['record_id'],where)
             require(record['role'] == 'applicability_review' and review['reviewed_use']['use_id'] == use['id'],where,'Review role or holding-use identity mismatch')
-            historical_consistency(review['reviewed_use'],where)
+            historical_consistency(review['reviewed_use'],where,source_bytes)
 
 
 def canonical_target(target):
@@ -563,7 +581,38 @@ def canonical_target(target):
     return out
 
 
-def historical_consistency(target, where):
+def historical_intrinsics(target, source_bytes, where):
+    """Validate stored expansions against their own authenticated identities.
+
+    No current source, boundary, supplier, unit or unknown table is available to
+    this function. A well-formed differing historical target remains evidence.
+    """
+    def unknown_chain(unknown, trail=()):
+        require(unknown['id'] not in trail,where,'Historical unknown-reference cycle')
+        for nested in unknown['description']['unknowns']:
+            unknown_chain(nested,(*trail,unknown['id']))
+
+    for obj in walk(target):
+        if set(obj) == set(SHAPES['XUnknown']):
+            unknown_chain(obj)
+        if set(obj) == set(SHAPES['XSupplier']):
+            supplier_intrinsics(obj,where,expanded=True)
+        if set(obj) not in (set(SHAPES['Core']),set(SHAPES['Snapshot'])):
+            continue
+        suppliers=indexed(obj['suppliers'],'id',where)
+        for reading in obj['source_reading']:
+            boundary=reading['boundary']
+            ranges_valid(boundary,boundary['file'],source_bytes,where)
+            selections=list(reading['applies_to'])
+            for supplier in reading['suppliers']:
+                require(supplier['id'] in suppliers and typed_equal(supplier,suppliers[supplier['id']]),
+                        where,'Historical reading supplier contradicts its own stored use')
+                selections.extend(supplier['source_refs'])
+            selections_within_boundary(boundary,boundary['file'],selections,where)
+
+
+def historical_consistency(target, where, source_bytes):
+    historical_intrinsics(target,source_bytes,where)
     core = {k:target[k] for k in CORE_KEYS}
     inf, bundle = target['inference_context'], target['bundle_context']
     if target['use_kind'] != 'premise':
@@ -686,22 +735,29 @@ def refusal(exc):
     return {'valid':False,'reason':exc.reason,'failed_input':exc.failed_input,'message':str(exc),'scientific_effect':'NONE'}
 
 
+def preflight(expected, companion, expected_identity):
+    """One shared shape/duplicate/pin order for memory and Git-object callers."""
+    unsupported(expected,True,'inventory')
+    if companion is not None:
+        unsupported(companion,False,'companion')
+    shape(expected,'Expected','inventory')
+    exp=context(expected,True,'inventory')
+    comp=None
+    if companion is not None:
+        shape(companion,'Slice','companion')
+        comp=context(companion,False,'companion')
+        shape(expected_identity,'File','expected_pin')
+        require(typed_equal(companion['inventory_binding']['expected_inventory'],expected_identity),
+                'expected_pin','Companion cannot replace the independently supplied inventory identity','IDENTITY_MISMATCH')
+    return exp,comp
+
+
 def _validate(expected, companion, expected_identity, source_bytes, snapshots):
     require(type(source_bytes) is dict and type(snapshots) is dict,'inputs','Required source/capture buffer maps unavailable','INPUT_UNAVAILABLE')
     if companion is not None:
         require(type(snapshots.get('expected')) is dict and type(snapshots.get('companion')) is dict,
                 'inputs','Separate expected/companion capture maps required','INPUT_UNAVAILABLE')
-    unsupported(expected,True,'inventory')
-    if companion is not None:
-        unsupported(companion,False,'companion')
-    shape(expected,'Expected','inventory')
-    if companion is not None:
-        shape(companion,'Slice','companion')
-    exp = context(expected,True,'inventory')
-    comp = context(companion,False,'companion') if companion is not None else None
-    if comp:
-        shape(expected_identity,'File','expected_pin')
-        require(typed_equal(companion['inventory_binding']['expected_inventory'],expected_identity),'expected_pin','Companion cannot replace the independently supplied inventory identity','IDENTITY_MISMATCH')
+    exp,comp=preflight(expected,companion,expected_identity)
     authenticate(exp,source_bytes,snapshots['expected'] if comp else snapshots)
     if comp:
         authenticate(comp,source_bytes,snapshots['companion'])
@@ -861,15 +917,9 @@ def main(argv=None):
         if not inventory:
             companion_identity,raw_companion = identity_at(args.repo,args.companion_commit,args.companion_path)
             companion = parse_input(raw_companion,'companion')
-        # Both buffers are acquired and parsed before the type-guarded mode scan.
-        unsupported(expected,True,'inventory')
-        if companion is not None:
-            unsupported(companion,False,'companion')
-        shape(expected,'Expected','inventory')
-        if companion is not None:
-            shape(companion,'Slice','companion')
-            require(typed_equal(companion['inventory_binding']['expected_inventory'],expected_identity),
-                    'expected_pin','Companion does not bind caller-selected A','IDENTITY_MISMATCH')
+        # Referenced sources/captures are not acquired until both closed-shape
+        # and duplicate phases have completed in the same order as the API.
+        preflight(expected,companion,expected_identity)
         sources = {}
         es,er = acquire_sources(expected,expected_identity,args.repo,sources)
         if companion is None:

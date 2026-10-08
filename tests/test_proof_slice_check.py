@@ -62,7 +62,9 @@ class ContractTests(unittest.TestCase):
             with self.subTest(case=case['name']):
                 self.f = copy.deepcopy(FIXTURE)
                 self.mutate(case['mutations'])
-                self.refuses(case['reason'])
+                result=self.refuses(case['reason'])
+                if 'failed_input' in case:
+                    self.assertEqual(result['failed_input'],case['failed_input'])
 
     def mutate(self, mutations):
         for mutation in mutations:
@@ -85,6 +87,19 @@ class ContractTests(unittest.TestCase):
                 self.valid()
                 new=CHECKER.resolve_use_target(self.f['companion'],case['use_id'])
                 self.assertEqual(CHECKER.typed_equal(old,new),case['target_equal'])
+
+    def test_portable_historical_intrinsic_vectors(self):
+        for case in FIXTURE['historical_cases']:
+            with self.subTest(case=case['name']):
+                self.f=copy.deepcopy(FIXTURE)
+                old=self.historical_with_reading()
+                for obj in list(CHECKER.walk(old)):
+                    if set(obj)==set(CHECKER.SHAPES[case['type']]):
+                        obj.update(copy.deepcopy(case['values']))
+                if 'reason' in case:self.refuses(case['reason'])
+                else:
+                    result=self.valid()
+                    self.assertEqual(result['review_targets'][0]['matches_current'],case['matches_current'])
 
     def test_group_and_member_permutations_preserve_full_target(self):
         self.valid()
@@ -323,6 +338,139 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(s['expansion'],'unexpanded')
         self.valid()
 
+    def add_alias_reading(self, lines, supplier=False):
+        c=self.f['companion']
+        c['sources'].append({'id':'P_ALIAS','identity':copy.deepcopy(c['sources'][0]['identity'])})
+        use=c['units'][0]['uses'][0]
+        selected={'source_id':'P_ALIAS','lines':lines,'locator':'Mixed-alias reading control','precision':'exact_lines'}
+        use['binding']['source_reading']=[{'boundary_id':'RB','supplier_ids':['S'] if supplier else [],
+            'applies_to':[] if supplier else [selected],'explanation':copy.deepcopy(use['binding']['context'])}]
+        if supplier:c['suppliers'][0]['source_refs']=[selected]
+        return selected
+
+    def test_mixed_alias_reading_exclusion_and_valid_controls(self):
+        for supplier in (False,True):
+            for alias in ('P','P_ALIAS'):
+                with self.subTest(supplier=supplier,alias=alias):
+                    self.f=copy.deepcopy(FIXTURE)
+                    s=self.add_alias_reading([90,90],supplier)
+                    old=CHECKER.resolve_use_target(self.f['companion'],'U1')
+                    s['source_id']=alias
+                    self.valid()
+                    self.assertEqual(old,CHECKER.resolve_use_target(self.f['companion'],'U1'))
+                    s['lines']=[30,40]
+                    self.refuses('CONTRACT_SHAPE')
+
+    def test_equal_blob_distinct_path_or_commit_is_not_a_source_alias(self):
+        for field,value in [('path','synthetic/other-proof.md'),('commit','9'*40)]:
+            with self.subTest(field=field):
+                self.f=copy.deepcopy(FIXTURE)
+                self.add_alias_reading([30,40])
+                other=self.f['companion']['sources'][-1]['identity']
+                other[field]=value
+                buffers={CHECKER.file_key(i):self.f['source_text'].encode() for i in [other,self.f['expected']['source']]}
+                r=CHECKER.validate_proof_slice(self.f['companion'],self.f['expected'],self.f['expected_pin'],buffers,
+                    {'expected':self.f['snapshots'],'companion':self.f['snapshots']})
+                self.assertTrue(r['valid'],r)
+                target=CHECKER.resolve_use_target(self.f['companion'],'U1')
+                reading=target['source_reading'][0]
+                self.assertNotEqual(reading['boundary']['file'],reading['applies_to'][0]['file'])
+
+    def historical_with_reading(self):
+        s=self.add_alias_reading([90,90],supplier=True)
+        self.f['companion']['units'][0]['uses'][0]['binding']['source_reading'][0]['applies_to']=[copy.deepcopy(s)]
+        self.valid()
+        return self.add_review()['reviewed_use']
+
+    def test_historical_boundaries_validate_their_own_ranges(self):
+        for field,value in [('consumed_lines',[[90000,90001]]),('excluded_lines',[[90,90]]),
+                            ('consumed_lines',[[90,100],[49,89]])]:
+            with self.subTest(field=field,value=value):
+                self.f=copy.deepcopy(FIXTURE)
+                old=self.historical_with_reading()
+                for obj in CHECKER.walk(old):
+                    if set(obj)==set(CHECKER.SHAPES['XBoundary']):obj[field]=copy.deepcopy(value)
+                self.refuses('CONTRACT_SHAPE')
+
+    def test_historical_reading_and_supplier_selections_stay_in_own_boundary(self):
+        for supplier in (False,True):
+            with self.subTest(supplier=supplier):
+                self.f=copy.deepcopy(FIXTURE)
+                old=self.historical_with_reading()
+                for obj in CHECKER.walk(old):
+                    if not supplier and set(obj)==set(CHECKER.SHAPES['XReadingUse']):
+                        obj['applies_to'][0]['lines']=[30,40]
+                    if supplier and set(obj)==set(CHECKER.SHAPES['XSupplier']):
+                        obj['source_refs'][0]['lines']=[30,40]
+                self.refuses('CONTRACT_SHAPE')
+
+    def test_historical_supplier_intrinsic_constraints(self):
+        changes=[{'kind':'external','expansion':'in_slice','external_ref':None},
+                 {'kind':'unnamed','expansion':'in_slice'},
+                 {'kind':'source_section','source_refs':[]},
+                 {'kind':'inventory_unit','unit_ids':[]},
+                 {'kind':'external','expansion':'unexpanded','external_ref':None,'unknowns':[]}]
+        for delta in changes:
+            with self.subTest(delta=delta):
+                self.f=copy.deepcopy(FIXTURE)
+                old=self.add_review()['reviewed_use']
+                for obj in CHECKER.walk(old):
+                    if set(obj)==set(CHECKER.SHAPES['XSupplier']):obj.update(copy.deepcopy(delta))
+                self.refuses('CONTRACT_SHAPE')
+
+    def test_historical_expanded_unknown_cannot_refer_back_to_itself(self):
+        old=self.add_review()['reviewed_use']
+        objects=[o for o in CHECKER.walk(old) if set(o)==set(CHECKER.SHAPES['XUnknown'])]
+        for obj in objects:
+            obj['description']['unknowns']=[copy.deepcopy(obj)]
+        self.refuses('CONTRACT_SHAPE')
+
+    def test_well_formed_earlier_boundary_and_supplier_remain_historical(self):
+        old=self.historical_with_reading()
+        for obj in CHECKER.walk(old):
+            if set(obj)==set(CHECKER.SHAPES['XBoundary']):obj['consumed_lines']=[[49,90]]
+            if set(obj)==set(CHECKER.SHAPES['XSupplier']):
+                obj['kind']='inventory_unit';obj['unit_ids']=['OLD-UNIT-NOT-IN-CURRENT-TABLE']
+        result=self.valid()
+        self.assertFalse(result['review_targets'][0]['matches_current'])
+
+    def test_every_inventory_id_table_precedes_companion_shape(self):
+        paths=[['sources'],['records'],['unknowns'],['expected_units'],['expected_uses'],
+               ['expected_groups'],['expected_bundles'],['root_boundary','reading_boundaries']]
+        for path in paths:
+            with self.subTest(path=path):
+                self.f=copy.deepcopy(FIXTURE)
+                value=self.f['expected']
+                for key in path:value=value[key]
+                value.append(copy.deepcopy(value[0]))
+                del self.f['companion']['id']
+                r=self.refuses('CONTRACT_SHAPE')
+                self.assertEqual(r['failed_input'],'inventory')
+
+    def test_duplicate_history_precedes_outer_pin_and_capture_authentication(self):
+        for fault in ('pin','capture'):
+            with self.subTest(fault=fault):
+                self.f=copy.deepcopy(FIXTURE)
+                self.f['companion']['history']*=2
+                if fault=='pin':self.f['expected_pin']['commit']='4'*40
+                else:del self.f['snapshots']['R11']
+                r=self.refuses('CONTRACT_SHAPE')
+                self.assertEqual(r['failed_input'],'companion')
+
+    def test_explicit_current_mode_still_precedes_duplicate_phase(self):
+        self.f['expected']['expected_units']*=2
+        self.f['companion']['units'][0]['premise_groups'][0]['combination']='ANY'
+        self.refuses('UNSUPPORTED_INFERENCE')
+
+    def test_mixed_alias_refusal_keeps_existing_phase_priority(self):
+        self.add_alias_reading([30,40])
+        self.f['companion']['bundles'][0]['basis']['text']='Also differs from independent expectation'
+        self.refuses('CONTRACT_SHAPE')
+        self.f['companion']['bundles']=[]
+        self.refuses('UNSUPPORTED_INFERENCE')
+        self.f['companion']['units'][2]['source']['lines']=[441,442]
+        self.refuses('SOURCE_JOIN_MISMATCH')
+
     def test_actual_inferential_cycle_is_refused(self):
         s = self.f['companion']['suppliers'][0]
         s['kind'], s['expansion'], s['unit_ids'] = 'inventory_unit', 'in_slice', ['C']
@@ -495,6 +643,56 @@ class GitInputTests(unittest.TestCase):
     def test_cli_incomplete_arguments_refuse_structurally(self):
         code,r=self.cli('--inventory-commit',self.source_commit)
         self.assertEqual(code,2,r);self.assertEqual(r['reason'],'CONTRACT_SHAPE')
+
+    def paired_cli(self,a,b):
+        return self.cli('--expected-commit',a,'--expected-path','synthetic/EXPECTED_INVENTORY.json',
+                        '--companion-commit',b,'--companion-path','synthetic/PROOF_SLICE.json')
+
+    def test_cli_duplicate_inventory_precedes_malformed_companion(self):
+        f,a,b=self.prepare_pair()
+        f['expected']['expected_units'].append(copy.deepcopy(f['expected']['expected_units'][0]))
+        self.write('synthetic/EXPECTED_INVENTORY.json',f['expected'])
+        a=self.commit('Inventory with duplicate row')
+        f['companion']['inventory_binding']['expected_inventory']=self.identity_at(a,'synthetic/EXPECTED_INVENTORY.json')
+        del f['companion']['id']
+        self.write('synthetic/PROOF_SLICE.json',f['companion'])
+        b=self.commit('Malformed companion after independently fixed duplicate inventory')
+        code,r=self.paired_cli(a,b)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'CONTRACT_SHAPE',r)
+        self.assertEqual(r['failed_input'],'inventory',r)
+
+    def test_cli_duplicate_history_precedes_wrong_pin(self):
+        f,a,b=self.prepare_pair()
+        f['companion']['history']*=2
+        f['companion']['inventory_binding']['expected_inventory']['commit']='4'*40
+        self.write('synthetic/PROOF_SLICE.json',f['companion']);b=self.commit('Duplicate history and wrong pin')
+        code,r=self.paired_cli(a,b)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'CONTRACT_SHAPE',r)
+        self.assertEqual(r['failed_input'],'companion',r)
+
+    def test_cli_duplicate_history_precedes_missing_capture(self):
+        f,a,b=self.prepare_pair()
+        f['companion']['history']*=2
+        self.write('synthetic/PROOF_SLICE.json',f['companion'])
+        capture=CHECKER.snapshot_path('synthetic/PROOF_SLICE.json',f['companion']['records'][0]['identity'])
+        (self.repo/capture).unlink();b=self.commit('Duplicate history and missing current capture')
+        code,r=self.paired_cli(a,b)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'CONTRACT_SHAPE',r)
+        self.assertEqual(r['failed_input'],'companion',r)
+
+    def test_cli_mixed_alias_exclusions_and_positive_control(self):
+        f,a,b=self.prepare_pair()
+        c=f['companion'];c['sources'].append({'id':'P_ALIAS','identity':copy.deepcopy(c['sources'][0]['identity'])})
+        use=c['units'][0]['uses'][0]
+        selection={'source_id':'P_ALIAS','lines':[90,90],'locator':'CLI mixed-alias selection','precision':'exact_lines'}
+        use['binding']['source_reading']=[{'boundary_id':'RB','supplier_ids':[],'applies_to':[selection],
+                                        'explanation':copy.deepcopy(use['binding']['context'])}]
+        self.write('synthetic/PROOF_SLICE.json',c);valid=self.commit('Permitted mixed-alias reading')
+        code,r=self.paired_cli(a,valid);self.assertEqual(code,0,r)
+        selection['lines']=[30,40]
+        self.write('synthetic/PROOF_SLICE.json',c);invalid=self.commit('Excluded mixed-alias reading')
+        code,r=self.paired_cli(a,invalid)
+        self.assertEqual(code,2,r);self.assertEqual(r['reason'],'CONTRACT_SHAPE',r)
 
 
 class WorkflowTests(unittest.TestCase):
