@@ -59,7 +59,7 @@ def run_cli(env):
     full.update(env)
     full['REQUIRED_FORMAL_NEEDS'] = json.dumps(needs_for(env))
     proc = subprocess.run(
-        [sys.executable, '-B', '-S', str(SCRIPT), 'aggregate'],
+        [sys.executable, '-B', *(['-O'] if sys.flags.optimize else []), '-S', str(SCRIPT), 'aggregate'],
         cwd=ROOT, env=full, capture_output=True, text=True,
     )
     return proc.returncode, proc.stdout, proc.stderr
