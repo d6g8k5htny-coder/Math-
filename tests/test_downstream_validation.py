@@ -1,4 +1,5 @@
 """Timeout diagnostics must retain evidence without weakening the replay gate."""
+import hashlib
 import importlib.util
 import json
 import os
@@ -319,24 +320,68 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.assert_refused(-9, self.BASELINE, False)
 
     def test_success_replays_both_modes_and_every_mutant(self):
-        out = self.out / 'ok'
-        self.main(out, [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED),
-                        self.completed(1, self.DETECTED)] * 2, self.two)
-        self.assertEqual(self.run.call_count, 8)
-        for offset, flags in ((0, []), (4, ['-O'])):
+        # A first-two-only production loop must not satisfy this full-map control.
+        # Child responses are synthetic; main() still creates real copies and logs.
+        out = (self.out / 'ok').resolve()
+        mutants = dict(M.MUTANTS)
+        self.assertEqual(len(mutants), 24)
+        source_files = {p.relative_to(M.ROOT).as_posix(): p.read_bytes()
+                        for p in M.ROOT.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+        source_identities = {name: {'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
+                             for name, data in source_files.items()}
+        responses, streams = {}, {}
+        for mode, flags in (('normal', []), ('optimized', ['-O'])):
             prefix = [sys.executable, '-E', '-B', *flags, '-S']
             tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
-            for index in (0, 2, 3):  # baseline and every selected mutant
-                self.assertEqual(self.run.call_args_list[offset + index].args[0], tests)
-            self.assertEqual(self.run.call_args_list[offset + 1].args[0], prefix + ['hard_gate.py'])
+            baseline_stdout = 'baseline ' + mode + '\n'
+            responses[(tuple(tests), str(M.ROOT))] = self.completed(0, self.BASELINE, baseline_stdout)
+            responses[(tuple(prefix + ['hard_gate.py']), str(M.ROOT))] = self.gate()
+            streams['tests_' + mode] = (baseline_stdout, self.BASELINE)
+            for name in mutants:
+                stdout = mode + ':' + name + ':stdout\n'
+                stderr = mode + ':' + name + ':stderr\n' + self.DETECTED
+                scratch = out / 'mutants' / mode / name
+                responses[(tuple(tests), str(scratch))] = self.completed(1, stderr, stdout)
+                streams['mutation_' + mode + '_' + name] = (stdout, stderr)
+        def replay(command, *, cwd, **kwargs):
+            return responses[(tuple(command), str(cwd))]
+        self.main(out, replay, mutants)
+        self.assertEqual(self.run.call_count, 52)
+        for offset, mode, flags in ((0, 'normal', []), (26, 'optimized', ['-O'])):
+            prefix = [sys.executable, '-E', '-B', *flags, '-S']
+            tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            baseline, gate = self.run.call_args_list[offset:offset + 2]
+            self.assertEqual(baseline.args[0], tests)
+            self.assertEqual(baseline.kwargs['cwd'], M.ROOT)
+            self.assertEqual(gate.args[0], prefix + ['hard_gate.py'])
+            self.assertEqual(gate.kwargs['cwd'], M.ROOT)
+            self.assertEqual((out / ('output_' + mode + '.json')).read_bytes(), source_files['RESULTS.json'])
+            self.assertEqual({p.name for p in (out / 'mutants' / mode).iterdir()}, set(mutants))
+            for index, (name, (old, new)) in enumerate(mutants.items(), 2):
+                scratch = out / 'mutants' / mode / name
+                call = self.run.call_args_list[offset + index]
+                self.assertEqual(call.args[0], tests)
+                self.assertEqual(call.kwargs['cwd'], scratch)
+                copied = {p.relative_to(scratch).as_posix(): p.read_bytes()
+                          for p in scratch.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+                expected = dict(source_files)
+                expected['hard_gate.py'] = source_files['hard_gate.py'].replace(old.encode(), new.encode())
+                self.assertEqual(copied, expected, mode + ':' + name)
         report = json.loads((out / 'REPORT.json').read_text())
         self.assertTrue(report['passed'])
         self.assertEqual(report['modes'], ['normal', 'optimized'])
+        self.assertEqual(report['distinct_semantic_mutations'], 24)
         self.assertTrue(report['sources_unchanged'])
-        self.assertEqual(report['source_files'], M.identities())
-        for mode in ('normal', 'optimized'):
-            for name in self.two:
-                self.assertTrue((out / ('mutation_' + mode + '_' + name + '.stderr')).is_file())
+        self.assertEqual(report['source_files'], source_identities)
+        self.assertEqual({p.relative_to(M.ROOT).as_posix(): p.read_bytes()
+                          for p in M.ROOT.rglob('*') if p.is_file() and '__pycache__' not in p.parts}, source_files)
+        for name, (stdout, stderr) in streams.items():
+            self.assertEqual((out / (name + '.stdout')).read_bytes(), stdout.encode('utf-8'))
+            self.assertEqual((out / (name + '.stderr')).read_bytes(), stderr.encode('utf-8'))
+        mutation_logs = {name for name in streams if name.startswith('mutation_')}
+        self.assertEqual(len(mutation_logs), 48)
+        for stream in ('stdout', 'stderr'):
+            self.assertEqual({p.stem for p in out.glob('mutation_*.' + stream)}, mutation_logs)
 
     def test_actual_child_modes_ignore_ambient_optimization(self):
         # Capture both production constructors; replace only their payloads.
@@ -448,9 +493,42 @@ class ReplayGateRefusalControls(unittest.TestCase):
                 self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
 
     def test_absent_mutation_anchor_refused(self):
-        with self.assertRaisesRegex(RuntimeError, 'nonunique mutation'):
-            self.main(self.out / 'anchor', [self.completed(0, self.BASELINE), self.gate()],
-                      {'absent': ('no such anchor text', 'x')})
+        # Replacing the uniqueness check with count > 0 must fail the duplicate case.
+        # Supply a complete synthetic success stream so acceptance cannot hide
+        # behind exhausted responses. The packet fixture and report are real files.
+        for label in ('absent', 'duplicate'):
+            with self.subTest(anchor=label):
+                packet = (self.out / ('packet-' + label)).resolve()
+                shutil.copytree(M.ROOT, packet, ignore=shutil.ignore_patterns('__pycache__'))
+                mutants = {'absent': ('no such anchor text', 'x')}
+                name = 'absent'
+                if label == 'duplicate':
+                    mutants = dict(M.MUTANTS)
+                    name, (old, new) = next(iter(mutants.items()))
+                    source = (packet / 'hard_gate.py').read_text()
+                    self.assertEqual(source.count(old), 1)
+                    source += '\n# Duplicate anchor fixture: ' + old + '\n'
+                    self.assertEqual(source.count(old), 2)
+                    compile(source, '<duplicate anchor fixture>', 'exec')
+                    compile(source.replace(old, new), '<duplicate anchor replacement>', 'exec')
+                    (packet / 'hard_gate.py').write_text(source)
+                before = {p.relative_to(packet).as_posix(): p.read_bytes()
+                          for p in packet.rglob('*') if p.is_file()}
+                out = self.out / ('anchor-' + label)
+                with mock.patch.object(M, 'ROOT', packet):
+                    responses = ([self.completed(0, self.BASELINE), self.gate()] +
+                                 [self.completed(1, self.DETECTED) for _ in mutants]) * 2
+                    with self.assertRaisesRegex(RuntimeError, 'nonunique mutation: ' + name):
+                        self.main(out, responses, mutants)
+                self.assertEqual(self.run.call_count, 2)
+                self.assertFalse((out / 'mutants').exists())
+                self.assertEqual({p.relative_to(packet).as_posix(): p.read_bytes()
+                                  for p in packet.rglob('*') if p.is_file()}, before)
+                report = json.loads((out / 'REPORT.json').read_text())
+                self.assertFalse(report['passed'])
+                self.assertEqual(report['modes'], [])
+                self.assertFalse(report['promotion_permission'])
+                self.assertEqual(report['scientific_effect'], 'NONE')
 
     def test_uncompilable_mutation_refused_before_replay(self):
         old = next(iter(M.MUTANTS.values()))[0]
