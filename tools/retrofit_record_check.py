@@ -84,19 +84,34 @@ def _safe_path(value):
             and all(part not in ('', '.', '..') for part in value.split('/')))
 
 
+class _GitBackendError(ValueError):
+    """A backend limitation, distinct from a source-object mismatch."""
+
+
 def _git(repo, *args):
     # The explicit clone and raw objects define identity. Ambient Git routing/config
     # must not redirect it, and replacement refs must not rebind a named commit.
-    env = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+    # A caller's discovery ceiling only restricts ancestor search; retain it.
+    env = {key: value for key, value in os.environ.items()
+           if not key.startswith('GIT_') or key == 'GIT_CEILING_DIRECTORIES'}
     # Missing promisor objects must be refused without fetching or writing the clone.
     env['GIT_NO_LAZY_FETCH'] = '1'
-    run = subprocess.run(['git', '--no-replace-objects', '-C', str(repo), *args],
-                         capture_output=True, text=True, env=env)
+    command = ['git', '--no-replace-objects', '--no-lazy-fetch']
+    if repo is not None:
+        command.extend(['-C', str(repo)])
+    try:
+        run = subprocess.run([*command, *args], capture_output=True, text=True, env=env)
+    except OSError:
+        raise _GitBackendError('Git backend could not be launched for source verification') from None
     return run.stdout.strip() if run.returncode == 0 else None
 
 
 def _git_blob(repo, commit, path):
     """The blob id at commit:path; None unless commit names a commit object and path a blob in its tree."""
+    # Probe without a repository, before any object lookup. Check the actual
+    # capability, not a version string; real reads retain the same safety flag.
+    if _git(None, '--version') is None:
+        raise _GitBackendError('Git capability check failed: --no-lazy-fetch is required for source verification')
     if _git(repo, 'cat-file', '-t', commit) != 'commit':
         return None
     if _git(repo, 'cat-file', '-t', commit + ':' + path) != 'blob':
@@ -170,9 +185,14 @@ def validate(data, *, shard_dir=None, repos=None):
             elif not record['delta'] and (repo_name is None or BASELINE.get(repo_name) != subject['commit']):
                 errors.append(where + '.subject.commit: not the pinned baseline; mark a candidate with delta true')
             if repos and repo_name is not None and repo_name in repos and not errors_for(where, errors):
-                got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
-                if got != subject['blob']:
-                    errors.append(where + '.subject: blob does not match git (%s)' % (got or 'no blob at commit:path'))
+                try:
+                    got = _git_blob(repos[repo_name], subject['commit'], subject['path'])
+                except _GitBackendError as exc:
+                    errors.append(where + '.subject: ' + str(exc))
+                else:
+                    if got != subject['blob']:
+                        errors.append(where + '.subject: blob does not match git (%s)' %
+                                      (got or 'no blob at commit:path'))
         if record['axis'] not in AXES:
             errors.append(where + '.axis: one of ' + ', '.join(AXES))
         if record['state'] not in STATES:
@@ -243,8 +263,13 @@ def _evidence(item, where, errors, repos):
         if not ok:
             errors.append(where + ': file evidence needs 40-hex commit and blob and a relative path')
         elif known and repos and item['repository'] in repos:
-            if _git_blob(repos[item['repository']], item['commit'], item['path']) != item['blob']:
-                errors.append(where + ': file evidence blob does not match git')
+            try:
+                got = _git_blob(repos[item['repository']], item['commit'], item['path'])
+            except _GitBackendError as exc:
+                errors.append(where + ': ' + str(exc))
+            else:
+                if got != item['blob']:
+                    errors.append(where + ': file evidence blob does not match git')
         return
     if not isinstance(item['ref'], str) or not DIGITS.fullmatch(item['ref']):
         errors.append(where + '.ref: numeric GitHub id as a string required')

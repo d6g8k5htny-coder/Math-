@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TOOL = ROOT / 'tools' / 'retrofit_record_check.py'
@@ -562,6 +563,12 @@ class RawGitIdentity(unittest.TestCase):
             self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True)
 
     def promisor_cases(self, missing, caller='1'):
+        # Real promisor controls require an actual capable backend. Do not turn
+        # an unsupported oracle into evidence that an object is absent.
+        capability = subprocess.run(['git', '--no-lazy-fetch', '--version'], env=self.env,
+                                    capture_output=True, text=True, timeout=30)
+        self.assertEqual(capability.returncode, 0,
+                         'real-promisor tests require Git --no-lazy-fetch support: ' + capability.stderr)
         for route in ('subject', 'evidence'):
             for flags in ([], ['-O']):
                 with self.subTest(missing=missing, route=route, optimize=bool(flags), caller=caller):
@@ -592,9 +599,17 @@ class RawGitIdentity(unittest.TestCase):
 
                     def object_present():
                         run = subprocess.run(['git', '--no-lazy-fetch', '--no-replace-objects',
-                                              '-C', str(selected), 'cat-file', '-e', oid],
-                                             env=self.env, capture_output=True, timeout=30)
-                        return run.returncode == 0
+                                              '-C', str(selected), 'cat-file', '--batch-check'],
+                                             input=oid + '\n', text=True, env=self.env,
+                                             capture_output=True, timeout=30)
+                        self.assertEqual(run.returncode, 0, 'object oracle failed: ' + run.stderr)
+                        if run.stdout == oid + ' missing\n':
+                            return False
+                        fields = run.stdout.split()
+                        self.assertEqual(len(fields), 3, run.stdout)
+                        self.assertEqual(fields[:2], [oid, 'commit' if missing == 'commit' else 'blob'])
+                        self.assertTrue(fields[2].isdigit(), run.stdout)
+                        return True
 
                     self.assertEqual(object_present(), missing is None)
                     self.assertFalse(marker.exists())
@@ -651,6 +666,127 @@ class RawGitIdentity(unittest.TestCase):
     def test_missing_promisor_objects_refused_without_caller_opt_in(self):
         for caller in (None, '0'):
             self.promisor_cases('blob', caller=caller)
+
+    def test_caller_discovery_ceiling_is_preserved(self):
+        original_repo = self.repo
+        nested = original_repo / 'nested'
+        nested.mkdir()
+        self.repo = nested
+        try:
+            for route in ('subject', 'evidence'):
+                self.check_reference(route, self.original, 'TARGET.md', self.original_blob, False,
+                                     env={'GIT_CEILING_DIRECTORIES': str(original_repo)})
+        finally:
+            self.repo = original_repo
+
+    def test_ceiling_exception_does_not_restore_repository_redirection(self):
+        foreign = self.root / 'foreign'
+        foreign.mkdir()
+        self.git('init', '-q', '--object-format=sha1', repo=foreign)
+        (foreign / 'TARGET.md').write_text('foreign\n', encoding='utf-8')
+        self.commit('foreign', repo=foreign)
+        commit = self.git('rev-parse', 'HEAD', repo=foreign)
+        blob = self.git('rev-parse', 'HEAD:TARGET.md', repo=foreign)
+        for overrides in ({'GIT_DIR': str(foreign / '.git'), 'GIT_WORK_TREE': str(foreign)},
+                          {'GIT_OBJECT_DIRECTORY': str(foreign / '.git' / 'objects')}):
+            env = dict(overrides, GIT_CEILING_DIRECTORIES=str(self.root))
+            for route in ('subject', 'evidence'):
+                self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True, env=env)
+                self.check_reference(route, commit, 'TARGET.md', blob, False, env=env)
+
+    def test_bare_worktree_subdirectory_and_git_directory_remain_valid(self):
+        original_repo = self.repo
+        bare, linked, nested = self.root / 'bare.git', self.root / 'linked', self.repo / 'nested'
+        self.git('clone', '--bare', '--no-hardlinks', str(self.repo), str(bare))
+        self.git('worktree', 'add', '--detach', str(linked), self.original)
+        nested.mkdir()
+        try:
+            for layout in (bare, linked, nested, original_repo / '.git'):
+                self.repo = layout
+                for route in ('subject', 'evidence'):
+                    self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True)
+        finally:
+            self.repo = original_repo
+
+    def backend_error_cases(self, env, diagnostic, calls=None):
+        def snapshot():
+            # The shim's own call log is instrumentation, outside the clone.
+            return {name: raw for name, raw in self.snapshot().items()
+                    if not name.startswith('unsupported-bin/')}
+
+        def check(errors, before):
+            self.assertEqual(len(errors), 1, errors)
+            self.assertIn(diagnostic, errors[0])
+            self.assertNotIn('blob does not match', errors[0])
+            self.assertEqual(snapshot(), before)
+            if calls is not None:
+                invocations = [json.loads(line) for line in calls.read_text().splitlines()]
+                self.assertTrue(invocations)
+                self.assertTrue(all('-C' not in args for args in invocations), invocations)
+                self.assertTrue(all('--no-lazy-fetch' in args and '--version' in args
+                                    for args in invocations), invocations)
+
+        for route in ('subject', 'evidence'):
+            data = example()
+            record = data['records'][0]
+            record.update(delta=True, alias_of=None)
+            ref = {'repository': 'Math-', 'commit': self.original,
+                   'path': 'TARGET.md', 'blob': self.original_blob}
+            if route == 'subject':
+                record.update(subject=ref, state='unknown', evidence=[])
+            else:
+                record['subject']['repository'] = 'query-'
+                record.update(state='recorded', evidence=[dict(ref, kind='file')])
+            data['records'] = [record]
+            source = self.root / 'backend-input.json'
+            source.write_text(json.dumps(data), encoding='utf-8')
+            before = snapshot()
+            with self.subTest(route=route, interface='API'):
+                with mock.patch.dict(os.environ, env, clear=True):
+                    try:
+                        errors = rc.validate(data, repos={'Math-': self.repo})
+                    except OSError as exc:
+                        self.fail('backend launch failure escaped validate: ' + str(exc))
+                check(errors, before)
+            for flags in ([], ['-O']):
+                with self.subTest(route=route, interface='CLI', optimize=bool(flags)):
+                    run = subprocess.run([sys.executable, '-B', *flags, '-S', str(TOOL), '--aggregate',
+                                          '--repo', str(self.repo), str(source)], env=env,
+                                         capture_output=True, text=True, timeout=60)
+                    self.assertEqual((run.returncode, run.stderr), (1, ''), run.stdout)
+                    report = json.loads(run.stdout)
+                    self.assertFalse(report['passed'])
+                    self.assertNotIn('aggregate', report)
+                    check(report['files'][str(source)]['errors'], before)
+            # Merely supplying a mapping does not require Git for unrelated refs.
+            if calls is not None:
+                calls.unlink()
+            with mock.patch.dict(os.environ, env, clear=True):
+                self.assertEqual(rc.validate(data, repos={'main': self.repo}), [])
+            if calls is not None:
+                self.assertFalse(calls.exists(), 'unmapped references invoked Git')
+
+    def test_unsupported_git_fails_before_repository_lookup(self):
+        # This is a capability-rejection simulation, not execution of an older Git.
+        backend_dir = self.root / 'unsupported-bin'
+        backend_dir.mkdir()
+        shim, calls = backend_dir / 'git', backend_dir / 'calls.jsonl'
+        real_git = shutil.which('git')
+        shim.write_text('#!' + sys.executable + '\n'
+                        'import json, os, pathlib, sys\n'
+                        'with pathlib.Path(%r).open("a") as out: out.write(json.dumps(sys.argv[1:]) + "\\n")\n'
+                        'if "--no-lazy-fetch" in sys.argv:\n'
+                        '    sys.stderr.write("simulated unsupported --no-lazy-fetch\\n")\n'
+                        '    sys.exit(129)\n'
+                        'os.execv(%r, [%r, *sys.argv[1:]])\n' % (str(calls), real_git, real_git),
+                        encoding='utf-8')
+        shim.chmod(0o755)
+        self.backend_error_cases(dict(self.env, PATH=str(backend_dir) + os.pathsep + self.env['PATH']),
+                                 'Git capability check failed', calls)
+
+    def test_unlaunchable_git_is_a_structured_backend_error(self):
+        self.backend_error_cases(dict(self.env, PATH=str(self.root / 'missing-bin')),
+                                 'Git backend could not be launched')
 
 
 if __name__ == '__main__':
