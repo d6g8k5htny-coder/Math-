@@ -77,3 +77,12 @@ also identifies its original program's mpmath dependency. The separate
 repairs, with [Lean](formal/lean-toolchain), [mathlib](formal/lakefile.toml) and
 [transitive dependencies](formal/lake-manifest.json) pinned. Those dependency
 identities do not supply license terms for this collection's research material.
+
+## License and citation files added on 2 October 2026
+
+*Pointer added 7 October 2026.* This guide was written on 30 September 2026 and cites snapshot `de54d1da2f6cdde59df3c34bb50ecd85c25ca333`. Its statements above about licensing describe that snapshot and are left unchanged. [Math-#230](https://github.com/d6g8k5htny-coder/Math-/pull/230), merged on 2 October 2026, later added two files:
+
+- [LICENSE](LICENSE): the MIT License, copyright Dylan Roy. By his instruction, material whose author is unknown is attributed to him for licensing. The file states that this is an attribution decision, not a source-level proof of authorship.
+- [CITATION.cff](CITATION.cff): the record behind GitHub's "Cite this repository". It names Dylan Roy as the person responsible for the collection, on the same basis, and pins commit `1726d1268c2262d8582c7dea001609df0745cb66` until a Zenodo DOI exists.
+
+For an individual result, the artifact guidance above still applies: cite the recorded source author, path and the commit you consulted. Neither file changes a review scope or accepts a theorem.
