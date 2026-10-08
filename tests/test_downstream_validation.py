@@ -3,6 +3,8 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
+import signal
 import subprocess
 import sys
 import tempfile
@@ -307,7 +309,8 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.assert_refused(1, 'Ran 711 tests\nAssertionError\nFAILED (failures=1)\n', True)
 
     def test_mutant_requires_every_detection_signal(self):
-        for code, stderr in [(0, self.DETECTED), (1, 'Ran 71 tests\nFAILED (failures=1)\n'),
+        for code, stderr in [(0, self.DETECTED), (2, self.DETECTED), (-9, self.DETECTED),
+                             (1, 'Ran 71 tests\nFAILED (failures=1)\n'),
                              (1, 'Ran 71 tests\nAssertionError\nFAILED (errors=1)\n')]:
             with self.subTest(code=code, stderr=stderr):
                 self.assert_refused(code, stderr, True)
@@ -320,21 +323,106 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.main(out, [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED),
                         self.completed(1, self.DETECTED)] * 2, self.two)
         self.assertEqual(self.run.call_count, 8)
-        self.assertIn('-O', self.run.call_args_list[4].args[0])
+        for offset, flags in ((0, []), (4, ['-O'])):
+            prefix = [sys.executable, '-E', '-B', *flags, '-S']
+            tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            for index in (0, 2, 3):  # baseline and every selected mutant
+                self.assertEqual(self.run.call_args_list[offset + index].args[0], tests)
+            self.assertEqual(self.run.call_args_list[offset + 1].args[0], prefix + ['hard_gate.py'])
         report = json.loads((out / 'REPORT.json').read_text())
         self.assertTrue(report['passed'])
         self.assertEqual(report['modes'], ['normal', 'optimized'])
+        self.assertTrue(report['sources_unchanged'])
+        self.assertEqual(report['source_files'], M.identities())
         for mode in ('normal', 'optimized'):
             for name in self.two:
                 self.assertTrue((out / ('mutation_' + mode + '_' + name + '.stderr')).is_file())
 
+    def test_actual_child_modes_ignore_ambient_optimization(self):
+        # Capture both production constructors; replace only their payloads.
+        # These real diagnostic children do not run the 71-test packet.
+        out = self.out / 'mode-commands'
+        responses = [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED)] * 2
+        self.main(out, responses, dict(list(self.two.items())[:1]))
+        calls = self.run.call_args_list
+        for offset, expected in ((0, 0), (3, 1)):
+            tests = calls[offset].args[0]
+            gate = calls[offset + 1].args[0]
+            prefixes = {'tests_and_mutants': tests[:tests.index('-m')], 'hard_gate': gate[:-1]}
+            for constructor, prefix in prefixes.items():
+                for ambient in (None, '0', '1', '2'):
+                    with self.subTest(expected=expected, constructor=constructor, ambient=ambient):
+                        env = {key: value for key, value in os.environ.items()
+                               if key not in ('PYTHONOPTIMIZE', 'PYTHONHOME', 'PYTHONPATH')}
+                        if ambient is not None:
+                            env['PYTHONOPTIMIZE'] = ambient
+                        child = subprocess.run(prefix + ['-c', 'import sys; print(sys.flags.optimize)'],
+                                               env=env, capture_output=True, text=True, timeout=10)
+                        self.assertEqual(child.returncode, 0, child.stderr)
+                        self.assertEqual(child.stderr, '')
+                        self.assertEqual(child.stdout, str(expected) + '\n')
+
+    def test_real_child_exit_status_distinguishes_assertions_from_abnormal_termination(self):
+        # All mutant children emit identical synthetic unittest-shaped text.
+        # Their actual exit status, not that text, distinguishes termination.
+        real_run = subprocess.run
+        cases = [('zero', 0, True), ('assertion', 1, True), ('abnormal', 2, True),
+                 ('signal', -signal.SIGKILL, True), ('baseline_signal', -signal.SIGKILL, False)]
+        for label, code, mutant in cases:
+            with self.subTest(label=label):
+                end = ('os.kill(os.getpid(), signal.SIGKILL)' if code < 0 else 'sys.exit(' + str(code) + ')')
+                payload = 'import os, signal, sys; sys.stderr.write(' + repr(self.DETECTED) + '); sys.stderr.flush(); ' + end
+                command = [sys.executable, '-E', '-B', '-S', '-c', payload]
+                observed = []
+                def run(*args, **kwargs):
+                    child = real_run(*args, **kwargs)
+                    observed.append(child)
+                    return child
+                accepted = True
+                with mock.patch.object(M.subprocess, 'run', side_effect=run):
+                    try:
+                        M.execute(command, self.out, self.out, label, mutant=mutant,
+                                  mode='normal', mutation='controlled_stderr' if mutant else None)
+                    except RuntimeError:
+                        accepted = False
+                self.assertEqual(len(observed), 1)
+                self.assertEqual(observed[0].returncode, code)
+                self.assertEqual(observed[0].stderr, self.DETECTED)
+                self.assertEqual((self.out / (label + '.stderr')).read_text(), self.DETECTED)
+                self.assertEqual(accepted, mutant and code == 1)
+
     def test_source_change_during_replay_refused(self):
         out = self.out / 'drift'
-        responses = [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED)] * 2
-        with mock.patch.object(M, 'identities', side_effect=[{'a': 1}, {'a': 2}]):
-            with self.assertRaisesRegex(RuntimeError, 'source files changed'):
-                self.main(out, responses, dict(list(self.two.items())[:1]))
-        self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
+        packet = self.out / 'packet'
+        shutil.copytree(M.ROOT, packet, ignore=shutil.ignore_patterns('__pycache__'))
+        original_identities = M.identities
+        commands = 0
+        snapshots = []
+        def identities():
+            snapshot = original_identities()
+            snapshots.append((commands, snapshot))
+            return snapshot
+        with mock.patch.object(M, 'ROOT', packet):
+            responses = [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED)] * 2
+            def replay(*args, **kwargs):
+                nonlocal commands
+                commands += 1
+                if commands == 1:
+                    source = packet / 'README.md'
+                    source.write_bytes(source.read_bytes() + b'\nPhysical mid-replay drift fixture.\n')
+                return responses[commands - 1]
+            with mock.patch.object(M, 'identities', side_effect=identities):
+                with self.assertRaisesRegex(RuntimeError, 'source files changed'):
+                    self.main(out, replay, dict(list(self.two.items())[:1]))
+        self.assertEqual(commands, 6)
+        self.assertEqual([count for count, _ in snapshots], [0, 6])
+        self.assertNotEqual(snapshots[0][1]['README.md'], snapshots[1][1]['README.md'])
+        report = json.loads((out / 'REPORT.json').read_text())
+        self.assertFalse(report['passed'])
+        self.assertNotIn('sources_unchanged', report)
+        self.assertNotIn('source_files', report)
+        self.assertFalse(report['promotion_permission'])
+        self.assertEqual(report['scientific_effect'], 'NONE')
 
     def test_output_must_be_new_and_outside_source_before_any_command(self):
         base, link = self.out / 'base', self.out / 'link'

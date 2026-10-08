@@ -94,10 +94,18 @@ class RequiredCheckTests(unittest.TestCase):
             self.needs['formal']['outputs']['receipt_sha256']=value
             with self.subTest(value=value),self.assertRaises(ValueError):self.decision()
     def test_binding_preserves_receipt(self):
-        before=self.receipt.read_bytes(); result=self.binding()
-        self.assertEqual(self.receipt.read_bytes(),before)
-        self.assertEqual(result['receipt_sha256'],hashlib.sha256(before).hexdigest())
-        self.assertEqual(result['run_attempt'],'2')
+        for repository in ('d6g8k5htny-coder/main', 'd6g8k5htny-coder/Math-'):
+            with self.subTest(repository=repository):
+                self.env['GITHUB_REPOSITORY']=repository
+                self.record['repository']=repository
+                self.needs['formal']['outputs']['repository']=repository
+                self.write_receipt()
+                before=self.receipt.read_bytes(); result=self.binding()
+                self.assertEqual(self.receipt.read_bytes(),before)
+                self.assertEqual(result['repository'],repository)
+                self.assertEqual(result['receipt_sha256'],hashlib.sha256(before).hexdigest())
+                self.assertEqual(result['run_attempt'],'2')
+                self.assertEqual(self.decision()['repository'],repository)
     def test_unproved_receipt_refused(self):
         self.record['formalization_status']='specified';self.write_receipt()
         with self.assertRaises(ValueError):self.binding()
@@ -132,6 +140,11 @@ class RequiredCheckTests(unittest.TestCase):
 
     # Mutation-gap controls: each test refuses a weakening that the tests above still admit.
     def test_attempt_identity_is_exact(self):
+        for value in ('2', '10'):
+            self.env['GITHUB_RUN_ATTEMPT']=value;self.needs['formal']['outputs']['run_attempt']=value
+            for operation, check in (('aggregate', self.decision), ('bind_receipt', self.binding)):
+                with self.subTest(accepted_attempt=value, operation=operation):
+                    self.assertEqual(check()['run_attempt'],value)
         for value in ('0', '01', 'x', '1 ', ''):
             with self.subTest(value=value):
                 self.env['GITHUB_RUN_ATTEMPT']=value;self.needs['formal']['outputs']['run_attempt']=value
