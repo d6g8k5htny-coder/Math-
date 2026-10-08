@@ -183,7 +183,9 @@ class RequiredCheckTests(unittest.TestCase):
         failed=json.dumps({**self.needs['formal'],'result':'failure'})
         text='{"checks":%s,"formal":%s,"formal":%s}'%(json.dumps(self.needs['checks']),failed,json.dumps(self.needs['formal']))
         env={**os.environ,**self.env,'REQUIRED_FORMAL_NEEDS':text}
-        run=subprocess.run([sys.executable,'-B','-S',str(SCRIPT),'aggregate'],env=env,capture_output=True,text=True)
+        # -E: ignore ambient PYTHON* (PYTHONOPTIMIZE, PYTHONPATH, ...); the child runs in the outer mode only.
+        run=subprocess.run([sys.executable,'-E','-B',*(['-O']*sys.flags.optimize),'-S',str(SCRIPT),'aggregate'],
+                           env=env,capture_output=True,text=True)
         self.assertNotEqual(run.returncode,0)
         self.assertIn('duplicate JSON key',run.stderr)
 

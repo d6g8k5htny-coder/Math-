@@ -1,6 +1,7 @@
 """Timeout diagnostics must retain evidence without weakening the replay gate."""
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -336,16 +337,19 @@ class ReplayGateRefusalControls(unittest.TestCase):
         self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
 
     def test_output_must_be_new_and_outside_source_before_any_command(self):
-        packet = self.out / 'packet'
-        packet.mkdir()
-        existing = self.out / 'existing'
-        existing.mkdir()
-        for out in (packet / 'out', existing):
-            with self.subTest(out=out.name):
-                with mock.patch.object(M, 'ROOT', packet):
-                    with self.assertRaisesRegex(RuntimeError, 'new output outside source'):
-                        self.main(out, AssertionError('no command may run'), self.two)
-                self.assertEqual(self.run.call_count, 0)
+        base, link = self.out / 'base', self.out / 'link'
+        (base / 'packet').mkdir(parents=True)
+        (base / 'existing').mkdir()
+        link.symlink_to(base, target_is_directory=True)
+        for where in (base, link):  # canonical and symlinked spellings of one directory
+            # Production ROOT is resolved (Path(__file__).resolve()); keep that invariant in the mock.
+            packet = (where / 'packet').resolve()
+            for out in (where / 'packet' / 'out', where / 'existing'):
+                with self.subTest(where=where.name, out=out.name):
+                    with mock.patch.object(M, 'ROOT', packet):
+                        with self.assertRaisesRegex(RuntimeError, 'new output outside source'):
+                            self.main(out, AssertionError('no command may run'), self.two)
+                    self.assertEqual(self.run.call_count, 0)
 
     def test_gate_entry_must_exit_zero_with_exact_results(self):
         for gate in (self.gate(stdout=b'{}'), self.gate(code=1)):
@@ -387,16 +391,39 @@ class ReplayGateRefusalControls(unittest.TestCase):
             self.assertEqual(set(M.identities()), {'a.py', 'DATA.json', 'sub/b.md'})
 
 
+def isolated_git_env(environ):
+    """Fixture Git environment: no ambient GIT_* (GIT_DIR, GIT_CONFIG_PARAMETERS, ...), no global/system config."""
+    env = {k: v for k, v in environ.items() if not k.startswith('GIT_')}
+    env.update(GIT_CONFIG_GLOBAL=os.devnull, GIT_CONFIG_NOSYSTEM='1')
+    return env
+
+
 class TransitionAuditRefusalControls(unittest.TestCase):
     """Mutation-gap controls for git_transition_audit.py, which the lane runs once on a passing transition."""
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.repo = Path(self.temp.name) / 'repo'
-        self.repo.mkdir()
-        self.git('init', '-q')
-        self.git('config', 'user.name', 'local test')
-        self.git('config', 'user.email', 'test@example.invalid')
+        # The fixture, the in-process audit (AUDIT.git) and the child CLI all inherit this isolated environment.
+        environ = mock.patch.dict(os.environ)
+        environ.start()
+        self.addCleanup(environ.stop)
+        self.isolate_environ()
+        self.repo = self.init_repo(Path(self.temp.name) / 'repo')
+
+    @staticmethod
+    def isolate_environ():
+        isolated = isolated_git_env(os.environ)
+        os.environ.clear()
+        os.environ.update(isolated)
+
+    def init_repo(self, repo):
+        repo.mkdir()
+        run = lambda *a: subprocess.run(['git', '-C', str(repo), *a], check=True, capture_output=True)
+        run('init', '-q', '--template=')  # no template hooks
+        for key, value in (('user.name', 'local test'), ('user.email', 'test@example.invalid'),
+                           ('commit.gpgSign', 'false'), ('tag.gpgSign', 'false'), ('core.hooksPath', os.devnull)):
+            run('config', key, value)
+        return repo
 
     def git(self, *args):
         return subprocess.run(['git', '-C', str(self.repo), *args], check=True, capture_output=True, text=True).stdout.strip()
@@ -415,9 +442,38 @@ class TransitionAuditRefusalControls(unittest.TestCase):
         return {'schema_version': 1, 'nodes': nodes, 'edges': []}
 
     def cli(self, base, head, out):
-        return subprocess.run([sys.executable, '-B', '-S', str(PACKET / 'git_transition_audit.py'), '--repo', str(self.repo),
+        # -E plus the outer optimization level: ambient PYTHON* cannot change the child's mode or imports.
+        return subprocess.run([sys.executable, '-E', '-B', *(['-O'] * sys.flags.optimize), '-S',
+                               str(PACKET / 'git_transition_audit.py'), '--repo', str(self.repo),
                                '--base', base, '--head', head, '--graph', 'GRAPH.json', '--output', str(out)],
-                              capture_output=True, text=True, timeout=120)
+                              env=dict(os.environ), capture_output=True, text=True, timeout=120)
+
+    def test_fixture_and_audit_ignore_hostile_ambient_git_config(self):
+        tmp = Path(self.temp.name)
+        hooks = tmp / 'hostile-hooks'
+        hooks.mkdir()
+        (hooks / 'pre-commit').write_text('#!/bin/sh\nexit 1\n')
+        (hooks / 'pre-commit').chmod(0o755)
+        hostile = tmp / 'hostile.gitconfig'
+        hostile.write_text('[commit]\n\tgpgSign = true\n[tag]\n\tgpgSign = true\n'
+                           '[gpg]\n\tprogram = %s\n[core]\n\thooksPath = %s\n' % (tmp / 'no-such-gpg', hooks))
+        probe = tmp / 'probe'
+        probe.mkdir()
+        bare = lambda *a: subprocess.run(['git', '-C', str(probe), *a], capture_output=True,
+                                         env={**os.environ, 'GIT_CONFIG_GLOBAL': str(hostile)})
+        for args in (('init', '-q'), ('config', 'user.name', 'p'), ('config', 'user.email', 'p@example.invalid')):
+            self.assertEqual(bare(*args).returncode, 0)
+        self.assertNotEqual(bare('commit', '-q', '--allow-empty', '-m', 'x').returncode, 0)  # the hostile context bites
+        os.environ.update(GIT_CONFIG_GLOBAL=str(hostile), GIT_DIR=str(tmp / 'elsewhere.git'),
+                          GIT_INDEX_FILE=str(tmp / 'elsewhere.index'))
+        self.isolate_environ()
+        self.repo = self.init_repo(tmp / 'isolated')
+        graph = self.graph()
+        base, head = self.commit(graph), self.commit(graph, 'unrelated.md')
+        self.assertTrue(AUDIT.audit(self.repo, base, head, 'GRAPH.json')['check_passed'])
+        run = self.cli(base, head, tmp / 'hostile-audit.json')
+        self.assertEqual(run.returncode, 0, run.stderr)
+        self.assertFalse((tmp / 'elsewhere.git').exists() or (tmp / 'elsewhere.index').exists())
 
     def test_revision_must_be_full_lowercase_commit(self):
         rev = self.commit(self.graph())
