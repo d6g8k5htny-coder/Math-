@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import textwrap
 import unittest
 from unittest import mock
 
@@ -563,6 +564,53 @@ class ContractTests(unittest.TestCase):
         result=self.valid()
         self.assertFalse(result['review_targets'][0]['matches_current'])
 
+    def test_historical_members_share_their_own_complete_root(self):
+        for location in ('own_copremise','other_bundle_group','unbundled_copremise'):
+            for field in ('consumer_statement_source','consumer_semantics'):
+                with self.subTest(location=location,field=field):
+                    self.f=copy.deepcopy(FIXTURE)
+                    old=self.add_review()['reviewed_use']
+                    if location=='other_bundle_group':
+                        group=next(g for g in old['bundle_context']['groups']
+                                   if g['group_id']!=old['inference_context']['group_id'])
+                        cores=[group['members'][0]['core']]
+                    else:
+                        member=next(m for m in old['inference_context']['premises'] if m['use_id']!=old['use_id'])
+                        cores=[member['core']]
+                        if location=='unbundled_copremise':
+                            old['bundle_context']=None
+                        else:
+                            group=next(g for g in old['bundle_context']['groups']
+                                       if g['group_id']==old['inference_context']['group_id'])
+                            cores.append(next(m['core'] for m in group['members'] if m['use_id']==member['use_id']))
+                    for core in cores:
+                        if field=='consumer_statement_source':core[field]['lines']=[1,1]
+                        else:core[field]['model']['text']='A different internally inconsistent historical model'
+                    self.refuses('CONTRACT_SHAPE')
+
+    def test_coherently_older_root_is_not_joined_to_current_tables(self):
+        old=self.add_review()['reviewed_use']
+        for obj in CHECKER.walk(old):
+            if set(obj) in (set(CHECKER.SHAPES['Core']),set(CHECKER.SHAPES['Snapshot'])):
+                obj['consumer_statement_id']='OLDER-ROOT'
+                obj['consumer_statement_source']['lines']=[1,1]
+                obj['consumer_statement_source']['file']['commit']='8'*40
+                obj['consumer_semantics']['model']['text']='A coherently different older root model'
+        result=self.scoped_report()
+        self.assertTrue(result['valid'],result)
+        self.assertFalse(result['review_targets'][0]['matches_current'])
+
+    def test_historical_root_mismatch_retains_authentication_priority(self):
+        old=self.add_review()['reviewed_use']
+        group=next(g for g in old['bundle_context']['groups']
+                   if g['group_id']!=old['inference_context']['group_id'])
+        member=group['members'][0]['core']
+        member['consumer_semantics']['model']['text']='Inconsistent historical model'
+        member['consumer_statement_source']['file']['sha256']='0'*64
+        result=self.scoped_report()
+        self.assertFalse(result['valid'],result)
+        self.assertEqual(result['reason'],'IDENTITY_MISMATCH')
+
     def test_every_inventory_id_table_precedes_companion_shape(self):
         paths=[['sources'],['records'],['unknowns'],['expected_units'],['expected_uses'],
                ['expected_groups'],['expected_bundles'],['root_boundary','reading_boundaries']]
@@ -945,6 +993,105 @@ class GitInputTests(unittest.TestCase):
 
 
 class WorkflowTests(unittest.TestCase):
+    def focused_step(self):
+        workflow=(ROOT/'.github/workflows/downstream-gate.yml').read_text()
+        start=workflow.index('      - name: P-C inventory A source-bound conformance')
+        return workflow[start:workflow.index('      - name:',start+1)]
+
+    def focused_guard(self):
+        step=self.focused_step()
+        marker='python3 -B -S - "$out" <<\'PC_TEST_EVIDENCE\''
+        if marker not in step:
+            return ''  # The predecessor has no evidence check at this point.
+        return textwrap.dedent(step.split(marker+'\n',1)[1].split('          PC_TEST_EVIDENCE',1)[0])
+
+    def reviewed_method_count(self):
+        return unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]).countTestCases()
+
+    def run_guard(self, streams, script=None):
+        with tempfile.TemporaryDirectory(prefix='pc-log-guard-') as tmp:
+            for mode,value in streams.items():
+                if value is not None:
+                    (Path(tmp)/('proof-slice-tests-'+mode+'.stderr')).write_text(value)
+            flags=['-B',*(['-O'] if sys.flags.optimize else []),'-S']
+            return subprocess.run([sys.executable,*flags,'-c',self.focused_guard() if script is None else script,tmp],
+                capture_output=True).returncode
+
+    def actual_focused_commands(self, variant):
+        count=self.reviewed_method_count()
+        lines=['import unittest']
+        if variant=='all_skipped':lines.append('@unittest.skip("synthetic all-skip control")')
+        lines.append('class Focused(unittest.TestCase):')
+        for n in range(count):
+            if variant=='partial_decorator_skip' and n==0:
+                lines.append(' @unittest.skip("synthetic partial-skip control")')
+            lines.append(' def test_'+str(n)+'(self):')
+            action='self.assertTrue(True)'
+            if n==0 and variant=='runtime_skip':action='raise unittest.SkipTest("synthetic runtime-skip control")'
+            if n==0 and variant=='failure':action='self.fail("synthetic execution failure")'
+            lines.append('  '+action)
+        source='' if variant=='zero' else '\n'.join(lines)+'\n'
+        commands=[line.strip() for line in self.focused_step().splitlines() if '-m unittest discover' in line]
+        self.assertEqual(len(commands),2)
+        with tempfile.TemporaryDirectory(prefix='pc-focused-execution-') as tmp:
+            root=Path(tmp);(root/'tests').mkdir();(root/'out').mkdir()
+            (root/'tests/test_proof_slice_check.py').write_text(source)
+            env={k:v for k,v in os.environ.items() if k!='PYTHONOPTIMIZE'}
+            env['out']=str(root/'out')
+            run=subprocess.run(['bash','-euo','pipefail','-c','\n'.join(commands)],cwd=root,env=env,capture_output=True)
+            streams={}
+            for mode in ('normal','optimized'):
+                path=root/'out'/('proof-slice-tests-'+mode+'.stderr')
+                streams[mode]=path.read_text() if path.exists() else None
+            return run.returncode,streams
+
+    def test_focused_guard_accepts_execution_and_refuses_actual_skips(self):
+        for variant in ('positive','partial_decorator_skip','all_skipped','runtime_skip'):
+            with self.subTest(variant=variant):
+                code,streams=self.actual_focused_commands(variant)
+                self.assertEqual(code,0,streams)
+                result=self.run_guard(streams)
+                if variant=='positive':self.assertEqual(result,0,streams)
+                else:
+                    self.assertTrue(all('skipped=' in text for text in streams.values()))
+                    self.assertNotEqual(result,0,streams)
+
+    def test_focused_guard_requires_count_and_exact_final_summary_in_each_mode(self):
+        count=self.reviewed_method_count()
+        valid=f'\nRan {count} tests in 0.001s\n\nOK\n'
+        self.assertEqual(self.run_guard({'normal':valid,'optimized':valid}),0)
+        broken=[None,'',valid.replace(str(count),'0',1),valid.replace(str(count),str(count-1),1),
+                valid.replace('Ran ','Executed ',1),valid.replace('\nOK\n','\n'),
+                valid.replace('\nOK\n','\nOK (skipped=1)\n'),valid+'extra output\n',
+                valid.replace('0.001s','unknown-duration'),valid.replace('\nOK\n','\nFAILED (failures=1)\n')]
+        for mode in ('normal','optimized'):
+            for value in broken:
+                with self.subTest(mode=mode,value=value):
+                    streams={'normal':valid,'optimized':valid};streams[mode]=value
+                    self.assertNotEqual(self.run_guard(streams),0,streams)
+
+    def test_focused_execution_failure_and_empty_discovery_cannot_pass(self):
+        code,streams=self.actual_focused_commands('failure')
+        self.assertNotEqual(code,0)
+        self.assertIsNone(streams['optimized'])  # Preserve shell -e process status.
+        self.assertNotEqual(self.run_guard(streams),0)
+        code,streams=self.actual_focused_commands('zero')
+        # Interpreter versions differ on zero-discovery exit status. The gate
+        # must reject even versions returning 0; no hosted behavior is assumed.
+        self.assertNotEqual(self.run_guard(streams),0,(code,streams))
+
+    def test_guard_controls_distinguish_removed_and_permissive_checks(self):
+        count=self.reviewed_method_count()
+        skipped=f'\nRan {count} tests in 0.001s\n\nOK (skipped=1)\n'
+        streams={'normal':skipped,'optimized':skipped}
+        self.assertNotEqual(self.run_guard(streams),0)
+        self.assertEqual(self.run_guard(streams,script=''),0)
+        permissive='import pathlib,sys\nfor mode in ("normal","optimized"):\n text=(pathlib.Path(sys.argv[1])/("proof-slice-tests-"+mode+".stderr")).read_text()\n if "Ran " not in text or "OK" not in text: raise SystemExit(1)\n'
+        self.assertEqual(self.run_guard(streams,script=permissive),0)
+        # Conventional output checking cannot authenticate a hostile producer.
+        forged=f'\nRan {count} tests in 0.001s\n\nOK\n'
+        self.assertEqual(self.run_guard({'normal':forged,'optimized':forged}),0)
+
     def test_required_downstream_job_runs_both_modes_and_real_inventory(self):
         workflow=(ROOT/'.github/workflows/downstream-gate.yml').read_text()
         start=workflow.index('      - name: P-C inventory A source-bound conformance')

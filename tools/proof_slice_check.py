@@ -619,6 +619,9 @@ def historical_intrinsics(target, source_bytes, where):
 
 def historical_consistency(target, where, source_bytes):
     historical_intrinsics(target,source_bytes,where)
+    def shares_root(member_core):
+        return all(typed_equal(member_core[key],target[key]) for key in
+                   ('consumer_statement_id','consumer_statement_source','consumer_semantics'))
     core = {k:target[k] for k in CORE_KEYS}
     inf, bundle = target['inference_context'], target['bundle_context']
     if target['use_kind'] != 'premise':
@@ -628,8 +631,8 @@ def historical_consistency(target, where, source_bytes):
     members = indexed(inf['premises'],'use_id',where)
     require(target['use_id'] in members and typed_equal(members[target['use_id']]['core'],core),where,'Historical owning premise/core mismatch')
     require(all(m['core']['consumer_unit_id'] == target['consumer_unit_id'] and
-                m['core']['consumer_statement_id'] == target['consumer_statement_id'] for m in members.values()),
-            where,'Historical inference member owner/statement mismatch')
+                shares_root(m['core']) for m in members.values()),
+            where,'Historical inference member owner/root mismatch')
     if bundle is not None:
         groups = indexed(bundle['groups'],'group_id',where)
         require(inf['group_id'] in groups and typed_equal(bundle['conclusion'],inf['conclusion']),where,'Historical complete bundle/own group disagree')
@@ -645,8 +648,8 @@ def historical_consistency(target, where, source_bytes):
                 require(member['use_id'] not in all_members,where,'Historical bundle repeats a use')
                 all_members.add(member['use_id'])
                 require(member['core']['consumer_unit_id'] == g['owner_unit_id'] and
-                        member['core']['consumer_statement_id'] == target['consumer_statement_id'],
-                        where,'Historical contribution member owner/statement mismatch')
+                        shares_root(member['core']),
+                        where,'Historical contribution member owner/root mismatch')
         canonical = lambda members:sorted(members,key=lambda m:m['use_id'].encode('utf-8'))
         require(typed_equal(canonical(own['members']),canonical(inf['premises'])),where,'Historical owning group members disagree')
 
