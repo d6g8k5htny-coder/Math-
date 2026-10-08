@@ -221,4 +221,271 @@ class WiringTests(unittest.TestCase):
         self.assertIn('python3 -B -S -m unittest discover -s tests -p test_required_formal_check.py -v',self.parent)
         self.assertIn('python3 -B -O -S -m unittest discover -s tests -p test_required_formal_check.py -v',self.parent)
 
+# ---------------------------------------------------------------------------
+# W8c mutation-gap controls. Folded into this discovery target so the
+# downstream-replay commands (pattern test_required_formal_check.py) run
+# them. Helpers are prefixed per control. ROOT and SCRIPT above are the
+# same paths. Imports already present at the top of this module are not
+# repeated.
+# ---------------------------------------------------------------------------
+
+# Proposed control (W8c): context() must allow only the two pinned execution
+# repositories and refuse anything else with the handled refusal.
+#
+# Positive: d6g8k5htny-coder/main and d6g8k5htny-coder/Math- are accepted
+# (exit 0, conclusion success, empty stderr), so a reject-everything stub fails.
+# Negative: the exact refusal — exit 1, stderr
+# 'REQUIRED_FORMAL_CHECK_FAILED: unexpected execution repository', empty stdout.
+# Needs outputs are aligned with the env value, so a later equality check cannot
+# substitute for the allowlist. Offline: no network. Drives the job command
+# `python3 -B -S tools/required_formal_check.py aggregate`.
+
+_w8c_repo_REFUSAL = 'REQUIRED_FORMAL_CHECK_FAILED: unexpected execution repository\n'
+
+
+def _w8c_repo_base(**over):
+    env = {
+        'GITHUB_SHA': '9fd261135b41daf1e377f9ef2db193fee6ec36be',
+        'GITHUB_REPOSITORY': 'd6g8k5htny-coder/Math-',
+        'GITHUB_RUN_ID': '123',
+        'GITHUB_RUN_ATTEMPT': '2',
+    }
+    env.update(over)
+    return env
+
+
+def _w8c_repo_needs_for(env):
+    sha, repo, run, attempt = (env['GITHUB_SHA'], env['GITHUB_REPOSITORY'],
+                               env['GITHUB_RUN_ID'], env['GITHUB_RUN_ATTEMPT'])
+    return {
+        'checks': {'result': 'success', 'outputs': {'checked_commit': sha}},
+        'formal': {'result': 'success', 'outputs': {
+            'checked_commit': sha, 'repository': repo, 'run_id': run,
+            'run_attempt': attempt, 'receipt_sha256': 'b' * 64,
+        }},
+    }
+
+
+def _w8c_repo_run_cli(env):
+    full = os.environ.copy()
+    full.pop('REQUIRED_FORMAL_NEEDS', None)
+    full.update(env)
+    full['REQUIRED_FORMAL_NEEDS'] = json.dumps(_w8c_repo_needs_for(env))
+    full.pop('PYTHONOPTIMIZE', None)
+    proc = subprocess.run(
+        [sys.executable, '-B', *(['-O'] if sys.flags.optimize else []), '-S', str(SCRIPT), 'aggregate'],
+        cwd=ROOT, env=full, capture_output=True, text=True,
+    )
+    return proc.returncode, proc.stdout, proc.stderr
+
+
+class RepositoryAllowlistControl(unittest.TestCase):
+    def assert_accepted(self, code, out, err, repo):
+        self.assertEqual((code, err), (0, ''))
+        self.assertIn('"conclusion": "success"', out)
+        self.assertIn('"repository": "%s"' % repo, out)
+
+    def assert_refused(self, code, out, err):
+        self.assertEqual(code, 1)
+        self.assertEqual(err, _w8c_repo_REFUSAL)
+        self.assertEqual(out, '')
+
+    def test_main_repository_accepted(self):
+        self.assert_accepted(*_w8c_repo_run_cli(_w8c_repo_base(GITHUB_REPOSITORY='d6g8k5htny-coder/main')),
+                             'd6g8k5htny-coder/main')
+
+    def test_math_repository_accepted(self):
+        self.assert_accepted(*_w8c_repo_run_cli(_w8c_repo_base(GITHUB_REPOSITORY='d6g8k5htny-coder/Math-')),
+                             'd6g8k5htny-coder/Math-')
+
+    def test_unpinned_repository_refused(self):
+        # Aligned on both sides: only the allowlist can refuse this string.
+        self.assert_refused(*_w8c_repo_run_cli(_w8c_repo_base(GITHUB_REPOSITORY='d6g8k5htny-coder/other')))
+
+    def test_empty_repository_refused(self):
+        self.assert_refused(*_w8c_repo_run_cli(_w8c_repo_base(GITHUB_REPOSITORY='')))
+
+# Proposed control (W8c): checked_commit must be a 40-character lowercase hex
+# string. Length, hex class, lowercase, and str-type are separate predicates.
+#
+# Positive: a real 40-lowercase-hex commit is accepted (exit 0, that commit
+# reported, empty stderr). Negative: exit 1, stderr exactly
+# 'REQUIRED_FORMAL_CHECK_FAILED: invalid commit', empty stdout.
+# Needs checked_commit is aligned with GITHUB_SHA, so a mismatch check cannot
+# substitute for exact(). The non-string case calls main() with an injected env
+# because a process environment cannot hold an int. Offline: no network.
+
+import contextlib
+import io
+from unittest import mock
+
+_w8c_commit_REFUSAL = 'REQUIRED_FORMAL_CHECK_FAILED: invalid commit\n'
+_w8c_commit_SHA = '9fd261135b41daf1e377f9ef2db193fee6ec36be'
+_w8c_commit_SPEC = importlib.util.spec_from_file_location('required_check_w8c_commit', SCRIPT)
+_w8c_commit_M = importlib.util.module_from_spec(_w8c_commit_SPEC)
+_w8c_commit_SPEC.loader.exec_module(_w8c_commit_M)
+
+
+def _w8c_commit_base(**over):
+    env = {
+        'GITHUB_SHA': _w8c_commit_SHA,
+        'GITHUB_REPOSITORY': 'd6g8k5htny-coder/Math-',
+        'GITHUB_RUN_ID': '123',
+        'GITHUB_RUN_ATTEMPT': '2',
+    }
+    env.update(over)
+    return env
+
+
+def _w8c_commit_needs_for(env):
+    sha, repo, run, attempt = (env['GITHUB_SHA'], env['GITHUB_REPOSITORY'],
+                               env['GITHUB_RUN_ID'], env['GITHUB_RUN_ATTEMPT'])
+    return {
+        'checks': {'result': 'success', 'outputs': {'checked_commit': sha}},
+        'formal': {'result': 'success', 'outputs': {
+            'checked_commit': sha, 'repository': repo, 'run_id': run,
+            'run_attempt': attempt, 'receipt_sha256': 'b' * 64,
+        }},
+    }
+
+
+def _w8c_commit_run_cli(env):
+    full = os.environ.copy()
+    full.pop('REQUIRED_FORMAL_NEEDS', None)
+    full.update(env)
+    full['REQUIRED_FORMAL_NEEDS'] = json.dumps(_w8c_commit_needs_for(env))
+    full.pop('PYTHONOPTIMIZE', None)
+    proc = subprocess.run(
+        [sys.executable, '-B', *(['-O'] if sys.flags.optimize else []), '-S', str(SCRIPT), 'aggregate'],
+        cwd=ROOT, env=full, capture_output=True, text=True,
+    )
+    return proc.returncode, proc.stdout, proc.stderr
+
+
+def _w8c_commit_run_main(env):
+    payload = dict(env)
+    payload['REQUIRED_FORMAL_NEEDS'] = json.dumps(_w8c_commit_needs_for(env))
+    out, err = io.StringIO(), io.StringIO()
+    with mock.patch.object(_w8c_commit_M.os, 'environ', payload), \
+         mock.patch.object(sys, 'argv', ['required_formal_check.py', 'aggregate']), \
+         contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+        try:
+            code = _w8c_commit_M.main()
+        except SystemExit as exc:
+            code = exc.code
+    return code, out.getvalue(), err.getvalue()
+
+
+class CommitIdentityControl(unittest.TestCase):
+    def assert_accepted(self, code, out, err, sha):
+        self.assertEqual((code, err), (0, ''))
+        self.assertIn('"conclusion": "success"', out)
+        self.assertIn('"checked_commit": "%s"' % sha, out)
+
+    def assert_refused(self, code, out, err):
+        self.assertEqual(code, 1)
+        self.assertEqual(err, _w8c_commit_REFUSAL)
+        self.assertEqual(out, '')
+
+    def test_lowercase_40_hex_accepted(self):
+        self.assert_accepted(*_w8c_commit_run_cli(_w8c_commit_base()), _w8c_commit_SHA)
+
+    def test_short_commit_refused(self):
+        # 39 hex chars: only the length bound can refuse once outputs are aligned.
+        self.assert_refused(*_w8c_commit_run_cli(_w8c_commit_base(GITHUB_SHA='a' * 39)))
+
+    def test_long_commit_refused(self):
+        self.assert_refused(*_w8c_commit_run_cli(_w8c_commit_base(GITHUB_SHA='a' * 41)))
+
+    def test_uppercase_commit_refused(self):
+        # Same length, hex, but not lowercase.
+        self.assert_refused(*_w8c_commit_run_cli(_w8c_commit_base(GITHUB_SHA='A' * 40)))
+
+    def test_nonhex_commit_refused(self):
+        # Same length, lowercase, but not hex.
+        self.assert_refused(*_w8c_commit_run_cli(_w8c_commit_base(GITHUB_SHA='g' * 40)))
+
+    def test_nonstring_commit_refused(self):
+        # int whose decimal form is 40 hex digits. Aligned as JSON numbers so
+        # only the str conjunct inside exact() can refuse.
+        self.assert_refused(*_w8c_commit_run_main(_w8c_commit_base(GITHUB_SHA=int('1' * 40))))
+
+# Proposed control (W8c): workflow run_id must match [1-9][0-9]* (no zero,
+# no leading zero, digits only). Those predicates are isolated.
+#
+# Positive: '123' and '7' are accepted (exit 0, that run_id reported, empty
+# stderr). Negative: exit 1, stderr exactly
+# 'REQUIRED_FORMAL_CHECK_FAILED: invalid run ID', empty stdout.
+# Formal outputs run_id is aligned with GITHUB_RUN_ID, so the later equality
+# check cannot substitute for exact(). Offline: no network. Drives
+# `python3 -B -S tools/required_formal_check.py aggregate`.
+
+_w8c_run_REFUSAL = 'REQUIRED_FORMAL_CHECK_FAILED: invalid run ID\n'
+
+
+def _w8c_run_base(**over):
+    env = {
+        'GITHUB_SHA': '9fd261135b41daf1e377f9ef2db193fee6ec36be',
+        'GITHUB_REPOSITORY': 'd6g8k5htny-coder/Math-',
+        'GITHUB_RUN_ID': '123',
+        'GITHUB_RUN_ATTEMPT': '2',
+    }
+    env.update(over)
+    return env
+
+
+def _w8c_run_needs_for(env):
+    sha, repo, run, attempt = (env['GITHUB_SHA'], env['GITHUB_REPOSITORY'],
+                               env['GITHUB_RUN_ID'], env['GITHUB_RUN_ATTEMPT'])
+    return {
+        'checks': {'result': 'success', 'outputs': {'checked_commit': sha}},
+        'formal': {'result': 'success', 'outputs': {
+            'checked_commit': sha, 'repository': repo, 'run_id': run,
+            'run_attempt': attempt, 'receipt_sha256': 'b' * 64,
+        }},
+    }
+
+
+def _w8c_run_run_cli(env):
+    full = os.environ.copy()
+    full.pop('REQUIRED_FORMAL_NEEDS', None)
+    full.update(env)
+    full['REQUIRED_FORMAL_NEEDS'] = json.dumps(_w8c_run_needs_for(env))
+    full.pop('PYTHONOPTIMIZE', None)
+    proc = subprocess.run(
+        [sys.executable, '-B', *(['-O'] if sys.flags.optimize else []), '-S', str(SCRIPT), 'aggregate'],
+        cwd=ROOT, env=full, capture_output=True, text=True,
+    )
+    return proc.returncode, proc.stdout, proc.stderr
+
+
+class RunIdBindingControl(unittest.TestCase):
+    def assert_accepted(self, code, out, err, run_id):
+        self.assertEqual((code, err), (0, ''))
+        self.assertIn('"conclusion": "success"', out)
+        self.assertIn('"run_id": "%s"' % run_id, out)
+
+    def assert_refused(self, code, out, err):
+        self.assertEqual(code, 1)
+        self.assertEqual(err, _w8c_run_REFUSAL)
+        self.assertEqual(out, '')
+
+    def test_multidigit_run_id_accepted(self):
+        self.assert_accepted(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='123')), '123')
+
+    def test_single_nonzero_digit_accepted(self):
+        self.assert_accepted(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='7')), '7')
+
+    def test_zero_run_id_refused(self):
+        self.assert_refused(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='0')))
+
+    def test_leading_zero_run_id_refused(self):
+        # Digits only, but a leading zero. The bare-zero alternative does not match.
+        self.assert_refused(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='01')))
+
+    def test_nonnumeric_run_id_refused(self):
+        self.assert_refused(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='12a')))
+
+    def test_empty_run_id_refused(self):
+        self.assert_refused(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='')))
 if __name__=='__main__':unittest.main()
