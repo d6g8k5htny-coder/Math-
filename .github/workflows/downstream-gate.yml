@@ -98,6 +98,22 @@ jobs:
           }, indent=2) + '\n')
           print('DOWNSTREAM_GATE_PASSED')
           PYTHON
+      - name: P-C inventory A source-bound conformance
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          GIT_NO_LAZY_FETCH: '1'
+        run: |
+          set -euo pipefail
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse --is-shallow-repository)" = false
+          git --no-replace-objects --no-lazy-fetch cat-file -e '9fd261135b41daf1e377f9ef2db193fee6ec36be^{commit}'
+          git --no-replace-objects --no-lazy-fetch cat-file -e "$GITHUB_SHA^{commit}"
+          out="$RUNNER_TEMP/downstream-gate-results"
+          mkdir -p "$out"
+          python3 -B -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-normal.stdout" 2> "$out/proof-slice-tests-normal.stderr"
+          python3 -B -O -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-optimized.stdout" 2> "$out/proof-slice-tests-optimized.stderr"
+          python3 -B -S tools/proof_slice_check.py --repo . --inventory-commit "$GITHUB_SHA" --inventory-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json > "$out/proof-slice-inventory-normal.json" 2> "$out/proof-slice-inventory-normal.stderr"
+          python3 -B -O -S tools/proof_slice_check.py --repo . --inventory-commit "$GITHUB_SHA" --inventory-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json > "$out/proof-slice-inventory-optimized.json" 2> "$out/proof-slice-inventory-optimized.stderr"
       - name: Retain evidence even on failure
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
