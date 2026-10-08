@@ -2,7 +2,7 @@
   "schema": "proof-slice/v0-provisional-5",
   "artifact_kind": "source_companion",
   "id": "P-C-SOURCE-COMPANION-20261008",
-  "read_at": "2026-10-08T17:07:50Z",
+  "read_at": "2026-10-08T18:26:38Z",
   "author": {
     "provider": "OpenAI",
     "agent": "Codex implement_proof_slice_inventory",
@@ -17990,14 +17990,28 @@
     },
     {
       "id": "S-U29.1-P",
-      "kind": "source_section",
-      "unit_ids": [],
+      "kind": "inventory_unit",
+      "unit_ids": [
+        "B53"
+      ],
       "source_refs": [
         {
           "source_id": "P",
-          "lines": null,
-          "locator": "Recorded earlier-source pointer: P Theorem C: unrestricted leading density.",
-          "precision": "named_locator_unexpanded"
+          "lines": [
+            47,
+            52
+          ],
+          "locator": "Theorem C (1.3), statement and retained scope",
+          "precision": "exact_lines"
+        },
+        {
+          "source_id": "P",
+          "lines": [
+            445,
+            445
+          ],
+          "locator": "P lines445",
+          "precision": "exact_lines"
         }
       ],
       "external_ref": null,
@@ -18006,9 +18020,21 @@
         "source_refs": [
           {
             "source_id": "P",
-            "lines": null,
-            "locator": "Recorded earlier-source pointer: P Theorem C: unrestricted leading density.",
-            "precision": "named_locator_unexpanded"
+            "lines": [
+              47,
+              52
+            ],
+            "locator": "Theorem C (1.3), statement and retained scope",
+            "precision": "exact_lines"
+          },
+          {
+            "source_id": "P",
+            "lines": [
+              445,
+              445
+            ],
+            "locator": "P lines445",
+            "precision": "exact_lines"
           }
         ],
         "record_refs": [
@@ -18017,14 +18043,10 @@
             "locator": "B29/U29.1"
           }
         ],
-        "unknown_refs": [
-          "UNKNOWN-U1"
-        ]
+        "unknown_refs": []
       },
-      "expansion": "unexpanded",
-      "unknown_refs": [
-        "UNKNOWN-U1"
-      ]
+      "expansion": "in_slice",
+      "unknown_refs": []
     },
     {
       "id": "S-U29.2-UNNAMED",
@@ -18395,13 +18417,33 @@
     },
     {
       "id": "S-U38.1-UNNAMED",
-      "kind": "unnamed",
+      "kind": "source_section",
       "unit_ids": [],
-      "source_refs": [],
+      "source_refs": [
+        {
+          "source_id": "P",
+          "lines": [
+            148,
+            149
+          ],
+          "locator": "P (5.1): endpoint identities",
+          "precision": "exact_lines"
+        }
+      ],
       "external_ref": null,
       "interface": {
         "text": "Recorded input designation (inventory/correction transcription): P (5.1): endpoint identities.",
-        "source_refs": [],
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              148,
+              149
+            ],
+            "locator": "P (5.1): endpoint identities",
+            "precision": "exact_lines"
+          }
+        ],
         "record_refs": [
           {
             "record_id": "R6049443374",
@@ -18415,13 +18457,33 @@
     },
     {
       "id": "S-U38.2-UNNAMED",
-      "kind": "unnamed",
+      "kind": "source_section",
       "unit_ids": [],
-      "source_refs": [],
+      "source_refs": [
+        {
+          "source_id": "P",
+          "lines": [
+            160,
+            161
+          ],
+          "locator": "P (5.3): block determinant identity",
+          "precision": "exact_lines"
+        }
+      ],
       "external_ref": null,
       "interface": {
         "text": "Recorded input designation (inventory/correction transcription): P (5.3): determinant product envelope.",
-        "source_refs": [],
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              160,
+              161
+            ],
+            "locator": "P (5.3): block determinant identity",
+            "precision": "exact_lines"
+          }
+        ],
         "record_refs": [
           {
             "record_id": "R6049443374",
