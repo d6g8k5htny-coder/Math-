@@ -16,7 +16,10 @@ the source objects of reviews/side24_d2_certified_small_L_claude_20261005/NOTE.m
 
 Readings used (stated, not claimed as the author's intent):
 * NOTE L23 cumulant formulas are those of a symmetric coordinate law (odd moments zero).
-* NOTE L26: u = (c, s) is a unit direction, c² + s² = 1 (not written in the NOTE).
+* NOTE L26: u = (c, s) is a unit direction, c² + s² = 1. The NOTE does not write it at L26, but the
+  sources support it: C (certified_d2.py, blob 6fd5b751) L12 states u = (cos t, sin t), NOTE L43
+  parametrizes u by an angle, and NOTE L27's Σu⁴ = 1 − 2q holds iff c² + s² = 1 (the residual is
+  (c² + s² − 1)(c² + s² + 1)). Reader 403/6051288028 item A2.
 -/
 
 noncomputable section

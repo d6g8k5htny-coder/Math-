@@ -16,12 +16,15 @@ Merged sources only, Math- main @ 9fd261135b41daf1e377f9ef2db193fee6ec36be:
   - N L53: `θ_L^{(j)}(0) = Σ_n He_j(Ln) e^{−(Ln)²/2}` (image sums).
   - N L54: Poisson-dual law `P(X = 2πk/L) ∝ e^{−(2πk/L)²/2}`.
 * C = reviews/side24_d2_certified_small_L_claude_20261005/certified_d2.py, blob 6fd5b751cc4157136ae92225838c12d33dc997f3
-  - C L8: same θ_L as N L21.  C L111-122: He_2, He_4, He_6 (probabilists' Hermite).
+  - C L8: same θ_L as N L21.  C L111-121: He_2, He_4, He_6 (probabilists' Hermite).
   - C L137-153 `moments_image`: returns `(-θ2/θ0, θ4/θ0, -θ6/θ0)`, i.e. m_j = (-1)^(j/2) θ^{(j)}(0)/θ(0).
-  - C L156-178 `moments_dual`: weights 1 (k = 0) and 2 e^{−(hk)²/2} (k ≥ 1), h = 2π/L; m_j = Σ w ω^j / Σ w.
+  - C L156-177 `moments_dual`: weights 1 (k = 0) and 2 e^{−(hk)²/2} (k ≥ 1), h = 2π/L; m_j = Σ w ω^j / Σ w.
 
 Readings (flagged): k ranges over ℤ (N L54 gives no range; C sums k = 0 plus 2× k ≥ 1, which is
-the symmetric ℤ-sum).  The θ-route moment formula with the sign (-1)^(j/2) is from C L153, not N.
+the symmetric ℤ-sum).  The θ-route moment formula with the sign (-1)^(j/2) is stated in C L153
+(`moments_image`) and in iba1 NOTE (reviews/iba1_periodic_jet_claude_20261005/NOTE.md, blob
+e36e341f) L32 (m2 = −q2, m4 = q4, m6 = −q6), whose conventions N L24 and C L13 adopt; N does not
+write it directly.  Reader 403/6051288028 item A1.
 -/
 
 noncomputable section
@@ -129,7 +132,7 @@ theorem countable_law_moment_hyps (hw : ∀ i, 0 ≤ w i)
 
 end Generic
 
-/-! ## The SIDE24 Poisson-dual law (N L54; C L156-178) -/
+/-! ## The SIDE24 Poisson-dual law (N L54; C L156-177) -/
 
 /-- Atom 2πk/L (N L54). -/
 def atom (L : ℝ) (k : ℤ) : ℝ := 2 * π * k / L
@@ -137,7 +140,7 @@ def atom (L : ℝ) (k : ℤ) : ℝ := 2 * π * k / L
 def weight (L : ℝ) (k : ℤ) : ℝ := Real.exp (-(atom L k) ^ 2 / 2)
 /-- Normalizer Σ_k e^{−(2πk/L)²/2}. -/
 def dualZ (L : ℝ) : ℝ := rawSum (weight L) (atom L) 0
-/-- Raw moment m_n(L) of the dual law (C L178: w[j]/w[0]). -/
+/-- Raw moment m_n(L) of the dual law (C L176-177: w[j]/w[0]). -/
 def dualMoment (L : ℝ) (n : ℕ) : ℝ := lawMoment (weight L) (atom L) n
 
 theorem weight_pos (L : ℝ) (k : ℤ) : 0 < weight L k := Real.exp_pos _
@@ -207,8 +210,10 @@ theorem dual_moment_hyps {L : ℝ} (hL : L ≠ 0) :
   exact countable_law_moment_hyps (fun k => (weight_pos L k).le) (summable_weight_mul_atom_pow hL)
     1 2 (weight_pos L 1) (weight_pos L 2) h1 h2 h12
 
-/-- The NOTE's "positive in every direction" (N L59, L78; certified numerically at six L) holds for
-the dual-law moments at EVERY nonzero L. -/
+/-- Every-direction positivity for the exact dual-law moments, at every nonzero L.  This is a new
+all-L ≠ 0 statement.  N certifies "positive in every direction" (N L59, L78) only numerically, by
+interval enclosures, at the six values L ∈ {24, 8, 2π, 4, 3, 2} (N L17, L65-73); this theorem is
+not that certificate, and identifying the two needs analytic question (a) of the README. -/
 theorem dual_positivity_every_direction {L : ℝ} (hL : L ≠ 0) (c s : ℝ) (hu : c ^ 2 + s ^ 2 = 1) :
     0 < d2DetV (dualMoment L 2) (dualMoment L 4) (srcQ c s) ∧
       0 < d2Schur (dualMoment L 2) (dualMoment L 4) (srcQ c s) ∧
@@ -257,30 +262,13 @@ theorem theta_term_iteratedDeriv (y : ℝ) (j : ℕ) :
   congr 2; ring
 
 /-- N L53 holds termwise: the image sum of even order is the sum of the termwise 2m-th
-derivatives of θ_L at 0.  (Exchanging Σ and d/dt is NOT proved here.) -/
+derivatives of θ_L at 0.  (The exchange of Σ and d/dt, for L ≠ 0, is in `Side24Poisson`:
+`iteratedDeriv_theta`, `iteratedDeriv_theta_zero_even`.) -/
 theorem imageSum_even_eq_tsum_termwise (L : ℝ) (m : ℕ) :
     imageSum L (2 * m) =
       ∑' n : ℤ, iteratedDeriv (2 * m) (fun t => Real.exp (-(t + L * n) ^ 2 / 2)) 0 := by
   unfold imageSum
   congr 1; funext n
   rw [theta_term_iteratedDeriv, pow_mul, neg_one_sq, one_pow, one_mul]
-
-/-
-Poisson link, j = 2, 4, 6 (NOT CLOSED; kept as a statement only):
-
-  theorem imageMoment_eq_dualMoment {L : ℝ} (hL : 0 < L) (j : ℕ) (hj : j = 2 ∨ j = 4 ∨ j = 6) :
-      imageMoment L j = dualMoment L j
-
-Route: (i) θ_L(t) = (L²/(2π))^{−1/2} Σ_k e^{−(2πk/L)²/2} cos(2πkt/L) for all t, from
-`Complex.tsum_exp_neg_quadratic` with a = L²/(2π), b = −tL/(2π)·(scaling), then real parts;
-(ii) differentiate both series j times at t = 0 termwise (`iteratedFDeriv_tsum` /
-`hasDerivAt_tsum` in Mathlib.Analysis.Calculus.SmoothSeries, with summable derivative bounds
-from `summable_pow_mul_jacobiTheta₂_term_bound`); (iii) identify the image-side j-th derivative
-with He_j via `Polynomial.deriv_gaussian_eq_hermite_mul_gaussian` (sign (−1)^j = 1 for even j);
-(iv) the dual side gives (−1)^{j/2} Σ w_k ω_k^j.  Step (iii) is closed above
-(`theta_term_iteratedDeriv`, `imageSum_even_eq_tsum_termwise`).  Blocker: steps (i), (ii) are
-not formalized here (general-t real form of the Poisson identity; uniform bounds for termwise
-j-fold differentiation of both series; step (iv) likewise needs (ii)).  Nothing in this comment is claimed proved.
--/
 
 end W3Scratch.Side24

@@ -8,11 +8,16 @@ A Lean lemma ≠ alignment acceptance ≠ discharge.
 
 Extends `W3Scratch.Side24Law` (W3f). Sources as there (Math- main @ 9fd26113, unchanged at
 8d70baa7): N = NOTE.md blob 852f7403 (L21, L53, L54), C = certified_d2.py blob 6fd5b751
-(L137-153, L156-178).  Readings R1 (k ∈ ℤ), R2 (sign (-1)^(j/2) from C L153), R3 (c²+s²=1) as in W3f.
-New reading R4: N L53 writes θ_L^{(j)}(0) = Σ_n He_j(Ln) e^{−(Ln)²/2} with no sign.  Here it is proved
-as written for even j (`iteratedDeriv_theta_zero_even`); for odd j the termwise derivative carries
-(−1)^j (Mathlib `deriv_gaussian_eq_hermite_mul_gaussian`), which is not used or stated here.
-The W3f commented target `imageMoment_eq_dualMoment` (0 < L) is proved below under L ≠ 0.
+(L137-153, L156-177).  Reading R1 (k ∈ ℤ) as in W3f.  The sign (-1)^(j/2) is stated in C L153 and
+iba1 NOTE (blob e36e341f) L32; c²+s²=1 is supported by C L12 (see W3f and reader 403/6051288028).
+N L53 writes θ_L^{(j)}(0) = Σ_n He_j(Ln) e^{−(Ln)²/2} with no sign.  Here it is formalized for even j
+(`iteratedDeriv_theta_zero_even`).  For odd j it also holds as written (not formalized here):
+the termwise derivative carries (−1)^j (Mathlib `deriv_gaussian_eq_hermite_mul_gaussian`), and
+reindexing n → −n with He_j(−x) = (−1)^j He_j(x) removes it; both sides vanish because θ_L is even.
+So this is not a source discrepancy (reader 403/6051288028 item A3).  N and C use only
+j = 0, 2, 4, 6 (C L144; iba1 NOTE L29).
+The W3f commented target `imageMoment_eq_dualMoment` (0 < L) is proved below under L ≠ 0.  (That
+stale W3f comment block was removed from Side24Law.lean in the Math-#403 amend.)
 -/
 
 noncomputable section
@@ -291,7 +296,7 @@ theorem imageSum_even_eq {L : ℝ} (hL : L ≠ 0) (m : ℕ) :
       ((-1) ^ m * rawSum (weight L) (atom L) (2 * m)) := by
   rw [imageSum_even_eq_thetaD, thetaD_eq_cosD hL, cosD_even_zero]
 
-/-- The link: θ-route moment (N L53 / C L153) = dual-law moment (N L54 / C L156-178), every even
+/-- The link: θ-route moment (N L53 / C L153) = dual-law moment (N L54 / C L156-177), every even
 order, every L ≠ 0. -/
 theorem imageMoment_even_eq_dualMoment {L : ℝ} (hL : L ≠ 0) (m : ℕ) :
     imageMoment L (2 * m) = dualMoment L (2 * m) := by
