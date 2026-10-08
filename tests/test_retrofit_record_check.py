@@ -561,11 +561,12 @@ class RawGitIdentity(unittest.TestCase):
                 self.check_reference(route, commit, path, blob, False)
             self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True)
 
-    def promisor_cases(self, missing):
+    def promisor_cases(self, missing, caller='1'):
         for route in ('subject', 'evidence'):
             for flags in ([], ['-O']):
-                with self.subTest(missing=missing, route=route, optimize=bool(flags)):
-                    case = self.root / ('promisor-' + route + ('-optimized' if flags else '-normal'))
+                with self.subTest(missing=missing, route=route, optimize=bool(flags), caller=caller):
+                    case = self.root / ('promisor-' + route + ('-optimized' if flags else '-normal')
+                                        + '-caller-' + str(caller))
                     selected, remote = case / 'selected', case / 'remote'
                     # Each child gets fresh objects: a parent failure must not fill
                     # another child's missing object and mask its regression.
@@ -613,9 +614,12 @@ class RawGitIdentity(unittest.TestCase):
                     source = case / 'input.json'
                     source.write_text(json.dumps(data), encoding='utf-8')
                     before = self.snapshot()
+                    child_env = dict(self.env)
+                    if caller is not None:
+                        child_env['GIT_NO_LAZY_FETCH'] = caller
                     run = subprocess.run([sys.executable, '-B', *flags, '-S', str(TOOL), '--aggregate',
                                           '--repo', str(selected), str(source)],
-                                         env=dict(self.env, GIT_NO_LAZY_FETCH='1'),
+                                         env=child_env,
                                          capture_output=True, text=True, timeout=60)
                     after = self.snapshot()
                     added = sorted(set(after) - set(before))
@@ -643,6 +647,10 @@ class RawGitIdentity(unittest.TestCase):
 
     def test_complete_promisor_objects_remain_valid(self):
         self.promisor_cases(None)
+
+    def test_missing_promisor_objects_refused_without_caller_opt_in(self):
+        for caller in (None, '0'):
+            self.promisor_cases('blob', caller=caller)
 
 
 if __name__ == '__main__':
