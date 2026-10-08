@@ -72,8 +72,10 @@ bundle for this repository and main #188 is preserved in main at
 ## Validation
 
 Run python3 -B -S -m unittest discover -s tests -p test_required_formal_check.py -v
-and the same command with -O. Each mode runs forty-six tests. Thirty cover real
-CLI success/failure, missing/extra dependencies, all non-success states, stale
+and the same command with -O. In this Math- repository, each mode runs
+fifty-seven tests: thirty original tests, sixteen W8c controls and eleven W7j
+controls. The original thirty cover real CLI success/failure, missing/extra
+dependencies, all non-success states, stale
 commit/run/attempt, repository substitution, malformed identity, modified
 logs/manifests, duplicate JSON keys and reusable-workflow wiring. Sixteen W8c
 mutation-gap controls cover the three context() identity bindings: the
@@ -82,7 +84,11 @@ empty refused), commit identity (40 lowercase hex accepted; short, long,
 uppercase, non-hex and non-string refused) and run-ID binding (multi-digit and
 single nonzero digit accepted; zero, leading zero, non-numeric and empty
 refused). Their CLI children receive -O exactly when the outer run is optimized,
-with any inherited PYTHONOPTIMIZE removed. Hosted negative and positive executions
+with any inherited PYTHONOPTIMIZE removed. Eleven W7j mutation-gap controls cover
+exact run-attempt identity, tested-checkout binding, receipt/manifest symlinks,
+receipt object shape and identity fields, log-map shape and log-digest validation,
+non-finite JSON and CLI duplicate keys, dependency-output shape and exact
+receipt-digest strings. Hosted negative and positive executions
 are recorded separately; unit tests alone do not establish platform merge refusal.
 
 Official references consulted 27 September 2026:
