@@ -355,6 +355,18 @@ class ReplayGateRefusalControls(unittest.TestCase):
                     self.main(out, [self.completed(0, self.BASELINE), gate], self.two)
                 self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
 
+    def test_absent_mutation_anchor_refused(self):
+        with self.assertRaisesRegex(RuntimeError, 'nonunique mutation'):
+            self.main(self.out / 'anchor', [self.completed(0, self.BASELINE), self.gate()],
+                      {'absent': ('no such anchor text', 'x')})
+
+    def test_uncompilable_mutation_refused_before_replay(self):
+        old = next(iter(M.MUTANTS.values()))[0]
+        with self.assertRaises(SyntaxError):
+            self.main(self.out / 'syntax', [self.completed(0, self.BASELINE), self.gate()], {'broken': (old, 'if (:')})
+        self.assertEqual(self.run.call_count, 2)
+        self.assertFalse((self.out / 'syntax' / 'mutants').exists())
+
     def test_successful_replay_without_report_fails(self):
         real_write = Path.write_text
         def fail_report(path, data, *args, **kwargs):
@@ -414,6 +426,12 @@ class TransitionAuditRefusalControls(unittest.TestCase):
                 AUDIT.read_snapshot(self.repo, bad, 'GRAPH.json')
         with self.assertRaisesRegex(ValueError, 'not a commit'):
             AUDIT.read_snapshot(self.repo, self.git('rev-parse', rev + '^{tree}'), 'GRAPH.json')
+
+    def test_each_snapshot_graph_is_validated(self):
+        graph = self.graph()
+        graph['nodes']['L']['classification'] = 'NOT_A_CLASSIFICATION'
+        with self.assertRaises(ValueError):
+            AUDIT.read_snapshot(self.repo, self.commit(graph), 'GRAPH.json')
 
     def test_blank_source_reference_refused(self):
         rev = self.commit(self.graph(W={'classification': 'PROVED_REVIEWED', 'controlling': False, 'source': '   '}))
