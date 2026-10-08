@@ -46,15 +46,21 @@ class FactorialJobBudgetTests(unittest.TestCase):
         self.assertIn('  exact-and-probe:\n    runs-on: ubuntu-latest\n'
                       '    timeout-minutes: 20\n    steps:\n', self.text)
 
-    def test_both_complete_regression_modes_are_unconditional(self):
+    def test_both_complete_regression_modes_run_before_manual_packet(self):
+        # C166: the PR-time run moved to full-regression-suite.yml. Here the
+        # exact block stays, guarded only by the one manual-dispatch condition;
+        # no other condition, bypass or always-run override is permitted.
         step = named_step(self.text, REGRESSION)
         self.assertEqual(step,
+                         "        if: github.event_name == 'workflow_dispatch'\n"
                          '        run: |\n'
                          '          set -euo pipefail\n'
                          '          python -B -S -m unittest discover -s tests -v\n'
                          '          python -B -O -S -m unittest discover -s tests -v\n')
         self.assertLess(self.text.index(REGRESSION), self.text.index(NUMERICAL))
-        for bypass in ('continue-on-error:', 'if:', 'background:'):
+        self.assertEqual(re.findall(r'^.*\bif:.*$', self.text, re.MULTILINE),
+                         ["        if: github.event_name == 'workflow_dispatch'"])
+        for bypass in ('continue-on-error:', 'background:', 'always()', 'failure()', 'cancelled()'):
             self.assertNotIn(bypass, self.text)
 
     def test_numerical_budget_inventory_and_postflight_remain(self):
@@ -82,7 +88,12 @@ class FactorialJobBudgetTests(unittest.TestCase):
             self.assertIn(guard, program)
 
     def test_new_test_is_covered_and_execution_permissions_are_unchanged(self):
-        self.assertIn("      - 'tests/**'\n", self.text)
+        # C166: tests/** coverage is central; this packet keeps its own tests.
+        central = (ROOT / '.github/workflows/full-regression-suite.yml').read_text(encoding='utf-8')
+        self.assertIn("      - 'tests/**'\n", central)
+        self.assertNotIn("      - 'tests/**'\n", self.text)
+        self.assertIn("      - 'tests/test_c6_factorial_job_budget.py'\n", self.text)
+        self.assertIn("      - 'tests/test_d5_c6_workflows.py'\n", self.text)
         self.assertIn('permissions:\n  contents: read\n', self.text)
         self.assertIn('          persist-credentials: false\n          fetch-depth: 0\n', self.text)
         self.assertIn("          python-version: '3.11.16'\n", self.text)
