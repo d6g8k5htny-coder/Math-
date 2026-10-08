@@ -6,6 +6,11 @@ that cannot carry a scientific status. This checker parses strictly (duplicate k
 rejected), enforces the closed keys and enums of the contract, and with --repo verifies every subject and file
 evidence blob against git. --aggregate summarizes several valid files without writing anything.
 
+Mapped source verification (--repo/--main-repo), including complete local clones, requires a Git executable
+supporting --no-lazy-fetch. Check this capability without a repository: git --no-lazy-fetch --version. A failed
+capability check is a structured backend refusal before repository-object lookup. Schema-only validation and
+unmapped references do not require this capability.
+
 A record's state says only whether evidence is linked. A workflow_run item keeps its own attempt, run head, checked
 commit (or null), purpose, native conclusion and expected conclusion, so a failed run stays recorded as failed, a
 negative control that fails as expected is not mistaken for a failed check, and a pull request head is not mistaken for
@@ -320,10 +325,19 @@ def aggregate(datasets):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    capability_help = ('Mapped verification, including complete local clones, requires Git\n'
+                       '--no-lazy-fetch support. Check without a repository:\n'
+                       '  git --no-lazy-fetch --version\n'
+                       'A failed capability check is a structured backend refusal before\n'
+                       'repository-object lookup. Schema-only validation and unmapped references\n'
+                       'do not require this capability.')
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0], epilog=capability_help,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('files', nargs='+')
-    ap.add_argument('--repo', help='local clone used to verify Math- blobs (main is verified only with --main-repo)')
-    ap.add_argument('--main-repo', help='local clone of main for main-repository blobs')
+    ap.add_argument('--repo', help='requires Git --no-lazy-fetch support; local clone used to verify Math- blobs '
+                                  '(main is verified only with --main-repo)')
+    ap.add_argument('--main-repo', help='requires Git --no-lazy-fetch support; local clone of main '
+                                       'for main-repository blobs')
     ap.add_argument('--aggregate', action='store_true')
     args = ap.parse_args(argv)
     repos = {}

@@ -352,6 +352,20 @@ class CommandLine(unittest.TestCase):
         return subprocess.run([sys.executable, '-B', *flags, '-S', str(TOOL), *args],
                               capture_output=True, text=True, timeout=60)
 
+    def test_clone_help_discloses_backend_capability_and_exemptions(self):
+        run = self.run_tool('--help')
+        self.assertEqual((run.returncode, run.stderr), (0, ''))
+        sections = {part.split()[0]: ' '.join(part.split())
+                    for part in run.stdout.split('\n  --')[1:]}
+        for option in ('repo', 'main-repo'):
+            with self.subTest(option=option):
+                self.assertIn('requires Git --no-lazy-fetch support', sections[option])
+        help_text = ' '.join(run.stdout.split())
+        self.assertIn('complete local clones', help_text)
+        self.assertIn('git --no-lazy-fetch --version', help_text)
+        self.assertIn('structured backend refusal before repository-object lookup', help_text)
+        self.assertIn('Schema-only validation and unmapped references do not require this capability', help_text)
+
     def test_valid_file_aggregates_and_invalid_file_fails(self):
         run = self.run_tool('--aggregate', str(EXAMPLE))
         self.assertEqual((run.returncode, run.stderr), (0, ''))
