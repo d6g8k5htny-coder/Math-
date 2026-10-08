@@ -88,6 +88,8 @@ def _git(repo, *args):
     # The explicit clone and raw objects define identity. Ambient Git routing/config
     # must not redirect it, and replacement refs must not rebind a named commit.
     env = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+    # Missing promisor objects must be refused without fetching or writing the clone.
+    env['GIT_NO_LAZY_FETCH'] = '1'
     run = subprocess.run(['git', '--no-replace-objects', '-C', str(repo), *args],
                          capture_output=True, text=True, env=env)
     return run.stdout.strip() if run.returncode == 0 else None

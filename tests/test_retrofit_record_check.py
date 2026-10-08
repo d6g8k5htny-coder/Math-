@@ -4,6 +4,8 @@ import importlib.util
 import json
 import os
 import pathlib
+import shlex
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -558,6 +560,89 @@ class RawGitIdentity(unittest.TestCase):
             for commit, path, blob in cases:
                 self.check_reference(route, commit, path, blob, False)
             self.check_reference(route, self.original, 'TARGET.md', self.original_blob, True)
+
+    def promisor_cases(self, missing):
+        for route in ('subject', 'evidence'):
+            for flags in ([], ['-O']):
+                with self.subTest(missing=missing, route=route, optimize=bool(flags)):
+                    case = self.root / ('promisor-' + route + ('-optimized' if flags else '-normal'))
+                    selected, remote = case / 'selected', case / 'remote'
+                    # Each child gets fresh objects: a parent failure must not fill
+                    # another child's missing object and mask its regression.
+                    shutil.copytree(self.repo, selected)
+                    shutil.copytree(self.repo, remote)
+                    marker, wrapper = case / 'transport-called', case / 'upload_pack.py'
+                    git_path = shutil.which('git')
+                    wrapper.write_text(
+                        'import os, pathlib, sys\n'
+                        'pathlib.Path(%r).write_text("called\\n")\n'
+                        'os.execv(%r, [%r, "upload-pack", *sys.argv[1:]])\n'
+                        % (str(marker), git_path, git_path), encoding='utf-8')
+                    self.git('config', 'uploadpack.allowFilter', 'true', repo=remote)
+                    for key, value in (
+                            ('remote.origin.url', remote.as_uri()), ('remote.origin.promisor', 'true'),
+                            ('remote.origin.partialclonefilter', 'blob:none'),
+                            ('remote.origin.uploadpack', shlex.join([sys.executable, '-B', '-S', str(wrapper)])),
+                            ('protocol.allow', 'never'), ('protocol.file.allow', 'always')):
+                        self.git('config', key, value, repo=selected)
+                    oid = self.original if missing == 'commit' else self.original_blob
+                    if missing:
+                        (selected / '.git' / 'objects' / oid[:2] / oid[2:]).unlink()
+
+                    def object_present():
+                        run = subprocess.run(['git', '--no-lazy-fetch', '--no-replace-objects',
+                                              '-C', str(selected), 'cat-file', '-e', oid],
+                                             env=self.env, capture_output=True, timeout=30)
+                        return run.returncode == 0
+
+                    self.assertEqual(object_present(), missing is None)
+                    self.assertFalse(marker.exists())
+                    data = example()
+                    record = data['records'][0]
+                    record.update(delta=True, alias_of=None)
+                    ref = {'repository': 'Math-', 'commit': self.original,
+                           'path': 'TARGET.md', 'blob': self.original_blob}
+                    if route == 'subject':
+                        record.update(subject=ref, state='unknown', evidence=[])
+                        diagnostic = '.subject: blob does not match git'
+                    else:
+                        record['subject']['repository'] = 'query-'
+                        record.update(state='recorded', evidence=[dict(ref, kind='file')])
+                        diagnostic = '.evidence[0]: file evidence blob does not match git'
+                    data['records'] = [record]
+                    source = case / 'input.json'
+                    source.write_text(json.dumps(data), encoding='utf-8')
+                    before = self.snapshot()
+                    run = subprocess.run([sys.executable, '-B', *flags, '-S', str(TOOL), '--aggregate',
+                                          '--repo', str(selected), str(source)],
+                                         env=dict(self.env, GIT_NO_LAZY_FETCH='1'),
+                                         capture_output=True, text=True, timeout=60)
+                    after = self.snapshot()
+                    added = sorted(set(after) - set(before))
+                    changed = sorted(name for name in before if after.get(name) != before[name])
+                    self.assertEqual((run.returncode, marker.exists(), added, changed),
+                                     (1 if missing else 0, False, [], []), run.stdout)
+                    self.assertEqual(object_present(), missing is None)
+                    self.assertEqual(run.stderr, '')
+                    report = json.loads(run.stdout)
+                    self.assertIs(report['passed'], missing is None)
+                    errors = report['files'][str(source)]['errors']
+                    if missing:
+                        self.assertEqual(len(errors), 1, errors)
+                        self.assertIn(diagnostic, errors[0])
+                        self.assertNotIn('aggregate', report)
+                    else:
+                        self.assertEqual(errors, [])
+                        self.assertIs(report['aggregate']['status_authority'], False)
+
+    def test_missing_promisor_commit_does_not_fetch(self):
+        self.promisor_cases('commit')
+
+    def test_missing_promisor_blob_does_not_fetch(self):
+        self.promisor_cases('blob')
+
+    def test_complete_promisor_objects_remain_valid(self):
+        self.promisor_cases(None)
 
 
 if __name__ == '__main__':
