@@ -16,6 +16,7 @@ import re
 import subprocess
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOWS = ROOT / '.github/workflows'
@@ -209,13 +210,20 @@ def run_job(text, event, fail=(), sha_override=None):
         repo = root / 'repo'
         repo.mkdir()
         (repo / 'tracked.txt').write_text('fixture\n')
-        env = dict(os.environ)
+        # A temporary cwd does not override inherited repository/index selectors.
+        # Keep one isolated Git environment for setup, reads and Bash descendants.
+        template = root / 'empty-template'
+        template.mkdir()
+        env = {key: value for key, value in os.environ.items()
+               if not key.startswith('GIT_')}
+        env.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+                   GIT_TEMPLATE_DIR=str(template))
         for cmd in (['git', 'init', '-q'], ['git', 'add', '.'],
                     ['git', '-c', 'user.name=Routing Fixture', '-c', 'user.email=fixture@example.invalid',
                      '-c', 'commit.gpgsign=false', '-c', 'maintenance.auto=false',
                      'commit', '-qm', 'synthetic routing fixture']):
             subprocess.run(cmd, cwd=repo, env=env, check=True, capture_output=True)
-        head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repo, check=True,
+        head = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repo, env=env, check=True,
                               capture_output=True, text=True).stdout.strip()
         bindir = root / 'bin'
         bindir.mkdir()
@@ -246,7 +254,7 @@ def run_job(text, event, fail=(), sha_override=None):
             if 'run' not in step:
                 outcomes.append((name, 'success'))
                 continue
-            step_env = dict(os.environ, PATH=str(bindir) + os.pathsep + os.environ.get('PATH', ''),
+            step_env = dict(env, PATH=str(bindir) + os.pathsep + env.get('PATH', ''),
                             FAKE_LOG=str(log), FAKE_FAIL=' '.join(fail),
                             GITHUB_STEP_SUMMARY=str(summary))
             for key, value in step.get('env', {}).items():
@@ -389,6 +397,112 @@ def mutate(text, old, new, count=1):
 
 
 class FullSuiteRoutingTests(unittest.TestCase):
+    def test_job_preserves_foreign_git_state(self):
+        # Real foreign repositories, never a caller's checkout. Setup and
+        # observations use their own clean environment, independent of run_job.
+        for selector in ('clean', 'GIT_DIR', 'GIT_INDEX_FILE', 'GIT_WORK_TREE',
+                         'GIT_COMMON_DIR', 'GIT_OBJECT_DIRECTORY'):
+            with self.subTest(selector=selector), tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                foreign = root / 'foreign'
+                foreign.mkdir()
+                empty_template = root / 'empty-template'
+                empty_template.mkdir()
+                clean = {key: value for key, value in os.environ.items()
+                         if not key.startswith('GIT_')}
+                clean.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+                             GIT_TEMPLATE_DIR=str(empty_template))
+
+                def git(*args):
+                    return subprocess.run(['git', *args], cwd=foreign, env=clean,
+                                          check=True, capture_output=True, timeout=30).stdout
+
+                tracked = foreign / 'foreign.txt'
+                tracked.write_bytes(b'committed foreign content\n')
+                git('init', '-q')
+                git('add', '.')
+                git('-c', 'user.name=Foreign Fixture', '-c', 'user.email=fixture@example.invalid',
+                    '-c', 'commit.gpgsign=false', '-c', 'maintenance.auto=false',
+                    'commit', '-qm', 'foreign fixture')
+                tracked.write_bytes(b'unstaged foreign content\n')
+                index = foreign / '.git/index'
+
+                def snapshot():
+                    return {'head': git('rev-parse', 'HEAD'),
+                            'tree': git('rev-parse', 'HEAD^{tree}'),
+                            'index_bytes': index.read_bytes(),
+                            'index_entries': git('ls-files', '--stage'),
+                            'worktree_bytes': tracked.read_bytes(),
+                            'object_bytes': {str(p.relative_to(foreign)): p.read_bytes()
+                                             for p in (foreign / '.git/objects').rglob('*')
+                                             if p.is_file()}}
+
+                before = snapshot()
+                targets = {'GIT_DIR': foreign / '.git', 'GIT_INDEX_FILE': index,
+                           'GIT_WORK_TREE': foreign, 'GIT_COMMON_DIR': foreign / '.git',
+                           'GIT_OBJECT_DIRECTORY': foreign / '.git/objects'}
+                caller = dict(clean)
+                if selector != 'clean':
+                    caller[selector] = str(targets[selector])
+                with mock.patch.dict(os.environ, caller, clear=True):
+                    try:
+                        result = run_job(source(CENTRAL), 'pull_request')
+                    except subprocess.CalledProcessError as exc:
+                        self.fail('fixture must succeed under ' + selector + ': ' +
+                                  repr(exc.stderr))
+                    self.assertEqual(dict(os.environ), caller, 'caller environment was changed')
+                after = snapshot()
+                self.assertEqual(result['conclusion'], 'success', result)
+                self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                self.assertEqual(result['outcomes'][-1], (CONFIRM, 'success'))
+                self.assertIn('tested-commit sha=' + result['head'], result['summary'])
+                for field in before:
+                    with self.subTest(field=field):
+                        self.assertEqual(after[field], before[field])
+
+    def test_job_ignores_inherited_git_config_and_templates(self):
+        # Each real hook would leave a marker while returning success. Refusal
+        # or a broken fixture is not accepted as successful isolation.
+        for origin in ('count', 'parameters', 'global', 'system', 'home', 'template'):
+            with self.subTest(origin=origin), tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                hooks = root / 'template/hooks'
+                hooks.mkdir(parents=True)
+                hook = hooks / 'pre-commit'
+                hook.write_text('#!/bin/sh\n: > "$FIXTURE_HOOK_MARKER"\n')
+                hook.chmod(0o755)
+                marker = root / 'hook-ran'
+                config = root / 'config'
+                config.write_text('[core]\n\thooksPath = ' + str(hooks) + '\n')
+                home = root / 'home'
+                home.mkdir()
+                caller = {key: value for key, value in os.environ.items()
+                          if not key.startswith('GIT_')}
+                caller.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
+                              HOME=str(home), XDG_CONFIG_HOME=str(home / 'xdg'),
+                              FIXTURE_HOOK_MARKER=str(marker))
+                if origin == 'count':
+                    caller.update(GIT_CONFIG_COUNT='1', GIT_CONFIG_KEY_0='core.hooksPath',
+                                  GIT_CONFIG_VALUE_0=str(hooks))
+                elif origin == 'parameters':
+                    caller['GIT_CONFIG_PARAMETERS'] = "'core.hooksPath=" + str(hooks) + "'"
+                elif origin == 'global':
+                    caller['GIT_CONFIG_GLOBAL'] = str(config)
+                elif origin == 'system':
+                    caller.pop('GIT_CONFIG_NOSYSTEM')
+                    caller['GIT_CONFIG_SYSTEM'] = str(config)
+                elif origin == 'home':
+                    caller.pop('GIT_CONFIG_GLOBAL')
+                    (home / '.gitconfig').write_bytes(config.read_bytes())
+                else:
+                    caller['GIT_TEMPLATE_DIR'] = str(hooks.parent)
+                with mock.patch.dict(os.environ, caller, clear=True):
+                    result = run_job(source(CENTRAL), 'pull_request')
+                    self.assertEqual(dict(os.environ), caller, 'caller environment was changed')
+                self.assertEqual(result['conclusion'], 'success', result)
+                self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                self.assertFalse(marker.exists(), 'inherited Git hook executed: ' + origin)
+
     def test_current_workflows_satisfy_contract(self):
         for workflow in (CENTRAL, *TRIO):
             with self.subTest(workflow=workflow):
