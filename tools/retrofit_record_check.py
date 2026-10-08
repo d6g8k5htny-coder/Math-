@@ -88,6 +88,9 @@ class _GitBackendError(ValueError):
     """A backend limitation, distinct from a source-object mismatch."""
 
 
+_CAPABILITY_PROBE = object()
+
+
 def _git(repo, *args):
     # The explicit clone and raw objects define identity. Ambient Git routing/config
     # must not redirect it, and replacement refs must not rebind a named commit.
@@ -97,7 +100,7 @@ def _git(repo, *args):
     # Missing promisor objects must be refused without fetching or writing the clone.
     env['GIT_NO_LAZY_FETCH'] = '1'
     command = ['git', '--no-replace-objects', '--no-lazy-fetch']
-    if repo is not None:
+    if repo is not _CAPABILITY_PROBE:
         command.extend(['-C', str(repo)])
     try:
         run = subprocess.run([*command, *args], capture_output=True, text=True, env=env)
@@ -110,7 +113,7 @@ def _git_blob(repo, commit, path):
     """The blob id at commit:path; None unless commit names a commit object and path a blob in its tree."""
     # Probe without a repository, before any object lookup. Check the actual
     # capability, not a version string; real reads retain the same safety flag.
-    if _git(None, '--version') is None:
+    if _git(_CAPABILITY_PROBE, '--version') is None:
         raise _GitBackendError('Git capability check failed: --no-lazy-fetch is required for source verification')
     if _git(repo, 'cat-file', '-t', commit) != 'commit':
         return None

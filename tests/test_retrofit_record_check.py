@@ -1,5 +1,6 @@
 """Behavior of tools/retrofit_record_check.py against reviews/retrofit_20261006/CONTRACT.md v0.1."""
 import copy
+import contextlib
 import importlib.util
 import json
 import os
@@ -787,6 +788,28 @@ class RawGitIdentity(unittest.TestCase):
     def test_unlaunchable_git_is_a_structured_backend_error(self):
         self.backend_error_cases(dict(self.env, PATH=str(self.root / 'missing-bin')),
                                  'Git backend could not be launched')
+
+    def test_null_mapping_does_not_select_process_working_clone(self):
+        for route in ('subject', 'evidence'):
+            with self.subTest(route=route):
+                data = example()
+                record = data['records'][0]
+                record.update(delta=True, alias_of=None)
+                ref = {'repository': 'Math-', 'commit': self.original,
+                       'path': 'TARGET.md', 'blob': self.original_blob}
+                if route == 'subject':
+                    record.update(subject=ref, state='unknown', evidence=[])
+                else:
+                    record['subject']['repository'] = 'query-'
+                    record.update(state='recorded', evidence=[dict(ref, kind='file')])
+                data['records'] = [record]
+                before = self.snapshot()
+                with contextlib.chdir(self.repo):
+                    self.assertEqual(rc.validate(data, repos={'Math-': self.repo}), [])
+                    errors = rc.validate(data, repos={'Math-': None})
+                self.assertEqual(len(errors), 1, errors)
+                self.assertIn('blob does not match git', errors[0])
+                self.assertEqual(self.snapshot(), before)
 
 
 if __name__ == '__main__':
