@@ -50,6 +50,7 @@ def run_cli(env):
     full.pop('REQUIRED_FORMAL_NEEDS', None)
     full.update(env)
     full['REQUIRED_FORMAL_NEEDS'] = json.dumps(needs_for(env))
+    full.pop('PYTHONOPTIMIZE', None)
     proc = subprocess.run(
         [sys.executable, '-B', *(['-O'] if sys.flags.optimize else []), '-S', str(SCRIPT), 'aggregate'],
         cwd=ROOT, env=full, capture_output=True, text=True,
