@@ -18,9 +18,9 @@ ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_atom_integral_20261006'
 WORKFLOW='.github/workflows/d2-atom-integral.yml'
 REPO='d6g8k5htny-coder/Math-'
-CORE_TREE='d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14'
-CORE_MANIFEST='5d7ccdb0885af7bf4a2aa6ec4dce5f5c41435bb10a0a7a426a8af286d4f035e4'
-CORE_GATE='958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68'
+CORE_TREE='3da1086003250f332c57b56eebd9812b2f532cee'
+CORE_MANIFEST='a1c27f6257cac904861b7e0ddedaf55aab3f13ec67b0106c9b2f2e64f3f66925'
+CORE_GATE='976bf25680c791597d6096ef670d0e50be420fc533ad993a53e67c13af345479'
 CONSUMED={
  'companions/d2_moment_bridge_20261006/D2MomentBridge.lean':'b3184107e290189b91e3e18fd2aa1cb631bb9bde',
  'companions/d2_square_schur_20261006/D2SquareSchur.lean':'4855c92d55254969e1de7f8cf8dec2bdc027cf69'}

@@ -49,7 +49,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(meta['theorems'],THEOREMS)
         self.assertEqual(meta['definitions'],DEFINITIONS)
         self.assertEqual(meta['scientific_effect'],'NONE')
-        self.assertEqual(meta['core_tree'],'d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14')
+        self.assertEqual(meta['core_tree'],'3da1086003250f332c57b56eebd9812b2f532cee')
 
     def test_residual_identity_and_exact_equality_class(self):
         count=0

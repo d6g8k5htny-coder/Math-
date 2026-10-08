@@ -65,7 +65,7 @@ class WeightPerturbationSourceTests(unittest.TestCase):
         pins = {
             'ResearchFormalCoreR1/WeightedLaw.lean': 'f31dfd2cd048cc0c0446c54c46d89c9cdd5d7bb9d76e9d8d16b7c034f351d736',
             'ResearchFormalCoreR1/MomentGenerality.lean': 'fdec55f1602938cd8fdb5b71535962e76a9671bf230dea53868b14147fb3b509',
-            'gate.py': '958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68',
+            'gate.py': '976bf25680c791597d6096ef670d0e50be420fc533ad993a53e67c13af345479',
         }
         for path, digest in pins.items():
             self.assertEqual(m['files'][path], digest)
