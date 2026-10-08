@@ -26,7 +26,7 @@ def require(condition, message):
 
 def check_lean_version(text):
     version = text.strip()
-    require(re.fullmatch(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit [0-9a-f]+, Release\)', version) is not None,
+    require(re.fullmatch(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)', version) is not None,
             'unexpected running Lean version: ' + repr(version))
     return version
 

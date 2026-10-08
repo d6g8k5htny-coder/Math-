@@ -138,7 +138,7 @@ class SourceContractTests(unittest.TestCase):
 class RuntimeVersionTests(unittest.TestCase):
     # These are orchestration tests with synthetic external process results;
     # source validation, log writes, build deletion and receipts are real.
-    RELEASE = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit ' + 'a' * 40 + ', Release)'
+    RELEASE = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)'
 
     def fixture(self):
         tmp = tempfile.TemporaryDirectory()
@@ -211,6 +211,31 @@ class RuntimeVersionTests(unittest.TestCase):
         for text in invalid:
             with self.subTest(text=text), self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
                 gate.check_lean_version(text)
+
+    def test_short_and_other_release_commits_refused(self):
+        # A release label cannot authenticate a truncated or different compiler.
+        for commit in ('a', '5045d005', '0' * 40, 'f' * 40):
+            text = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit ' + commit + ', Release)'
+            with self.subTest(commit=commit), self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
+                gate.check_lean_version(text)
+
+    def test_other_commit_preflight_preserves_build(self):
+        self.fixture()
+        wrong = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit ' + '0' * 40 + ', Release)'
+        with self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
+            self.execute_synthetic([wrong])
+        self.assertEqual(self.sentinel.read_bytes(), b'old build')
+        self.assertEqual(self.calls, [['lake', 'env', 'lean', '--version']])
+        self.assert_no_receipt()
+
+    def test_other_commit_after_execution_refuses_receipt(self):
+        self.fixture()
+        wrong = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit ' + 'f' * 40 + ', Release)'
+        with self.assertRaisesRegex(ValueError, 'unexpected running Lean version'):
+            self.execute_synthetic([self.RELEASE, wrong])
+        self.assertEqual(self.version_index, 2)
+        self.assertFalse(self.sentinel.exists())
+        self.assert_no_receipt()
 
     def test_invalid_preflight_preserves_build_and_runs_no_build(self):
         self.fixture()

@@ -13,9 +13,9 @@ SIDE=Path(__file__).resolve().parent
 ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_moment_bridge_20261006'
 WORKFLOW='.github/workflows/d2-moment-bridge.yml'
-CORE_TREE='3da1086003250f332c57b56eebd9812b2f532cee'
-CORE_MANIFEST='a1c27f6257cac904861b7e0ddedaf55aab3f13ec67b0106c9b2f2e64f3f66925'
-CORE_GATE='976bf25680c791597d6096ef670d0e50be420fc533ad993a53e67c13af345479'
+CORE_TREE='38b6d1a7746075b560349d184a461933745c11ce'
+CORE_MANIFEST='40cb6ffc6776717a26d2a0a66815aeef508b0c8411588fff06ff2cec43a752a1'
+CORE_GATE='278989bbba7e1f90870ea0d197a996bc0a65b2a4b217e2eb284accb1282356c1'
 REPO='d6g8k5htny-coder/Math-'
 CONTROLS=('RejectZeroAtom','RejectSameRadius')
 

@@ -100,3 +100,29 @@ their original sources. Current-commit core and companion replay, source-bound
 composition with the separately owned Math312 gate proposal, engineering review
 and protected integration remain distinct requirements. No alignment or
 scientific acceptance is transferred.
+
+## Exact release commit binding successor — 2026-10-08
+
+PR412 review comment4224548871 identified that the complete version record
+still accepted truncated or different hexadecimal commits. This successor
+requires the full official Lean4.34.1 release commit
+`5045d0056413266e57c625dcd7c365b10e377c52` before build removal and again
+before receipt creation. The primary identity is the official
+[v4.34.1 tag](https://github.com/leanprover/lean4/releases/tag/v4.34.1),
+whose native Git reference was read as that commit on2026-10-08.
+
+This consumer now pins whole formal tree `38b6d1a7746075b560349d184a461933745c11ce`,
+manifest SHA256 `40cb6ffc6776717a26d2a0a66815aeef508b0c8411588fff06ff2cec43a752a1`,
+and gate SHA256 `278989bbba7e1f90870ea0d197a996bc0a65b2a4b217e2eb284accb1282356c1`.
+The three new behavioral controls reject short/wrong commits, preserve
+the old build on preflight refusal and withhold a receipt on postflight
+refusal. Synthetic external-process tests do not execute Lean.
+
+All earlier document text is preserved as the historical prefix. Proofs,
+imports, toolchain/dependency locks, workflows, contracts and replay
+scripts retain their previous bytes. All39 formal inventory members,
+63 targets, eight modules and nine revisions remain unchanged in scope.
+The pin checks the reported compiler identity; it is not executable-byte
+authentication or independent source alignment. New current-commit
+kernel receipts and hosted checks are still required after publication.
+Alignment remains PENDING_INDEPENDENT_REVIEW; scientific effect NONE.
