@@ -15,6 +15,8 @@ NAME = r'[A-Za-z_][A-Za-z0-9_.]*'
 AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does not depend on any axioms)")
 SHA256 = re.compile(r'[0-9a-f]{64}')
 COMMIT = re.compile(r'[0-9a-f]{40}')
+DECL_LINE = re.compile(r'^(?:noncomputable\s+)?(def|theorem|lemma)\s+(' + NAME + r')\b')
+UNSUPPORTED_COMMANDS = ('private ', 'protected ', '@[', 'opaque ', 'axiom ', 'abbrev ', 'structure ', 'class ', 'instance ', 'local instance ', 'inductive ', 'mutual', 'syntax ', 'macro ', 'elab ', 'initialize ', 'example ')
 ROOT = Path(__file__).resolve().parent
 
 def sha(data):
@@ -23,6 +25,61 @@ def sha(data):
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+def strip_lean_noncode(text):
+    out=[]; i=0; block=0; string=False
+    while i < len(text):
+        if block:
+            if text.startswith('/-',i): block+=1; out.extend('  '); i+=2
+            elif text.startswith('-/',i): block-=1; out.extend('  '); i+=2
+            elif text[i]=='\\n': out.append('\\n'); i+=1
+            else: out.append(' '); i+=1
+        elif string:
+            if text[i]=='\\\\' and i+1<len(text): out.extend('  '); i+=2
+            elif text[i]=='"': out.append(' '); string=False; i+=1
+            elif text[i]=='\\n': out.append('\\n'); i+=1
+            else: out.append(' '); i+=1
+        elif text.startswith('--',i):
+            out.extend('  '); i+=2
+            while i<len(text) and text[i]!='\\n': out.append(' '); i+=1
+        elif text.startswith('/-',i): block=1; out.extend('  '); i+=2
+        elif text[i]=='"': string=True; out.append(' '); i+=1
+        else: out.append(text[i]); i+=1
+    require(block==0 and not string,'unterminated Lean comment or string')
+    return ''.join(out)
+
+def scan_module_declarations(text, path):
+    """Fail-closed grammar for primary source modules; not a general Lean parser."""
+    clean = strip_lean_noncode(text)
+    namespaces = re.findall(r'^\s*namespace\s+(' + NAME + r')\s*$', clean, re.M)
+    require(namespaces == ['ResearchFormalCoreR1'],
+            'unsupported namespace structure: ' + path)
+    declarations = []
+    targets = []
+    for lineno, line in enumerate(clean.splitlines(), 1):
+        if not line.strip():
+            continue
+        match = DECL_LINE.match(line)
+        if match:
+            kind, name = match.groups()
+            full = 'ResearchFormalCoreR1.' + name
+            declarations.append(full)
+            if kind in ('theorem', 'lemma'):
+                targets.append(full)
+            continue
+        stripped = line.lstrip()
+        if line != stripped and re.match(
+                r'(?:noncomputable\s+)?(?:def|theorem|lemma)\b', stripped):
+            raise ValueError(
+                'indented declaration outside supported grammar: ' +
+                path + ':' + str(lineno))
+        if any(stripped.startswith(prefix) for prefix in UNSUPPORTED_COMMANDS):
+            raise ValueError(
+                'unsupported declaration-bearing command: ' +
+                path + ':' + str(lineno))
+    require(len(declarations) == len(set(declarations)),
+            'duplicate source declaration: ' + path)
+    return declarations, targets
 
 def audit_axioms(text, targets):
     require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
@@ -37,7 +94,6 @@ def audit_axioms(text, targets):
     require(not AXIOM.sub('', text).strip(), 'unrecognized audit output')
     require(set(records) == set(targets), 'missing target axiom report')
     return records
-
 def check_files(root, files):
     require(isinstance(files, dict) and files, 'empty file manifest')
     root = root.resolve()
@@ -117,7 +173,7 @@ def source_check():
     m = load_json(raw)
     require(m.get('schema_version') == 1 and m.get('scientific_effect') == 'NONE', 'invalid evidence schema')
     require(m.get('formalization_status') == 'proved' and m.get('alignment_status') == 'PENDING_INDEPENDENT_REVIEW', 'source metadata cannot self-award execution or review')
-    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md'}
+    required = {'gate.py', 'tests/test_gate.py', 'lean-toolchain', 'lakefile.toml', 'lake-manifest.json', 'ResearchFormalCoreR1.lean', 'SCOPE.md', 'GLOSSARY.md', 'README.md', 'blueprint/src/content.tex', 'tests/test_alignment_lineage.py', 'LINEAGE_VALIDATION.md', 'tests/test_declaration_admission.py', 'DECLARATION_ADMISSION.md'}
     require(required <= set(m['files']), 'unbound control or scope file')
     originals = {'originals/Algebra.lean.txt': '4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae', 'originals/ProbabilityCompanions.lean.txt': '4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d'}
     require(all(m['files'].get(path) == value for path, value in originals.items()), 'original source identity changed or omitted')
@@ -132,13 +188,17 @@ def source_check():
     require(all(COMMIT.fullmatch(v) for v in actual.values()), 'unpinned dependency')
     expected_root = ''.join('import ' + path[:-5].replace('/', '.') + '\n' for path in m['source_modules'])
     require((ROOT / 'ResearchFormalCoreR1.lean').read_text() == expected_root, 'root must only import registered modules')
-    names = []
+    declarations=[]; targets=[]
     for path in m['source_modules']:
-        require(path in m['files'], 'unbound source module')
-        text = (ROOT / path).read_text()
-        names.extend('ResearchFormalCoreR1.' + n for n in re.findall(r'^(?:theorem|lemma)\s+(' + NAME + ')', text, re.M))
-    require(names == m['targets'], 'target inventory differs from source declarations')
-    check_blueprint((ROOT / 'blueprint/src/content.tex').read_text(), names)
+        require(path in m['files'],'unbound source module')
+        found,theorem_targets=scan_module_declarations((ROOT/path).read_text(),path)
+        declarations.extend(found); targets.extend(theorem_targets)
+    require(isinstance(m.get('declarations'),list) and m['declarations'] and len(m['declarations'])==len(set(m['declarations'])),'empty or duplicate declaration inventory')
+    require(isinstance(m.get('targets'),list) and m['targets'] and len(m['targets'])==len(set(m['targets'])),'empty or duplicate target list')
+    require(declarations==m['declarations'],'declaration inventory differs from supported source declarations')
+    require(targets==m['targets'],'target inventory differs from source declarations')
+    require(set(targets)<=set(declarations),'target missing from declaration inventory')
+    check_blueprint((ROOT/'blueprint/src/content.tex').read_text(),targets)
     lean_files = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*.lean') if '.lake' not in p.relative_to(ROOT).parts}
     require(lean_files == set(m['source_modules']) | {'ResearchFormalCoreR1.lean'}, 'unregistered Lean module')
     return m, sha(raw)
@@ -158,10 +218,11 @@ def execute(m, digest):
         shutil.rmtree(ROOT / '.lake/build')  # fresh local-package build; dependency cache is untouched
     run(['lake', 'build'], 'build', out)
     run(['lake', 'env', 'leanchecker', 'ResearchFormalCoreR1'], 'leanchecker', out)
-    audit = out / 'Audit.lean'
-    audit.write_text('import ResearchFormalCoreR1\n' + '\n'.join('#print axioms ' + n for n in m['targets']) + '\n')
-    text = run(['lake', 'env', 'lean', str(audit)], 'axioms', out)
-    axioms = audit_axioms(text, m['targets'])
+    audit=out/'Audit.lean'
+    audit.write_text('import ResearchFormalCoreR1\\n'+'\\n'.join('#print axioms '+n for n in m['declarations'])+'\\n')
+    text=run(['lake','env','lean',str(audit)],'axioms',out)
+    declaration_axioms=audit_axioms(text,m['declarations'])
+    axioms={name:declaration_axioms[name] for name in m['targets']}
     types = out / 'Types.lean'
     types.write_text('import ResearchFormalCoreR1\nset_option pp.explicit true\n' + '\n'.join('#check ' + n for n in m['targets']) + '\n')
     run(['lake', 'env', 'lean', str(types)], 'elaborated-types', out)
@@ -203,7 +264,7 @@ def execute(m, digest):
                    alignment_status='PENDING_INDEPENDENT_REVIEW', manifest_sha256=digest,
                    checked_commit=head, repository=os.environ.get('GITHUB_REPOSITORY'),
                    workflow_run_id=os.environ.get('GITHUB_RUN_ID'), lean_version=version,
-                   dependency_revisions=m['dependency_revisions'], axioms=axioms, negative_controls=outcomes)
+                   dependency_revisions=m['dependency_revisions'], axioms=axioms, declaration_axioms=declaration_axioms, negative_controls=outcomes)
     receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
     (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
     print(json.dumps(receipt, indent=2, sort_keys=True))
