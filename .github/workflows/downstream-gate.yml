@@ -98,6 +98,34 @@ jobs:
           }, indent=2) + '\n')
           print('DOWNSTREAM_GATE_PASSED')
           PYTHON
+      - name: P-C inventory A source-bound conformance
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          GIT_NO_LAZY_FETCH: '1'
+        run: |
+          set -euo pipefail
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse --is-shallow-repository)" = false
+          git --no-replace-objects --no-lazy-fetch cat-file -e '9fd261135b41daf1e377f9ef2db193fee6ec36be^{commit}'
+          git --no-replace-objects --no-lazy-fetch cat-file -e "$GITHUB_SHA^{commit}"
+          out="$RUNNER_TEMP/downstream-gate-results"
+          mkdir -p "$out"
+          python3 -B -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-normal.stdout" 2> "$out/proof-slice-tests-normal.stderr"
+          python3 -B -O -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-optimized.stdout" 2> "$out/proof-slice-tests-optimized.stderr"
+          python3 -B -S - "$out" <<'PC_TEST_EVIDENCE'
+          import pathlib, re, sys
+          # Conventional unittest output checks, not hostile-producer authentication.
+          expected_count = 93
+          out = pathlib.Path(sys.argv[1])
+          for mode in ('normal', 'optimized'):
+              stderr = (out / f'proof-slice-tests-{mode}.stderr').read_text(encoding='utf-8')
+              summary = re.search(r'\nRan ([1-9][0-9]*) tests in [0-9]+\.[0-9]{3}s\n\nOK\n\Z', stderr)
+              if summary is None or int(summary.group(1)) != expected_count or 'skipped=' in stderr:
+                  raise RuntimeError('P-C focused tests have incomplete or unsuccessful execution: ' + mode)
+          print('P_C_FOCUSED_TESTS_PASSED: normal and optimized, 93 methods each, no skips')
+          PC_TEST_EVIDENCE
+          python3 -B -S tools/proof_slice_check.py --repo . --inventory-commit "$GITHUB_SHA" --inventory-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json > "$out/proof-slice-inventory-normal.json" 2> "$out/proof-slice-inventory-normal.stderr"
+          python3 -B -O -S tools/proof_slice_check.py --repo . --inventory-commit "$GITHUB_SHA" --inventory-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json > "$out/proof-slice-inventory-optimized.json" 2> "$out/proof-slice-inventory-optimized.stderr"
       - name: Retain evidence even on failure
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
