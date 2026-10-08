@@ -13,6 +13,14 @@ SCRIPT = ROOT / 'frontiers/downstream_gate_20260925/run_validation.py'
 SPEC = importlib.util.spec_from_file_location('downstream_validation', SCRIPT)
 M = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(M)
+PACKET = SCRIPT.parent
+sys.path.insert(0, str(PACKET))  # git_transition_audit imports hard_gate from its packet
+try:
+    AUDIT_SPEC = importlib.util.spec_from_file_location('transition_audit', PACKET / 'git_transition_audit.py')
+    AUDIT = importlib.util.module_from_spec(AUDIT_SPEC)
+    AUDIT_SPEC.loader.exec_module(AUDIT)
+finally:
+    sys.path.remove(str(PACKET))
 
 
 class ValidationTimeoutTests(unittest.TestCase):
@@ -261,6 +269,202 @@ class ValidationTimeoutTests(unittest.TestCase):
         self.assertEqual(record['timeout_seconds'], 30)
         self.assertGreater(record['elapsed_seconds'], 0)
 
+
+class ReplayGateRefusalControls(unittest.TestCase):
+    """Mutation-gap controls: refusal paths of execute()/main() that the tests above leave unpinned."""
+    BASELINE = 'Ran 71 tests\nOK\n'
+    DETECTED = 'Ran 71 tests\nAssertionError: changed semantics\nFAILED (failures=1)\n'
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.out = Path(self.temp.name)
+        self.command = [sys.executable, '-B', '-S', 'test.py']
+        self.two = dict(list(M.MUTANTS.items())[:2])
+
+    def completed(self, code, stderr, stdout=''):
+        return subprocess.CompletedProcess(self.command, code, stdout, stderr)
+
+    def gate(self, code=0, stdout=None):
+        return self.completed(code, b'', (M.ROOT / 'RESULTS.json').read_bytes() if stdout is None else stdout)
+
+    def assert_refused(self, code, stderr, mutant):
+        with mock.patch.object(M.subprocess, 'run', return_value=self.completed(code, stderr)):
+            with self.assertRaises(RuntimeError):
+                M.execute(self.command, self.out, self.out, 'run', mutant=mutant, mode='normal',
+                          mutation='allow_green_ci' if mutant else None)
+
+    def main(self, out, responses, mutants):
+        with mock.patch.object(sys, 'argv', [str(SCRIPT), '--output', str(out)]):
+            with mock.patch.object(M, 'MUTANTS', mutants):
+                with mock.patch.object(M.subprocess, 'run', side_effect=responses) as self.run:
+                    with mock.patch.object(M, 'print', create=True):  # keep the success JSON out of test logs
+                        M.main()
+
+    def test_test_count_must_match_exactly(self):
+        self.assert_refused(0, 'Ran 710 tests\nOK\n', False)
+        self.assert_refused(1, 'Ran 711 tests\nAssertionError\nFAILED (failures=1)\n', True)
+
+    def test_mutant_requires_every_detection_signal(self):
+        for code, stderr in [(0, self.DETECTED), (1, 'Ran 71 tests\nFAILED (failures=1)\n'),
+                             (1, 'Ran 71 tests\nAssertionError\nFAILED (errors=1)\n')]:
+            with self.subTest(code=code, stderr=stderr):
+                self.assert_refused(code, stderr, True)
+
+    def test_signal_killed_baseline_refused(self):
+        self.assert_refused(-9, self.BASELINE, False)
+
+    def test_success_replays_both_modes_and_every_mutant(self):
+        out = self.out / 'ok'
+        self.main(out, [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED),
+                        self.completed(1, self.DETECTED)] * 2, self.two)
+        self.assertEqual(self.run.call_count, 8)
+        self.assertIn('-O', self.run.call_args_list[4].args[0])
+        report = json.loads((out / 'REPORT.json').read_text())
+        self.assertTrue(report['passed'])
+        self.assertEqual(report['modes'], ['normal', 'optimized'])
+        for mode in ('normal', 'optimized'):
+            for name in self.two:
+                self.assertTrue((out / ('mutation_' + mode + '_' + name + '.stderr')).is_file())
+
+    def test_source_change_during_replay_refused(self):
+        out = self.out / 'drift'
+        responses = [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED)] * 2
+        with mock.patch.object(M, 'identities', side_effect=[{'a': 1}, {'a': 2}]):
+            with self.assertRaisesRegex(RuntimeError, 'source files changed'):
+                self.main(out, responses, dict(list(self.two.items())[:1]))
+        self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
+
+    def test_output_must_be_new_and_outside_source_before_any_command(self):
+        packet = self.out / 'packet'
+        packet.mkdir()
+        existing = self.out / 'existing'
+        existing.mkdir()
+        for out in (packet / 'out', existing):
+            with self.subTest(out=out.name):
+                with mock.patch.object(M, 'ROOT', packet):
+                    with self.assertRaisesRegex(RuntimeError, 'new output outside source'):
+                        self.main(out, AssertionError('no command may run'), self.two)
+                self.assertEqual(self.run.call_count, 0)
+
+    def test_gate_entry_must_exit_zero_with_exact_results(self):
+        for gate in (self.gate(stdout=b'{}'), self.gate(code=1)):
+            with self.subTest(code=gate.returncode):
+                out = self.out / ('gate' + str(gate.returncode))
+                with self.assertRaisesRegex(RuntimeError, 'entry/result mismatch'):
+                    self.main(out, [self.completed(0, self.BASELINE), gate], self.two)
+                self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
+
+    def test_successful_replay_without_report_fails(self):
+        real_write = Path.write_text
+        def fail_report(path, data, *args, **kwargs):
+            if path.name == 'REPORT.json':
+                raise OSError('report disk unavailable')
+            return real_write(path, data, *args, **kwargs)
+        responses = [self.completed(0, self.BASELINE), self.gate(), self.completed(1, self.DETECTED)] * 2
+        with mock.patch.object(Path, 'write_text', fail_report):
+            with self.assertRaises(OSError):
+                self.main(self.out / 'noreport', responses, dict(list(self.two.items())[:1]))
+
+    def test_identities_cover_every_packet_file(self):
+        packet = self.out / 'packet'
+        for name in ('a.py', 'DATA.json', 'sub/b.md', '__pycache__/c.pyc'):
+            (packet / name).parent.mkdir(parents=True, exist_ok=True)
+            (packet / name).write_text(name)
+        with mock.patch.object(M, 'ROOT', packet):
+            self.assertEqual(set(M.identities()), {'a.py', 'DATA.json', 'sub/b.md'})
+
+
+class TransitionAuditRefusalControls(unittest.TestCase):
+    """Mutation-gap controls for git_transition_audit.py, which the lane runs once on a passing transition."""
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.repo = Path(self.temp.name) / 'repo'
+        self.repo.mkdir()
+        self.git('init', '-q')
+        self.git('config', 'user.name', 'local test')
+        self.git('config', 'user.email', 'test@example.invalid')
+
+    def git(self, *args):
+        return subprocess.run(['git', '-C', str(self.repo), *args], check=True, capture_output=True, text=True).stdout.strip()
+
+    def commit(self, graph, *files):
+        (self.repo / 'GRAPH.json').write_text(json.dumps(graph))
+        for name in ('lemma.md', *files):
+            (self.repo / name).write_text('bytes of ' + name + '\n')
+        self.git('add', '.')
+        self.git('commit', '-qm', 'fixture')
+        return self.git('rev-parse', 'HEAD')
+
+    @staticmethod
+    def graph(**extra):
+        nodes = {'L': {'classification': 'PROVED_REVIEWED', 'controlling': False, 'source': 'lemma.md'}, **extra}
+        return {'schema_version': 1, 'nodes': nodes, 'edges': []}
+
+    def cli(self, base, head, out):
+        return subprocess.run([sys.executable, '-B', '-S', str(PACKET / 'git_transition_audit.py'), '--repo', str(self.repo),
+                               '--base', base, '--head', head, '--graph', 'GRAPH.json', '--output', str(out)],
+                              capture_output=True, text=True, timeout=120)
+
+    def test_revision_must_be_full_lowercase_commit(self):
+        rev = self.commit(self.graph())
+        for bad in (rev[:12], rev.upper(), 'HEAD'):
+            with self.subTest(revision=bad), self.assertRaisesRegex(ValueError, 'immutable commit ID'):
+                AUDIT.read_snapshot(self.repo, bad, 'GRAPH.json')
+        with self.assertRaisesRegex(ValueError, 'not a commit'):
+            AUDIT.read_snapshot(self.repo, self.git('rev-parse', rev + '^{tree}'), 'GRAPH.json')
+
+    def test_blank_source_reference_refused(self):
+        rev = self.commit(self.graph(W={'classification': 'PROVED_REVIEWED', 'controlling': False, 'source': '   '}))
+        with self.assertRaisesRegex(ValueError, 'nonempty string'):
+            AUDIT.read_snapshot(self.repo, rev, 'GRAPH.json')
+
+    def test_non_blob_tree_source_object_refused(self):
+        rev, real = self.commit(self.graph()), AUDIT.git
+        def fake(repo, *args, missing=False):
+            if args[:2] == ('cat-file', '-t') and args[2].endswith(':lemma.md'):
+                return b'commit\n'
+            return real(repo, *args, missing=missing)
+        with mock.patch.object(AUDIT, 'git', side_effect=fake):
+            with self.assertRaisesRegex(ValueError, 'blob or directory tree'):
+                AUDIT.read_snapshot(self.repo, rev, 'GRAPH.json')
+
+    def test_unresolved_controlling_source_fails(self):
+        for source in ('absent.md', 'external:paper'):
+            with self.subTest(source=source):
+                graph = self.graph(C={'classification': 'PROVED_REVIEWED', 'controlling': True, 'source': source})
+                base, head = self.commit(graph), self.commit(graph, 'unrelated-' + source.replace(':', '_'))
+                r = AUDIT.audit(self.repo, base, head, 'GRAPH.json')
+                self.assertEqual((r['controlling_impacted'], r['illegal_controlling']), ([], []))
+                self.assertEqual(r['unresolved_controlling_sources'], ['C'])
+                self.assertFalse(r['check_passed'])
+
+    def test_unchanged_illegal_controlling_fails_and_cli_exits_2(self):
+        graph = self.graph(X={'classification': 'OPEN_ACTIVE', 'controlling': True, 'source': 'lemma.md'})
+        base, head = self.commit(graph), self.commit(graph, 'unrelated.md')
+        r = AUDIT.audit(self.repo, base, head, 'GRAPH.json')
+        self.assertEqual((r['controlling_impacted'], r['unresolved_controlling_sources']), ([], []))
+        self.assertEqual(len(r['illegal_controlling']), 1)
+        self.assertFalse(r['check_passed'])
+        out = Path(self.temp.name) / 'audit.json'
+        run = self.cli(base, head, out)
+        self.assertEqual(run.returncode, 2, run.stderr)
+        self.assertFalse(json.loads(out.read_text())['check_passed'])
+
+    def test_cli_refusals_exit_2_without_output(self):
+        base, head = self.commit(self.graph()), self.commit(self.graph(), 'unrelated.md')
+        good = Path(self.temp.name) / 'good.json'
+        self.assertEqual(self.cli(base, head, good).returncode, 0)
+        existing = Path(self.temp.name) / 'existing.json'
+        existing.write_text('keep')
+        for label, b, out in (('mutable', 'main', Path(self.temp.name) / 'x.json'), ('inside', base, self.repo / 'audit.json'),
+                              ('existing', base, existing)):
+            with self.subTest(label=label):
+                run = self.cli(b, head, out)
+                self.assertEqual(run.returncode, 2, run.stderr)
+                self.assertIn('TRANSITION_CHECK_REFUSED', run.stderr)
+                self.assertEqual(out.read_text() if out.exists() else None, 'keep' if label == 'existing' else None)
 
 if __name__ == '__main__':
     unittest.main()

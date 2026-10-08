@@ -130,6 +130,45 @@ class RequiredCheckTests(unittest.TestCase):
         self.assertNotEqual(bad.returncode,0)
         self.assertNotIn('"conclusion": "success"',bad.stdout)
 
+    # Mutation-gap controls: each test refuses a weakening that the tests above still admit.
+    def test_attempt_identity_is_exact(self):
+        for value in ('0', '01', 'x', '1 ', ''):
+            with self.subTest(value=value):
+                self.env['GITHUB_RUN_ATTEMPT']=value;self.needs['formal']['outputs']['run_attempt']=value
+                with self.assertRaises(ValueError):self.decision()
+                with self.assertRaises(ValueError):self.binding()
+    def test_checkout_head_must_be_tested_commit(self):
+        with self.assertRaises(ValueError):M.bind_receipt(self.receipt,self.manifest,self.env,'c'*40)
+    def test_symlinked_receipt_or_manifest_refused(self):
+        for target in ('receipt','manifest'):
+            with self.subTest(target=target):
+                path=getattr(self,target);real=self.root/('real-'+target);real.write_bytes(path.read_bytes())
+                path.unlink();path.symlink_to(real)
+                with self.assertRaises(ValueError):self.binding()
+                path.unlink();path.write_bytes(real.read_bytes())
+    def test_every_receipt_identity_field_required_and_compared(self):
+        for key,value in (('repository','d6g8k5htny-coder/Math-'),('workflow_run_id','122'),('scientific_effect','POSITIVE')):
+            with self.subTest(key=key,value=value):
+                prior=self.record[key];self.record[key]=value;self.write_receipt()
+                with self.assertRaises(ValueError):self.binding()
+                self.record[key]=prior
+        for key in ('checked_commit','repository','workflow_run_id','formalization_status','scientific_effect'):
+            with self.subTest(missing=key):
+                prior=self.record.pop(key);self.write_receipt()
+                with self.assertRaises(ValueError):self.binding()
+                self.record[key]=prior
+    def test_receipt_digest_is_an_exact_string(self):
+        for value in ('b'*65,'b'*64+'\n',int('1'*64)):
+            self.needs['formal']['outputs']['receipt_sha256']=value
+            with self.subTest(value=value),self.assertRaises(ValueError):self.decision()
+    def test_cli_needs_refuse_duplicate_keys(self):
+        failed=json.dumps({**self.needs['formal'],'result':'failure'})
+        text='{"checks":%s,"formal":%s,"formal":%s}'%(json.dumps(self.needs['checks']),failed,json.dumps(self.needs['formal']))
+        env={**os.environ,**self.env,'REQUIRED_FORMAL_NEEDS':text}
+        run=subprocess.run([sys.executable,'-B','-S',str(SCRIPT),'aggregate'],env=env,capture_output=True,text=True)
+        self.assertNotEqual(run.returncode,0)
+        self.assertIn('duplicate JSON key',run.stderr)
+
 class WiringTests(unittest.TestCase):
     def setUp(self):
         self.is_main=(ROOT/'.github/workflows/workspace-landing.yml').exists()
