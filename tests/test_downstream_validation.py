@@ -485,12 +485,41 @@ class ReplayGateRefusalControls(unittest.TestCase):
                     self.assertEqual(self.run.call_count, 0)
 
     def test_gate_entry_must_exit_zero_with_exact_results(self):
-        for gate in (self.gate(stdout=b'{}'), self.gate(code=1)):
-            with self.subTest(code=gate.returncode):
-                out = self.out / ('gate' + str(gate.returncode))
-                with self.assertRaisesRegex(RuntimeError, 'entry/result mismatch'):
-                    self.main(out, [self.completed(0, self.BASELINE), gate], self.two)
-                self.assertFalse(json.loads((out / 'REPORT.json').read_text())['passed'])
+        # Both internal modes must refuse independently. Keep a complete success
+        # stream available so a bypass fails assertRaises, not an exhausted mock.
+        for target_mode in ('normal', 'optimized'):
+            for case, bad_gate in (('stdout', self.gate(stdout=b'{}')), ('exit', self.gate(code=1))):
+                with self.subTest(mode=target_mode, case=case):
+                    out = (self.out / ('gate-' + target_mode + '-' + case)).resolve()
+                    responses, expected_calls = {}, []
+                    for mode, flags in (('normal', []), ('optimized', ['-O'])):
+                        prefix = [sys.executable, '-E', '-B', *flags, '-S']
+                        tests = prefix + ['-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+                        gate = prefix + ['hard_gate.py']
+                        responses[(tuple(tests), str(M.ROOT))] = self.completed(0, self.BASELINE)
+                        responses[(tuple(gate), str(M.ROOT))] = bad_gate if mode == target_mode else self.gate()
+                        expected_calls.extend(((tests, M.ROOT), (gate, M.ROOT)))
+                        for name in self.two:
+                            scratch = out / 'mutants' / mode / name
+                            responses[(tuple(tests), str(scratch))] = self.completed(1, self.DETECTED)
+                            expected_calls.append((tests, scratch))
+                    self.assertEqual(len(responses), 8)
+                    def replay(command, *, cwd, **kwargs):
+                        return responses[(tuple(command), str(cwd))]
+                    with self.assertRaisesRegex(RuntimeError, 'entry/result mismatch: ' + target_mode + '$'):
+                        self.main(out, replay, self.two)
+                    count = 2 if target_mode == 'normal' else 6
+                    self.assertEqual(self.run.call_count, count)
+                    self.assertEqual([(call.args[0], call.kwargs['cwd']) for call in self.run.call_args_list],
+                                     expected_calls[:count])
+                    report = json.loads((out / 'REPORT.json').read_bytes())
+                    self.assertFalse(report['passed'])
+                    self.assertEqual(report['modes'], [] if target_mode == 'normal' else ['normal'])
+                    self.assertFalse((out / ('output_' + target_mode + '.json')).exists())
+                    self.assertFalse((out / 'mutants' / target_mode).exists())
+                    if target_mode == 'optimized':
+                        self.assertEqual((out / 'output_normal.json').read_bytes(), (M.ROOT / 'RESULTS.json').read_bytes())
+                        self.assertEqual({path.name for path in (out / 'mutants' / 'normal').iterdir()}, set(self.two))
 
     def test_absent_mutation_anchor_refused(self):
         # Replacing the uniqueness check with count > 0 must fail the duplicate case.
