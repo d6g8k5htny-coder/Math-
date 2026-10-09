@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "round17-quantified-regression-audit-20261005"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 14663,
+      "sha256": "b68e077adbfdc551e6211cf8e61aa2d98719f1de4f653abcdbd5d90c613a11b1",
+      "git_blob": "a58948d251abdb34b334e1a1da83ec8982de29dc"
+    },
+    "regression_check.py": {
+      "bytes": 7016,
+      "sha256": "794896af95ea1b0d59a2b8f2ec3fd63f122320e0c365d6ea61202ea55f48f95c",
+      "git_blob": "a917b09aa22ebb2796515d106cb42c66e49c52f8"
+    },
+    "test_regression.py": {
+      "bytes": 4992,
+      "sha256": "48a3ece19b3d50a4efc0af5430b7fd83929e91f32362e32434eca907631c6f8a",
+      "git_blob": "c0affa36dde04b569b7275f477e16dc334673872"
+    }
+  },
+  "dependencies": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "slice": "sections 1-4 and 6; exact adjusted rows; new regularity explicitly stronger"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "slice": "pointwise weight stability and Gaussian moment constants"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ecafa5206c528b0c662ea0bcbb26938681251aa5",
+      "path": "reviews/lm006_tilted_endpoint_law_20261005/NOTE.md",
+      "git_blob": "6633cdf0bfee55e2fc2046176effbf44634454b3",
+      "slice": "bounded-Lipschitz transfer; TV obstruction retained"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "1dfe801eb61a8335a2e42b886fca9b000fb3598c",
+      "path": "reviews/lm006_typed_sign_suppression_20261005/NOTE.md",
+      "git_blob": "9015971fa03f44ae99d410facc6f3d8c26cdc945",
+      "slice": "sections 3-5; conditional sign numerator, no review transferred"
+    }
+  ],
+  "external_context": {
+    "publication": "Wilson et al., JMLR 22(105), 2021",
+    "arxiv": "2011.04026",
+    "read": "abstract/publication record only",
+    "role": "prior methodology, not proof premise"
+  }
+}
