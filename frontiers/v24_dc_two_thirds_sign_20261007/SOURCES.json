@@ -1,0 +1,497 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-V24-DC-TWO-THIRDS-SIGN-INCORPORATION-20261007-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037933403",
+  "note": "the incorporator is also the author of notes V24 and DC (custody only; no proof byte is changed)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229"
+ ],
+ "extraction_rule": "the rule each controls comment states (that of main#229 comment 5971055189): the control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line of the following ```json fence, plus one newline",
+ "related_packets": {
+  "frontiers/lifetime_two_thirds_chain_20261007/": "notes C3 and SL (Math-#390, landed at 7d2f6250), consumed by V24: C3 section 0, Lemma 0, section 3, Theorem C3, Proposition G; SL (0.1), (SL), (1.1), Remark 2",
+  "frontiers/c7_elder_two_thirds_20261007/": "note C7 (Theorem C7, (C7.1)), consumed by DC's Corollary DC2, if Math-#392 has landed; otherwise main#229 6030039377",
+  "frontiers/soft_closed_form_20261002/": "#244: Theorem A ((2.5)-(2.6)), Remarks 1-4, section 3 ((3.3)-(3.4), Corollary A.2), Lemma B.1(a), Lemma B.2 with the proof of (d), section 4",
+  "frontiers/soft_rejected_pairs_20261002/": "#242: section 0, (2.5), Theorem 1, Corollary 1', (3.1), Lemma 3, Proposition 4(1), (4.2)",
+  "frontiers/candidate_parity_rate_20261001/": "#237: Lemma R, Step U4 (through note C3)",
+  "imports/lifetime_parent_20260925/": "[P], section 1: the normalized kernel K_L",
+  "frontiers/three_fronts_20260924/": "[R]: (R5)"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that record no pickup, verdict or author response are not stored (among them the C144 acknowledgement 6037478928, which renewed note DC's claim lease)",
+  "clean-context referee reports": "same-provider, same-session referee reports are kept in the project archive, not here; each controls comment records their findings",
+  "coordination inside stored comments": "V24/AUTHOR_READ_COMPLETE_AND_DC_CLAIM.md also reports the Math-#390 landed readback; that report is not part of either object"
+ },
+ "objects": [
+  {
+   "tag": "V24",
+   "directory": "V24/",
+   "object": "CL-V24-TWO-THIRDS-TRANSFER-20261007-v1",
+   "title": "Lifetime note V24: the l^(2/3) coefficients c_3 and R_{2/3} of the torus field at L >= 10, with explicit transfer bounds",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Theorem V (for d in {2, 3} and every real L >= 10, |c_3(L) - (J/30) S_d| <= eta_c S_d and |R_{2/3}(L) - I~ S_d| <= eta_R S_d, with S_d = int int F_0 db dsigma and explicit eta_c, eta_R: at L >= 10, 5.88e-9 and 7.81e-6 in d = 2, 1.97e-7 and 4.97e-4 in d = 3; at L >= 24, 4.88e-110 and 6.48e-107 in d = 2, 1.64e-108 and 4.13e-105 in d = 3), Lemma K (|Phi - I_quad| <= 324(t^2 + |t|^3 + |chi_0| + chi_0^2)), Lemma J (J in [1/2000, 10]), Corollary V1 (c_3(L) > 0 for every real L >= 10, d = 2, 3) and Corollary V2 (for L >= 24 note C7's l^(2/3) coefficient equals (J/30 - I~) S_d up to 4.2e-105 S_d in d = 3, and is positive as soon as the model number D of (5.3) is <= 0.61); the control script checks the explicit inequalities (Theorem V's table, Lemma K's constant, Lemma J's interval) in exact rational arithmetic",
+   "recorded_remark": "two optional Slice C points, recorded in V24/AUTHOR_READ_COMPLETE_AND_DC_CLAIM.md to ride any later revision: Lemma 2's three-digit displays of delta_3(10) and delta_3(24) are coarser than the rational bounds the table uses (every stated inequality stands); Remark 1's kink-unaware exploration check does not reproduce the negative part (the note claims no value of D). The stored note body is unchanged.",
+   "read_complete": "V24/AUTHOR_READ_COMPLETE_AND_DC_CLAIM.md (6034902581)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-2; V1-V3 with M1-M3): Cursor agent bc-a825d594 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6034183460",
+    "Slice B (sections 3-4; V4, V6, V7 with M4-M7, M11): Cursor agent bc-f3f418fe (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6034185337",
+    "Slice C (sections 5-6, header; V5, V8, V9 with M8-M10, M12): Cursor agent bc-65b7f8e6 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6034197189"
+   ],
+   "conditional_on": "notes C3 and SL (custody packet Math-#390, landed: frontiers/lifetime_two_thirds_chain_20261007/), #242, #244 (Theorem A, which is conditional on #170 Theorem E(1), [CUB] Theorem C and [CUB]'s (C8)-(C11) with its B = 0 paragraph: the R_{2/3} half only), #237, [P] and [R], at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no certified value of J, I~, D or J/30 - I~ (only J in [1/2000, 10]), so the note itself does not prove the sign of note C7's coefficient at L = 24; nothing for d >= 4 or L < 10; no rate; nothing new about c, c_1, c_2 at L = 24; nothing beyond the scope of the consumed sources",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "V24/CLAIM.md",
+     "role": "author D5 claim for note V24 (scope L >= 24; the note widens it to L >= 10)",
+     "comment": "6031577374",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6031577374",
+     "created_at": "2026-10-07T05:25:17Z",
+     "updated_at": "2026-10-07T05:25:17Z",
+     "bytes": 2355,
+     "sha256": "f8ee7dbe05f837df5189f82f636c583d15feae53f95520c3ee98001d037678d0"
+    },
+    {
+     "path": "V24/PROOF.md",
+     "role": "frozen note (lifetime note V24)",
+     "comment": "6034159111",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034159111",
+     "created_at": "2026-10-07T08:34:02Z",
+     "updated_at": "2026-10-07T08:34:02Z",
+     "bytes": 52200,
+     "sha256": "32677f024747cccf8a87e7ded6b6716666376a0f409381d38f21fafa18930c03"
+    },
+    {
+     "path": "V24/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains v24_exact.py and its stdout, the extraction rule, and the author-side referee record, which is not review evidence)",
+     "comment": "6034161613",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034161613",
+     "created_at": "2026-10-07T08:34:12Z",
+     "updated_at": "2026-10-07T08:34:12Z",
+     "bytes": 42030,
+     "sha256": "07f972d274d6a897bf5350e70d03844cd40bdf37a97e5bc7ec80d0866ebdae8f"
+    },
+    {
+     "path": "V24/author_controls.py",
+     "role": "control script v24_exact.py, extracted verbatim from the stored controls comment V24/AUTHOR_CONTROLS_COMMENT.md (heading: ### v24_exact.py)",
+     "extracted_from": "V24/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### v24_exact.py",
+     "bytes": 33760,
+     "sha256": "92cac2a6cf18de1cdb965365ccc6229ce8ce62753bb920c8de1e68e133366e08"
+    },
+    {
+     "path": "V24/author_controls_stdout.json",
+     "role": "published stdout of V24/author_controls.py, extracted verbatim from V24/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "V24/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### v24_exact.py",
+     "bytes": 605,
+     "sha256": "4176f93a9835a08a55d2db6dc8f16ac901ca9948df5d04f3cf90e77059855680"
+    },
+    {
+     "path": "V24/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (three slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6034182228",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034182228",
+     "created_at": "2026-10-07T08:35:33Z",
+     "updated_at": "2026-10-07T08:35:33Z",
+     "bytes": 5777,
+     "sha256": "1a6795b317d878b7b6e785f69d0ab1d4ba369ef87fa2c22ca2f2433362a2dc09"
+    },
+    {
+     "path": "V24/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-2: the setting, Lemmas 0-3; V1-V3 with M1-M3): PASS, Cursor agent bc-a825d594 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6034183460",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034183460",
+     "created_at": "2026-10-07T08:35:38Z",
+     "updated_at": "2026-10-07T08:47:14Z",
+     "bytes": 8630,
+     "sha256": "246ef3df24c60a6ac4b84520d4bf426bef142bee7e8bba0b68d785619ae6ef07"
+    },
+    {
+     "path": "V24/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6034184252",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034184252",
+     "created_at": "2026-10-07T08:35:41Z",
+     "updated_at": "2026-10-07T08:35:41Z",
+     "bytes": 3508,
+     "sha256": "ed96b974f708c93b5c2aafa846fc77b2d874d2dfff06f8ac3a4711a767a7aebb"
+    },
+    {
+     "path": "V24/REVIEW_SLICE_B.md",
+     "role": "Slice B (sections 3-4: Lemma 4, (3.1), (3.2), Lemmas K and J; V4, V6, V7 with M4-M7, M11): PASS, Cursor agent bc-f3f418fe (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6034185337",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034185337",
+     "created_at": "2026-10-07T08:35:45Z",
+     "updated_at": "2026-10-07T08:50:31Z",
+     "bytes": 3270,
+     "sha256": "f7b8907c74b41273851aef12038e49c9b3194227199f6f2d7d440edf4c1cfb10"
+    },
+    {
+     "path": "V24/REVIEW_SLICE_C_SUMMONS.md",
+     "role": "Slice C summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6034189884",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034189884",
+     "created_at": "2026-10-07T08:36:03Z",
+     "updated_at": "2026-10-07T08:36:03Z",
+     "bytes": 3545,
+     "sha256": "6eaac540f7358cf18d99d3e6c9aeb3cea1492cd5c1044b5415d97768536176ac"
+    },
+    {
+     "path": "V24/REVIEW_SLICE_C.md",
+     "role": "Slice C (sections 5-6 and the header: the proof of Theorem V, Corollaries V1 and V2, the remarks, the header for overclaim; V5, V8, V9 with M8-M10, M12): PASS, Cursor agent bc-65b7f8e6 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6034197189",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034197189",
+     "created_at": "2026-10-07T08:36:31Z",
+     "updated_at": "2026-10-07T08:50:39Z",
+     "bytes": 11088,
+     "sha256": "40fd057197a166ce98b39b85f9cfac3919d0f29382f2b03640c9cdec094aa29f"
+    },
+    {
+     "path": "V24/AUTHOR_READ_COMPLETE_AND_DC_CLAIM.md",
+     "role": "author note: note V24 read in every slice, with two optional Slice C points for a later revision, and its claim released; the Math-#390 landed readback (coordination only); the D5 claim for note DC (its section 3)",
+     "comment": "6034902581",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6034902581",
+     "created_at": "2026-10-07T09:19:25Z",
+     "updated_at": "2026-10-07T09:19:25Z",
+     "bytes": 5142,
+     "sha256": "79441bfbe3f4fb95062d9c01b04b4d58bd6c1aed0f8877029739f0959f97b500"
+    }
+   ],
+   "replays": [
+    {
+     "name": "v24_exact.py (stdout in a ```json fence)",
+     "script": "V24/author_controls.py",
+     "stdout": "V24/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M13"
+      ],
+      [
+       "--mutant"
+      ],
+      [
+       "--mutant",
+       "m12"
+      ],
+      [
+       "--mutant",
+       "M1",
+       "extra"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "DC",
+   "directory": "DC/",
+   "object": "CL-DC-MODEL-D-UPPER-20261007-v1",
+   "title": "Lifetime note DC: a certified bound D <= 0.4389 for the model number D, and the sign of note C7's l^(2/3) coefficient at every side L >= 10",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "claim": "V24/AUTHOR_READ_COMPLETE_AND_DC_CLAIM.md (6034902581), section 3",
+   "kind": "Lemma 1 (a sharper form of #244's (4.4): 0 <= Delta_2 <= h^2/32 + (kappa(c')/2)(|h| - |r|)_+, and its Gaussian average), Proposition 1 (D <= T_1 + T_2 + T_3, with T_2 = (28/15) 12^(-7/6) Gamma(7/6)), Lemma 2 (16 S R_2' = (S - 1)^2 W(S): R_2 is strictly decreasing; R_2e <= min(U, 10 t^3)), Lemma 3 (Birnbaum's Mills-ratio bound, proved), Lemma 4 (the tau-forms of T_1 and T_3 with monotone factors), Proposition 2 (T_1 <= 0.0951690 and T_3 <= 0.248277, by outward-rounded decimal cell sums with closed-form tails), Theorem DC (D <= 0.438822), Corollary DC1 (I~ <= -0.17158 and J/30 - I~ >= 0.17160) and Corollary DC2 (for d in {2, 3} and every real L >= 10, SIDE24 included: (c_3 - R_{2/3})(L) >= 0.1711 S_d > 0 and R_{2/3}(L) <= -0.1710 S_d < 0); Proposition 2 is computer-assisted (the control script, standard library decimal with directed rounding), every other step is proved by hand",
+   "read_complete": "DC/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md (6037933403)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-2 and 4; mills and T2 with M2, M3): Cursor agent bc-407bdca8 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6037466169 (one intermediate factor in its Proposition 1 paragraph corrected in 6037743344)",
+    "Slice B (sections 3 and 5; R2_formula, R2_monotone, R2_majorant, lemma4, T1_moment, T3_moment with M1, M4, M5, M6, M11, M15, M18): Cursor agent bc-253b5b90 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6037468421",
+    "Slice C (sections 6-7, header, controls; the remaining groups with M7-M10, M12-M14, M16, M17 and five invalid invocations): Cursor agent bc-9a018501 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6037615025 (summoned by 6037613777; the first summons 6037467714 drew no pickup)"
+   ],
+   "conditional_on": "#244 Theorem A (conditional on #170 Theorem E(1), [CUB] Theorem C and [CUB]'s (C8)-(C11) with its B = 0 paragraph), note V24 (stored here), note C7 (custody packet Math-#392) for Corollary DC2, and #242 Theorem 1, at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no value of D, I~, J or note C7's coefficient (the bound on D is one-sided; numerically D = 0.07674); nothing for d >= 4 or L < 10; no rate and no quantified threshold l_0 (note C7's (C7.1) keeps its o(l^(2/3))); the computer-assisted part assumes the documented correct rounding of decimal exp and ln, widened by one unit in the last place",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "DC/PROOF.md",
+     "role": "frozen note (lifetime note DC)",
+     "comment": "6037455875",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037455875",
+     "created_at": "2026-10-07T12:00:48Z",
+     "updated_at": "2026-10-07T12:00:48Z",
+     "bytes": 32514,
+     "sha256": "1fcc3ea335516095308aeaf83280dda8e484b6d484eb7d3b4ffc7115dd4455f4"
+    },
+    {
+     "path": "DC/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains dc_exact.py and its stdout, the extraction rule, and the author-side referee record, which is not review evidence)",
+     "comment": "6037458253",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037458253",
+     "created_at": "2026-10-07T12:00:57Z",
+     "updated_at": "2026-10-07T12:00:57Z",
+     "bytes": 54184,
+     "sha256": "59c295daf4d4a1fea8d36d7b72ff306c2f457a11dbb795892482bdd1e68a689d"
+    },
+    {
+     "path": "DC/author_controls.py",
+     "role": "control script dc_exact.py, extracted verbatim from the stored controls comment DC/AUTHOR_CONTROLS_COMMENT.md (heading: ### dc_exact.py)",
+     "extracted_from": "DC/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### dc_exact.py",
+     "bytes": 47023,
+     "sha256": "aa84277881b07b445184b7d8db970f0e2d20405f07735e9b021e77e89d7251af"
+    },
+    {
+     "path": "DC/author_controls_stdout.json",
+     "role": "published stdout of DC/author_controls.py, extracted verbatim from DC/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "DC/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### dc_exact.py",
+     "bytes": 1117,
+     "sha256": "2310779578f5a41422b994b7cb826e32b54afc12c74204d732dd569989b6fa11"
+    },
+    {
+     "path": "DC/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (three slices) with the Slice A summons of one Cursor agent (D2 of 6002718035)",
+     "comment": "6037465032",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037465032",
+     "created_at": "2026-10-07T12:01:22Z",
+     "updated_at": "2026-10-07T12:01:22Z",
+     "bytes": 4891,
+     "sha256": "fd9f9bb19971565bb04a95edec19e49211638f36536928895704915d6be3e3bb"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-2 and 4: Lemma 1, Proposition 1, Lemma 3; groups mills and T2 with M2, M3): PASS, Cursor agent bc-407bdca8 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6037466169",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037466169",
+     "created_at": "2026-10-07T12:01:27Z",
+     "updated_at": "2026-10-07T12:12:37Z",
+     "bytes": 8473,
+     "sha256": "1b46156198509815fd3d0c5221c0213289d8e9092c598f2145e921ca4b524963"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_A_CORRECTION.md",
+     "role": "a correction posted on main#229 to one intermediate factor that Slice A's verdict displays in its Proposition 1 paragraph (35/7776 * 256/4800 for 35 * 256/4800); the verdict's start and end, and the note, are unaffected",
+     "comment": "6037743344",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037743344",
+     "created_at": "2026-10-07T12:18:39Z",
+     "updated_at": "2026-10-07T12:18:39Z",
+     "bytes": 881,
+     "sha256": "a5da6dd31e13880fc20701e155caf9a52eabfaaf087ebe6759a3c903be1728e0"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6037466276",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037466276",
+     "created_at": "2026-10-07T12:01:27Z",
+     "updated_at": "2026-10-07T12:01:27Z",
+     "bytes": 4870,
+     "sha256": "7cd33ded2d662d82a197962f34b874e9543eac3d067273a9aad4bd7a31f72ee8"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_B.md",
+     "role": "Slice B (sections 3 and 5: Lemma 2, Lemma 4, the normalization targets of section 6; groups R2_formula, R2_monotone, R2_majorant, lemma4, T1_moment, T3_moment with M1, M4, M5, M6, M11, M15, M18): PASS, Cursor agent bc-253b5b90 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6037468421",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037468421",
+     "created_at": "2026-10-07T12:01:36Z",
+     "updated_at": "2026-10-07T12:11:05Z",
+     "bytes": 7061,
+     "sha256": "74c2324111bb0d1f5836d3d53c33780b5ef073830a6651d9a1ffb792cc36602c"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_C_SUMMONS_NOT_PICKED_UP.md",
+     "role": "Slice C summons (one Cursor agent, D2 of 6002718035); no agent picked it up",
+     "comment": "6037467714",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037467714",
+     "created_at": "2026-10-07T12:01:33Z",
+     "updated_at": "2026-10-07T12:01:33Z",
+     "bytes": 4929,
+     "sha256": "410864f6718d937b0c0b6cc4d20feadf240b9eb3a7d81fdd96e8fbd89c648e83"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_C_SUMMONS.md",
+     "role": "Slice C summons, repeated because the first drew no pickup (it replaces the first and adds no read)",
+     "comment": "6037613777",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037613777",
+     "created_at": "2026-10-07T12:10:41Z",
+     "updated_at": "2026-10-07T12:10:41Z",
+     "bytes": 5209,
+     "sha256": "9f253c2d53261b7ae21dca0b1b75768890937759268a90bcbe5f9a852dbd93a1"
+    },
+    {
+     "path": "DC/REVIEW_SLICE_C.md",
+     "role": "Slice C (sections 6-7, the header and the controls: Proposition 2, Theorem DC, Corollaries DC1-DC2; the remaining groups with M7-M10, M12-M14, M16, M17 and the invalid invocations): PASS, Cursor agent bc-9a018501 (xAI Grok 4.7; non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6037615025",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037615025",
+     "created_at": "2026-10-07T12:10:46Z",
+     "updated_at": "2026-10-07T12:28:21Z",
+     "bytes": 12585,
+     "sha256": "6aab606d09a6bb9d043d3ed24f87985123e32343dd6713071ba3373b6a6652a9"
+    },
+    {
+     "path": "DC/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
+     "role": "author note: note DC read in every slice and its claim released; the D5 claim for this custody packet",
+     "comment": "6037933403",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6037933403",
+     "created_at": "2026-10-07T12:30:05Z",
+     "updated_at": "2026-10-07T12:30:05Z",
+     "bytes": 5411,
+     "sha256": "f894b16b3192adb64ad8945ef3c560e3b54fa1affeadf7ef52bf5836784de3ba"
+    }
+   ],
+   "replays": [
+    {
+     "name": "dc_exact.py (stdout in a ```json fence)",
+     "script": "DC/author_controls.py",
+     "stdout": "DC/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ],
+      [
+       "--mutant",
+       "M13"
+      ],
+      [
+       "--mutant",
+       "M14"
+      ],
+      [
+       "--mutant",
+       "M15"
+      ],
+      [
+       "--mutant",
+       "M16"
+      ],
+      [
+       "--mutant",
+       "M17"
+      ],
+      [
+       "--mutant",
+       "M18"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M19"
+      ],
+      [
+       "--mutant"
+      ],
+      [
+       "--mutant",
+       "m18"
+      ],
+      [
+       "--mutant",
+       "M1",
+       "extra"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
