@@ -14,7 +14,9 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
   ``--github`` (token read from ``GITHUB_TOKEN``); without it the passage is reported as
   ``unchecked_offline`` and does not fail the check;
 * a ``summary:`` passage must not use a verdict word (ACCEPT, AMEND, HOLD, CONFIRMED,
-  VERIFIED, REJECT) that the linked record does not use, under the same offline rule;
+  VERIFIED, REJECT) that the linked record does not use, under the same offline rule.
+  The same leading word boundary applies to both texts; suffix forms remain allowed.
+  This lexical check does not establish semantic agreement or resolve negation;
 * a passage with no preceding link in its segment fails (``no-source-link``).
 
 Header and separator rows are skipped. Exit status 0 only when no checked passage fails;
@@ -177,7 +179,8 @@ def check_document(doc_path, root, github=False, token=None):
                             report['failures'].append(['not-verbatim', source, prefix])
                     else:
                         for word in VERDICT:
-                            if re.search(r'\b' + word, passage) and word not in body:
+                            pattern = r'\b' + word
+                            if re.search(pattern, passage) and not re.search(pattern, body):
                                 report['failures'].append(['verdict-word-not-in-source', source, word + ': ' + prefix])
     return report
 
@@ -187,13 +190,17 @@ def main(argv=None):
     parser.add_argument('documents', nargs='+')
     parser.add_argument('--root', default=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     parser.add_argument('--github', action='store_true', help='also check GitHub review/comment links (GITHUB_TOKEN)')
+    parser.add_argument('--require-online', action='store_true', help='fail if any linked GitHub/HTTP source is left unchecked offline')
     args = parser.parse_args(argv)
     token = os.environ.get('GITHUB_TOKEN')
-    report = {'root': os.path.realpath(args.root), 'github': args.github, 'documents': {}, 'passed': True}
+    report = {'root': os.path.realpath(args.root), 'github': args.github, 'require_online': args.require_online, 'documents': {}, 'passed': True}
     for doc in args.documents:
         result = check_document(doc, args.root, args.github, token)
         report['documents'][doc] = result
         if result['failures']:
+            report['passed'] = False
+        if args.require_online and result['unchecked_offline']:
+            result['failures'].append(['unchecked-offline-required', '', str(result['unchecked_offline'])])
             report['passed'] = False
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report['passed'] else 1
