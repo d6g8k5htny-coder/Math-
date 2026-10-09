@@ -15,6 +15,65 @@ class HardGateControls(unittest.TestCase):
     def setUp(self):
         self.graph = m.load_graph()
 
+    def diagnostic_specimen(self, purpose):
+        # Explicit contracts, independent of the producer's graph construction.
+        expected = {
+            'promote_fixed_remote': ('diagnostic.fixed-remote', 'PROVED_REVIEWED',
+                                     'diagnostic.count-interface', 'PROVED_REVIEWED'),
+            'promote_lifetime_remainder': ('diagnostic.lifetime-remainder', 'AUTHOR_SIDE_CANDIDATE',
+                                           'diagnostic.lifetime-parent', 'PROVED_REVIEWED'),
+            'promote_side24': ('diagnostic.side24', 'AUTHOR_SIDE_CANDIDATE',
+                               'diagnostic.side24-parent', 'PROVED_REVIEWED'),
+            'promote_historical_env_rescov': ('diagnostic.historical-env', 'PROVED_REVIEWED',
+                                             'diagnostic.absent-carrier', 'BLOCKED_ABSENT'),
+            'promote_pr87_before_allowlist': ('diagnostic.crosswalk', 'PROVED_REVIEWED',
+                                             'diagnostic.allowlist', 'AUTHOR_SIDE_CANDIDATE'),
+        }
+        self.assertTrue(hasattr(m, '_negative_control_specimens'), 'explicit diagnostic specimens required')
+        specimens = m._negative_control_specimens()
+        self.assertEqual(set(specimens), set(expected))
+        for name, (target, own, premise, classification) in expected.items():
+            with self.subTest(specimen=name):
+                specimen = specimens[name]
+                self.assertEqual(set(specimen), {'graph', 'node'})
+                self.assertEqual(specimen['node'], target)
+                g = specimen['graph']
+                self.assertIs(type(g['schema_version']), int)
+                self.assertEqual(g['schema_version'], 1)
+                self.assertEqual(g['nodes'], {
+                    target: {'classification': own, 'controlling': False},
+                    premise: {'classification': classification, 'controlling': False},
+                })
+                for node in g['nodes'].values():
+                    self.assertIs(node['controlling'], False)
+                self.assertEqual(g['edges'], [
+                    {'from': target, 'to': premise, 'required': True, 'relation': 'diagnostic prerequisite'}])
+                self.assertIs(g['edges'][0]['required'], True)
+                self.assertEqual(g['non_discharge_tokens'], [
+                    'GREEN_CI', 'HASH_MATCH', 'ARCHITECTURAL_ADMISSION', 'NUMERICAL_EXPERIMENT',
+                    'SAME_AUTHOR_REVIEW', 'NAVIGATION_SUCCESS', 'AUTHOR_SELF_CHECK'])
+                m.validate_graph_fail_closed(g)
+        target, _, premise, _ = expected[purpose]
+        return specimens[purpose]['graph'], target, premise
+
+    def check_target_and_premise_controls(self, purpose):
+        g, target, premise = self.diagnostic_specimen(purpose)
+        decision = m.promotion_allowed(g, target)
+        self.assertIs(decision['allowed'], False)
+        self.assertEqual(decision['missing_terminal'], [])
+        self.assertEqual(decision['reasons'], [
+            'node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE'])
+        g['nodes'][target]['classification'] = 'PROVED_REVIEWED'
+        allowed = m.promotion_allowed(g, target)
+        self.assertIs(allowed['allowed'], True)
+        self.assertEqual(allowed['reasons'], [])
+        g['nodes'][premise]['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        blocked = m.promotion_allowed(g, target)
+        self.assertIs(blocked['allowed'], False)
+        self.assertEqual(blocked['missing_terminal'], [
+            {'id': premise, 'classification': 'AUTHOR_SIDE_CANDIDATE'}])
+        self.assertEqual(blocked['reasons'], ['required transitive dependency is not satisfied'])
+
     def test_schema_and_terminal_set(self):
         self.assertEqual(self.graph['schema_version'], 1)
         self.assertEqual(
@@ -47,21 +106,8 @@ class HardGateControls(unittest.TestCase):
 
     def test_lifetime_requires_parent(self):
         deps = m.required_dependencies(self.graph, 'math.lifetime-remainder')
-        self.assertEqual(deps, ['math.uniform-matrix-cap-lifetime'])
-        # Pre-reconciliation fixture: an unreviewed parent must block the dependent.
-        pre = copy.deepcopy(self.graph)
-        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
-        decision = m.promotion_allowed(pre, 'math.lifetime-remainder')
-        self.assertFalse(decision['allowed'])
-        self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
-                            for x in decision['missing_terminal']))
-        # Live graph: the reconciled parent satisfies the edge; the dependent's own
-        # author-side classification still refuses promotion.
-        live = m.promotion_allowed(self.graph, 'math.lifetime-remainder')
-        self.assertEqual(self.graph['nodes']['math.uniform-matrix-cap-lifetime']['classification'],
-                         'PROVED_REVIEWED')
-        self.assertEqual(live['missing_terminal'], [])
-        self.assertFalse(live['allowed'])
+        self.assertEqual(deps.count('math.uniform-matrix-cap-lifetime'), 1)
+        self.check_target_and_premise_controls('promote_lifetime_remainder')
 
     def test_d1_reading_rule_components_bound_and_reviewed(self):
         # Every mandatory reading-rule component is its own source node, required by D1, so a byte change
@@ -104,22 +150,21 @@ class HardGateControls(unittest.TestCase):
                       [x['id'] for x in decision['missing_terminal']])
 
     def test_side24_requires_parent(self):
-        pre = copy.deepcopy(self.graph)
-        pre['nodes']['math.uniform-matrix-cap-lifetime']['classification'] = 'AUTHOR_SIDE_CANDIDATE'
-        decision = m.promotion_allowed(pre, 'math.side24-coefficient')
-        self.assertFalse(decision['allowed'])
-        self.assertIn('math.uniform-matrix-cap-lifetime', decision['required_dependencies'])
-        self.assertTrue(any(x['id'] == 'math.uniform-matrix-cap-lifetime'
-                            for x in decision['missing_terminal']))
-        live = m.promotion_allowed(self.graph, 'math.side24-coefficient')
-        self.assertEqual(live['missing_terminal'], [])
-        self.assertFalse(live['allowed'])
+        self.assertIn('math.uniform-matrix-cap-lifetime',
+                      m.transitive_required(self.graph, 'math.side24-coefficient'))
+        self.check_target_and_premise_controls('promote_side24')
 
     def test_fixed_remote_requires_count_interface(self):
         deps = m.transitive_required(self.graph, 'math.rn-fixed-remote-window')
         self.assertIn('math.rn-count-interface', deps)
-        decision = m.promotion_allowed(self.graph, 'math.rn-fixed-remote-window')
-        self.assertFalse(decision['allowed'])
+        g, target, premise = self.diagnostic_specimen('promote_fixed_remote')
+        self.assertIs(m.promotion_allowed(g, target)['allowed'], True)
+        g['nodes'][premise]['classification'] = 'AUTHOR_SIDE_CANDIDATE'
+        decision = m.promotion_allowed(g, target)
+        self.assertIs(decision['allowed'], False)
+        self.assertEqual(decision['missing_terminal'], [
+            {'id': premise, 'classification': 'AUTHOR_SIDE_CANDIDATE'}])
+        self.assertEqual(decision['reasons'], ['required transitive dependency is not satisfied'])
 
     def test_mesoscopic_requires_fixed_remote(self):
         deps = m.required_dependencies(self.graph, 'math.rn-mesoscopic-reduction')
@@ -131,23 +176,37 @@ class HardGateControls(unittest.TestCase):
         applied = m.apply_promotion(self.graph, 'hist.ENV-RESCOV')
         self.assertFalse(applied['decision']['ok'])
         self.assertEqual(applied['decision']['applied'], 'HOLD')
-        self.assertEqual(
-            applied['graph']['nodes']['hist.ENV-RESCOV']['classification'],
-            'HOLD',
-        )
-        self.assertFalse(applied['graph']['nodes']['hist.ENV-RESCOV']['controlling'])
+        self.assertEqual(applied['graph']['nodes']['hist.ENV-RESCOV']['classification'], 'HOLD')
+        self.assertIs(applied['graph']['nodes']['hist.ENV-RESCOV']['controlling'], False)
+        g, target, premise = self.diagnostic_specimen('promote_historical_env_rescov')
+        decision = m.promotion_allowed(g, target)
+        self.assertEqual(decision['blocked_absent'], [premise])
+        self.assertEqual(decision['reasons'], ['required BLOCKED_ABSENT dependency forces HOLD'])
+        self.assertIs(decision['allowed'], False)
+        self.assertEqual(m.apply_promotion(g, target)['decision']['applied'], 'HOLD')
+        g['nodes'][premise]['classification'] = 'PROVED_REVIEWED'
+        self.assertIs(m.promotion_allowed(g, target)['allowed'], True)
+        self.assertEqual(m.apply_promotion(g, target)['decision']['applied'], 'CONTROLLING')
 
     def test_green_ci_alone_never_promotes(self):
+        g, target, _ = self.diagnostic_specimen('promote_fixed_remote')
+        self.assertIs(m.promotion_allowed(g, target)['allowed'], True)
         for tokens in (
             ['GREEN_CI'],
             ['HASH_MATCH', 'NAVIGATION_SUCCESS'],
             ['SAME_AUTHOR_REVIEW', 'AUTHOR_SELF_CHECK', 'NUMERICAL_EXPERIMENT'],
             ['GREEN_CI', 'HASH_MATCH', 'ARCHITECTURAL_ADMISSION'],
+            ['GREEN_CI', 'HASH_MATCH', 'SAME_AUTHOR_REVIEW'],
         ):
-            result = m.refuse_non_discharge_promotion(
-                self.graph, 'math.rn-fixed-remote-window', tokens)
-            self.assertTrue(result['refused'])
-            self.assertFalse(result['allowed'])
+            result = m.refuse_non_discharge_promotion(g, target, tokens)
+            self.assertIs(result['base']['allowed'], True)
+            self.assertIs(result['refused'], True)
+            self.assertIs(result['allowed'], False)
+            self.assertEqual(result['reasons'], ['evidence consists only of non-discharge tokens'])
+        positive = m.refuse_non_discharge_promotion(g, target, ['LINE_BY_LINE_ANALYTIC_REVIEW'])
+        self.assertIs(positive['allowed'], True)
+        self.assertIs(positive['refused'], False)
+        self.assertEqual(positive['reasons'], [])
 
     def test_unknown_evidence_token_refused(self):
         result = m.refuse_non_discharge_promotion(
@@ -160,17 +219,31 @@ class HardGateControls(unittest.TestCase):
         self.assertTrue(m.is_terminal('REFUTED'))
 
     def test_full_price_boundary_refutation_is_not_a_required_premise(self):
-        decision = m.promotion_allowed(self.graph, 'math.p15-full-price')
-        self.assertEqual(decision['required_dependencies'], [])
-        self.assertEqual(decision['missing_terminal'], [])
-        self.assertEqual(decision['blocked_absent'], [])
-        self.assertEqual(decision['refuted_required'], [])
-        self.assertFalse(decision['allowed'])  # own node remains author-side
         edge = next(e for e in self.graph['edges']
                     if e['from'] == 'math.p15-full-price'
                     and e['to'] == 'math.p15-price-boundary')
-        self.assertFalse(edge['required'])
+        self.assertIs(edge['required'], False)
         self.assertIn('boundary', edge['relation'])
+        # Historical contextual boundary, with no required positive premise.
+        g = {'schema_version': 1, 'nodes': {
+            'diagnostic.price': {'classification': 'AUTHOR_SIDE_CANDIDATE', 'controlling': False},
+            'diagnostic.boundary': {'classification': 'REFUTED', 'controlling': False},
+        }, 'edges': [{'from': 'diagnostic.price', 'to': 'diagnostic.boundary',
+                      'required': False, 'relation': 'contextual refuted boundary'}]}
+        decision = m.promotion_allowed(g, 'diagnostic.price')
+        for key in ('required_dependencies', 'missing_terminal', 'blocked_absent', 'refuted_required'):
+            self.assertEqual(decision[key], [])
+        self.assertIs(decision['allowed'], False)
+        g['nodes']['diagnostic.price']['classification'] = 'PROVED_REVIEWED'
+        self.assertIs(m.promotion_allowed(g, 'diagnostic.price')['allowed'], True)
+        # Separately reviewed additional positive dependencies are legal.
+        g['nodes']['diagnostic.positive'] = {'classification': 'PROVED_REVIEWED', 'controlling': False}
+        g['edges'].append({'from': 'diagnostic.price', 'to': 'diagnostic.positive',
+                           'required': True, 'relation': 'positive premise'})
+        decision = m.promotion_allowed(g, 'diagnostic.price')
+        self.assertIs(decision['allowed'], True)
+        self.assertEqual(decision['required_dependencies'], ['diagnostic.positive'])
+        self.assertEqual(decision['refuted_required'], [])
 
     def test_reverse_impact_marks_dependents(self):
         impact = m.reverse_impact(
@@ -210,12 +283,29 @@ class HardGateControls(unittest.TestCase):
         self.assertIn('math.rn-mesoscopic-reduction', impact['impacted'])
 
     def test_illegal_controlling_detected(self):
-        bad = copy.deepcopy(self.graph)
-        bad['nodes']['math.lifetime-remainder']['controlling'] = True
+        # A small valid graph establishes the forbidden own-node precondition.
+        target, parent = 'diagnostic.controlling', 'math.uniform-matrix-cap-lifetime'
+        bad = {'schema_version': 1, 'nodes': {
+            target: {'classification': 'AUTHOR_SIDE_CANDIDATE', 'controlling': True},
+            parent: {'classification': 'PROVED_REVIEWED', 'controlling': False},
+        }, 'edges': [{'from': target, 'to': parent, 'required': True, 'relation': 'premise'}]}
+        frozen = copy.deepcopy(bad)
         report = m.closure_report(bad)
-        self.assertFalse(report['gate_ok'])
-        self.assertEqual(len(report['illegal_controlling']), 1)
-        self.assertEqual(report['illegal_controlling'][0]['node'], 'math.lifetime-remainder')
+        self.assertIs(report['gate_ok'], False)
+        self.assertEqual([d['node'] for d in report['illegal_controlling']], [target])
+        self.assertEqual(report['illegal_controlling'][0]['reasons'], [
+            'node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE'])
+        payload = m.results_payload(bad)
+        self.assertIs(payload['gate_ok'], False)
+        self.assertEqual(payload['closure']['illegal_controlling_count'], 1)
+        self.assertIs(payload['illegal_promotion_refused'], True)
+        self.assertEqual(bad, frozen)
+        good = copy.deepcopy(bad)
+        good['nodes'][target]['classification'] = 'PROVED_REVIEWED'
+        positive = m.closure_report(good)
+        self.assertIs(positive['gate_ok'], True)
+        self.assertEqual(positive['illegal_controlling'], [])
+        self.assertIs(m.results_payload(good)['gate_ok'], True)
 
     def test_live_graph_has_no_illegal_controlling(self):
         report = m.closure_report(self.graph)
@@ -223,51 +313,78 @@ class HardGateControls(unittest.TestCase):
         self.assertEqual(report['illegal_controlling'], [])
 
     def test_d4_region_complement(self):
-        regions = m.d4_region_complement(self.graph)
-        covered_ids = {r['id'] for r in regions['covered_by_fixed_remote_candidate']}
-        scoped_ids = {r['id'] for r in regions['covered_by_other_scoped_candidates']}
-        reviewed_ids = {r['id'] for r in regions['proved_reviewed_regions']}
-        open_ids = {r['id'] for r in regions['open_complement']}
-        self.assertEqual(covered_ids, {'math.rn-region.fixed-remote'})
-        self.assertEqual(scoped_ids, {'math.rn-region.fixed-annulus-window'})
-        self.assertEqual(
-            regions['covered_by_other_scoped_candidates'][0]['coverage_source'],
-            'math.rn-fixed-annulus-window',
-        )
-        self.assertEqual(reviewed_ids, {
-            'math.rn-region.mesoscopic-scaled-annulus',
-            'math.rn-region.pin-collision',
-            'math.rn-region.intermediate-r-to-rho',
-        })
-        self.assertTrue(reviewed_ids.isdisjoint(open_ids))
-        self.assertIn('math.rn-region.witness-collision', open_ids)
-        witness = next(r for r in regions['open_complement']
-                       if r['id'] == 'math.rn-region.witness-collision')
-        self.assertIn('sharp global order is reviewed and merged through Math-#145',
-                      witness['notes'])
-        self.assertNotIn('sharp full-window order remain open', witness['notes'])
-        self.assertFalse(regions['legacy_24jet_discharged'])
-        self.assertTrue(regions['no_event_to_expectation_reversal'])
+        # Explicit classification categories; these are not eternal live statuses.
+        categories = {
+            'math.rn-region.fixed-remote': ('COVERED_BY_CANDIDATE', 'math.rn-fixed-remote-window'),
+            'math.rn-region.fixed-annulus-window': ('COVERED_BY_CANDIDATE', 'math.rn-fixed-annulus-window'),
+            'math.rn-region.mesoscopic-scaled-annulus': ('PROVED_REVIEWED', None),
+            'math.rn-region.pin-collision': ('PROVED_REVIEWED', None),
+            'math.rn-region.intermediate-r-to-rho': ('PROVED_REVIEWED', None),
+            'math.rn-region.witness-collision': ('OPEN_ACTIVE', None),
+        }
+        g = {'schema_version': 1, 'nodes': {}, 'edges': []}
+        for nid, (classification, source) in categories.items():
+            self.assertEqual(self.graph['nodes'][nid]['kind'], 'region')
+            g['nodes'][nid] = {'kind': 'region', 'classification': classification,
+                               'controlling': False, 'coverage_source': source,
+                               'fingerprint': 'explicit scoped fixture: ' + nid,
+                               'notes': 'fixture source limits are not live closure evidence'}
+        witness_note = ('sharp global order is reviewed and merged through Math-#145; '
+                        'the regional shrinking mechanism remains open in this historical specimen')
+        g['nodes']['math.rn-region.witness-collision']['notes'] = witness_note
+        regions = m.d4_region_complement(g)
+        expected = {
+            'covered_by_fixed_remote_candidate': {'math.rn-region.fixed-remote'},
+            'covered_by_other_scoped_candidates': {'math.rn-region.fixed-annulus-window'},
+            'proved_reviewed_regions': {'math.rn-region.mesoscopic-scaled-annulus',
+                                        'math.rn-region.pin-collision', 'math.rn-region.intermediate-r-to-rho'},
+            'open_complement': {'math.rn-region.witness-collision'},
+        }
+        for bucket, ids in expected.items():
+            self.assertEqual({r['id'] for r in regions[bucket]}, ids)
+            for entry in regions[bucket]:
+                for field in ('classification', 'coverage_source', 'fingerprint', 'notes'):
+                    self.assertEqual(entry[field], g['nodes'][entry['id']][field])
+        self.assertEqual(regions['open_complement'][0]['notes'], witness_note)
+        self.assertIs(regions['legacy_24jet_discharged'], False)
+        self.assertIs(regions['no_event_to_expectation_reversal'], True)
 
     def test_selector_region_matrix(self):
-        table = m.load_selector_region()
-        self.assertEqual(table['schema_version'], 1)
+        live = m.load_selector_region()
+        self.assertEqual(live['schema_version'], 1)
+        self.assertIs(live['legacy_24jet_discharged'], False)
+        self.assertIs(live['no_event_to_expectation_reversal'], True)
+        regions = ['fixed-remote', 'mesoscopic-scaled-annulus', 'pin-collision',
+                   'intermediate-r-to-rho', 'witness-collision']
+        table = {'schema_version': 1, 'regions': regions,
+                 'no_event_to_expectation_reversal': True, 'legacy_24jet_discharged': False,
+                 'covered_region_ids': ['math.rn-region.fixed-remote'],
+                 'open_region_ids': ['math.rn-region.' + r for r in regions[1:]],
+                 'selectors': {
+                     'CH-LIFT': dict(zip(regions, ['BYPASSED_BY_FIXED_RHO', 'REOPENED',
+                                                  'OPEN_ACTIVE', 'NOT_DISCHARGED', 'NOT_APPLICABLE'])),
+                     'diagnostic.all-categories': dict(zip(regions, ['PARTIAL_COVER_ONLY',
+                         'PARTIAL_PR7_REDUCTION', 'OPEN_HISTORICAL', 'PARTIAL_COVER_DECLARED_REGION', 'NOT_REQUIRED']))}}
+        table['selectors']['CH-LIFT']['notes'] = 'not a region cell'
+        frozen = copy.deepcopy(table)
         report = m.selector_region_report(table)
-        self.assertFalse(report['legacy_24jet_discharged'])
-        self.assertTrue(report['no_event_to_expectation_reversal'])
+        self.assertEqual(table, frozen)
+        self.assertIs(report['legacy_24jet_discharged'], False)
+        self.assertIs(report['no_event_to_expectation_reversal'], True)
         self.assertEqual(report['covered_region_ids'], ['math.rn-region.fixed-remote'])
-        # CH-LIFT is bypassed on fixed-remote but reopened on the mesoscopic annulus.
-        ch = table['selectors']['CH-LIFT']
-        self.assertEqual(ch['fixed-remote'], 'BYPASSED_BY_FIXED_RHO')
-        self.assertEqual(ch['mesoscopic-scaled-annulus'], 'REOPENED')
-        # Every open complement region still has at least one non-closed selector cell.
-        open_regions = {c['region'] for c in report['open_or_partial_cells']}
-        for region in (
-            'mesoscopic-scaled-annulus', 'pin-collision',
-            'intermediate-r-to-rho', 'witness-collision',
-        ):
-            self.assertIn(region, open_regions)
-        self.assertGreaterEqual(len(report['open_or_partial_cells']), 15)
+        self.assertEqual(report['open_region_ids'], table['open_region_ids'])
+        self.assertEqual({(c['selector'], c['region'], c['status']) for c in report['open_or_partial_cells']}, {
+            ('CH-LIFT', 'mesoscopic-scaled-annulus', 'REOPENED'),
+            ('CH-LIFT', 'pin-collision', 'OPEN_ACTIVE'),
+            ('CH-LIFT', 'intermediate-r-to-rho', 'NOT_DISCHARGED'),
+            ('diagnostic.all-categories', 'fixed-remote', 'PARTIAL_COVER_ONLY'),
+            ('diagnostic.all-categories', 'mesoscopic-scaled-annulus', 'PARTIAL_PR7_REDUCTION'),
+            ('diagnostic.all-categories', 'pin-collision', 'OPEN_HISTORICAL'),
+            ('diagnostic.all-categories', 'intermediate-r-to-rho', 'PARTIAL_COVER_DECLARED_REGION')})
+        self.assertEqual({(c['selector'], c['region'], c['status']) for c in report['covered_bypassed_or_na_cells']}, {
+            ('CH-LIFT', 'fixed-remote', 'BYPASSED_BY_FIXED_RHO'),
+            ('CH-LIFT', 'witness-collision', 'NOT_APPLICABLE'),
+            ('diagnostic.all-categories', 'witness-collision', 'NOT_REQUIRED')})
 
     def test_d0_ci_unblock_patch_ready(self):
         report = m.d0_ci_unblock_report()
@@ -287,6 +404,13 @@ class HardGateControls(unittest.TestCase):
         decision = m.promotion_allowed(self.graph, 'eng.main-pr87-crosswalk')
         self.assertFalse(decision['allowed'])
         self.assertIn('eng.d0-packet-allowlist-fix', decision['required_dependencies'])
+        g, target, premise = self.diagnostic_specimen('promote_pr87_before_allowlist')
+        decision = m.promotion_allowed(g, target)
+        self.assertIs(decision['allowed'], False)
+        self.assertEqual(decision['missing_terminal'], [{'id': premise, 'classification': 'AUTHOR_SIDE_CANDIDATE'}])
+        self.assertEqual(decision['reasons'], ['required transitive dependency is not satisfied'])
+        g['nodes'][premise]['classification'] = 'PROVED_REVIEWED'
+        self.assertIs(m.promotion_allowed(g, target)['allowed'], True)
 
     def test_layer_coverage_d0_through_d7(self):
         layers = {n['layer'] for n in self.graph['nodes'].values()}
@@ -295,13 +419,37 @@ class HardGateControls(unittest.TestCase):
         self.assertIn('math.rn-selector-region-crosswalk', self.graph['nodes'])
 
     def test_results_bytes_match(self):
+        frozen_graph = copy.deepcopy(self.graph)
+        frozen_inputs = {name: (ROOT / name).read_bytes() for name in ('GRAPH.json', 'SELECTOR_REGION.json')}
         payload = m.results_payload(self.graph)
-        pinned = json.loads((ROOT / 'RESULTS.json').read_text())
-        self.assertEqual(payload, pinned)
-        self.assertTrue(payload['illegal_promotion_refused'])
+        # These direct predicates observe reporter mutants before any stale golden.
         self.assertIs(payload['lemma_closed'], False)
+        self.assertEqual(payload['scientific_effect'], 'NONE')
+        self.assertIs(payload['illegal_promotion_refused'], True)
+        self.assertEqual(payload.get('illegal_attempts_context'), 'synthetic_negative_controls')
+        self.assertEqual(payload, json.loads((ROOT / 'RESULTS.json').read_text()))
         self.assertTrue(payload['d0_ci_unblock']['ready'])
-        self.assertGreaterEqual(payload['selector_region']['open_or_partial_cell_count'], 15)
+        table = json.loads(frozen_inputs['SELECTOR_REGION.json'])
+        open_statuses = {'OPEN_ACTIVE', 'OPEN_HISTORICAL', 'NOT_DISCHARGED', 'PARTIAL_COVER_ONLY',
+                         'PARTIAL_PR7_REDUCTION', 'REOPENED', 'PARTIAL_COVER_DECLARED_REGION'}
+        count = sum(row[region] in open_statuses for row in table['selectors'].values() for region in table['regions'])
+        self.assertEqual(payload['selector_region']['open_or_partial_cell_count'], count)
+        self.assertEqual(payload['selector_region']['covered_bypassed_or_na_cell_count'],
+                         len(table['selectors']) * len(table['regions']) - count)
+        # Real statuses may become eligible without changing invariant diagnostics.
+        eligible = copy.deepcopy(self.graph)
+        for target in ('math.lifetime-remainder', 'math.side24-coefficient', 'math.rn-fixed-remote-window'):
+            for nid in [target, *m.transitive_required(eligible, target)]:
+                eligible['nodes'][nid]['classification'] = 'PROVED_REVIEWED'
+            self.assertIs(m.promotion_allowed(eligible, target)['allowed'], True)
+        later = m.results_payload(eligible)
+        self.assertIs(later['illegal_promotion_refused'], True)
+        self.assertEqual(later['illegal_attempts'], payload['illegal_attempts'])
+        self.assertEqual(self.graph, frozen_graph)
+        self.assertEqual({name: (ROOT / name).read_bytes() for name in frozen_inputs}, frozen_inputs)
+        for invalid in ({}, [], '', 0):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                m.results_payload(invalid)
 
     def test_author_side_with_terminal_deps_cannot_become_controlling(self):
         g = copy.deepcopy(self.graph)

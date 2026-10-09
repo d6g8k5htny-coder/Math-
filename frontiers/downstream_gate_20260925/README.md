@@ -30,6 +30,38 @@ with `promotion_permission: false`. A changed controlling node, illegal controll
 or an unbound controlling source causes a nonzero exit. Unaffected author-side work can proceed.
 This is not a complete external-source monitor or an independent-review authority.
 
+## Live inventory and synthetic negative controls
+
+`gate_ok`, closure, region coverage and reverse-impact fields describe the actual
+input graph; selector fields describe the selected table. Reporting validates the
+real graph and never replaces a malformed supplied input with a fixture.
+
+`illegal_attempts_context: synthetic_negative_controls` identifies five separate,
+small diagnostic graphs. Their node IDs start with `diagnostic.`; the historical
+attempt names describe the purpose of each probe, not the live D2/D3 status.
+Lifetime and side24 specimens have author-side targets and reviewed prerequisites.
+The fixed-remote specimen is otherwise eligible and is refused specifically for
+non-discharge evidence. The historical-carrier and pre-allowlist specimens have
+reviewed targets with, respectively, an absent and an author-side prerequisite.
+Tests check these preconditions independently and pair each refusal with an
+eligible positive control. All public eligibility, validation, closure and
+reverse-impact rules remain unchanged. No specimen is written to a live register.
+
+The existing 71 methods and all 24 named, assertion-detected mutants run in both
+modes. Direct assertions observe the reporter's false lemma flag and an explicitly
+ineligible controlling node before any golden-output comparison. Live edge/source
+obligations remain checked; synthetic region and selector inputs exercise category
+mapping without assuming a permanent count of live open cells.
+
+Freeze producer/tests/docs and the real graph/table inputs before deliberately
+regenerating `RESULTS.json` and the changed `SOURCE_FILES.json` identity rows.
+Inspect the semantic predicates first. The unchanged runner still requires exit0
+and exact CLI bytes equal to the pinned result; validation never repins itself.
+Each isolated transition scenario requires its own identified result and manifest
+before replay. Such scratch results must not replace the unchanged-live result or
+any transition packet's `RESULTS_INSTALLED.json`. They authorize no register
+execution or scientific promotion.
+
 ## Run
 
 ```sh

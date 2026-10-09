@@ -586,18 +586,48 @@ def d0_ci_unblock_report() -> dict[str, Any]:
     }
 
 
-def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
-    g = graph or load_graph()
-    # Spot-check promotions that must fail closed on the live author-side graph.
-    illegal_attempts = {
-        'promote_fixed_remote': refuse_non_discharge_promotion(
-            g, 'math.rn-fixed-remote-window',
-            ['GREEN_CI', 'HASH_MATCH', 'SAME_AUTHOR_REVIEW']),
-        'promote_lifetime_remainder': promotion_allowed(g, 'math.lifetime-remainder'),
-        'promote_side24': promotion_allowed(g, 'math.side24-coefficient'),
-        'promote_historical_env_rescov': promotion_allowed(g, 'hist.ENV-RESCOV'),
-        'promote_pr87_before_allowlist': promotion_allowed(g, 'eng.main-pr87-crosswalk'),
+def _negative_control_specimens() -> dict[str, dict[str, Any]]:
+    """Fresh diagnostic graphs; their deliberately invalid requests are not live statuses."""
+    cases = (
+        ('promote_fixed_remote', 'diagnostic.fixed-remote', 'PROVED_REVIEWED',
+         'diagnostic.count-interface', 'PROVED_REVIEWED'),
+        ('promote_lifetime_remainder', 'diagnostic.lifetime-remainder', 'AUTHOR_SIDE_CANDIDATE',
+         'diagnostic.lifetime-parent', 'PROVED_REVIEWED'),
+        ('promote_side24', 'diagnostic.side24', 'AUTHOR_SIDE_CANDIDATE',
+         'diagnostic.side24-parent', 'PROVED_REVIEWED'),
+        ('promote_historical_env_rescov', 'diagnostic.historical-env', 'PROVED_REVIEWED',
+         'diagnostic.absent-carrier', 'BLOCKED_ABSENT'),
+        ('promote_pr87_before_allowlist', 'diagnostic.crosswalk', 'PROVED_REVIEWED',
+         'diagnostic.allowlist', 'AUTHOR_SIDE_CANDIDATE'),
+    )
+    return {
+        name: {'node': target, 'graph': {
+            'object': 'SYNTHETIC-NEGATIVE-CONTROL:' + name,
+            'schema_version': 1,
+            'non_discharge_tokens': list(NON_DISCHARGE_DEFAULT),
+            'nodes': {
+                target: {'classification': own, 'controlling': False},
+                premise: {'classification': classification, 'controlling': False},
+            },
+            'edges': [{'from': target, 'to': premise, 'required': True,
+                       'relation': 'diagnostic prerequisite'}],
+        }}
+        for name, target, own, premise, classification in cases
     }
+
+
+def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
+    g = load_graph() if graph is None else graph
+    validate_graph_fail_closed(g)
+    # Invariant negative requests are separate from the real graph reported below.
+    illegal_attempts = {}
+    for name, specimen in _negative_control_specimens().items():
+        diagnostic, node = specimen['graph'], specimen['node']
+        illegal_attempts[name] = (
+            refuse_non_discharge_promotion(diagnostic, node,
+                                          ['GREEN_CI', 'HASH_MATCH', 'SAME_AUTHOR_REVIEW'])
+            if name == 'promote_fixed_remote' else promotion_allowed(diagnostic, node)
+        )
     impact = reverse_impact(
         g, 'math.uniform-matrix-cap-lifetime',
         old_fingerprint='main-63-author-side',
@@ -615,6 +645,7 @@ def results_payload(graph: dict[str, Any] | None = None) -> dict[str, Any]:
             (v.get('refused') if 'refused' in v else not v.get('allowed'))
             for v in illegal_attempts.values()
         ),
+        'illegal_attempts_context': 'synthetic_negative_controls',
         'illegal_attempts': {
             k: {key: val for key, val in v.items() if key != 'base'}
             for k, v in illegal_attempts.items()
