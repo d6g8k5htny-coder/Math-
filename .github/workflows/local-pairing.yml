@@ -5,6 +5,9 @@ name: Local pairing exact controls
     paths:
       - 'frontiers/local_pairing_20260930/**'
       - '.github/workflows/local-pairing.yml'
+      - 'tools/legacy_json_replay.py'
+      - 'tools/legacy_json_contracts.json'
+      - 'tests/test_legacy_json_workflows.py'
   workflow_dispatch:
 
 permissions:
@@ -21,6 +24,13 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.11.16'
+      - name: Exercise the complete shell rejection contract in both modes
+        env:
+          LEGACY_TEST_FAMILY: 'local-pairing'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -S tests/test_legacy_json_workflows.py
+          python -B -O -S tests/test_legacy_json_workflows.py
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -55,19 +65,8 @@ jobs:
               framed = b'blob ' + str(len(data)).encode() + b'\0' + data
               if len(data) != entry['bytes'] or hashlib.sha256(data).hexdigest() != entry['sha256'] or hashlib.sha1(framed).hexdigest() != entry['git_blob']:
                   raise ValueError('merged source drifted: ' + entry['path'])
-          script = str(root / 'pairing_check.py')
-          expected = (root / 'RESULTS.json').read_bytes()
-          for flags in (['-B', '-S'], ['-B', '-O', '-S']):
-              out = subprocess.run([sys.executable, *flags, script], check=True, capture_output=True, timeout=600).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in ('M1', 'M2', 'M3', 'M4'):
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m], capture_output=True, timeout=600).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
-              rc = subprocess.run([sys.executable, *flags, script, '--mutant', 'M9'], capture_output=True, timeout=600).returncode
-              if rc != 2:
-                  raise RuntimeError('unknown mutant label not rejected with exit 2')
+          from tools.legacy_json_replay import replay
+          replay('local-pairing', root)
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code
