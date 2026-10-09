@@ -926,6 +926,17 @@ class GitInputTests(unittest.TestCase):
         code,r=self.cli('--expected-commit',a,'--expected-path','synthetic/EXPECTED_INVENTORY.json','--companion-commit',later,'--companion-path','synthetic/PROOF_SLICE.json')
         self.assertEqual(code,2,r);self.assertEqual(r['reason'],'EXPECTED_INVENTORY_MISMATCH')
 
+    def test_paired_cli_refuses_deleted_companion_without_inventory_fallback(self):
+        f,a,b=self.prepare_pair()
+        self.git('rm','synthetic/PROOF_SLICE.json')
+        later=self.commit('Delete companion while preserving independent inventory A')
+        code,r=self.cli('--inventory-commit',a,'--inventory-path','synthetic/EXPECTED_INVENTORY.json')
+        self.assertEqual(code,0,r)
+        code,r=self.paired_cli(a,later)
+        self.assertEqual(code,2,r)
+        self.assertEqual(r['reason'],'INPUT_UNAVAILABLE')
+        self.assertNotIn('counts',r)
+
     def test_cli_authenticates_captures_at_each_artifact_commit(self):
         f,a,b=self.prepare_pair()
         record=f['expected']['records'][0]
@@ -995,7 +1006,7 @@ class GitInputTests(unittest.TestCase):
 class WorkflowTests(unittest.TestCase):
     def focused_step(self):
         workflow=(ROOT/'.github/workflows/downstream-gate.yml').read_text()
-        start=workflow.index('      - name: P-C inventory A source-bound conformance')
+        start=workflow.index('      - name: P-C ')
         return workflow[start:workflow.index('      - name:',start+1)]
 
     def focused_guard(self):
@@ -1092,16 +1103,20 @@ class WorkflowTests(unittest.TestCase):
         forged=f'\nRan {count} tests in 0.001s\n\nOK\n'
         self.assertEqual(self.run_guard({'normal':forged,'optimized':forged}),0)
 
-    def test_required_downstream_job_runs_both_modes_and_real_inventory(self):
+    def test_required_downstream_job_runs_both_modes_and_literal_paired_inputs(self):
         workflow=(ROOT/'.github/workflows/downstream-gate.yml').read_text()
-        start=workflow.index('      - name: P-C inventory A source-bound conformance')
-        end=workflow.index('      - name:',start+1)
-        step=workflow[start:end]
+        step=self.focused_step()
         for mode in ('-B -S','-B -O -S'):
             self.assertIn('python3 '+mode+' -m unittest discover -s tests -p test_proof_slice_check.py -v',step)
             self.assertIn('python3 '+mode+' tools/proof_slice_check.py',step)
-        self.assertIn('--inventory-commit "$GITHUB_SHA"',step)
-        self.assertIn('--inventory-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json',step)
+        self.assertIn('--expected-commit 92a45e1749936a19ebfe31e803289e0f4683d754',step)
+        self.assertIn('--expected-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json',step)
+        self.assertIn('--companion-commit "$GITHUB_SHA"',step)
+        self.assertIn('--companion-path reviews/proof_dependencies_20261008/P_C/PROOF_SLICE.json',step)
+        self.assertIn('92a45e1749936a19ebfe31e803289e0f4683d754^{commit}',step)
+        self.assertNotIn('--inventory-commit',step)
+        self.assertNotIn('if [',step)
+        self.assertNotIn('if test',step)
         self.assertIn('--no-replace-objects --no-lazy-fetch',step)
         self.assertIn('9fd261135b41daf1e377f9ef2db193fee6ec36be^{commit}',step)
         self.assertIn('rev-parse HEAD)',step)
