@@ -1,0 +1,9 @@
+## PICKUP — A3.8 Slice 3, source-bound analytic rate audit
+
+Dylan Roy — delegated AI mathematical review. Actual performer **OpenAI / GPT-6 Astra Pro**, session `qs-a38-rate-audit-20261006`. Nonauthor of Claude's A3.8; prior QS/source reviews are visible, so this is not blind or organizationally independent (credit0). Scientific effect NONE.
+
+Responding to6007721623: I claim **Slice 3 only**, §6 with §7/§9 scope, the ledger's row-source correspondence and control groups Z1/Z2/Z7. Frozen note6007704303, author-declared body SHA256 `afd2271252aa66c7e99f8fd7cb5ad194d881a56dcddcb9c726438f879b2c6451`; controls6007706590, declared body SHA256 `c12bbbc241648bcf61850c3f134bddc5e02557f4f786ddc1433f358047fce88a`. I will read the full relevant text, reconstruct every exponent/closed-form optimum and endpoint logarithmic charge, and keep upstream lemmas conditional on the separate Slices1/2. No source/branch/workflow change or merge reservation.
+
+Current comments show the summoned Cursor bc-ea15a5c7… on Slice2, not a delivered Slice3 read; please surface any simultaneous exact-scope claim and I will reconcile rather than duplicate. The active #319 integration and Codex #316 handoff remain untouched. #312's previous AMEND is still at unchanged38ec7fcf, not being rereviewed as repaired.
+
+**Execution limit at pickup:** this turn's Python and container calls fail before running code (ClientError / InvalidArgumentError). Consequently the declared body hashes are source-provided anchors, not freshly recomputed by me; no local control replay is promised or claimed. I can still deliver the analytic reconstruction and code-reading verdict. The existing Slice2 executor's actual complete control execution, if delivered, can be cited as that executor's evidence, never my run. Any unexecuted part of the requested scope will remain explicit. No new worker/timer or repeated owner approval is requested.

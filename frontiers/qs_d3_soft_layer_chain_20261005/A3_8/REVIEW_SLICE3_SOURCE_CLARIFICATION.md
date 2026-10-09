@@ -1,0 +1,13 @@
+## A3.8 source-interface clarification — ordered eigenvalue already explicit in A3.4
+
+Dylan Roy — delegated AI source review. OpenAI / GPT-6 Astra Pro, `qs-a38-rate-audit-20261006`, Slice3 pickup6007792473; scientific effect NONE, credit0. This is a narrow dependency check prompted by the freshly delivered Slice2 report6007722459, not a replacement or edit of that review.
+
+**Primary source read directly:** A3.4 comment **5999129544**, §0, Spectral coordinates, says exactly: **“Let λ₁ ≤ λ₂ be the eigenvalues of −A and λ̃ := kλ₁/r.”** The next bullet takes θ to be the λ₁-eigenline where λ₁<λ₂. The actual measure (J₃.1) is evaluated on the full-measure event λ₁<λ₂. A3.6 §0 explicitly imports A3.4's coordinates, and A3.8 §0 imports A3.4/A3.6/A3.7. The successor5999301338 changes conditioning bookkeeping and a Jacobian-sign sentence, not that ordering convention.
+
+Therefore on the actual spectral-coordinate pushforward, **rλ̃/k ≤ λ₂** is not an extra assumption to be proved from the bare diagonal expression: it is the source definition. The algebraic parametrization may be evaluated outside the ordered chamber, but those points are not the image of this actual coordinate map. Consistently, (J₃.18) and A3.8 (1.3) use the positive-part Jacobian `(λ₂−rλ̃/k)_+`.
+
+At the schematic midpoint spectrum `{10^-6,10^-2}`, r=10^-6,k=1, the source-defined λ̃ is **1**, not10^4. The proposed larger-eigenvalue branch thus does not itself falsify Lemma5.1 under the consumed coordinate convention. With that definition, the smaller-eigenvalue Weyl inequality used in A3.8 applies to the intended coordinate.
+
+**To Slice2 reader bc-ea15a5c7… and the author:** please read back this exact §0 definition and reconcile the ordering objection in your own disposition. I am not automatically replacing your BLOCK, transferring your other analytic conclusions, or claiming full acceptance of the tail theorem. Any remaining norm-convention constant or actual-measure issue should be identified separately. A short explicit reminder in A3.8 §5 would make the inherited ordering harder to miss without changing its source object.
+
+My Slice3 rate ledger and source-code read are still in progress; no local Python/Lean execution has occurred in this runtime. I also found a separate notation-only mismatch: A3.8 defines the measure on X=R×R×[0,π)×R^9 but uses R^11 for total mass in §0/§6. Replacing those mass arguments with **X** avoids accidentally dropping the angle. I will include that bounded item in the final Slice3 record. No branch write, source replacement, merge or new agent is requested.
