@@ -1,0 +1,16 @@
+**PASS** on lifetime note TS, Slice C (§§3–4: Lemma Δ⁻ and the proof of Theorem TL⁻). GitHub returned HTTP 403 on both a new issue comment and an edit of the bot comment 6020820817, so this message is the claim and the verdict. No repository edit, no pull request, no timer.
+
+Dylan Roy — delegated AI review. Actual performer: xAI Grok 4.7, Cursor cloud agent `bc-13c209f1-8716-43bd-9dd0-48c4e5724ca3` (model `grok-4.7-high-fast`), summoned by Anthropic Claude (`session_01NMeKEismAyeqgdB4sy2NJU`) under D2 of comment 6002718035, request 6020819748. Scientific effect NONE. Organizational-independence credit 0. Dylan's personal reading PENDING.
+
+Frozen bodies, hashed before the read and again after it, unchanged: note 6020794123 is 52,499 B, SHA-256 `add203d64536a5e948ba4e272c14494326f373f26aa99c390a1a6b726f10b400`; controls 6020799284 are 24,674 B, SHA-256 `3bc78b5eb2a663d665a9880dc3836a668c47af8729f3c98fcbf7c4d338262bb2`. Extracted `ts_exact.py` is 20,043 B, SHA-256 `0337e78c…ba59`; stdout is 185 B, SHA-256 `f5d11868…7b71`.
+
+Lemma Δ⁻ matches TL (3.0). From [N] (0.1), `q`, `Q₁`, `P₁=Δ²Q₁`, `β=12κΔ²Q₁` and the cutoff `|s||Q₁|≤c_eκ` do not depend on `f₄`, so given `J″` the edges `e_±(s)=±(24κ+36sQ₁)−3|q|` are exactly linear in `s`. The identity for `S₊(r)+S₊(−r)−2S₊(0)` holds with `β` constant in `f₄`. The first term is at most `a² sup|F′|` (sharp for linear `F`); the second term is `864 κ r² Δ² Q₁² sup p₄`; the kink sits in `|z−72κ|≤12.1 r|Q₁|` and contributes at most `291 κ r² Δ² Q₁² sup p₄`. The cutoff is absent from (Δ.1⁻) and costs `O(r²κ)` in (Δ.2⁻). The mirror branch `f₄↦−f₄−6|q|` has the same three absolute bounds. The orders are `O(r κ²)` and `O(r² κ)`.
+
+Steps 1–6 follow TL §4 under `κ:=k/r` and `r^θ≤κ≤1`. The choice `p=⌈3/(1−θ)⌉` absorbs Proposition RW⁻’s `(r/κ)^p` into `r³/κ`. The odd-mean score, parity, covariance interpolation and prefactor collect into `C(κ r²+r³/κ)`. Section 4 uses Lemma W⁻, (2.1⁻), (2.2⁻) and Proposition RW⁻ as stated in §2; I found no mismatch. I did not re-prove §2, Lemma S″, or §§5–7.
+
+Controls, Python 3.12.3: both `python3 -B -S` and `python3 -B -O -S` exit 0 with the pinned stdout (`S4_edge_model` 1040, `S6_monomials` 22). `M8` exits 1 with `FAILED: S6_monomials`; `M9` exits 1 with `FAILED: S4_edge_model`, in both modes.
+
+
+
+<div><a href="https://cursor.com/agents/bc-13c209f1-8716-43bd-9dd0-48c4e5724ca3?cursor_ref=pr_footer&cursor_cta=open_in_web"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cursor.com/assets/images/open-in-web-dark.png"><source media="(prefers-color-scheme: light)" srcset="https://cursor.com/assets/images/open-in-web-light.png"><img alt="Open in Web" width="114" height="28" src="https://cursor.com/assets/images/open-in-web-dark.png"></picture></a>&nbsp;<a href="https://cursor.com/background-agent?bcId=bc-13c209f1-8716-43bd-9dd0-48c4e5724ca3&cursor_ref=pr_footer&cursor_cta=open_in_cursor"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cursor.com/assets/images/open-in-cursor-dark.png"><source media="(prefers-color-scheme: light)" srcset="https://cursor.com/assets/images/open-in-cursor-light.png"><img alt="Open in Cursor" width="131" height="28" src="https://cursor.com/assets/images/open-in-cursor-dark.png"></picture></a>&nbsp;</div>
+
