@@ -118,7 +118,7 @@ def execute(command, cwd, out, name, mutant=False, *, mode, mutation=None):
     (out/(name+'.stderr')).write_text(result.stderr)
     require(f'Ran {EXPECTED_TESTS} tests' in result.stderr and 'skipped=' not in result.stderr, 'unexpected test coverage: '+name)
     if mutant:
-        require(result.returncode != 0 and 'AssertionError' in result.stderr and 'FAILED (failures=' in result.stderr,
+        require(result.returncode == 1 and 'AssertionError' in result.stderr and 'FAILED (failures=' in result.stderr,
                 'mutation was not detected by a test assertion: '+name)
         require('SyntaxError' not in result.stderr and 'ImportError' not in result.stderr and '\nERROR:' not in result.stderr,
                 'mutation caused a program error: '+name)
@@ -140,9 +140,9 @@ def main():
               'meaning': 'software replay and mutation detection only; not independent analytic acceptance'}
     try:
         for mode, flags in [('normal', []), ('optimized', ['-O'])]:
-            cmd = [sys.executable, '-B', *flags, '-S', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
+            cmd = [sys.executable, '-E', '-B', *flags, '-S', '-m', 'unittest', 'discover', '-p', 'test_*.py', '-v']
             execute(cmd, ROOT, out, 'tests_'+mode, mode=mode)
-            result = subprocess.run([sys.executable, '-B', *flags, '-S', 'hard_gate.py'], cwd=ROOT, capture_output=True, timeout=15)
+            result = subprocess.run([sys.executable, '-E', '-B', *flags, '-S', 'hard_gate.py'], cwd=ROOT, capture_output=True, timeout=15)
             require(result.returncode == 0 and result.stdout == (ROOT/'RESULTS.json').read_bytes(), 'entry/result mismatch: '+mode)
             (out/('output_'+mode+'.json')).write_bytes(result.stdout)
             for name, (old, new) in MUTANTS.items():
