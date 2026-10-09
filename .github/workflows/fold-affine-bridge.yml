@@ -1,0 +1,50 @@
+name: Exact fold affine bridge companion
+'on':
+  pull_request:
+    paths:
+      - 'companions/fold_affine_bridge_20261006/**'
+      - '.github/workflows/fold-affine-bridge.yml'
+      - 'formal/**'
+  push:
+    branches: [main]
+    paths:
+      - 'companions/fold_affine_bridge_20261006/**'
+      - '.github/workflows/fold-affine-bridge.yml'
+      - 'formal/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fold-affine-bridge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      LEAN_NUM_THREADS: 2
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install existing pinned Lean and retrieve dependency cache
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check primary package and separate exact fold contracts
+        run: python3 -B -S companions/fold_affine_bridge_20261006/replay.py execute
+      - name: Preserve original success or failure evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: fold-affine-bridge-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .lake/fold-affine-bridge-evidence/
+            formal/.lake/formal-evidence/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
