@@ -1,0 +1,60 @@
+name: LM006 one-dimensional coefficient replay
+
+'on':
+  pull_request:
+    paths:
+      - 'coefficients/lm006_wrong_sign_oned_20261006_a62c/**'
+      - 'coefficients/lm006_wrong_sign_20261006_r20/enclose.py'
+      - 'reviews/lm006_wrong_sign_asymptotic_20261006/NOTE.md'
+      - 'tools/lm006_oned_coefficient_replay.py'
+      - 'tests/test_lm006_oned_coefficient_replay.py'
+      - '.github/workflows/lm006-oned-coefficient.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'coefficients/lm006_wrong_sign_oned_20261006_a62c/**'
+      - 'coefficients/lm006_wrong_sign_20261006_r20/enclose.py'
+      - 'reviews/lm006_wrong_sign_asymptotic_20261006/NOTE.md'
+      - 'tools/lm006_oned_coefficient_replay.py'
+      - 'tests/test_lm006_oned_coefficient_replay.py'
+      - '.github/workflows/lm006-oned-coefficient.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    name: lm006-oned-coefficient (${{ matrix.mode }})
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Replay controls and frozen 1024-panel certificate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/lm006-oned-protocol"
+          FLAGS="-B -S"
+          if [ "${{ matrix.mode }}" = optimized ]; then FLAGS="-B -O -S"; fi
+          python $FLAGS -m unittest discover -s tests -p 'test_lm006_oned_coefficient_replay.py' -v 2>&1 | tee "$RUNNER_TEMP/lm006-oned-protocol/${{ matrix.mode }}.log"
+          python -B -S tools/lm006_oned_coefficient_replay.py --mode "${{ matrix.mode }}" --output "$RUNNER_TEMP/lm006-oned-${{ matrix.mode }}-${{ github.run_attempt }}"
+      - name: Preserve success or failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: lm006-oned-${{ matrix.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/lm006-oned-${{ matrix.mode }}-${{ github.run_attempt }}/
+            ${{ runner.temp }}/lm006-oned-protocol/
+          if-no-files-found: error

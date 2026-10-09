@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "coefficient-dimension-reduction-20261006-1340-a62c"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 15802,
+      "sha256": "b23be8ca33767c0c3413c8e12055c382c295f693349f9f624acce6dccce91b26",
+      "git_blob": "db27645e62bf846835b1daeb6c51f1eb3b417f1e"
+    },
+    "oned.py": {
+      "bytes": 7893,
+      "sha256": "07ae30528ccc2274dbad6f9e1898a9a4505ff80c4e2a97fda0b408f6f8d89e37",
+      "git_blob": "5015dee3a660b67c42ccab13a976626e6e2d02cc"
+    },
+    "test_oned.py": {
+      "bytes": 9708,
+      "sha256": "8314058f9b629786be7e9b9ff1c2d1dd256673200e4e154312a273223d1e104f",
+      "git_blob": "62e54422726f1caffab62e2e3fe38d297013e52d"
+    },
+    "RESULTS.json": {
+      "bytes": 598,
+      "sha256": "bdaf0f52021d9609f5b394df7ac82c80670f8a18319f0c8e703ce7bb6d6b405b",
+      "git_blob": "506833403f2dee91553d1a8dfc6eef6ee5c8faf8"
+    }
+  },
+  "dependencies": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "1f64b8f8ee450262e0f56e6bdf9dfb37931f48c6",
+      "path": "coefficients/lm006_wrong_sign_20261006_r20/enclose.py",
+      "git_blob": "e680ddb7aa0abd4b6aab2cac6a54c1ff28efc782",
+      "sha256": "157e02ee22699b4fa2efdde1894824b92b962900dbb8da9bd65acee41ae91e88",
+      "slice": "parameters, outward pi/sqrt/exp/density and decimal formatting; original 2048 rectangle algorithm not called"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "64c0a203b94105f0fccbe6f8116a94e13431f84e",
+      "path": "reviews/lm006_wrong_sign_asymptotic_20261006/NOTE.md",
+      "git_blob": "ea914c1b8e0b8180b645f3f626e2081ab87700b9",
+      "sha256": "00d57d987c28ef5f2e3f6467c9e343fb60ffb3ad5806d004f245fe16914fbb61",
+      "slice": "coefficient definition, Gaussian laws and clipped J; no reproof of the asymptotic theorem"
+    }
+  ],
+  "external_reference": [
+    {
+      "url": "https://dlmf.nist.gov/3.5#ii",
+      "consumed": "3.5.7 and 3.5.8 composite Simpson and C4 remainder, exact formulas inspected"
+    },
+    {
+      "url": "https://dlmf.nist.gov/7.6#i",
+      "consumed": "power-series context; signed truncation directions derived in NOTE"
+    }
+  ],
+  "scope": "new analytic reduction/numerical enclosure only; author candidate until a separate source-bound review"
+}
