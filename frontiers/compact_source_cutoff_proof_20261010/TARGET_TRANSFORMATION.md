@@ -1,0 +1,7 @@
+# Same endpoint transformation
+
+Input namespace fixture: frontiers/compact_source_cutoff_baseline_20261009/CompactSourceCutoffTargetRed.lean at parent06bac48e476c825323a74efb7e80cdb5ad9e9bb6,5936bytes/SHA2566d85955aab50429251c441358a26f4cb6e670ea8f6560b5caaf026d697ede0cd. The earlier original source5915bytes/a8abb169acb74c7ac11396b956bb5e055fd30f98af4ca0c0fb1f91ea06375f86 and namespace correction remain unchanged in the frozen baseline.
+
+Output CompactSourceCutoffProof.lean is14601bytes/SHA256fe26104f209cb63ef78b48a9a7540c9d56e6bb2f729726febde38cff5a1689be. Imports, definitions, all21structurefields and both theorem headers through :=by retain their exact bytes. The candidate adds five private helpers and fills the two proof bodies. No hypothesis, chart, radius, sample, source realization or witness is replaced. The actual-source endpoint uses the same predecessor witness once and appends CompactGeometry. No new mathematical axiom or unchecked proof escape is introduced.
+
+Source author report and separate nonauthor static review retain the complete diff and API evidence in the private working evidence record. Source review verdict PASS_STATIC_WITH_ELABORATION_PENDING is not compiler or kernel acceptance. This package also introduces separate controls and a declaration audit, whose exact bytes and coverage are recorded by SOURCE_MANIFEST. All files are checksum-bound before a hosted run may be admitted.
