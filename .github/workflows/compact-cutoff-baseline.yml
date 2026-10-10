@@ -1,0 +1,182 @@
+name: Compact cutoff portable baseline (diagnostic only)
+
+'on':
+  pull_request:
+    types: [opened]
+    paths:
+      - 'frontiers/compact_source_cutoff_baseline_20261009/**'
+      - '.github/workflows/compact-cutoff-baseline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: compact-cutoff-baseline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  baseline-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: '2'
+    defaults:
+      run:
+        shell: bash
+        working-directory: frontiers/compact_source_cutoff_baseline_20261009
+    steps:
+      - name: Record runner context before checkout
+        working-directory: ${{ runner.temp }}
+        run: |
+          set -euo pipefail
+          evidence_dir="$RUNNER_TEMP/compact-cutoff-baseline-precheckout"
+          mkdir -p "$evidence_dir"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/start-utc.txt"
+          printf 'run=%s\nattempt=%s\nevent=%s\nref=%s\nexpected_github_sha=%s\nthreads=%s\ncheckout_status=NOT_ESTABLISHED\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_EVENT_NAME" "$GITHUB_REF" "$GITHUB_SHA" "$LEAN_NUM_THREADS" > "$evidence_dir/context.txt"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        id: checkout
+        with:
+          persist-credentials: false
+      - name: Record fresh checkout and validate sources before setup
+        id: sources
+        run: |
+          set -euo pipefail
+          mkdir -p .lake/evidence
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/start-utc.txt
+          git rev-parse HEAD > .lake/evidence/checkout-sha.txt
+          git rev-parse HEAD^{tree} > .lake/evidence/checkout-tree.txt
+          printf 'event=%s\nref=%s\nhead=%s\nrun=%s\nattempt=%s\nthreads=%s\n' "$GITHUB_EVENT_NAME" "$GITHUB_REF" "$EVENT_HEAD" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$LEAN_NUM_THREADS" > .lake/evidence/context.txt
+          test "$(date -u +%s)" -lt "$(date -u -d '2026-10-10T18:30:00Z' +%s)"
+          test ! -e .lake/build
+          command -v jq timeout sha256sum
+          sha256sum SOURCE_SHA256SUMS > .lake/evidence/checksum-list-identity.txt
+          sha256sum -c SOURCE_SHA256SUMS | tee .lake/evidence/sources-before.txt
+          git diff --exit-code
+        env:
+          EVENT_HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Install pinned Lean and retrieve qualified Mathlib cache
+        id: setup
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: frontiers/compact_source_cutoff_baseline_20261009
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check actual toolchain and every dependency checkout
+        run: |
+          set -euo pipefail
+          lean --version | tee .lake/evidence/lean-version.txt
+          grep -Eq '^Lean \(version 4\.34\.1([, ]|\))' .lake/evidence/lean-version.txt
+          lake --version | tee .lake/evidence/lake-version.txt
+          jq --version > .lake/evidence/jq-version.txt
+          uname -a > .lake/evidence/platform.txt
+          sha256sum -c SOURCE_SHA256SUMS > .lake/evidence/sources-after-setup.txt
+          jq -r '.packages[] | [.name, .rev] | @tsv' lake-manifest.json > .lake/evidence/dependency-expected.tsv
+          test "$(wc -l < .lake/evidence/dependency-expected.tsv)" -eq 9
+          while IFS=$'\t' read -r package revision; do
+            actual=$(git -C ".lake/packages/$package" rev-parse HEAD)
+            printf '%s\t%s\t%s\n' "$package" "$revision" "$actual" >> .lake/evidence/dependency-actual.tsv
+            test "$actual" = "$revision"
+          done < .lake/evidence/dependency-expected.tsv
+          git diff --exit-code
+      - name: Build fresh predecessor PushedHeight once
+        id: predecessor
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/predecessor-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 900s lake build PushedHeight > .lake/evidence/predecessor.stdout 2> .lake/evidence/predecessor.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/predecessor-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/predecessor-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/predecessor-end.txt
+          cat .lake/evidence/predecessor.stdout
+          cat .lake/evidence/predecessor.stderr >&2
+          exit "$status"
+      - name: Capture original target diagnostic and retain actual exit
+        id: original
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/original-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 300s lake env lean CompactSourceCutoff.lean > .lake/evidence/original.stdout 2> .lake/evidence/original.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/original-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/original-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/original-end.txt
+          cat .lake/evidence/original.stdout
+          cat .lake/evidence/original.stderr >&2
+          # This step records a diagnostic; it supplies no proof-success status.
+          # A timeout/signal stops this attempt instead of admitting the next phase.
+          if [ "$status" -ge 124 ]; then exit "$status"; fi
+          if [ "$status" -eq 0 ]; then
+            printf '%s\n' 'Unexpected original success; independent review required.' >&2
+            exit 86
+          fi
+      - name: Run namespace-only target and preserve its actual failing status
+        id: target
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/target-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 300s lake env lean CompactSourceCutoffTargetRed.lean > .lake/evidence/target.stdout 2> .lake/evidence/target.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/target-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/target-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/target-end.txt
+          cat .lake/evidence/target.stdout
+          cat .lake/evidence/target.stderr >&2
+          # Nonzero remains nonzero. Typed RED requires separate full-log review.
+          exit "$status"
+      - name: Retain checkout and phase outcomes even if checkout fails
+        if: always()
+        working-directory: ${{ runner.temp }}
+        env:
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          SOURCE_OUTCOME: ${{ steps.sources.outcome }}
+          SETUP_OUTCOME: ${{ steps.setup.outcome }}
+          PREDECESSOR_OUTCOME: ${{ steps.predecessor.outcome }}
+          ORIGINAL_OUTCOME: ${{ steps.original.outcome }}
+          TARGET_OUTCOME: ${{ steps.target.outcome }}
+        run: |
+          set -euo pipefail
+          evidence_dir="$RUNNER_TEMP/compact-cutoff-baseline-precheckout"
+          mkdir -p "$evidence_dir"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/end-utc.txt"
+          printf 'checkout=%s\nsources=%s\nsetup=%s\npredecessor=%s\noriginal_orchestration=%s\ntarget=%s\nproof_status=NOT_ESTABLISHED\nscientific_effect=NONE\n' "$CHECKOUT_OUTCOME" "$SOURCE_OUTCOME" "$SETUP_OUTCOME" "$PREDECESSOR_OUTCOME" "$ORIGINAL_OUTCOME" "$TARGET_OUTCOME" > "$evidence_dir/outcomes.txt"
+      - name: Retain final source integrity and phase outcomes
+        if: ${{ always() && steps.checkout.outcome == 'success' }}
+        env:
+          SOURCE_OUTCOME: ${{ steps.sources.outcome }}
+          SETUP_OUTCOME: ${{ steps.setup.outcome }}
+          PREDECESSOR_OUTCOME: ${{ steps.predecessor.outcome }}
+          ORIGINAL_OUTCOME: ${{ steps.original.outcome }}
+          TARGET_OUTCOME: ${{ steps.target.outcome }}
+        run: |
+          set -euo pipefail
+          mkdir -p .lake/evidence
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/end-utc.txt
+          printf 'sources=%s\nsetup=%s\npredecessor=%s\noriginal_orchestration=%s\ntarget=%s\nproof_status=NOT_ESTABLISHED\nscientific_effect=NONE\n' "$SOURCE_OUTCOME" "$SETUP_OUTCOME" "$PREDECESSOR_OUTCOME" "$ORIGINAL_OUTCOME" "$TARGET_OUTCOME" > .lake/evidence/outcomes.txt
+          sha256sum -c SOURCE_SHA256SUMS > .lake/evidence/sources-final.txt
+          git diff --exit-code > .lake/evidence/tracked-tree-final.txt
+      - name: Preserve complete phase logs on success or failure
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: compact-cutoff-baseline-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            frontiers/compact_source_cutoff_baseline_20261009/.lake/evidence/
+            ${{ runner.temp }}/compact-cutoff-baseline-precheckout/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
