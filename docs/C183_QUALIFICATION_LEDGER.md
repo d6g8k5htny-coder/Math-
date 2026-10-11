@@ -9,11 +9,48 @@ runtime or change PR397's HOLD / NOT_READY / NO_MERGE disposition.
 
 ## Test-first checkpoint
 
-The first draft commit deliberately contains no helper implementation. Its
-hosted tests must fail with `required offline API absent`, rather than import or
-setup errors. This is an implementation RED, not a new reproduction of the
-historical cleanup failure. A later implementation and hosted GREEN will have
-different exact commit/run identities. No local project tests were run.
+The first draft commit `d29dc03a73dbab847e6a5792ed49842b0572ba8c`
+deliberately contained no helper implementation. Hosted run38168778516/attempt1,
+job114556777353, tested merge`cdecbd22a0a034248079a4f9e4f73ad966729558`,
+executed529 normal-mode tests:30 intended missing-API assertion failures and
+zero errors. Optimized mode was not reached after the normal-mode failure.
+This is an implementation RED, not historical cleanup reproduction. The
+subsequent implementation has a different exact source identity and needs its
+own hosted results. No local project tests were run.
+
+## Offline use
+
+Run only in a project-authorized execution environment:
+
+```sh
+python -B -S tools/c183_qualification_ledger.py
+python -B -S tools/c183_qualification_ledger.py --archive ORIGINAL.zip --sources HISTORICAL_PACKAGE
+```
+
+The first command prints a deterministic ledger with all input gates NOT_RUN.
+The second reads the explicitly supplied archive and historical package. It
+never downloads evidence, imports those sources or writes output files. JSON
+goes to stdout. Invalid supplied inputs produce valid=false JSON and exit2;
+missing optional inputs are NOT_RUN, not a failure or a pass.
+
+The archive reader checks its canonical whole-byte identity and all bounded
+members' names, kinds, sizes and CRCs, returning only five fixed member names.
+The public low-level read_zip_members API also accepts a caller-supplied expected
+identity for synthetic custody tests; only build_ledger imposes the historical
+archive pin. It is not producer authentication. CLI file checks reject symlinks
+and nonregular/oversized inputs, but are not a hostile concurrent-filesystem
+sandbox. The caller supplies stable read-only inputs.
+
+The source gate verifies12 pinned files plus the manifest, derives71 method
+identities and24 unique anchors by inert AST inspection, and records the numeric
+guard mutation separately. It never compiles or imports any project module.
+The original wrapper substring predicate and the stricter outcome parser are
+separate functions; evaluating the former does not certify completed coverage.
+
+The whole original archive is not embedded in these tests. Hosted fixtures test
+its reader with synthetic ZIPs, and independently validate the authentic five
+members and thirteen source bodies. Do not report the helper's canonical
+original-archive branch as executed unless a separate receipt establishes it.
 
 ## Evidence boundaries
 
