@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Replay of the C254 torus-filtration companion. It runs neither formal/gate.py nor the formal
-# tests: the companion consumes only the pinned toolchain, lakefile and dependency lock from
-# formal/, and its evidence is kernel-checked declarations, not alignment or acceptance.
+# Replay of the torus-filtration companion: TorusTopology and ClosedSuperlevel (C254) and the registered
+# SuperlevelBar (C263) and OrdinaryH0 (C264) successors. It runs neither formal/gate.py nor the formal
+# tests: the companion consumes only the pinned toolchain, lakefile and dependency lock from formal/,
+# and its evidence is kernel-checked declarations, not alignment or acceptance.
 set -euo pipefail
 # The outer Python mode is the one named on each command line below, never an ambient PYTHONOPTIMIZE (C262 G1).
 unset PYTHONOPTIMIZE
+# leanchecker over the five modules peaked at about 8.4-8.7 GiB resident at two threads and exceeded a 13.36 GiB
+# memory limit at four (2026-10-11, this lane); default to the hosted job's two threads unless the operator sets otherwise.
+export LEAN_NUM_THREADS="${LEAN_NUM_THREADS:-2}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SIDE="$ROOT/companions/torus_filtration_20261011"
 OUT="$ROOT/.lake/torus-filtration-evidence"
@@ -38,25 +42,28 @@ run_lean() {
 }
 run_lean build-TorusTopology lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/TorusTopology.olean" "$TORUS_SIDE/TorusTopology.lean"
 run_lean build-ClosedSuperlevel lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/ClosedSuperlevel.olean" "$TORUS_SIDE/ClosedSuperlevel.lean"
+run_lean build-SuperlevelBar lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/SuperlevelBar.olean" "$TORUS_SIDE/SuperlevelBar.lean"
+run_lean build-OrdinaryH0 lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/OrdinaryH0.olean" "$TORUS_SIDE/OrdinaryH0.lean"
 run_lean build-TorusFiltration lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/TorusFiltration.olean" "$TORUS_SIDE/TorusFiltration.lean"
 run_lean positive lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Positive.lean"
 run_lean axioms lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Audit.lean"
 run_lean types lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Types.lean"
 run_lean census lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Census.lean"
 # Kernel replay of the companion modules' own declarations against the cached, prebuilt dependency
-# .oleans (30 s at 2 threads locally). Both modules `import Mathlib`, so `--fresh` (re-check of the whole
-# import closure) does not fit a hosted job: still running at 1500 s with 6.6 GB resident at 4 threads.
+# .oleans (30 s at 2 threads locally for the three C254 modules, 53 s for the five). All four modules `import Mathlib` (OrdinaryH0 also imports
+# ClosedSuperlevel), so `--fresh` (re-check of the whole import closure) does not fit a hosted job: still running
+# at 1500 s with 6.6 GB resident at 4 threads.
 # TORUS_LEANCHECKER_FRESH=1 selects it for an operator's local run; the receipt records which mode ran.
 if [ "${TORUS_LEANCHECKER_FRESH:-0}" = 1 ]; then
   LEANCHECKER_COMMAND='leanchecker --fresh TorusFiltration'
 else
-  LEANCHECKER_COMMAND='leanchecker TorusTopology ClosedSuperlevel TorusFiltration'
+  LEANCHECKER_COMMAND='leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 TorusFiltration'
 fi
 printf '%s\n' "$LEANCHECKER_COMMAND" > "$TORUS_OUT/leanchecker.cmd"
 # shellcheck disable=SC2086
 run_lean leanchecker $LEANCHECKER_COMMAND
 # False statements about the companion's own definitions: Lean itself must refuse each with exactly `⊢ False`.
-for control in RejectSuperlevelSignFlip RejectSuperlevelBelowThreshold RejectConstantNotPeriodic; do
+for control in RejectSuperlevelSignFlip RejectSuperlevelBelowThreshold RejectConstantNotPeriodic RejectEssentialDeathBound RejectReducedPointClass; do
   code=0
   lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/$control.lean" >"$TORUS_OUT/$control.log" 2>&1 || code=$?
   printf '%s\n' "$code" >"$TORUS_OUT/$control.status"
