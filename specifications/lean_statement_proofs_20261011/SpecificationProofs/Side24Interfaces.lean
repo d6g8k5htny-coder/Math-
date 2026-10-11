@@ -499,8 +499,10 @@ theorem rl_law_xy (I : ConeMomentInterface) :
   rw [I.sxy_law, Measure.map_snd_prod, measure_univ, one_smul] at h
   exact h.symm
 
-/-- The probability of `{x^2 + y^2 ≤ a}` under `P` is the Gaussian measure of the closed disk:
-the event is measurable, so `Measure.map_apply_of_aemeasurable` applies to the law `rl_law_xy`. -/
+/-- The probability of `{x^2 + y^2 ≤ a}` under `P` is the Gaussian measure of the closed disk: the
+disk is a measurable set and `(x, y)` is a.e.-measurable, so `Measure.map_apply_of_aemeasurable`
+transports the law `rl_law_xy` (a.e.-measurable transport; the sample-space preimage is only
+shown to be null-measurable for `I.P`, which is not assumed complete). -/
 theorem rl_prob_eq_disk_measure (I : ConeMomentInterface) (a : ℝ) :
     I.P {ω | I.x ω ^ 2 + I.y ω ^ 2 ≤ a} =
       ((gaussianReal 0 1).prod (gaussianReal 0 1)) {p : ℝ × ℝ | p.1 ^ 2 + p.2 ^ 2 ≤ a} := by
@@ -603,9 +605,14 @@ PENDING_INDEPENDENT_REVIEW); from the Prop's own `Does not claim:` line, "the la
 only)": the law is proved here only for the formal objects of the Prop, as the distribution
 function `P(R^2 ≤ a)` for `a ≥ 0`, not as a density and not for the source's variable; and
 "measurability of the event (if the event is not measurable, `P` is its outer measure)":
-measurability of the formal event `{x^2 + y^2 ≤ a}` is proved here (`Aux.rl_measurableSet_disk`,
-`Measure.map_apply_of_aemeasurable`), so the outer-measure reading does not arise for this
-event, but nothing is established about any other event; that any inhabitant of
+the formal event `{x^2 + y^2 ≤ a}` is the preimage of the closed disk, a measurable set
+(`Aux.rl_measurableSet_disk`), under the a.e.-measurable coordinate map `(x, y)`
+(`Aux.rl_aemeasurable_xy`); `Measure.map_apply_of_aemeasurable` transports the measure along that
+map, so `P` of the event equals the disk measure under the law. The preimage is thereby
+null-measurable for `I.P` (`AEMeasurable.nullMeasurableSet_preimage`); `MeasurableSet` of the
+sample-space preimage is not asserted (`ConeMomentInterface` assumes neither that `I.P` is
+complete nor that the coordinate fields are measurable), and nothing is established about any
+other event; that any inhabitant of
 `ConeMomentInterface` exists, or that its laws are the conditional law `A | V = 0` of the
 reference field (the laws are hypothesis fields of the given `I`, not derived here);
 `ConeMomentD2Identity` or any cone moment; any enclosure of the coefficient; the statement
