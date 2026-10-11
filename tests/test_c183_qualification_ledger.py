@@ -196,6 +196,7 @@ class C183LedgerControls(unittest.TestCase):
         empty = self.parsed(b'', termination='timed_out')
         self.assertFalse(absent['stderr']['present'])
         self.assertTrue(empty['stderr']['present'])
+        self.assertFalse(absent['complete'])
 
     def test_multiple_terminal_summaries_cannot_combine_partial_runs(self):
         ids = FIXTURE['synthetic']['ids']
@@ -228,7 +229,6 @@ class C183LedgerControls(unittest.TestCase):
         possible = self.parsed((rows+'\nRan 3 tests in 0.001s\n\nFAILED (failures=1)\n').encode())
         self.assertFalse(possible['complete'])
         self.assertEqual(possible['counts'], {'ok': 2, 'FAIL': 0, 'ERROR': 0})
-        self.assertFalse(absent['complete'])
 
     def test_original_predicate_accepts_baseline_and_assertion_only_mutant(self):
         self.assertEqual(M.original_predicate(transcript(), 0, False, 3), 'ACCEPTED')

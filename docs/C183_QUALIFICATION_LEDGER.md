@@ -21,13 +21,13 @@ own hosted results. No local project tests were run.
 Nonauthor review5484709386 at implementation`b9a139ad9e3fd5bbebd65f6432c8e3d61cde2987`
 requires three bounded amendments: terminal partial-summary accounting, finite
 numeric parsing and validation of original ZIP names before normalization.
-The next test-only commit preserves that implementation and adds regression
-controls. Its actual hosted result must precede the repair; these static
-counterexamples are not yet claimed as executed failures. Original review and
-RED evidence remain unchanged.
+At that review checkpoint, the counterexamples were static and had not yet
+been executed. Subsequent test-only commits preserved that implementation and
+added regression controls; their actual hosted receipts appear below. Original
+review and RED evidence remain unchanged.
 
 Regression-only head`8ac18f435a18ed1fa5fc4be80a0847b64275cf22` binds the
-first35 controls to hosted run38170248987. A second test-only successor adds
+first35 controls to hosted run38170248987. A second test-only successor added
 one explicit partial-summary capacity control: every observed status must fit
 its claimed population, and total claimed FAIL+ERROR must not exceed the
 reported count. Neither test-only successor changes the reviewed helper bytes.
@@ -39,6 +39,35 @@ failure/error total is contradictory. These are explicit new controls, not
 retroactive claims about the original review or earlier test heads. The final
 regression matrix is38 helper methods. Graceful retention of an unfinished
 status token is optional and deferred; the existing refusal is permitted.
+
+Actual regression receipts, all normal mode with optimized mode not reached:
+- `8ac18f435a18ed1fa5fc4be80a0847b64275cf22`, run38170248987/1,
+  job114561175899, tested`44384173e064a96aca05cdbd91db17713db61570`:
+  560 tests,16 assertion subfailures and one old-parser ValueError.
+- `7ddaa0cfe6c7748d4c83bfd58eb5b2114b9d1514`, run38170634906/1,
+  job114562321550, tested`38a7c74034d0f2953e4d1dd9aa9ba481317ca80d`:
+  561 tests,20 assertion subfailures and two errors.
+- Final frozen regression`853519bed868d178527afae2a8de0109eef438af`,
+  run38171003385/1, job114563419364,
+  tested`29205fc985df5e5861c5f6838662d861a2438c49`,
+  tree`8385dfcca2c46fea33eade9e91848038d41c4dc2`:
+  563 tests,24 assertion subfailures and two errors.
+
+The latter two are mixed RED results: one error is the old-parser ValueError;
+the other is an author harness NameError from accidentally moving the unchanged
+absent-stream assertion below the new capacity test. The four capacity
+subfailures execute before that NameError; the final run separately records
+all three FAILED-zero footer failures and the multiple-summary failure. The
+repair restores only that assertion's original method placement, without
+removing or weakening a control. No production evidence is inferred from the
+NameError. Fresh corrected hosted GREEN and nonauthor delta review remain
+required at the repair's exact source identity.
+
+The bounded repair retains actual partial counts for all terminal states,
+validates per-status capacity against the reported population, and reserves
+expected-population equality for completeness. It refuses multiple summary
+headers and FAILED-zero totals. JSON floats and summary seconds must be finite;
+original ZIP names must be safe and unchanged before membership admission.
 
 ## Offline use
 

@@ -4,6 +4,7 @@ import ast
 import hashlib
 import io
 import json
+import math
 from pathlib import Path, PurePosixPath
 import re
 import stat
@@ -29,7 +30,8 @@ MEMBERS = {
 }
 METHOD = r'test_[A-Za-z0-9_]+ \([A-Za-z0-9_.]+\)'
 ROW = re.compile(r'^(' + METHOD + r') \.\.\. (.+)$')
-SUMMARY = re.compile(r'\nRan ([1-9][0-9]*) tests in ([0-9]+\.[0-9]+)s\n\n'
+SUMMARY_HEADER = re.compile(r'^Ran [0-9]+ tests? in [0-9]+\.[0-9]+s$', re.MULTILINE)
+SUMMARY = re.compile(r'\nRan ([0-9]+) tests? in ([0-9]+\.[0-9]+)s\n\n'
                      r'(OK|FAILED \((?:failures=[0-9]+(?:, errors=[0-9]+)?|errors=[0-9]+)\))\n\Z')
 
 
@@ -52,8 +54,12 @@ def strict_json(raw):
         return result
     def reject(value):
         raise ValueError('nonfinite JSON: ' + value)
+    def finite_float(value):
+        number = float(value)
+        require(math.isfinite(number), 'nonfinite JSON numeric value')
+        return number
     require(type(raw) in (bytes, str), 'JSON text required')
-    result = json.loads(raw, object_pairs_hook=pairs, parse_constant=reject)
+    result = json.loads(raw, object_pairs_hook=pairs, parse_constant=reject, parse_float=finite_float)
     require(type(result) is dict, 'JSON object required')
     return result
 
@@ -114,22 +120,35 @@ def parse_outcomes(raw, expected_ids, *, termination='exited'):
         seen.add(method)
         outcomes.append({'method': method, 'status': status})
     counts = {status: sum(x['status'] == status for x in outcomes) for status in ('ok', 'FAIL', 'ERROR')}
+    require(len(SUMMARY_HEADER.findall(text)) <= 1, 'multiple summary blocks refused')
     summary = SUMMARY.search(text)
+    summary_count, summary_seconds = None, None
     if summary:
-        require(int(summary.group(1)) == len(expected_ids), 'summary expected count mismatch')
+        summary_count = int(summary.group(1))
+        summary_seconds = float(summary.group(2))
+        require(math.isfinite(summary_seconds), 'nonfinite summary duration')
+        require(len(seen) <= summary_count <= len(expected_ids), 'summary population contradiction')
         claimed_fail = re.search(r'failures=([0-9]+)', summary.group(3))
         claimed_error = re.search(r'errors=([0-9]+)', summary.group(3))
-        if len(seen) == len(expected_ids):
-            require(counts['FAIL'] == (int(claimed_fail.group(1)) if claimed_fail else 0), 'failure total mismatch')
-            require(counts['ERROR'] == (int(claimed_error.group(1)) if claimed_error else 0), 'error total mismatch')
+        claimed = {'FAIL': int(claimed_fail.group(1)) if claimed_fail else 0,
+                   'ERROR': int(claimed_error.group(1)) if claimed_error else 0}
+        unsuccessful = claimed['FAIL'] + claimed['ERROR']
+        require(unsuccessful <= summary_count, 'summary status population contradiction')
+        require(summary.group(3) == 'OK' or unsuccessful > 0, 'FAILED without failure or error')
+        claimed['ok'] = summary_count - unsuccessful
+        for status in counts:
+            require(counts[status] <= claimed[status], 'observed status exceeds summary: ' + status)
+            if len(seen) == summary_count:
+                require(counts[status] == claimed[status], 'status total mismatch: ' + status)
     else:
         limitations.append('terminal_summary_absent')
-    complete = bool(summary and len(seen) == len(expected_ids) and not limitations and termination == 'exited')
+    complete = bool(summary and len(seen) == summary_count == len(expected_ids)
+                    and not limitations and termination == 'exited')
     return {'expected_count': len(expected_ids), 'observed_count': len(outcomes),
             'outcomes': outcomes, 'counts': counts, 'complete': complete,
             'termination': termination, 'limitations': limitations,
             'stderr': {**identity(payload), 'present': raw is not None},
-            'summary_seconds': float(summary.group(2)) if summary else None}
+            'summary_count': summary_count, 'summary_seconds': summary_seconds}
 
 
 def original_predicate(raw, returncode, mutant, expected_tests=71):
@@ -238,8 +257,12 @@ def read_zip_members(raw, required, *, expected_sha256, expected_bytes):
     try:
         with zipfile.ZipFile(io.BytesIO(raw)) as archive:
             infos = archive.infolist()
+            require(0 < len(infos) <= 1000, 'archive member population invalid')
+            for info in infos:
+                safe_member(info.orig_filename)
+                require(info.orig_filename == info.filename, 'normalized archive member name refused')
             names = [x.filename for x in infos]
-            require(0 < len(infos) <= 1000 and len(names) == len(set(names)), 'archive member population invalid')
+            require(len(names) == len(set(names)), 'archive member population invalid')
             require(sum(x.file_size for x in infos) <= MAX_TOTAL, 'archive expanded bound exceeded')
             require(set(required) <= set(names), 'required archive member absent')
             for info in infos:
