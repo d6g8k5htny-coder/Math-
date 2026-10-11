@@ -43,17 +43,15 @@ register gives it.
 
 ## Registered Props without a theorem here, and why
 
-Inventory at this commit: 52 theorems, 51 of the 141 registered `def … : Prop` declarations (`TriangleNeedsThree`
-is proved twice). The other 90 fall into the groups below. None is weakened, restated or relabelled: the register
+Inventory at this commit: 60 theorems, 59 of the 141 registered `def … : Prop` declarations (`TriangleNeedsThree`
+is proved twice). The other 82 fall into the groups below. None is weakened, restated or relabelled: the register
 keeps every one at `specified`, and a group's reason is a statement about what Mathlib and this packet can reach
 today, not about the truth of the Prop.
 
 | group | Props (names without `UniversalLaw.Spec.<Module>.`) | why no theorem here |
 |---|---|---|
 | P15 parametrised predicates | `IsRealizedFamily`, `IsGood`, `IsKDecomposable`, `IsGeneratorCover`, `IsPaletteFeasible`, `IsMinimalForbidden`, `IsTransversal`, `IsProperDownset` | predicates with free arguments, not closed statements: a theorem of their type would assert them for every argument, which is false (`IsGood F Finset.univ` fails for every realized family). They are the vocabulary of the other Props, not targets. |
-| P15 hazard interpolation (full-price note Section 2) | `CoordinatewiseConcavity`, `HazardProductBound` (F6), `HazardPhiBound` (F7), `FullGroundPriceBound` (F8), `FullGroundBudgetIff` | need the concavity of `t ↦ -log μ_{p(t)}(A)`, `p_i(t) = 1 - e^{-t_i}`, in each coordinate, i.e. the derivative formulas (F4)-(F5) that the source does not display and the statement packet does not specify; a real-analysis development (differentiability of finite exponential sums, sign of the second derivative) with no Mathlib shortcut. (F7), (F8) and the `iff` are its consequences. |
-| P15 full budget | `LocalPriceBoundFull` (F12), `FullTransformedPriceBudget` (F2) | (F12) is (F8) applied to each block's capacity family together with `H_(n,a) ≥ h_star` (`CapacityWorstCase`, proved) and `rho_star = 1/h_star`; (F2) assembles (F12) through (F13) (`GlobalAssemblyHazard`, proved) and the cover criterion (`FullBlockCoverIff`, proved). Both wait on the group above. |
-| P15 enclosure | `RhoStarEnclosure` (F3) | twenty decimal digits of `1/(3 - log(3e - 2))`: needs certified `exp` and `log` enclosures far beyond Mathlib's nine-digit `Real.exp_one_lt_d9`; a proof-producing interval pipeline (Taylor remainders at some twenty-five terms in exact rationals) is the route. `RhoStarBelowSixSevenths` and `SixSeventhsCertificate` (proved) are the coarse version. |
+| P15 full-price note, formerly listed here | — | the hazard interpolation `CoordinatewiseConcavity`, `HazardProductBound` (F6), `HazardPhiBound` (F7), `FullGroundPriceBound` (F8), `FullGroundBudgetIff`, the full budget `LocalPriceBoundFull` (F12), `FullTransformedPriceBudget` (F2) and the enclosure `RhoStarEnclosure` (F3) have theorems in `P15Interpolation` since round 3: the concavity from the one-coordinate split of `μ_p(A)` (affine in `e^{-t_i}`, coefficients `0 ≤ S_in ≤ S_out` for a downset) and `concaveOn_of_deriv2_nonpos`, not from the undisplayed derivative formulas (F4)-(F5), which stay unspecified; (F6)-(F8), (F12) and (F2) as their consequences through `CapacityWorstCase`, `GlobalAssemblyHazard` and `FullBlockCoverIff`; (F3) by `Real.exp_bound` at degrees 26 and 16 compared by `norm_num` against the 20-digit rationals, a different certificate from the source's `full_price.py` procedure, which stays unspecified. Every theorem-shaped Prop of claim `p15-full-price` now has a theorem; the claim stays `specified`. |
 | Side24 derivative bounds | `IsUnitTuple` (predicate), `DerivativePairingBound`, `DerivativeBoundAtLeastOne`, `DerivativeBoundAtZero` | explicit `iteratedFDeriv ℝ q (fun x => exp (-‖x‖² / 2))` in arbitrary unit directions: Mathlib has no closed form for the iterated Fréchet derivatives of a Gaussian (the Hermite expansion behind the pairing sums); the arithmetic of the pairing sums is kernel-proved on main (`UniversalLaw.Side24.pairing_sum_six`, …). |
 | Side24 lattice sums | `ThetaSummable`, `LatticeImageSumBound`, `ImageBound` | summability of `n ↦ exp (-‖z + 24 n‖² / 2)` over `Fin d → ℤ` and the explicit tail `≤ 1458 e^{-288}`: Gaussian-decay summability over `ℤ^d` and a shell count; Mathlib's Jacobi-theta results are one-dimensional. |
 | Side24 covariance and density | `NegDefCone` (predicate), `ReferenceOddAndPinBlocks`, `CovarianceOrdering`, `EntrywiseCovarianceBound`, `ReferenceCovarianceLowerBound`, `DensityComparison`, `IntegrandRatioBounds`, `ReferencePinDensityProduct` | built on the derivative contractions above (`jointCov`, `gradCov`, `pinCov`, `derivContraction`); the matrix arithmetic is kernel-proved on main, the evaluation of the Fréchet derivatives is not available. |
@@ -69,8 +67,9 @@ The register (`../lean_statements_20261010/REGISTER.json`) says the same per cla
 README.md  SCOPE.md  check.py  test_check.py  replay.sh
 lakefile.toml  lean-toolchain  lake-manifest.json  SpecificationProofs.lean
 SpecificationProofs/<Module>.lean      namespace UniversalLaw.Proofs.<Module>; P15 is split by theme into
-                                       P15Elementary, P15Structure, P15Hazard, P15Covers, P15Budget (in
-                                       import order), Side24Elementary and RNProbability are one each
+                                       P15Elementary, P15Structure, P15Hazard, P15Covers, P15Budget,
+                                       P15Interpolation (in import order), Side24Elementary and RNProbability
+                                       are one each
 ```
 
 Rules for every module (enforced by `check.py`, see its module docstring):
