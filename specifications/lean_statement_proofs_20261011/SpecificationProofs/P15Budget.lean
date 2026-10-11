@@ -43,8 +43,10 @@ theorem famPrice_nonneg {Y : Type} {c : Y → ℝ} (hc : ∀ v, 0 ≤ c v) (G : 
 /-- The set of prices of generator covers is bounded below by `0`. -/
 theorem coverSet_bddBelow {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X) (K : ℕ)
     {c : X → ℝ} (hc : ∀ v, 0 ≤ c v) :
-    BddBelow {t : ℝ | ∃ G : Finset (Finset X), IsGeneratorCover F K G ∧ famPrice c G = t} :=
-  ⟨0, fun _ ⟨G, _, hG⟩ => hG ▸ famPrice_nonneg hc G⟩
+    BddBelow {t : ℝ | ∃ G : Finset (Finset X), IsGeneratorCover F K G ∧ famPrice c G = t} := by
+  refine ⟨0, ?_⟩
+  rintro t ⟨G, -, rfl⟩
+  exact famPrice_nonneg hc G
 
 /-- The infimum is at most the price of any generator cover. -/
 theorem coverCost_le_famPrice {X : Type} [Fintype X] [DecidableEq X] (F : RealizedData X)
