@@ -196,6 +196,18 @@ class C183LedgerControls(unittest.TestCase):
         empty = self.parsed(b'', termination='timed_out')
         self.assertFalse(absent['stderr']['present'])
         self.assertTrue(empty['stderr']['present'])
+
+    def test_partial_summary_status_capacity_must_accommodate_observed_rows(self):
+        ids = FIXTURE['synthetic']['ids']
+        rows = f'{ids[0]} ... ok\n{ids[1]} ... ok\n'
+        for footer in ('FAILED (failures=2)', 'FAILED (errors=2)',
+                       'FAILED (failures=2, errors=2)', 'FAILED (failures=4)'):
+            with self.subTest(footer=footer):
+                with self.assertRaises(ValueError):
+                    self.parsed((rows+'\nRan 3 tests in 0.001s\n\n'+footer+'\n').encode())
+        possible = self.parsed((rows+'\nRan 3 tests in 0.001s\n\nFAILED (failures=1)\n').encode())
+        self.assertFalse(possible['complete'])
+        self.assertEqual(possible['counts'], {'ok': 2, 'FAIL': 0, 'ERROR': 0})
         self.assertFalse(absent['complete'])
 
     def test_original_predicate_accepts_baseline_and_assertion_only_mutant(self):

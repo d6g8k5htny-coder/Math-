@@ -26,6 +26,12 @@ controls. Its actual hosted result must precede the repair; these static
 counterexamples are not yet claimed as executed failures. Original review and
 RED evidence remain unchanged.
 
+Regression-only head`8ac18f435a18ed1fa5fc4be80a0847b64275cf22` binds the
+first35 controls to hosted run38170248987. A second test-only successor adds
+one explicit partial-summary capacity control: every observed status must fit
+its claimed population, and total claimed FAIL+ERROR must not exceed the
+reported count. Neither test-only successor changes the reviewed helper bytes.
+
 ## Offline use
 
 Run only in a project-authorized execution environment:
