@@ -45,7 +45,8 @@ AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does n
 IDENT = r'[A-Za-z][A-Za-z0-9_]*'
 HEX40 = re.compile(r'[0-9a-f]{40}')
 HEX64 = re.compile(r'[0-9a-f]{64}')
-BUILDS = ('build-TorusTopology', 'build-ClosedSuperlevel', 'build-TorusFiltration', 'positive', 'axioms', 'types', 'leanchecker')
+BUILDS = ('build-TorusTopology', 'build-ClosedSuperlevel', 'build-TorusFiltration', 'positive', 'axioms', 'types', 'census',
+          'leanchecker')
 # The leanchecker invocations replay.sh may record in leanchecker.cmd. Both modules `import Mathlib`, so
 # `--fresh` (kernel re-check of the whole import closure) exceeds a hosted job: measured locally at 4 threads
 # it was still running at 1500 s with 6.6 GB resident. The hosted default replays the companion's own
@@ -55,15 +56,63 @@ LEANCHECKER = {'leanchecker TorusTopology ClosedSuperlevel TorusFiltration': 'mo
 ADMISSION = ('sorry', 'sorryAx', 'admit', 'axiom', 'native_decide', 'ofReduceBool', 'trustCompiler', 'unsafe',
              'opaque', 'partial', 'implemented_by', 'extern', 'skipKernelTC', 'autoImplicit')
 # Module scanner (scan_module): a whitelist of what may start a column-0 code line. Lean itself accepts a
-# command anywhere (indented, after another command on the same line, behind `open … in`), so every other
-# command keyword is refused wherever it appears outside comments; the scanner refuses what it cannot place.
+# command anywhere (indented, after another command on the same line, behind `open … in`), so every command
+# keyword in COMMANDS is refused wherever it appears outside comments; the scanner refuses what it cannot place.
+# COMMANDS is an explicit list of refused keywords, not a Lean grammar and not a complete census: a
+# declaration-producing command or form absent from it passes an indented or same-line position uncounted (C262
+# gate review G2, Math- #428 comment 6112740935, found `alias` absent at head a898bb44; the pre-push adversarial
+# verification of the repair then enumerated further commands at the pin, listed below, and the `where` clause of
+# a declaration, which no keyword list can refuse). The scanner is therefore only a first filter. The declaration
+# census that the receipt stands on is Census.lean (CENSUS below): Lean itself lists every non-internal constant
+# the companion modules add to the environment, and `finish` requires that list to equal the inventory plus the
+# explicitly named compiler-generated auxiliaries (`census_auxiliary` in SOURCE_FILES.json), nothing else.
 COMMANDS = ('theorem', 'lemma', 'def', 'abbrev', 'instance', 'axiom', 'axioms', 'example', 'structure', 'inductive',
             'class', 'opaque', 'macro', 'macro_rules', 'syntax', 'elab', 'elab_rules', 'notation', 'infix', 'infixl',
             'infixr', 'prefix', 'postfix', 'set_option', 'attribute', 'namespace', 'section', 'end', 'universe',
             'variable', 'import', 'private', 'protected', 'noncomputable', 'unsafe', 'partial', 'scoped', 'local',
             'mutual', 'deriving', 'initialize', 'builtin_initialize', 'declare_syntax_cat', 'register_option',
-            'open', 'export', 'include', 'omit', 'run_cmd', 'run_tac', 'run_elab', 'in')
-COMMAND_TOKEN = re.compile(r'(?<![A-Za-z0-9_.])(?:' + '|'.join(COMMANDS) + r')(?![A-Za-z0-9_])')
+            'open', 'export', 'include', 'omit', 'run_cmd', 'run_tac', 'run_elab', 'in',
+            # declaration-producing commands of Lean core, Batteries, Aesop and Mathlib found at the pin (C262 G2 and
+            # the verification of its repair); refused wherever they appear, column 0 included
+            'alias', 'irreducible_def', 'simproc', 'simproc_decl', 'dsimproc', 'dsimproc_decl', 'builtin_simproc',
+            'builtin_simproc_decl', 'builtin_dsimproc', 'builtin_dsimproc_decl', 'cbv_simproc', 'cbv_simproc_decl',
+            'builtin_cbv_simproc', 'builtin_cbv_simproc_decl', 'notation3', 'unif_hint', 'recall', 'binder_predicate',
+            'add_decl_doc', 'library_note', 'assert_not_exists', 'register_simp_attr', 'register_builtin_option',
+            'register_linter_set', 'register_label_attr', 'declare_aesop_rule_sets', 'add_aesop_rules',
+            'erase_aesop_rules', 'compile_inductive', 'compile_def', 'nonrec', 'mk_iff_of_inductive_prop', 'run_meta',
+            'grind_propagator', 'builtin_grind_propagator', 'declare_config_elab', 'declare_config_elab_legacy',
+            'declare_command_config_elab_legacy', 'gen_injective_theorems', 'declare_uint_theorems',
+            'declare_int_theorems', 'declare_bitwise_uint_theorems', 'declare_bitwise_int_theorems', 'elab_stx_quot',
+            'declare_eval_bin', 'declare_eval_bin_bitwise', 'declare_eval_bin_bool_pred', 'name_poly_vars',
+            'name_power_vars', 'with_weak_namespace', 'meta', 'public', 'aux_def', 'lrat_proof', 'reprove',
+            'declare_aesop_exception', 'declare_uint_simprocs', 'declare_sint_simprocs', 'seal', 'unseal', 'unset_option',
+            'suppress_compilation', 'grind_pattern', 'grind_annotated', 'extend_docs', 'init_quot',
+            'initialize_simps_projections')
+# Token scan for keyword detection. ASCII identifiers (dotted components, primes, `!`, `?`) and numerals are whole
+# tokens, with numerals in Lean's own grammar (Lean/Parser/Basic.lean numberFnAux: decimal with `_` separators,
+# fraction and exponent; `0x`/`0b`/`0o` prefixes): `0alias` is the numeral `0` followed by the keyword `alias`
+# (refused), `0x1Ftheorem` is `0x1F` then `theorem` (refused), `foo2alias` is one identifier (accepted). A component
+# after a dot is a name component, not a keyword. Any non-ASCII character separates tokens, a refusal in the safe
+# direction when a keyword abuts a unicode letter.
+TOKEN = re.compile(r"[A-Za-z_][A-Za-z0-9_'!?]*(?:\.[A-Za-z_][A-Za-z0-9_'!?]*)*"
+                   r"|0[xX][0-9a-fA-F_]+|0[bB][01_]+|0[oO][0-7_]+|[0-9][0-9_]*(?:\.[0-9][0-9_]*)?(?:[eE][+-]?[0-9]+)?")
+COMMAND_SET = frozenset(COMMANDS)
+
+
+def command_token(text):
+    """The first command keyword that appears as a whole token in comment-free `text`, or None."""
+    for found in TOKEN.finditer(text):
+        if found.group() in COMMAND_SET:
+            return found.group()
+    return None
+
+
+def admission_tokens(text):
+    """Every ADMISSION word that appears as a whole token or as a dotted component in comment-free `text`."""
+    present = set()
+    for found in TOKEN.finditer(text):
+        present.update(found.group().split('.'))
+    return [token for token in ADMISSION if token in present]
 DECLARATION = re.compile(r'(theorem|abbrev|instance|def|noncomputable def) (' + IDENT + r')(?=$|[\s:(\[{⦃])')
 PRELUDE = {'import': re.compile(r'import Mathlib(?:\.[A-Za-z0-9_]+)*'),
            'noncomputable section': re.compile(r'noncomputable section'),
@@ -86,6 +135,40 @@ INJECTIONS = {
     'RejectNativeDecide': ("theorem injected : (2 : Nat) + 2 = 4 := by native_decide\n",
                            'injected._native.native_decide.ax_1_1', '')}
 CONTROLS = tuple(FALSE_CONTROLS) + tuple(INJECTIONS)
+# The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the ten files emit()
+# writes, a .log/.status pair per Lean process, the two protocol-test transcripts and the four environment records.
+# finish() refuses a directory with any member missing or unexpected, any member that is not a regular file, and
+# any directory already holding receipt.json: a receipt is written once and never replaced.
+EMITTED_FILES = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean') + tuple(c + '.lean' for c in CONTROLS)
+# The elaborated declaration census (C262 G2 closure): Lean lists EVERY constant the companion modules add to the
+# environment, each tagged `internal`/`user` (`Name.isInternalDetail`) and `range`/`generated` (whether Lean recorded
+# a declaration range, which every declaration elaborated from source syntax has and compiler-generated constants
+# such as `congr_simp` lemmas, abstracted proofs and equation lemmas lack). `finish` requires: the user-named ranged
+# constants equal the inventory exactly (a `where`-clause or unlisted-command declaration is refused whatever its
+# spelling); no ranged constant carries an internal-style name (a user-written `proof_1` is refused); the user-named
+# generated constants equal `census_auxiliary` exactly (so that whitelist can name only compiler-generated constants);
+# internal generated constants are counted and otherwise ignored.
+CENSUS = '''import TorusFiltration
+open Lean in
+#eval show Lean.Elab.Command.CommandElabM Unit from do
+  let env ← Lean.getEnv
+  let modules : Array Lean.Name := #[`TorusTopology, `ClosedSuperlevel, `TorusFiltration]
+  let idxs := modules.filterMap env.getModuleIdx?
+  if idxs.size != modules.size then throwError "census: a companion module is not imported"
+  let names := env.constants.fold (init := (#[] : Array Lean.Name)) fun acc n _ =>
+    match env.getModuleIdxFor? n with
+    | some i => if idxs.contains i then acc.push n else acc
+    | none => acc
+  for n in names.qsort (fun a b => a.toString < b.toString) do
+    let ranged ← Lean.findDeclarationRanges? n
+    IO.println s!"{n} {if n.isInternalDetail then "internal" else "user"} {if ranged.isSome then "range" else "generated"}"
+  IO.println s!"CENSUS_END {names.size}"
+'''
+EVIDENCE_FILES = frozenset(EMITTED_FILES) | {label + ext for label in BUILDS for ext in ('.log', '.status')} \
+    | {control + ext for control in CONTROLS for ext in ('.log', '.status')} \
+    | {'leanchecker.cmd', 'packages.log', 'toolchain.log', 'source.json', 'tests.log', 'tests-optimized.log'}
+if len(EVIDENCE_FILES) != 44:   # an explicit check, not an `assert`: the gate must hold under -O too
+    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 44 members')
 POSITIVE = '''import TorusFiltration
 open TorusFiltration
 
@@ -157,7 +240,13 @@ def git(*args):
 def metadata():
     meta = strict((SIDE / 'SOURCE_FILES.json').read_bytes())
     require(set(meta) == {'schema', 'scientific_effect', 'alignment_status', 'namespace', 'root_module', 'modules',
-                          'definitions', 'theorems', 'files', 'provenance'}, 'SOURCE_FILES schema keys')
+                          'definitions', 'theorems', 'files', 'provenance', 'census_auxiliary'}, 'SOURCE_FILES schema keys')
+    aux = meta['census_auxiliary']
+    # Dotted names under the namespace; that each is compiler-generated is checked by the census (`finish` requires
+    # every entry to appear without a declaration range), not by this schema rule.
+    require(isinstance(aux, list) and all(isinstance(n, str) and re.fullmatch(NAME, n) and n.startswith(NAMESPACE + '.')
+                                          and n.count('.') >= 2 for n in aux) and len(aux) == len(set(aux)),
+            'census_auxiliary must list dotted auxiliary names under the companion namespace')
     require(type(meta['schema']) is int and meta['schema'] == 1, 'SOURCE_FILES schema version')
     require(meta['scientific_effect'] == 'NONE', 'scientific effect must be NONE')
     require(meta['alignment_status'] == 'PENDING_INDEPENDENT_REVIEW', 'alignment status cannot self-award review')
@@ -211,9 +300,11 @@ def targets(meta):
 def code_lines(text):
     """The comment-free text of a Lean source, line by line (a comment lexer, not a Lean parser).
 
-    Handles `--` to end of line and nested `/- … -/` blocks (`/--` and `/-!` included). String
-    literals are not modelled, so scan_module refuses any `"` left in code; a `-/` outside a comment
-    or an unterminated block is refused rather than guessed at.
+    Handles `--` to end of line and nested `/- … -/` blocks (`/--` and `/-!` included); a closed
+    block comment leaves one space in the code, as Lean treats it as whitespace between tokens, so
+    `theorem/- -/hidden` is scanned as `theorem hidden`, not `theoremhidden`. String literals are
+    not modelled, so scan_module refuses any `"` left in code; a `-/` outside a comment or an
+    unterminated block is refused rather than guessed at.
     """
     lines = []
     depth = 0
@@ -229,6 +320,8 @@ def code_lines(text):
                 elif two == '-/':
                     depth -= 1
                     i += 2
+                    if depth == 0:
+                        code.append(' ')
                 else:
                     i += 1
             elif two == '/-':
@@ -264,9 +357,8 @@ def scan_module(text, module):
     for number, code in enumerate(lines, 1):
         require('"' not in code, 'string literal in code: ' + module + ':' + str(number))
     code_text = '\n'.join(lines)
-    for token in ADMISSION:
-        require(re.search(r'(?<![A-Za-z0-9_])' + token + r'(?![A-Za-z0-9_])', code_text) is None,
-                'admission token in ' + module + ': ' + token)
+    for token in admission_tokens(code_text):
+        require(False, 'admission token in ' + module + ': ' + token)
     require(not re.search(r'^namespace ResearchFormalCoreR1(?![A-Za-z0-9_])', code_text, re.M),
             'handoff namespace left in place: ' + module)
     scan = {'theorem': [], 'abbrev': [], 'def': [], 'instance': []}
@@ -300,8 +392,8 @@ def scan_module(text, module):
                         'unexpected column-0 line in ' + where + ': ' + line[:60])
                 require(keyword != 'import' or state == 'prelude', 'import inside the namespace: ' + where)
                 rest = line[len(keyword):]
-        found = COMMAND_TOKEN.search(rest)
-        require(found is None, 'command token outside a column-0 declaration in ' + where + ': ' + (found.group() if found else ''))
+        found = command_token(rest)
+        require(found is None, 'command token outside a column-0 declaration in ' + where + ': ' + (found or ''))
         require('#' not in rest and '@[' not in rest, 'attribute or #-command in ' + where)
     require(state == 'closed', 'namespace ' + NAMESPACE + ' not opened and closed exactly once: ' + module)
     return scan
@@ -404,6 +496,42 @@ def types(text, names):
     return actual
 
 
+CENSUS_LINE = re.compile(r'(' + NAME + r') (internal|user) (range|generated)')
+
+
+def census(text, names, auxiliary):
+    """Parse census.log (`<name> internal|user range|generated` per constant, then `CENSUS_END <count>`).
+
+    user+range must equal `names` exactly; internal+range is refused; user+generated must equal `auxiliary` exactly."""
+    lines = text.strip('\n').split('\n') if text.strip() else []
+    require(lines and re.fullmatch(r'CENSUS_END [0-9]+', lines[-1]), 'census terminator absent')
+    rows = [CENSUS_LINE.fullmatch(line) for line in lines[:-1]]
+    require(all(rows), 'unrecognized census output')
+    listed = [m.group(1) for m in rows]
+    require(int(lines[-1].split()[1]) == len(listed) and len(set(listed)) == len(listed), 'census count mismatch')
+    kinds = {m.group(1): (m.group(2), m.group(3)) for m in rows}
+    ranged_user = sorted(n for n, k in kinds.items() if k == ('user', 'range'))
+    ranged_internal = sorted(n for n, k in kinds.items() if k == ('internal', 'range'))
+    generated_user = sorted(n for n, k in kinds.items() if k == ('user', 'generated'))
+    require(not ranged_internal, 'user-written declarations with internal-style names: %s' % ranged_internal)
+    extra, missing = sorted(set(ranged_user) - set(names)), sorted(set(names) - set(ranged_user))
+    require(not extra, 'user-written declarations outside the inventory: %s' % extra)
+    require(not missing, 'inventory targets absent from the census: %s' % missing)
+    unlisted, absent = sorted(set(generated_user) - set(auxiliary)), sorted(set(auxiliary) - set(generated_user))
+    require(not unlisted, 'compiler-generated constants not listed in census_auxiliary: %s' % unlisted)
+    require(not absent, 'census_auxiliary entries absent or not compiler-generated: %s' % absent)
+    return {'constants': len(listed), 'user_declarations': len(ranged_user), 'generated_user': generated_user,
+            'internal_generated': sum(1 for k in kinds.values() if k == ('internal', 'generated'))}
+
+
+def write_new_file(path, text):
+    """Create `path` exclusively (O_EXCL, O_NOFOLLOW): an existing file or a planted symlink fails the open instead of
+    being replaced or followed; nothing is truncated."""
+    descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | getattr(os, 'O_NOFOLLOW', 0), 0o644)
+    with os.fdopen(descriptor, 'w', encoding='utf-8') as handle:
+        handle.write(text)
+
+
 def leanchecker_mode(text):
     command = text.strip()
     require(command in LEANCHECKER, 'unrecognized leanchecker invocation: ' + repr(command))
@@ -439,6 +567,7 @@ def emit(out):
     (out / 'Types.lean').write_text(header + 'set_option pp.explicit true\n'
                                     + '\n'.join('#check ' + n for n in theorem_targets(meta)) + '\n')
     (out / 'Positive.lean').write_text(POSITIVE)
+    (out / 'Census.lean').write_text(CENSUS)
     for name, (statement, tactic) in FALSE_CONTROLS.items():
         (out / (name + '.lean')).write_text(header + 'open ' + NAMESPACE + '\nexample : ' + statement + ' := by\n  ' + tactic + '\n')
     for name, (body, _, _) in INJECTIONS.items():
@@ -446,6 +575,16 @@ def emit(out):
 
 
 def finish(out):
+    require(out.is_dir() and not out.is_symlink(), 'evidence directory absent, not a directory, or a symlink: ' + str(out))
+    receipt_path = out / 'receipt.json'
+    require(not receipt_path.exists() and not receipt_path.is_symlink(),
+            'receipt.json already present: finish never replaces a receipt; a new attempt needs a fresh evidence directory')
+    present = {p.name for p in out.iterdir()}
+    missing, unexpected = sorted(EVIDENCE_FILES - present), sorted(present - EVIDENCE_FILES)
+    require(not missing and not unexpected, 'evidence membership differs: missing %s, unexpected %s' % (missing, unexpected))
+    for name in sorted(EVIDENCE_FILES):
+        member = out / name
+        require(member.is_file() and not member.is_symlink(), 'evidence member is not a regular file: ' + name)
     initial = strict((out / 'source.json').read_bytes())
     current = source()
     require(initial == current, 'source changed across execution')
@@ -467,6 +606,7 @@ def finish(out):
     require(mode == 'fresh' or not (out / 'leanchecker.log').read_text().strip(), 'leanchecker reported diagnostics')
     axioms = audit_axioms((out / 'axioms.log').read_text(), targets(meta))
     types((out / 'types.log').read_text(), theorem_targets(meta))
+    counted = census((out / 'census.log').read_text(), targets(meta), meta['census_auxiliary'])
     outcomes = {}
     for control in CONTROLS:
         status = int((out / (control + '.status')).read_text().strip())
@@ -483,11 +623,12 @@ def finish(out):
         'theorem_count': len(current['theorems']), 'definition_count': definitions, 'axioms': axioms,
         'negative_controls': outcomes, 'provenance': current['provenance'],
         'leanchecker': {'command': (out / 'leanchecker.cmd').read_text().strip(), 'mode': mode},
+        'census': counted,
         'scope_note': 'kernel-checked records that Lean elaborated these declarations at the pinned toolchain and '
                       'that leanchecker replayed ' + replayed + '; it is not alignment with the handoff scope, '
                       'not review, and not acceptance.',
-        'log_sha256': {p.name: sha(p.read_bytes()) for p in sorted(out.iterdir()) if p.is_file()}}
-    (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
+        'log_sha256': {name: sha((out / name).read_bytes()) for name in sorted(EVIDENCE_FILES)}}
+    write_new_file(receipt_path, json.dumps(receipt, indent=2, sort_keys=True) + '\n')
     return receipt
 
 
@@ -498,6 +639,9 @@ def main():
     parser.add_argument('--control', choices=CONTROLS)
     parser.add_argument('--status', type=int)
     args = parser.parse_args()
+    # The interpreter mode this invocation actually runs in, for the test fixture (which requires it to equal the
+    # outer mode for every child) and for the hosted job log (C262 G1).
+    print('TORUS_FILTRATION_PYTHON: optimize=%d' % sys.flags.optimize, file=sys.stderr)
     try:
         if args.command == 'source':
             result = source()

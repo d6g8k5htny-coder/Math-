@@ -50,8 +50,17 @@ SORRY_WARNING = "/tmp/evidence/RejectSorry.lean:2:8: warning: declaration uses `
 INJECTED = "'injected' depends on axioms: [{0}]\n"
 LEANCHECKER_MODULES = 'leanchecker TorusTopology ClosedSuperlevel TorusFiltration'
 LEANCHECKER_FRESH = 'leanchecker --fresh TorusFiltration'
-EMITTED = ('Audit.lean', 'Types.lean', 'Positive.lean', 'RejectSuperlevelSignFlip.lean', 'RejectSuperlevelBelowThreshold.lean',
-           'RejectConstantNotPeriodic.lean', 'RejectSorry.lean', 'RejectCustomAxiom.lean', 'RejectNativeDecide.lean')
+EMITTED = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean', 'RejectSuperlevelSignFlip.lean',
+           'RejectSuperlevelBelowThreshold.lean', 'RejectConstantNotPeriodic.lean', 'RejectSorry.lean', 'RejectCustomAxiom.lean',
+           'RejectNativeDecide.lean')
+PYTHON_LINE = 'TORUS_FILTRATION_PYTHON: optimize=%d' % sys.flags.optimize
+# Compiler-generated internal constants as the real census lists them (abstracted proofs, equation lemmas); the fixture
+# census carries a few so the parser's `internal generated` branch is exercised.
+INTERNAL_GENERATED = ('TorusFiltration.superlevel_set.eq_1', 'TorusFiltration.torus_periodBasis._proof_1',
+                      'TorusFiltration.torus_proj_eq_iff._abel_1_1')
+# The outer interpreter mode goes into the test transcript (tests.log / tests-optimized.log), so the hosted
+# evidence records which mode each suite ran in (C262 G1).
+print('TORUS_FILTRATION_TESTS: outer optimize=%d' % sys.flags.optimize, file=sys.stderr)
 
 
 def checker():
@@ -59,6 +68,29 @@ def checker():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def child_python():
+    """Interpreter prefix for every check.py child: `-B -S` plus the OUTER interpreter's optimization level.
+
+    A child spawned through sys.executable does not inherit the parent's -O; until C262 (Math- #428 comment
+    6112740935, finding G1) the -O test run therefore exercised check.py's CLI paths unoptimized."""
+    flags = ['-B', '-S']
+    if sys.flags.optimize:
+        flags.append('-' + 'O' * sys.flags.optimize)
+    return [sys.executable, *flags]
+
+
+def child_env(extra=None):
+    """Child environment: no GITHUB_* (host identity is set explicitly where a test needs it) and no PYTHONOPTIMIZE,
+    ambient or injected, so the child's mode is exactly the one child_python() selects."""
+    environment = {k: v for k, v in os.environ.items() if not k.startswith('GITHUB_')}
+    environment.update(extra or {})
+    environment.pop('PYTHONOPTIMIZE', None)
+    return environment
+
+
+OPTIMIZE_PROBE = 'import sys; print(sys.flags.optimize)'
 
 
 def placeholder_module(module):
@@ -133,10 +165,13 @@ class Fixture:
         self.commit()
 
     def run(self, *args, env=None):
-        environment = {k: v for k, v in os.environ.items() if not k.startswith('GITHUB_')}
-        environment.update(env or {})
-        return subprocess.run([sys.executable, '-B', '-S', str(self.side / 'check.py'), *args], cwd=self.root,
-                              capture_output=True, text=True, env=environment)
+        result = subprocess.run([*child_python(), str(self.side / 'check.py'), *args], cwd=self.root,
+                                capture_output=True, text=True, env=child_env(env))
+        # Every child reports the mode it actually runs in (check.py main); it must be the outer mode, on every
+        # call, accept or refuse. A fixture that stopped propagating -O would fail here, not pass silently (C262 G1).
+        if result.stderr.count(PYTHON_LINE + '\n') != 1 or 'TORUS_FILTRATION_PYTHON: optimize=' in result.stderr.replace(PYTHON_LINE, ''):
+            raise AssertionError('check.py child did not report the outer interpreter mode %d: %r' % (sys.flags.optimize, result.stderr[:300]))
+        return result
 
     def evidence(self):
         out = self.root / 'evidence'
@@ -150,6 +185,8 @@ class Fixture:
             raise AssertionError(emitted.stderr)
         (out / 'toolchain.log').write_text(LEAN_VERSION_LINE)
         (out / 'packages.log').write_text(''.join('%s %s\n' % kv for kv in self.revisions.items()))
+        (out / 'tests.log').write_text('TORUS_FILTRATION_TESTS: outer optimize=0\nRan 1 test\n\nOK\n')
+        (out / 'tests-optimized.log').write_text('TORUS_FILTRATION_TESTS: outer optimize=1\nRan 1 test\n\nOK\n')
         for label in self.c.BUILDS:
             (out / (label + '.status')).write_text('0\n')
             (out / (label + '.log')).write_text('')
@@ -166,6 +203,9 @@ class Fixture:
         for control in self.c.INJECTIONS:
             (out / (control + '.log')).write_text(good_injection_log(self.c, control))
             (out / (control + '.status')).write_text('0\n')
+        rows = sorted([(n, 'user range') for n in targets] + [(n, 'user generated') for n in meta['census_auxiliary']]
+                      + [(n, 'internal generated') for n in INTERNAL_GENERATED])
+        (out / 'census.log').write_text(''.join('%s %s\n' % r for r in rows) + 'CENSUS_END %d\n' % len(rows))
         return out
 
 
@@ -177,6 +217,69 @@ class FixtureCase(unittest.TestCase):
     def assertFails(self, run, message):
         self.assertEqual(run.returncode, 1, run.stdout + run.stderr)
         self.assertIn('TORUS_FILTRATION_FAIL: ' + message, run.stderr)
+
+
+class ChildInterpreterMode(unittest.TestCase):
+    """C262 G1: the mode a check.py child actually runs in is observed, not inferred from an argument string."""
+
+    def test_children_run_in_the_outer_optimization_mode(self):
+        outer = sys.flags.optimize
+        probe = subprocess.run([*child_python(), '-c', OPTIMIZE_PROBE], capture_output=True, text=True, env=child_env())
+        self.assertEqual((probe.returncode, probe.stdout.strip()), (0, str(outer)), probe.stderr)
+        # Ambient or injected PYTHONOPTIMIZE never reaches the child: the mode is the outer one in both cases.
+        saved = os.environ.get('PYTHONOPTIMIZE')
+        os.environ['PYTHONOPTIMIZE'] = '2'
+        try:
+            ambient = subprocess.run([*child_python(), '-c', OPTIMIZE_PROBE], capture_output=True, text=True, env=child_env())
+            injected = subprocess.run([*child_python(), '-c', OPTIMIZE_PROBE], capture_output=True, text=True,
+                                      env=child_env({'PYTHONOPTIMIZE': '1'}))
+        finally:
+            if saved is None:
+                del os.environ['PYTHONOPTIMIZE']
+            else:
+                os.environ['PYTHONOPTIMIZE'] = saved
+        self.assertEqual(ambient.stdout.strip(), str(outer))
+        self.assertEqual(injected.stdout.strip(), str(outer))
+        self.assertFalse('PYTHONOPTIMIZE' in child_env({'PYTHONOPTIMIZE': '1'}))   # assertFalse: never print an environment
+        # The invocation the fixture used before C262 (no propagation) runs the child unoptimized whatever the outer
+        # mode is; under `-O` that is exactly the G1 observation, under the normal mode the two agree at 0.
+        plain = subprocess.run([sys.executable, '-B', '-S', '-c', OPTIMIZE_PROBE], capture_output=True, text=True, env=child_env())
+        self.assertEqual(plain.stdout.strip(), '0')
+        if outer:
+            self.assertNotEqual(plain.stdout.strip(), str(outer))
+        self.assertEqual(child_python()[1:], ['-B', '-S'] + (['-' + 'O' * outer] if outer else []))
+
+    def test_every_check_py_child_reports_the_outer_mode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            f = Fixture(checker(), tmp)
+            accepted = f.run('source')                      # Fixture.run itself requires the diagnostic on every call
+            self.assertEqual(accepted.returncode, 0, accepted.stderr)
+            self.assertEqual(accepted.stderr.strip(), PYTHON_LINE)
+            (f.side / 'README.md').write_text('# edited without a commit\n')
+            refused = f.run('source')
+            self.assertEqual(refused.returncode, 1)
+            self.assertEqual(refused.stderr.splitlines()[0], PYTHON_LINE)
+            self.assertIn('TORUS_FILTRATION_FAIL: dirty execution/source bytes', refused.stderr)
+            f.git('checkout', '--', '.')
+            # The invocation the fixture used before C262 runs the real check.py unoptimized under an outer -O, and
+            # check.py now says so itself; under the normal outer mode both report 0.
+            plain = subprocess.run([sys.executable, '-B', '-S', str(f.side / 'check.py'), 'source'], cwd=f.root,
+                                   capture_output=True, text=True, env=child_env())
+            self.assertEqual(plain.returncode, 0, plain.stderr)
+            self.assertEqual(plain.stderr.strip(), 'TORUS_FILTRATION_PYTHON: optimize=0')
+            if sys.flags.optimize:
+                self.assertNotEqual(plain.stderr.strip(), PYTHON_LINE)
+            # Negative control of the fixture's own guard: with the child prefix rebound to the OTHER mode, Fixture.run
+            # itself must refuse (so a fixture that stopped propagating -O, or dropped the guard, is caught here).
+            other = [sys.executable, '-B', '-S'] + ([] if sys.flags.optimize else ['-O'])
+            saved = globals()['child_python']
+            globals()['child_python'] = lambda: other
+            try:
+                with self.assertRaises(AssertionError):
+                    f.run('source')
+            finally:
+                globals()['child_python'] = saved
+            self.assertEqual(f.run('source').returncode, 0)
 
 
 class InventoryTests(unittest.TestCase):
@@ -291,6 +394,51 @@ class InventoryTests(unittest.TestCase):
             (inject('set_option maxHeartbeats 0 in'), unexpected),
             (inject('section\n  theorem indented_hidden : True := trivial\nend'), unexpected),
             (inject('  theorem indented_hidden : True := trivial'), command),
+            (good.replace('namespace TorusFiltration\n', 'namespace TorusFiltration\n  alias hidden := Nat.add_comm\n'), command),
+            (inject('theorem a_hidden : True := trivial alias hidden := Nat.add_comm'), command),
+            (inject('alias hidden := Nat.add_comm'), unexpected),
+            (inject('  irreducible_def hidden : Nat := 0'), command),
+            (inject('  simproc hidden (Nat.succ _) := fun _ => return .continue'), command),
+            (inject('  notation3 hidden => Nat.zero'), command),
+            (inject('  run_meta pure ()'), command),
+            (inject('  mk_iff_of_inductive_prop Nat.le hidden'), command),
+            (inject('  cbv_simproc hidden (Nat.succ _) := fun _ => return .continue'), command),
+            (inject('  builtin_simproc_decl hidden (Nat.succ _) := fun _ => return .continue'), command),
+            (inject('  add_aesop_rules safe hidden'), command),
+            (inject('  register_label_attr hidden'), command),
+            (inject('  grind_propagator hidden ↓Nat.le := fun _ => pure ()'), command),
+            (inject('  declare_uint_theorems Nat'), command),
+            (inject('  name_poly_vars X over Nat'), command),
+            (inject('  with_weak_namespace Hidden theorem hidden : True := trivial'), command),
+            (inject('  meta def hidden : Nat := 0'), command),
+            (inject('  public theorem hidden : True := trivial'), command),
+            (inject('  aux_def hidden : Nat := 0'), command),
+            (inject('  lrat_proof hidden "p cnf 1 1 1 0" "1 0"'), 'string literal in code: ClosedSuperlevel:'),
+            (inject('  lrat_proof hidden'), command),
+            # lexical splices found by the verification of the G2 repair: a closed block comment is a token separator
+            # (as in Lean), and a numeral ends at the first non-digit, so `0alias` is `0` then the keyword
+            (inject('  theorem/- -/hidden : True := trivial'), command),
+            (inject('  alias/- -/hidden := Nat.add_comm'), command),
+            (inject('theorem a_hidden : True := trivial theorem/- -/b_hidden : True := trivial'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0alias hidden := Nat.add_comm'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0theorem hidden : True := trivial'), command),
+            (good.replace(':= trivial', ':= by\n  exact/- -/sorry', 1), 'admission token in ClosedSuperlevel: sorry'),
+            # Lean's non-decimal numerals end where Lean ends them (hex, binary, octal, exponent, `_` separators)
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0x1Ftheorem hidden : True := trivial'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 1e5theorem hidden : True := trivial'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 1_0theorem hidden : True := trivial'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0o7instance hidden : Inhabited Nat := ⟨0⟩'), command),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0b1axiom hidden : False'), 'admission token in ClosedSuperlevel: axiom'),
+            (good.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0x1Fset_option maxHeartbeats 0'), command),
+            (inject('  reprove superlevel_mono by trivial'), command),
+            (inject('  declare_aesop_exception hidden'), command),
+            (inject('  seal superlevel_set'), command),
+            (inject('  unset_option maxHeartbeats'), command),
+            (good.replace(':= trivial', ':= by/- -/native_decide', 1), 'admission token in ClosedSuperlevel: native_decide'),
+            (inject('  unif_hint (x : Nat) where ⊢ x =?= x'), command),
+            (inject('  recall superlevel_set : Nat := 0'), command),
+            (inject('  add_decl_doc superlevel_set'), command),
+            (inject('  nonrec def hidden : Nat := 0'), command),
             (inject('theorem a_hidden : True := trivial theorem b_hidden : True := trivial'), command),
             (inject('theorem a_hidden : True := by\n  open Classical in exact trivial'), command),
             (inject('variable (h : False) in theorem hidden : True := trivial'), command),
@@ -340,10 +488,23 @@ class InventoryTests(unittest.TestCase):
         for text, message in cases:
             with self.subTest(message=message, text=text[-70:]), self.assertRaisesRegex(ValueError, re.escape(message)):
                 self.c.scan_module(text, 'ClosedSuperlevel')
-        # Every command keyword the scanner knows is refused somewhere other than the start of a whitelisted line.
+        # Every command keyword the scanner knows is refused somewhere other than the start of a whitelisted line,
+        # indented after the namespace opening included (the C262 G2 position).
         for keyword in self.c.COMMANDS:
             with self.subTest(keyword=keyword), self.assertRaises(ValueError):
                 self.c.scan_module(inject('theorem k_hidden : True := trivial ' + keyword), 'ClosedSuperlevel')
+            with self.subTest(keyword=keyword, position='indented after namespace'), self.assertRaises(ValueError):
+                self.c.scan_module(good.replace('namespace TorusFiltration\n', 'namespace TorusFiltration\n  ' + keyword + ' hidden\n'), 'ClosedSuperlevel')
+        # Identifiers that merely contain a keyword, or dotted components, are not keywords (no false refusal).
+        for text in (good.replace(':= trivial', ':= (fun (_ : Foo.alias = 0) => trivial) rfl', 1),
+                     good.replace(':= trivial', ':= (fun (foo2alias : True) => foo2alias) trivial', 1),
+                     good.replace(':= trivial', ':= (fun (alias_like theorem_like : True) => theorem_like) trivial trivial', 1),
+                     good.replace(':= trivial', ':= (Classical.byContradiction fun h => h trivial)', 1)):
+            self.assertEqual(self.c.scan_module(text, 'ClosedSuperlevel'), INVENTORY['ClosedSuperlevel'])
+        # A `where` clause adds a dotted auxiliary declaration that no keyword list refuses: the scanner accepts it
+        # and the elaborated census (Census.lean, `finish`) is what refuses it. Recorded here so the boundary is explicit.
+        where_clause = good.replace('theorem superlevel_mono : True := trivial', 'theorem superlevel_mono : True := trivial\n  where hidden : True := trivial')
+        self.assertEqual(self.c.scan_module(where_clause, 'ClosedSuperlevel'), INVENTORY['ClosedSuperlevel'])
 
 
 class ParserControls(unittest.TestCase):
@@ -471,7 +632,12 @@ class ParserControls(unittest.TestCase):
             self.c.emit(out)
             self.assertEqual({p.name for p in out.iterdir()}, set(EMITTED))
             self.assertEqual({p.name for p in out.iterdir()},
-                             {'Audit.lean', 'Types.lean', 'Positive.lean'} | {n + '.lean' for n in self.c.CONTROLS})
+                             {'Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean'} | {n + '.lean' for n in self.c.CONTROLS})
+            census = (out / 'Census.lean').read_text()
+            self.assertTrue(census.startswith('import TorusFiltration\n'))
+            for needed in ('isInternalDetail', 'findDeclarationRanges?', 'getModuleIdxFor?', '`TorusTopology', '`ClosedSuperlevel',
+                           '`TorusFiltration', 'CENSUS_END', '"internal" else "user"', '"range" else "generated"'):
+                self.assertIn(needed, census)
             audit = (out / 'Audit.lean').read_text().splitlines()
             self.assertEqual(audit[0], 'import TorusFiltration')
             self.assertEqual(audit[1:], ['#print axioms ' + n for n in self.c.targets(meta)])
@@ -556,7 +722,9 @@ class WorkflowAndReplay(unittest.TestCase):
                          'printf \'%s\\n\' "$LEANCHECKER_COMMAND" > "$TORUS_OUT/leanchecker.cmd"',
                          'run_lean leanchecker $LEANCHECKER_COMMAND',
                          'run_lean positive lean -DwarningAsError=true', 'run_lean axioms lean -DwarningAsError=true',
-                         'run_lean types lean -DwarningAsError=true'):
+                         'run_lean types lean -DwarningAsError=true',
+                         'run_lean census lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Census.lean"',
+                         'set -euo pipefail\n# The outer Python mode is the one named on each command line below, never an ambient PYTHONOPTIMIZE (C262 G1).\nunset PYTHONOPTIMIZE\n'):
             self.assertIn(required, self.replay, required)
         for module in ('TorusTopology', 'ClosedSuperlevel', 'TorusFiltration'):
             self.assertIn('run_lean build-%s lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/%s.olean" "$TORUS_SIDE/%s.lean"'
@@ -690,6 +858,22 @@ class SourceFixture(FixtureCase):
                       'unexpected column-0 line in ClosedSuperlevel:'),
                      (original.replace('\nend TorusFiltration', '\n  theorem hidden : True := trivial\nend TorusFiltration'),
                       'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     # C262 G2: an indented imported `alias` immediately after the namespace opening, refused by the source CLI
+                     (original.replace('namespace TorusFiltration\n', 'namespace TorusFiltration\n  alias hidden := Nat.add_comm\n'),
+                      'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     (original.replace('theorem superlevel_mono : True := trivial',
+                                       'theorem superlevel_mono : True := trivial alias hidden := Nat.add_comm'),
+                      'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     (original.replace('\nend TorusFiltration', '\nalias hidden := Nat.add_comm\nend TorusFiltration'),
+                      'unexpected column-0 line in ClosedSuperlevel:'),
+                     (original.replace('\nend TorusFiltration', '\n  theorem/- -/hidden : True := trivial\nend TorusFiltration'),
+                      'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     (original.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0alias hidden := Nat.add_comm'),
+                      'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     (original.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0x1Ftheorem hidden : True := trivial'),
+                      'command token outside a column-0 declaration in ClosedSuperlevel:'),
+                     (original.replace('noncomputable def superlevel_set : Nat := 0', 'noncomputable def superlevel_set : Nat := 0b1axiom hidden : False'),
+                      'admission token in ClosedSuperlevel: axiom'),
                      (original.replace('namespace TorusFiltration', 'namespace ResearchFormalCoreR1'),
                       'handoff namespace left in place: ClosedSuperlevel')]
             for text, message in cases:
@@ -768,6 +952,11 @@ class MetadataFixture(FixtureCase):
             (setter(('provenance',), 'none'), 'provenance object'),
             (setter(('extra',), 1), 'SOURCE_FILES schema keys'),
             (deleter(('provenance',)), 'SOURCE_FILES schema keys'),
+            (deleter(('census_auxiliary',)), 'SOURCE_FILES schema keys'),
+            (setter(('census_auxiliary',), 'TorusFiltration.torus_periodBasis.congr_simp'), 'census_auxiliary must list dotted auxiliary names'),
+            (setter(('census_auxiliary',), ['TorusFiltration.hidden']), 'census_auxiliary must list dotted auxiliary names'),
+            (setter(('census_auxiliary',), ['Other.torus_periodBasis.congr_simp']), 'census_auxiliary must list dotted auxiliary names'),
+            (setter(('census_auxiliary',), ['TorusFiltration.torus_periodBasis.congr_simp'] * 2), 'census_auxiliary must list dotted auxiliary names'),
             (setter(('schema',), 2), 'SOURCE_FILES schema version'),
             (setter(('schema',), '1'), 'SOURCE_FILES schema version'),
             (setter(('schema',), True), 'SOURCE_FILES schema version'),
@@ -838,9 +1027,27 @@ class FinishFixture(FixtureCase):
             for name, digest in receipt['log_sha256'].items():
                 self.assertEqual(hashlib.sha256((out / name).read_bytes()).hexdigest(), digest, name)
             self.assertEqual(set(receipt['log_sha256']), {p.name for p in out.iterdir() if p.is_file()} - {'receipt.json'})
+            self.assertEqual(set(receipt['log_sha256']), set(self.c.EVIDENCE_FILES))
+            self.assertEqual(len(receipt['log_sha256']), 44)
+            self.assertEqual(receipt['census'], {'constants': 58 + len(self.c.metadata()['census_auxiliary']) + len(INTERNAL_GENERATED),
+                                                 'user_declarations': 58,
+                                                 'generated_user': sorted(self.c.metadata()['census_auxiliary']),
+                                                 'internal_generated': len(INTERNAL_GENERATED)})
+            self.assertIn('census.log', receipt['log_sha256'])
             self.assertIn('axioms.log', receipt['log_sha256'])
             self.assertIn('leanchecker.cmd', receipt['log_sha256'])
             self.assertIn('Positive.lean', receipt['log_sha256'])
+            self.assertIn('tests-optimized.log', receipt['log_sha256'])
+            # C262 G3: a receipt is never replaced. A second finish on the same directory is refused and leaves the
+            # old bytes intact, with or without a newly failing input; no digest of the receipt itself appears.
+            frozen = (out / 'receipt.json').read_bytes()
+            self.assertFails(f.run('finish', str(out)), 'receipt.json already present')
+            self.assertEqual((out / 'receipt.json').read_bytes(), frozen)
+            (out / 'leanchecker.status').write_text('1\n')
+            self.assertFails(f.run('finish', str(out)), 'receipt.json already present')
+            self.assertEqual((out / 'receipt.json').read_bytes(), frozen)
+            (out / 'leanchecker.status').write_text('0\n')
+            self.assertNotIn('receipt.json', receipt['log_sha256'])
             # An operator's --fresh run is recorded as such, with leanchecker's own progress line tolerated.
             (out / 'receipt.json').unlink()
             (out / 'leanchecker.cmd').write_text(LEANCHECKER_FRESH + '\n')
@@ -860,6 +1067,15 @@ class FinishFixture(FixtureCase):
             axioms = (out / 'axioms.log').read_text()
             types_log = (out / 'types.log').read_text()
             audit = (out / 'Audit.lean').read_text()
+            def census_with(row):
+                lines = (out / 'census.log').read_text().splitlines(True)
+                body = sorted(lines[:-1] + ['%s %s\n' % row])
+                return ''.join(body) + 'CENSUS_END %d\n' % len(body)
+
+            def census_without(name):
+                lines = (out / 'census.log').read_text().splitlines(True)
+                body = [l for l in lines[:-1] if not l.startswith(name + ' ')]
+                return ''.join(body) + 'CENSUS_END %d\n' % len(body)
             cases = [
                 ('build-TorusTopology.status', '1\n', 'missing successful process: build-TorusTopology'),
                 ('leanchecker.status', '', 'missing successful process: leanchecker'),
@@ -875,6 +1091,20 @@ class FinishFixture(FixtureCase):
                 ('axioms.log', 'warning: noise\n' + axioms, 'unrecognized audit output'),
                 ('types.log', ''.join(types_log.splitlines(True)[1:]), 'type inventory mismatch'),
                 ('types.log', types_log + 'error: crash\n', 'type diagnostic'),
+                # C262 G2 closure: the elaborated census. N = the fixture's row count.
+                ('census.log', census_with(('TorusFiltration.superlevel_mono.hidden', 'user range')), "user-written declarations outside the inventory: ['TorusFiltration.superlevel_mono.hidden']"),
+                ('census.log', census_with(('TorusFiltration.superlevel_mono.proof_1', 'internal range')), "user-written declarations with internal-style names: ['TorusFiltration.superlevel_mono.proof_1']"),
+                ('census.log', census_with(('TorusFiltration.superlevel_mono._hidden', 'internal range')), "user-written declarations with internal-style names: ['TorusFiltration.superlevel_mono._hidden']"),
+                ('census.log', census_with(('TorusFiltration.superlevel_mono.other_simp', 'user generated')), "compiler-generated constants not listed in census_auxiliary: ['TorusFiltration.superlevel_mono.other_simp']"),
+                ('census.log', census_without('TorusFiltration.superlevel_mono'), "inventory targets absent from the census: ['TorusFiltration.superlevel_mono']"),
+                ('census.log', census_without('TorusFiltration.torus_periodBasis.congr_simp'), "census_auxiliary entries absent or not compiler-generated: ['TorusFiltration.torus_periodBasis.congr_simp']"),
+                ('census.log', (out / 'census.log').read_text().replace('TorusFiltration.torus_periodBasis.congr_simp user generated', 'TorusFiltration.torus_periodBasis.congr_simp user range'),
+                 "user-written declarations outside the inventory: ['TorusFiltration.torus_periodBasis.congr_simp']"),
+                ('census.log', (out / 'census.log').read_text().replace('CENSUS_END', 'TorusFiltration.superlevel_mono.hidden user range\nCENSUS_END'), 'census count mismatch'),
+                ('census.log', ''.join((out / 'census.log').read_text().splitlines(True)[:-1]), 'census terminator absent'),
+                ('census.log', 'warning: noise\n' + (out / 'census.log').read_text(), 'unrecognized census output'),
+                ('census.log', (out / 'census.log').read_text().replace(' user range\n', '\n', 1), 'unrecognized census output'),
+                ('census.status', '1\n', 'missing successful process: census'),
                 ('RejectSuperlevelSignFlip.log', FALSE_LOG.format('RejectSuperlevelSignFlip').replace('False', 'True'),
                  'not the intended False-goal diagnostic'),
                 ('RejectSuperlevelSignFlip.status', '0\n', 'false-statement control must exit exactly one'),
@@ -900,17 +1130,59 @@ class FinishFixture(FixtureCase):
                         self.assertFalse((out / 'receipt.json').exists(), 'receipt written despite refusal')
                     finally:
                         (out / name).write_text(saved)
-            for name, message in (('leanchecker.cmd', 'leanchecker invocation record absent'),
-                                  ('Positive.lean', 'emitted Lean file changed across execution: Positive.lean'),
-                                  ('RejectSuperlevelBelowThreshold.status', '[Errno 2] No such file or directory')):
-                with self.subTest(name=name, message=message):
-                    saved = (out / name).read_text()
+            # C262 G3: every one of the 44 required evidence members is required; removing any one withholds the receipt.
+            self.assertEqual({p.name for p in out.iterdir()}, set(self.c.EVIDENCE_FILES))
+            for name in sorted(self.c.EVIDENCE_FILES):
+                with self.subTest(removed=name):
+                    saved = (out / name).read_bytes()
                     (out / name).unlink()
                     try:
-                        self.assertFails(f.run('finish', str(out)), message)
+                        self.assertFails(f.run('finish', str(out)), "evidence membership differs: missing ['%s'], unexpected []" % name)
                         self.assertFalse((out / 'receipt.json').exists(), 'receipt written despite refusal')
                     finally:
-                        (out / name).write_text(saved)
+                        (out / name).write_bytes(saved)
+            # An unexpected member, a symlinked member and a stray subdirectory are refused too.
+            (out / 'extra.log').write_text('')
+            self.assertFails(f.run('finish', str(out)), "evidence membership differs: missing [], unexpected ['extra.log']")
+            (out / 'extra.log').unlink()
+            (out / 'stray').mkdir()
+            self.assertFails(f.run('finish', str(out)), "evidence membership differs: missing [], unexpected ['stray']")
+            (out / 'stray').rmdir()
+            # A required member that is a directory is not a regular file.
+            saved = (out / 'tests.log').read_bytes()
+            (out / 'tests.log').unlink()
+            (out / 'tests.log').mkdir()
+            self.assertFails(f.run('finish', str(out)), 'evidence member is not a regular file: tests.log')
+            self.assertFalse((out / 'receipt.json').exists())
+            (out / 'tests.log').rmdir()
+            (out / 'tests.log').write_bytes(saved)
+            saved = (out / 'tests.log').read_bytes()
+            (out / 'tests.log').unlink()
+            os.symlink('tests-optimized.log', out / 'tests.log')
+            self.assertFails(f.run('finish', str(out)), 'evidence member is not a regular file: tests.log')
+            self.assertFalse((out / 'receipt.json').exists())
+            (out / 'tests.log').unlink()
+            (out / 'tests.log').write_bytes(saved)
+            # A symlinked evidence directory is refused before anything is read.
+            os.symlink(out, Path(tmp) / 'evidence-link')
+            self.assertFails(f.run('finish', str(Path(tmp) / 'evidence-link')), 'evidence directory absent, not a directory, or a symlink')
+            (Path(tmp) / 'evidence-link').unlink()
+            # The exclusive write itself (not only the pre-check) refuses an existing file and a planted symlink, intact.
+            frozen = b'frozen receipt bytes\n'
+            (out / 'planted.json').write_bytes(frozen)
+            with self.assertRaises(FileExistsError):
+                self.c.write_new_file(out / 'planted.json', 'new\n')
+            self.assertEqual((out / 'planted.json').read_bytes(), frozen)
+            (out / 'planted.json').unlink()
+            os.symlink('absent-target', out / 'planted.json')
+            with self.assertRaises(OSError):
+                self.c.write_new_file(out / 'planted.json', 'new\n')
+            self.assertFalse((out / 'absent-target').exists())
+            (out / 'planted.json').unlink()
+            # A pre-existing receipt (even a symlink to nothing) is never replaced.
+            os.symlink('absent-target', out / 'receipt.json')
+            self.assertFails(f.run('finish', str(out)), 'receipt.json already present')
+            (out / 'receipt.json').unlink()
             self.assertEqual(f.run('finish', str(out)).returncode, 0)
 
 

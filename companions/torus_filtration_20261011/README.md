@@ -189,9 +189,50 @@ or `#`, any string literal (`"`), a primed or dotted declaration name, a declara
 the namespace or after `end TorusFiltration`, any remaining `namespace ResearchFormalCoreR1`,
 and any admission token (`sorry`, `sorryAx`, `admit`, `axiom`, `native_decide`,
 `ofReduceBool`, `trustCompiler`, `unsafe`, `opaque`, `partial`, `implemented_by`, `extern`,
-`skipKernelTC`, `autoImplicit`) in comment-free code. A compile fix that needs a refused form
-must extend the scanner and the inventory explicitly; nothing escapes the `#print axioms` audit
-by being written in a shape the scanner does not count.
+`skipKernelTC`, `autoImplicit`) in comment-free code, and the declaration-producing commands of
+Lean core, Batteries, Aesop and Mathlib found at the pin (the list `COMMANDS` in `check.py`:
+`alias`, `irreducible_def`, the `simproc`/`dsimproc`/`cbv_simproc` families with their `_decl`
+and `builtin_` forms, `notation3`, `unif_hint`, `recall`, `binder_predicate`, `add_decl_doc`,
+`library_note`, `assert_not_exists`, `register_simp_attr`, `register_builtin_option`,
+`register_linter_set`, `register_label_attr`, `declare_aesop_rule_sets`, `add_aesop_rules`,
+`erase_aesop_rules`, `compile_inductive`, `compile_def`, `nonrec`, `mk_iff_of_inductive_prop`,
+`run_meta`, `grind_propagator`, `builtin_grind_propagator`, `declare_config_elab` and its legacy
+forms, `gen_injective_theorems`, `declare_uint_theorems`, `declare_int_theorems`,
+`declare_bitwise_uint_theorems`, `declare_bitwise_int_theorems`, `elab_stx_quot`, the
+`declare_eval_bin` family, `name_poly_vars`, `name_power_vars`, `with_weak_namespace`, `meta`,
+`public`, `aux_def`, `lrat_proof`, `reprove`, `declare_aesop_exception`, `declare_uint_simprocs`,
+`declare_sint_simprocs`, `seal`, `unseal`, `unset_option`, `suppress_compilation`, `grind_pattern`,
+`grind_annotated`, `extend_docs`, `init_quot`, `initialize_simps_projections`; Mathlib spells
+`compile_inductive%`, `compile_def%` and `gen_injective_theorems%` with a `%`, which the token scan
+does not need; a few listed commands only attach documentation or notes rather than declarations,
+and are refused all the same).
+The refused keywords are the explicit list `COMMANDS` in `check.py`: a first filter, not a Lean
+grammar and not a complete census. A declaration-producing command or form absent from that list
+passes an indented or same-line position uncounted: the C262 gate review (Math- #428 comment
+6112740935, finding G2) found `alias` absent at head `a898bb44`, the pre-push verification of
+the repair found further commands at the pin (`run_meta`, `mk_iff_of_inductive_prop`, the
+`cbv_simproc` family, `grind_propagator`, `register_builtin_option`, `register_linter_set`,
+`register_label_attr`, `declare_config_elab`, `gen_injective_theorems%`, `declare_uint_theorems`,
+`name_poly_vars`, `add_aesop_rules`, `aux_def`, `reprove`, and more, listed as found), and the
+`where` clause of a declaration adds a dotted auxiliary declaration that no keyword list can
+refuse. The lexer also treats a closed block comment as a token separator (`theorem/- -/hidden`
+is `theorem hidden`) and lexes numerals as Lean does (`0alias` is `0` then `alias`; `0x1Ftheorem`
+is `0x1F` then `theorem`), both found by that verification. **The declaration census the receipt
+stands on is therefore not the scanner but `Census.lean`**, emitted by `check.py emit` and run
+by the replay: Lean itself lists every constant the three companion modules add to the
+environment, tagged `internal` or `user` (`Name.isInternalDetail`: `_`-prefixed, `eq_n`,
+`match_n`, `proof_n`, `omega_n` or numeric components) and `range` or `generated` (whether Lean
+recorded a declaration range, which every declaration elaborated from source syntax carries and
+compiler-generated constants lack). `check.py finish` requires the user-named ranged constants
+to equal the 58 inventoried names exactly, refuses any ranged constant with an internal-style
+name (a `where`-clause `proof_1` written by hand), and requires the user-named generated
+constants to equal `census_auxiliary` in `SOURCE_FILES.json` exactly (today
+`TorusFiltration.torus_periodBasis.congr_simp`, the simp-congruence lemma Lean generates for
+`torus_periodBasis`), so that list can name only constants Lean generated; internal generated
+constants (abstracted proofs, equation lemmas) are counted and otherwise ignored. A declaration
+the scanner missed is refused by the receipt whatever its spelling, because it was elaborated
+from source and therefore carries a range. A compile fix that needs a refused form must extend
+the scanner, the inventory and, for a new compiler-generated constant, `census_auxiliary`.
 
 ## Vocabulary
 
@@ -218,8 +259,12 @@ The replay: binds HEAD to the manifest (`check.py source`), runs the Python test
 `lean --version` and every installed package HEAD, compiles `TorusTopology`, `ClosedSuperlevel`
 and the root `TorusFiltration` with `-DwarningAsError=true`, compiles `Positive.lean` (six
 concrete applications of the companion's theorems), `Audit.lean` (58 `#print axioms`),
-`Types.lean` (41 `#check` with `pp.explicit`), runs
-`leanchecker TorusTopology ClosedSuperlevel TorusFiltration`, and runs six negative controls.
+`Types.lean` (41 `#check` with `pp.explicit`), `Census.lean` (the elaborated declaration census
+above), runs `leanchecker TorusTopology ClosedSuperlevel TorusFiltration`, and runs six negative
+controls. The replay unsets `PYTHONOPTIMIZE` first, so each Python invocation runs in exactly the
+mode its command line names, and every `check.py` invocation prints the mode it runs in
+(`TORUS_FILTRATION_PYTHON: optimize=N`) to the job log (an invocation that argparse rejects
+exits 2 before that line; the replay never issues one).
 The emitted statements below are quoted verbatim from `check.py` (`FALSE_CONTROLS`); each is
 elaborated as `example : <statement> := by <tactic>` and must fail with exactly `⊢ False`:
 
@@ -235,13 +280,20 @@ elaborated as `example : <statement> := by <tactic>` and must fail with exactly 
 The injection controls run **without** warnings-as-errors on purpose: Lean accepts those files,
 and only the axiom audit refuses them, which is what the audit is for. `check.py negative` uses
 `re.fullmatch` on each log, so a crash, an extra error or a different exit code is a failed
-control, not a passed one. `check.py finish` re-runs the source binding, re-derives the nine
-emitted Lean files (`Audit.lean`, `Types.lean`, `Positive.lean`, six controls) and requires byte
-equality with the ones Lean consumed, checks every status, the toolchain line, the installed
-package HEADs against `formal/lake-manifest.json`, the recorded `leanchecker` invocation, the
-axiom and type inventories and the six controls, and writes `receipt.json` with `log_sha256`
-over every file in the evidence directory. The evidence directory
-`.lake/torus-filtration-evidence` must not pre-exist.
+control, not a passed one. `check.py finish` refuses an evidence directory that already holds
+`receipt.json` (a receipt is written once and never replaced; a new attempt needs a fresh
+directory) and requires exactly the 44 evidence files, each a regular file and nothing else: the
+ten emitted Lean files (`Audit.lean`, `Types.lean`, `Positive.lean`, `Census.lean` and the six
+controls' `.lean`), a `.log` and `.status` pair for each of the eight Lean processes (three
+module builds, `positive`, `axioms`, `types`, `census`, `leanchecker`), the six controls'
+`.log`/`.status`, `leanchecker.cmd`, `packages.log`, `toolchain.log`, `source.json`,
+`tests.log` and `tests-optimized.log` (`EVIDENCE_FILES` in `check.py`; C262 finding G3). It then
+re-runs the source binding, re-derives the ten emitted Lean files and requires byte equality
+with the ones Lean consumed, checks every status, the toolchain line, the installed package
+HEADs against `formal/lake-manifest.json`, the recorded `leanchecker` invocation, the axiom and
+type inventories, the declaration census and the six controls, and writes `receipt.json` with
+`log_sha256` over exactly those 44 files, created exclusively (`O_EXCL`, `O_NOFOLLOW`). The
+evidence directory `.lake/torus-filtration-evidence` must not pre-exist.
 
 ### What `leanchecker` checks here, and why not `--fresh`
 
@@ -283,7 +335,44 @@ Delete them before committing.
 
 Local protocol tests: `python3 -B -S companions/torus_filtration_20261011/test_torus_filtration.py`
 and the same with `-O`. They exercise `check.py` against a temporary Git fixture with
-inventory-exact placeholder modules; they execute no Lean.
+inventory-exact placeholder modules; they execute no Lean. The fixture spawns its `check.py`
+children with the outer interpreter's optimization level (`-O` under `-O`) and strips
+`PYTHONOPTIMIZE` from their environment; every `check.py` invocation reports the mode it actually
+runs in on stderr, and the fixture refuses any child whose report differs from the outer mode,
+on every call, accept or refuse (so a fixture that stopped propagating `-O` fails, rather than
+passing with unoptimized children). The suite prints its own outer mode into the transcript
+(`TORUS_FILTRATION_TESTS: outer optimize=N`), so `tests.log` and `tests-optimized.log` record
+which mode each run was. Until head `a898bb44` the children ran unoptimized whatever the outer
+mode was in a clean environment, and in the mode of an ambient `PYTHONOPTIMIZE` otherwise (C262
+finding G1); the hosted runners are clean, so the `tests-optimized.log` transcripts of hosted runs 38165155316 and
+38165763430 therefore cover the imported helpers under `-O` and the CLI paths unoptimized; that
+narrower attribution stands for those runs and is not revised.
+
+## Amendments
+
+- C262 (Math- #428, nonauthor engineering gate review [6112740935](https://github.com/d6g8k5htny-coder/Math-/pull/428#issuecomment-6112740935),
+  disposition [6112743879](https://github.com/d6g8k5htny-coder/Math-/pull/428#issuecomment-6112743879), AMEND_ENGINEERING_GATE on
+  head `a898bb44`): G1 the test fixture now propagates the outer optimization level to its `check.py`
+  children, strips `PYTHONOPTIMIZE` and observes the child mode; G2 the scanner refuses `alias` and
+  the other declaration-producing commands listed above, with indented, same-line and column-0
+  negative controls, and the census claim is bounded to the enumeration; G3 `finish` never replaces
+  a receipt and requires the exact evidence set of regular files (44 members once the census
+  below was added), with controls for a
+  repeat `finish`, an existing receipt beside a newly failing input, every removed member, an extra
+  member and a symlinked member. Before the push, this lane's own adversarial verification of
+  the repair (same account, credit 0) refuted its first form and the fixes were folded into the
+  same commit: the child-mode control now observes every fixture child through the CLI's own
+  report, not a separate probe; the keyword list gained the further declaration-producing
+  commands found at the pin and the lexer no longer splices tokens across a closed block comment
+  or a numeral; the elaborated declaration census (`Census.lean`) replaces the scanner as the
+  census guarantee, with `census_auxiliary` naming the one compiler-generated constant; the
+  replay unsets `PYTHONOPTIMIZE` and records the outer mode in both test transcripts; the receipt
+  is created with `O_EXCL`/`O_NOFOLLOW` and a directory as a required member is refused. The
+  replay script changed by the one census invocation and the `unset`; the Actions workflow file,
+  every Lean byte, declaration and control statement are unchanged. The same review's Lean source verdict (PASS_SOURCE_SCOPE,
+  [6112740740](https://github.com/d6g8k5htny-coder/Math-/pull/428#issuecomment-6112740740)) and hosted-evidence verdict
+  (APPROVE_OBSERVED_EXECUTION_SCOPE, [6112741132](https://github.com/d6g8k5htny-coder/Math-/pull/428#issuecomment-6112741132))
+  were of head `a898bb44`; organizational-independence credit 0 throughout.
 
 ## What this companion does not do
 

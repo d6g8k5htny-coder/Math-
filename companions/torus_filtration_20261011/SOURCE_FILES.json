@@ -1,5 +1,8 @@
 {
   "alignment_status": "PENDING_INDEPENDENT_REVIEW",
+  "census_auxiliary": [
+    "TorusFiltration.torus_periodBasis.congr_simp"
+  ],
   "definitions": {
     "ClosedSuperlevel": {
       "abbrev": [],
@@ -45,14 +48,14 @@
       "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
     },
     "companions/torus_filtration_20261011/README.md": {
-      "bytes": 22334,
-      "git_blob": "19dea18ff92b8a438bd35477e751ed68e02126e7",
-      "sha256": "c26fbc29b062177f2060e125ed2002e5e5d898c4fccb97c02d8bec8a0ef6e386"
+      "bytes": 30582,
+      "git_blob": "2f99b89767fb37648bc0742ed4e8328c245b74b1",
+      "sha256": "8084b313486bbf72fa32ab57fc604fb88bccb658b21569c225f5b6b68a783f49"
     },
     "companions/torus_filtration_20261011/SCOPE.md": {
-      "bytes": 10073,
-      "git_blob": "68361d93bb6b701c3c3c6c32ab942db3e4bcedc3",
-      "sha256": "bcd3c49a8cc05dc33a424092622b0ad1dabc82684bee037cd85ee8c131d33dbb"
+      "bytes": 11141,
+      "git_blob": "6f78f7300475eec8b97455133714310fbdf35a29",
+      "sha256": "cb7d9cb9929a05fd3b0d07f91dfbc9b2b0f796cbd59da5f1e34bc2ab08a55d7b"
     },
     "companions/torus_filtration_20261011/TorusFiltration.lean": {
       "bytes": 45,
@@ -65,19 +68,19 @@
       "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
     },
     "companions/torus_filtration_20261011/check.py": {
-      "bytes": 29134,
-      "git_blob": "8443ae3192c44b912952b9cd1984a7290e95acc8",
-      "sha256": "57a75907677e074579b501168ad0a406d51168f41daa96b8627615b037acfc6b"
+      "bytes": 40225,
+      "git_blob": "afc6492bb39f9830f99b1a28ee16ab04537fd45d",
+      "sha256": "d8fb2add2ca430b0f935f1578adecc90da798a7fb33f693ada156a09af99077d"
     },
     "companions/torus_filtration_20261011/replay.sh": {
-      "bytes": 4161,
-      "git_blob": "c217643224412785a9306600809e43c8e0c5d71f",
-      "sha256": "74de4c98df96bfa59b879dc79bad78bc708573b1ee16c2582393837cc4e9d189"
+      "bytes": 4382,
+      "git_blob": "05602a3f7f5fd2cada98625b27c5268a407cc8f1",
+      "sha256": "cb6b54e1aabda382c48eca7316d5e892845f68e2a708082a30b5e2acf81fe95c"
     },
     "companions/torus_filtration_20261011/test_torus_filtration.py": {
-      "bytes": 62092,
-      "git_blob": "6eb9a3eb3b319c59dd27f08463b0679274b06901",
-      "sha256": "b5102880bd937d13d92e61f2896ec368177d1828113f75565d6471b8fcccfa50"
+      "bytes": 84884,
+      "git_blob": "0fd3c887cdec71cd7b232933cdd08b4f34918fee",
+      "sha256": "ab95294403739a4f20df7fafc6bca7bf0e25748595581cdaaba02fc975a38d2f"
     }
   },
   "modules": [

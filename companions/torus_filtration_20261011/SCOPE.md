@@ -64,12 +64,23 @@ renamed theorem, hidden or indented declaration, injected admission, every hones
 schema field of `SOURCE_FILES.json` one at a time, wrong or unpinned toolchain and dependency
 lock, host identity mismatch, an emitted Lean file altered between `emit` and `finish`, an
 unrecognized `leanchecker` invocation, leanchecker output in modules mode, wrong installed
-dependency).
+dependency, a second `finish` on a directory already holding a receipt, an existing receipt
+beside a newly failing input, any missing, extra or symlinked evidence member, an uninventoried
+`alias` indented after the namespace opening, on a declaration line or at column 0, a keyword
+spliced to a closed block comment or to a numeral, every refused command keyword indented after
+the namespace opening, a declaration census (`Census.lean`) with an extra, missing or unlisted
+constant, a user-written declaration with an internal-style name, a `census_auxiliary` entry
+that Lean did not generate, a keyword spliced to a hex/binary/octal/exponent numeral, a wrong
+census count or terminator, and a `check.py` child running in a different
+optimization mode from the outer test interpreter, which the fixture checks on every child).
 
 ## Evidence boundary
 
 A green hosted run establishes, for these 58 declarations at this toolchain and dependency
-lock, that Lean elaborated them with warnings as errors, that
+lock, that Lean elaborated them with warnings as errors, that Lean's own census of the
+constants the three modules add to the environment (`Census.lean`, with declaration-range and
+internal-name tags) has exactly these 58 as its user-written declarations and exactly the one
+named compiler-generated auxiliary, that
 `leanchecker TorusTopology ClosedSuperlevel TorusFiltration` replayed the companion modules' own
 declarations through the kernel against the cached, prebuilt dependency `.olean` files (the
 import closure, all of Mathlib, is trusted from that cache and not re-checked; a `--fresh`

@@ -3,6 +3,8 @@
 # tests: the companion consumes only the pinned toolchain, lakefile and dependency lock from
 # formal/, and its evidence is kernel-checked declarations, not alignment or acceptance.
 set -euo pipefail
+# The outer Python mode is the one named on each command line below, never an ambient PYTHONOPTIMIZE (C262 G1).
+unset PYTHONOPTIMIZE
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SIDE="$ROOT/companions/torus_filtration_20261011"
 OUT="$ROOT/.lake/torus-filtration-evidence"
@@ -40,6 +42,7 @@ run_lean build-TorusFiltration lean -DwarningAsError=true --root="$TORUS_SIDE" -
 run_lean positive lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Positive.lean"
 run_lean axioms lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Audit.lean"
 run_lean types lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Types.lean"
+run_lean census lean -DwarningAsError=true --root="$TORUS_OUT" "$TORUS_OUT/Census.lean"
 # Kernel replay of the companion modules' own declarations against the cached, prebuilt dependency
 # .oleans (30 s at 2 threads locally). Both modules `import Mathlib`, so `--fresh` (re-check of the whole
 # import closure) does not fit a hosted job: still running at 1500 s with 6.6 GB resident at 4 threads.
