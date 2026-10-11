@@ -5,6 +5,7 @@ name: Fixed-r inverse-lifetime checks
     paths:
       - 'frontiers/fixed_r_inverse_lifetime_20260930/**'
       - '.github/workflows/fixed-r-inverse-lifetime.yml'
+      - 'tests/test_fixed_r_replay_protocol.py'
   workflow_dispatch:
 
 permissions:
@@ -26,6 +27,11 @@ jobs:
         run: |
           set -euo pipefail
           git fetch --no-tags origin 7a1cb09a9d58d179393e6d29146252f714b9c9bf
+      - name: Verify failure-protocol regressions in both Python modes
+        run: |
+          set -euo pipefail
+          python -B -S tests/test_fixed_r_replay_protocol.py
+          python -B -O -S tests/test_fixed_r_replay_protocol.py
       - name: Verify source, packet and both Python modes
         env:
           PYTHONDONTWRITEBYTECODE: '1'
