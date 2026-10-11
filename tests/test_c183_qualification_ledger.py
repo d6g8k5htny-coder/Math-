@@ -197,6 +197,26 @@ class C183LedgerControls(unittest.TestCase):
         self.assertFalse(absent['stderr']['present'])
         self.assertTrue(empty['stderr']['present'])
 
+    def test_multiple_terminal_summaries_cannot_combine_partial_runs(self):
+        ids = FIXTURE['synthetic']['ids']
+        raw = (f'{ids[0]} ... ok\n\nRan 3 tests in 0.001s\n\nOK\n'
+               f'{ids[1]} ... ok\n{ids[2]} ... ok\n\nRan 3 tests in 0.002s\n\nOK\n').encode()
+        try:
+            result = self.parsed(raw)
+        except ValueError:
+            return
+        self.assertFalse(result['complete'], 'separate partial runs cannot become one complete run')
+
+    def test_failed_footer_requires_positive_failure_or_error_total(self):
+        for footer in ('FAILED (failures=0)', 'FAILED (errors=0)',
+                       'FAILED (failures=0, errors=0)'):
+            with self.subTest(footer=footer):
+                try:
+                    result = self.parsed(transcript(footer=footer))
+                except ValueError:
+                    continue
+                self.assertFalse(result['complete'], 'FAILED with no failure or error is contradictory')
+
     def test_partial_summary_status_capacity_must_accommodate_observed_rows(self):
         ids = FIXTURE['synthetic']['ids']
         rows = f'{ids[0]} ... ok\n{ids[1]} ... ok\n'

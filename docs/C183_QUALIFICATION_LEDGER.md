@@ -32,6 +32,14 @@ one explicit partial-summary capacity control: every observed status must fit
 its claimed population, and total claimed FAIL+ERROR must not exceed the
 reported count. Neither test-only successor changes the reviewed helper bytes.
 
+Consolidated follow-on static review added exactly two required F1 controls
+after the original published review: multiple terminal summaries cannot combine
+separate partial captures into completeness, and a FAILED footer with zero
+failure/error total is contradictory. These are explicit new controls, not
+retroactive claims about the original review or earlier test heads. The final
+regression matrix is38 helper methods. Graceful retention of an unfinished
+status token is optional and deferred; the existing refusal is permitted.
+
 ## Offline use
 
 Run only in a project-authorized execution environment:
