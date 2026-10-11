@@ -22,6 +22,9 @@ Covered (fifteen `Prop`s): `TwoCoordGeneratorPrices`, `LogOnePlusBelowIdentity`,
 `HStarExceedsOne`, `PhiAtPStar`, `OddMajorityIdentity`, `HazardStarPositive`,
 `DemandOneBoundary`, `DemandOneRefutation`, `CapacityWorstCase`, `TriangleNeedsThree`.
 
+Also covered (two further `Prop`s, proved in the final section of this module, so seventeen in
+all): `CapacityHazardIsBinomial`, `SharpnessOfRhoStar`.
+
 Not covered here: `IsProperDownset` (a parametrised predicate, not a concrete-instance `Prop`;
 it is false for the empty family, so no theorem of that type can exist), `ElementaryPaletteFormula`
 (display (P9) quantified over all `b`, `s`, `d`: genuine combinatorics, not a finite statement),
@@ -764,5 +767,249 @@ theorem triangleNeedsThree : UniversalLaw.Spec.P15.TriangleNeedsThree := by
   · exact Aux.triangle_not_feasible0 hK
   · exact Aux.triangle_not_feasible1 hK
   · exact Aux.triangle_not_feasible2 hK
+
+/-! ## Full price Sections 3 and 5: (F9) for every `a`, and the sharpness of `rho_star` -/
+
+namespace Aux
+
+/-- (F9) as an identity for every `a` (no `a ≤ n` hypothesis): the extra terms `j > n` of the
+tail vanish since `Nat.choose n j = 0`. -/
+theorem muOf_capacityFamily_all (n a : ℕ) (c : ℝ) :
+    muOf (capacityFamily n a) (fun _ => c) = binomTail n a c := by
+  unfold muOf capacityFamily binomTail
+  have hw : ∀ U : Finset (Fin n),
+      weight (fun _ : Fin n => c) U = c ^ U.card * (1 - c) ^ (n - U.card) := by
+    intro U; unfold weight; simp [Finset.card_univ_sdiff]
+  rw [Finset.sum_filter]
+  simp_rw [hw]
+  rw [Finset.sum_powerset_apply_card (fun m => if m ≤ a then c ^ m * (1 - c) ^ (n - m) else 0)]
+  simp only [Finset.card_univ, Fintype.card_fin, nsmul_eq_mul, mul_ite, mul_zero]
+  rw [← Finset.sum_filter]
+  have hr : (Finset.range (n + 1)).filter (fun m => m ≤ a) =
+      (Finset.range (a + 1)).filter (fun m => m ≤ n) := by
+    ext m; simp; omega
+  rw [hr, Finset.sum_filter]
+  refine Finset.sum_congr rfl (fun j _ => ?_)
+  split_ifs with h
+  · ring
+  · rw [Nat.choose_eq_zero_of_lt (by omega)]; simp
+
+/-! ### The triple block: one block, `a = 1`, `d = 2`, ground set of size three, no edges -/
+
+/-- The single block is the whole ground set. -/
+theorem tripleBlock_block (i : Fin 1) : block tripleBlock i = Finset.univ := by
+  unfold block
+  rw [Fin.fin_one_eq_zero i]
+  simp [tripleBlock]
+
+/-- Goodness is the capacity constraint `|U| ≤ 1`. -/
+theorem tripleBlock_isGood (U : Finset (Fin 3)) : IsGood tripleBlock U ↔ U.card ≤ 1 := by
+  show (∀ i : Fin 1, (U ∩ block tripleBlock i).card ≤ 1) ∧
+      (∀ e ∈ (∅ : Finset (Finset (Fin 1))), ¬ e ⊆ supp tripleBlock U) ↔ U.card ≤ 1
+  simp [tripleBlock_block]
+
+/-- Two-decomposability is `|U| ≤ 2`: two good parts have at most two elements in all
+(`Finset.card_biUnion_le`), and a set of size `≤ 2` splits into singletons and empties. -/
+theorem tripleBlock_decomp (U : Finset (Fin 3)) :
+    IsKDecomposable tripleBlock 2 U ↔ U.card ≤ 2 := by
+  unfold IsKDecomposable
+  constructor
+  · rintro ⟨parts, hgood, -, hU⟩
+    rw [← hU]
+    calc ((Finset.univ : Finset (Fin 2)).biUnion parts).card
+        ≤ ∑ j : Fin 2, (parts j).card := Finset.card_biUnion_le
+      _ ≤ ∑ _j : Fin 2, 1 := Finset.sum_le_sum (fun j _ => (tripleBlock_isGood _).mp (hgood j))
+      _ = 2 := by simp
+  · intro h
+    have hc : U.card = 0 ∨ U.card = 1 ∨ U.card = 2 := by omega
+    rcases hc with h0 | h1 | h2
+    · rw [Finset.card_eq_zero] at h0
+      subst h0
+      refine ⟨fun _ => ∅, ?_, ?_, ?_⟩
+      · intro j; rw [tripleBlock_isGood]; simp
+      · intro j j' _; exact Finset.disjoint_empty_left _
+      · ext v
+        simp
+    · obtain ⟨x, rfl⟩ := Finset.card_eq_one.mp h1
+      refine ⟨fun j => if j = 0 then {x} else ∅, ?_, ?_, ?_⟩
+      · intro j; rw [tripleBlock_isGood]; dsimp only; split_ifs <;> simp
+      · intro j j' hjj'
+        fin_cases j <;> fin_cases j' <;> simp_all
+      · ext v
+        simp
+    · obtain ⟨x, y, hxy, rfl⟩ := Finset.card_eq_two.mp h2
+      refine ⟨fun j => if j = 0 then {x} else {y}, ?_, ?_, ?_⟩
+      · intro j; rw [tripleBlock_isGood]; dsimp only; split_ifs <;> simp
+      · intro j j' hjj'
+        fin_cases j <;> fin_cases j' <;> simp_all [hxy.symm]
+      · ext v
+        simp
+
+/-- At `K = 2` the sole obstruction is the full triple. -/
+theorem tripleBlock_obstruction (U : Finset (Fin 3)) :
+    U ∈ obstruction tripleBlock 2 ↔ U = Finset.univ := by
+  unfold obstruction
+  change ¬ IsKDecomposable tripleBlock 2 U ↔ U = Finset.univ
+  rw [tripleBlock_decomp, not_le]
+  constructor
+  · intro h
+    by_contra hne
+    have := card_le_of_ne_univ 2 U hne
+    omega
+  · rintro rfl
+    rw [Finset.card_univ, Fintype.card_fin]; omega
+
+/-- The side conditions: `a = 1 ≥ 1`, `d = 2 ≥ 1`, `|X| = 3 = 1 * 2 + 1`, no edges. -/
+theorem tripleBlock_isRealized : IsRealizedFamily tripleBlock := by
+  refine ⟨fun _ => le_rfl, fun _ => by simp [tripleBlock], ?_, ?_, ?_⟩
+  · change ∀ i : Fin 1, (block tripleBlock i).card = 1 * 2 + 1
+    intro i
+    rw [tripleBlock_block]
+    simp
+  · change ∀ e ∈ (∅ : Finset (Finset (Fin 1))), 2 ≤ e.card
+    simp
+  · change ∀ e ∈ (∅ : Finset (Finset (Fin 1))), ∀ f ∈ (∅ : Finset (Finset (Fin 1))),
+      e ⊆ f → e = f
+    simp
+
+/-- The full-block family is `{X}`. -/
+theorem tripleBlock_fullBlockFamily : fullBlockFamily tripleBlock = {Finset.univ} := by
+  ext g
+  simp only [fullBlockFamily, Finset.mem_image, Finset.mem_univ, true_and, Finset.mem_singleton]
+  constructor
+  · rintro ⟨i, rfl⟩
+    exact tripleBlock_block i
+  · rintro rfl
+    exact ⟨(0 : Fin 1), tripleBlock_block 0⟩
+
+/-- `K_H(d) = 2` for one block of demand two and no edges: `{0, 1}` is feasible at `K = 2`, and
+a label set of size `≥ 2` needs `K ≥ 2`. -/
+theorem tripleBlock_palette : paletteNumber 1 ∅ (fun _ => 2) = 2 := by
+  unfold paletteNumber
+  have h2 : (2 : ℕ) ∈ {K : ℕ | IsPaletteFeasible 1 ∅ (fun _ => 2) K} := by
+    refine ⟨fun _ => Finset.univ, fun _ => by simp, fun e he => by simp at he⟩
+  apply le_antisymm (Nat.sInf_le h2)
+  apply le_csInf ⟨2, h2⟩
+  intro K hK
+  obtain ⟨P, hP, -⟩ := hK
+  have h2le : 2 ≤ (P 0).card := hP 0
+  have h0 : (P 0).card ≤ Fintype.card (Fin K) := Finset.card_le_univ _
+  rw [Fintype.card_fin] at h0
+  omega
+
+/-- `mu_p(D)` for the triple block is the mass of the capacity family `(3, 1)`. -/
+theorem tripleBlock_mu (p : Fin 3 → ℝ) : mu tripleBlock p = muOf (capacityFamily 3 1) p := by
+  unfold mu muOf capacityFamily
+  rw [Finset.sum_filter]
+  refine Finset.sum_congr rfl (fun U _ => ?_)
+  by_cases h : U.card ≤ 1
+  · rw [Set.indicator_of_mem (show U ∈ downset tripleBlock from (tripleBlock_isGood U).mpr h)]
+    simp [h]
+  · rw [Set.indicator_of_notMem
+      (show U ∉ downset tripleBlock from fun hm => h ((tripleBlock_isGood U).mp hm))]
+    simp [h]
+
+/-- At unit prices every generator costs one (the empty generator included). -/
+theorem genPrice_one (g : Finset (Fin 3)) : genPrice (fun _ => (1 : ℝ)) g = 1 := by
+  simp [genPrice]
+
+/-- At unit prices every cover of `{X}` costs at least one. -/
+theorem tripleBlock_cover_ge_one (G : Finset (Finset (Fin 3)))
+    (hG : IsGeneratorCover tripleBlock 2 G) : 1 ≤ famPrice (fun _ => (1 : ℝ)) G := by
+  have huniv : (Finset.univ : Finset (Fin 3)) ∈ obstruction tripleBlock 2 :=
+    (tripleBlock_obstruction _).mpr rfl
+  obtain ⟨g, hg, -⟩ := hG Finset.univ huniv
+  unfold famPrice
+  calc (1 : ℝ) = genPrice (fun _ => (1 : ℝ)) g := (genPrice_one g).symm
+    _ ≤ ∑ g ∈ G, genPrice (fun _ => (1 : ℝ)) g :=
+        Finset.single_le_sum (fun g _ => by rw [genPrice_one]; norm_num) hg
+
+/-- The full-block family `{X}` covers the obstruction `{X}`. -/
+theorem tripleBlock_fullBlock_cover :
+    IsGeneratorCover tripleBlock 2 (fullBlockFamily tripleBlock) := by
+  intro U hU
+  rw [tripleBlock_obstruction] at hU
+  rw [tripleBlock_fullBlockFamily]
+  exact ⟨Finset.univ, Finset.mem_singleton_self _, by rw [hU]⟩
+
+/-- The full-block cover costs exactly one at unit prices. -/
+theorem tripleBlock_fullBlock_price :
+    famPrice (fun _ => (1 : ℝ)) (fullBlockFamily tripleBlock) = 1 := by
+  rw [tripleBlock_fullBlockFamily]
+  simp [famPrice, genPrice]
+
+/-- The exact cover cost is one: `{X}` attains the lower bound one. -/
+theorem tripleBlock_coverCost : coverCost tripleBlock 2 (fun _ => (1 : ℝ)) = 1 := by
+  unfold coverCost
+  apply IsLeast.csInf_eq
+  refine ⟨⟨fullBlockFamily tripleBlock, tripleBlock_fullBlock_cover,
+    tripleBlock_fullBlock_price⟩, ?_⟩
+  rintro t ⟨G, hG, rfl⟩
+  exact tripleBlock_cover_ge_one G hG
+
+/-- `mu_{p_star}(D) = P(Bin(3, p_star) ≤ 1) = 3e^{-2} - 2e^{-3}`. -/
+theorem tripleBlock_mu_pStar :
+    mu tripleBlock (fun _ => pStar) = 3 * Real.exp (-2) - 2 * Real.exp (-3) := by
+  rw [tripleBlock_mu, muOf_capacityFamily_all, binomTail_three_one]
+
+/-- The available hazard of the triple block at `p_star` is `h_star`. -/
+theorem tripleBlock_hazard : -Real.log (mu tripleBlock (fun _ => pStar)) = hStar := by
+  rw [tripleBlock_mu_pStar]
+  exact capacityWorstCase.2.2.1
+
+/-- Any `ρ < ρ_star = 1/h_star` makes the capped hazard `min(1, ρ h_star)` strictly less than
+one. -/
+theorem tripleBlock_sharp (ρ : ℝ) (hρ : ρ < rhoStar) :
+    cappedHazard ρ (mu tripleBlock (fun _ => pStar)) < 1 := by
+  have hmu_pos : 0 < mu tripleBlock (fun _ => pStar) := by
+    rw [tripleBlock_mu, muOf_capacityFamily_all]
+    exact binomTail_pos 3 1 pStar pStar_pos.le pStar_lt_one
+  have hlog := tripleBlock_hazard
+  have hh : 0 < hStar := by linarith [one_lt_hStar]
+  have hrho : rhoStar * hStar = 1 := by
+    show 1 / hStar * hStar = 1
+    exact one_div_mul_cancel hh.ne'
+  unfold cappedHazard
+  simp only [hmu_pos, ↓reduceIte]
+  rw [hlog]
+  calc min 1 (ρ * hStar) ≤ ρ * hStar := min_le_right _ _
+    _ < rhoStar * hStar := mul_lt_mul_of_pos_right hρ hh
+    _ = 1 := hrho
+
+end Aux
+
+/-- Proves: `UniversalLaw.Spec.P15.CapacityHazardIsBinomial` (claim `p15-full-price`, display (F9)).
+Method: `hazardStar` unfolds to `-log (muOf (capacityFamily n a) p_star)`, and the mass of the
+capacity family at a constant vector is `binomTail n a` for EVERY `a` (`Finset.sum_powerset_apply_card`
+groups the subsets by cardinality; for `a > n` the extra terms `j > n` vanish since
+`Nat.choose n j = 0`), which extends `Aux.muOf_capacityFamily` beyond `a ≤ n`.
+Does not establish: the informal claim's review or acceptance; the alignment of `capacityFamily` and
+`binomTail` with the source's `A = {S : |S| ≤ a}` and `P(Bin(n, p_star) ≤ a)`
+(PENDING_INDEPENDENT_REVIEW); displays (F10)-(F11) (`CapacityWorstCase`) or anything about the
+budget (F2). -/
+theorem capacityHazardIsBinomial : UniversalLaw.Spec.P15.CapacityHazardIsBinomial := by
+  intro n a
+  unfold hazardStar
+  rw [Aux.muOf_capacityFamily_all n a]
+
+/-- Proves: `UniversalLaw.Spec.P15.SharpnessOfRhoStar` (claim `math.p15-full-price`, full-price note Section 5).
+Method: for `tripleBlock` the single block is the ground set, good sets are those of size `≤ 1`, and a
+set is `2`-decomposable iff it has size `≤ 2` (two singletons/empties; `Finset.card_biUnion_le` for the
+converse), so the obstruction at `K = 2` is `{X}`; `K_H(d) = 2` by `Nat.sInf_le`/`le_csInf`; at unit
+prices every generator costs `1`, every cover of `{X}` costs `≥ 1` (`Finset.single_le_sum`) and the
+full-block cover `{X}` costs `1`, hence `coverCost = 1` (`IsLeast.csInf_eq`); `mu_p(D)` is the mass of
+the capacity family `(3, 1)`, i.e. `binomTail 3 1 p_star = 3e^{-2} - 2e^{-3}`, whose `-log` is `h_star`
+(the identity proved in `capacityWorstCase`); for `ρ < ρ_star = 1/h_star`,
+`min 1 (ρ h_star) ≤ ρ h_star < 1`.
+Does not establish: the informal sharpness claim's review or acceptance; the alignment of the Lean
+`tripleBlock`, `obstruction`, `coverCost` and `cappedHazard` with the source's objects
+(PENDING_INDEPENDENT_REVIEW); sharpness for any family other than the triple block; the budget (F2)
+itself; any necessity claim for multi-block families with some demand one ("other constraints may
+change its budget"). -/
+theorem sharpnessOfRhoStar : UniversalLaw.Spec.P15.SharpnessOfRhoStar :=
+  ⟨Aux.tripleBlock_isRealized, Aux.tripleBlock_palette, Aux.tripleBlock_obstruction, phiAtPStar,
+    Aux.genPrice_one, Aux.tripleBlock_cover_ge_one, Aux.tripleBlock_fullBlock_cover,
+    Aux.tripleBlock_fullBlock_price, Aux.tripleBlock_coverCost, Aux.tripleBlock_hazard,
+    Aux.tripleBlock_sharp⟩
 
 end UniversalLaw.Proofs.P15Elementary

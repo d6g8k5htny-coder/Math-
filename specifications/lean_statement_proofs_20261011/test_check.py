@@ -296,6 +296,15 @@ class Positive(Base):
         self.assertIn('refused token', proc.stderr)
         self.assertNotIn('SOURCE_CHECK_PASS', proc.stdout)
 
+    def test_sibling_proof_module_import_is_accepted(self):
+        self.f.write('SpecificationProofs/Second.lean', 'import Specifications.Demo\n\nnamespace UniversalLaw.Proofs.Second\n\n'
+                     'namespace Aux\ntheorem helper : True := trivial\nend Aux\n\nend UniversalLaw.Proofs.Second\n')
+        self.f.write('SpecificationProofs.lean', 'import SpecificationProofs.Second\nimport SpecificationProofs.Demo\n')
+        self.f.mutate('SpecificationProofs/Demo.lean', 'import Specifications.Demo\n', 'import Specifications.Demo\nimport SpecificationProofs.Second\n')
+        info = self.f.run()
+        self.assertEqual(info['modules'], ['SpecificationProofs/Second.lean', 'SpecificationProofs/Demo.lean'])
+        self.assertEqual(info['theorem_count'], 4)
+
     def test_duplicate_proofs_are_reported_not_refused(self):
         self.f.write('SpecificationProofs/Second.lean', 'import Specifications.Demo\n\nnamespace UniversalLaw.Proofs.Second\n\n'
                      + thm('aAgain') + '\n\nend UniversalLaw.Proofs.Second\n')
@@ -680,8 +689,11 @@ class Structure(Base):
 
     def test_imports(self):
         for imports, fragment in (('import Mathlib\n', 'no statement module is imported'),
-                                  ('import Specifications.Demo\nimport SpecificationProofs.Other\n', 'never another proof module'),
-                                  ('import Specifications.Demo\nimport Specifications.Other.Deep\n', 'never another proof module'),
+                                  ('import Specifications.Demo\nimport SpecificationProofs.Other\n', 'not a proof module of this packet'),
+                                  ('import Specifications.Demo\nimport SpecificationProofs.Demo\n', 'nothing else'),
+                                  ('import Specifications.Demo\nimport SpecificationProofs.Other.Deep\n', 'nothing else'),
+                                  ('import Specifications.Demo\nimport Specifications.Other.Deep\n', 'nothing else'),
+                                  ('import Specifications.Demo\nimport Other.Demo\n', 'nothing else'),
                                   ('import Specifications.Demo\nimport Specifications.Ghost\n', 'not a module of the statement packet'),
                                   ('import Specifications.Demo\nimport Mathlib.Data.Real.Basic\n', None)):
             with self.subTest(imports=imports):

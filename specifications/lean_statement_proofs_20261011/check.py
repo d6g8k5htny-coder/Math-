@@ -615,8 +615,10 @@ def scan_module(text: str, stem: str, registered: dict) -> dict:
     require(namespaces and namespaces[0] == expected_ns, f'{stem}: the first namespace must be {expected_ns}: {namespaces!r}')
     require(imports, f'{stem}: no import')
     for imp in imports:
-        require(imp == 'Mathlib' or imp.startswith('Mathlib.') or (imp.startswith(STATEMENT_ROOT_MODULE + '.') and imp.count('.') == 1),
-                f'{stem}: imports must be `Specifications.<Module>` or Mathlib, never another proof module: {imp!r}')
+        require(imp == 'Mathlib' or imp.startswith('Mathlib.')
+                or (imp.startswith(STATEMENT_ROOT_MODULE + '.') and imp.count('.') == 1)
+                or (imp.startswith(ROOT_MODULE + '.') and imp.count('.') == 1 and imp != ROOT_MODULE + '.' + stem),
+                f'{stem}: imports must be `Specifications.<Module>`, Mathlib or a sibling `SpecificationProofs.<Module>` of this packet, nothing else: {imp!r}')
     require(any(imp.startswith(STATEMENT_ROOT_MODULE + '.') for imp in imports), f'{stem}: no statement module is imported')
     return {'stem': stem, 'imports': imports, 'namespaces': namespaces, 'theorems': theorems, 'aux_theorems': aux_theorems,
             'auxiliary_definitions': auxiliary, 'set_options': options}
@@ -785,6 +787,9 @@ def source_check(root: Path = ROOT, repo: Path = REPO, allow_dirty: bool = False
             if imp.startswith(STATEMENT_ROOT_MODULE + '.'):
                 path = STATEMENT_ROOT_MODULE + '/' + imp.split('.', 1)[1] + '.lean'
                 require(path in stmt_hashes, f'{m}: imports {imp}, which is not a module of the statement packet')
+            elif imp.startswith(ROOT_MODULE + '.'):
+                path = ROOT_MODULE + '/' + imp.split('.', 1)[1] + '.lean'
+                require(path in modules, f'{m}: imports {imp}, which is not a proof module of this packet')
     check_docs(root)
     theorems = [dict(t, module=m) for m in modules for t in scans[m]['theorems']]
     names = [t['name'] for t in theorems]

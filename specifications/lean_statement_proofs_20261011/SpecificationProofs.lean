@@ -1,4 +1,7 @@
 import SpecificationProofs.P15Elementary
 import SpecificationProofs.P15Structure
+import SpecificationProofs.P15Hazard
+import SpecificationProofs.P15Covers
+import SpecificationProofs.P15Budget
 import SpecificationProofs.Side24Elementary
 import SpecificationProofs.RNProbability
