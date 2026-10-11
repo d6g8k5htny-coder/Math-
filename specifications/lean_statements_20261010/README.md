@@ -5,7 +5,8 @@ Claude, delegated AI work). Alignment status of every statement: `PENDING_INDEPE
 Formal progress of every declaration here: `specified`. The sibling proof packet
 `specifications/lean_statement_proofs_20261011` holds theorems whose type is exactly one of these
 Props (51 of the 141 Props, 52 theorems); the register lists them under the claim rows as
-statement entries of kind `theorem` with label `proved` (all of them kernel-checked by the hosted run 38121713840 on commit 910809d6),
+statement entries of kind `theorem` with label `proved` (all of them kernel-checked by the hosted run 38121713840: PR head 910809d6,
+actual tested merge 5b198699… with base b2d70d77…, same tree as the head),
 which changes no
 label of this packet and no claim-level label. No claim, premise, obligation or
 disposition changes because this packet exists, builds, or is green in CI, or because a Prop of it is proved.
@@ -49,11 +50,11 @@ ladder; it is `specified`.
 
 ## Declarations
 
-150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified` in this package; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json. The last column names the theorems of the sibling proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly the declaration (namespace `UniversalLaw.Proofs.<Family>.`): 51 of the 141 Props have one (52 theorems; `TriangleNeedsThree` is proved twice), each listed in the register under the claim rows as a statement entry of kind `theorem` with label `proved` (the label of a committed proof package; `kernel-checked` appears only in a run receipt: the hosted `lean-specification-proofs.yml` run 38121713840 on commit 910809d6 receipted all of them, run 38116277597 on commit 00d2ac6e the first 38). That label belongs to the theorem, not to the declaration here, which stays `specified`, and not to any claim row; a kernel-checked theorem is evidence about its Prop only, and alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
+150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified` in this package; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json. The last column names the theorems of the sibling proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly the declaration (namespace `UniversalLaw.Proofs.<Family>.`): 51 of the 141 Props have one (52 theorems; `TriangleNeedsThree` is proved twice), each listed in the register under the claim rows as a statement entry of kind `theorem` with label `proved` (the label of a committed proof package; `kernel-checked` appears only in a run receipt: the hosted `lean-specification-proofs.yml` run 38121713840 receipted all of them and run 38116277597 the first 38; a pull_request run checks out the synthetic merge of the PR head into the base, so each receipt records as checked_commit that merge and not the head: run 38121713840 PR head 910809d6, actual tested merge 5b198699308e0585904c21d12bf540cf2475d2f0 with base b2d70d77876a10c365f5db5d3b6cafcf180af4e2; run 38116277597 PR head 00d2ac6e, actual tested merge c4c66bb8cb26f0cd9bc03d52bb25f1b3925b272c with the same base; run 38122386459 corroborates on PR head d9b8dd33, actual tested merge 866136cca66b46e6dbd3186b47c9340f7e93b4f6; each merge has the same tree as its head). That label belongs to the theorem, not to the declaration here, which stays `specified`, and not to any claim row; a kernel-checked theorem is evidence about its Prop only, and alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 ### `Specifications/Field.lean` (12 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
 |---|---|---|---|---|
 | `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
 | `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
@@ -70,7 +71,7 @@ ladder; it is `specified`.
 
 ### `Specifications/Lifetime.lean` (24 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
 |---|---|---|---|---|
 | `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
 | `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
@@ -99,7 +100,7 @@ ladder; it is `specified`.
 
 ### `Specifications/Side24.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
 |---|---|---|---|---|
 | `ThetaSummable` | def_prop | `side24-proof` | `side24-coefficient` | — |
 | `IsUnitTuple` | def_prop | `side24-proof` | `side24-coefficient` | — |
@@ -132,7 +133,7 @@ ladder; it is `specified`.
 
 ### `Specifications/RN.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
 |---|---|---|---|---|
 | `IsCriticalPoint` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
 | `HessianHasInertia` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
@@ -165,7 +166,7 @@ ladder; it is `specified`.
 
 ### `Specifications/P15.lean` (58 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
 |---|---|---|---|---|
 | `RealizedData` | structure | `p15-realized-covers` | `p15-realized-covers` | — |
 | `IsRealizedFamily` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
@@ -228,7 +229,7 @@ ladder; it is `specified`.
 
 ## Claims
 
-171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`). 132 statement entries carry the label `proved` and are theorems of other packages, listed as the arithmetic skeleton or the Prop-level proof of the claim they sit under and never as the claim: 31 are the 31 Side24 arithmetic targets of main's `formal/` at origin/main `f6deeba7`; 41 are the 28 P15 arithmetic targets of main's `formal/` at `91cffbb5` (main PR #358, not yet on main; kernel evidence the hosted workspace-landing run 38096827443), each listed on every P15 row whose layer 0 source it anchors to; 60 are theorems of the proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly a registered Prop of this package (52 theorems, 51 distinct Props, each listed on every row that registers its Prop; the hosted `lean-specification-proofs.yml` run 38121713840 on commit 910809d6 receipted all of them as kernel-checked, run 38116277597 on commit 00d2ac6e the first 38). Exactly one Prop registered as stating a claim itself has such a theorem: `DemandOneRefutation` on rows `p15-price-boundary` and `math.p15-price-boundary`; their claim-level label stays `specified` (the register admits only none/specified at claim level, alignment of the Prop with the source paragraph is PENDING_INDEPENDENT_REVIEW, and a receipt is about the Prop only), as the rows' `not established` cells record. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
+171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`). 132 statement entries carry the label `proved` and are theorems of other packages, listed as the arithmetic skeleton or the Prop-level proof of the claim they sit under and never as the claim: 31 are the 31 Side24 arithmetic targets of main's `formal/` at origin/main `f6deeba7`; 41 are the 28 P15 arithmetic targets of main's `formal/` at `91cffbb5` (main PR #358, not yet on main; kernel evidence the hosted workspace-landing run 38096827443), each listed on every P15 row whose layer 0 source it anchors to; 60 are theorems of the proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly a registered Prop of this package (52 theorems, 51 distinct Props, each listed on every row that registers its Prop; the hosted `lean-specification-proofs.yml` run 38121713840 receipted all of them as kernel-checked and run 38116277597 the first 38; a pull_request run checks out the synthetic merge of the PR head into the base, which the receipt records as checked_commit: run 38121713840 PR head 910809d6, actual tested merge 5b198699308e0585904c21d12bf540cf2475d2f0 with base b2d70d77876a10c365f5db5d3b6cafcf180af4e2; run 38116277597 PR head 00d2ac6e, actual tested merge c4c66bb8cb26f0cd9bc03d52bb25f1b3925b272c with the same base; run 38122386459 corroborates on PR head d9b8dd33, actual tested merge 866136cca66b46e6dbd3186b47c9340f7e93b4f6; same trees as the heads). Exactly one Prop registered as stating a claim itself has such a theorem: `DemandOneRefutation` on rows `p15-price-boundary` and `math.p15-price-boundary`; their claim-level label stays `specified` (the register admits only none/specified at claim level, alignment of the Prop with the source paragraph is PENDING_INDEPENDENT_REVIEW, and a receipt is about the Prop only), as the rows' `not established` cells record. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 | claim_id | kind | disposition (LANDING_CLAIMS, verbatim) | formal_progress | layer 0 source | statements |
 |---|---|---|---|---|---|
@@ -355,8 +356,10 @@ Packets listed by PROOF_INDEX by id only (82 rows, kind `proof_index_result`, fo
   packet by path and holds 52 theorems whose type is exactly one of 51 registered Props (P15, Side24
   and RN families; see the last column of the declaration tables). The register lists those theorems
   under the claim rows with label `proved`, the label of a committed proof package; `kernel-checked`
-  appears only in that packet's hosted run receipts (`lean-specification-proofs.yml`; run 38121713840 on commit 910809d6
-  receipted all of its theorems, run 38116277597 on commit 00d2ac6e the first 38).
+  appears only in that packet's hosted run receipts (`lean-specification-proofs.yml`; run 38121713840 receipted all of its
+  theorems and run 38116277597 the first 38; each receipt's checked_commit is the synthetic merge of the PR head into the
+  base that a pull_request run checks out, not the head itself: run 38121713840 PR head 910809d6, actual tested merge 5b198699…; run 38116277597
+  PR head 00d2ac6e, actual tested merge c4c66bb8…; both with base b2d70d77… and each with the same tree as its head).
   The 150 declarations here remain `specified`; a kernel-checked theorem is evidence about its Prop
   only, never about the informal claim, its alignment (PENDING_INDEPENDENT_REVIEW), review or
   acceptance; no claim-level label is `proved`, including the one row (`p15-price-boundary`) whose
