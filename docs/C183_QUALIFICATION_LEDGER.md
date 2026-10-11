@@ -60,8 +60,22 @@ subfailures execute before that NameError; the final run separately records
 all three FAILED-zero footer failures and the multiple-summary failure. The
 repair restores only that assertion's original method placement, without
 removing or weakening a control. No production evidence is inferred from the
-NameError. Fresh corrected hosted GREEN and nonauthor delta review remain
-required at the repair's exact source identity.
+NameError. At that regression checkpoint, fresh corrected hosted GREEN and
+nonauthor delta review were still required at the repair's exact source identity.
+
+Completed predecessor checkpoint (2026-10-11 20:40 UTC): repair head
+`f7f9b73ceea64fcdd13e95c09b6122bf6c4d742c`, tree
+`661407b99bd4b9bde9182fc620033f9aae60c1d8`, passed hosted
+[run 38172250869/attempt 1, job 114567116451](https://github.com/d6g8k5htny-coder/Math-/actions/runs/38172250869/job/114567116451)
+at tested merge `5ad93ae760a4665f1732ff04e9f0ae5335360108`: 563 normal
+and 563 optimized tests OK, including 38 helper methods per mode, with the
+unchanged-source guard successful. Exact-source nonauthor
+[review 5484869187](https://github.com/d6g8k5htny-coder/Math-/pull/429#pullrequestreview-5484869187)
+recorded ACCEPT_SCOPED_ENGINEERING for that predecessor. This dated evidence
+does not certify later successors: each still requires its own applicable
+current checks and delta review before integration. Canonical historical
+archive-helper replay remains NOT_RUN, and PR397's HOLD and UNKNOWN cause
+remain unchanged.
 
 The bounded repair retains actual partial counts for all terminal states,
 validates per-status capacity against the reported population, and reserves
