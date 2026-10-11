@@ -5,8 +5,8 @@ Claude, delegated AI work). Alignment status of every statement: `PENDING_INDEPE
 Formal progress of every declaration here: `specified`. The sibling proof packet
 `specifications/lean_statement_proofs_20261011` holds theorems whose type is exactly one of these
 Props (51 of the 141 Props, 52 theorems); the register lists them under the claim rows as
-statement entries of kind `theorem` with label `proved` (38 of them kernel-checked by the hosted run 38116277597 on commit 00d2ac6e;
-the rest await the next run), which changes no
+statement entries of kind `theorem` with label `proved` (all of them kernel-checked by the hosted run 38121713840 on commit 910809d6),
+which changes no
 label of this packet and no claim-level label. No claim, premise, obligation or
 disposition changes because this packet exists, builds, or is green in CI, or because a Prop of it is proved.
 
@@ -49,11 +49,11 @@ ladder; it is `specified`.
 
 ## Declarations
 
-150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified` in this package; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json. The last column names the theorems of the sibling proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly the declaration (namespace `UniversalLaw.Proofs.<Family>.`): 51 of the 141 Props have one (52 theorems; `TriangleNeedsThree` is proved twice; † marks a theorem added after commit 00d2ac6e), each listed in the register under the claim rows as a statement entry of kind `theorem` with label `proved` (the label of a committed proof package; `kernel-checked` appears only in a run receipt: the hosted `lean-specification-proofs.yml` run 38116277597 on commit 00d2ac6e receipted the 38 theorems of that commit, and theorems added afterwards, marked † here, await the next run). That label belongs to the theorem, not to the declaration here, which stays `specified`, and not to any claim row; a kernel-checked theorem is evidence about its Prop only, and alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
+150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified` in this package; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json. The last column names the theorems of the sibling proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly the declaration (namespace `UniversalLaw.Proofs.<Family>.`): 51 of the 141 Props have one (52 theorems; `TriangleNeedsThree` is proved twice), each listed in the register under the claim rows as a statement entry of kind `theorem` with label `proved` (the label of a committed proof package; `kernel-checked` appears only in a run receipt: the hosted `lean-specification-proofs.yml` run 38121713840 on commit 910809d6 receipted all of them, run 38116277597 on commit 00d2ac6e the first 38). That label belongs to the theorem, not to the declaration here, which stays `specified`, and not to any claim row; a kernel-checked theorem is evidence about its Prop only, and alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 ### `Specifications/Field.lean` (12 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38116277597 at 00d2ac6e unless marked †) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
 |---|---|---|---|---|
 | `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
 | `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
@@ -70,7 +70,7 @@ ladder; it is `specified`.
 
 ### `Specifications/Lifetime.lean` (24 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38116277597 at 00d2ac6e unless marked †) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
 |---|---|---|---|---|
 | `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
 | `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
@@ -99,7 +99,7 @@ ladder; it is `specified`.
 
 ### `Specifications/Side24.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38116277597 at 00d2ac6e unless marked †) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
 |---|---|---|---|---|
 | `ThetaSummable` | def_prop | `side24-proof` | `side24-coefficient` | — |
 | `IsUnitTuple` | def_prop | `side24-proof` | `side24-coefficient` | — |
@@ -132,7 +132,7 @@ ladder; it is `specified`.
 
 ### `Specifications/RN.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38116277597 at 00d2ac6e unless marked †) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
 |---|---|---|---|---|
 | `IsCriticalPoint` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
 | `HessianHasInertia` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
@@ -165,7 +165,7 @@ ladder; it is `specified`.
 
 ### `Specifications/P15.lean` (58 registered declarations)
 
-| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38116277597 at 00d2ac6e unless marked †) |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840 at 910809d6) |
 |---|---|---|---|---|
 | `RealizedData` | structure | `p15-realized-covers` | `p15-realized-covers` | — |
 | `IsRealizedFamily` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
@@ -173,37 +173,37 @@ ladder; it is `specified`.
 | `IsKDecomposable` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
 | `IsGeneratorCover` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
 | `IsPaletteFeasible` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
-| `PaletteNumberAttained` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.paletteNumberAttained†` |
+| `PaletteNumberAttained` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.paletteNumberAttained` |
 | `IsMinimalForbidden` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
 | `IsTransversal` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
 | `MinimalForbiddenCharacterisation` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.minimalForbiddenCharacterisation` |
-| `LocalRestriction` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.localRestriction†` |
+| `LocalRestriction` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.localRestriction` |
 | `LocalDecomposability` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.localDecomposability` |
 | `LocalObstructionIsFullBlock` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.localObstructionIsFullBlock` |
-| `LocalPriceChain` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.localPriceChain†` |
-| `IndependentBlockHazard` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.independentBlockHazard†` |
+| `LocalPriceChain` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.localPriceChain` |
+| `IndependentBlockHazard` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.independentBlockHazard` |
 | `FullBlockCoverIff` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.fullBlockCoverIff` |
-| `CoverCostHazardBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Budget.coverCostHazardBound†` |
+| `CoverCostHazardBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Budget.coverCostHazardBound` |
 | `WholeGroundChromaticNumber` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.wholeGroundChromaticNumber` |
 | `ElementaryPaletteFormula` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.elementaryPaletteFormula` |
 | `TriangleNeedsThree` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Elementary.triangleNeedsThree`, `P15Structure.triangleNeedsThree` |
 | `Benchmark816IsRealized` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816IsRealized` |
 | `Benchmark816Palette` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816Palette` |
-| `Benchmark816Cover` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816Cover†` |
+| `Benchmark816Cover` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816Cover` |
 | `Benchmark816WholeGround` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816WholeGround` |
 | `Benchmark816MinimalForbiddenCounts` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816MinimalForbiddenCounts` |
 | `Benchmark816Price` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816Price` |
-| `Benchmark816UnionBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816UnionBound†` |
+| `Benchmark816UnionBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816UnionBound` |
 | `TwoCoordGeneratorPrices` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` | `P15Elementary.twoCoordGeneratorPrices` |
 | `DemandOneRefutation` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` | `P15Elementary.demandOneRefutation` |
 | `LogOnePlusBelowIdentity` | def_prop | `p15-price-boundary` | `p15-price-boundary` | `P15Elementary.logOnePlusBelowIdentity` |
 | `LogRatioBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.logRatioBound` |
 | `RatioExponentBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.ratioExponentBound` |
-| `RestrictedLocalBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedLocalBudget†` |
-| `RestrictedTransformedPriceBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedTransformedPriceBudget†` |
-| `RhoTestSufficient` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.rhoTestSufficient†` |
+| `RestrictedLocalBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedLocalBudget` |
+| `RestrictedTransformedPriceBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedTransformedPriceBudget` |
+| `RhoTestSufficient` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.rhoTestSufficient` |
 | `CapTestAtTwoThirds` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.capTestAtTwoThirds` |
-| `Benchmark816TransformedRange` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.benchmark816TransformedRange†` |
+| `Benchmark816TransformedRange` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.benchmark816TransformedRange` |
 | `Benchmark816RationalPrice` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Structure.benchmark816RationalPrice` |
 | `FullTransformedPriceBudget` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | — |
 | `RhoStarEnclosure` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | — |
@@ -216,19 +216,19 @@ ladder; it is `specified`.
 | `FullGroundPriceBound` | def_prop | `p15-full-price` | `p15-full-price` | — |
 | `PhiAtPStar` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.phiAtPStar` |
 | `FullGroundBudgetIff` | def_prop | `p15-full-price` | `p15-full-price` | — |
-| `CapacityHazardIsBinomial` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.capacityHazardIsBinomial†` |
+| `CapacityHazardIsBinomial` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.capacityHazardIsBinomial` |
 | `OddMajorityIdentity` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.oddMajorityIdentity` |
 | `CapacityWorstCase` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.capacityWorstCase` |
 | `HStarExceedsOne` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.hStarExceedsOne` |
 | `LocalPriceBoundFull` | def_prop | `p15-full-price` | `p15-full-price` | — |
-| `GlobalAssemblyHazard` | def_prop | `p15-full-price` | `p15-full-price` | `P15Hazard.globalAssemblyHazard†` |
-| `SharpnessOfRhoStar` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | `P15Elementary.sharpnessOfRhoStar†` |
+| `GlobalAssemblyHazard` | def_prop | `p15-full-price` | `p15-full-price` | `P15Hazard.globalAssemblyHazard` |
+| `SharpnessOfRhoStar` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | `P15Elementary.sharpnessOfRhoStar` |
 | `DemandOneBoundary` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.demandOneBoundary` |
 | `SixSeventhsCertificate` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.sixSeventhsCertificate` |
 
 ## Claims
 
-171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`). 132 statement entries carry the label `proved` and are theorems of other packages, listed as the arithmetic skeleton or the Prop-level proof of the claim they sit under and never as the claim: 31 are the 31 Side24 arithmetic targets of main's `formal/` at origin/main `f6deeba7`; 41 are the 28 P15 arithmetic targets of main's `formal/` at `91cffbb5` (main PR #358, not yet on main; kernel evidence the hosted workspace-landing run 38096827443), each listed on every P15 row whose layer 0 source it anchors to; 60 are theorems of the proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly a registered Prop of this package (52 theorems, 51 distinct Props, each listed on every row that registers its Prop; the hosted `lean-specification-proofs.yml` run 38116277597 on commit 00d2ac6e receipted the 38 theorems of that commit as kernel-checked, and the theorems added afterwards await the next run). Exactly one Prop registered as stating a claim itself has such a theorem: `DemandOneRefutation` on rows `p15-price-boundary` and `math.p15-price-boundary`; their claim-level label stays `specified` (the register admits only none/specified at claim level, alignment of the Prop with the source paragraph is PENDING_INDEPENDENT_REVIEW, and a receipt is about the Prop only), as the rows' `not established` cells record. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
+171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`). 132 statement entries carry the label `proved` and are theorems of other packages, listed as the arithmetic skeleton or the Prop-level proof of the claim they sit under and never as the claim: 31 are the 31 Side24 arithmetic targets of main's `formal/` at origin/main `f6deeba7`; 41 are the 28 P15 arithmetic targets of main's `formal/` at `91cffbb5` (main PR #358, not yet on main; kernel evidence the hosted workspace-landing run 38096827443), each listed on every P15 row whose layer 0 source it anchors to; 60 are theorems of the proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly a registered Prop of this package (52 theorems, 51 distinct Props, each listed on every row that registers its Prop; the hosted `lean-specification-proofs.yml` run 38121713840 on commit 910809d6 receipted all of them as kernel-checked, run 38116277597 on commit 00d2ac6e the first 38). Exactly one Prop registered as stating a claim itself has such a theorem: `DemandOneRefutation` on rows `p15-price-boundary` and `math.p15-price-boundary`; their claim-level label stays `specified` (the register admits only none/specified at claim level, alignment of the Prop with the source paragraph is PENDING_INDEPENDENT_REVIEW, and a receipt is about the Prop only), as the rows' `not established` cells record. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 | claim_id | kind | disposition (LANDING_CLAIMS, verbatim) | formal_progress | layer 0 source | statements |
 |---|---|---|---|---|---|
@@ -237,10 +237,10 @@ ladder; it is `specified`.
 | `rn-count-interface` | landing_claim | HOLD_WITH_DOMAIN | `none` | `rn-count-interface` | 5 specified: `HolderCountBoundN1`, `HolderConsequenceN2`, `ConditionalMeanIdentityN3`, `UniformCounterexampleN4`, `ExponentialTailLayerCakeN5`; 5 proved (proof packet): `RNProbability.conditionalMeanIdentityN3`, `RNProbability.holderCountBoundN1`, `RNProbability.holderConsequenceN2`, `RNProbability.uniformCounterexampleN4`, `RNProbability.exponentialTailLayerCakeN5` |
 | `rn-fixed-remote-window` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `rn-fixed-remote-window` | 5 specified: `PinnedLawInterface`, `IsCriticalPoint`, `HessianHasInertia`, `FixedRemoteMeanMeasureA2`, `FixedRemoteCountBoundA3` |
 | `rn-fixed-annulus-window` | landing_claim | REVIEWED_SCOPED | `specified` | `rn-fixed-annulus-window` | 1 specified: `FixedAnnulusWindowCandidateA2` |
-| `p15-realized-covers` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-realized-covers` | 27 specified: `RealizedData`, `IsRealizedFamily`, `IsGood`, `IsKDecomposable`, `IsGeneratorCover`, `IsPaletteFeasible`, `PaletteNumberAttained`, `IsMinimalForbidden`, `IsTransversal`, `MinimalForbiddenCharacterisation`, `LocalRestriction`, `LocalDecomposability`, `LocalObstructionIsFullBlock`, `LocalPriceChain`, `IndependentBlockHazard`, `FullBlockCoverIff`, `CoverCostHazardBound`, `WholeGroundChromaticNumber`, `ElementaryPaletteFormula`, `TriangleNeedsThree`, `Benchmark816IsRealized`, `Benchmark816Palette`, `Benchmark816Cover`, `Benchmark816WholeGround`, `Benchmark816MinimalForbiddenCounts`, `Benchmark816Price`, `Benchmark816UnionBound`; 12 proved (main 91cffbb5, PR #358, not on main): `benchmark_block_and_ground_sizes`, `four_block_supports_fifteen`, `minimal_forbidder_counts`, `palette_816_from_two_label_classes`, `palette_815_fails_by_counting`, `whole_ground_chromatic_818`, `elementary_palette_formula_instances`, `macro_triangle_three_colors`, `ceil_block_over_capacity_instances`, `block_occupancy_one_percent`, `low_failure_union_bound_arithmetic`, `cover_price_numerator_and_denominator_positive`; 20 proved (proof packet): `P15Elementary.triangleNeedsThree`, `P15Structure.benchmark816IsRealized`, `P15Structure.benchmark816Price`, `P15Structure.elementaryPaletteFormula`, `P15Structure.triangleNeedsThree`, `P15Structure.benchmark816Palette`, `P15Structure.localDecomposability`, `P15Structure.localObstructionIsFullBlock`, `P15Structure.fullBlockCoverIff`, `P15Structure.wholeGroundChromaticNumber`, `P15Structure.benchmark816WholeGround`, `P15Structure.minimalForbiddenCharacterisation`, `P15Structure.benchmark816MinimalForbiddenCounts`, `P15Hazard.localPriceChain†`, `P15Hazard.independentBlockHazard†`, `P15Covers.benchmark816Cover†`, `P15Covers.localRestriction†`, `P15Covers.paletteNumberAttained†`, `P15Covers.benchmark816UnionBound†`, `P15Budget.coverCostHazardBound†` |
+| `p15-realized-covers` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-realized-covers` | 27 specified: `RealizedData`, `IsRealizedFamily`, `IsGood`, `IsKDecomposable`, `IsGeneratorCover`, `IsPaletteFeasible`, `PaletteNumberAttained`, `IsMinimalForbidden`, `IsTransversal`, `MinimalForbiddenCharacterisation`, `LocalRestriction`, `LocalDecomposability`, `LocalObstructionIsFullBlock`, `LocalPriceChain`, `IndependentBlockHazard`, `FullBlockCoverIff`, `CoverCostHazardBound`, `WholeGroundChromaticNumber`, `ElementaryPaletteFormula`, `TriangleNeedsThree`, `Benchmark816IsRealized`, `Benchmark816Palette`, `Benchmark816Cover`, `Benchmark816WholeGround`, `Benchmark816MinimalForbiddenCounts`, `Benchmark816Price`, `Benchmark816UnionBound`; 12 proved (main 91cffbb5, PR #358, not on main): `benchmark_block_and_ground_sizes`, `four_block_supports_fifteen`, `minimal_forbidder_counts`, `palette_816_from_two_label_classes`, `palette_815_fails_by_counting`, `whole_ground_chromatic_818`, `elementary_palette_formula_instances`, `macro_triangle_three_colors`, `ceil_block_over_capacity_instances`, `block_occupancy_one_percent`, `low_failure_union_bound_arithmetic`, `cover_price_numerator_and_denominator_positive`; 20 proved (proof packet): `P15Elementary.triangleNeedsThree`, `P15Structure.benchmark816IsRealized`, `P15Structure.benchmark816Price`, `P15Structure.elementaryPaletteFormula`, `P15Structure.triangleNeedsThree`, `P15Structure.benchmark816Palette`, `P15Structure.localDecomposability`, `P15Structure.localObstructionIsFullBlock`, `P15Structure.fullBlockCoverIff`, `P15Structure.wholeGroundChromaticNumber`, `P15Structure.benchmark816WholeGround`, `P15Structure.minimalForbiddenCharacterisation`, `P15Structure.benchmark816MinimalForbiddenCounts`, `P15Hazard.localPriceChain`, `P15Hazard.independentBlockHazard`, `P15Covers.benchmark816Cover`, `P15Covers.localRestriction`, `P15Covers.paletteNumberAttained`, `P15Covers.benchmark816UnionBound`, `P15Budget.coverCostHazardBound` |
 | `p15-price-boundary` | landing_claim | EXACT_COUNTEREXAMPLE | `specified` | `p15-price-boundary` | 3 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation`, `LogOnePlusBelowIdentity`; 6 proved (main 91cffbb5, PR #358, not on main): `smallest_member_block_size`, `demand_one_good_sets`, `demand_one_obstruction`, `good_measure_three_quarters`, `generator_prices_ninths`, `minimum_generator_price_exceeds_third`; 3 proved (proof packet): `P15Elementary.twoCoordGeneratorPrices`, `P15Elementary.logOnePlusBelowIdentity`, `P15Elementary.demandOneRefutation` |
-| `p15-price-budget-restricted` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-price-budget` | 8 specified: `LogRatioBound`, `RatioExponentBound`, `RestrictedLocalBudget`, `RestrictedTransformedPriceBudget`, `RhoTestSufficient`, `CapTestAtTwoThirds`, `Benchmark816TransformedRange`, `Benchmark816RationalPrice`; 3 proved (main 91cffbb5, PR #358, not on main): `t3_ratio_at_minimal_block`, `t3_bound_finite_instances`, `explicit_rational_price_above_p`; 8 proved (proof packet): `P15Elementary.logRatioBound`, `P15Elementary.capTestAtTwoThirds`, `P15Elementary.ratioExponentBound`, `P15Structure.benchmark816RationalPrice`, `P15Budget.restrictedLocalBudget†`, `P15Budget.rhoTestSufficient†`, `P15Budget.restrictedTransformedPriceBudget†`, `P15Budget.benchmark816TransformedRange†` |
-| `p15-full-price` | landing_claim | REVIEWED_SCOPED | `specified` | `p15-full-price` | 20 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `RhoStarBelowSixSevenths`, `IsProperDownset`, `HazardStarPositive`, `CoordinatewiseConcavity`, `HazardProductBound`, `HazardPhiBound`, `FullGroundPriceBound`, `PhiAtPStar`, `FullGroundBudgetIff`, `CapacityHazardIsBinomial`, `OddMajorityIdentity`, `CapacityWorstCase`, `HStarExceedsOne`, `LocalPriceBoundFull`, `GlobalAssemblyHazard`, `SharpnessOfRhoStar`, `DemandOneBoundary`, `SixSeventhsCertificate`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 11 proved (proof packet): `P15Elementary.rhoStarBelowSixSevenths`, `P15Elementary.sixSeventhsCertificate`, `P15Elementary.hStarExceedsOne`, `P15Elementary.phiAtPStar`, `P15Elementary.hazardStarPositive`, `P15Elementary.oddMajorityIdentity`, `P15Elementary.capacityWorstCase`, `P15Elementary.demandOneBoundary`, `P15Elementary.capacityHazardIsBinomial†`, `P15Elementary.sharpnessOfRhoStar†`, `P15Hazard.globalAssemblyHazard†` |
+| `p15-price-budget-restricted` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-price-budget` | 8 specified: `LogRatioBound`, `RatioExponentBound`, `RestrictedLocalBudget`, `RestrictedTransformedPriceBudget`, `RhoTestSufficient`, `CapTestAtTwoThirds`, `Benchmark816TransformedRange`, `Benchmark816RationalPrice`; 3 proved (main 91cffbb5, PR #358, not on main): `t3_ratio_at_minimal_block`, `t3_bound_finite_instances`, `explicit_rational_price_above_p`; 8 proved (proof packet): `P15Elementary.logRatioBound`, `P15Elementary.capTestAtTwoThirds`, `P15Elementary.ratioExponentBound`, `P15Structure.benchmark816RationalPrice`, `P15Budget.restrictedLocalBudget`, `P15Budget.rhoTestSufficient`, `P15Budget.restrictedTransformedPriceBudget`, `P15Budget.benchmark816TransformedRange` |
+| `p15-full-price` | landing_claim | REVIEWED_SCOPED | `specified` | `p15-full-price` | 20 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `RhoStarBelowSixSevenths`, `IsProperDownset`, `HazardStarPositive`, `CoordinatewiseConcavity`, `HazardProductBound`, `HazardPhiBound`, `FullGroundPriceBound`, `PhiAtPStar`, `FullGroundBudgetIff`, `CapacityHazardIsBinomial`, `OddMajorityIdentity`, `CapacityWorstCase`, `HStarExceedsOne`, `LocalPriceBoundFull`, `GlobalAssemblyHazard`, `SharpnessOfRhoStar`, `DemandOneBoundary`, `SixSeventhsCertificate`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 11 proved (proof packet): `P15Elementary.rhoStarBelowSixSevenths`, `P15Elementary.sixSeventhsCertificate`, `P15Elementary.hStarExceedsOne`, `P15Elementary.phiAtPStar`, `P15Elementary.hazardStarPositive`, `P15Elementary.oddMajorityIdentity`, `P15Elementary.capacityWorstCase`, `P15Elementary.demandOneBoundary`, `P15Elementary.capacityHazardIsBinomial`, `P15Elementary.sharpnessOfRhoStar`, `P15Hazard.globalAssemblyHazard` |
 | `downstream-hard-gate` | landing_claim | ENGINEERING_HOLD | `none` | `downstream-graph` | — |
 | `math.uniform-matrix-cap-lifetime` | graph_node | — | `specified` | `lifetime-parent` | 32 specified: `IsLPeriodic`, `IsSmooth`, `GaussianFieldInterface`, `IsCriticalPoint`, `HessianHasInertia`, `IsNondegMax`, `IsIndexSaddle`, `IsCandidatePair`, `IsMorseDistinct`, `SuperlevelBarInterface`, `IsFiniteBar`, `IsLifetimeDensityVersion`, `IsLPeriodic`, `IsSmooth`, `GaussianFieldInterface`, `IsCriticalPoint`, `HessianHasInertia`, `IsNondegMax`, `IsIndexSaddle`, `IsCandidatePair`, `IsMorseDistinct`, `SuperlevelBarInterface`, `IsFiniteBar`, `IsLifetimeDensityVersion`, `IsWindowPair`, `IsWindowElderPair`, `IsUnrestrictedPair`, `PairLawInterface`, `ParentUniformSelectionA`, `ParentCompactWindowDensityB`, `IsUnrestrictedLeadingCoefficient`, `ParentUnrestrictedLeadingDensityC` |
 | `math.d1-component.congruence-erratum` | graph_node | — | `none` | `downstream-graph` | — |
@@ -257,7 +257,7 @@ ladder; it is `specified`.
 | `math.rn-region.intermediate-r-to-rho` | graph_node | — | `specified` | `d5-reconciliation` | 1 specified: `D5eIntermediateShellsI3I4` |
 | `math.rn-region.witness-collision` | open_obligation | — | `specified` | `d5-reconciliation` | 2 specified: `WitnessCollisionNearPinPairsTarget`, `RemoteCollisionSecondFactorialD` |
 | `math.rn-mesoscopic-reduction` | graph_node | — | `none` | `downstream-graph` | — |
-| `math.p15-full-price` | graph_node | — | `specified` | `p15-full-price` | 3 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `SharpnessOfRhoStar`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 1 proved (proof packet): `P15Elementary.sharpnessOfRhoStar†` |
+| `math.p15-full-price` | graph_node | — | `specified` | `p15-full-price` | 3 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `SharpnessOfRhoStar`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 1 proved (proof packet): `P15Elementary.sharpnessOfRhoStar` |
 | `math.p15-price-boundary` | graph_node | — | `specified` | `p15-price-boundary` | 2 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation`; 6 proved (main 91cffbb5, PR #358, not on main): `smallest_member_block_size`, `demand_one_good_sets`, `demand_one_obstruction`, `good_measure_three_quarters`, `generator_prices_ninths`, `minimum_generator_price_exceeds_third`; 2 proved (proof packet): `P15Elementary.twoCoordGeneratorPrices`, `P15Elementary.demandOneRefutation` |
 | `math.rn-selector-region-crosswalk` | graph_node | — | `none` | `downstream-graph` | — |
 | `math.rn-fixed-annulus-window` | graph_node | — | `specified` | `rn-fixed-annulus-window` | 1 specified: `FixedAnnulusWindowCandidateA2` |
@@ -355,8 +355,8 @@ Packets listed by PROOF_INDEX by id only (82 rows, kind `proof_index_result`, fo
   packet by path and holds 52 theorems whose type is exactly one of 51 registered Props (P15, Side24
   and RN families; see the last column of the declaration tables). The register lists those theorems
   under the claim rows with label `proved`, the label of a committed proof package; `kernel-checked`
-  appears only in that packet's hosted run receipts (`lean-specification-proofs.yml`; run 38116277597 on commit 00d2ac6e
-  receipted the 38 theorems of that commit; later theorems await the next run).
+  appears only in that packet's hosted run receipts (`lean-specification-proofs.yml`; run 38121713840 on commit 910809d6
+  receipted all of its theorems, run 38116277597 on commit 00d2ac6e the first 38).
   The 150 declarations here remain `specified`; a kernel-checked theorem is evidence about its Prop
   only, never about the informal claim, its alignment (PENDING_INDEPENDENT_REVIEW), review or
   acceptance; no claim-level label is `proved`, including the one row (`p15-price-boundary`) whose
