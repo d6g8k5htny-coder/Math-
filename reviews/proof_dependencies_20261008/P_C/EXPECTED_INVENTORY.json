@@ -1,0 +1,3658 @@
+{
+  "schema": "proof-unit-inventory/v0-provisional-5",
+  "root_statement_id": "UNIFORM-MATRIX-CAP-LIFETIME-20260924-v1::Theorem-C",
+  "root_boundary": {
+    "statement_id": "UNIFORM-MATRIX-CAP-LIFETIME-20260924-v1::Theorem-C",
+    "source_statement": {
+      "source_id": "P",
+      "lines": [
+        47,
+        52
+      ],
+      "locator": "Theorem C (1.3), statement and retained scope",
+      "precision": "exact_lines"
+    },
+    "entry_unit_ids": [
+      "B53"
+    ],
+    "graph_node": null,
+    "museum_card": null,
+    "semantics": {
+      "model": {
+        "text": "The recorded model is a centered stationary variance-one Gaussian field on the fixed flat torus R^d/(L Z^d), with the normalized periodized Gaussian covariance K_L. No nonperiodic covariance or isotropic GOE substitution is made.",
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              11,
+              16
+            ],
+            "locator": "Fixed torus and normalized periodized covariance",
+            "precision": "exact_lines"
+          }
+        ],
+        "record_refs": [
+          {
+            "record_id": "R6049443374",
+            "locator": "## Mandatory reading boundary"
+          },
+          {
+            "record_id": "R6053473777",
+            "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "observables": [
+        {
+          "text": "nu_cand^all(ell) counts all ordered maximum/index-(d-1)-saddle pairs with positive height difference ell, in expectation per unit volume.",
+          "source_refs": [
+            {
+              "source_id": "P",
+              "lines": [
+                47,
+                52
+              ],
+              "locator": "Theorem C candidate-pair observable",
+              "precision": "exact_lines"
+            }
+          ],
+          "record_refs": [
+            {
+              "record_id": "R6049443374",
+              "locator": "## Mandatory reading boundary"
+            },
+            {
+              "record_id": "R6053473777",
+              "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+            }
+          ],
+          "unknown_refs": []
+        },
+        {
+          "text": "nu_eld^all(ell) counts actual finite ordinary superlevel-H0 persistence bars, in expectation per unit volume. It remains distinct from candidate-pair density; the essential global-maximum class is excluded.",
+          "source_refs": [
+            {
+              "source_id": "P",
+              "lines": [
+                47,
+                52
+              ],
+              "locator": "Theorem C finite ordinary-bar observable",
+              "precision": "exact_lines"
+            }
+          ],
+          "record_refs": [
+            {
+              "record_id": "R6049443374",
+              "locator": "## Mandatory reading boundary"
+            },
+            {
+              "record_id": "R6053473777",
+              "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+            }
+          ],
+          "unknown_refs": [
+            "UNKNOWN-U3"
+          ]
+        }
+      ],
+      "normalization": {
+        "text": "Expectation per unit volume with ordered endpoint roles, ordinary sphere measure d-sigma and no unordered-pair factor 1/2. The exact normalized periodized covariance is retained.",
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              317,
+              319
+            ],
+            "locator": "Ordered-role spatial and height Jacobians; per-unit midpoint volume",
+            "precision": "exact_lines"
+          }
+        ],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "### 3. Applicability (instruction 3): text-level results / Ordinary dσ sphere, no 1/2"
+          },
+          {
+            "record_id": "R6049548422",
+            "locator": "### 3. Applicability (instruction 3): text-level results / Per-volume convention"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "parameters": {
+        "text": "Dimension d>=2 and side length L>0 are fixed. Theorem C includes all birth heights, all positive scaled-gap marks and all spatial separations on that torus. Compact-window hypotheses remain local hypotheses of the intermediate statements, not restrictions silently imposed on the unrestricted root.",
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              11,
+              16
+            ],
+            "locator": "Fixed d,L and compact intermediate windows",
+            "precision": "exact_lines"
+          },
+          {
+            "source_id": "P",
+            "lines": [
+              47,
+              52
+            ],
+            "locator": "Unrestricted root parameters",
+            "precision": "exact_lines"
+          }
+        ],
+        "record_refs": [
+          {
+            "record_id": "R6049443374",
+            "locator": "## Mandatory reading boundary"
+          },
+          {
+            "record_id": "R6053473777",
+            "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "limit_order": {
+        "text": "For the unrestricted near term, integrate at fixed ell and then let ell decrease to zero by dominated convergence at each fixed b,k,u, with r=(ell/k)^(1/3). The bounded far contribution vanishes after multiplication by ell^(1/3). Section 15 evaluates the coefficient after this limit. Compact-case uniform limits and Section 12 cumulative statements retain their separate domains.",
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              417,
+              433
+            ],
+            "locator": "Unrestricted cutoff, domination and limiting density",
+            "precision": "exact_lines"
+          },
+          {
+            "source_id": "P",
+            "lines": [
+              445,
+              445
+            ],
+            "locator": "Near/far combination and conclusion",
+            "precision": "exact_lines"
+          }
+        ],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "### 3. Applicability (instruction 3): text-level results / Limit order"
+          },
+          {
+            "record_id": "R6049548422",
+            "locator": "### 3. Applicability (instruction 3): text-level results / **N3:**"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "conclusion": {
+        "text": "P records the leading asymptotics nu_cand^all(ell) ~ c_{d,L} ell^(-1/3) and nu_eld^all(ell) ~ c_{d,L} ell^(-1/3), with positive finite c_{d,L}. B53 is the root entry. B65/(15.2) is its exact angular/cone coefficient source reference, not an additional root entry or numerical certificate.",
+        "source_refs": [
+          {
+            "source_id": "P",
+            "lines": [
+              47,
+              52
+            ],
+            "locator": "Theorem C statement and limitations",
+            "precision": "exact_lines"
+          },
+          {
+            "source_id": "P",
+            "lines": [
+              445,
+              445
+            ],
+            "locator": "B53 concludes Theorem C",
+            "precision": "exact_lines"
+          },
+          {
+            "source_id": "P",
+            "lines": [
+              476,
+              478
+            ],
+            "locator": "B65 coefficient representation (15.2)",
+            "precision": "exact_lines"
+          }
+        ],
+        "record_refs": [
+          {
+            "record_id": "R6053473777",
+            "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+          },
+          {
+            "record_id": "R6049443374",
+            "locator": "B53"
+          },
+          {
+            "record_id": "R6049443374",
+            "locator": "B65"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "exclusions": [
+        {
+          "text": "No unrestricted compact-window O(ell^(2/3)) difference estimate, elementary closed form or numerical enclosure is asserted by this root.",
+          "source_refs": [
+            {
+              "source_id": "P",
+              "lines": [
+                52,
+                52
+              ],
+              "locator": "Theorem C exclusions",
+              "precision": "exact_lines"
+            }
+          ],
+          "record_refs": [
+            {
+              "record_id": "R6049443374",
+              "locator": "## Mandatory reading boundary"
+            },
+            {
+              "record_id": "R6053473777",
+              "locator": "### Source-bound decision table / 3. P-C root and coefficient"
+            }
+          ],
+          "unknown_refs": []
+        },
+        {
+          "text": "Earlier P sections 1–9, the external Kac-Rice base and unnamed input mechanisms remain imported/unexpanded in this descriptive slice. The source inventory and its unknown annotations do not establish mathematical applicability, necessity or sufficiency.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6049443374",
+              "locator": "## Mandatory reading boundary"
+            },
+            {
+              "record_id": "R6049548422",
+              "locator": "### UNKNOWN"
+            }
+          ],
+          "unknown_refs": [
+            "UNKNOWN-U1",
+            "UNKNOWN-U2",
+            "UNKNOWN-U4",
+            "UNKNOWN-U7"
+          ]
+        },
+        {
+          "text": "R, C52, C50/C51 witness routes, CUB and formal acceptance remain separate. No whole-torus root, witness premise, scientific status or formal coverage is inferred.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6049443374",
+              "locator": "Explicit unknowns and omission/applicability exit"
+            },
+            {
+              "record_id": "R6051274124",
+              "locator": "1. Decision and exact scope"
+            }
+          ],
+          "unknown_refs": []
+        }
+      ]
+    },
+    "reading_boundaries": [
+      {
+        "id": "READ-CAP",
+        "source_id": "CAP",
+        "consumed_lines": [
+          [
+            11,
+            28
+          ],
+          [
+            49,
+            167
+          ]
+        ],
+        "excluded_lines": [
+          [
+            30,
+            47
+          ]
+        ],
+        "reason": {
+          "text": "Only the deterministic theorem and sections 2–5 are consumed. The narrower fixed-axis 2D SIDE24 probabilistic corollary at30–47 is excluded despite the older broad1–168 label; later numerical imports are unexpanded. CAP enters through the recorded Theorem-A/Section-8 inputs, not as an automatic independent P-C premise.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6049548422",
+              "locator": "4. Consumption boundaries / CAP (N6)"
+            },
+            {
+              "record_id": "R6049640627",
+              "locator": "N1–N7 are retained"
+            }
+          ],
+          "unknown_refs": []
+        }
+      },
+      {
+        "id": "READ-E1",
+        "source_id": "E1",
+        "consumed_lines": [
+          [
+            8,
+            40
+          ]
+        ],
+        "excluded_lines": [
+          [
+            1,
+            7
+          ],
+          [
+            41,
+            44
+          ]
+        ],
+        "reason": {
+          "text": "Present descriptive selection: complete P-section-5 congruence correction, transformed Hessian, determinant normalization, limiting matrices and unchanged-formula statement. Identity metadata and the historical review request remain authenticated but excluded. This is a reading correction, not an independent probability result or acceptance.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6057972030",
+              "locator": "Source reasons and limits / E1"
+            }
+          ],
+          "unknown_refs": []
+        }
+      },
+      {
+        "id": "READ-E2",
+        "source_id": "E2",
+        "consumed_lines": [
+          [
+            9,
+            131
+          ]
+        ],
+        "excluded_lines": [
+          [
+            1,
+            8
+          ],
+          [
+            132,
+            147
+          ]
+        ],
+        "reason": {
+          "text": "Present descriptive selection includes external-citation/finding context9–21, complete P-section-9 replacement23–110 and conditional disposition/scope limits112–131. Armentano–Azaïs–León v3 Theorems2.2/7.1 remain unexpanded external imports; compact off-diagonal and continuous/lower-semicontinuous-base hypotheses remain. The full-Borel extension retains the actual global elder/type mark, full determinant accounting and diagonal exhaustion importing P sections3/5/10 rather than re-proving them. Contact covariance, normalizer, TheoremA, unrestricted domination/coefficient and numerical/scientific gates stay separate.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6057972030",
+              "locator": "Source reasons and limits / E2"
+            },
+            {
+              "record_id": "R6049548422",
+              "locator": "4. Consumption boundaries / E2 / (b) N2"
+            }
+          ],
+          "unknown_refs": []
+        }
+      },
+      {
+        "id": "READ-REC",
+        "source_id": "REC",
+        "consumed_lines": [
+          [
+            10,
+            64
+          ],
+          [
+            83,
+            210
+          ],
+          [
+            215,
+            225
+          ]
+        ],
+        "excluded_lines": [
+          [
+            1,
+            9
+          ],
+          [
+            65,
+            82
+          ],
+          [
+            211,
+            214
+          ],
+          [
+            226,
+            309
+          ]
+        ],
+        "reason": {
+          "text": "Present descriptive selection retains reading rules and model/scoped statements, attributed source/review ledger context83–131, residual qualifications133–166, historical sections11–12 review168–205, and retained consumer-scope context207–210/215–225. W1 gives joint convergence in law via Slutsky. The embedding radius bounds TheoremA r_*, not every P13 covariance r0; separate quantitative R12 is not a P-C premise. ACCEPT/provider, machine-binding and spot-check text remains historical provenance, not this materializer’s verdict or execution. The planar lower-bound composition66–69, section3 synopsis71–81, outbound consumers211–214 and later register/check instructions are excluded. REC is not an independent replacement proof of every interface, and its broad historical CAP label cannot override the CAP exclusion.",
+          "source_refs": [],
+          "record_refs": [
+            {
+              "record_id": "R6057972030",
+              "locator": "Source reasons and limits / REC"
+            },
+            {
+              "record_id": "R6049548422",
+              "locator": "4. Consumption boundaries / REC (N1)"
+            },
+            {
+              "record_id": "R6049640627",
+              "locator": "N1–N7 are retained"
+            }
+          ],
+          "unknown_refs": []
+        }
+      }
+    ]
+  },
+  "source": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+    "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+    "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+    "bytes": 40261,
+    "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+  },
+  "sources": [
+    {
+      "id": "P",
+      "identity": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+        "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "bytes": 40261,
+        "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+      }
+    },
+    {
+      "id": "CAP",
+      "identity": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+        "path": "imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md",
+        "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+        "bytes": 15160,
+        "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc"
+      }
+    },
+    {
+      "id": "E1",
+      "identity": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+        "path": "imports/lifetime_parent_20260925/ERRATUM_CONGRUENCE.md",
+        "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+        "bytes": 1782,
+        "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028"
+      }
+    },
+    {
+      "id": "E2",
+      "identity": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+        "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+        "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+        "bytes": 9062,
+        "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"
+      }
+    },
+    {
+      "id": "REC",
+      "identity": {
+        "repository": "d6g8k5htny-coder/Math-",
+        "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+        "path": "reviews/d1_chain_reconciliation_20260928/RECONCILIATION.md",
+        "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+        "bytes": 23312,
+        "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da"
+      }
+    }
+  ],
+  "records": [
+    {
+      "id": "R6049443374",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6049443374",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6049443374",
+        "updated_at": "2026-10-08T00:13:18Z",
+        "body_bytes": 22410,
+        "body_sha256": "3726784e264a844dddab7f982419e751da96b7bb6661a1689518db9a6522c9f0"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "Codex root",
+        "session": "01a103c8-7a8e-7461-8e9f-36e3b02757c5",
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Original descriptive inventory, 66 units and originally listed 109 uses; source/review exposed, no applicability acceptance."
+      },
+      "role": "inventory",
+      "scope": "Original descriptive inventory, 66 units and originally listed 109 uses; source/review exposed, no applicability acceptance."
+    },
+    {
+      "id": "R6049548422",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6049548422",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6049548422",
+        "updated_at": "2026-10-08T00:22:13Z",
+        "body_bytes": 10976,
+        "body_sha256": "1c22188ec6395aceadbf5a34b0da5f83de95c84a6c619159f33aac23ca8f5466"
+      },
+      "performer": {
+        "provider": "Grok Bot",
+        "agent": "Grok Bot agent 10",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Historical separate omission/applicability read at its recorded scope; non-Claude/nonauthor support; no full proof or current-target review."
+      },
+      "role": "omission_read",
+      "scope": "Historical separate omission/applicability read at its recorded scope; non-Claude/nonauthor support; no full proof or current-target review."
+    },
+    {
+      "id": "R6049640627",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6049640627",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6049640627",
+        "updated_at": "2026-10-08T00:30:12Z",
+        "body_bytes": 2756,
+        "body_sha256": "ec0677b5e6e0630e444d8ae94cc4fc4572848241786e30e391897e068b9937dc"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "Codex root",
+        "session": "01a103c8-7a8e-7461-8e9f-36e3b02757c5",
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Original inventory author additions A1–A6, U66.3 reclassification and dated responses; no accepted mathematical edge."
+      },
+      "role": "author_response",
+      "scope": "Original inventory author additions A1–A6, U66.3 reclassification and dated responses; no accepted mathematical edge."
+    },
+    {
+      "id": "R6051274124",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6051274124",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6051274124",
+        "updated_at": "2026-10-08T03:00:28Z",
+        "body_bytes": 34493,
+        "body_sha256": "29e9a4db8bae928f9f7b9b5286db1cdf722e7ceb90b108fd09d53082b72edaba"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "design_proof_dependency_view",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Original provisional contract; retained for statement-key provenance and unchanged scope, superseded only by explicit successor rules."
+      },
+      "role": "design",
+      "scope": "Original provisional contract; retained for statement-key provenance and unchanged scope, superseded only by explicit successor rules."
+    },
+    {
+      "id": "R6053473777",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6053473777",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6053473777",
+        "updated_at": "2026-10-08T06:02:42Z",
+        "body_bytes": 12576,
+        "body_sha256": "1b5012b601bcefbb493a1f27b7e8526326ef0f0f44374f4862f211787d83943f"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "validate_proof_slice_sources",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Descriptive five-choice source assessment, including entry B53, B65 role, contained spans and existing grouping; not original-author assent."
+      },
+      "role": "omission_read",
+      "scope": "Descriptive five-choice source assessment, including entry B53, B65 role, contained spans and existing grouping; not original-author assent."
+    },
+    {
+      "id": "R6053539516",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6053539516",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6053539516",
+        "updated_at": "2026-10-08T06:07:18Z",
+        "body_bytes": 3027,
+        "body_sha256": "edcf2e3d34f606c66fcb6f5391342802d9cb44cb35a6b59f5151a93e44641cc5"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "Codex coordinator",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Candidate-preparation disposition and A/B boundary; not a source implication review."
+      },
+      "role": "design",
+      "scope": "Candidate-preparation disposition and A/B boundary; not a source implication review."
+    },
+    {
+      "id": "R6054305355",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6054305355",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6054305355",
+        "updated_at": "2026-10-08T06:55:28Z",
+        "body_bytes": 4059,
+        "body_sha256": "fb29f57919825c8e9f1fa80e241a0a1736e70b7565e101badc3de9730052bc66"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "prepare_proof_slice_records",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Frozen candidate delivery: all 66/115 choices and 45 owner groups; actual candidate preparer, not original inventory author."
+      },
+      "role": "inventory",
+      "scope": "Frozen candidate delivery: all 66/115 choices and 45 owner groups; actual candidate preparer, not original inventory author."
+    },
+    {
+      "id": "R6054567951",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6054567951",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6054567951",
+        "updated_at": "2026-10-08T07:09:22Z",
+        "body_bytes": 15086,
+        "body_sha256": "d49e298d4bb3d585385028834f0f6db7dfb1de5accc955fac1b6c9f43cd30ca0"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "validate_proof_slice_sources",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Separate exact candidate descriptive source-data read; supports 112 premise/2 context/1 check and 42 mappings, preserving three then-unresolved cases."
+      },
+      "role": "omission_read",
+      "scope": "Separate exact candidate descriptive source-data read; supports 112 premise/2 context/1 check and 42 mappings, preserving three then-unresolved cases."
+    },
+    {
+      "id": "R6055287391",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6055287391",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6055287391",
+        "updated_at": "2026-10-08T07:48:50Z",
+        "body_bytes": 7084,
+        "body_sha256": "420b04f3b14335559eccda7cf0bd3ae7ee88da8f532b9eac0e99ebb65a7140ef"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "prepare_proof_slice_records",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Actual continuing descriptive custodian selection of the three joint-contribution targets; not mathematical sufficiency or original-author assent."
+      },
+      "role": "author_response",
+      "scope": "Actual continuing descriptive custodian selection of the three joint-contribution targets; not mathematical sufficiency or original-author assent."
+    },
+    {
+      "id": "R6055282954",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6055282954",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6055282954",
+        "updated_at": "2026-10-08T07:48:38Z",
+        "body_bytes": 5854,
+        "body_sha256": "ee7bb9469d3aaecc8bd5afc6c8e463f6767132e91645fa5b4c36650a2f81700c"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "validate_proof_slice_sources",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Continuing separate source-reader agreement with the three source-selected joint contribution sets; design/source scope only."
+      },
+      "role": "omission_read",
+      "scope": "Continuing separate source-reader agreement with the three source-selected joint contribution sets; design/source scope only."
+    },
+    {
+      "id": "R6057972030",
+      "identity": {
+        "kind": "github_comment_snapshot",
+        "repository": "d6g8k5htny-coder/main",
+        "issue": 281,
+        "comment_id": "6057972030",
+        "url": "https://github.com/d6g8k5htny-coder/main/issues/281#issuecomment-6057972030",
+        "updated_at": "2026-10-08T10:34:25Z",
+        "body_bytes": 6711,
+        "body_sha256": "cd622caf140c346e07ec8775644789b4e82c648389c8beb161975ea76a6fd298"
+      },
+      "performer": {
+        "provider": "OpenAI",
+        "agent": "prepare_proof_slice_records",
+        "session": null,
+        "exposure": "Source/discussion exposed as recorded; organizational-independence credit 0. Present bounded E1/E2/REC consumed/excluded range selection, with explicit reading/provenance roles; not claimed as an earlier author choice."
+      },
+      "role": "author_response",
+      "scope": "Present bounded E1/E2/REC consumed/excluded range selection, with explicit reading/provenance roles; not claimed as an earlier author choice."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "UNKNOWN-U1",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U1: derivations in P §§1–9. This includes (3.2), the Section-4 mechanism, and the target/k-independence of the (5.1)/(5.3) constants asserted at l410. The original author response retains U1/U7 as imported/unexpanded earlier Gaussian-regression/moment mechanisms. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U1"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory."
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U1"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory."
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U2",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U2: non-circularity of the E2 §9.4 ↔ P §10 edge (N2). The original author response records a later local application note for nonauthor attack; it does not supply a current use-bound assessment here. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U2"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U2"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [
+        "U04.1",
+        "U11.1"
+      ],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U2"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U2"
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U3",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U3: the global finite-bar once-counting bijection. The original author response reports a separate interval-decomposition derivation awaiting a distinct attack at that date; later proof/formal work is outside this inventory. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U3"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "paragraph beginning \"The active U3 task6049585299\""
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [
+        "U53.5"
+      ],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U3"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "paragraph beginning \"The active U3 task6049585299\""
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U4",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U4: the external Armentano–Azaïs–León KR base behind E2. The original author response reports inspecting the external v3 base and preserves E2’s separate full-Borel extension; no external derivation is expanded here. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U4"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U4"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U4"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U4"
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U5",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U5: the definition of `A^*`. The original author interprets A* as the B09/B10 uniform upper bound while retaining its missing definition in P. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U5"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U5"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [
+        "U20.4"
+      ],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U5"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U5"
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U6",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U6: whether r_0 must also be below L/(4√2). The original author distinguishes P13 covariance r0 from the Theorem-A cylinder radius and records a separate stronger quantitative R12 reading; R12 is not a P-C premise. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U6"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U6"
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [
+        "U30.2"
+      ],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U6"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "paragraph beginning \"U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory.\" / U6"
+        }
+      ]
+    },
+    {
+      "id": "UNKNOWN-U7",
+      "description": {
+        "text": "Historical omission observation at 2026-10-08T00:22:13Z, U7: the unnamed regression and moment mechanisms in U35.1 and U50.1, which can't be derived inside this slice. The original author response retains U1/U7 as imported/unexpanded earlier Gaussian-regression/moment mechanisms. No present mathematical disposition is inferred; the original records retain their dates and scopes.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6049548422",
+            "locator": "UNKNOWN / U7"
+          },
+          {
+            "record_id": "R6049640627",
+            "locator": "U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory."
+          }
+        ],
+        "unknown_refs": []
+      },
+      "affects_use_ids": [
+        "U35.1",
+        "U50.1"
+      ],
+      "provenance": [
+        {
+          "record_id": "R6049548422",
+          "locator": "UNKNOWN / U7"
+        },
+        {
+          "record_id": "R6049640627",
+          "locator": "U1/U7 remain imported/unexpanded earlier Gaussian-regression/moment mechanisms in this inventory."
+        }
+      ]
+    }
+  ],
+  "extraction": {
+    "rule": "maximal-contiguous-nonempty-nonheading-blocks",
+    "heading_boundaries": [
+      310,
+      482
+    ],
+    "payload_lines": [
+      312,
+      480
+    ],
+    "line_convention": "one-based-inclusive-original-LF"
+  },
+  "expected_units": [
+    {
+      "id": "B01",
+      "section": 10,
+      "lines": [
+        312,
+        312
+      ],
+      "locator": "P lines312"
+    },
+    {
+      "id": "B02",
+      "section": 10,
+      "lines": [
+        314,
+        315
+      ],
+      "locator": "P lines314–315"
+    },
+    {
+      "id": "B03",
+      "section": 10,
+      "lines": [
+        317,
+        317
+      ],
+      "locator": "P lines317"
+    },
+    {
+      "id": "B04",
+      "section": 10,
+      "lines": [
+        319,
+        319
+      ],
+      "locator": "P lines319"
+    },
+    {
+      "id": "B05",
+      "section": 10,
+      "lines": [
+        321,
+        322
+      ],
+      "locator": "P lines321–322"
+    },
+    {
+      "id": "B06",
+      "section": 10,
+      "lines": [
+        324,
+        324
+      ],
+      "locator": "P lines324"
+    },
+    {
+      "id": "B07",
+      "section": 10,
+      "lines": [
+        326,
+        327
+      ],
+      "locator": "P lines326–327"
+    },
+    {
+      "id": "B08",
+      "section": 10,
+      "lines": [
+        329,
+        329
+      ],
+      "locator": "P lines329"
+    },
+    {
+      "id": "B09",
+      "section": 10,
+      "lines": [
+        331,
+        331
+      ],
+      "locator": "P lines331"
+    },
+    {
+      "id": "B10",
+      "section": 10,
+      "lines": [
+        333,
+        333
+      ],
+      "locator": "P lines333"
+    },
+    {
+      "id": "B11",
+      "section": 10,
+      "lines": [
+        335,
+        335
+      ],
+      "locator": "P lines335"
+    },
+    {
+      "id": "B12",
+      "section": 11,
+      "lines": [
+        339,
+        339
+      ],
+      "locator": "P lines339"
+    },
+    {
+      "id": "B13",
+      "section": 11,
+      "lines": [
+        341,
+        341
+      ],
+      "locator": "P lines341"
+    },
+    {
+      "id": "B14",
+      "section": 11,
+      "lines": [
+        343,
+        343
+      ],
+      "locator": "P lines343"
+    },
+    {
+      "id": "B15",
+      "section": 11,
+      "lines": [
+        345,
+        347
+      ],
+      "locator": "P lines345–347"
+    },
+    {
+      "id": "B16",
+      "section": 11,
+      "lines": [
+        349,
+        349
+      ],
+      "locator": "P lines349"
+    },
+    {
+      "id": "B17",
+      "section": 11,
+      "lines": [
+        351,
+        353
+      ],
+      "locator": "P lines351–353"
+    },
+    {
+      "id": "B18",
+      "section": 11,
+      "lines": [
+        355,
+        355
+      ],
+      "locator": "P lines355"
+    },
+    {
+      "id": "B19",
+      "section": 11,
+      "lines": [
+        357,
+        357
+      ],
+      "locator": "P lines357"
+    },
+    {
+      "id": "B20",
+      "section": 11,
+      "lines": [
+        359,
+        361
+      ],
+      "locator": "P lines359–361"
+    },
+    {
+      "id": "B21",
+      "section": 11,
+      "lines": [
+        363,
+        363
+      ],
+      "locator": "P lines363"
+    },
+    {
+      "id": "B22",
+      "section": 12,
+      "lines": [
+        367,
+        367
+      ],
+      "locator": "P lines367"
+    },
+    {
+      "id": "B23",
+      "section": 12,
+      "lines": [
+        369,
+        370
+      ],
+      "locator": "P lines369–370"
+    },
+    {
+      "id": "B24",
+      "section": 12,
+      "lines": [
+        372,
+        372
+      ],
+      "locator": "P lines372"
+    },
+    {
+      "id": "B25",
+      "section": 12,
+      "lines": [
+        374,
+        375
+      ],
+      "locator": "P lines374–375"
+    },
+    {
+      "id": "B26",
+      "section": 12,
+      "lines": [
+        377,
+        377
+      ],
+      "locator": "P lines377"
+    },
+    {
+      "id": "B27",
+      "section": 12,
+      "lines": [
+        379,
+        380
+      ],
+      "locator": "P lines379–380"
+    },
+    {
+      "id": "B28",
+      "section": 12,
+      "lines": [
+        382,
+        382
+      ],
+      "locator": "P lines382"
+    },
+    {
+      "id": "B29",
+      "section": 12,
+      "lines": [
+        384,
+        384
+      ],
+      "locator": "P lines384"
+    },
+    {
+      "id": "B30",
+      "section": 13,
+      "lines": [
+        388,
+        388
+      ],
+      "locator": "P lines388"
+    },
+    {
+      "id": "B31",
+      "section": 13,
+      "lines": [
+        390,
+        390
+      ],
+      "locator": "P lines390"
+    },
+    {
+      "id": "B32",
+      "section": 13,
+      "lines": [
+        392,
+        393
+      ],
+      "locator": "P lines392–393"
+    },
+    {
+      "id": "B33",
+      "section": 13,
+      "lines": [
+        395,
+        395
+      ],
+      "locator": "P lines395"
+    },
+    {
+      "id": "B34",
+      "section": 13,
+      "lines": [
+        397,
+        397
+      ],
+      "locator": "P lines397"
+    },
+    {
+      "id": "B35",
+      "section": 13,
+      "lines": [
+        399,
+        399
+      ],
+      "locator": "P lines399"
+    },
+    {
+      "id": "B36",
+      "section": 13,
+      "lines": [
+        401,
+        401
+      ],
+      "locator": "P lines401"
+    },
+    {
+      "id": "B37",
+      "section": 13,
+      "lines": [
+        403,
+        403
+      ],
+      "locator": "P lines403"
+    },
+    {
+      "id": "B38",
+      "section": 13,
+      "lines": [
+        405,
+        405
+      ],
+      "locator": "P lines405"
+    },
+    {
+      "id": "B39",
+      "section": 13,
+      "lines": [
+        407,
+        408
+      ],
+      "locator": "P lines407–408"
+    },
+    {
+      "id": "B40",
+      "section": 13,
+      "lines": [
+        410,
+        410
+      ],
+      "locator": "P lines410"
+    },
+    {
+      "id": "B41",
+      "section": 13,
+      "lines": [
+        412,
+        413
+      ],
+      "locator": "P lines412–413"
+    },
+    {
+      "id": "B42",
+      "section": 13,
+      "lines": [
+        415,
+        415
+      ],
+      "locator": "P lines415"
+    },
+    {
+      "id": "B43",
+      "section": 13,
+      "lines": [
+        417,
+        417
+      ],
+      "locator": "P lines417"
+    },
+    {
+      "id": "B44",
+      "section": 13,
+      "lines": [
+        419,
+        422
+      ],
+      "locator": "P lines419–422"
+    },
+    {
+      "id": "B45",
+      "section": 13,
+      "lines": [
+        424,
+        424
+      ],
+      "locator": "P lines424"
+    },
+    {
+      "id": "B46",
+      "section": 13,
+      "lines": [
+        426,
+        426
+      ],
+      "locator": "P lines426"
+    },
+    {
+      "id": "B47",
+      "section": 13,
+      "lines": [
+        428,
+        431
+      ],
+      "locator": "P lines428–431"
+    },
+    {
+      "id": "B48",
+      "section": 13,
+      "lines": [
+        433,
+        433
+      ],
+      "locator": "P lines433"
+    },
+    {
+      "id": "B49",
+      "section": 14,
+      "lines": [
+        437,
+        437
+      ],
+      "locator": "P lines437"
+    },
+    {
+      "id": "B50",
+      "section": 14,
+      "lines": [
+        439,
+        439
+      ],
+      "locator": "P lines439"
+    },
+    {
+      "id": "B51",
+      "section": 14,
+      "lines": [
+        441,
+        441
+      ],
+      "locator": "P lines441"
+    },
+    {
+      "id": "B52",
+      "section": 14,
+      "lines": [
+        443,
+        443
+      ],
+      "locator": "P lines443"
+    },
+    {
+      "id": "B53",
+      "section": 14,
+      "lines": [
+        445,
+        445
+      ],
+      "locator": "P lines445"
+    },
+    {
+      "id": "B54",
+      "section": 15,
+      "lines": [
+        449,
+        449
+      ],
+      "locator": "P lines449"
+    },
+    {
+      "id": "B55",
+      "section": 15,
+      "lines": [
+        451,
+        451
+      ],
+      "locator": "P lines451"
+    },
+    {
+      "id": "B56",
+      "section": 15,
+      "lines": [
+        453,
+        454
+      ],
+      "locator": "P lines453–454"
+    },
+    {
+      "id": "B57",
+      "section": 15,
+      "lines": [
+        456,
+        456
+      ],
+      "locator": "P lines456"
+    },
+    {
+      "id": "B58",
+      "section": 15,
+      "lines": [
+        458,
+        458
+      ],
+      "locator": "P lines458"
+    },
+    {
+      "id": "B59",
+      "section": 15,
+      "lines": [
+        460,
+        461
+      ],
+      "locator": "P lines460–461"
+    },
+    {
+      "id": "B60",
+      "section": 15,
+      "lines": [
+        463,
+        463
+      ],
+      "locator": "P lines463"
+    },
+    {
+      "id": "B61",
+      "section": 15,
+      "lines": [
+        465,
+        467
+      ],
+      "locator": "P lines465–467"
+    },
+    {
+      "id": "B62",
+      "section": 15,
+      "lines": [
+        469,
+        469
+      ],
+      "locator": "P lines469"
+    },
+    {
+      "id": "B63",
+      "section": 15,
+      "lines": [
+        471,
+        472
+      ],
+      "locator": "P lines471–472"
+    },
+    {
+      "id": "B64",
+      "section": 15,
+      "lines": [
+        474,
+        474
+      ],
+      "locator": "P lines474"
+    },
+    {
+      "id": "B65",
+      "section": 15,
+      "lines": [
+        476,
+        478
+      ],
+      "locator": "P lines476–478"
+    },
+    {
+      "id": "B66",
+      "section": 15,
+      "lines": [
+        480,
+        480
+      ],
+      "locator": "P lines480"
+    }
+  ],
+  "expected_uses": [
+    {
+      "id": "U01.1",
+      "consumer_unit_id": "B01",
+      "kind": "premise"
+    },
+    {
+      "id": "U01.2",
+      "consumer_unit_id": "B01",
+      "kind": "premise"
+    },
+    {
+      "id": "U01.3",
+      "consumer_unit_id": "B01",
+      "kind": "premise"
+    },
+    {
+      "id": "U03.1",
+      "consumer_unit_id": "B03",
+      "kind": "premise"
+    },
+    {
+      "id": "U03.2",
+      "consumer_unit_id": "B03",
+      "kind": "premise"
+    },
+    {
+      "id": "U03.3",
+      "consumer_unit_id": "B03",
+      "kind": "premise"
+    },
+    {
+      "id": "U03.4",
+      "consumer_unit_id": "B03",
+      "kind": "premise"
+    },
+    {
+      "id": "U04.1",
+      "consumer_unit_id": "B04",
+      "kind": "premise"
+    },
+    {
+      "id": "U07.1",
+      "consumer_unit_id": "B07",
+      "kind": "premise"
+    },
+    {
+      "id": "U07.2",
+      "consumer_unit_id": "B07",
+      "kind": "premise"
+    },
+    {
+      "id": "U07.3",
+      "consumer_unit_id": "B07",
+      "kind": "premise"
+    },
+    {
+      "id": "U07.4",
+      "consumer_unit_id": "B07",
+      "kind": "premise"
+    },
+    {
+      "id": "U08.1",
+      "consumer_unit_id": "B08",
+      "kind": "premise"
+    },
+    {
+      "id": "U08.2",
+      "consumer_unit_id": "B08",
+      "kind": "premise"
+    },
+    {
+      "id": "U10.1",
+      "consumer_unit_id": "B10",
+      "kind": "premise"
+    },
+    {
+      "id": "U10.2",
+      "consumer_unit_id": "B10",
+      "kind": "premise"
+    },
+    {
+      "id": "U10.3",
+      "consumer_unit_id": "B10",
+      "kind": "premise"
+    },
+    {
+      "id": "U11.1",
+      "consumer_unit_id": "B11",
+      "kind": "premise"
+    },
+    {
+      "id": "U11.2",
+      "consumer_unit_id": "B11",
+      "kind": "premise"
+    },
+    {
+      "id": "U12.1",
+      "consumer_unit_id": "B12",
+      "kind": "premise"
+    },
+    {
+      "id": "U12.2",
+      "consumer_unit_id": "B12",
+      "kind": "premise"
+    },
+    {
+      "id": "U13.1",
+      "consumer_unit_id": "B13",
+      "kind": "premise"
+    },
+    {
+      "id": "U14.1",
+      "consumer_unit_id": "B14",
+      "kind": "premise"
+    },
+    {
+      "id": "U14.2",
+      "consumer_unit_id": "B14",
+      "kind": "premise"
+    },
+    {
+      "id": "U16.1",
+      "consumer_unit_id": "B16",
+      "kind": "premise"
+    },
+    {
+      "id": "U16.2",
+      "consumer_unit_id": "B16",
+      "kind": "premise"
+    },
+    {
+      "id": "U16.3",
+      "consumer_unit_id": "B16",
+      "kind": "premise"
+    },
+    {
+      "id": "U16.4",
+      "consumer_unit_id": "B16",
+      "kind": "premise"
+    },
+    {
+      "id": "U18.1",
+      "consumer_unit_id": "B18",
+      "kind": "premise"
+    },
+    {
+      "id": "U19.1",
+      "consumer_unit_id": "B19",
+      "kind": "premise"
+    },
+    {
+      "id": "U20.1",
+      "consumer_unit_id": "B20",
+      "kind": "premise"
+    },
+    {
+      "id": "U20.2",
+      "consumer_unit_id": "B20",
+      "kind": "premise"
+    },
+    {
+      "id": "U20.3",
+      "consumer_unit_id": "B20",
+      "kind": "premise"
+    },
+    {
+      "id": "U20.4",
+      "consumer_unit_id": "B20",
+      "kind": "premise"
+    },
+    {
+      "id": "U21.1",
+      "consumer_unit_id": "B21",
+      "kind": "premise"
+    },
+    {
+      "id": "U21.2",
+      "consumer_unit_id": "B21",
+      "kind": "premise"
+    },
+    {
+      "id": "U22.1",
+      "consumer_unit_id": "B22",
+      "kind": "premise"
+    },
+    {
+      "id": "U23.1",
+      "consumer_unit_id": "B23",
+      "kind": "premise"
+    },
+    {
+      "id": "U23.2",
+      "consumer_unit_id": "B23",
+      "kind": "premise"
+    },
+    {
+      "id": "U25.1",
+      "consumer_unit_id": "B25",
+      "kind": "premise"
+    },
+    {
+      "id": "U25.2",
+      "consumer_unit_id": "B25",
+      "kind": "premise"
+    },
+    {
+      "id": "U26.1",
+      "consumer_unit_id": "B26",
+      "kind": "premise"
+    },
+    {
+      "id": "U26.2",
+      "consumer_unit_id": "B26",
+      "kind": "premise"
+    },
+    {
+      "id": "U27.1",
+      "consumer_unit_id": "B27",
+      "kind": "premise"
+    },
+    {
+      "id": "U27.2",
+      "consumer_unit_id": "B27",
+      "kind": "premise"
+    },
+    {
+      "id": "U28.1",
+      "consumer_unit_id": "B28",
+      "kind": "premise"
+    },
+    {
+      "id": "U28.2",
+      "consumer_unit_id": "B28",
+      "kind": "premise"
+    },
+    {
+      "id": "U28.3",
+      "consumer_unit_id": "B28",
+      "kind": "premise"
+    },
+    {
+      "id": "U29.1",
+      "consumer_unit_id": "B29",
+      "kind": "premise"
+    },
+    {
+      "id": "U29.2",
+      "consumer_unit_id": "B29",
+      "kind": "premise"
+    },
+    {
+      "id": "U30.1",
+      "consumer_unit_id": "B30",
+      "kind": "premise"
+    },
+    {
+      "id": "U30.2",
+      "consumer_unit_id": "B30",
+      "kind": "premise"
+    },
+    {
+      "id": "U31.1",
+      "consumer_unit_id": "B31",
+      "kind": "premise"
+    },
+    {
+      "id": "U33.1",
+      "consumer_unit_id": "B33",
+      "kind": "premise"
+    },
+    {
+      "id": "U33.2",
+      "consumer_unit_id": "B33",
+      "kind": "premise"
+    },
+    {
+      "id": "U33.3",
+      "consumer_unit_id": "B33",
+      "kind": "premise"
+    },
+    {
+      "id": "U35.1",
+      "consumer_unit_id": "B35",
+      "kind": "premise"
+    },
+    {
+      "id": "U35.2",
+      "consumer_unit_id": "B35",
+      "kind": "premise"
+    },
+    {
+      "id": "U35.3",
+      "consumer_unit_id": "B35",
+      "kind": "premise"
+    },
+    {
+      "id": "U37.1",
+      "consumer_unit_id": "B37",
+      "kind": "premise"
+    },
+    {
+      "id": "U38.1",
+      "consumer_unit_id": "B38",
+      "kind": "premise"
+    },
+    {
+      "id": "U38.2",
+      "consumer_unit_id": "B38",
+      "kind": "premise"
+    },
+    {
+      "id": "U40.1",
+      "consumer_unit_id": "B40",
+      "kind": "premise"
+    },
+    {
+      "id": "U40.2",
+      "consumer_unit_id": "B40",
+      "kind": "premise"
+    },
+    {
+      "id": "U40.3",
+      "consumer_unit_id": "B40",
+      "kind": "premise"
+    },
+    {
+      "id": "U42.1",
+      "consumer_unit_id": "B42",
+      "kind": "premise"
+    },
+    {
+      "id": "U42.2",
+      "consumer_unit_id": "B42",
+      "kind": "premise"
+    },
+    {
+      "id": "U42.3",
+      "consumer_unit_id": "B42",
+      "kind": "premise"
+    },
+    {
+      "id": "U42.4",
+      "consumer_unit_id": "B42",
+      "kind": "premise"
+    },
+    {
+      "id": "U43.1",
+      "consumer_unit_id": "B43",
+      "kind": "premise"
+    },
+    {
+      "id": "U43.2",
+      "consumer_unit_id": "B43",
+      "kind": "premise"
+    },
+    {
+      "id": "U45.1",
+      "consumer_unit_id": "B45",
+      "kind": "premise"
+    },
+    {
+      "id": "U45.2",
+      "consumer_unit_id": "B45",
+      "kind": "premise"
+    },
+    {
+      "id": "U45.3",
+      "consumer_unit_id": "B45",
+      "kind": "premise"
+    },
+    {
+      "id": "U46.1",
+      "consumer_unit_id": "B46",
+      "kind": "premise"
+    },
+    {
+      "id": "U46.2",
+      "consumer_unit_id": "B46",
+      "kind": "premise"
+    },
+    {
+      "id": "U46.3",
+      "consumer_unit_id": "B46",
+      "kind": "premise"
+    },
+    {
+      "id": "U46.4",
+      "consumer_unit_id": "B46",
+      "kind": "premise"
+    },
+    {
+      "id": "U46.5",
+      "consumer_unit_id": "B46",
+      "kind": "premise"
+    },
+    {
+      "id": "U48.1",
+      "consumer_unit_id": "B48",
+      "kind": "premise"
+    },
+    {
+      "id": "U48.2",
+      "consumer_unit_id": "B48",
+      "kind": "premise"
+    },
+    {
+      "id": "U49.1",
+      "consumer_unit_id": "B49",
+      "kind": "premise"
+    },
+    {
+      "id": "U49.2",
+      "consumer_unit_id": "B49",
+      "kind": "premise"
+    },
+    {
+      "id": "U49.3",
+      "consumer_unit_id": "B49",
+      "kind": "premise"
+    },
+    {
+      "id": "U49.4",
+      "consumer_unit_id": "B49",
+      "kind": "premise"
+    },
+    {
+      "id": "U50.1",
+      "consumer_unit_id": "B50",
+      "kind": "premise"
+    },
+    {
+      "id": "U50.2",
+      "consumer_unit_id": "B50",
+      "kind": "premise"
+    },
+    {
+      "id": "U50.3",
+      "consumer_unit_id": "B50",
+      "kind": "premise"
+    },
+    {
+      "id": "U50.4",
+      "consumer_unit_id": "B50",
+      "kind": "premise"
+    },
+    {
+      "id": "U51.1",
+      "consumer_unit_id": "B51",
+      "kind": "premise"
+    },
+    {
+      "id": "U53.1",
+      "consumer_unit_id": "B53",
+      "kind": "premise"
+    },
+    {
+      "id": "U53.2",
+      "consumer_unit_id": "B53",
+      "kind": "premise"
+    },
+    {
+      "id": "U53.3",
+      "consumer_unit_id": "B53",
+      "kind": "premise"
+    },
+    {
+      "id": "U53.4",
+      "consumer_unit_id": "B53",
+      "kind": "premise"
+    },
+    {
+      "id": "U53.5",
+      "consumer_unit_id": "B53",
+      "kind": "premise"
+    },
+    {
+      "id": "U54.1",
+      "consumer_unit_id": "B54",
+      "kind": "premise"
+    },
+    {
+      "id": "U55.1",
+      "consumer_unit_id": "B55",
+      "kind": "premise"
+    },
+    {
+      "id": "U55.2",
+      "consumer_unit_id": "B55",
+      "kind": "premise"
+    },
+    {
+      "id": "U57.1",
+      "consumer_unit_id": "B57",
+      "kind": "premise"
+    },
+    {
+      "id": "U57.2",
+      "consumer_unit_id": "B57",
+      "kind": "premise"
+    },
+    {
+      "id": "U57.3",
+      "consumer_unit_id": "B57",
+      "kind": "premise"
+    },
+    {
+      "id": "U58.1",
+      "consumer_unit_id": "B58",
+      "kind": "premise"
+    },
+    {
+      "id": "U58.2",
+      "consumer_unit_id": "B58",
+      "kind": "premise"
+    },
+    {
+      "id": "U58.3",
+      "consumer_unit_id": "B58",
+      "kind": "premise"
+    },
+    {
+      "id": "U58.4",
+      "consumer_unit_id": "B58",
+      "kind": "premise"
+    },
+    {
+      "id": "U60.1",
+      "consumer_unit_id": "B60",
+      "kind": "premise"
+    },
+    {
+      "id": "U60.2",
+      "consumer_unit_id": "B60",
+      "kind": "premise"
+    },
+    {
+      "id": "U60.3",
+      "consumer_unit_id": "B60",
+      "kind": "premise"
+    },
+    {
+      "id": "U62.1",
+      "consumer_unit_id": "B62",
+      "kind": "premise"
+    },
+    {
+      "id": "U62.2",
+      "consumer_unit_id": "B62",
+      "kind": "premise"
+    },
+    {
+      "id": "U64.1",
+      "consumer_unit_id": "B64",
+      "kind": "premise"
+    },
+    {
+      "id": "U64.2",
+      "consumer_unit_id": "B64",
+      "kind": "premise"
+    },
+    {
+      "id": "U66.1",
+      "consumer_unit_id": "B66",
+      "kind": "context"
+    },
+    {
+      "id": "U66.2",
+      "consumer_unit_id": "B66",
+      "kind": "context"
+    },
+    {
+      "id": "U66.3",
+      "consumer_unit_id": "B66",
+      "kind": "check"
+    }
+  ],
+  "provenance": [
+    {
+      "record_id": "R6049443374",
+      "locator": "## Frozen source and extraction convention"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "### 1. Block syntax (instruction 1): reproduced, no extraction omission"
+    },
+    {
+      "record_id": "R6049640627",
+      "locator": "I accept A1–A6 as proposed additive uses"
+    },
+    {
+      "record_id": "R6051274124",
+      "locator": "5. Explicitly partial real-inventory example / Proposed stable root statement key"
+    },
+    {
+      "record_id": "R6053473777",
+      "locator": "Source-bound decision table"
+    },
+    {
+      "record_id": "R6053539516",
+      "locator": "## Candidate-preparation disposition and final R2 consumer question"
+    },
+    {
+      "record_id": "R6054305355",
+      "locator": "## COMPLETE / own RELEASE — P-C candidate kinds and group table"
+    },
+    {
+      "record_id": "R6054567951",
+      "locator": "Exact object and method"
+    },
+    {
+      "record_id": "R6055287391",
+      "locator": "My explicit descriptive selection"
+    },
+    {
+      "record_id": "R6055282954",
+      "locator": "Exact source response"
+    },
+    {
+      "record_id": "R6057972030",
+      "locator": "Exact arrays for the existing ReadingBoundary fields"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "4. Consumption boundaries / REC (N1)"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "4. Consumption boundaries / E2 / (b) N2"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "3. Applicability / b, k, r, d, L and frame quantifiers / N3"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "4. Consumption boundaries / CAP (N6)"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "1. Block syntax / Wording amendment (N7)"
+    },
+    {
+      "record_id": "R6049548422",
+      "locator": "5. Proposed denominator disposition (instruction 5) / Annotations N1–N7"
+    },
+    {
+      "record_id": "R6049640627",
+      "locator": "N1–N7 are retained"
+    }
+  ],
+  "expected_groups": [
+    {
+      "owner_unit_id": "B01",
+      "group_id": "G-B01",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B02",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            314,
+            315
+          ],
+          "locator": "P lines314–315",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U01.1",
+        "U01.2",
+        "U01.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B03",
+      "group_id": "G-B03",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B03",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            317,
+            317
+          ],
+          "locator": "P lines317",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U03.1",
+        "U03.2",
+        "U03.3",
+        "U03.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B04",
+      "group_id": "G-B04",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B05",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            321,
+            322
+          ],
+          "locator": "P lines321–322",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U04.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B07",
+      "group_id": "G-B07",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B07",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            326,
+            327
+          ],
+          "locator": "P lines326–327",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U07.1",
+        "U07.2",
+        "U07.3",
+        "U07.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B08",
+      "group_id": "G-B08",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B09",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            331,
+            331
+          ],
+          "locator": "P lines331",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U08.1",
+        "U08.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B10",
+      "group_id": "G-B10",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B10",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            333,
+            333
+          ],
+          "locator": "P lines333",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U10.1",
+        "U10.2",
+        "U10.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B11",
+      "group_id": "G-B11",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B11",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            335,
+            335
+          ],
+          "locator": "P lines335",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U11.1",
+        "U11.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B12",
+      "group_id": "G-B12",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B12",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            339,
+            339
+          ],
+          "locator": "P lines339",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U12.1",
+        "U12.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B13",
+      "group_id": "G-B13",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B13",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            341,
+            341
+          ],
+          "locator": "P lines341",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U13.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B14",
+      "group_id": "G-B14",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B15",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            345,
+            347
+          ],
+          "locator": "P lines345–347",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U14.1",
+        "U14.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B16",
+      "group_id": "G-B16",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B17",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            351,
+            353
+          ],
+          "locator": "P lines351–353",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U16.1",
+        "U16.2",
+        "U16.3",
+        "U16.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B18",
+      "group_id": "G-B18",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B18",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            355,
+            355
+          ],
+          "locator": "P lines355",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U18.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B19",
+      "group_id": "G-B19",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B20",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            359,
+            361
+          ],
+          "locator": "P lines359–361",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U19.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B20",
+      "group_id": "G-B20",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B20",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            359,
+            361
+          ],
+          "locator": "P lines359–361",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U20.1",
+        "U20.2",
+        "U20.3",
+        "U20.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B21",
+      "group_id": "G-B21",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B21",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            363,
+            363
+          ],
+          "locator": "P lines363",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U21.1",
+        "U21.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B22",
+      "group_id": "G-B22",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B23",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            369,
+            370
+          ],
+          "locator": "P lines369–370",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U22.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B23",
+      "group_id": "G-B23",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B23",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            369,
+            370
+          ],
+          "locator": "P lines369–370",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U23.1",
+        "U23.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B25",
+      "group_id": "G-B25",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B25",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            374,
+            375
+          ],
+          "locator": "P lines374–375",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U25.1",
+        "U25.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B26",
+      "group_id": "G-B26",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B26",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            377,
+            377
+          ],
+          "locator": "P lines377",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U26.1",
+        "U26.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B27",
+      "group_id": "G-B27",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B27",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            379,
+            380
+          ],
+          "locator": "P lines379–380",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U27.1",
+        "U27.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B28",
+      "group_id": "G-B28",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B28",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            382,
+            382
+          ],
+          "locator": "P lines382",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U28.1",
+        "U28.2",
+        "U28.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B29",
+      "group_id": "G-B29",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B29",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            384,
+            384
+          ],
+          "locator": "P lines384",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U29.1",
+        "U29.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B30",
+      "group_id": "G-B30",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B30",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            388,
+            388
+          ],
+          "locator": "P lines388",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U30.1",
+        "U30.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B31",
+      "group_id": "G-B31",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B32",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            392,
+            393
+          ],
+          "locator": "P lines392–393",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U31.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B33",
+      "group_id": "G-B33",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B34",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            397,
+            397
+          ],
+          "locator": "P lines397",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U33.1",
+        "U33.2",
+        "U33.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B35",
+      "group_id": "G-B35",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B36",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            401,
+            401
+          ],
+          "locator": "P lines401",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U35.1",
+        "U35.2",
+        "U35.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B37",
+      "group_id": "G-B37",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B37",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            403,
+            403
+          ],
+          "locator": "P lines403",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U37.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B38",
+      "group_id": "G-B38",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B39",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            407,
+            408
+          ],
+          "locator": "P lines407–408",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U38.1",
+        "U38.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B40",
+      "group_id": "G-B40",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B41",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            412,
+            413
+          ],
+          "locator": "P lines412–413",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U40.1",
+        "U40.2",
+        "U40.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B42",
+      "group_id": "G-B42",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B42",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            415,
+            415
+          ],
+          "locator": "P lines415",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U42.1",
+        "U42.2",
+        "U42.3",
+        "U42.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B43",
+      "group_id": "G-B43",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B44",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            419,
+            422
+          ],
+          "locator": "P lines419–422",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U43.1",
+        "U43.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B45",
+      "group_id": "G-B45",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B45",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            424,
+            424
+          ],
+          "locator": "P lines424",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U45.1",
+        "U45.2",
+        "U45.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B46",
+      "group_id": "G-B46",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B47",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            428,
+            431
+          ],
+          "locator": "P lines428–431",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U46.1",
+        "U46.2",
+        "U46.3",
+        "U46.4",
+        "U46.5"
+      ]
+    },
+    {
+      "owner_unit_id": "B48",
+      "group_id": "G-B48",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B48",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            433,
+            433
+          ],
+          "locator": "P lines433",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U48.1",
+        "U48.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B49",
+      "group_id": "G-B49",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B49",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            437,
+            437
+          ],
+          "locator": "P lines437",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U49.1",
+        "U49.2",
+        "U49.3",
+        "U49.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B50",
+      "group_id": "G-B50",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B51",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            441,
+            441
+          ],
+          "locator": "P lines441",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U50.1",
+        "U50.2",
+        "U50.3",
+        "U50.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B51",
+      "group_id": "G-B51",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B51",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            441,
+            441
+          ],
+          "locator": "P lines441",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U51.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B53",
+      "group_id": "G-B53",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B53",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            445,
+            445
+          ],
+          "locator": "P lines445",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U53.1",
+        "U53.2",
+        "U53.3",
+        "U53.4",
+        "U53.5"
+      ]
+    },
+    {
+      "owner_unit_id": "B54",
+      "group_id": "G-B54",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B54",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            449,
+            449
+          ],
+          "locator": "P lines449",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U54.1"
+      ]
+    },
+    {
+      "owner_unit_id": "B55",
+      "group_id": "G-B55",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B55",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            451,
+            451
+          ],
+          "locator": "P lines451",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U55.1",
+        "U55.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B57",
+      "group_id": "G-B57",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B56",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            453,
+            454
+          ],
+          "locator": "P lines453–454",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U57.1",
+        "U57.2",
+        "U57.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B58",
+      "group_id": "G-B58",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B59",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            460,
+            461
+          ],
+          "locator": "P lines460–461",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U58.1",
+        "U58.2",
+        "U58.3",
+        "U58.4"
+      ]
+    },
+    {
+      "owner_unit_id": "B60",
+      "group_id": "G-B60",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B61",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            465,
+            467
+          ],
+          "locator": "P lines465–467",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U60.1",
+        "U60.2",
+        "U60.3"
+      ]
+    },
+    {
+      "owner_unit_id": "B62",
+      "group_id": "G-B62",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B63",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            471,
+            472
+          ],
+          "locator": "P lines471–472",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U62.1",
+        "U62.2"
+      ]
+    },
+    {
+      "owner_unit_id": "B64",
+      "group_id": "G-B64",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B65",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            476,
+            478
+          ],
+          "locator": "P lines476–478",
+          "precision": "exact_lines"
+        }
+      },
+      "premise_use_ids": [
+        "U64.1",
+        "U64.2"
+      ]
+    }
+  ],
+  "consumer_span_rule": "same_file_contained_exact",
+  "read_at": "2026-10-08T10:38:40Z",
+  "inventory_record": {
+    "record_id": "R6049443374",
+    "locator": "## Frozen source and extraction convention"
+  },
+  "omission_read_record": {
+    "record_id": "R6049548422",
+    "locator": "### 1. Block syntax (instruction 1): reproduced, no extraction omission"
+  },
+  "expected_bundles": [
+    {
+      "id": "ALL-B20",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B20",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            359,
+            361
+          ],
+          "locator": "P lines359–361",
+          "precision": "exact_lines"
+        }
+      },
+      "group_ids": [
+        "G-B19",
+        "G-B20"
+      ],
+      "basis": {
+        "text": "B19/P357 introduces the stronger difference statement displayed at B20/P359–361. G-B19’s imported pointwise-selection contribution and G-B20’s candidate-density, selection, conversion and uniform-upper-bound entries are recorded contributions read together. Preserve the compact-mark domain, the A* notation omission and its attributed upper-bound interpretation. U19.1 and U20.2 remain distinct occurrences. Mathematical sufficiency is not assessed.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6055287391",
+            "locator": "My explicit descriptive selection / B20"
+          },
+          {
+            "record_id": "R6055282954",
+            "locator": "Exact source response / B20"
+          }
+        ],
+        "unknown_refs": []
+      }
+    },
+    {
+      "id": "ALL-B23",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B23",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            369,
+            370
+          ],
+          "locator": "P lines369–370",
+          "precision": "exact_lines"
+        }
+      },
+      "group_ids": [
+        "G-B22",
+        "G-B23"
+      ],
+      "basis": {
+        "text": "B22/P367 introduces integration of the density versions into the following restricted-population expected per-unit-volume results, beginning with B23/(12.1)/P369–370. G-B22 and G-B23 contribute jointly with separate unchanged member lists. Preserve the common population/domain/per-volume qualification and sufficiently-small-t reading. This selected target does not assert that the lead-in concerns B23 exclusively or add assignments for later results. Mathematical sufficiency is not assessed.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6055287391",
+            "locator": "My explicit descriptive selection / B23"
+          },
+          {
+            "record_id": "R6055282954",
+            "locator": "Exact source response / B23"
+          }
+        ],
+        "unknown_refs": []
+      }
+    },
+    {
+      "id": "ALL-B51",
+      "combination": "ALL",
+      "conclusion": {
+        "unit_id": "B51",
+        "source": {
+          "file": {
+            "repository": "d6g8k5htny-coder/Math-",
+            "commit": "9fd261135b41daf1e377f9ef2db193fee6ec36be",
+            "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+            "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+            "bytes": 40261,
+            "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7"
+          },
+          "lines": [
+            441,
+            441
+          ],
+          "locator": "P lines441",
+          "precision": "exact_lines"
+        }
+      },
+      "group_ids": [
+        "G-B50",
+        "G-B51"
+      ],
+      "basis": {
+        "text": "B50/P439 contributes moments, the unit height Jacobian, integration and marked Kac-Rice to the far-domain chain at B51/P441, for0<ell<=1. G-B51 contributes the elder-versus-candidate mark inequality. G-B51 alone is not presented as supplying the far upper bound. B51 is P441 only; blank P442 is excluded. Both owners and all four-plus-one recorded occurrences remain separate. Mathematical sufficiency is not assessed.",
+        "source_refs": [],
+        "record_refs": [
+          {
+            "record_id": "R6055287391",
+            "locator": "My explicit descriptive selection / B51"
+          },
+          {
+            "record_id": "R6055282954",
+            "locator": "Exact source response / B51"
+          }
+        ],
+        "unknown_refs": []
+      }
+    }
+  ]
+}
