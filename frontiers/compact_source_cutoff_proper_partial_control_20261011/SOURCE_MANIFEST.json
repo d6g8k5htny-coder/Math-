@@ -1,0 +1,580 @@
+{
+  "schema_version": 4,
+  "package": "frontiers/compact_source_cutoff_proper_partial_control_20261011",
+  "prepared_at_utc": "2026-10-11T17:44:25.963Z",
+  "status": "PREPARED_UNFROZEN_NOT_COMPILED_NOT_ADMITTED",
+  "claim": {
+    "id": "9e62475b-be19-40e2-bfc6-f4398513e650",
+    "start": "2026-10-11T17:20:59.451Z",
+    "lease": "2026-10-11T19:20:59.451Z",
+    "resource": "Math-:193:C234F6_PROPER_PARTIAL_ANISOTROPIC_LITERAL_V1:ROOT01a11cbf:20261011",
+    "parent": "5fb3a52ebfbdb73a37f743d9ab960560979f3b20",
+    "source_checkpoint": "2026-10-11T18:10:00Z",
+    "review_checkpoint": "2026-10-11T18:25:00Z",
+    "admission_strict_before": "2026-10-11T18:35:00Z",
+    "documentary_bound": "2026-10-11T19:10:00Z",
+    "branch": "codex/compact-cutoff-proper-partial-control-20261011-root01a11cbf",
+    "base_branch": "codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf",
+    "package": "frontiers/compact_source_cutoff_proper_partial_control_20261011",
+    "workflow": ".github/workflows/compact-cutoff-proper-partial-control.yml",
+    "scope": "One new closed ProperPartialAnisotropicLiteralV1 module implementing accepted static design; preserve all F5 source bodies, conditional premises, controls and historical gates. Actual 19-field LocalGeometry and 21-field CompactGeometry internally constructed. Same-point intermediate actual beta/literal/unscaled/raw/beta-retaining-raw/reversed rates, proper source-target and strict U-T overlap witnesses, actual off-source guard-drop dF adversary. Distinct full source review and new first-attempt hosted-only route; no local project execution or old rerun.",
+    "work_events_row": 1647,
+    "native_comment": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6111640156"
+  },
+  "parent": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "5fb3a52ebfbdb73a37f743d9ab960560979f3b20",
+    "tree": "70b0af5052358f5c43817fcaf0456c70937ce883",
+    "draft_pr": 426,
+    "branch": "codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf",
+    "scope": "Immutable F5 historical parent; its hosted success does not compile or admit the new F6 module"
+  },
+  "manifest_contract": {
+    "file_rows": "Complete current package payload excluding SOURCE_MANIFEST.json and SOURCE_SHA256SUMS",
+    "file_rows_count": 36,
+    "checksum_list": "All 36 payload members plus SOURCE_MANIFEST.json; excludes itself",
+    "checksum_list_members": 37,
+    "package_regular_files": 38,
+    "publication_source_files_including_sibling_workflow": 39,
+    "workflow_binding": "The workflow contains the exact checksum-list SHA. Its byte identity is recorded outside this manifest to avoid a manifest/list/workflow cycle.",
+    "source_paths": "Package-relative; private absolute acquisition paths omitted"
+  },
+  "source_inventory": {
+    "name": "SOURCE_INPUTS.json",
+    "bytes": 13221,
+    "sha256": "c7febb8e99ee17481b72678ab03fe839ef50773fb96529c404cced3eb9ba0fb1",
+    "module_count": 27,
+    "total_source_bytes": 509962,
+    "private_source_paths_omitted": true,
+    "scope": "HISTORICAL_ORIGINAL_SOURCE_INPUTS_INVENTORY_ONLY; module_count27/total_source_bytes509962 describe original inputs and do not describe this F6 package",
+    "included_as_current_payload": false
+  },
+  "current_source_inventory": {
+    "lean_files_including_audit": 30,
+    "registered_libraries": 29,
+    "unchanged_F5_lean_files": 28,
+    "unchanged_predecessor_count": 26,
+    "unchanged_predecessor_bytes": 504047,
+    "new_control_bytes": 23588,
+    "current_payload_files": 36,
+    "current_payload_bytes": 587007
+  },
+  "unchanged_predecessors": {
+    "count": 26,
+    "bytes": 504047,
+    "paths": [
+      "CapFirstExit.lean",
+      "ConeFootprint.lean",
+      "DeterministicSourceC4.lean",
+      "ElementaryHistory.lean",
+      "GaussianSeriesFoundation.lean",
+      "GlobalComponentMaps.lean",
+      "MorseCongruence.lean",
+      "OpenComponentGluing.lean",
+      "OrdinaryH0Elder.lean",
+      "OrdinaryH0Image.lean",
+      "PhysicalSpectral.lean",
+      "PushedHeight.lean",
+      "QuadraticCone.lean",
+      "SourceC4.lean",
+      "SourceCoordinates.lean",
+      "SourceCovariance.lean",
+      "SourceFourierSeries.lean",
+      "SourceGaussianLaw.lean",
+      "SourceKernel.lean",
+      "SourceLattice.lean",
+      "SourceNormalForm.lean",
+      "SourceTorus.lean",
+      "SourceTorusC4.lean",
+      "SpectralWeights.lean",
+      "TaylorMatrix.lean",
+      "TaylorSymLift.lean"
+    ],
+    "binding": "Fresh exact byte comparison with frozen F5 package"
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 7,
+      "sha256": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
+      "git_blob_sha1": "01f8cdb637da2370fa79960e25efa59dd8cffd6d"
+    },
+    {
+      "path": "CapFirstExit.lean",
+      "bytes": 326607,
+      "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0",
+      "git_blob_sha1": "01744e2cf571049d7d1557b9ed54646881d341cf"
+    },
+    {
+      "path": "CompactSourceCutoffControls.lean",
+      "bytes": 31533,
+      "sha256": "ddcada242950ab321fe481612827a080b412dce3228ca434392231fa9e6ae0a2",
+      "git_blob_sha1": "a8a899548d2e8d1b46962c85d93d998d75345418"
+    },
+    {
+      "path": "CompactSourceCutoffProof.lean",
+      "bytes": 14614,
+      "sha256": "75be8f6bb1b6915b4ab4bb15d89c99050b68944491ba68665caa71a977f8ca0a",
+      "git_blob_sha1": "eb7a073dcb598ce8863316e2a8d4a338a1859628"
+    },
+    {
+      "path": "ConeFootprint.lean",
+      "bytes": 11778,
+      "sha256": "8082d11707849c9d786583b0acda20893df2a0ffc6e4fc3e7defa57161bd8715",
+      "git_blob_sha1": "7784d14695de97039cd8ae6f3be923e9b2e07e8c"
+    },
+    {
+      "path": "DeterministicSourceC4.lean",
+      "bytes": 2551,
+      "sha256": "aa30073e33ff50ab5a1bc00378ff5a83b47b5002c90610014798aa44bcc31e00",
+      "git_blob_sha1": "fee363e463db1582a9c7ade11325134bd1546438"
+    },
+    {
+      "path": "ElementaryHistory.lean",
+      "bytes": 4092,
+      "sha256": "3ed3cff14fe98400e585376bb0210a48f92e1f672351a922242b246ea71cbde4",
+      "git_blob_sha1": "56062748fb54a177a8e5aa734800d93e056a5d0e"
+    },
+    {
+      "path": "GaussianSeriesFoundation.lean",
+      "bytes": 4262,
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95",
+      "git_blob_sha1": "93651da7fcfbc834661c795f0ec8b08383d86887"
+    },
+    {
+      "path": "GlobalComponentMaps.lean",
+      "bytes": 3272,
+      "sha256": "9885878df9cc8ca14b1f206c360142491b868355fe2f36c89dee69656ee9200a",
+      "git_blob_sha1": "7d2d8ef3320470828ebdc33bb7c0e819da48e0ce"
+    },
+    {
+      "path": "LeafAxiomAudit.lean",
+      "bytes": 3003,
+      "sha256": "8baf37c00fa45ec38bb5e79932322ceeaaeef063fa40947960125d92ff73d3a1",
+      "git_blob_sha1": "54df5bc9ba4640017cab1d7e33f09209b2116a97"
+    },
+    {
+      "path": "MorseCongruence.lean",
+      "bytes": 5440,
+      "sha256": "a922aa09945bb81d67098f46ad3879bdc780b3d8a6b1056e11f8a1716509262e",
+      "git_blob_sha1": "f67f9400be067acea4e57aace5a1cbe9108e08ec"
+    },
+    {
+      "path": "OpenComponentGluing.lean",
+      "bytes": 10241,
+      "sha256": "5ae10bfd0746cb8f26698544fb1e4728ee6908d195bc44cb7b009fcb11b95297",
+      "git_blob_sha1": "af03283122b8583ffa751431f27c789844561b21"
+    },
+    {
+      "path": "OrdinaryH0Elder.lean",
+      "bytes": 8081,
+      "sha256": "cc97606ddadc680dcc9d6379ba9e5587901fad1f830c9ea0838a6aa8a83b3486",
+      "git_blob_sha1": "b571b3af50bf75d5d7c2290335dfd5348b9d4e0b"
+    },
+    {
+      "path": "OrdinaryH0Image.lean",
+      "bytes": 5681,
+      "sha256": "80dfe9e9ce4f005d58212ea00872efe751c72658ff2a4e574ad30c76dd82000b",
+      "git_blob_sha1": "045eeef0dc4de227066eca06de05d3155c0a2598"
+    },
+    {
+      "path": "PhysicalSpectral.lean",
+      "bytes": 11362,
+      "sha256": "64f212853a7533a9ce3462d764a670759f08cc8230d7100b5a4a7f48ed925a41",
+      "git_blob_sha1": "fc28bf1c7dbe50e2f9c834c736430f257149e3a5"
+    },
+    {
+      "path": "ProperPartialAnisotropicLiteralV1.lean",
+      "bytes": 23588,
+      "sha256": "ecf5f38ab739e7fad5b16f583d544a41bd05a7826a5d1858e7927e1afa3d8805",
+      "git_blob_sha1": "d52a27b12cd760c8ccc9ff6352b9fdf86be42262"
+    },
+    {
+      "path": "PushedHeight.lean",
+      "bytes": 10333,
+      "sha256": "ed697889b10e1aa15f78450fb4fc4371e2d79de628852d9a36748c024b9123ff",
+      "git_blob_sha1": "770e2ad3aadbe4d26a8893a7dbfdf4281016c9dc"
+    },
+    {
+      "path": "QuadraticCone.lean",
+      "bytes": 11155,
+      "sha256": "23e320de38fbb247ffe46c4723813f9b32109fae57210ee282198dd1acd71945",
+      "git_blob_sha1": "6a9b3baf3fd44dad0e8dff2907e74b31899c8040"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4183,
+      "sha256": "8c4fe08b96f610b6b4c7031bd4fcb2cc49b75186296c17fdde1248c06dc53724",
+      "git_blob_sha1": "573b967b618e1bd044a2b081be6a457b81a684b9"
+    },
+    {
+      "path": "SourceC4.lean",
+      "bytes": 6438,
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397",
+      "git_blob_sha1": "f5188d51c29b8c639019bab2e6bf51e0cff5bc15"
+    },
+    {
+      "path": "SourceCoordinates.lean",
+      "bytes": 8161,
+      "sha256": "b92d2936525bd120f41badb2bd9018714546d986b6ced9c4326bee9e0b1939da",
+      "git_blob_sha1": "9211a56817e25bf7a45f29918bf3446ea50358f9"
+    },
+    {
+      "path": "SourceCovariance.lean",
+      "bytes": 3925,
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5",
+      "git_blob_sha1": "50aa85f304c7e6b93a9cd84d555ba9c32112f9fd"
+    },
+    {
+      "path": "SourceFourierSeries.lean",
+      "bytes": 6524,
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014",
+      "git_blob_sha1": "e4cdec9e62faf6b20312294d4eccb14f16aa948c"
+    },
+    {
+      "path": "SourceGaussianLaw.lean",
+      "bytes": 8984,
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8",
+      "git_blob_sha1": "bb8450b5a8029614f4456bb527f2a7bbde16e852"
+    },
+    {
+      "path": "SourceKernel.lean",
+      "bytes": 5293,
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21",
+      "git_blob_sha1": "5d5602ac787f1580214afc49e5d4da6f5e158ac2"
+    },
+    {
+      "path": "SourceLattice.lean",
+      "bytes": 6284,
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b",
+      "git_blob_sha1": "9c1e0557c352066535be4e67fba698adf7a91e04"
+    },
+    {
+      "path": "SourceNormalForm.lean",
+      "bytes": 10589,
+      "sha256": "aeed9b3533361bcecd92da0170fd217c0568be8ad9777b4f2b0a02a16a0cf542",
+      "git_blob_sha1": "5686652001b75541785cdfb25adde0b0b45c9e81"
+    },
+    {
+      "path": "SourceTorus.lean",
+      "bytes": 5182,
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef",
+      "git_blob_sha1": "b9fe497521f930a19c1ab355d776af6d32c85775"
+    },
+    {
+      "path": "SourceTorusC4.lean",
+      "bytes": 6081,
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
+      "git_blob_sha1": "30cfb670f953aab16b4fe1fa6a26476f10443afc"
+    },
+    {
+      "path": "SpectralWeights.lean",
+      "bytes": 6924,
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
+      "git_blob_sha1": "191a22f14382fb05a520717b7de544019c8566d5"
+    },
+    {
+      "path": "TARGET_TRANSFORMATION.md",
+      "bytes": 1011,
+      "sha256": "7958ea245e4fb5929717b357fcdb266d9182f523d1399b3360d20dbb9d5189f9",
+      "git_blob_sha1": "c49f5b5a052012acb3c480d69d5147506c9d6f80"
+    },
+    {
+      "path": "TaylorMatrix.lean",
+      "bytes": 12406,
+      "sha256": "3ba190c557fb93ec26a259929f1f5c2db5c4425da7f7298816e7b4a18f80d7af",
+      "git_blob_sha1": "f5885f3e23f5960623fb033153c2f57dde56e0e1"
+    },
+    {
+      "path": "TaylorSymLift.lean",
+      "bytes": 2401,
+      "sha256": "996a1dde919a220f6e2d5a6bd939411cac8751b3bd6283be0761434870395cf4",
+      "git_blob_sha1": "e443cf83d1ec17633b0bffe79e3258fe70a3840c"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3577,
+      "sha256": "0cb3ccaeec1ec3d81c988993dc22f441a1d798ec6509edb4a4a619e6f3dd757e",
+      "git_blob_sha1": "8383688b9a34cc1ad17382e8ed6dfd24979e5dc6"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 1419,
+      "sha256": "04630372bc7c5cd847ac7b8de56366c1630b0c1f31e35246ffbf1429215c25e3",
+      "git_blob_sha1": "b95ca7c6ea9a01084e70a8d5530b00d1e1869efc"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "git_blob_sha1": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5"
+    }
+  ],
+  "unchanged_conditional_proof": {
+    "path": "CompactSourceCutoffProof.lean",
+    "bytes": 14614,
+    "sha256": "75be8f6bb1b6915b4ab4bb15d89c99050b68944491ba68665caa71a977f8ca0a",
+    "git_blob_sha1": "eb7a073dcb598ce8863316e2a8d4a338a1859628"
+  },
+  "unchanged_existing_controls": {
+    "path": "CompactSourceCutoffControls.lean",
+    "bytes": 31533,
+    "sha256": "ddcada242950ab321fe481612827a080b412dce3228ca434392231fa9e6ae0a2",
+    "git_blob_sha1": "a8a899548d2e8d1b46962c85d93d998d75345418"
+  },
+  "proof_transformation": {
+    "namespace_fixture": "CompactSourceCutoffTargetRed.lean",
+    "fixture_bytes": 5936,
+    "fixture_sha256": "6d85955aab50429251c441358a26f4cb6e670ea8f6560b5caaf026d697ede0cd",
+    "proof_bytes": 14614,
+    "proof_sha256": "75be8f6bb1b6915b4ab4bb15d89c99050b68944491ba68665caa71a977f8ca0a",
+    "definitions_structure_and_both_theorem_headers": "BYTE_EXACT_TO_NAMESPACE_FIXTURE",
+    "private_helpers_added": 5,
+    "proof_bodies_filled": 2,
+    "details": "TARGET_TRANSFORMATION.md",
+    "single_repair": {
+      "prior_bytes": 14601,
+      "prior_sha256": "fe26104f209cb63ef78b48a9a7540c9d56e6bb2f729726febde38cff5a1689be",
+      "line": 138,
+      "old": "      (hM.isClosed.isOpen_compl.mem_nhds hxM).mono (by",
+      "new": "      Filter.eventually_of_mem (hM.isClosed.compl_mem_nhds hxM) (by",
+      "all_other_bytes_unchanged": true,
+      "review_url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110556341",
+      "verdict": "PASS_NONAUTHOR_STATIC_MINIMAL_REPAIR / EXACT_SOURCE_PROOF_PHASE_COMPILED_IN_F3",
+      "actual_author": "/root/portable_cutoff_workflow_fix",
+      "author_native_correction": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110808522",
+      "author_write_corroboration": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110833262"
+    },
+    "scope": "Historical unchanged conditional proof transformation; TARGET_TRANSFORMATION.md is byte-exact to F5 and is not a transformation report for the new module"
+  },
+  "toolchain": {
+    "path": "lean-toolchain",
+    "value": "leanprover/lean4:v4.34.1",
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "dependencies": [
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "e928b72544873815af278d38681b31c0293588e3",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.34.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    }
+  ],
+  "lake_manifest_change": "Only F6 root package name changed; all nine dependency records byte-semantic exact to F5",
+  "default_target": {
+    "module": "PushedHeight",
+    "registered_libraries": 29
+  },
+  "new_control": {
+    "module": "ProperPartialAnisotropicLiteralV1",
+    "namespace": "ProperPartialAnisotropicLiteralV1",
+    "public_endpoint": "ProperPartialAnisotropicLiteralV1.closed_proper_partial_anisotropic_literal_V1_control",
+    "source_identity": {
+      "path": "ProperPartialAnisotropicLiteralV1.lean",
+      "bytes": 23588,
+      "sha256": "ecf5f38ab739e7fad5b16f583d544a41bd05a7826a5d1858e7927e1afa3d8805",
+      "git_blob_sha1": "d52a27b12cd760c8ccc9ff6352b9fdf86be42262"
+    },
+    "actual_author": "/root/proper_partial_control_author",
+    "outside_author_reports": [
+      {
+        "path": "compact-cutoff-proper-partial-control-preparation-20261011-root01a11cbf/author-report.md",
+        "bytes": 21138,
+        "sha256": "a4af239bd19b99da061afa9772083d7d97e5a7fb6797383ade7c630f8d46c616",
+        "included_inside_source_package": false
+      },
+      {
+        "path": "compact-cutoff-proper-partial-control-preparation-20261011-root01a11cbf/author-report.json",
+        "bytes": 65247,
+        "sha256": "7a32bb3beea8aa4dfcfe1db4baaa6d26783cfcabed11e768b2a29019c598ffb0",
+        "included_inside_source_package": false
+      }
+    ],
+    "intended_scope": "Closed proper partial anisotropic literal V1 fixture, internal actual19-field LocalGeometry and21-field CompactGeometry; same-point intermediate beta=1/2 literal/unscaled/raw/beta-retaining-raw/reversed rates, strict overlap and proper source-target witnesses, actual global-F off-source guard-drop adversary",
+    "source_quality": "PENDING_FRESH_COMPLETE_NONAUTHOR_SOURCE_SPECIFICATION_AND_QUALITY_REVIEW",
+    "elaboration": "NOT_RUN",
+    "coverage": "OPEN_UNTIL_FRESH_ACTUAL_QUALIFICATION"
+  },
+  "audit": {
+    "modules": [
+      "CompactSourceCutoffProof",
+      "CompactSourceCutoffControls",
+      "ProperPartialAnisotropicLiteralV1"
+    ],
+    "required_new_closed_endpoint": "ProperPartialAnisotropicLiteralV1.closed_proper_partial_anisotropic_literal_V1_control",
+    "declaration_wide_private_generated_inventory": true,
+    "old_five_proof_private_helper_guards": "UNCHANGED_BYTE_EXACT",
+    "allowed_transitive_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "validation": "STATIC_PACKAGE_BINDING_ONLY_NOT_EXECUTED"
+  },
+  "workflow_preflight": {
+    "status": "PASS_UNFROZEN_BOUNDED_WORKFLOW_PACKAGE_PREFLIGHT",
+    "root_accepted_at_utc": "2026-10-11T17:32:07.953Z",
+    "checks_pass": 68,
+    "checks_fail": 0,
+    "report_MD": {
+      "path": "compact-cutoff-proper-partial-control-workflow-package-preflight-20261011.md",
+      "bytes": 11139,
+      "sha256": "804fbc2fd497e6a58436c921addad58a940cf037d362397fc98d9a280d34a082"
+    },
+    "report_JSON": {
+      "path": "compact-cutoff-proper-partial-control-workflow-package-preflight-20261011.json",
+      "bytes": 158158,
+      "sha256": "ec4acad21ff06dd51ef14caa1f32bcfb23832414bdf535a65d29e7d1c2a29cf3"
+    },
+    "scope": "Workflow prototype only; no final new-module whole-source review or compilation"
+  },
+  "execution": {
+    "mode": "HOSTED_ONLY",
+    "workflow_path": ".github/workflows/compact-cutoff-proper-partial-control.yml",
+    "local_lean": "NOT_RUN",
+    "local_lake": "NOT_RUN",
+    "local_python": "NOT_RUN",
+    "project_scripts_imports_tests_models": "NOT_RUN",
+    "hosted_ci": "NOT_RUN_FOR_F6_SOURCE",
+    "kernel_checker": "NOT_RUN_FOR_F6_SOURCE",
+    "axiom_audit": "NOT_RUN_FOR_F6_SOURCE",
+    "source_freeze": "PENDING_ROOT_ACCEPTANCE_AND_EXPLICIT_FREEZE",
+    "native_publication": "NOT_PUBLISHED",
+    "native_admission": "NOT_ADMITTED",
+    "threads": 2,
+    "job_minutes": 30,
+    "step_caps_minutes": [
+      1,
+      1,
+      1,
+      3,
+      1,
+      10,
+      2,
+      2,
+      2,
+      2,
+      1,
+      1,
+      1
+    ],
+    "step_caps_sum_minutes": 28,
+    "predecessor_process_seconds": 540,
+    "other_phase_process_seconds": 90,
+    "term_to_kill_seconds": 15,
+    "mathlib_cache": true,
+    "github_project_build_cache": false,
+    "scientific_effect": "NONE",
+    "full_research_goal": "ACTIVE_UNMET"
+  },
+  "review_credit": {
+    "source_exposed": true,
+    "provider_independence_credit": 0,
+    "organizational_independence_credit": 0,
+    "blind_credit": 0,
+    "human_personal_reading": false
+  }
+}
