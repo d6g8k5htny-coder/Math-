@@ -1,0 +1,631 @@
+{
+  "schema_version": 3,
+  "package": "frontiers/compact_source_cutoff_controls_final_repair_20261011",
+  "prepared_at_utc": "2026-10-11T16:49:57.588Z",
+  "status": "PREPARED_NOT_COMPILED_NOT_ADMITTED",
+  "claim": {
+    "id": "520956e7-e071-4731-9c64-966df6b1f42d",
+    "start": "2026-10-11T16:41:37Z",
+    "lease": "2026-10-11T18:41:37Z",
+    "resource": "Math-:193:C234F5_COMPACT_CONTROLS_TWO_SITE_REPAIR:ROOT01a11cbf:20261011",
+    "parent": "128d96fbe39425519a30e48ce2efc7406041a61e",
+    "source_checkpoint": "2026-10-11T17:00:00Z",
+    "review_checkpoint": "2026-10-11T17:10:00Z",
+    "admission_strict_before": "2026-10-11T17:20:00Z",
+    "documentary_bound": "2026-10-11T17:50:00Z",
+    "branch": "codex/compact-cutoff-controls-final-repair-20261011-root01a11cbf",
+    "base_branch": "codex/compact-cutoff-controls-repair-20261011-root01a11cbf",
+    "package": "frontiers/compact_source_cutoff_controls_final_repair_20261011",
+    "workflow": ".github/workflows/compact-cutoff-controls-final-repair.yml",
+    "preparation_dir": "/Users/dylanroy/Documents/Codex/2026-10-08/turn-the-below-into-a-reality/compact-cutoff-controls-final-repair-preparation-20261011-root01a11cbf",
+    "scope": "Two actual F4 residual elaboration sites only, after complete diagnosis acceptance; fresh isolated source, full nonauthor review and exact native predeclaration before one new first hosted attempt. Preserve34 theorem headers/16def headers/witnesses/proof/26predecessors/21fields/5helpers/pins/resource bounds; no fragment integration or old run mutation.",
+    "work_events_row": 1600
+  },
+  "parent": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "commit": "128d96fbe39425519a30e48ce2efc7406041a61e",
+    "tree": "c05644b379dc3657ccee0ee2be28c491c8662544",
+    "draft_pr": 425,
+    "branch": "codex/compact-cutoff-controls-repair-20261011-root01a11cbf"
+  },
+  "source_inventory": {
+    "name": "SOURCE_INPUTS.json",
+    "bytes": 13221,
+    "sha256": "c7febb8e99ee17481b72678ab03fe839ef50773fb96529c404cced3eb9ba0fb1",
+    "module_count": 27,
+    "total_source_bytes": 509962,
+    "private_source_paths_omitted": true
+  },
+  "unchanged_predecessors": {
+    "count": 26,
+    "bytes": 504047,
+    "paths": [
+      "PushedHeight.lean",
+      "TaylorSymLift.lean",
+      "TaylorMatrix.lean",
+      "MorseCongruence.lean",
+      "DeterministicSourceC4.lean",
+      "SourceTorusC4.lean",
+      "SourceC4.lean",
+      "SourceTorus.lean",
+      "SourceCovariance.lean",
+      "SourceKernel.lean",
+      "SourceLattice.lean",
+      "SourceGaussianLaw.lean",
+      "SourceFourierSeries.lean",
+      "GaussianSeriesFoundation.lean",
+      "SpectralWeights.lean",
+      "ConeFootprint.lean",
+      "QuadraticCone.lean",
+      "OpenComponentGluing.lean",
+      "ElementaryHistory.lean",
+      "GlobalComponentMaps.lean",
+      "OrdinaryH0Image.lean",
+      "OrdinaryH0Elder.lean",
+      "CapFirstExit.lean",
+      "SourceNormalForm.lean",
+      "SourceCoordinates.lean",
+      "PhysicalSpectral.lean"
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 7,
+      "sha256": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3"
+    },
+    {
+      "path": "CapFirstExit.lean",
+      "bytes": 326607,
+      "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0"
+    },
+    {
+      "path": "CompactSourceCutoffControls.lean",
+      "bytes": 31533,
+      "sha256": "ddcada242950ab321fe481612827a080b412dce3228ca434392231fa9e6ae0a2"
+    },
+    {
+      "path": "CompactSourceCutoffProof.lean",
+      "bytes": 14614,
+      "sha256": "75be8f6bb1b6915b4ab4bb15d89c99050b68944491ba68665caa71a977f8ca0a"
+    },
+    {
+      "path": "ConeFootprint.lean",
+      "bytes": 11778,
+      "sha256": "8082d11707849c9d786583b0acda20893df2a0ffc6e4fc3e7defa57161bd8715"
+    },
+    {
+      "path": "DeterministicSourceC4.lean",
+      "bytes": 2551,
+      "sha256": "aa30073e33ff50ab5a1bc00378ff5a83b47b5002c90610014798aa44bcc31e00"
+    },
+    {
+      "path": "ElementaryHistory.lean",
+      "bytes": 4092,
+      "sha256": "3ed3cff14fe98400e585376bb0210a48f92e1f672351a922242b246ea71cbde4"
+    },
+    {
+      "path": "GaussianSeriesFoundation.lean",
+      "bytes": 4262,
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95"
+    },
+    {
+      "path": "GlobalComponentMaps.lean",
+      "bytes": 3272,
+      "sha256": "9885878df9cc8ca14b1f206c360142491b868355fe2f36c89dee69656ee9200a"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3576,
+      "sha256": "d9f75e73e5afebf9106eeb825bfd3c2802eeaf477dfd6509fb852e4520ea2e0c"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 1361,
+      "sha256": "fd3f3ab88821f4c6f34741058c61a5d1ad0951c17cb00891c8a091e7d811aae9"
+    },
+    {
+      "path": "LeafAxiomAudit.lean",
+      "bytes": 2732,
+      "sha256": "36439470505dfd70d69745a7d575d96d6fbf8571b6a7a34f8a059e46379dcb74"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "MorseCongruence.lean",
+      "bytes": 5440,
+      "sha256": "a922aa09945bb81d67098f46ad3879bdc780b3d8a6b1056e11f8a1716509262e"
+    },
+    {
+      "path": "OpenComponentGluing.lean",
+      "bytes": 10241,
+      "sha256": "5ae10bfd0746cb8f26698544fb1e4728ee6908d195bc44cb7b009fcb11b95297"
+    },
+    {
+      "path": "OrdinaryH0Elder.lean",
+      "bytes": 8081,
+      "sha256": "cc97606ddadc680dcc9d6379ba9e5587901fad1f830c9ea0838a6aa8a83b3486"
+    },
+    {
+      "path": "OrdinaryH0Image.lean",
+      "bytes": 5681,
+      "sha256": "80dfe9e9ce4f005d58212ea00872efe751c72658ff2a4e574ad30c76dd82000b"
+    },
+    {
+      "path": "PhysicalSpectral.lean",
+      "bytes": 11362,
+      "sha256": "64f212853a7533a9ce3462d764a670759f08cc8230d7100b5a4a7f48ed925a41"
+    },
+    {
+      "path": "PushedHeight.lean",
+      "bytes": 10333,
+      "sha256": "ed697889b10e1aa15f78450fb4fc4371e2d79de628852d9a36748c024b9123ff"
+    },
+    {
+      "path": "QuadraticCone.lean",
+      "bytes": 11155,
+      "sha256": "23e320de38fbb247ffe46c4723813f9b32109fae57210ee282198dd1acd71945"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4172,
+      "sha256": "49f670deaf0d314c1f5d6028bb2594085ca6cef4847e45c2e27e9713152d05f1"
+    },
+    {
+      "path": "SourceC4.lean",
+      "bytes": 6438,
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397"
+    },
+    {
+      "path": "SourceCoordinates.lean",
+      "bytes": 8161,
+      "sha256": "b92d2936525bd120f41badb2bd9018714546d986b6ced9c4326bee9e0b1939da"
+    },
+    {
+      "path": "SourceCovariance.lean",
+      "bytes": 3925,
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5"
+    },
+    {
+      "path": "SourceFourierSeries.lean",
+      "bytes": 6524,
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014"
+    },
+    {
+      "path": "SourceGaussianLaw.lean",
+      "bytes": 8984,
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8"
+    },
+    {
+      "path": "SourceKernel.lean",
+      "bytes": 5293,
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21"
+    },
+    {
+      "path": "SourceLattice.lean",
+      "bytes": 6284,
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b"
+    },
+    {
+      "path": "SourceNormalForm.lean",
+      "bytes": 10589,
+      "sha256": "aeed9b3533361bcecd92da0170fd217c0568be8ad9777b4f2b0a02a16a0cf542"
+    },
+    {
+      "path": "SourceTorus.lean",
+      "bytes": 5182,
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef"
+    },
+    {
+      "path": "SourceTorusC4.lean",
+      "bytes": 6081,
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1"
+    },
+    {
+      "path": "SpectralWeights.lean",
+      "bytes": 6924,
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0"
+    },
+    {
+      "path": "TARGET_TRANSFORMATION.md",
+      "bytes": 1011,
+      "sha256": "7958ea245e4fb5929717b357fcdb266d9182f523d1399b3360d20dbb9d5189f9"
+    },
+    {
+      "path": "TaylorMatrix.lean",
+      "bytes": 12406,
+      "sha256": "3ba190c557fb93ec26a259929f1f5c2db5c4425da7f7298816e7b4a18f80d7af"
+    },
+    {
+      "path": "TaylorSymLift.lean",
+      "bytes": 2401,
+      "sha256": "996a1dde919a220f6e2d5a6bd939411cac8751b3bd6283be0761434870395cf4"
+    }
+  ],
+  "proof_transformation": {
+    "namespace_fixture": "CompactSourceCutoffTargetRed.lean",
+    "fixture_bytes": 5936,
+    "fixture_sha256": "6d85955aab50429251c441358a26f4cb6e670ea8f6560b5caaf026d697ede0cd",
+    "proof_bytes": 14614,
+    "proof_sha256": "75be8f6bb1b6915b4ab4bb15d89c99050b68944491ba68665caa71a977f8ca0a",
+    "definitions_structure_and_both_theorem_headers": "BYTE_EXACT_TO_NAMESPACE_FIXTURE",
+    "private_helpers_added": 5,
+    "proof_bodies_filled": 2,
+    "details": "TARGET_TRANSFORMATION.md",
+    "single_repair": {
+      "prior_bytes": 14601,
+      "prior_sha256": "fe26104f209cb63ef78b48a9a7540c9d56e6bb2f729726febde38cff5a1689be",
+      "line": 138,
+      "old": "      (hM.isClosed.isOpen_compl.mem_nhds hxM).mono (by",
+      "new": "      Filter.eventually_of_mem (hM.isClosed.compl_mem_nhds hxM) (by",
+      "all_other_bytes_unchanged": true,
+      "review_url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110556341",
+      "verdict": "PASS_NONAUTHOR_STATIC_MINIMAL_REPAIR / EXACT_SOURCE_PROOF_PHASE_COMPILED_IN_F3",
+      "actual_author": "/root/portable_cutoff_workflow_fix",
+      "author_native_correction": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110808522",
+      "author_write_corroboration": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110833262"
+    }
+  },
+  "toolchain": {
+    "path": "lean-toolchain",
+    "value": "leanprover/lean4:v4.34.1",
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "dependencies": [
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "e928b72544873815af278d38681b31c0293588e3",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.34.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    }
+  ],
+  "lake_manifest_change": "Root name only; all nine dependency records and other fields retained",
+  "default_target": {
+    "module": "PushedHeight",
+    "registered_libraries": 28,
+    "unchanged_predecessor_count": 26,
+    "unchanged_predecessor_bytes": 504047
+  },
+  "controls": {
+    "theorem_count": 34,
+    "direct_imports": [
+      "CompactSourceCutoffProof",
+      "Mathlib.Topology.Order.IntermediateValue"
+    ],
+    "coverage": {
+      "product_max_corner": "PREPARED_NOT_COMPILED",
+      "original_Foot_annulus": "PREPARED_NOT_COMPILED",
+      "strict_half_K_and_full_boundary": "PREPARED_NOT_COMPILED",
+      "concrete_totalized_off_source_chart": "PREPARED_NOT_COMPILED",
+      "anisotropic_pushed_raw_and_signed_rates": "PREPARED_NOT_COMPILED",
+      "anisotropic_midpoint_scaled_Q1": "PREPARED_NOT_COMPILED",
+      "anisotropic_literal_chart_V1": "NOT_PREPARED",
+      "actual_source_signature_parity": "PREPARED_NOT_COMPILED"
+    },
+    "not_prepared": [
+      "A single explicit anisotropic partial chart and literal V1 extension instance combining inverse factors 2 and 3 with the away-inner beta-scaled rate; the direct pushed Q derivatives, beta midpoint scaling, and generic V1 consequence are separately prepared"
+    ],
+    "anisotropic_midpoint_limitation": "Beta evaluated at split(t • e0), Q1 and derivative at anisotropicInverse(1,1); algebraic scaling only, different points",
+    "control_first_typed_red": "NOT_RUN",
+    "repair": {
+      "original_bytes": 31473,
+      "original_sha256": "f1391332d0caad2d778bf75c14f6559c0e8647770a4faf302aea2343030cb0ef",
+      "candidate_bytes": 31533,
+      "candidate_sha256": "ddcada242950ab321fe481612827a080b412dce3228ca434392231fa9e6ae0a2",
+      "author": "/root/cutoff_controls_repair_author",
+      "actual_first_write_utc": "2026-10-11T16:47:14.262Z",
+      "affected_original_source_lines": [
+        189,
+        386
+      ],
+      "actual_diagnostic_sites": [
+        "189:6",
+        "383:39"
+      ],
+      "affected_declarations": 2,
+      "all34_complete_theorem_headers": "BYTE_EXACT",
+      "all16_definition_headers": "BYTE_EXACT",
+      "all16_full_definition_bodies": "BYTE_EXACT",
+      "witnesses_guards_options_imports": "BYTE_EXACT_OUTSIDE_TWO_LOCAL_PROOF_EDITS",
+      "diagnosis_md_bytes": 26007,
+      "diagnosis_md_sha256": "b7bf6a43e0943e26d23cedd9470fba2c81ccff84e46c34f3fe8579304f2b5efd",
+      "diagnosis_json_bytes": 34722,
+      "diagnosis_json_sha256": "be05e1a2ed78fe62144db31cb7d09271369501a0d55cd0a1cd02e6307ebb9759",
+      "validation": "NOT_COMPILED",
+      "scope": "Only explicit zero_pow exponent nonzero premise and terminalrfl; nofragment/resourceincrease"
+    }
+  },
+  "static_review": {
+    "proof": {
+      "reviewer": "delegated OpenAI agent /root/portable_cutoff_resume_review",
+      "specification": "PASS_STATIC",
+      "quality": "PASS_STATIC_WITH_ELABORATION_PENDING",
+      "report_bytes": 5392,
+      "report_sha256": "c3e70128e8e71330833b7419df1bab3ca42a3e54fffc4419b62ec91ee3f19055",
+      "scope": "Historical full-source review of original fe26104f; exact one-line repair separately reviewed by C252; no new whole-proof acceptance or compilation"
+    },
+    "controls": {
+      "reviewer": "delegated OpenAI agent /root/portable_cutoff_resume_review",
+      "specification": "PARTIAL_STATIC",
+      "quality": "STATIC_REVIEW_PASS_WITH_LIMITS",
+      "report_bytes": 6169,
+      "report_sha256": "5c343afaecb291002fbe4b1912b73668afb347ec18ebff6d257b2492c351d1c2",
+      "scope": "Historical controls static report; parent controls subsequently failed14actualtechnicalsites. Fresh whole-candidate specification/quality review is external and required before publication."
+    },
+    "workflow": {
+      "reviewer": "delegated OpenAI agent /root/portable_cutoff_resume_review",
+      "verdict": "CONDITIONAL_STATIC_PASS_REQUIRES_FINAL_PLACEHOLDER_BINDING",
+      "report_bytes": 4934,
+      "report_sha256": "2a16aa6c5bcb9d911c6dcd9a8ca7d52fb2866106575e441019e69c1633ef3858",
+      "scope": "Historical PR415 workflow behavior review only; current exact substitutions/bindings reviewed externally after freeze"
+    },
+    "audit": {
+      "reviewer": "delegated OpenAI agent /root/portable_cutoff_workflow_fix",
+      "verdict": "STATIC_COHERENT_AFTER_PRIVATE_MODULE_GUARD_FIX",
+      "report_bytes": 2908,
+      "report_sha256": "ce815e4f379eaf843f450aab4042f37d8171a8d5d2854b6e06a1cdaa268e6fa5"
+    },
+    "source_exposure": true,
+    "provider_independence": false,
+    "organizational_blind_credit": 0,
+    "human_review": "NOT_CLAIMED",
+    "current_repair": {
+      "reviewer": "OpenAI Codex root01a0bbb5 nonauthor; source/discussion exposed, org0",
+      "native_url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6110556341",
+      "specification": "PASS_NONAUTHOR_STATIC_MINIMAL_REPAIR",
+      "quality": "STATIC_API_RECONSTRUCTION / NOT_COMPILED",
+      "scope": "One line, unchanged surrounding logic and statement/source boundaries; logical negative controls not executed"
+    },
+    "final_current_package_binding": "External exact-source review after immutable freeze; no circular embedding.",
+    "current_controls_repair": {
+      "reviewer": "Fresh nonauthor OpenAI delegated /root/f5_controls_source_review",
+      "status": "EXTERNAL_REVIEW_REQUIRED_AFTER_FREEZE",
+      "source_discussion_exposed": true,
+      "provider_independence_credit": 0,
+      "organizational_independence_credit": 0,
+      "blind_credit": 0,
+      "human_review": "NOT_CLAIMED"
+    },
+    "prior_F4_actual_result": {
+      "status": "PASS_NONAUTHOR_EXACT_SOURCE_HOSTED_FAILURE_QUALIFICATION",
+      "full_gate": "FAIL_TECHNICAL_CONTROLS_HOLD",
+      "reviewer": "/root/f4_controls_source_review",
+      "MD_sha256": "04e8a27f183b134252feb3380360fdbbc3646f516e6a42ae9bc3ab826f9fe773",
+      "JSON_sha256": "c0a448ddfddded9df2ab07275bfdf9bab5239d0a4ea90f35a2c8289089a0aa7b",
+      "required_action_pin_addendum_MD_sha256": "ffdd185307d6ce5c3d44b5f15a926e7db0843023f7ab0aab11108cce91dc76cf",
+      "required_action_pin_addendum_JSON_sha256": "a0313fdc5e9f8baf406bcc077ecca3440ea93572e509efdaf6bb53e15fb3c2cc",
+      "scope": "ActualfailedF4 only; no candidate compilation/independentorganization/human/scientificcredit"
+    }
+  },
+  "execution": {
+    "mode": "HOSTED_ONLY",
+    "workflow_path": ".github/workflows/compact-cutoff-controls-final-repair.yml",
+    "workflow_hash_binding": "External publication record; omitted here to avoid manifest/checksum/workflow self-reference",
+    "local_lean": "NOT_RUN",
+    "local_lake": "NOT_RUN",
+    "local_python": "NOT_RUN",
+    "project_tests": "NOT_RUN",
+    "hosted_ci": "NOT_RUN_FOR_THIS_SOURCE",
+    "kernel_checker": "NOT_RUN",
+    "axiom_audit": "NOT_RUN",
+    "mathlib_cache": true,
+    "github_project_build_cache": false,
+    "clean_dependency_rebuild": false,
+    "allowed_transitive_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "scientific_promotion": "NOT_CLAIMED",
+    "full_landmark_goal": "ACTIVE",
+    "proof_source_parent_compilation": {
+      "run": 38155311627,
+      "attempt": 1,
+      "job": 114516963800,
+      "proof_exit": 0,
+      "proof_seconds": 13,
+      "scope": "Exactunchangedproofcompiled inF4; controlsfullgatefailed; no kernel/auditcredit"
+    }
+  },
+  "prior_failed_attempt": {
+    "run": 38077569264,
+    "attempt": 1,
+    "job": 114287641297,
+    "head": "bb3c92e3226827c9aa1d8746226efaf758e06e2c",
+    "proof_exit": 1,
+    "proof_seconds": 8,
+    "predecessor_exit": 0,
+    "predecessor_seconds": 109,
+    "controls": "SKIPPED",
+    "kernel": "SKIPPED",
+    "audit": "SKIPPED",
+    "failure_packet_sha256": "610ebdc20b8cc1e0b067ec7f6b608a9d277fb1b17e966b0b9bdf232cec3b0941",
+    "old_claim_expired": true,
+    "old_documentary_target_missed": true
+  },
+  "prior_controls_failed_attempt": {
+    "run": 38155311627,
+    "attempt": 1,
+    "job": 114516963800,
+    "head": "128d96fbe39425519a30e48ce2efc7406041a61e",
+    "tree": "c05644b379dc3657ccee0ee2be28c491c8662544",
+    "predecessor_exit": 0,
+    "predecessor_seconds": 201,
+    "proof_exit": 0,
+    "proof_seconds": 13,
+    "controls_exit": 1,
+    "controls_seconds": 15,
+    "diagnostic_count": 2,
+    "kernel": "SKIPPED_NOT_RUN",
+    "audit": "SKIPPED_NOT_RUN",
+    "typed_red": "NONE_TECHNICAL_FAILURE",
+    "artifact_id": 11708616917,
+    "artifact_bytes": 30613,
+    "artifact_sha256": "ef8540e8dd3e3095c786e8b6ccf5171e82f38fc4ba062197dd7a5dd1d3c37207",
+    "raw_log_bytes": 107745,
+    "raw_log_sha256": "65347c01cb3a3f36e97b7220b0742df5d34cc232c22b200e9f660b5018dd4d85",
+    "status": "IMMUTABLE_FAILED_FIRST_ATTEMPT_NO_RERUN"
+  },
+  "prior_controls_repair": {
+    "original_bytes": 30675,
+    "original_sha256": "a9c748bc79b222f82ea59713256a46c8cb6dc661255cfd3e66b7246818983c5f",
+    "candidate_bytes": 31473,
+    "candidate_sha256": "f1391332d0caad2d778bf75c14f6559c0e8647770a4faf302aea2343030cb0ef",
+    "author": "/root/cutoff_controls_repair_author",
+    "affected_original_source_lines": [
+      24,
+      80,
+      110,
+      164,
+      181,
+      191,
+      314,
+      363,
+      377,
+      469,
+      501,
+      517,
+      521,
+      557
+    ],
+    "affected_declarations": 11,
+    "all34_theorem_headers": "BYTE_EXACT_REQUIRED",
+    "all16_definition_headers": "BYTE_EXACT_REQUIRED",
+    "witnesses_guards_options_imports": "PRESERVED_REQUIRED",
+    "diagnosis_md_bytes": 27599,
+    "diagnosis_md_sha256": "3bdea6ad78390022f43b9b8f17940b473e1103114ea2453f04ad70b274866f28",
+    "diagnosis_json_bytes": 28563,
+    "diagnosis_json_sha256": "599f715aa191f989eae8ad519f3e025aa1820a5bbaa6c04c9469230015d44909",
+    "validation": "NOT_COMPILED",
+    "scope": "Proof bodies and existing local instances/API normalizations only; no fragment integration or resource increase"
+  },
+  "older_controls_failed_attempt": {
+    "run": 38153098945,
+    "attempt": 1,
+    "job": 114510427134,
+    "head": "f7832c870cf31d4239a3a7d67b557e69029a1be1",
+    "tree": "81917d29f99ca4a8b0d3b8fd1186222a1c45143e",
+    "predecessor_exit": 0,
+    "predecessor_seconds": 107,
+    "proof_exit": 0,
+    "proof_seconds": 9,
+    "controls_exit": 1,
+    "controls_seconds": 10,
+    "diagnostic_count": 14,
+    "kernel": "SKIPPED_NOT_RUN",
+    "audit": "SKIPPED_NOT_RUN",
+    "typed_red": "NONE_TECHNICAL_FAILURE",
+    "artifact_id": 11707526713,
+    "artifact_bytes": 30886,
+    "artifact_sha256": "f369ca0b10432dba4ded47150754bf889c781e9e14e8bb1b968a0f094d4b44bc",
+    "raw_log_bytes": 106381,
+    "raw_log_sha256": "c98670e5b51494262b876dab77512bcb43722d00562be5a46c6e3c17e26cbbd3",
+    "status": "IMMUTABLE_FAILED_FIRST_ATTEMPT_NO_RERUN"
+  }
+}
