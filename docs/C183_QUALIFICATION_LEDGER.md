@@ -18,6 +18,14 @@ This is an implementation RED, not historical cleanup reproduction. The
 subsequent implementation has a different exact source identity and needs its
 own hosted results. No local project tests were run.
 
+Nonauthor review5484709386 at implementation`b9a139ad9e3fd5bbebd65f6432c8e3d61cde2987`
+requires three bounded amendments: terminal partial-summary accounting, finite
+numeric parsing and validation of original ZIP names before normalization.
+The next test-only commit preserves that implementation and adds regression
+controls. Its actual hosted result must precede the repair; these static
+counterexamples are not yet claimed as executed failures. Original review and
+RED evidence remain unchanged.
+
 ## Offline use
 
 Run only in a project-authorized execution environment:

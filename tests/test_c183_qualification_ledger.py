@@ -153,6 +153,44 @@ class C183LedgerControls(unittest.TestCase):
         self.assertFalse(record['complete'])
         self.assertIn('invalid_utf8', record['limitations'])
 
+    def test_partial_terminal_summaries_retain_actual_counts(self):
+        ids = FIXTURE['synthetic']['ids']
+        cases = [
+            (f'{ids[0]} ... ok\n{ids[1]} ... ERROR\n\nRan 2 tests in 0.001s\n\nFAILED (errors=1)\n', 2, {'ok': 1, 'FAIL': 0, 'ERROR': 1}),
+            (f'{ids[0]} ... ok\n\nRan 1 test in 0.001s\n\nOK\n', 1, {'ok': 1, 'FAIL': 0, 'ERROR': 0}),
+            ('\nRan 0 tests in 0.001s\n\nOK\n', 0, {'ok': 0, 'FAIL': 0, 'ERROR': 0}),
+        ]
+        for termination in ('exited', 'timed_out', 'interrupted'):
+            for text, count, counts in cases:
+                with self.subTest(termination=termination, count=count):
+                    try:
+                        record = self.parsed(text.encode(), termination=termination)
+                    except ValueError as error:
+                        self.fail('usable partial outcome evidence was discarded: ' + str(error))
+                    self.assertEqual(record['expected_count'], 3)
+                    self.assertEqual(record['observed_count'], count)
+                    self.assertEqual(record.get('summary_count'), count)
+                    self.assertEqual(record['counts'], counts)
+                    self.assertFalse(record['complete'])
+        partial = self.parsed((f'{ids[0]} ... ERROR\n\nRan 2 tests in 0.001s\n\nFAILED (errors=1)\n').encode())
+        self.assertEqual(partial['observed_count'], 1)
+        self.assertEqual(partial['summary_count'], 2)
+        self.assertFalse(partial['complete'])
+
+    def test_partial_summary_contradictions_still_refuse(self):
+        ids = FIXTURE['synthetic']['ids']
+        rows = f'{ids[0]} ... ok\n{ids[1]} ... ERROR\n'
+        for footer in ('Ran 1 test in 0.001s\n\nFAILED (errors=1)\n',
+                       'Ran 2 tests in 0.001s\n\nOK\n',
+                       'Ran 4 tests in 0.001s\n\nFAILED (errors=1)\n'):
+            with self.subTest(footer=footer):
+                with self.assertRaises(ValueError):
+                    self.parsed((rows+'\n'+footer).encode(), termination='interrupted')
+        for status in ('FAIL', 'ERROR'):
+            with self.subTest(status=status):
+                with self.assertRaises(ValueError):
+                    self.parsed((f'{ids[0]} ... {status}\n\nRan 2 tests in 0.001s\n\nOK\n').encode())
+
     def test_absent_and_empty_streams_are_distinct(self):
         absent = M.parse_outcomes(None, FIXTURE['synthetic']['ids'], termination='timed_out')
         empty = self.parsed(b'', termination='timed_out')
@@ -205,6 +243,22 @@ class C183LedgerControls(unittest.TestCase):
             with self.assertRaises(ValueError): M.strict_json(raw)
         self.assertEqual(M.strict_json(b'{"a":1}'), {'a': 1})
 
+    def test_json_exponent_overflow_refused_at_every_depth(self):
+        for raw in (b'{"a":1e999}', b'{"a":-1e999}',
+                    b'{"a":[{"b":1e999}]}', b'{"a":{"b":-1e999}}'):
+            with self.subTest(raw=raw):
+                with self.assertRaises(ValueError): M.strict_json(raw)
+        self.assertEqual(M.strict_json(b'{"a":1e308,"b":-1e308,"c":0.0}'),
+                         {'a': 1e308, 'b': -1e308, 'c': 0.0})
+
+    def test_summary_duration_overflow_refused_and_finite_boundary_retained(self):
+        raw = transcript().replace(b'0.001s', (('9'*400)+'.0s').encode())
+        with self.assertRaises(ValueError): self.parsed(raw)
+        finite = transcript().replace(b'0.001s', (('1'+'0'*308)+'.0s').encode())
+        record = self.parsed(finite)
+        self.assertTrue(record['complete'])
+        self.assertEqual(record['summary_seconds'], 1e308)
+
     def test_stop_semantics_are_after_exit_not_process_control(self):
         self.assertFalse(M.stop_after_child('exited', False))
         self.assertTrue(M.stop_after_child('exited', True))
@@ -236,6 +290,14 @@ class C183LedgerControls(unittest.TestCase):
     def test_zip_size_bound_refused_before_payload_use(self):
         raw = small_zip([('x', b'x'*(1024*1024+1), stat.S_IFREG)])
         with self.assertRaises(ValueError): M.read_zip_members(raw, ['x'], expected_sha256=hashlib.sha256(raw).hexdigest(), expected_bytes=len(raw))
+
+    def test_zip_original_nul_name_cannot_alias_allowed_member(self):
+        marker = b'one.txtX/../bad'
+        raw = small_zip([(marker.decode(), b'one', stat.S_IFREG | 0o600)])
+        self.assertEqual(raw.count(marker), 2, 'both local and central names are present')
+        raw = raw.replace(marker, b'one.txt\x00/../bad')
+        with self.assertRaises(ValueError):
+            M.read_zip_members(raw, ['one.txt'], expected_sha256=hashlib.sha256(raw).hexdigest(), expected_bytes=len(raw))
 
     def test_unprovided_gates_are_not_run_and_not_fabricated(self):
         result = M.build_ledger()
@@ -270,7 +332,7 @@ class C183LedgerControls(unittest.TestCase):
         tree = ast.parse(SCRIPT.read_text())
         imports = {n.names[0].name.split('.')[0] for n in ast.walk(tree) if isinstance(n, ast.Import)}
         imports |= {n.module.split('.')[0] for n in ast.walk(tree) if isinstance(n, ast.ImportFrom) and n.module}
-        self.assertTrue(imports <= {'argparse','ast','hashlib','io','json','pathlib','re','stat','sys','zipfile'})
+        self.assertTrue(imports <= {'argparse','ast','hashlib','io','json','math','pathlib','re','stat','sys','zipfile'})
         calls = {n.func.id for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)}
         self.assertFalse(calls & {'eval','exec','compile','__import__'})
         attrs = {n.func.attr for n in ast.walk(tree) if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)}
