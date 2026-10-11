@@ -195,6 +195,16 @@ class Fixture:
 
 class Base(unittest.TestCase):
     def setUp(self):
+        # Fixture packets are synthetic: their pinned commits exist in no git history and their
+        # worktree is not a CI checkout, so the CI-only requirements that check.py applies when
+        # GITHUB_ACTIONS is set (GITHUB_SHA == HEAD, repository name, every pinned source verified
+        # against git history) must not apply to them. Identity.test_clean_worktree_and_ci re-enables
+        # CI mode explicitly inside its own patch to test exactly those refusals.
+        patcher = mock.patch.dict(os.environ)
+        patcher.start()
+        self.addCleanup(patcher.stop)
+        for key in ('GITHUB_ACTIONS', 'GITHUB_SHA', 'GITHUB_REPOSITORY', 'GITHUB_RUN_ID', 'GITHUB_RUN_ATTEMPT'):
+            os.environ.pop(key, None)
         self.f = Fixture()
         self.addCleanup(self.f.cleanup)
 
