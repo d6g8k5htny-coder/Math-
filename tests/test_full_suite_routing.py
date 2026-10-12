@@ -14,6 +14,8 @@ import hashlib
 import os
 import re
 import subprocess
+import sys
+import shutil
 import tempfile
 import unittest
 from unittest import mock
@@ -202,8 +204,13 @@ def condition(expr, event, failed):
     raise AssertionError('unexpected step condition: ' + expr)
 
 
-def run_job(text, event, fail=(), sha_override=None):
-    """Run the job's steps locally with a fake python; packet -> sentinel."""
+def run_job(text, event, fail=(), sha_override=None, counts=(2, 2),
+            summaries=None, fail_capture=(), real_cases=None):
+    """Run actual shell steps with controlled children; packet -> sentinel.
+
+    Default children emit synthetic unittest summaries. real_cases instead runs
+    this interpreter on tiny generated fixtures, not the repository test suite.
+    """
     _, job = parse(text)
     with tempfile.TemporaryDirectory(prefix='full-suite-routing-') as td:
         root = Path(td)
@@ -229,12 +236,49 @@ def run_job(text, event, fail=(), sha_override=None):
         bindir.mkdir()
         log = root / 'python.log'
         fake = bindir / 'python'
+        if summaries is None:
+            summaries = tuple('Ran ' + str(count) + ' test' +
+                              ('' if count == 1 else 's') + ' in 0.001s'
+                              for count in counts)
         fake.write_text('#!/bin/sh\n'
                         'printf "%s\\n" "$*" >> "$FAKE_LOG"\n'
                         'case " $* " in *" -O "*) mode=optimized ;; *) mode=normal ;; esac\n'
+                        'if [ "$FAKE_REAL" = 1 ]; then\n'
+                        '  cd "$REAL_FIXTURE_ROOT/$mode" || exit 9\n'
+                        '  exec "$REAL_PYTHON" "$@"\n'
+                        'fi\n'
+                        'case "$mode" in\n'
+                        '  normal) summary=$NORMAL_SUMMARY ;;\n'
+                        '  optimized) summary=$OPTIMIZED_SUMMARY ;;\n'
+                        'esac\n'
+                        'if [ -n "$summary" ]; then printf "%s\\n" "$summary" >&2; fi\n'
                         'case " $FAKE_FAIL " in *" $mode "*) exit 7 ;; esac\n'
                         'exit 0\n')
         fake.chmod(0o755)
+        temp = root / 'temp'
+        temp.mkdir()
+        real_root = root / 'real-discovery'
+        if real_cases is not None:
+            for mode, case in zip(('normal', 'optimized'), real_cases):
+                tests = real_root / mode / 'tests'
+                tests.mkdir(parents=True)
+                if case not in ('empty', 'pass', 'fail'):
+                    raise ValueError('unsupported real discovery case: ' + case)
+                if case != 'empty':
+                    (tests / 'test_control.py').write_text(
+                        'import unittest\nclass Control(unittest.TestCase):\n'
+                        '    def test_control(self):\n'
+                        '        self.assertEqual(1, ' + ('1' if case == 'pass' else '2') + ')\n')
+        if fail_capture:
+            capture = bindir / 'tee'
+            capture.write_text('#!/bin/sh\n'
+                               'n=0\n'
+                               '[ ! -f "$CAPTURE_COUNT" ] || read -r n < "$CAPTURE_COUNT"\n'
+                               'n=$((n + 1))\n'
+                               'printf "%s\\n" "$n" > "$CAPTURE_COUNT"\n'
+                               'case " $CAPTURE_FAIL " in *" $n "*) cat; exit 8 ;; esac\n'
+                               'exec "$REAL_TEE" "$@"\n')
+            capture.chmod(0o755)
         sentinel = root / 'packet.sentinel'
         context = {
             'github.sha': sha_override or head,
@@ -245,6 +289,7 @@ def run_job(text, event, fail=(), sha_override=None):
         }
         summary = root / 'summary.txt'
         outcomes = []
+        streams = []
         failed = False
         for step in job['steps']:
             name = step.get('name') or step.get('uses')
@@ -256,7 +301,14 @@ def run_job(text, event, fail=(), sha_override=None):
                 continue
             step_env = dict(env, PATH=str(bindir) + os.pathsep + env.get('PATH', ''),
                             FAKE_LOG=str(log), FAKE_FAIL=' '.join(fail),
-                            GITHUB_STEP_SUMMARY=str(summary))
+                            GITHUB_STEP_SUMMARY=str(summary), TMPDIR=str(temp),
+                            RUNNER_TEMP=str(temp), NORMAL_SUMMARY=summaries[0],
+                            OPTIMIZED_SUMMARY=summaries[1],
+                            FAKE_REAL='1' if real_cases is not None else '0',
+                            REAL_PYTHON=sys.executable, REAL_FIXTURE_ROOT=str(real_root),
+                            CAPTURE_COUNT=str(root / 'capture-count'),
+                            CAPTURE_FAIL=' '.join(map(str, fail_capture)),
+                            REAL_TEE=shutil.which('tee') or '')
             for key, value in step.get('env', {}).items():
                 m = re.fullmatch(r'\$\{\{ ([a-z_.]+) \}\}', value)
                 if m:
@@ -274,12 +326,14 @@ def run_job(text, event, fail=(), sha_override=None):
                 raise AssertionError('inline expression in run block: ' + name)
             cp = subprocess.run(['bash', '-e', '-c', block], cwd=repo, env=step_env,
                                 capture_output=True, timeout=30)
+            streams.append((name, cp.returncode, cp.stdout, cp.stderr))
             outcomes.append((name, 'success' if cp.returncode == 0 else 'failure'))
             failed = failed or cp.returncode != 0
         calls = [line.split() for line in log.read_text().splitlines()] if log.exists() else []
         return {
             'conclusion': 'failure' if failed else 'success',
             'outcomes': outcomes,
+            'streams': streams,
             'calls': calls,
             'sentinel': sentinel.exists(),
             'summary': summary.read_text() if summary.exists() else '',
@@ -397,6 +451,114 @@ def mutate(text, old, new, count=1):
 
 
 class FullSuiteRoutingTests(unittest.TestCase):
+    def original_central(self):
+        # Reconstruct only the suite body and authenticate the complete original
+        # workflow at 49fb197c / blob ea291276, not a hand-written shell surrogate.
+        text = source(CENTRAL)
+        block = named(parse(text)[1], REGRESSION)['run']
+        rendered = lambda body: ''.join('          ' + line + '\n'
+                                        for line in body.splitlines())
+        original = mutate(text, rendered(block), rendered(SUITE_BLOCK))
+        self.assertEqual(hashlib.sha256(original.encode()).hexdigest(),
+                         '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26')
+        return original
+
+    def test_original_accepts_synthetic_empty_success_but_preserves_failures(self):
+        original = self.original_central()
+        for event in ('pull_request', 'workflow_dispatch'):
+            for counts in ((0, 2), (2, 0), (0, 0), (1, 1), (2, 3)):
+                with self.subTest(event=event, counts=counts):
+                    result = run_job(original, event, counts=counts)
+                    self.assertEqual(result['conclusion'], 'success', result)
+                    self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'success'))
+            for mode, calls in (('normal', [NORMAL]), ('optimized', [NORMAL, OPTIMIZED])):
+                with self.subTest(event=event, failure=mode):
+                    result = run_job(original, event, fail=(mode,))
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'skipped'))
+
+    def test_central_rejects_empty_success_before_confirmation(self):
+        for event in ('pull_request', 'workflow_dispatch'):
+            for counts, calls in (((0, 2), [NORMAL]), ((2, 0), [NORMAL, OPTIMIZED]),
+                                  ((0, 0), [NORMAL])):
+                with self.subTest(event=event, counts=counts):
+                    result = run_job(source(CENTRAL), event, counts=counts)
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'skipped'))
+
+    def test_central_accepts_singular_and_multiple_successful_tests(self):
+        for event in ('pull_request', 'workflow_dispatch'):
+            for counts in ((1, 1), (2, 13), (13, 2)):
+                with self.subTest(event=event, counts=counts):
+                    result = run_job(source(CENTRAL), event, counts=counts)
+                    self.assertEqual(result['conclusion'], 'success', result)
+                    self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'success'))
+
+    def test_central_requires_well_formed_positive_summary_in_each_mode(self):
+        good = 'Ran 2 tests in 0.001s'
+        for bad in ('', 'Ran 00 tests in 0.001s', 'Ran 01 tests in 0.001s',
+                    'Ran -1 tests in 0.001s', 'Ran 1.0 tests in 0.001s',
+                    'Ran 1 test in unknown', 'prefix Ran 1 test in 0.001s',
+                    'Ran 1 test in 0.001s suffix'):
+            for index in (0, 1):
+                with self.subTest(summary=bad, mode=index):
+                    summaries = [good, good]
+                    summaries[index] = bad
+                    result = run_job(source(CENTRAL), 'pull_request', summaries=summaries)
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], [NORMAL] if index == 0
+                                     else [NORMAL, OPTIMIZED])
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'skipped'))
+
+    def test_positive_summary_cannot_hide_child_or_capture_failure(self):
+        for event in ('pull_request', 'workflow_dispatch'):
+            for mode, calls in (('normal', [NORMAL]), ('optimized', [NORMAL, OPTIMIZED])):
+                with self.subTest(event=event, failed_child=mode):
+                    result = run_job(source(CENTRAL), event, fail=(mode,))
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'skipped'))
+                    self.assertEqual(next(x[1] for x in result['streams']
+                                          if x[0] == REGRESSION), 7)
+            for capture, calls in ((1, [NORMAL]), (2, [NORMAL, OPTIMIZED])):
+                with self.subTest(event=event, failed_capture=capture):
+                    result = run_job(source(CENTRAL), event, fail_capture=(capture,))
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertEqual(result['outcomes'][-1], (CONFIRM, 'skipped'))
+                    self.assertEqual(next(x[1] for x in result['streams']
+                                          if x[0] == REGRESSION), 8)
+
+    @unittest.skipUnless(sys.version_info[:2] == (3, 11),
+                         'real empty-discovery contract requires hosted CPython 3.11')
+    def test_real_python311_original_and_candidate_zero_pass_fail_controls(self):
+        original = self.original_central()
+        for cases in (('empty', 'pass'), ('pass', 'empty'), ('empty', 'empty'),
+                      ('pass', 'pass'), ('fail', 'pass'), ('pass', 'fail')):
+            for candidate, text in ((False, original), (True, source(CENTRAL))):
+                with self.subTest(candidate=candidate, cases=cases):
+                    result = run_job(text, 'pull_request', real_cases=cases)
+                    fails = 'fail' in cases or (candidate and 'empty' in cases)
+                    expected = 'failure' if fails else 'success'
+                    self.assertEqual(result['conclusion'], expected, result)
+                    first_stops = cases[0] == 'fail' or (candidate and cases[0] == 'empty')
+                    self.assertEqual(result['calls'], [NORMAL] if first_stops
+                                     else [NORMAL, OPTIMIZED])
+                    self.assertEqual(result['outcomes'][-1],
+                                     (CONFIRM, 'skipped' if fails else 'success'))
+                    regression = next(x for x in result['streams'] if x[0] == REGRESSION)
+                    output = (regression[2] + regression[3]).decode()
+                    self.assertIn('Ran ' + ('0 tests' if cases[0] == 'empty' else '1 test'),
+                                  output)
+                    if cases[0] == 'pass' and cases[1] == 'empty':
+                        self.assertIn('Ran 0 tests', output)
+                    if 'fail' in cases:
+                        self.assertIn('FAILED (failures=1)', output)
+
     def test_job_preserves_foreign_git_state(self):
         # Real foreign repositories, never a caller's checkout. Setup and
         # observations use their own clean environment, independent of run_job.
