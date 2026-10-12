@@ -1,22 +1,22 @@
 {
  "schema": 2,
- "object": "QS-D3-SOFT-LAYER-CHAIN-A3-A3_7-INCORPORATION-20261006-v2",
+ "object": "QS-D3-SOFT-LAYER-CHAIN-A3-A3_11-INCORPORATION-20261006-v3",
  "kind": "additive incorporation of public native note, review, erratum, successor and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
   "performer": "Anthropic Claude",
   "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
   "attribution": "Dylan Roy - delegated AI work",
-  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004719823 (A3-A3.6); A3.7: the successor claim named in the PR",
-  "note": "the incorporator is also the author of A3-A3.7 (custody only; no proof byte is changed)"
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004719823 (A3-A3.6); https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008975407 (A3.7, Math-#340); https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010712951 (A3.8-A3.11)",
+  "note": "the incorporator is also the author of A3-A3.11 (custody only; no proof byte is changed)"
  },
  "source_issue": "https://github.com/d6g8k5htny-coder/main/issues/229",
- "extraction_rule": "the rule of main#229 comment 5971055189: a control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line in the following ```json fence, plus one newline",
+ "extraction_rule": "the rule of main#229 comment 5971055189: a control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line in the following ```json fence, plus one newline; for A3.10, whose ledger script is published inside the note itself (A3_10/PROOF.md, heading \"### 4. Ledger script\"), the expected stdout is the single line in the following ```text fence, plus one newline (the fence language follows the stored stdout's suffix: .json for ```json, .txt for ```text)",
  "excluded": {
   "A4, A4.1, A4.2": "planar (d = 2) addenda; A4 is stored in frontiers/planar_rejected_endpoint_margin_20261003/; A4.1 and A4.2 are not stored in the repository",
   "clean-context referee reports": "same-provider, same-session referee reports and exploration scripts (not review evidence) are kept in the project archive, not here",
   "routing comments": "Chief-of-Staff routing and acknowledgment comments are not stored; each pickup and verdict of record is",
-  "A3.8, A3.9, A3.10": "QS addenda A3.8 (6007704303, controls 6007706590; Slice 1 PASS 6008678986, Slice 2 PASS, Slice 3 PASS_SCOPED_CONDITIONAL with successor text 6008104016; author round note 6008843064: read-complete, no amendment), A3.9 (6008067902) and A3.10 (6008550120) are author-side; A3.9 and A3.10 have reads open or requested; they follow in a successor once those reads are of record"
+  "A4.3": "QS addendum A4.3 (6010510789, controls 6010511425): the planar (d = 2) counterpart of A3.11 at compact K, author-side with its Slice 1 read PASS (6010522535) and Slice 2 requested at this incorporation; it belongs beside A4 in frontiers/planar_rejected_endpoint_margin_20261003/ or in a successor here, as its incorporation claim will name"
  },
  "objects": [
   {
@@ -1574,6 +1574,622 @@
       [
        "--mutant",
        "M18"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A3.8",
+   "directory": "A3_8/",
+   "object": "CL-QS-A3-8-D3-FAILURE-RATE-20261006-v1",
+   "title": "the d = 3 failure-measure rate on the growing soft layer: 1 - p_r = r^3 alpha^(3) + O_beta(r^(3+beta)) for every beta < 2/3, and the endpoint O(r^(11/3) log(1/r)^(8/3))",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "the layer law with explicit H = 1 + Lambda dependence (Lemmas 1.1-1.3), the edges, radii, hard-gap strip, Hessian transfer, decision bands, margins and endpoint strip with H (Lemmas 2.1-4.2), the tails (Lemmas 5.1-5.4) and the exhaustion (Proposition 6.1, Theorems QFE3 and ER3); every weighted statement conditional on A3.4 (through it A3.3) and on A3.7",
+   "nonauthor_reads_as_recorded": [
+    "Slice 1 (sections 1-2; Z4): Cursor agent bc-7a2bee94 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6008678986",
+    "Slice 2 (sections 3-5; Z5, Z6): Cursor agent bc-ea15a5c7 (xAI Grok 4.7), BLOCK, 6007722459 (reading lambda-tilde as the larger eigenvalue); Astra source clarification 6007893752 (A3.4 section 0 fixes the ordered eigenvalue); readback by Cursor agent bc-31f1aced (xAI Grok 4.7), BLOCK lifted -> PASS, 6008104745",
+    "Slice 3 (section 6, the rate assembly): OpenAI / GPT-6 Astra Pro (session qs-a38-rate-audit-20261006), PASS_SCOPED_CONDITIONAL with one notation item, 6007935786; the item applied as successor text 6008104016 (the note's bytes unchanged)",
+    "author round note 6008843064: read-complete, no amendment beyond the successor text; the note body is frozen as posted"
+   ],
+   "conditional_on": "A3.4, and through it A3.3, and A3.7 at its reviewed scope, for every weighted statement; the deterministic inputs (A3.3, A3.5 sections 1-3, the certificates of A3.6 and A3.7) carry no such condition",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A3_8/CLAIM.md",
+     "role": "author work claim (A3.8)",
+     "comment": "6005773306",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6005773306",
+     "created_at": "2026-10-05T23:49:43Z",
+     "updated_at": "2026-10-05T23:49:43Z",
+     "bytes": 2927,
+     "sha256": "a894826ef100aa6fdccd122053b73b19b6abd81ba74dbf6b1764953d8147a200"
+    },
+    {
+     "path": "A3_8/PROOF.md",
+     "role": "frozen note (QS addendum A3.8)",
+     "comment": "6007704303",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007704303",
+     "created_at": "2026-10-06T01:52:57Z",
+     "updated_at": "2026-10-06T01:52:57Z",
+     "bytes": 45818,
+     "sha256": "afd2271252aa66c7e99f8fd7cb5ad194d881a56dcddcb9c726438f879b2c6451"
+    },
+    {
+     "path": "A3_8/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a38_exact.py and its stdout)",
+     "comment": "6007706590",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007706590",
+     "created_at": "2026-10-06T01:53:09Z",
+     "updated_at": "2026-10-06T01:53:09Z",
+     "bytes": 32933,
+     "sha256": "c12bbbc241648bcf61850c3f134bddc5e02557f4f786ddc1433f358047fce88a"
+    },
+    {
+     "path": "A3_8/author_controls.py",
+     "role": "control script, extracted verbatim from the stored controls comment A3_8/AUTHOR_CONTROLS_COMMENT.md (heading: ### a38_exact.py)",
+     "extracted_from": "A3_8/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a38_exact.py",
+     "bytes": 28557,
+     "sha256": "f5b32f603bbb4a0847d8299d02a0a49a6e7930b5eb93b4dc02761666e24d4faf"
+    },
+    {
+     "path": "A3_8/author_controls_stdout.json",
+     "role": "published stdout of A3_8/author_controls.py, extracted verbatim from A3_8/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "A3_8/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a38_exact.py",
+     "bytes": 525,
+     "sha256": "11f3b6a37d0dd2cb7a1f741f9cd2091066cb4fa01454a864551a95b45ca22c6a"
+    },
+    {
+     "path": "A3_8/READ_REQUESTS.md",
+     "role": "author read requests (three slices; Slice 2 summons of one Cursor agent, D2 of 6002718035)",
+     "comment": "6007721623",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007721623",
+     "created_at": "2026-10-06T01:54:31Z",
+     "updated_at": "2026-10-06T01:54:31Z",
+     "bytes": 4122,
+     "sha256": "40e8e2c092bc8521cddb4c7cb5973dbfe87c0dc24da537282f4619347b615b9b"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE2_BLOCK.md",
+     "role": "Slice 2 (sections 3-5): BLOCK, Cursor agent bc-ea15a5c7 (xAI Grok 4.7); pickup and verdict in one comment; the BLOCK rested on reading lambda-tilde as the larger eigenvalue and was lifted by 6008104745",
+     "comment": "6007722459",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007722459",
+     "created_at": "2026-10-06T01:54:35Z",
+     "updated_at": "2026-10-06T02:08:02Z",
+     "bytes": 10243,
+     "sha256": "07555bf57c80a76137f2beaa708865e5ad02ae2b73414c69b0ade7d2203d9c01"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE3_PICKUP.md",
+     "role": "Slice 3 (section 6, the rate assembly) pickup: OpenAI / GPT-6 Astra Pro, session qs-a38-rate-audit-20261006",
+     "comment": "6007792473",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007792473",
+     "created_at": "2026-10-06T02:01:25Z",
+     "updated_at": "2026-10-06T02:01:25Z",
+     "bytes": 1917,
+     "sha256": "6acc276a015e98e1381a12bd70a63a4dddb24229e70e6c0124c18841c0531ad7"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE3_SOURCE_CLARIFICATION.md",
+     "role": "Slice 3 reader's source-interface clarification (A3.4 section 0 fixes the ordered eigenvalue), addressed to the Slice 2 reader and the author; Astra",
+     "comment": "6007893752",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007893752",
+     "created_at": "2026-10-06T02:09:32Z",
+     "updated_at": "2026-10-06T02:09:32Z",
+     "bytes": 2665,
+     "sha256": "caf3d73089861b99b2d39db81f28fe290dc78786155b752b0c9ac11321eeb163"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE3.md",
+     "role": "Slice 3 (section 6: Proposition 6.1, Theorems QFE3 and ER3; the rate assembly): PASS_SCOPED_CONDITIONAL with one notation item, Astra (OpenAI / GPT-6 Astra Pro)",
+     "comment": "6007935786",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007935786",
+     "created_at": "2026-10-06T02:13:31Z",
+     "updated_at": "2026-10-06T02:13:31Z",
+     "bytes": 9922,
+     "sha256": "59fc3c0ab8eb9775bbee583d045607c13bb0f74895583facebb731f8cafa901f"
+    },
+    {
+     "path": "A3_8/AUTHOR_ROUND1_SUCCESSOR_TEXT.md",
+     "role": "author round-1 reply: the Slice 3 notation item applied as successor text (the note's bytes unchanged); the Slice 2 BLOCK answered from A3.4 section 0",
+     "comment": "6008104016",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008104016",
+     "created_at": "2026-10-06T02:29:30Z",
+     "updated_at": "2026-10-06T02:29:30Z",
+     "bytes": 5431,
+     "sha256": "8a14d2e23bc23e10d116f5cb5dcdfcc8ccc3ccf1c51a554d0d5da63437f61e30"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE2_READBACK_SUMMONS.md",
+     "role": "Slice 2 readback summons (one Cursor agent): reconcile the BLOCK with A3.4 section 0",
+     "comment": "6008104170",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008104170",
+     "created_at": "2026-10-06T02:29:31Z",
+     "updated_at": "2026-10-06T02:29:31Z",
+     "bytes": 2607,
+     "sha256": "9e68486da3bd3036c95b1e503c7b0f11f061c357bd3ffb6b93b3ba1140477685"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE2.md",
+     "role": "Slice 2 (sections 3-5; controls Z5, Z6): BLOCK lifted -> PASS, Cursor agent bc-31f1aced (xAI Grok 4.7; a fresh session); pickup and verdict in one comment",
+     "comment": "6008104745",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008104745",
+     "created_at": "2026-10-06T02:29:34Z",
+     "updated_at": "2026-10-06T02:35:26Z",
+     "bytes": 5613,
+     "sha256": "0d8e90041c29ecf399d694d9924a9ac0b7123e8a7556038abb327943e6415e52"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE1_SUMMONS.md",
+     "role": "Slice 1 summons (one Cursor agent); the same comment is A3.7's author round note, stored as A3_7/AUTHOR_ROUND_NOTE.md",
+     "comment": "6008678339",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008678339",
+     "created_at": "2026-10-06T03:22:55Z",
+     "updated_at": "2026-10-06T03:22:55Z",
+     "bytes": 5224,
+     "sha256": "57d43a646c89e8f37a675cd583c3016970aa0e7fa77d970a373b0b72355cacf6"
+    },
+    {
+     "path": "A3_8/REVIEW_SLICE1.md",
+     "role": "Slice 1 (sections 1-2; control group Z4): PASS, Cursor agent bc-7a2bee94 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6008678986",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008678986",
+     "created_at": "2026-10-06T03:22:59Z",
+     "updated_at": "2026-10-06T03:33:31Z",
+     "bytes": 8460,
+     "sha256": "76081bfabb205efaa1d10a1e93ee6194bdd7be3a428b8a905751cae08d9fc536"
+    },
+    {
+     "path": "A3_8/AUTHOR_ROUND_NOTE.md",
+     "role": "author round note (read-complete in three slices, no amendment beyond the successor text)",
+     "comment": "6008843064",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008843064",
+     "created_at": "2026-10-06T03:39:19Z",
+     "updated_at": "2026-10-06T03:39:19Z",
+     "bytes": 3489,
+     "sha256": "badb3cc30d8ee1a8489b01fe52a41ab8216660a62752918d06d90839ec9d02d3"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a38_exact.py",
+     "script": "A3_8/author_controls.py",
+     "stdout": "A3_8/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ],
+      [
+       "--mutant",
+       "M13"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M14"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A3.9",
+   "directory": "A3_9/",
+   "object": "CL-QS-A3-9-COEFFICIENT-IDENTIFICATION-20261006-v1",
+   "title": "A3.8's coefficient alpha^(3) is #243's F(k; b, u)/(k A_0(b, k, u)) and, at #175's scope, a_fail = a1 + a2; #243's Theorem FL and Corollary FL.5 with a rate in d = 3",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma 9.1 (the four selection-probability estimands are one object), Theorem 9.2 (the identification by uniqueness of limits) and Corollary 9.3 (#243's limit statements with A3.8's rate in d = 3); no new estimate and no control script; conditional on A3.8 and on #243 Corollary FL.5 at its stated status",
+   "nonauthor_reads_as_recorded": [
+    "the whole note: Cursor agent bc-8440ed26 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6009099266"
+   ],
+   "conditional_on": "A3.8 (and through it A3.3, A3.4, A3.7) for the rate; #243 Theorem FL and Corollary FL.5 at their stated status for the identification; #175 Theorem F at its stated scope for a_fail = a1 + a2",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A3_9/CLAIM.md",
+     "role": "author work claim (A3.9)",
+     "comment": "6007855091",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6007855091",
+     "created_at": "2026-10-06T02:06:30Z",
+     "updated_at": "2026-10-06T02:06:30Z",
+     "bytes": 1881,
+     "sha256": "0867d7bedb355cc1bfc39fa813a70a53e668103eef427e1ad80793d22351ac02"
+    },
+    {
+     "path": "A3_9/PROOF.md",
+     "role": "frozen note (QS addendum A3.9); no control script",
+     "comment": "6008067902",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008067902",
+     "created_at": "2026-10-06T02:26:02Z",
+     "updated_at": "2026-10-06T02:26:02Z",
+     "bytes": 13773,
+     "sha256": "ffe4644511d51c06ff6bebc578d2c6a12e9b812128937d1ccbf903910556b7c0"
+    },
+    {
+     "path": "A3_9/REVIEW_SUMMONS.md",
+     "role": "read summons (the whole note; one Cursor agent, D2 of 6002718035)",
+     "comment": "6009098123",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009098123",
+     "created_at": "2026-10-06T04:04:43Z",
+     "updated_at": "2026-10-06T04:04:43Z",
+     "bytes": 4315,
+     "sha256": "f0a053981e50e3d183477bde38c064f1d1b5102d64a6206d4d7d74ee9fa26057"
+    },
+    {
+     "path": "A3_9/REVIEW.md",
+     "role": "the whole note (Lemma 9.1, Theorem 9.2, Corollary 9.3): PASS, Cursor agent bc-8440ed26 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6009099266",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009099266",
+     "created_at": "2026-10-06T04:04:48Z",
+     "updated_at": "2026-10-06T04:13:57Z",
+     "bytes": 6120,
+     "sha256": "b0366c6da8deb2b2d1fadad82e1ce00c9ce7fe438e74b3ff6372c20ea211879b"
+    }
+   ],
+   "replays": []
+  },
+  {
+   "tag": "A3.10",
+   "directory": "A3_10/",
+   "object": "CL-QS-A3-10-PD3-REJECTED-LIFETIME-RATE-20261006-v1",
+   "title": "Corollary PD3: the d = 3 compact-window rejected-candidate lifetime density with a rate, nu_rej^(B,K)(l) = C_fail^(3) l^(2/3) + O(l^(8/9) log(1/l)^(8/3))",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Corollary PD3 (i)-(v): A3.8's rate composed with [P] sections 10-12's radial ledger along #175 section 7's identity, with the coefficient of A3.9; the ledger script pd3_ledger.py checks the exponent and constant arithmetic only; conditional on A3.8, A3.9 and the cited scopes of #175 and #243",
+   "nonauthor_reads_as_recorded": [
+    "the whole note: Cursor agent bc-6bc131b5 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6009306797"
+   ],
+   "conditional_on": "A3.8 (and through it A3.3, A3.4, A3.7) and A3.9 for the coefficient identification; [P], [R], #175 and #243 at their stated scopes",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A3_10/CLAIM.md",
+     "role": "author work claim (A3.10)",
+     "comment": "6008327269",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008327269",
+     "created_at": "2026-10-06T02:50:15Z",
+     "updated_at": "2026-10-06T02:50:15Z",
+     "bytes": 1717,
+     "sha256": "51fe7a0bffac8b0b42d8a735e7578072453e5a34a853b8568f342b51b5d722b7"
+    },
+    {
+     "path": "A3_10/PROOF.md",
+     "role": "frozen note (QS addendum A3.10, Corollary PD3); section 4 contains the ledger script pd3_ledger.py and its stdout",
+     "comment": "6008550120",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6008550120",
+     "created_at": "2026-10-06T03:11:06Z",
+     "updated_at": "2026-10-06T03:11:06Z",
+     "bytes": 21069,
+     "sha256": "98fd6832e6003e5317072c8088482cc9facd68133d373f8497800b539d27dc07"
+    },
+    {
+     "path": "A3_10/ledger_control.py",
+     "role": "control script, extracted verbatim from the stored note A3_10/PROOF.md (heading: ### 4. Ledger script)",
+     "extracted_from": "A3_10/PROOF.md",
+     "heading": "### 4. Ledger script",
+     "bytes": 4453,
+     "sha256": "ff62f33721483768d1d822d7cfbf77b4fdd51b54a6d2b9eba98e5fdead711dc4"
+    },
+    {
+     "path": "A3_10/ledger_control_stdout.txt",
+     "role": "published stdout of A3_10/ledger_control.py, extracted verbatim from A3_10/PROOF.md (```text fence)",
+     "extracted_from": "A3_10/PROOF.md",
+     "heading": "### 4. Ledger script",
+     "bytes": 58,
+     "sha256": "4220cc088d7ad411a562ac97685f2985ab02f99736b4173c8956795cf730dcbd"
+    },
+    {
+     "path": "A3_10/REVIEW_SUMMONS.md",
+     "role": "read summons (the whole note; one Cursor agent, D2 of 6002718035)",
+     "comment": "6009305427",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009305427",
+     "created_at": "2026-10-06T04:24:46Z",
+     "updated_at": "2026-10-06T04:24:46Z",
+     "bytes": 5472,
+     "sha256": "47eaf95202d649ccf52ed9c1784ed1a603494a18ac54b01380273b11ebc2dc3b"
+    },
+    {
+     "path": "A3_10/REVIEW.md",
+     "role": "the whole note (Corollary PD3 (i)-(v), its proof, the ledger script): PASS, Cursor agent bc-6bc131b5 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6009306797",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009306797",
+     "created_at": "2026-10-06T04:24:55Z",
+     "updated_at": "2026-10-06T04:34:17Z",
+     "bytes": 8743,
+     "sha256": "f04c9d38ca02fc11b7d3fca271aa7b024cbd8c6b95e0a4547241be10cbcda4fe"
+    }
+   ],
+   "replays": [
+    {
+     "name": "pd3_ledger.py (A3.10 section 4; stdout in a ```text fence)",
+     "script": "A3_10/ledger_control.py",
+     "stdout": "A3_10/ledger_control_stdout.txt",
+     "args": [],
+     "mutants": [
+      [
+       "RATE_THIRD"
+      ],
+      [
+       "LOG_HALF"
+      ],
+      [
+       "CUM_HALF"
+      ],
+      [
+       "MOM_2000"
+      ]
+     ],
+     "invalid": [
+      [
+       "BOGUS"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "tag": "A3.11",
+   "directory": "A3_11/",
+   "object": "CL-QS-A3-11-DYADIC-WINDOWS-20261006-v1",
+   "title": "the d = 3 decision on dyadic windows: fixed-layer errors O(r^4 log(1/r)), and the failure-measure rate r^beta for every beta < 1, endpoint O(r^4 log(1/r)^7)",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma 1.1 (C82's coarea density localized to a sub-layer) deterministic; Lemmas 1.2-1.4 (sub-layer moments, edges and bands), 2.1-2.2 (the shell ledger and sums), Theorems E3-second, R3-second, BL3-second (the fixed layer at O(r^4 log(1/r))), Proposition 4.1, Theorems QFE3-prime and ER3-prime (the exhaustion), Corollaries 9.3-prime and PD3-prime, conditional on A3.3-A3.8 (and A3.9-A3.10 for the lifetime statements)",
+   "nonauthor_reads_as_recorded": [
+    "Slice 1 (section 1: Lemmas 1.1-1.4; Z1-Z3, Z9): Cursor agent bc-679ec89e (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6009971496",
+    "Slice 2 (sections 2-3: the shells and the fixed layer; Z4-Z6): Cursor agent bc-b4a44fb4 (xAI Grok 4.7), PASS, 6010124388",
+    "Slice 3 (sections 4-5: the exhaustion and the consequences; Z7-Z8; sections 6 and 8 for overclaim): Cursor agent bc-115e1e76 (xAI Grok 4.7), PASS, 6010247147",
+    "author round note (in 6010521368): read-complete, no amendment; the note body is frozen as posted"
+   ],
+   "conditional_on": "A3.4, and through it A3.3, and A3.5-A3.8 at their reviewed scopes, for every weighted statement; A3.9 and A3.10 for Corollaries 9.3-prime and PD3-prime; Lemma 1.1 is deterministic",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "A3_11/CLAIM.md",
+     "role": "author work claim (A3.11)",
+     "comment": "6009293688",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009293688",
+     "created_at": "2026-10-06T04:23:40Z",
+     "updated_at": "2026-10-06T04:23:40Z",
+     "bytes": 2283,
+     "sha256": "16e7b8decaa52ac82e313ec5e94e7f2649533a12d539f336521d10db37da0d89"
+    },
+    {
+     "path": "A3_11/PROOF.md",
+     "role": "frozen note (QS addendum A3.11)",
+     "comment": "6009956838",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009956838",
+     "created_at": "2026-10-06T05:24:25Z",
+     "updated_at": "2026-10-06T05:24:25Z",
+     "bytes": 41749,
+     "sha256": "72bbc2edb8b9f70950fd660a0ea5148b0fe2228ad12ffa93ecc806dbaad74801"
+    },
+    {
+     "path": "A3_11/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains a311_exact.py and its stdout)",
+     "comment": "6009957866",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009957866",
+     "created_at": "2026-10-06T05:24:29Z",
+     "updated_at": "2026-10-06T05:24:29Z",
+     "bytes": 23910,
+     "sha256": "da9d8e5097128bc4eb52f9f257668a573211a846118ff9c6f49cab3b8705c677"
+    },
+    {
+     "path": "A3_11/author_controls.py",
+     "role": "control script, extracted verbatim from the stored controls comment A3_11/AUTHOR_CONTROLS_COMMENT.md (heading: ### a311_exact.py)",
+     "extracted_from": "A3_11/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a311_exact.py",
+     "bytes": 19162,
+     "sha256": "cdc3a86cb352574a8e0fe0876b92e1c2971d7c4859e664733a0ed4a178162ef3"
+    },
+    {
+     "path": "A3_11/author_controls_stdout.json",
+     "role": "published stdout of A3_11/author_controls.py, extracted verbatim from A3_11/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "A3_11/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### a311_exact.py",
+     "bytes": 152,
+     "sha256": "3e29bf23770488d1d3b1dc7d6790cbb094e329051a63d37d40397a4f69f77948"
+    },
+    {
+     "path": "A3_11/READ_REQUESTS.md",
+     "role": "author read requests (three slices; Slice 1 summons of one Cursor agent, D2 of 6002718035)",
+     "comment": "6009970681",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009970681",
+     "created_at": "2026-10-06T05:25:33Z",
+     "updated_at": "2026-10-06T05:25:33Z",
+     "bytes": 5489,
+     "sha256": "5f2672d4faa22f5e8468f4b0e4ca91c8f2fc75a48258a3ccce9b985525cc7bb9"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE1.md",
+     "role": "Slice 1 (section 1: Lemmas 1.1-1.4; controls Z1-Z3, Z9): PASS, Cursor agent bc-679ec89e (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6009971496",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6009971496",
+     "created_at": "2026-10-06T05:25:37Z",
+     "updated_at": "2026-10-06T05:35:26Z",
+     "bytes": 7731,
+     "sha256": "f7cf7af067b302462d26d1c8cc0f0bd1ddcbe18940580a6b591387605a8bfa9f"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE2_SUMMONS.md",
+     "role": "Slice 2 summons (one Cursor agent)",
+     "comment": "6010123557",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010123557",
+     "created_at": "2026-10-06T05:39:43Z",
+     "updated_at": "2026-10-06T05:39:43Z",
+     "bytes": 3711,
+     "sha256": "a30dc3e017e51503679758c2ac64097a0d9d3f6198921133695abe608ae6aa0a"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE2.md",
+     "role": "Slice 2 (sections 2-3: the shells and the fixed layer; controls Z4-Z6): PASS, Cursor agent bc-b4a44fb4 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6010124388",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010124388",
+     "created_at": "2026-10-06T05:39:47Z",
+     "updated_at": "2026-10-06T05:47:26Z",
+     "bytes": 10220,
+     "sha256": "cde5e54cd939de3c48989b54bbf6f437f4528114b337100dbea4a86dcf8f3134"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE3_SUMMONS_1.md",
+     "role": "Slice 3 summons, first posting (one second after the Slice 2 summons; it triggered no agent)",
+     "comment": "6010123715",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010123715",
+     "created_at": "2026-10-06T05:39:44Z",
+     "updated_at": "2026-10-06T05:39:44Z",
+     "bytes": 3730,
+     "sha256": "4b1b58b8a5c37a76751bc517e992a61cffaf34ffb9122b7858ba5fc4c0deb5f7"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE3_SUMMONS_2.md",
+     "role": "Slice 3 summons, re-issued after the Slice 2 verdict (one Cursor agent)",
+     "comment": "6010246424",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010246424",
+     "created_at": "2026-10-06T05:50:52Z",
+     "updated_at": "2026-10-06T05:50:52Z",
+     "bytes": 3976,
+     "sha256": "b30f839d07efa2a36e513da7c457ec4cc0a34e6f9e5ec35b3548b17df38be669"
+    },
+    {
+     "path": "A3_11/REVIEW_SLICE3.md",
+     "role": "Slice 3 (sections 4-5: the exhaustion and the consequences; controls Z7-Z8; sections 6 and 8 for overclaim): PASS, Cursor agent bc-115e1e76 (xAI Grok 4.7); pickup and verdict in one comment",
+     "comment": "6010247147",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010247147",
+     "created_at": "2026-10-06T05:50:56Z",
+     "updated_at": "2026-10-06T06:04:12Z",
+     "bytes": 9048,
+     "sha256": "1c1237feb5b03512eb735af5e167d14a11f45fb626b35101e41c12d52c4215e0"
+    },
+    {
+     "path": "A3_11/AUTHOR_ROUND_NOTE.md",
+     "role": "author round note (read-complete in three slices, no amendment), carried in the A4.3 read-request comment",
+     "comment": "6010521368",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6010521368",
+     "created_at": "2026-10-06T06:13:35Z",
+     "updated_at": "2026-10-06T06:13:35Z",
+     "bytes": 5537,
+     "sha256": "196cfb4132daecc65cdd2631e1f24f874ede5e2c265b14a7fc85e7a7c02866ef"
+    }
+   ],
+   "replays": [
+    {
+     "name": "a311_exact.py",
+     "script": "A3_11/author_controls.py",
+     "stdout": "A3_11/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M13"
       ],
       [
        "--mutant"
