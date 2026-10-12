@@ -54,6 +54,14 @@
       ],
       "instance": []
     },
+    "SuperlevelBarField": {
+      "abbrev": [],
+      "def": [
+        "superlevelBarField_interface",
+        "superlevelBarField_shift"
+      ],
+      "instance": []
+    },
     "TorusTopology": {
       "abbrev": [
         "torus_E",
@@ -74,11 +82,22 @@
       ]
     }
   },
+  "external_inputs": {
+    "specifications/lean_statements_20261010/Specifications/Field.lean": {
+      "bytes": 27767,
+      "compiled_with": "lean -DautoImplicit=false (the packet lakefile leanOptions), inside formal/ lake env",
+      "git_blob": "cc40e9d19446b8a150401c574d3cfd56177f195f",
+      "imported_by": "SuperlevelBarField",
+      "module": "Specifications.Field",
+      "sha256": "f22c91e082cd7e738ba47c9c3534e47ac687d066f0b78586d15103cf1132535e",
+      "status": "statement packet source (specified; not proved here); not companion source"
+    }
+  },
   "files": {
     ".github/workflows/torus-filtration.yml": {
-      "bytes": 2084,
-      "git_blob": "becc58ff7e8362160c305bcdc8b386221966afad",
-      "sha256": "3b6b06856bad22f7e9d28f1caf0e1710db3284cd73d65bf6f7330bfbd45dc033"
+      "bytes": 2233,
+      "git_blob": "920bbcf0b0e58cc13a0e9e0d6debfd6e90f1cd11",
+      "sha256": "a4c986ae9e96e1af1dd8a41cac29421aad8cbda322e153b9aee37a93d4697cbf"
     },
     "companions/torus_filtration_20261011/ClosedSuperlevel.lean": {
       "bytes": 8088,
@@ -96,24 +115,29 @@
       "sha256": "df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184"
     },
     "companions/torus_filtration_20261011/README.md": {
-      "bytes": 83629,
-      "git_blob": "5efed09b417eb9703268bed915b704bb301fbfa5",
-      "sha256": "a8d5c8dc1b9fb92572ad8b0d75753bf2a732beecbe55c1af58622775642d5d00"
+      "bytes": 102550,
+      "git_blob": "41dd08778188ddfbce2319dafe642671e6df4aae",
+      "sha256": "f587577832bd62e90a42711f0e984caeefa0648661032cd477330e8477e03895"
     },
     "companions/torus_filtration_20261011/SCOPE.md": {
-      "bytes": 34269,
-      "git_blob": "1a9b5caf64e5699a9e32e60e7bd3571bcd4ac983",
-      "sha256": "b5daf6e22f6b738497f6df4fa9ec99622d95e41f952dd9dbdf196fa40a14b86f"
+      "bytes": 41948,
+      "git_blob": "a68e8497ad198981c2973e66de606640d7aaf778",
+      "sha256": "ac7ecaba59c6ff0912f3064c4cfe860dee256b593e248b0e0322a67b902892cf"
     },
     "companions/torus_filtration_20261011/SuperlevelBar.lean": {
       "bytes": 15309,
       "git_blob": "b047384e20306ee030154885536c531633b88bd8",
       "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
     },
+    "companions/torus_filtration_20261011/SuperlevelBarField.lean": {
+      "bytes": 11816,
+      "git_blob": "f0300a6b459440e81064ef6f75990446a8a3db04",
+      "sha256": "8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad"
+    },
     "companions/torus_filtration_20261011/TorusFiltration.lean": {
-      "bytes": 110,
-      "git_blob": "eb4bfab626feea0bbd45387fc23ae774e3663ec3",
-      "sha256": "09887f618ac7fbe7ac9569c185a6e28bb8ee39a0f75e2909bc46e49b35f9d07a"
+      "bytes": 136,
+      "git_blob": "7dff5dbab05ab90b4a2d21aa3a4d6f8bda35f65e",
+      "sha256": "cddb8bc93569edbcc913eb7c79e23f9a5a637924207aabc2c11c1ad7fe476a75"
     },
     "companions/torus_filtration_20261011/TorusTopology.lean": {
       "bytes": 12257,
@@ -121,19 +145,19 @@
       "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
     },
     "companions/torus_filtration_20261011/check.py": {
-      "bytes": 55524,
-      "git_blob": "f225c0534af6da636f9fde21745b15383cea9ef0",
-      "sha256": "0bd3b51f207a0a57457173290dfdb295935fa9d65b74bfbe13c46f4d16c18874"
+      "bytes": 63394,
+      "git_blob": "45681a4b936f8a9a83985cbd47f54a4102ba66b4",
+      "sha256": "8ed25915a7de769bd9eb64032d50e09960ce49fd90e86404e20b356be4747450"
     },
     "companions/torus_filtration_20261011/replay.sh": {
-      "bytes": 5765,
-      "git_blob": "c654e50413aab00ed402d0ef7228063749b3695b",
-      "sha256": "7e25689e51c52786ac1ac92f805b441c0304e420381c7cfc2512fa62346049a4"
+      "bytes": 7304,
+      "git_blob": "ffc29a41f01b7007abeeb1460d03e010f204c016",
+      "sha256": "0d481c72bbccbc5bd64250108a8481e7c1e66f2046592ef1e0341aab8d5030e2"
     },
     "companions/torus_filtration_20261011/test_torus_filtration.py": {
-      "bytes": 132040,
-      "git_blob": "9aeae2df61c21d147f10227da274aaf6e0c000f8",
-      "sha256": "aed03604172e9ba35aaedd70297601a39aa3979efbbe18143d0329502418d97b"
+      "bytes": 158823,
+      "git_blob": "44e4445e6f78fcaaf930595c673cc7fdc8faf9fd",
+      "sha256": "fdd126fb0ca6281a7d4d08c1caeb6cfcbd0875d200f02b56ad2ef9f277250450"
     }
   },
   "modules": [
@@ -141,7 +165,8 @@
     "ClosedSuperlevel",
     "SuperlevelBar",
     "OrdinaryH0",
-    "OrdinaryH0Controls"
+    "OrdinaryH0Controls",
+    "SuperlevelBarField"
   ],
   "namespace": "TorusFiltration",
   "provenance": {
@@ -158,7 +183,7 @@
     },
     "handoff_pr": "d6g8k5htny-coder/Math-#419",
     "human_review": "none",
-    "namespace_mapping": "ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so was the owner-authored OrdinaryH0Controls",
+    "namespace_mapping": "ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so were the owner-authored OrdinaryH0Controls and SuperlevelBarField",
     "organizational_independence_credit": 0,
     "original_bytes": {
       "C263-handoff/SuperlevelBar.lean": 14904,
@@ -193,6 +218,27 @@
         "organizational_independence_credit": 0,
         "review_status": "not a review of OrdinaryH0 and lifts nothing: the FORMAL HOLD of OrdinaryH0 (and of SuperlevelBar) is unchanged; no review of these bytes is recorded; registration is not review",
         "sha256": "df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184"
+      },
+      "SuperlevelBarField.lean": {
+        "author": "Anthropic/Claude lane (companion owner), delegated AI work for Dylan Roy",
+        "bytes": 11816,
+        "census_at_pin": "18 constants = 14 user range + 0 user generated + 4 internal generated (superlevelBarField_interface and superlevelBarField_shift: _proof_1 and _proof_2 each)",
+        "comments": {
+          "adapter_route_428": "6112932068",
+          "allocation_428": "6124097060"
+        },
+        "declarations": "12 theorems, 0 abbrevs, 2 defs, 0 instances",
+        "imports": [
+          "Mathlib",
+          "SuperlevelBar",
+          "Specifications.Field"
+        ],
+        "kind": "owner-authored adapter module; not a handoff successor (no handoff bytes exist); not a review",
+        "lane": "C263 Field adapter (the SuperlevelBarField route of Math- #428 comment 6112932068, item 2)",
+        "namespace": "authored directly in namespace TorusFiltration; every declaration carries the prefix superlevelBarField_",
+        "organizational_independence_credit": 0,
+        "review_status": "not a review of SuperlevelBar and lifts nothing: it consumes the C263 definitions, so the FORMAL HOLD of SuperlevelBar extends to it; ElderPartner holds its clause by definition (no persistence elder rule is identified); no review of these bytes is recorded; registration is not review",
+        "sha256": "8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad"
       }
     },
     "source_author": "OpenAI/Codex lane (C254), delegated AI work for Dylan Roy",
@@ -357,6 +403,20 @@
       "superlevelBar_cut_unique",
       "superlevelBar_death_const",
       "superlevelBar_control_negative_essential"
+    ],
+    "SuperlevelBarField": [
+      "superlevelBarField_continuous",
+      "superlevelBarField_nonempty",
+      "superlevelBarField_deathHeight_eq",
+      "superlevelBarField_isEssential_iff",
+      "superlevelBarField_elderPartner_iff",
+      "superlevelBarField_essential_unique",
+      "superlevelBarField_deathHeight_unique",
+      "superlevelBarField_elderPartner_unique",
+      "superlevelBarField_shift_deathHeight_const",
+      "superlevelBarField_const_smooth",
+      "superlevelBarField_const_periodic",
+      "superlevelBarField_control_essential_free"
     ],
     "TorusTopology": [
       "torus_field_latticeVec_formula",

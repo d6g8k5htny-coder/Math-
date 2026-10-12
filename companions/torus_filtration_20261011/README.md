@@ -1,9 +1,10 @@
-# C254 torus quotient and closed-superlevel filtration, with the C263 strict-cut and C264 ordinary-H0 modules (isolated Lean companion)
+# C254 torus quotient and closed-superlevel filtration, with the C263 strict-cut and C264 ordinary-H0 modules and the C263 Field adapter (isolated Lean companion)
 
 Dylan Roy — delegated AI work. Source authors: OpenAI/Codex lanes (C254 for `TorusTopology` and
 `ClosedSuperlevel`; C263 for `SuperlevelBar`; C264 for `OrdinaryH0`). Compile fixes, the C264
-owner repair, the owner-authored controls module `OrdinaryH0Controls` (C264 owner task item 4)
-and the companion: Anthropic/Claude lane. Scientific effect **NONE**.
+owner repair, the owner-authored controls module `OrdinaryH0Controls` (C264 owner task item 4),
+the owner-authored Field adapter `SuperlevelBarField` and the companion: Anthropic/Claude lane.
+Scientific effect **NONE**.
 Organizational-independence credit **0** for every lane; no human review. Alignment status
 `PENDING_INDEPENDENT_REVIEW`. The two C26x modules are registered here as compiled successors
 under the handoffs' own **FORMAL HOLD** (see [C263 and C264 registration](#c263-and-c264-registration-2026-10-11)).
@@ -19,7 +20,9 @@ records credit 0. FORMAL HOLD is unchanged:
 its disposition is for the C263/C264 handoff owners, not this companion, and alignment still needs a
 reviewer with nonzero organizational-independence credit.
 `OrdinaryH0Controls` is not a review and lifts nothing (see
-[C264 owner task item 4 controls](#c264-owner-task-item-4-controls-2026-10-12)).
+[C264 owner task item 4 controls](#c264-owner-task-item-4-controls-2026-10-12)). `SuperlevelBarField`
+consumes the C263 definitions, so their FORMAL HOLD extends to it; it is not a review and lifts
+nothing either (see [C263 Field adapter](#c263-field-adapter-2026-10-12)).
 Nothing here promotes, discharges or reclassifies any claim.
 
 ## Purpose and route rationale
@@ -37,15 +40,20 @@ primary manifest at SHA-256 `40cb6ffc…` and the gate at `278989bb…`; any cha
 review scope for all three. The C255 route finding (6111255007) therefore recommended an
 isolated companion. This directory is that companion:
 
-- it holds the compile-fixed modules and the owner-authored controls module under namespace
-  `TorusFiltration` and a five-line root module (`import TorusTopology`, `import ClosedSuperlevel`,
-  `import SuperlevelBar`, `import OrdinaryH0`, `import OrdinaryH0Controls`, in dependency order; the
-  two C26x modules joined on 2026-10-11, the controls module on 2026-10-12);
+- it holds the compile-fixed modules, the owner-authored controls module and the owner-authored
+  Field adapter under namespace `TorusFiltration` and a six-line root module (`import TorusTopology`,
+  `import ClosedSuperlevel`, `import SuperlevelBar`, `import OrdinaryH0`, `import OrdinaryH0Controls`,
+  `import SuperlevelBarField`, in dependency order; the two C26x modules joined on 2026-10-11, the
+  controls module and the adapter on 2026-10-12);
 - it compiles them against the **same** pinned toolchain and dependency lock as `formal/`
   (`formal/lean-toolchain`, `formal/lakefile.toml`, `formal/lake-manifest.json`), which it reads
   but never edits;
 - it consumes nothing from the core: no import of `ResearchFormalCoreR1`, no pin on the core
-  tree, manifest or gate, and its replay runs neither `formal/gate.py` nor the formal tests.
+  tree, manifest or gate, and its replay runs neither `formal/gate.py` nor the formal tests;
+- outside its own directory it compiles exactly one file, the statement packet's
+  `specifications/lean_statements_20261010/Specifications/Field.lean` (#419's packet, on `main`),
+  pinned by identity (`EXTERNAL_INPUTS` in `check.py`), because `SuperlevelBarField` imports it;
+  it edits nothing in that packet.
 
 ## Bound sources
 
@@ -56,19 +64,23 @@ isolated companion. This directory is that companion:
 | This lane | local elaboration report 6111093545; pickup 6111139060 |
 | Original `TorusTopology.lean` (NOT_COMPILED) | SHA-256 `efa80d2879758b6d6473a0024a308ff758c308cdc8e4b5f400f39dde63a7f6f4`, 11542 bytes |
 | Original `ClosedSuperlevel.lean` (NOT_COMPILED) | SHA-256 `1fed3edada12b4dc7f5fcf874dae7ccde5d8f65af63cf103159debe58ba6789e`, 7827 bytes |
-| Namespace mapping | `ResearchFormalCoreR1.<n>` (handoff) -> `TorusFiltration.<n>` (companion); no other name changes. `SuperlevelBar` and `OrdinaryH0` were authored directly in namespace `TorusFiltration`, and so was the owner-authored `OrdinaryH0Controls` |
+| Namespace mapping | `ResearchFormalCoreR1.<n>` (handoff) -> `TorusFiltration.<n>` (companion); no other name changes. `SuperlevelBar` and `OrdinaryH0` were authored directly in namespace `TorusFiltration`, and so were the owner-authored `OrdinaryH0Controls` and `SuperlevelBarField` |
 | C263 handoff `SuperlevelBar.lean` (failed at the pin with warnings as errors) | SHA-256 `d74dc8b2c25eff5b90ce7133e51a0888c7885cae24ca6d5e648bc514089637a8`, 14904 bytes; Math- PR #428 comments 6113033147 (source), 6113033351 (nonauthor source review), 6113033545 (final handoff audit and owner task: 28/28 static checks, formal acceptance HOLD); allocation PR #419 comment 6112439759; this lane's compile report 428/6113229784 |
 | Registered `SuperlevelBar.lean` (successor) | SHA-256 `346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9`, 15309 bytes; imports `Mathlib` only |
 | C264 handoff `OrdinaryH0.lean` (failed at the pin with warnings as errors) | SHA-256 `261dd0526d42890d8a4ac1225fcf47228eb3c9799af4106cb643a528bcbf968e`, 18469 bytes; Math- PR #428 comments 6113276830 (source, delivery 1/3), 6113277173 (nonauthor source review, 2/3), 6113277485 (verification and owner task, 3/3); this lane's failed-compile record 428/6113300903; owner repair handoff 428/6113372506; this lane's repair report with the full diff 428/6113438262 |
 | Registered `OrdinaryH0.lean` (successor) | SHA-256 `3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88`, 19803 bytes; imports `Mathlib` and `ClosedSuperlevel` |
 | Owner-authored `OrdinaryH0Controls.lean` (C264 owner task item 4; no handoff bytes, not a successor) | SHA-256 `df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184`, 29590 bytes; imports `Mathlib` and `OrdinaryH0`; Math- PR #428 comments 6113277485 (C264 owner task, item 4) and 6113277173 (the corrected CONTROL_OBLIGATIONS it instantiates); author: Anthropic/Claude lane |
-| Toolchain | `leanprover/lean4:v4.34.1`, release commit `5045d0056413266e57c625dcd7c365b10e377c52`; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612` via `formal/lake-manifest.json` |
+| Owner-authored `SuperlevelBarField.lean` (C263 Field adapter; no handoff bytes, not a successor) | SHA-256 `8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad`, 11816 bytes; imports `Mathlib`, `SuperlevelBar` and `Specifications.Field`; Math- PR #428 comments 6112932068 (the adapter route, retained by this lane) and 6124097060 (allocation of its import line and compile step); author: Anthropic/Claude lane |
+| External input `specifications/lean_statements_20261010/Specifications/Field.lean` (statement packet, not companion source) | SHA-256 `f22c91e082cd7e738ba47c9c3534e47ac687d066f0b78586d15103cf1132535e`, 27767 bytes, blob `cc40e9d19446b8a150401c574d3cfd56177f195f` (`main` `4afcca6a`); imports `Mathlib` only; compiled in the replay with the packet's own `-DautoImplicit=false` |
+| Toolchain | `leanprover/lean4:v4.34.1`, release commit `5045d0056413266e57c625dcd7c365b10e377c52`; Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612` via `formal/lake-manifest.json` (the statement packet's own `lean-toolchain` and `lake-manifest.json` pin the same toolchain and the same nine package revisions) |
 
 `SOURCE_FILES.json` records bytes, SHA-256 and Git blob of every tracked companion file and the
-workflow, the per-module declaration inventory and this provenance. `check.py source` refuses to
+workflow, the per-module declaration inventory, this provenance and the external input's identity
+(`external_inputs`, compared whole with `check.py`; `check.py source` also requires the file's
+working bytes and its blob at HEAD to be exactly that identity). `check.py source` refuses to
 run unless the tracked tree, the working bytes and that manifest agree.
 
-## What the 118 theorems and 35 definitions establish
+## What the 130 theorems and 37 definitions establish
 
 Topology and scaffolding only: the period-lattice quotient, descent of periodic functions, path
 lifting with an **existential** endpoint, closed superlevel inclusions and their path-component
@@ -78,9 +90,13 @@ and the natural comparison of Mathlib's actual ordinary singular H0 with compone
 coproducts, restricted along the closed-superlevel filtration (C264); and fixtures that apply
 seven of the 20 C264 theorems, neither naturality theorem among them, to named spaces and
 coefficient modules, every premise proved inside the fixture (`OrdinaryH0Controls`,
-owner-authored for C264 owner task item 4). The sources label these
+owner-authored for C264 owner task item 4); and one inhabitant of the statement packet's
+`UniversalLaw.Spec.Field.SuperlevelBarInterface` built from the C263 definitions, with every
+inhabitant's agreement with it on the guarded locus and a control showing that the interface
+leaves the death height at essential points free (`SuperlevelBarField`, owner-authored; its elder
+relation is the right-hand side of its own clause, so that clause holds by definition). The sources label these
 `proved`; the hosted receipt may call them `kernel-checked`; neither label is alignment or
-acceptance. 153 declarations in all: 21 + 20 + 20 + 20 + 37 theorems, 6 abbrevs, 26 defs, 3 instances.
+acceptance. 167 declarations in all: 21 + 20 + 20 + 20 + 37 + 12 theorems, 6 abbrevs, 28 defs, 3 instances.
 
 ### `TorusTopology` (21 theorems; 2 abbrevs, 6 defs, 3 instances)
 
@@ -222,6 +238,25 @@ module names no other C264 theorem.
 | `ordinaryH0Control_bool_zeroCoeff_eq`, `ordinaryH0Control_point_zeroCoeff_eq_zero`, `ordinaryH0Control_separation_needs_nonzero`, `ordinaryH0Control_nonvanishing_needs_nonzero` | zero coefficients: the two point classes of `Bool` are equal although their components differ, and the point class of the one-point space is `0`; hence the separation and nonvanishing statements are false once `𝟙 R ≠ 0` is deleted (the C264 statements keep that hypothesis) |
 | `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight` (defs), `ordinaryH0Control_parabola_le`, `ordinaryH0Control_parabola_strict_growth`, `ordinaryH0Control_parabola_not_joined_quarter`, `ordinaryH0Control_parabola_joined`, `ordinaryH0Control_parabola_difference_zero`, `ordinaryH0Control_parabola_strict_difference_ne_zero` | closed superlevels of `x ↦ x ^ 2`: the points `-1` and `1` of the level at parameter `-1`; the strict inclusion into the level at `-1/4` (which gains `1/2`) keeps the difference of their classes nonzero, since no path joins them in `{x | 1/4 ≤ x ^ 2}` (intermediate value theorem through `0`); the inclusion into the level at `0`, the whole line, kills it |
 
+### `SuperlevelBarField` (12 theorems; 2 defs) — C263 Field adapter
+
+Owner-authored by this lane (it imports `Mathlib`, `SuperlevelBar` and the statement packet's
+`Specifications.Field`); not a handoff module, not a review of `SuperlevelBar`, and under the same
+FORMAL HOLD, since it consumes the C263 definitions. `IsSmooth` gives continuity at `n = 0`, so
+`superlevelBar_strict_cut` is the interface's maximin clause, and `superlevelBar_cut_unique` forces
+every other death height at a nonessential point to agree. The construction discards each clause's
+`IsLPeriodic` argument and uses `L` only in its type; the three uniqueness theorems take
+`IsLPeriodic d L g` to apply an arbitrary inhabitant's clauses, and are false without it.
+
+| Declarations | What they state |
+|---|---|
+| `superlevelBarField_continuous` | a height that is smooth in the Field sense (`IsSmooth`) is continuous |
+| `superlevelBarField_interface` (def), `superlevelBarField_nonempty` | for every `d` and `L`, the record with `deathHeight := superlevelBar_deathHeight`, `IsEssential := superlevelBar_isEssential` and `ElderPartner :=` the right-hand side of the `elderPartner_iff` clause inhabits `UniversalLaw.Spec.Field.SuperlevelBarInterface d L`; that clause holds by `Iff.rfl`, a definition, not a theorem about persistence |
+| `superlevelBarField_deathHeight_eq`, `superlevelBarField_isEssential_iff`, `superlevelBarField_elderPartner_iff` | the record's three fields, by `rfl` / `Iff.rfl` |
+| `superlevelBarField_essential_unique`, `superlevelBarField_deathHeight_unique`, `superlevelBarField_elderPartner_unique` | for every inhabitant `I` and every smooth `L`-periodic height: `I.IsEssential` is global maximality; at a nonessential point `I.deathHeight` is the C263 death height; on the Morse distinct-value locus `I.ElderPartner` is the record's |
+| `superlevelBarField_shift` (def), `superlevelBarField_shift_deathHeight_const` | a second inhabitant, equal to the first except that its death height at essential points is a constant `c`; at a constant height its death height is `c` |
+| `superlevelBarField_const_smooth`, `superlevelBarField_const_periodic`, `superlevelBarField_control_essential_free` | constant heights are smooth and `L`-periodic; at the constant height `0`, where every point is essential for both records, the record has death height `0` and its shift by `1` has death height `1`, and the two differ, so the nonessential hypothesis of `superlevelBarField_deathHeight_unique` cannot be dropped |
+
 Audited definitions: `torus_E`, `torus_quotient` (abbrev); `torus_latticeVec`, `torus_periodBasis`,
 `torus_periodLattice`, `torus_proj`, `torus_isPeriodic`, `torus_descend`; instances
 `torus_lattice_discrete`, `torus_lattice_addSubgroup_discrete`, `torus_lattice_isZLattice`;
@@ -231,8 +266,11 @@ Audited definitions: `torus_E`, `torus_quotient` (abbrev); `torus_latticeVec`, `
 `ordinaryH0_componentCoproductFunctor`, `ordinaryH0_componentFiltration`, `ordinaryH0_simplicialPointClass`,
 `ordinaryH0_pointClass`, `ordinaryH0_naturalIso`, `ordinaryH0_filtrationIso`; `ordinaryH0Control_intCoeff`,
 `ordinaryH0Control_zeroCoeff`, `ordinaryH0Control_mod2Coeff` (abbrev), `ordinaryH0Control_collapse`,
-`ordinaryH0Control_fst`, `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight`. Every one of the 153
-declarations is a `#print axioms` target.
+`ordinaryH0Control_fst`, `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight`;
+`superlevelBarField_interface`, `superlevelBarField_shift`. Every one of the 167
+declarations is a `#print axioms` target. The external `Specifications.Field` declarations are not
+inventory targets; their axioms enter the audit through the adapter's declarations, whose
+`#print axioms` reports are transitive.
 
 ## What is NOT established
 
@@ -254,14 +292,19 @@ Copied from the handoff's own exclusions (TORUS_FILTRATION.md, source review F3�
 - smooth quotient charts, Morse index transfer, handle analysis, critical-free band invariance;
 - a compiled theorem naming the externally owned `Specifications.Field` module: the companion
   carries the literal formulas (`torus_field_latticeVec_formula`, `torus_field_periodic_formula`)
-  and does not import that file.
+  and does not import that file. (companion note, 2026-10-12, Math- #428 comment 6124097060, not
+  part of the copied exclusion: this stays true of the C254 modules; since 2026-10-12 the
+  owner-authored `SuperlevelBarField.lean` imports `Specifications.Field`, the only companion module
+  that does, see [C263 Field adapter](#c263-field-adapter-2026-10-12))
 
 Copied from the C263 module's own docstrings (`SuperlevelBar.lean`):
 
 - an inhabitant of the separately owned Field or Lifetime record, an elder relation, Morse
   endpoint attainment, ordinary H0 bar pairing, finite-bar counts, a Gaussian field or weighted
   law, or scientific acceptance; the scalar zero on an empty set is a default, not an
-  essential-bar death;
+  essential-bar death; (companion note, 2026-10-12, not part of the copied text: this stays true of
+  `SuperlevelBar.lean`, whose bytes do not change; the owner-authored `SuperlevelBarField.lean`
+  constructs an inhabitant of the Field record from its definitions, and none of the Lifetime record)
 - closed-threshold attainment at the death height (the cut is strict; `superlevelBar_death_not_mem_clearance`
   says death is not a clearance); a finite death for an essential class; the death/start bound on
   the empty default branch (refuted by `superlevelBar_control_negative_essential`); compactness of
@@ -294,6 +337,19 @@ Copied from the controls module's own docstrings (`OrdinaryH0Controls.lean`):
   nonvanishing; H0 of the empty space for coefficients other than `ℤ` and the zero module;
   path components of a non-discrete space beyond the explicit cases.
 
+Copied from the adapter module's own docstring (`SuperlevelBarField.lean`):
+
+- an identification of `ElderPartner` with a persistence-module elder rule, the source's elder
+  event or its Borel measurability (the clause holds by definition, not as a theorem about
+  persistence); any use of periodicity or of `L` in the construction (the uniqueness theorems take
+  the periodicity hypothesis only to apply an arbitrary inhabitant's clauses, and are false without
+  it); a torus quotient; Morse genericity; any meaning of the value `0` that the C263 default gives
+  at essential points; anything about the separate
+  `UniversalLaw.Spec.Lifetime.SuperlevelBarInterface` (not inhabited here) or about any Lifetime
+  statement; scientific acceptance. The statement packet's own text "no inhabitant is constructed"
+  is about that packet and stays true of it; nothing in it changes. No claim-level label moves;
+  alignment stays PENDING_INDEPENDENT_REVIEW.
+
 Compile success, the axiom audit, `leanchecker` and the negative controls say that Lean
 elaborated these statements with these proofs at this pin. They do not say that the statements
 are the ones the research programme needs; that is the pending independent alignment review.
@@ -312,7 +368,8 @@ conditions (6113033545 item 4; 6113372506; 6113277485 item 5), among them a dist
 source-bound execution output and source-bound hosted evidence and custody, which they say a source
 review alone does not meet; its disposition is for the C263/C264 handoff owners and nothing in this
 companion moves it. Alignment still needs a reviewer with nonzero organizational-independence
-credit. No review of the `OrdinaryH0Controls` bytes is recorded.
+credit. No review of the `OrdinaryH0Controls` bytes is recorded, and none of the `SuperlevelBarField`
+bytes.
 
 ## Compile fixes at the pin
 
@@ -470,22 +527,25 @@ refuse. The lexer also treats a closed block comment as a token separator (`theo
 is `theorem hidden`) and lexes numerals as Lean does (`0alias` is `0` then `alias`; `0x1Ftheorem`
 is `0x1F` then `theorem`), both found by that verification. **The declaration census the receipt
 stands on is therefore not the scanner but `Census.lean`**, emitted by `check.py emit` and run
-by the replay: Lean itself lists every constant the six companion modules (the five modules and
+by the replay: Lean itself lists every constant the seven companion modules (the six modules and
 the root) add to the environment, tagged `internal` or `user` (`Name.isInternalDetail`:
 `_`-prefixed, `eq_n`, `match_n`, `proof_n`, `omega_n` or numeric components) and `range` or
 `generated` (whether Lean recorded a declaration range, which every declaration elaborated from
 source syntax carries and compiler-generated constants lack). `check.py finish` requires the
-user-named ranged constants to equal the 153 inventoried names exactly, refuses any ranged
+user-named ranged constants to equal the 167 inventoried names exactly, refuses any ranged
 constant with an internal-style name (a `where`-clause `proof_1` written by hand), and requires
 the user-named generated constants to equal `census_auxiliary` in `SOURCE_FILES.json` exactly
 (today `TorusFiltration.torus_periodBasis.congr_simp`, the simp-congruence lemma Lean generates
-for `torus_periodBasis`; the C263, C264 and controls modules add no user-named generated constant), so that
+for `torus_periodBasis`; the C263, C264, controls and adapter modules add no user-named generated constant), so that
 list can name only constants Lean generated; internal generated constants (abstracted proofs,
 equation lemmas, `_simp` auxiliaries, and `CategoryTheory.Limits.sigmaConst.eq_1`, the equation
 lemma Lean generated for a Mathlib definition that `OrdinaryH0.lean` unfolds and attributed to
-that module) are counted and otherwise ignored: 27 at the pin for the six modules, of which 12
-belong to the C26x pair and 4 to `OrdinaryH0Controls` (`_proof_1` and `eq_1` of
-`ordinaryH0Control_parabolaLeft` and `ordinaryH0Control_parabolaRight`). A declaration
+that module) are counted and otherwise ignored: 31 at the pin for the seven modules, of which 12
+belong to the C26x pair, 4 to `OrdinaryH0Controls` (`_proof_1` and `eq_1` of
+`ordinaryH0Control_parabolaLeft` and `ordinaryH0Control_parabolaRight`) and 4 to
+`SuperlevelBarField` (`_proof_1` and `_proof_2` of `superlevelBarField_interface` and
+`superlevelBarField_shift`). The census lists companion modules only: the external
+`Specifications.Field` is not companion source and its constants are not inventory. A declaration
 the scanner missed is refused by the receipt whatever its spelling, because it was elaborated
 from source and therefore carries a range. A compile fix that needs a refused form must extend
 the scanner, the inventory and, for a new compiler-generated constant, `census_auxiliary`.
@@ -496,7 +556,8 @@ the scanner, the inventory and, for a new compiler-generated constant, `census_a
   transcribed, not awarded here.
 - `kernel-checked` appears only in `receipt.json`, written by `check.py finish` after a hosted
   run in which every build exited `0`, `leanchecker` replayed the companion modules' declarations
-  through the kernel without output (the exact invocation is recorded in `leanchecker.cmd` and
+  and those of the external `Specifications.Field` (modules mode), or the whole import closure
+  (`--fresh`), through the kernel without output (the exact invocation is recorded in `leanchecker.cmd` and
   copied into the receipt), and every axiom report lies in `{propext, Classical.choice, Quot.sound}`.
 - The words `verified`, `closed` (as a status) and `accepted` do not describe anything in this
   companion. `alignment_status` stays `PENDING_INDEPENDENT_REVIEW`; `scientific_acceptance` is
@@ -510,16 +571,21 @@ cache for `formal/` retrieved:
 
     bash companions/torus_filtration_20261011/replay.sh
 
-The replay: binds HEAD to the manifest (`check.py source`), runs the Python tests in normal and
+The replay: binds HEAD to the manifest (`check.py source`, which also binds the external
+`Field.lean` by identity), runs the Python tests in normal and
 `-O` modes, emits the Lean audit files, then inside `lake env bash` from `formal/` records
-`lean --version` and every installed package HEAD, compiles `TorusTopology`, `ClosedSuperlevel`,
-`SuperlevelBar`, `OrdinaryH0`, `OrdinaryH0Controls` (in that dependency order) and the root
+`lean --version` and every installed package HEAD, compiles the statement packet's
+`Specifications/Field.lean` with the packet's own `-DautoImplicit=false` (no warnings-as-errors: it
+is the packet's source, not the companion's) into `.lake/torus-filtration-spec`, which must not
+pre-exist and comes first on `LEAN_PATH`, ahead of the companion directory (it holds only
+`Specifications/Field.olean`, so it shadows nothing, and nothing can shadow it), compiles `TorusTopology`, `ClosedSuperlevel`,
+`SuperlevelBar`, `OrdinaryH0`, `OrdinaryH0Controls`, `SuperlevelBarField` (in that dependency order) and the root
 `TorusFiltration` with `-DwarningAsError=true`, compiles `Positive.lean` (six concrete applications
-of the C254 theorems; unchanged by both registrations), `Audit.lean` (153 `#print axioms`),
-`Types.lean` (118 `#check` with `pp.explicit`), `Census.lean` (the elaborated declaration census
+of the C254 theorems; unchanged by every registration since), `Audit.lean` (167 `#print axioms`),
+`Types.lean` (130 `#check` with `pp.explicit`), `Census.lean` (the elaborated declaration census
 above), runs
-`leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls TorusFiltration`,
-and runs eleven negative controls. The replay unsets `PYTHONOPTIMIZE` first, so each Python invocation runs in exactly the
+`leanchecker Specifications.Field TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls SuperlevelBarField TorusFiltration`,
+and runs twelve negative controls. The replay unsets `PYTHONOPTIMIZE` first, so each Python invocation runs in exactly the
 mode its command line names, and every `check.py` invocation prints the mode it runs in
 (`TORUS_FILTRATION_PYTHON: optimize=N`) to the job log (an invocation that argparse rejects
 exits 2 before that line; the replay never issues one).
@@ -536,6 +602,7 @@ elaborated as `example : <statement> := by <tactic>` and must fail with exactly 
 | `RejectMergerKillsPointClass` (C264 item 4) | false statement `CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_intCoeff true) (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj ordinaryH0Control_intCoeff).map ordinaryH0Control_collapse) = 0` (the collapse `Bool → Unit` kills the individual point class of `true`; a merger kills the difference, not the class, and `ordinaryH0Control_collapse_image_ne_zero` says the image class is nonzero), tactic `simp only [ordinaryH0Control_collapse_image_ne_zero]` | exit 1, `⊢ False` |
 | `RejectSeparationWithoutNonzeroCoeff` (C264 item 4) | false statement `ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff true ≠ ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff false` (the two point classes of `Bool` differ with zero coefficients; `ordinaryH0Control_bool_zeroCoeff_eq` says they are equal, so the separation statement needs `𝟙 R ≠ 0`), tactic `simp [ordinaryH0Control_bool_zeroCoeff_eq]` | exit 1, `⊢ False` |
 | `RejectNonmergerKillsDifference` (C264 item 4) | false statement `CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff ((true, false) : Bool × Bool) - ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff ((false, true) : Bool × Bool)) (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj ordinaryH0Control_intCoeff).map ordinaryH0Control_fst) = 0` (the non-injective projection kills a difference whose images `true` and `false` stay in distinct components; `ordinaryH0Control_fst_difference_ne_zero` says it does not), tactic `simp only [ordinaryH0Control_fst_difference_ne_zero]` | exit 1, `⊢ False` |
+| `RejectEssentialDeathDetermined` (Field adapter) | false statement `(superlevelBarField_interface 1 1).deathHeight (fun _ => (0 : ℝ)) 0 = (superlevelBarField_shift 1 1 1).deathHeight (fun _ => (0 : ℝ)) 0` (the interface determines the death height at an essential point: at the constant height `0` of `ℝ^1` every point is essential, and `superlevelBarField_control_essential_free` says the two records give `0` and `1`), tactic `norm_num [superlevelBarField_deathHeight_eq, superlevelBar_death_const, superlevelBarField_shift_deathHeight_const]` | exit 1, `⊢ False` |
 | `RejectSorry` | `theorem injected : False := by sorry` | exit 0 with the `sorry` warning; audit refuses `sorryAx` |
 | `RejectCustomAxiom` | `axiom hiddenPremise : False` behind one intermediate theorem | exit 0; audit refuses `hiddenPremise` |
 | `RejectNativeDecide` | `native_decide` proof | exit 0; audit refuses `injected._native.native_decide.ax_1_1` |
@@ -545,45 +612,56 @@ and only the axiom audit refuses them, which is what the audit is for. `check.py
 `re.fullmatch` on each log, so a crash, an extra error or a different exit code is a failed
 control, not a passed one. `check.py finish` refuses an evidence directory that already holds
 `receipt.json` (a receipt is written once and never replaced; a new attempt needs a fresh
-directory) and requires exactly the 65 evidence files, each a regular file and nothing else: the
-fifteen emitted Lean files (`Audit.lean`, `Types.lean`, `Positive.lean`, `Census.lean` and the
-eleven controls' `.lean`), a `.log` and `.status` pair for each of the eleven Lean processes (six
-module builds, `positive`, `axioms`, `types`, `census`, `leanchecker`), the eleven controls'
+directory) and requires exactly the 72 evidence files, each a regular file and nothing else: the
+sixteen emitted Lean files (`Audit.lean`, `Types.lean`, `Positive.lean`, `Census.lean` and the
+twelve controls' `.lean`), a `.log` and `.status` pair for each of the thirteen Lean processes (the
+external Field build `build-spec-Field`, seven module builds, `positive`, `axioms`, `types`,
+`census`, `leanchecker`), the twelve controls'
 `.log`/`.status`, `leanchecker.cmd`, `packages.log`, `toolchain.log`, `source.json`,
 `tests.log` and `tests-optimized.log` (`EVIDENCE_FILES` in `check.py`; C262 finding G3; 44
 members before the C263/C264 registration added two builds and two controls, 54 before the
-item-4 controls added one build and three controls). It then
-re-runs the source binding, re-derives the fifteen emitted Lean files and requires byte equality
+item-4 controls added one build and three controls, 65 before the Field adapter added two builds
+and one control). It then
+re-runs the source binding, re-derives the sixteen emitted Lean files and requires byte equality
 with the ones Lean consumed, checks every status, the toolchain line, the installed package
 HEADs against `formal/lake-manifest.json`, the recorded `leanchecker` invocation, the axiom and
-type inventories, the declaration census and the eleven controls, and writes `receipt.json` with
-`log_sha256` over exactly those 65 files, created exclusively (`O_EXCL`, `O_NOFOLLOW`). The
-evidence directory `.lake/torus-filtration-evidence` must not pre-exist.
+type inventories, the declaration census and the twelve controls, and writes `receipt.json` (which
+also carries the external input record `external_inputs`, and whose `scope_note`, in the default
+modules mode, names the external `Specifications.Field` among what `leanchecker` replayed; in
+`--fresh` mode it says the whole import closure was re-checked from scratch) with `log_sha256` over exactly those 72 files, created exclusively (`O_EXCL`, `O_NOFOLLOW`). The
+evidence directory `.lake/torus-filtration-evidence` and the Field build directory
+`.lake/torus-filtration-spec` must not pre-exist.
 
 ### What `leanchecker` checks here, and why not `--fresh`
 
-All five modules `import Mathlib` (`OrdinaryH0` also imports `ClosedSuperlevel`, `OrdinaryH0Controls` also imports `OrdinaryH0`), so their import closure is all of Mathlib (6.1 GB of `.olean`
+All six companion modules `import Mathlib` (`OrdinaryH0` also imports `ClosedSuperlevel`, `OrdinaryH0Controls` also imports `OrdinaryH0`, `SuperlevelBarField` also imports `SuperlevelBar` and `Specifications.Field`, which imports only `Mathlib`), so their import closure is all of Mathlib (6.1 GB of `.olean`
 files at the pin). `leanchecker --fresh TorusFiltration`, the shape of the D2 companions' step
 (`leanchecker --fresh D2MomentBridge`, affordable there only because that module imports
 `Mathlib.Tactic` and one Bochner file), re-checks that entire closure from scratch: measured locally against the pinned cache at 4 threads it was still
 running at 1500 s with 6.6 GB resident, so it cannot complete inside a hosted job. The hosted
-default is therefore `leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls TorusFiltration`
-(before the C263/C264 registration it named the three C254 modules, and before the item-4 controls the
-four modules and the root; `check.py finish` now refuses both shorter forms): leanchecker
+default is therefore `leanchecker Specifications.Field TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls SuperlevelBarField TorusFiltration`
+(before the C263/C264 registration it named the three C254 modules, before the item-4 controls the
+four modules and the root, and before the Field adapter the five modules and the root without
+`Specifications.Field`; `check.py finish` now refuses all three shorter forms): leanchecker
 builds the environment from the cached, prebuilt dependency `.olean` files (trusted, exactly as
-`lean` itself trusts them when compiling the modules) and replays every declaration of the six
-named modules through the kernel. Measured locally at `LEAN_NUM_THREADS=2`: 30 s wall and 6.6 GB
+`lean` itself trusts them when compiling the modules) and replays every declaration of the eight
+named modules through the kernel. `Specifications.Field` is named first because the replay compiled
+it itself; its declarations are replayed rather than trusted from that `.olean`. Measured locally at `LEAN_NUM_THREADS=2`: 30 s wall and 6.6 GB
 resident for the three C254 modules; 53 s for the five (2026-10-11, this lane's pre-commit run on the
 registered bytes) with a peak of about 8.4 to 8.7 GiB resident (two runs, sampled every 2 s); for the
 six (2026-10-12, this lane, the registered Lean bytes, sampled every 1 s), 75 s wall including the
 `lake env` start-up with a sampled peak of 8.64 GiB in the pre-commit run, and about 56 s of
 `leanchecker` itself with a sampled peak of 9.31 GiB inside a full local replay, no output on success (one
 `lean` compile of `ClosedSuperlevel.lean` takes 9 s and 6.8 GB; `OrdinaryH0.lean` compiles in 12 s,
-`OrdinaryH0Controls.lean` in 12 s at a sampled peak of 6.5 GiB).
+`OrdinaryH0Controls.lean` in 12 s at a sampled peak of 6.5 GiB). For the eight (2026-10-12, this lane,
+the registered Lean bytes of all seven sources, sampled every 1 s): 85 s wall including the `lake env`
+start-up, a sampled peak of 8.87 GiB resident, no output, exit 0, in a probe on separately built `.olean`
+files of those bytes (an earlier probe on a pre-commit form of the adapter took 91 s at a sampled
+peak of 7.97 GiB).
 With `LEAN_NUM_THREADS` unset on a four-core machine the five-module `leanchecker` exceeded a
 13.36 GiB memory limit and was killed (twice, 2026-10-11), so `replay.sh` defaults `LEAN_NUM_THREADS`
-to 2, the hosted job's setting, when the operator has not set it; the six-module form was run only
-at two threads. `replay.sh` writes the exact invocation to
+to 2, the hosted job's setting, when the operator has not set it; the six- and eight-module forms were
+run only at two threads. `replay.sh` writes the exact invocation to
 `leanchecker.cmd`; `check.py finish` accepts only the two pinned forms, requires the modules-mode
 log to be empty, and copies command and mode into `receipt.json` under `leanchecker`.
 An operator who wants the whole-closure re-check runs
@@ -613,15 +691,24 @@ locally. At the registration commit the registered set had no hosted completion.
 artifact, and this README does not adopt its receipt or its timings. The item-4 set (six builds, the census,
 eleven controls, 65 files) adds one `lean` compile of about 12 s and three control runs of about 10 s each,
 and the six-module `leanchecker` took 56 to 75 s locally (with and without `lake env` start-up; measured 2026-10-12 at `LEAN_NUM_THREADS=2`;
-a full local replay took 279 s); the item-4 commit has no hosted completion recorded here.
+a full local replay took 279 s); the item-4 commit has no hosted completion recorded here. The
+Field-adapter set (eight builds including the external Field, the census, twelve controls, 72 files)
+adds the `Field.lean` compile, one module compile and one control run; a full local replay of
+`a4136577`, a pre-commit form of the adapter commit identical to it in every Lean, gate (`check.py`),
+replay and workflow byte and differing only in documentation, tests, the manifest records and the
+commit message, took 395 s (2026-10-12, `LEAN_NUM_THREADS=2`), exit 0, with an empty
+`build-spec-Field` log (a record of a computation on a worktree, not a receipt); the adapter commit
+has no hosted completion recorded here.
 
 The replay writes `TorusTopology.olean`, `ClosedSuperlevel.olean`, `SuperlevelBar.olean`,
-`OrdinaryH0.olean`, `OrdinaryH0Controls.olean` and `TorusFiltration.olean`
+`OrdinaryH0.olean`, `OrdinaryH0Controls.olean`, `SuperlevelBarField.olean` and `TorusFiltration.olean`
 into the companion directory (Lean needs them on `LEAN_PATH` for the root module and the audit
 files). They are build artefacts and must never be committed: the repository has no root
 `.gitignore`, `git add -A` would stage them, and `check.py source` then refuses the companion
 with `tracked companion membership differs` until they are removed in a follow-up commit.
-Delete them before committing.
+Delete them before committing. The external `Field.olean` goes to `.lake/torus-filtration-spec`,
+outside the source tree; delete that directory (and the evidence directory) before a second local
+replay.
 
 Local protocol tests: `python3 -B -S companions/torus_filtration_20261011/test_torus_filtration.py`
 and the same with `-O`. They exercise `check.py` against a temporary Git fixture with
@@ -697,6 +784,26 @@ narrower attribution stands for those runs and is not revised.
   and marks the relabel of the C254 naturality exclusion (Math- #428 comment 6116225936) as a dated companion note;
   no label moves.
   Details in [C264 owner task item 4 controls](#c264-owner-task-item-4-controls-2026-10-12).
+- C263 Field adapter (2026-10-12, one forward commit on top of a non-force merge of `main` `4afcca6a`
+  into the item-4 head `f13aa5fb`; the merge brings in #419's statement packet and touches no companion
+  path; the `formal/` tree is `38b6d1a7…` on both sides): the owner-authored `SuperlevelBarField.lean`
+  (8a247043…) is added as module six; the root module imports six modules; `check.py` gains the
+  external input record `EXTERNAL_INPUTS` (the statement packet's `Field.lean`, bound by identity in
+  the working tree and at HEAD, and recorded in `SOURCE_FILES.json` as `external_inputs`, compared
+  whole), the per-module external-import rule `EXTERNAL_IMPORTS` (the scanner admits
+  `import Specifications.Field` in `SuperlevelBarField.lean` only, and no other `Specifications`
+  module anywhere), the external build `build-spec-Field` and the module build, the eight-module
+  `leanchecker` command naming `Specifications.Field` (the six-module form is now refused), a census
+  over seven modules, the false control `RejectEssentialDeathDetermined`, and a second owner-module
+  record (compared whole); `EVIDENCE_FILES` goes from 65 to 72 members. The Actions workflow gains
+  the one `Field.lean` path in both triggers, and its stale comment counting "twelve `lean`
+  invocations" (24 now: the external build, seven module builds, the positive, audit, types and
+  census files, and twelve controls) is reworded without a count, since the file changes anyway.
+  The same commit carries the nonblocking item D1 of the engineering readback 5486565076: SCOPE's
+  evidence boundary now excludes "nonvanishing or separation for a zero coefficient object" where it
+  excluded any claim at all for such an object. `Positive.lean`, the eleven earlier controls' emitted files and the five
+  earlier modules are byte-for-byte unchanged; no label moves.
+  Details in [C263 Field adapter](#c263-field-adapter-2026-10-12).
 
 ## C263 and C264 registration (2026-10-11)
 
@@ -848,11 +955,83 @@ commit (each module build, the emitted positive, audit, types and census files, 
 `leanchecker`, the eleven controls and the three siblings, exit 0 or the pinned diagnostic, this
 lane, 2026-10-12) is a record of a computation on a worktree, not a receipt.
 
+## C263 Field adapter (2026-10-12)
+
+This commit registers one owner-authored Lean module, `SuperlevelBarField.lean`, the one external
+input it imports, and one false control against it. It follows the adapter route this lane retained
+in Math- #428 comment 6112932068 (item 2) and the allocation of its import line and compile step in
+comment 6124097060, made once #419's statement packet was on `main`. **Registration is not review**,
+and the module is not a review of `SuperlevelBar`: it consumes the C263 definitions, so the FORMAL
+HOLD of `SuperlevelBar` extends to it (its disposition is for the C263/C264 handoff owners);
+alignment stays `PENDING_INDEPENDENT_REVIEW`; organizational-independence credit 0 (the same project
+account wrote the statement packet, the adapter and this gate); scientific effect NONE.
+
+| Item | `SuperlevelBarField.lean` |
+|---|---|
+| Route | Math- #428 comment 6112932068, item 2 (retained by this lane, not part of the C263 core handoff); allocation 6124097060 |
+| Author | Anthropic/Claude lane (companion owner), delegated AI work for Dylan Roy; not a handoff successor (no handoff bytes exist) |
+| Registered bytes | SHA-256 `8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad`, 11816 bytes, 205 lines |
+| Imports | `Mathlib`, `SuperlevelBar`, `Specifications.Field` (the only companion module with an external import) |
+| External input | `specifications/lean_statements_20261010/Specifications/Field.lean`, SHA-256 `f22c91e0…`, 27767 bytes, blob `cc40e9d1…`; `check.py source` requires both its working bytes and its blob at HEAD to be exactly this, so a change to it on `main` withholds the receipt until the record changes; the workflow triggers on that path |
+| Compile step | inside `lake env bash` from `formal/`, before the companion modules: `lean -DautoImplicit=false --root=<packet> -o .lake/torus-filtration-spec/Specifications/Field.olean <packet>/Specifications/Field.lean`, with `.lake/torus-filtration-spec` first on `LEAN_PATH` (the packet's own `leanOptions`; no warnings-as-errors, since it is the packet's source; no second Mathlib, since the packet and `formal/` pin the same toolchain and package revisions, a parity the packet's own `check.py` (`check_lock`) enforces in its own CI; this companion does not read the packet's lakefile or manifest) |
+| Declarations | 12 theorems, 2 defs, 0 abbrevs, 0 instances; every name prefixed `superlevelBarField_` |
+| Range-aware census at the pin | 18 = 14 + 0 + 4 (user range + user generated + internal generated: `_proof_1` and `_proof_2` of `superlevelBarField_interface` and `superlevelBarField_shift`) |
+| `census_auxiliary` | no new entry |
+| `#print axioms` | all 14 within `{propext, Classical.choice, Quot.sound}` |
+| New false control | `RejectEssentialDeathDetermined` |
+| Provenance | `provenance.owner_modules` and `external_inputs` in `SOURCE_FILES.json`, compared whole with `OWNER_MODULES` and `EXTERNAL_INPUTS` in `check.py`; the protocol tests refuse tracked bytes that are not the recorded identities |
+| Status | registered; no review of these bytes is recorded; FORMAL HOLD of `SuperlevelBar` unchanged and extended to this module; credit 0 |
+
+What the module shows (the declarations are listed under
+[`SuperlevelBarField`](#superlevelbarfield-12-theorems-2-defs--c263-field-adapter)): the interface is
+inhabited for every `d` and `L`, by the C263 data and the elder clause's own right-hand side; on
+smooth `L`-periodic heights the interface determines essentiality, the death height at nonessential
+points and, on the Morse distinct-value locus, the elder relation, so any inhabitant agrees with
+this one there; at essential points it does not determine the death height, and two inhabitants
+differ there.
+
+The control, a false statement whose tactic rewrites both sides to their values and must leave
+exactly `⊢ False`:
+
+| Control | Intended reason for refusal | Diagnostic pinned from Lean at the pin |
+|---|---|---|
+| `RejectEssentialDeathDetermined` | the record and its shift by `1` would agree at an essential point if the interface determined the death height there; `superlevelBarField_deathHeight_eq`, `superlevelBar_death_const` and `superlevelBarField_shift_deathHeight_const` rewrite the two sides to `0` and `1` | `RejectEssentialDeathDetermined.lean:3:149: error: unsolved goals` / `⊢ False`, exit 1 |
+
+Discriminator: the same tactic on the true sibling (the shift by `0` instead of `1`), in the same
+emitted format and under the same file name, proves it: exit 0 and no output, which `check.py
+negative` refuses under either exit status (`FIELD_SIBLING_LOG` in the protocol tests). So the
+control's `⊢ False` comes from the falsehood of its statement. The sibling run is a local record of
+this lane (2026-10-12), not a member of the evidence directory; the control run is.
+
+Evidence count: `EVIDENCE_FILES` goes from 65 to 72 members: the `.log` and `.status` of
+`build-spec-Field` and of `build-SuperlevelBarField` (4), and the control's `.lean`, `.log` and
+`.status` (3). The census grows from 181 to 199 constants (167 user range, the one user-generated
+`congr_simp`, 31 internal generated), `Audit.lean` from 153 to 167 `#print axioms`, `Types.lean`
+from 118 to 130 `#check`, and the `leanchecker` command names eight modules.
+
+What this commit does not establish: any review of `SuperlevelBar` or of the adapter (FORMAL HOLD
+unchanged and extended); that `ElderPartner` is a persistence-module elder rule, the source's elder
+event, or Borel measurable (its clause holds by definition); any use of periodicity or of `L` in the
+construction (the uniqueness theorems need the periodicity hypothesis to apply an inhabitant's
+clauses); an
+inhabitant of `UniversalLaw.Spec.Lifetime.SuperlevelBarInterface`, a separate structure that the
+Lifetime statements consume (the adapter inhabits the Field copy only); any Lifetime statement or
+density; any change to the statement packet, whose REGISTER text "no inhabitant is constructed"
+is about the packet and stays true of it (no claim-level label moves; `Field.lean`'s formal
+progress stays `specified`); alignment (`PENDING_INDEPENDENT_REVIEW`); any
+organizational-independence credit (0). This lane's own adversarial checks before registration
+were the same project account, credit 0, and are not a review. Local evidence for this commit
+(the full replay of `a4136577` above, identical in every Lean, gate, replay and workflow byte: each
+build, the emitted positive, audit, types and census files, the eight-module `leanchecker` and the
+twelve controls, exit 0 or the pinned diagnostic; and the sibling run on the registered Lean bytes;
+this lane, 2026-10-12) is a record of a computation on a worktree, not a receipt.
+
 ## What this companion does not do
 
 It does not modify `formal/`, the D2 companions or their workflows. It does not enter the q0
 dependency graph, raise any claim's grade, or substitute for the nonauthor source review, the
 independent alignment review or the operator's decisions. It does not lift the C263 or C264
 FORMAL HOLD, and it does not review the successor bytes it registers; `OrdinaryH0Controls` is not
-a review of `OrdinaryH0`. The hosted receipt is a
+a review of `OrdinaryH0`, and `SuperlevelBarField` is not a review of `SuperlevelBar`, identifies no
+persistence elder rule and changes nothing in the statement packet it imports. The hosted receipt is a
 record of a computation, not evidence of alignment with the research programme.

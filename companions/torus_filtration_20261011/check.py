@@ -4,12 +4,15 @@
 The companion holds the C254 torus/closed-superlevel modules and, since the C263/C264
 registration, the strict-cut module SuperlevelBar and the ordinary-H0 module OrdinaryH0; since 2026-10-12 also the
 owner-authored OrdinaryH0Controls (instantiated ordinary-H0 controls for C264 owner task item 4; not a handoff
-successor, not a review). Not an acceptance engine, not a general Lean parser, not a review. It binds the
+successor, not a review) and the owner-authored SuperlevelBarField (an inhabitant of the statement packet's
+Field.SuperlevelBarInterface built from the C263 definitions; the one module that imports a file outside the
+companion, Specifications.Field, which the replay compiles from its pinned bytes). Not an acceptance engine, not a general Lean parser, not a review. It binds the
 companion's bytes to Git HEAD, emits the audit/type/positive/negative Lean files,
 refuses negative-control logs that are not the intended diagnostic, and writes a
 receipt that records what ran. The companion consumes nothing from formal/ except
 the pinned toolchain, lakefile and dependency lock, so it pins no core tree,
-manifest or gate. Scientific effect NONE; organizational-independence credit 0.
+manifest or gate; outside its own directory it reads one more file, the statement
+packet's Field.lean, pinned by identity in EXTERNAL_INPUTS. Scientific effect NONE; organizational-independence credit 0.
 """
 import argparse
 import hashlib
@@ -27,14 +30,34 @@ PACKAGE = 'companions/torus_filtration_20261011'
 WORKFLOW = '.github/workflows/torus-filtration.yml'
 REPO = 'd6g8k5htny-coder/Math-'
 NAMESPACE = 'TorusFiltration'
-# Dependency order: a module may `import` only Mathlib and companion modules listed before it (scan_module).
-MODULES = ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'OrdinaryH0Controls')
+# Dependency order: a module may `import` only Mathlib and companion modules listed before it (scan_module), and
+# the one module named in EXTERNAL_IMPORTS may also import the external modules listed for it there.
+MODULES = ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'OrdinaryH0Controls', 'SuperlevelBarField')
 ROOT_MODULE = 'TorusFiltration'
 ROOT_SOURCE = ''.join('import ' + m + '\n' for m in MODULES)
 REQUIRED_FILES = tuple(PACKAGE + '/' + n for n in (
     'TorusFiltration.lean', 'TorusTopology.lean', 'ClosedSuperlevel.lean', 'SuperlevelBar.lean', 'OrdinaryH0.lean',
-    'OrdinaryH0Controls.lean', 'check.py', 'replay.sh', 'test_torus_filtration.py', 'README.md', 'SCOPE.md')) + (WORKFLOW,)
+    'OrdinaryH0Controls.lean', 'SuperlevelBarField.lean', 'check.py', 'replay.sh', 'test_torus_filtration.py', 'README.md',
+    'SCOPE.md')) + (WORKFLOW,)
 PINNED_CORE = ('formal/lakefile.toml', 'formal/lake-manifest.json', 'formal/lean-toolchain')
+# The one file outside the companion that the replay compiles (Math- #428 comments 6112932068 and 6124097060): the
+# statement packet's Field module (#419's packet, on main since #419 landed), which SuperlevelBarField imports. It is
+# not companion source and not in REQUIRED_FILES: `source` requires its working-tree bytes AND its blob at HEAD to be
+# exactly this identity, so any change to it on main withholds the receipt until this record changes with it.
+# `metadata` requires SOURCE_FILES.json to carry exactly this record. replay.sh compiles it with the packet's own
+# leanOptions (-DautoImplicit=false, no warnings-as-errors: it is the packet's source, not the companion's) into
+# .lake/torus-filtration-spec, outside the source tree and outside the evidence directory.
+SPEC_ROOT = 'specifications/lean_statements_20261010'
+EXTERNAL_INPUTS = {
+    SPEC_ROOT + '/Specifications/Field.lean': {
+        'module': 'Specifications.Field', 'bytes': 27767,
+        'sha256': 'f22c91e082cd7e738ba47c9c3534e47ac687d066f0b78586d15103cf1132535e',
+        'git_blob': 'cc40e9d19446b8a150401c574d3cfd56177f195f',
+        'compiled_with': 'lean -DautoImplicit=false (the packet lakefile leanOptions), inside formal/ lake env',
+        'imported_by': 'SuperlevelBarField',
+        'status': 'statement packet source (specified; not proved here); not companion source'}}
+# The external imports each companion module may name (scan_module); every other module may import none.
+EXTERNAL_IMPORTS = {'SuperlevelBarField': ('Specifications.Field',)}
 TOOLCHAIN = 'leanprover/lean4:v4.34.1'
 LEAN_VERSION = re.compile(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)')
 CLAIM = '8a5c7a24-784b-4aaa-b951-cd9f37b0dc64'
@@ -119,10 +142,29 @@ OWNER_MODULES = {
         'comments': {'owner_task_item_4_428': '6113277485', 'control_obligations_specification_428': '6113277173'},
         'review_status': 'not a review of OrdinaryH0 and lifts nothing: the FORMAL HOLD of OrdinaryH0 (and of SuperlevelBar) '
                          'is unchanged; no review of these bytes is recorded; registration is not review',
+        'organizational_independence_credit': 0},
+    # The Field adapter (route retained by this lane at 6112932068, allocated at 6124097060): an inhabitant of
+    # UniversalLaw.Spec.Field.SuperlevelBarInterface built from the C263 definitions, with uniqueness on the guarded
+    # locus and a control showing the essential-point death height is left free. ElderPartner is defined as the right-
+    # hand side of its own clause, so that clause holds by Iff.rfl: a definition, not a theorem about persistence.
+    'SuperlevelBarField.lean': {
+        'lane': 'C263 Field adapter (the SuperlevelBarField route of Math- #428 comment 6112932068, item 2)',
+        'author': 'Anthropic/Claude lane (companion owner), delegated AI work for Dylan Roy',
+        'kind': 'owner-authored adapter module; not a handoff successor (no handoff bytes exist); not a review',
+        'sha256': '8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad', 'bytes': 11816,
+        'imports': ['Mathlib', 'SuperlevelBar', 'Specifications.Field'],
+        'namespace': 'authored directly in namespace TorusFiltration; every declaration carries the prefix superlevelBarField_',
+        'declarations': '12 theorems, 0 abbrevs, 2 defs, 0 instances',
+        'census_at_pin': '18 constants = 14 user range + 0 user generated + 4 internal generated (superlevelBarField_interface '
+                         'and superlevelBarField_shift: _proof_1 and _proof_2 each)',
+        'comments': {'adapter_route_428': '6112932068', 'allocation_428': '6124097060'},
+        'review_status': 'not a review of SuperlevelBar and lifts nothing: it consumes the C263 definitions, so the FORMAL HOLD '
+                         'of SuperlevelBar extends to it; ElderPartner holds its clause by definition (no persistence elder '
+                         'rule is identified); no review of these bytes is recorded; registration is not review',
         'organizational_independence_credit': 0}}
 NAMESPACE_MAPPING = ('ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; '
-                     'SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so was the '
-                     'owner-authored OrdinaryH0Controls')
+                     'SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so were the '
+                     'owner-authored OrdinaryH0Controls and SuperlevelBarField')
 # Own copy of formal/gate.py's audit rules; the companion imports nothing from the core.
 ALLOWED = frozenset({'propext', 'Classical.choice', 'Quot.sound'})
 NAME = r'[A-Za-z_][A-Za-z0-9_.]*'
@@ -130,14 +172,19 @@ AXIOM = re.compile(r"'(" + NAME + r")' (?:depends on axioms: \[([^\]]*)\]|does n
 IDENT = r'[A-Za-z][A-Za-z0-9_]*'
 HEX40 = re.compile(r'[0-9a-f]{40}')
 HEX64 = re.compile(r'[0-9a-f]{64}')
-BUILDS = tuple('build-' + m for m in MODULES + (ROOT_MODULE,)) + ('positive', 'axioms', 'types', 'census', 'leanchecker')
-# The leanchecker invocations replay.sh may record in leanchecker.cmd. All five modules `import Mathlib`, so
+# build-spec-Field: the external Field module (EXTERNAL_INPUTS), compiled first.
+BUILDS = ('build-spec-Field',) + tuple('build-' + m for m in MODULES + (ROOT_MODULE,)) + ('positive', 'axioms', 'types',
+                                                                                         'census', 'leanchecker')
+# The leanchecker invocations replay.sh may record in leanchecker.cmd. All six companion modules `import Mathlib`
+# (SuperlevelBarField also imports Specifications.Field, which imports only Mathlib), so
 # `--fresh` (kernel re-check of the whole import closure) exceeds a hosted job: measured locally at 4 threads
 # it was still running at 1500 s with 6.6 GB resident. The hosted default replays the companion's own
 # declarations against the cached, prebuilt dependency .oleans (33 s at 2 threads locally for the C254 pair). The
 # modules form names every companion module and the root; a shorter form (the three-module form before the C263/C264
-# registration, the five-module form before OrdinaryH0Controls) is refused.
-LEANCHECKER = {'leanchecker ' + ' '.join(MODULES + (ROOT_MODULE,)): 'modules',
+# registration, the five-module form before OrdinaryH0Controls, the six-module form before SuperlevelBarField) is
+# refused. Since SuperlevelBarField the modules form also names the external Specifications.Field first: the replay
+# compiled it itself, so its declarations are replayed too rather than trusted from that .olean.
+LEANCHECKER = {'leanchecker Specifications.Field ' + ' '.join(MODULES + (ROOT_MODULE,)): 'modules',
                'leanchecker --fresh TorusFiltration': 'fresh'}
 ADMISSION = ('sorry', 'sorryAx', 'admit', 'axiom', 'native_decide', 'ofReduceBool', 'trustCompiler', 'unsafe',
              'opaque', 'partial', 'implemented_by', 'extern', 'skipKernelTC', 'autoImplicit')
@@ -202,10 +249,13 @@ def admission_tokens(text):
 DECLARATION = re.compile(r'(theorem|abbrev|instance|def|noncomputable def) (' + IDENT + r')(?=$|[\s:(\[{⦃])')
 # Column-0 prelude lines. `import` admits Mathlib and, since the C263/C264 registration, a companion module named in
 # MODULES (scan_module further requires it to precede the importing module in MODULES: no self, forward or root import;
-# OrdinaryH0.lean imports ClosedSuperlevel and OrdinaryH0Controls.lean imports OrdinaryH0).
+# OrdinaryH0.lean imports ClosedSuperlevel and OrdinaryH0Controls.lean imports OrdinaryH0). Since the Field adapter it
+# also admits the external module Specifications.Field, which scan_module accepts only in SuperlevelBarField.lean
+# (EXTERNAL_IMPORTS); no other Specifications module is admitted anywhere.
 # `open scoped <Namespaces>` activates scoped notation and instances only, a strictly smaller effect than the `open`
 # already admitted; both lines appear in OrdinaryH0.lean. Keys are tried in order, so `open scoped` precedes `open`.
-PRELUDE = {'import': re.compile(r'import (?:Mathlib(?:\.[A-Za-z0-9_]+)*|' + '|'.join(MODULES) + ')'),
+PRELUDE = {'import': re.compile(r'import (?:Mathlib(?:\.[A-Za-z0-9_]+)*|' + '|'.join(MODULES) + '|'
+                                + '|'.join(re.escape(m) for ms in EXTERNAL_IMPORTS.values() for m in ms) + ')'),
            'noncomputable section': re.compile(r'noncomputable section'),
            'open scoped': re.compile(r'open scoped(?: [A-Z][A-Za-z0-9_.]*)+'),
            'open': re.compile(r'open(?: [A-Z][A-Za-z0-9_.]*)+'),
@@ -228,6 +278,11 @@ PRELUDE = {'import': re.compile(r'import (?:Mathlib(?:\.[A-Za-z0-9_]+)*|' + '|'.
 # (ordinaryH0Control_fst_difference_ne_zero). The same tactic on each control's true sibling statement leaves a
 # different diagnostic (`simp` made no progress, or a goal other than `False` plus an unused simp argument), which
 # `negative` refuses; all six diagnostics were pinned from actual Lean 4.34.1 output at the d13f23b7 pin.
+# The Field-adapter control: RejectEssentialDeathDetermined asserts that the record and its shift by 1 have the same
+# death height at the constant height 0 of R^1, where every point is essential: that is what the interface would give
+# if it determined the death height at essential points, and superlevelBarField_control_essential_free refutes it
+# (it states the two values, 0 and 1, and that they differ). The same tactic on the true sibling (shift by 0) proves it, exit 0 and no diagnostic, which
+# `negative` refuses; both outcomes were observed with Lean 4.34.1 at the d13f23b7 pin.
 FALSE_CONTROLS = {
     'RejectSuperlevelSignFlip': ('() ∈ superlevel_set (fun _ : Unit => (0 : ℝ)) (-1)', 'norm_num [superlevel_set]'),
     'RejectSuperlevelBelowThreshold': ('(3 : ℝ) ∈ superlevel_set (fun x : ℝ => x) (-4)', 'norm_num [superlevel_set]'),
@@ -249,7 +304,11 @@ FALSE_CONTROLS = {
                                        '((true, false) : Bool × Bool) - ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff '
                                        '((false, true) : Bool × Bool)) (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj '
                                        'ordinaryH0Control_intCoeff).map ordinaryH0Control_fst) = 0',
-                                       'simp only [ordinaryH0Control_fst_difference_ne_zero]')}
+                                       'simp only [ordinaryH0Control_fst_difference_ne_zero]'),
+    'RejectEssentialDeathDetermined': ('(superlevelBarField_interface 1 1).deathHeight (fun _ => (0 : ℝ)) 0 = '
+                                       '(superlevelBarField_shift 1 1 1).deathHeight (fun _ => (0 : ℝ)) 0',
+                                       'norm_num [superlevelBarField_deathHeight_eq, superlevelBar_death_const, '
+                                       'superlevelBarField_shift_deathHeight_const]')}
 # Admission injections; Lean accepts each file (exit 0), the transitive axiom audit must refuse it.
 # Diagnostics pinned from Lean 4.34.1 at the Mathlib d13f23b7 pin: the sorry warning uses backticks, and
 # native_decide introduces the auxiliary axiom `injected._native.native_decide.ax_1_1` (not Lean.ofReduceBool).
@@ -261,9 +320,9 @@ INJECTIONS = {
     'RejectNativeDecide': ("theorem injected : (2 : Nat) + 2 = 4 := by native_decide\n",
                            'injected._native.native_decide.ax_1_1', '')}
 CONTROLS = tuple(FALSE_CONTROLS) + tuple(INJECTIONS)
-# The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the fifteen files emit()
-# writes, a .log/.status pair per Lean process (six module builds, positive, axioms, types, census, leanchecker, eleven
-# controls), the two protocol-test transcripts and the four environment records.
+# The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the sixteen files emit()
+# writes, a .log/.status pair per Lean process (the external Field build, seven module builds, positive, axioms, types,
+# census, leanchecker, twelve controls), the two protocol-test transcripts and the four environment records.
 # finish() refuses a directory with any member missing or unexpected, any member that is not a regular file, and
 # any directory already holding receipt.json: a receipt is written once and never replaced.
 EMITTED_FILES = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean') + tuple(c + '.lean' for c in CONTROLS)
@@ -276,12 +335,14 @@ EMITTED_FILES = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean') + t
 # generated constants equal `census_auxiliary` exactly (so that whitelist can name only compiler-generated constants);
 # internal generated constants are counted and otherwise ignored (the C26x modules add twelve at the pin: equation
 # lemmas, abstracted proofs, a `_simp` auxiliary and the equation lemma Lean generated for Mathlib's `sigmaConst`;
-# OrdinaryH0Controls adds four: `_proof_1` and `eq_1` of its two subtype-point definitions).
+# OrdinaryH0Controls adds four: `_proof_1` and `eq_1` of its two subtype-point definitions; SuperlevelBarField: see its
+# OWNER_MODULES census). The census lists companion modules only: the external Specifications.Field is not companion
+# source, its constants are not inventory, and its axioms enter the audit through the companion declarations that use it.
 CENSUS = '''import TorusFiltration
 open Lean in
 #eval show Lean.Elab.Command.CommandElabM Unit from do
   let env ← Lean.getEnv
-  let modules : Array Lean.Name := #[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `OrdinaryH0Controls, `TorusFiltration]
+  let modules : Array Lean.Name := #[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `OrdinaryH0Controls, `SuperlevelBarField, `TorusFiltration]
   let idxs := modules.filterMap env.getModuleIdx?
   if idxs.size != modules.size then throwError "census: a companion module is not imported"
   let names := env.constants.fold (init := (#[] : Array Lean.Name)) fun acc n _ =>
@@ -296,11 +357,12 @@ open Lean in
 EVIDENCE_FILES = frozenset(EMITTED_FILES) | {label + ext for label in BUILDS for ext in ('.log', '.status')} \
     | {control + ext for control in CONTROLS for ext in ('.log', '.status')} \
     | {'leanchecker.cmd', 'packages.log', 'toolchain.log', 'source.json', 'tests.log', 'tests-optimized.log'}
-# 15 emitted + 11 processes x 2 + 11 controls x 2 + 6 records = 65 (44 before the C263/C264 registration added two
-# module builds and two controls, 54 before OrdinaryH0Controls added one module build and three controls: 2 + 3 x 3).
+# 16 emitted + 13 processes x 2 + 12 controls x 2 + 6 records = 72 (44 before the C263/C264 registration added two
+# module builds and two controls, 54 before OrdinaryH0Controls added one module build and three controls: 2 + 3 x 3,
+# 65 before SuperlevelBarField added two builds, the external Field and the module, and one control: 2 x 2 + 3).
 # An explicit check, not an `assert`: the gate must hold under -O too.
-if len(EVIDENCE_FILES) != 65:
-    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 65 members')
+if len(EVIDENCE_FILES) != 72:
+    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 72 members')
 POSITIVE = '''import TorusFiltration
 open TorusFiltration
 
@@ -372,7 +434,10 @@ def git(*args):
 def metadata():
     meta = strict((SIDE / 'SOURCE_FILES.json').read_bytes())
     require(set(meta) == {'schema', 'scientific_effect', 'alignment_status', 'namespace', 'root_module', 'modules',
-                          'definitions', 'theorems', 'files', 'provenance', 'census_auxiliary'}, 'SOURCE_FILES schema keys')
+                          'definitions', 'theorems', 'files', 'provenance', 'census_auxiliary', 'external_inputs'},
+            'SOURCE_FILES schema keys')
+    # The external input record is compared whole: a changed path, hash, blob or label is one refusal.
+    require(meta['external_inputs'] == EXTERNAL_INPUTS, 'external input identity')
     aux = meta['census_auxiliary']
     # Dotted names under the namespace; that each is compiler-generated is checked by the census (`finish` requires
     # every entry to appear without a declaration range), not by this schema rule.
@@ -484,8 +549,9 @@ def strip_comments(text):
 def scan_module(text, module):
     """Declaration inventory of one companion module by whitelist; refuses every line it cannot place.
 
-    Outside comments, a column-0 line may only be `import Mathlib[.…]` or `import <M>` for a
-    companion module `M` listed before `module` in MODULES (both before the namespace),
+    Outside comments, a column-0 line may only be `import Mathlib[.…]`, `import <M>` for a
+    companion module `M` listed before `module` in MODULES, or `import <X>` for an external
+    module `X` listed for `module` in EXTERNAL_IMPORTS (all before the namespace),
     `noncomputable section`, `open <Namespaces>`, `open scoped <Namespaces>`, `universe …`,
     `variable …`, the single `namespace TorusFiltration` / `end TorusFiltration` pair, or a named
     `theorem`, `def`, `noncomputable def`, `abbrev` or `instance` inside that namespace. Any other
@@ -535,6 +601,10 @@ def scan_module(text, module):
                     # a companion import must name a module that precedes this one (acyclic, no self or forward import)
                     require(line.split()[1] in MODULES[:MODULES.index(module)],
                             'companion import out of dependency order in ' + where + ': ' + line.split()[1])
+                if keyword == 'import' and not line.split()[1].startswith('Mathlib') and line.split()[1] not in MODULES:
+                    # an external import (the regex admits only those listed in EXTERNAL_IMPORTS) only in its own module
+                    require(line.split()[1] in EXTERNAL_IMPORTS.get(module, ()),
+                            'external import outside its module in ' + where + ': ' + line.split()[1])
                 rest = line[len(keyword):]
         found = command_token(rest)
         require(found is None, 'command token outside a column-0 declaration in ' + where + ': ' + (found or ''))
@@ -552,7 +622,7 @@ def check_modules(meta, side):
         for kind in ('abbrev', 'def', 'instance'):
             require(scan[kind] == meta['definitions'][module][kind], kind + ' inventory differs from source: ' + module)
     require((side / (ROOT_MODULE + '.lean')).read_text(encoding='utf-8') == ROOT_SOURCE,
-            'root module must import exactly the five modules')
+            'root module must import exactly the companion modules, in MODULES order')
 
 
 def environment(root):
@@ -587,7 +657,14 @@ def source():
         require(git('rev-parse', head + ':' + path) == ids[path]['git_blob'], 'dirty execution/source bytes: ' + path)
         if path in meta['files']:
             require(meta['files'][path] == ids[path], 'manifest source mismatch: ' + path)
-    diff = subprocess.run(['git', 'diff', '--exit-code', 'HEAD', '--', PACKAGE, WORKFLOW, *PINNED_CORE],
+    for path, record in sorted(EXTERNAL_INPUTS.items()):
+        parts = Path(path).parts
+        require(not any(ROOT.joinpath(*parts[:i]).is_symlink() for i in range(1, len(parts) + 1)), 'symlink source: ' + path)
+        require((ROOT / path).is_file(), 'external input absent: ' + path)
+        ids[path] = identity((ROOT / path).read_bytes())
+        require(ids[path] == {k: record[k] for k in ('bytes', 'sha256', 'git_blob')}, 'external input mismatch: ' + path)
+        require(git('rev-parse', head + ':' + path) == record['git_blob'], 'external input not committed at HEAD: ' + path)
+    diff = subprocess.run(['git', 'diff', '--exit-code', 'HEAD', '--', PACKAGE, WORKFLOW, *PINNED_CORE, *EXTERNAL_INPUTS],
                           cwd=ROOT, capture_output=True, text=True, timeout=60)
     require(diff.returncode == 0, 'uncommitted modification in bound paths')
     env = environment(ROOT)
@@ -757,7 +834,8 @@ def finish(out):
         status = int((out / (control + '.status')).read_text().strip())
         outcomes[control] = negative((out / (control + '.log')).read_text(), control, status)
     definitions = {kind: sum(len(meta['definitions'][m][kind]) for m in MODULES) for kind in ('abbrev', 'def', 'instance')}
-    replayed = ('the companion modules\' own declarations against the cached, prebuilt dependency .oleans'
+    replayed = ('the companion modules\' own declarations and those of the external Specifications.Field '
+                '(EXTERNAL_INPUTS, compiled in the same replay) against the cached, prebuilt dependency .oleans'
                 if mode == 'modules' else 'the whole import closure from scratch (--fresh)')
     receipt = {
         'schema': 1, 'scientific_effect': 'NONE', 'formalization_status': 'kernel-checked',
@@ -766,7 +844,7 @@ def finish(out):
         'run_id': current['run_id'], 'run_attempt': current['run_attempt'], 'lean_version': version,
         'dependency_revisions': installed, 'sources': current['sources'], 'declarations': current['declarations'],
         'theorem_count': len(current['theorems']), 'definition_count': definitions, 'axioms': axioms,
-        'negative_controls': outcomes, 'provenance': current['provenance'],
+        'negative_controls': outcomes, 'provenance': current['provenance'], 'external_inputs': EXTERNAL_INPUTS,
         'leanchecker': {'command': (out / 'leanchecker.cmd').read_text().strip(), 'mode': mode},
         'census': counted,
         'scope_note': 'kernel-checked records that Lean elaborated these declarations at the pinned toolchain and '
