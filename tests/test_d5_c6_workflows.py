@@ -251,14 +251,29 @@ class WorkflowProtocolTests(unittest.TestCase):
                 self.verify(family,behavior,modes=(0,))
 
     def test_all_workflows_run_regressions_and_track_inputs(self):
+        # C166: the PR-time tests/** regression moved to one central workflow;
+        # each packet workflow keeps both modes for workflow_dispatch only and
+        # keeps its own packet, helper, workflow and packet-test triggers.
+        central=(ROOT/'.github/workflows/full-regression-suite.yml').read_text()
+        self.assertIn("      - 'tests/**'\n",central)
+        self.assertIn("      - 'tools/**'\n",central)
+        self.assertIn('python -B -S -m unittest discover -s tests -v',central)
+        self.assertIn('python -B -O -S -m unittest discover -s tests -v',central)
+        self.assertNotIn('continue-on-error',central)
         for family in CONFIG:
             text=(ROOT/'.github/workflows'/(CONFIG[family][0]+'.yml')).read_text()
             with self.subTest(family=family):
                 self.assertIn("- 'tools/d5_c6_replay.py'",text)
-                self.assertIn("- 'tests/**'",text)
+                self.assertIn("- 'tests/test_d5_c6_workflows.py'",text)
+                self.assertNotIn("- 'tests/**'",text)
+                self.assertIn("      - '.github/workflows/"+CONFIG[family][0]+".yml'\n",central)
+                self.assertIn("      - 'frontiers/"+CONFIG[family][1]+"/**'\n",central)
                 self.assertIn('fetch-depth: 0',text)
                 self.assertIn('python -B -S -m unittest discover -s tests -v',text)
                 self.assertIn('python -B -O -S -m unittest discover -s tests -v',text)
+                self.assertEqual(text.count('        if: '),1)
+                self.assertIn("      - name: Full repository regression suite in both Python modes\n"
+                              "        if: github.event_name == 'workflow_dispatch'\n",text)
                 self.assertIn("python-version: '3.11.16'",text)
                 self.assertNotIn('continue-on-error',text)
 
