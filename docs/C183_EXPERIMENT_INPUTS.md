@@ -130,3 +130,15 @@ must be recorded before any engineering acceptance. Green supplied-data tests
 cannot establish suppression by a live future recorder: Q5 still requires tested
 capture/export behavior at that boundary. Q3/Q4 and experiment approval remain
 separate, and the forty-case matrix remains NOT_RUN.
+
+## R1 stream-contract amendment
+
+Nonauthor [review5486003508](https://github.com/d6g8k5htny-coder/Math-/pull/437#pullrequestreview-5486003508)
+at742d2c662dbb45a09ffc03335e36b99a5c5d6501 requires an amendment:
+one short read is not EOF, and a successful write call need not deliver all bytes.
+The tests-only successor adds eight methods for chunked input, hidden trailing
+bytes, cumulative cap, nonbytes/nonblocking read results, partial writes,
+invalid/no-progress write counts, and exceptions after partial progress.
+The helper stays byte-identical at blob9203c32b821c731b369c03158532bd96b69a9351
+until actual hosted regression RED. The first candidate's earlier tests do
+not cover or override this finding. No repair/acceptance is yet claimed.

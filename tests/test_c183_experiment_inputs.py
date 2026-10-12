@@ -415,6 +415,118 @@ class C183InputControls(unittest.TestCase):
         self.assertNotIn(FIXTURE['canary'].encode(), out.getvalue())
         self.assertEqual(json.loads(out.getvalue())['errors'], [{'code': 'INPUT_IO', 'category': 'input'}])
 
+    def test_chunked_input_is_acquired_through_explicit_eof(self):
+        payload = raw(supplied())
+        class Reader:
+            def __init__(self):
+                self.offset = 0
+            def read(self, size):
+                part = payload[self.offset:self.offset + min(size, 7)]
+                self.offset += len(part)
+                return part
+        reader, out = Reader(), io.BytesIO()
+        self.assertEqual(M.main(reader, out), 0)
+        self.assertEqual(reader.offset, len(payload))
+        self.assertEqual(out.getvalue(), M.render(payload))
+
+    def test_valid_prefix_does_not_hide_trailing_bytes(self):
+        prefix = raw(supplied())
+        suffix = (' ' + FIXTURE['canary']).encode()
+        class Reader:
+            def __init__(self):
+                self.chunks = [prefix, suffix, b'']
+            def read(self, size):
+                return self.chunks.pop(0)
+        out = io.BytesIO()
+        self.assertEqual(M.main(Reader(), out), 2)
+        self.assertEqual(json.loads(out.getvalue())['status'], 'INVALID_INPUT')
+        self.assertNotIn(FIXTURE['canary'].encode(), out.getvalue())
+
+    def test_input_limit_counts_all_chunks_before_parsing(self):
+        class Reader:
+            def __init__(self):
+                self.total = 0
+            def read(self, size):
+                length = min(size, 65536)
+                self.total += length
+                return b' ' * length
+        reader, out = Reader(), io.BytesIO()
+        self.assertEqual(M.main(reader, out), 2)
+        self.assertEqual(reader.total, 1024 * 1024 + 1)
+        self.assertEqual(json.loads(out.getvalue())['errors'],
+                         [{'code': 'INPUT_LIMIT', 'category': 'json'}])
+
+    def test_nonbytes_and_nonblocking_read_results_are_refused_without_retry(self):
+        for returned in (None, 'text', bytearray(b'{}'), True):
+            class Reader:
+                calls = 0
+                def read(self, size):
+                    self.calls += 1
+                    return returned
+            reader, out = Reader(), io.BytesIO()
+            self.assertEqual(M.main(reader, out), 2)
+            self.assertEqual(reader.calls, 1)
+            self.assertEqual(json.loads(out.getvalue())['errors'],
+                             [{'code': 'INPUT_STREAM', 'category': 'input'}])
+
+    def test_partial_writes_complete_exactly_without_truncation(self):
+        class Writer:
+            def __init__(self):
+                self.output = bytearray()
+                self.calls = 0
+            def write(self, data):
+                self.calls += 1
+                amount = min(7, len(data))
+                self.output.extend(data[:amount])
+                return amount
+        writer = Writer()
+        payload = raw(supplied())
+        self.assertEqual(M.main(io.BytesIO(payload), writer), 0)
+        self.assertGreater(writer.calls, 1)
+        self.assertEqual(bytes(writer.output), M.render(payload))
+
+    def test_nonprogress_and_invalid_write_results_fail_without_retry(self):
+        for returned in (None, 0, False, True, -1, 1000000000, '1'):
+            class Writer:
+                calls = 0
+                def write(self, data):
+                    self.calls += 1
+                    return returned
+            writer = Writer()
+            self.assertEqual(M.main(io.BytesIO(raw(supplied())), writer), 2)
+            self.assertEqual(writer.calls, 1)
+
+    def test_write_error_after_partial_progress_does_not_claim_delivery_or_leak(self):
+        class Writer:
+            calls = 0
+            def write(self, data):
+                self.calls += 1
+                if self.calls == 1:
+                    return 1
+                raise OSError(FIXTURE['canary'])
+        writer, err = Writer(), io.StringIO()
+        with patch('sys.stderr', err):
+            self.assertEqual(M.main(io.BytesIO(raw(supplied())), writer), 2)
+        self.assertEqual(writer.calls, 2)
+        self.assertEqual(err.getvalue(), '')
+
+    def test_read_error_after_partial_input_discards_prefix_and_suppresses_text(self):
+        class Reader:
+            calls = 0
+            def read(self, size):
+                self.calls += 1
+                if self.calls == 1:
+                    return raw(supplied())
+                raise OSError(FIXTURE['canary'])
+        reader, out, err = Reader(), io.BytesIO(), io.StringIO()
+        with patch('sys.stderr', err):
+            self.assertEqual(M.main(reader, out), 2)
+        self.assertEqual(reader.calls, 2)
+        self.assertNotIn(FIXTURE['canary'].encode(), out.getvalue())
+        self.assertEqual(err.getvalue(), '')
+        self.assertEqual(json.loads(out.getvalue())['errors'],
+                         [{'code': 'INPUT_IO', 'category': 'input'}])
+
 
 if __name__ == '__main__':
     unittest.main()
