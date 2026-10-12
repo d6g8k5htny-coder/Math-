@@ -2,8 +2,9 @@
 """Source-bound evidence driver for the torus-filtration companion (stdlib only).
 
 The companion holds the C254 torus/closed-superlevel modules and, since the C263/C264
-registration, the strict-cut module SuperlevelBar and the ordinary-H0 module OrdinaryH0.
-Not an acceptance engine, not a general Lean parser, not a review. It binds the
+registration, the strict-cut module SuperlevelBar and the ordinary-H0 module OrdinaryH0; since 2026-10-12 also the
+owner-authored OrdinaryH0Controls (instantiated ordinary-H0 controls for C264 owner task item 4; not a handoff
+successor, not a review). Not an acceptance engine, not a general Lean parser, not a review. It binds the
 companion's bytes to Git HEAD, emits the audit/type/positive/negative Lean files,
 refuses negative-control logs that are not the intended diagnostic, and writes a
 receipt that records what ran. The companion consumes nothing from formal/ except
@@ -27,12 +28,12 @@ WORKFLOW = '.github/workflows/torus-filtration.yml'
 REPO = 'd6g8k5htny-coder/Math-'
 NAMESPACE = 'TorusFiltration'
 # Dependency order: a module may `import` only Mathlib and companion modules listed before it (scan_module).
-MODULES = ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0')
+MODULES = ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'OrdinaryH0Controls')
 ROOT_MODULE = 'TorusFiltration'
 ROOT_SOURCE = ''.join('import ' + m + '\n' for m in MODULES)
 REQUIRED_FILES = tuple(PACKAGE + '/' + n for n in (
     'TorusFiltration.lean', 'TorusTopology.lean', 'ClosedSuperlevel.lean', 'SuperlevelBar.lean', 'OrdinaryH0.lean',
-    'check.py', 'replay.sh', 'test_torus_filtration.py', 'README.md', 'SCOPE.md')) + (WORKFLOW,)
+    'OrdinaryH0Controls.lean', 'check.py', 'replay.sh', 'test_torus_filtration.py', 'README.md', 'SCOPE.md')) + (WORKFLOW,)
 PINNED_CORE = ('formal/lakefile.toml', 'formal/lake-manifest.json', 'formal/lean-toolchain')
 TOOLCHAIN = 'leanprover/lean4:v4.34.1'
 LEAN_VERSION = re.compile(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)')
@@ -51,8 +52,13 @@ ORIGINAL_BYTES = {
 # protocol tests (InventoryTests, run by the replay) and the out-of-tree generator require the tracked module bytes to carry exactly these identities, so
 # neither successor changes by a byte without this record changing with it. Every label here is transcribed from the
 # handoffs (Math- #428 comments 6113033545 and 6113372506) or records a computation of this lane; FORMAL HOLD is the
-# handoffs' own acceptance status and stands until a nonauthor exact-source review of the compiled successor bytes.
-# Registration is not review, not acceptance; organizational-independence credit 0 (same project account).
+# handoffs' own acceptance status. It rests on the handoffs' own listed conditions (6113033545 item 4, 6113372506,
+# 6113277485 item 5), among them a nonauthor exact-source review of the compiled successor bytes, a distinct review of
+# the source-bound execution output and source-bound hosted evidence and custody; a source review alone does not meet
+# them. `formal_status` below is the registration commit's transcription, naming one of those conditions; it is kept
+# unchanged, and no review recorded since moves it (2026-10-12: engineering readback 5485829137, credit 0;
+# source-scoped review 5485883117, no organizational-independence credit stated, same project account). Registration
+# is not review, not acceptance; organizational-independence credit 0 (same project account).
 SUCCESSORS = {
     'SuperlevelBar.lean': {
         'lane': 'C263',
@@ -94,8 +100,29 @@ SUCCESSORS = {
                      'owner_repair_handoff_428': '6113372506', 'repair_report_this_lane_428': '6113438262'},
         'formal_status': 'FORMAL_HOLD until a nonauthor exact-source review of the compiled successor; registration is not review',
         'organizational_independence_credit': 0}}
+# Owner-authored modules: no handoff bytes, no successor relation. OrdinaryH0Controls.lean holds the instantiated
+# ordinary-H0 controls this lane wrote for C264 owner task item 4 (Math- #428 comment 6113277485) against the corrected
+# CONTROL_OBLIGATIONS of comment 6113277173. `metadata` requires SOURCE_FILES.json to carry exactly this record (compared
+# whole, like SUCCESSORS); the protocol tests and the out-of-tree generator require the tracked module bytes to carry
+# exactly this identity. It is not a review of OrdinaryH0, lifts no FORMAL HOLD and moves no label; credit 0.
+OWNER_MODULES = {
+    'OrdinaryH0Controls.lean': {
+        'lane': 'C264 owner task item 4 (instantiated ordinary-H0 controls)',
+        'author': 'Anthropic/Claude lane (companion owner), delegated AI work for Dylan Roy',
+        'kind': 'owner-authored controls module; not a handoff successor (no handoff bytes exist); not a review',
+        'sha256': 'df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184', 'bytes': 29590,
+        'imports': ['Mathlib', 'OrdinaryH0'],
+        'namespace': 'authored directly in namespace TorusFiltration; every declaration carries the prefix ordinaryH0Control_',
+        'declarations': '37 theorems, 3 abbrevs, 4 defs, 0 instances',
+        'census_at_pin': '48 constants = 44 user range + 0 user generated + 4 internal generated (ordinaryH0Control_parabolaLeft '
+                         'and ordinaryH0Control_parabolaRight: _proof_1 and eq_1 each)',
+        'comments': {'owner_task_item_4_428': '6113277485', 'control_obligations_specification_428': '6113277173'},
+        'review_status': 'not a review of OrdinaryH0 and lifts nothing: the FORMAL HOLD of OrdinaryH0 (and of SuperlevelBar) '
+                         'is unchanged; no review of these bytes is recorded; registration is not review',
+        'organizational_independence_credit': 0}}
 NAMESPACE_MAPPING = ('ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; '
-                     'SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration')
+                     'SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so was the '
+                     'owner-authored OrdinaryH0Controls')
 # Own copy of formal/gate.py's audit rules; the companion imports nothing from the core.
 ALLOWED = frozenset({'propext', 'Classical.choice', 'Quot.sound'})
 NAME = r'[A-Za-z_][A-Za-z0-9_.]*'
@@ -104,10 +131,12 @@ IDENT = r'[A-Za-z][A-Za-z0-9_]*'
 HEX40 = re.compile(r'[0-9a-f]{40}')
 HEX64 = re.compile(r'[0-9a-f]{64}')
 BUILDS = tuple('build-' + m for m in MODULES + (ROOT_MODULE,)) + ('positive', 'axioms', 'types', 'census', 'leanchecker')
-# The leanchecker invocations replay.sh may record in leanchecker.cmd. All four modules `import Mathlib`, so
+# The leanchecker invocations replay.sh may record in leanchecker.cmd. All five modules `import Mathlib`, so
 # `--fresh` (kernel re-check of the whole import closure) exceeds a hosted job: measured locally at 4 threads
 # it was still running at 1500 s with 6.6 GB resident. The hosted default replays the companion's own
-# declarations against the cached, prebuilt dependency .oleans (33 s at 2 threads locally for the C254 pair).
+# declarations against the cached, prebuilt dependency .oleans (33 s at 2 threads locally for the C254 pair). The
+# modules form names every companion module and the root; a shorter form (the three-module form before the C263/C264
+# registration, the five-module form before OrdinaryH0Controls) is refused.
 LEANCHECKER = {'leanchecker ' + ' '.join(MODULES + (ROOT_MODULE,)): 'modules',
                'leanchecker --fresh TorusFiltration': 'fresh'}
 ADMISSION = ('sorry', 'sorryAx', 'admit', 'axiom', 'native_decide', 'ofReduceBool', 'trustCompiler', 'unsafe',
@@ -172,7 +201,8 @@ def admission_tokens(text):
     return [token for token in ADMISSION if token in present]
 DECLARATION = re.compile(r'(theorem|abbrev|instance|def|noncomputable def) (' + IDENT + r')(?=$|[\s:(\[{⦃])')
 # Column-0 prelude lines. `import` admits Mathlib and, since the C263/C264 registration, a companion module named in
-# MODULES (scan_module further requires it to precede the importing module in MODULES: no self, forward or root import).
+# MODULES (scan_module further requires it to precede the importing module in MODULES: no self, forward or root import;
+# OrdinaryH0.lean imports ClosedSuperlevel and OrdinaryH0Controls.lean imports OrdinaryH0).
 # `open scoped <Namespaces>` activates scoped notation and instances only, a strictly smaller effect than the `open`
 # already admitted; both lines appear in OrdinaryH0.lean. Keys are tried in order, so `open scoped` precedes `open`.
 PRELUDE = {'import': re.compile(r'import (?:Mathlib(?:\.[A-Za-z0-9_]+)*|' + '|'.join(MODULES) + ')'),
@@ -188,6 +218,16 @@ PRELUDE = {'import': re.compile(r'import (?:Mathlib(?:\.[A-Za-z0-9_]+)*|' + '|'.
 # RejectReducedPointClass asserts that the ordinary point class of the one-point space with ℤ-module coefficients is NOT
 # augmented to the identity, which is what reduced H0 would give and what ordinaryH0_pointClass_augmentation refutes.
 # Both diagnostics were pinned from actual Lean 4.34.1 output at the Mathlib d13f23b7 pin against the registered bytes.
+# The three C264 item-4 controls (2026-10-12) are false statements about the fixtures of OrdinaryH0Controls.lean, each
+# closed to `⊢ False` by rewriting with the true fixture theorem it contradicts: RejectMergerKillsPointClass asserts that
+# the collapse Bool -> Unit kills the individual point class of `true` (a merger kills the difference, not the class;
+# ordinaryH0Control_collapse_image_ne_zero); RejectSeparationWithoutNonzeroCoeff asserts that the two point classes of
+# Bool differ with zero coefficients (ordinaryH0Control_bool_zeroCoeff_eq: they are equal, so the separation needs
+# `𝟙 R ≠ 0`); RejectNonmergerKillsDifference asserts that the non-injective projection Bool × Bool -> Bool kills the
+# difference of the classes of (true, false) and (false, true), whose images stay in distinct components
+# (ordinaryH0Control_fst_difference_ne_zero). The same tactic on each control's true sibling statement leaves a
+# different diagnostic (`simp` made no progress, or a goal other than `False` plus an unused simp argument), which
+# `negative` refuses; all six diagnostics were pinned from actual Lean 4.34.1 output at the d13f23b7 pin.
 FALSE_CONTROLS = {
     'RejectSuperlevelSignFlip': ('() ∈ superlevel_set (fun _ : Unit => (0 : ℝ)) (-1)', 'norm_num [superlevel_set]'),
     'RejectSuperlevelBelowThreshold': ('(3 : ℝ) ∈ superlevel_set (fun x : ℝ => x) (-4)', 'norm_num [superlevel_set]'),
@@ -197,7 +237,19 @@ FALSE_CONTROLS = {
     'RejectReducedPointClass': ('CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of Unit) (ModuleCat.of ℤ ℤ) ()) '
                                 '(TopCat.singularHomology₀ε (TopCat.of Unit) (ModuleCat.of ℤ ℤ)) '
                                 '≠ CategoryTheory.CategoryStruct.id (ModuleCat.of ℤ ℤ)',
-                                'simp [ordinaryH0_pointClass_augmentation]')}
+                                'simp [ordinaryH0_pointClass_augmentation]'),
+    'RejectMergerKillsPointClass': ('CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_intCoeff true) '
+                                    '(((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj ordinaryH0Control_intCoeff).map '
+                                    'ordinaryH0Control_collapse) = 0',
+                                    'simp only [ordinaryH0Control_collapse_image_ne_zero]'),
+    'RejectSeparationWithoutNonzeroCoeff': ('ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff true ≠ '
+                                            'ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff false',
+                                            'simp [ordinaryH0Control_bool_zeroCoeff_eq]'),
+    'RejectNonmergerKillsDifference': ('CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff '
+                                       '((true, false) : Bool × Bool) - ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff '
+                                       '((false, true) : Bool × Bool)) (((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj '
+                                       'ordinaryH0Control_intCoeff).map ordinaryH0Control_fst) = 0',
+                                       'simp only [ordinaryH0Control_fst_difference_ne_zero]')}
 # Admission injections; Lean accepts each file (exit 0), the transitive axiom audit must refuse it.
 # Diagnostics pinned from Lean 4.34.1 at the Mathlib d13f23b7 pin: the sorry warning uses backticks, and
 # native_decide introduces the auxiliary axiom `injected._native.native_decide.ax_1_1` (not Lean.ofReduceBool).
@@ -209,8 +261,8 @@ INJECTIONS = {
     'RejectNativeDecide': ("theorem injected : (2 : Nat) + 2 = 4 := by native_decide\n",
                            'injected._native.native_decide.ax_1_1', '')}
 CONTROLS = tuple(FALSE_CONTROLS) + tuple(INJECTIONS)
-# The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the twelve files emit()
-# writes, a .log/.status pair per Lean process (five module builds, positive, axioms, types, census, leanchecker, eight
+# The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the fifteen files emit()
+# writes, a .log/.status pair per Lean process (six module builds, positive, axioms, types, census, leanchecker, eleven
 # controls), the two protocol-test transcripts and the four environment records.
 # finish() refuses a directory with any member missing or unexpected, any member that is not a regular file, and
 # any directory already holding receipt.json: a receipt is written once and never replaced.
@@ -223,12 +275,13 @@ EMITTED_FILES = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean') + t
 # spelling); no ranged constant carries an internal-style name (a user-written `proof_1` is refused); the user-named
 # generated constants equal `census_auxiliary` exactly (so that whitelist can name only compiler-generated constants);
 # internal generated constants are counted and otherwise ignored (the C26x modules add twelve at the pin: equation
-# lemmas, abstracted proofs, a `_simp` auxiliary and the equation lemma Lean generated for Mathlib's `sigmaConst`).
+# lemmas, abstracted proofs, a `_simp` auxiliary and the equation lemma Lean generated for Mathlib's `sigmaConst`;
+# OrdinaryH0Controls adds four: `_proof_1` and `eq_1` of its two subtype-point definitions).
 CENSUS = '''import TorusFiltration
 open Lean in
 #eval show Lean.Elab.Command.CommandElabM Unit from do
   let env ← Lean.getEnv
-  let modules : Array Lean.Name := #[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `TorusFiltration]
+  let modules : Array Lean.Name := #[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `OrdinaryH0Controls, `TorusFiltration]
   let idxs := modules.filterMap env.getModuleIdx?
   if idxs.size != modules.size then throwError "census: a companion module is not imported"
   let names := env.constants.fold (init := (#[] : Array Lean.Name)) fun acc n _ =>
@@ -243,10 +296,11 @@ open Lean in
 EVIDENCE_FILES = frozenset(EMITTED_FILES) | {label + ext for label in BUILDS for ext in ('.log', '.status')} \
     | {control + ext for control in CONTROLS for ext in ('.log', '.status')} \
     | {'leanchecker.cmd', 'packages.log', 'toolchain.log', 'source.json', 'tests.log', 'tests-optimized.log'}
-# 12 emitted + 10 processes x 2 + 8 controls x 2 + 6 records = 54 (44 before the C263/C264 registration added two
-# module builds and two controls). An explicit check, not an `assert`: the gate must hold under -O too.
-if len(EVIDENCE_FILES) != 54:
-    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 54 members')
+# 15 emitted + 11 processes x 2 + 11 controls x 2 + 6 records = 65 (44 before the C263/C264 registration added two
+# module builds and two controls, 54 before OrdinaryH0Controls added one module build and three controls: 2 + 3 x 3).
+# An explicit check, not an `assert`: the gate must hold under -O too.
+if len(EVIDENCE_FILES) != 65:
+    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 65 members')
 POSITIVE = '''import TorusFiltration
 open TorusFiltration
 
@@ -353,12 +407,14 @@ def metadata():
     require(isinstance(prov, dict), 'provenance object')
     for key in ('claim', 'handoff_pr', 'handoff_comments', 'original_sha256', 'original_bytes', 'original_status',
                 'namespace_mapping', 'source_author', 'compile_fixes_and_companion', 'organizational_independence_credit',
-                'human_review', 'successors'):
+                'human_review', 'successors', 'owner_modules'):
         require(key in prov, 'provenance key missing: ' + key)
     require(prov['claim'] == CLAIM and prov['original_sha256'] == ORIGINAL_SHA256, 'provenance identity')
     # The C26x record is compared whole: a changed hash, byte count, author, census or status label (a self-awarded
     # acceptance in `formal_status`, say) is refused as one mismatch, never partially accepted.
     require(prov['original_bytes'] == ORIGINAL_BYTES and prov['successors'] == SUCCESSORS, 'successor provenance identity')
+    # The owner-authored record is compared whole in the same way (identity, author, census, comments, review status).
+    require(prov['owner_modules'] == OWNER_MODULES, 'owner module provenance identity')
     require(prov['original_status'] == 'NOT_COMPILED' and prov['namespace_mapping'] == NAMESPACE_MAPPING, 'provenance labels')
     require(prov['organizational_independence_credit'] == 0 and prov['human_review'] == 'none', 'credit must stay zero')
     return meta
@@ -496,7 +552,7 @@ def check_modules(meta, side):
         for kind in ('abbrev', 'def', 'instance'):
             require(scan[kind] == meta['definitions'][module][kind], kind + ' inventory differs from source: ' + module)
     require((side / (ROOT_MODULE + '.lean')).read_text(encoding='utf-8') == ROOT_SOURCE,
-            'root module must import exactly the four modules')
+            'root module must import exactly the five modules')
 
 
 def environment(root):

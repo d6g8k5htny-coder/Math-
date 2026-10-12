@@ -68,6 +68,27 @@ INVENTORY = {
         'abbrev': [],
         'def': ['ordinaryH0_componentFunctor', 'ordinaryH0_componentCoproductFunctor', 'ordinaryH0_componentFiltration',
                 'ordinaryH0_simplicialPointClass', 'ordinaryH0_pointClass', 'ordinaryH0_naturalIso', 'ordinaryH0_filtrationIso'],
+        'instance': []},
+    # owner-authored C264 item-4 controls (df9d3645…), as scan_module reports it; every name carries ordinaryH0Control_
+    'OrdinaryH0Controls': {
+        'theorem': '''ordinaryH0Control_intCoeff_id_ne_zero ordinaryH0Control_mod2Coeff_id_ne_zero
+            ordinaryH0Control_mod2Coeff_id_add_self ordinaryH0Control_zeroCoeff_isZero ordinaryH0Control_zeroCoeff_id_eq_zero
+            ordinaryH0Control_empty_components ordinaryH0Control_empty_componentCoproduct_isZero ordinaryH0Control_empty_h0_isZero
+            ordinaryH0Control_zeroCoeff_componentCoproduct_isZero ordinaryH0Control_zeroCoeff_h0_isZero
+            ordinaryH0Control_point_augmentation ordinaryH0Control_point_ne_zero ordinaryH0Control_point_h0_not_isZero
+            ordinaryH0Control_line_component_eq ordinaryH0Control_line_difference_zero_int
+            ordinaryH0Control_line_difference_zero_zeroCoeff ordinaryH0Control_line_classes_ne_zero
+            ordinaryH0Control_discrete_component_ne ordinaryH0Control_bool_component_ne ordinaryH0Control_bool_pointClass_ne
+            ordinaryH0Control_bool_pointClass_ne_mod2 ordinaryH0Control_collapse_difference_zero
+            ordinaryH0Control_collapse_image_ne_zero ordinaryH0Control_collapse_difference_dies_classes_survive
+            ordinaryH0Control_square_differences_ne_zero ordinaryH0Control_fst_difference_zero
+            ordinaryH0Control_fst_difference_ne_zero ordinaryH0Control_bool_zeroCoeff_eq ordinaryH0Control_point_zeroCoeff_eq_zero
+            ordinaryH0Control_separation_needs_nonzero ordinaryH0Control_nonvanishing_needs_nonzero ordinaryH0Control_parabola_le
+            ordinaryH0Control_parabola_strict_growth ordinaryH0Control_parabola_not_joined_quarter ordinaryH0Control_parabola_joined
+            ordinaryH0Control_parabola_difference_zero ordinaryH0Control_parabola_strict_difference_ne_zero'''.split(),
+        'abbrev': ['ordinaryH0Control_intCoeff', 'ordinaryH0Control_zeroCoeff', 'ordinaryH0Control_mod2Coeff'],
+        'def': ['ordinaryH0Control_collapse', 'ordinaryH0Control_fst', 'ordinaryH0Control_parabolaLeft',
+                'ordinaryH0Control_parabolaRight'],
         'instance': []}}
 HANDOFF_COMMENTS = ('6111056103', '6111059166', '6111059498', '6111059848', '6111255007', '6111093545', '6111139060')
 # Math- #428 (and the #419 allocation) comments the C26x successor record cites, per module.
@@ -77,20 +98,44 @@ SUCCESSOR_IDENTITY = {'SuperlevelBar.lean': ('346eea948e18d5904422904006827930e2
                                              'd74dc8b2c25eff5b90ce7133e51a0888c7885cae24ca6d5e648bc514089637a8', 14904),
                       'OrdinaryH0.lean': ('3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88', 19803,
                                           '261dd0526d42890d8a4ac1225fcf47228eb3c9799af4106cb643a528bcbf968e', 18469)}
+# The owner-authored controls module (no handoff bytes): its identity and the Math- #428 comments its record cites
+# (6113277485: C264 owner task, item 4; 6113277173: the corrected CONTROL_OBLIGATIONS it instantiates).
+OWNER_IDENTITY = {'OrdinaryH0Controls.lean': ('df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184', 29590)}
+OWNER_COMMENTS = {'OrdinaryH0Controls.lean': {'6113277485', '6113277173'}}
 LEAN_VERSION_LINE = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n'
 FALSE_LOG = '/tmp/evidence/{0}.lean:4:2: error: unsolved goals\n⊢ False\n'
+# The item-4 controls as Lean 4.34.1 printed them at the Mathlib d13f23b7 pin (this lane's pre-commit run on the
+# registered bytes, 2026-10-12; only the directory before the file name is shortened): each leaves exactly `⊢ False`.
+CONTROL_LOGS = {
+    'RejectMergerKillsPointClass': '/tmp/evidence/RejectMergerKillsPointClass.lean:3:255: error: unsolved goals\n⊢ False\n',
+    'RejectSeparationWithoutNonzeroCoeff': '/tmp/evidence/RejectSeparationWithoutNonzeroCoeff.lean:3:160: error: unsolved goals\n⊢ False\n',
+    'RejectNonmergerKillsDifference': '/tmp/evidence/RejectNonmergerKillsDifference.lean:3:391: error: unsolved goals\n⊢ False\n',
+}
+# Discriminators: the same tactic on each control's TRUE sibling statement (the difference under the collapse; the
+# ℤ-coefficient separation of Bool; the (true, false)/(true, true) difference under the projection), emitted in the same
+# format under the same file name and printed by Lean in the same run. Each is a different diagnostic, which `negative`
+# must refuse: the controls' `⊢ False` comes from the falsehood of their statements, not from a tactic that turns any
+# goal into False.
+DISCRIMINATOR_LOGS = {
+    'RejectMergerKillsPointClass': '/tmp/evidence/RejectMergerKillsPointClass.lean:4:2: error: `simp` made no progress\n',
+    'RejectSeparationWithoutNonzeroCoeff': '/tmp/evidence/RejectSeparationWithoutNonzeroCoeff.lean:3:158: error: unsolved goals\n⊢ ¬ordinaryH0_pointClass (↧Bool) ordinaryH0Control_intCoeff true =\n      ordinaryH0_pointClass (↧Bool) ordinaryH0Control_intCoeff false\n/tmp/evidence/RejectSeparationWithoutNonzeroCoeff.lean:4:8: error: This simp argument is unused:\n  ordinaryH0Control_bool_zeroCoeff_eq\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n',
+    'RejectNonmergerKillsDifference': '/tmp/evidence/RejectNonmergerKillsDifference.lean:4:2: error: `simp` made no progress\n',
+}
 SORRY_WARNING = "/tmp/evidence/RejectSorry.lean:2:8: warning: declaration uses `sorry`\n"
 INJECTED = "'injected' depends on axioms: [{0}]\n"
-LEANCHECKER_MODULES = 'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 TorusFiltration'
+LEANCHECKER_MODULES = 'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls TorusFiltration'
+LEANCHECKER_MODULES_BEFORE_CONTROLS = 'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 TorusFiltration'
 LEANCHECKER_MODULES_BEFORE_C26X = 'leanchecker TorusTopology ClosedSuperlevel TorusFiltration'
 LEANCHECKER_FRESH = 'leanchecker --fresh TorusFiltration'
 EMITTED = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean', 'RejectSuperlevelSignFlip.lean',
            'RejectSuperlevelBelowThreshold.lean', 'RejectConstantNotPeriodic.lean', 'RejectEssentialDeathBound.lean',
-           'RejectReducedPointClass.lean', 'RejectSorry.lean', 'RejectCustomAxiom.lean', 'RejectNativeDecide.lean')
+           'RejectReducedPointClass.lean', 'RejectMergerKillsPointClass.lean', 'RejectSeparationWithoutNonzeroCoeff.lean',
+           'RejectNonmergerKillsDifference.lean', 'RejectSorry.lean', 'RejectCustomAxiom.lean', 'RejectNativeDecide.lean')
 PYTHON_LINE = 'TORUS_FILTRATION_PYTHON: optimize=%d' % sys.flags.optimize
 # Compiler-generated internal constants as the real census lists them (abstracted proofs, equation lemmas); the fixture
-# census carries a few so the parser's `internal generated` branch is exercised. The last twelve are exactly the
-# `internal generated` rows of the C263 and C264 range-aware censuses at the pin (1 + 11); the first,
+# census carries a few so the parser's `internal generated` branch is exercised. Rows four to fifteen are exactly the
+# `internal generated` rows of the C263 and C264 range-aware censuses at the pin (1 + 11), and the last four those of
+# OrdinaryH0Controls (`_proof_1` and `eq_1` of its two subtype-point definitions); the fifth,
 # `CategoryTheory.Limits.sigmaConst.eq_1`, is the equation lemma Lean generated for a Mathlib definition that
 # OrdinaryH0.lean unfolds, attributed to the companion module, so the census parser must tolerate internal generated
 # constants outside the companion namespace.
@@ -104,7 +149,9 @@ INTERNAL_GENERATED = ('TorusFiltration.superlevel_set.eq_1', 'TorusFiltration.to
                       'TorusFiltration.ordinaryH0_simplicialPointClass._proof_2',
                       'TorusFiltration.ordinaryH0_simplicialPointClass._proof_3',
                       'TorusFiltration.ordinaryH0_simplicialPointClass._proof_4',
-                      'TorusFiltration.ordinaryH0_simplicialPointClass.eq_1')
+                      'TorusFiltration.ordinaryH0_simplicialPointClass.eq_1',
+                      'TorusFiltration.ordinaryH0Control_parabolaLeft._proof_1', 'TorusFiltration.ordinaryH0Control_parabolaLeft.eq_1',
+                      'TorusFiltration.ordinaryH0Control_parabolaRight._proof_1', 'TorusFiltration.ordinaryH0Control_parabolaRight.eq_1')
 # The outer interpreter mode goes into the test transcript (tests.log / tests-optimized.log), so the hosted
 # evidence records which mode each suite ran in (C262 G1).
 print('TORUS_FILTRATION_TESTS: outer optimize=%d' % sys.flags.optimize, file=sys.stderr)
@@ -337,15 +384,21 @@ class InventoryTests(unittest.TestCase):
     def test_inventory_constants(self):
         names = [n for m in INVENTORY.values() for kind in m.values() for n in kind]
         self.assertEqual(len(names), len(set(names)))
-        self.assertEqual(sum(len(m['theorem']) for m in INVENTORY.values()), 81)
-        self.assertEqual([len(INVENTORY[m]['theorem']) for m in ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0')],
-                         [21, 20, 20, 20])
-        self.assertEqual(sum(len(m['def']) for m in INVENTORY.values()), 22)
-        self.assertEqual([len(INVENTORY[m]['def']) for m in INVENTORY], [6, 6, 3, 7])
-        self.assertEqual(sum(len(m['abbrev']) for m in INVENTORY.values()), 3)
+        self.assertEqual(sum(len(m['theorem']) for m in INVENTORY.values()), 118)
+        self.assertEqual([len(INVENTORY[m]['theorem']) for m in ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0',
+                                                                  'OrdinaryH0Controls')],
+                         [21, 20, 20, 20, 37])
+        self.assertEqual(sum(len(m['def']) for m in INVENTORY.values()), 26)
+        self.assertEqual([len(INVENTORY[m]['def']) for m in INVENTORY], [6, 6, 3, 7, 4])
+        self.assertEqual(sum(len(m['abbrev']) for m in INVENTORY.values()), 6)
+        self.assertEqual([len(INVENTORY[m]['abbrev']) for m in INVENTORY], [2, 0, 1, 0, 3])
         self.assertEqual(sum(len(m['instance']) for m in INVENTORY.values()), 3)
-        self.assertEqual(sum(len(kind) for m in INVENTORY.values() for kind in m.values()), 109)
-        self.assertEqual(len(INTERNAL_GENERATED), 15)
+        self.assertEqual(sum(len(kind) for m in INVENTORY.values() for kind in m.values()), 153)
+        self.assertEqual(sum(len(kind) for kind in INVENTORY['OrdinaryH0Controls'].values()), 44)
+        # every declaration of the controls module carries its own prefix, and no other module uses it
+        self.assertTrue(all(n.startswith('ordinaryH0Control_') for kind in INVENTORY['OrdinaryH0Controls'].values() for n in kind))
+        self.assertFalse(any(n.startswith('ordinaryH0Control_') for m in self.c.MODULES[:-1] for kind in INVENTORY[m].values() for n in kind))
+        self.assertEqual(len(INTERNAL_GENERATED), 19)
         self.assertTrue(all(re.fullmatch(self.c.IDENT, n) for n in names))
         self.assertEqual(tuple(INVENTORY), self.c.MODULES)
 
@@ -355,9 +408,9 @@ class InventoryTests(unittest.TestCase):
             self.assertEqual(meta['theorems'][module], INVENTORY[module]['theorem'])
             for kind in ('abbrev', 'def', 'instance'):
                 self.assertEqual(meta['definitions'][module][kind], INVENTORY[module][kind])
-        self.assertEqual(len(self.c.targets(meta)), 109)
+        self.assertEqual(len(self.c.targets(meta)), 153)
         self.assertEqual(self.c.theorem_targets(meta)[0], 'TorusFiltration.torus_field_latticeVec_formula')
-        self.assertEqual(self.c.theorem_targets(meta)[-1], 'TorusFiltration.ordinaryH0_filtration_difference_zero_iff_joinedIn')
+        self.assertEqual(self.c.theorem_targets(meta)[-1], 'TorusFiltration.ordinaryH0Control_parabola_strict_difference_ne_zero')
         prov = meta['provenance']
         self.assertEqual(set(HANDOFF_COMMENTS), set(prov['handoff_comments'].values()))
         self.assertEqual(prov['handoff_pr'], 'd6g8k5htny-coder/Math-#419')
@@ -393,6 +446,33 @@ class InventoryTests(unittest.TestCase):
         self.assertIn('25 constants = 24 user range + 0 user generated + 1 internal generated', prov['successors']['SuperlevelBar.lean']['census_at_pin'])
         self.assertIn('38 constants = 27 user range + 0 user generated + 11 internal generated', prov['successors']['OrdinaryH0.lean']['census_at_pin'])
         self.assertIn('authored directly in namespace TorusFiltration', prov['namespace_mapping'])
+        self.assertIn('OrdinaryH0Controls', prov['namespace_mapping'])
+        # The owner-authored record: compared whole, its identity is the tracked module's, it cites the item-4 task and the
+        # CONTROL_OBLIGATIONS specification, it is not a handoff successor and not a review, and the FORMAL HOLD of
+        # OrdinaryH0 is recorded as unchanged; credit 0.
+        self.assertEqual(prov['owner_modules'], self.c.OWNER_MODULES)
+        self.assertEqual(set(prov['owner_modules']), set(OWNER_IDENTITY))
+        self.assertFalse(set(prov['owner_modules']) & set(prov['successors']))
+        for name, (digest, size) in OWNER_IDENTITY.items():
+            record = prov['owner_modules'][name]
+            self.assertEqual((record['sha256'], record['bytes']), (digest, size), name)
+            self.assertEqual(set(record['comments'].values()), OWNER_COMMENTS[name], name)
+            self.assertEqual(record['organizational_independence_credit'], 0)
+            self.assertIn('Anthropic/Claude', record['author'])
+            self.assertIn('not a handoff successor', record['kind'])
+            self.assertIn('not a review', record['kind'])
+            self.assertIn('not a review of OrdinaryH0', record['review_status'])
+            self.assertIn('FORMAL HOLD of OrdinaryH0', record['review_status'])
+            self.assertIn('unchanged', record['review_status'])
+            self.assertEqual(record['imports'], ['Mathlib', 'OrdinaryH0'])
+            self.assertIn('48 constants = 44 user range + 0 user generated + 4 internal generated', record['census_at_pin'])
+            self.assertEqual(record['declarations'], '37 theorems, 3 abbrevs, 4 defs, 0 instances')
+            self.assertNotIn(name, {k.split('/')[-1] for k in self.c.ORIGINAL_SHA256})
+            tracked = ROOT / self.c.PACKAGE / name
+            if tracked.is_file():
+                actual = self.c.identity(tracked.read_bytes())
+                self.assertEqual((actual['sha256'], actual['bytes']), (digest, size), 'tracked module is not the recorded owner module: ' + name)
+                self.assertEqual(meta['files'][self.c.PACKAGE + '/' + name]['sha256'], digest, name)
         modules = {self.c.PACKAGE + '/' + m + '.lean' for m in self.c.MODULES}
         for path in self.c.REQUIRED_FILES:
             target = ROOT / path
@@ -456,7 +536,12 @@ class InventoryTests(unittest.TestCase):
                      h0.replace('import Mathlib\n', 'import Mathlib\nopen scoped Simplicial\n', 1),
                      h0.replace('import Mathlib\n', 'import Mathlib\nopen scoped Simplicial CategoryTheory.Limits\n', 1)):
             self.assertEqual(self.c.scan_module(text, 'OrdinaryH0'), INVENTORY['OrdinaryH0'])
-        self.assertEqual(self.c.MODULES, ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0'))
+        # OrdinaryH0Controls.lean imports OrdinaryH0 (and may import any module before it)
+        controls = placeholder_module('OrdinaryH0Controls')
+        for text in (controls.replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0\n', 1),
+                     controls.replace('import Mathlib\n', 'import Mathlib\nimport ClosedSuperlevel\nimport OrdinaryH0\n', 1)):
+            self.assertEqual(self.c.scan_module(text, 'OrdinaryH0Controls'), INVENTORY['OrdinaryH0Controls'])
+        self.assertEqual(self.c.MODULES, ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'OrdinaryH0Controls'))
 
     def test_module_scan_refuses_admissions_and_unexpected_kinds(self):
         good = placeholder_module('ClosedSuperlevel')
@@ -563,6 +648,7 @@ class InventoryTests(unittest.TestCase):
             (good.replace('import Mathlib\n', 'import Mathlib\nimport ClosedSuperlevel\n', 1), 'companion import out of dependency order in ClosedSuperlevel:2: ClosedSuperlevel'),
             (good.replace('import Mathlib\n', 'import Mathlib\nimport SuperlevelBar\n', 1), 'companion import out of dependency order in ClosedSuperlevel:2: SuperlevelBar'),
             (good.replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0\n', 1), 'companion import out of dependency order in ClosedSuperlevel:2: OrdinaryH0'),
+            (good.replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0Controls\n', 1), 'companion import out of dependency order in ClosedSuperlevel:2: OrdinaryH0Controls'),
             (good.replace('import Mathlib\n', 'import Mathlib\nimport TorusFiltration\n', 1), unexpected),
             (good.replace('import Mathlib\n', 'import Mathlib\nimport TorusTopology.Hidden\n', 1), unexpected),
             (good.replace('import Mathlib\n', 'import Mathlib\nimport TorusTopology Hidden\n', 1), unexpected),
@@ -602,6 +688,13 @@ class InventoryTests(unittest.TestCase):
         # The first module may import nothing but Mathlib; a module name outside MODULES is not scanned at all.
         with self.assertRaisesRegex(ValueError, 'companion import out of dependency order in TorusTopology:2: ClosedSuperlevel'):
             self.c.scan_module(placeholder_module('TorusTopology').replace('import Mathlib\n', 'import Mathlib\nimport ClosedSuperlevel\n', 1), 'TorusTopology')
+        # The controls module comes last: OrdinaryH0 may not import it, nor may it import itself or the root.
+        with self.assertRaisesRegex(ValueError, 'companion import out of dependency order in OrdinaryH0:2: OrdinaryH0Controls'):
+            self.c.scan_module(placeholder_module('OrdinaryH0').replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0Controls\n', 1), 'OrdinaryH0')
+        with self.assertRaisesRegex(ValueError, 'companion import out of dependency order in OrdinaryH0Controls:2: OrdinaryH0Controls'):
+            self.c.scan_module(placeholder_module('OrdinaryH0Controls').replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0Controls\n', 1), 'OrdinaryH0Controls')
+        with self.assertRaisesRegex(ValueError, 'unexpected column-0 line in OrdinaryH0Controls:2: import TorusFiltration'):
+            self.c.scan_module(placeholder_module('OrdinaryH0Controls').replace('import Mathlib\n', 'import Mathlib\nimport TorusFiltration\n', 1), 'OrdinaryH0Controls')
         with self.assertRaisesRegex(ValueError, 'not a companion module: TorusFiltration'):
             self.c.scan_module(good, 'TorusFiltration')
         with self.assertRaisesRegex(ValueError, 'not a companion module: Other'):
@@ -642,6 +735,26 @@ class ParserControls(unittest.TestCase):
                     self.c.negative(bad, control, status)
         with self.assertRaises(ValueError):
             self.c.negative(FALSE_LOG.format('Unknown'), 'Unknown', 1)
+
+    def test_item4_controls_accept_their_pinned_logs_and_refuse_their_true_siblings(self):
+        # The C264 item-4 controls: the diagnostics Lean printed for each control are accepted, and the diagnostics of the
+        # same tactic on each control's true sibling statement (same file name, same exit status 1) are refused, as are
+        # each control's log under another control's name and under a non-1 status.
+        self.assertEqual(set(CONTROL_LOGS), set(DISCRIMINATOR_LOGS))
+        self.assertTrue(set(CONTROL_LOGS) <= set(self.c.FALSE_CONTROLS))
+        for control, log in CONTROL_LOGS.items():
+            self.assertEqual(self.c.negative(log, control, 1), 'REJECTED_BY_LEAN')
+            for status in (0, 2):
+                with self.subTest(control=control, status=status), self.assertRaisesRegex(ValueError, 'false-statement control must exit exactly one'):
+                    self.c.negative(log, control, status)
+            for other in CONTROL_LOGS:
+                if other != control:
+                    with self.subTest(control=control, other=other), self.assertRaisesRegex(ValueError, 'not the intended False-goal diagnostic: ' + other):
+                        self.c.negative(log, other, 1)
+        for control, log in DISCRIMINATOR_LOGS.items():
+            self.assertNotIn('⊢ False', log)
+            with self.subTest(discriminator=control), self.assertRaisesRegex(ValueError, 'not the intended False-goal diagnostic: ' + control):
+                self.c.negative(log, control, 1)
 
     def test_negative_injection_controls_require_the_audit_to_refuse(self):
         for control, (_, forbidden, _) in self.c.INJECTIONS.items():
@@ -739,6 +852,10 @@ class ParserControls(unittest.TestCase):
         self.assertEqual(self.c.LEANCHECKER, {LEANCHECKER_MODULES: 'modules', LEANCHECKER_FRESH: 'fresh'})
         for bad in ('', 'leanchecker TorusFiltration', 'leanchecker --fresh TorusTopology', 'leanchecker TorusTopology ClosedSuperlevel',
                     LEANCHECKER_MODULES_BEFORE_C26X, 'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0',
+                    LEANCHECKER_MODULES_BEFORE_CONTROLS, LEANCHECKER_MODULES_BEFORE_CONTROLS + ' OrdinaryH0Controls',
+                    'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls',
+                    'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0Controls OrdinaryH0 TorusFiltration',
+                    'leanchecker OrdinaryH0Controls',
                     'leanchecker TorusTopology ClosedSuperlevel SuperlevelBar TorusFiltration',
                     'leanchecker TorusTopology ClosedSuperlevel OrdinaryH0 SuperlevelBar TorusFiltration',
                     LEANCHECKER_MODULES + ' Extra', 'leanchecker --verbose ' + LEANCHECKER_MODULES[12:],
@@ -757,13 +874,14 @@ class ParserControls(unittest.TestCase):
             census = (out / 'Census.lean').read_text()
             self.assertTrue(census.startswith('import TorusFiltration\n'))
             for needed in ('isInternalDetail', 'findDeclarationRanges?', 'getModuleIdxFor?', '`TorusTopology', '`ClosedSuperlevel',
-                           '`SuperlevelBar, `OrdinaryH0, `TorusFiltration', 'CENSUS_END', '"internal" else "user"', '"range" else "generated"'):
+                           '`SuperlevelBar, `OrdinaryH0, `OrdinaryH0Controls, `TorusFiltration', 'CENSUS_END', '"internal" else "user"',
+                           '"range" else "generated"'):
                 self.assertIn(needed, census)
-            self.assertIn('#[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `TorusFiltration]', census)
+            self.assertIn('#[`TorusTopology, `ClosedSuperlevel, `SuperlevelBar, `OrdinaryH0, `OrdinaryH0Controls, `TorusFiltration]', census)
             audit = (out / 'Audit.lean').read_text().splitlines()
             self.assertEqual(audit[0], 'import TorusFiltration')
             self.assertEqual(audit[1:], ['#print axioms ' + n for n in self.c.targets(meta)])
-            self.assertEqual(len(audit[1:]), 109)
+            self.assertEqual(len(audit[1:]), 153)
             types = (out / 'Types.lean').read_text().splitlines()
             self.assertEqual(types[:2], ['import TorusFiltration', 'set_option pp.explicit true'])
             self.assertEqual(types[2:], ['#check ' + n for n in self.c.theorem_targets(meta)])
@@ -785,24 +903,45 @@ class ParserControls(unittest.TestCase):
         self.assertEqual(set(self.c.FALSE_CONTROLS) | set(self.c.INJECTIONS), set(self.c.CONTROLS))
         self.assertGreaterEqual(len(self.c.FALSE_CONTROLS), 1)
         # One false control per module at least, each naming one of that module's own definitions (the C26x controls
-        # name superlevelBar_deathHeight and ordinaryH0_pointClass); none of them is proved by a hypothesis-free `rfl`.
+        # name superlevelBar_deathHeight and ordinaryH0_pointClass, the item-4 controls the fixtures of OrdinaryH0Controls);
+        # none of them is proved by a hypothesis-free `rfl`.
+        item4 = ('RejectMergerKillsPointClass', 'RejectSeparationWithoutNonzeroCoeff', 'RejectNonmergerKillsDifference')
         for prefix, names in (('superlevel_', ('RejectSuperlevelSignFlip', 'RejectSuperlevelBelowThreshold')),
                               ('torus_', ('RejectConstantNotPeriodic',)), ('superlevelBar_', ('RejectEssentialDeathBound',)),
-                              ('ordinaryH0_', ('RejectReducedPointClass',))):
+                              ('ordinaryH0_', ('RejectReducedPointClass',) + item4), ('ordinaryH0Control_', item4)):
             for name in names:
                 self.assertIn(prefix, self.c.FALSE_CONTROLS[name][0], name)
+        # The item-4 controls, exactly: each tactic rewrites with the true fixture theorem the statement contradicts.
+        self.assertEqual(self.c.FALSE_CONTROLS['RejectMergerKillsPointClass'], (
+            'CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_intCoeff true) '
+            '(((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj ordinaryH0Control_intCoeff).map ordinaryH0Control_collapse) = 0',
+            'simp only [ordinaryH0Control_collapse_image_ne_zero]'))
+        self.assertEqual(self.c.FALSE_CONTROLS['RejectSeparationWithoutNonzeroCoeff'], (
+            'ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff true ≠ ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_zeroCoeff false',
+            'simp [ordinaryH0Control_bool_zeroCoeff_eq]'))
+        self.assertEqual(self.c.FALSE_CONTROLS['RejectNonmergerKillsDifference'], (
+            'CategoryTheory.CategoryStruct.comp (ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff ((true, false) : Bool × Bool) '
+            '- ordinaryH0_pointClass (TopCat.of (Bool × Bool)) ordinaryH0Control_intCoeff ((false, true) : Bool × Bool)) '
+            '(((AlgebraicTopology.singularHomologyFunctor (ModuleCat.{0} ℤ) 0).obj ordinaryH0Control_intCoeff).map ordinaryH0Control_fst) = 0',
+            'simp only [ordinaryH0Control_fst_difference_ne_zero]'))
+        for name in item4:
+            lemma = self.c.FALSE_CONTROLS[name][1].split('[')[1].rstrip(']')
+            self.assertIn(lemma, INVENTORY['OrdinaryH0Controls']['theorem'], name)
         self.assertEqual(self.c.FALSE_CONTROLS['RejectEssentialDeathBound'],
                          ('superlevelBar_deathHeight (fun _ : superlevelBar_E 1 => (-1 : ℝ)) 0 ≤ (-1 : ℝ)', 'norm_num [superlevelBar_death_const]'))
         self.assertEqual(self.c.FALSE_CONTROLS['RejectReducedPointClass'][1], 'simp [ordinaryH0_pointClass_augmentation]')
         self.assertIn('ordinaryH0_pointClass (TopCat.of Unit) (ModuleCat.of ℤ ℤ) ()', self.c.FALSE_CONTROLS['RejectReducedPointClass'][0])
         self.assertIn('≠ CategoryTheory.CategoryStruct.id (ModuleCat.of ℤ ℤ)', self.c.FALSE_CONTROLS['RejectReducedPointClass'][0])
         self.assertEqual(list(self.c.CONTROLS), ['RejectSuperlevelSignFlip', 'RejectSuperlevelBelowThreshold', 'RejectConstantNotPeriodic',
-                                                 'RejectEssentialDeathBound', 'RejectReducedPointClass', 'RejectSorry', 'RejectCustomAxiom',
-                                                 'RejectNativeDecide'])
-        self.assertEqual(len(self.c.EVIDENCE_FILES), 54)
+                                                 'RejectEssentialDeathBound', 'RejectReducedPointClass', 'RejectMergerKillsPointClass',
+                                                 'RejectSeparationWithoutNonzeroCoeff', 'RejectNonmergerKillsDifference', 'RejectSorry',
+                                                 'RejectCustomAxiom', 'RejectNativeDecide'])
+        self.assertEqual(len(self.c.EVIDENCE_FILES), 65)
         self.assertEqual(self.c.BUILDS, ('build-TorusTopology', 'build-ClosedSuperlevel', 'build-SuperlevelBar', 'build-OrdinaryH0',
-                                         'build-TorusFiltration', 'positive', 'axioms', 'types', 'census', 'leanchecker'))
-        self.assertEqual(self.c.ROOT_SOURCE, 'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\n')
+                                         'build-OrdinaryH0Controls', 'build-TorusFiltration', 'positive', 'axioms', 'types', 'census',
+                                         'leanchecker'))
+        self.assertEqual(self.c.ROOT_SOURCE, 'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\n'
+                                             'import OrdinaryH0Controls\n')
         self.assertEqual({v[1] for v in self.c.INJECTIONS.values()},
                          {'sorryAx', 'hiddenPremise', 'injected._native.native_decide.ax_1_1'})
         self.assertTrue(all(re.fullmatch(self.c.NAME, v[1]) and v[1] not in self.c.ALLOWED for v in self.c.INJECTIONS.values()))
@@ -868,15 +1007,16 @@ class WorkflowAndReplay(unittest.TestCase):
                          'set -euo pipefail\n# The outer Python mode is the one named on each command line below, never an ambient PYTHONOPTIMIZE (C262 G1).\nunset PYTHONOPTIMIZE\n'):
             self.assertIn(required, self.replay, required)
         positions = []
-        for module in ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'TorusFiltration'):
+        for module in ('TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0', 'OrdinaryH0Controls', 'TorusFiltration'):
             line = ('run_lean build-%s lean -DwarningAsError=true --root="$TORUS_SIDE" -o "$TORUS_SIDE/%s.olean" "$TORUS_SIDE/%s.lean"'
                     % (module, module, module))
             self.assertEqual(self.replay.count(line), 1, module)
             positions.append(self.replay.index(line))
-        # dependency order: TorusTopology, ClosedSuperlevel, SuperlevelBar, OrdinaryH0 (imports ClosedSuperlevel), then the root
+        # dependency order: TorusTopology, ClosedSuperlevel, SuperlevelBar, OrdinaryH0 (imports ClosedSuperlevel),
+        # OrdinaryH0Controls (imports OrdinaryH0), then the root
         self.assertEqual(positions, sorted(positions))
         self.assertLess(positions[-1], self.replay.index('run_lean positive'))
-        self.assertEqual(len(re.findall(r'^run_lean build-', self.replay, re.M)), 5)
+        self.assertEqual(len(re.findall(r'^run_lean build-', self.replay, re.M)), 6)
         commands = '\n'.join(line for line in self.replay.splitlines() if not line.lstrip().startswith('#'))
         for forbidden in ('gate.py', 'formal/tests', 'lake build', 'lake update', 'lake exe cache', 'formal-evidence',
                           'ResearchFormalCoreR1'):
@@ -910,9 +1050,29 @@ class WorkflowAndReplay(unittest.TestCase):
                              # C263/C264 registration: handoff and successor identities, the fixes, the census, FORMAL HOLD
                              'd74dc8b2', '346eea94', '261dd052', '3d6b0d6b', 'ite_eq_left', '6113438262', '6113033545', '6113372506',
                              '25 = 24 + 0 + 1', '38 = 27 + 0 + 11', 'FORMAL HOLD', 'superlevelBar_', 'ordinaryH0_',
-                             'nonauthor exact-source review'):
+                             'nonauthor exact-source review',
+                             # C264 item-4 controls: the owner module, its identity, census, task and specification, the
+                             # three controls, and the time-scoped pointers to the review and the readback (no label moves)
+                             'OrdinaryH0Controls', 'df9d3645', '48 = 44 + 0 + 4', 'ordinaryH0Control_', '6113277485',
+                             '6113277173', 'RejectMergerKillsPointClass', 'RejectSeparationWithoutNonzeroCoeff',
+                             'RejectNonmergerKillsDifference', '5485883117', '5485829137', '2026-10-12 01:32Z',
+                             'C264 owner task item 4 controls (2026-10-12)', 'not a review',
+                             # FORMAL HOLD rests on the handoffs' own listed conditions; the source-scoped review keeps
+                             # Lean execution open and states no credit; the readback records credit 0
+                             '6113277485 item 5', 'open condition', 'same project account', 'nonzero organizational-independence credit'):
                 self.assertIn(required, text, name + ' lacks ' + required)
+            flat = ' '.join(text.split())
+            for stale in (
+                    # the hold presented as tied to one review that now exists (fix round of the item-4 commit)
+                    'The handoffs tied that hold', 'The handoffs tied it to', 'the handoffs tied to a nonauthor',
+                    'since 2026-10-12 01:32Z one does', 'Until 2026-10-12 01:32Z no nonauthor review of the compiled',
+                    'this README records none since', 'records none since', 'beyond the discrete cases',
+                    'Each statement applies one of the C264', 'instantiates the C264 statements',
+                    'concrete instances of those C264 statements',
+                    'so that each statement is seen in use'):
+                self.assertNotIn(stale, flat, name + ' keeps a corrected statement: ' + stale)
             self.assertNotIn(LEANCHECKER_MODULES_BEFORE_C26X + '`', text, name + ' still names the pre-registration leanchecker command as current')
+            self.assertNotIn(LEANCHECKER_MODULES_BEFORE_CONTROLS + '`', text, name + ' still names the pre-controls leanchecker command as current')
             self.assertNotIn('`leanchecker --fresh` re-checked', text, name + ' describes the withdrawn --fresh step as run')
             self.assertNotIn('runs `leanchecker --fresh TorusFiltration`', text)
             prose = re.sub(r'`[^`\n]*`', '', text)
@@ -929,14 +1089,23 @@ class WorkflowAndReplay(unittest.TestCase):
         for statement, _ in self.c.FALSE_CONTROLS.values():
             self.assertIn('`' + statement + '`', readme, 'control statement not quoted verbatim: ' + statement)
         for required in ('.olean', 'never be committed', 'NOT_RUN', 'TORUS_LEANCHECKER_FRESH', 'leanchecker.cmd',
-                         'exactly the 54 evidence files', 'Registration is not review'):
+                         'exactly the 65 evidence files', 'Registration is not review', 'OrdinaryH0Controls.olean',
+                         '6116225936', 'C254 alone did not establish this', 'DISCRIMINATOR_LOGS',
+                         # the relabel is a dated companion note, the hosted run of 940dffc9 is reported, not adopted
+                         '(companion note, 2026-10-12, Math- #428 comment 6116225936, not\n  part of the copied exclusion',
+                         '38187870416', 'does not adopt its receipt', '01:16Z'):
             self.assertIn(required, readme, 'README lacks ' + required)
         for stale in ('exactly the 44 evidence files', 'those 44 files', '41 theorems and 17 definitions', 'the 58 declarations',
-                      'two-line root module', 'six negative', 'Both modules `import Mathlib`'):
-            self.assertNotIn(stale, readme, 'README keeps a pre-registration count: ' + stale)
+                      'two-line root module', 'six negative', 'Both modules `import Mathlib`',
+                      # counts and phrases the item-4 controls commit moved
+                      'exactly the 54 evidence files', 'those 54 files', 'What the 81 theorems and 28 definitions',
+                      'Every one of the 109', 'four-line root module', 'the twelve emitted Lean files',
+                      'All four modules `import Mathlib`', '(none exists: this lane', 'no nonauthor review of the compiled successor\nbytes yet'):
+            self.assertNotIn(stale, readme, 'README keeps a superseded count or statement: ' + stale)
         scope = (SIDE / 'SCOPE.md').read_text(encoding='utf-8')
-        for stale in ('41 theorem statements and 17 audited definitions', 'these 58 declarations', 'exactly these 58'):
-            self.assertNotIn(stale, scope, 'SCOPE keeps a pre-registration count: ' + stale)
+        for stale in ('41 theorem statements and 17 audited definitions', 'these 58 declarations', 'exactly these 58',
+                      '81 theorem statements and 28 audited definitions', 'these 109 declarations', 'exactly these 109'):
+            self.assertNotIn(stale, scope, 'SCOPE keeps a superseded count: ' + stale)
 
 
 class SourceFixture(FixtureCase):
@@ -948,11 +1117,11 @@ class SourceFixture(FixtureCase):
             result = json.loads(run.stdout)
             self.assertEqual(result['checked_commit'], f.git('rev-parse', 'HEAD').strip())
             self.assertEqual(set(result['sources']), set(self.c.REQUIRED_FILES) | {self.c.PACKAGE + '/SOURCE_FILES.json'})
-            self.assertEqual(len(result['declarations']), 109)
+            self.assertEqual(len(result['declarations']), 153)
             self.assertEqual(result['environment'], {'lean_toolchain': 'leanprover/lean4:v4.34.1',
                                                      'dependency_revisions': f.revisions})
             self.assertEqual(result['run_id'], 'local')
-            self.assertEqual(len(result['theorems']), 81)
+            self.assertEqual(len(result['theorems']), 118)
             hosted = {'GITHUB_ACTIONS': 'true', 'GITHUB_SHA': result['checked_commit'], 'GITHUB_REPOSITORY': self.c.REPO,
                       'GITHUB_RUN_ID': '77', 'GITHUB_RUN_ATTEMPT': '2'}
             run = f.run('source', env=hosted)
@@ -1047,15 +1216,18 @@ class SourceFixture(FixtureCase):
             self.assertEqual(f.run('source').returncode, 0)
             (f.side / 'TorusFiltration.lean').write_text('import TorusTopology\n')
             f.restore()
-            self.assertFails(f.run('source'), 'root module must import exactly the four modules')
-            # the pre-registration root (two imports) is refused too; so is a reordered or duplicated import list
+            self.assertFails(f.run('source'), 'root module must import exactly the five modules')
+            # the pre-registration root (two imports) and the pre-controls root (four imports) are refused too; so is a
+            # reordered, duplicated or unterminated import list
             for root in ('import TorusTopology\nimport ClosedSuperlevel\n',
-                         'import TorusTopology\nimport ClosedSuperlevel\nimport OrdinaryH0\nimport SuperlevelBar\n',
-                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\nimport OrdinaryH0\n',
-                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0'):
+                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\n',
+                         'import TorusTopology\nimport ClosedSuperlevel\nimport OrdinaryH0\nimport SuperlevelBar\nimport OrdinaryH0Controls\n',
+                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0Controls\nimport OrdinaryH0\n',
+                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\nimport OrdinaryH0Controls\nimport OrdinaryH0Controls\n',
+                         'import TorusTopology\nimport ClosedSuperlevel\nimport SuperlevelBar\nimport OrdinaryH0\nimport OrdinaryH0Controls'):
                 (f.side / 'TorusFiltration.lean').write_text(root)
                 f.restore()
-                self.assertFails(f.run('source'), 'root module must import exactly the four modules')
+                self.assertFails(f.run('source'), 'root module must import exactly the five modules')
             (f.side / 'TorusFiltration.lean').write_text(self.c.ROOT_SOURCE)
             # companion imports through the CLI: OrdinaryH0 may import ClosedSuperlevel (as the registered module does);
             # ClosedSuperlevel may not import SuperlevelBar, and no module may import the root
@@ -1067,6 +1239,17 @@ class SourceFixture(FixtureCase):
             h0.write_text(h0_original.replace('import Mathlib\n', 'import Mathlib\nimport TorusFiltration\n', 1))
             f.restore()
             self.assertFails(f.run('source'), 'unexpected column-0 line in OrdinaryH0:2: import TorusFiltration')
+            h0.write_text(h0_original)
+            # the controls module may import OrdinaryH0 (as the registered module does); OrdinaryH0 may not import it
+            controls = f.side / 'OrdinaryH0Controls.lean'
+            controls_original = controls.read_text()
+            controls.write_text(controls_original.replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0\n', 1))
+            f.restore()
+            self.assertEqual(f.run('source').returncode, 0, 'the controls module importing OrdinaryH0 is source')
+            controls.write_text(controls_original)
+            h0.write_text(h0_original.replace('import Mathlib\n', 'import Mathlib\nimport OrdinaryH0Controls\n', 1))
+            f.restore()
+            self.assertFails(f.run('source'), 'companion import out of dependency order in OrdinaryH0:2: OrdinaryH0Controls')
             h0.write_text(h0_original)
             module.write_text(original.replace('import Mathlib\n', 'import Mathlib\nimport SuperlevelBar\n', 1))
             f.restore()
@@ -1103,7 +1286,9 @@ class SourceFixture(FixtureCase):
 class MetadataFixture(FixtureCase):
     """The honesty labels and schema rules of SOURCE_FILES.json are enforced through the CLI, one field at a time,
     except seven fields of the successor record (handoff byte count and status, lane, authors, namespace, imports,
-    change summary), which are refused only through the whole-record comparison in check.py metadata()."""
+    change summary), which are refused only through the whole-record comparison in check.py metadata(). The owner-module
+    record of OrdinaryH0Controls is compared whole too; its identity, author, review status, census, credit, comment
+    pointers and kind each have a single-field case below, and the record as a whole is required."""
 
     def test_each_label_and_schema_rule_withholds_source(self):
         c = self.c
@@ -1144,6 +1329,22 @@ class MetadataFixture(FixtureCase):
             (deleter(('provenance', 'successors', 'OrdinaryH0.lean', 'comments', 'owner_repair_handoff_428')), 'successor provenance identity'),
             (deleter(('provenance', 'successors', 'OrdinaryH0.lean')), 'successor provenance identity'),
             (setter(('provenance', 'successors', 'Third.lean'), {}), 'successor provenance identity'),
+            # the owner-authored controls record (OrdinaryH0Controls.lean), compared whole
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'sha256'), '0' * 64), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'bytes'), 28503), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'author'), 'OpenAI/Codex lane'), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'kind'), 'handoff successor'), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'review_status'), 'review of OrdinaryH0; FORMAL HOLD lifted'),
+             'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'organizational_independence_credit'), 1), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'census_at_pin'), '44 constants'), 'owner module provenance identity'),
+            (deleter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'comments', 'owner_task_item_4_428')), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean', 'formal_status'), 'ACCEPTED'), 'owner module provenance identity'),
+            (deleter(('provenance', 'owner_modules', 'OrdinaryH0Controls.lean')), 'owner module provenance identity'),
+            (setter(('provenance', 'owner_modules', 'Other.lean'), {}), 'owner module provenance identity'),
+            (lambda m: m['provenance']['successors'].__setitem__('OrdinaryH0Controls.lean', m['provenance']['owner_modules']['OrdinaryH0Controls.lean']),
+             'successor provenance identity'),
+            (deleter(('provenance', 'owner_modules')), 'provenance key missing: owner_modules'),
             (deleter(('provenance', 'successors')), 'provenance key missing: successors'),
             (deleter(('provenance', 'original_bytes')), 'provenance key missing: original_bytes'),
             (setter(('provenance', 'original_sha256', 'C263-handoff/SuperlevelBar.lean'), '0' * 64), 'provenance identity'),
@@ -1173,6 +1374,12 @@ class MetadataFixture(FixtureCase):
             (setter(('modules',), ['ClosedSuperlevel', 'TorusTopology']), 'module list'),
             (setter(('modules',), ['TorusTopology', 'ClosedSuperlevel']), 'module list'),
             (setter(('modules',), ['TorusTopology', 'ClosedSuperlevel', 'OrdinaryH0', 'SuperlevelBar']), 'module list'),
+            (setter(('modules',), ['TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0']), 'module list'),
+            (setter(('modules',), ['TorusTopology', 'ClosedSuperlevel', 'SuperlevelBar', 'OrdinaryH0Controls', 'OrdinaryH0']), 'module list'),
+            (deleter(('theorems', 'OrdinaryH0Controls')), 'per-module inventory keys'),
+            (deleter(('definitions', 'OrdinaryH0Controls')), 'per-module inventory keys'),
+            (lambda m: m['theorems']['OrdinaryH0Controls'].append('ordinaryH0_pointClass_eq_iff'), 'duplicate declaration name'),
+            (setter(('theorems', 'OrdinaryH0Controls'), []), 'empty theorem list: OrdinaryH0Controls'),
             (deleter(('theorems', 'OrdinaryH0')), 'per-module inventory keys'),
             (deleter(('definitions', 'SuperlevelBar')), 'per-module inventory keys'),
             (lambda m: m['theorems']['OrdinaryH0'].append('superlevelBar_strict_cut'), 'duplicate declaration name'),
@@ -1221,11 +1428,12 @@ class FinishFixture(FixtureCase):
             self.assertIs(receipt['scientific_acceptance'], False)
             self.assertEqual(receipt['lean_version'], LEAN_VERSION_LINE.strip())
             self.assertEqual(receipt['dependency_revisions'], f.revisions)
-            self.assertEqual(len(receipt['declarations']), 109)
-            self.assertEqual(len(receipt['axioms']), 58 + 24 + 27)
-            self.assertEqual(receipt['theorem_count'], 81)
-            self.assertEqual(receipt['definition_count'], {'abbrev': 3, 'def': 22, 'instance': 3})
+            self.assertEqual(len(receipt['declarations']), 153)
+            self.assertEqual(len(receipt['axioms']), 58 + 24 + 27 + 44)
+            self.assertEqual(receipt['theorem_count'], 118)
+            self.assertEqual(receipt['definition_count'], {'abbrev': 6, 'def': 26, 'instance': 3})
             self.assertEqual(receipt['provenance']['successors'], self.c.SUCCESSORS)
+            self.assertEqual(receipt['provenance']['owner_modules'], self.c.OWNER_MODULES)
             self.assertEqual(receipt['provenance']['original_bytes'], self.c.ORIGINAL_BYTES)
             self.assertEqual(len(receipt['provenance']['original_sha256']), 4)
             self.assertEqual(receipt['negative_controls'],
@@ -1240,18 +1448,21 @@ class FinishFixture(FixtureCase):
                 self.assertEqual(hashlib.sha256((out / name).read_bytes()).hexdigest(), digest, name)
             self.assertEqual(set(receipt['log_sha256']), {p.name for p in out.iterdir() if p.is_file()} - {'receipt.json'})
             self.assertEqual(set(receipt['log_sha256']), set(self.c.EVIDENCE_FILES))
-            self.assertEqual(len(receipt['log_sha256']), 54)
-            self.assertEqual(receipt['census'], {'constants': 109 + len(self.c.metadata()['census_auxiliary']) + len(INTERNAL_GENERATED),
-                                                 'user_declarations': 109,
+            self.assertEqual(len(receipt['log_sha256']), 65)
+            self.assertEqual(receipt['census'], {'constants': 153 + len(self.c.metadata()['census_auxiliary']) + len(INTERNAL_GENERATED),
+                                                 'user_declarations': 153,
                                                  'generated_user': sorted(self.c.metadata()['census_auxiliary']),
                                                  'internal_generated': len(INTERNAL_GENERATED)})
             self.assertIn('census.log', receipt['log_sha256'])
             self.assertIn('axioms.log', receipt['log_sha256'])
-            for name in ('build-SuperlevelBar', 'build-OrdinaryH0', 'RejectEssentialDeathBound', 'RejectReducedPointClass'):
+            for name in ('build-SuperlevelBar', 'build-OrdinaryH0', 'build-OrdinaryH0Controls', 'RejectEssentialDeathBound',
+                         'RejectReducedPointClass', 'RejectMergerKillsPointClass', 'RejectSeparationWithoutNonzeroCoeff',
+                         'RejectNonmergerKillsDifference'):
                 self.assertIn(name + '.log', receipt['log_sha256'])
                 self.assertIn(name + '.status', receipt['log_sha256'])
-            self.assertIn('RejectEssentialDeathBound.lean', receipt['log_sha256'])
-            self.assertIn('RejectReducedPointClass.lean', receipt['log_sha256'])
+            for name in ('RejectEssentialDeathBound', 'RejectReducedPointClass', 'RejectMergerKillsPointClass',
+                         'RejectSeparationWithoutNonzeroCoeff', 'RejectNonmergerKillsDifference'):
+                self.assertIn(name + '.lean', receipt['log_sha256'])
             self.assertIn('leanchecker.cmd', receipt['log_sha256'])
             self.assertIn('Positive.lean', receipt['log_sha256'])
             self.assertIn('tests-optimized.log', receipt['log_sha256'])
@@ -1297,7 +1508,9 @@ class FinishFixture(FixtureCase):
                 ('build-TorusTopology.status', '1\n', 'missing successful process: build-TorusTopology'),
                 ('build-SuperlevelBar.status', '1\n', 'missing successful process: build-SuperlevelBar'),
                 ('build-OrdinaryH0.status', '', 'missing successful process: build-OrdinaryH0'),
+                ('build-OrdinaryH0Controls.status', '1\n', 'missing successful process: build-OrdinaryH0Controls'),
                 ('leanchecker.cmd', LEANCHECKER_MODULES_BEFORE_C26X + '\n', "unrecognized leanchecker invocation: '" + LEANCHECKER_MODULES_BEFORE_C26X + "'"),
+                ('leanchecker.cmd', LEANCHECKER_MODULES_BEFORE_CONTROLS + '\n', "unrecognized leanchecker invocation: '" + LEANCHECKER_MODULES_BEFORE_CONTROLS + "'"),
                 ('leanchecker.status', '', 'missing successful process: leanchecker'),
                 ('leanchecker.cmd', 'leanchecker TorusFiltration\n', "unrecognized leanchecker invocation: 'leanchecker TorusFiltration'"),
                 ('leanchecker.cmd', 'leanchecker --fresh TorusTopology\n', 'unrecognized leanchecker invocation'),
@@ -1317,6 +1530,9 @@ class FinishFixture(FixtureCase):
                 ('census.log', census_with(('TorusFiltration.superlevel_mono._hidden', 'internal range')), "user-written declarations with internal-style names: ['TorusFiltration.superlevel_mono._hidden']"),
                 ('census.log', census_with(('TorusFiltration.superlevel_mono.other_simp', 'user generated')), "compiler-generated constants not listed in census_auxiliary: ['TorusFiltration.superlevel_mono.other_simp']"),
                 ('census.log', census_without('TorusFiltration.superlevel_mono'), "inventory targets absent from the census: ['TorusFiltration.superlevel_mono']"),
+                ('census.log', census_without('TorusFiltration.ordinaryH0Control_collapse'), "inventory targets absent from the census: ['TorusFiltration.ordinaryH0Control_collapse']"),
+                ('census.log', census_with(('TorusFiltration.ordinaryH0Control_collapse.hidden', 'user range')),
+                 "user-written declarations outside the inventory: ['TorusFiltration.ordinaryH0Control_collapse.hidden']"),
                 ('census.log', census_without('TorusFiltration.torus_periodBasis.congr_simp'), "census_auxiliary entries absent or not compiler-generated: ['TorusFiltration.torus_periodBasis.congr_simp']"),
                 ('census.log', (out / 'census.log').read_text().replace('TorusFiltration.torus_periodBasis.congr_simp user generated', 'TorusFiltration.torus_periodBasis.congr_simp user range'),
                  "user-written declarations outside the inventory: ['TorusFiltration.torus_periodBasis.congr_simp']"),
@@ -1335,6 +1551,19 @@ class FinishFixture(FixtureCase):
                 ('RejectReducedPointClass.log', FALSE_LOG.format('RejectReducedPointClass') + 'error: This simp argument is unused\n',
                  'not the intended False-goal diagnostic: RejectReducedPointClass'),
                 ('RejectReducedPointClass.status', '2\n', 'false-statement control must exit exactly one'),
+                # the item-4 controls: each true sibling's diagnostic (pinned from Lean, DISCRIMINATOR_LOGS) is refused
+                ('RejectMergerKillsPointClass.log', DISCRIMINATOR_LOGS['RejectMergerKillsPointClass'],
+                 'not the intended False-goal diagnostic: RejectMergerKillsPointClass'),
+                ('RejectSeparationWithoutNonzeroCoeff.log', DISCRIMINATOR_LOGS['RejectSeparationWithoutNonzeroCoeff'],
+                 'not the intended False-goal diagnostic: RejectSeparationWithoutNonzeroCoeff'),
+                ('RejectNonmergerKillsDifference.log', DISCRIMINATOR_LOGS['RejectNonmergerKillsDifference'],
+                 'not the intended False-goal diagnostic: RejectNonmergerKillsDifference'),
+                ('RejectNonmergerKillsDifference.status', '0\n', 'false-statement control must exit exactly one'),
+                ('RejectMergerKillsPointClass.lean', (out / 'RejectMergerKillsPointClass.lean').read_text().replace(' true)', ' true - '
+                 'ordinaryH0_pointClass (TopCat.of Bool) ordinaryH0Control_intCoeff false)', 1),
+                 'emitted Lean file changed across execution: RejectMergerKillsPointClass.lean'),
+                ('RejectSeparationWithoutNonzeroCoeff.lean', (out / 'RejectSeparationWithoutNonzeroCoeff.lean').read_text().replace('zeroCoeff', 'intCoeff'),
+                 'emitted Lean file changed across execution: RejectSeparationWithoutNonzeroCoeff.lean'),
                 ('RejectSorry.status', '1\n', 'injection control must be accepted by Lean'),
                 ('RejectSorry.log', SORRY_WARNING + INJECTED.format('propext'), 'not the intended injected axiom report'),
                 ('RejectNativeDecide.log', INJECTED.format('sorryAx'), 'not the intended injected axiom report'),
@@ -1350,7 +1579,9 @@ class FinishFixture(FixtureCase):
                  'emitted Lean file changed across execution: RejectConstantNotPeriodic.lean'),
                 ('RejectReducedPointClass.lean', (out / 'RejectReducedPointClass.lean').read_text().replace('≠', '='),
                  'emitted Lean file changed across execution: RejectReducedPointClass.lean'),
-                ('Census.lean', (out / 'Census.lean').read_text().replace(', `OrdinaryH0', ''),
+                ('Census.lean', (out / 'Census.lean').read_text().replace(', `OrdinaryH0,', ','),
+                 'emitted Lean file changed across execution: Census.lean'),
+                ('Census.lean', (out / 'Census.lean').read_text().replace(', `OrdinaryH0Controls', ''),
                  'emitted Lean file changed across execution: Census.lean')]
             for name, content, message in cases:
                 with self.subTest(name=name, message=message):
@@ -1361,7 +1592,7 @@ class FinishFixture(FixtureCase):
                         self.assertFalse((out / 'receipt.json').exists(), 'receipt written despite refusal')
                     finally:
                         (out / name).write_text(saved)
-            # C262 G3: every one of the 54 required evidence members is required; removing any one withholds the receipt.
+            # C262 G3: every one of the 65 required evidence members is required; removing any one withholds the receipt.
             self.assertEqual({p.name for p in out.iterdir()}, set(self.c.EVIDENCE_FILES))
             for name in sorted(self.c.EVIDENCE_FILES):
                 with self.subTest(removed=name):

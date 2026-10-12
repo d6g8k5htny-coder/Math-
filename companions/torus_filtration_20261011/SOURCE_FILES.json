@@ -29,6 +29,20 @@
       ],
       "instance": []
     },
+    "OrdinaryH0Controls": {
+      "abbrev": [
+        "ordinaryH0Control_intCoeff",
+        "ordinaryH0Control_zeroCoeff",
+        "ordinaryH0Control_mod2Coeff"
+      ],
+      "def": [
+        "ordinaryH0Control_collapse",
+        "ordinaryH0Control_fst",
+        "ordinaryH0Control_parabolaLeft",
+        "ordinaryH0Control_parabolaRight"
+      ],
+      "instance": []
+    },
     "SuperlevelBar": {
       "abbrev": [
         "superlevelBar_E"
@@ -76,15 +90,20 @@
       "git_blob": "7bc5f80028271e0e33d857e60496ca4cadaa9364",
       "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88"
     },
+    "companions/torus_filtration_20261011/OrdinaryH0Controls.lean": {
+      "bytes": 29590,
+      "git_blob": "187bbcadb16213f6bb3ddbee28897685e1cedcd7",
+      "sha256": "df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184"
+    },
     "companions/torus_filtration_20261011/README.md": {
-      "bytes": 56162,
-      "git_blob": "671b4cb7c295461efb3e4922537f476139177dfb",
-      "sha256": "f1e0a8c57012a024f744da74229885bb3062e0db842ad36ba489dbb7e06f74fe"
+      "bytes": 83629,
+      "git_blob": "5efed09b417eb9703268bed915b704bb301fbfa5",
+      "sha256": "a8d5c8dc1b9fb92572ad8b0d75753bf2a732beecbe55c1af58622775642d5d00"
     },
     "companions/torus_filtration_20261011/SCOPE.md": {
-      "bytes": 22627,
-      "git_blob": "5d0b673aa604173c2161d839f700d4c397ea7bfb",
-      "sha256": "b2239cf0548f87b588925eb9d86aa17b74dff7774d2653925d4d888389977072"
+      "bytes": 34269,
+      "git_blob": "1a9b5caf64e5699a9e32e60e7bd3571bcd4ac983",
+      "sha256": "b5daf6e22f6b738497f6df4fa9ec99622d95e41f952dd9dbdf196fa40a14b86f"
     },
     "companions/torus_filtration_20261011/SuperlevelBar.lean": {
       "bytes": 15309,
@@ -92,9 +111,9 @@
       "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
     },
     "companions/torus_filtration_20261011/TorusFiltration.lean": {
-      "bytes": 84,
-      "git_blob": "29e41ef12ae1a24eb36de48b9ee0738fc939d77b",
-      "sha256": "33b88648df5c0144a492544f3da83e6ebbe72aadc6fccc1ece930335ad2a3af5"
+      "bytes": 110,
+      "git_blob": "eb4bfab626feea0bbd45387fc23ae774e3663ec3",
+      "sha256": "09887f618ac7fbe7ac9569c185a6e28bb8ee39a0f75e2909bc46e49b35f9d07a"
     },
     "companions/torus_filtration_20261011/TorusTopology.lean": {
       "bytes": 12257,
@@ -102,26 +121,27 @@
       "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
     },
     "companions/torus_filtration_20261011/check.py": {
-      "bytes": 49482,
-      "git_blob": "999eb4bf06273e572f19e9e34125898657832a8c",
-      "sha256": "c4416dc9e890895156bec553971d4dbcb0f4a6feeddaa9fcdbe055e405f4cf0a"
+      "bytes": 55524,
+      "git_blob": "f225c0534af6da636f9fde21745b15383cea9ef0",
+      "sha256": "0bd3b51f207a0a57457173290dfdb295935fa9d65b74bfbe13c46f4d16c18874"
     },
     "companions/torus_filtration_20261011/replay.sh": {
-      "bytes": 5236,
-      "git_blob": "ff47d2393e341232273186d5e9ff44559eac1e3d",
-      "sha256": "34b739182179806a802633eff78b2006c8e5baa49cd04652f951a121a3bc8f2d"
+      "bytes": 5765,
+      "git_blob": "c654e50413aab00ed402d0ef7228063749b3695b",
+      "sha256": "7e25689e51c52786ac1ac92f805b441c0304e420381c7cfc2512fa62346049a4"
     },
     "companions/torus_filtration_20261011/test_torus_filtration.py": {
-      "bytes": 108149,
-      "git_blob": "ef12443fb8b2d6e0cbb61706d45d023815bad261",
-      "sha256": "007365ea76c68f59ff85f3190dff6fe0a3676ade44915fa2f260542f02be8a84"
+      "bytes": 132040,
+      "git_blob": "9aeae2df61c21d147f10227da274aaf6e0c000f8",
+      "sha256": "aed03604172e9ba35aaedd70297601a39aa3979efbbe18143d0329502418d97b"
     }
   },
   "modules": [
     "TorusTopology",
     "ClosedSuperlevel",
     "SuperlevelBar",
-    "OrdinaryH0"
+    "OrdinaryH0",
+    "OrdinaryH0Controls"
   ],
   "namespace": "TorusFiltration",
   "provenance": {
@@ -138,7 +158,7 @@
     },
     "handoff_pr": "d6g8k5htny-coder/Math-#419",
     "human_review": "none",
-    "namespace_mapping": "ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration",
+    "namespace_mapping": "ResearchFormalCoreR1.<n> (handoff) -> TorusFiltration.<n> (companion) for TorusTopology and ClosedSuperlevel; SuperlevelBar and OrdinaryH0 were authored directly in namespace TorusFiltration, and so was the owner-authored OrdinaryH0Controls",
     "organizational_independence_credit": 0,
     "original_bytes": {
       "C263-handoff/SuperlevelBar.lean": 14904,
@@ -153,6 +173,28 @@
       "ResearchFormalCoreR1/TorusTopology.lean": "efa80d2879758b6d6473a0024a308ff758c308cdc8e4b5f400f39dde63a7f6f4"
     },
     "original_status": "NOT_COMPILED",
+    "owner_modules": {
+      "OrdinaryH0Controls.lean": {
+        "author": "Anthropic/Claude lane (companion owner), delegated AI work for Dylan Roy",
+        "bytes": 29590,
+        "census_at_pin": "48 constants = 44 user range + 0 user generated + 4 internal generated (ordinaryH0Control_parabolaLeft and ordinaryH0Control_parabolaRight: _proof_1 and eq_1 each)",
+        "comments": {
+          "control_obligations_specification_428": "6113277173",
+          "owner_task_item_4_428": "6113277485"
+        },
+        "declarations": "37 theorems, 3 abbrevs, 4 defs, 0 instances",
+        "imports": [
+          "Mathlib",
+          "OrdinaryH0"
+        ],
+        "kind": "owner-authored controls module; not a handoff successor (no handoff bytes exist); not a review",
+        "lane": "C264 owner task item 4 (instantiated ordinary-H0 controls)",
+        "namespace": "authored directly in namespace TorusFiltration; every declaration carries the prefix ordinaryH0Control_",
+        "organizational_independence_credit": 0,
+        "review_status": "not a review of OrdinaryH0 and lifts nothing: the FORMAL HOLD of OrdinaryH0 (and of SuperlevelBar) is unchanged; no review of these bytes is recorded; registration is not review",
+        "sha256": "df9d3645282ca526b67eca3d5db691b622092a14b5fddee9be21013e39666184"
+      }
+    },
     "source_author": "OpenAI/Codex lane (C254), delegated AI work for Dylan Roy",
     "successors": {
       "OrdinaryH0.lean": {
@@ -254,6 +296,45 @@
       "ordinaryH0_difference_map_eq_zero_iff",
       "ordinaryH0_filtration_naturality",
       "ordinaryH0_filtration_difference_zero_iff_joinedIn"
+    ],
+    "OrdinaryH0Controls": [
+      "ordinaryH0Control_intCoeff_id_ne_zero",
+      "ordinaryH0Control_mod2Coeff_id_ne_zero",
+      "ordinaryH0Control_mod2Coeff_id_add_self",
+      "ordinaryH0Control_zeroCoeff_isZero",
+      "ordinaryH0Control_zeroCoeff_id_eq_zero",
+      "ordinaryH0Control_empty_components",
+      "ordinaryH0Control_empty_componentCoproduct_isZero",
+      "ordinaryH0Control_empty_h0_isZero",
+      "ordinaryH0Control_zeroCoeff_componentCoproduct_isZero",
+      "ordinaryH0Control_zeroCoeff_h0_isZero",
+      "ordinaryH0Control_point_augmentation",
+      "ordinaryH0Control_point_ne_zero",
+      "ordinaryH0Control_point_h0_not_isZero",
+      "ordinaryH0Control_line_component_eq",
+      "ordinaryH0Control_line_difference_zero_int",
+      "ordinaryH0Control_line_difference_zero_zeroCoeff",
+      "ordinaryH0Control_line_classes_ne_zero",
+      "ordinaryH0Control_discrete_component_ne",
+      "ordinaryH0Control_bool_component_ne",
+      "ordinaryH0Control_bool_pointClass_ne",
+      "ordinaryH0Control_bool_pointClass_ne_mod2",
+      "ordinaryH0Control_collapse_difference_zero",
+      "ordinaryH0Control_collapse_image_ne_zero",
+      "ordinaryH0Control_collapse_difference_dies_classes_survive",
+      "ordinaryH0Control_square_differences_ne_zero",
+      "ordinaryH0Control_fst_difference_zero",
+      "ordinaryH0Control_fst_difference_ne_zero",
+      "ordinaryH0Control_bool_zeroCoeff_eq",
+      "ordinaryH0Control_point_zeroCoeff_eq_zero",
+      "ordinaryH0Control_separation_needs_nonzero",
+      "ordinaryH0Control_nonvanishing_needs_nonzero",
+      "ordinaryH0Control_parabola_le",
+      "ordinaryH0Control_parabola_strict_growth",
+      "ordinaryH0Control_parabola_not_joined_quarter",
+      "ordinaryH0Control_parabola_joined",
+      "ordinaryH0Control_parabola_difference_zero",
+      "ordinaryH0Control_parabola_strict_difference_ne_zero"
     ],
     "SuperlevelBar": [
       "superlevelBar_essential_iff",
