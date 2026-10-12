@@ -33,9 +33,18 @@ PACKET = 'Verify sources, replay both modes, reject mutants'
 BIND = 'Bind tested commit'
 CONFIRM = 'Confirm the suite left the tested commit unchanged'
 MANUAL_GUARD = "github.event_name == 'workflow_dispatch'"
-SUITE_BLOCK = ('set -euo pipefail\n'
+MANUAL_SUITE_BLOCK = ('set -euo pipefail\n'
                'python -B -S -m unittest discover -s tests -v\n'
                'python -B -O -S -m unittest discover -s tests -v\n')
+CENTRAL_SUITE_BLOCK = (
+    "set -euo pipefail\n"
+    "log_dir=\"$(mktemp -d)\"\n"
+    "trap 'rm -rf \"$log_dir\"' EXIT\n"
+    "python -B -S -m unittest discover -s tests -v 2>&1 | tee \"$log_dir/normal.log\"\n"
+    "grep -Eq '^Ran [1-9][0-9]* tests? in [0-9]+([.][0-9]+)?s$' \"$log_dir/normal.log\"\n"
+    "python -B -O -S -m unittest discover -s tests -v 2>&1 | tee \"$log_dir/optimized.log\"\n"
+    "grep -Eq '^Ran [1-9][0-9]* tests? in [0-9]+([.][0-9]+)?s$' \"$log_dir/optimized.log\"\n"
+)
 NORMAL = ['-B', '-S', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
 OPTIMIZED = ['-B', '-O', '-S', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
 # The complete PR trigger union of the three workflows at Math- 7014efec.
@@ -368,8 +377,9 @@ def violations(workflow, text):
         suite = named(job, REGRESSION)
     except ValueError as exc:
         return problems + [str(exc)]
-    if suite.get('run') != SUITE_BLOCK:
-        problems.append('suite block must be both literal discovery modes under set -euo pipefail')
+    expected_suite = CENTRAL_SUITE_BLOCK if workflow == CENTRAL else MANUAL_SUITE_BLOCK
+    if suite.get('run') != expected_suite:
+        problems.append('suite block must preserve its exact central/manual discovery contract')
     central_bind = named(parse((WORKFLOWS / (CENTRAL + '.yml')).read_text())[1], BIND)
     if bind != central_bind:
         problems.append('tested-commit binding step differs from the central workflow')
@@ -458,7 +468,7 @@ class FullSuiteRoutingTests(unittest.TestCase):
         block = named(parse(text)[1], REGRESSION)['run']
         rendered = lambda body: ''.join('          ' + line + '\n'
                                         for line in body.splitlines())
-        original = mutate(text, rendered(block), rendered(SUITE_BLOCK))
+        original = mutate(text, rendered(block), rendered(MANUAL_SUITE_BLOCK))
         self.assertEqual(hashlib.sha256(original.encode()).hexdigest(),
                          '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26')
         return original
@@ -731,9 +741,11 @@ class FullSuiteRoutingTests(unittest.TestCase):
     def test_meaningful_negatives_are_detected(self):
         central = source(CENTRAL)
         cases = {
-            'central drops normal mode': (CENTRAL, central, '          python -B -S -m unittest discover -s tests -v\n', ''),
-            'central drops optimized mode': (CENTRAL, central, '          python -B -O -S -m unittest discover -s tests -v\n', ''),
-            'central swallows failure': (CENTRAL, central, 'discover -s tests -v\n', 'discover -s tests -v || true\n', 2),
+            'central drops normal mode': (CENTRAL, central,
+                                          '          python -B -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/normal.log"\n', ''),
+            'central drops optimized mode': (CENTRAL, central,
+                                             '          python -B -O -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/optimized.log"\n', ''),
+            'central swallows failure': (CENTRAL, central, '.log"\n', '.log" || true\n', 4),
             'central loses tests trigger': (CENTRAL, central, "      - 'tests/**'\n", ''),
             'central loses tools trigger': (CENTRAL, central, "      - 'tools/**'\n", ''),
             'central loses a frontier trigger': (CENTRAL, central, "      - 'frontiers/c6_palm_route_20260929/**'\n", ''),
@@ -759,7 +771,7 @@ class FullSuiteRoutingTests(unittest.TestCase):
                 workflow + ' removes suite step': (workflow, text,
                                                    "      - name: " + REGRESSION + "\n"
                                                    "        if: github.event_name == 'workflow_dispatch'\n"
-                                                   "        run: |\n" + ''.join('          ' + l + '\n' for l in SUITE_BLOCK.splitlines()),
+                                                   "        run: |\n" + ''.join('          ' + l + '\n' for l in MANUAL_SUITE_BLOCK.splitlines()),
                                                    ''),
                 workflow + ' drops optimized mode': (workflow, text, '          python -B -O -S -m unittest discover -s tests -v\n', ''),
                 workflow + ' swallows failure': (workflow, text, 'python -B -S -m unittest discover -s tests -v\n',
@@ -781,8 +793,8 @@ class FullSuiteRoutingTests(unittest.TestCase):
         text = source(CENTRAL)
         for old, new in (("      - 'tools/**'\n", "      - tools/**\n"),
                          ('    steps:\n', '    strategy: {}\n    steps:\n'),
-                         ('        run: |\n          set -euo pipefail\n          python',
-                          '        run: set -euo pipefail\n        shell: bash\n        run2: |\n          python')):
+                         ('        run: |\n          set -euo pipefail\n          log_dir=',
+                          '        run: set -euo pipefail\n        shell: bash\n        run2: |\n          log_dir=')):
             with self.subTest(old=old):
                 with self.assertRaises(ValueError):
                     parse(mutate(text, old, new))
