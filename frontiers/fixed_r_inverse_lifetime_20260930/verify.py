@@ -13,6 +13,53 @@ MUTANTS=('lose-determinant-weight','wrong-cubic-power','wrong-soft-direction',
          'admit-critical-inverse','drop-endpoint-margin','unconditional-tail-shortcut')
 
 
+# Independent expectations from the unchanged inverse.py CLI, not the child under test.
+REJECTIONS = {
+    'lose-determinant-weight': 'retain original maximum determinant weight',
+    'wrong-cubic-power': 'cubic lifetime scale',
+    'wrong-soft-direction': 'correct Schur soft direction',
+    'admit-critical-inverse': 'critical inverse moment diverges',
+    'drop-endpoint-margin': 'strict endpoint above birth',
+    'unconditional-tail-shortcut': 'retain weighted near-zero eigenvalue integral',
+}
+
+
+def validate_rejection(result, label):
+    """Authenticate the entire failure carrier; only argparse wrapping is normalized."""
+    if label not in (*REJECTIONS, 'unknown'):
+        raise ValueError('unknown rejection stage')
+    if type(result.returncode) is not int or result.returncode != (2 if label=='unknown' else 1):
+        raise ValueError('wrong rejection exit: '+label)
+    if not isinstance(result.stdout,bytes) or not isinstance(result.stderr,bytes):
+        raise ValueError('binary process captures required')
+    if label=='unknown':
+        usage='usage: inverse.py [-h] [--mutant {' + ','.join(REJECTIONS) + '}]\n'
+        prefix="inverse.py: error: argument --mutant: invalid choice: 'unknown' (choose from "
+        # Python 3.11 quotes choices; 3.13 displays these string choices without quotes.
+        # Both complete forms preserve every label, its order, the argument and the reason.
+        expected=[(usage+prefix+choices+')\n').encode('ascii').split() for choices in
+                  (', '.join(REJECTIONS), ', '.join(repr(key) for key in REJECTIONS))]
+        if result.stdout or result.stderr.split() not in expected:
+            raise ValueError('wrong unknown-label diagnostic')
+        return
+    if result.stderr:
+        raise ValueError('unexpected mutant stderr: '+label)
+    def unique(pairs):
+        out={}
+        for key,value in pairs:
+            if key in out:raise ValueError('duplicate mutant JSON key')
+            out[key]=value
+        return out
+    def finite_only(value):
+        raise ValueError('nonfinite mutant JSON constant: '+value)
+    report=json.loads(result.stdout.decode('utf-8'),
+                      object_pairs_hook=unique,parse_constant=finite_only)
+    if (type(report) is not dict or set(report)!={'passed','error'}
+        or type(report['passed']) is not bool or report['passed'] is not False
+        or type(report['error']) is not str or report['error']!=REJECTIONS[label]):
+        raise ValueError('wrong complete mutant report: '+label)
+
+
 def read_json(path):
     if path.is_symlink() or not path.is_file():raise ValueError('regular JSON required')
     def unique(pairs):
@@ -92,6 +139,8 @@ def inventory(root):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--local-only',action='store_true');args=ap.parse_args()
+    if MUTANTS!=tuple(REJECTIONS):
+        raise ValueError('complete ordered mutant inventory required')
     root=Path(__file__).absolute().parent;inventory(root)
     ns=0 if args.local_only else sources(root)
     expected=(root/'RESULTS.json').read_bytes()
@@ -102,7 +151,7 @@ def main():
         if run.stdout!=expected or run.stderr:raise ValueError('baseline replay mismatch')
         for m in (*MUTANTS,'unknown'):
             run=subprocess.run(command+['--mutant',m],capture_output=True,timeout=45)
-            if run.returncode!=(2 if m=='unknown' else 1):raise ValueError('mutant not rejected: '+m)
+            validate_rejection(run,m)
     inventory(root)
     print(json.dumps({'passed':True,'source_count':ns,'source_pins_checked':not args.local_only,
                       'mathematical_acceptance':False,'scientific_effect':'NONE'},sort_keys=True))
