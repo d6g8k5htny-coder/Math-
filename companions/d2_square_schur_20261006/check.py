@@ -18,9 +18,9 @@ ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_square_schur_20261006'
 WORKFLOW='.github/workflows/d2-square-schur.yml'
 REPO='d6g8k5htny-coder/Math-'
-CORE_TREE='d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14'
-CORE_MANIFEST='5d7ccdb0885af7bf4a2aa6ec4dce5f5c41435bb10a0a7a426a8af286d4f035e4'
-CORE_GATE='958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68'
+CORE_TREE='38b6d1a7746075b560349d184a461933745c11ce'
+CORE_MANIFEST='40cb6ffc6776717a26d2a0a66815aeef508b0c8411588fff06ff2cec43a752a1'
+CORE_GATE='278989bbba7e1f90870ea0d197a996bc0a65b2a4b217e2eb284accb1282356c1'
 TARGETS=tuple('D2SquareSchur.'+n for n in ('weighted_square_identity','weighted_square_lower',
     'schur_no_upper','schur_from_lower_inputs'))
 CONTROLS=('RejectSignedWeights','RejectEndpointMaximum','RejectOutsideDirection')
