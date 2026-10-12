@@ -7,6 +7,7 @@ name: C254 torus filtration (isolated Lean companion)
       - 'formal/lakefile.toml'
       - 'formal/lake-manifest.json'
       - 'formal/lean-toolchain'
+      - 'specifications/lean_statements_20261010/Specifications/Field.lean'
   push:
     branches: [main]
     paths:
@@ -15,13 +16,14 @@ name: C254 torus filtration (isolated Lean companion)
       - 'formal/lakefile.toml'
       - 'formal/lake-manifest.json'
       - 'formal/lean-toolchain'
+      - 'specifications/lean_statements_20261010/Specifications/Field.lean'
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   torus-filtration:
     runs-on: ubuntu-latest
-    # Provisional until one hosted dry run records the duration in the companion README: twelve `lean`
+    # Provisional until one hosted dry run records the duration in the companion README: the `lean`
     # invocations each load the full Mathlib .olean set, plus `leanchecker` on the companion modules
     # (the whole-closure leanchecker re-check does not fit a hosted job; see replay.sh and the README).
     timeout-minutes: 45

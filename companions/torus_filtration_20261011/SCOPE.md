@@ -1,14 +1,15 @@
-# Scope note: C254 torus quotient and closed-superlevel filtration companion, with the C263 strict-cut and C264 ordinary-H0 modules
+# Scope note: C254 torus quotient and closed-superlevel filtration companion, with the C263 strict-cut and C264 ordinary-H0 modules and the C263 Field adapter
 
 Dylan Roy — delegated AI work. Source authors: OpenAI/Codex lanes (C254: `TorusTopology`,
 `ClosedSuperlevel`; C263: `SuperlevelBar`; C264: `OrdinaryH0`). Compile fixes, the C264 owner
-repair, the owner-authored controls module `OrdinaryH0Controls` (C264 owner task item 4) and the
-companion: Anthropic/Claude lane. Scientific effect NONE;
+repair, the owner-authored controls module `OrdinaryH0Controls` (C264 owner task item 4), the
+owner-authored Field adapter `SuperlevelBarField` and the companion: Anthropic/Claude lane.
+Scientific effect NONE;
 organizational-independence credit 0; no human review; alignment `PENDING_INDEPENDENT_REVIEW`.
 
-This note fixes what the 118 theorem statements and 35 audited definitions of the five modules
+This note fixes what the 130 theorem statements and 37 audited definitions of the six modules
 (`TorusTopology.lean`, `ClosedSuperlevel.lean`, `SuperlevelBar.lean`, `OrdinaryH0.lean`,
-`OrdinaryH0Controls.lean`; 153 declarations) cover and what they do not. An independent reviewer must compare each Lean
+`OrdinaryH0Controls.lean`, `SuperlevelBarField.lean`; 167 declarations) cover and what they do not. An independent reviewer must compare each Lean
 statement with this note and with the handoffs' own scope (TORUS_FILTRATION.md in comment
 6111059166 for C254; the module docstrings and Math- #428 comments 6113033545 and 6113372506 for
 C263 and C264) before any alignment record is written. The compile fixes and the C264 repair
@@ -30,7 +31,11 @@ organizational-independence credit and was posted from the same project account.
 unchanged; its disposition is for the C263/C264 handoff owners, alignment still needs a reviewer
 with nonzero organizational-independence credit, and this note moves no label. `OrdinaryH0Controls`
 applies seven of the 20 C264 theorems (and three of its definitions) to concrete fixtures; it is not
-a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
+a handoff module, not a review of `OrdinaryH0`, and lifts nothing. `SuperlevelBarField` builds an
+inhabitant of the statement packet's `UniversalLaw.Spec.Field.SuperlevelBarInterface` from the C263
+definitions; it is not a handoff module and not a review of `SuperlevelBar`, the FORMAL HOLD of
+`SuperlevelBar` extends to it, and its elder relation holds its clause by definition, not as a
+theorem about persistence.
 
 ## Bound sources
 
@@ -42,7 +47,7 @@ a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
   this lane: 6111093545 (local elaboration report), 6111139060 (pickup).
 - Namespace mapping `ResearchFormalCoreR1.<n>` (handoff) -> `TorusFiltration.<n>` (companion);
   `SuperlevelBar` and `OrdinaryH0` were authored directly in namespace `TorusFiltration`, and so
-  was the owner-authored `OrdinaryH0Controls`.
+  were the owner-authored `OrdinaryH0Controls` and `SuperlevelBarField`.
 - C263 handoff `SuperlevelBar.lean` SHA-256
   `d74dc8b2c25eff5b90ce7133e51a0888c7885cae24ca6d5e648bc514089637a8` (14904 bytes; Math- #428
   comments 6113033147, 6113033351, 6113033545; allocation #419 comment 6112439759), failed at the
@@ -65,6 +70,16 @@ a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
   (29590 bytes; first compiled form `e825837f…`, 28503 bytes, differing only in the
   module-docstring paragraph on review status); imports `Mathlib` and `OrdinaryH0`; 37 theorems,
   3 abbrevs, 4 defs, prefix `ordinaryH0Control_`. Census at the pin 48 = 44 + 0 + 4.
+- Owner-authored `SuperlevelBarField.lean` (the C263 Field adapter, Math- #428 comments 6112932068
+  and 6124097060; no handoff bytes, not a successor): SHA-256
+  `8a2470431c3fda5e98859aa9372cbb8866ed5c5c722cea5dfc28cb577840bbad` (11816 bytes); imports
+  `Mathlib`, `SuperlevelBar` and `Specifications.Field`; 12 theorems, 2 defs, prefix
+  `superlevelBarField_`. Census at the pin 18 = 14 + 0 + 4.
+- External input (statement packet, not companion source):
+  `specifications/lean_statements_20261010/Specifications/Field.lean`, SHA-256
+  `f22c91e082cd7e738ba47c9c3534e47ac687d066f0b78586d15103cf1132535e`, 27767 bytes, blob
+  `cc40e9d19446b8a150401c574d3cfd56177f195f`, imports `Mathlib` only; compiled in the replay with the
+  packet's own `-DautoImplicit=false`; bound by identity in the working tree and at HEAD.
 - Pinned environment read from `formal/`: `leanprover/lean4:v4.34.1`, Mathlib
   `d13f23b723b8a846827a245b89c10fc7d3f11612`; nothing from the core is imported or pinned.
 
@@ -72,7 +87,7 @@ a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
 
 | Targets | Exact coverage | Not established |
 |---|---|---|
-| `torus_field_latticeVec_formula`, `torus_basis_sum_eq_latticeVec`, `torus_lattice_mem_iff` | `torus_latticeVec d L n = ∑ i, EuclideanSpace.single i (L * n i)` by `rfl`; the integer combination of the `L`-scaled standard basis is that vector; lattice membership iff an integer vector produces the point | any elaborated theorem naming the externally owned `Specifications.Field` module; the companion carries the literal formula and does not import that file |
+| `torus_field_latticeVec_formula`, `torus_basis_sum_eq_latticeVec`, `torus_lattice_mem_iff` | `torus_latticeVec d L n = ∑ i, EuclideanSpace.single i (L * n i)` by `rfl`; the integer combination of the `L`-scaled standard basis is that vector; lattice membership iff an integer vector produces the point | any elaborated theorem of the C254 modules naming the externally owned `Specifications.Field` module; they carry the literal formula and do not import that file (only the owner-authored `SuperlevelBarField` imports it, below) |
 | `torus_proj_surjective`, `torus_proj_continuous`, `torus_proj_eq_iff`, `torus_control_lattice_translate` | the quotient projection is surjective and continuous; `proj x = proj y ↔ ∃ n, y = x + torus_latticeVec d L n`; a lattice translate has the same image | a fundamental-domain parametrisation; uniqueness of representatives |
 | `torus_proj_isCoveringMap`, `torus_compact`, `torus_pathConnectedSpace` (with the three discreteness/`IsZLattice` instances) | the projection is a covering map; `IsCompact Set.univ` on the quotient; the quotient is path connected | a registered `CompactSpace` instance; smooth charts; any manifold structure |
 | `torus_field_periodic_formula`, `torus_periodic_respects`, `torus_descend_proj`, `torus_descend_continuous` | `torus_isPeriodic d L g` is literally the Field periodicity formula; periodic `g` respects the quotient relation; `descend g (proj x) = g x`; the descent is continuous when `g` is | smoothness of descended functions; derivative or Hessian invariance; Morse-index compatibility |
@@ -86,7 +101,7 @@ a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
 | `superlevelBar_death_eq_zero_of_empty`, `superlevelBar_death_eq_zero_of_essential`, `superlevelBar_death_eq_sSup_of_nonempty` | `superlevelBar_deathHeight` is `sSup` of the clearance set when nonempty and the declared default `0` when empty, hence `0` for essential inputs | a geometric death event or finite persistence interval at that `0`; a finite death for an essential class; the handoff's own words: the scalar zero on an empty set is a default, not an essential-bar death |
 | `superlevelBar_path_minimum`, `superlevelBar_clearance_nonempty`, `superlevelBar_clearance_nonempty_iff`, `superlevelBar_clearance_downward`, `superlevelBar_clearance_improve` | a continuous height attains a minimum on each path; for continuous `g` the clearance set is nonempty exactly off the essential locus (`Path.segment`, minimum minus one); clearance is downward closed; each strict witness has a strictly larger witness on its own path | a minimum over all paths or an optimal path; compactness of the whole Euclidean domain; a witness strictly above the supremum |
 | `superlevelBar_strict_cut`, `superlevelBar_death_le_start_of_nonempty`, `superlevelBar_death_le_start`, `superlevelBar_clearance_eq_Iio`, `superlevelBar_death_not_mem_clearance`, `superlevelBar_cut_unique` | for continuous nonessential inputs: `h < death ↔ h ∈ clearance`; death `≤ g M`; the clearance set is `Set.Iio death`; death is not a clearance; a real with the same strict cut is the death height | closed-threshold attainment at the death height; the death/start bound on the empty default branch; equality of arbitrary total interface records off the valid locus |
-| `superlevelBar_death_const`, `superlevelBar_control_negative_essential` | a constant height has death `0` everywhere; the handoff's own control: the constant `-1` has death `0` and `¬ 0 ≤ -1`, so no unconditional death/start bound holds on the essential default | any finite ordinary bar for a constant height; an inhabitant of the separately owned Field or Lifetime record; an elder relation; Morse endpoint attainment; ordinary H0 bar pairing; finite-bar counts; a Gaussian field or weighted law |
+| `superlevelBar_death_const`, `superlevelBar_control_negative_essential` | a constant height has death `0` everywhere; the handoff's own control: the constant `-1` has death `0` and `¬ 0 ≤ -1`, so no unconditional death/start bound holds on the essential default | any finite ordinary bar for a constant height; an inhabitant of the separately owned Field or Lifetime record (by these C263 declarations; the adapter below builds one of the Field record from them); an elder relation; Morse endpoint attainment; ordinary H0 bar pairing; finite-bar counts; a Gaussian field or weighted law |
 | `ordinaryH0_componentCoproductMap_iota`, `ordinaryH0_componentFiltration_map_iota` (C264) | the component functor `TopCat ⥤ Type` (objects `ZerothHomotopy X`, maps `superlevel_componentMap`) followed by `sigmaConst.obj R` sends the generator at `q` to the generator at `superlevel_componentMap f.hom q`; the same along a closed-superlevel inclusion `homOfLE hst` through `superlevel_componentInclusion` | that distinct source components stay distinct; a reverse inclusion or endpoint deletion; regularity, finite dimensionality or Morse hypotheses on the height |
 | `ordinaryH0_simplicialPointClass_iso`, `ordinaryH0_simplicialPointClass_map`, `ordinaryH0_toSSet_pointMap`, `ordinaryH0_pointClass_map`, `ordinaryH0_pointClass_iso`, `ordinaryH0_componentIota_isoInv`, `ordinaryH0_hom_ext` | in Mathlib's actual singular homology: the point class of a zero-simplex composed with `S.homology₀Iso R` is the generator at `SSet.π₀.mk x`; the actual homology map transports point classes; `TopCat.singularHomology₀Iso` sends `ordinaryH0_pointClass X R x` to the generator at `ZerothHomotopy.mk x` (and inversely); morphisms out of singular H0 agree if they agree on all point classes | a replacement or free-module definition standing in for singular H0; a transported or postulated substitute for the actual homology map; injectivity of the induced map; a distinguished geometric representative; a basis of geometric maxima or finiteness of components |
 | `ordinaryH0_iso_naturality` (with `ordinaryH0_naturalIso`) | Mathlib's objectwise comparison `TopCat.singularHomology₀Iso` commutes with every continuous map, proved from actual zero-cycle generators (the repaired proof: explicit reassociation of both sides), so it assembles into a natural isomorphism `(singularHomologyFunctor C 0).obj R ≅ ordinaryH0_componentCoproductFunctor R` | naturality by an added assumption or compatibility record (none is used); an interval decomposition or persistence-bar classification |
@@ -101,6 +116,10 @@ a handoff module, not a review of `OrdinaryH0`, and lifts nothing.
 | `ordinaryH0Control_square_differences_ne_zero`, `ordinaryH0Control_fst_difference_zero`, `ordinaryH0Control_fst_difference_ne_zero` (with `ordinaryH0Control_fst`) | non-merger fixture: the non-injective first projection `Bool × Bool → Bool` kills the difference of `(true, false)` and `(true, true)` and keeps that of `(true, false)` and `(false, true)` nonzero; both differences are nonzero before the map | injectivity of the induced H0 map (which fails on the first pair) |
 | `ordinaryH0Control_bool_zeroCoeff_eq`, `ordinaryH0Control_point_zeroCoeff_eq_zero`, `ordinaryH0Control_separation_needs_nonzero`, `ordinaryH0Control_nonvanishing_needs_nonzero` | with zero coefficients the two point classes of `Bool` are equal although the components differ and the point class of the point is `0`; so the separation and nonvanishing statements are false without `𝟙 R ≠ 0` | any failure of the C264 statements, which keep that hypothesis |
 | `ordinaryH0Control_parabola_le`, `ordinaryH0Control_parabola_strict_growth`, `ordinaryH0Control_parabola_not_joined_quarter`, `ordinaryH0Control_parabola_joined`, `ordinaryH0Control_parabola_difference_zero`, `ordinaryH0Control_parabola_strict_difference_ne_zero` (with `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight`) | filtration fixture for `x ↦ x ^ 2`: `-1` and `1` in the closed superlevel at parameter `-1`; the strict inclusion into the level at `-1/4` keeps the difference of their classes nonzero (no path through `0` in `{x | 1/4 ≤ x ^ 2}`); the inclusion into the level at `0`, the whole line, kills it | a first merger level, threshold attainment, the behaviour strictly between `-1/4` and `0`; any Morse, interval, elder, count, Field or stochastic statement |
+| `superlevelBarField_continuous`, `superlevelBarField_nonempty` (with `superlevelBarField_interface`) (Field adapter) | a height smooth in the Field sense is continuous; for every `d` and `L` the record with `deathHeight := superlevelBar_deathHeight`, `IsEssential := superlevelBar_isEssential` and `ElderPartner :=` the right-hand side of the `elderPartner_iff` clause inhabits `UniversalLaw.Spec.Field.SuperlevelBarInterface d L` (maximin clause from `superlevelBar_strict_cut`; essentiality clause from `superlevelBar_essential_iff`; elder clause by `Iff.rfl`) | a persistence-module elder rule, the source's elder event or its Borel measurability (the elder clause holds by definition); any use of periodicity or of `L` in the construction; a torus quotient; Morse genericity; an inhabitant of `UniversalLaw.Spec.Lifetime.SuperlevelBarInterface`; any Lifetime statement |
+| `superlevelBarField_deathHeight_eq`, `superlevelBarField_isEssential_iff`, `superlevelBarField_elderPartner_iff` | the record's three fields, by `rfl` / `Iff.rfl` | any meaning of the value `0` the C263 default gives at essential points |
+| `superlevelBarField_essential_unique`, `superlevelBarField_deathHeight_unique`, `superlevelBarField_elderPartner_unique` | for every inhabitant `I` and smooth `L`-periodic height: `I.IsEssential` is global maximality; at a nonessential point `I.deathHeight` is the C263 death height (`superlevelBar_cut_unique`); on the Morse distinct-value locus `I.ElderPartner` is the record's (the periodicity hypothesis is needed: it is what applies `I`'s clauses) | agreement at essential points (refuted below) or off the guarded locus, non-periodic heights included; that any inhabitant is the source's superlevel H0 object |
+| `superlevelBarField_shift_deathHeight_const`, `superlevelBarField_const_smooth`, `superlevelBarField_const_periodic`, `superlevelBarField_control_essential_free` (with `superlevelBarField_shift`) | a second inhabitant whose death height at essential points is a constant `c`; constant heights are smooth and `L`-periodic; at the constant height `0`, where every point is essential for both records, the record gives `0`, its shift by `1` gives `1`, and they differ, so the nonessential hypothesis of the uniqueness theorem cannot be dropped | a preferred value at essential points |
 
 The audited definitions (`torus_E`, `torus_quotient`, `torus_latticeVec`, `torus_periodBasis`,
 `torus_periodLattice`, `torus_proj`, `torus_isPeriodic`, `torus_descend`, the three lattice
@@ -111,7 +130,8 @@ instances, `superlevel_set`, `superlevel_inclusion`, `superlevel_componentMap`,
 `ordinaryH0_componentFiltration`, `ordinaryH0_simplicialPointClass`, `ordinaryH0_pointClass`,
 `ordinaryH0_naturalIso`, `ordinaryH0_filtrationIso`, `ordinaryH0Control_intCoeff`,
 `ordinaryH0Control_zeroCoeff`, `ordinaryH0Control_mod2Coeff`, `ordinaryH0Control_collapse`,
-`ordinaryH0Control_fst`, `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight`) are
+`ordinaryH0Control_fst`, `ordinaryH0Control_parabolaLeft`, `ordinaryH0Control_parabolaRight`,
+`superlevelBarField_interface`, `superlevelBarField_shift`) are
 constructions and fixtures, not claims; they are audited so that no hidden axiom enters through a
 definition.
 
@@ -127,6 +147,7 @@ definition.
 | `RejectMergerKillsPointClass` (C264 item 4) | a merger confused with the death of a class: the collapse `Bool → Unit` asserted to kill the individual point class of `true`; `ordinaryH0Control_collapse_image_ne_zero` rewrites it to `False`; `⊢ False` |
 | `RejectSeparationWithoutNonzeroCoeff` (C264 item 4) | a separation claim without its coefficient hypothesis: the two point classes of `Bool` asserted to differ with zero coefficients; `ordinaryH0Control_bool_zeroCoeff_eq` rewrites it to `False`; `⊢ False` |
 | `RejectNonmergerKillsDifference` (C264 item 4) | a non-injective map confused with a merger: the projection `Bool × Bool → Bool` asserted to kill the difference of `(true, false)` and `(false, true)`, whose images stay in distinct components; `ordinaryH0Control_fst_difference_ne_zero` rewrites it to `False`; `⊢ False` |
+| `RejectEssentialDeathDetermined` (Field adapter) | the interface asserted to determine the death height at an essential point: the record and its shift by `1` asserted equal at the constant height `0` of `ℝ^1`; `superlevelBarField_deathHeight_eq`, `superlevelBar_death_const` and `superlevelBarField_shift_deathHeight_const` rewrite it to `0 = 1`; `⊢ False` |
 | `RejectSorry`, `RejectCustomAxiom`, `RejectNativeDecide` | an admitted proof, a hidden premise behind an intermediate theorem, and a native-code decision each pass Lean (exit 0) and must be refused by the transitive axiom audit (`sorryAx`, `hiddenPremise`, `injected._native.native_decide.ax_1_1`) |
 
 Each control is matched by `re.fullmatch` against its pinned diagnostic; the false-statement
@@ -136,7 +157,8 @@ the three item-4 controls the same tactic on each control's true sibling stateme
 pin and leaves a different diagnostic (`` `simp` made no progress ``, or a goal other than `False`
 with an unused simp argument), which `negative` refuses; those sibling logs are pinned in the
 protocol tests as negative controls, so each control's `⊢ False` is attributable to the falsehood
-of its statement.
+of its statement. For the Field-adapter control the same tactic on its true sibling (the shift by
+`0`) proves it, exit 0 and no output, which `negative` refuses under either exit status.
 The Python suite additionally refuses every weakening of `check.py` it knows about (wrong
 diagnostic, wrong exit code, unknown control, `sorryAx`, unknown or missing audit target,
 unrecognized audit text, missing or extra type, a diagnostic after the type listing, membership
@@ -160,7 +182,15 @@ of the root, an `open scoped` line with a lowercase or missing namespace or anyt
 line, the pre-registration two-import root module and three-module `leanchecker` command, a
 module name outside `MODULES`, since the item-4 controls the pre-controls four-import root module and five-module
 `leanchecker` command, an import of `OrdinaryH0Controls` by an earlier module, the three item-4 controls' true-sibling
-diagnostics, single-field changes to the owner-module record of `OrdinaryH0Controls` (hash, byte count, author, kind,
+diagnostics, since the Field adapter an import of `Specifications.Field` by any module other than
+`SuperlevelBarField`, an import of any other `Specifications` or `SpecificationProofs` module, of a
+`Specifications.Field` submodule or of the bare package name, an import of `SuperlevelBarField` by an
+earlier module, the pre-adapter five-import root module and six-module `leanchecker` command, an
+external `Field.lean` edited in the working tree (also by one byte at equal length), edited and
+committed, deleted, restored over a changed commit (staged or not) or reached through a symlinked
+directory, a change to each single field of the external input record and of the adapter's owner
+record, each of their fields dropped on its own, an added field, a dropped or added entry and an
+emptied external record, the Field-adapter control's true-sibling outcome, single-field changes to the owner-module record of `OrdinaryH0Controls` (hash, byte count, author, kind,
 review status, census, credit, a dropped comment pointer, an added field, a dropped or added entry, the record copied
 into the successor record), and single-field changes to the successor record (a changed
 handoff or successor hash, a successor byte count or a C26x entry of `provenance.original_bytes`, a changed census line, a nonzero credit, a lifted or
@@ -170,15 +200,16 @@ comparison in `metadata`, not by a control of their own).
 
 ## Evidence boundary
 
-A green hosted run establishes, for these 153 declarations at this toolchain and dependency
-lock, that Lean elaborated them with warnings as errors, that Lean's own census of the
-constants the six modules (the five modules and the root) add to the environment
-(`Census.lean`, with declaration-range and internal-name tags) has exactly these 153 as its
+A green hosted run establishes, for these 167 declarations at this toolchain and dependency
+lock, that Lean elaborated them with warnings as errors (and the external `Field.lean`, bound by
+identity, with the packet's own options), that Lean's own census of the
+constants the seven modules (the six modules and the root) add to the environment
+(`Census.lean`, with declaration-range and internal-name tags) has exactly these 167 as its
 user-written declarations and exactly the one named compiler-generated auxiliary (internal
-generated constants, 27 at the pin, are counted and otherwise ignored), that
-`leanchecker TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls TorusFiltration` replayed the
-companion modules' own
-declarations through the kernel against the cached, prebuilt dependency `.olean` files (the
+generated constants, 31 at the pin, are counted and otherwise ignored), that
+`leanchecker Specifications.Field TorusTopology ClosedSuperlevel SuperlevelBar OrdinaryH0 OrdinaryH0Controls SuperlevelBarField TorusFiltration` replayed the
+companion modules' own declarations and those of the external `Specifications.Field`
+through the kernel against the cached, prebuilt dependency `.olean` files (the
 import closure, all of Mathlib, is trusted from that cache and not re-checked; a `--fresh`
 re-check of the closure does not fit a hosted job and is available only as an operator's local
 run, which the receipt records as mode `fresh`), and that every transitive axiom lies in
@@ -187,10 +218,13 @@ research programme, nothing about C253 or any q0 claim, and nothing the handoffs
 attainment, finite critical events, label tracking, naturality to singular-H0 generators beyond
 the functor laws (C254; the C264 module proves that naturality for Mathlib's actual H0 and
 nothing beyond it), interval decomposition, bar bijection, elder events, once-counting, any
-identification of `PairLawInterface.p`, an inhabitant of the Field or Lifetime record, a Field
-adapter, a Morse chart, a count identity, a Gaussian or stochastic law, closed-threshold
-attainment at the C263 death height, reduced-H0 vanishing, or any claim for a zero coefficient
-object; and, for `OrdinaryH0Controls`, nothing beyond its fixtures: no review of `OrdinaryH0`, no
+identification of `PairLawInterface.p`, an inhabitant of the Lifetime record, a Morse chart, a count
+identity, a Gaussian or stochastic law, closed-threshold attainment at the C263 death height,
+reduced-H0 vanishing, or nonvanishing or separation for a zero coefficient object; for the
+`SuperlevelBarField` adapter, which does build an inhabitant of the Field record, nothing beyond the
+statements above: no persistence-module elder rule, no source elder event or its measurability, no
+use of periodicity in the construction (its uniqueness theorems need the periodicity hypothesis), no
+value at essential points, no Lifetime statement; and, for `OrdinaryH0Controls`, nothing beyond its fixtures: no review of `OrdinaryH0`, no
 first merger level or threshold attainment, no statement that its fixtures meet every row of the
 CONTROL_OBLIGATIONS matrix or that item 4 of the C264 owner task is closed. The receipt's `formalization_status: kernel-checked` is a
 record of that computation; `alignment_status` remains `PENDING_INDEPENDENT_REVIEW` and
@@ -207,8 +241,9 @@ Lean execution as an open condition under FORMAL HOLD; no organizational-indepen
 posted from the same project account) exist; neither is a nonzero-credit review, and FORMAL HOLD is
 unchanged, its disposition being for the C263/C264 handoff owners. The registration of 2026-10-11 is
 not a review, and the compiler, repairer and registrar of both successors, and the author and
-registrar of `OrdinaryH0Controls` (df9d3645…), is the companion's own lane at
-organizational-independence credit 0. Aging approves nothing.
+registrar of `OrdinaryH0Controls` (df9d3645…) and of `SuperlevelBarField` (8a247043…), is the
+companion's own lane at organizational-independence credit 0; the FORMAL HOLD of `SuperlevelBar`
+extends to the adapter, which consumes its definitions. Aging approves nothing.
 
 ## C264 owner task item 4 controls (2026-10-12)
 
@@ -233,11 +268,34 @@ decomposition, elder correspondence, count identity, Field adapter or stochastic
 about connected (as opposed to path) components; a fixture for the 13 C264 theorems it does not
 name; any organizational-independence credit (0).
 
+## C263 Field adapter (2026-10-12)
+
+The owner-authored `SuperlevelBarField.lean` (route: Math- #428 comment 6112932068, item 2, retained
+by this lane; allocation of its import line and compile step: comment 6124097060) imports the
+statement packet's `Specifications.Field`, the one external input of this companion, compiled in the
+replay from its pinned bytes, and inhabits `UniversalLaw.Spec.Field.SuperlevelBarInterface d L` for
+every `d` and `L` with the C263 death height and essentiality and the elder clause's own right-hand
+side. It proves that on smooth `L`-periodic heights every inhabitant agrees with this one on
+essentiality, on the death height at nonessential points and, on the Morse distinct-value locus,
+on the elder relation, and that the interface leaves the death height at essential points free (a
+second inhabitant differs there). It is registered with one false control
+(`RejectEssentialDeathDetermined`, table above), refused with exactly `⊢ False` and discriminated
+from its true sibling. The evidence directory grows from 65 to 72 members (two build pairs, one
+control triple); the census from 181 to 199 constants (167 user range, 1 user generated, 31
+internal generated). It does not establish: a review of `SuperlevelBar` or of the adapter (FORMAL
+HOLD unchanged and extended to the adapter); a persistence-module elder rule, the source's elder
+event or its measurability; any use of periodicity or of `L` in the construction; an inhabitant of the
+Lifetime record or
+any Lifetime statement; any change to the statement packet (its REGISTER text
+"no inhabitant is constructed" is about the packet and stays true of it; no claim-level label moves); alignment
+(`PENDING_INDEPENDENT_REVIEW`); any organizational-independence credit (0).
+
 ## Reproduction
 
     bash companions/torus_filtration_20261011/replay.sh
     python3 -B -S companions/torus_filtration_20261011/test_torus_filtration.py
     python3 -B -O -S companions/torus_filtration_20261011/test_torus_filtration.py
 
-The replay must start without `.lake/torus-filtration-evidence` present and must not run
-`formal/gate.py`, the formal tests, `lake build`, `lake update` or `lake exe cache`.
+The replay must start without `.lake/torus-filtration-evidence` and `.lake/torus-filtration-spec`
+present and must not run `formal/gate.py`, the formal tests, `lake build`, `lake update` or
+`lake exe cache`.
