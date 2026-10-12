@@ -9,3 +9,5 @@ import SpecificationProofs.P15Interpolation
 import SpecificationProofs.Side24Analysis
 import SpecificationProofs.Side24Interfaces
 import SpecificationProofs.RNCluster
+import SpecificationProofs.Side24Covariance
+import SpecificationProofs.Side24ConeMoment
