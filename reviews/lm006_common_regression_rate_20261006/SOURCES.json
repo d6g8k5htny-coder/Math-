@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "author": "OpenAI / GPT-6 Astra Pro",
+  "session": "lm006-common-regression-rate-20261006",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0,
+  "status": "author-side application; separate nonauthor review required",
+  "base_commit": "39c10a4bb6a670b12aed47c13cba43f846b61baa",
+  "files": [
+    {
+      "path": "NOTE.md",
+      "bytes": 17559,
+      "sha256": "8ee4189778be9e01ff36f1d7d01f991b7ebb1d746e9473689eb2f88af903b1b8",
+      "git_blob": "3242441f1692a99942fde89a3ec6ef12e9e4693d"
+    },
+    {
+      "path": "regression_rate_check.py",
+      "bytes": 7066,
+      "sha256": "c8301510d14daa3dbd9891c494c4a01e0a35c82fa593546f8570417f46f5dab3",
+      "git_blob": "a66988e0b11ecd432cda368a857f410660273a8d"
+    },
+    {
+      "path": "test_regression_rate.py",
+      "bytes": 3546,
+      "sha256": "9655a06cd4cfc0444c5ceeee63fb14c8bd72084a98f23c48dc58aedb19a945b6",
+      "git_blob": "6457703082dfa6951d95eb26b398cd03c2cc9b09"
+    }
+  ],
+  "sources": [
+    {
+      "tag": "P",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "sections": "1-2",
+      "use": "exact periodic model, spectral moments and distinct contact jets",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "E",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "sections": "1-4,6",
+      "use": "exact equivalent pins, adjusted endpoints, integral kernels and contact law",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "R",
+      "path": "frontiers/remote_window_20260924/PROOF.md",
+      "commit": "f4c33a98a982d50aa490e49ce9327c755682527c",
+      "git_blob": "b383bfcc88ec4ad497dff01fb6640e429ba24a84",
+      "sections": "2-4",
+      "use": "prior common-field O(r^2) and normalized-weight O(r); no novelty or remote-count theorem import",
+      "role": "prior_work",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "N",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "sections": "2-5",
+      "use": "physical typed weight and quantitative polynomial/moment bounds",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "T",
+      "path": "reviews/lm006_tilted_endpoint_law_20261005/NOTE.md",
+      "commit": "ecafa5206c528b0c662ea0bcbb26938681251aa5",
+      "git_blob": "6633cdf0bfee55e2fc2046176effbf44634454b3",
+      "sections": "2-4",
+      "use": "absolute L1/normalized-density/BL and weighted-motion inequalities",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "S",
+      "path": "reviews/lm006_typed_sign_suppression_20261005/NOTE.md",
+      "commit": "1dfe801eb61a8335a2e42b886fca9b000fb3598c",
+      "git_blob": "9015971fa03f44ae99d410facc6f3d8c26cdc945",
+      "sections": "3-5, equation (8)",
+      "use": "separately reviewed conditional typed saddle-sign bound; not first conditional r^2 argument",
+      "role": "consumed",
+      "repository": "d6g8k5htny-coder/Math-"
+    },
+    {
+      "tag": "D",
+      "path": "reviews/lm006_positive_radius_density_20261006/NOTE.md",
+      "commit": "b154cd0074798850bfafe2c0f7e433707d93403f",
+      "git_blob": "a6d5209a64d37b3ea28cb7dd64d92888a74acfe1",
+      "sections": "5-6",
+      "use": "compatible exact endpoint TV obstruction, not used to prove the rate",
+      "role": "cited_only",
+      "repository": "d6g8k5htny-coder/Math-"
+    }
+  ],
+  "external_context": {
+    "title": "Efficiently sampling functions from Gaussian process posteriors",
+    "url": "https://proceedings.mlr.press/v119/wilson20a.html",
+    "read_scope": "primary publication metadata and abstract only; no external theorem consumed"
+  },
+  "claims": [
+    "Math-#318/6008539331",
+    "Math-#318/6008555906"
+  ],
+  "execution_scope": "Exact finite polynomial Gaussian diagnostic; not the infinite periodic covariance, field simulation, Lean or complete-repository execution.",
+  "exclusions": [
+    "No numerical radius or constants",
+    "No endpoint total-variation convergence",
+    "No full-field/Palm/elder-failure/global closure",
+    "No inherited historical review/status promotion",
+    "No automatic hosted standalone-checker execution"
+  ],
+  "self_hash": "not embedded; this manifest is bound externally by its Git blob"
+}
