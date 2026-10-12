@@ -462,7 +462,11 @@ within torus distance `η` of a pin. All mutual separations are included, down t
 Source: d6g8k5htny-coder/Math- commit 6c020d6a72936632f2055122e71a7818a4ff497e path reviews/d5_reconciliation_20260929/RECONCILIATION.md sha256 14342b7eb0ad47c1c99b06be58fb6c901f5c7c72fc70f73e81de3dde50c23432
 Anchor: "one witness is within fixed `η` of a pin."
 Interface: none.
-Does not claim: finiteness of the counted set; that ordered pairs with the near-pin witness second are counted (they are counted by symmetry of the roles only when both witnesses are near a pin; the pair with the near-pin witness in first position is always counted). -/
+Does not claim: finiteness or measurability of the counted set (`Set.ncard` is `0` on an infinite set);
+that an ordered pair whose only near-pin witness is in second position is counted (it is not: it is
+the swap of a counted pair, so in the finite case the source's "at least one witness near a pin"
+count lies between this count and twice it, and a bound `C r^3` on this count is a bound `2 C r^3`
+on the source's; the two functionals are not literally the same). -/
 noncomputable def nearPinPairCount (d : ℕ) (L : ℝ) (g : E d → ℝ) (b k r η : ℝ) (u : E d) : ℕ :=
   Set.ncard {q : E d × E d |
     q.1 ∈ torusMinusPins d L r u ∧ q.2 ∈ torusMinusPins d L r u ∧ 0 < torusDist d L q.1 q.2 ∧
@@ -975,6 +979,20 @@ Prop below is that target: fixed `d ≥ 2`, `L > 0`, `η > 0`, compact marks; th
 `r_* > 0` with `E_(Q_r^W) #{ordered window pairs with the first witness within η of a pin} ≤ C r^3`
 for `0 < r ≤ r_*`, all `b, k, R`. No source in this packet establishes it; its register
 status is OPEN and this declaration does not change that.
+
+Scope note (statement-shape review 5483861746 on Math- PR #419, 2026-10-11, AMEND_SCOPE_NOTE;
+nothing below changes the Prop): (i) the source's §5 states its open obligation for the planar
+case and makes no claim for `d > 2`; the formal target quantifies every `d ≥ 2`, so its instances
+with `d > 2` are a proposed generalisation carried by this packet, not a transcription of the
+source's scope. (ii) `nearPinPairCount` counts ordered pairs whose FIRST witness is within `η` of
+a pin; the source's "at least one witness" set is the union of that set with its swap, so (in the
+finite case) it has between one and two times as many elements, and a bound `C r^3` here is a
+bound `2 C r^3` for the source's count: the orders agree, the functionals do not literally
+coincide. (iii) `Set.ncard` is `0` on an infinite set and `PinnedLawInterface` supplies neither
+almost-sure finiteness nor measurability of the pair population, so an infinite population would
+make the integrand vanish spuriously; reading this Prop as the source's second factorial moment
+needs those two facts about the law, which the interface does not provide and this Prop does not
+assume. The weighted law `I.QW` is a given field, not the source's six-pin regression.
 
 Source: d6g8k5htny-coder/Math- commit 6c020d6a72936632f2055122e71a7818a4ff497e path reviews/d5_reconciliation_20260929/RECONCILIATION.md sha256 14342b7eb0ad47c1c99b06be58fb6c901f5c7c72fc70f73e81de3dde50c23432
 Anchor: "A torus-wide second factorial moment `E_{Q_r^W} N(N−1)` for the window count, with pairs where at least"
