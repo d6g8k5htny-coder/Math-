@@ -2,8 +2,14 @@
 
 Scientific effect: **NONE**. Organizational-independence credit of this packet: 0 (Anthropic /
 Claude, delegated AI work). Alignment status of every statement: `PENDING_INDEPENDENT_REVIEW`.
-Formal progress of every declaration here: `specified`. No claim, premise, obligation or
-disposition changes because this packet exists, builds, or is green in CI.
+Formal progress of every declaration here: `specified`. The sibling proof packet
+`specifications/lean_statement_proofs_20261011` holds theorems whose type is exactly one of these
+Props (51 of the 141 Props, 52 theorems); the register lists them under the claim rows as
+statement entries of kind `theorem` with label `proved` (all of them kernel-checked by the hosted run 38121713840: PR head 910809d6,
+actual tested merge 5b198699… with base b2d70d77…, same tree as the head),
+which changes no
+label of this packet and no claim-level label. No claim, premise, obligation or
+disposition changes because this packet exists, builds, or is green in CI, or because a Prop of it is proved.
 
 ## What this packet is
 
@@ -40,201 +46,202 @@ ladder; it is `specified`.
 | `check.py`, `test_check.py`, `replay.sh` | the checker, its unit tests and negative controls, the local replay |
 | `lakefile.toml`, `lean-toolchain`, `lake-manifest.json` | Lean `leanprover/lean4:v4.34.1`, Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, lock identical to `formal/lake-manifest.json`; `autoImplicit = false` so an unbound name in a header is an error, never a silent implicit parameter |
 | `.github/workflows/lean-specifications.yml` | CI: tests, source check, `lean-action` with the Mathlib cache, `check.py --execute`, artifact of `.lake/evidence/` |
+| `../lean_statement_proofs_20261011/` | the sibling proof packet (path dependency on this packet, never edits it): theorems typed exactly as registered Props, its own gate `check.py` and workflow `.github/workflows/lean-specification-proofs.yml`; its theorems appear in `REGISTER.json` as `proved` statement entries |
 
 ## Declarations
 
-150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified`; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json.
+150 registered declarations (141 `def … : Prop`, 9 interface `structure`), every one with formal progress `specified` in this package; the 123 auxiliary definitions and abbreviations of the modules are inventory only and are not register statements. Names are given without the module namespace `UniversalLaw.Spec.<Module>.`; the source column is the pinned source named by the docstring's `Source:` line. Anchors and "Not established" cells are copied verbatim from the Lean docstrings (`Anchor:` and `Does not claim:` lines) through REGISTER.json. The last column names the theorems of the sibling proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly the declaration (namespace `UniversalLaw.Proofs.<Family>.`): 51 of the 141 Props have one (52 theorems; `TriangleNeedsThree` is proved twice), each listed in the register under the claim rows as a statement entry of kind `theorem` with label `proved` (the label of a committed proof package; `kernel-checked` appears only in a run receipt: the hosted `lean-specification-proofs.yml` run 38121713840 receipted all of them and run 38116277597 the first 38; a pull_request run checks out the synthetic merge of the PR head into the base, so each receipt records as checked_commit that merge and not the head: run 38121713840 PR head 910809d6, actual tested merge 5b198699308e0585904c21d12bf540cf2475d2f0 with base b2d70d77876a10c365f5db5d3b6cafcf180af4e2; run 38116277597 PR head 00d2ac6e, actual tested merge c4c66bb8cb26f0cd9bc03d52bb25f1b3925b272c with the same base; run 38122386459 corroborates on PR head d9b8dd33, actual tested merge 866136cca66b46e6dbd3186b47c9340f7e93b4f6; each merge has the same tree as its head). That label belongs to the theorem, not to the declaration here, which stays `specified`, and not to any claim row; a kernel-checked theorem is evidence about its Prop only, and alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 ### `Specifications/Field.lean` (12 registered declarations)
 
-| declaration | kind | source | registered under claim rows |
-|---|---|---|---|
-| `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `GaussianFieldInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsCriticalPoint` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `HessianHasInertia` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsNondegMax` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsIndexSaddle` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsCandidatePair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsMorseDistinct` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `SuperlevelBarInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsFiniteBar` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsLifetimeDensityVersion` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
+|---|---|---|---|---|
+| `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `GaussianFieldInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsCriticalPoint` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `HessianHasInertia` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsNondegMax` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsIndexSaddle` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsCandidatePair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsMorseDistinct` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `SuperlevelBarInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsFiniteBar` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsLifetimeDensityVersion` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
 
 ### `Specifications/Lifetime.lean` (24 registered declarations)
 
-| declaration | kind | source | registered under claim rows |
-|---|---|---|---|
-| `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `GaussianFieldInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsCriticalPoint` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `HessianHasInertia` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsNondegMax` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsIndexSaddle` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsCandidatePair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsMorseDistinct` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `SuperlevelBarInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsFiniteBar` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` |
-| `IsLifetimeDensityVersion` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-B` |
-| `IsWindowPair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` |
-| `IsWindowElderPair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` |
-| `IsUnrestrictedPair` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-C` |
-| `PairLawInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-A` |
-| `ParentUniformSelectionA` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-A` |
-| `ParentCompactWindowDensityB` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` |
-| `IsUnrestrictedLeadingCoefficient` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-C` |
-| `ParentUnrestrictedLeadingDensityC` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-C` |
-| `RemainderBoundedR1` | def_prop | `lifetime-remainder` | `lifetime-remainder`, `math.lifetime-remainder` |
-| `PlanarElderLowerE2` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` |
-| `PlanarTwoSidedRateE4` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` |
-| `PlanarDensityGapE11` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
+|---|---|---|---|---|
+| `IsLPeriodic` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsSmooth` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `GaussianFieldInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsCriticalPoint` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `HessianHasInertia` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsNondegMax` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsIndexSaddle` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsCandidatePair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsMorseDistinct` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `SuperlevelBarInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsFiniteBar` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime` | — |
+| `IsLifetimeDensityVersion` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-B` | — |
+| `IsWindowPair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` | — |
+| `IsWindowElderPair` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` | — |
+| `IsUnrestrictedPair` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-C` | — |
+| `PairLawInterface` | structure | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-A` | — |
+| `ParentUniformSelectionA` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-A` | — |
+| `ParentCompactWindowDensityB` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-B` | — |
+| `IsUnrestrictedLeadingCoefficient` | def_prop | `lifetime-parent` | `lifetime-remainder`, `math.uniform-matrix-cap-lifetime`, `D1-THM-C` | — |
+| `ParentUnrestrictedLeadingDensityC` | def_prop | `lifetime-parent` | `math.uniform-matrix-cap-lifetime`, `D1-THM-C` | — |
+| `RemainderBoundedR1` | def_prop | `lifetime-remainder` | `lifetime-remainder`, `math.lifetime-remainder` | — |
+| `PlanarElderLowerE2` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` | — |
+| `PlanarTwoSidedRateE4` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` | — |
+| `PlanarDensityGapE11` | def_prop | `elder-lower-density-gap` | `OA-ELDER-LOWER-DENSITY-GAP-20260928-v1` | — |
 
 ### `Specifications/Side24.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows |
-|---|---|---|---|
-| `ThetaSummable` | def_prop | `side24-proof` | `side24-coefficient` |
-| `IsUnitTuple` | def_prop | `side24-proof` | `side24-coefficient` |
-| `DerivativePairingBound` | def_prop | `side24-proof` | `side24-coefficient` |
-| `DerivativeBoundAtLeastOne` | def_prop | `side24-proof` | `side24-coefficient` |
-| `DerivativeBoundAtZero` | def_prop | `side24-proof` | `side24-coefficient` |
-| `LatticeImageSumBound` | def_prop | `side24-proof` | `side24-coefficient` |
-| `SuccessiveTermRatio` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ExponentialBounds` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ImageBound` | def_prop | `side24-proof` | `side24-coefficient` |
-| `CovarianceOrdering` | def_prop | `side24-proof` | `side24-coefficient` |
-| `EntrywiseCovarianceBound` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ReferenceCovarianceLowerBound` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ReferenceOddAndPinBlocks` | def_prop | `side24-proof` | `side24-coefficient` |
-| `DensityComparison` | def_prop | `side24-proof` | `side24-coefficient` |
-| `IntegrandRatioBounds` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ReferencePinDensityProduct` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ReferenceCoefficientIdentity` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ConeMomentInterface` | structure | `side24-proof` | `side24-coefficient` |
-| `NegDefCone` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ConeMomentD1Identity` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ConeMomentD2Identity` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ConeMomentD2Algebra` | def_prop | `side24-proof` | `side24-coefficient` |
-| `TraceMoments` | def_prop | `side24-proof` | `side24-coefficient` |
-| `RayleighSquareLaw` | def_prop | `side24-proof` | `side24-coefficient` |
-| `ElementaryConeIntegral` | def_prop | `side24-proof` | `side24-coefficient` |
-| `PeriodicCoefficientInterface` | structure | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` |
-| `CoefficientEnclosure` | def_prop | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` |
-| `ReferenceComparison` | def_prop | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
+|---|---|---|---|---|
+| `ThetaSummable` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `IsUnitTuple` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `DerivativePairingBound` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `DerivativeBoundAtLeastOne` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `DerivativeBoundAtZero` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `LatticeImageSumBound` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `SuccessiveTermRatio` | def_prop | `side24-proof` | `side24-coefficient` | `Side24Elementary.successiveTermRatio` |
+| `ExponentialBounds` | def_prop | `side24-proof` | `side24-coefficient` | `Side24Elementary.exponentialBounds` |
+| `ImageBound` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `CovarianceOrdering` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `EntrywiseCovarianceBound` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ReferenceCovarianceLowerBound` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ReferenceOddAndPinBlocks` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `DensityComparison` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `IntegrandRatioBounds` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ReferencePinDensityProduct` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ReferenceCoefficientIdentity` | def_prop | `side24-proof` | `side24-coefficient` | `Side24Elementary.referenceCoefficientIdentity` |
+| `ConeMomentInterface` | structure | `side24-proof` | `side24-coefficient` | — |
+| `NegDefCone` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ConeMomentD1Identity` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ConeMomentD2Identity` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ConeMomentD2Algebra` | def_prop | `side24-proof` | `side24-coefficient` | `Side24Elementary.coneMomentD2Algebra` |
+| `TraceMoments` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `RayleighSquareLaw` | def_prop | `side24-proof` | `side24-coefficient` | — |
+| `ElementaryConeIntegral` | def_prop | `side24-proof` | `side24-coefficient` | `Side24Elementary.elementaryConeIntegral` |
+| `PeriodicCoefficientInterface` | structure | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` | — |
+| `CoefficientEnclosure` | def_prop | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` | — |
+| `ReferenceComparison` | def_prop | `side24-proof` | `side24-coefficient`, `math.side24-coefficient` | — |
 
 ### `Specifications/RN.lean` (28 registered declarations)
 
-| declaration | kind | source | registered under claim rows |
-|---|---|---|---|
-| `IsCriticalPoint` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` |
-| `HessianHasInertia` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` |
-| `HolderCountBoundN1` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` |
-| `HolderConsequenceN2` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` |
-| `ConditionalMeanIdentityN3` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` |
-| `UniformCounterexampleN4` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` |
-| `ExponentialTailLayerCakeN5` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` |
-| `PinnedLawInterface` | structure | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window` |
-| `FixedRemoteMeanMeasureA2` | def_prop | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window`, `math.rn-region.fixed-remote`, `math.d5-component.remote-window-proof` |
-| `FixedRemoteCountBoundA3` | def_prop | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window`, `math.rn-region.fixed-remote`, `math.d5-component.remote-window-proof` |
-| `FixedAnnulusWindowCandidateA2` | def_prop | `rn-fixed-annulus-window` | `rn-fixed-annulus-window`, `math.rn-fixed-annulus-window`, `math.rn-region.fixed-annulus-window` |
-| `AnnulusBridgeAllHeight2` | def_prop | `rn-annulus-bridge` | `math.rn-region.mesoscopic-scaled-annulus`, `math.d5-component.annulus-proof` |
-| `D5aPuncturedPinDisks` | def_prop | `d5-reconciliation` | `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.punctured-pin-proof` |
-| `D5bMicrodisk` | def_prop | `d5-reconciliation` | `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.punctured-pin-proof` |
-| `D5cCollarC1` | def_prop | `d5-reconciliation` | `math.d5-pin-neighborhood-first-moment`, `math.d5-component.collar-proof` |
-| `D5dSummedPinNeighbourhoodC2` | def_prop | `d5-reconciliation` | `math.rn-region.mesoscopic-scaled-annulus`, `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment` |
-| `D5eIntermediateShellsI3I4` | def_prop | `d5-reconciliation` | `math.rn-region.intermediate-r-to-rho`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.intermediate-window-proof` |
-| `D5fGlobalWindowFirstMomentI5` | def_prop | `d5-reconciliation` | `math.d5-pin-neighborhood-first-moment`, `math.d5-component.intermediate-window-proof` |
-| `DimensionLiftPuncturedPinBallP` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` |
-| `DimensionLiftCompactCollarC` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` |
-| `DimensionLiftIntermediateShellsI` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` |
-| `DimensionLiftGlobalWindowG` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` |
-| `FourierCutoffPlanarSecondFactorialF4` | def_prop | `c6-fourier-cutoff` | `OA-C6-FOURIER-20260929-v1` |
-| `PalmRouteFactorialMomentsQ` | def_prop | `c6-palm-route` | `CL-C6-PALM-20260929-v1` |
-| `PalmRouteSecondFactorialTheta` | def_prop | `c6-palm-route` | `CL-C6-PALM-20260929-v1` |
-| `RareClusterPoissonObstructionO` | def_prop | `c6-rare-cluster` | `OA-C6-RARE-CLUSTER-20260929-v1` |
-| `RemoteCollisionSecondFactorialD` | def_prop | `remote-collision` | `math.rn-region.witness-collision`, `CL-D5-REMOTE-COLLISION-20260928-v1` |
-| `WitnessCollisionNearPinPairsTarget` | def_prop | `d5-reconciliation` | `math.rn-region.witness-collision` |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
+|---|---|---|---|---|
+| `IsCriticalPoint` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
+| `HessianHasInertia` | def_prop | `lifetime-parent` | `rn-fixed-remote-window` | — |
+| `HolderCountBoundN1` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` | `RNProbability.holderCountBoundN1` |
+| `HolderConsequenceN2` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` | `RNProbability.holderConsequenceN2` |
+| `ConditionalMeanIdentityN3` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` | `RNProbability.conditionalMeanIdentityN3` |
+| `UniformCounterexampleN4` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` | `RNProbability.uniformCounterexampleN4` |
+| `ExponentialTailLayerCakeN5` | def_prop | `rn-count-interface` | `rn-count-interface`, `math.rn-count-interface` | `RNProbability.exponentialTailLayerCakeN5` |
+| `PinnedLawInterface` | structure | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window` | — |
+| `FixedRemoteMeanMeasureA2` | def_prop | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window`, `math.rn-region.fixed-remote`, `math.d5-component.remote-window-proof` | — |
+| `FixedRemoteCountBoundA3` | def_prop | `rn-fixed-remote-window` | `rn-fixed-remote-window`, `math.rn-fixed-remote-window`, `math.rn-region.fixed-remote`, `math.d5-component.remote-window-proof` | — |
+| `FixedAnnulusWindowCandidateA2` | def_prop | `rn-fixed-annulus-window` | `rn-fixed-annulus-window`, `math.rn-fixed-annulus-window`, `math.rn-region.fixed-annulus-window` | — |
+| `AnnulusBridgeAllHeight2` | def_prop | `rn-annulus-bridge` | `math.rn-region.mesoscopic-scaled-annulus`, `math.d5-component.annulus-proof` | — |
+| `D5aPuncturedPinDisks` | def_prop | `d5-reconciliation` | `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.punctured-pin-proof` | — |
+| `D5bMicrodisk` | def_prop | `d5-reconciliation` | `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.punctured-pin-proof` | — |
+| `D5cCollarC1` | def_prop | `d5-reconciliation` | `math.d5-pin-neighborhood-first-moment`, `math.d5-component.collar-proof` | — |
+| `D5dSummedPinNeighbourhoodC2` | def_prop | `d5-reconciliation` | `math.rn-region.mesoscopic-scaled-annulus`, `math.rn-region.pin-collision`, `math.d5-pin-neighborhood-first-moment` | — |
+| `D5eIntermediateShellsI3I4` | def_prop | `d5-reconciliation` | `math.rn-region.intermediate-r-to-rho`, `math.d5-pin-neighborhood-first-moment`, `math.d5-component.intermediate-window-proof` | — |
+| `D5fGlobalWindowFirstMomentI5` | def_prop | `d5-reconciliation` | `math.d5-pin-neighborhood-first-moment`, `math.d5-component.intermediate-window-proof` | — |
+| `DimensionLiftPuncturedPinBallP` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` | — |
+| `DimensionLiftCompactCollarC` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` | — |
+| `DimensionLiftIntermediateShellsI` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` | — |
+| `DimensionLiftGlobalWindowG` | def_prop | `d5-dimension-lift` | `CL-D5-DIMENSION-LIFT-20260929-v1` | — |
+| `FourierCutoffPlanarSecondFactorialF4` | def_prop | `c6-fourier-cutoff` | `OA-C6-FOURIER-20260929-v1` | — |
+| `PalmRouteFactorialMomentsQ` | def_prop | `c6-palm-route` | `CL-C6-PALM-20260929-v1` | — |
+| `PalmRouteSecondFactorialTheta` | def_prop | `c6-palm-route` | `CL-C6-PALM-20260929-v1` | — |
+| `RareClusterPoissonObstructionO` | def_prop | `c6-rare-cluster` | `OA-C6-RARE-CLUSTER-20260929-v1` | — |
+| `RemoteCollisionSecondFactorialD` | def_prop | `remote-collision` | `math.rn-region.witness-collision`, `CL-D5-REMOTE-COLLISION-20260928-v1` | — |
+| `WitnessCollisionNearPinPairsTarget` | def_prop | `d5-reconciliation` | `math.rn-region.witness-collision` | — |
 
 ### `Specifications/P15.lean` (58 registered declarations)
 
-| declaration | kind | source | registered under claim rows |
-|---|---|---|---|
-| `RealizedData` | structure | `p15-realized-covers` | `p15-realized-covers` |
-| `IsRealizedFamily` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsGood` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsKDecomposable` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsGeneratorCover` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsPaletteFeasible` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `PaletteNumberAttained` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsMinimalForbidden` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IsTransversal` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `MinimalForbiddenCharacterisation` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `LocalRestriction` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `LocalDecomposability` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `LocalObstructionIsFullBlock` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `LocalPriceChain` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `IndependentBlockHazard` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `FullBlockCoverIff` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `CoverCostHazardBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `WholeGroundChromaticNumber` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `ElementaryPaletteFormula` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `TriangleNeedsThree` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816IsRealized` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816Palette` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816Cover` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816WholeGround` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816MinimalForbiddenCounts` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816Price` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `Benchmark816UnionBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` |
-| `TwoCoordGeneratorPrices` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` |
-| `DemandOneRefutation` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` |
-| `LogOnePlusBelowIdentity` | def_prop | `p15-price-boundary` | `p15-price-boundary` |
-| `LogRatioBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `RatioExponentBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `RestrictedLocalBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `RestrictedTransformedPriceBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `RhoTestSufficient` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `CapTestAtTwoThirds` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `Benchmark816TransformedRange` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `Benchmark816RationalPrice` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` |
-| `FullTransformedPriceBudget` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` |
-| `RhoStarEnclosure` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` |
-| `RhoStarBelowSixSevenths` | def_prop | `p15-full-price` | `p15-full-price` |
-| `IsProperDownset` | def_prop | `p15-full-price` | `p15-full-price` |
-| `HazardStarPositive` | def_prop | `p15-full-price` | `p15-full-price` |
-| `CoordinatewiseConcavity` | def_prop | `p15-full-price` | `p15-full-price` |
-| `HazardProductBound` | def_prop | `p15-full-price` | `p15-full-price` |
-| `HazardPhiBound` | def_prop | `p15-full-price` | `p15-full-price` |
-| `FullGroundPriceBound` | def_prop | `p15-full-price` | `p15-full-price` |
-| `PhiAtPStar` | def_prop | `p15-full-price` | `p15-full-price` |
-| `FullGroundBudgetIff` | def_prop | `p15-full-price` | `p15-full-price` |
-| `CapacityHazardIsBinomial` | def_prop | `p15-full-price` | `p15-full-price` |
-| `OddMajorityIdentity` | def_prop | `p15-full-price` | `p15-full-price` |
-| `CapacityWorstCase` | def_prop | `p15-full-price` | `p15-full-price` |
-| `HStarExceedsOne` | def_prop | `p15-full-price` | `p15-full-price` |
-| `LocalPriceBoundFull` | def_prop | `p15-full-price` | `p15-full-price` |
-| `GlobalAssemblyHazard` | def_prop | `p15-full-price` | `p15-full-price` |
-| `SharpnessOfRhoStar` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` |
-| `DemandOneBoundary` | def_prop | `p15-full-price` | `p15-full-price` |
-| `SixSeventhsCertificate` | def_prop | `p15-full-price` | `p15-full-price` |
+| declaration | kind | source | registered under claim rows | proved by (proof packet, `proved`; kernel-checked by hosted run 38121713840: PR head 910809d6, actual tested merge 5b198699… with base b2d70d77…, same tree as the head) |
+|---|---|---|---|---|
+| `RealizedData` | structure | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsRealizedFamily` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsGood` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsKDecomposable` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsGeneratorCover` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsPaletteFeasible` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `PaletteNumberAttained` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.paletteNumberAttained` |
+| `IsMinimalForbidden` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `IsTransversal` | def_prop | `p15-realized-covers` | `p15-realized-covers` | — |
+| `MinimalForbiddenCharacterisation` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.minimalForbiddenCharacterisation` |
+| `LocalRestriction` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.localRestriction` |
+| `LocalDecomposability` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.localDecomposability` |
+| `LocalObstructionIsFullBlock` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.localObstructionIsFullBlock` |
+| `LocalPriceChain` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.localPriceChain` |
+| `IndependentBlockHazard` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Hazard.independentBlockHazard` |
+| `FullBlockCoverIff` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.fullBlockCoverIff` |
+| `CoverCostHazardBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Budget.coverCostHazardBound` |
+| `WholeGroundChromaticNumber` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.wholeGroundChromaticNumber` |
+| `ElementaryPaletteFormula` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.elementaryPaletteFormula` |
+| `TriangleNeedsThree` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Elementary.triangleNeedsThree`, `P15Structure.triangleNeedsThree` |
+| `Benchmark816IsRealized` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816IsRealized` |
+| `Benchmark816Palette` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816Palette` |
+| `Benchmark816Cover` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816Cover` |
+| `Benchmark816WholeGround` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816WholeGround` |
+| `Benchmark816MinimalForbiddenCounts` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816MinimalForbiddenCounts` |
+| `Benchmark816Price` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Structure.benchmark816Price` |
+| `Benchmark816UnionBound` | def_prop | `p15-realized-covers` | `p15-realized-covers` | `P15Covers.benchmark816UnionBound` |
+| `TwoCoordGeneratorPrices` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` | `P15Elementary.twoCoordGeneratorPrices` |
+| `DemandOneRefutation` | def_prop | `p15-price-boundary` | `p15-price-boundary`, `math.p15-price-boundary` | `P15Elementary.demandOneRefutation` |
+| `LogOnePlusBelowIdentity` | def_prop | `p15-price-boundary` | `p15-price-boundary` | `P15Elementary.logOnePlusBelowIdentity` |
+| `LogRatioBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.logRatioBound` |
+| `RatioExponentBound` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.ratioExponentBound` |
+| `RestrictedLocalBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedLocalBudget` |
+| `RestrictedTransformedPriceBudget` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.restrictedTransformedPriceBudget` |
+| `RhoTestSufficient` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.rhoTestSufficient` |
+| `CapTestAtTwoThirds` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Elementary.capTestAtTwoThirds` |
+| `Benchmark816TransformedRange` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Budget.benchmark816TransformedRange` |
+| `Benchmark816RationalPrice` | def_prop | `p15-price-budget` | `p15-price-budget-restricted` | `P15Structure.benchmark816RationalPrice` |
+| `FullTransformedPriceBudget` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | — |
+| `RhoStarEnclosure` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | — |
+| `RhoStarBelowSixSevenths` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.rhoStarBelowSixSevenths` |
+| `IsProperDownset` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `HazardStarPositive` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.hazardStarPositive` |
+| `CoordinatewiseConcavity` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `HazardProductBound` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `HazardPhiBound` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `FullGroundPriceBound` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `PhiAtPStar` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.phiAtPStar` |
+| `FullGroundBudgetIff` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `CapacityHazardIsBinomial` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.capacityHazardIsBinomial` |
+| `OddMajorityIdentity` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.oddMajorityIdentity` |
+| `CapacityWorstCase` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.capacityWorstCase` |
+| `HStarExceedsOne` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.hStarExceedsOne` |
+| `LocalPriceBoundFull` | def_prop | `p15-full-price` | `p15-full-price` | — |
+| `GlobalAssemblyHazard` | def_prop | `p15-full-price` | `p15-full-price` | `P15Hazard.globalAssemblyHazard` |
+| `SharpnessOfRhoStar` | def_prop | `p15-full-price` | `p15-full-price`, `math.p15-full-price` | `P15Elementary.sharpnessOfRhoStar` |
+| `DemandOneBoundary` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.demandOneBoundary` |
+| `SixSeventhsCertificate` | def_prop | `p15-full-price` | `p15-full-price` | `P15Elementary.sixSeventhsCertificate` |
 
 ## Claims
 
-171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`); 31 statement entries are kernel-proved arithmetic theorems of main's `formal/` package (label `proved`: the 31 Side24 targets at origin/main `f6deeba7`; main's 28 P15 arithmetic targets are NOT listed because they exist only in this programme's uncommitted main worktree, on no commit), listed as the arithmetic skeleton of the claim they sit under and never as the claim. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
+171 claim rows: 10 `landing_claim`, 33 `graph_node`, 2 `open_obligation`, 95 `proof_index_result`, 7 `existing_lean_package`, 12 `main_experiment_proof`, 12 `exact_certificate`. Claim-level formal progress: 33 `specified` (a `def … : Prop` stating the claim itself is registered), 138 `none`; no research claim is `proved` or `kernel-checked`. 197 statement entries point at the 150 declarations of this package (all `specified`). 132 statement entries carry the label `proved` and are theorems of other packages, listed as the arithmetic skeleton or the Prop-level proof of the claim they sit under and never as the claim: 31 are the 31 Side24 arithmetic targets of main's `formal/` at origin/main `f6deeba7`; 41 are the 28 P15 arithmetic targets of main's `formal/` at `91cffbb5` (main PR #358, not yet on main; kernel evidence the hosted workspace-landing run 38096827443), each listed on every P15 row whose layer 0 source it anchors to; 60 are theorems of the proof packet `specifications/lean_statement_proofs_20261011` whose type is exactly a registered Prop of this package (52 theorems, 51 distinct Props, each listed on every row that registers its Prop; the hosted `lean-specification-proofs.yml` run 38121713840 receipted all of them as kernel-checked and run 38116277597 the first 38; a pull_request run checks out the synthetic merge of the PR head into the base, which the receipt records as checked_commit: run 38121713840 PR head 910809d6, actual tested merge 5b198699308e0585904c21d12bf540cf2475d2f0 with base b2d70d77876a10c365f5db5d3b6cafcf180af4e2; run 38116277597 PR head 00d2ac6e, actual tested merge c4c66bb8cb26f0cd9bc03d52bb25f1b3925b272c with the same base; run 38122386459 corroborates on PR head d9b8dd33, actual tested merge 866136cca66b46e6dbd3186b47c9340f7e93b4f6; same trees as the heads). Exactly one Prop registered as stating a claim itself has such a theorem: `DemandOneRefutation` on rows `p15-price-boundary` and `math.p15-price-boundary`; their claim-level label stays `specified` (the register admits only none/specified at claim level, alignment of the Prop with the source paragraph is PENDING_INDEPENDENT_REVIEW, and a receipt is about the Prop only), as the rows' `not established` cells record. `disposition` is the verbatim LANDING_CLAIMS value or `—` (null). Nothing in these tables is a scientific status, a review verdict or an acceptance; alignment of every statement is `PENDING_INDEPENDENT_REVIEW`.
 
 | claim_id | kind | disposition (LANDING_CLAIMS, verbatim) | formal_progress | layer 0 source | statements |
 |---|---|---|---|---|---|
-| `side24-coefficient` | landing_claim | REVIEWED_SCOPED | `specified` | `side24-proof` | 28 specified: `ThetaSummable`, `IsUnitTuple`, `DerivativePairingBound`, `DerivativeBoundAtLeastOne`, `DerivativeBoundAtZero`, `LatticeImageSumBound`, `SuccessiveTermRatio`, `ExponentialBounds`, `ImageBound`, `CovarianceOrdering`, `EntrywiseCovarianceBound`, `ReferenceCovarianceLowerBound`, `ReferenceOddAndPinBlocks`, `DensityComparison`, `IntegrandRatioBounds`, `ReferencePinDensityProduct`, `ReferenceCoefficientIdentity`, `ConeMomentInterface`, `NegDefCone`, `ConeMomentD1Identity`, `ConeMomentD2Identity`, `ConeMomentD2Algebra`, `TraceMoments`, `RayleighSquareLaw`, `ElementaryConeIntegral`, `PeriodicCoefficientInterface`, `CoefficientEnclosure`, `ReferenceComparison`; 27 proved (main): `pairing_sum_six`, `pairing_sum_le_six`, `pairing_terms_six`, `sixth_moment_double_factorial`, `lattice_shell_constant`, `geometric_ratio_constants`, `period_exponent`, `image_constant_value`, `exp_taylor_partial_sum_gt_ten`, `covariance_relative_bound`, `odd_block_eigenvalues`, `odd_block_shifted_minors`, `smaller_eigenvalue_exceeds_third`, `exponent_bounds`, `exponent_values`, `ratio_constant_ordering`, `density_comparison_below_reported`, `conditional_third_derivative_variance`, `transverse_covariance_entries_thirds`, `cone_moment_m1_thirds`, `trace_and_traceless_variances`, `fourth_moment_of_trace`, `exponential_moment_of_trace`, `cone_moment_m2_algebra`, `cube_root_simplification`, `pin_determinant_and_joint_dimension`, `hessian_block_eigenvalues` |
+| `side24-coefficient` | landing_claim | REVIEWED_SCOPED | `specified` | `side24-proof` | 28 specified: `ThetaSummable`, `IsUnitTuple`, `DerivativePairingBound`, `DerivativeBoundAtLeastOne`, `DerivativeBoundAtZero`, `LatticeImageSumBound`, `SuccessiveTermRatio`, `ExponentialBounds`, `ImageBound`, `CovarianceOrdering`, `EntrywiseCovarianceBound`, `ReferenceCovarianceLowerBound`, `ReferenceOddAndPinBlocks`, `DensityComparison`, `IntegrandRatioBounds`, `ReferencePinDensityProduct`, `ReferenceCoefficientIdentity`, `ConeMomentInterface`, `NegDefCone`, `ConeMomentD1Identity`, `ConeMomentD2Identity`, `ConeMomentD2Algebra`, `TraceMoments`, `RayleighSquareLaw`, `ElementaryConeIntegral`, `PeriodicCoefficientInterface`, `CoefficientEnclosure`, `ReferenceComparison`; 27 proved (main, origin/main f6deeba7): `pairing_sum_six`, `pairing_sum_le_six`, `pairing_terms_six`, `sixth_moment_double_factorial`, `lattice_shell_constant`, `geometric_ratio_constants`, `period_exponent`, `image_constant_value`, `exp_taylor_partial_sum_gt_ten`, `covariance_relative_bound`, `odd_block_eigenvalues`, `odd_block_shifted_minors`, `smaller_eigenvalue_exceeds_third`, `exponent_bounds`, `exponent_values`, `ratio_constant_ordering`, `density_comparison_below_reported`, `conditional_third_derivative_variance`, `transverse_covariance_entries_thirds`, `cone_moment_m1_thirds`, `trace_and_traceless_variances`, `fourth_moment_of_trace`, `exponential_moment_of_trace`, `cone_moment_m2_algebra`, `cube_root_simplification`, `pin_determinant_and_joint_dimension`, `hessian_block_eigenvalues`; 5 proved (proof packet): `Side24Elementary.exponentialBounds`, `Side24Elementary.successiveTermRatio`, `Side24Elementary.coneMomentD2Algebra`, `Side24Elementary.referenceCoefficientIdentity`, `Side24Elementary.elementaryConeIntegral` |
 | `lifetime-remainder` | landing_claim | REVIEWED_SCOPED | `specified` | `lifetime-remainder` | 4 specified: `RemainderBoundedR1`, `IsUnrestrictedPair`, `IsUnrestrictedLeadingCoefficient`, `IsLifetimeDensityVersion` |
-| `rn-count-interface` | landing_claim | HOLD_WITH_DOMAIN | `none` | `rn-count-interface` | 5 specified: `HolderCountBoundN1`, `HolderConsequenceN2`, `ConditionalMeanIdentityN3`, `UniformCounterexampleN4`, `ExponentialTailLayerCakeN5` |
+| `rn-count-interface` | landing_claim | HOLD_WITH_DOMAIN | `none` | `rn-count-interface` | 5 specified: `HolderCountBoundN1`, `HolderConsequenceN2`, `ConditionalMeanIdentityN3`, `UniformCounterexampleN4`, `ExponentialTailLayerCakeN5`; 5 proved (proof packet): `RNProbability.conditionalMeanIdentityN3`, `RNProbability.holderCountBoundN1`, `RNProbability.holderConsequenceN2`, `RNProbability.uniformCounterexampleN4`, `RNProbability.exponentialTailLayerCakeN5` |
 | `rn-fixed-remote-window` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `rn-fixed-remote-window` | 5 specified: `PinnedLawInterface`, `IsCriticalPoint`, `HessianHasInertia`, `FixedRemoteMeanMeasureA2`, `FixedRemoteCountBoundA3` |
 | `rn-fixed-annulus-window` | landing_claim | REVIEWED_SCOPED | `specified` | `rn-fixed-annulus-window` | 1 specified: `FixedAnnulusWindowCandidateA2` |
-| `p15-realized-covers` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-realized-covers` | 27 specified: `RealizedData`, `IsRealizedFamily`, `IsGood`, `IsKDecomposable`, `IsGeneratorCover`, `IsPaletteFeasible`, `PaletteNumberAttained`, `IsMinimalForbidden`, `IsTransversal`, `MinimalForbiddenCharacterisation`, `LocalRestriction`, `LocalDecomposability`, `LocalObstructionIsFullBlock`, `LocalPriceChain`, `IndependentBlockHazard`, `FullBlockCoverIff`, `CoverCostHazardBound`, `WholeGroundChromaticNumber`, `ElementaryPaletteFormula`, `TriangleNeedsThree`, `Benchmark816IsRealized`, `Benchmark816Palette`, `Benchmark816Cover`, `Benchmark816WholeGround`, `Benchmark816MinimalForbiddenCounts`, `Benchmark816Price`, `Benchmark816UnionBound` |
-| `p15-price-boundary` | landing_claim | EXACT_COUNTEREXAMPLE | `specified` | `p15-price-boundary` | 3 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation`, `LogOnePlusBelowIdentity` |
-| `p15-price-budget-restricted` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-price-budget` | 8 specified: `LogRatioBound`, `RatioExponentBound`, `RestrictedLocalBudget`, `RestrictedTransformedPriceBudget`, `RhoTestSufficient`, `CapTestAtTwoThirds`, `Benchmark816TransformedRange`, `Benchmark816RationalPrice` |
-| `p15-full-price` | landing_claim | REVIEWED_SCOPED | `specified` | `p15-full-price` | 20 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `RhoStarBelowSixSevenths`, `IsProperDownset`, `HazardStarPositive`, `CoordinatewiseConcavity`, `HazardProductBound`, `HazardPhiBound`, `FullGroundPriceBound`, `PhiAtPStar`, `FullGroundBudgetIff`, `CapacityHazardIsBinomial`, `OddMajorityIdentity`, `CapacityWorstCase`, `HStarExceedsOne`, `LocalPriceBoundFull`, `GlobalAssemblyHazard`, `SharpnessOfRhoStar`, `DemandOneBoundary`, `SixSeventhsCertificate` |
+| `p15-realized-covers` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-realized-covers` | 27 specified: `RealizedData`, `IsRealizedFamily`, `IsGood`, `IsKDecomposable`, `IsGeneratorCover`, `IsPaletteFeasible`, `PaletteNumberAttained`, `IsMinimalForbidden`, `IsTransversal`, `MinimalForbiddenCharacterisation`, `LocalRestriction`, `LocalDecomposability`, `LocalObstructionIsFullBlock`, `LocalPriceChain`, `IndependentBlockHazard`, `FullBlockCoverIff`, `CoverCostHazardBound`, `WholeGroundChromaticNumber`, `ElementaryPaletteFormula`, `TriangleNeedsThree`, `Benchmark816IsRealized`, `Benchmark816Palette`, `Benchmark816Cover`, `Benchmark816WholeGround`, `Benchmark816MinimalForbiddenCounts`, `Benchmark816Price`, `Benchmark816UnionBound`; 12 proved (main 91cffbb5, PR #358, not on main): `benchmark_block_and_ground_sizes`, `four_block_supports_fifteen`, `minimal_forbidder_counts`, `palette_816_from_two_label_classes`, `palette_815_fails_by_counting`, `whole_ground_chromatic_818`, `elementary_palette_formula_instances`, `macro_triangle_three_colors`, `ceil_block_over_capacity_instances`, `block_occupancy_one_percent`, `low_failure_union_bound_arithmetic`, `cover_price_numerator_and_denominator_positive`; 20 proved (proof packet): `P15Elementary.triangleNeedsThree`, `P15Structure.benchmark816IsRealized`, `P15Structure.benchmark816Price`, `P15Structure.elementaryPaletteFormula`, `P15Structure.triangleNeedsThree`, `P15Structure.benchmark816Palette`, `P15Structure.localDecomposability`, `P15Structure.localObstructionIsFullBlock`, `P15Structure.fullBlockCoverIff`, `P15Structure.wholeGroundChromaticNumber`, `P15Structure.benchmark816WholeGround`, `P15Structure.minimalForbiddenCharacterisation`, `P15Structure.benchmark816MinimalForbiddenCounts`, `P15Hazard.localPriceChain`, `P15Hazard.independentBlockHazard`, `P15Covers.benchmark816Cover`, `P15Covers.localRestriction`, `P15Covers.paletteNumberAttained`, `P15Covers.benchmark816UnionBound`, `P15Budget.coverCostHazardBound` |
+| `p15-price-boundary` | landing_claim | EXACT_COUNTEREXAMPLE | `specified` | `p15-price-boundary` | 3 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation`, `LogOnePlusBelowIdentity`; 6 proved (main 91cffbb5, PR #358, not on main): `smallest_member_block_size`, `demand_one_good_sets`, `demand_one_obstruction`, `good_measure_three_quarters`, `generator_prices_ninths`, `minimum_generator_price_exceeds_third`; 3 proved (proof packet): `P15Elementary.twoCoordGeneratorPrices`, `P15Elementary.logOnePlusBelowIdentity`, `P15Elementary.demandOneRefutation` |
+| `p15-price-budget-restricted` | landing_claim | HOLD_WITH_DOMAIN | `specified` | `p15-price-budget` | 8 specified: `LogRatioBound`, `RatioExponentBound`, `RestrictedLocalBudget`, `RestrictedTransformedPriceBudget`, `RhoTestSufficient`, `CapTestAtTwoThirds`, `Benchmark816TransformedRange`, `Benchmark816RationalPrice`; 3 proved (main 91cffbb5, PR #358, not on main): `t3_ratio_at_minimal_block`, `t3_bound_finite_instances`, `explicit_rational_price_above_p`; 8 proved (proof packet): `P15Elementary.logRatioBound`, `P15Elementary.capTestAtTwoThirds`, `P15Elementary.ratioExponentBound`, `P15Structure.benchmark816RationalPrice`, `P15Budget.restrictedLocalBudget`, `P15Budget.rhoTestSufficient`, `P15Budget.restrictedTransformedPriceBudget`, `P15Budget.benchmark816TransformedRange` |
+| `p15-full-price` | landing_claim | REVIEWED_SCOPED | `specified` | `p15-full-price` | 20 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `RhoStarBelowSixSevenths`, `IsProperDownset`, `HazardStarPositive`, `CoordinatewiseConcavity`, `HazardProductBound`, `HazardPhiBound`, `FullGroundPriceBound`, `PhiAtPStar`, `FullGroundBudgetIff`, `CapacityHazardIsBinomial`, `OddMajorityIdentity`, `CapacityWorstCase`, `HStarExceedsOne`, `LocalPriceBoundFull`, `GlobalAssemblyHazard`, `SharpnessOfRhoStar`, `DemandOneBoundary`, `SixSeventhsCertificate`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 11 proved (proof packet): `P15Elementary.rhoStarBelowSixSevenths`, `P15Elementary.sixSeventhsCertificate`, `P15Elementary.hStarExceedsOne`, `P15Elementary.phiAtPStar`, `P15Elementary.hazardStarPositive`, `P15Elementary.oddMajorityIdentity`, `P15Elementary.capacityWorstCase`, `P15Elementary.demandOneBoundary`, `P15Elementary.capacityHazardIsBinomial`, `P15Elementary.sharpnessOfRhoStar`, `P15Hazard.globalAssemblyHazard` |
 | `downstream-hard-gate` | landing_claim | ENGINEERING_HOLD | `none` | `downstream-graph` | — |
 | `math.uniform-matrix-cap-lifetime` | graph_node | — | `specified` | `lifetime-parent` | 32 specified: `IsLPeriodic`, `IsSmooth`, `GaussianFieldInterface`, `IsCriticalPoint`, `HessianHasInertia`, `IsNondegMax`, `IsIndexSaddle`, `IsCandidatePair`, `IsMorseDistinct`, `SuperlevelBarInterface`, `IsFiniteBar`, `IsLifetimeDensityVersion`, `IsLPeriodic`, `IsSmooth`, `GaussianFieldInterface`, `IsCriticalPoint`, `HessianHasInertia`, `IsNondegMax`, `IsIndexSaddle`, `IsCandidatePair`, `IsMorseDistinct`, `SuperlevelBarInterface`, `IsFiniteBar`, `IsLifetimeDensityVersion`, `IsWindowPair`, `IsWindowElderPair`, `IsUnrestrictedPair`, `PairLawInterface`, `ParentUniformSelectionA`, `ParentCompactWindowDensityB`, `IsUnrestrictedLeadingCoefficient`, `ParentUnrestrictedLeadingDensityC` |
 | `math.d1-component.congruence-erratum` | graph_node | — | `none` | `downstream-graph` | — |
@@ -243,7 +250,7 @@ ladder; it is `specified`.
 | `math.d1-component.reconciliation-record` | graph_node | — | `none` | `downstream-graph` | — |
 | `math.lifetime-remainder` | graph_node | — | `specified` | `lifetime-remainder` | 1 specified: `RemainderBoundedR1` |
 | `math.side24-coefficient` | graph_node | — | `specified` | `side24-proof` | 3 specified: `PeriodicCoefficientInterface`, `CoefficientEnclosure`, `ReferenceComparison` |
-| `math.rn-count-interface` | graph_node | — | `none` | `rn-count-interface` | 5 specified: `HolderCountBoundN1`, `HolderConsequenceN2`, `ConditionalMeanIdentityN3`, `UniformCounterexampleN4`, `ExponentialTailLayerCakeN5` |
+| `math.rn-count-interface` | graph_node | — | `none` | `rn-count-interface` | 5 specified: `HolderCountBoundN1`, `HolderConsequenceN2`, `ConditionalMeanIdentityN3`, `UniformCounterexampleN4`, `ExponentialTailLayerCakeN5`; 5 proved (proof packet): `RNProbability.conditionalMeanIdentityN3`, `RNProbability.holderCountBoundN1`, `RNProbability.holderConsequenceN2`, `RNProbability.uniformCounterexampleN4`, `RNProbability.exponentialTailLayerCakeN5` |
 | `math.rn-fixed-remote-window` | graph_node | — | `specified` | `rn-fixed-remote-window` | 3 specified: `PinnedLawInterface`, `FixedRemoteMeanMeasureA2`, `FixedRemoteCountBoundA3` |
 | `math.rn-region.fixed-remote` | graph_node | — | `specified` | `downstream-graph` | 2 specified: `FixedRemoteMeanMeasureA2`, `FixedRemoteCountBoundA3` |
 | `math.rn-region.mesoscopic-scaled-annulus` | graph_node | — | `specified` | `d5-reconciliation` | 2 specified: `D5dSummedPinNeighbourhoodC2`, `AnnulusBridgeAllHeight2` |
@@ -251,8 +258,8 @@ ladder; it is `specified`.
 | `math.rn-region.intermediate-r-to-rho` | graph_node | — | `specified` | `d5-reconciliation` | 1 specified: `D5eIntermediateShellsI3I4` |
 | `math.rn-region.witness-collision` | open_obligation | — | `specified` | `d5-reconciliation` | 2 specified: `WitnessCollisionNearPinPairsTarget`, `RemoteCollisionSecondFactorialD` |
 | `math.rn-mesoscopic-reduction` | graph_node | — | `none` | `downstream-graph` | — |
-| `math.p15-full-price` | graph_node | — | `specified` | `p15-full-price` | 3 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `SharpnessOfRhoStar` |
-| `math.p15-price-boundary` | graph_node | — | `specified` | `p15-price-boundary` | 2 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation` |
+| `math.p15-full-price` | graph_node | — | `specified` | `p15-full-price` | 3 specified: `FullTransformedPriceBudget`, `RhoStarEnclosure`, `SharpnessOfRhoStar`; 7 proved (main 91cffbb5, PR #358, not on main): `rho_star_endpoints_adjacent`, `rho_star_upper_endpoint_below_six_sevenths`, `sixteen_twentysevenths_below_six_sevenths`, `minimal_block_size_instances`, `e_rational_bounds_ordering`, `exp_eleven_sixths_taylor_certificate`, `h_star_rational_certificate_constants`; 1 proved (proof packet): `P15Elementary.sharpnessOfRhoStar` |
+| `math.p15-price-boundary` | graph_node | — | `specified` | `p15-price-boundary` | 2 specified: `TwoCoordGeneratorPrices`, `DemandOneRefutation`; 6 proved (main 91cffbb5, PR #358, not on main): `smallest_member_block_size`, `demand_one_good_sets`, `demand_one_obstruction`, `good_measure_three_quarters`, `generator_prices_ninths`, `minimum_generator_price_exceeds_third`; 2 proved (proof packet): `P15Elementary.twoCoordGeneratorPrices`, `P15Elementary.demandOneRefutation` |
 | `math.rn-selector-region-crosswalk` | graph_node | — | `none` | `downstream-graph` | — |
 | `math.rn-fixed-annulus-window` | graph_node | — | `specified` | `rn-fixed-annulus-window` | 1 specified: `FixedAnnulusWindowCandidateA2` |
 | `math.rn-region.fixed-annulus-window` | graph_node | — | `specified` | `downstream-graph` | 1 specified: `FixedAnnulusWindowCandidateA2` |
@@ -284,7 +291,7 @@ ladder; it is `specified`.
 | `CL-D5-REMOTE-COLLISION-20260928-v1` | proof_index_result | — | `none` | `remote-collision` | 1 specified: `RemoteCollisionSecondFactorialD` |
 | `cumulative-transfer-correction` | proof_index_result | — | `none` | `cumulative-transfer-correction` | — |
 | `hist.D0-RN-UNIF-historical-predicates` | open_obligation | — | `none` | `downstream-graph` | — |
-| `lean:main-formal-UniversalLaw` | existing_lean_package | — | `none` | `side24-enclosure` | 4 proved (main): `d2_endpoints_adjacent`, `d3_endpoints_adjacent`, `d3_below_d2`, `endpoints_in_unit_tenth` |
+| `lean:main-formal-UniversalLaw` | existing_lean_package | — | `none` | `side24-enclosure` | 4 proved (main, origin/main f6deeba7): `d2_endpoints_adjacent`, `d3_endpoints_adjacent`, `d3_below_d2`, `endpoints_in_unit_tenth` |
 | `lean:math-formal-ResearchFormalCoreR1` | existing_lean_package | — | `none` | `—` | — |
 | `lean:math-companion-d2_moment_bridge_20261006` | existing_lean_package | — | `none` | `—` | — |
 | `lean:math-companion-d2_square_schur_20261006` | existing_lean_package | — | `none` | `—` | — |
@@ -345,6 +352,18 @@ Packets listed by PROOF_INDEX by id only (82 rows, kind `proof_index_result`, fo
   question (DESIGN honesty checklist). The register only records `PENDING_INDEPENDENT_REVIEW`.
 * Not a scientific status. Dispositions in the register are transcribed verbatim from
   `claims/LANDING_CLAIMS.json` at the pinned commit; the checker refuses any other value.
+* Not changed by the proof packet. `specifications/lean_statement_proofs_20261011` depends on this
+  packet by path and holds 52 theorems whose type is exactly one of 51 registered Props (P15, Side24
+  and RN families; see the last column of the declaration tables). The register lists those theorems
+  under the claim rows with label `proved`, the label of a committed proof package; `kernel-checked`
+  appears only in that packet's hosted run receipts (`lean-specification-proofs.yml`; run 38121713840 receipted all of its
+  theorems and run 38116277597 the first 38; each receipt's checked_commit is the synthetic merge of the PR head into the
+  base that a pull_request run checks out, not the head itself: run 38121713840 PR head 910809d6, actual tested merge 5b198699…; run 38116277597
+  PR head 00d2ac6e, actual tested merge c4c66bb8…; both with base b2d70d77… and each with the same tree as its head).
+  The 150 declarations here remain `specified`; a kernel-checked theorem is evidence about its Prop
+  only, never about the informal claim, its alignment (PENDING_INDEPENDENT_REVIEW), review or
+  acceptance; no claim-level label is `proved`, including the one row (`p15-price-boundary`) whose
+  claim-stating Prop `DemandOneRefutation` has a theorem.
 * Not a kernel receipt for the research claims. `--execute` shows that the statements elaborate
   and depend on no axiom beyond `propext`, `Classical.choice`, `Quot.sound`; the receipt says
   `formalization_status: "specified"` and nothing stronger.
