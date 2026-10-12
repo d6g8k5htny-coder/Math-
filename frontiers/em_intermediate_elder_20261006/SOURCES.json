@@ -1,0 +1,267 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-NOTE-EM-INCORPORATION-20261006-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024074852 (claim 1)",
+  "note": "the incorporator is also the author of note EM (custody only; no proof byte is changed)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229",
+  "https://github.com/d6g8k5htny-coder/main/issues/259"
+ ],
+ "extraction_rule": "the rule the controls comment states (that of main#229 comment 5971055189): the control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line of the following ```json fence, plus one newline",
+ "related_packets": {
+  "frontiers/ts_small_kappa_20261006/": "note TS (Lemma S'', the barrier (1.3), the decomposition (5.1) and its ledger), if Math-#387 has landed; otherwise main#229 6020794123",
+  "frontiers/elder_cusp_parity_20261002/": "[N] (#240): the window coordinates, the cusp polynomial and Lemma Q', used on the good event",
+  "frontiers/elder_third_order_20261001/": "#220: section 0 (the weight), Lemma H (the rescaled Hessian) and r_Q",
+  "frontiers/third_order_rate_20261001/": "#229: Proposition W+ ((W+.2)), the typed bound used on [l^(1/5), r_*]",
+  "frontiers/candidate_parity_rate_20261001/": "#237: Theorem P ((P.1)), the candidate density, subtracted for rho_rej",
+  "frontiers/far_elder_rate_20260930/": "#187: the far bound 0 <= nu_eld^(far) <= C l^(2/3)",
+  "frontiers/fixed_r_inverse_lifetime_20260930/": "[182]: the maximin death level (2), used in Lemma X"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that do not record a pickup, verdict or author response are not stored",
+  "clean-context referee reports": "same-provider, same-session referee reports and exploration scripts (smallball.py; not review evidence) are kept in the project archive, not here",
+  "addendum EM.1": "main#229 6024077582 (CL-EM1-BAD-REGION-20261006-v1) is a separate object under its own reads; it changes no statement of note EM"
+ },
+ "objects": [
+  {
+   "tag": "EM",
+   "directory": "EM/",
+   "object": "CL-EM-INTERMEDIATE-ELDER-20261006-v1",
+   "title": "Lifetime note EM: the intermediate elder mass through a sheared box barrier, and the elder density with remainder l^(9/14)",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Lemma P (third-order pin relations at M), Lemma X (the sheared box; deterministic), Lemma V (small balls in Sym(d): (V.1)-(V.3)), Lemma S''' (E_Q[(W_r/r^2) e] <= C r^2 [r kappa + r^(7/3) kappa^(2/3) log(2/r) + min(r^(7/2), r^(3/2) kappa^(2/3))] P^N for 0 < k <= r^2) and Corollary EM (nu_eld with remainder O(l^(9/14)), rho_rej with O(l^(3/5)); SIDE24 relative remainder O(l^(41/42))); the control script checks finite algebra only",
+   "read_with": "the author successor text https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023434026 (section 2), which applies the AMEND https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023045290 exactly: one replacement in section 4.1 (c), the clause after (4.4) (the middle term 3 N-bar |delta tau| through the sharp shift |delta tau| <= (2 N-bar r / lambda)(Gamma~/4 + 5/12)); readback PASS https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023435335. The stored note body is unchanged.",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 1-2; E1, E2, E4 with M1-M3, M5, M6, M11): Cursor agent bc-68aae9d7 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6023042554",
+    "Slice B (sections 3-4; E3, E5, E7 with M4, M9, M10): Cursor agent bc-2e83c5a5 (xAI Grok 4.7; non-Claude, nonauthor), AMEND, 6023045290",
+    "Slice C (section 0, sections 5-6, header; E6 with M7, M8): Cursor agent bc-16115a6c (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6023050789",
+    "author successor text 6023434026: the AMEND applied exactly (one replacement in section 4.1 (c); no constant, exponent or result changes)",
+    "readback of the successor text: Cursor agent bc-3f10fc96 (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6023435335"
+   ],
+   "conditional_on": "note TS (main#229 6020794123 with its successor text 6021299833; custody packet Math-#387), [N] (#240), #220, [R], [182], #229, #237 and #187, at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "no sharpness of 9/14 or of any term of Lemma S'''; nothing pointwise in b; no identification of further terms; no certified number; no uniformity in d or L; whether IBA2-009 closes is for the audit's owners",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "EM/CLAIM.md",
+     "role": "author work claim (note EM)",
+     "comment": "6021554589",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6021554589",
+     "created_at": "2026-10-06T17:16:17Z",
+     "updated_at": "2026-10-06T17:16:17Z",
+     "bytes": 2358,
+     "sha256": "498016bd7bee862e30f9c102370af078b4a03f11397da39991ff868862f75e4a"
+    },
+    {
+     "path": "EM/PROOF.md",
+     "role": "frozen note (lifetime note EM)",
+     "comment": "6023010944",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023010944",
+     "created_at": "2026-10-06T18:39:52Z",
+     "updated_at": "2026-10-06T18:39:52Z",
+     "bytes": 43930,
+     "sha256": "103c663b74cf584d140ac8810efae4860110471225e8edf972e10ec5f137e342"
+    },
+    {
+     "path": "EM/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains em_exact.py and its stdout)",
+     "comment": "6023024039",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023024039",
+     "created_at": "2026-10-06T18:40:39Z",
+     "updated_at": "2026-10-06T18:40:39Z",
+     "bytes": 27898,
+     "sha256": "e61fe6654f4e464ae2e73b780ff6e231158e7bc562787e71507e1b7c04893007"
+    },
+    {
+     "path": "EM/READ_REQUEST_SLICE_A_SUMMONS.md",
+     "role": "author read request (three slices) with the Slice A summons of one Cursor agent (D2 of 6002718035); releases the work claim",
+     "comment": "6023041228",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023041228",
+     "created_at": "2026-10-06T18:41:42Z",
+     "updated_at": "2026-10-06T18:41:42Z",
+     "bytes": 4665,
+     "sha256": "b3db2d8de5477b95adb2474611d0043509100dfad01c0e4911cff7debdbbc936"
+    },
+    {
+     "path": "EM/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6023044196",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023044196",
+     "created_at": "2026-10-06T18:41:53Z",
+     "updated_at": "2026-10-06T18:41:53Z",
+     "bytes": 3047,
+     "sha256": "84b957ecf3821bf9059511360147ef71338ba4f52eb3f9ce9ae51d225c307967"
+    },
+    {
+     "path": "EM/REVIEW_SLICE_C_SUMMONS.md",
+     "role": "Slice C summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6023049558",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023049558",
+     "created_at": "2026-10-06T18:42:12Z",
+     "updated_at": "2026-10-06T18:42:12Z",
+     "bytes": 3359,
+     "sha256": "a47b867bca286422ef5430f653306ea10c63da336e4faaca2e3c457bf600ab19"
+    },
+    {
+     "path": "EM/DELIVERED_POINTER_main259.md",
+     "role": "author delivery pointer on main#259",
+     "comment": "6023056903",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/259#issuecomment-6023056903",
+     "created_at": "2026-10-06T18:42:39Z",
+     "updated_at": "2026-10-06T18:42:39Z",
+     "bytes": 2173,
+     "sha256": "ff6f7eff1a0f4e4802b4247b4034ee56b401d144ccc2c8d6dac7df549fb14c30"
+    },
+    {
+     "path": "EM/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 1-2: Lemmas P and X; E1, E2, E4 with M1-M3, M5, M6, M11): PASS, Cursor agent bc-68aae9d7 (xAI Grok 4.7); pickup and verdict in one comment, an edit of the cursor[bot] acknowledgement (GitHub refused a new comment)",
+     "comment": "6023042554",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023042554",
+     "created_at": "2026-10-06T18:41:47Z",
+     "updated_at": "2026-10-06T19:02:21Z",
+     "bytes": 6605,
+     "sha256": "3f48dd4283ce741be01ca01b4f34344eeaa5a2cb0f80049821e17cc5c5a63cdb"
+    },
+    {
+     "path": "EM/REVIEW_SLICE_B.md",
+     "role": "Slice B (sections 3-4: Lemma V and the proof of Lemma S'''; E3, E5, E7 with M4, M9, M10): AMEND (one absorption in section 4.1 (c); no constant, exponent or stated bound changes), Cursor agent bc-2e83c5a5 (xAI Grok 4.7); pickup and verdict in one edited acknowledgement",
+     "comment": "6023045290",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023045290",
+     "created_at": "2026-10-06T18:41:57Z",
+     "updated_at": "2026-10-06T18:58:05Z",
+     "bytes": 4053,
+     "sha256": "9f7087ead469cd5f95541acc2d9dabf497addf8fa399961b6e7f1bcbe9eefbb6"
+    },
+    {
+     "path": "EM/REVIEW_SLICE_C.md",
+     "role": "Slice C (section 0, sections 5-6 and the header; E6 with M7, M8): PASS, Cursor agent bc-16115a6c (xAI Grok 4.7); pickup and verdict in one edited acknowledgement",
+     "comment": "6023050789",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023050789",
+     "created_at": "2026-10-06T18:42:17Z",
+     "updated_at": "2026-10-06T18:49:37Z",
+     "bytes": 5515,
+     "sha256": "83f17da19c98d6ff8d5e792569835ff0dbe9af67c58fe0c6442494b658bc4cec"
+    },
+    {
+     "path": "EM/AUTHOR_SUCCESSOR_TEXT_AND_READBACK_SUMMONS.md",
+     "role": "author round note: the three verdicts, the successor text applying the AMEND exactly (one replacement in section 4.1 (c)), and the readback summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6023434026",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023434026",
+     "created_at": "2026-10-06T19:03:37Z",
+     "updated_at": "2026-10-06T19:03:37Z",
+     "bytes": 7822,
+     "sha256": "2231fadaf3c9f292534c1c65a70f12a978ff1dcb7988a77df0600c25b45fc5f3"
+    },
+    {
+     "path": "EM/READBACK_SUCCESSOR_TEXT.md",
+     "role": "readback of the successor text against the AMEND: PASS, Cursor agent bc-3f10fc96 (xAI Grok 4.7); pickup and verdict in one edited acknowledgement",
+     "comment": "6023435335",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6023435335",
+     "created_at": "2026-10-06T19:03:41Z",
+     "updated_at": "2026-10-06T19:10:34Z",
+     "bytes": 3619,
+     "sha256": "cec30fa29831e73ec15abcc4b1bbafd9c34ef06796c255b5effe801840953abe"
+    },
+    {
+     "path": "EM/AUTHOR_READ_COMPLETE_AND_CLAIM.md",
+     "role": "author note (read-complete in every slice) and D5 claims for this custody packet (claim 1) and for addendum EM.1 (claim 2)",
+     "comment": "6024074852",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6024074852",
+     "created_at": "2026-10-06T19:40:10Z",
+     "updated_at": "2026-10-06T19:40:10Z",
+     "bytes": 3453,
+     "sha256": "dc9cd57371838a63c607abf9827a56a2128742a59f4aab86b589a99891aa55d2"
+    },
+    {
+     "path": "EM/author_controls.py",
+     "role": "control script em_exact.py, extracted verbatim from the stored controls comment EM/AUTHOR_CONTROLS_COMMENT.md (heading: ### em_exact.py)",
+     "extracted_from": "EM/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### em_exact.py",
+     "bytes": 21773,
+     "sha256": "feea3c3c004ba5b6bc5dbcefc60bc684f0abc91808e6cf092eeac16a81cd9189"
+    },
+    {
+     "path": "EM/author_controls_stdout.json",
+     "role": "published stdout of EM/author_controls.py, extracted verbatim from EM/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "EM/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### em_exact.py",
+     "bytes": 202,
+     "sha256": "c4c2a636ea378587d4c3e629c2fc05aa0d72aad2f260e2327f493cb8259c5740"
+    }
+   ],
+   "replays": [
+    {
+     "name": "em_exact.py (stdout in a ```json fence)",
+     "script": "EM/author_controls.py",
+     "stdout": "EM/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
