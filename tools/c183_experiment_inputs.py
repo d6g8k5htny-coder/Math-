@@ -357,17 +357,47 @@ def render(raw):
     return output
 
 
-def main(binary_input, binary_output):
-    """Read at most the fixed byte cap plus one from the supplied stream."""
+def _read_input(binary_input):
+    """Acquire explicit EOF; each nonterminal read consumes bounded bytes."""
+    raw = bytearray()
+    while True:
+        remaining = MAX_INPUT + 1 - len(raw)
+        chunk = binary_input.read(remaining)
+        if type(chunk) is not bytes:
+            _refuse('INPUT_STREAM', 'input')
+        if len(chunk) > remaining or len(raw) + len(chunk) > MAX_INPUT:
+            _refuse('INPUT_LIMIT', 'json')
+        if not chunk:
+            return bytes(raw)
+        raw.extend(chunk)
+
+
+def _write_output(binary_output, output):
+    """Complete short writes; refuse no progress without a retry or error echo."""
+    view = memoryview(output)
+    offset = 0
     try:
-        raw = binary_input.read(MAX_INPUT + 1)
-    except (OSError, ValueError):
+        while offset < len(view):
+            written = binary_output.write(view[offset:])
+            if type(written) is not int or not 0 < written <= len(view) - offset:
+                return False
+            offset += written
+    except (OSError, ValueError, TypeError):
+        return False
+    return True
+
+
+def main(binary_input, binary_output):
+    """Read through EOF within the cap; return success only after full delivery."""
+    try:
+        raw = _read_input(binary_input)
+    except _Refusal as error:
+        output = _serialize(_invalid(error.code, error.category))
+    except (OSError, ValueError, TypeError):
         output = _serialize(_invalid('INPUT_IO', 'input'))
     else:
         output = render(raw)
-    try:
-        binary_output.write(output)
-    except (OSError, ValueError):
+    if not _write_output(binary_output, output):
         return 2
     status = json.loads(output)['status']
     return {'VALID_SUPPLIED_INPUT': 0, 'INCOMPLETE_INPUT': 1, 'INVALID_INPUT': 2}[status]
@@ -375,6 +405,6 @@ def main(binary_input, binary_output):
 
 if __name__ == '__main__':
     if len(sys.argv) != 1:
-        sys.stdout.buffer.write(_serialize(_invalid('ARGUMENTS_REFUSED', 'input')))
+        _write_output(sys.stdout.buffer, _serialize(_invalid('ARGUMENTS_REFUSED', 'input')))
         sys.exit(2)
     sys.exit(main(sys.stdin.buffer, sys.stdout.buffer))

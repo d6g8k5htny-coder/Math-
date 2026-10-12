@@ -122,7 +122,7 @@ missing-implementation control, not historical cleanup reproduction.
 
 Tests use only synthetic fixtures and the existing ordinary full-regression-suite
 PR trigger. No workflow edit, manual dispatch or local project execution occurs.
-The candidate has not yet earned a passing hosted receipt or nonauthor verdict.
+Each successor requires its own passing hosted receipt and nonauthor verdict.
 
 Hosted normal and optimized results, actual tested commit, source-clean guard,
 canary suppression evidence, frozen four-path diff and separate nonauthor review
@@ -139,6 +139,38 @@ one short read is not EOF, and a successful write call need not deliver all byte
 The tests-only successor adds eight methods for chunked input, hidden trailing
 bytes, cumulative cap, nonbytes/nonblocking read results, partial writes,
 invalid/no-progress write counts, and exceptions after partial progress.
-The helper stays byte-identical at blob9203c32b821c731b369c03158532bd96b69a9351
-until actual hosted regression RED. The first candidate's earlier tests do
-not cover or override this finding. No repair/acceptance is yet claimed.
+Tests-only head4653171e7befbad44ed93fad0c90fbfe22e65a94 retained helper
+blob9203c32b821c731b369c03158532bd96b69a9351. Actual
+[RED run38194828418/1, job114635075401](https://github.com/d6g8k5htny-coder/Math-/actions/runs/38194828418/job/114635075401)
+bound tested6678e9a6902b870aaa1eb83994e2fe5387918cf7 and tested tree
+a6418252c08e28a0f9163df6e479034580b969f5:613 normal methods, exactly
+eight intended stream assertion failures, zero unittest ERROR records.
+Optimized mode and source-clean guard were skipped. No canary marker appeared
+in the native decoded log. Repair was written only after this observed RED.
+
+The earlier42-control candidate742d2c66 had passed605 methods in each mode at
+[run38194422074/1, job114633857603](https://github.com/d6g8k5htny-coder/Math-/actions/runs/38194422074/job/114633857603);
+tested34477fd0f5b79c32f8cc33df5ef3bab773e680c2, tested tree
+d0c821a4860503b9da0768f422ad72dd717493e0, base49fb197c02ac8d1f16d162771292649c8adad331.
+That historical green lacked R1 regressions and cannot override the finding.
+The author initially repeated the head tree as its tested tree in a receipt;
+[explicit correction6116529944](https://github.com/d6g8k5htny-coder/Math-/pull/437#issuecomment-6116529944)
+retains the error and native log/Git correction.
+
+The repaired stream boundary reads through explicit empty-bytes EOF, enforcing
+the cumulative input cap before extending its buffer. None and nonbytes read
+results are unsupported and immediately yield INPUT_STREAM; stream exceptions
+yield fixed INPUT_IO without their message. A short nonempty read is not EOF.
+The caller supplies a finite synchronous stream; the helper does not implement
+a timeout or nonblocking wait. See the
+[Python binary I/O contract](https://docs.python.org/3/library/io.html#io.RawIOBase.read).
+
+Output completes positive partial writes using bounded memoryview slices.
+None, zero, Boolean, negative and overlarge counts are refused immediately;
+exceptions return exit2 without echoing their message. Read/write loops must
+consume/emit at least one byte to continue, bounding iteration count by the byte
+caps. A failed sink may retain a prefix; exit2 never claims successful report
+delivery, and no second diagnostic is appended to that failed sink. Success
+means the supplied sink accepted every report byte, not durable storage or
+remote acknowledgment. The repair retains50 methods and requires fresh both-mode
+hosted GREEN plus the separate reviewer's successor disposition.
