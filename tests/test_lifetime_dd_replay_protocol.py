@@ -42,6 +42,13 @@ class SyntheticPacket:
             cert[n] = ident(data)
         table = '\n'.join('| `dd/%s` | %d | `%s` |' % (n, b, s) for n, (b, s) in cert.items())
         self.put('DD/AUTHOR_CONTROLS_COMMENT.md', ('controls\n\n| File | Bytes | SHA-256 |\n|---|---|---|\n' + table + '\n').encode())
+        add = {}
+        for n in ['dd_gapcheck.py', 'results/gapcheck_stdout.txt', 'results/gapcheck_stdout_O.txt']:
+            data = ('synthetic %s\n' % n).encode()
+            self.put('certificate/' + n, data)
+            add[n] = ident(data)
+        table2 = '\n'.join('| `dd/%s` | %d | `%s` |' % (n, b, s) for n, (b, s) in add.items())
+        self.put('DD/AUTHOR_CONTROLS_ADDENDUM_C10.md', ('addendum\n\n| File | Bytes | SHA-256 |\n|---|---|---|\n' + table2 + '\n').encode())
         note_b, note_s = ident(self.files['DD/PROOF.md'])
         ctrl_b, ctrl_s = ident(self.files['DD/AUTHOR_CONTROLS_COMMENT.md'])
         self.put('DD/REVIEW_SLICE_A.md', ('PASS; note %d B %s; controls %d B %s\n' % (note_b, note_s, ctrl_b, ctrl_s)).encode(),
@@ -114,6 +121,14 @@ class ReplayProtocolTests(unittest.TestCase):
         p.write_text('\n'.join(l for l in body if '`dd/ddS.py`' not in l))
         self.assertTrue(any(f.startswith('controls comment: expected 23 pinned files') for f in self.m.controls_table_failures(self.pk.root)))
 
+    def test_addendum_table_requires_3_rows_and_detects_mismatch(self):
+        p = self.pk.root / 'certificate' / 'dd_gapcheck.py'
+        p.write_bytes(p.read_bytes() + b'z')
+        self.assertIn('pinned identity mismatch: dd_gapcheck.py', self.m.controls_table_failures(self.pk.root))
+        a = self.pk.root / 'DD' / 'AUTHOR_CONTROLS_ADDENDUM_C10.md'
+        a.write_text('\n'.join(l for l in a.read_text().split('\n') if 'gapcheck_stdout_O' not in l))
+        self.assertTrue(any(f.startswith('controls addendum: expected 3 pinned files') for f in self.m.controls_table_failures(self.pk.root)))
+
     def test_named_identities(self):
         self.assertEqual(self.m.named_identities_failures(self.pk.root, self.pk.manifest()), [])
         p = self.pk.root / 'DD' / 'REVIEW_SLICE_A.md'
@@ -158,9 +173,9 @@ class ReplayProtocolTests(unittest.TestCase):
         paths = [f['path'] for f in man['stored']]
         self.assertEqual(len(paths), len(set(paths)))
         cert = [p for p in paths if p.startswith('certificate/') and not p.startswith('certificate/results/')]
-        self.assertEqual(len(cert), 24)   # 11 files + 12 node files + the artifact record
+        self.assertEqual(len(cert), 25)   # 11 files + 12 node files + the artifact record + dd_gapcheck.py (C10)
         self.assertTrue(any(p == 'DD/PROOF.md' for p in paths))
-        self.assertEqual(len(man['replays']), 3)
+        self.assertEqual(len(man['replays']), 4)
 
     def test_production_tree_and_table(self):
         """the real packet passes the tree, controls-table and named-identity checks."""

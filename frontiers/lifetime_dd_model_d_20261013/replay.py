@@ -9,20 +9,23 @@ The packet stores, byte for byte:
 SOURCES.json pins every stored file by byte count and SHA-256. This script performs five checks.
 
   1. The packet tree equals SOURCES.json's file list, with no symlinks, and every stored file has its pinned identity.
-  2. Every certificate file named in the table of the stored controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) has the
-     byte count and SHA-256 the comment states (the comment pins the files at a Math- commit; the packet holds the
-     same bytes).
+  2. Every certificate file named in the table of the stored controls comment (DD/AUTHOR_CONTROLS_COMMENT.md, 23 files)
+     and in the table of the stored controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, 3 files) has the byte count
+     and SHA-256 the comment states (the comments pin the files at Math- commits; the packet holds the same bytes).
   3. Replays under the current interpreter's -O/-S flags, each with stdout byte-identical to the stored record and
-     empty stderr: certificate/dd_controls.py (C1-C9), certificate/dd_mutants.py (nine mutants, each rejected), and
-     certificate/dd_exact.py on the stored cells and node files (the tiling checks, every cell remainder recomputed,
-     24 node values recomputed, D and the corollary). The assembly takes about 20 minutes.
+     empty stderr: certificate/dd_controls.py (C1-C9), certificate/dd_mutants.py (nine mutants, each rejected),
+     certificate/dd_gapcheck.py on the stored cells (control C10, the sliver-gap enclosure), and certificate/dd_exact.py
+     on the stored cells and node files (the tiling checks, every cell remainder recomputed, 24 node values recomputed,
+     D and the corollary). The assembly takes about 20 minutes.
   4. Negative controls, each in a temporary copy, must be rejected:
      - a one-byte change to the stored note (DD/PROOF.md) fails check 1;
      - one changed digit in one stored node value (certificate/nodes/nodes_3.json) makes dd_exact.py's stdout differ
        from the stored record (or fail);
      - dd_exact.py with one node file missing exits 1 ('incomplete node values').
-  5. The identities of the stored note and controls comment equal the ones the two verdicts and the read-complete
-     note name (byte counts and SHA-256 in their texts).
+  5. Each stored verdict, summons and author record names the byte counts and SHA-256 of the stored bodies it refers to
+     (SOURCES.json, names_identities: the slice verdicts name the note they read, v1.0, and the controls comment; the
+     readback names v1.0 and v1.1; the C10 read names v1.1, v1.2 and the controls addendum; the read-complete notes name
+     the versions they cover).
 
 Reproducibility only. The note and its reads carry the mathematics. Nothing here reads or grades a proof.
 
@@ -76,20 +79,24 @@ def tree_failures(root, manifest):
     return failures
 
 
+PINNING_COMMENTS = (('DD/AUTHOR_CONTROLS_COMMENT.md', 23, 'controls comment'), ('DD/AUTHOR_CONTROLS_ADDENDUM_C10.md', 3, 'controls addendum'))
+
+
 def controls_table_failures(root):
-    """the stored controls comment pins the certificate files: | `dd/<name>` | <bytes> | `<sha256>` |"""
+    """the stored controls comment and addendum pin the certificate files: | `dd/<name>` | <bytes> | `<sha256>` |"""
     failures = []
-    body = (root / 'DD' / 'AUTHOR_CONTROLS_COMMENT.md').read_text(encoding='utf-8')
-    rows = re.findall(r'^\| `dd/([^`]+)` \| (\d+) \| `([0-9a-f]{64})` \|$', body, re.M)
-    if len(rows) != 23:
-        failures.append('controls comment: expected 23 pinned files, found %d' % len(rows))
-    for name, nbytes, sha in rows:
-        p = root / 'certificate' / name
-        if not p.is_file():
-            failures.append('pinned file missing: ' + name)
-            continue
-        if identity(p.read_bytes()) != (int(nbytes), sha):
-            failures.append('pinned identity mismatch: ' + name)
+    for rel, expected, label in PINNING_COMMENTS:
+        body = (root / rel).read_text(encoding='utf-8')
+        rows = re.findall(r'^\| `dd/([^`]+)` \| (\d+) \| `([0-9a-f]{64})` \|$', body, re.M)
+        if len(rows) != expected:
+            failures.append('%s: expected %d pinned files, found %d' % (label, expected, len(rows)))
+        for name, nbytes, sha in rows:
+            p = root / 'certificate' / name
+            if not p.is_file():
+                failures.append('pinned file missing: ' + name)
+                continue
+            if identity(p.read_bytes()) != (int(nbytes), sha):
+                failures.append('pinned identity mismatch: ' + name)
     return failures
 
 
@@ -131,15 +138,21 @@ def run(script, *args, cwd=None):
     cwd = str(cwd or script.parent)
     folder = evidence_directory(script)
     record = dict(schema=1, command=command, cwd=cwd, timeout_seconds=PROCESS_TIMEOUT_SECONDS, scientific_effect='NONE')
-    proc = subprocess.run(command, capture_output=True, timeout=PROCESS_TIMEOUT_SECONDS, cwd=cwd)
-    record.update(status='completed', returncode=proc.returncode,
-                  stdout=dict(bytes=len(proc.stdout), sha256=hashlib.sha256(proc.stdout).hexdigest()),
-                  stderr=dict(bytes=len(proc.stderr), sha256=hashlib.sha256(proc.stderr).hexdigest()))
+    try:
+        proc = subprocess.run(command, capture_output=True, timeout=PROCESS_TIMEOUT_SECONDS, cwd=cwd)
+        out, err, code, status = proc.stdout, proc.stderr, proc.returncode, 'completed'
+    except subprocess.TimeoutExpired as ex:
+        out, err, code, status = ex.stdout or b'', ex.stderr or b'', None, 'timeout'
+    record.update(status=status, returncode=code,
+                  stdout=dict(bytes=len(out), sha256=hashlib.sha256(out).hexdigest()),
+                  stderr=dict(bytes=len(err), sha256=hashlib.sha256(err).hexdigest()))
     if folder is not None:
-        (folder / 'stdout.bin').write_bytes(proc.stdout)
-        (folder / 'stderr.bin').write_bytes(proc.stderr)
+        (folder / 'stdout.bin').write_bytes(out)
+        (folder / 'stderr.bin').write_bytes(err)
         (folder / 'process.json').write_bytes((json.dumps(record, sort_keys=True, indent=2) + '\n').encode('utf-8'))
-    return proc.returncode, proc.stdout, proc.stderr
+    if status == 'timeout':
+        raise subprocess.TimeoutExpired(command, PROCESS_TIMEOUT_SECONDS, output=out, stderr=err)
+    return code, out, err
 
 
 def report(name, result, expected_reason):
@@ -157,7 +170,7 @@ def replay_failures(root, manifest, quick):
             print(json.dumps(dict(replay=rep['name'], skipped='--quick')))
             continue
         script = cert / rep['script']
-        args = [str(cert / a) if a.endswith('.json') else a for a in rep['args']]
+        args = [str(cert / a) if a.endswith('.json') else a for a in rep['args']]      # file arguments are packet paths; others (an nproc) pass through
         result = run(script, *args)
         report(rep['name'], result, 'exit 0, stdout equals ' + rep['stdout'])
         code, out, err = result

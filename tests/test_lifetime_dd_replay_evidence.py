@@ -82,6 +82,20 @@ class EvidenceTests(unittest.TestCase):
             with self.assertRaises(self.m.subprocess.TimeoutExpired):
                 self.m.run(self.script)
 
+    def test_timeout_evidence_is_retained(self):
+        self.script.write_text("import sys, time\nsys.stdout.write('partial\\n')\nsys.stdout.flush()\ntime.sleep(5)\n")
+        ev = self.tmp / 'evidence'
+        with mock.patch.dict(os.environ, {'QS_REPLAY_EVIDENCE_DIR': str(ev)}):
+            with mock.patch.object(self.m, 'PROCESS_TIMEOUT_SECONDS', 1):
+                with self.assertRaises(self.m.subprocess.TimeoutExpired):
+                    self.m.run(self.script)
+        folders = [p for p in ev.iterdir() if p.is_dir()]
+        self.assertEqual(len(folders), 1)
+        rec = json.loads((folders[0] / 'process.json').read_text())
+        self.assertEqual(rec['status'], 'timeout')
+        self.assertIsNone(rec['returncode'])
+        self.assertEqual((folders[0] / 'stdout.bin').read_bytes(), b'partial\n')
+
     def test_report_is_one_json_line(self):
         import io, contextlib
         buf = io.StringIO()
