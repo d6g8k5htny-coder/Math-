@@ -1,5 +1,5 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 12:15Z (adds c3r/C3R_PLAN_20261013.md: the plan and state of note C3-R, a rate after the l^{2/3} term; dd/ and dd_v2/ unchanged)",
+ "checkpoint": "wip_20261013T0245Z, updated 12:45Z (adds c3r/: note C3-R draft v1.0, c3r_exact.py with controls E1-E3, c3r_mutants.py M1-M4, both stdouts; dd/ and dd_v2/ unchanged)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED until read; scientific effect NONE",
  "files": [
@@ -82,6 +82,31 @@
    "path": "c3r/C3R_PLAN_20261013.md",
    "bytes": 8993,
    "sha256": "98811e93fcc2109f9518fe27ef78661e19f3c3eec1d853ecf2b8fb438f0a2a50"
+  },
+  {
+   "path": "c3r/NOTE_C3R_draft.md",
+   "bytes": 27499,
+   "sha256": "e571e7393cf11a61a941a4726c9af70433efea962271c9e511e60f6851c395a4"
+  },
+  {
+   "path": "c3r/c3r_exact.py",
+   "bytes": 11625,
+   "sha256": "6d911f0a6c1b0cda5ddd579b26aeaab2c3cc557f6b95c0970a944de25380a335"
+  },
+  {
+   "path": "c3r/c3r_mutants.py",
+   "bytes": 2027,
+   "sha256": "6afab0e79659ff0e5064a7ca4144aef485150b521c55e611e651b1d687c6c8f3"
+  },
+  {
+   "path": "c3r/c3r_mutants_stdout.txt",
+   "bytes": 421,
+   "sha256": "25a233227ef286319aa312fd07e4cd508176ca2eb656dcf4d3f4fdfffca6c215"
+  },
+  {
+   "path": "c3r/c3r_stdout.txt",
+   "bytes": 2152,
+   "sha256": "684d06a01eefb160188e7769099cd42e8c7ccf5b3803edd3010a646e4513791d"
   },
   {
    "path": "dd/DD_TASK_DEFINITION_20261012.md",
