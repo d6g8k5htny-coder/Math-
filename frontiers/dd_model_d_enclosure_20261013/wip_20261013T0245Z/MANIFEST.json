@@ -1,8 +1,78 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 06:15Z (final certificate state: corrected modules, final cells, node files of run 38347192184, results, note v1.0)",
+ "checkpoint": "wip_20261013T0245Z, updated 06:40Z (final certificate state unchanged since 06:15Z; adds PRE_FIX_UNVERIFIED_run_38339424610/, the raw artifacts of the pre-referee preview run, kept separate from the certificate)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED until read; scientific effect NONE",
  "files": [
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/MANIFEST_PRE_FIX_UNVERIFIED.json",
+   "bytes": 9663,
+   "sha256": "18949f667e836ee12ae3ae92072f32b292fb92f481b28f930a035b3d82951ace"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/README.md",
+   "bytes": 1465,
+   "sha256": "0cbe01aa8afd94d630106558bc3fdf2b68d2db68e9703a20348e1e3208c76738"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-0-38339424610-1.zip",
+   "bytes": 93216,
+   "sha256": "29256d6e0dd365ebf5fd81d30d2c4e66defeaf5d37e721a6942acf908e89315e"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-1-38339424610-1.zip",
+   "bytes": 93296,
+   "sha256": "66360a9ba95b242374f9074ab8e656f9a6c8e94b961fd3ea04c4531635bcbf71"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-10-38339424610-1.zip",
+   "bytes": 92897,
+   "sha256": "070f2edc1ab363f07427eb71c6fad212340c91e43ccd8871578c65293c3b8488"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-11-38339424610-1.zip",
+   "bytes": 92964,
+   "sha256": "1d4b481abd0401886a75af5cff64e84810e2df8892bf87bee3b0f80158e1b05a"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-2-38339424610-1.zip",
+   "bytes": 93261,
+   "sha256": "a0c52a6746dcc0f9a27dabb5774ed9fea40b4c546de7b56237b64aead8f4cad6"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-3-38339424610-1.zip",
+   "bytes": 93479,
+   "sha256": "cb885375e484edd90bc40c45b26383015e884f6cabab04b79c5e89709fffdcde"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-4-38339424610-1.zip",
+   "bytes": 93266,
+   "sha256": "568413d4a3bfe30d7ba9a907b5907c0419b397468a01543504ea827c4b16ce33"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-5-38339424610-1.zip",
+   "bytes": 93411,
+   "sha256": "e220f08bea71db0912d36ac0c56b176f5106e5587f664a2460092eecafc62dc5"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-6-38339424610-1.zip",
+   "bytes": 92639,
+   "sha256": "733a438a16a6a31b96ef694f4a5c75274db629cc5c4790b1b79fd45b935edcc1"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-7-38339424610-1.zip",
+   "bytes": 92712,
+   "sha256": "b9dcbafc412fdd954f5dd015f83c631a18094b94887addba92f2040e3f3c713a"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-8-38339424610-1.zip",
+   "bytes": 92540,
+   "sha256": "2d497f7f8da3e1545dc69023559c45d976a9ef04e73e3f11483126595b30280c"
+  },
+  {
+   "path": "PRE_FIX_UNVERIFIED_run_38339424610/dd-wip-nodes-9-38339424610-1.zip",
+   "bytes": 93005,
+   "sha256": "a654a68ed79f55a9d71ae3464d0c7f5d12a5c0831b911f65cbbb9da729d6043d"
+  },
   {
    "path": "README.md",
    "bytes": 7053,

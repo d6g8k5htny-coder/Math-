@@ -1,0 +1,241 @@
+{
+ "label": "PRE_FIX / UNVERIFIED",
+ "statement": "Raw node values of the preview shard run 38339424610 (attempt 1), computed by the PRE-REFEREE code at Math- commit 56abe5037422baabf445914f443818512289837f. NOT part of the certificate of note DD (that is run 38347192184 at 35ae8fbb431a49a3ea15e5bcee299b83360a6348, under dd/). Preserved only as a durable copy of the original artifact bytes; not to be consumed by any assembly, read or packet.",
+ "why_preserved": "requested by the coordinator on main#307 (comment 6139747502): the hosted artifacts expire on 2027-01-11; a durable shared copy with run/attempt/source hashes was asked for",
+ "run": {
+  "id": 38339424610,
+  "attempt": 1,
+  "head_sha": "56abe5037422baabf445914f443818512289837f",
+  "head_branch": "claude/dd-model-d-enclosure-wip-20261013",
+  "event": "pull_request",
+  "workflow_path": ".github/workflows/dd-wip-shards.yml",
+  "workflow_name": "DD WIP node shards (work in progress, not a certificate)",
+  "created_at": "2026-10-13T02:58:07Z",
+  "updated_at": "2026-10-13T03:55:06Z",
+  "conclusion": "success",
+  "url": "https://github.com/d6g8k5htny-coder/Math-/actions/runs/38339424610"
+ },
+ "artifacts_expire_at": "2027-01-11T02:58:07Z",
+ "total_zip_bytes": 1116686,
+ "verification": "each zip equals the GitHub artifact digest and size; zipfile.testzip() passes (CRC-32 of the single member verified); the member is the shard node file; verified locally by the author session on 13 October 2026",
+ "artifacts": [
+  {
+   "shard": 0,
+   "artifact_id": 11787214790,
+   "artifact_name": "dd-wip-nodes-0-38339424610-1",
+   "zip_file": "dd-wip-nodes-0-38339424610-1.zip",
+   "zip_bytes": 93216,
+   "zip_sha256": "29256d6e0dd365ebf5fd81d30d2c4e66defeaf5d37e721a6942acf908e89315e",
+   "github_digest": "sha256:29256d6e0dd365ebf5fd81d30d2c4e66defeaf5d37e721a6942acf908e89315e",
+   "artifact_created_at": "2026-10-13T03:49:11Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_0.json",
+    "bytes": 228078,
+    "crc32": "0x4f2e55cc",
+    "sha256": "c8b7d0d6df272490ecf000968e7b109e19b0b7049027fffb545a78734b49f88f"
+   }
+  },
+  {
+   "shard": 1,
+   "artifact_id": 11788131499,
+   "artifact_name": "dd-wip-nodes-1-38339424610-1",
+   "zip_file": "dd-wip-nodes-1-38339424610-1.zip",
+   "zip_bytes": 93296,
+   "zip_sha256": "66360a9ba95b242374f9074ab8e656f9a6c8e94b961fd3ea04c4531635bcbf71",
+   "github_digest": "sha256:66360a9ba95b242374f9074ab8e656f9a6c8e94b961fd3ea04c4531635bcbf71",
+   "artifact_created_at": "2026-10-13T03:55:03Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_1.json",
+    "bytes": 228228,
+    "crc32": "0x25e57974",
+    "sha256": "11ac57eba4d25082049c9b960e5d379145f88dfa828ca7edd29a9ce7399206de"
+   }
+  },
+  {
+   "shard": 2,
+   "artifact_id": 11787099566,
+   "artifact_name": "dd-wip-nodes-2-38339424610-1",
+   "zip_file": "dd-wip-nodes-2-38339424610-1.zip",
+   "zip_bytes": 93261,
+   "zip_sha256": "a0c52a6746dcc0f9a27dabb5774ed9fea40b4c546de7b56237b64aead8f4cad6",
+   "github_digest": "sha256:a0c52a6746dcc0f9a27dabb5774ed9fea40b4c546de7b56237b64aead8f4cad6",
+   "artifact_created_at": "2026-10-13T03:44:56Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_2.json",
+    "bytes": 228573,
+    "crc32": "0xbb3dec4b",
+    "sha256": "73f6e932b715c17ffc6ed41415d12a0d70062069a5dc1a869f57cc77380608b1"
+   }
+  },
+  {
+   "shard": 3,
+   "artifact_id": 11787059144,
+   "artifact_name": "dd-wip-nodes-3-38339424610-1",
+   "zip_file": "dd-wip-nodes-3-38339424610-1.zip",
+   "zip_bytes": 93479,
+   "zip_sha256": "cb885375e484edd90bc40c45b26383015e884f6cabab04b79c5e89709fffdcde",
+   "github_digest": "sha256:cb885375e484edd90bc40c45b26383015e884f6cabab04b79c5e89709fffdcde",
+   "artifact_created_at": "2026-10-13T03:42:18Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_3.json",
+    "bytes": 228645,
+    "crc32": "0xdc4bf7b9",
+    "sha256": "7e9e7f0c4b999eaeeac203e15444d8568bb662a35dd72c779ac92e34a0f2f760"
+   }
+  },
+  {
+   "shard": 4,
+   "artifact_id": 11787034862,
+   "artifact_name": "dd-wip-nodes-4-38339424610-1",
+   "zip_file": "dd-wip-nodes-4-38339424610-1.zip",
+   "zip_bytes": 93266,
+   "zip_sha256": "568413d4a3bfe30d7ba9a907b5907c0419b397468a01543504ea827c4b16ce33",
+   "github_digest": "sha256:568413d4a3bfe30d7ba9a907b5907c0419b397468a01543504ea827c4b16ce33",
+   "artifact_created_at": "2026-10-13T03:45:19Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_4.json",
+    "bytes": 228406,
+    "crc32": "0x050dbb91",
+    "sha256": "17e922c57fb16ec6f840d0e1c2cad0c2783506b519662c4b563cb9401a722316"
+   }
+  },
+  {
+   "shard": 5,
+   "artifact_id": 11787587071,
+   "artifact_name": "dd-wip-nodes-5-38339424610-1",
+   "zip_file": "dd-wip-nodes-5-38339424610-1.zip",
+   "zip_bytes": 93411,
+   "zip_sha256": "e220f08bea71db0912d36ac0c56b176f5106e5587f664a2460092eecafc62dc5",
+   "github_digest": "sha256:e220f08bea71db0912d36ac0c56b176f5106e5587f664a2460092eecafc62dc5",
+   "artifact_created_at": "2026-10-13T03:46:46Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_5.json",
+    "bytes": 228423,
+    "crc32": "0x4b84991d",
+    "sha256": "5bf6e4adeef442df8e0220443a2b28bb9b7f385299849d0389148a3cd11182fb"
+   }
+  },
+  {
+   "shard": 6,
+   "artifact_id": 11788240124,
+   "artifact_name": "dd-wip-nodes-6-38339424610-1",
+   "zip_file": "dd-wip-nodes-6-38339424610-1.zip",
+   "zip_bytes": 92639,
+   "zip_sha256": "733a438a16a6a31b96ef694f4a5c75274db629cc5c4790b1b79fd45b935edcc1",
+   "github_digest": "sha256:733a438a16a6a31b96ef694f4a5c75274db629cc5c4790b1b79fd45b935edcc1",
+   "artifact_created_at": "2026-10-13T03:47:25Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_6.json",
+    "bytes": 226254,
+    "crc32": "0xc82dd444",
+    "sha256": "0ada280fd44d415fb8e07d76fde20531d778f9e6c7d988b538415bc43df1f496"
+   }
+  },
+  {
+   "shard": 7,
+   "artifact_id": 11787821782,
+   "artifact_name": "dd-wip-nodes-7-38339424610-1",
+   "zip_file": "dd-wip-nodes-7-38339424610-1.zip",
+   "zip_bytes": 92712,
+   "zip_sha256": "b9dcbafc412fdd954f5dd015f83c631a18094b94887addba92f2040e3f3c713a",
+   "github_digest": "sha256:b9dcbafc412fdd954f5dd015f83c631a18094b94887addba92f2040e3f3c713a",
+   "artifact_created_at": "2026-10-13T03:48:01Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_7.json",
+    "bytes": 226744,
+    "crc32": "0xffd96665",
+    "sha256": "1e4c771bf7d51e30ec202160af7801b64db30d4ca516b03be117e1a90eb835bb"
+   }
+  },
+  {
+   "shard": 8,
+   "artifact_id": 11788180616,
+   "artifact_name": "dd-wip-nodes-8-38339424610-1",
+   "zip_file": "dd-wip-nodes-8-38339424610-1.zip",
+   "zip_bytes": 92540,
+   "zip_sha256": "2d497f7f8da3e1545dc69023559c45d976a9ef04e73e3f11483126595b30280c",
+   "github_digest": "sha256:2d497f7f8da3e1545dc69023559c45d976a9ef04e73e3f11483126595b30280c",
+   "artifact_created_at": "2026-10-13T03:50:31Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_8.json",
+    "bytes": 227077,
+    "crc32": "0xb8e6f0e2",
+    "sha256": "2307c8688710f63d1f5c37d98481e69514c84d15b9cbed36e275d591eaa31196"
+   }
+  },
+  {
+   "shard": 9,
+   "artifact_id": 11786991742,
+   "artifact_name": "dd-wip-nodes-9-38339424610-1",
+   "zip_file": "dd-wip-nodes-9-38339424610-1.zip",
+   "zip_bytes": 93005,
+   "zip_sha256": "a654a68ed79f55a9d71ae3464d0c7f5d12a5c0831b911f65cbbb9da729d6043d",
+   "github_digest": "sha256:a654a68ed79f55a9d71ae3464d0c7f5d12a5c0831b911f65cbbb9da729d6043d",
+   "artifact_created_at": "2026-10-13T03:23:53Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_9.json",
+    "bytes": 226812,
+    "crc32": "0xde3d5ce1",
+    "sha256": "1dfd7d33a371ca8c67f03cc3916450ce0e7bedf785a4a3d693f91a465dfc0c2c"
+   }
+  },
+  {
+   "shard": 10,
+   "artifact_id": 11788025239,
+   "artifact_name": "dd-wip-nodes-10-38339424610-1",
+   "zip_file": "dd-wip-nodes-10-38339424610-1.zip",
+   "zip_bytes": 92897,
+   "zip_sha256": "070f2edc1ab363f07427eb71c6fad212340c91e43ccd8871578c65293c3b8488",
+   "github_digest": "sha256:070f2edc1ab363f07427eb71c6fad212340c91e43ccd8871578c65293c3b8488",
+   "artifact_created_at": "2026-10-13T03:43:32Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_10.json",
+    "bytes": 226231,
+    "crc32": "0x909b56f1",
+    "sha256": "b93f2ab4369f641fd9091be2d2e3ac4276404f3c55742605db77630464cb8513"
+   }
+  },
+  {
+   "shard": 11,
+   "artifact_id": 11786219837,
+   "artifact_name": "dd-wip-nodes-11-38339424610-1",
+   "zip_file": "dd-wip-nodes-11-38339424610-1.zip",
+   "zip_bytes": 92964,
+   "zip_sha256": "1d4b481abd0401886a75af5cff64e84810e2df8892bf87bee3b0f80158e1b05a",
+   "github_digest": "sha256:1d4b481abd0401886a75af5cff64e84810e2df8892bf87bee3b0f80158e1b05a",
+   "artifact_created_at": "2026-10-13T03:28:52Z",
+   "artifact_expires_at": "2027-01-11T02:58:07Z",
+   "expired_at_record_time": false,
+   "member": {
+    "name": "nodes_11.json",
+    "bytes": 226851,
+    "crc32": "0x30fe8848",
+    "sha256": "91624fb4967fdc4cdbec103ede7530901a46ff6d4829ea70a1014eb891cace67"
+   }
+  }
+ ],
+ "session": "session_01NMeKEismAyeqgdB4sy2NJU",
+ "scientific_effect": "NONE"
+}

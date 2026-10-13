@@ -1,0 +1,7 @@
+# PRE_FIX / UNVERIFIED: raw artifacts of the preview shard run 38339424610
+
+**Not part of the certificate of note DD.** These twelve zip files are, byte for byte, the artifacts `dd-wip-nodes-<k>-38339424610-1` of the preview run [38339424610](https://github.com/d6g8k5htny-coder/Math-/actions/runs/38339424610) (attempt 1, workflow `.github/workflows/dd-wip-shards.yml`, head `56abe5037422baabf445914f443818512289837f` of this branch), which ran the **pre-referee** node code. The referee round that followed changed the `v`-tail normalization, the cell geometry of the log regime, the unimodal maximum in the `rho`-derivative bounds and the `exp` remainder cap, so these values are superseded by run [38347192184](https://github.com/d6g8k5htny-coder/Math-/actions/runs/38347192184) at `35ae8fbb431a49a3ea15e5bcee299b83360a6348`, whose node files are the certificate (`../dd/nodes/`). Nothing consumes the files here.
+
+They are kept because the hosted artifacts expire on 2027-01-11 and the coordinator asked (main#307 comment 6139747502) for a durable shared copy with explicit labels and run/attempt/source hashes. `MANIFEST_PRE_FIX_UNVERIFIED.json` records, for each shard, the artifact id, the GitHub digest, the zip byte count and SHA-256, the single member's name, byte count, CRC-32 and SHA-256, and the expiry. Total 1,116,686 bytes.
+
+Scientific effect NONE. Session `session_01NMeKEismAyeqgdB4sy2NJU` (Anthropic Claude), for Dylan Roy (delegated AI work).
