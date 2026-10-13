@@ -835,7 +835,7 @@ Does not claim: the bound (statement only); equality of the periodic and referen
 def ReferenceComparison (I : PeriodicCoefficientInterface) : Prop :=
   ∀ d : ℕ, d = 2 ∨ d = 3 → |I.c24 d / cRef d - 1| < 1 / 10 ^ 106
 
-/-! ## Round 7 (draft under HOLD, not a packet change): the successor interface that pins the cone moment
+/-! ## Round 7: the successor interface that pins the cone moment
 
 Everything above this line is byte-identical to the module at Math- `8acc4856`. The declarations below
 transcribe the parent's (15.1) `D_u = E[(det A_u)^2 1{A_u<0} | V_u=0]` (source id `lifetime-parent`,
@@ -849,7 +849,7 @@ conditional block and the definition of `coneMoment`; the two successor Props re
 displays over it. Formal progress of every declaration here: `specified`. Nothing here is proved,
 nothing above changes, no label moves, and no inhabitant of either interface is constructed.
 
-What the successor does NOT pin (recorded for the design review): `sphereMeasure` stays a given measure
+What the successor does NOT pin (recorded for the design review, main#307 6137276515): `sphereMeasure` stays a given measure
 constrained only by its support and total area, so `c24` is determined by the fields only up to that
 choice; frame invariance of `coneMomentOf` under transverse-frame changes (the parent asserts it) is
 not a field, so the frame-quantified `coneMoment_def` is a consistency burden on the interface rather

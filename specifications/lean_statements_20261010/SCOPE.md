@@ -429,7 +429,8 @@ Kind `proof_index_result`, formal progress `none`, no statements, no kernel evid
 At the Math- cut `8acc4856` the sibling proof packet proves 77 of the 141 registered Props, 143 with the two round-7
 successor Props appended to `Side24.lean` on top of that cut. This section classifies the 66 others, so that the remaining formal work is named where the register lives. The
 classification is this packet's author's reading of the statement modules (the round-4 triage of 2026-10-11,
-re-applied at this cut; the statement modules have not changed since `873c6c0`, so the cited lines hold),
+re-applied at this cut; the original declarations and the lines cited for them have not changed since `873c6c0`,
+`Side24.lean` having only the round-7 append after its last original declaration, so the cited lines hold),
 by a single reader, not a reviewed fact; it moves no label: every one of the 66 stays `specified`, nothing is
 promoted, reclassified or withdrawn. Scientific effect NONE.
 
