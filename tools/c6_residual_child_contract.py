@@ -28,6 +28,15 @@ EXPECTED_FAILURES = {
     "record-unreviewed": frozenset(("REVIEWED", "TRANSITIONS", "GATE")),
     "reviewed-text-drift": frozenset(("REVIEWED",)),
 }
+EXPECTED_FAILURES_BY_STATE = {
+    "baseline": EXPECTED_FAILURES,
+    "installed": dict(EXPECTED_FAILURES, **{
+        "stale-fingerprint": frozenset(("GATE", "LIVE", "TRANSITIONS")),
+        "installed-drift": frozenset(("TRANSITIONS",)),
+        "record-unreviewed": frozenset(("GATE", "LIVE", "REVIEWED",
+                                        "TRANSITIONS")),
+    }),
+}
 REPORT_KEYS = frozenset((
     "checks", "component_nodes", "gate", "inventory_files", "live_state",
     "object", "passed", "register_state", "scope",
@@ -58,7 +67,7 @@ def _loads(raw):
         raise ValueError("C6 residual child contract: invalid JSON stdout") from exc
 
 
-def _check_common(report, baseline):
+def _check_common(report, baseline, expected_failures=frozenset()):
     _require(type(report) is dict and set(report) == REPORT_KEYS,
              "missing or extra report fields")
     _require(report["object"] == baseline["object"] == "C6-RESIDUAL-CLOSURE-20260930-v1",
@@ -69,8 +78,10 @@ def _check_common(report, baseline):
              "component identity changed")
     _require(type(report["scope"]) is str and report["scope"] == baseline["scope"],
              "source scope changed")
-    _require(report["register_state"] == baseline["register_state"] and
-             report["register_state"] in ("baseline", "installed"),
+    expected_state = ("partial" if "LIVE" in expected_failures
+                      else baseline["register_state"])
+    _require(baseline["register_state"] in ("baseline", "installed") and
+             report["register_state"] == expected_state,
              "register state changed")
     _require(type(report["live_state"]) is dict and
              report["live_state"].get("state") == report["register_state"],
@@ -98,12 +109,16 @@ def validate_baseline(process, pinned_bytes):
 
 def validate_mutant(mutant, process, baseline):
     """Reject crashes, silence, malformed output and failures for the wrong reason."""
-    _require(mutant in EXPECTED_FAILURES, "unregistered mutant label")
+    register_state = baseline.get("register_state")
+    _require(register_state in EXPECTED_FAILURES_BY_STATE,
+             "unregistered baseline state")
+    expected = EXPECTED_FAILURES_BY_STATE[register_state]
+    _require(mutant in expected, "unregistered mutant label")
     _require(process.returncode == 1, "mutant exit must be one")
     _require(process.stderr == b"", "mutant wrote unexpected stderr")
     report = _loads(process.stdout)
-    checks = _check_common(report, baseline)
+    checks = _check_common(report, baseline, expected[mutant])
     failed = frozenset(name for name, value in checks.items() if value is False)
-    _require(report["passed"] is False and failed == EXPECTED_FAILURES[mutant],
+    _require(report["passed"] is False and failed == expected[mutant],
              "mutant failed a different check set: " + mutant)
     return report
