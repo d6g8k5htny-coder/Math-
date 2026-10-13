@@ -34,13 +34,26 @@ set -euo pipefail
 # shadow it.
 export LEAN_PATH="$TORUS_SPEC_OUT:$TORUS_SIDE:${LEAN_PATH:-}"
 export LEAN_SRC_PATH="$TORUS_SIDE:${LEAN_SRC_PATH:-}"
+# Runtime guard: the running Lean and every installed dependency (`<name> <HEAD> <clean|dirty>`, clean meaning
+# `git status --porcelain --untracked-files=normal` prints nothing) are observed before the first Lean execution and
+# again after the last one (toolchain-final.log, packages-final.log); check.py finish requires both observations.
+# Each git result is taken by a plain assignment, so a failing git aborts the replay under `set -e` (a command
+# substitution inside printf's arguments would not).
+observe_packages() {
+  local log="$1" pkg name head porcelain state
+  : > "$log"
+  for pkg in "$TORUS_ROOT"/formal/.lake/packages/*/; do
+    name="$(basename "$pkg")"
+    head="$(git -C "$pkg" rev-parse HEAD)"
+    porcelain="$(git -C "$pkg" status --porcelain --untracked-files=normal)"
+    if [ -z "$porcelain" ]; then state=clean; else state=dirty; fi
+    printf '%s %s %s\n' "$name" "$head" "$state" >> "$log"
+  done
+  cat "$log"
+}
 lean --version > "$TORUS_OUT/toolchain.log"
 cat "$TORUS_OUT/toolchain.log"
-: > "$TORUS_OUT/packages.log"
-for pkg in "$TORUS_ROOT"/formal/.lake/packages/*/; do
-  printf '%s %s\n' "$(basename "$pkg")" "$(git -C "$pkg" rev-parse HEAD)" >> "$TORUS_OUT/packages.log"
-done
-cat "$TORUS_OUT/packages.log"
+observe_packages "$TORUS_OUT/packages.log"
 run_lean() {
   local label="$1"; shift
   local code=0
@@ -92,6 +105,10 @@ for control in RejectSorry RejectCustomAxiom RejectNativeDecide; do
   printf '%s\n' "$code" >"$TORUS_OUT/$control.status"
   python3 -B -S "$TORUS_SIDE/check.py" negative "$TORUS_OUT/$control.log" --control "$control" --status "$code"
 done
+# Runtime guard, after the last Lean execution: the same observations again.
+lean --version > "$TORUS_OUT/toolchain-final.log"
+cat "$TORUS_OUT/toolchain-final.log"
+observe_packages "$TORUS_OUT/packages-final.log"
 INNER
 cd "$ROOT"
 python3 -B -S "$SIDE/check.py" finish "$OUT"
