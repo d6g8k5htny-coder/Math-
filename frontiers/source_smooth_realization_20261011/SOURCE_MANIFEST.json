@@ -1,0 +1,294 @@
+{
+  "schema_version": 1,
+  "package": "frontiers/source_smooth_realization_20261011",
+  "prepared_at_utc": "2026-10-11T21:08:01.480Z",
+  "status": "MATHEMATICAL_SOURCE_REVIEW_PASS_UNCOMPILED",
+  "source_claim": {
+    "uuid": "e2f875ef-55a0-46d5-b85d-9b94cb6bc6c6",
+    "native": "https://github.com/d6g8k5htny-coder/Math-/pull/419#issuecomment-6113682633",
+    "r17_work_events_row": 1890,
+    "lease_until": "2026-10-11T22:58:16.223Z"
+  },
+  "parent": {
+    "commit": "1a7fc4be83043f2e313927019db85fff61eeac3f",
+    "tree": "3b3c0f16f848712a9eb53bb1b412a06bab787b91",
+    "source_freeze_sha256": "3b7d85ab24e872b1afe4c52e7cd69d596a247141449519e2074d4a95af3c7e28",
+    "qualified_draft_not_main": true
+  },
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "dependencies": [
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "e928b72544873815af278d38681b31c0293588e3",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.34.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 7,
+      "sha256": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
+      "git_blob_sha1": "01f8cdb637da2370fa79960e25efa59dd8cffd6d",
+      "role": "SOURCE_DESCRIPTOR"
+    },
+    {
+      "path": "DESIGN.md",
+      "bytes": 3557,
+      "sha256": "18f486b9a1e94d449ab078fccdb5bfaec7bad0075c3a8e8d26f96775b68e10f7",
+      "git_blob_sha1": "b07ad499826e8e9dc9ce11bf3fd683539ab247c5",
+      "role": "SOURCE_DESCRIPTOR"
+    },
+    {
+      "path": "GaussianSeriesFoundation.lean",
+      "bytes": 4262,
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95",
+      "git_blob_sha1": "93651da7fcfbc834661c795f0ec8b08383d86887",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceC4.lean",
+      "bytes": 6438,
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397",
+      "git_blob_sha1": "f5188d51c29b8c639019bab2e6bf51e0cff5bc15",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceCovariance.lean",
+      "bytes": 3925,
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5",
+      "git_blob_sha1": "50aa85f304c7e6b93a9cd84d555ba9c32112f9fd",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceFourierSeries.lean",
+      "bytes": 6524,
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014",
+      "git_blob_sha1": "e4cdec9e62faf6b20312294d4eccb14f16aa948c",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceGaussianLaw.lean",
+      "bytes": 8984,
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8",
+      "git_blob_sha1": "bb8450b5a8029614f4456bb527f2a7bbde16e852",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceKernel.lean",
+      "bytes": 5293,
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21",
+      "git_blob_sha1": "5d5602ac787f1580214afc49e5d4da6f5e158ac2",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceLattice.lean",
+      "bytes": 6284,
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b",
+      "git_blob_sha1": "9c1e0557c352066535be4e67fba698adf7a91e04",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceSmooth.lean",
+      "bytes": 11231,
+      "sha256": "2108f00c98e9b91fae34e9e1abefdd1cb42d250c864c0fd076bfb238977e9028",
+      "git_blob_sha1": "dee9dd9a5906cac042f7359772fa122327354194",
+      "role": "NEW_UNCOMPILED_MATHEMATICAL_SOURCE"
+    },
+    {
+      "path": "SourceSmoothAxiomAudit.lean",
+      "bytes": 3399,
+      "sha256": "4dfa901029fab71d127c9f4c8cf30c937607f4444e6af64f429890d9d141d591",
+      "git_blob_sha1": "e22ec44e59ca5a14de9107349d5061e6a81de616",
+      "role": "PROSPECTIVE_FULL_MODULE_AXIOM_AUDIT"
+    },
+    {
+      "path": "SourceSmoothCarrier.lean",
+      "bytes": 11195,
+      "sha256": "519cb2e4e07dddb5ae939a187c7e5b127bdc49efb9a62b1a9b0ea84bf46a9106",
+      "git_blob_sha1": "733328a3ec1b9df9e84271649762ab5583c6c496",
+      "role": "NEW_UNCOMPILED_MATHEMATICAL_SOURCE"
+    },
+    {
+      "path": "SourceSmoothControls.lean",
+      "bytes": 3257,
+      "sha256": "8eca5ecdb5e2a0c1cb786468b340e4516df653468f958e535f156baafef088b4",
+      "git_blob_sha1": "febe52a42d099844d02c59b728ca86417587b3e2",
+      "role": "NEW_UNCOMPILED_MATHEMATICAL_SOURCE"
+    },
+    {
+      "path": "SourceTorus.lean",
+      "bytes": 5182,
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef",
+      "git_blob_sha1": "b9fe497521f930a19c1ab355d776af6d32c85775",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SourceTorusC4.lean",
+      "bytes": 6081,
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
+      "git_blob_sha1": "30cfb670f953aab16b4fe1fa6a26476f10443afc",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "SpectralWeights.lean",
+      "bytes": 6924,
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
+      "git_blob_sha1": "191a22f14382fb05a520717b7de544019c8566d5",
+      "role": "LITERAL_F7_DEPENDENCY"
+    },
+    {
+      "path": "lake-manifest.json",
+      "bytes": 3558,
+      "sha256": "4cc60e1f98fc3a46bccafe6b8315445d950ca1db55ceba26fdebe3a45eafe59a",
+      "git_blob_sha1": "9fe1332352893f5f89e74b550a25ee187b871ed3",
+      "role": "SOURCE_DESCRIPTOR"
+    },
+    {
+      "path": "lakefile.toml",
+      "bytes": 746,
+      "sha256": "7782dd2fef85bf956a0ccc76e4e6420b8818eabb3bc133cade7252ea7d1d92e6",
+      "git_blob_sha1": "695cbbf56eaed49dd113b9ecdb76e4fcd4e1d0c6",
+      "role": "SOURCE_DESCRIPTOR"
+    },
+    {
+      "path": "lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "git_blob_sha1": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+      "role": "SOURCE_DESCRIPTOR"
+    }
+  ],
+  "review": {
+    "reviewer": "/root/f5_controls_source_review",
+    "source_exposed": true,
+    "same_provider": true,
+    "organization_independence": 0,
+    "verdict": "PASS_EXACT_UNCOMPILED_MATHEMATICAL_SPECIFICATION",
+    "md_sha256": "f9ab19fcee66717b2149a6ca850e788fd34deaea6eb1ff2466c999ff5888196a",
+    "json_sha256": "2f1c070bc09cf169ea1f68fd01a1f2732ae9cfa7cce891b958cd133c10c5ef18"
+  },
+  "scope": "Actual all-order smooth carrier for the identical infinite Gaussian Fourier source and literal inclusion-law preservation; first C261 StageA prerequisite only.",
+  "compilation": "NOT_RUN",
+  "kernel": "NOT_RUN",
+  "actual_axiom_census": "NOT_RUN",
+  "hosted_slot": "UNALLOCATED",
+  "new_native_branch_commit_pr": null,
+  "scientific_effect": "NONE",
+  "full_goal": "ACTIVE_UNMET",
+  "open_obligations": [
+    "Euclidean nominal coordinate transport",
+    "theta/Poisson covariance identity",
+    "C2-valued random element",
+    "derivative observation Gaussian/rank laws",
+    "canonical every-target full-field regression kernel",
+    "Field/Lifetime adapter (Claude-owned)",
+    "fixed-fiber genericity",
+    "weighted global elder law",
+    "count/density",
+    "global uniqueness/Hk/marked convergence",
+    "universality/local-jet coefficient/numerical50/publications/uptake"
+  ]
+}
