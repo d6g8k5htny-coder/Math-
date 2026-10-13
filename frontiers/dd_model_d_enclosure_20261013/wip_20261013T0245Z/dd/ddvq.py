@@ -6,7 +6,7 @@ import heapq, decimal, math
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import add, width, ZERO, ONE, q, mul, smul, sq, isqrt, iexp
+from ddcore import require, add, width, ZERO, ONE, q, mul, smul, sq, isqrt, iexp
 import ddint as D
 import ddbounds as B
 
@@ -53,7 +53,7 @@ def _vcell(a, b, kind='v'):
     """(kind, centre, half-width) for the decimal interval [a, b]; exact when a, b are short decimals (asserted for 'v')."""
     vc = C.CD.divide(C.CD.add(a, b), Dec(2)); hv = C.CU.divide(C.CU.subtract(b, a), Dec(2))
     if kind == 'v':
-        assert C.CD.subtract(vc, hv) == a and C.CU.add(vc, hv) == b, 'inexact v-cell geometry'
+        require(C.CD.subtract(vc, hv) == a and C.CU.add(vc, hv) == b, 'inexact v-cell geometry')
     return (kind, vc, hv)
 
 def initial_cells(st, sc, v1):
@@ -70,7 +70,7 @@ def initial_cells(st, sc, v1):
       at least 4 up to v1."""
     sigt = float(st[1]); sigc = float(sc[1])
     cells = []
-    v1d = Dec(int(v1)); assert v1d == v1
+    v1d = Dec(int(v1)); require(v1d == v1)
     narrow = sigc / (12 * sigt) < NARROW_SCALE and sigc > 0 and sigt > 0.1      # v = 1 carries mass only if t >= 2/3 is reachable
     segments = []            # decimal [a, b] intervals to be covered by plain v-cells
     v_scale = max(1.0, 2.06 * math.sqrt(sigt))
@@ -79,15 +79,15 @@ def initial_cells(st, sc, v1):
         n = int(math.ceil(float(Dec(repr(math.log(LOG_DELTA))) - y_min)))
         hy = _short((math.log(LOG_DELTA) - float(y_min)) / (2 * n), 'u')
         y_max = C.CU.add(y_min, C.CU.multiply(hy, Dec(2 * n)))                 # exact (short decimals)
-        assert C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * n))) == y_max
+        require(C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * n))) == y_max)
         delta = iexp((y_max, y_max)); eps = iexp((y_min, y_min))
         for k in range(n):
             yc = C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * k + 1)))
-            assert C.CD.subtract(yc, hy) == C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * k)))
+            require(C.CD.subtract(yc, hy) == C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * k))))
             cells.append(('yl', yc, hy)); cells.append(('yr', yc, hy))
         one = Dec(1)
         delta_out = _short(delta[1], 'u'); eps_in = _short(eps[0], 'd')
-        assert delta_out >= delta[1] and 0 <= eps_in <= eps[0]
+        require(delta_out >= delta[1] and 0 <= eps_in <= eps[0])
         cells.append(('v', one, eps_in))                                      # the core (certain part)
         for (a, b) in ((C.CD.subtract(one, delta_out), C.CU.subtract(one, delta[0])), (C.CD.subtract(one, eps[1]), C.CU.subtract(one, eps_in)),
                        (C.CD.add(one, eps_in), C.CU.add(one, eps[1])), (C.CD.add(one, delta[0]), C.CU.add(one, delta_out))):
@@ -140,7 +140,7 @@ def vquad(tau_iv, g_iv, v1, order=8, rel_tol=Dec('1e-2'), abs_tol=Dec('1e-30'), 
         negw, i = heapq.heappop(heap)
         kind, c, h, enc, od = cells[i]
         h2 = C.CD.divide(h, Dec(2))
-        assert C.CU.multiply(h2, Dec(2)) == h and C.CD.subtract(c, h2) == C.CU.subtract(c, h2), 'inexact halving'
+        require(C.CU.multiply(h2, Dec(2)) == h and C.CD.subtract(c, h2) == C.CU.subtract(c, h2), 'inexact halving')
         children = []
         for cc in (C.CD.subtract(c, h2), C.CU.add(c, h2)):
             e0 = _eval(tau_iv, g_iv, kind, cc, h2, 0)

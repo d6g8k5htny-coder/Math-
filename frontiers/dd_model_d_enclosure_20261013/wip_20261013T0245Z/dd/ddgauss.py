@@ -13,7 +13,7 @@ import sys, os, json, math, heapq, time
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import q, add, sub, mul, div, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
+from ddcore import require, q, add, sub, mul, div, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
 import ddbounds as B
 import ddvq as VQ
 
@@ -203,14 +203,14 @@ def assemble(cells, done, remainders=None):
     for i, c in enumerate(cells):
         uc, hu, wc, hw, E = c[0], c[1], c[2], c[3], c[4]
         vals = done[i]
-        assert len(vals) == NGAUSS * NGAUSS and all(v[0] != 'FAIL' for v in vals), 'cell %d: incomplete or failed node values' % i
+        require(len(vals) == NGAUSS * NGAUSS and all(v[0] != 'FAIL' for v in vals), 'cell %d: incomplete or failed node values' % i)
         nodes = cell_nodes(uc, hu, wc, hw)
         s = (ZERO, ZERO)
         for k, v in enumerate(vals):
             lo, hi = Dec(v[0]), Dec(v[1])
-            assert lo <= hi and lo.is_finite() and hi.is_finite(), 'cell %d node %d: invalid enclosure' % (i, k)
+            require(lo <= hi and lo.is_finite() and hi.is_finite(), 'cell %d node %d: invalid enclosure' % (i, k))
             if len(v) >= 6:
-                assert Dec(v[4]) == nodes[k][0][0] and Dec(v[5]) == nodes[k][1][0], 'cell %d node %d: coordinates differ' % (i, k)
+                require(Dec(v[4]) == nodes[k][0][0] and Dec(v[5]) == nodes[k][1][0], 'cell %d node %d: coordinates differ' % (i, k))
             s = add(s, mul(wprod[k], (lo, hi)))
         s = mul(s, mul(q(hu), q(hw)))
         tot = add(tot, s); rem = C.CU.add(rem, Dec(E) if remainders is None else remainders[i])

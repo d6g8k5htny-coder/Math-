@@ -55,6 +55,17 @@ def C1():
     rhs_n = padd(pmul(m, ppow(v, 4)), pscale(ppow(v, 6), Fr(1, 3)))
     check('C1c (2.7) with c <= 0 equals the v-form', form27n == rhs_n)
     # Phi - R^2/48 on each branch (Lemma 1's exact forms)
+    # (2.5): Phi = |c| delta^2 + delta^3/3 with delta = psi_e - |c| = v^2 - c - |c|  (psi_e = rho + 2c = v^2 - c)
+    dpos = padd(ppow(v, 2), pscale(c, Fr(-2)))                       # c > 0: delta = v^2 - 2c
+    phi25 = padd(pmul(c, ppow(dpos, 2)), pscale(ppow(dpos, 3), Fr(1, 3)))
+    check('C1f (2.5) with c > 0 equals the v-form', phi25 == rhs)
+    dneg = ppow(v, 2)                                                 # c = -m <= 0: delta = v^2
+    phi25n = padd(pmul(m, ppow(dneg, 2)), pscale(ppow(dneg, 3), Fr(1, 3)))
+    check('C1g (2.5) with c <= 0 equals the v-form', phi25n == rhs_n)
+    # g_{c'}(psi_e) = 16 (psi_e - 2c)^2 (psi_e + c) = 16 rho^2 v^2 = R^2 with |R| = 4 v rho = 4v^3 - 12 c v
+    psi = padd(ppow(v, 2), pscale(c, Fr(-1)))
+    gpsi = pscale(pmul(ppow(padd(psi, pscale(c, Fr(-2))), 2), padd(psi, c)), Fr(16))
+    check('C1h g_c(psi_e) = (4v^3 - 12cv)^2', gpsi == ppow(padd(pscale(ppow(v, 3), Fr(4)), pscale(pmul(c, v), Fr(-12))), 2))
     check('C1d c>0: Phi - R^2/48 = c rho^2 + 3 c^2 rho + 4/3 c^3', padd(rhs, pscale(R2, Fr(-1, 48))) == padd(padd(pmul(c, ppow(rho, 2)), pscale(pmul(ppow(c, 2), rho), Fr(3))), pscale(ppow(c, 3), Fr(4, 3))))
     check('C1e c<=0: Phi - R^2/48 = -m v^4 - 3 m^2 v^2', padd(rhs_n, pscale(ppow(R_n, 2), Fr(-1, 48))) == padd(pscale(pmul(m, ppow(v, 4)), Fr(-1)), pscale(pmul(ppow(m, 2), ppow(v, 2)), Fr(-3))))
 
@@ -67,6 +78,8 @@ def C2():
     c0 = B.RHO_C0
     ref = mul(smul(Dec(24), C.SQRTPI), C.recip(smul(Dec(57600), C.PI)))
     check('C2 c0 = 24 sqrt(pi)/(57600 pi)', c0[0] <= ref[1] and ref[0] <= c0[1], '%s' % c0[1])
+    ref2 = C.recip(smul(Dec(2400), C.SQRTPI))                       # = 1/(2400 sqrt(pi)): (1/2400) * 2/sqrt(4 pi) from note DC Lemma 4
+    check('C2b c0 = 1/(2400 sqrt(pi))', c0[0] <= ref2[1] and ref2[0] <= c0[1])
 
 def C3():
     # closed-form moments J_n(x) = int_x^inf u^n e^{-alpha u^2} du (floats) against Riemann sums

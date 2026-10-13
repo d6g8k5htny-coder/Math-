@@ -7,7 +7,7 @@ import sys, json, math
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import q, add, sub, mul, div, smul, ZERO, ONE
+from ddcore import require, q, add, sub, mul, div, smul, ZERO, ONE
 import ddbounds as B
 import ddgauss as G
 import ddS as S
@@ -34,34 +34,34 @@ def main(cells_path, *nodes_paths, recheck=True, sample=24):
     done = {}
     for np_ in nodes_paths:
         done.update({int(k): v for k, v in json.load(open(np_)).items()})
-    assert len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells))
+    require(len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells)))
     rows = [{k: Dec(v) for k, v in r.items()} for r in spec['rows']]
     u_lo = Dec(spec['u_lo']); u_hi = Dec(spec['u_hi'])
-    assert G.TAYLOR[0] == int(spec['taylor'][0]) and str(G.TAYLOR[1]) == spec['taylor'][1] and str(G.TAYLOR[2]) == spec['taylor'][2]
-    assert G.NGAUSS == spec['ngauss'] and Dec(spec['row_width']) == G.ROW_WIDTH and spec['nw0'] == G.NW0
-    assert C.CU.add(u_lo, C.CU.multiply(G.ROW_WIDTH, Dec(len(rows)))) == u_hi, 'rows do not end at u_hi'
+    require(G.TAYLOR[0] == int(spec['taylor'][0]) and str(G.TAYLOR[1]) == spec['taylor'][1] and str(G.TAYLOR[2]) == spec['taylor'][2])
+    require(G.NGAUSS == spec['ngauss'] and Dec(spec['row_width']) == G.ROW_WIDTH and spec['nw0'] == G.NW0)
+    require(C.CU.add(u_lo, C.CU.multiply(G.ROW_WIDTH, Dec(len(rows)))) == u_hi, 'rows do not end at u_hi')
     # the rows and the cells tile: every cell lies in one row's rectangle; the cells of each row tile its rectangle (exact decimals)
     tile = {}
     for c in cells:
         uc, hu, wc, hw = c[:4]
         row = [r for r in rows if r['uc'] - r['hu'] <= uc - hu and uc + hu <= r['uc'] + r['hu'] and r['w_lo'] <= wc - hw and wc + hw <= r['w_hi']]
-        assert len(row) == 1, 'cell outside the rows'
+        require(len(row) == 1, 'cell outside the rows')
         tile.setdefault(id(row[0]), []).append((uc - hu, uc + hu, wc - hw, wc + hw))
     for r in rows:
         area = sum((b - a) * (d - c_) for (a, b, c_, d) in tile.get(id(r), []))
-        assert area == (2 * r['hu']) * (r['w_hi'] - r['w_lo']), 'the cells of a row do not fill it'
+        require(area == (2 * r['hu']) * (r['w_hi'] - r['w_lo']), 'the cells of a row do not fill it')
         # pairwise disjointness (open interiors): cells are dyadic; check no overlap by sorting
         segs = sorted(tile.get(id(r), []))
         for i in range(len(segs)):
             for j in range(i + 1, len(segs)):
                 a1, b1, c1, d1 = segs[i]; a2, b2, c2, d2 = segs[j]
-                assert not (a1 < b2 and a2 < b1 and c1 < d2 and c2 < d1), 'overlapping cells'
+                require(not (a1 < b2 and a2 < b1 and c1 < d2 and c2 < d1), 'overlapping cells')
     remainders = None
     if recheck:      # C9a: recompute every cell's Gauss remainder bound independently of the stored values
         remainders = []
         for i, c in enumerate(cells):
             E, Eu, Ew = B.cell_remainder(c[0], c[1], c[2], c[3], G.NGAUSS, G.taylor_part())
-            assert E == c[4], 'cell %d: stored remainder %s differs from the recomputation %s' % (i, c[4], E)
+            require(E == c[4], 'cell %d: stored remainder %s differs from the recomputation %s' % (i, c[4], E))
             remainders.append(E)
         print('C9a: the %d cell remainders recomputed and equal to the stored values' % len(cells))
     if sample:       # C9b: recompute a deterministic sample of node values and require equality
@@ -71,7 +71,7 @@ def main(cells_path, *nodes_paths, recheck=True, sample=24):
             k = rng.randrange(G.NGAUSS * G.NGAUSS)
             node = G.cell_nodes(*cells[i][:4])[k]
             res = G.eval_node((node[0], node[1]))
-            assert res[:2] == tuple(done[i][k][:2]), 'cell %d node %d: recomputed value differs' % (i, k)
+            require(res[:2] == tuple(done[i][k][:2]), 'cell %d node %d: recomputed value differs' % (i, k))
         print('C9b: %d sampled node values recomputed and equal to the stored values' % len(idx))
     encG, totG, remG = G.assemble(cells, done, remainders)
     ot = G.omega_tails(rows)                      # recomputed from the rows (not read from the file)

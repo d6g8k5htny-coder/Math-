@@ -9,6 +9,7 @@ Python standard library (fractions); polynomials in (t, chi) as dicts {(a, b): F
 """
 from fractions import Fraction as Fr
 import math
+from ddcore import require
 
 def padd(p, q_):
     out = dict(p)
@@ -63,7 +64,7 @@ def root_taylor(N):
             inv = padd(inv, term)
             term = ptrunc(pmul(term, pscale(d, Fr(-1) / c0), N), N)
         v = ptrunc(padd(v, pscale(pmul(G, inv, N), Fr(-1))), N)
-    assert ptrunc(G_of(v, N), N) == {}, 'root Taylor polynomial not exact to degree %d' % N
+    require(ptrunc(G_of(v, N), N) == {}, 'root Taylor polynomial not exact to degree %d' % N)
     return v
 
 def phi_tilde(v, N=None):
@@ -109,10 +110,10 @@ def remainder_constant(N, Bt, Bc=None):
       |Phi~(t, v_p) - I_quad - T_N| = |degree > N part| <= box_sup(full, B, N+1) rho^{N+1}."""
     if Bc is None: Bc = Bt
     Bt = Fr(Bt); Bc = Fr(Bc); B = Bt
-    assert Bt < Fr(2, 3) and Bc < 8 * (1 - Fr(3, 2) * Bt), 'the box must stay inside c\' > 0 and R > 0'
+    require(Bt < Fr(2, 3) and Bc < 8 * (1 - Fr(3, 2) * Bt), 'the box must stay inside c\' > 0 and R > 0')
     vp, TN, full = g_taylor(N)
     E = G_of(vp)
-    assert ptrunc(E, N) == {}
+    require(ptrunc(E, N) == {})
     K_G = box_sup(E, Bt, Bc, N + 1)                 # |E| <= K_G rho^{N+1} on the box
     E_max = box_sup(E, Bt, Bc, 0)                   # |E| <= E_max on the box (uniform)
     v0 = vp[(0, 0)]
@@ -131,13 +132,13 @@ def remainder_constant(N, Bt, Bc=None):
     E_max = up(E_max); K_G = up(K_G)
     eps = Fr(0)
     for _ in range(12):
-        assert v_lo - eps > 0 and (v_lo - eps) ** 2 > cmax, 'v_p - eps must exceed sqrt(c_max)'
+        require(v_lo - eps > 0 and (v_lo - eps) ** 2 > cmax, 'v_p - eps must exceed sqrt(c_max)')
         Gmin = 12 * (v_lo - eps) ** 2 - 12 * cmax
         eps = up(E_max / Gmin)
     eps = up(eps * Fr(21, 20))       # a margin above the (approximate) fixed point, then verified
-    assert v_lo - eps > 0 and (v_lo - eps) ** 2 > cmax, 'v_p - eps must exceed sqrt(c_max)'
+    require(v_lo - eps > 0 and (v_lo - eps) ** 2 > cmax, 'v_p - eps must exceed sqrt(c_max)')
     Gmin = 12 * (v_lo - eps) ** 2 - 12 * cmax
-    assert E_max / Gmin <= eps, 'eps not self-consistent'
+    require(E_max / Gmin <= eps, 'eps not self-consistent')
     e = K_G / Gmin
     # derivatives of Phi~ in v: Phi~ = v^6/3 - c' v^4 + (4/3) c'^3
     vmax = v_hi + eps

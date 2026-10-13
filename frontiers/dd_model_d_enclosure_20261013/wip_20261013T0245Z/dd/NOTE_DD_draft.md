@@ -1,4 +1,4 @@
-# Note DD — a certified two-sided enclosure of the model number `D` (v1.0, DRAFT)
+# Note DD — a certified two-sided enclosure of the model number `D` (v1.0)
 
 Dylan Roy — delegated AI work. Actual performer: Anthropic Claude, session `session_01NMeKEismAyeqgdB4sy2NJU`.
 Scientific effect NONE until read. Scope: #244 Theorem A's conditional scope wherever `I = Φ` is used (as in notes V24,
@@ -12,15 +12,27 @@ Let `D` be note V24's model number (V24 (5.3); note DC §0),
     D := (1/2400) ∫_0^∞ k^{−8/3} e^{−12k²} E[γ⁶ (I − I_quad)(t, χ₀)] dk,   I(t, χ₀) = Φ(1 − t, 8 − 12t + χ₀),
     t = 12kB/γ², χ₀ = 576k²C₃/γ³, (γ, B, C₃) ~ N(0,2) ⊗ N(0,2) ⊗ N(0,6),
 
-with `I_quad(t, χ) = 20/3 − 20t + (8/9)χ + (52/3)t² − (4/3)tχ + (13/486)χ²` and `Φ` the closed form of #244 (2.5)–(2.7).
+with `I_quad(t, χ) = 20/3 − 20t + (8/9)χ + (52/3)t² − (4/3)tχ + (13/486)χ²` and `Φ` the closed form of #244 (2.5)–(2.7) (Math- `frontiers/soft_closed_form_20261002/PROOF.md`).
 
-**Theorem DD.** `D ∈ [D_lo, D_hi] = [TBD, TBD]` (width `TBD`).
+**Theorem DD.** `0.0757052 ≤ D ≤ 0.0778601` (so `D = 0.07678 ± 0.00108`; the certified enclosure is
+`[0.0757052049785748938, 0.0778600952308480156]`, width `2.155·10⁻³`). The exploration value `0.0767381` (V24 Remark 1)
+and the corrected float cubature `0.076714` on `τ ≤ 10⁷` (plus a tail `≈ 3·10⁻⁵`) lie inside.
 
 **Corollary DD1.** With note CJ's `J ∈ [4.1977819534, 4.1977820097]` and note DC's `−Ĩ_quad ∈ [0.6104056, 0.6104057]`,
-`q := J/30 − Ĩ = J/30 − Ĩ_quad − D ∈ [TBD, TBD]`, and by note V24's Theorem V (allowances `η_c`, `η_R` as quoted in
-note CJ's Corollaries CJ1–CJ2), the elder density's `ℓ^{2/3}` coefficient satisfies, for every real `L ≥ 10`
-(`L ≥ 24`): `(c₃ − R_{2/3})(L) ∈ [TBD, TBD]` in `d = 3` and `[TBD, TBD]` in `d = 2`
-(`𝒮₂ = 25√3/(48π²)`, `𝒮₃ = 125√30/(192π³)`). This replaces the one-sided bounds of Corollary CJ2.
+`q := J/30 − Ĩ = J/30 − Ĩ_quad − D ∈ [0.672471, 0.674627]`, and by note V24's Theorem V (`|c₃(L) − (J/30)𝒮_d| ≤ η_c𝒮_d`,
+`|R_{2/3}(L) − Ĩ𝒮_d| ≤ η_R𝒮_d`, with `η_c = 5.88·10⁻⁹, 1.97·10⁻⁷` and `η_R = 7.81·10⁻⁶, 4.97·10⁻⁴` for `L ≥ 10` in
+`d = 2, 3`, and `η_c = 4.88·10⁻¹¹⁰, 1.64·10⁻¹⁰⁸`, `η_R = 6.48·10⁻¹⁰⁷, 4.13·10⁻¹⁰⁵` for `L ≥ 24`, as quoted in note CJ's
+Corollaries CJ1–CJ2), the elder density's `ℓ^{2/3}` coefficient `(c₃ − R_{2/3})(L) = q𝒮_d ± (η_c + η_R)𝒮_d` satisfies,
+at #244 Theorem A's conditional scope, for every real `L ≥ 10`:
+
+    d = 3:  0.0772809 ≤ (c₃ − R_{2/3})(L) ≤ 0.0776432;   for L ≥ 24 (SIDE24):  0.0773381 ≤ (c₃ − R_{2/3})(L) ≤ 0.0775860,
+    d = 2:  0.0614650 ≤ (c₃ − R_{2/3})(L) ≤ 0.0616635;   for L ≥ 24:           0.0614658 ≤ (c₃ − R_{2/3})(L) ≤ 0.0616628
+
+(`𝒮₂ = 25√3/(48π²)`, `𝒮₃ = 125√30/(192π³)`; outward rounding). So at SIDE24 the coefficient is `0.07746 ± 0.00013` in
+`d = 3` and `0.06156 ± 0.00010` in `d = 2` (relative width `0.32 %`); the exploration values `0.0774672` and `0.0615684`
+(note V24 Remark 1) lie inside. This replaces the one-sided bounds `≥ 0.035768`, `≥ 0.035825`, `≥ 0.028472` of
+Corollary CJ2 (E68 writes the exploration value as `1.8544c`; with the same `c`, the certified interval reads `1.8513c`
+to `1.8572c`).
 
 ## 1. Reduction (the route of main#307 6134833037 §2, now proved)
 
@@ -29,8 +41,12 @@ note CJ's Corollaries CJ1–CJ2), the elder density's `ℓ^{2/3}` coefficient sa
 
     Φ(c′, R) = v⁶/3 − c′v⁴ + (4/3)c′³   (c′ > 0),      Φ(c′, R) = |c′|v⁴ + v⁶/3   (c′ ≤ 0),              (1.1)
 
-`Φ(c′, −R) = Φ(c′, R)`. (Proof: with `ρ := ψ_e − 2c′` and `v² := ρ + 3c′` the identities of #244 (2.5)–(2.7) become the
-polynomial identities (1.1); verified symbolically in control C1.)
+`Φ(c′, −R) = Φ(c′, R)`. *Proof.* In #244's notation (`c′ = 1 − t`, `R = χ₀ + 8 − 12t`, `g_{c′}(ψ) = 16(ψ − 2c′)²(ψ + c′)`,
+`ψ_e` the largest root of `g_{c′}(ψ) = R²` on `[max(2c′, −c′), ∞)`, `Φ = |c′|δ² + δ³/3` with `δ = ψ_e − |c′|`), put
+`ρ := ψ_e − 2c′` and `v := √(ψ_e + c′) ≥ 0`, so `v² = ρ + 3c′`. Then `g_{c′}(ψ_e) = 16ρ²v² = R²`, i.e. `|R| = 4vρ = 4v³ −
+12c′v`, with `v ≥ √(3c′)` when `c′ > 0` (`ρ ≥ 0`) and `v ≥ 0` when `c′ ≤ 0` (`ψ_e ≥ −c′`); on that range the cubic is
+increasing from `0`, so `v` is its largest root. And `δ = v² − c′ − |c′|`, which gives (1.1) by expansion (`δ = v² − 2c′`
+for `c′ > 0`, `δ = v²` for `c′ ≤ 0`); (2.7) agrees. Control C1 verifies (2.5), (2.7) and (1.1) as polynomial identities. ∎
 
 **1.2 The Gaussian form.** With note DC Lemma 4's variables (`k = τg²`, `t = 12τB`, `s = 576√6τ²g`), `t | τ ~ N(0, σ_t²)`,
 `χ₀ | (τ, g) ~ N(0, σ_χ²)`, `σ_t = 12√2τ`, `σ_χ = 576√6τ²g`, and
@@ -39,7 +55,11 @@ polynomial identities (1.1); verified symbolically in control C1.)
     ρ = c₀ τ^{−5/3} g^{11/3} e^{−12τ²g⁴ − g²/4},  c₀ = 24√π·A₃ = 24√π/(57600π),
     H(u, ω) = E[g(σ_t Z₁, σ_χ Z₂)],  g(t, χ) := I(t, χ) − I_quad(t, χ),  Z₁, Z₂ ~ N(0,1) independent.      (1.2)
 
-(From note DC §0 / Lemma 4; the measure `dτ dg/(τ g)`; control C2 re-derives `c₀` and the exponents.)
+*Derivation.* In (5.3) put `k = τγ²` (`γ > 0` by symmetry, factor 2): `γ⁶k^{−8/3}dk = γ^{8/3}τ^{−8/3}dτ`,
+`e^{−12k²} = e^{−12τ²γ⁴}`; the density of `γ` is `e^{−γ²/4}/√(4π)`; given `(τ, γ = g)`, `t = 12τB ~ N(0, 288τ²)` and
+`χ₀ = 576k²C₃/γ³ = 576τ²gC₃ ~ N(0, 576²·6·τ⁴g²)`. So `D = (2/(2400√(4π)))∫_0^∞dτ∫_0^∞dg τ^{−8/3}g^{8/3}e^{−12τ²g⁴−g²/4}H`,
+which is (1.2) with `dτ dg = τg du dω` and `c₀ = 1/(2400√π) = 24√π/(57600π)` (note DC Lemma 4's `A₃ = 1/(57600π)`;
+control C2 checks both forms of `c₀`).
 
 **1.3 The `(t, v)` form of `H`.** Fix `(τ, g)`. The map `(t, χ) ↦ (t, v, ±)` with `R = 8 − 12t + χ`, `± = sign R`,
 `v = v(1 − t, |R|)` is a bijection off `{R = 0}` onto `{(t, v, ±): v > √(3(1 − t)₊)}` with `dχ = 12(v² − 1 + t) dv`, so
@@ -52,7 +72,9 @@ polynomial identities (1.1); verified symbolically in control C1.)
 and the `t`-integral is a closed form: with `Δ = 2as² + λ²`, `α = Δ/(2s²)`, `t_c = −λμ/Δ`, `e^{−at²}e^{−(λt+μ)²/(2s²)} =
 e^{−aμ²/Δ} e^{−α(t − t_c)²}`, the integral over `[1 − v²/3, 1]` and `[1, ∞)` of a polynomial of degree ≤ 4 in `t` times
 `e^{−α(t−t_c)²}` is a combination of `erfc` and `exp` (the moments `J_n(x) = ∫_x^∞ u^n e^{−αu²} du`, `2αJ_n = (n−1)J_{n−2}
-+ x^{n−1}e^{−αx²}`). Control C3 checks (1.3) and the closed form against brute-force quadrature.
++ x^{n−1}e^{−αx²}`). Control C3 checks the closed-form moments against Riemann sums and the completed square; (1.3)
+itself was checked against direct quadrature in `(t, χ)` at eight `(t, s)` points, including `t = 1` (exploration, the
+`vform1.py` checks of 6134833037 §2(b)), and through the float reference of §3.4.
 
 ## 2. Lemmas
 
@@ -67,7 +89,7 @@ so `v² ≤ ρ_R`, and `Φ − R²/48 = −|c′|v⁴ − 3c′²v²`, of absolu
 In the certificate `g̃` is replaced by the larger sum of monomials `Σ c|t|^a|χ|^b` (rational `a, b ∈ {0, 2/3, 4/3, 1, 2,
 3, …}`) obtained from `|c′| ≤ 1 + |t|`, `ρ_R ≤ (8^{2/3} + (12|t|)^{2/3} + |χ|^{2/3})/16^{1/3}` (subadditivity of
 `x^{2/3}`) and `ρ_R² ≤ 3^{1/3}(8^{4/3} + (12|t|)^{4/3} + |χ|^{4/3})/16^{2/3}` (power mean). Control C5 checks
-`|g| ≤ g̃` at 6108 points, including `t > 1` and `|χ| > 10³`.
+`|g| ≤ g̃` at 6140 points, including `t > 1`, the line `R = 0`, `|χ|` up to `10⁶` and `|t|` up to `10⁴`.
 
 **Lemma 2 (derivatives of `H` fall on the kernels).** Let `L` act on a centred Gaussian density `N_σ` by `L = ∂/∂(ln σ)`;
 then `L^k N_σ(x) = N_σ(x) p_k(x/σ)` with `p₀ = 1`, `p_{k+1}(z) = (z² − 1)p_k(z) − z p_k′(z)`. Since `∂_u ln σ_t = 1`,
@@ -93,7 +115,7 @@ if `ε > 0` satisfies `v_lo − ε > √(1 + B_t)` (`v_lo` the minimum of `v_p` 
 `|v − v_p| ≤ |G(v_p)|/G_min ≤ (K_G/G_min) ρ^{N+1} =: e ρ^{N+1}`. Then `|Φ̃(t, v) − Φ̃(t, v_p)| ≤ Σ_{k=1}^{6} sup|∂_v^kΦ̃|
 |v − v_p|^k/k!` with `|v − v_p|^k ≤ ε^{k−1} e ρ^{N+1}`, and `Φ̃(t, v_p) − I_quad − T_N` is the degree-`> N` part of an
 exact polynomial, bounded by `C_poly ρ^{N+1}`. `C_{N+1} = C_root + C_poly`. ∎ (All of this is exact rational
-arithmetic; control C6 recomputes `T_11`, `C₁₂` and checks the localization inequalities.)
+arithmetic; control C7 recomputes `T₁₁`, `C₁₂` and checks the localization inequalities.)
 The box bound used by the certificate: `|E[gQ]| ≤ |E[T_N Q]| + E[(g̃ + |T_N|)|Q| 1_{out}] + C_{N+1}E[ρ^{N+1}|Q| 1_{box}]`,
 `1_{out} ≤ 1{|t| > B_t} + 1{|χ| > B_χ}`, with incomplete absolute moments `E[|X|^p 1{|X| > B}] = σ^p 2^{p/2}
 Γ((p+1)/2, B²/(2σ²))/√π` and `Γ(s, x) ≤ x^{s−1}e^{−x}` (`s ≤ 1`), `≤ x^{s−1}e^{−x}·x/(x − s + 1)` (`s > 1`, `x > s − 1`).
@@ -138,7 +160,9 @@ functions fall back to the plain monotone range when the model's range is more t
 **3.2 Algorithm.** `u ∈ [−6.2, 18.6]` (`τ ∈ [e^{−6.2}, e^{18.6}] = [0.00203, 1.19·10⁸]`) in rows of width `0.4`; each row
 has `ω ∈ [ω_lo, ω_hi]` with `g_hi = min(9, (60/(12τ_lo²))^{1/4} + min(0.5, 3/τ_lo))`, `g_lo = 0.002 g_hi` (rounded to short
 decimals), initially 8 cells per row; the cell with the largest Lemma 4 bound is halved (in the direction of the larger
-of its two terms) until the total is `≤ 7·10⁻⁴`: TBD cells. On each cell the tensor 4-point Gauss rule, each node value
+of its two terms) until the total is `≤ 7·10⁻⁴`: 2393 cells (remainder bound `6.994·10⁻⁴`; 237 cells with `τ < 10⁻²`,
+475 in `[10⁻², 10⁻¹)`, 378 in `[10⁻¹, 1)`, 306 in `[1, 10)`, 223, 183, 136, 127, 114, 116, 95 and 3 in the following
+decades up to `1.2·10⁸`). On each cell the tensor 4-point Gauss rule, each node value
 `ρ(node)·H(node)` with `H(node)` from the rigorous `v`-quadrature of (1.3): adaptive cells on `[0, v₁]` (Taylor models of
 order 8 in `v`; when `σ_χ/(12σ_t) < 0.1` and `σ_t > 0.1`, a logarithmic substitution `v = 1 ± e^y` around `v = 1`, where
 `F` has an integrable `1/|v − 1|`-type peak, with the four junction slivers enclosed by `hull(0, length × range)`; every
@@ -147,7 +171,23 @@ cell boundary a short decimal, so the cells tile exactly; relative tolerance `5�
 Deterministic: exact decimal geometry, a fixed refinement order; the node values are computed in 12 shards (cell index
 mod 12) and assembled.
 
-**3.3 Results.** TBD table: `D_S`, `D_G` (node sum, node width, remainder), the tails, `D`, `q`, the corollary.
+**3.3 Results** (`dd_exact.py`; every number an outward-rounded decimal interval).
+
+| Piece | Enclosure / bound |
+|---|---|
+| Gauss sum `Σ_cells h_u h_ω Σ w_i w_j ρH(node)` (38,288 nodes) | `[0.07649608, 0.07710967]` (the node widths sum to `6.14·10⁻⁴`) |
+| Lemma 4 remainder, summed over the 2393 cells | `≤ 6.994·10⁻⁴` |
+| `D_S` (`τ ≤ e^{−6.2} = 0.0020294`), Lemma 6(iii) | `[−2.0411·10⁻⁵, −2.0043·10⁻⁵]` (the polynomial part `[−2.0249, −2.0204]·10⁻⁵`; `R_C = 3.0·10⁻¹⁰`, `R_t = 1.6·10⁻⁷`, `R_χ = 1.1·10⁻²⁵`) |
+| `ω`-tails (62 rows), Lemma 6(ii) | `≤ 1.384·10⁻⁵` |
+| `τ`-tail (`τ ≥ e^{18.6} = 1.19·10⁸`), Lemma 6(i) | `≤ 5.722·10⁻⁵` |
+| **`D`** | **`[0.0757052049785748938, 0.0778600952308480156]`**, width `2.1549·10⁻³` |
+| `q = J/30 − Ĩ_quad − D` | `[0.672471569882485, 0.674626562011426]` |
+| `(c₃ − R_{2/3})(L)`, `d = 3`, `L ≥ 10` / `L ≥ 24` | `[0.0772809592, 0.0776431570]` / `[0.0773381398, 0.0775859765]` |
+| `(c₃ − R_{2/3})(L)`, `d = 2`, `L ≥ 10` / `L ≥ 24` | `[0.0614650917, 0.0616634929]` / `[0.0614658061, 0.0616627785]` |
+
+The assembly also checks that the 2393 cells tile the 62 rows exactly and are disjoint, recomputes every cell's
+remainder bound (equal to the stored one) and 24 sampled node values (equal to the stored ones), and refuses any
+ill-formed node record.
 
 **3.4 Controls** (`dd_controls.py`, exit 0 iff all pass): C1 the `v`-form identities (1.1), #244's (2.7) on both
 branches and Lemma 1's exact forms, as polynomial identities over `ℚ`; C2 `c₀`; C3 the closed-form `t`-moments against
@@ -173,10 +213,13 @@ nine are rejected.
 
 1. *Pessimism.* The Lemma 4 bounds exceed the true remainders by factors `10²–10⁶` (the kernel moments weight the
    Gaussian tails); the certificate pays with cells, not with rigor.
-2. *Cost.* TBD node evaluations at 1–9 s each (standard library, single core; 12 shards of a hosted 4-vCPU runner,
-   under one hour).
-3. *Precision.* The enclosure's width is TBD: the Lemma 4 remainder `≤ 7·10⁻⁴` each side, the node widths (`5·10⁻³`
-   relative) TBD, the `τ`-tail `6.3·10⁻⁵`, the `ω`-tails `1.4·10⁻⁵`, region S `4·10⁻⁷`.
+2. *Cost.* 38,288 node evaluations at 1–9 s each (standard library, single core): 12 shards on hosted 4-vCPU runners,
+   39–66 minutes each (run 38347192184); the cell build 28 minutes; the assembly with its recomputation checks about
+   20 minutes.
+3. *Precision.* The width `2.155·10⁻³` is the Lemma 4 remainder (`6.99·10⁻⁴` each side, `1.40·10⁻³` in all), the
+   node widths (`6.14·10⁻⁴`; tolerance `5·10⁻³` relative), the `τ`-tail (`5.7·10⁻⁵` each side), the `ω`-tails
+   (`1.4·10⁻⁵` each side) and region S (`3.7·10⁻⁷`). Halving the width again would cost about twice the cells and
+   nodes; the pessimism of Remark 1 is the real limit, and a sharper remainder bound (not attempted) would do better.
 4. *Referee rounds.* Before posting, a clean-context referee pass in the same session read the draft and the code:
    lemmas PASS; implementation BLOCK (the `v`-tail allowance was added before the `(24τ√π)^{−1}` normalization; fixed,
    control C9 added) and AMEND (exact short-decimal cell geometry in the log regime; the exact unimodal maximum in the

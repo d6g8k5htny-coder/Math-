@@ -18,6 +18,10 @@ CU = Context(prec=PREC, rounding=ROUND_CEILING, traps=TRAPS)
 CX = Context(prec=PREC + 25, rounding=ROUND_FLOOR, traps=TRAPS)   # extra precision for series
 ZERO = Dec(0); ONE = Dec(1); TWO = Dec(2)
 
+def require(cond, msg='check failed'):
+    """a check that is not removed by python -O (unlike assert)."""
+    if not cond: raise AssertionError(msg)
+
 def set_precision(p):
     global PREC, CD, CU, CX
     PREC = p
@@ -109,8 +113,8 @@ def isqrt(a):
     lo = CD.subtract(lo, ulp(lo)) if lo != 0 else ZERO
     hi = CU.add(hi, ulp(hi))
     # verify by squaring (correctly rounded sqrt is guaranteed, this is a second check)
-    assert CU.multiply(lo, lo) <= a[0] or lo == 0, 'sqrt lower bound'
-    assert CD.multiply(hi, hi) >= a[1], 'sqrt upper bound'
+    require(CU.multiply(lo, lo) <= a[0] or lo == 0, 'sqrt lower bound')
+    require(CD.multiply(hi, hi) >= a[1], 'sqrt upper bound')
     return (max(lo, ZERO), hi)
 def fpow(a, p):
     """a^p for interval a > 0 and exact rational p, via exp(p ln a)."""

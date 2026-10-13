@@ -16,6 +16,13 @@ interruption does not force re-derivation. Scientific effect NONE. Not for integ
   `dv/vform5.py` (corrected `v`-range), `dv/stein_bounds*.py` (float cell-count explorations), and the rigorous modules
   `dd/ddtaylor.py`, `dd/ddbounds.py`, `dd/ddvq.py`, `dd/ddgauss.py`, `dd/ddS.py`, `dd/dd_exact.py`, `dd/test_bounds.py`.
 - `MANIFEST.json`: path, size and SHA-256 of every file here (computed at commit time).
+- **Update 06:10Z (the certificate's final state):** the corrected modules (the referee round of 03:16–04:03Z and the
+  `require()` conversion so that `python -O` keeps every check), the final cells `dd/cells_full.json` (2393 cells, remainder
+  bound `6.994·10⁻⁴`, `u ∈ [−6.2, 18.6]`), the node files `dd/nodes/nodes_k.json` (byte for byte the artifacts of run
+  38347192184; `dd/nodes/artifacts_run_38347192184.json` lists the artifact ids and digests), `dd/results/` (the stdout of
+  `dd_controls.py`, `dd_mutants.py` and `dd_exact.py` in both python modes), the note `dd/NOTE_DD_draft.md` (v1.0 as
+  posted on main#307). The shard workflow is now `workflow_dispatch` only (every push re-triggered it). **Result:**
+  `D ∈ [0.0757052049785748938, 0.0778600952308480156]`. Still PROTOTYPE / UNVERIFIED until the note's reads.
 - **Update 03:00Z:** `dd/cells_full.json` (the 1914 adaptive cells, remainder bound `1.995·10⁻³`, `build_full.log`), the
   module updates of 02:45–03:00Z (`ddvq.py` log cells with rigorous sliver junctions, `ddcore.py` monotone-range safeguard,
   `ddgauss.py` shards, `dd_exact.py` multi-file assembly), `dd/NOTE_DD_draft.md` (the note's draft, numbers TBD) and the

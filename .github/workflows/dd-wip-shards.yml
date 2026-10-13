@@ -1,10 +1,6 @@
 name: DD WIP node shards (work in progress, not a certificate)
 
 'on':
-  pull_request:
-    paths:
-      - 'frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd/cells_full.json'
-      - '.github/workflows/dd-wip-shards.yml'
   workflow_dispatch:
 
 permissions:

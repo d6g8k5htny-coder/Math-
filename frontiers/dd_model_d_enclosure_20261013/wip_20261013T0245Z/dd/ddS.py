@@ -26,7 +26,7 @@ import math
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import q, add, sub, mul, div, neg, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
+from ddcore import require, q, add, sub, mul, div, neg, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
 import ddbounds as B
 
 K_CHI = smul(Dec(576), isqrt(q(6)))        # sigma_chi = K tau^2 g
@@ -50,7 +50,7 @@ def G_eighth(p):
 def tau_power_integral(alpha, tau_s):
     """int_0^{tau_s} tau^{alpha - 8/3} dtau = tau_s^{alpha - 5/3} / (alpha - 5/3), alpha > 5/3 (interval)."""
     e = Fr(alpha) - Fr(5, 3)
-    assert e > 0
+    require(e > 0)
     return div(B.sigma_pow(tau_s, e), q(e))
 
 def tau_exp_integral_bound(alpha, kappa, tau_s):
@@ -119,7 +119,7 @@ def tau_tail(u_hi):
     for (c, a, b) in B.SHARPER:
         p = Fr(b) + Fr(11, 3)
         e = Fr(a) + Fr(3, 2) * Fr(b) - Fr(9, 2)
-        assert e + 1 < 0
+        require(e + 1 < 0)
         gpart = div(gam(p / 4), smul(Dec(4), B.sigma_pow(q(12), p / 4)))
         tpart = div(B.sigma_pow(tau_1, e + 1), q(-(e + 1)))
         term = C.CU.multiply(C.CU.multiply(c[1], C.CU.multiply(B.absmom(a)[1], B.absmom(b)[1])),

@@ -24,7 +24,7 @@ import math
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import q, add, sub, mul, div, neg, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
+from ddcore import require, q, add, sub, mul, div, neg, smul, sq, ipow, iexp, iln, isqrt, ZERO, ONE, TWO
 
 # ---------------------------------------------------------------- kernel polynomials p_k (exact integer coefficients)
 def _p_next(p):
@@ -36,7 +36,7 @@ def _p_next(p):
     return {k: v for k, v in out.items() if v != 0}
 P = [{0: 1}]
 for _ in range(10): P.append(_p_next(P[-1]))
-assert P[1] == {2: 1, 0: -1} and P[2] == {4: 1, 2: -4, 0: 1}
+require(P[1] == {2: 1, 0: -1} and P[2] == {4: 1, 2: -4, 0: 1})
 
 def kernel_abs(a, b):
     """absolute-monomial bound of Q_{a,b}: dict {(i, j): coef >= 0} with |Q_{a,b}| <= sum coef |Z1|^i |Z2|^j."""
@@ -164,9 +164,9 @@ def vtail_bound(st, sc, v1):
          and for c' <= 0: |R| = 4v^3 + 12|c'|v >= 4 v1^3; then |chi| >= |R| - 8 - 12|t| >= 2 v1^3 - 8 - 12 T1.
        So |E[g 1{v>=v1}]| <= E[g~ 1{|t| >= T1}] + E[g~ 1{|chi| >= X1}], each term by the incomplete absolute moments."""
     v1 = Fr(v1)
-    assert v1 >= 3
+    require(v1 >= 3)
     T1 = v1 * v1 / 6 - 1; X1 = 2 * v1 ** 3 - 8 - 12 * T1
-    assert T1 > 0 and X1 > 0
+    require(T1 > 0 and X1 > 0)
     tot = ZERO
     for (c, a, b) in SHARPER:
         ma = absmom(a)[1]; mb = absmom(b)[1]
