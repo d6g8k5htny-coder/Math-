@@ -98,6 +98,13 @@ class ChildContracts(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     validate_mutant('tail-reversed', output(changed), baseline)
 
+    def test_workflow_wires_strict_child_validation(self):
+        workflow = (pathlib.Path(__file__).resolve().parents[1] /
+                    '.github/workflows/c6-residual-closure.yml').read_text()
+        self.assertIn('from c6_residual_child_contract import validate_baseline, validate_mutant', workflow)
+        self.assertIn('validate_baseline(base_proc, expected)', workflow)
+        self.assertIn('validate_mutant(m, proc, baseline)', workflow)
+
     def test_duplicate_fields_nonfinite_and_extra_json(self):
         baseline = packet()
         for data in (b'{"passed":false,"passed":false}', b'{"x":NaN}',
