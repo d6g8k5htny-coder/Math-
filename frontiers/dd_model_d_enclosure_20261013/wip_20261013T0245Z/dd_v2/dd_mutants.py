@@ -21,9 +21,11 @@ def run_mutant(name, fname, old, new):
     tmp = tempfile.mkdtemp(prefix='ddmut_')
     for m in MODULES: shutil.copy(os.path.join(HERE, m), tmp)
     src = open(os.path.join(tmp, fname)).read()
-    assert src.count(old) == 1, (name, src.count(old))
+    if src.count(old) != 1:
+        raise AssertionError('mutant %s: the text to change occurs %d times' % (name, src.count(old)))     # kept under -O (v2)
     open(os.path.join(tmp, fname), 'w').write(src.replace(old, new))
-    r = subprocess.run([sys.executable, '-B', '-S', os.path.join(tmp, 'dd_controls.py')], capture_output=True, text=True, timeout=900)
+    flags = ['-B'] + (['-O'] if sys.flags.optimize else []) + (['-S'] if sys.flags.no_site else [])     # the children run in the driver's mode (v2)
+    r = subprocess.run([sys.executable, *flags, os.path.join(tmp, 'dd_controls.py')], capture_output=True, text=True, timeout=900)
     fails = [l for l in r.stdout.splitlines() if l.startswith('FAIL')]
     shutil.rmtree(tmp, ignore_errors=True)
     return r.returncode, fails

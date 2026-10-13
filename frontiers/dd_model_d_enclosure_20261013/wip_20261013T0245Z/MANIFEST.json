@@ -1,5 +1,5 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 08:07Z (adds dd_v2/: the certificate with exact sliver geometry, a re-run candidate; dd/ unchanged since 11ca8934)",
+ "checkpoint": "wip_20261013T0245Z, updated 09:43Z (certificate v2 complete: dd_v2/ with the node files of run 38367190632, the results in both modes; dd/ unchanged since 11ca8934)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED until read; scientific effect NONE",
  "files": [
@@ -290,8 +290,8 @@
   },
   {
    "path": "dd_v2/README_V2.md",
-   "bytes": 863,
-   "sha256": "d6d92460f372e70a6511043c4e9a7e71bc2521d2e3ee52567a8c2f007fd5d64a"
+   "bytes": 1523,
+   "sha256": "0f338b111039109ab4aba52c6eefd455535956dd5a646074f03482e4e911d9c3"
   },
   {
    "path": "dd_v2/cells_full.json",
@@ -320,8 +320,8 @@
   },
   {
    "path": "dd_v2/dd_mutants.py",
-   "bytes": 2954,
-   "sha256": "946bc6bffdd80511d6a35df647d2d8ae1163c097338ddd6e7720a9d2d08a0595"
+   "bytes": 3200,
+   "sha256": "b7e35ee8d5bcd5d1b22861332788597f2ce3378027cf0b74fd19df269d7bc133"
   },
   {
    "path": "dd_v2/ddbounds.py",
@@ -352,6 +352,111 @@
    "path": "dd_v2/ddvq.py",
    "bytes": 10585,
    "sha256": "473a7ee18f4b4f5089eba9ddf8eabb6ee15560e75213687dc50c9ef1370e7bdd"
+  },
+  {
+   "path": "dd_v2/nodes/artifacts_run_38367190632.json",
+   "bytes": 2250,
+   "sha256": "e2a7563bc53a6b1d42b30853b33a81340e427c43de2992c110607f7f536499df"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_0.json",
+   "bytes": 515573,
+   "sha256": "dc1688b8f38e8a9524a7524f8a754165b026b125af1b7d08a73024a7e3d6ae86"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_1.json",
+   "bytes": 514894,
+   "sha256": "8fadc4adcfdf3b0be55a46641d287231716f3cdcbc0d84f046127b403fd08df0"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_10.json",
+   "bytes": 511649,
+   "sha256": "06914e48683e19fa8f94ba9e815ef5fda6ed152eb2641ebba13117589c66e833"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_11.json",
+   "bytes": 512631,
+   "sha256": "0ce3496f93e0e766d44aaf7dcda21a0ae4db8f7c58c4ecb9f6cccad789cbf179"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_2.json",
+   "bytes": 515394,
+   "sha256": "0217900ba8f202737b797d25c2f39cc8bbc303b38414ae19b34be3ee306db568"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_3.json",
+   "bytes": 513745,
+   "sha256": "980ee72e4aa49d480c4a2cc2d965e83c989259c43ccb8296ce63ae2c2b1c6c77"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_4.json",
+   "bytes": 514509,
+   "sha256": "6a10852c28e9c8d3d36ff31666288ab3f73f92facc24551c296098812de713d8"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_5.json",
+   "bytes": 512813,
+   "sha256": "ab42ce7f3335c109343c512b7f9229ac694bf537caee0c2108c12ba836e7e1ce"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_6.json",
+   "bytes": 513372,
+   "sha256": "aa6e75b9f923c91c86eaa7ac0e841c0a166e185494344b76560a1f9dce355afb"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_7.json",
+   "bytes": 512785,
+   "sha256": "a84dcdd10f8fed4c801acf0cd145a752213051787e2f54176d75e1d1d07d172d"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_8.json",
+   "bytes": 512848,
+   "sha256": "fb0385ffb1d71b747823845e0d51cb3f8237d755f9bd1a3c5c4d86bc28465789"
+  },
+  {
+   "path": "dd_v2/nodes/nodes_9.json",
+   "bytes": 512432,
+   "sha256": "2d94e3ee23e8f2fa7ff1ba73f183aaccb0bc886c2fd918e448f17b7f22c46688"
+  },
+  {
+   "path": "dd_v2/results/assembly_stdout.txt",
+   "bytes": 1131,
+   "sha256": "0fcb9d8387df73ecaa269929ac6ba373e309f951bbcfffc2549e746e27b64695"
+  },
+  {
+   "path": "dd_v2/results/assembly_stdout_O.txt",
+   "bytes": 1131,
+   "sha256": "0fcb9d8387df73ecaa269929ac6ba373e309f951bbcfffc2549e746e27b64695"
+  },
+  {
+   "path": "dd_v2/results/controls_stdout.txt",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6"
+  },
+  {
+   "path": "dd_v2/results/controls_stdout_O.txt",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6"
+  },
+  {
+   "path": "dd_v2/results/gapcheck_stdout.txt",
+   "bytes": 435,
+   "sha256": "7b95eab12608b27c8bcb928e1331cac6d93c1deaecc75b364aed5ebdb4ffa2bd"
+  },
+  {
+   "path": "dd_v2/results/gapcheck_stdout_O.txt",
+   "bytes": 435,
+   "sha256": "7b95eab12608b27c8bcb928e1331cac6d93c1deaecc75b364aed5ebdb4ffa2bd"
+  },
+  {
+   "path": "dd_v2/results/mutants_stdout.txt",
+   "bytes": 830,
+   "sha256": "49996326c9604ef3bd3c0ea004f93667dbc4c40c4affe45a3db4a7580dccaa0c"
+  },
+  {
+   "path": "dd_v2/results/mutants_stdout_O.txt",
+   "bytes": 830,
+   "sha256": "49996326c9604ef3bd3c0ea004f93667dbc4c40c4affe45a3db4a7580dccaa0c"
   },
   {
    "path": "dv/diag_cells.py",
