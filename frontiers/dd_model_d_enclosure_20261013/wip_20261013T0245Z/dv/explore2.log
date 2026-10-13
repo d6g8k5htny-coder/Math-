@@ -1,0 +1,4 @@
+V mass 0.9999999999999285
+kernel mass int K = 0.0164270  (should equal int k^{4/3}e^{-12k^2}dk = 0.0255471)
+C via kernel route = 0.0573248   [3203s]
+D = T1 + T3 - C = 0.0767060 (A route), 0.1419365 (kernel route); reference 0.0767381/0.0767382

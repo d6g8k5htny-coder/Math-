@@ -1,0 +1,5 @@
+version-preflight: exit 0
+build: exit 0
+leanchecker: exit 137
+FORMAL_GATE_FAIL: unexpected process outcome: leanchecker
+
