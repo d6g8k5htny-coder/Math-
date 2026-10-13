@@ -58,7 +58,7 @@ From its "not claimed" section:
 
 ## Not included
 
-- **The consumed sources.** #244 and #242 are on `main` at their own paths; notes V24 and DC are in `frontiers/v24_dc_two_thirds_sign_20261007/` (Math-#393, landed on `main` at `7373495098`); note CJ is in custody packet Math-#442 (`frontiers/lifetime_cj_model_j_20261012/`), or, until it lands, at the main#307 comment `SOURCES.json` names (`related_packets`).
+- **The consumed sources.** #244 and #242 are on `main` at their own paths; notes V24 and DC are in `frontiers/v24_dc_two_thirds_sign_20261007/` (Math-#393, landed on `main` at `7373495098`) and note CJ in `frontiers/lifetime_cj_model_j_20261012/` (Math-#442, landed at `ea2f3e25`); `SOURCES.json` names them (`related_packets`).
 - **The clean-context referee report** (same provider and session; not review evidence). It is kept in the author's record.
 - **The preview shard run** 38339424610, run with the pre-referee code; it is not part of the object.
 - **Coordination.** Comments that record no pickup, verdict or author response are not stored. `DD/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md` also answers coordination matters of the day; none of that is part of the object.
