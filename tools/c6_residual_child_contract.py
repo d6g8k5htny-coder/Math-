@@ -1,8 +1,10 @@
 """Strict child-result contracts for the C6 residual closure workflow.
 
 Engineering guard only. The eight named checks and expected mutant failure
-sets are derived from the pinned residual_check.py branches and the original
-Python 3.11.16 hosted observations; no mathematical proof is rerun here.
+sets are derived from the pinned residual_check.py branches. Baseline-state
+sets use the original Python 3.11.16 hosted observations; installed-state
+overrides use checker-constructed installed-graph replays. No mathematical
+proof is rerun here.
 """
 
 import json
