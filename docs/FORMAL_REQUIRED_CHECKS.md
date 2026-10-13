@@ -47,6 +47,12 @@ authenticate independent semantic review, or promote mathematical status.
 The pre-change main ruleset23798639 requires verify/public-intake/public-shop;
 Math-24045351 requires math-downstream-gates. Both require zero GitHub approving
 reviews. Main has a pre-existing repository-role PR bypass; Math- has none.
+*Correction, 2026-10-07 (live read):* the sentence "Main has a pre-existing
+repository-role PR bypass" is the 27 September snapshot, superseded. The bypass
+actor on main ruleset 23798639 is the ChatGPT Codex Connector integration
+(1144995), bypass mode `always`, exempt from every rule of that ruleset; see
+[OP-ACCESS-20261007](https://github.com/d6g8k5htny-coder/main/blob/b7deb198722582df191006e4f47238f92e6e543d/governance/OP-ACCESS-20261007.md), the access record; the
+bypass disposition (remove, or record as an accepted exception) is pending.
 This code uses the already-required contexts and does not claim to edit settings.
 The managed connector does not expose ruleset writes. Do not bypass a rule or
 claim an administrator change without a successful write and independent readback.
@@ -72,10 +78,23 @@ bundle for this repository and main #188 is preserved in main at
 ## Validation
 
 Run python3 -B -S -m unittest discover -s tests -p test_required_formal_check.py -v
-and the same command with -O. The thirty tests cover real CLI success/failure,
-missing/extra dependencies, all non-success states, stale commit/run/attempt,
-repository substitution, malformed identity, modified logs/manifests, duplicate
-JSON keys and reusable-workflow wiring. Hosted negative and positive executions
+and the same command with -O. In this Math- repository, each mode runs
+fifty-seven tests: thirty original tests, sixteen W8c controls and eleven W7j
+controls. The original thirty cover real CLI success/failure, missing/extra
+dependencies, all non-success states, stale
+commit/run/attempt, repository substitution, malformed identity, modified
+logs/manifests, duplicate JSON keys and reusable-workflow wiring. Sixteen W8c
+mutation-gap controls cover the three context() identity bindings: the
+execution-repository allowlist (both pinned repositories accepted; unpinned and
+empty refused), commit identity (40 lowercase hex accepted; short, long,
+uppercase, non-hex and non-string refused) and run-ID binding (multi-digit and
+single nonzero digit accepted; zero, leading zero, non-numeric and empty
+refused). Their CLI children receive -O exactly when the outer run is optimized,
+with any inherited PYTHONOPTIMIZE removed. Eleven W7j mutation-gap controls cover
+exact run-attempt identity, tested-checkout binding, receipt/manifest symlinks,
+receipt object shape and identity fields, log-map shape and log-digest validation,
+non-finite JSON and CLI duplicate keys, dependency-output shape and exact
+receipt-digest strings. Hosted negative and positive executions
 are recorded separately; unit tests alone do not establish platform merge refusal.
 
 Official references consulted 27 September 2026:

@@ -13,9 +13,20 @@ nothing, promotes nothing and is not a status record. Axes the graph does not re
 reconstruction, adversarial attack, formal evidence, numerical reproduction, novelty, human reading)
 are listed as outside the graph rather than reported as passed or failed. Scientific effect: NONE.
 
-Usage: python3 -B -S tools/evidence_profile.py [--graph PATH] [--node ID] [--json]
+With --eligibility, selected nodes also show the gate's own CONTROLLING eligibility decision and
+reasons. This describes the supplied graph, not review sufficiency, an executed promotion or theorem
+acceptance. The default text and JSON output are unchanged when this option is absent.
+
+With --input-identity, include the SHA-256 and length of the exact graph bytes consumed. The
+single captured buffer is both parsed and hashed; different serializations have different identities.
+This is not freshness, authenticated Git provenance, program/runtime identity or acceptance evidence.
+No path is reported. Without the flag, the existing loader and output remain unchanged.
+
+Usage: python3 -B -S tools/evidence_profile.py [--graph PATH] [--node ID] [--json] [--eligibility] [--input-identity]
 """
 import argparse
+import hashlib
+import io
 import importlib.util
 import json
 import pathlib
@@ -100,11 +111,11 @@ def provider_distinct(node):
     return 'not recorded'
 
 
-def profile(gate, graph, node_id):
+def profile(gate, graph, node_id, include_eligibility=False):
     node = gate.require_node(graph, node_id)
     unsatisfied = [dep for dep in gate.transitive_required(graph, node_id)
                    if graph['nodes'][dep]['classification'] not in gate.REQUIRED_SATISFIED]
-    return {
+    result = {
         'node': node_id,
         'classification': node['classification'],
         'review_disposition': node.get('review_disposition', 'not recorded'),
@@ -116,6 +127,12 @@ def profile(gate, graph, node_id):
                                  for dep in unsatisfied],
         'axes_outside_graph': list(AXES_OUTSIDE_GRAPH),
     }
+    if include_eligibility:
+        result['controlling_eligibility'] = {
+            'target': 'CONTROLLING',
+            'decision': gate.promotion_allowed(graph, node_id),
+        }
+    return result
 
 
 def roots(graph):
@@ -144,7 +161,7 @@ def roots(graph):
     return chosen
 
 
-def tree_lines(gate, graph, node_id):
+def tree_lines(gate, graph, node_id, include_eligibility=False):
     lines = []
     seen = set()
 
@@ -176,13 +193,19 @@ def tree_lines(gate, graph, node_id):
             '%s (%s)' % (u['node'], u['classification']) for u in unsatisfied)))
     else:
         lines.append('Unsatisfied required dependencies: none')
+    if include_eligibility:
+        decision = gate.promotion_allowed(graph, node_id)
+        lines.append('Selected-node CONTROLLING eligibility (recorded graph): '
+                     + ('yes' if decision['allowed'] else 'no'))
+        lines.extend('  - ' + reason for reason in decision['reasons'])
+        lines.append('  ' + decision['meaning'])
     return lines
 
 
-def report(gate, graph, node_ids):
+def report(gate, graph, node_ids, include_eligibility=False):
     return {
         'object': graph.get('object'),
-        'profiles': [profile(gate, graph, nid) for nid in node_ids],
+        'profiles': [profile(gate, graph, nid, include_eligibility) for nid in node_ids],
         'axes_outside_graph': list(AXES_OUTSIDE_GRAPH),
         'meaning': 'derived read-only view of recorded graph fields; not a status record or acceptance',
         'status_authority': False,
@@ -191,24 +214,59 @@ def report(gate, graph, node_ids):
     }
 
 
+
+def load_graph_with_identity(gate, path):
+    """Parse and identify one captured buffer using the gate's unchanged strict validation.
+
+    TextIOWrapper matches Path.read_text's default decoding and universal-newline behavior;
+    the fingerprint covers original bytes, not the decoded or reserialized JSON.
+    """
+    raw = path.read_bytes()
+    with io.TextIOWrapper(io.BytesIO(raw)) as stream:
+        graph = gate.load_json_strict(stream.read())
+    gate.validate_graph_fail_closed(graph)
+    identity = {
+        'bytes': len(raw),
+        'sha256': hashlib.sha256(raw).hexdigest(),
+        'meaning': 'identity of graph input bytes only; not freshness, Git provenance, '
+                   'program identity or acceptance',
+    }
+    return graph, identity
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--graph', default=str(GATE_DIR / 'GRAPH.json'))
     ap.add_argument('--node', action='append', help='node id (repeatable); default: every math.* root')
     ap.add_argument('--json', action='store_true', help='print the profiles as JSON instead of trees')
+    ap.add_argument('--eligibility', action='store_true',
+                    help='include the selected-node gate decision; not theorem acceptance')
+    ap.add_argument('--input-identity', action='store_true',
+                    help='include exact graph-input byte identity, not provenance or acceptance')
     args = ap.parse_args(argv)
     gate = load_gate()
-    graph = gate.load_graph(pathlib.Path(args.graph))
+    identity = None
+    if args.input_identity:
+        graph, identity = load_graph_with_identity(gate, pathlib.Path(args.graph))
+    else:
+        graph = gate.load_graph(pathlib.Path(args.graph))
     node_ids = args.node or roots(graph)
     for nid in node_ids:
         gate.require_node(graph, nid)
     if args.json:
-        print(json.dumps(report(gate, graph, node_ids), indent=2, sort_keys=True))
+        data = report(gate, graph, node_ids, args.eligibility)
+        if identity is not None:
+            data['input_identity'] = identity
+        print(json.dumps(data, indent=2, sort_keys=True))
         return 0
+    if identity is not None:
+        print('Graph input SHA-256: %s (%d bytes)' % (identity['sha256'], identity['bytes']))
+        print(identity['meaning'])
+        print()
     for index, nid in enumerate(node_ids):
         if index:
             print()
-        print('\n'.join(tree_lines(gate, graph, nid)))
+        print('\n'.join(tree_lines(gate, graph, nid, args.eligibility)))
     print()
     print('Not in the graph (consult review records): ' + ', '.join(AXES_OUTSIDE_GRAPH))
     print('Derived view only: no status authority; scientific effect NONE.')
