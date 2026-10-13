@@ -1,8 +1,9 @@
 {
  "schema": 2,
- "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v2",
- "note_of_record": "DD/PROOF.md is note DD v1.2 (comment 6140674826): v1.1 (DD/PROOF_v1_1_READBACK.md, comment 6140009355, read back from v1.0) plus control C10; v1.0 (DD/PROOF_v1_0_AS_READ.md, comment 6139410118) is the body both slice reads hashed; the C10 read is DD/REVIEW_C10.md",
- "versions": "v1 of this object (Math-#448) stored v1.0 and v1.1 with the slice reads and the readback; v2 adds v1.2, control C10 (certificate/dd_gapcheck.py, pinned by the controls addendum at Math- 11ca8934) with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; the addendum of record is v1.2 (6141407954), after the AMEND of the Math-#449 engineering read (6141351602)",
+ "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v3",
+ "note_of_record": "DD/PROOF.md is note DD v1.4 (comment 6143230105): v1.3 (DD/PROOF_v1_3_READ.md, comment 6142800109, the body the v1.3 read hashed; v1.2 with the certificate re-run with exact sliver geometry, certificate_v2/) with that read's AMEND applied; v1.2 (DD/PROOF_v1_2_C10_READ.md, 6140674826) is the body the C10 read hashed, v1.1 (DD/PROOF_v1_1_READBACK.md, 6140009355) the body the readback hashed and v1.0 (DD/PROOF_v1_0_AS_READ.md, 6139410118) the body both slice reads hashed; the v1.3 read is DD/REVIEW_V13.md and the readback of v1.3 -> v1.4 is DD/REVIEW_V14_READBACK.md",
+ "certificates": "certificate/ is certificate v1 (pinned at Math- 35ae8fbb by the controls comment, plus control C10 at 11ca8934 by the addendum), the one the slice reads and the C10 read checked, with the known sliver-cell defect bounded by C10; certificate_v2/ is certificate v2 (pinned at f6985cf7 by the controls comment v2): ddvq._vcell with exact sliver geometry, dd_mutants.py in the driver mode, the node files of run 38367190632; no gap; every printed number unchanged",
+ "versions": "v1 of this object (Math-#448, landed e0246764) stored v1.0 and v1.1 with the slice reads and the readback; v2 (Math-#449, landed bc2ac33b) added v1.2, control C10 with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; v3 adds v1.3 and v1.4, certificate v2 (certificate_v2/) with the controls comment v2, the v1.3 read and its readback, and the records of Math-#449",
  "kind": "additive incorporation of a public native note, its certificate, review and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
@@ -15,8 +16,8 @@
  "source_issues": [
   "https://github.com/d6g8k5htny-coder/main/issues/307"
  ],
- "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); the controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, v1.2; v1.0 and v1.1 as read beside it, same table) pins control C10 and its stdout at commit 11ca8934d320b449d10c65a68ff675d7e55ef53d of the same branch; certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
- "known_defect": "the sliver cells of the narrow regime (ddvq._vcell, kind sv) can stop short of their right endpoints by at most 1e-28 (centre rounded down, half-width rounded up): found by the Slice B reader (one instance) and the Codex review of Math-#448 (P1), quantified by control C10 (2,694 nodes, 5,251 gaps; omitted contribution to D in [-3.4e-31, 4.9e-62]); the stored node values are not regenerated; any re-run enlarges the half-width until the cell contains both endpoints",
+ "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins certificate v1 by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013); the controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, v1.2; v1.0 and v1.1 as read beside it, same table) pins control C10 and its stdout at commit 11ca8934d320b449d10c65a68ff675d7e55ef53d; the controls comment v2 (DD/AUTHOR_CONTROLS_COMMENT_V2.md) pins certificate v2 at commit f6985cf75259c2fe0b3a979cbd7c662f5b0fa94e (directory dd_v2/); certificate/ and certificate_v2/ hold the same bytes; the node files are byte for byte the artifacts of hosted runs 38347192184 (v1) and 38367190632 (v2)",
+ "known_defect": "certificate v1: the sliver cells of the narrow regime (ddvq._vcell, kind sv) can stop short of their right endpoints by at most 1e-28 (centre rounded down, half-width rounded up): found by the Slice B reader (one instance) and the Codex review of Math-#448 (P1), quantified by control C10 (2,694 nodes, 5,251 gaps; omitted contribution to D in [-3.4e-31, 4.9e-62]); certificate v2 repairs it (the half-width is enlarged until the cell contains both endpoints) and C10 reports no gap there",
  "related_packets": {
   "frontiers/soft_closed_form_20261002/": "#244: the closed form (2.5)-(2.7) and Theorem A (conditional scope)",
   "frontiers/v24_dc_two_thirds_sign_20261007/": "notes V24 ((5.3), Theorem V) and DC (section 0, Lemma 4, I~ = I~_quad + D, the enclosure of -I~_quad): Math-#393, landed on main at merge commit 7373495098bbe07a75eda199a945d12bdb003482 (packet tree 743b3e2c2f11d8477585c048f8e28b7b66f57211); the notes were posted at main#229 6034159111 and 6037455875",
@@ -198,8 +199,8 @@
    ]
   },
   {
-   "path": "DD/PROOF.md",
-   "role": "frozen note of record (lifetime note DD, v1.2): v1.1 plus control C10, the sliver-gap enclosure (sections 3.2-3.4, Remark 4); the certified enclosures, the certificate and every statement unchanged",
+   "path": "DD/PROOF_v1_2_C10_READ.md",
+   "role": "note DD v1.2: v1.1 plus control C10, the sliver-gap enclosure (sections 3.2-3.4, Remark 4); the body the C10 read hashed; superseded by v1.3 for the text of record",
    "comment": "6140674826",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140674826",
@@ -208,18 +209,6 @@
    "updated_at": "2026-10-13T07:35:42Z",
    "bytes": 26335,
    "sha256": "b2ba26ad6affec21910dc8a744da18aae3b4fa9b4a53ef20e1a6bb49e228e5ac"
-  },
-  {
-   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md",
-   "role": "author controls addendum v1.1: the body the Math-#449 engineering read hashed; superseded by v1.2 (its version paragraph completed) for the record",
-   "comment": "6140980497",
-   "issue": "main#307",
-   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140980497",
-   "author_login": "d6g8k5htny-coder",
-   "created_at": "2026-10-13T07:55:03Z",
-   "updated_at": "2026-10-13T07:55:03Z",
-   "bytes": 4490,
-   "sha256": "e7c92f864381f4969d7f902baf9401ff760db77135f57b9eb6ffae594b3cb139"
   },
   {
    "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md",
@@ -234,6 +223,18 @@
    "sha256": "b1cfe262b2efdd2245965f43202b7b7b1634ed1df4dad702e56791cf4422c067"
   },
   {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md",
+   "role": "author controls addendum v1.1: the body the Math-#449 engineering read hashed; superseded by v1.2 (its version paragraph completed) for the record",
+   "comment": "6140980497",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140980497",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:55:03Z",
+   "updated_at": "2026-10-13T07:55:03Z",
+   "bytes": 4490,
+   "sha256": "e7c92f864381f4969d7f902baf9401ff760db77135f57b9eb6ffae594b3cb139"
+  },
+  {
    "path": "DD/REVIEW_C10_SUMMONS.md",
    "role": "summons of one Cursor agent for the read of control C10 and of the delta v1.1 -> v1.2 (D2)",
    "comment": "6140692328",
@@ -246,8 +247,57 @@
    "sha256": "581ec98319b4f73752434e4aec84d97c448685a73bfedf3ba5b6840a842906d0",
    "names_identities": [
     "DD/PROOF_v1_1_READBACK.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_2_C10_READ.md",
     "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_C10.md",
+   "role": "nonauthor read of control C10 and of the delta v1.1 -> v1.2: AMEND of two displays in the controls addendum (Cursor agent bc-70a0bd90, xAI Grok 4.7 grok-4.7-high-fast): the delta is exactly the six stated edits, the defect is as described (own geometry pass: 2,771 narrow nodes, 2,694 with a gap, 5,251 gaps), dd_gapcheck.py read and run in both modes with the pinned stdout, the conclusion verified; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6140693874",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140693874",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T07:36:57Z",
+   "updated_at": "2026-10-13T07:53:35Z",
+   "bytes": 8715,
+   "sha256": "d2611c3bb4dc344421ac00179c705254bed21de752169e0e3e4d7909db0d6f14",
+   "names_identities": [
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/PROOF_v1_2_C10_READ.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
+   "role": "author controls addendum v1.0: the body the C10 read hashed; superseded by v1.1 and v1.2 for the record",
+   "comment": "6140682931",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140682931",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:36:14Z",
+   "updated_at": "2026-10-13T07:36:14Z",
+   "bytes": 3908,
+   "sha256": "7390f24b1c474f1bf35b8876890a2ae93c8489b1af8eb16c76754b84b7926ae0"
+  },
+  {
+   "path": "DD/AUTHOR_READ_COMPLETE_2_AND_SUCCESSOR_CLAIM.md",
+   "role": "author read-complete note, second round: the defect, C10, the records, what is read, the D5 claim for the v2 object (Math-#449)",
+   "comment": "6140993829",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140993829",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:55:50Z",
+   "updated_at": "2026-10-13T07:55:50Z",
+   "bytes": 5877,
+   "sha256": "0b619446ebd3992fc59d4649325371c8e9397b810e51eaec6dbaadfe24672fd0",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/PROOF_v1_2_C10_READ.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md"
    ]
   },
   {
@@ -292,52 +342,203 @@
    "sha256": "953c49b8a5b821d448aa355e5677b7135aa895853519694e73556d5b85bbb34d"
   },
   {
-   "path": "DD/REVIEW_C10.md",
-   "role": "nonauthor read of control C10 and of the delta v1.1 -> v1.2: AMEND of two displays in the controls addendum (Cursor agent bc-70a0bd90, xAI Grok 4.7 grok-4.7-high-fast): the delta is exactly the six stated edits, the defect is as described (own geometry pass: 2,771 narrow nodes, 2,694 with a gap, 5,251 gaps), dd_gapcheck.py read and run in both modes with the pinned stdout, the conclusion verified; recorded in the agent's cursor[bot] acknowledgement, edited in place",
-   "comment": "6140693874",
-   "issue": "main#307",
-   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140693874",
+   "path": "DD/PR449_ENGINEERING_READ_SUMMONS.md",
+   "role": "summons of one Cursor agent for the engineering read of the v2 packet delta (Math-#449, head 0e501dac41f056640554541fa69f540f30315543)",
+   "comment": "6141113592",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141113592",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T08:03:32Z",
+   "updated_at": "2026-10-13T08:03:32Z",
+   "bytes": 4341,
+   "sha256": "bcb3102452b370f01b5e074506774fd8457b81751eaa3af75a0ccbd61fc9f3c3"
+  },
+  {
+   "path": "DD/PR449_ENGINEERING_READ_AMEND.md",
+   "role": "nonauthor engineering read of Math-#449 at head 0e501dac: AMEND (Cursor agent bc-ad9c59f6, xAI Grok 4.7): every added body re-fetched and hashed twice, the C10 pin verified, replay.py, tests and README checked; the controls addendum version paragraph had to list every edit of v1.1",
+   "comment": "6141351602",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141351602",
    "author_login": "cursor[bot]",
-   "created_at": "2026-10-13T07:36:57Z",
-   "updated_at": "2026-10-13T07:53:35Z",
-   "bytes": 8715,
-   "sha256": "d2611c3bb4dc344421ac00179c705254bed21de752169e0e3e4d7909db0d6f14",
+   "created_at": "2026-10-13T08:18:33Z",
+   "updated_at": "2026-10-13T08:18:33Z",
+   "bytes": 9304,
+   "sha256": "bb8937532c0896a398031acd010d161a33d56042765fd05b9208cb6a8994d189",
    "names_identities": [
     "DD/PROOF_v1_1_READBACK.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_2_C10_READ.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md",
     "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md"
    ]
   },
   {
-   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
-   "role": "author controls addendum v1.0: the body the C10 read hashed; superseded by v1.1 (two displays made outward) for the record",
-   "comment": "6140682931",
-   "issue": "main#307",
-   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140682931",
+   "path": "DD/PR449_AMEND_APPLIED_READBACK_SUMMONS.md",
+   "role": "author record of the applied AMEND (addendum v1.2, commit d96df9a8) and summons of the byte-diff readback 0e501dac..d96df9a8",
+   "comment": "6141457044",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141457044",
    "author_login": "d6g8k5htny-coder",
-   "created_at": "2026-10-13T07:36:14Z",
-   "updated_at": "2026-10-13T07:36:14Z",
-   "bytes": 3908,
-   "sha256": "7390f24b1c474f1bf35b8876890a2ae93c8489b1af8eb16c76754b84b7926ae0"
+   "created_at": "2026-10-13T08:25:01Z",
+   "updated_at": "2026-10-13T08:25:01Z",
+   "bytes": 3042,
+   "sha256": "3a5eb000f26949fcb69cabf88a138a119c7dcd9620d70979f282132373e329a9",
+   "names_identities": [
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
+   ]
   },
   {
-   "path": "DD/AUTHOR_READ_COMPLETE_2_AND_SUCCESSOR_CLAIM.md",
-   "role": "author read-complete note, second round: the defect, C10, the records, what is read, the D5 claim for this object (v2)",
-   "comment": "6140993829",
-   "issue": "main#307",
-   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140993829",
-   "author_login": "d6g8k5htny-coder",
-   "created_at": "2026-10-13T07:55:50Z",
-   "updated_at": "2026-10-13T07:55:50Z",
-   "bytes": 5877,
-   "sha256": "0b619446ebd3992fc59d4649325371c8e9397b810e51eaec6dbaadfe24672fd0",
+   "path": "DD/PR449_READBACK.md",
+   "role": "nonauthor byte-diff readback of 0e501dac..d96df9a8: PASS (same Cursor agent); a summons id corrected in 6141546783",
+   "comment": "6141540489",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141540489",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T08:30:11Z",
+   "updated_at": "2026-10-13T08:30:11Z",
+   "bytes": 4037,
+   "sha256": "4e8cfbda6e35b1513080f116c0c4d981af37d07e942ca09dd175f5c4066d3e0e",
    "names_identities": [
-    "DD/PROOF_v1_0_AS_READ.md",
-    "DD/PROOF_v1_1_READBACK.md",
-    "DD/PROOF.md",
-    "DD/AUTHOR_CONTROLS_COMMENT.md",
-    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md",
     "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/PR449_READBACK_CORRECTION.md",
+   "role": "the reader's correction of a summons id in its readback",
+   "comment": "6141546783",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141546783",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T08:30:35Z",
+   "updated_at": "2026-10-13T08:30:35Z",
+   "bytes": 395,
+   "sha256": "aea2a8d46bc1dca41e2dde0a8342ca31a9efa885d70f9e70d0f79ee4c1a691f0"
+  },
+  {
+   "path": "DD/PR449_AUTHOR_HANDOFF.md",
+   "role": "author handoff of Math-#449 (AMEND applied and read back, hosted checks green)",
+   "comment": "6141871913",
+   "issue": "Math-#449",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/449#issuecomment-6141871913",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T08:49:40Z",
+   "updated_at": "2026-10-13T08:49:40Z",
+   "bytes": 1848,
+   "sha256": "5bd42c799ac309ebf6e9f589b1badeb18d73f3d7d48e2f7b94614b319a0b71be"
+  },
+  {
+   "path": "DD/PROOF_v1_3_READ.md",
+   "role": "note DD v1.3: v1.2 with the certificate re-run with exact sliver geometry (certificate v2; sections 3.2-3.4, Remarks 2 and 4); the body the v1.3 read hashed; superseded by v1.4 for the text of record",
+   "comment": "6142800109",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142800109",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T09:44:28Z",
+   "updated_at": "2026-10-13T09:44:28Z",
+   "bytes": 27115,
+   "sha256": "34e1677177ac2fdff7a46bb08a2c4fc9173fc1f8f7148350f0c1ccd0a65267d3"
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_COMMENT_V2.md",
+   "role": "author controls comment v2: pins certificate v2 (32 files: the modules, the cells, the twelve node files of hosted run 38367190632, the eight stdout records) at Math- commit f6985cf75259c2fe0b3a979cbd7c662f5b0fa94e, and quotes the stdout of the controls, the mutants, the gap control and the assembly",
+   "comment": "6142800612",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142800612",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T09:44:30Z",
+   "updated_at": "2026-10-13T09:44:30Z",
+   "bytes": 11637,
+   "sha256": "00d795ad8458319a5e6cb0842b20b5162d584b6f54b4d6775a23f3d8a0fb438d"
+  },
+  {
+   "path": "DD/REVIEW_V13_SUMMONS.md",
+   "role": "summons of one Cursor agent for the read of note DD v1.3 and certificate v2 (the delta against v1.2 and certificate v1)",
+   "comment": "6142812168",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142812168",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T09:45:10Z",
+   "updated_at": "2026-10-13T09:45:10Z",
+   "bytes": 5313,
+   "sha256": "35fb54b91190f860b0670292cea2bebe3aa378b4741ebf52e17d8bb1ddca0f9e",
+   "names_identities": [
+    "DD/PROOF_v1_2_C10_READ.md",
+    "DD/PROOF_v1_3_READ.md",
+    "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_V13.md",
+   "role": "nonauthor read of note DD v1.3 and certificate v2: AMEND of one sentence in section 3.3 (Cursor agent bc-fc090a73, xAI Grok 4.7 grok-4.7-high-fast): the note delta exact, the code delta exact (_vcell, dd_mutants), the twelve node files equal to the downloaded artifacts of run 38367190632, three nodes recomputed, the replays in both modes with the pinned stdout, the full assembly rerun; it names the three identities in abbreviated form (first and last four hex digits), so names_identities is not asserted for it; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6142813990",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142813990",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T09:45:16Z",
+   "updated_at": "2026-10-13T10:07:22Z",
+   "bytes": 6172,
+   "sha256": "56d3270a43a722afb3aff81a36071cc9261dfbfe30150b9dfde0fefab7bdc33f"
+  },
+  {
+   "path": "DD/PROOF.md",
+   "role": "frozen note of record (lifetime note DD, v1.4): v1.3 with the AMEND of the v1.3 read applied (the exact comparison of the v2 and v1 assembled ends in section 3.3); every printed number unchanged",
+   "comment": "6143230105",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6143230105",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T10:09:59Z",
+   "updated_at": "2026-10-13T10:09:59Z",
+   "bytes": 28074,
+   "sha256": "04830e68151933f7be73f79c53ec3570174852f3c94be70edfffd553e7feb051"
+  },
+  {
+   "path": "DD/AMEND_V13_APPLIED_READBACK_SUMMONS.md",
+   "role": "author record of the applied AMEND (v1.4, the intended delta) and summons of the byte-diff readback v1.3 -> v1.4",
+   "comment": "6143236386",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6143236386",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T10:10:22Z",
+   "updated_at": "2026-10-13T10:10:22Z",
+   "bytes": 2603,
+   "sha256": "373ecfe8170c092f3be160c88d8da675410cfaf32a0094842a769abec24cca3c",
+   "names_identities": [
+    "DD/PROOF_v1_3_READ.md",
+    "DD/PROOF.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_V14_READBACK.md",
+   "role": "nonauthor byte-diff readback of the delta v1.3 -> v1.4: PASS (Cursor agent bc-7cad609f, xAI Grok 4.7 grok-4.7-high-fast): the delta is exactly the three stated edits; the new sentence's figures match the two assembly records and v1's gap-control stdout; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6143237814",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6143237814",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T10:10:27Z",
+   "updated_at": "2026-10-13T10:17:34Z",
+   "bytes": 5323,
+   "sha256": "4fabef8791a7019b006659f729d0dc9edb63e533efeedbb02abd963c58a6c2ac",
+   "names_identities": [
+    "DD/PROOF_v1_3_READ.md",
+    "DD/PROOF.md"
+   ]
+  },
+  {
+   "path": "DD/AUTHOR_READ_COMPLETE_3_AND_V3_CLAIM.md",
+   "role": "author read-complete note, third round: certificate v2, the records, what is read, the D5 claim for the v3 object",
+   "comment": "6143425436",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6143425436",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T10:21:27Z",
+   "updated_at": "2026-10-13T10:21:27Z",
+   "bytes": 5746,
+   "sha256": "12111fb71d700a5597dadf2287be6fe7668799424914be41bda3b7760e1e22f4",
+   "names_identities": [
+    "DD/PROOF_v1_2_C10_READ.md",
+    "DD/PROOF_v1_3_READ.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
    ]
   },
   {
@@ -572,6 +773,236 @@
    "bytes": 552,
    "sha256": "d5dfac1ac42963b7b500ea9f28b68153df00e3815209c665485e87d28348385a",
    "pinned_by": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
+  },
+  {
+   "path": "certificate_v2/ddcore.py",
+   "role": "decimal interval arithmetic with directed rounding, enclosures of exp/ln/sqrt/pi/erf/Gamma, Taylor models (TM1) with Lagrange remainders",
+   "bytes": 25177,
+   "sha256": "969963134b8e5a8f8bb09b620b8a34e4a44307b1a4f5086db56f3b40e2f2a54e",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddbounds.py",
+   "role": "Lemma 1 (pointwise bound), Lemma 2 (kernel polynomials), Gaussian and incomplete moments, the Taylor-box bound, Bell-polynomial bounds of the derivatives of rho, the tensor Gauss remainder per cell (Lemma 4), the v-tail bound (Lemma 5)",
+   "bytes": 20822,
+   "sha256": "f9f800fcfecc020ca95c372c4caaa74d15f6534bd677ad0357be56cd69fca09b",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddtaylor.py",
+   "role": "the exact rational Taylor polynomial T_N of g and the remainder constant C_{N+1} on a box (Lemma 3)",
+   "bytes": 9096,
+   "sha256": "45f07583aaaf60de2435da7c9a0aaaf7353a1516f0ae1c29038740b9b8f43cf6",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddint.py",
+   "role": "the integrand F(tau, g, v) of (1.3) in Taylor-model arithmetic with the closed-form t-moments",
+   "bytes": 9298,
+   "sha256": "d7b4580cbbab2252ce4e79af5334713c46183338a87bed50cc357b566b37aa9d",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddvq.py",
+   "role": "the rigorous one-dimensional v-quadrature; v2: _vcell enlarges a sliver cell until it contains both endpoints (exact rational check)",
+   "bytes": 10585,
+   "sha256": "473a7ee18f4b4f5089eba9ddf8eabb6ee15560e75213687dc50c9ef1370e7bdd",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddgauss.py",
+   "role": "rows, adaptive cells, Gauss nodes and weights, node evaluation (eval, shards), the omega tails (Lemma 6(ii)), the assembly",
+   "bytes": 13823,
+   "sha256": "ee77c492c0cac054d4770d72df48a1895e014f7e53588c103ebbed7d4673edd4",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/ddS.py",
+   "role": "region tau <= tau_s and the tau-tail in closed form (Lemma 6(i), (iii))",
+   "bytes": 8312,
+   "sha256": "6dd497c23e5aaa20299887c43e409680dfe09cf993ff0d1992f3b1f367c0fbc2",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/dd_exact.py",
+   "role": "the assembly: tiling checks, every cell remainder recomputed, 24 sampled node values recomputed, D and the corollary",
+   "bytes": 5684,
+   "sha256": "22083e43559048cac3e011640f97941efc30723052714a829a3bc767f230f2aa",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/dd_controls.py",
+   "role": "controls C1-C9 (exit 0 iff all pass)",
+   "bytes": 13502,
+   "sha256": "e2d25f0c626c2bb141516a35b90888a63b4cd1270f0f110f1f510db3ebb60f69",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/dd_mutants.py",
+   "role": "nine mutants, each must make the controls fail; v2: the children run in the driver's interpreter mode, the text check kept under -O",
+   "bytes": 3200,
+   "sha256": "b7e35ee8d5bcd5d1b22861332788597f2ce3378027cf0b74fd19df269d7bc133",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/cells_full.json",
+   "role": "the 2393 adaptive cells with their remainder bounds (deterministic build, u in [-6.2, 18.6], target 7e-4)",
+   "bytes": 384392,
+   "sha256": "7ee91b2bd2a220f96a552e17f1fbfd865af51ae802e9a72ed3930ca82e4a5799",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/dd_gapcheck.py",
+   "role": "control C10: the sliver-gap enclosure (reports no gap for certificate v2)",
+   "bytes": 7030,
+   "sha256": "a18fe557eb55e05da3a488681fa3e820673ebaa7965d589e6ca28a0a2eab8a94",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_0.json",
+   "role": "node values of the cells with index = 0 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 0",
+   "bytes": 515573,
+   "sha256": "dc1688b8f38e8a9524a7524f8a754165b026b125af1b7d08a73024a7e3d6ae86",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_1.json",
+   "role": "node values of the cells with index = 1 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 1",
+   "bytes": 514894,
+   "sha256": "8fadc4adcfdf3b0be55a46641d287231716f3cdcbc0d84f046127b403fd08df0",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_2.json",
+   "role": "node values of the cells with index = 2 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 2",
+   "bytes": 515394,
+   "sha256": "0217900ba8f202737b797d25c2f39cc8bbc303b38414ae19b34be3ee306db568",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_3.json",
+   "role": "node values of the cells with index = 3 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 3",
+   "bytes": 513745,
+   "sha256": "980ee72e4aa49d480c4a2cc2d965e83c989259c43ccb8296ce63ae2c2b1c6c77",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_4.json",
+   "role": "node values of the cells with index = 4 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 4",
+   "bytes": 514509,
+   "sha256": "6a10852c28e9c8d3d36ff31666288ab3f73f92facc24551c296098812de713d8",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_5.json",
+   "role": "node values of the cells with index = 5 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 5",
+   "bytes": 512813,
+   "sha256": "ab42ce7f3335c109343c512b7f9229ac694bf537caee0c2108c12ba836e7e1ce",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_6.json",
+   "role": "node values of the cells with index = 6 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 6",
+   "bytes": 513372,
+   "sha256": "aa6e75b9f923c91c86eaa7ac0e841c0a166e185494344b76560a1f9dce355afb",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_7.json",
+   "role": "node values of the cells with index = 7 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 7",
+   "bytes": 512785,
+   "sha256": "a84dcdd10f8fed4c801acf0cd145a752213051787e2f54176d75e1d1d07d172d",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_8.json",
+   "role": "node values of the cells with index = 8 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 8",
+   "bytes": 512848,
+   "sha256": "fb0385ffb1d71b747823845e0d51cb3f8237d755f9bd1a3c5c4d86bc28465789",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_9.json",
+   "role": "node values of the cells with index = 9 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 9",
+   "bytes": 512432,
+   "sha256": "2d94e3ee23e8f2fa7ff1ba73f183aaccb0bc886c2fd918e448f17b7f22c46688",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_10.json",
+   "role": "node values of the cells with index = 10 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 10",
+   "bytes": 511649,
+   "sha256": "06914e48683e19fa8f94ba9e815ef5fda6ed152eb2641ebba13117589c66e833",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/nodes_11.json",
+   "role": "node values of the cells with index = 11 (mod 12), certificate v2: artifact of hosted run 38367190632, shard 11",
+   "bytes": 512631,
+   "sha256": "0ce3496f93e0e766d44aaf7dcda21a0ae4db8f7c58c4ecb9f6cccad789cbf179",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/nodes/artifacts_run_38367190632.json",
+   "role": "the artifact ids and digests of run 38367190632 (the zip archives whose single member is each node file of certificate v2)",
+   "bytes": 2250,
+   "sha256": "e2a7563bc53a6b1d42b30853b33a81340e427c43de2992c110607f7f536499df"
+  },
+  {
+   "path": "certificate_v2/results/controls_stdout.txt",
+   "role": "stdout of dd_controls.py (python -B -S); identical to v1",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/controls_stdout_O.txt",
+   "role": "stdout of dd_controls.py (python -B -O -S; identical)",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/mutants_stdout.txt",
+   "role": "stdout of dd_mutants.py (python -B -S); identical to v1",
+   "bytes": 830,
+   "sha256": "49996326c9604ef3bd3c0ea004f93667dbc4c40c4affe45a3db4a7580dccaa0c",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/mutants_stdout_O.txt",
+   "role": "stdout of dd_mutants.py (python -B -O -S; identical)",
+   "bytes": 830,
+   "sha256": "49996326c9604ef3bd3c0ea004f93667dbc4c40c4affe45a3db4a7580dccaa0c",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/gapcheck_stdout.txt",
+   "role": "stdout of dd_gapcheck.py cells_full.json 2 (python -B -S): no gap",
+   "bytes": 435,
+   "sha256": "7b95eab12608b27c8bcb928e1331cac6d93c1deaecc75b364aed5ebdb4ffa2bd",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/gapcheck_stdout_O.txt",
+   "role": "stdout of dd_gapcheck.py (python -B -O -S; identical)",
+   "bytes": 435,
+   "sha256": "7b95eab12608b27c8bcb928e1331cac6d93c1deaecc75b364aed5ebdb4ffa2bd",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/assembly_stdout.txt",
+   "role": "stdout of dd_exact.py on the stored cells and node files of certificate v2 (python -B -S)",
+   "bytes": 1131,
+   "sha256": "0fcb9d8387df73ecaa269929ac6ba373e309f951bbcfffc2549e746e27b64695",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+  },
+  {
+   "path": "certificate_v2/results/assembly_stdout_O.txt",
+   "role": "stdout of dd_exact.py (python -B -O -S; identical)",
+   "bytes": 1131,
+   "sha256": "0fcb9d8387df73ecaa269929ac6ba373e309f951bbcfffc2549e746e27b64695",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
   }
  ],
  "replays": [
@@ -615,6 +1046,52 @@
     "nodes/nodes_11.json"
    ],
    "stdout": "certificate/results/assembly_stdout.txt",
+   "long": true
+  },
+  {
+   "name": "controls_v2",
+   "certificate": "certificate_v2",
+   "script": "dd_controls.py",
+   "args": [],
+   "stdout": "certificate_v2/results/controls_stdout.txt"
+  },
+  {
+   "name": "mutants_v2",
+   "certificate": "certificate_v2",
+   "script": "dd_mutants.py",
+   "args": [],
+   "stdout": "certificate_v2/results/mutants_stdout.txt"
+  },
+  {
+   "name": "gapcheck_v2",
+   "certificate": "certificate_v2",
+   "script": "dd_gapcheck.py",
+   "args": [
+    "cells_full.json",
+    "2"
+   ],
+   "stdout": "certificate_v2/results/gapcheck_stdout.txt"
+  },
+  {
+   "name": "assembly_v2",
+   "certificate": "certificate_v2",
+   "script": "dd_exact.py",
+   "args": [
+    "cells_full.json",
+    "nodes/nodes_0.json",
+    "nodes/nodes_1.json",
+    "nodes/nodes_2.json",
+    "nodes/nodes_3.json",
+    "nodes/nodes_4.json",
+    "nodes/nodes_5.json",
+    "nodes/nodes_6.json",
+    "nodes/nodes_7.json",
+    "nodes/nodes_8.json",
+    "nodes/nodes_9.json",
+    "nodes/nodes_10.json",
+    "nodes/nodes_11.json"
+   ],
+   "stdout": "certificate_v2/results/assembly_stdout.txt",
    "long": true
   }
  ]
