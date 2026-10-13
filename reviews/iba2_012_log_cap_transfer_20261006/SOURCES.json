@@ -1,0 +1,66 @@
+{
+  "object": "IBA2-012-LOG-CAP-TRANSFER-20261006-v1",
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "b25cac0bcbb4032d624f14795257d9578c90d105",
+  "author": "OpenAI / GPT-6 Astra Pro / iba2-log-cap-transfer-20261006-r7",
+  "principal": "Dylan Roy — delegated AI work",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0,
+  "inputs": [
+    {
+      "path": "reviews/iba2_012_finite_radius_20261005/PROOF.md",
+      "git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd",
+      "sha256": "cad7fa81a70dc218286d7ec62f7a86daf337677d65398ff906c455157067f93f",
+      "size": 17362,
+      "consumed_slice": "FR sections3-5/8"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "size": 40261,
+      "consumed_slice": "P(4.1), following(5.3), (5.5)"
+    },
+    {
+      "path": "reviews/iba2_012_count_transfer_20261006/PROOF.md",
+      "git_blob": "752bc9da5e49af3d0724d80c91cffc0dde35a2d8",
+      "sha256": "63eb5fd131d440d918c86269b1b613b3d62b897b1349135405ada04d2a611061",
+      "size": 14855,
+      "consumed_slice": "CT section3 for optional minimum only; provenance"
+    },
+    {
+      "path": "frontiers/c6_sharpened_20260929/PROOF.md",
+      "git_blob": "70ba19726a9114bfceae04d021095e6c8eed5026",
+      "sha256": "9f45274ab59d4f4417d1a51e9c97f5916240fdb0a4640ca6f0d3e9e0aea37dd7",
+      "size": 13278,
+      "consumed_slice": "SH sections3-4 and cap tail(5.1), before first-moment assembly"
+    }
+  ],
+  "payloads": [
+    {
+      "path": "NOTE.md",
+      "git_blob": "b158965faf0f4113309d825ce1892743910fc028",
+      "sha256": "e975dc65e67d8631cbbd16568f92361731eb572fa88687c0b6e8eeb1af7313fe",
+      "size": 14237
+    },
+    {
+      "path": "README.md",
+      "git_blob": "a8774b57d148c492298a58661d09ce206f66d89c",
+      "sha256": "587a4b61cb798b4e167d8ba1c31b44f79893da4236b3357c0c24ad09c2259bb4",
+      "size": 2347
+    },
+    {
+      "path": "log_cap_check.py",
+      "git_blob": "2e6a19bf5907585fbbf63485916876e65dbe8567",
+      "sha256": "ef6accc5112c1ebc5ea9c07e88e01d8c816705b271aa294a9ffc64e29b7a8089",
+      "size": 3655
+    },
+    {
+      "path": "test_log_cap.py",
+      "git_blob": "7ef45c589e65fbdf6eaed39142873c2bd383fffc",
+      "sha256": "add5a4781838daadd56851c0b93714f43f4e37201f811c3eb90797400231d31b",
+      "size": 6570
+    }
+  ],
+  "execution_scope": "12 exact finite methods in each Python mode, five intended mutants per mode and invalid-label rejection; not continuum/Lean/model proof. Exact receipts and nonauthor review stay separate."
+}

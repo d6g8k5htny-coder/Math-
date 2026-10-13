@@ -1,0 +1,210 @@
+{
+  "description": "Synthetic supplied-data controls only; no actual environment or collector observations.",
+  "canary": "C183_SYNTHETIC_SECRET_DO_NOT_ECHO_7f9b",
+  "valid": {
+    "schema_version": 1,
+    "records": {
+      "U": {
+        "origin": "SYNTHETIC",
+        "observed_at_unix_s": {
+          "state": "REPORTED",
+          "value": 0
+        },
+        "command_shape": "C183_UNITTEST_DISCOVER_V1",
+        "mode": "normal",
+        "variant": "baseline",
+        "observer": "NONE",
+        "sources": {
+          "pristine": {
+            "state": "REPORTED",
+            "value": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "numeric_mutant": {
+            "state": "UNKNOWN"
+          },
+          "observer": {
+            "state": "UNKNOWN"
+          }
+        },
+        "environment": {
+          "locale": {
+            "state": "REPORTED",
+            "value": "C.UTF-8"
+          },
+          "timezone": {
+            "state": "REPORTED",
+            "value": "UTC"
+          },
+          "selection_sha256": {
+            "state": "REPORTED",
+            "value": "2222222222222222222222222222222222222222222222222222222222222222"
+          }
+        },
+        "configuration": {
+          "gc_auto": {
+            "state": "REPORTED",
+            "value": 6700
+          },
+          "maintenance_auto": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "gc_auto_detach": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "maintenance_auto_detach": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "hooks_policy": {
+            "state": "REPORTED",
+            "value": "DEFAULT"
+          },
+          "template_policy": {
+            "state": "REPORTED",
+            "value": "DEFAULT"
+          },
+          "effective_sha256": {
+            "state": "REPORTED",
+            "value": "3333333333333333333333333333333333333333333333333333333333333333"
+          }
+        },
+        "binaries": {
+          "git_sha256": {
+            "state": "REPORTED",
+            "value": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "python_sha256": {
+            "state": "REPORTED",
+            "value": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "stdlib_sha256": {
+            "state": "REPORTED",
+            "value": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        },
+        "mount": {
+          "filesystem": {
+            "state": "REPORTED",
+            "value": "ext4"
+          },
+          "identity_sha256": {
+            "state": "REPORTED",
+            "value": "7777777777777777777777777777777777777777777777777777777777777777"
+          },
+          "read_only": {
+            "state": "REPORTED",
+            "value": false
+          }
+        }
+      },
+      "I": {
+        "origin": "SYNTHETIC",
+        "observed_at_unix_s": {
+          "state": "REPORTED",
+          "value": 0
+        },
+        "command_shape": "C183_UNITTEST_DISCOVER_V1",
+        "mode": "normal",
+        "variant": "baseline",
+        "observer": "OUTSIDE_SOURCE",
+        "sources": {
+          "pristine": {
+            "state": "REPORTED",
+            "value": "1111111111111111111111111111111111111111111111111111111111111111"
+          },
+          "numeric_mutant": {
+            "state": "UNKNOWN"
+          },
+          "observer": {
+            "state": "REPORTED",
+            "value": "8888888888888888888888888888888888888888888888888888888888888888"
+          }
+        },
+        "environment": {
+          "locale": {
+            "state": "REPORTED",
+            "value": "C.UTF-8"
+          },
+          "timezone": {
+            "state": "REPORTED",
+            "value": "UTC"
+          },
+          "selection_sha256": {
+            "state": "REPORTED",
+            "value": "2222222222222222222222222222222222222222222222222222222222222222"
+          }
+        },
+        "configuration": {
+          "gc_auto": {
+            "state": "REPORTED",
+            "value": 6700
+          },
+          "maintenance_auto": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "gc_auto_detach": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "maintenance_auto_detach": {
+            "state": "REPORTED",
+            "value": true
+          },
+          "hooks_policy": {
+            "state": "REPORTED",
+            "value": "DEFAULT"
+          },
+          "template_policy": {
+            "state": "REPORTED",
+            "value": "DEFAULT"
+          },
+          "effective_sha256": {
+            "state": "REPORTED",
+            "value": "3333333333333333333333333333333333333333333333333333333333333333"
+          }
+        },
+        "binaries": {
+          "git_sha256": {
+            "state": "REPORTED",
+            "value": "4444444444444444444444444444444444444444444444444444444444444444"
+          },
+          "python_sha256": {
+            "state": "REPORTED",
+            "value": "5555555555555555555555555555555555555555555555555555555555555555"
+          },
+          "stdlib_sha256": {
+            "state": "REPORTED",
+            "value": "6666666666666666666666666666666666666666666666666666666666666666"
+          }
+        },
+        "mount": {
+          "filesystem": {
+            "state": "REPORTED",
+            "value": "ext4"
+          },
+          "identity_sha256": {
+            "state": "REPORTED",
+            "value": "7777777777777777777777777777777777777777777777777777777777777777"
+          },
+          "read_only": {
+            "state": "REPORTED",
+            "value": false
+          }
+        }
+      }
+    },
+    "events": [
+      {
+        "kind": "FILESYSTEM",
+        "operation": "RMDIR",
+        "sequence": 0,
+        "result": "ERROR",
+        "subject": "FIXTURE",
+        "errno": 39
+      }
+    ]
+  }
+}
