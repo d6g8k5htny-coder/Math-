@@ -2,7 +2,7 @@
  "schema": 2,
  "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v2",
  "note_of_record": "DD/PROOF.md is note DD v1.2 (comment 6140674826): v1.1 (DD/PROOF_v1_1_READBACK.md, comment 6140009355, read back from v1.0) plus control C10; v1.0 (DD/PROOF_v1_0_AS_READ.md, comment 6139410118) is the body both slice reads hashed; the C10 read is DD/REVIEW_C10.md",
- "versions": "v1 of this object (Math-#448) stored v1.0 and v1.1 with the slice reads and the readback; v2 adds v1.2, control C10 (certificate/dd_gapcheck.py, pinned by the controls addendum at Math- 11ca8934) with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448",
+ "versions": "v1 of this object (Math-#448) stored v1.0 and v1.1 with the slice reads and the readback; v2 adds v1.2, control C10 (certificate/dd_gapcheck.py, pinned by the controls addendum at Math- 11ca8934) with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; the addendum of record is v1.2 (6141407954), after the AMEND of the Math-#449 engineering read (6141351602)",
  "kind": "additive incorporation of a public native note, its certificate, review and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
@@ -15,7 +15,7 @@
  "source_issues": [
   "https://github.com/d6g8k5htny-coder/main/issues/307"
  ],
- "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); the controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md) pins control C10 and its stdout at commit 11ca8934d320b449d10c65a68ff675d7e55ef53d of the same branch; certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
+ "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); the controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, v1.2; v1.0 and v1.1 as read beside it, same table) pins control C10 and its stdout at commit 11ca8934d320b449d10c65a68ff675d7e55ef53d of the same branch; certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
  "known_defect": "the sliver cells of the narrow regime (ddvq._vcell, kind sv) can stop short of their right endpoints by at most 1e-28 (centre rounded down, half-width rounded up): found by the Slice B reader (one instance) and the Codex review of Math-#448 (P1), quantified by control C10 (2,694 nodes, 5,251 gaps; omitted contribution to D in [-3.4e-31, 4.9e-62]); the stored node values are not regenerated; any re-run enlarges the half-width until the cell contains both endpoints",
  "related_packets": {
   "frontiers/soft_closed_form_20261002/": "#244: the closed form (2.5)-(2.7) and Theorem A (conditional scope)",
@@ -210,8 +210,8 @@
    "sha256": "b2ba26ad6affec21910dc8a744da18aae3b4fa9b4a53ef20e1a6bb49e228e5ac"
   },
   {
-   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md",
-   "role": "author controls addendum v1.1 (of record): pins control C10 (dd_gapcheck.py) and its stdout in both modes at Math- commit 11ca8934d320b449d10c65a68ff675d7e55ef53d, quotes the stdout, and applies the two display roundings of the C10 read (v1.0 is DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md)",
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md",
+   "role": "author controls addendum v1.1: the body the Math-#449 engineering read hashed; superseded by v1.2 (its version paragraph completed) for the record",
    "comment": "6140980497",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140980497",
@@ -220,6 +220,18 @@
    "updated_at": "2026-10-13T07:55:03Z",
    "bytes": 4490,
    "sha256": "e7c92f864381f4969d7f902baf9401ff760db77135f57b9eb6ffae594b3cb139"
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md",
+   "role": "author controls addendum v1.2 (of record): pins control C10 (dd_gapcheck.py) and its stdout in both modes at Math- commit 11ca8934d320b449d10c65a68ff675d7e55ef53d, quotes the stdout, applies the two display roundings of the C10 read (v1.1) and, per the AMEND of the Math-#449 engineering read, lists every edit of v1.1 in its version paragraph (v1.0 and v1.1 as read are stored beside it)",
+   "comment": "6141407954",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6141407954",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T08:22:00Z",
+   "updated_at": "2026-10-13T08:22:00Z",
+   "bytes": 5005,
+   "sha256": "b1cfe262b2efdd2245965f43202b7b7b1634ed1df4dad702e56791cf4422c067"
   },
   {
    "path": "DD/REVIEW_C10_SUMMONS.md",
@@ -325,7 +337,7 @@
     "DD/PROOF.md",
     "DD/AUTHOR_CONTROLS_COMMENT.md",
     "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
-    "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md"
    ]
   },
   {
