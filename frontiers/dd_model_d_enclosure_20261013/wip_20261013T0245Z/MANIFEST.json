@@ -1,5 +1,5 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 06:40Z (final certificate state unchanged since 06:15Z; adds PRE_FIX_UNVERIFIED_run_38339424610/, the raw artifacts of the pre-referee preview run, kept separate from the certificate)",
+ "checkpoint": "wip_20261013T0245Z, updated 07:34Z (adds control C10, dd/dd_gapcheck.py and dd/results/gapcheck_stdout*.txt: the sliver-gap enclosure; every other certificate byte unchanged since 35ae8fbb)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED until read; scientific effect NONE",
  "files": [
@@ -117,6 +117,11 @@
    "path": "dd/dd_exact.py",
    "bytes": 5684,
    "sha256": "22083e43559048cac3e011640f97941efc30723052714a829a3bc767f230f2aa"
+  },
+  {
+   "path": "dd/dd_gapcheck.py",
+   "bytes": 7030,
+   "sha256": "a18fe557eb55e05da3a488681fa3e820673ebaa7965d589e6ca28a0a2eab8a94"
   },
   {
    "path": "dd/dd_mutants.py",
@@ -252,6 +257,16 @@
    "path": "dd/results/controls_stdout_O.txt",
    "bytes": 1236,
    "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6"
+  },
+  {
+   "path": "dd/results/gapcheck_stdout.txt",
+   "bytes": 552,
+   "sha256": "d5dfac1ac42963b7b500ea9f28b68153df00e3815209c665485e87d28348385a"
+  },
+  {
+   "path": "dd/results/gapcheck_stdout_O.txt",
+   "bytes": 552,
+   "sha256": "d5dfac1ac42963b7b500ea9f28b68153df00e3815209c665485e87d28348385a"
   },
   {
    "path": "dd/results/mutants_stdout.txt",
