@@ -1,5 +1,5 @@
 {
- "checkpoint": "wip_20261013T0245Z",
+ "checkpoint": "wip_20261013T0245Z, updated 03:00Z (cells_full.json, module updates, note draft)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED; scientific effect NONE",
  "files": [
@@ -14,9 +14,24 @@
    "sha256": "9f2ed99417e3dc1cc9a1ecd0d8bbf2b1fd5def5a2f6f7cb789c387f47b0dda12"
   },
   {
+   "path": "dd/NOTE_DD_draft.md",
+   "bytes": 15197,
+   "sha256": "b4bd65e5391747d4a48447bb4687e1c79c11239ec8b9a27bfe9e2ce96431caa4"
+  },
+  {
    "path": "dd/board_post.md",
    "bytes": 13001,
    "sha256": "303fce01f332ef268634150a5ceb097ad968ecde53d59aa3e8f82f9de18e8c34"
+  },
+  {
+   "path": "dd/build_full.log",
+   "bytes": 560,
+   "sha256": "18e071d95cf9506c73d8db9df6cc7bd3cf6ed2519ee34ad6266eb77cbb4d3348"
+  },
+  {
+   "path": "dd/cells_full.json",
+   "bytes": 309563,
+   "sha256": "90c216ca3aa446ce75b4dcdb610fbc3f15781a75d3fff91a9a28a4fef61d2225"
   },
   {
    "path": "dd/ddS.py",
@@ -25,8 +40,8 @@
   },
   {
    "path": "dd/dd_exact.py",
-   "bytes": 2958,
-   "sha256": "78a56ca47deb0ed24738b2430e2223bd93c70f13a35776be90e77940334f5ced"
+   "bytes": 3007,
+   "sha256": "125c6237429398ca3874606c5308cf6b2eb5c78d74109e46b7222bfb61ffbcb2"
   },
   {
    "path": "dd/ddbounds.py",
@@ -45,8 +60,8 @@
   },
   {
    "path": "dd/ddgauss.py",
-   "bytes": 12460,
-   "sha256": "bf98085ce5044a13461c0b6babf7e930f264ccbbda68c4e340f2ed5190522082"
+   "bytes": 13152,
+   "sha256": "901439a95900fbe7a690a85a842adb497bb8d670119fea56d443a4a9cc02ddc7"
   },
   {
    "path": "dd/ddih.py",
@@ -65,8 +80,8 @@
   },
   {
    "path": "dd/ddvq.py",
-   "bytes": 6623,
-   "sha256": "0de89e34591d026ca12febb136985ec4ca60f529a1f1451632a5035818079e4b"
+   "bytes": 8014,
+   "sha256": "4c6a5539bea78df22390691a5243b046ae44f7f0f44ce709ff687b6efcb9767b"
   },
   {
    "path": "dd/test_bounds.py",

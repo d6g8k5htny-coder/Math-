@@ -154,21 +154,26 @@ def cell_nodes(uc, hu, wc, hw):
     return out
 
 def eval_node(args):
-    """rho(node) H(node) enclosure for a node given as thin intervals (u_iv, w_iv); returns (lo, hi, v1, ncells) as strings/ints."""
+    """rho(node) H(node) enclosure for a node given as thin intervals (u_iv, w_iv); returns (lo, hi, v1, ncells) as
+    strings/ints, or ('FAIL', message, 0, 0) if the v-quadrature did not succeed (the assembly refuses such a node)."""
     u_iv, w_iv = args
-    rho, X, Y = B.rho_cell(u_iv, w_iv)
-    tau = iexp(u_iv); g = iexp(w_iv)
-    H, d = VQ.H_point(tau, g)
-    val = mul(rho, H)
-    return (str(val[0]), str(val[1]), d['v1'], d['ncells'])
+    try:
+        rho, X, Y = B.rho_cell(u_iv, w_iv)
+        tau = iexp(u_iv); g = iexp(w_iv)
+        H, d = VQ.H_point(tau, g)
+        val = mul(rho, H)
+        return (str(val[0]), str(val[1]), d['v1'], d['ncells'])
+    except Exception as ex:
+        return ('FAIL', '%s: %s' % (type(ex).__name__, ex), 0, 0)
 
-def eval_cells(cells, out_path, nproc=2, log=None):
-    """evaluate all node values with multiprocessing; checkpoint to out_path (JSON: cell index -> list of n*n node results)."""
+def eval_cells(cells, out_path, nproc=2, log=None, shard=(0, 1)):
+    """evaluate the node values of the cells with index % shard[1] == shard[0], with multiprocessing; checkpoint to
+    out_path (JSON: cell index -> list of n*n node results)."""
     import multiprocessing as mp
     done = {}
     if os.path.exists(out_path):
         done = {int(k): v for k, v in json.load(open(out_path)).items()}
-    todo = [i for i in range(len(cells)) if i not in done]
+    todo = [i for i in range(len(cells)) if i not in done and i % shard[1] == shard[0]]
     t0 = time.time()
     tasks = []
     for i in todo:
@@ -196,6 +201,7 @@ def assemble(cells, done):
     for i, c in enumerate(cells):
         uc, hu, wc, hw, E = c[0], c[1], c[2], c[3], c[4]
         vals = done[i]
+        assert len(vals) == NGAUSS * NGAUSS and all(v[0] != 'FAIL' for v in vals), 'cell %d: incomplete or failed node values' % i
         s = (ZERO, ZERO)
         for k, v in enumerate(vals):
             s = add(s, mul(wprod[k], (Dec(v[0]), Dec(v[1]))))
@@ -228,6 +234,10 @@ if __name__ == '__main__':
         print('cells per decade of tau:', sorted(dec.items()))
     elif mode == 'eval':
         spec, cells = load_cells(sys.argv[2]); out = sys.argv[3]; nproc = int(sys.argv[4]) if len(sys.argv) > 4 else 2
-        done = eval_cells(cells, out, nproc, log=sys.stdout)
-        enc, tot, rem = assemble(cells, done)
-        print('Gauss region: sum = [%s, %s], remainder %s -> D_G in [%s, %s]' % (tot[0], tot[1], rem, enc[0], enc[1]))
+        shard = tuple(int(x) for x in sys.argv[5].split('/')) if len(sys.argv) > 5 else (0, 1)
+        done = eval_cells(cells, out, nproc, log=sys.stdout, shard=shard)
+        if shard == (0, 1):
+            enc, tot, rem = assemble(cells, done)
+            print('Gauss region: sum = [%s, %s], remainder %s -> D_G in [%s, %s]' % (tot[0], tot[1], rem, enc[0], enc[1]))
+        else:
+            print('shard %d/%d: %d cells done' % (shard[0], shard[1], len(done)))

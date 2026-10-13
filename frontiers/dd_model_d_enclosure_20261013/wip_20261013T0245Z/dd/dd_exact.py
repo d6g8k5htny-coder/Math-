@@ -29,9 +29,11 @@ def corollary(D):
             out[(d, key)] = coef
     return out
 
-def main(cells_path, nodes_path):
+def main(cells_path, *nodes_paths):
     spec, cells = G.load_cells(cells_path)
-    done = {int(k): v for k, v in json.load(open(nodes_path)).items()}
+    done = {}
+    for np_ in nodes_paths:
+        done.update({int(k): v for k, v in json.load(open(np_)).items()})
     assert len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells))
     encG, totG, remG = G.assemble(cells, done)
     rows = [{k: Dec(v) for k, v in r.items()} for r in spec['rows']]
@@ -53,4 +55,4 @@ def main(cells_path, nodes_path):
     return D
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], *sys.argv[2:])

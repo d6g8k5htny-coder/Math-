@@ -16,6 +16,11 @@ interruption does not force re-derivation. Scientific effect NONE. Not for integ
   `dv/vform5.py` (corrected `v`-range), `dv/stein_bounds*.py` (float cell-count explorations), and the rigorous modules
   `dd/ddtaylor.py`, `dd/ddbounds.py`, `dd/ddvq.py`, `dd/ddgauss.py`, `dd/ddS.py`, `dd/dd_exact.py`, `dd/test_bounds.py`.
 - `MANIFEST.json`: path, size and SHA-256 of every file here (computed at commit time).
+- **Update 03:00Z:** `dd/cells_full.json` (the 1914 adaptive cells, remainder bound `1.995·10⁻³`, `build_full.log`), the
+  module updates of 02:45–03:00Z (`ddvq.py` log cells with rigorous sliver junctions, `ddcore.py` monotone-range safeguard,
+  `ddgauss.py` shards, `dd_exact.py` multi-file assembly), `dd/NOTE_DD_draft.md` (the note's draft, numbers TBD) and the
+  workflow `.github/workflows/dd-wip-shards.yml` that computes the node values in 12 shards (work in progress, not a
+  certificate; its artifacts are the raw node files).
 
 ## What the files are (stage and limitations)
 

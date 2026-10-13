@@ -6,7 +6,7 @@ import heapq, decimal, math
 from fractions import Fraction as Fr
 from decimal import Decimal as Dec
 import ddcore as C
-from ddcore import add, width, ZERO, ONE, q, mul, smul, sq, isqrt
+from ddcore import add, width, ZERO, ONE, q, mul, smul, sq, isqrt, iexp
 import ddint as D
 import ddbounds as B
 
@@ -14,10 +14,14 @@ EXC = (ZeroDivisionError, ValueError, AssertionError, decimal.Overflow, decimal.
 
 def _eval(tau_iv, g_iv, kind, c, h, order):
     """enclosure of the integral over one cell: kind 'v' (v-cell centred at c, half-width h), 'yl'/'yr' (y-cell:
-    v = 1 -/+ e^y, y centred at c)."""
+    v = 1 -/+ e^y, y centred at c), 'sv' (a sliver v-cell whose exact extent is uncertain: the enclosure is hulled with 0,
+    plain interval evaluation)."""
     try:
         if kind == 'v':
             return D.H_integrand_point(tau_iv, g_iv, c, h, order).integrate()
+        if kind == 'sv':
+            e = D.H_integrand_point(tau_iv, g_iv, c, h, 0).integrate()
+            return (min(e[0], ZERO), max(e[1], ZERO))
         return D.H_integrand_point_log(tau_iv, g_iv, c, h, -1 if kind == 'yl' else 1, order).integrate()
     except EXC:
         return None
@@ -37,40 +41,57 @@ def v1_choice(st, sc, k=9):
 NARROW_SCALE = 0.1      # use the log substitution around v = 1 when sigma_chi/(12 sigma_t) < this
 LOG_DELTA = 0.5         # half-width of the log region around v = 1
 
+def _vcell(a, b):
+    """('v', centre, half-width) for the decimal interval [a, b] (the centre rounded down, the half-width up: covers [a, b])."""
+    vc = C.CD.divide(C.CD.add(a, b), Dec(2)); hv = C.CU.divide(C.CU.subtract(b, a), Dec(2))
+    return ('v', vc, hv)
+
 def initial_cells(st, sc, v1):
     """initial cells in [0, v1] as (kind, centre, half-width) with exact decimal geometry:
     - a bump region around v = 2 of half-width w = min(1.5, 4 (sigma_t + sigma_chi/36)) in 8 cells (the small-sigma case),
-    - in the narrow regime (sigma_chi/(12 sigma_t) < NARROW_SCALE) a log region |v - 1| in [eps, LOG_DELTA], eps = 1e-7 sigma_chi,
-      in y-cells of width 1 on both sides plus the core [1 - eps, 1 + eps] as one v-cell,
-    - elsewhere v-cells of width ~ v_scale/3, v_scale = 2.06 sqrt(sigma_t) (the t < 0 branch has v ~ sqrt(3|t|)), at least 4 up to v1."""
+    - in the narrow regime (sigma_chi/(12 sigma_t) < NARROW_SCALE, sigma_t > 0.1) a log region around v = 1: y-cells of
+      width ~1 on y in [y_min, y_max] for both sides (v = 1 -/+ e^y, covering |v - 1| in [eps, delta], eps = e^{y_min},
+      delta = e^{y_max}), the core |v - 1| <= eps as one v-cell, and, since eps and delta are transcendental, sliver
+      cells at the four junctions whose contribution is hulled with 0 (the exact junction lies inside the sliver),
+    - elsewhere v-cells of width ~ v_scale/3, v_scale = 2.06 sqrt(sigma_t) (the t < 0 branch has v ~ sqrt(3|t|)),
+      at least 4 up to v1."""
     sigt = float(st[1]); sigc = float(sc[1])
     cells = []
-    edges = [0.0]
+    v1d = Dec(repr(float(v1)))
     narrow = sigc / (12 * sigt) < NARROW_SCALE and sigc > 0 and sigt > 0.1      # v = 1 carries mass only if t >= 2/3 is reachable
+    segments = []            # decimal [a, b] intervals to be covered by plain v-cells, with a target width
+    v_scale = max(1.0, 2.06 * math.sqrt(sigt))
     if narrow:
-        eps = Dec('1e-7') * Dec(repr(sigc)); eps = Dec(repr(float(eps)))
-        y_max = Dec(repr(math.log(LOG_DELTA))); y_min = Dec(repr(math.floor(math.log(float(eps)))))
+        y_max = Dec(repr(math.log(LOG_DELTA))); y_min = Dec(math.floor(math.log(1e-7 * sigc)))
+        delta = iexp((y_max, y_max)); eps = iexp((y_min, y_min))
         n = int((y_max - y_min) / Dec(1)) + 1
         hy = C.CU.divide(C.CU.subtract(y_max, y_min), Dec(2 * n))
         for k in range(n):
             yc = C.CD.add(y_min, C.CD.multiply(hy, Dec(2 * k + 1)))
             cells.append(('yl', yc, hy)); cells.append(('yr', yc, hy))
-        cells.append(('v', Dec(1), eps))
-        edges += [1 - LOG_DELTA, 1 + LOG_DELTA]
+        one = Dec(1)
+        # core (certain part) and the four slivers
+        cells.append(('v', one, eps[0]))
+        for (a, b) in ((C.CD.subtract(one, delta[1]), C.CU.subtract(one, delta[0])), (C.CD.subtract(one, eps[1]), C.CU.subtract(one, eps[0])),
+                       (C.CD.add(one, eps[0]), C.CU.add(one, eps[1])), (C.CD.add(one, delta[0]), C.CU.add(one, delta[1]))):
+            k, vc, hv = _vcell(a, b); cells.append(('sv', vc, hv))
+        left_end = C.CD.subtract(one, delta[1]); right_start = C.CU.add(one, delta[1])
+        segments.append((Dec(0), left_end)); segments.append((right_start, v1d))
+    else:
+        segments.append((Dec(0), v1d))
     w = min(1.5, max(0.01, 4 * (sigt + sigc / 36)))
-    if w < 1.5 and 2 - w > (1 + LOG_DELTA if narrow else 0):
-        edges += [max(0.0, 2 - w + 2 * w * k / 8) for k in range(9)]
-    start = max(edges)
-    v_scale = max(1.0, 2.06 * math.sqrt(sigt))
-    n = max(4, int(math.ceil((v1 - start) / (v_scale / 3))))
-    edges += [start + (v1 - start) * k / n for k in range(1, n + 1)]
-    edges = sorted(set(e for e in edges if 0.0 <= e <= v1))
-    for a, b in zip(edges[:-1], edges[1:]):
-        if b - a < 1e-12: continue
-        if narrow and a >= 1 - LOG_DELTA - 1e-12 and b <= 1 + LOG_DELTA + 1e-12: continue      # covered by the log region
-        ad = Dec(repr(a)); bd = Dec(repr(b))
-        vc = C.CD.divide(C.CD.add(ad, bd), Dec(2)); hv = C.CU.divide(C.CU.subtract(bd, ad), Dec(2))
-        cells.append(('v', vc, hv))
+    bump = (w < 1.5)
+    for (a, b) in segments:
+        edges = [float(a)]
+        if bump and float(a) <= 2 - w and 2 + w <= float(b):
+            edges += [2 - w + 2 * w * k / 8 for k in range(9)]
+        start = max(edges)
+        m = max(4 if (a == 0 and not narrow) else 1, int(math.ceil((float(b) - start) / (v_scale / 3))))
+        edges += [start + (float(b) - start) * k / m for k in range(1, m + 1)]
+        edges = sorted(set(edges))
+        ded = [a] + [Dec(repr(e)) for e in edges[1:-1]] + [b]
+        for x, y in zip(ded[:-1], ded[1:]):
+            if y > x: cells.append(_vcell(x, y))
     return cells
 
 def vquad(tau_iv, g_iv, v1, order=8, rel_tol=Dec('1e-2'), abs_tol=Dec('1e-30'), max_cells=4000):
@@ -79,7 +100,7 @@ def vquad(tau_iv, g_iv, v1, order=8, rel_tol=Dec('1e-2'), abs_tol=Dec('1e-30'), 
     init = initial_cells(st, sc, float(v1))
     cells = []   # [kind, c, h, enc, order_used]
     for (kind, c, h) in init:
-        od = 0 if (kind == 'v' and h < Dec('1e-4')) else order
+        od = 0 if (kind in ('v', 'sv') and h < Dec('1e-4')) else order
         cells.append([kind, c, h, _eval(tau_iv, g_iv, kind, c, h, od), od])
     def total():
         tot = (ZERO, ZERO); tw = ZERO
@@ -87,14 +108,14 @@ def vquad(tau_iv, g_iv, v1, order=8, rel_tol=Dec('1e-2'), abs_tol=Dec('1e-30'), 
             if enc is None: tw = C.CU.add(tw, Dec('1e40')); continue
             tot = add(tot, enc); tw = C.CU.add(tw, width(enc))
         return tot, tw
-    heap = [(-(width(c[3]) if c[3] is not None else Dec('1e40')), i) for i, c in enumerate(cells)]
+    heap = [(-(width(c[3]) if c[3] is not None else Dec('1e40')), i) for i, c in enumerate(cells) if c[0] != 'sv']
     heapq.heapify(heap)
     ncells = len(cells)
     while True:
         tot, tw = total()
         mag = max(C.mag(tot), abs_tol)
         tol = C.CU.add(C.CU.multiply(rel_tol, mag), abs_tol)
-        if tw <= tol or ncells >= max_cells:
+        if tw <= tol or ncells >= max_cells or not heap:
             break
         cheap_tol = C.CD.divide(tol, Dec(20 * max(ncells, 1)))
         negw, i = heapq.heappop(heap)
