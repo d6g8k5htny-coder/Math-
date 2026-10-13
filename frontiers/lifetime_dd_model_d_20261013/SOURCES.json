@@ -1,9 +1,9 @@
 {
  "schema": 2,
- "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v3",
- "note_of_record": "DD/PROOF.md is note DD v1.4 (comment 6143230105): v1.3 (DD/PROOF_v1_3_READ.md, comment 6142800109, the body the v1.3 read hashed; v1.2 with the certificate re-run with exact sliver geometry, certificate_v2/) with that read's AMEND applied; v1.2 (DD/PROOF_v1_2_C10_READ.md, 6140674826) is the body the C10 read hashed, v1.1 (DD/PROOF_v1_1_READBACK.md, 6140009355) the body the readback hashed and v1.0 (DD/PROOF_v1_0_AS_READ.md, 6139410118) the body both slice reads hashed; the v1.3 read is DD/REVIEW_V13.md and the readback of v1.3 -> v1.4 is DD/REVIEW_V14_READBACK.md",
+ "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v4",
+ "note_of_record": "DD/PROOF.md is note DD v1.5 (comment 6147825577): v1.4 (DD/PROOF_v1_4_READ.md, comment 6143230105) with C271's two nonblocking clarifications applied to Lemma 2 (read: DD/REVIEW_V15.md, PASS). v1.4 (comment 6143230105): v1.3 (DD/PROOF_v1_3_READ.md, comment 6142800109, the body the v1.3 read hashed; v1.2 with the certificate re-run with exact sliver geometry, certificate_v2/) with that read's AMEND applied; v1.2 (DD/PROOF_v1_2_C10_READ.md, 6140674826) is the body the C10 read hashed, v1.1 (DD/PROOF_v1_1_READBACK.md, 6140009355) the body the readback hashed and v1.0 (DD/PROOF_v1_0_AS_READ.md, 6139410118) the body both slice reads hashed; the v1.3 read is DD/REVIEW_V13.md and the readback of v1.3 -> v1.4 is DD/REVIEW_V14_READBACK.md",
  "certificates": "certificate/ is certificate v1 (pinned at Math- 35ae8fbb by the controls comment, plus control C10 at 11ca8934 by the addendum), the one the slice reads and the C10 read checked, with the known sliver-cell defect bounded by C10; certificate_v2/ is certificate v2 (pinned at f6985cf7 by the controls comment v2): ddvq._vcell with exact sliver geometry, dd_mutants.py in the driver mode, the node files of run 38367190632; no gap; every printed number unchanged",
- "versions": "v1 of this object (Math-#448, landed e0246764) stored v1.0 and v1.1 with the slice reads and the readback; v2 (Math-#449, landed bc2ac33b) added v1.2, control C10 with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; v3 adds v1.3 and v1.4, certificate v2 (certificate_v2/) with the controls comment v2, the v1.3 read and its readback, and the records of Math-#449",
+ "versions": "v1 of this object (Math-#448, landed e0246764) stored v1.0 and v1.1 with the slice reads and the readback; v2 (Math-#449, landed bc2ac33b) added v1.2, control C10 with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; v3 adds v1.3 and v1.4, certificate v2 (certificate_v2/) with the controls comment v2, the v1.3 read and its readback, and the records of Math-#449; v4 adds v1.5 (the note of record), the provider-distinct review C271 with its delivery note, the v1.5 summons and delta read, and the fourth read-complete note; v1.4 moves to DD/PROOF_v1_4_READ.md",
  "kind": "additive incorporation of a public native note, its certificate, review and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
@@ -480,8 +480,8 @@
    "sha256": "56d3270a43a722afb3aff81a36071cc9261dfbfe30150b9dfde0fefab7bdc33f"
   },
   {
-   "path": "DD/PROOF.md",
-   "role": "frozen note of record (lifetime note DD, v1.4): v1.3 with the AMEND of the v1.3 read applied (the exact comparison of the v2 and v1 assembled ends in section 3.3); every printed number unchanged",
+   "path": "DD/PROOF_v1_4_READ.md",
+   "role": "note DD v1.4: v1.3 with the AMEND of the v1.3 read applied (the exact comparison of the v2 and v1 assembled ends in section 3.3); the body C271 and the v1.5 delta read hashed; superseded by v1.5 for the text of record",
    "comment": "6143230105",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6143230105",
@@ -504,7 +504,7 @@
    "sha256": "373ecfe8170c092f3be160c88d8da675410cfaf32a0094842a769abec24cca3c",
    "names_identities": [
     "DD/PROOF_v1_3_READ.md",
-    "DD/PROOF.md"
+    "DD/PROOF_v1_4_READ.md"
    ]
   },
   {
@@ -520,7 +520,7 @@
    "sha256": "4fabef8791a7019b006659f729d0dc9edb63e533efeedbb02abd963c58a6c2ac",
    "names_identities": [
     "DD/PROOF_v1_3_READ.md",
-    "DD/PROOF.md"
+    "DD/PROOF_v1_4_READ.md"
    ]
   },
   {
@@ -537,8 +537,95 @@
    "names_identities": [
     "DD/PROOF_v1_2_C10_READ.md",
     "DD/PROOF_v1_3_READ.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_4_READ.md",
     "DD/AUTHOR_CONTROLS_COMMENT_V2.md"
+   ]
+  },
+  {
+   "path": "DD/PROOF.md",
+   "role": "frozen note of record (lifetime note DD, v1.5): v1.4 with the two nonblocking clarifications C271-Q1 and C271-Q2 applied to Lemma 2's last paragraph; the certificate and every number unchanged",
+   "comment": "6147825577",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6147825577",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T14:26:37Z",
+   "updated_at": "2026-10-13T14:26:37Z",
+   "bytes": 29351,
+   "sha256": "28a0691e74e3f7376a9861fb072ecd7914bf4256196ae6ce1eed6db3758bc8be"
+  },
+  {
+   "path": "DD/REVIEW_C271.md",
+   "role": "provider-distinct nonauthor mathematical review C271 of note DD v1.4 (OpenAI/Codex root task 01a0bbb5 with named subreaders): PASS_ANALYTIC_REDUCTION_SUPPORT_SLICE for sections 1.1-1.3, Lemmas 1-2 and 5 and the supporting formulas, with two nonblocking clarifications Q1 and Q2; organizational-independence credit 0",
+   "comment": "6145568230",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145568230",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:29:47Z",
+   "updated_at": "2026-10-13T12:29:47Z",
+   "bytes": 36509,
+   "sha256": "d25d112523352c53b4216c116fb4c3313be57702ecf3cb7854f10af3874418f6",
+   "names_identities": [
+    "DD/PROOF_v1_4_READ.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_C271_DELIVERY.md",
+   "role": "C271 delivery and release note (OpenAI/Codex): the readback of the review body, the checker counts, the next task for the DD owner (Q1, Q2)",
+   "comment": "6145641617",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145641617",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:33:53Z",
+   "updated_at": "2026-10-13T12:33:53Z",
+   "bytes": 2098,
+   "sha256": "974799485850d068dd8a5b723fe071d0ff142c2dacc40ef1cbacd25c4723a2d7"
+  },
+  {
+   "path": "DD/REVIEW_V15_SUMMONS.md",
+   "role": "summons of one Cursor agent for the byte-diff read v1.4 -> v1.5 against C271 and certificate v2",
+   "comment": "6147832456",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6147832456",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T14:26:57Z",
+   "updated_at": "2026-10-13T14:26:57Z",
+   "bytes": 3277,
+   "sha256": "cf20dfc17936ff7e4eb22f4ce2c414babb96549b0e94a2919e15d4499e60201e",
+   "names_identities": [
+    "DD/PROOF_v1_4_READ.md",
+    "DD/PROOF.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_V15.md",
+   "role": "nonauthor byte-diff read of v1.4 -> v1.5: PASS (Cursor agent bc-375d6f34, xAI Grok 4.7 grok-4.7-high-fast): exactly the three stated edits, no number changed, edit 3 checked against certificate v2 (P table p_0..p_10, kernel_abs, absmom, sharper_terms, NGAUSS = 4) and found to answer Q1 and Q2; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6147834531",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6147834531",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T14:27:03Z",
+   "updated_at": "2026-10-13T14:34:45Z",
+   "bytes": 7838,
+   "sha256": "3fb8b8e319fa3ebb61945e718ef4505a5f3c8a8f838201b6f35e8fde2b9cb460",
+   "names_identities": [
+    "DD/PROOF_v1_4_READ.md",
+    "DD/PROOF.md"
+   ]
+  },
+  {
+   "path": "DD/AUTHOR_READ_COMPLETE_4_AND_V4_CLAIM.md",
+   "role": "author read-complete note, fourth round: C271, v1.5, the delta read, the D5 claim for v4 of this object",
+   "comment": "6148015984",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6148015984",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T14:36:00Z",
+   "updated_at": "2026-10-13T14:36:00Z",
+   "bytes": 1904,
+   "sha256": "10c3acd367a0bb93b9e86a71357b22677469a77b44135c6fa44671f9cbd2599c",
+   "names_identities": [
+    "DD/PROOF_v1_4_READ.md",
+    "DD/PROOF.md"
    ]
   },
   {
