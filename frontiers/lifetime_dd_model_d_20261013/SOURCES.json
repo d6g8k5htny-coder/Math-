@@ -1,0 +1,431 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v1",
+ "note_of_record": "DD/PROOF.md is note DD v1.1 (comment 6140009355): v1.0 (DD/PROOF_v1_0_AS_READ.md, comment 6139410118, the body both slice reads hashed) with the Slice B AMEND applied; the readback of the delta is DD/REVIEW_READBACK.md",
+ "kind": "additive incorporation of a public native note, its certificate, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140258900",
+  "note": "the incorporator is also the author of note DD (custody only; no proof or certificate byte is changed); the claim is the read-complete note"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/307"
+ ],
+ "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
+ "related_packets": {
+  "frontiers/soft_closed_form_20261002/": "#244: the closed form (2.5)-(2.7) and Theorem A (conditional scope)",
+  "frontiers/v24_dc_two_thirds_sign_20261007/": "notes V24 ((5.3), Theorem V) and DC (section 0, Lemma 4, I~ = I~_quad + D, the enclosure of -I~_quad): Math-#393, landed on main at merge commit 7373495098bbe07a75eda199a945d12bdb003482 (packet tree 743b3e2c2f11d8477585c048f8e28b7b66f57211); the notes were posted at main#229 6034159111 and 6037455875",
+  "frontiers/lifetime_cj_model_j_20261012/": "note CJ (Theorem CJ, the eta constants of Corollaries CJ1-CJ2): Math-#442, landed on main at merge commit ea2f3e253c4da25538e109c866d4c9ea2f818c24 (packet tree 41cf9ec626c5b9d5cab7e4b0b657eb30a3137089); the note was posted at main#307 6132006756",
+  "frontiers/soft_rejected_pairs_20261002/": "#242: Corollary 1' (S_2, S_3)",
+  "frontiers/c7_elder_two_thirds_20261007/": "note C7 (the elder coefficient c_3 - R_{2/3}), landed at 7def48d4"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that record no pickup, verdict or author response are not stored",
+  "clean-context referee report": "the same-provider referee report is kept in the author's record (the project archive folder frontiers_dd_model_d_enclosure_20261013/), not here; the note's Remark 4 and the controls comment record its findings",
+  "the first shard run": "run 38339424610 (a preview with the pre-referee code) is not part of the object"
+ },
+ "stored": [
+  {
+   "path": "DD/CLAIM.md",
+   "role": "author D5 claim for note DD (task #312), 13 October 2026, lease to 14:00Z",
+   "comment": "6135715016",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6135715016",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T00:57:28Z",
+   "updated_at": "2026-10-13T00:57:28Z",
+   "bytes": 2776,
+   "sha256": "d771eb8f055d5f1852d8c367c5e270d4c0a761152c566727a46ede7121b7de94"
+  },
+  {
+   "path": "DD/PROOF_v1_0_AS_READ.md",
+   "role": "note DD v1.0 as posted: the body the two slice reads hashed (frozen; never edited)",
+   "comment": "6139410118",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139410118",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:07:49Z",
+   "updated_at": "2026-10-13T06:07:49Z",
+   "bytes": 23330,
+   "sha256": "2331cd2763f98ccb057097559139e92b0a7fdf5393954fafb31f9c3faf808d0c"
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_COMMENT.md",
+   "role": "author controls comment: pins the certificate files (byte counts, SHA-256, Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348), records the shard run 38347192184, and quotes the stdout of the controls, the mutants and the assembly",
+   "comment": "6139414648",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139414648",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:08:12Z",
+   "updated_at": "2026-10-13T06:08:12Z",
+   "bytes": 9110,
+   "sha256": "58fdb020f585f50cf2ce9e9a672830ba3d5d7e1c81c8fbbf251873c24bf5dc11"
+  },
+  {
+   "path": "DD/READ_REQUEST_SLICE_A_SUMMONS.md",
+   "role": "summons of one Cursor agent for Slice A (D2)",
+   "comment": "6139417869",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139417869",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:08:28Z",
+   "updated_at": "2026-10-13T06:08:28Z",
+   "bytes": 5618,
+   "sha256": "ae9adab8730cd75dc5f7ad3d04b56fa832ff0ee88480620eff2d3b6b88faf79e"
+  },
+  {
+   "path": "DD/REVIEW_SLICE_A.md",
+   "role": "nonauthor verdict, Slice A: PASS (Cursor agent bc-f621b80c, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place because GitHub refused it a new comment",
+   "comment": "6139419031",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139419031",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T06:08:33Z",
+   "updated_at": "2026-10-13T06:25:25Z",
+   "bytes": 5164,
+   "sha256": "d9bf91d1a17cc20ff90ead9376f743c58c7a1a59c3ce3a96784bd5bd6b7233eb",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_SLICE_B_SUMMONS.md",
+   "role": "first summons for Slice B (spawned no agent)",
+   "comment": "6139418087",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139418087",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:08:29Z",
+   "updated_at": "2026-10-13T06:08:29Z",
+   "bytes": 5468,
+   "sha256": "cc36b575ee1586a047aa94d658ce44aa1799a48260aa3fbc587ff49f9ae14e90"
+  },
+  {
+   "path": "DD/REVIEW_SLICE_B_RESUMMONS.md",
+   "role": "re-summons of one Cursor agent for Slice B (D2)",
+   "comment": "6139663531",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139663531",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:27:04Z",
+   "updated_at": "2026-10-13T06:27:04Z",
+   "bytes": 5720,
+   "sha256": "d7fefe4d3864479ada84caf591e10ae3c5ea005d7baa0332d9370e9d5b301ef2"
+  },
+  {
+   "path": "DD/REVIEW_SLICE_B_AMEND.md",
+   "role": "nonauthor verdict, Slice B: AMEND with eight exact changes (printed short displays made outward; the certificate and its long interval hold) (Cursor agent bc-42c6fc88, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6139664497",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139664497",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T06:27:08Z",
+   "updated_at": "2026-10-13T06:46:47Z",
+   "bytes": 6981,
+   "sha256": "d5e12ea3ac24415729ea58b459f99989836b7edaaded0b05799f9187ba10c3b3",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/PROOF.md",
+   "role": "frozen note of record (lifetime note DD, v1.1): v1.0 with the AMEND of the Slice B read applied (items 1-8) and one more display made outward by the author (item 9, the D_S upper end); the certified enclosures, the certificate and every statement unchanged",
+   "comment": "6140009355",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140009355",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:51:01Z",
+   "updated_at": "2026-10-13T06:51:01Z",
+   "bytes": 23926,
+   "sha256": "c493f7a72e77ef8deec17c6c15533c6ca98f07556bbaf18ec1ca3d6fd86b016b"
+  },
+  {
+   "path": "DD/AMEND_APPLIED_READBACK_SUMMONS.md",
+   "role": "author record of the applied AMEND (the intended delta, items 1-10) and summons of one Cursor agent for the byte-diff readback v1.0 -> v1.1 (D2)",
+   "comment": "6140019326",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140019326",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T06:51:42Z",
+   "updated_at": "2026-10-13T06:51:42Z",
+   "bytes": 4389,
+   "sha256": "ea5ccffdd844d00e96b9fe8f995eea483f6b1641f8853d292efa79d056998dac",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/REVIEW_READBACK.md",
+   "role": "nonauthor readback of the delta v1.0 -> v1.1: PASS (Cursor agent bc-d129bc66, xAI Grok 4.7 grok-4.7-high-fast): the successor is exactly the ten stated edits and every new short display is outward; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6140020620",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140020620",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T06:51:47Z",
+   "updated_at": "2026-10-13T07:05:20Z",
+   "bytes": 12485,
+   "sha256": "e2499f7b70f40e6cd6bce1c8884567917f69940ed29282d3ec649f2472c1fa86",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
+   "role": "author read-complete note: the records, what is read, the D5 claim for this packet, the release of the note claim, the pre-fix artifacts record and the #393 readback",
+   "comment": "6140258900",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140258900",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:07:54Z",
+   "updated_at": "2026-10-13T07:07:54Z",
+   "bytes": 7391,
+   "sha256": "73b11ab72a258e1c167157268dce1179c5d1e7851866b864916c9016e4219b90",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "certificate/ddcore.py",
+   "role": "decimal interval arithmetic with directed rounding, enclosures of exp/ln/sqrt/pi/erf/Gamma, Taylor models (TM1) with Lagrange remainders",
+   "bytes": 25177,
+   "sha256": "969963134b8e5a8f8bb09b620b8a34e4a44307b1a4f5086db56f3b40e2f2a54e",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddbounds.py",
+   "role": "Lemma 1 (pointwise bound), Lemma 2 (kernel polynomials), Gaussian and incomplete moments, the Taylor-box bound, Bell-polynomial bounds of the derivatives of rho, the tensor Gauss remainder per cell (Lemma 4), the v-tail bound (Lemma 5)",
+   "bytes": 20822,
+   "sha256": "f9f800fcfecc020ca95c372c4caaa74d15f6534bd677ad0357be56cd69fca09b",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddtaylor.py",
+   "role": "the exact rational Taylor polynomial T_N of g and the remainder constant C_{N+1} on a box (Lemma 3)",
+   "bytes": 9096,
+   "sha256": "45f07583aaaf60de2435da7c9a0aaaf7353a1516f0ae1c29038740b9b8f43cf6",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddint.py",
+   "role": "the integrand F(tau, g, v) of (1.3) in Taylor-model arithmetic with the closed-form t-moments",
+   "bytes": 9298,
+   "sha256": "d7b4580cbbab2252ce4e79af5334713c46183338a87bed50cc357b566b37aa9d",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddvq.py",
+   "role": "the rigorous one-dimensional v-quadrature (adaptive cells, the log substitution around v = 1 with sliver cells, the v-tail), H_point",
+   "bytes": 9922,
+   "sha256": "79a750d3b8abd7ee6b5088e61313c542c7cea3314b340e8ecaff246859dde74b",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddgauss.py",
+   "role": "rows, adaptive cells, Gauss nodes and weights, node evaluation (eval, shards), the omega tails (Lemma 6(ii)), the assembly",
+   "bytes": 13823,
+   "sha256": "ee77c492c0cac054d4770d72df48a1895e014f7e53588c103ebbed7d4673edd4",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/ddS.py",
+   "role": "region tau <= tau_s and the tau-tail in closed form (Lemma 6(i), (iii))",
+   "bytes": 8312,
+   "sha256": "6dd497c23e5aaa20299887c43e409680dfe09cf993ff0d1992f3b1f367c0fbc2",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/dd_exact.py",
+   "role": "the assembly: tiling checks, every cell remainder recomputed, 24 sampled node values recomputed, D and the corollary",
+   "bytes": 5684,
+   "sha256": "22083e43559048cac3e011640f97941efc30723052714a829a3bc767f230f2aa",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/dd_controls.py",
+   "role": "controls C1-C9 (exit 0 iff all pass)",
+   "bytes": 13502,
+   "sha256": "e2d25f0c626c2bb141516a35b90888a63b4cd1270f0f110f1f510db3ebb60f69",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/dd_mutants.py",
+   "role": "nine mutants, each must make the controls fail",
+   "bytes": 2954,
+   "sha256": "946bc6bffdd80511d6a35df647d2d8ae1163c097338ddd6e7720a9d2d08a0595",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/cells_full.json",
+   "role": "the 2393 adaptive cells with their remainder bounds (deterministic build, u in [-6.2, 18.6], target 7e-4)",
+   "bytes": 384392,
+   "sha256": "7ee91b2bd2a220f96a552e17f1fbfd865af51ae802e9a72ed3930ca82e4a5799",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_0.json",
+   "role": "node values of the cells with index = 0 (mod 12): artifact of hosted run 38347192184, shard 0",
+   "bytes": 515573,
+   "sha256": "bbccebed02243f44a4ffdcb60e42702c2f56ff5ce6245ae1b95fe8c17d64fc62",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_1.json",
+   "role": "node values of the cells with index = 1 (mod 12): artifact of hosted run 38347192184, shard 1",
+   "bytes": 514894,
+   "sha256": "d4eaba682db6b0e52af73425738f57910e08c6448586ef7303055a5878ef3216",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_2.json",
+   "role": "node values of the cells with index = 2 (mod 12): artifact of hosted run 38347192184, shard 2",
+   "bytes": 515394,
+   "sha256": "6dbd0b3651b6a1032ec852c5aa89f31eaf659533ab27bdd743e192e090793f8e",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_3.json",
+   "role": "node values of the cells with index = 3 (mod 12): artifact of hosted run 38347192184, shard 3",
+   "bytes": 513745,
+   "sha256": "332b7087ada03321f8be8b3feeb2c4c7244339f8ec6ddab9e5249eec1383cf5a",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_4.json",
+   "role": "node values of the cells with index = 4 (mod 12): artifact of hosted run 38347192184, shard 4",
+   "bytes": 514509,
+   "sha256": "af9e62f0bad1eb0bbabf30b75222bfe8d1aef84bb74cb9c8c037f606937f04ef",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_5.json",
+   "role": "node values of the cells with index = 5 (mod 12): artifact of hosted run 38347192184, shard 5",
+   "bytes": 512813,
+   "sha256": "7981884f25595ba1ad5b7cf5dc9426bac53207be12eae4877e52355d136bf112",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_6.json",
+   "role": "node values of the cells with index = 6 (mod 12): artifact of hosted run 38347192184, shard 6",
+   "bytes": 513372,
+   "sha256": "07c046145752f06d538de1fb2bd47c6cc7f46945022b9f541768cb3e23b220dc",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_7.json",
+   "role": "node values of the cells with index = 7 (mod 12): artifact of hosted run 38347192184, shard 7",
+   "bytes": 512785,
+   "sha256": "ee11a8363794237e10a108b35f1cd460173d2c5ae75f3970e60d2f4ecab17c0e",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_8.json",
+   "role": "node values of the cells with index = 8 (mod 12): artifact of hosted run 38347192184, shard 8",
+   "bytes": 512848,
+   "sha256": "7f288910d6e60e61e8e8e629f0ff9d45fd366b3ade318346a0fef2b2f2db3f2a",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_9.json",
+   "role": "node values of the cells with index = 9 (mod 12): artifact of hosted run 38347192184, shard 9",
+   "bytes": 512432,
+   "sha256": "da5d2f40075c9faa2c41e53f1fce0527d3f32a1c3fd3bce5e42c2dd034201acd",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_10.json",
+   "role": "node values of the cells with index = 10 (mod 12): artifact of hosted run 38347192184, shard 10",
+   "bytes": 511649,
+   "sha256": "e1f7be65093098cb3a09e21ad7ee5cb1d3d5f68626eb253d03d9321cdbc3e2c4",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/nodes_11.json",
+   "role": "node values of the cells with index = 11 (mod 12): artifact of hosted run 38347192184, shard 11",
+   "bytes": 512631,
+   "sha256": "b8c8fc65113af94668dcd5fb7e6d85275d0d19589d1e0cfdd59a6fecd7304c34",
+   "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/nodes/artifacts_run_38347192184.json",
+   "role": "the artifact ids and digests of run 38347192184 (the zip archives whose single member is each node file)",
+   "bytes": 2214,
+   "sha256": "37b5e436dfb3ab9bde51570c104d32afbf73d9121dfb377f87321860e5621c21"
+  },
+  {
+   "path": "certificate/results/controls_stdout.txt",
+   "role": "stdout of dd_controls.py (python -B -S)",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6"
+  },
+  {
+   "path": "certificate/results/controls_stdout_O.txt",
+   "role": "stdout of dd_controls.py (python -B -O -S; identical)",
+   "bytes": 1236,
+   "sha256": "69dfcebc5a7a913dec1e631d1da2682d0527c17a5729a92fbe29e1e469eb37a6"
+  },
+  {
+   "path": "certificate/results/mutants_stdout.txt",
+   "role": "stdout of dd_mutants.py (python -B -S)",
+   "bytes": 830,
+   "sha256": "49996326c9604ef3bd3c0ea004f93667dbc4c40c4affe45a3db4a7580dccaa0c"
+  },
+  {
+   "path": "certificate/results/assembly_stdout.txt",
+   "role": "stdout of dd_exact.py on the stored cells and node files (python -B -S)",
+   "bytes": 1131,
+   "sha256": "f4f88340060c688b1f2f38f2e37b32affdbbdbe615953cd012d0c94e24e7b0d9"
+  },
+  {
+   "path": "certificate/results/assembly_stdout_O.txt",
+   "role": "stdout of dd_exact.py (python -B -O -S; identical)",
+   "bytes": 1131,
+   "sha256": "f4f88340060c688b1f2f38f2e37b32affdbbdbe615953cd012d0c94e24e7b0d9"
+  }
+ ],
+ "replays": [
+  {
+   "name": "controls",
+   "script": "dd_controls.py",
+   "args": [],
+   "stdout": "certificate/results/controls_stdout.txt"
+  },
+  {
+   "name": "mutants",
+   "script": "dd_mutants.py",
+   "args": [],
+   "stdout": "certificate/results/mutants_stdout.txt"
+  },
+  {
+   "name": "assembly",
+   "script": "dd_exact.py",
+   "args": [
+    "cells_full.json",
+    "nodes/nodes_0.json",
+    "nodes/nodes_1.json",
+    "nodes/nodes_2.json",
+    "nodes/nodes_3.json",
+    "nodes/nodes_4.json",
+    "nodes/nodes_5.json",
+    "nodes/nodes_6.json",
+    "nodes/nodes_7.json",
+    "nodes/nodes_8.json",
+    "nodes/nodes_9.json",
+    "nodes/nodes_10.json",
+    "nodes/nodes_11.json"
+   ],
+   "stdout": "certificate/results/assembly_stdout.txt",
+   "long": true
+  }
+ ]
+}
