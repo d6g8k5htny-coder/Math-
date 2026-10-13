@@ -2,24 +2,27 @@
 """Verify the stored records of lifetime note DD and replay its certificate (standard library only).
 
 The packet stores, byte for byte:
-  - public comment bodies of main#307 (the note, the controls comment, the claim, the summonses, the nonauthor
-    verdicts, the author's read-complete note), under DD/;
-  - the certificate pinned by the controls comment (the eleven Python/JSON files, the twelve node files and the
-    recorded stdout of the controls, the mutants and the assembly), under certificate/.
+  - public comment bodies of main#307 and Math-#448/#449 (the note in its versions, the controls comments, the claim, the
+    summonses, the nonauthor verdicts, the author's records), under DD/;
+  - certificate v1, pinned by the controls comment and read by the slice reads (the eleven Python/JSON files, control
+    C10, the twelve node files and the recorded stdout of the controls, the mutants, C10 and the assembly), under
+    certificate/; and certificate v2 (exact sliver geometry; two modules changed, the node files recomputed), pinned by
+    the controls comment v2, under certificate_v2/.
 SOURCES.json pins every stored file by byte count and SHA-256. This script performs five checks.
 
   1. The packet tree equals SOURCES.json's file list, with no symlinks, and every stored file has its pinned identity.
-  2. Every certificate file named in the table of the stored controls comment (DD/AUTHOR_CONTROLS_COMMENT.md, 23 files)
-     and in the table of the stored controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, 3 files) has the byte count
-     and SHA-256 the comment states (the comments pin the files at Math- commits; the packet holds the same bytes).
+  2. Every certificate file named in the tables of the stored pinning comments (DD/AUTHOR_CONTROLS_COMMENT.md, 23 files
+     and DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, 3 files, both for certificate/; DD/AUTHOR_CONTROLS_COMMENT_V2.md, 32 files,
+     for certificate_v2/) has the byte count and SHA-256 the comment states (the comments pin the files at Math-
+     commits; the packet holds the same bytes).
   3. Replays under the current interpreter's -O/-S flags, each with stdout byte-identical to the stored record and
-     empty stderr: certificate/dd_controls.py (C1-C9), certificate/dd_mutants.py (nine mutants, each rejected),
-     certificate/dd_gapcheck.py on the stored cells (control C10, the sliver-gap enclosure), and certificate/dd_exact.py
-     on the stored cells and node files (the tiling checks, every cell remainder recomputed, 24 node values recomputed,
-     D and the corollary). The assembly takes about 20 minutes.
+     empty stderr, for each certificate: dd_controls.py (C1-C9), dd_mutants.py (nine mutants, each rejected),
+     dd_gapcheck.py on the stored cells (control C10, the sliver-gap enclosure), and dd_exact.py on the stored cells and
+     node files (the tiling checks, every cell remainder recomputed, 24 node values recomputed, D and the corollary).
+     Each assembly takes about 20 minutes.
   4. Negative controls, each in a temporary copy, must be rejected:
      - a one-byte change to the stored note (DD/PROOF.md) fails check 1;
-     - one changed digit in one stored node value (certificate/nodes/nodes_3.json) makes dd_exact.py's stdout differ
+     - one changed digit in one stored node value (certificate_v2/nodes/nodes_3.json) makes dd_exact.py's stdout differ
        from the stored record (or fail);
      - dd_exact.py with one node file missing exits 1 ('incomplete node values').
   5. Each stored verdict, summons and author record names the byte counts and SHA-256 of the stored bodies it refers to
@@ -79,19 +82,22 @@ def tree_failures(root, manifest):
     return failures
 
 
-PINNING_COMMENTS = (('DD/AUTHOR_CONTROLS_COMMENT.md', 23, 'controls comment'), ('DD/AUTHOR_CONTROLS_ADDENDUM_C10.md', 3, 'controls addendum'))
+# (stored comment, expected rows, label, the table's path prefix in the comment, the packet directory it pins)
+PINNING_COMMENTS = (('DD/AUTHOR_CONTROLS_COMMENT.md', 23, 'controls comment', 'dd', 'certificate'),
+                    ('DD/AUTHOR_CONTROLS_ADDENDUM_C10.md', 3, 'controls addendum', 'dd', 'certificate'),
+                    ('DD/AUTHOR_CONTROLS_COMMENT_V2.md', 32, 'controls comment v2', 'dd_v2', 'certificate_v2'))
 
 
 def controls_table_failures(root):
-    """the stored controls comment and addendum pin the certificate files: | `dd/<name>` | <bytes> | `<sha256>` |"""
+    """the stored pinning comments pin the certificate files: | `<prefix>/<name>` | <bytes> | `<sha256>` |"""
     failures = []
-    for rel, expected, label in PINNING_COMMENTS:
+    for rel, expected, label, prefix, cert_dir in PINNING_COMMENTS:
         body = (root / rel).read_text(encoding='utf-8')
-        rows = re.findall(r'^\| `dd/([^`]+)` \| (\d+) \| `([0-9a-f]{64})` \|$', body, re.M)
+        rows = re.findall(r'^\| `' + re.escape(prefix) + r'/([^`]+)` \| (\d+) \| `([0-9a-f]{64})` \|$', body, re.M)
         if len(rows) != expected:
             failures.append('%s: expected %d pinned files, found %d' % (label, expected, len(rows)))
         for name, nbytes, sha in rows:
-            p = root / 'certificate' / name
+            p = root / cert_dir / name
             if not p.is_file():
                 failures.append('pinned file missing: ' + name)
                 continue
@@ -163,9 +169,8 @@ def report(name, result, expected_reason):
 
 def replay_failures(root, manifest, quick):
     failures = []
-    cert = root / 'certificate'
-    nodes = [cert / 'nodes' / ('nodes_%d.json' % k) for k in range(12)]
     for rep in manifest['replays']:
+        cert = root / rep.get('certificate', 'certificate')
         if quick and rep.get('long'):
             print(json.dumps(dict(replay=rep['name'], skipped='--quick')))
             continue
@@ -197,8 +202,8 @@ def negative_failures(root, manifest, quick):
             failures.append('negative control (a): the mutated note was not rejected')
         else:
             print(json.dumps(dict(negative='one-byte change to DD/PROOF.md', rejected=True)))
-    # (c) a missing node file makes dd_exact.py exit 1
-    cert = root / 'certificate'
+    # (c) a missing node file makes dd_exact.py exit 1 (certificate v2, the certificate of record)
+    cert = root / 'certificate_v2'
     nodes = [str(cert / 'nodes' / ('nodes_%d.json' % k)) for k in range(11)]      # nodes_11 omitted
     code, out, err = run(cert / 'dd_exact.py', str(cert / 'cells_full.json'), *nodes, '--no-recheck', '--no-sample')
     report('dd_exact.py with nodes_11.json missing', (code, out, err), 'exit 1, AssertionError: incomplete node values')
@@ -209,7 +214,7 @@ def negative_failures(root, manifest, quick):
         return failures
     # (b) one changed digit in one stored node value changes (or fails) the assembly
     with tempfile.TemporaryDirectory() as tmp:
-        copy = pathlib.Path(tmp) / 'certificate'
+        copy = pathlib.Path(tmp) / 'certificate_v2'
         shutil.copytree(cert, copy, ignore=shutil.ignore_patterns('__pycache__'))
         p = copy / 'nodes' / 'nodes_3.json'
         d = json.loads(p.read_text(encoding='utf-8'))
@@ -226,7 +231,7 @@ def negative_failures(root, manifest, quick):
         code, out, err = run(copy / 'dd_exact.py', str(copy / 'cells_full.json'), *nodes, '--no-recheck', '--no-sample')
         report('dd_exact.py with one changed node digit (no recheck, no sample)', (code, out, err), 'stdout differs from the record or exit 1')
         # compare with the stored record's final lines (the record was produced with the recheck and the sample; strip the two C9 lines)
-        stored = (root / 'certificate' / 'results' / 'assembly_stdout.txt').read_bytes()
+        stored = (root / 'certificate_v2' / 'results' / 'assembly_stdout.txt').read_bytes()
         stored_tail = b'\n'.join(l for l in stored.split(b'\n') if not l.startswith(b'C9'))
         if code == 0 and out == stored_tail:
             failures.append('negative control (b): a changed node value was not detected')
@@ -252,9 +257,10 @@ def main(argv):
         print('Lifetime note DD incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
         return 1
     n_replays = sum(1 for r in manifest['replays'] if not (quick and r.get('long')))
-    print('Lifetime note DD incorporation replay (%s): %d stored records, %d certificate files, %d replays and %d negative controls PASS%s' % (
-        mode, sum(1 for f in manifest['stored'] if f['path'].startswith('DD/')), sum(1 for f in manifest['stored'] if f['path'].startswith('certificate/')),
-        n_replays, 2 if quick else 3, ' (--quick: the assembly replay and the node-mutation control were skipped)' if quick else ''))
+    print('Lifetime note DD incorporation replay (%s): %d stored records, %d certificate files (v1 %d, v2 %d), %d replays and %d negative controls PASS%s' % (
+        mode, sum(1 for f in manifest['stored'] if f['path'].startswith('DD/')), sum(1 for f in manifest['stored'] if f['path'].startswith('certificate')),
+        sum(1 for f in manifest['stored'] if f['path'].startswith('certificate/')), sum(1 for f in manifest['stored'] if f['path'].startswith('certificate_v2/')),
+        n_replays, 2 if quick else 3, ' (--quick: the assembly replays and the node-mutation control were skipped)' if quick else ''))
     return 0
 
 

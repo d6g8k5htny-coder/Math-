@@ -49,6 +49,15 @@ class SyntheticPacket:
             add[n] = ident(data)
         table2 = '\n'.join('| `dd/%s` | %d | `%s` |' % (n, b, s) for n, (b, s) in add.items())
         self.put('DD/AUTHOR_CONTROLS_ADDENDUM_C10.md', ('addendum\n\n| File | Bytes | SHA-256 |\n|---|---|---|\n' + table2 + '\n').encode())
+        v2 = {}
+        names_v2 = names + ['dd_gapcheck.py'] + ['results/%s' % r for r in ('controls_stdout.txt', 'controls_stdout_O.txt', 'mutants_stdout.txt', 'mutants_stdout_O.txt',
+                                                                            'gapcheck_stdout.txt', 'gapcheck_stdout_O.txt', 'assembly_stdout.txt', 'assembly_stdout_O.txt')]
+        for n in names_v2:
+            data = ('synthetic v2 %s\n' % n).encode()
+            self.put('certificate_v2/' + n, data)
+            v2[n] = ident(data)
+        table3 = '\n'.join('| `dd_v2/%s` | %d | `%s` |' % (n, b, s) for n, (b, s) in v2.items())
+        self.put('DD/AUTHOR_CONTROLS_COMMENT_V2.md', ('controls v2\n\n| File | Bytes | SHA-256 |\n|---|---|---|\n' + table3 + '\n').encode())
         note_b, note_s = ident(self.files['DD/PROOF.md'])
         ctrl_b, ctrl_s = ident(self.files['DD/AUTHOR_CONTROLS_COMMENT.md'])
         self.put('DD/REVIEW_SLICE_A.md', ('PASS; note %d B %s; controls %d B %s\n' % (note_b, note_s, ctrl_b, ctrl_s)).encode(),
@@ -129,6 +138,20 @@ class ReplayProtocolTests(unittest.TestCase):
         a.write_text('\n'.join(l for l in a.read_text().split('\n') if 'gapcheck_stdout_O' not in l))
         self.assertTrue(any(f.startswith('controls addendum: expected 3 pinned files') for f in self.m.controls_table_failures(self.pk.root)))
 
+    def test_v2_table_requires_32_rows_and_detects_mismatch(self):
+        p = self.pk.root / 'certificate_v2' / 'ddvq.py'
+        p.write_bytes(p.read_bytes() + b'q')
+        self.assertIn('pinned identity mismatch: ddvq.py', self.m.controls_table_failures(self.pk.root))
+        a = self.pk.root / 'DD' / 'AUTHOR_CONTROLS_COMMENT_V2.md'
+        a.write_text('\n'.join(l for l in a.read_text().split('\n') if 'nodes_7.json' not in l))
+        self.assertTrue(any(f.startswith('controls comment v2: expected 32 pinned files') for f in self.m.controls_table_failures(self.pk.root)))
+
+    def test_replay_uses_the_named_certificate_directory(self):
+        (self.pk.root / 'certificate_v2' / 'dd_controls.py').write_text("import sys\nsys.stdout.write('controls v2: ALL PASS\\n')\n")
+        self.pk.put('certificate_v2/results/controls_stdout.txt', b'controls v2: ALL PASS\n')
+        self.pk.replays = [dict(name='controls_v2', certificate='certificate_v2', script='dd_controls.py', args=[], stdout='certificate_v2/results/controls_stdout.txt')]
+        self.assertEqual(self.m.replay_failures(self.pk.root, self.pk.manifest(), quick=False), [])
+
     def test_named_identities(self):
         self.assertEqual(self.m.named_identities_failures(self.pk.root, self.pk.manifest()), [])
         p = self.pk.root / 'DD' / 'REVIEW_SLICE_A.md'
@@ -174,8 +197,11 @@ class ReplayProtocolTests(unittest.TestCase):
         self.assertEqual(len(paths), len(set(paths)))
         cert = [p for p in paths if p.startswith('certificate/') and not p.startswith('certificate/results/')]
         self.assertEqual(len(cert), 25)   # 11 files + 12 node files + the artifact record + dd_gapcheck.py (C10)
+        cert2 = [p for p in paths if p.startswith('certificate_v2/')]
+        self.assertEqual(len(cert2), 33)  # 12 code/data files + 12 node files + the artifact record + 8 stdout records
         self.assertTrue(any(p == 'DD/PROOF.md' for p in paths))
-        self.assertEqual(len(man['replays']), 4)
+        self.assertEqual(len(man['replays']), 8)
+        self.assertEqual(sorted(r.get('certificate', 'certificate') for r in man['replays']), ['certificate'] * 4 + ['certificate_v2'] * 4)
 
     def test_production_tree_and_table(self):
         """the real packet passes the tree, controls-table and named-identity checks."""

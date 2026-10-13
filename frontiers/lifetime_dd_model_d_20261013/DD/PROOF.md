@@ -1,8 +1,8 @@
-# Note DD — a certified two-sided enclosure of the model number `D` (v1.2)
+# Note DD — a certified two-sided enclosure of the model number `D` (v1.4)
 
 *Posted for two bounded nonauthor reads (Slices A and B, summoned below) under claim [6135715016](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6135715016); the controls comment follows this one. The frozen bytes are this served body (hash it) and the certificate files pinned in the controls comment.*
 
-*v1.1 (13 October 2026) applies the AMEND of the Slice B read ([6139664497](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139664497)): eight printed short displays made outward (items 1–8 there), and one more found by the author while applying it (the upper end of the `D_S` row, `−2.0043·10⁻⁵` to `−2.0042·10⁻⁵`); the certified enclosures, the certificate and every statement are unchanged. v1.0 is [6139410118](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139410118), the body the two slice reads hashed; it stays frozen. v1.2 (13 October 2026) adds control C10, the sliver-gap enclosure (§§3.2–3.4, Remark 4): after the reads, the author quantified the Slice B reader's observation that a sliver cell stops short of its endpoint; the omitted contribution to `D` lies in `[−3.4·10⁻³¹, 4.9·10⁻⁶²]` and every printed number stands. v1.1 is [6140009355](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140009355).*
+*v1.1 (13 October 2026) applies the AMEND of the Slice B read ([6139664497](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139664497)): eight printed short displays made outward (items 1–8 there), and one more found by the author while applying it (the upper end of the `D_S` row, `−2.0043·10⁻⁵` to `−2.0042·10⁻⁵`); the certified enclosures, the certificate and every statement are unchanged. v1.0 is [6139410118](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139410118), the body the two slice reads hashed; it stays frozen. v1.2 (13 October 2026) adds control C10, the sliver-gap enclosure (§§3.2–3.4, Remark 4): after the reads, the author quantified the Slice B reader's observation that a sliver cell stops short of its endpoint; the omitted contribution to `D` lies in `[−3.4·10⁻³¹, 4.9·10⁻⁶²]` and every printed number stands. v1.1 is [6140009355](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140009355). v1.3 (13 October 2026) re-runs the certificate with exact sliver geometry (certificate v2, pinned by the controls comment v2 below): `ddvq._vcell` enlarges a sliver cell until it contains both endpoints, so control C10 reports no gap; the node values change at 2,136 nodes by at most `5.9·10⁻³¹`, the assembled lower end of `D` moves from `…071813` to `…071809` in the 31st decimal, and every printed number of this note is unchanged. v1.2 is [6140674826](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140674826); certificate v1 with C10 is the stored object of Math-#448/#449. v1.4 (13 October 2026) applies the AMEND of the v1.3 read ([6142813990](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142813990)): the last sentence of §3.3's sliver-gap paragraph, which said that v2's assembled `D` lies within v1's allowance `Δ`, is replaced by the exact comparison (the lower end moves by `4·10⁻³¹`, `6.06·10⁻³²` past `Δ`, since v2's longer sliver cells also widen their hulls; the upper ends are equal; the printed enclosure contains both). Nothing else changes. v1.3 is [6142800109](https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6142800109), the body that read hashed; it stays frozen.*
 
 Dylan Roy — delegated AI work. Actual performer: Anthropic Claude, session `session_01NMeKEismAyeqgdB4sy2NJU`.
 Scientific effect NONE until read. Scope: #244 Theorem A's conditional scope wherever `I = Φ` is used (as in notes V24,
@@ -170,9 +170,10 @@ decades up to `1.2·10⁸`). On each cell the tensor 4-point Gauss rule, each no
 `ρ(node)·H(node)` with `H(node)` from the rigorous `v`-quadrature of (1.3): adaptive cells on `[0, v₁]` (Taylor models of
 order 8 in `v`; when `σ_χ/(12σ_t) < 0.1` and `σ_t > 0.1`, a logarithmic substitution `v = 1 ± e^y` around `v = 1`, where
 `F` has an integrable `1/|v − 1|`-type peak, with the four junction slivers enclosed by `hull(0, length × range)`; every
-cell boundary a short decimal, so the cells tile exactly, except that a sliver cell, formed from its decimal endpoints with
-the centre rounded down and the half-width up, can stop short of its right endpoint by at most `10⁻²⁸` (control C10
-encloses what the quadrature omits there); relative tolerance `5·10⁻³`), `v₁` from Lemma 5 (any integer
+cell boundary a short decimal, so the cells tile exactly; a sliver cell, formed from its decimal endpoints, is enlarged by a
+few units in the last place until it contains both endpoints, checked in exact rational arithmetic (certificate v1's sliver
+cells could stop short of an endpoint by at most `10⁻²⁸`, which control C10 bounded); relative tolerance `5·10⁻³`), `v₁`
+from Lemma 5 (any integer
 `v₁ ≥ 3` is valid; the choice makes `T₁ ≥ 9σ_t`, `X₁ ≥ 9σ_χ`). Then `D = D_S + D_G ± (ω-tails) ± (τ-tail)`.
 Deterministic: exact decimal geometry, a fixed refinement order; the node values are computed in 12 shards (cell index
 mod 12) and assembled.
@@ -196,14 +197,15 @@ remainder bound (equal to the stored one) and 24 sampled node values (equal to t
 ill-formed node record.
 
 **The sliver gaps** (`dd_gapcheck.py`, control C10). At 2,771 of the 38,288 nodes the `v`-quadrature uses the log
-substitution, and at 2,694 of them one or more of the four sliver cells stops short of its right endpoint (5,251 gaps; the
-gap lengths at a node sum to at most `9.5·10⁻²⁹`). C10 recomputes the sliver geometry at every node (and checks it against
-`ddvq.initial_cells`), encloses `∫F dv` over each gap by `hull(0, length × range F)` on a decimal cell that provably
-contains the gap (checked in exact rational arithmetic), multiplies by `(24τ√π)^{−1}ρ(node)` and the node's Gauss weight,
-and sums: the omitted contribution to `D` lies in `Δ ∈ [−3.4·10⁻³¹, 4.9·10⁻⁶²]` (the largest omission of `ρH` at a node is
-`7.7·10⁻³¹`). So `D ∈ [D_lo − 3.4·10⁻³¹, D_hi + 4.9·10⁻⁶²]` with `[D_lo, D_hi]` the assembled enclosure, which the printed
-`[0.0757052049785748938, 0.0778600952308480156]` contains (its ends are rounded outward from the assembled ends by more
-than `10⁻²¹`); every printed number of this note stands.
+substitution. C10 recomputes the sliver geometry at every node (and checks it against `ddvq.initial_cells`), finds every
+sliver cell whose right end falls short of its endpoint, encloses `∫F dv` over each such gap by `hull(0, length × range F)`
+on a decimal cell that provably contains the gap (checked in exact rational arithmetic), multiplies by `(24τ√π)^{−1}ρ(node)`
+and the node's Gauss weight, and sums. For certificate v2 (this note) it finds no gap: `Δ = [0, 0]`. For certificate v1
+(Math-#448/#449), whose sliver cells could stop short of their endpoints, it found 2,694 nodes with gaps (5,251 gaps, at
+most `9.5·10⁻²⁹` of total length at a node) and `Δ ∈ [−3.4·10⁻³¹, 4.9·10⁻⁶²]`, so v1's printed numbers were unaffected.
+Against v1's assembled ends, v2's lower end moves by `−4·10⁻³¹` (`…071809` against `…071813`), which is `6.06·10⁻³²` past
+`Δ`'s lower end `−3.394·10⁻³¹` (v2's sliver cells are slightly longer than the true slivers, which also widens their hulls);
+the upper ends are equal; the printed enclosure contains both pairs of ends (margins `1.56·10⁻²¹` and `2.71·10⁻²⁰`).
 
 **3.4 Controls** (`dd_controls.py`, exit 0 iff all pass): C1 the `v`-form identities (1.1), #244's (2.7) on both
 branches and Lemma 1's exact forms, as polynomial identities over `ℚ`; C2 `c₀`; C3 the closed-form `t`-moments against
@@ -215,13 +217,14 @@ differences; C7 `T₁₁` (no terms of degree `≤ 2`; the degree-3 and -4 terms
 inequalities (exact); C8 the Gauss nodes are the roots of `P₄`, the weights sum to 2 and integrate `x⁶` exactly, and
 `K₄` (intervals); C9 the `v`-tail in the right units (the enclosures with `v₁ = 3` and with the automatic `v₁`
 intersect at three points, the tails being of relative size `O(1)`); C10 (`dd_gapcheck.py`, a separate script, 15 s on
-two cores, stdout identical in both interpreter modes) the sliver gaps, as above. The assembly (`dd_exact.py`) additionally checks
+two cores, stdout identical in both interpreter modes) the sliver gaps, as above (none in certificate v2). The assembly (`dd_exact.py`) additionally checks
 that the cells tile the rows exactly and are disjoint, recomputes every cell's remainder bound and a deterministic
 sample of 24 node values (equality required), and refuses any failed or ill-formed node record (coordinates and
 `lo ≤ hi` checked). The author also checked, outside the certificate (numpy, exploration grade), that `H_point` encloses a
 float reference at 14 `(τ, g)` points across `τ ∈ [0.005, 10⁶]`, and that the float value of `D` with the corrected
 `v`-range is `0.076714` on `τ ≤ 10⁷`.
-Mutants (`dd_mutants.py`; each copy with one textual change must make the controls fail, exit 1): M1 a Gauss weight
+Mutants (`dd_mutants.py`; each copy with one textual change must make the controls fail, exit 1; the children run in
+the driver's interpreter mode): M1 a Gauss weight
 (`/36 → /35`); M2 the kernel recursion; M3 an `I_quad` coefficient; M4 `c₀`; M5 the `χ²` constant of Lemma 1; M6 the
 Gauss error constant; M7 a Bell-polynomial coefficient; M8 the moment recursion; M9 the `|c′|³` constant of Lemma 1. All
 nine are rejected.
@@ -231,8 +234,8 @@ nine are rejected.
 1. *Pessimism.* The Lemma 4 bounds exceed the true remainders by factors `10²–10⁶` (the kernel moments weight the
    Gaussian tails); the certificate pays with cells, not with rigor.
 2. *Cost.* 38,288 node evaluations at 1–9 s each (standard library, single core): 12 shards on hosted 4-vCPU runners,
-   39–66 minutes each (run 38347192184); the cell build 28 minutes; the assembly with its recomputation checks about
-   20 minutes.
+   39–66 minutes each (run 38347192184; certificate v2: run 38367190632, 29–70 minutes each); the cell build 28 minutes;
+   the assembly with its recomputation checks about 20 minutes.
 3. *Precision.* The width `2.155·10⁻³` is the Lemma 4 remainder (`7.00·10⁻⁴` each side, `1.40·10⁻³` in all), the
    node widths (`6.14·10⁻⁴`; tolerance `5·10⁻³` relative), the `τ`-tail (`5.8·10⁻⁵` each side), the `ω`-tails
    (`1.4·10⁻⁵` each side) and region S (`3.7·10⁻⁷`). Halving the width again would cost about twice the cells and
@@ -244,8 +247,9 @@ nine are rejected.
    recomputation checks), all applied. Not review evidence. After the reads (Slice A PASS, Slice B AMEND of nine printed
    displays, applied in v1.1 and read back), the Slice B reader's observation that one sliver cell stops `1.5·10⁻³⁰`
    short of its endpoint (recorded as not an amendment) led the author to find that the sliver geometry is inexact at
-   2,694 nodes; v1.2 adds control C10, which encloses the effect rigorously. A re-run with exact sliver geometry (the
-   half-width enlarged so that the cell contains its endpoints) was not made; C10 makes it unnecessary for this enclosure.
+   2,694 nodes; v1.2 added control C10, which encloses the effect rigorously; the automated OpenAI Codex review of the
+   custody packet PR (Math-#448) reported the same defect independently. v1.3 re-runs the certificate with exact sliver
+   geometry (certificate v2); C10 then reports no gap, and every printed number is unchanged.
 
 ## 5. Dependencies, scope, not claimed
 
