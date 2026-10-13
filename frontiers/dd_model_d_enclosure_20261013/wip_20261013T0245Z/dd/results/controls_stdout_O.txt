@@ -1,9 +1,13 @@
 PASS C1a Phi(c>0) v-form 
 PASS C1b (2.7) with c > 0 equals the v-form 
 PASS C1c (2.7) with c <= 0 equals the v-form 
+PASS C1f (2.5) with c > 0 equals the v-form 
+PASS C1g (2.5) with c <= 0 equals the v-form 
+PASS C1h g_c(psi_e) = (4v^3 - 12cv)^2 
 PASS C1d c>0: Phi - R^2/48 = c rho^2 + 3 c^2 rho + 4/3 c^3 
 PASS C1e c<=0: Phi - R^2/48 = -m v^4 - 3 m^2 v^2 
 PASS C2 c0 = 24 sqrt(pi)/(57600 pi) 0.000235078993144898452895033104821
+PASS C2b c0 = 1/(2400 sqrt(pi)) 
 PASS C3a half-line moments vs Riemann sums 
 PASS C3b completing the square: log pre = -a mu^2/Delta 
 PASS C4 I_quad - R^2/48 identity 
