@@ -1,5 +1,5 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 07:34Z (adds control C10, dd/dd_gapcheck.py and dd/results/gapcheck_stdout*.txt: the sliver-gap enclosure; every other certificate byte unchanged since 35ae8fbb)",
+ "checkpoint": "wip_20261013T0245Z, updated 08:07Z (adds dd_v2/: the certificate with exact sliver geometry, a re-run candidate; dd/ unchanged since 11ca8934)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED until read; scientific effect NONE",
  "files": [
@@ -287,6 +287,71 @@
    "path": "dd/test_cells.json",
    "bytes": 21591,
    "sha256": "6ffc73ceb3cf0a58084ccfc2b158ffe4435e3ba621f704831347da2939df1d78"
+  },
+  {
+   "path": "dd_v2/README_V2.md",
+   "bytes": 863,
+   "sha256": "d6d92460f372e70a6511043c4e9a7e71bc2521d2e3ee52567a8c2f007fd5d64a"
+  },
+  {
+   "path": "dd_v2/cells_full.json",
+   "bytes": 384392,
+   "sha256": "7ee91b2bd2a220f96a552e17f1fbfd865af51ae802e9a72ed3930ca82e4a5799"
+  },
+  {
+   "path": "dd_v2/ddS.py",
+   "bytes": 8312,
+   "sha256": "6dd497c23e5aaa20299887c43e409680dfe09cf993ff0d1992f3b1f367c0fbc2"
+  },
+  {
+   "path": "dd_v2/dd_controls.py",
+   "bytes": 13502,
+   "sha256": "e2d25f0c626c2bb141516a35b90888a63b4cd1270f0f110f1f510db3ebb60f69"
+  },
+  {
+   "path": "dd_v2/dd_exact.py",
+   "bytes": 5684,
+   "sha256": "22083e43559048cac3e011640f97941efc30723052714a829a3bc767f230f2aa"
+  },
+  {
+   "path": "dd_v2/dd_gapcheck.py",
+   "bytes": 7030,
+   "sha256": "a18fe557eb55e05da3a488681fa3e820673ebaa7965d589e6ca28a0a2eab8a94"
+  },
+  {
+   "path": "dd_v2/dd_mutants.py",
+   "bytes": 2954,
+   "sha256": "946bc6bffdd80511d6a35df647d2d8ae1163c097338ddd6e7720a9d2d08a0595"
+  },
+  {
+   "path": "dd_v2/ddbounds.py",
+   "bytes": 20822,
+   "sha256": "f9f800fcfecc020ca95c372c4caaa74d15f6534bd677ad0357be56cd69fca09b"
+  },
+  {
+   "path": "dd_v2/ddcore.py",
+   "bytes": 25177,
+   "sha256": "969963134b8e5a8f8bb09b620b8a34e4a44307b1a4f5086db56f3b40e2f2a54e"
+  },
+  {
+   "path": "dd_v2/ddgauss.py",
+   "bytes": 13823,
+   "sha256": "ee77c492c0cac054d4770d72df48a1895e014f7e53588c103ebbed7d4673edd4"
+  },
+  {
+   "path": "dd_v2/ddint.py",
+   "bytes": 9298,
+   "sha256": "d7b4580cbbab2252ce4e79af5334713c46183338a87bed50cc357b566b37aa9d"
+  },
+  {
+   "path": "dd_v2/ddtaylor.py",
+   "bytes": 9096,
+   "sha256": "45f07583aaaf60de2435da7c9a0aaaf7353a1516f0ae1c29038740b9b8f43cf6"
+  },
+  {
+   "path": "dd_v2/ddvq.py",
+   "bytes": 10585,
+   "sha256": "473a7ee18f4b4f5089eba9ddf8eabb6ee15560e75213687dc50c9ef1370e7bdd"
   },
   {
    "path": "dv/diag_cells.py",

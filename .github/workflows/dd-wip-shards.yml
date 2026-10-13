@@ -2,6 +2,12 @@ name: DD WIP node shards (work in progress, not a certificate)
 
 'on':
   workflow_dispatch:
+    inputs:
+      dir:
+        description: 'certificate directory under wip_20261013T0245Z (dd = v1 as pinned; dd_v2 = exact sliver geometry)'
+        required: false
+        default: 'dd'
+        type: string
 
 permissions:
   contents: read
@@ -29,12 +35,12 @@ jobs:
         run: |
           set -euo pipefail
           nproc
-          cd frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/dd
+          cd "frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/${{ inputs.dir || 'dd' }}"
           python -B -S ddgauss.py eval cells_full.json "$RUNNER_TEMP/nodes_${{ matrix.shard }}.json" 4 ${{ matrix.shard }}/12 2>&1 | tail -n 40
       - name: Retain the shard
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: dd-wip-nodes-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
+          name: ${{ inputs.dir || 'dd' }}-wip-nodes-${{ matrix.shard }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/nodes_${{ matrix.shard }}.json
           if-no-files-found: error
