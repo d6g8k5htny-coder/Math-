@@ -1,7 +1,8 @@
 {
  "schema": 2,
- "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v1",
- "note_of_record": "DD/PROOF.md is note DD v1.1 (comment 6140009355): v1.0 (DD/PROOF_v1_0_AS_READ.md, comment 6139410118, the body both slice reads hashed) with the Slice B AMEND applied; the readback of the delta is DD/REVIEW_READBACK.md",
+ "object": "LIFETIME-DD-MODEL-D-INCORPORATION-20261013-v2",
+ "note_of_record": "DD/PROOF.md is note DD v1.2 (comment 6140674826): v1.1 (DD/PROOF_v1_1_READBACK.md, comment 6140009355, read back from v1.0) plus control C10; v1.0 (DD/PROOF_v1_0_AS_READ.md, comment 6139410118) is the body both slice reads hashed; the C10 read is DD/REVIEW_C10.md",
+ "versions": "v1 of this object (Math-#448) stored v1.0 and v1.1 with the slice reads and the readback; v2 adds v1.2, control C10 (certificate/dd_gapcheck.py, pinned by the controls addendum at Math- 11ca8934) with its stdout, the C10 read, the engineering read of Math-#448 and the Codex review findings on Math-#448; the addendum of record is v1.2 (6141407954), after the AMEND of the Math-#449 engineering read (6141351602)",
  "kind": "additive incorporation of a public native note, its certificate, review and checker records; no new mathematics; no status change",
  "scientific_effect": "NONE",
  "incorporated_by": {
@@ -9,12 +10,13 @@
   "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
   "attribution": "Dylan Roy - delegated AI work",
   "claim": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140258900",
-  "note": "the incorporator is also the author of note DD (custody only; no proof or certificate byte is changed); the claim is the read-complete note"
+  "note": "the incorporator is also the author of note DD (custody only; no proof byte is changed)"
  },
  "source_issues": [
   "https://github.com/d6g8k5htny-coder/main/issues/307"
  ],
- "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
+ "certificate_pin": "the controls comment (DD/AUTHOR_CONTROLS_COMMENT.md) pins the certificate files by byte count and SHA-256 at Math- commit 35ae8fbb431a49a3ea15e5bcee299b83360a6348 (branch claude/dd-model-d-enclosure-wip-20261013, draft PR #446); the controls addendum (DD/AUTHOR_CONTROLS_ADDENDUM_C10.md, v1.2; v1.0 and v1.1 as read beside it, same table) pins control C10 and its stdout at commit 11ca8934d320b449d10c65a68ff675d7e55ef53d of the same branch; certificate/ holds the same bytes; the node files are byte for byte the artifacts of hosted run 38347192184",
+ "known_defect": "the sliver cells of the narrow regime (ddvq._vcell, kind sv) can stop short of their right endpoints by at most 1e-28 (centre rounded down, half-width rounded up): found by the Slice B reader (one instance) and the Codex review of Math-#448 (P1), quantified by control C10 (2,694 nodes, 5,251 gaps; omitted contribution to D in [-3.4e-31, 4.9e-62]); the stored node values are not regenerated; any re-run enlarges the half-width until the cell contains both endpoints",
  "related_packets": {
   "frontiers/soft_closed_form_20261002/": "#244: the closed form (2.5)-(2.7) and Theorem A (conditional scope)",
   "frontiers/v24_dc_two_thirds_sign_20261007/": "notes V24 ((5.3), Theorem V) and DC (section 0, Lemma 4, I~ = I~_quad + D, the enclosure of -I~_quad): Math-#393, landed on main at merge commit 7373495098bbe07a75eda199a945d12bdb003482 (packet tree 743b3e2c2f11d8477585c048f8e28b7b66f57211); the notes were posted at main#229 6034159111 and 6037455875",
@@ -118,7 +120,7 @@
   },
   {
    "path": "DD/REVIEW_SLICE_B_AMEND.md",
-   "role": "nonauthor verdict, Slice B: AMEND with eight exact changes (printed short displays made outward; the certificate and its long interval hold) (Cursor agent bc-42c6fc88, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "role": "nonauthor verdict, Slice B: AMEND with eight exact changes (printed short displays made outward; the certificate and its long interval hold); it also records, as not an amendment, one sliver model interval 1.5e-30 short of its endpoint, the observation behind control C10 (Cursor agent bc-42c6fc88, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place",
    "comment": "6139664497",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6139664497",
@@ -133,8 +135,8 @@
    ]
   },
   {
-   "path": "DD/PROOF.md",
-   "role": "frozen note of record (lifetime note DD, v1.1): v1.0 with the AMEND of the Slice B read applied (items 1-8) and one more display made outward by the author (item 9, the D_S upper end); the certified enclosures, the certificate and every statement unchanged",
+   "path": "DD/PROOF_v1_1_READBACK.md",
+   "role": "note DD v1.1: v1.0 with the AMEND of the Slice B read applied (items 1-8) and one more display made outward by the author (item 9); the body the readback hashed; superseded by v1.2 for the text of record",
    "comment": "6140009355",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140009355",
@@ -157,7 +159,7 @@
    "sha256": "ea5ccffdd844d00e96b9fe8f995eea483f6b1641f8853d292efa79d056998dac",
    "names_identities": [
     "DD/PROOF_v1_0_AS_READ.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_1_READBACK.md",
     "DD/AUTHOR_CONTROLS_COMMENT.md"
    ]
   },
@@ -174,13 +176,13 @@
    "sha256": "e2499f7b70f40e6cd6bce1c8884567917f69940ed29282d3ec649f2472c1fa86",
    "names_identities": [
     "DD/PROOF_v1_0_AS_READ.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_1_READBACK.md",
     "DD/AUTHOR_CONTROLS_COMMENT.md"
    ]
   },
   {
    "path": "DD/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
-   "role": "author read-complete note: the records, what is read, the D5 claim for this packet, the release of the note claim, the pre-fix artifacts record and the #393 readback",
+   "role": "author read-complete note (v1.1 of record at that time): the records, what is read, the D5 claim for the first packet (Math-#448), the release of the note claim, the pre-fix artifacts record and the #393 readback",
    "comment": "6140258900",
    "issue": "main#307",
    "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140258900",
@@ -191,8 +193,166 @@
    "sha256": "73b11ab72a258e1c167157268dce1179c5d1e7851866b864916c9016e4219b90",
    "names_identities": [
     "DD/PROOF_v1_0_AS_READ.md",
-    "DD/PROOF.md",
+    "DD/PROOF_v1_1_READBACK.md",
     "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/PROOF.md",
+   "role": "frozen note of record (lifetime note DD, v1.2): v1.1 plus control C10, the sliver-gap enclosure (sections 3.2-3.4, Remark 4); the certified enclosures, the certificate and every statement unchanged",
+   "comment": "6140674826",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140674826",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:35:42Z",
+   "updated_at": "2026-10-13T07:35:42Z",
+   "bytes": 26335,
+   "sha256": "b2ba26ad6affec21910dc8a744da18aae3b4fa9b4a53ef20e1a6bb49e228e5ac"
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md",
+   "role": "author controls addendum v1.1: the body the Math-#449 engineering read hashed; superseded by v1.2 (its version paragraph completed) for the record",
+   "comment": "6140980497",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140980497",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:55:03Z",
+   "updated_at": "2026-10-13T07:55:03Z",
+   "bytes": 4490,
+   "sha256": "e7c92f864381f4969d7f902baf9401ff760db77135f57b9eb6ffae594b3cb139"
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md",
+   "role": "author controls addendum v1.2 (of record): pins control C10 (dd_gapcheck.py) and its stdout in both modes at Math- commit 11ca8934d320b449d10c65a68ff675d7e55ef53d, quotes the stdout, applies the two display roundings of the C10 read (v1.1) and, per the AMEND of the Math-#449 engineering read, lists every edit of v1.1 in its version paragraph (v1.0 and v1.1 as read are stored beside it)",
+   "comment": "6141407954",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6141407954",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T08:22:00Z",
+   "updated_at": "2026-10-13T08:22:00Z",
+   "bytes": 5005,
+   "sha256": "b1cfe262b2efdd2245965f43202b7b7b1634ed1df4dad702e56791cf4422c067"
+  },
+  {
+   "path": "DD/REVIEW_C10_SUMMONS.md",
+   "role": "summons of one Cursor agent for the read of control C10 and of the delta v1.1 -> v1.2 (D2)",
+   "comment": "6140692328",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140692328",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:36:51Z",
+   "updated_at": "2026-10-13T07:36:51Z",
+   "bytes": 4846,
+   "sha256": "581ec98319b4f73752434e4aec84d97c448685a73bfedf3ba5b6840a842906d0",
+   "names_identities": [
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/PR448_ENGINEERING_READ_SUMMONS.md",
+   "role": "summons of one Cursor agent for the engineering read of the first packet PR (Math-#448, head 7fb420a244ca6be9ae77a19eb23ef72dd21cf42c)",
+   "comment": "6140362548",
+   "issue": "Math-#448",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/448#issuecomment-6140362548",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:15:07Z",
+   "updated_at": "2026-10-13T07:15:07Z",
+   "bytes": 3222,
+   "sha256": "d848162224ee4e601bc906bcac387ba6d09a657f92adbf964c69659aa4b69c23"
+  },
+  {
+   "path": "DD/PR448_ENGINEERING_READ.md",
+   "role": "nonauthor engineering read of Math-#448 at head 7fb420a2: PASS (Cursor agent bc-63bd17bf, xAI Grok 4.7): the twelve stored bodies re-fetched and hashed, the 23 pinned files byte-identical to Math- 35ae8fbb, the node files byte-identical to the downloaded artifacts of run 38347192184, replay --quick, tests and workflow checked",
+   "comment": "6140493949",
+   "issue": "Math-#448",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/448#issuecomment-6140493949",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T07:23:38Z",
+   "updated_at": "2026-10-13T07:23:38Z",
+   "bytes": 7176,
+   "sha256": "4172b187a1c3b01d9ea974e16b05a7e0885e95730f2e3e46a57f587905ae1821",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "DD/PR448_AUTHOR_HANDOFF.md",
+   "role": "author handoff of Math-#448 to the next non-author integrator (engineering read PASS, hosted checks green, the Codex findings answered)",
+   "comment": "6140725791",
+   "issue": "Math-#448",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/448#issuecomment-6140725791",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:39:03Z",
+   "updated_at": "2026-10-13T07:39:03Z",
+   "bytes": 1705,
+   "sha256": "953c49b8a5b821d448aa355e5677b7135aa895853519694e73556d5b85bbb34d"
+  },
+  {
+   "path": "DD/REVIEW_C10.md",
+   "role": "nonauthor read of control C10 and of the delta v1.1 -> v1.2: AMEND of two displays in the controls addendum (Cursor agent bc-70a0bd90, xAI Grok 4.7 grok-4.7-high-fast): the delta is exactly the six stated edits, the defect is as described (own geometry pass: 2,771 narrow nodes, 2,694 with a gap, 5,251 gaps), dd_gapcheck.py read and run in both modes with the pinned stdout, the conclusion verified; recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6140693874",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140693874",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T07:36:57Z",
+   "updated_at": "2026-10-13T07:53:35Z",
+   "bytes": 8715,
+   "sha256": "d2611c3bb4dc344421ac00179c705254bed21de752169e0e3e4d7909db0d6f14",
+   "names_identities": [
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
+   "role": "author controls addendum v1.0: the body the C10 read hashed; superseded by v1.1 (two displays made outward) for the record",
+   "comment": "6140682931",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140682931",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:36:14Z",
+   "updated_at": "2026-10-13T07:36:14Z",
+   "bytes": 3908,
+   "sha256": "7390f24b1c474f1bf35b8876890a2ae93c8489b1af8eb16c76754b84b7926ae0"
+  },
+  {
+   "path": "DD/AUTHOR_READ_COMPLETE_2_AND_SUCCESSOR_CLAIM.md",
+   "role": "author read-complete note, second round: the defect, C10, the records, what is read, the D5 claim for this object (v2)",
+   "comment": "6140993829",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6140993829",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T07:55:50Z",
+   "updated_at": "2026-10-13T07:55:50Z",
+   "bytes": 5877,
+   "sha256": "0b619446ebd3992fc59d4649325371c8e9397b810e51eaec6dbaadfe24672fd0",
+   "names_identities": [
+    "DD/PROOF_v1_0_AS_READ.md",
+    "DD/PROOF_v1_1_READBACK.md",
+    "DD/PROOF.md",
+    "DD/AUTHOR_CONTROLS_COMMENT.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_0_AS_READ.md",
+    "DD/AUTHOR_CONTROLS_ADDENDUM_C10_v1_1_AS_READ.md"
+   ]
+  },
+  {
+   "path": "DD/PR448_CODEX_REVIEW.md",
+   "role": "the automated OpenAI Codex review of Math-#448 (three findings: P1 the sliver-cell geometry, resolved by control C10; P2 timeout evidence in replay.py, applied in this object; P2 the mutant children run under -B -S, by design, no change) and the author's replies, verbatim bodies in id order",
+   "bytes": 6661,
+   "sha256": "42b0f6dd251e42ffa0baa1267585bd80661124e3d3a22fedcf98defdd13c86e0",
+   "url": "https://github.com/d6g8k5htny-coder/Math-/pull/448#pullrequestreview-5500191374",
+   "review_comment_ids": [
+    4255894061,
+    4255894063,
+    4255894069,
+    4255943882,
+    4255944034,
+    4255944209
    ]
   },
   {
@@ -271,6 +431,13 @@
    "bytes": 384392,
    "sha256": "7ee91b2bd2a220f96a552e17f1fbfd865af51ae802e9a72ed3930ca82e4a5799",
    "pinned_by": "DD/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "certificate/dd_gapcheck.py",
+   "role": "control C10: the sliver-gap enclosure (the omitted contribution to D at every node, Delta in [-3.4e-31, 4.9e-62]); pinned by the controls addendum",
+   "bytes": 7030,
+   "sha256": "a18fe557eb55e05da3a488681fa3e820673ebaa7965d589e6ca28a0a2eab8a94",
+   "pinned_by": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
   },
   {
    "path": "certificate/nodes/nodes_0.json",
@@ -391,6 +558,20 @@
    "role": "stdout of dd_exact.py (python -B -O -S; identical)",
    "bytes": 1131,
    "sha256": "f4f88340060c688b1f2f38f2e37b32affdbbdbe615953cd012d0c94e24e7b0d9"
+  },
+  {
+   "path": "certificate/results/gapcheck_stdout.txt",
+   "role": "stdout of dd_gapcheck.py cells_full.json 2 (python -B -S); pinned by the controls addendum",
+   "bytes": 552,
+   "sha256": "d5dfac1ac42963b7b500ea9f28b68153df00e3815209c665485e87d28348385a",
+   "pinned_by": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
+  },
+  {
+   "path": "certificate/results/gapcheck_stdout_O.txt",
+   "role": "stdout of dd_gapcheck.py (python -B -O -S; identical); pinned by the controls addendum",
+   "bytes": 552,
+   "sha256": "d5dfac1ac42963b7b500ea9f28b68153df00e3815209c665485e87d28348385a",
+   "pinned_by": "DD/AUTHOR_CONTROLS_ADDENDUM_C10.md"
   }
  ],
  "replays": [
@@ -405,6 +586,15 @@
    "script": "dd_mutants.py",
    "args": [],
    "stdout": "certificate/results/mutants_stdout.txt"
+  },
+  {
+   "name": "gapcheck",
+   "script": "dd_gapcheck.py",
+   "args": [
+    "cells_full.json",
+    "2"
+   ],
+   "stdout": "certificate/results/gapcheck_stdout.txt"
   },
   {
    "name": "assembly",
