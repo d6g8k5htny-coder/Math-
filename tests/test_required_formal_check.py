@@ -17,6 +17,8 @@ M = importlib.util.module_from_spec(SPEC)
 if SCRIPT.exists():
     SPEC.loader.exec_module(M)
 
+RELEASE = 'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)'
+
 class RequiredCheckTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -25,14 +27,20 @@ class RequiredCheckTests(unittest.TestCase):
         self.env = {'GITHUB_SHA': 'a'*40, 'GITHUB_REPOSITORY': 'd6g8k5htny-coder/main',
                     'GITHUB_RUN_ID': '123', 'GITHUB_RUN_ATTEMPT': '2'}
         self.manifest = self.root/'manifest.json'
-        self.manifest.write_text('{"source":"fixture"}\n')
+        self.lock = {'mathlib': 'd'*40, 'batteries': 'e'*40}
+        self.manifest.write_text(json.dumps({'source': 'fixture', 'dependency_revisions': self.lock})+'\n')
         self.log = self.root/'build.log'; self.log.write_text('fixture build log\n')
         self.receipt = self.root/'receipt.json'
         self.record = {'checked_commit': self.env['GITHUB_SHA'],
             'repository': self.env['GITHUB_REPOSITORY'], 'workflow_run_id': '123',
             'formalization_status': 'kernel-checked', 'scientific_effect':'NONE',
             'manifest_sha256':hashlib.sha256(self.manifest.read_bytes()).hexdigest(),
-            'logs':{'build.log':hashlib.sha256(self.log.read_bytes()).hexdigest()}}
+            'logs':{'build.log':hashlib.sha256(self.log.read_bytes()).hexdigest()},
+            'workflow_run_attempt': '2', 'lean_version': RELEASE,
+            'dependency_revisions': dict(self.lock), 'dependency_worktrees': 'CLEAN'}
+        observed = {'lean_version': RELEASE, 'dependency_revisions': dict(self.lock),
+                    'dependency_worktrees': 'CLEAN', 'manifest_sha256': self.record['manifest_sha256']}
+        self.record['observations'] = {'preflight': dict(observed), 'final': copy.deepcopy(observed)}
         self.write_receipt()
         self.needs = {'checks': {'result':'success','outputs':{'checked_commit':'a'*40}},
                       'formal': {'result':'success','outputs':{
@@ -142,6 +150,8 @@ class RequiredCheckTests(unittest.TestCase):
     def test_attempt_identity_is_exact(self):
         for value in ('2', '10'):
             self.env['GITHUB_RUN_ATTEMPT']=value;self.needs['formal']['outputs']['run_attempt']=value
+            # The producer records its own attempt; the binder requires it to equal this run's.
+            self.record['workflow_run_attempt']=value;self.write_receipt()
             for operation, check in (('aggregate', self.decision), ('bind_receipt', self.binding)):
                 with self.subTest(accepted_attempt=value, operation=operation):
                     self.assertEqual(check()['run_attempt'],value)
@@ -502,3 +512,77 @@ class RunIdBindingControl(unittest.TestCase):
     def test_empty_run_id_refused(self):
         self.assert_refused(*_w8c_run_run_cli(_w8c_run_base(GITHUB_RUN_ID='')))
 if __name__=='__main__':unittest.main()
+
+
+class ProducerRuntimeTests(unittest.TestCase):
+    """The binder validates the producer's runtime fields instead of trusting an opaque receipt hash."""
+    setUp = RequiredCheckTests.setUp
+    write_receipt = RequiredCheckTests.write_receipt
+    binding = RequiredCheckTests.binding
+
+    def refused(self, message):
+        self.write_receipt()
+        with self.assertRaisesRegex(ValueError, message): self.binding()
+
+    def test_valid_runtime_record_binds(self):
+        self.write_receipt()
+        self.assertEqual(self.binding()['run_attempt'], '2')
+
+    def test_missing_or_other_producer_attempt_refused(self):
+        for value in (None, '1', '3', 2):
+            with self.subTest(value=value):
+                if value is None: self.record.pop('workflow_run_attempt', None)
+                else: self.record['workflow_run_attempt'] = value
+                self.refused('workflow_run_attempt')
+
+    def test_same_semver_other_commit_or_build_refused(self):
+        for text in (RELEASE.replace('5045d0056413266e57c625dcd7c365b10e377c52', '0'*40),
+                     RELEASE.replace(', Release)', ', Debug)'), RELEASE.replace('4.34.1', '4.34.10'), '', None):
+            with self.subTest(text=text):
+                self.record['lean_version'] = text
+                self.refused('not the pinned Lean release')
+
+    def test_dependency_vector_must_equal_the_lock(self):
+        for revs in ({'mathlib': 'd'*40}, {'mathlib': 'd'*40, 'batteries': 'f'*40}, {}, None):
+            with self.subTest(revs=revs):
+                self.record['dependency_revisions'] = revs
+                self.refused('dependencies differ from the lock')
+
+    def test_dirty_or_unstated_dependency_worktrees_refused(self):
+        for value in ('DIRTY', None, 'clean'):
+            with self.subTest(value=value):
+                self.record['dependency_worktrees'] = value
+                self.refused('worktrees are not clean')
+
+    def test_missing_or_partial_observations_refused(self):
+        for value in (None, {}, {'final': self.record['observations']['final']}, 'present'):
+            with self.subTest(value=value):
+                self.record['observations'] = value
+                self.refused('preflight and final runtime observations')
+
+    def test_observation_runtime_change_refused(self):
+        self.record['observations']['final']['lean_version'] = RELEASE.replace('x86_64-unknown-linux-gnu', 'aarch64-unknown-linux-gnu')
+        self.refused('runtime changed between')
+
+    def test_dirty_or_moved_observation_refused(self):
+        for key, value, message in (('dependency_worktrees', 'DIRTY', 'final dependency worktrees are not clean'),
+                                    ('dependency_revisions', {'mathlib': 'd'*40, 'batteries': 'f'*40}, 'final dependencies differ')):
+            with self.subTest(key=key):
+                self.record['observations']['final'][key] = value
+                self.refused(message)
+                self.record['observations']['final'][key] = copy.deepcopy(self.record['observations']['preflight'][key])
+
+    def test_final_observation_must_match_the_receipt(self):
+        other = RELEASE.replace('x86_64-unknown-linux-gnu', 'aarch64-unknown-linux-gnu')
+        for name in ('preflight', 'final'):
+            self.record['observations'][name]['lean_version'] = other
+        self.refused('final observation differs from the receipt')
+
+    def test_manifest_without_exact_lock_refused(self):
+        for lock in (None, {}, {'mathlib': 'main'}):
+            with self.subTest(lock=lock):
+                self.manifest.write_text(json.dumps({'source': 'fixture', 'dependency_revisions': lock}))
+                self.record['manifest_sha256'] = hashlib.sha256(self.manifest.read_bytes()).hexdigest()
+                for name in ('preflight', 'final'):
+                    self.record['observations'][name]['manifest_sha256'] = self.record['manifest_sha256']
+                self.refused('manifest has no exact dependency lock')
