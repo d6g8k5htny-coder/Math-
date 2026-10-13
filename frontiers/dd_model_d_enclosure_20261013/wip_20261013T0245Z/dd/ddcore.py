@@ -9,6 +9,10 @@ from fractions import Fraction as Fr
 
 PREC = 30
 TRAPS = [InvalidOperation, DivisionByZero, Overflow]
+# the default (thread) context is used by operations without an explicit context (unary minus, abs, comparisons with
+# rounding...); give it a precision above every working precision so that such operations are exact on our values
+import decimal as _decimal
+_decimal.getcontext().prec = 60
 CD = Context(prec=PREC, rounding=ROUND_FLOOR, traps=TRAPS)
 CU = Context(prec=PREC, rounding=ROUND_CEILING, traps=TRAPS)
 CX = Context(prec=PREC + 25, rounding=ROUND_FLOOR, traps=TRAPS)   # extra precision for series
@@ -35,7 +39,7 @@ def q(x):
 
 def add(a, b): return (CD.add(a[0], b[0]), CU.add(a[1], b[1]))
 def sub(a, b): return (CD.subtract(a[0], b[1]), CU.subtract(a[1], b[0]))
-def neg(a): return (-a[1], -a[0])
+def neg(a): return (a[1].copy_negate(), a[0].copy_negate())      # copy_negate: exact (unary minus would round in the default context)
 def mul(a, b):
     al, ah = a; bl, bh = b
     if al >= 0:
@@ -68,16 +72,16 @@ def ipow(a, n):
     if n == 1: return a
     if n % 2 == 0: return sq(ipow(a, n // 2))
     return mul(a, ipow(a, n - 1))
-def mag(a): return max(-a[0], a[1])          # max |x|
+def mag(a): return max(a[0].copy_abs(), a[1].copy_abs())          # max |x| (exact)
 def mig(a):                                   # min |x|
     if a[0] <= 0 <= a[1]: return ZERO
-    return min(-a[0], a[1]) if a[1] < 0 else min(a[0], a[1])
+    return min(a[0].copy_abs(), a[1].copy_abs())
 def hull(a, b): return (min(a[0], b[0]), max(a[1], b[1]))
 def width(a): return CU.subtract(a[1], a[0])
 def contains(a, x): return a[0] <= x <= a[1]
 def iabs(a):
     if a[0] >= 0: return a
-    if a[1] <= 0: return (-a[1], -a[0])
+    if a[1] <= 0: return (a[1].copy_negate(), a[0].copy_negate())
     return (ZERO, mag(a))
 def imax(a, b): return (max(a[0], b[0]), max(a[1], b[1]))
 def imin(a, b): return (min(a[0], b[0]), min(a[1], b[1]))
@@ -365,8 +369,11 @@ class TM:
                 a.append(div(e0, (f, f)))
             f = CU.multiply(f, Dec(p + 1))
             z = add(c0, B)
-            if upper is not None and z[1] > upper:
-                z = (min(z[0], upper), upper)
+            if upper is not None:
+                # the Lagrange point lies between a representative of c0 and the true argument (<= upper): cap the range at
+                # max(upper, c0's upper end)
+                cap = max(upper, c0[1])
+                if z[1] > cap: z = (min(z[0], cap), cap)
             rb = div(iexp(z), (f, f))
             return a, rb
         def frange(z):

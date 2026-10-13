@@ -29,17 +29,53 @@ def corollary(D):
             out[(d, key)] = coef
     return out
 
-def main(cells_path, *nodes_paths):
+def main(cells_path, *nodes_paths, recheck=True, sample=24):
     spec, cells = G.load_cells(cells_path)
     done = {}
     for np_ in nodes_paths:
         done.update({int(k): v for k, v in json.load(open(np_)).items()})
     assert len(done) == len(cells), 'incomplete node values: %d of %d cells' % (len(done), len(cells))
-    encG, totG, remG = G.assemble(cells, done)
     rows = [{k: Dec(v) for k, v in r.items()} for r in spec['rows']]
-    ot = G.omega_tails(rows)                      # recomputed from the rows (not read from the file)
-    tp = B.TaylorPart(int(spec['taylor'][0]), Fr(spec['taylor'][1]), Fr(spec['taylor'][2]))
     u_lo = Dec(spec['u_lo']); u_hi = Dec(spec['u_hi'])
+    assert G.TAYLOR[0] == int(spec['taylor'][0]) and str(G.TAYLOR[1]) == spec['taylor'][1] and str(G.TAYLOR[2]) == spec['taylor'][2]
+    assert G.NGAUSS == spec['ngauss'] and Dec(spec['row_width']) == G.ROW_WIDTH and spec['nw0'] == G.NW0
+    assert C.CU.add(u_lo, C.CU.multiply(G.ROW_WIDTH, Dec(len(rows)))) == u_hi, 'rows do not end at u_hi'
+    # the rows and the cells tile: every cell lies in one row's rectangle; the cells of each row tile its rectangle (exact decimals)
+    tile = {}
+    for c in cells:
+        uc, hu, wc, hw = c[:4]
+        row = [r for r in rows if r['uc'] - r['hu'] <= uc - hu and uc + hu <= r['uc'] + r['hu'] and r['w_lo'] <= wc - hw and wc + hw <= r['w_hi']]
+        assert len(row) == 1, 'cell outside the rows'
+        tile.setdefault(id(row[0]), []).append((uc - hu, uc + hu, wc - hw, wc + hw))
+    for r in rows:
+        area = sum((b - a) * (d - c_) for (a, b, c_, d) in tile.get(id(r), []))
+        assert area == (2 * r['hu']) * (r['w_hi'] - r['w_lo']), 'the cells of a row do not fill it'
+        # pairwise disjointness (open interiors): cells are dyadic; check no overlap by sorting
+        segs = sorted(tile.get(id(r), []))
+        for i in range(len(segs)):
+            for j in range(i + 1, len(segs)):
+                a1, b1, c1, d1 = segs[i]; a2, b2, c2, d2 = segs[j]
+                assert not (a1 < b2 and a2 < b1 and c1 < d2 and c2 < d1), 'overlapping cells'
+    remainders = None
+    if recheck:      # C9a: recompute every cell's Gauss remainder bound independently of the stored values
+        remainders = []
+        for i, c in enumerate(cells):
+            E, Eu, Ew = B.cell_remainder(c[0], c[1], c[2], c[3], G.NGAUSS, G.taylor_part())
+            assert E == c[4], 'cell %d: stored remainder %s differs from the recomputation %s' % (i, c[4], E)
+            remainders.append(E)
+        print('C9a: the %d cell remainders recomputed and equal to the stored values' % len(cells))
+    if sample:       # C9b: recompute a deterministic sample of node values and require equality
+        import random
+        rng = random.Random(20261013); idx = sorted(rng.sample(range(len(cells)), min(sample, len(cells))))
+        for i in idx:
+            k = rng.randrange(G.NGAUSS * G.NGAUSS)
+            node = G.cell_nodes(*cells[i][:4])[k]
+            res = G.eval_node((node[0], node[1]))
+            assert res[:2] == tuple(done[i][k][:2]), 'cell %d node %d: recomputed value differs' % (i, k)
+        print('C9b: %d sampled node values recomputed and equal to the stored values' % len(idx))
+    encG, totG, remG = G.assemble(cells, done, remainders)
+    ot = G.omega_tails(rows)                      # recomputed from the rows (not read from the file)
+    tp = G.taylor_part()
     encS, dS = S.region_S(u_lo, tp)
     tt = S.tau_tail(u_hi)
     lo = C.CD.subtract(C.CD.subtract(C.CD.add(encG[0], encS[0]), ot), tt)
@@ -55,4 +91,5 @@ def main(cells_path, *nodes_paths):
     return D
 
 if __name__ == '__main__':
-    main(sys.argv[1], *sys.argv[2:])
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    main(args[0], *args[1:], recheck='--no-recheck' not in sys.argv, sample=0 if '--no-sample' in sys.argv else 24)

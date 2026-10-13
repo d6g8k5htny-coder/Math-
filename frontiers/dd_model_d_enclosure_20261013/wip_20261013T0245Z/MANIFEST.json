@@ -1,12 +1,12 @@
 {
- "checkpoint": "wip_20261013T0245Z, updated 03:00Z (cells_full.json, module updates, note draft)",
+ "checkpoint": "wip_20261013T0245Z, updated 04:35Z (corrected modules after the referee round; the final cells; controls; mutants)",
  "session": "session_01NMeKEismAyeqgdB4sy2NJU",
  "status": "PROTOTYPE / UNVERIFIED; scientific effect NONE",
  "files": [
   {
    "path": "README.md",
-   "bytes": 5671,
-   "sha256": "c3788394dd8cc68ea7df51535d3ceef26fb7198b85d5954b671b3e4153963ffc"
+   "bytes": 6214,
+   "sha256": "eef9e907baf24df85c83b0c713f510c43a6823a8e44f17b1db2447b40a803a5d"
   },
   {
    "path": "dd/DD_TASK_DEFINITION_20261012.md",
@@ -15,8 +15,8 @@
   },
   {
    "path": "dd/NOTE_DD_draft.md",
-   "bytes": 15197,
-   "sha256": "b4bd65e5391747d4a48447bb4687e1c79c11239ec8b9a27bfe9e2ce96431caa4"
+   "bytes": 18273,
+   "sha256": "30d856a5e353d6070eeff9f0c7d1167a1670770268ff34a1b8563c2397725a25"
   },
   {
    "path": "dd/board_post.md",
@@ -25,13 +25,13 @@
   },
   {
    "path": "dd/build_full.log",
-   "bytes": 560,
-   "sha256": "18e071d95cf9506c73d8db9df6cc7bd3cf6ed2519ee34ad6266eb77cbb4d3348"
+   "bytes": 668,
+   "sha256": "21b32de81876e2e2be9035468cf582a5fe9067e073417b50b5a8c08f6cfddb02"
   },
   {
    "path": "dd/cells_full.json",
-   "bytes": 309563,
-   "sha256": "90c216ca3aa446ce75b4dcdb610fbc3f15781a75d3fff91a9a28a4fef61d2225"
+   "bytes": 384392,
+   "sha256": "7ee91b2bd2a220f96a552e17f1fbfd865af51ae802e9a72ed3930ca82e4a5799"
   },
   {
    "path": "dd/ddS.py",
@@ -39,19 +39,29 @@
    "sha256": "cdf0b1799769d7e4661e329d107127288b55688c529765ddf22e6c1e12ac32e6"
   },
   {
+   "path": "dd/dd_controls.py",
+   "bytes": 12332,
+   "sha256": "8c6ea79d9ca8e4f8c5d097aea68f85110f75da76eedccd257856a2dff71e365d"
+  },
+  {
    "path": "dd/dd_exact.py",
-   "bytes": 3007,
-   "sha256": "125c6237429398ca3874606c5308cf6b2eb5c78d74109e46b7222bfb61ffbcb2"
+   "bytes": 5657,
+   "sha256": "f023114a525e33e0448c31706a84aa71eb914952267ff9caf1965de781a4ec6d"
+  },
+  {
+   "path": "dd/dd_mutants.py",
+   "bytes": 2954,
+   "sha256": "946bc6bffdd80511d6a35df647d2d8ae1163c097338ddd6e7720a9d2d08a0595"
   },
   {
    "path": "dd/ddbounds.py",
-   "bytes": 20602,
-   "sha256": "adc700810dc975c6fe56ac4bea200d0ffc36a4545121050b21b3d531bde25a00"
+   "bytes": 20807,
+   "sha256": "aadf16a70f1e4ada616937bff7ef80dcc898b64887db962047a70476faa91083"
   },
   {
    "path": "dd/ddcore.py",
-   "bytes": 24385,
-   "sha256": "94bd3c08c0b5dc6f8335f7d5d7165ad5e90ec5fa1a188ed1097eef4b43a6df31"
+   "bytes": 25022,
+   "sha256": "f8c1f3a771148fedc484aa1e7add11a5c2825e409d65718b2eef0c959eb94310"
   },
   {
    "path": "dd/ddcub.py",
@@ -60,8 +70,8 @@
   },
   {
    "path": "dd/ddgauss.py",
-   "bytes": 13152,
-   "sha256": "901439a95900fbe7a690a85a842adb497bb8d670119fea56d443a4a9cc02ddc7"
+   "bytes": 13808,
+   "sha256": "368474dd4b266208921d8d604038cbb75f12758bd9531ebcd3d9160d0d66de22"
   },
   {
    "path": "dd/ddih.py",
@@ -75,13 +85,13 @@
   },
   {
    "path": "dd/ddtaylor.py",
-   "bytes": 9058,
-   "sha256": "923b48a088367ee2a1adb3290df0f4bd75f7f0133edfbe75b3445e206494ddbb"
+   "bytes": 9057,
+   "sha256": "b2e3f17fdb143e6e24581bf434b7ba9f7f51a9d2779e6c7e643c9ff6e960dc8e"
   },
   {
    "path": "dd/ddvq.py",
-   "bytes": 8014,
-   "sha256": "4c6a5539bea78df22390691a5243b046ae44f7f0f44ce709ff687b6efcb9767b"
+   "bytes": 9901,
+   "sha256": "3c43bcebd9f8ca041c00f44aad60e134078f3e684f47532c2179be4425c4aae3"
   },
   {
    "path": "dd/test_bounds.py",

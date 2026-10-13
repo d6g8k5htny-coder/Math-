@@ -316,10 +316,11 @@ def _sup_unimodal(iv, i, lam):
     a, b = iv
     if i == 0:
         return iexp((C.CD.multiply(-lam, a), C.CU.multiply(-lam, a)))[1]
-    xs = C.CU.divide(Dec(i), lam)
-    if a <= xs <= b: x = q(xs)
-    elif xs < a: x = q(a)
-    else: x = q(b)
+    xs = Fr(i) / Fr(lam)                              # the exact maximizer i/lam (lam a short decimal)
+    if a <= xs <= b:
+        # the exact maximum e^{-i} (i/lam)^i, as an interval
+        return mul(iexp(q(-i)), ipow(q(xs), i))[1]
+    x = q(a) if xs < a else q(b)
     return mul(iexp(smul(-lam, x)), ipow(x, i))[1]
 
 def rho_deriv_bounds(u_iv, w_iv, K, direction, msplit=2):
@@ -341,7 +342,8 @@ def rho_deriv_bounds(u_iv, w_iv, K, direction, msplit=2):
             if iw == msplit - 1: whi = max(whi, w_iv[1])
             X = iexp(add(smul(TWO, (ulo, uhi)), smul(Dec(4), (wlo, whi))))
             Y = iexp(smul(TWO, (wlo, whi)))
-            pre = C.CU.multiply(RHO_C0[1], iexp((ZERO, C.CU.divide(C.CU.add(C.CU.multiply(Dec(-5), ulo), C.CU.multiply(Dec(11), whi)), Dec(3))))[1])
+            ex = C.CU.divide(C.CU.add(C.CU.multiply(Dec(-5), ulo), C.CU.multiply(Dec(11), whi)), Dec(3))     # sup of (-5u + 11w)/3
+            pre = C.CU.multiply(RHO_C0[1], iexp((ex, ex))[1])
             supX = {}; supY = {}
             for k in range(K + 1):
                 tot = ZERO

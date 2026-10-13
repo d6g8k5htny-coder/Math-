@@ -162,9 +162,9 @@ def eval_node(args):
         tau = iexp(u_iv); g = iexp(w_iv)
         H, d = VQ.H_point(tau, g)
         val = mul(rho, H)
-        return (str(val[0]), str(val[1]), d['v1'], d['ncells'])
+        return (str(val[0]), str(val[1]), d['v1'], d['ncells'], str(u_iv[0]), str(w_iv[0]))
     except Exception as ex:
-        return ('FAIL', '%s: %s' % (type(ex).__name__, ex), 0, 0)
+        return ('FAIL', '%s: %s' % (type(ex).__name__, ex), 0, 0, str(u_iv[0]), str(w_iv[0]))
 
 def eval_cells(cells, out_path, nproc=2, log=None, shard=(0, 1)):
     """evaluate the node values of the cells with index % shard[1] == shard[0], with multiprocessing; checkpoint to
@@ -193,8 +193,10 @@ def eval_cells(cells, out_path, nproc=2, log=None, shard=(0, 1)):
                 if log: print('  nodes %d/%d, cells done %d [%.0fs]' % (k + 1, len(tasks), len(done), time.time() - t0), file=log, flush=True)
     return done
 
-def assemble(cells, done):
-    """sum over cells of hu hw sum_ij w_i w_j rho H(node_ij), plus/minus the remainder bounds."""
+def assemble(cells, done, remainders=None):
+    """sum over cells of hu hw sum_ij w_i w_j rho H(node_ij), plus/minus the remainder bounds (the stored E of each cell, or
+    `remainders[i]` when given, e.g. recomputed).  Every node record must carry the node coordinates of the cell's k-th node
+    (checked) and a valid enclosure lo <= hi."""
     tot = (ZERO, ZERO); rem = ZERO
     GN = gauss_nodes(NGAUSS)
     wprod = [mul(wi, wj) for (xi, wi) in GN for (xj, wj) in GN]
@@ -202,11 +204,16 @@ def assemble(cells, done):
         uc, hu, wc, hw, E = c[0], c[1], c[2], c[3], c[4]
         vals = done[i]
         assert len(vals) == NGAUSS * NGAUSS and all(v[0] != 'FAIL' for v in vals), 'cell %d: incomplete or failed node values' % i
+        nodes = cell_nodes(uc, hu, wc, hw)
         s = (ZERO, ZERO)
         for k, v in enumerate(vals):
-            s = add(s, mul(wprod[k], (Dec(v[0]), Dec(v[1]))))
+            lo, hi = Dec(v[0]), Dec(v[1])
+            assert lo <= hi and lo.is_finite() and hi.is_finite(), 'cell %d node %d: invalid enclosure' % (i, k)
+            if len(v) >= 6:
+                assert Dec(v[4]) == nodes[k][0][0] and Dec(v[5]) == nodes[k][1][0], 'cell %d node %d: coordinates differ' % (i, k)
+            s = add(s, mul(wprod[k], (lo, hi)))
         s = mul(s, mul(q(hu), q(hw)))
-        tot = add(tot, s); rem = C.CU.add(rem, Dec(E))
+        tot = add(tot, s); rem = C.CU.add(rem, Dec(E) if remainders is None else remainders[i])
     return (C.CD.subtract(tot[0], rem), C.CU.add(tot[1], rem)), tot, rem
 
 def load_cells(path):
@@ -217,9 +224,9 @@ def load_cells(path):
 if __name__ == '__main__':
     mode = sys.argv[1]
     if mode == 'build':
-        out = sys.argv[2]; target = Dec(sys.argv[3]) if len(sys.argv) > 3 else Dec('2e-3')
+        out = sys.argv[2]; target = Dec(sys.argv[3]) if len(sys.argv) > 3 else Dec('7e-4')
         u_lo = Dec(sys.argv[4]) if len(sys.argv) > 4 else Dec('-6.2')      # tau_s = e^{-6.2} = 0.002029
-        u_hi = Dec(sys.argv[5]) if len(sys.argv) > 5 else Dec('16.2')      # tau_1 = e^{16.2} = 1.085e7
+        u_hi = Dec(sys.argv[5]) if len(sys.argv) > 5 else Dec('18.6')      # tau_1 = e^{18.6} = 1.2e8
         t0 = time.time()
         cells, rows, total = build(target, u_lo, u_hi, log=sys.stdout)
         print('cells %d, total remainder bound %s [%.0fs]' % (len(cells), total, time.time() - t0))

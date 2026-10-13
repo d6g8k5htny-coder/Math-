@@ -105,7 +105,7 @@ def remainder_constant(N, Bt, Bc=None):
       v_p's range on the box: v_p in [v_lo, v_hi]; G is increasing in v for v > sqrt(c') and sqrt(3 c') <= v_p - eps needed:
       G_v = 12 v^2 - 12 c' >= 12 (v_lo - eps)^2 - 12 (1 + B) =: Gmin > 0, then |v - v_p| <= K_G rho^{N+1} / Gmin =: e rho^{N+1}
       (the root is the largest: the largest root exceeds sqrt(3 c') and G is increasing there; v_p - eps > sqrt(3(1+B)) is checked).
-      |Phi~(t, v_p + d) - Phi~(t, v_p)| <= sum_{k=1}^{6} sup|d_v^k Phi~| |d|^k / k!  with |d| <= e rho^{N+1} <= e (2B)^{N+1}.
+      |Phi~(t, v_p + d) - Phi~(t, v_p)| <= sum_{k=1}^{6} sup|d_v^k Phi~| |d|^k / k!  with |d| <= eps and |d| <= e rho^{N+1}.
       |Phi~(t, v_p) - I_quad - T_N| = |degree > N part| <= box_sup(full, B, N+1) rho^{N+1}."""
     if Bc is None: Bc = Bt
     Bt = Fr(Bt); Bc = Fr(Bc); B = Bt

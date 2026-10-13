@@ -135,36 +135,67 @@ the bounds `2e^{−x²}/(√π(x + √(x²+2))) ≤ erfc(x) ≤ e^{−x²}/(x√
 first-omitted-term bound (7 terms). Taylor models in one variable (order 8) with Lagrange remainders; the elementary
 functions fall back to the plain monotone range when the model's range is more than four times wider than it.
 
-**3.2 Algorithm.** `u ∈ [−6.2, 16.2]` (`τ ∈ [e^{−6.2}, e^{16.2}] = [0.00203, 1.085·10⁷]`) in rows of width `0.4`; each
-row has `ω ∈ [ω_lo, ω_hi]` with `g_hi = min(9, (60/(12τ_lo²))^{1/4} + min(0.5, 3/τ_lo))`, `g_lo = 0.002 g_hi` (short
+**3.2 Algorithm.** `u ∈ [−6.2, 18.6]` (`τ ∈ [e^{−6.2}, e^{18.6}] = [0.00203, 1.19·10⁸]`) in rows of width `0.4`; each row
+has `ω ∈ [ω_lo, ω_hi]` with `g_hi = min(9, (60/(12τ_lo²))^{1/4} + min(0.5, 3/τ_lo))`, `g_lo = 0.002 g_hi` (rounded to short
 decimals), initially 8 cells per row; the cell with the largest Lemma 4 bound is halved (in the direction of the larger
-of its two terms) until the total is `≤ 2·10⁻³`: TBD cells. On each cell the tensor 4-point Gauss rule, each node value
+of its two terms) until the total is `≤ 7·10⁻⁴`: TBD cells. On each cell the tensor 4-point Gauss rule, each node value
 `ρ(node)·H(node)` with `H(node)` from the rigorous `v`-quadrature of (1.3): adaptive cells on `[0, v₁]` (Taylor models of
-order 8 in `v`; a logarithmic substitution `v = 1 ± e^y` around `v = 1` when `σ_χ/(12σ_t) < 0.1`, where `F` has an
-integrable `1/|v − 1|`-type peak; relative tolerance `10⁻²`), `v₁` from Lemma 5 with `T₁ ≥ 9σ_t`, `X₁ ≥ 9σ_χ`. Then
-`D = D_S + D_G ± (ω-tails) ± (τ-tail)`. Deterministic: exact decimal geometry, a fixed refinement order; the node
-values are computed in 12 shards (index mod 12) and assembled.
+order 8 in `v`; when `σ_χ/(12σ_t) < 0.1` and `σ_t > 0.1`, a logarithmic substitution `v = 1 ± e^y` around `v = 1`, where
+`F` has an integrable `1/|v − 1|`-type peak, with the four junction slivers enclosed by `hull(0, length × range)`; every
+cell boundary a short decimal, so the cells tile exactly; relative tolerance `5·10⁻³`), `v₁` from Lemma 5 (any integer
+`v₁ ≥ 3` is valid; the choice makes `T₁ ≥ 9σ_t`, `X₁ ≥ 9σ_χ`). Then `D = D_S + D_G ± (ω-tails) ± (τ-tail)`.
+Deterministic: exact decimal geometry, a fixed refinement order; the node values are computed in 12 shards (cell index
+mod 12) and assembled.
 
 **3.3 Results.** TBD table: `D_S`, `D_G` (node sum, node width, remainder), the tails, `D`, `q`, the corollary.
 
-**3.4 Controls** (in `certificate.py --check`): C1 the `v`-form identities as polynomial identities; C2 `c₀` and the
-exponents of `ρ`; C3 (1.3) and the `t`-moments against brute force at rational points; C4 the identity of Lemma 1 as a
-polynomial identity and `|g| ≤ g̃` at 6108 points; C5 the kernel polynomials `p₁, p₂` and `Q_{a,b}` against finite
-differences of `H` (floating point, exploration-grade) and the Bell polynomials against finite differences of `ρ`; C6
-`T₁₁`, `C₁₂` and the localization inequalities; C7 the Gauss nodes are the roots of `P₄`, the weights sum to 2 and
-integrate `x⁶` exactly; C8 `H_point` encloses the float reference at 14 points; C9 every node value, remainder, tail and
-the final arithmetic re-derived from the shard files by an independent pass. Mutants (each must be rejected): a wrong
-Gauss weight; a wrong kernel coefficient; a wrong `T₁₁` coefficient; a wrong `c₀`; a missing tail; a wrong node file.
+**3.4 Controls** (`dd_controls.py`, exit 0 iff all pass): C1 the `v`-form identities (1.1), #244's (2.7) on both
+branches and Lemma 1's exact forms, as polynomial identities over `ℚ`; C2 `c₀`; C3 the closed-form `t`-moments against
+Riemann sums and the completed square `log pre = −aμ²/Δ` (exact rational points); C4 `I_quad − R²/48` as a polynomial
+identity; C5 `|g| ≤ g̃` at 6140 points (`Φ` by the `v`-form root, bisection in floating point; the grid includes the line
+`R = 0`, `|χ|` up to `10⁶` and `|t|` up to `10⁴`, where each term of `g̃` is tight) and `I(0, 0) = 20/3`; C6 the kernel
+polynomials `p₁, p₂`, the identity `E[Z^m p_k(Z)] = m^k E[Z^m]` (exact), and the Bell polynomials of `ρ` against finite
+differences; C7 `T₁₁` (no terms of degree `≤ 2`; the degree-3 and -4 terms), `C₁₂ = 404.07`, the localization
+inequalities (exact); C8 the Gauss nodes are the roots of `P₄`, the weights sum to 2 and integrate `x⁶` exactly, and
+`K₄` (intervals); C9 the `v`-tail in the right units (the enclosures with `v₁ = 3` and with the automatic `v₁`
+intersect at three points, the tails being of relative size `O(1)`). The assembly (`dd_exact.py`) additionally checks
+that the cells tile the rows exactly and are disjoint, recomputes every cell's remainder bound and a deterministic
+sample of 24 node values (equality required), and refuses any failed or ill-formed node record (coordinates and
+`lo ≤ hi` checked). The author also checked, outside the certificate (numpy, exploration grade), that `H_point` encloses a
+float reference at 14 `(τ, g)` points across `τ ∈ [0.005, 10⁶]`, and that the float value of `D` with the corrected
+`v`-range is `0.076714` on `τ ≤ 10⁷`.
+Mutants (`dd_mutants.py`; each copy with one textual change must make the controls fail, exit 1): M1 a Gauss weight
+(`/36 → /35`); M2 the kernel recursion; M3 an `I_quad` coefficient; M4 `c₀`; M5 the `χ²` constant of Lemma 1; M6 the
+Gauss error constant; M7 a Bell-polynomial coefficient; M8 the moment recursion; M9 the `|c′|³` constant of Lemma 1. All
+nine are rejected.
 
 ## 4. Remarks
 
 1. *Pessimism.* The Lemma 4 bounds exceed the true remainders by factors `10²–10⁶` (the kernel moments weight the
    Gaussian tails); the certificate pays with cells, not with rigor.
-2. *Cost.* About TBD node evaluations at 1–8 s each (standard library, single core).
-3. *Precision.* The enclosure's width is TBD; the node widths (`10⁻²` relative) contribute TBD, the Lemma 4 remainder
-   `≤ 2·10⁻³`, the `τ`-tail `1.9·10⁻⁴`, the `ω`-tails `1.4·10⁻⁵`, region S `4·10⁻⁷`.
+2. *Cost.* TBD node evaluations at 1–9 s each (standard library, single core; 12 shards of a hosted 4-vCPU runner,
+   under one hour).
+3. *Precision.* The enclosure's width is TBD: the Lemma 4 remainder `≤ 7·10⁻⁴` each side, the node widths (`5·10⁻³`
+   relative) TBD, the `τ`-tail `6.3·10⁻⁵`, the `ω`-tails `1.4·10⁻⁵`, region S `4·10⁻⁷`.
+4. *Referee rounds.* Before posting, a clean-context referee pass in the same session read the draft and the code:
+   lemmas PASS; implementation BLOCK (the `v`-tail allowance was added before the `(24τ√π)^{−1}` normalization; fixed,
+   control C9 added) and AMEND (exact short-decimal cell geometry in the log regime; the exact unimodal maximum in the
+   `ρ`-derivative bounds; the `exp` remainder cap at `max(upper, c₀)`; the controls/mutants text; the assembly's
+   recomputation checks), all applied. Not review evidence.
 
-## 5. Dependencies
+## 5. Dependencies, scope, not claimed
 
-#244 (2.5)–(2.7) and Theorem A (conditional scope); note V24 (5.3) and Theorem V; note DC §0, Lemma 4; note CJ
-(Theorem CJ, the `η` constants) for the corollary only. Disjoint from every other open task.
+**Consumed.** #244's closed form (2.5)–(2.7) and Theorem A (so every statement about `D` is at #244 Theorem A's
+conditional scope: #170 Theorem E(1), [CUB] Theorem C and [CUB]'s height identities (C8)–(C11) with its `B = 0`
+paragraph, as in #244's disposition); note V24's (5.3) (the definition of `D`) and Theorem V (the allowances `η_c`,
+`η_R`, for the corollary); note DC's §0 and Lemma 4 (the Gaussian variables `τ, g, t, χ₀`, the constant `c₀`, the
+identity `Ĩ = Ĩ_quad + D` and the enclosure of `−Ĩ_quad`); note CJ's Theorem CJ (the enclosure of `J`) and the `η`
+constants it quotes; #242's Corollary 1′ (`𝒮_d`). Nothing else.
+
+**Not claimed.** No statement for `d ≥ 4` or `L < 10`; no rate beyond notes C3 and C7; no improvement of the one-sided
+bounds elsewhere; the enclosure is not sharp (Remark 1); Theorem DD assumes the documented correct rounding of the
+`decimal` module's `exp`, `ln` and `sqrt` (widened by one unit in the last place; square roots re-verified by squaring)
+and the standard Gauss–Legendre error formula (Abramowitz–Stegun 25.4.30).
+
+**Disjoint scope.** This note changes no register, graph, STATUS or PROOF_INDEX; its custody packet will store the note,
+its controls and its reads. The numerical pipeline is new; it reuses no code of notes CJ or DC.
