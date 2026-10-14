@@ -24,6 +24,31 @@ def require(condition, message):
     if not condition:
         raise ValueError(message)
 
+def check_lean_version(text):
+    version = text.strip()
+    require(re.fullmatch(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)', version) is not None,
+            'unexpected running Lean version: ' + repr(version))
+    return version
+
+def check_worktree_clean(name, status):
+    """`git status --porcelain` output of a dependency: staged, unstaged or untracked changes fail."""
+    require(status.strip() == '', 'dependency worktree is not clean: ' + name + ': ' + status.strip()[:200])
+
+def dependency_state(m):
+    """Exact locked revision and a clean worktree for every dependency, read from the checkouts."""
+    actual = {}
+    for name in m['dependency_revisions']:
+        repo = str(ROOT / '.lake' / 'packages' / name)
+        actual[name] = subprocess.check_output(['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()
+        check_worktree_clean(name, subprocess.check_output(
+            ['git', '-C', repo, 'status', '--porcelain', '--untracked-files=normal'], text=True))
+    require(actual == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
+    return actual
+
+def observation(version, dependencies, digest):
+    return {'lean_version': version, 'dependency_revisions': dependencies, 'dependency_worktrees': 'CLEAN',
+            'manifest_sha256': digest}
+
 def audit_axioms(text, targets):
     require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
     records = {}
@@ -154,6 +179,8 @@ def execute(m, digest):
     out = ROOT / '.lake' / 'formal-evidence'
     out.mkdir(parents=True, exist_ok=True)
     require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink(), 'symlink build directory')
+    preflight_version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-preflight', out))
+    preflight = observation(preflight_version, dependency_state(m), digest)
     if (ROOT / '.lake/build').exists():
         shutil.rmtree(ROOT / '.lake/build')  # fresh local-package build; dependency cache is untouched
     run(['lake', 'build'], 'build', out)
@@ -193,17 +220,21 @@ def execute(m, digest):
             outcomes[label] = 'REJECTED_BY_LEAN'
     # Recheck after compilation: a build hook must not rewrite bound sources/lock.
     _, after = source_check(); require(after == digest, 'manifest changed during execution')
-    version = run(['lake', 'env', 'lean', '--version'], 'version', out).strip()
-    require('version 4.34.1' in version, 'unexpected running Lean version')
-    actual_dependencies = {name: subprocess.check_output(['git', '-C', str(ROOT / '.lake/packages' / name), 'rev-parse', 'HEAD'], text=True).strip() for name in m['dependency_revisions']}
-    require(actual_dependencies == m['dependency_revisions'], 'installed dependency HEAD differs from lock')
+    # Final observation after the last Lean execution: the same exact release, the same locked
+    # and clean dependencies and the same bound sources as before the first one.
+    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out))
+    final = observation(version, dependency_state(m), after)
+    require(final == preflight, 'runtime, dependencies or sources changed during execution')
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     require(COMMIT.fullmatch(head), 'missing exact checked commit')
     receipt = dict(schema_version=1, scientific_effect='NONE', formalization_status='kernel-checked',
                    alignment_status='PENDING_INDEPENDENT_REVIEW', manifest_sha256=digest,
                    checked_commit=head, repository=os.environ.get('GITHUB_REPOSITORY'),
-                   workflow_run_id=os.environ.get('GITHUB_RUN_ID'), lean_version=version,
-                   dependency_revisions=m['dependency_revisions'], axioms=axioms, negative_controls=outcomes)
+                   workflow_run_id=os.environ.get('GITHUB_RUN_ID'),
+                   workflow_run_attempt=os.environ.get('GITHUB_RUN_ATTEMPT'), lean_version=version,
+                   dependency_revisions=m['dependency_revisions'], dependency_worktrees='CLEAN',
+                   observations={'preflight': preflight, 'final': final},
+                   axioms=axioms, negative_controls=outcomes)
     receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
     (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
     print(json.dumps(receipt, indent=2, sort_keys=True))

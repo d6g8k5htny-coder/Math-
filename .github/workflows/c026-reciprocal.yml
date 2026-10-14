@@ -23,5 +23,8 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
-          python -B -S -m unittest discover -s repairs/c026_reciprocal_20260927 -p 'test_*.py' -v
-          python -B -O -S -m unittest discover -s repairs/c026_reciprocal_20260927 -p 'test_*.py' -v
+          set -euo pipefail
+          python -B -S -m unittest discover -s repairs/c026_reciprocal_20260927 -p 'test_*.py' -v 2>&1 | tee "$RUNNER_TEMP/c026-normal.log"
+          grep -Eq '^Ran [1-9][0-9]* tests? in ' "$RUNNER_TEMP/c026-normal.log" || { echo "::error::C026 normal discovery collected 0 tests or returned no count"; exit 1; }
+          python -B -O -S -m unittest discover -s repairs/c026_reciprocal_20260927 -p 'test_*.py' -v 2>&1 | tee "$RUNNER_TEMP/c026-optimized.log"
+          grep -Eq '^Ran [1-9][0-9]* tests? in ' "$RUNNER_TEMP/c026-optimized.log" || { echo "::error::C026 optimized discovery collected 0 tests or returned no count"; exit 1; }

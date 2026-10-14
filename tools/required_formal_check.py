@@ -11,6 +11,9 @@ import subprocess
 import sys
 
 REPOSITORIES = {'d6g8k5htny-coder/main', 'd6g8k5htny-coder/Math-'}
+LEAN_RELEASE = re.compile(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit '
+                          r'5045d0056413266e57c625dcd7c365b10e377c52, Release\)')
+OBSERVATION_KEYS = {'lean_version', 'dependency_revisions', 'dependency_worktrees', 'manifest_sha256'}
 
 
 def require(condition: bool, message: str) -> None:
@@ -47,6 +50,24 @@ def context(env: dict) -> dict:
     }
 
 
+def dependency_lock(raw: bytes) -> dict:
+    lock = strict_json(raw.decode('utf-8')).get('dependency_revisions')
+    require(isinstance(lock, dict) and bool(lock) and all(
+        isinstance(name, str) and isinstance(rev, str) and re.fullmatch(r'[0-9a-f]{40}', rev)
+        for name, rev in lock.items()), 'manifest has no exact dependency lock')
+    return lock
+
+
+def runtime_observation(value, lock: dict, name: str) -> dict:
+    """One producer observation: the pinned release, the locked dependencies, clean worktrees."""
+    require(isinstance(value, dict) and set(value) == OBSERVATION_KEYS, 'invalid '+name+' observation')
+    require(isinstance(value['lean_version'], str) and LEAN_RELEASE.fullmatch(value['lean_version']) is not None,
+            name+' runtime is not the pinned Lean release')
+    require(value['dependency_revisions'] == lock, name+' dependencies differ from the lock')
+    require(value['dependency_worktrees'] == 'CLEAN', name+' dependency worktrees are not clean')
+    return value
+
+
 def bind_receipt(receipt: Path, manifest: Path, env: dict, git_head: str) -> dict:
     ctx = context(env)
     require(git_head == ctx['checked_commit'], 'checkout/tested commit mismatch')
@@ -62,6 +83,23 @@ def bind_receipt(receipt: Path, manifest: Path, env: dict, git_head: str) -> dic
         require(record.get(key) == expected, 'receipt mismatch: '+key)
     require(record.get('manifest_sha256') == hashlib.sha256(manifest.read_bytes()).hexdigest(),
             'manifest/receipt mismatch')
+    # The producer's runtime fields are validated, not only hashed: the exact release, the
+    # locked and clean dependencies, this attempt, and equal observations before the first
+    # and after the last Lean execution. A missing or older-schema field refuses.
+    lock = dependency_lock(manifest.read_bytes())
+    require(record.get('workflow_run_attempt') == ctx['run_attempt'], 'receipt mismatch: workflow_run_attempt')
+    require(isinstance(record.get('lean_version'), str) and LEAN_RELEASE.fullmatch(record['lean_version']) is not None,
+            'receipt runtime is not the pinned Lean release')
+    require(record.get('dependency_revisions') == lock, 'receipt dependencies differ from the lock')
+    require(record.get('dependency_worktrees') == 'CLEAN', 'receipt dependency worktrees are not clean')
+    observations = record.get('observations')
+    require(isinstance(observations, dict) and set(observations) == {'preflight', 'final'},
+            'receipt lacks the preflight and final runtime observations')
+    preflight = runtime_observation(observations['preflight'], lock, 'preflight')
+    final = runtime_observation(observations['final'], lock, 'final')
+    require(preflight == final, 'runtime changed between the preflight and final observations')
+    require(final['lean_version'] == record['lean_version'] and final['manifest_sha256'] == record['manifest_sha256'],
+            'final observation differs from the receipt')
     logs = record.get('logs')
     require(isinstance(logs, dict) and bool(logs), 'missing receipt log bindings')
     for name, digest in logs.items():
