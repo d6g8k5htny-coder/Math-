@@ -52,7 +52,7 @@ class D2SchurTests(unittest.TestCase):
         for path in (MODULE, 'D2_SCHUR.md', 'tests/test_d2_schur.py'):
             self.assertEqual(hashlib.sha256((ROOT/path).read_bytes()).hexdigest(), m['files'][path])
         self.assertEqual(m['files']['gate.py'],
-                         '958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68')
+                         '25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a')
         self.assertEqual(m['files']['ResearchFormalCoreR1/WeightPerturbation.lean'],
                          '50ce15709a133da12a0b4333cc653d26c5fd8a412976c975a7c2f3b25ed5c00f')
 

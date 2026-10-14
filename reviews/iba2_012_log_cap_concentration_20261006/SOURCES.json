@@ -1,0 +1,88 @@
+{
+  "object": "IBA2-012-LOG-CAP-CONCENTRATION-20261006-v1",
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "07ff1191f3f99987060517b6413417287b5adf21",
+  "author": "OpenAI / GPT-6 Astra Pro / iba2-concentration-continuation-20261006-r8",
+  "principal": "Dylan Roy — delegated AI work",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0,
+  "inputs": [
+    {
+      "path": "reviews/iba2_012_finite_radius_20261005/PROOF.md",
+      "size": 17362,
+      "sha256": "cad7fa81a70dc218286d7ec62f7a86daf337677d65398ff906c455157067f93f",
+      "git_blob": "5ed684c9bb446efc9bef5f3980717c6dc039abfd",
+      "tag": "FR",
+      "role": "quantitative",
+      "consumed_slice": "Sections3-5/8",
+      "commit": "07ff1191f3f99987060517b6413417287b5adf21"
+    },
+    {
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "size": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "tag": "P",
+      "role": "quantitative",
+      "consumed_slice": "4.1; following5.3;5.5",
+      "commit": "07ff1191f3f99987060517b6413417287b5adf21"
+    },
+    {
+      "path": "reviews/iba2_012_count_transfer_20261006/PROOF.md",
+      "size": 14855,
+      "sha256": "63eb5fd131d440d918c86269b1b613b3d62b897b1349135405ada04d2a611061",
+      "git_blob": "752bc9da5e49af3d0724d80c91cffc0dde35a2d8",
+      "tag": "CT",
+      "role": "provenance only",
+      "consumed_slice": "Earlier count-transfer theorem; not used as a quantitative premise",
+      "commit": "07ff1191f3f99987060517b6413417287b5adf21"
+    },
+    {
+      "path": "frontiers/c6_sharpened_20260929/PROOF.md",
+      "size": 13278,
+      "sha256": "9f45274ab59d4f4417d1a51e9c97f5916240fdb0a4640ca6f0d3e9e0aea37dd7",
+      "git_blob": "70ba19726a9114bfceae04d021095e6c8eed5026",
+      "tag": "SH",
+      "role": "quantitative",
+      "consumed_slice": "Sections3-4;5.1 before first-moment assembly",
+      "commit": "07ff1191f3f99987060517b6413417287b5adf21"
+    },
+    {
+      "path": "reviews/iba2_012_log_cap_transfer_20261006/NOTE.md",
+      "size": 14237,
+      "sha256": "e975dc65e67d8631cbbd16568f92361731eb572fa88687c0b6e8eeb1af7313fe",
+      "git_blob": "b158965faf0f4113309d825ce1892743910fc028",
+      "tag": "LT",
+      "role": "provenance and abstract family",
+      "consumed_slice": "Fixed-power predecessor; section5 abstract family only",
+      "commit": "e71fd6ecd59071181d4e476d0e4e87287d4488b1"
+    }
+  ],
+  "payloads": [
+    {
+      "path": "NOTE.md",
+      "size": 14454,
+      "git_blob": "e37ea10e426b8e7ec415e252232d7c73d6ccafed",
+      "sha256": "8f523d01d418a42b13e26c07063f2342d8f01811bf820bbed3724ba1fcface39"
+    },
+    {
+      "path": "README.md",
+      "size": 2844,
+      "git_blob": "9410d195eedbaee2f460dcd7cf6491c90909d962",
+      "sha256": "7ad6c74d7d5151c52f821cbbca33c5e8ad123d67a8d576f4362c4ae7b92f4848"
+    },
+    {
+      "path": "concentration_check.py",
+      "size": 2736,
+      "git_blob": "d166606b0ac29140d9b11d1fbf172817a3696860",
+      "sha256": "07a65c9162aeab799d360e04bc728524af8d7810477a61e7a25ba998b8363604"
+    },
+    {
+      "path": "test_concentration.py",
+      "size": 6241,
+      "git_blob": "518167dddad03a9f67c502fd6d5f661e5c7f720f",
+      "sha256": "ac0aca56d52ee13672018567fbbe859876490a6c602eec5266f5a953d08c06fe"
+    }
+  ],
+  "execution_scope": "Eleven finite methods; six named deliberately wrong variants; invalid-label control; normal and optimized. Not a continuum, Lean, field-optimality or laptop receipt. SOURCES has no self-hash."
+}

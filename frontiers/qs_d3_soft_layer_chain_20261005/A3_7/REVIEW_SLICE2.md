@@ -1,0 +1,27 @@
+**PASS** on QS addendum A3.7, Slice 2 only (§§3–4 and controls Y3–Y6).
+
+Dylan Roy — delegated AI review. Actual performer: xAI Grok 4.7, Cursor cloud agent, session `bc-158f9ff6-2e14-4b68-9838-15d3f2f12caf`. Provider xAI; model Grok 4.7 (`grok-4.7-high-fast`). Scientific effect NONE. Organizational-independence credit 0 (same GitHub account; provider-distinct from the Anthropic author `session_01NMeKEismAyeqgdB4sy2NJU`). Personal reading PENDING. Nonauthor of A3.7. No repository edit, no pull request, no timer or loop. Slices 1 and 3 were left with the OpenAI lanes.
+
+A separate pickup comment was refused by the integration (HTTP 403 on issue comments). This note is therefore the pickup and the verdict together. No other Slice 2 claim was on main#229. Frozen API bodies, hashed before the read:
+
+- Note [6004622009](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004622009): 26,122 B, SHA-256 `e23a80b7e5b7b238fe7352d92620efab1b67ef975b61c82e8164916782338116`
+- Controls [6004629351](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6004629351): 27,200 B, SHA-256 `00a070aa4349852dc59d3d1c847e80f8eece70a2d9afc1c7260e15ed6d2aa337`
+
+**Checked.** Lemma SC′: A3.6’s four steps under (4.1) use that hypothesis only through (3.1). Along the chord, `P_QS ≥ μ − 1`, so `min e₀ > −μ` gives `g > −1`; at `s = 2`, `P_QS = 4h_Y`, so `e₀ > −4h_Y` gives `g > 0`. The `(TL)` equality in A3.6 supplies the `≥` direction used here, and `d_g > −1` still yields `D_f(M_r) > f(S_r)`.
+
+Lemma LE₃. (i) `Φ(−1/2, 0) = M_r`, the in-plane gradient pin kills both first derivatives of `𝔉`, and `G_k` and `∇G_k` vanish at `raw M`, so `ℰ(·,·,0)` vanishes to second order there. `(FW.0)` at `j = 2` bounds each second planar derivative by `K₂ N r w²`. A symmetric `2×2` Hessian then has operator norm at most twice that, and `∫₀¹(1−s) ds = 1/2` produces `|ℰ| ≤ K₂ N r w² |ξ − raw M|² ≤ 4 K₂ N r w² |v|²`. (ii) C97’s `a_M` is `4a_M` here, and `κ_M = a_M/(12γ²) = (ψ−c)/48`. The form `4h_Y − 2ℓ|v|²` has the stated matrix. If `ℓ = 4a_M/(γ²+72) ≤ 1`, the lower-right entry is `ℓ/72` and the determinant is `ℓ(1−ℓ)/18`. If `ℓ = 1 < 4a_M/(γ²+72)`, the determinant is `(4a_M − γ² − 72)/(18γ²) > 0`. The upper-left entry is at least 2, so the form is positive semidefinite, and equality at `v ≠ 0` occurs only when `4a_M = γ² + 72`. (iii) `4 K₂ N r w² = 2 η_LE N`, so `η_LE N < ℓ` and `v ≠ 0` give a positive far end.
+
+Witness, recomputed from (0.1) independently of the script: `γ = 1`, `ψ = 86`, `c = 13`, `R = 3400` gives `a_M = 73/4` and `4a_M = 73`. The only extra saddle is `Y* = (−7/12, 1)` (gradient `(0,0)`, Hessian determinant `−131/6`); the other extra critical point is a minimum. There `h_Y = 37/72` and `4h_Y = 2|v|² = 37/18`.
+
+Corollary LE₃: the last two conditions in (3.2) are exactly `η_LE N < ℓ`. On that event `μ > 0`, so `min_K e₀ ≥ −μ/2 > −μ`, and LE₃(iii) supplies the endpoint half of (3.1). Borel measurability is the same countable-supremum and jet argument as after A3.6 (3.1). The `H_r` sentence matches the second item of A3.6’s proof of R₃(a).
+
+Lemma B₃, against (E₃.2) as displayed in 5999129544 (unchanged by 5999301338): on `Rsec ⊂ D_Λ ∩ T`, `{η N(γ²+72) ≥ 4a_M}` sits in `{a_M ≤ √η}` or `{N(γ²+72) > 4 η^{−1/2}}`. The first costs `∫₀^{√η}(s+r) ds = η/2 + r√η`. The second uses `1 < (η/16) N²(γ²+72)² ≤ (73² η/16) N² P⁴` because `|γ| ≤ P` and `P ≥ 1`, then `(p,q) = (2,4)`. The third event is `1 ≤ η² N²`, hence `Cη² ≤ Cη` for `η ≤ 1`.
+
+**Controls.** Script extracted by the stated rule: 23,110 B, SHA-256 `0663bb8f6e7cc540a9f4cb82b3b22bcf2c880c000676e61f61ef52a8b771af24`. `python3 -B -S` and `python3 -B -O -S` (Python 3.12.3) both exited 0 with byte-identical stdout, 316 B, SHA-256 `02f5616de08d8b61a581c8661b82ce09551067df6f2e0d9be1940f3e67850c2c`. Mutants M4–M8 exited 1 in both modes and named `Y3_LE3_margin`, `Y3_LE3_margin`, `Y4_LE3_taylor`, `Y5_B3`, and `Y6_corLE3`. `--bogus`, `--mutant M18`, a bare `--mutant`, and any extra argument exited 2. I read the Y3–Y6 checks; they test the matrix, both determinant cases, the witness equality, the Taylor identity, the three-event inclusion, `γ²+72 ≤ 73 P²`, the strip integral, and the margin chain.
+
+**Not checked.** Sections 1–2 and 5–6, Appendix A, Theorems E₃′, R₃′ and BL₃′, and the mathematics of Y1–Y2 and Y7–Y8. The frozen script’s full stdout did include those groups as passed counts. I did not re-prove `(FW.0)`, `(E₃.2)`, A3.1’s `(TL)`, or C96. The §7 exploration and same-session referee are not review evidence.
+
+
+
+<div><a href="https://cursor.com/agents/bc-158f9ff6-2e14-4b68-9838-15d3f2f12caf?cursor_ref=pr_footer&cursor_cta=open_in_web"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cursor.com/assets/images/open-in-web-dark.png"><source media="(prefers-color-scheme: light)" srcset="https://cursor.com/assets/images/open-in-web-light.png"><img alt="Open in Web" width="114" height="28" src="https://cursor.com/assets/images/open-in-web-dark.png"></picture></a>&nbsp;<a href="https://cursor.com/background-agent?bcId=bc-158f9ff6-2e14-4b68-9838-15d3f2f12caf&cursor_ref=pr_footer&cursor_cta=open_in_cursor"><picture><source media="(prefers-color-scheme: dark)" srcset="https://cursor.com/assets/images/open-in-cursor-dark.png"><source media="(prefers-color-scheme: light)" srcset="https://cursor.com/assets/images/open-in-cursor-light.png"><img alt="Open in Cursor" width="131" height="28" src="https://cursor.com/assets/images/open-in-cursor-dark.png"></picture></a>&nbsp;</div>
+
