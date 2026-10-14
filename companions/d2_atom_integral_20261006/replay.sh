@@ -46,6 +46,16 @@ for control in RejectOverlappingEvents RejectNonProbabilityGap RejectZeroRadiusS
   printf '%s\n' "$code" >"$ATOM_OUT/$control.status"
   python3 -B -S "$ATOM_SIDE/check.py" negative "$ATOM_OUT/$control.log" --control "$control" --status "$code"
 done
+# Final observation after the companion's last Lean execution: the core gate observed the runtime
+# before these runs, so it is observed again here, and `check.py finish` requires it unchanged.
+lean --version > "$ATOM_OUT/toolchain-final.log"
+: > "$ATOM_OUT/packages-final.log"
+for pkg in "$PWD"/.lake/packages/*/; do
+  head="$(git -C "$pkg" rev-parse HEAD)"
+  status="$(git -C "$pkg" status --porcelain --untracked-files=normal)"
+  if [ -z "$status" ]; then state=clean; else state=dirty; fi
+  printf '%s %s %s\n' "$(basename "$pkg")" "$head" "$state" >> "$ATOM_OUT/packages-final.log"
+done
 INNER
 cd "$ROOT"
 python3 -B -S "$SIDE/check.py" finish "$OUT"

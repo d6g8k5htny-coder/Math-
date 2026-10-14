@@ -6,7 +6,9 @@
     python3 gate.py --execute    the same, then a fresh `lake build`, a `leanchecker` replay, the
                                  per-declaration axiom audit against MANIFEST.json, and three
                                  negative controls (injected sorry, custom axiom, native_decide)
-                                 that the audit must reject
+                                 that the audit must reject; the exact Lean release, the dependency
+                                 checkouts and the bound source identity are observed before the
+                                 first and after the last Lean execution, and must agree
 
 Scientific effect: NONE. A green gate is kernel evidence for the displayed Lean statements only.
 It is not an alignment review and not an acceptance of any parent theorem.
@@ -30,6 +32,8 @@ FORBIDDEN = ('sorry', 'admit', 'axiom', 'native_decide', 'implemented_by', 'exte
              'opaque', 'set_option', 'macro', 'elab', 'syntax', 'run_cmd', 'run_tac', 'decreasing_by',
              'partial', 'debug', 'ofReduceBool', 'trustCompiler')
 SKIP_DIRS = {'.lake', '__pycache__'}
+# Official release commit of each Lean version this packet may pin. A pin with no entry fails closed.
+LEAN_RELEASE_COMMITS = {'4.34.1': '5045d0056413266e57c625dcd7c365b10e377c52'}
 
 
 def sha(data):
@@ -116,7 +120,9 @@ def audit_axioms(text, targets, allowed):
     return records
 
 
-def source_check(root=ROOT, repo=REPO):
+def source_check(root=None, repo=None):
+    root = ROOT if root is None else root  # resolved at call time, not bound at import
+    repo = REPO if repo is None else repo
     m = load_json((root / 'MANIFEST.json').read_text())
     present = sorted(p.relative_to(root).as_posix() for p in root.rglob('*')
                      if p.is_file() and not SKIP_DIRS & set(p.relative_to(root).parts))
@@ -162,11 +168,22 @@ def pinned_lean_version(toolchain):
 
 
 def check_lean_version(text, toolchain):
-    """The running Lean must be exactly the pinned release, not merely a compatible one."""
+    """The running Lean must be exactly the pinned release, not merely a compatible one.
+
+    The last non-empty line of `lake env lean --version` (lake may print `info:` lines first, and
+    nothing else) must fully match the pinned version, its official release commit and a Release
+    build."""
     version = pinned_lean_version(toolchain)
-    require(re.match(r'Lean \(version ' + re.escape(version) + r',', text.strip()) is not None,
-            'running Lean differs from the pinned ' + version + ': ' + text.strip()[:120])
-    return text.strip()
+    require(version in LEAN_RELEASE_COMMITS, 'no official release commit recorded for the pinned ' + version)
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    require(lines and all(line.startswith('info:') for line in lines[:-1]),
+            'unexpected output around the Lean version: ' + repr(text[:200]))
+    line = lines[-1]
+    pattern = (r'Lean \(version ' + re.escape(version) + r', [^()\r\n]+, commit '
+               + LEAN_RELEASE_COMMITS[version] + r', Release\)')
+    require(re.fullmatch(pattern, line) is not None,
+            'running Lean is not the pinned release ' + version + ': ' + repr(line[:160]))
+    return line
 
 
 def check_worktree_clean(name, status):
@@ -186,6 +203,18 @@ def dependency_state(m):
     return actual
 
 
+def source_identity(m, root=None, repo=None):
+    """SHA-256 over the source that source_check binds, read afresh from disk: the bytes of
+    MANIFEST.json itself, of every manifest file and of every pinned source on main, by name and
+    SHA-256 in manifest order. Any byte change to any of them changes the digest."""
+    root = ROOT if root is None else root
+    repo = REPO if repo is None else repo
+    parts = [('MANIFEST.json', root / 'MANIFEST.json')]
+    parts += [(e['path'], root / e['path']) for e in m['files']]
+    parts += [('main:' + pin['path'], repo / pin['path']) for pin in m['pins_on_main']]
+    return sha(''.join(name + '\0' + sha(path.read_bytes()) + '\n' for name, path in parts).encode())
+
+
 def run(command, label, out, expect_success=True):
     proc = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, timeout=1800)
     log = proc.stdout + proc.stderr
@@ -195,13 +224,23 @@ def run(command, label, out, expect_success=True):
     return log
 
 
+def observe(m, out, label):
+    """One observation of what execution runs against, read afresh: the exact Lean release (G1),
+    every dependency at its pinned HEAD with a clean worktree, and the source identity re-checked by
+    source_check against the manifest bound before execution. The source is read last."""
+    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], label, out), m['toolchain'])
+    revisions = dependency_state(m)
+    require(source_check(ROOT, REPO) == m, 'MANIFEST.json differs from the manifest bound before execution')
+    return {'lean_version': version, 'dependency_revisions': revisions, 'dependency_worktrees': 'CLEAN',
+            'source_identity_sha256': source_identity(m)}
+
+
 def execute(m):
     out = ROOT / '.lake' / 'evidence'
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version', out), m['toolchain'])
-    dependency_state(m)
+    preflight = observe(m, out, 'version')  # before the first Lean execution
     build = ROOT / '.lake' / 'build'
     require(not build.is_symlink(), 'symlink build directory')
     if build.exists():
@@ -230,17 +269,23 @@ def execute(m):
             outcomes[label] = 'REJECTED'
             continue
         raise ValueError('negative control escaped the audit: ' + label)
-    actual = dependency_state(m)
+    final = observe(m, out, 'version_final')  # after the last Lean execution, before the receipt
+    require(final['lean_version'] == preflight['lean_version'],
+            'Lean runtime changed during execution: ' + repr((preflight['lean_version'], final['lean_version'])))
+    require(final['dependency_revisions'] == preflight['dependency_revisions'], 'dependency revisions changed during execution')
+    require(final['source_identity_sha256'] == preflight['source_identity_sha256'], 'bound source changed during execution')
+    require(final == preflight, 'execution observations differ')
     receipt = {
         'scientific_effect': 'NONE',
         'module': MODULE,
-        'lean_version': version,
+        'lean_version': final['lean_version'],
         'toolchain': m['toolchain'],
-        'dependency_revisions': actual,
+        'dependency_revisions': final['dependency_revisions'],
         'source_sha256': {e['path']: e['sha256'] for e in m['files']},
         'build': 'PASS', 'leanchecker': 'PASS', 'dependency_worktrees': 'CLEAN',
         'axioms': axioms,
         'negative_controls': outcomes,
+        'observations': {'preflight': preflight, 'final': final},
         'alignment_review': 'NOT_CLAIMED'}
     text = json.dumps(receipt, indent=2, sort_keys=True) + '\n'
     (out / 'receipt.json').write_text(text)

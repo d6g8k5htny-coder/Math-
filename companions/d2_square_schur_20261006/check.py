@@ -18,9 +18,9 @@ ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_square_schur_20261006'
 WORKFLOW='.github/workflows/d2-square-schur.yml'
 REPO='d6g8k5htny-coder/Math-'
-CORE_TREE='38b6d1a7746075b560349d184a461933745c11ce'
-CORE_MANIFEST='40cb6ffc6776717a26d2a0a66815aeef508b0c8411588fff06ff2cec43a752a1'
-CORE_GATE='278989bbba7e1f90870ea0d197a996bc0a65b2a4b217e2eb284accb1282356c1'
+CORE_TREE='fc0b11706d064b9de42331ee0a2464865107b87b'
+CORE_MANIFEST='7149915669414e22f593ce2c6540c5e10d922eb758c7464794fc64764e679778'
+CORE_GATE='25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a'
 TARGETS=tuple('D2SquareSchur.'+n for n in ('weighted_square_identity','weighted_square_lower',
     'schur_no_upper','schur_from_lower_inputs'))
 CONTROLS=('RejectSignedWeights','RejectEndpointMaximum','RejectOutsideDirection')
@@ -108,6 +108,35 @@ def emit(out):
     for label,statement in expressions.items():
         (out/(label+'.lean')).write_text('import D2SquareSchur\nopen ResearchFormalCoreR1\nexample : '+statement+' := by\n  norm_num [d2Schur, d2Alpha, d2Gamma, d2DetV]\n')
 
+LEAN_VERSION=re.compile(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)')
+
+
+def final_runtime(out,core,lock):
+    """The companion's own Lean runs follow the core gate, so the core's observations do not cover them.
+    replay.sh observes the runtime and the dependencies again after the companion's last Lean execution;
+    both must equal the core gate's equal preflight and final observations, the exact release and the lock."""
+    version=core.get('lean_version')
+    require(isinstance(version,str) and LEAN_VERSION.fullmatch(version) is not None,'core receipt runtime is not the pinned release')
+    obs=core.get('observations')
+    require(isinstance(obs,dict) and set(obs)=={'preflight','final'} and isinstance(obs['final'],dict) and obs['final']==obs['preflight'],
+            'core receipt lacks equal preflight and final observations')
+    require(obs['final'].get('lean_version')==version and obs['final'].get('dependency_revisions')==lock
+            and obs['final'].get('dependency_worktrees')=='CLEAN','core final observation differs from the lock')
+    for name in ('toolchain.log','toolchain-final.log'):
+        require((out/name).is_file() and (out/name).read_text()==version+'\n','companion runtime differs from the core gate: '+name)
+    require((out/'packages-final.log').is_file(),'missing final dependency observation')
+    seen={}
+    for line in (out/'packages-final.log').read_text().splitlines():
+        parts=line.split(' ')
+        require(len(parts)==3 and parts[0] not in seen,'malformed final dependency record')
+        seen[parts[0]]=(parts[1],parts[2])
+    require(set(seen)==set(lock),'final dependency set differs from the lock')
+    for name,(head,state) in sorted(seen.items()):
+        require(head==lock[name],'final dependency HEAD differs from the lock: '+name)
+        require(state=='clean','final dependency worktree is not clean: '+name)
+    return {'lean_version':version,'dependency_revisions':dict(sorted(lock.items())),'dependency_worktrees':'CLEAN'}
+
+
 def finish(out):
     current=source();require(strict((out/'source.json').read_bytes())==current,'source changed during execution')
     ax=core_gate().audit_axioms((out/'axioms.log').read_text(),list(TARGETS))
@@ -120,7 +149,8 @@ def finish(out):
     raw=(ROOT/'formal/.lake/formal-evidence/receipt.json').read_bytes();core=strict(raw)
     require(core['checked_commit']==current['checked_commit'] and core['manifest_sha256']==CORE_MANIFEST,'core identity')
     require(core['formalization_status']=='kernel-checked','no core kernel receipt')
-    result={**current,'axioms':ax,'theorem_count':4,'definition_count':0,'core_receipt_sha256':sha(raw),
+    final=final_runtime(out,core,strict((ROOT/'formal/manifest.json').read_bytes())['dependency_revisions'])
+    result={**current,'axioms':ax,'theorem_count':4,'definition_count':0,'core_receipt_sha256':sha(raw),'final_observation':final,
        'formalization_status':'kernel-checked','alignment_status':'PENDING_INDEPENDENT_REVIEW',
        'scientific_acceptance':False,'log_sha256':{p.name:sha(p.read_bytes()) for p in sorted(out.iterdir()) if p.is_file()}}
     (out/'receipt.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n')

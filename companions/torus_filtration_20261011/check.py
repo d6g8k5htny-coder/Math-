@@ -322,7 +322,9 @@ INJECTIONS = {
 CONTROLS = tuple(FALSE_CONTROLS) + tuple(INJECTIONS)
 # The exact membership of the evidence directory when `finish` runs (C262 gate review G3): the sixteen files emit()
 # writes, a .log/.status pair per Lean process (the external Field build, seven module builds, positive, axioms, types,
-# census, leanchecker, twelve controls), the two protocol-test transcripts and the four environment records.
+# census, leanchecker, twelve controls), the two protocol-test transcripts and the six environment records (source.json,
+# leanchecker.cmd, and the runtime guard's two observations of the running Lean and the installed dependencies: toolchain.log
+# and packages.log before the first Lean execution, toolchain-final.log and packages-final.log after the last one).
 # finish() refuses a directory with any member missing or unexpected, any member that is not a regular file, and
 # any directory already holding receipt.json: a receipt is written once and never replaced.
 EMITTED_FILES = ('Audit.lean', 'Types.lean', 'Positive.lean', 'Census.lean') + tuple(c + '.lean' for c in CONTROLS)
@@ -356,13 +358,15 @@ open Lean in
 '''
 EVIDENCE_FILES = frozenset(EMITTED_FILES) | {label + ext for label in BUILDS for ext in ('.log', '.status')} \
     | {control + ext for control in CONTROLS for ext in ('.log', '.status')} \
-    | {'leanchecker.cmd', 'packages.log', 'toolchain.log', 'source.json', 'tests.log', 'tests-optimized.log'}
-# 16 emitted + 13 processes x 2 + 12 controls x 2 + 6 records = 72 (44 before the C263/C264 registration added two
+    | {'leanchecker.cmd', 'packages.log', 'toolchain.log', 'source.json', 'tests.log', 'tests-optimized.log',
+       'toolchain-final.log', 'packages-final.log'}
+# 16 emitted + 13 processes x 2 + 12 controls x 2 + 8 records = 74 (44 before the C263/C264 registration added two
 # module builds and two controls, 54 before OrdinaryH0Controls added one module build and three controls: 2 + 3 x 3,
-# 65 before SuperlevelBarField added two builds, the external Field and the module, and one control: 2 x 2 + 3).
+# 65 before SuperlevelBarField added two builds, the external Field and the module, and one control: 2 x 2 + 3,
+# 72 before the runtime guard added the two observations after the last Lean execution).
 # An explicit check, not an `assert`: the gate must hold under -O too.
-if len(EVIDENCE_FILES) != 72:
-    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 72 members')
+if len(EVIDENCE_FILES) != 74:
+    raise RuntimeError('EVIDENCE_FILES must enumerate exactly 74 members')
 POSITIVE = '''import TorusFiltration
 open TorusFiltration
 
@@ -681,16 +685,22 @@ def lean_version(text):
     return version
 
 
-def packages(text, expected):
+def packages(text, expected, record='packages.log'):
+    """Parse one dependency observation (`<name> <HEAD> <clean|dirty>` per installed package, replay.sh
+    observe_packages): the installed set and HEADs must equal `expected` exactly and every worktree must be clean."""
     records = {}
+    dirty = []
     for line in text.splitlines():
-        match = re.fullmatch(r'([A-Za-z][A-Za-z0-9_.-]*) ([0-9a-f]{40})', line)
-        require(match is not None, 'malformed package line: ' + repr(line))
-        name, rev = match.groups()
-        require(name not in records, 'duplicate installed package: ' + name)
+        match = re.fullmatch(r'([A-Za-z][A-Za-z0-9_.-]*) ([0-9a-f]{40}) (clean|dirty)', line)
+        require(match is not None, 'malformed package line in ' + record + ': ' + repr(line))
+        name, rev, state = match.groups()
+        require(name not in records, 'duplicate installed package in ' + record + ': ' + name)
         records[name] = rev
-    require(records == expected, 'installed dependency HEADs differ from formal/lake-manifest.json: '
+        if state != 'clean':
+            dirty.append(name)
+    require(records == expected, 'installed dependency HEADs differ from formal/lake-manifest.json in ' + record + ': '
             + repr(sorted(set(records.items()) ^ set(expected.items()))))
+    require(not dirty, 'installed dependency worktree not clean in ' + record + ': ' + repr(sorted(dirty)))
     return records
 
 
@@ -818,8 +828,16 @@ def finish(out):
             consumed = out / emitted.name
             require(consumed.is_file() and consumed.read_bytes() == emitted.read_bytes(),
                     'emitted Lean file changed across execution: ' + emitted.name)
+    # Runtime guard: the running Lean and the installed dependencies, observed before the first Lean execution and again
+    # after the last one, must each be the pinned release and the manifest's revisions with clean worktrees, and the two
+    # toolchain observations must be byte-identical. Two instants, not continuous custody of the runtime between them.
+    expected = current['environment']['dependency_revisions']
     version = lean_version((out / 'toolchain.log').read_text())
-    installed = packages((out / 'packages.log').read_text(), current['environment']['dependency_revisions'])
+    installed = packages((out / 'packages.log').read_text(), expected, 'packages.log')
+    final_version = lean_version((out / 'toolchain-final.log').read_text())
+    require((out / 'toolchain-final.log').read_bytes() == (out / 'toolchain.log').read_bytes(),
+            'running Lean differs between toolchain.log and toolchain-final.log: ' + repr((version, final_version)))
+    final_installed = packages((out / 'packages-final.log').read_text(), expected, 'packages-final.log')
     for label in BUILDS:
         require((out / (label + '.status')).read_bytes() == b'0\n', 'missing successful process: ' + label)
     require((out / 'leanchecker.cmd').is_file(), 'leanchecker invocation record absent')
@@ -842,7 +860,10 @@ def finish(out):
         'alignment_status': 'PENDING_INDEPENDENT_REVIEW', 'scientific_acceptance': False,
         'checked_commit': current['checked_commit'], 'repository': current['repository'],
         'run_id': current['run_id'], 'run_attempt': current['run_attempt'], 'lean_version': version,
-        'dependency_revisions': installed, 'sources': current['sources'], 'declarations': current['declarations'],
+        'dependency_revisions': installed, 'lean_version_final': final_version,
+        'dependency_revisions_final': final_installed,
+        'dependency_worktrees': {'before_first_lean': 'clean', 'after_last_lean': 'clean'},
+        'sources': current['sources'], 'declarations': current['declarations'],
         'theorem_count': len(current['theorems']), 'definition_count': definitions, 'axioms': axioms,
         'negative_controls': outcomes, 'provenance': current['provenance'], 'external_inputs': EXTERNAL_INPUTS,
         'leanchecker': {'command': (out / 'leanchecker.cmd').read_text().strip(), 'mode': mode},

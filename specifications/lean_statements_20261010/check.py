@@ -10,7 +10,10 @@
                                      and `#print axioms` of every registered declaration, the
                                      environment audit (every constant Lean added for the five
                                      modules, classified by its ConstantInfo and compared with the
-                                     register), real negative controls, a receipt under .lake/evidence/
+                                     register), real negative controls, the exact Lean release and
+                                     the dependency checkouts re-observed after the last Lean run
+                                     (both must equal the preflight observation), a receipt under
+                                     .lake/evidence/ recording both observations
     python3 check.py --allow-dirty   local development only: the clean-worktree requirement is
                                      skipped; a receipt then records the worktree as unverified
                                      and must not be trusted as evidence about any commit
@@ -704,6 +707,20 @@ def dependency_state(root: Path, revs: dict) -> dict:
     return actual
 
 
+def final_observation(lake: str, root: Path, env: dict, out: Path, version: str, revs: dict) -> dict:
+    """The runtime re-observed after the last Lean execution: `lake env lean --version` again (log
+    `version-final`), held to the pinned release by `check_lean_version` and to the preflight line
+    exactly, and `dependency_state` again, held to the preflight revisions and to clean worktrees.
+    The preflight observation alone says nothing about the runtime the later runs used, so any
+    difference fails closed and no receipt is written."""
+    final_version = check_lean_version(run([lake, 'env', 'lean', '--version'], 'version-final', out, root, env))
+    require(final_version == version, 'running Lean changed during execution: preflight ' + repr(version[:160])
+            + ', final ' + repr(final_version[:160]))
+    final_revs = dependency_state(root, revs)
+    require(final_revs == revs, 'dependency revisions changed during execution: preflight ' + repr(revs) + ', final ' + repr(final_revs))
+    return {'lean_version': final_version, 'dependency_revisions': final_revs, 'dependency_worktrees': 'CLEAN'}
+
+
 def audit_axioms(text: str, targets: list) -> dict:
     require(isinstance(targets, list) and targets and len(set(targets)) == len(targets), 'empty or duplicate target list')
     records = {}
@@ -1051,6 +1068,7 @@ def execute(root: Path, repo: Path, info: dict, allow_dirty: bool, modules=MODUL
     after = source_check(root, repo, allow_dirty, modules)
     require(after['register_sha256'] == info['register_sha256'] and after['module_sha256'] == info['module_sha256']
             and after['checked_commit'] == info['checked_commit'], 'packet changed during execution')
+    final = final_observation(lake, root, env, out, version, revs)  # after the last Lean execution (the controls)
     declarations = [{'name': d['name'], 'module': m, 'kind': d['kind'], 'lean': d['lean'], 'source_id': d['source_id'],
                      'doc_anchor': d['doc_anchor'], 'line': d['line'], 'signature': sigs[d['name']], 'axioms': axioms[d['name']],
                      'formal_progress': 'specified'} for m in modules for d in info['scans'][m] if d['kind']]
@@ -1072,7 +1090,9 @@ def execute(root: Path, repo: Path, info: dict, allow_dirty: bool, modules=MODUL
                'declarations': len(names), 'prop_definitions': info['prop_definitions'], 'structures': info['structures'],
                'auxiliary_definitions': info['auxiliary_definitions'], 'claims': info['claims'], 'statements': info['statements'],
                'axioms': axioms, 'environment_audit': environment, 'lean_options': {'autoImplicit': False},
-               'negative_controls': outcomes, 'build': 'PASS', 'leanchecker': 'PASS', 'dependency_worktrees': 'CLEAN'}
+               'negative_controls': outcomes, 'build': 'PASS', 'leanchecker': 'PASS', 'dependency_worktrees': 'CLEAN',
+               'observations': {'preflight': {'lean_version': version, 'dependency_revisions': revs, 'dependency_worktrees': 'CLEAN'},
+                                'final': final}}
     receipt['logs'] = {p.name: sha(p.read_bytes()) for p in sorted(out.glob('*.log'))}
     (out / 'receipt.json').write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n', encoding='utf-8')
     return receipt
