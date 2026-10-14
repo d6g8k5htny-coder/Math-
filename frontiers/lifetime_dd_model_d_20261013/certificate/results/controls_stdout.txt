@@ -1,0 +1,28 @@
+PASS C1a Phi(c>0) v-form 
+PASS C1b (2.7) with c > 0 equals the v-form 
+PASS C1c (2.7) with c <= 0 equals the v-form 
+PASS C1f (2.5) with c > 0 equals the v-form 
+PASS C1g (2.5) with c <= 0 equals the v-form 
+PASS C1h g_c(psi_e) = (4v^3 - 12cv)^2 
+PASS C1d c>0: Phi - R^2/48 = c rho^2 + 3 c^2 rho + 4/3 c^3 
+PASS C1e c<=0: Phi - R^2/48 = -m v^4 - 3 m^2 v^2 
+PASS C2 c0 = 24 sqrt(pi)/(57600 pi) 0.000235078993144898452895033104821
+PASS C2b c0 = 1/(2400 sqrt(pi)) 
+PASS C3a half-line moments vs Riemann sums 
+PASS C3b completing the square: log pre = -a mu^2/Delta 
+PASS C4 I_quad - R^2/48 identity 
+PASS C5 |g| <= g~ at 6140 points max ratio 0.9935
+PASS C5b I(0, 0) = 20/3 
+PASS C6a p1, p2 
+PASS C6b E[Z^m p_k(Z)] = m^k E[Z^m] 
+PASS C6c Bell polynomials vs finite differences 
+PASS C7a C_12(3/10, 1) = 404.1... 404.06565982280193
+PASS C7b T_11 has no terms of degree <= 2 
+PASS C7c degree 3-4 terms of T_11 
+PASS C7d localization: v_lo - eps > sqrt(1 + Bt), E_max <= eps Gmin 
+PASS C8a nodes are roots of P4 
+PASS C8b weights sum to 2 
+PASS C8c rule integrates x^6 exactly (2/7) 
+PASS C8d K_4 = 2^9 24^4/(9 (8!)^3) 
+PASS C9 v-tail bound: enclosures with v1 = 3 and automatic v1 intersect (tails of relative size O(1)) 
+controls: ALL PASS

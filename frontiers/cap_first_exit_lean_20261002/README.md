@@ -235,3 +235,19 @@ The workflow `.github/workflows/cap-first-exit-lean.yml` runs all of this on pul
 A green run is kernel evidence for the displayed Lean statements, relative to Lean's kernel and the pinned toolchain.
 It does not show that the statements say what the source says. That is the job of the alignment review requested
 in [ALIGNMENT.md](ALIGNMENT.md), which must come from a non-Claude lane.
+
+## Uniform runtime guard successor (2026-10-13)
+
+The tool/version adoption guard ([main#275 6154089628](https://github.com/d6g8k5htny-coder/main/issues/275#issuecomment-6154089628))
+tightens `gate.py --execute`:
+
+- the version check now requires the full official release: the last line of `lake env lean --version` must be
+  `Lean (version 4.34.1, …, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)`, with only `info:` lines
+  before it. A matching semver with another commit, or a non-Release build, is refused;
+- one observation is taken before the first Lean execution and one after the last: the exact release, every
+  dependency at its pinned HEAD with a clean worktree, and a digest of the bound source (this manifest, its files
+  and the pinned sources on `main`). The two must be equal, or no receipt is written;
+- the receipt adds `observations` (`preflight` and `final`); every earlier key keeps its meaning.
+
+The new tests drive `execute` with synthetic process results and do not run Lean. The paragraphs above are kept as
+written. This changes no statement, proof, import, toolchain or dependency pin, and no scientific status.

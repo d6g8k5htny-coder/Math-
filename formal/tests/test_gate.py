@@ -160,7 +160,8 @@ class RuntimeVersionTests(unittest.TestCase):
         self.calls = []
         self.version_index = 0
 
-    def execute_synthetic(self, versions, version_exit=0, mutate_source=False, wrong_dependency=False):
+    def execute_synthetic(self, versions, version_exit=0, mutate_source=False, wrong_dependency=False,
+                          dirty_dependency=None, drift_dependency=False, env=None):
         def external_run(command, **kwargs):
             self.calls.append(command)
             if command == ['lake', 'env', 'lean', '--version']:
@@ -186,11 +187,16 @@ class RuntimeVersionTests(unittest.TestCase):
             if command == ['git', 'rev-parse', 'HEAD']:
                 return 'b' * 40 + '\n'
             name = Path(command[2]).name
+            final_phase = self.version_index >= 2  # after the final version observation
+            if command[3:] == ['status', '--porcelain', '--untracked-files=normal']:
+                dirty = dirty_dependency == 'preflight' and not final_phase or dirty_dependency == 'final' and final_phase
+                return ' M Mathlib/Injected.lean\n' if dirty else ''
             revision = self.manifest['dependency_revisions'][name]
-            return ('c' * 40 if wrong_dependency else revision) + '\n'
+            return ('c' * 40 if wrong_dependency or drift_dependency and final_phase else revision) + '\n'
 
         with patch.object(gate.subprocess, 'run', side_effect=external_run), \
              patch.object(gate.subprocess, 'check_output', side_effect=external_git), \
+             patch.dict(gate.os.environ, env or {}), \
              contextlib.redirect_stdout(io.StringIO()):
             return gate.execute(self.manifest, self.digest)
 
@@ -288,6 +294,68 @@ class RuntimeVersionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'installed dependency HEAD differs from lock'):
             self.execute_synthetic([self.RELEASE], wrong_dependency=True)
         self.assert_no_receipt()
+
+class RuntimeGuardTests(unittest.TestCase):
+    # The uniform runtime guard: the exact release, locked and clean dependencies and the bound
+    # sources are observed before the first Lean execution and again after the last one, and the
+    # two observations must be equal. These controls fail on a gate that checks only versions.
+    # Reuses the synthetic-process harness above without re-running its tests.
+    RELEASE = RuntimeVersionTests.RELEASE
+    OTHER_PLATFORM = RELEASE.replace('x86_64-unknown-linux-gnu', 'aarch64-unknown-linux-gnu')
+    fixture = RuntimeVersionTests.fixture
+    execute_synthetic = RuntimeVersionTests.execute_synthetic
+    assert_no_receipt = RuntimeVersionTests.assert_no_receipt
+
+    def test_dirty_dependency_before_execution_refuses_and_preserves_build(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'dependency worktree is not clean'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='preflight')
+        self.assertEqual(self.calls, [['lake', 'env', 'lean', '--version']])
+        self.assertTrue(self.sentinel.exists(), 'preflight refusal deleted the old build')
+        self.assert_no_receipt()
+
+    def test_wrong_dependency_before_execution_refuses_and_preserves_build(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'installed dependency HEAD differs from lock'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], wrong_dependency=True)
+        self.assertEqual(self.calls, [['lake', 'env', 'lean', '--version']])
+        self.assertTrue(self.sentinel.exists(), 'preflight refusal deleted the old build')
+        self.assert_no_receipt()
+
+    def test_dependency_dirtied_during_execution_refuses_receipt(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'dependency worktree is not clean'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], dirty_dependency='final')
+        self.assertEqual(self.version_index, 2)
+        self.assert_no_receipt()
+
+    def test_dependency_moved_during_execution_refuses_receipt(self):
+        self.fixture()
+        with self.assertRaisesRegex(ValueError, 'installed dependency HEAD differs from lock'):
+            self.execute_synthetic([self.RELEASE, self.RELEASE], drift_dependency=True)
+        self.assertEqual(self.version_index, 2)
+        self.assert_no_receipt()
+
+    def test_runtime_changed_between_observations_refuses_receipt(self):
+        # Both lines are well-formed records of the pinned release; only the platform differs.
+        self.fixture()
+        self.assertEqual(gate.check_lean_version(self.OTHER_PLATFORM), self.OTHER_PLATFORM)
+        with self.assertRaisesRegex(ValueError, 'changed during execution'):
+            self.execute_synthetic([self.RELEASE, self.OTHER_PLATFORM])
+        self.assert_no_receipt()
+
+    def test_receipt_binds_attempt_and_both_equal_observations(self):
+        self.fixture()
+        receipt = self.execute_synthetic([self.RELEASE, self.RELEASE],
+                                         env={'GITHUB_RUN_ID': '12345', 'GITHUB_RUN_ATTEMPT': '2'})
+        self.assertEqual(receipt['workflow_run_id'], '12345')
+        self.assertEqual(receipt['workflow_run_attempt'], '2')
+        self.assertEqual(receipt['dependency_worktrees'], 'CLEAN')
+        expected = {'lean_version': self.RELEASE, 'dependency_revisions': self.manifest['dependency_revisions'],
+                    'dependency_worktrees': 'CLEAN', 'manifest_sha256': self.digest}
+        self.assertEqual(receipt['observations'], {'preflight': expected, 'final': expected})
+        written = json.loads((self.root / '.lake/formal-evidence/receipt.json').read_text())
+        self.assertEqual(written['observations'], receipt['observations'])
 
 class SuccessorTests(unittest.TestCase):
     def test_only_documented_algebra_repairs(self):

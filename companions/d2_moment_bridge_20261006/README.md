@@ -175,3 +175,28 @@ The pin checks the reported compiler identity; it is not executable-byte
 authentication or independent source alignment. New current-commit
 kernel receipts and hosted checks are still required after publication.
 Alignment remains PENDING_INDEPENDENT_REVIEW; scientific effect NONE.
+
+## Uniform runtime guard successor — 2026-10-13
+
+The tool/version adoption guard ([main#275 6154089628](https://github.com/d6g8k5htny-coder/main/issues/275#issuecomment-6154089628))
+requires the exact runtime and clean locked dependencies to be observed
+before the first and after the last Lean execution of every path. This
+companion's own Lean runs follow the core gate, so the core receipt's
+observations do not cover them. `replay.sh` now writes `toolchain-final.log`
+and `packages-final.log` (name, HEAD and clean/dirty for each dependency)
+after the companion's last Lean execution. `check.py finish` requires both
+toolchain lines to equal the core receipt's exact release, every final
+dependency to equal the formal lock and be clean, and the core receipt to
+carry equal preflight and final observations. The companion receipt records
+the final observation.
+
+This consumer now pins whole formal tree `fc0b11706d064b9de42331ee0a2464865107b87b`,
+manifest SHA256 `7149915669414e22f593ce2c6540c5e10d922eb758c7464794fc64764e679778`,
+and gate SHA256 `25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a`.
+
+All earlier document text is preserved as the historical prefix. Proofs,
+imports, toolchain/dependency locks, workflows and contracts keep their
+bytes. The new tests are synthetic and do not execute Lean. New
+current-commit kernel receipts and hosted checks are still required after
+publication. Alignment remains PENDING_INDEPENDENT_REVIEW; scientific
+effect NONE.

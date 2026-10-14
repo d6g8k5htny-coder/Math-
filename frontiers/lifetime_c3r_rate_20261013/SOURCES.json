@@ -1,0 +1,272 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-C3R-RATE-INCORPORATION-20261013-v1",
+ "note_of_record": "C3R/PROOF.md is note C3-R v1.1 (comment 6146713287): v1.0 (C3R/PROOF_v1_0_AS_READ.md, comment 6145991558, the body both slice reads hashed) with the Slice B AMEND applied (Remark 2); the readback of v1.0 -> v1.1 is C3R/REVIEW_READBACK.md",
+ "kind": "additive incorporation of a public native note, its controls, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "note": "the incorporator is also the author of note C3-R (custody only; no proof byte is changed); serving model Claude Opus 5.5 from about 12:30Z, 13 October (same session)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/307"
+ ],
+ "controls_pin": "the controls comment (C3R/AUTHOR_CONTROLS_COMMENT.md) pins the four control files by byte count, SHA-256 and git blob at Math- commit 9232eff05a5753f41c9ea5528f797b7bf1df1967 (branch claude/dd-model-d-enclosure-wip-20261013, directory frontiers/dd_model_d_enclosure_20261013/wip_20261013T0245Z/c3r/); controls/ holds the same bytes (scripts in controls/, stdout records in controls/results/)",
+ "related_packets": {
+  "frontiers/lifetime_two_thirds_chain_20261007/": "note C3 (Theorem C3, the skeleton quantified here; its sections 2-4) and note LU (Theorem U=, Lemma Pi, section 4)",
+  "frontiers/candidate_parity_rate_20261001/": "#237 (Lemma R (R.2), (R.4); Lemma K (K.1); Step U2 (a); Step U4)",
+  "frontiers/candidate_third_order_20261001/": "#218 (Lemma D; (1.2))",
+  "frontiers/third_order_rate_20261001/": "#229 ((W+.2))",
+  "frontiers/c7_elder_two_thirds_20261007/": "note C7 (Remark 2 of note C3-R says which of its rows inherit the rate)"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that record no pickup, verdict or author response are not stored",
+  "author-side referee round": "the two same-session, same-provider referee reports are kept in the author's record, not here; the note's Remark 5 lists their applied findings",
+  "the malformed first controls post": "comment 6146000791 (its shell-quoted fields empty) was deleted within a minute and is disclosed in the controls comment"
+ },
+ "stored": [
+  {
+   "path": "C3R/TASK_DEFINITION.md",
+   "role": "author task definition of note C3-R (a rate after the l^{2/3} term: Theorem C3 with O(l^{2/3+delta})), 13 October 2026",
+   "comment": "6145245957",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145245957",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:11:32Z",
+   "updated_at": "2026-10-13T12:11:32Z",
+   "bytes": 5931,
+   "sha256": "1b734d7a1300b7f52d5b37efdd9871dbae4d7b198d95a18b3f297abe12fe2095"
+  },
+  {
+   "path": "C3R/CLAIM.md",
+   "role": "author D5 claim for note C3-R, lease to 20:00Z",
+   "comment": "6145251763",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145251763",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:11:53Z",
+   "updated_at": "2026-10-13T12:11:53Z",
+   "bytes": 1235,
+   "sha256": "e5d8266d2536521c4d72ad8a5f220330e633df458ba50eda76dd90fa6334311b"
+  },
+  {
+   "path": "C3R/CHECKPOINT.md",
+   "role": "author checkpoint (the plan and state, a serving-model note)",
+   "comment": "6145310922",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145310922",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:15:22Z",
+   "updated_at": "2026-10-13T12:15:22Z",
+   "bytes": 1252,
+   "sha256": "8dba3684d1b2911fa8617c13f1736c74240ddc563dde3d2086987d1d1abbfaeb"
+  },
+  {
+   "path": "C3R/PROOF_v1_0_AS_READ.md",
+   "role": "note C3-R v1.0 as posted: the body both slice reads hashed (frozen; never edited)",
+   "comment": "6145991558",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6145991558",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:53:21Z",
+   "updated_at": "2026-10-13T12:53:21Z",
+   "bytes": 28268,
+   "sha256": "5d465e1be578de19f18439116299771c8aa64f5bc4030eba5187a2a3002f2c2e"
+  },
+  {
+   "path": "C3R/AUTHOR_CONTROLS_COMMENT.md",
+   "role": "author controls comment: pins c3r_exact.py, c3r_mutants.py and their stdout (byte counts, SHA-256, git blobs) at Math- commit 9232eff05a5753f41c9ea5528f797b7bf1df1967 and quotes the stdout; discloses a malformed first attempt (6146000791, deleted within a minute)",
+   "comment": "6146012232",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146012232",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:54:30Z",
+   "updated_at": "2026-10-13T12:54:30Z",
+   "bytes": 5954,
+   "sha256": "968dcb44b82670fbb80f81b147db0c945e8c9cf5845875d18b0fa8b61685e490"
+  },
+  {
+   "path": "C3R/READ_REQUEST_SLICE_A_SUMMONS.md",
+   "role": "summons of one Cursor agent for Slice A (sections 0-2; D2)",
+   "comment": "6146021645",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146021645",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:55:01Z",
+   "updated_at": "2026-10-13T12:55:01Z",
+   "bytes": 3294,
+   "sha256": "d73195c8be010cd69d564f0bbfff2cd698547dc2dad2e221793d8727ec9209e5",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "C3R/REVIEW_SLICE_A.md",
+   "role": "nonauthor verdict, Slice A (sections 0-2): PASS (Cursor agent bc-994338a5, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place because GitHub refused it a new comment",
+   "comment": "6146023223",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146023223",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T12:55:07Z",
+   "updated_at": "2026-10-13T13:17:14Z",
+   "bytes": 9615,
+   "sha256": "bf74295299c993af94037a51a8dd5a9dc2672187d4c99d0a3d01483cb12d5d79",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "C3R/REVIEW_SLICE_B_SUMMONS.md",
+   "role": "first summons for Slice B (sections 3-6 and the controls; spawned no agent)",
+   "comment": "6146022030",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146022030",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T12:55:03Z",
+   "updated_at": "2026-10-13T12:55:03Z",
+   "bytes": 3649,
+   "sha256": "911be20605567ae12d6c54d80a150558298a49b1774ad193742d385d1f62dfea",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "C3R/REVIEW_SLICE_B_RESUMMONS.md",
+   "role": "re-summons of one Cursor agent for Slice B (D2)",
+   "comment": "6146364489",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146364489",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T13:13:29Z",
+   "updated_at": "2026-10-13T13:13:29Z",
+   "bytes": 1044,
+   "sha256": "1cc8ad8d8403f7af1bfe8c2feccb471150f4e75415aa1bc46e2ecdc0e15f4cd4"
+  },
+  {
+   "path": "C3R/REVIEW_SLICE_B_AMEND.md",
+   "role": "nonauthor verdict, Slice B (sections 3-6, the controls replayed in both modes): AMEND of one sentence in Remark 2 (what C7 inherits) (Cursor agent bc-ef61bc68, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6146366500",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146366500",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T13:13:36Z",
+   "updated_at": "2026-10-13T13:28:44Z",
+   "bytes": 7550,
+   "sha256": "21f7dd081910d29fdd2eeb9c8b22e9f3899d955b96c48c4514a086b7a4883938",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "C3R/PROOF.md",
+   "role": "frozen note of record (lifetime note C3-R, v1.1): v1.0 with the AMEND of the Slice B read applied (Remark 2), the title and the version line",
+   "comment": "6146713287",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146713287",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T13:31:41Z",
+   "updated_at": "2026-10-13T13:31:41Z",
+   "bytes": 28950,
+   "sha256": "b77f954eb52273f00056d04553e292895223f66c4e5c743990975465b5177ba9",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md"
+   ]
+  },
+  {
+   "path": "C3R/AMEND_APPLIED_READBACK_SUMMONS.md",
+   "role": "author record of the applied AMEND (v1.1, the intended delta of three edits) and summons of the byte-diff readback v1.0 -> v1.1",
+   "comment": "6146718886",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146718886",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T13:31:59Z",
+   "updated_at": "2026-10-13T13:31:59Z",
+   "bytes": 3003,
+   "sha256": "4640f1f9868bbb0a73191fd71028251f0a0a6de57007dbf839f4e7c4a67802c0",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/PROOF.md"
+   ]
+  },
+  {
+   "path": "C3R/REVIEW_READBACK.md",
+   "role": "nonauthor byte-diff readback of v1.0 -> v1.1: PASS, exactly the three stated edits (Cursor agent bc-1cf2c41a, xAI Grok 4.7 grok-4.7-high-fast); recorded in the agent's cursor[bot] acknowledgement, edited in place",
+   "comment": "6146720347",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146720347",
+   "author_login": "cursor[bot]",
+   "created_at": "2026-10-13T13:32:04Z",
+   "updated_at": "2026-10-13T13:42:16Z",
+   "bytes": 4922,
+   "sha256": "4b2121421e0cac97485fd21fb29f7e872524583a2ec27d080cb6622509ea1907",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/PROOF.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "C3R/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
+   "role": "author read-complete note: the records, what is read, what the rate changes and does not, the D5 claim for this packet (lease to 22:00Z), the release of the note claim",
+   "comment": "6146954758",
+   "issue": "main#307",
+   "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6146954758",
+   "author_login": "d6g8k5htny-coder",
+   "created_at": "2026-10-13T13:44:09Z",
+   "updated_at": "2026-10-13T13:44:09Z",
+   "bytes": 3926,
+   "sha256": "3eb41cfce87c85e2375aca5a788f903dbf8e75bb86a1c98c8392c0f54bb0e4de",
+   "names_identities": [
+    "C3R/PROOF_v1_0_AS_READ.md",
+    "C3R/PROOF.md",
+    "C3R/AUTHOR_CONTROLS_COMMENT.md"
+   ]
+  },
+  {
+   "path": "controls/c3r_exact.py",
+   "role": "controls E1-E3: the exponent arithmetic of Lemma 4 and Theorem C3-R in exact rationals (exit 0 iff all pass; stdout byte-identical under -O)",
+   "bytes": 11625,
+   "sha256": "6d911f0a6c1b0cda5ddd579b26aeaab2c3cc557f6b95c0970a944de25380a335",
+   "pinned_by": "C3R/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "controls/c3r_mutants.py",
+   "role": "mutants M1-M4, each must make c3r_exact.py fail (the children run in the driver's interpreter mode)",
+   "bytes": 2027,
+   "sha256": "6afab0e79659ff0e5064a7ca4144aef485150b521c55e611e651b1d687c6c8f3",
+   "pinned_by": "C3R/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "controls/results/c3r_stdout.txt",
+   "role": "stdout of c3r_exact.py (python -B -S; identical under -B -O -S)",
+   "bytes": 2152,
+   "sha256": "684d06a01eefb160188e7769099cd42e8c7ccf5b3803edd3010a646e4513791d",
+   "pinned_by": "C3R/AUTHOR_CONTROLS_COMMENT.md"
+  },
+  {
+   "path": "controls/results/c3r_mutants_stdout.txt",
+   "role": "stdout of c3r_mutants.py (python -B -S; identical under -B -O -S)",
+   "bytes": 421,
+   "sha256": "25a233227ef286319aa312fd07e4cd508176ca2eb656dcf4d3f4fdfffca6c215",
+   "pinned_by": "C3R/AUTHOR_CONTROLS_COMMENT.md"
+  }
+ ],
+ "replays": [
+  {
+   "name": "controls",
+   "script": "controls/c3r_exact.py",
+   "stdout": "controls/results/c3r_stdout.txt"
+  },
+  {
+   "name": "mutants",
+   "script": "controls/c3r_mutants.py",
+   "stdout": "controls/results/c3r_mutants_stdout.txt"
+  }
+ ]
+}
