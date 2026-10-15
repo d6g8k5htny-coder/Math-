@@ -48,15 +48,19 @@ class FactorialJobBudgetTests(unittest.TestCase):
 
     def test_both_complete_regression_modes_run_before_manual_packet(self):
         # C166: the PR-time run moved to full-regression-suite.yml. Here the
-        # exact block stays, guarded only by the one manual-dispatch condition;
+        # discovery argv stays, with positive-count checks in the manual-only step;
         # no other condition, bypass or always-run override is permitted.
         step = named_step(self.text, REGRESSION)
         self.assertEqual(step,
                          "        if: github.event_name == 'workflow_dispatch'\n"
                          '        run: |\n'
                          '          set -euo pipefail\n'
-                         '          python -B -S -m unittest discover -s tests -v\n'
-                         '          python -B -O -S -m unittest discover -s tests -v\n')
+                         '          log_dir="$(mktemp -d)"\n'
+                         '          trap \'rm -rf "$log_dir"\' EXIT\n'
+                         '          python -B -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/normal.log"\n'
+                         '          grep -Eq \'^Ran [1-9][0-9]* tests? in [0-9]+([.][0-9]+)?s$\' "$log_dir/normal.log"\n'
+                         '          python -B -O -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/optimized.log"\n'
+                         '          grep -Eq \'^Ran [1-9][0-9]* tests? in [0-9]+([.][0-9]+)?s$\' "$log_dir/optimized.log"\n')
         self.assertLess(self.text.index(REGRESSION), self.text.index(NUMERICAL))
         self.assertEqual(re.findall(r'^.*\bif:.*$', self.text, re.MULTILINE),
                          ["        if: github.event_name == 'workflow_dispatch'"])
