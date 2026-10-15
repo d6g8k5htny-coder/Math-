@@ -4,6 +4,11 @@
 
 Mathematical candidates, proofs, programs, and reproducible calculations. Not a status register.
 
+Current and future agents: read the [15 October 2026 standing owner mandate](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md)
+alongside the current workflow and these Math- instructions. The mandate does
+not waive actual platform permissions, explicit stops, scientific evidence
+requirements, or the Grok-support-only boundary stated above.
+
 ## Always
 
 - Coordinate via [`main`](https://github.com/d6g8k5htny-coder/main) campaign work and the [`governance-`](https://github.com/d6g8k5htny-coder/governance-) working contract.
