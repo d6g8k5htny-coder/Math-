@@ -9,7 +9,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 - Coordinate via [`main`](https://github.com/d6g8k5htny-coder/main) campaign work and the [`governance-`](https://github.com/d6g8k5htny-coder/governance-) working contract.
 - Prefer exact source identities (commit/path/hash) over mutable labels.
 - Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
-- Cross-repo eng tests and Path C live in [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial).
+- [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) retains historical cross-repo eng tests and Path C material (observed archived on 15 October 2026); route current work through [main's current workflow](https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md) and the active coordination board above.
 - Calculations here use the Python standard library only (no extra pip env required in this repo).
 
 ## Never
@@ -22,7 +22,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 
 1. This repository’s [README](README.md)
 2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
-3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) (Cloud Agent env deps live on trial `.cursor/environment.json`)
+3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) is historical launch-environment documentation; the archived `.cursor/environment.json` is not current runtime or access authority.
 
 ## Additive formal lane — owner directive 2026-09-27
 
