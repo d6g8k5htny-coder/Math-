@@ -9,7 +9,8 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 - Coordinate via [`main`](https://github.com/d6g8k5htny-coder/main) campaign work and the [`governance-`](https://github.com/d6g8k5htny-coder/governance-) working contract.
 - Prefer exact source identities (commit/path/hash) over mutable labels.
 - Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
-- [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) retains historical cross-repo eng tests and Path C material (observed archived on 15 October 2026); route current work through [main's current workflow](https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md) and the active coordination board above.
+- [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) retains historical cross-repo eng tests and Path C material (observed archived on 15 October 2026); route current work through [main's current workflow](https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md) (live operational guidance) and the active coordination board above.
+  For reproducibility, [the workflow reviewed with this change](https://github.com/d6g8k5htny-coder/main/blob/4f600d9dc0441113568483fb3c34533b4be7440e/governance/OP-WORKFLOW-20260930.md) is a pinned 15 October 2026 as-of reference, **not** a substitute for the live current instructions.
 - Calculations here use the Python standard library only (no extra pip env required in this repo).
 
 ## Never
