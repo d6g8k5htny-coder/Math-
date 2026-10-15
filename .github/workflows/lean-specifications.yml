@@ -6,6 +6,14 @@ name: Lean statement specifications (statements only, no proof, no scientific pr
       - 'specifications/lean_statements_20261010/**'
       - '.github/workflows/lean-specifications.yml'
       - 'formal/lake-manifest.json'
+  push:
+    branches: [main]
+    paths:
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/lean-specifications.yml'
+      - 'formal/lake-manifest.json'
+  schedule:
+    - cron: '37 9 * * 0'
   workflow_dispatch:
 
 permissions:
@@ -57,4 +65,4 @@ jobs:
           path: specifications/lean_statements_20261010/.lake/evidence/
           include-hidden-files: true
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 90
