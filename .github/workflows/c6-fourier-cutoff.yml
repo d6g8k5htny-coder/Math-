@@ -16,6 +16,12 @@ name: C6 Fourier-cutoff finite controls
     paths:
       - 'frontiers/c6_fourier_cutoff_20260929/**'
       - '.github/workflows/c6-fourier-cutoff.yml'
+      - 'imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md'
+      - 'frontiers/c6_factorial_moment_20260929/PROOF.md'
+      - 'frontiers/c6_sharpened_20260929/PROOF.md'
+      - 'frontiers/intermediate_window_20260928/PROOF.md'
+      - 'reviews/d5_reconciliation_20260929/RECONCILIATION.md'
+      - 'reviews/d5_punctured_pin_continuum_claude_20260929/REVIEW.md'
   workflow_dispatch:
 
 permissions:

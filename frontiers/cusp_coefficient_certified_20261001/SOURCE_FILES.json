@@ -2,6 +2,12 @@
  "object": "CL-CU-CUSP-COEFFICIENT-20261001-v1",
  "files": [
   {
+   "path": "ERRATUM_20261013.md",
+   "bytes": 8430,
+   "sha256": "c6e4d0ae3854b27f31b7165ccc376d070c85093a7e442d8b951744013b9b0be1",
+   "git_blob": "a9c3f95a6e31cd1924f4952d6092d848bd80f8ef"
+  },
+  {
    "path": "NOTE.md",
    "bytes": 27264,
    "sha256": "9c74117f6b7ff2054fcfb5ddcfb4c8ad4a3a1278c201faafc5e98e7612abfc0c",
@@ -9,9 +15,9 @@
   },
   {
    "path": "README.md",
-   "bytes": 774,
-   "sha256": "58c23e1062ee0d8d8d3f17af4dd6bfca76fc897ab51fc1dcc08481e4bf5b3c39",
-   "git_blob": "8870c5bf794baa0e9d1d2eca4f1ac2a509cf30e3"
+   "bytes": 1104,
+   "sha256": "14e427b7b9c0b2b823192e37cb2728036adae493dfdebef78d04b24232bf5bdf",
+   "git_blob": "7840312a485ce480149424430ec2508bb0852086"
   },
   {
    "path": "RESULTS.json",
@@ -84,6 +90,15 @@
    "bytes": 10043,
    "sha256": "85c330d82623dc89effed5a09b8d15a8986688f5eacc922f8b9b87754f9eef35",
    "git_blob": "31da88a031f3df682d1411415bbc1a9a7f591850"
+  }
+ ],
+ "errata": [
+  {
+   "file": "ERRATUM_20261013.md",
+   "date": "2026-10-13",
+   "found_by": "Grok Bot agent 3, Math-#219 comment 5975882973 (AMEND; no numerical or code defect) with addendum 5975943358, task T8 of main#229 5975667461",
+   "corrects": "NOTE.md section 0, Consequences, second bullet (XA-219-01): the correction ratio c1/c_(3,24) is enclosed, and its reading as the relative correction of [CU] (CU.1) is conditional on Theorem CU and on side24_v1's enclosure of c_(3,24); the PR-body readings XA-219-02..04 are recorded",
+   "note_unchanged": "NOTE.md bytes unchanged (blob b2866871c10cd0a0def41e10bdaf5ecbef18241c); RESULTS.json bytes unchanged (blob 8bbd0b0c69f6b29849fb2e3a3b2ad86974130987)"
   }
  ]
 }

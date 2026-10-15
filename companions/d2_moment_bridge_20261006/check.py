@@ -13,9 +13,9 @@ SIDE=Path(__file__).resolve().parent
 ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_moment_bridge_20261006'
 WORKFLOW='.github/workflows/d2-moment-bridge.yml'
-CORE_TREE='d7422c6b1acbf3e20c75a1ed7fc13fc30125ec14'
-CORE_MANIFEST='5d7ccdb0885af7bf4a2aa6ec4dce5f5c41435bb10a0a7a426a8af286d4f035e4'
-CORE_GATE='958b149ea3a4ce735644a2079f817b5deddf5dc0d5ca347904ad09db6ad47d68'
+CORE_TREE='fc0b11706d064b9de42331ee0a2464865107b87b'
+CORE_MANIFEST='7149915669414e22f593ce2c6540c5e10d922eb758c7464794fc64764e679778'
+CORE_GATE='25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a'
 REPO='d6g8k5htny-coder/Math-'
 CONTROLS=('RejectZeroAtom','RejectSameRadius')
 
@@ -124,6 +124,35 @@ example : d2Delta (1 / 2) (1 / 2) (1 / 2) = 0 := zero_atom_counterexample.2
         (out/(name+'.lean')).write_text('import D2MomentBridge\nopen ResearchFormalCoreR1\nexample : '+statement+' := by\n  norm_num [d2Delta]\n')
 
 
+LEAN_VERSION=re.compile(r'Lean \(version 4\.34\.1, [^()\r\n]+, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release\)')
+
+
+def final_runtime(out,core,lock):
+    """The companion's own Lean runs follow the core gate, so the core's observations do not cover them.
+    replay.sh observes the runtime and the dependencies again after the companion's last Lean execution;
+    both must equal the core gate's equal preflight and final observations, the exact release and the lock."""
+    version=core.get('lean_version')
+    require(isinstance(version,str) and LEAN_VERSION.fullmatch(version) is not None,'core receipt runtime is not the pinned release')
+    obs=core.get('observations')
+    require(isinstance(obs,dict) and set(obs)=={'preflight','final'} and isinstance(obs['final'],dict) and obs['final']==obs['preflight'],
+            'core receipt lacks equal preflight and final observations')
+    require(obs['final'].get('lean_version')==version and obs['final'].get('dependency_revisions')==lock
+            and obs['final'].get('dependency_worktrees')=='CLEAN','core final observation differs from the lock')
+    for name in ('toolchain.log','toolchain-final.log'):
+        require((out/name).is_file() and (out/name).read_text()==version+'\n','companion runtime differs from the core gate: '+name)
+    require((out/'packages-final.log').is_file(),'missing final dependency observation')
+    seen={}
+    for line in (out/'packages-final.log').read_text().splitlines():
+        parts=line.split(' ')
+        require(len(parts)==3 and parts[0] not in seen,'malformed final dependency record')
+        seen[parts[0]]=(parts[1],parts[2])
+    require(set(seen)==set(lock),'final dependency set differs from the lock')
+    for name,(head,state) in sorted(seen.items()):
+        require(head==lock[name],'final dependency HEAD differs from the lock: '+name)
+        require(state=='clean','final dependency worktree is not clean: '+name)
+    return {'lean_version':version,'dependency_revisions':dict(sorted(lock.items())),'dependency_worktrees':'CLEAN'}
+
+
 def finish(out):
     initial=strict((out/'source.json').read_bytes());current=source()
     require(initial==current,'source changed across execution')
@@ -140,8 +169,9 @@ def finish(out):
     require(receipt['checked_commit']==current['checked_commit'],'core executed different source')
     require(receipt['manifest_sha256']==CORE_MANIFEST,'core receipt manifest')
     require(receipt['formalization_status']=='kernel-checked','no core kernel receipt')
+    final=final_runtime(out,receipt,strict((ROOT/'formal/manifest.json').read_bytes())['dependency_revisions'])
     result={**current,'axioms':ax,'theorem_count':len(metadata()['theorems']),
-      'definition_count':len(metadata()['definitions']),'core_receipt_sha256':sha(raw),
+      'definition_count':len(metadata()['definitions']),'core_receipt_sha256':sha(raw),'final_observation':final,
       'formalization_status':'kernel-checked','alignment_status':'PENDING_INDEPENDENT_REVIEW',
       'scientific_acceptance':False,'log_sha256':{p.name:sha(p.read_bytes()) for p in sorted(out.iterdir()) if p.is_file()}}
     (out/'receipt.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
