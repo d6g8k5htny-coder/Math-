@@ -33,7 +33,7 @@ PACKET = 'Verify sources, replay both modes, reject mutants'
 BIND = 'Bind tested commit'
 CONFIRM = 'Confirm the suite left the tested commit unchanged'
 MANUAL_GUARD = "github.event_name == 'workflow_dispatch'"
-MANUAL_SUITE_BLOCK = ('set -euo pipefail\n'
+ORIGINAL_SUITE_BLOCK = ('set -euo pipefail\n'
                'python -B -S -m unittest discover -s tests -v\n'
                'python -B -O -S -m unittest discover -s tests -v\n')
 CENTRAL_SUITE_BLOCK = (
@@ -45,6 +45,7 @@ CENTRAL_SUITE_BLOCK = (
     "python -B -O -S -m unittest discover -s tests -v 2>&1 | tee \"$log_dir/optimized.log\"\n"
     "grep -Eq '^Ran [1-9][0-9]* tests? in [0-9]+([.][0-9]+)?s$' \"$log_dir/optimized.log\"\n"
 )
+MANUAL_SUITE_BLOCK = CENTRAL_SUITE_BLOCK
 NORMAL = ['-B', '-S', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
 OPTIMIZED = ['-B', '-O', '-S', '-m', 'unittest', 'discover', '-s', 'tests', '-v']
 # The complete PR trigger union of the three workflows at Math- 7014efec.
@@ -468,7 +469,7 @@ class FullSuiteRoutingTests(unittest.TestCase):
         block = named(parse(text)[1], REGRESSION)['run']
         rendered = lambda body: ''.join('          ' + line + '\n'
                                         for line in body.splitlines())
-        original = mutate(text, rendered(block), rendered(MANUAL_SUITE_BLOCK))
+        original = mutate(text, rendered(block), rendered(ORIGINAL_SUITE_BLOCK))
         self.assertEqual(hashlib.sha256(original.encode()).hexdigest(),
                          '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26')
         return original
@@ -680,6 +681,125 @@ class FullSuiteRoutingTests(unittest.TestCase):
             with self.subTest(workflow=workflow):
                 self.assertEqual(violations(workflow, source(workflow)), [])
 
+    def original_manual(self, workflow):
+        # Reverse only the manual suite body and authenticate the whole source
+        # at 6e502c1f. The packet and event condition must remain original.
+        text = source(workflow)
+        block = named(parse(text)[1], REGRESSION)['run']
+        rendered = lambda body: ''.join('          ' + line + '\n'
+                                        for line in body.splitlines())
+        original = mutate(text, rendered(block), rendered(ORIGINAL_SUITE_BLOCK))
+        data = original.encode()
+        original_blobs = {
+            'c6-palm-route': 'a9f1549911f68027b5ea778aeb74a82d1c76c16c',
+            'd5-dimension-lift': '00a40395ea7ef0276259c84c345a61e98fa42d33',
+            'c6-factorial-moment': 'b02e07ceedce6317013a8eea1c083a3cca989ff8',
+        }
+        self.assertEqual(hashlib.sha1(b'blob ' + str(len(data)).encode() +
+                                      b'\0' + data).hexdigest(), original_blobs[workflow])
+        return original
+
+    def test_manual_original_accepts_synthetic_empty_success(self):
+        for workflow in TRIO:
+            original = self.original_manual(workflow)
+            for counts in ((0, 2), (2, 0), (0, 0)):
+                with self.subTest(workflow=workflow, counts=counts):
+                    result = run_job(original, 'workflow_dispatch', counts=counts)
+                    self.assertEqual(result['conclusion'], 'success', result)
+                    self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                    self.assertTrue(result['sentinel'])
+
+    def test_manual_rejects_empty_success_before_packet(self):
+        for workflow in TRIO:
+            for counts, calls in (((0, 2), [NORMAL]), ((2, 0), [NORMAL, OPTIMIZED]),
+                                  ((0, 0), [NORMAL])):
+                with self.subTest(workflow=workflow, counts=counts):
+                    result = run_job(source(workflow), 'workflow_dispatch', counts=counts)
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertFalse(result['sentinel'])
+                    self.assertEqual(result['outcomes'][-1], (PACKET, 'skipped'))
+
+    def test_manual_accepts_singular_and_multiple_successful_tests(self):
+        for workflow in TRIO:
+            for counts in ((1, 1), (2, 13), (13, 2)):
+                with self.subTest(workflow=workflow, counts=counts):
+                    result = run_job(source(workflow), 'workflow_dispatch', counts=counts)
+                    self.assertEqual(result['conclusion'], 'success', result)
+                    self.assertEqual(result['calls'], [NORMAL, OPTIMIZED])
+                    self.assertTrue(result['sentinel'])
+
+    def test_manual_requires_positive_summary_in_each_mode(self):
+        good = 'Ran 2 tests in 0.001s'
+        for workflow in TRIO:
+            for bad in ('', 'Ran 00 tests in 0.001s', 'Ran 01 tests in 0.001s',
+                        'Ran -1 tests in 0.001s', 'Ran 1.0 tests in 0.001s',
+                        'Ran 1 test in unknown', 'prefix Ran 1 test in 0.001s',
+                        'Ran 1 test in 0.001s suffix'):
+                for index in (0, 1):
+                    with self.subTest(workflow=workflow, summary=bad, mode=index):
+                        summaries = [good, good]
+                        summaries[index] = bad
+                        result = run_job(source(workflow), 'workflow_dispatch',
+                                         summaries=summaries)
+                        self.assertEqual(result['conclusion'], 'failure', result)
+                        self.assertEqual(result['calls'], [NORMAL] if index == 0
+                                         else [NORMAL, OPTIMIZED])
+                        self.assertFalse(result['sentinel'])
+                        self.assertEqual(result['outcomes'][-1], (PACKET, 'skipped'))
+
+    def test_manual_positive_summary_cannot_hide_child_or_capture_failure(self):
+        for workflow in TRIO:
+            for mode, calls in (('normal', [NORMAL]), ('optimized', [NORMAL, OPTIMIZED])):
+                with self.subTest(workflow=workflow, failed_child=mode):
+                    result = run_job(source(workflow), 'workflow_dispatch', fail=(mode,))
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertFalse(result['sentinel'])
+                    self.assertEqual(result['outcomes'][-1], (PACKET, 'skipped'))
+                    self.assertEqual(next(x[1] for x in result['streams']
+                                          if x[0] == REGRESSION), 7)
+            for capture, calls in ((1, [NORMAL]), (2, [NORMAL, OPTIMIZED])):
+                with self.subTest(workflow=workflow, failed_capture=capture):
+                    result = run_job(source(workflow), 'workflow_dispatch',
+                                     fail_capture=(capture,))
+                    self.assertEqual(result['conclusion'], 'failure', result)
+                    self.assertEqual(result['calls'], calls)
+                    self.assertFalse(result['sentinel'])
+                    self.assertEqual(result['outcomes'][-1], (PACKET, 'skipped'))
+                    self.assertEqual(next(x[1] for x in result['streams']
+                                          if x[0] == REGRESSION), 8)
+
+    def test_manual_real_discovery_original_and_guarded_controls(self):
+        # No synthetic Python result here: run_job forwards unchanged argv to
+        # this interpreter on generated fixtures. CPython 3.11 accepts empty
+        # discovery; 3.12+ rejects it. Neither outcome is relabelled as the other.
+        for workflow in TRIO:
+            original = self.original_manual(workflow)
+            for cases in (('empty', 'pass'), ('pass', 'empty'), ('empty', 'empty'),
+                          ('pass', 'pass'), ('fail', 'pass'), ('pass', 'fail')):
+                for candidate, text in ((False, original), (True, source(workflow))):
+                    with self.subTest(workflow=workflow, candidate=candidate, cases=cases):
+                        result = run_job(text, 'workflow_dispatch', real_cases=cases)
+                        empty_fails = candidate or sys.version_info[:2] >= (3, 12)
+                        fails = 'fail' in cases or (empty_fails and 'empty' in cases)
+                        first_stops = cases[0] == 'fail' or (empty_fails and cases[0] == 'empty')
+                        self.assertEqual(result['conclusion'], 'failure' if fails else 'success',
+                                         result)
+                        self.assertEqual(result['calls'], [NORMAL] if first_stops
+                                         else [NORMAL, OPTIMIZED])
+                        self.assertEqual(result['sentinel'], not fails)
+                        self.assertEqual(result['outcomes'][-1],
+                                         (PACKET, 'skipped' if fails else 'success'))
+                        regression = next(x for x in result['streams'] if x[0] == REGRESSION)
+                        output = (regression[2] + regression[3]).decode()
+                        self.assertIn('Ran ' + ('0 tests' if cases[0] == 'empty' else '1 test'),
+                                      output)
+                        if cases == ('pass', 'empty'):
+                            self.assertIn('Ran 0 tests', output)
+                        if 'fail' in cases:
+                            self.assertIn('FAILED (failures=1)', output)
+
     def test_manual_dispatch_runs_both_modes_before_packet(self):
         for workflow in TRIO:
             text = source(workflow)
@@ -773,9 +893,9 @@ class FullSuiteRoutingTests(unittest.TestCase):
                                                    "        if: github.event_name == 'workflow_dispatch'\n"
                                                    "        run: |\n" + ''.join('          ' + l + '\n' for l in MANUAL_SUITE_BLOCK.splitlines()),
                                                    ''),
-                workflow + ' drops optimized mode': (workflow, text, '          python -B -O -S -m unittest discover -s tests -v\n', ''),
-                workflow + ' swallows failure': (workflow, text, 'python -B -S -m unittest discover -s tests -v\n',
-                                                 'python -B -S -m unittest discover -s tests -v || true\n'),
+                workflow + ' drops optimized mode': (workflow, text, '          python -B -O -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/optimized.log"\n', ''),
+                workflow + ' swallows failure': (workflow, text, 'python -B -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/normal.log"\n',
+                                                 'python -B -S -m unittest discover -s tests -v 2>&1 | tee "$log_dir/normal.log" || true\n'),
                 workflow + ' restores tests/** duplication': (workflow, text, "      - 'tests/test_d5_c6_workflows.py'\n",
                                                              "      - 'tests/test_d5_c6_workflows.py'\n      - 'tests/**'\n"),
                 workflow + ' loses helper trigger': (workflow, text, "      - 'tools/d5_c6_replay.py'\n", ''),
