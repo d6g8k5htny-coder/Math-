@@ -217,5 +217,227 @@ class RemainderWorkflowTests(unittest.TestCase):
             self.assertIn('python '+flags+' -m unittest discover -s tests -p test_remainder_rate_workflow.py -v',text)
 
 
+# Persistent successor of the author-side offline #191 fallback diagnostic.
+FALLBACK_CASES = [
+    ('valid_remote', True, None, None, 1, 1),
+    ('valid_two_remote', True, None, None, 2, 2),
+    ('valid_tree', True, None, None, 0, 1),
+    ('tree_avoids_network_error', True, None, None, 0, 1),
+    ('wrong_remote_bytes', False, 'ValueError', 'pinned blob', 1, 0),
+    ('wrong_remote_length', False, 'ValueError', 'pinned blob', 1, 0),
+    ('wrong_sha256_pin', False, 'ValueError', 'pinned blob', 1, 0),
+    ('wrong_blob_pin', False, 'ValueError', 'pinned blob', 1, 0),
+    ('wrong_size_pin', False, 'ValueError', 'pinned blob', 1, 0),
+    ('wrong_encoding', False, 'ValueError', 'unexpected blob encoding', 1, 0),
+    ('missing_content', False, 'KeyError', 'content', 1, 0),
+    ('invalid_json', False, 'JSONDecodeError', None, 1, 0),
+    ('invalid_base64', False, 'Error', None, 1, 0),
+    ('empty_content', False, 'ValueError', 'pinned blob', 1, 0),
+    ('http_error', False, 'HTTPError', '503', 1, 0),
+    ('network_timeout', False, 'TimeoutError', 'offline timeout', 1, 0),
+    ('missing_repository', False, 'KeyError', 'GH_REPOSITORY', 0, 0),
+    ('missing_token', False, 'KeyError', 'GH_TOKEN', 0, 0),
+    ('tree_tamper', False, 'ValueError', 'via tree', 0, 0),
+    ('second_remote_tamper', False, 'ValueError', 'pinned blob', 2, 1),
+    ('packet_hash_tamper', False, 'ValueError', 'packet file identity', 0, 0),
+    ('consumed_pin_tamper', False, 'ValueError', 'merged source drifted', 0, 0),
+    ('cited_pin_tamper', False, 'ValueError', 'merged source drifted', 0, 0),
+    ('extra_packet_member', False, 'ValueError', 'packet tree differs', 0, 0),
+    ('packet_symlink', False, 'ValueError', 'symlink:', 0, 0),
+]
+
+
+def fallback_observation(case):
+    """Run the actual preflight with an offline transport in an isolated child.
+
+    The production change that should break these tests is weakened dependency
+    authentication, changed request identity, or replacement of transport errors.
+    This function never runs the numerical checker or contacts a remote server.
+    """
+    import base64
+    import contextlib
+    import io
+    import urllib.error
+    import urllib.request
+
+    if case not in {row[0] for row in FALLBACK_CASES}:
+        raise ValueError('unknown offline fallback case')
+    shell = replay_shell(WORKFLOW.read_text())
+    opening = "python -B -S - <<'PY'\n"
+    stopping = "sys.path.insert(0, str(pathlib.Path('tools').resolve()))"
+    if shell.count(opening) != 1 or shell.count(stopping) != 1:
+        raise ValueError('ambiguous source-preflight boundary')
+    source = shell.split(opening, 1)[1].split(stopping, 1)[0]
+    remote_bytes = b'Synthetic immutable remote source for offline probe.\n'
+    repository = 'example/offline-fixture'
+    placeholder = 'offline-placeholder-not-a-real-token'
+    calls: list[dict] = []
+    injected = None
+    observed_error = None
+    stdout = io.StringIO()
+    with tempfile.TemporaryDirectory(prefix='pr356-offline-preflight-') as tmp:
+        root = Path(tmp)
+        packet = root / PACKET
+        packet.mkdir(parents=True)
+        payload = b'Synthetic packet member; no checker is executed.\n'
+        (packet / 'NOTE.txt').write_bytes(payload)
+        consumed = b'Synthetic consumed source\n'
+        cited = b'Synthetic cited source\n'
+        (root / 'consumed.txt').write_bytes(consumed)
+        (root / 'cited.txt').write_bytes(cited)
+        remote_rows = [identity('remote/proof.md', remote_bytes)]
+        if case in ('valid_two_remote', 'second_remote_tamper'):
+            remote_rows.append(identity('remote/second.md', remote_bytes + b'second\n'))
+        manifest = {'files': [identity('NOTE.txt', payload)],
+                    'consumed': [identity('consumed.txt', consumed)],
+                    'cited_only': [identity('cited.txt', cited)],
+                    'consumed_unmerged': remote_rows}
+        if case in ('valid_tree', 'tree_avoids_network_error', 'tree_tamper'):
+            (root / 'remote').mkdir()
+            (root / 'remote/proof.md').write_bytes(remote_bytes if case != 'tree_tamper' else remote_bytes.replace(b'Synthetic', b'synthetic', 1))
+        if case == 'wrong_sha256_pin': remote_rows[0]['sha256'] = '0' * 64
+        if case == 'wrong_blob_pin': remote_rows[0]['git_blob'] = '0' * 40
+        if case == 'wrong_size_pin': remote_rows[0]['bytes'] += 1
+        if case == 'packet_hash_tamper': (packet / 'NOTE.txt').write_bytes(payload + b'x')
+        if case == 'consumed_pin_tamper': (root / 'consumed.txt').write_bytes(consumed + b'x')
+        if case == 'cited_pin_tamper': (root / 'cited.txt').write_bytes(cited + b'x')
+        if case == 'extra_packet_member': (packet / 'EXTRA').write_bytes(b'x')
+        if case == 'packet_symlink':
+            (root / 'outside.txt').write_bytes(payload)
+            (packet / 'NOTE.txt').unlink()
+            (packet / 'NOTE.txt').symlink_to(root / 'outside.txt')
+        (packet / 'SOURCES.json').write_text(json.dumps(manifest), encoding='utf-8')
+
+        def transport(request, timeout=None):
+            nonlocal injected
+            n = len(calls)
+            if n >= len(remote_rows):
+                raise RuntimeError('unexpected extra network invocation')
+            row = remote_rows[n]
+            call = {'url': request.full_url, 'method': request.get_method(),
+                    'timeout': timeout,
+                    'authorization_matches_placeholder': request.get_header('Authorization') == 'Bearer ' + placeholder,
+                    'accept': request.get_header('Accept')}
+            calls.append(call)
+            expected = 'https://api.github.com/repos/' + repository + '/git/blobs/' + row['git_blob']
+            if request.full_url != expected or request.get_method() != 'GET':
+                raise RuntimeError('offline request URL/method mismatch')
+            if timeout != 60 or not call['authorization_matches_placeholder'] or call['accept'] != 'application/vnd.github+json':
+                raise RuntimeError('offline request timeout/header mismatch')
+            if case in ('http_error', 'tree_avoids_network_error'):
+                injected = urllib.error.HTTPError(expected, 503, 'offline service error', {}, None)
+                raise injected
+            if case == 'network_timeout':
+                injected = TimeoutError('offline timeout')
+                raise injected
+            raw = remote_bytes if n == 0 else remote_bytes + b'second\n'
+            if case == 'wrong_remote_bytes' or (case == 'second_remote_tamper' and n == 1):
+                raw = raw.replace(b'Synthetic', b'synthetic', 1)
+            if case == 'wrong_remote_length': raw += b'x'
+            body = {'encoding': 'base64', 'content': base64.b64encode(raw).decode('ascii')}
+            if case == 'wrong_encoding': body['encoding'] = 'utf-8'
+            if case == 'missing_content': del body['content']
+            if case == 'empty_content': body['content'] = ''
+            if case == 'invalid_base64': body['content'] = 'a'
+            data = b'not json' if case == 'invalid_json' else json.dumps(body).encode('utf-8')
+            return io.BytesIO(data)
+
+        old_cwd = Path.cwd()
+        saved_env = {k: os.environ.get(k) for k in ('GH_TOKEN', 'GH_REPOSITORY')}
+        original_urlopen = urllib.request.urlopen
+        try:
+            os.chdir(root)
+            os.environ['GH_TOKEN'] = placeholder
+            os.environ['GH_REPOSITORY'] = repository
+            if case == 'missing_token': os.environ.pop('GH_TOKEN')
+            if case == 'missing_repository': os.environ.pop('GH_REPOSITORY')
+            urllib.request.urlopen = transport
+            try:
+                with contextlib.redirect_stdout(stdout):
+                    exec(compile(source, '<actual-remainder-preflight>', 'exec'), {})
+            except Exception as error:
+                observed_error = {'type': type(error).__name__, 'message': str(error),
+                                  'same_injected_exception': injected is not None and error is injected}
+        finally:
+            urllib.request.urlopen = original_urlopen
+            os.chdir(old_cwd)
+            for key, value in saved_env.items():
+                if value is None: os.environ.pop(key, None)
+                else: os.environ[key] = value
+    records = [json.loads(line) for line in stdout.getvalue().splitlines()]
+    return {'case': case, 'success': observed_error is None,
+            'exception': observed_error, 'network_calls': calls, 'accepted_records': records,
+            'preflight_sha256': hashlib.sha256(source.encode()).hexdigest()}
+
+
+class RemainderFallbackTests(unittest.TestCase):
+    """Offline regression of real workflow source, with transport-only injection.
+
+    Each case is a fresh Python process and temporary filesystem. Existing
+    complete-shell tests above remain separate and do not mock subprocesses.
+    """
+
+    def check_fallback_case(self, expected):
+        case, success, error_type, reason, requests, accepted = expected
+        flags = ['-B', '-S'] + (['-O'] if sys.flags.optimize else [])
+        code = ("import json, runpy, sys; "
+                "module=runpy.run_path(sys.argv[1], run_name='offline_fallback'); "
+                "print(json.dumps(module['fallback_observation'](sys.argv[2]), sort_keys=True))")
+        result = subprocess.run([sys.executable, *flags, '-c', code,
+                                 str(Path(__file__).resolve()), case],
+                                capture_output=True, timeout=20)
+        self.assertEqual(result.returncode, 0, result.stderr.decode(errors='replace'))
+        self.assertEqual(result.stderr, b'')
+        observed = json.loads(result.stdout)
+        self.assertEqual(observed['case'], case)
+        self.assertEqual(observed['success'], success, 'fallback disposition')
+        error = observed['exception']
+        self.assertEqual(None if error is None else error['type'], error_type,
+                         'source-local failure type')
+        if reason is not None:
+            self.assertIn(reason, error['message'], 'source-local failure reason')
+        self.assertEqual(len(observed['network_calls']), requests, 'transport call count')
+        self.assertEqual(len(observed['accepted_records']), accepted,
+                         'verified dependency count')
+        if case in ('http_error', 'network_timeout'):
+            self.assertTrue(error['same_injected_exception'], 'original exception identity')
+        for n, record in enumerate(observed['accepted_records']):
+            path = 'remote/proof.md' if n == 0 else 'remote/second.md'
+            data = b'Synthetic immutable remote source for offline probe.\n'
+            if n:
+                data += b'second\n'
+            via = 'tree' if case in ('valid_tree', 'tree_avoids_network_error') else 'blob api'
+            self.assertEqual(record, {'consumed_unmerged_verified': path,
+                                      'git_blob': identity(path, data)['git_blob'], 'via': via})
+
+    def test_fallback_valid_remote_and_local_preference(self):
+        for case in FALLBACK_CASES:
+            if case[1]:
+                with self.subTest(case=case[0]):
+                    self.check_fallback_case(case)
+
+    def test_fallback_response_and_identity_rejections(self):
+        for case in FALLBACK_CASES:
+            if case[0] in ('wrong_remote_bytes', 'wrong_remote_length', 'wrong_sha256_pin',
+                           'wrong_blob_pin', 'wrong_size_pin', 'wrong_encoding',
+                           'missing_content', 'invalid_json', 'invalid_base64', 'empty_content',
+                           'missing_repository', 'missing_token', 'second_remote_tamper'):
+                with self.subTest(case=case[0]):
+                    self.check_fallback_case(case)
+
+    def test_fallback_preflight_guards_stop_network(self):
+        for case in FALLBACK_CASES:
+            if case[0] in ('tree_tamper', 'packet_hash_tamper', 'consumed_pin_tamper',
+                           'cited_pin_tamper', 'extra_packet_member', 'packet_symlink'):
+                with self.subTest(case=case[0]):
+                    self.check_fallback_case(case)
+
+    def test_fallback_transport_preserves_exception(self):
+        for case in FALLBACK_CASES:
+            if case[0] in ('http_error', 'network_timeout'):
+                with self.subTest(case=case[0]):
+                    self.check_fallback_case(case)
+
+
 if __name__ == '__main__':
     unittest.main()
