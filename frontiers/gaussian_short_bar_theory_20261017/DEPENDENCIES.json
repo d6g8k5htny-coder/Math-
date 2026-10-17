@@ -1,0 +1,502 @@
+{
+  "schema": "accepted-theory-source-dependencies-v1",
+  "state": "SOURCE_COMPOSITION_CANDIDATE_NOT_ADOPTED",
+  "edges": [
+    {
+      "from": "higher_configuration",
+      "to": "asymmetric_elder",
+      "meaning": "Exact candidate compact limit input; asymmetric geometry supplies the separate elder selection"
+    },
+    {
+      "from": "asymmetric_elder",
+      "to": "reverse_full_projected_ppp",
+      "meaning": "Actual first elder identification after reverse birth-side localization"
+    },
+    {
+      "from": "higher_configuration",
+      "to": "reverse_full_projected_ppp",
+      "meaning": "Same fixed source family candidate limit; complement bounds justify nonproper mark projection"
+    },
+    {
+      "from": "existing_Main_ST_IG",
+      "to": "smooth_gaussian_manifold_admission",
+      "meaning": "Exact classical structural and periodized Gaussian inputs; no automatic transfer of spatial PPP to every manifold law"
+    },
+    {
+      "from": "asymmetric_elder_geometric_premises",
+      "to": "formal_geometric_bridge",
+      "meaning": "Formal source proves a conditional geometric interface; analytic hypotheses are supplied, not formalized here"
+    }
+  ],
+  "existing_math_companions": [
+    {
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+      "git_blob_sha1": "b047384e20306ee030154885536c531633b88bd8",
+      "math_paths": [
+        "companions/torus_filtration_20261011/SuperlevelBar.lean"
+      ],
+      "action": "REUSE_CURRENT_MATH_SOURCE_NO_COPY",
+      "scope": "TorusTopology is retained contextual input, not a new quotient formalization",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2"
+    },
+    {
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2",
+      "git_blob_sha1": "a4323cb50fb2d5861c4e6240a18684bfb566fb80",
+      "math_paths": [
+        "companions/torus_filtration_20261011/ClosedSuperlevel.lean"
+      ],
+      "action": "REUSE_CURRENT_MATH_SOURCE_NO_COPY",
+      "scope": "TorusTopology is retained contextual input, not a new quotient formalization",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2"
+    },
+    {
+      "bytes": 19803,
+      "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88",
+      "git_blob_sha1": "7bc5f80028271e0e33d857e60496ca4cadaa9364",
+      "math_paths": [
+        "companions/torus_filtration_20261011/OrdinaryH0.lean"
+      ],
+      "action": "REUSE_CURRENT_MATH_SOURCE_NO_COPY",
+      "scope": "TorusTopology is retained contextual input, not a new quotient formalization",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2"
+    },
+    {
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1",
+      "git_blob_sha1": "ed678ea322fe5315b3aaff44e4e2f06b018399d8",
+      "math_paths": [
+        "companions/torus_filtration_20261011/TorusTopology.lean"
+      ],
+      "action": "REUSE_CURRENT_MATH_SOURCE_NO_COPY",
+      "scope": "TorusTopology is retained contextual input, not a new quotient formalization",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2"
+    }
+  ],
+  "existing_math_configurations": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2",
+      "path": "formal/lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+      "git_blob_sha1": "ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5",
+      "action": "REUSE_EXACT_EXISTING_CONFIGURATION_NO_COPY_NO_ACTIVE_NEW_PACKAGE"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2",
+      "path": "formal/lake-manifest.json",
+      "bytes": 3553,
+      "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043",
+      "git_blob_sha1": "d482b5f1e038b90397e239d2c0af82792cb0bd09",
+      "action": "REUSE_EXACT_EXISTING_CONFIGURATION_NO_COPY_NO_ACTIVE_NEW_PACKAGE"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2",
+      "path": "formal/lakefile.toml",
+      "bytes": 274,
+      "sha256": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255",
+      "git_blob_sha1": "8117eae1b2897b7d95f5b2c42e8cf15222a1c5e8",
+      "action": "REUSE_EXACT_EXISTING_CONFIGURATION_NO_COPY_NO_ACTIVE_NEW_PACKAGE"
+    }
+  ],
+  "external_runtime": {
+    "toolchain": "leanprover/lean4:v4.34.1",
+    "observed_platform": "arm64-apple-darwin24.6.0",
+    "recorded_lean_commit": "5045d0056413266e57c625dcd7c365b10e377c52",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "dependency_count": 9,
+    "packages": [
+      {
+        "name": "plausible",
+        "url": "https://github.com/leanprover-community/plausible",
+        "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c"
+      },
+      {
+        "name": "LeanSearchClient",
+        "url": "https://github.com/leanprover-community/LeanSearchClient",
+        "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707"
+      },
+      {
+        "name": "importGraph",
+        "url": "https://github.com/leanprover-community/import-graph",
+        "rev": "e928b72544873815af278d38681b31c0293588e3"
+      },
+      {
+        "name": "proofwidgets",
+        "url": "https://github.com/leanprover-community/ProofWidgets4",
+        "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+      },
+      {
+        "name": "aesop",
+        "url": "https://github.com/leanprover-community/aesop",
+        "rev": "355695d523e41d0554926416cba2a2b3544fbbc9"
+      },
+      {
+        "name": "Qq",
+        "url": "https://github.com/leanprover-community/quote4",
+        "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259"
+      },
+      {
+        "name": "batteries",
+        "url": "https://github.com/leanprover-community/batteries",
+        "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2"
+      },
+      {
+        "name": "Cli",
+        "url": "https://github.com/leanprover/lean4-cli",
+        "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+      },
+      {
+        "name": "mathlib",
+        "url": "https://github.com/leanprover-community/mathlib4.git",
+        "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612"
+      }
+    ],
+    "environment_not_in_source_packet": [
+      "Lean toolchain/standard library",
+      "external package source/build/cache trees",
+      "own compiled .olean objects",
+      "historical absolute/sibling command wrappers"
+    ],
+    "portable_wrapper": "NOT_IMPLEMENTED_IN_THIS_SOURCE_PREPARATION",
+    "new_runtime_result": "NOT_RUN",
+    "default_lake_build_covers_new_modules": false,
+    "existing_formal_gate_target_count": 63,
+    "new_elder_lean_control_audit_files_not_registered_by_this_candidate": 8,
+    "old_evidence_scope": "49 named axiom targets and8 standard stored-own-module replays; exact historical source/result review retained; not fresh Mathlib replay or external verifier",
+    "recorded_named_executables": [
+      {
+        "name": "lake",
+        "bytes": 51824,
+        "sha256": "c8c24f1398162ab4004e2a869952d8469f54293651151feaad4526f2b8474c6e"
+      },
+      {
+        "name": "lean",
+        "bytes": 49968,
+        "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+      },
+      {
+        "name": "leanchecker",
+        "bytes": 78224,
+        "sha256": "cfde41cb11dde58c84e9c60c551fd104bb2fc1104ad44dca932a923120272a35"
+      }
+    ],
+    "named_binary_identity_is_not_full_toolchain_digest": true
+  },
+  "existing_main_dependencies": [
+    {
+      "bytes": 19138,
+      "sha256": "827c82953845eb12005542ff6a4e1c99886b68d1ea9f1aeae16f981622ac6a30",
+      "git_blob_sha1": "86c9715b9aab31d61ae9848f6a89af2a21ec1eb3",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/QUANTITATIVE_FOLD_ISOLATION_PROPOSAL.md",
+          "blob_sha1": "86c9715b9aab31d61ae9848f6a89af2a21ec1eb3",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 25699,
+      "sha256": "621cee96854aa440498cecf5452a8d1e23f90a4458779c3286c18eba106fe138",
+      "git_blob_sha1": "fe555f882d31d008b631f2e51ee6c14774eaecdf",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/FINITE_FOURIER_CRITICAL_COUNT_DIAGONAL_ROUTE.md",
+          "blob_sha1": "fe555f882d31d008b631f2e51ee6c14774eaecdf",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 26687,
+      "sha256": "8e1eefca9888d43824a9fd9caca34c44d2de4bf8e30c668b474fa2097491c76b",
+      "git_blob_sha1": "1334c7086cc87d031d2fe024923b4591b1617009",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/UNIFORM_LOCAL_NORM_DIAGONAL_PROPOSAL.md",
+          "blob_sha1": "1334c7086cc87d031d2fe024923b4591b1617009",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 34627,
+      "sha256": "0dfdddfbcac47b2fd07449f4152b7f5d935f92aed15272fb8333ed9cc60b5766",
+      "git_blob_sha1": "c3358bfda5eddd536907408b8eb07748fb5cc247",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/JET_NONDEGENERACY_FACTORIZATION_OBSTRUCTION.md",
+          "blob_sha1": "c3358bfda5eddd536907408b8eb07748fb5cc247",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 18409,
+      "sha256": "f06c61e3f3e60c795a1a14e824640f1689d4143dba4f6698cada7a41929eec90",
+      "git_blob_sha1": "b50964b593ea41578186e57df5c017f1e01aabe7",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/NONAUTHOR_FOLD_ISOLATION_REVIEW.md",
+          "blob_sha1": "b50964b593ea41578186e57df5c017f1e01aabe7",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 21880,
+      "sha256": "16152427f7013822ac1bba81142429800334e6bf0f354a6439b23a1997bc4524",
+      "git_blob_sha1": "1b1313813eb81e67220170a11e833c58c78cd492",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/NONAUTHOR_FINITE_COUNT_DIAGONAL_REVIEW.md",
+          "blob_sha1": "1b1313813eb81e67220170a11e833c58c78cd492",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 23887,
+      "sha256": "ff552dfacadede53405530a219302c1163dca8ba97d518f02d407970d3de3c1c",
+      "git_blob_sha1": "2137f18c3326617f92b79c7ea0d44985f8fc3f80",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/NONAUTHOR_UNIFORM_LOCAL_NORM_REVIEW.md",
+          "blob_sha1": "2137f18c3326617f92b79c7ea0d44985f8fc3f80",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 25600,
+      "sha256": "531b9d9a16831383f2f217e61bad7dea84aca941a934e4bcaa771bedcc4e73af",
+      "git_blob_sha1": "289037fab43d93b00d2676ac7920786d21f352c8",
+      "existing_math_paths": [],
+      "existing_main_paths": [],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/NONAUTHOR_JET_FACTORIZATION_OBSTRUCTION_REVIEW.md",
+          "blob_sha1": "289037fab43d93b00d2676ac7920786d21f352c8",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE"
+    },
+    {
+      "bytes": 25367,
+      "sha256": "7fea2656e11d986e1a5d6bfb0a05c8421bd93262d28051b8cfef05320595f474",
+      "git_blob_sha1": "5f345201309cfa1781e92d6292f542de4bcb2999",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/finite_gaussian_contact/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/experiments/universality/finite_gaussian_contact/PROOF.md",
+          "blob_sha1": "5f345201309cfa1781e92d6292f542de4bcb2999",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 29190,
+      "sha256": "ed31f562f0ffaaf6d4bd2ceb1ae3d234798e983a55d55c6983b128fce27133f5",
+      "git_blob_sha1": "a27a84150b3e70bfd794672eeeed6915425a1da4",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/finite_candidate_lifetime/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/experiments/universality/finite_candidate_lifetime/PROOF.md",
+          "blob_sha1": "a27a84150b3e70bfd794672eeeed6915425a1da4",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 30935,
+      "sha256": "320bc988c468bea4938bb777a2d05952c6ab8e0a384f33725b50de847aeec1eb",
+      "git_blob_sha1": "cd7ef8b8a364cb394be48208f55332658e9fff0b",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/iid_short_bar_process/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [
+        {
+          "repository": "d6g8k5htny-coder/main",
+          "pr": 429,
+          "head": "eae6aa3bd07e6db9178c23904a354e0d7cdfa0e8",
+          "path": "experiments/universality/fold_isolation_diagonal/experiments/universality/iid_short_bar_process/PROOF.md",
+          "blob_sha1": "cd7ef8b8a364cb394be48208f55332658e9fff0b",
+          "adoption_state": "OPEN_PR_NOT_DEFAULT_BRANCH"
+        }
+      ],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 27064,
+      "sha256": "5ea91111fa5f3d78d7c4188ebe84b3bc2c452b05dfdfc62c74b03123cb2696d1",
+      "git_blob_sha1": "7a3518edd9bd04adf7aac04f3a5a40bdaab78a48",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/finite_h0_lifetime/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_OR_RETAINED_CUSTODY; DO_NOT_DUPLICATE_PEER_SOURCE",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 43927,
+      "sha256": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531",
+      "git_blob_sha1": "483d779cfdfdcea0bd8d0ec47c9fdaeff485fd4b",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/fold_structural_universality/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_NO_COPY",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 3701,
+      "sha256": "81f4908c7f904079f416e7bc38f8ef936079ab6049e6b65cbbfcfc3104ae4e4b",
+      "git_blob_sha1": "e5e5596e5a64c3abef183f1b044ee85e698ade57",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/fold_structural_universality/REVIEW.md"
+      ],
+      "existing_selected_pr_blob_matches": [],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_NO_COPY",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 34629,
+      "sha256": "c8bd489ca3fbb3760f7b2d53e7385131ac5336c51ba983e00e4d540fe2f00aaa",
+      "git_blob_sha1": "b27e2bc848396f3375529957fbb57e9f2b9dce52",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/periodized_gaussian_h0/PROOF.md"
+      ],
+      "existing_selected_pr_blob_matches": [],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_NO_COPY",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    },
+    {
+      "bytes": 3700,
+      "sha256": "e3bb8751fbdaf0db075342a31dd208c1300c6e93a1c3c8a7c3b255860442551b",
+      "git_blob_sha1": "1d3aad5ba9a605d146a867dc61e4cb96e5b581eb",
+      "existing_math_paths": [],
+      "existing_main_paths": [
+        "experiments/universality/periodized_gaussian_h0/REVIEW.md"
+      ],
+      "existing_selected_pr_blob_matches": [],
+      "action": "REFERENCE_EXISTING_EXACT_SOURCE_NO_COPY",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b"
+    }
+  ],
+  "higher_homology_routing": {
+    "repository": "d6g8k5htny-coder/main",
+    "pr": 331,
+    "head": "89657c7c48289378949dc59e7fbe6dc1a55d9c62",
+    "paths": [
+      "experiments/universality/higher_homology_fold/PROOF.md",
+      "experiments/universality/higher_homology_fold/REVIEW.md"
+    ],
+    "action": "REUSE_LINK_NO_DUPLICATE_SOURCE",
+    "integration": "NOT_ADMITTED; documentary D1/owner/dependency-chain/current-check reconciliation separate",
+    "new_manifold_or_nonGaussian_adapter": "NOT_CLAIMED"
+  },
+  "scientific_effect": "NONE",
+  "source_adoption": false,
+  "current_source_snapshots": {
+    "Math-": {
+      "commit": "ba65631fc5ac6c5ab6f34c1903795d3742a1e0b2",
+      "tree": "25af6e0110c42728e6524414e3a4ff14835492f5",
+      "entries": 2940,
+      "leaves": 2530,
+      "truncated": false
+    },
+    "main": {
+      "commit": "df590a438f1252309270ca625c6fe8531ddadc3b",
+      "tree": "99931dc2ee9594c5e73d162ececb1bf2c924e16a",
+      "entries": 1290,
+      "leaves": 1135,
+      "truncated": false
+    }
+  },
+  "reviewed_dependency_slices_unchanged_since_initial_cut": true
+}
