@@ -78,6 +78,27 @@ PACKET_SHA256 = {
     'c6-factorial-moment': '425bcd1b15ceaf2f11480b03f046566fb9b4f0ac993ee0c00450e29e02ff4786',
 }
 STEP_KEYS = {'name', 'uses', 'with', 'env', 'run', 'if'}
+# R55-A concurrency block reviewed on main#419 (6228007083) and added by
+# Math-#469 to full-regression-suite.yml and lifetime-dd-model-d.yml. Only these
+# exact bytes are accepted; reruns get their own group, first attempts of one PR
+# share a cancelling group, every other event gets a per-run group.
+CONCURRENCY_LINES = (
+    'concurrency:',
+    "  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && "
+    "github.run_attempt == '1' && format('pr-{0}', github.event.pull_request.number) || "
+    "github.event_name == 'pull_request' && format('pr-rerun-{0}-{1}-{2}', "
+    "github.event.pull_request.number, github.run_id, github.run_attempt) || "
+    "format('{0}-{1}', github.event_name, github.run_id) }}",
+    "  cancel-in-progress: ${{ github.event_name == 'pull_request' && github.run_attempt == '1' }}",
+)
+CONCURRENCY_BLOCK = ''.join(line + '\n' for line in CONCURRENCY_LINES)
+# The authenticated insertion: the block plus its one separating blank line,
+# placed directly after the permissions block and directly before jobs:.
+CONCURRENCY_INSERTION = CONCURRENCY_BLOCK + '\n'
+CONCURRENCY_BEFORE = 'permissions:\n  contents: read\n\n'
+CONCURRENCY_AFTER = 'jobs:\n'
+CONCURRENCY_WORKFLOWS = (CENTRAL, 'lifetime-dd-model-d')
+ORIGINAL_CENTRAL_SHA256 = '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26'
 
 
 def parse(text):
@@ -91,6 +112,9 @@ def parse(text):
     job = None
     steps = []
     events_seen = False
+    permissions_seen = False
+    jobs_seen = False
+    concurrency = False
 
     def indent(line):
         return len(line) - len(line.lstrip(' '))
@@ -100,7 +124,18 @@ def parse(text):
         if not line.strip() or line.startswith('#'):
             i += 1
             continue
+        if line == 'concurrency:':
+            # Exact approved block only, at most once, after permissions and
+            # before jobs; any other concurrency text falls through to failure.
+            if (concurrency or not permissions_seen or jobs_seen
+                    or tuple(lines[i:i + 3]) != CONCURRENCY_LINES):
+                raise ValueError('unsupported, duplicate or misplaced concurrency block')
+            concurrency = True
+            i += 3
+            continue
         if line.startswith('name: ') or line in ('permissions:', '  contents: read', 'jobs:'):
+            permissions_seen = permissions_seen or line == 'permissions:'
+            jobs_seen = jobs_seen or line == 'jobs:'
             i += 1
             continue
         if line == "'on':":
@@ -191,7 +226,194 @@ def parse(text):
         raise ValueError('unsupported top-level line: ' + line)
     if job is None or not steps or not events_seen:
         raise ValueError('incomplete workflow')
+    job['concurrency'] = concurrency
     return on, job
+
+
+def strip_concurrency_insertion(text):
+    """Remove exactly the authenticated insertion; never a missing-block fallback."""
+    count = text.count(CONCURRENCY_INSERTION)
+    if count != 1:
+        raise ValueError('expected exactly one approved concurrency insertion, found ' + str(count))
+    at = text.index(CONCURRENCY_INSERTION)
+    end = at + len(CONCURRENCY_INSERTION)
+    if not text[:at].endswith(CONCURRENCY_BEFORE) or not text[end:].startswith(CONCURRENCY_AFTER):
+        raise ValueError('approved concurrency insertion is not between permissions and jobs')
+    stripped = text[:at] + text[end:]
+    if 'concurrency' in stripped:
+        raise ValueError('concurrency text outside the approved insertion')
+    return stripped
+
+
+def reconstruct_original_central(text):
+    """Historical central workflow at 49fb197c / blob ea291276, authenticated.
+
+    Remove only the approved concurrency insertion, then revert only the suite
+    body; the result must hash to the unchanged historical digest.
+    """
+    text = strip_concurrency_insertion(text)
+    block = named(parse(text)[1], REGRESSION)['run']
+    rendered = lambda body: ''.join('          ' + line + '\n'
+                                    for line in body.splitlines())
+    original = mutate(text, rendered(block), rendered(ORIGINAL_SUITE_BLOCK))
+    if hashlib.sha256(original.encode()).hexdigest() != ORIGINAL_CENTRAL_SHA256:
+        raise AssertionError('historical central workflow digest mismatch')
+    return original
+
+
+def _tokens(expr):
+    pos = 0
+    out = []
+    pattern = re.compile(r"\s*(?:(&&|\|\||==|[(),])|'([^']*)'|([A-Za-z_][A-Za-z0-9_.]*))")
+    while pos < len(expr):
+        if not expr[pos:].strip():
+            break
+        m = pattern.match(expr, pos)
+        if not m:
+            raise ValueError('unsupported expression text: ' + expr[pos:])
+        out.append(('op', m.group(1)) if m.group(1) else
+                   ('str', m.group(2)) if m.group(2) is not None else ('id', m.group(3)))
+        pos = m.end()
+    return out
+
+
+def evaluate(expr, context):
+    """Evaluate the small GitHub expression subset used by the approved block.
+
+    Supports string literals, context lookups, format(), ==, && and || with
+    GitHub's value-returning short-circuit semantics. Anything else fails.
+    """
+    toks = _tokens(expr)
+    pos = [0]
+
+    def peek():
+        return toks[pos[0]] if pos[0] < len(toks) else (None, None)
+
+    def take(kind=None, value=None):
+        tok = peek()
+        if tok[0] is None or (kind and tok[0] != kind) or (value and tok[1] != value):
+            raise ValueError('unexpected token in expression: ' + repr(tok))
+        pos[0] += 1
+        return tok
+
+    def primary():
+        kind, value = take()
+        if kind == 'str':
+            return value
+        if kind == 'op' and value == '(':
+            result = disjunction()
+            take('op', ')')
+            return result
+        if kind == 'id' and value == 'format':
+            take('op', '(')
+            args = [disjunction()]
+            while peek() == ('op', ','):
+                take()
+                args.append(disjunction())
+            take('op', ')')
+            return re.sub(r'\{(\d+)\}', lambda m: str(args[1 + int(m.group(1))]), args[0])
+        if kind == 'id':
+            if value not in context:
+                raise ValueError('unknown context value: ' + value)
+            return context[value]
+        raise ValueError('unexpected token: ' + repr((kind, value)))
+
+    def comparison():
+        left = primary()
+        while peek() == ('op', '=='):
+            take()
+            left = str(left) == str(primary())
+        return left
+
+    def conjunction():
+        left = comparison()
+        while peek() == ('op', '&&'):
+            take()
+            right = comparison()
+            left = right if left else left
+        return left
+
+    def disjunction():
+        left = conjunction()
+        while peek() == ('op', '||'):
+            take()
+            right = conjunction()
+            left = left if left else right
+        return left
+
+    result = disjunction()
+    if pos[0] != len(toks):
+        raise ValueError('trailing expression tokens')
+    return result
+
+
+def render(template, context):
+    def value(m):
+        v = evaluate(m.group(1), context)
+        return ('true' if v else 'false') if isinstance(v, bool) else str(v)
+    return re.sub(r'\$\{\{ (.*?) \}\}', value, template)
+
+
+def concurrency_problems(block):
+    """Semantic rerun/cancellation contract of one concurrency block text."""
+    lines = block.split('\n')
+    if len(lines) != 4 or lines[0] != 'concurrency:' or lines[3] != '':
+        return ['concurrency block shape changed']
+    gm = re.fullmatch(r'  group: (.+)', lines[1])
+    cm = re.fullmatch(r'  cancel-in-progress: (.+)', lines[2])
+    if not gm or not cm:
+        return ['concurrency keys changed']
+
+    def run(event, pr, run_id, attempt):
+        context = {'github.workflow': 'W', 'github.event_name': event,
+                   'github.event.pull_request.number': pr if event == 'pull_request' else '',
+                   'github.run_id': run_id, 'github.run_attempt': attempt}
+        return render(gm.group(1), context), render(cm.group(1), context)
+
+    problems = []
+    try:
+        first = {(pr, rid): run('pull_request', pr, rid, '1')
+                 for pr in ('7', '8') for rid in ('100', '101')}
+        reruns = {(pr, rid, a): run('pull_request', pr, rid, a)
+                  for pr in ('7', '8') for rid in ('100', '101') for a in ('2', '3')}
+        others = {(ev, rid, a): run(ev, '', rid, a)
+                  for ev in ('workflow_dispatch', 'push') for rid in ('100', '101')
+                  for a in ('1', '2')}
+    except ValueError as exc:
+        return ['concurrency expression: ' + str(exc)]
+    if first[('7', '100')][0] != first[('7', '101')][0]:
+        problems.append('first attempts of one PR must share a group')
+    if first[('7', '100')][0] == first[('8', '100')][0]:
+        problems.append('first attempts of different PRs share a group')
+    if any(cancel != 'true' for _, cancel in first.values()):
+        problems.append('first-attempt PR runs must cancel in progress')
+    rerun_groups = [g for g, _ in reruns.values()]
+    other_groups = [g for g, _ in others.values()]
+    first_groups = {g for g, _ in first.values()}
+    if len(set(rerun_groups)) != len(rerun_groups):
+        problems.append('rerun-group collision between reruns')
+    if set(rerun_groups) & first_groups:
+        problems.append('rerun-group collision with first-attempt PR group')
+    # Attempts of one non-PR run reuse that run's group (they never overlap and
+    # never cancel); distinct non-PR runs and all PR runs stay apart.
+    per_run = {(ev, rid): {g for (e, r, _), (g, _) in others.items() if (e, r) == (ev, rid)}
+               for ev, rid, _ in others}
+    if (any(len(groups) != 1 for groups in per_run.values())
+            or len(set().union(*per_run.values())) != len(per_run)
+            or set(other_groups) & (first_groups | set(rerun_groups))):
+        problems.append('dispatch/other run shares a group')
+    if any(cancel != 'false' for _, cancel in list(reruns.values()) + list(others.values())):
+        problems.append('reruns and non-PR runs must not cancel in progress')
+    return problems
+
+
+def concurrency_contract(text):
+    """Current-candidate contract: exact block, once, at the approved location."""
+    try:
+        strip_concurrency_insertion(text)
+    except ValueError as exc:
+        return [str(exc)]
+    return concurrency_problems(CONCURRENCY_BLOCK)
 
 
 def covered(paths, changed):
@@ -359,6 +581,12 @@ def violations(workflow, text):
     except ValueError as exc:
         return ['parse: ' + str(exc)]
     paths = on.get('pull_request') or []
+    if workflow == CENTRAL:
+        if not job['concurrency']:
+            problems.append('central must carry the approved concurrency block')
+        problems.extend(concurrency_contract(text))
+    elif job['concurrency']:
+        problems.append('manual trio workflows must not carry a concurrency block')
     if set(on) != {'pull_request', 'workflow_dispatch'} or on['workflow_dispatch'] is not None:
         problems.append('events must be exactly pull_request(paths) + workflow_dispatch')
     for key in ('continue-on-error', 'always()', 'failure()', 'cancelled()', 'background:'):
@@ -463,16 +691,100 @@ def mutate(text, old, new, count=1):
 
 class FullSuiteRoutingTests(unittest.TestCase):
     def original_central(self):
-        # Reconstruct only the suite body and authenticate the complete original
-        # workflow at 49fb197c / blob ea291276, not a hand-written shell surrogate.
-        text = source(CENTRAL)
-        block = named(parse(text)[1], REGRESSION)['run']
-        rendered = lambda body: ''.join('          ' + line + '\n'
-                                        for line in body.splitlines())
-        original = mutate(text, rendered(block), rendered(ORIGINAL_SUITE_BLOCK))
-        self.assertEqual(hashlib.sha256(original.encode()).hexdigest(),
-                         '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26')
+        # Remove only the authenticated concurrency insertion, reconstruct only
+        # the suite body and authenticate the complete original workflow at
+        # 49fb197c / blob ea291276, not a hand-written shell surrogate.
+        original = reconstruct_original_central(source(CENTRAL))
+        self.assertEqual(hashlib.sha256(original.encode()).hexdigest(), ORIGINAL_CENTRAL_SHA256)
         return original
+
+    def test_historical_and_current_concurrency_expectations_are_distinct(self):
+        original = self.original_central()
+        self.assertNotIn('concurrency', original)
+        self.assertFalse(parse(original)[1]['concurrency'])
+        self.assertTrue(parse(source(CENTRAL))[1]['concurrency'])
+        # The historical input is not a valid current candidate: no fallback.
+        self.assertIn('central must carry the approved concurrency block',
+                      violations(CENTRAL, original))
+        with self.assertRaises(ValueError):
+            strip_concurrency_insertion(original)
+        for workflow in TRIO:
+            with self.subTest(workflow=workflow):
+                self.assertFalse(parse(source(workflow))[1]['concurrency'])
+
+    def test_both_workflow_concurrency_contracts(self):
+        self.assertEqual(concurrency_problems(CONCURRENCY_BLOCK), [])
+        for workflow in CONCURRENCY_WORKFLOWS:
+            with self.subTest(workflow=workflow):
+                text = source(workflow)
+                self.assertEqual(text.count('concurrency'), 1)
+                self.assertEqual(concurrency_contract(text), [])
+
+    def test_concurrency_negative_controls(self):
+        central = source(CENTRAL)
+        group = CONCURRENCY_LINES[1]
+        cancel = CONCURRENCY_LINES[2]
+        rerun_fmt = ("format('pr-rerun-{0}-{1}-{2}', github.event.pull_request.number, "
+                     "github.run_id, github.run_attempt)")
+        collide_first = mutate(central, group, group.replace(
+            rerun_fmt, "format('pr-{0}', github.event.pull_request.number)"))
+        collide_reruns = mutate(central, group, group.replace(
+            rerun_fmt, "format('pr-rerun-{0}', github.event.pull_request.number)"))
+        bare = mutate(central, CONCURRENCY_INSERTION, '')
+        cases = {
+            'missing': bare,
+            'duplicated': mutate(central, CONCURRENCY_INSERTION, CONCURRENCY_INSERTION * 2),
+            'duplicated before permissions': mutate(central, CONCURRENCY_BEFORE,
+                                                    CONCURRENCY_INSERTION + CONCURRENCY_BEFORE),
+            'altered cancel': mutate(central, cancel, '  cancel-in-progress: true'),
+            'altered group': mutate(central, group, group.replace("'pr-{0}'", "'pull-{0}'")),
+            'altered spacing': mutate(central, 'concurrency:\n', 'concurrency: \n'),
+            'extra key': mutate(central, cancel + '\n', cancel + '\n  queue: max\n'),
+            'misplaced before permissions': mutate(bare, CONCURRENCY_BEFORE,
+                                                   CONCURRENCY_INSERTION + CONCURRENCY_BEFORE),
+            'misplaced after jobs': mutate(bare, 'jobs:\n', 'jobs:\n' + CONCURRENCY_BLOCK),
+            'misplaced without separator': mutate(central, CONCURRENCY_INSERTION, CONCURRENCY_BLOCK),
+            'rerun collides with first attempt': collide_first,
+            'reruns collide with each other': collide_reruns,
+        }
+        for label, text in cases.items():
+            with self.subTest(mutant=label):
+                self.assertNotEqual(text, central)
+                self.assertNotEqual(violations(CENTRAL, text), [], label)
+                with self.assertRaises((ValueError, AssertionError)):
+                    reconstruct_original_central(text)
+        # Semantic check is independent of the byte pin: collisions are found
+        # in the block text itself, not only by the exact-match parser.
+        for label, text in (('first', collide_first), ('reruns', collide_reruns)):
+            with self.subTest(semantic=label):
+                start = text.index('concurrency:\n')
+                block = text[start:text.index('\n\njobs:\n', start) + 1]
+                self.assertTrue(any('rerun-group collision' in p
+                                    for p in concurrency_problems(block)), label)
+        dd = source('lifetime-dd-model-d')
+        dd_bare = mutate(dd, CONCURRENCY_INSERTION, '')
+        for label, text in (('lifetime-dd missing', dd_bare),
+                            ('lifetime-dd duplicated', mutate(dd, CONCURRENCY_INSERTION,
+                                                              CONCURRENCY_INSERTION * 2)),
+                            ('lifetime-dd altered', mutate(dd, cancel, '  cancel-in-progress: true')),
+                            ('lifetime-dd misplaced', mutate(dd_bare, "'on':\n",
+                                                             CONCURRENCY_INSERTION + "'on':\n"))):
+            with self.subTest(mutant=label):
+                self.assertNotEqual(concurrency_contract(text), [])
+
+    def test_historical_bytes_outside_insertion_are_authenticated(self):
+        central = source(CENTRAL)
+        self.assertEqual(reconstruct_original_central(central), self.original_central())
+        for old, new in (('# This check is not required', '# This check is now required'),
+                         ('    timeout-minutes: 20\n', '    timeout-minutes: 21\n'),
+                         ('permissions:\n  contents: read\n\nconcurrency:',
+                          'permissions:\n  contents: read\n\n\nconcurrency:'),
+                         (CONCURRENCY_INSERTION + 'jobs:\n', CONCURRENCY_INSERTION + '\njobs:\n'),
+                         ('name: Full repository regression suite\n',
+                          'name: Full repository regression suite \n')):
+            with self.subTest(old=old):
+                with self.assertRaises((ValueError, AssertionError)):
+                    reconstruct_original_central(mutate(central, old, new))
 
     def test_original_accepts_synthetic_empty_success_but_preserves_failures(self):
         original = self.original_central()
