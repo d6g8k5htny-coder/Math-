@@ -46,7 +46,7 @@ def trigger_paths(text):
             raise ValueError('unsupported path-list syntax')
         pattern = match[1]
         plain = pattern[:-3] if pattern.endswith('/**') else pattern
-        if any(c in plain for c in '*?[]{}!'):
+        if any(c in plain for c in '*?[]{}!+'):
             raise ValueError('unsupported path pattern')
         found.append(pattern)
     if not found or len(found) != len(set(found)):
@@ -132,6 +132,30 @@ class LegacyTriggerTests(unittest.TestCase):
                      "      - 'tools.*'\n", "      - 'tools.py'\n      - 'tools.py'\n", ''):
             with self.subTest(rows=rows), self.assertRaises(ValueError):
                 trigger_paths(template % rows)
+
+
+    def test_plus_repetition_operator_is_not_treated_as_literal(self):
+        template = "'on':\n  pull_request:\n    paths:\n      - '%s'\n  workflow_dispatch:\n"
+        for pattern in ('tools+.py', 'tools+/helper.py',
+                        'tools/legacy+/__init__.py', 'tools+/**'):
+            with self.subTest(pattern=pattern), self.assertRaises(ValueError):
+                trigger_paths(template % pattern)
+
+    def test_supported_literal_and_subtree_patterns_keep_their_meaning(self):
+        patterns = ['tools.py', 'tools/**', '.github/workflows/local-pairing.yml',
+                    'checks/a-b_2.3.py']
+        text = "'on':\n  pull_request:\n    paths:\n"
+        text += ''.join("      - '%s'\n" % pattern for pattern in patterns)
+        text += '  workflow_dispatch:\n'
+        self.assertEqual(trigger_paths(text), patterns)
+        for path in ('tools.py', 'tools/__init__.py', 'tools/nested/file.py',
+                     '.github/workflows/local-pairing.yml', 'checks/a-b_2.3.py'):
+            with self.subTest(included=path):
+                self.assertTrue(covered(patterns, path))
+        for path in ('tools_extra/file.py', 'other/tools.py',
+                     'other/tools/file.py', 'checks/a-b_2x3.py'):
+            with self.subTest(excluded=path):
+                self.assertFalse(covered(patterns, path))
 
 
 if __name__ == '__main__':
