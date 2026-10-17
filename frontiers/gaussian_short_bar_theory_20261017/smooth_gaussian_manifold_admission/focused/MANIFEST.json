@@ -1,0 +1,101 @@
+{
+  "status": "SEALED_FOCUSED_NONAUTHOR_REVIEW",
+  "sealed_utc": "2026-10-17T22:05:09.889347+00:00",
+  "input_count": 8,
+  "inputs": [
+    {
+      "path": "inputs/new_PROOF.md",
+      "bytes": 40231,
+      "sha256": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319"
+    },
+    {
+      "path": "inputs/new_AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 2203,
+      "sha256": "3f1338445bf20cf6d1300fbdf1ddbc687b4abb0ab318b777b7fb70bf77121c5e"
+    },
+    {
+      "path": "inputs/new_INPUT_MANIFEST.json",
+      "bytes": 1982,
+      "sha256": "688e2e88a33bf0795ae1174b0cb6e321611099c8b48a8efb424bdd919f882b1c"
+    },
+    {
+      "path": "inputs/new_READ_EXTENT.json",
+      "bytes": 1606,
+      "sha256": "66b2218acdc4afb3dba372b4c66546de3518941f06e9c81999084089ae37e074"
+    },
+    {
+      "path": "inputs/ST_PROOF.md",
+      "bytes": 43927,
+      "sha256": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531"
+    },
+    {
+      "path": "inputs/ST_REVIEW.md",
+      "bytes": 3701,
+      "sha256": "81f4908c7f904079f416e7bc38f8ef936079ab6049e6b65cbbfcfc3104ae4e4b"
+    },
+    {
+      "path": "inputs/IG_PROOF.md",
+      "bytes": 34629,
+      "sha256": "c8bd489ca3fbb3760f7b2d53e7385131ac5336c51ba983e00e4d540fe2f00aaa"
+    },
+    {
+      "path": "inputs/IG_REVIEW.md",
+      "bytes": 3700,
+      "sha256": "e3bb8751fbdaf0db075342a31dd208c1300c6e93a1c3c8a7c3b255860442551b"
+    }
+  ],
+  "output_count": 9,
+  "outputs": [
+    {
+      "path": "INPUT_MANIFEST.json",
+      "bytes": 3208,
+      "sha256": "0139b211f19c29cef642e0e609bcb3f3bc9c1b0d7a7446b46ac7fedef196e44c"
+    },
+    {
+      "path": "NONAUTHOR_DENSE_SUPPORT_RICE_REVIEW.md",
+      "bytes": 24252,
+      "sha256": "a14f009f44a74ff25c9cac3aa779f17c8429865089d7ae656c7c6aeac0b6276b"
+    },
+    {
+      "path": "NONAUTHOR_DENSE_SUPPORT_RICE_REVIEW.json",
+      "bytes": 2736,
+      "sha256": "b82e9fcf4a0f7a30ffc8fec3288188c41c9cc8f6814b1ab6da73f5c278ce07f7"
+    },
+    {
+      "path": "exact_finite_gaussian_controls.py",
+      "bytes": 6946,
+      "sha256": "c6105223607c3f217000b3647aada160abbbc7ad55660c48bef0097aeaa18091"
+    },
+    {
+      "path": "CONTROL_RESULT.json",
+      "bytes": 10571,
+      "sha256": "066bd1d2db972f48f53d7727d33c3669269596f0fc8357e8d7d68b660dfbd04c"
+    },
+    {
+      "path": "CONTROL_STDERR.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "CONTROL_RUN_RECEIPT.json",
+      "bytes": 552,
+      "sha256": "045a292514d1cc506ae374d1b865c35f3796d9b35b596140b0d2ee95ad74611b"
+    },
+    {
+      "path": "READ_EXTENT.json",
+      "bytes": 1728,
+      "sha256": "fb7bc83cc9d8ee3804c1f38f50646c72d7debd234d6e33f8888009a30af74ac5"
+    },
+    {
+      "path": "FINAL_IDENTITY_CHECK.json",
+      "bytes": 1147,
+      "sha256": "609a7da8964c29a22ba4028db56a045391e15570f57149b9f6f060c1cd17b1db"
+    }
+  ],
+  "manifest_self_excluded": true,
+  "verdict": "ACCEPT_SCOPED",
+  "scope": "Exact \u00a7\u00a72\u20134,6\u20137 focus only; integrated verdict belongs to parent",
+  "organizational_independence_credit": 0,
+  "source_adoption": false,
+  "scientific_effect": "NONE"
+}
