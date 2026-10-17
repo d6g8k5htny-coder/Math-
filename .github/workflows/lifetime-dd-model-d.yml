@@ -12,6 +12,10 @@ name: Lifetime note DD replay
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.run_attempt == '1' && format('pr-{0}', github.event.pull_request.number) || github.event_name == 'pull_request' && format('pr-rerun-{0}-{1}-{2}', github.event.pull_request.number, github.run_id, github.run_attempt) || format('{0}-{1}', github.event_name, github.run_id) }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' && github.run_attempt == '1' }}
+
 jobs:
   replay:
     runs-on: ubuntu-latest
