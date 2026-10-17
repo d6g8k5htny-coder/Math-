@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "r22-enclosure-refinement-and-queue-audit-20261006"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 10756,
+      "sha256": "c958727fca2e1ce40939b6aab4b1bc4f662e065d12c3911d3c005cb185c1f1ca",
+      "git_blob": "f3a2451b5709e2f0c17bdb315b0da9e40e1166d1"
+    },
+    "refine.py": {
+      "bytes": 5203,
+      "sha256": "ebd3e91b6263f7e57c1e8e456cc83a67794da3dd001c8b74a7a96f0e1ff4a054",
+      "git_blob": "e1fba2057b18b576335831cb3506ea3fdb04ba0d"
+    },
+    "test_refinement.py": {
+      "bytes": 6865,
+      "sha256": "0e6addd41ffd3bb1d3394577f177c26113c0cbd73be0b250c979c76e366ffb37",
+      "git_blob": "de085f6ae7cf131d5777e4a794cc193ea640b077"
+    },
+    "RESULTS.json": {
+      "bytes": 755,
+      "sha256": "4d1c1703601a0faaf7d2dc2920454b8cf77ebd0cf8593d4e5f55bd3658e88201",
+      "git_blob": "89ea41f51ef9185059cc1eabd59cab56ac362d2a"
+    }
+  },
+  "dependencies": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "1f64b8f8ee450262e0f56e6bdf9dfb37931f48c6",
+      "path": "coefficients/lm006_wrong_sign_20261006_r20/enclose.py",
+      "bytes": 7215,
+      "sha256": "157e02ee22699b4fa2efdde1894824b92b962900dbb8da9bd65acee41ae91e88",
+      "git_blob": "e680ddb7aa0abd4b6aab2cac6a54c1ff28efc782",
+      "slice": "unchanged authenticated arithmetic, parameter/density/cubic primitives; original enclosure cap unchanged"
+    },
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "1f64b8f8ee450262e0f56e6bdf9dfb37931f48c6",
+      "path": "coefficients/lm006_wrong_sign_20261006_r20/NOTE.md",
+      "bytes": 12359,
+      "sha256": "1a145132e05aa2721397d30fd3c422bbaab496ac8c24b947e416a3f4e0e0a526",
+      "git_blob": "a79f080851bba69a03ec4b8348dc93d04143bf62",
+      "slice": "coefficient definition, outward primitive/cell/tail proof; no inherited verdict on new implementation"
+    }
+  ]
+}
