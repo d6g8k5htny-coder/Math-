@@ -1,0 +1,143 @@
+{
+ "schema": "local-path-map/v1",
+ "scientific_effect": "NONE",
+ "pinned_head": "6e502c1f8a5632eb90670fd9fc0d52e421c015a2",
+ "purpose": "Owner-side mapping for absolute local home paths retained in hash-pinned historical evidence. Additive only: no pinned file is edited, so no recorded hash changes.",
+ "prefixes": [
+  {
+   "placeholder": "<OWNER_LOCAL_HOME>",
+   "description": "macOS per-user home directory of the repository owner (the prefix up to and including the user name, no trailing slash)",
+   "sha256_of_prefix_utf8": "f42cc646e946c6157467d73f3541203ab2746476c0b6dda88a5baa6358256ef5",
+   "bytes": 15
+  }
+ ],
+ "container_paths": {
+  "pattern": "/root/<workdir>",
+  "status": "N/A: agent-sandbox scratch directories, not a personal home path; not flagged"
+ },
+ "ci_runner_paths": {
+  "pattern": "/home/runner",
+  "status": "N/A: GitHub Actions runner paths; not flagged"
+ },
+ "files": [
+  {
+   "path": "frontiers/lifetime_moment_boundary_20260930/IDENTITY_AND_CONTROL_OBSERVATIONS.json",
+   "lines": [
+    4,
+    10,
+    16,
+    78,
+    84,
+    90
+   ],
+   "hits": 6,
+   "git_blob": "a2aff201bda75aa74b8101d225182ca7731872e3",
+   "sha256": "84164b9ce29f7cc0d0b31a9cd53a870e0ad2c9bd7bb7de271cff877ba96754e5",
+   "bytes": 8495,
+   "disposition": "box-only path remap prepared (obs_paths.patch); not applied here — owner decision"
+  },
+  {
+   "path": "reviews/radial_moment_corollaries_20260930/IDENTITY_AND_CONTROL_OBSERVATIONS.json",
+   "lines": [
+    4,
+    10,
+    16,
+    78,
+    84,
+    90
+   ],
+   "hits": 6,
+   "git_blob": "a2aff201bda75aa74b8101d225182ca7731872e3",
+   "sha256": "84164b9ce29f7cc0d0b31a9cd53a870e0ad2c9bd7bb7de271cff877ba96754e5",
+   "bytes": 8495,
+   "disposition": "box-only path remap prepared (obs_paths.patch); not applied here — owner decision"
+  },
+  {
+   "path": "frontiers/moving_remote_collision_20261003/AUTHOR_CONTROL_RUNS.json",
+   "lines": [
+    6
+   ],
+   "hits": 1,
+   "git_blob": "aeb927abcf637243228d5b3158d7f802763b1928",
+   "sha256": "ee15e53018b87d160a0824c684b0eac8b0b598bd24bd3bf49298a1d3edb79bfe",
+   "bytes": 3214,
+   "disposition": "needs-owner-mapping"
+  },
+  {
+   "path": "frontiers/moving_remote_collision_20261003/review/ENGINEERING_RUNS.json",
+   "lines": [
+    14,
+    17,
+    25,
+    32,
+    43,
+    47,
+    55,
+    63
+   ],
+   "hits": 8,
+   "git_blob": "9bd98bc9df21d39c696335bf949ef3d945ca7d88",
+   "sha256": "ac99011d56f5fdd0674a798bace78de7560c160849c4bce9460b4f047ffbe5fe",
+   "bytes": 8801,
+   "disposition": "historical-evidence+mapping"
+  },
+  {
+   "path": "frontiers/planar_soft_layer_chain_20261003/C102/CHECKER_COMMENT.md",
+   "lines": [
+    510,
+    515,
+    530
+   ],
+   "hits": 3,
+   "git_blob": "7b81b8a5b09b8469441222b1fbf37ea28da60fa5",
+   "sha256": "68e847b5e74fa734923a31cc0fe6c452c7e183223dbc24d08f0872504402655e",
+   "bytes": 28098,
+   "disposition": "historical-evidence"
+  },
+  {
+   "path": "frontiers/planar_soft_layer_chain_20261003/C124/AUTHOR_CONTROLS_COMMENT.md",
+   "lines": [
+    344
+   ],
+   "hits": 1,
+   "git_blob": "447c317461e10d088672c04ad4fb412543e8c031",
+   "sha256": "c8387191a6b11b2e9a1f67e7f22a5ad58b667cc11d29b90fded1c0b33e459dc4",
+   "bytes": 23018,
+   "disposition": "historical-evidence"
+  },
+  {
+   "path": "frontiers/planar_soft_layer_chain_20261003/C124/CONTROLS.md",
+   "lines": [
+    61
+   ],
+   "hits": 1,
+   "git_blob": "7b5c77b4d359d93c023aeb4a4c8b77831084806f",
+   "sha256": "400a043d664f2ad894bbc669c38203d9809a14743522c031cc86bdbef923e399",
+   "bytes": 10113,
+   "disposition": "needs-owner-mapping"
+  },
+  {
+   "path": "frontiers/planar_soft_layer_chain_20261003/C124/REVIEW.md",
+   "lines": [
+    139
+   ],
+   "hits": 1,
+   "git_blob": "5cd4095e16bad897641254e6f2b2089f8d8e7db0",
+   "sha256": "19c405c68a93c3f5506629f0ebf1ffa78d5c25ad92f17fc4fd04ef0066deb6cf",
+   "bytes": 22542,
+   "disposition": "historical-evidence"
+  },
+  {
+   "path": "frontiers/qs_d3_soft_layer_chain_20261005/A3_2/REVIEW_C135_Q4.md",
+   "lines": [
+    140
+   ],
+   "hits": 1,
+   "git_blob": "d00fec057c73e1ba3a63efce7688832c40d4f647",
+   "sha256": "0724c5b9fd84c689bd52be84c67b0f0ad047065b5cf57b1c9ec8de19f92c5daa",
+   "bytes": 20565,
+   "disposition": "historical-evidence"
+  }
+ ],
+ "rule": "tools/check_no_local_home_paths.py fails on any absolute local home path in a tracked text file, except a file listed here whose git_blob is unchanged."
+}
