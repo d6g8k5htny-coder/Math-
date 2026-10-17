@@ -5,6 +5,7 @@ name: Elder-failure lower bound (every d) checks
     paths:
       - 'frontiers/elder_lower_all_d_20260929/**'
       - '.github/workflows/elder-lower-all-d.yml'
+      - 'tests/test_elder_lower_all_d_workflow.py'
   workflow_dispatch:
 
 permissions:
@@ -44,16 +45,28 @@ jobs:
           script = str(root / 'lower_all_d_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           mutants = ['M1', 'M2', 'M3']
+          expected_failures = {
+              'M1': b'FAIL L_ledger_m2\n',
+              'M2': b'FAIL P2_hessian_M\n',
+              'M3': b'FAIL E6_margin_below\n',
+          }
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
-                                   check=True, capture_output=True, timeout=300).stdout
-              if out != expected:
+                                   check=True, capture_output=True, timeout=300)
+              if out.stdout != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
+              if out.stderr:
+                  raise RuntimeError('baseline stderr under ' + ' '.join(flags))
               for m in mutants:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
-                                      capture_output=True, timeout=300).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
+                  out = subprocess.run([sys.executable, *flags, script, '--mutant', m],
+                                       capture_output=True, timeout=300)
+                  if out.returncode != 1 or out.stdout != expected_failures[m] or out.stderr:
+                      raise RuntimeError('mutant ' + m + ' not rejected with expected failure')
           print(json.dumps({'scientific_effect': 'NONE', 'scientific_acceptance': False}))
           PY
           git diff --exit-code
+      - name: Full-shell protocol regression tests in both modes
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -p 'test_elder_lower_all_d_workflow.py' -v
+          python -B -O -S -m unittest discover -s tests -p 'test_elder_lower_all_d_workflow.py' -v
