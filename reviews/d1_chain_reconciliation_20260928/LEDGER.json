@@ -20,18 +20,21 @@
   "reviews": {
     "G1": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-ce4bf0bc-0a0b-4cb1-abaf-7c5b8914418c", "locator": "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965"},
     "C1": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "local_records.C1 and https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"},
-    "G2": {"provider": "xAI", "model": "Grok, Lucas lane", "session": "Math-#112 body (attributed narrative record)", "locator": "local_records.G2"},
+    "G2": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-2e403f48-c4ce-4d4b-ad0d-30562c0e039d", "locator": "local_records.G2 and https://github.com/d6g8k5htny-coder/Math-/pull/37#issuecomment-5841032512"},
     "G3": {"provider": "xAI", "model": "Grok via Cursor, replay rounds 3-9", "session": "main#163 incoming packet", "locator": "https://github.com/d6g8k5htny-coder/main/tree/main/incoming/grok-session-20260926-replay"},
     "G4": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-81faa729 and bc-dfbce246", "locator": "https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841270276 and #issuecomment-5841782206"},
+    "X3": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841317882"},
+    "X4": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841289285"},
+    "X5": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841352633"},
     "C2": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "RECONCILIATION.md section 6"},
     "O1": {"provider": "OpenAI", "model": "OpenAI technical review", "session": "Math-#106 review 5341593068", "locator": "https://github.com/d6g8k5htny-coder/Math-/pull/106#pullrequestreview-5341593068"}
   },
   "interfaces": [
     {"id": "S1", "source": "P", "lines": [[9, 53]], "component": "statements", "claim": "model, conventions and the statements of Theorems A-C", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A1", "source": "P", "lines": [[54, 68]], "component": "I-normalizer", "claim": "positive Fourier spectrum, finite-jet rank, smooth version", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
-    {"id": "A2", "source": "P", "lines": [[69, 114]], "component": "I-normalizer", "claim": "contact frame, |det T_r| = 12 r^-(d+3), uniform covariance gap, density (3.5)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
-    {"id": "A4", "source": "P", "lines": [[115, 137]], "component": "I-normalizer", "claim": "(4.1)-(4.3), independent matrix residual, uniform moments", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
-    {"id": "A3", "source": "P", "lines": [[138, 183]], "component": "I-normalizer", "claim": "(5.1)-(5.5) with erratum E1 and wording W1: type convergence, UI, floor z_*", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "O1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A2", "source": "P", "lines": [[69, 114]], "component": "I-normalizer", "claim": "contact frame, |det T_r| = 12 r^-(d+3), uniform covariance gap, density (3.5)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "X3", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A4", "source": "P", "lines": [[115, 137]], "component": "I-normalizer", "claim": "(4.1)-(4.3), independent matrix residual, uniform moments", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "X4", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A3", "source": "P", "lines": [[138, 183]], "component": "I-normalizer", "claim": "(5.1)-(5.5) with erratum E1 and wording W1: type convergence, UI, floor z_*", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "X5", "verdict": "ACCEPT", "depth": "full"}, {"by": "O1", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A3-E1", "source": "E1", "lines": "all", "component": "I-normalizer", "claim": "congruence factor D_r = diag(r^-1/2, I)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A5", "source": "P", "lines": [[184, 197]], "component": "II-defect", "claim": "(6.1) canceled-pivot bound, every m", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
     {"id": "A6", "source": "P", "lines": [[198, 211]], "component": "II-defect", "claim": "(6.2) two soft factors including the 3/2 saddle mixed-square term", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G4", "verdict": "ACCEPT", "depth": "full"}]},
@@ -71,7 +74,7 @@
     {"id": "R-sections-11-12", "raised_in": "this reconciliation line audit", "discharged_by": ["S11", "S12"], "status": "DISCHARGED"},
     {"id": "R-W1", "raised_in": "C1 A3 wording", "discharged_by": ["RECONCILIATION.md section 5"], "status": "DISCHARGED"}
   ],
-  "second_provider_invited": ["A4", "A2 uniform gap", "A5 m>=2", "S11 difference bound", "S12"],
+  "second_provider_invited": ["A5 m>=2", "S11 difference bound", "S12"],
   "not_consumable": ["numerical C, r_*, z_*, c_{B,K}, c_{d,L}", "(1.2) outside compact marks", "any lower bound for d>=3", "globally uniform O(r^3) over unbounded marks", "RN/24-jet/JETMOD/H3/LPW certificates", "lemma_closed, prizes, unconditional acceptance of the lifetime parent"],
   "transitions": {
     "Math-": ["PROOF_INDEX.md D1 to reviewed scoped", "claims/LANDING_CLAIMS.json lifetime-remainder FAIL_CLOSED->REVIEWED_SCOPED", "claims/LANDING_CLAIMS.json side24-coefficient HOLD_WITH_DOMAIN->REVIEWED_SCOPED", "GRAPH.json math.uniform-matrix-cap-lifetime AUTHOR_SIDE_CANDIDATE->PROVED_REVIEWED (controlling false)", "GRAPH.json D2/D3 review_disposition ACCEPT metadata", "GRAPH.json reading-rule components E1, E2, CAP and this record bound as PROVED_REVIEWED source nodes behind required edges from D1 (controlling false)"],
