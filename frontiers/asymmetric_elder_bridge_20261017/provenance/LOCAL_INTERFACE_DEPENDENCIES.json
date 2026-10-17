@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "scope": "LOCAL source-bound mathematical interface graph for this candidate; not a global scientific-status register or a complete compiler-extracted declaration call graph",
+  "source_baseline": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "main": "dc7aca2f9adaf6d6d986b0e34b7b39c8fc3cf417",
+    "candidate_path": "frontiers/asymmetric_elder_bridge_20261017/",
+    "native_claim": "main419/6240826507"
+  },
+  "logical_axiom_census": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "evidence_boundary": "Compilation, named axiom prints, negative controls, standard named-module kernel replays and substantive review are separate actual receipts; this graph confers none of them. Standard replay uses imported environments, not --fresh or an external verifier. No source adoption or scientific promotion.",
+  "sources": {
+    "C263": {
+      "path": "clearance/input/SuperlevelBar.lean",
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
+    },
+    "C264": {
+      "path": "interval-project/OrdinaryH0.lean",
+      "bytes": 19803,
+      "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88"
+    },
+    "Closed": {
+      "path": "interval-project/ClosedSuperlevel.lean",
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
+    },
+    "Clearance": {
+      "path": "clearance/ElderClearance.lean",
+      "bytes": 5866,
+      "sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e"
+    },
+    "Interval": {
+      "path": "interval-project/ElderInterval.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    "Bridge": {
+      "path": "clearance/ElderBridge.lean",
+      "bytes": 3683,
+      "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+    }
+  },
+  "nodes": [
+    {
+      "id": "analytic_fold_geometry",
+      "kind": "conventional_proof_input",
+      "mathematical_status": "ACCEPTED_CONVENTIONALLY_NOT_IMPLEMENTED_HERE",
+      "statement": "Asymmetric ridge chart constructs closed D, boundary height at most d, inside ceiling m and an actual closed-level path to older P. The reviewed analytic construction remains an input to this Lean candidate."
+    },
+    {
+      "id": "geometric_inputs",
+      "kind": "explicit_hypotheses",
+      "mathematical_status": "ASSUMED_IN_CONDITIONAL_LEAN_STATEMENT",
+      "statement": "Actual domain, heights and path are supplied; neither death, H0 maps nor splitting is a premise.",
+      "explicit_premises": [
+        "X has a topology; g : X -> real",
+        "D is closed",
+        "g(x) <= d for every x in frontier D",
+        "d < m; g(M)=m; M belongs to D",
+        "g(x) <= m for every x in D",
+        "m < g(P)",
+        "gamma is an actual continuous Path M P",
+        "d <= g(gamma(t)) for every unit-interval t"
+      ]
+    },
+    {
+      "id": "strict_separation",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "The D trace in the strict superlevel above d is clopen.",
+      "source": "Clearance",
+      "declarations": [
+        "TorusFiltration.elderTrap_strictTrace",
+        "TorusFiltration.elderTrap_strictTrace_isClopen"
+      ]
+    },
+    {
+      "id": "all_ambient_paths",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "Every path from M to any higher endpoint meets a height at most d; the supplied closed-level path attains d.",
+      "source": "Clearance",
+      "declarations": [
+        "TorusFiltration.elderTrap_path_stays",
+        "TorusFiltration.elderTrap_higher_path_meets_threshold",
+        "TorusFiltration.elderTrap_closed_path_attains"
+      ]
+    },
+    {
+      "id": "C263_definitions",
+      "kind": "imported_lean_interface",
+      "mathematical_status": "EXACT_IMPORTED_SOURCE",
+      "statement": "Literal strict-clearance and sSup-based death definitions, with the proved nonessential cut uniqueness theorem.",
+      "source": "C263",
+      "declarations": [
+        "TorusFiltration.superlevelBar_clearanceSet",
+        "TorusFiltration.superlevelBar_deathHeight",
+        "TorusFiltration.superlevelBar_cut_unique"
+      ]
+    },
+    {
+      "id": "strict_clearance",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "On Euclidean superlevelBar_E n the literal clearance set equals (-infinity,d).",
+      "source": "Clearance",
+      "declarations": [
+        "TorusFiltration.elderTrap_clearance_eq_Iio"
+      ]
+    },
+    {
+      "id": "literal_death",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "On Euclidean superlevelBar_E n with Continuous g the literal C263 death equals d; nonessentiality follows from the actual older P.",
+      "source": "Clearance",
+      "declarations": [
+        "TorusFiltration.elderTrap_death_eq"
+      ],
+      "explicit_premises": [
+        "Euclidean ambient carrier required by the actual C263 interface",
+        "Continuous g"
+      ]
+    },
+    {
+      "id": "C264_actual_H0",
+      "kind": "imported_lean_interface",
+      "mathematical_status": "EXACT_IMPORTED_SOURCE",
+      "statement": "Existing Mathlib singular H0 is naturally isomorphic to its path-component coproduct; point-class naturality and same-component difference vanishing are proved. Legacy alignment is not lifted.",
+      "source": "C264",
+      "declarations": [
+        "TorusFiltration.ordinaryH0_naturalIso",
+        "TorusFiltration.ordinaryH0_filtrationIso",
+        "TorusFiltration.ordinaryH0_difference_map",
+        "TorusFiltration.ordinaryH0_sameComponent_difference_zero"
+      ]
+    },
+    {
+      "id": "closed_filtration",
+      "kind": "imported_lean_interface",
+      "mathematical_status": "EXACT_IMPORTED_SOURCE",
+      "statement": "Actual closed superlevels at increasing parameter t=-height and the existing singular-H0 filtration.",
+      "source": "Closed",
+      "declarations": [
+        "TorusFiltration.superlevel_set",
+        "TorusFiltration.superlevel_h0Filtration"
+      ]
+    },
+    {
+      "id": "interval_functor",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONSTRUCTION",
+      "statement": "Scalar submodule fibers and actual maps construct the interval functor [-m,-d); birth included, death excluded.",
+      "source": "Interval",
+      "declarations": [
+        "TorusFiltration.elderActive",
+        "TorusFiltration.elderFiber",
+        "TorusFiltration.elderFiberMap",
+        "TorusFiltration.elderInterval"
+      ]
+    },
+    {
+      "id": "active_closed_separation",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "Every active closed level above d pulls back the strict d-level clopen trace.",
+      "source": "Bridge",
+      "declarations": [
+        "TorusFiltration.elderTrap_closedTrace_isClopen"
+      ]
+    },
+    {
+      "id": "constructed_trap",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "Constructs ElderTrap from geometric inputs, deriving older-point exclusion and active clopenness.",
+      "source": "Bridge",
+      "declarations": [
+        "TorusFiltration.elderTrap_of_boundary"
+      ]
+    },
+    {
+      "id": "section_retraction",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONSTRUCTION",
+      "statement": "Constructs section from [M]-[P] and retraction from the D component indicator, including prebirth and death naturality squares.",
+      "source": "Interval",
+      "declarations": [
+        "TorusFiltration.ElderTrap.componentInside",
+        "TorusFiltration.elderDifference",
+        "TorusFiltration.elderSection",
+        "TorusFiltration.elderRetraction",
+        "TorusFiltration.elderSection_retraction"
+      ],
+      "explicit_premises": [
+        "Actual Field k instance; no restriction excluding characteristic two"
+      ]
+    },
+    {
+      "id": "one_H0_summand",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONSTRUCTION",
+      "statement": "Constructs an isomorphism of the actual ordinary-H0 filtration with interval plus kernel(retraction); one direct summand, no exhaustive barcode.",
+      "source": "Interval",
+      "declarations": [
+        "TorusFiltration.elderKernelProjection",
+        "TorusFiltration.elderDirectSummand"
+      ]
+    },
+    {
+      "id": "geometric_join",
+      "kind": "constructed_lean_interface",
+      "mathematical_status": "PROVED_CONDITIONALLY",
+      "statement": "Instantiates that actual H0 summand from geometric boundary/path inputs; the same Euclidean continuous data give literal C263 death d.",
+      "source": "Bridge",
+      "declarations": [
+        "TorusFiltration.elderBoundaryDirectSummand",
+        "TorusFiltration.elderBoundary_death_eq"
+      ]
+    },
+    {
+      "id": "remaining_program",
+      "kind": "open_formal_or_research_interface",
+      "mathematical_status": "NOT_DISCHARGED",
+      "statement": "Analytic chart-to-domain construction in Lean, torus carrier transport and quotient saddle uniqueness, canonical Morse elder labeling, simultaneous/exhaustive barcode, all-bar counting and stochastic convergence, C261 actual-law realization and institutional C263/C264 statement alignment remain separate obligations."
+    }
+  ],
+  "edges": [
+    {
+      "from": "analytic_fold_geometry",
+      "to": "geometric_inputs",
+      "relation": "conventional_source_supplies_data_only_after_actual_formal_adapter"
+    },
+    {
+      "from": "geometric_inputs",
+      "to": "strict_separation",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "strict_separation",
+      "to": "all_ambient_paths",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "geometric_inputs",
+      "to": "all_ambient_paths",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "all_ambient_paths",
+      "to": "strict_clearance",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "C263_definitions",
+      "to": "strict_clearance",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "geometric_inputs",
+      "to": "strict_clearance",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "strict_clearance",
+      "to": "literal_death",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "C263_definitions",
+      "to": "literal_death",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "strict_separation",
+      "to": "active_closed_separation",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "active_closed_separation",
+      "to": "constructed_trap",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "geometric_inputs",
+      "to": "constructed_trap",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "C264_actual_H0",
+      "to": "section_retraction",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "closed_filtration",
+      "to": "section_retraction",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "interval_functor",
+      "to": "section_retraction",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "constructed_trap",
+      "to": "section_retraction",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "section_retraction",
+      "to": "one_H0_summand",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "one_H0_summand",
+      "to": "geometric_join",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "constructed_trap",
+      "to": "geometric_join",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "literal_death",
+      "to": "geometric_join",
+      "relation": "mathematical_dependency"
+    },
+    {
+      "from": "analytic_fold_geometry",
+      "to": "remaining_program",
+      "relation": "does_not_discharge"
+    },
+    {
+      "from": "literal_death",
+      "to": "remaining_program",
+      "relation": "does_not_discharge"
+    },
+    {
+      "from": "one_H0_summand",
+      "to": "remaining_program",
+      "relation": "does_not_discharge"
+    }
+  ],
+  "full_goal": "ACTIVE_UNMET"
+}
