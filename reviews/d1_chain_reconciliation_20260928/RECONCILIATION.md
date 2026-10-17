@@ -98,6 +98,28 @@ ledger, with every review locator, is `LEDGER.json`.
 | C2 | Anthropic Claude, this record | §6 below | §11 and §12 ACCEPT; spot re-derivations of (13.1), (13.4) and (15.2) |
 | O1 | OpenAI technical review of Math-#106, [5341593068](https://github.com/d6g8k5htny-coder/Math-/pull/106#pullrequestreview-5341593068) | — | Confirms W1 and the A5/A6 fixtures. **Author provider, so non-discharge.** |
 
+### Recovered-review supplement — 17 October 2026
+
+This dated source amendment preserves historical reported ACCEPT/full verdicts X3 (A2), X4 (A4) and X5 (A3)
+in `RECOVERED_REVIEWS.json` and four hash-bound public technical snapshots: `RECOVERED_X3.md`,
+`RECOVERED_X4.md`, `RECOVERED_X5.md` and `RECOVERED_G2.md`. These are flat packet members, preserving the
+inherited D1 producer's flat-file contract (layout amendment, 17 October 2026).
+X3–X5 are **provisional and uncredited**: they are excluded from active `interfaces[].reviews` pending actual
+custody and exact-source/scope qualification by eligible technical review. Their reported ranges (69–113,
+115–136 and 138–182) remain distinct from the ledger interfaces' ranges. The historical verdicts are not erased
+or independently endorsed by this bookkeeping amendment. The six two-provider baseline below and the original
+second-provider invitations are retained.
+
+The X3–X5 snapshots replace only a bare private Drive-document identifier in line 3. The G2 native technical
+snapshot redacts an unrelated account-wrapper row and omits an interactive HTML footer; its substantive review,
+source identity and limitations are retained. Raw native-body length/SHA256 and redacted-snapshot identities are
+recorded separately. A redacted snapshot is not exact full-body custody. The G2 supplement does not replace
+the existing `local_records.G2`, change its Section 9 scope or add coverage authority. Model/session/provider
+claims are attributed historical text, not attested execution or organizational independence.
+
+This amendment changes no proof, theorem status, graph, claims or scientific authority. Organizational-independence
+credit remains 0; scientific effect NONE.
+
 **Interfaces.** "Full" means a nonauthor provider re-derived the whole interface. "Partial" means a nonauthor provider
 checked part of it; partial checks never discharge on their own. `reconciliation_check.py` computes the full-depth
 counts from `LEDGER.json`.

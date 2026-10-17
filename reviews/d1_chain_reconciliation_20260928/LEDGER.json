@@ -10,6 +10,11 @@
     "E2": {"path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md", "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a", "bytes": 9062, "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"}
   },
   "local_records": {
+    "RECOVERED_X3": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X3.md", "git_blob": "b5662098d08ad429cf0bb9e37e18f16722a11bf4", "bytes": 6138, "sha256": "54bfe66d14b854a35e3f9679cb592eb238f36f4751b6cac1bca0206ea4169c0d"},
+    "RECOVERED_X4": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X4.md", "git_blob": "b1b934ff4404e05294921615c69e66fa53cd4758", "bytes": 6520, "sha256": "8efa402605417136f1157eda30014d14e0c6f895b497da6f09cd401f579c7d60"},
+    "RECOVERED_X5": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X5.md", "git_blob": "d1efa5cb8ebd9e648d776203f7bd4150521e529d", "bytes": 8427, "sha256": "b9796a5fe789832bc56b459c01078067572074dceff1cc85109b9e05063c7903"},
+    "RECOVERED_G2": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_G2.md", "git_blob": "9e82dce83d81345b912a27cbc44fb913155f0302", "bytes": 7458, "sha256": "124d0acd2321c37e590325432633b7c57f45d896cf760301ec955c29723e1abd"},
+    "RECOVERY_PROVENANCE": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_REVIEWS.json", "bytes": 10997, "sha256": "8682b8d33a2502fd28236459fe215f0908685638cfd2df81467798709662c041", "git_blob": "a651092339661242a37860d37d5be851267dcae0"},
     "C1": {"path": "reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md", "git_blob": "bc11369c41ebc76de5700df3f931939ccfc88b9b", "bytes": 24105, "sha256": "b7328d4bab97fa2d12622ca730dc698970febc1ea8bcbc0b24555e69e2a66392"},
     "G2": {"path": "reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md", "git_blob": "48ea9ad5a3ae5a1515a3533a4c776800547a92bc", "bytes": 4287, "sha256": "a654ea6b52181fa46371c3a2ef9ee17e82f8e365f9de24857526c6dd48154d7e"},
     "LOWER": {"path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md", "git_blob": "aaefc8da9668e819591dd9db0b34442394f2362e", "bytes": 10229, "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c"},
@@ -32,9 +37,9 @@
   "interfaces": [
     {"id": "S1", "source": "P", "lines": [[9, 53]], "component": "statements", "claim": "model, conventions and the statements of Theorems A-C", "reviews": [{"by": "G1", "verdict": "ACCEPT", "depth": "full"}, {"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A1", "source": "P", "lines": [[54, 68]], "component": "I-normalizer", "claim": "positive Fourier spectrum, finite-jet rank, smooth version", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
-    {"id": "A2", "source": "P", "lines": [[69, 114]], "component": "I-normalizer", "claim": "contact frame, |det T_r| = 12 r^-(d+3), uniform covariance gap, density (3.5)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "X3", "verdict": "ACCEPT", "depth": "full"}]},
-    {"id": "A4", "source": "P", "lines": [[115, 137]], "component": "I-normalizer", "claim": "(4.1)-(4.3), independent matrix residual, uniform moments", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "X4", "verdict": "ACCEPT", "depth": "full"}]},
-    {"id": "A3", "source": "P", "lines": [[138, 183]], "component": "I-normalizer", "claim": "(5.1)-(5.5) with erratum E1 and wording W1: type convergence, UI, floor z_*", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "X5", "verdict": "ACCEPT", "depth": "full"}, {"by": "O1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A2", "source": "P", "lines": [[69, 114]], "component": "I-normalizer", "claim": "contact frame, |det T_r| = 12 r^-(d+3), uniform covariance gap, density (3.5)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
+    {"id": "A4", "source": "P", "lines": [[115, 137]], "component": "I-normalizer", "claim": "(4.1)-(4.3), independent matrix residual, uniform moments", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}]},
+    {"id": "A3", "source": "P", "lines": [[138, 183]], "component": "I-normalizer", "claim": "(5.1)-(5.5) with erratum E1 and wording W1: type convergence, UI, floor z_*", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}, {"by": "O1", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A3-E1", "source": "E1", "lines": "all", "component": "I-normalizer", "claim": "congruence factor D_r = diag(r^-1/2, I)", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "full"}]},
     {"id": "A5", "source": "P", "lines": [[184, 197]], "component": "II-defect", "claim": "(6.1) canceled-pivot bound, every m", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G3", "verdict": "ACCEPT", "depth": "partial"}]},
     {"id": "A6", "source": "P", "lines": [[198, 211]], "component": "II-defect", "claim": "(6.2) two soft factors including the 3/2 saddle mixed-square term", "reviews": [{"by": "C1", "verdict": "ACCEPT", "depth": "full"}, {"by": "G4", "verdict": "ACCEPT", "depth": "full"}]},
@@ -74,7 +79,7 @@
     {"id": "R-sections-11-12", "raised_in": "this reconciliation line audit", "discharged_by": ["S11", "S12"], "status": "DISCHARGED"},
     {"id": "R-W1", "raised_in": "C1 A3 wording", "discharged_by": ["RECONCILIATION.md section 5"], "status": "DISCHARGED"}
   ],
-  "second_provider_invited": ["A5 m>=2", "S11 difference bound", "S12"],
+  "second_provider_invited": ["A4", "A2 uniform gap", "A5 m>=2", "S11 difference bound", "S12"],
   "not_consumable": ["numerical C, r_*, z_*, c_{B,K}, c_{d,L}", "(1.2) outside compact marks", "any lower bound for d>=3", "globally uniform O(r^3) over unbounded marks", "RN/24-jet/JETMOD/H3/LPW certificates", "lemma_closed, prizes, unconditional acceptance of the lifetime parent"],
   "transitions": {
     "Math-": ["PROOF_INDEX.md D1 to reviewed scoped", "claims/LANDING_CLAIMS.json lifetime-remainder FAIL_CLOSED->REVIEWED_SCOPED", "claims/LANDING_CLAIMS.json side24-coefficient HOLD_WITH_DOMAIN->REVIEWED_SCOPED", "GRAPH.json math.uniform-matrix-cap-lifetime AUTHOR_SIDE_CANDIDATE->PROVED_REVIEWED (controlling false)", "GRAPH.json D2/D3 review_disposition ACCEPT metadata", "GRAPH.json reading-rule components E1, E2, CAP and this record bound as PROVED_REVIEWED source nodes behind required edges from D1 (controlling false)"],
