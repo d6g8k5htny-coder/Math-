@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "package": "compact_source_cutoff_baseline",
+  "claim": {
+    "claim_id": "dc1a2ee3-bbd7-45cc-a674-de0990dc6ff4",
+    "work_events_row": 1446,
+    "native_url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6089736858",
+    "source_checkpoint_utc": "2026-10-09T22:10:00Z"
+  },
+  "source_inventory": {
+    "name": "SOURCE_INPUTS.json",
+    "bytes": 13221,
+    "sha256": "c7febb8e99ee17481b72678ab03fe839ef50773fb96529c404cced3eb9ba0fb1",
+    "module_count": 27,
+    "total_source_bytes": 509962,
+    "private_source_paths_omitted": true
+  },
+  "sources": [
+    {
+      "path": "CompactSourceCutoff.lean",
+      "module": "CompactSourceCutoff",
+      "bytes": 5915,
+      "sha256": "a8abb169acb74c7ac11396b956bb5e055fd30f98af4ca0c0fb1f91ea06375f86",
+      "imports": [
+        "PushedHeight",
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Topology.Algebra.Support"
+      ]
+    },
+    {
+      "path": "PushedHeight.lean",
+      "module": "PushedHeight",
+      "bytes": 10333,
+      "sha256": "ed697889b10e1aa15f78450fb4fc4371e2d79de628852d9a36748c024b9123ff",
+      "imports": [
+        "SourceNormalForm",
+        "DeterministicSourceC4",
+        "Mathlib.Analysis.InnerProductSpace.Calculus"
+      ]
+    },
+    {
+      "path": "TaylorSymLift.lean",
+      "module": "TaylorSymLift",
+      "bytes": 2401,
+      "sha256": "996a1dde919a220f6e2d5a6bd939411cac8751b3bd6283be0761434870395cf4",
+      "imports": [
+        "TaylorMatrix"
+      ]
+    },
+    {
+      "path": "TaylorMatrix.lean",
+      "module": "TaylorMatrix",
+      "bytes": 12406,
+      "sha256": "3ba190c557fb93ec26a259929f1f5c2db5c4425da7f7298816e7b4a18f80d7af",
+      "imports": [
+        "MorseCongruence",
+        "DeterministicSourceC4",
+        "Mathlib.Analysis.Calculus.TaylorIntegral",
+        "Mathlib.Analysis.Calculus.ParametricIntegral",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Normed.Group.Bounded",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ]
+    },
+    {
+      "path": "MorseCongruence.lean",
+      "module": "MorseCongruence",
+      "bytes": 5440,
+      "sha256": "a922aa09945bb81d67098f46ad3879bdc780b3d8a6b1056e11f8a1716509262e",
+      "imports": [
+        "Mathlib.Analysis.Matrix.Normed",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.ContDiff",
+        "Mathlib.Topology.Algebra.Module.Star",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "path": "DeterministicSourceC4.lean",
+      "module": "DeterministicSourceC4",
+      "bytes": 2551,
+      "sha256": "aa30073e33ff50ab5a1bc00378ff5a83b47b5002c90610014798aa44bcc31e00",
+      "imports": [
+        "SourceTorusC4"
+      ]
+    },
+    {
+      "path": "SourceTorusC4.lean",
+      "module": "SourceTorusC4",
+      "bytes": 6081,
+      "sha256": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
+      "imports": [
+        "SourceC4",
+        "SourceTorus",
+        "Mathlib.Topology.OpenPartialHomeomorph.Constructions",
+        "Mathlib.Geometry.Manifold.ContMDiff.Basic",
+        "Mathlib.Geometry.Manifold.ContMDiff.NormedSpace",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ]
+    },
+    {
+      "path": "SourceC4.lean",
+      "module": "SourceC4",
+      "bytes": 6438,
+      "sha256": "b15e53b825c2e2d6af2af18182da227d8794dddcc3e1b29611a913f89a889397",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.Analysis.Calculus.SmoothSeries",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv"
+      ]
+    },
+    {
+      "path": "SourceTorus.lean",
+      "module": "SourceTorus",
+      "bytes": 5182,
+      "sha256": "02857b44552ab0e51a756b3b095c4ba43f8168ac332b069acb5bc8146d337eef",
+      "imports": [
+        "SourceCovariance",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic",
+        "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Basic"
+      ]
+    },
+    {
+      "path": "SourceCovariance.lean",
+      "module": "SourceCovariance",
+      "bytes": 3925,
+      "sha256": "30560009582659a100637b5510c657cf1fa762f68a37bae8fab42c1eeee6aee5",
+      "imports": [
+        "SourceKernel",
+        "SourceGaussianLaw",
+        "Mathlib.Probability.Moments.Covariance",
+        "Mathlib.Probability.Moments.Variance"
+      ]
+    },
+    {
+      "path": "SourceKernel.lean",
+      "module": "SourceKernel",
+      "bytes": 5293,
+      "sha256": "5fa3abc8fb0db0c14c67b4ee840e659cdf80f7d22c9fd4cb5e6c1c7b204fbd21",
+      "imports": [
+        "SourceLattice",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum"
+      ]
+    },
+    {
+      "path": "SourceLattice.lean",
+      "module": "SourceLattice",
+      "bytes": 6284,
+      "sha256": "c644305a426bc876f609c055ce999b8008f028c67a1091639d919f4122981b7b",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.Data.Finset.Max"
+      ]
+    },
+    {
+      "path": "SourceGaussianLaw.lean",
+      "module": "SourceGaussianLaw",
+      "bytes": 8984,
+      "sha256": "a60ab6099d3cef0eeecaefa9e35d95ec14ec54ffd6c89e42dfcf6170907166e8",
+      "imports": [
+        "SourceFourierSeries",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Probability.Independence.CharacteristicFunction",
+        "Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Probability.Distributions.Gaussian.IsGaussianProcess.Def"
+      ]
+    },
+    {
+      "path": "SourceFourierSeries.lean",
+      "module": "SourceFourierSeries",
+      "bytes": 6524,
+      "sha256": "5f145e8e8693bfe4d1554092c8258dbda4f17f8e078c503029e4e8ff2c018014",
+      "imports": [
+        "GaussianSeriesFoundation",
+        "SpectralWeights",
+        "Mathlib.Logic.Equiv.Option",
+        "Mathlib.Topology.Algebra.InfiniteSum.TsumUniformlyOn"
+      ]
+    },
+    {
+      "path": "GaussianSeriesFoundation.lean",
+      "module": "GaussianSeriesFoundation",
+      "bytes": 4262,
+      "sha256": "feea566d5aeba58459bd4a1f20f070bdcd80ee30712817324cdd594e3e232c95",
+      "imports": [
+        "Mathlib.Probability.Distributions.Gaussian.Real",
+        "Mathlib.Probability.Independence.InfinitePi",
+        "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.SMul"
+      ]
+    },
+    {
+      "path": "SpectralWeights.lean",
+      "module": "SpectralWeights",
+      "bytes": 6924,
+      "sha256": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
+      "imports": [
+        "Mathlib.NumberTheory.ModularForms.JacobiTheta.TwoVariable",
+        "Mathlib.Analysis.Normed.Ring.InfiniteSum",
+        "Mathlib.Data.Fin.Tuple.Basic",
+        "Mathlib.Algebra.BigOperators.Fin"
+      ]
+    },
+    {
+      "path": "ConeFootprint.lean",
+      "module": "ConeFootprint",
+      "bytes": 11778,
+      "sha256": "8082d11707849c9d786583b0acda20893df2a0ffc6e4fc3e7defa57161bd8715",
+      "imports": [
+        "QuadraticCone",
+        "OpenComponentGluing"
+      ]
+    },
+    {
+      "path": "QuadraticCone.lean",
+      "module": "QuadraticCone",
+      "bytes": 11155,
+      "sha256": "23e320de38fbb247ffe46c4723813f9b32109fae57210ee282198dd1acd71945",
+      "imports": [
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Analysis.Normed.Module.Connected",
+        "Mathlib.Analysis.Convex.PathConnected",
+        "Mathlib.Analysis.Normed.Lp.ProdLp",
+        "Mathlib.Topology.Order.IntermediateValue",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "path": "OpenComponentGluing.lean",
+      "module": "OpenComponentGluing",
+      "bytes": 10241,
+      "sha256": "5ae10bfd0746cb8f26698544fb1e4728ee6908d195bc44cb7b009fcb11b95297",
+      "imports": [
+        "ElementaryHistory",
+        "GlobalComponentMaps",
+        "Mathlib.Topology.Algebra.Module.LocallyConvex",
+        "Mathlib.Topology.LocallyConstant.Basic"
+      ]
+    },
+    {
+      "path": "ElementaryHistory.lean",
+      "module": "ElementaryHistory",
+      "bytes": 4092,
+      "sha256": "3ed3cff14fe98400e585376bb0210a48f92e1f672351a922242b246ea71cbde4",
+      "imports": [
+        "Mathlib.CategoryTheory.Category.Preorder",
+        "Mathlib.CategoryTheory.Types.Basic",
+        "Mathlib.Data.Finset.Max",
+        "Mathlib.Order.Fin.Basic"
+      ]
+    },
+    {
+      "path": "GlobalComponentMaps.lean",
+      "module": "GlobalComponentMaps",
+      "bytes": 3272,
+      "sha256": "9885878df9cc8ca14b1f206c360142491b868355fe2f36c89dee69656ee9200a",
+      "imports": [
+        "OrdinaryH0Image"
+      ]
+    },
+    {
+      "path": "OrdinaryH0Image.lean",
+      "module": "OrdinaryH0Image",
+      "bytes": 5681,
+      "sha256": "80dfe9e9ce4f005d58212ea00872efe751c72658ff2a4e574ad30c76dd82000b",
+      "imports": [
+        "OrdinaryH0Elder"
+      ]
+    },
+    {
+      "path": "OrdinaryH0Elder.lean",
+      "module": "OrdinaryH0Elder",
+      "bytes": 8081,
+      "sha256": "cc97606ddadc680dcc9d6379ba9e5587901fad1f830c9ea0838a6aa8a83b3486",
+      "imports": [
+        "Mathlib.AlgebraicTopology.SingularHomology.HomologyZero",
+        "Mathlib.Algebra.Category.ModuleCat.Colimits",
+        "Mathlib.Algebra.Category.ModuleCat.Abelian",
+        "Mathlib.LinearAlgebra.Finsupp.VectorSpace",
+        "CapFirstExit"
+      ]
+    },
+    {
+      "path": "CapFirstExit.lean",
+      "module": "CapFirstExit",
+      "bytes": 326607,
+      "sha256": "040aa91fcbdf25ccdaced1c828dd779318217a7c41ac928f87e8d17a8d3c3ef0",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "path": "SourceNormalForm.lean",
+      "module": "SourceNormalForm",
+      "bytes": 10589,
+      "sha256": "aeed9b3533361bcecd92da0170fd217c0568be8ad9777b4f2b0a02a16a0cf542",
+      "imports": [
+        "SourceCoordinates",
+        "ConeFootprint",
+        "SourceTorusC4",
+        "Mathlib.Geometry.Manifold.ContMDiff.Atlas",
+        "Mathlib.Topology.OpenPartialHomeomorph.Composition"
+      ]
+    },
+    {
+      "path": "SourceCoordinates.lean",
+      "module": "SourceCoordinates",
+      "bytes": 8161,
+      "sha256": "b92d2936525bd120f41badb2bd9018714546d986b6ced9c4326bee9e0b1939da",
+      "imports": [
+        "PhysicalSpectral",
+        "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+        "Mathlib.Topology.OpenPartialHomeomorph.IsImage"
+      ]
+    },
+    {
+      "path": "PhysicalSpectral.lean",
+      "module": "PhysicalSpectral",
+      "bytes": 11362,
+      "sha256": "64f212853a7533a9ce3462d764a670759f08cc8230d7100b5a4a7f48ed925a41",
+      "imports": [
+        "TaylorSymLift",
+        "Mathlib.Analysis.Matrix.Spectrum",
+        "Mathlib.LinearAlgebra.Basis.SMul"
+      ]
+    }
+  ],
+  "diagnostic_fixture": {
+    "path": "CompactSourceCutoffTargetRed.lean",
+    "bytes": 5936,
+    "sha256": "6d85955aab50429251c441358a26f4cb6e670ea8f6560b5caaf026d697ede0cd",
+    "module": "CompactSourceCutoffTargetRed",
+    "imports": [
+      "PushedHeight",
+      "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+      "Mathlib.Topology.Algebra.Support"
+    ],
+    "transformation": "TARGET_TRANSFORMATION.json",
+    "operation": {
+      "kind": "insert_exact_utf8_line",
+      "after_original_line": 8,
+      "candidate_line": 9,
+      "text": "open MorseCongruence",
+      "inserted_bytes_utf8": "open MorseCongruence\n",
+      "inserted_bytes": 21
+    },
+    "proof_implementation": false
+  },
+  "toolchain": {
+    "path": "lean-toolchain",
+    "value": "leanprover/lean4:v4.34.1",
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "dependency_manifest": {
+    "path": "lake-manifest.json",
+    "sha256": "40f20fe5fefe7628bb9b32914b6c9b8c7572069e88e9073c24c111761d7f7f83",
+    "inherited_root_name": "ordinary_h0_elder",
+    "parent_bytes": 3550,
+    "parent_sha256": "f5c87126a6f874b51c71c1e7428485f6ba969dcfdb2240c8d538db892c1da967",
+    "allowed_change": "Root name only; every other field and all nine dependency records preserved."
+  },
+  "dependencies": [
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "e928b72544873815af278d38681b31c0293588e3",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.lean"
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "master",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover-community",
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "main",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "type": "git",
+      "subDir": null,
+      "scope": "leanprover",
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "v4.34.0",
+      "inherited": true,
+      "configFile": "lakefile.toml"
+    },
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "type": "git",
+      "subDir": null,
+      "scope": "",
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "manifestFile": "lake-manifest.json",
+      "inputRev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "inherited": false,
+      "configFile": "lakefile.lean"
+    }
+  ],
+  "default_target": {
+    "module": "PushedHeight",
+    "source_module_count": 26,
+    "source_bytes": 504047,
+    "reachable_modules": [
+      "CapFirstExit",
+      "ConeFootprint",
+      "DeterministicSourceC4",
+      "ElementaryHistory",
+      "GaussianSeriesFoundation",
+      "GlobalComponentMaps",
+      "MorseCongruence",
+      "OpenComponentGluing",
+      "OrdinaryH0Elder",
+      "OrdinaryH0Image",
+      "PhysicalSpectral",
+      "PushedHeight",
+      "QuadraticCone",
+      "SourceC4",
+      "SourceCoordinates",
+      "SourceCovariance",
+      "SourceFourierSeries",
+      "SourceGaussianLaw",
+      "SourceKernel",
+      "SourceLattice",
+      "SourceNormalForm",
+      "SourceTorus",
+      "SourceTorusC4",
+      "SpectralWeights",
+      "TaylorMatrix",
+      "TaylorSymLift"
+    ],
+    "original_target_registered": true,
+    "original_target_default": false,
+    "diagnostic_fixture_default": false
+  },
+  "execution": {
+    "mode": "HOSTED_ONLY",
+    "local_lean": "NOT_RUN",
+    "local_lake": "NOT_RUN",
+    "local_python": "NOT_RUN",
+    "project_tests": "NOT_RUN",
+    "dependency_download": "NOT_RUN",
+    "hosted_ci": "NOT_RUN",
+    "kernel_checker": "NOT_RUN",
+    "axiom_audit": "NOT_RUN",
+    "alignment_acceptance": "NOT_RUN",
+    "scientific_promotion": "NOT_CLAIMED"
+  }
+}

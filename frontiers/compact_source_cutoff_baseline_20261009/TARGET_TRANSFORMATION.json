@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "SEPARATELY_NAMED_DIAGNOSTIC_FIXTURE",
+  "original": {
+    "path": "CompactSourceCutoff.lean",
+    "bytes": 5915,
+    "sha256": "a8abb169acb74c7ac11396b956bb5e055fd30f98af4ca0c0fb1f91ea06375f86"
+  },
+  "candidate": {
+    "path": "CompactSourceCutoffTargetRed.lean",
+    "bytes": 5936,
+    "sha256": "6d85955aab50429251c441358a26f4cb6e670ea8f6560b5caaf026d697ede0cd"
+  },
+  "operation": {
+    "kind": "insert_exact_utf8_line",
+    "after_original_line": 8,
+    "candidate_line": 9,
+    "text": "open MorseCongruence",
+    "inserted_bytes_utf8": "open MorseCongruence\n",
+    "inserted_bytes": 21
+  },
+  "reverse": {
+    "kind": "remove_exact_utf8_line",
+    "candidate_line": 9,
+    "text": "open MorseCongruence",
+    "restores_original_bytes": true
+  },
+  "scope": "Only the exact open directive is inserted. Both empty proofs and all witnesses, premises and mathematical statements are unchanged.",
+  "execution": "NOT_RUN",
+  "proof_implementation": false
+}
