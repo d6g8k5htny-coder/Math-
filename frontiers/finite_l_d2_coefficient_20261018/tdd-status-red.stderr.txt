@@ -1,0 +1,14 @@
+test_checker_independently_rejects_false_width_status (test_coefficient.PrimitiveTests.test_checker_independently_rejects_false_width_status) ... FAIL
+
+======================================================================
+FAIL: test_checker_independently_rejects_false_width_status (test_coefficient.PrimitiveTests.test_checker_independently_rejects_false_width_status)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 85, in test_checker_independently_rejects_false_width_status
+    self.assertTrue(hasattr(v,'finish'),'checker width behavior missing')
+AssertionError: False is not true : checker width behavior missing
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=1)

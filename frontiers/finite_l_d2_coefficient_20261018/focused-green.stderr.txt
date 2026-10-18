@@ -1,0 +1,20 @@
+test_constant_identity_in_sixth_power (test_coefficient.PrimitiveTests.test_constant_identity_in_sixth_power) ... ok
+test_gamma_extrema_and_tail_factor (test_coefficient.PrimitiveTests.test_gamma_extrema_and_tail_factor) ... FAIL
+test_positive_hulls_and_interior_ratio_adverse_control (test_coefficient.PrimitiveTests.test_positive_hulls_and_interior_ratio_adverse_control) ... ok
+test_request_and_json_guards (test_coefficient.PrimitiveTests.test_request_and_json_guards) ... ok
+test_root_rejects_narrowed_or_wrong_mesh (test_coefficient.PrimitiveTests.test_root_rejects_narrowed_or_wrong_mesh) ... ok
+test_sixth_root_perfect_and_nonperfect (test_coefficient.PrimitiveTests.test_sixth_root_perfect_and_nonperfect) ... ok
+test_width_goal_and_false_status (test_coefficient.PrimitiveTests.test_width_goal_and_false_status) ... ok
+
+======================================================================
+FAIL: test_gamma_extrema_and_tail_factor (test_coefficient.PrimitiveTests.test_gamma_extrema_and_tail_factor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 41, in test_gamma_extrema_and_tail_factor
+    self.assertGreater(hi-lo,F(65))
+AssertionError: Fraction(33187, 512) not greater than Fraction(65, 1)
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.033s
+
+FAILED (failures=1)
