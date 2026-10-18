@@ -1,0 +1,373 @@
+{
+  "schema": "public-followon-source-proposal-index-v1",
+  "state": "PROPOSED_SOURCE_COMPOSITION_REQUIRES_DISTINCT_REVIEW_NOT_ADOPTED",
+  "preparer_role": "SOURCEAUTHOR_PREPARER; prior focused binding-review author, not new independent reviewer",
+  "organizational_independence_credit": 0,
+  "native_cut": {
+    "math_main": "2b43d27eebce765cf30090c03e74714c72431114",
+    "math_tree": "62f0920bdb94be6e19661641077b70e554010169",
+    "main_reference": "46835abc657ef90deeaf9d83a47f912274b3ccfd"
+  },
+  "original_exact_prose": [
+    {
+      "unit": "NG",
+      "path": "frontiers/nongaussian_smoothing_admission_20261017/PROOF.md",
+      "role": "full original accepted proof",
+      "bytes": 38656,
+      "sha256": "322195ff6693f17047d9ec60c52f8178f5f3a215c4f4cba42dd342ff59dbc116",
+      "git_blob_sha1": "9df1a2c4ac9ec668b90729cc31c9195685a4b7c7"
+    },
+    {
+      "unit": "NG",
+      "path": "frontiers/nongaussian_smoothing_admission_20261017/REVIEW.md",
+      "role": "full actual nonauthor review",
+      "bytes": 38360,
+      "sha256": "2dfe06601aa07bf0fa54923461f8367ba3018d30f1d6f43ff37a64a81d3b8adb",
+      "git_blob_sha1": "4af49a9319f86cf0d24248deb0ca0fbba66be404"
+    },
+    {
+      "unit": "NG",
+      "path": "frontiers/nongaussian_smoothing_admission_20261017/imports/FINITE_SMOOTH_INCIDENCE_RECONSTRUCTION.md",
+      "role": "earlier accepted GAD reviewer mathematical appendix; NEW exact dependency publication, not previously landed49",
+      "bytes": 5032,
+      "sha256": "b1b928ce32a6a39b464cb9f1c6dd82f61b95d2bb095459d9b02f301168bd7fb2",
+      "git_blob_sha1": "66a784fbd6ed16411d97afb5fda5da20641b0910"
+    },
+    {
+      "unit": "A4",
+      "path": "frontiers/gaussian_a4_elder_sector_20261017/PROOF.md",
+      "role": "full original accepted restricted-sector proof",
+      "bytes": 32065,
+      "sha256": "abed6f94da080a33458b78f1e60ae92ad90083323af41d241de05939d4377ff0",
+      "git_blob_sha1": "86371a58bdb12d86158c79dcc0c91da01c7c3e5b"
+    },
+    {
+      "unit": "A4",
+      "path": "frontiers/gaussian_a4_elder_sector_20261017/REVIEW.md",
+      "role": "full actual nonauthor review",
+      "bytes": 33042,
+      "sha256": "1f87a54d883e8611e72c9c396c2f0e77a5c872546e8ef9242b7437448ac27fea",
+      "git_blob_sha1": "47f8584aae2b27ad37cdb71a4eceb496c5049ed6"
+    },
+    {
+      "unit": "A4",
+      "path": "frontiers/gaussian_a4_elder_sector_20261017/EVERYWHERE_MARK_EXTENSION.md",
+      "role": "accepted reviewer reconstruction of everywhere Borel observable join",
+      "bytes": 3442,
+      "sha256": "3f5586edf75aa92ce1a17bd44dcbfb3116a5918722d341c8272b3e5dc4276164",
+      "git_blob_sha1": "7b60528b0c8117aa4bd9bbfd07880bb9d086bc8d"
+    },
+    {
+      "unit": "A4",
+      "path": "frontiers/gaussian_a4_elder_sector_20261017/coauthor/DERIVATION.md",
+      "role": "focused analytic COAUTHOR source, not independent review or standalone theorem acceptance",
+      "bytes": 14969,
+      "sha256": "d667ca3541fc7187abbc6757fb73f1c27784e4aefc2dc42f215bdee86d786946",
+      "git_blob_sha1": "ae7c81553eb877b0707d644aa007a0ca13f780b5"
+    },
+    {
+      "unit": "BIND",
+      "path": "frontiers/original_finite_l_gaussian_binding_20261017/PROOF.md",
+      "role": "full original accepted finiteL ideal-law alignment proof",
+      "bytes": 22163,
+      "sha256": "ad9ab5afea28062dfc661d0d19b43f20e67cfd67cb6910d3cc6c3fb8b81398d8",
+      "git_blob_sha1": "e8bb07fe8fab94616f02bdf792c34e3b337e1cf6"
+    },
+    {
+      "unit": "BIND",
+      "path": "frontiers/original_finite_l_gaussian_binding_20261017/REVIEW.md",
+      "role": "full actual integrated nonauthor review",
+      "bytes": 23795,
+      "sha256": "ea09be7dbe4baea3b141e75ce563b5adb8752bb42ff16fc65735ed44974ce096",
+      "git_blob_sha1": "95c0d25a1caa49f95c8bcd3a2d3f131d460da890"
+    },
+    {
+      "unit": "BIND",
+      "path": "frontiers/original_finite_l_gaussian_binding_20261017/focused-tensor-normalization/FOCUSED_TENSOR_NORMALIZATION_REVIEW.md",
+      "role": "actual focused tensor-normalization review; preparer authored this earlier focused review, no new independence credit",
+      "bytes": 12199,
+      "sha256": "fe2207d69495c41f40cea47b5643f72208a0ef5f6a1fe75e4af5042e462eedfb",
+      "git_blob_sha1": "0d9baf6f872df93facff76ea85f86be8e89b43b4"
+    }
+  ],
+  "canonical_publications": {
+    "NG": [
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242848584",
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242848784",
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242943453"
+    ],
+    "A4": [
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242536232",
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242537990",
+      "https://github.com/d6g8k5htny-coder/main/issues/419#issuecomment-6242623075"
+    ],
+    "BIND": [
+      "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243294265",
+      "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243298158",
+      "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243304101"
+    ]
+  },
+  "original_seals_reference_only": [
+    {
+      "unit": "NG",
+      "role": "original author seal",
+      "original_artifact_basename": "AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 3062,
+      "sha256": "8afee5ec816f3c729f25b3e608e0e93ba58d51a8a4601fc5d4be23830052e96f",
+      "git_blob_sha1": "fbd5a2264ecd239e515ea52e7a2011f0deda878e",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "NG",
+      "role": "original actual nonauthor review seal",
+      "original_artifact_basename": "NONAUTHOR_SMOOTHING_REVIEW_MANIFEST.json",
+      "bytes": 12780,
+      "sha256": "b860c65e46428109e6cda07e0a82080ed511626cdb2260b94c3d9e18bd01d16a",
+      "git_blob_sha1": "1c0dc2df1a982a64fba6c69e6a8033845b397514",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "A4",
+      "role": "original author seal",
+      "original_artifact_basename": "AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 2651,
+      "sha256": "4ffbe56ef508c6e543c82e6319c2cde0aad603fcf49988920f6a3ee9bfc7ea8d",
+      "git_blob_sha1": "24b1d661b77e8956003025c1d77c5d121205a776",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "A4",
+      "role": "original actual nonauthor review seal",
+      "original_artifact_basename": "NONAUTHOR_A4_REVIEW_MANIFEST.json",
+      "bytes": 10261,
+      "sha256": "693e466116b5e7b17b5543153829904ecf18ee634f20427f2c7f7f6bec41de66",
+      "git_blob_sha1": "d015ac94c48c170623b9ce8a4f91596228e0deaa",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "BIND",
+      "role": "original author seal",
+      "original_artifact_basename": "AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 3308,
+      "sha256": "83361eeb0f74574464b77638005794ced810691309592879a2b5f3a3fb20f065",
+      "git_blob_sha1": "f6bf23e175062706cca7e93c1209777bab44d868",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "BIND",
+      "role": "original actual nonauthor review seal",
+      "original_artifact_basename": "NONAUTHOR_BINDING_REVIEW_MANIFEST.json",
+      "bytes": 19171,
+      "sha256": "b2f744006cc37a4b91b2ea20965175029e08bf7b5b45c5402466874e4f8d6ec1",
+      "git_blob_sha1": "fde082634a894f34cc4c84b7a0d50a6bf67b8da3",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "A4",
+      "role": "focused COAUTHOR seal",
+      "original_artifact_basename": "COAUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 943,
+      "sha256": "21f134a3839eb83958510119228413374d0c93a7b71112bc121cfa31bd6d4858",
+      "git_blob_sha1": "7d852d1ef9ace652fa8c1358b6a70b01a751c621",
+      "published_raw_metadata": false
+    },
+    {
+      "unit": "BIND",
+      "role": "focused nonauthor review seal",
+      "original_artifact_basename": "FOCUSED_TENSOR_NORMALIZATION_REVIEW_MANIFEST.json",
+      "bytes": 2823,
+      "sha256": "046c47ecfcc131ef8908a434708f4a849ea18e6f9733026432cc750a62dfafbc",
+      "git_blob_sha1": "e14a23426461e4eca6522193b536992b2fe481bb",
+      "published_raw_metadata": false
+    }
+  ],
+  "existing_dependencies_reference_only": [
+    {
+      "unit": "GAD",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "2b43d27eebce765cf30090c03e74714c72431114",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/PROOF.md",
+      "bytes": 40231,
+      "sha256": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319",
+      "git_blob_sha1": "d61fd11a826856baecb4cf4cd8a76ad5c25350dd",
+      "action": "EXACT_EXISTING_SOURCE_REFERENCE_NO_COPY"
+    },
+    {
+      "unit": "GAD",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "2b43d27eebce765cf30090c03e74714c72431114",
+      "path": "frontiers/gaussian_short_bar_theory_20261017/smooth_gaussian_manifold_admission/REVIEW.md",
+      "bytes": 38035,
+      "sha256": "6fedc43ba34408f23f8934166b3898e2cd19175c57e61e37227c85f3ca5d4c70",
+      "git_blob_sha1": "554994ce28ea6b9e63450aa12301e5f220ec2e40",
+      "action": "EXACT_EXISTING_SOURCE_REFERENCE_NO_COPY"
+    },
+    {
+      "unit": "HF",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "89657c7c48289378949dc59e7fbe6dc1a55d9c62",
+      "path": "experiments/universality/higher_homology_fold/PROOF.md",
+      "bytes": 46174,
+      "sha256": "87f43e6ed94c5c63c385ecf177f68212afa5db54b24062fa008f081f47a78999",
+      "git_blob_sha1": "8e18a7900e7d6308649239cc300a49a7c07c2f27",
+      "action": "EXACT_EXISTING_OPEN_PR331_SOURCE_REFERENCE_NO_COPY",
+      "import_scope": "NG uses deterministic sections1–7; old stationary-Gaussian analytic adapter is not inherited; D1 source/body amendment remains separate"
+    },
+    {
+      "unit": "HF",
+      "repository": "d6g8k5htny-coder/main",
+      "commit": "89657c7c48289378949dc59e7fbe6dc1a55d9c62",
+      "path": "experiments/universality/higher_homology_fold/REVIEW.md",
+      "bytes": 5443,
+      "sha256": "4a24a4fe3e6bdd6e380ce1436f0b07eed587a03e01dc3ad6c59c59c4fbfba5fb",
+      "git_blob_sha1": "22fd94c885cf97c332a3f8bc5a7e6f805a5146c2",
+      "action": "EXACT_EXISTING_OPEN_PR331_SOURCE_REFERENCE_NO_COPY",
+      "import_scope": "NG uses deterministic sections1–7; old stationary-Gaussian analytic adapter is not inherited; D1 source/body amendment remains separate"
+    },
+    {
+      "unit": "ORIGINAL_FINITE_L",
+      "canonical_public_comment": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6242350213",
+      "original_artifact_basename": "independent-derivation.md",
+      "bytes": 24027,
+      "sha256": "f38c085ab5b15368e6989a1fd6298490f3b671f5a6c3a01bcdc81b516022bc33",
+      "git_blob_sha1": "d537bade335adb32050bd5b9470fec5a66c947e4",
+      "action": "REFERENCE_ORIGINAL_EXACT_PUBLIC_SOURCE_NO_DUPLICATE",
+      "scope": "Binding proof restates exact tensors/formula; original global proof passages are not retroactively accepted"
+    },
+    {
+      "unit": "MATH240",
+      "canonical_public_pr": "https://github.com/d6g8k5htny-coder/Math-/pull/240",
+      "original_artifact_basename": "PROOF.md",
+      "bytes": 51848,
+      "sha256": "35b9c5943cf35919f2046ba194945ba759be654edf5d5ad77ba17b1f5c5377fd",
+      "git_blob_sha1": "16a1db0658918057ff741df888c13702763d9919",
+      "current_math_exact_paths": [
+        "frontiers/elder_cusp_parity_20261002/PROOF.md"
+      ],
+      "action": "REFERENCE_NARROW_PRIOR_SOURCE_NO_COPY",
+      "scope": "A4 author used lines44–95/ridge notation/equation0.1, reconstructed independently; no whole Math240 theorem import"
+    }
+  ],
+  "accepted_scope_and_imports": {
+    "NG": {
+      "positive": "Fixed explicit Gaussian G plus independent Borel smooth W with all polynomial smooth-norm moments; H0 d>=1, and orientable d>=2 finite Hp per fixed field; asymptotic density−1/3/cumulative2/3 and iid whole-copy marked process within full review scope",
+      "limits": "No arbitrary nonGaussian law, uniform degenerating-noise/metric/dimension statement, within-field PPP/higher factorial theorem, numerical window, Lean or science",
+      "imports": "Existing exact GAD and finite smooth incidence supplement; exact HF deterministic sections1–7 only; named smooth/Morse/measure/Gaussian/classical imports retained"
+    },
+    "A4": {
+      "positive": "One positive fixed compact regular marked Gaussian A4 ordinaryH0 elder sector on a fixed oriented flat two-torus; density C_A4 ell^(4/5)+O(ell), cumulative~(5/9)C_A4 t^(9/5), as ell,t decrease to0",
+      "limits": "Not whole-bar leading law/next whole-density correction; no negligibility of omitted discriminants, Q5=0/second-soft/large-jet/residual sectors, other dimensions/curvature/Hk/PPP, numerical or science",
+      "imports": "Exact GAD literal kernels/all-Borel one-point incidence plus shared finite-incidence supplement; named classical local/global Morse and differential facts; coauthor source is authorship, mark extension is reviewed reconstruction"
+    },
+    "BIND": {
+      "positive": "Exact fixed finiteL original Gaussian law admitted through GAD; specified finite Borel ordinaryH0 density representative has C_alg ell^(−1/3) asymptotic and integrated(3/2)C_alg t^(2/3) per physical volume",
+      "limits": "Alternative ideal-law identification, not retrospective validation of every original argument; no M31/rate/onset/sampler/grid/count/confidence certificate, evaluated interval, all-five-gap closure or science",
+      "imports": "Exact GAD theorem and stated classical imports; original exact formula/tensors; numerical METHODV2 and P3/P7 advisory are not mathematical premises"
+    }
+  },
+  "not_in_prior49": "The5032B GAD incidence appendix is newly published exactly once here, not falsely described as alreadylanded",
+  "local_only_exclusions": [
+    "third-party PDFs/full books and rendered PNGs",
+    "raw old input/output/result/seal metadata containing private filesystem or fileID locators",
+    "programs,controls,failed attempts,raw streams,binaries,oleans,package/cache trees",
+    "prior complete recovery ZIPs; no public archive",
+    "old METHODV1/V2/proxy mathematics as proof premises; exact versions remain canonical history"
+  ],
+  "closure_limit": "Full new proofs and actual reviews plus named mathematical supplements are present. This is not physical closure of all historical manifests, transitive classical books or a portable runtime. Historical paths/PENDING labels remain literal and are interpreted by new metadata only.",
+  "relative_link_policy": "No frozen prose Markdown relative href needs repair; A4 extension colocated and binding focused subdirectory retained. Historical inline input filenames are routed by this index, not rewritten.",
+  "no_theorem_or_status_promotion": true,
+  "source_adoption": false,
+  "owner_adoption": false,
+  "scientific_effect": "NONE",
+  "supplementary_technical_input": {
+    "canonical_claim": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243336796",
+    "actual_actor": "Anthropic Claude01Cz",
+    "scope": "binding moment/regression/He/normalization only",
+    "status": "PENDING_NO_COMPLETED_RESULT_OR_ADOPTION_OR_INDEPENDENCE_CREDIT",
+    "root_observed_cut": "2026-10-17T23:49:56Z",
+    "claim_created_at": "2026-10-17T23:49:21Z",
+    "future_label_correction": "Body says23:52contendercheck, which was future at Root23:49cut and is not used as completed verification",
+    "prior_completed_binding_acceptance": "PRESERVED_UNCHANGED",
+    "local_preparation_waits_for_result": false
+  },
+  "current_runtime_boundary": "Currentbase separately contains the landed C261 source-smooth workflow/history. This candidate adds no runtime/CI/Lean registration and makes no new claim about that separate execution.",
+  "existing_C261_workflow_scope": {
+    "path": ".github/workflows/source-smooth-realization.yml",
+    "commit": "2b43d27eebce765cf30090c03e74714c72431114",
+    "bytes": 35002,
+    "sha256": "313952a5a8f6f87e27584be0b8d4064edecb41a5f655d0bbf3a83d4e76b21515",
+    "git_blob_sha1": "ecc9d40d9f12c068975fd2574032536edb3fc085",
+    "observation": "FULL579literalworkflowlines and invoked audit/lakefile read; static source/coverage only, no execution",
+    "trigger": {
+      "event": "pull_request",
+      "types": [
+        "opened"
+      ],
+      "paths": [
+        "frontiers/source_smooth_realization_20261011/**",
+        ".github/workflows/source-smooth-realization.yml"
+      ],
+      "push_dispatch_schedule": false
+    },
+    "candidate14_paths_match_filters": false,
+    "historical_guard": {
+      "deadline": "2026-10-16T02:50:00Z",
+      "expected_base": "319f9c45f66dbcce4a71b9c2f3e0fb62a666bfec",
+      "expected_head_ref": "codex/c261a-hosted-successor-20261016-root01a11cbf",
+      "original_attempt_only": 1,
+      "meaning": "Past fixed route plus external observer record; not renewed by landing or this prose packet"
+    },
+    "runtime_config": {
+      "runner": "ubuntu-latest",
+      "job_minutes": 30,
+      "threads": 2,
+      "Lean": "4.34.1",
+      "Lake": "5.0.0-src+5045d00",
+      "locked_packages": 9,
+      "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "actions": {
+        "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+        "lean-action": "f061402b660e0c34644504b324e830f2991d4865",
+        "upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+      },
+      "lean_action_inputs": "explicit source-package directory; auto-config/build/test/lint false; mathlib-cache true; github-cache false"
+    },
+    "invoked_scope": {
+      "baseline_modules": [
+        "GaussianSeriesFoundation",
+        "SpectralWeights",
+        "SourceFourierSeries",
+        "SourceC4",
+        "SourceGaussianLaw",
+        "SourceLattice",
+        "SourceKernel",
+        "SourceCovariance",
+        "SourceTorus",
+        "SourceTorusC4"
+      ],
+      "proof_modules": [
+        "SourceSmooth",
+        "SourceSmoothCarrier"
+      ],
+      "control_modules": [
+        "SourceSmoothControls"
+      ],
+      "standard_kernel_modules": [
+        "SourceSmooth",
+        "SourceSmoothCarrier",
+        "SourceSmoothControls"
+      ],
+      "audit": "SourceSmoothAxiomAudit.lean: actual13module-origin declaration census,16requirednames and4private-carrier guards,standard axioms only",
+      "phase_caps_seconds": [
+        540,
+        90,
+        90,
+        90,
+        90
+      ],
+      "kernel90scope": "three kernel calls combined90seconds"
+    },
+    "custody": "always final identity/outcome capture and artifact upload;21packageleaves+workflow exact22-addition guard",
+    "coverage_limit": "This C261 source scope does not compile/audit NG,A4,binding prose or475elder modules. Dated475core63 receipt retains its scope; no blanket current-Math-only63 claim. No new runtime/admission claim."
+  }
+}
