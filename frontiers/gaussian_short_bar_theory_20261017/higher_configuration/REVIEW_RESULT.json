@@ -1,0 +1,168 @@
+{
+  "actual_nonauthor": true,
+  "author_freeze_manifest": {
+    "bytes": 9362,
+    "path": "HIGHER_CONFIGURATION_AUTHOR_FREEZE_MANIFEST.json",
+    "sha256": "8734cda7c1dc3d4d85221980daee7849fdf6a3f250632e68d4af11aad20b3700"
+  },
+  "author_source_mutations": 0,
+  "authors": [
+    "OpenAI/Codex core_theorem_audit_20261015",
+    "Root steering",
+    "author-side dual_gaussian_floor_attack helper"
+  ],
+  "blind_credit": 0,
+  "blocking_findings": [],
+  "classical_source_clarification": "Bovier printed Definition4.10 omits bounded qualifier; weak convergence is used in its standard bounded-continuous-functional sense, with Theorem4.11 compact Laplace criterion. No unbounded-functional expectation claim.",
+  "completed_utc": "2026-10-16T03:02:16.419633+00:00",
+  "dual_review": {
+    "author_or_prior_controls_rerun": false,
+    "exact_checks": 253,
+    "manifest": {
+      "bytes": 1934,
+      "path": "higher-configuration-nonauthor-review/dual/DUAL_REVIEW_MANIFEST.json",
+      "sha256": "8d29f6d0c3a9e6d015c82e3d12aa18af972df8c893c32671f186cab1fc13ed4f"
+    },
+    "negative_controls": 10,
+    "report": {
+      "bytes": 14456,
+      "path": "higher-configuration-nonauthor-review/dual/NONAUTHOR_DUAL_FLOOR_REVIEW.md",
+      "sha256": "fa2af0124f4a08929647387d60a128bb0c3382069e14e3dd79ae0f0035d7148a"
+    },
+    "scope": "Sections3-4 only",
+    "verdict": "ACCEPT_SCOPED"
+  },
+  "formal_verification": false,
+  "human_credit": 0,
+  "integrating_controls": {
+    "check_groups": {
+      "actual_ordered_tuple_cap_and_shared_endpoint_near_partition": "PASS",
+      "finite_bonferroni_via_outcomes_and_ordered_permutations": "PASS",
+      "heterogeneous_six_p_observation_transform": "PASS",
+      "p_dependent_near_cutoff_and_middle_surviving_power": "PASS",
+      "same_family_one_point_intensity_coefficient_144": "PASS"
+    },
+    "exact_arithmetic": "Fraction/integer only",
+    "execution": {
+      "command": [
+        "python3",
+        "-B",
+        "higher-configuration-nonauthor-review/independent_higher_controls.py"
+      ],
+      "exit_code": 0,
+      "prior_or_author_controls_rerun": false,
+      "python_version": "Python 3.12.14",
+      "started_utc": "2026-10-16T02:56:27.000011+00:00",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 6250,
+      "stdout_sha256": "83c03a6a29cebd768f844c83eca47545c91a0779f7a359db96ce8330c6b52020",
+      "wall_seconds": 0.04640254192054272
+    },
+    "finite_Bonferroni_truncations": 20,
+    "finite_ordered_endpoint_tuples": 200,
+    "lifetime_jacobians": 4,
+    "negative_controls": {
+      "dropping_shared_endpoints_without_near_control_rejected": true,
+      "extra_unordered_pair_half_rejected": true,
+      "factorial_in_source_observation_jacobian_rejected": true,
+      "fixed_twofold_cutoff_for_all_orders_rejected": true,
+      "missing_single_factorial_divisor_rejected": true
+    },
+    "shared_endpoint_tuples": 176,
+    "source_observation_orders": 6
+  },
+  "not_established": [
+    "Uniform or increasing-p estimates",
+    "Effective exponent/constants/numerical window or an evaluated intensity integral",
+    "Infinite carrier or arbitrary normalized positive-spectrum theorem",
+    "Boundary/tail tightness at s=0, k=0, A=0 or unbounded marks",
+    "Global elder selection, actual persistence-bar theorem, essential classes or higher homology",
+    "Implemented sampler qualification or actual project source adoption"
+  ],
+  "organizational_independence_credit": 0,
+  "p_uniform_or_growing_p_claim": false,
+  "previous_math_Lean_runtime_or_field_campaign_reruns": false,
+  "primary_imports": {
+    "imports": [
+      {
+        "application_premises": "E is locally compact, separable and sigma-compact; nu is Radon and hence sigma-finite. A Poisson random measure exists, e.g. by independent finite Poisson pieces on a compact exhaustion.",
+        "bytes": 1465585,
+        "consumed": [
+          {
+            "application": "Equality of Laplace functionals determines a point-process law.",
+            "pdf_page": 26,
+            "printed_page": 14,
+            "statement": "Proposition2.10"
+          },
+          {
+            "application": "Poisson characterization by its exponential Laplace functional for s-finite intensity.",
+            "pdf_page": 35,
+            "printed_page": 23,
+            "statement": "Theorem3.9"
+          }
+        ],
+        "path": "higher-configuration-primary-sources/lastpenrose2017.pdf",
+        "rendered_and_visually_inspected": true,
+        "sha256": "04423f7ad07ca1d07178c307c14558df7d6a309519759a4229396c11945d9c3e",
+        "source": "Last and Penrose, Lectures on the Poisson Process, version21 August2017",
+        "url": "https://stoch.math.kit.edu/img/Last/lastpenrose2017.pdf"
+      },
+      {
+        "application_premises": "Proper closed embedding E=R^4 x(S1)^3 intoR10 via logarithmic regular coordinates. Compact ambient tests restrict to compact E tests. Both process and limiting intensity are supported on the closed copy. Vague topology returns to E by compact-support extension from this closed copy. Weak convergence is used in the standard bounded-continuous-functional sense.",
+        "bytes": 621986,
+        "consumed": [
+          {
+            "application": "Laplace convergence on nonnegative compact continuous Euclidean tests implies weak convergence of point processes in the vague topology.",
+            "pdf_page": 57,
+            "printed_page": 51,
+            "statement": "Appendix Theorem4.11"
+          }
+        ],
+        "path": "higher-configuration-primary-sources/bovier-prague2013.pdf",
+        "rendered_and_visually_inspected": true,
+        "sha256": "261fe6cb47ec57ab33cd66723ff9e1c51e41825316fd1a190b44b157e8b3325d",
+        "source": "Bovier, From spin glasses to branching Brownian motion and back, Prague2013 notes",
+        "source_note": "Printed Definition4.10 on the same page leaves the bounded qualifier unstated for continuous functionals. This review uses the usual weak topology and Theorem4.11, not convergence of arbitrary unbounded functional expectations.",
+        "url": "https://www.math.ucla.edu/~biskup/Prague-school-2013/figs/Anton-notes.pdf"
+      }
+    ],
+    "reviewed_utc": "2026-10-16T02:57:28.133740+00:00",
+    "scope": "Bounded statement reads only; not entire books, original proofs or a full bibliography audit."
+  },
+  "prior_review_mutations": 0,
+  "remote_native_production_lean_writes": "NONE",
+  "required_author_amendments": [],
+  "reviewed_source": {
+    "bytes": 32938,
+    "path": "HIGHER_CONFIGURATION_GAUSSIAN_ROUTE.md",
+    "sha256": "43bd77fd5320a717c77bba28c1a6eec080ff67db56c911c6ddea5351a1279b7e"
+  },
+  "reviewer": "OpenAI/Codex /root/c261a_successor_preparation_review_20261016",
+  "same_provider": true,
+  "same_source_B_fixed_for_all_orders": true,
+  "scientific_effect": "NONE",
+  "scope": "All fixed ordered factorial moments and compact Laplace/vague convergence for regular local endpoint candidates in the one declared normalized Gaussian square-truncation family.",
+  "source_admission": "NONE",
+  "source_exposed": true,
+  "source_freeze_readback": {
+    "all_match": true,
+    "current_author_freeze_entries": 24,
+    "distinct_frozen_inputs": 68,
+    "dual_manifest_outputs_verified": 5,
+    "prior_sealed_jet_manifest_closure_entries": 55
+  },
+  "theorem_dispositions": {
+    "2p_endpoint_borel_area_formula": "ACCEPT_SCOPED; use away from controlled shared-endpoint near terms, determinants once",
+    "6p_pin_kernel": "ACCEPT_SCOPED; upper m^(-7p), error sqrt(r)m^(-(7p+2)), local Lipschitz marks and r<=c_p m",
+    "all_fixed_order_factorial_limits": "ACCEPT_SCOPED; single source family and fixed B>0",
+    "compact_laplace_and_vague_poisson_limit": "ACCEPT_SCOPED; finite Bonferroni then classical Laplace convergence criterion on proper closed embedding",
+    "constructive_10p_raw_and_7p_contact_floor": "ACCEPT_SCOPED; c_p eta^(8p-2), arbitrary diameter/internal scales/all frames; each fixed p",
+    "far_factorization": "ACCEPT_SCOPED; local 7p Gaussian density interpolation with constant floor",
+    "middle_clusters": "ACCEPT_SCOPED; surviving t^(2/3) times finite p-dependent logarithmic power",
+    "near_direct_count": "ACCEPT_SCOPED; p-dependent proof cutoff, bound C_p t^4, actual shared endpoint terms included",
+    "same_family_one_point_intensity": "ACCEPT_SCOPED; coefficient144, unit torus Haar and unnormalized circle arclength",
+    "torus_clusters_images_cycles_transfer": "ACCEPT_SCOPED; fixed pR<L/2 and delta errors little-o of inverse-log floor"
+  },
+  "verdict": "ACCEPT_SCOPED"
+}
