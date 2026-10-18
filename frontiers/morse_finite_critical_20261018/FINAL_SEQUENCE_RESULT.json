@@ -1,0 +1,65 @@
+{
+  "started_utc": "2026-10-18T02:57:21.689807+00:00",
+  "inventory_sha256": "f1a429935146b4e406e9ba8cc9ff8b84f7d40c22cc4fea74920dfc013c4911de",
+  "phases": [
+    {
+      "kind": "build",
+      "module": "Lifetime",
+      "started_utc": "2026-10-18T02:57:21.689836+00:00",
+      "ended_utc": "2026-10-18T02:59:03.224627+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "TorusTopology",
+      "started_utc": "2026-10-18T02:59:03.224669+00:00",
+      "ended_utc": "2026-10-18T03:00:43.914208+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "MorseFiniteCritical",
+      "started_utc": "2026-10-18T03:00:43.914248+00:00",
+      "ended_utc": "2026-10-18T03:02:23.617988+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "MorseFiniteControls",
+      "started_utc": "2026-10-18T03:02:23.618032+00:00",
+      "ended_utc": "2026-10-18T03:04:11.727630+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "MorseFiniteAxiomAudit",
+      "started_utc": "2026-10-18T03:04:11.727680+00:00",
+      "ended_utc": "2026-10-18T03:07:05.596139+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "kernel",
+      "module": "MorseFiniteCritical",
+      "started_utc": "2026-10-18T03:07:05.596193+00:00",
+      "ended_utc": "2026-10-18T03:08:32.127951+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "kernel",
+      "module": "MorseFiniteControls",
+      "started_utc": "2026-10-18T03:08:32.127998+00:00",
+      "ended_utc": "2026-10-18T03:10:00.355556+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "kernel",
+      "module": "MorseFiniteAxiomAudit",
+      "started_utc": "2026-10-18T03:10:00.355596+00:00",
+      "ended_utc": "2026-10-18T03:11:29.812864+00:00",
+      "returncode": 0
+    }
+  ],
+  "scientific_effect": "NONE",
+  "status": "PASS_FROZEN_BUILD_AND_STANDARD_KERNEL_REPLAY",
+  "ended_utc": "2026-10-18T03:11:29.812907+00:00"
+}

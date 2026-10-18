@@ -1,0 +1,69 @@
+{
+  "frozen_utc": "2026-10-18T02:56:53.456259+00:00",
+  "prepare_start_record": "$C293_ROOT/final-prepare-attempts/2026-10-18T025648.570677_0000-4fa2f46bd57a42d5818b82dc46914892.json",
+  "prepare_start_sha256": "0b9a6dea32234c956e08fbdbc167c9e04a4615c9e5fe4b9cca875f404646f91d",
+  "prior_legacy_start": {
+    "path": "$C293_ROOT/FINAL_PREPARE_START.json",
+    "sha256": "9f39ca7a8c6ff0ef0a1fe37830adfe6955015c6cfca50c8a74c5ee1f3ef8add1"
+  },
+  "sources": [
+    {
+      "name": "Lifetime.lean",
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+      "bytes": 51383
+    },
+    {
+      "name": "TorusTopology.lean",
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1",
+      "bytes": 12257
+    },
+    {
+      "name": "MorseFiniteCritical.lean",
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+      "bytes": 9445
+    },
+    {
+      "name": "MorseFiniteControls.lean",
+      "sha256": "e6171c949ec60a3aea21a8cc028180e16c82e4946a232107d9e82bf8018cdac1",
+      "bytes": 2843
+    },
+    {
+      "name": "MorseFiniteAxiomAudit.lean",
+      "sha256": "326a1cab271bf46a1c7db750ee1565e08dc4856c62e0abce3f5c9f90d923ce9d",
+      "bytes": 3025
+    }
+  ],
+  "build_order": [
+    "Lifetime",
+    "TorusTopology",
+    "MorseFiniteCritical",
+    "MorseFiniteControls",
+    "MorseFiniteAxiomAudit"
+  ],
+  "local_imports": {
+    "Lifetime": [],
+    "TorusTopology": [],
+    "MorseFiniteCritical": [
+      "Lifetime",
+      "TorusTopology"
+    ],
+    "MorseFiniteControls": [
+      "Lifetime"
+    ],
+    "MorseFiniteAxiomAudit": [
+      "MorseFiniteCritical",
+      "MorseFiniteControls"
+    ]
+  },
+  "new_modules": [
+    "MorseFiniteCritical",
+    "MorseFiniteControls",
+    "MorseFiniteAxiomAudit"
+  ],
+  "runner_sha256": "e9b7bd0caa19889e2ba0974c788e13a573645fd3c0839890eee41bbf15831b23",
+  "preparer_sha256": "72bbe39334fa2a7b09d621f81f6211e9a4019804b949f4ea2576e1c4f2927451",
+  "dependency_artifact_inventory_sha256": "4e35e91a0b6f334eb6ad41e586b9704189e7063722d9c2e5f6a87f0839af0d21",
+  "c291_inventory_sha256": "b78b6e0f99bd38c633ae2677c55698363b1290e6d4318e505991c8df259ae2e3",
+  "scientific_effect": "NONE",
+  "execution_provenance": "LOCAL; no hosted qualification"
+}

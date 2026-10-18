@@ -1,0 +1,76 @@
+{
+  "kind": "build",
+  "module": "Lifetime",
+  "started_utc": "2026-10-18T02:57:21.715451+00:00",
+  "runner_sha256": "e9b7bd0caa19889e2ba0974c788e13a573645fd3c0839890eee41bbf15831b23",
+  "kernel_scope": "standard named-module replay against imported dependencies; not --fresh/external verification",
+  "scientific_effect": "NONE",
+  "timeout_seconds": 420,
+  "threads": 2,
+  "status": "PASS",
+  "inventory_sha256": "f1a429935146b4e406e9ba8cc9ff8b84f7d40c22cc4fea74920dfc013c4911de",
+  "source_before": {
+    "Lifetime.lean": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+    "MorseFiniteAxiomAudit.lean": "326a1cab271bf46a1c7db750ee1565e08dc4856c62e0abce3f5c9f90d923ce9d",
+    "MorseFiniteControls.lean": "e6171c949ec60a3aea21a8cc028180e16c82e4946a232107d9e82bf8018cdac1",
+    "MorseFiniteCritical.lean": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+    "TorusTopology.lean": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+  },
+  "objects_before": {},
+  "dependency_before": {
+    "reused": 83897,
+    "rehashed": [],
+    "mode": "C291 byte hashes plus unchanged metadata reuse; changed metadata rehashed; NOT full fresh byte rehash"
+  },
+  "command": [
+    "$LEAN_RUNTIME/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "$C293_ROOT/final-build/Lifetime.olean",
+    "$C293_ROOT/final-project/Lifetime.lean"
+  ],
+  "process_path": "$LEAN_RUNTIME/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+  "lean_path": [
+    "$C293_ROOT/final-build",
+    "$PINNED_PROJECT/.lake/packages/plausible/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/LeanSearchClient/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/importGraph/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/proofwidgets/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/aesop/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/Qq/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/batteries/.lake/build/lib/lean",
+    "$PINNED_PROJECT/.lake/packages/mathlib/.lake/build/lib/lean"
+  ],
+  "executable_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "resolved_lean_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "child_pid": 3072,
+  "returncode": 0,
+  "timed_out": false,
+  "source_after": {
+    "Lifetime.lean": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+    "MorseFiniteAxiomAudit.lean": "326a1cab271bf46a1c7db750ee1565e08dc4856c62e0abce3f5c9f90d923ce9d",
+    "MorseFiniteControls.lean": "e6171c949ec60a3aea21a8cc028180e16c82e4946a232107d9e82bf8018cdac1",
+    "MorseFiniteCritical.lean": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+    "TorusTopology.lean": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+  },
+  "objects_after": {
+    "Lifetime.olean": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+  },
+  "dependency_after": {
+    "reused": 83897,
+    "rehashed": [],
+    "mode": "C291 byte hashes plus unchanged metadata reuse; changed metadata rehashed; NOT full fresh byte rehash"
+  },
+  "source_unchanged": true,
+  "imported_objects_unchanged": true,
+  "object_sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4",
+  "produced_objects": {
+    "Lifetime.olean": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+  },
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "process_reaped": true,
+  "ended_utc": "2026-10-18T02:59:03.198094+00:00",
+  "seconds": 101.481695792
+}

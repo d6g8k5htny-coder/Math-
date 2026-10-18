@@ -1,0 +1,29 @@
+{
+  "started_utc": "2026-10-18T03:14:10.007475+00:00",
+  "source_sha256": "4c9726b692dbb83237b82344e7b5aab621749da6da699c0187cf9893dca8d80f",
+  "command": [
+    "$LEAN_RUNTIME/bin/lean",
+    "-j2",
+    "-M4096",
+    "$C293_ROOT/negative-project/WithoutMorse.lean"
+  ],
+  "source_before": {
+    "Lifetime.lean": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+    "MorseFiniteAxiomAudit.lean": "326a1cab271bf46a1c7db750ee1565e08dc4856c62e0abce3f5c9f90d923ce9d",
+    "MorseFiniteControls.lean": "e6171c949ec60a3aea21a8cc028180e16c82e4946a232107d9e82bf8018cdac1",
+    "MorseFiniteCritical.lean": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+    "TorusTopology.lean": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+  },
+  "objects_before": {
+    "Lifetime.olean": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4",
+    "MorseFiniteAxiomAudit.olean": "3c3f30110ec4a3c0a0c1ba6f1769634d0c04bfc4e444ab1bcfd46c5dffa4ff4b",
+    "MorseFiniteControls.olean": "5eebfbb98a8cb05ac420d260dd08461ac037b2e086620fe79ee330defd345efa",
+    "MorseFiniteCritical.olean": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2",
+    "TorusTopology.olean": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+  },
+  "lean_sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554",
+  "inventory_sha256": "f1a429935146b4e406e9ba8cc9ff8b84f7d40c22cc4fea74920dfc013c4911de",
+  "runner_sha256": "cb5a8db15b5b5881463fc5e6faea7f38c3de0a3f7e56b6fd9001f3326a815faa",
+  "timeout_seconds": 240,
+  "meaning": "Interface rejection for absent nondegeneracy; not itself a counterexample theorem."
+}
