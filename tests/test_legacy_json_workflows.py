@@ -1,8 +1,9 @@
-"""Whole-shell regression tests; every repository and checker here is synthetic.
+"""Synthetic whole-shell regressions and authentic child-diagnostic PTY checks.
 
-The fixture commits source/manifest/upstream bytes, then runs the actual workflow
-verification block with real subprocesses. Child stdout uses the independently
-measured report fixtures. This is protocol coverage, not a field calculation.
+The workflow fixture commits synthetic source/manifest/upstream bytes, then runs
+the actual verification block with real subprocesses and measured report fixtures.
+LegacyTerminalTests separately invokes the authentic C6 invalid-label command.
+This is protocol coverage, not a field calculation.
 """
 from __future__ import annotations
 import hashlib
@@ -225,6 +226,77 @@ class LegacyWorkflowTests(unittest.TestCase):
         for fam in ACTIVE:
             for mode in ['normal','optimized']:
                 with self.subTest(family=fam,mode=mode):self.rejected(fam,'baseline',mode,'format')
+
+@unittest.skipUnless(os.name == 'posix', 'real PTY regression requires POSIX')
+class LegacyTerminalTests(unittest.TestCase):
+    """Compare the real captured checker with a parent attached to a real PTY."""
+
+    def diagnostic_case(self, width, columns, optimized):
+        import fcntl
+        import pty
+        import struct
+        import termios
+        script = ROOT/'frontiers/c6_cluster_law_20260929/cluster_law_check.py'
+        self.assertEqual(blob(script.read_bytes()),
+                         '91f485f529e09bebcd92f5a8f41d87bf01efc6d6')
+        env = os.environ.copy()
+        env.pop('COLUMNS', None)
+        env.pop('LINES', None)
+        if columns is not None:
+            env['COLUMNS'] = columns
+        flags = ['-B', '-O', '-S'] if optimized else ['-B', '-S']
+        code = '''
+import importlib.util, json, os, subprocess, sys
+spec = importlib.util.spec_from_file_location('legacy_parent', sys.argv[1])
+helper = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(helper)
+expected = helper._unknown_stderr('c6-cluster', 'cluster_law_check.py')
+child_flags = ['-B', '-O', '-S'] if sys.flags.optimize else ['-B', '-S']
+child = subprocess.run([sys.executable, *child_flags, sys.argv[2], '--mutant', 'unknown'],
+                       capture_output=True, timeout=15)
+print(json.dumps({'tty':sys.stdout.isatty(), 'width':os.get_terminal_size(1).columns,
+                  'returncode':child.returncode, 'stdout':child.stdout.hex(),
+                  'actual':child.stderr.hex(), 'expected':expected.hex()}), file=sys.stderr)
+'''
+        master, slave = pty.openpty()
+        try:
+            fcntl.ioctl(slave, termios.TIOCSWINSZ,
+                        struct.pack('HHHH', 24, width, 0, 0))
+            run = subprocess.run(
+                [sys.executable, *flags, '-c', code,
+                 str(SOURCE/'tools/legacy_json_replay.py'), str(script)],
+                stdout=slave, stderr=subprocess.PIPE, env=env, timeout=30)
+        finally:
+            os.close(slave)
+            os.close(master)
+        self.assertEqual(run.returncode, 0, run.stderr.decode(errors='replace'))
+        record = json.loads(run.stderr)
+        self.assertTrue(record['tty'])
+        self.assertEqual(record['width'], width)
+        self.assertEqual(record['returncode'], 2)
+        self.assertEqual(record['stdout'], '')
+        self.assertEqual(record['actual'], record['expected'], record)
+
+    def test_unknown_diagnostic_uses_child_pipe_width(self):
+        for width in (30, 80, 220):
+            for optimized in (False, True):
+                with self.subTest(width=width, optimized=optimized):
+                    self.diagnostic_case(width, None, optimized)
+
+    def test_columns_override_matches_captured_child(self):
+        for width in (30, 220):
+            for columns in ('35', '80', '220', ' 110 '):
+                for optimized in (False, True):
+                    with self.subTest(width=width, columns=columns, optimized=optimized):
+                        self.diagnostic_case(width, columns, optimized)
+
+    def test_invalid_columns_use_pipe_fallback(self):
+        for width in (30, 220):
+            for columns in ('', '0', '-3', 'not-a-number'):
+                for optimized in (False, True):
+                    with self.subTest(width=width, columns=columns, optimized=optimized):
+                        self.diagnostic_case(width, columns, optimized)
+
 
 ORDERS={'local-pairing':['M1','M2','M3','M4'],'far-elder':['M1','M2','M3','M4'],'c6-cluster':['pins-not-critical','wrong-pin-hessian','drop-sigma-jacobian','three-extra-points','shear-drop-cubic','s-bound-constant','cross-term-not-small','window-closed','index-sign']}
 # BASELINES inserted below from native RESULTS, independently hash-bound above.
