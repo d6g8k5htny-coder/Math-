@@ -10,6 +10,11 @@
     "E2": {"path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md", "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a", "bytes": 9062, "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f"}
   },
   "local_records": {
+    "RECOVERED_X3": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X3.md", "git_blob": "b5662098d08ad429cf0bb9e37e18f16722a11bf4", "bytes": 6138, "sha256": "54bfe66d14b854a35e3f9679cb592eb238f36f4751b6cac1bca0206ea4169c0d"},
+    "RECOVERED_X4": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X4.md", "git_blob": "b1b934ff4404e05294921615c69e66fa53cd4758", "bytes": 6520, "sha256": "8efa402605417136f1157eda30014d14e0c6f895b497da6f09cd401f579c7d60"},
+    "RECOVERED_X5": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X5.md", "git_blob": "d1efa5cb8ebd9e648d776203f7bd4150521e529d", "bytes": 8427, "sha256": "b9796a5fe789832bc56b459c01078067572074dceff1cc85109b9e05063c7903"},
+    "RECOVERED_G2": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_G2.md", "git_blob": "9e82dce83d81345b912a27cbc44fb913155f0302", "bytes": 7458, "sha256": "124d0acd2321c37e590325432633b7c57f45d896cf760301ec955c29723e1abd"},
+    "RECOVERY_PROVENANCE": {"path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_REVIEWS.json", "bytes": 10997, "sha256": "8682b8d33a2502fd28236459fe215f0908685638cfd2df81467798709662c041", "git_blob": "a651092339661242a37860d37d5be851267dcae0"},
     "C1": {"path": "reviews/d1_theorem_a_nonauthor_20260928/REVIEW.md", "git_blob": "bc11369c41ebc76de5700df3f931939ccfc88b9b", "bytes": 24105, "sha256": "b7328d4bab97fa2d12622ca730dc698970febc1ea8bcbc0b24555e69e2a66392"},
     "G2": {"path": "reviews/d1_section9_borel_grok_lucas_20260928/REVIEW.md", "git_blob": "48ea9ad5a3ae5a1515a3533a4c776800547a92bc", "bytes": 4287, "sha256": "a654ea6b52181fa46371c3a2ef9ee17e82f8e365f9de24857526c6dd48154d7e"},
     "LOWER": {"path": "frontiers/window_multiplicity_laws_20260928/ELDER_LOWER_AND_DENSITY_GAP.md", "git_blob": "aaefc8da9668e819591dd9db0b34442394f2362e", "bytes": 10229, "sha256": "8ce05a43bde8e0d718f09e2da1ffe75d3ec5893489254afdbf5b58b602cdba0c"},
@@ -20,9 +25,12 @@
   "reviews": {
     "G1": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-ce4bf0bc-0a0b-4cb1-abaf-7c5b8914418c", "locator": "https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5841570965"},
     "C1": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "local_records.C1 and https://github.com/d6g8k5htny-coder/main/issues/63#issuecomment-5873873903"},
-    "G2": {"provider": "xAI", "model": "Grok, Lucas lane", "session": "Math-#112 body (attributed narrative record)", "locator": "local_records.G2"},
+    "G2": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-2e403f48-c4ce-4d4b-ad0d-30562c0e039d", "locator": "local_records.G2 and https://github.com/d6g8k5htny-coder/Math-/pull/37#issuecomment-5841032512"},
     "G3": {"provider": "xAI", "model": "Grok via Cursor, replay rounds 3-9", "session": "main#163 incoming packet", "locator": "https://github.com/d6g8k5htny-coder/main/tree/main/incoming/grok-session-20260926-replay"},
     "G4": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-81faa729 and bc-dfbce246", "locator": "https://github.com/d6g8k5htny-coder/main/issues/67#issuecomment-5841270276 and #issuecomment-5841782206"},
+    "X3": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841317882"},
+    "X4": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841289285"},
+    "X5": {"provider": "xAI", "model": "Grok 4.7 via Cursor", "session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9", "locator": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841352633"},
     "C2": {"provider": "Anthropic", "model": "Claude (Claude Code)", "session": "session_017Mi3hxjaxV45x6zo6o1ee3", "locator": "RECONCILIATION.md section 6"},
     "O1": {"provider": "OpenAI", "model": "OpenAI technical review", "session": "Math-#106 review 5341593068", "locator": "https://github.com/d6g8k5htny-coder/Math-/pull/106#pullrequestreview-5341593068"}
   },
