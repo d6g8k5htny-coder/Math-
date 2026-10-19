@@ -1,0 +1,89 @@
+test_constant_identity_in_sixth_power (test_coefficient.PrimitiveTests.test_constant_identity_in_sixth_power) ... FAIL
+test_gamma_extrema_and_tail_factor (test_coefficient.PrimitiveTests.test_gamma_extrema_and_tail_factor) ... FAIL
+test_positive_hulls_and_interior_ratio_adverse_control (test_coefficient.PrimitiveTests.test_positive_hulls_and_interior_ratio_adverse_control) ... FAIL
+test_request_and_json_guards (test_coefficient.PrimitiveTests.test_request_and_json_guards) ... FAIL
+test_root_rejects_narrowed_or_wrong_mesh (test_coefficient.PrimitiveTests.test_root_rejects_narrowed_or_wrong_mesh) ... FAIL
+test_sixth_root_perfect_and_nonperfect (test_coefficient.PrimitiveTests.test_sixth_root_perfect_and_nonperfect) ... FAIL
+test_width_goal_and_false_status (test_coefficient.PrimitiveTests.test_width_goal_and_false_status) ... FAIL
+
+======================================================================
+FAIL: test_constant_identity_in_sixth_power (test_coefficient.PrimitiveTests.test_constant_identity_in_sixth_power)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 56, in test_constant_identity_in_sixth_power
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_gamma_extrema_and_tail_factor (test_coefficient.PrimitiveTests.test_gamma_extrema_and_tail_factor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 33, in test_gamma_extrema_and_tail_factor
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_positive_hulls_and_interior_ratio_adverse_control (test_coefficient.PrimitiveTests.test_positive_hulls_and_interior_ratio_adverse_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 45, in test_positive_hulls_and_interior_ratio_adverse_control
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_request_and_json_guards (test_coefficient.PrimitiveTests.test_request_and_json_guards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 63, in test_request_and_json_guards
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_root_rejects_narrowed_or_wrong_mesh (test_coefficient.PrimitiveTests.test_root_rejects_narrowed_or_wrong_mesh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 28, in test_root_rejects_narrowed_or_wrong_mesh
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_sixth_root_perfect_and_nonperfect (test_coefficient.PrimitiveTests.test_sixth_root_perfect_and_nonperfect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 18, in test_sixth_root_perfect_and_nonperfect
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+======================================================================
+FAIL: test_width_goal_and_false_status (test_coefficient.PrimitiveTests.test_width_goal_and_false_status)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 72, in test_width_goal_and_false_status
+    p,v=self.modules()
+        ^^^^^^^^^^^^^^
+  File "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018/test_coefficient.py", line 13, in modules
+    self.assertTrue((Path(__file__).parent/(name+'.py')).exists(),
+AssertionError: False is not true : new certificate behavior missing: coefficient
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=7)
