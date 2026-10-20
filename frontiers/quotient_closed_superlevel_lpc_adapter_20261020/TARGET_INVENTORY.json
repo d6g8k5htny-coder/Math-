@@ -1,0 +1,19 @@
+{
+  "status": "UNCOMPILED_UNEXECUTED",
+  "required_targets": [
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.torus_proj_isOpenQuotientMap",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.closedSuperlevel_preimage",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_closedSuperlevel_lpc_of_euclidean",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_death_attainment_of_euclidean_closedLPC"
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "audit_file": "project/QuoClosedSuperlevelAudit.lean",
+  "negative_file": "negative-project/OmittedEuclideanLPC.lean",
+  "negative_diagnostic_line": 25,
+  "missing_argument": "EXPLICIT Euclidean closed-superlevel LPC proof, not typeclass synthesis",
+  "final_diagnostic_qualification": "PENDING_DISTINCT_ACTUAL_DIAGNOSTIC_REVIEW"
+}

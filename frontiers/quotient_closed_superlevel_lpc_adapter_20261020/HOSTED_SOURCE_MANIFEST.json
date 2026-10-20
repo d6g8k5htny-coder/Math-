@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "state": "UNSELECTED_UNOPENED_SOURCE_DRAFT",
+  "scientific_effect": "NONE",
+  "files": {
+    "project/Lifetime.lean": {
+      "bytes": 51383,
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+    },
+    "project/TorusTopology.lean": {
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+    },
+    "project/SuperlevelBar.lean": {
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
+    },
+    "project/ClosedSuperlevel.lean": {
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
+    },
+    "project/MorseFiniteCritical.lean": {
+      "bytes": 9445,
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b"
+    },
+    "project/CriticalLevelAttainment.lean": {
+      "bytes": 14338,
+      "sha256": "ec4b6ceb9475143434c25269bccc45cdd627d83af359609007001c9284bb9a12"
+    },
+    "project/QuoClosedSuperlevelAdapter.lean": {
+      "bytes": 3981,
+      "sha256": "1e0450504de823c0db0c666c0cae3dea133c9bca3e05e746949491fca4a481a1"
+    },
+    "project/QuoClosedSuperlevelAudit.lean": {
+      "bytes": 514,
+      "sha256": "f180bb6bb87bb5ec54c75c084a3ba698a44e8ca33400bd49d25df4a5cbb86d2d"
+    },
+    "negative-project/OmittedEuclideanLPC.lean": {
+      "bytes": 1148,
+      "sha256": "9441aa728a99b0f3d9943ee3e453ad534bd3ea993ef333c786ea9b3db023833e"
+    }
+  },
+  "source_origins": {
+    "Lifetime": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/Lifetime.lean"
+    },
+    "TorusTopology": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/TorusTopology.lean"
+    },
+    "SuperlevelBar": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/SuperlevelBar.lean"
+    },
+    "ClosedSuperlevel": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/ClosedSuperlevel.lean"
+    },
+    "MorseFiniteCritical": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/MorseFiniteCritical.lean"
+    },
+    "CriticalLevelAttainment": {
+      "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+      "path": "frontiers/critical_level_attainment_20261020/final-project/CriticalLevelAttainment.lean"
+    }
+  },
+  "build_order": [
+    "Lifetime",
+    "TorusTopology",
+    "SuperlevelBar",
+    "ClosedSuperlevel",
+    "MorseFiniteCritical",
+    "CriticalLevelAttainment",
+    "QuoClosedSuperlevelAdapter",
+    "QuoClosedSuperlevelAudit"
+  ],
+  "required_targets": [
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.torus_proj_isOpenQuotientMap",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.closedSuperlevel_preimage",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_closedSuperlevel_lpc_of_euclidean",
+    "TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_death_attainment_of_euclidean_closedLPC"
+  ],
+  "formal_config": {
+    "formal/lean-toolchain": {
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    "formal/lakefile.toml": {
+      "bytes": 274,
+      "sha256": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255"
+    },
+    "formal/lake-manifest.json": {
+      "bytes": 3553,
+      "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043"
+    }
+  },
+  "support_files": {
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/quo_hosted_verify.py": {
+      "bytes": 36719,
+      "sha256": "ae28a1193bd0c2afbee759e2c007ee3c7c2bbe10741d450e9c7a503549d83191"
+    },
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/test_quo_hosted_verify.py": {
+      "bytes": 7994,
+      "sha256": "165d148273fe32f9d475b8eac1d3a13c29c82ed20d354d3d1c21c35d6bfaf676"
+    },
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/EXECUTION_CONTRACT.md": {
+      "bytes": 13540,
+      "sha256": "d9bd7f897531fb47d3fa9064906e78f8f112f9ab0bb2e2b20b53dfcb541f6ae4"
+    },
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/TARGET_INVENTORY.json": {
+      "bytes": 859,
+      "sha256": "cc3f698b1cec683e89e3e32c8a1a1f7cc5d6e670cb65545f97ab32e5b858df24"
+    },
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/DEPENDENCY_LOCK.json": {
+      "bytes": 3553,
+      "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043"
+    },
+    "frontiers/quotient_closed_superlevel_lpc_adapter_20261020/PROVENANCE.md": {
+      "bytes": 3833,
+      "sha256": "f0df644d06e3d5f80f3a3f8b55ef35fc5d718c6bb456d06cd3549269626d055a"
+    }
+  },
+  "source_only": true,
+  "execution_count": 0
+}
