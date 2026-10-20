@@ -28,4 +28,6 @@ example (hg : IsSmooth d g) (hx : ¬ IsCriticalPoint d g x) :
     (g x, 0) ∈ (regularPointChart hg hx).target :=
   mem_regularPointChart_target hg hx
 
+end
+
 end UniversalLaw.Spec.Lifetime

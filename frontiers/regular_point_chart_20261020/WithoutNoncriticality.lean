@@ -12,4 +12,6 @@ example (hg : IsSmooth d g) :
     OpenPartialHomeomorph (E d) (ℝ × (fderiv ℝ g x).ker) :=
   regularPointChart hg
 
+end
+
 end UniversalLaw.Spec.Lifetime
