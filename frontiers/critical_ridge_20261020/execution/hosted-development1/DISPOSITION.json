@@ -1,0 +1,60 @@
+{
+  "checkpoint": "2026-10-20T14:27:10.764658+00:00",
+  "actual_executor": "GitHub Actions ubuntu-24.04 via OpenAI Codex root publication; delegated for Dylan Roy",
+  "source_author": "OpenAI Codex /root/adapter_feasibility_c292",
+  "head": "c8d66bde8ce496c1007e4a3f6b0a9f9f93762bfb",
+  "tested_merge": "396e7ee43ec39fa5145909e1f809fc91fec6b014",
+  "tree": "0f734451a5cdd70274dbf4018155039793844af4",
+  "run": 39438543701,
+  "attempt": 1,
+  "job": 118681955998,
+  "artifact": 12271934213,
+  "artifact_bytes": 480143,
+  "artifact_sha256": "b11e3bd43ddce08b0037e9f1de34d9365a4739200481235ecbd10dc794a73613",
+  "candidate_bytes": 8149,
+  "candidate_sha256": "b3c22e590f761953ba322ad2903978e3982179204ad5c4a166dffc5fa1558322",
+  "result": "HOLD_NOT_COMPLETED",
+  "phase_results": [
+    {
+      "name": "runtime-print-prefix",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "runtime-version",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-Lifetime",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-TorusTopology",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-MorseFiniteCritical",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-CriticalRidge",
+      "exit_code": 1,
+      "timed_out": false,
+      "status": "FAIL"
+    }
+  ],
+  "actual_failure": "CriticalRidge elaboration errors; expected output object absent, so object validation also failed. The unchanged three input modules freshly compiled. This is not the anticipated final diagnostic qualification HOLD; no ridge kernel/census/negative controls reached.",
+  "diagnostic_bytes": 4227,
+  "diagnostic_sha256": "6287a34ab9f1cfb469f5152c2e523c7f3f1bbc9ab7573f7f01e924120b10877a",
+  "repair_scope": "Minimal source-author elaboration and deprecation repair, preserve exact public hypotheses and conclusions; fresh nonauthor diff review before next hosted attempt. No unchanged native retry.",
+  "scientific_effect": "NONE"
+}

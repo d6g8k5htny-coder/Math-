@@ -1,0 +1,75 @@
+--- candidate2/CriticalRidge.lean
++++ candidate3/CriticalRidge.lean
+@@ -28,8 +28,16 @@
+ 
+ /-- Restrict an ambient continuous covector to the literal subspace. -/
+ def restrictCovector (V : Submodule ℝ (E d)) :
+-    (E d →L[ℝ] ℝ) →L[ℝ] (V →L[ℝ] ℝ) :=
+-  (ContinuousLinearMap.compL ℝ V (E d) ℝ).flip V.subtypeL
++    (E d →L[ℝ] ℝ) →L[ℝ] (V →L[ℝ] ℝ) where
++  toFun ℓ := ℓ.comp V.subtypeL
++  map_add' ℓ₁ ℓ₂ := by
++    ext z
++    rfl
++  map_smul' c ℓ := by
++    ext z
++    rfl
++  cont := (continuous_id : Continuous (fun ℓ : E d →L[ℝ] ℝ => ℓ)).clm_comp_const
++    V.subtypeL
+ 
+ /-- Addition of an ambient parameter and a vector in the negative subspace. -/
+ def ridgeAddition (V : Submodule ℝ (E d)) :
+@@ -71,7 +79,7 @@
+     have hn := hneg v v.property hvne
+     have he : hessian d f p v v = 0 := by
+       have h := congrArg (fun k : V →L[ℝ] ℝ => k v) hv
+-      simpa only [C, negativeHessianBlock_apply, ContinuousLinearMap.zero_apply] using h
++      simpa only [C, negativeHessianBlock_apply, zero_apply] using h
+     linarith
+   have hC : Function.Injective C := by
+     intro u v huv
+@@ -95,8 +103,10 @@
+     ContDiff ℝ 2 (negativePartialGradient f p V) := by
+   have hD : ContDiff ℝ 2 (fderiv ℝ f) :=
+     (contDiff_succ_iff_fderiv.mp (hsmooth 3)).2.2
+-  exact (restrictCovector V).contDiff.comp
+-    (hD.comp (contDiff_const.add (ridgeAddition V).contDiff))
++  change ContDiff ℝ 2 (fun q : E d × V =>
++    (fderiv ℝ f (p + ridgeAddition V q)).comp V.subtypeL)
++  exact (hD.comp (contDiff_const.add (ridgeAddition V).contDiff)).clm_comp
++    contDiff_const
+ 
+ theorem negativePartialGradient_hasFDerivAt (f : E d → ℝ) (p : E d)
+     (V : Submodule ℝ (E d)) (hsmooth : IsSmooth d f) :
+@@ -114,8 +124,11 @@
+       (p + ridgeAddition V (0 : E d × V)) := by
+     simpa only [map_zero, add_zero] using hDp
+   have hcomp := hDp'.comp (0 : E d × V) hadd
+-  simpa only [negativePartialGradient, map_zero, add_zero] using
+-    ((restrictCovector V).hasFDerivAt.comp (0 : E d × V) hcomp)
++  change HasFDerivAt (fun q : E d × V =>
++    (fderiv ℝ f (p + ridgeAddition V q)).comp V.subtypeL) _ _
++  convert hcomp.clm_comp (hasFDerivAt_const V.subtypeL (0 : E d × V)) using 1
++  ext q z
++  simp [restrictCovector]
+ 
+ /-- One actual ridge and all four conclusions for the same chosen function.
+ The equation is in the actual ambient function and actual subspace. -/
+@@ -156,7 +169,7 @@
+       show fderiv ℝ f p = 0 from hcritical]
+   have heq : (fun w => G (w, r w)) =ᶠ[𝓝 (0 : E d)]
+       (fun _ => (0 : V →L[ℝ] ℝ)) := by
+-    simpa only [hG0] using hG.eventually_apply_implicitFunction (by norm_num) hinv
++    simpa [r, hG0] using hG.eventually_apply_implicitFunction (by norm_num) hinv
+   refine ⟨r, hr0, hrC, ?_, ?_⟩
+   · filter_upwards [heq] with w hw
+     intro z
+@@ -169,7 +182,7 @@
+       (hasFDerivAt_id (0 : E d)).prodMk hdr
+     have hzero : HasFDerivAt (fun w : E d => G (w, r w))
+         (0 : E d →L[ℝ] (V →L[ℝ] ℝ)) 0 :=
+-      (hasFDerivAt_const (0 : E d) (0 : V →L[ℝ] ℝ)).congr_of_eventuallyEq heq
++      (hasFDerivAt_const (0 : V →L[ℝ] ℝ) (0 : E d)).congr_of_eventuallyEq heq
+     have hchain : HasFDerivAt (fun w : E d => G (w, r w))
+         (D.comp ((ContinuousLinearMap.id ℝ (E d)).prod (fderiv ℝ r 0))) 0 := by
+       have hd : HasFDerivAt G D ((0 : E d), r 0) := by

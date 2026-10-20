@@ -1,0 +1,64 @@
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:32:2: error: Type mismatch
+  (ContinuousLinearMap.flip ?m.63) V.subtypeL
+has type
+  @ContinuousLinearMap ?m.44 ?m.46 Field.toSemifield.toSemiring Field.toSemifield.toSemiring ?m.60 ?m.47
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid ?m.49
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid
+    NormedSpace.toModule NormedSpace.toModule
+but is expected to have type
+  @ContinuousLinearMap ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (E d →L[ℝ] ℝ) ContinuousLinearMap.topologicalSpace
+    ContinuousLinearMap.addCommMonoid (↥V →L[ℝ] ℝ) ContinuousLinearMap.topologicalSpace
+    ContinuousLinearMap.addCommMonoid ContinuousLinearMap.module ContinuousLinearMap.module
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:55:2: error: Tactic `rfl` failed: The left-hand side
+  ((negativeHessianBlock f p V) v) z
+is not definitionally equal to the right-hand side
+  ((fderiv ℝ (fderiv ℝ f) p) ↑v) ↑z
+
+d : ℕ
+f : E d → ℝ
+p : E d
+V : Submodule ℝ (E d)
+v z : ↥V
+⊢ ((negativeHessianBlock f p V) v) z = ((fderiv ℝ (fderiv ℝ f) p) ↑v) ↑z
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:74:49: error: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.zero_apply` to `zero_apply x`).
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:98:8: error: Application type mismatch: The argument
+  restrictCovector V
+has type
+  @ContinuousLinearMap ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (E d →L[ℝ] ℝ) ContinuousLinearMap.topologicalSpace
+    ContinuousLinearMap.addCommMonoid (↥V →L[ℝ] ℝ) ContinuousLinearMap.topologicalSpace
+    ContinuousLinearMap.addCommMonoid ContinuousLinearMap.module ContinuousLinearMap.module
+but is expected to have type
+  @ContinuousLinearMap ℝ ℝ Field.toSemifield.toSemiring Field.toSemifield.toSemiring (RingHom.id ℝ) (E d →L[ℝ] ℝ)
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ContinuousLinearMap.toNormedAddCommGroup.toAddCommMonoid ?m.68
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace NormedAddCommGroup.toAddCommGroup.toAddCommMonoid
+    ContinuousLinearMap.toNormedSpace.toModule NormedSpace.toModule
+in the application
+  ContinuousLinearMap.contDiff (restrictCovector V)
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:118:5: error: Application type mismatch: The argument
+  ContinuousLinearMap.hasFDerivAt (restrictCovector V)
+has type
+  HasFDerivAt (⇑(restrictCovector V)) (restrictCovector V) ?m.289
+but is expected to have type
+  HasFDerivAt ?m.305 ?m.306 ((fderiv ℝ f ∘ fun q => p + (ridgeAddition V) q) 0)
+in the application
+  HasFDerivAt.comp 0 (ContinuousLinearMap.hasFDerivAt (restrictCovector V))
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:159:4: error: Type mismatch: After simplification, term
+  ContDiffAt.eventually_apply_implicitFunction hG
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat (WithTop ℕ∞) (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat (WithTop ℕ∞) Nat.cast_zero) (Eq.refl false))
+    hinv
+ has type
+  ∀ᶠ (x : E d) in 𝓝 0.1, G (x, hG.implicitFunction ⋯ hinv x) = 0
+but is expected to have type
+  (fun w => G (w, r w)) =ᶠ[𝓝 0] fun x => 0
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:172:74: error: Application type mismatch: The argument
+  heq
+has type
+  (fun w => G (w, r w)) =ᶠ[𝓝 (0 : E d)] fun x => 0
+but is expected to have type
+  ?m.771 =ᶠ[𝓝 (0 : ↥V →L[ℝ] ℝ)] fun x => 0
+in the application
+  HasFDerivAt.congr_of_eventuallyEq (hasFDerivAt_const 0 0) heq
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:144:50: error: declaration uses `sorry`
