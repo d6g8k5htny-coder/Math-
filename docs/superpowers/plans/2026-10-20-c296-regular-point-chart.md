@@ -42,17 +42,17 @@
 - Consumes: C294 `UniversalLaw.Spec.Lifetime.E`, `IsSmooth`, and `IsCriticalPoint` from the exact copied `Lifetime.lean`.
 - Produces: a failing interface test naming the intended `regularPointChart` declaration and its source/target identities.
 
-- [ ] **Step 1: Write the failing interface test**
+- [x] **Step 1: Write the failing interface test**
 
 The test imports `RegularPointChart` and invokes the wished-for chart plus first-coordinate, self, source-membership, and target-membership declarations at arbitrary `d`, `g`, and `x` under smoothness and noncriticality.
 
-- [ ] **Step 2: Run the hosted test to verify it fails**
+- [x] **Step 2: Run the hosted test to verify it fails**
 
 Run: open a draft PR from `codex/c296-regular-point-chart-20261020` to `codex/c294-critical-level-attainment-20261020` and wait for `c296-regular-point-chart`.
 
 Expected: FAIL at the exact red commit because `regularPointChart` (or its first intended helper) is unknown; setup/toolchain/source errors do not count as RED.
 
-- [ ] **Step 3: Commit the red harness**
+- [x] **Step 3: Commit the red harness**
 
 Commit message: `test: pin C296 regular-point chart interface`
 

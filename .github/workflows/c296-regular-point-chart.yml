@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  red-interface:
+  regular-point-chart:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -28,9 +28,29 @@ jobs:
           use-mathlib-cache: 'true'
           use-github-cache: 'false'
           lake-package-directory: frontiers/regular_point_chart_20261020
-      - name: Build the exact C296 interface
+      - name: Build and kernel-check the exact C296 interface
         working-directory: frontiers/regular_point_chart_20261020
         run: |
           set -euo pipefail
           lean --version
-          lake build RegularPointChartInterface
+          lake build RegularPointChart RegularPointChartInterface
+          lake env lean --wfail RegularPointChart.lean
+          lake env lean --wfail RegularPointChartInterface.lean
+          lake env leanchecker RegularPointChart
+          lake env leanchecker RegularPointChartInterface
+          lake env lean RegularPointChartAxiomAudit.lean
+      - name: Require omission of noncriticality to be rejected
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          set +e
+          lake env lean WithoutNoncriticality.lean > negative.stdout 2> negative.stderr
+          status=$?
+          set -e
+          cat negative.stdout
+          cat negative.stderr >&2
+          test "$status" -ne 0
+          grep -Eq 'IsCriticalPoint|noncritical|regularPointChart' negative.stderr
+          if grep -Eq 'Unknown identifier.*regularPointChart' negative.stderr; then
+            exit 1
+          fi
