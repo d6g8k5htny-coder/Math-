@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-20T08:55:01.926987+00:00",
+  "method": "Validate actual final audit output using final_master.validate_audit only; final master main not invoked",
+  "stdout_path": "final-runs/20261020T085155Z-build-CriticalLevelAxiomAudit-eafd87e3/stdout.txt",
+  "stdout_sha256": "062a8168ad5b05f1238ea8fd516d7fc5a806941cf77480b6de6837921c294386",
+  "census": {
+    "Lifetime": [
+      103,
+      103
+    ],
+    "TorusTopology": [
+      38,
+      38
+    ],
+    "SuperlevelBar": [
+      25,
+      25
+    ],
+    "ClosedSuperlevel": [
+      32,
+      32
+    ],
+    "MorseFiniteCritical": [
+      20,
+      20
+    ],
+    "CriticalLevelAttainment": [
+      17,
+      17
+    ]
+  },
+  "unique_declarations": 235,
+  "all_standard_only": true,
+  "final_master_sha256": "14c82931a8528019e0fd5b745937ef1f776d5689965ba9de8735c2dbd12bbbf8",
+  "scientific_effect": "NONE"
+}
