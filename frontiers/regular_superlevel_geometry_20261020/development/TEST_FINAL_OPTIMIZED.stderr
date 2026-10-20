@@ -1,0 +1,21 @@
+test_amended_phase_receipt_matches_aggregate (test_c297_hosted_verify.HostedVerifierTests)
+Semantic/object metadata must not exist only in the aggregate receipt. ... ok
+test_audit_cannot_omit_required_target_or_hide_axiom (test_c297_hosted_verify.HostedVerifierTests)
+Count-only validation would accept a substituted target or sorryAx. ... ok
+test_build_allows_only_its_own_outputs (test_c297_hosted_verify.HostedVerifierTests)
+A build may add its target object, not an unrelated replacement. ... ok
+test_failed_phase_receipt_and_exact_streams_survive_abort (test_c297_hosted_verify.HostedVerifierTests)
+Raising before persistence would discard the actual failing phase. ... ok
+test_fake_negative_or_import_failure_cannot_pass (test_c297_hosted_verify.HostedVerifierTests)
+Exit-only or theorem-name-only validation accepts the wrong rejection. ... ok
+test_modified_source_bytes_are_rejected (test_c297_hosted_verify.HostedVerifierTests)
+Dropping size/hash verification would accept the modified file. ... ok
+test_phase_rejects_imported_object_mutation (test_c297_hosted_verify.HostedVerifierTests)
+A successful compiler process may not alter a prior input object. ... ok
+test_timeout_preserves_partial_stream_and_receipt (test_c297_hosted_verify.HostedVerifierTests)
+Timeout handling must not discard the child output or phase result. ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.189s
+
+OK
