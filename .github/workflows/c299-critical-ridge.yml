@@ -31,7 +31,7 @@ jobs:
     env:
       LEAN_NUM_THREADS: '2'
       # Exact frozen five-module and two-control source manifest.
-      C299_MANIFEST_SHA256: '6904d83df51715bdf52cbfaa56d3f68725cfed2dcfde66a69799ac5982e55a84'
+      C299_MANIFEST_SHA256: '13deb8d5c9a2c50ee419c15bcefaabb4855be16cedf060400fbbf5775a616519'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:

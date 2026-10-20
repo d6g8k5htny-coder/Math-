@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "checkpoint_utc": "2026-10-20T15:21:31.008805+00:00",
+  "actual_executor": "OpenAI Codex /root/c297_hosted_verifier, delegated for Dylan Roy; native Python byte/record audit only",
+  "exposure": "C299 engineering author and prior failure evidence exposure; no source-author or independent-provider credit",
+  "human_review_credit": 0,
+  "organizational_independence_credit": 0,
+  "scientific_effect": "NONE",
+  "formal_status": "HOLD_NOT_COMPLETED",
+  "result": "HOLD_NOT_COMPLETED",
+  "head": "3111e77c882b4e441b3b4c5ed6f01da46cf8e34c",
+  "head_tree": "13365ac225eff028c2937459f01e3c4dcda9cab8",
+  "recorded_event_base": "8c226134ac0a0169dbb43311082e5353ed5c922c",
+  "tested_commit": "d93ff50e029d0c6edb3f94f1889fcd991b85721b",
+  "tested_tree": "568d2fb36e8098ae437a1616b21f5644f4eb3343",
+  "tested_base": "5e20834d7daccb8d6bf8b89036e8eb9eb98a1452",
+  "actual_tested_parents": [
+    "5e20834d7daccb8d6bf8b89036e8eb9eb98a1452",
+    "3111e77c882b4e441b3b4c5ed6f01da46cf8e34c"
+  ],
+  "shallow_reported_parents": [],
+  "run": 39445649166,
+  "attempt": 1,
+  "job": 118706708545,
+  "artifact": 12276641293,
+  "artifact_bytes": 479791,
+  "artifact_sha256": "48d0b2d8e894e64df5af2be860d82cee8965e41aef33bf7f7c405bcd69e330a0",
+  "candidate_identity": {
+    "bytes": 8966,
+    "sha256": "669b94138531a694f134d24ee9d34ecf6cda5ccec125e2bac279f9e49e1a4aae"
+  },
+  "phase_results": [
+    {
+      "name": "runtime-print-prefix",
+      "status": "PASS",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.064259
+    },
+    {
+      "name": "runtime-version",
+      "status": "PASS",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.064045
+    },
+    {
+      "name": "build-Lifetime",
+      "status": "PASS",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 5.628061
+    },
+    {
+      "name": "build-TorusTopology",
+      "status": "PASS",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 5.077087
+    },
+    {
+      "name": "build-MorseFiniteCritical",
+      "status": "PASS",
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 8.036327
+    },
+    {
+      "name": "build-CriticalRidge",
+      "status": "FAIL",
+      "exit_code": 1,
+      "timed_out": false,
+      "duration_seconds": 21.013988
+    }
+  ],
+  "diagnostic": {
+    "path": "hosted-development4/extracted/build-CriticalRidge.stdout",
+    "bytes": 1601,
+    "sha256": "1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c"
+  },
+  "actual_failure": "Candidate5 failed with an unsolved coherent-instance restriction-map equality at line116 and warnings-as-errors for two unreachable tactics at line202. Exit1 after21.013988 seconds; no outer timeout. Three upstream objects built and preserved; ridge object absent.",
+  "unreached": [
+    "build-CriticalRidgeAxiomAudit",
+    "four named-module kernel checks",
+    "four-module axiom census",
+    "WithoutCriticality",
+    "WithoutNegativeDefiniteness"
+  ],
+  "next_action": "Source owner candidate6 changed-source repair and separately authorized bounded hosted attempt; no same-input retry or resource-cap increase. If it fails, close a verified failure-evidence handoff with formal status HOLD.",
+  "verification": {
+    "path": "hosted-development4/VERIFICATION.json",
+    "bytes": 34599,
+    "sha256": "2cd86d6b02067a92e786832be458db4d1ecea9db15a50230fc727477386caa98"
+  },
+  "limits": "No formal acceptance, theorem completion, current-main freshness, merge readiness, new remote observation, or custody completion. Git author metadata is not human-review evidence."
+}

@@ -240,3 +240,38 @@ external mutation, cap increase, compile PASS or kernel PASS is claimed for
 this candidate. This is a bounded uncompiled repair; if the separately
 coordinated hosted attempt still fails, the current formal unit remains HOLD
 at its actual finite disposition rather than being presented as complete.
+
+
+## Additive fourth hosted failure and candidate 6
+
+The author read the full hosted-development4 diagnostic stdout and receipt.
+Candidate 5 failed with exit code 1 after 21.013988 seconds, with
+no new object or wall-clock timeout. The complete 1601-byte stdout has SHA256
+`1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c`. It reports one remaining derivative
+value equality (`case hr`) and two unreachable-tactic warnings promoted to
+errors. There is no reported internal typeclass or reduction resource limit
+in this attempt. Prior sources and all actual failures remain preserved.
+
+The remaining `hr` branch is explained by the actual pinned
+`ContinuousLinearMap.prod_ext`, registered as an extensionality theorem at
+`Topology/Algebra/Module/ContinuousLinearMap/PiProd.lean:342`: product-domain
+extensionality generates left and right inclusion cases. The prior sequential
+`ext q z; rfl` closed only the first. Candidate 6 instead applies
+`ContinuousLinearMap.ext` explicitly twice, first to one actual product
+argument and then one covector argument. The resulting value equality reduces
+by the definitions of restriction, composition, flip and `compL`; no product
+branch is left by the generic extensionality tactic. Actual definitions and
+value equations were read in `ContinuousLinearMap/Basic.lean:460-489` and
+`Analysis/Normed/Operator/Bilinear.lean:146-160,304-312`.
+
+The two trailing `<;> rfl` calls at the final graph conversion were removed
+exactly where the compiler reported them unreachable. No linter was disabled;
+no option, cap, new theorem or new hypothesis was introduced.
+
+Candidate 6 was frozen at `2026-10-20T15:15:17.859057+00:00`: 9053 bytes, SHA256
+`9ff65416927182f6dad06646f04821b3af6bdd131740d93bf229354a81e19c38`. All nine public declaration-signature texts are exactly unchanged.
+Its full diff and actual preceding failure bindings are in
+`CANDIDATE6_FREEZE.json`, with a separate immutable source snapshot. This
+source-only repair has no compilation or kernel verdict; no native retry or
+external write was performed. The authorized final development attempt and
+its actual evidence remain Root's responsibility.

@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-20T15:07:56.498927+00:00",
+  "scope": "additive correction to hosted3 root attribution; historical files/comments preserved",
+  "head": "5e63005bd6d8288695fbbc974e40336dca87e77f",
+  "head_tree": "b2c081da3914ec070fbeeb2e83109672e3b5757c",
+  "recorded_event_base": "8c226134ac0a0169dbb43311082e5353ed5c922c",
+  "tested_commit": "011a9683382b474cfcf0046ebaec365452277654",
+  "tested_tree": "53a29f7806cb06bd3f4971b13d574697d4e2cf40",
+  "actual_tested_parents": [
+    "dcf7d555b0311e5c10529b5160490c6b61f27833",
+    "5e63005bd6d8288695fbbc974e40336dca87e77f"
+  ],
+  "source": "native/c299_tested_merge3.json and hosted-development3/extracted/RESULT.json",
+  "withdrawal": "Any implication in root6293943199 or DISPOSITION.tree that the publication tree equals the tested merge tree is withdrawn. tree in old disposition is the head tree. Event base is not actual tested base. Root originally saved full native commit but did not inspect these fields before drafting that statement; engineering author detected distinction, root now confirmed.",
+  "effect": "No successful formal/master claim; actual failing ridge source and artifact identities unchanged. Final success would require one coherent actual event/tested-base binding or explicit unmet gate, never silently normalizing these values."
+}

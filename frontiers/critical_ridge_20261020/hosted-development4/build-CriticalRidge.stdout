@@ -1,0 +1,27 @@
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:116:23: error: unsolved goals
+case hr
+d : ℕ
+f : E d → ℝ
+p : E d
+V : Submodule ℝ (E d)
+hsmooth : IsSmooth d f
+hD : ContDiff ℝ 1 (fderiv ℝ f)
+hDp : HasFDerivAt (fderiv ℝ f) (fderiv ℝ (fderiv ℝ f) p) p
+hadd : HasFDerivAt (fun q => p + (ridgeAddition V) q) (ridgeAddition V) 0
+hDp' : HasFDerivAt (fderiv ℝ f) (fderiv ℝ (fderiv ℝ f) p) (p + (ridgeAddition V) 0)
+hcomp : HasFDerivAt (fderiv ℝ f ∘ fun q => p + (ridgeAddition V) q) (fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V) 0
+e_4✝ : Prod.instAddCommGroup = Prod.normedAddCommGroup.toAddCommGroup
+he✝ : Prod.instModule = Prod.normedSpace.toModule
+e_6✝ : instTopologicalSpaceProd = PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+q z : ↥V
+⊢ (((restrictCovector V ∘SL fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V) ∘SL ContinuousLinearMap.inr ℝ (E d) ↥V) q) z =
+    ((((ContinuousLinearMap.compL ℝ (↥V) (E d) ℝ).flip V.subtypeL ∘SL fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V) ∘SL
+          ContinuousLinearMap.inr ℝ (E d) ↥V)
+        q)
+      z
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:202:40: error: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:202:58: error: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
