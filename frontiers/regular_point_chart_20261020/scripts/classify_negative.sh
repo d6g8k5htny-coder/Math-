@@ -32,7 +32,7 @@ if grep -Eiq \
 fi
 
 grep -Eq 'WithoutNoncriticality\.lean:[0-9]+:[0-9]+: error: Type mismatch' "$log"
-grep -Fq '¬ IsCriticalPoint' "$log"
+grep -Eq '¬[[:space:]]*IsCriticalPoint' "$log"
 grep -Fq '→ OpenPartialHomeomorph' "$log"
 
 echo "negative classifier: intended missing-noncriticality type mismatch"
