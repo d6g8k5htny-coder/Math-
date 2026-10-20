@@ -39,6 +39,11 @@ jobs:
           lake env leanchecker RegularPointChart
           lake env leanchecker RegularPointChartInterface
           lake env lean RegularPointChartAxiomAudit.lean
+      - name: Mutation-test the negative diagnostic classifier
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          bash scripts/test_negative_classifier.sh
       - name: Require omission of noncriticality to be rejected
         working-directory: frontiers/regular_point_chart_20261020
         run: |
@@ -48,8 +53,4 @@ jobs:
           status=$?
           set -e
           cat negative.log
-          test "$status" -ne 0
-          grep -Eq 'IsCriticalPoint|noncritical|regularPointChart' negative.log
-          if grep -Eq 'Unknown identifier.*regularPointChart' negative.log; then
-            exit 1
-          fi
+          bash scripts/classify_negative.sh negative.log "$status"
