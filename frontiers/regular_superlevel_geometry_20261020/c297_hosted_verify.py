@@ -209,7 +209,7 @@ def validate_negative(name, returncode, output):
               and 'IsCriticalPoint d g' in flat)
     elif name == 'WithoutCoordinateIdentity':
         ok = ('closed_superlevel_basis_of_chart a x p hx' in flat and '∀' in flat
-              and 'p.source' in flat and re.search(r'\(p y\)\.(?:fst|1)\s*=\s*g y', flat))
+              and 'p.source' in flat and re.search(r'\(↑?p y\)\.(?:fst|1)\s*=\s*g y', flat))
     else:
         raise RuntimeError('unknown negative control')
     if not ok:

@@ -100,6 +100,27 @@ class HostedVerifierTests(unittest.TestCase):
             v.validate_negative('WithoutCoordinateIdentity', 1,
                                 coordinate.replace('(p y).fst = g y', 'True'))
 
+    def test_actual_coordinate_diagnostic_with_displayed_coercion(self):
+        """Run 39418891714 prints the chart coercion as (↑p y), not (p y)."""
+        v = self.verifier()
+        actual = (
+            '/home/runner/work/Math-/Math-/frontiers/regular_superlevel_geometry_20261020/'
+            'negative-project/WithoutCoordinateIdentity.lean:24:2: error: Type mismatch\n'
+            '  TorusRegularSuperlevel.closed_superlevel_basis_of_chart a x p hx\n'
+            'has type\n'
+            '  (∀ y ∈ p.source, (↑p y).1 = g y) → (𝓝 x).HasBasis (fun V => V ∈ 𝓝 x ∧ IsPathConnected V) id\n'
+            'but is expected to have type\n'
+            '  (𝓝 x).HasBasis (fun V => V ∈ 𝓝 x ∧ IsPathConnected V) id\n')
+        v.validate_negative('WithoutCoordinateIdentity', 1, actual)
+        for bad in (actual.replace('(↑p y).1 = g y', 'True'),
+                    actual.replace('(↑p y).1 = g y', '(↑q y).1 = g y'),
+                    actual.replace('(↑p y).1 = g y', '(↑p y).1 = h y'),
+                    actual.replace('p.source', 'Set.univ'),
+                    actual.replace('closed_superlevel_basis_of_chart a x p hx', 'unrelated a x p hx'),
+                    actual + 'unknown module RegularSuperlevel\n'):
+            with self.subTest(bad=bad), self.assertRaises(RuntimeError):
+                v.validate_negative('WithoutCoordinateIdentity', 1, bad)
+
     def test_failed_phase_receipt_and_exact_streams_survive_abort(self):
         """Raising before persistence would discard the actual failing phase."""
         v = self.verifier()
