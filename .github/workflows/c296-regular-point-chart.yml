@@ -44,13 +44,12 @@ jobs:
         run: |
           set -euo pipefail
           set +e
-          lake env lean WithoutNoncriticality.lean > negative.stdout 2> negative.stderr
+          lake env lean WithoutNoncriticality.lean > negative.log 2>&1
           status=$?
           set -e
-          cat negative.stdout
-          cat negative.stderr >&2
+          cat negative.log
           test "$status" -ne 0
-          grep -Eq 'IsCriticalPoint|noncritical|regularPointChart' negative.stderr
-          if grep -Eq 'Unknown identifier.*regularPointChart' negative.stderr; then
+          grep -Eq 'IsCriticalPoint|noncritical|regularPointChart' negative.log
+          if grep -Eq 'Unknown identifier.*regularPointChart' negative.log; then
             exit 1
           fi
