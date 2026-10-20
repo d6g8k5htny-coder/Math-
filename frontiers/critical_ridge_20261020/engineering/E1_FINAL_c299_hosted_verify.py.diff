@@ -1,0 +1,138 @@
+--- E1_PREDECESSOR_c299_hosted_verify.py
++++ c299_hosted_verify.py
+@@ -276,6 +276,72 @@
+         raise RuntimeError('build must add only its own target object outputs')
+ 
+ 
++ENVIRONMENT_POLICY = (
++    'Remove inherited LEAN*, LAKE*, LD_* and DYLD_* overrides, except the '
++    'Lake-provided LEAN_PATH; prepend the fresh local object directory to that '
++    'path and set LEAN_NUM_THREADS=2. Retain declared PATH for launcher lookup. '
++    'Other inherited variables remain available but are not recorded. Record '
++    'only selected non-secret path/thread values and removed variable names.')
++ENVIRONMENT_KEYS = ('PATH', 'LEAN_PATH', 'LEAN_NUM_THREADS')
++
++
++def environment_override(name):
++    return name.startswith(('LEAN', 'LAKE', 'LD_', 'DYLD_'))
++
++
++def json_digest(value):
++    data = json.dumps(value, sort_keys=True, separators=(',', ':')).encode()
++    return hashlib.sha256(data).hexdigest()
++
++
++def build_environment(inherited, build):
++    """Preserve Lake's dependency search path, stripping other tool overrides."""
++    env = dict(inherited)
++    if not env.get('PATH'):
++        raise RuntimeError('explicit nonempty launcher PATH required')
++    inherited_lean_path = env.get('LEAN_PATH', '')
++    removed = sorted(name for name in env
++                     if environment_override(name) and name != 'LEAN_PATH')
++    for name in removed:
++        del env[name]
++    env['LEAN_PATH'] = str(Path(build).resolve())
++    if inherited_lean_path:
++        env['LEAN_PATH'] += os.pathsep + inherited_lean_path
++    env['LEAN_NUM_THREADS'] = '2'
++    contract = {
++        'policy': ENVIRONMENT_POLICY,
++        'retained_lake_lean_path': inherited_lean_path,
++        'removed_variable_names': removed,
++        'selected_environment': {key: env[key] for key in ENVIRONMENT_KEYS},
++    }
++    contract['sha256'] = json_digest(contract)
++    return env, contract
++
++
++def resolve_lean_launcher(env):
++    launcher = shutil.which('lean', path=env['PATH'])
++    if launcher is None:
++        raise RuntimeError('missing Lean launcher on declared PATH')
++    return Path(launcher).resolve()
++
++
++def phase_environment(env, contract):
++    selected = {key: env.get(key) for key in ENVIRONMENT_KEYS}
++    unexpected = sorted(name for name in env if environment_override(name)
++                        and name not in ('LEAN_PATH', 'LEAN_NUM_THREADS'))
++    measured = {'selected_environment': selected,
++                'unexpected_override_names': unexpected}
++    error = None
++    if contract is not None:
++        body = {key: value for key, value in contract.items() if key != 'sha256'}
++        if (contract.get('policy') != ENVIRONMENT_POLICY
++                or contract.get('sha256') != json_digest(body)
++                or selected != contract.get('selected_environment')
++                or selected['LEAN_NUM_THREADS'] != '2' or unexpected):
++            error = 'phase environment differs from declared policy or selected values'
++    return selected, json_digest(measured), unexpected, error
++
++
+ def run_phase(name, args, cwd, env, evidence, report, expected_success=True,
+               timeout=900, build_dir=None, build_module=None):
+     """Persist raw streams, per-phase receipt, and aggregate receipt before raise."""
+@@ -286,13 +352,15 @@
+     start, utc_start = time.monotonic(), now()
+     timed_out, spawn_error, code = False, None, None
+     objects_before, objects_after, object_error = None, None, None
++    contract = report.get('environment_contract')
++    selected_env, env_digest, override_names, env_error = phase_environment(env, contract)
+     with out_path.open('xb') as stdout, err_path.open('xb') as stderr:
+         try:
+             if build_dir is not None:
+                 objects_before = object_inventory(build_dir)
+         except (OSError, RuntimeError) as exc:
+             object_error = str(exc)
+-        if object_error is None:
++        if object_error is None and env_error is None:
+             try:
+                 proc = subprocess.Popen(args, cwd=cwd, env=env, stdout=stdout, stderr=stderr,
+                                         start_new_session=True)
+@@ -321,7 +389,7 @@
+                     validate_objects(objects_before, objects_after, build_module)
+             except (OSError, RuntimeError) as exc:
+                 object_error = str(exc)
+-    valid = (not timed_out and spawn_error is None and object_error is None and
++    valid = (not timed_out and spawn_error is None and object_error is None and env_error is None and
+              (code == 0 if expected_success else code == 1))
+     record = {'name': name, 'command': list(args), 'cwd': str(cwd),
+               'started_at': utc_start, 'finished_at': now(),
+@@ -332,13 +400,18 @@
+               'stderr_sha256': identity(err_path)['sha256'], 'stderr_bytes': err_path.stat().st_size,
+               'objects_before': objects_before, 'objects_after': objects_after,
+               'object_validation_error': object_error,
++              'selected_environment': selected_env,
++              'environment_sha256': env_digest,
++              'environment_contract_sha256': contract.get('sha256') if contract else None,
++              'unexpected_override_names': override_names,
++              'environment_validation_error': env_error,
+               'status': 'PASS' if valid else 'FAIL'}
+     report['phase_results'].append(record)
+     save_phase(evidence, report, record)
+     print(f'C299 {name}: exit={code} timeout={timed_out} seconds={record["duration_seconds"]}', flush=True)
+     if not valid:
+         raise RuntimeError(f'C299 {name} unexpected exit: {code}; timed_out={timed_out}; '
+-                           f'spawn_error={spawn_error}; object_error={object_error}')
++                           f'spawn_error={spawn_error}; object_error={object_error}; environment_error={env_error}')
+     output = out_path.read_bytes().decode('utf8', 'replace') + '\n' + err_path.read_bytes().decode('utf8', 'replace')
+     return record, output, code
+ 
+@@ -433,13 +506,9 @@
+         if source_before != report['source_identity']:
+             raise RuntimeError('inputs changed since source preflight')
+         report['packages_before'] = verify_packages(root)
+-        env = dict(os.environ)
+-        env['LEAN_PATH'] = str(build) + os.pathsep + env.get('LEAN_PATH', '')
+-        env['LEAN_NUM_THREADS'] = '2'
+-        launcher = shutil.which('lean')
+-        if launcher is None:
+-            raise RuntimeError('missing Lean launcher')
+-        launcher = Path(launcher).resolve()
++        env, report['environment_contract'] = build_environment(os.environ, build)
++        save_report(evidence, report)
++        launcher = resolve_lean_launcher(env)
+         report['lean_launcher'] = {'path': str(launcher), **identity(launcher)}
+         # Resolve the toolchain prefix through the selected launcher, then execute
+         # the measured toolchain binaries directly; an elan shim is not the runtime.

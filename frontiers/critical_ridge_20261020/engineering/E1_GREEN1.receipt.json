@@ -1,0 +1,31 @@
+{
+  "declaration_sha256": "fa0961973633f14316bf8b267c0df313ccc62beab02a7abc9420362a766c88bb",
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "-S",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    ".",
+    "-p",
+    "test_c299_hosted_verify.py",
+    "-v"
+  ],
+  "started_at": "2026-10-20T14:11:32.707554+00:00",
+  "finished_at": "2026-10-20T14:11:32.988895+00:00",
+  "duration_seconds": 0.281235167,
+  "exit_code": 1,
+  "timed_out": false,
+  "streams": {
+    "E1_GREEN1.stdout": {
+      "bytes": 454,
+      "sha256": "ce23cef01080234d1d01a2e1f366ad1f13de0f09b3eff60e85874f0f924fa3b6"
+    },
+    "E1_GREEN1.stderr": {
+      "bytes": 3392,
+      "sha256": "f23de4923402e71ddd2ccd13ccd4c94e1dfc84bff34dffbad18891e88441c8db"
+    }
+  }
+}

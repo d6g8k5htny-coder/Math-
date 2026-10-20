@@ -1,0 +1,71 @@
+name: C299 critical ridge (hosted Lean, no scientific promotion)
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/critical_ridge_20261020/**'
+      - '.github/workflows/c299-critical-ridge.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+  push:
+    branches: [main]
+    paths:
+      - 'frontiers/critical_ridge_20261020/**'
+      - '.github/workflows/c299-critical-ridge.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: c299-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  c299-hosted-formal:
+    name: c299-hosted-formal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 205
+    env:
+      LEAN_NUM_THREADS: '2'
+      # Exact frozen five-module and two-control source manifest.
+      C299_MANIFEST_SHA256: '3c80ed35bc7a28342b127ca08f046be913021ab28ff13119e698c981eb0aef6b'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Bind frozen source manifest and verify engineering failure controls
+        timeout-minutes: 5
+        run: |
+          python3 -B -S frontiers/critical_ridge_20261020/c299_hosted_verify.py source --manifest-sha256 "$C299_MANIFEST_SHA256"
+          python3 -B -S -m unittest discover -s frontiers/critical_ridge_20261020 -p test_c299_hosted_verify.py -v
+          python3 -B -O -S -m unittest discover -s frontiers/critical_ridge_20261020 -p test_c299_hosted_verify.py -v
+      - name: Install pinned Lean and retrieve dependency cache
+        timeout-minutes: 15
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Fresh five-module build, four kernel checks, complete audit and two controls
+        timeout-minutes: 180
+        run: |
+          cd formal
+          lake env python3 -B -S ../frontiers/critical_ridge_20261020/c299_hosted_verify.py execute --manifest-sha256 "$C299_MANIFEST_SHA256"
+      - name: Retain exact C299 tested-run sources, objects, streams and failure receipts
+        if: always()
+        timeout-minutes: 5
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: c299-hosted-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .lake/c299-hosted-evidence/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90

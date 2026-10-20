@@ -1,0 +1,49 @@
+{
+  "stage": "C299 E1 environment contract final GREEN controls after native fixture path normalization",
+  "created_at": "2026-10-20T14:12:04.025754+00:00",
+  "scope": "Inert Python engineering controls only; no Lean, mathematical program, remote mutation or complete master",
+  "cwd": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation299/engineering-preflight",
+  "commands": [
+    [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-B",
+      "-S",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_c299_hosted_verify.py",
+      "-v"
+    ],
+    [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-B",
+      "-O",
+      "-S",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      ".",
+      "-p",
+      "test_c299_hosted_verify.py",
+      "-v"
+    ]
+  ],
+  "inputs": {
+    "c299_hosted_verify.py": {
+      "bytes": 32069,
+      "sha256": "e4c5b9dd02e2ba2f98da27707c42ef861d9039b52864833d2164a3114f318f49"
+    },
+    "test_c299_hosted_verify.py": {
+      "bytes": 17863,
+      "sha256": "62400129fda7b863d692397deac2a9d83b7f1101d98b53ed1043f0ef8cfd604e"
+    }
+  },
+  "timeout_seconds_per_command": 30,
+  "expected_exit_code": 0,
+  "max_commands": 2,
+  "changed_input_reason": "Only inert test root resolves macOS /var alias to /private/var; production driver unchanged after first GREEN failure."
+}

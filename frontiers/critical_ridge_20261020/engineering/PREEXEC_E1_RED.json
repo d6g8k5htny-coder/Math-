@@ -1,0 +1,31 @@
+{
+  "stage": "C299 E1 environment contract RED controls",
+  "created_at": "2026-10-20T14:10:03.347284+00:00",
+  "scope": "Inert Python engineering controls only; no Lean, mathematical program, remote mutation or complete master",
+  "cwd": "/Users/dylanroy/Documents/Codex/2026-09-19/connect-research-repository/work/continuation299/engineering-preflight",
+  "commands": [
+    [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-B",
+      "-S",
+      "-m",
+      "unittest",
+      "test_c299_hosted_verify.HostedVerifierTests.test_environment_contract_strips_overrides_and_uses_declared_path",
+      "test_c299_hosted_verify.HostedVerifierTests.test_phase_environment_mutation_is_blocked_and_receipted",
+      "-v"
+    ]
+  ],
+  "inputs": {
+    "c299_hosted_verify.py": {
+      "bytes": 28907,
+      "sha256": "126d1aa5b0dfd87eca4fa939d55d969020301e7d61a0a48eb063dfabfa7a2005"
+    },
+    "test_c299_hosted_verify.py": {
+      "bytes": 17853,
+      "sha256": "9c6d37b5cdb3b678edb203709edd093a8a3ca703318ff9646378fa82b4737d59"
+    }
+  },
+  "timeout_seconds_per_command": 30,
+  "expected_exit_code": 1,
+  "max_commands": 1
+}
