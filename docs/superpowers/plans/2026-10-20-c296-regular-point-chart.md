@@ -68,19 +68,19 @@ Commit message: `test: pin C296 regular-point chart interface`
 - Consumes: `(hg 1).hasStrictFDerivAt`, `Module.Dual.range_eq_top_of_ne_zero`, and `HasStrictFDerivAt.implicitToOpenPartialHomeomorph` at the pinned Mathlib revision.
 - Produces: `regularPointDerivative_range_eq_top`, `regularPointHasStrictFDerivAt`, `regularPointChart`, `regularPointChart_fst`, `regularPointChart_self`, `mem_regularPointChart_source`, and `mem_regularPointChart_target`.
 
-- [ ] **Step 1: Implement only the derivative and chart declarations required by the failing interface test**
+- [x] **Step 1: Implement only the derivative and chart declarations required by the failing interface test**
 
 Use `fderiv ℝ g x` literally; derive strict differentiability from `IsSmooth`; convert noncriticality to a nonzero continuous linear functional, then to full scalar range; invoke the existing Mathlib chart.
 
-- [ ] **Step 2: Add the omitted-noncriticality interface rejection**
+- [x] **Step 2: Add the omitted-noncriticality interface rejection**
 
 The negative module must fail by leaving the required `¬ IsCriticalPoint d g x` argument unsupplied. The workflow must require a nonzero exit and a diagnostic mentioning `IsCriticalPoint`; timeout/import/syntax/unknown-production-identifier failures do not count.
 
-- [ ] **Step 3: Run hosted tests to verify they pass**
+- [x] **Step 3: Run hosted tests to verify they pass**
 
 Expected: positive modules build with warnings as errors; the negative module is rejected for the intended missing premise; named-module `leanchecker` and the axiom audit succeed.
 
-- [ ] **Step 4: Commit the minimal implementation**
+- [x] **Step 4: Commit the minimal implementation**
 
 Commit message: `feat: instantiate the regular scalar chart`
 
@@ -96,7 +96,7 @@ Commit message: `feat: instantiate the regular scalar chart`
 - Consumes: exact green head, workflow run/job identities, test streams, and Git blob/SHA-256 identities.
 - Produces: a source-bound reviewable packet and explicit release record; no acceptance or integration claim.
 
-- [ ] **Step 1: Record exact source, toolchain, positive/negative, axiom, and hosted-run identities**
+- [x] **Step 1: Record exact source, toolchain, positive/negative, axiom, and hosted-run identities**
 
 - [ ] **Step 2: Re-run the full hosted workflow at the frozen documentation head**
 
