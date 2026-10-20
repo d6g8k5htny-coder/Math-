@@ -2,6 +2,8 @@ import RegularPointChart
 
 namespace UniversalLaw.Spec.Lifetime
 
+noncomputable section
+
 variable {d : ℕ} {g : E d → ℝ} {x : E d}
 
 -- This must be rejected: smoothness alone does not provide the required

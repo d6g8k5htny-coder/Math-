@@ -4,6 +4,8 @@ open scoped Topology
 
 namespace UniversalLaw.Spec.Lifetime
 
+noncomputable section
+
 variable {d : ℕ} {g : E d → ℝ} {x : E d}
 
 example (hg : IsSmooth d g) (hx : ¬ IsCriticalPoint d g x) :
