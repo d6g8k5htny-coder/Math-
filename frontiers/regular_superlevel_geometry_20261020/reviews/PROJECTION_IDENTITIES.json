@@ -1,0 +1,32 @@
+[
+  {
+    "path": "reviews/CANDIDATE3_SOURCE_REVIEW.md",
+    "original_bytes": 18027,
+    "original_sha256": "c794c85794767711c05f5580bed49d35c011d939c39d0c4a51872b7cccdebc4d",
+    "public_bytes": 18301,
+    "public_sha256": "3b235ab4cdfb6b28c4b21c45424fd03bb1a7e9d27b5f91e8003934364468b3b4",
+    "replacements": [
+      {
+        "replacement": "$C297_ROOT",
+        "occurrences": 1
+      }
+    ]
+  },
+  {
+    "path": "reviews/ANALYTIC_CONTROL_AND_PRELIM_REVIEW.md",
+    "original_bytes": 10767,
+    "original_sha256": "a3c688550b970899389024fddd6b94c7bf7feb5dfeb175f9d7b38a1139f791ca",
+    "public_bytes": 11006,
+    "public_sha256": "177e11e6b873d89f186aec8d85b8a3aef117635156fb91ac630073ac5b8e8fbe",
+    "replacements": [
+      {
+        "replacement": "$C297_ROOT",
+        "occurrences": 1
+      },
+      {
+        "replacement": "$PINNED_MATHLIB",
+        "occurrences": 1
+      }
+    ]
+  }
+]
