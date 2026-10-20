@@ -1,0 +1,92 @@
+{
+  "schema": "relative-focused-review-manifest-v1",
+  "created_utc": "2026-10-17T21:40:48.780039+00:00",
+  "input_base": "../..",
+  "output_base": ".",
+  "inputs": [
+    {
+      "path": "reverse-localization-author-20261017/REVERSE_LOCALIZATION_PROPOSAL.md",
+      "bytes": 38534,
+      "sha256": "8e48835527e283b45acdff4f604b385bd9dec4f8b1fcd1b54bbd52d44099a794",
+      "read_scope": "Focused full read of sections 2-5; sections 1 and 6-8 read for interface context only."
+    },
+    {
+      "path": "reverse-localization-author-20261017/AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 5110,
+      "sha256": "e7a60bab08ea9cfbf3e2569a6dda86545f78d737b05fabf62c3ed020ad52c1f5",
+      "read_scope": "Full metadata read; frozen proposal and relevant imported-source identities."
+    },
+    {
+      "path": "reverse-localization-author-20261017/INPUT_IDENTITIES_BEFORE.json",
+      "bytes": 2098,
+      "sha256": "222d614bd1197cf2e35cd83abb43060ceb264cbabe8478b8e7e9eda98bda9287",
+      "read_scope": "Full metadata read; consumed-source bindings."
+    },
+    {
+      "path": "UNIFORM_LOCAL_NORM_DIAGONAL_PROPOSAL.md",
+      "bytes": 26687,
+      "sha256": "8e1eefca9888d43824a9fd9caca34c44d2de4bf8e30c668b474fa2097491c76b",
+      "read_scope": "Sections 1-6 read; trace, cutoff, H6 norm and physical derivative constants."
+    },
+    {
+      "path": "HIGHER_CONFIGURATION_GAUSSIAN_ROUTE.md",
+      "bytes": 32938,
+      "sha256": "43bd77fd5320a717c77bba28c1a6eec080ff67db56c911c6ddea5351a1279b7e",
+      "read_scope": "Source family and section 1 covariance/moment approximation; targeted searches of subsequent statements only."
+    },
+    {
+      "path": "experiments/universality/finite_candidate_lifetime/PROOF.md",
+      "bytes": 29190,
+      "sha256": "ed31f562f0ffaaf6d4bd2ceb1ae3d234798e983a55d55c6983b128fce27133f5",
+      "read_scope": "Sections 1 and 3-6 read; weighted area import, single-point Sard, all-Borel coefficient incidence and canonical conditional laws."
+    },
+    {
+      "path": "experiments/universality/finite_h0_lifetime/PROOF.md",
+      "bytes": 27064,
+      "sha256": "5ea91111fa5f3d78d7c4188ebe84b3bc2c452b05dfdfc62c74b03123cb2696d1",
+      "read_scope": "Sections 1,3,4 and opening section 5 read; Borel elder threshold and maximum/bar once-counting."
+    },
+    {
+      "path": "reverse-localization-author-20261017/primary-source/AAL_2304.07424v3.html",
+      "bytes": 622641,
+      "sha256": "eb892a7344129b799208f011e72d9cacaa97343afbfc2d5ab1ac4c1204ed60f5",
+      "read_scope": "Retained primary-source byte identity verified. Fresh primary web read: sections 2,3.2,5; no full-paper audit."
+    },
+    {
+      "path": "reverse-localization-author-20261017/primary-source/SOURCE_IDENTITY.json",
+      "bytes": 495,
+      "sha256": "f00786d9cfcd8eec1cc96c374d33f1d3ccd7602a0cebba4c7c90d334f39d12ee",
+      "read_scope": "Full retained-source metadata read."
+    }
+  ],
+  "outputs": [
+    {
+      "path": "FINAL_INTEGRITY_VERIFICATION.json",
+      "bytes": 561,
+      "sha256": "80e6901eea0e58ea3183b8d9976b38386120f756f846397e064cd6befe68a34e"
+    },
+    {
+      "path": "INPUT_IDENTITIES_AFTER.json",
+      "bytes": 2163,
+      "sha256": "2a2222a0a37ec66da83611a0b2367a4c2b057654ebeffa9330ec37809482f2ca"
+    },
+    {
+      "path": "INPUT_IDENTITIES_BEFORE.json",
+      "bytes": 2775,
+      "sha256": "f78281df96621dd6a027d3a9bab4a0c1cdec2d8f91371de25e2753689c78925b"
+    },
+    {
+      "path": "NONAUTHOR_RICE_HILBERT_REVIEW.md",
+      "bytes": 20732,
+      "sha256": "c8f08c06e8bda06f10f35eed3ba98d65f825209953b5eeb816f47883b098a7c3"
+    },
+    {
+      "path": "REVIEW_VERDICT.json",
+      "bytes": 3061,
+      "sha256": "6ddf83c72ad40539645f6a002ea353dd3267bc738a3edcdc9511e93bb51852a7"
+    }
+  ],
+  "manifest_self_excluded": true,
+  "reviewer": "/root/reverse_localization_nonauthor_review_20261017/rice_hilbert_nonauthor",
+  "scope": "Sections 2-5 of exact proposal; conventional source-exposed nonauthor review, organizational independence credit zero"
+}
