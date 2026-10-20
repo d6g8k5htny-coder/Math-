@@ -1,0 +1,52 @@
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:116:23: error: unsolved goals
+case e'_12
+d : ℕ
+f : E d → ℝ
+p : E d
+V : Submodule ℝ (E d)
+hsmooth : IsSmooth d f
+hD : ContDiff ℝ 1 (fderiv ℝ f)
+hDp : HasFDerivAt (fderiv ℝ f) (fderiv ℝ (fderiv ℝ f) p) p
+hadd : HasFDerivAt (fun q => p + (ridgeAddition V) q) (ridgeAddition V) 0
+hDp' : HasFDerivAt (fderiv ℝ f) (fderiv ℝ (fderiv ℝ f) p) (p + (ridgeAddition V) 0)
+hcomp : HasFDerivAt (fderiv ℝ f ∘ fun q => p + (ridgeAddition V) q) (fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V) 0
+e_4✝ : Prod.instAddCommGroup = Prod.normedAddCommGroup.toAddCommGroup
+he✝ : Prod.instModule = Prod.normedSpace.toModule
+e_6✝ : instTopologicalSpaceProd = PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+⊢ restrictCovector V ∘SL fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V =
+    (ContinuousLinearMap.compL ℝ (↥V) (E d) ℝ) ((fderiv ℝ f ∘ fun q => p + (ridgeAddition V) q) 0) ∘SL 0 +
+      (ContinuousLinearMap.compL ℝ (↥V) (E d) ℝ).flip V.subtypeL ∘SL fderiv ℝ (fderiv ℝ f) p ∘SL ridgeAddition V
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:131:8: error: This simp argument is unused:
+  restrictCovector
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:172:4: error: Type mismatch: After simplification, term
+  ContDiffAt.eventually_apply_implicitFunction hG
+    (Mathlib.Meta.NormNum.isNat_eq_false (Mathlib.Meta.NormNum.isNat_ofNat (WithTop ℕ∞) (Eq.refl 2))
+      (Mathlib.Meta.NormNum.isNat_ofNat (WithTop ℕ∞) Nat.cast_zero) (Eq.refl false))
+    hinv
+ has type
+  ∀ᶠ (x : E d) in 𝓝 0, G (x, hG.implicitFunction ⋯ hinv x) = 0
+but is expected to have type
+  (fun w => G (w, hG.implicitFunction ⋯ hinv w)) =ᶠ[𝓝 0] fun x => 0
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:189:8: error: Type mismatch: After simplification, term
+  hDG
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E d × ↥V) Prod.instAddCommGroup Prod.instModule
+    instTopologicalSpaceProd (↥V →L[ℝ] ℝ) ContinuousLinearMap.addCommGroup ContinuousLinearMap.module
+    ContinuousLinearMap.topologicalSpace G D 0
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField (E d × ↥V) Prod.instAddCommGroup Prod.instModule
+    instTopologicalSpaceProd (↥V →L[ℝ] ℝ) ContinuousLinearMap.addCommGroup ContinuousLinearMap.module
+    ContinuousLinearMap.topologicalSpace G D (0, 0)
+/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean:190:12: error: Application type mismatch: The argument
+  hd
+has type
+  HasFDerivAt G D (0, r 0)
+but is expected to have type
+  HasFDerivAt ?m.885 ?m.886 (0, r 0)
+in the application
+  HasFDerivAt.comp 0 hd

@@ -1,0 +1,55 @@
+{
+  "command": [
+    "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+    "-j2",
+    "-M14000",
+    "-DwarningAsError=true",
+    "-o",
+    "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/TorusTopology.olean",
+    "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/TorusTopology.lean"
+  ],
+  "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+  "duration_seconds": 4.324235,
+  "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+  "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+  "environment_validation_error": null,
+  "exit_code": 0,
+  "finished_at": "2026-10-20T14:36:57.358927+00:00",
+  "name": "build-TorusTopology",
+  "object": {
+    "bytes": 307176,
+    "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+  },
+  "object_validation_error": null,
+  "objects_after": {
+    "Lifetime.olean": {
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    },
+    "TorusTopology.olean": {
+      "bytes": 307176,
+      "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+    }
+  },
+  "objects_before": {
+    "Lifetime.olean": {
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    }
+  },
+  "selected_environment": {
+    "LEAN_NUM_THREADS": "2",
+    "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  },
+  "spawn_error": null,
+  "started_at": "2026-10-20T14:36:53.034712+00:00",
+  "status": "PASS",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "unexpected_override_names": []
+}
