@@ -25,7 +25,7 @@ cat > "$tmp/intended.log" <<'EOF'
 WithoutNoncriticality.lean:13:2: error: Type mismatch
   regularPointChart hSmooth ?_ x
 has type
-  ¬ IsCriticalPoint g x → OpenPartialHomeomorph (E d) (ℝ × ker)
+  ¬IsCriticalPoint d g x → OpenPartialHomeomorph (E d) (ℝ × ker)
 EOF
 expect_pass intended 1 "$tmp/intended.log"
 
