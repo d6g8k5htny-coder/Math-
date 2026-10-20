@@ -59,14 +59,6 @@ BASELINE = {
     'scientific_effect': 'NONE',
     'scope': 'SYNTHETIC workflow engineering fixture; no mathematical assertion',
 }
-UNKNOWN = (
-    'usage: elder_lower_exact_check.py [-h]\n'
-    '                                  [--mutant {drop-aZ-over-8,hessian-sign,path-endpoint,weight-power,tv-half}]\n'
-    "elder_lower_exact_check.py: error: argument --mutant: invalid choice: 'M99' "
-    '(choose from drop-aZ-over-8, hessian-sign, path-endpoint, weight-power, tv-half)\n'
-).encode()
-
-
 def report_bytes(value):
     return (json.dumps(value, indent=2, sort_keys=True) + '\n').encode()
 
@@ -79,10 +71,9 @@ def expected_mutant(label):
     return report_bytes(value)
 
 
-CHILD = r'''import copy, json, os, pathlib, sys
+CHILD = r'''import argparse, contextlib, copy, io, json, os, pathlib, sys
 MUTANT_FALSE = ''' + repr(MUTANT_FALSE) + r'''
 BASELINE = ''' + repr(BASELINE) + r'''
-UNKNOWN = ''' + repr(UNKNOWN) + r'''
 args = sys.argv[1:]
 label = args[-1] if '--mutant' in args else 'baseline'
 event = {'label': label, 'argv': args,
@@ -102,7 +93,13 @@ if label == 'baseline':
     sys.stdout.buffer.write(out)
     sys.exit(1 if kind == 'baseline-exit' else 0)
 if label == 'M99':
-    stdout, stderr, rc = b'', UNKNOWN, 2
+    stream = io.StringIO()
+    parser = argparse.ArgumentParser(prog=pathlib.Path(__file__).name)
+    parser.add_argument('--mutant', choices=tuple(MUTANT_FALSE))
+    with contextlib.redirect_stderr(stream):
+        try: parser.parse_args(['--mutant', 'M99'])
+        except SystemExit as exc: rc = exc.code
+    stdout, stderr = b'', stream.getvalue().encode()
     if kind == 'unknown-stdout': stdout = b'unexpected output\n'
     if kind == 'unknown-wrong-stderr': stderr = b'unrelated exit two\n'
     if kind == 'unknown-no-stderr': stderr = b''
