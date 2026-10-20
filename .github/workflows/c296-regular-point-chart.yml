@@ -34,8 +34,8 @@ jobs:
           set -euo pipefail
           lean --version
           lake build RegularPointChart RegularPointChartInterface
-          lake env lean --wfail RegularPointChart.lean
-          lake env lean --wfail RegularPointChartInterface.lean
+          lake env lean -E warning RegularPointChart.lean
+          lake env lean -E warning RegularPointChartInterface.lean
           lake env leanchecker RegularPointChart
           lake env leanchecker RegularPointChartInterface
           lake env lean RegularPointChartAxiomAudit.lean
