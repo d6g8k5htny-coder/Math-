@@ -28,7 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           python -B -S - <<'PY'
-          import copy, hashlib, json, pathlib, subprocess, sys
+          import argparse, contextlib, copy, hashlib, io, json, pathlib, subprocess, sys
           root = pathlib.Path('reviews/d1_elder_lower_claude_20260928').resolve()
           manifest = json.loads((root / 'SOURCE_FILES.json').read_text())['files']
           present = sorted(p.name for p in root.iterdir())
@@ -67,12 +67,18 @@ jobs:
                   ('TV_multiplicity', 'bernoulli_tv_equals_h_random_exact'),
               ),
           }
-          unknown_stderr = (
-              'usage: elder_lower_exact_check.py [-h]\n'
-              '                                  [--mutant {drop-aZ-over-8,hessian-sign,path-endpoint,weight-power,tv-half}]\n'
-              "elder_lower_exact_check.py: error: argument --mutant: invalid choice: 'M99' "
-              '(choose from drop-aZ-over-8, hessian-sign, path-endpoint, weight-power, tv-half)\n'
-          ).encode()
+          unknown_stream = io.StringIO()
+          unknown_parser = argparse.ArgumentParser(prog=pathlib.Path(script).name)
+          unknown_parser.add_argument('--mutant', choices=tuple(mutants))
+          with contextlib.redirect_stderr(unknown_stream):
+              try:
+                  unknown_parser.parse_args(['--mutant', 'M99'])
+              except SystemExit as exc:
+                  if exc.code != 2:
+                      raise RuntimeError('independent unknown-label parser did not exit 2')
+              else:
+                  raise RuntimeError('independent unknown-label parser accepted M99')
+          unknown_stderr = unknown_stream.getvalue().encode()
           baseline = json.loads(expected)
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
