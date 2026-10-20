@@ -1,0 +1,50 @@
+--- candidate4/CriticalRidge.lean
++++ candidate5/CriticalRidge.lean
+@@ -108,7 +108,6 @@
+   exact (hD.comp (contDiff_const.add (ridgeAddition V).contDiff)).clm_comp
+     contDiff_const
+ 
+-set_option backward.isDefEq.respectTransparency false in
+ theorem negativePartialGradient_hasFDerivAt (f : E d → ℝ) (p : E d)
+     (V : Submodule ℝ (E d)) (hsmooth : IsSmooth d f) :
+     HasFDerivAt (negativePartialGradient f p V)
+@@ -125,10 +124,14 @@
+       (p + ridgeAddition V (0 : E d × V)) := by
+     simpa only [map_zero, add_zero] using hDp
+   have hcomp := hDp'.comp (0 : E d × V) hadd
+-  simpa only [negativePartialGradient, Function.comp_def] using
+-    (restrictCovector V).hasFDerivAt.comp (0 : E d × V) hcomp
+-
+-set_option backward.isDefEq.respectTransparency false in
++  change HasFDerivAt (fun q : E d × V =>
++    (fderiv ℝ f (p + ridgeAddition V q)).comp V.subtypeL) _ _
++  convert! hcomp.clm_comp (hasFDerivAt_const V.subtypeL (0 : E d × V)) using 1 <;>
++    first
++    | rfl
++    | (simp only [ContinuousLinearMap.comp_zero, zero_add] <;>
++        (ext q z; rfl))
++
+ /-- One actual ridge and all four conclusions for the same chosen function.
+ The equation is in the actual ambient function and actual subspace. -/
+ theorem exists_negative_partial_gradient_ridge
+@@ -187,10 +190,16 @@
+       (hasFDerivAt_const (0 : V →L[ℝ] ℝ) (0 : E d)).congr_of_eventuallyEq heq
+     have hchain : HasFDerivAt (fun w : E d => G (w, r w))
+         (D.comp ((ContinuousLinearMap.id ℝ (E d)).prod (fderiv ℝ r 0))) 0 := by
+-      have hd : HasFDerivAt G D ((0 : E d), r 0) := by
+-        rw [hr0]
+-        exact hDG
+-      exact hd.comp 0 hgraph
++      convert! (HasFDerivAt.comp
++        (g := G) (g' := D) (f := fun w : E d => (w, r w))
++        (f' := (ContinuousLinearMap.id ℝ (E d)).prod (fderiv ℝ r 0))
++        (0 : E d)
++        (by
++          convert! hDG using 1 <;>
++            first
++            | rfl
++            | exact Prod.ext rfl hr0)
++        (by convert! hgraph using 1 <;> rfl)) using 1 <;> rfl
+     have hid := hchain.unique hzero
+     intro w z
+     have h := congrArg (fun C : E d →L[ℝ] (V →L[ℝ] ℝ) => C w z) hid

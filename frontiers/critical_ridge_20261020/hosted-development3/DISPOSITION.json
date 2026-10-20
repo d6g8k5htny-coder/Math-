@@ -1,0 +1,60 @@
+{
+  "checkpoint": "2026-10-20T15:00:24.603142+00:00",
+  "actual_executor": "GitHub Actions ubuntu-24.04 via OpenAI Codex root publication; delegated for Dylan Roy",
+  "source_author": "OpenAI Codex /root/adapter_feasibility_c292",
+  "head": "5e63005bd6d8288695fbbc974e40336dca87e77f",
+  "tested_merge": "011a9683382b474cfcf0046ebaec365452277654",
+  "tree": "b2c081da3914ec070fbeeb2e83109672e3b5757c",
+  "run": 39443604910,
+  "attempt": 1,
+  "job": 118699588256,
+  "artifact": 12274363865,
+  "artifact_bytes": 479747,
+  "artifact_sha256": "73c7f4a1c1cc83fc74408bc9f885969e9704a7d6c6af32fa6aed071aaddcff5a",
+  "candidate_bytes": 8664,
+  "candidate_sha256": "f3a515bd0a984c8a8affbfc79f4768e7a357b7798eee8990a5a34adbdcf6f0f7",
+  "result": "HOLD_NOT_COMPLETED",
+  "phase_results": [
+    {
+      "name": "runtime-print-prefix",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "runtime-version",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-Lifetime",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-TorusTopology",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-MorseFiniteCritical",
+      "exit_code": 0,
+      "timed_out": false,
+      "status": "PASS"
+    },
+    {
+      "name": "build-CriticalRidge",
+      "exit_code": 1,
+      "timed_out": false,
+      "status": "FAIL"
+    }
+  ],
+  "actual_failure": "Candidate4 still has restriction CLM derivative-composition application mismatch at line129. Broad declaration-local respectTransparency=false also reached compiler-internal deterministic typeclass20000 and isDefEq/whnf200000 limits; process17.057773s exit1 without outer timeout. Three input modules freshly compiled. Ridge object absent; no kernel/census/negative controls reached. Current-head downstream3checks succeeded but do not accept C299.",
+  "diagnostic_bytes": 3405,
+  "diagnostic_sha256": "dd5794a1cb3365b1f4a25e170496e0b697b5b45f4f6a8b5cd9350fbde1946351",
+  "repair_scope": "Source author must address actual coherent instances and narrow elaboration without merely raising resource caps. Separate source review required; no native retry or unchanged hosted retry.",
+  "scientific_effect": "NONE"
+}
