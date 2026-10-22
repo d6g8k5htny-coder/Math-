@@ -1,0 +1,48 @@
+{
+  "actual_provider": "OpenAI/Codex",
+  "artifact": "Independent nonauthor dual-floor review manifest",
+  "author_freeze_manifest": {
+    "bytes": 9362,
+    "relative_path": "HIGHER_CONFIGURATION_AUTHOR_FREEZE_MANIFEST.json",
+    "sha256": "8734cda7c1dc3d4d85221980daee7849fdf6a3f250632e68d4af11aad20b3700"
+  },
+  "created_utc": "2026-10-16T02:58:59.509687+00:00",
+  "organizational_independence_credit": 0,
+  "outputs": [
+    {
+      "bytes": 14456,
+      "relative_path": "higher-configuration-nonauthor-review/dual/NONAUTHOR_DUAL_FLOOR_REVIEW.md",
+      "sha256": "fa2af0124f4a08929647387d60a128bb0c3382069e14e3dd79ae0f0035d7148a"
+    },
+    {
+      "bytes": 2669,
+      "relative_path": "higher-configuration-nonauthor-review/dual/REVIEW_VERDICT.json",
+      "sha256": "100ef2fe45eb83ca55ca885adb6abe9752ecf0b737396f2bd0e5c0dff6c6155e"
+    },
+    {
+      "bytes": 9966,
+      "relative_path": "higher-configuration-nonauthor-review/dual/independent_dual_controls.py",
+      "sha256": "0b21662a73dea4e4e8ef7d6e8d90f14a8fbfba04f3fbb011a6b04a79a9716d6a"
+    },
+    {
+      "bytes": 27751,
+      "relative_path": "higher-configuration-nonauthor-review/dual/INDEPENDENT_DUAL_CONTROLS.json",
+      "sha256": "8cf0cc8066d83fd409aacc6814b68909b5788e8015f1125319b996fa4a344554"
+    },
+    {
+      "bytes": 8389,
+      "relative_path": "higher-configuration-nonauthor-review/dual/FROZEN_INPUT_VERIFICATION.json",
+      "sha256": "15d04579acdbf92d0f360f0b8952a7aa3dae60a3d41adfbaa3fc14eac8c0da31"
+    }
+  ],
+  "reviewed_source": {
+    "bytes": 32938,
+    "relative_path": "HIGHER_CONFIGURATION_GAUSSIAN_ROUTE.md",
+    "sha256": "43bd77fd5320a717c77bba28c1a6eec080ff67db56c911c6ddea5351a1279b7e"
+  },
+  "scientific_effect": "NONE",
+  "scope": "Higher configuration Gaussian route Sections3-4 only",
+  "self_hash": "Excluded to avoid a cycle; handoff supplies the manifest hash.",
+  "source_admission": "NONE",
+  "verdict": "ACCEPT_SCOPED"
+}
