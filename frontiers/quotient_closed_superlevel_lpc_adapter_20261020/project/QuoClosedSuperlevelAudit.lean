@@ -1,0 +1,7 @@
+import QuoClosedSuperlevelAdapter
+
+-- UNEXECUTED. Exact four-target report; the collector must parse all four.
+#print axioms TorusCriticalAttainment.QuotientSuperlevelAdapter.torus_proj_isOpenQuotientMap
+#print axioms TorusCriticalAttainment.QuotientSuperlevelAdapter.closedSuperlevel_preimage
+#print axioms TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_closedSuperlevel_lpc_of_euclidean
+#print axioms TorusCriticalAttainment.QuotientSuperlevelAdapter.quotient_death_attainment_of_euclidean_closedLPC
