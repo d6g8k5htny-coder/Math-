@@ -12,8 +12,6 @@ name: Lean statement proofs (kernel evidence about registered Props only, no sci
       - 'specifications/lean_statement_proofs_20261011/**'
       - 'specifications/lean_statements_20261010/**'
       - '.github/workflows/lean-specification-proofs.yml'
-  schedule:
-    - cron: '47 10 * * 0'
   workflow_dispatch:
 
 permissions:

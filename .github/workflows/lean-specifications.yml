@@ -12,8 +12,6 @@ name: Lean statement specifications (statements only, no proof, no scientific pr
       - 'specifications/lean_statements_20261010/**'
       - '.github/workflows/lean-specifications.yml'
       - 'formal/lake-manifest.json'
-  schedule:
-    - cron: '37 9 * * 0'
   workflow_dispatch:
 
 permissions:
