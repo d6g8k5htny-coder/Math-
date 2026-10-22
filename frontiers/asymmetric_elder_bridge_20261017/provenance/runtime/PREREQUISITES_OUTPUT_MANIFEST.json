@@ -1,0 +1,31 @@
+{
+  "schema": "prerequisites-output-manifest-v1",
+  "created_utc": "2026-10-17T21:48:12.018932+00:00",
+  "output_base": ".",
+  "outputs": [
+    {
+      "path": "EXTERNAL_PREREQUISITES.md",
+      "bytes": 10623,
+      "sha256": "9a7a60d972434a5e77c44a231fc154a1d3d9ef7838e3e91881486ded478deeec"
+    },
+    {
+      "path": "EXTERNAL_PREREQUISITES.json",
+      "bytes": 16958,
+      "sha256": "d8602897d9011567e86f3838b98d16876130209f6034bf9df4742355efcf8ad1"
+    }
+  ],
+  "all_output_paths": [
+    "EXTERNAL_PREREQUISITES.md",
+    "EXTERNAL_PREREQUISITES.json",
+    "PREREQUISITES_OUTPUT_MANIFEST.json"
+  ],
+  "manifest_self_excluded": true,
+  "self_path": "PREREQUISITES_OUTPUT_MANIFEST.json",
+  "only_new_prerequisites_outputs": true,
+  "role": "PACKAGING_PREPARATION_AUTHORWORK_NOT_REVIEW",
+  "input_identity_joins": "All fourteen consumed input byte identities rechecked unchanged before sealing; recorded in EXTERNAL_PREREQUISITES.json",
+  "own_interval_oleans_verified": 4,
+  "dependencies_recorded": 9,
+  "fresh_execution_performed": false,
+  "hermetic_offline_replay": false
+}

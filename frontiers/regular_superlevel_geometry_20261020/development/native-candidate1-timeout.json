@@ -1,0 +1,30 @@
+{
+  "source": "RegularSuperlevel.lean",
+  "source_sha256": "0758454e88cb02ad56483face96483d8a878afe5eaa72f1ea629f0ca5a29760f",
+  "started_utc": "2026-10-20T11:02:55.466480+00:00",
+  "command": [
+    "$DARWIN_LEAN_RUNTIME/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "$C297_ROOT/build/RegularSuperlevel.olean",
+    "$C297_ROOT/project/RegularSuperlevel.lean"
+  ],
+  "source_snapshot": "source-attempts/RegularSuperlevel/0758454e88cb02ad56483face96483d8a878afe5eaa72f1ea629f0ca5a29760f.lean",
+  "timeout_seconds": 600,
+  "threads": 2,
+  "wrapper_pid": 70729,
+  "child_pid": 70732,
+  "returncode": -15,
+  "timed_out": true,
+  "seconds": 600.061396125,
+  "ended_utc": "2026-10-20T11:12:55.539940+00:00",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "public_projection": {
+    "original_bytes": 1174,
+    "original_sha256": "aa5917b0135820231992dab3f7be1f075c9d34be61260e5905d2bb1ca8dea14b",
+    "scope": "Native C297 and Darwin runtime path prefixes only replaced with placeholders."
+  }
+}
