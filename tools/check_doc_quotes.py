@@ -187,13 +187,17 @@ def main(argv=None):
     parser.add_argument('documents', nargs='+')
     parser.add_argument('--root', default=os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     parser.add_argument('--github', action='store_true', help='also check GitHub review/comment links (GITHUB_TOKEN)')
+    parser.add_argument('--require-online', action='store_true', help='fail if any linked GitHub/HTTP source is left unchecked offline')
     args = parser.parse_args(argv)
     token = os.environ.get('GITHUB_TOKEN')
-    report = {'root': os.path.realpath(args.root), 'github': args.github, 'documents': {}, 'passed': True}
+    report = {'root': os.path.realpath(args.root), 'github': args.github, 'require_online': args.require_online, 'documents': {}, 'passed': True}
     for doc in args.documents:
         result = check_document(doc, args.root, args.github, token)
         report['documents'][doc] = result
         if result['failures']:
+            report['passed'] = False
+        if args.require_online and result['unchecked_offline']:
+            result['failures'].append(['unchecked-offline-required', '', str(result['unchecked_offline'])])
             report['passed'] = False
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0 if report['passed'] else 1

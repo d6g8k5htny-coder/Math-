@@ -89,6 +89,25 @@ class QuoteSemantics(unittest.TestCase):
         self.assertEqual(report['failures'], [])
         self.assertEqual((report['checked'], report['unchecked_offline']), (0, 1))
 
+
+    def test_require_online_rejects_unchecked_github_link(self):
+        doc = self.root / 'docs' / 'nested' / 'a.md'
+        doc.write_text(HEADER + '| #1 | [c](https://github.com/o/r/pull/1#issuecomment-2) — “anything at all” |\n', encoding='utf-8')
+        rc = check_doc_quotes.main([str(doc), '--root', self.tmp, '--require-online'])
+        self.assertEqual(rc, 1)
+
+    def test_github_transport_failure_is_not_counted_as_offline(self):
+        doc = self.root / 'docs' / 'nested' / 'a.md'
+        doc.write_text(HEADER + '| #1 | [c](https://github.com/o/r/pull/1#issuecomment-2) — “anything at all” |\n', encoding='utf-8')
+        original = check_doc_quotes.Sources._fetch
+        try:
+            check_doc_quotes.Sources._fetch = lambda self, match: (None, 'unreachable')
+            report = check_doc_quotes.check_document(str(doc), self.tmp, github=True, token='x')
+        finally:
+            check_doc_quotes.Sources._fetch = original
+        self.assertEqual(report['unchecked_offline'], 0)
+        self.assertEqual([f[0] for f in report['failures']], ['source-unreachable'])
+
     def test_nearest_preceding_link_governs_each_passage(self):
         (self.root / 'reviews' / 's.md').write_text('Disposition: AMEND the ledger.\n', encoding='utf-8')
         row = ('| #1 | [r](../../reviews/r.md) — “No defect was found.”'
