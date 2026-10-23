@@ -180,10 +180,10 @@ class HostedVerifierTests(unittest.TestCase):
     def test_inactive_draft_negative_sections_reject_forged_fields(self):
         """Section/token-only matching would accept unrelated existential fields."""
         v = self.verifier()
-        # Synthetic prospective rendering only; no actual Lean diagnostic observed.
+        # Pinned to the C7 rendering observed locally (Lean v4.34.1) at L21:2.
         conclusion = (
             '∃ r, r 0 = 0 ∧ ContDiffAt ℝ 2 r 0 ∧ '
-            '(∀ᶠ w in 𝓝 0, ∀ (z : ↥V), (fderiv ℝ f (p + w + ↑(r w))) ↑z = 0) ∧ '
+            '(∀ᶠ (w : E d) in 𝓝 0, ∀ (z : ↥V), (fderiv ℝ f (p + w + ↑(r w))) ↑z = 0) ∧ '
             '∀ (w : E d) (z : ↥V), hessian d f p (w + ↑((fderiv ℝ r 0) w)) ↑z = 0')
         target = 'TorusCriticalRidge.exists_negative_partial_gradient_ridge'
         for name, expression, premise in (
@@ -193,7 +193,7 @@ class HostedVerifierTests(unittest.TestCase):
                 ('WithoutNegativeDefiniteness',
                  target + ' f p V hsmooth hcritical',
                  '(∀ v ∈ V, v ≠ 0 → hessian d f p v v < 0)')):
-            proper = (name + '.lean:23:2: error: Type mismatch\n  ' + expression
+            proper = (name + '.lean:21:2: error: Type mismatch\n  ' + expression
                       + '\nhas type\n  ' + premise + ' → ' + conclusion
                       + '\nbut is expected to have type\n  ' + conclusion + '\n')
             result = v.validate_negative_draft(name, 1, proper)
@@ -202,6 +202,9 @@ class HostedVerifierTests(unittest.TestCase):
             for code, bad in (
                     (0, proper), (-9, proper),
                     (1, proper.replace(name + '.lean', 'Other.lean')),
+                    (1, proper.replace('.lean:21:2:', '.lean:23:2:')),
+                    (1, proper.replace('.lean:21:2:', '.lean:21:3:')),
+                    (1, proper.replace('(∀ᶠ (w : E d) in', '(∀ᶠ w in')),
                     (1, proper.replace('ContDiffAt ℝ 2 r 0', 'True')),
                     (1, proper.replace('fderiv ℝ f', 'fderiv ℝ other')),
                     (1, proper.replace(premise + ' → ', 'Continuous f → ', 1)),

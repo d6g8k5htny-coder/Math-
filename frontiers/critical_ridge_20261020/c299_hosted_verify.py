@@ -212,7 +212,7 @@ def validate_negative_draft(name, returncode, output):
     if (returncode != 1 or output.count('error:') != 1
             or any(x in flat.lower() for x in forbidden)):
         raise RuntimeError('negative control failed for an unrelated reason')
-    pattern = (r'\A[^\n]*' + re.escape(name) + r'\.lean:\d+:\d+: error: Type mismatch\s*\n'
+    pattern = (r'\A[^\n]*' + re.escape(name) + r'\.lean:21:2: error: Type mismatch\s*\n'
                r'(?P<expression>.*?)\nhas type\s*\n(?P<actual>.*?)'
                r'\nbut is expected to have type\s*\n(?P<expected>.*?)\s*\Z')
     match = re.fullmatch(pattern, output.strip(), flags=re.S)
@@ -234,9 +234,9 @@ def validate_negative_draft(name, returncode, output):
         premise = r'\(∀ v ∈ V, v ≠ 0 → hessian d f p v v < 0\)'
     if not re.fullmatch(premise + r' → ' + re.escape(expected), actual):
         raise RuntimeError('actual type is not the omitted premise followed by the expected conclusion')
-    # Fixed candidate-2 binder names and all four same-ridge conclusion fields.
+    # Fixed C7 binder rendering (observed at negative-project L21:2) and all four same-ridge conclusion fields.
     conclusion = (r'∃ r, r 0 = 0 ∧ ContDiffAt ℝ 2 r 0 ∧ '
-                  r'\(∀ᶠ w in 𝓝 0, ∀ \(z : ↥V\), \(fderiv ℝ f \(p \+ w \+ ↑\(r w\)\)\) ↑z = 0\) ∧ '
+                  r'\(∀ᶠ \(w : E d\) in 𝓝 0, ∀ \(z : ↥V\), \(fderiv ℝ f \(p \+ w \+ ↑\(r w\)\)\) ↑z = 0\) ∧ '
                   r'∀ \(w : E d\) \(z : ↥V\), hessian d f p \(w \+ ↑\(\(fderiv ℝ r 0\) w\)\) ↑z = 0')
     if not re.fullmatch(conclusion, expected):
         raise RuntimeError('expected conclusion does not match all four candidate ridge fields')
