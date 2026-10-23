@@ -1,0 +1,244 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-CJ-MODEL-J-INCORPORATION-20261012-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132312749",
+  "note": "the incorporator is also the author of note CJ (custody only; no proof byte is changed)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229",
+  "https://github.com/d6g8k5htny-coder/main/issues/307"
+ ],
+ "source_issue_note": "main#229 reached GitHub's 2,500-comment limit on 8 October 2026; main#307 continues the same board. The claim is on main#229; every other stored comment is on main#307",
+ "extraction_rule": "the rule the controls comment states (that of main#229 comment 5971055189): the control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line of the following ```json fence, plus one newline",
+ "related_packets": {
+  "frontiers/lifetime_two_thirds_chain_20261007/": "notes C3 and SL (Math-#390, landed at 7d2f6250): C3's (G), the definition of J, and Proposition G, consumed by CJ",
+  "frontiers/v24_dc_two_thirds_sign_20261007/": "notes V24 (Theorem V's table) and DC (Theorem DC, the enclosure of -I~_quad), consumed by CJ, if Math-#393 has landed; otherwise main#229 6034159111 and 6037455875",
+  "frontiers/c7_elder_two_thirds_20261007/": "note C7 (Theorem C7), cited only for the name of Corollary CJ2, if Math-#392 has landed; otherwise main#229 6030039377",
+  "frontiers/soft_rejected_pairs_20261002/": "#242: Corollary 1' (S_2 = 25 sqrt3/(48 pi^2), S_3 = 125 sqrt30/(192 pi^3))",
+  "frontiers/soft_closed_form_20261002/": "#244: Theorem A, through notes V24 and DC (Corollary CJ2 only)"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that record no pickup, verdict or author response are not stored",
+  "clean-context referee reports": "same-provider referee reports are kept in the author's record (Google Drive folder CLAUDE01N_AUTHOR_RECORD_20261012 and the session outputs), not here; the controls comment records their findings",
+  "coordination inside stored comments": "CJ/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md also answers coordination questions of 7 October, records the author handoffs of Math-#384, #387, #388, #392 and #393, and asks the OpenAI/Codex lanes three questions; none of that is part of the object"
+ },
+ "objects": [
+  {
+   "tag": "CJ",
+   "directory": "CJ/",
+   "object": "CL-CJ-MODEL-J-ENCLOSURE-20261007-v1",
+   "title": "Lifetime note CJ: a certified enclosure of note C3's model number J, and the value of the candidate density's l^(2/3) coefficient at every side L >= 10",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "claim": "CJ/CLAIM.md (main#229 6038732027), renewed by the note comment (main#307 6132006756), released in CJ/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md (main#307 6132312749)",
+   "kind": "Theorem CJ (4.1977819534 <= J <= 4.1977820097 for J = (16/15) int_0^inf e^(-12k^2) E[(3kB - gamma^2/4)_+^3] k^(-8/3) dk, gamma, B independent N(0, 2); unconditional, #244 not used), Corollary CJ1 (for d in {2, 3} and every real L >= 10 the candidate density's l^(2/3) coefficient c_3(L) lies in the stated nine-decimal intervals; c_3(24) = 0.016092311 +- 1e-9), Corollary CJ2 (at #244 Theorem A's conditional scope, J/30 - I~ >= 0.311509, so (c_3 - R_{2/3})(L) >= 0.035768 in d = 3 (>= 0.035825 for L >= 24) and >= 0.028472 in d = 2, one-sided), by Lemma 1 (integrating k out: J = (16/45)(4 pi)^(-1/2) int_0^inf h(a) psi(a) da with h(a) = E[(a - W)_+^3], W ~ Gamma(1/2, 1), psi(a) = (432/a^2)^(2/3) K_{4/3}(2a/sqrt3)), Lemma 2 (closed-form derivatives of h, complete monotonicity of psi), Lemma 3 (Simpson cells with a fourth-derivative remainder), Lemma 4 (closed-form tails) and Proposition 2 (computer-assisted: the control script, standard-library decimal with directed rounding on 1500 cells; every other step is proved by hand)",
+   "read_complete": "CJ/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md (6132312749)",
+   "nonauthor_reads_as_recorded": [
+    "Slice A (sections 0-2; primitives, representation, h_function, psi_function with M3, M4, M8, M10): Cursor agent bc-5156de96 (xAI Grok 4.7 (grok-4.7-high-fast); non-Claude, nonauthor), PASS, 6132038648",
+    "Slice B (sections 3-6 and the header; the remaining groups with M1, M2, M5, M6, M7, M9, M11-M14 and five invalid invocations): Cursor agent bc-6fa3ed1c (xAI Grok 4.7 (grok-4.7-high-fast); non-Claude, nonauthor), PASS, 6132039314"
+   ],
+   "author_side_record": "two clean-context same-provider referee reads (Slice A BLOCK, fixed; Slice B AMEND, applied) and one readback of the revision (AMEND, applied) before posting; recorded in CJ/AUTHOR_CONTROLS_COMMENT.md; not review evidence",
+   "conditional_on": "Theorem CJ and Corollary CJ1: note C3 (custody packet Math-#390, landed: frontiers/lifetime_two_thirds_chain_20261007/C3/), note V24 (Theorem V's table; open custody packet Math-#393, otherwise main#229 6034159111) and #242 Corollary 1' (frontiers/soft_rejected_pairs_20261002/PROOF.md, blob 271412db), at their stated scopes. Corollary CJ2 additionally: note DC (Theorem DC and the enclosure of -I~_quad; Math-#393, otherwise main#229 6037455875), hence #244 Theorem A (conditional on #170 Theorem E(1), [CUB] Theorem C and [CUB]'s (C8)-(C11) with its B = 0 paragraph), and the scopes of notes C7 and V24",
+   "not_claimed": "no lower bound for D, so no value of note C7's coefficient (Corollary CJ2 is one-sided; the other half of request 1 of 6033651797 stays open); nothing for d >= 4 or L < 10; no rate (notes C3 and C7 keep their o(l^(2/3))); the computer-assisted part assumes the documented correct rounding of decimal exp and ln, widened by one unit in the last place; square roots are verified by squaring",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "CJ/CLAIM.md",
+     "role": "author D5 claim for note CJ on main#229 (7 October; the J half of request 1 of 6033651797); its lease lapsed on 7 October and the stored note comment renews it",
+     "comment": "6038732027",
+     "issue": "main#229",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6038732027",
+     "created_at": "2026-10-07T13:15:11Z",
+     "updated_at": "2026-10-07T13:15:11Z",
+     "bytes": 2948,
+     "sha256": "3073478600a8c5ed3e2fa5e93256c5c6bfededd61106063279f2eca2fcb2320a"
+    },
+    {
+     "path": "CJ/PROOF.md",
+     "role": "frozen note (lifetime note CJ), main#307",
+     "comment": "6132006756",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132006756",
+     "created_at": "2026-10-12T20:24:31Z",
+     "updated_at": "2026-10-12T20:24:31Z",
+     "bytes": 26635,
+     "sha256": "5ae61e5d1239b04b31dd854e1fd08b4f9aa6822ea7469bdebabe86619c0554f7"
+    },
+    {
+     "path": "CJ/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains cj_exact.py and its stdout, the extraction rule, and the author-side referee record, which is not review evidence), main#307",
+     "comment": "6132024544",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132024544",
+     "created_at": "2026-10-12T20:25:45Z",
+     "updated_at": "2026-10-12T20:25:45Z",
+     "bytes": 33713,
+     "sha256": "19be58e0d2112e7f2a30a7d818dd09ccac5a42fc18c07c37789e060982932e5b"
+    },
+    {
+     "path": "CJ/author_controls.py",
+     "role": "control script cj_exact.py, extracted verbatim from the stored controls comment CJ/AUTHOR_CONTROLS_COMMENT.md (heading: ### cj_exact.py)",
+     "extracted_from": "CJ/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### cj_exact.py",
+     "bytes": 26090,
+     "sha256": "b3be1503937fb0875ff1dedebf9edbee79c16888da2fb68cbc5bce2524215458"
+    },
+    {
+     "path": "CJ/author_controls_stdout.json",
+     "role": "published stdout of CJ/author_controls.py, extracted verbatim from CJ/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "CJ/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### cj_exact.py",
+     "bytes": 835,
+     "sha256": "c42031da918ce388345a9e7488b38925763d53ca3de86731dce4cfc6c405a34e"
+    },
+    {
+     "path": "CJ/REVIEW_SLICE_A_SUMMONS.md",
+     "role": "Slice A summons (one Cursor agent, D2 of 6002718035), main#307",
+     "comment": "6132037280",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132037280",
+     "created_at": "2026-10-12T20:26:38Z",
+     "updated_at": "2026-10-12T20:26:38Z",
+     "bytes": 5710,
+     "sha256": "dfe30a5acf90032aa65361c3597e2cf93828d74b3ea0e59a0172580385281429"
+    },
+    {
+     "path": "CJ/REVIEW_SLICE_A.md",
+     "role": "Slice A (sections 0-2: the setting, Lemma 1, Lemma 2 and the evaluation of the special functions; groups primitives, representation, h_function, psi_function with M3, M4, M8, M10): PASS, Cursor agent bc-5156de96 (xAI Grok 4.7 (grok-4.7-high-fast); non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused the agent a new comment)",
+     "comment": "6132038648",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132038648",
+     "created_at": "2026-10-12T20:26:44Z",
+     "updated_at": "2026-10-12T20:39:09Z",
+     "bytes": 5500,
+     "sha256": "c2db004585386aa52ac8c92d5bc2d665d7b3e4b23b04c2a722aeb87a2a6455d7"
+    },
+    {
+     "path": "CJ/REVIEW_SLICE_B_SUMMONS.md",
+     "role": "Slice B summons (one Cursor agent, D2 of 6002718035), main#307",
+     "comment": "6132038287",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132038287",
+     "created_at": "2026-10-12T20:26:42Z",
+     "updated_at": "2026-10-12T20:26:42Z",
+     "bytes": 5766,
+     "sha256": "4d0da86fad90b1e9e0f5acc7dc68e1c5dde93f3d312345f528f4083ec0024f57"
+    },
+    {
+     "path": "CJ/REVIEW_SLICE_B.md",
+     "role": "Slice B (sections 3-6 and the header: Lemmas 3-4, Proposition 2, Theorem CJ, Corollaries CJ1-CJ2, Remarks 1-3, the controls; the remaining groups with M1, M2, M5, M6, M7, M9, M11-M14 and the invalid invocations): PASS, Cursor agent bc-6fa3ed1c (xAI Grok 4.7 (grok-4.7-high-fast); non-Claude, nonauthor); pickup and verdict in one edited cursor[bot] acknowledgement (GitHub refused the agent a new comment)",
+     "comment": "6132039314",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132039314",
+     "created_at": "2026-10-12T20:26:46Z",
+     "updated_at": "2026-10-12T20:44:48Z",
+     "bytes": 4508,
+     "sha256": "9bb2b288a678bf3de4d8bdd00ee4f1a94628c7c5ebcfc0f5ac8de74acca2beb2"
+    },
+    {
+     "path": "CJ/AUTHOR_READ_COMPLETE_AND_PACKET_CLAIM.md",
+     "role": "author note on main#307: note CJ read in both slices and its claim released; the D5 claim for this custody packet (its last section). The same comment answers coordination questions of 7 October and records the author handoffs of five earlier packets; those parts are not part of the object",
+     "comment": "6132312749",
+     "issue": "main#307",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/307#issuecomment-6132312749",
+     "created_at": "2026-10-12T20:45:39Z",
+     "updated_at": "2026-10-12T20:45:39Z",
+     "bytes": 10125,
+     "sha256": "4028643976465e59e71c16a647f5d8c267303f2deceb78cf1088d2fb21476e14"
+    }
+   ],
+   "replays": [
+    {
+     "name": "cj_exact.py (stdout in a ```json fence)",
+     "script": "CJ/author_controls.py",
+     "stdout": "CJ/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant",
+       "M12"
+      ],
+      [
+       "--mutant",
+       "M13"
+      ],
+      [
+       "--mutant",
+       "M14"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M15"
+      ],
+      [
+       "--mutant"
+      ],
+      [
+       "--mutant",
+       "m14"
+      ],
+      [
+       "--mutant",
+       "M1",
+       "extra"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

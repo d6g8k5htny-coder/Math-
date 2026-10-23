@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "python",
+    "-B",
+    "coefficient.py",
+    "REQUEST.json",
+    "--source-commit",
+    "f47c8d77abf4d4eab67c15ca67c2e0cc450bff2c",
+    "--output",
+    "RESULT.json"
+  ],
+  "cwd": "/workspace/finite-l-d2-coefficient/frontiers/finite_l_d2_coefficient_20261018",
+  "elapsed_seconds": 4.119602086000668,
+  "ended_utc": "2026-10-18T02:42:05.430221+00:00",
+  "exit_code": 0,
+  "pre_command_git_status": "",
+  "result": {
+    "bytes": 2570059,
+    "sha256": "ed7480564f748363f907bf32f69b2f2afb32f71b4f28d11b486ee9115cf417c7"
+  },
+  "schema": "D2_ORIGINAL_COMMAND_RECEIPT_V1",
+  "scientific_acceptance": false,
+  "source_commit": "f47c8d77abf4d4eab67c15ca67c2e0cc450bff2c",
+  "started_utc": "2026-10-18T02:42:01.310421+00:00",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "fe2281563aea037569aecb7f871e17cffa5c6530da93606c99a97283a070fd95",
+  "timed_out": false,
+  "timeout_seconds": 180
+}

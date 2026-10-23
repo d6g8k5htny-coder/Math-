@@ -5,6 +5,7 @@ name: C7-total bounded-difference checks
     paths:
       - 'frontiers/c7_total_bounded_20260929/**'
       - '.github/workflows/c7-total-bounded.yml'
+      - 'tests/test_c7_total_workflow.py'
   workflow_dispatch:
 
 permissions:
@@ -21,6 +22,13 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.11.16'
+      - name: Exercise C7 wrapper rejection contracts in both modes
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          set -euo pipefail
+          python -B -S -m unittest discover -s tests -p test_c7_total_workflow.py -v
+          python -B -O -S -m unittest discover -s tests -p test_c7_total_workflow.py -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -43,17 +51,29 @@ jobs:
                   raise ValueError('source identity mismatch: ' + entry['path'])
           script = str(root / 'exponent_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
-          mutants = ['M1', 'M2', 'M3']
+          # Independently measured from unchanged exponent_check.py blob 0f9d4cf4.
+          # Exact FAIL lines (including newline), not a substring or learned oracle.
+          failures = {
+              'M1': b'FAIL T_pieceB1_7_12\n',
+              'M2': b'FAIL T_threshold_is_r_equals_k\n',
+              'M3': b'FAIL K_62prime_layer_integral_exact\n',
+          }
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
-                                   check=True, capture_output=True, timeout=300).stdout
-              if out != expected:
-                  raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
-              for m in mutants:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
-                                      capture_output=True, timeout=300).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
+                                   check=True, capture_output=True, timeout=300)
+              if out.stdout != expected or out.stderr != b'':
+                  raise RuntimeError('baseline output or stderr differs under ' + ' '.join(flags))
+              print(json.dumps({'stage': 'baseline', 'flags': flags, 'returncode': out.returncode,
+                                'stdout_sha256': hashlib.sha256(out.stdout).hexdigest(),
+                                'stderr_sha256': hashlib.sha256(out.stderr).hexdigest()}), flush=True)
+              for m, diagnostic in failures.items():
+                  out = subprocess.run([sys.executable, *flags, script, '--mutant', m],
+                                       capture_output=True, timeout=300)
+                  if out.returncode != 1 or out.stdout != diagnostic or out.stderr != b'':
+                      raise RuntimeError('mutant ' + m + ' did not report its intended rejection')
+                  print(json.dumps({'stage': m, 'flags': flags, 'returncode': out.returncode,
+                                    'stdout_sha256': hashlib.sha256(out.stdout).hexdigest(),
+                                    'stderr_sha256': hashlib.sha256(out.stderr).hexdigest()}), flush=True)
           print(json.dumps({'scientific_effect': 'NONE', 'scientific_acceptance': False}))
           PY
           git diff --exit-code

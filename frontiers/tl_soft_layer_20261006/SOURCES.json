@@ -1,0 +1,247 @@
+{
+ "schema": 2,
+ "object": "LIFETIME-NOTE-TL-INCORPORATION-20261006-v1",
+ "kind": "additive incorporation of public native note, review and checker records; no new mathematics; no status change",
+ "scientific_effect": "NONE",
+ "incorporated_by": {
+  "performer": "Anthropic Claude",
+  "session": "https://claude.ai/code/session_01NMeKEismAyeqgdB4sy2NJU",
+  "attribution": "Dylan Roy - delegated AI work",
+  "claim": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6019049654",
+  "note": "the incorporator is also the author of note TL (custody only; no proof byte is changed)"
+ },
+ "source_issues": [
+  "https://github.com/d6g8k5htny-coder/main/issues/229",
+  "https://github.com/d6g8k5htny-coder/main/issues/259"
+ ],
+ "extraction_rule": "the rule the controls comment states (that of main#229 comment 5971055189): the control script is the exact text between the first ```python fence after its heading and the next ``` line, plus a final newline; its expected stdout is the single JSON line of the following ```json fence, plus one newline",
+ "related_packets": {
+  "frontiers/elder_cusp_parity_20261002/": "[N] (#240): the pathwise decision lemmas and Theorem N that note TL makes uniform as kappa -> infinity",
+  "frontiers/soft_rejected_pairs_20261002/": "#242: the cusp limit of the rejected kernel (Theorem 1), the target of Theorem TL",
+  "frontiers/third_order_rate_20261001/": "#229: the remainder l^(3/7) that Corollary TL3 improves, and the intermediate elder bound it keeps",
+  "reviews/iba2_009_matching_20261005/": "Math-#296: the band formula and the tail criterion (4.2) that Corollaries TL1-TL2 address"
+ },
+ "excluded": {
+  "routing comments": "coordination comments that do not record a pickup, verdict or author response are not stored",
+  "clean-context referee reports": "same-provider, same-session referee reports and exploration scripts (not review evidence) are kept in the project archive, not here"
+ },
+ "objects": [
+  {
+   "tag": "TL",
+   "directory": "TL/",
+   "object": "CL-TL-SOFT-LAYER-20261006-v1",
+   "title": "Lifetime note TL: the rejected kernel uniformly on the soft layer (kappa >= 1, k <= 1), the kappa >= 1 side of IBA2-009 (TAIL-L), and the elder density with remainder l^(4/9) log(1/l)",
+   "author": "Anthropic Claude (session_01NMeKEismAyeqgdB4sy2NJU), for Dylan Roy (delegated AI work)",
+   "kind": "Theorem TL (|T_r^rej(k,u) - A^rej(kappa,u)| <= C r^2 (1 + kappa) for the birth-integrated kernels), Lemmas W1, W2, GE, Delta, Proposition RW, Corollaries TL1-TL3 (the kappa >= 1 separations of rho_rej, Math-#296 tail (4.2) at b -> infinity, the moving band J_l = F0bar + O(l^(1/5)), nu_eld and rho_rej with O(l^(4/9) log(1/l))); the control script checks finite algebra only",
+   "nonauthor_reads_as_recorded": [
+    "Slice C (section 3, Lemma Delta; T2, T3, T4, T7): Cursor agent bc-d851d2ca (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6018013576",
+    "Slices A-B (sections 0-2; T1, T5): Cursor agent bc-df5cfd1f (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6018510549",
+    "Slice D (sections 4-7 and the header; T6): Cursor agent bc-b84a2c6b (xAI Grok 4.7; non-Claude, nonauthor), PASS, 6018770333",
+    "author round note 6019049654: read-complete in three slices, no amendment; the note and the controls are frozen as posted"
+   ],
+   "conditional_on": "[N] (#240), #237, #242, #220, #229, #218, [K] (K2) with its erratum, [R] (R5), Math-#296 and, for the last form of TL3, #187, at their stated scopes (blobs listed in the note header)",
+   "not_claimed": "the kappa -> 0 side (TAIL-S): IBA2-009 stays OPEN; no l^(1/2) statement for the whole density; nothing pointwise in b",
+   "organizational_independence": 0,
+   "stored": [
+    {
+     "path": "TL/CLAIM.md",
+     "role": "author work claim (note TL)",
+     "comment": "6015458484",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6015458484",
+     "created_at": "2026-10-06T11:40:05Z",
+     "updated_at": "2026-10-06T11:40:05Z",
+     "bytes": 4466,
+     "sha256": "3722075b48ce27e17c3b0f7fba6e5e6cdc0f61443a591d211caf948af1b237c6"
+    },
+    {
+     "path": "TL/PICKUP_IBA2_009_main259.md",
+     "role": "author pickup on main#259 (IBA2-009, the kappa >= 1 side, TAIL-L)",
+     "comment": "6015463045",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/259#issuecomment-6015463045",
+     "created_at": "2026-10-06T11:40:23Z",
+     "updated_at": "2026-10-06T11:40:23Z",
+     "bytes": 1910,
+     "sha256": "8ce6f5ff6f8ce520d8e2fceeb0b093a781a80bfe93718606b885b63eeb3279ba"
+    },
+    {
+     "path": "TL/PROOF.md",
+     "role": "frozen note (lifetime note TL)",
+     "comment": "6017975404",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6017975404",
+     "created_at": "2026-10-06T14:03:43Z",
+     "updated_at": "2026-10-06T14:03:43Z",
+     "bytes": 57942,
+     "sha256": "9cb199e08340f0f8e5d6d40bceecd44660dce83e13250c160fca985275e7468f"
+    },
+    {
+     "path": "TL/AUTHOR_CONTROLS_COMMENT.md",
+     "role": "author controls comment (contains tl_exact.py and its stdout)",
+     "comment": "6017990426",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6017990426",
+     "created_at": "2026-10-06T14:04:26Z",
+     "updated_at": "2026-10-06T14:04:26Z",
+     "bytes": 25692,
+     "sha256": "11c52b0ce9233306df1eb479ff0dbf2a1208b2bfb5891fa5b792ad71d37a29c2"
+    },
+    {
+     "path": "TL/READ_REQUESTS.md",
+     "role": "author read requests (three slices; the Slice C summons of one Cursor agent, D2 of 6002718035); releases the claim",
+     "comment": "6018011961",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018011961",
+     "created_at": "2026-10-06T14:05:30Z",
+     "updated_at": "2026-10-06T14:05:30Z",
+     "bytes": 4942,
+     "sha256": "8652afeefa1b332aa38480e68d7e72b2bcd71f68f50cb52974e884b487fb5a67"
+    },
+    {
+     "path": "TL/DELIVERED_POINTER_main259.md",
+     "role": "author delivery pointer on main#259",
+     "comment": "6018024601",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/259#issuecomment-6018024601",
+     "created_at": "2026-10-06T14:06:06Z",
+     "updated_at": "2026-10-06T14:06:06Z",
+     "bytes": 2049,
+     "sha256": "8bcf90f34998d7eebc42504f895faa977545d1f0fa6b298080354e2423e602d4"
+    },
+    {
+     "path": "TL/REVIEW_SLICE_C.md",
+     "role": "Slice C (section 3, Lemma Delta; controls T2, T3, T4, T7): PASS, Cursor agent bc-d851d2ca (xAI Grok 4.7); pickup and verdict in one comment (GitHub refused a new comment)",
+     "comment": "6018013576",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018013576",
+     "created_at": "2026-10-06T14:05:34Z",
+     "updated_at": "2026-10-06T14:21:22Z",
+     "bytes": 4660,
+     "sha256": "4e36967e75a7d03d72e672d698732838365d3229165390bcf3d45bc6fcf4fed6"
+    },
+    {
+     "path": "TL/REVIEW_SLICES_AB_SUMMONS.md",
+     "role": "Slices A-B summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6018508332",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018508332",
+     "created_at": "2026-10-06T14:30:47Z",
+     "updated_at": "2026-10-06T14:30:47Z",
+     "bytes": 3230,
+     "sha256": "e6830258419d7efd75da9e132026e120fb14174389cd0dd1841ae3b435d83c45"
+    },
+    {
+     "path": "TL/REVIEW_SLICES_AB.md",
+     "role": "Slices A-B (sections 0-2; controls T1, T5): PASS, Cursor agent bc-df5cfd1f (xAI Grok 4.7); pickup and verdict in one comment (GitHub refused a new comment)",
+     "comment": "6018510549",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018510549",
+     "created_at": "2026-10-06T14:30:54Z",
+     "updated_at": "2026-10-06T14:42:04Z",
+     "bytes": 6495,
+     "sha256": "7218b022b698945e10130401427929c6351295dbffc92f0cd01beef63bbd3688"
+    },
+    {
+     "path": "TL/REVIEW_SLICE_D_SUMMONS.md",
+     "role": "Slice D summons (one Cursor agent, D2 of 6002718035)",
+     "comment": "6018768832",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018768832",
+     "created_at": "2026-10-06T14:44:31Z",
+     "updated_at": "2026-10-06T14:44:31Z",
+     "bytes": 3555,
+     "sha256": "0e5cc8e58764e2aecd47f2135dbff70eb0bc9d79cbadb5a330cea1e74038bfa5"
+    },
+    {
+     "path": "TL/REVIEW_SLICE_D.md",
+     "role": "Slice D (sections 4-7 and the header; control T6): PASS, Cursor agent bc-b84a2c6b (xAI Grok 4.7); pickup and verdict in one comment (GitHub refused a new comment)",
+     "comment": "6018770333",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6018770333",
+     "created_at": "2026-10-06T14:44:35Z",
+     "updated_at": "2026-10-06T14:58:30Z",
+     "bytes": 10027,
+     "sha256": "e458726ca23e968fd9bdcd4d6af21eb2dee67f33684222c709dcdc252fb2d31b"
+    },
+    {
+     "path": "TL/AUTHOR_ROUND_NOTE_AND_CLAIM.md",
+     "role": "author round note (read-complete in three slices, no amendment) and D5 claim for this custody packet",
+     "comment": "6019049654",
+     "url": "https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6019049654",
+     "created_at": "2026-10-06T14:59:28Z",
+     "updated_at": "2026-10-06T14:59:28Z",
+     "bytes": 3386,
+     "sha256": "4ec75bd06397c0d625fda190e6c3cb8a734e140c74df77b4c92aebd174f2be5f"
+    },
+    {
+     "path": "TL/author_controls.py",
+     "role": "control script tl_exact.py, extracted verbatim from the stored controls comment TL/AUTHOR_CONTROLS_COMMENT.md (heading: ### tl_exact.py)",
+     "extracted_from": "TL/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### tl_exact.py",
+     "bytes": 21290,
+     "sha256": "ec25809b780d7c0363bb2334984b6b5514c3439558f3e95748d21b651df92383"
+    },
+    {
+     "path": "TL/author_controls_stdout.json",
+     "role": "published stdout of TL/author_controls.py, extracted verbatim from TL/AUTHOR_CONTROLS_COMMENT.md (```json fence)",
+     "extracted_from": "TL/AUTHOR_CONTROLS_COMMENT.md",
+     "heading": "### tl_exact.py",
+     "bytes": 216,
+     "sha256": "8f36ad54f024f5e583cc1535dbb61a358bf5462b0c7673dde30ee3251092c587"
+    }
+   ],
+   "replays": [
+    {
+     "name": "tl_exact.py (stdout in a ```json fence)",
+     "script": "TL/author_controls.py",
+     "stdout": "TL/author_controls_stdout.json",
+     "args": [],
+     "mutants": [
+      [
+       "--mutant",
+       "M1"
+      ],
+      [
+       "--mutant",
+       "M2"
+      ],
+      [
+       "--mutant",
+       "M3"
+      ],
+      [
+       "--mutant",
+       "M4"
+      ],
+      [
+       "--mutant",
+       "M5"
+      ],
+      [
+       "--mutant",
+       "M6"
+      ],
+      [
+       "--mutant",
+       "M7"
+      ],
+      [
+       "--mutant",
+       "M8"
+      ],
+      [
+       "--mutant",
+       "M9"
+      ],
+      [
+       "--mutant",
+       "M10"
+      ]
+     ],
+     "invalid": [
+      [
+       "--bogus"
+      ],
+      [
+       "--mutant",
+       "M11"
+      ],
+      [
+       "--mutant"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

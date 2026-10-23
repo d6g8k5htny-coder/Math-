@@ -1,0 +1,381 @@
+{
+  "utc": "2026-10-17T21:32:00.440606+00:00",
+  "state": "SOURCE_ELABORATION_POSITIVE_CONTROLS_35_AXIOM_TARGETS_PASS_KERNEL_DELEGATED_TO_ROOT",
+  "inputs": "Exact input identities are in EXACT_INPUT_VERIFICATION.json; package and runtime identities are in POST_COMPILE_PIN_RUNTIME_VERIFICATION.json. Private package/cache trees are prerequisites, not copied payload.",
+  "files": [
+    {
+      "path": "INTERVAL_AUTHOR_HANDOFF.json",
+      "bytes": 2813,
+      "sha256": "105722109144ad458252464acc7e2dce0fa8c247b28830def923aa900acce6c0"
+    },
+    {
+      "path": "INTERVAL_AUTHOR_IMPLEMENTATION.md",
+      "bytes": 9773,
+      "sha256": "b728df8eb43cfb03a58af621bb2bd485ee7a81ee5978ae5f1a12d95e179d1ca6"
+    },
+    {
+      "path": "INTERVAL_IMPLEMENTATION_PLAN.md",
+      "bytes": 3914,
+      "sha256": "22944c0bdae958f612807ac6f63312d39b48a995b61b3f14b69705333abc82d5"
+    },
+    {
+      "path": "evidence/interval/AXIOM_AUDIT_AND_POSITIVE_CONTROL_RESULT.json",
+      "bytes": 6318,
+      "sha256": "c5c57e1de698700cd5e4a753d4bd0b4478b8b8c8e63bb967ba148efa0aa640e1"
+    },
+    {
+      "path": "evidence/interval/DECLARATION_CENSUS.json",
+      "bytes": 1463,
+      "sha256": "80a2c28d1bb55dce1b2073b0d24d74e45f578ec93b57c08a30e4fd1867eec2f0"
+    },
+    {
+      "path": "evidence/interval/EXACT_INPUT_VERIFICATION.json",
+      "bytes": 1432,
+      "sha256": "ab7a9a49f411ff024c02ef6acc9f4e29e2f1b65408041da468990496a283453a"
+    },
+    {
+      "path": "evidence/interval/ElderInterval-proof-1-source.lean",
+      "bytes": 15421,
+      "sha256": "a071287f1e06bac04cfad2a65c32f1352670d4064082253e4def3c270eb64b97"
+    },
+    {
+      "path": "evidence/interval/ElderInterval-proof-2-source.lean",
+      "bytes": 15847,
+      "sha256": "6f27ca1db251c79269635374ebfe32d07911804164d0bf1192347334d280ea2c"
+    },
+    {
+      "path": "evidence/interval/ElderInterval-proof-3-source.lean",
+      "bytes": 15902,
+      "sha256": "a963775bcfb8b4ef8f3099dc38fa32b1b320ae50c0335426f81d36ce5cc3335d"
+    },
+    {
+      "path": "evidence/interval/ElderInterval-proof-4-source.lean",
+      "bytes": 15995,
+      "sha256": "c553800b81eb8b9606b92b4fb4adf530093a591dfa1d4fb1b5d7890e1da10407"
+    },
+    {
+      "path": "evidence/interval/ElderInterval-proof-5-source.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    {
+      "path": "evidence/interval/ElderIntervalControls-first-combined-failed.lean",
+      "bytes": 3528,
+      "sha256": "3362f62728d1c968222af8f3c7bb3c1e5e6b2adb04ae2fda6bcf4b8e17bb3c88"
+    },
+    {
+      "path": "evidence/interval/ElderIntervalControls-prior-positive-only.lean",
+      "bytes": 1674,
+      "sha256": "70f1a600ac7149c095fa92dc34ad7e4aac64abc0ffd1a9f1fe9ae27f720ed0f1"
+    },
+    {
+      "path": "evidence/interval/MUTATION_SPEC.json",
+      "bytes": 1023,
+      "sha256": "7bf55d8e7b815acd232ed48951d42a09d346a7e6ee44843bca07a53043f6cae4"
+    },
+    {
+      "path": "evidence/interval/POST_COMPILE_PIN_RUNTIME_VERIFICATION.json",
+      "bytes": 2697,
+      "sha256": "98b1c159b2534f1f210f8bab9da2f4a32b46d729823d8b18b8b8ad822cb83d74"
+    },
+    {
+      "path": "evidence/interval/SETUP_PIN_VERIFICATION.json",
+      "bytes": 2307,
+      "sha256": "b802644682aa7d50d6e5703887d1b4516a318a6f9383f918ddfee41c7f8c81e0"
+    },
+    {
+      "path": "evidence/interval/SOURCE_COMPILE_FREEZE.json",
+      "bytes": 1095,
+      "sha256": "ccbac2272e7fe3ff71926114e3d83030c9f59cf9d6c4ce83d2a58a7acfe8a88d"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel-interrupted-observation.json",
+      "bytes": 368,
+      "sha256": "33e1d9a29ed0c7ede66f23bd0d09b09a29852bb71615e2ae40db83f0280f101c"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel-resumed.json",
+      "bytes": 1008,
+      "sha256": "08839cddcb57115844f74006fbffda0b22367df457a883a71f9833d8a4d05679"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel-resumed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel-resumed.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/baseline-ClosedSuperlevel.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/baseline-OrdinaryH0.json",
+      "bytes": 996,
+      "sha256": "60b21fce4a6776f7f3ce20170d133bef32c0013a6c3a9c5cbb56f5527cab5f5f"
+    },
+    {
+      "path": "evidence/interval/baseline-OrdinaryH0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/baseline-OrdinaryH0.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/cache-full-Mathlib.json",
+      "bytes": 613,
+      "sha256": "cc901269a379ff77b9c00627e82eb8569b9ed9ba989d8053a4f69d4cc31a2ef4"
+    },
+    {
+      "path": "evidence/interval/cache-full-Mathlib.stderr",
+      "bytes": 112,
+      "sha256": "da9cea8c37f9b12ce76400caf94fb8a08458ed01a156e1aa21070905993ba3ab"
+    },
+    {
+      "path": "evidence/interval/cache-full-Mathlib.stdout",
+      "bytes": 251,
+      "sha256": "211cf882bd1785437381d9a652497da2e7afd8915bcfcf788c38bc3e6bff41b1"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit-corrected.json",
+      "bytes": 1013,
+      "sha256": "d577e78a65387d49699b67638ddcec2298cf39f3ceeaafdfe27825da0adbfaa0"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit-corrected.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit-corrected.stdout",
+      "bytes": 4896,
+      "sha256": "686c6c2f42f6a1d7cb13cfba6195328447432ea6c937c84a0a939b4b6c039767"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit.json",
+      "bytes": 1013,
+      "sha256": "bee648b90089b954bfb38fa79bcd28a68cfd5e93c2681e211c8ba62f724e5b23"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/controls-and-35-target-audit.stdout",
+      "bytes": 5062,
+      "sha256": "8c3623f781a3f1061e8b7cec1cddd2a908ba6a043c1bc825e9ac02ef0f988d0f"
+    },
+    {
+      "path": "evidence/interval/mutation-v1-prepared-not-executed/DeathClosed.lean",
+      "bytes": 15997,
+      "sha256": "9ef509e3c7750255412c8ad4a8cdeb7c1b0a82a6918b962905a07486afe6a4b6"
+    },
+    {
+      "path": "evidence/interval/mutation-v1-prepared-not-executed/MUTATION_SPEC.json",
+      "bytes": 996,
+      "sha256": "10b5b3699801ef007758b5df063d5ab5dd86cd50a7faa9422f47ae5b18883cb6"
+    },
+    {
+      "path": "evidence/interval/mutation-v1-prepared-not-executed/PrebirthCeiling.lean",
+      "bytes": 15999,
+      "sha256": "57ac3653385986c1cc87b0e015ccd880b83c85bc9de21054ecef333a792e0cff"
+    },
+    {
+      "path": "evidence/interval/proof-1.json",
+      "bytes": 997,
+      "sha256": "387e631cb0e68f889bb4c460b9bf17fd0e0988e2ec679af05029e95b350697a5"
+    },
+    {
+      "path": "evidence/interval/proof-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/proof-1.stdout",
+      "bytes": 20300,
+      "sha256": "1001c5b067b245e4f32f16241a6eae39fcd47013cd6f1a2da115e119b40b6b7d"
+    },
+    {
+      "path": "evidence/interval/proof-2.json",
+      "bytes": 997,
+      "sha256": "82a06f869f5fd773b59b49958d43d062a7ebe920f84dc877d19b953555d8742a"
+    },
+    {
+      "path": "evidence/interval/proof-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/proof-2.stdout",
+      "bytes": 4151,
+      "sha256": "e782e0f32423cd3b4c68a19f03eea0915d84b4577122d4f8044ce1a0d54de14e"
+    },
+    {
+      "path": "evidence/interval/proof-3.json",
+      "bytes": 997,
+      "sha256": "0cce2947394bd106fdfbdaf9ba1924383914426e33eab0d15c79893bd416d116"
+    },
+    {
+      "path": "evidence/interval/proof-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/proof-3.stdout",
+      "bytes": 2084,
+      "sha256": "4327f23e1cac86182269d0e32a7d62a2907693a36d8f7b49f5c1ce48b66b4694"
+    },
+    {
+      "path": "evidence/interval/proof-4.json",
+      "bytes": 997,
+      "sha256": "7ba1fe274ae6b30698d7d8e3154d0ef702a435315608f7d98a60fa16d69d9220"
+    },
+    {
+      "path": "evidence/interval/proof-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/proof-4.stdout",
+      "bytes": 181,
+      "sha256": "91a73ac6a855f4cc609eb65e42efa92150a0c368ff186af507a49530ad440d66"
+    },
+    {
+      "path": "evidence/interval/proof-5.json",
+      "bytes": 998,
+      "sha256": "1795355d94321e0f86e88176e5dda5c3fbb0c3932bff519cee17305ecc60d6d4"
+    },
+    {
+      "path": "evidence/interval/proof-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/proof-5.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/red-missing-interval.json",
+      "bytes": 811,
+      "sha256": "49affa74688f4a759397c8e838c4fc742bea9f672a43d7ce8b86b38c67a3c3c7"
+    },
+    {
+      "path": "evidence/interval/red-missing-interval.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "evidence/interval/red-missing-interval.stdout",
+      "bytes": 1891,
+      "sha256": "41480fd00adab9a245231efbf9bb32436b6f300f0fec11cf2b0db05182236847"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ClosedSuperlevel.olean",
+      "bytes": 230416,
+      "sha256": "fb5b7385a442a7e0a9b9bf7911fa2fd65b95870b60a71d8e38031852bf1d9d37"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ElderInterval.olean",
+      "bytes": 839672,
+      "sha256": "5a93f68a6f4a21d2d3b8ab453e2231dbcf0f9cb6da07ce2e62d5ed1b75508836"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/ElderIntervalControls.olean",
+      "bytes": 3224,
+      "sha256": "df6c474fdf6b6232b9370df5c0c3ae9c9a26c3465ddf4d7ccbf50a9af76ec716"
+    },
+    {
+      "path": "interval-project/.lake/build/lib/lean/OrdinaryH0.olean",
+      "bytes": 333024,
+      "sha256": "29bd5a004e17da4bc49ad89ed399e0dafea925ccfc4445d2176030ca00b1bc41"
+    },
+    {
+      "path": "interval-project/ClosedSuperlevel.lean",
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
+    },
+    {
+      "path": "interval-project/ElderInterval.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    {
+      "path": "interval-project/ElderIntervalAxiomAudit.lean",
+      "bytes": 1802,
+      "sha256": "4916c4446872057a0ebcbe07226fd8c4245ff450ddd2d430be81ab97ec5c6dc3"
+    },
+    {
+      "path": "interval-project/ElderIntervalControls.lean",
+      "bytes": 3561,
+      "sha256": "b515d40bc0f58a71c3afa80e3ae7fae53725f3d713c2df2df110ba2814a4ece3"
+    },
+    {
+      "path": "interval-project/OrdinaryH0.lean",
+      "bytes": 19803,
+      "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88"
+    },
+    {
+      "path": "interval-project/SuperlevelBar.lean",
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
+    },
+    {
+      "path": "interval-project/TorusTopology.lean",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+    },
+    {
+      "path": "interval-project/lake-manifest.json",
+      "bytes": 3553,
+      "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043"
+    },
+    {
+      "path": "interval-project/lakefile.toml",
+      "bytes": 274,
+      "sha256": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255"
+    },
+    {
+      "path": "interval-project/lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "interval-project/mutants/DeathClosed.lean",
+      "bytes": 16008,
+      "sha256": "ef160e63ed5a61a960d7c08615b56c3d924bc7717cbdfa2d2f6235f1393c9277"
+    },
+    {
+      "path": "interval-project/mutants/PrebirthCeiling.lean",
+      "bytes": 16010,
+      "sha256": "b4e1bb54f6f781845724301e23ace46aaee1015730e7cea25b1c0838b9c58344"
+    },
+    {
+      "path": "run_interval_command.py",
+      "bytes": 1267,
+      "sha256": "4f755819c70fc69955da125066cc4a02f313c3490bfa5f2793999ef111ffb786"
+    },
+    {
+      "path": "setup_interval.py",
+      "bytes": 2120,
+      "sha256": "d0f083033d1ab4faf25fe98f9109c0e9b0381b9182adc306faf1a72d8c4ba07b"
+    }
+  ],
+  "file_count": 74,
+  "total_bytes": 1722355,
+  "kernel_status": "PENDING_ROOT",
+  "scientific_effect": "NONE"
+}
