@@ -126,10 +126,10 @@ theorem negativePartialGradient_hasFDerivAt (f : E d → ℝ) (p : E d)
   have hcomp := hDp'.comp (0 : E d × V) hadd
   change HasFDerivAt (fun q : E d × V =>
     (fderiv ℝ f (p + ridgeAddition V q)).comp V.subtypeL) _ _
-  convert! hcomp.clm_comp (hasFDerivAt_const V.subtypeL (0 : E d × V)) using 1 <;>
+  convert! hcomp.clm_comp (hasFDerivAt_const V.subtypeL (0 : E d × V)) using 1 ;
     first
     | rfl
-    | (simp only [ContinuousLinearMap.comp_zero, zero_add] <;>
+    | (simp only [ContinuousLinearMap.comp_zero, zero_add] ;
         (apply ContinuousLinearMap.ext
          intro q
          apply ContinuousLinearMap.ext
@@ -199,7 +199,7 @@ theorem exists_negative_partial_gradient_ridge
         (f' := (ContinuousLinearMap.id ℝ (E d)).prod (fderiv ℝ r 0))
         (0 : E d)
         (by
-          convert! hDG using 1 <;>
+          convert! hDG using 1 ;
             first
             | rfl
             | exact Prod.ext rfl hr0)
