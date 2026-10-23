@@ -1,0 +1,31 @@
+{
+  "L": "24/1",
+  "d": 2,
+  "gamma_cells": 4096,
+  "gamma_interval": [
+    "0/1",
+    "2/1"
+  ],
+  "gamma_split": "1/1",
+  "goal": "1/100",
+  "kernel": {
+    "L_hi": "24/1",
+    "L_lo": "24/1",
+    "bits": 96,
+    "cutoff": 32,
+    "exp_pairs": 24,
+    "input_role": "UNASSIGNED_PARAMETER_INPUT",
+    "limits": {
+      "max_rational_bits": 8192,
+      "max_seconds": 3,
+      "max_squarings": 16,
+      "max_work": 100000
+    },
+    "pi_terms": 24,
+    "width_goal": null
+  },
+  "max_certificate_bytes": 8388608,
+  "max_exp_calls": 8192,
+  "max_seconds": 180,
+  "root_bits": 96
+}

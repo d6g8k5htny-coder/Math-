@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "publication_review_status": "PENDING_SOURCE_BOUND_REVIEW",
+  "object": "D2-SHARP-SCALAR-PARTB-PUBLICATION-20261006-R5",
+  "publication_author": "OpenAI / GPT-6 Astra Pro; canonical-r5-partb-source-publication-20261006",
+  "mathematical_origin": {
+    "repository": "d6g8k5htny-coder/Math-",
+    "pr": 328,
+    "comment_id": 6008747995,
+    "section": "B",
+    "created_at": "2026-10-06T03:29:55Z",
+    "updated_at": "2026-10-06T03:29:55Z"
+  },
+  "comment_mathematical_review": {
+    "comment_id": 6016072968,
+    "verdict": "PASS_SCOPED",
+    "scope": "comment Part B only; not this publication code",
+    "performer": "OpenAI / GPT-6 Astra Pro; canonical-r4-partb-scalar-review-20261006",
+    "organizational_independence": 0
+  },
+  "sources": [
+    {
+      "path": "reviews/d2_two_atom_floors_20261006/NOTE.md",
+      "commit": "31f7a6b5a36045be7795a6461da067a8ada96343",
+      "git_blob": "cedbb44a237d1a158111dca81c30983f7efd37f1",
+      "role": "sections 5 and 6; explicit scalar formulas and example, not a runtime file dependency"
+    },
+    {
+      "path": "formal/ResearchFormalCoreR1/D2Schur.lean",
+      "commit": "2f8b6f372be383d752e9dd30d38234faa977243c",
+      "git_blob": "b95460c0d263a32ea274b347079cca6aaab3d2e9",
+      "role": "scalar formula correspondence, not new kernel evidence"
+    }
+  ],
+  "checker_origin": {
+    "delivery_sha256": "b438b906965087f2f19de7502dd925d01315768375f114dc9605bdd0c4ad0ebb",
+    "member": "part_b/check_partb.py",
+    "sha256": "64047e54a8525cd890fcc0f400cd529a357537a901a5de792b49afb71cd669da"
+  },
+  "files": [
+    {
+      "path": "reviews/d2_sharp_scalar_floor_20261006/NOTE.md",
+      "bytes": 7864,
+      "git_blob": "8741b0c801fb5a75e7b13a169872769a30d16015",
+      "sha256": "38d1c6576955e0ce1c04c6a4a3f4703430538ba039a1e21ebef249b74644f637"
+    },
+    {
+      "path": "reviews/d2_sharp_scalar_floor_20261006/check_partb.py",
+      "bytes": 6688,
+      "git_blob": "cc88ad90a80279a8c3ec2d3392ccd973266e58d0",
+      "sha256": "64047e54a8525cd890fcc0f400cd529a357537a901a5de792b49afb71cd669da"
+    },
+    {
+      "path": "tests/test_d2_sharp_scalar_floor.py",
+      "bytes": 5892,
+      "git_blob": "9e1a784930cfc1bec8ce8cf00c368a037b62d1fd",
+      "sha256": "30badc12c14a1360388c956b1167cd74f574e0b0c2d5f5d2c7f72cae83ddc79b"
+    }
+  ]
+}
