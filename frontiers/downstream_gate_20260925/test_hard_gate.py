@@ -290,7 +290,7 @@ class HardGateControls(unittest.TestCase):
 
     def test_layer_coverage_d0_through_d7(self):
         layers = {n['layer'] for n in self.graph['nodes'].values()}
-        self.assertEqual(layers, {'D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'})
+        self.assertEqual(layers, {'D0', 'D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7', 'SOURCE_ADMISSION'})
         self.assertIn('eng.d0-packet-allowlist-fix', self.graph['nodes'])
         self.assertIn('math.rn-selector-region-crosswalk', self.graph['nodes'])
 
