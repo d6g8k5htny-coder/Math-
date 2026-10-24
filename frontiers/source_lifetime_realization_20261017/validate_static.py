@@ -22,6 +22,37 @@ NEW_MODULES = {
 }
 
 
+def package_paths(allow_lake_build=False):
+    """List inspected paths without entering the explicitly excluded cache.
+
+    Publication mode admits no cache. Workspace mode ignores only a real
+    top-level .lake directory; its contents are outside this validator's claim.
+    Check symlinks before directory descent, including the excluded root.
+    """
+    paths = []
+
+    def visit(directory):
+        for path in sorted(directory.iterdir()):
+            relative = path.relative_to(ROOT)
+            label = relative.as_posix()
+            assert not path.is_symlink(), "symlink is not allowed: " + label
+            if allow_lake_build and relative.parts == (".lake",):
+                assert path.is_dir(), "top-level .lake must be a real directory: " + label
+                continue
+            assert ".lake" not in relative.parts, "cache outside allowed scope: " + label
+            assert "__pycache__" not in relative.parts, "Python cache is not allowed: " + label
+            assert path.suffix not in {".olean", ".ilean", ".o", ".a", ".so", ".dylib", ".pyc"}, \
+                "compiled artifact is not allowed: " + label
+            paths.append(path)
+            if path.is_dir():
+                visit(path)
+            else:
+                assert path.is_file(), "non-regular entry is not allowed: " + label
+
+    visit(ROOT)
+    return paths
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -64,7 +95,8 @@ def read_generated_toml(path):
     return result
 
 
-def validate(mathlib_source=None, lean_source=None):
+def validate(mathlib_source=None, lean_source=None, allow_lake_build=False):
+    paths = package_paths(allow_lake_build)
     identity_path = ROOT / "inputs/provenance/FILE_IDENTITIES.json"
     identities = json.loads(identity_path.read_text())["files"]
     assert len(identities) == 22, "expected 19 Lean sources and 3 original build files"
@@ -112,7 +144,9 @@ def validate(mathlib_source=None, lean_source=None):
             assert not path.is_absolute() and ".." not in path.parts
             assert (ROOT / path).is_file(), path.as_posix()
             mapping[module] = path.as_posix()
-    assert set(mapping.values()) == {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.lean")}
+    assert set(mapping.values()) == {p.relative_to(ROOT).as_posix()
+                                     for p in paths if p.is_file() and p.suffix == ".lean"}, \
+        "module mapping does not match package Lean sources"
     assert set(mapping.values()) <= {record["path"] for record in identities}
     old_roots = [lib["name"] for lib in original_config["lean_lib"]]
     input_lib = next(lib for lib in libraries if lib["name"] == "C291Inputs")
@@ -160,12 +194,9 @@ def validate(mathlib_source=None, lean_source=None):
             toolchain_records.append({"module": name, "path_in_toolchain_source": relative,
                                       "sha256": sha(path.read_bytes())})
 
-    files = sorted(p for p in ROOT.rglob("*") if p.is_file())
-    for path in ROOT.rglob("*"):
+    files = [p for p in paths if p.is_file()]
+    for path in paths:
         relative = path.relative_to(ROOT)
-        assert not path.is_symlink(), relative.as_posix()
-        assert ".lake" not in relative.parts and "__pycache__" not in relative.parts
-        assert path.suffix not in {".olean", ".ilean", ".o", ".a", ".so", ".dylib", ".pyc"}
         if path.is_file():
             data = path.read_bytes()
             assert not contains_private_path(data), relative.as_posix()
@@ -204,8 +235,14 @@ def validate(mathlib_source=None, lean_source=None):
 
     return {
         "schema_version": 1,
-        "status": "PASS_STATIC_ONLY",
-        "scope": "File identities, generated TOML subset, module mappings, direct import resolution, acyclic local imports, unchanged dependency manifest entries, five development receipt bindings, recorded 409-declaration audit output, and text-only public package hygiene. Audit-output parsing does not rerun Lean axiom collection.",
+        "status": "PASS_SOURCE_STATIC_ONLY" if allow_lake_build else "PASS_STATIC_ONLY",
+        "validation_mode": "source_workspace" if allow_lake_build else "publication",
+        "excluded_paths": [".lake"] if allow_lake_build else [],
+        "cache_excluded_from_package_scan": allow_lake_build,
+        "cache_validation": "NOT_PERFORMED",
+        "scope": "File identities, generated TOML subset, module mappings, direct import resolution, acyclic local imports, unchanged dependency manifest entries, five development receipt bindings, and recorded 409-declaration audit output. Audit-output parsing does not rerun Lean axiom collection. " + (
+            "The top-level .lake cache is excluded from the package inventory, module census and hygiene scan. Explicit optional external-source checks separately read the requested direct import files, which may be inside that cache; their hashes are reported below. This is not clean-publication hygiene or cache/dependency-object validation."
+            if allow_lake_build else "Text-only public package hygiene; no cache directory is admitted."),
         "lake_loader": "NOT_RUN",
         "lean_compile": "NOT_RUN_BY_THIS_VALIDATION",
         "hosted_ci": "NOT_OBSERVED",
@@ -238,5 +275,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mathlib-source", type=Path)
     parser.add_argument("--lean-source", type=Path)
+    parser.add_argument("--allow-lake-build", action="store_true",
+                        help="Inspect a built source workspace, excluding only its real top-level .lake directory; not an export-hygiene pass.")
     args = parser.parse_args()
-    print(json.dumps(validate(args.mathlib_source, args.lean_source), indent=2))
+    print(json.dumps(validate(args.mathlib_source, args.lean_source, args.allow_lake_build), indent=2))
