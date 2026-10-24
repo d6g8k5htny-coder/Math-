@@ -1,0 +1,71 @@
+name: C293 Morse finite critical (hosted Lean, no scientific promotion)
+'on':
+  pull_request:
+    paths:
+      - 'frontiers/morse_finite_critical_20261018/**'
+      - 'tools/c293_hosted_verify.py'
+      - 'tests/test_c293_hosted_verify.py'
+      - '.github/workflows/c293-morse-finite.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+      - 'companions/torus_filtration_20261011/TorusTopology.lean'
+  push:
+    branches: [main]
+    paths:
+      - 'frontiers/morse_finite_critical_20261018/**'
+      - 'tools/c293_hosted_verify.py'
+      - 'tests/test_c293_hosted_verify.py'
+      - '.github/workflows/c293-morse-finite.yml'
+      - 'formal/lean-toolchain'
+      - 'formal/lakefile.toml'
+      - 'formal/lake-manifest.json'
+      - 'specifications/lean_statements_20261010/Specifications/Lifetime.lean'
+      - 'companions/torus_filtration_20261011/TorusTopology.lean'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: c293-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  c293-hosted-formal:
+    name: c293-hosted-formal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+    env:
+      LEAN_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify source identities and eight registration engineering tests
+        run: |
+          python3 -B -S tools/c293_hosted_verify.py source
+          python3 -B -S -m unittest discover -s tests -p test_c293_hosted_verify.py -v
+          python3 -B -O -S -m unittest discover -s tests -p test_c293_hosted_verify.py -v
+      - name: Install pinned Lean and retrieve dependency cache
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: formal
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Build five C293 objects, kernel replay, audit and missing-premise rejection
+        run: |
+          cd formal
+          lake env python3 -B -S ../tools/c293_hosted_verify.py execute
+      - name: Retain exact tested-run C293 outputs including failures
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: c293-hosted-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .lake/c293-hosted-evidence/
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 90

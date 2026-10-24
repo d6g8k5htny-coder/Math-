@@ -1,0 +1,260 @@
+'TorusMorseFinite.quotientCriticalSet_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TorusMorseFinite.quotientCriticalSet_finite_of_inertia' depends on axioms: [propext, Classical.choice, Quot.sound]
+TorusMorseFinite.quotientCriticalSet_finite : ∀ (d : ℕ) (L : ℝ) (hL : 0 < L) (g : UniversalLaw.Spec.Lifetime.E d → ℝ),
+  UniversalLaw.Spec.Lifetime.IsSmooth d g →
+    UniversalLaw.Spec.Lifetime.IsLPeriodic d L g →
+      UniversalLaw.Spec.Lifetime.IsMorseDistinct d L g → (TorusMorseFinite.quotientCriticalSet d L hL g).Finite
+MORSE_AUDIT_MODULE Lifetime COUNT 103
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.E AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.FundDomain AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.HessianHasInertia AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsCandidatePair AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsCriticalPoint AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsFiniteBar AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsIndexSaddle AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLPeriodic AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsMorseDistinct AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsNondegMax AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsSmooth AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsUnrestrictedLeadingCoefficient AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsUnrestrictedPair AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsWindowElderPair AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsWindowPair AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentUniformSelectionA AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentUnrestrictedLeadingDensityC AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarDensityGapE11 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarElderLowerE2 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PlanarTwoSidedRateE4 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.RemainderBoundedR1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.covQuadForm AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.heightGap AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.hessian AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.latticeVec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.pairCount AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.pairSet AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.periodicCovariance AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.pinM AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.pinS AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.scaledGap AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.thetaSum AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.torusDist AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.F AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.P AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface._sizeOf_inst AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.casesOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.covariance AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.ctorIdx AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.gaussian AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.isProb AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mΩ AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.periodic AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.quad_nonneg AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.recOn AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.smooth AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.summable AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.Ω AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.IsLifetimeDensityVersion._proof_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface._sizeOf_inst AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.casesOn AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.ctorIdx AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusion AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p_le_one AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.p_nonneg AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.recOn AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.ParentCompactWindowDensityB._proof_1 AXIOMS [propext]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ElderPartner AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.IsEssential AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_1 AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface._sizeOf_inst AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.casesOn AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.ctorIdx AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.deathHeight_maximin AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.elderPartner_iff AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.essential_iff AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.noConfusionType AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.rec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.recOn AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.thetaSum._proof_1 AXIOMS [propext]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.inj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.injEq AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.GaussianFieldInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.inj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.injEq AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.PairLawInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk._flat_ctor AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.inj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.injEq AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.noConfusion AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.SuperlevelBarInterface.mk.sizeOf_spec AXIOMS [propext,
+ Classical.choice,
+ Quot.sound]
+MORSE_AUDIT_MODULE TorusTopology COUNT 38
+MORSE_AUDIT_DECL TorusFiltration.torus_E AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_basis_sum_eq_latticeVec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_closed_higher_path_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_compact AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_control_constant_path_endpoint AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_control_lattice_translate AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_control_no_arbitrary_endpoint AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_descend AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_descend_continuous AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_descend_proj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_field_latticeVec_formula AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_field_periodic_formula AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_global_max_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_higher_path_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_isPeriodic AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_latticeVec AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_lattice_addSubgroup_discrete AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_lattice_discrete AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_lattice_isZLattice AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_lattice_mem_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_pathConnectedSpace AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_path_lift_from AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodBasis AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodLattice AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodic_respects AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_continuous AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_eq_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_isCoveringMap AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_surjective AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_quotient AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_strict_higher_path_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_pathConnectedSpace._proof_1_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodBasis._proof_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodBasis.congr_simp AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_periodBasis.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_eq_iff._abel_1_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_proj_eq_iff._abel_1_2 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_MODULE MorseFiniteCritical COUNT 20
+MORSE_AUDIT_DECL TorusMorseFinite.inertia_fderiv_equiv AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.inertia_fderiv_injective AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.literal_critical_isolated AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.literal_fderiv_periodic AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.literal_fderiv_respects AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.literal_hessian_eq_fderiv AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.literal_hessian_symmetric AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.mem_quotientCriticalSet_iff AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientCriticalSet AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientCriticalSet_closed AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientCriticalSet_discrete AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientCriticalSet_finite AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientCriticalSet_finite_of_inertia AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientDerivative AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientDerivative_continuous AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.quotientDerivative_proj AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusFiltration.torus_latticeVec.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseFinite.inertia_fderiv_injective._simp_1_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.hessian.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL UniversalLaw.Spec.Lifetime.latticeVec.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_MODULE MorseFiniteControls COUNT 8
+MORSE_AUDIT_DECL TorusMorseControls.closed_interval_compact AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.complementary_axes AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.half_open_not_compact AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.nonsmooth_literal_critical AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.nonsymmetricForm AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.nonsymmetricForm_bilinear AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.nonsymmetric_signed_axes_singular AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_DECL TorusMorseControls.nonsymmetricForm.eq_1 AXIOMS [propext, Classical.choice, Quot.sound]
+MORSE_AUDIT_STANDARD_ONLY_PASS COUNT 169
+MORSE_AUDIT_PROGRESS Lifetime COUNT 103
+MORSE_AUDIT_PROGRESS TorusTopology COUNT 38
+MORSE_AUDIT_PROGRESS MorseFiniteCritical COUNT 20
+MORSE_AUDIT_PROGRESS MorseFiniteControls COUNT 8

@@ -1,0 +1,6 @@
+$C293_ROOT/negative-project/WithoutMorse.lean:10:2: error: Type mismatch
+  quotientCriticalSet_finite d L hL g hs hp
+has type
+  IsMorseDistinct d L g → (quotientCriticalSet d L hL g).Finite
+but is expected to have type
+  (quotientCriticalSet d L hL g).Finite

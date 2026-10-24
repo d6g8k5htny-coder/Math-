@@ -1,0 +1,33 @@
+{
+  "schema": "c293-source-bindings-v1",
+  "sources": [
+    {
+      "module": "Lifetime",
+      "frozen_source_repo": "d6g8k5htny-coder/Math-",
+      "frozen_source_commit": "db43694c9f9dbff2987e2e3c0a1260b5c48310ec",
+      "frozen_source_path": "frontiers/source_lifetime_realization_20261017/inputs/Lifetime.lean",
+      "current_read_commit": "b6fc0e64d75712f52afffc3f3a07ae52f4a5b782",
+      "current_source_path": "specifications/lean_statements_20261010/Specifications/Lifetime.lean",
+      "git_blob": "f2508f7f2e3fd42f22f5aa52bc5ead5ff9e73b9a",
+      "bytes": 51383,
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+      "source_method": "Exact reused hash-verified bytes; current native repository blob/path verified by bounded preflight, unchanged."
+    },
+    {
+      "module": "TorusTopology",
+      "frozen_source_repo": "d6g8k5htny-coder/Math-",
+      "frozen_source_commit": "c8ec07034608741585111603f1b506393c340908",
+      "frozen_source_path": "companions/torus_filtration_20261011/TorusTopology.lean",
+      "current_read_commit": "b6fc0e64d75712f52afffc3f3a07ae52f4a5b782",
+      "current_source_path": "companions/torus_filtration_20261011/TorusTopology.lean",
+      "git_blob": "ed678ea322fe5315b3aaff44e4e2f06b018399d8",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1",
+      "source_method": "Exact reused hash-verified bytes; current native repository blob/path verified by bounded preflight, unchanged."
+    }
+  ],
+  "lean": "4.34.1",
+  "mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "current_cut_scope": "Current means the explicit preflight cut, not a timeless latest pointer.",
+  "execution": "PASS actual five frozen builds, three standard named-module kernel replays, complete169axiom census, missingMorsepremise rejection and scoped nonauthor review; LOCAL_ONLY_NOT_REGISTERED_IN_HOSTED_FORMAL."
+}

@@ -1,0 +1,18 @@
+{
+  "verdict": "ACCEPT_SCOPED_FORMAL",
+  "source_sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+  "source_inventory_sha256": "f1a429935146b4e406e9ba8cc9ff8b84f7d40c22cc4fea74920dfc013c4911de",
+  "review_path": "reviews/NONAUTHOR_REVIEW.md",
+  "review_sha256": "3521b066c00d6e015d560f49311caabd31a4d2b826cdfcf9221085ac55d01a2c",
+  "organizational_independence_credit": 0,
+  "human_review_credit": 0,
+  "scientific_effect": "NONE",
+  "accepted_utc": "2026-10-18T03:22:39.321465+00:00",
+  "root": "OpenAI Codex /root delegated for Dylan Roy",
+  "author": "OpenAI Codex /root/adapter_feasibility_c292",
+  "reviewer": "OpenAI Codex /root/c292_geometry_review",
+  "exposure": "Same-provider, C292/source/design exposed substantive nonauthor review; root read full223line main and controls plus final23405byte review.",
+  "new_formal_execution": "LOCAL_ONLY_NOT_REGISTERED_IN_HOSTED_FORMAL",
+  "kernel_scope": "standard named-module leanchecker -v; not --fresh/external/all-import fresh proof check",
+  "next_task": "Fresh source-owned critical closed-superlevel local path connectivity/path attainment; full audit remains active."
+}
