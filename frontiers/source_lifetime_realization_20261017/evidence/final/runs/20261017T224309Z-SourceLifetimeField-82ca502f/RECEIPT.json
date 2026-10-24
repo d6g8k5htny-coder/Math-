@@ -1,0 +1,25 @@
+{
+  "source": "SourceLifetimeField.lean",
+  "source_sha256": "daf0949a14d4ed8bd19fbdc564f0f8c3fad72ed243de73e39d65b2951576919a",
+  "started_utc": "2026-10-17T22:43:09.744985+00:00",
+  "command": [
+    "@PINNED_LEAN_RUNTIME@/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "@C291_ROOT@/build/SourceLifetimeField.olean",
+    "@C291_ROOT@/project/SourceLifetimeField.lean"
+  ],
+  "timeout_seconds": 240,
+  "threads": 2,
+  "wrapper_pid": 78243,
+  "child_pid": 78245,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 95.737454542,
+  "ended_utc": "2026-10-17T22:44:45.482032+00:00",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output_sha256": "6e29ce7c755f361042814fe3e19a16c47645a92a74c5254e6b73f60193083774"
+}

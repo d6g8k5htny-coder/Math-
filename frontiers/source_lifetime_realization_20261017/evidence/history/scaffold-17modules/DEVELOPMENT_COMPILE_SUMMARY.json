@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "DEVELOPMENT_COMPILES_PASSED",
+  "scope": "Sanitized field extraction from three original local serial-runner receipts. These were development builds using inherited dependency/source objects. This record does not establish a clean rebuild, Lake build, kernel replay, independent review, hosted CI, merge, or scientific acceptance.",
+  "receipts": [
+    {
+      "source": "SourceThetaBridge.lean",
+      "source_sha256": "c03df303f47ac056af332ad421a6720966464c474ee77e671f85242d30f6cc9b",
+      "started_utc": "2026-10-17T22:39:12.459313+00:00",
+      "timeout_seconds": 240,
+      "threads": 2,
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 96.407760333,
+      "ended_utc": "2026-10-17T22:40:48.866615+00:00",
+      "source_unchanged": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_sha256": "d54747671c681e25d33e5d48328eeaff875abe4e592d64909d3226c9528c5553",
+      "run_id": "20261017T223912Z-SourceThetaBridge-8f3714d1",
+      "original_receipt_sha256": "2bfe554790ba186742778ce7c4ceb6153fe087e82eeb5567f98ac61890022183"
+    },
+    {
+      "source": "SourceLifetimeGeometry.lean",
+      "source_sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+      "started_utc": "2026-10-17T22:29:31.306638+00:00",
+      "timeout_seconds": 240,
+      "threads": 2,
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 93.941153042,
+      "ended_utc": "2026-10-17T22:31:05.247644+00:00",
+      "source_unchanged": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_sha256": "b77e407c06c29eabc9ac4e378c251a06bd50a2cd043ca930e525df036e1ad95f",
+      "run_id": "20261017T222931Z-SourceLifetimeGeometry-d60cf60f",
+      "original_receipt_sha256": "25814a3ee5a90b85b6ea80f28453a98588135616b6b6ed8bec61a0aba501313b"
+    },
+    {
+      "source": "SourceLifetimeField.lean",
+      "source_sha256": "daf0949a14d4ed8bd19fbdc564f0f8c3fad72ed243de73e39d65b2951576919a",
+      "started_utc": "2026-10-17T22:43:09.744985+00:00",
+      "timeout_seconds": 240,
+      "threads": 2,
+      "returncode": 0,
+      "timed_out": false,
+      "seconds": 95.737454542,
+      "ended_utc": "2026-10-17T22:44:45.482032+00:00",
+      "source_unchanged": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "output_sha256": "6e29ce7c755f361042814fe3e19a16c47645a92a74c5254e6b73f60193083774",
+      "run_id": "20261017T224309Z-SourceLifetimeField-82ca502f",
+      "original_receipt_sha256": "7753adcd6ffe215ba435981a6fa113ab6b79b656015d36d0bade39118ee8019e"
+    }
+  ]
+}

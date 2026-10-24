@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "PASS_EXPECTED_REJECTION",
+  "scope": "Derived exact optimized-Python control fields from the final STATIC_CONTROLS.json; no additional execution. Earlier guard reports are preserved under evidence/history.",
+  "controls_report_sha256": "6c13a62ae7246569c70e3b99f904f01f9f1a2147e593035a8390ee199e6184bb",
+  "checks": [
+    {
+      "case": "explicit_python_optimization",
+      "returncode": 1,
+      "expected_rejection_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16"
+    },
+    {
+      "case": "environment_python_optimization",
+      "returncode": 1,
+      "expected_rejection_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16"
+    }
+  ]
+}
