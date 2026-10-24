@@ -16,7 +16,38 @@ Usage (from the repo root):
 """
 import argparse, collections, fnmatch, hashlib, json, os, re, subprocess, sys, tempfile
 from pathlib import Path
-from hyperdb import HypergraphDB
+try:  # optional accelerator; the tool must run on the standard library alone (AGENTS.md)
+    from hyperdb import HypergraphDB
+except ImportError:
+    class HypergraphDB:
+        """Stdlib stand-in for the hypergraph-db 0.4 subset used here (edges keyed by sorted tuple)."""
+        def __init__(self):
+            self._v, self._e, self._inc = {}, {}, {}
+        @staticmethod
+        def _k(e):
+            return tuple(sorted(set(e)))
+        def add_v(self, k, attr=None):
+            self._v.setdefault(k, {}).update(attr or {}); self._inc.setdefault(k, set())
+        def has_v(self, k): return k in self._v
+        def v(self, k): return self._v[k]
+        def add_e(self, e, attr=None):
+            k = self._k(e)
+            for x in k:
+                if x not in self._v: self.add_v(x)
+                self._inc[x].add(k)
+            self._e.setdefault(k, {}).update(attr or {})
+        def has_e(self, e): return self._k(e) in self._e
+        def e(self, e): return self._e[self._k(e)]
+        def degree_v(self, k): return len(self._inc.get(k, ()))
+        def nbr_e_of_v(self, k): return set(self._inc[k])
+        @property
+        def all_v(self): return set(self._v)
+        @property
+        def all_e(self): return set(self._e)
+        @property
+        def num_v(self): return len(self._v)
+        @property
+        def num_e(self): return len(self._e)
 
 HERE = Path(__file__).resolve().parent
 
