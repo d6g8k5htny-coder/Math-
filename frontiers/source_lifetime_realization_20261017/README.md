@@ -41,3 +41,55 @@ This constructor does not construct critical-point or persistence-bar measures, 
 The completed nonauthor review accepts the exact literal constructor and observed local formal evidence with verdict `ACCEPT_SCOPED_FORMAL_CONSTRUCTOR`. Its author, OpenAI Codex `/root/c291_nonauthor_review`, read the implementation and actual results without authoring or editing the production Lean sources. This is source-exposed review by the same provider and session lineage: organizational-independence credit is `0`, and scientific effect is `NONE`. The full report is [NONAUTHOR_REVIEW.md](evidence/final/NONAUTHOR_REVIEW.md). Its acceptance excludes publication, hosted CI, private custody, and the final delivery-master gate, which remain separate delivery observations.
 
 The original smooth-source integration remains separately owned and identified by its commit and path; including unchanged snapshots does not change its merge status. The intended package destination is `frontiers/source_lifetime_realization_20261017/`, without modifying existing source paths or workflows. This is delegated AI implementation and packaging work for Dylan Roy, performed by OpenAI Codex agents; no human or provider-distinct review, merge, or scientific acceptance is claimed.
+
+## Built-workspace validation correction — 24 October 2026
+
+The statements above describe the original 18 October delivery. The later
+[Claude S reproduction](https://github.com/d6g8k5htny-coder/Math-/pull/477#issuecomment-6245744181)
+reports a successful ordinary `lake build` from independently built pinned
+dependencies and identifies O2: the original static validator also scanned the
+dependency sources and compiled artifacts Lake creates under `.lake/`.
+This engineering correction addresses O2 without changing any Lean source,
+dependency pin, recorded execution receipt, or mathematical claim.
+
+For a clean public export, retain the default commands:
+
+```sh
+python3 -B validate_static.py
+python3 -B test_static_validator.py
+```
+
+Default validation remains strict: cache directories, compiled files, symlinks,
+private filesystem paths, unexpected Lean sources, and inconsistent source or
+recorded-audit identities are refused. `PASS_STATIC_ONLY` is a source/evidence
+consistency result; it does not execute Lean or certify the theorem.
+
+After an ordinary build has populated the workspace, use the explicit mode:
+
+```sh
+python3 -B validate_static.py --allow-lake-build
+python3 -B test_static_validator.py --allow-lake-build
+```
+
+This mode excludes only the real top-level `.lake/` directory from the package
+inventory, module census and hygiene scan, before that scan enters it. It rejects a top-level `.lake` file or symlink and
+does not exclude nested `.lake` directories, `__pycache__`, compiled artifacts
+elsewhere, or unexpected sources. All included source, dependency-lock,
+module-mapping, receipt and recorded-axiom checks still apply. Its distinct
+`PASS_SOURCE_STATIC_ONLY` result and explicit exclusion fields do **not** certify
+cache contents, cache immutability, dependency objects, or clean-export hygiene.
+Separately requested `--mathlib-source PATH` and `--lean-source PATH` checks
+retain their existing behavior: they read and hash the direct imported source
+files at those paths, including when explicitly directed inside the excluded
+cache. Those optional reads appear in the external-source result fields and
+do not validate the whole cache or its compiled objects.
+The controls use inert temporary fixtures and leave the inspected package
+unchanged outside that exclusion; they never invoke Lean or Lake. Both modes
+continue to refuse Python optimization.
+
+Use the strict default mode on the actual clean publication tree before
+publishing. A workspace-mode pass must not be substituted for that check.
+This repair's fixtures do not constitute a new `lake build` reproduction or
+hosted Lean run. Claude S's separate O1 Linux memory-cap observation and O3
+module-root/object-identity observation remain attributed to that report;
+historical commands and resource limits are unchanged.
