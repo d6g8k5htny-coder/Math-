@@ -7,6 +7,13 @@ name: Cap first exit (Lean kernel evidence, no scientific promotion)
       - '.github/workflows/cap-first-exit-lean.yml'
       - 'reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md'
       - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
+  push:
+    branches: [main]
+    paths:
+      - 'frontiers/cap_first_exit_lean_20261002/**'
+      - '.github/workflows/cap-first-exit-lean.yml'
+      - 'reviews/d1_cap_elder_partner_second_pass_claude_20260930/REVIEW.md'
+      - 'imports/lifetime_parent_20260925/MARKED_CYLINDER_CAP_PROOF.md'
   workflow_dispatch:
 
 permissions:

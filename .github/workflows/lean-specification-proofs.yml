@@ -6,6 +6,12 @@ name: Lean statement proofs (kernel evidence about registered Props only, no sci
       - 'specifications/lean_statement_proofs_20261011/**'
       - 'specifications/lean_statements_20261010/**'
       - '.github/workflows/lean-specification-proofs.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'specifications/lean_statement_proofs_20261011/**'
+      - 'specifications/lean_statements_20261010/**'
+      - '.github/workflows/lean-specification-proofs.yml'
   workflow_dispatch:
 
 permissions:
@@ -56,4 +62,4 @@ jobs:
           path: specifications/lean_statement_proofs_20261011/.lake/evidence/
           include-hidden-files: true
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 90
