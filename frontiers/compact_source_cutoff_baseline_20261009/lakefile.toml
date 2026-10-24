@@ -1,0 +1,89 @@
+name = "compact_source_cutoff_baseline"
+version = "0.1.0"
+defaultTargets = ["PushedHeight"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
+
+[[lean_lib]]
+name = "CompactSourceCutoff"
+
+[[lean_lib]]
+name = "PushedHeight"
+
+[[lean_lib]]
+name = "TaylorSymLift"
+
+[[lean_lib]]
+name = "TaylorMatrix"
+
+[[lean_lib]]
+name = "MorseCongruence"
+
+[[lean_lib]]
+name = "DeterministicSourceC4"
+
+[[lean_lib]]
+name = "SourceTorusC4"
+
+[[lean_lib]]
+name = "SourceC4"
+
+[[lean_lib]]
+name = "SourceTorus"
+
+[[lean_lib]]
+name = "SourceCovariance"
+
+[[lean_lib]]
+name = "SourceKernel"
+
+[[lean_lib]]
+name = "SourceLattice"
+
+[[lean_lib]]
+name = "SourceGaussianLaw"
+
+[[lean_lib]]
+name = "SourceFourierSeries"
+
+[[lean_lib]]
+name = "GaussianSeriesFoundation"
+
+[[lean_lib]]
+name = "SpectralWeights"
+
+[[lean_lib]]
+name = "ConeFootprint"
+
+[[lean_lib]]
+name = "QuadraticCone"
+
+[[lean_lib]]
+name = "OpenComponentGluing"
+
+[[lean_lib]]
+name = "ElementaryHistory"
+
+[[lean_lib]]
+name = "GlobalComponentMaps"
+
+[[lean_lib]]
+name = "OrdinaryH0Image"
+
+[[lean_lib]]
+name = "OrdinaryH0Elder"
+
+[[lean_lib]]
+name = "CapFirstExit"
+
+[[lean_lib]]
+name = "SourceNormalForm"
+
+[[lean_lib]]
+name = "SourceCoordinates"
+
+[[lean_lib]]
+name = "PhysicalSpectral"
