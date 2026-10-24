@@ -8,6 +8,10 @@ name: Math hypergraph (organization only)
       - '**/*PROOF*.md'
       - '**/*LEMMA*.md'
       - '**/*REVIEW*.md'
+      - '**/*.py'
+      - '**/*.tex'
+      - '**/*lemma*.md'
+      - 'reviews/**'
   push:
     branches: [main]
     paths:
@@ -17,6 +21,10 @@ name: Math hypergraph (organization only)
       - '**/*PROOF*.md'
       - '**/*LEMMA*.md'
       - '**/*REVIEW*.md'
+      - '**/*.py'
+      - '**/*.tex'
+      - '**/*lemma*.md'
+      - 'reviews/**'
   workflow_dispatch:
 permissions:
   contents: read
