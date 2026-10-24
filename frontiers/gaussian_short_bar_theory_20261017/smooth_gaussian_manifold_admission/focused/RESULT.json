@@ -1,0 +1,67 @@
+{
+  "verdict": "ACCEPT_SCOPED",
+  "must_fix_findings": [],
+  "required_amendments": [],
+  "reviewer": "/root/reverse_localization_nonauthor_review_20261017/dense_support_rice_nonauthor",
+  "role": "Fresh source-exposed nonauthor focused mathematical reviewer",
+  "organizational_independence_credit": 0,
+  "source_proof": {
+    "path": "inputs/new_PROOF.md",
+    "bytes": 40231,
+    "sha256": "8d992e194f0a898e563c4c3d05b8079cde292f9e87d7ff51030ad12ef5faf319"
+  },
+  "author_freeze": {
+    "path": "inputs/new_AUTHOR_FREEZE_MANIFEST.json",
+    "bytes": 2203,
+    "sha256": "3f1338445bf20cf6d1300fbdf1ddbc687b4abb0ab318b777b7fb70bf77121c5e"
+  },
+  "focus": [
+    "Nonempty dense smooth Gaussian-series class and all smooth norm moments",
+    "Finite original weighted independent coefficient minors from dense span",
+    "Canonical whole smooth-field kernels at every literal target",
+    "Finite block/tail Bayes and all-Borel Rice at zero without null-fiber continuity",
+    "Conditional residual-kernel ranks/whitening and countable separated-domain genericity",
+    "Contact isolation and finite off-contact Morse/distinct critical set"
+  ],
+  "report": {
+    "path": "NONAUTHOR_DENSE_SUPPORT_RICE_REVIEW.md",
+    "bytes": 24252,
+    "sha256": "a14f009f44a74ff25c9cac3aa779f17c8429865089d7ae656c7c6aeac0b6276b"
+  },
+  "positive_control_count": 168,
+  "negative_control_instance_count": 18,
+  "negative_control_family_count": 3,
+  "control_runs": 1,
+  "control_result": {
+    "path": "CONTROL_RESULT.json",
+    "bytes": 10571,
+    "sha256": "066bd1d2db972f48f53d7727d33c3669269596f0fc8357e8d7d68b660dfbd04c"
+  },
+  "author_controls_executed": false,
+  "new_field_draws": 0,
+  "lean_executed": false,
+  "remote_native_writes": false,
+  "source_mutation": false,
+  "source_adoption": false,
+  "scientific_effect": "NONE",
+  "not_covered": [
+    "Integrated complete admission theorem or coefficient/antipodal analysis",
+    "Arbitrary laws sharing covariance",
+    "Uniform degenerating family constants or effective window",
+    "Hk or point-process convergence",
+    "Blind50 empirical validation",
+    "Lean proof, compiler/kernel/formal alignment",
+    "Native publication, scientific promotion or external uptake"
+  ],
+  "imports_retained": [
+    "Smooth partition/cutoff and finite atlas facts",
+    "Equal-dimensional smooth Sard",
+    "Weighted equal-dimensional area formula for nonnegative Borel marks",
+    "Elementary finite Gaussian regression and standard measure/convergence facts",
+    "Consumed deterministic Morse/H0 facts remain integrated-review scope"
+  ],
+  "new_external_primary_reads": [],
+  "full_goal": "ACTIVE / UNMET",
+  "sealed_utc": "2026-10-17T22:05:09.885593+00:00",
+  "source_runtime_executed": false
+}

@@ -1,0 +1,1058 @@
+{
+  "schema": 1,
+  "sealed_utc": "2026-10-17T22:00:15.238420+00:00",
+  "verdict": "ACCEPT_SCOPED",
+  "must_fix_findings": [],
+  "actual_reviewer": {
+    "agent": "/root/c261a_successor_preparation_review_20261016",
+    "provider": "OpenAI/Codex",
+    "nonauthor_of_all_three_new_lean_modules": true,
+    "authors": [
+      "Root01a11cbf: ElderClearance and ElderBridge",
+      "elder_interval_lean_20261017: ElderInterval"
+    ],
+    "source_exposed": true,
+    "prior_exposure": "Reviewer of exact accepted conventional asymmetric proof and its topology integration; earlier C261 source/outcome reviews",
+    "shared_principal": true,
+    "organizational_independence_credit": 0,
+    "blind_credit": 0,
+    "new_helper_review_credit": 0
+  },
+  "path_root": "nonauthor-formal-review-20261017",
+  "outputs_path_base": "review directory",
+  "inputs_path_base": "workspace root",
+  "inputs": [
+    {
+      "path": "work/c261a-repair-adoption-20261016-root01a11cbf/runtime/lean-4.34.1-darwin_aarch64/bin/lake",
+      "bytes": 51824,
+      "sha256": "c8c24f1398162ab4004e2a869952d8469f54293651151feaad4526f2b8474c6e"
+    },
+    {
+      "path": "work/c261a-repair-adoption-20261016-root01a11cbf/runtime/lean-4.34.1-darwin_aarch64/bin/lean",
+      "bytes": 49968,
+      "sha256": "1b370cfcbf44e80d1b004ab1b1ab9a4c73951f9f7c242140bcff9bc577576554"
+    },
+    {
+      "path": "work/c261a-repair-adoption-20261016-root01a11cbf/runtime/lean-4.34.1-darwin_aarch64/bin/leanchecker",
+      "bytes": 78224,
+      "sha256": "cfde41cb11dde58c84e9c60c551fd104bb2fc1104ad44dca932a923120272a35"
+    },
+    {
+      "path": "work/c261a-repair-adoption-20261016-root01a11cbf/runtime/lean-4.34.1-darwin_aarch64/src/lean/LeanChecker.lean",
+      "bytes": 4806,
+      "sha256": "2d18ec111d73c536b0bdee2533556bb9548c349f386797d3d3837b1f84d55dae"
+    },
+    {
+      "path": "work/core-theorem-audit-20261015/ASYMMETRIC_ELDER_TRAP_PROPOSAL.md",
+      "bytes": 28291,
+      "sha256": "6d07631c068019bf9f081ad0b6f50325679e3ab554f221265e002d5c047f17ac"
+    },
+    {
+      "path": "work/core-theorem-audit-20261015/asymmetric-elder-nonauthor-review/ASYMMETRIC_ELDER_NONAUTHOR_REVIEW.md",
+      "bytes": 25687,
+      "sha256": "16678abc7de50986b0fc6d54303449bf1b4c5ba8b10f6a3ccc7f9d03a97a4e9f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/IMPLEMENTATION_PLAN.md",
+      "bytes": 3084,
+      "sha256": "cb45325381143d96cf94c5272cfb14ea9d289994256386fa0a7b7e0cbf8528b1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/INTERFACE_BOUNDARIES.md",
+      "bytes": 5080,
+      "sha256": "7ec0f6f8a7a5f58e2c233d0aae9f69f18f13a2a0e340259c6931504ae6843cf9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/INTERVAL_AUTHOR_FREEZE_MANIFEST.json",
+      "bytes": 13740,
+      "sha256": "f08788d42e05b68b681c0f3d0fe0b57fa90d4170db94df571bd819764b195f2d"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/INTERVAL_AUTHOR_HANDOFF.json",
+      "bytes": 2813,
+      "sha256": "105722109144ad458252464acc7e2dce0fa8c247b28830def923aa900acce6c0"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/INTERVAL_AUTHOR_IMPLEMENTATION.md",
+      "bytes": 9773,
+      "sha256": "b728df8eb43cfb03a58af621bb2bd485ee7a81ee5978ae5f1a12d95e179d1ca6"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/INTERVAL_IMPLEMENTATION_PLAN.md",
+      "bytes": 3914,
+      "sha256": "22944c0bdae958f612807ac6f63312d39b48a995b61b3f14b69705333abc82d5"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/LOCAL_FORMAL_EXECUTION_REPORT.md",
+      "bytes": 4766,
+      "sha256": "e20efb5dc96454882d64f4e96138e6acfbcf4d7baab96734bfafa7c7cacc9031"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/LOCAL_FORMAL_EXECUTION_RESULT.json",
+      "bytes": 26734,
+      "sha256": "41f64cd793ef7b72256755b22286ec90ea7fd27ec0e5879096ad768a405976e7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/LOCAL_INTERFACE_DEPENDENCIES.json",
+      "bytes": 12544,
+      "sha256": "369faf1d5d1f133bd28440cba146632e11e55d8cf73b1b5920d4dd40ebb79721"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/LOCAL_SOURCE_FREEZE.json",
+      "bytes": 1340,
+      "sha256": "ac9b6b049fcb31492d922b26865c8fb2b10024aebeac321a5551b975c9ad468c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ENGINEERING_NOTES.json",
+      "bytes": 1140,
+      "sha256": "673800b7a16750462d0c518c2d1e98dd068d42ed2fee21f83ac5916d8712b81f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderBridge.lean",
+      "bytes": 3683,
+      "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderBridgeAudit.lean",
+      "bytes": 340,
+      "sha256": "b3b4151188b4d790d280968c1fbe65b9c3458888a37b380349f3707302113e4c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderClearance.lean",
+      "bytes": 5866,
+      "sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderClearanceAudit.lean",
+      "bytes": 600,
+      "sha256": "8ddaab57d2651a7375a509a90f274381bf15f6dcf5707460614a81075aa9e52b"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/ElderClearanceControls.lean",
+      "bytes": 1257,
+      "sha256": "f048de3c19859b96af44b4637c875eed57443d33767b57631f9ad0548a7ee7ca"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/RejectClosedClearance.lean",
+      "bytes": 751,
+      "sha256": "8231d33c296d33de26d5317e67a3ddc8094d4864eb3b2874905989c93d8d9dd7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/SERIAL_FINAL_RESULT.json",
+      "bytes": 1065,
+      "sha256": "31cad0f2c49b601bd913c3e4796b4de0f6cb85e4246bce7b3b3cbc9b040d9763"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderBridge.olean",
+      "bytes": 109000,
+      "sha256": "805117e56525742fbe128137c35bab69bae8d0515a08f0ad46d922cb210bade4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderClearance.olean",
+      "bytes": 90944,
+      "sha256": "2b4d7be7d5c30ac89c96cb3e7ea229e3930e6677b81f3b7081a2eb5cfe364db7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/ElderClearanceControls.olean",
+      "bytes": 65664,
+      "sha256": "22ada029d075643e99cdffa8dfa4bf8008c92c8e6d9e2398eb801fff2b00d468"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/build/SuperlevelBar.olean",
+      "bytes": 233680,
+      "sha256": "e3034e68ec9141f26498835ecb4b08b4268d1c89e56b09ec85151e555fae8086"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/ElderBridge.first-defProp.lean",
+      "bytes": 3679,
+      "sha256": "e448c6f3f33b7d4af0fffde069be4d8a53792f40de3549e52d43e82be0f9dd9b"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/ElderClearance.proof1.lean",
+      "bytes": 5736,
+      "sha256": "074d98d86db0f10ffd4987a95ab442b3eab1cc16ab5090e6e796e9d9f316691e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/ElderClearanceControls.first-binder-error.lean",
+      "bytes": 1216,
+      "sha256": "0993080bddc8dbd011e251b3454f2a2882667fbf432ebfd89d263253e2935dbc"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/audit.entry.json",
+      "bytes": 1668,
+      "sha256": "ae05d87c5e27f8d19b60e7062a4b9c8870c966296f90d2837928a58276c895a9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/audit.json",
+      "bytes": 2568,
+      "sha256": "527de5e908b34bb1d9bb1ed1ae7963974c506041c39842ac73a604f2ddc517af"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/audit.stdout",
+      "bytes": 1039,
+      "sha256": "599ec8a6b29c7c841da1903547c5d1530c08edb3c20928ea7e7b7fbb0efd8e3b"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline-captured.entry.json",
+      "bytes": 2117,
+      "sha256": "bdfbcd9adceb87e509733332ebfde9893b13c6f5f81b875b2c5688a5318a4c9f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline-captured.json",
+      "bytes": 3321,
+      "sha256": "51ba7cf350c9409233213d94a9764a88f4527121751c3ae0c4fb8256e74a56d8"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline-captured.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline-captured.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline-interruption-reconciliation.json",
+      "bytes": 824,
+      "sha256": "367be9955d5503143b8778e1994c4d7f31108cfdd8bf84a97a28ae703fca008e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/baseline.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-2.entry.json",
+      "bytes": 2101,
+      "sha256": "c074736cc4be3a01697aafb72fe7900482017312a656b471dc7ac6eb0939b9a9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-2.json",
+      "bytes": 3300,
+      "sha256": "ae9b1d72290ca9c5bab2d71588f8e47d5f50f1c9065c7a1ef5aee0b6aa4bb283"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-audit.entry.json",
+      "bytes": 1859,
+      "sha256": "05a73206607cd8f13867911c713d7943fe21f51ec80242676ee4a324604b27d8"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-audit.json",
+      "bytes": 3063,
+      "sha256": "c28d52f795dbd1890540402c80be0a1ebeaa295562439516280a4120b2eb0439"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge-audit.stdout",
+      "bytes": 1458,
+      "sha256": "deaf1e91848eda314c103d701aa88013b19320c5d49782783abf077705b61bfe"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge.entry.json",
+      "bytes": 1986,
+      "sha256": "1d4f3a480dd1f389c716ede5b8616a36d9db60d252336a06c81826ea5a610d76"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge.json",
+      "bytes": 3074,
+      "sha256": "37e3354dc0e471c9aa7ce7b54246a14e5e46f6090b80dfd2e76aa48637df5617"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/bridge.stdout",
+      "bytes": 284,
+      "sha256": "6df0bf27ae38d41d0db45c6fc9ef6fcd5b5e8aeebf3193941c7bc426bc051d1e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls-2.entry.json",
+      "bytes": 1819,
+      "sha256": "7dc1f5b9d18bd26cc96eab86fd65528fb5a012096d944302ac23e63250836b09"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls-2.json",
+      "bytes": 2713,
+      "sha256": "fb80babb8e665683e9e2ac62f6d6f86c0e7949271529b4ae36d0f48f6e09a289"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls.entry.json",
+      "bytes": 1688,
+      "sha256": "736d9ef1f7e12a4bcd404d341b02b00891778801e8c637f0ee19c4b9032664de"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls.json",
+      "bytes": 2452,
+      "sha256": "e518745ec447d7c07bce79c363746565e830e490c061bf964236359a8dcf6699"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/controls.stdout",
+      "bytes": 5313,
+      "sha256": "21608baec5e165e1e8daee29890522aa45e0a286503381b00c323c44f29d2aa4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ClosedSuperlevel.entry.json",
+      "bytes": 1735,
+      "sha256": "74396ea4ae2574ede126e82eea012bb60e5db0cd50bd4f1fadc60ad5bfb6c264"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ClosedSuperlevel.json",
+      "bytes": 2938,
+      "sha256": "fd447140f1018f288ade06341ec7f511970461922e5ca9d8876096f4d2a1eee8"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ClosedSuperlevel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ClosedSuperlevel.stdout",
+      "bytes": 27,
+      "sha256": "30427df7e6d2f97fde3b6e230040791fe8acf1ddc362c41989ead23a275d596f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderBridge.entry.json",
+      "bytes": 1730,
+      "sha256": "d42651533c4eb72d9b106e5beba5fc0db8d1777449240ee4d34939d1bbecf9e3"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderBridge.json",
+      "bytes": 2933,
+      "sha256": "7f0d98c0e015088fc87e4dfd06371c95d94581419f82084cfec8ab4aa1548da2"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderBridge.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderBridge.stdout",
+      "bytes": 22,
+      "sha256": "0c111b1c408857085f338dccb5f063956e4707a2c198674e0f889d2f6c01db40"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearance.entry.json",
+      "bytes": 1733,
+      "sha256": "bba9a6b9b59cbd1d46348cd97355793d79e8f13c0ac382d3001e36613eed7adc"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearance.json",
+      "bytes": 2931,
+      "sha256": "2ebc3014d9ebdfa671767ba01e5a02aa695b233e95e965ca8f0f4f69285c8a8e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearance.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearance.stdout",
+      "bytes": 25,
+      "sha256": "792946223d2268c893bbc8ad3625fd8283ee73bc6493054ae453eefbea38fbc4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearanceControls.entry.json",
+      "bytes": 1741,
+      "sha256": "3e5649fffc902300c4126a065d16b80e9815ce70f4904484d26cbe292013637c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearanceControls.json",
+      "bytes": 2944,
+      "sha256": "b94bf4eaedf8db5b656894e198c346c765066ccbcfe7356b4a27b274109db78f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearanceControls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderClearanceControls.stdout",
+      "bytes": 33,
+      "sha256": "3d71ae6119c6e8d0312a5a6dfee0d252c5be0e454e387240e0b6dbb6bc4ec560"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderInterval.entry.json",
+      "bytes": 1732,
+      "sha256": "e787ad5bed4e7a86bf684e006f1a4132ec5a3de52b27157166a0a29039167a82"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderInterval.json",
+      "bytes": 2935,
+      "sha256": "212ce74f3fb39fe00c4822a7315aa347c78b03d5fe4697e0bc14ad0e9b933214"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderInterval.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderInterval.stdout",
+      "bytes": 24,
+      "sha256": "952b3026ca1e6a9b524d804db945cc9ea8d63f0765312bd26fd387e69bd7497c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderIntervalControls.entry.json",
+      "bytes": 1740,
+      "sha256": "4d4d513606edc3c9a5b77763cac25ec5cb3394d5bf2463aa93aa68570087af19"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderIntervalControls.json",
+      "bytes": 2942,
+      "sha256": "bd0c1014084f12a7252f4d91954ce54fe2e4b77182e6fb6bf4700f0eb1d97002"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderIntervalControls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-ElderIntervalControls.stdout",
+      "bytes": 32,
+      "sha256": "89d747535626b65d6238c463f829006576b6f64ec5667644f8aaa26e03ac9cc4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-OrdinaryH0.entry.json",
+      "bytes": 1729,
+      "sha256": "7d9541aa9ad8c3b7d1db02ed906911212614a56fe56aa6190d66ae6110ececf1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-OrdinaryH0.json",
+      "bytes": 2932,
+      "sha256": "7f84c55490f9339a4c6d840b3a63afb5cd80f3808ccdf3517ff0a476096b02b4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-OrdinaryH0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-OrdinaryH0.stdout",
+      "bytes": 21,
+      "sha256": "a4fca1066aadc5579f7a09c6aa795b5132ca36b69eddf0e36bd2d5e4664fe875"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-SuperlevelBar.entry.json",
+      "bytes": 1732,
+      "sha256": "2b18e7079eae06e9868e00392d4fbe18aaf39d0dae7e6edcbe9b65dffc13831f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-SuperlevelBar.json",
+      "bytes": 2935,
+      "sha256": "83efdc8644ce8b529e69c2b04de306939662262c0bff659ba9b16f711214f0f9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-SuperlevelBar.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/kernel-SuperlevelBar.stdout",
+      "bytes": 24,
+      "sha256": "3cf4b2953e780a651d98d49fc0bb7b984549e3197b11f974fd979e9f9028fb3d"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-DeathClosed.entry.json",
+      "bytes": 1869,
+      "sha256": "7ed3e5de4c5f00db06f48c1d4c89b2bc2374e8a75c44709e3d98faebd08b0c65"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-DeathClosed.json",
+      "bytes": 3072,
+      "sha256": "21c453e3104447086cb3b9249bdb124bf6a81b69d45c0246551a0530abef41aa"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-DeathClosed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-DeathClosed.stdout",
+      "bytes": 3574,
+      "sha256": "6fd95499690b4d015488ff557e8b3bbc99bc7afdc8a3090e0844e6d06a6d1ce7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-PrebirthCeiling.entry.json",
+      "bytes": 1873,
+      "sha256": "bbb01c149a46a917c68d14fdbf59eb212fc6e1658d7953e2b6e45f608e9bf183"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-PrebirthCeiling.json",
+      "bytes": 3071,
+      "sha256": "fe1bc1cbeb11c13567f856f7b8af680933d8d46b77acdda148a28f92ddc21966"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-PrebirthCeiling.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/mutant-PrebirthCeiling.stdout",
+      "bytes": 499,
+      "sha256": "4cac8c60d0491bde2525376761884f9913a49f6bf6d19a6d7e1e2b6ff1d41b57"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/negative.entry.json",
+      "bytes": 1864,
+      "sha256": "be72b19b5c59b9520c51b7beb35ac1dc3dc06faa5797c59e8c4d2cb03f196e41"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/negative.json",
+      "bytes": 3062,
+      "sha256": "f050de23ba5d62dc399e6c447a7f77f51d5413e45d3f25a3550a19922ce3c390"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/negative.stdout",
+      "bytes": 453,
+      "sha256": "d63e9bf8900f51c1e9b93237cacb4e77d2b3b367ba93be0b5a6453c95d82ccd1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-1.entry.json",
+      "bytes": 1256,
+      "sha256": "5c09b4bbff3b3b3db16c2ee6b40b64f3b7f700f31596ee8b4c19f18b791d6398"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-1.json",
+      "bytes": 1604,
+      "sha256": "1627ef900f3f41d1161de3c0be861ca9a4910e1594de96bb976ac4f229e5da83"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-1.stdout",
+      "bytes": 1503,
+      "sha256": "48224d1380130514f1ef3bb01f724ba2b0fdbdb5f0f44d4cf5ab6cbd48d352a7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-2-source-set-clarification.json",
+      "bytes": 782,
+      "sha256": "3b17a5f15f95e24aa1939ade764a6649041bc64ead539f2621d27ba462caec97"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-2.entry.json",
+      "bytes": 1367,
+      "sha256": "39d8e21eff8f3c00624fe09f35657adee4218c503a9a65021ebf4aef09a2e813"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-2.json",
+      "bytes": 2137,
+      "sha256": "c2a8f875035f941735e01b4e61b6073010f4acc2d7f645cc70d9fbfd35cfc81e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/evidence/proof-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/finish_serial_checks.py",
+      "bytes": 3195,
+      "sha256": "a497683b73339e37b4a34398b1ecce3ca3574f7baea03ffa5a802f62c918d631"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/input/SuperlevelBar.lean",
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/clearance/run_clearance.py",
+      "bytes": 4145,
+      "sha256": "3f15e964b41eacca2db27223681dc6ab3566c2f37c455808af96da83443faf50"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/AXIOM_AUDIT_AND_POSITIVE_CONTROL_RESULT.json",
+      "bytes": 6318,
+      "sha256": "c5c57e1de698700cd5e4a753d4bd0b4478b8b8c8e63bb967ba148efa0aa640e1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/DECLARATION_CENSUS.json",
+      "bytes": 1463,
+      "sha256": "80a2c28d1bb55dce1b2073b0d24d74e45f578ec93b57c08a30e4fd1867eec2f0"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/EXACT_INPUT_VERIFICATION.json",
+      "bytes": 1432,
+      "sha256": "ab7a9a49f411ff024c02ef6acc9f4e29e2f1b65408041da468990496a283453a"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderInterval-proof-1-source.lean",
+      "bytes": 15421,
+      "sha256": "a071287f1e06bac04cfad2a65c32f1352670d4064082253e4def3c270eb64b97"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderInterval-proof-2-source.lean",
+      "bytes": 15847,
+      "sha256": "6f27ca1db251c79269635374ebfe32d07911804164d0bf1192347334d280ea2c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderInterval-proof-3-source.lean",
+      "bytes": 15902,
+      "sha256": "a963775bcfb8b4ef8f3099dc38fa32b1b320ae50c0335426f81d36ce5cc3335d"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderInterval-proof-4-source.lean",
+      "bytes": 15995,
+      "sha256": "c553800b81eb8b9606b92b4fb4adf530093a591dfa1d4fb1b5d7890e1da10407"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderInterval-proof-5-source.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderIntervalControls-first-combined-failed.lean",
+      "bytes": 3528,
+      "sha256": "3362f62728d1c968222af8f3c7bb3c1e5e6b2adb04ae2fda6bcf4b8e17bb3c88"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/ElderIntervalControls-prior-positive-only.lean",
+      "bytes": 1674,
+      "sha256": "70f1a600ac7149c095fa92dc34ad7e4aac64abc0ffd1a9f1fe9ae27f720ed0f1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/MUTATION_SPEC.json",
+      "bytes": 1023,
+      "sha256": "7bf55d8e7b815acd232ed48951d42a09d346a7e6ee44843bca07a53043f6cae4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/POST_COMPILE_PIN_RUNTIME_VERIFICATION.json",
+      "bytes": 2697,
+      "sha256": "98b1c159b2534f1f210f8bab9da2f4a32b46d729823d8b18b8b8ad822cb83d74"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/SETUP_PIN_VERIFICATION.json",
+      "bytes": 2307,
+      "sha256": "b802644682aa7d50d6e5703887d1b4516a318a6f9383f918ddfee41c7f8c81e0"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/SOURCE_COMPILE_FREEZE.json",
+      "bytes": 1095,
+      "sha256": "ccbac2272e7fe3ff71926114e3d83030c9f59cf9d6c4ce83d2a58a7acfe8a88d"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel-interrupted-observation.json",
+      "bytes": 368,
+      "sha256": "33e1d9a29ed0c7ede66f23bd0d09b09a29852bb71615e2ae40db83f0280f101c"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel-resumed.json",
+      "bytes": 1008,
+      "sha256": "08839cddcb57115844f74006fbffda0b22367df457a883a71f9833d8a4d05679"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel-resumed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel-resumed.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-ClosedSuperlevel.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-OrdinaryH0.json",
+      "bytes": 996,
+      "sha256": "60b21fce4a6776f7f3ce20170d133bef32c0013a6c3a9c5cbb56f5527cab5f5f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-OrdinaryH0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/baseline-OrdinaryH0.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/cache-full-Mathlib.json",
+      "bytes": 613,
+      "sha256": "cc901269a379ff77b9c00627e82eb8569b9ed9ba989d8053a4f69d4cc31a2ef4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/cache-full-Mathlib.stderr",
+      "bytes": 112,
+      "sha256": "da9cea8c37f9b12ce76400caf94fb8a08458ed01a156e1aa21070905993ba3ab"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/cache-full-Mathlib.stdout",
+      "bytes": 251,
+      "sha256": "211cf882bd1785437381d9a652497da2e7afd8915bcfcf788c38bc3e6bff41b1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit-corrected.json",
+      "bytes": 1013,
+      "sha256": "d577e78a65387d49699b67638ddcec2298cf39f3ceeaafdfe27825da0adbfaa0"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit-corrected.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit-corrected.stdout",
+      "bytes": 4896,
+      "sha256": "686c6c2f42f6a1d7cb13cfba6195328447432ea6c937c84a0a939b4b6c039767"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit.json",
+      "bytes": 1013,
+      "sha256": "bee648b90089b954bfb38fa79bcd28a68cfd5e93c2681e211c8ba62f724e5b23"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/controls-and-35-target-audit.stdout",
+      "bytes": 5062,
+      "sha256": "8c3623f781a3f1061e8b7cec1cddd2a908ba6a043c1bc825e9ac02ef0f988d0f"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/mutation-v1-prepared-not-executed/DeathClosed.lean",
+      "bytes": 15997,
+      "sha256": "9ef509e3c7750255412c8ad4a8cdeb7c1b0a82a6918b962905a07486afe6a4b6"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/mutation-v1-prepared-not-executed/MUTATION_SPEC.json",
+      "bytes": 996,
+      "sha256": "10b5b3699801ef007758b5df063d5ab5dd86cd50a7faa9422f47ae5b18883cb6"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/mutation-v1-prepared-not-executed/PrebirthCeiling.lean",
+      "bytes": 15999,
+      "sha256": "57ac3653385986c1cc87b0e015ccd880b83c85bc9de21054ecef333a792e0cff"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-1.json",
+      "bytes": 997,
+      "sha256": "387e631cb0e68f889bb4c460b9bf17fd0e0988e2ec679af05029e95b350697a5"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-1.stdout",
+      "bytes": 20300,
+      "sha256": "1001c5b067b245e4f32f16241a6eae39fcd47013cd6f1a2da115e119b40b6b7d"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-2.json",
+      "bytes": 997,
+      "sha256": "82a06f869f5fd773b59b49958d43d062a7ebe920f84dc877d19b953555d8742a"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-2.stdout",
+      "bytes": 4151,
+      "sha256": "e782e0f32423cd3b4c68a19f03eea0915d84b4577122d4f8044ce1a0d54de14e"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-3.json",
+      "bytes": 997,
+      "sha256": "0cce2947394bd106fdfbdaf9ba1924383914426e33eab0d15c79893bd416d116"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-3.stdout",
+      "bytes": 2084,
+      "sha256": "4327f23e1cac86182269d0e32a7d62a2907693a36d8f7b49f5c1ce48b66b4694"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-4.json",
+      "bytes": 997,
+      "sha256": "7ba1fe274ae6b30698d7d8e3154d0ef702a435315608f7d98a60fa16d69d9220"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-4.stdout",
+      "bytes": 181,
+      "sha256": "91a73ac6a855f4cc609eb65e42efa92150a0c368ff186af507a49530ad440d66"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-5.json",
+      "bytes": 998,
+      "sha256": "1795355d94321e0f86e88176e5dda5c3fbb0c3932bff519cee17305ecc60d6d4"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/proof-5.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/red-missing-interval.json",
+      "bytes": 811,
+      "sha256": "49affa74688f4a759397c8e838c4fc742bea9f672a43d7ce8b86b38c67a3c3c7"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/red-missing-interval.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/evidence/interval/red-missing-interval.stdout",
+      "bytes": 1891,
+      "sha256": "41480fd00adab9a245231efbf9bb32436b6f300f0fec11cf2b0db05182236847"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ClosedSuperlevel.olean",
+      "bytes": 230416,
+      "sha256": "fb5b7385a442a7e0a9b9bf7911fa2fd65b95870b60a71d8e38031852bf1d9d37"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ElderInterval.olean",
+      "bytes": 839672,
+      "sha256": "5a93f68a6f4a21d2d3b8ab453e2231dbcf0f9cb6da07ce2e62d5ed1b75508836"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/ElderIntervalControls.olean",
+      "bytes": 3224,
+      "sha256": "df6c474fdf6b6232b9370df5c0c3ae9c9a26c3465ddf4d7ccbf50a9af76ec716"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/.lake/build/lib/lean/OrdinaryH0.olean",
+      "bytes": 333024,
+      "sha256": "29bd5a004e17da4bc49ad89ed399e0dafea925ccfc4445d2176030ca00b1bc41"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/ClosedSuperlevel.lean",
+      "bytes": 8088,
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/ElderInterval.lean",
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/ElderIntervalAxiomAudit.lean",
+      "bytes": 1802,
+      "sha256": "4916c4446872057a0ebcbe07226fd8c4245ff450ddd2d430be81ab97ec5c6dc3"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/ElderIntervalControls.lean",
+      "bytes": 3561,
+      "sha256": "b515d40bc0f58a71c3afa80e3ae7fae53725f3d713c2df2df110ba2814a4ece3"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/OrdinaryH0.lean",
+      "bytes": 19803,
+      "sha256": "3d6b0d6b53413c484b1d010bccf0d53ae7f75becb2d747868f22dbd673fe0a88"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/SuperlevelBar.lean",
+      "bytes": 15309,
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/TorusTopology.lean",
+      "bytes": 12257,
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/lake-manifest.json",
+      "bytes": 3553,
+      "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/lakefile.toml",
+      "bytes": 274,
+      "sha256": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/lean-toolchain",
+      "bytes": 25,
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/mutants/DeathClosed.lean",
+      "bytes": 16008,
+      "sha256": "ef160e63ed5a61a960d7c08615b56c3d924bc7717cbdfa2d2f6235f1393c9277"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/interval-project/mutants/PrebirthCeiling.lean",
+      "bytes": 16010,
+      "sha256": "b4e1bb54f6f781845724301e23ace46aaee1015730e7cea25b1c0838b9c58344"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/run_interval_command.py",
+      "bytes": 1267,
+      "sha256": "4f755819c70fc69955da125066cc4a02f313c3490bfa5f2793999ef111ffb786"
+    },
+    {
+      "path": "work/elder-bridge-lean-20261017-root01a11cbf/setup_interval.py",
+      "bytes": 2120,
+      "sha256": "d0f083033d1ab4faf25fe98f9109c0e9b0381b9182adc306faf1a72d8c4ba07b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "AUTHOR_SUMMARY_JOIN_VERIFICATION.json",
+      "bytes": 841,
+      "sha256": "bca44aec66f83ec4c691330eb2d62afd0d33bb7c8678945d1834c1162392a402"
+    },
+    {
+      "path": "FINAL_PINS_AND_SOURCE_CHECK.json",
+      "bytes": 8520,
+      "sha256": "9d53cf510ca7be0a95e5511d387bf7e4b62a41e792f08073bf1c6560382b43fd"
+    },
+    {
+      "path": "INTERFACE_GRAPH_REVIEW.json",
+      "bytes": 5985,
+      "sha256": "ec449ada249f5f214a17cb4e4b7fc42d5420ed31418345f49be3ff5ef7572fe8"
+    },
+    {
+      "path": "NONAUTHOR_ELDER_BRIDGE_REVIEW.json",
+      "bytes": 10371,
+      "sha256": "12663581d5cbaa5d06b63674961cfc13cee389c5dd7bbf514f98d401b8546b32"
+    },
+    {
+      "path": "NONAUTHOR_ELDER_BRIDGE_REVIEW.md",
+      "bytes": 26691,
+      "sha256": "aab177777595d0e725b779258fd5042e78771d4f5f89427ccd979d5949c36b43"
+    },
+    {
+      "path": "RETAINED_INPUT_VERIFICATION.json",
+      "bytes": 14655,
+      "sha256": "e03988cfe2247b4de02f369cd6c9308d754606416eaa96f3ea836ccf1910aee4"
+    },
+    {
+      "path": "SERIAL_RESULT_REVIEW.json",
+      "bytes": 23160,
+      "sha256": "3c396b429e6bc2e9b757eb6e1eba73ef1a44338ac52c0c307bb27fd4ad3cf14a"
+    },
+    {
+      "path": "interface-graph-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "interface-graph-verification.stdout",
+      "bytes": 191,
+      "sha256": "0e3ae9686cb99855af80a18c9b918d945e723b2386883400d23e1fe055244ff8"
+    },
+    {
+      "path": "retained-input-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "retained-input-verification.stdout",
+      "bytes": 199,
+      "sha256": "7b1e83b27b4f7f82b99e22957e26e51d4c213ad00fe2edfa8d068aac3145f766"
+    },
+    {
+      "path": "serial-result-verification.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "serial-result-verification.stdout",
+      "bytes": 230,
+      "sha256": "4608139295ccf971d20d7c6189e99faead2978246c380ed1cc0265d2dd5841e6"
+    },
+    {
+      "path": "verify_elder_review_inputs.py",
+      "bytes": 7641,
+      "sha256": "29df73aa656a4944c6576e96eeb977803656bf1c98cb556670c87daa9d2ff328"
+    },
+    {
+      "path": "verify_interface_graph.py",
+      "bytes": 4090,
+      "sha256": "01427085e4068a58319600592575f699127dc7b20a009faaa974918cce8f8588"
+    },
+    {
+      "path": "verify_serial_results.py",
+      "bytes": 7512,
+      "sha256": "c2207d1fbf78a9e2207e00b0aa2dc550e8c0ad4180d037826ded1a27bf072d70"
+    }
+  ],
+  "excludes_self": true,
+  "no_self_hash_cycle": true,
+  "prior_seals_and_reviewed_source_unchanged": true,
+  "scientific_effect": "NONE",
+  "source_adoption_or_native_status_mutation": false
+}
