@@ -1,0 +1,80 @@
+{
+  "frozen_utc": "2026-10-20T08:43:07.492616+00:00",
+  "prepare_start_record": "$C294_ROOT/final-prepare-attempts/2026-10-20T084258.355017_0000-4f2675bdddb74318b5624e5d370117c4.json",
+  "prepare_start_sha256": "ba4d3513666bd0bf33ae2206a03d70fa2f0372fc28809c0cbdd580bb1601bfed",
+  "prior_legacy_start": null,
+  "sources": [
+    {
+      "name": "Lifetime.lean",
+      "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6",
+      "bytes": 51383
+    },
+    {
+      "name": "TorusTopology.lean",
+      "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1",
+      "bytes": 12257
+    },
+    {
+      "name": "SuperlevelBar.lean",
+      "sha256": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+      "bytes": 15309
+    },
+    {
+      "name": "ClosedSuperlevel.lean",
+      "sha256": "90d1481b75d9c6d14e462c3fbf0bf7c7cdd0efb9eaad68d6732400658753b1c2",
+      "bytes": 8088
+    },
+    {
+      "name": "MorseFiniteCritical.lean",
+      "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b",
+      "bytes": 9445
+    },
+    {
+      "name": "CriticalLevelAttainment.lean",
+      "sha256": "ec4b6ceb9475143434c25269bccc45cdd627d83af359609007001c9284bb9a12",
+      "bytes": 14338
+    },
+    {
+      "name": "CriticalLevelAxiomAudit.lean",
+      "sha256": "4b1586855ad431821b1e2a56c3a8b1d5b21850417f73a1da3e0ade8efad96358",
+      "bytes": 2719
+    }
+  ],
+  "build_order": [
+    "Lifetime",
+    "TorusTopology",
+    "SuperlevelBar",
+    "ClosedSuperlevel",
+    "MorseFiniteCritical",
+    "CriticalLevelAttainment",
+    "CriticalLevelAxiomAudit"
+  ],
+  "local_imports": {
+    "Lifetime": [],
+    "TorusTopology": [],
+    "SuperlevelBar": [],
+    "ClosedSuperlevel": [],
+    "MorseFiniteCritical": [
+      "Lifetime",
+      "TorusTopology"
+    ],
+    "CriticalLevelAttainment": [
+      "MorseFiniteCritical",
+      "SuperlevelBar",
+      "ClosedSuperlevel"
+    ],
+    "CriticalLevelAxiomAudit": [
+      "CriticalLevelAttainment"
+    ]
+  },
+  "new_modules": [
+    "CriticalLevelAttainment",
+    "CriticalLevelAxiomAudit"
+  ],
+  "runner_sha256": "089f11f1cc677892ff9e4a4c43427d1a20d0f4186dae8ab1fe4199c295d726f9",
+  "preparer_sha256": "53a84ed98df9b694d75cae29460c5e9cb79150e04ad318afcae94297a5c4e8e8",
+  "dependency_artifact_inventory_sha256": "834e1c65f1c32e1b6660ae2fda385e46e741cc371b05652d407d0b173ad04476",
+  "c291_inventory_sha256": "b78b6e0f99bd38c633ae2677c55698363b1290e6d4318e505991c8df259ae2e3",
+  "scientific_effect": "NONE",
+  "execution_provenance": "LOCAL; no hosted qualification"
+}
