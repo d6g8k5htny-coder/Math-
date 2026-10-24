@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "lm006-product-residual-r21a-20261006"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 11247,
+      "sha256": "5dfdd74912d7b48bb19eeec3f99ed82b0080d9a00053f525221462cd9346d3be",
+      "git_blob": "1532dad32419e255299cad8e4bdf87519e9397da"
+    },
+    "product_transverse_check.py": {
+      "bytes": 4802,
+      "sha256": "ea78111f70864b0618d5b7520cb0f6098aba23f997a791b226ec0426918dd2e8",
+      "git_blob": "7daa94986628bed0514bfe1ad44d70346f50e346"
+    },
+    "test_product_transverse.py": {
+      "bytes": 4702,
+      "sha256": "397ec775e857556aa568fa45b250625264ac2352873e927dfd4d75dca0878d54",
+      "git_blob": "f6333732e454a6dad5260e4be9445f620d1e25ed"
+    }
+  },
+  "sources": [
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "91821f9262b30ce7684b8ec5f1b4742893dac3d7",
+      "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "slice": "Sections 1-2: actual covariance, pins, spectrum; no global theorem imported"
+    },
+    {
+      "id": "E",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "e31b6ad8356e0760c8a7fb6e816ff640c45176c9",
+      "path": "reviews/lm006_endpoint_extension_20261005/NOTE.md",
+      "git_blob": "551aa563562bc88a19e33d146259c03aa2d318f6",
+      "slice": "Exact raw pins, adjusted endpoint rows and contact coordinates; uniform moment/UI results used conditionally"
+    },
+    {
+      "id": "N",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "slice": "Exact typed weight, physical normalization and contact weight"
+    },
+    {
+      "id": "B",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "771913a7dffdc1283e491166d0faa9ec53e1f06a",
+      "path": "reviews/lm006_cubic_sign_band_20261006/NOTE.md",
+      "git_blob": "88dae06c5eefd102239f976513eb5e97c4ac7580",
+      "slice": "Prior sign-band integration and eleven-observation interface; no review transferred"
+    }
+  ],
+  "identity_scope": "Payload SHA256 and Git blobs computed locally. Consumed sources bound by native commit/path/Git blob; no new SHA256 claim for uncopied dependency bytes.",
+  "external_context": {
+    "reference": "Wilson et al., Pathwise Conditioning of Gaussian Processes, JMLR22(105),2021",
+    "read": "publisher abstract/publication record only",
+    "role": "prior methodology, not proof premise"
+  }
+}

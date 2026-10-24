@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Verify the stored QS A3-A3.6 records and replay their published author controls (standard library only).
+"""Verify the stored QS A3-A3.11 records and replay their published author controls (standard library only).
 
 Every file in this packet except replay.py, README.md and SOURCES.json is one of two things:
   - an exact copy of a public comment body on main#229 (a note, claim, controls comment, review, readback,
     erratum, successor text or author response);
   - a control script or its stdout, extracted verbatim from a stored controls comment by the extraction rule that
-    comment states (the rule of main#229 comment 5971055189).
+    comment states (the rule of main#229 comment 5971055189); A3.10's ledger script and its stdout are extracted the
+    same way from the stored note itself (its section 4), the stdout from a ```text fence.
 SOURCES.json pins each file by byte count and SHA-256 and lists each replay. This script performs four checks.
 
   1. The packet tree equals SOURCES.json's file list, with no symlinks, and every stored file has its pinned
      identity.
-  2. Every extracted script and stdout equals the fenced payload inside its stored controls comment, under the
-     extraction rule.
+  2. Every extracted script and stdout equals the fenced payload inside its stored source comment, under the
+     extraction rule (the stdout fence language follows the stored stdout's suffix: .json for ```json, .txt for ```text).
   3. Every control script runs under the current interpreter's -O/-S flags and reproduces its published stdout byte
      for byte (none prints an interpreter version), with empty stderr. Every listed mutant or invalid invocation
      must reproduce its exact source-bound rejection on BOTH captured streams, not merely exit 1 or 2.
@@ -23,9 +24,13 @@ Reproducibility only. The analytic notes and their reads carry the mathematics. 
 algebra, as the reads say. Nothing here reads or grades a proof.
 
 Usage: python3 -B -S frontiers/qs_d3_soft_layer_chain_20261005/replay.py   (exit 0 iff every check passes)
+Optional QS_REPLAY_EVIDENCE_DIR (outside the checkout) retains raw child streams and process records.
+Each invocation gets a new directory; records describe execution, never mathematical acceptance.
+Required evidence I/O fails the run; a timeout/spawn error remains the primary exception.
 """
 import hashlib
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -36,10 +41,13 @@ import tempfile
 HERE = pathlib.Path(__file__).resolve().parent
 OWN = {'README.md', 'SOURCES.json', 'replay.py'}
 
-# Exact rejection fingerprints from the UNCHANGED source packet at b157df1b57da41d2d75d6515b5e795b234ee7d34.
+# Exact rejection fingerprints from the UNCHANGED source packet at b157df1b57da41d2d75d6515b5e795b234ee7d34 (A3-A3.6)
+# and, for A3.7, from its extracted author control a37_exact.py (main#229 comment 6004629351), computed under both
+# interpreter modes at incorporation and found identical; likewise for A3.8 (a38_exact.py, comment 6007706590),
+# A3.10 (pd3_ledger.py, published inside the note 6008550120) and A3.11 (a311_exact.py, comment 6009957866).
 # Each key is (script path, complete argv tail); each value is (exit, stdout SHA256,
 # stderr SHA256, readable reason). References are frozen independently of this run.
-# All 48 mutants and 14 invalid invocations were executed and their named reasons
+# All 94 mutants and 24 invalid invocations were executed and their named reasons
 # checked against their source. Different checkers intentionally use different
 # streams/formats. Exact fingerprints enforce those full contracts, including
 # JSON structure/types, labels, counts, usage text, and empty/nonempty streams.
@@ -170,6 +178,118 @@ REJECTION_CONTRACTS = {
         (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '230b5ecba1d2582ee0d266ad94e94441c000ff845246535c4c88289d8c454610', 'usage: a36_exact.py [--mutant M1..M13]'),
     ('A3_6/author_controls.py', ('--mutant',)):
         (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '230b5ecba1d2582ee0d266ad94e94441c000ff845246535c4c88289d8c454610', 'usage: a36_exact.py [--mutant M1..M13]'),
+    ('A3_7/author_controls.py', ('--mutant', 'M1')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'f1a2e4df0e9f6fcd9e0b5c0cc5e22e4fc75e6349c25cd3c2a3ad95297385a30b', 'FAILED: Y1_LB3prime'),
+    ('A3_7/author_controls.py', ('--mutant', 'M2')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'd7b443309b8b02c9ac37bef3e8971bcde1b4273b2760c5a7924156334066e4b3', 'FAILED: Y2_MB3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M3')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e8ac6a8e2e09aab66b1b991f4b829bd48659d8f2583290c8be22c2e7eb908169', 'FAILED: Y2_MB3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M4')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'fa8620cec75b4e1220e05273f7099b6d277569942ade99e021e1bd9bbed77b6a', 'FAILED: Y3_LE3_margin'),
+    ('A3_7/author_controls.py', ('--mutant', 'M5')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '30679a441a94a9f0735e7223b452837926508c63421ad328a5444995684eb6a5', 'FAILED: Y3_LE3_margin'),
+    ('A3_7/author_controls.py', ('--mutant', 'M6')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '6365ec18e6699d99164c5d855dd193b47d93f4a5321de7d7cd6fe53e9843e973', 'FAILED: Y4_LE3_taylor'),
+    ('A3_7/author_controls.py', ('--mutant', 'M7')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '79d9bb9208131642fcfb2a313737c911dfe94c2a1671fb4a94b398dbe7423de9', 'FAILED: Y5_B3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M8')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '405b690812c0bfa5a29225a76418d7ae67aa4998a551c8db70a9979ceca0ba99', 'FAILED: Y6_corLE3'),
+    ('A3_7/author_controls.py', ('--mutant', 'M9')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '2c5a53d765f73d0fd3f2c7e1c5e10f720aaa927ded56ed4ba45d8d0d2d91d780', 'FAILED: Y7_ledgers'),
+    ('A3_7/author_controls.py', ('--mutant', 'M10')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '4072f5dbc106e536950f7c0c7ec751ecc1a3b6d5a6002dd69d267c4d4062263a', 'FAILED: Y7_ledgers'),
+    ('A3_7/author_controls.py', ('--mutant', 'M11')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e15876074185e9a7089a6e1ab05e3d950a2d31d57e6d9774b9e5f2289e5f63a8', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M12')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e4b4060075d92a81e29cb66b5de5a4001440b051ea2cecd8fdf8bcac50c1374a', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M13')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'a17fe1d763672006b91ba0896d0436263ca37353c9f35a949ad28ab560c7b21a', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M14')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'b9e3132356a548097f82336a297e5688bd0a65859c3db40c7db44b981630870b', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M15')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '711a5938a697c8fb693d00b89f3ccad8a4949df6c0a0e35f6c1a523a8c8db78b', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M16')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'b04a202f970b0d6ffb009a62b5fc8460cc8f608c15bb1191ed9115e866b1b0f6', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--mutant', 'M17')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e76827691d6b12b9d3ed8bcf0fd26218ffd816d820097d8d991f01b5c47f8676', 'FAILED: Y8_A36_riders'),
+    ('A3_7/author_controls.py', ('--bogus',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
+    ('A3_7/author_controls.py', ('--mutant', 'M18')):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
+    ('A3_7/author_controls.py', ('--mutant',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d9813cf155e101b90f6dd6059f08bb586a8e5b70489940093f87631e81af5f8', 'usage: a37_exact.py [--mutant M1..M17]'),
+    ('A3_8/author_controls.py', ('--mutant', 'M1')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '7ad5390e33f1329074d928186dd85957b93f4b8cb83635718b1eb267a81d1387', 'FAILED: Z1_QFE3_ledger'),
+    ('A3_8/author_controls.py', ('--mutant', 'M2')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '2a6fddef0cbd9f28b6e67222454b1595670a45a767da521445a4947b0dc91c70', 'FAILED: Z1_QFE3_ledger'),
+    ('A3_8/author_controls.py', ('--mutant', 'M3')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'f2026cc8cfcd422d29a813a5f4882ccbdc655c16ea24d8f4f6727dd9edfbb9ad', 'FAILED: Z2_ER3_monomials'),
+    ('A3_8/author_controls.py', ('--mutant', 'M4')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'aa35b5662d8532ac554ac67431d59c78ffaa7da170ad5c2785d696270562fd36', 'FAILED: Z3_MB3_coverings'),
+    ('A3_8/author_controls.py', ('--mutant', 'M5')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'b80a278515df0e172200cc7c753131c30808b3b9527f02ef82d6b877f36d3ae5', 'FAILED: Z3_MB3_coverings'),
+    ('A3_8/author_controls.py', ('--mutant', 'M6')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '263110702402e75795453df6f35a534d43fca9530a738dc8e78ca641cbff821e', 'FAILED: Z4_H_integrals'),
+    ('A3_8/author_controls.py', ('--mutant', 'M7')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '393c6bd23757da264807b8c37f77270ca4027c904b03138c87eca8a1f9c70fe8', 'FAILED: Z4_H_integrals'),
+    ('A3_8/author_controls.py', ('--mutant', 'M8')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '9d530affd5ca846ed06743995388aeb515c0b70e7385212e5a16b621b7b41521', 'FAILED: Z5_PQS_facts'),
+    ('A3_8/author_controls.py', ('--mutant', 'M9')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'bd0d1b31af615ef91d2afa03b842f46dc51f35cc97efcd48d2749adceb53d28d', 'FAILED: Z5_PQS_facts'),
+    ('A3_8/author_controls.py', ('--mutant', 'M10')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '574efaeaef4c0725872a92dcbe94c378af2b7088c830ed033dbff9f7deef479e', 'FAILED: Z6_tails_algebra'),
+    ('A3_8/author_controls.py', ('--mutant', 'M11')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'bcfa5f90ef1098d91f5714c63573cf5f6cb866d063124197a59827f5baa5dab2', 'FAILED: Z6_tails_algebra'),
+    ('A3_8/author_controls.py', ('--mutant', 'M12')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'cc643cb47ccd9407d740b8ef4ddd3b72902c01ee4d356550b61ed2c796188cf4', 'FAILED: Z7_fixed_Lambda'),
+    ('A3_8/author_controls.py', ('--mutant', 'M13')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e734db56e4a165ea11c758100382a1c31b3e83eae5646c0fa9ac20aaf6b1ae6f', 'FAILED: Z6_tails_algebra'),
+    ('A3_8/author_controls.py', ('--bogus',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'bb868414b248aff7a6f489b530c91448227ca6a7f9faac2b5ef0837c8642a4a6', 'usage: a38_exact.py [--mutant M1..M13]'),
+    ('A3_8/author_controls.py', ('--mutant', 'M14')):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'bb868414b248aff7a6f489b530c91448227ca6a7f9faac2b5ef0837c8642a4a6', 'usage: a38_exact.py [--mutant M1..M13]'),
+    ('A3_8/author_controls.py', ('--mutant',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'bb868414b248aff7a6f489b530c91448227ca6a7f9faac2b5ef0837c8642a4a6', 'usage: a38_exact.py [--mutant M1..M13]'),
+    ('A3_10/ledger_control.py', ('RATE_THIRD',)):
+        (1, '2a568acce360350d2709db8dc00aaea13e0c42782a83d399b37a8ac2028f14ea', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'FAIL beta=1/10: relative error l^(beta/3)'),
+    ('A3_10/ledger_control.py', ('LOG_HALF',)):
+        (1, 'a46557a2f9ed64678d0a9d58c06f59249f30de07158a55686778121d7e2e0067', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'FAIL log bound at x=1, log k_+=1'),
+    ('A3_10/ledger_control.py', ('CUM_HALF',)):
+        (1, 'ef2521b703521bebb2f806242b441dc458dfe40b68d9f4c9756b4d651fc5e131', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'FAIL cumulative constant 1/(5/3) = 3/5'),
+    ('A3_10/ledger_control.py', ('MOM_2000',)):
+        (1, '567d0ead36c53a883fffa02bb2a0c0973cf37d15ba15eafa38960d77874cd570', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'FAIL the moment constant 2000 exceeds 24579/8'),
+    ('A3_10/ledger_control.py', ('BOGUS',)):
+        (2, 'a0758636c5e479dfd217fb60eadb689f69c39901577d819a78384952bb8a1762', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'unknown mutant label: BOGUS'),
+    ('A3_11/author_controls.py', ('--mutant', 'M1')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'a77e8384e66f898ba45d3a4810e5e5bc1d3b28ad784af5d5f135352f8bd171b6', 'FAILED: Z1_lemma11_constants'),
+    ('A3_11/author_controls.py', ('--mutant', 'M2')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '604d8f22fdb1a67c8231e77e776938aaf16292cd7a1b4380dffc927c80978109', 'FAILED: Z2_cubic_identities'),
+    ('A3_11/author_controls.py', ('--mutant', 'M3')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '5ecca1ca498c6c4094b41ea30e78b9f5ed5df65fbe3c179380f12df4db49ab33', 'FAILED: Z3_sublayer_integrals'),
+    ('A3_11/author_controls.py', ('--mutant', 'M4')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'e079f7298a2d567e16994282f94e74bddb21ff1966408caf14ffc91c93614edb', 'FAILED: Z4_margin_totals'),
+    ('A3_11/author_controls.py', ('--mutant', 'M5')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '6b426aa8ab5e101a74e2a81387b5a31f50c7d7400c91a533423d4a7a23f93a94', 'FAILED: Z5_endpoint_shell'),
+    ('A3_11/author_controls.py', ('--mutant', 'M6')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '259b4d66f6781e516659d415cb653edb0702df9a69342ab0ac571234019c7b82', 'FAILED: Z6_shell_sums'),
+    ('A3_11/author_controls.py', ('--mutant', 'M7')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '3d0d876a9813ef9cb20a9cd614b1ffddabc5a562ab5b9db5c4879673d74245d6', 'FAILED: Z7_exponent_tables'),
+    ('A3_11/author_controls.py', ('--mutant', 'M8')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '022bd5032dcb504ce8a8fa9a14756161798113bfbe6a9edb5cec6f817b2e6f0d', 'FAILED: Z8_pd3_constants'),
+    ('A3_11/author_controls.py', ('--mutant', 'M9')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '5f4083546fe7c72bc96b9d629bbe73aa8ffb4c125020b038179e7cf2424a00ed', 'FAILED: Z9_numeric_band'),
+    ('A3_11/author_controls.py', ('--mutant', 'M10')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '604d8f22fdb1a67c8231e77e776938aaf16292cd7a1b4380dffc927c80978109', 'FAILED: Z2_cubic_identities'),
+    ('A3_11/author_controls.py', ('--mutant', 'M11')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '022bd5032dcb504ce8a8fa9a14756161798113bfbe6a9edb5cec6f817b2e6f0d', 'FAILED: Z8_pd3_constants'),
+    ('A3_11/author_controls.py', ('--mutant', 'M12')):
+        (1, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', '5ecca1ca498c6c4094b41ea30e78b9f5ed5df65fbe3c179380f12df4db49ab33', 'FAILED: Z3_sublayer_integrals'),
+    ('A3_11/author_controls.py', ('--bogus',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'fa4348e128f06303b2347e387c87329662df0d75709c78795dd39a104fa940a0', 'usage: a311_exact.py [--mutant M1..M12]'),
+    ('A3_11/author_controls.py', ('--mutant', 'M13')):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'fa4348e128f06303b2347e387c87329662df0d75709c78795dd39a104fa940a0', 'usage: a311_exact.py [--mutant M1..M12]'),
+    ('A3_11/author_controls.py', ('--mutant',)):
+        (2, 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'fa4348e128f06303b2347e387c87329662df0d75709c78795dd39a104fa940a0', 'usage: a311_exact.py [--mutant M1..M12]'),
 }
 
 # Replacing A3.6's 5/4 by 1/4 with MUT=None omits the usual mutant-description line.
@@ -251,24 +371,28 @@ def tree_failures(root, manifest):
 
 
 def extraction_failures(root, manifest):
-    """Re-extract every script and stdout from its stored controls comment and compare with the stored payloads."""
+    """Re-extract every script and stdout from its stored source comment and compare with the stored payloads."""
     failures = []
     for obj in manifest['objects']:
         extracted = [f for f in obj['stored'] if 'extracted_from' in f]
         for script in [f for f in extracted if f['path'].endswith('.py')]:
             stdout = [f for f in extracted if f['extracted_from'] == script['extracted_from']
-                      and f['heading'] == script['heading'] and f['path'].endswith('.json')]
+                      and f['heading'] == script['heading'] and not f['path'].endswith('.py')]
             if len(stdout) != 1:
                 failures.append('%s: no single stdout record for %s' % (obj['tag'], script['path']))
                 continue
             stdout = stdout[0]
+            fence = {'json': 'json', 'txt': 'text'}.get(stdout['path'].rsplit('.', 1)[-1])
+            if fence is None:
+                failures.append('%s: unsupported stdout suffix for %s' % (obj['tag'], stdout['path']))
+                continue
             body = (root / script['extracted_from']).read_text(encoding='utf-8')
             if body.count(script['heading']) < 1:
                 failures.append('%s: heading %r not found in %s' % (obj['tag'], script['heading'], script['extracted_from']))
                 continue
             section = body[body.index(script['heading']):]
             m1 = re.search(r'```python\n(.*?)\n```\n', section, re.S)
-            m2 = re.search(r'```json\n(.*?)\n```\n', section[m1.end():], re.S) if m1 else None
+            m2 = re.search(r'```%s\n(.*?)\n```\n' % fence, section[m1.end():], re.S) if m1 else None
             if not (m1 and m2):
                 failures.append('%s: fences not found after %r' % (obj['tag'], script['heading']))
                 continue
@@ -279,9 +403,70 @@ def extraction_failures(root, manifest):
     return failures
 
 
+PROCESS_TIMEOUT_SECONDS = 1800  # Unchanged production budget; tests shorten it for real timeout children.
+
+
+def evidence_directory(script):
+    """An explicit destination opts in; never put generated evidence in source directories."""
+    raw = os.environ.get('QS_REPLAY_EVIDENCE_DIR')
+    if raw is None:
+        return None
+    if not raw:
+        raise ValueError('QS_REPLAY_EVIDENCE_DIR must not be empty')
+    root = pathlib.Path(raw).expanduser().resolve()
+    if root.is_relative_to(HERE.resolve().parents[1]) or root.is_relative_to(script.parent.resolve()):
+        raise ValueError('QS replay evidence must be outside the checkout and child source directory')
+    root.mkdir(parents=True, exist_ok=True)
+    return pathlib.Path(tempfile.mkdtemp(prefix='invocation-', dir=root))
+
+
+def save_process_evidence(folder, record, out, err):
+    """Attempt every write independently. None is unavailable, not an observed empty stream."""
+    record['streams'] = {}
+    record['evidence_errors'] = []
+    for name, data in (('stdout', out), ('stderr', err)):
+        entry = dict(available=data is not None, bytes=len(data) if data is not None else None,
+                     sha256=hashlib.sha256(data).hexdigest() if data is not None else None, saved=False)
+        record['streams'][name] = entry
+        try:
+            (folder / (name + '.bin')).write_bytes(data if data is not None else b'')
+            entry['saved'] = True
+        except Exception as exc:
+            record['evidence_errors'].append('%s.bin: %s: %s' % (name, type(exc).__name__, exc))
+    try:
+        data = (json.dumps(record, sort_keys=True, indent=2, allow_nan=False) + '\n').encode('utf-8')
+        (folder / 'process.json').write_bytes(data)
+    except Exception as exc:
+        record['evidence_errors'].append('process.json: %s: %s' % (type(exc).__name__, exc))
+
+
 def run(script, *args):
-    proc = subprocess.run([sys.executable, *interpreter_flags(), str(script), *args], capture_output=True,
-                          timeout=1800, cwd=str(script.parent))
+    command = [sys.executable, *interpreter_flags(), str(script), *args]
+    folder = evidence_directory(script)  # Invalid/unwritable setup stops before starting a child.
+    record = dict(schema=1, command=command, cwd=str(script.parent),
+                  timeout_seconds=PROCESS_TIMEOUT_SECONDS, scientific_effect='NONE')
+    try:
+        proc = subprocess.run(command, capture_output=True, timeout=PROCESS_TIMEOUT_SECONDS,
+                              cwd=str(script.parent))
+    except (subprocess.TimeoutExpired, OSError) as exc:
+        if folder is not None:
+            record.update(status='timeout' if isinstance(exc, subprocess.TimeoutExpired) else 'spawn_error',
+                          returncode=None, exception=dict(type=type(exc).__name__, message=str(exc)))
+            exc.evidence_record = record
+            try:
+                save_process_evidence(folder, record, getattr(exc, 'stdout', None), getattr(exc, 'stderr', None))
+                if record['evidence_errors']:
+                    exc.add_note('QS replay evidence errors: ' + '; '.join(record['evidence_errors']))
+            except Exception as secondary:
+                exc.add_note('QS replay evidence recording failed: %s: %s' % (type(secondary).__name__, secondary))
+        raise  # Never replace the primary timeout or launch error with a recording error.
+    if folder is not None:
+        record.update(status='completed', returncode=proc.returncode, exception=None)
+        save_process_evidence(folder, record, proc.stdout, proc.stderr)
+        if record['evidence_errors']:
+            exc = RuntimeError('QS replay evidence errors: ' + '; '.join(record['evidence_errors']))
+            exc.evidence_record = record
+            raise exc  # Even exit 0 is not success when explicitly required evidence is missing.
     return proc.returncode, proc.stdout, proc.stderr
 
 
@@ -359,9 +544,9 @@ def main():
     if failures:
         for f in failures:
             print('FAIL ' + f)
-        print('QS d = 3 chain (A3-A3.6) incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
+        print('QS d = 3 chain (A3-A3.11) incorporation replay (%s): %d failure(s)' % (mode, len(failures)))
         return 1
-    print('QS d = 3 chain (A3-A3.6) incorporation replay (%s): %d stored identities, %d extractions, %d checker stdouts, '
+    print('QS d = 3 chain (A3-A3.11) incorporation replay (%s): %d stored identities, %d extractions, %d checker stdouts, '
           '%d mutants, %d invalid invocations and 2 negative controls PASS' % (mode, n_files, 2 * n_scripts, n_scripts, n_mut, n_inv))
     return 0
 

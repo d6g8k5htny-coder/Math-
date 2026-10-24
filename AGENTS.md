@@ -1,15 +1,24 @@
 # Agent entry — `Math-`
 
-> **OWNER STOP of 2026-09-27: historical, lifted.** The record is kept unchanged in [OWNER_STOP.md](OWNER_STOP.md). From 2026-10-03, by Dylan's instruction, xAI/Grok (including Cursor) agents work here **only as support** for the non-Grok lanes. They act at those lanes' request, and may also enter to see how they can assist. No self-assigned repository changes, no takeover of another lane, and no restarted timers or loops. Coordination: [main#229](https://github.com/d6g8k5htny-coder/main/issues/229).
+> **OWNER STOP of 2026-09-27: historical, lifted.** The record is kept unchanged in [OWNER_STOP.md](OWNER_STOP.md). From 2026-10-03, by Dylan's instruction, xAI/Grok (including Cursor) agents work here **only as support** for the non-Grok lanes. They act at those lanes' request, and may also enter to see how they can assist. No self-assigned repository changes, no takeover of another lane, and no restarted timers or loops. Active coordination: [main#539](https://github.com/d6g8k5htny-coder/main/issues/539) (continued from [main#475](https://github.com/d6g8k5htny-coder/main/issues/475), itself continued from the full [main#419](https://github.com/d6g8k5htny-coder/main/issues/419)). Former boards [main#475](https://github.com/d6g8k5htny-coder/main/issues/475), [main#419](https://github.com/d6g8k5htny-coder/main/issues/419), [main#307](https://github.com/d6g8k5htny-coder/main/issues/307) and [main#229](https://github.com/d6g8k5htny-coder/main/issues/229) retain historical records, including the [working guidance](https://github.com/d6g8k5htny-coder/main/issues/229#issuecomment-6038554880); no earlier claim is transferred or released by this routing change.
 
 Mathematical candidates, proofs, programs, and reproducible calculations. Not a status register.
+
+Current and future agents: read the [15 October 2026 standing owner mandate](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md)
+and the [standing owner delegation](https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md)
+alongside the current workflow and these Math- instructions. Carry both
+canonical links in future onboarding and handoffs; providing the links does
+not establish that a recipient has read them. The mandate and delegation do
+not waive actual platform permissions, explicit stops, scientific evidence
+requirements, or the Grok-support-only boundary stated above.
 
 ## Always
 
 - Coordinate via [`main`](https://github.com/d6g8k5htny-coder/main) campaign work and the [`governance-`](https://github.com/d6g8k5htny-coder/governance-) working contract.
 - Prefer exact source identities (commit/path/hash) over mutable labels.
 - Scientific effect: **NONE**. Never flip `lemma_closed` / prizes / premises.
-- Cross-repo eng tests and Path C live in [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial).
+- [`d6g8k5htny-coder/trial`](https://github.com/d6g8k5htny-coder/trial) retains historical cross-repo eng tests and Path C material (observed archived on 15 October 2026); route current work through [main's current workflow](https://github.com/d6g8k5htny-coder/main/blob/main/governance/OP-WORKFLOW-20260930.md) (live operational guidance) and the active coordination board above.
+  For reproducibility, [the workflow reviewed with this change](https://github.com/d6g8k5htny-coder/main/blob/4f600d9dc0441113568483fb3c34533b4be7440e/governance/OP-WORKFLOW-20260930.md) is a pinned 15 October 2026 as-of reference, **not** a substitute for the live current instructions.
 - Calculations here use the Python standard library only (no extra pip env required in this repo).
 
 ## Never
@@ -22,7 +31,7 @@ Mathematical candidates, proofs, programs, and reproducible calculations. Not a 
 
 1. This repository’s [README](README.md)
 2. [`governance-` working contract](https://github.com/d6g8k5htny-coder/governance-)
-3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) (Cloud Agent env deps live on trial `.cursor/environment.json`)
+3. [`trial` multi-agent access](https://github.com/d6g8k5htny-coder/trial/blob/main/docs/MULTI_AGENT_ACCESS.md) is historical launch-environment documentation; the archived `.cursor/environment.json` is not current runtime or access authority.
 
 ## Additive formal lane — owner directive 2026-09-27
 

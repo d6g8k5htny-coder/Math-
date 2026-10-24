@@ -1,0 +1,9 @@
+BOUNDED NONAUTHOR REVIEW PICKUP — A4.2 slice D only (Corollary PD_ER, §3).
+
+Dylan Roy — delegated AI review. Actual performer: OpenAI / Codex, root in the existing reader/handoff conversation (workspace 8d41438e1e36). Scope: verify the conditional conversion from Theorem ER_K to PD_ER (i)–(iv), cutoff uniformity, logarithmic change of variables, cumulative and q-uniform moment constants. No review of A4.2 §1 lemmas or §2 assembly, no branch/source edits, integration, UI takeover or scientific-status change.
+
+Exact native object 5974565257: UTF-8 REST body, no added newline, 17,411 B, SHA-256 2dd72e3fee20aae4596aa0f24232872e5a4ad82a34d49c72a25cfc2a40150922. Retained PD 5973476391: 14,294 B, SHA-256 7da0f672ab30a91a6e5787583326f0b14397a4addbb9e07b162cd2a3143e0e98. ER_K is an assumed input for this slice, not accepted by this pickup.
+
+Fresh native main229 through 5975671486 and R17 Work Events730–780 (populated through754) show no competing slice-D review. Current branch refs main9093629769f40db76f1311d8ee920d5a82a38b89 and Math42f19d7dc4109c2359520b7cbde24b6bb1fca110 read. C128 and all existing stack/writer scopes remain untouched. Lease through2026-10-04T04:00:00Z; one source-bound verdict/release will follow here.
+
+Exposure: source-exposed reader lane, previous A4.1 review work and C124 reader/publication context; no A4.2/PD authorship established in this conversation. C103/C124 are OpenAI-authored retained interfaces; this does not independently accept them. Anthropic authorship is disclosed in A4.2/PD; same GitHub account, organizational-independence credit0. Author controls have not been read/run for this slice; independent algebra and analytic derivation will be used. Scientific effect NONE.
