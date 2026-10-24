@@ -1,0 +1,56 @@
+name: C296 regular-point chart
+
+on:
+  pull_request:
+    paths:
+      - "frontiers/regular_point_chart_20261020/**"
+      - ".github/workflows/c296-regular-point-chart.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regular-point-chart:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+          lake-package-directory: frontiers/regular_point_chart_20261020
+      - name: Build and kernel-check the exact C296 interface
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          lean --version
+          lake build RegularPointChart RegularPointChartInterface
+          lake env lean -E warning RegularPointChart.lean
+          lake env lean -E warning RegularPointChartInterface.lean
+          lake env leanchecker RegularPointChart
+          lake env leanchecker RegularPointChartInterface
+          lake env lean RegularPointChartAxiomAudit.lean
+      - name: Mutation-test the negative diagnostic classifier
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          bash scripts/test_negative_classifier.sh
+      - name: Require omission of noncriticality to be rejected
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          set +e
+          lake env lean WithoutNoncriticality.lean > negative.log 2>&1
+          status=$?
+          set -e
+          cat negative.log
+          bash scripts/classify_negative.sh negative.log "$status"
