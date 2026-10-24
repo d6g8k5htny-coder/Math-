@@ -76,6 +76,65 @@ class QuoteSemantics(unittest.TestCase):
         report = self._report('| #1 | [r](../../reviews/r.md) — summary: continuum HOLD; finite ACCEPT |')
         self.assertEqual([f[0] for f in report['failures']], ['verdict-word-not-in-source'])
 
+    def test_prefixed_source_verdict_does_not_authorize_summary(self):
+        for word in check_doc_quotes.VERDICT:
+            for prefix in ('UN', 'RE', '_', '9', 'é'):
+                with self.subTest(word=word, prefix=prefix):
+                    (self.root / 'reviews' / 'r.md').write_text(prefix + word, encoding='utf-8')
+                    report = self._report('| #1 | [r](../../reviews/r.md) — summary: ' + word + ' |')
+                    self.assertEqual((report['checked'], report['summaries'], report['unchecked_offline']), (1, 1, 0))
+                    self.assertEqual([f[0] for f in report['failures']], ['verdict-word-not-in-source'])
+                    self.assertTrue(report['failures'][0][2].startswith(word + ': '))
+
+    def test_word_start_and_existing_suffix_families_remain_accepted(self):
+        for word in check_doc_quotes.VERDICT:
+            for text in (word, '(' + word + ')', '**' + word + '_SCOPED**'):
+                with self.subTest(word=word, text=text):
+                    (self.root / 'reviews' / 'r.md').write_text(text, encoding='utf-8')
+                    report = self._report('| #1 | [r](../../reviews/r.md) — summary: ' + word + '_SCOPED |')
+                    self.assertEqual(report['failures'], [])
+                    self.assertEqual(report['checked'], 1)
+
+    def test_prefixed_summary_is_not_an_unprefixed_verdict_claim(self):
+        (self.root / 'reviews' / 'r.md').write_text('No tracked verdict.', encoding='utf-8')
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                report = self._report('| #1 | [r](../../reviews/r.md) — summary: UN' + word + ' |')
+                self.assertEqual(report['failures'], [])
+                self.assertEqual(report['summaries'], 1)
+
+    def test_standalone_verdict_after_prefixed_word_is_found(self):
+        for word in check_doc_quotes.VERDICT:
+            with self.subTest(word=word):
+                (self.root / 'reviews' / 'r.md').write_text('UN' + word + '; ' + word, encoding='utf-8')
+                report = self._report('| #1 | [r](../../reviews/r.md) — summary: ' + word + ' |')
+                self.assertEqual(report['failures'], [])
+
+    def test_cli_preserves_positive_and_rejects_prefixed_source(self):
+        import json
+        import subprocess
+
+        doc = self.root / 'docs' / 'nested' / 'a.md'
+        flags = ['-B'] + (['-O'] if sys.flags.optimize else []) + ['-S']
+        for word in check_doc_quotes.VERDICT:
+            for prefix, expected in (('', 0), ('UN', 1)):
+                with self.subTest(word=word, prefix=prefix):
+                    (self.root / 'reviews' / 'r.md').write_text(prefix + word, encoding='utf-8')
+                    doc.write_text(HEADER + '| #1 | [r](../../reviews/r.md) — summary: ' + word + ' |\n', encoding='utf-8')
+                    result = subprocess.run(
+                        [sys.executable, *flags, str(ROOT / 'tools' / 'check_doc_quotes.py'),
+                         str(doc), '--root', self.tmp, '--require-online'],
+                        capture_output=True, check=False, timeout=15)
+                    self.assertEqual(result.returncode, expected)
+                    self.assertEqual(result.stderr, b'')
+                    report = json.loads(result.stdout)
+                    self.assertIs(report['passed'], expected == 0)
+                    self.assertTrue(report['require_online'])
+                    actual = report['documents'][str(doc)]
+                    self.assertEqual((actual['checked'], actual['summaries'], actual['unchecked_offline']), (1, 1, 0))
+                    self.assertEqual([f[0] for f in actual['failures']],
+                                     ['verdict-word-not-in-source'] if expected else [])
+
     def test_passage_without_preceding_link_is_rejected(self):
         report = self._report('| #1 | “Verdict: ACCEPT” — [r](../../reviews/r.md) |')
         self.assertEqual([f[0] for f in report['failures']], ['no-source-link'])
