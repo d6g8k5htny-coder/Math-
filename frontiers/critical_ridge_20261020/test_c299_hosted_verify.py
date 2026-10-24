@@ -7,9 +7,23 @@ import os
 from pathlib import Path
 import sys
 import tempfile
+import time
 import unittest
+from unittest import mock
 
 MODULE_PATH = Path(__file__).with_name('c299_hosted_verify.py')
+
+
+def _wait_for_timeout_child(process, marker, timeout=5):
+    """Test-only startup barrier; do not consume or fabricate captured output."""
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            raise AssertionError('timeout fixture exited before readiness')
+        if marker.is_file() and marker.read_bytes() == b'ready\n':
+            return
+        time.sleep(0.005)
+    raise AssertionError('timeout fixture readiness deadline exceeded')
 
 
 class HostedVerifierTests(unittest.TestCase):
@@ -236,20 +250,90 @@ class HostedVerifierTests(unittest.TestCase):
 
 
     def test_timeout_preserves_partial_stream_and_receipt(self):
-        """Timeout handling must not discard the child output or phase result."""
+        """A ready real child times out; startup is not the behavior under test."""
         v = self.verifier()
         with tempfile.TemporaryDirectory() as tmp:
             evidence = Path(tmp)
+            marker = evidence / 'child.ready'
             report = {'status': 'HOLD_NOT_COMPLETED', 'phase_results': []}
-            with self.assertRaises(RuntimeError):
-                v.run_phase('deliberate-timeout',
-                            [sys.executable, '-u', '-c',
-                             'import time;print("before timeout");time.sleep(3)'],
-                            evidence, dict(os.environ), evidence, report, timeout=0.1)
-            receipt = json.loads((evidence / 'deliberate-timeout.receipt.json').read_text())
+            real_popen = v.subprocess.Popen
+            children = []
+
+            def start_ready_child(*args, **kwargs):
+                child = real_popen(*args, **kwargs)
+                children.append(child)
+                _wait_for_timeout_child(child, marker)
+                return child
+
+            command = [sys.executable, '-I', '-B']
+            if sys.flags.optimize:
+                command.append('-O')
+            command += ['-S', '-u', '-c',
+                        'import sys,time;from pathlib import Path;'
+                        'time.sleep(0.2);'
+                        'sys.stdout.buffer.write(b"before timeout\\n");'
+                        'sys.stdout.buffer.flush();'
+                        'Path(sys.argv[1]).write_bytes(b"ready\\n");'
+                        'time.sleep(3)', str(marker)]
+            # Only Popen's return is delayed until the fixture has flushed.
+            # The returned object, wait, timeout, signals and output files are real.
+            try:
+                with mock.patch.object(v.subprocess, 'Popen', side_effect=start_ready_child):
+                    with self.assertRaisesRegex(RuntimeError, 'timed_out=True'):
+                        v.run_phase('deliberate-timeout', command, evidence,
+                                    dict(os.environ), evidence, report, timeout=0.1)
+            finally:
+                for child in children:
+                    if child.poll() is None:
+                        child.kill()
+                    child.wait(timeout=5)
+            self.assertEqual(len(children), 1)
+            self.assertTrue(marker.is_file(), 'fixture never reached readiness')
+            self.assertEqual(marker.read_bytes(), b'ready\n')
+            receipt_path = evidence / 'deliberate-timeout.receipt.json'
+            self.assertTrue(receipt_path.is_file(), 'timeout receipt was not retained')
+            receipt = json.loads(receipt_path.read_text())
             self.assertTrue(receipt['timed_out'])
+            self.assertEqual(receipt['timeout_seconds'], 0.1)
             self.assertEqual(receipt['status'], 'FAIL')
-            self.assertEqual((evidence / 'deliberate-timeout.stdout').read_bytes(), b'before timeout\n')
+            self.assertIsNone(receipt['spawn_error'])
+            self.assertLess(receipt['exit_code'], 0)
+            self.assertEqual(receipt, report['phase_results'][0])
+            self.assertEqual(receipt, json.loads((evidence / 'RESULT.json').read_text())['phase_results'][0])
+            raw = (evidence / 'deliberate-timeout.stdout').read_bytes()
+            self.assertEqual(raw, b'before timeout\n')
+            self.assertEqual(receipt['stdout_bytes'], len(raw))
+            self.assertEqual(receipt['stdout_sha256'], hashlib.sha256(raw).hexdigest())
+            self.assertEqual((evidence / 'deliberate-timeout.stderr').read_bytes(), b'')
+
+    def test_timeout_readiness_rejects_early_exit(self):
+        """An exited fixture must not masquerade as a ready timed-out child."""
+        v = self.verifier()
+        with tempfile.TemporaryDirectory() as tmp:
+            marker = Path(tmp) / 'never.ready'
+            with v.subprocess.Popen([sys.executable, '-I', '-B', '-S', '-c', 'pass']) as child:
+                try:
+                    with self.assertRaisesRegex(AssertionError, 'exited before readiness'):
+                        _wait_for_timeout_child(child, marker)
+                finally:
+                    if child.poll() is None:
+                        child.kill()
+                    child.wait(timeout=5)
+
+    def test_timeout_readiness_has_its_own_deadline(self):
+        """No marker means a bounded fixture failure, never a passing timeout test."""
+        v = self.verifier()
+        with tempfile.TemporaryDirectory() as tmp:
+            marker = Path(tmp) / 'never.ready'
+            with v.subprocess.Popen([sys.executable, '-I', '-B', '-S', '-c',
+                                     'import time;time.sleep(3)']) as child:
+                try:
+                    with self.assertRaisesRegex(AssertionError, 'readiness deadline exceeded'):
+                        _wait_for_timeout_child(child, marker, timeout=0.1)
+                finally:
+                    if child.poll() is None:
+                        child.kill()
+                    child.wait(timeout=5)
 
     def test_phase_rejects_imported_object_mutation(self):
         """A successful compiler process may not alter a prior input object."""
