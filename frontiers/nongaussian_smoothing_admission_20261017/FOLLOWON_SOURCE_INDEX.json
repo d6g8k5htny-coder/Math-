@@ -295,9 +295,9 @@
     "path": ".github/workflows/source-smooth-realization.yml",
     "commit": "2b43d27eebce765cf30090c03e74714c72431114",
     "bytes": 35002,
-    "sha256": "313952a5a8f6f87e27584be0b8d4064edecb41a5f655d0bbf3a83d4e76b21515",
-    "git_blob_sha1": "ecc9d40d9f12c068975fd2574032536edb3fc085",
-    "observation": "FULL579literalworkflowlines and invoked audit/lakefile read; static source/coverage only, no execution",
+    "sha256": "549a612841411641f0d0be0318bdcad181fe2a49c7bdde647f9c2ca6773dc316",
+    "git_blob_sha1": "22343317bf69a73a67b8f7c24b91527898f39484",
+    "observation": "FULL579literalworkflowlines and invoked audit/lakefile read; static source/coverage only, no execution. Successor workflow pin identity reconciled 2026-10-24; prose native_cut unchanged.",
     "trigger": {
       "event": "pull_request",
       "types": [
@@ -327,8 +327,8 @@
       "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
       "actions": {
         "checkout": "3d3c42e5aac5ba805825da76410c181273ba90b1",
-        "lean-action": "f061402b660e0c34644504b324e830f2991d4865",
-        "upload-artifact": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+        "lean-action": "24581d74d674803a25a81b10b059c5c0cdd344c6",
+        "upload-artifact": "cf430e030ddbb5b0abf93d22962f4752f3646cd9"
       },
       "lean_action_inputs": "explicit source-package directory; auto-config/build/test/lint false; mathlib-cache true; github-cache false"
     },
