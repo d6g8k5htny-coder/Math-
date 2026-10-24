@@ -3,6 +3,7 @@ name: C296 regular-point chart
 on:
   pull_request:
     paths:
+      - "frontiers/critical_level_attainment_20261020/final-project/Lifetime.lean"
       - "frontiers/regular_point_chart_20261020/**"
       - ".github/workflows/c296-regular-point-chart.yml"
   workflow_dispatch:
@@ -32,6 +33,7 @@ jobs:
         working-directory: frontiers/regular_point_chart_20261020
         run: |
           set -euo pipefail
+          sha256sum --check SOURCE_SHA256SUMS
           lean --version
           lake build RegularPointChart RegularPointChartInterface
           lake env lean -E warning RegularPointChart.lean
@@ -39,6 +41,11 @@ jobs:
           lake env leanchecker RegularPointChart
           lake env leanchecker RegularPointChartInterface
           lake env lean RegularPointChartAxiomAudit.lean
+      - name: Exercise axiom policy and inventory controls with Lean
+        working-directory: frontiers/regular_point_chart_20261020
+        run: |
+          set -euo pipefail
+          python3 -B -S scripts/test_axiom_audit.py
       - name: Mutation-test the negative diagnostic classifier
         working-directory: frontiers/regular_point_chart_20261020
         run: |
