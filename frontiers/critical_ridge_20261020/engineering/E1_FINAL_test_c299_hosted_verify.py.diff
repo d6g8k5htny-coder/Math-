@@ -1,0 +1,67 @@
+--- E1_PREDECESSOR_test_c299_hosted_verify.py
++++ test_c299_hosted_verify.py
+@@ -25,6 +25,64 @@
+     def verifier(self):
+         self.assertIsNotNone(self.v, 'the scoped verifier is not implemented')
+         return self.v
++
++    def test_environment_contract_strips_overrides_and_uses_declared_path(self):
++        """An inherited tool/loader override must not survive or leak its value."""
++        v = self.verifier()
++        self.assertTrue(hasattr(v, 'build_environment'), 'environment contract is missing')
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp).resolve()
++            bindir = root / 'bin'
++            bindir.mkdir()
++            launcher = bindir / 'lean'
++            launcher.write_text('# inert launcher locator fixture; never executed\n')
++            launcher.chmod(0o700)
++            inherited = {'PATH': str(bindir), 'LEAN_PATH': '/pinned/lake/library',
++                         'LEAN_NUM_THREADS': '64', 'LEAN_SYSROOT': 'secret-lean-value',
++                         'LAKE_HOME': 'secret-lake-value', 'LD_PRELOAD': 'secret-loader-value',
++                         'DYLD_LIBRARY_PATH': 'secret-dyld-value', 'TOKEN': 'secret-token-value'}
++            env, contract = v.build_environment(inherited, root / 'objects')
++            self.assertEqual(env['LEAN_PATH'], str(root / 'objects') + os.pathsep + '/pinned/lake/library')
++            self.assertEqual(env['LEAN_NUM_THREADS'], '2')
++            self.assertEqual(v.resolve_lean_launcher(env), launcher.resolve())
++            self.assertEqual(contract['removed_variable_names'],
++                             ['DYLD_LIBRARY_PATH', 'LAKE_HOME', 'LD_PRELOAD', 'LEAN_NUM_THREADS', 'LEAN_SYSROOT'])
++            for key in ('LEAN_SYSROOT', 'LAKE_HOME', 'LD_PRELOAD', 'DYLD_LIBRARY_PATH'):
++                self.assertNotIn(key, env)
++            self.assertEqual(env['TOKEN'], 'secret-token-value')
++            self.assertNotIn('secret-', json.dumps(contract))
++            empty, _ = v.build_environment({'PATH': str(bindir)}, root / 'empty')
++            self.assertEqual(empty['LEAN_PATH'], str(root / 'empty'))
++
++    def test_phase_environment_mutation_is_blocked_and_receipted(self):
++        """A changed search path or injected loader must fail before the child runs."""
++        v = self.verifier()
++        self.assertTrue(hasattr(v, 'build_environment'), 'environment contract is missing')
++        with tempfile.TemporaryDirectory() as tmp:
++            root = Path(tmp)
++            env, contract = v.build_environment(dict(os.environ), root / 'objects')
++            report = {'status': 'HOLD_NOT_COMPLETED', 'phase_results': [],
++                      'environment_contract': contract}
++            rec, output, _ = v.run_phase('environment-valid',
++                [sys.executable, '-c', 'import os; print(os.environ["LEAN_NUM_THREADS"])'],
++                root, env, root, report, timeout=10)
++            self.assertEqual(output.strip(), '2')
++            self.assertEqual(rec['selected_environment'], contract['selected_environment'])
++            self.assertEqual(rec['environment_contract_sha256'], contract['sha256'])
++            self.assertIsNone(rec['environment_validation_error'])
++            for n, changes in enumerate(({'LEAN_PATH': '/unbound/library'}, {'LD_PRELOAD': 'secret-injection'})):
++                altered = dict(env, **changes)
++                with self.assertRaisesRegex(RuntimeError, 'environment'):
++                    v.run_phase('environment-mutated-' + str(n),
++                        [sys.executable, '-c', 'from pathlib import Path;Path("CHILD_RAN").write_text("bad")'],
++                        root, altered, root, report, timeout=10)
++                receipt = json.loads((root / ('environment-mutated-' + str(n) + '.receipt.json')).read_text())
++                self.assertEqual(receipt['status'], 'FAIL')
++                self.assertIsNone(receipt['exit_code'])
++                self.assertIsNotNone(receipt['environment_validation_error'])
++                self.assertFalse((root / 'CHILD_RAN').exists())
++                self.assertNotIn('secret-injection', json.dumps(receipt))
++                self.assertEqual(receipt, report['phase_results'][-1])
+ 
+     def test_modified_source_bytes_are_rejected(self):
+         """Dropping size/hash verification would accept the modified file."""

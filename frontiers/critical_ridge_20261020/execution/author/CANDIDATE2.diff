@@ -1,0 +1,23 @@
+--- candidate1/CriticalRidge.lean
++++ candidate2/CriticalRidge.lean
+@@ -110,7 +110,10 @@
+   have hadd : HasFDerivAt (fun q : E d × V => p + ridgeAddition V q)
+       (ridgeAddition V) 0 := by
+     simpa using ((ridgeAddition V).hasFDerivAt.const_add p)
+-  have hcomp := hDp.comp (0 : E d × V) hadd
++  have hDp' : HasFDerivAt (fderiv ℝ f) (fderiv ℝ (fderiv ℝ f) p)
++      (p + ridgeAddition V (0 : E d × V)) := by
++    simpa only [map_zero, add_zero] using hDp
++  have hcomp := hDp'.comp (0 : E d × V) hadd
+   simpa only [negativePartialGradient, map_zero, add_zero] using
+     ((restrictCovector V).hasFDerivAt.comp (0 : E d × V) hcomp)
+ 
+@@ -138,7 +141,7 @@
+       ContinuousLinearMap.inr ℝ (E d) V = negativeHessianBlock f p V := by
+     rw [hDG.fderiv]
+     ext v z
+-    rfl
++    simp [D, negativeHessianBlock, ridgeAddition, restrictCovector]
+   have hinv : (fderiv ℝ G (0 : E d × V) ∘L
+       ContinuousLinearMap.inr ℝ (E d) V).IsInvertible := by
+     rw [hblock]

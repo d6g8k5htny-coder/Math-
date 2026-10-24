@@ -1,0 +1,48 @@
+--- candidate3/CriticalRidge.lean
++++ candidate4/CriticalRidge.lean
+@@ -108,6 +108,7 @@
+   exact (hD.comp (contDiff_const.add (ridgeAddition V).contDiff)).clm_comp
+     contDiff_const
+ 
++set_option backward.isDefEq.respectTransparency false in
+ theorem negativePartialGradient_hasFDerivAt (f : E d → ℝ) (p : E d)
+     (V : Submodule ℝ (E d)) (hsmooth : IsSmooth d f) :
+     HasFDerivAt (negativePartialGradient f p V)
+@@ -124,12 +125,10 @@
+       (p + ridgeAddition V (0 : E d × V)) := by
+     simpa only [map_zero, add_zero] using hDp
+   have hcomp := hDp'.comp (0 : E d × V) hadd
+-  change HasFDerivAt (fun q : E d × V =>
+-    (fderiv ℝ f (p + ridgeAddition V q)).comp V.subtypeL) _ _
+-  convert hcomp.clm_comp (hasFDerivAt_const V.subtypeL (0 : E d × V)) using 1
+-  ext q z
+-  simp [restrictCovector]
++  simpa only [negativePartialGradient, Function.comp_def] using
++    (restrictCovector V).hasFDerivAt.comp (0 : E d × V) hcomp
+ 
++set_option backward.isDefEq.respectTransparency false in
+ /-- One actual ridge and all four conclusions for the same chosen function.
+ The equation is in the actual ambient function and actual subspace. -/
+ theorem exists_negative_partial_gradient_ridge
+@@ -169,7 +168,10 @@
+       show fderiv ℝ f p = 0 from hcritical]
+   have heq : (fun w => G (w, r w)) =ᶠ[𝓝 (0 : E d)]
+       (fun _ => (0 : V →L[ℝ] ℝ)) := by
+-    simpa [r, hG0] using hG.eventually_apply_implicitFunction (by norm_num) hinv
++    have h := hG.eventually_apply_implicitFunction (by norm_num) hinv
++    change ∀ᶠ w in 𝓝 (0 : E d), G (w, r w) = G (0 : E d × V) at h
++    change ∀ᶠ w in 𝓝 (0 : E d), G (w, r w) = 0
++    exact h.mono fun _ hw => hw.trans hG0
+   refine ⟨r, hr0, hrC, ?_, ?_⟩
+   · filter_upwards [heq] with w hw
+     intro z
+@@ -186,7 +188,8 @@
+     have hchain : HasFDerivAt (fun w : E d => G (w, r w))
+         (D.comp ((ContinuousLinearMap.id ℝ (E d)).prod (fderiv ℝ r 0))) 0 := by
+       have hd : HasFDerivAt G D ((0 : E d), r 0) := by
+-        simpa only [hr0] using hDG
++        rw [hr0]
++        exact hDG
+       exact hd.comp 0 hgraph
+     have hid := hchain.unique hzero
+     intro w z

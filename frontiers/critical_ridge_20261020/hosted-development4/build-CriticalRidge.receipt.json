@@ -1,0 +1,63 @@
+{
+  "command": [
+    "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+    "-j2",
+    "-M14000",
+    "-DwarningAsError=true",
+    "-o",
+    "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/CriticalRidge.olean",
+    "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean"
+  ],
+  "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+  "duration_seconds": 21.013988,
+  "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+  "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+  "environment_validation_error": null,
+  "exit_code": 1,
+  "finished_at": "2026-10-20T15:10:52.153799+00:00",
+  "name": "build-CriticalRidge",
+  "object_validation_error": "build must add only its own target object outputs",
+  "objects_after": {
+    "Lifetime.olean": {
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    },
+    "MorseFiniteCritical.olean": {
+      "bytes": 493256,
+      "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+    },
+    "TorusTopology.olean": {
+      "bytes": 307176,
+      "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+    }
+  },
+  "objects_before": {
+    "Lifetime.olean": {
+      "bytes": 472528,
+      "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+    },
+    "MorseFiniteCritical.olean": {
+      "bytes": 493256,
+      "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+    },
+    "TorusTopology.olean": {
+      "bytes": 307176,
+      "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+    }
+  },
+  "selected_environment": {
+    "LEAN_NUM_THREADS": "2",
+    "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+  },
+  "spawn_error": null,
+  "started_at": "2026-10-20T15:10:31.139826+00:00",
+  "status": "FAIL",
+  "stderr_bytes": 0,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 1601,
+  "stdout_sha256": "1cc98e9540608d20c0f1a9b66a0fdb3fcb4b5910ec671da7b1e8624c508d4d7c",
+  "timed_out": false,
+  "timeout_seconds": 900,
+  "unexpected_override_names": []
+}

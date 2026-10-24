@@ -1,0 +1,24 @@
+--- candidate5/CriticalRidge.lean
++++ candidate6/CriticalRidge.lean
+@@ -130,7 +130,11 @@
+     first
+     | rfl
+     | (simp only [ContinuousLinearMap.comp_zero, zero_add] <;>
+-        (ext q z; rfl))
++        (apply ContinuousLinearMap.ext
++         intro q
++         apply ContinuousLinearMap.ext
++         intro z
++         rfl))
+ 
+ /-- One actual ridge and all four conclusions for the same chosen function.
+ The equation is in the actual ambient function and actual subspace. -/
+@@ -199,7 +203,7 @@
+             first
+             | rfl
+             | exact Prod.ext rfl hr0)
+-        (by convert! hgraph using 1 <;> rfl)) using 1 <;> rfl
++        (by convert! hgraph using 1)) using 1
+     have hid := hchain.unique hzero
+     intro w z
+     have h := congrArg (fun C : E d →L[ℝ] (V →L[ℝ] ℝ) => C w z) hid

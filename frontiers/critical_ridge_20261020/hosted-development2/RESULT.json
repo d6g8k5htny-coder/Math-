@@ -1,0 +1,476 @@
+{
+  "context": {
+    "executor": "GitHub-hosted runner executing C299 verification code",
+    "github_event_name": "pull_request",
+    "github_job": "c299-hosted-formal",
+    "github_repository": "d6g8k5htny-coder/Math-",
+    "github_run_attempt": "1",
+    "github_run_id": "39440510935",
+    "github_sha": "55ad6bad497da1a9c7ddd6002ba0c718994c26e1",
+    "github_workflow": "C299 critical ridge (hosted Lean, no scientific promotion)",
+    "human_review_credit": 0,
+    "pull_request": {
+      "base_sha": "8c226134ac0a0169dbb43311082e5353ed5c922c",
+      "head_sha": "8336bb7c16e34db69837b10e3678fb1bc894179c",
+      "number": 491
+    },
+    "tested_commit": "55ad6bad497da1a9c7ddd6002ba0c718994c26e1",
+    "tested_parents": [],
+    "tested_tree": "9107a867c26bc718c94a18e6e9e763a55169fb53"
+  },
+  "environment_contract": {
+    "policy": "Remove inherited LEAN*, LAKE*, LD_* and DYLD_* overrides, except the Lake-provided LEAN_PATH; prepend the fresh local object directory to that path and set LEAN_NUM_THREADS=2. Retain declared PATH for launcher lookup. Other inherited variables remain available but are not recorded. Record only selected non-secret path/thread values and removed variable names.",
+    "removed_variable_names": [
+      "LAKE",
+      "LAKE_ARTIFACT_CACHE",
+      "LAKE_CACHE_DIR",
+      "LAKE_CONFIG",
+      "LAKE_HOME",
+      "LAKE_NO_CACHE",
+      "LAKE_PKG_URL_MAP",
+      "LAKE_RESTORE_ARTIFACTS",
+      "LD_LIBRARY_PATH",
+      "LEAN",
+      "LEAN_AR",
+      "LEAN_GITHASH",
+      "LEAN_NUM_THREADS",
+      "LEAN_RECURSION_COUNT",
+      "LEAN_SRC_PATH",
+      "LEAN_SYSROOT"
+    ],
+    "retained_lake_lean_path": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+    "selected_environment": {
+      "LEAN_NUM_THREADS": "2",
+      "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+      "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+    },
+    "sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461"
+  },
+  "failure": "RuntimeError('C299 build-CriticalRidge unexpected exit: 1; timed_out=False; spawn_error=None; object_error=build must add only its own target object outputs; environment_error=None')",
+  "lean_launcher": {
+    "bytes": 9024,
+    "path": "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+    "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+  },
+  "lean_version_output": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)\n\n",
+  "machine": {
+    "machine": "x86_64",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.12.3"
+  },
+  "memory_limit": "-M14000",
+  "memory_limit_reason": "Explicit Linux execution budget; not a claim that C299 requires this amount.",
+  "packages_before": {
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+  },
+  "phase_results": [
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "--print-prefix"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/formal",
+      "duration_seconds": 0.031953,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T14:36:47.965945+00:00",
+      "name": "runtime-print-prefix",
+      "object_validation_error": null,
+      "objects_after": null,
+      "objects_before": null,
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:36:47.934016+00:00",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 58,
+      "stdout_sha256": "e0e72101499ee5e5a1967519d9955a093a555b85d5073da4bdba8bdd4cb12617",
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "unexpected_override_names": []
+    },
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/formal",
+      "duration_seconds": 0.03193,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T14:36:48.017821+00:00",
+      "name": "runtime-version",
+      "object_validation_error": null,
+      "objects_after": null,
+      "objects_before": null,
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:36:47.985912+00:00",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 106,
+      "stdout_sha256": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "timed_out": false,
+      "timeout_seconds": 30,
+      "unexpected_override_names": []
+    },
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-j2",
+        "-M14000",
+        "-o",
+        "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/Lifetime.olean",
+        "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/Lifetime.lean"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+      "duration_seconds": 4.924897,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T14:36:52.948934+00:00",
+      "name": "build-Lifetime",
+      "object": {
+        "bytes": 472528,
+        "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+      },
+      "object_validation_error": null,
+      "objects_after": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        }
+      },
+      "objects_before": {},
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:36:48.024056+00:00",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 900,
+      "unexpected_override_names": []
+    },
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-j2",
+        "-M14000",
+        "-DwarningAsError=true",
+        "-o",
+        "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/TorusTopology.olean",
+        "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/TorusTopology.lean"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+      "duration_seconds": 4.324235,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T14:36:57.358927+00:00",
+      "name": "build-TorusTopology",
+      "object": {
+        "bytes": 307176,
+        "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+      },
+      "object_validation_error": null,
+      "objects_after": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        },
+        "TorusTopology.olean": {
+          "bytes": 307176,
+          "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+        }
+      },
+      "objects_before": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        }
+      },
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:36:53.034712+00:00",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 900,
+      "unexpected_override_names": []
+    },
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-j2",
+        "-M14000",
+        "-DwarningAsError=true",
+        "-o",
+        "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/MorseFiniteCritical.olean",
+        "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/MorseFiniteCritical.lean"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+      "duration_seconds": 5.679667,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 0,
+      "finished_at": "2026-10-20T14:37:03.083319+00:00",
+      "name": "build-MorseFiniteCritical",
+      "object": {
+        "bytes": 493256,
+        "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+      },
+      "object_validation_error": null,
+      "objects_after": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        },
+        "MorseFiniteCritical.olean": {
+          "bytes": 493256,
+          "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+        },
+        "TorusTopology.olean": {
+          "bytes": 307176,
+          "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+        }
+      },
+      "objects_before": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        },
+        "TorusTopology.olean": {
+          "bytes": 307176,
+          "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+        }
+      },
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:36:57.403673+00:00",
+      "status": "PASS",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timed_out": false,
+      "timeout_seconds": 900,
+      "unexpected_override_names": []
+    },
+    {
+      "command": [
+        "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+        "-j2",
+        "-M14000",
+        "-DwarningAsError=true",
+        "-o",
+        "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects/CriticalRidge.olean",
+        "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project/CriticalRidge.lean"
+      ],
+      "cwd": "/home/runner/work/Math-/Math-/frontiers/critical_ridge_20261020/project",
+      "duration_seconds": 12.745656,
+      "environment_contract_sha256": "21131e64946a76b63b7979ab4e115aecebd9b452aa3da6cc661b7fa0f172c461",
+      "environment_sha256": "8447a19de42d9be71841e85ce65a7758efcd2045207590273a0430bc79f24adc",
+      "environment_validation_error": null,
+      "exit_code": 1,
+      "finished_at": "2026-10-20T14:37:15.832277+00:00",
+      "name": "build-CriticalRidge",
+      "object_validation_error": "build must add only its own target object outputs",
+      "objects_after": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        },
+        "MorseFiniteCritical.olean": {
+          "bytes": 493256,
+          "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+        },
+        "TorusTopology.olean": {
+          "bytes": 307176,
+          "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+        }
+      },
+      "objects_before": {
+        "Lifetime.olean": {
+          "bytes": 472528,
+          "sha256": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4"
+        },
+        "MorseFiniteCritical.olean": {
+          "bytes": 493256,
+          "sha256": "34ff2a9ed529609dd48a22204b8eacc66eeb943805e2d6e8dee4481cde8ef4e2"
+        },
+        "TorusTopology.olean": {
+          "bytes": 307176,
+          "sha256": "ccb13e9469d55da8b5202706a1f013fa7a2755b2184542b8a0534f722d993125"
+        }
+      },
+      "selected_environment": {
+        "LEAN_NUM_THREADS": "2",
+        "LEAN_PATH": "/home/runner/work/Math-/Math-/.lake/c299-hosted-evidence/objects:/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/lib/lean:/home/runner/work/Math-/Math-/formal/.lake/build/lib/lean:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean",
+        "PATH": "/home/runner/work/Math-/Math-/formal/.lake/packages/Cli/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/batteries/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/Qq/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/aesop/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/proofwidgets/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/importGraph/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/LeanSearchClient/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/plausible/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/packages/mathlib/.lake/build/bin:/home/runner/work/Math-/Math-/formal/.lake/build/bin:/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin:/home/runner/.elan/bin:/home/runner/.elan/bin:/snap/bin:/home/runner/.local/bin:/opt/pipx_bin:/home/runner/.cargo/bin:/home/runner/.config/composer/vendor/bin:/usr/local/.ghcup/bin:/home/runner/.dotnet/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+      },
+      "spawn_error": null,
+      "started_at": "2026-10-20T14:37:03.086639+00:00",
+      "status": "FAIL",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 3059,
+      "stdout_sha256": "a784390b5d21162fef912eb6fefc803a57dfd4ca887a8d2402ce453b275746d6",
+      "timed_out": false,
+      "timeout_seconds": 900,
+      "unexpected_override_names": []
+    }
+  ],
+  "phase_timeout_seconds": 900,
+  "replay_limit": "Not a --fresh replay or rebuild of the full dependency closure.",
+  "runtimes": {
+    "lean": {
+      "bytes": 9024,
+      "path": "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/lean",
+      "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+    },
+    "leanchecker": {
+      "bytes": 51080,
+      "path": "/home/runner/.elan/toolchains/leanprover--lean4---v4.34.1/bin/leanchecker",
+      "sha256": "ccef1bfe9bfeecea65137d94a69033c1a89f360711f50fa3178e7ba3e696fcbe"
+    }
+  },
+  "scientific_effect": "NONE",
+  "source_identity": {
+    "dependency_pins": {
+      "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+      "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+    },
+    "files": {
+      "negative-project/WithoutCriticality.lean": {
+        "bytes": 944,
+        "sha256": "6ebc44de843b951c312add4848962d76c4788cc10bdacf17002eb69fd370f1d2"
+      },
+      "negative-project/WithoutNegativeDefiniteness.lean": {
+        "bytes": 872,
+        "sha256": "ad204aee211aa3074621f56eeaf8e1a3f3a522b7c7cbe2bbdd67f3759833feb9"
+      },
+      "project/CriticalRidge.lean": {
+        "bytes": 8485,
+        "sha256": "2a93240fa5034544a1dbcf5ec0a10ab11be1ca5d05f60b4df0e2663fa769f442"
+      },
+      "project/CriticalRidgeAxiomAudit.lean": {
+        "bytes": 2728,
+        "sha256": "cff55f5b7721a621530ae1020b81e6cc89ce5c405396145e1ca5d3cfba4b2fb7"
+      },
+      "project/Lifetime.lean": {
+        "bytes": 51383,
+        "sha256": "90f4892608e953ecc696bb32ea159d1c178ceb8a1c6edfd11acfceb14af462c6"
+      },
+      "project/MorseFiniteCritical.lean": {
+        "bytes": 9445,
+        "sha256": "95a660134eda49eecfe6181884bd23b4e4ca210e228d2463de29e5f821df047b"
+      },
+      "project/TorusTopology.lean": {
+        "bytes": 12257,
+        "sha256": "ddb145b3f791c181d4f2a51e54e711937297bd6476ba55bcd5252b7ddb57cfe1"
+      }
+    },
+    "formal_config": {
+      "formal/lake-manifest.json": {
+        "bytes": 3553,
+        "sha256": "d63753befccc21923783a5085148e3ff028d97134ea52f5a08bd87ecf1b0b043"
+      },
+      "formal/lakefile.toml": {
+        "bytes": 274,
+        "sha256": "d629891716c169404d1f0d76492441c8dd66f1e790b1b8b0819e51c8d5059255"
+      },
+      "formal/lean-toolchain": {
+        "bytes": 25,
+        "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+      }
+    },
+    "manifest": {
+      "bytes": 1731,
+      "sha256": "e652634cd6c80faaf889704b291e14c3ae2c25a3edb37fdec5f4c8273d17fb1b"
+    },
+    "source_origin_limit": "Remote origin byte equality is a separate owner custody check.",
+    "source_origins": {
+      "Lifetime": {
+        "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+        "path": "frontiers/critical_level_attainment_20261020/final-project/Lifetime.lean"
+      },
+      "MorseFiniteCritical": {
+        "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+        "path": "frontiers/critical_level_attainment_20261020/final-project/MorseFiniteCritical.lean"
+      },
+      "TorusTopology": {
+        "commit": "7af365e8c8db1ae0275d4efe08a70a678f153ca2",
+        "path": "frontiers/critical_level_attainment_20261020/final-project/TorusTopology.lean"
+      }
+    },
+    "support_files": {
+      ".github/workflows/c299-critical-ridge.yml": {
+        "bytes": 3030,
+        "sha256": "8157a5f8ca2a92f6b31d7cb3c5834ce43423316394683d1c9b5e077a385c3add"
+      },
+      "frontiers/critical_ridge_20261020/c299_hosted_verify.py": {
+        "bytes": 32069,
+        "sha256": "e4c5b9dd02e2ba2f98da27707c42ef861d9039b52864833d2164a3114f318f49"
+      },
+      "frontiers/critical_ridge_20261020/test_c299_hosted_verify.py": {
+        "bytes": 17863,
+        "sha256": "62400129fda7b863d692397deac2a9d83b7f1101d98b53ed1043f0ef8cfd604e"
+      }
+    }
+  },
+  "started_at": "2026-10-20T14:34:58.868884+00:00",
+  "started_execution_at": "2026-10-20T14:36:47.695360+00:00",
+  "status": "HOLD_NOT_COMPLETED",
+  "threads": 2,
+  "verification_scope": "Five fresh local objects; four standard named-module kernel replays; full four-module axiom census; two omitted-premise interface controls."
+}
