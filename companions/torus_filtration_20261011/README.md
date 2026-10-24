@@ -612,23 +612,31 @@ and only the axiom audit refuses them, which is what the audit is for. `check.py
 `re.fullmatch` on each log, so a crash, an extra error or a different exit code is a failed
 control, not a passed one. `check.py finish` refuses an evidence directory that already holds
 `receipt.json` (a receipt is written once and never replaced; a new attempt needs a fresh
-directory) and requires exactly the 72 evidence files, each a regular file and nothing else: the
+directory) and requires exactly the 74 evidence files, each a regular file and nothing else: the
 sixteen emitted Lean files (`Audit.lean`, `Types.lean`, `Positive.lean`, `Census.lean` and the
 twelve controls' `.lean`), a `.log` and `.status` pair for each of the thirteen Lean processes (the
 external Field build `build-spec-Field`, seven module builds, `positive`, `axioms`, `types`,
 `census`, `leanchecker`), the twelve controls'
-`.log`/`.status`, `leanchecker.cmd`, `packages.log`, `toolchain.log`, `source.json`,
+`.log`/`.status`, `leanchecker.cmd`, `packages.log`, `toolchain.log`, `toolchain-final.log`,
+`packages-final.log`, `source.json`,
 `tests.log` and `tests-optimized.log` (`EVIDENCE_FILES` in `check.py`; C262 finding G3; 44
 members before the C263/C264 registration added two builds and two controls, 54 before the
 item-4 controls added one build and three controls, 65 before the Field adapter added two builds
-and one control). It then
+and one control, 72 before the runtime guard added the two observations after the last Lean
+execution). It then
 re-runs the source binding, re-derives the sixteen emitted Lean files and requires byte equality
-with the ones Lean consumed, checks every status, the toolchain line, the installed package
-HEADs against `formal/lake-manifest.json`, the recorded `leanchecker` invocation, the axiom and
+with the ones Lean consumed, checks every status, the runtime guard (the replay observes the running
+Lean and every installed package, as `<name> <HEAD> <clean|dirty>`, before the first Lean execution in
+`toolchain.log` and `packages.log` and again after the last one in `toolchain-final.log` and
+`packages-final.log`; both toolchain lines must match the pinned release and commit and be
+byte-identical, and both package observations must list exactly the HEADs of
+`formal/lake-manifest.json` with clean worktrees; the receipt records the final observation as
+`lean_version_final`, `dependency_revisions_final` and `dependency_worktrees`; two observations
+are two instants and do not show that nothing changed between them), the recorded `leanchecker` invocation, the axiom and
 type inventories, the declaration census and the twelve controls, and writes `receipt.json` (which
 also carries the external input record `external_inputs`, and whose `scope_note`, in the default
 modules mode, names the external `Specifications.Field` among what `leanchecker` replayed; in
-`--fresh` mode it says the whole import closure was re-checked from scratch) with `log_sha256` over exactly those 72 files, created exclusively (`O_EXCL`, `O_NOFOLLOW`). The
+`--fresh` mode it says the whole import closure was re-checked from scratch) with `log_sha256` over exactly those 74 files, created exclusively (`O_EXCL`, `O_NOFOLLOW`). The
 evidence directory `.lake/torus-filtration-evidence` and the Field build directory
 `.lake/torus-filtration-spec` must not pre-exist.
 

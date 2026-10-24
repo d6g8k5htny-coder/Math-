@@ -49,7 +49,7 @@ class BridgeTests(unittest.TestCase):
         self.assertEqual(meta['theorems'],THEOREMS)
         self.assertEqual(meta['definitions'],DEFINITIONS)
         self.assertEqual(meta['scientific_effect'],'NONE')
-        self.assertEqual(meta['core_tree'],'38b6d1a7746075b560349d184a461933745c11ce')
+        self.assertEqual(meta['core_tree'],'fc0b11706d064b9de42331ee0a2464865107b87b')
 
     def test_residual_identity_and_exact_equality_class(self):
         count=0
@@ -146,6 +146,57 @@ class BridgeTests(unittest.TestCase):
                     'error: crash\nD2MomentBridge.a : True\nD2MomentBridge.b : False\n'):
             with self.assertRaises(ValueError):m.types(bad,names)
 
+
+class FinalRuntimeTests(unittest.TestCase):
+    """The companion's runtime is re-observed after its own last Lean run; earlier core evidence does not cover it."""
+    RELEASE='Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)'
+
+    def setUp(self):
+        spec=importlib.util.spec_from_file_location('final_runtime_check_d2_moment',SIDE/'check.py')
+        self.c=importlib.util.module_from_spec(spec);spec.loader.exec_module(self.c)
+        tmp=tempfile.TemporaryDirectory();self.addCleanup(tmp.cleanup);self.out=Path(tmp.name)
+        self.lock={'mathlib':'d'*40,'batteries':'e'*40}
+        observed={'lean_version':self.RELEASE,'dependency_revisions':dict(self.lock),'dependency_worktrees':'CLEAN','manifest_sha256':'a'*64}
+        self.core={'lean_version':self.RELEASE,'observations':{'preflight':dict(observed),'final':dict(observed)}}
+        for name in ('toolchain.log','toolchain-final.log'):(self.out/name).write_text(self.RELEASE+'\n')
+        self.packages({n:(h,'clean') for n,h in self.lock.items()})
+
+    def packages(self,rows):
+        (self.out/'packages-final.log').write_text(''.join(n+' '+h+' '+s+'\n' for n,(h,s) in rows.items()))
+
+    def refuse(self,message):
+        with self.assertRaisesRegex(ValueError,message):self.c.final_runtime(self.out,self.core,self.lock)
+
+    def test_final_observation_equal_to_core_passes(self):
+        self.assertEqual(self.c.final_runtime(self.out,self.core,self.lock)['dependency_worktrees'],'CLEAN')
+
+    def test_same_semver_other_commit_or_build_refused(self):
+        for text in (self.RELEASE.replace('5045d0056413266e57c625dcd7c365b10e377c52','0'*40),self.RELEASE.replace(', Release)',', Debug)')):
+            with self.subTest(text=text):
+                (self.out/'toolchain-final.log').write_text(text+'\n');self.refuse('differs from the core gate')
+
+    def test_runtime_changed_after_core_gate_refused(self):
+        other=self.RELEASE.replace('x86_64-unknown-linux-gnu','aarch64-unknown-linux-gnu')
+        (self.out/'toolchain-final.log').write_text(other+'\n');self.refuse('differs from the core gate: toolchain-final.log')
+
+    def test_dependency_moved_or_dirtied_after_core_gate_refused(self):
+        self.packages({'mathlib':('f'*40,'clean'),'batteries':('e'*40,'clean')});self.refuse('HEAD differs')
+        self.packages({'mathlib':('d'*40,'dirty'),'batteries':('e'*40,'clean')});self.refuse('not clean')
+        self.packages({'mathlib':('d'*40,'clean')});self.refuse('set differs')
+
+    def test_missing_final_observation_refused(self):
+        (self.out/'packages-final.log').unlink();self.refuse('missing final dependency observation')
+        self.packages({n:(h,'clean') for n,h in self.lock.items()});(self.out/'toolchain-final.log').unlink();self.refuse('toolchain-final.log')
+
+    def test_core_receipt_without_equal_observations_refused(self):
+        self.core.pop('observations');self.refuse('lacks equal preflight and final')
+
+    def test_replay_observes_after_the_last_lean_run_and_finish_requires_it(self):
+        replay=(SIDE/'replay.sh').read_text();inner=replay[:replay.index('\nINNER\n')]
+        self.assertGreater(inner.index('toolchain-final.log'),inner.rindex('lean -DwarningAsError=true'))
+        self.assertGreater(inner.index('packages-final.log'),inner.rindex('lean -DwarningAsError=true'))
+        source=(SIDE/'check.py').read_text();body=source[source.index('def finish(out):'):source.index('def main(')]
+        self.assertIn('final_runtime(out,',body)
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

@@ -10,6 +10,9 @@ name: Downstream hard-gate exact replay
         required: true
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 defaults:
   run:
     shell: bash
@@ -18,7 +21,7 @@ jobs:
     outputs:
       checked_commit: ${{ steps.checks-identity.outputs.checked_commit }}
     name: downstream-replay
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -157,7 +160,7 @@ jobs:
     name: math-downstream-gates
     if: ${{ always() }}
     needs: [checks, formal]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1

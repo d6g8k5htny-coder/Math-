@@ -1053,6 +1053,176 @@ class Audit(unittest.TestCase):
         self.assertIn('def auditPrefix : Name := `UniversalLaw.Spec.Control', ctrl)
 
 
+GOOD_VERSION = f'Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit {check.LEAN_COMMIT}, Release)'
+LAST_CONTROL = 'control_environment_hidden'  # the last Lean run of negative_controls()
+
+
+def git_fixture(path, *args):
+    return subprocess.run(['git', '-C', str(path), '-c', 'user.name=t', '-c', 'user.email=t@t', '-c', 'commit.gpgsign=false', *args],
+                          capture_output=True, text=True, check=True).stdout
+
+
+def dependency_checkouts(packet, names):
+    """Real disposable git checkouts under <packet>/.lake/packages, one commit each; {name: HEAD}."""
+    heads = {}
+    for name in names:
+        pkg = packet / '.lake' / 'packages' / name
+        pkg.mkdir(parents=True)
+        git_fixture(pkg, 'init', '-q')
+        (pkg / 'lakefile.toml').write_text('name = "' + name + '"\n')
+        git_fixture(pkg, 'add', '-A')
+        git_fixture(pkg, 'commit', '-q', '-m', 'pin')
+        heads[name] = git_fixture(pkg, 'rev-parse', 'HEAD').strip()
+    return heads
+
+
+def audit_log(lines, refused):
+    return ''.join(f'Environment.lean:1:0: info: AUDIT {line}\n' for line in lines) + f'Environment.lean:1:0: info: AUDIT END {len(lines)} {refused}\n'
+
+
+class FakeLean:
+    """Stands in for check.run, through which every Lean execution of execute() passes: answers
+    each label with output of the shape check.py parses, writes the log as run() does, records
+    the label sequence, and calls `hook(label)` first so that a test can change the runtime during
+    a chosen run. Never starts Lean; nothing it prints is evidence about anything."""
+
+    def __init__(self, info=None, final_version=GOOD_VERSION, hook=None):
+        self.info, self.hook, self.labels = info, hook, []
+        self.versions = {'version': GOOD_VERSION, 'version-final': final_version}
+
+    def __call__(self, command, label, out, cwd, env, expect_success=True, timeout=1800):
+        self.labels.append(label)
+        if self.hook:
+            self.hook(label)
+        text = self.answer(command, label)
+        (out / (label + '.log')).write_text(text, encoding='utf-8')
+        return text
+
+    def answer(self, command, label):
+        c = check.CONTROL_NS
+        if label in self.versions:
+            return 'info: toolchain already up to date\n' + self.versions[label] + '\n'
+        if label == 'axioms':
+            return ''.join(f"'{n}' does not depend on any axioms\n" for n in re.findall(r'^#print axioms (\S+)$', Path(command[-1]).read_text(), re.M))
+        if label == 'types':
+            return ''.join(f'{n} : Prop\n' for n in re.findall(r'^#check (\S+)$', Path(command[-1]).read_text(), re.M))
+        if label == 'environment':
+            kinds = {'def_prop': 'statement', 'structure': 'structure', None: 'auxiliary'}
+            return audit_log([f'{kinds[d["kind"]]} {d["name"]}' for m in check.MODULES for d in self.info['scans'][m]], 0)
+        if label == 'control_type_error':
+            return 'ControlTypeError.lean:6:30: error: type mismatch\n  1\nhas type\n  Nat : Type\n'
+        if label == 'control_missing_declaration':
+            return 'ControlMissing.lean:2:7: error(lean.unknownIdentifier): Unknown identifier `x`\n'
+        if label == 'control_environment_honest':
+            return audit_log([f'statement {c}IsTwo', f'structure {c}Iface', f'structure {c}Ext', f'auxiliary {c}helper', f'auxiliary {c}E',
+                              f'generated {c}Iface.mk'], 0)
+        if label == 'control_environment_hidden':
+            return audit_log([f'REFUSED:theorem {c}smuggledBetweenStrings', f'REFUSED:proof {c}proofAsDef', f'REFUSED:axioms:sorryAx {c}usesSorry',
+                              f'REFUSED:axiom {c}hidden', f'REFUSED:instance {c}controlInstance', f'statement {c}Opener', f'statement {c}Closer',
+                              f'statement {c}HiddenIndented'], 5) + 'Environment.lean:1:0: error: AUDIT REFUSED 5 constant(s); see the AUDIT lines\n'
+        return ''  # build, leanchecker, control_injected_theorem: a clean log
+
+
+@unittest.skipUnless(shutil.which('git'), 'git not available')
+class FinalObservation(Base):
+    """G4 placement: after its last Lean run execute() re-observes the exact Lean release and the
+    dependency checkouts and requires both to equal the preflight observation. Lean is never run
+    (check.run is a FakeLean); the dependency checkouts are real disposable git repositories, so the
+    real dependency_state() and git decide. Each refusal test fails against a checker that observes
+    the runtime only before the build."""
+
+    def setUp(self):
+        super().setUp()
+        self.heads = dependency_checkouts(self.f.packet, ('batteries', 'mathlib'))
+        self.out = Path(self.f.tmp) / 'evidence'
+        self.out.mkdir()
+
+    def observe(self, final_version=GOOD_VERSION):
+        fake = FakeLean(final_version=final_version)
+        with mock.patch.object(check, 'run', fake):
+            return check.final_observation('/nonexistent/lake', self.f.packet, {}, self.out, GOOD_VERSION, dict(self.heads)), fake
+
+    def execute(self, **fake_args):
+        info = dict(self.f.run(), dependency_revisions=dict(self.heads))  # the fixture lock's revisions name no real checkout
+        fake = FakeLean(info, **fake_args)
+        with mock.patch.object(check, 'run', fake), mock.patch.object(check, 'lake_binary', return_value='/nonexistent/lake'):
+            return check.execute(self.f.packet, self.f.repo, info, True), fake
+
+    def move_head(self, label, name='mathlib'):
+        if label == LAST_CONTROL:
+            git_fixture(self.f.packet / '.lake' / 'packages' / name, 'commit', '-q', '--allow-empty', '-m', 'moved during the last Lean run')
+
+    def make_dirty(self, label, name='batteries'):
+        if label == LAST_CONTROL:
+            (self.f.packet / '.lake' / 'packages' / name / 'lakefile.toml').write_text('name = "edited during the last Lean run"\n')
+
+    def assertExecuteRefused(self, fragment, **fake_args):
+        with self.assertRaises(ValueError) as ctx:
+            self.execute(**fake_args)
+        self.assertIn(fragment, str(ctx.exception))
+        self.assertFalse((self.f.packet / '.lake' / 'evidence' / 'receipt.json').exists(), 'a refused execution writes no receipt')
+
+    def test_unchanged_runtime_is_observed_equal(self):
+        obs, fake = self.observe()
+        self.assertEqual(obs, {'lean_version': GOOD_VERSION, 'dependency_revisions': self.heads, 'dependency_worktrees': 'CLEAN'})
+        self.assertEqual(fake.labels, ['version-final'])
+        self.assertTrue((self.out / 'version-final.log').is_file())
+
+    def test_final_lean_version_differs(self):
+        for bad, fragment in ((GOOD_VERSION.replace(check.LEAN_COMMIT, 'f' * 40), 'not the pinned release'),
+                              (GOOD_VERSION.replace('Release', 'Debug'), 'not the pinned release'),
+                              (GOOD_VERSION.replace('4.34.1', '4.34.2'), 'not the pinned release'),
+                              # the pinned release on another platform passes check_lean_version; only the preflight equality refuses it
+                              (GOOD_VERSION.replace('x86_64-unknown-linux-gnu', 'aarch64-unknown-linux-gnu'), 'changed during execution')):
+            with self.subTest(final=bad):
+                with self.assertRaises(ValueError) as ctx:
+                    self.observe(bad)
+                self.assertIn(fragment, str(ctx.exception))
+
+    def test_dependency_head_moves(self):
+        self.move_head(LAST_CONTROL)
+        with self.assertRaises(ValueError) as ctx:
+            self.observe()
+        self.assertIn('dependency revisions', str(ctx.exception))
+
+    def test_dependency_worktree_becomes_dirty(self):
+        self.make_dirty(LAST_CONTROL)
+        with self.assertRaises(ValueError) as ctx:
+            self.observe()
+        self.assertIn('dependency worktree is not clean: batteries', str(ctx.exception))
+        git_fixture(self.f.packet / '.lake' / 'packages' / 'batteries', 'checkout', '--', '.')
+        self.observe()
+        (self.f.packet / '.lake' / 'packages' / 'mathlib' / 'untracked.lean').write_text('-- untracked\n')
+        with self.assertRaises(ValueError) as ctx:
+            self.observe()
+        self.assertIn('dependency worktree is not clean: mathlib', str(ctx.exception))
+
+    def test_execute_receipt_records_equal_observations_after_the_last_lean_run(self):
+        receipt, fake = self.execute()
+        preflight = {'lean_version': GOOD_VERSION, 'dependency_revisions': self.heads, 'dependency_worktrees': 'CLEAN'}
+        self.assertEqual(receipt['observations'], {'preflight': preflight, 'final': preflight})
+        self.assertEqual((receipt['lean_version'], receipt['dependency_revisions'], receipt['dependency_worktrees']),
+                         (GOOD_VERSION, self.heads, 'CLEAN'), 'the existing receipt keys are kept as they were')
+        self.assertEqual(fake.labels[0], 'version')
+        self.assertEqual(fake.labels[-1], 'version-final', 'the final observation follows every other Lean run')
+        self.assertEqual(fake.labels.count('version-final'), 1)
+        self.assertIn(LAST_CONTROL, fake.labels)
+        self.assertIn('version-final.log', receipt['logs'])
+        written = json.loads((self.f.packet / '.lake' / 'evidence' / 'receipt.json').read_text(encoding='utf-8'))
+        self.assertEqual(written['observations']['final'], written['observations']['preflight'])
+
+    def test_execute_refuses_a_lean_version_change(self):
+        self.assertExecuteRefused('not the pinned release', final_version=GOOD_VERSION.replace(check.LEAN_COMMIT, '0' * 40))
+        self.assertExecuteRefused('not the pinned release', final_version=GOOD_VERSION.replace('Release', 'Debug'))
+        self.assertExecuteRefused('changed during execution', final_version=GOOD_VERSION.replace('x86_64-unknown-linux-gnu', 'aarch64-apple-darwin'))
+
+    def test_execute_refuses_a_dependency_head_moved_during_the_last_lean_run(self):
+        self.assertExecuteRefused('dependency revisions', hook=self.move_head)
+
+    def test_execute_refuses_a_dependency_worktree_dirtied_during_the_last_lean_run(self):
+        self.assertExecuteRefused('dependency worktree is not clean: batteries', hook=self.make_dirty)
+
+
 LAKE = check.lake_binary()
 
 

@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "object": "D1-CHAIN-RECONCILIATION-20260928-v1",
+  "record": "RECOVERED_REVIEW_TECHNICAL_SNAPSHOTS_20261017",
+  "recorded_at": "2026-10-17T23:19:51Z",
+  "source_parent_commit": "67a072725a669e5cae03867343827164fcca7348",
+  "actual_source_writer": "OpenAI/Codex /root/external_claim_check",
+  "design_coauthor_coordination": "OpenAI/Codex /root",
+  "purpose": "Preserve attributed historical reported verdicts with explicit redaction and exact reviewed-source identities; do not activate new coverage.",
+  "raw_body_hash_is_not_a_public_snapshot_hash": true,
+  "redacted_snapshots_do_not_claim_exact_full_native_body_custody": true,
+  "active_coverage_guard": "X3, X4 and X5 are absent from interfaces[].reviews. No ignored qualification flag is used as the guard.",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0,
+  "records": {
+    "X3": {
+      "native_comment": {
+        "id": 5841317882,
+        "url": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841317882",
+        "created_at": "2026-09-26T00:05:18Z",
+        "updated_at": "2026-09-26T00:05:18Z"
+      },
+      "native_body": {
+        "encoding": "UTF-8 decoded GitHub comment body, without newline normalization or an added newline",
+        "bytes": 6143,
+        "sha256": "166aafd70a5bc8ae7ca1f5034e20e06bb566601a19778a97ccd895b7fc085904"
+      },
+      "snapshot": {
+        "path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X3.md",
+        "bytes": 6138,
+        "sha256": "54bfe66d14b854a35e3f9679cb592eb238f36f4751b6cac1bca0206ea4169c0d",
+        "git_blob": "b5662098d08ad429cf0bb9e37e18f16722a11bf4",
+        "kind": "EXPLICITLY_REDACTED_TECHNICAL_SNAPSHOT"
+      },
+      "transformation": {
+        "operation": "Replace only the bare Drive-document identifier token between backticks after Drive in line 3 with [REDACTED DRIVE DOCUMENT ID].",
+        "all_other_characters_unchanged": true,
+        "added_newline": false
+      },
+      "reported_verdict": "ACCEPT",
+      "reported_depth": "full",
+      "attributed_provider": "xAI",
+      "attributed_model": "Grok 4.7 via Cursor",
+      "attributed_session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9",
+      "attribution_is_not_attested_execution_or_organizational_independence": true,
+      "reviewed_source": {
+        "key": "P",
+        "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "bytes": 40261,
+        "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+        "lines": 494,
+        "reviewed_commit": null
+      },
+      "reported_reviewed_ranges": [
+        [
+          69,
+          113
+        ]
+      ],
+      "reported_exposure": "Exposure: the same parent bytes; Section 3 lines 69–113, equations (3.1)–(3.5); Section 2 lines 59–67 only as the positive-spectrum input named below. Sections 5 and later, the normalizer, the cap theorem, the coefficient, and RN status were not reviewed and are not accepted.",
+      "historical_interface": "A2",
+      "coverage_effect": "NO_NEW_ACTIVE_CREDIT",
+      "qualification": "PROVISIONAL: exact-source/scope and custody qualification remains for eligible technical review; excluded from active interfaces[].reviews.",
+      "scientific_effect": "NONE",
+      "organizational_independence_credit": 0
+    },
+    "X4": {
+      "native_comment": {
+        "id": 5841289285,
+        "url": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841289285",
+        "created_at": "2026-09-26T00:01:35Z",
+        "updated_at": "2026-09-26T00:01:35Z"
+      },
+      "native_body": {
+        "encoding": "UTF-8 decoded GitHub comment body, without newline normalization or an added newline",
+        "bytes": 6525,
+        "sha256": "8a9ee855c18e7ccf7a92832095da9980cf6211c4842bec870b0e5fde8b6d99d6"
+      },
+      "snapshot": {
+        "path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X4.md",
+        "bytes": 6520,
+        "sha256": "8efa402605417136f1157eda30014d14e0c6f895b497da6f09cd401f579c7d60",
+        "git_blob": "b1b934ff4404e05294921615c69e66fa53cd4758",
+        "kind": "EXPLICITLY_REDACTED_TECHNICAL_SNAPSHOT"
+      },
+      "transformation": {
+        "operation": "Replace only the bare Drive-document identifier token between backticks after Drive in line 3 with [REDACTED DRIVE DOCUMENT ID].",
+        "all_other_characters_unchanged": true,
+        "added_newline": false
+      },
+      "reported_verdict": "ACCEPT",
+      "reported_depth": "full",
+      "attributed_provider": "xAI",
+      "attributed_model": "Grok 4.7 via Cursor",
+      "attributed_session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9",
+      "attribution_is_not_attested_execution_or_organizational_independence": true,
+      "reviewed_source": {
+        "key": "P",
+        "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "bytes": 40261,
+        "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+        "lines": 494,
+        "reviewed_commit": null
+      },
+      "reported_reviewed_ranges": [
+        [
+          115,
+          136
+        ]
+      ],
+      "reported_exposure": "Exposure: the same parent bytes as the Section 9 review; Section 4 lines 115–136, the Section 3 sentences those lines cite (93–94, 103–110), and Section 2 lines 59–67. Sections 5–7, the normalizer, the cap theorem, Theorem A, Theorem C, equation (15.2), and RN/24-jet status were not reviewed and are not accepted.",
+      "historical_interface": "A4",
+      "coverage_effect": "NO_NEW_ACTIVE_CREDIT",
+      "qualification": "PROVISIONAL: exact-source/scope and custody qualification remains for eligible technical review; excluded from active interfaces[].reviews.",
+      "scientific_effect": "NONE",
+      "organizational_independence_credit": 0
+    },
+    "X5": {
+      "native_comment": {
+        "id": 5841352633,
+        "url": "https://github.com/d6g8k5htny-coder/main/pull/112#issuecomment-5841352633",
+        "created_at": "2026-09-26T00:09:41Z",
+        "updated_at": "2026-09-26T00:09:41Z"
+      },
+      "native_body": {
+        "encoding": "UTF-8 decoded GitHub comment body, without newline normalization or an added newline",
+        "bytes": 8432,
+        "sha256": "63a4636c9af69cd76421c7f99bf0918a360ec2bed22ee3d91a3a41a308c7f803"
+      },
+      "snapshot": {
+        "path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_X5.md",
+        "bytes": 8427,
+        "sha256": "b9796a5fe789832bc56b459c01078067572074dceff1cc85109b9e05063c7903",
+        "git_blob": "d1efa5cb8ebd9e648d776203f7bd4150521e529d",
+        "kind": "EXPLICITLY_REDACTED_TECHNICAL_SNAPSHOT"
+      },
+      "transformation": {
+        "operation": "Replace only the bare Drive-document identifier token between backticks after Drive in line 3 with [REDACTED DRIVE DOCUMENT ID].",
+        "all_other_characters_unchanged": true,
+        "added_newline": false
+      },
+      "reported_verdict": "ACCEPT",
+      "reported_depth": "full",
+      "attributed_provider": "xAI",
+      "attributed_model": "Grok 4.7 via Cursor",
+      "attributed_session": "bc-9142fddf-0d94-5ecb-a764-00d3fba0c5d9",
+      "attribution_is_not_attested_execution_or_organizational_independence": true,
+      "reviewed_source": {
+        "key": "P",
+        "path": "imports/lifetime_parent_20260925/UNIFORM_MATRIX_CAP_AND_LIFETIME.md",
+        "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+        "bytes": 40261,
+        "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+        "lines": 494,
+        "reviewed_commit": null
+      },
+      "reported_reviewed_ranges": [
+        [
+          138,
+          182
+        ]
+      ],
+      "reported_exposure": "Exposure: the same parent bytes; Section 5 lines 138–182, equations (5.1)–(5.5); the Section 3 and Section 4 sentences named below, already reviewed. Section 6 and later, the cap theorem, Theorem A, Theorem C, equation (15.2), and RN status were not reviewed and are not accepted.",
+      "historical_interface": "A3",
+      "coverage_effect": "NO_NEW_ACTIVE_CREDIT",
+      "qualification": "PROVISIONAL: exact-source/scope and custody qualification remains for eligible technical review; excluded from active interfaces[].reviews.",
+      "scientific_effect": "NONE",
+      "organizational_independence_credit": 0
+    },
+    "G2": {
+      "native_comment": {
+        "id": 5841032512,
+        "url": "https://github.com/d6g8k5htny-coder/Math-/pull/37#issuecomment-5841032512",
+        "created_at": "2026-09-25T23:27:01Z",
+        "updated_at": "2026-09-25T23:28:27Z"
+      },
+      "native_body": {
+        "encoding": "UTF-8 decoded GitHub comment body, without newline normalization or an added newline",
+        "bytes": 8413,
+        "sha256": "99db30edefaf7b5e006ea7e1b8c5afa7ab7c6552e98eaff5e27fce68de5ad5a1"
+      },
+      "snapshot": {
+        "path": "reviews/d1_chain_reconciliation_20260928/RECOVERED_G2.md",
+        "bytes": 7458,
+        "sha256": "124d0acd2321c37e590325432633b7c57f45d896cf760301ec955c29723e1abd",
+        "git_blob": "9e82dce83d81345b912a27cbc44fb913155f0302",
+        "kind": "EXPLICITLY_REDACTED_TECHNICAL_SNAPSHOT"
+      },
+      "transformation": {
+        "operation": "Replace the single Account wrapper table row with | Account wrapper | [REDACTED NONTECHNICAL ACCOUNT WRAPPER] |, preserving its newline; replace the final single-line interactive Cursor HTML footer and its trailing whitespace with [OMITTED NONTECHNICAL INTERACTIVE CURSOR HTML FOOTER].",
+        "substantive_review_and_limitations_preserved": true,
+        "exact_full_native_body_custody_claim": false
+      },
+      "reported_verdict": "ACCEPT",
+      "reported_depth": "full",
+      "attributed_provider": "xAI",
+      "attributed_model": "Grok 4.7 via Cursor",
+      "attributed_session": "bc-2e403f48-c4ce-4d4b-ad0d-30562c0e039d",
+      "attribution_is_not_attested_execution_or_organizational_independence": true,
+      "reviewed_source": {
+        "key": "E2",
+        "path": "reviews/d1_section9_borel_repair_20260925/REPAIR.md",
+        "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+        "bytes": 9062,
+        "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+        "reviewed_commit": "694b7ff3047dd8e52817b1432d40c99ea0135a08"
+      },
+      "reported_reviewed_ranges": "all",
+      "reported_exposure": "Full v1.1 Section 9 repair only; exact source/exclusions remain in the captured text.",
+      "historical_interface": "D1-B-E2",
+      "coverage_effect": "NO_NEW_ACTIVE_CREDIT",
+      "qualification": "DOCUMENTARY SUPPLEMENT ONLY: existing local_records.G2 and existing D1-B-E2 coverage are unchanged; this capture adds no authority or credit.",
+      "scientific_effect": "NONE",
+      "organizational_independence_credit": 0
+    }
+  }
+}
