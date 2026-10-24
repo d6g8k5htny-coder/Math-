@@ -249,7 +249,7 @@ class ElderLowerAllDWorkflow(unittest.TestCase):
         self.assertIn("timeout-minutes: 10\n", self.workflow)
         self.assertIn("actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1", self.workflow)
         self.assertIn("persist-credentials: false", self.workflow)
-        self.assertIn("actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97", self.workflow)
+        self.assertIn("actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0", self.workflow)
         self.assertIn("PYTHONDONTWRITEBYTECODE: '1'", self.workflow)
 
     def test_protocol_tests_are_wired_for_both_outer_modes(self):
