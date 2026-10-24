@@ -1,0 +1,579 @@
+# Prospective C261A successor candidate; no runtime admission until exact external declaration/readback.
+# Actual source pickup: Math451/6206234169; UUID294fee4a-0d27-4345-aa55-a94158531285.
+# SOURCE_GUARD_UTC=2026-10-16T02:50:00Z
+# DOCUMENTARY_TARGET_UTC=2026-10-16T03:35:00Z
+# LEASE_UNTIL_UTC=2026-10-16T03:45:00Z
+# Complete final workflow/resource/source review and immutable head/tree/parent bindings precede ref/PR creation.
+# Manifest state describes the mandatory prepublication contract; this file cannot establish its own external admission.
+# Original run38400993873/attempt1 remains FAILED; old guards/PR/event/run remain historical.
+name: Actual all-orders smooth source carrier hosted qualification
+
+'on':
+  pull_request:
+    types: [opened]
+    paths:
+      - 'frontiers/source_smooth_realization_20261011/**'
+      - '.github/workflows/source-smooth-realization.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-smooth-realization-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  first-leaf:
+    # Only the exact externally declared original opened/attempt1 route is eligible.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: '2'
+      ADMISSION_STATE: 'DECLARED_BEFORE_REF_OR_PR_PUBLICATION'
+      CLAIM_UUID: '294fee4a-0d27-4345-aa55-a94158531285'
+      SOURCE_GUARD_UTC: '2026-10-16T02:50:00Z'
+      EXPECTED_HEAD_REF: 'codex/c261a-hosted-successor-20261016-root01a11cbf'
+      HISTORICAL_MANIFEST_CLAIM_UUID: 'e2f875ef-55a0-46d5-b85d-9b94cb6bc6c6'
+      EXPECTED_SOURCE_LIST_SHA256: '1c8b5045a5260e5da03c5da6042d6c92681e26f05935f13f362084fe3d1572a6'
+      EXPECTED_SOURCE_MANIFEST_SHA256: 'd3fe096b830c4c5bf2fff47a2a2aa528ae2a79d4cb9816afb6be536685d8d9ca'
+      EXPECTED_BASE_SHA: '319f9c45f66dbcce4a71b9c2f3e0fb62a666bfec'
+      EXPECTED_BASE_TREE: '78300962726873d85d5682a7be7d6beb7aebe63e'
+      EXPECTED_BASE_REF: 'main'
+    defaults:
+      run:
+        shell: bash
+        working-directory: frontiers/source_smooth_realization_20261011
+    steps:
+      - name: Record and guard the first opened event before checkout
+        id: precheckout
+        timeout-minutes: 1
+        working-directory: ${{ runner.temp }}
+        env:
+          EVENT_ACTION: ${{ github.event.action }}
+          EVENT_NUMBER: ${{ github.event.pull_request.number }}
+          EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
+          EVENT_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          EVENT_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          EVENT_BASE: ${{ github.event.pull_request.base.ref }}
+          EVENT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EVENT_WORKFLOW_SHA: ${{ github.workflow_sha }}
+        run: |
+          set -u -o pipefail
+          set +e
+          evidence_dir="$RUNNER_TEMP/source-smooth-realization-precheckout"
+          mkdir -p "$evidence_dir" || exit 80
+          phase_start=$SECONDS
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/precheckout-guard-start.txt"
+          (
+            set -euo pipefail
+            printf 'claim_uuid=%s\nstrict_source_guard=%s\nrun=%s\nattempt=%s\nevent=%s\naction=%s\npr=%s\nref=%s\nevent_head=%s\nevent_head_ref=%s\nevent_head_repository=%s\nevent_base=%s\nevent_base_sha=%s\nexpected_merge_sha=%s\nworkflow_git_sha=%s\nworkflow_content_sha256=UNAVAILABLE_BEFORE_CHECKOUT\nexternal_head_tree_workflow_binding=EXTERNAL_RECORD_REQUIRED_NOT_ESTABLISHED_BY_WORKFLOW\nthreads=%s\ncheckout_status=NOT_ESTABLISHED\nhistorical_manifest_claim_uuid=%s\nhistorical_manifest_claim_is_current_admission=false\n' "$CLAIM_UUID" "$SOURCE_GUARD_UTC" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$GITHUB_EVENT_NAME" "$EVENT_ACTION" "$EVENT_NUMBER" "$GITHUB_REF" "$EVENT_HEAD" "$EVENT_HEAD_REF" "$EVENT_HEAD_REPOSITORY" "$EVENT_BASE" "$EVENT_BASE_SHA" "$GITHUB_SHA" "$EVENT_WORKFLOW_SHA" "$LEAN_NUM_THREADS" "$HISTORICAL_MANIFEST_CLAIM_UUID" > "$evidence_dir/context.txt"
+            test "$ADMISSION_STATE" = DECLARED_BEFORE_REF_OR_PR_PUBLICATION
+            [[ "$CLAIM_UUID" =~ ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$ ]]
+            test "$(date -u +%s%3N)" -lt "$(date -u -d "$SOURCE_GUARD_UTC" +%s%3N)"
+            test "$GITHUB_EVENT_NAME" = pull_request
+            test "$EVENT_ACTION" = opened
+            test "$GITHUB_RUN_ATTEMPT" = 1
+            test "$EVENT_HEAD_REF" = "$EXPECTED_HEAD_REF"
+            test "$EVENT_HEAD_REPOSITORY" = d6g8k5htny-coder/Math-
+            test "$EVENT_BASE" = "$EXPECTED_BASE_REF"
+            test "$EVENT_BASE_SHA" = "$EXPECTED_BASE_SHA"
+            [[ "$EVENT_NUMBER" =~ ^[0-9]+$ ]]
+            [[ "$EVENT_HEAD" =~ ^[0-9a-f]{40}$ ]]
+            test "$GITHUB_REF" = "refs/pull/$EVENT_NUMBER/merge"
+          ) > "$evidence_dir/precheckout-guard.stdout" 2> "$evidence_dir/precheckout-guard.stderr"
+          status=$?
+          printf '%s\n' "$status" > "$evidence_dir/precheckout-guard-exit.txt"
+          printf '%s\n' "$((SECONDS-phase_start))" > "$evidence_dir/precheckout-guard-seconds.txt"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/precheckout-guard-end.txt"
+          cat "$evidence_dir/precheckout-guard.stdout"
+          cat "$evidence_dir/precheckout-guard.stderr" >&2
+          exit "$status"
+      - timeout-minutes: 1
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        id: checkout
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Validate one fresh admitted source checkout before setup
+        timeout-minutes: 1
+        id: sources
+        working-directory: ${{ runner.temp }}
+        env:
+          EVENT_ACTION: ${{ github.event.action }}
+          EVENT_NUMBER: ${{ github.event.pull_request.number }}
+          EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
+          EVENT_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          EVENT_HEAD_REPOSITORY: ${{ github.event.pull_request.head.repo.full_name }}
+          EVENT_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          EVENT_BASE: ${{ github.event.pull_request.base.ref }}
+          EVENT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -u -o pipefail
+          set +e
+          evidence_dir="$RUNNER_TEMP/source-smooth-realization-precheckout"
+          mkdir -p "$evidence_dir" || exit 80
+          phase_start=$SECONDS
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/source-guard-start.txt"
+          (
+            set -euo pipefail
+            printf 'claim_uuid=%s\nstrict_source_guard=%s\nevent_head_ref=%s\nworkflow_git_sha=%s\nexternal_head_tree_workflow_binding=EXTERNAL_RECORD_REQUIRED_NOT_ESTABLISHED_BY_WORKFLOW\nhistorical_manifest_claim_uuid=%s\nhistorical_manifest_claim_is_current_admission=false\n' "$CLAIM_UUID" "$SOURCE_GUARD_UTC" "$EVENT_HEAD_REF" "$EVENT_WORKFLOW_SHA" "$HISTORICAL_MANIFEST_CLAIM_UUID" > "$evidence_dir/source-guard-context.txt"
+            sha256sum "$GITHUB_WORKSPACE/.github/workflows/source-smooth-realization.yml" > "$evidence_dir/workflow-source-guard-actual.sha256"
+            test ! -L "$GITHUB_WORKSPACE/frontiers"
+            test ! -L "$GITHUB_WORKSPACE/frontiers/source_smooth_realization_20261011"
+            cd "$GITHUB_WORKSPACE/frontiers/source_smooth_realization_20261011"
+            set -euo pipefail
+            mkdir -p .lake/evidence
+            date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/start-utc.txt
+            git rev-parse HEAD > .lake/evidence/checkout-sha.txt
+            git rev-parse HEAD^{tree} > .lake/evidence/checkout-tree.txt
+            git rev-parse HEAD^1 > .lake/evidence/checkout-base-parent.txt
+            git rev-parse HEAD^2 > .lake/evidence/checkout-head-parent.txt
+            printf 'event=%s\naction=%s\npr=%s\nref=%s\nhead=%s\nbase=%s\nbase_sha=%s\nmerge=%s\nrun=%s\nattempt=%s\nthreads=%s\n' "$GITHUB_EVENT_NAME" "$EVENT_ACTION" "$EVENT_NUMBER" "$GITHUB_REF" "$EVENT_HEAD" "$EVENT_BASE" "$EVENT_BASE_SHA" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$LEAN_NUM_THREADS" > .lake/evidence/context.txt
+            test "$ADMISSION_STATE" = DECLARED_BEFORE_REF_OR_PR_PUBLICATION
+            [[ "$CLAIM_UUID" =~ ^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$ ]]
+            test "$(date -u +%s%3N)" -lt "$(date -u -d "$SOURCE_GUARD_UTC" +%s%3N)"
+            test "$GITHUB_EVENT_NAME" = pull_request
+            test "$GITHUB_RUN_ATTEMPT" = 1
+            test "$EVENT_ACTION" = opened
+            test "$EVENT_HEAD_REF" = "$EXPECTED_HEAD_REF"
+            test "$EVENT_HEAD_REPOSITORY" = d6g8k5htny-coder/Math-
+            [[ "$EVENT_NUMBER" =~ ^[0-9]+$ ]]
+            test "$GITHUB_REF" = "refs/pull/$EVENT_NUMBER/merge"
+            test "$EVENT_BASE" = "$EXPECTED_BASE_REF"
+            test "$EVENT_BASE_SHA" = "$EXPECTED_BASE_SHA"
+            [[ "$EVENT_HEAD" =~ ^[0-9a-f]{40}$ ]]
+            [[ "$EVENT_BASE_SHA" =~ ^[0-9a-f]{40}$ ]]
+            test "$(cat .lake/evidence/checkout-sha.txt)" = "$GITHUB_SHA"
+            test "$(cat .lake/evidence/checkout-base-parent.txt)" = "$EVENT_BASE_SHA"
+            test "$(cat .lake/evidence/checkout-head-parent.txt)" = "$EVENT_HEAD"
+            git rev-parse 'HEAD^1^{tree}' > .lake/evidence/base-tree.txt
+            git rev-parse 'HEAD^2^{tree}' > .lake/evidence/selected-head-tree.txt
+            test "$(cat .lake/evidence/base-tree.txt)" = "$EXPECTED_BASE_TREE"
+            cmp -s .lake/evidence/checkout-tree.txt .lake/evidence/selected-head-tree.txt
+            git cat-file -p "$EVENT_HEAD" | awk '$1 == "parent" { print $2 }' > .lake/evidence/selected-head-parents.txt
+            printf '%s\n' "$EXPECTED_BASE_SHA" | cmp -s - .lake/evidence/selected-head-parents.txt
+            sha256sum "$(git rev-parse --show-toplevel)/.github/workflows/source-smooth-realization.yml" > .lake/evidence/workflow-actual.sha256
+            [[ "$EXPECTED_SOURCE_LIST_SHA256" =~ ^[0-9a-f]{64}$ ]]
+            test ! -e .lake/build
+            command -v jq timeout sha256sum cmp awk find sort
+            printf 'leanprover/lean4:v4.34.1\n' | cmp -s - lean-toolchain
+            test "$(wc -l < SOURCE_SHA256SUMS)" -eq 20
+            if grep -Evq '^[0-9a-f]{64}  [A-Za-z0-9._/-]+$' SOURCE_SHA256SUMS; then exit 82; fi
+            cp SOURCE_SHA256SUMS .lake/evidence/SOURCE_SHA256SUMS
+            sha256sum SOURCE_SHA256SUMS > .lake/evidence/checksum-list-identity-before.txt
+            test "$(sha256sum SOURCE_SHA256SUMS | cut -d' ' -f1)" = "$EXPECTED_SOURCE_LIST_SHA256"
+            test "$(sha256sum SOURCE_MANIFEST.json | cut -d' ' -f1)" = "$EXPECTED_SOURCE_MANIFEST_SHA256"
+            jq -e --arg claim "$CLAIM_UUID" --arg base "$EXPECTED_BASE_SHA" --arg tree "$EXPECTED_BASE_TREE" ' .package == "frontiers/source_smooth_realization_20261011" and .state == "DECLARED_BEFORE_REF_OR_PR_PUBLICATION" and .source_claim.uuid == $claim and .parent.commit == $base and .parent.tree == $tree and (.files | length) == 19 and ([.files[].bytes] | add) == 97004 ' SOURCE_MANIFEST.json > .lake/evidence/source-manifest-contract.txt
+            cp SOURCE_MANIFEST.json .lake/evidence/SOURCE_MANIFEST.json
+            cp SourceSmoothAxiomAudit.lean .lake/evidence/SourceSmoothAxiomAudit.lean
+            awk '{ print $2 }' SOURCE_SHA256SUMS | LC_ALL=C sort > .lake/evidence/list-members.txt
+            jq -r '.files[].path' SOURCE_MANIFEST.json > .lake/evidence/payload-members.txt
+            { cat .lake/evidence/payload-members.txt; printf '%s\n' SOURCE_MANIFEST.json; } | LC_ALL=C sort > .lake/evidence/manifest-and-payload-members.txt
+            cmp -s .lake/evidence/list-members.txt .lake/evidence/manifest-and-payload-members.txt
+            { cat .lake/evidence/list-members.txt; printf '%s\n' SOURCE_SHA256SUMS; } | LC_ALL=C sort > .lake/evidence/package-members-required.txt
+            test "$(wc -l < .lake/evidence/package-members-required.txt)" -eq 21
+            git ls-files -- . | LC_ALL=C sort > .lake/evidence/package-members-tracked.txt
+            cmp -s .lake/evidence/package-members-required.txt .lake/evidence/package-members-tracked.txt
+            find . -path './.lake' -prune -o -type f -printf '%P\n' | LC_ALL=C sort > .lake/evidence/package-members-filesystem.txt
+            cmp -s .lake/evidence/package-members-required.txt .lake/evidence/package-members-filesystem.txt
+            # Preserve the complete current base: exactly 21 package leaves and this workflow may be added.
+            repo_root=$(git rev-parse --show-toplevel)
+            { sed 's|^|frontiers/source_smooth_realization_20261011/|' .lake/evidence/package-members-required.txt; printf '%s\n' .github/workflows/source-smooth-realization.yml; } | LC_ALL=C sort > .lake/evidence/publication-paths-required.txt
+            git -C "$repo_root" diff --name-only "$EXPECTED_BASE_SHA" HEAD^2 | LC_ALL=C sort > .lake/evidence/publication-paths-actual.txt
+            cmp -s .lake/evidence/publication-paths-required.txt .lake/evidence/publication-paths-actual.txt
+            test "$(wc -l < .lake/evidence/publication-paths-actual.txt)" -eq 22
+            git -C "$repo_root" diff --name-status "$EXPECTED_BASE_SHA" HEAD^2 > .lake/evidence/publication-statuses.txt
+            if grep -Evq '^A[[:space:]]' .lake/evidence/publication-statuses.txt; then exit 83; fi
+            while IFS= read -r file; do
+              test "$(git -C "$repo_root" ls-tree HEAD^2 -- "$file" | awk '{ print $1 }')" = 100644
+            done < .lake/evidence/publication-paths-required.txt
+            while IFS= read -r file; do test -f "$file"; test ! -L "$file"; done < .lake/evidence/package-members-required.txt
+            grep -Fxq '#print axioms I4Smooth.sourceField_smooth_ae' SourceSmoothAxiomAudit.lean
+            grep -Fxq '#print axioms I4SmoothCarrier.sampleInclusion_map' SourceSmoothAxiomAudit.lean
+            grep -Fxq '#print axioms I4SmoothCarrier.smoothLaw_isProbabilityMeasure' SourceSmoothAxiomAudit.lean
+            grep -Fxq '#print axioms I4SmoothCarrier.smoothSourceField_finiteVector_hasGaussianLaw' SourceSmoothAxiomAudit.lean
+            grep -Fxq '#print axioms I4SmoothCarrier.smoothTorusSourceField_smooth' SourceSmoothAxiomAudit.lean
+            sha256sum -c SOURCE_SHA256SUMS | tee .lake/evidence/sources-before.txt
+            while IFS= read -r line; do
+              file="${line#*  }"
+              test "$file" != "$line"
+              sha256sum -- "$file"
+            done < SOURCE_SHA256SUMS > .lake/evidence/sources-actual-before.sha256
+            sha256sum SOURCE_SHA256SUMS >> .lake/evidence/sources-actual-before.sha256
+            git diff --exit-code
+          ) > "$evidence_dir/source-guard.stdout" 2> "$evidence_dir/source-guard.stderr"
+          status=$?
+          printf '%s\n' "$status" > "$evidence_dir/source-guard-exit.txt"
+          printf '%s\n' "$((SECONDS-phase_start))" > "$evidence_dir/source-guard-seconds.txt"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/source-guard-end.txt"
+          cat "$evidence_dir/source-guard.stdout"
+          cat "$evidence_dir/source-guard.stderr" >&2
+          exit "$status"
+      - name: Install pinned Lean and retrieve qualified Mathlib cache
+        timeout-minutes: 3
+        id: setup
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          lake-package-directory: frontiers/source_smooth_realization_20261011
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Check hosted versions pins and actual post-setup source hashes
+        timeout-minutes: 1
+        id: pincheck
+        run: |
+          set -euo pipefail
+          lean --version | tee .lake/evidence/lean-version.txt
+          grep -Eq '^Lean \(version 4\.34\.1([, ]|\))' .lake/evidence/lean-version.txt
+          lake --version | tee .lake/evidence/lake-version.txt
+          grep -Fxq 'Lake version 5.0.0-src+5045d00 (Lean version 4.34.1)' .lake/evidence/lake-version.txt
+          jq --version > .lake/evidence/jq-version.txt
+          uname -a > .lake/evidence/platform.txt
+          cp lake-manifest.json .lake/evidence/lake-manifest.json
+          sha256sum lake-manifest.json > .lake/evidence/manifest-identity.txt
+          sha256sum SOURCE_SHA256SUMS > .lake/evidence/checksum-list-identity-after-setup.txt
+          cmp -s .lake/evidence/checksum-list-identity-before.txt .lake/evidence/checksum-list-identity-after-setup.txt
+          sha256sum -c SOURCE_SHA256SUMS > .lake/evidence/sources-after-setup.txt
+          while IFS= read -r line; do
+            file="${line#*  }"
+            test "$file" != "$line"
+            sha256sum -- "$file"
+          done < SOURCE_SHA256SUMS > .lake/evidence/sources-actual-after-setup.sha256
+          sha256sum SOURCE_SHA256SUMS >> .lake/evidence/sources-actual-after-setup.sha256
+          cmp -s .lake/evidence/sources-actual-before.sha256 .lake/evidence/sources-actual-after-setup.sha256
+          jq -r '.packages[] | [.name, .rev] | @tsv' lake-manifest.json > .lake/evidence/dependency-expected.tsv
+          test "$(wc -l < .lake/evidence/dependency-expected.tsv)" -eq 9
+          cat > .lake/evidence/dependency-pins-required.tsv <<'PINS'
+          plausible	118aa17ee84656b8bd727fef7c458ee8c833385c
+          LeanSearchClient	ddf04cf3949fa556442341e87d47f9f6e6074707
+          importGraph	e928b72544873815af278d38681b31c0293588e3
+          proofwidgets	106ff4fafc74ef4ac99d81dbf3ab399118f497a5
+          aesop	355695d523e41d0554926416cba2a2b3544fbbc9
+          Qq	6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259
+          batteries	f2effa3d803fda822b1f97b806c47cf2adfbcbc2
+          Cli	e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204
+          mathlib	d13f23b723b8a846827a245b89c10fc7d3f11612
+          PINS
+          cmp -s .lake/evidence/dependency-pins-required.tsv .lake/evidence/dependency-expected.tsv
+          while IFS=$'\t' read -r package revision; do
+            actual=$(git -C ".lake/packages/$package" rev-parse HEAD)
+            printf '%s\t%s\t%s\n' "$package" "$revision" "$actual" >> .lake/evidence/dependency-actual.tsv
+            test "$actual" = "$revision"
+          done < .lake/evidence/dependency-expected.tsv
+          git diff --exit-code
+      - name: Build all ten literal F7 baseline source modules once
+        timeout-minutes: 10
+        id: predecessor
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/predecessor-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 540s lake build GaussianSeriesFoundation SpectralWeights SourceFourierSeries SourceC4 SourceGaussianLaw SourceLattice SourceKernel SourceCovariance SourceTorus SourceTorusC4 > .lake/evidence/predecessor.stdout 2> .lake/evidence/predecessor.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/predecessor-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/predecessor-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/predecessor-end.txt
+          cat .lake/evidence/predecessor.stdout
+          cat .lake/evidence/predecessor.stderr >&2
+          exit "$status"
+      - name: Compile both smooth source proof modules once and propagate actual exit
+        timeout-minutes: 2
+        id: proof
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/proof-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 90s lake build SourceSmooth SourceSmoothCarrier > .lake/evidence/proof.stdout 2> .lake/evidence/proof.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/proof-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/proof-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/proof-end.txt
+          cat .lake/evidence/proof.stdout
+          cat .lake/evidence/proof.stderr >&2
+          exit "$status"
+      - name: Compile smooth source controls once and propagate actual exit
+        timeout-minutes: 2
+        id: controls
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/controls-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 90s lake build SourceSmoothControls > .lake/evidence/controls.stdout 2> .lake/evidence/controls.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/controls-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/controls-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/controls-end.txt
+          cat .lake/evidence/controls.stdout
+          cat .lake/evidence/controls.stderr >&2
+          exit "$status"
+      - name: Recheck all three new compiled modules with the standalone kernel checker
+        id: kernel
+        timeout-minutes: 2
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/kernel-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 90s bash -c 'set -euo pipefail; printf "KERNEL_MODULE SourceSmooth\n"; lake env leanchecker SourceSmooth; printf "KERNEL_MODULE SourceSmoothCarrier\n"; lake env leanchecker SourceSmoothCarrier; printf "KERNEL_MODULE SourceSmoothControls\n"; lake env leanchecker SourceSmoothControls' > .lake/evidence/kernel.stdout 2> .lake/evidence/kernel.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/kernel-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/kernel-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/kernel-end.txt
+          cat .lake/evidence/kernel.stdout
+          cat .lake/evidence/kernel.stderr >&2
+          exit "$status"
+      - name: Audit complete actual thirteen-module declarations and four private guards
+        timeout-minutes: 2
+        id: audit
+        run: |
+          set -euo pipefail
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/audit-start.txt
+          phase_start=$SECONDS
+          set +e
+          timeout --signal=TERM --kill-after=15s 90s lake env lean SourceSmoothAxiomAudit.lean > .lake/evidence/audit.stdout 2> .lake/evidence/audit.stderr
+          status=$?
+          set -e
+          printf '%s\n' "$status" > .lake/evidence/audit-exit.txt
+          printf '%s\n' "$((SECONDS-phase_start))" > .lake/evidence/audit-seconds.txt
+          date -u +%Y-%m-%dT%H:%M:%SZ > .lake/evidence/audit-end.txt
+          cat .lake/evidence/audit.stdout
+          cat .lake/evidence/audit.stderr >&2
+          exit "$status"
+      - name: Retain checkout and phase outcomes even if checkout fails
+        timeout-minutes: 1
+        if: always()
+        working-directory: ${{ runner.temp }}
+        env:
+          PRECHECKOUT_OUTCOME: ${{ steps.precheckout.outcome }}
+          CHECKOUT_OUTCOME: ${{ steps.checkout.outcome }}
+          SOURCE_OUTCOME: ${{ steps.sources.outcome }}
+          SETUP_OUTCOME: ${{ steps.setup.outcome }}
+          PINCHECK_OUTCOME: ${{ steps.pincheck.outcome }}
+          PREDECESSOR_OUTCOME: ${{ steps.predecessor.outcome }}
+          PROOF_OUTCOME: ${{ steps.proof.outcome }}
+          CONTROLS_OUTCOME: ${{ steps.controls.outcome }}
+          KERNEL_OUTCOME: ${{ steps.kernel.outcome }}
+          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
+        run: |
+          set -euo pipefail
+          evidence_dir="$RUNNER_TEMP/source-smooth-realization-precheckout"
+          mkdir -p "$evidence_dir"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$evidence_dir/end-utc.txt"
+          printf 'precheckout=%s\ncheckout=%s\nsources=%s\nsetup=%s\npincheck=%s\npredecessor=%s\nproof=%s\ncontrols=%s\nkernel=%s\naudit=%s\nscientific_effect=NONE\n' "$PRECHECKOUT_OUTCOME" "$CHECKOUT_OUTCOME" "$SOURCE_OUTCOME" "$SETUP_OUTCOME" "$PINCHECK_OUTCOME" "$PREDECESSOR_OUTCOME" "$PROOF_OUTCOME" "$CONTROLS_OUTCOME" "$KERNEL_OUTCOME" "$AUDIT_OUTCOME" > "$evidence_dir/outcomes.txt"
+      - name: Capture every available final identity before evaluating failure
+        id: finalcapture
+        timeout-minutes: 1
+        if: always()
+        working-directory: ${{ runner.temp }}
+        run: |
+          set -u -o pipefail
+          set +e
+          final_dir="$RUNNER_TEMP/source-smooth-realization-final"
+          package_dir="$GITHUB_WORKSPACE/frontiers/source_smooth_realization_20261011"
+          mkdir -p "$final_dir/literal-source-copies" || exit 90
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$final_dir/start-utc.txt"
+          final_start=$SECONDS
+          capture_failed=0
+          capture() {
+            local label="$1" status start
+            shift
+            start=$SECONDS
+            date -u +%Y-%m-%dT%H:%M:%SZ > "$final_dir/$label-start.txt"
+            "$@" > "$final_dir/$label.stdout" 2> "$final_dir/$label.stderr"
+            status=$?
+            printf '%s\n' "$status" > "$final_dir/$label-exit.txt"
+            printf '%s\n' "$((SECONDS-start))" > "$final_dir/$label-seconds.txt"
+            date -u +%Y-%m-%dT%H:%M:%SZ > "$final_dir/$label-end.txt"
+            if test "$status" -ne 0; then capture_failed=1; fi
+            printf '%s\t%s\n' "$label" "$status" >> "$final_dir/capture-results.tsv"
+            return 0
+          }
+          safe_package() {
+            if test ! -d "$package_dir" || test -L "$GITHUB_WORKSPACE/frontiers" || test -L "$package_dir"; then
+              printf 'UNAVAILABLE_OR_SYMLINK_PACKAGE %s\n' "$package_dir" >&2
+              return 91
+            fi
+          }
+          safe_file() {
+            if test ! -f "$1" || test -L "$1"; then
+              printf 'UNAVAILABLE_OR_SYMLINK_FILE %s\n' "$1" >&2
+              return 92
+            fi
+          }
+          relative_hash() {
+            safe_package || return $?
+            safe_file "$package_dir/$1" || return $?
+            (cd "$package_dir" && sha256sum -- "$1")
+          }
+          literal_hashes_and_copies() {
+            local file status=0
+            safe_package || return $?
+            while IFS= read -r file; do
+              if safe_file "$package_dir/$file"; then
+                relative_hash "$file" || status=1
+                cp -- "$package_dir/$file" "$final_dir/literal-source-copies/$file" || status=1
+              else
+                printf 'UNAVAILABLE_OR_SYMLINK_LITERAL %s\n' "$file"
+                status=1
+              fi
+            done < "$final_dir/package-members-required-literal.txt"
+            return "$status"
+          }
+          package_tracked_members() {
+            safe_package || return $?
+            git -C "$package_dir" ls-files -- . | LC_ALL=C sort
+          }
+          package_filesystem_members() {
+            safe_package || return $?
+            find "$package_dir" -path "$package_dir/.lake" -prune -o -type f -printf '%P\n' | LC_ALL=C sort
+          }
+          package_filesystem_entries() {
+            safe_package || return $?
+            find "$package_dir" -path "$package_dir/.lake" -prune -o -printf '%y %P\n' | LC_ALL=C sort
+          }
+          literal_contents() {
+            safe_package || return $?
+            safe_file "$package_dir/$1" || return $?
+            cat -- "$package_dir/$1"
+          }
+          workflow_identity() {
+            local workflow="$GITHUB_WORKSPACE/.github/workflows/source-smooth-realization.yml"
+            if test -L "$GITHUB_WORKSPACE/.github" || test -L "$GITHUB_WORKSPACE/.github/workflows"; then
+              printf 'UNAVAILABLE_SYMLINK_WORKFLOW_DIRECTORY\n' >&2
+              return 93
+            fi
+            safe_file "$workflow" || return $?
+            sha256sum -- "$workflow" || return $?
+            cp -- "$workflow" "$final_dir/workflow-actual.yml"
+          }
+          trusted_checksum_list() {
+            safe_package || return $?
+            safe_file "$package_dir/SOURCE_SHA256SUMS" || return $?
+            local actual
+            actual=$(sha256sum -- "$package_dir/SOURCE_SHA256SUMS") || return $?
+            actual=${actual%% *}
+            if test "$actual" != "$EXPECTED_SOURCE_LIST_SHA256"; then
+              printf 'UNTRUSTED_LIST_PATHS_NOT_FOLLOWED expected=%s actual=%s\n' "$EXPECTED_SOURCE_LIST_SHA256" "$actual" >&2
+              return 94
+            fi
+          }
+          expected_list_identity() {
+            trusted_checksum_list
+          }
+          expected_manifest_identity() {
+            safe_package || return $?
+            safe_file "$package_dir/SOURCE_MANIFEST.json" || return $?
+            local actual
+            actual=$(sha256sum -- "$package_dir/SOURCE_MANIFEST.json") || return $?
+            actual=${actual%% *}
+            if test "$actual" != "$EXPECTED_SOURCE_MANIFEST_SHA256"; then
+              printf 'MANIFEST_IDENTITY_MISMATCH expected=%s actual=%s\n' "$EXPECTED_SOURCE_MANIFEST_SHA256" "$actual" >&2
+              return 95
+            fi
+          }
+          expected_source_checks() {
+            trusted_checksum_list || return $?
+            local file
+            while IFS= read -r line; do
+              file=${line#*  }
+              safe_file "$package_dir/$file" || return $?
+            done < "$package_dir/SOURCE_SHA256SUMS"
+            (cd "$package_dir" && sha256sum -c SOURCE_SHA256SUMS)
+          }
+          actual_hashes_in_trusted_list_order() {
+            trusted_checksum_list || return $?
+            local file status=0
+            while IFS= read -r line; do
+              file=${line#*  }
+              relative_hash "$file" || status=1
+            done < "$package_dir/SOURCE_SHA256SUMS"
+            relative_hash SOURCE_SHA256SUMS || status=1
+            return "$status"
+          }
+          compare_available() {
+            safe_file "$1" || return $?
+            safe_file "$2" || return $?
+            cmp -s -- "$1" "$2"
+          }
+          cat > "$final_dir/package-members-required-literal.txt" <<'LITERAL_SOURCE_FILES'
+          .gitignore
+          DESIGN.md
+          GaussianSeriesFoundation.lean
+          SOURCE_MANIFEST.json
+          SOURCE_SHA256SUMS
+          SourceC4.lean
+          SourceCovariance.lean
+          SourceFourierSeries.lean
+          SourceGaussianLaw.lean
+          SourceKernel.lean
+          SourceLattice.lean
+          SourceSmooth.lean
+          SourceSmoothAxiomAudit.lean
+          SourceSmoothCarrier.lean
+          SourceSmoothControls.lean
+          SourceTorus.lean
+          SourceTorusC4.lean
+          SpectralWeights.lean
+          lake-manifest.json
+          lakefile.toml
+          lean-toolchain
+          LITERAL_SOURCE_FILES
+          printf 'claim_uuid=%s\nstrict_source_guard=%s\nsource_package=%s\nexpected_list_sha256=%s\nexpected_manifest_sha256=%s\nhistorical_manifest_claim_uuid=%s\nhistorical_manifest_claim_is_current_admission=false\nexternal_head_tree_workflow_binding=ROOT_PREPUBLICATION_RECORD_REQUIRED\nfilesystem_scope=package_outside_generated_dot_lake\nscientific_effect=NONE\n' "$CLAIM_UUID" "$SOURCE_GUARD_UTC" "$package_dir" "$EXPECTED_SOURCE_LIST_SHA256" "$EXPECTED_SOURCE_MANIFEST_SHA256" "$HISTORICAL_MANIFEST_CLAIM_UUID" > "$final_dir/context.txt"
+          # Fixed literal paths are collected independently before trusting current list contents.
+          capture literal-source-whole-hashes literal_hashes_and_copies
+          capture source-list-identity relative_hash SOURCE_SHA256SUMS
+          capture source-manifest-identity relative_hash SOURCE_MANIFEST.json
+          capture source-list-current literal_contents SOURCE_SHA256SUMS
+          capture source-manifest-current literal_contents SOURCE_MANIFEST.json
+          capture package-members-tracked package_tracked_members
+          capture package-members-filesystem package_filesystem_members
+          capture package-filesystem-all-entry-types package_filesystem_entries
+          capture repository-members-tracked git -C "$GITHUB_WORKSPACE" ls-files
+          capture repository-tracked-tree git -C "$GITHUB_WORKSPACE" ls-tree -r HEAD
+          capture workflow-identity workflow_identity
+          capture checkout-sha git -C "$GITHUB_WORKSPACE" rev-parse HEAD
+          capture checkout-tree git -C "$GITHUB_WORKSPACE" rev-parse 'HEAD^{tree}'
+          capture checkout-parents git -C "$GITHUB_WORKSPACE" show -s --format=%P HEAD
+          capture selected-head-tree git -C "$GITHUB_WORKSPACE" rev-parse 'HEAD^2^{tree}'
+          capture selected-head-source-diff git -C "$GITHUB_WORKSPACE" diff --raw "$EXPECTED_BASE_SHA" HEAD^2
+          capture tracked-tree-diff git -C "$GITHUB_WORKSPACE" diff --exit-code
+          capture tracked-tree-index-diff git -C "$GITHUB_WORKSPACE" diff --cached --exit-code
+          capture repository-status git -C "$GITHUB_WORKSPACE" status --porcelain --untracked-files=all
+          # Identity mismatch refuses list traversal; expected checks still receive durable actual exits.
+          capture expected-list-identity expected_list_identity
+          capture expected-manifest-identity expected_manifest_identity
+          capture expected-source-checks expected_source_checks
+          capture actual-final-hashes-in-list-order actual_hashes_in_trusted_list_order
+          # Historical before-files may be absent. Missing labels/exit92 are retained after complete collection.
+          capture compare-checksum-list-before compare_available "$package_dir/.lake/evidence/checksum-list-identity-before.txt" "$final_dir/source-list-identity.stdout"
+          capture compare-source-hashes-before compare_available "$package_dir/.lake/evidence/sources-actual-before.sha256" "$final_dir/actual-final-hashes-in-list-order.stdout"
+          capture compare-literal-tracked-members compare_available "$final_dir/package-members-required-literal.txt" "$final_dir/package-members-tracked.stdout"
+          capture compare-literal-filesystem-members compare_available "$final_dir/package-members-required-literal.txt" "$final_dir/package-members-filesystem.stdout"
+          printf '%s\n' "$capture_failed" > "$final_dir/final-capture-exit.txt"
+          printf '%s\n' "$((SECONDS-final_start))" > "$final_dir/final-capture-seconds.txt"
+          date -u +%Y-%m-%dT%H:%M:%SZ > "$final_dir/end-utc.txt"
+          cat "$final_dir/capture-results.tsv"
+          exit "$capture_failed"
+      - name: Preserve complete phase logs on success or failure
+        timeout-minutes: 1
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: source-smooth-realization-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            frontiers/source_smooth_realization_20261011/.lake/evidence/
+            ${{ runner.temp }}/source-smooth-realization-precheckout/
+            ${{ runner.temp }}/source-smooth-realization-final/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90

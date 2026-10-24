@@ -42,6 +42,16 @@ for control in RejectSignedWeights RejectEndpointMaximum RejectOutsideDirection;
   printf '%s\n' "$code" >"$SQUARE_OUT/$control.status"
   python3 -B -S "$SQUARE_SIDE/check.py" negative "$SQUARE_OUT/$control.log" --control "$control" --status "$code"
 done
+# Final observation after the companion's last Lean execution: the core gate observed the runtime
+# before these runs, so it is observed again here, and `check.py finish` requires it unchanged.
+lean --version > "$SQUARE_OUT/toolchain-final.log"
+: > "$SQUARE_OUT/packages-final.log"
+for pkg in "$PWD"/.lake/packages/*/; do
+  head="$(git -C "$pkg" rev-parse HEAD)"
+  status="$(git -C "$pkg" status --porcelain --untracked-files=normal)"
+  if [ -z "$status" ]; then state=clean; else state=dirty; fi
+  printf '%s %s %s\n' "$(basename "$pkg")" "$head" "$state" >> "$SQUARE_OUT/packages-final.log"
+done
 INNER
 cd "$ROOT"
 python3 -B -S "$SIDE/check.py" finish "$OUT"
