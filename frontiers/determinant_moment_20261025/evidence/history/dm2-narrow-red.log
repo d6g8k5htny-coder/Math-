@@ -1,0 +1,78 @@
+test_empty_link (test_gate.BlueprintTests.test_empty_link) ... ok
+test_unsupported_leanok (test_gate.BlueprintTests.test_unsupported_leanok) ... ok
+test_valid_link (test_gate.BlueprintTests.test_valid_link) ... ok
+test_wrong_link (test_gate.BlueprintTests.test_wrong_link) ... ok
+test_axiom_free (test_gate.GateTests.test_axiom_free) ... ok
+test_custom (test_gate.GateTests.test_custom) ... ok
+test_duplicate_target_output (test_gate.GateTests.test_duplicate_target_output) ... ok
+test_duplicate_target_request (test_gate.GateTests.test_duplicate_target_request) ... ok
+test_manifest_absolute (test_gate.GateTests.test_manifest_absolute) ... ok
+test_manifest_content (test_gate.GateTests.test_manifest_content) ... ok
+test_manifest_empty (test_gate.GateTests.test_manifest_empty) ... ok
+test_manifest_escape (test_gate.GateTests.test_manifest_escape) ... ok
+test_manifest_missing (test_gate.GateTests.test_manifest_missing) ... ok
+test_manifest_symlink (test_gate.GateTests.test_manifest_symlink) ... ok
+test_manifest_tamper (test_gate.GateTests.test_manifest_tamper) ... ok
+test_missing_target (test_gate.GateTests.test_missing_target) ... ok
+test_multiline (test_gate.GateTests.test_multiline) ... ok
+test_native (test_gate.GateTests.test_native) ... ok
+test_noise_denied (test_gate.GateTests.test_noise_denied) ... ok
+test_review_bad_disposition (test_gate.GateTests.test_review_bad_disposition) ... ok
+test_review_bad_evidence (test_gate.GateTests.test_review_bad_evidence) ... ok
+test_review_changed_scope (test_gate.GateTests.test_review_changed_scope) ... ok
+test_review_partial (test_gate.GateTests.test_review_partial) ... ok
+test_review_same_provider (test_gate.GateTests.test_review_same_provider) ... ok
+test_review_self (test_gate.GateTests.test_review_self) ... ok
+test_review_stale (test_gate.GateTests.test_review_stale) ... ok
+test_review_valid (test_gate.GateTests.test_review_valid) ... ok
+test_sorry (test_gate.GateTests.test_sorry) ... ok
+test_standard_axioms (test_gate.GateTests.test_standard_axioms) ... ok
+test_unexpected_target (test_gate.GateTests.test_unexpected_target) ... ok
+test_dependency_dirtied_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_dirtied_during_execution_refuses_receipt) ... ok
+test_dependency_moved_during_execution_refuses_receipt (test_gate.RuntimeGuardTests.test_dependency_moved_during_execution_refuses_receipt) ... ok
+test_dirty_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_dirty_dependency_before_execution_refuses_and_preserves_build) ... ok
+test_receipt_binds_attempt_and_both_equal_observations (test_gate.RuntimeGuardTests.test_receipt_binds_attempt_and_both_equal_observations) ... ok
+test_runtime_changed_between_observations_refuses_receipt (test_gate.RuntimeGuardTests.test_runtime_changed_between_observations_refuses_receipt) ... ok
+test_wrong_dependency_before_execution_refuses_and_preserves_build (test_gate.RuntimeGuardTests.test_wrong_dependency_before_execution_refuses_and_preserves_build) ... ok
+test_complete_pinned_release_record (test_gate.RuntimeVersionTests.test_complete_pinned_release_record) ... ok
+test_installed_dependency_change_still_refuses_receipt (test_gate.RuntimeVersionTests.test_installed_dependency_change_still_refuses_receipt) ... ok
+test_invalid_preflight_preserves_build_and_runs_no_build (test_gate.RuntimeVersionTests.test_invalid_preflight_preserves_build_and_runs_no_build) ... ok
+test_other_commit_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_other_commit_after_execution_refuses_receipt) ... ok
+test_other_commit_preflight_preserves_build (test_gate.RuntimeVersionTests.test_other_commit_preflight_preserves_build) ... ok
+test_other_versions_and_incomplete_or_extra_records_refused (test_gate.RuntimeVersionTests.test_other_versions_and_incomplete_or_extra_records_refused) ... ok
+test_preflight_process_failure_preserves_build (test_gate.RuntimeVersionTests.test_preflight_process_failure_preserves_build) ... ok
+test_short_and_other_release_commits_refused (test_gate.RuntimeVersionTests.test_short_and_other_release_commits_refused) ... ok
+test_source_change_during_build_still_refuses_receipt (test_gate.RuntimeVersionTests.test_source_change_during_build_still_refuses_receipt) ... ok
+test_success_checks_before_build_and_after_controls_and_binds_both_logs (test_gate.RuntimeVersionTests.test_success_checks_before_build_and_after_controls_and_binds_both_logs) ... ok
+test_version_change_after_execution_refuses_receipt (test_gate.RuntimeVersionTests.test_version_change_after_execution_refuses_receipt) ... ok
+test_duplicate_json_rejected (test_gate.SourceContractTests.test_duplicate_json_rejected) ... ok
+test_json_object (test_gate.SourceContractTests.test_json_object) ... ok
+test_manifest_cannot_claim_kernel_status (test_gate.SourceContractTests.test_manifest_cannot_claim_kernel_status) ... ok
+test_root_declaration_cannot_evade_audit (test_gate.SourceContractTests.test_root_declaration_cannot_evade_audit) ... ok
+test_source_baseline (test_gate.SourceContractTests.test_source_baseline) ... ok
+test_unbound_gate_refused (test_gate.SourceContractTests.test_unbound_gate_refused) ... ok
+test_only_documented_algebra_repairs (test_gate.SuccessorTests.test_only_documented_algebra_repairs) ... FAIL
+test_only_documented_probability_repair (test_gate.SuccessorTests.test_only_documented_probability_repair) ... FAIL
+
+======================================================================
+FAIL: test_only_documented_algebra_repairs (test_gate.SuccessorTests.test_only_documented_algebra_repairs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 364, in test_only_documented_algebra_repairs
+    self.assertEqual((ROOT/'ResearchFormalCoreR1/AlgebraV2.lean').read_text(), expected.replace("import Mathlib\n", 'import Mathlib.Data.Real.Basic\nimport Mathlib.Tactic.FieldSimp\nimport Mathlib.Tactic.Ring\nimport Mathlib.Tactic.NormNum\n'))
+AssertionError: 'import Mathlib\n\nnamespace ResearchFormalCoreR1\n\nset[1916 chars]R1\n' != 'import Mathlib.Data.Real.Basic\nimport Mathlib.Tactic.F[2024 chars]R1\n'
+Diff is 2154 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_only_documented_probability_repair (test_gate.SuccessorTests.test_only_documented_probability_repair)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/Math-/frontiers/determinant_moment_20261025/tests/test_gate.py", line 368, in test_only_documented_probability_repair
+    self.assertEqual((ROOT/'ResearchFormalCoreR1/ProbabilityCompanionsV2.lean').read_text(), expected.replace("import Mathlib\n", 'import Mathlib.Data.Real.Sqrt\nimport Mathlib.Tactic.FieldSimp\nimport Mathlib.Tactic.Ring\nimport Mathlib.Tactic.NormNum\nimport Mathlib.Tactic.Positivity\nimport Mathlib.Tactic.Linarith\n'))
+AssertionError: "import Mathlib\n\nnamespace ResearchFormalCoreR1\n\nset[3433 chars]R1\n" != "import Mathlib.Data.Real.Sqrt\nimport Mathlib.Tactic.Fi[3606 chars]R1\n"
+Diff is 3776 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 55 tests in 0.167s
+
+FAILED (failures=2)
