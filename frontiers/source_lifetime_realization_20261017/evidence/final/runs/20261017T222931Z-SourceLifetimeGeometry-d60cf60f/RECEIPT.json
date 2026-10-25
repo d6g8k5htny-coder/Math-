@@ -1,0 +1,25 @@
+{
+  "source": "SourceLifetimeGeometry.lean",
+  "source_sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
+  "started_utc": "2026-10-17T22:29:31.306638+00:00",
+  "command": [
+    "@PINNED_LEAN_RUNTIME@/bin/lean",
+    "-j2",
+    "-M4096",
+    "-o",
+    "@C291_ROOT@/build/SourceLifetimeGeometry.olean",
+    "@C291_ROOT@/project/SourceLifetimeGeometry.lean"
+  ],
+  "timeout_seconds": 240,
+  "threads": 2,
+  "wrapper_pid": 76101,
+  "child_pid": 76543,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 93.941153042,
+  "ended_utc": "2026-10-17T22:31:05.247644+00:00",
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output_sha256": "b77e407c06c29eabc9ac4e378c251a06bd50a2cd043ca930e525df036e1ad95f"
+}
