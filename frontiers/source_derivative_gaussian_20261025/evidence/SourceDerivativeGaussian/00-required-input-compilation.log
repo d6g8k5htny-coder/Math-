@@ -1,0 +1,17 @@
+✔ [3354/3366] Built GaussianSeriesFoundation (3.0s)
+✔ [3355/3366] Built SpectralWeights (2.0s)
+✔ [3356/3366] Built SourceFourierSeries (2.9s)
+✔ [3357/3366] Built SourceC4 (5.4s)
+✔ [3358/3366] Built SourceLattice (5.4s)
+✔ [3359/3366] Built SourceGaussianLaw (5.7s)
+⚠ [3360/3366] Built SourceSmooth (5.3s)
+warning: inputs/SourceSmooth.lean:48:15: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3361/3366] Built SourceKernel (23s)
+✔ [3362/3366] Built SourceCovariance (2.9s)
+✔ [3363/3366] Built SourceTorus (2.3s)
+✔ [3364/3366] Built SourceTorusC4 (2.7s)
+⚠ [3365/3366] Built SourceSmoothCarrier (2.6s)
+warning: inputs/SourceSmoothCarrier.lean:67:24: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+Build completed successfully (3366 jobs).

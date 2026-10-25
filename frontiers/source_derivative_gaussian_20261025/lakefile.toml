@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters"]
 
 [[require]]
 name = "mathlib"
@@ -32,3 +32,12 @@ name = "SourceDerivativeContinuity"
 
 [[lean_lib]]
 name = "ConfluentIntegralIdentities"
+
+[[lean_lib]]
+name = "SourceEndpointRegression"
+
+[[lean_lib]]
+name = "GaussianRegressionLimits"
+
+[[lean_lib]]
+name = "SourceEndpointParameters"

@@ -1,0 +1,65 @@
+ConfluentIntegralIdentities.lean:36:2: error: Type mismatch: After simplification, term
+  HasDerivAt.comp u (hg (r * u)) (HasDerivAt.const_mul r (hasDerivAt_id u))
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
+    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (g ∘ HMul.hMul r) (r * g' (r * u)) u
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun u => g (r * u)) (r * g' (r * u)) u
+ConfluentIntegralIdentities.lean:47:47: error: Application type mismatch: The argument
+  Continuous.intervalIntegrable hc'
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun u => r * g' (r * u)) ?m.148 a b
+but is expected to have type
+  IntervalIntegrable (fun u => r * g' (r * u)) volume (-1 / 2) (1 / 2)
+in the application
+  intervalIntegral.integral_eq_sub_of_hasDerivAt (fun u x => scaled_hasDerivAt g g' hg r u)
+    (Continuous.intervalIntegrable hc')
+ConfluentIntegralIdentities.lean:70:4: error: Application type mismatch: The argument
+  Continuous.intervalIntegrable continuous_const
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun x => ?m.297) ?m.300 a b
+but is expected to have type
+  IntervalIntegrable (fun x => -1) volume (-1 / 2) (1 / 2)
+in the application
+  intervalIntegral.integral_mul_deriv_eq_deriv_mul_of_hasDerivAt ?m.257
+    (Continuous.continuousOn (Continuous.comp hgc (Continuous.mul continuous_const continuous_id))) (fun u x => ?m.289)
+    (fun u x => scaled_hasDerivAt g g' hg r u) (Continuous.intervalIntegrable continuous_const)
+ConfluentIntegralIdentities.lean:68:19: error: Type mismatch: After simplification, term
+  HasDerivAt.sub (hasDerivAt_const u (1 / 2)) (hasDerivAt_id u)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ ((fun x => 2⁻¹) - id)
+    (-1) u
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun u => 2⁻¹ - u)
+    (-1) u
+ConfluentIntegralIdentities.lean:77:2: error: linarith failed to find a contradiction
+case h1
+g g' : ℝ → ℝ
+hg : ∀ (x : ℝ), HasDerivAt g (g' x) x
+hc : Continuous g'
+r : ℝ
+hr : r ≠ 0
+hgc : Continuous g
+hc' : Continuous fun u => r * g' (r * u)
+hfun : (fun u => (1 / 2 - u) * (r * g' (r * u))) = fun u => r * ((1 / 2 - u) * g' (r * u))
+hleft : r * (-1 / 2) = -r / 2
+h :
+  r * ∫ (x : ℝ) in -(1 / 2)..1 / 2, (1 / 2 - x) * g' (r * x) =
+    -g (-(r * (1 / 2))) + ∫ (x : ℝ) in -(1 / 2)..1 / 2, g (r * x)
+a✝ : g (-r / 2) - ∫ (u : ℝ) in -1 / 2..1 / 2, g (r * u) < (-∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 2 - u) * g' (r * u)) * r
+⊢ False
+failed
+ConfluentIntegralIdentities.lean:94:4: error: Application type mismatch: The argument
+  Continuous.intervalIntegrable continuous_const
+has type
+  ∀ (a b : ℝ), IntervalIntegrable (fun x => ?m.290) ?m.293 a b
+but is expected to have type
+  IntervalIntegrable (fun x => 1) volume (-1 / 2) (1 / 2)
+in the application
+  intervalIntegral.integral_mul_deriv_eq_deriv_mul_of_hasDerivAt ?m.250
+    (Continuous.continuousOn (Continuous.comp hgc (Continuous.mul continuous_const continuous_id))) (fun u x => ?m.282)
+    (fun u x => scaled_hasDerivAt g g' hg r u) (Continuous.intervalIntegrable continuous_const)

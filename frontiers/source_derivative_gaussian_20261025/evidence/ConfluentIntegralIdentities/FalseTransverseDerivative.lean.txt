@@ -1,0 +1,5 @@
+import ConfluentIntegralIdentities
+open I4ConfluentIntegralIdentities
+-- Using H first derivatives in the P4 divided difference would give two.
+example : pin4 (fun x : ℝ => x^2) 2 = 2 := by
+  norm_num [pin4]

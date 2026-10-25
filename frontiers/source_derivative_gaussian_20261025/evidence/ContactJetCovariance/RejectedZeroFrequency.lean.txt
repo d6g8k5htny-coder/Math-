@@ -1,0 +1,5 @@
+import ContactJetCovariance
+open Matrix I4ContactGram
+example : Function.Injective ((contactWitness 0)ᵀ).mulVec := by
+  apply contactWitness_transpose_injective
+  norm_num

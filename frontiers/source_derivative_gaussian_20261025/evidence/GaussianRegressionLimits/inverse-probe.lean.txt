@@ -1,0 +1,23 @@
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Topology.Algebra.GroupWithZero
+import Mathlib.Analysis.Normed.Group.Real
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.Topology.Algebra.Ring.Real
+open Matrix Filter
+open scoped Topology
+set_option autoImplicit false
+example {p a : Type*} [Fintype p] [DecidableEq p]
+    (u : Filter a) (G : a → Matrix p p ℝ) (G0 : Matrix p p ℝ)
+    (hG : Tendsto G u (𝓝 G0)) (hG0 : IsUnit G0) :
+    (∀ᶠ r in u, IsUnit (G r)) ∧ Tendsto (fun r => (G r)⁻¹) u (𝓝 G0⁻¹) := by
+  have hdet0 : G0.det ≠ 0 := ((Matrix.isUnit_iff_isUnit_det G0).mp hG0).ne_zero
+  have hdet : Tendsto (fun r => (G r).det) u (𝓝 G0.det) :=
+    (continuous_id.matrix_det.tendsto G0).comp hG
+  have hunit : ∀ᶠ r in u, IsUnit (G r) := by
+    filter_upwards [hdet.eventually_ne hdet0] with r hr
+    exact (Matrix.isUnit_iff_isUnit_det (G r)).mpr (isUnit_iff_ne_zero.mpr hr)
+  have hInv : Tendsto (fun r => (G r)⁻¹) u (𝓝 G0⁻¹) := by
+    have hc : ContinuousAt (Ring.inverse : ℝ → ℝ) G0.det := by
+      simpa only [Ring.inverse_eq_inv'] using (continuousAt_inv₀ hdet0)
+    exact (continuousAt_matrix_inv G0 hc).tendsto.comp hG
+  exact ⟨hunit, hInv⟩

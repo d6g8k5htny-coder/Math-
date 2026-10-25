@@ -1,0 +1,28 @@
+import ConfluentIntegralIdentities
+import Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas
+open I4ConfluentIntegralIdentities
+
+-- Negative nonunit radius preserves the exact cubic coefficient.
+example : pin5 (fun x : ℝ => x^3) (-2) = 6 := by
+  norm_num [pin5, deriv_pow_field]
+
+-- The second-derivative average remains correct for signed separation.
+example : pin3 (fun x : ℝ => x^2) (-2) = 2 := by
+  norm_num [pin3, deriv_pow_field]
+
+-- The transverse pin uses H itself, not its derivative.
+example : pin4 (fun x : ℝ => x^2) 2 = 0 := by
+  norm_num [pin4]
+
+-- Left and right adjusted transverse values carry opposite endpoint signs.
+example : (deriv (fun x : ℝ => x^2) (-(-2)/2) - pin4 (fun x : ℝ => x^2) (-2))/(-2) = -1 := by
+  norm_num [pin4, deriv_pow_field]
+example : (deriv (fun x : ℝ => x^2) ((-2)/2) - pin4 (fun x : ℝ => x^2) (-2))/(-2) = 1 := by
+  norm_num [pin4, deriv_pow_field]
+
+-- The actual Peano theorem on a cubic gives normalized kernel mass one.
+example : 6 * (∫ u in (-1/2 : ℝ)..(1/2 : ℝ), (1/4-u^2)) = 1 := by
+  have h := pin5_integral (fun x : ℝ => x^3) (by fun_prop) (-2) (by norm_num)
+  norm_num [pin5, deriv_pow_field, iteratedDeriv_pow] at h
+  norm_num at h ⊢
+  linarith [h]
