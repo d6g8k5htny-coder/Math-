@@ -1,0 +1,8 @@
+/workspace/scratch/gaussian-normalizer-limit/contact-probe.lean:20:70: error: Application type mismatch: The argument
+  EuclideanSpace.proj i
+has type
+  StrongDual ?m.257 (EuclideanSpace ?m.257 (Fin 6))
+but is expected to have type
+  EuclideanSpace ℝ (Fin 6) →L[?m.244] ?m.246
+in the application
+  MemLp.continuousLinearMap_comp IsGaussian.memLp_two_id (EuclideanSpace.proj i)

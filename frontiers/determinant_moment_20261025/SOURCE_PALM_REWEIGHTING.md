@@ -3,6 +3,8 @@
 Frozen before code, 25 October 2026. OpenAI/Codex root; scientific effect NONE.
 Source: imports/hardening_ebedb780/P02-LM-008/proof.md.export.txt, sections 1–3,
 at Math-main e75cb81e8961d178f43aa9967dddd11cd579dc8a.
+Source blob 70112651948447cf95f94c620e17c0e2bbc4dd99, SHA256
+06967d0ba2c2d20550f3bd86ddc97981e324e5f94cd7710996445d507ae2285b.
 This is the measure-theoretic interface, beyond the retained scalar algebra.
 
 Sole new PalmReweighting.lean target: on a probability space with nonnegative

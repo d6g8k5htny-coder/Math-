@@ -1,0 +1,50 @@
+ResearchFormalCoreR1/GaussianScalarMoments.lean:27:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:27:46: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:39:44: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:39:46: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:54:50: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:54:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:67:6: error: Type mismatch: After simplification, term
+  add_pow_le hB (mul_nonneg (Real.sqrt_nonneg V) (abs_nonneg z)) 8
+ has type
+  (B + √V * |z|) ^ 8 ≤ 2 ^ 7 * (B ^ 8 + (√V * |z|) ^ 8)
+but is expected to have type
+  (B + √V * |z|) ^ 8 ≤ 128 * (B ^ 8 + (√V * |z|) ^ 8)
+ResearchFormalCoreR1/GaussianScalarMoments.lean:73:53: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+ResearchFormalCoreR1/GaussianScalarMoments.lean:73:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
