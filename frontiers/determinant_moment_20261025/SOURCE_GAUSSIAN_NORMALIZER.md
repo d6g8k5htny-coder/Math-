@@ -38,3 +38,25 @@ Mathlib imports, using the same Lean4.34.1/mathlib revision and the unchanged
 kernel/axiom/control gate. Preserve all prior proof/evidence bytes and check only
 new code during development. No old source review is silently rebound. This
 source note does not qualify as an independent scientific review or status change.
+
+## Full lower-floor deduction from a common coupling: frozen before code
+
+New NormalizerFloor.lean target: on one probability space let X_r be measurable
+six-endpoint vectors in LM006 order(aM,aS,bM,bS,cM,cS). Suppose as r->0+ they
+converge almost surely to(-1,1,-A/2,A/2,Q,Q), where Q has gaussianReal(m,v)
+law with v!=0 (m arbitrary), and each T_r(X_r) is genuinely integrable for
+positive r sufficiently near0. Then prove existence of c,delta>0 with
+integral r²*T_r(X_r) >= c*r² whenever0<r<delta. All-measure or sequential
+formulation details must preserve this full conclusion, not replace it by a
+weaker sample-sequence floor. Current integrability is not an assumed moment
+upper bound or normalizer lower bound, and is supplied by the Gaussian endpoint
+moment result in applications.
+
+The proof may use Fatou for nonnegative weights: T_r(X_r) converges pointwise to
+(max(-Q,0))²; its positive integral is proved, not assumed. Thus UI/full moment
+asymptotics and type-boundary nullity are unnecessary just for a lower floor.
+No normalized-expectation-limit, positivity or desired floor may be added as a
+premise to obtain a passing proof. Source LM006 stability sections2,4 supplies
+the literal continuous weight and common coupling interpretation. Actual field
+construction/identification of such a coupling remains a concrete input join,
+not an implication of this generic theorem.
