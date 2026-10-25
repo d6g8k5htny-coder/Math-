@@ -12,8 +12,7 @@ The complete preimplementation source binding is SOURCE_MAP.md and remains bound
 | dm2_moment | Sections 2–3: measurable nine-jet map, integrable eighth radius power, integral<=M8, 0<r<=1 yield squared-weight integrability and integral<=16M8r⁴. The arbitrary-measure statement strengthens the source probability-law implication without adding a premise. |
 
 All definitions, matrix entries, signs and coordinate ordering are in the Lean
-source and SOURCE_MAP.md. The retained 13 scalar baseline declarations are exact
-copies from formal/ at c4eabc1a; COMPATIBILITY.md documents their historical repairs.
+source and SOURCE_MAP.md. The retained 13 scalar baseline declarations preserve their statement/proof bodies from formal/ at c4eabc1a; COMPATIBILITY.md documents their historical repairs.
 Their imported historical review is not transferred to the changed package.
 
 The new theorem does not prove a concrete Gaussian moment, jet identification,
@@ -27,3 +26,10 @@ mutations: r^6 instead of r^4 and omission of q from R. Those separate execution
 are recorded independently. The gate retains its exact provider-distinct alignment
 validator; a same-provider technical source review earns zero organizational
 independence and does not supply a machine ACCEPTED alignment record.
+
+## Import-only memory repair
+
+The original full-Mathlib build passed but kernel replay exceeded 16GiB.
+SOURCE_MAP.md records that failure and the narrow-import successor. Every
+scalar statement/proof body, gate.py, pin and rejection control is preserved;
+only imports and their exact preservation-test expectations changed.

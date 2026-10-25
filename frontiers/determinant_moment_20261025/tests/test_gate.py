@@ -361,10 +361,10 @@ class SuccessorTests(unittest.TestCase):
     def test_only_documented_algebra_repairs(self):
         original=(ROOT/'originals/Algebra.lean.txt').read_text()
         expected=original.replace('def foldPotential', 'noncomputable def foldPotential').replace('  field_simp [hr]\n  ring\n', '  field_simp [hr]\n')
-        self.assertEqual((ROOT/'ResearchFormalCoreR1/AlgebraV2.lean').read_text(), expected)
+        self.assertEqual((ROOT/'ResearchFormalCoreR1/AlgebraV2.lean').read_text(), expected.replace("import Mathlib\n", 'import Mathlib.Basic.Real.Basic\nimport Mathlib.Tactic.FieldSimp\nimport Mathlib.Tactic.Ring\nimport Mathlib.Tactic.NormNum\n'))
     def test_only_documented_probability_repair(self):
         original=(ROOT/'originals/ProbabilityCompanions.lean.txt').read_text()
         expected=original.replace('  field_simp [hr, hcZ]\n  ring\n', '  field_simp [hr, hcZ]\n')
-        self.assertEqual((ROOT/'ResearchFormalCoreR1/ProbabilityCompanionsV2.lean').read_text(), expected)
+        self.assertEqual((ROOT/'ResearchFormalCoreR1/ProbabilityCompanionsV2.lean').read_text(), expected.replace("import Mathlib\n", 'import Mathlib.Analysis.Real.Sqrt\nimport Mathlib.Tactic.FieldSimp\nimport Mathlib.Tactic.Ring\nimport Mathlib.Tactic.NormNum\nimport Mathlib.Tactic.Positivity\nimport Mathlib.Tactic.Linarith\n'))
 
 if __name__ == '__main__': unittest.main()

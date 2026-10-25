@@ -9,7 +9,7 @@ Concrete Gaussian moments, endpoint identification, normalizer and parent result
 remain open. Author OpenAI/Codex /root; scientific effect NONE.
 
 This isolated additive packet preserves the exact existing formal/gate.py and its
-13 necessary scalar baseline targets. It does not modify the occupied core gate
+13 necessary scalar baseline theorem bodies with narrow imports. It does not modify the occupied core gate
 or add a hosted workflow. The dependency lock and Lean/mathlib pins are unchanged.
 Repository-wide CI builds the original core formal package, not this packet.
 
@@ -30,3 +30,10 @@ A nonauthor same-provider source review is recorded separately and does not sati
 the unchanged provider-distinct alignment validator. No accepted alignment record
 or parent acceptance is claimed. Controls and actual run evidence are delivered
 separately; no old result is rebound to this new source.
+
+## Import-only memory repair
+
+The original full-Mathlib build passed but kernel replay exceeded 16GiB.
+SOURCE_MAP.md records that failure and the narrow-import successor. Every
+scalar statement/proof body, gate.py, pin and rejection control is preserved;
+only imports and their exact preservation-test expectations changed.

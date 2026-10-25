@@ -44,3 +44,22 @@ and all rejection controls; retain failed executions. (4) freeze exact source
 identities, publish draft PR, request actual nonauthor source/statement review.
 Report real lineage; author replay never supplies independent alignment.
 (5) supply website mapping as candidate evidence, no graph or status promotion.
+
+## Import-only successor after observed memory failure
+
+At proof commit deb28a751f620715ec65d3bd73690905e6fee94d the ordinary fresh build
+passed, but leanchecker exited 137; cgroup memory.max was 17179869184 bytes and
+memory.events recorded one OOM kill. The failed original build/checker/version logs
+remain under evidence/history/umbrella-mathlib-oom/. No successful receipt exists
+for that commit. The compiler proof bodies and theorem types are unchanged.
+
+The successor replaces only each of the three modules' `import Mathlib` headers
+with exact narrow Mathlib imports. The two copied successor-preservation tests
+now require those exact import lists and continue comparing the entire remaining
+baseline bodies with the preserved originals plus their documented historical
+compiler repairs. Their test-first run failed exactly those two tests before the
+import change. Original source bytes remain in formal/ at the base and in the
+preserved originals. Gate.py, pins, allowlist and all five rejection controls are
+unchanged. This is a new dependency/source candidate, requiring its own execution
+and review; neither the previous source review nor successful compilation is
+silently rebound to it.

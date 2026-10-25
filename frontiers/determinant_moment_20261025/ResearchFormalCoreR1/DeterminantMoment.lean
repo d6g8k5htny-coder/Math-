@@ -1,4 +1,15 @@
-import Mathlib
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.MeasureTheory.Order.Group.Lattice
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Push
 
 namespace ResearchFormalCoreR1
 

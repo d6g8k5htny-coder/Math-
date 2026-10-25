@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.Basic.Real.Basic
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
 
 namespace ResearchFormalCoreR1
 

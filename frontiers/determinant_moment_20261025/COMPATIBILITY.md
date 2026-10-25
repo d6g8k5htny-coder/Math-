@@ -13,3 +13,10 @@ The actual first hosted run, 36351673121, on Math- commit 9cc0fff64b5e48b48b1ebc
 Original files are retained verbatim as originals/Algebra.lean.txt (SHA256 4c196820c4db8fafc288dd35642828ba577e3544d60aba7d1d6d24f14ad1e8ae) and originals/ProbabilityCompanions.lean.txt (SHA256 4ace6600a476859982c8851ae9097c89b082d3c96291b3c8330bd4cc00bae65d). The newly introduced, unmerged execution copies were replaced by explicitly named AlgebraV2.lean and ProbabilityCompanionsV2.lean; no original carrier was modified. Namespace and all thirteen theorem statements remain unchanged. Tests compare each successor to exactly the documented transformation of its original, including whitespace and all other proof text.
 
 Unused-variable warnings for hcW/hq are retained, not suppressed or removed by broadening a statement. The successor needs its own actual successful build/audit/negative-control run; the existence of this note does not establish success. Statement preservation and kernel evidence remain distinct from independent alignment review.
+
+## DM2 packet import-only successor (25 October 2026)
+
+See SOURCE_MAP.md's observed 16GiB OOM and exact narrow-import successor. All
+13 scalar theorem types and proof bodies remain as above; only their import
+headers change. The two preservation tests bind the exact chosen replacement
+headers and compare every remaining byte. No core formal/ file is edited.

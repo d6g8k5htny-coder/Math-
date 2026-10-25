@@ -1,4 +1,9 @@
-import Mathlib
+import Mathlib.Analysis.Real.Sqrt
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.Positivity
+import Mathlib.Tactic.Linarith
 
 namespace ResearchFormalCoreR1
 
