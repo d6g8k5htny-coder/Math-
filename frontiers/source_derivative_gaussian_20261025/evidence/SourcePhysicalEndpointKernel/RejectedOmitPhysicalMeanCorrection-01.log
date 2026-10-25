@@ -1,0 +1,13 @@
+/workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean:4:65: error: unsolved goals
+case «0»
+⊢ False
+
+case «1»
+⊢ False
+/workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean:7:50: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourcePhysicalCorrection]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,29 @@
+SourceConfluentLimits.lean:79:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun i => a i m * ω m
+in the target expression
+  T (fun i => a i m) j * ω m = (⇑(↑T).toAddMonoidHom ∘ fun m i => a i m * ω m) m j
+
+case e'_5
+ι : Type u_1
+n q : ℕ
+a : Fin n → ι → ℝ
+ω : ι → ℝ
+ha : ∀ (i : Fin n), Summable fun m => a i m * ω m
+T : (Fin n → ℝ) →L[ℝ] Fin q → ℝ
+hs : HasSum (fun m i => a i m * ω m) fun i => scalarSeries (a i) ω
+ht : HasSum (⇑(↑T).toAddMonoidHom ∘ fun m i => a i m * ω m) ((↑T).toAddMonoidHom fun i => scalarSeries (a i) ω)
+j : Fin q
+m : ι
+hm : (fun i => a i m * ω m) = ω m • fun i => a i m
+⊢ T (fun i => a i m) j * ω m = (⇑(↑T).toAddMonoidHom ∘ fun m i => a i m * ω m) m j
+SourceConfluentLimits.lean:96:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  scalarSeries (derivativeCoefficient 2 L ?k ?x ?u) (sampleInclusion 2 L ω)
+in the target expression
+  rawPinsWithHessians L r ω i = scalarSeries (rawDerivativeCoefficient L r i) (sampleInclusion 2 L ω)
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+i : Fin 12
+⊢ rawPinsWithHessians L r ω i = scalarSeries (rawDerivativeCoefficient L r i) (sampleInclusion 2 L ω)

@@ -1,0 +1,124 @@
+import SourceContactEndpointParameters
+import SourceConfluentPins
+
+noncomputable section
+open I4Foundation I4Source I4SourceGaussian I4SmoothCarrier I4SourceDerivativeGaussian
+open I4SourceContact I4SourceConfluentPins MeasureTheory ProbabilityTheory
+open scoped BigOperators
+set_option autoImplicit false
+
+namespace I4ContactCoefficientLimits
+
+def contactPinCoefficient (L : ℝ) (i : Fin 6) (m : SourceMode 2) : ℝ :=
+  sourceContactCoefficient L i.castSucc m
+
+def contactAdjustedCoefficient (L : ℝ) (i : Fin 6) (m : SourceMode 2) : ℝ :=
+  ![-derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionX] m / 2,
+    derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionX] m / 2,
+    -derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionY] m / 2,
+    derivativeCoefficient 2 L 3 0 ![directionX,directionX,directionY] m / 2,
+    derivativeCoefficient 2 L 2 0 ![directionY,directionY] m,
+    derivativeCoefficient 2 L 2 0 ![directionY,directionY] m] i
+
+theorem contactPinCoefficient_summable {L : ℝ} (hL : L ≠ 0) (i : Fin 6) :
+    Summable (contactPinCoefficient L i) :=
+  sourceContactCoefficient_summable hL i.castSucc
+
+theorem contactAdjustedCoefficient_summable {L : ℝ} (hL : L ≠ 0) (i : Fin 6) :
+    Summable (contactAdjustedCoefficient L i) := by
+  change Summable (fun m => contactAdjustedCoefficient L i m)
+  have hx := derivativeCoefficient_summable 2 hL 3 0 ![directionX,directionX,directionX]
+  have ha := derivativeCoefficient_summable 2 hL 3 0 ![directionX,directionX,directionY]
+  have hq := derivativeCoefficient_summable 2 hL 2 0 ![directionY,directionY]
+  fin_cases i
+  · simpa [contactAdjustedCoefficient, div_eq_mul_inv, mul_comm] using
+      hx.neg.mul_left ((2 : ℝ)⁻¹)
+  · simpa [contactAdjustedCoefficient, div_eq_mul_inv, mul_comm] using
+      hx.mul_left ((2 : ℝ)⁻¹)
+  · simpa [contactAdjustedCoefficient, div_eq_mul_inv, mul_comm] using
+      ha.neg.mul_left ((2 : ℝ)⁻¹)
+  · simpa [contactAdjustedCoefficient, div_eq_mul_inv, mul_comm] using
+      ha.mul_left ((2 : ℝ)⁻¹)
+  · exact hq
+  · exact hq
+
+theorem sourcePinVector_eq_contactSeries {L : ℝ} (hL : L ≠ 0)
+    (ω : SmoothSample 2 L) (i : Fin 6) :
+    sourcePinVector L ω i =
+      scalarSeries (contactPinCoefficient L i) (sampleInclusion 2 L ω) :=
+  smoothSourceField_derivative_series 2 hL ω (contactOrder i.castSucc) 0
+    (contactDirections i.castSucc)
+
+private theorem scalarSeries_div {ι : Type*} (a : ι → ℝ) (ω : ι → ℝ) (c : ℝ) :
+    scalarSeries (fun m => a m / c) ω = scalarSeries a ω / c := by
+  simp [scalarSeries, div_mul_eq_mul_div, tsum_div_const]
+
+private theorem scalarSeries_neg {ι : Type*} (a : ι → ℝ) (ω : ι → ℝ) :
+    scalarSeries (fun m => -a m) ω = -scalarSeries a ω := by
+  simp [scalarSeries, neg_mul, tsum_neg]
+
+theorem sourceContactEndpointVector_eq_contactSeries {L : ℝ} (hL : L ≠ 0)
+    (ω : SmoothSample 2 L) (i : Fin 6) :
+    sourceContactEndpointVector L ω i =
+      scalarSeries (contactAdjustedCoefficient L i) (sampleInclusion 2 L ω) := by
+  have hx := smoothSourceField_derivative_series 2 hL ω 3 0
+    ![directionX,directionX,directionX]
+  have ha := smoothSourceField_derivative_series 2 hL ω 3 0
+    ![directionX,directionX,directionY]
+  have hq := smoothSourceField_derivative_series 2 hL ω 2 0 ![directionY,directionY]
+  fin_cases i
+  · change -iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0
+      ![directionX,directionX,directionX] / 2 =
+      scalarSeries (fun m => -derivativeCoefficient 2 L 3 0
+        ![directionX,directionX,directionX] m / 2) (sampleInclusion 2 L ω)
+    rw [scalarSeries_div, scalarSeries_neg, hx]
+  · change iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0
+      ![directionX,directionX,directionX] / 2 =
+      scalarSeries (fun m => derivativeCoefficient 2 L 3 0
+        ![directionX,directionX,directionX] m / 2) (sampleInclusion 2 L ω)
+    rw [scalarSeries_div, hx]
+  · change -iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0
+      ![directionX,directionX,directionY] / 2 =
+      scalarSeries (fun m => -derivativeCoefficient 2 L 3 0
+        ![directionX,directionX,directionY] m / 2) (sampleInclusion 2 L ω)
+    rw [scalarSeries_div, scalarSeries_neg, ha]
+  · change iteratedFDeriv ℝ 3 (smoothSourceField 2 L ω) 0
+      ![directionX,directionX,directionY] / 2 =
+      scalarSeries (fun m => derivativeCoefficient 2 L 3 0
+        ![directionX,directionX,directionY] m / 2) (sampleInclusion 2 L ω)
+    rw [scalarSeries_div, ha]
+  · exact hq
+  · exact hq
+
+theorem sourcePinCovariance_eq_contactCoefficientGram {L : ℝ} (hL : L ≠ 0)
+    (i j : Fin 6) : sourcePinCovariance L i j =
+      ∑' m, contactPinCoefficient L i m * contactPinCoefficient L j m := by
+  change covariance (fun ω => sourcePinVector L ω i) (fun ω => sourcePinVector L ω j)
+    (smoothLaw 2 L) = _
+  simp_rw [sourcePinVector_eq_contactSeries hL]
+  rw [covariance_comp_inclusion 2 hL _ _ (scalarSeries_measurable _)
+    (scalarSeries_measurable _)]
+  exact I4SourceCovariance.scalarSeries_covariance _ _
+    (contactPinCoefficient_summable hL i) (contactPinCoefficient_summable hL j)
+
+theorem sourceContactEndpointCrossCovariance_eq_contactCoefficientGram {L : ℝ}
+    (hL : L ≠ 0) (i j : Fin 6) : sourceContactEndpointCrossCovariance L i j =
+      ∑' m, contactAdjustedCoefficient L i m * contactPinCoefficient L j m := by
+  unfold sourceContactEndpointCrossCovariance
+  simp_rw [sourceContactEndpointVector_eq_contactSeries hL, sourcePinVector_eq_contactSeries hL]
+  rw [covariance_comp_inclusion 2 hL _ _ (scalarSeries_measurable _)
+    (scalarSeries_measurable _)]
+  exact I4SourceCovariance.scalarSeries_covariance _ _
+    (contactAdjustedCoefficient_summable hL i) (contactPinCoefficient_summable hL j)
+
+theorem sourceContactEndpointCovariance_eq_contactCoefficientGram {L : ℝ}
+    (hL : L ≠ 0) (i j : Fin 6) : sourceContactEndpointCovariance L i j =
+      ∑' m, contactAdjustedCoefficient L i m * contactAdjustedCoefficient L j m := by
+  unfold sourceContactEndpointCovariance
+  simp_rw [sourceContactEndpointVector_eq_contactSeries hL]
+  rw [covariance_comp_inclusion 2 hL _ _ (scalarSeries_measurable _)
+    (scalarSeries_measurable _)]
+  exact I4SourceCovariance.scalarSeries_covariance _ _
+    (contactAdjustedCoefficient_summable hL i) (contactAdjustedCoefficient_summable hL j)
+
+end I4ContactCoefficientLimits

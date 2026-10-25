@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+    "SourceEndpointEstimates.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256": "338535195f9ac8b40003549862de12ab778936bba2368cbb4379fecf677efc84",
+  "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_COMPOSITION_ONLY",
+  "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+}

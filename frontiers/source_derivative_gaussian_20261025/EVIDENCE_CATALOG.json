@@ -14,13 +14,13 @@
     "ConfluentIntegralIdentities",
     "SourceEndpointRegression",
     "GaussianRegressionLimits",
-    "SourceEndpointParameters"
-  ],
-  "not_in_this_completed_inventory": [
+    "SourceEndpointParameters",
+    "SourceContactEndpointParameters",
     "SourceConfluentLimits",
-    "SourceEndpointEstimates",
-    "SourceContactEndpointParameters"
+    "SourcePhysicalEndpointKernel",
+    "SourceEndpointEstimates"
   ],
+  "not_in_this_completed_inventory": [],
   "source_inputs_binding": {
     "path": "INPUT_BINDING.json",
     "sha256": "42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13",
@@ -1963,9 +1963,1948 @@
           "matches_current_source": true
         }
       ]
+    },
+    {
+      "module": "SourceContactEndpointParameters",
+      "namespace": "I4SourceContact",
+      "source_path": "SourceContactEndpointParameters.lean",
+      "source_bytes": 16225,
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "imports": [
+        "SourceContactSchur",
+        "Mathlib.Probability.Moments.CovarianceBilin"
+      ],
+      "public_targets": [
+        "I4SourceContact.sourceContactEndpointMean_contact",
+        "I4SourceContact.sourceContactEndpointSchur_covariance",
+        "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+        "I4SourceContact.sourceContactEndpointSchur_contact",
+        "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur",
+        "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactA",
+          "line": 24
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointVector",
+          "line": 28
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointCrossCovariance",
+          "line": 34
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointCovariance",
+          "line": 39
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointRegression",
+          "line": 43
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactPinValue",
+          "line": 47
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointMean",
+          "line": 49
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointSchur",
+          "line": 52
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceContact.sourceContactEndpointResidual",
+          "line": 57
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointMean_contact",
+          "line": 225
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointSchur_covariance",
+          "line": 257
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+          "line": 271
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointSchur_contact",
+          "line": 276
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur",
+          "line": 308
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos",
+          "line": 320
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceContact.sourceContactEndpointMean_contact": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+          "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+        },
+        "I4SourceContact.sourceContactEndpointSchur_covariance": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+          "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+        },
+        "I4SourceContact.sourceContactEndpointSchur_contact": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+          "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+        },
+        "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+          "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-compile-author-history.json",
+          "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "matches_current_source": true,
+          "record_type": "existing_author_tool_history_record"
+        },
+        {
+          "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.json",
+          "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-leanchecker.json",
+          "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        }
+      ],
+      "transitive_axiom_coverage": [
+        {
+          "target": "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+          "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+          "source_path": "SourceContactEndpointParameters.lean",
+          "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "printed_parent": "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+          "printed_parent_source_path": "SourceEndpointEstimates.lean",
+          "printed_parent_source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "source_code_edge": {
+            "line": 259,
+            "text": "hm hS hPSD (sourceContactEndpointSchur_posSemidef hL)"
+          },
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "printed_parent_log_line": 38,
+          "permitted_axioms_by_parent_bound": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        {
+          "target": "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur",
+          "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+          "source_path": "SourceContactEndpointParameters.lean",
+          "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "printed_parent": "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos",
+          "printed_parent_source_path": "SourceContactEndpointParameters.lean",
+          "printed_parent_source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+          "source_code_edge": {
+            "line": 322,
+            "text": "rw [sourceContactEndpointSchur_four_four_eq_schur]"
+          },
+          "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+          "printed_parent_log_line": 25,
+          "permitted_axioms_by_parent_bound": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+          "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+        }
+      ]
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "namespace": "MULTIPLE: author inventory",
+      "source_path": "SourceConfluentLimits.lean",
+      "source_bytes": 54275,
+      "source_sha256": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+      "imports": [
+        "SourceEndpointRegression",
+        "SourceDerivativeContinuity",
+        "SourceContactSchur",
+        "SourceContactEndpointParameters",
+        "ConfluentIntegralIdentities",
+        "Mathlib.Analysis.Normed.Group.Tannery",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic"
+      ],
+      "public_targets": [
+        "I4SourceConfluentLimits.rawPinsWithHessians_series",
+        "I4SourceConfluentLimits.pinCoefficient_summable",
+        "I4SourceConfluentLimits.adjustedCoefficient_summable",
+        "I4SourceConfluentLimits.sourceConfluentPinsAt_series",
+        "I4SourceConfluentLimits.sourceAdjustedEndpoints_series",
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_coefficient",
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_coefficient",
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_coefficient",
+        "I4ModeCurveChains.mode_smooth",
+        "I4ModeCurveChains.axis_iteratedDeriv",
+        "I4ModeCurveChains.axis_transverse_smooth",
+        "I4ModeCurveChains.axis_transverse_iteratedDeriv",
+        "I4ModeCurveChains.modeH_eq",
+        "I4ModeCurveChains.modeF_C3",
+        "I4ModeCurveChains.modeH_C2",
+        "I4ModeCurveChains.modeF_deriv",
+        "I4ModeCurveChains.modeF_second",
+        "I4ModeCurveChains.modeF_third",
+        "I4ModeCurveChains.modeH_deriv",
+        "I4ModeCurveChains.modeH_second",
+        "I4SourceConfluentLimits.rawDerivativeCoefficient_explicit",
+        "I4SourceConfluentLimits.pinCoefficient_explicit",
+        "I4SourceConfluentLimits.adjustedCoefficient_explicit",
+        "I4WeightedModeIntegrals.weighted_integrand_bound",
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_continuous",
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_norm_le",
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_zero",
+        "I4SourceConfluentLimits.peano_kernel_masses",
+        "I4SourceConfluentLimits.pinCoefficient_eq_regularized",
+        "I4SourceConfluentLimits.adjustedCoefficient_eq_regularized",
+        "I4ContactCoefficientLimits.contactPinCoefficient_summable",
+        "I4ContactCoefficientLimits.contactAdjustedCoefficient_summable",
+        "I4ContactCoefficientLimits.sourcePinVector_eq_contactSeries",
+        "I4ContactCoefficientLimits.sourceContactEndpointVector_eq_contactSeries",
+        "I4ContactCoefficientLimits.sourcePinCovariance_eq_contactCoefficientGram",
+        "I4ContactCoefficientLimits.sourceContactEndpointCrossCovariance_eq_contactCoefficientGram",
+        "I4ContactCoefficientLimits.sourceContactEndpointCovariance_eq_contactCoefficientGram",
+        "I4SourceConfluentLimits.confluentModeMajorant_nonneg",
+        "I4SourceConfluentLimits.confluentModeMajorant_summable",
+        "I4SourceConfluentLimits.regularizedPinCoefficient_bound",
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_bound",
+        "I4SourceConfluentLimits.regularizedPinCoefficient_continuous",
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_continuous",
+        "I4SourceConfluentLimits.regularizedPinCoefficient_zero",
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_zero",
+        "I4SourceConfluentLimits.regularizedPinCovariance_continuous",
+        "I4SourceConfluentLimits.regularizedCrossCovariance_continuous",
+        "I4SourceConfluentLimits.regularizedEndpointCovariance_continuous",
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_eq_regularized",
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_eq_regularized",
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_eq_regularized",
+        "I4SourceConfluentLimits.regularizedPinCovariance_zero",
+        "I4SourceConfluentLimits.regularizedCrossCovariance_zero",
+        "I4SourceConfluentLimits.regularizedEndpointCovariance_zero",
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_tendsto",
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_tendsto",
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_tendsto"
+      ],
+      "public_declarations": [
+        {
+          "kind": "abbrev",
+          "name": "I4SourceConfluentLimits.rawDerivativeOrder",
+          "line": 24
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.rawDerivativePoint",
+          "line": 26
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.rawDerivativeDirections",
+          "line": 30
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.rawDerivativeCoefficient",
+          "line": 35
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.pinObservationMap",
+          "line": 39
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.adjustedObservationMap",
+          "line": 42
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.pinCoefficient",
+          "line": 45
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.adjustedCoefficient",
+          "line": 48
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.rawPinsWithHessians_series",
+          "line": 95
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.pinCoefficient_summable",
+          "line": 118
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.adjustedCoefficient_summable",
+          "line": 124
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceConfluentPinsAt_series",
+          "line": 130
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceAdjustedEndpoints_series",
+          "line": 142
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourcePinCovarianceAt_coefficient",
+          "line": 154
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceCrossCovarianceAt_coefficient",
+          "line": 163
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceEndpointCovarianceAt_coefficient",
+          "line": 173
+        },
+        {
+          "kind": "def",
+          "name": "I4ModeCurveChains.axisMap",
+          "line": 195
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.mode_smooth",
+          "line": 201
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.axis_iteratedDeriv",
+          "line": 215
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.axis_transverse_smooth",
+          "line": 225
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.axis_transverse_iteratedDeriv",
+          "line": 231
+        },
+        {
+          "kind": "def",
+          "name": "I4ModeCurveChains.modeF",
+          "line": 246
+        },
+        {
+          "kind": "def",
+          "name": "I4ModeCurveChains.modeH",
+          "line": 247
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeH_eq",
+          "line": 250
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeF_C3",
+          "line": 255
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeH_C2",
+          "line": 258
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeF_deriv",
+          "line": 262
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeF_second",
+          "line": 268
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeF_third",
+          "line": 277
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeH_deriv",
+          "line": 286
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ModeCurveChains.modeH_second",
+          "line": 294
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.modeYY",
+          "line": 309
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.modeRawValues",
+          "line": 312
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.rawDerivativeCoefficient_explicit",
+          "line": 363
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.modePinValues",
+          "line": 395
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.pinCoefficient_explicit",
+          "line": 401
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.modeAdjustedValues",
+          "line": 410
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.adjustedCoefficient_explicit",
+          "line": 417
+        },
+        {
+          "kind": "def",
+          "name": "I4WeightedModeIntegrals.weightedDerivativeIntegral",
+          "line": 439
+        },
+        {
+          "kind": "theorem",
+          "name": "I4WeightedModeIntegrals.weighted_integrand_bound",
+          "line": 443
+        },
+        {
+          "kind": "theorem",
+          "name": "I4WeightedModeIntegrals.weightedDerivativeIntegral_continuous",
+          "line": 454
+        },
+        {
+          "kind": "theorem",
+          "name": "I4WeightedModeIntegrals.weightedDerivativeIntegral_norm_le",
+          "line": 473
+        },
+        {
+          "kind": "theorem",
+          "name": "I4WeightedModeIntegrals.weightedDerivativeIntegral_zero",
+          "line": 483
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.peanoLeft",
+          "line": 498
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.peanoRight",
+          "line": 499
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.peanoCubic",
+          "line": 500
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.peano_kernel_masses",
+          "line": 526
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.regularizedPinCoefficient",
+          "line": 548
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.regularizedAdjustedCoefficient",
+          "line": 556
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.pinCoefficient_eq_regularized",
+          "line": 563
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.adjustedCoefficient_eq_regularized",
+          "line": 584
+        },
+        {
+          "kind": "def",
+          "name": "I4ContactCoefficientLimits.contactPinCoefficient",
+          "line": 621
+        },
+        {
+          "kind": "def",
+          "name": "I4ContactCoefficientLimits.contactAdjustedCoefficient",
+          "line": 624
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.contactPinCoefficient_summable",
+          "line": 632
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.contactAdjustedCoefficient_summable",
+          "line": 636
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.sourcePinVector_eq_contactSeries",
+          "line": 654
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.sourceContactEndpointVector_eq_contactSeries",
+          "line": 669
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.sourcePinCovariance_eq_contactCoefficientGram",
+          "line": 702
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.sourceContactEndpointCrossCovariance_eq_contactCoefficientGram",
+          "line": 713
+        },
+        {
+          "kind": "theorem",
+          "name": "I4ContactCoefficientLimits.sourceContactEndpointCovariance_eq_contactCoefficientGram",
+          "line": 723
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.modeComponentMajorant",
+          "line": 739
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.confluentModeMajorant",
+          "line": 749
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.confluentModeMajorant_nonneg",
+          "line": 757
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.confluentModeMajorant_summable",
+          "line": 761
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedPinCoefficient_bound",
+          "line": 800
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedAdjustedCoefficient_bound",
+          "line": 827
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedPinCoefficient_continuous",
+          "line": 886
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedAdjustedCoefficient_continuous",
+          "line": 909
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedPinCoefficient_zero",
+          "line": 941
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedAdjustedCoefficient_zero",
+          "line": 967
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.regularizedPinCovariance",
+          "line": 999
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.regularizedCrossCovariance",
+          "line": 1002
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceConfluentLimits.regularizedEndpointCovariance",
+          "line": 1005
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedPinCovariance_continuous",
+          "line": 1029
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedCrossCovariance_continuous",
+          "line": 1035
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedEndpointCovariance_continuous",
+          "line": 1041
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourcePinCovarianceAt_eq_regularized",
+          "line": 1047
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceCrossCovarianceAt_eq_regularized",
+          "line": 1056
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceEndpointCovarianceAt_eq_regularized",
+          "line": 1065
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedPinCovariance_zero",
+          "line": 1074
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedCrossCovariance_zero",
+          "line": 1081
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.regularizedEndpointCovariance_zero",
+          "line": 1088
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourcePinCovarianceAt_tendsto",
+          "line": 1097
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceCrossCovarianceAt_tendsto",
+          "line": 1107
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConfluentLimits.sourceEndpointCovarianceAt_tendsto",
+          "line": 1118
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceConfluentLimits.rawPinsWithHessians_series": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.pinCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.adjustedCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceConfluentPinsAt_series": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceAdjustedEndpoints_series": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_coefficient": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_coefficient": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_coefficient": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.mode_smooth": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.axis_iteratedDeriv": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.axis_transverse_smooth": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.axis_transverse_iteratedDeriv": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeH_eq": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeF_C3": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeH_C2": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeF_deriv": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeF_second": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeF_third": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeH_deriv": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ModeCurveChains.modeH_second": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.rawDerivativeCoefficient_explicit": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.pinCoefficient_explicit": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.adjustedCoefficient_explicit": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4WeightedModeIntegrals.weighted_integrand_bound": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_norm_le": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4WeightedModeIntegrals.weightedDerivativeIntegral_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.peano_kernel_masses": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.pinCoefficient_eq_regularized": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.adjustedCoefficient_eq_regularized": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.contactPinCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.contactAdjustedCoefficient_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.sourcePinVector_eq_contactSeries": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.sourceContactEndpointVector_eq_contactSeries": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.sourcePinCovariance_eq_contactCoefficientGram": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.sourceContactEndpointCrossCovariance_eq_contactCoefficientGram": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4ContactCoefficientLimits.sourceContactEndpointCovariance_eq_contactCoefficientGram": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.confluentModeMajorant_nonneg": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.confluentModeMajorant_summable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedPinCoefficient_bound": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_bound": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedPinCoefficient_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedPinCoefficient_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedAdjustedCoefficient_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedPinCovariance_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedCrossCovariance_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedEndpointCovariance_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_eq_regularized": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_eq_regularized": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_eq_regularized": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedPinCovariance_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedCrossCovariance_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.regularizedEndpointCovariance_zero": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourcePinCovarianceAt_tendsto": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceCrossCovarianceAt_tendsto": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        },
+        "I4SourceConfluentLimits.sourceEndpointCovarianceAt_tendsto": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+          "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/source-confluent-limits/19-controls.json",
+          "source_sha256": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.json",
+          "source_sha256": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.json",
+          "source_sha256": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        }
+      ],
+      "author_target_inventory": {
+        "path": "/workspace/scratch/source-confluent-limits/targets.json",
+        "sha256": "a7f737c54169ae31b1dc0fa2a47b3cb4078f3229f7758285aaa327a194f28b14",
+        "inventory_is_namespace_aware": true
+      }
+    },
+    {
+      "module": "SourcePhysicalEndpointKernel",
+      "namespace": "I4SourcePhysicalEndpointKernel",
+      "source_path": "SourcePhysicalEndpointKernel.lean",
+      "source_bytes": 7126,
+      "source_sha256": "689ced2a760b38333b0224f19af52812d0057527d5a790ba50116cb5f07b7e3a",
+      "imports": [
+        "SourceEndpointParameters"
+      ],
+      "public_targets": [
+        "I4SourcePhysicalEndpointKernel.sourceNormalizedEndpoints_eq_adjusted",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_markov",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_measurable",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_apply",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_hasCondDistrib",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection_prescribed",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_at_prescribed",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_integral",
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_spec"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection",
+          "line": 24
+        },
+        {
+          "kind": "def",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalRegressionMap",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourceNormalizedEndpoints_eq_adjusted",
+          "line": 34
+        },
+        {
+          "kind": "def",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_markov",
+          "line": 46
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_measurable",
+          "line": 52
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_apply",
+          "line": 56
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_hasCondDistrib",
+          "line": 67
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection_prescribed",
+          "line": 91
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_at_prescribed",
+          "line": 97
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_integral",
+          "line": 105
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_spec",
+          "line": 119
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourcePhysicalEndpointKernel.sourceNormalizedEndpoints_eq_adjusted": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_markov": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_measurable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_apply": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_hasCondDistrib": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection_prescribed": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_at_prescribed": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_integral": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        },
+        "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_spec": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+          "raw_log_sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/regression-kernel/physical-endpoint/EVIDENCE.json",
+          "source_sha256": "689ced2a760b38333b0224f19af52812d0057527d5a790ba50116cb5f07b7e3a",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        }
+      ]
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "namespace": "I4SourceEndpointEstimates",
+      "source_path": "SourceEndpointEstimates.lean",
+      "source_bytes": 20080,
+      "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "imports": [
+        "SourceEndpointParameters",
+        "SourceConfluentLimits",
+        "SourceContactEndpointParameters",
+        "SourcePhysicalEndpointKernel",
+        "GaussianRegressionLimits",
+        "ResearchFormalCoreR1.GaussianNormalizerLimit",
+        "ResearchFormalCoreR1.PalmReweighting"
+      ],
+      "public_targets": [
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply",
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous",
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse",
+        "I4SourceEndpointEstimates.sourceEndpointWeight_measurable",
+        "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg",
+        "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable",
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable",
+        "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto",
+        "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates",
+        "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits",
+        "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds",
+        "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+        "I4SourceEndpointEstimates.sourceEndpoint_estimates",
+        "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events",
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq",
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure",
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib",
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq",
+        "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events"
+      ],
+      "public_declarations": [
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalCoordinates",
+          "line": 30
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalIndex",
+          "line": 33
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply",
+          "line": 35
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous",
+          "line": 39
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse",
+          "line": 43
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourceEndpointWeight",
+          "line": 49
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointWeight_measurable",
+          "line": 52
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg",
+          "line": 55
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous",
+          "line": 62
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw",
+          "line": 67
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourceEndpointMean",
+          "line": 70
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure",
+          "line": 73
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw",
+          "line": 80
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal",
+          "line": 89
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral",
+          "line": 103
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds",
+          "line": 119
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable",
+          "line": 142
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable",
+          "line": 154
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto",
+          "line": 162
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourceEndpointWeightedProbability",
+          "line": 171
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates",
+          "line": 176
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits",
+          "line": 192
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds",
+          "line": 217
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+          "line": 245
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_estimates",
+          "line": 271
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events",
+          "line": 292
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw",
+          "line": 317
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq",
+          "line": 322
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure",
+          "line": 326
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib",
+          "line": 333
+        },
+        {
+          "kind": "def",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability",
+          "line": 341
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq",
+          "line": 344
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events",
+          "line": 352
+        }
+      ],
+      "saved_axiom_reports": {
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointWeight_measurable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_estimates": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        },
+        "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events": {
+          "axioms": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+          "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+        }
+      },
+      "existing_source_hash_bindings": [
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/actual_assembly_attempt1.json",
+          "source_sha256": "4192cf503993c9a51822deba5cb8a8a593a28f0707eba38a47837b3c32b82bc0",
+          "matches_current_source": false,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/qualification_receipt.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_attempt1.json",
+          "source_sha256": "338535195f9ac8b40003549862de12ab778936bba2368cbb4379fecf677efc84",
+          "matches_current_source": false,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_final.json",
+          "source_sha256": "dcd3dbf25a199e2b3461bc2f7bcc935acac74483dd525a01d06b3720fa863958",
+          "matches_current_source": false,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_attempt1.json",
+          "source_sha256": "2c2e6d3cc9af6e061da59ff6e00e7625632b774579f2d91bdf1a2b5e9f32d400",
+          "matches_current_source": false,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_final.json",
+          "source_sha256": "d41e6afb5b57ef05e90bae703d863b501517ef36fa2a98be5e2310cfbd3ca245",
+          "matches_current_source": false,
+          "record_type": "existing_json_receipt"
+        },
+        {
+          "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.json",
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "matches_current_source": true,
+          "record_type": "existing_json_receipt"
+        }
+      ],
+      "author_target_inventory": {
+        "path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/targets.json",
+        "sha256": "856b405e442402c6d7aba793d214c32f3496d25c7fbd358f3d45f8189ad79bad",
+        "inventory_is_namespace_aware": true
+      }
     }
   ],
-  "public_theorem_lemma_count": 85,
+  "public_theorem_lemma_count": 182,
   "execution_records": [
     {
       "module": "SourceDerivativeGaussian",
@@ -3493,6 +5432,1193 @@
         },
         "reuse": "All completed source/kernel/regression checks reused; only this new parameter module and new controls checked."
       }
+    },
+    {
+      "module": "SourceContactEndpointParameters",
+      "record_type": "existing_author_tool_history_record",
+      "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-compile-author-history.json",
+      "record_sha256": "8f47c14800cde13f237960d322a2ea6226e2bed15793bba98b673fdfdd89b377",
+      "record": {
+        "provenance": "author tool-history report recorded after command; not a retrospective machine receipt",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceContactEndpointParameters.olean",
+          "SourceContactEndpointParameters.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "observed_exit_code": 0,
+        "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+        "source_unchanged_since_final_successful_compile": true,
+        "log": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-05.log",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "new_kernel_receipt": "contact-parameters-leanchecker.json",
+        "new_controls_and_axiom_receipt": "contact-parameters-controls-01.json"
+      }
+    },
+    {
+      "module": "SourceContactEndpointParameters",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.json",
+      "record_sha256": "d31d5f4e22015d7c4e3a0346dfa94adf3ea72cdb54ce9b9acec947836c989d47",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+        "source_sha256_after": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+        "log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+      }
+    },
+    {
+      "module": "SourceContactEndpointParameters",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-leanchecker.json",
+      "record_sha256": "cd78f9e55fcdebe060ff53f6646be4db1748fb54a89c60fe066f1202c3e8279a",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "SourceContactEndpointParameters"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+        "source_sha256_after": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/source-confluent-limits/19-controls.json",
+      "record_sha256": "c50a7c1d9670d86eb4028245494162c4373d4b70596d8852e7d2747bf09fc9e2",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-confluent-limits/controls.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exitcode": 0,
+        "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.json",
+      "record_sha256": "b0bfbaa285c3357b05139019f0db2a28fbce82cdad24925b247a19f900adfdb7",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-confluent-limits/axiom_audit.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exitcode": 0,
+        "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+      }
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.json",
+      "record_sha256": "8f1ae7e41704bf13e87d1bf96472a19e657232a2e43dc51c20de1c5b389ff354",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceConfluentLimits"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exitcode": 0,
+        "elapsed_seconds": 18.978482509999594,
+        "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+        "toolchain": "leanprover/lean4:v4.34.1",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/00-initial-api.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean /workspace/scratch/source-confluent-limits/initial_api.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/00-initial-api.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/00-initial-api.log",
+      "raw_log_sha256": "5a6331dbd577ad781464668a3ff2153ae4771dcc513aadc18165cc6a783d3527"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.log",
+      "raw_log_sha256": "97bd4e3ccce6c9a8919812fcda88080c137df4bc4ddbfbc97b461b9062608bce"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.log",
+      "raw_log_sha256": "eb6f5173708e6036c59c6dbfdc8ad43c30bbd68788470e83b59df4d58ba7e5bb"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.log",
+      "raw_log_sha256": "c55e5ff42d189937d5ca77f3b41b7c3f36f192e5938aa4cb26ffae9dc23252a1"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.log",
+      "raw_log_sha256": "311816705cc8a904ea3b3b00af4b50438e3eefcc2689261b09a101fde74ddbbc"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.log",
+      "raw_log_sha256": "922d0e3ac909efe34f71bc58ce5df11a6c23670fc8e4eca66052f2c027f6237c"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.log",
+      "raw_log_sha256": "b511f5fbddd6e718e5c54d95469f677bd6e5f0e70d3147d0b12d57eeb668f37b"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.log",
+      "raw_log_sha256": "8dae9bf3a00548f96c19ebaf7d1fcb43fd9915387b6f5627666b83c30fc01e4e"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.log",
+      "raw_log_sha256": "a12c545ec4098c387df21ed5aebbdc2862a718d0d5e96059384714d0b6fba34c"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.log",
+      "raw_log_sha256": "e808db9a60efa3e02e5e56c17836bded6d45c044769d8af6cd421288658aed3b"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.log",
+      "raw_log_sha256": "c0f665ba3cb2747f8bd9d13aebb7ba3645fb00f8cea3989c09e4bc6a94070b7a"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.log",
+      "raw_log_sha256": "ac0f8be8f5106f0dd8390b58598546aea73de5c5952f9adfee2a27559d37fd80"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.log",
+      "raw_log_sha256": "ed977757deffe47a1580011e3fc23ad13923a323268fd8512b746cebe999b98b"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.exitcode",
+      "exit_code": 1,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.log",
+      "raw_log_sha256": "84228555ef13cd242e53cc7fa29effb9678f01e9fa5357782ac092a30b3b1acd"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceConfluentLimits.olean SourceConfluentLimits.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/19-controls.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-confluent-limits/controls.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/19-controls.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/19-controls.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.command",
+      "command_text": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/source-confluent-limits/axiom_audit.lean",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+      "raw_log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "saved_command_exit_log",
+      "command_record_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.command",
+      "command_text": "/home/agent/.elan/bin/lake env leanchecker SourceConfluentLimits",
+      "exit_record_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.exitcode",
+      "exit_code": 0,
+      "raw_log_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourcePhysicalEndpointKernel",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/regression-kernel/physical-endpoint/EVIDENCE.json",
+      "record_sha256": "de743e42ba5237b2f2c7321a73437ebf0bd992d34a1fa563a325c4e10b2baf67",
+      "record": {
+        "source": "SourcePhysicalEndpointKernel.lean",
+        "source_sha256": "689ced2a760b38333b0224f19af52812d0057527d5a790ba50116cb5f07b7e3a",
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "source_contract_commit": "1819e38",
+        "author": "OpenAI/Codex /root/regression_kernel",
+        "scientific_effect": "NONE; author-side verification only; whole-field Palm and event joins remain open; different-family review separate",
+        "build": {
+          "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourcePhysicalEndpointKernel.olean SourcePhysicalEndpointKernel.lean",
+          "exit": 0,
+          "log": "SourcePhysicalEndpointKernel-04.log"
+        },
+        "kernel": {
+          "command": "/home/agent/.elan/bin/lake env leanchecker SourcePhysicalEndpointKernel",
+          "exit": 0,
+          "log": "KernelReplay-01.log"
+        },
+        "axioms": {
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit.lean",
+          "exit": 0,
+          "targets": {
+            "I4SourcePhysicalEndpointKernel.sourceNormalizedEndpoints_eq_adjusted": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_markov": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_measurable": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_apply": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_hasCondDistrib": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalCorrection_prescribed": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_at_prescribed": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_integral": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "I4SourcePhysicalEndpointKernel.sourcePhysicalEndpointKernel_spec": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          "log": "AxiomAudit-01.log"
+        },
+        "controls": [
+          {
+            "file": "PositiveControls.lean",
+            "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/PositiveControls-01.log",
+            "exit": 0,
+            "log": "PositiveControls-01.log",
+            "reason": "arbitrary-height prescribed literal measure equality; actual physical HasCondDistrib at negative period; nonprescribed D nonzero; actual physical kernel differs from adjusted kernel at e3 by unequal means"
+          },
+          {
+            "file": "RejectedAllPinCorrectionZero.lean",
+            "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero-01.log",
+            "exit": 1,
+            "log": "RejectedAllPinCorrectionZero-01.log",
+            "reason": "D_1(e3) has first2 coordinates1, not0"
+          },
+          {
+            "file": "RejectedOmitPhysicalMeanCorrection.lean",
+            "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean",
+            "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean 2>&1 | tee /workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection-01.log",
+            "exit": 1,
+            "log": "RejectedOmitPhysicalMeanCorrection-01.log",
+            "reason": "physical kernel mean at e3 differs by the nonzero D correction"
+          }
+        ],
+        "control_warnings": "PositiveControls and RejectedOmitPhysicalMeanCorrection report one harmless unused Pi.single_apply simp-argument warning; mathematical outcomes recorded exactly, no repeat for warning alone.",
+        "logs": {
+          "SourcePhysicalEndpointKernel-04.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "PositiveControls-01.log": {
+            "bytes": 314,
+            "sha256": "58d90f2859b3d419465abcb614b267185bc5955917255feac90433312a6da1e6"
+          },
+          "RejectedAllPinCorrectionZero-01.log": {
+            "bytes": 160,
+            "sha256": "bc3eeb3a71cb384d141f3be4ea9fc977d6915ffaa14c5713ea4f0528de941719"
+          },
+          "RejectedOmitPhysicalMeanCorrection-01.log": {
+            "bytes": 491,
+            "sha256": "0f1c3137368ade94ad6d986fa47a713648174a6ec80f81deeb9f2072215d8f89"
+          },
+          "AxiomAudit-01.log": {
+            "bytes": 1190,
+            "sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+          },
+          "KernelReplay-01.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          }
+        },
+        "reuse": "Completed Gaussian/kernel/parameter source artifacts reused unchanged; only this new physical kernel module and its new controls checked."
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/actual_assembly_attempt1.json",
+      "record_sha256": "43ebd75fdf8c8ff4f7a8c70bd84672f362ed6da1fa71b62c3f58857b2a5e4f6c",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "4192cf503993c9a51822deba5cb8a8a593a28f0707eba38a47837b3c32b82bc0",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_ACTUAL_HL_B_ONLY_ASSEMBLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition; normalizer draft helper /root/dm2_landed_composition/peano_strategy"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.json",
+      "record_sha256": "a2e0ad92167d82705c63c69f5c345e78563705e7988bc7c09dacac3a8586d267",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/endpoint_estimates/AxiomAudit.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 4.68341064453125,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.json",
+      "record_sha256": "b6500c8d6cdfb372ea696491c4e292598ba035db5412671167f066d283188c03",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseOmitPermutation.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 4.770277976989746,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.json",
+      "record_sha256": "2708df3a3ef94e66392ea90a7851ce1e4edd10c12444e5653941c66b9315dab8",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseRadiusPower.lean"
+        ],
+        "exit_code": 1,
+        "duration_seconds": 4.121073007583618,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.json",
+      "record_sha256": "6b72b932f71e8c823e93152ca67193ef46fa01b9cef36f39cc6940eccda1b026",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "leanchecker",
+          "SourceEndpointEstimates"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 8.686837196350098,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.json",
+      "record_sha256": "65b212c119217b7ac525a20f37d5c0df26b8776c6707cd0fcce82603e5215596",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_ACTUAL_PHYSICAL_KERNEL_COMPOSITION",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition; normalizer draft helper /root/dm2_landed_composition/peano_strategy"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.json",
+      "record_sha256": "07bd07fc8b877010c9288fe895a9237f51c85b831b0841a777170230b037cad3",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/endpoint_estimates/PositiveControls.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 6.003469705581665,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/qualification_receipt.json",
+      "record_sha256": "48a246117424585e99de7fbaa51674dac534c3c53c83f768e8558fa19b0c15c5",
+      "record": {
+        "scope": "NEW_ACTUAL_PHYSICAL_ENDPOINT_ESTIMATES_ONLY",
+        "scientific_effect": "NONE",
+        "source_path": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025/SourceEndpointEstimates.lean",
+        "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "frozen_contracts": [
+          {
+            "commit": "dffeea6",
+            "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ENDPOINT_ESTIMATES.md"
+          },
+          {
+            "commit": "1819e38",
+            "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_PHYSICAL_ENDPOINT_KERNEL.md",
+            "role": "actual canonical physical law join consumed"
+          }
+        ],
+        "author_side_lineage": [
+          "OpenAI/Codex /root/dm2_landed_composition: sole production implementer",
+          "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual normalizer-floor assembly draft helper"
+        ],
+        "final_theorem": "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events",
+        "final_research_inputs": [
+          "L != 0",
+          "fixed arbitrary real height b"
+        ],
+        "derived_conclusions": [
+          "current pin covariance invertibility for every sufficiently small positive radius",
+          "actual regression means and Schur covariance limits and uniform parameter bounds",
+          "literal physical weight square integrability and integral <= C*r^4",
+          "positive normalizer integral >= c*r^2",
+          "explicit weighted actual physical endpoint probability",
+          "all measurable endpoint events satisfy sqrt(C)/c * sqrt(base endpoint event probability) bound"
+        ],
+        "actual_source_proof_dependencies": [
+          "SourceConfluentLimits: three actual covariance block limits",
+          "SourceContactEndpointParameters: derived contact means/zero variances/PSD/positive reference variance",
+          "SourceEndpointParameters: actual canonical every-pin Gaussian law",
+          "SourcePhysicalEndpointKernel: same-residual canonical physical kernel and literal prescribed-pin equality",
+          "GaussianRegressionLimits: derived inverse/mean/covariance limits and uniform bounds"
+        ],
+        "verified_input_reuse": "23 byte-bound inputs, including 11 ResearchFormalCoreR1 modules from the completed 66-target packet at 16f81b973a02783f8be83081aa7f198724cf5767, reused without rebuild or re-audit",
+        "compile": {
+          "command": [
+            "lake",
+            "env",
+            "lean",
+            "-o",
+            ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+            "SourceEndpointEstimates.lean"
+          ],
+          "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+          "exit_code": 0,
+          "source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+          "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_ACTUAL_PHYSICAL_KERNEL_COMPOSITION",
+          "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition; normalizer draft helper /root/dm2_landed_composition/peano_strategy",
+          "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "public_targets": [
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply",
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous",
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse",
+          "I4SourceEndpointEstimates.sourceEndpointWeight_measurable",
+          "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg",
+          "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable",
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable",
+          "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto",
+          "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates",
+          "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits",
+          "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds",
+          "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+          "I4SourceEndpointEstimates.sourceEndpoint_estimates",
+          "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events",
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq",
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure",
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib",
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq",
+          "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events"
+        ],
+        "axioms": {
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointWeight_measurable": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointWeight_nonneg": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePrescribedPins_tendsto": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_parameter_limits": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_estimates": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ],
+          "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events": [
+            "propext",
+            "Classical.choice",
+            "Quot.sound"
+          ]
+        },
+        "checks": {
+          "kernel": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "leanchecker",
+              "SourceEndpointEstimates"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 8.686837196350098,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 0,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "axioms": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/endpoint_estimates/AxiomAudit.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 4.68341064453125,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 0,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+            "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+          },
+          "types": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/endpoint_estimates/Types.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 4.792372465133667,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 0,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.log",
+            "raw_log_sha256": "a0aabbe4809916815304e74fc2cb96ab47d193d6874509e6bdf97d86e62a3f1b"
+          },
+          "positive": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/endpoint_estimates/PositiveControls.lean"
+            ],
+            "exit_code": 0,
+            "duration_seconds": 6.003469705581665,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 0,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.log",
+            "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "false-permutation": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseOmitPermutation.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 4.770277976989746,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 1,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.log",
+            "raw_log_sha256": "f262c0491c0806778fbd7fc56a2fe3668366dac8a386f9c658b323ee3bdd1955"
+          },
+          "false-radius": {
+            "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+            "command": [
+              "lake",
+              "env",
+              "lean",
+              "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseRadiusPower.lean"
+            ],
+            "exit_code": 1,
+            "duration_seconds": 4.121073007583618,
+            "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+            "expected_exit_code": 1,
+            "raw_log": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.log",
+            "raw_log_sha256": "1d211ab1466ecfd781950cf38588cdf7c42f009185c70ad467dcd76037271e47"
+          }
+        },
+        "control_source_sha256": {
+          "AxiomAudit.lean": "f6d9f1bf0523abe2bc34e77d0b587e981a82a7c0000589ca9508b25cd6ab0572",
+          "Types.lean": "c6537a1488393fa76ffbe14c673d9315484d441b87aaf89ee45d77dc43b3d514",
+          "PositiveControls.lean": "4a3f87cd8e34c7d43d34660fcfcb9531c686aa02e88664a7ad6b660fc48e1209",
+          "FalseOmitPermutation.lean": "258067b5e2594810e3359a7e8c068a616516472735e6030b3a5519b1d537389e",
+          "FalseRadiusPower.lean": "030c275aa43471ebce6110688f54d39ca76a57610a2c0e3de56223f5df19a73e"
+        },
+        "not_established": [
+          "uniformity over unbounded b",
+          "whole-field geometric Kac-Rice/Palm identification",
+          "arbitrary field-dependent event transfer",
+          "GT5 or further parent theorems",
+          "independent scientific review or organizational independence credit"
+        ]
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_attempt1.json",
+      "record_sha256": "a4e52a801136a38ff05625d8fa766175d7542e04abb30a5518c3bbf31f1cea12",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "338535195f9ac8b40003549862de12ab778936bba2368cbb4379fecf677efc84",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_COMPOSITION_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_final.json",
+      "record_sha256": "a7fcd35f9e7b4ec22f574a47c51274b1d2aed471538f929ef0ece0719d0835c9",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "dcd3dbf25a199e2b3461bc2f7bcc935acac74483dd525a01d06b3720fa863958",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_COMPOSITION_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_attempt1.json",
+      "record_sha256": "765da42c537d276bf446180cc4277bf46b2be3379d332f917340ad35310050de",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "2c2e6d3cc9af6e061da59ff6e00e7625632b774579f2d91bdf1a2b5e9f32d400",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_INTEGRABILITY_AND_PIN_LIMIT",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_final.json",
+      "record_sha256": "fe98141df3ad47deb72aa0b8408ad9b558fab1a3449eefd9ec3f4cb303ce12de",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "-o",
+          ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+          "SourceEndpointEstimates.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "d41e6afb5b57ef05e90bae703d863b501517ef36fa2a98be5e2310cfbd3ca245",
+        "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_INTEGRABILITY_AND_PIN_LIMIT",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      }
+    },
+    {
+      "module": "SourceEndpointEstimates",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.json",
+      "record_sha256": "feb36067b583690abcb17d198840cfe7839b2ec3b92be4aeedd8853f589faffa",
+      "record": {
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/endpoint_estimates/Types.lean"
+        ],
+        "exit_code": 0,
+        "duration_seconds": 4.792372465133667,
+        "source_sha256_before": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+        "source_sha256_after": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598"
+      }
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/mode_chains_attempt1.json",
+      "record_sha256": "7b70d4a2750b3c90ae2b6d3c23607cb15a02ba391f5da19aadc9ae09c45cc86b",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "fce4eff5e0add8496f2876234ecede8080b43e4c896c0bc7738e4a767c8bbaa4",
+        "scope": "NEW_SCRATCH_ACTUAL_MODE_CHAINS_ONLY"
+      },
+      "role": "actual incorporated coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/mode_chains_final.json",
+      "record_sha256": "8141518f3aaf852f2172e5572716fbbd845c2ac1948e9229eb908158fe85f724",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "6f51b0d187a5e07c2cee93da8238ac2d6f3250990fc3d3b5ed5ebab5607d6724",
+        "scope": "NEW_SCRATCH_ACTUAL_MODE_CHAINS_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      },
+      "role": "actual incorporated coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_attempt1.json",
+      "record_sha256": "370ade1b080949dd1d32286f3b5c24be3f289dd5fc742e0ec8f4d113db8148e3",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/WeightedModeIntegrals.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256": "ff25e6292d58a9649858b6a2b03add8f0f9eb7ca7a57d7c5124560195c4a179e",
+        "scope": "NEW_SCRATCH_WEIGHTED_MODE_INTEGRALS_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      },
+      "role": "actual incorporated coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_final.json",
+      "record_sha256": "c263ae3d4c9d7397ea4de524a01002e0e6ced92a032610bbaf85af9f9a259d32",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/WeightedModeIntegrals.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "9d1aa74e3207394da92b8a0c2d467d47bc3d972aa6ff44faaa5391dbaca67075",
+        "scope": "NEW_SCRATCH_WEIGHTED_MODE_INTEGRALS_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      },
+      "role": "actual incorporated coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/dm2_landed_composition/regularized_continuity_attempt1.json",
+      "record_sha256": "8da60e0e58020171286d479f490eaf50bf0c93b14745867c5e923656d10b98df",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/dm2_landed_composition/RegularizedCoefficientContinuity.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256": "323dd93689bd95cfd050078aa170a81c31b3f3480887fb7a438a535711bf650c",
+        "scope": "NEW_SCRATCH_REGULARIZED_CONTINUITY_ONLY",
+        "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+      },
+      "role": "actual incorporated coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_author_tool_history_record",
+      "record_path": "/workspace/scratch/contact-coefficient-limits/contact-coefficients-author-history.json",
+      "record_sha256": "0d3cb13bea60737081001e0684711534d1d14e2cf653899d58ec62b536bcd044",
+      "record": {
+        "provenance": "author tool-history report, not retrospective machine receipt",
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "observed_exit_code": 0,
+        "source_sha256": "384c904eadb37c724378624f556708bcc5e386651f2b06f91ad0825011edc96a",
+        "source_unchanged_since_compile": true,
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log": "/workspace/scratch/contact-coefficient-limits/contact-coefficients-02.log",
+        "production_files_modified": []
+      },
+      "role": "actual incorporated normalizer coauthor proof"
+    },
+    {
+      "module": "SourceConfluentLimits",
+      "record_type": "existing_json_receipt",
+      "record_path": "/workspace/scratch/contact-coefficient-limits/regularized-zero-01.json",
+      "record_sha256": "4126f22abf43d3f9444320af2287b92bc53b9a19626fcaddfea3ca6a1db45aef",
+      "record": {
+        "command": [
+          "lake",
+          "env",
+          "lean",
+          "/workspace/scratch/contact-coefficient-limits/RegularizedZero.lean"
+        ],
+        "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "292ba3ce2d7ba18bdf099a1a21dab9a94c55f19661ddec58303bfa3b0be58b07",
+        "source_sha256_after": "292ba3ce2d7ba18bdf099a1a21dab9a94c55f19661ddec58303bfa3b0be58b07",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "role": "actual incorporated normalizer coauthor proof"
     }
   ],
   "projected_files": [
@@ -5025,6 +8151,942 @@
       "projection_path": "evidence/SourceEndpointParameters/means/Means.lean.txt",
       "bytes": 3764,
       "sha256": "fe957a1e6271af99b45dca727f81bf418551a13473d5e0776f8b032ca09f62cc"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-01.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-01.log",
+      "bytes": 2010,
+      "sha256": "f1ea36bcf06d5a46e23db4e61d635ba3589b13ce0a44f24571bda242e589e3a6"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-02.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-02.log",
+      "bytes": 2395,
+      "sha256": "ce81fd58ac0f894c1f3457a80d85e9d53218623d685d4092047c5c1f759baa8b"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-03.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-03.log",
+      "bytes": 2451,
+      "sha256": "1e21d34c8ced5738a73267e4ca72717454eea74b74b16a8dd4ae6e1e54ddc989"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-04.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-04.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-05.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-05.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-compile-author-history.json",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-compile-author-history.json",
+      "bytes": 838,
+      "sha256": "8f47c14800cde13f237960d322a2ea6226e2bed15793bba98b673fdfdd89b377"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.json",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-controls-01.json",
+      "bytes": 508,
+      "sha256": "d31d5f4e22015d7c4e3a0346dfa94adf3ea72cdb54ce9b9acec947836c989d47"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-controls-01.log",
+      "bytes": 1996,
+      "sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls.lean",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-controls.lean.txt",
+      "bytes": 1357,
+      "sha256": "9498024fa77f883bf8b43b6b0b844eb221b1b9b73f87c611a6cc4648c397c3a6"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-leanchecker.json",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-leanchecker.json",
+      "bytes": 467,
+      "sha256": "cd78f9e55fcdebe060ff53f6646be4db1748fb54a89c60fe066f1202c3e8279a"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-leanchecker.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/contact-parameters-leanchecker.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/generic/residual-probe-01.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/generic/residual-probe-01.log",
+      "bytes": 1779,
+      "sha256": "e214e49e71d77590b1f400909cff503f672e8dce05e757c6167687509e196758"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/generic/residual-probe-02.log",
+      "projection_path": "evidence/SourceContactEndpointParameters/generic/residual-probe-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-endpoint-parameters/generic/residual-probe.lean",
+      "projection_path": "evidence/SourceContactEndpointParameters/generic/residual-probe.lean.txt",
+      "bytes": 4115,
+      "sha256": "4f17440f7635a364ac41e950765ce9e04378b0fb0b807c159bf383057d47ff59"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/00-initial-api.command",
+      "projection_path": "evidence/SourceConfluentLimits/00-initial-api.command",
+      "bytes": 96,
+      "sha256": "24302e190429e39f8ca240749d56eb964c9dc00b370e939b0114b1ad806dc35e"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/00-initial-api.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/00-initial-api.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/00-initial-api.log",
+      "projection_path": "evidence/SourceConfluentLimits/00-initial-api.log",
+      "bytes": 874,
+      "sha256": "5a6331dbd577ad781464668a3ff2153ae4771dcc513aadc18165cc6a783d3527"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/01-coefficient-representation-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/01-coefficient-representation-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/01-coefficient-representation-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/01-coefficient-representation-compile.log",
+      "bytes": 1258,
+      "sha256": "97bd4e3ccce6c9a8919812fcda88080c137df4bc4ddbfbc97b461b9062608bce"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/02-coefficient-joins-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/02-coefficient-joins-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/02-coefficient-joins-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/02-coefficient-joins-compile.log",
+      "bytes": 1301,
+      "sha256": "eb6f5173708e6036c59c6dbfdc8ad43c30bbd68788470e83b59df4d58ba7e5bb"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/03-exact-coefficient-representations-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/03-exact-coefficient-representations-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/03-exact-coefficient-representations-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/03-exact-coefficient-representations-compile.log",
+      "bytes": 4096,
+      "sha256": "c55e5ff42d189937d5ca77f3b41b7c3f36f192e5938aa4cb26ffae9dc23252a1"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/04-raw-direction-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/04-raw-direction-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/04-raw-direction-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/04-raw-direction-compile.log",
+      "bytes": 4096,
+      "sha256": "311816705cc8a904ea3b3b00af4b50438e3eefcc2689261b09a101fde74ddbbc"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/05-raw-one-derivative-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/05-raw-one-derivative-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/05-raw-one-derivative-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/05-raw-one-derivative-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/06-mode-qualification-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/06-mode-qualification-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/06-mode-qualification-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/06-mode-qualification-compile.log",
+      "bytes": 4388,
+      "sha256": "922d0e3ac909efe34f71bc58ce5df11a6c23670fc8e4eca66052f2c027f6237c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/07-explicit-mode-values-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/07-explicit-mode-values-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/07-explicit-mode-values-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/07-explicit-mode-values-compile.log",
+      "bytes": 5758,
+      "sha256": "b511f5fbddd6e718e5c54d95469f677bd6e5f0e70d3147d0b12d57eeb668f37b"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/08-canonical-direction-data-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/08-canonical-direction-data-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/08-canonical-direction-data-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/08-canonical-direction-data-compile.log",
+      "bytes": 24189,
+      "sha256": "8dae9bf3a00548f96c19ebaf7d1fcb43fd9915387b6f5627666b83c30fc01e4e"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/09-reducible-order-table-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/09-reducible-order-table-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/09-reducible-order-table-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/09-reducible-order-table-compile.log",
+      "bytes": 23453,
+      "sha256": "a12c545ec4098c387df21ed5aebbdc2862a718d0d5e96059384714d0b6fba34c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/10-direction-rewrite-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/10-direction-rewrite-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/10-direction-rewrite-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/10-direction-rewrite-compile.log",
+      "bytes": 6938,
+      "sha256": "e808db9a60efa3e02e5e56c17836bded6d45c044769d8af6cd421288658aed3b"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/11-explicit-row-indices-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/11-explicit-row-indices-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/11-explicit-row-indices-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/11-explicit-row-indices-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/12-peano-extension-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/12-peano-extension-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/12-peano-extension-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/12-peano-extension-compile.log",
+      "bytes": 1209,
+      "sha256": "c0f665ba3cb2747f8bd9d13aebb7ba3645fb00f8cea3989c09e4bc6a94070b7a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/13-peano-masses-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/13-peano-masses-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/13-peano-masses-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/13-peano-masses-compile.log",
+      "bytes": 330,
+      "sha256": "ac0f8be8f5106f0dd8390b58598546aea73de5c5952f9adfee2a27559d37fd80"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/14-peano-extension-clean-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/14-peano-extension-clean-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/14-peano-extension-clean-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/14-peano-extension-clean-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/15-uniform-majorant-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/15-uniform-majorant-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/15-uniform-majorant-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/15-uniform-majorant-compile.log",
+      "bytes": 2782,
+      "sha256": "ed977757deffe47a1580011e3fc23ad13923a323268fd8512b746cebe999b98b"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/16-majorant-bound-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/16-majorant-bound-compile.exitcode",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/16-majorant-bound-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/16-majorant-bound-compile.log",
+      "bytes": 473,
+      "sha256": "84228555ef13cd242e53cc7fa29effb9678f01e9fa5357782ac092a30b3b1acd"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/17-global-peano-bounds-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/17-global-peano-bounds-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/17-global-peano-bounds-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/17-global-peano-bounds-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.command",
+      "projection_path": "evidence/SourceConfluentLimits/18-actual-block-limits-compile.command",
+      "bytes": 137,
+      "sha256": "b5e18fcb67fabb021907e8d86ee8af2021d6ce938ca37cfbab2a119d122b55fe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/18-actual-block-limits-compile.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/18-actual-block-limits-compile.log",
+      "projection_path": "evidence/SourceConfluentLimits/18-actual-block-limits-compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/19-controls.command",
+      "projection_path": "evidence/SourceConfluentLimits/19-controls.command",
+      "bytes": 115,
+      "sha256": "3fec3266ff0a6bde51ee224ae44f0f9e935d3d85f94ab9cf0ff07aecea1f571f"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/19-controls.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/19-controls.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/19-controls.json",
+      "projection_path": "evidence/SourceConfluentLimits/19-controls.json",
+      "bytes": 535,
+      "sha256": "c50a7c1d9670d86eb4028245494162c4373d4b70596d8852e7d2747bf09fc9e2"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/19-controls.log",
+      "projection_path": "evidence/SourceConfluentLimits/19-controls.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.command",
+      "projection_path": "evidence/SourceConfluentLimits/20-axiom-audit.command",
+      "bytes": 118,
+      "sha256": "f49736ff5e69edc57267375a515400bf3c2bd3a88b0456b083b32943816c6dde"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/20-axiom-audit.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.json",
+      "projection_path": "evidence/SourceConfluentLimits/20-axiom-audit.json",
+      "bytes": 538,
+      "sha256": "b0bfbaa285c3357b05139019f0db2a28fbce82cdad24925b247a19f900adfdb7"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/20-axiom-audit.log",
+      "projection_path": "evidence/SourceConfluentLimits/20-axiom-audit.log",
+      "bytes": 6562,
+      "sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.command",
+      "projection_path": "evidence/SourceConfluentLimits/21-kernel-replay.command",
+      "bytes": 65,
+      "sha256": "e8b55e464f4edab1f5968c31e7a898e6bb1f183b44f19cf7ff6a0754b3b8311a"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.exitcode",
+      "projection_path": "evidence/SourceConfluentLimits/21-kernel-replay.exitcode",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.json",
+      "projection_path": "evidence/SourceConfluentLimits/21-kernel-replay.json",
+      "bytes": 562,
+      "sha256": "8f1ae7e41704bf13e87d1bf96472a19e657232a2e43dc51c20de1c5b389ff354"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/21-kernel-replay.log",
+      "projection_path": "evidence/SourceConfluentLimits/21-kernel-replay.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/axiom_audit.lean",
+      "projection_path": "evidence/SourceConfluentLimits/axiom_audit.lean.txt",
+      "bytes": 3883,
+      "sha256": "2f6f5b1d64c86730e5ddf95ab4012945b3fc79b73153cc10104e450670829176"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/controls.lean",
+      "projection_path": "evidence/SourceConfluentLimits/controls.lean.txt",
+      "bytes": 2071,
+      "sha256": "a863ad01f5af1aaadec21c21479ca4c7cd347519437ea7807d8c11b7fde57d92"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/initial_api.lean",
+      "projection_path": "evidence/SourceConfluentLimits/initial_api.lean.txt",
+      "bytes": 391,
+      "sha256": "d6153e726ea70a54e818b2c40b160ac4cc4c570a1206c47acde8f383c2a533fa"
+    },
+    {
+      "original_path": "/workspace/scratch/source-confluent-limits/targets.json",
+      "projection_path": "evidence/SourceConfluentLimits/targets.json",
+      "bytes": 3343,
+      "sha256": "a7f737c54169ae31b1dc0fa2a47b3cb4078f3229f7758285aaa327a194f28b14"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/AxiomAudit-01.log",
+      "bytes": 1190,
+      "sha256": "af2209a06a8b3b470bbf89b2ac97462f02da639ba573905fa1f627c361f6be17"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/AxiomAudit.lean",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/AxiomAudit.lean.txt",
+      "bytes": 785,
+      "sha256": "ce6e377eed8b6975636f2d698c16065f544dddad25d5469c900edc0add699b85"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/EVIDENCE.json",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/EVIDENCE.json",
+      "bytes": 5732,
+      "sha256": "de743e42ba5237b2f2c7321a73437ebf0bd992d34a1fa563a325c4e10b2baf67"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/KernelReplay-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/KernelReplay-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/PositiveControls-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/PositiveControls-01.log",
+      "bytes": 314,
+      "sha256": "58d90f2859b3d419465abcb614b267185bc5955917255feac90433312a6da1e6"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/PositiveControls.lean",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/PositiveControls.lean.txt",
+      "bytes": 1308,
+      "sha256": "5d54675b9f7ad764d2e31f0710f387a00b6a0c017164439306884cdd26944400"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/RejectedAllPinCorrectionZero-01.log",
+      "bytes": 160,
+      "sha256": "bc3eeb3a71cb384d141f3be4ea9fc977d6915ffaa14c5713ea4f0528de941719"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/RejectedAllPinCorrectionZero.lean",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/RejectedAllPinCorrectionZero.lean.txt",
+      "bytes": 232,
+      "sha256": "443cbfe1445183f9ecee0551bb2eb3b60e30d6e050d8a965397de766f71cea44"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/RejectedOmitPhysicalMeanCorrection-01.log",
+      "bytes": 491,
+      "sha256": "0f1c3137368ade94ad6d986fa47a713648174a6ec80f81deeb9f2072215d8f89"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/RejectedOmitPhysicalMeanCorrection.lean",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/RejectedOmitPhysicalMeanCorrection.lean.txt",
+      "bytes": 410,
+      "sha256": "a181cb210611db1a98ec2e998b27c82a7d9e6f6025778b3ea2645925ec2863b4"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/SourcePhysicalEndpointKernel-01.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/SourcePhysicalEndpointKernel-01.log",
+      "bytes": 556,
+      "sha256": "1b4c284de9fd99f8189b7c71cb2dfc2e678af0d436bc280707e06a5867985093"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/SourcePhysicalEndpointKernel-02.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/SourcePhysicalEndpointKernel-02.log",
+      "bytes": 72,
+      "sha256": "a99b48e78e2b8325b52ab898f58e540fb4dc25d31d725f05b0f4b82bd01b9bf4"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/SourcePhysicalEndpointKernel-03.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/SourcePhysicalEndpointKernel-03.log",
+      "bytes": 844,
+      "sha256": "66a9b3ba41b0badb801b3a3ff1859ec6ab7a535066489e45b223155ea11bb098"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/physical-endpoint/SourcePhysicalEndpointKernel-04.log",
+      "projection_path": "evidence/SourcePhysicalEndpointKernel/SourcePhysicalEndpointKernel-04.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/ActualAssembly.lean.txt",
+      "projection_path": "evidence/SourceEndpointEstimates/ActualAssembly.lean.txt",
+      "bytes": 6035,
+      "sha256": "1e338fb1724c06f2d85e23671fa8d4290b6a42bb2fea16bc97fcf3b83b7f1e58"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/AxiomAudit.lean",
+      "projection_path": "evidence/SourceEndpointEstimates/AxiomAudit.lean.txt",
+      "bytes": 1985,
+      "sha256": "f6d9f1bf0523abe2bc34e77d0b587e981a82a7c0000589ca9508b25cd6ab0572"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseOmitPermutation.lean",
+      "projection_path": "evidence/SourceEndpointEstimates/FalseOmitPermutation.lean.txt",
+      "bytes": 388,
+      "sha256": "258067b5e2594810e3359a7e8c068a616516472735e6030b3a5519b1d537389e"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/FalseRadiusPower.lean",
+      "projection_path": "evidence/SourceEndpointEstimates/FalseRadiusPower.lean.txt",
+      "bytes": 345,
+      "sha256": "030c275aa43471ebce6110688f54d39ca76a57610a2c0e3de56223f5df19a73e"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/HANDOFF.md",
+      "projection_path": "evidence/SourceEndpointEstimates/HANDOFF.md",
+      "bytes": 3617,
+      "sha256": "ac940a774b08e936175202fd21694998546cf91a296549af08d36f766270fbae"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/PositiveControls.lean",
+      "projection_path": "evidence/SourceEndpointEstimates/PositiveControls.lean.txt",
+      "bytes": 797,
+      "sha256": "4a3f87cd8e34c7d43d34660fcfcb9531c686aa02e88664a7ad6b660fc48e1209"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/STATUS.md",
+      "projection_path": "evidence/SourceEndpointEstimates/STATUS.md",
+      "bytes": 3480,
+      "sha256": "a067fe80d6f295eb5241402a48036c60073045fc8206a82bbb8f2c2b60f21ba9"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/Types.lean",
+      "projection_path": "evidence/SourceEndpointEstimates/Types.lean.txt",
+      "bytes": 436,
+      "sha256": "c6537a1488393fa76ffbe14c673d9315484d441b87aaf89ee45d77dc43b3d514"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/actual_assembly_attempt1.json",
+      "projection_path": "evidence/SourceEndpointEstimates/actual_assembly_attempt1.json",
+      "bytes": 550,
+      "sha256": "43ebd75fdf8c8ff4f7a8c70bd84672f362ed6da1fa71b62c3f58857b2a5e4f6c"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/actual_assembly_attempt1.log",
+      "projection_path": "evidence/SourceEndpointEstimates/actual_assembly_attempt1.log",
+      "bytes": 807,
+      "sha256": "a3aae1e0bc9bc50ec78c1882f36c1bdac6cbeda7bf53320fe307b631db79be85"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.json",
+      "projection_path": "evidence/SourceEndpointEstimates/axioms.json",
+      "bytes": 461,
+      "sha256": "a2e0ad92167d82705c63c69f5c345e78563705e7988bc7c09dacac3a8586d267"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+      "projection_path": "evidence/SourceEndpointEstimates/axioms.log",
+      "bytes": 3159,
+      "sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.json",
+      "projection_path": "evidence/SourceEndpointEstimates/false-permutation.json",
+      "bytes": 472,
+      "sha256": "b6500c8d6cdfb372ea696491c4e292598ba035db5412671167f066d283188c03"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-permutation.log",
+      "projection_path": "evidence/SourceEndpointEstimates/false-permutation.log",
+      "bytes": 125,
+      "sha256": "f262c0491c0806778fbd7fc56a2fe3668366dac8a386f9c658b323ee3bdd1955"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.json",
+      "projection_path": "evidence/SourceEndpointEstimates/false-radius.json",
+      "bytes": 468,
+      "sha256": "2708df3a3ef94e66392ea90a7851ce1e4edd10c12444e5653941c66b9315dab8"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/false-radius.log",
+      "projection_path": "evidence/SourceEndpointEstimates/false-radius.log",
+      "bytes": 121,
+      "sha256": "1d211ab1466ecfd781950cf38588cdf7c42f009185c70ad467dcd76037271e47"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.json",
+      "projection_path": "evidence/SourceEndpointEstimates/kernel.json",
+      "bytes": 416,
+      "sha256": "6b72b932f71e8c823e93152ca67193ef46fa01b9cef36f39cc6940eccda1b026"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/kernel.log",
+      "projection_path": "evidence/SourceEndpointEstimates/kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.json",
+      "projection_path": "evidence/SourceEndpointEstimates/physical_assembly_attempt1.json",
+      "bytes": 559,
+      "sha256": "65b212c119217b7ac525a20f37d5c0df26b8776c6707cd0fcce82603e5215596"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/physical_assembly_attempt1.log",
+      "projection_path": "evidence/SourceEndpointEstimates/physical_assembly_attempt1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.json",
+      "projection_path": "evidence/SourceEndpointEstimates/positive.json",
+      "bytes": 468,
+      "sha256": "07bd07fc8b877010c9288fe895a9237f51c85b831b0841a777170230b037cad3"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/positive.log",
+      "projection_path": "evidence/SourceEndpointEstimates/positive.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/qualification_receipt.json",
+      "projection_path": "evidence/SourceEndpointEstimates/qualification_receipt.json",
+      "bytes": 13678,
+      "sha256": "48a246117424585e99de7fbaa51674dac534c3c53c83f768e8558fa19b0c15c5"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/run_one.py",
+      "projection_path": "evidence/SourceEndpointEstimates/run_one.py",
+      "bytes": 988,
+      "sha256": "de15e00634028570633046fa2c42c70c27e1dfdcefadd63bdc58bb2aa063a943"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_attempt1.json",
+      "projection_path": "evidence/SourceEndpointEstimates/stage1_attempt1.json",
+      "bytes": 472,
+      "sha256": "a4e52a801136a38ff05625d8fa766175d7542e04abb30a5518c3bbf31f1cea12"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_attempt1.log",
+      "projection_path": "evidence/SourceEndpointEstimates/stage1_attempt1.log",
+      "bytes": 2215,
+      "sha256": "bfab93cb4a463251fbec76dec2d6b485a0607dea00bb896eed2022cce58cb7c2"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_final.json",
+      "projection_path": "evidence/SourceEndpointEstimates/stage1_final.json",
+      "bytes": 472,
+      "sha256": "a7fcd35f9e7b4ec22f574a47c51274b1d2aed471538f929ef0ece0719d0835c9"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage1_final.log",
+      "projection_path": "evidence/SourceEndpointEstimates/stage1_final.log",
+      "bytes": 1067,
+      "sha256": "6b3d241d2a7b2cb73d75f82a8d61a7ae8702fc5eb8b7781c224b8d6ee9ca628d"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_attempt1.json",
+      "projection_path": "evidence/SourceEndpointEstimates/stage2_attempt1.json",
+      "bytes": 483,
+      "sha256": "765da42c537d276bf446180cc4277bf46b2be3379d332f917340ad35310050de"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_attempt1.log",
+      "projection_path": "evidence/SourceEndpointEstimates/stage2_attempt1.log",
+      "bytes": 429,
+      "sha256": "668d17a16504998e0d734b626752abba3e940fb4f8f1f1a54d936fe326af9602"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_final.json",
+      "projection_path": "evidence/SourceEndpointEstimates/stage2_final.json",
+      "bytes": 483,
+      "sha256": "fe98141df3ad47deb72aa0b8408ad9b558fab1a3449eefd9ec3f4cb303ce12de"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/stage2_final.log",
+      "projection_path": "evidence/SourceEndpointEstimates/stage2_final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/targets.json",
+      "projection_path": "evidence/SourceEndpointEstimates/targets.json",
+      "bytes": 1732,
+      "sha256": "856b405e442402c6d7aba793d214c32f3496d25c7fbd358f3d45f8189ad79bad"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.json",
+      "projection_path": "evidence/SourceEndpointEstimates/types.json",
+      "bytes": 457,
+      "sha256": "feb36067b583690abcb17d198840cfe7839b2ec3b92be4aeedd8853f589faffa"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/types.log",
+      "projection_path": "evidence/SourceEndpointEstimates/types.log",
+      "bytes": 18416,
+      "sha256": "a0aabbe4809916815304e74fc2cb96ab47d193d6874509e6bdf97d86e62a3f1b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/ModeCurveChains.lean",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/ModeCurveChains.lean.txt",
+      "bytes": 5601,
+      "sha256": "6f51b0d187a5e07c2cee93da8238ac2d6f3250990fc3d3b5ed5ebab5607d6724"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/WeightedModeIntegrals.lean",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/WeightedModeIntegrals.lean.txt",
+      "bytes": 3183,
+      "sha256": "9d1aa74e3207394da92b8a0c2d467d47bc3d972aa6ff44faaa5391dbaca67075"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/RegularizedCoefficientContinuity.lean",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/RegularizedCoefficientContinuity.lean.txt",
+      "bytes": 3842,
+      "sha256": "323dd93689bd95cfd050078aa170a81c31b3f3480887fb7a438a535711bf650c"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/mode_chains_attempt1.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/mode_chains_attempt1.json",
+      "bytes": 357,
+      "sha256": "7b70d4a2750b3c90ae2b6d3c23607cb15a02ba391f5da19aadc9ae09c45cc86b"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/mode_chains_attempt1.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/mode_chains_attempt1.log",
+      "bytes": 1286,
+      "sha256": "56b982a2cefd88f9fc8080dd2982500934099ac6932895eb9ea4966a24340fa7"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/mode_chains_final.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/mode_chains_final.json",
+      "bytes": 427,
+      "sha256": "8141518f3aaf852f2172e5572716fbbd845c2ac1948e9229eb908158fe85f724"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/mode_chains_final.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/mode_chains_final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_attempt1.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/weighted_mode_attempt1.json",
+      "bytes": 438,
+      "sha256": "370ade1b080949dd1d32286f3b5c24be3f289dd5fc742e0ec8f4d113db8148e3"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_attempt1.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/weighted_mode_attempt1.log",
+      "bytes": 347,
+      "sha256": "5da4be81c387d9f87d71338d31adabd55e1229bf2e15e028f82822fa8d3cb452"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_final.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/weighted_mode_final.json",
+      "bytes": 438,
+      "sha256": "c263ae3d4c9d7397ea4de524a01002e0e6ced92a032610bbaf85af9f9a259d32"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/weighted_mode_final.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/weighted_mode_final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/regularized_continuity_attempt1.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/regularized_continuity_attempt1.json",
+      "bytes": 448,
+      "sha256": "8da60e0e58020171286d479f490eaf50bf0c93b14745867c5e923656d10b98df"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/regularized_continuity_attempt1.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_dm2_helpers/regularized_continuity_attempt1.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/ContactCoefficientLimits.lean",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/ContactCoefficientLimits.lean.txt",
+      "bytes": 6387,
+      "sha256": "384c904eadb37c724378624f556708bcc5e386651f2b06f91ad0825011edc96a"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/RegularizedZero.lean",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/RegularizedZero.lean.txt",
+      "bytes": 3339,
+      "sha256": "292ba3ce2d7ba18bdf099a1a21dab9a94c55f19661ddec58303bfa3b0be58b07"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/contact-coefficients-01.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/contact-coefficients-01.log",
+      "bytes": 7671,
+      "sha256": "fa5c97017bae8340d04cca7d9025fc3b34423547bd24010dd0f1ba79e49f168a"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/contact-coefficients-02.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/contact-coefficients-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/contact-coefficients-author-history.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/contact-coefficients-author-history.json",
+      "bytes": 657,
+      "sha256": "0d3cb13bea60737081001e0684711534d1d14e2cf653899d58ec62b536bcd044"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/regularized-zero-01.json",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/regularized-zero-01.json",
+      "bytes": 495,
+      "sha256": "4126f22abf43d3f9444320af2287b92bc53b9a19626fcaddfea3ca6a1db45aef"
+    },
+    {
+      "original_path": "/workspace/scratch/contact-coefficient-limits/regularized-zero-01.log",
+      "projection_path": "evidence/SourceConfluentLimits/actual_contact_coefficient_helpers/regularized-zero-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ],
   "known_missing_records": [],
@@ -5040,7 +9102,11 @@
     "OpenAI/Codex /root/normalizer_palm_research: Gaussian regression parameter limits and uniform bounds",
     "OpenAI/Codex /root/regression_kernel/gaussian_api: actual SourceEndpointRegression matrix normal-equations API support",
     "OpenAI/Codex /root/regression_kernel/endpoint_means: actual endpoint unconditional zero-mean proofs, retained means/Means.lean and Means-03.log",
-    "OpenAI/Codex /root/regression_kernel/gaussian_api: actual SourceEndpointParameters residual covariance proof support, retained covariance/ResidualCovariance.lean/.log"
+    "OpenAI/Codex /root/regression_kernel/gaussian_api: actual SourceEndpointParameters residual covariance proof support, retained covariance/ResidualCovariance.lean/.log",
+    "OpenAI/Codex /root/normalizer_palm_research/gaussian_reference_probe: incorporated private generic contact residual covariance scratch helper; no reviewer credit",
+    "OpenAI/Codex /root/dm2_landed_composition: actual mode-curve, weighted-integral and regularized-continuity proofs incorporated into SourceConfluentLimits",
+    "OpenAI/Codex /root/normalizer_palm_research: actual contact coefficient/regularized-zero scratch proofs incorporated into SourceConfluentLimits",
+    "OpenAI/Codex /root/dm2_landed_composition/peano_strategy: actual normalizer-floor assembly draft incorporated into SourceEndpointEstimates"
   ],
   "review": "All above work is OpenAI author-side. Different-family scientific alignment review remains pending.",
   "verification_reuse": "All saved compilation, named kernel, axiom and controls evidence reused. No Lean, kernel replay, tests, or old verification executed during this projection.",
@@ -5164,11 +9230,11 @@
     "The two regression_kernel control command strings above come from the author's actual tool-history report. Existing EVIDENCE.json files and raw logs separately retain their observed exit statuses.",
     "GaussianRegressionLimits final-source command/exit association is an explicit author tool-history report, not a historical machine JSON receipt. Its initial controls container exited 1 for an unrelated control elaboration error while printing valid imported-module axiom reports; final corrected controls exited 0 separately."
   ],
-  "append_scope": "Original seven- and nine-module catalog snapshots preserved under historical-seven-module/ and historical-nine-module/. Only SourceEndpointParameters appended at this step; INPUT_BINDING metadata updated to current23 reused sources.",
+  "append_scope": "The exact ten-module85-target snapshot/catalog8be and published manifestb3f are preserved in historical-ten-module/. Only the four newly qualified modules and actual helper evidence are appended. No proof or check rerun.",
   "target_inventory_identity": {
     "package": "frontiers/source_derivative_gaussian_20261025",
-    "public_theorem_lemma_count": 85,
-    "distinct_from": "frontiers/determinant_moment_20261025 has a separate 66-target inventory; source/receipt/review scopes must not be transferred between packages"
+    "public_theorem_lemma_count": 182,
+    "distinct_from": "Sibling determinant-moment packet has a separate 66-target inventory and scoped reviews; no review transfer."
   },
   "historical_catalogs": [
     {
@@ -5178,6 +9244,109 @@
     {
       "path": "historical-nine-module/EVIDENCE_CATALOG.json",
       "sha256": "74509aaf3eb1e17bf8fd3b10880aa2eedc9e14b257dc0cb0b693cd76a4770cbb"
+    },
+    {
+      "path": "historical-ten-module/EVIDENCE_CATALOG.json",
+      "sha256": "8be0a858dddf374b081542b4c180dd069d3f3ff5a36b576b1c915aa196fd55aa"
     }
-  ]
+  ],
+  "published_ten_module_manifest_snapshot": {
+    "path": "historical-ten-module/published-package-metadata/SOURCE_MANIFEST.json",
+    "sha256": "b3f276d1ac5dab86b9dbaf1dfae4eda122089ea7a1fc0fbd81b37532b1da679c",
+    "scope": "published ten-module85-target review scope retained unchanged"
+  },
+  "actual_endpoint_result": {
+    "theorem": "I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events",
+    "only_research_inputs": [
+      "L != 0",
+      "fixed arbitrary real height b"
+    ],
+    "derived": [
+      "actual current pin invertibility for all sufficiently small positive radii",
+      "actual physical canonical every-pin Gaussian law with derived parameters",
+      "actual physical determinant second moment <= C*r^4 and integrability",
+      "positive physical normalizer >= c*r^2",
+      "literal weighted physical endpoint probability and square-root transfer for every measurable endpoint event"
+    ],
+    "still_in_original_goal": [
+      "whole-field geometric Kac-Rice/Palm identification",
+      "arbitrary field-dependent geometric events",
+      "GT5 and further parents"
+    ],
+    "not_asserted": [
+      "uniformity over unbounded b",
+      "independent review or scientific acceptance"
+    ]
+  },
+  "transitive_axiom_coverage": [
+    {
+      "target": "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+      "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+      "source_path": "SourceContactEndpointParameters.lean",
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "printed_parent": "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+      "printed_parent_source_path": "SourceEndpointEstimates.lean",
+      "printed_parent_source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_code_edge": {
+        "line": 259,
+        "text": "hm hS hPSD (sourceContactEndpointSchur_posSemidef hL)"
+      },
+      "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+      "printed_parent_log_line": 38,
+      "permitted_axioms_by_parent_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+      "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+    },
+    {
+      "target": "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur",
+      "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+      "source_path": "SourceContactEndpointParameters.lean",
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "printed_parent": "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos",
+      "printed_parent_source_path": "SourceContactEndpointParameters.lean",
+      "printed_parent_source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "source_code_edge": {
+        "line": 322,
+        "text": "rw [sourceContactEndpointSchur_four_four_eq_schur]"
+      },
+      "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+      "printed_parent_log_line": 25,
+      "permitted_axioms_by_parent_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+      "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+    }
+  ],
+  "direct_report_omissions": [
+    {
+      "module": "SourceContactEndpointParameters",
+      "targets": [
+        "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+        "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur"
+      ],
+      "resolution": "TRANSITIVE_FROM_PRINTED_PARENT; not a missing mathematical obligation"
+    }
+  ],
+  "axiom_coverage_summary": {
+    "public_theorem_lemma_targets": 182,
+    "extra_audited_inverse_definition": 1,
+    "directly_printed_declarations": 181,
+    "transitively_covered_public_helpers": 2,
+    "total_declaration_coverage": 183,
+    "all_direct": false,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "addendum_path": "AXIOM_COVERAGE_ADDENDUM.json",
+    "addendum_sha256": "238f838a7ddd2caf09631122b079b9a81ff4eb6399f30d8ad86e9906634a92f9"
+  }
 }

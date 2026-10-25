@@ -1,53 +1,96 @@
-# Read-only ten-module evidence projection
+# Fourteen-module actual physical endpoint evidence
 
-The catalog inventories **85 public theorem/lemma targets** in ten completed
-modules. Saved transitive axiom reports cover every such target. The
-`SourceContactSchur` audit also includes the actual inverse definition, giving
-86 distinct reported public declarations. Only `propext`, `Classical.choice`
-and `Quot.sound` appear in these reports. Named module kernel replay and final
-module compilation records each report exit 0. No checks were run during this
-projection; completed applicable evidence is reused.
+The final theorem
+`I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events`
+takes only `L != 0` and fixed arbitrary real height `b`. It derives one interval
+`0 < r < delta <= 1` with literal physical weight square integrability,
+`integral W^2 <= C*r^4`, `integral W >= c*r^2` for `C >= 0,c > 0`, and the
+explicit weighted physical endpoint probability/event square-root bound.
+Actual covariance limits, current invertibility, Gaussian law/parameters and
+normalizer positivity are conclusions, not final model premises. Eventual
+actual physical `HasCondDistrib` is also exported.
+
+The catalog covers **182 public theorem/lemma targets across fourteen modules**.
+Axiom coverage comprises **181 directly printed declarations**, including the
+actual inverse definition, plus **two public helpers covered transitively by
+already printed parents**, for **183 declarations of coverage**. All permitted
+axioms are `propext`, `Classical.choice`, `Quot.sound`. This does not claim that
+all targets have direct print output. All fourteen named module kernel replay
+and final compilation records report exit 0. No proof/check was rerun during
+packaging.
 
 | Module | Public theorem/lemma targets | Principal saved evidence |
 |---|---:|---|
-| SourceDerivativeGaussian | 5 | `05-covariance-compile`, `06-controls`, `07-axiom-audit`, `08-kernel-replay` |
-| ContactJetCovariance | 8 | `EVIDENCE.json`, final `ContactJetCovariance-02`, positive controls, zero-frequency/zero-amplitude rejections |
-| SourceContactCovariance | 7 | `05-column-identities-compile`, `06-controls`, `07-axiom-audit`, `08-kernel-replay` |
-| SourceConfluentPins | 8 | `qualification_receipt.json`, earlier final compile, signed-radius/target controls and zero-radius rejections |
-| SourceContactSchur | 10 | `EVIDENCE.json`, final `SourceContactSchur-04`, positive controls and zero-period/wrong-Q-index rejections |
-| SourceDerivativeContinuity | 6 | `02-evaluation-and-law-compile`, corrected `05-controls-explicit-path`, `04-axiom-audit`, `06-kernel-replay` |
-| ConfluentIntegralIdentities | 7 | `qualification_receipt.json`, final compile, positive controls and cubic/transverse false controls |
-| SourceEndpointRegression | 13 | `EVIDENCE.json`, final `SourceEndpointRegression-03`, named kernel, thirteen exported axiom reports, positive controls and two adjustment/height rejections |
-| GaussianRegressionLimits | 2 | final compile `regression-limits-03`, named kernel, corrected `controls-02`; two valid imported-module axiom reports retained in failed control container `controls-01` |
-| SourceEndpointParameters | 19 | `EVIDENCE.json`, final `SourceEndpointParameters-02`, named kernel, nineteen exported axiom reports, positive singular/noncentered/empty controls and two false-parameter rejections |
+| SourceDerivativeGaussian | 5 | Final compile05, controls06, axioms07, named kernel08 |
+| ContactJetCovariance | 8 | EVIDENCE.json; compile02, kernel, positive/false controls |
+| SourceContactCovariance | 7 | Final compile05, controls06, axioms07, named kernel08 |
+| SourceConfluentPins | 8 | Qualification receipt; exact target/signed-radius controls |
+| SourceContactSchur | 10 | EVIDENCE.json; compile04, kernel, actual residual variance controls |
+| SourceDerivativeContinuity | 6 | Final compile02, corrected controls05, axioms04, kernel06 |
+| ConfluentIntegralIdentities | 7 | Qualification receipt; seven literal formulas and false controls |
+| SourceEndpointRegression | 13 | EVIDENCE.json; compile03, kernel, thirteen printed reports and controls |
+| GaussianRegressionLimits | 2 | Compile03, kernel, corrected controls02; valid axiom reports in failed control container01 |
+| SourceEndpointParameters | 19 | EVIDENCE.json; compile02, kernel, nineteen printed reports and controls |
+| SourceContactEndpointParameters | 6 | Actual compile author-history, kernel/control subprocess receipts, four direct reports plus two transitive coverage records |
+| SourceConfluentLimits | 57 | Namespace-aware targets.json; compile18, genuine subprocess records19/20/21 with final source SHA before/after |
+| SourcePhysicalEndpointKernel | 9 | EVIDENCE.json; compile04, kernel, nine printed reports, physical/null-pin correction controls |
+| SourceEndpointEstimates | 25 | Final physical compile, qualification receipt, kernel, types, twenty-five printed reports, positive/false controls |
 
-`EVIDENCE_CATALOG.json` retains exact source SHA256 values, public declarations
-with source lines, recorded commands/exits, receipt contents, raw-log hashes and
-an index of **255 original evidence/helper files** copied beneath `evidence/`.
-Earlier failures remain included. In particular, the integral module's final
-compilation has one harmless `unnecessarySeqFocus` warning; it is not represented
-as a warning-free run. Projection filenames for Lean controls/helpers end in
-`.lean.txt`; original paths and bytes remain bound in the catalog.
+`EVIDENCE_CATALOG.json` retains exact source hashes, public declarations,
+recorded commands/exits and an index of **411 original raw/helper evidence
+files**, with **103 execution records**. The 57 ConfluentLimits names retain
+their four actual namespaces. Initial failures and corrected control attempts
+remain included. Lean control/helper projections end in `.lean.txt`; original
+paths and bytes remain bound. The integral module’s harmless linter warning
+and the physical-kernel controls’ harmless unused-simp warnings remain recorded.
 
-The actual `gaussian_api` optional Schur/residual/matrix-normal-equations proof helper and
-`peano_strategy` Peano proof helper are included in the author lineage and raw
-helper evidence. README/SCOPE drafting assistance from `density_api` is also
-identified as OpenAI author-side work. The actual `endpoint_means` zero-mean proof helper and the `gaussian_api` residual-covariance helper are included with their original `means/` and `covariance/` evidence. No organizational or scientific
-independence is inferred from those helpers.
+`AXIOM_COVERAGE_ADDENDUM.json` resolves the two direct-output omissions by
+`TRANSITIVE_FROM_PRINTED_PARENT`, with exact source edges and printed logs:
 
-`AUTHOR_HISTORY_SUPPLEMENT.json` discloses two metadata limits: the three
-`uniform_jet_moment_sources` groups have command/exit/raw-log triples but no
-historical JSON source-hash receipt; their unchanged final source association
-was confirmed by the author. The two `regression_kernel` groups' precise control
-capture commands come from the author's actual tool history, alongside the
-existing raw logs and exit-bearing receipts. Those reports are not relabeled as
-machine-generated receipts. The new GaussianRegressionLimits source association and exact commands/exits were also confirmed by its author’s actual tool history. Its controls-01 process exited 1 for an unrelated control elaboration error while printing two valid imported-module axiom reports. Corrected controls-02 separately exited 0; no exit-0 axiom-only command is invented. No referenced evidence files or saved public target axiom reports were missing in the ten-module inventory.
+- `sourceContactEndpointSchur_posSemidef` is consumed by the printed
+  `sourceEndpoint_normalizer_floor` at SourceEndpointEstimates.lean:259.
+- `sourceContactEndpointSchur_four_four_eq_schur` is consumed by the printed
+  `sourceContactEndpointSchur_referenceVariance_pos` at
+  SourceContactEndpointParameters.lean:322.
 
-`INPUT_BINDING.json` now describes 23 reused inputs: twelve unchanged landed smooth-source files plus eleven exact sibling-packet modules at commit `16f81b973a02783f8be83081aa7f198724cf5767`, under existing execution receipt `95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6`. Its current SHA256 is `42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13`. The catalog binds
-that file without changing or re-executing the inputs. Historical origin
-manifests/reviews remain provenance and retain their own scope.
+This reuses applicable completed mathematical evidence. It is not a new direct
+print, fresh audit process or historical machine receipt. No missing mathematical
+coverage is inferred from a separate direct-output process distinction.
 
-The original research goal remains active. Different-family scientific alignment
-review is pending. This projection does not award parent acceptance, a hosted execution result or a scientific-status change. `SourceConfluentLimits`, `SourceEndpointEstimates` and `SourceContactEndpointParameters` remain outside this qualified inventory; root may append their separate actual qualification. The unchanged seven- and nine-module catalog/draft snapshots remain under `historical-seven-module/` and `historical-nine-module/`. The nine-module catalog retains SHA256 `74509aaf3eb1e17bf8fd3b10880aa2eedc9e14b257dc0cb0b693cd76a4770cbb`.
+`AUTHOR_HISTORY_SUPPLEMENT.json` preserves the honest sparse-metadata limits.
+Three original derivative/contact/continuity groups have command/exit/raw-log
+triples with author-confirmed unchanged final source association. The generic
+regression-limits command/source association is also author tool history. Its
+initial controls container exited 1 for an unrelated control elaboration error
+while printing two valid imported-module axiom reports; corrected controls02
+separately exited 0. No clean axiom-only process is invented. Newer genuine
+subprocess receipts retain their actual before/after source hashes separately.
 
-The ten-module actual-source inventory here has 85 public theorem/lemma targets and is distinct from the sibling determinant-moment packet’s 66 targets. No sibling receipt, target coverage or scientific review is transferred to this actual-source inventory.
+The actual `gaussian_api`, `endpoint_means`, `peano_strategy` and
+`gaussian_reference_probe` helper contributions are OpenAI author-side work.
+The incorporated actual mode-curve, weighted-integral, regularized-continuity,
+contact-coefficient and regularized-zero scratch proofs and their original
+metadata are preserved. None receives independent-review credit.
+
+The current input binding remains **23 reused files**: twelve landed smooth
+source files and eleven exact sibling determinant-packet modules at commit
+`16f81b973a02783f8be83081aa7f198724cf5767`, execution receipt
+`95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6`.
+INPUT_BINDING SHA256 remains
+`42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13`.
+Their applicable completed verification is reused unchanged.
+
+The ten-module 85-target catalog snapshot retains SHA256
+`8be0a858dddf374b081542b4c180dd069d3f3ff5a36b576b1c915aa196fd55aa`.
+Its published manifest retains SHA256
+`b3f276d1ac5dab86b9dbaf1dfae4eda122089ea7a1fc0fbd81b37532b1da679c`.
+Both are preserved under `historical-ten-module/`; their original review scope
+is not silently broadened. Seven- and nine-module snapshots also remain intact.
+
+The fourteen-module source inventory is distinct from the sibling 66-target
+packet and its scoped scientific reviews. Different-family scientific review
+of this actual-source result remains separate. Scientific effect NONE; no parent
+acceptance, hosted execution or status-register change follows from this catalog.
+The original goal remains active for whole-field geometric Kac–Rice/Palm
+identification, arbitrary field-dependent geometric events, GT5 and further
+parents. No uniformity over unbounded height is asserted.

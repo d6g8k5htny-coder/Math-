@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/SourceEndpointEstimates.olean",
+    "SourceEndpointEstimates.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256": "4192cf503993c9a51822deba5cb8a8a593a28f0707eba38a47837b3c32b82bc0",
+  "scope": "NEW_SOURCE_ENDPOINT_ESTIMATES_ACTUAL_HL_B_ONLY_ASSEMBLY",
+  "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition; normalizer draft helper /root/dm2_landed_composition/peano_strategy"
+}

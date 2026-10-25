@@ -1,0 +1,80 @@
+SourceConfluentLimits.lean:110:6: error: Tactic `apply` failed: could not unify the conclusion of `congrArg
+  ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))`
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+with the goal
+  (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) (rawDerivativeDirections 2)
+
+Note: The full type of `congrArg ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))` is
+  ?m.1388 = ?m.1389 →
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+
+case «2»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) (rawDerivativeDirections 2)
+SourceConfluentLimits.lean:110:6: error: Tactic `apply` failed: could not unify the conclusion of `congrArg
+  ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))`
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+with the goal
+  (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) (rawDerivativeDirections 3)
+
+Note: The full type of `congrArg ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))` is
+  ?m.1388 = ?m.1389 →
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+
+case «3»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) (rawDerivativeDirections 3)
+SourceConfluentLimits.lean:110:6: error: Tactic `apply` failed: could not unify the conclusion of `congrArg
+  ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))`
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+with the goal
+  (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) (rawDerivativeDirections 4)
+
+Note: The full type of `congrArg ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))` is
+  ?m.1388 = ?m.1389 →
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+
+case «4»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) (rawDerivativeDirections 4)
+SourceConfluentLimits.lean:110:6: error: Tactic `apply` failed: could not unify the conclusion of `congrArg
+  ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))`
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+with the goal
+  (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) (rawDerivativeDirections 5)
+
+Note: The full type of `congrArg ⇑(iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r))` is
+  ?m.1388 = ?m.1389 →
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1388 =
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (endpointS r)) ?m.1389
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY =
+    (iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) (rawDerivativeDirections 5)

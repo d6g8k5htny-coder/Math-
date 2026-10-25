@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-confluent-limits/axiom_audit.lean"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exitcode": 0,
+  "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "log_sha256": "4063c4cd1d47da1f737e29bfc71f1a54764255b658a6cfa14e9b906e72a41ebe"
+}

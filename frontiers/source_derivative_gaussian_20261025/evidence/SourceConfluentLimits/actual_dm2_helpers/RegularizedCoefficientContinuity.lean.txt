@@ -1,0 +1,75 @@
+import SourceConfluentLimits
+
+noncomputable section
+
+open I4Source I4SourceDerivativeGaussian I4SourceDerivativeContinuity
+open I4SourceConfluentPins I4ModeCurveChains I4WeightedModeIntegrals
+open MeasureTheory Set
+open scoped Interval
+
+namespace I4SourceConfluentLimits
+
+private theorem helper_left_bound (t : ℝ)
+    (ht : t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ)) : |peanoLeft t| ≤ 1 := by
+  rw [Set.uIoc_of_le (by norm_num)] at ht
+  unfold peanoLeft
+  exact abs_le.mpr ⟨by linarith [ht.2], by linarith [ht.1]⟩
+
+private theorem helper_right_bound (t : ℝ)
+    (ht : t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ)) : |peanoRight t| ≤ 1 := by
+  rw [Set.uIoc_of_le (by norm_num)] at ht
+  unfold peanoRight
+  exact abs_le.mpr ⟨by linarith [ht.1], by linarith [ht.2]⟩
+
+private theorem helper_cubic_bound (t : ℝ)
+    (ht : t ∈ Set.uIoc (-1/2 : ℝ) (1/2 : ℝ)) : |peanoCubic t| ≤ 1 := by
+  rw [Set.uIoc_of_le (by norm_num)] at ht
+  have habs : |t| ≤ (1/2 : ℝ) := abs_le.mpr ⟨by linarith [ht.1], ht.2⟩
+  have hsq := (sq_le_sq₀ (abs_nonneg t) (by norm_num : (0 : ℝ) ≤ 1/2)).2 habs
+  rw [sq_abs] at hsq
+  unfold peanoCubic
+  exact abs_le.mpr ⟨by nlinarith, by nlinarith [sq_nonneg t]⟩
+
+theorem regularizedPinCoefficient_continuous {L : ℝ} (hL : L ≠ 0)
+    (i : Fin 6) (m : SourceMode 2) :
+    Continuous (fun r => regularizedPinCoefficient L r i m) := by
+  have hF := (modeF_C3 L m).continuous
+  have hH := (modeH_C2 L m).continuous
+  have hF' : Continuous (deriv (modeF L m)) := by
+    simpa only [iteratedDeriv_one] using
+      (modeF_C3 L m).continuous_iteratedDeriv 1 (by norm_num)
+  have hpoly : Continuous peanoCubic := by unfold peanoCubic; fun_prop
+  fin_cases i
+  · change Continuous (fun r : ℝ => (modeF L m (-r/2) + modeF L m (r/2))/2)
+    exact ((hF.comp (by fun_prop)).add (hF.comp (by fun_prop))).div_const 2
+  · change Continuous (fun r : ℝ => (deriv (modeF L m) (-r/2) + deriv (modeF L m) (r/2))/2)
+    exact ((hF'.comp (by fun_prop)).add (hF'.comp (by fun_prop))).div_const 2
+  · change Continuous (fun r : ℝ => (modeH L m (-r/2) + modeH L m (r/2))/2)
+    exact ((hH.comp (by fun_prop)).add (hH.comp (by fun_prop))).div_const 2
+  · exact weightedDerivativeIntegral_continuous hL 2 ![directionX,directionX] m
+      (fun _ => 1) continuous_const 1 (by norm_num) (by intro t ht; norm_num)
+  · exact weightedDerivativeIntegral_continuous hL 2 ![directionX,directionY] m
+      (fun _ => 1) continuous_const 1 (by norm_num) (by intro t ht; norm_num)
+  · exact (weightedDerivativeIntegral_continuous hL 3 ![directionX,directionX,directionX] m
+      peanoCubic hpoly 1 (by norm_num) helper_cubic_bound).const_mul 6
+
+theorem regularizedAdjustedCoefficient_continuous {L : ℝ} (hL : L ≠ 0)
+    (i : Fin 6) (m : SourceMode 2) :
+    Continuous (fun r => regularizedAdjustedCoefficient L r i m) := by
+  have hleft : Continuous peanoLeft := by unfold peanoLeft; fun_prop
+  have hright : Continuous peanoRight := by unfold peanoRight; fun_prop
+  have hYY : Continuous (modeYY L m) :=
+    (derivativeCoefficient_continuous 2 L 2 ![directionY,directionY] m).comp (by fun_prop)
+  fin_cases i
+  · exact (weightedDerivativeIntegral_continuous hL 3 ![directionX,directionX,directionX] m
+      peanoLeft hleft 1 (by norm_num) helper_left_bound).neg
+  · exact weightedDerivativeIntegral_continuous hL 3 ![directionX,directionX,directionX] m
+      peanoRight hright 1 (by norm_num) helper_right_bound
+  · exact (weightedDerivativeIntegral_continuous hL 3 ![directionX,directionX,directionY] m
+      peanoLeft hleft 1 (by norm_num) helper_left_bound).neg
+  · exact weightedDerivativeIntegral_continuous hL 3 ![directionX,directionX,directionY] m
+      peanoRight hright 1 (by norm_num) helper_right_bound
+  · exact hYY.comp (by fun_prop)
+  · exact hYY.comp (by fun_prop)
+
+end I4SourceConfluentLimits
