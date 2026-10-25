@@ -1,0 +1,32 @@
+{
+  "assistance": "Source-exposed mathematical-design/sixth-power advice supplied by Root and source group. No final implementation review or independence credit claimed.",
+  "base": "c055af07b9a349db4bdc2acf2033e0f27b450605",
+  "d2_precheck": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243050857",
+  "extraction": "after BEGIN EXACT_FILE line through END marker minus ONE separator LF; terminal LF retained",
+  "method": {
+    "bytes": 32593,
+    "sha256": "8bdea4b42e9efd2d846cd1aa73691e8194fa26cd937ac02b79991334f88204f6",
+    "url": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243041893"
+  },
+  "offer": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6244787399",
+  "pickup": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6244794852",
+  "schema": "D2_COEFFICIENT_SOURCE_MAP_V1",
+  "scientific_acceptance": false,
+  "sources": {
+    "method_v2": "8bdea4b42e9efd2d846cd1aa73691e8194fa26cd937ac02b79991334f88204f6",
+    "original": "f38c085ab5b15368e6989a1fd6298490f3b671f5a6c3a01bcdc81b516022bc33"
+  },
+  "transfer_correction": "apply_patch transfer initially introduced one additional terminal LF; inert readback corrected it before any upstream source execution; exact published sizes/hashes now MATCH",
+  "upstream": {
+    "moment_kernel.py": {
+      "bytes": 12063,
+      "sha256": "68c3caf28190e8be58464cabfc39ab565449d9bb64716ab139ac0dd0a181193e",
+      "source": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243879677"
+    },
+    "verify_certificate.py": {
+      "bytes": 10829,
+      "sha256": "a0afbfdf9ca323db38e06171c138f683669c42fe99f6892d6233ab03802d4715",
+      "source": "https://github.com/d6g8k5htny-coder/Math-/issues/193#issuecomment-6243879677"
+    }
+  }
+}

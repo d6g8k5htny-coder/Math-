@@ -10,6 +10,9 @@ name: Downstream hard-gate exact replay
         required: true
 permissions:
   contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 defaults:
   run:
     shell: bash
@@ -18,14 +21,14 @@ jobs:
     outputs:
       checked_commit: ${{ steps.checks-identity.outputs.checked_commit }}
     name: downstream-replay
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11'
       - name: Required-check integration controls in both Python modes
@@ -98,9 +101,49 @@ jobs:
           }, indent=2) + '\n')
           print('DOWNSTREAM_GATE_PASSED')
           PYTHON
+      - name: P-C paired A/B source-bound conformance
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          GIT_NO_LAZY_FETCH: '1'
+        run: |
+          set -euo pipefail
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git --no-replace-objects --no-lazy-fetch rev-parse --is-shallow-repository)" = false
+          git --no-replace-objects --no-lazy-fetch cat-file -e '9fd261135b41daf1e377f9ef2db193fee6ec36be^{commit}'
+          git --no-replace-objects --no-lazy-fetch cat-file -e '92a45e1749936a19ebfe31e803289e0f4683d754^{commit}'
+          git --no-replace-objects --no-lazy-fetch cat-file -e "$GITHUB_SHA^{commit}"
+          out="$RUNNER_TEMP/downstream-gate-results"
+          mkdir -p "$out"
+          python3 -B -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-normal.stdout" 2> "$out/proof-slice-tests-normal.stderr"
+          python3 -B -O -S -m unittest discover -s tests -p test_proof_slice_check.py -v > "$out/proof-slice-tests-optimized.stdout" 2> "$out/proof-slice-tests-optimized.stderr"
+          python3 -B -S - "$out" <<'PC_TEST_EVIDENCE'
+          import pathlib, re, sys
+          # Conventional unittest output checks, not hostile-producer authentication.
+          expected_count = 94
+          out = pathlib.Path(sys.argv[1])
+          for mode in ('normal', 'optimized'):
+              stderr = (out / f'proof-slice-tests-{mode}.stderr').read_text(encoding='utf-8')
+              summary = re.search(r'\nRan ([1-9][0-9]*) tests in [0-9]+\.[0-9]{3}s\n\nOK\n\Z', stderr)
+              if summary is None or int(summary.group(1)) != expected_count or 'skipped=' in stderr:
+                  raise RuntimeError('P-C focused tests have incomplete or unsuccessful execution: ' + mode)
+          print('P_C_FOCUSED_TESTS_PASSED: normal and optimized, 94 methods each, no skips')
+          PC_TEST_EVIDENCE
+          python3 -B -S tools/proof_slice_check.py --repo . --expected-commit 92a45e1749936a19ebfe31e803289e0f4683d754 --expected-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json --companion-commit "$GITHUB_SHA" --companion-path reviews/proof_dependencies_20261008/P_C/PROOF_SLICE.json > "$out/proof-slice-paired-normal.json" 2> "$out/proof-slice-paired-normal.stderr"
+          python3 -B -O -S tools/proof_slice_check.py --repo . --expected-commit 92a45e1749936a19ebfe31e803289e0f4683d754 --expected-path reviews/proof_dependencies_20261008/P_C/EXPECTED_INVENTORY.json --companion-commit "$GITHUB_SHA" --companion-path reviews/proof_dependencies_20261008/P_C/PROOF_SLICE.json > "$out/proof-slice-paired-optimized.json" 2> "$out/proof-slice-paired-optimized.stderr"
+          python3 -B -S - "$out" <<'PC_PAIRED_SCOPE'
+          import json, os, pathlib, sys
+          for mode in ('normal', 'optimized'):
+              report = json.loads((pathlib.Path(sys.argv[1]) / f'proof-slice-paired-{mode}.json').read_text())
+              if not (report['valid'] is True and report['phase'] == 'paired'
+                      and report['validation_scope'] == 'pc-pilot-fixed-source'
+                      and report['fixed_source_commit'] == '9fd261135b41daf1e377f9ef2db193fee6ec36be'
+                      and report['inputs']['inventory']['commit'] == '92a45e1749936a19ebfe31e803289e0f4683d754'
+                      and report['inputs']['companion']['commit'] == os.environ['GITHUB_SHA']):
+                  raise RuntimeError('P-C requires independently pinned, pilot-scoped paired validation')
+          PC_PAIRED_SCOPE
       - name: Retain evidence even on failure
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: downstream-gate-${{ github.run_id }}
           path: ${{ runner.temp }}/downstream-gate-results
@@ -117,7 +160,7 @@ jobs:
     name: math-downstream-gates
     if: ${{ always() }}
     needs: [checks, formal]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1

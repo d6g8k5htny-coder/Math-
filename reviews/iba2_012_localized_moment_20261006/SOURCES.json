@@ -1,0 +1,44 @@
+{
+  "object": "IBA2-012-LOCALIZED-MOMENT-20261006-v1",
+  "repository": "d6g8k5htny-coder/Math-",
+  "source_cut": "75ce4eab431e487a163cc4ebb30c5d2386a0e887",
+  "author": "OpenAI / GPT-6 Astra Pro / iba2-count-weight-transfer-r6-20261006",
+  "principal": "Dylan Roy — delegated AI work",
+  "scientific_effect": "NONE",
+  "organizational_independence_credit": 0,
+  "scope": "Addendum only: event-localized one-factorial-order input, its sharp exponent, and local-tuple mass deletion. Does not replace the canonical Math-319 theorem or its ancestry.",
+  "inputs": [
+    {"tag":"CT","path":"reviews/iba2_012_count_transfer_20261006/PROOF.md","git_blob":"752bc9da5e49af3d0724d80c91cffc0dde35a2d8","slice":"Entire parent; existing core transfer, first-moment input, lower denominators and all-orders obstruction"},
+    {"tag":"FR","path":"reviews/iba2_012_finite_radius_20261005/PROOF.md","git_blob":"5ed684c9bb446efc9bef5f3980717c6dc039abfd","slice":"3–5 and8; finite-r derivative-weighted event estimates"},
+    {"tag":"CP","path":"frontiers/c6_palm_route_20260929/PROOF.md","git_blob":"89eb8adf08fe7afc2cab9662d3a9875c05ae5cc5","slice":"1.1–1.3; one fixed Theorem Q order and all inherited qualifications"},
+    {"tag":"ERR","path":"reviews/d5_dimension_lift_erratum_20261005/ERRATUM.md","git_blob":"23df87bbe4ffd3b2d786cd695fb9f5448cfa1d05","slice":"Entire additive correction"}
+  ],
+  "canonical_parent_preservation": {
+    "directory":"reviews/iba2_012_count_transfer_20261006/",
+    "PROOF.md":"752bc9da5e49af3d0724d80c91cffc0dde35a2d8",
+    "README.md":"7a58357c825d9737b9fa5251b5b55c31cd467fa9",
+    "SOURCES.json":"a9f8f29cc9e651cd3fff1c86b71823249054d1f6",
+    "test_transfer.py":"175388b9047abb4e88d98c855b9ffe38cb45aad7",
+    "transfer_check.py":"b36abff316da46eaa08a20dd5641e9d6d18e3d06"
+  },
+  "payloads":[
+    {"path":"NOTE.md","git_blob":"9dd7d583e50336aea6e0625d57dffabc50ed4f3e"},
+    {"path":"test_count_transfer.py","git_blob":"629ba742ee777e7da992cf0a975cb7384ad1763f","sha256_from_review":"c81a2ad32f9adb4e904bebd7fb472af55673fd0935c8d8a1220bfa1f246ca6b0"}
+  ],
+  "history": {
+    "superseded_conflicting_draft":"af85f05fdfcb810e0973e829d838ecb35946390a",
+    "original_review":"Math-324/6007975992",
+    "collision_notice":"Math-324/6007993806",
+    "reconciliation":"Math-324/6008009480",
+    "meaning":"Old draft/review retained in history; no parent replacement and no automatic transfer of a whole-text verdict to this new note."
+  },
+  "test_execution": {
+    "performer":"xAI Grok 4.7 via Cursor, model grok-4.7-high-fast",
+    "session":"bc-0ffd9a55-553f-42eb-9559-748fb609584f",
+    "python":"3.12.3",
+    "source_blob":"629ba742ee777e7da992cf0a975cb7384ad1763f",
+    "methods_per_mode":13,
+    "baseline_stdout_sha256":"d8a2efa940de518122ee6037ebf15c35f3908fb5264472351d3aa4936f69e425",
+    "note":"Actual reader runs at the previous directory; bytes unchanged and script has no path-relative inputs. New-note delta review remains required. No author local execution or kernel proof is asserted."
+  }
+}

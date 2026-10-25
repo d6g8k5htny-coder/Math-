@@ -5,6 +5,7 @@ name: D5 fixed-remote witness-collision checks
     paths:
       - 'frontiers/remote_collision_20260928/**'
       - '.github/workflows/remote-collision.yml'
+      - 'tests/test_remote_collision_workflow.py'
   workflow_dispatch:
 
 permissions:
@@ -18,9 +19,13 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Exercise rejection protocol controls
+        run: |
+          python -B -S -m unittest discover -s tests -p 'test_remote_collision_workflow.py' -v
+          python -B -O -S -m unittest discover -s tests -p 'test_remote_collision_workflow.py' -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -45,16 +50,33 @@ jobs:
           expected = (root / 'RESULTS.json').read_bytes()
           mutants = ['jacobian-exponent', 'trapezoid-constant', 'one-determinant',
                      'window-factor', 'bonferroni-sign']
+          # Complete native report differences, characterized before this repair.
+          failed_checks = {
+              'jacobian-exponent': [('J_jacobian', 'jacobian_delta^-(d+3)_d2'),
+                                    ('J_jacobian', 'jacobian_delta^-(d+3)_d3')],
+              'trapezoid-constant': [('T_trapezoid_and_divided_difference', 'D3_is_minus_one_twelfth_average_of_g3'),
+                                     ('F_fold_example', 'fold_height_gap_is_minus_f3_delta3_over_12')],
+              'one-determinant': [('L_ledgers', 'delta_exponent_is_1_for_all_d')],
+              'window-factor': [('L_ledgers', 'near_r_exponent_5'), ('L_ledgers', 'separated_r_exponent_6')],
+              'bonferroni-sign': [('B_bonferroni', 'bonferroni_first_order')],
+          }
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
-                                   check=True, capture_output=True, timeout=300).stdout
-              if out != expected:
+                                   check=True, capture_output=True, timeout=300)
+              if out.stdout != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
+              if out.stderr:
+                  raise RuntimeError('unexpected baseline stderr under ' + ' '.join(flags))
               for m in mutants:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
-                                      capture_output=True, timeout=300).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
+                  report = json.loads(expected)
+                  report['passed'] = False
+                  for group, key in failed_checks[m]:
+                      report['checks'][group][key] = False
+                  wanted = (json.dumps(report, indent=2, sort_keys=True) + '\n').encode('utf-8')
+                  rejected = subprocess.run([sys.executable, *flags, script, '--mutant', m],
+                                            capture_output=True, timeout=300)
+                  if rejected.returncode != 1 or rejected.stdout != wanted or rejected.stderr:
+                      raise RuntimeError('mutant ' + m + ' did not emit its expected rejection report')
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code

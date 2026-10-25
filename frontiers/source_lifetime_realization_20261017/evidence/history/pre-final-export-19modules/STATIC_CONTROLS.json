@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC_CONTROLS_ONLY",
+  "scope": "Seven virtual file-content mutations and two optimized-Python rejection controls. No source file was mutated, and no Lean/Lake process, cache mutation, or network operation occurred.",
+  "baseline_status": "PASS_STATIC_ONLY",
+  "validator_sha256": "ad25a07d48b871b33d9440276a7696a8a8d4f817237d5a5b49bd1aeb67a6ddad",
+  "controls_sha256": "2fad4e9f8eb65b456fb7a7a5ec004975a900d1a77b2d69d688cba9a3fc0e5050",
+  "identity_manifest_sha256": "e5414f1d4d84b53952b06f0849ae341b62aae243640f7427e9218a563c2265b7",
+  "package_bytes_unchanged": true,
+  "mutation_controls": [
+    {
+      "case": "modified_proof_source",
+      "expected_rejection_observed": true,
+      "diagnostic": "SourceThetaBridge.lean"
+    },
+    {
+      "case": "changed_dependency_pin",
+      "expected_rejection_observed": true,
+      "diagnostic": "manifest changed beyond root package name"
+    },
+    {
+      "case": "omitted_default_axiom_audit_target",
+      "expected_rejection_observed": true,
+      "diagnostic": "default targets must include both controls and complete axiom audit"
+    },
+    {
+      "case": "wrong_input_source_directory",
+      "expected_rejection_observed": true,
+      "diagnostic": "GaussianSeriesFoundation.lean"
+    },
+    {
+      "case": "omitted_audit_source_identity",
+      "expected_rejection_observed": true,
+      "diagnostic": "expected 19 Lean sources and 3 original build files"
+    },
+    {
+      "case": "omitted_audit_declaration_with_rebound_digest",
+      "expected_rejection_observed": true,
+      "diagnostic": "expected 409 distinct recorded audit declarations"
+    },
+    {
+      "case": "forbidden_axiom_with_rebound_digest",
+      "expected_rejection_observed": true,
+      "diagnostic": "forbidden axiom in recorded declaration: I4Foundation.coefficientLaw"
+    }
+  ],
+  "optimization_guards": [
+    {
+      "case": "explicit_python_optimization",
+      "returncode": 1,
+      "expected_rejection_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16"
+    },
+    {
+      "case": "environment_python_optimization",
+      "returncode": 1,
+      "expected_rejection_observed": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6f592cec28e1529e65df72ea5d8c4bf34c771d0c73597d4517ad8c5012c9ff16"
+    }
+  ]
+}

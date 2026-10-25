@@ -5,6 +5,7 @@ name: D5 reconciliation checks
     paths:
       - 'reviews/d5_reconciliation_20260929/**'
       - '.github/workflows/d5-reconciliation.yml'
+      - 'tests/test_d5_reconciliation_workflow.py'
       - 'reviews/d5_*/**'
       - 'frontiers/intermediate_window_20260928/**'
       - 'frontiers/remote_window_20260924/**'
@@ -23,9 +24,13 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.11.16'
+      - name: Exercise rejection protocol controls
+        run: |
+          python -B -S -m unittest discover -s tests -p 'test_d5_reconciliation_workflow.py' -v
+          python -B -O -S -m unittest discover -s tests -p 'test_d5_reconciliation_workflow.py' -v
       - name: Verify sources, replay both modes, reject mutants
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -49,16 +54,33 @@ jobs:
           script = str(root / 'reconciliation_check.py')
           expected = (root / 'RESULTS.json').read_bytes()
           mutants = ['optional-continuum', 'allow-symlink', 'no-hash', 'drop-dependency', 'drop-edge', 'stale-fingerprint', 'drop-collar', 'close-c6']
+          # Complete native report differences, characterized before this repair.
+          failed_checks = {
+              'optional-continuum': 'NEGATIVES',
+              'allow-symlink': 'NEGATIVES',
+              'no-hash': 'NEGATIVES',
+              'drop-dependency': 'TRANSITIONS',
+              'drop-edge': 'TRANSITIONS',
+              'stale-fingerprint': 'TRANSITIONS',
+              'drop-collar': 'TILING',
+              'close-c6': 'OPEN_C6',
+          }
           for flags in (['-B', '-S'], ['-B', '-O', '-S']):
               out = subprocess.run([sys.executable, *flags, script],
-                                   check=True, capture_output=True, timeout=300).stdout
-              if out != expected:
+                                   check=True, capture_output=True, timeout=300)
+              if out.stdout != expected:
                   raise RuntimeError('output differs from RESULTS.json under ' + ' '.join(flags))
+              if out.stderr:
+                  raise RuntimeError('unexpected baseline stderr under ' + ' '.join(flags))
               for m in mutants:
-                  rc = subprocess.run([sys.executable, *flags, script, '--mutant', m],
-                                      capture_output=True, timeout=300).returncode
-                  if rc != 1:
-                      raise RuntimeError('mutant ' + m + ' not rejected')
+                  report = json.loads(expected)
+                  report['passed'] = False
+                  report['checks'][failed_checks[m]] = False
+                  wanted = (json.dumps(report, indent=2, sort_keys=True) + '\n').encode('utf-8')
+                  rejected = subprocess.run([sys.executable, *flags, script, '--mutant', m],
+                                            capture_output=True, timeout=300)
+                  if rejected.returncode != 1 or rejected.stdout != wanted or rejected.stderr:
+                      raise RuntimeError('mutant ' + m + ' did not emit its expected rejection report')
           print(json.dumps({'scientific_effect': 'NONE', 'mathematical_acceptance': False}))
           PY
           git diff --exit-code

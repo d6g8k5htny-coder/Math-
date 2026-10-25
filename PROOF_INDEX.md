@@ -2,6 +2,10 @@
 
 This file links full proof text, exact reviews, and explicitly incomplete proof obligations. Local links open the retained files in this public repository; immutable external links identify sources still on other public branches. Scientific status is unchanged by this index. Review descriptions below report the linked records, checked on 2026-09-26; packets integrated 27–29 September 2026 are listed by availability in the navigation-refresh section near the end of this file, with their review records in [docs/integration/2026-09-29-navigation-refresh.md](docs/integration/2026-09-29-navigation-refresh.md). That section was rebased onto `main` `6f74f7a` on 2026-10-02 (merges only) without changing its 26–29 September cut: packets that landed later are not listed there, and a separately scoped continuation will index them. None of this replaces the claim manifest or the source statements.
 
+## Current-reading guidance — 2026-10-07
+
+For the C7 total rejected-density proof listed as #150 in the dated inventory below, use the [packet README](frontiers/c7_total_bounded_20260929/README.md). Read Section 3's normalized-form remark with the [normalized-form scope erratum](frontiers/c7_total_bounded_20260929/ERRATUM_NORMALIZED_FORM.md), and Section 4's final rate comparison with the [gap-cutoff rate clarification](frontiers/c7_total_bounded_20260929/RATE_READING.md). This dated guidance leaves the inventory's 26–29 September 2026 cut and its original proof/status labels unchanged.
+
 ## Imported source bytes — publication only
 
 [PR70](https://github.com/d6g8k5htny-coder/Math-/pull/70) landed these public imports at Math- commit `9d7b6802424fb4715b31999066aafca8ee2f3cca`.

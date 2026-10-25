@@ -1,0 +1,34 @@
+{
+  "state": "SOURCE_FROZEN; SERIAL_NEGATIVES_KERNEL_PENDING",
+  "source_baseline": "Math-dc7aca2f9adaf6d6d986b0e34b7b39c8fc3cf417",
+  "source_pickup": "Main419/6240826507",
+  "files": {
+    "clearance/ElderClearance.lean": {
+      "bytes": 5866,
+      "sha256": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e"
+    },
+    "clearance/ElderClearanceControls.lean": {
+      "bytes": 1257,
+      "sha256": "f048de3c19859b96af44b4637c875eed57443d33767b57631f9ad0548a7ee7ca"
+    },
+    "clearance/ElderBridge.lean": {
+      "bytes": 3683,
+      "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+    },
+    "interval-project/ElderInterval.lean": {
+      "bytes": 16006,
+      "sha256": "3dab19342c307f6b70f4fa05ac913b4ead083742a56408db71b45276c0acb9ab"
+    },
+    "interval-project/ElderIntervalControls.lean": {
+      "bytes": 3561,
+      "sha256": "b515d40bc0f58a71c3afa80e3ae7fae53725f3d713c2df2df110ba2814a4ece3"
+    },
+    "INTERFACE_BOUNDARIES.md": {
+      "bytes": 5080,
+      "sha256": "7ec0f6f8a7a5f58e2c233d0aae9f69f18f13a2a0e340259c6931504ae6843cf9"
+    }
+  },
+  "scientific_effect": "NONE",
+  "full_goal": "ACTIVE_UNMET",
+  "semantic_boundary": "Actual topological geometric-input C263 death and singular-H0 summand. Analytic fold/Morse/torus/global stochastic statements are separate."
+}

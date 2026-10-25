@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scientific_effect": "NONE",
+  "author": {
+    "provider": "OpenAI",
+    "model": "GPT-6 Astra Pro",
+    "session": "round13-endpoint-law-audit-20261005"
+  },
+  "files": {
+    "NOTE.md": {
+      "bytes": 11397,
+      "sha256": "ebff808093e4fcc9959ff8690c9cf049d91ac3306297853e559d70739747f113",
+      "git_blob": "6633cdf0bfee55e2fc2046176effbf44634454b3"
+    },
+    "tilt_check.py": {
+      "bytes": 4312,
+      "sha256": "aac9b23deb8f8ffd5e5abefd9d33caec6d327ac2fc4bd079047c0c20041c3ada",
+      "git_blob": "5f66506eb38325b0594200acf4c4d2d50a698c89"
+    },
+    "test_tilt.py": {
+      "bytes": 5194,
+      "sha256": "6badbbcd1037d9c397c258d5c356a39c396b189e39b919e500df30b85baff4a0",
+      "git_blob": "0bda8438ba1e06d03e134ff4cd17c6a1786b023c"
+    }
+  },
+  "dependencies": [
+    {
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "5e027afcae8c7bd42a6df8ae2025f82105b3e586",
+      "path": "reviews/lm006_normalizer_stability_20261005/NOTE.md",
+      "git_blob": "5790aaa0332bd8e79b276be1577e4c5f3502eed6",
+      "sha256": "2e63518026cef54bb91757ccbdba986a0765f8a8b640240417ba30c59e2f5fd4",
+      "slice": "endpoint definition (1), pointwise bound (5), Gaussian moment bounds; no prior review transferred to this new proof"
+    }
+  ],
+  "external_context": [
+    {
+      "arxiv": "1902.10257v4",
+      "read": "abstract only",
+      "role": "metric distinction; not proof premise"
+    },
+    {
+      "arxiv": "1906.07120v3",
+      "read": "abstract only",
+      "role": "normalization-sensitive reweighting stability; not proof premise"
+    }
+  ]
+}
