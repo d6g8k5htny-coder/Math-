@@ -1,0 +1,432 @@
+ResearchFormalCoreR1.ec005_fold_gap (s : Real) :
+  @Eq Real
+    (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) (ResearchFormalCoreR1.foldPotential s s)
+      (ResearchFormalCoreR1.foldPotential s (@Neg.neg Real Real.instNeg s)))
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)) s)
+        (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      (@OfNat.ofNat Real (nat_lit 6) (@instOfNatAtLeastTwo Real (nat_lit 6) Real.instNatCast ⋯)))
+ResearchFormalCoreR1.ec008_factor_expansion (c s : Real) :
+  @Eq Real
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+                (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                    (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))
+                    (@HPow.hPow Real Nat Real
+                      (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+                      (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                      (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))
+                      (@HPow.hPow Real Nat Real
+                        (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+                        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                    (@HPow.hPow Real Nat Real
+                      (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+                      (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+                (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  s (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))
+            (@OfNat.ofNat Real (nat_lit 24) (@instOfNatAtLeastTwo Real (nat_lit 24) Real.instNatCast ⋯)))
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+                (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                  (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯))
+                  (@HPow.hPow Real Nat Real
+                    (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+                    (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  s (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Neg.neg Real Real.instNeg c)
+                (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  s (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+              (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                  (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                  (@HPow.hPow Real Nat Real
+                    (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+                    (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+                (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+                  s (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+            (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯)))
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+            (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+            (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 3) (@instOfNatAtLeastTwo Real (nat_lit 3) Real.instNatCast ⋯))
+            (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+              (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) s
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+      (@OfNat.ofNat Real (nat_lit 24) (@instOfNatAtLeastTwo Real (nat_lit 24) Real.instNatCast ⋯)))
+ResearchFormalCoreR1.ec010_generic (α K c η : Real) :
+  @Eq Real
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) K
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯)) α)
+              c)
+            η))
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@OfNat.ofNat Real (nat_lit 64) (@instOfNatAtLeastTwo Real (nat_lit 64) Real.instNatCast ⋯)) α)
+            (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) α))
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) c
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) η
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) α)
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) K
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) α
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) K
+            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                (@OfNat.ofNat Real (nat_lit 8) (@instOfNatAtLeastTwo Real (nat_lit 8) Real.instNatCast ⋯)) c)
+              η))
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+ResearchFormalCoreR1.ec010_transverse (α a η : Real) :
+  @Eq Real
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) a
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)) α))
+            η))
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+            (@OfNat.ofNat Real (nat_lit 4) (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯)) α)
+          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) α))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) η
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) α)
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd) a η)
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) α
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (@HSub.hSub Real Real Real (@instHSub Real Real.instSub) a η)
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+ResearchFormalCoreR1.ec011_scalar_cancellation (h w g : Real) :
+  @Eq Real
+    (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Neg.neg Real Real.instNeg h) w) g)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) w
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) h g)))
+    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+ResearchFormalCoreR1.ec014_contact_power (r : Real)
+  (hr : @Ne Real r (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) :
+  @Eq Real
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+          (@OfNat.ofNat Real (nat_lit 6) (@instOfNatAtLeastTwo Real (nat_lit 6) Real.instNatCast ⋯)))
+        (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+        (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+      (@OfNat.ofNat Real (nat_lit 6) (@instOfNatAtLeastTwo Real (nat_lit 6) Real.instNatCast ⋯)))
+ResearchFormalCoreR1.p02_lm008_r2_cancel (r cW cZ q : Real)
+  (hr : @Ne Real r (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+  (hcZ : @Ne Real cZ (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) :
+  @Eq Real
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cW.sqrt
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        q.sqrt)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cZ
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) cW.sqrt cZ) q.sqrt)
+ResearchFormalCoreR1.p02_lm008_cross_multiplied (n z r cW cZ q : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hcW : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) cW)
+  (hcZ : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) cZ)
+  (hq : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) q)
+  (hz :
+    @LE.le Real Real.instLE
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cZ
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      z)
+  (hn :
+    @LE.le Real Real.instLE n
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cW.sqrt
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        q.sqrt)) :
+  @LE.le Real Real.instLE
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) n
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cZ
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cW.sqrt
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        q.sqrt)
+      z)
+ResearchFormalCoreR1.p02_lm008_quotient_bound (n z r cW cZ q : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hcW : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) cW)
+  (hcZ : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) cZ)
+  (hq : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) q)
+  (hzpos : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) z)
+  (hz :
+    @LE.le Real Real.instLE
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cZ
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      z)
+  (hn :
+    @LE.le Real Real.instLE n
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) cW.sqrt
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        q.sqrt)) :
+  @LE.le Real Real.instLE
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) n z)
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) cW.sqrt cZ) q.sqrt)
+ResearchFormalCoreR1.p02_lm009_bad_event_threshold (r R ε : Real)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hbad :
+    @LT.lt Real Real.instLT ε
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) r
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) R
+          (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5)))))) :
+  @LT.lt Real Real.instLT
+    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) ε r)
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) R
+      (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+ResearchFormalCoreR1.p02_lm009_power40_identity (R : Real) :
+  @Eq Real
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) R
+        (@OfNat.ofNat Nat (nat_lit 5) (instOfNatNat (nat_lit 5))))
+      (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) R
+      (@OfNat.ofNat Nat (nat_lit 40) (instOfNatNat (nat_lit 40))))
+ResearchFormalCoreR1.p02_lm009_r4_le_r3 (r : Real)
+  (hr0 : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hr1 : @LE.le Real Real.instLE r (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))) :
+  @LE.le Real Real.instLE
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+      (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+      (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+ResearchFormalCoreR1.p02_lm009_palm_r4_to_r3 (p C r : Real)
+  (hC : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) C)
+  (hr0 : @LE.le Real Real.instLE (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hr1 : @LE.le Real Real.instLE r (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+  (hp :
+    @LE.le Real Real.instLE p
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) C
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))) :
+  @LE.le Real Real.instLE p
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) C
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+        (@OfNat.ofNat Nat (nat_lit 3) (instOfNatNat (nat_lit 3)))))
+ResearchFormalCoreR1.dm2_untyped (r : Real) (j : ResearchFormalCoreR1.DM2Jet)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hr1 : @LE.le Real Real.instLE r (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))) :
+  @LE.le Real Real.instLE
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@Matrix.det (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real Real.commRing
+          (ResearchFormalCoreR1.dm2HM r j))
+        (@Matrix.det (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (instDecidableEqFin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin.fintype (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real Real.commRing
+          (ResearchFormalCoreR1.dm2HS r j)))
+      (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@OfNat.ofNat Real (nat_lit 16) (@instOfNatAtLeastTwo Real (nat_lit 16) Real.instNatCast ⋯))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (ResearchFormalCoreR1.dm2Radius j) (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))))
+ResearchFormalCoreR1.dm2_pointwise (r : Real) (j : ResearchFormalCoreR1.DM2Jet)
+  (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hr1 : @LE.le Real Real.instLE r (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))) :
+  @LE.le Real Real.instLE
+    (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+      (ResearchFormalCoreR1.dm2Weight r j) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+    (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@OfNat.ofNat Real (nat_lit 16) (@instOfNatAtLeastTwo Real (nat_lit 16) Real.instNatCast ⋯))
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
+      (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+        (ResearchFormalCoreR1.dm2Radius j) (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8)))))
+ResearchFormalCoreR1.dm2_negative_iff (a b c : Real) :
+  Iff
+    (ResearchFormalCoreR1.dm2Negative
+      (@DFunLike.coe
+        (Equiv
+          (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+            Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+          (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real))
+        (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+          Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+        (fun x =>
+          Matrix (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real)
+        (@EquivLike.toFunLike
+          (Equiv
+            (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+              Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+            (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real))
+          (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+            Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+          (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+            (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real)
+          (@Equiv.instEquivLike
+            (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) →
+              Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+            (Matrix (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real)))
+        (@Matrix.of (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))) Real)
+        (@Matrix.vecCons (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+          (@Matrix.vecCons Real (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) a
+            (@Matrix.vecCons Real (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) b (@Matrix.vecEmpty Real)))
+          (@Matrix.vecCons (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real)
+            (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@Matrix.vecCons Real (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) b
+              (@Matrix.vecCons Real (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) c
+                (@Matrix.vecEmpty Real)))
+            (@Matrix.vecEmpty (Fin (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) → Real))))))
+    (And (@LT.lt Real Real.instLT a (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+      (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) a c)
+          (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) b
+            (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))))
+ResearchFormalCoreR1.dm2_weight_measurable (r : Real) :
+  @Measurable ResearchFormalCoreR1.DM2Jet Real
+    (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))) (fun a => Real) fun a =>
+      Real.measurableSpace)
+    Real.measurableSpace (ResearchFormalCoreR1.dm2Weight r)
+ResearchFormalCoreR1.dm2_moment.{u_1} {Ω : Type u_1} [MeasurableSpace Ω] (μ : @MeasureTheory.Measure Ω inst✝)
+  (J : Ω → ResearchFormalCoreR1.DM2Jet)
+  (hJ :
+    @Measurable Ω ResearchFormalCoreR1.DM2Jet inst✝
+      (@MeasurableSpace.pi (Fin (@OfNat.ofNat Nat (nat_lit 9) (instOfNatNat (nat_lit 9)))) (fun a => Real) fun a =>
+        Real.measurableSpace)
+      J)
+  (r M8 : Real) (hr : @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) r)
+  (hr1 : @LE.le Real Real.instLE r (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+  (h8 :
+    @MeasureTheory.Integrable Real
+      (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+      Ω inst✝
+      (fun x =>
+        @HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (ResearchFormalCoreR1.dm2Radius (J x)) (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+      μ)
+  (hM8 :
+    @LE.le Real Real.instLE
+      (@MeasureTheory.integral Ω Real Real.normedAddCommGroup (@NormedField.toNormedSpace Real Real.normedField) inst✝ μ
+        fun x =>
+        @HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (ResearchFormalCoreR1.dm2Radius (J x)) (@OfNat.ofNat Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+      M8) :
+  And
+    (@MeasureTheory.Integrable Real
+      (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+      Ω inst✝
+      (fun x =>
+        @HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (ResearchFormalCoreR1.dm2Weight r (J x)) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      μ)
+    (@LE.le Real Real.instLE
+      (@MeasureTheory.integral Ω Real Real.normedAddCommGroup (@NormedField.toNormedSpace Real Real.normedField) inst✝ μ
+        fun x =>
+        @HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid)))
+          (ResearchFormalCoreR1.dm2Weight r (J x)) (@OfNat.ofNat Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+          (@OfNat.ofNat Real (nat_lit 16) (@instOfNatAtLeastTwo Real (nat_lit 16) Real.instNatCast ⋯)) M8)
+        (@HPow.hPow Real Nat Real (@instHPow Real Nat (@NPow.toPow Real (@Monoid.toNPow Real Real.instMonoid))) r
+          (@OfNat.ofNat Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))))
