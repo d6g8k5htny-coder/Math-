@@ -39,3 +39,16 @@ Implementation: sole new GaussianRegressionKernel.lean, narrow pinned Mathlib
 imports; retain source/failed probes; no oldproof/test campaigns. Root alone
 updates manifest/root after stabilization. Existing successful verification is
 reused where applicable; final gate tests the changed closure and new targets.
+
+## Direct observed/target regression strengthening, frozen before code
+
+The implementation may additionally derive the residual hypotheses from a
+jointly Gaussian pair(X,Y). Let B be continuous linear and satisfy the coordinate
+normal equations Cov(X_i,Y_j)=sum_l B(e_l)_j*Cov(X_i,X_l). Define
+R=Y-mY-B(X-mX) using these ACTUAL random vectors. Prove joint Gaussianity of
+(X,R), zero cross-covariance and hence HasCondDistrib Y X for the canonical
+residual kernel. Do not assume residual joint Gaussianity, residual independence,
+zero residual covariance or a conditional-law conclusion in this strengthened
+theorem. Normal equations may be an explicit algebraic premise; in the concrete
+source they come from B=C G^-1 and pin-covariance invertibility. Identifying those
+blocks and literal field derivatives remains an application obligation.
