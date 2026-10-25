@@ -1,0 +1,37 @@
+{
+  "started_utc": "2026-10-18T00:14:32.072920+00:00",
+  "recovery": {
+    "failed_sequence": {
+      "path": "FINAL_SEQUENCE_RESULT.json",
+      "sha256": "a8dddfaf3d46287a573b70fae91d71ba000b219ea4d4b0bed148341e0fe4825d"
+    },
+    "failed_receipt": {
+      "path": "final-runs/20261018T000515Z-build-SourceLifetimeAxiomAudit-93b1c912/RECEIPT.json",
+      "sha256": "f8b60044d19050e1284501ec90f04d92f3f0f9e521138085784456050ec98560"
+    },
+    "reason": "OBSERVED_420_SECOND_AUDIT_TIMEOUT",
+    "recovered_runner_sha256": "623a42d9d4e6c979ba8691df2b3c7c8c4c797afc32e62a063ab0d95b7ff8f216"
+  },
+  "inventory_sha256": "82f685a5d71671d9e682ca3df87485e97e8321e16f89c094965a49c2f8a100fe",
+  "objects_before": {
+    "SpectralWeights.olean": "1198354387c93ddc9d9dae622b0aa01d59f9c4fd5005c1d28882120f63b5bc2a",
+    "SourceSmooth.olean": "ae9330d17a56244051f0295dd075c6d1c4a2cb4eaa87bfea6ce40a3b2af90adc",
+    "SourceThetaBridge.olean": "d54747671c681e25d33e5d48328eeaff875abe4e592d64909d3226c9528c5553",
+    "SourceLifetimeField.olean": "6e29ce7c755f361042814fe3e19a16c47645a92a74c5254e6b73f60193083774",
+    "SourceLifetimeControls.olean": "231d51b3753a42969653d682f134b09150b6202c7dbc94cf3ed31282ddc4f3a7",
+    "SourceTorusC4.olean": "b8771ce1ee901034ab095b8626f13497906a98314f5f6607c8e29d6da2af95bf",
+    "SourceSmoothControls.olean": "b62d3af23feb502c521bb4b8a787a113d70709f86236fe2bc9ea6b6d48ac4845",
+    "SourceLattice.olean": "d48ea2908fe02c3b04382a206ab1fee10c28cc592918b4ba3e4f23ca9344c96f",
+    "SourceSmoothCarrier.olean": "128cd208866b09dc60e10780e6ee2c331f6a2b254cc41e9f4ed291586d52aa57",
+    "SourceKernel.olean": "3ed5b4510c117256c38c24f8a20ac909c1875072b5081d5699be2b4b42829f48",
+    "SourceGaussianLaw.olean": "988d2062acff606459fcc4dfc7b878b7f10d31b3d98e88919e073f3e67123321",
+    "SourceTorus.olean": "9b62fa6d530fa4b57ff6b0169339c6816592789ba277088e9b5667b94c03b48b",
+    "Lifetime.olean": "b3e14c2951b452222ca0c7b1448458cf785225971da704e4e3e6f0cc93107da4",
+    "SourceC4.olean": "470b28a94a6b0df4c3ca9d880b791552805ef9a5ed972367336a36f455563381",
+    "SourceFourierSeries.olean": "9596672b54a50339c0b5c51ea1a300a592501e8f24a6e7509107f1e8d727afbd",
+    "GaussianSeriesFoundation.olean": "57e6d72adad561cff7ee9996d4813dfb17d3e68bfcd61482630ba6e83a5b8d90",
+    "SourceLifetimeGeometry.olean": "b77e407c06c29eabc9ac4e378c251a06bd50a2cd043ca930e525df036e1ad95f",
+    "SourceCovariance.olean": "525041ef66ba52f10eba3f3f51114381d8a36174567ff21a09bf0ffd7bf4437e"
+  },
+  "driver_sha256": "b518ea542a51c73682fc3e05fc4e170849c74a87ecf79cafde8183084adb9827"
+}

@@ -1,0 +1,1082 @@
+{
+  "started_utc": "2026-10-17T23:43:28.074779+00:00",
+  "review_executor": "OpenAI Codex /root/c291_nonauthor_review",
+  "scope": "One read-only full repaired mutation verifier invocation against actual terminal evidence; no Lean execution",
+  "verifier_sha256": "8d9ec220f9db776fccf9ec6cf71c924217913700ee3d20ce8e47119ff99d0a32",
+  "negative_index_sha256": "3dc4f214c87fcf90096b67bb9bbc49fc57d823d1b96c91e0f79ef56c641f57ae",
+  "lean_executed": false,
+  "evidence_edited": false,
+  "status": "PASS_ACTUAL_MUTATION_EVIDENCE_VERIFIER",
+  "check_count": 265,
+  "result": {
+    "checks": [
+      {
+        "name": "negative_index_terminal",
+        "passed": true
+      },
+      {
+        "name": "exact_generation_directory",
+        "passed": true
+      },
+      {
+        "name": "negative_manifest_binding",
+        "passed": true
+      },
+      {
+        "name": "exact_negative_generation",
+        "passed": true
+      },
+      {
+        "name": "reviewed_final_inventory",
+        "passed": true
+      },
+      {
+        "name": "exact_nineteen_frozen_sources",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:GaussianSeriesFoundation.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SpectralWeights.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceFourierSeries.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLattice.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceKernel.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceGaussianLaw.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceCovariance.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceC4.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmooth.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceTorus.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceTorusC4.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmoothCarrier.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceSmoothControls.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:Lifetime.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceThetaBridge.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeGeometry.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeField.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeControls.lean",
+        "passed": true
+      },
+      {
+        "name": "frozen_source:SourceLifetimeAxiomAudit.lean",
+        "passed": true
+      },
+      {
+        "name": "development_source_snapshot:ConstructorEndpointRed.lean",
+        "passed": true
+      },
+      {
+        "name": "development_source_snapshot:SourceSmoothAxiomAudit.lean",
+        "passed": true
+      },
+      {
+        "name": "development_source_snapshot:ThetaProductProbe.lean",
+        "passed": true
+      },
+      {
+        "name": "negative_baseline_exact_final_source",
+        "passed": true
+      },
+      {
+        "name": "seven_exact_semantic_cases",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:ZeroField",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:ShiftedField",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:ZeroMeasure",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:HiddenPositiveDimension",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:DoubledRawCovariance",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:WrongCovarianceArgument",
+        "passed": true
+      },
+      {
+        "name": "reviewed_edit_and_ranges:NegativeQuadraticForm",
+        "passed": true
+      },
+      {
+        "name": "exact_helper_suffixes",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "no_import_of_production_constructor",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:2901:51911131",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:2901",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:ZeroField",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:2901:843d188d",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:2901",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:ShiftedField",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:2828:d6c0a0ca",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:2828",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:ZeroMeasure",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:2675:78b5f68f",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:2675",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:HiddenPositiveDimension",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:965:2cb209b7",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:965",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:DoubledRawCovariance",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:965:ded01577",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:965",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:WrongCovarianceArgument",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:1897:3d6e71c1",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:1897",
+        "passed": true
+      },
+      {
+        "name": "exact_single_source_mutation:NegativeQuadraticForm",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "exact_unmodified_positive_clone_wrappers",
+        "passed": true
+      },
+      {
+        "name": "exact_mutated_clone_wrappers",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:3893:d95922d9",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:3893",
+        "passed": true
+      },
+      {
+        "name": "single_unused_private_axiom_edit",
+        "passed": true
+      },
+      {
+        "name": "source_namespace_tail",
+        "passed": true
+      },
+      {
+        "name": "exact_private_axiom_wrapper",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original:1135:b4bd9c04",
+        "passed": true
+      },
+      {
+        "name": "single_edit_original_line:1135",
+        "passed": true
+      },
+      {
+        "name": "exact_whole_module_audit_extension",
+        "passed": true
+      },
+      {
+        "name": "fixture_module_identity:NegativeFixtureBaseline",
+        "passed": true
+      },
+      {
+        "name": "fixture_module_identity:NegativeConstructorMutants",
+        "passed": true
+      },
+      {
+        "name": "fixture_module_identity:NegativeUnusedAxiom",
+        "passed": true
+      },
+      {
+        "name": "fixture_module_identity:NegativeUnusedAxiomAudit",
+        "passed": true
+      },
+      {
+        "name": "exact_probe_source",
+        "passed": true
+      },
+      {
+        "name": "exact_probe_manifest",
+        "passed": true
+      },
+      {
+        "name": "exact_original_positive_receipts",
+        "passed": true
+      },
+      {
+        "name": "five_unique_actual_executions",
+        "passed": true
+      },
+      {
+        "name": "baseline_execution_directory",
+        "passed": true
+      },
+      {
+        "name": "exact_development_object_names",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:receipt_path",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_start_schema_and_equality",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_terminal_schema",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:generation_and_module",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_command_and_import_path",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:archived_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:actual_not_timeout",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:complete_production_source_map",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_nineteen_frozen_projection",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:complete_production_object_map",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_control_names",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:fixture_map_and_manifest",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:source_unchanged",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:local_imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:exact_development_receipt_selection",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:development_binding:SourceThetaBridge",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:development_binding:SourceLifetimeGeometry",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:development_binding:SourceLifetimeField",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:development_binding:SourceLifetimeControls",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:development_binding:SourceLifetimeAxiomAudit",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:no_import_failure",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:stderr_scope",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:error_source_paths",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:actual_error_list",
+        "passed": true
+      },
+      {
+        "name": "positive_baseline_receipt:actual_no_errors",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:receipt_path",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:exact_start_schema_and_equality",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:exact_terminal_schema",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:generation_and_module",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:exact_command_and_import_path",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:archived_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:actual_not_timeout",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:complete_production_source_map",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:exact_nineteen_frozen_projection",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:complete_production_object_map",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:exact_control_names",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:archived_imported_runner",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:source_and_object_unchanged_observations",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:no_import_failure",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:stderr_scope",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:error_source_paths",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:actual_no_errors",
+        "passed": true
+      },
+      {
+        "name": "binding_probe_receipt:all_actual_control_checks",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:receipt_path",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_start_schema_and_equality",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_terminal_schema",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:generation_and_module",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_command_and_import_path",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:archived_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:actual_not_timeout",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:complete_production_source_map",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_nineteen_frozen_projection",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:complete_production_object_map",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_control_names",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:fixture_map_and_manifest",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:source_unchanged",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:local_imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:exact_development_receipt_selection",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:development_binding:SourceThetaBridge",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:development_binding:SourceLifetimeGeometry",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:development_binding:SourceLifetimeField",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:development_binding:SourceLifetimeControls",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:development_binding:SourceLifetimeAxiomAudit",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:no_import_failure",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:stderr_scope",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:error_source_paths",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:actual_error_list",
+        "passed": true
+      },
+      {
+        "name": "mutants_receipt:all_actual_control_checks",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:receipt_path",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_start_schema_and_equality",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_terminal_schema",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:generation_and_module",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_command_and_import_path",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:archived_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:actual_not_timeout",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:complete_production_source_map",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_nineteen_frozen_projection",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:complete_production_object_map",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_control_names",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:fixture_map_and_manifest",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:source_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:local_imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:exact_development_receipt_selection",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:development_binding:SourceThetaBridge",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:development_binding:SourceLifetimeGeometry",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:development_binding:SourceLifetimeField",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:development_binding:SourceLifetimeControls",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:development_binding:SourceLifetimeAxiomAudit",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:no_import_failure",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:stderr_scope",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:error_source_paths",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:actual_error_list",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:actual_no_errors",
+        "passed": true
+      },
+      {
+        "name": "axiom_carrier_receipt:all_actual_control_checks",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:receipt_path",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_start_schema_and_equality",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_terminal_schema",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:generation_and_module",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_command_and_import_path",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:archived_runner_identity",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:actual_not_timeout",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:stdout_digest",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:stderr_digest",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:complete_production_source_map",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_nineteen_frozen_projection",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:complete_production_object_map",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_control_names",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:fixture_map_and_manifest",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:source_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:local_imported_objects_unchanged",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:exact_development_receipt_selection",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:development_binding:SourceThetaBridge",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:development_binding:SourceLifetimeGeometry",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:development_binding:SourceLifetimeField",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:development_binding:SourceLifetimeControls",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:development_binding:SourceLifetimeAxiomAudit",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:no_import_failure",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:stderr_scope",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:error_source_paths",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:actual_error_list",
+        "passed": true
+      },
+      {
+        "name": "axiom_rejection_receipt:all_actual_control_checks",
+        "passed": true
+      },
+      {
+        "name": "original_print_elision_failure_preserved",
+        "passed": true
+      },
+      {
+        "name": "original_baseline_only_expected_object",
+        "passed": true
+      },
+      {
+        "name": "probe_original_object_and_source_binding",
+        "passed": true
+      },
+      {
+        "name": "actual_baseline_object:NegativeFixtureBaseline.olean",
+        "passed": true
+      },
+      {
+        "name": "probe_only_expected_object",
+        "passed": true
+      },
+      {
+        "name": "actual_probe_object:NegativeFixtureBindingProbe.olean",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroField.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroField.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroField.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ShiftedField.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ShiftedField.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ShiftedField.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroMeasure.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroMeasure.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.ZeroMeasure.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.HiddenPositiveDimension.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.HiddenPositiveDimension.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.HiddenPositiveDimension.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.DoubledRawCovariance.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.DoubledRawCovariance.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.DoubledRawCovariance.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.WrongCovarianceArgument.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.WrongCovarianceArgument.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.WrongCovarianceArgument.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.NegativeQuadraticForm.covQuadForm_nonneg",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.NegativeQuadraticForm.actualField_linearCombination_map",
+        "passed": true
+      },
+      {
+        "name": "actual_local_proof_binding:C291Negative.NegativeQuadraticForm.actualField_raw_second_moment",
+        "passed": true
+      },
+      {
+        "name": "exact_acceptance_path",
+        "passed": true
+      },
+      {
+        "name": "two_part_acceptance_bound_to_actual_runs",
+        "passed": true
+      },
+      {
+        "name": "mutants_exact_two_part_admission",
+        "passed": true
+      },
+      {
+        "name": "actual_mutants_rejected",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:ZeroField",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:ShiftedField",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:ZeroMeasure",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:HiddenPositiveDimension",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:DoubledRawCovariance",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:WrongCovarianceArgument",
+        "passed": true
+      },
+      {
+        "name": "actual_intended_mutation_refusal:NegativeQuadraticForm",
+        "passed": true
+      },
+      {
+        "name": "actual_errors_only_inside_reviewed_mutants",
+        "passed": true
+      },
+      {
+        "name": "negative_generation_object_chain",
+        "passed": true
+      },
+      {
+        "name": "actual_final_negative_object:NegativeFixtureBaseline.olean",
+        "passed": true
+      },
+      {
+        "name": "actual_final_negative_object:NegativeUnusedAxiom.olean",
+        "passed": true
+      },
+      {
+        "name": "unused_axiom_carrier_compiled",
+        "passed": true
+      },
+      {
+        "name": "actual_private_unused_axiom_refusal",
+        "passed": true
+      }
+    ],
+    "constructor_mutations": 7,
+    "private_unused_axiom_mutations": 1,
+    "positive_acceptance": "two actual parts; original observation failure preserved",
+    "scientific_effect": "NONE"
+  },
+  "ended_utc": "2026-10-17T23:43:28.255788+00:00",
+  "seconds": 0.180603958,
+  "verifier_unchanged": true
+}
