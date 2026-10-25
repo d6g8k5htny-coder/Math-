@@ -7,7 +7,7 @@ import types
 import unittest
 from unittest import mock
 
-HERE = pathlib.Path(__file__).resolve().parent
+HERE = pathlib.Path(__file__).resolve().parents[1]
 
 class CompatibilityTests(unittest.TestCase):
     def load(self):

@@ -8,6 +8,7 @@ Scientific effect: NONE.
 """
 import argparse
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -15,7 +16,15 @@ import re
 import subprocess
 import sys
 
-import gate_helper as _core
+if 'gate_helper' in sys.modules:
+    _core = sys.modules['gate_helper']
+else:
+    _helper_path = Path(__file__).resolve().with_name('gate_helper.py')
+    _helper_spec = importlib.util.spec_from_file_location('rf312_gate_helper', _helper_path)
+    if _helper_spec is None or _helper_spec.loader is None:
+        raise ImportError('cannot load reviewed RF312 helper: ' + str(_helper_path))
+    _core = importlib.util.module_from_spec(_helper_spec)
+    _helper_spec.loader.exec_module(_core)
 
 # Re-export the reviewed helper API. Tests and callers continue importing `gate`.
 for _name in dir(_core):
