@@ -76,3 +76,35 @@ jets. The current theorem discharges the moment step once those model interfaces
 are supplied, not that remaining identification. Endpoint-object identification,
 normalizer lower bound, actual typed Palm identification, event-tail/good-event
 coverage, GT5, P0.2 and lifetime/persistence parents remain in the research scope.
+
+## Source-driven generic and exact-endpoint extension, frozen before its code
+
+The finite-sum argument will be generalized to Fin n: gm8Radius(j)=1+sum|j_i|,
+gm8FiniteM8(n,B,V)=(n+1)^7*(1+n*128*(B^8+V^4*C8)).
+gm8_finite_integrable_bound has the same actual marginal-law hypotheses above,
+with Fin n replacing Fin9, and derives integrability plus this bound. Existing
+fixed9 names remain specializations with their displayed exact M8.
+
+Reason: GP-DER-043 calls the LM002 matrices QUARTIC endpoint Hessians and requires
+an exact-field transfer; raw midpoint derivatives do not determine arbitrary
+literal endpoint Hessians. The polynomial perturbation x^5(x²-r²/4)^2 preserves
+pins and every midpoint derivative through4, but changes endpoint xx by ±r^7/16.
+This blocks that naive identification, not the valid frozen LM002 algebra.
+
+The correct actual-field moment route already appears in GP-DER-047 §13, primary
+main commit7caac254cbba5f513b2dc0afb56b78a598bc0c93, blob
+2ce4e18a0e4ee582e41d640144f1cacac5c855c7 (public sources-03 catalog). It uses
+V=(fxx(M)/r,fxy(M)/r,fyy(M),fxx(S)/r,fxy(S)/r,fyy(S)), a distinct six-vector.
+The new EndpointGaussianMoments.lean takes six real coordinates in THIS order,
+builds HM=[[r*v0,r*v1],[r*v1,v2]], HS=[[r*v3,r*v4],[r*v4,v5]], and the literal
+quadratic-form maximum/saddle typed determinant product. For0<r<=1, prove
+W_endpoint²<=16*r^4*gm8Radius(v)^8, weight measurability, and from actual Gaussian
+coordinate laws with common B,V derive integrability and integral W_endpoint²
+<=16*gm8FiniteM8(6,B,V)*r^4. No polynomial endpoint identity is assumed.
+
+Only the new endpoint coauthor file is delegated; root owns the generic API and
+manifest. Physical smooth-field derivative Gaussianity, canonical regression and
+uniform finite-r mean/variance estimates must still be connected, using the
+actual6endpoint vector rather than substituting the raw9midpoint vector. This
+is an author-side source clarification pending different-family review; historical
+source/proof/review bytes and statuses remain unchanged.
