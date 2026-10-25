@@ -1,0 +1,70 @@
+def C291Negative.ZeroField.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.ZeroField.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.ZeroField.actualField_linearCombination_map d hL,
+    covariance := C291Negative.ZeroField.actualField_raw_second_moment d hL }
+def C291Negative.ShiftedField.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.ShiftedField.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.ShiftedField.actualField_linearCombination_map d hL,
+    covariance := C291Negative.ShiftedField.actualField_raw_second_moment d hL }
+def C291Negative.ZeroMeasure.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.ZeroMeasure.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.ZeroMeasure.actualField_linearCombination_map d hL,
+    covariance := C291Negative.ZeroMeasure.actualField_raw_second_moment d hL }
+def C291Negative.HiddenPositiveDimension.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.HiddenPositiveDimension.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.HiddenPositiveDimension.actualField_linearCombination_map d hL,
+    covariance := C291Negative.HiddenPositiveDimension.actualField_raw_second_moment d hL }
+def C291Negative.DoubledRawCovariance.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.DoubledRawCovariance.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.DoubledRawCovariance.actualField_linearCombination_map d hL,
+    covariance := C291Negative.DoubledRawCovariance.actualField_raw_second_moment d hL }
+def C291Negative.WrongCovarianceArgument.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.WrongCovarianceArgument.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.WrongCovarianceArgument.actualField_linearCombination_map d hL,
+    covariance := C291Negative.WrongCovarianceArgument.actualField_raw_second_moment d hL }
+def C291Negative.NegativeQuadraticForm.actualGaussianFieldInterface : (d : ℕ) →
+  (L : ℝ) → 0 < L → UniversalLaw.Spec.Lifetime.GaussianFieldInterface d L :=
+fun d L hL =>
+  { Ω := I4SmoothCarrier.SmoothSample d L, mΩ := inferInstance, P := I4SmoothCarrier.smoothLaw d L,
+    isProb := C291Negative.ZeroField.actualGaussianFieldInterface._proof_1 d L hL, F := I4LifetimeField.actualField d L,
+    smooth := I4LifetimeField.actualField_smooth d hL, periodic := I4LifetimeField.actualField_periodic d hL,
+    summable := I4ThetaBridge.theta_summable d hL,
+    quad_nonneg := fun {m} => C291Negative.NegativeQuadraticForm.covQuadForm_nonneg d hL,
+    gaussian := fun {m} => C291Negative.NegativeQuadraticForm.actualField_linearCombination_map d hL,
+    covariance := C291Negative.NegativeQuadraticForm.actualField_raw_second_moment d hL }
