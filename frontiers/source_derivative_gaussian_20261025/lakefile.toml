@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities"]
 
 [[require]]
 name = "mathlib"
@@ -14,3 +14,21 @@ roots = ["GaussianSeriesFoundation", "SpectralWeights", "SourceFourierSeries", "
 
 [[lean_lib]]
 name = "SourceDerivativeGaussian"
+
+[[lean_lib]]
+name = "ContactJetCovariance"
+
+[[lean_lib]]
+name = "SourceContactCovariance"
+
+[[lean_lib]]
+name = "SourceConfluentPins"
+
+[[lean_lib]]
+name = "SourceContactSchur"
+
+[[lean_lib]]
+name = "SourceDerivativeContinuity"
+
+[[lean_lib]]
+name = "ConfluentIntegralIdentities"
