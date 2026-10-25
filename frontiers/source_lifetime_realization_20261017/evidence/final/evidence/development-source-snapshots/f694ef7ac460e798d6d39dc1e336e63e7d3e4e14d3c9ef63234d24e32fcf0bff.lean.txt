@@ -1,0 +1,32 @@
+import SourceKernel
+noncomputable section
+open scoped BigOperators
+namespace I4ThetaProbe
+set_option maxHeartbeats 200000 in
+set_option diagnostics true in
+theorem prod_sum (d : ℕ) (f : Fin d → ℤ → ℝ)
+    (hf : ∀ j, Summable (f j)) (hn : ∀ j n, 0 ≤ f j n) :
+    Summable (fun k : Fin d → ℤ => ∏ j, f j (k j)) := by
+  classical
+  induction d with
+  | zero => exact (hasSum_fintype _).summable
+  | succ d ih =>
+    have ht : Summable (fun k : Fin d → ℤ => ∏ j : Fin d, f j.succ (k j)) :=
+      ih (fun j => f j.succ) (fun j => hf j.succ) (fun j => hn j.succ)
+    trace_state
+    have hp : Summable (fun p : ℤ × (Fin d → ℤ) =>
+        f 0 p.1 * ∏ j : Fin d, f j.succ (p.2 j)) :=
+      Summable.mul_of_nonneg (ι := ℤ) (ι' := Fin d → ℤ) (f := f 0)
+        (g := fun k : Fin d → ℤ => ∏ j : Fin d, f j.succ (k j)) (hf 0) ht (hn 0)
+        (fun k => Finset.prod_nonneg (fun j _ => hn j.succ (k j)))
+    have heq :
+        ((fun k : Fin (d + 1) → ℤ => ∏ j, f j (k j)) ∘
+          (Fin.consEquiv (fun _ : Fin (d + 1) => ℤ))) =
+        (fun p : ℤ × (Fin d → ℤ) => f 0 p.1 * ∏ j : Fin d, f j.succ (p.2 j)) := by
+      funext p
+      simp only [Function.comp_apply, Fin.consEquiv_apply, Fin.prod_univ_succ,
+        Fin.cons_zero, Fin.cons_succ]
+    apply (Fin.consEquiv (fun _ : Fin (d + 1) => ℤ)).summable_iff.mp
+    rw [heq]
+    exact hp
+end I4ThetaProbe

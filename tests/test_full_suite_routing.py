@@ -99,6 +99,12 @@ CONCURRENCY_BEFORE = 'permissions:\n  contents: read\n\n'
 CONCURRENCY_AFTER = 'jobs:\n'
 CONCURRENCY_WORKFLOWS = (CENTRAL, 'lifetime-dd-model-d')
 ORIGINAL_CENTRAL_SHA256 = '505e20940473c5a1fefaf5559e3f2ec2425fdb0e03de7c16d05e5371235e3e26'
+# Historical setup-python pin inside 49fb197c / blob ea291276 and the three
+# manual workflow blobs authenticated at 6e502c1f. The current pin is a
+# separate contract. Reconstruction restores the historical pin; the digest
+# constants above are not retargeted.
+HISTORICAL_SETUP_PYTHON = 'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97'
+CURRENT_SETUP_PYTHON = 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0'
 
 
 def parse(text):
@@ -249,11 +255,13 @@ def reconstruct_original_central(text):
     """Historical central workflow at 49fb197c / blob ea291276, authenticated.
 
     Remove only the approved concurrency insertion, restore the historical
-    20-minute budget from the current 30-minute budget, then revert only the
-    suite body; the result must hash to the unchanged historical digest.
+    20-minute budget from the current 30-minute budget, restore the historical
+    setup-python pin, then revert only the suite body. The result must hash to
+    the unchanged historical digest.
     """
     text = strip_concurrency_insertion(text)
     text = mutate(text, '\n    timeout-minutes: 30\n', '\n    timeout-minutes: 20\n')
+    text = mutate(text, CURRENT_SETUP_PYTHON, HISTORICAL_SETUP_PYTHON)
     block = named(parse(text)[1], REGRESSION)['run']
     rendered = lambda body: ''.join('          ' + line + '\n'
                                     for line in body.splitlines())
@@ -596,7 +604,7 @@ def violations(workflow, text):
             problems.append('bypass marker present: ' + key)
     uses = [s.get('uses') for s in job['steps'] if 'uses' in s]
     if uses != ['actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1',
-                'actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97']:
+                CURRENT_SETUP_PYTHON]:
         problems.append('checkout/setup-python pins changed')
     if job['steps'][0].get('with') != {'persist-credentials': 'false', 'fetch-depth': '0'}:
         problems.append('checkout must keep full history without credentials')
@@ -1018,13 +1026,15 @@ class FullSuiteRoutingTests(unittest.TestCase):
                 self.assertEqual(violations(workflow, source(workflow)), [])
 
     def original_manual(self, workflow):
-        # Reverse only the manual suite body and authenticate the whole source
-        # at 6e502c1f. The packet and event condition must remain original.
+        # Reverse only the manual suite body and the successor setup-python pin,
+        # then authenticate the whole source at 6e502c1f. The packet, event
+        # condition, and historical blob constants remain original.
         text = source(workflow)
         block = named(parse(text)[1], REGRESSION)['run']
         rendered = lambda body: ''.join('          ' + line + '\n'
                                         for line in body.splitlines())
         original = mutate(text, rendered(block), rendered(ORIGINAL_SUITE_BLOCK))
+        original = mutate(original, CURRENT_SETUP_PYTHON, HISTORICAL_SETUP_PYTHON)
         data = original.encode()
         original_blobs = {
             'c6-palm-route': 'a9f1549911f68027b5ea778aeb74a82d1c76c16c',
