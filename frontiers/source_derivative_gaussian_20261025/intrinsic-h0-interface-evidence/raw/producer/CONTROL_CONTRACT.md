@@ -1,0 +1,21 @@
+# Concrete finite control freeze — SourceIntrinsicH0Interface
+
+Frozen before source creation,26October2026, producer/root/h0_older_clearance_construct. Binding published precode4668dfc3d18193aea054d9c951835e4c55926adf; native6422962053 at17:32:41UTC; board6422962831; checkpoint18:25,terminal19:30UTC/end. Exactly2publicdefinitions+3publicpropositions; only own new source/scratch written, no parallel53 source consumed. ScientificNONE/samefamilycredit0.
+
+Harness `IntrinsicH0Controls.lean`, namespace IntrinsicH0Controls, imports only new SourceIntrinsicH0Interface and existing narrow closure. Five finite control obligations:
+
+1. `constant_essential_default_and_no_pair`: literal E1,L2,constant field7,M0; actual older-H0 cut empty, constructed interface essential, constructed death0, threshold-pair false for everyS because its cut must be a nonemptyIio.
+2. `linear_numeric_death_not_a_pair`: E1 coordinate height g(x)=x0,M=S0; new intrinsic actual-H0 cut Iio0, death0=g(S), nonessential, derivative nonzero and hence not maximum, so no genuine thresholdpair. Existing51/C263/linear derivative APIs only. This tests the new data/type interface and does not replay old homology controls.
+3. Scratch-only `essentialShiftInterface : SuperlevelBarInterface 1 2`, preserving intrinsic essentiality/threshold relation and setting death17 precisely at essentialpoints, intrinsicdeath elsewhere. Its full record clauses are proved. `shifted_constant_death`, `intrinsic_constant_death` and `essential_default_counterexample` separately establish17versus0 and inequality at the concrete constant7,M0. This positive witness must pass before the negative attempt.
+4. `actual_positive_period_uniform`: specialize new source theorem at original positiveL2,b3,k0=k1, positive symbolicr<delta, arbitraryK afterdelta. Retain actual sourceGapLaw/sample/realfield/projectedactualtorus, both H0cuts, literal intrinsicIsFiniteBar, death3-r³ and actual interval/complement, exactly the two old numerical cutoffs; no invented sample or numerical radius.
+5. `actual_given_interface_requires_morse`: on same actual sample, transfer intrinsic literal finitebar to arbitraryI ONLY under explicit globalIsMorseDistinct, consuming actual smoothness/periodicity and new compatibility. No derivation of globalMorse from localendpointtypes.
+
+Sole negative harness `FalseEssentialDefaultMutation.lean`: remove nonessential guard from arbitrary-supplied-interface death comparison, specialized concretely to the valid shiftedinterface/constant7/M0 from passed control3. Assert its death equals intrinsicdeath. Simplify by separately passed17and0facts so exactlyONEintendedFalse remains; no hypothetical falseequivalence, source/privateAPI/import/type/linter failure counts. ExactlyONEnegativeattempt after positivecounterexample passes. No productionpredicate mutation, no extra negativecampaign.
+
+Newmodule-only exact-source qualification: all actual attempts/source/harnesssnapshots/commands/cwd/times/exits/full original mergedstdout+stderr streams and source/objectlineage retained under runs/. Strictsuccess is reused unchanged afterfreeze/cut; noilean freshnesscompile. Exhaustive actual targetmodule inventory includes private/generated/data/foreign, standardaxioms propext/Classical.choice/Quot.sound only. ExactlyONEownmoduleleanchecker. No sorry/admit/customaxiom/native_decide/implemented_by/umbrellaMathlib/privateforeignAPI. Mandatorycontrolfailure corrections preserve everyattempt; no repeated passedcheck on unchangedmaterial.
+
+Reuse accepted51/C263/ordinaryH0/candidate/torus/summand mathematics, qualified objects and prior route/identitymanifests; no oldbuild/kernel/audit/control/hash campaign. No characteristic2 control/library (prior availabilitydisposition reused). Rootsoleconfig/cache/registry/Git/external writer. Newownolean onlyeligible, helpers/controls ineligible. Provider-distinct/process work separate and does not erase verifiedmath. No canonicalglobal finite-eventlabels/exhaustiveoncecounting/PairLaw/Parentclaim.
+
+Canonicalonwardlinks (delivery not reading):
+https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md
+https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md

@@ -1,0 +1,56 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/CONTROL_CONTRACT.md",
+    "bytes": 4322,
+    "sha256": "6c5663ca61b43e9cb7293e2519a3a0f2c2b6381b900895afb0be37efc73c364b"
+  },
+  "frozen_before_production_source": true,
+  "mandatory_harness": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/IntrinsicH0Controls.lean",
+    "bytes": 8291,
+    "sha256": "e374fae511349c45c5e3ed181ad47739c558761ccf9258bc05fa73c9370c3e25"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/build/IntrinsicH0Controls.olean",
+    "bytes": 274352,
+    "sha256": "024a2a57043d760df675c9b96101bbc7002f6eb71a3a268b6d58a26e44f45ecf"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/controls-001/receipt.json",
+    "bytes": 2149,
+    "sha256": "e2d1442c88c6a7594aea2447c9ab03b4af6fd60ef6802df1f2ceeb59d732dc12"
+  },
+  "positive_exit": 0,
+  "five_controls": [
+    "constant7 E1,L2 actual H0 cut empty, essential, intrinsic default0 and no thresholdpair",
+    "coordinateHeight E1 actual cutIio0 and death0=gS but derivative nonzero, nonessential and no genuine thresholdpair",
+    "valid shifted supplied interface essential death17, nonessential data unchanged; concrete constant7 inequality17vs0 proved separately",
+    "actual source L2,b3,k0=k1 symbolic r and arbitrary field K after delta; same two cutoffs, intrinsic literal IsFiniteBar, real/torus cuts and actual interval/complement",
+    "arbitrary supplied I transfer on same actual sample ONLY under explicit global IsMorseDistinct, using accepted actual smoothness/periodicity"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/FalseEssentialDefaultMutation.lean",
+    "bytes": 510,
+    "sha256": "cee97613a7920950b780bcfca6536e947e258353dc5a067db5f5430a8d828d26"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/receipt.json",
+    "bytes": 2105,
+    "sha256": "69e690a5ef50e8279b200175633a72ef0d58bdd66df06e73c95f11b487543c43"
+  },
+  "negative_log": {
+    "path": "/workspace/scratch/intrinsic-h0-interface-construct/runs/false-essential-default-001/output.log",
+    "bytes": 126,
+    "sha256": "ec9ba15087385d5de0926dd17216d969cd7cfc920b803f4dd4b61f5c91e4f8b2"
+  },
+  "negative_exit": 1,
+  "distinct_mutations": 1,
+  "negative_attempts": 1,
+  "intended_false_goals": 1,
+  "unrelated_negative_diagnostics": 0,
+  "mechanism": "Concrete unguarded arbitrary-interface death comparison at valid essentialShiftInterface and constant7,M0. norm_num only on separately passed values17 and0 leaves exactly False.",
+  "partial_failed_control_attempt": "controls-partial-001: local Classical decidability missing for shifted-interface essential branch; source/math unaffected; fixed before complete controls001",
+  "optional_characteristic_two": "No control requested. Prior51 narrow-import unavailable Field(ZMod2) disposition reused; no new field library or replay.",
+  "production_source_unchanged_for_controls": true,
+  "old_controls_replayed": false
+}

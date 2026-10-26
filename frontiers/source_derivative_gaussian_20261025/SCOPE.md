@@ -1,3 +1,49 @@
+# Proposed qualified scope:54 modules,1118 public targets,32 inputs
+
+The new module adds exactly two public definitions and three public
+propositions: an actual whole-H0-map-cut typed threshold relation and literal
+interface; continuous C263 comparison; supplied-Morse arbitrary-I relation and
+finite-bar compatibility; and chosen intrinsic local finite-bar membership with
+the same actual source, real/torus cuts and genuine interval/complement.
+
+Essential death0 is only the constructed interface's declared empty default.
+An arbitrary supplied interface may have another essential default; its death
+comparison stays nonessential and relation transfer stays explicitly supplied-
+Morse. Numeric threshold equality alone does not supply genuine endpoint type.
+The local positive-period theorem retains one existing candidate event, delta
+before K/all marks, absolute levels and exactly the two existing cutoffs.
+No global canonical saddle choice, barcode exhaustiveness, once-counting,
+Borel/count identity, actual PairLaw probability or Parent result follows.
+
+All15 actual-module declarations are inventoried:2publicdefinitions,
+3publicpropositions,6privatehelpers,4generatedproofs,0foreign. Strict002,
+standard-three inventory, exactly one own-module kernel, five finite control
+groups and the sole concrete essential-default mutation passed their scopes.
+The alternate supplied interface is a fully proved valid record with essential
+death17 at constant7/M0 versus intrinsic0; its separately passed witness yields
+one intendedFalse when the nonessential guard is dropped. Seven actual attempts
+and full honest merged streams are retained, including both earlier failures.
+No fictional separate stdout/stderr capture is introduced.
+
+Old51/C263/H0/candidate/torus/summand verification, exact objects and dependency
+priority are reused without old hashes/builds/kernels/audits/controls. The API
+helper supplied public coordinate names only, with no code integration or
+execution. Root copies only the final named own object once. Frozen pending-cut
+history is preserved and later root process record binds actual8957eeda.
+Different-family alignment and hosted requirements remain separate; prior
+Claude5655734753 is limited to unchanged pair-finiteness plus2inputs and its
+d2/conditional-upstream/no-rerun scope, not54. Scientific effect NONE;
+same-family/provider-distinct credit0. No combined54 hosted proof build,
+scientific acceptance, Ready or merge is claimed.
+
+---
+
+# Historical packaging context: stage53 and earlier
+
+Retained checkpoint text below states earlier scopes and publication status.
+Qualified53 native result17:58:12 and intrinsicH0 pickup17:32:41 keep their
+separate schedules. Current checkpoint18:25/terminal19:30 resets no prior timer.
+
 # Proposed qualified scope:53 modules,1115 public targets,32 inputs
 
 The new coefficient definition concatenates public48 rows0/1/2 at x then y in

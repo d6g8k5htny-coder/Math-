@@ -1,3 +1,53 @@
+# Intrinsic ordinary-H0 threshold interface and local finite bars
+
+[SourceIntrinsicH0Interface.lean](SourceIntrinsicH0Interface.lean) constructs a
+literal Lifetime interface from the whole actual ordinary-H0 mapped-difference
+older-merger cut and genuine endpoint types. Its explicit empty-cut death0 is
+a total real default. Continuous cut/death agrees with C263; an arbitrary
+supplied interface agrees only under its supplied smoothness, periodicity and
+Morse hypotheses, with death comparison guarded at nonessential points.
+
+The same accepted actual positive-period candidate event gives literal
+`IsFiniteBar` for this chosen intrinsic interface, the same absolute levels and
+death, real/torus H0 cuts and the retained genuine torus interval/complement.
+Delta precedes the coefficient field and all marks; exactly the two existing
+cutoffs remain. No second event intersection or new path lifting/splitting is
+introduced. The off-Morse threshold relation does not choose a canonical
+marked saddle or establish exhaustive/once-only barcode counting.
+
+Three public propositions append to the registry. Two public definitions,
+six private helpers and four generated proofs remain inventory-only in the
+complete15-constant standard-three inventory, with no foreign declarations.
+Exact strict002 is reused. Five finite control groups, one concrete valid
+shifted-interface essential-default17 versus intrinsic0 soleFalse, exactly one
+own-module kernel and final bounded technicalPASS qualify only this new scope.
+All seven attempts, failures and original merged streams are preserved in the
+[catalog](intrinsic-h0-interface-evidence/INTRINSIC_H0_INTERFACE_EVIDENCE_CATALOG.json).
+The coordinate helper was a read-only API lookup, with no code integration,
+execution, object or separate verification campaign.
+
+The proposed registry has54 individually qualified modules and1118 public
+written targets (1109 propositions and nine data instances), with32 support
+inputs. Published53 baseline074bb213 is reused; this proposal binds local
+sourcecut8957eeda. Root owns apply, the sole new own-object copy and subsequent
+publication/result/release/alignment. Producer/reviewer pending-cut history is
+preserved, with later ROOT_SOURCE_CUT supplying the actual binding.
+
+Different-family scientific alignment and hosted process remain separate from
+established mathematical evidence. Prior narrow Claude pair-finiteness review
+is not this module's alignment. No global canonical finite-event labels,
+once-counting, actual PairLaw probability identification, new probability
+estimate, Parent A/B, scientific acceptance, Ready or merge is claimed.
+Scientific effect NONE; same-family/provider-distinct credit0.
+
+---
+
+# Historical packaging context: stage53 and earlier
+
+Retained text below records earlier scopes and publication state. Qualified53
+was published074bb213 with native result17:58:12UTC. IntrinsicH0 pickup17:32:41
+retains checkpoint18:25/terminal19:30; all prior schedules remain unchanged.
+
 # Two actual remote first jets and their residual Gram
 
 [SourceTwoRemoteFirstJetWitness.lean](SourceTwoRemoteFirstJetWitness.lean)
