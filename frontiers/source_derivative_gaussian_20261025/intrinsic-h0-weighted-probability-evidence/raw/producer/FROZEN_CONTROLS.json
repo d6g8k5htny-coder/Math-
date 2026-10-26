@@ -1,0 +1,32 @@
+{
+  "frozen_utc": "2026-10-26T18:52:49.694554+00:00",
+  "original_contract": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/CONTROL_CONTRACT.md",
+    "bytes": 4418,
+    "sha256": "aef7c3bc42c9aca2f08233e013140e6787519472e5f08136b962ffebf8d0d868"
+  },
+  "resolved_private_route": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/CONTROL_ROUTE.md",
+    "bytes": 1697,
+    "sha256": "0f4933f633dc5ac749568b993b151bf6b3d67604a8241732c8f6f84be66b47af"
+  },
+  "positive_harness": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/IntrinsicProbabilityControls.lean",
+    "bytes": 4499,
+    "sha256": "d93bc3dfa9a00264472bdd3f0ea866f51406ea133fd7f9513caacc9ecbbfe6f3"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/controls-001/receipt.json",
+    "bytes": 2416,
+    "sha256": "155e47e0bf54abc54088465ac38474edd0396af455a3f5b4e45ef65aa23e3836"
+  },
+  "negative_harness": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/FalseEmptyCutPreimageMutation.lean",
+    "bytes": 630,
+    "sha256": "14072f458a16e05946a305e29cc9b0f494b61fce8eeb282002bd6ba4d69b2c4a"
+  },
+  "counterexample_passed_before_first_negative": true,
+  "prior_negative_attempts": 0,
+  "source_frozen_unchanged": true,
+  "inventory001_and_exactlyone_kernel001_pass_reused": true
+}

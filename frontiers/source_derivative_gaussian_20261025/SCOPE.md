@@ -1,3 +1,45 @@
+# Proposed qualified scope:56 modules,1122 public targets,32 inputs
+
+[SourceIntrinsicH0WeightedProbability.lean](SourceIntrinsicH0WeightedProbability.lean)
+proves Borel measurability of the literal fixed-axis `Lifetime.IsFiniteBar`
+event for the chosen intrinsic H0 interface on the original smooth carrier,
+at every fixed real radius under `0 < L`. Its probability is the unchanged
+actual compact-fold weighted law applied to that event. The normalized
+complement identity and uniform compact-mark `C*r^3` failure bound retain
+constants before the radius and all marks.
+
+Exactly two public propositions append to the registry. Two public definitions
+remain inventory only. The complete61-constant inventory is9 private data,
+30 private propositions/controls,2 public definitions,2 public propositions
+and18 generated auxiliaries, with0 foreign declarations and standard3 axioms.
+The three private conditional quadratic controls conclude genuine Lifetime
+inertia, including the zero-a saddle; they add no public API or research target.
+
+The final completed strict integration, inventory, five meaningful control
+groups, sole137B empty-branch False, one own kernel and technical PASS are reused.
+All18 actual runs and37512B of full original merged streams are preserved.
+Root fully read the final56 source, all18 records and all those streams.
+Both original uncompiled helper sections, their one-time integrations and
+the complete three local inertia amendments remain in the archive. Historical
+pending-cut records are verbatim; later actual root records are separate.
+
+This proposed registry is56 modules/1122 written=1113Prop+9data/32inputs,
+against actual published55 `a7a244f2a6698f3c1ef39123d9e042723535e2fc`.
+Root alone applies and publishes. The only own object was already copied once;
+all further object copies are SKIP. Accepted dependencies and their completed
+verification are reused; the historical topology object hash remains NULL.
+No global Morse, canonical finite-event enumeration, once-counting, actual
+PairLaw identification, all-frame Parent A/B or scientific acceptance follows.
+Scientific effect NONE; same-family/provider-distinct credit0. Pending process
+requirements remain separate from completed mathematical evidence.
+
+---
+
+# Historical packaging context: published stage55 and earlier
+
+The following text preserves earlier checkpoint scopes and publication state.
+Current56 scope is stated above; earlier timers and reading limits are unchanged.
+
 # Proposed qualified scope:55 modules,1120 public targets,32 inputs
 
 [SourceTwoRemoteFirstJetGaussian.lean](SourceTwoRemoteFirstJetGaussian.lean)

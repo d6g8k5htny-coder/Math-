@@ -1,0 +1,16 @@
+SourceIntrinsicH0WeightedProbability.lean:113:2: error: `simp` made no progress
+g : E 2 → ℝ
+hg : ContDiff ℝ 2 g
+x v : E 2
+hsym : ((fderiv ℝ (fderiv ℝ g) x) basisY) basisX = ((fderiv ℝ (fderiv ℝ g) x) basisX) basisY
+⊢ ((fderiv ℝ (fderiv ℝ g) x)
+        (![(coordinates 2) v 0 • basisX + (coordinates 2) v 1 • basisY,
+            (coordinates 2) v 0 • basisX + (coordinates 2) v 1 • basisY]
+          0))
+      (![(coordinates 2) v 0 • basisX + (coordinates 2) v 1 • basisY,
+          (coordinates 2) v 0 • basisX + (coordinates 2) v 1 • basisY]
+        1) =
+    ((fderiv ℝ (fderiv ℝ g) x) (![basisX, basisX] 0)) (![basisX, basisX] 1) * (coordinates 2) v 0 ^ 2 +
+        2 * ((fderiv ℝ (fderiv ℝ g) x) (![basisX, basisY] 0)) (![basisX, basisY] 1) * (coordinates 2) v 0 *
+          (coordinates 2) v 1 +
+      ((fderiv ℝ (fderiv ℝ g) x) (![basisY, basisY] 0)) (![basisY, basisY] 1) * (coordinates 2) v 1 ^ 2

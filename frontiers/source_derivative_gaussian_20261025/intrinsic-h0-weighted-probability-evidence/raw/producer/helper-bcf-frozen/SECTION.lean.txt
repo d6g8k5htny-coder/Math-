@@ -1,0 +1,98 @@
+/- UNCOMPILED TEXT ONLY. Insert once inside namespace
+   I4SourceIntrinsicH0WeightedProbability and its noncomputable section.
+   Required imports are frozen separately in IMPORTS.txt. -/
+
+open UniversalLaw.Spec.Lifetime TorusFiltration BoundedContinuousFunction MeasureTheory Set
+open scoped BoundedContinuousFunction
+
+private abbrev ScalarBCF := (E 2 →ᵇ ℝ)
+
+private theorem bcfClearance_open (M : E 2) (h : ℝ) :
+    IsOpen {F : ScalarBCF |
+      h ∈ superlevelBar_clearanceSet (F : E 2 → ℝ) M} := by
+  apply Metric.isOpen_iff.mpr
+  intro F hF
+  obtain ⟨P,hP,γ,hγ⟩ := hF
+  obtain ⟨t₀,hmin⟩ :=
+    superlevelBar_path_minimum (F : E 2 → ℝ) F.continuous γ
+  let ε : ℝ := min ((F P - F M) / 4) ((F (γ t₀) - h) / 2)
+  have hε : 0 < ε := by
+    apply lt_min
+    · linarith
+    · have ht₀ := hγ t₀
+      linarith
+  refine ⟨ε,hε,?_⟩
+  intro G hG
+  have hGF : dist G F < ε := hG
+  have hpert (x : E 2) : |G x - F x| < ε := by
+    have hx : dist (G x) (F x) ≤ dist G F :=
+      BoundedContinuousFunction.dist_coe_le_dist x
+    exact lt_of_le_of_lt (by simpa only [Real.dist_eq] using hx) hGF
+  have hεgap : ε ≤ (F P - F M) / 4 := min_le_left _ _
+  have hεpath : ε ≤ (F (γ t₀) - h) / 2 := min_le_right _ _
+  refine ⟨P,?_,γ,?_⟩
+  · have hM := abs_lt.mp (hpert M)
+    have hP' := abs_lt.mp (hpert P)
+    linarith
+  · intro t
+    have ht := abs_lt.mp (hpert (γ t))
+    have hmt := hmin t
+    have ht₀ := hγ t₀
+    linarith
+
+private theorem bcfNonempty_open (M : E 2) :
+    IsOpen {F : ScalarBCF |
+      (superlevelBar_clearanceSet (F : E 2 → ℝ) M).Nonempty} := by
+  have hrat :
+      {F : ScalarBCF |
+        (superlevelBar_clearanceSet (F : E 2 → ℝ) M).Nonempty} =
+      ⋃ q : ℚ, {F : ScalarBCF |
+        (q : ℝ) ∈ superlevelBar_clearanceSet (F : E 2 → ℝ) M} := by
+    ext F
+    constructor
+    · rintro ⟨h,hh⟩
+      obtain ⟨q,hq⟩ := exists_rat_lt h
+      exact Set.mem_iUnion.mpr ⟨q,
+        superlevelBar_clearance_downward (F : E 2 → ℝ) M hq hh⟩
+    · intro hF
+      obtain ⟨q,hq⟩ := Set.mem_iUnion.mp hF
+      exact ⟨(q : ℝ),hq⟩
+  rw [hrat]
+  exact isOpen_iUnion fun q : ℚ => bcfClearance_open M (q : ℝ)
+
+private theorem bcfDeath_preimage (M : E 2) (h : ℝ) :
+    {F : ScalarBCF | h < superlevelBar_deathHeight (F : E 2 → ℝ) M} =
+      {F : ScalarBCF | h ∈ superlevelBar_clearanceSet (F : E 2 → ℝ) M} ∪
+        (if h < 0 then
+          {F : ScalarBCF |
+            ¬ (superlevelBar_clearanceSet (F : E 2 → ℝ) M).Nonempty}
+        else ∅) := by
+  classical
+  ext F
+  by_cases hne : (superlevelBar_clearanceSet (F : E 2 → ℝ) M).Nonempty
+  · have hnonessential : ¬ superlevelBar_isEssential (F : E 2 → ℝ) M :=
+      (superlevelBar_clearance_nonempty_iff (F : E 2 → ℝ) F.continuous M).1 hne
+    have hcut := superlevelBar_strict_cut
+      (F : E 2 → ℝ) F.continuous M hnonessential h
+    by_cases hh : h < 0 <;> simpa [hh,hne] using hcut
+  · have hempty : superlevelBar_clearanceSet (F : E 2 → ℝ) M = ∅ :=
+      Set.not_nonempty_iff_eq_empty.mp hne
+    have hd : superlevelBar_deathHeight (F : E 2 → ℝ) M = 0 :=
+      superlevelBar_death_eq_zero_of_empty (F : E 2 → ℝ) M hempty
+    by_cases hh : h < 0 <;> simp [hh,hd,hempty]
+
+private theorem bcfDeath_measurable (M : E 2) :
+    @Measurable ScalarBCF ℝ (borel ScalarBCF) _
+      (fun F => superlevelBar_deathHeight (F : E 2 → ℝ) M) := by
+  borelize ScalarBCF
+  apply measurable_of_Ioi
+  intro h
+  change MeasurableSet
+    {F : ScalarBCF | h < superlevelBar_deathHeight (F : E 2 → ℝ) M}
+  rw [bcfDeath_preimage M h]
+  refine (bcfClearance_open M h).measurableSet.union ?_
+  by_cases hh : h < 0
+  · rw [ite_eq_left hh]
+    exact (bcfNonempty_open M).measurableSet.compl
+  · rw [ite_eq_right hh]
+    exact MeasurableSet.empty

@@ -1,0 +1,44 @@
+{
+  "label": "core-008",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/intrinsic-h0-interface-construct/build:/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-candidate-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean SourceIntrinsicH0WeightedProbability.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 9524,
+      "sha256": "21895f19d87bc46dfb236003b3d16330b3cb1c93940bb2a510b05f2fccd1fb45"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 360088,
+      "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+    }
+  },
+  "started_utc": "2026-10-26T18:38:35.397192+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 7.28803014755249,
+  "ended_utc": "2026-10-26T18:38:42.685287+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceIntrinsicH0WeightedProbability.lean",
+      "bytes": 9524,
+      "sha256": "21895f19d87bc46dfb236003b3d16330b3cb1c93940bb2a510b05f2fccd1fb45"
+    },
+    "object": {
+      "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/build/SourceIntrinsicH0WeightedProbability.olean",
+      "bytes": 360088,
+      "sha256": "5ebeb103ad378e25e00af6bf01c852ad10ba776347d7a0940f49d82871cdfa4c"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/intrinsic-h0-weighted-probability-construct/runs/core-008/output.log",
+    "bytes": 3499,
+    "sha256": "d61c15fffdb7d743503958ee5ecb734fc14163f456f930918c5850cd03b3f0f1"
+  }
+}

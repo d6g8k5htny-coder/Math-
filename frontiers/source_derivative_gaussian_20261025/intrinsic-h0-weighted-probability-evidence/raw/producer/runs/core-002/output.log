@@ -1,0 +1,14 @@
+SourceIntrinsicH0WeightedProbability.lean:42:87: error: Invalid field notation: Identifier or numeral expected
+SourceIntrinsicH0WeightedProbability.lean:44:4: error: Type mismatch
+  Continuous.comp
+    (ContinuousLinearMap.continuous
+      (compContinuousCLM ℝ ℝ
+        { toFun := ⇑(coordinates 2), continuous_toFun := ContinuousLinearEquiv.continuous (coordinates 2) }))
+    (ContinuousLinearMap.continuous
+      (ContinuousLinearMap.compLeftContinuousBounded (Fin 2 → ℝ) (operatorEval 0 fun i => i.elim0)))
+has type
+  Continuous
+    (⇑(compContinuousCLM ℝ ℝ { toFun := ⇑(coordinates 2), continuous_toFun := ⋯ }) ∘
+      ⇑(ContinuousLinearMap.compLeftContinuousBounded (Fin 2 → ℝ) (operatorEval 0 fun i => i.elim0)))
+but is expected to have type
+  Continuous fun f => ?m.55
