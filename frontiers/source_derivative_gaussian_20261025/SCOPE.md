@@ -1,3 +1,18 @@
+# Current qualified scope:32 modules /888 written targets
+
+The new transverse-ridge module adds22 written theorems,10 separately inventoried
+definitions and20 generated declarations. Its complete52-declaration axiom audit,
+49 stable direct prints, strict compile, one named kernel replay and controls
+are recorded in transverse-ridge-evidence. The constructed C2 function follows
+from literal structural potential hypotheses, not an input ridge certificate.
+
+Literal Gaussian normalization/sign estimates, composition with the scalar
+barrier and ambient path/boundary/elder/counting parents remain distinct formal
+obligations. Different-family source review is pending; completed applicable
+mathematical evidence is retained. Prior31 modules and25inputs were not replayed.
+
+---
+
 # Current formal scope:31 modules /866 registry declarations /25 inputs
 
 New source cuts: all-target moments e2c819cf8161f0dc37de113f0157a058ba0fd2ec

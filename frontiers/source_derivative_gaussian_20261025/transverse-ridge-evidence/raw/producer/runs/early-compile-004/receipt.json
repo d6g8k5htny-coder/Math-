@@ -1,0 +1,34 @@
+{
+  "label": "early-compile-004",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "AdaptiveFoldTransverseRidge.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "source_before": {
+    "path": "/workspace/scratch/transverse-ridge-construct/snapshots/source-004.lean",
+    "bytes": 11354,
+    "sha256": "54d47395450af994b456cb619b7cb5ca1e1c2c491f5618f09cfe8959698e8462"
+  },
+  "source_after": {
+    "path": "/workspace/scratch/transverse-ridge-construct/snapshots/source-004.lean",
+    "bytes": 11354,
+    "sha256": "54d47395450af994b456cb619b7cb5ca1e1c2c491f5618f09cfe8959698e8462"
+  },
+  "object_before": null,
+  "object_after": null,
+  "exit_code": 1,
+  "log": {
+    "path": "/workspace/scratch/transverse-ridge-construct/failures/compile-004.log",
+    "bytes": 322,
+    "sha256": "38b9c4fb9743c5802d2a8a3733230498b232fb85559f46b06d2f9ce0b351e248"
+  },
+  "process_started_utc": null,
+  "process_ended_utc": null,
+  "filesystem_log_last_modified_utc": "2026-10-26T04:57:35.086494+00:00",
+  "receipt_created_utc": "2026-10-26T05:04:42.130064+00:00",
+  "timing_note": "Early runs used raw tool receipts, not the later timing wrapper. No exact process timestamps or elapsed durations are invented. File metadata is explicitly filesystem metadata."
+}

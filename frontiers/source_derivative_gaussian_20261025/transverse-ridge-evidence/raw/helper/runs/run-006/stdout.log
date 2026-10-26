@@ -1,0 +1,13 @@
+/workspace/scratch/transverse-ridge-jets/build:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Cli/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/batteries/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/Qq/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/aesop/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/proofwidgets/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/importGraph/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/plausible/.lake/build/lib/lean:/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/.lake/build/lib/lean:/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean:/home/agent/.elan/toolchains/leanprover--lean4---v4.34.1/lib/lean
+/workspace/scratch/transverse-ridge-jets/TransverseRidgeJets.lean:129:35: error: Application type mismatch: The argument
+  add_le_add_right
+    (LE.le.trans (abs_add_le ?m.367 (?m.384 + ?m.385)) (add_le_add_right (abs_add_le ?m.384 ?m.385) |?m.367|)) ?m.387
+has type
+  ?m.387 + |?m.367 + (?m.384 + ?m.385)| ≤ ?m.387 + (|?m.367| + (|?m.384| + |?m.385|))
+but is expected to have type
+  |(B ex) ex + z * (B ex) ey + z * (B ey) ex| + |z ^ 2 * (B ey) ey| ≤
+    |(B ex) ex| + |z * (B ex) ey| + |z * (B ey) ex| + |z ^ 2 * (B ey) ey|
+in the application
+  LE.le.trans (abs_add_le ((B ex) ex + z * (B ex) ey + z * (B ey) ex) (z ^ 2 * (B ey) ey))
+    (add_le_add_right
+      (LE.le.trans (abs_add_le ?m.367 (?m.384 + ?m.385)) (add_le_add_right (abs_add_le ?m.384 ?m.385) |?m.367|)) ?m.387)

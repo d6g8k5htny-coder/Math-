@@ -1,3 +1,25 @@
+# Constructed smooth transverse ridge
+
+[AdaptiveFoldTransverseRidge.lean](AdaptiveFoldTransverseRidge.lean) constructs a
+unique C2 ridge from a C4 potential, strict vertical concavity and opposite
+boundary signs. The open collar supplies full derivatives at the original
+interval endpoints. Actual first/second quotient jets, structural quantitative
+bounds and literal potential/profile derivatives are proved.
+
+Its22 written proofs passed a strict compile, one named kernel replay, complete
+52-declaration standard-axiom coverage and substantive controls. Ten definitions
+and20 generated declarations are separately inventoried. The [evidence](transverse-ridge-evidence/TRANSVERSE_RIDGE_EVIDENCE_CATALOG.json)
+preserves failures, helper lineage, source identities and honest timing limits.
+Author-side source review found no issues; different-family alignment is pending.
+
+The registry now has32 qualified modules and888 written targets=879 propositions
+plus9 data instances;25 support inputs are unchanged. Previous verification is
+reused. Literal Gaussian-chart signs, the scalar/ambient geometry join and full
+Lean elder/counting parent mechanics remain separate obligations. Earlier scope
+records below describe their exact historical cuts.
+
+---
+
 # All-target source moments and normalized scalar fold barriers
 
 Two new Lean modules close additional formal gaps in the parent application:
@@ -16,11 +38,13 @@ in compact-target-evidence and scalar-barrier-evidence. The31-module registry ha
 866 declarations:857 propositions+9data instances, with25support inputs. Generated
 accessors, definitions and the Prop bundle are recorded separately.
 
-The stack was refreshed without changing its proof packet. PR513 has separate
-engineering review and passing current CI and is Ready for automatic review;
-protected integration and the PR512 incident disposition remain separate. The
-source-preserving base records are in engineering-evidence/stack-sync-20261026.
-Completed mathematical verification is reused; no baseline proof replay occurred.
+PR513 merged as `180d6406b0a51b268a152241a70bde6a1b39a142` through a separate
+integrator after engineering and automatic review. All four post-merge checks
+passed. Its accepted source and input trees are preserved; completed mathematical
+verification is reused. [Integration evidence](engineering-evidence/wholefield-land-20261026/REPORT.md)
+and [landed dependency impact](engineering-evidence/wholefield-land-20261026/PR512_LANDED_DEPENDENCY_IMPACT.md)
+record the composition and prerequisites. The earlier PR512 process disposition
+remains separate. Base-sync records are in engineering-evidence/stack-sync-20261026.
 
 ---
 

@@ -1,0 +1,377 @@
+{
+  "module": "AdaptiveFoldTransverseRidge",
+  "total": 52,
+  "public_theorems": 22,
+  "public_definitions": 10,
+  "generated": 20,
+  "collectAxioms_rows": 52,
+  "direct_print_rows": 49,
+  "auxiliary_proofs_collector_only": 3,
+  "all_within_standard3": true,
+  "entries": [
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_bilinear_graph_vector_le",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.clm_graph_vector",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.zero_graph_derivative_bounds",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.zero_graph_center_bound",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.contDiffOn_of_unique_zero",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlope",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.root_abs_le_center_div",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.partialY.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated defining equation",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.Vx",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlopeSecond._proof_1",
+      "kernel_kind": "theorem",
+      "classification": "generated auxiliary proof",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": false
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.zero_graph_derivative_formulas",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlopeFirst",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.Vy",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.ex",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.clm_vertical_vector",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.zero_graph_second_chain",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.bilinear_graph_vector",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.hasDerivAt_slice",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_8",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.slice_unique_root",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlopeSecond._proof_3",
+      "kernel_kind": "theorem",
+      "classification": "generated auxiliary proof",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": false
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profile",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.exists_unique_c2_zero",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.exists_structural_collar",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.partialX",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.contDiffOn_partialY",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.zero_graph_first_chain",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_1",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.exists_unique_c2_transverse_ridge_with_jets",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlopeSecond",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profile_derivative_jets",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.abs_neg_div_le_of_le_neg._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated simp theorem",
+      "collectAxioms": "[propext]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.c2_full_derivative_jets",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.partialY",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.profileSlopeSecond._proof_2",
+      "kernel_kind": "theorem",
+      "classification": "generated auxiliary proof",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": false
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.ey.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated defining equation",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.ex.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated defining equation",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.exists_unique_c2_transverse_ridge",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.vertical_isInvertible",
+      "kernel_kind": "theorem",
+      "classification": "public theorem",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    },
+    {
+      "name": "AdaptiveFoldTransverseRidge.ey",
+      "kernel_kind": "definition",
+      "classification": "public definition",
+      "collectAxioms": "[propext, Classical.choice, Quot.sound]",
+      "direct_print": true
+    }
+  ]
+}

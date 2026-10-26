@@ -1,0 +1,43 @@
+{
+  "label": "compile-final",
+  "original_log_label": "compile-object-draft",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+    "AdaptiveFoldTransverseRidge.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "source_before": {
+    "path": "/workspace/scratch/transverse-ridge-construct/snapshots/source-008.lean",
+    "bytes": 28516,
+    "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+  },
+  "source_after": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/AdaptiveFoldTransverseRidge.lean",
+    "bytes": 28516,
+    "sha256": "715b01c2ae3b6e2bceb4196e53361530c8c9c69550e7cf675904cd5661b3de20"
+  },
+  "object_before": null,
+  "object_before_note": "The scratch build directory was first created immediately before this first object-producing command. Earlier compile checks used no -o.",
+  "object_after": {
+    "path": "/workspace/scratch/transverse-ridge-construct/build/AdaptiveFoldTransverseRidge.olean",
+    "bytes": 841192,
+    "sha256": "f3957a3afe2d4d1f492c3ddd9463f93526c821f3210a48094267d56a7a527749"
+  },
+  "exit_code": 0,
+  "log": {
+    "path": "/workspace/scratch/transverse-ridge-construct/runs/compile-final/output.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "process_started_utc": null,
+  "process_ended_utc": null,
+  "filesystem_log_last_modified_utc": "2026-10-26T05:00:45.703751+00:00",
+  "filesystem_object_last_modified_utc": "2026-10-26T05:00:50.015686+00:00",
+  "receipt_created_utc": "2026-10-26T05:04:42.130064+00:00",
+  "timing_note": "Command and exit are preserved from actual tool completion; exact start/end were not instrumented, so remain null. No source modification followed; later before/after receipts bind exactly this source/object. This was the first artifact-producing compile, not a repetition of completed object qualification."
+}

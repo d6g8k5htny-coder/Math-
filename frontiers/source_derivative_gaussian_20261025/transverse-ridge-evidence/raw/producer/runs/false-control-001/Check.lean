@@ -1,0 +1,9 @@
+import Mathlib.Analysis.Calculus.ImplicitContDiff
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+#check hasFDerivAt_fst
+#check hasFDerivAt_snd
+#check HasFDerivAt.mul
+#check HasFDerivAt.pow
+#check HasFDerivAt.div_const
+#check ContinuousLinearMap.smul_apply
+#check Lean.Elab.Command.CommandElabM
