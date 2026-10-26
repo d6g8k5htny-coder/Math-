@@ -1,0 +1,40 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "bytes": 16783,
+    "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f"
+  },
+  "object": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/build/SourceEndpointHessianWitness.olean",
+    "bytes": 1817208,
+    "sha256": "376c2b9c05aafed41924ccc90b67ccff4ffeae22398d20c41ab8d78c883878fc"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/SourceEndpointHessianWitness.olean",
+    "bytes": 1817208,
+    "sha256": "376c2b9c05aafed41924ccc90b67ccff4ffeae22398d20c41ab8d78c883878fc"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/develop-002/record.json",
+    "bytes": 1304,
+    "sha256": "9b75e5c6e1b8c81ca87c53dffe395eb415a4f6434c0acb408fd546dc81074b96"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/kernel-001/record.json",
+    "bytes": 1168,
+    "sha256": "2b0f63cd152e0df082d660ca1d7f4327a68b1b18fb51361901fa9baebb25c04e"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/FROZEN_SOURCE.json",
+    "bytes": 1124,
+    "sha256": "63ad798fd8cb778dc57c88b075c50fdabf65838c5191ddbea3a7dfe39773d414"
+  },
+  "eligible_production_objects": [
+    "SourceEndpointHessianWitness.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed actual row6 counterexample for negative harness; never production-eligible. No ilean or freshness compilation. Root alone owns production cache.",
+  "baseline_reused": "qualified49/1105/32 at374c1a8d087a147e60fee3be1452c345f138c98f native6420802319; qualified48/47 source/finiteTrig/jet/Gram proofs and objects unchanged. This leaf imports source48 public APIs and does not replay49 law evidence.",
+  "root_local_sourcecut": "009ff87f13cc4ef022fc8900aba5595f27a51436",
+  "published_precode": "8815c6b39a816fa0261d8265fe53a7189197cf39",
+  "no_current_source_hosted_CI_claim": true
+}

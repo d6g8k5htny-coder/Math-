@@ -1,0 +1,702 @@
+{
+  "source_sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f",
+  "inventory_run": "inventory-001",
+  "constant_count": 63,
+  "counts": {
+    "written_private_def": 13,
+    "written_private_theorem": 26,
+    "written_public_theorem": 2,
+    "generated_theorem": 21,
+    "written_public_def": 1
+  },
+  "foreign_namespace_generated": [
+    "I4SourceConfluentPins.endpointM.eq_1",
+    "I4SourceConfluentPins.endpointS.eq_1",
+    "I4Torus.torusProjection.eq_1",
+    "I4SourceRemoteJetWitness.localGerm.eq_1"
+  ],
+  "entries": [
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisCosPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier_fderiv",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianWitness.actual_endpointHessian_residual_coefficientGram_posDef",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_multiplierPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.witness_raw_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.phase_axis",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.rowIndex._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.multiplierPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceConfluentPins.endpointM.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "I4SourceConfluentPins.endpointS.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisFrequency",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpoint_cos_ne_one",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianGermPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisSinPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.factorPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_axisCosPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpointPoint.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.factorPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm_contDiff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianWitness.endpointHessianCoefficient",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisSinPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisSinPoly._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpointHessian_pairing",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.otherPoint",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_hessianGermPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.sourceC_ne_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisCosPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpointHessianCoefficient_summable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4Torus.torusProjection.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianLocalGerm_contDiff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianGermPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianJetIndex",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier_value",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm_value_other",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.witness_hessian_identity",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetWitness.localGerm.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": true
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianJetIndex.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.witnessPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpoint_jet2_scale",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpoint_separated",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm_own_jet",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianJetIndex._proof_2",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceEndpointHessianWitness.actual_finite_endpointHessian_witnesses",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.endpointPoint",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.axisFrequency.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.pinMultiplier_contDiff",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_witnessPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.otherPoint.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.rawPin_pairing",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.multiplier_at_endpoint_pos",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.multiplierPoly",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_factorPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.eval_axisSinPoly",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm_other_lower",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.normalizedGerm_fderiv_other",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.witnessPoly.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.rowIndex",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceEndpointHessianWitness.0.I4SourceEndpointHessianWitness.hessianJetIndex._proof_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "complete_actual_module_index": true,
+  "foreign_namespace_inclusion_method": "env.getModuleIdxFor? equals actual module index, not namespace filter",
+  "standard_axioms_only": true,
+  "written_research_targets": 2,
+  "generated_private_data_inventory_only": true
+}

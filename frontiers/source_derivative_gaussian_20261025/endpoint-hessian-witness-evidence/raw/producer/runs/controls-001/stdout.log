@@ -1,0 +1,117 @@
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:30:43: error: Tactic `apply` failed: could not unify the conclusion of `@funext`
+  ?f = ?g
+with the goal
+  endpointHessianCoefficient L r 0 1 m = derivativeCoefficient 2 L 2 (endpointM r) ![directionX, directionY] m
+
+Note: The full type of `@funext` is
+  ∀ {α : Sort ?u.25} {β : α → Sort ?u.24} {f g : (x : α) → β x}, (∀ (x : α), f x = g x) → f = g
+
+case left
+L r : ℝ
+m : SourceMode 2
+⊢ endpointHessianCoefficient L r 0 1 m = derivativeCoefficient 2 L 2 (endpointM r) ![directionX, directionY] m
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:30:43: error: Tactic `apply` failed: could not unify the conclusion of `@funext`
+  ?f = ?g
+with the goal
+  endpointHessianCoefficient L r 1 1 m = derivativeCoefficient 2 L 2 (endpointS r) ![directionX, directionY] m
+
+Note: The full type of `@funext` is
+  ∀ {α : Sort ?u.25} {β : α → Sort ?u.24} {f g : (x : α) → β x}, (∀ (x : α), f x = g x) → f = g
+
+case right
+L r : ℝ
+m : SourceMode 2
+⊢ endpointHessianCoefficient L r 1 1 m = derivativeCoefficient 2 L 2 (endpointS r) ![directionX, directionY] m
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:34:34: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:35:34: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:36:34: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:37:34: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:38:35: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:39:35: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+
+Note: It is not possible to treat `scalarSeries` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:53:50: error: unsolved goals
+n : ℤ
+h : I4Torus.torusProjection 2 2 (endpointM 1) = I4Torus.torusProjection 2 2 (endpointS 1)
+hz : ↑(endpointM 1 0 - endpointS 1 0) = 0
+hn : ↑n * 2 = -1
+⊢ n * 2 = 1 ∨ n * 2 = -1
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:53:50: error: unsolved goals
+n : ℤ
+h : I4Torus.torusProjection 2 2 (endpointM (-1)) = I4Torus.torusProjection 2 2 (endpointS (-1))
+hz : ↑(endpointM (-1) 0 - endpointS (-1) 0) = 0
+hn : ↑n * 2 = 1
+⊢ n * 2 = 1 ∨ n * 2 = -1
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:53:50: error: unsolved goals
+n : ℤ
+h : I4Torus.torusProjection 2 (-2) (endpointM 1) = I4Torus.torusProjection 2 (-2) (endpointS 1)
+hz : ↑(endpointM 1 0 - endpointS 1 0) = 0
+hn : ↑n * 2 = 1
+⊢ n * 2 = 1 ∨ n * 2 = -1
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:53:50: error: unsolved goals
+n : ℤ
+h : I4Torus.torusProjection 2 (-2) (endpointM (-1)) = I4Torus.torusProjection 2 (-2) (endpointS (-1))
+hz : ↑(endpointM (-1) 0 - endpointS (-1) 0) = 0
+hn : -(↑n * 2) = 1
+⊢ n * 2 = 1 ∨ n * 2 = -1
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:45:51: error: unsolved goals
+case inl.inl
+n : ℤ
+h : I4Torus.torusProjection 2 2 (endpointM 1) = I4Torus.torusProjection 2 2 (endpointS 1)
+hz : ↑(endpointM 1 0 - endpointS 1 0) = 0
+hn : ↑n * 2 = -1
+hnZ : n * 2 = 1 ∨ n * 2 = -1
+⊢ False
+
+case inl.inr
+n : ℤ
+h : I4Torus.torusProjection 2 2 (endpointM (-1)) = I4Torus.torusProjection 2 2 (endpointS (-1))
+hz : ↑(endpointM (-1) 0 - endpointS (-1) 0) = 0
+hn : ↑n * 2 = 1
+hnZ : n * 2 = 1 ∨ n * 2 = -1
+⊢ False
+
+case inr.inl
+n : ℤ
+h : I4Torus.torusProjection 2 (-2) (endpointM 1) = I4Torus.torusProjection 2 (-2) (endpointS 1)
+hz : ↑(endpointM 1 0 - endpointS 1 0) = 0
+hn : ↑n * 2 = 1
+hnZ : n * 2 = 1 ∨ n * 2 = -1
+⊢ False
+
+case inr.inr
+n : ℤ
+h : I4Torus.torusProjection 2 (-2) (endpointM (-1)) = I4Torus.torusProjection 2 (-2) (endpointS (-1))
+hz : ↑(endpointM (-1) 0 - endpointS (-1) 0) = 0
+hn : -(↑n * 2) = 1
+hnZ : n * 2 = 1 ∨ n * 2 = -1
+⊢ False
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:54:4: error: unexpected identifier; expected command
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:136:2: error: No goals to be solved
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:149:79: error: This simp argument is unused:
+  mul_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [concreteMultiplier, localGerm, div_eq_mul_inv, pow_two, mul_assoc, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:178:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ) (fderiv ℝ (fun x => (1 - Real.cos (Real.pi * (x 0 - endpointS 1 0))) ^ 2) (endpointS 1)) 0
+but is expected to have type
+  @Eq ((Fin 2 → ℝ) →L[ℝ] ℝ) (fderiv ℝ (concreteMultiplier (endpointS 1)) (endpointS 1)) 0
+/workspace/scratch/endpoint-hessian-witness-construct/Controls.lean:183:2: error: 'change' tactic failed, pattern
+  finitePairing (derivativeCoefficient 2 2 2 (endpointM 1) ![directionX, directionX]) (toSource 2 unnormalizedPoly) = 4
+is not definitionally equal to target
+  finitePairing (rawDerivativeCoefficient 2 1 6) (toSource 2 unnormalizedPoly) = 4

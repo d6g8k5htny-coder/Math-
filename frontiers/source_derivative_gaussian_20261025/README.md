@@ -1,3 +1,47 @@
+# Separate endpoint Hessian witnesses in the original coefficients
+
+[SourceEndpointHessianWitness.lean](SourceEndpointHessianWitness.lean) constructs
+three finite original coefficient directions at each endpoint separately. Every
+direction annihilates all six literal raw pins; its chosen endpoint's ordinary
+`(XX,XY,YY)` Hessian pairings form the identity. For either endpoint and every
+real3×6 correction matrix, the resulting marginal residual coefficient Gram is
+positive definite. The hypotheses are the original signed nonzero period and
+literal quotient separation of the two endpoints, with arbitrary signed radius.
+No pin inverse, target, Gaussian law or supplied witness is a premise.
+
+Two public written propositions append to the registry. One coefficient
+definition,26 private proofs,13 private definitions and21 generated proofs stay
+inventory-only in the exhaustive63-constant actual-module inventory, including
+four foreign-generated constants. Exact-source strict002 is reused. Fourteen
+public control propositions with five private adapters, one actual scalar
+normalization omission yielding soleFalse, exactly one own-module kernel and
+final source/spec technical review passed. All eight attempts and complete
+streams are retained in the
+[catalog](endpoint-hessian-witness-evidence/ENDPOINT_HESSIAN_WITNESS_EVIDENCE_CATALOG.json).
+The arithmetic helper's text integrated once; it had no execution or object.
+
+The proposed registry has50 individually qualified modules and1107 public
+written targets (1098 propositions and nine data instances), with32 support
+inputs. Qualified49 was published at `374c1a8d`; this proposal binds local source
+cut `009ff87f`. Root owns registration, the sole own-object cache copy and later
+publication/result/release/alignment records. Scientific effect NONE; same-family
+provider-distinct credit0. Current-source hostedCI, a combined50 build and
+scientific acceptance are not claimed. The separate H0precode/source is excluded.
+
+This is a pair of marginal Hessian results. Joint six-Hessian rank/laws, density,
+determinant nullity, adjusted-Schur identification, globalMorse/ties, canonical
+Lifetime/H0 labels and Parent closure remain separate. The separation hypothesis
+is sufficient for the chosen multiplier, not asserted necessary for Hessian rank.
+
+---
+
+# Historical packaging context: stage49 and earlier
+
+The retained checkpoint text below records earlier scopes and their publication
+state at those checkpoints. Qualified49 publication completed at `374c1a8d`;
+its native result actually arrived16:05:03 after unchanged14:10/15:10 deadlines.
+The current50 scope is stated above, with its own17:00/18:00 schedule.
+
 # Actual remote-jet Gaussian law on the raw posterior sample
 
 [SourceRemoteJetGaussian.lean](SourceRemoteJetGaussian.lean) identifies the literal

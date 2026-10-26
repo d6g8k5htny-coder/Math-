@@ -1,3 +1,52 @@
+# Proposed qualified scope:50 modules,1107 public targets,32 inputs
+
+The new endpoint algebraic leaf defines only `endpointHessianCoefficient`,
+selecting literal ordinary rawDerivative rows6/7/8 at M and9/10/11 at S.
+Its two public propositions construct independent finite original-mode Hessian3
+right inverses in the raw6 kernel and derive marginal residual coefficientGram
+PosDef for either endpoint and every real3×6 correction matrix. Ordinary mixed
+XY has factor1. Signed nonzero L and literal endpoint quotient inequality are
+retained; no positive/small radius, pin inverse, target, law or supplied
+witness/rank/positivity certificate is introduced.
+
+The actual multiplier is `(1-cos(c*(x0-q0)))²`; its own alpha is derived positive
+from literal separation. Qualified public germs have zero lower jets and the
+ordinary Hessian basis. Only alpha^-1 normalizes the product; no six-jet
+triangular inverse or cross-endpoint Hessian vanishing is required. Qualified
+trigpoly conversion yields actual finite SourceMode2 directions. The genuine
+normalization mutant at L2r1 has actual row6 pairing4 but demands1, producing
+one intendedFalse. Endpoint collision is not a false marginal-rank mutation.
+
+The complete actual-module inventory has63 constants:2public proofs,1public
+coefficient definition,26private proofs,13private definitions and21generated
+proofs. All four foreign-generated constants are retained. Exact-source
+strict002, exhaustive standard-three/subset inventory,14public controls with
+5private adapters, one sole-False normalization mutation, one own-module kernel
+and final source/spec technical review passed. The helper's two actual text/
+provenance files integrated once with no execution/object/campaign. All eight
+attempts, failures and full streams remain archived.
+
+Qualified49 at `374c1a8d` is reused without old proof/build/kernel/audit/control/
+hash replay. Root applies new50 metadata/evidence and copies only the named own
+object once. The separate H0precode/untracked source is excluded from this
+extension. Provider-distinct scientific review and current-source hostedCI
+remain separate from established mathematical evidence; scientific effectNONE,
+same-family provider-distinct credit0. No Ready or merge claim follows.
+
+No joint six-Hessian law/rank, density/determinant-nullity, adjusted-Schur
+identification, globalMorse/Sard/ties, canonical Lifetime/H0, IsFiniteBar,
+frames/Rice or Parent conclusion is established here. Separation is sufficient
+for this construction, not proved necessary for marginal Hessian rank.
+
+---
+
+# Historical packaging context: stage49 and earlier
+
+The retained text below records earlier checkpoint scopes and publication state.
+Qualified49 was subsequently published374c1a8d; its native result16:05:03 was
+late after unchanged14:10/15:10 deadlines. Current50 has its own17:00/18:00
+schedule, without resetting prior chronology. Current scope is the new section.
+
 # Proposed qualified scope: 49 modules, 1105 public targets, 32 inputs
 
 The new leaf observes the ordinary remote six-jet `(value,dx,dy,dxx,dxy,dyy)` on

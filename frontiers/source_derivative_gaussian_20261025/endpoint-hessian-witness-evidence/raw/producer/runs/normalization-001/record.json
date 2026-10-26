@@ -1,0 +1,31 @@
+{
+  "kind": "normalization",
+  "run": "normalization-001",
+  "start": "2026-10-26T16:19:26.574096+00:00",
+  "end": "2026-10-26T16:19:29.410701+00:00",
+  "seconds": 2.8366118729900336,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/endpoint-hessian-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-witness-construct /workspace/scratch/endpoint-hessian-witness-construct/NormalizationMutation.lean -o /workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/NormalizationMutation.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianWitness.lean",
+    "bytes": 16783,
+    "sha256": "45f69d75cb4418b239f6402d0552da546bccc127e3102fac7da7d4c30324ae8f"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/stdout.log",
+    "bytes": 119,
+    "sha256": "8b1fcd9ee90afecd474b0cfdba96748d1dc4448d06842c2aa865bb512b8141aa"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-witness-construct/runs/normalization-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
