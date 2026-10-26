@@ -1,0 +1,3041 @@
+{
+  "scope": "SOURCE_CURVATURE_FOUR_NEW_MODULES_20261026",
+  "targets": [
+    {
+      "name": "I4PeanoErrorBounds.abs_weighted_integral_le",
+      "kind": "theorem",
+      "line": 23,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.abs_weighted_integral_sub_mass_le",
+      "kind": "theorem",
+      "line": 46,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.peanoCubic_nonneg",
+      "kind": "theorem",
+      "line": 69,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.scaled_lipschitz_center_error",
+      "kind": "theorem",
+      "line": 77,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.cubic_pin_pointwise_error",
+      "kind": "theorem",
+      "line": 91,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.left_weighted_error",
+      "kind": "theorem",
+      "line": 133,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4PeanoErrorBounds.right_weighted_error",
+      "kind": "theorem",
+      "line": 146,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius",
+      "kind": "def",
+      "line": 165,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ",
+      "kind": "def",
+      "line": 168,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA",
+      "kind": "def",
+      "line": 171,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_eq_sourceContactQ",
+      "kind": "theorem",
+      "line": 174,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_eq_sourceContactA",
+      "kind": "theorem",
+      "line": 177,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_nonneg",
+      "kind": "theorem",
+      "line": 180,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_measurable",
+      "kind": "theorem",
+      "line": 184,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.one_le_sourceGammaRadius",
+      "kind": "theorem",
+      "line": 188,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_nonneg",
+      "kind": "theorem",
+      "line": 194,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_le_radius",
+      "kind": "theorem",
+      "line": 198,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.orderModeBound_mono",
+      "kind": "lemma",
+      "line": 204,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_mono",
+      "kind": "lemma",
+      "line": 218,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_le_fifth",
+      "kind": "lemma",
+      "line": 224,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_moments",
+      "kind": "theorem",
+      "line": 233,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF",
+      "kind": "def",
+      "line": 283,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH",
+      "kind": "def",
+      "line": 286,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve",
+      "kind": "def",
+      "line": 289,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.directionX_norm_le_one",
+      "kind": "theorem",
+      "line": 292,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.directionY_norm_le_one",
+      "kind": "theorem",
+      "line": 297,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.axis_point_sub_norm_le",
+      "kind": "theorem",
+      "line": 302,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.axis_derivative_lipschitz",
+      "kind": "theorem",
+      "line": 310,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_axis_derivative_abs_le",
+      "kind": "theorem",
+      "line": 339,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_continuous",
+      "kind": "theorem",
+      "line": 352,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_continuous",
+      "kind": "theorem",
+      "line": 358,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_lipschitz",
+      "kind": "theorem",
+      "line": 364,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_lipschitz",
+      "kind": "theorem",
+      "line": 374,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_lipschitz",
+      "kind": "theorem",
+      "line": 390,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_abs_le",
+      "kind": "theorem",
+      "line": 398,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_abs_le",
+      "kind": "theorem",
+      "line": 405,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_abs_le",
+      "kind": "theorem",
+      "line": 418,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_C3",
+      "kind": "theorem",
+      "line": 425,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_C2",
+      "kind": "theorem",
+      "line": 429,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_deriv",
+      "kind": "theorem",
+      "line": 433,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_second",
+      "kind": "theorem",
+      "line": 439,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_deriv",
+      "kind": "theorem",
+      "line": 448,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_zero",
+      "kind": "theorem",
+      "line": 457,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin3_eq",
+      "kind": "theorem",
+      "line": 466,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin4_eq",
+      "kind": "theorem",
+      "line": 471,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin5_eq",
+      "kind": "theorem",
+      "line": 474,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_peano",
+      "kind": "theorem",
+      "line": 492,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.endpoint_det_abs_le",
+      "kind": "theorem",
+      "line": 521,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.endpointWeight_curvature_le",
+      "kind": "theorem",
+      "line": 537,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.strict_endpoint_transverse_neg",
+      "kind": "theorem",
+      "line": 566,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.curvature_slab_of_upper",
+      "kind": "theorem",
+      "line": 571,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_zero",
+      "kind": "theorem",
+      "line": 592,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_abs_le",
+      "kind": "theorem",
+      "line": 597,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_abs_le",
+      "kind": "theorem",
+      "line": 601,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors",
+      "kind": "theorem",
+      "line": 607,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_ge_third_fourth",
+      "kind": "theorem",
+      "line": 685,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_first_four_bounds",
+      "kind": "theorem",
+      "line": 699,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_measurable",
+      "kind": "theorem",
+      "line": 738,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_measurable",
+      "kind": "theorem",
+      "line": 746,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_determinant_bounds",
+      "kind": "theorem",
+      "line": 754,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothWeight_curvature_bound",
+      "kind": "theorem",
+      "line": 778,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_positive_weight_curvature_upper",
+      "kind": "theorem",
+      "line": 795,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_bad_curvature_slab",
+      "kind": "theorem",
+      "line": 811,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_prescribed_pin_constraints_ae",
+      "kind": "theorem",
+      "line": 824,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothLaw_curvature_bound_ae",
+      "kind": "theorem",
+      "line": 841,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_curvature_estimates",
+      "kind": "theorem",
+      "line": 855,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceEndpointCenters",
+      "kind": "def",
+      "line": 873,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceEndpointErrorOrder",
+      "kind": "def",
+      "line": 876,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": []
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors_all",
+      "kind": "theorem",
+      "line": 878,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothLaw_endpoint_errors_ae",
+      "kind": "theorem",
+      "line": 895,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_endpoint_error_estimates",
+      "kind": "theorem",
+      "line": 903,
+      "module": "SourcePinCurvatureBounds",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/pin-curvature/axioms.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4ScalarProductCurvature.regular_bounds",
+      "kind": "theorem",
+      "line": 27,
+      "module": "ScalarProductCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/scalar-product/scalar-product-controls-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4ScalarProductCurvature.scalar_product_tube_integral_bound",
+      "kind": "theorem",
+      "line": 73,
+      "module": "ScalarProductCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/scalar-product/scalar-product-controls-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4ScalarProductCurvature.scalar_product_regular_integral_bound",
+      "kind": "theorem",
+      "line": 121,
+      "module": "ScalarProductCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/scalar-product/scalar-product-controls-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureCoefficient",
+      "line": 25,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureCross",
+      "line": 28,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureBeta",
+      "line": 31,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureMean",
+      "line": 34,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureVariance",
+      "line": 36,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureSigma",
+      "line": 39,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient",
+      "line": 41,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection",
+      "line": 44,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureZ",
+      "line": 47,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureCoefficient_summable",
+      "line": 50,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_series",
+      "line": 53,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureCoefficient_weighted_summable",
+      "line": 57,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureCross_coefficient",
+      "line": 62,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureVariance_prior_coefficient",
+      "line": 77,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient_summable",
+      "line": 85,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_summable",
+      "line": 90,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureBeta_normal",
+      "line": 94,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidual_pin_orthogonal",
+      "line": 121,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidual_q_pairing",
+      "line": 149,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidual_normSquared",
+      "line": 160,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_pin_orthogonal",
+      "line": 185,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureSigma_pos",
+      "line": 191,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureSigma_sq",
+      "line": 194,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_normSquared",
+      "line": 197,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_q_pairing",
+      "line": 203,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualCoefficient_weighted_summable",
+      "line": 210,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_weighted_summable",
+      "line": 221,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureZ_eq",
+      "line": 246,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.unitDirection",
+      "line": 273,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual",
+      "line": 276,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_measurable",
+      "line": 280,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_hasLaw",
+      "line": 284,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_coefficient_covariance",
+      "line": 293,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_zero_covariance",
+      "line": 302,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_finiteCoefficients_hasGaussianLaw",
+      "line": 319,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.finiteDirectionLift",
+      "line": 352,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "lemma",
+      "name": "I4SourceCurvatureDecomposition.finiteDirectionLift_apply",
+      "line": 356,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_finiteResidual_hasGaussianLaw",
+      "line": 359,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirection_scalar_finiteResidual_hasGaussianLaw",
+      "line": 374,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_finite_indepFun",
+      "line": 386,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.unitDirectionCoefficientResidual_indepFun",
+      "line": 395,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross",
+      "line": 411,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross_continuous",
+      "line": 414,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.regularizedCurvatureCross_zero",
+      "line": 427,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureCross_tendsto",
+      "line": 438,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvaturePinInverse_tendsto",
+      "line": 452,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureBeta_tendsto",
+      "line": 463,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureVariance_tendsto",
+      "line": 477,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureMean_prescribed_tendsto",
+      "line": 500,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvature_uniform_parameter_bounds",
+      "line": 515,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureZ_measurable",
+      "line": 555,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_measurable",
+      "line": 558,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureZ_hasLaw",
+      "line": 564,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_goodSample",
+      "line": 570,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureShift",
+      "line": 576,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureShift_val",
+      "line": 582,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureShift_measurable",
+      "line": 586,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample",
+      "line": 594,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualLaw",
+      "line": 597,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_measurable",
+      "line": 600,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualLaw_isProbabilityMeasure",
+      "line": 604,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceConfluentPinsAt_curvatureShift",
+      "line": 624,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_curvatureShift",
+      "line": 635,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureZ_curvatureShift",
+      "line": 642,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_pins",
+      "line": 653,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_Z",
+      "line": 658,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_inclusion",
+      "line": 664,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_indepFun",
+      "line": 671,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualSample_joint_map",
+      "line": 685,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample",
+      "line": 695,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorSample_Z",
+      "line": 710,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_posteriorResidual",
+      "line": 719,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvaturePosterior_reconstruction",
+      "line": 725,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct",
+      "line": 736,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_measurable",
+      "line": 741,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_pins",
+      "line": 748,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_Q",
+      "line": 754,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_residual_image",
+      "line": 761,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope",
+      "line": 779,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_nonneg",
+      "line": 783,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_summable",
+      "line": 789,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirectionEnvelope_weighted_summable",
+      "line": 794,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_envelope_at",
+      "line": 799,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureDirection_uniform_envelope",
+      "line": 846,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureAffine_gaussian",
+      "line": 864,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidual_curvature_joint_map",
+      "line": 886,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct",
+      "line": 910,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eq_curvatureProduct_swap",
+      "line": 928,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4GaussianVarianceFloor.gaussianPDFReal_le_of_variance_floor",
+      "line": 947,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4GaussianVarianceFloor.gaussianReal_interval_mass_le_of_variance_floor",
+      "line": 963,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw",
+      "line": 988,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw_isProbabilityMeasure",
+      "line": 991,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_swap_measurable",
+      "line": 996,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_hasLaw",
+      "line": 1003,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureScalarLaw_interval_mass_uniform",
+      "line": 1010,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceSmoothKernel_eventually_curvatureProduct",
+      "line": 1026,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius",
+      "line": 1041,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_measurable",
+      "line": 1044,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.one_le_curvatureResidualRadius",
+      "line": 1049,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceContactQ_posterior_abs_le_radius",
+      "line": 1052,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceCurvatureDecomposition.curvatureEnvelopeTotal",
+      "line": 1057,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureEnvelopeTotal_nonneg",
+      "line": 1060,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureShift",
+      "line": 1064,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureShift",
+      "line": 1086,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceDerivativeMajorant_curvatureReconstruct",
+      "line": 1105,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.sourceGammaRadius_curvatureReconstruct",
+      "line": 1148,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvaturePosterior_residual_eq_shift",
+      "line": 1164,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_image_bound",
+      "line": 1175,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_moment_bound",
+      "line": 1188,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureResidualRadius_uniform_bounds",
+      "line": 1251,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvatureReconstruct_joint_measurable",
+      "line": 1299,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceCurvatureDecomposition.curvaturePin_finiteCoefficients_hasGaussianLaw",
+      "line": 1311,
+      "module": "SourceCurvatureDecomposition",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/curvature-decomposition/18-public-axiom-audit.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularityBad",
+      "kind": "def",
+      "line": 26,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DEFINITION_NOT_DIRECTLY_PRINTED",
+        "note": "Named definition is compiled/kernel checked with its module; do not describe it as an axiom-print target."
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularityBad_measurable",
+      "kind": "theorem",
+      "line": 29,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularityBad_base_bound",
+      "kind": "theorem",
+      "line": 35,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularityBad_weighted_cubic",
+      "kind": "theorem",
+      "line": 66,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureSlab",
+      "kind": "def",
+      "line": 99,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DEFINITION_NOT_DIRECTLY_PRINTED",
+        "note": "Named definition is compiled/kernel checked with its module; do not describe it as an axiom-print target."
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularCurvatureSlab",
+      "kind": "def",
+      "line": 102,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DEFINITION_NOT_DIRECTLY_PRINTED",
+        "note": "Named definition is compiled/kernel checked with its module; do not describe it as an axiom-print target."
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureOneSided",
+      "kind": "def",
+      "line": 105,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DEFINITION_NOT_DIRECTLY_PRINTED",
+        "note": "Named definition is compiled/kernel checked with its module; do not describe it as an axiom-print target."
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceQ_measurable_actual",
+      "kind": "lemma",
+      "line": 108,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureSlab_measurable",
+      "kind": "theorem",
+      "line": 117,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_measurable",
+      "kind": "theorem",
+      "line": 122,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureOneSided_measurable",
+      "kind": "theorem",
+      "line": 127,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_weighted_of_numerator",
+      "kind": "theorem",
+      "line": 133,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureUnion_reduce",
+      "kind": "theorem",
+      "line": 152,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator_of_product",
+      "kind": "theorem",
+      "line": 184,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceCurvatureUnion_weighted_cubic_of_numerator",
+      "kind": "theorem",
+      "line": 256,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator",
+      "kind": "theorem",
+      "line": 301,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceWeightedCurvature_bound",
+      "kind": "theorem",
+      "line": 354,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    },
+    {
+      "name": "I4SourceWeightedCurvature.sourceWeightedCurvature_slab_bound",
+      "kind": "theorem",
+      "line": 366,
+      "module": "SourceWeightedCurvatureBound",
+      "axiom_coverage": {
+        "kind": "DIRECT_PRINTED_REPORT",
+        "log": "raw/weighted-curvature/AxiomAudit-01.log",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    }
+  ]
+}

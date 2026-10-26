@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean",
+  "source_sha256_before": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+  "source_sha256_after": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+  "production_source_sha256_before": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+  "production_source_sha256_after": "b2157e96e192aee7f6ea6f8a7957995f3c3869ab7999e8b340c937ee6cbfded0",
+  "log_sha256": "34d6b8bfb958b4819c56da040634d6f007dffba995efe97bb4e7700328b7eee4",
+  "elapsed_seconds": 2.8864989280700684
+}

@@ -1,0 +1,5 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCurvatureDecomposition.lean:870:72: error: unsolved goals
+L r : ℝ
+hτ : 0 < curvatureVariance L r
+m : ℝ
+⊢ gaussianReal m (⟨curvatureSigma L r ^ 2, ⋯⟩ * 1) = gaussianReal m ⟨curvatureSigma L r ^ 2, ⋯⟩

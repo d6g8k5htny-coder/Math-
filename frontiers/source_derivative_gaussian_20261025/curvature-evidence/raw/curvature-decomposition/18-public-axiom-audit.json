@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source": "/workspace/scratch/source-curvature-implementation/AxiomAudit.lean",
+  "source_sha256_before": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+  "source_sha256_after": "4a6d448bbe95ce894f769b60770895ca709e00d4206ac9cbcd9fc420804c908e",
+  "production_source_sha256_before": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+  "production_source_sha256_after": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+  "log_sha256": "c4e50e0d5404b2ceb65c8939acb509c4c177f7210496961263948456b1f2ad2e",
+  "elapsed_seconds": 2.8462510108947754
+}

@@ -1,0 +1,172 @@
+{
+  "source": "SourceWeightedCurvatureBound.lean",
+  "source_sha256": "9926f650c8fb9baf13261ba7ea1d01bd7a5cfb95c7175163888c42a62934a3f9",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "source_contract_commit": "8236e1d",
+  "author": "OpenAI/Codex /root/regression_kernel",
+  "scientific_effect": "NONE; author-side qualification only; no geometric noncapture/P0.2/critical-point Palm theorem; different-family scientific review separate",
+  "source_unchanged_since_successful_build": true,
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true -o .lake/build/lib/lean/SourceWeightedCurvatureBound.olean SourceWeightedCurvatureBound.lean",
+    "exit": 0,
+    "log": "SourceWeightedCurvatureBound-10.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourceWeightedCurvatureBound",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axioms": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourceWeightedCurvature.sourceRegularityBad_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularityBad_base_bound": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularityBad_weighted_cubic": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceQ_measurable_actual": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceCurvatureSlab_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceCurvatureOneSided_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_weighted_of_numerator": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceCurvatureUnion_reduce": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator_of_product": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceCurvatureUnion_weighted_cubic_of_numerator": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceRegularCurvatureSlab_numerator": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceWeightedCurvature_bound": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceWeightedCurvature.sourceWeightedCurvature_slab_bound": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "command": "/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/weighted-curvature-implementation/PositiveControls.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean -DwarningAsError=true /workspace/scratch/weighted-curvature-implementation/PositiveControls.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/PositiveControls-02.log",
+      "exit": 0,
+      "log": "PositiveControls-02.log",
+      "reason": "actual source-only cubic union bound at L1,b3,K2,epsilon1/2; actual zero-epsilon bad event has full base mass; regular-cutoff q-dependent radius arithmetic",
+      "source_sha256": "9c9d5fbc6b3dbd4f1e14bfd943a7fc9879c755b4dccf5f2326927ccb96bcc93e"
+    },
+    {
+      "file": "RejectedZeroEpsilon.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/RejectedZeroEpsilon-01.log",
+      "exit": 1,
+      "log": "RejectedZeroEpsilon-01.log",
+      "reason": "actual base probability of zero-epsilon bad event is1, so false Markov bound with denominator0 rejects",
+      "source_sha256": "4f4921afe6117f14ccd5d70fc547c09bc837713a9e0f9b41716de6899d5ddb0e"
+    },
+    {
+      "file": "RejectedOmitRegularCutoff.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff.lean 2>&1 | tee /workspace/scratch/weighted-curvature-implementation/RejectedOmitRegularCutoff-01.log",
+      "exit": 1,
+      "log": "RejectedOmitRegularCutoff-01.log",
+      "reason": "q100,R101,S1,r1/100 satisfies original slab and Rdom but lies outside regular cutoff; false O(r) interval claim rejects",
+      "source_sha256": "7fcc9a31bf9e4039c9881b88083052b553cd7841334dddba92510be197425163"
+    }
+  ],
+  "logs": {
+    "SourceWeightedCurvatureBound-10.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-02.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedZeroEpsilon-01.log": {
+      "bytes": 154,
+      "sha256": "16b782ecfd072e9e270ac7d3a0ff9ba8673e32f6bef671dfdcfed85b1cd9326c"
+    },
+    "RejectedOmitRegularCutoff-01.log": {
+      "bytes": 208,
+      "sha256": "cda5b3c6d487d21631a07e97b920d454dbf1b3d20b9ff36d1cbb4dba5f770761"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 1737,
+      "sha256": "04f00f13e4254b2f7b25d8314a68832ac72d5e20633328d73c7861bd8120ae74"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "artifact": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceWeightedCurvatureBound.olean",
+    "sha256": "bff73ad1a3dc5604ad71dd4637265b086ba50f0a20d34e088bb41bd701450eae"
+  },
+  "new_support_authorship": [
+    {
+      "module": "SourcePinCurvatureBounds.lean",
+      "helper": "orderModeBound_mono/sourceDerivativeMajorant_mono/sourceGammaRadius_le_fifth/sourceGammaRadius_moments",
+      "coauthor": "OpenAI/Codex /root/regression_kernel",
+      "scratch": "/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean",
+      "validation": "RadiusMoments-02.log exit0 empty; bridge owner integrated ONE productioncopy"
+    }
+  ],
+  "failure_history": {
+    "all_retained": true,
+    "final_module_attempts": "-01 and-02 clean partial proofs; -03 missing prw namespace; -04 extra tactic after goal closed; -05 clean helpers; -06 unusedhTwarn; -07 clean conditionalcomposition; -08 and-09 sourceSlab set-membership elaboration errors; -10 finalcleanWerror",
+    "control_attempts": "PositiveControls-01 had invalid .1_2 projection; PositiveControls-02 corrected and passed cleanWerror. Negative controls failed as intended with False goals.",
+    "container_failures": "None in this lane; all commands were actual exec tool calls.",
+    "reconstructed_command_prefixes": "None; commands/capture pipelines above are actual executed calls, not reconstructed evidence."
+  },
+  "reuse": "No checks on18qualifiedmodules/23inputs rerun; consumed current new scalar-product/pin/decomposition objects and verified only new finalmodule/controls."
+}

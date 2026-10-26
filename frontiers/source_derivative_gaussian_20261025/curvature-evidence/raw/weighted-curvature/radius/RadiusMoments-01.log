@@ -1,0 +1,113 @@
+/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean:32:4: error: failed to synthesize
+  MulLeftMono ℝ
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean:48:2: error: Tactic `apply` failed: could not unify the conclusion of `@add_le_add_left`
+  ?b + ?a ≤ ?c + ?a
+with the goal
+  1 + ∑ k, sourceDerivativeMajorant L (↑k) ω ≤ 1 + 6 * sourceDerivativeMajorant L 5 ω
+
+Note: The full type of `@add_le_add_left` is
+  ∀ {α : Type ?u.17} {b c : α} [inst : Add α] [inst_1 : LE α] [i : AddRightMono α], b ≤ c → ∀ (a : α), b + a ≤ c + a
+
+L : ℝ
+ω : SmoothSample 2 L
+⊢ 1 + ∑ k, sourceDerivativeMajorant L (↑k) ω ≤ 1 + 6 * sourceDerivativeMajorant L 5 ω
+/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean:93:30: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : SmoothSample 2 L),
+    ?m.643 + ?m.650 * sourceDerivativeMajorant L 5 a ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b)
+in the target expression
+  2 ^ (n - 1) * ∫ (a : SmoothSample 2 L), 1 + 6 ^ n * sourceDerivativeMajorant L 5 a ^ n ∂Q =
+    2 ^ (n - 1) * (1 + 6 ^ n * ∫ (ω : SmoothSample 2 L), sourceDerivativeMajorant L 5 ω ^ n ∂Q)
+
+L : ℝ
+hL : L ≠ 0
+b δ : ℝ
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hmom :
+  ∀ (n : ℕ),
+    ∃ M,
+      0 ≤ M ∧
+        ∀ (r : ℝ),
+          0 < r →
+            r < δ →
+              Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n)
+                  ((sourceSmoothKernel hL r) (sourcePrescribedPins r b)) ∧
+                ∫ (ω : SmoothSample 2 L),
+                    sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤
+                  M
+n : ℕ
+M : ℝ
+hM : 0 ≤ M
+hbound :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n)
+            ((sourceSmoothKernel hL r) (sourcePrescribedPins r b)) ∧
+          ∫ (ω : SmoothSample 2 L),
+              sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤
+            M
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+hΓ : Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n) ((sourceSmoothKernel hL r) (sourcePrescribedPins r b))
+hint :
+  ∫ (ω : SmoothSample 2 L), sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤ M
+Q : Measure (SmoothSample 2 L) := sourceSmoothLaw hL r b
+this : IsProbabilityMeasure Q
+hnon : ∀ (ω : SmoothSample 2 L), 0 ≤ sourceGammaRadius L ω
+hΓ0 : ∀ (ω : SmoothSample 2 L), 0 ≤ sourceDerivativeMajorant L 5 ω
+hpoint :
+  ∀ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ n ≤ 2 ^ (n - 1) * (1 + 6 ^ n * sourceDerivativeMajorant L 5 ω ^ n)
+hmajor : Integrable (fun ω => 2 ^ (n - 1) * (1 + 6 ^ n * sourceDerivativeMajorant L 5 ω ^ n)) Q
+hR : Integrable (fun ω => sourceGammaRadius L ω ^ n) Q
+⊢ 2 ^ (n - 1) * ∫ (a : SmoothSample 2 L), 1 + 6 ^ n * sourceDerivativeMajorant L 5 a ^ n ∂Q =
+    2 ^ (n - 1) * (1 + 6 ^ n * ∫ (ω : SmoothSample 2 L), sourceDerivativeMajorant L 5 ω ^ n ∂Q)
+/workspace/scratch/weighted-curvature-implementation/radius/RadiusMoments.lean:95:13: error: unsolved goals
+case hbc
+L : ℝ
+hL : L ≠ 0
+b δ : ℝ
+hδ : 0 < δ
+hδ1 : δ ≤ 1
+hmom :
+  ∀ (n : ℕ),
+    ∃ M,
+      0 ≤ M ∧
+        ∀ (r : ℝ),
+          0 < r →
+            r < δ →
+              Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n)
+                  ((sourceSmoothKernel hL r) (sourcePrescribedPins r b)) ∧
+                ∫ (ω : SmoothSample 2 L),
+                    sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤
+                  M
+n : ℕ
+M : ℝ
+hM : 0 ≤ M
+hbound :
+  ∀ (r : ℝ),
+    0 < r →
+      r < δ →
+        Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n)
+            ((sourceSmoothKernel hL r) (sourcePrescribedPins r b)) ∧
+          ∫ (ω : SmoothSample 2 L),
+              sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤
+            M
+r : ℝ
+hr : 0 < r
+hrδ : r < δ
+hΓ : Integrable (fun ω => sourceDerivativeMajorant L 5 ω ^ n) ((sourceSmoothKernel hL r) (sourcePrescribedPins r b))
+hint :
+  ∫ (ω : SmoothSample 2 L), sourceDerivativeMajorant L 5 ω ^ n ∂(sourceSmoothKernel hL r) (sourcePrescribedPins r b) ≤ M
+Q : Measure (SmoothSample 2 L) := ⋯
+this : IsProbabilityMeasure Q
+hnon : ∀ (ω : SmoothSample 2 L), 0 ≤ sourceGammaRadius L ω
+hΓ0 : ∀ (ω : SmoothSample 2 L), 0 ≤ sourceDerivativeMajorant L 5 ω
+hpoint :
+  ∀ (ω : SmoothSample 2 L), sourceGammaRadius L ω ^ n ≤ 2 ^ (n - 1) * (1 + 6 ^ n * sourceDerivativeMajorant L 5 ω ^ n)
+hmajor : Integrable (fun ω => 2 ^ (n - 1) * (1 + 6 ^ n * sourceDerivativeMajorant L 5 ω ^ n)) Q
+hR : Integrable (fun ω => sourceGammaRadius L ω ^ n) Q
+⊢ ∫ (ω : SmoothSample 2 L), sourceDerivativeMajorant L 5 ω ^ n ∂Q ≤ M
