@@ -1,3 +1,30 @@
+# Actual source: cubic curvature, pin-preserving comparison and norm-valued conditioning
+
+The24qualifiedmodules now include the actual weighted cubic curvature bound,
+Euclidean/operator maximum-C1 quartic comparison `<=3r²Gamma5`, and actual bounded
+derivative/finite-jet norm-Borel maps with their specified conditional laws.
+
+- [Quartic comparison and exact qualifications](quartic-evidence/QUARTIC_SCOPE.md)
+- [Norm-topology jets and exact qualifications](topology-evidence/TOPOLOGY_SCOPE.md)
+- [Cubic weighted curvature scope](curvature-evidence/CURVATURE_SCOPE.md)
+
+The combined target list has615theorem/instance declarations:613propositions and
+2explicit structural/data MeasurableSpace instances. The latest two modules add
+112quartic proofs and36topology theorems plus4local instances. Their definitions
+and abbreviations are inventoried separately. All new named kernel replays,
+compiles, direct axiom audits and meaningful controls passed. Completed prior
+checks were reused; no combined hosted proof build is claimed.
+
+The C3 torus/event identification and geometric Campbell/raw-pin source bindings
+continue as explicit original-goal joins. The existing conventional finite-L
+Morse/Rice mathematics is reused, not made unverified by pending process work.
+No capture/Palm/elder/counting parent mechanization or scientific-status closure
+is inferred solely from this package.
+
+The earlier22module description below remains a scoped prerequisite record.
+
+---
+
 # Actual weighted cubic curvature bound
 
 The qualified22-module source chain now derives, from only `L != 0`, fixed

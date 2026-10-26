@@ -1,0 +1,14 @@
+/workspace/scratch/pin-preserving-quartic-implementation/C1Comparison.lean:19:64: error: Function expected at
+  norm_sub_le ?m.128 ?m.129
+but this term has type
+  ‖?m.128 - ?m.129‖ ≤ ‖?m.128‖ + ‖?m.129‖
+
+Note: Expected a function because this term is being applied to the argument
+  _
+/workspace/scratch/pin-preserving-quartic-implementation/C1Comparison.lean:34:47: error: Function expected at
+  norm_sub_le ?m.145 ?m.146
+but this term has type
+  ‖?m.145 - ?m.146‖ ≤ ‖?m.145‖ + ‖?m.146‖
+
+Note: Expected a function because this term is being applied to the argument
+  _

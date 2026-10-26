@@ -1,0 +1,34 @@
+{
+  "count": 2,
+  "entries": [
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothTopology.derivativeMeasurableSpace",
+      "line": 291,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "local_attribute": true,
+      "public_named_declaration": true,
+      "result_type": "MeasurableSpace (target norm-valued type) : Type",
+      "note": "The local attribute controls typeclass scope; the named declaration is public and was directly audited."
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceSmoothTopology.finiteJetMeasurableSpace",
+      "line": 294,
+      "classification": "structural_data_instance",
+      "registration_append": true,
+      "proposition_valued": false,
+      "local_attribute": true,
+      "public_named_declaration": true,
+      "result_type": "MeasurableSpace (target norm-valued type) : Type",
+      "note": "The local attribute controls typeclass scope; the named declaration is public and was directly audited."
+    }
+  ],
+  "type_classification_source": {
+    "MeasurableSpace": "Mathlib/MeasureTheory/MeasurableSpace/Defs.lean:49 (structure, no Prop sort)",
+    "BorelSpace": "Mathlib/MeasureTheory/Constructions/BorelSpace/Basic.lean:113 (class ... : Prop)"
+  },
+  "classification_method": "Read exact pinned declarations, no Lean probe or rerun"
+}

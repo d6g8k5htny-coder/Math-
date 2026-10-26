@@ -1,0 +1,23 @@
+{
+  "scope": "NEW_SCRATCH_EUCLIDEAN_NORM_AND_GRADIENT_BRIDGES",
+  "author_side_helper_lineage": "OpenAI/Codex /root/dm2_landed_composition/peano_strategy",
+  "independent_scientific_review_credit": 0,
+  "sources": {
+    "EuclideanBridge.lean": "a72c18ff9ed263078a30d8edf30bed0281477bfe41fc0afcb0fc994f1ee782c3",
+    "GradientBridge.lean": "cec84c5924609622996ea9e183c4973d862a15c6ef55ae86e58607b02a643d82"
+  },
+  "completed_scoped_compilations": {
+    "norm": {
+      "metadata": "/workspace/scratch/pin-preserving-quartic-implementation/euclidean_norm_final.json",
+      "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/euclidean_norm_final.log",
+      "exit": 0
+    },
+    "gradient": {
+      "metadata": "/workspace/scratch/pin-preserving-quartic-implementation/gradient_attempt4.json",
+      "raw_log": "/workspace/scratch/pin-preserving-quartic-implementation/gradient_attempt4.log",
+      "exit": 0
+    }
+  },
+  "reused_verification": "No unchanged production or dependency module was rebuilt or requalified. Final gradient evidence is a copied reference to the successful attempt4, not a repeated run.",
+  "production_copy_note": "GradientBridge.lean duplicates only the three-line matrixLinearEuclidean interface. Copy this definition once when combining the two helpers."
+}

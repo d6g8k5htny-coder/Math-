@@ -1,0 +1,18 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "--root=/workspace/scratch/pin-preserving-quartic-implementation",
+    "-o",
+    "/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.olean",
+    "/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "sourceSHA_before": "143183d6e469eef82faea28a52afb59fdb47c6902f7363b883e3e9e54e119e71",
+  "sourceSHA_after": "143183d6e469eef82faea28a52afb59fdb47c6902f7363b883e3e9e54e119e71",
+  "startedUTC": "2026-10-26T00:58:46.118679+00:00",
+  "elapsed": 3.867177963256836
+}

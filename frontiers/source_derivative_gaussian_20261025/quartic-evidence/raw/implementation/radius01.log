@@ -1,0 +1,16 @@
+/workspace/scratch/pin-preserving-quartic-implementation/RawRadius.lean:39:6: error: Type mismatch
+  add_le_add_left (Finset.sum_le_sum fun i x => sourceRawU_abs_le hL ω i) 1
+has type
+  ∑ i ∈ ?m.77, |sourceRawU L ω i| + 1 ≤
+    (∑ i ∈ ?m.77, if ↑i < 3 then sourceDerivativeMajorant L 3 ω else sourceDerivativeMajorant L 4 ω) + 1
+but is expected to have type
+  sourceRawRadius L ω ≤ 1 + ∑ i, if ↑i < 3 then sourceDerivativeMajorant L 3 ω else sourceDerivativeMajorant L 4 ω
+/workspace/scratch/pin-preserving-quartic-implementation/RawRadius.lean:51:62: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r b : ℝ
+hr : r ≠ 0
+hG : IsUnit (sourcePinCovarianceAt L r)
+ω : SmoothSample 2 L
+hω : rawPins L r ω = ![b, b - r ^ 3 / 6, 0, 0, 0, 0]
+⊢ -(r ^ 3 / 6) = -r ^ 3 / 6

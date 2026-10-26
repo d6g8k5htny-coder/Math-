@@ -1,0 +1,3 @@
+SourceSmoothTopology frozen source SHA: `ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae`. Existing qualification receipt: qualification_receipt.json. Direct public reports:49; shared theorem/instance declaration append:40 (36 theorems,2 Prop instances,2 structural/data instances); definitions/abbreviations:9. Earlier baseline23 modules/575 targets is referenced only; root registration after this append would be24/615.
+
+Exact topology integration commit is pending root supply. Do not rerun unchanged qualified material for that commit/handoff. No production edits, checks, hashes, commits, posts or scientific-status changes occurred during packaging. Root still owns source alignment review and the conventional C3 torus/capture application join.

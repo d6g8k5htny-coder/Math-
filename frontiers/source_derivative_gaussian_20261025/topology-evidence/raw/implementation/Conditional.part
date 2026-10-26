@@ -1,0 +1,81 @@
+
+open I4SourceSmoothConditional I4SourceEndpointRegression ProbabilityTheory
+
+namespace I4SourceSmoothTopology
+
+/-- These local structures are explicitly the norm-topology Borel structures.
+They are closed into the conditional-law statements below. -/
+section NormBorel
+
+local instance derivativeMeasurableSpace (d k : ℕ) : MeasurableSpace (DerivativeBCF d k) := borel _
+local instance derivativeBorelSpace (d k : ℕ) : BorelSpace (DerivativeBCF d k) := ⟨rfl⟩
+
+local instance (priority := 2000) finiteJetMeasurableSpace (d K : ℕ) :
+    MeasurableSpace ((j : Fin (K+1)) → DerivativeBCF d j) := borel _
+local instance (priority := 2000) finiteJetBorelSpace (d K : ℕ) :
+    BorelSpace ((j : Fin (K+1)) → DerivativeBCF d j) := ⟨rfl⟩
+
+def sourceCompatibleJet (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ) (ω : SmoothSample d L) :
+    compatiblePeriodicJets d L K :=
+  ⟨sourceFiniteJet d hL K ω,sourceFiniteJet_mem_compatible d hL K ω⟩
+
+theorem sourceCompatibleJet_measurable (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ) :
+    Measurable (sourceCompatibleJet d hL K) :=
+  (sourceFiniteJet_borel d hL K).subtype_mk
+
+/-- This is HasCondDistrib in the Borel structure of the BCF norm. -/
+theorem sourceDerivativeBCF_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (k : ℕ) :
+    HasCondDistrib (sourceDerivativeBCF 2 hL k) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (sourceDerivativeBCF 2 hL k)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (sourceDerivativeBCF_borel 2 hL k)
+
+/-- The whole jet tuple uses its norm Borel structure, not a coordinate-product surrogate. -/
+theorem sourceFiniteJet_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (K : ℕ) :
+    HasCondDistrib (sourceFiniteJet 2 hL K) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (sourceFiniteJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (sourceFiniteJet_borel 2 hL K)
+
+theorem sourceCompatibleJet_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (K : ℕ) :
+    HasCondDistrib (sourceCompatibleJet 2 hL K) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (sourceCompatibleJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (sourceCompatibleJet_measurable 2 hL K)
+
+theorem sourceFiniteJet_functional_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (K : ℕ) {E : Type*} [MeasurableSpace E]
+    (F : ((j : Fin (K+1)) → DerivativeBCF 2 j) → E) (hF : Measurable F) :
+    HasCondDistrib (F ∘ sourceFiniteJet 2 hL K) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (F ∘ sourceFiniteJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (hF.comp (sourceFiniteJet_borel 2 hL K))
+
+theorem sourceDerivativeBCF_eventually_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (k : ℕ) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (sourceDerivativeBCF 2 hL k) (sourceConfluentPinsAt L r)
+        ((sourceSmoothKernel hL r).map (sourceDerivativeBCF 2 hL k)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_eventually_map_hasCondDistrib hL _ (sourceDerivativeBCF_borel 2 hL k)
+
+theorem sourceFiniteJet_eventually_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (K : ℕ) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (sourceFiniteJet 2 hL K) (sourceConfluentPinsAt L r)
+        ((sourceSmoothKernel hL r).map (sourceFiniteJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_eventually_map_hasCondDistrib hL _ (sourceFiniteJet_borel 2 hL K)
+
+theorem sourceCompatibleJet_eventually_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (K : ℕ) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (sourceCompatibleJet 2 hL K) (sourceConfluentPinsAt L r)
+        ((sourceSmoothKernel hL r).map (sourceCompatibleJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_eventually_map_hasCondDistrib hL _ (sourceCompatibleJet_measurable 2 hL K)
+
+theorem sourceFiniteJet_functional_eventually_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (K : ℕ)
+    {E : Type*} [MeasurableSpace E] (F : ((j : Fin (K+1)) → DerivativeBCF 2 j) → E)
+    (hF : Measurable F) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (F ∘ sourceFiniteJet 2 hL K) (sourceConfluentPinsAt L r)
+        ((sourceSmoothKernel hL r).map (F ∘ sourceFiniteJet 2 hL K)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_eventually_map_hasCondDistrib hL _ (hF.comp (sourceFiniteJet_borel 2 hL K))
+
+end NormBorel
+
+end I4SourceSmoothTopology

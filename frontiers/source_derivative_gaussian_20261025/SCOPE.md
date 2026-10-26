@@ -1,3 +1,21 @@
+# Current qualified scope:24 modules /615 theorem-instance declarations
+
+This extension adds SourcePinPreservingQuartic (112proofs,29defs/abbrev) and
+SourceSmoothTopology (36theorems,2PropBorelSpace local instances,2dataMeasurableSpace
+local instances,9defs/abbrev). All141 and49 public declarations respectively have
+direct standard-axiom reports; private quartic proofs are separately kernel-covered.
+See quartic-evidence/QUARTIC_SCOPE.md and topology-evidence/TOPOLOGY_SCOPE.md.
+The target count includes2structural data declarations and is not615theorems.
+
+The prior22module/463target scope and23inputs are unchanged and reused. Their
+completed scientific reviews retain their exact source cuts. New code-alignment
+review and guarded engineering integration remain separate from local execution.
+The C3torus/capture and geometricKR/raw-pin source joins remain explicit.
+
+The older22module scope below is retained as a prerequisite record.
+
+---
+
 # Current qualified scope:22 modules /463 proof-instance declarations
 
 New actual cubic-curvature results and exact qualifications are in

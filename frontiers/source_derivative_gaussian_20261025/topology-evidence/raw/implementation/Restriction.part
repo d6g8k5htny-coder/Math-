@@ -1,0 +1,124 @@
+
+namespace I4SourceSmoothTopology
+
+@[simp] theorem modeDerivativeBCF_apply (d : ℕ) {L : ℝ} (hL : L ≠ 0)
+    (k : ℕ) (m : SourceMode d) (x : Fin d → ℝ) :
+    modeDerivativeBCF d hL k m x = iteratedFDeriv ℝ k (modeCoefficient d L m) x := rfl
+
+/-- Convergence is uniform in the real source variable and holds for every
++sample, rather than only almost surely under one law. -/
+theorem sourceDerivativeBCF_tendstoUniformly (d : ℕ) {L : ℝ} (hL : L ≠ 0)
+    (k : ℕ) (ω : SmoothSample d L) :
+    TendstoUniformly
+      (fun s : Finset (SourceMode d) =>
+        ((∑ m ∈ s, ω.val m • modeDerivativeBCF d hL k m) : DerivativeBCF d k))
+      (iteratedFDeriv ℝ k (smoothSourceField d L ω)) atTop := by
+  have hn : Tendsto (fun s : Finset (SourceMode d) => ∑ m ∈ s, ω.val m • modeDerivativeBCF d hL k m)
+      atTop (𝓝 (sourceDerivativeBCF d hL k ω)) := (sourceDerivativeBCF_summable d hL k ω).hasSum
+  have hu := BoundedContinuousFunction.tendsto_iff_tendstoUniformly.mp hn
+  have heq : (sourceDerivativeBCF d hL k ω : (Fin d → ℝ) → DerivativeOperator d k) =
+      iteratedFDeriv ℝ k (smoothSourceField d L ω) := funext (sourceDerivativeBCF_apply d hL k ω)
+  rw [← heq]
+  exact hu
+
+/-- Restrict ambient derivative fields along a continuous chart parameter.
+For a compact chart this is the usual uniform restriction map. -/
+def jetRestriction {A : Type*} [TopologicalSpace A] (d K : ℕ) (i : C(A, Fin d → ℝ))
+    (v : (j : Fin (K+1)) → DerivativeBCF d j) : (j : Fin (K+1)) → (A →ᵇ DerivativeOperator d j) :=
+  fun j => (v j).compContinuous i
+
+theorem jetRestriction_continuous {A : Type*} [TopologicalSpace A]
+    (d K : ℕ) (i : C(A, Fin d → ℝ)) : Continuous (jetRestriction d K i) := by
+  apply continuous_pi
+  intro j
+  exact (BoundedContinuousFunction.continuous_compContinuous i).comp (continuous_apply j)
+
+theorem jetRestriction_norm_le {A : Type*} [TopologicalSpace A]
+    (d K : ℕ) (i : C(A, Fin d → ℝ)) (v : (j : Fin (K+1)) → DerivativeBCF d j) :
+    ‖jetRestriction d K i v‖ ≤ ‖v‖ := by
+  apply (pi_norm_le_iff_of_nonneg (norm_nonneg v)).2
+  intro j
+  exact (BoundedContinuousFunction.norm_compContinuous_le (v j) i).trans (norm_le_pi_norm v j)
+
+def sourceRestrictedJet {A : Type*} [TopologicalSpace A] (d : ℕ) {L : ℝ}
+    (hL : L ≠ 0) (K : ℕ) (i : C(A, Fin d → ℝ)) (ω : SmoothSample d L) :
+    (j : Fin (K+1)) → (A →ᵇ DerivativeOperator d j) := jetRestriction d K i (sourceFiniteJet d hL K ω)
+
+theorem sourceRestrictedJet_apply {A : Type*} [TopologicalSpace A] (d : ℕ) {L : ℝ}
+    (hL : L ≠ 0) (K : ℕ) (i : C(A, Fin d → ℝ)) (ω : SmoothSample d L)
+    (j : Fin (K+1)) (x : A) :
+    sourceRestrictedJet d hL K i ω j x = iteratedFDeriv ℝ j (smoothSourceField d L ω) (i x) :=
+  sourceDerivativeBCF_apply d hL j ω (i x)
+
+theorem sourceRestrictedJet_stronglyMeasurable {A : Type*} [TopologicalSpace A]
+    (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ) (i : C(A, Fin d → ℝ)) :
+    StronglyMeasurable (sourceRestrictedJet d hL K i) :=
+  (jetRestriction_continuous d K i).comp_stronglyMeasurable (sourceFiniteJet_stronglyMeasurable d hL K)
+
+theorem sourceRestrictedJet_borel {A : Type*} [TopologicalSpace A]
+    (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ) (i : C(A, Fin d → ℝ)) :
+    @Measurable (SmoothSample d L) ((j : Fin (K+1)) → (A →ᵇ DerivativeOperator d j))
+      _ (borel _) (sourceRestrictedJet d hL K i) := by
+  borelize ((j : Fin (K+1)) → (A →ᵇ DerivativeOperator d j))
+  exact (sourceRestrictedJet_stronglyMeasurable d hL K i).measurable
+
+/-- The finite jet norm is exactly a maximum uniform derivative metric. -/
+theorem sourceFiniteJet_dist_le_iff (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ)
+    (ω η : SmoothSample d L) {ε : ℝ} (hε : 0 ≤ ε) :
+    dist (sourceFiniteJet d hL K ω) (sourceFiniteJet d hL K η) ≤ ε ↔
+      ∀ j : Fin (K+1), ∀ x : Fin d → ℝ,
+        dist (iteratedFDeriv ℝ j (smoothSourceField d L ω) x)
+          (iteratedFDeriv ℝ j (smoothSourceField d L η) x) ≤ ε := by
+  rw [dist_pi_le_iff hε]
+  apply forall_congr'
+  intro j
+  rw [BoundedContinuousFunction.dist_le hε]
+  simp only [sourceFiniteJet, sourceDerivativeBCF_apply]
+
+/-- The zeroth component recovers the actual global field; no value-only
+claim on arbitrary compact subsets is used. -/
+theorem sourceFiniteJet_eq_iff_field_eq (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ)
+    (ω η : SmoothSample d L) :
+    sourceFiniteJet d hL K ω = sourceFiniteJet d hL K η ↔
+      smoothSourceField d L ω = smoothSourceField d L η := by
+  constructor
+  · intro h
+    funext x
+    have h0 := congrFun h (0 : Fin (K+1))
+    have hx := congrArg (fun v : DerivativeBCF d 0 => v x (fun a => Fin.elim0 a)) h0
+    simpa only [sourceFiniteJet, sourceDerivativeBCF_apply, iteratedFDeriv_zero_apply] using hx
+  · intro h
+    funext j
+    apply BoundedContinuousFunction.ext
+    intro x
+    rw [sourceDerivativeBCF_apply, sourceDerivativeBCF_apply, h]
+
+theorem smoothSourceField_lattice_periodic (d : ℕ) {L : ℝ} (hL : L ≠ 0)
+    (ω : SmoothSample d L) (n : Fin d → ℤ) (x : Fin d → ℝ) :
+    smoothSourceField d L ω (x + fun a => L*(n a : ℝ)) = smoothSourceField d L ω x :=
+  I4Lattice.sourceField_lattice_shift d hL ω.val n x
+
+theorem sourceDerivativeBCF_lattice_periodic (d : ℕ) {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+    (ω : SmoothSample d L) (n : Fin d → ℤ) (x : Fin d → ℝ) :
+    sourceDerivativeBCF d hL k ω (x + fun a => L*(n a : ℝ)) = sourceDerivativeBCF d hL k ω x := by
+  rw [sourceDerivativeBCF_apply, sourceDerivativeBCF_apply, ← iteratedFDeriv_comp_add_right]
+  have h : (fun z => smoothSourceField d L ω (z + fun a => L*(n a : ℝ))) =
+      smoothSourceField d L ω := funext (smoothSourceField_lattice_periodic d hL ω n)
+  rw [h]
+
+/-- Compatible periodic jets are required to come from one actual C^K field.
+Periodicity and derivative compatibility are properties, not law premises. -/
+def compatiblePeriodicJets (d : ℕ) (L : ℝ) (K : ℕ) :
+    Set ((j : Fin (K+1)) → DerivativeBCF d j) :=
+  {v | ∃ f : (Fin d → ℝ) → ℝ, ContDiff ℝ K f ∧
+    (∀ n : Fin d → ℤ, ∀ x, f (x + fun a => L*(n a : ℝ)) = f x) ∧
+    ∀ j : Fin (K+1), ∀ x, v j x = iteratedFDeriv ℝ j f x}
+
+theorem sourceFiniteJet_mem_compatible (d : ℕ) {L : ℝ} (hL : L ≠ 0) (K : ℕ)
+    (ω : SmoothSample d L) : sourceFiniteJet d hL K ω ∈ compatiblePeriodicJets d L K := by
+  refine ⟨smoothSourceField d L ω,smoothSourceField_contDiff d hL ω K,?_,?_⟩
+  · exact smoothSourceField_lattice_periodic d hL ω
+  · intro j x
+    exact sourceDerivativeBCF_apply d hL j ω x
+
+end I4SourceSmoothTopology

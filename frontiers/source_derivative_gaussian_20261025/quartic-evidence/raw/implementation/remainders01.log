@@ -1,0 +1,71 @@
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:14:4: error: Type mismatch: After simplification, term
+  directionX_norm_le_one
+ has type
+  @LE.le ℝ Real.instLE ‖directionX‖ 1
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖coordinateDirection ⟨0, ⋯⟩‖ 1
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:15:4: error: Type mismatch: After simplification, term
+  directionY_norm_le_one
+ has type
+  @LE.le ℝ Real.instLE ‖directionY‖ 1
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖coordinateDirection ⟨1, ⋯⟩‖ 1
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:20:80: error: unsolved goals
+case «0»
+L r : ℝ
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (r • p)) ![1, 0] / r ^ 2 =
+    (fderiv ℝ (smoothSourceField 2 L ω) (r • p)) (Pi.single 0 1) / r ^ 2
+
+case «1»
+L r : ℝ
+ω : SmoothSample 2 L
+p : Fin 2 → ℝ
+⊢ (fderiv ℝ (smoothSourceField 2 L ω) (r • p)) ![0, 1] / r ^ 2 =
+    (fderiv ℝ (smoothSourceField 2 L ω) (r • p)) (Pi.single 1 1) / r ^ 2
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:41:66: error: typeclass instance problem is stuck
+  SeminormedAddGroup ?m.421
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `SeminormedAddGroup` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:49:37: error: No goals to be solved
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:86:67: error: typeclass instance problem is stuck
+  SeminormedAddGroup ?m.420
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `SeminormedAddGroup` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:95:37: error: No goals to be solved
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:110:4: error: Tactic `rfl` failed: The left-hand side
+  (toEuclideanCLM fun i j =>
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (r • p.ofLp)) ![coordinateDirection j, coordinateDirection i] / r) -
+    toEuclideanCLM (sourceHessianTaylor L r ω p.ofLp)
+is not definitionally equal to the right-hand side
+  toEuclideanCLM fun i j =>
+    (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (r • p.ofLp)) ![coordinateDirection j, coordinateDirection i] / r -
+      sourceHessianTaylor L r ω p.ofLp i j
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+hr : 0 < r
+ω : SmoothSample 2 L
+p : SourcePlane
+⊢ (toEuclideanCLM fun i j =>
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (r • p.ofLp)) ![coordinateDirection j, coordinateDirection i] /
+          r) -
+      toEuclideanCLM (sourceHessianTaylor L r ω p.ofLp) =
+    toEuclideanCLM fun i j =>
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (r • p.ofLp)) ![coordinateDirection j, coordinateDirection i] / r -
+        sourceHessianTaylor L r ω p.ofLp i j
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:109:37: error: This simp argument is unused:
+  ← map_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [matrixLinearEuclidean]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

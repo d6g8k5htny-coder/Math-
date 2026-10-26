@@ -1,0 +1,40 @@
+{
+  "scope": "ONLY new SourceSmoothTopology.lean; no baseline/reused module checks",
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothTopology.lean",
+  "source_sha256": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+  "line_count": 396,
+  "frozen_contract_commit": "9d999aa",
+  "frozen_contract": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_SMOOTH_TOPOLOGY.md",
+  "source_contract_sha256": "a7e7b1f448d9eafcba2e83c7915b2239a43b186f2c4f65f13d0d8efcb4096dcb",
+  "verification_records": {
+    "compile": "/workspace/scratch/source-smooth-topology/06-final-norm-borel-fields.json",
+    "controls": "/workspace/scratch/source-smooth-topology/10-controls-fixed.json",
+    "axiom_audit": "/workspace/scratch/source-smooth-topology/08-axiom-audit.json",
+    "kernel_replay": "/workspace/scratch/source-smooth-topology/09-kernel-replay.json"
+  },
+  "all_exit_zero": true,
+  "source_unchanged_across_qualification": true,
+  "public_inventory": "/workspace/scratch/source-smooth-topology/targets.json",
+  "axiom_coverage": "/workspace/scratch/source-smooth-topology/AXIOM_COVERAGE.json",
+  "public_declaration_count": 49,
+  "axioms_only_standard_three": true,
+  "author_lineage": [
+    "OpenAI/Codex /root/uniform_jet_moment_sources; sole production author and scratch proof author"
+  ],
+  "independent_scientific_review_credit": false,
+  "remaining_application_boundary": "Conventional C3 torus quotient/local-chart identification and usual C3 norm equivalence, followed by GP-DER197 capture/ODE event pullback; no claim of automatic capture measurability, geometric Palm, Morse, elder, or counting closure.",
+  "failed_attempts_preserved": [
+    "derivative-bcf-01 through derivative-bcf-05 (scratch)",
+    "01-core-production",
+    "03-uniform-compact-periodic",
+    "04-norm-conditional-fields",
+    "07-controls (only explicit Kernel.map argument ordering in control, production unchanged)"
+  ],
+  "recon_only_helper": "/root/uniform_jet_moment_sources/torus_interface_recon; no production code or final-check authorship",
+  "proposal_and_boundary_note": "/workspace/scratch/source-smooth-topology/CONTRACT_PROPOSAL.md",
+  "user_reuse_rule": "Completed applicable verification reused; new session/worktree never warrants baseline reruns.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

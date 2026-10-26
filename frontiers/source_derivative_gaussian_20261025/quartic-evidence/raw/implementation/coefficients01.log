@@ -1,0 +1,14 @@
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:22:13: error: `ContinuousMultilinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:22:48: error: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+/workspace/scratch/pin-preserving-quartic-implementation/CoefficientExpansions.lean:20:41: error: unsolved goals
+n : ℕ
+T : (Fin 2 → ℝ) [×n + 1]→L[ℝ] ℝ
+p : Fin 2 → ℝ
+v : Fin n → Fin 2 → ℝ
+⊢ p 0 * T (Fin.cons directionX v) + p 1 * T (Fin.cons directionY v) =
+    (p 0 • directionX + p 1 • directionY) 0 * T (Fin.cons directionX v) +
+      (p 0 • directionX + p 1 • directionY) 1 * T (Fin.cons directionY v)

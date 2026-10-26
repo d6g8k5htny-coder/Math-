@@ -1,0 +1,9 @@
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:64:40: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:110:40: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/scratch/pin-preserving-quartic-implementation/RemainderEstimates.lean:130:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

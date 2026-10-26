@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-smooth-topology/Controls.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/scratch/source-smooth-topology/Controls.lean",
+  "source_sha256_before": "75f0de4c3d1a152f777f800819e22c35a1999ea404cb68d2d659006e099cd33e",
+  "source_sha256_after": "75f0de4c3d1a152f777f800819e22c35a1999ea404cb68d2d659006e099cd33e",
+  "production_source_sha256_before": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+  "production_source_sha256_after": "ba57c81708056b22e9fc17285969b43fe968e758f2e957bbbef75af7cf82d0ae",
+  "log_sha256": "5f0711eb62c80e18881166805cefba0cd67f0c3f5f60ee5696b3d1c26e10797f",
+  "elapsed_seconds": 6.192509651184082
+}
