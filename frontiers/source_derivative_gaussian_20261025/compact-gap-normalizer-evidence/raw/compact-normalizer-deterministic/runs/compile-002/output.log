@@ -1,0 +1,25 @@
+/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean:66:4: error: linarith failed to find a contradiction
+L : ℝ
+hL : L ≠ 0
+r k : ℝ
+hr : 0 < r
+sample : SmoothSample 2 L
+h3 : sourceConfluentPinsAt L r sample 3 = 0
+h4 : sourceConfluentPinsAt L r sample 4 = 0
+h5 : sourceConfluentPinsAt L r sample 5 = 12 * k
+hΓ4 : 0 ≤ sourceDerivativeMajorant L 4 sample
+hpin : 12 * k = 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 4 - u ^ 2) * iteratedDeriv 3 (sourceF L sample) (r * u)
+hf :
+  ∀ u ∈ Icc (-1 / 2) (1 / 2),
+    |iteratedDeriv 3 (sourceF L sample) (r * u) - 12 * k| ≤ r * sourceDerivativeMajorant L 4 sample
+hleft :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoLeft t * iteratedDeriv 3 (sourceF L sample) (r * t)) - 12 * k / 2| ≤
+    r * sourceDerivativeMajorant L 4 sample / 2
+hright :
+  |(∫ (t : ℝ) in -1 / 2..1 / 2, peanoRight t * iteratedDeriv 3 (sourceF L sample) (r * t)) - 12 * k / 2| ≤
+    r * sourceDerivativeMajorant L 4 sample / 2
+hm : r * sourceDerivativeMajorant L (↑4) sample ≤ r * sourceGammaRadius L sample
+a✝ : r * sourceGammaRadius L sample < r * sourceDerivativeMajorant L 4 sample / 2
+⊢ False
+failed
+/workspace/scratch/compact-normalizer-deterministic/Deterministic.lean:158:38: error: `if_pos` has been deprecated: Use `ite_eq_left` instead

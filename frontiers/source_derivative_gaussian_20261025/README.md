@@ -1,3 +1,29 @@
+# Compact actual numerator and positive normalizer
+
+SourceGapWeightedNumerator.lean proves the actual physical weighted bad-union
+integral is at most N*r^5 uniformly over bounded real birth/gap marks, with
+integrability. SourceCompactGapNormalizer.lean proves the same weight integral
+is at least c*r^2, c>0, over bounded birth heights and a compact positive-gap
+interval. All constants and a radius precede the marks and radius; no desired
+model certificates remain final premises.
+
+The floor uses a negative-q/Gamma good event, Gaussian lower mass and first-
+moment tail subtraction without independence or DCT. Actual physical types
+and determinant factors are retained. Each new source has one named kernel,
+exhaustive classified standard-three coverage, controls and sole-False rejection;
+source/spec reviews PASS. Normalizer strict005 is reused with its unchanged
+consumed integrability interface; final controls/kernel use final dependencies.
+All failures, helper lineage and custody are retained in the evidence folders.
+
+Registry:43 individually qualified modules/1044 public written targets=1035
+propositions+9data instances,32support inputs. Compact normalized probability
+and H0 composition is next. Canonical partner/conditional Morse on prescribed
+positive-gap fibers, frame/count-density and ParentA/B Lean remain separate.
+Existing mathematics and verification are reused; provider-distinct process
+is separate. Scientific effect NONE. Earlier entries retain historical scopes.
+
+---
+
 # Actual fold probability and varying-target analytic joins
 
 [SourceFoldWeightedProbability.lean](SourceFoldWeightedProbability.lean) proves

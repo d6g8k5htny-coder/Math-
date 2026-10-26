@@ -1,0 +1,62 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/CONTROL_CONTRACT.md",
+    "bytes": 1488,
+    "sha256": "87c320a323b15c16c2db4c019016955f4e7f42cade5f344412baaf160e3f7826"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/controls-002/receipt.json",
+    "bytes": 2003,
+    "sha256": "24eb5b08f0e5cc5c0e390a79d26a14b886c3dfcd9765fe053d3f29ee7614d78c"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/Controls.lean",
+    "bytes": 4532,
+    "sha256": "01685a29be651e0d7f06fbec2560538aabc78cc1508e9afe0878c92b8e6dd8ac"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/build/Controls.olean",
+    "bytes": 203592,
+    "sha256": "ae01912c221e83919e386dd86ad7cbef68d0f517d49f925062151c8ab8e8b2a7"
+  },
+  "positive_exit": 0,
+  "positive_theorems": 9,
+  "positive_scope": [
+    "generic closed actual same-law floor with no certificate premises",
+    "original signed period L=-1 and height b=3 with marks k=1 and k=2 sharing c,delta",
+    "explicit integrability and strictly positive real Bochner integral",
+    "bounded actual affine mean at b=3,k=2 with the factor-six Pi norm bound174",
+    "nonzero Gaussian mean2 and variance endpoints1 and4 around V=2",
+    "literal strict physical Hessian types and coarse physical W floor",
+    "literal W=(1/4)^2 for unit normalized determinant factors, no independence in closed endpoint"
+  ],
+  "false_mutation_source": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/FalseOmittedRadiusSquare.lean",
+    "bytes": 370,
+    "sha256": "05b13bfb440ab3f7659dff3a074b59e0467ba70e26544805dffed722debdf310"
+  },
+  "false_mutation_receipt": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/false-omitted-radius-001/receipt.json",
+    "bytes": 1955,
+    "sha256": "919ac6aecea705134d145297a54e506f0e27c9ea1fd1967ee4c602fde81f4b9e"
+  },
+  "false_mutation_log": {
+    "path": "/workspace/scratch/compact-gap-normalizer-construct/runs/false-omitted-radius-001/output.log",
+    "bytes": 197,
+    "sha256": "749a563dac377a3eab70774119449373366d3ef4d4303b162b564b0b77711ecb"
+  },
+  "false_mutation_exit": 1,
+  "distinct_mutation_count": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostics": 0,
+  "false_mutation_mechanism": "Suppress physical r^2 in the unit normalized-determinant scalar floor at r=1/4. Proven exact physical W=1/16 and its negated omitted-factor inequality remain in context; deliberate false inequality reduces to one residual False.",
+  "historical_failures": [
+    "compile-001 add-inequality orientation, set membership elaboration and deprecated/ambiguous simp syntax",
+    "compile-002 unused binder, explicit real-measure inference and set membership reduction",
+    "compile-004 add-inequality orientation and missing intermediate type annotation",
+    "controls-001 missing explicit scratch Lean root"
+  ],
+  "old_control_campaign_replayed": false,
+  "production_source_unchanged_for_controls": true,
+  "helper_control_objects_production_eligible": false
+}

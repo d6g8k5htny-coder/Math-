@@ -1,3 +1,19 @@
+# Current qualified scope:43 modules /1044 public targets /32 inputs
+
+Two sources add21 public proofs,2definitions and6generated constants; all29
+new constants have exhaustive standard3 coverage, ONE named kernel each.
+Actual compact r5 numerator and positive r2 normalizer use the same gap law
+and physical weight. Strict005's consumed interface is byte-identical; final
+controls/kernel use the final numerator. No old verification was replayed.
+
+Normalized compact probability, canonical partner/conditional Morse on
+prescribed positive-gap fibers, frame/count-density and Parent Lean remain
+separate. Unrestricted raw fibers can force equal critical values; unrestricted
+all-target Gaussian laws/moments do not imply unrestricted conditional Morse.
+Scientific effect NONE; provider-distinct process is separate.
+
+---
+
 # Current qualified scope:41 modules /1023 public targets /32 inputs
 
 Three independent new leaves add34 public written proofs:14fixedmark weighted

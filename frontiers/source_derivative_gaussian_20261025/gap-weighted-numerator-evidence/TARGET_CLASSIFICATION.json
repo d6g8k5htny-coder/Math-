@@ -1,0 +1,126 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "inventory_method": "all env.constants whose getModuleIdxFor? equals actual SourceGapWeightedNumerator module index; namespace prefix not used",
+  "receipt": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/runs/inventory-001/receipt.json",
+    "bytes": 1927,
+    "sha256": "f0eb0437dc7b1ee9c681b52a3778f5f765dc47849b5b413e1731bf4df696991c"
+  },
+  "actual_module_constants": 10,
+  "public_theorem_exports": 8,
+  "generated_theorems": 2,
+  "all_axioms_subset_standard_three": true,
+  "omitted_constants": [],
+  "constants": [
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 247,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_numerator",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 103,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_base_bound._simp_1_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_simp_lemma",
+      "line": null,
+      "axioms": []
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceBadUnion_integral_le",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 306,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceCompactTargetMoments.sourceGapLaw.congr_simp",
+      "kind": "theorem",
+      "classification": "compiler_generated_definitional_congruence_in_imported_namespace_owned_by_this_module",
+      "line": null,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_bad_union_numerator",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 350,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_weight_integrable",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 31,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_regular_numerator_of_product",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 169,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_regularity_base_bound",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 70,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceGapWeightedNumerator.sourceGapLaw_compact_moments",
+      "kind": "theorem",
+      "classification": "public_theorem_export",
+      "line": 52,
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

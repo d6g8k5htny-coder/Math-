@@ -1,0 +1,93 @@
+{
+  "completed_utc": "2026-10-26T10:14:35.350897+00:00",
+  "status": "author new-only qualification PASS; root metadata/cache/publication pending",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapWeightedNumerator.lean",
+    "bytes": 20999,
+    "sha256": "b2fedf3739884ff716d11c85ebcf5de328fc76bc2a5bed31e8ea72c61d2f87a3"
+  },
+  "object": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/build/SourceGapWeightedNumerator.olean",
+    "bytes": 1730640,
+    "sha256": "2e6708f3f238cc5a6e1756edf926dab74cab2f05333978853cb6384cb3ff4a63"
+  },
+  "ilean": {
+    "path": "/workspace/scratch/gap-weighted-numerator-construct/build/SourceGapWeightedNumerator.ilean",
+    "bytes": 61313,
+    "sha256": "d5bc81926f0d2f2659c23cedd1513cf7ba338d7b7e13a29d5c387b93ddaaae19"
+  },
+  "report": "/workspace/scratch/gap-weighted-numerator-construct/REPORT.md",
+  "public_target_count": 8,
+  "actual_module_constant_count": 10,
+  "generated_constant_count": 2,
+  "qualification": {
+    "strict": "strict006 PASS",
+    "kernel": "EXACTLY ONE kernel001 PASS after recorded source freeze",
+    "axioms": "inventory001 all10 actual-module constants;8public+2generated, all subset standard3",
+    "controls": "controls00313theorems PASS",
+    "sole_negative": "false-rpower001 exit1 exactly one False, no unrelated diagnostics"
+  },
+  "records": {
+    "CONTROL_CONTRACT.md": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/CONTROL_CONTRACT.md",
+      "bytes": 3439,
+      "sha256": "f0c7a0774bb493ae00310d3414bfaa992f6c4788b7b29d217866ddda6af3fb92"
+    },
+    "CONTROL_FREEZE.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/CONTROL_FREEZE.json",
+      "bytes": 340,
+      "sha256": "6376019759fdca3f4776ff203cdf7ab18e11722cc76f536bf6f86412837fd647"
+    },
+    "FROZEN_SOURCE.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/FROZEN_SOURCE.json",
+      "bytes": 836,
+      "sha256": "f4b224c4bfd9a68b13e04fe2d5c13420c4c0355ada40d5dc4c9d30fd30fe2a57"
+    },
+    "INVENTORY.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/INVENTORY.json",
+      "bytes": 2039,
+      "sha256": "87df9117d64011e8859734e51b6587141d0dc30d38a0561341dfd0bc52ac1d03"
+    },
+    "TARGET_CLASSIFICATION.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/TARGET_CLASSIFICATION.json",
+      "bytes": 3587,
+      "sha256": "5faf659413836089c27b1b6d3f15b9d388c62ae4dbd4c8db0c4622cdda609422"
+    },
+    "EXECUTION_RECORD_INDEX.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 27907,
+      "sha256": "fdd6026069cb53870ac49c53a9c6ed2e1df778b81cdac8e2583a087f4d353035"
+    },
+    "CONTROL_RECEIPT.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/CONTROL_RECEIPT.json",
+      "bytes": 3425,
+      "sha256": "e98ee026eb1c72f280f6fd47e84b32f4cac7c9df379395bdf07ab36d42e3841b"
+    },
+    "SOURCE_OBJECT_IDENTITIES.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2210,
+      "sha256": "2a4ac92c5c9ebc1378a8f897b5bb5ccd6b331f7c747c94e2c236a03c6aa55a08"
+    },
+    "AUTHOR_HELPER_LINEAGE.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/AUTHOR_HELPER_LINEAGE.json",
+      "bytes": 2662,
+      "sha256": "cafc7dec408247214195f161775dca35db6e8bb213cda51e97d2d6d4103aa175"
+    },
+    "STATIC_SCOPE.json": {
+      "path": "/workspace/scratch/gap-weighted-numerator-construct/STATIC_SCOPE.json",
+      "bytes": 1425,
+      "sha256": "7f22fb455d1366f270b67a68b9cdc30b1db9171ac0251ceebc1e90950a39bb37"
+    }
+  },
+  "source_object_unchanged_after_freeze": true,
+  "source_review": "root-assigned read-only OpenAI/Codex source reviewer reported PASS no amendments; its separate report belongs to root/reviewer, no provider-distinct credit",
+  "root_owned_remaining": [
+    "review registration",
+    "provider-distinct process",
+    "metadata and manifest integration",
+    "own-module olean/ilean cache installation only",
+    "commit and publication"
+  ],
+  "scientific_effect": "NONE",
+  "old_verification_replayed": false
+}
