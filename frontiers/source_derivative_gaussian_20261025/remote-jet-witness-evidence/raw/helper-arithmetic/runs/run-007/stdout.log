@@ -1,0 +1,26 @@
+/workspace/scratch/remote-jet-arithmetic/runs/run-007/Arithmetic.lean:260:24: error: This simp argument is unused:
+  hc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/remote-jet-arithmetic/runs/run-007/Arithmetic.lean:282:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  localGerm c x 4
+in the target expression
+  jet2 (localGerm c x ((fun i => i) ⟨4, ⋯⟩)) x j = if j = (fun i => i) ⟨4, ⋯⟩ then 1 else 0
+
+case «4»
+c : ℝ
+hc : c ≠ 0
+x : Fin 2 → ℝ
+j : Fin 6
+hfun : localGerm c x 4 = fun y => Real.sin (c * (y 0 - x 0)) / c * (Real.sin (c * (y 1 - x 1)) / c)
+⊢ jet2 (localGerm c x ((fun i => i) ⟨4, ⋯⟩)) x j = if j = (fun i => i) ⟨4, ⋯⟩ then 1 else 0
+/workspace/scratch/remote-jet-arithmetic/runs/run-007/Arithmetic.lean:328:24: error: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

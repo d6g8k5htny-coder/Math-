@@ -1,3 +1,43 @@
+# Proposed local qualified scope: 48 modules, 1101 public targets, 32 inputs
+
+The new actual remote-jet leaf constructs original-mode finite witnesses with
+zero literal raw pin pairings and all 36 remote identity pairings. It derives
+actual residual coefficient Gram PosDef for any correction matrix from those
+internally constructed witnesses and the qualified finite-kernel theorem.
+Its only actual-source hypotheses are signed nonzero period, arbitrary radius,
+and separate literal torus inequalities from the two endpoints. No supplied
+witness/rank/Gram certificate, pin inverse, endpoint-distinctness, nonzero radius,
+target, conditional-law or Morse premise is introduced.
+
+Concrete same-period pin factors, actual six germs and explicit scalar jet
+inversion are represented through the qualified original finite-trig API.
+Only five public written propositions append to the 1096 prior targets. Six
+public definitions and all 87 private/generated constants remain inventory-only
+in the complete 98-constant standard-three/subset inventory. Foreign
+I4SourceConfluentPins.directionY.eq_1 is retained. Exact-source strict-Werror,
+sixteen controls, one collision-backed sole-False mutation, one own-module kernel
+and final source/spec review PASS qualify the new proof scope without replay.
+
+The collision mutation drops only the first endpoint inequality, retaining
+nonzero period and genuine quotient separation from the other endpoint. Its
+passed actual nonexistence proof is reused through a scratch-only control object;
+no control/helper object enters production. Both helper sections integrated once.
+
+Actual conditional remote Gaussian laws/covariances, pin inversion, quantitative
+covariance floors, conditional global Morse/distinctness on prescribed positive-
+gap fibers with distinct endpoints, Sard/incidence, ties/joint selection,
+intrinsic Lifetime/H0 labels, IsFiniteBar, framed transport, Rice count density
+and Parent A/B Lean remain separate. Future RemoteJetGaussian documents are
+outside this extension. No common uncountable-target null event is asserted.
+
+This local48 registration proposal is distinct from the published47 registry.
+Authentication401/closed native transport blocks external publication only;
+remote source/registration, native RESULT/release/alignment requests and current-
+source hosted checks remain queued. PRECODE CI is not transferred to local source
+cut689b8eef. Completed mathematics remains reusable. Scientific effect NONE.
+
+---
+
 # Current qualified scope: 47 modules, 1096 public targets, 32 inputs
 
 The new finite trigonometric leaf proves exact constants, append, scale,

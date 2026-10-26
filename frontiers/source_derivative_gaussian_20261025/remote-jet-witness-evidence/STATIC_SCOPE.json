@@ -1,0 +1,50 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+    "bytes": 29687,
+    "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+  },
+  "imports": [
+    "SourceFiniteTrig",
+    "SourceTorus",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv",
+    "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+    "Mathlib.Tactic.FunProp"
+  ],
+  "forbidden_matches": [],
+  "public_prop_count": 5,
+  "public_data_names": [
+    "jet2",
+    "localGerm",
+    "mulJet2",
+    "inverseMulJet2Coefficients",
+    "interpolant",
+    "remoteJetCoefficient"
+  ],
+  "actual_public_hypotheses": [
+    "hL:L\u22600 on originalsignedperiod",
+    "arbitrary realr",
+    "literalremote torusProjection distinctfromM",
+    "literalremote torusProjection distinctfromS",
+    "arbitraryR for Gram"
+  ],
+  "absent_hypotheses": [
+    "r\u22600/smallradius/positiveradius",
+    "endpointdistinctness/pincovarianceinverse",
+    "target/posterior/kernelLaw",
+    "suppliedinterpolation/rank/Gramcertificate",
+    "Morseevent"
+  ],
+  "actual_assembly": "Concrete squared sameperiod cosinepin factors; internallyselected separatingcoordinates; explicit sixgerms/inverse; finiteTriglist representation globallyequal actualinterpolant; originaltoSource coefficientpairings in literalraw/remoteorders.",
+  "nonclaims": [
+    "actualconditional remoteGaussian law/covariance pertarget",
+    "law atsingularpinconfiguration",
+    "smallradiuspin inverse",
+    "quantitative covariancefloors",
+    "globalconditionalMorse/distinctness",
+    "Sard/jointvalueincidence/selection",
+    "canonicalH0/Lifetimelabels",
+    "generalframes/Rice/ParentLean"
+  ],
+  "future_conditional_morse_scope": "Onlyeachprescribedpositivegapfiber withdistincttorusendpoints; no commonuncountablenullevent."
+}

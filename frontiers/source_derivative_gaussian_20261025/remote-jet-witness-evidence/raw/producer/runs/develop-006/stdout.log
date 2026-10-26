@@ -1,0 +1,228 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:605:4: error(lean.unknownIdentifier): Unknown identifier `contDiff_sum`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:611:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  annihilator L r jM jS (endpointM r)
+in the target expression
+  P (endpointM r) * Q (endpointM r) = 0
+
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+⊢ P (endpointM r) * Q (endpointM r) = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:615:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  annihilator L r jM jS (endpointS r)
+in the target expression
+  P (endpointS r) * Q (endpointS r) = 0
+
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+⊢ P (endpointS r) * Q (endpointS r) = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:599:83: error: unsolved goals
+case «0»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ interpolant (sourceC L) x (annihilator L r jM jS) t (endpointM r) = 0
+
+case «1»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ interpolant (sourceC L) x (annihilator L r jM jS) t (endpointS r) = 0
+
+case «2»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ (fderiv ℝ (interpolant (sourceC L) x (annihilator L r jM jS) t) (endpointM r)) directionX = 0
+
+case «3»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ (fderiv ℝ (interpolant (sourceC L) x (annihilator L r jM jS) t) (endpointS r)) directionX = 0
+
+case «4»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ (fderiv ℝ (interpolant (sourceC L) x (annihilator L r jM jS) t) (endpointM r)) directionY = 0
+
+case «5»
+L r : ℝ
+x : Fin 2 → ℝ
+jM jS : Fin 2
+t : Fin 6 → ℝ
+P : (Fin 2 → ℝ) → ℝ := annihilator L r jM jS
+a : Fin 6 → ℝ := inverseMulJet2Coefficients (jet2 P x) t
+Q : (Fin 2 → ℝ) → ℝ := fun y => ∑ s, a s * localGerm (sourceC L) x s y
+hP : Differentiable ℝ (annihilator L r jM jS)
+hQtop : ContDiff ℝ (↑⊤) Q
+hQ : Differentiable ℝ Q
+hvM : annihilator L r jM jS (endpointM r) = 0
+hvS : annihilator L r jM jS (endpointS r) = 0
+hdM : fderiv ℝ (annihilator L r jM jS) (endpointM r) = 0
+hdS : fderiv ℝ (annihilator L r jM jS) (endpointS r) = 0
+hFM : interpolant (sourceC L) x P t (endpointM r) = 0
+hFS : interpolant (sourceC L) x P t (endpointS r) = 0
+hdFM : fderiv ℝ (interpolant (sourceC L) x P t) (endpointM r) = 0
+hdFS : fderiv ℝ (interpolant (sourceC L) x P t) (endpointS r) = 0
+⊢ (fderiv ℝ (interpolant (sourceC L) x (annihilator L r jM jS) t) (endpointS r)) directionY = 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:626:40: error: This simp argument is unused:
+  hFM
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, hFS, hdFM, hdFS]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:626:44: error: This simp argument is unused:
+  hFS
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, hFM, hdFM, hdFS]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:626:48: error: This simp argument is unused:
+  hdFM
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, hFM, hFS, hdFS]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:626:53: error: This simp argument is unused:
+  hdFS
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, hFM, hFS, hdFM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:644:2: error: unsolved goals
+case refine_1.hL
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+hxM : torusProjection 2 L x ≠ torusProjection 2 L (endpointM r)
+hxS : torusProjection 2 L x ≠ torusProjection 2 L (endpointS r)
+jM : Fin 2
+hM : 0 < 1 - Real.cos (sourceC L * (x jM - endpointM r jM))
+jS : Fin 2
+hS : 0 < 1 - Real.cos (sourceC L * (x jS - endpointS r jS))
+hpx : 0 < annihilator L r jM jS x
+hP2 : ContDiff ℝ 2 (annihilator L r jM jS)
+i s : Fin 6
+⊢ L ≠ 0
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:647:2: error: unsolved goals
+case refine_2.hL
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 2 → ℝ
+hxM : torusProjection 2 L x ≠ torusProjection 2 L (endpointM r)
+hxS : torusProjection 2 L x ≠ torusProjection 2 L (endpointS r)
+jM : Fin 2
+hM : 0 < 1 - Real.cos (sourceC L * (x jM - endpointM r jM))
+jS : Fin 2
+hS : 0 < 1 - Real.cos (sourceC L * (x jS - endpointS r jS))
+hpx : 0 < annihilator L r jM jS x
+hP2 : ContDiff ℝ 2 (annihilator L r jM jS)
+j s : Fin 6
+⊢ L ≠ 0

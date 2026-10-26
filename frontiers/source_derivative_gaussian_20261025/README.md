@@ -1,3 +1,38 @@
+# Actual finite remote 2-jet witnesses and residual Gram positivity
+
+[SourceRemoteJetWitness.lean](SourceRemoteJetWitness.lean) constructs finite
+directions in the original source coefficients. They annihilate all six literal
+raw pin rows and pair to the identity with the remote value, gradient and Hessian
+rows. The resulting residual coefficient Gram is positive definite for any real
+correction matrix. Only a nonzero original period, arbitrary radius and literal
+torus separation from each endpoint are needed; negative periods and repeated
+pins at radius zero are included. These algebraic conclusions make no claim
+about a conditional law at singular pin configurations.
+
+Three concrete jet calculus/interpolation proofs and two actual-source endpoints
+add five public written targets. Six public data definitions, thirty-eight
+private proofs, eleven private definitions and thirty-eight generated proofs
+remain separate in the exhaustive 98-constant inventory, including foreign
+`I4SourceConfluentPins.directionY.eq_1`.
+
+Exact-source develop-008 strict-Werror evidence is reused. Sixteen controls,
+one actual collision-backed sole-False mutation, exactly one own-module kernel
+and final read-only source/spec review passed. Both frozen helper sections were
+integrated once; all nine arithmetic and three torus attempts are preserved
+without separate helper campaigns or target credit. The
+[catalog](remote-jet-witness-evidence/REMOTE_JET_WITNESS_EVIDENCE_CATALOG.json)
+retains all sixteen producer runs, full streams, failures and lineage.
+
+This is a proposed local registry of 48 individually qualified modules and
+1101 public written targets (1092 propositions and nine data instances), with
+32 support inputs. The published registry remains 47/1096/32 at `c0398e2`;
+the last observed remote branch head is PRECODE `b43c1c0`. GitHub authentication
+blocks publication. New native result/release/alignment records and current-
+source CI remain queued; no remote48 success is claimed. Completed mathematics
+is retained. Provider-distinct process stays separate; scientific effect NONE.
+
+---
+
 # Finite trigonometric polynomials in the original source coefficients
 
 [SourceFiniteTrig.lean](SourceFiniteTrig.lean) represents finite shifted-cosine

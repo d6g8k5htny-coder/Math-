@@ -1,0 +1,19 @@
+{
+  "kind": "develop",
+  "run": "develop-007",
+  "start": "2026-10-26T12:11:13.187508+00:00",
+  "end": "2026-10-26T12:11:20.224555+00:00",
+  "seconds": 7.037059333997604,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+    "-o",
+    "/workspace/scratch/remote-jet-witness-construct/runs/develop-007/SourceRemoteJetWitness.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source_sha256": "a745be6b10cbd2c61d6c903ac2e23899201bea35bf7e3f372935506b25d06497"
+}

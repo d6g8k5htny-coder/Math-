@@ -1,0 +1,50 @@
+{
+  "kind": "inventory",
+  "run": "inventory-001",
+  "start": "2026-10-26T12:13:38.156169+00:00",
+  "end": "2026-10-26T12:13:42.068954+00:00",
+  "seconds": 3.9127983360012877,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/remote-jet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/remote-jet-witness-construct /workspace/scratch/remote-jet-witness-construct/Inventory.lean -o /workspace/scratch/remote-jet-witness-construct/runs/inventory-001/Inventory.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+      "bytes": 29687,
+      "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+    },
+    "object": {
+      "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+      "bytes": 2856432,
+      "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean",
+      "bytes": 29687,
+      "sha256": "c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf"
+    },
+    "object": {
+      "path": "/workspace/scratch/remote-jet-witness-construct/build/SourceRemoteJetWitness.olean",
+      "bytes": 2856432,
+      "sha256": "ab78dc5c42be8bc32d211507a85d0d59ef36ab9acf933605d3da41fa8d8eac87"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stdout.log",
+    "bytes": 19653,
+    "sha256": "ac041366051d3b9f645c3e6f73c30d020a674ac95e06bfae3743ac3086a7eb82"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/runs/inventory-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

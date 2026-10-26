@@ -1,0 +1,77 @@
+{
+  "producer": "/root/actual_fold_candidate_construct",
+  "provider": "OpenAI",
+  "family": "GPT-6",
+  "root": "/root",
+  "worker_agents_spawned": 0,
+  "root_dispatched_helpers": [
+    {
+      "agent": "/root/candidate_inertia",
+      "scope": "jetarithmetic",
+      "report": {
+        "path": "/workspace/scratch/remote-jet-arithmetic/REPORT.md",
+        "bytes": 9955,
+        "sha256": "fd1f52b88dabf89a8c54a593734f546af3ad2d588a1f08e2e40bec9b186430c1"
+      },
+      "freeze": {
+        "path": "/workspace/scratch/remote-jet-arithmetic/FREEZE.json",
+        "bytes": 545,
+        "sha256": "86346a326f9881bd5715888a37642de2043a292219c3436350458bda9f4d19bf"
+      },
+      "section": {
+        "path": "/workspace/scratch/remote-jet-arithmetic/NEEDED_SECTION.lean.txt",
+        "bytes": 13163,
+        "sha256": "7f59349e9b1b995314762a0bc886818dc6db59db027121a4c1663600d473a304"
+      },
+      "strict_result": "run009PASS12:08:54UTC6.82293s; all9runs retained"
+    },
+    {
+      "agent": "/root/conversation_rpc_followup",
+      "scope": "torusseparation",
+      "report": {
+        "path": "/workspace/scratch/remote-jet-torus-separation/REPORT.md",
+        "bytes": 3328,
+        "sha256": "10f3cd97cdb0815c9545ddc0145954b35b268c2b5e63d8b7b417ff0fdd27555b"
+      },
+      "freeze": {
+        "path": "/workspace/scratch/remote-jet-torus-separation/FROZEN_SECTION.json",
+        "bytes": 1527,
+        "sha256": "31e74987b56582bff7a1cc57c597af01369ca29cc72bae705265306dd7a885e5"
+      },
+      "section": {
+        "path": "/workspace/scratch/remote-jet-torus-separation/NEEDED_SECTION.lean.txt",
+        "bytes": 2201,
+        "sha256": "24483ebad3befebc16ae12b498a606b73548989e2717c3c6242d99f8f7148c78"
+      },
+      "strict_result": "strict003PASS12:03:27UTC2.678742s; all3runs retained"
+    }
+  ],
+  "integration": {
+    "path": "/workspace/scratch/remote-jet-witness-construct/HELPER_INTEGRATION.json",
+    "bytes": 682,
+    "sha256": "46c8acbb374dbc37144f47af2e1aed0571eeae607c9d7fc20b4c9548e2b45272"
+  },
+  "helper_objects_imported_or_copied": false,
+  "helper_kernel_audit_control_campaigns": 0,
+  "separate_helper_research_target_credit": 0,
+  "both_frozen_before_sole_kernel": true,
+  "precode_commit": "b43c1c023574a19fda86bc82108c5cd0f9999f78",
+  "root_sourcecut": "689b8eef7dd2107e51d46007c1be3dfd4a909b81",
+  "authority_read": [
+    "SOURCE_REMOTE_JET_WITNESS.md",
+    "SOURCE_REMOTE_JET_WITNESS_PLAN.md",
+    "SOURCE_REMOTE_JET_WITNESS_CONTENDERS.json",
+    "finite-jet-arithmetic-preflight/REPORT.md",
+    "torus-phase-separation-preflight/REPORT.md",
+    "conditional-remote-jet-preflight/REPORT.md",
+    "SOURCE_FINITE_TRIG.md",
+    "workspace/repositoryownerreuse guidance retained"
+  ],
+  "completed_verification_reused": true,
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

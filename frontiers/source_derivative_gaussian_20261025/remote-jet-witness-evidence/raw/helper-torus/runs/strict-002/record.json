@@ -1,0 +1,22 @@
+{
+  "kind": "strict",
+  "run": "strict-002",
+  "start": "2026-10-26T12:03:13.679497+00:00",
+  "end": "2026-10-26T12:03:17.965554+00:00",
+  "seconds": 4.286072697002965,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "--root=/workspace/scratch/remote-jet-torus-separation",
+    "-DwarningAsError=true",
+    "/workspace/scratch/remote-jet-torus-separation/TorusSeparation.lean",
+    "-o",
+    "/workspace/scratch/remote-jet-torus-separation/runs/strict-002/TorusSeparation.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source_bytes": 2416,
+  "source_sha256": "84ee78ca93bbb02ba07403b0f071894193f95098a8a819547e90129b64b17dfc",
+  "scope": "New helper source only; no old proof replay or standalone qualification"
+}

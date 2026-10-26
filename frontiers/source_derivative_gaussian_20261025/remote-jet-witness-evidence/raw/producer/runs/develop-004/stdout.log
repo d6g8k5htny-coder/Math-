@@ -1,0 +1,78 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:103:4: error: Type mismatch: After simplification, term
+  derivativeCoefficient_summable 2 hL 0 x fun i => i.elim0
+ has type
+  @Summable ℝ (SourceMode 2) Real.instAddCommMonoid PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (derivativeCoefficient 2 L 0 x fun i => i.elim0) (SummationFilter.unconditional (SourceMode 2))
+but is expected to have type
+  @Summable ℝ (SourceMode 2) Real.instAddCommMonoid PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    (fun m => modeCoefficient 2 L m x) (SummationFilter.unconditional (SourceMode 2))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:117:95: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 0 (eval L p) (endpointM r)) (rawDerivativeDirections 0) = eval L p (endpointM r)
+
+case «1»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 0 (eval L p) (endpointS r)) (rawDerivativeDirections 1) = eval L p (endpointS r)
+
+case «2»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 1 (eval L p) (endpointM r)) (rawDerivativeDirections 2) =
+    (fderiv ℝ (eval L p) (endpointM r)) directionX
+
+case «3»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 1 (eval L p) (endpointS r)) (rawDerivativeDirections 3) =
+    (fderiv ℝ (eval L p) (endpointS r)) directionX
+
+case «4»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 1 (eval L p) (endpointM r)) (rawDerivativeDirections 4) =
+    (fderiv ℝ (eval L p) (endpointM r)) directionY
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+p : TrigPoly
+⊢ (iteratedFDeriv ℝ 1 (eval L p) (endpointS r)) (rawDerivativeDirections 5) =
+    (fderiv ℝ (eval L p) (endpointS r)) directionY
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:123:4: error: This simp argument is unused:
+  rawDerivativeDirections
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, rawDerivativeOrder, rawDerivativePoint, iteratedFDeriv_zero_apply,
+    iteratedFDeriv_one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:123:28: error: This simp argument is unused:
+  iteratedFDeriv_zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, rawDerivativeOrder, rawDerivativePoint, rawDerivativeDirections,
+    iteratedFDeriv_one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetWitness.lean:123:54: error: This simp argument is unused:
+  iteratedFDeriv_one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [rawFunctionPins, rawDerivativeOrder, rawDerivativePoint, rawDerivativeDirections,
+    iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

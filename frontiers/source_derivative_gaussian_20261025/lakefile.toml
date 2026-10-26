@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness", "SourceCompactTargetMoments", "AdaptiveFoldScalarBarrier", "AdaptiveFoldTransverseRidge", "AdaptiveFoldBoundaryPath", "SourceAdaptiveFoldChart", "SourceAdaptiveFoldEstimates", "SourceActualFoldDeath", "SourceActualFoldTorus", "SourceActualFoldH0", "SourceFoldWeightedProbability", "SourceGapPinCurvature", "SourceAllTargetCurvatureResidual", "SourceGapWeightedNumerator", "SourceCompactGapNormalizer", "SourceCompactFoldWeightedProbability", "SourceActualFoldCandidate", "SourceFinitePinKernel", "SourceFiniteTrig"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness", "SourceCompactTargetMoments", "AdaptiveFoldScalarBarrier", "AdaptiveFoldTransverseRidge", "AdaptiveFoldBoundaryPath", "SourceAdaptiveFoldChart", "SourceAdaptiveFoldEstimates", "SourceActualFoldDeath", "SourceActualFoldTorus", "SourceActualFoldH0", "SourceFoldWeightedProbability", "SourceGapPinCurvature", "SourceAllTargetCurvatureResidual", "SourceGapWeightedNumerator", "SourceCompactGapNormalizer", "SourceCompactFoldWeightedProbability", "SourceActualFoldCandidate", "SourceFinitePinKernel", "SourceFiniteTrig", "SourceRemoteJetWitness"]
 
 [[require]]
 name = "mathlib"
@@ -157,3 +157,6 @@ name = "SourceFinitePinKernel"
 
 [[lean_lib]]
 name = "SourceFiniteTrig"
+
+[[lean_lib]]
+name = "SourceRemoteJetWitness"
