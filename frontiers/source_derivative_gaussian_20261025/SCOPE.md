@@ -1,3 +1,18 @@
+# Current qualified scope:34 modules /921 written targets
+
+The actual-source chart adds25 written proofs,4 nonProp definitions,1 Prop
+bundle and42 generated declarations. Complete72-declaration collector coverage,
+strict compile, ONE named kernel and substantive non-default-gap/height and
+normalization-factor controls are retained. Actual law/source pins and the
+normalized integral are derived on a common hL-only interval beforeb,k.
+
+The fixed-axis conditional law is exact; wider-rectangle estimates, framed-law
+transport, torus/H0/weighted probability/count-density/Parent A/B Lean joins are
+not inferred. Prior33 modules/25inputs remain qualified and reused. External
+scientific review is a separate process requirement.
+
+---
+
 # Current qualified scope:33 modules /896 written targets
 
 The8 new boundary/path proofs construct the analytic and ambient witness from

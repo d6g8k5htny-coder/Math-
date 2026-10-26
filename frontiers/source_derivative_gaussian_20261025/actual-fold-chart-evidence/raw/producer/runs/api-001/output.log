@@ -1,0 +1,16 @@
+MeasureTheory.ae_iff.{u_1, u_3} {α : Type u_1} {F : Type u_3} [FunLike F (Set α) ENNReal] [OuterMeasureClass F α]
+  {μ : F} {p : α → Prop} : (∀ᵐ (a : α) ∂μ, p a) ↔ μ {a | ¬p a} = 0
+MeasureTheory.measure_compl.{u_1} {α : Type u_1} {m : MeasurableSpace α} {μ : Measure α} {s : Set α}
+  (h₁ : MeasurableSet s) (h_fin : μ s ≠ ⊤) : μ sᶜ = μ Set.univ - μ s
+MeasureTheory.ae_iff_measure_eq.{u_1} {α : Type u_1} {m0 : MeasurableSpace α} {μ : Measure α} [IsFiniteMeasure μ]
+  {p : α → Prop} (hp : NullMeasurableSet {a | p a} μ) : (∀ᵐ (a : α) ∂μ, p a) ↔ μ {a | p a} = μ Set.univ
+MeasureTheory.prob_compl_eq_zero_iff.{u_1} {α : Type u_1} {m0 : MeasurableSpace α} {μ : Measure α} {s : Set α}
+  [IsProbabilityMeasure μ] (hs : MeasurableSet s) : μ sᶜ = 0 ↔ μ s = 1
+/workspace/scratch/actual-fold-chart-construct/Check.lean:7:7: error(lean.unknownIdentifier): Unknown identifier `measure_compl_null_iff`
+/workspace/scratch/actual-fold-chart-construct/Check.lean:8:7: error(lean.unknownIdentifier): Unknown identifier `ae_iff_measure_eq_one`
+MeasureTheory.ae_iff_measure_eq.{u_1} {α : Type u_1} {m0 : MeasurableSpace α} {μ : Measure α} [IsFiniteMeasure μ]
+  {p : α → Prop} (hp : NullMeasurableSet {a | p a} μ) : (∀ᵐ (a : α) ∂μ, p a) ↔ μ {a | p a} = μ Set.univ
+/workspace/scratch/actual-fold-chart-construct/Check.lean:10:7: error(lean.unknownIdentifier): Unknown identifier `MeasureTheory.measure_eq_one_iff`
+/workspace/scratch/actual-fold-chart-construct/Check.lean:11:7: error(lean.unknownIdentifier): Unknown identifier `MeasureTheory.ae_iff_measure_compl_eq_zero`
+MeasureTheory.measure_mono_null.{u_1, u_3} {α : Type u_1} {F : Type u_3} [FunLike F (Set α) ENNReal]
+  [OuterMeasureClass F α] {μ : F} {s t : Set α} (h : s ⊆ t) (ht : μ t = 0) : μ s = 0

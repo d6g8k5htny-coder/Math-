@@ -1,0 +1,42 @@
+{
+  "contract": "/workspace/scratch/actual-fold-chart-construct/CONTROL_CONTRACT.md",
+  "binding_precode_contract": {
+    "commit": "0d802f10b68254068f23348ca8a63ea225180772",
+    "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_ACTUAL_FOLD_CHART.md"
+  },
+  "positive": {
+    "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/controls-005/receipt.json",
+    "exit_code": 0,
+    "source": {
+      "path": "/workspace/scratch/actual-fold-chart-construct/Controls.lean",
+      "bytes": 6263,
+      "sha256": "121c7a22088de5df53db91344a3bf8d6ec5de0901ea67c5e3da4c18ec352b114"
+    },
+    "object": {
+      "path": "/workspace/scratch/actual-fold-chart-construct/build/Controls.olean",
+      "bytes": 430352,
+      "sha256": "7c7f56e574b9574adf211973657cc0e0b948590d668885043c6088e9c8fc7a1a"
+    },
+    "covers": [
+      "physical polynomial F=6*(x\u00b3/3-x/4)+5/2; k=r=1,b=3, actual endpoint values3 and2",
+      "literal normalized potential equals polynomial1(5/12)",
+      "full NormalizedFoldData plus actual fderiv\u00b2(Vx)=2 for every axial u",
+      "exact sourceGapLaw\u2192rawPinKernel with b=3,k=1 and confluent row5=12",
+      "hL-only actual-law+every-prior-sample common interval endpoint",
+      "omitting6k gives actual axial12, weighted average12 and inequality to2"
+    ]
+  },
+  "negative": {
+    "receipt": "/workspace/scratch/actual-fold-chart-construct/runs/false-control-001/receipt.json",
+    "source": {
+      "path": "/workspace/scratch/actual-fold-chart-construct/FalseMutation.lean",
+      "bytes": 374,
+      "sha256": "93ed44ff372e72a4dbebc6b141cf25802fbbf31cba3a0ab16cc1b247d8db26b3"
+    },
+    "expected_exit_code": 1,
+    "actual_exit_code": 1,
+    "expected_mathematical_goal": "False",
+    "observed_log": "FalseMutation.lean:8:74: error: unsolved goals\n\u22a2 False",
+    "failure_type": "mathematical rejection after rewriting the proved actual counterexample; no API/name errors"
+  }
+}

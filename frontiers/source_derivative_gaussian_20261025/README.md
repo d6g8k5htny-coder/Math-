@@ -1,3 +1,28 @@
+# Actual varying-gap source: normalized chart, pins and axial identity
+
+[SourceAdaptiveFoldChart.lean](SourceAdaptiveFoldChart.lean) derives a literal
+normalized C4 potential from the original smooth carrier, with actual coordinate
+scales, four endpoint gradient pins, gap1/6 and axial Peano average2. One radius
+interval is derived from L!=0 before all birth marks and positive cubic gaps.
+It covers every original posterior sample and almost every sample under the
+actual fixed-axis varying-gap law; no final invertibility/pin premise remains.
+
+Its25 new written proofs passed strict compilation, one named kernel replay,
+exhaustive72-declaration standard-axiom collection and meaningful controls at
+k=1,b=3. Omitting factor6k produces axial average12, with a proved counterexample
+and actual False rejection. Four definitions, one Prop definition bundle and42
+generated declarations are separate. [Evidence](actual-fold-chart-evidence/ACTUAL_FOLD_CHART_EVIDENCE_CATALOG.json)
+retains all failures, timings, source/object bindings and helper lineage.
+Author-side source review found no findings; different-family alignment is pending.
+
+The registry has34 qualified modules/921 written targets=912 propositions+9data
+instances;25 support inputs are unchanged and earlier verification is reused.
+Wider-rectangle source derivative/sign/budget estimates, frame/torus transports
+and full Lean elder/weighted probability/count-density parents remain separate.
+Earlier entries retain their historical exact-source scopes.
+
+---
+
 # Constructed ridge barriers, rectangle boundary and attained older path
 
 [AdaptiveFoldBoundaryPath.lean](AdaptiveFoldBoundaryPath.lean) joins literal C4
