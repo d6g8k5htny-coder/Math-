@@ -1,0 +1,90 @@
+{
+  "schema": "h0-older-clearance-controls/v1",
+  "original_prefrozen_intent": "Original CONTROL_CONTRACT snapshots under strict001-003 predate concrete amendment; do not treat final amended bytes as pre-source frozen.",
+  "final_contract": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/CONTROL_CONTRACT.md",
+    "bytes": 5340,
+    "sha256": "5c6fbfa593e6eaef3dfb7ec16e87e326fd8eba4501b8aefeb2e8b6ed569a8cbc"
+  },
+  "amendment": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/CONTROL_AMENDMENT.json",
+    "bytes": 1094,
+    "sha256": "d0f41510b59816468628b1cc69d7e9776081391f50f6557107f8d342ecb1e71d"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean",
+    "bytes": 6026,
+    "sha256": "53ac143afe0cd63cc1ee0c7fc189691ff9609604ab92870dc15de0b721b89af5"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/build/OlderClearanceControls.olean",
+    "bytes": 224064,
+    "sha256": "e268ba3728b44e7cf14836a95344c01fcd9069e0923790b5c02c27e83cbc6f2b"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/controls-005/receipt.json",
+    "bytes": 2000,
+    "sha256": "43200f09165df1055c47cf72aa42df4664c041f7c2aeff183c349a59e991f7cb"
+  },
+  "positive_exit": 0,
+  "controls": [
+    "F=id,R: explicit Path.segment0to1 in closed level0",
+    "actual ordinaryH0 inclusion sends difference to0",
+    "both ordinary point classes remain nonzero via old augmentation fact",
+    "strict predicate true at-1, false at0",
+    "constant height cut empty; no finite essential bar claim",
+    "actual signed L=-1,b3,k0=k1 symbolic positive r within delta and two retained cutoffs",
+    "existing retained birth/death endpoint signs",
+    "separately passed relaxed actual-map-at0 witness and strict path-start obstruction"
+  ],
+  "sole_mutation": "h<c becomes h<=c in actual H0 map predicate; test ONLY its concrete forward implication at F=id,K=R,M0,h0",
+  "negative_source": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/FalseStrictMarginMutation.lean",
+    "bytes": 546,
+    "sha256": "ebcb559dfeab92ae5d687e9d4dea036191b2e9d4ed4e6143d1735744f2bd1b6a"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/receipt.json",
+    "bytes": 1942,
+    "sha256": "05d7aac5b2671c7efcd48e719f72a5ca2f5a399db6c8a11db2186d3090250056"
+  },
+  "negative_log": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/false-strict-margin-001/output.log",
+    "bytes": 118,
+    "sha256": "5ee874f4a168b51ede9d544e0d3d07f25f5d709930ea2266d4f3e7cfa33d5b44"
+  },
+  "negative_exit": 1,
+  "mutation_attempt_count": 1,
+  "intended_false_goals": 1,
+  "unrelated_negative_diagnostics": 0,
+  "optional_char_two": {
+    "status": "conditional concrete control unavailable through unchanged narrow imports; omitted without adding field library",
+    "observed": "ZMod definition is loaded but no Field(ZMod2) instance syntheses; positive availability attempt retained, no mathematical rejection credit",
+    "attempt": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/receipt.json",
+      "bytes": 2007,
+      "sha256": "3a2b3ec0e126f6babd7a9e8efc5bd52119043c6b7dc541f3ccaad0e042dde6f4"
+    },
+    "source": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/CharTwoControls.lean",
+      "bytes": 793,
+      "sha256": "fef6c57915b35705461b412ff3f7060a91ceb3ca659a81f169f15b119b6a56ed"
+    },
+    "log": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/runs/char-two-controls-001/output.log",
+      "bytes": 588,
+      "sha256": "371a72fcdb98f5cade59a0ccb0b10ff79c0d3dcb4d675b61d6cac6183a19647d"
+    },
+    "counted_as_mutation": false
+  },
+  "failed_setup_or_positive_attempts": {
+    "strict-001": "initial source creation command used packet-relative path from packet cwd; source absent, Lean file-not-found; no mathematics elaborated",
+    "strict-002": "private coefficient contradiction linter, minimum nonempty name, dependent sign normalization and set membership elaboration",
+    "controls-001": "Lean root directory missing for scratch source",
+    "controls-002": "lineMap simp, dependent zero source-time and strict-start linter",
+    "controls-003": "dependent source-time sign mismatch",
+    "controls-004": "same dependent source-time normalization and unused simp arg; fixed only control type syntax to source/target -0, same actual level0"
+  },
+  "unchanged_production_source_for_all_controls": true,
+  "old_controls_replayed": false
+}

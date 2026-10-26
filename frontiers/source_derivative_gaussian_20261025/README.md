@@ -1,3 +1,56 @@
+# Ordinary-H0 interpretation of the strict older-clearance cut
+
+[SourceH0OlderClearance.lean](SourceH0OlderClearance.lean) identifies strict
+clearance to a strictly older point with vanishing of the difference of two
+ordinary singular-H0 point classes under an actual closed-superlevel inclusion
+at a strictly higher level. For any continuous real height on any topological
+carrier and a coefficient field, compactness is used only along the path's unit
+interval. Individual ordinary point classes remain nonzero.
+
+The nonessential literal Euclidean case gives exactly `h < deathHeight`.
+On the same actual signed-period sourceGapLaw sample, the new cut is
+`Iio (b-k*r^3)`, with that exact supremum and the existing ordinary-H0
+interval/complement. One existing radius precedes the coefficient field and
+all marks; the same two numerical cutoffs and absolute levels are retained.
+No ambient compactness, local path connectivity or Morse premise is added.
+
+Three public written propositions append to the registry. One public predicate,
+three private authored helpers (two data definitions and one proof), and five
+generated auxiliaries stay separate in the complete12-constant inventory, with
+no foreign constants. Exact strict003 is reused; meaningful controls005, one
+concrete relaxed-margin/strict-path-start soleFalse, exactly one own-module
+kernel and final source/spec technical review passed. All12 actual invocations
+retain their original merged stdout/stderr `output.log` files in the
+[catalog](h0-older-clearance-evidence/H0_OLDER_CLEARANCE_EVIDENCE_CATALOG.json).
+The optional characteristic-two availability failure receives no mutation credit.
+
+The original control intent survives in strict-run snapshots. Root refined the
+concrete negative route at16:22:41 after production strict success and before
+any negative attempt. Final amended contract bytes are recorded with that
+chronology. Earlier freeze/pending-sourcecut snapshots remain unchanged; the
+later root source-cut record supplies the actual Git binding. The API helper
+supplied a read-only lookup report, with no code integration or execution.
+
+The proposed registry has51 individually qualified modules and1110 public
+written targets (1101 propositions and nine data instances), with32 support
+inputs. Qualified50 was published at `d19d0898`; this proposal binds local
+source cut `30bc49c8`. Root owns apply, the sole new own-object copy and later
+publication/result/release/alignment. Retain the recorded verified old H0/support
+scratch import route; packet-cache existence alone supplies no identity claim.
+Different-family scientific review and hosted checks remain separate from
+completed mathematics. Scientific effect NONE; provider-distinct credit0.
+No canonical finite-event labels, ElderPartner, IsFiniteBar, once-counting,
+new probability estimate or Parent theorem is claimed.
+
+---
+
+# Historical packaging context: stage50 and earlier
+
+Retained checkpoint text below records earlier scopes and publication state.
+Qualified50 was publishedd19d0898, with native result16:32:27 before its
+unchanged17:00/18:00 schedule. New51 has its own17:15/18:15 schedule.
+Current51 scope and preparation state are stated above.
+
 # Separate endpoint Hessian witnesses in the original coefficients
 
 [SourceEndpointHessianWitness.lean](SourceEndpointHessianWitness.lean) constructs

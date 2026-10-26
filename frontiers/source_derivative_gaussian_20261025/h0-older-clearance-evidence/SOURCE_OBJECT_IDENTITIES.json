@@ -1,0 +1,36 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+    "bytes": 5856,
+    "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a"
+  },
+  "olean": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+    "bytes": 328568,
+    "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/strict-003/receipt.json",
+    "bytes": 1634,
+    "sha256": "3ae56ad2aad36b43e015438a7ef9b77ad0fd00c01d0ca702203f6911db5a664e"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/kernel-001/receipt.json",
+    "bytes": 1791,
+    "sha256": "32e7cc39af937ef6cbe33910e507ed91bebdd943815c582611e16d74c0423fad"
+  },
+  "inventory_receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/receipt.json",
+    "bytes": 1906,
+    "sha256": "b42e36b2927857d9834802b4ac2c71c22bf38f1b74da5afcaba84ce412e9b406"
+  },
+  "source_frozen_sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a",
+  "strict_reused_after_freeze": true,
+  "new_ilean_generated": false,
+  "own_module_kernel_invocations": 1,
+  "production_eligible": [
+    "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean"
+  ],
+  "ineligible": "Every helper/control/mutation object, including OlderClearanceControls.olean; root alone owns cache copy.",
+  "root_source_cut": "PENDING root serial endpoint50 then H0 registration51; no recompile required for metadata/Git cut"
+}

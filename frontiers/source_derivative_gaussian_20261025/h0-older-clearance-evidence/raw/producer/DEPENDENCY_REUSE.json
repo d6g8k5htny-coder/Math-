@@ -1,0 +1,193 @@
+{
+  "schema": "h0-older-clearance-dependency-reuse/v1",
+  "recorded_utc": "2026-10-26T16:27:02.990983+00:00",
+  "owner_rule": "Completed applicable verification is reusable evidence; unchanged source/dependencies are not rechecked due to new agent/session/handoff or separate process work.",
+  "old_payloads_recompiled": false,
+  "old_kernel_audit_controls_replayed": false,
+  "old_payloads_rehashed": false,
+  "retained_identity_manifest": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/SOURCE_OBJECT_IDENTITIES.json",
+    "bytes": 6232,
+    "sha256": "57a42e4c56d4434ee76b47c215347ee4f21656de4c76cf4e5a3a3f83f6383ffb"
+  },
+  "retained_support_artifact_manifest": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/ARTIFACTS.json",
+    "bytes": 4265,
+    "sha256": "72b5392c8c069e432403e6158c5474eb16af9da2369c0a90a1b209b7e9db4c38"
+  },
+  "retained_support_bindings": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/BINDINGS.json",
+    "bytes": 6296,
+    "sha256": "6d13b3a1d1c15cc534322f6ff2acc7d1123ce14838c6b71088b0663f1774aae9"
+  },
+  "consumed_old_modules": [
+    {
+      "module": "SourceActualFoldH0",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldH0.lean",
+        "bytes": 7131,
+        "sha256": "7d54c2cc08751365cc71949016fcbdd64872e5fbc4f67baea1fdd526a4e86cfd"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.olean",
+        "bytes": 734776,
+        "sha256": "79718f2001a30ab73ad891eeff66aababf27da2a7433058ab40bc1eeb827989c"
+      },
+      "strict_receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/strict-001/receipt.json",
+        "bytes": 1630,
+        "sha256": "a9c4fb36144a600df3fe02c4224e201b2ae901d645819d32641e06fd796225c0"
+      },
+      "kernel_receipt": {
+        "path": "/workspace/scratch/actual-fold-h0-construct/runs/kernel-001/receipt.json",
+        "bytes": 1705,
+        "sha256": "d2b1c625a454a2b9a4cc8264147f92032e06a1712c2b067620711533ada48c23"
+      },
+      "retained_published_source_cut": "0fb66d72af5ea71479d998f4a7857e1fd252b912",
+      "status": "applicable completed qualification reused"
+    },
+    {
+      "module": "ClosedSuperlevel",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ClosedSuperlevel.lean",
+        "bytes": 8243,
+        "sha256": "51cb46da0f1aae823fd91ec5e93c6edcd694d72f0a40d7a83686fee66c8ffffa"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ClosedSuperlevel.olean",
+        "bytes": 230536,
+        "sha256": "4372038c7f75ad1bc904c2b7e9d0fa4c9b8d27525a33fec3bdcc9c7ad8030ca3"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ClosedSuperlevel-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "OrdinaryH0",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/OrdinaryH0.lean",
+        "bytes": 19851,
+        "sha256": "3e91484d8b8499bee94c652a13dbab957712a180d4644e5ea5915082a79836f5"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/OrdinaryH0.olean",
+        "bytes": 326840,
+        "sha256": "5689b0ae7e306ec40997b054d120f296143b3f1815452c334439193be032eeb6"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/OrdinaryH0-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "ElderInterval",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderInterval.lean",
+        "bytes": 16140,
+        "sha256": "69daa2e2a6afbdedde20d0c3b1ecdb52e2626da8ad49138b9db388b41ee71491"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.olean",
+        "bytes": 834784,
+        "sha256": "ecc7adf81aa5dbe4ef4ad7175c1806a630c3a5be64bc5f74bb8895908bc7004e"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderInterval-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "ElderBridge",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder/ElderBridge.lean",
+        "bytes": 3683,
+        "sha256": "6b0be1116f6b357b0ffbda202c572c27c2788b98bee639e228375a5ebeea1fa9"
+      },
+      "olean": {
+        "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderBridge.olean",
+        "bytes": 109200,
+        "sha256": "1f3ff6ebeafb97181d28cf33b98626a01c95bff6ca24b4ba0aa42eb790874c52"
+      },
+      "strict_receipt_path": "/workspace/scratch/actual-h0-support-inputs/runs/ElderBridge-strict-001/receipt.json",
+      "status": "applicable old-body narrow-import qualified support reused"
+    },
+    {
+      "module": "SourceActualFoldTorus",
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldTorus.lean",
+        "bytes": 17840,
+        "sha256": "d2ca01d1f881852372c371215c30216bee7d917fdf2eaafbbd097f8c840e20c6"
+      },
+      "olean": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFoldTorus.olean",
+        "bytes": 733480,
+        "sha256": "9dd9d93e12ddb685ece1348b0699045b7e57b362cb48eaa54ac4373ddb9fd6e9"
+      },
+      "source_cut": "33a305a35312eca7fbfd04a4ed4f5269db69b97c",
+      "retained_evidence": "/workspace/scratch/actual-fold-torus-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "status": "applicable actual torus qualification reused"
+    }
+  ],
+  "safe_existence_observations": [
+    {
+      "path": "/workspace/scratch/actual-fold-h0-construct/build/SourceActualFoldH0.olean",
+      "exists": true,
+      "bytes_from_stat": 734776
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/build/ClosedSuperlevel.olean",
+      "exists": true,
+      "bytes_from_stat": 230536
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/build/OrdinaryH0.olean",
+      "exists": true,
+      "bytes_from_stat": 326840
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderInterval.olean",
+      "exists": true,
+      "bytes_from_stat": 834784
+    },
+    {
+      "path": "/workspace/scratch/actual-h0-support-inputs/build/ElderBridge.olean",
+      "exists": true,
+      "bytes_from_stat": 109200
+    },
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFoldTorus.olean",
+      "exists": true,
+      "bytes_from_stat": 733480
+    }
+  ],
+  "packet_cache_existence_only": [
+    {
+      "module": "SourceActualFoldH0",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFoldH0.olean",
+      "exists": true
+    },
+    {
+      "module": "ClosedSuperlevel",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ClosedSuperlevel.olean",
+      "exists": true
+    },
+    {
+      "module": "OrdinaryH0",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/OrdinaryH0.olean",
+      "exists": true
+    },
+    {
+      "module": "ElderInterval",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ElderInterval.olean",
+      "exists": true
+    },
+    {
+      "module": "ElderBridge",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/ElderBridge.olean",
+      "exists": true
+    },
+    {
+      "module": "SourceActualFoldTorus",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualFoldTorus.olean",
+      "exists": true
+    }
+  ],
+  "exact_successful_import_route": "LEAN_PATH=/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH (lake env baseline supplies packet/mathlib caches)",
+  "production_cache_guidance": "New object was compiled and checked with frozen qualified scratch H0/support objects prepended; retain this route or let root copy only already eligible exact named dependency objects using their retained qualification evidence. Existence of packet cache objects alone is not an identity/freshness claim. Do not rebuild old modules for new publication or process labels.",
+  "qualified_upstream_packet": "374c1a8d087a147e60fee3be1452c345f138c98f qualified49 including1105/32 and48: reused per frozen precode; no new claim of replay"
+}

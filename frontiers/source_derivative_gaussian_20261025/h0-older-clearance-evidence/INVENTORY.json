@@ -1,0 +1,145 @@
+{
+  "schema": "h0-older-clearance-actual-module-inventory/v1",
+  "module": "SourceH0OlderClearance",
+  "method": "actual environment constants filtered by exact target module index, including private/generated/foreign names",
+  "receipt": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/receipt.json",
+    "bytes": 1906,
+    "sha256": "b42e36b2927857d9834802b4ac2c71c22bf38f1b74da5afcaba84ce412e9b406"
+  },
+  "full_log": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/inventory-001/output.log",
+    "bytes": 2460,
+    "sha256": "5f49315cdb06347cab76342098207ed2438fd281fcd3dd898f5cd6413094c8ba"
+  },
+  "declarations": [
+    {
+      "name": "I4SourceH0OlderClearance.sourceGapLaw_h0OlderClearance_uniform",
+      "kind": "theorem",
+      "classification": "public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance._proof_2",
+      "kind": "theorem",
+      "classification": "generated proof auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceH0OlderClearance.0.I4SourceH0OlderClearance.olderBirthPoint",
+      "kind": "definition",
+      "classification": "private typed helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance_iff_strictClearance",
+      "kind": "theorem",
+      "classification": "public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance._proof_3",
+      "kind": "theorem",
+      "classification": "generated proof auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance_realCover_iff_lt_death",
+      "kind": "theorem",
+      "classification": "public proposition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance._proof_1",
+      "kind": "theorem",
+      "classification": "generated proof auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceH0OlderClearance.0.I4SourceH0OlderClearance.coefficient_identity_ne_zero",
+      "kind": "theorem",
+      "classification": "private typed helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceH0OlderClearance.0.I4SourceH0OlderClearance.birthPoint._proof_1",
+      "kind": "theorem",
+      "classification": "generated proof auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceH0OlderClearance.h0OlderClearance",
+      "kind": "definition",
+      "classification": "public predicate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceH0OlderClearance.0.I4SourceH0OlderClearance.birthPoint",
+      "kind": "definition",
+      "classification": "private typed helper",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceH0OlderClearance.0.I4SourceH0OlderClearance.olderBirthPoint._proof_1",
+      "kind": "theorem",
+      "classification": "generated proof auxiliary",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "total": 12,
+  "public_authored": 4,
+  "public_propositions": 3,
+  "public_predicates": 1,
+  "private_authored_helpers": 3,
+  "generated_proof_auxiliaries": 5,
+  "foreign_namespace_declarations": 0,
+  "forbidden_axioms": []
+}

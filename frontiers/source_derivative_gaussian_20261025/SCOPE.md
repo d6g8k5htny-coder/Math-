@@ -1,3 +1,58 @@
+# Proposed qualified scope:51 modules,1110 public targets,32 inputs
+
+The new public `h0OlderClearance` predicate is the actual ordinary singular-H0
+difference-map condition at closed birth time `-F M` and closed target time
+`-c`, with a strictly older point and strict margin `h<c<=F M`. The definition
+is total. Three public propositions identify it with strict clearance for a
+continuous height on any topological carrier; identify its cut as h<deathHeight
+on the old literal nonessential Euclidean carrier; and give the actual uniform
+sourceGapLaw cut/supremum and same retained interval/complement.
+
+A compact minimum is taken only along the parameter interval of the actual
+path. There is no ambient compactness, local path connectivity, smoothness or
+Morse premise. The signed original source period, same law/sample/torus, absolute
+b-k*r^3 and both numerical cutoffs stay unchanged. Radius precedes the field
+and all marks; a.e. remains inside each fixed target. Ordinary individual point
+classes do not die: it is their difference that vanishes when components join.
+The nonessential premise is retained in the literal real-cover theorem.
+
+The actual-module inventory contains12 constants:3public proofs,1public
+predicate,2private data helpers,1private proof and5generated auxiliaries,
+foreign0. Retained strict003, complete standard-three/subset inventory,
+controls005, one concrete weak-at0/strict-start soleFalse and one ownkernel001
+passed; final same-family source/spec review has no material finding. All12
+invocations preserve original full merged output.log; no split streams exist.
+Optional char2 field-instance availability failed under unchanged narrow imports
+and is retained without mathematical rejection credit or a second mutation.
+
+The original pre-source control intent is preserved in strict001-003 snapshots.
+The concrete negative route was amended16:22:41 by root directive after source
+strict success and before firstnegative. Final amended bytes are not called
+pre-source frozen. Earlier FROZEN_SOURCE negativepending/kernel0 and producer
+pendingrootcut fields remain historical snapshots; final receipts/HANDOFF and
+laterROOT_SOURCE_CUT bind actualcompletion and sourcecut30bc49c8.
+
+Qualified50registry/d19d0898 and old applicableH0/C263/torus/sourceinterval
+mathematics are reused. Preserve the complete dependency-reuse record and exact
+verified old scratch H0/support route; no oldhash/rebuild or cache-existence
+identity inference. Root copies only the new ownolean once. The read-only API
+lookupreport entails no codeintegration or helpercampaign. Root owns shared
+metadata/cache/Git/publication. Scientific effectNONE; provider-distinctcredit0.
+
+No canonical finite-event labels, ElderPartner, IsFiniteBar, once-counting,
+new quotient path lift, new probability estimate, globalMorse or Parent A/B
+conclusion follows. Current-source hostedCI, combined51build, scientific
+acceptance, Ready and merge remain separate from this package.
+
+---
+
+# Historical packaging context: stage50 and earlier
+
+Retained text below records earlier checkpoint scopes/publication state.
+Qualified50publicationd19d0898/native16:32:27 preceded unchanged17:00/18:00.
+New51nativepickup6421001331 actually16:13:44 has17:15/18:15 times; the rounded
+precode label correction61d26da changed no scope/claim/timer/evidence.
+
 # Proposed qualified scope:50 modules,1107 public targets,32 inputs
 
 The new endpoint algebraic leaf defines only `endpointHessianCoefficient`,

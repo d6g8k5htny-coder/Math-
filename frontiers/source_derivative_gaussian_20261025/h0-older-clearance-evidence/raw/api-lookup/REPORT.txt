@@ -1,0 +1,153 @@
+Bounded read-only API lookup: strict path to closed-level clearance
+Date: 2026-10-26
+Requester: /root/h0_older_clearance_construct; parent: /root
+
+Scope and evidence handling
+Read /workspace/AGENTS.md. Completed applicable mathematical verification is reused;
+this lookup did not compile, check, probe declaration names, hash, replay proofs, or
+alter repository/cache/Git/external state. Only this scratch report is written.
+Provider-distinct review remains a process requirement separate from mathematical
+verification. This helper claims no mathematical verification, technical credit,
+science credit, source freeze, metadata ownership, or publication authority.
+Native H0 pickup 6421001331, precode 61d26da, metadata-corrected 03de context retained.
+
+Source roots
+Project APIs:
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder
+Cached Mathlib source root:
+/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib/Mathlib
+
+1. Compact unit interval and an attained minimum
+
+Mathlib/Topology/Order/Compact.lean:228:
+theorem IsCompact.exists_isMinOn [ClosedIicTopology α] {s : Set β}
+    (hs : IsCompact s) (ne_s : s.Nonempty) {f : β → α}
+    (hf : ContinuousOn f s) : ∃ x ∈ s, IsMinOn f s x
+Ambient parameters: {α β : Type*} [LinearOrder α]
+  [TopologicalSpace α] [TopologicalSpace β].
+
+Mathlib/Order/Filter/Extr.lean:127:
+theorem isMinOn_iff : IsMinOn f s a ↔ ∀ x ∈ s, f a ≤ f x
+This is Iff.rfl, so the minimum witness hmin can also be applied directly to x and hx.
+
+For gamma : Path M y and hF : Continuous F, the exact continuity API is
+  hF.comp gamma.continuous : Continuous (F ∘ gamma).
+Apply its .continuousOn to s = Set.univ on domain unitInterval.
+Use (isCompact_univ : IsCompact (Set.univ : Set unitInterval)) and
+  Set.univ_nonempty
+for compactness and nonemptiness. If tmin realizes the minimum, choose c = F (gamma tmin).
+A strict path inequality h < F (gamma t) gives h < c at tmin.
+The minimum inequality at (0 : unitInterval) gives c <= F M using gamma.source.
+
+Mathlib/Topology/Path.lean:92,98,102 exact path APIs:
+protected theorem Path.continuous : Continuous gamma
+@[simp] protected theorem Path.source : gamma 0 = M
+@[simp] protected theorem Path.target : gamma 1 = y
+
+Mathlib/Topology/UnitInterval.lean:34:
+abbrev unitInterval : Set Real := Set.Icc 0 1
+The notation I is enabled by open unitInterval / open scoped unitInterval.
+The CompactSpace instance exists (UnitInterval.lean:167-168 records an infer_instance example).
+An explicit robust import for the extreme value theorem is
+  import Mathlib.Topology.Order.Compact
+
+2. Direct strict-clearance API (avoids manual minimum bookkeeping)
+
+Mathlib/Topology/Order/Compact.lean:236 exact declaration:
+theorem IsCompact.exists_forall_le' [ClosedIicTopology α] [NoMaxOrder α]
+    {f : β → α} {s : Set β} (hs : IsCompact s)
+    (hf : ContinuousOn f s) {a : α} (hf' : ∀ b ∈ s, a < f b) :
+    ∃ a', a < a' ∧ ∀ b ∈ s, a' ≤ f b
+
+Specialize alpha=Real, beta=unitInterval, f=F o gamma, s=Set.univ, a=h.
+It returns c, hc : h < c, and hbound : forall t in Set.univ, c <= F (gamma t).
+The lower-bound theorem itself is proved from exists_isMinOn for nonempty s.
+At t=0, (hbound 0 (Set.mem_univ _)) simplifies by gamma.source to c <= F M.
+All path points lie in {x | c <= F x}, with the original gamma as witness.
+
+3. JoinedIn ambient witnesses and subtype conversion
+
+Mathlib/Topology/Connected/PathConnected.lean:175 exact definition:
+def JoinedIn (F : Set X) (x y : X) : Prop :=
+  ∃ γ : Path x y, ∀ t, γ t ∈ F
+
+Thus `obtain <gamma, hgamma> := hjoined` directly gives the ambient path and its
+pointwise membership proof. No subtype path conversion is needed when changing
+the ambient allowed set from a strict level to a closed level.
+
+The exact selection and conversion APIs are:
+  def JoinedIn.somePath (h : JoinedIn F x y) : Path x y
+  theorem JoinedIn.somePath_mem (h : JoinedIn F x y) (t : I) : h.somePath t ∈ F
+  theorem JoinedIn.source_mem (h : JoinedIn F x y) : x ∈ F
+  theorem JoinedIn.target_mem (h : JoinedIn F x y) : y ∈ F
+  theorem JoinedIn.joined_subtype (h : JoinedIn F x y) :
+    Joined (⟨x, h.source_mem⟩ : F) (⟨y, h.target_mem⟩ : F)
+  theorem joinedIn_iff_joined (x_in : x ∈ F) (y_in : y ∈ F) :
+    JoinedIn F x y ↔ Joined (⟨x, x_in⟩ : F) (⟨y, y_in⟩ : F)
+  def Joined.somePath (h : Joined x y) : Path x y
+  theorem JoinedIn.mono {U V : Set X} (h : JoinedIn U x y) (hUV : U ⊆ V) :
+    JoinedIn V x y
+
+Mathlib/Topology/Path.lean:345:
+def Path.map (gamma : Path x y) {f : X → Y} (h : Continuous f) :
+  Path (f x) (f y)
+Subtype path -> ambient path: gamma.map continuous_subtype_val.
+Ambient path with pointwise level membership -> JoinedIn closed level:
+the constructor is simply the original gamma together with that membership.
+Then joinedIn_iff_joined handles any prescribed endpoint membership proofs.
+
+4. Exact project H0 bridge (OrdinaryH0.lean)
+
+Namespace TorusFiltration, variables C with
+  [Category C] [HasCoproducts C] [Preadditive C] [CategoryWithHomology C].
+
+theorem ordinaryH0_filtration_difference_zero_iff_joinedIn
+    {X : Type w} [TopologicalSpace X] (g : X → ℝ) (R : C)
+    (hR : (𝟙 R : R ⟶ R) ≠ 0) {s t : ℝ} (hst : s ≤ t)
+    (x y : superlevel_set g s) :
+    (ordinaryH0_pointClass (TopCat.of (superlevel_set g s)) R x -
+        ordinaryH0_pointClass (TopCat.of (superlevel_set g s)) R y) ≫
+        (superlevel_h0Filtration g R).map (homOfLE hst) = 0 ↔
+      JoinedIn (superlevel_set g t) x.val y.val
+
+ClosedSuperlevel.lean exact endpoint/sign APIs:
+  def superlevel_set (g : X → ℝ) (t : ℝ) : Set X := {x | -t ≤ g x}
+  theorem superlevel_neg_height (g : X → ℝ) (h : ℝ) :
+    superlevel_set g (-h) = {x | h ≤ g x}
+  theorem superlevel_mem_at_own_height (g : X → ℝ) (x : X) :
+    x ∈ superlevel_set g (-g x)
+  theorem superlevel_component_eq_iff_joinedIn (g : X → ℝ) (t : ℝ)
+      (x y : superlevel_set g t) :
+    ZerothHomotopy.mk x = ZerothHomotopy.mk y ↔
+      JoinedIn (superlevel_set g t) x.val y.val
+
+Hence clearance c <= F M supplies the parameter direction -F M <= -c.
+For the H0 theorem with source at s=-F M and target at t=-c, the target JoinedIn
+is precisely the same ambient path with c <= F (gamma t), using superlevel_neg_height
+or simp [superlevel_set]. The theorem already consumes JoinedIn directly.
+
+5. Field coefficient nonzero identity: exact supporting facts
+
+Mathlib/Algebra/Category/ModuleCat/Basic.lean:131,135,318:
+  @[simp] lemma ModuleCat.hom_id {M : ModuleCat R} :
+    (𝟙 M : M ⟶ M).hom = LinearMap.id
+  lemma ModuleCat.id_apply (M : ModuleCat R) (x : M) :
+    (𝟙 M : M ⟶ M) x = x
+  @[simp] lemma ModuleCat.hom_zero {M N : ModuleCat R} :
+    (0 : M ⟶ N).hom = 0
+
+For a Field K and R=ModuleCat.of K K, evaluate an assumed identity=zero at
+(1 : K), via congrArg (fun f => f.hom (1 : K)); simp of these exact lemmas,
+LinearMap.id_apply, LinearMap.zero_apply yields (1 : K)=0, contradicting one_ne_zero.
+No named ModuleCat id_ne_zero lemma was found in the bounded relevant search;
+the elementary evaluation route uses only the exact source APIs above.
+
+Alternative exact general facts (Basic.lean:361-373):
+  theorem ModuleCat.subsingleton_of_isZero (h : IsZero M) : Subsingleton M
+  lemma ModuleCat.isZero_iff_subsingleton : IsZero M ↔ Subsingleton M
+  @[simp] lemma ModuleCat.isZero_of_iff_subsingleton {M : Type*}
+      [AddCommGroup M] [Module R M] :
+    IsZero (ModuleCat.of R M) ↔ Subsingleton M
+Together with CategoryTheory.Limits.IsZero.iff_id_eq_zero this also proves nonzero identity.
+
+All hints are source-inspected; none is claimed newly elaborated or compiled.

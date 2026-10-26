@@ -1,0 +1,44 @@
+{
+  "label": "controls-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/h0-older-clearance-construct/build:/workspace/scratch/actual-fold-h0-construct/build:/workspace/scratch/actual-h0-support-inputs/build:$LEAN_PATH exec lean -DwarningAsError=true -o /workspace/scratch/h0-older-clearance-construct/build/OlderClearanceControls.olean /workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean"
+  ],
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a"
+    },
+    "object": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+      "bytes": 328568,
+      "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6"
+    }
+  },
+  "started_utc": "2026-10-26T16:21:18.770523+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 0.597062349319458,
+  "ended_utc": "2026-10-26T16:21:19.367606+00:00",
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceH0OlderClearance.lean",
+      "bytes": 5856,
+      "sha256": "6e42bb33d81e0a76fc0abb409b4f4811b7e91fe07d1398300e2e9792f29e794a"
+    },
+    "object": {
+      "path": "/workspace/scratch/h0-older-clearance-construct/build/SourceH0OlderClearance.olean",
+      "bytes": 328568,
+      "sha256": "b6c0b7cf8ede4445e9a6a3304bd67187558fc296f474180d2d82972f229e1ec6"
+    }
+  },
+  "log": {
+    "path": "/workspace/scratch/h0-older-clearance-construct/runs/controls-001/output.log",
+    "bytes": 209,
+    "sha256": "a2b07c48af24131b3bfb620cf9c3fc2bcdb7c5b24a71dd7d85b93a84a5612451"
+  }
+}

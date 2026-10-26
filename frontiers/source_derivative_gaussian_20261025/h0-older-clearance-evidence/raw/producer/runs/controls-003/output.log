@@ -1,0 +1,24 @@
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:54:2: error: Type mismatch: After simplification, term
+  identity_difference_zero
+ has type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointZero -
+        ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointOne) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+but is expected to have type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id (-0))) (↧ℝ) (I4SourceH0OlderClearance.birthPoint✝ id 0) -
+        ordinaryH0_pointClass (↧↑(superlevel_set id (-0))) (↧ℝ) (I4SourceH0OlderClearance.olderBirthPoint✝ id 0 1 ⋯)) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+/workspace/scratch/h0-older-clearance-construct/OlderClearanceControls.lean:89:2: error: Type mismatch: After simplification, term
+  identity_difference_zero
+ has type
+  (ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointZero -
+        ordinaryH0_pointClass (↧↑(superlevel_set id 0)) (↧ℝ) pointOne) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
+but is expected to have type
+  (ordinaryH0_pointClass ↧↑(superlevel_set id (-0)) ↧ℝ ⟨0, ⋯⟩ -
+        ordinaryH0_pointClass ↧↑(superlevel_set id (-0)) ↧ℝ ⟨1, ⋯⟩) ≫
+      (superlevel_h0Filtration id ↧ℝ).map (homOfLE ⋯) =
+    0
