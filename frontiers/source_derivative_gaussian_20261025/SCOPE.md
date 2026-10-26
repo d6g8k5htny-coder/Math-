@@ -1,3 +1,34 @@
+# Current qualified scope: 46 modules, 1089 public targets, 32 inputs
+
+The new finite pin-kernel leaf derives residual coefficient Gram positivity from
+explicit finite pin-kernel and original-observation right-inverse pairings. The
+correction matrix is arbitrary; the coefficient index needs no countability or
+finiteness assumption, and empty pin/observation row sizes are allowed. The
+original accepted Gram positivity theorem is reused.
+
+Finite shifts preserve the literal original SmoothSample carrier for all real
+periods, give the exact raw pin response for nonzero periods, and commute with
+the existing posterior map at every target and arbitrary radius. The radius-zero
+case is deterministic commutation under the existing total inverse; it does not
+assert arbitrary target-fiber support or valid conditioning in degenerate cases.
+
+Only six public written propositions append to the 1083 prior targets. Three
+public definitions, three private proofs and three generated proofs are separate
+in the complete 15-constant inventory. Retained exact-source strict-Werror,
+exhaustive standard-three coverage, fourteen controls, one sole-False mutation,
+one own-module kernel and source/spec review PASS qualify this new scope. The
+later formal freeze label required no identical-source freshness compile.
+
+Actual remote trigonometric witnesses/rank, Gaussian free-coordinate independence,
+endpoint density/determinant nullity, Sard/equal-value incidence, conditional global
+Morse, canonical elder selection, intrinsic finite-event H0 labeling, IsFiniteBar,
+frames/translations, Campbell/Kac–Rice count density and Parent A/B Lean remain
+separate. Future finite-trigonometric work is outside this package extension.
+All completed applicable mathematics is reused. Provider-distinct process and
+hosted current-source checks remain separate. Scientific effect NONE.
+
+---
+
 # Current qualified scope: 45 modules, 1083 public targets, 32 inputs
 
 The new actual Lifetime candidate leaf proves a genuine `IsCandidatePair` in

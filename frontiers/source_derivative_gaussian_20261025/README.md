@@ -1,3 +1,35 @@
+# Finite witnesses for residual Gram positivity and exact posterior shifts
+
+[SourceFinitePinKernel.lean](SourceFinitePinKernel.lean) proves two finite
+deterministic results. Explicit directions killed by the pin observations and
+paired to the identity by the remaining observations force positive definiteness
+of the residual coefficient Gram, for any correction matrix. Finite pin-kernel
+shifts also commute exactly with the existing every-target raw posterior on the
+original sample carrier, including radius zero under its total-inverse convention.
+The shift preserves the carrier for every real period; posterior commutation
+requires a nonzero period and the displayed pin-kernel pairings.
+
+The finite witness hypotheses remain explicit. This leaf constructs no actual
+remote jet witnesses, conditional rank, Gaussian independence or global Morse
+theorem. Six public written proofs enter the registry; three definitions, three
+private proof helpers and three generated constants stay inventory-only. All 15
+constants have retained exhaustive standard-three transitive axiom coverage.
+
+The existing exact-source development-002 strict-Werror success is reused.
+Fourteen controls, one counterexample-backed sole-False mutation, exactly one
+own-module kernel and the read-only exact-source/spec review passed. The
+[catalog](finite-pin-kernel-evidence/FINITE_PIN_KERNEL_EVIDENCE_CATALOG.json)
+preserves all eight invocations, complete streams and earlier failures. No
+timestamp-freshness or ilean compile was needed.
+
+Registry: 46 individually qualified modules and 1089 public written targets
+(1080 propositions and nine data instances), with 32 support inputs. Completed
+compact probability, actual Lifetime candidate and actual torus-H0 evidence is
+retained. Provider-distinct process and hosted current-source checks remain
+separate; no combined 46-module hosted build is claimed. Scientific effect NONE.
+
+---
+
 # Actual Lifetime candidate, exact gap and distance, and attained death
 
 [SourceActualFoldCandidate.lean](SourceActualFoldCandidate.lean) proves that the

@@ -1,0 +1,50 @@
+{
+  "kind": "inventory",
+  "run": "inventory-001",
+  "start": "2026-10-26T11:12:35.762013+00:00",
+  "end": "2026-10-26T11:12:39.748690+00:00",
+  "seconds": 3.9866940759966383,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/finite-pin-kernel-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/finite-pin-kernel-construct /workspace/scratch/finite-pin-kernel-construct/Inventory.lean -o /workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/Inventory.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+      "bytes": 6893,
+      "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "bytes": 227840,
+      "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+      "bytes": 6893,
+      "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "bytes": 227840,
+      "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stdout.log",
+    "bytes": 2785,
+    "sha256": "138f9bf292d2c0d81e883fbf707f1ae2dba9fcb7cedcdfe2995e0e67b186b9f0"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/inventory-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

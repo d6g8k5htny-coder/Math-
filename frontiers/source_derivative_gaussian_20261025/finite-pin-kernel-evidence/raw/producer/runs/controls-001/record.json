@@ -1,0 +1,50 @@
+{
+  "kind": "controls",
+  "run": "controls-001",
+  "start": "2026-10-26T11:12:26.939075+00:00",
+  "end": "2026-10-26T11:12:29.875621+00:00",
+  "seconds": 2.9365589070002898,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/finite-pin-kernel-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/finite-pin-kernel-construct /workspace/scratch/finite-pin-kernel-construct/Controls.lean -o /workspace/scratch/finite-pin-kernel-construct/runs/controls-001/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+      "bytes": 6893,
+      "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "bytes": 227840,
+      "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+      "bytes": 6893,
+      "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "bytes": 227840,
+      "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stdout.log",
+    "bytes": 1145,
+    "sha256": "a53827c2ded72f255579905f82c985dfe6f420c1ee9ba718c75c6b83ecf7af27"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/finite-pin-kernel-construct/runs/controls-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

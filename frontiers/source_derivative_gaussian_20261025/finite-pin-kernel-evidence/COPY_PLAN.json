@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "execution_owner": "root",
+  "executed_by_packaging_agent": false,
+  "source_cut": "27184289e3bf49853b3e6fe3fa4f5b5bd4445af1",
+  "source_path": "frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+  "source_sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1",
+  "copies": [
+    {
+      "source": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+      "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceFinitePinKernel.olean",
+      "bytes": 227840,
+      "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+    }
+  ],
+  "no_ilean_produced": true,
+  "guidance": "Root creates the destination parent if needed and copies only this named frozen production olean. Reuse producer object identity and sole-kernel receipt. Do not run Lean or leanchecker again, compile for ilean/freshness, or copy control/inventory/mutation/prior-attempt objects.",
+  "scientific_effect": "NONE"
+}

@@ -1,0 +1,193 @@
+{
+  "module": "SourceFinitePinKernel",
+  "actual_module_index_coverage": true,
+  "constant_count": 15,
+  "counts": {
+    "written_public_def": 3,
+    "generated_theorem": 3,
+    "written_public_theorem": 6,
+    "written_private_theorem": 3
+  },
+  "public_written_propositions": [
+    "I4SourceFinitePinKernel.residualCoefficient_summable",
+    "I4SourceFinitePinKernel.coefficientGram_posDef_of_finite_kernel_rightInverse",
+    "I4SourceFinitePinKernel.finitePairing_residualCoefficient",
+    "I4SourceFinitePinKernel.finiteShiftSample_val",
+    "I4SourceFinitePinKernel.rawPins_finiteShiftSample",
+    "I4SourceFinitePinKernel.rawPosteriorSample_finiteShiftSample"
+  ],
+  "public_definitions": [
+    "I4SourceFinitePinKernel.finiteShiftSample",
+    "I4SourceFinitePinKernel.residualCoefficient",
+    "I4SourceFinitePinKernel.finitePairing"
+  ],
+  "private_written_proofs": [
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_hasSum",
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.rawPinCoefficient_weighted_summable",
+    "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_rowCombination"
+  ],
+  "generated_constants": [
+    "I4SourceFinitePinKernel.finiteShiftSample._proof_1",
+    "I4SourceFinitePinKernel.residualCoefficient.eq_1",
+    "I4SourceFinitePinKernel.finitePairing.eq_1"
+  ],
+  "prop_bundles": [],
+  "rows": [
+    {
+      "name": "I4SourceFinitePinKernel.finiteShiftSample",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.finiteShiftSample._proof_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.residualCoefficient_summable",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.residualCoefficient.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.residualCoefficient",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.coefficientGram_posDef_of_finite_kernel_rightInverse",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_hasSum",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.finitePairing_residualCoefficient",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.finiteShiftSample_val",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.finitePairing",
+      "kernel_kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.rawPinCoefficient_weighted_summable",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.finitePairing.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.rawPins_finiteShiftSample",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceFinitePinKernel.0.I4SourceFinitePinKernel.finitePairing_rowCombination",
+      "kernel_kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "I4SourceFinitePinKernel.rawPosteriorSample_finiteShiftSample",
+      "kernel_kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "note": "All actual-module constants, including private/generated/imported-namespace constants if any, enumerated; only six written public propositions count as new targets."
+}
