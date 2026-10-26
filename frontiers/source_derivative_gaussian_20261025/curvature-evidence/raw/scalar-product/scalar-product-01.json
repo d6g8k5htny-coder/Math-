@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/ScalarProductCurvatureBound.olean",
+    "ScalarProductCurvatureBound.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source_sha256_before": "ff17c44d453f79ed70026151670b4fa6ffbdd29d7bf05890a9dc653e9a73b851",
+  "source_sha256_after": "ff17c44d453f79ed70026151670b4fa6ffbdd29d7bf05890a9dc653e9a73b851",
+  "log_sha256": "1041554e1c6c56726d4260056aadf91bfdad8f000817a15ffd667fc1a0309368"
+}
