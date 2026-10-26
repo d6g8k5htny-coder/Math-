@@ -1,0 +1,8 @@
+{
+  "baseArtifact": "RUNNER_BASE_RECONSTRUCTED.py",
+  "baseArtifactStatus": "Recovered by exact inverse of the single recorded guard insertion; not represented as a contemporaneous execution artifact.",
+  "change": "Sole mutation guard added after controls008 PASS and before the only factor-six001 invocation. No actual subprocess command/output behavior changed.",
+  "completePatch": "RUNNER_SOLE_GUARD.diff",
+  "actualCommandCustody": "Every actual command/start/end/exit/full streams/source+harness snapshot is in runs/*/record.json and RAW_LEDGER.jsonl.",
+  "noReconstructedVerificationStreams": true
+}

@@ -1,0 +1,33 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:296:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?r‖
+in the target expression
+  |w t * derivativeCoefficient 2 L k (p + (r * t) • e) u m * sampleInclusion 2 L ω m| ≤
+    derivativeMajorant 2 L k u m * |sampleInclusion 2 L ω m|
+
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample 2 L
+k : ℕ
+p e : Fin 2 → ℝ
+r : ℝ
+u : Fin k → Fin 2 → ℝ
+w : ℝ → ℝ
+hw : Continuous w
+hw1 : ∀ t ∈ Ioc (-1 / 2) (1 / 2), |w t| ≤ 1
+g : SourceMode 2 → ℝ → ℝ := fun m t => w t * derivativeCoefficient 2 L k (p + (r * t) • e) u m * sampleInclusion 2 L ω m
+C : SourceMode 2 → ℝ := fun m => derivativeMajorant 2 L k u m * |sampleInclusion 2 L ω m|
+hC : Summable C
+hg : ∀ (m : SourceMode 2), Continuous (g m)
+m : SourceMode 2
+t : ℝ
+ht : t ∈ Ioc (-1 / 2) (1 / 2)
+hd : |derivativeCoefficient 2 L k (p + (r * t) • e) u m| ≤ derivativeMajorant 2 L k u m
+⊢ |w t * derivativeCoefficient 2 L k (p + (r * t) • e) u m * sampleInclusion 2 L ω m| ≤
+    derivativeMajorant 2 L k u m * |sampleInclusion 2 L ω m|
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:317:4: error: Type mismatch
+  Eq.symm tsum_mul_left
+has type
+  ?m.829 * ∑'[?m.824] (x : ?m.822), ?m.828 x = ∑'[?m.824] (x : ?m.822), ?m.829 * ?m.828 x
+but is expected to have type
+  ∑' (m : SourceMode 2), w t * (derivativeCoefficient 2 L k (p + (r * t) • e) u m * sampleInclusion 2 L ω m) =
+    w t * ∑' (m : SourceMode 2), derivativeCoefficient 2 L k (p + (r * t) • e) u m * sampleInclusion 2 L ω m

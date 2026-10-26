@@ -1,0 +1,33 @@
+{
+  "kind": "develop",
+  "run": "develop-002",
+  "start": "2026-10-26T20:17:54.027457+00:00",
+  "end": "2026-10-26T20:17:58.246751+00:00",
+  "seconds": 4.2193407519953325,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "-o",
+    "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-002/SourceFramedConfluentCovariance.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "bytes": 10863,
+    "sha256": "a04118940a65cce1ec27f7ff91cd88980c21165997724d2d26ffd4b9005d0477"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-002/stdout.log",
+    "bytes": 2162,
+    "sha256": "fed6d7a9646faa2d83d280d94aff60e9be12d5af2354b7a2f0e37d10e4142315"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-002/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

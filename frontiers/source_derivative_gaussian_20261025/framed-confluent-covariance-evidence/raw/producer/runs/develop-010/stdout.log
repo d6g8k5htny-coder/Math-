@@ -1,0 +1,31 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1331:40: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [peanoRows, Matrix.cons_val_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1332:4: error: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [peanoRows, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1407:8: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1466:4: error: Type mismatch: After simplification, term
+  hrd
+ has type
+  r < d
+but is expected to have type
+  0 < d ∧ r < d
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:1645:4: error: Type mismatch: After simplification, term
+  hi
+ has type
+  @Eq ℝ (∑ x_1, G i.castSucc x_1.castSucc * x x_1 + G i.castSucc 6) 0
+but is expected to have type
+  @Eq ℝ (∑ j, G i.castSucc j.castSucc * x j + G i.castSucc (Fin.last 6)) 0

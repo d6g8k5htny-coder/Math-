@@ -1,0 +1,10 @@
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:365:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (iteratedFDeriv ℝ 3 (eval 2 sineCube ∘ ⇑↑(coordinates 2)) 0) ![std 0, std 0, std 0]
+in the target expression
+  (iteratedFDeriv ℝ 3 (fun z => eval 2 sineCube ((coordinates 2) z)) 0) ![std 0, std 0, std 0] = 1
+
+h :
+  (iteratedFDeriv ℝ 3 (eval 2 sineCube ∘ ⇑↑(coordinates 2)) 0) ![std 0, std 0, std 0] =
+    ((iteratedFDeriv ℝ 3 (eval 2 sineCube) (↑(coordinates 2) 0)).compContinuousLinearMap fun x => ↑(coordinates 2))
+      ![std 0, std 0, std 0]
+⊢ (iteratedFDeriv ℝ 3 (fun z => eval 2 sineCube ((coordinates 2) z)) 0) ![std 0, std 0, std 0] = 1

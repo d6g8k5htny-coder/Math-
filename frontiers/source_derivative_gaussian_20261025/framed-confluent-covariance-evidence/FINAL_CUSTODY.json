@@ -1,0 +1,33 @@
+{
+  "producerEvidenceFrozenUTC": "2026-10-26T21:18:32.287247+00:00",
+  "sourceIdentityReused": "FROZEN.json",
+  "strictReuse": "runs/develop-013/record.json",
+  "allActualRuns": 24,
+  "sourceCutAndRootObjectApplyRecordsAreSeparate": "/workspace/scratch/framed-confluent-covariance-publication/ROOT_SOURCE_CUT.json and ROOT_OWN_OBJECT_COPY.json supplied by root; existing pending-cut producer history retained.",
+  "rootReportedSourceCut": "6c69a0fb3015f24ac2e289438bf686a1d183e99b",
+  "rootReportedOwnObjectCopiedOnce": true,
+  "producerObjectCopiesToProduction": 0,
+  "rootFurtherOwnObjectCopies": "SKIP",
+  "allProofsComplete": true,
+  "noFurtherLeanRequired": true,
+  "keyStablePayloads": [
+    "REPORT.md",
+    "HANDOFF.json",
+    "FROZEN.json",
+    "INVENTORY_CLASSIFICATION.json",
+    "EXECUTION_RECORD_INDEX.json",
+    "OBJECT_MANIFEST.json",
+    "CONTROL_COVERAGE.json",
+    "DEPENDENCY_REUSE.json",
+    "HELPER_INTEGRATION.json",
+    "HELPER_AMENDMENTS_FINAL.json",
+    "SOURCE_POLICY_AUDIT.json",
+    "RAW_LEDGER.jsonl",
+    "Controls.lean",
+    "FactorSixMutation.lean"
+  ],
+  "binariesExcludedFromArchiveAndGit": true,
+  "reportSourceCutPendingLabelPreserved": true,
+  "sameFamilyCredit": 0,
+  "scientificEffect": "NONE"
+}

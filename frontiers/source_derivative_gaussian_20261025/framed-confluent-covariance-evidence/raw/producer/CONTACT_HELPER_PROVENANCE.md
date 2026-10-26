@@ -1,0 +1,17 @@
+# Contact7 helper provenance — complete text-only freeze
+
+Author: OpenAI/Codex `/root/actual_canonical_partner_preflight`, delegated by root under stage58 ROOT_GO/nativepickup6426117613. Own only this directory. Target lexical context: producer's `HELPER_SHARED_CONTEXT.corrected.lean.txt`, supplied identity5635bytes/SHA2561b1f87de27699b4fe56d59d7057316b88ec50279663d72a344af8095cfb01e6d; that supplied identity was read, not recomputed. Exact interface was read and ACKed before drafting.
+
+This complete helper provides only private finite original-source contact7 interpolation. It uses ordinary mixed XY, the Delta^3 symmetric-Hessian block/Delta^4 full lower-block determinant ledger (and Delta^4=1 from the actual coordinate orthonormality equations), an explicit inverse of the lower six rows for both physical frame orientations, independently rebuilt public finite-trig representations of the six public local germs, and a normalized axis sine-cube with zero lower jets and cubic directional derivative1. Actual pairings use the accepted public `toSource_eval`/`toSource_derivative`. Finsupp linearity combines the six actual finite germ directions; the cubic correction then fixes row5 independently.
+
+The producer owns all physical-coordinate/Peano joins, Gaussian/Gram results, continuity/compactness/floors, controls and qualification. No producer data is redeclared. Every declaration in SECTION is private in the production namespace. The section opens and closes the canonical namespace and should be integrated after a closed producer namespace or without nesting that namespace twice. IMPORTS lists additional or already-present narrow imports; it is a list of module names, not a helper object import.
+
+Read inputs: root's GO/control adoption/publicspec/complete preflight and review, producer corrected lexical context, and the accepted public finiteTrig constructors/evaluation/toSource APIs, `SourceRemoteJetWitness.jet2/localGerm/localGerm_jet2/jet2_mul`, existing coordinate/orthonormal/iterated derivative and standard Mathlib calculus APIs. Static source ranges incidentally displayed neighboring private declarations, but no foreign private name/body is called or copied as an implementation dependency. The helper's finite jet scaling/coordinate/Finsupp adapters are newly written. No old private germ polynomial or row-pairing API is assumed.
+
+ZERO mathematical execution: no Lean/probes/namechecks/build/tests/kernel/audit, no old hashes, Git/cache/external or source-packet edits. Source57/helper was not inspected. No helper compilation/object/target/execution credit is claimed. This is uncompiled complete source text frozen for ONE producer integration. The permitted first custody hash of these NEW previously unrecorded helper files, if recorded in FROZEN_HELPER.json, is not a mathematical check or an old hash replay. Any production strict/inventory/kernel/control amendments belong to the actual final module and must be retained by the producer; completed unchanged upstream verification is reused under `/workspace/AGENTS.md`.
+
+Scientific effect NONE. Same-family/provider-distinct credit0. Canonical authority carried; delivery is not reading:
+
+- https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md
+- https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md
+- https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md

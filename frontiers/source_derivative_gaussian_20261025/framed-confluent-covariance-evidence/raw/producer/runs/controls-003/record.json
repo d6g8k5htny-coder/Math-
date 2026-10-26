@@ -1,0 +1,31 @@
+{
+  "kind": "controls",
+  "run": "controls-003",
+  "start": "2026-10-26T21:07:34.659931+00:00",
+  "end": "2026-10-26T21:07:43.490504+00:00",
+  "seconds": 8.830599346008967,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/framed-confluent-covariance-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/framed-confluent-covariance-construct /workspace/scratch/framed-confluent-covariance-construct/Controls.lean -o /workspace/scratch/framed-confluent-covariance-construct/runs/controls-003/Controls.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "bytes": 89801,
+    "sha256": "0912fa1101b1ea17c9e2dd1d083fdd1cc50a3891585aaf0622b69f7415824b36"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/controls-003/stdout.log",
+    "bytes": 227,
+    "sha256": "58914924cafd94c36fdc860430ab68cc80623f6875006bd2a5d303ea55845b88"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/controls-003/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

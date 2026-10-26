@@ -1,3 +1,51 @@
+# Proposed qualified scope:58 modules,1128 public targets,32 inputs
+
+[SourceFramedConfluentCovariance.lean](SourceFramedConfluentCovariance.lean)
+constructs the actual seven original-source Peano coefficient rows and literal
+same-sample vector. It derives joint Gaussianity, the exact covariance Gram,
+physical-row joins, contact order and the retained cubic factor6. Signed
+nonzero periods, all real radii, physical midpoints and literal orthonormal
+frames in both orientations are retained. The explicit8*Fin4 envelope gives
+every-order weightedell7/all-real-radius bounds. An internally constructed
+finite original-source contact right inverse gives compact-uniform G7/G6
+positivity/invertibility and the same-gamma Schur floor, with no supplied
+rank/floor/inverse certificate.
+
+Exactly three propositions append to the registry; three data definitions
+stay inventory-only. All153 actual constants are classified, including the
+owned foreign-generated `I4SourceRemoteJetWitness.localGerm.eq_1`; standard3
+axioms only. Strict013, inventory001, exactly one own kernel, Controls008,
+the sole118B factor-six False and the new-scope policy audit are reused.
+All24 actual calls,48 full original split streams/170794B, source/harness
+snapshots and every failure remain preserved. Three original text helpers
+were each integrated once into production with zero standalone executions.
+Peano's body is unchanged with only its lexical wrapper/trailing newline;
+contact/compact have complete actual producer body amendments retained.
+
+Root personally read full final source, Controls, all153 classifications and
+final producer/reviewer reports. Root read bounded failure diagnostics/index;
+the independent reviewer personally read all24 original split streams and
+original helper bodies/provenance/full amendments. No root-all-raw reading is
+claimed. Historical pending-cut and provisional review bytes remain verbatim;
+actual root cut/copy/finalreading/GO are separate records.
+
+This proposed registry is58modules/1128written=1119Prop+9data/32inputs,
+against actual published57 `7649724f5331f9cc02262ce2b1697e0b36af6aeb`.
+Root alone applies/publishes. All five installed bindings are SKIP; the only
+eligible own object was already copied once. All further object copies are
+SKIP, including Controls/inventory/old dependencies and ilean refreshes.
+No posterior/conditional law, physical event/probability, all-frame finiteness,
+Morse/Rice/global elder/Parent, coordinate isometry or orientation-invariant
+covariance follows. Scientific effect NONE; provider-distinct credit0. Pending
+process requirements remain separate from completed applicable mathematics.
+
+---
+
+# Historical packaging context: published stage57 and earlier
+
+Earlier checkpoints and timers are preserved below. Current58 scope and
+reading limits are given above.
+
 # Proposed qualified scope:57 modules,1125 public targets,32 inputs
 
 [SourceRawPinFreeCoordinates.lean](SourceRawPinFreeCoordinates.lean) uses a

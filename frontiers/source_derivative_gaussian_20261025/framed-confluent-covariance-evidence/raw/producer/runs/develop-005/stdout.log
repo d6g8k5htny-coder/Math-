@@ -1,0 +1,64 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:336:23: error: unsolved goals
+a b η : SourceMode 2 → ℝ
+ha : Summable fun m => a m * η m
+hb : Summable fun m => b m * η m
+hs :
+  HasSum (fun i => (a i * η i + b i * η i) / 2)
+    ((∑' (b : SourceMode 2), a b * η b + ∑' (b_1 : SourceMode 2), b b_1 * η b_1) / 2)
+m : Finset (SourceMode 2)
+⊢ ∑ x ∈ m, (a x * η x * (1 / 2) + η x * b x * (1 / 2)) = ∑ x ∈ m, (a x * η x * (1 / 2) + b x * η x * (1 / 2))
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:362:4: error: Type mismatch: After simplification, term
+  Eq.symm (smoothSourceField_derivative_series 2 hL ω 0 q fun i => i.elim0)
+ has type
+  @Eq ℝ (scalarSeries (derivativeCoefficient 2 L 0 q fun i => i.elim0) (sampleInclusion 2 L ω))
+    (smoothSourceField 2 L ω q)
+but is expected to have type
+  @Eq ℝ (scalarSeries (fun m => modeCoefficient 2 L m q) (sampleInclusion 2 L ω)) (smoothSourceField 2 L ω q)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:370:4: error: Type mismatch: After simplification, term
+  Eq.symm (smoothSourceField_derivative_series 2 hL ω 1 q fun x => v)
+ has type
+  scalarSeries (derivativeCoefficient 2 L 1 q fun x => v) (sampleInclusion 2 L ω) =
+    (fderiv ℝ (smoothSourceField 2 L ω) q) v
+but is expected to have type
+  scalarSeries (fun m => (fderiv ℝ (modeCoefficient 2 L m) q) v) (sampleInclusion 2 L ω) =
+    (fderiv ℝ (smoothSourceField 2 L ω) q) v
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:388:4: error: Type mismatch: After simplification, term
+  derivative_peano_series hL ω 2 p e r ![e, e] (fun x => 1) continuous_const fun x x_1 =>
+    Mathlib.Meta.NormNum.isNat_le_true
+      (Mathlib.Meta.NormNum.isNat_abs_nonneg (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl true)
+ has type
+  @Eq ℝ
+    (scalarSeries
+      (fun m => ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p + (r * t) • e)) ![e, e])
+      (sampleInclusion 2 L ω))
+    (∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (p + (r * t) • e)) ![e, e])
+but is expected to have type
+  @Eq ℝ
+    (scalarSeries
+      (fun m => ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p + (r * t) • e)) ![e, e])
+      (sampleInclusion 2 L ω))
+    (peanoRows (smoothSourceField 2 L ω) p e n r ⟨3, ⋯⟩)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean:392:4: error: Type mismatch: After simplification, term
+  derivative_peano_series hL ω 2 p e r ![e, n] (fun x => 1) continuous_const fun x x_1 =>
+    Mathlib.Meta.NormNum.isNat_le_true
+      (Mathlib.Meta.NormNum.isNat_abs_nonneg (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+      (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one) (Eq.refl true)
+ has type
+  @Eq ℝ
+    (scalarSeries
+      (fun m => ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p + (r * t) • e)) ![e, n])
+      (sampleInclusion 2 L ω))
+    (∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) (p + (r * t) • e)) ![e, n])
+but is expected to have type
+  @Eq ℝ
+    (scalarSeries
+      (fun m => ∫ (t : ℝ) in -1 / 2..1 / 2, (iteratedFDeriv ℝ 2 (modeCoefficient 2 L m) (p + (r * t) • e)) ![e, n])
+      (sampleInclusion 2 L ω))
+    (peanoRows (smoothSourceField 2 L ω) p e n r ⟨4, ⋯⟩)

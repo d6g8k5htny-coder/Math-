@@ -1,0 +1,18 @@
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:69:62: error: unsolved goals
+case «0»
+L r : ℝ
+i : Fin 6
+m : SourceMode 2
+⊢ -(r / 2) = -r / 2
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:361:21: error(lean.invalidField): Invalid field `iteratedFDeriv_comp_right`: The environment does not contain `ContinuousLinearEquiv.iteratedFDeriv_comp_right`, so it is not possible to project the field `iteratedFDeriv_comp_right` from an expression
+  coordinates 2
+of type `E 2 ≃L[ℝ] Fin 2 → ℝ`
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:360:31: error: Function expected at
+  T
+but this term has type
+  ?m.41
+
+Note: Expected a function because this term is being applied to the argument
+  ![std 0, std 0, std 0]
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:359:34: error: unsolved goals
+⊢ (iteratedFDeriv ℝ 3 (fun z => eval 2 sineCube ((coordinates 2) z)) 0) ![std 0, std 0, std 0] = 1

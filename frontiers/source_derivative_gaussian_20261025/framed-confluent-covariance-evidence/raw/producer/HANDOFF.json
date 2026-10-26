@@ -1,0 +1,70 @@
+{
+  "status": "MATHEMATICALLY QUALIFIED; producer evidence final; root publication/process separate",
+  "finalizedUTC": "2026-10-26T21:18:32.286374+00:00",
+  "module": "SourceFramedConfluentCovariance",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFramedConfluentCovariance.lean",
+    "bytes": 89801,
+    "sha256": "0912fa1101b1ea17c9e2dd1d083fdd1cc50a3891585aaf0622b69f7415824b36"
+  },
+  "object": {
+    "path": "/workspace/scratch/framed-confluent-covariance-construct/runs/develop-013/SourceFramedConfluentCovariance.olean",
+    "bytes": 4714096,
+    "sha256": "2ce82c553ec5dc13ea75a003a9c64d76c481ce774388be720aec0b7dda43106a"
+  },
+  "strict": "runs/develop-013/record.json",
+  "strictEvidenceReusedAfterFreeze": true,
+  "inventory": "INVENTORY_CLASSIFICATION.json",
+  "actualOwnedConstants": 153,
+  "writtenPublicData": 3,
+  "writtenPublicPropositions": 3,
+  "foreignGenerated": [
+    "I4SourceRemoteJetWitness.localGerm.eq_1"
+  ],
+  "standardAxioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "oneOwnKernel": "runs/kernel-001/record.json",
+  "positiveControls": "runs/controls-008/record.json",
+  "soleMutation": "runs/factor-six-001/record.json",
+  "sourcePolicyAudit": "SOURCE_POLICY_AUDIT.json",
+  "allAttempts": "EXECUTION_RECORD_INDEX.json",
+  "allActualLeanInvocations": 24,
+  "allAttemptsRawLedger": "RAW_LEDGER.jsonl",
+  "objectCustody": "OBJECT_MANIFEST.json",
+  "helperOriginalsAndCompleteOnceIntegration": "HELPER_INTEGRATION.json",
+  "helperFinalCompleteAmendments": "HELPER_AMENDMENTS_FINAL.json",
+  "dependencyReuse": "DEPENDENCY_REUSE.json",
+  "controlCoverageAndCounterexample": "CONTROL_COVERAGE.json",
+  "rootOnly": [
+    "metadata",
+    "configuration",
+    "production cache copy",
+    "registry",
+    "Git",
+    "external publication"
+  ],
+  "rootSourceCut": "PENDING_SEPARATE_ROOT_PROCESS_BINDING; frozen historical FROZEN.json and this handoff will not be rewritten merely for cut labels.",
+  "precode": "f01e0c7e94b5e1f929bfe18fe6bb01e3c44060b1",
+  "nativePickup": "https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6426117613",
+  "nativeBoard": {
+    "commentID": 6426118341,
+    "authority": "ROOT_GO.json board_mirror; no unprovided issue URL asserted"
+  },
+  "checkpointUTC": "2026-10-26T21:30:00Z",
+  "terminalUTC": "2026-10-26T23:45:00Z",
+  "ownerReuseInstruction": "Treat completed applicable verification as reusable evidence. No repeat on unchanged material under same relevant assumptions/dependencies; new agent/session/handoff/freeze/Git/process is not a reason. Pending distinct-family process tracked separately.",
+  "canonicalAuthorityLinks": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "linkDeliveryDoesNotEstablishReading": true,
+  "sameFamilyTechnicalCredit": 0,
+  "scientificEffect": "NONE",
+  "differentActualFamilyScientificAlignment": "Separate process; no inherited54/55/57 review coverage claimed.",
+  "noFurtherLeanNeeded": true,
+  "eligibleOwnObjectRootApplyPlan": "Copy ONLY runs/develop-013/SourceFramedConfluentCovariance.olean once if root chooses registration; no harness/helper/dependency object copy."
+}

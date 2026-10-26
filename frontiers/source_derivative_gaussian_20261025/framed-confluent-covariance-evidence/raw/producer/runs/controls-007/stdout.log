@@ -1,0 +1,24 @@
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:370:20: error: Type mismatch: After simplification, term
+  std0
+ has type
+  (coordinates 2) (std 0) = directionX
+but is expected to have type
+  (coordinates 2) (![std 0, std 0, std 0] ⟨0, ⋯⟩) x✝ = ![directionX, directionX, directionX] ⟨0, ⋯⟩ x✝
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:370:20: error: Type mismatch: After simplification, term
+  std0
+ has type
+  (coordinates 2) (std 0) = directionX
+but is expected to have type
+  (coordinates 2) (![std 0, std 0, std 0] ⟨1, ⋯⟩) x✝ = ![directionX, directionX, directionX] ⟨1, ⋯⟩ x✝
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:370:20: error: Type mismatch: After simplification, term
+  std0
+ has type
+  (coordinates 2) (std 0) = directionX
+but is expected to have type
+  (coordinates 2) (![std 0, std 0, std 0] ⟨2, ⋯⟩) x✝ = ![directionX, directionX, directionX] ⟨2, ⋯⟩ x✝
+/workspace/scratch/framed-confluent-covariance-construct/Controls.lean:371:2: error: Type mismatch: After simplification, term
+  sineCube_third
+ has type
+  (iteratedFDeriv ℝ 3 (eval 2 sineCube) 0) ![directionX, directionX, directionX] = 1
+but is expected to have type
+  ((iteratedFDeriv ℝ 3 (eval 2 sineCube) 0) fun i => ↑(coordinates 2) (![std 0, std 0, std 0] i)) = 1
