@@ -1,0 +1,11 @@
+SourceLifetimePairFiniteness.lean:31:15: error(lean.invalidField): Invalid field `hasFDerivAt`: The environment does not contain `Function.hasFDerivAt`, so it is not possible to project the field `hasFDerivAt` from an expression
+  ContDiff.differentiable (smoothSourceField_contDiff 2 (LT.lt.ne' hL) ω 1) ?m.42
+of type
+  ∀ (x : Fin 2 → ℝ), DifferentiableAt ℝ (smoothSourceField 2 L ω) x
+SourceLifetimePairFiniteness.lean:29:74: error: unsolved goals
+L : ℝ
+hL : 0 < L
+ω : SmoothSample 2 L
+x : E 2
+hx : IsCriticalPoint 2 (actualField 2 L ω) x
+⊢ coordinateGradient (smoothSourceField 2 L ω) ((coordinates 2) x) = 0

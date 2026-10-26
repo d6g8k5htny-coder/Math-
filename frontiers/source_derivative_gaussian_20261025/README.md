@@ -1,3 +1,31 @@
+# Actual Lifetime finite pair populations and compact-mark capture
+
+The new [Lifetime bridge](SourceLifetimePairFiniteness.lean) proves almost-sure
+finiteness of literal candidate, window, elder-window and finite-bar pair sets
+from the completed actual critical-cube theorem. Its nine proofs passed new-only
+compile, named kernel, axiom and control checks. The two necessary Lifetime
+support inputs preserve their mathematical bodies; one replaces only the full
+Mathlib umbrella import. [Exact scope and evidence](lifetime-pair-evidence/LIFETIME_PAIR_SCOPE.md).
+
+The formal registry now contains 29 qualified default modules /850 declarations:
+841 propositions and nine structural/data instances. There are25 support inputs.
+The128-report new input/application audit is separately classified; copied old
+geometry proofs are not appended again as new research theorems.
+
+The [compact-mark capture addendum](compact-mark-capture-event/PROOF.md) and
+[affine-target numerator addendum](compact-mark-rice-numerator/PROOF.md) derive
+a true jointly Borel noncapture Rice bound over all midpoints, directions,
+birth heights and a fixed positive compact cubic-gap interval. The original
+law is unchanged. The actual small-distance noncapture pair mass is at most
+C a5, with the correct r4 position/height parameter Jacobian.
+
+An active separate application now addresses actual elder death through a
+transverse ridge, an older arm and the boundary cut. These capture results
+alone do not prove that elder statement. Completed same-law qualitative
+GAD/finite-L density and once-counting mathematics remains reused.
+
+---
+
 # Height-integrated Rice application and reused parent mathematics
 
 The [new analytic application](height-rice-application/PROOF.md) supplies one

@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness"]
 
 [[require]]
 name = "mathlib"
@@ -10,7 +10,7 @@ rev = "d13f23b723b8a846827a245b89c10fc7d3f11612"
 [[lean_lib]]
 name = "SourceDerivativeInputs"
 srcDir = "inputs"
-roots = ["GaussianSeriesFoundation", "SpectralWeights", "SourceFourierSeries", "SourceC4", "SourceGaussianLaw", "SourceLattice", "SourceKernel", "SourceCovariance", "SourceTorus", "SourceTorusC4", "SourceSmooth", "SourceSmoothCarrier", "ResearchFormalCoreR1.DeterminantMoment", "ResearchFormalCoreR1.GaussianScalarMoments", "ResearchFormalCoreR1.GaussianJetMoments", "ResearchFormalCoreR1.GaussianNormalizer", "ResearchFormalCoreR1.EndpointGaussianMoments", "ResearchFormalCoreR1.NormalizerFloor", "ResearchFormalCoreR1.EndpointNormalizerBridge", "ResearchFormalCoreR1.GaussianCoupling", "ResearchFormalCoreR1.GaussianNormalizerLimit", "ResearchFormalCoreR1.PalmReweighting", "ResearchFormalCoreR1.GaussianRegressionKernel"]
+roots = ["GaussianSeriesFoundation", "SpectralWeights", "SourceFourierSeries", "SourceC4", "SourceGaussianLaw", "SourceLattice", "SourceKernel", "SourceCovariance", "SourceTorus", "SourceTorusC4", "SourceSmooth", "SourceSmoothCarrier", "ResearchFormalCoreR1.DeterminantMoment", "ResearchFormalCoreR1.GaussianScalarMoments", "ResearchFormalCoreR1.GaussianJetMoments", "ResearchFormalCoreR1.GaussianNormalizer", "ResearchFormalCoreR1.EndpointGaussianMoments", "ResearchFormalCoreR1.NormalizerFloor", "ResearchFormalCoreR1.EndpointNormalizerBridge", "ResearchFormalCoreR1.GaussianCoupling", "ResearchFormalCoreR1.GaussianNormalizerLimit", "ResearchFormalCoreR1.PalmReweighting", "ResearchFormalCoreR1.GaussianRegressionKernel", "Lifetime", "SourceLifetimeGeometry"]
 
 [[lean_lib]]
 name = "SourceDerivativeGaussian"
@@ -95,3 +95,6 @@ name = "SourceMorseIncidence"
 
 [[lean_lib]]
 name = "SourceSmoothParameterSpace"
+
+[[lean_lib]]
+name = "SourceLifetimePairFiniteness"

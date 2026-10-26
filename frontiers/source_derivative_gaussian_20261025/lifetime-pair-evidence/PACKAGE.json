@@ -1,0 +1,200 @@
+{
+  "role": "Evidence custody for completed actual-source Lifetime pair-finiteness qualification; metadata only, no qualification rerun.",
+  "files": [
+    {
+      "path": "LIFETIME_IMPORT_ONLY.patch",
+      "bytes": 723,
+      "sha256": "ca4c874909509a3e9a257b0e1b61e53bedb09f2e5ee1ad0e59dbf201988f828d"
+    },
+    {
+      "path": "LIFETIME_PAIR_EVIDENCE_CATALOG.json",
+      "bytes": 19451,
+      "sha256": "75cb735720ab07d60a247680936e668c3513a55e49f1102e4b001204b5e269bc"
+    },
+    {
+      "path": "LIFETIME_PAIR_PUBLIC_INVENTORY.json",
+      "bytes": 7152,
+      "sha256": "fde77dc78d2b7fef6870e2c826921eace19c2beedc462ff46d29e2a4746d1b22"
+    },
+    {
+      "path": "LIFETIME_PAIR_SCOPE.md",
+      "bytes": 9163,
+      "sha256": "68106d0e0b0b5dc5221d8e230d21bc2f6a73801978b82811cd726ad6a428e9a3"
+    },
+    {
+      "path": "PUBLIC_PROOF_NAMES_APPEND.json",
+      "bytes": 1229,
+      "sha256": "19f1f2753821876e6be4fb95824609e27c3b94aa118cfd222f7ba737d9208346"
+    },
+    {
+      "path": "PUBLIC_PROOF_NAMES_APPEND.txt",
+      "bytes": 628,
+      "sha256": "08d2ec10390a9baab62937d5041b7f1191f91a83193a0d40169121e398b2d85a"
+    },
+    {
+      "path": "raw-production/AxiomAudit-01.json",
+      "bytes": 3682,
+      "sha256": "02c47f2e09c04b9ab145795cd4652712d13a3244e5f14c9e72fadf9484107671"
+    },
+    {
+      "path": "raw-production/AxiomAudit-01.log",
+      "bytes": 26833,
+      "sha256": "5febd1e09836bdc0990603984fc9728a8302cd71c30d1eb8a158e1fddfe45d46"
+    },
+    {
+      "path": "raw-production/AxiomAudit.lean",
+      "bytes": 1790,
+      "sha256": "d52609596d7f2a095e5da7a82e7a39d43e8a9acfad8d9dd229c5cf79c45b4959"
+    },
+    {
+      "path": "raw-production/Controls-01.log",
+      "bytes": 618,
+      "sha256": "35cbde8f8a83ae9f282e82f0d2a283346c3c62111fc3dd0bc423ca170a0d5e0e"
+    },
+    {
+      "path": "raw-production/Controls-02.json",
+      "bytes": 3674,
+      "sha256": "d4aba1c4472b7c0b3231b3ae84f40bc8585bb10a1a259c5e75b443fb0eccaa1d"
+    },
+    {
+      "path": "raw-production/Controls-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/Controls.failed01.lean",
+      "bytes": 2566,
+      "sha256": "dcf9217423e525fbbab0beca5f232e4652f6982a21cdaffaee45d8acd5344561"
+    },
+    {
+      "path": "raw-production/Controls.lean",
+      "bytes": 2545,
+      "sha256": "dde846571474043c9e8b3714a637596130c38838fbce3c58b5982211dbcfd665"
+    },
+    {
+      "path": "raw-production/Lifetime-compile-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/Lifetime-import-only.patch",
+      "bytes": 723,
+      "sha256": "ca4c874909509a3e9a257b0e1b61e53bedb09f2e5ee1ad0e59dbf201988f828d"
+    },
+    {
+      "path": "raw-production/Lifetime.lean.frozen",
+      "bytes": 51743,
+      "sha256": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e"
+    },
+    {
+      "path": "raw-production/RejectedEverySample-01.json",
+      "bytes": 3698,
+      "sha256": "0b6342b71c902567179e92221ecf9cff5e471f923ddd1130a454d4cab7d39ef1"
+    },
+    {
+      "path": "raw-production/RejectedEverySample-01.log",
+      "bytes": 389,
+      "sha256": "6c009350065298886d693fd17a310f9b0774895c120bbe2558bc2f0813218dcc"
+    },
+    {
+      "path": "raw-production/RejectedEverySample.lean",
+      "bytes": 504,
+      "sha256": "3db2e28921256cd302c7254956cf3c567ecc74ccbfc736061183054b9e21c9c4"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality-01.json",
+      "bytes": 3712,
+      "sha256": "9ff8e6ec70c589ea14cabeeefa084cea98187c570ecb4a84b5c803c7fa70e1bf"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality-01.log",
+      "bytes": 273,
+      "sha256": "418204ce06c13caaaa7f4289978cee1ea4c0e76da0bdd63795d53a7d04aff286"
+    },
+    {
+      "path": "raw-production/RejectedWithoutCriticality.lean",
+      "bytes": 586,
+      "sha256": "f850bb566328949063c3b416a74129c585135bf0b552714c4d686a4e44fac131"
+    },
+    {
+      "path": "raw-production/SourceLifetimeGeometry-compile-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimeGeometry.lean.frozen",
+      "bytes": 4588,
+      "sha256": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-01.log",
+      "bytes": 629,
+      "sha256": "0773be0ec3cb75819bea4dc2b50446617331414f54d08b96abaad2ced35932ad"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-02.log",
+      "bytes": 267,
+      "sha256": "4d218447c789c27b9ee52308ff626c678989ba5348b75e2e7b3467a428f68792"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-compile-03.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-kernel.json",
+      "bytes": 3647,
+      "sha256": "8b0a45d8cbcd63841dc0b6d614f3fcaacfe372ec255ca2b0378d404e4bc507bb"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness-kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.failed01.lean",
+      "bytes": 6075,
+      "sha256": "99851c1f0bad7bc58761e8e190045c1b55e5553a78a25ba45d0d27d179811177"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.failed02.lean",
+      "bytes": 6093,
+      "sha256": "0b0c7402f3bf0a85a3f9ccdc272bf2f436bc0d40bb86c8d94bbfc1fa00554ca2"
+    },
+    {
+      "path": "raw-production/SourceLifetimePairFiniteness.lean.frozen",
+      "bytes": 6073,
+      "sha256": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081"
+    },
+    {
+      "path": "raw-production/before.json",
+      "bytes": 1362,
+      "sha256": "1e9664d304689a366ac1e3addea4def858cfce310312802c6b5baa00a6a2fe21"
+    },
+    {
+      "path": "raw-production/initial-command-history.json",
+      "bytes": 5518,
+      "sha256": "91bb9b91c6c7b8ee35fbe2ab7c6d2ec3918d248661b3e68758a729f2334586ce"
+    },
+    {
+      "path": "raw-production/package_evidence.py",
+      "bytes": 11749,
+      "sha256": "9e93619ae76140cfd5ec9a57c5ddccbb8298ee1b015cc2ea6728e13a66dd25fb"
+    },
+    {
+      "path": "raw-production/provenance.json",
+      "bytes": 2361,
+      "sha256": "df18512120d3cdcea56b60dc3677e575079dacf29f82faf8ef9439111d74ea7d"
+    },
+    {
+      "path": "raw-production/public-source-inventory.json",
+      "bytes": 7152,
+      "sha256": "fde77dc78d2b7fef6870e2c826921eace19c2beedc462ff46d29e2a4746d1b22"
+    },
+    {
+      "path": "raw-production/run_recorded.py",
+      "bytes": 1306,
+      "sha256": "eb8ac0f8e09b495bd7e5d89045c91d0c921fb28eb7e28d2e1ef113c06689f776"
+    }
+  ]
+}

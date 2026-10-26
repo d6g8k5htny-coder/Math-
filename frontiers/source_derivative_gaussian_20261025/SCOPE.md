@@ -1,3 +1,19 @@
+# Current formal scope:29 modules /850 registry declarations /25 inputs
+
+The new9-proof Lifetime adapter atc039243e449fcab837127ff2bc0b12edb1dc05e9
+transports actual criticality through the C291 spatial equivalence and derives
+finite literal pair populations, on one common full-measure event. It adds no
+finiteness premise, density/integrability conclusion or elder correctness claim.
+Input-only import adaptation and exact geometry copy are separately recorded.
+The total is841 propositions+9data instances; old geometry proofs are not counted twice.
+
+Two new conventional compact-mark addenda at636fcfa6bd2fa503872971e0ead2d1c3d8a4744d
+supply the actual all-parameter capture/event/Rice join and local pair massCa5.
+New scoped scientific reviews remain separate; no old checks are repeated.
+The older-arm/elder parent application is an explicit further task.
+
+---
+
 # New height/all-frame analytic result
 
 `height-rice-application/PROOF.md` at8d64490df8620b749ba2f224da535eeb6016c2d0
