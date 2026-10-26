@@ -6,8 +6,8 @@
   "qualification_role": "Four individually author-qualified new modules only; unchanged18 modules and23 exact inputs reused. No combined build or new baseline verification.",
   "worktree": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
   "source_contract_commit": "8236e1d",
-  "integration_cut": null,
-  "integration_cut_note": "Parent owns production manifest/library registration and future public source/evidence cut. Local source status is not itself a published review cut.",
+  "integration_cut": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+  "integration_cut_note": "All four final source files are present at this exact commit; subsequent changes register metadata only. Per-module identities retain their actual receipts; no source re-execution.",
   "membership": {
     "scope_id": "SOURCE_CURVATURE_FOUR_NEW_MODULES_20261026",
     "modules": [
@@ -80,8 +80,8 @@
       "frozen_source_copy": "sources/SourcePinCurvatureBounds.lean",
       "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
       "line_count": 915,
-      "source_commit": null,
-      "source_commit_note": "Root owns the future integration cut; do not attribute current frozen bytes to an earlier partial source commit.",
+      "source_commit": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+      "source_commit_note": "Exact common frozen four-module source cut; code unchanged in metadata publication.",
       "public_inventory_count": 71,
       "kind_counts": {
         "theorem": 60,
@@ -1197,8 +1197,8 @@
       "frozen_source_copy": "sources/ScalarProductCurvatureBound.lean",
       "source_sha256": "fb77c9a4eaf165a39c6c06535fbb3f3f164bca12ddbc2f29b01a33e512564b71",
       "line_count": 153,
-      "source_commit": null,
-      "source_commit_note": "Root owns the future integration cut; do not attribute current frozen bytes to an earlier partial source commit.",
+      "source_commit": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+      "source_commit_note": "Exact common frozen four-module source cut; code unchanged in metadata publication.",
       "public_inventory_count": 3,
       "kind_counts": {
         "theorem": 3
@@ -1279,8 +1279,8 @@
       "frozen_source_copy": "sources/SourceCurvatureDecomposition.lean",
       "source_sha256": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
       "line_count": 1352,
-      "source_commit": null,
-      "source_commit_note": "Root owns the future integration cut; do not attribute current frozen bytes to an earlier partial source commit.",
+      "source_commit": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+      "source_commit_note": "Exact common frozen four-module source cut; code unchanged in metadata publication.",
       "public_inventory_count": 112,
       "kind_counts": {
         "def": 21,
@@ -3012,8 +3012,8 @@
       "frozen_source_copy": "sources/SourceWeightedCurvatureBound.lean",
       "source_sha256": "9926f650c8fb9baf13261ba7ea1d01bd7a5cfb95c7175163888c42a62934a3f9",
       "line_count": 383,
-      "source_commit": null,
-      "source_commit_note": "Root owns the future integration cut; do not attribute current frozen bytes to an earlier partial source commit.",
+      "source_commit": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+      "source_commit_note": "Exact common frozen four-module source cut; code unchanged in metadata publication.",
       "public_inventory_count": 18,
       "kind_counts": {
         "def": 4,

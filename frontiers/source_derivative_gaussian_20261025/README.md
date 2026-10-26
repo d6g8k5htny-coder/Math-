@@ -1,3 +1,30 @@
+# Actual weighted cubic curvature bound
+
+The qualified22-module source chain now derives, from only `L != 0`, fixed
+height `b`, `K >= 0` and `eps > 0`, one sufficiently small-radius interval with
+
+    P_weighted({eps < r R^5} union {Q >= -K r R^5}) <= C r^3.
+
+`I4SourceWeightedCurvature.sourceWeightedCurvature_bound` is the final theorem;
+its symmetric curvature-slab corollary has the same order. The law, all-residual
+independence/product representation, variance floor, arbitrary-mean density,
+physical determinant bound, moments and normalizer are derived in the actual
+source chain. See [the new scope](curvature-evidence/CURVATURE_SCOPE.md) and
+[source-bound evidence](curvature-evidence/CURVATURE_EVIDENCE_CATALOG.json).
+
+The combined inventory has463proof/instance declarations:292unchanged prerequisites
+and171new. Every new proof/instance has a direct standard-axiom report; baseline
+coverage and completed checks are reused. Each new named kernel replay and controls
+passed. No combined hosted build or scientific-status change is asserted.
+The active pin-preserving quartic successor remains outside this qualified group.
+The original research goal continues through the actual comparison and measurable
+capture, geometric Palm and remaining parent joins.
+
+The earlier18-module package description below is retained as a scoped prerequisite
+record; its counts and exclusions describe that earlier group.
+
+---
+
 # Actual whole-source Gaussian conditioning, weighting and derivative tails
 
 The four-module extension proves the actual whole-carrier conditional kernel, literal normalized physical-Hessian weighting and all measurable carrier-event transfer, sharp Gaussian-series natural moments, and genuine drift-retained exponential/conditional derivative tails. See FIELD_CONDITIONING.md and FIELD_EVIDENCE_CATALOG.json for exact statements, actual execution, helper lineage and limits. The fourteen-module endpoint prerequisite below is reused unchanged at source cut7a2ee81; its former metadata is preserved in field-evidence/baseline-endpoint-7a. The original geometric and parent research remains active.

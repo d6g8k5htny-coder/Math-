@@ -1,3 +1,21 @@
+# Current qualified scope:22 modules /463 proof-instance declarations
+
+New actual cubic-curvature results and exact qualifications are in
+[curvature-evidence/CURVATURE_SCOPE.md](curvature-evidence/CURVATURE_SCOPE.md).
+The4new modules add169theorem/lemma targets and2named instances. Their33definitions
+are inventoried separately. All171new proof/instance targets have direct axiom
+reports. Existing292target coverage and23input bindings remain reusable.
+
+SourcePinPreservingQuartic and the actual smooth-topology/event successors are
+outside this frozen4module extension until separately qualified. The analytic
+comparison candidate has a scoped paper review at27c9d92; that is not a Lean
+qualification. Noncapture/adjacency/Palm/Morse/elder/counting/parent closure is
+not inferred from the curvature bound alone. Original research remains active.
+
+The older18module scope below is retained unchanged as a prerequisite record.
+
+---
+
 # Current source scope: endpoint prerequisites plus whole-carrier extension
 
 The current manifest covers eighteen modules. Four new modules have their own FIELD_CONDITIONING.md exact scope and new execution records; the fourteen-module prerequisite described below remains mathematically unchanged and its completed verification is reused. Every-pin carrier conditioning is proved. The weighted law is the actual source normalized-weight formula, with raw-pin/type support and arbitrary measurable carrier-event bounds; geometric critical-point Palm disintegration, Morse/elder/counting and later parent claims require further proofs. No completed review is silently broadened to the extension.
