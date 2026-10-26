@@ -1,7 +1,7 @@
 # Same-period actual source torus: trap and strict clearance
 
 Add SourceActualFoldTorus.lean. Reuse the completed actual source estimates,
-real-cover scaling/clearance and old generic ElderTrap mathematics. Authoritative
+real-cover scaling/clearance and old generic threshold/clopen mathematics. Authoritative
 map: /workspace/scratch/actual-fold-torus-elder-preflight/REPORT.md, sections2–4.
 This slice keeps the literal original SmoothSample2L/sourceGapLaw parameterL,
 including every L!=0. Do not replace it by a sample/law at absL.
@@ -29,7 +29,7 @@ S=projection(endpointS r), maximum b, frontier/path threshold d=b-k*r^3,
 ceiling and an actual older endpoint gain>=3*k*r^3/2. Map the actual Path,
 including saddle midpoint if straightforward. Restore absolute b/d from the
 canonical actual raw-pin event, not normalized gap alone. Derive the generic
-ElderTrap from old clopen-trace/threshold facts; no desired trap/path/clearance
+explicit TorusTrapData from old clopen-trace/threshold facts; no desired trap/path/clearance
 certificate is a final actual-source premise.
 
 Define a transparent generic strict-higher-clearance predicate on a topological
@@ -43,7 +43,7 @@ separation or H0 theory; the small generic predicate adapter is new glue only.
 Required CLOSED actual-law endpoints: one positive delta<=1 from hL:L!=0
 alone BEFORE k0,r,b,k, such that for k0>0,0<r<delta,b real,k>=k0, almost every
 sample under unchanged sourceGapLaw hL r b k satisfying r*T^5<=1/100 and
-1024*T^5<=kappa has an actual torus ElderTrap plus the explicit strict-clearance
+1024*T^5<=kappa has actual torus TorusTrapData plus the explicit strict-clearance
 set Iio(b-k*r^3) and its death value b-k*r^3. T,kappa retain qualified literal
 sourceT/sourceKappa definitions. Derive raw pins/invertibility internally on
 same/minimum hL-only interval. Final premises cannot contain desired pin,
@@ -73,6 +73,15 @@ clearance agrees definitionally with old C263, reuse old physical normal-form
 control evidence and only check the new predicate/transport interface, rather
 than replaying old polynomial/kernel/control campaigns. Never copy Controls
 objects to the production cache.
+
+Interface clarification: the old TorusFiltration.ElderTrap structure lives in
+ElderInterval and imports H0; it is not an export of qualified ElderClearance.
+The root's 06:35 ruling selected the explicit H0-free TorusTrapData bundle,
+containing the actual domain/absolute heights/ceiling/frontier/older endpoint
+and retained path, with clopen separation derived. The frozen source follows
+that ruling. This wording correction is recorded after the session interruption;
+it does not claim that the old typed ElderTrap conversion has been produced.
+That conversion remains a separate downstream obligation.
 
 This gives torus trap/strict-clearance/death value. H0 summand, canonical
 selected partner/conditioned global MorseDistinct, weighted failure probability,

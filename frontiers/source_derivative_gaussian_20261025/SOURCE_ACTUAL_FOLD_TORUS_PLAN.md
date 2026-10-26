@@ -1,6 +1,6 @@
 # Actual same-L torus implementation plan
 
-Goal: actual torus ElderTrap, explicit strict-clearance set and death value.
+Goal: actual torus TorusTrapData, explicit strict-clearance set and death value.
 Architecture: same-sample quotient descent, continuous/open map with compact
 frontier inclusion, retained source box/path and absolute heights, generic
 clearance adapter, closed actual-law result. PinnedLean4.34.1/Mathlibd13f23b7.
@@ -24,3 +24,9 @@ Reviewfocus: actual period/carrieridentity includingnegativeL; no quotient globa
 homeomorphism; valid compact-image frontier inclusion; strict vsclosed clearance;
 absolutephysical scale; same retained witness; radius/law quantifiers. NoH0/
 canonicalpartner/weightedprobability/countdensity claim in this slice.
+
+Interface ruling: use explicit H0-free TorusTrapData. The old typed
+TorusFiltration.ElderTrap is in ElderInterval, outside qualified ElderClearance;
+its conversion and H0 conclusions remain downstream. The root gave this ruling
+at 06:35 before the frozen source. This plan clarification is published on
+resumption, not represented as an earlier commit.

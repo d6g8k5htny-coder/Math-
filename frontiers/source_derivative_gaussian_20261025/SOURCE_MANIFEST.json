@@ -3,7 +3,7 @@
   "scientific_effect": "NONE",
   "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
   "alignment_status": "PENDING_NEW_SOURCE_ALIGNMENT_AND_CONVENTIONAL_APPLICATION_DIFFERENT_FAMILY_REVIEWS",
-  "qualification_role": "36 individually qualified default modules;965 public written targets=956propositions+9data instances;27supportinputs (25previous+2reusedclearance). Newrealcoverdeath source checked in own scope; old mathematics retained, no combined hostedproof build.",
+  "qualification_role": "36 individually qualified default modules;965 public written targets=956 propositions+9data instances;28support inputs (27previous+1reusedcompactfrontier). Active torus source is excluded until registration; no combined hosted proof build.",
   "source_modules": [
     "SourceDerivativeGaussian.lean",
     "ContactJetCovariance.lean",
@@ -1009,7 +1009,7 @@
     "I4SourceActualFoldDeath.actualField_continuous",
     "I4SourceActualFoldDeath.physicalChart_apply"
   ],
-  "inherited_input_count": 27,
+  "inherited_input_count": 28,
   "catalog_sha256": "b814de0d24141dd0f2fd9087b61c2d7eeb1596836eb439898a5c7506675fc24b",
   "files": {
     ".gitignore": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
@@ -1668,7 +1668,7 @@
     "inputs/SourceTorusC4.lean": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
     "inputs/SpectralWeights.lean": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
     "lake-manifest.json": "4cc60e1f98fc3a46bccafe6b8315445d950ca1db55ceba26fdebe3a45eafe59a",
-    "lakefile.toml": "6d3a5e1634aa6a5d8360bd3bd35eb91f6d6fb55a11588e0ca19114347a3d7986",
+    "lakefile.toml": "73afc4d29a3491ceed47bd22bb9a00b785554f4c1088ef4ce3af11ff7178b8e6",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "SOURCE_CURVATURE_DECOMPOSITION.md": "e85f7ec047647cce2707982b3ef452efb56558ca4a00b2f9eb778f2672f88a1f",
     "SOURCE_PIN_CURVATURE_BOUNDS.md": "a21412102e4962873a58633df5327c751ca2a17ace7b9341d055887f679374b6",
@@ -3539,7 +3539,22 @@
     "actual-fold-death-evidence/raw/producer/runs/strict-005/receipt.json": "4b0b1dd0457fa6c977c0fdc8105fcef96afa50dc50660d32785f89e9af8b1902",
     "actual-fold-death-evidence/raw/producer/REPORT.md": "5e87631a1ab83c23d7517b93aa188ddf58385b1f58768464f9b995af5913c5d9",
     "actual-fold-death-evidence/raw/producer/runs/strict-003/SourceActualFoldDeath.lean": "cfa196e02dd1a1247f71bcd5e9556af3b218123b700f41750c41d064f52bf61c",
-    "actual-fold-death-evidence/raw/producer/runs/controls-004/FalseMutation.lean": "629ab0e8aa60c0ccb1cf7347bcafd0003ebf6b868fd11a5a0cafca34ac460368"
+    "actual-fold-death-evidence/raw/producer/runs/controls-004/FalseMutation.lean": "629ab0e8aa60c0ccb1cf7347bcafd0003ebf6b868fd11a5a0cafca34ac460368",
+    "COMPACT_FRONTIER_INPUT_BINDING.json": "35c7b8d840b3719476921d2e6edfa50777b907a57a0967cbb98581de05e721a4",
+    "inputs/elder/ReusedCompactFrontier.lean": "29d77453ef7c3cd216521a8ac84639aa30daf5a1d4061785a826b2c2d42d23db",
+    "SOURCE_ACTUAL_FOLD_TORUS.md": "2646e4ba595e5acd04d9606514bf6906a60814a370367e57992f9751bd4b8fb9",
+    "SOURCE_ACTUAL_FOLD_TORUS_PLAN.md": "cb11b477fcc88fdcd287470a61d9053a7f50c909671e94325e342025fe8cad07",
+    "compact-frontier-input-evidence/BINDINGS.json": "204a314d272c3e01e8bd537c59229b46cea315f1457793cfb4fa52562f0f862e",
+    "compact-frontier-input-evidence/environment.json": "abc2dea1dd3576fd785661e837ce1f1906a6984311698600ef0ef6af1a79e790",
+    "compact-frontier-input-evidence/accepted_proof_body.txt": "ce1e3e8de7a4c2f2d7b80497f661cf183aa0ea361774e3cefd0a115155b31925",
+    "compact-frontier-input-evidence/strict-01.json": "eff74e5287bd6995a3d1381f00d9953e4ead453abd10e51e5bb10a9c64e23275",
+    "compact-frontier-input-evidence/extract.py": "7756499032ba31bf906c72c51980864b93fa9f36d86d3de9bbcf55aadcb87633",
+    "compact-frontier-input-evidence/strict-01.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compact-frontier-input-evidence/ARTIFACTS.json": "f3e326af89fbd5f84a40aec1bbaa1b5d06a072339892404c8de7d8072c652136",
+    "compact-frontier-input-evidence/compile.py": "5c6841fcd39978c1a6ad8745cc2a5e5328e74677fccaa1dc1643dc7f074afa61",
+    "compact-frontier-input-evidence/REPORT.md": "5874ed483cbb88dcbead37fafb1a45e7d2f853bec05b80e4e33766849ace3a54",
+    "compact-frontier-input-evidence/accepted_theorem.lean.txt": "f891109a501642f4c1f44e47c7601d58fbdefd5497408177691b5bceb8a93007",
+    "compact-frontier-input-evidence/strict-01.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "verification_reuse": "Completed35 source modules/27supportinputs and oldclearance mathematical evidence retained. Newrealcover death8proofs strictcompile/ONEkernel/22collector/physicalcontrols. Only flawed scratch negative shape changed002, no production/positive/kernel/oldmath replay.",
   "not_qualified_by_this_manifest": [
@@ -3899,5 +3914,12 @@
     "generated_declarations_separate": 13,
     "complete_own_module_declarations": 22,
     "scope": "Literal existing C263 actualrealcover death=b-kr^3 and strictclearanceSet=Iio(b-kr^3), on same actualsourceGapLaw undercutoffs withhL-onlyradiusbeforek0,r,b,k; genuineglobalrealhomeomorphism, positive6kr^3, absolute rawheights, samequalifiedbox/path; allnonzeroL includingnegative."
+  },
+  "new_compact_frontier_input_scope": {
+    "binding": "COMPACT_FRONTIER_INPUT_BINDING.json",
+    "support_root": "ReusedCompactFrontier",
+    "new_research_target_count": 0,
+    "exact_accepted_body_preserved": true,
+    "new_composition": "Strict first-attempt compile passed; no old mathematical/kernel/control/axiom replay."
   }
 }
