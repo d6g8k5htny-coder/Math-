@@ -1,0 +1,40 @@
+{
+  "module": "SourceAllTargetCurvatureResidual",
+  "actual_module_constants": [
+    "I4SourceAllTargetCurvatureResidual.one_le_allTargetCurvatureResidualRadius",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_uniform_bounds",
+    "I4SourceAllTargetCurvatureResidual.sourceDerivativeMajorant_allTarget_curvatureReconstruct",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_gap_height_moments",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_prescribed",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_measurable",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius.congr_simp",
+    "I4SourceAllTargetCurvatureResidual.sourceContactQ_posterior_abs_le_allTargetRadius",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_moment_bound",
+    "I4SourceAllTargetCurvatureResidual.sourceGammaRadius_allTarget_curvatureReconstruct",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_image_bound",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius"
+  ],
+  "public_targets": [
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_measurable",
+    "I4SourceAllTargetCurvatureResidual.one_le_allTargetCurvatureResidualRadius",
+    "I4SourceAllTargetCurvatureResidual.sourceContactQ_posterior_abs_le_allTargetRadius",
+    "I4SourceAllTargetCurvatureResidual.sourceDerivativeMajorant_allTarget_curvatureReconstruct",
+    "I4SourceAllTargetCurvatureResidual.sourceGammaRadius_allTarget_curvatureReconstruct",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_image_bound",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_moment_bound",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_prescribed",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_uniform_bounds",
+    "I4SourceAllTargetCurvatureResidual.allTargetCurvatureResidualRadius_gap_height_moments"
+  ],
+  "axiom_report": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/runs/inventory-002/output.log",
+    "bytes": 2809,
+    "sha256": "fa326019cd1e0eec480924dddccd493486f65454c9339edaeffe75b558bc5655"
+  },
+  "classification": {
+    "path": "/workspace/scratch/all-target-curvature-residual-construct/TARGET_CLASSIFICATION.json",
+    "bytes": 4554,
+    "sha256": "6376519e65e9f46384d36e26ac446d5c47c3712f3d158702706cd83f82560fd4"
+  }
+}

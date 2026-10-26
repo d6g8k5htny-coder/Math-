@@ -1,0 +1,69 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/CONTROL_CONTRACT.md",
+    "bytes": 3426,
+    "sha256": "e5f5e60eec4ae2e619c6dc7ea9559f119992e02b53fd6de0e536bc9b920971a6"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/controls-002/receipt.json",
+    "bytes": 1864,
+    "sha256": "b9990b53666b3893e4ef7b9364f6e97a8d382cf542d35ce26f397f2e67417865"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/Controls.lean",
+    "bytes": 7131,
+    "sha256": "67f34dcb8a6ab487e1422d5026ed4e638b7dee2e374371a6e3c3923781f0bb34"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/build/Controls.olean",
+    "bytes": 274960,
+    "sha256": "c83604d379f121443bd6ff0273b54cd49d78d6c46459d94f42b1cbbe7fe939e9"
+  },
+  "positive_exit": 0,
+  "original_negative_period": -1,
+  "nondefault_height": 3,
+  "nondefault_gap": 1,
+  "negative_gap": -2,
+  "literal_sixth_target_at_k1": 12,
+  "sixth_target_not_two": true,
+  "generic_all_target_control": "GapPinCurvatureControls.generic_all_target",
+  "generic_closed_law_control": "GapPinCurvatureControls.generic_closed_gap",
+  "closed_negative_period_control": "GapPinCurvatureControls.closed_nondefault_negative_period",
+  "positive_scope": [
+    "all-target and actual sourceGapLaw generic signatures",
+    "original L=-1,b=3,k=1 and k=-2 share hL-only interval",
+    "actual sixth pin 12 and -24; nondefault target unequal 2",
+    "pin-free transverse/strict/slab exports",
+    "first-four Peano bound valid even at radius -3",
+    "literal physical strict-type weight 1/64 at r=1/4,q=-1/2 and zero weight at q=0",
+    "q-sensitive ceiling increases from 1/32 to 1/16",
+    "nonzero negative q=-3/2 saturates slab at A=3,r=1/2,Gamma=1"
+  ],
+  "false_mutation_source": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/FalseTargetNormalization.lean",
+    "bytes": 319,
+    "sha256": "e6c72cebab50632eb0dadd9611064edb0caf2d10b1d8b5516a14b6693aa23ddc"
+  },
+  "false_mutation_receipt": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/false-target-001/receipt.json",
+    "bytes": 1768,
+    "sha256": "d40275680810693d4d0a4cfe7e81dd1635109e0b5aebce7fad82a55e0b8bdc2f"
+  },
+  "false_mutation_log": {
+    "path": "/workspace/scratch/gap-pin-curvature-construct/runs/false-target-001/output.log",
+    "bytes": 168,
+    "sha256": "18ba1c68e80d71ca39cceb864e959f920daac1812ef830aadf5afd14c7978524"
+  },
+  "false_mutation_exit": 1,
+  "distinct_mutation_count": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostics": 0,
+  "false_mutation_mechanism": "Counterexample-backed deliberate claim sourceGapPins r 3 1 5=2 reduces by norm_num [sourceGapPins] to exactly one residual False, with proved nondefault_slot5 counterexample in context.",
+  "historical_failures": [
+    "compile-001 finite vector coercion simplification and unnecessary tactic-sequence linter",
+    "controls-001 missing ResearchFormalCoreR1 helper namespace open"
+  ],
+  "old_control_campaign_replayed": false,
+  "production_source_unchanged_for_all_controls": true,
+  "helper_objects_production_eligible": false
+}

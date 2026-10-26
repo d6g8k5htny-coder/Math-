@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness", "SourceCompactTargetMoments", "AdaptiveFoldScalarBarrier", "AdaptiveFoldTransverseRidge", "AdaptiveFoldBoundaryPath", "SourceAdaptiveFoldChart", "SourceAdaptiveFoldEstimates", "SourceActualFoldDeath", "SourceActualFoldTorus", "SourceActualFoldH0"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness", "SourceCompactTargetMoments", "AdaptiveFoldScalarBarrier", "AdaptiveFoldTransverseRidge", "AdaptiveFoldBoundaryPath", "SourceAdaptiveFoldChart", "SourceAdaptiveFoldEstimates", "SourceActualFoldDeath", "SourceActualFoldTorus", "SourceActualFoldH0", "SourceFoldWeightedProbability", "SourceGapPinCurvature", "SourceAllTargetCurvatureResidual"]
 
 [[require]]
 name = "mathlib"
@@ -130,3 +130,12 @@ name = "SourceActualFoldTorus"
 
 [[lean_lib]]
 name = "SourceActualFoldH0"
+
+[[lean_lib]]
+name = "SourceFoldWeightedProbability"
+
+[[lean_lib]]
+name = "SourceGapPinCurvature"
+
+[[lean_lib]]
+name = "SourceAllTargetCurvatureResidual"

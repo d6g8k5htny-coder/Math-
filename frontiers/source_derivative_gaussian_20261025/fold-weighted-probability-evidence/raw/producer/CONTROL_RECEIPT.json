@@ -1,0 +1,92 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/CONTROL_CONTRACT.md",
+    "bytes": 3690,
+    "sha256": "c1baee756876e8a932f96e2f9d11f1dfd48254ee706ebe311997ea7e9bd7397a"
+  },
+  "pre_source_freeze": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/CONTROL_CONTRACT_FREEZE.json",
+    "bytes": 249,
+    "sha256": "1a7d02c86d94614281ed51fcd9586579b82639a516e5e27f14589370af45b6ce"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/controls-002/receipt.json",
+    "bytes": 1953,
+    "sha256": "6e82ad2388e142c687c804ae16d5634540f7dce424a9b94306bc97756b61fb2e"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/Controls.lean",
+    "bytes": 5351,
+    "sha256": "431970e7c7a003d4ee8a4be28534723c4bcc9cbd54997865330ad48b14185afd"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/build/Controls.olean",
+    "bytes": 172208,
+    "sha256": "b56b168c65bece4ab740d80ea2e1eebee6767f09c1eb49924cdad4bd525849d0"
+  },
+  "positive_exit": 0,
+  "positive_named_controls": [
+    "negativePeriod",
+    "literal_good_event",
+    "literal_normalized_law",
+    "old_weighted_law_identity",
+    "full_scale_constants",
+    "actual_scale",
+    "actual_curvature_sign",
+    "actual_good_event_measurable",
+    "actual_obstruction_inclusion",
+    "omitted_scale_counterexample",
+    "scaled_failure_is_detected",
+    "failure_witness_cutoffs",
+    "reverse_inclusion_counterexample",
+    "sign_and_division_control",
+    "actual_same_law_ac",
+    "actual_closed_probability",
+    "actual_closed_probability_h0"
+  ],
+  "positive_named_control_count": 17,
+  "original_signed_period": -1,
+  "birth_height": 3,
+  "k": "1/6",
+  "k0": "1/12",
+  "D": 2,
+  "lambda": 16,
+  "lambda_fifth": 1048576,
+  "factor_eight_fifth": 32768,
+  "epsilon": "1/104857600",
+  "A": 1073741824,
+  "coefficient_field": "arbitrary K : Type with Field K; radius quantified first",
+  "same_law": "literal prwMeasure(sourceGapLaw negativePeriod r 3 (1/6))(sourceSmoothWeight (-1) r)",
+  "arithmetic_witness": {
+    "r": "1/100000000",
+    "Gamma": 1,
+    "q": -100,
+    "mechanism": "First exact scaled cutoff fails and second holds. Full epsilon detects failure; epsilon omitting 8^5 misses it and closed curvature obstruction is false."
+  },
+  "boundary_control": "r=1/104857600,Gamma=1,q=-256/25 satisfies both closed cutoffs and the closed curvature obstruction; reverse inclusion is false.",
+  "false_mutation_source": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/FalseScaleMutation.lean",
+    "bytes": 455,
+    "sha256": "708d37170bf5d592a9f3ed0c2fef90234bf00769bc70210a46329ebdff78a6a4"
+  },
+  "false_mutation_receipt": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/false-scale-001/receipt.json",
+    "bytes": 1892,
+    "sha256": "c085861f969f9a3c762c5f9e908066d96c1e50370108c91dc9649e5374a15801"
+  },
+  "false_mutation_log": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/false-scale-001/output.log",
+    "bytes": 352,
+    "sha256": "8d865b650f6a9a8e82b8b0ad5f101897c576d8c4d300b2de24213b790aa5cea4"
+  },
+  "false_mutation_exit": 1,
+  "distinct_mutation_count": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostics": 0,
+  "false_mutation_mechanism": "Concrete omitted-factor implication normalized directly by norm_num to sole residual False, with proved omitted_scale_counterexample in context.",
+  "historical_failures": [
+    "controls-001: unnecessarySeqFocus strict linter on one convert; fixed only control harness."
+  ],
+  "old_control_campaign_replayed": false,
+  "production_source_unchanged_for_all_controls": true
+}

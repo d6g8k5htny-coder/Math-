@@ -1,3 +1,18 @@
+# Current qualified scope:41 modules /1023 public targets /32 inputs
+
+Three independent new leaves add34 public written proofs:14fixedmark weighted
+cutoff/H0 probability,10target-independent physical weight/slab,10alltarget
+residual moment proofs. Six definitions and6generated constants are separate;
+all46newmoduleconstants have exhaustive transitive standard3 coverage, with
+ONE named kernel per new module. Allcompletedoldverification is reused.
+
+Uniformcompact varyingmark normalizedprobability still needs its actual r5
+numerator andpositivefloor. Canonicalpartner/conditionalMorse, framedlaw/
+countdensity andParentA/B Lean remainseparate. Existing conventionalproofs
+andprovider-distinctprocess keep their own evidence; scientificeffectNONE.
+
+---
+
 # Current qualified scope:38 modules /989 public targets /32 inputs
 
 Five new written proofs convert literal torus geometry to the OLD typed

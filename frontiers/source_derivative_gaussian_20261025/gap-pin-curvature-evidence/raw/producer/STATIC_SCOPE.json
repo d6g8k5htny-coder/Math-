@@ -1,0 +1,23 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceGapPinCurvature.lean",
+    "bytes": 13281,
+    "sha256": "67f6c671e4ed8a7cb8557fc6027403f4fd1e94cba984e672eaa3ceb94ab8847e"
+  },
+  "imports": [
+    "SourceCompactTargetMoments"
+  ],
+  "forbidden_token_matches": {
+    "\\bsorry\\b": false,
+    "^\\s*axiom\\b": false,
+    "\\bnative_decide\\b": false,
+    "\\bimplemented_by\\b": false,
+    "^import Mathlib\\s*$": false
+  },
+  "no_pin5_premise": true,
+  "actual_sourceSmoothWeight_retained": true,
+  "literal_sixth_target": "12*k",
+  "closed_endpoint_only_input": "hL : L != 0",
+  "delta_quantifiers": "exists delta>0,delta<=1 before forall r>0,r<delta,forall b k:Real",
+  "scope": "Target-independent physical curvature/slab bounds; no probability, normalizer, residual-moment, frame or Parent closure."
+}

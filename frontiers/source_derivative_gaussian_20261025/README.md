@@ -1,3 +1,34 @@
+# Actual fold probability and varying-target analytic joins
+
+[SourceFoldWeightedProbability.lean](SourceFoldWeightedProbability.lean) proves
+that the exact fold-cutoff failure has normalized probability at most C*r^3
+at k=1/6 and arbitrary fixed b. The original physical weight and gap law are
+retained. On the measurable good event, weighted-almost every sample has the
+actual ordinary-H0 interval, strict-clearance set and real death level. All
+scale factors, including8^5, and same-law absolute continuity are derived.
+
+[SourceGapPinCurvature.lean](SourceGapPinCurvature.lean) removes the old sixth-
+pin restriction from physical Hessianweight/slab estimates and derives closed
+actual-law bounds for every real b,k. [SourceAllTargetCurvatureResidual.lean](SourceAllTargetCurvatureResidual.lean)
+extends residual reconstruction and moments to every literal six-vector target,
+with explicit polynomial target/height growth under the actual residual law.
+
+Each new module passed its own strict compilation, exactly one named kernel,
+exhaustive classified standard-three audit, meaningful controls and sole-False
+mutation. Exact source/spec reviews found no findings; earlier mathematics and
+checks were reused. The three evidence directories retain all failures and
+source/object custody. The registry has41 individually qualified modules/1023
+public written targets=1014 propositions+9data instances,32support inputs.
+Definitions and generated constants remain separately classified.
+
+The varying-mark weighted numerator and compact positive normalizer remain
+formal joins. Canonicalpartner/conditionalMorse, framedlaw/countdensity and
+ParentA/B Lean closure remain separate; existing conventional mathematics is
+retained. Provider-distinct process remains pending separately. Scientific
+effect NONE. Earlier entries below retain their historical scopes.
+
+---
+
 # Actual torus ordinary singular-H0 interval
 
 [SourceActualFoldH0.lean](SourceActualFoldH0.lean) converts actual torus geometry

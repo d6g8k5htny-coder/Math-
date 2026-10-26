@@ -1,0 +1,375 @@
+{
+  "module": "SourceFoldWeightedProbability",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFoldWeightedProbability.lean",
+    "bytes": 7837,
+    "sha256": "58b77d6c0886fb5ef005749f468648d3c3ce6c99905f89963bf99c4ebee763d0"
+  },
+  "object": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/build/SourceFoldWeightedProbability.olean",
+    "bytes": 414736,
+    "sha256": "3c5e59ee676f589de711731c6b414d54c2ee41f819cd0418593fd594e6eaaff7"
+  },
+  "coverage": "All constants whose actual environment module index is SourceFoldWeightedProbability; transitive collectAxioms for every constant. No name-prefix substitute.",
+  "receipt": {
+    "path": "/workspace/scratch/fold-weighted-probability-construct/runs/inventory-001/receipt.json",
+    "bytes": 1880,
+    "sha256": "50c1ef752cc8b86538fdf0920636bb765155d3c36f166d2c77f41726283559e8"
+  },
+  "complete_constant_count": 24,
+  "all_standard3": true,
+  "rows": [
+    {
+      "name": "SourceFoldWeightedProbability.cutoff_failure_inclusion",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffA",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffA._proof_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof-theorem",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffA_nonneg",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffEps",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffEps._proof_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof-theorem",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceCutoffEps_pos",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldGood",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldGood_compl_subset",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldGood_measurable",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedLaw",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedLaw.congr_simp",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-congruence-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedLaw_absolutelyContinuous",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedLaw_eq",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedProbability_bound",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceFoldWeightedProbability_h0",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceKappa_measurable",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceKappa_one_sixth",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceScale",
+      "kind": "definition",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "named-public-definition",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceScale._proof_1",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof-theorem",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceScale._proof_2",
+      "kind": "theorem",
+      "generated": true,
+      "private": false,
+      "handwritten": false,
+      "public_research_theorem": false,
+      "prop_bundle": false,
+      "classification": "generated-proof-theorem",
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceScale_pos",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceT_eq_scale",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceFoldWeightedProbability.sourceT_measurable",
+      "kind": "theorem",
+      "generated": false,
+      "private": false,
+      "handwritten": true,
+      "public_research_theorem": true,
+      "prop_bundle": false,
+      "classification": "named-public-theorem",
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "recorded_utc": "2026-10-26T09:51:04.623836+00:00",
+  "all_verification_invocations": [
+    {
+      "label": "compile-001",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/compile-001/receipt.json",
+        "bytes": 1309,
+        "sha256": "5510b89bd12b3e853c2bca5c3bd5430e252f00ee5a487a705508cac19f6ebd11"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:45:52.486427+00:00",
+      "ended_utc": "2026-10-26T09:45:55.900051+00:00",
+      "elapsed_seconds": 3.4135916233062744,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+        "SourceGapPinCurvature.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/compile-001/output.log",
+        "bytes": 4848,
+        "sha256": "c2fc98721d4d05bf4d7df496d483763220dd11bdae2967ccfe3081bd23c71095"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "compile-002",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/compile-002/receipt.json",
+        "bytes": 1512,
+        "sha256": "53a573e786782b6928a46f49354bf3141e3d75ac8ad6b6d1b83a4d7337dda7b1"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:46:16.816086+00:00",
+      "ended_utc": "2026-10-26T09:46:20.444733+00:00",
+      "elapsed_seconds": 3.628626585006714,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/gap-pin-curvature-construct/build/SourceGapPinCurvature.olean",
+        "SourceGapPinCurvature.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/compile-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "controls-001",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/controls-001/receipt.json",
+        "bytes": 1865,
+        "sha256": "8488fe625c1bf4b1b3bcf828ec9c5e228bfefbe534ad535429f82f523231409d"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:48:37.361530+00:00",
+      "ended_utc": "2026-10-26T09:48:41.457233+00:00",
+      "elapsed_seconds": 4.09566593170166,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/gap-pin-curvature-construct -o /workspace/scratch/gap-pin-curvature-construct/build/Controls.olean /workspace/scratch/gap-pin-curvature-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/controls-001/output.log",
+        "bytes": 1389,
+        "sha256": "3a590ba5b7336c5a432bb34b91829c318ed99e421d4a5643e6f8dcb30f6c2bb3"
+      },
+      "credit": "retained development failure"
+    },
+    {
+      "label": "controls-002",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/controls-002/receipt.json",
+        "bytes": 1864,
+        "sha256": "b9990b53666b3893e4ef7b9364f6e97a8d382cf542d35ce26f397f2e67417865"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:48:56.154057+00:00",
+      "ended_utc": "2026-10-26T09:49:00.050677+00:00",
+      "elapsed_seconds": 3.8965835571289062,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec lean -DwarningAsError=true -R /workspace/scratch/gap-pin-curvature-construct -o /workspace/scratch/gap-pin-curvature-construct/build/Controls.olean /workspace/scratch/gap-pin-curvature-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/controls-002/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "false-target-001",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/false-target-001/receipt.json",
+        "bytes": 1768,
+        "sha256": "d40275680810693d4d0a4cfe7e81dd1635109e0b5aebce7fad82a55e0b8bdc2f"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T09:49:29.119842+00:00",
+      "ended_utc": "2026-10-26T09:49:32.305870+00:00",
+      "elapsed_seconds": 3.186004161834717,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/gap-pin-curvature-construct/FalseTargetNormalization.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/false-target-001/output.log",
+        "bytes": 168,
+        "sha256": "18ba1c68e80d71ca39cceb864e959f920daac1812ef830aadf5afd14c7978524"
+      },
+      "credit": "expected rejection"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/inventory-001/receipt.json",
+        "bytes": 1748,
+        "sha256": "48ea83c7e64f1fd54ecdae5c4a4f43ab610d73ed5ad28a0faa437c53ba644a2e"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:49:08.790396+00:00",
+      "ended_utc": "2026-10-26T09:49:12.184162+00:00",
+      "elapsed_seconds": 3.393740653991699,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/gap-pin-curvature-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/inventory-001/output.log",
+        "bytes": 1885,
+        "sha256": "ab249363bf2651e5568744289d6d7bc75c4fea9ee10f56143f253701c74383e5"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/kernel-001/receipt.json",
+        "bytes": 1684,
+        "sha256": "57dd8ca510e7cfafed9917e673d8cf5662d512648118598ccd835546d649ea3d"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T09:47:44.340001+00:00",
+      "ended_utc": "2026-10-26T09:47:51.648712+00:00",
+      "elapsed_seconds": 7.308679103851318,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/gap-pin-curvature-construct/build:$LEAN_PATH exec leanchecker SourceGapPinCurvature"
+      ],
+      "log": {
+        "path": "/workspace/scratch/gap-pin-curvature-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    }
+  ],
+  "exactly_one_own_module_kernel": true,
+  "old_math_replay_count": 0,
+  "all_failures_retained": true,
+  "native_checkpoint_utc": "2026-10-26T10:15:00Z",
+  "terminal_utc": "2026-10-26T11:15:00Z",
+  "timers_reset": false
+}
