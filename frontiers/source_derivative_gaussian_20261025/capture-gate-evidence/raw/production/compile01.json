@@ -1,0 +1,17 @@
+{
+  "command_argv": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+    "SourceQuarticCaptureAlgebra.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T02:09:14.808392+00:00",
+  "exit_code": 0,
+  "source_sha256": "f859c38bbc340995263ed6ea0873d024bef260b4fea8f0c9216803ea0187da6c",
+  "log": "compile01.log",
+  "scope": "New production module artifact only; frozen scratch bodies copied unchanged, prior dependency checks reused."
+}

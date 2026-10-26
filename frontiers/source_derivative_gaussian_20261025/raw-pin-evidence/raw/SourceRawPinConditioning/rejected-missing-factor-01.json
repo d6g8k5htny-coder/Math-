@@ -1,0 +1,25 @@
+{
+  "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "/workspace/scratch/raw-pin-conditioning/RejectedMissingTransformFactor.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "sha256_before": {
+    "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+    "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+    "control": "d06fd19adcda513a18c5873ed57db6e723de60e246982fc049ab4a37abce433a"
+  },
+  "sha256_after": {
+    "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+    "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+    "control": "d06fd19adcda513a18c5873ed57db6e723de60e246982fc049ab4a37abce433a"
+  },
+  "log_sha256": "92455fd6376f628ad247aaea986f8331ee02cefd9ec47c5d0f34182d527f5c8f",
+  "log_bytes": 114,
+  "started_utc": "2026-10-26T02:02:35.921400+00:00",
+  "elapsed_seconds": 3.2240867614746094
+}

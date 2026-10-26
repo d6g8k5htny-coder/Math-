@@ -1,0 +1,408 @@
+{
+  "role": "Projection of genuine existing subprocess records; no subprocess or proof checker executed by packaging",
+  "records": [
+    {
+      "packaged_path": "raw/production/audit01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/audit01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-R",
+          "/workspace/scratch/quartic-capture-production",
+          "-DwarningAsError=true",
+          "/workspace/scratch/quartic-capture-production/Audit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T02:12:10.584134+00:00",
+        "exit_code": 0,
+        "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "log": "audit01.log",
+        "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+      }
+    },
+    {
+      "packaged_path": "raw/production/compile01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/compile01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+          "SourceQuarticCaptureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T02:09:14.808392+00:00",
+        "exit_code": 0,
+        "source_sha256": "f859c38bbc340995263ed6ea0873d024bef260b4fea8f0c9216803ea0187da6c",
+        "log": "compile01.log",
+        "scope": "New production module artifact only; frozen scratch bodies copied unchanged, prior dependency checks reused."
+      }
+    },
+    {
+      "packaged_path": "raw/production/compile02.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/compile02.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+          "SourceQuarticCaptureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T02:10:13.531883+00:00",
+        "exit_code": 1,
+        "source_sha256": "7d056c91697b9fd35299f96aed47512f1c80149a8f2451079aece90c91fb1f4d",
+        "log": "compile02.log",
+        "scope": "New actual-source transfer/AE join in new production module only; old checks reused."
+      }
+    },
+    {
+      "packaged_path": "raw/production/compile03.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/compile03.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+          "SourceQuarticCaptureAlgebra.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T02:10:58.811304+00:00",
+        "exit_code": 0,
+        "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "log": "compile03.log",
+        "scope": "Narrow fixes: explicit coordinate simplification sources and correct helper namespace, no old check."
+      }
+    },
+    {
+      "packaged_path": "raw/production/kernel01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/kernel01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceQuarticCaptureAlgebra"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T02:12:10.585034+00:00",
+        "exit_code": 0,
+        "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "log": "kernel01.log",
+        "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+      }
+    },
+    {
+      "packaged_path": "raw/production/rejected-reversed-upper-01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-reversed-upper-01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "/workspace/scratch/quartic-capture-production/RejectedReversedUpperSign.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+        },
+        "log_sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+        "log_bytes": 115,
+        "started_utc": "2026-10-26T02:13:24.103789+00:00",
+        "elapsed_seconds": 4.17845606803894,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      }
+    },
+    {
+      "packaged_path": "raw/production/rejected-unchanged-drift-01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-unchanged-drift-01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "/workspace/scratch/quartic-capture-production/RejectedUnchangedDrift.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+        },
+        "log_sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+        "log_bytes": 112,
+        "started_utc": "2026-10-26T02:13:24.160607+00:00",
+        "elapsed_seconds": 4.870694875717163,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      }
+    },
+    {
+      "packaged_path": "raw/production/transfer-controls-01.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-01.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/quartic-capture-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+        },
+        "log_sha256": "91fcac3ef9fb59c4f09eae4386a76f03190ec66af6f952ed2085fde78c936531",
+        "log_bytes": 770,
+        "started_utc": "2026-10-26T02:13:01.547322+00:00",
+        "elapsed_seconds": 4.3497514724731445,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      }
+    },
+    {
+      "packaged_path": "raw/production/transfer-controls-02.json",
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-02.json",
+      "scope": "NEW_PRODUCTION",
+      "actual_record_unchanged": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/quartic-capture-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+        },
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log_bytes": 0,
+        "started_utc": "2026-10-26T02:13:24.147905+00:00",
+        "elapsed_seconds": 5.157088041305542,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/audit01.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/audit01.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "bash",
+          "-c",
+          "export LEAN_PATH=\"/workspace/scratch/quartic-capture-algebra:$LEAN_PATH\"; exec lean -R /workspace/scratch/quartic-capture-algebra -DwarningAsError=true /workspace/scratch/quartic-capture-algebra/Audit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T01:42:26.992033+00:00",
+        "exit_code": 0,
+        "log": "audit01.log"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/controls-01.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-01.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/quartic-capture-algebra:\"$LEAN_PATH\" lean -DwarningAsError=true /workspace/scratch/quartic-capture-algebra/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/quartic-capture-algebra/Controls.lean",
+        "source_sha256_before": "298810a262862775334c297c3356113326466fc15bf8b74a80c357927587698a",
+        "source_sha256_after": "298810a262862775334c297c3356113326466fc15bf8b74a80c357927587698a",
+        "log_sha256": "442429c45b5fa8ad92c6b3da832e3bc64ba949ec12e1de16f73cefbcc7f6bb34",
+        "elapsed_seconds": 3.0200722217559814,
+        "scope": "NEW scratch Controls ONLY; GeometrySupport and quartic cached imports reused"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/controls-02.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-02.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/quartic-capture-algebra:\"$LEAN_PATH\" lean -DwarningAsError=true /workspace/scratch/quartic-capture-algebra/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/quartic-capture-algebra/Controls.lean",
+        "source_sha256_before": "abe42b7f1291a9e0eaeab616429a407533c31f73b7a39936226485623854008a",
+        "source_sha256_after": "abe42b7f1291a9e0eaeab616429a407533c31f73b7a39936226485623854008a",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.1551268100738525,
+        "scope": "NEW scratch Controls ONLY; GeometrySupport and quartic cached imports reused"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/geometry-01.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-01.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean",
+        "source_sha256_before": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "source_sha256_after": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.2724857330322266,
+        "scope": "NEW scratch GeometrySupport ONLY; cached SourcePinPreservingQuartic import reused unchanged"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/geometry-02-import-artifact.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-02-import-artifact.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/quartic-capture-algebra/GeometrySupport.olean",
+          "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean",
+        "source_sha256_before": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "source_sha256_after": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "log_sha256": "d3dc6a584775220b106ef0cfed519237450441304b46189699b94d3c40efba80",
+        "elapsed_seconds": 0.770496129989624,
+        "scope": "NEW scratch GeometrySupport ONLY; cached SourcePinPreservingQuartic import reused unchanged"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/geometry-03-import-artifact.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-03-import-artifact.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/quartic-capture-algebra",
+          "-o",
+          "/workspace/scratch/quartic-capture-algebra/GeometrySupport.olean",
+          "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean",
+        "source_sha256_before": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "source_sha256_after": "57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.4907195568084717,
+        "scope": "NEW scratch GeometrySupport ONLY; cached SourcePinPreservingQuartic import reused unchanged"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/kernel-gates01.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-gates01.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "bash",
+          "-c",
+          "export LEAN_PATH=\"/workspace/scratch/quartic-capture-algebra:$LEAN_PATH\"; exec leanchecker CaptureGates"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T01:42:05.629007+00:00",
+        "exit_code": 0,
+        "log": "kernel-gates01.log"
+      }
+    },
+    {
+      "packaged_path": "raw/reused-scratch21/kernel-support01.json",
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-support01.json",
+      "scope": "REUSED_SCRATCH21",
+      "actual_record_unchanged": {
+        "command_argv": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "bash",
+          "-c",
+          "export LEAN_PATH=\"/workspace/scratch/quartic-capture-algebra:$LEAN_PATH\"; exec leanchecker GeometrySupport CaptureAlgebra"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "started_utc": "2026-10-26T01:43:53.128922+00:00",
+        "exit_code": 0,
+        "log": "kernel-support01.log",
+        "scope": "New support declarations only; CaptureGates already checked separately. Inspection of LeanChecker confirmed default replay checks target declarations, trusts imports; this covers previously uncovered new support kernel obligations."
+      }
+    }
+  ]
+}

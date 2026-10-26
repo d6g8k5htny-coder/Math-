@@ -1,0 +1,160 @@
+{
+  "recorded_utc": "2026-10-26T02:25:15.060304+00:00",
+  "author": "OpenAI Codex /root/source_morse_incidence; successor author-side implementation, not independent review",
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceMorseIncidence.lean",
+  "source_sha256": "b93fe8f7856d4e632b3ff823788469720ae0814440bbec744fde099d4f29f127",
+  "source_bytes": 80240,
+  "source_lines": 1706,
+  "artifact": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceMorseIncidence.olean",
+  "artifact_sha256_observed_after_checks": "c59d6ec1e4f72ae2635255dcd81894c39c352eadf10b409a65ec7fa0464d37bb",
+  "toolchain": "Lean 4.34.1",
+  "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "qualified_final_source_labels": [
+    "compact-07",
+    "module-08",
+    "axiom-09",
+    "kernel-10",
+    "controls-13"
+  ],
+  "axiom_audit": {
+    "all_module_declarations": 219,
+    "allowed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "scope": "every declaration whose environment module index is SourceMorseIncidence, including public/private/generated declarations and any instances"
+  },
+  "complete_inputs": {
+    "AxiomAudit.lean": "4f4ebeb10b30cd234e727830b7fcbbb6fa2ff233436477fed3a2a73e5152db85",
+    "Controls.lean": "4ff31c1a294e1d55ee2a5867478307d2d1a7db348ac9e366dab696419ec484e5"
+  },
+  "historical_support_input_reconstruction": {
+    "controls-11": "controls-11.input-reconstructed.lean; reconstructed by reversing the exact recorded edits, not an at-execution snapshot",
+    "controls-12": "controls-12.input-reconstructed.lean; reconstructed by reversing the exact recorded edits, not an at-execution snapshot",
+    "controls-13": "controls-13.input.lean; unchanged support source observed after execution",
+    "axiom-09": "axiom-09.input.lean; unchanged support source observed after execution"
+  },
+  "receipts": [
+    {
+      "label": "combined-01",
+      "receipt": "combined-01.json",
+      "receipt_sha256": "ffd0ef8988bb5e4deea87f954ea6b0c479056d859cac4b86e45351d691bd7edc",
+      "exit": 1,
+      "raw_log": "combined-01.log",
+      "log_sha256": "58819290cab2604e690cb766bf046acc9a879dac2ec864e025ab5ff31a15f418",
+      "production_input_snapshot": "combined-01.source.lean"
+    },
+    {
+      "label": "source-join-02",
+      "receipt": "source-join-02.json",
+      "receipt_sha256": "03882bb96a61d0d0f8a415bdc2cf69a2acdaf82748495a1d094cc40e50c01159",
+      "exit": 1,
+      "raw_log": "source-join-02.log",
+      "log_sha256": "ab55327e18d186b0190847af42b022120c499350e597504b4d4ff381aa5c69ed",
+      "production_input_snapshot": "source-join-02.source.lean"
+    },
+    {
+      "label": "source-join-03",
+      "receipt": "source-join-03.json",
+      "receipt_sha256": "3dc9f7facb4b41582d23af0775e1e26f3f1cec0890076fab0ff47ffe746bfae3",
+      "exit": 1,
+      "raw_log": "source-join-03.log",
+      "log_sha256": "4b58313ddc7e491f2afeada8681b5c65dfa6d273378f1fb376846efc8670d5c6",
+      "production_input_snapshot": "source-join-03.source.lean"
+    },
+    {
+      "label": "source-join-04",
+      "receipt": "source-join-04.json",
+      "receipt_sha256": "3d5f8c164a1043926207b2b432da5d38768b394925b076725a6f98d7dd9decc2",
+      "exit": 1,
+      "raw_log": "source-join-04.log",
+      "log_sha256": "f17134e83778a406cb81fea01a0d86d557f9216a46462a76d42bcde08ca97193",
+      "production_input_snapshot": "source-join-04.source.lean"
+    },
+    {
+      "label": "source-join-05",
+      "receipt": "source-join-05.json",
+      "receipt_sha256": "e66f8b99afc951ff11a2ad1f32bba77a87f193d2b33d2bcc30f33632276f6448",
+      "exit": 0,
+      "raw_log": "source-join-05.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "production_input_snapshot": "source-join-05.source.lean"
+    },
+    {
+      "label": "compact-06",
+      "receipt": "compact-06.json",
+      "receipt_sha256": "20907a62b16243e4b6c67ce3e4ce47dd1512248364a0da06a01d37f3620ac8e3",
+      "exit": 1,
+      "raw_log": "compact-06.log",
+      "log_sha256": "d71547e91db7f787339a95bc57c3d6bee122916ae856de27c80d672de596a1f1",
+      "production_input_snapshot": "compact-06.source.lean"
+    },
+    {
+      "label": "compact-07",
+      "receipt": "compact-07.json",
+      "receipt_sha256": "9c3c18225c4c476d358d6e5c0e417efd34af25f9abfc1ed73e0e7c7a3c2eabe0",
+      "exit": 0,
+      "raw_log": "compact-07.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "production_input_snapshot": "compact-07.source.lean"
+    },
+    {
+      "label": "module-08",
+      "receipt": "module-08.json",
+      "receipt_sha256": "dd359fd9377ade434e78831d9b89fd4aa3b797b0d6cbc8b5e968da3718c0804e",
+      "exit": 0,
+      "raw_log": "module-08.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "production_input_snapshot": "module-08.source.lean"
+    },
+    {
+      "label": "axiom-09",
+      "receipt": "axiom-09.json",
+      "receipt_sha256": "452e903097a6fb35d3ecf49df03be24c0affea4ddd1a72cf81905febe27a9595",
+      "exit": 0,
+      "raw_log": "axiom-09.log",
+      "log_sha256": "e972c9bffac954e1d09a64cf7e47161322f83d534a82a10026cbf1274835fac0",
+      "production_input_snapshot": "axiom-09.source.lean"
+    },
+    {
+      "label": "kernel-10",
+      "receipt": "kernel-10.json",
+      "receipt_sha256": "2a4b451e758672fec12609b46a3e2f752e94d3df5ecf0e53111efe518b9940fc",
+      "exit": 0,
+      "raw_log": "kernel-10.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "production_input_snapshot": "kernel-10.source.lean"
+    },
+    {
+      "label": "controls-11",
+      "receipt": "controls-11.json",
+      "receipt_sha256": "db1183d2026a5457e321f7636137626c03fc754ded53d669499b8e8fa89e6aa1",
+      "exit": 1,
+      "raw_log": "controls-11.log",
+      "log_sha256": "32eba383f89a4aff380248475b0042abe67348637658e74ce2098f98da024624",
+      "production_input_snapshot": "controls-11.source.lean"
+    },
+    {
+      "label": "controls-12",
+      "receipt": "controls-12.json",
+      "receipt_sha256": "17eb1f55d51c0032f68d9510a83262f550e0566f5b1c59cda6fd2c52b62686e5",
+      "exit": 1,
+      "raw_log": "controls-12.log",
+      "log_sha256": "12f17c27f2bb93ef2687eb544990440772af0086d7b7da41fd190aa9b61ef4cf",
+      "production_input_snapshot": "controls-12.source.lean"
+    },
+    {
+      "label": "controls-13",
+      "receipt": "controls-13.json",
+      "receipt_sha256": "38abc031d3f0b7e184b0c2a971afe6a0fa62c2ab30205d97977588d6c292b302",
+      "exit": 0,
+      "raw_log": "controls-13.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "production_input_snapshot": "controls-13.source.lean"
+    }
+  ],
+  "reused_evidence": "helper-lineage.json and predecessor helper receipts, without recompiling unchanged helper sources separately",
+  "remaining_process": "provider-distinct independent alignment review, integration/publication and shared-manifest changes belong to root",
+  "remaining_formal_transport": "The literal Lifetime/C263 quotient and HessianHasInertia adapters are not exported. Actual coordinate regularity and fundamental-cube critical finiteness are proved directly using the existing Mathlib IFT/compactness theorems."
+}

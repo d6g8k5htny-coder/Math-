@@ -1,0 +1,375 @@
+{
+  "production_records": {
+    "compile01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:09:14.808392+00:00",
+      "exit_code": 0,
+      "source_sha256": "f859c38bbc340995263ed6ea0873d024bef260b4fea8f0c9216803ea0187da6c",
+      "log": "compile01.log",
+      "scope": "New production module artifact only; frozen scratch bodies copied unchanged, prior dependency checks reused."
+    },
+    "compile02": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:10:13.531883+00:00",
+      "exit_code": 1,
+      "source_sha256": "7d056c91697b9fd35299f96aed47512f1c80149a8f2451079aece90c91fb1f4d",
+      "log": "compile02.log",
+      "scope": "New actual-source transfer/AE join in new production module only; old checks reused."
+    },
+    "compile03": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:10:58.811304+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "compile03.log",
+      "scope": "Narrow fixes: explicit coordinate simplification sources and correct helper namespace, no old check."
+    },
+    "kernel01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "leanchecker",
+        "SourceQuarticCaptureAlgebra"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:12:10.585034+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "kernel01.log",
+      "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+    },
+    "audit01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/quartic-capture-production",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Audit.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:12:10.584134+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "audit01.log",
+      "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+    },
+    "transfer-controls-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+      },
+      "log_sha256": "91fcac3ef9fb59c4f09eae4386a76f03190ec66af6f952ed2085fde78c936531",
+      "log_bytes": 770,
+      "started_utc": "2026-10-26T02:13:01.547322+00:00",
+      "elapsed_seconds": 4.3497514724731445,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "transfer-controls-02": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+      },
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0,
+      "started_utc": "2026-10-26T02:13:24.147905+00:00",
+      "elapsed_seconds": 5.157088041305542,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "rejected-unchanged-drift-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/quartic-capture-production/RejectedUnchangedDrift.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+      },
+      "log_sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+      "log_bytes": 112,
+      "started_utc": "2026-10-26T02:13:24.160607+00:00",
+      "elapsed_seconds": 4.870694875717163,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "rejected-reversed-upper-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/quartic-capture-production/RejectedReversedUpperSign.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+      },
+      "log_sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+      "log_bytes": 115,
+      "started_utc": "2026-10-26T02:13:24.103789+00:00",
+      "elapsed_seconds": 4.17845606803894,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    }
+  },
+  "production_failed_history": "All compile01-03 source snapshots retained: initial generic-only compile01 passed; full-source compile02 failed two API details (coordinate simp source, helper namespace); corrected compile03 passed. First new positive control attempt had only a scratch abs rewrite issue; corrected pass and expected-False failures retained. No command prefix reconstruction.",
+  "new_control_handoff": {
+    "scope": "Only new SourceQuarticCaptureAlgebra actual-transfer controls",
+    "author_side_helper": "OpenAI /root/palm_measure_transfer, not independent review",
+    "production_source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+    "production_artifact_sha256": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+    "records": {
+      "transfer-controls-02": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/quartic-capture-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+        },
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "log_bytes": 0,
+        "started_utc": "2026-10-26T02:13:24.147905+00:00",
+        "elapsed_seconds": 5.157088041305542,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      },
+      "rejected-unchanged-drift-01": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "/workspace/scratch/quartic-capture-production/RejectedUnchangedDrift.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+        },
+        "log_sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+        "log_bytes": 112,
+        "started_utc": "2026-10-26T02:13:24.160607+00:00",
+        "elapsed_seconds": 4.870694875717163,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      },
+      "rejected-reversed-upper-01": {
+        "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "/workspace/scratch/quartic-capture-production/RejectedReversedUpperSign.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "sha256_before": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+        },
+        "sha256_after": {
+          "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+          "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+          "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+        },
+        "log_sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+        "log_bytes": 115,
+        "started_utc": "2026-10-26T02:13:24.103789+00:00",
+        "elapsed_seconds": 4.17845606803894,
+        "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+      }
+    },
+    "positive_control_source": "Controls.lean",
+    "positive_control_source_sha256": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784",
+    "positive_semantics": [
+      "Exact quarter-error drift buffer -11RW/4",
+      "Explicit P=-3S,E=S/4 witness rules out preserving -3S",
+      "MAX-C1 error projects to Euclidean value coordinates",
+      "Concrete Euclidean (3,4) component projection",
+      "Adaptive strip boundary lies in comparison ball",
+      "Actual upper transverse component negative, lower positive",
+      "Actual central theorem needs no transverse-curvature threshold",
+      "Actual weighted b3 wrapper"
+    ],
+    "reused_without_execution": "Prior quartic-capture-algebra Q2/Q3 controls and their existing EVIDENCE.json receipts; no old GeometrySupport/CaptureAlgebra/CaptureGates/Controls executions.",
+    "first_attempt": {
+      "record": "transfer-controls-01.json",
+      "snapshot": "transfer-controls-01.source.lean",
+      "exit_code": 1,
+      "reason": "Scratch-only abs_of_nonneg rewrite tactic left wrong trivial goal; replaced by exact equality.le. No production issue."
+    },
+    "boundary": "Source owner performs final source compile/kernel/axioms. This helper checked only new transfer controls after owner final olean notice; no production edits, commits or posts.",
+    "failure_preservation": "All source snapshots/logs/JSON retained; command subprocesses genuine, no reconstructed prefixes.",
+    "files": {
+      "Controls.lean": {
+        "sha256": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784",
+        "bytes": 4105
+      },
+      "RejectedUnchangedDrift.lean": {
+        "sha256": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0",
+        "bytes": 158
+      },
+      "RejectedReversedUpperSign.lean": {
+        "sha256": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c",
+        "bytes": 159
+      },
+      "run_new_controls.py": {
+        "sha256": "0fd963ac0e5f9ff22fac9feb0db82829c4fae10d6eff5d1d3b846ffa0a618a97",
+        "bytes": 1684
+      },
+      "transfer-controls-01.json": {
+        "sha256": "04e9c33c50a06ccac378c07a188111f2a12e7f74646fcd845d7fe01091a252f6",
+        "bytes": 1295
+      },
+      "transfer-controls-01.log": {
+        "sha256": "91fcac3ef9fb59c4f09eae4386a76f03190ec66af6f952ed2085fde78c936531",
+        "bytes": 770
+      },
+      "transfer-controls-01.source.lean": {
+        "sha256": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8",
+        "bytes": 4128
+      },
+      "transfer-controls-02.json": {
+        "sha256": "3df5df5944c171033efd9cb489970cf202e719a6624cdd957bff35b224bf9369",
+        "bytes": 1292
+      },
+      "transfer-controls-02.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "transfer-controls-02.source.lean": {
+        "sha256": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784",
+        "bytes": 4105
+      },
+      "rejected-unchanged-drift-01.json": {
+        "sha256": "8f39a34b46ea791c2610c6ee043659467c9c268144472eafae8211ecce2661c3",
+        "bytes": 1279
+      },
+      "rejected-unchanged-drift-01.log": {
+        "sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+        "bytes": 112
+      },
+      "rejected-unchanged-drift-01.source.lean": {
+        "sha256": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0",
+        "bytes": 158
+      },
+      "rejected-reversed-upper-01.json": {
+        "sha256": "fcdc7bad4de17f617796335dc80ddaf2fcf9d462b224fc7b5d245f7108224af8",
+        "bytes": 1281
+      },
+      "rejected-reversed-upper-01.log": {
+        "sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+        "bytes": 115
+      },
+      "rejected-reversed-upper-01.source.lean": {
+        "sha256": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c",
+        "bytes": 159
+      }
+    }
+  },
+  "prior_scratch21_evidence": "raw/reused-scratch21/EVIDENCE.json",
+  "source_integrity_binding": {
+    "final_source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+    "final_object_sha256": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+    "origin": "Existing completed production and control records; not recomputed during packaging"
+  },
+  "all_helpers_same_family": "OpenAI/Codex; no new scientific review credit",
+  "unknown_values": "Historical scratch attempt source hashes were not captured; original receipts explicitly retain UNKNOWN/not captured instead of invention."
+}

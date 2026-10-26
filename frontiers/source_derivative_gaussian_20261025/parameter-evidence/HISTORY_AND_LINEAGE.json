@@ -1,0 +1,1324 @@
+{
+  "metadata_only": true,
+  "packager": "OpenAI/Codex /root/uniform_jet_moment_sources/torus_interface_recon",
+  "owned_output_only": "/workspace/scratch/parameter-evidence-packaging/HISTORY_AND_LINEAGE.json",
+  "scope": "Existing SourceSmoothParameterSpace production and its actual scratch helpers ONLY. GeometrySupport/Controls at quartic-capture-algebra are excluded.",
+  "no_new_execution_or_hashing": true,
+  "no_source_edits_or_baseline_copies": true,
+  "original_receipt_path": "/workspace/scratch/smooth-parameter-production/QUALIFICATION_RECEIPT.json",
+  "final_source_artifact_binding_copied_from_original_receipt": {
+    "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+    "source_sha256": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+    "olean": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+    "olean_sha256": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+    "line_count": 594,
+    "frozen_contract_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+    "contract": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_SMOOTH_PARAMETER_SPACE.md",
+    "contract_sha256": "3ec89dcf181e2bfc888d415c79c90bc7ebc682f6fe81a7c73795ae8bc00b4c22"
+  },
+  "final_qualification_records": {
+    "compile": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.json",
+    "controls": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+    "axioms": "/workspace/scratch/smooth-parameter-production/06-public-axioms.json",
+    "kernel": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.json"
+  },
+  "final_applicable_labels": [
+    "04-complete-parameter-family",
+    "06-public-axioms",
+    "07-kernel-replay",
+    "08-controls-fixed"
+  ],
+  "all_final_exit_zero_copied_from_receipt": true,
+  "named_new_module_kernel_replay_count_copied_from_receipt": 1,
+  "source_and_artifact_unchanged_across_final_qualification_copied_from_receipt": true,
+  "recorded_execution_count": 35,
+  "recorded_executions": [
+    {
+      "label": "diagnostics-01",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "a1bb13658042045749120e0301b3b795f85992090cee1a80168d1630e65ca451",
+        "source_sha256_after": "a1bb13658042045749120e0301b3b795f85992090cee1a80168d1630e65ca451",
+        "log_sha256": "bc971b34fc0efc9c3e19a91fc3627b52e01651966d010e996c16de59205246b3",
+        "elapsed_seconds": 5.333460330963135,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-01.source.lean",
+      "original_failure_first_lines": [
+        "lp.instNormedSpace",
+        "lp.normedAddCommGroup",
+        "lp.instModuleSubtypePreLpMemAddSubgroup",
+        "BoundedContinuousFunction.instNormedSpace",
+        "BoundedContinuousFunction.instNormedAddCommGroup",
+        "BoundedContinuousFunction.instModule",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:15:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] DerivativeBCF 2 0)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:16:0: error: failed to synthesize",
+        "  Norm (DerivativeBCF 2 0 \u2192L[\u211d] SmoothParameter)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "Pi.normedSpace",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "BoundedContinuousFunction.instNormedSpace",
+        "BoundedContinuousFunction.instNormedAddCommGroup",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:23:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] DerivativeBCF 2 k)",
+        ""
+      ],
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "diagnostics-02",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "907b5103c0ad7ee83d2b673022947df25e782cddbe9935c85d5e4269c5956d09",
+        "source_sha256_after": "907b5103c0ad7ee83d2b673022947df25e782cddbe9935c85d5e4269c5956d09",
+        "log_sha256": "c4c83829cf673b5dfaafecf989be5b39556993cda2d7c196edf6e8b1ba1b1d4f",
+        "elapsed_seconds": 5.882020473480225,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-02.source.lean",
+      "original_failure_first_lines": [
+        "lp.instNormedSpace",
+        "lp.normedAddCommGroup",
+        "lp.instModuleSubtypePreLpMemAddSubgroup",
+        "BoundedContinuousFunction.instNormedSpace",
+        "BoundedContinuousFunction.instNormedAddCommGroup",
+        "BoundedContinuousFunction.instModule",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:15:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] DerivativeBCF 2 0)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:16:0: error: failed to synthesize",
+        "  Norm (DerivativeBCF 2 0 \u2192L[\u211d] SmoothParameter)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "Pi.normedSpace",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "BoundedContinuousFunction.instNormedSpace",
+        "BoundedContinuousFunction.instNormedAddCommGroup",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:23:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] DerivativeBCF 2 k)",
+        ""
+      ],
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "diagnostics-03",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "933b197231152907713f683fc2c4df5d00fb0d826275e9fd7cc1f5e6e705d1e9",
+        "source_sha256_after": "933b197231152907713f683fc2c4df5d00fb0d826275e9fd7cc1f5e6e705d1e9",
+        "log_sha256": "9c543296136a4b182af88955dbe23068b6ca3318ae3f704a543ee9dbf8a58bf0",
+        "elapsed_seconds": 5.8445658683776855,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-03.source.lean",
+      "original_failure_first_lines": [
+        "NormedAddCommGroup.toSeminormedAddCommGroup",
+        "lp.instNormedSpace",
+        "BoundedContinuousFunction.instSeminormedAddCommGroup",
+        "BoundedContinuousFunction.instNormedSpace",
+        "ContinuousLinearMap.hasOpNorm",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:14:0: error: failed to synthesize",
+        "  Norm (\u211d \u2192L[\u211d] DerivativeBCF 2 0)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "ContinuousLinearMap.hasOpNorm",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] DerivativeBCF 2 0)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "ContinuousLinearMap.opNorm.{u_1, u_2, u_4, u_5} {\ud835\udd5c : Type u_1} {\ud835\udd5c\u2082 : Type u_2} {E : Type u_4} {F : Type u_5}",
+        "  [SeminormedAddCommGroup E] [SeminormedAddCommGroup F] [NontriviallyNormedField \ud835\udd5c] [NontriviallyNormedField \ud835\udd5c\u2082]",
+        "  [NormedSpace \ud835\udd5c E] [NormedSpace \ud835\udd5c\u2082 F] {\u03c3\u2081\u2082 : \ud835\udd5c \u2192+* \ud835\udd5c\u2082} (f : E \u2192SL[\u03c3\u2081\u2082] F) : \u211d",
+        "@ContinuousLinearMap.hasOpNorm : {\ud835\udd5c : Type u_1} \u2192",
+        "  {\ud835\udd5c\u2082 : Type u_2} \u2192",
+        "    {E : Type u_3} \u2192",
+        "      {F : Type u_4} \u2192",
+        "        [inst : SeminormedAddCommGroup E] \u2192",
+        "          [inst_1 : SeminormedAddCommGroup F] \u2192",
+        "            [inst_2 : NontriviallyNormedField \ud835\udd5c] \u2192"
+      ],
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "diagnostics-04",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "90571dfee75c5e07071c58951a6a9eea73f1ffbc53d6fe18251b9b98ecbbcf9e",
+        "source_sha256_after": "90571dfee75c5e07071c58951a6a9eea73f1ffbc53d6fe18251b9b98ecbbcf9e",
+        "log_sha256": "7b1958cba466d1ecc54b2440ded577225536efd440ad6d5d0d0170133b7f4f0f",
+        "elapsed_seconds": 5.008360147476196,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-04.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:12:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Module \u211d (DerivativeBCF 2 0)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:13:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Module \u211d (DerivativeBCF 2 0)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:14:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Module \u211d ((k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:15:36: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Module \u211d (DerivativeBCF 2 0)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "sorry.opNorm : \u211d"
+      ],
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "diagnostics-05",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "97b8389b628777f87cefd96ebea419bb418162858d3fd4a64b6fc3b775c5dbae",
+        "source_sha256_after": "97b8389b628777f87cefd96ebea419bb418162858d3fd4a64b6fc3b775c5dbae",
+        "log_sha256": "1c0ef19c4c69b447314d8ab7c6ee81e609fd81b41cfc04fa0565d9df970210fd",
+        "elapsed_seconds": 5.136993169784546,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-05.source.lean",
+      "original_failure_first_lines": [
+        "ContinuousLinearMap.hasOpNorm",
+        "ContinuousLinearMap.hasOpNorm",
+        "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize",
+        "  Norm (SmoothParameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.",
+        "(ContinuousLinearMap.id \u211d (DerivativeBCF 2 0)).opNorm : \u211d"
+      ],
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "diagnostics-06",
+      "scope_classification": "api_diagnostic_not_math_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+        "source_sha256_before": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+        "source_sha256_after": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+        "log_sha256": "c8422d282e5c6fd3b80755569dce565b62c07b94a9399750471c68d19dc46c5c",
+        "elapsed_seconds": 3.4947991371154785,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.source.lean",
+      "not_an_additional_qualified_theorem": true
+    },
+    {
+      "label": "parameter-kernel-01",
+      "scope_classification": "scratch_parameter_kernel_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean",
+        "source_sha256_before": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+        "source_sha256_after": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.0062413215637207,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.source.lean"
+    },
+    {
+      "label": "synthesis-01",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "3bc408d177ca62db236f3c18359cf62553f3e608071a137e4d0c039ab73b170e",
+        "source_sha256_after": "3bc408d177ca62db236f3c18359cf62553f3e608071a137e4d0c039ab73b170e",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.2493019104003906,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-01.source.lean"
+    },
+    {
+      "label": "synthesis-02",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "a4c5abba423f17c3e31d0499f98447ece4b54ed11b9ed887d908c9d67dcd5741",
+        "source_sha256_after": "a4c5abba423f17c3e31d0499f98447ece4b54ed11b9ed887d908c9d67dcd5741",
+        "log_sha256": "efedcfbcbd53e20dd05740ac5058ae2b0d4c61101fc724ef4c1c461dde61d5d9",
+        "elapsed_seconds": 6.618409633636475,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-02.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:138:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (\u21a5Parameter \u2192L[\u211d] DerivativeBCF 2 k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:144:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (\u21a5Parameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command."
+      ]
+    },
+    {
+      "label": "synthesis-03",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "570897bdbe89801ce7a88f6b7765d90172d7bdc1b76614c32a586545963805a7",
+        "source_sha256_after": "570897bdbe89801ce7a88f6b7765d90172d7bdc1b76614c32a586545963805a7",
+        "log_sha256": "36cf5201e215a6fea08d77571a0b3e50ad91b07ae03cea30ac4718e8aac6d9e6",
+        "elapsed_seconds": 6.846882343292236,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-03.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:138:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (Parameter \u2192L[\u211d] DerivativeBCF 2 k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:144:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (Parameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command."
+      ]
+    },
+    {
+      "label": "synthesis-04",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "8cf1a0b49f2ad492aa8684f6b5e6f8c1f5667cf9d5821ad19fac27f9848af5ef",
+        "source_sha256_after": "8cf1a0b49f2ad492aa8684f6b5e6f8c1f5667cf9d5821ad19fac27f9848af5ef",
+        "log_sha256": "a6da36c7338f006cc89778627e7bffa3863461b7dfc08c38c2973c614652e748",
+        "elapsed_seconds": 6.790465593338013,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-04.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:147:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (Parameter \u2192L[\u211d] DerivativeBCF 2 k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:153:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (Parameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:189:75: error: unsolved goals",
+        "case hL",
+        "L : \u211d",
+        "hL : L \u2260 0",
+        "\u03c9 : SmoothSample 2 L",
+        "k : Fin 4",
+        "x : Fin 2 \u2192 \u211d",
+        "u : Fin \u2191k \u2192 Fin 2 \u2192 \u211d",
+        "\u22a2 L \u2260 0"
+      ]
+    },
+    {
+      "label": "synthesis-05",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "415b863bf9c4be24170cd1b34004edfc58f4ad754465f8363f5243877f45ff9e",
+        "source_sha256_after": "415b863bf9c4be24170cd1b34004edfc58f4ad754465f8363f5243877f45ff9e",
+        "log_sha256": "157ddd0ab4332449f095015055e0b503dc9a32175f40b1449cfcd94522e65c1b",
+        "elapsed_seconds": 6.036281585693359,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-05.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:152:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (Parameter \u2192L[\u211d] (k : Fin 4) \u2192 DerivativeBCF 2 \u2191k)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command."
+      ]
+    },
+    {
+      "label": "synthesis-06",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "5af860d2e62b5fc9f0faf5dcc045c4a5ca3a04e7ab5dd6516ac0bb083daca888",
+        "source_sha256_after": "5af860d2e62b5fc9f0faf5dcc045c4a5ca3a04e7ab5dd6516ac0bb083daca888",
+        "log_sha256": "5ae9a6240fe8afc63680c4d888da9e702c0b58debbc150dab87f83f398542e97",
+        "elapsed_seconds": 6.358189821243286,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-06.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:151:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (\u21a5(lp (fun x => \u211d) 1) \u2192L[\u211d] (i : Fin 4) \u2192 DerivativeBCF 2 \u2191i)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command."
+      ]
+    },
+    {
+      "label": "synthesis-07",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "974b76e4706ca3afc1a56f9e836150ae2af8d42a62f9606dc0d79bc3bf50f0d3",
+        "source_sha256_after": "974b76e4706ca3afc1a56f9e836150ae2af8d42a62f9606dc0d79bc3bf50f0d3",
+        "log_sha256": "bb80280eb012dd6a62add2d29145da251f091fb062cb3cf07f7030125f963e6a",
+        "elapsed_seconds": 7.816508769989014,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-07.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean:168:55: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  Norm (\u21a5(lp (fun x => \u211d) 1) \u2192L[\u211d] (i : Fin 4) \u2192 DerivativeBCF 2 \u2191i)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command."
+      ]
+    },
+    {
+      "label": "synthesis-08",
+      "scope_classification": "scratch_finite_order_synthesis_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true --root=/workspace/scratch/source-smooth-parameter-space -o /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.olean /workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+        "source_sha256_before": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+        "source_sha256_after": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.63174819946289,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.source.lean"
+    },
+    {
+      "label": "weighted-carrier-01",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "source_sha256_after": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "log_sha256": "0388cb9463ee2e5535ed9577113e67d98a8027eedf14f857600f383c4887d070",
+        "elapsed_seconds": 0.5910172462463379
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-01.source.lean",
+      "original_failure_first_lines": [
+        "input file '/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean' must be contained in root directory (/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/)"
+      ]
+    },
+    {
+      "label": "weighted-carrier-02",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "source_sha256_after": "c98abf1267c6f5b91cfc47815090660608f79a117a0ea9c87ef1ee1c994644c1",
+        "log_sha256": "f21fc9c4d590c5cb659cedfa99a02b56666cb4f597f7dfd42d10cd656bc4090a",
+        "elapsed_seconds": 4.003496408462524
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-02.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:60: error: expected token",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:57: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  LE Type",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:41:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  OfNat Type 0",
+        "numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is",
+        "  Type",
+        "due to the absence of the instance above",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:40:75: error: unsolved goals",
+        "L : \u211d",
+        "\u03c9 : SmoothSample 2 L",
+        "\u22a2 \u2016weightedCarrier L \u03c9\u2016 = \u2211 k, sourceDerivativeMajorant L (\u2191k) \u03c9",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:55: error: expected token",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:52: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  LE Type",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:54:54: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  OfNat Type 0",
+        "numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is"
+      ]
+    },
+    {
+      "label": "weighted-carrier-03",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+        "source_sha256_after": "ae876299f50a6aaa8b621c042665e97b453a1b4ae6dbab7be57fe755b4c62d0d",
+        "log_sha256": "48ffc5168e06a9111a8e945ea41a847560c0bdfc8439efc836488ae51847e4a4",
+        "elapsed_seconds": 3.6555190086364746
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-03.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:45:8: error(lean.unknownIdentifier): Unknown identifier `tsum_finsetSum`"
+      ]
+    },
+    {
+      "label": "weighted-carrier-04",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "8c969fffbe78ef96462fb6735162b3b1555be43cc2c370a208b2fa03ee8d57c8",
+        "source_sha256_after": "8c969fffbe78ef96462fb6735162b3b1555be43cc2c370a208b2fa03ee8d57c8",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.242201328277588
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-04.source.lean"
+    },
+    {
+      "label": "weighted-carrier-05",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "df9e581bc48e08353c910b6dd585b5e41eee18ecd68858413dce6c2ee3195533",
+        "source_sha256_after": "df9e581bc48e08353c910b6dd585b5e41eee18ecd68858413dce6c2ee3195533",
+        "log_sha256": "9b9886a00f20ba41689e010d14bd4fd86110c2d03c2a39784c922eed31b77e1a",
+        "elapsed_seconds": 3.314924716949463
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-05.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:89:2: error: Try this: ",
+        "  letI\u0335",
+        "",
+        "The goal is a proposition, so `let` is preferred over `letI`.",
+        "The difference between `let` and `letI` is that `letI` inlines the value.",
+        "But this is not relevant for proofs because of proof irrelevance.",
+        "",
+        "Note: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      ]
+    },
+    {
+      "label": "weighted-carrier-06",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source_sha256_before": "53a846efb814fa2a71c782732c5bb3b2c8d7ff76dc3f1b00df8fd75ae32b7b5e",
+        "source_sha256_after": "53a846efb814fa2a71c782732c5bb3b2c8d7ff76dc3f1b00df8fd75ae32b7b5e",
+        "log_sha256": "b7769c9adcbc1120b0455b147ff28cc8825d9d7395c20d7b14e5ad372abe468c",
+        "elapsed_seconds": 3.5938568115234375
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-06.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean:89:2: error: Try this: ",
+        "  haveI\u0335",
+        "",
+        "The goal is a proposition, so `have` is preferred over `haveI`.",
+        "The difference between `have` and `haveI` is that `haveI` inlines the value.",
+        "But this is not relevant for proofs because of proof irrelevance.",
+        "",
+        "Note: This linter can be disabled with `set_option linter.style.haveILetI false`"
+      ]
+    },
+    {
+      "label": "weighted-carrier-07",
+      "scope_classification": "scratch_weighted_carrier_proof",
+      "original_record_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.json",
+      "original_raw_log_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "--root=/workspace/scratch/source-smooth-parameter-space",
+          "-o",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.olean",
+          "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source_sha256_before": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+        "source_sha256_after": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.67079758644104
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.source.lean"
+    },
+    {
+      "label": "01-merged-core",
+      "scope_classification": "production_source_compilation",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "source_sha256_after": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "production_source_sha256_before": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "production_source_sha256_after": "6b2770279126cead233102e30cf13eccecfb751b2b0287b3a32682ff4ba0ed84",
+        "olean_sha256_before": null,
+        "olean_sha256_after": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 8.384441137313843,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/01-merged-core.source.lean"
+    },
+    {
+      "label": "02-gradient-family",
+      "scope_classification": "production_source_compilation",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "source_sha256_after": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "production_source_sha256_before": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "production_source_sha256_after": "cf2cf7e52cc327b7b70551b08252a9786c23c84d6df1ba97a491ab7cf9a750a6",
+        "olean_sha256_before": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "olean_sha256_after": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "log_sha256": "44e6189c3a7d9c395fee3887369413e21bffcd6b06e3c65f42d9a6768a9267a1",
+        "elapsed_seconds": 10.255136966705322,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/02-gradient-family.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean:350:68: error: unexpected token '('; expected ')', ',' or ':'",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean:350:8: error: Type mismatch: After simplification, term",
+        "  ContinuousLinearMap.le_of_opNorm_le (parameterDerivativeCLM hL k hk)",
+        " has type",
+        "  \u2016parameterDerivativeCLM hL k hk\u2016 \u2264 ?m.53 \u2192",
+        "    \u2200 (a : PreLp fun x => \u211d) (b : a \u2208 lp (fun x => \u211d) 1), \u2016(parameterDerivativeCLM hL k hk) \u27e8a, b\u27e9\u2016 \u2264 ?m.53 * \u2016\u27e8a, b\u27e9\u2016",
+        "but is expected to have type",
+        "  \u2016(parameterDerivativeCLM hL k hk) a\u2016 \u2264 \u2016a\u2016"
+      ]
+    },
+    {
+      "label": "03-gradient-family",
+      "scope_classification": "production_source_compilation",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "source_sha256_after": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "production_source_sha256_before": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "production_source_sha256_after": "484758216ed22dd92d81db0f580f12c7cabd16469602fa1e43d4872648c93b3d",
+        "olean_sha256_before": "ded9fecd1c8a553166026e0dccc6d3273875f99a89ee80c3a656416bf3c38e50",
+        "olean_sha256_after": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 10.988375902175903,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/03-gradient-family.source.lean"
+    },
+    {
+      "label": "04-complete-parameter-family",
+      "scope_classification": "production_source_compilation",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+          "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+        "source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 24.88279700279236,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/04-complete-parameter-family.source.lean"
+    },
+    {
+      "label": "05-controls",
+      "scope_classification": "production_control",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/05-controls.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/05-controls.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+        "source_sha256_before": "42931fbb35489612dd1d55eddd042e8b53b52a78d390fc997ea5b87e5b9dd7e9",
+        "source_sha256_after": "42931fbb35489612dd1d55eddd042e8b53b52a78d390fc997ea5b87e5b9dd7e9",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "43e6384850a9a396af383545bf388e7cdc01bab529b967dbb0d3f0f683751a03",
+        "elapsed_seconds": 8.869140148162842,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/05-controls.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/smooth-parameter-production/Controls.lean:41:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern",
+        "  \u2191(lp.single 1 m ?m.60) n",
+        "in the target expression",
+        "  \u2191(lp.single 1 m (parameterWeight L m)) n / parameterWeight L n * modeCoefficient 2 L n x = 0",
+        "",
+        "L : \u211d",
+        "hL : L \u2260 0",
+        "m : SourceMode 2",
+        "x : Fin 2 \u2192 \u211d",
+        "n : SourceMode 2",
+        "hn : n \u2260 m",
+        "\u22a2 \u2191(lp.single 1 m (parameterWeight L m)) n / parameterWeight L n * modeCoefficient 2 L n x = 0",
+        "",
+        "Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.",
+        "Full error:",
+        "  Application type mismatch: The argument",
+        "    fun x => x \u2208 lp (fun x => \u211d) 1",
+        "  has type",
+        "    (PreLp fun x => \u211d) \u2192 Prop",
+        "  but is expected to have type",
+        "    ((i : SourceMode 2) \u2192 (fun x => \u211d) i) \u2192 Prop",
+        "  in the application",
+        "    @Subtype.val ((i : SourceMode 2) \u2192 (fun x => \u211d) i) fun x => x \u2208 lp (fun x => \u211d) 1",
+        "/workspace/scratch/smooth-parameter-production/Controls.lean:41:31: error: Application type mismatch: The argument"
+      ]
+    },
+    {
+      "label": "06-public-axioms",
+      "scope_classification": "production_public_axiom_audit",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/AxiomAudit.lean",
+        "source_sha256_before": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+        "source_sha256_after": "2598597037aa2a1d70a473cf2e971e3f6dc9259897de129c82e1a3ab9c96a74d",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "73ce86a847d8711d40529aa406ff91a49945d5814a62b3f8b26024a3a6d3afca",
+        "elapsed_seconds": 6.460231304168701,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/06-public-axioms.source.lean"
+    },
+    {
+      "label": "07-kernel-replay",
+      "scope_classification": "production_named_kernel_replay",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/07-kernel-replay.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceSmoothParameterSpace"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 12.21668529510498,
+        "scope": "ONLY new SourceSmoothParameterSpace; dependencies reused without rechecks"
+      }
+    },
+    {
+      "label": "08-controls-fixed",
+      "scope_classification": "production_control",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/smooth-parameter-production/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/Controls.lean",
+        "source_sha256_before": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+        "source_sha256_after": "a1024cddaedeebac6fcba692daa3103b77b7e8a1f82fcbcbf8ce015f5e4dfa13",
+        "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+        "olean_sha256_before": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 3.5946128368377686,
+        "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/08-controls-fixed.source.lean"
+    },
+    {
+      "label": "euclidean-derivative-01",
+      "scope_classification": "scratch_euclidean_derivative_proof",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean",
+        "source_sha256_before": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+        "source_sha256_after": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 5.319325923919678,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.source.lean"
+    },
+    {
+      "label": "gradient-01",
+      "scope_classification": "scratch_gradient_proof",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/gradient-01.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/gradient-01.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+        "source_sha256_after": "6f6c3b63f72ad5852616d42bca3a904c0b24bf40c2b645893953675882b10619",
+        "log_sha256": "e8b6a6a5afca208f2c14422d17e3361f82c6d9ca7c89225e445f1714f2c556d9",
+        "elapsed_seconds": 5.464632987976074,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/gradient-01.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:29:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  FiniteDimensional \u211d ((Fin 2 \u2192 \u211d) [\u00d7k.succ]\u2192L[\u211d] \u211d)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:31:0: error: Not a definitional equality: the left-hand side",
+        "  ((gradientTensorContraction k) A) u i",
+        "is not definitionally equal to the right-hand side",
+        "  A (Fin.snoc u (coordinateDirection i))",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:33:82: error: Type mismatch",
+        "  rfl",
+        "has type",
+        "  ?m.20 = ?m.20",
+        "but is expected to have type",
+        "  ((gradientTensorContraction k) A) u i = A (Fin.snoc u (coordinateDirection i))",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:52:76: error: mod_cast has type",
+        "  k \u2264 2",
+        "but is expected to have type",
+        "  k \u2264 4",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:86:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class",
+        "  FiniteDimensional \u211d ((Fin 2 \u2192 \u211d) [\u00d71]\u2192L[\u211d] Fin 2 \u2192 \u211d)",
+        "",
+        "Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:90:16: error(lean.unknownIdentifier): Unknown identifier `parameterGradientDerivativeBCF`",
+        ""
+      ]
+    },
+    {
+      "label": "gradient-02",
+      "scope_classification": "scratch_gradient_proof",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/gradient-02.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/gradient-02.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 1,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "ff456533649e5bf29777d373f9582aefe2aec66c61275f8df470b5320c30e4d2",
+        "source_sha256_after": "ff456533649e5bf29777d373f9582aefe2aec66c61275f8df470b5320c30e4d2",
+        "log_sha256": "c7ee5a34a73be2d1cff18c6b2f8f63ec13c352cfa38c5b09b85abd0459e26087",
+        "elapsed_seconds": 5.303555727005005,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/gradient-02.source.lean",
+      "original_failure_first_lines": [
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:34:58: error: This simp argument is unused:",
+        "  ContinuousMultilinearMap.curryRight_apply",
+        "",
+        "Hint: Omit it from the simp argument list.",
+        "  [apply] simp [gradientTensorContraction, coordinateGradientCLM]",
+        "",
+        "Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+        "/workspace/scratch/smooth-parameter-production/GradientFamily.lean:100:2: error: 'change' tactic failed, pattern",
+        "  ((parameterGradientTensorBCF hL 1 \u22ef a) x) (Fin.snoc 0 v) = ?m.55",
+        "is not definitionally equal to target",
+        "  ((parameterGradientDerivativeBCF hL a) x) v x\u271d =",
+        "    (fderiv \u211d (gradientPi (weightedFourierField L (parameterWeight L) a)) x) v x\u271d"
+      ]
+    },
+    {
+      "label": "gradient-03",
+      "scope_classification": "scratch_gradient_proof",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/gradient-03.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/gradient-03.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "c2242e5099f5ca9af86e5e1f3d7ce5db1f6fdc30763ccf88c752d6d2a279e4dc",
+        "source_sha256_after": "c2242e5099f5ca9af86e5e1f3d7ce5db1f6fdc30763ccf88c752d6d2a279e4dc",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 5.653564453125,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/gradient-03.source.lean"
+    },
+    {
+      "label": "gradient-04",
+      "scope_classification": "scratch_gradient_proof",
+      "original_record_path": "/workspace/scratch/smooth-parameter-production/gradient-04.json",
+      "original_raw_log_path": "/workspace/scratch/smooth-parameter-production/gradient-04.log",
+      "record_copied_verbatim": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "sh",
+          "-c",
+          "LEAN_PATH=/workspace/scratch/source-smooth-parameter-space:\"$LEAN_PATH\" lean -DwarningAsError=true  /workspace/scratch/smooth-parameter-production/GradientFamily.lean"
+        ],
+        "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+        "source_sha256_before": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+        "source_sha256_after": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.689929008483887,
+        "scope": "NEW scratch finite-order synthesis ONLY; cached topology/source imported unchanged"
+      },
+      "original_executed_source_snapshot_path": "/workspace/scratch/smooth-parameter-production/gradient-04.source.lean"
+    }
+  ],
+  "history_caveats": [
+    "All original command/exit/hash records and failed outputs remain unchanged. All hashes in this package are copied values; this metadata task calculated none.",
+    "weighted-carrier-01 is an invocation/root-directory failure before Lean source elaboration; weighted-carrier-04 is an intermediate pass, weighted-carrier-07 is the completed weighted/Polish helper pass.",
+    "diagnostics-01 through -05 preserve failures exposing BCF/Pi structure-path mismatches; diagnostics-06 proves only API synthesis success with six coherent local structural instances. It is not six additional mathematical theorems and does not enlarge the 88 direct production declaration reports.",
+    "synthesis-01 is an intermediate helper pass, synthesis-02 through -07 failed intermediate source versions, synthesis-08 is the completed finiteC5/synthesis helper pass.",
+    "gradient-01 and -02 failed new helper elaboration/cleanup; gradient-03 is the Pi-family intermediate pass and gradient-04 includes the Euclidean gradient transport.",
+    "02-gradient-family is a failed intermediate production source due to multiline uniform-bound syntax; 03-gradient-family is the repaired intermediate pass; final production bytes are those of 04-complete-parameter-family.",
+    "05-controls fails only an explicit dependent lp.single control annotation. Production source/artifact remained frozen; only Controls.lean changed for 08-controls-fixed. Final production compile/axiom/kernel checks were not repeated for that control-only correction.",
+    "No arbitrary ell1 parameter C-infinity assertion is made. Genuine parameter field regularity is C5, gradient regularity is finite C2, and the physical first derivative uses that finite regularity."
+  ],
+  "parameter_kernel_descriptive_scope_label_note": {
+    "original_note_path": "/workspace/scratch/source-smooth-parameter-space/PARAMETER_KERNEL_METADATA_NOTE.json",
+    "note_copied_verbatim": {
+      "original_record": "parameter-kernel-01.json",
+      "metadata_scope_label_correction": "Copied runner descriptive scope string says finite-order synthesis; actual source, command and before/after source hashes correctly identify NEW ParameterKernel.lean only. Original executed record retained unchanged; no reexecution for this prose label.",
+      "actual_scope": "NEW scratch ParameterKernel.lean only; WeightedCarrier and qualified source imports reused unchanged"
+    },
+    "original_execution_record_retained_unchanged": true,
+    "actual_command_source_and_before_after_hashes_are_authoritative": true,
+    "no_reexecution_for_metadata_prose_label": true
+  },
+  "helper_runner_descriptive_scope_disclosure": "Several new helper runners reused a generic finite-order synthesis descriptive scope string. Each original string is copied unchanged; actual source/command/snapshot/exit binds the executed helper. The specific ParameterKernel correction is preserved in its separate original metadata note.",
+  "author_lineage": [
+    {
+      "agent": "/root/uniform_jet_moment_sources",
+      "family": "OpenAI/Codex",
+      "role": "Sole production author/integrator and final qualification author; scratch finite-order synthesis and actual parameter-kernel proofs, convenience bounds and actual-carrier wrappers."
+    },
+    {
+      "agent": "/root/uniform_jet_moment_sources/torus_interface_recon",
+      "family": "OpenAI/Codex",
+      "role": "Author-side scratch WeightedCarrier membership/norm/measurability/completeness/separability/Polish proofs, gradient contractions/finiteC2/Euclidean transport and Euclidean first derivative proofs; also coherent-instance API diagnosis. Actual proof bodies integrated once by sole production author."
+    }
+  ],
+  "actual_helper_binding_copied_from_original_lineage": [
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/WeightedCarrier.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/weighted-carrier-07.json",
+      "sha256": "b27ea234a57a84d296e965860d35bb5f9e805178d8b3e6027d29c4aa1ac62e6b",
+      "contribution": "Actual alpha membership/norm/strong Borel/completeness/separability/Polishness"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+      "sha256": "feeacb43980327c2f6d240533a42d694393824d7653094d477d87c6d11845431",
+      "contribution": "Six explicit coherent inherited BCF/whole-jet structure instances; API diagnostics only"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/FiniteOrderSynthesis.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/synthesis-08.json",
+      "sha256": "da9d13be1551492fda66a6cc8325dfa1b5da0e5d6122c626dc7194fe2b276452",
+      "contribution": "Main-author finiteC5/normalized synthesis/actual recovery/periodicity"
+    },
+    {
+      "source": "/workspace/scratch/source-smooth-parameter-space/ParameterKernel.lean",
+      "record": "/workspace/scratch/source-smooth-parameter-space/parameter-kernel-01.json",
+      "sha256": "65b59f4496cc7b27191310263cec35e60eaadb51fa8b2047ecdc48aeee2968e0",
+      "contribution": "Main-author actual kernel composition; descriptive runner-scope label corrected in separate original note, no fabricated reexecution",
+      "metadata_note": "/workspace/scratch/source-smooth-parameter-space/PARAMETER_KERNEL_METADATA_NOTE.json"
+    },
+    {
+      "source": "/workspace/scratch/smooth-parameter-production/GradientFamily.lean",
+      "record": "/workspace/scratch/smooth-parameter-production/gradient-04.json",
+      "sha256": "7135caaf30b14066bc1fad91a61af38e0ae05aed57ab002b0d752d1dad7809f7",
+      "contribution": "Pi-gradient/tensor/D1 assignments, finite spatial C2, Euclidean gradient transport"
+    },
+    {
+      "source": "/workspace/scratch/smooth-parameter-production/EuclideanDerivative.lean",
+      "record": "/workspace/scratch/smooth-parameter-production/euclidean-derivative-01.json",
+      "sha256": "fd4fc0bf109fa4405c27db2131ae4474c913944eda99f0211da76811477625bb",
+      "contribution": "Literal Euclidean derivative BCF and finiteC2 chain rule"
+    }
+  ],
+  "api_diagnostic_not_independent_qualified_math_proof": {
+    "source": "/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean",
+    "final_record": "/workspace/scratch/source-smooth-parameter-space/diagnostics-06.json",
+    "role": "Six coherent inherited BCF/finite-jet structural instances and norm-instance API validation only; final production audit covers their actual integrated data declarations."
+  },
+  "normalizer_palm_research_contribution_to_this_module": "None; no additional production helper claimed.",
+  "inventory_counts_copied_from_receipt_and_original_coverage": {
+    "direct_public_declaration_reports": 88,
+    "public_theorems": 61,
+    "named_local_instances": 8,
+    "instance_classification": {
+      "proposition_valued": 1,
+      "structural_data": 7,
+      "proposition_instance": "I4SourceSmoothParameterSpace.parameterBorelSpace",
+      "data_note": "6 inherited algebra/norm structures and1 MeasurableSpace; local attributes do not make named declarations private"
+    },
+    "registration_theorem_instance_declarations": 69,
+    "definitions_abbreviations": 19,
+    "private_declarations": 0,
+    "kind_counts": {
+      "def": 18,
+      "abbrev": 1,
+      "theorem": 61,
+      "instance": 8
+    },
+    "interpretation": "88 direct declaration reports consist of61theorems+8instances+19definitions/abbreviations; 7instances are structural data and1is proposition-valued. These are not88independent theorem proofs."
+  },
+  "axiom_coverage_path": "/workspace/scratch/smooth-parameter-production/AXIOM_COVERAGE.json",
+  "axioms_only_standard_three_copied_from_receipt": true,
+  "application_boundary_copied_from_receipt": "No arbitrary-parameter C-infinity assertion. The selector/flow/hitting/capture-event pullback is an explicit further theorem; Polishness and continuous C1/C2 field assignment alone do not prove that event Borel. No native C3 torus Banach identification/surjection, geometric Palm, Morse/elder/counting or original-parent closure is claimed.",
+  "independent_scientific_review_credit": 0,
+  "user_reuse_rule": "Completed applicable verification reused; no new agent/session/worktree reruns. Scientific review requirements are separate.",
+  "owner_mandate_links": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md"
+  ]
+}

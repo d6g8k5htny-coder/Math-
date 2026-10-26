@@ -1,0 +1,44 @@
+NormedAddCommGroup.toSeminormedAddCommGroup
+lp.instNormedSpace
+BoundedContinuousFunction.instSeminormedAddCommGroup
+BoundedContinuousFunction.instNormedSpace
+ContinuousLinearMap.hasOpNorm
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:14:0: error: failed to synthesize
+  Norm (ℝ →L[ℝ] DerivativeBCF 2 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+ContinuousLinearMap.hasOpNorm
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:18:0: error: failed to synthesize
+  Norm (SmoothParameter →L[ℝ] DerivativeBCF 2 0)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+ContinuousLinearMap.opNorm.{u_1, u_2, u_4, u_5} {𝕜 : Type u_1} {𝕜₂ : Type u_2} {E : Type u_4} {F : Type u_5}
+  [SeminormedAddCommGroup E] [SeminormedAddCommGroup F] [NontriviallyNormedField 𝕜] [NontriviallyNormedField 𝕜₂]
+  [NormedSpace 𝕜 E] [NormedSpace 𝕜₂ F] {σ₁₂ : 𝕜 →+* 𝕜₂} (f : E →SL[σ₁₂] F) : ℝ
+@ContinuousLinearMap.hasOpNorm : {𝕜 : Type u_1} →
+  {𝕜₂ : Type u_2} →
+    {E : Type u_3} →
+      {F : Type u_4} →
+        [inst : SeminormedAddCommGroup E] →
+          [inst_1 : SeminormedAddCommGroup F] →
+            [inst_2 : NontriviallyNormedField 𝕜] →
+              [inst_3 : NontriviallyNormedField 𝕜₂] →
+                [inst_4 : NormedSpace 𝕜 E] → [inst_5 : NormedSpace 𝕜₂ F] → {σ₁₂ : 𝕜 →+* 𝕜₂} → Norm (E →SL[σ₁₂] F)
+(ContinuousLinearMap.id ℝ SmoothParameter).opNorm : ℝ
+/workspace/scratch/source-smooth-parameter-space/SynthDiagnostics.lean:23:35: error: Application type mismatch: The argument
+  ContinuousLinearMap.id ℝ (DerivativeBCF 2 0)
+has type
+  @ContinuousLinearMap ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (DerivativeBCF 2 0)
+    (@UniformSpace.toTopologicalSpace (DerivativeBCF 2 0)
+      (@PseudoMetricSpace.toUniformSpace (DerivativeBCF 2 0) BoundedContinuousFunction.instPseudoMetricSpace))
+    BoundedContinuousFunction.instAddCommMonoid (DerivativeBCF 2 0) PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    BoundedContinuousFunction.instAddCommMonoid BoundedContinuousFunction.instModule
+    BoundedContinuousFunction.instModule
+but is expected to have type
+  @ContinuousLinearMap ?m.1 ?m.2 Field.toSemifield.toSemiring Field.toSemifield.toSemiring ?m.11 ?m.3
+    (@UniformSpace.toTopologicalSpace ?m.3
+      (@PseudoMetricSpace.toUniformSpace ?m.3 SeminormedAddCommGroup.toPseudoMetricSpace))
+    SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid ?m.4 PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid NormedSpace.toModule NormedSpace.toModule
+in the application
+  (ContinuousLinearMap.id ℝ (DerivativeBCF 2 0)).opNorm

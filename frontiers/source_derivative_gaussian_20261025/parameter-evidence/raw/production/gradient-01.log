@@ -1,0 +1,32 @@
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:29:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℝ ((Fin 2 → ℝ) [×k.succ]→L[ℝ] ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:31:0: error: Not a definitional equality: the left-hand side
+  ((gradientTensorContraction k) A) u i
+is not definitionally equal to the right-hand side
+  A (Fin.snoc u (coordinateDirection i))
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:33:82: error: Type mismatch
+  rfl
+has type
+  ?m.20 = ?m.20
+but is expected to have type
+  ((gradientTensorContraction k) A) u i = A (Fin.snoc u (coordinateDirection i))
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:52:76: error: mod_cast has type
+  k ≤ 2
+but is expected to have type
+  k ≤ 4
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:86:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℝ ((Fin 2 → ℝ) [×1]→L[ℝ] Fin 2 → ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:90:16: error(lean.unknownIdentifier): Unknown identifier `parameterGradientDerivativeBCF`
+
+Note: It is not possible to treat `parameterGradientDerivativeBCF` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:91:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℝ ((Fin 2 → ℝ) [×1]→L[ℝ] Fin 2 → ℝ)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:96:4: error(lean.unknownIdentifier): Unknown identifier `parameterGradientDerivativeBCF`
+
+Note: It is not possible to treat `parameterGradientDerivativeBCF` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.

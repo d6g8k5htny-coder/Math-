@@ -1,0 +1,12 @@
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:34:58: error: This simp argument is unused:
+  ContinuousMultilinearMap.curryRight_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gradientTensorContraction, coordinateGradientCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/smooth-parameter-production/GradientFamily.lean:100:2: error: 'change' tactic failed, pattern
+  ((parameterGradientTensorBCF hL 1 ⋯ a) x) (Fin.snoc 0 v) = ?m.55
+is not definitionally equal to target
+  ((parameterGradientDerivativeBCF hL a) x) v x✝ =
+    (fderiv ℝ (gradientPi (weightedFourierField L (parameterWeight L) a)) x) v x✝

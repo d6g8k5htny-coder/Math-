@@ -1,0 +1,385 @@
+{
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean",
+  "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+  "frozen_contract_commit": "abc3e5f008176e060e090d445a86bba60da52b95",
+  "completed_utc": "2026-10-26T02:04:09.419227+00:00",
+  "artifact": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceRawPinConditioning.olean",
+    "sha256": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090"
+  },
+  "public_inventory": "public_targets.json",
+  "public_declarations": 37,
+  "theorem_targets": 29,
+  "named_instances": 1,
+  "definitions": 7,
+  "axiom_coverage": "AXIOM_COVERAGE.json",
+  "observed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "checks": {
+    "compile-05": {
+      "scope": "Only new SourceRawPinConditioning module; completed24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceRawPinConditioning.olean",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRawPinConditioning.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+      "source_sha256_after": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "elapsed_seconds": 7.237766265869141
+    },
+    "kernel-01": {
+      "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "leanchecker",
+        "SourceRawPinConditioning"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "sha256_before": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090"
+      },
+      "sha256_after": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090"
+      },
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0,
+      "started_utc": "2026-10-26T02:02:21.343553+00:00",
+      "elapsed_seconds": 7.625040531158447
+    },
+    "axioms-01": {
+      "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/raw-pin-conditioning/AxiomAudit.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "sha256_before": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "dcc553702aaff7d7b3a65789d776f101db0e9979191c984dc40b701514982e2d"
+      },
+      "sha256_after": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "dcc553702aaff7d7b3a65789d776f101db0e9979191c984dc40b701514982e2d"
+      },
+      "log_sha256": "8f87280844572453d2f3a1591b9b922cb19667a23c9ce8a56456bf5f82bce7c6",
+      "log_bytes": 4192,
+      "started_utc": "2026-10-26T02:02:21.347834+00:00",
+      "elapsed_seconds": 5.887192964553833
+    },
+    "positive-01": {
+      "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/raw-pin-conditioning/PositiveControls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "sha256_before": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "13954e220fde1b36cc05aa69ec14b94de85d93754d270e49d663a1655e2d3916"
+      },
+      "sha256_after": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "13954e220fde1b36cc05aa69ec14b94de85d93754d270e49d663a1655e2d3916"
+      },
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0,
+      "started_utc": "2026-10-26T02:02:21.365926+00:00",
+      "elapsed_seconds": 6.500284671783447
+    },
+    "rejected-missing-factor-01": {
+      "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/raw-pin-conditioning/RejectedMissingTransformFactor.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "d06fd19adcda513a18c5873ed57db6e723de60e246982fc049ab4a37abce433a"
+      },
+      "sha256_after": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "d06fd19adcda513a18c5873ed57db6e723de60e246982fc049ab4a37abce433a"
+      },
+      "log_sha256": "92455fd6376f628ad247aaea986f8331ee02cefd9ec47c5d0f34182d527f5c8f",
+      "log_bytes": 114,
+      "started_utc": "2026-10-26T02:02:35.921400+00:00",
+      "elapsed_seconds": 3.2240867614746094,
+      "expected_exit_code": 1
+    },
+    "rejected-zero-radius-01": {
+      "scope": "Only new SourceRawPinConditioning qualification; unchanged24modules/23inputs reused",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/raw-pin-conditioning/RejectedZeroRadius.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "784da299412901db9900c34eeaeed116de9cf460f07cd35173acb1ff625814e2"
+      },
+      "sha256_after": {
+        "source": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+        "artifact": "757a9326500ed5ed1205eaccde2d0480aefafeceb66a3122852223c57cb2e090",
+        "control": "784da299412901db9900c34eeaeed116de9cf460f07cd35173acb1ff625814e2"
+      },
+      "log_sha256": "8ab941302c08300b0b910010eea45a4253de25f180862511fa0dc4abdceeef66",
+      "log_bytes": 124,
+      "started_utc": "2026-10-26T02:02:35.915449+00:00",
+      "elapsed_seconds": 3.2795329093933105,
+      "expected_exit_code": 1
+    }
+  },
+  "named_kernel_replay_count": 1,
+  "source_unchanged_across_final_qualification": true,
+  "semantic_results": [
+    "Actual raw six Fourier rows and literal raw covariance; actual covariance equals coefficient Gram.",
+    "Existing confluent CLE matrix transforms actual coefficient columns and covariance.",
+    "Literal raw posterior coefficient correction preserves original smooth carrier.",
+    "Every-target coefficient/posterior/kernel identity with confluent sampling; no null-fiber/a.e uniqueness shortcut.",
+    "All-pin raw fiber and observation map; RCD id by existing measurableEquiv_comp_right, no new residual-independence proof.",
+    "hL-only eventual actual raw covariance units and raw RCD.",
+    "Prescribed literal physical weight measure equals existing full-carrier weighted law; actual moments/floor/probability/events/endpoints/raw+type support reused by rewriting."
+  ],
+  "strengthening": "Algebraic posterior/kernel equality only requires hL and r\u22600, even under the existing singular-inverse convention. Actual RCD and all-pin reconstruction retain current Gunit; small-radius Gunit derived upstream.",
+  "control_semantics": {
+    "positive": "Actual source hL=1 eventually reconstructs nonzero raw target [3,-2,1,4,-5,7] from zeroSample; actual T at r2 maps [3,1,4,-2,5,-1] to [2,1,2,-3,-3,6]; scalar T2 correct regression factor; raw identity-RCD; actual b3 weighted probability/raw+type support.",
+    "negative_missing_factor": "Scalar T2,G1,a3,y5 omission of transformed target gives false equality; Lean exit1 at False.",
+    "negative_zero_radius": "Actual raw height observations coincide at r0, so asserted inequality is false; Lean exit1 at False."
+  },
+  "failure_history": {
+    "production_compile_attempts": [
+      "compile-01 missing I4ContactGram opening",
+      "compile-02 matrix/function elaboration, missing map_map and local probability instance",
+      "compile-03 clean partial source",
+      "compile-04 only new fiber-helper explicit hr/deprecated set lemma/local probability issues",
+      "compile-05 final clean Werror source"
+    ],
+    "retained_source_snapshots": "compile-01.source.lean through compile-05.source.lean bind every actual attempt.",
+    "wrapper_exit_note": "run_compile.py always returned0 after recording observed Lean exit; Lean exit_code values in JSON are authoritative. run_check.py returns actual Lean exit, including intended1 controls.",
+    "failed_containers": "None. All compile/check commands were genuine subprocesses; no reconstructed command prefixes or fabricated execution receipts."
+  },
+  "author_side_helper_lineage": [
+    {
+      "agent": "/root/palm_measure_transfer",
+      "provider": "OpenAI",
+      "role": "Sole production author and own previously checked inverse-congruence scratch proof",
+      "scratch": "/workspace/scratch/actual-geometric-palm-join/RawConfluentLift.lean",
+      "scratch_sha256": "b5ff1c3837f80f186733bc2f4d6c03b0c11bcdf6da85b2b51806aaf99bf1dff6",
+      "prior_applicable_receipt": "/workspace/scratch/actual-geometric-palm-join/algebra-03.json",
+      "transplant": "Copied once as three private lemmas; final production kernel/audit covers actual integrated bytes."
+    },
+    {
+      "agent": "/root/regression_kernel",
+      "provider": "OpenAI",
+      "role": "Coauthor of finite covariance congruence and unit-middle helpers",
+      "scratch": "/workspace/scratch/raw-pin-conditioning/covariance-api/CovarianceCongruence.lean",
+      "scratch_sha256": "c9d92319cb1127cf228d78497b5608db574e4509e99074a5344930871daafee4",
+      "history": "covariance-api/HANDOFF.json, clean compile02 and failed01 preserved; helper handoff is explicit actual tool-history report, not invented subprocess metadata.",
+      "transplant": "Copied once as two private helpers; final production kernel/audit covers integrated bytes."
+    },
+    {
+      "agent": "/root",
+      "provider": "OpenAI",
+      "role": "Frozen source contract and mechanism coordination; production integration/publication owner."
+    }
+  ],
+  "verification_reuse": "All unchanged24 source modules and23 exact inputs reused. No source edits or mathematical checks on those dependencies. Conventional finiteL/GAD admission and marked Rice evidence reused separately; no new formal KacRice theorem assumed.",
+  "not_claimed": [
+    "Formal KacRice/area/Campbell counting theorem",
+    "Globally normalized raw mark Markov kernel at zero normalizer",
+    "Geometric capture/elder/lifetime/parent closure",
+    "Different-family review for this new source",
+    "Completion of original research goal"
+  ],
+  "production_edits": [
+    "SourceRawPinConditioning.lean"
+  ],
+  "root_shared_metadata_edited": false,
+  "commits_or_remote_posts": false,
+  "raw_file_index": {
+    "AXIOM_COVERAGE.json": {
+      "bytes": 5306,
+      "sha256": "bfbfa3bca0be6846bafb524503a663fd235e179f9a949663d5784e8649adf16c"
+    },
+    "AxiomAudit.lean": {
+      "bytes": 2476,
+      "sha256": "dcc553702aaff7d7b3a65789d776f101db0e9979191c984dc40b701514982e2d"
+    },
+    "PositiveControls.lean": {
+      "bytes": 2418,
+      "sha256": "13954e220fde1b36cc05aa69ec14b94de85d93754d270e49d663a1655e2d3916"
+    },
+    "RejectedMissingTransformFactor.lean": {
+      "bytes": 183,
+      "sha256": "d06fd19adcda513a18c5873ed57db6e723de60e246982fc049ab4a37abce433a"
+    },
+    "RejectedZeroRadius.lean": {
+      "bytes": 275,
+      "sha256": "784da299412901db9900c34eeaeed116de9cf460f07cd35173acb1ff625814e2"
+    },
+    "axioms-01.json": {
+      "bytes": 1125,
+      "sha256": "cdea054d9c8544e55ec01a77045d0c81514ae1fe51e68882ad636e63e5c4ff98"
+    },
+    "axioms-01.log": {
+      "bytes": 4192,
+      "sha256": "8f87280844572453d2f3a1591b9b922cb19667a23c9ce8a56456bf5f82bce7c6"
+    },
+    "compile-01.json": {
+      "bytes": 808,
+      "sha256": "695c346de85ce4e4706cfd33f55e3e0942f477bff8b6a41974d6ac4c79ee1376"
+    },
+    "compile-01.log": {
+      "bytes": 199,
+      "sha256": "a16677ce7896e4ef4595ce7906ec8215951fb362027f5a56181b95ec6c6ca89a"
+    },
+    "compile-01.source.lean": {
+      "bytes": 6762,
+      "sha256": "4c04a4f477a62ea04b85f3ae958719a6c62977dc4c206da7d923d14aff223b7c"
+    },
+    "compile-02.json": {
+      "bytes": 808,
+      "sha256": "fd05575d336278925043965891c67f356db261c0f953bbbdf14c765bfbd19e70"
+    },
+    "compile-02.log": {
+      "bytes": 1632,
+      "sha256": "90446319b9262c58ca83f495e3134c1f616254050273017688073ed23743e6d9"
+    },
+    "compile-02.source.lean": {
+      "bytes": 18124,
+      "sha256": "0aaebc097c4923d22d3fa84264e3e6bee260c3475fb08db1724f1f5cae413bdc"
+    },
+    "compile-03.json": {
+      "bytes": 808,
+      "sha256": "b657f6be7e9311f6d860dcd158ad8cc9753ab360cefc66e2a1611d8bc4a974ce"
+    },
+    "compile-03.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-03.source.lean": {
+      "bytes": 18437,
+      "sha256": "9388b64a2caa8b95e42e2001f86afc8d892bc82dda35c868743ae25191494f83"
+    },
+    "compile-04.json": {
+      "bytes": 808,
+      "sha256": "05d4fb5309543743d33dbaf889ae9a95bb10f85203ba63b8744fd5ed40e6bb91"
+    },
+    "compile-04.log": {
+      "bytes": 840,
+      "sha256": "3ed62ea540e27a3344be40e6316c4654227d1037ca1c7b38ca8792dc2c28f7d1"
+    },
+    "compile-04.source.lean": {
+      "bytes": 20568,
+      "sha256": "1d3b9fa91bbdf61af930256b1e9a93e882c3af6220b7f922037e68e324cb581c"
+    },
+    "compile-05.json": {
+      "bytes": 808,
+      "sha256": "43ba4fe2cade3ba0f7c7d3146c285f83c2436d0ea9a43f38fceee6d66f53ca7b"
+    },
+    "compile-05.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-05.source.lean": {
+      "bytes": 20667,
+      "sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5"
+    },
+    "covariance-api/CovarianceCongruence.lean": {
+      "bytes": 1680,
+      "sha256": "c9d92319cb1127cf228d78497b5608db574e4509e99074a5344930871daafee4"
+    },
+    "covariance-api/HANDOFF.json": {
+      "bytes": 2790,
+      "sha256": "de44e20b4eb6ea6fd719f86bdf67b6cfaadef8946c07f9706d345591b9675325"
+    },
+    "covariance-api/compile01.log": {
+      "bytes": 732,
+      "sha256": "800a97bb87f6a1dc33e5a87c27a4ceca7bee181aa16a35e1802943257be2cf1c"
+    },
+    "covariance-api/compile02.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "kernel-01.json": {
+      "bytes": 903,
+      "sha256": "2d83858020f89eaedc9c8c056369c75470c4c21bd9d7fd6eaa677a85a1888876"
+    },
+    "kernel-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "positive-01.json": {
+      "bytes": 1128,
+      "sha256": "ad9d1192320376a9abbca9436f998c138513ba7dc13a2b655ff89a50a9b2a77e"
+    },
+    "positive-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "public_targets.json": {
+      "bytes": 4787,
+      "sha256": "f28e4061ce3177bcabf4c599544f9999a56fb15a8ec730131643e5f52df7fc08"
+    },
+    "rejected-missing-factor-01.json": {
+      "bytes": 1116,
+      "sha256": "448ab34b6baedcc4286b6087bada880eed976f5b1454659bae42023c7afe45c1"
+    },
+    "rejected-missing-factor-01.log": {
+      "bytes": 114,
+      "sha256": "92455fd6376f628ad247aaea986f8331ee02cefd9ec47c5d0f34182d527f5c8f"
+    },
+    "rejected-zero-radius-01.json": {
+      "bytes": 1104,
+      "sha256": "e2b5c93323f562080c8524bae07de50f92209e42e878d4d2e5c71e4f04047c09"
+    },
+    "rejected-zero-radius-01.log": {
+      "bytes": 124,
+      "sha256": "8ab941302c08300b0b910010eea45a4253de25f180862511fa0dc4abdceeef66"
+    },
+    "run_check.py": {
+      "bytes": 1568,
+      "sha256": "b9bd637ee9a96308c415ff646a5180be85e019fb2c7626c81430e261dac62074"
+    },
+    "run_compile.py": {
+      "bytes": 1133,
+      "sha256": "13429cafcd9cf2f783cb50a2d8a27922102751513aaacf130b933749009e0e1b"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceSmoothParameterSpace.olean",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceSmoothParameterSpace.lean",
+  "source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "production_source_sha256_before": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "production_source_sha256_after": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+  "olean_sha256_before": "02767ad7a71485f5bad02a3537f4d99c7de15726cb223c8060828d669ffe4733",
+  "olean_sha256_after": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "elapsed_seconds": 24.88279700279236,
+  "scope": "ONLY new SourceSmoothParameterSpace module; completed dependencies reused without rechecks"
+}

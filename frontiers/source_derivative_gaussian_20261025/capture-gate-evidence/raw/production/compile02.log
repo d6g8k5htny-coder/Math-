@@ -1,0 +1,10 @@
+SourceQuarticCaptureAlgebra.lean:389:62: error: Tactic `assumption` failed
+
+r : ℝ
+U : Fin 8 → ℝ
+hr1 : r ≤ 1
+X Y : ℝ
+hX : |X| ≤ 1 / 2
+hY : |Y| ≤ captureWidth r U
+⊢ |X| ≤ 2⁻¹
+SourceQuarticCaptureAlgebra.lean:493:8: error(lean.unknownIdentifier): Unknown identifier `ResearchFormalCoreR1.prwMeasure_ae_of_ae`

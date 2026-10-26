@@ -1,3 +1,35 @@
+# Actual Gaussian source: current qualified research
+
+The 28 individually qualified modules now include the literal raw six-pin
+conditioning law, actual quartic capture-gate inequalities, almost-sure Morse
+regularity and finite critical points of the original field, and a separable
+Banach/Polish parameter family with actual field and conditional-law recovery.
+
+- [Raw pins and the canonical determinant-weighted law](raw-pin-evidence/RAW_PIN_SCOPE.md)
+- [Polynomial capture gates and transfer to the actual drift](capture-gate-evidence/CAPTURE_GATES_SCOPE.md)
+- [Actual source Morse theorem and finite critical incidence](morse-evidence/MORSE_SCOPE.md)
+- [Banach parameters and continuous gradient families](parameter-evidence/PARAMETER_SCOPE.md)
+- [Separate conventional geometric Campbell/Palm application](geometric-palm-evidence/application/APPLICATION_PROOF.md)
+
+The registry contains 841 declarations: 832 propositions and 9 structural/data
+instances. Definitions and private/generated declarations remain separately
+inventoried. Source cut 1b1badc823725e6025823395463d4948c5cdf6d4 fixes all four
+new modules. Their completed source-bound builds, named kernel replays, axiom
+reports and meaningful controls are retained with raw failures. Applicable
+earlier verification is reused; this metadata integration runs no proof checker.
+
+The existing different-family reviews remain scoped to their exact old source
+cuts. The new four-module alignment review and separate geometric application
+review remain explicit process requirements. Conventional finite-L mathematics
+already verified remains applicable mathematical evidence.
+
+The Banach family and drift inequalities are inputs to further capture work.
+Full Lean flow/selector/event and geometric count identities, quotient/inertia
+and elder/lifetime/counting transports remain active original-goal obligations.
+Scientific effect: NONE. The earlier scope records below are retained verbatim.
+
+---
+
 # Actual source: cubic curvature, pin-preserving comparison and norm-valued conditioning
 
 The24qualifiedmodules now include the actual weighted cubic curvature bound,

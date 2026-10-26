@@ -1,3 +1,33 @@
+# Current scope: 28 qualified modules / 841 registry declarations
+
+The four-module extension at production-source cut
+1b1badc823725e6025823395463d4948c5cdf6d4 adds:
+
+- Raw pins: 29 theorem proofs, one proposition Markov instance, seven definitions.
+- Capture gates: 28 public proof targets, six definitions, eight private proofs.
+- Morse incidence: 99 public theorem proofs, 41 definitions/abbreviations;
+  its exhaustive 219-declaration audit also covers one private proof and 78
+  generated declarations, which are not additional public targets.
+- Banach parameters: 61 theorem proofs, one proposition BorelSpace instance,
+  seven structural/data instances, 19 definitions/abbreviations.
+
+Thus 226 new registry declarations extend the prior 615: 219 propositions and
+seven data instances. The total is 832 propositions plus nine data instances.
+All original command/source/artifact records, failed histories and author/helper
+lineage are in the four new evidence catalogs. No baseline verification repeats.
+
+The actual raw canonical weighted law, hL-only source Morse and finite critical
+cube, actual capture barriers, and continuous Banach gradient family are formal
+results. The separate geometric Campbell/Palm application is conventional proof,
+not Lean mechanization. Full ODE capture, selector/flow/event measurability,
+quotient/inertia/elder/lifetime/counting transports and original parent closure
+remain active. New different-family review and engineering integration are
+separate from the completed mathematical qualification.
+
+Earlier scope records are retained below without broadening their reviews.
+
+---
+
 # Current qualified scope:24 modules /615 theorem-instance declarations
 
 This extension adds SourcePinPreservingQuartic (112proofs,29defs/abbrev) and

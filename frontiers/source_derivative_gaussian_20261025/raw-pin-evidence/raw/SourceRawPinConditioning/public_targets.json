@@ -1,0 +1,196 @@
+{
+  "source_sha256": "77e521c7fc3fc3da1c922a4ef547b065be58b232b321480948c8fe50d76c2aa5",
+  "count": 37,
+  "kind_counts": {
+    "def": 7,
+    "theorem": 29,
+    "instance": 1
+  },
+  "targets": [
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinCoefficient",
+      "line": 31
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCoefficient_summable",
+      "line": 34
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPins_series",
+      "line": 39
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPins_measurable",
+      "line": 48
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance",
+      "line": 58
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_coefficient",
+      "line": 62
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.confluentMatrix",
+      "line": 73
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.confluentMatrix_mulVec",
+      "line": 76
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.confluentMatrix_isUnit",
+      "line": 80
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.pinCoefficient_eq_confluentMatrix",
+      "line": 84
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.sourceConfluentPinsAt_eq_matrix",
+      "line": 90
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_congruence",
+      "line": 122
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_isUnit",
+      "line": 133
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinLift",
+      "line": 160
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinLift_goodSample",
+      "line": 163
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinLift_measurable",
+      "line": 183
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.pinLift_confluent_eq_raw",
+      "line": 191
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample",
+      "line": 202
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_val",
+      "line": 207
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_measurable",
+      "line": 212
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_eq_posteriorSample",
+      "line": 221
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPinKernel",
+      "line": 235
+    },
+    {
+      "kind": "instance",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_isMarkov",
+      "line": 241
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_apply",
+      "line": 246
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eq_confluent",
+      "line": 255
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eq_comap",
+      "line": 263
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPosteriorSample_rawPins",
+      "line": 270
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_pin_map",
+      "line": 281
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_pin_fiber",
+      "line": 293
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_hasCondDistrib",
+      "line": 311
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_map_hasCondDistrib",
+      "line": 327
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinCovariance_eventually_isUnit",
+      "line": 335
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_eventually_hasCondDistrib",
+      "line": 340
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPinKernel_prescribed",
+      "line": 348
+    },
+    {
+      "kind": "def",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure",
+      "line": 356
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_eq",
+      "line": 360
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceRawPinConditioning.rawPrescribedWeightedMeasure_estimates",
+      "line": 367
+    }
+  ]
+}

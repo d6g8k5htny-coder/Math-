@@ -1,0 +1,57 @@
+{
+  "scope_id": "SOURCE_SMOOTH_PARAMETER_SPACE_ONLY_20261026",
+  "modules": [
+    {
+      "module": "SourceSmoothParameterSpace",
+      "source_sha256": "b98a5aab4e27d943dd08eb12291fbc0056e7d54d9f7e8f53a255f8863f9c510c",
+      "olean_sha256": "618e48b8951dea83250e09e4a3559cb9441cc4e3feb2ed394040d2c2816c4074",
+      "direct_public_audit_declarations": 88,
+      "theorem_declarations": 61,
+      "named_local_instances": 8,
+      "proposition_instances": 1,
+      "structural_data_instances": 7,
+      "registration_declaration_append": 69,
+      "definitions_abbreviations": 19,
+      "private_declarations": 0
+    }
+  ],
+  "baseline_by_reference": {
+    "qualified_baseline_module_count": 24,
+    "baseline_through": "SourceSmoothTopology",
+    "baseline_by_reference_only": [
+      "EVIDENCE_CATALOG.json",
+      "FIELD_EVIDENCE_CATALOG.json",
+      "curvature-evidence/CURVATURE_EVIDENCE_CATALOG.json",
+      "quartic-evidence/QUARTIC_EVIDENCE_CATALOG.json",
+      "topology-evidence/TOPOLOGY_EVIDENCE_CATALOG.json"
+    ],
+    "current_qualified_successors_by_reference": [
+      {
+        "module": "SourceRawPinConditioning",
+        "existing_receipt": "/workspace/scratch/raw-pin-conditioning/QUALIFICATION_RECEIPT.json"
+      },
+      {
+        "module": "SourceQuarticCaptureAlgebra",
+        "existing_receipt": "/workspace/scratch/quartic-capture-production/qualification_receipt.json"
+      }
+    ],
+    "exact_input_count": 23,
+    "current_aggregate_registration_and_counts": "Root-owned; no duplicate aggregate count/status invented by this new-only package",
+    "baseline_sources_objects_inputs_evidence_copied": false,
+    "baseline_hashing_or_verification_performed": false
+  },
+  "root_only_registration_append": {
+    "module_count_increment": 1,
+    "theorem_instance_declaration_increment": 69,
+    "contains_structural_data_instances": true,
+    "definitions_abbreviations_not_added_to_proof_instance_registry": 19,
+    "exact_code_cut": null,
+    "exact_code_cut_pending_root": true
+  },
+  "combined_build_or_baseline_gate_claimed": false,
+  "excluded_disjoint_helpers": [
+    "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean",
+    "/workspace/scratch/quartic-capture-algebra/Controls.lean",
+    "All new geometry/capture helper evidence, including any eight-helper geometry work"
+  ]
+}

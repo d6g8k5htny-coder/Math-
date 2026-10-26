@@ -1,0 +1,524 @@
+{
+  "role": "Byte-copy index of existing new-module and reused scratch21 records; no checking or hashing during packaging",
+  "copied_file_count": 74,
+  "files": [
+    {
+      "original_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceQuarticCaptureAlgebra.lean",
+      "packaged_path": "sources/SourceQuarticCaptureAlgebra.lean",
+      "role": "final qualified source; SHA reused from completed receipt",
+      "bytes_copied": 22631,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_QUARTIC_CAPTURE_ALGEBRA.md",
+      "packaged_path": "contracts/SOURCE_QUARTIC_CAPTURE_ALGEBRA.md",
+      "role": "frozen production contract; byte copy only",
+      "bytes_copied": 4395,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/Audit.lean",
+      "packaged_path": "raw/production/Audit.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1805,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/CONTROL_HANDOFF.json",
+      "packaged_path": "raw/production/CONTROL_HANDOFF.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 8449,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/Controls.lean",
+      "packaged_path": "raw/production/Controls.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 4105,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/HANDOFF.md",
+      "packaged_path": "raw/production/HANDOFF.md",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 4081,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/PUBLIC_TARGETS.json",
+      "packaged_path": "raw/production/PUBLIC_TARGETS.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1959,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/RejectedReversedUpperSign.lean",
+      "packaged_path": "raw/production/RejectedReversedUpperSign.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 159,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/RejectedUnchangedDrift.lean",
+      "packaged_path": "raw/production/RejectedUnchangedDrift.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 158,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/audit01.json",
+      "packaged_path": "raw/production/audit01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 621,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/audit01.log",
+      "packaged_path": "raw/production/audit01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 3089,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile01.json",
+      "packaged_path": "raw/production/compile01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 625,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile01.log",
+      "packaged_path": "raw/production/compile01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile01.source.lean",
+      "packaged_path": "raw/production/compile01.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 16308,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile02.json",
+      "packaged_path": "raw/production/compile02.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 601,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile02.log",
+      "packaged_path": "raw/production/compile02.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 327,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile02.source.lean",
+      "packaged_path": "raw/production/compile02.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 22615,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile03.json",
+      "packaged_path": "raw/production/compile03.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 617,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile03.log",
+      "packaged_path": "raw/production/compile03.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/compile03.source.lean",
+      "packaged_path": "raw/production/compile03.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 22631,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/kernel01.json",
+      "packaged_path": "raw/production/kernel01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 508,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/kernel01.log",
+      "packaged_path": "raw/production/kernel01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/qualification_receipt.json",
+      "packaged_path": "raw/production/qualification_receipt.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 16780,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-reversed-upper-01.json",
+      "packaged_path": "raw/production/rejected-reversed-upper-01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1281,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-reversed-upper-01.log",
+      "packaged_path": "raw/production/rejected-reversed-upper-01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 115,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-reversed-upper-01.source.lean",
+      "packaged_path": "raw/production/rejected-reversed-upper-01.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 159,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-unchanged-drift-01.json",
+      "packaged_path": "raw/production/rejected-unchanged-drift-01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1279,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-unchanged-drift-01.log",
+      "packaged_path": "raw/production/rejected-unchanged-drift-01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 112,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/rejected-unchanged-drift-01.source.lean",
+      "packaged_path": "raw/production/rejected-unchanged-drift-01.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 158,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/run_new_controls.py",
+      "packaged_path": "raw/production/run_new_controls.py",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1684,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-01.json",
+      "packaged_path": "raw/production/transfer-controls-01.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1295,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-01.log",
+      "packaged_path": "raw/production/transfer-controls-01.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 770,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-01.source.lean",
+      "packaged_path": "raw/production/transfer-controls-01.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 4128,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-02.json",
+      "packaged_path": "raw/production/transfer-controls-02.json",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 1292,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-02.log",
+      "packaged_path": "raw/production/transfer-controls-02.log",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/transfer-controls-02.source.lean",
+      "packaged_path": "raw/production/transfer-controls-02.source.lean",
+      "role": "existing new-production compile/kernel/audit/control and failure history; no execution",
+      "bytes_copied": 4105,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/Audit.lean",
+      "packaged_path": "raw/reused-scratch21/Audit.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1321,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/CaptureAlgebra.lean",
+      "packaged_path": "raw/reused-scratch21/CaptureAlgebra.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 7548,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/CaptureGates.lean",
+      "packaged_path": "raw/reused-scratch21/CaptureGates.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 4026,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/Controls.lean",
+      "packaged_path": "raw/reused-scratch21/Controls.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 2450,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/EVIDENCE.json",
+      "packaged_path": "raw/reused-scratch21/EVIDENCE.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 15179,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/GeometrySupport.lean",
+      "packaged_path": "raw/reused-scratch21/GeometrySupport.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 4552,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/PUBLIC_TARGETS.txt",
+      "packaged_path": "raw/reused-scratch21/PUBLIC_TARGETS.txt",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1330,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/SCRATCH_CONTRACT.md",
+      "packaged_path": "raw/reused-scratch21/SCRATCH_CONTRACT.md",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 2773,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/audit01.json",
+      "packaged_path": "raw/reused-scratch21/audit01.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 497,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/audit01.log",
+      "packaged_path": "raw/reused-scratch21/audit01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 2289,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/capture01.log",
+      "packaged_path": "raw/reused-scratch21/capture01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1723,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/capture02.log",
+      "packaged_path": "raw/reused-scratch21/capture02.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 722,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/capture03.log",
+      "packaged_path": "raw/reused-scratch21/capture03.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 7332,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/capture04.log",
+      "packaged_path": "raw/reused-scratch21/capture04.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1330,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/capture05.log",
+      "packaged_path": "raw/reused-scratch21/capture05.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-01.json",
+      "packaged_path": "raw/reused-scratch21/controls-01.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 832,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-01.log",
+      "packaged_path": "raw/reused-scratch21/controls-01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 126,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-01.source.lean",
+      "packaged_path": "raw/reused-scratch21/controls-01.source.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 2486,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-02.json",
+      "packaged_path": "raw/reused-scratch21/controls-02.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 832,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-02.log",
+      "packaged_path": "raw/reused-scratch21/controls-02.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/controls-02.source.lean",
+      "packaged_path": "raw/reused-scratch21/controls-02.source.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 2450,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/gates01.log",
+      "packaged_path": "raw/reused-scratch21/gates01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-01.json",
+      "packaged_path": "raw/reused-scratch21/geometry-01.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 787,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-01.log",
+      "packaged_path": "raw/reused-scratch21/geometry-01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-01.source.lean",
+      "packaged_path": "raw/reused-scratch21/geometry-01.source.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 4552,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-02-import-artifact.json",
+      "packaged_path": "raw/reused-scratch21/geometry-02-import-artifact.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 868,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-02-import-artifact.log",
+      "packaged_path": "raw/reused-scratch21/geometry-02-import-artifact.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 197,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-02-import-artifact.source.lean",
+      "packaged_path": "raw/reused-scratch21/geometry-02-import-artifact.source.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 4552,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-03-import-artifact.json",
+      "packaged_path": "raw/reused-scratch21/geometry-03-import-artifact.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 926,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-03-import-artifact.log",
+      "packaged_path": "raw/reused-scratch21/geometry-03-import-artifact.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/geometry-03-import-artifact.source.lean",
+      "packaged_path": "raw/reused-scratch21/geometry-03-import-artifact.source.lean",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 4552,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-gates01.json",
+      "packaged_path": "raw/reused-scratch21/kernel-gates01.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 402,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-gates01.log",
+      "packaged_path": "raw/reused-scratch21/kernel-gates01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-support01.json",
+      "packaged_path": "raw/reused-scratch21/kernel-support01.json",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 668,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/kernel-support01.log",
+      "packaged_path": "raw/reused-scratch21/kernel-support01.log",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 0,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/run_controls.py",
+      "packaged_path": "raw/reused-scratch21/run_controls.py",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1201,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-algebra/run_geometry.py",
+      "packaged_path": "raw/reused-scratch21/run_geometry.py",
+      "role": "previously completed scratch21 proof evidence and controls, reused without execution",
+      "bytes_copied": 1106,
+      "packaging_computed_hash": false
+    },
+    {
+      "original_path": "/workspace/scratch/quartic-capture-production/qualification_receipt.json",
+      "packaged_path": "qualification_receipt.json",
+      "role": "completed production qualification aggregate unchanged",
+      "bytes_copied": 16780,
+      "packaging_computed_hash": false
+    }
+  ]
+}

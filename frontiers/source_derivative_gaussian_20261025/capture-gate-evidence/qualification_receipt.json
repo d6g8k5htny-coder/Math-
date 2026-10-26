@@ -1,0 +1,330 @@
+{
+  "module": "SourceQuarticCaptureAlgebra",
+  "namespace": "I4QuarticCaptureAlgebra",
+  "production_source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceQuarticCaptureAlgebra.lean",
+  "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+  "artifact_sha256": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+  "contract_freeze_commit": "ebf49a429ec737f24c29f7c0ca4d9a7b1457c5cd",
+  "created_utc": "2026-10-26T02:14:48.871681+00:00",
+  "status": "qualified author-side new production artifact; frozen source unchanged since compile03",
+  "final_results": {
+    "full_Werror_compile": "compile03 exit 0 empty log",
+    "named_kernel_replay": "kernel01 exit 0 empty log (new module only; imports trusted with reusable qualification)",
+    "all_public_proof_axioms": "audit01 exit 0; all28 public proofs only propext, Classical.choice, Quot.sound",
+    "positive_transfer_controls": "transfer-controls-02 exit 0 empty log",
+    "intended_false_controls": "both exit 1 at intended False, as recorded",
+    "old_controls": "prior Q2/Q3 coefficient counterexamples reused without execution"
+  },
+  "inventory": {
+    "namespace": "I4QuarticCaptureAlgebra",
+    "public_proofs": [
+      "I4QuarticCaptureAlgebra.rawRadius_one_le",
+      "I4QuarticCaptureAlgebra.rawRadius_pos",
+      "I4QuarticCaptureAlgebra.rawRadius_sum_abs_eq",
+      "I4QuarticCaptureAlgebra.rawRadius_coord_abs_le_sub_one",
+      "I4QuarticCaptureAlgebra.rawRadius_coord_abs_le",
+      "I4QuarticCaptureAlgebra.captureWidth_pos",
+      "I4QuarticCaptureAlgebra.captureFstar_le_radius",
+      "I4QuarticCaptureAlgebra.captureWidth_radius_le",
+      "I4QuarticCaptureAlgebra.captureWidth_le",
+      "I4QuarticCaptureAlgebra.captureWidth_le_one_sixteenth",
+      "I4QuarticCaptureAlgebra.captureWidth_radius_le_one_sixtyfourth",
+      "I4QuarticCaptureAlgebra.capture_r_le_width",
+      "I4QuarticCaptureAlgebra.captureSigma_pos",
+      "I4QuarticCaptureAlgebra.captureSigma_le",
+      "I4QuarticCaptureAlgebra.four_captureWidth_le_captureSigma",
+      "I4QuarticCaptureAlgebra.quartic_transverse_forcing_bound",
+      "I4QuarticCaptureAlgebra.quartic_transverse_remainder_bound",
+      "I4QuarticCaptureAlgebra.quartic_axial_remainder_bound",
+      "I4QuarticCaptureAlgebra.quartic_strip_upper",
+      "I4QuarticCaptureAlgebra.quartic_strip_lower",
+      "I4QuarticCaptureAlgebra.quartic_central_transit",
+      "I4QuarticCaptureAlgebra.euclidean_component_error_le",
+      "I4QuarticCaptureAlgebra.capture_strip_in_ball_two",
+      "I4QuarticCaptureAlgebra.source_component_error_le",
+      "I4QuarticCaptureAlgebra.source_actual_strip_gates",
+      "I4QuarticCaptureAlgebra.source_actual_central_gate",
+      "I4QuarticCaptureAlgebra.source_actual_gates_estimates",
+      "I4QuarticCaptureAlgebra.source_actual_weighted_gates_estimates"
+    ],
+    "definitions": [
+      "I4QuarticCaptureAlgebra.rawRadius",
+      "I4QuarticCaptureAlgebra.regular",
+      "I4QuarticCaptureAlgebra.captureWidth",
+      "I4QuarticCaptureAlgebra.captureSigma",
+      "I4QuarticCaptureAlgebra.sourceStripGates",
+      "I4QuarticCaptureAlgebra.sourceCentralGate"
+    ],
+    "public_proof_count": 28
+  },
+  "records": {
+    "compile01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:09:14.808392+00:00",
+      "exit_code": 0,
+      "source_sha256": "f859c38bbc340995263ed6ea0873d024bef260b4fea8f0c9216803ea0187da6c",
+      "log": "compile01.log",
+      "scope": "New production module artifact only; frozen scratch bodies copied unchanged, prior dependency checks reused."
+    },
+    "compile02": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:10:13.531883+00:00",
+      "exit_code": 1,
+      "source_sha256": "7d056c91697b9fd35299f96aed47512f1c80149a8f2451079aece90c91fb1f4d",
+      "log": "compile02.log",
+      "scope": "New actual-source transfer/AE join in new production module only; old checks reused."
+    },
+    "compile03": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceQuarticCaptureAlgebra.olean",
+        "SourceQuarticCaptureAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:10:58.811304+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "compile03.log",
+      "scope": "Narrow fixes: explicit coordinate simplification sources and correct helper namespace, no old check."
+    },
+    "kernel01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "leanchecker",
+        "SourceQuarticCaptureAlgebra"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:12:10.585034+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "kernel01.log",
+      "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+    },
+    "audit01": {
+      "command_argv": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-R",
+        "/workspace/scratch/quartic-capture-production",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Audit.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-26T02:12:10.584134+00:00",
+      "exit_code": 0,
+      "source_sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "log": "audit01.log",
+      "scope": "New SourceQuarticCaptureAlgebra declarations only; imported applicable verification reused."
+    },
+    "transfer-controls-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8"
+      },
+      "log_sha256": "91fcac3ef9fb59c4f09eae4386a76f03190ec66af6f952ed2085fde78c936531",
+      "log_bytes": 770,
+      "started_utc": "2026-10-26T02:13:01.547322+00:00",
+      "elapsed_seconds": 4.3497514724731445,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "transfer-controls-02": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/quartic-capture-production/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784"
+      },
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log_bytes": 0,
+      "started_utc": "2026-10-26T02:13:24.147905+00:00",
+      "elapsed_seconds": 5.157088041305542,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "rejected-unchanged-drift-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/quartic-capture-production/RejectedUnchangedDrift.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0"
+      },
+      "log_sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+      "log_bytes": 112,
+      "started_utc": "2026-10-26T02:13:24.160607+00:00",
+      "elapsed_seconds": 4.870694875717163,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    },
+    "rejected-reversed-upper-01": {
+      "scope": "Only new SourceQuarticCaptureAlgebra transfer-buffer/projection/orientation controls; prior closed Q2/Q3 control evidence reused unchanged, not rerun",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "/workspace/scratch/quartic-capture-production/RejectedReversedUpperSign.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "sha256_before": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+      },
+      "sha256_after": {
+        "source": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+        "artifact": "abf21676803f57205d8bfeef996e277f69dd64eedba432bc896f7300b3832046",
+        "control": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c"
+      },
+      "log_sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+      "log_bytes": 115,
+      "started_utc": "2026-10-26T02:13:24.103789+00:00",
+      "elapsed_seconds": 4.17845606803894,
+      "author_side_helper_lineage": "OpenAI /root/palm_measure_transfer, no independent review credit"
+    }
+  },
+  "log_and_snapshot_files": {
+    "audit01.log": {
+      "sha256": "ffa9429e07e4b9c02fbab0512046c231196d8d2ecb51b987904aeb7c978b86d3",
+      "bytes": 3089
+    },
+    "compile01.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "compile01.source.lean": {
+      "sha256": "f859c38bbc340995263ed6ea0873d024bef260b4fea8f0c9216803ea0187da6c",
+      "bytes": 16308
+    },
+    "compile02.log": {
+      "sha256": "be56ac5a37a1fe91cabb007c02b6c3787f91a42d8964f8d8feb2ae109b3b7ade",
+      "bytes": 327
+    },
+    "compile02.source.lean": {
+      "sha256": "7d056c91697b9fd35299f96aed47512f1c80149a8f2451079aece90c91fb1f4d",
+      "bytes": 22615
+    },
+    "compile03.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "compile03.source.lean": {
+      "sha256": "ba338bba6fdd6fae70f5379c8ff58a424237baf090672a7e3303691ff2f0209a",
+      "bytes": 22631
+    },
+    "kernel01.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "rejected-reversed-upper-01.log": {
+      "sha256": "6b46f08fe2eab189c970b5f9f87c4cf72e30e37387eef8d12a703c09e2ffc6e8",
+      "bytes": 115
+    },
+    "rejected-reversed-upper-01.source.lean": {
+      "sha256": "5170a01ec32896ad77b721cc2c0e3aa5475caaeaeddf39a86db965a44e7c932c",
+      "bytes": 159
+    },
+    "rejected-unchanged-drift-01.log": {
+      "sha256": "637dc00aad7d67c2f43e25804b4f43639def6eb6c7e6015292eeeaf7220f6e19",
+      "bytes": 112
+    },
+    "rejected-unchanged-drift-01.source.lean": {
+      "sha256": "32725d66dd0fa988f8df7e68684b3004757951c46666e0b388bf3e8887a140b0",
+      "bytes": 158
+    },
+    "transfer-controls-01.log": {
+      "sha256": "91fcac3ef9fb59c4f09eae4386a76f03190ec66af6f952ed2085fde78c936531",
+      "bytes": 770
+    },
+    "transfer-controls-01.source.lean": {
+      "sha256": "e7f3563e5b34553c97509051ce05561a19c709b7f31476150c7efc4ca88f8bd8",
+      "bytes": 4128
+    },
+    "transfer-controls-02.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "transfer-controls-02.source.lean": {
+      "sha256": "28fd17cbfbf0dc0568a50dd17fbcb292257f5476f83091227318999938d35784",
+      "bytes": 4105
+    }
+  },
+  "control_handoff": "/workspace/scratch/quartic-capture-production/CONTROL_HANDOFF.json",
+  "control_handoff_sha256_reused": "0a6eb199f3ad377cc8be56e7a4f1343fc0fa1b21a7fbefd212a2042dfb3f52b2",
+  "handoff": "/workspace/scratch/quartic-capture-production/HANDOFF.md",
+  "reused_scratch_evidence": "/workspace/scratch/quartic-capture-algebra/EVIDENCE.json",
+  "reused_dependency_source_sha256": "SourcePinPreservingQuartic.lean 8e23717ef98518b6d701db921d1f17958c3dee2c893745cafa7aa6172f1621d9",
+  "author_lineage": {
+    "production_owner": "OpenAI/Codex /root/regression_kernel",
+    "unchanged_generic_geometry": "OpenAI/Codex /root/uniform_jet_moment_sources, frozen GeometrySupport SHA57aa2d539844482449a30fa1d471c74e5e33b095d67a35ba836130a5ac9e7eb1 copied once",
+    "new_transfer_controls": "OpenAI/Codex /root/palm_measure_transfer, CONTROL_HANDOFF records source/artifact binding",
+    "scientific_review": "No new different-family review claimed; prior paper certificate closure separately preserved"
+  },
+  "failed_history": "All compile01-03 source snapshots retained: initial generic-only compile01 passed; full-source compile02 failed two API details (coordinate simp source, helper namespace); corrected compile03 passed. First new positive control attempt had only a scratch abs rewrite issue; corrected pass and expected-False failures retained. No command prefix reconstruction.",
+  "mathematical_result": "Exact LM001 polynomial Q2 strip gates and Q3 central transit. Actual smooth source C1/tolerance projected componentwise on the Euclidean ball yields actual inward strip signs under physical pins and both cutoffs, and actual central <=-11RW/4<0 under physical pins and regularity cutoff alone. hL,b-only eventual base/weighted AE wrappers derive physical pins, without current-G premises.",
+  "retained_boundaries": "No ODE existence, selected unstable branch, capture/event measurability, robustness theorem validity, geometric Palm identification, elder/counting or P0.2 conclusion. No prior24/raw7/23input verification or old stress campaign rerun. Root owns manifests/Lake/commit/publication; none edited here."
+}
