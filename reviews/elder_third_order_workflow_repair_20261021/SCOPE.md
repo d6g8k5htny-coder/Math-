@@ -37,7 +37,10 @@ plus only the `setup-python` pin update of `2c041de` (24 October). The checker,
 Six files: the workflow, `tools/legacy_json_replay.py` (one inventory row and the
 docstring's family count), `tools/legacy_json_contracts.json` (one new family and
 one provenance sentence), `tests/test_legacy_json_workflows.py`,
-`tests/test_legacy_workflow_triggers.py` (one family row) and this note.
+`tests/test_legacy_workflow_triggers.py` (one family row) and this note. A second
+commit changes two more, `.github/workflows/full-regression-suite.yml` and
+`tests/test_full_suite_routing.py`, for the budget described under "Full-suite
+budget".
 
 The workflow now calls the existing `replay()` that far-elder, local-pairing and
 c6-cluster already use, instead of its own exit-only loop. It gains the same two
@@ -110,6 +113,26 @@ All of the following ran locally on CPython 3.11.15 at the base above.
   already enforced before this change, and those tests pass there too.
 - **Budget:** past hosted runs of this workflow took about 3 to 5.5 minutes. The
   two new steps add about 1.5 minutes locally.
+
+## Full-suite budget
+
+The repository-wide regression suite (`full-regression-suite.yml`) runs every
+family in `tests/test_legacy_json_workflows.py`, so it now also runs this
+family's shell rejection contract. On this PR's first head, `31c43861`, the
+suite was cancelled at its 30-minute job budget (run 40357960816), still inside
+the optimized pass.
+
+- Before this change, successful hosted runs on 24 and 25 October took 17.5 to
+  27.7 minutes, as little as 2.3 minutes under the budget.
+- The added family costs about 1 min 51 s across both modes. That is the
+  dedicated hosted job's contract step, on the same head.
+
+The second commit raises the budget to 45 minutes, as `e01e346` raised it from
+20 to 30 when added tests outgrew it. It moves the exact pins in
+`tests/test_full_suite_routing.py` with it: the current budget is exactly 45, and
+0, 20, 30, 44, 46, 360 and a quoted `'45'` are all rejected. The historical
+reconstruction still restores 20 and authenticates the original digest. The
+suite's commands, triggers and steps are unchanged.
 
 ## Limits
 
