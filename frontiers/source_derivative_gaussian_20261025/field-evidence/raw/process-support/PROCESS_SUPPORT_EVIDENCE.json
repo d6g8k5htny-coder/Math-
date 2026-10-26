@@ -1,0 +1,15 @@
+{
+  "source": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean",
+  "source_sha256": "0adc56198e3c8a9f3bb701f1a40f6653867c91eee665641b896385e0e035312e",
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "source_contract_commit": "1a25b97",
+  "author": "OpenAI/Codex /root/regression_kernel with OpenAI/Codex gaussian_api finite-index helper and endpoint_means coefficient-covariance helper",
+  "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean",
+  "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean 2>&1 | tee /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-03.log",
+  "exit": 0,
+  "log": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-03.log",
+  "log_bytes": 0,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "scope": "scratch-only author coauthor support; all finite residual vectors + actual zero crossCov -> whole process independence; no mutual residual coordinate independence; no scientific review claim",
+  "reuse": "Original14modules/23inputs and existing artifacts reused unchanged; only new scratch support probes compiled."
+}

@@ -1,0 +1,231 @@
+{
+  "source": "SourceSmoothPalm.lean",
+  "source_sha256": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d",
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "source_contract_commit": "9c7984e",
+  "authors": [
+    {
+      "agent": "/root/regression_kernel",
+      "model_family": "OpenAI GPT/Codex",
+      "scope": "actualrawHessianweight, pullbackmoments/floor, actualweightedmarginal composition, finalhL,b-onlyevent/supporttheorem"
+    },
+    {
+      "agent": "/root/regression_kernel/gaussian_api",
+      "model_family": "OpenAI GPT/Codex",
+      "scope": "generic density pushforward, absolutecontinuity and positiveweightAE",
+      "scratch": "/workspace/scratch/regression-kernel/smooth-palm/pushforward/WeightedPushforward.lean"
+    },
+    {
+      "agent": "/root/regression_kernel/endpoint_means",
+      "model_family": "OpenAI GPT/Codex",
+      "scope": "literalrawpin support and density preservation",
+      "scratch": "/workspace/scratch/regression-kernel/smooth-palm/pins/RawPinSupport.lean"
+    }
+  ],
+  "scientific_effect": "NONE; author-sideverification; does not identify geometriccriticalpointprocessPalm/Morse/elder/counting; different-familyreviewseparate",
+  "build": {
+    "command": "/home/agent/.elan/bin/lake env lean -o .lake/build/lib/lean/SourceSmoothPalm.olean SourceSmoothPalm.lean",
+    "exit": 0,
+    "log": "SourceSmoothPalm-04.log"
+  },
+  "kernel": {
+    "command": "/home/agent/.elan/bin/lake env leanchecker SourceSmoothPalm",
+    "exit": 0,
+    "log": "KernelReplay-01.log"
+  },
+  "axioms": {
+    "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/AxiomAudit.lean",
+    "exit": 0,
+    "targets": {
+      "I4SourceSmoothPalm.withDensity_map_comp": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_map_comp": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_ae_of_ae": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_ae_weight_pos": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.rawPins_prescribed_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceRawPins_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceRawHM_eq_normalized": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceRawHS_eq_normalized": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_eq": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_nonneg": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_measurable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothPalm_estimates": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "log": "AxiomAudit-01.log"
+  },
+  "controls": [
+    {
+      "file": "PositiveControls.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/smooth-palm/PositiveControls-02.log",
+      "exit": 0,
+      "log": "PositiveControls-02.log",
+      "reason": "literalactualweightedendpointmarginal; negative-radiusphysicalweightidentity; actualzeroSamplestrictboundaryweight0; combinedprob1rawpinsandtyping"
+    },
+    {
+      "file": "RejectedZeroNormalizerProbability.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/RejectedZeroNormalizerProbability.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/RejectedZeroNormalizerProbability.lean 2>&1 | tee /workspace/scratch/regression-kernel/smooth-palm/RejectedZeroNormalizerProbability-01.log",
+      "exit": 1,
+      "log": "RejectedZeroNormalizerProbability-01.log",
+      "reason": "zero weight gives zero normalizer and cannot be probability"
+    },
+    {
+      "file": "RejectedStrictBoundaryPositive.lean",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/RejectedStrictBoundaryPositive.lean",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-palm/RejectedStrictBoundaryPositive.lean 2>&1 | tee /workspace/scratch/regression-kernel/smooth-palm/RejectedStrictBoundaryPositive-01.log",
+      "exit": 1,
+      "log": "RejectedStrictBoundaryPositive-01.log",
+      "reason": "actual zero coefficient sample has zero physical Hessians and cannot carry positive strict typed weight"
+    }
+  ],
+  "logs": {
+    "SourceSmoothPalm-04.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "PositiveControls-02.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "RejectedZeroNormalizerProbability-01.log": {
+      "bytes": 126,
+      "sha256": "b77fc266c8ed535f768b20b1a896b61c5cb69c14cdb2e6652eea61d79a32cbec"
+    },
+    "RejectedStrictBoundaryPositive-01.log": {
+      "bytes": 175,
+      "sha256": "17823eced3c79bd3305ce238a8f3fe8d75cd00680038e7956d4ac2ca49ce9ce7"
+    },
+    "AxiomAudit-01.log": {
+      "bytes": 2961,
+      "sha256": "02b815e6c25d9f607c3a96930875deb3557cb581197bc98fc047f48bd6143fdc"
+    },
+    "KernelReplay-01.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "reuse": "Completed14modules/23inputs/fullcarrierkernel proof artifacts reused unchanged; only new SourceSmoothPalm and newcontrols compiled/replayed/audited."
+}

@@ -1,0 +1,10 @@
+import SourceSmoothPalm
+open I4SmoothCarrier I4SourceConfluentPins I4SourceConfluentLimits I4SourceSmoothConditional
+open I4SourceSmoothPalm I4Foundation ResearchFormalCoreR1
+example : 0 < sourceSmoothWeight 1 1 (zeroSample 2 1) := by
+  have hraw : rawPinsWithHessians 1 1 (zeroSample 2 1) = 0 := by
+    rw [rawPinsWithHessians_series (by norm_num)]
+    ext i
+    simp [scalarSeries, sampleInclusion, zeroSample]
+  norm_num [sourceSmoothWeight, sourceSmoothTyped, sourceRawHM, sourceRawHS, hraw,
+    dm2_negative_iff]

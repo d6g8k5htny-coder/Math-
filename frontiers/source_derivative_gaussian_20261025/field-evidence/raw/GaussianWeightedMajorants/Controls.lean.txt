@@ -1,0 +1,48 @@
+import GaussianWeightedMajorants
+import Mathlib.Tactic.NormNum
+
+noncomputable section
+open I4GaussianMajorant MeasureTheory ProbabilityTheory
+open scoped BigOperators
+
+private def correlated : Fin 2 → ℝ → ℝ := fun _ z => z
+private def weights : Fin 2 → ℝ := ![2,3]
+private lemma identityLaw : HasLaw (id : ℝ → ℝ) (gaussianReal 0 1) (gaussianReal 0 1) :=
+  ⟨aemeasurable_id, by simp⟩
+private lemma weights_nonneg (i : Fin 2) : 0 ≤ weights i := by
+  fin_cases i <;> norm_num [weights]
+
+-- Perfectly correlated coordinates, with positive total weight 5 rather than 1.
+example (z : ℝ) : weightedAbsSeries weights correlated z = 5 * |z| := by
+  simp [weightedAbsSeries, weights, correlated, tsum_fintype, Fin.sum_univ_succ]
+  ring
+
+example : Integrable (fun z => weightedAbsSeries weights correlated z ^ 8) (gaussianReal 0 1) :=
+  (weightedAbsSeries_moment (gaussianReal 0 1) weights correlated
+    (fun _ => measurable_id) weights_nonneg (summable_of_finite_support (Set.toFinite _))
+    (fun _ => identityLaw) 8).1
+
+example : Integrable (fun z => Real.exp (3 * weightedAbsSeries weights correlated z))
+    (gaussianReal 0 1) :=
+  (weightedAbsSeries_exp_bound (gaussianReal 0 1) weights correlated
+    (fun _ => measurable_id) weights_nonneg (summable_of_finite_support (Set.toFinite _))
+    (fun _ => identityLaw) 3).1
+
+-- Infinite zero weights: the literal series is zero, including n=0 and all real t.
+example (z : ℝ) : weightedAbsSeries (fun _ : ℕ => (0 : ℝ)) (fun _ z => z) z = 0 := by
+  simp [weightedAbsSeries]
+
+example : Integrable (fun z => weightedAbsSeries (fun _ : ℕ => (0 : ℝ))
+    (fun _ z => z) z ^ 0) (gaussianReal 0 1) :=
+  (weightedAbsSeries_moment (gaussianReal 0 1) (fun _ : ℕ => 0) (fun _ z => z)
+    (fun _ => measurable_id) (fun _ => le_rfl) summable_zero
+    (fun _ => identityLaw) 0).1
+
+#print axioms standardAbsMoment_integrable
+#print axioms weightedAbsSeries_nonneg
+#print axioms weightedAbsSeries_measurable
+#print axioms weightedAbsSeries_memLp_bound
+#print axioms weightedAbsSeries_ae_summable
+#print axioms weightedAbsSeries_moment
+#print axioms weightedAbsSeries_exp_bound
+#print axioms weightedAbsSeries_upper_tail

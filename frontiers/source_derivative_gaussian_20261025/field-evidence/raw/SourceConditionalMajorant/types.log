@@ -1,0 +1,88 @@
+I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+  ∃ K D δ,
+    0 ≤ K ∧
+      0 ≤ D ∧
+        0 < δ ∧
+          δ ≤ 1 ∧
+            ∀ (r : ℝ),
+              0 < r →
+                r < δ →
+                  (∀ (i j : Fin 6), |(I4SourceEndpointRegression.sourcePinCovarianceAt L r)⁻¹ i j| ≤ K) ∧
+                    ∀ (i : Fin 6), |I4SourceEndpointRegression.sourcePrescribedPins r b i| ≤ D
+I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound {L : ℝ} (hL : L ≠ 0) (k : ℕ)
+  (ω : I4SmoothCarrier.SmoothSample 2 L) (x : Fin 2 → ℝ) :
+  ‖iteratedFDeriv ℝ k (I4SmoothCarrier.smoothSourceField 2 L ω) x‖ ≤
+    I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω
+I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination {L : ℝ} (hL : L ≠ 0) (b : ℝ) (k : ℕ) :
+  ∃ a w δ,
+    0 ≤ a ∧
+      (∀ (m : I4Source.SourceMode 2), 0 ≤ w m) ∧
+        Summable w ∧
+          0 < ∑' (m : I4Source.SourceMode 2), w m ∧
+            0 < δ ∧
+              δ ≤ 1 ∧
+                ∀ (r : ℝ),
+                  0 < r →
+                    r < δ →
+                      ∀ (ω : I4SmoothCarrier.SmoothSample 2 L),
+                        I4SourceConditionalMajorant.sourceDerivativeMajorant L k
+                            (I4SourceSmoothConditional.posteriorSample hL r
+                              (I4SourceEndpointRegression.sourcePrescribedPins r b) ω) ≤
+                          a + I4SourceConditionalMajorant.sampleMajorant w ω
+I4SourceConditionalMajorant.sourceConditionalDerivative_moments {L : ℝ} (hL : L ≠ 0) (b : ℝ) (k : ℕ) :
+  ∃ δ,
+    0 < δ ∧
+      δ ≤ 1 ∧
+        ∀ (n : ℕ),
+          ∃ M,
+            0 ≤ M ∧
+              ∀ (r : ℝ),
+                0 < r →
+                  r < δ →
+                    MeasureTheory.Integrable (fun ω => I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω ^ n)
+                        ((I4SourceSmoothConditional.sourceSmoothKernel hL r)
+                          (I4SourceEndpointRegression.sourcePrescribedPins r b)) ∧
+                      ∫ (ω : I4SmoothCarrier.SmoothSample 2 L),
+                          I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω ^
+                            n ∂(I4SourceSmoothConditional.sourceSmoothKernel hL r)
+                            (I4SourceEndpointRegression.sourcePrescribedPins r b) ≤
+                        M
+I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail {L : ℝ} (hL : L ≠ 0) (b : ℝ) (k n : ℕ) :
+  ∃ M δ,
+    0 ≤ M ∧
+      0 < δ ∧
+        δ ≤ 1 ∧
+          ∀ (r : ℝ),
+            0 < r →
+              r < δ →
+                ((I4SourceSmoothConditional.sourceSmoothKernel hL r)
+                        (I4SourceEndpointRegression.sourcePrescribedPins r b)).real
+                    {ω | r⁻¹ < I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω} ≤
+                  M * r ^ n
+I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail {L : ℝ} (hL : L ≠ 0) (b : ℝ) (k : ℕ) :
+  ∃ a s δ,
+    0 ≤ a ∧
+      0 < s ∧
+        0 < δ ∧
+          δ ≤ 1 ∧
+            ∀ (r : ℝ),
+              0 < r →
+                r < δ →
+                  ∀ (R : ℝ),
+                    0 ≤ R →
+                      ((I4SourceSmoothConditional.sourceSmoothKernel hL r)
+                              (I4SourceEndpointRegression.sourcePrescribedPins r b)).real
+                          {ω | a + R ≤ I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω} ≤
+                        2 * Real.exp (-R ^ 2 / (2 * s ^ 2))
+I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail {L : ℝ} (hL : L ≠ 0) (b : ℝ) (k n : ℕ) :
+  ∃ M δ,
+    0 ≤ M ∧
+      0 < δ ∧
+        δ ≤ 1 ∧
+          ∀ (r : ℝ),
+            0 < r →
+              r < δ →
+                MeasureTheory.IsProbabilityMeasure (I4SourceSmoothPalm.sourceSmoothWeightedLaw hL r b) ∧
+                  (I4SourceSmoothPalm.sourceSmoothWeightedLaw hL r b).real
+                      {ω | r⁻¹ < I4SourceConditionalMajorant.sourceDerivativeMajorant L k ω} ≤
+                    M * r ^ n

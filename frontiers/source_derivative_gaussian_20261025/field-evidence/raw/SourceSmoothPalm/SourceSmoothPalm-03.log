@@ -1,0 +1,4 @@
+SourceSmoothPalm.lean:280:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsProbabilityMeasure (prwMeasure (sourceSmoothLaw hL r b) (sourceSmoothWeight L r))
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.

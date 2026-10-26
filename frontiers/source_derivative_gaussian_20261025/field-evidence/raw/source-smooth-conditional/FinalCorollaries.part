@@ -1,0 +1,46 @@
+
+namespace I4SourceSmoothConditional
+
+/-- Every measurable functional of the actual carrier inherits this specified
+conditional kernel. -/
+theorem sourceSmoothKernel_map_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) {E : Type*} [MeasurableSpace E]
+    (F : SmoothSample 2 L → E) (hF : Measurable F) :
+    HasCondDistrib F (sourceConfluentPinsAt L r) ((sourceSmoothKernel hL r).map F)
+      (smoothLaw 2 L) := by
+  have : IsProbabilityMeasure (smoothLaw 2 L) := smoothLaw_isProbabilityMeasure 2 hL
+  simpa only [Function.comp_id] using
+    (sourceSmoothKernel_hasCondDistrib hL r hG).comp_left hF
+
+/-- The literal smooth field is measurable for the coordinate product sigma
+algebra on functions. No additional topological function-space law is chosen. -/
+theorem smoothSourceField_measurable (d : ℕ) (L : ℝ) :
+    Measurable (smoothSourceField d L) := by
+  apply Measurable.of_eval
+  intro x
+  exact (sourceField_eval_measurable d L x).comp (sampleInclusion_measurable d L)
+
+theorem sourceSmoothKernel_field_hasCondDistrib {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    HasCondDistrib (smoothSourceField 2 L) (sourceConfluentPinsAt L r)
+      ((sourceSmoothKernel hL r).map (smoothSourceField 2 L)) (smoothLaw 2 L) :=
+  sourceSmoothKernel_map_hasCondDistrib hL r hG _ (smoothSourceField_measurable 2 L)
+
+/-- The completed actual covariance limits supply invertibility. The final
+whole-carrier conditioning statement retains only the actual scale hypothesis. -/
+theorem sourceSmoothKernel_eventually_hasCondDistrib {L : ℝ} (hL : L ≠ 0) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib (id : SmoothSample 2 L → SmoothSample 2 L)
+        (sourceConfluentPinsAt L r) (sourceSmoothKernel hL r) (smoothLaw 2 L) := by
+  filter_upwards [(sourceEndpoint_parameter_limits hL 0).1] with r hG
+  exact sourceSmoothKernel_hasCondDistrib hL r hG
+
+theorem sourceSmoothKernel_eventually_map_hasCondDistrib {L : ℝ} (hL : L ≠ 0)
+    {E : Type*} [MeasurableSpace E] (F : SmoothSample 2 L → E) (hF : Measurable F) :
+    ∀ᶠ r in 𝓝[>] (0 : ℝ),
+      HasCondDistrib F (sourceConfluentPinsAt L r) ((sourceSmoothKernel hL r).map F)
+        (smoothLaw 2 L) := by
+  filter_upwards [(sourceEndpoint_parameter_limits hL 0).1] with r hG
+  exact sourceSmoothKernel_map_hasCondDistrib hL r hG F hF
+
+end I4SourceSmoothConditional

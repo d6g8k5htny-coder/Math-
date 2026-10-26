@@ -1,0 +1,9 @@
+/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean:180:46: error: Application type mismatch: The argument
+  ω
+has type
+  ↥I
+but is expected to have type
+  SmoothSample 2 L
+in the application
+  residualCoefficient L r ω
+/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean:197:10: error(lean.unknownIdentifier): Unknown identifier `residualCoefficient_finite_indepFun`
