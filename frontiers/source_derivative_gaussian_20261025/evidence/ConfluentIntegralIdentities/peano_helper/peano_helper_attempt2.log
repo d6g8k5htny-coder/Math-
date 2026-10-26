@@ -1,0 +1,47 @@
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:28:52: error: Type mismatch
+  HasDerivAt.const_mul r (hasDerivAt_id u)
+has type
+  HasDerivAt (fun y => r * id y) (r * 1) u
+but is expected to have type
+  HasDerivAt (fun u => r * u) r u
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:32:6: error: Type mismatch
+  HasDerivAt.const_mul (2 / r) (hasDerivAt_id u)
+has type
+  HasDerivAt (fun y => 2 / r * id y) (2 / r * 1) u
+but is expected to have type
+  HasDerivAt (fun u => 2 / r * u) (2 / r) u
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/dm2_landed_composition/PeanoHelper.lean:27:63: error: unsolved goals
+case e'_8
+f f1 f2 f3 : ℝ → ℝ
+h0 : ∀ (x : ℝ), HasDerivAt f (f1 x) x
+h1 : ∀ (x : ℝ), HasDerivAt f1 (f2 x) x
+h2 : ∀ (x : ℝ), HasDerivAt f2 (f3 x) x
+_hc1 : Continuous f1
+_hc2 : Continuous f2
+hc3 : Continuous f3
+r : ℝ
+hr : r ≠ 0
+A : ℝ → ℝ := fun u => (1 / 4 - u ^ 2) * f2 (r * u) + 2 / r * u * f1 (r * u) - 2 / r ^ 2 * f (r * u)
+u : ℝ
+hru : HasDerivAt (fun u => r * u) r u
+hK : HasDerivAt (fun u => 1 / 4 - u ^ 2) (-2 * u) u
+hU : HasDerivAt (fun u => 2 / r * u) (2 / r) u
+h :
+  HasDerivAt
+    ((fun u => 1 / 4 - u ^ 2) * f2 ∘ HMul.hMul r + (fun u => 2 / r * u) * f1 ∘ HMul.hMul r - fun y =>
+      2 / r ^ 2 * (f ∘ HMul.hMul r) y)
+    (-2 * u * (f2 ∘ HMul.hMul r) u + (1 / 4 - u ^ 2) * (f3 (r * u) * r) +
+        (2 / r * (f1 ∘ HMul.hMul r) u + 2 / r * u * (f2 (r * u) * r)) -
+      2 / r ^ 2 * (f1 (r * u) * r))
+    u
+⊢ (fun u =>
+      r * u * f1 (r * u) * r⁻¹ ^ 2 * 2 - r ^ 2 * u ^ 2 * f2 (r * u) * r⁻¹ ^ 2 + r ^ 2 * f2 (r * u) * r⁻¹ ^ 2 * (1 / 4) -
+        f (r * u) * r⁻¹ ^ 2 * 2) =
+    (fun u => 1 / 4 - u ^ 2) * f2 ∘ HMul.hMul r + (fun u => r⁻¹ * u * 2) * f1 ∘ HMul.hMul r - fun y =>
+      r⁻¹ ^ 2 * f (r * y) * 2

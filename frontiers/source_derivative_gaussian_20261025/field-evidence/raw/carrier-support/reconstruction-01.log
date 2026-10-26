@@ -1,0 +1,47 @@
+Try this:
+  [apply] abel_nf
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:20:76: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x : Fin 6 → ℝ
+ω : SmoothSample 2 L
+m : SourceMode 2
+⊢ ↑ω m + (pinLift L r 0 m + (-1 • pinLift L r (sourceConfluentPinsAt L r ω) m + pinLift L r x m)) =
+    ↑ω m + (-1 • pinLift L r (sourceConfluentPinsAt L r ω) m + pinLift L r x m)
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:23:47: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [addLift_val, posteriorSample_val, sub_eq_add_neg, pinLift_add, pinLift_neg, Pi.add_apply,
+    Pi.neg_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:34:82: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+ω : SmoothSample 2 L
+m : SourceMode 2
+⊢ ↑ω m + pinLift L r (0 + -sourceConfluentPinsAt L r ω) m = ↑ω m + -pinLift L r (sourceConfluentPinsAt L r ω) m
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:37:34: warning: This simp argument is unused:
+  zero_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [posteriorSample_val, pinLift_neg, Pi.neg_apply, residualCoefficient, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:37:44: warning: This simp argument is unused:
+  pinLift_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [posteriorSample_val, zero_sub, Pi.neg_apply, residualCoefficient, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean:37:57: warning: This simp argument is unused:
+  Pi.neg_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [posteriorSample_val, zero_sub, pinLift_neg, residualCoefficient, sub_eq_add_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,25 @@
+/workspace/scratch/regression-limits/inverse-probe.lean:14:5: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsTopologicalRing ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/inverse-probe.lean:20:47: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousInv₀ ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/inverse-probe.lean:21:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  IsTopologicalRing ℝ
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/regression-limits/inverse-probe.lean:11:73: error: unsolved goals
+case refine_1
+p : Type u_1
+a : Type u_2
+inst✝¹ : Fintype p
+inst✝ : DecidableEq p
+u : Filter a
+G : a → Matrix p p ℝ
+G0 : Matrix p p ℝ
+hG : Tendsto G u (𝓝 G0)
+hG0 : IsUnit G0
+hdet0 : G0.det ≠ 0
+⊢ IsTopologicalRing ℝ

@@ -1,0 +1,50 @@
+import SourceSmoothConditionalKernel
+import ResearchFormalCoreR1.PalmReweighting
+
+open MeasureTheory ResearchFormalCoreR1
+open scoped ENNReal
+set_option autoImplicit false
+
+namespace I4SourceSmoothPalm
+
+lemma withDensity_map_comp {Ω E : Type*} [MeasurableSpace Ω] [MeasurableSpace E]
+    (μ : Measure Ω) (F : Ω → E) (w : E → ℝ≥0∞) (hF : Measurable F)
+    (hw : Measurable w) :
+    (μ.withDensity (fun ω => w (F ω))).map F = (μ.map F).withDensity w := by
+  ext s hs
+  rw [Measure.map_apply hF hs, withDensity_apply _ (hs.preimage hF),
+    withDensity_apply _ hs, setLIntegral_map hs hw hF]
+
+/-- Normalized weighting commutes exactly with a measurable pushforward.
+The two normalizers are derived to be equal; no positivity or integrability premise is needed. -/
+theorem prwMeasure_map_comp {Ω E : Type*} [MeasurableSpace Ω] [MeasurableSpace E]
+    (μ : Measure Ω) (F : Ω → E) (W : E → ℝ) (hF : Measurable F)
+    (hW : Measurable W) :
+    (prwMeasure μ (W ∘ F)).map F = prwMeasure (μ.map F) W := by
+  have hnormalizer : (∫ ω, (W ∘ F) ω ∂μ) = ∫ y, W y ∂μ.map F :=
+    (integral_map hF.aemeasurable hW.aestronglyMeasurable).symm
+  unfold prwMeasure
+  rw [hnormalizer]
+  exact withDensity_map_comp μ F (fun y => ENNReal.ofReal (W y / ∫ z, W z ∂μ.map F))
+    hF (by fun_prop)
+
+lemma prwMeasure_absolutelyContinuous {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) : prwMeasure μ W ≪ μ :=
+  withDensity_absolutelyContinuous _ _
+
+lemma prwMeasure_ae_of_ae {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) {p : Ω → Prop} (hp : ∀ᵐ ω ∂μ, p ω) :
+    ∀ᵐ ω ∂prwMeasure μ W, p ω :=
+  (prwMeasure_absolutelyContinuous μ W).ae hp
+
+lemma prwMeasure_ae_weight_pos {Ω : Type*} [MeasurableSpace Ω]
+    (μ : Measure Ω) (W : Ω → ℝ) (hW : Measurable W)
+    (hZ : 0 < ∫ ω, W ω ∂μ) :
+    ∀ᵐ ω ∂prwMeasure μ W, 0 < W ω := by
+  unfold prwMeasure
+  rw [ae_withDensity_iff (by fun_prop)]
+  filter_upwards [] with ω hω
+  have hd : 0 < W ω / ∫ x, W x ∂μ := ENNReal.ofReal_pos.mp (pos_iff_ne_zero.mpr hω)
+  exact (div_pos_iff_of_pos_right hZ).mp hd
+
+end I4SourceSmoothPalm

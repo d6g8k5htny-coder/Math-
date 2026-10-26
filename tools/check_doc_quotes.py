@@ -12,7 +12,8 @@ introduced by ``summary:`` is a labelled paraphrase of that record. For each pas
   Markdown emphasis, curly quotes/dashes and table-cell pipe escapes;
 * a GitHub pull-request review / comment link is checked against the live body only with
   ``--github`` (token read from ``GITHUB_TOKEN``); without it the passage is reported as
-  ``unchecked_offline`` and does not fail the check;
+  ``unchecked_offline`` and does not fail the check. Online lookup requires the
+  complete canonical fragment and matching response id, html_url and parent-PR URL;
 * a ``summary:`` passage must not use a verdict word (ACCEPT, AMEND, HOLD, CONFIRMED,
   VERIFIED, REJECT) that the linked record does not use, under the same offline rule.
   The same leading word boundary applies to both texts; suffix forms remain allowed.
@@ -84,19 +85,37 @@ def table_data_rows(lines):
         yield index + 1, line
 
 
+def github_locator(target):
+    """Canonical supported locator identity; only owner/repository case is folded."""
+    if not isinstance(target, str):
+        return None
+    match = GITHUB.fullmatch(target)
+    if not match:
+        return None
+    owner, repo, number, kind, ident = match.groups()
+    marker = kind + ('' if kind == 'discussion_r' else '-')
+    canonical = 'https://github.com/%s/%s/pull/%s#%s%s' % (owner, repo, number, marker, ident)
+    if (target != canonical or not number.isascii() or not ident.isascii()
+            or number.startswith('0') or ident.startswith('0')):
+        return None
+    return owner.casefold(), repo.casefold(), number, kind, ident
+
+
 class Sources:
     def __init__(self, root, doc_dir, github, token):
         self.root, self.doc_dir, self.github, self.token = root, doc_dir, github, token
         self.cache = {}
 
     def body(self, target):
-        """Return (normalised body, status) with status in {'ok','offline','unreachable','missing'}."""
+        """Return (normalised body, status) with status describes success, intentional offline mode, or an explicit source failure."""
         if target in self.cache:
             return self.cache[target]
         match = GITHUB.match(target)
         if match:
             if not self.github:
                 result = (None, 'offline')
+            elif github_locator(target) is None:
+                result = (None, 'invalid-locator')
             else:
                 result = self._fetch(match)
         elif target.startswith('http://') or target.startswith('https://'):
@@ -130,7 +149,18 @@ class Sources:
                 data = json.load(response)
         except Exception:  # noqa: BLE001 - any transport failure is reported, never hidden
             return (None, 'unreachable')
-        return (normalise(data.get('body') or ''), 'ok')
+        expected = github_locator(match.group(0))
+        parent_key = 'issue_url' if kind == 'issuecomment' else 'pull_request_url'
+        parent_family = 'issues' if kind == 'issuecomment' else 'pulls'
+        parent_url = api + parent_family + '/' + number
+        if (expected is None or not isinstance(data, dict)
+                or type(data.get('id')) is not int or str(data['id']) != ident
+                or github_locator(data.get('html_url')) != expected
+                or not isinstance(data.get(parent_key), str)
+                or data[parent_key].casefold() != parent_url.casefold()
+                or not isinstance(data.get('body'), str)):
+            return (None, 'identity-mismatch')
+        return (normalise(data['body']), 'ok')
 
 
 def check_document(doc_path, root, github=False, token=None):

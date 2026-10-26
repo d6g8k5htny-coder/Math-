@@ -1,0 +1,6 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/Identification.lean:39:4: error: Type mismatch: After simplification, term
+  ContinuousLinearMap.integral_comp_comm (↑e) (HasGaussianLaw.integrable hZ)
+ has type
+  @Eq (EuclideanSpace ℝ (Fin n)) (∫ (x : Ω), ↑e (Z x) ∂P) (↑e m)
+but is expected to have type
+  @Eq (EuclideanSpace ℝ (Fin n)) (∫ (ω : Ω), e (Z ω) ∂P) (e m)

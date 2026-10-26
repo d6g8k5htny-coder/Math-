@@ -1,0 +1,31 @@
+import ResearchFormalCoreR1.GaussianNormalizerLimit
+namespace ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory Filter Matrix WithLp
+open scoped Topology ENNReal NNReal MatrixOrder Matrix.Norms.L2Operator
+
+private def controlMean : EuclideanSpace ℝ (Fin 6) := toLp 2 ![-1,1,0,0,3,3]
+private def controlDirection : Fin 6 → ℝ := ![0,0,0,0,1,1]
+private def controlCov : Matrix (Fin 6) (Fin 6) ℝ := vecMulVec controlDirection controlDirection
+
+-- Fully inhabited hypotheses with positive nonzero mean Q and singular rank-one covariance.
+example : ∃ c : ℝ, 0 < c ∧ ∃ δ : ℝ, 0 < δ ∧ ∀ r : ℝ, 0 < r → r < δ →
+    c*r^2 ≤ ∫ x : EuclideanSpace ℝ (Fin 6), egm_weight r ![x 0,x 2,x 4,x 1,x 3,x 5]
+      ∂multivariateGaussian controlMean controlCov := by
+  have hPSD : controlCov.PosSemidef := by
+    simpa [controlCov] using Matrix.posSemidef_vecMulVec_self_star controlDirection
+  exact gnl_physical_normalizer_floor_of_parameter_limits
+    (fun _r => controlMean) (fun _r => controlCov) controlMean controlCov
+    tendsto_const_nhds tendsto_const_nhds (Eventually.of_forall (fun _r => hPSD)) hPSD
+    (by norm_num [controlMean]) (by norm_num [controlMean])
+    (by norm_num [controlMean]) (by norm_num [controlMean])
+    (by norm_num [controlCov, controlDirection, vecMulVec])
+    (by norm_num [controlCov, controlDirection, vecMulVec])
+    (by norm_num [controlCov, controlDirection, vecMulVec])
+    (by norm_num [controlCov, controlDirection, vecMulVec])
+    (by norm_num [controlCov, controlDirection, vecMulVec])
+
+#check gnl_normalizer_floor_of_parameter_limits
+#check gnl_physical_normalizer_floor_of_parameter_limits
+#print axioms gnl_normalizer_floor_of_parameter_limits
+#print axioms gnl_physical_normalizer_floor_of_parameter_limits
+end ResearchFormalCoreR1

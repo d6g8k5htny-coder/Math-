@@ -1,0 +1,42 @@
+SourceDerivativeGaussian.lean:97:41: error: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+SourceDerivativeGaussian.lean:76:80: error: unsolved goals
+d : ℕ
+L : ℝ
+hL : L ≠ 0
+ω : SmoothSample d L
+k : ℕ
+x : Fin d → ℝ
+u : Fin k → Fin d → ℝ
+f : SourceMode d → (Fin d → ℝ) → ℝ := fun m y => modeCoefficient d L m y * sampleInclusion d L ω m
+major : ℕ → SourceMode d → ℝ := fun j m => orderModeBound j d L m * |sampleInclusion d L ω m|
+hf : ∀ (m : SourceMode d), ContDiff ℝ (↑↑k) (f m)
+hmajor : ∀ (j : ℕ), ↑j ≤ ↑k → Summable (major j)
+hbound : ∀ (j : ℕ) (m : SourceMode d) (y : Fin d → ℝ), ↑j ≤ ↑k → ‖iteratedFDeriv ℝ j (f m) y‖ ≤ major j m
+hsum : Summable fun m => iteratedFDeriv ℝ k (f m) x
+hdiff : iteratedFDeriv ℝ k (fun y => ∑' (n : SourceMode d), f n y) x = ∑' (n : SourceMode d), iteratedFDeriv ℝ k (f n) x
+m : SourceMode d
+⊢ (iteratedFDeriv ℝ k (fun y => sampleInclusion d L ω m * modeCoefficient d L m y) x) u =
+    sampleInclusion d L ω m * (iteratedFDeriv ℝ k (modeCoefficient d L m) x) u
+SourceDerivativeGaussian.lean:97:16: error: This simp argument is unused:
+  weighted_iteratedFDeriv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f, ContinuousMultilinearMap.smul_apply, smul_eq_mul, derivativeCoefficient, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceDerivativeGaussian.lean:97:41: error: This simp argument is unused:
+  ContinuousMultilinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f, weighted_iteratedFDeriv, smul_eq_mul, derivativeCoefficient, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceDerivativeGaussian.lean:98:4: error: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [f, weighted_iteratedFDeriv, ContinuousMultilinearMap.smul_apply, derivativeCoefficient, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

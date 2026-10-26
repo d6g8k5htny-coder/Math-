@@ -1,0 +1,14 @@
+/workspace/scratch/palm-transfer/Controls.lean:28:61: error: unsolved goals
+Ω : Type u_1
+inst✝¹ : MeasurableSpace Ω
+μ : Measure Ω
+inst✝ : IsProbabilityMeasure μ
+E : Set Ω
+hE : MeasurableSet E
+⊢ 8 * (2 ^ 2)⁻¹ ≤ 2
+'ResearchFormalCoreR1.prw_integrable_of_integrable_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.prw_measure_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.prw_isProbabilityMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.prw_measure_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.prw_numerator_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ResearchFormalCoreR1.prw_square_root_event_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

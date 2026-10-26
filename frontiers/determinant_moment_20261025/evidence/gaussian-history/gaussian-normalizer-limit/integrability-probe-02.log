@@ -1,0 +1,14 @@
+/workspace/scratch/gaussian-normalizer-limit/integrability-probe.lean:22:40: error: unsolved goals
+r : ℝ
+m : EuclideanSpace ℝ (Fin 6)
+S : Matrix (Fin 6) (Fin 6) ℝ
+hS : S.PosSemidef
+⊢ 4⁻¹ + 4⁻¹ = 2⁻¹
+/workspace/scratch/gaussian-normalizer-limit/integrability-probe.lean:22:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

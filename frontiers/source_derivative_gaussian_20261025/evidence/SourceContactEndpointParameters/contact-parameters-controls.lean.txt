@@ -1,0 +1,33 @@
+import SourceContactEndpointParameters
+
+open I4SourceContact Matrix
+noncomputable section
+
+-- Actual torus source, arbitrary conditioning level, and a singular endpoint covariance.
+example (b : ℝ) :
+    sourceContactEndpointMean 1 b 0 = -1 ∧
+    sourceContactEndpointMean 1 b 1 = 1 ∧
+    (sourceContactEndpointSchur 1).PosSemidef ∧
+    ¬ (sourceContactEndpointSchur 1).PosDef ∧
+    0 < sourceContactEndpointSchur 1 4 4 := by
+  have hL : (1 : ℝ) ≠ 0 := by norm_num
+  have hm := sourceContactEndpointMean_contact hL b
+  have hz := (sourceContactEndpointSchur_contact hL).1
+  refine ⟨hm.1, hm.2.1, sourceContactEndpointSchur_posSemidef hL, ?_,
+    sourceContactEndpointSchur_referenceVariance_pos hL⟩
+  intro hp
+  have hdiag : 0 < sourceContactEndpointSchur 1 0 0 := hp.diag_pos
+  rw [hz] at hdiag
+  exact (lt_irrefl 0) hdiag
+
+#check sourceContactEndpointVector
+#check sourceContactEndpointCrossCovariance
+#check sourceContactEndpointCovariance
+#check sourceContactEndpointMean_contact
+#check sourceContactEndpointSchur_covariance
+#check sourceContactEndpointSchur_contact
+#check sourceContactEndpointSchur_referenceVariance_pos
+#print axioms sourceContactEndpointMean_contact
+#print axioms sourceContactEndpointSchur_covariance
+#print axioms sourceContactEndpointSchur_contact
+#print axioms sourceContactEndpointSchur_referenceVariance_pos

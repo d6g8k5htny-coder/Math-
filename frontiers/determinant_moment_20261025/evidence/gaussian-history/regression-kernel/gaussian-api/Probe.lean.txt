@@ -1,0 +1,19 @@
+import Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence
+
+open MeasureTheory ProbabilityTheory
+open scoped ProbabilityTheory
+
+set_option autoImplicit false
+
+example {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) {n k : ℕ}
+    (X : Ω → Fin n → ℝ) (R : Ω → Fin k → ℝ)
+    (hXR : HasGaussianLaw (fun ω => (X ω, R ω)) P)
+    (hzero : ∀ i j, covariance (fun ω => X ω i) (fun ω => R ω j) P = 0) :
+    IndepFun X R P := by
+  exact hXR.indepFun_of_covariance_eval hzero
+
+example {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) {n k : ℕ}
+    (X : Ω → Fin n → ℝ) (R : Ω → Fin k → ℝ)
+    (hXR : HasGaussianLaw (fun ω => (X ω, R ω)) P) :
+    AEMeasurable X P ∧ AEMeasurable R P ∧ IsProbabilityMeasure P := by
+  exact ⟨hXR.fst.aemeasurable, hXR.snd.aemeasurable, hXR.isProbabilityMeasure⟩

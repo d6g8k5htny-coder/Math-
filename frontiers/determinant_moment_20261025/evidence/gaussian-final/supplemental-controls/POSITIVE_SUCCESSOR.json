@@ -1,0 +1,18 @@
+{
+  "source_path": "controls/gaussian_parent_positive_successor.lean.txt",
+  "source_sha256": "c73799328c4191422c13aefc458ffe6df200da610ec8e79f666db0fbf0817e51",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/gaussian-parent-controls/gaussian_parent_positive_successor.lean"
+  ],
+  "exit": 0,
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "previous_attempts": [
+    "initial missing .olean",
+    "second wrong map_dirac API; original checked-source file preserved"
+  ],
+  "source_changes": "Only successor control tactic API corrected; 66 proof targets/root/manifest unchanged; final gate evidence reused."
+}

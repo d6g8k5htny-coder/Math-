@@ -1,0 +1,16 @@
+SourceEndpointEstimates.lean:214:4: error: Type mismatch: After simplification, term
+  hp.right.right.right
+ has type
+  @Tendsto ℝ (Matrix (Fin 6) (Fin 6) ℝ)
+    (fun r =>
+      sourceEndpointCovarianceAt L r -
+        sourceCrossCovarianceAt L r * (sourcePinCovarianceAt L r)⁻¹ * (sourceCrossCovarianceAt L r)ᵀ)
+    (𝓝[>] 0)
+    (𝓝
+      (sourceContactEndpointCovariance L -
+        sourceContactEndpointCrossCovariance L * (sourcePinCovariance L)⁻¹ * (sourceContactEndpointCrossCovariance L)ᵀ))
+but is expected to have type
+  @Tendsto ℝ (Matrix (Fin 6) (Fin 6) ℝ) (sourceEndpointSchurAt L) (𝓝[>] 0)
+    (𝓝
+      (sourceContactEndpointCovariance L -
+        sourceContactEndpointCrossCovariance L * (sourcePinCovariance L)⁻¹ * (sourceContactEndpointCrossCovariance L)ᵀ))

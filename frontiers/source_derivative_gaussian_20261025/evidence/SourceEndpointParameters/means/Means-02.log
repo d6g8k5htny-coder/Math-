@@ -1,0 +1,13 @@
+/workspace/scratch/regression-kernel/endpoint-parameters/means/Means.lean:41:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (ContinuousLinearMap.proj i) (∫ (x : SmoothSample 2 L), rawPinsWithHessians L r x ∂smoothLaw 2 L)
+in the target expression
+  (∫ (ω : SmoothSample 2 L), rawPinsWithHessians L r ω ∂smoothLaw 2 L) i = 0
+
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+i : Fin 12
+hh :
+  ∫ (x : SmoothSample 2 L), (ContinuousLinearMap.proj i) (rawPinsWithHessians L r x) ∂smoothLaw 2 L =
+    (ContinuousLinearMap.proj i) (∫ (x : SmoothSample 2 L), rawPinsWithHessians L r x ∂smoothLaw 2 L)
+⊢ (∫ (ω : SmoothSample 2 L), rawPinsWithHessians L r ω ∂smoothLaw 2 L) i = 0

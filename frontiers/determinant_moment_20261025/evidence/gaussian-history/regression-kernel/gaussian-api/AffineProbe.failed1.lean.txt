@@ -1,0 +1,28 @@
+import Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence
+
+open MeasureTheory ProbabilityTheory
+open scoped ProbabilityTheory
+set_option autoImplicit false
+
+example {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω} {n k : ℕ}
+    {X : Ω → Fin n → ℝ} {Y : Ω → Fin k → ℝ}
+    (hXY : HasGaussianLaw (fun ω => (X ω, Y ω)) P)
+    (B : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (mX : Fin n → ℝ) (mY : Fin k → ℝ) :
+    HasGaussianLaw (fun ω => (X ω, Y ω - mY - B (X ω - mX))) P := by
+  let L : ((Fin n → ℝ) × (Fin k → ℝ)) →L[ℝ]
+      ((Fin n → ℝ) × (Fin k → ℝ)) :=
+    (ContinuousLinearMap.fst ℝ (Fin n → ℝ) (Fin k → ℝ)).prod
+      (ContinuousLinearMap.snd ℝ (Fin n → ℝ) (Fin k → ℝ) -
+        B.comp (ContinuousLinearMap.fst ℝ (Fin n → ℝ) (Fin k → ℝ)))
+  let c : (Fin n → ℝ) × (Fin k → ℝ) := (0, B mX - mY)
+  have hL : HasGaussianLaw (fun ω => L (X ω, Y ω)) P := hXY.map_fun L
+  have hshift : HasGaussianLaw (fun ω => L (X ω, Y ω) + c) P where
+    aemeasurable := hL.aemeasurable.add aemeasurable_const
+    isGaussian_map := by
+      have : IsGaussian (P.map (fun ω => L (X ω, Y ω))) := hL.isGaussian_map
+      convert (inferInstance : IsGaussian
+        ((P.map (fun ω => L (X ω, Y ω))).map (fun p => p + c))) using 1
+      rw [AEMeasurable.map_map_of_aemeasurable (by fun_prop) hL.aemeasurable]
+      rfl
+  convert hshift using 1
+  ext ω i <;> simp [L, c, map_sub] <;> abel

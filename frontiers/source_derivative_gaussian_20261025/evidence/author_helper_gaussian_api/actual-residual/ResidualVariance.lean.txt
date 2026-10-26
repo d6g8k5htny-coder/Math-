@@ -1,0 +1,54 @@
+import Mathlib.Probability.Moments.Variance
+import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.Tactic.Ring
+
+open MeasureTheory ProbabilityTheory Matrix
+open scoped ProbabilityTheory BigOperators Matrix
+set_option autoImplicit false
+
+namespace ResidualVarianceProbe
+
+theorem residual_variance_of_isUnit_covariance {Ω ι : Type*} [MeasurableSpace Ω]
+    [Fintype ι] [DecidableEq ι] {P : Measure Ω} [IsFiniteMeasure P]
+    (J : Ω → ι → ℝ) (Q : Ω → ℝ)
+    (hJ : ∀ i, MemLp (fun ω => J ω i) 2 P) (hQ : MemLp Q 2 P)
+    (hG : IsUnit (Matrix.of (fun i j =>
+      covariance (fun ω => J ω i) (fun ω => J ω j) P) : Matrix ι ι ℝ)) :
+    let G : Matrix ι ι ℝ := fun i j => covariance (fun ω => J ω i) (fun ω => J ω j) P
+    let b : ι → ℝ := fun i => covariance (fun ω => J ω i) Q P
+    variance (fun ω => Q ω - (G⁻¹ *ᵥ b) ⬝ᵥ J ω) P =
+      variance Q P - b ⬝ᵥ (G⁻¹ *ᵥ b) := by
+  classical
+  let G : Matrix ι ι ℝ := fun i j => covariance (fun ω => J ω i) (fun ω => J ω j) P
+  let b : ι → ℝ := fun i => covariance (fun ω => J ω i) Q P
+  let a : ι → ℝ := G⁻¹ *ᵥ b
+  let U : Ω → ℝ := fun ω => a ⬝ᵥ J ω
+  change variance (fun ω => Q ω - U ω) P = variance Q P - b ⬝ᵥ a
+  have hG' : IsUnit G := hG
+  let _ : Invertible G := hG'.invertible
+  have hnormal : G *ᵥ a = b := by
+    dsimp [a]
+    rw [Matrix.mulVec_mulVec, Matrix.mul_inv_of_invertible, Matrix.one_mulVec]
+  have hterms (i : ι) : MemLp (fun ω => a i * J ω i) 2 P :=
+    (hJ i).const_mul _
+  have hU : MemLp U 2 P := memLp_finsetSum Finset.univ (fun i _ => hterms i)
+  have hJU (i : ι) : covariance (fun ω => J ω i) U P = b i := by
+    change covariance (fun ω => J ω i) (fun ω => ∑ j, a j * J ω j) P = b i
+    rw [covariance_fun_sum_right hterms (hJ i)]
+    simp_rw [covariance_const_mul_right]
+    simpa [G, Matrix.mulVec, dotProduct, mul_comm] using congrFun hnormal i
+  have hQU : covariance Q U P = a ⬝ᵥ b := by
+    change covariance Q (fun ω => ∑ i, a i * J ω i) P = a ⬝ᵥ b
+    rw [covariance_fun_sum_right hterms hQ]
+    simp_rw [covariance_const_mul_right]
+    simp only [b, dotProduct, covariance_comm Q]
+  have hvarU : variance U P = a ⬝ᵥ b := by
+    rw [← covariance_self hU.aemeasurable]
+    change covariance (fun ω => ∑ i, a i * J ω i) U P = a ⬝ᵥ b
+    rw [covariance_fun_sum_left hterms hU]
+    simp_rw [covariance_const_mul_left, hJU]
+    rfl
+  rw [variance_fun_sub hQ hU, hQU, hvarU, dotProduct_comm b a]
+  ring
+
+end ResidualVarianceProbe

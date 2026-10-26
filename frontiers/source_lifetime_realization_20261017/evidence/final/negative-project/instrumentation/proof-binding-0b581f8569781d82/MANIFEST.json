@@ -1,0 +1,29 @@
+{
+  "generation": "0b581f8569781d82",
+  "original_compile_receipt": "negative-runs/20261017T231301Z-NegativeFixtureBaseline-482f2ff2/RECEIPT.json",
+  "source_sha256": "db9ae52ad5c324d5949af011ca32ff1691ecaaeddf3bfe36fccfba485f82ef62",
+  "purpose": "Observe 21 local helper references elided by the original successful compile print options. Does not recompile unchanged cloned proofs.",
+  "required_references": [
+    "C291Negative.ZeroField.covQuadForm_nonneg",
+    "C291Negative.ZeroField.actualField_linearCombination_map",
+    "C291Negative.ZeroField.actualField_raw_second_moment",
+    "C291Negative.ShiftedField.covQuadForm_nonneg",
+    "C291Negative.ShiftedField.actualField_linearCombination_map",
+    "C291Negative.ShiftedField.actualField_raw_second_moment",
+    "C291Negative.ZeroMeasure.covQuadForm_nonneg",
+    "C291Negative.ZeroMeasure.actualField_linearCombination_map",
+    "C291Negative.ZeroMeasure.actualField_raw_second_moment",
+    "C291Negative.HiddenPositiveDimension.covQuadForm_nonneg",
+    "C291Negative.HiddenPositiveDimension.actualField_linearCombination_map",
+    "C291Negative.HiddenPositiveDimension.actualField_raw_second_moment",
+    "C291Negative.DoubledRawCovariance.covQuadForm_nonneg",
+    "C291Negative.DoubledRawCovariance.actualField_linearCombination_map",
+    "C291Negative.DoubledRawCovariance.actualField_raw_second_moment",
+    "C291Negative.WrongCovarianceArgument.covQuadForm_nonneg",
+    "C291Negative.WrongCovarianceArgument.actualField_linearCombination_map",
+    "C291Negative.WrongCovarianceArgument.actualField_raw_second_moment",
+    "C291Negative.NegativeQuadraticForm.covQuadForm_nonneg",
+    "C291Negative.NegativeQuadraticForm.actualField_linearCombination_map",
+    "C291Negative.NegativeQuadraticForm.actualField_raw_second_moment"
+  ]
+}

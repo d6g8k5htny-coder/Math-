@@ -1,0 +1,16 @@
+import SourceEndpointEstimates
+open I4SourceEndpointEstimates ResearchFormalCoreR1
+
+-- Actual LM006 order must be converted to the physical maximum/saddle order.
+example : sourcePhysicalCoordinates ![-1,1,0,0,-1,-1] = ![-1,0,-1,1,0,-1] := by
+  rfl
+
+-- The literal physical determinant product carries the radius-squared factor.
+example : sourceEndpointWeight 2 ![-1,1,0,0,-1,-1] = 4 := by
+  norm_num [sourceEndpointWeight, sourcePhysicalCoordinates, egm_weight, egm_HM,
+    egm_HS, dm2_negative_iff, Matrix.det_fin_two]
+
+-- At the zero maximum-determinant boundary the literal strict type weight vanishes.
+example : sourceEndpointWeight 2 ![-1,1,0,0,0,-1] = 0 := by
+  norm_num [sourceEndpointWeight, sourcePhysicalCoordinates, egm_weight, egm_HM,
+    egm_HS, dm2_negative_iff, Matrix.det_fin_two]

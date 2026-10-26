@@ -1,0 +1,63 @@
+import Mathlib.Probability.HasCondDistrib
+import Mathlib.Probability.Distributions.Gaussian.HasGaussianLaw.Independence
+
+open MeasureTheory ProbabilityTheory
+open scoped ProbabilityTheory BigOperators
+set_option autoImplicit false
+
+namespace ResearchFormalCoreR1
+
+lemma regression_map_coordinate {n k : ℕ}
+    (B : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (v : Fin n → ℝ) (j : Fin k) :
+    B v j = ∑ l, B (Pi.single l 1) j * v l := by
+  calc
+    B v j = B (∑ l, v l • (Pi.single l 1 : Fin n → ℝ)) j :=
+      congrArg (fun w => B w j) (pi_eq_sum_univ' v)
+    _ = ∑ l, B (Pi.single l 1) j * v l := by
+      simp [map_sum, mul_comm]
+
+lemma regression_covariance_map {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω} [IsProbabilityMeasure P] {n k : ℕ}
+    {X : Ω → Fin n → ℝ} (hX : HasGaussianLaw X P)
+    (B : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (mX : Fin n → ℝ)
+    (i : Fin n) (j : Fin k) :
+    covariance (fun ω => X ω i) (fun ω => B (X ω - mX) j) P =
+      ∑ l, B (Pi.single l 1) j * covariance (fun ω => X ω i) (fun ω => X ω l) P := by
+  have hcoord : (fun ω => B (X ω - mX) j) =
+      (fun ω => ∑ l, B (Pi.single l 1) j * (X ω l - mX l)) := by
+    funext ω
+    exact regression_map_coordinate B (X ω - mX) j
+  rw [hcoord, covariance_fun_sum_right]
+  · apply Finset.sum_congr rfl
+    intro l _
+    rw [covariance_const_mul_right, covariance_sub_const_right (hX.eval l).integrable]
+  · intro l
+    exact ((hX.eval l).memLp_two.sub (memLp_const _)).const_mul _
+  · exact (hX.eval i).memLp_two
+
+lemma regression_residual_zero_covariance {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω} {n k : ℕ} {X : Ω → Fin n → ℝ} {Y : Ω → Fin k → ℝ}
+    (hXY : HasGaussianLaw (fun ω => (X ω, Y ω)) P)
+    (B : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (mX : Fin n → ℝ) (mY : Fin k → ℝ)
+    (hnormal : ∀ i j, covariance (fun ω => X ω i) (fun ω => Y ω j) P =
+      ∑ l, B (Pi.single l 1) j * covariance (fun ω => X ω i) (fun ω => X ω l) P) :
+    ∀ i j, covariance (fun ω => X ω i)
+      (fun ω => (Y ω - mY - B (X ω - mX)) j) P = 0 := by
+  have : IsProbabilityMeasure P := hXY.isProbabilityMeasure
+  intro i j
+  have hXi := (hXY.fst.eval i).memLp_two
+  have hYj := (hXY.snd.eval j).memLp_two
+  have hBj : MemLp (fun ω => B (X ω - mX) j) 2 P := by
+    have hcoord : (fun ω => B (X ω - mX) j) =
+        (fun ω => ∑ l, B (Pi.single l 1) j * (X ω l - mX l)) := by
+      funext ω
+      exact regression_map_coordinate B (X ω - mX) j
+    rw [hcoord]
+    exact memLp_finsetSum _ (fun l _ =>
+      ((hXY.fst.eval l).memLp_two.sub (memLp_const _)).const_mul _)
+  simp only [Pi.sub_apply]
+  rw [covariance_fun_sub_right (Y := fun ω => Y ω j - mY j) hXi (hYj.sub (memLp_const _)) hBj,
+    covariance_sub_const_right (hXY.snd.eval j).integrable,
+    regression_covariance_map hXY.fst B mX i j, hnormal i j, sub_self]
+
+end ResearchFormalCoreR1

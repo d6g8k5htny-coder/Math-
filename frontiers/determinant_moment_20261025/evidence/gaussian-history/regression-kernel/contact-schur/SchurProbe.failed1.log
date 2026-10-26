@@ -1,0 +1,17 @@
+/workspace/scratch/regression-kernel/contact-schur/SchurProbe.lean:14:4: error: Type mismatch: After simplification, term
+  PosDef.submatrix hG Sum.inl_injective
+ has type
+  @PosDef (Fin 6) ℝ Real.instRing Real.partialOrder instStarRingReal (of fun i j => A i j)
+but is expected to have type
+  @PosDef (Fin 6) ℝ Real.instRing Real.partialOrder instStarRingReal A
+/workspace/scratch/regression-kernel/contact-schur/SchurProbe.lean:15:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/scratch/regression-kernel/contact-schur/SchurProbe.lean:21:4: warning: Try `simp at hh` instead of `simpa using hh`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

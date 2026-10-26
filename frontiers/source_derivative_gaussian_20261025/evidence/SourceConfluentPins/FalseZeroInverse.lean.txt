@@ -1,0 +1,5 @@
+import SourceConfluentPins
+open I4SourceConfluentPins
+-- Dropping r != 0 would incorrectly recover the first raw pin as zero.
+example : rawTransform 0 (confluentTransform 0 ![0, 2, 0, 0, 0, 0]) 0 = 0 := by
+  norm_num [rawTransform, confluentTransform]

@@ -1,0 +1,50 @@
+import SourceEndpointRegression
+import Mathlib.Probability.Distributions.Gaussian.Multivariate
+
+open MeasureTheory ProbabilityTheory Matrix WithLp
+open scoped BigOperators Matrix RealInnerProductSpace
+set_option autoImplicit false
+namespace I4SourceEndpointParameters
+
+lemma finiteGaussian_law_parameters {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω} {n : ℕ} {Z : Ω → Fin n → ℝ}
+    (hZ : HasGaussianLaw Z P) (m : Fin n → ℝ) (hm : (∫ ω, Z ω ∂P) = m)
+    (S : Matrix (Fin n) (Fin n) ℝ)
+    (hcov : ∀ i j, covariance (fun ω => Z ω i) (fun ω => Z ω j) P = S i j) :
+    S.PosSemidef ∧ P.map (fun ω => toLp 2 (Z ω)) = multivariateGaussian (toLp 2 m) S := by
+  have : IsProbabilityMeasure P := hZ.isProbabilityMeasure
+  let e : (Fin n → ℝ) ≃L[ℝ] EuclideanSpace ℝ (Fin n) :=
+    (PiLp.continuousLinearEquiv 2 ℝ (fun _ : Fin n => ℝ)).symm
+  have hE : HasGaussianLaw (fun ω => toLp 2 (Z ω)) P := hZ.map_equiv_fun e
+  have : IsGaussian (P.map (fun ω => toLp 2 (Z ω))) := hE.isGaussian_map
+  have hZi (i : Fin n) : MemLp (fun ω => Z ω i) 2 P := (hZ.eval i).memLp_two
+  have hS : S.PosSemidef := by
+    apply Matrix.PosSemidef.of_dotProduct_mulVec_nonneg
+    · ext i j
+      simp only [Matrix.conjTranspose_apply, star_trivial]
+      rw [← hcov i j, ← hcov j i]
+      exact covariance_comm _ _
+    · intro x
+      have hp := covarianceBilin_self_nonneg
+        (μ := P.map (fun ω => toLp 2 (Z ω))) (toLp 2 x)
+      rw [covarianceBilin_apply_pi hZi] at hp
+      simpa [hcov, dotProduct, Matrix.mulVec, Finset.mul_sum, mul_assoc, mul_left_comm,
+        mul_comm] using hp
+  refine ⟨hS, ?_⟩
+  apply IsGaussian.ext
+  · simp only [id_eq]
+    rw [integral_id_multivariateGaussian]
+    rw [integral_map hE.aemeasurable (by fun_prop)]
+    change (∫ ω, e (Z ω) ∂P) = e m
+    rw [e.integral_comp_comm, hm]
+  · rw [← ContinuousLinearMap.toBilinForm_inj]
+    refine LinearMap.BilinForm.ext_basis (EuclideanSpace.basisFun (Fin n) ℝ).toBasis fun i j => ?_
+    simp only [ContinuousLinearMap.toBilinForm_apply]
+    change covarianceBilin (P.map (fun ω => toLp 2 (Z ω)))
+        (EuclideanSpace.basisFun (Fin n) ℝ i) (EuclideanSpace.basisFun (Fin n) ℝ j) =
+      covarianceBilin (multivariateGaussian (toLp 2 m) S)
+        (EuclideanSpace.basisFun (Fin n) ℝ i) (EuclideanSpace.basisFun (Fin n) ℝ j)
+    rw [covarianceBilin_apply_basisFun hZi, covarianceBilin_multivariateGaussian hS]
+    simpa using hcov i j
+
+end I4SourceEndpointParameters

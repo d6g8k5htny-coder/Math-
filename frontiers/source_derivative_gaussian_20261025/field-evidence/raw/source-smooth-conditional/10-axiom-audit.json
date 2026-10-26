@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean"
+  ],
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 0,
+  "source": "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean",
+  "source_sha256_before": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+  "source_sha256_after": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+  "log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+  "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+  "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+  "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+  "elapsed_seconds": 3.1145823001861572
+}

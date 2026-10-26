@@ -1,0 +1,142 @@
+{
+  "started_utc": "2026-10-17T23:13:06.205310+00:00",
+  "source_inventory_sha256": "82f685a5d71671d9e682ca3df87485e97e8321e16f89c094965a49c2f8a100fe",
+  "phases": [
+    {
+      "kind": "build",
+      "module": "GaussianSeriesFoundation",
+      "started_utc": "2026-10-17T23:13:06.205622+00:00",
+      "ended_utc": "2026-10-17T23:17:19.209234+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SpectralWeights",
+      "started_utc": "2026-10-17T23:17:19.210942+00:00",
+      "ended_utc": "2026-10-17T23:18:02.597672+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "Lifetime",
+      "started_utc": "2026-10-17T23:18:02.598739+00:00",
+      "ended_utc": "2026-10-17T23:21:40.446346+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceFourierSeries",
+      "started_utc": "2026-10-17T23:21:40.447057+00:00",
+      "ended_utc": "2026-10-17T23:26:29.864659+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceLattice",
+      "started_utc": "2026-10-17T23:26:29.867101+00:00",
+      "ended_utc": "2026-10-17T23:31:08.660926+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceGaussianLaw",
+      "started_utc": "2026-10-17T23:31:08.663055+00:00",
+      "ended_utc": "2026-10-17T23:35:45.763418+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceC4",
+      "started_utc": "2026-10-17T23:35:45.764493+00:00",
+      "ended_utc": "2026-10-17T23:42:23.727882+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceKernel",
+      "started_utc": "2026-10-17T23:42:23.729255+00:00",
+      "ended_utc": "2026-10-17T23:43:50.110731+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceSmooth",
+      "started_utc": "2026-10-17T23:43:50.112320+00:00",
+      "ended_utc": "2026-10-17T23:44:39.893721+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceCovariance",
+      "started_utc": "2026-10-17T23:44:39.895984+00:00",
+      "ended_utc": "2026-10-17T23:45:47.049593+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceThetaBridge",
+      "started_utc": "2026-10-17T23:45:47.050733+00:00",
+      "ended_utc": "2026-10-17T23:48:54.959840+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceTorus",
+      "started_utc": "2026-10-17T23:48:54.961314+00:00",
+      "ended_utc": "2026-10-17T23:49:55.545062+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceTorusC4",
+      "started_utc": "2026-10-17T23:49:55.546885+00:00",
+      "ended_utc": "2026-10-17T23:50:56.771864+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceSmoothCarrier",
+      "started_utc": "2026-10-17T23:50:56.772838+00:00",
+      "ended_utc": "2026-10-17T23:51:52.805715+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceSmoothControls",
+      "started_utc": "2026-10-17T23:51:52.806656+00:00",
+      "ended_utc": "2026-10-17T23:52:55.961396+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceLifetimeGeometry",
+      "started_utc": "2026-10-17T23:52:55.964656+00:00",
+      "ended_utc": "2026-10-17T23:56:40.718503+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceLifetimeField",
+      "started_utc": "2026-10-17T23:56:40.719860+00:00",
+      "ended_utc": "2026-10-18T00:00:59.431529+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceLifetimeControls",
+      "started_utc": "2026-10-18T00:00:59.433701+00:00",
+      "ended_utc": "2026-10-18T00:05:12.392100+00:00",
+      "returncode": 0
+    },
+    {
+      "kind": "build",
+      "module": "SourceLifetimeAxiomAudit",
+      "started_utc": "2026-10-18T00:05:12.393973+00:00",
+      "ended_utc": "2026-10-18T00:12:20.807228+00:00",
+      "returncode": 1
+    }
+  ],
+  "status": "HOLD_FAILED_PHASE",
+  "scientific_effect": "NONE",
+  "ended_utc": "2026-10-18T00:12:20.817211+00:00"
+}

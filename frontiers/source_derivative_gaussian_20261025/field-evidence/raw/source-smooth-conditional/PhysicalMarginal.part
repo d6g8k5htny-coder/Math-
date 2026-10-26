@@ -1,0 +1,50 @@
+
+open I4SourcePhysicalEndpointKernel
+
+namespace I4SourceSmoothConditional
+
+theorem sourceNormalizedEndpoints_measurable {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    Measurable (sourceNormalizedEndpoints L r) := by
+  have heq : sourceNormalizedEndpoints L r = fun ω => sourceAdjustedEndpoints L r ω +
+      sourcePhysicalCorrection r (sourceConfluentPinsAt L r ω) :=
+    funext (sourceNormalizedEndpoints_eq_adjusted L r)
+  rw [heq]
+  exact (sourceAdjustedEndpoints_measurable hL r).add
+    ((sourcePhysicalCorrection r).continuous.measurable.comp
+      (sourceConfluentPinsAt_measurable hL r))
+
+/-- The literal physical endpoint kernel is also an all-pin marginal of the
+whole-carrier conditional sampling law. -/
+theorem sourceSmoothKernel_physical_endpoint_map {L : ℝ} (hL : L ≠ 0) (r : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) (x : Fin 6 → ℝ) :
+    (sourceSmoothKernel hL r x).map (sourceNormalizedEndpoints L r) =
+      sourcePhysicalEndpointKernel L r x := by
+  have hp : Measurable (posteriorSample hL r x) :=
+    (posteriorSample_measurable hL r).comp (measurable_const.prodMk measurable_id)
+  have hR : Measurable (sourceEndpointResidual L r) :=
+    (sourceAdjustedEndpoints_measurable hL r).sub
+      ((sourceRegressionMapAt L r).continuous.measurable.comp
+        (sourceConfluentPinsAt_measurable hL r))
+  rw [sourceSmoothKernel_apply hL r x,
+    Measure.map_map (sourceNormalizedEndpoints_measurable hL r) hp,
+    sourcePhysicalEndpointKernel_apply hL r x,
+    Measure.map_map (by fun_prop) hR]
+  congr 1
+  funext ω
+  change sourceNormalizedEndpoints L r (posteriorSample hL r x ω) =
+    sourceEndpointResidual L r ω + sourceRegressionMapAt L r x + sourcePhysicalCorrection r x
+  rw [sourceNormalizedEndpoints_eq_adjusted,
+    sourceConfluentPinsAt_posteriorSample hL r hG x ω,
+    sourceAdjustedEndpoints_posteriorSample hL r x ω]
+  simp only [sourceEndpointResidual, map_sub]
+  abel
+
+/-- Prescribed null pins select exactly the physical endpoint law already used
+by the completed endpoint estimates. -/
+theorem sourceSmoothKernel_physical_prescribed_map {L : ℝ} (hL : L ≠ 0) (r b : ℝ)
+    (hG : IsUnit (sourcePinCovarianceAt L r)) :
+    (sourceSmoothKernel hL r (sourcePrescribedPins r b)).map (sourceNormalizedEndpoints L r) =
+      sourcePhysicalEndpointLaw L r b :=
+  sourceSmoothKernel_physical_endpoint_map hL r hG (sourcePrescribedPins r b)
+
+end I4SourceSmoothConditional
