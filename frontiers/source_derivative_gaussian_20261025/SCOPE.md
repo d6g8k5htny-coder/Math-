@@ -1,3 +1,14 @@
+# New conventional capture result; formal registry unchanged
+
+`capture-application/PROOF.md`, frozen at117534e809819d028ee1e7197d321d606acd86e9,
+derives a measurable actual canonical selected-branch failure bound `<= C r³`
+for each fixed nonzero L and b. It separately proves the outer-measure bound and
+discharges the norm-Borel torus/LP/flow pullback. The literal-lift event is handled
+separately from torus convergence. Its new-source scientific review is pending.
+This is conventional mathematics, not a new Lean dynamics declaration.
+
+---
+
 # Current scope: 28 qualified modules / 841 registry declarations
 
 The four-module extension at production-source cut

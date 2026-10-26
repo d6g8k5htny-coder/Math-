@@ -1,3 +1,19 @@
+# Actual canonical capture application
+
+The [new conventional proof](capture-application/PROOF.md) now derives the actual
+fixed-L,b canonical determinant-weighted capture-failure bound `<= C r³`.
+It supplies the exact selected branch, physical time scaling and Borel event
+pullback, including the stronger convergence to the literal maximum lift.
+The source map into the torus C3 norm space is proved from the actual Fourier
+series; no identification with a differently scaled Gaussian law is assumed.
+
+This is an application of completed source results and reviewed LM004 robustness.
+It adds no Lean targets: the 28-module /841-declaration formal registry is unchanged.
+Its own different-family review and inherited exact-hash process conversion remain
+separate. Height integration and global elder/counting obligations remain active.
+
+---
+
 # Actual Gaussian source: current qualified research
 
 The 28 individually qualified modules now include the literal raw six-pin
