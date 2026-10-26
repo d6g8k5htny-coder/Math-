@@ -1,0 +1,53 @@
+{
+  "status": "EXACT_FIVE_ROOT_INSTALLED_BINDINGS_SKIP_FINAL_METADATA",
+  "bindings": [
+    {
+      "path": "SourceRawPinFreeCoordinates.lean",
+      "bytes": 18982,
+      "sha256": "82be00780c7070e999a47d397e4fe047535bd1d5b349efe82e252ccd5cd52cd4",
+      "action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT"
+    },
+    {
+      "path": "SOURCE_RAW_PIN_FREE_COORDINATES.md",
+      "bytes": 17048,
+      "sha256": "19ae84756d165c9a700ce27c26e6211a7feb1496e273e499a1a3c97ed665d4ab",
+      "action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT"
+    },
+    {
+      "path": "SOURCE_RAW_PIN_FREE_COORDINATES_PLAN.md",
+      "bytes": 5662,
+      "sha256": "b735ac0d480d0b0c3a0fbcbfc373f0c61b4750187bef449018f416f219c4027e",
+      "action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT"
+    },
+    {
+      "path": "SOURCE_RAW_PIN_FREE_COORDINATES_CONTROLS.md",
+      "bytes": 8245,
+      "sha256": "704776dd8872501b382504b84626344eef8bb67a2729fec4ee6762296a1e9084",
+      "action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT"
+    },
+    {
+      "path": "SOURCE_RAW_PIN_FREE_COORDINATES_CONTENDERS.json",
+      "bytes": 3535,
+      "sha256": "66bbfc83cc69dcf26e89e7b799afb1cc370e655548b0d082d9032ad6af270bc9",
+      "action": "SKIP_UNCHANGED_ALREADY_INSTALLED_BY_ROOT"
+    }
+  ],
+  "source_cut": "f8085da94d5d3b5f8ed3b14609516937e52fd9a9",
+  "binding_precode": "f01e0c7e94b5e1f929bfe18fe6bb01e3c44060b1",
+  "native_pickup": 6426116065,
+  "native_created_utc": "2026-10-26T20:06:22Z",
+  "board": 6426116811,
+  "checkpoint_utc": "2026-10-26T21:15:00Z",
+  "terminal_utc": "2026-10-26T23:30:00Z or invocationend",
+  "timers_unchanged": true,
+  "own_object_action": "SKIP_ROOT_ALREADY_COPIED_ONCE",
+  "own_object_bytes": 543112,
+  "own_object_sha256": "e4a3b8e7a4560858f1d5eb665fdf9f9785d0e99c7b90bdee8f48cc3362539ee4",
+  "copies": [],
+  "further_copy_actions": [],
+  "foreign58": "Preserve and exclude foreign58 source, four PRECODE documents and cache; no contents inspected.",
+  "historical_pending_records": "Producer/reviewer/root reading snapshots remain verbatim. Actual sourcecut/copy records separate.",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "final_root_reading_record": "raw/root-process/ROOT_FINAL_EVIDENCE_READING.json"
+}

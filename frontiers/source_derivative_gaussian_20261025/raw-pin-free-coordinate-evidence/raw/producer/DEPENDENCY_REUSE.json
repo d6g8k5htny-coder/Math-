@@ -1,0 +1,48 @@
+{
+  "policy": "Completed applicable verification reused under /workspace/AGENTS.md. No old source/object/evidence hashes or mathematical checks performed. Metadata transcribed only.",
+  "direct_imports": [
+    {
+      "module": "SourceFinitePinKernel",
+      "retained_identity_manifest": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/finite-pin-kernel-evidence/SOURCE_OBJECT_IDENTITIES.json",
+      "retained_source_identity": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFinitePinKernel.lean",
+        "bytes": 6893,
+        "sha256": "d45fbf6ca2d7a2c3e54a8edcd5d5c482497751ec1c3d820a1a198a204c8ce5d1"
+      },
+      "retained_object_identity": {
+        "path": "/workspace/scratch/finite-pin-kernel-construct/build/SourceFinitePinKernel.olean",
+        "bytes": 227840,
+        "sha256": "9d6ab1b544efd400b3ef2d58d1dedbafdd36563993a30558fa1e6fee2fdb362f"
+      },
+      "retained_strict_receipt": {
+        "path": "/workspace/scratch/finite-pin-kernel-construct/runs/develop-002/record.json",
+        "bytes": 673,
+        "sha256": "c906833b361b8ba41ca8fe98b627324f26ce4b8b46e651af6f2cc72af1490431"
+      },
+      "retained_kernel_receipt": {
+        "path": "/workspace/scratch/finite-pin-kernel-construct/runs/kernel-001/record.json",
+        "bytes": 1861,
+        "sha256": "7014f8900893ba263c5c42463c422a33209c5ea68f86aac3531b4b11088a7e39"
+      },
+      "consumed_route": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceFinitePinKernel.olean",
+      "availability": "Import consumed successfully in new core004/core005; root-established qualified cache baseline, no dependency recompile/rehash."
+    },
+    {
+      "module": "SourceCurvatureDecomposition",
+      "retained_catalog": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/curvature-evidence/CURVATURE_EVIDENCE_CATALOG.json",
+      "source_sha256_from_retained_catalog": "ba9011f17a8bf6c1a7d32d248a464a49c04d1836e9e4f2f3ec3190fad8b6d503",
+      "source_cut_from_retained_catalog": "77b3373ef89d88ea56bcf6b707b280d0b94f5a2b",
+      "qualification_receipt": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/curvature-evidence/raw/curvature-decomposition/QUALIFICATION_RECEIPT.json",
+      "strict_receipt": "raw/curvature-decomposition/16-explicit-contract-exports.json",
+      "kernel_receipt": "raw/curvature-decomposition/19-kernel-replay.json",
+      "axiom_receipt": "raw/curvature-decomposition/18-public-axiom-audit.json",
+      "object_original_sha256": null,
+      "object_identity_note": "Original source-bound compile16 wrote accepted packet object; audit18/kernel19/controls20 consumed unchanged source. Retained receipt does not capture object hash. None fabricated or newly hashed.",
+      "consumed_route": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCurvatureDecomposition.olean",
+      "availability": "Import consumed successfully in new core004/core005; accepted baseline route unchanged."
+    }
+  ],
+  "other_dependencies": "Accepted transitive Gaussian/source/smooth-carrier/raw-conditioning/mathlib objects reused through lake env baseline. New module uses no source51/54/56 input directly; their artifacts remain unchanged.",
+  "production_cache_owner": "Root only; producer writes only new own olean in scratch.",
+  "execution_environment_reuse": "Lean4.34.1 x86_64 Linux commit5045d0056413266e57c625dcd7c365b10e377c52 and mathlib d13f23b723b8a846827a245b89c10fc7d3f11612 as already established; no version-check replay."
+}

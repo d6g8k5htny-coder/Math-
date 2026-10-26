@@ -1,0 +1,202 @@
+--- helper-controls-frozen/IMPORTS+SECTION
++++ FreeCoordinateControls.lean
+@@ -73,7 +73,7 @@
+   apply Real.sqrt_pos.mpr
+   apply div_pos _ (sourceZ_pos 2 (by norm_num))
+   apply mul_pos (by norm_num)
+-  rw [I4Lattice.sourceWeight_eq_physical]
++  rw [sourceWeight_eq_physical]
+   exact Real.exp_pos _
+ 
+ theorem control57_DAB_pos : 0 < control57_DAB := by
+@@ -96,23 +96,53 @@
+ 
+ theorem control57_cosine_fderiv_zero (k : ↥(halfLattice 2)) :
+     fderiv ℝ (modeCoefficient 2 2 (some (k,false))) 0 = 0 := by
++  have heq : (fun x : Fin 2 → ℝ => phase 2 2 k x) =
++      (I4C4.phaseCLM 2 2 k : (Fin 2 → ℝ) → ℝ) := by
++    funext x
++    exact (I4C4.phaseCLM_apply 2 2 k x).symm
+   have hp : HasFDerivAt (fun x : Fin 2 → ℝ => phase 2 2 k x)
+       (I4C4.phaseCLM 2 2 k) 0 := by
+-    simpa only [I4C4.phaseCLM_apply] using
+-      (I4C4.phaseCLM 2 2 k).hasFDerivAt (x := (0 : Fin 2 → ℝ))
++    rw [heq]
++    exact (I4C4.phaseCLM 2 2 k).hasFDerivAt
+   have h := (hp.cos.const_mul (Real.sqrt (2 * sourceWeight 2 2 k / sourceZ 2 2))).fderiv
+-  simpa [modeCoefficient, phase] using h
++  change fderiv ℝ (fun x => Real.sqrt (2 * sourceWeight 2 2 k / sourceZ 2 2) *
++    Real.cos (phase 2 2 k x)) 0 = 0
++  simpa [phase] using h
+ 
+ theorem control57_actual_raw_column (s : Fin 4) (i : Fin 6) :
+     rawPinCoefficient 2 0 i (control57_mode s) =
+       ![control57_amplitude s, control57_amplitude s, 0,0,0,0] i := by
+-  have hd := control57_cosine_fderiv_zero
+-    (⟨control57_frequency s, control57_frequency_half s⟩ : ↥(halfLattice 2))
+-  fin_cases i <;>
+-    simp [rawPinCoefficient, rawDerivativeCoefficient, rawDerivativeOrder,
+-      rawDerivativePoint, rawDerivativeDirections, derivativeCoefficient,
+-      endpointM, endpointS, iteratedFDeriv_zero_apply, iteratedFDeriv_one_apply,
+-      control57_mode, control57_amplitude, hd]
++  have hd : fderiv ℝ (modeCoefficient 2 2 (control57_mode s)) 0 = 0 :=
++    control57_cosine_fderiv_zero _
++  have hz (v : Fin 1 → (Fin 2 → ℝ)) :
++      iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (control57_mode s)) 0 v = 0 := by
++    rw [_root_.iteratedFDeriv_one_apply,hd]
++    rfl
++  have hM : endpointM (0 : ℝ) = 0 := by ext j; fin_cases j <;> norm_num [endpointM]
++  have hS : endpointS (0 : ℝ) = 0 := by ext j; fin_cases j <;> norm_num [endpointS]
++  fin_cases i
++  · change modeCoefficient 2 2 (control57_mode s) (endpointM 0) = control57_amplitude s
++    rw [hM]
++    rfl
++  · change modeCoefficient 2 2 (control57_mode s) (endpointS 0) = control57_amplitude s
++    rw [hS]
++    rfl
++  · change iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (control57_mode s)) (endpointM 0)
++      (rawDerivativeDirections 2) = 0
++    rw [hM]
++    exact hz _
++  · change iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (control57_mode s)) (endpointS 0)
++      (rawDerivativeDirections 3) = 0
++    rw [hS]
++    exact hz _
++  · change iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (control57_mode s)) (endpointM 0)
++      (rawDerivativeDirections 4) = 0
++    rw [hM]
++    exact hz _
++  · change iteratedFDeriv ℝ 1 (modeCoefficient 2 2 (control57_mode s)) (endpointS 0)
++      (rawDerivativeDirections 5) = 0
++    rw [hS]
++    exact hz _
+ 
+ theorem control57_pairing_single (a : SourceMode 2 → ℝ) (m : SourceMode 2) (c : ℝ) :
+     finitePairing a (Finsupp.single m c) = a m*c := by
+@@ -136,6 +166,15 @@
+   intro m _
+   ring
+ 
++theorem control57_pairing_neg_right (a : SourceMode 2 → ℝ)
++    (v : SourceMode 2 →₀ ℝ) : finitePairing a (-v) = -finitePairing a v := by
++  simpa using control57_pairing_smul_right a (-1) v
++
++theorem control57_pairing_neg_left (a : SourceMode 2 → ℝ)
++    (v : SourceMode 2 →₀ ℝ) : finitePairing (fun m => -a m) v = -finitePairing a v := by
++  classical
++  simp [finitePairing,Finsupp.sum,neg_mul,Finset.sum_neg_distrib]
++
+ theorem control57_pairing_add_left (a b : SourceMode 2 → ℝ) (v : SourceMode 2 →₀ ℝ) :
+     finitePairing (fun m => a m+b m) v = finitePairing a v + finitePairing b v := by
+   classical
+@@ -180,7 +219,7 @@
+   classical
+   fin_cases j <;>
+     simp [control57_chi,control57_chi0,control57_chi1,
+-      hA,hB,hC,hD,Ne.symm hA,Ne.symm hB,Ne.symm hC,Ne.symm hD]
++      hA,hB,hC,hD]
+ 
+ theorem control57_chi_gram (j k : Fin 2) :
+     finitePairing (fun m => control57_chi j m) (control57_chi k) =
+@@ -218,7 +257,7 @@
+     (z : Fin n → ℝ) (ω : SmoothSample 2 L) (m : SourceMode 2) :
+     (freeShiftSample F z ω).val m = ω.val m + ∑ j, z j*F.chi j m := by
+   change ω.val m + (∑ j : Fin n, z j • F.chi j) m = _
+-  simp only [Finsupp.sum_apply, Finsupp.smul_apply, smul_eq_mul]
++  simp
+ 
+ theorem control57_residual_val {L r : ℝ} {n : ℕ} (F : RawPinFreeFrame L r n)
+     (ω : SmoothSample 2 L) (m : SourceMode 2) :
+@@ -237,7 +276,8 @@
+   chi := fun _ => control57_chi0
+   gram := by
+     intro j k
+-    fin_cases j <;> fin_cases k
++    fin_cases j
++    fin_cases k
+     simpa [control57_chi] using control57_chi_gram 0 0
+   raw_kernel := by
+     intro i j
+@@ -256,8 +296,8 @@
+   refine ⟨control57_one_coordinate ω,?_⟩
+   intro m
+   rw [control57_residual_val]
+-  simp [control57_singleFrame,Fin.sum_univ_succ,control57_one_coordinate,
+-    unitDirectionCoefficientResidual]
++  rw [Fin.sum_univ_one,control57_one_coordinate]
++  rfl
+ 
+ theorem control57_single_standard_law :
+     HasLaw (unitDirection (L := 2) control57_chi0) (gaussianReal 0 1) (smoothLaw 2 2) := by
+@@ -346,7 +386,8 @@
+   fin_cases j <;> fin_cases k <;>
+     norm_num [control57_psi,control57_pairing_add_right,control57_pairing_smul_right,
+       Finsupp.add_apply,Finsupp.smul_apply,smul_eq_mul,
+-      control57_pairing_add_left,control57_pairing_mul_left,h00,h01,h10,h11]
++      control57_pairing_add_left,control57_pairing_mul_left,
++      control57_pairing_neg_left,control57_pairing_neg_right,h00,h01,h10,h11]
+ 
+ theorem control57_psi_raw_kernel (i : Fin 6) (j : Fin 2) :
+     finitePairing (rawPinCoefficient 2 0 i) (control57_psi j) = 0 := by
+@@ -365,16 +406,16 @@
+ 
+ theorem control57_psi_named_nonzero (j : Fin 2) (s : Fin 4) :
+     control57_psi j (control57_mode s) ≠ 0 := by
+-  have hA := control57_amplitude_pos 0
+-  have hB := control57_amplitude_pos 1
+-  have hC := control57_amplitude_pos 2
+-  have hD := control57_amplitude_pos 3
+-  have hAB := control57_DAB_pos
+-  have hCD := control57_DCD_pos
++  have hA := (control57_amplitude_pos 0).ne'
++  have hB := (control57_amplitude_pos 1).ne'
++  have hC := (control57_amplitude_pos 2).ne'
++  have hD := (control57_amplitude_pos 3).ne'
++  have hAB := control57_DAB_pos.ne'
++  have hCD := control57_DCD_pos.ne'
+   fin_cases j <;> fin_cases s <;>
+     simp [control57_psi,control57_chi0,control57_chi1,
+       control57_mA,control57_mB,control57_mC,control57_mD,
+-      control57_AA,control57_AB,control57_AC,control57_AD] <;> positivity
++      control57_AA,control57_AB,control57_AC,control57_AD,hA,hB,hC,hD,hAB,hCD]
+ 
+ theorem control57_psi_support (j : Fin 2) :
+     (control57_psi j).support = {control57_mA,control57_mB,control57_mC,control57_mD} := by
+@@ -394,7 +435,7 @@
+     simpa [Finsupp.mem_support_iff,control57_mD] using control57_psi_named_nonzero j 3
+   fin_cases j <;>
+     simp [Finsupp.mem_support_iff,control57_psi,control57_chi0,control57_chi1,
+-      hA,hB,hC,hD,Ne.symm hA,Ne.symm hB,Ne.symm hC,Ne.symm hD]
++      hA,hB,hC,hD]
+ 
+ theorem control57_rotated_coordinates (ω : SmoothSample 2 2) :
+     freeCoordinate control57_rotatedFrame ω =
+@@ -410,7 +451,8 @@
+       ∑ j : Fin 2, control57_frame.chi j m*freeCoordinate control57_frame ω j := by
+   rw [control57_rotated_coordinates]
+   simp [control57_rotatedFrame,control57_frame,control57_psi,control57_chi,
+-    Fin.sum_univ_succ,Finsupp.add_apply,Finsupp.smul_apply,smul_eq_mul] <;> ring
++    Fin.sum_univ_succ,Finsupp.add_apply,Finsupp.smul_apply,smul_eq_mul]
++  ring
+ 
+ theorem control57_rotated_residual (ω : SmoothSample 2 2) :
+     freeResidualSample control57_rotatedFrame ω = freeResidualSample control57_frame ω := by
+@@ -538,7 +580,7 @@
+     (rawPosteriorSample (by norm_num : (2 : ℝ) ≠ 0) 0 0 control57_omega1).val control57_mC = control57_q := by
+   rw [control57_omega1_posterior]
+   simp [control57_omega1,finiteShiftSample_val,zeroSample,control57_chi1,control57_q,
+-    control57_mA,control57_mB,control57_mC,control57_mD]
++    control57_mC,control57_mD]
+ 
+ theorem control57_mutant_named_coefficient :
+     control57_mutantReconstruction.val control57_mC = 2*control57_q := by
+@@ -547,7 +589,8 @@
+     control57_omega1_coordinates]
+   simp [control57_omega1,finiteShiftSample_val,zeroSample,control57_frame,control57_chi,
+     control57_chi1,control57_q,Fin.sum_univ_succ,
+-    control57_mA,control57_mB,control57_mC,control57_mD] <;> ring
++    control57_mC,control57_mD]
++  ring
+ 
+ theorem second_projection_omission_counterexample :
+     (rawPosteriorSample (by norm_num : (2 : ℝ) ≠ 0) 0 0 control57_omega1).val control57_mC ≠

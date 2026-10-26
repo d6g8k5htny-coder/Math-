@@ -1,3 +1,52 @@
+# Raw-pin-free finite coordinates and whole residual law
+
+[SourceRawPinFreeCoordinates.lean](SourceRawPinFreeCoordinates.lean) uses a
+supplied finite orthonormal original-mode frame in the literal six-row raw-pin
+kernel. Its entire free-coordinate vector has the iid standard Gaussian law,
+jointly independent of the whole literal residual smooth sample. The joint
+law is residual-first. For nonzero period and every radius/full target, the
+pointwise raw-posterior reconstruction retains every projection coordinate.
+The same statements include Fin0 and radius0; no covariance inverse, assumed
+Gaussian law/independence or random-sample l2 premise is inserted.
+
+Exactly three public propositions append to the registry. One public frame
+structure and three maps stay inventory-only. All64 actual owned declarations
+are classified, including the owned foreign-generated equation
+`I4SourceCurvatureDecomposition.unitDirection.eq_1`; standard3 axioms only.
+The completed production strict, full inventory and one own kernel are reused.
+The Gaussian helper was integrated once into production. The four-mode helper
+was integrated once only into scratch Controls: positiveControls004 covers it
+and the complete actual amendment patch; the production kernel does not.
+The original unfrozen four-mode draft, all failed attempts, all14 actual runs
+and39467B of honest merged streams remain preserved. The sole negative omits
+only the second projection and yields exactly126B of intendedFalse after the
+ordinary actualq-versus2q counterexample passed.
+
+Root fully read final production, all64 classifications, all14 records and
+full39467B streams. Current Controls were read through the complete frozen
+original and complete8919B amendment diff. Historical failed snapshots and the
+unfrozen draft remain retained without claiming every one was line-reviewed.
+Historical pending-control/cut records are verbatim; later final reading and
+authorization records supersede them separately. The historical curvature
+object SHA stays NULL with accepted compile/audit/kernel/control lineage.
+
+This proposed registry is57 modules/1125 written=1116Prop+9data/32inputs,
+against actual published56 `0d1d4601fbda409eb26869f57f11bc072e713769`.
+Root alone applies and publishes. All five installed source/PRECODE bindings
+are SKIP, and the only eligible own object was already copied once. Foreign58
+source/four PRECODE documents/cache remain outside this proposal.
+No frame-existence theorem, singular-pin RCD/fiber, spatial O2 law invariance,
+canonical labels, once-counting, Rice or Parent conclusion is supplied.
+Scientific effect NONE; provider-distinct credit0. Pending process work stays
+separate from completed applicable mathematics.
+
+---
+
+# Historical packaging context: published stage56 and earlier
+
+Earlier checkpoint statements and timers are preserved below. Current57 scope
+is given above; historical reading limits remain unchanged.
+
 # Intrinsic H0 finite-bar event and weighted probability
 
 [SourceIntrinsicH0WeightedProbability.lean](SourceIntrinsicH0WeightedProbability.lean)

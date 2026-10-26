@@ -1,0 +1,49 @@
+SourceRawPinFreeCoordinates.lean:47:18: error: This simp argument is unused:
+  Finsupp.sum_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [freeLift, Finsupp.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceRawPinFreeCoordinates.lean:47:37: error: This simp argument is unused:
+  Finsupp.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [freeLift, Finsupp.sum_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceRawPinFreeCoordinates.lean:83:14: error: `if_pos` has been deprecated: Use `ite_eq_left` instead
+SourceRawPinFreeCoordinates.lean:83:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq ℝ (∑' (m : SourceMode 2), (F.chi j) m * (F.chi j) m) (if True then 1 else 0)
+but is expected to have type
+  @Eq ℝ (∑' (m : SourceMode 2), (F.chi j) m * (F.chi j) m) 1
+SourceRawPinFreeCoordinates.lean:89:67: error(lean.unknownIdentifier): Unknown identifier `scalarSeries`
+SourceRawPinFreeCoordinates.lean:87:76: error: unsolved goals
+L r : ℝ
+n : ℕ
+F : RawPinFreeFrame L r n
+j : Fin n
+ω : SmoothSample 2 L
+⊢ ∑' (m : SourceMode 2), ↑ω m * (F.chi j) m = I4Foundation.scalarSeries (fun m => (F.chi j) m) ↑ω
+SourceRawPinFreeCoordinates.lean:89:81: error: This simp argument is unused:
+  mul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [freeCoordinate, finitePairing_eq_tsum, unitDirection, scalarSeries]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceRawPinFreeCoordinates.lean:97:10: error: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+SourceRawPinFreeCoordinates.lean:104:10: error: `measurable_pi_lambda` has been deprecated: Use `Measurable.of_eval` instead
+SourceRawPinFreeCoordinates.lean:106:32: error: Invalid projection: Type of
+  p
+is not known; cannot resolve projection `2`
+SourceRawPinFreeCoordinates.lean:106:55: error: Invalid projection: Type of
+  p
+is not known; cannot resolve projection `1`
+SourceRawPinFreeCoordinates.lean:91:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
