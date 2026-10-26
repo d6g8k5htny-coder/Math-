@@ -1,0 +1,28 @@
+{
+  "frozen_utc": "2026-10-26T10:36:52.801240+00:00",
+  "namespace": "I4SourceActualFoldCandidate",
+  "source": {
+    "path": "/workspace/scratch/actual-fold-candidate-ridge-schur/RidgeSchur.lean",
+    "bytes": 6368,
+    "sha256": "65a4d0137077e30bb89535198bc05237d3fd20feebcb13a908a22fbd599ed9c5"
+  },
+  "section": {
+    "path": "/workspace/scratch/actual-fold-candidate-ridge-schur/NEEDED_SECTION.lean.txt",
+    "bytes": 6025,
+    "sha256": "2f4a3032869f7bc32e699a9af8b2782481c5fd950daaa4f5d7596c8c5fd24240",
+    "source_first_line": 12,
+    "source_last_line": 138
+  },
+  "strict_receipt": "/workspace/scratch/actual-fold-candidate-ridge-schur/runs/strict-003/receipt.json",
+  "declarations": [
+    "ridge_profileSlopeFirst_eq_schur",
+    "endpoint_schur_signs",
+    "actual_endpoint_schur_signs",
+    "planar_vector_decomposition",
+    "planar_bilinear_quadratic",
+    "actual_planar_hessian_quadratic"
+  ],
+  "qualification_scope": "new helper strict-warning elaboration only; no standalone kernel/audit/controls; integrated own-module qualification by producer/root",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0
+}

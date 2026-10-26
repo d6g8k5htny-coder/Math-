@@ -1,3 +1,34 @@
+# Actual Lifetime candidate, exact gap and distance, and attained death
+
+[SourceActualFoldCandidate.lean](SourceActualFoldCandidate.lean) proves that the
+original Lifetime field has a genuine local maximum/saddle candidate pair.
+Its exact parent torus distance is `r`, its positive height gap is `k*r^3`, and
+the same sample gives attained actual C263 death at the saddle height. The
+same original-period torus also has the actual ordinary singular-H0 interval
+summand `[-b, -(b-k*r^3))`, with birth included and death excluded.
+
+One positive radius, bounded by `1` and `L/2`, is chosen from `0<L` before all
+coefficient fields and model parameters. Raw pins and retained ridge data are
+derived internally; only the two established numerical sample cutoffs remain.
+This local candidate theorem leaves canonical elder selection, conditional
+global Morse, intrinsic finite-event H0 labeling and `IsFiniteBar` separate.
+
+The new leaf adds 32 public written proofs. Its two definitions and 13 generated
+constants are inventory-only; all 47 actual-module constants have retained
+standard-three transitive axiom coverage. Final strict compile, ten controls,
+one intended-False distance mutation, exactly one own-module kernel check and
+the exact-source technical review passed. All applicable completed evidence is
+reused. [The new catalog](actual-fold-candidate-evidence/ACTUAL_FOLD_CANDIDATE_EVIDENCE_CATALOG.json)
+links all 14 producer runs, complete helper proof attempts and the read-only
+review, preserving original bytes and failures.
+
+Registry: 45 individually qualified modules and 1083 public written targets
+(1074 propositions and nine data instances), with 32 support inputs. No combined
+45-module hosted build is claimed. Provider-distinct review and hosted process
+remain separate; scientific effect is NONE. Earlier entries retain their scope.
+
+---
+
 # Compact actual normalized fold probability and H0 success
 
 [SourceCompactFoldWeightedProbability.lean](SourceCompactFoldWeightedProbability.lean)

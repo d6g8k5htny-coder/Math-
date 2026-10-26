@@ -1,0 +1,15 @@
+/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean:44:78: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean:50:5: error: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean:83:6: error: Type mismatch: After simplification, term
+  Eq.le (endpoint_lifts_sub_norm (LT.lt.le hr))
+ has type
+  ‖endpointLiftM r - endpointLiftS r‖ ≤ r
+but is expected to have type
+  ‖endpointLiftM r - endpointLiftS r + (EuclideanSpace.single 0 0 + EuclideanSpace.single 1 0)‖ ≤ r

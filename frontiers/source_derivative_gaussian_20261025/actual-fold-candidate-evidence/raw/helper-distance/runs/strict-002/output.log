@@ -1,0 +1,10 @@
+/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean:57:4: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-fold-candidate-distance/CandidateDistance.lean:84:40: error: This simp argument is unused:
+  PiLp.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [latticeVec]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

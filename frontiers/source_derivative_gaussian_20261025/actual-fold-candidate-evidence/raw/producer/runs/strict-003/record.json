@@ -1,0 +1,19 @@
+{
+  "kind": "strict",
+  "run": "strict-003",
+  "start": "2026-10-26T10:35:43.682329+00:00",
+  "end": "2026-10-26T10:35:47.086888+00:00",
+  "seconds": 3.4045682869982556,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFoldCandidate.lean",
+    "-o",
+    "/workspace/scratch/actual-fold-candidate-construct/runs/strict-003/SourceActualFoldCandidate.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "source_sha256": "ee0c41d96f49d9a2d0d8fef583f99b7f1fac3f21cfcd4b098c6ad41aca79ea9e"
+}

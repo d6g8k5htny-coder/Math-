@@ -1,3 +1,36 @@
+# Current qualified scope: 45 modules, 1083 public targets, 32 inputs
+
+The new actual Lifetime candidate leaf proves a genuine `IsCandidatePair` in
+the original field: strict maximum/saddle inertia, exact parent `torusDist=r`,
+absolute heights `b` and `b-k*r^3`, and positive `heightGap=k*r^3`. The same
+retained sample and box/path give actual C263 nonessentiality and attained
+death at the saddle height, plus strict clearance, real-supremum death and the
+actual ordinary singular-H0 interval summand `[-b, -(b-k*r^3))` on the same
+original-period product torus, with its retraction-kernel complement.
+
+For each `0<L`, one positive radius bounded by `1` and `L/2` precedes every
+coefficient field and `k0,r,b,k`. The closed actual-law theorem derives raw
+pins, structural data and the retained ridge internally. Its only sample
+premises are `r*T^5 <= 1/100` and `1024*T^5 <= kappa`. An optional comparison
+identifies the essentiality/death values of any given old Lifetime interface.
+
+Only 32 public written theorem names enter the registry. Two definitions and
+13 generated theorem constants remain separate in the complete 47-constant
+actual-module inventory, including `UniversalLaw.Spec.Lifetime.heightGap.eq_1`.
+Final strict compile, one own-module kernel check, exhaustive standard-three
+coverage, ten controls, one sole-False distance mutation and exact-source
+technical alignment passed. The catalog and raw archive preserve all attempts.
+
+Canonical Lifetime elder selection, `IsFiniteBar`, conditional global Morse
+on each prescribed positive-gap fiber with distinct torus endpoints, intrinsic
+finite-event H0 labeling, joint selection, frames/translations, count density
+and Parent A/B Lean remain separate. No unrestricted raw-target or common
+uncountable-event claim is made. Completed applicable verification is reused;
+provider-distinct review and hosted current-commit process remain separate
+from established mathematics. Scientific effect is NONE.
+
+---
+
 # Current qualified scope:44 modules /1051 public targets /32 inputs
 
 The new compact normalized probability/H0 composition adds7 written proofs,
