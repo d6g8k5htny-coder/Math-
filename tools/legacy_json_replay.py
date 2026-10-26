@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Authenticate the three fixed legacy checkers' success and rejection reports.
+"""Authenticate the four fixed legacy checkers' success and rejection reports.
 
 Called AFTER each workflow's unchanged scientific source/manifest guards. The
 reference file holds measured, source-bound reports, never outputs learned from
@@ -27,6 +27,7 @@ INVENTORIES = {
     'c6-cluster': ('pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian',
                    'three-extra-points', 'shear-drop-cubic', 's-bound-constant',
                    'cross-term-not-small', 'window-closed', 'index-sign'),
+    'elder-third-order': ('M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8'),
 }
 # The CLI's argparse choice order is distinct from the workflow execution order.
 C6_CHOICES = ('pins-not-critical', 'wrong-pin-hessian', 'drop-sigma-jacobian',
