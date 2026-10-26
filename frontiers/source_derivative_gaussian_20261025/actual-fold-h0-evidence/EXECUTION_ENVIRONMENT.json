@@ -1,0 +1,17 @@
+{
+  "reused_environment_evidence": {
+    "path": "/workspace/scratch/actual-h0-support-inputs/environment.json",
+    "bytes": 2077,
+    "sha256": "b84e5e9b369c78c9e9f335b70449d0fccf8ecf7860fc34258f1e2d2d05a37ef0"
+  },
+  "lean_toolchain": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/lean-toolchain",
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "lean_version": "Lean 4.34.1 x86_64 Linux, commit 5045d0056413266e57c625dcd7c365b10e377c52",
+  "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "commands_and_explicit_lean_paths": "runs/*/receipt.json",
+  "runtime_path_inspection": "lake env sh -c print LEAN_PATH observed same underlying package/cache paths; no environment mutation",
+  "qualification_dependencies": "Frozen support scratch build prepended; torus/upstream qualified packet cache reused."
+}

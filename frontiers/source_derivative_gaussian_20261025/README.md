@@ -1,3 +1,30 @@
+# Actual torus ordinary singular-H0 interval
+
+[SourceActualFoldH0.lean](SourceActualFoldH0.lean) converts actual torus geometry
+to the old typed ElderTrap and constructs one natural ordinary singular-H0
+interval summand with its retraction-kernel complement. The interval includes
+birth at -b and excludes death at -(b-k*r^3). The unchanged actual gap law
+derives all geometric inputs under the established sample cutoffs; one radius
+from L!=0 precedes the coefficient field and k0,r,b,k. Same signed period,
+U,z, image box, path and absolute levels are retained, including negative L.
+
+Five public written proofs, four definitions and three generated constants
+passed strict compilation, one named kernel and exhaustive12 standard-axiom
+rows. New-interface controls passed; direct normalization rejects the false
+death-inclusion mutation at one False. All failures and the earlier weaker
+uncredited mutation remain preserved. [Evidence](actual-fold-h0-evidence/ACTUAL_FOLD_H0_EVIDENCE_CATALOG.json)
+includes source/spec review PASS_SCOPED and exact execution/custody. Four old
+support bodies are unchanged, with necessary narrow-import compiles only.
+
+The registry has38 qualified modules/989 public written targets=980 propositions
+plus9data instances,32support inputs. Canonical partner/conditional Morse,
+framed law, cutoff probability, weighted countdensity and ParentA/B Lean remain
+separate. Completed mathematics is reused; provider-distinct review remains
+a separate pending process. Scientific effect NONE. Earlier entries retain
+their historical scopes.
+
+---
+
 # Actual original-period torus clearance
 
 [SourceActualFoldTorus.lean](SourceActualFoldTorus.lean) descends the same source

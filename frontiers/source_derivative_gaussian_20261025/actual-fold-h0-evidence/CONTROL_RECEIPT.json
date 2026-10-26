@@ -1,0 +1,65 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/CONTROL_CONTRACT.md",
+    "bytes": 3163,
+    "sha256": "bc015cb09f4960afb45f17651050b5b9153b3b970f448b16c64691147a592756"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/runs/controls-004/receipt.json",
+    "bytes": 1895,
+    "sha256": "1783e45173c32ed87551bd63080dba6a368d48a771daa46f8c6de11c47e0904f"
+  },
+  "positive_source": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean",
+    "bytes": 4199,
+    "sha256": "87857903ecd6da1aa2413d5bac125f894310f112eb7d141743113f47ea55101f"
+  },
+  "positive_object": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/build/ActualH0Controls.olean",
+    "bytes": 141816,
+    "sha256": "80314765792987403b004c64e456837c6b0d6fa9a3d50ea73a831e091c17ff8f"
+  },
+  "positive_exit": 0,
+  "closed_original_negative_period": -1,
+  "birth_height": 3,
+  "k_and_k0": 1,
+  "coefficient_field": "arbitrary K : Type with Field K; radius precedes K",
+  "same_law": "literal sourceGapLaw negativePeriod r 3 1; only two numeric sample cutoffs",
+  "positive_scope": [
+    "same points/domain conversion to literal old ElderTrap",
+    "actual singular-H0 section/retraction and identity",
+    "kernel-complement equality and natural direct-sum API",
+    "generic torus strict-clearance set and real sSup",
+    "birth included at -3; death excluded at -(3-r^3); positive length r^3",
+    "wrong-sign positive-height counterexample"
+  ],
+  "false_mutation_source": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/FalseDeathMutation.lean",
+    "bytes": 430,
+    "sha256": "9f9d7f5c8dc6a12f143804190ae390ef51f88f12f931f5d9b360079b580fa21b"
+  },
+  "false_mutation_receipt": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-002/receipt.json",
+    "bytes": 1782,
+    "sha256": "009462c3a0800af672235ea1944dd00bc860f5ff5185b055c6eeef33f740c883"
+  },
+  "false_mutation_log": {
+    "path": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-002/output.log",
+    "bytes": 166,
+    "sha256": "ac8e9d4d3fe4f5389178dae54db630d091e8a82e10da2968b463d6ae3482f9b9"
+  },
+  "false_mutation_exit": 1,
+  "distinct_mutation_count": 1,
+  "residual_false_count": 1,
+  "unrelated_diagnostics": 0,
+  "false_mutation_mechanism": "Arithmetic normalization norm_num [elderActive] of false death inclusion at b=3,k=r=1 leaves exactly False; proved death_inclusion_counterexample from new endpoint API is in context.",
+  "uncredited_preliminary_mutation_receipt": "/workspace/scratch/actual-fold-h0-construct/runs/false-death-001/receipt.json",
+  "uncredited_reason": "First proof used explicit False.elim; tightened same mutation to direct endpoint normalization for meaningful rejection.",
+  "historical_failures": [
+    "controls-001 harness root missing",
+    "controls-002 Prop def linter and proof-only section variable omissions",
+    "controls-003 unused included section variable linter"
+  ],
+  "old_control_campaign_replayed": false,
+  "production_source_unchanged_for_all_controls": true
+}

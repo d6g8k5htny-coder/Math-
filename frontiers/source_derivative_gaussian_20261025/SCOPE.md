@@ -1,3 +1,18 @@
+# Current qualified scope:38 modules /989 public targets /32 inputs
+
+Five new written proofs convert literal torus geometry to the OLD typed
+ElderTrap and ordinary singular-H0 interval/kernel-complement natural split.
+Four definitions and3generated proof constants are separate; all12constants
+have transitive standard3 coverage. Same actual source law, signed period,
+geometry, absolute levels and strict-clearance/death statements remain.
+
+One interval summand is proved; canonicalpartner/conditionalMorse, exhaustive
+barcode, framedlaw, weightedprobability/countdensity and ParentA/B Lean remain
+separate. Old mathematics and completed verification are reused. Provider-
+distinct process review and scientific acceptance remain separate.
+
+---
+
 # Current qualified scope:37 modules /984 public targets /28 inputs
 
 The19 new torus public written proofs establish explicit H0-free TorusTrapData,

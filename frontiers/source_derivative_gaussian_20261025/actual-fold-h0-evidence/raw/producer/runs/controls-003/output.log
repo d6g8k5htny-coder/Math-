@@ -1,0 +1,12 @@
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:82:0: error: automatically included section variable(s) unused in theorem `ActualH0Controls.death_inclusion_counterexample`:
+  T
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit T in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/scratch/actual-fold-h0-construct/ActualH0Controls.lean:86:0: error: automatically included section variable(s) unused in theorem `ActualH0Controls.wrong_sign_counterexample`:
+  T
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit T in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
