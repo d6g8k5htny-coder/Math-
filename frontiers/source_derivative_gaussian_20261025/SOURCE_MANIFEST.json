@@ -2,7 +2,7 @@
   "schema_version": 1,
   "scientific_effect": "NONE",
   "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
-  "alignment_status": "PENDING_NEW_FOUR_MODULE_PLUS_LIFETIME_BRIDGE_ALIGNMENT_AND_SEPARATE_NEW_CONVENTIONAL_APPLICATION_REVIEWS",
+  "alignment_status": "PENDING_NEW_SOURCE_ALIGNMENT_AND_CONVENTIONAL_APPLICATION_DIFFERENT_FAMILY_REVIEWS",
   "qualification_role": "29 individually qualified default modules;850 public registry declarations=841 proposition declarations+9 structural/data instances;25 support input roots, including2 necessary ABI-adapted Lifetime inputs. Completed applicable prior evidence reused. No combined hosted proof build.",
   "source_modules": [
     "SourceDerivativeGaussian.lean",
@@ -904,8 +904,8 @@
     "INPUT_BINDING.json": "42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13",
     "ORIGIN_SOURCE_MANIFEST.json": "d3fe096b830c4c5bf2fff47a2a2aa528ae2a79d4cb9816afb6be536685d8d9ca",
     "ORIGIN_SOURCE_SHA256SUMS": "1c8b5045a5260e5da03c5da6042d6c92681e26f05935f13f362084fe3d1572a6",
-    "README.md": "2f8756ae35dfe3788a547fcbaeec1ff3291e0f675eec3c9fa4ef73b379d4c9a0",
-    "SCOPE.md": "b74858d75d1c29ca57f66585b6bd00c83418c1078b3e24312c151aeb01ebd780",
+    "README.md": "d37c21c2f3db3b5dddd08c26d69983b9a4669446ff79f32e92ee1f33dbfe966d",
+    "SCOPE.md": "c39e2128caac495ceefd9d1c969b80991533d19f963f28a1969a298c1a0ffd7c",
     "SOURCE_CONDITIONAL_MAJORANT.md": "d7742ca40a564897fb1a1f1e7812e8ce0bd6ff531c5616dc8b4bd2ebb83815b0",
     "SOURCE_CONFLUENT_INTEGRALS.md": "445700bdeecc7d539931e64d618155bf50b936777716d596ae8a6b01352d9ce9",
     "SOURCE_CONFLUENT_LIMITS.md": "1abd81c44781aeb12a90955fdf75a8c2c0c1a382e60efe94f9e49aec410942fc",
@@ -2542,7 +2542,12 @@
     "SourceLifetimePairFiniteness.lean": "36bf363f88d450a61052086c5d7eb799d12dd58ce4b74c1c083a056991606081",
     "inputs/Lifetime.lean": "371365f9bb17fbe1491c38bb00359300ea76641d3b5693d8feb11bb2c3fad51e",
     "inputs/SourceLifetimeGeometry.lean": "8ec4b18959055f20d849337e44a70d0c5b39b7959b54cb4d7b6c2a473ee0612d",
-    "SOURCE_ACTUAL_ADAPTIVE_ELDER_APPLICATION.md": "8d07d05faa7a8135ff334974f178617ada9c829b6db9620b7f26c76748cc4697"
+    "SOURCE_ACTUAL_ADAPTIVE_ELDER_APPLICATION.md": "8d07d05faa7a8135ff334974f178617ada9c829b6db9620b7f26c76748cc4697",
+    "actual-adaptive-elder-application/PROOF.md": "37ff2436e4acafbb6027fe07529e40dc4eef412bbecf759dbd3ea801765793b2",
+    "actual-adaptive-elder-application/HANDOFF.md": "c559815901b2a2826c890c350c99cc74826d087ef8d7448e719e87722385cf61",
+    "actual-adaptive-elder-application/REUSED_SOURCES.json": "24af8591ba6761c268993e80456720ee553f9ec413b0679a0014cb90e5ac08f7",
+    "actual-adaptive-elder-application/ADAPTIVE_ELDER_APPLICATION_CATALOG.json": "5c099d59498ad2220e3d0a54cb332460dbf2af4cb1794eaeb7bcee855e061d47",
+    "actual-adaptive-elder-application/AUTHOR_SIDE_REVIEW.md": "0ce816f8f287f9f7821631ed0fc5a886edbdbe3664f67ed31eff5066c33ecfd3"
   },
   "verification_reuse": "All applicable prior24 module checks and23 inherited inputs reused. Four new modules retain genuine compile/kernel/axiom/control records and failures. The Morse exhaustive219 audit includes140 explicit public declarations,1 explicit private theorem,78 generated declarations; only99 public proof declarations are appended. Metadata integration executes no Lean/build/kernel/control command.",
   "not_qualified_by_this_manifest": [
@@ -2625,6 +2630,12 @@
       "source_cut": "636fcfa6bd2fa503872971e0ead2d1c3d8a4744d",
       "scope": "Two new conventional compact-mark capture/Rice application addenda only",
       "sha256": "4a8dc4ed32e23b86db753fb2fc9f6651f7e2f6ac5ffdff156b2cf780ed308ccb"
+    },
+    {
+      "path": "actual-adaptive-elder-application/ADAPTIVE_ELDER_APPLICATION_CATALOG.json",
+      "source_cut": "cd145a0aa1a007c98031311b77743803c72c3d25",
+      "scope": "Conventional actual planar uniform elder selection and compact-window density application only",
+      "sha256": "5c099d59498ad2220e3d0a54cb332460dbf2af4cb1794eaeb7bcee855e061d47"
     }
   ],
   "new_curvature_scope": {
@@ -2765,5 +2776,12 @@
     "source_cut": "636fcfa6bd2fa503872971e0ead2d1c3d8a4744d",
     "scope": "Two new conventional compact-mark capture/Rice application addenda only",
     "sha256": "4a8dc4ed32e23b86db753fb2fc9f6651f7e2f6ac5ffdff156b2cf780ed308ccb"
-  }
+  },
+  "conventional_actual_adaptive_elder_application": {
+    "path": "actual-adaptive-elder-application/ADAPTIVE_ELDER_APPLICATION_CATALOG.json",
+    "source_cut": "cd145a0aa1a007c98031311b77743803c72c3d25",
+    "scope": "Conventional actual planar uniform elder selection and compact-window density application only",
+    "sha256": "5c099d59498ad2220e3d0a54cb332460dbf2af4cb1794eaeb7bcee855e061d47"
+  },
+  "conventional_qualitative_parent_reuse": "Accepted same-law finite-L/GAD qualitative density/ordinary-elder once-counting evidence preserved and applied, not reopened. The new planar quantitative A/B application has its own proof/source scope."
 }

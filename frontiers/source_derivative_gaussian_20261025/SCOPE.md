@@ -1,3 +1,17 @@
+# New conventional planar Parent A/B application
+
+Proof cutcd145a0aa1a007c98031311b77743803c72c3d25 supplies actual elder rejectionCr3
+and compact-window density gapO(lifetime^(2/3)) for one fixed positive finiteL,
+compact birth marks and positive compact gap marks, allO(2)frames. It derives
+actual ordinary elder death, canonical-fiber genericity, compact normalizer floor,
+true density versions/integrable counts, and the explicit144/L2 contact integral.
+This is not a new Lean inhabitant of Lifetime's parent definitions. Same-family
+internal review is advisory, not provider-distinct acceptance. The exact new
+application review is pending. Prior accepted qualitative same-law mathematics
+and all applicable checks remain reused.
+
+---
+
 # Current formal scope:29 modules /850 registry declarations /25 inputs
 
 The new9-proof Lifetime adapter atc039243e449fcab837127ff2bc0b12edb1dc05e9

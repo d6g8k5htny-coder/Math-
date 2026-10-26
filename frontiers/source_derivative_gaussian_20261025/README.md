@@ -1,3 +1,26 @@
+# Actual planar elder selection and compact lifetime densities
+
+The [new conventional parent application](actual-adaptive-elder-application/PROOF.md)
+derives the actual planar uniform elder rejection bound `<= C r³` on compact
+birth/gap marks and all orthonormal frames, and true compact-window candidate and
+ordinary-elder density versions with nonnegative gap `<= C lifetime^(2/3)`.
+It checks the common positive leading coefficient, including the factor144.
+
+The proof supplies the missing older point and boundary cut through an adaptive
+transverse ridge, then applies the existing ordinary-H0 attained-death theorem.
+It separately justifies canonical null-pin genericity, the compact normalizer
+floor and integrable expected-count density identities. Capture is not used as
+an elder definition. The same original finite-L Fourier law is retained.
+
+A [focused internal review](actual-adaptive-elder-application/AUTHOR_SIDE_REVIEW.md)
+found no critical or important issue in this stated scope. It is OpenAI same-family
+work and carries zero provider-distinct credit. The new exact-source scientific
+review remains separate. These are conventional applications; the 29-module /
+850-declaration Lean registry is unchanged and full Lean parent mechanics remain
+open. Quantitative unrestricted/lower-bound branches are separate.
+
+---
+
 # Actual Lifetime finite pair populations and compact-mark capture
 
 The new [Lifetime bridge](SourceLifetimePairFiniteness.lean) proves almost-sure
