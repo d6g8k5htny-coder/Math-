@@ -1,3 +1,56 @@
+# Proposed qualified scope:52 modules,1113 public targets,32 inputs
+
+The new leaf defines only the actual endpoint Hessian, full selected49 mean
+and target-free principal49 covariance. Three public propositions establish
+the all-radius raw-kernel Gaussian sampling law by a fixed6-to3 projection;
+PosDef via actual50 selected3x6 coefficient Gram composition under literal
+endpoint quotient separation; and one kernel-a.e. event on which both ordinary
+endpoint determinants `xx*yy-xy^2` are nonzero for every fixed raw target.
+
+Ordinary raw rows6/7/8 and9/10/11, signed nonzero L, arbitrary real r and full
+raw target remain. The law alone requires no separation, inverse or radius
+restriction; separated positivity/nullity adds only the literal quotient
+inequality. Covariance is not replaced by an unproved adjustedSchur block.
+Only necessary new fixedPSD6/projection3/measurability/AC3/Fubini/pullback joins
+are added; qualified49 Gaussian/series/regression and50 witness mathematics
+remain reused. New52 does not consume the independent51H0 scratch route.
+
+The complete actual-module inventory has35 constants:3public proofs,3public
+data definitions,5private data definitions,14private proofs and10generated
+proofs, including foreign49 `remoteResidualCovariance.eq_1`. Exact strict003,
+standard-three/subset inventory,12public controls plus1private adapter, an
+inventory-only source noncentered finite-Gaussian AC/nullity control, one
+finite Dirac0 PD-omission soleFalse, one ownkernel001 and final technical
+source/spec review passed. The Dirac0 example is not a source realization.
+The mixed-square formula is checked through actual ordinary matrix identities.
+
+All eight attempts, failures and separate original stdout/stderr streams are
+preserved. Both text-only helper sections froze before one integration each,
+with zero helper execution/object/campaign. AC text is unchanged; original/
+needed determinant text and the sole deprecated-set-lemma rename are retained.
+Producer/reviewer pending-cut history remains byte-preserved; later root
+process record binds sourcecut08e8ecd8 without source change or replay.
+
+Qualified51/d6af0302 and applicable49/50 evidence/objects are reused. Root
+copies only the named new ownobject once and owns metadata/cache/Git/external
+actions. The prior Claude review5655734753 remains limited to unchanged
+SourceLifetimePairFiniteness plus2inputs, d2/conditional upstream/no-rerun scope;
+it supplies no52 scientific alignment. Same-family credit0/scientific effect
+NONE. No old proof/build/kernel/audit/control/hash replay is performed.
+
+No joint six-Hessian rank/law, all-radius RCD/fiber, new Schur identity, generic
+public Gaussian/polynomial library, covariance floor, globalMorse/Sard/ties,
+canonicalH0/Lifetime/Rice or Parent conclusion follows. Current-source hostedCI,
+combined52 build, scientific acceptance, Ready and merge are not claimed.
+
+---
+
+# Historical packaging context: stage51 and earlier
+
+Retained text below records earlier checkpoint scopes and publication state.
+Qualified51 native result16:46:22 and new52pickup16:53:34 retain their separate
+schedules. Current52 checkpoint17:45/terminal19:00 does not reset prior times.
+
 # Proposed qualified scope:51 modules,1110 public targets,32 inputs
 
 The new public `h0OlderClearance` predicate is the actual ordinary singular-H0

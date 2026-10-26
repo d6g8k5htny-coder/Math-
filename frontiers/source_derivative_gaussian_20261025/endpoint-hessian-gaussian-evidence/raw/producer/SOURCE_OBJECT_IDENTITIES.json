@@ -1,0 +1,42 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "bytes": 17034,
+    "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+  },
+  "object": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/build/SourceEndpointHessianGaussian.olean",
+    "bytes": 863104,
+    "sha256": "ce422b22d3f90dbcbaf6520d389dad7bd9fb9afacf4cbf97d14042d9d88a5c1a"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/SourceEndpointHessianGaussian.olean",
+    "bytes": 863104,
+    "sha256": "ce422b22d3f90dbcbaf6520d389dad7bd9fb9afacf4cbf97d14042d9d88a5c1a"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-003/record.json",
+    "bytes": 1310,
+    "sha256": "6a64d51498e152e3d38bc3c0e6ae7bdf727c1195b39ade140774bb0871403e55"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/kernel-001/record.json",
+    "bytes": 1173,
+    "sha256": "20b9ec5cb7fbd92ece1aa4d0dcaae796e332eafdd33d0a36da572b9bf7948074"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/FROZEN_SOURCE.json",
+    "bytes": 1130,
+    "sha256": "8a1543dde23404e0e6fee36821cfabab34c6bbdf91e5d802349113b77dcfb5ec"
+  },
+  "eligible_production_objects": [
+    "SourceEndpointHessianGaussian.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed finiteDirac0 counterexample for negative harness; never productioneligible. No ilean/freshnesscompile. Rootsole productioncache.",
+  "baseline_reused": "qualified51/1110/32 atd6af0302f287a22d5335dc678e6547489bd74af9/result6421767087; qualified50d19d0898/sourcecut009ff87f/result6421429699 and49at374c1a8/sourcecut9ce7b951. All applicable oldsource/series/finiteGaussian/Gram/BCF evidence/objects unchanged.",
+  "root_sourcecut": {
+    "status": "not yet supplied by root; root owns Git, no producer sourcecut or publication action"
+  },
+  "published_precode": "81e3a89e595c849186d86d0c654b483c174c32ac",
+  "no_current_source_hosted_CI_claim": true
+}

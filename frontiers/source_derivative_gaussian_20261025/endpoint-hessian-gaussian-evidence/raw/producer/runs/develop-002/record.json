@@ -1,0 +1,33 @@
+{
+  "kind": "develop",
+  "run": "develop-002",
+  "start": "2026-10-26T17:03:54.037333+00:00",
+  "end": "2026-10-26T17:03:59.277613+00:00",
+  "seconds": 5.240293176000705,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "-o",
+    "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/SourceEndpointHessianGaussian.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 1,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "bytes": 17026,
+    "sha256": "0e8edfb0a1966239bb037b00d422c44048587087a84fbd85de67a1ac1bc73d8b"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stdout.log",
+    "bytes": 1278,
+    "sha256": "a3e7c5a44649ed62eca50e1777304a459e9d7e4b2a0bece0ba682d76923e729a"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/develop-002/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

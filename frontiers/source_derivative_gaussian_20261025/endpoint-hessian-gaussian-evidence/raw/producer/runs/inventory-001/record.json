@@ -1,0 +1,31 @@
+{
+  "kind": "inventory",
+  "run": "inventory-001",
+  "start": "2026-10-26T17:05:11.130742+00:00",
+  "end": "2026-10-26T17:05:14.930169+00:00",
+  "seconds": 3.7994387130020186,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/endpoint-hessian-gaussian-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/endpoint-hessian-gaussian-construct /workspace/scratch/endpoint-hessian-gaussian-construct/Inventory.lean -o /workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/Inventory.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceEndpointHessianGaussian.lean",
+    "bytes": 17034,
+    "sha256": "b9900b7553f7722241137f8f0cba08862b19ae415253a9a14bfd7c9b53c3e613"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stdout.log",
+    "bytes": 8456,
+    "sha256": "f938bcbca9f4d45e31490f12371fa0382218311eb984f0428936422daa2f642a"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/endpoint-hessian-gaussian-construct/runs/inventory-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

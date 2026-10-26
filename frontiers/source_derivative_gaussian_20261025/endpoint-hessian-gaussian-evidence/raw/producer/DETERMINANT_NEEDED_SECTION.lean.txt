@@ -1,0 +1,47 @@
+private theorem determinant3_zero_volume :
+    volume {H : EuclideanSpace ℝ (Fin 3) | H 0 * H 2 - (H 1) ^ 2 = 0} = 0 := by
+  let Z : Set (ℝ × (ℝ × ℝ)) :=
+    {p | p.1 * p.2.2 - p.2.1 ^ 2 = 0}
+  have hcont : Continuous (fun p : ℝ × (ℝ × ℝ) =>
+      p.1 * p.2.2 - p.2.1 ^ 2) :=
+    (continuous_fst.mul continuous_snd.snd).sub (continuous_snd.fst.pow 2)
+  have hZ : MeasurableSet Z :=
+    (isClosed_eq hcont continuous_const).measurableSet
+  have hprod :
+      ((volume : Measure ℝ).prod
+        ((volume : Measure ℝ).prod (volume : Measure ℝ))) Z = 0 := by
+    apply Measure.measure_prod_null_of_ae_null hZ
+    refine (Measure.ae_ne (volume : Measure ℝ) 0).mono ?_
+    intro a ha
+    change ((volume : Measure ℝ).prod (volume : Measure ℝ))
+      {p : ℝ × ℝ | a * p.2 - p.1 ^ 2 = 0} = 0
+    have hsection : MeasurableSet {p : ℝ × ℝ | a * p.2 - p.1 ^ 2 = 0} :=
+      (isClosed_eq
+        ((continuous_const.mul continuous_snd).sub (continuous_fst.pow 2))
+        continuous_const).measurableSet
+    apply Measure.measure_prod_null_of_ae_null hsection
+    apply Filter.Eventually.of_forall
+    intro b
+    change (volume : Measure ℝ) {c : ℝ | a * c - b ^ 2 = 0} = 0
+    have hsingleton : {c : ℝ | a * c - b ^ 2 = 0} = {b ^ 2 / a} := by
+      ext c
+      simp only [Set.mem_setOf_eq, Set.mem_singleton_iff]
+      constructor
+      · intro hc
+        apply (eq_div_iff ha).mpr
+        simpa only [mul_comm] using (sub_eq_zero.mp hc)
+      · intro hc
+        apply sub_eq_zero.mpr
+        simpa only [mul_comm] using (eq_div_iff ha).mp hc
+    rw [hsingleton]
+    exact measure_singleton _
+  have hcoord : MeasurePreserving
+      (fun H : EuclideanSpace ℝ (Fin 3) => (H 0, (H 1, H 2)))
+      volume volume := by
+    exact
+      ((MeasurePreserving.id (volume : Measure ℝ)).prod
+        (volume_preserving_piFinTwo (fun _ : Fin 2 => ℝ))).comp
+        ((volume_preserving_piFinSuccAbove (fun _ : Fin 3 => ℝ) 0).comp
+          (PiLp.volume_preserving_ofLp (Fin 3)))
+  exact hcoord.preimage_null hprod
+

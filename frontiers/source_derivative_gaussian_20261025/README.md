@@ -1,3 +1,53 @@
+# Endpoint Hessian sampling laws and nonzero determinants
+
+[SourceEndpointHessianGaussian.lean](SourceEndpointHessianGaussian.lean) gives
+the literal ordinary endpoint Hessian `(xx,xy,yy)` its every-target Gaussian
+sampling law on the existing raw posterior kernel. The full selected target
+mean is retained; covariance is the target-independent principal3…5 block of
+the qualified remote residual covariance. Signed nonzero periods and every
+real radius are allowed for the defined sampling law.
+
+Literal quotient separation of the endpoints gives marginal positive covariance
+from the qualified actual endpoint witnesses. New fixed3 absolute-continuity
+and Fubini joins then give `xx*yy-xy^2 ≠ 0` at both endpoints on one actual
+kernel-a.e. event, for every raw target. The two marginal results supply no
+joint six-Hessian rank/law or all-radius RCD/fiber interpretation.
+
+Three public propositions append to the registry. Three public data definitions,
+five private definitions,14 private proofs and10 generated proofs remain
+inventory-only in the complete35-constant actual-module inventory. Foreign
+`I4SourceRemoteJetGaussian.remoteResidualCovariance.eq_1` is included.
+Exact strict003 is reused. Twelve public controls, one private adapter, an
+inventory-only noncentered finite-Gaussian source control, one finite Dirac0
+PD-omission soleFalse and exactly one own-module kernel passed. Final source/
+spec technical review found no material issue. All eight attempts and full
+streams are preserved in the
+[catalog](endpoint-hessian-gaussian-evidence/ENDPOINT_HESSIAN_GAUSSIAN_EVIDENCE_CATALOG.json).
+Both text-only helper sections integrated once, with no helper execution,
+object or standalone campaign. Original/needed text and the sole local
+set-membership lemma rename remain in custody.
+
+The proposed registry has52 individually qualified modules and1113 public
+written targets (1104 propositions and nine data instances), with32 support
+inputs. Qualified51 was publishedd6af0302; this proposal binds local sourcecut
+`08e8ecd8`. Root owns apply, the sole new own-object copy and subsequent
+publication/result/release/alignment. Earlier pending-cut producer/reviewer
+snapshots are preserved; later ROOT_SOURCE_CUT supplies the actual binding.
+The narrow prior Claude pair-finiteness review does not review52. Different-
+family scientific alignment and hosted requirements remain separate from
+completed mathematics. Scientific effect NONE; provider-distinct credit0.
+No generic public library, covariance floor, globalMorse/ties, canonicalH0/
+Lifetime/Rice, Parent, Ready or merge conclusion is claimed.
+
+---
+
+# Historical packaging context: stage51 and earlier
+
+Retained checkpoint text below records earlier scopes and publication state.
+Qualified51 was publishedd6af0302 with native result16:46:22. New52 native
+pickup16:53:34 retains checkpoint17:45/terminal19:00; prior schedules stay
+unchanged. Current52 scope and preparation state are stated above.
+
 # Ordinary-H0 interpretation of the strict older-clearance cut
 
 [SourceH0OlderClearance.lean](SourceH0OlderClearance.lean) identifies strict
