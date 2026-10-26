@@ -1,3 +1,23 @@
+# Height-integrated Rice application and reused parent mathematics
+
+The [new analytic application](height-rice-application/PROOF.md) supplies one
+height-independent radius interval, an unnormalized bad-event numerator of order
+`r⁵[(1+|b|)¹⁷+(1+|b|)¹⁹]`, and the exact raw-density factor `12/r⁵` with a
+Gaussian height envelope. Their product is integrable in height. The proof also
+derives uniform midpoint/angle covariance and moment bounds under the original
+source law, with the explicit rotated radius certificate `Rsharp=8R`.
+
+The already accepted finite-L/GAD qualitative density and once-counted elder
+mathematics for this same law remains reusable evidence. It is not reopened by
+this packet or by pending process reviews. The new quantitative compact-mark
+capture/Rice join and the actual Lifetime finite-pair formal bridge are active;
+capture alone does not establish the quantitative elder event.
+
+This new application is conventional proof with its own review pending, and
+adds no declarations to the 28-module /841-declaration formal registry.
+
+---
+
 # Actual canonical capture application
 
 The [new conventional proof](capture-application/PROOF.md) now derives the actual

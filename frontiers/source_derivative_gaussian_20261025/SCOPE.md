@@ -1,3 +1,15 @@
+# New height/all-frame analytic result
+
+`height-rice-application/PROOF.md` at8d64490df8620b749ba2f224da535eeb6016c2d0
+proves the unnormalized r5 polynomial-height bound, exact12/r5 density factor,
+Gaussian height envelope, and uniform angular actual-source covariance/numerator.
+Its geometric noncapture and compact-k joins are separate successor work. The
+accepted same-law qualitative density/elder results remain applicable; the
+quantitative elder upgrade and formal parent interfaces are distinct obligations.
+No Lean target count changes and no prior verification repeats.
+
+---
+
 # New conventional capture result; formal registry unchanged
 
 `capture-application/PROOF.md`, frozen at117534e809819d028ee1e7197d321d606acd86e9,
