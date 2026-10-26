@@ -1,3 +1,18 @@
+# Current qualified scope:36modules /965public targets /27inputs
+
+The8 new actual real-cover death proofs add literal C263 death/strictclearance
+under the exact gap law and sample cutoffs. Positive amplitude and absolute raw
+heights are retained; no desired trap/death/pin premise survives. One definition
+and13generated declarations are separate; all22 constants are standard-axiom
+covered. The corrected scratchnegative002 has soleFalse;001's mismatch and
+inaccurate summaries remain preserved. No production/oldverification replay.
+
+Torus/H0/canonicalpair and weighted probability/count-density parents remain
+separate. Old clearance input bodies and completed mathematics remain reused;
+provider-distinct review is separate process.
+
+---
+
 # Current qualified scope:35 modules /957 public written targets
 
 Newwide source estimates add36 public proofs and1 separately classified private

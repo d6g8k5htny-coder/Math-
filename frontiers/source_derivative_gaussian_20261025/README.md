@@ -1,3 +1,28 @@
+# Actual real-cover elder death and strict clearance
+
+[SourceActualFoldDeath.lean](SourceActualFoldDeath.lean) proves the literal C263
+real-cover death equals b-k*r^3 and the strict-clearance set equals Iio(b-k*r^3)
+under the unchanged actual varying-gap law and established sample cutoffs.
+One hL-only radius precedes k0,r,b,k; no pin/invertibility/trap/death certificate
+is assumed. The proof maps the same qualified box/path by a true real-space
+homeomorphism, retains positive6kr^3 and restores absolute raw heights.
+It covers every nonzero period, including negative L.
+
+Eight public proofs passed strict compilation, one named kernel, exhaustive22
+standard-axiom rows and nine physical controls. The corrected negative control
+rejects the false normalized physical death at sole False; its initial mismatch
+and inaccurate summaries are preserved with an explicit correction. [Evidence](actual-fold-death-evidence/ACTUAL_FOLD_DEATH_EVIDENCE_CATALOG.json)
+retains raw runs, source/object custody and exact review scope. Author-side
+source review found no findings; different-family review remains pending.
+
+The registry has36 qualified modules/965 public written targets=956 propositions
+plus9data instances, with27supportinputs. The old clearance bodies and earlier
+verification are reused. Torus descent/clearance,H0/canonicalpair,weighted cutoff
+probability/count-density and ParentA/B Lean conclusions remain separate.
+Earlier entries retain their historical scopes.
+
+---
+
 # Current support composition:35 source modules and27 inputs
 
 Two accepted clearance support modules are registered for the active exact
