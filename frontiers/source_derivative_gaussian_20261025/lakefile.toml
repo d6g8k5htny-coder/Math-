@@ -120,7 +120,7 @@ name = "SourceAdaptiveFoldEstimates"
 [[lean_lib]]
 name = "SourceElderInputs"
 srcDir = "inputs/elder"
-roots = ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier"]
+roots = ["SuperlevelBar", "ElderClearance", "ReusedCompactFrontier", "ClosedSuperlevel", "OrdinaryH0", "ElderInterval", "ElderBridge"]
 
 [[lean_lib]]
 name = "SourceActualFoldDeath"

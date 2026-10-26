@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "role": "Four reused old-body singularH0/elder inputs, zero new research targets",
+  "binding": "h0-input-evidence/BINDINGS.json",
+  "origin_published_commit": "af17e8d1aaf3a3f47d9763485337a6c0c57b9b99",
+  "origin_last_change_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+  "modules": [
+    "ClosedSuperlevel",
+    "OrdinaryH0",
+    "ElderInterval",
+    "ElderBridge"
+  ],
+  "body_preservation": "Every byte after import header preserved; ElderBridge whole-file exact. Literal comparisons in binding.",
+  "composition": "Four first-attempt strict compiles, no failures or old kernel/control/audit/math replay.",
+  "artifacts": "h0-input-evidence/ARTIFACTS.json",
+  "historical_execution_reused": "h0-input-evidence/raw/evidence; accepted old eight-module kernels and49named standard3targets, not an exhaustive oldgenerated census.",
+  "scientific_effect": "NONE"
+}
