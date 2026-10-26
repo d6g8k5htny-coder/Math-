@@ -1,3 +1,7 @@
+# Actual whole-source Gaussian conditioning, weighting and derivative tails
+
+The four-module extension proves the actual whole-carrier conditional kernel, literal normalized physical-Hessian weighting and all measurable carrier-event transfer, sharp Gaussian-series natural moments, and genuine drift-retained exponential/conditional derivative tails. See FIELD_CONDITIONING.md and FIELD_EVIDENCE_CATALOG.json for exact statements, actual execution, helper lineage and limits. The fourteen-module endpoint prerequisite below is reused unchanged at source cut7a2ee81; its former metadata is preserved in field-evidence/baseline-endpoint-7a. The original geometric and parent research remains active.
+
 # Actual Fourier-source derivatives and contact conditioning prerequisites
 
 This additive Lean package derives the actual canonical physical endpoint estimates from the existing smooth Fourier source. For every nonzero period parameter `L` and fixed real height `b`, it proves one small-radius interval with physical determinant second moment `<= C*r^4`, positive normalizer `>= c*r^2`, and the square-root bound for every measurable endpoint event under the explicitly weighted endpoint probability. The final theorem assumes no covariance limit, conditional Gaussian law, invertibility, moment bound or normalizer floor. The full original research goal remains active: whole-field geometric Palm identification, field-dependent events, GT5 and parent conclusions still require their actual remaining proofs.

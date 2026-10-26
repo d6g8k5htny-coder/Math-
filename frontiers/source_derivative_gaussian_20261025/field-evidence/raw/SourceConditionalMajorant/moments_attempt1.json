@@ -1,0 +1,15 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-o",
+    ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+    "SourceConditionalMajorant.lean"
+  ],
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source_sha256": "957d322514ca8d8ab6b735ec6881fb6399db24280fbdf610c026ceaa60aaa03d",
+  "scope": "NEW_ACTUAL_CONDITIONAL_MAJORANT_MOMENT_ASSEMBLY",
+  "author_side_lineage": "OpenAI/Codex /root/dm2_landed_composition"
+}

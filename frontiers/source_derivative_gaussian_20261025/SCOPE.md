@@ -1,3 +1,7 @@
+# Current source scope: endpoint prerequisites plus whole-carrier extension
+
+The current manifest covers eighteen modules. Four new modules have their own FIELD_CONDITIONING.md exact scope and new execution records; the fourteen-module prerequisite described below remains mathematically unchanged and its completed verification is reused. Every-pin carrier conditioning is proved. The weighted law is the actual source normalized-weight formula, with raw-pin/type support and arbitrary measurable carrier-event bounds; geometric critical-point Palm disintegration, Morse/elder/counting and later parent claims require further proofs. No completed review is silently broadened to the extension.
+
 # Exact fourteen-module research scope
 
 This document describes the fourteen completed modules named below. Later modules need their own exact statements and execution evidence before being added. The full original research goal remains active.

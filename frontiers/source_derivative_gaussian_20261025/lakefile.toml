@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant"]
 
 [[require]]
 name = "mathlib"
@@ -53,3 +53,15 @@ name = "SourcePhysicalEndpointKernel"
 
 [[lean_lib]]
 name = "SourceEndpointEstimates"
+
+[[lean_lib]]
+name = "SourceSmoothConditionalKernel"
+
+[[lean_lib]]
+name = "SourceSmoothPalm"
+
+[[lean_lib]]
+name = "GaussianWeightedMajorants"
+
+[[lean_lib]]
+name = "SourceConditionalMajorant"

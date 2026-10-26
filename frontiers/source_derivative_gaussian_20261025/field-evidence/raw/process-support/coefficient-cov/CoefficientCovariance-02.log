@@ -1,0 +1,4 @@
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:22:4: error: 'change' tactic failed, pattern
+  Summable fun n => if m = n then 1 else 0
+is not definitionally equal to target
+  Summable (Pi.single m 1)

@@ -1,0 +1,37 @@
+import SourceSmoothCarrier
+import Mathlib.MeasureTheory.MeasurableSpace.Embedding
+
+noncomputable section
+open I4Smooth I4Source I4SmoothCarrier MeasureTheory
+set_option autoImplicit false
+namespace I4SourceSmoothConditional
+
+def zeroSample (d : ℕ) (L : ℝ) : SmoothSample d L :=
+  ⟨fun _ => 0, by
+    intro n
+    simpa only [Pi.zero_apply, abs_zero, mul_zero] using
+      (summable_zero : Summable (fun _ : SourceMode d => (0 : ℝ)))⟩
+
+theorem exists_measurable_sampleProjection (d : ℕ) (L : ℝ) :
+    ∃ q : (SourceMode d → ℝ) → SmoothSample d L,
+      Measurable q ∧ ∀ ω : SmoothSample d L, q (sampleInclusion d L ω) = ω := by
+  exact (goodSet_measurable d L).exists_measurable_proj
+    ⟨(zeroSample d L).val, (zeroSample d L).property⟩
+
+theorem goodSample_add {d : ℕ} {L : ℝ}
+    (ω η : SourceMode d → ℝ) (hω : goodSample d L ω) (hη : goodSample d L η) :
+    goodSample d L (ω + η) := by
+  intro n
+  apply Summable.of_nonneg_of_le
+    (fun m => mul_nonneg (orderModeBound_nonneg n d L m) (abs_nonneg _))
+    (fun m => ?_) ((hω n).add (hη n))
+  change orderModeBound n d L m * |ω m + η m| ≤
+    orderModeBound n d L m * |ω m| + orderModeBound n d L m * |η m|
+  rw [← mul_add]
+  exact mul_le_mul_of_nonneg_left (abs_add_le _ _) (orderModeBound_nonneg n d L m)
+
+theorem goodSample_neg {d : ℕ} {L : ℝ}
+    (ω : SourceMode d → ℝ) (hω : goodSample d L ω) : goodSample d L (-ω) := by
+  intro n
+  simpa only [Pi.neg_apply, abs_neg] using hω n
+end I4SourceSmoothConditional

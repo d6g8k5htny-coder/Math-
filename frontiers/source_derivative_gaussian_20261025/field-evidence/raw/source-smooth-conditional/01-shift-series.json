@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean"
+  ],
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean",
+  "source_sha256_before": "72225a00c70eb30466570d7df64ab1c0b2305595e47b260aa9d2a45bbb4d0fb2",
+  "source_sha256_after": "72225a00c70eb30466570d7df64ab1c0b2305595e47b260aa9d2a45bbb4d0fb2",
+  "log_sha256": "1cd974cf59c4e82199c75b0ff70effcc44d39724a02285e6a32b94a4a66c1d6f",
+  "elapsed_seconds": 6.152939796447754
+}
