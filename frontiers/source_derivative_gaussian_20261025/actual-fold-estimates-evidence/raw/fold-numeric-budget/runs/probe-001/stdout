@@ -1,0 +1,16 @@
+pow_le_pow_right₀.{u_2} {M₀ : Type u_2} [MonoidWithZero M₀] [Preorder M₀] {a : M₀} {m n : ℕ} [ZeroLEOneClass M₀]
+  [PosMulMono M₀] (ha : 1 ≤ a) (hmn : m ≤ n) : a ^ m ≤ a ^ n
+one_le_pow₀.{u_2} {M₀ : Type u_2} [MonoidWithZero M₀] [Preorder M₀] {a : M₀} [ZeroLEOneClass M₀] [PosMulMono M₀]
+  (ha : 1 ≤ a) {n : ℕ} : 1 ≤ a ^ n
+Real.sq_sqrt {x : ℝ} (h : 0 ≤ x) : √x ^ 2 = x
+Real.sqrt_pos.mpr : 0 < ?m.1 → 0 < √?m.1
+Real.sqrt_le_sqrt {x y : ℝ} (h : x ≤ y) : √x ≤ √y
+Real.sqrt_sq {x : ℝ} (h : 0 ≤ x) : √(x ^ 2) = x
+div_le_div_iff₀.{u_3} {G₀ : Type u_3} [CommGroupWithZero G₀] [PartialOrder G₀] [PosMulReflectLT G₀] {a b c d : G₀}
+  (hb : 0 < b) (hd : 0 < d) : a / b ≤ c / d ↔ a * d ≤ c * b
+div_le_iff₀.{u_3} {G₀ : Type u_3} [GroupWithZero G₀] [PartialOrder G₀] [MulPosReflectLT G₀] {a b c : G₀} (hc : 0 < c) :
+  b / c ≤ a ↔ b ≤ a * c
+mul_self_le_mul_self.{u_1} {α : Type u_1} [MulZeroClass α] {a b : α} [Preorder α] [PosMulMono α] [MulPosMono α]
+  (ha : 0 ≤ a) (hab : a ≤ b) : a * a ≤ b * b
+sq_le_sq₀.{u_2} {M₀ : Type u_2} [MonoidWithZero M₀] [LinearOrder M₀] [PosMulStrictMono M₀] {a b : M₀} [MulPosMono M₀]
+  (ha : 0 ≤ a) (hb : 0 ≤ b) : a ^ 2 ≤ b ^ 2 ↔ a ≤ b

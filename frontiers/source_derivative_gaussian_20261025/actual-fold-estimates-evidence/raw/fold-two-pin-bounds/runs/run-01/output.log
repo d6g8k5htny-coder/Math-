@@ -1,0 +1,67 @@
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:28:6: error: unsolved goals
+case pos
+f : ℝ → ℝ
+hf : ConvexOn ℝ J f
+hm : f (-(1 / 2)) = 0
+hp : f (1 / 2) = 0
+hmJ : -(1 / 2) ∈ J
+hpJ : 1 / 2 ∈ J
+x : ℝ
+hx : x ∈ J
+hleft : x ≤ -(1 / 2)
+heq : x = -(1 / 2)
+⊢ 0 ≤ f (-2⁻¹)
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:37:6: error: unsolved goals
+case pos
+f : ℝ → ℝ
+hf : ConvexOn ℝ J f
+hm : f (-(1 / 2)) = 0
+hp : f (1 / 2) = 0
+hmJ : -(1 / 2) ∈ J
+hpJ : 1 / 2 ∈ J
+x : ℝ
+hx : x ∈ J
+hright : 1 / 2 ≤ x
+heq : x = 1 / 2
+⊢ 0 ≤ f 2⁻¹
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:28:19: error: This simp argument is unused:
+  hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [heq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:37:19: error: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [heq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:62:4: error: unsolved goals
+case e'_8
+g g1 g2 : ℝ → ℝ
+T : ℝ
+hT : 0 ≤ T
+hg : ∀ x ∈ J, HasDerivAt g (g1 x) x
+hg1 : ∀ x ∈ J, HasDerivAt g1 (g2 x) x
+hg2 : ∀ x ∈ J, |g2 x| ≤ T
+hm : g (-(1 / 2)) = 0
+hp : g (1 / 2) = 0
+x : ℝ
+hx : x ∈ interior (Icc (-(3 / 2)) (3 / 2))
+⊢ (fun x => T * x + g1 x) = (fun y => T * y) + g1
+/workspace/scratch/fold-two-pin-bounds/runs/run-01/TwoPin.lean:76:4: error: unsolved goals
+case e'_8
+g g1 g2 : ℝ → ℝ
+T : ℝ
+hT : 0 ≤ T
+hg : ∀ x ∈ J, HasDerivAt g (g1 x) x
+hg1 : ∀ x ∈ J, HasDerivAt g1 (g2 x) x
+hg2 : ∀ x ∈ J, |g2 x| ≤ T
+hm : g (-(1 / 2)) = 0
+hp : g (1 / 2) = 0
+hconvplus : ConvexOn ℝ J fun x => T * q x + g x
+x : ℝ
+hx : x ∈ interior (Icc (-(3 / 2)) (3 / 2))
+⊢ (fun x => T * x - g1 x) = (fun y => T * y) - g1

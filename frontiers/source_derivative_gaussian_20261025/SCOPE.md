@@ -1,3 +1,18 @@
+# Current qualified scope:35 modules /957 public written targets
+
+Newwide source estimates add36 public proofs and1 separately classified private
+proof;2definitions/1Propbundle/27generated are not extra registry proofs. All67
+module-owned declarations are standard-axiom covered. Actual source majorants,
+pins and Peano derive the fullJ rectangle/sign/error/drop fields and an attained
+boundary/path on the unchanged actual gap law under explicit numeric cutoffs.
+No probability of those cutoffs or desired structural/pin premise is hidden.
+
+Real-cover/torus death,H0/canonicalpair,weighted bad-probability/count-density and
+ParentA/B Lean joins remain distinct. Prior34modules/25inputs and accepted
+mathematics are reused; provider-distinct scientific review is separate.
+
+---
+
 # Current qualified scope:34 modules /921 written targets
 
 The actual-source chart adds25 written proofs,4 nonProp definitions,1 Prop

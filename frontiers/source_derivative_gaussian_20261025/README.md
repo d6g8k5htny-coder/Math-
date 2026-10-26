@@ -1,3 +1,29 @@
+# Actual source: wider rectangle and attained boundary/path
+
+[SourceAdaptiveFoldEstimates.lean](SourceAdaptiveFoldEstimates.lean) derives the
+full older-arm rectangle estimates from the original source's actual third/fourth
+majorants, normalized pins and Peano identity. It proves ordered coordinate
+bounds, signs, axial lower bound and scalar error/drop budgets, then constructs
+one boundary/path witness under literal sample cutoffs on the actual gap law.
+One hL-only radius precedes all k0,r,b,k; no desired pins/signs/ridge/structure
+or budget certificate is assumed at either closed source-law endpoint.
+
+Its36 public written proofs and1 private proof passed strict compilation, one
+named kernel replay, exhaustive67-declaration standard-axiom collection and
+substantive extended-arm/numeric/actual-law controls. Definitions and generated
+declarations are separate. [Evidence](actual-fold-estimates-evidence/ACTUAL_FOLD_ESTIMATES_EVIDENCE_CATALOG.json)
+retains all failures, timings, exact source/object and integrate-once helper
+lineage. Source/spec review found no findings; different-family review is pending.
+
+The registry has35 qualified modules/957 public written targets=948 propositions
+plus9data instances and25supportinputs. Earlier verification is reused. No
+cutoff probability, frame-law/isotropy, real-cover/torus death/H0 or weighted
+count-density Parent A/B Lean result follows from this slice. The exact
+real-cover clearance/death application is active separately. Earlier entries
+below retain their historical scopes.
+
+---
+
 # Actual varying-gap source: normalized chart, pins and axial identity
 
 [SourceAdaptiveFoldChart.lean](SourceAdaptiveFoldChart.lean) derives a literal

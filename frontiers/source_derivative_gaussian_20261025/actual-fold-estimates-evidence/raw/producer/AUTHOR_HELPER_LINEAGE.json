@@ -1,0 +1,24 @@
+{
+  "producer": "/root/actual_fold_estimates_construct",
+  "provider": "OpenAI author-side, zero provider-distinct review credit",
+  "helpers": [
+    {
+      "agent": "/root/fold_two_pin_bounds",
+      "source": "/workspace/scratch/fold-two-pin-bounds/TwoPin.lean",
+      "source_sha256": "d85a5ff3e6be506b1762dfe91a6f0a3efc44229311b4f448c0b90e84b0b31038",
+      "section": "/workspace/scratch/fold-two-pin-bounds/INTEGRATION_SECTION.lean.txt",
+      "section_sha256": "5cd3f6ef111a6045e4e3a8b52af6bec5c5f2616b77131c7e5452560c73a4f87c",
+      "report": "/workspace/scratch/fold-two-pin-bounds/REPORT.md",
+      "integration": "Copied exact frozen namespace once, unchanged; strict scratch elaboration reused; no standalone helper kernel/audit/control."
+    },
+    {
+      "agent": "/root/fold_numeric_budget",
+      "source": "/workspace/scratch/fold-numeric-budget/NumericBudget.lean",
+      "source_sha256": "123bf1063c4d4360b656f68753caa75d3d58de1d143735344805037228489bfe",
+      "section": "/workspace/scratch/fold-numeric-budget/FrozenSection.lean.txt",
+      "section_sha256": "1fd2fb6af035481a5ae460da928bf9efa2dd029fe376bfe87e143af183570c71",
+      "report": "/workspace/scratch/fold-numeric-budget/REPORT.md",
+      "integration": "Copied exact frozen namespace once, unchanged; strict scratch elaboration reused; no standalone helper kernel/audit/control."
+    }
+  ]
+}
