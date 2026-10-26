@@ -21,7 +21,8 @@ Mathlib CapFirstExit umbrella or redeclaring its generic interpolation library.
 The primitive x^3/6-x/8 gives the two q integrals5/12.
 
 This is a deterministic scalar companion. It proves neither actual ridge existence
-nor ambient rectangular boundaries, a physical chart/attained path, elder death,+nor a parent probability theorem by itself. No desired barrier/elder conclusion
+nor ambient rectangular boundaries, a physical chart/attained path, elder death,
+nor a parent probability theorem by itself. No desired barrier/elder conclusion
 is a hypothesis of its final second-derivative theorem.
 
 Producer owns only this new source and scratch evidence. Root owns lakefile,
