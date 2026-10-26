@@ -1,0 +1,33 @@
+GaussianWeightedMajorants.lean:45:23: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  eLpNorm (fun x => ‖id x‖) ?m.94 ?m.104
+in the target expression
+  eLpNorm (fun z => ‖z‖) p (gaussianReal 0 1) = eLpNorm ((fun z => ‖z‖) ∘ U i) p P
+
+I : Type u_1
+Ω : Type u_2
+inst✝ : MeasurableSpace Ω
+P : Measure Ω
+w : I → ℝ
+U : I → Ω → ℝ
+hw0 : ∀ (i : I), 0 ≤ w i
+hlaw : ∀ (i : I), HasLaw (U i) (gaussianReal 0 1) P
+p : ℝ≥0∞
+i : I
+hmap : eLpNorm (fun z => ‖z‖) p (gaussianReal 0 1) = eLpNorm ((fun z => ‖z‖) ∘ U i) p P
+⊢ eLpNorm (fun ω => w i * |U i ω|) p P = ENNReal.ofReal (w i) * eLpNorm id p (gaussianReal 0 1)
+GaussianWeightedMajorants.lean:79:10: error: Type mismatch: After simplification, term
+  eLpNorm_sum_le
+    (have this :=
+      cast
+        (Eq.trans
+          (Eq.trans (congrFun' (congrArg LE.le (Eq.symm Nat.cast_one)) p) (congrFun' (congrArg LE.le Nat.cast_one) p))
+          (Eq.symm
+            (Eq.trans
+              (Eq.trans (congrFun' (congrArg LE.le (Eq.symm Nat.cast_one)) ↑p) ENNReal.natCast_le_ofNNReal._simp_1)
+              (congrFun' (congrArg LE.le Nat.cast_one) p))))
+        hp;
+    this)
+ has type
+  eLpNorm (∑ i ∈ s, F i) (↑p) P ≤ ∑ i ∈ s, eLpNorm (F i) (↑p) P
+but is expected to have type
+  eLpNorm (fun ω => ∑ i ∈ s, F i ω) (↑p) P ≤ ∑ i ∈ s, eLpNorm (F i) (↑p) P

@@ -1,0 +1,6 @@
+import ConditionalMajorantControlSupport
+open I4SourceConditionalMajorant I4ConditionalMajorantControls
+-- A weight two cannot be silently replaced by unit weight.
+example : sampleMajorant dcWeight (dcSample (-3)) = 3 := by
+  rw [gamma_control]
+  norm_num

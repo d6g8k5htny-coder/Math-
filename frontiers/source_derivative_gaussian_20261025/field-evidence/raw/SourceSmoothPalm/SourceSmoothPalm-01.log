@@ -1,0 +1,97 @@
+SourceSmoothPalm.lean:150:98: error: unsolved goals
+case «0».«0»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 6 = r * (rawPinsWithHessians L r ω 6 / r)
+
+case «0».«1»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 7 = r * (rawPinsWithHessians L r ω 7 / r)
+
+case «1».«0»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 7 = r * (rawPinsWithHessians L r ω 7 / r)
+SourceSmoothPalm.lean:153:85: warning: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceRawHM, egm_HM, sourcePhysicalCoordinates, sourceNormalizedEndpoints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceSmoothPalm.lean:156:98: error: unsolved goals
+case «0».«0»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 9 = r * (rawPinsWithHessians L r ω 9 / r)
+
+case «0».«1»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 10 = r * (rawPinsWithHessians L r ω 10 / r)
+
+case «1».«0»
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ rawPinsWithHessians L r ω 10 = r * (rawPinsWithHessians L r ω 10 / r)
+SourceSmoothPalm.lean:159:85: warning: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceRawHS, egm_HS, sourcePhysicalCoordinates, sourceNormalizedEndpoints]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceSmoothPalm.lean:162:91: error: unsolved goals
+L r : ℝ
+hr : r ≠ 0
+ω : SmoothSample 2 L
+⊢ (if
+        dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0 then
+      |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    else 0) =
+    if
+        dm2Negative (egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))) ∧
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det < 0 then
+      |(egm_HM r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det *
+          (egm_HS r (sourcePhysicalCoordinates (sourceNormalizedEndpoints L r ω))).det|
+    else 0
+SourceSmoothPalm.lean:186:6: error: Type mismatch: After simplification, term
+  h.right
+ has type
+  rawPinsWithHessians L r ω 7 ^ 2 < rawPinsWithHessians L r ω 6 * rawPinsWithHessians L r ω 8
+but is expected to have type
+  rawPinsWithHessians L r ω 7 * rawPinsWithHessians L r ω 7 < rawPinsWithHessians L r ω 6 * rawPinsWithHessians L r ω 8
+SourceSmoothPalm.lean:184:2: error: unsolved goals
+case pos
+L r : ℝ
+ω : SmoothSample 2 L
+ht : sourceSmoothTyped L r ω
+hM : 0 < (sourceRawHM L r ω).det
+hn : (sourceRawHM L r ω).det * (sourceRawHS L r ω).det ≠ 0
+⊢ 0 < |(sourceRawHM L r ω).det| * |(sourceRawHS L r ω).det|
+SourceSmoothPalm.lean:189:34: warning: This simp argument is unused:
+  abs_pos.mpr hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sourceSmoothWeight, ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceSmoothPalm.lean:216:2: error: Type mismatch: After simplification, term
+  HasLaw.integrable_comp (sourceSmoothLaw_endpoint_hasLaw hL r b hG) hsq
+ has type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm
+    (SmoothSample 2 L) Subtype.instMeasurableSpace
+    ((fun v => sourceEndpointWeight r v ^ 2) ∘ sourceNormalizedEndpoints L r) (sourceSmoothLaw hL r b)
+but is expected to have type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm
+    (SmoothSample 2 L) Subtype.instMeasurableSpace
+    (fun ω => sourceEndpointWeight r (sourceNormalizedEndpoints L r ω) ^ 2) (sourceSmoothLaw hL r b)

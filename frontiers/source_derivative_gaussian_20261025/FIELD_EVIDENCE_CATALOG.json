@@ -1,0 +1,4361 @@
+{
+  "schema_version": 1,
+  "role": "NEW_SCOPE_ONLY read-only evidence projection; not a new proof execution or accepted scientific review",
+  "scientific_effect": "NONE",
+  "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
+  "repository": "d6g8k5htny-coder/Math-",
+  "branch": "codex/whole-field-conditioning-20261025",
+  "source_commit": "9c7984ea30eb6b09969405998bf5d195d793a08d",
+  "base_commit": "7a2ee81ecb088813b7c6f8cd383d66acb2c7f773",
+  "source": {
+    "path": "frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+    "sha256": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+    "bytes": 34339,
+    "lines": 720,
+    "imports": [
+      "SourceEndpointEstimates",
+      "Mathlib.Probability.Independence.Process.Basic",
+      "Mathlib.MeasureTheory.MeasurableSpace.Embedding"
+    ]
+  },
+  "source_contract": {
+    "path": "SOURCE_SMOOTH_CONDITIONAL.md",
+    "sha256": "587a46891b2008dadcfac3ec23e728309dbf5b4333127f3fc075c9f7a68e26b2",
+    "frozen_before_code_commit": "1a25b97ff882ad82d675d3da04987e4b30eba987"
+  },
+  "new_scope": {
+    "source_modules": [
+      "SourceSmoothConditionalKernel.lean",
+      "SourceSmoothPalm.lean",
+      "GaussianWeightedMajorants.lean",
+      "SourceConditionalMajorant.lean"
+    ],
+    "registered_target_count": 109,
+    "registered_declaration_kind_counts": {
+      "theorem": 95,
+      "lemma": 13,
+      "instance": 1
+    },
+    "registered_targets": [
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.exists_measurable_sampleProjection",
+        "line": 36
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.goodSample_add",
+        "line": 42
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.goodSample_neg",
+        "line": 54
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+        "line": 60
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.finiteCoefficient_weighted_summable",
+        "line": 73
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinCoefficient_weighted_summable",
+        "line": 90
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable",
+        "line": 98
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable",
+        "line": 106
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable",
+        "line": 116
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_zero",
+        "line": 129
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_add",
+        "line": 133
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_neg",
+        "line": 138
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_goodSample",
+        "line": 143
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_measurable",
+        "line": 163
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_val",
+        "line": 174
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_measurable",
+        "line": 178
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_val",
+        "line": 189
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_measurable",
+        "line": 194
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_add_finiteShift",
+        "line": 204
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift",
+        "line": 230
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift",
+        "line": 246
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample",
+        "line": 264
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample",
+        "line": 273
+      },
+      {
+        "kind": "instance",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov",
+        "line": 294
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_measurable",
+        "line": 299
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_apply",
+        "line": 303
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_map",
+        "line": 311
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber",
+        "line": 325
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map",
+        "line": 337
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw",
+        "line": 363
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_single",
+        "line": 377
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_coordinate_covariance",
+        "line": 381
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_coefficient_covariance",
+        "line": 396
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw",
+        "line": 409
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.finiteLift_apply",
+        "line": 450
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw",
+        "line": 457
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.coefficient_hasGaussianLaw",
+        "line": 475
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_zero_covariance",
+        "line": 482
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_finite_indepFun",
+        "line": 524
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_indepFun",
+        "line": 531
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable",
+        "line": 552
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map",
+        "line": 564
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map",
+        "line": 590
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_self",
+        "line": 604
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual",
+        "line": 611
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_observation_residual",
+        "line": 620
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_zero_inclusion",
+        "line": 625
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_zero_indepFun",
+        "line": 633
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib",
+        "line": 643
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib",
+        "line": 680
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.smoothSourceField_measurable",
+        "line": 691
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib",
+        "line": 697
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib",
+        "line": 705
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib",
+        "line": 712
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.withDensity_map_comp",
+        "line": 28
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.prwMeasure_map_comp",
+        "line": 38
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous",
+        "line": 49
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_ae_of_ae",
+        "line": 53
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_ae_weight_pos",
+        "line": 58
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.rawPins_prescribed_iff",
+        "line": 76
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber",
+        "line": 84
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawPins_measurable",
+        "line": 94
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae",
+        "line": 105
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous",
+        "line": 114
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber",
+        "line": 123
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawHM_eq_normalized",
+        "line": 149
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawHS_eq_normalized",
+        "line": 156
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_eq",
+        "line": 163
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_nonneg",
+        "line": 169
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_measurable",
+        "line": 176
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff",
+        "line": 183
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet",
+        "line": 196
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw",
+        "line": 209
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable",
+        "line": 216
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral",
+        "line": 223
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral",
+        "line": 231
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map",
+        "line": 240
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates",
+        "line": 251
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed",
+        "line": 265
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins",
+        "line": 276
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothPalm_estimates",
+        "line": 287
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.standardAbsMoment_integrable",
+        "line": 32
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_nonneg",
+        "line": 37
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_measurable",
+        "line": 41
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_memLp_bound",
+        "line": 68
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_ae_summable",
+        "line": 111
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_moment",
+        "line": 139
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_exp_bound",
+        "line": 336
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_upper_tail",
+        "line": 360
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_nonneg",
+        "line": 33
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable",
+        "line": 37
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.confluentMajorant_weighted_summable",
+        "line": 43
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.pinCoefficient_abs_le",
+        "line": 53
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConfluentPins_abs_le",
+        "line": 58
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.pinLift_abs_le",
+        "line": 81
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.posterior_sampleMajorant_le",
+        "line": 109
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds",
+        "line": 148
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound",
+        "line": 187
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_measurable",
+        "line": 205
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable",
+        "line": 210
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_add",
+        "line": 213
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_const_mul",
+        "line": 221
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination",
+        "line": 230
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.source_coordinate_hasLaw",
+        "line": 276
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_prior_moment",
+        "line": 281
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_moments",
+        "line": 308
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail",
+        "line": 347
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail",
+        "line": 378
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail",
+        "line": 415
+      }
+    ],
+    "all_named_proof_instance_inventory_count": 110,
+    "declaration_kind_counts": {
+      "theorem": 95,
+      "lemma": 13,
+      "instance": 2
+    },
+    "targets": [
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.exists_measurable_sampleProjection",
+        "line": 36
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.goodSample_add",
+        "line": 42
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.goodSample_neg",
+        "line": 54
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+        "line": 60
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.finiteCoefficient_weighted_summable",
+        "line": 73
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinCoefficient_weighted_summable",
+        "line": 90
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable",
+        "line": 98
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable",
+        "line": 106
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable",
+        "line": 116
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_zero",
+        "line": 129
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_add",
+        "line": 133
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_neg",
+        "line": 138
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_goodSample",
+        "line": 143
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pinLift_measurable",
+        "line": 163
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_val",
+        "line": 174
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_measurable",
+        "line": 178
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_val",
+        "line": 189
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_measurable",
+        "line": 194
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_add_finiteShift",
+        "line": 204
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift",
+        "line": 230
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift",
+        "line": 246
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample",
+        "line": 264
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample",
+        "line": 273
+      },
+      {
+        "kind": "instance",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov",
+        "line": 294
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_measurable",
+        "line": 299
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_apply",
+        "line": 303
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_map",
+        "line": 311
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber",
+        "line": 325
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map",
+        "line": 337
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw",
+        "line": 363
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_single",
+        "line": 377
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.scalarSeries_coordinate_covariance",
+        "line": 381
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_coefficient_covariance",
+        "line": 396
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw",
+        "line": 409
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.finiteLift_apply",
+        "line": 450
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw",
+        "line": 457
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothConditional.coefficient_hasGaussianLaw",
+        "line": 475
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_zero_covariance",
+        "line": 482
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_finite_indepFun",
+        "line": 524
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.residualCoefficient_indepFun",
+        "line": 531
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable",
+        "line": 552
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map",
+        "line": 564
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map",
+        "line": 590
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_self",
+        "line": 604
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual",
+        "line": 611
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.addLift_observation_residual",
+        "line": 620
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_zero_inclusion",
+        "line": 625
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.posteriorSample_zero_indepFun",
+        "line": 633
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib",
+        "line": 643
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib",
+        "line": 680
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.smoothSourceField_measurable",
+        "line": 691
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib",
+        "line": 697
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib",
+        "line": 705
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib",
+        "line": 712
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.withDensity_map_comp",
+        "line": 28
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.prwMeasure_map_comp",
+        "line": 38
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous",
+        "line": 49
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_ae_of_ae",
+        "line": 53
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.prwMeasure_ae_weight_pos",
+        "line": 58
+      },
+      {
+        "kind": "instance",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_isProbabilityMeasure",
+        "line": 71
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.rawPins_prescribed_iff",
+        "line": 76
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber",
+        "line": 84
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawPins_measurable",
+        "line": 94
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae",
+        "line": 105
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous",
+        "line": 114
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber",
+        "line": 123
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawHM_eq_normalized",
+        "line": 149
+      },
+      {
+        "kind": "lemma",
+        "name": "I4SourceSmoothPalm.sourceRawHS_eq_normalized",
+        "line": 156
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_eq",
+        "line": 163
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_nonneg",
+        "line": 169
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_measurable",
+        "line": 176
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff",
+        "line": 183
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet",
+        "line": 196
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw",
+        "line": 209
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable",
+        "line": 216
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral",
+        "line": 223
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral",
+        "line": 231
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map",
+        "line": 240
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates",
+        "line": 251
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed",
+        "line": 265
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins",
+        "line": 276
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceSmoothPalm.sourceSmoothPalm_estimates",
+        "line": 287
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.standardAbsMoment_integrable",
+        "line": 32
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_nonneg",
+        "line": 37
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_measurable",
+        "line": 41
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_memLp_bound",
+        "line": 68
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_ae_summable",
+        "line": 111
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_moment",
+        "line": 139
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_exp_bound",
+        "line": 336
+      },
+      {
+        "kind": "theorem",
+        "name": "I4GaussianMajorant.weightedAbsSeries_upper_tail",
+        "line": 360
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_nonneg",
+        "line": 33
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable",
+        "line": 37
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.confluentMajorant_weighted_summable",
+        "line": 43
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.pinCoefficient_abs_le",
+        "line": 53
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConfluentPins_abs_le",
+        "line": 58
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.pinLift_abs_le",
+        "line": 81
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.posterior_sampleMajorant_le",
+        "line": 109
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds",
+        "line": 148
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound",
+        "line": 187
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_measurable",
+        "line": 205
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable",
+        "line": 210
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_add",
+        "line": 213
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_const_mul",
+        "line": 221
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination",
+        "line": 230
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.source_coordinate_hasLaw",
+        "line": 276
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sampleMajorant_prior_moment",
+        "line": 281
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_moments",
+        "line": 308
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail",
+        "line": 347
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail",
+        "line": 378
+      },
+      {
+        "kind": "theorem",
+        "name": "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail",
+        "line": 415
+      }
+    ],
+    "kind_policy": "109 registered direct-audit targets include the original namedMarkovinstance; one additional public probability instance is disclosed with transitive dependency coverage rather than silently omitted or relabeled."
+  },
+  "axiom_coverage": {
+    "author_coverage_record_path": "/workspace/scratch/source-smooth-conditional/AXIOM_COVERAGE.json",
+    "author_coverage_record_sha256": "3143401b4d915145cf99c62b5e22763109875aad679f41a32f2ca8cb1c1ee7cb",
+    "author_coverage_record": {
+      "source_sha256": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "public_target_count": 54,
+      "printed_target_count": 54,
+      "missing": [],
+      "extra": [],
+      "unexpected_axioms": {}
+    },
+    "direct_reports": {
+      "I4SourceSmoothConditional.exists_measurable_sampleProjection": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.goodSample_add": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.goodSample_neg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.finiteCoefficient_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinCoefficient_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinLift_zero": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinLift_add": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinLift_neg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinLift_goodSample": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pinLift_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.addLift_val": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.addLift_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_val": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.scalarSeries_add_finiteShift": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_apply": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_pin_map": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.scalarSeries_single": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.scalarSeries_coordinate_covariance": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pin_coefficient_covariance": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.finiteLift_apply": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.coefficient_hasGaussianLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.residualCoefficient_zero_covariance": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.residualCoefficient_finite_indepFun": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.residualCoefficient_indepFun": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_self": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.addLift_observation_residual": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_zero_inclusion": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.posteriorSample_zero_indepFun": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.smoothSourceField_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.withDensity_map_comp": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_map_comp": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_ae_of_ae": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_ae_weight_pos": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.rawPins_prescribed_iff": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceRawPins_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceRawHM_eq_normalized": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceRawHS_eq_normalized": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_eq": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_nonneg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceSmoothPalm.sourceSmoothPalm_estimates": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.standardAbsMoment_integrable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_nonneg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_memLp_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_ae_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_moment": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_exp_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4GaussianMajorant.weightedAbsSeries_upper_tail": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sampleMajorant_nonneg": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.confluentMajorant_weighted_summable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.pinCoefficient_abs_le": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceConfluentPins_abs_le": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.pinLift_abs_le": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.posterior_sampleMajorant_le": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sampleMajorant_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sampleMajorant_add": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sampleMajorant_const_mul": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.source_coordinate_hasLaw": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sampleMajorant_prior_moment": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceConditionalDerivative_moments": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "raw_log_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.log",
+    "raw_log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+    "transitive_dependency_coverage": [
+      {
+        "kind": "instance",
+        "name": "I4SourceSmoothPalm.sourceSmoothLaw_isProbabilityMeasure",
+        "source_path": "SourceSmoothPalm.lean",
+        "source_sha256": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d",
+        "line": 71,
+        "coverage": "TRANSITIVE_DEPENDENCY_OF_PRINTED_PARENT",
+        "printed_parent": "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates",
+        "printed_parent_log_path": "/workspace/scratch/regression-kernel/smooth-palm/AxiomAudit-01.log",
+        "printed_parent_log_sha256": "02b815e6c25d9f607c3a96930875deb3557cb581197bc98fc047f48bd6143fdc",
+        "source_edge": "SourceSmoothPalm.lean:260 calls prw_square_root_event_bound on sourceSmoothLaw hL r b; its IsProbabilityMeasure argument resolves through the named instance declared at line71. The instance unfolds sourceSmoothLaw and uses the already printed sourceSmoothKernel_isMarkov.",
+        "permitted_axioms_by_parent_bound": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "not_claimed": "No direct instance #print output or fresh audit process invented."
+      }
+    ],
+    "registered_direct_report_count": 109,
+    "all_named_declaration_coverage_count": 110
+  },
+  "final_qualification": {
+    "compile": {
+      "metadata_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.json",
+      "metadata_sha256": "f52b0b88d963f0f1885968ee7bd63f8d436ec4516da41311906dd1e93613de17",
+      "raw_log_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "-o",
+          ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+          "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+        ],
+        "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "elapsed_seconds": 5.3182532787323
+      }
+    },
+    "controls": {
+      "metadata_path": "/workspace/scratch/source-smooth-conditional/09-controls.json",
+      "metadata_sha256": "92be9547c7922cd1d5344dfa9e0ee50010a980b3419b335c5f1d830a45745094",
+      "raw_log_path": "/workspace/scratch/source-smooth-conditional/09-controls.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-conditional/Controls.lean"
+        ],
+        "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-conditional/Controls.lean",
+        "source_sha256_before": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+        "source_sha256_after": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "elapsed_seconds": 3.4060983657836914
+      }
+    },
+    "axiom_audit": {
+      "metadata_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.json",
+      "metadata_sha256": "9db58793605c31f50f0f180dc11595e9620460c0d98cf3b1a0b7e8bc479f6bba",
+      "raw_log_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.log",
+      "raw_log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "lean",
+          "-DwarningAsError=true",
+          "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean"
+        ],
+        "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean",
+        "source_sha256_before": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+        "source_sha256_after": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+        "log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+        "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "elapsed_seconds": 3.1145823001861572
+      }
+    },
+    "kernel_replay": {
+      "metadata_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.json",
+      "metadata_sha256": "6b9d156481b3512920410938c823f46438a4a665f443c15ee732ac0df703bb53",
+      "raw_log_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.log",
+      "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record": {
+        "command": [
+          "/home/agent/.elan/bin/lake",
+          "env",
+          "leanchecker",
+          "SourceSmoothConditionalKernel"
+        ],
+        "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+        "exit_code": 0,
+        "source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "elapsed_seconds": 6.287380695343018
+      }
+    }
+  },
+  "base_scope_reference_only": {
+    "commit": "7a2ee81ecb088813b7c6f8cd383d66acb2c7f773",
+    "source_module_count": 14,
+    "target_count": 182,
+    "source_manifest_path": "frontiers/source_derivative_gaussian_20261025/SOURCE_MANIFEST.json",
+    "source_manifest_sha256": "2f6ce28a63d02032f94ead0b4665af9907b732e9813c3e163dcbac6dff3275e9",
+    "evidence_catalog_path": "frontiers/source_derivative_gaussian_20261025/EVIDENCE_CATALOG.json",
+    "evidence_catalog_sha256": "b814de0d24141dd0f2fd9087b61c2d7eeb1596836eb439898a5c7506675fc24b",
+    "input_binding_path": "frontiers/source_derivative_gaussian_20261025/INPUT_BINDING.json",
+    "input_binding_sha256": "42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13",
+    "input_count": 23,
+    "inherited_determinant_packet_commit": "16f81b973a02783f8be83081aa7f198724cf5767",
+    "inherited_determinant_packet_receipt_sha256": "95e502472e3d748c8b5dca3328a8644a9cb7cfc8fe40d5f9cce95a32814e5ec6",
+    "reuse": "Reference existing exact source/receipts. No baseline14 or23-input material copied, rebuilt, re-audited or rechecked; old manifest/catalog/README left unchanged."
+  },
+  "execution_metadata_records": [
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/01-shift-series.json",
+      "projection_path": "raw/source-smooth-conditional/01-shift-series.json",
+      "record_sha256": "d7b21dcb770e926162f5b63f9f9621e08d1dcea3d221b4fa40a86b527222f0a2",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 1,
+      "source_sha256_before": "72225a00c70eb30466570d7df64ab1c0b2305595e47b260aa9d2a45bbb4d0fb2",
+      "source_sha256_after": "72225a00c70eb30466570d7df64ab1c0b2305595e47b260aa9d2a45bbb4d0fb2",
+      "log_sha256": "1cd974cf59c4e82199c75b0ff70effcc44d39724a02285e6a32b94a4a66c1d6f"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/02-shift-series.json",
+      "projection_path": "raw/source-smooth-conditional/02-shift-series.json",
+      "record_sha256": "2b13e013365c77e912fa939d418e4e0994ebc35800d8a8765d37a1a8618c0318",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "b8ddbbae4c7c42de713112bfc46c37bd8b76cf34ac103b9b5c52b504f6c39623",
+      "source_sha256_after": "b8ddbbae4c7c42de713112bfc46c37bd8b76cf34ac103b9b5c52b504f6c39623",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/03-first-integration.json",
+      "projection_path": "raw/source-smooth-conditional/03-first-integration.json",
+      "record_sha256": "2a183bf0474b90c21c1bd93d02e99808f893d04c5873d4418fe309a8acdaed88",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 1,
+      "source_sha256_before": "34b9fc35c07877769c48f44de731a09096690cec07e5eda2b3af44fbd22d2969",
+      "source_sha256_after": "34b9fc35c07877769c48f44de731a09096690cec07e5eda2b3af44fbd22d2969",
+      "log_sha256": "876b6c8dc51fb2ae4536f33feac0804b74a3c3d92f13e1994beb5012035d3866"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/04-shift-observations.json",
+      "projection_path": "raw/source-smooth-conditional/04-shift-observations.json",
+      "record_sha256": "494c0dda61bfa803f2619fd2d6715fdecdff89a5e67d1d53075ce83b12000c51",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "b7ec80b2367987c68252448a67baa85ab3ea364a96d97c4dad720453853b8090",
+      "source_sha256_after": "b7ec80b2367987c68252448a67baa85ab3ea364a96d97c4dad720453853b8090",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/05-kernel-and-marginals.json",
+      "projection_path": "raw/source-smooth-conditional/05-kernel-and-marginals.json",
+      "record_sha256": "b350d2e174663e27637c407773373b359f7c2d2522bd5584c8badcbbfc62bf30",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "7f856f7ccba507e552c1fa27db582f9929f735b79de4ab00f76859c7e9868e92",
+      "source_sha256_after": "7f856f7ccba507e552c1fa27db582f9929f735b79de4ab00f76859c7e9868e92",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/06-process-integration.json",
+      "projection_path": "raw/source-smooth-conditional/06-process-integration.json",
+      "record_sha256": "59af34ef4a5200d540460379c6ec7c5a98a5fdca9dd4a604a9037242c968c1e6",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "ae52a8994c2601ed93ea4e311b495e563b050663a0cc0d12f856059c6e74db75",
+      "source_sha256_after": "ae52a8994c2601ed93ea4e311b495e563b050663a0cc0d12f856059c6e74db75",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/07-physical-marginal.json",
+      "projection_path": "raw/source-smooth-conditional/07-physical-marginal.json",
+      "record_sha256": "b0dc7cc653a97eacd2be6f78c1317cc03444ac48c9262d2f50591c28f742275b",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "2363154522980f83fdaad01a963c09722a372e433229230909a4022a73c2ce9d",
+      "source_sha256_after": "2363154522980f83fdaad01a963c09722a372e433229230909a4022a73c2ce9d",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.json",
+      "projection_path": "raw/source-smooth-conditional/08-full-conditional-final.json",
+      "record_sha256": "f52b0b88d963f0f1885968ee7bd63f8d436ec4516da41311906dd1e93613de17",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+        "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/09-controls.json",
+      "projection_path": "raw/source-smooth-conditional/09-controls.json",
+      "record_sha256": "92be9547c7922cd1d5344dfa9e0ee50010a980b3419b335c5f1d830a45745094",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-smooth-conditional/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+      "source_sha256_after": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+      "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.json",
+      "projection_path": "raw/source-smooth-conditional/10-axiom-audit.json",
+      "record_sha256": "9db58793605c31f50f0f180dc11595e9620460c0d98cf3b1a0b7e8bc479f6bba",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+      "source_sha256_after": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+      "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732"
+    },
+    {
+      "record_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.json",
+      "projection_path": "raw/source-smooth-conditional/11-kernel-replay.json",
+      "record_sha256": "6b9d156481b3512920410938c823f46438a4a665f443c15ee732ac0df703bb53",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "leanchecker",
+        "SourceSmoothConditionalKernel"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-01.json",
+      "projection_path": "raw/carrier-support/carrier-shift-01.json",
+      "record_sha256": "53a1b5813c769880c01fd6f5c34cb645b9d7eb62411cdc01606a3558860a3d4a",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/smooth-conditional-carrier/CarrierShift.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 1,
+      "source_sha256_before": "030d76e98af6e4c5dc41e66d175150ce5718d54ff197617d3e1d962d574dc9b2",
+      "source_sha256_after": "030d76e98af6e4c5dc41e66d175150ce5718d54ff197617d3e1d962d574dc9b2",
+      "log_sha256": "a175508e0f554c330868e631e260d423d57a80dcba8b4abc2598586226a0866e"
+    },
+    {
+      "record_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-02.json",
+      "projection_path": "raw/carrier-support/carrier-shift-02.json",
+      "record_sha256": "344fc711cb95318ae70b8253e69843561ea6dc4967fef93adb3e045824e74c80",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/smooth-conditional-carrier/CarrierShift.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "46a09bfe6d22e31d3ea965f6d687d987a528c417d54086bc871e684ee2ac0333",
+      "source_sha256_after": "46a09bfe6d22e31d3ea965f6d687d987a528c417d54086bc871e684ee2ac0333",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-01.json",
+      "projection_path": "raw/carrier-support/reconstruction-01.json",
+      "record_sha256": "a0ac663e8728c3b8793bc00738612ce85a928936afc920fc0d4ee5663e9d52a7",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 1,
+      "source_sha256_before": "f1d038bb81e500896cdd89c341a556955a8267750fbaa085ba88ab788738688b",
+      "source_sha256_after": "f1d038bb81e500896cdd89c341a556955a8267750fbaa085ba88ab788738688b",
+      "log_sha256": "76afeb67106d52962c576188047772ab18e49eb91d567341f2fb70fb2be385ea"
+    },
+    {
+      "record_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-02.json",
+      "projection_path": "raw/carrier-support/reconstruction-02.json",
+      "record_sha256": "dcc6c93b62ffb457883dafd40e22cf47730ec5a8398cc5c420081fcade8faa32",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "source_sha256_before": "25665fe698856757a6ed45198c3d892fd8a2efef88f98ce41fc4e45e8dc0e9c5",
+      "source_sha256_after": "25665fe698856757a6ed45198c3d892fd8a2efef88f98ce41fc4e45e8dc0e9c5",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "record_path": "/workspace/scratch/regression-kernel/smooth-conditional/PROCESS_SUPPORT_EVIDENCE.json",
+      "projection_path": "raw/process-support/PROCESS_SUPPORT_EVIDENCE.json",
+      "record_sha256": "24d8525b059a7ffc05436806a6cc6b3d45d6155f294446b20545a077de676192",
+      "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean",
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "recorded_exit": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_sha256": "0adc56198e3c8a9f3bb701f1a40f6653867c91eee665641b896385e0e035312e",
+      "capture_command": "set -o pipefail\n/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean 2>&1 | tee /workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-03.log"
+    },
+    {
+      "module": "SourceSmoothPalm",
+      "record_path": "/workspace/scratch/regression-kernel/smooth-palm/EVIDENCE.json",
+      "projection_path": "raw/SourceSmoothPalm/EVIDENCE.json",
+      "record_sha256": "82462958b5f2c225e7e9b5e1380303c2f9c01b16308d08bf3dcc893338f52a1c",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "source_sha256": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d"
+    },
+    {
+      "module": "GaussianWeightedMajorants",
+      "record_path": "/workspace/scratch/gaussian-majorants/majorants-07.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-07.json",
+      "record_sha256": "83070dccb92cccbcde9ab39f0d405ad40fe878027c55bcd9729ef402dc9ca157",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/GaussianWeightedMajorants.olean",
+        "GaussianWeightedMajorants.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "source_sha256_after": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "GaussianWeightedMajorants",
+      "record_path": "/workspace/scratch/gaussian-majorants/majorants-controls-01.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-controls-01.json",
+      "record_sha256": "6eecbe3fc93ced9a298278f6d15ac5f7f58ca1c7b3759e0a423d83404d20f1c5",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/gaussian-majorants/Controls.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "source_sha256_after": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "log_sha256": "20581251a005b0759e9e857041ec4c2f77b9b933b7a1cc5e4eeb303c71820418"
+    },
+    {
+      "module": "GaussianWeightedMajorants",
+      "record_path": "/workspace/scratch/gaussian-majorants/majorants-kernel.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-kernel.json",
+      "record_sha256": "c6682e47e7d7405c1629e444ea979558db47523d63860341d1ca93d92f793735",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "GaussianWeightedMajorants"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "source_sha256_after": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/axioms.json",
+      "projection_path": "raw/SourceConditionalMajorant/axioms.json",
+      "record_sha256": "af93edf0beabd6f02d0481a6c590c6fff544a615f547b2602b5247c867cc95eb",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/AxiomAudit.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt1.json",
+      "record_sha256": "00c3f7e93056ff67cc4e7fd2cf88cda13e873fad90e64502f97336544828650a",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256": "e8e962d3e0ce236583951e5cb36b825ae98010b4fa2795d63772e2b5118f034d"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt2.json",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt2.json",
+      "record_sha256": "58a4195454bc3f8b860d0c34e62b7a0a671baf697f3b910fd3ebb5cb0d928191",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256": "3f855b2f99bca75dba2c869da27693de44b87b177d91ad915caf729d6cc3e1ac"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-absolute.json",
+      "projection_path": "raw/SourceConditionalMajorant/false-absolute.json",
+      "record_sha256": "48c668dc3bfdcd6a3467137515640145af181cb5f9466ac06a47783107ee358f",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseOmitAbsolute.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-weight.json",
+      "projection_path": "raw/SourceConditionalMajorant/false-weight.json",
+      "record_sha256": "3c89e07194df508ab83c840bd4262160dfaf641d22b4019bfddc5b8a3a8435b1",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseWeightScaling.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile.json",
+      "record_sha256": "ea99c660e9d6995b0cd40904de0b873519ae9d45dcd66ffcec2875ca36c4a8c6",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_failed1.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_failed1.json",
+      "record_sha256": "aa65fbc087a460fa8bbc1a64a2df305e2b64918c7ee65e075e0b92497bf6babf",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256": "4f036b0e75ac9e233d29c5fe25b97dc3eb2631b1e0ea53ed71740e7ab3100a99"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_pre_unit_interval.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_pre_unit_interval.json",
+      "record_sha256": "3834dd841bc3b4dc0b43a49e05859ac21b637fa9914aa7736caf4488d4686596",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256": "06c4156e0293f512480bf4ac8f59f8d54282e08d5836b1604c7f866882cb760f"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/kernel.json",
+      "projection_path": "raw/SourceConditionalMajorant/kernel.json",
+      "record_sha256": "eeb02abb8e86bdb1c7eb810a32e314802efadea2e22a5e65df3c3c364e51ede8",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "leanchecker",
+        "SourceConditionalMajorant"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/moments_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/moments_attempt1.json",
+      "record_sha256": "51fcfc77c6c76ff1babb9034941127d007a57b2cc187130d37da385465a41109",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256": "957d322514ca8d8ab6b735ec6881fb6399db24280fbdf610c026ceaa60aaa03d"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt1.json",
+      "record_sha256": "7631f462230f765cdbc7dd95e2d14570e83a0adb9790aad052cd075c69fb1d58",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        ".lake/build/lib/lean/ConditionalMajorantControlSupport.olean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt2.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt2.json",
+      "record_sha256": "983e6c8d1812e6c04d21a337529c0897b2c1b29037df16d1836c51fd1017a71f",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/dm2_landed_composition/conditional_majorant",
+        "-o",
+        ".lake/build/lib/lean/ConditionalMajorantControlSupport.olean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive.json",
+      "record_sha256": "e13ba482dc5456ab103b510cb1169cf19a9d063c7827578045ce6a436e4bd5ab",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "--root=/workspace/scratch/dm2_landed_composition/conditional_majorant",
+        "-o",
+        ".lake/build/lib/lean/ConditionalMajorantControlSupport.olean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/qualification_receipt.json",
+      "projection_path": "raw/SourceConditionalMajorant/qualification_receipt.json",
+      "record_sha256": "7ca25685f6d92d35289e7c30b851c0a81fb2b48786ad536b88713254258275ed",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "source_sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/tails_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/tails_attempt1.json",
+      "record_sha256": "dc65f1669257fa22e1366181e64715f3a619efe7f0156e91a0430a0a59c47325",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-o",
+        ".lake/build/lib/lean/SourceConditionalMajorant.olean",
+        "SourceConditionalMajorant.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 1,
+      "source_sha256": "c652afcd5ffdd6e533221522c10026bc1f7b41c1583d1ceea3cd76a1c4070442"
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "record_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/types.json",
+      "projection_path": "raw/SourceConditionalMajorant/types.json",
+      "record_sha256": "74fe6778552e59e48582aed17a021eae06d862e780255011599df82b79010868",
+      "record_type": "original metadata preserved byte-for-byte; compact index only",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "/workspace/scratch/dm2_landed_composition/conditional_majorant/Types.lean"
+      ],
+      "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+      "exit_code": 0,
+      "source_sha256_before": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+      "source_sha256_after": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691"
+    }
+  ],
+  "raw_evidence_files": [
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/01-shift-series.json",
+      "projection_path": "raw/source-smooth-conditional/01-shift-series.json",
+      "bytes": 679,
+      "sha256": "d7b21dcb770e926162f5b63f9f9621e08d1dcea3d221b4fa40a86b527222f0a2"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/01-shift-series.log",
+      "projection_path": "raw/source-smooth-conditional/01-shift-series.log",
+      "bytes": 665,
+      "sha256": "1cd974cf59c4e82199c75b0ff70effcc44d39724a02285e6a32b94a4a66c1d6f"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/02-shift-series.json",
+      "projection_path": "raw/source-smooth-conditional/02-shift-series.json",
+      "bytes": 679,
+      "sha256": "2b13e013365c77e912fa939d418e4e0994ebc35800d8a8765d37a1a8618c0318"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/02-shift-series.log",
+      "projection_path": "raw/source-smooth-conditional/02-shift-series.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/03-first-integration.json",
+      "projection_path": "raw/source-smooth-conditional/03-first-integration.json",
+      "bytes": 862,
+      "sha256": "2a183bf0474b90c21c1bd93d02e99808f893d04c5873d4418fe309a8acdaed88"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/03-first-integration.log",
+      "projection_path": "raw/source-smooth-conditional/03-first-integration.log",
+      "bytes": 2183,
+      "sha256": "876b6c8dc51fb2ae4536f33feac0804b74a3c3d92f13e1994beb5012035d3866"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/04-shift-observations.json",
+      "projection_path": "raw/source-smooth-conditional/04-shift-observations.json",
+      "bytes": 861,
+      "sha256": "494c0dda61bfa803f2619fd2d6715fdecdff89a5e67d1d53075ce83b12000c51"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/04-shift-observations.log",
+      "projection_path": "raw/source-smooth-conditional/04-shift-observations.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/05-kernel-and-marginals.json",
+      "projection_path": "raw/source-smooth-conditional/05-kernel-and-marginals.json",
+      "bytes": 861,
+      "sha256": "b350d2e174663e27637c407773373b359f7c2d2522bd5584c8badcbbfc62bf30"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/05-kernel-and-marginals.log",
+      "projection_path": "raw/source-smooth-conditional/05-kernel-and-marginals.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/06-process-integration.json",
+      "projection_path": "raw/source-smooth-conditional/06-process-integration.json",
+      "bytes": 861,
+      "sha256": "59af34ef4a5200d540460379c6ec7c5a98a5fdca9dd4a604a9037242c968c1e6"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/06-process-integration.log",
+      "projection_path": "raw/source-smooth-conditional/06-process-integration.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/07-physical-marginal.json",
+      "projection_path": "raw/source-smooth-conditional/07-physical-marginal.json",
+      "bytes": 861,
+      "sha256": "b0dc7cc653a97eacd2be6f78c1317cc03444ac48c9262d2f50591c28f742275b"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/07-physical-marginal.log",
+      "projection_path": "raw/source-smooth-conditional/07-physical-marginal.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.json",
+      "projection_path": "raw/source-smooth-conditional/08-full-conditional-final.json",
+      "bytes": 1211,
+      "sha256": "f52b0b88d963f0f1885968ee7bd63f8d436ec4516da41311906dd1e93613de17"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.log",
+      "projection_path": "raw/source-smooth-conditional/08-full-conditional-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/09-controls.json",
+      "projection_path": "raw/source-smooth-conditional/09-controls.json",
+      "bytes": 1024,
+      "sha256": "92be9547c7922cd1d5344dfa9e0ee50010a980b3419b335c5f1d830a45745094"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/09-controls.log",
+      "projection_path": "raw/source-smooth-conditional/09-controls.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.json",
+      "projection_path": "raw/source-smooth-conditional/10-axiom-audit.json",
+      "bytes": 1028,
+      "sha256": "9db58793605c31f50f0f180dc11595e9620460c0d98cf3b1a0b7e8bc479f6bba"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.log",
+      "projection_path": "raw/source-smooth-conditional/10-axiom-audit.log",
+      "bytes": 6352,
+      "sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.json",
+      "projection_path": "raw/source-smooth-conditional/11-kernel-replay.json",
+      "bytes": 678,
+      "sha256": "6b9d156481b3512920410938c823f46438a4a665f443c15ee732ac0df703bb53"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.log",
+      "projection_path": "raw/source-smooth-conditional/11-kernel-replay.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/AXIOM_COVERAGE.json",
+      "projection_path": "raw/source-smooth-conditional/AXIOM_COVERAGE.json",
+      "bytes": 208,
+      "sha256": "3143401b4d915145cf99c62b5e22763109875aad679f41a32f2ca8cb1c1ee7cb"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean",
+      "projection_path": "raw/source-smooth-conditional/AxiomAudit.lean.txt",
+      "bytes": 3810,
+      "sha256": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/Controls.lean",
+      "projection_path": "raw/source-smooth-conditional/Controls.lean.txt",
+      "bytes": 2379,
+      "sha256": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/FinalCorollaries.part",
+      "projection_path": "raw/source-smooth-conditional/FinalCorollaries.part",
+      "bytes": 2421,
+      "sha256": "cf46cd69f9a178451ca20fceb091fab09fd7f7303791dd5f6b6640258f6a5972"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/PhysicalMarginal.part",
+      "projection_path": "raw/source-smooth-conditional/PhysicalMarginal.part",
+      "bytes": 2420,
+      "sha256": "cad3b974bcd4556459b503582b832e42fc924d87b2904356a86397ec3c20da2c"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/ShiftAlgebra.lean",
+      "projection_path": "raw/source-smooth-conditional/ShiftAlgebra.lean.txt",
+      "bytes": 1103,
+      "sha256": "b8ddbbae4c7c42de713112bfc46c37bd8b76cf34ac103b9b5c52b504f6c39623"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/SourceSmoothConditionalKernel.final.lean",
+      "projection_path": "raw/source-smooth-conditional/SourceSmoothConditionalKernel.final.lean.txt",
+      "bytes": 34339,
+      "sha256": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/make_inventory.py",
+      "projection_path": "raw/source-smooth-conditional/make_inventory.py",
+      "bytes": 809,
+      "sha256": "be80c304e9ad216eecbbe4284a5c16929e25cd907c8861ba5210428c76be70bd"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/run_check.py",
+      "projection_path": "raw/source-smooth-conditional/run_check.py",
+      "bytes": 1355,
+      "sha256": "68e8b86f4a0de9804f0e50a082eeed7628a30eaf9c18195fcbd465285b77adcf"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/run_kernel.py",
+      "projection_path": "raw/source-smooth-conditional/run_kernel.py",
+      "bytes": 1053,
+      "sha256": "c2ba2235f389ca17161032a89b9bc31ac8e6b2d04692d42ce32c9bfd93162b87"
+    },
+    {
+      "original_path": "/workspace/scratch/source-smooth-conditional/targets.json",
+      "projection_path": "raw/source-smooth-conditional/targets.json",
+      "bytes": 6405,
+      "sha256": "16a76b8a4d896ccd214e11d47634bb92af3891b329f1eb341c7b8b30024626bf"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/CarrierShift.lean",
+      "projection_path": "raw/carrier-support/CarrierShift.lean.txt",
+      "bytes": 8217,
+      "sha256": "46a09bfe6d22e31d3ea965f6d687d987a528c417d54086bc871e684ee2ac0333"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/Projection-01.log",
+      "projection_path": "raw/carrier-support/Projection-01.log",
+      "bytes": 12,
+      "sha256": "aa43b7b9f46a196d44d059066c95a4e5476220fd1b2ac0d33c7451d358107c8f"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/Projection-01.source.sha256",
+      "projection_path": "raw/carrier-support/Projection-01.source.sha256",
+      "bytes": 128,
+      "sha256": "163a575a41bf628d04e2c7ac4a248770857aae7f226fefcea2bd8d70428f3fab"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/Projection.lean",
+      "projection_path": "raw/carrier-support/Projection.lean.txt",
+      "bytes": 1536,
+      "sha256": "90181d88302f08c29333126481cdc8ceb516e83258299a1322aa51807d9a9a96"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/Reconstruction.lean",
+      "projection_path": "raw/carrier-support/Reconstruction.lean.txt",
+      "bytes": 3948,
+      "sha256": "25665fe698856757a6ed45198c3d892fd8a2efef88f98ce41fc4e45e8dc0e9c5"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-01.json",
+      "projection_path": "raw/carrier-support/carrier-shift-01.json",
+      "bytes": 511,
+      "sha256": "53a1b5813c769880c01fd6f5c34cb645b9d7eb62411cdc01606a3558860a3d4a"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-01.log",
+      "projection_path": "raw/carrier-support/carrier-shift-01.log",
+      "bytes": 815,
+      "sha256": "a175508e0f554c330868e631e260d423d57a80dcba8b4abc2598586226a0866e"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-02.json",
+      "projection_path": "raw/carrier-support/carrier-shift-02.json",
+      "bytes": 511,
+      "sha256": "344fc711cb95318ae70b8253e69843561ea6dc4967fef93adb3e045824e74c80"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/carrier-shift-02.log",
+      "projection_path": "raw/carrier-support/carrier-shift-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-01.json",
+      "projection_path": "raw/carrier-support/reconstruction-01.json",
+      "bytes": 513,
+      "sha256": "a0ac663e8728c3b8793bc00738612ce85a928936afc920fc0d4ee5663e9d52a7"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-01.log",
+      "projection_path": "raw/carrier-support/reconstruction-01.log",
+      "bytes": 2127,
+      "sha256": "76afeb67106d52962c576188047772ab18e49eb91d567341f2fb70fb2be385ea"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-02.json",
+      "projection_path": "raw/carrier-support/reconstruction-02.json",
+      "bytes": 513,
+      "sha256": "dcc6c93b62ffb457883dafd40e22cf47730ec5a8398cc5c420081fcade8faa32"
+    },
+    {
+      "original_path": "/workspace/scratch/smooth-conditional-carrier/reconstruction-02.log",
+      "projection_path": "raw/carrier-support/reconstruction-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/PROCESS_SUPPORT_EVIDENCE.json",
+      "projection_path": "raw/process-support/PROCESS_SUPPORT_EVIDENCE.json",
+      "bytes": 1370,
+      "sha256": "24d8525b059a7ffc05436806a6cc6b3d45d6155f294446b20545a077de676192"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-01.log",
+      "projection_path": "raw/process-support/ProcessSupport-01.log",
+      "bytes": 151,
+      "sha256": "db4f40b4a3c3faf857438106fe230c824eaa0b5d2d648a26173025870682fb4e"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-02.log",
+      "projection_path": "raw/process-support/ProcessSupport-02.log",
+      "bytes": 420,
+      "sha256": "296003d9e546e71e250966f2c0406da50af5135977b5956e758e20c7272547a0"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport-03.log",
+      "projection_path": "raw/process-support/ProcessSupport-03.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/ProcessSupport.lean",
+      "projection_path": "raw/process-support/ProcessSupport.lean.txt",
+      "bytes": 9580,
+      "sha256": "0adc56198e3c8a9f3bb701f1a40f6653867c91eee665641b896385e0e035312e"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance-01.log",
+      "projection_path": "raw/process-support/coefficient-cov/CoefficientCovariance-01.log",
+      "bytes": 1526,
+      "sha256": "a7cbbe45ffd35e8455274d275b7faf2e8dd8db0365894603b452065d0aa1a593"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance-02.log",
+      "projection_path": "raw/process-support/coefficient-cov/CoefficientCovariance-02.log",
+      "bytes": 252,
+      "sha256": "c2b1abb704b63f622939ea11150a57a6f0d44b6e2a9bbc3f173f6ea0d0e2c41f"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance-03.log",
+      "projection_path": "raw/process-support/coefficient-cov/CoefficientCovariance-03.log",
+      "bytes": 640,
+      "sha256": "d32803901e6b992d36e26bfd3c719ca4ccebce154a50be84b60677090603392d"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance-04.log",
+      "projection_path": "raw/process-support/coefficient-cov/CoefficientCovariance-04.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean",
+      "projection_path": "raw/process-support/coefficient-cov/CoefficientCovariance.lean.txt",
+      "bytes": 1779,
+      "sha256": "76b63154b51cdcfb975264c863f40714926218bf8a2aa64f39eb3197116f262e"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/finite-index/FiniteScalarSeries.lean",
+      "projection_path": "raw/process-support/finite-index/FiniteScalarSeries.lean.txt",
+      "bytes": 979,
+      "sha256": "cc9b851b711d3bb81b1033f5eb1626d33d753fed91ec5d50c91956bea192201b"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-conditional/finite-index/FiniteScalarSeries.log",
+      "projection_path": "raw/process-support/finite-index/FiniteScalarSeries.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/AxiomAudit-01.log",
+      "projection_path": "raw/SourceSmoothPalm/AxiomAudit-01.log",
+      "bytes": 2961,
+      "sha256": "02b815e6c25d9f607c3a96930875deb3557cb581197bc98fc047f48bd6143fdc"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/AxiomAudit.lean",
+      "projection_path": "raw/SourceSmoothPalm/AxiomAudit.lean.txt",
+      "bytes": 1714,
+      "sha256": "ad02680617d82d791811241ea472d741fe06b32d64906359f49c7705a99b19d2"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/EVIDENCE.json",
+      "projection_path": "raw/SourceSmoothPalm/EVIDENCE.json",
+      "bytes": 8486,
+      "sha256": "82462958b5f2c225e7e9b5e1380303c2f9c01b16308d08bf3dcc893338f52a1c"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/KernelReplay-01.log",
+      "projection_path": "raw/SourceSmoothPalm/KernelReplay-01.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/PositiveControls-01.log",
+      "projection_path": "raw/SourceSmoothPalm/PositiveControls-01.log",
+      "bytes": 562,
+      "sha256": "23bd990046545dcdf4e59b8db96c176d5c7279debfc8b030df5bfb285df7031a"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/PositiveControls-02.log",
+      "projection_path": "raw/SourceSmoothPalm/PositiveControls-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/PositiveControls.lean",
+      "projection_path": "raw/SourceSmoothPalm/PositiveControls.lean.txt",
+      "bytes": 2162,
+      "sha256": "1181283079fd5a3895555b9f0ddaf8e7d41c23d3b0c5c76f05a8585dec318e62"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/RejectedStrictBoundaryPositive-01.log",
+      "projection_path": "raw/SourceSmoothPalm/RejectedStrictBoundaryPositive-01.log",
+      "bytes": 175,
+      "sha256": "17823eced3c79bd3305ce238a8f3fe8d75cd00680038e7956d4ac2ca49ce9ce7"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/RejectedStrictBoundaryPositive.lean",
+      "projection_path": "raw/SourceSmoothPalm/RejectedStrictBoundaryPositive.lean.txt",
+      "bytes": 518,
+      "sha256": "37db64d1b7cc584615635a4bd6879b415c288f7dd534fb3b715a0649a9400e69"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/RejectedZeroNormalizerProbability-01.log",
+      "projection_path": "raw/SourceSmoothPalm/RejectedZeroNormalizerProbability-01.log",
+      "bytes": 126,
+      "sha256": "b77fc266c8ed535f768b20b1a896b61c5cb69c14cdb2e6652eea61d79a32cbec"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/RejectedZeroNormalizerProbability.lean",
+      "projection_path": "raw/SourceSmoothPalm/RejectedZeroNormalizerProbability.lean.txt",
+      "bytes": 199,
+      "sha256": "c6aa8b61183b46e0e1ca932807176b6c566136dc5f624c7f7d770f9870a866d7"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/SourceSmoothPalm-01.log",
+      "projection_path": "raw/SourceSmoothPalm/SourceSmoothPalm-01.log",
+      "bytes": 3983,
+      "sha256": "bebdbc26e447be06d5b0866077ec4ae55a5e10789bf0dc36a065135bf469e32a"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/SourceSmoothPalm-02.log",
+      "projection_path": "raw/SourceSmoothPalm/SourceSmoothPalm-02.log",
+      "bytes": 2035,
+      "sha256": "5b929f5828ee374bb3877bd51792d2091285437d1f85d23532ad7829661616e5"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/SourceSmoothPalm-03.log",
+      "projection_path": "raw/SourceSmoothPalm/SourceSmoothPalm-03.log",
+      "bytes": 317,
+      "sha256": "4c11dca65abd53d63ccda9d15cbaad34cbd92b689bccb3ebbd7d8eca299b1500"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/SourceSmoothPalm-04.log",
+      "projection_path": "raw/SourceSmoothPalm/SourceSmoothPalm-04.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/assemble.py",
+      "projection_path": "raw/SourceSmoothPalm/assemble.py",
+      "bytes": 7776,
+      "sha256": "107bf17030e55280162c8f71cd16251f610b9166bba03199c7d9afc988104b18"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pins/RawPinSupport-01.log",
+      "projection_path": "raw/SourceSmoothPalm/pins/RawPinSupport-01.log",
+      "bytes": 184,
+      "sha256": "c0905e50dc8abd61fe8b5dcbca27422cfaeb9966cab2afc8cb62368157af5e7f"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pins/RawPinSupport-02.log",
+      "projection_path": "raw/SourceSmoothPalm/pins/RawPinSupport-02.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pins/RawPinSupport.lean",
+      "projection_path": "raw/SourceSmoothPalm/pins/RawPinSupport.lean.txt",
+      "bytes": 3538,
+      "sha256": "63c5b13fabaf637db223dcbe35841cf41da4a230556853293790c4174c8ecdbd"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pushforward/WeightedPushforward.failed1.lean",
+      "projection_path": "raw/SourceSmoothPalm/pushforward/WeightedPushforward.failed1.lean.txt",
+      "bytes": 2202,
+      "sha256": "7e5b19222503492cb1d5f965c5e6f4a48ef8174bcfef0e3eb1a5c5c33f4ab383"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pushforward/WeightedPushforward.failed1.log",
+      "projection_path": "raw/SourceSmoothPalm/pushforward/WeightedPushforward.failed1.log",
+      "bytes": 348,
+      "sha256": "169242c5984ea81cd9ce02f30639e6d2500613831a39e0befd6e258596deb84b"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pushforward/WeightedPushforward.lean",
+      "projection_path": "raw/SourceSmoothPalm/pushforward/WeightedPushforward.lean.txt",
+      "bytes": 2205,
+      "sha256": "ecf1a8cdc9f16d733899ba19bb2db4735dfaa263949eb253c39416517bc7d836"
+    },
+    {
+      "original_path": "/workspace/scratch/regression-kernel/smooth-palm/pushforward/WeightedPushforward.log",
+      "projection_path": "raw/SourceSmoothPalm/pushforward/WeightedPushforward.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/Controls.lean",
+      "projection_path": "raw/GaussianWeightedMajorants/Controls.lean.txt",
+      "bytes": 2183,
+      "sha256": "d238574e7031743851e4d2209e90dbe116810b75854b02ca6876861712223f42"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-01.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-01.log",
+      "bytes": 3187,
+      "sha256": "84e207867900c146aface95d95bb4728419a2f61bd3b0e5a97521430c21a71b6"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-02.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-02.log",
+      "bytes": 3904,
+      "sha256": "e26db5cf26443a598baa60de74f8e473f4384f654c52be9d5290725d1968fc94"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-03.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-03.log",
+      "bytes": 1404,
+      "sha256": "835bfe54b1e3d05b098747743502b01b0cf3bc81b628c4594ba40053a534c30c"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-04.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-04.log",
+      "bytes": 395,
+      "sha256": "dce6e286b33aeec658c87c1dd5ac5238651f09c34622b2d545d9772f465c084a"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-05.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-05.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-06.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-06.log",
+      "bytes": 189,
+      "sha256": "6210c8431b71a91ebce0262dac0ea757ed9bed30d86ebedb8628fa997a4eec57"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-07.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-07.json",
+      "bytes": 548,
+      "sha256": "83070dccb92cccbcde9ab39f0d405ad40fe878027c55bcd9729ef402dc9ca157"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-07.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-07.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-controls-01.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-controls-01.json",
+      "bytes": 499,
+      "sha256": "6eecbe3fc93ced9a298278f6d15ac5f7f58ca1c7b3759e0a423d83404d20f1c5"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-controls-01.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-controls-01.log",
+      "bytes": 1187,
+      "sha256": "20581251a005b0759e9e857041ec4c2f77b9b933b7a1cc5e4eeb303c71820418"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-kernel.json",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-kernel.json",
+      "bytes": 480,
+      "sha256": "c6682e47e7d7405c1629e444ea979558db47523d63860341d1ca93d92f793735"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/majorants-kernel.log",
+      "projection_path": "raw/GaussianWeightedMajorants/majorants-kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-01.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-01.log",
+      "bytes": 512,
+      "sha256": "dceea22790458dc1d4653d05234378e138c7ad44a6a7a8ec09afd5cdfa22f8a3"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-02.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-02.log",
+      "bytes": 12,
+      "sha256": "aa43b7b9f46a196d44d059066c95a4e5476220fd1b2ac0d33c7451d358107c8f"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-03.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-03.log",
+      "bytes": 471,
+      "sha256": "868ecf08337af8839514a299558c10c77b9f0f3485de652ae824921e6ad032df"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-04.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-04.log",
+      "bytes": 1438,
+      "sha256": "7be1d208ff4b97ea97547fc0dc8c1e480cddae41493b5a4a586ee39658cd4906"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-05.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-05.log",
+      "bytes": 12,
+      "sha256": "aa43b7b9f46a196d44d059066c95a4e5476220fd1b2ac0d33c7451d358107c8f"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-06.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-06.log",
+      "bytes": 696,
+      "sha256": "970b1f54c4cdac5d3ff6ca7b7c95a9582dd83650f352ef29c6beb746b0813dfa"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-07.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-07.log",
+      "bytes": 222,
+      "sha256": "45a69bcc421a9574384441f5a061671a9340120cb0d56465def432759e9a91d8"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-08.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-08.log",
+      "bytes": 192,
+      "sha256": "17c7187c7901215504f28c3c138741dc63fb18b2e9140e72c83d0e0b60a611a2"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-09.log",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-09.log",
+      "bytes": 12,
+      "sha256": "aa43b7b9f46a196d44d059066c95a4e5476220fd1b2ac0d33c7451d358107c8f"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF-09.source.sha256",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF-09.source.sha256",
+      "bytes": 117,
+      "sha256": "2d1e3aae25060c12080b2d6ed92482621da87132609a2b427ef01155cfaebfe9"
+    },
+    {
+      "original_path": "/workspace/scratch/gaussian-majorants/mgf/MGF.lean",
+      "projection_path": "raw/GaussianWeightedMajorants/mgf/MGF.lean.txt",
+      "bytes": 9918,
+      "sha256": "2d2d99993d951fcfee27fe74a3ce5d82f4327ab872121e958af6b42da9e600bb"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/AxiomAudit.lean",
+      "projection_path": "raw/SourceConditionalMajorant/AxiomAudit.lean.txt",
+      "bytes": 1506,
+      "sha256": "129cb0d1635b0a8b0e7a9036f2eff5d4d7186b5a1f6f741831a472f8a50b3637"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/ConditionalMajorantControlSupport.lean",
+      "projection_path": "raw/SourceConditionalMajorant/ConditionalMajorantControlSupport.lean.txt",
+      "bytes": 1791,
+      "sha256": "716fc6a7ffccd9b964d5717913de6ba85dc99927b18686327a0ea0ceb2d00b14"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseOmitAbsolute.lean",
+      "projection_path": "raw/SourceConditionalMajorant/FalseOmitAbsolute.lean.txt",
+      "bytes": 271,
+      "sha256": "122457e886dbcbb94e0e983c1ce2a5dd9ded8e64c20663a12ee815b33f8a0f27"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/FalseWeightScaling.lean",
+      "projection_path": "raw/SourceConditionalMajorant/FalseWeightScaling.lean.txt",
+      "bytes": 256,
+      "sha256": "ed006cd4abc6886f0aa9449034503c5619653ca89babd6ec89f344de7e366867"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/HANDOFF.md",
+      "projection_path": "raw/SourceConditionalMajorant/HANDOFF.md",
+      "bytes": 6158,
+      "sha256": "6e23bd39c058e29d0afbe2e42af052d64511ebad6eb2f43afdabb7c94e8c7746"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/Types.lean",
+      "projection_path": "raw/SourceConditionalMajorant/Types.lean.txt",
+      "bytes": 565,
+      "sha256": "2fbbc707b47d37a2242c93e5e08f319016808bb253223b23b411936b9f19b597"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/axioms.json",
+      "projection_path": "raw/SourceConditionalMajorant/axioms.json",
+      "bytes": 483,
+      "sha256": "af93edf0beabd6f02d0481a6c590c6fff544a615f547b2602b5247c867cc95eb"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/axioms.log",
+      "projection_path": "raw/SourceConditionalMajorant/axioms.log",
+      "bytes": 2433,
+      "sha256": "5944e89e4f036cc9f2422b3257b9423c7a06452609db98512aba9b9ac30eda8d"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt1.json",
+      "bytes": 508,
+      "sha256": "00c3f7e93056ff67cc4e7fd2cf88cda13e873fad90e64502f97336544828650a"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt1.log",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt1.log",
+      "bytes": 2125,
+      "sha256": "e3c35629b52a732e92b34db7c58eb8417ce1b45a5f0836536513dc0b2a2b2303"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt2.json",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt2.json",
+      "bytes": 515,
+      "sha256": "58a4195454bc3f8b860d0c34e62b7a0a671baf697f3b910fd3ebb5cb0d928191"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/deterministic_attempt2.log",
+      "projection_path": "raw/SourceConditionalMajorant/deterministic_attempt2.log",
+      "bytes": 420,
+      "sha256": "56ed299ac27c3e40c8220da3779c804ba6aac52d965798fe35e1f1fd58ae76d0"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-absolute.json",
+      "projection_path": "raw/SourceConditionalMajorant/false-absolute.json",
+      "bytes": 490,
+      "sha256": "48c668dc3bfdcd6a3467137515640145af181cb5f9466ac06a47783107ee358f"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-absolute.log",
+      "projection_path": "raw/SourceConditionalMajorant/false-absolute.log",
+      "bytes": 124,
+      "sha256": "25de550dcf0084cff2ec350f13f43fbf8e5bf07f96e6e245d207b3a744ccacd0"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-weight.json",
+      "projection_path": "raw/SourceConditionalMajorant/false-weight.json",
+      "bytes": 492,
+      "sha256": "3c89e07194df508ab83c840bd4262160dfaf641d22b4019bfddc5b8a3a8435b1"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/false-weight.log",
+      "projection_path": "raw/SourceConditionalMajorant/false-weight.log",
+      "bytes": 125,
+      "sha256": "b3b874909e173442283b48f1359d58ae2283bbeaa701ce4ed645713ceb6d83ef"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile.json",
+      "bytes": 543,
+      "sha256": "ea99c660e9d6995b0cd40904de0b873519ae9d45dcd66ffcec2875ca36c4a8c6"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile.log",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_failed1.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_failed1.json",
+      "bytes": 521,
+      "sha256": "aa65fbc087a460fa8bbc1a64a2df305e2b64918c7ee65e075e0b92497bf6babf"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_failed1.log",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_failed1.log",
+      "bytes": 990,
+      "sha256": "7e69c80c18ea292c6857a14e582f49c78ef983b0dff184cfb2d10f812aff87a3"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_pre_unit_interval.json",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_pre_unit_interval.json",
+      "bytes": 521,
+      "sha256": "3834dd841bc3b4dc0b43a49e05859ac21b637fa9914aa7736caf4488d4686596"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/final_compile_pre_unit_interval.log",
+      "projection_path": "raw/SourceConditionalMajorant/final_compile_pre_unit_interval.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/kernel.json",
+      "projection_path": "raw/SourceConditionalMajorant/kernel.json",
+      "bytes": 437,
+      "sha256": "eeb02abb8e86bdb1c7eb810a32e314802efadea2e22a5e65df3c3c364e51ede8"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/kernel.log",
+      "projection_path": "raw/SourceConditionalMajorant/kernel.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/moments_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/moments_attempt1.json",
+      "bytes": 496,
+      "sha256": "51fcfc77c6c76ff1babb9034941127d007a57b2cc187130d37da385465a41109"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/moments_attempt1.log",
+      "projection_path": "raw/SourceConditionalMajorant/moments_attempt1.log",
+      "bytes": 1284,
+      "sha256": "8ba507f0227c4e60f9de18f082aa9eefa7653da3cdaca05046f78bcf50ac8321"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt1.json",
+      "bytes": 613,
+      "sha256": "7631f462230f765cdbc7dd95e2d14570e83a0adb9790aad052cd075c69fb1d58"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt1.log",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt1.log",
+      "bytes": 236,
+      "sha256": "b570b26159c29e8252b367cfbe2a8308d7bf9d23d1eeafe436cc7c9b276c15c6"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt2.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt2.json",
+      "bytes": 690,
+      "sha256": "983e6c8d1812e6c04d21a337529c0897b2c1b29037df16d1836c51fd1017a71f"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive-attempt2.log",
+      "projection_path": "raw/SourceConditionalMajorant/positive-attempt2.log",
+      "bytes": 711,
+      "sha256": "2e2dac6ee3e1c26e8e03e722dbf16832afe35a743d706bd2f51d91c15b9005ff"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive.json",
+      "projection_path": "raw/SourceConditionalMajorant/positive.json",
+      "bytes": 690,
+      "sha256": "e13ba482dc5456ab103b510cb1169cf19a9d063c7827578045ce6a436e4bd5ab"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/positive.log",
+      "projection_path": "raw/SourceConditionalMajorant/positive.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/qualification_receipt.json",
+      "projection_path": "raw/SourceConditionalMajorant/qualification_receipt.json",
+      "bytes": 12980,
+      "sha256": "7ca25685f6d92d35289e7c30b851c0a81fb2b48786ad536b88713254258275ed"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/run_one.py",
+      "projection_path": "raw/SourceConditionalMajorant/run_one.py",
+      "bytes": 1157,
+      "sha256": "4dc13836b13a594539800c2ac53859b3448cba8b396d2aaff838f1d9278167ea"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/tails_attempt1.json",
+      "projection_path": "raw/SourceConditionalMajorant/tails_attempt1.json",
+      "bytes": 516,
+      "sha256": "dc65f1669257fa22e1366181e64715f3a619efe7f0156e91a0430a0a59c47325"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/tails_attempt1.log",
+      "projection_path": "raw/SourceConditionalMajorant/tails_attempt1.log",
+      "bytes": 2459,
+      "sha256": "476de968227b37be7857f59388d9ae98d48388ae6b4c527bd58dc745a4de7fb7"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/targets.json",
+      "projection_path": "raw/SourceConditionalMajorant/targets.json",
+      "bytes": 1296,
+      "sha256": "cbb04208c32cc1c53bd97cbc06a4fc29dbca80f29d50b7ef6e583a78f7af94bc"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/types.json",
+      "projection_path": "raw/SourceConditionalMajorant/types.json",
+      "bytes": 478,
+      "sha256": "74fe6778552e59e48582aed17a021eae06d862e780255011599df82b79010868"
+    },
+    {
+      "original_path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/types.log",
+      "projection_path": "raw/SourceConditionalMajorant/types.log",
+      "bytes": 4341,
+      "sha256": "f728fb06d105d3ca0ba0f3571879de3fcfec49284d44cfc319f83df05076ee91"
+    }
+  ],
+  "author_lineage": [
+    {
+      "agent": "/root",
+      "family": "OpenAI",
+      "role": "source contract and integration; author-side"
+    },
+    {
+      "agent": "/root/uniform_jet_moment_sources",
+      "family": "OpenAI",
+      "role": "new production module and actual shift integration"
+    },
+    {
+      "agent": "/root/normalizer_palm_research",
+      "family": "OpenAI",
+      "role": "carrier preservation, measurable projection and reconstruction support"
+    },
+    {
+      "agent": "/root/normalizer_palm_research/gaussian_reference_probe",
+      "family": "OpenAI",
+      "role": "actual carrier-support scratch helper"
+    },
+    {
+      "agent": "/root/regression_kernel",
+      "family": "OpenAI",
+      "role": "finite Gaussian/residual process-independence support"
+    },
+    {
+      "agent": "/root/regression_kernel/gaussian_api",
+      "family": "OpenAI",
+      "role": "actual finite-index scalar-series helper"
+    },
+    {
+      "agent": "/root/regression_kernel/endpoint_means",
+      "family": "OpenAI",
+      "role": "actual coefficient-covariance helper"
+    },
+    {
+      "agent": "/root/palm_measure_transfer",
+      "family": "OpenAI",
+      "role": "read-only new-scope evidence packaging"
+    },
+    {
+      "agent": "/root/regression_kernel/gaussian_api",
+      "family": "OpenAI",
+      "role": "SourceSmoothPalm generic density pushforward, absolute continuity and positive-weight support helper"
+    },
+    {
+      "agent": "/root/regression_kernel/endpoint_means",
+      "family": "OpenAI",
+      "role": "SourceSmoothPalm literal raw-pin support and density preservation helper"
+    },
+    {
+      "agent": "/root/normalizer_palm_research",
+      "family": "OpenAI",
+      "role": "GaussianWeightedMajorants production implementation, Lp and sharp natural-moment bounds"
+    },
+    {
+      "agent": "/root/normalizer_palm_research/gaussian_reference_probe",
+      "family": "OpenAI",
+      "role": "Actual separate folded-Gaussian exponential/Jensen/Fatou scratch support incorporated into GaussianWeightedMajorants"
+    },
+    {
+      "agent": "/root/dm2_landed_composition",
+      "family": "OpenAI",
+      "role": "SourceConditionalMajorant sole production implementer"
+    },
+    {
+      "agent": "/root/dm2_landed_composition/peano_strategy",
+      "family": "OpenAI",
+      "role": "Earlier read-only generic Lp API research for conditional-majorant proposal; no implementation helper created for that module"
+    }
+  ],
+  "metadata_limits": [
+    "Final new-module qualification has genuine subprocess before/after source hashes and raw logs. Development/helper metadata retain their actual recorded provenance; no missing helper exit/command is inferred from an empty log.",
+    "Carrier Projection-01 has raw log and source-hash artifact but no separate structured process receipt in the supplied directory. It is preserved as raw helper history; no standalone exit-0 claim is invented.",
+    "Finite-index/coefficient helper logs without standalone process receipts are preserved as raw coauthor history; PROCESS_SUPPORT_EVIDENCE and final production qualification retain their own exact scope.",
+    "GaussianWeightedMajorants production compile and kernel logs are clean; its controls process exited0 with two deprecation warnings. These warnings are retained, not rerun merely for clean output.",
+    "SourceSmoothPalm exports an additional named probability instance beyond its27 proof targets. It is covered as an explicit transitive dependency, not falsely counted as directly printed.",
+    "SourceConditionalMajorant proposal had actual earlier read-only Lp API assistance from peano_strategy. No later implementation helper was created for it because dispatch hit the thread limit; no invented helper receipt."
+  ],
+  "not_qualified_by_this_catalog": [],
+  "remaining_original_goal": [
+    "Literal historical midpoint nine-jet normalization and relevant event identification",
+    "Any requested chart-supremum measurable representation beyond the proved measurableGamma certificate",
+    "Geometric critical-point-process Palm disintegration/Morse/elder/counting and requested parent conclusions",
+    "P0.2/GT5 and later parent claims are not discharged by four-module source result alone",
+    "Different-family scientific review retains its own exact source scope"
+  ],
+  "review": {
+    "new_scope_alignment": "PENDING_DIFFERENT_FAMILY_REVIEW",
+    "all_listed_contributions": "OpenAI author-side; no independence credit from helpers",
+    "old_reviews": "Retain prior exact scopes; no review or acceptance transferred to this four-module source group."
+  },
+  "packaging_execution": "Only source/record reads and byte-preserving copies. No Lean, kernel replay, tests, identity-proof substitutes, git mutations or external posts during packaging.",
+  "execution_metadata_note": "Compact index extracts actual recorded fields. Full original JSON contents are preserved byte-for-byte at each projection path; final four genuine qualification records remain embedded in full above.",
+  "raw_evidence_role": "All listed files are new-scope development/qualification or actual incorporated helper evidence. Original raw bytes preserved; source/control Lean suffix changed only to .lean.txt in projection.",
+  "modules": [
+    {
+      "module": "SourceSmoothConditionalKernel",
+      "source": {
+        "path": "frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+        "sha256": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+        "bytes": 34339,
+        "lines": 720,
+        "imports": [
+          "SourceEndpointEstimates",
+          "Mathlib.Probability.Independence.Process.Basic",
+          "Mathlib.MeasureTheory.MeasurableSpace.Embedding"
+        ]
+      },
+      "targets": [
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.exists_measurable_sampleProjection",
+          "line": 36
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.goodSample_add",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.goodSample_neg",
+          "line": 54
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+          "line": 60
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.finiteCoefficient_weighted_summable",
+          "line": 73
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinCoefficient_weighted_summable",
+          "line": 90
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable",
+          "line": 98
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable",
+          "line": 106
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable",
+          "line": 116
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinLift_zero",
+          "line": 129
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinLift_add",
+          "line": 133
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinLift_neg",
+          "line": 138
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinLift_goodSample",
+          "line": 143
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pinLift_measurable",
+          "line": 163
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.addLift_val",
+          "line": 174
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.addLift_measurable",
+          "line": 178
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_val",
+          "line": 189
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_measurable",
+          "line": 194
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothConditional.scalarSeries_add_finiteShift",
+          "line": 204
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift",
+          "line": 230
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift",
+          "line": 246
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample",
+          "line": 264
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample",
+          "line": 273
+        },
+        {
+          "kind": "instance",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov",
+          "line": 294
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_measurable",
+          "line": 299
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_apply",
+          "line": 303
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_map",
+          "line": 311
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber",
+          "line": 325
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map",
+          "line": 337
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw",
+          "line": 363
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothConditional.scalarSeries_single",
+          "line": 377
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothConditional.scalarSeries_coordinate_covariance",
+          "line": 381
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pin_coefficient_covariance",
+          "line": 396
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw",
+          "line": 409
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothConditional.finiteLift_apply",
+          "line": 450
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw",
+          "line": 457
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothConditional.coefficient_hasGaussianLaw",
+          "line": 475
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.residualCoefficient_zero_covariance",
+          "line": 482
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.residualCoefficient_finite_indepFun",
+          "line": 524
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.residualCoefficient_indepFun",
+          "line": 531
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable",
+          "line": 552
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map",
+          "line": 564
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map",
+          "line": 590
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_self",
+          "line": 604
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual",
+          "line": 611
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.addLift_observation_residual",
+          "line": 620
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_zero_inclusion",
+          "line": 625
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.posteriorSample_zero_indepFun",
+          "line": 633
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib",
+          "line": 643
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib",
+          "line": 680
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.smoothSourceField_measurable",
+          "line": 691
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib",
+          "line": 697
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib",
+          "line": 705
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib",
+          "line": 712
+        }
+      ],
+      "registered_targets": [
+        "I4SourceSmoothConditional.exists_measurable_sampleProjection",
+        "I4SourceSmoothConditional.goodSample_add",
+        "I4SourceSmoothConditional.goodSample_neg",
+        "I4SourceSmoothConditional.derivativeCoefficient_weighted_summable",
+        "I4SourceSmoothConditional.finiteCoefficient_weighted_summable",
+        "I4SourceSmoothConditional.pinCoefficient_weighted_summable",
+        "I4SourceSmoothConditional.adjustedCoefficient_weighted_summable",
+        "I4SourceSmoothConditional.sourceConfluentPinsAt_measurable",
+        "I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable",
+        "I4SourceSmoothConditional.pinLift_zero",
+        "I4SourceSmoothConditional.pinLift_add",
+        "I4SourceSmoothConditional.pinLift_neg",
+        "I4SourceSmoothConditional.pinLift_goodSample",
+        "I4SourceSmoothConditional.pinLift_measurable",
+        "I4SourceSmoothConditional.addLift_val",
+        "I4SourceSmoothConditional.addLift_measurable",
+        "I4SourceSmoothConditional.posteriorSample_val",
+        "I4SourceSmoothConditional.posteriorSample_measurable",
+        "I4SourceSmoothConditional.scalarSeries_add_finiteShift",
+        "I4SourceSmoothConditional.sourceConfluentPinsAt_addLift",
+        "I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift",
+        "I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample",
+        "I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample",
+        "I4SourceSmoothConditional.sourceSmoothKernel_isMarkov",
+        "I4SourceSmoothConditional.sourceSmoothKernel_measurable",
+        "I4SourceSmoothConditional.sourceSmoothKernel_apply",
+        "I4SourceSmoothConditional.sourceSmoothKernel_pin_map",
+        "I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber",
+        "I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map",
+        "I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw",
+        "I4SourceSmoothConditional.scalarSeries_single",
+        "I4SourceSmoothConditional.scalarSeries_coordinate_covariance",
+        "I4SourceSmoothConditional.pin_coefficient_covariance",
+        "I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw",
+        "I4SourceSmoothConditional.finiteLift_apply",
+        "I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw",
+        "I4SourceSmoothConditional.coefficient_hasGaussianLaw",
+        "I4SourceSmoothConditional.residualCoefficient_zero_covariance",
+        "I4SourceSmoothConditional.residualCoefficient_finite_indepFun",
+        "I4SourceSmoothConditional.residualCoefficient_indepFun",
+        "I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable",
+        "I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map",
+        "I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map",
+        "I4SourceSmoothConditional.posteriorSample_self",
+        "I4SourceSmoothConditional.posteriorSample_eq_addLift_residual",
+        "I4SourceSmoothConditional.addLift_observation_residual",
+        "I4SourceSmoothConditional.posteriorSample_zero_inclusion",
+        "I4SourceSmoothConditional.posteriorSample_zero_indepFun",
+        "I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib",
+        "I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib",
+        "I4SourceSmoothConditional.smoothSourceField_measurable",
+        "I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib",
+        "I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib",
+        "I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib"
+      ],
+      "source_commit": "9c7984ea30eb6b09969405998bf5d195d793a08d",
+      "final_qualification": {
+        "compile": {
+          "metadata_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.json",
+          "metadata_sha256": "f52b0b88d963f0f1885968ee7bd63f8d436ec4516da41311906dd1e93613de17",
+          "raw_log_path": "/workspace/scratch/source-smooth-conditional/08-full-conditional-final.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "record": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "-o",
+              ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+              "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+            ],
+            "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+            "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+            "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "elapsed_seconds": 5.3182532787323
+          }
+        },
+        "controls": {
+          "metadata_path": "/workspace/scratch/source-smooth-conditional/09-controls.json",
+          "metadata_sha256": "92be9547c7922cd1d5344dfa9e0ee50010a980b3419b335c5f1d830a45745094",
+          "raw_log_path": "/workspace/scratch/source-smooth-conditional/09-controls.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "record": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "/workspace/scratch/source-smooth-conditional/Controls.lean"
+            ],
+            "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/scratch/source-smooth-conditional/Controls.lean",
+            "source_sha256_before": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+            "source_sha256_after": "5397277e69ce33865c1146a5df4dcff8db773be7c3a4aa9775e44b5016c7b627",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+            "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "elapsed_seconds": 3.4060983657836914
+          }
+        },
+        "axiom_audit": {
+          "metadata_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.json",
+          "metadata_sha256": "9db58793605c31f50f0f180dc11595e9620460c0d98cf3b1a0b7e8bc479f6bba",
+          "raw_log_path": "/workspace/scratch/source-smooth-conditional/10-axiom-audit.log",
+          "raw_log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+          "record": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "lean",
+              "-DwarningAsError=true",
+              "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean"
+            ],
+            "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/scratch/source-smooth-conditional/AxiomAudit.lean",
+            "source_sha256_before": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+            "source_sha256_after": "32f5d3154bade440943fb1bc7ad168ff834cac947baa90797d984544ce43eda8",
+            "log_sha256": "768ac4686975ace2e2964436e470bbcd6e5acc2f7900d6db78bffc193ce53732",
+            "production_source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+            "production_source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "production_source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "elapsed_seconds": 3.1145823001861572
+          }
+        },
+        "kernel_replay": {
+          "metadata_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.json",
+          "metadata_sha256": "6b9d156481b3512920410938c823f46438a4a665f443c15ee732ac0df703bb53",
+          "raw_log_path": "/workspace/scratch/source-smooth-conditional/11-kernel-replay.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "record": {
+            "command": [
+              "/home/agent/.elan/bin/lake",
+              "env",
+              "leanchecker",
+              "SourceSmoothConditionalKernel"
+            ],
+            "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+            "exit_code": 0,
+            "source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+            "source_sha256_before": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "source_sha256_after": "664892acb12d40e5bf20075e1ef633efdd4a54ae1308c714308eab3a4deaa517",
+            "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "elapsed_seconds": 6.287380695343018
+          }
+        }
+      }
+    },
+    {
+      "module": "SourceSmoothPalm",
+      "source": {
+        "path": "frontiers/source_derivative_gaussian_20261025/SourceSmoothPalm.lean",
+        "sha256": "1b1d47b640b541195dad1472a07fa9490f203bd1619b1759b29587a0effe631d",
+        "bytes": 17790,
+        "lines": 329,
+        "imports": [
+          "SourceSmoothConditionalKernel"
+        ]
+      },
+      "source_commit": null,
+      "source_commit_note": "Frozen source hash supplied by actual qualification. Integration commit assigned by root; not falsely attributed to prior9c kernel-only commit.",
+      "targets": [
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.withDensity_map_comp",
+          "line": 28
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.prwMeasure_map_comp",
+          "line": 38
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous",
+          "line": 49
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.prwMeasure_ae_of_ae",
+          "line": 53
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.prwMeasure_ae_weight_pos",
+          "line": 58
+        },
+        {
+          "kind": "instance",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_isProbabilityMeasure",
+          "line": 71
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.rawPins_prescribed_iff",
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber",
+          "line": 84
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.sourceRawPins_measurable",
+          "line": 94
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae",
+          "line": 105
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous",
+          "line": 114
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber",
+          "line": 123
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.sourceRawHM_eq_normalized",
+          "line": 149
+        },
+        {
+          "kind": "lemma",
+          "name": "I4SourceSmoothPalm.sourceRawHS_eq_normalized",
+          "line": 156
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeight_eq",
+          "line": 163
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeight_nonneg",
+          "line": 169
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeight_measurable",
+          "line": 176
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff",
+          "line": 183
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet",
+          "line": 196
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw",
+          "line": 209
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable",
+          "line": 216
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral",
+          "line": 223
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral",
+          "line": 231
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map",
+          "line": 240
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates",
+          "line": 251
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed",
+          "line": 265
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins",
+          "line": 276
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceSmoothPalm.sourceSmoothPalm_estimates",
+          "line": 287
+        }
+      ],
+      "registered_targets": [
+        "I4SourceSmoothPalm.withDensity_map_comp",
+        "I4SourceSmoothPalm.prwMeasure_map_comp",
+        "I4SourceSmoothPalm.prwMeasure_absolutelyContinuous",
+        "I4SourceSmoothPalm.prwMeasure_ae_of_ae",
+        "I4SourceSmoothPalm.prwMeasure_ae_weight_pos",
+        "I4SourceSmoothPalm.rawPins_prescribed_iff",
+        "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber",
+        "I4SourceSmoothPalm.sourceRawPins_measurable",
+        "I4SourceSmoothPalm.sourceSmoothLaw_raw_pin_fiber_ae",
+        "I4SourceSmoothPalm.raw_pin_fiber_of_absolutelyContinuous",
+        "I4SourceSmoothPalm.prwMeasure_raw_pin_fiber",
+        "I4SourceSmoothPalm.sourceRawHM_eq_normalized",
+        "I4SourceSmoothPalm.sourceRawHS_eq_normalized",
+        "I4SourceSmoothPalm.sourceSmoothWeight_eq",
+        "I4SourceSmoothPalm.sourceSmoothWeight_nonneg",
+        "I4SourceSmoothPalm.sourceSmoothWeight_measurable",
+        "I4SourceSmoothPalm.sourceSmoothWeight_pos_iff",
+        "I4SourceSmoothPalm.sourceSmoothTyped_measurableSet",
+        "I4SourceSmoothPalm.sourceSmoothLaw_endpoint_hasLaw",
+        "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integrable",
+        "I4SourceSmoothPalm.sourceSmoothLaw_weight_integral",
+        "I4SourceSmoothPalm.sourceSmoothLaw_weight_square_integral",
+        "I4SourceSmoothPalm.sourceSmoothWeightedLaw_endpoint_map",
+        "I4SourceSmoothPalm.sourceSmooth_weighted_event_bound_of_estimates",
+        "I4SourceSmoothPalm.sourceSmoothWeightedLaw_typed",
+        "I4SourceSmoothPalm.sourceSmoothWeightedLaw_raw_pins",
+        "I4SourceSmoothPalm.sourceSmoothPalm_estimates"
+      ],
+      "registered_count": 27,
+      "all_named_proof_instance_count": 28,
+      "primary_qualification_record": {
+        "path": "/workspace/scratch/regression-kernel/smooth-palm/EVIDENCE.json",
+        "sha256": "82462958b5f2c225e7e9b5e1380303c2f9c01b16308d08bf3dcc893338f52a1c",
+        "projection_path": "raw/SourceSmoothPalm/EVIDENCE.json"
+      },
+      "additional_final_records": [],
+      "source_contract": {
+        "path": "SOURCE_SMOOTH_PALM.md",
+        "sha256": "d18f9ad52c260330219ee41dfd0577c3359b6da9a7a9866f167452eb753bbb75",
+        "frozen_before_code_commit": "9c7984ea30eb6b09969405998bf5d195d793a08d"
+      },
+      "directly_printed_target_count": 27
+    },
+    {
+      "module": "GaussianWeightedMajorants",
+      "source": {
+        "path": "frontiers/source_derivative_gaussian_20261025/GaussianWeightedMajorants.lean",
+        "sha256": "3bde84aa83d02b364ca17f242cc5dbca83908c02f2f75649075d7da6a3d1bfd0",
+        "bytes": 20065,
+        "lines": 386,
+        "imports": [
+          "Mathlib.MeasureTheory.Order.Group.Lattice",
+          "Mathlib.Analysis.Convex.Jensen",
+          "Mathlib.Analysis.Convex.SpecificFunctions.Basic",
+          "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+          "Mathlib.Tactic.FieldSimp",
+          "Mathlib.Tactic.Ring",
+          "Mathlib.Tactic.Linarith",
+          "Mathlib.Tactic.Positivity",
+          "Mathlib.Probability.Distributions.Gaussian.Real",
+          "Mathlib.Probability.HasLaw",
+          "Mathlib.MeasureTheory.Constructions.BorelSpace.Order",
+          "Mathlib.Tactic.FunProp",
+          "Mathlib.MeasureTheory.Function.LpSpace.InfiniteSum",
+          "Mathlib.MeasureTheory.Function.LpSeminorm.SMul",
+          "Mathlib.MeasureTheory.Function.L1Space.Integrable"
+        ]
+      },
+      "source_commit": null,
+      "source_commit_note": "Frozen source hash supplied by actual qualification. Integration commit assigned by root; not falsely attributed to prior9c kernel-only commit.",
+      "targets": [
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.standardAbsMoment_integrable",
+          "line": 32
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_nonneg",
+          "line": 37
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_measurable",
+          "line": 41
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_memLp_bound",
+          "line": 68
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_ae_summable",
+          "line": 111
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_moment",
+          "line": 139
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_exp_bound",
+          "line": 336
+        },
+        {
+          "kind": "theorem",
+          "name": "I4GaussianMajorant.weightedAbsSeries_upper_tail",
+          "line": 360
+        }
+      ],
+      "registered_targets": [
+        "I4GaussianMajorant.standardAbsMoment_integrable",
+        "I4GaussianMajorant.weightedAbsSeries_nonneg",
+        "I4GaussianMajorant.weightedAbsSeries_measurable",
+        "I4GaussianMajorant.weightedAbsSeries_memLp_bound",
+        "I4GaussianMajorant.weightedAbsSeries_ae_summable",
+        "I4GaussianMajorant.weightedAbsSeries_moment",
+        "I4GaussianMajorant.weightedAbsSeries_exp_bound",
+        "I4GaussianMajorant.weightedAbsSeries_upper_tail"
+      ],
+      "registered_count": 8,
+      "all_named_proof_instance_count": 8,
+      "primary_qualification_record": {
+        "path": "/workspace/scratch/gaussian-majorants/majorants-07.json",
+        "sha256": "83070dccb92cccbcde9ab39f0d405ad40fe878027c55bcd9729ef402dc9ca157",
+        "projection_path": "raw/GaussianWeightedMajorants/majorants-07.json"
+      },
+      "additional_final_records": [
+        {
+          "path": "/workspace/scratch/gaussian-majorants/majorants-kernel.json",
+          "sha256": "c6682e47e7d7405c1629e444ea979558db47523d63860341d1ca93d92f793735",
+          "projection_path": "raw/GaussianWeightedMajorants/majorants-kernel.json"
+        },
+        {
+          "path": "/workspace/scratch/gaussian-majorants/majorants-controls-01.json",
+          "sha256": "6eecbe3fc93ced9a298278f6d15ac5f7f58ca1c7b3759e0a423d83404d20f1c5",
+          "projection_path": "raw/GaussianWeightedMajorants/majorants-controls-01.json"
+        }
+      ],
+      "source_contract": {
+        "path": "SOURCE_GAUSSIAN_MAJORANTS.md",
+        "sha256": "3adbab57e9ea6edbe8d4c5a4407824bb5af8e5390d2e11974540c4eb8be62274",
+        "frozen_before_code_commit": "9c7984ea30eb6b09969405998bf5d195d793a08d"
+      },
+      "directly_printed_target_count": 8
+    },
+    {
+      "module": "SourceConditionalMajorant",
+      "source": {
+        "path": "frontiers/source_derivative_gaussian_20261025/SourceConditionalMajorant.lean",
+        "sha256": "07ae7796e461a2ee59a757b37a3e64f7ed31c76d26a3b40825f23170fcb4e691",
+        "bytes": 24822,
+        "lines": 448,
+        "imports": [
+          "SourceSmoothConditionalKernel",
+          "GaussianWeightedMajorants",
+          "SourceSmoothPalm"
+        ]
+      },
+      "source_commit": null,
+      "source_commit_note": "Frozen source hash supplied by actual qualification. Integration commit assigned by root; not falsely attributed to prior9c kernel-only commit.",
+      "targets": [
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sampleMajorant_nonneg",
+          "line": 33
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable",
+          "line": 37
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.confluentMajorant_weighted_summable",
+          "line": 43
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.pinCoefficient_abs_le",
+          "line": 53
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceConfluentPins_abs_le",
+          "line": 58
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.pinLift_abs_le",
+          "line": 81
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.posterior_sampleMajorant_le",
+          "line": 109
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds",
+          "line": 148
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound",
+          "line": 187
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sampleMajorant_measurable",
+          "line": 205
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable",
+          "line": 210
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sampleMajorant_add",
+          "line": 213
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sampleMajorant_const_mul",
+          "line": 221
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination",
+          "line": 230
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.source_coordinate_hasLaw",
+          "line": 276
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sampleMajorant_prior_moment",
+          "line": 281
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_moments",
+          "line": 308
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail",
+          "line": 347
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail",
+          "line": 378
+        },
+        {
+          "kind": "theorem",
+          "name": "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail",
+          "line": 415
+        }
+      ],
+      "registered_targets": [
+        "I4SourceConditionalMajorant.sampleMajorant_nonneg",
+        "I4SourceConditionalMajorant.derivativeMajorant_weighted_summable",
+        "I4SourceConditionalMajorant.confluentMajorant_weighted_summable",
+        "I4SourceConditionalMajorant.pinCoefficient_abs_le",
+        "I4SourceConditionalMajorant.sourceConfluentPins_abs_le",
+        "I4SourceConditionalMajorant.pinLift_abs_le",
+        "I4SourceConditionalMajorant.posterior_sampleMajorant_le",
+        "I4SourceConditionalMajorant.sourceInverse_prescribed_uniform_bounds",
+        "I4SourceConditionalMajorant.smoothSourceField_global_derivative_bound",
+        "I4SourceConditionalMajorant.sampleMajorant_measurable",
+        "I4SourceConditionalMajorant.sourceDerivativeMajorant_measurable",
+        "I4SourceConditionalMajorant.sampleMajorant_add",
+        "I4SourceConditionalMajorant.sampleMajorant_const_mul",
+        "I4SourceConditionalMajorant.sourceDerivativeMajorant_uniform_domination",
+        "I4SourceConditionalMajorant.source_coordinate_hasLaw",
+        "I4SourceConditionalMajorant.sampleMajorant_prior_moment",
+        "I4SourceConditionalMajorant.sourceConditionalDerivative_moments",
+        "I4SourceConditionalMajorant.sourceConditionalDerivative_cutoff_tail",
+        "I4SourceConditionalMajorant.sourceConditionalDerivative_gaussian_upper_tail",
+        "I4SourceConditionalMajorant.sourceWeightedDerivative_cutoff_tail"
+      ],
+      "registered_count": 20,
+      "all_named_proof_instance_count": 20,
+      "primary_qualification_record": {
+        "path": "/workspace/scratch/dm2_landed_composition/conditional_majorant/qualification_receipt.json",
+        "sha256": "7ca25685f6d92d35289e7c30b851c0a81fb2b48786ad536b88713254258275ed",
+        "projection_path": "raw/SourceConditionalMajorant/qualification_receipt.json"
+      },
+      "additional_final_records": [],
+      "source_contract": {
+        "path": "SOURCE_CONDITIONAL_MAJORANT.md",
+        "sha256": "d7742ca40a564897fb1a1f1e7812e8ce0bd6ff531c5616dc8b4bd2ebb83815b0",
+        "frozen_before_code_commit": "9c7984ea30eb6b09969405998bf5d195d793a08d"
+      },
+      "directly_printed_target_count": 20
+    }
+  ],
+  "source_commit_scope": "Top-level9c source_commit binds SourceSmoothConditionalKernel only; new three modules have their exact frozen source hashes and separate receipts above.",
+  "historical_conditioning_54": {
+    "path": "historical-conditioning-54/FIELD_EVIDENCE_CATALOG.json",
+    "sha256": "9bf1823c9180314f56d31de7666788e4fe53052abca8b8589bc2871b7d4a7590",
+    "scope": "Exact original54-target conditioning-only snapshot, retained unchanged."
+  },
+  "scope_exclusions": [
+    "Read-only single-curvature parent proposal; no proof qualification or parent closure claimed.",
+    "Geometric Kac-Rice/Palm, Morse/elder/counting, historical midpoint nine-jet/event normalization, P0.2 and later parents require their own actual joins."
+  ],
+  "qualified_results": {
+    "full_carrier_conditioning": "Actual measurable Markov kernel; whole-carrier HasCondDistrib and every measurable functional, hL-only eventual; exact physical endpoint marginal.",
+    "literal_weighted_carrier_law": "Actual raw-Hessian strict max/saddle determinant density on full carrier. From hL and fixedb derive normalization/probability, moments/floor, all measurable carrier-event square-root bound, exact weighted endpoint pushforward and full raw-pin/strict-type support.",
+    "generic_gaussian_majorants": "Nonnegative summable weights, standard Gaussian marginals only, no independence premise. Sharp natural moment constant; separate folded-Gaussian exponential/Jensen/Fatou estimate and Chernoff upper tail.",
+    "actual_global_derivative_majorants": "MeasurableGamma dominates global pointwise operatornorm of every derivative. Retained drift+fixed positive summable weight dominates actual posterior uniformly at smallr. Every natural conditional moment on one interval, separate Gaussian upper tail with drift, every requested polynomial cutoff rate conditional and under actual weighted carrier law.",
+    "not_assumed": "No final moment, normalizer, tail, posterior or independence conclusion added as model premise; no geometricPalm identity or arbitrary uncountable-supremum measurability is inferred."
+  }
+}
