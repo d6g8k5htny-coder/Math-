@@ -1,0 +1,41 @@
+import Mathlib.Topology.Instances.Real.Lemmas
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Analysis.Normed.Group.Real
+
+open Filter Matrix
+open scoped Topology
+set_option autoImplicit false
+namespace ResearchFormalCoreR1
+
+theorem tendsto_matrix_mul_explicit {α p t q : Type*} [Fintype t]
+    {u : Filter α} {A : α → Matrix p t ℝ} {A0 : Matrix p t ℝ}
+    {B : α → Matrix t q ℝ} {B0 : Matrix t q ℝ}
+    (hA : Tendsto A u (𝓝 A0)) (hB : Tendsto B u (𝓝 B0)) :
+    Tendsto (fun r => A r * B r) u (𝓝 (A0 * B0)) := by
+  have hAij (i : p) (j : t) : Tendsto (fun r => A r i j) u (𝓝 (A0 i j)) :=
+    ((continuous_apply j).tendsto (A0 i)).comp
+      (((continuous_apply i).tendsto A0).comp hA)
+  have hBij (i : t) (j : q) : Tendsto (fun r => B r i j) u (𝓝 (B0 i j)) :=
+    ((continuous_apply j).tendsto (B0 i)).comp
+      (((continuous_apply i).tendsto B0).comp hB)
+  apply tendsto_pi_nhds.mpr
+  intro i
+  apply tendsto_pi_nhds.mpr
+  intro j
+  exact tendsto_finsetSum Finset.univ (fun k _ => (hAij i k).mul (hBij k j))
+
+theorem tendsto_matrix_mulVec_explicit {α p t : Type*} [Fintype t]
+    {u : Filter α} {A : α → Matrix p t ℝ} {A0 : Matrix p t ℝ}
+    {b : α → (t → ℝ)} {b0 : t → ℝ}
+    (hA : Tendsto A u (𝓝 A0)) (hb : Tendsto b u (𝓝 b0)) :
+    Tendsto (fun r => A r *ᵥ b r) u (𝓝 (A0 *ᵥ b0)) := by
+  have hAij (i : p) (j : t) : Tendsto (fun r => A r i j) u (𝓝 (A0 i j)) :=
+    ((continuous_apply j).tendsto (A0 i)).comp
+      (((continuous_apply i).tendsto A0).comp hA)
+  have hbi (i : t) : Tendsto (fun r => b r i) u (𝓝 (b0 i)) :=
+    ((continuous_apply i).tendsto b0).comp hb
+  apply tendsto_pi_nhds.mpr
+  intro i
+  exact tendsto_finsetSum Finset.univ (fun j _ => (hAij i j).mul (hbi j))
+end ResearchFormalCoreR1

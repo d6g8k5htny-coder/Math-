@@ -1,0 +1,7 @@
+import SourceDerivativeGaussian
+import ContactJetCovariance
+
+#check I4SourceContact.sourceContactVector_hasGaussianLaw
+#check I4SourceContact.sourceContactCovariance_eq_coefficientGram
+#check I4SourceContact.sourceContact_selected_columns
+#check I4SourceContact.sourceContactCovariance_posDef

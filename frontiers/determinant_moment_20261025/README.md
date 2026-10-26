@@ -1,39 +1,40 @@
-# Exact endpoint-Hessian determinant second moment
+# Gaussian endpoint moments, canonical conditioning and normalizer research
 
-P02-LM-002: for the source's exact nine-jet endpoint convention and 0<r<=1,
-W²<=16r⁴R⁸; an integrable eighth-radius moment bounded by M8 yields an integrable
-squared weight with expectation<=16M8r⁴. See SOURCE_MAP.md and SCOPE.md.
+This successor develops Gaussian eighth moments, literal six-endpoint determinant
+moment bounds, canonical Gaussian regression, positive normalizer deductions,
+and actual weighted-probability Cauchy–Schwarz transfer. Precise premises and
+remaining actual-field/parent joins are in SCOPE.md and the frozen SOURCE_*.md
+contracts. The sibling source_derivative_gaussian_20261025 packet proves actual
+Fourier derivative joint Gaussianity and covariance pairings on the existing
+smooth carrier.
 
-This supplies a missing formal determinant-moment step for the Palm-tail transfer.
-Concrete Gaussian moments, endpoint identification, normalizer and parent results
-remain open. Author OpenAI/Codex /root; scientific effect NONE.
+All authors/helpers are OpenAI/Codex. Scientific effect NONE; alignment is
+PENDING_INDEPENDENT_REVIEW. Original five-statement DM2 proof and evidence remain
+preserved. A quartic midpoint weight is not identified with arbitrary literal
+field endpoints; the new actual six-coordinate route is used explicitly.
 
-This isolated additive packet preserves the exact existing formal/gate.py and its
-13 necessary scalar baseline theorem bodies with narrow imports. It does not modify the occupied core gate
-or add a hosted workflow. The dependency lock and Lean/mathlib pins are unchanged.
-Repository-wide CI builds the original core formal package, not this packet.
+The isolated packet retains the original gate, thirteen scalar baseline proof
+bodies, Lean4.34.1/mathlib pins, axiom allowlist and five rejection controls.
+No occupied core source or hosted workflow is modified. Repository-wide CI
+builds the original core formal package; it does not qualify this packet.
 
-From this directory, with Lean v4.34.1 on PATH:
+From this directory, with the pinned lake on PATH:
 
 ```sh
-lake exe cache get
-python -B -S -m unittest discover -s tests -v
-python -B -O -S -m unittest discover -s tests -v
 python -B -S gate.py
 python -B -S gate.py --execute
 ```
 
-The gate's local exact-commit receipt and complete logs are produced under
-.lake/formal-evidence/. Successful local execution is distinct from trusted hosted
-execution and independent statement alignment. Both require their own evidence.
-A nonauthor same-provider source review is recorded separately and does not satisfy
-the unchanged provider-distinct alignment validator. No accepted alignment record
-or parent acceptance is claimed. Controls and actual run evidence are delivered
-separately; no old result is rebound to this new source.
+These are reproduction commands. Reuse completed applicable verification on
+unchanged sources; rerun only for a concrete new change or uncovered obligation.
+The changed root/inventory warrants one final gate execution. Original Python
+gate-test evidence remains applicable; new mathematical controls have separate
+actual logs, commands and outcomes. The new receipt is emitted under
+.lake/formal-evidence and delivered separately from immutable evidence/final,
+which belongs to the original DM2 execution.
 
-## Import-only memory repair
-
-The original full-Mathlib build passed but kernel replay exceeded 16GiB.
-SOURCE_MAP.md records that failure and the narrow-import successor. Every
-scalar statement/proof body, gate.py, pin and rejection control is preserved;
-only imports and their exact preservation-test expectations changed.
+Local kernel evidence, actual source identification, hosted execution and
+different-family scientific review must be reported separately. Historical
+scoped reviews and same-family technical work do not qualify the successor.
+The original research goal remains active until its actual remaining joins and
+parent obligations are discharged.

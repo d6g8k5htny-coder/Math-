@@ -1,0 +1,55 @@
+'I4SourceEndpointEstimates.sourcePhysicalCoordinates_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalCoordinates_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalCoordinates_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointWeight_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointWeight_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointWeight_eq_continuous' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_isProbabilityMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_euclidean_hasLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_physical_marginal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_weight_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_second_moment_of_parameter_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_weight_square_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpointLaw_weight_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePrescribedPins_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_weighted_event_bound_of_estimates' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_parameter_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_uniform_parameter_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_estimates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourceEndpoint_estimates_and_weighted_events' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalEndpointLaw_isProbabilityMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalEndpointKernel_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalEndpointWeightedProbability_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceEndpointEstimates.sourcePhysicalEndpoint_estimates_and_weighted_events' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

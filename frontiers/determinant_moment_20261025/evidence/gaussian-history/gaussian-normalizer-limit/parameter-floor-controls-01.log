@@ -1,0 +1,39 @@
+ResearchFormalCoreR1.gnl_normalizer_floor_of_parameter_limits (m : ℝ → EuclideanSpace ℝ (Fin 6))
+  (S : ℝ → Matrix (Fin 6) (Fin 6) ℝ) (m0 : EuclideanSpace ℝ (Fin 6)) (S0 : Matrix (Fin 6) (Fin 6) ℝ)
+  (hm : Tendsto m (𝓝[>] 0) (𝓝 m0)) (hS : Tendsto S (𝓝[>] 0) (𝓝 S0)) (hPSD : ∀ᶠ (r : ℝ) in 𝓝[>] 0, (S r).PosSemidef)
+  (hPSD0 : S0.PosSemidef) (hm0 : m0.ofLp 0 = -1) (hm1 : m0.ofLp 1 = 1) (hm23 : m0.ofLp 2 + m0.ofLp 3 = 0)
+  (hm45 : m0.ofLp 4 - m0.ofLp 5 = 0) (hS0 : S0 0 0 = 0) (hS1 : S0 1 1 = 0) (hS23 : S0 2 2 + 2 * S0 2 3 + S0 3 3 = 0)
+  (hS45 : S0 4 4 - 2 * S0 4 5 + S0 5 5 = 0) (hQpos : 0 < S0 4 4) :
+  ∃ c,
+    0 < c ∧
+      ∃ δ,
+        0 < δ ∧
+          ∀ (r : ℝ),
+            0 < r →
+              r < δ →
+                c * r ^ 2 ≤
+                  ∫ (x : EuclideanSpace ℝ (Fin 6)),
+                    r ^ 2 * gn_normalizedWeight r x.ofLp ∂multivariateGaussian (m r) (S r)
+ResearchFormalCoreR1.gnl_physical_normalizer_floor_of_parameter_limits (m : ℝ → EuclideanSpace ℝ (Fin 6))
+  (S : ℝ → Matrix (Fin 6) (Fin 6) ℝ) (m0 : EuclideanSpace ℝ (Fin 6)) (S0 : Matrix (Fin 6) (Fin 6) ℝ)
+  (hm : Tendsto m (𝓝[>] 0) (𝓝 m0)) (hS : Tendsto S (𝓝[>] 0) (𝓝 S0)) (hPSD : ∀ᶠ (r : ℝ) in 𝓝[>] 0, (S r).PosSemidef)
+  (hPSD0 : S0.PosSemidef) (hm0 : m0.ofLp 0 = -1) (hm1 : m0.ofLp 1 = 1) (hm23 : m0.ofLp 2 + m0.ofLp 3 = 0)
+  (hm45 : m0.ofLp 4 - m0.ofLp 5 = 0) (hS0 : S0 0 0 = 0) (hS1 : S0 1 1 = 0) (hS23 : S0 2 2 + 2 * S0 2 3 + S0 3 3 = 0)
+  (hS45 : S0 4 4 - 2 * S0 4 5 + S0 5 5 = 0) (hQpos : 0 < S0 4 4) :
+  ∃ c,
+    0 < c ∧
+      ∃ δ,
+        0 < δ ∧
+          ∀ (r : ℝ),
+            0 < r →
+              r < δ →
+                c * r ^ 2 ≤
+                  ∫ (x : EuclideanSpace ℝ (Fin 6)),
+                    egm_weight r
+                      ![x.ofLp 0, x.ofLp 2, x.ofLp 4, x.ofLp 1, x.ofLp 3, x.ofLp 5] ∂multivariateGaussian (m r) (S r)
+'ResearchFormalCoreR1.gnl_normalizer_floor_of_parameter_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ResearchFormalCoreR1.gnl_physical_normalizer_floor_of_parameter_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

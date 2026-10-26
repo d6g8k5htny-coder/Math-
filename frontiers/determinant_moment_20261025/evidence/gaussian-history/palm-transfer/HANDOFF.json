@@ -1,0 +1,37 @@
+{
+  "source": "ResearchFormalCoreR1/PalmReweighting.lean",
+  "sha256": "d34e422693f1d449bfcaf9c844c99c8fef4f19503312d3677ca525bd2d67c4d6",
+  "production_compile": "production-02",
+  "production_exit": 0,
+  "controls": "controls-04",
+  "controls_exit": 0,
+  "controls_scope": [
+    "nonunit constant weight2 defines probability",
+    "actualeventformula has mass1",
+    "r=1/2,C=64,c=8 inhabits square-root event bound",
+    "zero actualnormalizer cannot define probability"
+  ],
+  "negative_controls": {
+    "false-omit-normalizer-01": {
+      "exit": 1,
+      "expected_diagnostic": "unsolved goals: False"
+    },
+    "false-zero-normalizer-01": {
+      "exit": 1,
+      "expected_diagnostic": "unsolved goals: False"
+    }
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "author_lineage": [
+    "OpenAI/Codex /root/palm_measure_transfer",
+    "OpenAI/Codex /root/palm_measure_transfer/density_api (scratch-only density proof/API helper)"
+  ],
+  "scientific_review": "author-side only; different-family review not supplied",
+  "old_verification": "Not repeated; all runs target new module or new controls",
+  "kernel_replay": "Not run separately; parent changed-closure gate owns replay",
+  "command_files_note": "Executable argv rendered from the actual commands above; exitcodes and raw logs retained from executions. Earlier control source changed in response to logged tactic failures; final Controls.lean is controls-04 source."
+}

@@ -1,0 +1,27 @@
+I4SourceContact.sourceContactEndpointVector (L : ℝ) (ω : I4SmoothCarrier.SmoothSample 2 L) : Fin 6 → ℝ
+I4SourceContact.sourceContactEndpointCrossCovariance (L : ℝ) : Matrix (Fin 6) (Fin 6) ℝ
+I4SourceContact.sourceContactEndpointCovariance (L : ℝ) : Matrix (Fin 6) (Fin 6) ℝ
+I4SourceContact.sourceContactEndpointMean_contact {L : ℝ} (hL : L ≠ 0) (b : ℝ) :
+  sourceContactEndpointMean L b 0 = -1 ∧
+    sourceContactEndpointMean L b 1 = 1 ∧
+      sourceContactEndpointMean L b 2 + sourceContactEndpointMean L b 3 = 0 ∧
+        sourceContactEndpointMean L b 4 - sourceContactEndpointMean L b 5 = 0
+I4SourceContact.sourceContactEndpointSchur_covariance {L : ℝ} (hL : L ≠ 0) :
+  (∀ (i j : Fin 6),
+      ProbabilityTheory.covariance (fun ω => sourceContactEndpointResidual L ω i)
+          (fun ω => sourceContactEndpointResidual L ω j) (I4SmoothCarrier.smoothLaw 2 L) =
+        sourceContactEndpointSchur L i j) ∧
+    (sourceContactEndpointSchur L).PosSemidef
+I4SourceContact.sourceContactEndpointSchur_contact {L : ℝ} (hL : L ≠ 0) :
+  sourceContactEndpointSchur L 0 0 = 0 ∧
+    sourceContactEndpointSchur L 1 1 = 0 ∧
+      sourceContactEndpointSchur L 2 2 + 2 * sourceContactEndpointSchur L 2 3 + sourceContactEndpointSchur L 3 3 = 0 ∧
+        sourceContactEndpointSchur L 4 4 - 2 * sourceContactEndpointSchur L 4 5 + sourceContactEndpointSchur L 5 5 = 0
+I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos {L : ℝ} (hL : L ≠ 0) :
+  0 < sourceContactEndpointSchur L 4 4
+'I4SourceContact.sourceContactEndpointMean_contact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactEndpointSchur_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactEndpointSchur_contact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

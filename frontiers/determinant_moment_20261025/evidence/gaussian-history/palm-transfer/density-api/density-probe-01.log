@@ -1,0 +1,13 @@
+/workspace/scratch/palm-transfer/density-api/DensityProbe.lean:24:6: error(lean.unknownIdentifier): Unknown identifier `integral_div_const`
+/workspace/scratch/palm-transfer/density-api/DensityProbe.lean:18:70: error: unsolved goals
+Ω : Type u_1
+inst✝ : MeasurableSpace Ω
+μ : Measure Ω
+W : Ω → ℝ
+hW : Integrable W μ
+hW0 : ∀ (ω : Ω), 0 ≤ W ω
+hZ : 0 < ∫ (x : Ω), W x ∂μ
+E : Set Ω
+hE : MeasurableSet E
+⊢ ENNReal.ofReal (∫ (x : Ω) in E, W x / ∫ (x : Ω), W x ∂μ ∂μ) =
+    ENNReal.ofReal ((∫ (x : Ω) in E, W x ∂μ) / ∫ (x : Ω), W x ∂μ)

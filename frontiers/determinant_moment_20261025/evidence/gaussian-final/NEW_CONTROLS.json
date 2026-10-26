@@ -1,0 +1,99 @@
+{
+  "false_controls": [
+    {
+      "name": "gm8_false_centered_substitution",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/gaussian-parent-controls/gm8_false_centered_substitution.lean"
+      ],
+      "exit": 1,
+      "source_sha256": "96dcad5abc7a1fe24c42bf9c7544ecd6d6a81f71fe6245b9d4de07a5faffde91",
+      "log_sha256": "6425d08dffa942dac35c0d2c6049f7b45ea7e8ca3bd738d90d082358a6a80e6e",
+      "expected_success": false,
+      "diagnostics": "/workspace/scratch/gaussian-parent-controls/gm8_false_centered_substitution.lean:4:76: error: unsolved goals\n\u22a2 False\n"
+    },
+    {
+      "name": "gm8_false_omit_radius_one",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/gaussian-parent-controls/gm8_false_omit_radius_one.lean"
+      ],
+      "exit": 1,
+      "source_sha256": "e382d597a45d667a492f10127a50b54e016f8ab808f2b872d0d00acf781a8b9d",
+      "log_sha256": "c48135a6578a1e599f01bd5d60c41e8353fe574a3eb5a7fd6cc37e591f473b70",
+      "expected_success": false,
+      "diagnostics": "/workspace/scratch/gaussian-parent-controls/gm8_false_omit_radius_one.lean:5:46: error: unsolved goals\n\u22a2 False\n"
+    },
+    {
+      "name": "gn_false_degenerate_reference_floor",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/gaussian-parent-controls/gn_false_degenerate_reference_floor.lean"
+      ],
+      "exit": 1,
+      "source_sha256": "ef3e9a137e1cb0adb1e5608af2bba29a6b475ccb56a7206e3797e3c7bf4dcdd2",
+      "log_sha256": "256223c08bec680444daa53eff7bf2f75a97a6046d1175b183ae599b88f98fc6",
+      "expected_success": false,
+      "diagnostics": "/workspace/scratch/gaussian-parent-controls/gn_false_degenerate_reference_floor.lean:4:59: error: unsolved goals\n\u22a2 False\n"
+    },
+    {
+      "name": "gn_false_no_small_radius",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/gaussian-parent-controls/gn_false_no_small_radius.lean"
+      ],
+      "exit": 1,
+      "source_sha256": "c92e629433ec77f420400aaba2cdd9092d322555b0c01bd8836e87178ceca076",
+      "log_sha256": "aeee073a8c3898625adf42f138af830d9d75d656ddc2cac6e504341832b61958",
+      "expected_success": false,
+      "diagnostics": "/workspace/scratch/gaussian-parent-controls/gn_false_no_small_radius.lean:4:69: error: unsolved goals\n\u22a2 False\n"
+    },
+    {
+      "name": "egm_false_midpoint_identification",
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/scratch/gaussian-parent-controls/egm_false_midpoint_identification.lean"
+      ],
+      "exit": 1,
+      "source_sha256": "293faccdf06762221b99723c08acfb4130669b6b6600717a1f96c2c3aa9a4bc1",
+      "log_sha256": "7c68421d4fc5d388db70182f95c2a9502d5fd9523e9815ba418f1f20c766226b",
+      "expected_success": false,
+      "diagnostics": "/workspace/scratch/gaussian-parent-controls/egm_false_midpoint_identification.lean:6:54: error: unsolved goals\n\u22a2 False\n"
+    }
+  ],
+  "positive_successor": {
+    "source_path": "controls/gaussian_parent_positive_successor.lean.txt",
+    "source_sha256": "c73799328c4191422c13aefc458ffe6df200da610ec8e79f666db0fbf0817e51",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/gaussian-parent-controls/gaussian_parent_positive_successor.lean"
+    ],
+    "exit": 0,
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "previous_attempts": [
+      "initial missing .olean",
+      "second wrong map_dirac API; original checked-source file preserved"
+    ],
+    "source_changes": "Only successor control tactic API corrected; 66 proof targets/root/manifest unchanged; final gate evidence reused."
+  },
+  "core_proof_source_unchanged": true,
+  "historical_positive_control_status": "Original bound positive-control draft did not pass: missing import artifact first, wrong map_dirac tactic second. Both raw failures retained. A separately hashed successor fixes only that control API and passes. This does not change/rebind the successful66-target gate manifest."
+}

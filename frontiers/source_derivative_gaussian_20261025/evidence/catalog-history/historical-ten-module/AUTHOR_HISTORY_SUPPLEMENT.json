@@ -1,0 +1,110 @@
+{
+  "record_type": "author tool-history reports; not a machine-created execution receipt",
+  "scientific_effect": "NONE",
+  "reports": [
+    {
+      "author": "OpenAI/Codex /root/uniform_jet_moment_sources",
+      "scope": [
+        "SourceDerivativeGaussian",
+        "SourceContactCovariance",
+        "SourceDerivativeContinuity"
+      ],
+      "verbatim_report": "Author-history confirmation: all three exact SHA values you list are my final source bytes, unchanged by me since their recorded final compile/controls/axiom/kernel executions. No existing JSON receipt/sourcehash record file was created by me; SHA values were read by sha256sum after source freeze and reported in my source-bound handoffs to root. Treat that as author-history confirmation, not a machine-created execution receipt. Existing command/exit/log triples are the only machine artifacts I produced; please preserve those honest limits and do not rerun.",
+      "confirmed_source_hashes": {
+        "SourceDerivativeGaussian.lean": "c9754debcbf2aab7ff8d9604f2c13726723e8a8c1921ae68f83349205e43885d",
+        "SourceContactCovariance.lean": "4189cbaf4c18c55f21e3af2c96b0b2842d83161f44596eb691c507dcc1a439c8",
+        "SourceDerivativeContinuity.lean": "552511e0aee227133b7d067faeceaab9c43c0094b07d68b8eddab0ab2419775e"
+      }
+    },
+    {
+      "author": "OpenAI/Codex /root/regression_kernel",
+      "scope": [
+        "ContactJetCovariance",
+        "SourceContactSchur"
+      ],
+      "control_cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "capture_shell_prelude": "set -o pipefail",
+      "controls": [
+        {
+          "module": "ContactJetCovariance",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/PositiveControls-03.log",
+          "observed_exit": 0
+        },
+        {
+          "module": "ContactJetCovariance",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/RejectedZeroFrequency-01.log",
+          "observed_exit": 1
+        },
+        {
+          "module": "ContactJetCovariance",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/RejectedZeroAmplitude-01.log",
+          "observed_exit": 1
+        },
+        {
+          "module": "SourceContactSchur",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/PositiveControls-01.log",
+          "observed_exit": 0
+        },
+        {
+          "module": "SourceContactSchur",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/RejectedZeroPeriod-01.log",
+          "observed_exit": 1
+        },
+        {
+          "module": "SourceContactSchur",
+          "command": "/home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex.lean 2>&1 | tee /workspace/scratch/regression-kernel/source-contact-schur/RejectedWrongQIndex-01.log",
+          "observed_exit": 1
+        }
+      ],
+      "report_transcription": "Actual control commands, no rerun: cwd=/workspace/Math-/frontiers/source_derivative_gaussian_20261025; each ran bash set -o pipefail then /home/agent/.elan/bin/lake env lean /workspace/scratch/regression-kernel/contact-gram/PositiveControls.lean 2>&1 | tee /workspace/scratch/regression-kernel/contact-gram/PositiveControls-03.log observed exit0; corresponding contact-gram RejectedZeroFrequency.lean / RejectedZeroAmplitude.lean with matching -01.log each observed exit1. Schur controls same command pattern under scratch/regression-kernel/source-contact-schur/: PositiveControls.lean to PositiveControls-01.log observedexit0; RejectedZeroPeriod.lean and RejectedWrongQIndex.lean to matching-01.log each observedexit1. These are actual tool-observed command/exits from my current transcript. Helper evidence: /workspace/scratch/regression-kernel/contact-schur/SchurProbe.{lean,log} final exit0 and failed1 retained; /workspace/scratch/regression-kernel/contact-schur/actual-residual/ResidualVariance.{lean,log} final exit0 and ResidualVariance.failed1.* retained. Helpers coauthored OpenAI/Codex gaussian_api. Earlier failedproduction ContactJetCovariance-01 was assembly-script ValueError/no sourcefile, exit1; ContactJetCovariance-02 success. SourceContactSchur-01/-02/-03 failed author attempts exit1; -04 success.",
+      "transcription_note": "Faithful plain-text transcription of author report; punctuation/arrow notation normalized. Not a raw machine log."
+    },
+    {
+      "author": "OpenAI/Codex /root/normalizer_palm_research",
+      "scope": [
+        "GaussianRegressionLimits"
+      ],
+      "record_type": "actual author tool-history report; not a machine-created execution receipt",
+      "verbatim_report": "Author tool-history report (not invented machine receipt): cwd /workspace/Math-/frontiers/source_derivative_gaussian_20261025. Final compile `lake env lean -o .lake/build/lib/lean/GaussianRegressionLimits.olean GaussianRegressionLimits.lean` exit 0, captured /workspace/scratch/regression-limits/regression-limits-03.log empty. Kernel `lake env leanchecker GaussianRegressionLimits` exit 0, regression-limits-leanchecker.log empty. Final controls `lake env lean /workspace/scratch/regression-limits/regression-limits-controls.lean` exit 0, regression-limits-controls-02.log empty. Imported-module #print axioms outputs for regression_parameter_limits and regression_uniform_bounds are in controls-01.log (that command exit 1 for unrelated untyped control index); both only propext, Classical.choice, Quot.sound. No production changes occurred after final successful compile/kernel. Current source SHA256 read-only measured 26c403ea1104fbce89f5c2833f603edd4d2703669d8a94a77b2c9a2a06b572be. All three success logs empty SHA e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; controls01 SHA c705e3d645105af0a96a8b0463d6bdf18d5cd6d1d911d9cd617cc031302ba8be. Exact source compiled was this source, author-history association; no rerun.",
+      "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+      "confirmed_source_sha256": "26c403ea1104fbce89f5c2833f603edd4d2703669d8a94a77b2c9a2a06b572be",
+      "source_unchanged_after_final_compile_kernel": true,
+      "runs": [
+        {
+          "role": "final_compile",
+          "command": "lake env lean -o .lake/build/lib/lean/GaussianRegressionLimits.olean GaussianRegressionLimits.lean",
+          "observed_exit": 0,
+          "raw_log_path": "/workspace/scratch/regression-limits/regression-limits-03.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "role": "named_kernel",
+          "command": "lake env leanchecker GaussianRegressionLimits",
+          "observed_exit": 0,
+          "raw_log_path": "/workspace/scratch/regression-limits/regression-limits-leanchecker.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "role": "corrected_controls",
+          "command": "lake env lean /workspace/scratch/regression-limits/regression-limits-controls.lean",
+          "observed_exit": 0,
+          "raw_log_path": "/workspace/scratch/regression-limits/regression-limits-controls-02.log",
+          "raw_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "role": "initial_controls_container_with_valid_printed_axioms",
+          "command": "lake env lean /workspace/scratch/regression-limits/regression-limits-controls.lean",
+          "observed_exit": 1,
+          "raw_log_path": "/workspace/scratch/regression-limits/regression-limits-controls-01.log",
+          "raw_log_sha256": "c705e3d645105af0a96a8b0463d6bdf18d5cd6d1d911d9cd617cc031302ba8be"
+        }
+      ]
+    }
+  ],
+  "metadata_limits": [
+    "The three uniform_jet_moment_sources groups preserve exact command/exit/raw-log triples. Their source-hash association is an author-history confirmation plus current projection hashes, not a newly invented historical machine receipt.",
+    "The two regression_kernel control command strings above come from the author's actual tool-history report. Existing EVIDENCE.json files and raw logs separately retain their observed exit statuses.",
+    "GaussianRegressionLimits final-source command/exit association is an explicit author tool-history report, not a historical machine JSON receipt. Its initial controls container exited 1 for an unrelated control elaboration error while printing valid imported-module axiom reports; final corrected controls exited 0 separately."
+  ],
+  "reuse": "No checks repeated. These metadata limits do not invalidate completed applicable mathematical evidence or authorize a repeated proof campaign."
+}

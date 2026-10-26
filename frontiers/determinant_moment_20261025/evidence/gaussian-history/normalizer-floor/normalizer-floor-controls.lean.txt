@@ -1,0 +1,36 @@
+import ResearchFormalCoreR1.NormalizerFloor
+namespace ResearchFormalCoreR1
+open MeasureTheory ProbabilityTheory Filter
+open scoped Topology ENNReal NNReal
+
+-- A genuine noncentered Gaussian common coupling inhabits every premise.
+example : ∃ c : ℝ, 0 < c ∧ ∃ δ : ℝ, 0 < δ ∧
+    ∀ r : ℝ, 0 < r → r < δ → c*r^2 ≤
+      ∫ q : ℝ, r^2 * gn_normalizedWeight r ![-1,1,0,0,q,q] ∂gaussianReal 3 2 := by
+  have hcontact (r q : ℝ) :
+      gn_normalizedWeight r ![-1,1,0,0,q,q] = (max (-q) 0)^2 := by
+    simp [gn_normalizedWeight, pow_two]
+  have hmeas (r : ℝ) : Measurable (fun q : ℝ => (![-1,1,0,0,q,q] : Fin 6 → ℝ)) := by
+    fun_prop
+  have hi : ∀ᶠ r in 𝓝[>] (0:ℝ), Integrable
+      (fun q : ℝ => gn_normalizedWeight r ![-1,1,0,0,q,q]) (gaussianReal 3 2) := by
+    filter_upwards [] with r
+    simp_rw [hcontact]
+    exact (gn_gaussian_reference_integrable_pos 3 2 (by norm_num)).1
+  simpa using gn_normalizer_floor_of_common_coupling (gaussianReal 3 2)
+    (fun _r q => ![-1,1,0,0,q,q]) hmeas (fun _q => 0) id 3 2 (by norm_num)
+    (HasLaw.id) (Filter.Eventually.of_forall (fun _q => by simpa using tendsto_const_nhds)) hi
+
+-- Without nondegeneracy a positive constant Q can make every weight zero.
+example : ¬ ∃ c : ℝ, 0 < c ∧ ∃ δ : ℝ, 0 < δ ∧
+    ∀ r : ℝ, 0 < r → r < δ → c*r^2 ≤
+      ∫ q : ℝ, r^2 * gn_normalizedWeight r ![-1,1,0,0,1,1] ∂gaussianReal 1 0 := by
+  rintro ⟨c, hc, δ, hδ, hfloor⟩
+  have h := hfloor (δ/2) (by linarith) (by linarith)
+  have hp : 0 < c*(δ/2)^2 := mul_pos hc (sq_pos_of_pos (by linarith))
+  norm_num [gn_normalizedWeight] at h
+  linarith
+
+#check gn_normalizer_floor_of_common_coupling
+#print axioms gn_normalizer_floor_of_common_coupling
+end ResearchFormalCoreR1

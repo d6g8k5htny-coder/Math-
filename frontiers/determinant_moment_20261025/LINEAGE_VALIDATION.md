@@ -1,5 +1,22 @@
 # Declared-author lineage validation
 
+## 25 October Gaussian research successor contributor disclosure
+
+Root author: OpenAI/Codex /root. All scientific proposal/code/API helpers in this
+successor use the same OpenAI model family: /root/uniform_jet_moment_sources,
+/root/normalizer_palm_research and its scratch-only gaussian_reference_probe,
+/root/regression_kernel and its gaussian_api helper,
+/root/dm2_landed_composition, /root/palm_measure_transfer and its scratch-only
+density_api helper. Source contracts assign their mathematical scope.
+Their compiler checks, mathematical controls, kernel evidence and technical
+reading receive zero provider-distinct scientific-review credit. An attempted
+bridge helper was not created and is not represented as a contributor/reviewer.
+Historical source authors/reviews remain at their original immutable identities;
+neither inherited code nor historical scientific acceptance is reauthored here.
+
+The text below describes the unchanged historical validator. This disclosure
+does not create an accepted alignment record or change its distinctness rules.
+
 Scientific effect: **NONE**. This is an engineering successor to the validator,
 not an alignment acceptance, new proof, or scientific-status authority.
 Implementer: OpenAI / GPT-6 Astra Pro, ChatGPT session

@@ -1,0 +1,40 @@
+import SourceContactCovariance
+
+open I4Source I4Weights I4SmoothCarrier I4ContactGram I4SourceContact
+open MeasureTheory ProbabilityTheory
+
+example : (sourceContactMode 5).map (fun p => ((p.1 : Fin 2 → ℤ), p.2)) =
+    some (![2,0], true) := rfl
+
+example : (sourceContactMode 3).map (fun p => ((p.1 : Fin 2 → ℤ), p.2)) =
+    some (![1,1], false) := rfl
+
+example (L : ℝ) : sourceContactCoefficient L 5 (sourceContactMode 5) =
+    sourceContactAmplitude L 5 * (-8 * sourceC L ^ 3) := by
+  simpa [contactWitness] using sourceContact_selected_columns L 5 5
+
+example (L : ℝ) : sourceContactCoefficient L 4 (sourceContactMode 3) =
+    sourceContactAmplitude L 3 * (-sourceC L ^ 2) := by
+  simpa [contactWitness] using sourceContact_selected_columns L 4 3
+
+example {L : ℝ} (hL : L ≠ 0) : sourceContactCoefficient L 5 (sourceContactMode 5) ≠
+    sourceContactAmplitude L 5 * (-2 * sourceC L ^ 3) := by
+  have hcol : sourceContactCoefficient L 5 (sourceContactMode 5) =
+      sourceContactAmplitude L 5 * (-8 * sourceC L ^ 3) := by
+    simpa [contactWitness] using sourceContact_selected_columns L 5 5
+  rw [hcol]
+  intro h
+  have hc : sourceC L ≠ 0 := div_ne_zero
+    (mul_ne_zero (by norm_num) (ne_of_gt Real.pi_pos)) hL
+  have hp : sourceContactAmplitude L 5 * sourceC L ^ 3 ≠ 0 :=
+    mul_ne_zero (sourceContactAmplitude_pos hL 5).ne' (pow_ne_zero _ hc)
+  apply hp
+  nlinarith [h]
+
+example : (sourceContactCovariance 24).PosDef := sourceContactCovariance_posDef (by norm_num)
+
+example : (sourceContactCovariance (-24)).PosDef := sourceContactCovariance_posDef (by norm_num)
+
+example {L : ℝ} (hL : L ≠ 0) :
+    HasGaussianLaw (sourceContactVector L) (smoothLaw 2 L) :=
+  sourceContactVector_hasGaussianLaw hL

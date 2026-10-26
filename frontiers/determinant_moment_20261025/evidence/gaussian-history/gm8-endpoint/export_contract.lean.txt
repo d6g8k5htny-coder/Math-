@@ -1,0 +1,26 @@
+import ResearchFormalCoreR1.EndpointGaussianMoments
+
+open MeasureTheory ProbabilityTheory ResearchFormalCoreR1
+open scoped NNReal
+
+#check egm_HM
+#check egm_HS
+#check egm_weight
+#check egm_weight_measurable
+#check egm_pointwise
+#check egm_gaussian_moment
+
+example : egm_weight (1 / 2) ![-1,0,-1,1,0,-1] = 1 / 4 := by
+  norm_num [egm_weight, egm_HM, egm_HS, dm2_negative_iff, Matrix.det_fin_two]
+
+example : egm_weight (1 / 2) ![1,0,-1,1,0,-1] = 0 := by
+  norm_num [egm_weight, egm_HM, egm_HS, dm2_negative_iff, Matrix.det_fin_two]
+
+example {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
+    (J : Ω → Fin 6 → ℝ) (hJ : Measurable J) (m : Fin 6 → ℝ) (v : Fin 6 → ℝ≥0)
+    (B V r : ℝ) (hB : 0 ≤ B) (hV : 0 ≤ V) (hr : 0 < r) (hr1 : r ≤ 1)
+    (hmean : ∀ i, |m i| ≤ B) (hvar : ∀ i, (v i : ℝ) ≤ V)
+    (hlaw : ∀ i, HasLaw (fun x => J x i) (gaussianReal (m i) (v i)) μ) :
+    Integrable (fun x => egm_weight r (J x)^2) μ ∧
+      (∫ x, egm_weight r (J x)^2 ∂μ) ≤ 16 * gm8FiniteM8 6 B V * r^4 :=
+  egm_gaussian_moment μ J hJ m v B V r hB hV hr hr1 hmean hvar hlaw

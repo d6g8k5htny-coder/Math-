@@ -1,0 +1,75 @@
+import SourceEndpointRegression
+
+noncomputable section
+open I4Foundation I4Source I4SourceGaussian I4SmoothCarrier I4SourceDerivativeGaussian
+open I4SourceConfluentPins I4SourceEndpointRegression
+open MeasureTheory ProbabilityTheory
+open scoped BigOperators
+set_option autoImplicit false
+
+namespace EndpointMeans
+
+theorem smoothSourceField_derivative_integral_zero (d : ℕ) {L : ℝ} (hL : L ≠ 0)
+    (k : ℕ) (x : Fin d → ℝ) (u : Fin k → (Fin d → ℝ)) :
+    (∫ ω, iteratedFDeriv ℝ k (smoothSourceField d L ω) x u ∂smoothLaw d L) = 0 := by
+  simp_rw [smoothSourceField_derivative_series d hL]
+  have hm := integral_map (μ := smoothLaw d L) (sampleInclusion_measurable d L).aemeasurable
+    (scalarSeries_measurable (derivativeCoefficient d L k x u)).aestronglyMeasurable
+  rw [sampleInclusion_map d hL] at hm
+  rw [← hm]
+  exact scalarSeries_integral_zero _ (derivativeCoefficient_summable d hL k x u)
+
+theorem rawPinsWithHessians_integral_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) (i : Fin 12) :
+    (∫ ω, rawPinsWithHessians L r ω i ∂smoothLaw 2 L) = 0 := by
+  fin_cases i
+  all_goals dsimp [rawPinsWithHessians, rawPins]
+  all_goals first
+    | exact smoothSourceField_derivative_integral_zero 2 hL 2 _ _
+    | simpa only [iteratedFDeriv_zero_apply] using
+        smoothSourceField_derivative_integral_zero 2 hL 0 _ ![]
+    | simpa [iteratedFDeriv_one_apply] using
+        smoothSourceField_derivative_integral_zero 2 hL 1 _ ![directionX]
+    | simpa [iteratedFDeriv_one_apply] using
+        smoothSourceField_derivative_integral_zero 2 hL 1 _ ![directionY]
+
+theorem rawPinsWithHessians_integral_vector_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    (∫ ω, rawPinsWithHessians L r ω ∂smoothLaw 2 L) = 0 := by
+  ext i
+  have hh := (ContinuousLinearMap.proj i : (Fin 12 → ℝ) →L[ℝ] ℝ).integral_comp_comm
+    (rawPinsWithHessians_hasGaussianLaw hL r).integrable
+  change (∫ ω, rawPinsWithHessians L r ω i ∂smoothLaw 2 L) =
+    (∫ ω, rawPinsWithHessians L r ω ∂smoothLaw 2 L) i at hh
+  change (∫ ω, rawPinsWithHessians L r ω ∂smoothLaw 2 L) i = 0
+  rw [← hh]
+  exact rawPinsWithHessians_integral_zero hL r i
+
+theorem sourcePins_adjusted_integral_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    (∫ ω, (sourceConfluentPinsAt L r ω, sourceAdjustedEndpoints L r ω) ∂smoothLaw 2 L) = 0 := by
+  have hh := (endpointObservationMap r).integral_comp_comm
+    (rawPinsWithHessians_hasGaussianLaw hL r).integrable
+  simp_rw [endpointObservationMap_actual] at hh
+  rw [rawPinsWithHessians_integral_vector_zero hL r, map_zero] at hh
+  exact hh
+
+theorem sourceConfluentPinsAt_integral_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    (∫ ω, sourceConfluentPinsAt L r ω ∂smoothLaw 2 L) = 0 := by
+  have hh := congrArg Prod.fst (sourcePins_adjusted_integral_zero hL r)
+  rw [fst_integral (sourcePins_adjusted_hasGaussianLaw hL r).integrable] at hh
+  exact hh
+
+theorem sourceAdjustedEndpoints_integral_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    (∫ ω, sourceAdjustedEndpoints L r ω ∂smoothLaw 2 L) = 0 := by
+  have hh := congrArg Prod.snd (sourcePins_adjusted_integral_zero hL r)
+  rw [snd_integral (sourcePins_adjusted_hasGaussianLaw hL r).integrable] at hh
+  exact hh
+
+theorem sourceEndpointResidual_integral_zero {L : ℝ} (hL : L ≠ 0) (r : ℝ) :
+    (∫ ω, sourceEndpointResidual L r ω ∂smoothLaw 2 L) = 0 := by
+  have hG := sourcePins_adjusted_hasGaussianLaw hL r
+  unfold sourceEndpointResidual
+  rw [integral_sub hG.snd.integrable (hG.fst.map_fun (sourceRegressionMapAt L r)).integrable,
+    (sourceRegressionMapAt L r).integral_comp_comm hG.fst.integrable,
+    sourceAdjustedEndpoints_integral_zero hL r, sourceConfluentPinsAt_integral_zero hL r,
+    map_zero, sub_zero]
+
+end EndpointMeans

@@ -1,0 +1,11 @@
+import ResearchFormalCoreR1.PalmReweighting
+
+open MeasureTheory
+open scoped ENNReal
+
+-- Intentionally false: a density of constant two without normalization
+-- has total mass two, rather than one.
+example : IsProbabilityMeasure
+    ((Measure.dirac (0 : ℝ)).withDensity (fun _ => ENNReal.ofReal (2 : ℝ))) := by
+  constructor
+  norm_num [withDensity_apply]

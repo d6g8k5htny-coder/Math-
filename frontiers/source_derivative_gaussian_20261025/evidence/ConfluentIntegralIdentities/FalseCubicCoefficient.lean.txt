@@ -1,0 +1,5 @@
+import ConfluentIntegralIdentities
+open I4ConfluentIntegralIdentities
+-- A missing factor of two in the cubic Peano normalization is false.
+example : pin5 (fun x : ℝ => x^3) (-2) = 3 := by
+  norm_num [pin5, deriv_pow_field]
