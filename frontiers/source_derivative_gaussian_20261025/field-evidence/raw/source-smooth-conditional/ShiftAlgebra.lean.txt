@@ -1,0 +1,33 @@
+import SourceConfluentLimits
+
+noncomputable section
+open I4Foundation I4ContactGram
+open MeasureTheory ProbabilityTheory
+open scoped BigOperators
+
+set_option autoImplicit false
+
+namespace I4SourceSmoothConditional
+
+lemma scalarSeries_add_finiteShift {ι : Type*} {n : ℕ}
+    (a : ι → ℝ) (b : Fin n → ι → ℝ) (ω : ι → ℝ) (c : Fin n → ℝ)
+    (ha : Summable a) (hb : ∀ j, Summable (b j))
+    (hω : Summable (fun m => a m * ω m)) :
+    scalarSeries a (fun m => ω m + ∑ j, b j m * c j) =
+      scalarSeries a ω + ∑ j, (∑' m, a m * b j m) * c j := by
+  have hs : HasSum (fun m => ∑ j, (a m * b j m) * c j)
+      (∑ j, (∑' m, a m * b j m) * c j) :=
+    hasSum_sum (fun j _ => ((coefficient_product_summable ha (hb j)).hasSum).mul_right (c j))
+  have ht := hω.hasSum.add hs
+  change (∑' m, a m * (ω m + ∑ j, b j m * c j)) =
+    (∑' m, a m * ω m) + ∑ j, (∑' m, a m * b j m) * c j
+  convert ht.tsum_eq using 1
+  apply tsum_congr
+  intro m
+  rw [mul_add, Finset.mul_sum]
+  congr 1
+  apply Finset.sum_congr rfl
+  intro j _
+  ring
+
+end I4SourceSmoothConditional

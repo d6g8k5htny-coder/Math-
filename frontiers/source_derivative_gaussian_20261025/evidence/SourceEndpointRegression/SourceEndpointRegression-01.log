@@ -1,0 +1,7 @@
+SourceEndpointRegression.lean:74:4: error: `fun_prop` was unable to prove `Continuous fun v =>
+  let x := confluentTransform r fun i => v (Fin.castAdd 6 i);
+  (x, ![(v 6 - x 3) / r, (v 9 - x 3) / r, (v 7 - x 4) / r, (v 10 - x 4) / r, v 8, v 11])`
+
+Issues:
+  No theorems found for `I4SourceConfluentPins.confluentTransform` in order to prove `Continuous fun x1 => confluentTransform r x1`
+  No theorems found for `I4SourceConfluentPins.confluentTransform` in order to prove `Continuous fun x => confluentTransform r fun i => x (Fin.castAdd 6 i)`

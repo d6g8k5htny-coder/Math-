@@ -1,0 +1,41 @@
+ConfluentIntegralIdentities.lean:70:19: error: Type mismatch: After simplification, term
+  HasDerivAt.sub (hasDerivAt_const u (1 / 2)) (hasDerivAt_id u)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ ((fun x => 2⁻¹) - id)
+    (-1) u
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedCommRing.toAddCommGroup
+    (NormedAlgebra.toNormedSpace ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun u => 2⁻¹ - u)
+    (-1) u
+ConfluentIntegralIdentities.lean:78:2: error: linarith failed to find a contradiction
+case h1
+g g' : ℝ → ℝ
+hg : ∀ (x : ℝ), HasDerivAt g (g' x) x
+hc : Continuous g'
+r : ℝ
+hr : r ≠ 0
+hgc : Continuous g
+hc' : Continuous fun u => r * g' (r * u)
+hfun : (fun u => (1 / 2 - u) * (r * g' (r * u))) = fun u => r * ((1 / 2 - u) * g' (r * u))
+h :
+  r * ∫ (x : ℝ) in -(1 / 2)..1 / 2, (1 / 2 - x) * g' (r * x) =
+    -g (-(r * (1 / 2))) + ∫ (x : ℝ) in -(1 / 2)..1 / 2, g (r * x)
+a✝ : g (-r / 2) - ∫ (u : ℝ) in -1 / 2..1 / 2, g (r * u) < (-∫ (u : ℝ) in -1 / 2..1 / 2, (1 / 2 - u) * g' (r * u)) * r
+⊢ False
+failed
+ConfluentIntegralIdentities.lean:101:2: error: linarith failed to find a contradiction
+case h1
+g g' : ℝ → ℝ
+hg : ∀ (x : ℝ), HasDerivAt g (g' x) x
+hc : Continuous g'
+r : ℝ
+hr : r ≠ 0
+hgc : Continuous g
+hc' : Continuous fun u => r * g' (r * u)
+hfun : (fun u => (u + 1 / 2) * (r * g' (r * u))) = fun u => r * ((u + 1 / 2) * g' (r * u))
+h :
+  r * ∫ (x : ℝ) in -(1 / 2)..1 / 2, (x + 1 / 2) * g' (r * x) = g (r * (1 / 2)) - ∫ (x : ℝ) in -(1 / 2)..1 / 2, g (r * x)
+a✝ : g (r / 2) - ∫ (u : ℝ) in -1 / 2..1 / 2, g (r * u) < (∫ (u : ℝ) in -1 / 2..1 / 2, (u + 1 / 2) * g' (r * u)) * r
+⊢ False
+failed

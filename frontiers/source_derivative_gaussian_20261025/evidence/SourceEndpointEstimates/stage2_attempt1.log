@@ -1,0 +1,6 @@
+SourceEndpointEstimates.lean:165:2: error: Type mismatch: After simplification, term
+  Tendsto.mono_left (ContinuousAt.tendsto (Continuous.continuousAt hc)) nhdsWithin_le_nhds
+ has type
+  Tendsto (fun r => ![b - r ^ 3 / 12, 0, 0, 0, 0, 2]) (𝓝[?m.131] ?m.130) (𝓝 ![b - ?m.130 ^ 3 / 12, 0, 0, 0, 0, 2])
+but is expected to have type
+  Tendsto (fun r => ![b - r ^ 3 / 12, 0, 0, 0, 0, 2]) (𝓝[>] 0) (𝓝 ![b, 0, 0, 0, 0, 2])

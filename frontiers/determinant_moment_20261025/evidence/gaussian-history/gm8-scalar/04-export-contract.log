@@ -1,0 +1,7 @@
+ResearchFormalCoreR1.gm8C8 : ℝ
+ResearchFormalCoreR1.gm8_standard_integrable : Integrable (fun z => |z| ^ 8) (gaussianReal 0 1)
+ResearchFormalCoreR1.gm8_standard_nonneg : 0 ≤ gm8C8
+ResearchFormalCoreR1.gm8_scalar_integrable_bound (m B V : ℝ) (v : ℝ≥0) (hB : 0 ≤ B) (hV : 0 ≤ V) (hm : |m| ≤ B)
+  (hv : ↑v ≤ V) :
+  Integrable (fun x => |x| ^ 8) (gaussianReal m v) ∧
+    ∫ (x : ℝ), |x| ^ 8 ∂gaussianReal m v ≤ 128 * (B ^ 8 + V ^ 4 * gm8C8)

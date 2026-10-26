@@ -1,0 +1,41 @@
+SourceContactEndpointParameters.lean:198:40: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?f i / ?a
+in the target expression
+  ∑ x_1, -sourcePinCovariance L 5 x_1 / 2 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1 =
+    (∑ x_1, -(sourcePinCovariance L 5 x_1 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1)) / 2
+
+case left
+L : ℝ
+hL : L ≠ 0
+x : Fin 6 → ℝ
+x✝ : Invertible (sourcePinCovariance L) := ⋯.invertible
+hcancel : sourcePinCovariance L *ᵥ (sourcePinCovariance L)⁻¹ *ᵥ x = x
+hc : ∑ j, sourcePinCovariance L 5 j * ((sourcePinCovariance L)⁻¹ *ᵥ x) j = x 5
+⊢ ∑ x_1, -sourcePinCovariance L 5 x_1 / 2 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1 =
+    (∑ x_1, -(sourcePinCovariance L 5 x_1 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1)) / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    sourcePinCovariance L 5
+SourceContactEndpointParameters.lean:202:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∑ i ∈ ?s, ?f i / ?a
+in the target expression
+  ∑ x_1, sourcePinCovariance L 5 x_1 / 2 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1 =
+    (∑ j, sourcePinCovariance L 5 j * ((sourcePinCovariance L)⁻¹ *ᵥ x) j) / 2
+
+case right
+L : ℝ
+hL : L ≠ 0
+x : Fin 6 → ℝ
+x✝ : Invertible (sourcePinCovariance L) := ⋯.invertible
+hcancel : sourcePinCovariance L *ᵥ (sourcePinCovariance L)⁻¹ *ᵥ x = x
+hc : ∑ j, sourcePinCovariance L 5 j * ((sourcePinCovariance L)⁻¹ *ᵥ x) j = x 5
+⊢ ∑ x_1, sourcePinCovariance L 5 x_1 / 2 * ((sourcePinCovariance L)⁻¹ *ᵥ x) x_1 =
+    (∑ j, sourcePinCovariance L 5 j * ((sourcePinCovariance L)⁻¹ *ᵥ x) j) / 2
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    sourcePinCovariance L 5
+SourceContactEndpointParameters.lean:241:64: error(lean.unknownIdentifier): Unknown constant `Matrix.empty_val`

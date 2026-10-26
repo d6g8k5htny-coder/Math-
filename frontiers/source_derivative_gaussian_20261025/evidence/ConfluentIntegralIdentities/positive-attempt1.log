@@ -1,0 +1,8 @@
+/workspace/scratch/dm2_landed_composition/confluent_integrals/PositiveControls.lean:30:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fun u => (1 / 4 - u ^ 2) * 6
+in the target expression
+  (∫ (x : ℝ) in -(1 / 2)..1 / 2, 1 / 4 - x ^ 2) * 6 = 1
+
+h : (∫ (x : ℝ) in -(1 / 2)..1 / 2, 1 / 4 - x ^ 2) * 6 = 1
+heq : (fun u => (1 / 4 - u ^ 2) * 6) = fun u => 6 * (1 / 4 - u ^ 2)
+⊢ 6 * ∫ (u : ℝ) in -1 / 2..1 / 2, 1 / 4 - u ^ 2 = 1

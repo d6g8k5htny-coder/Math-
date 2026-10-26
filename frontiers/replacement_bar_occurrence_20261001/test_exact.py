@@ -109,6 +109,16 @@ class ExactControls(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'manifest digest'):
                 c.verify_sources(Path(tmp),path)
 
+    def test_single_backslash_name_rejected_as_noncanonical(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            name = r"single\backslash.txt"
+            if len(Path(name).parts) != 1:
+                self.skipTest("requires POSIX single-backslash filename")
+            (root / name).write_bytes(b"source")
+            with self.assertRaisesRegex(ValueError, "noncanonical source path"):
+                c.contained_file(root, name)
+
     def test_source_bytes_and_blob_fail_closed(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp); (root/'x').write_bytes(b'abc')

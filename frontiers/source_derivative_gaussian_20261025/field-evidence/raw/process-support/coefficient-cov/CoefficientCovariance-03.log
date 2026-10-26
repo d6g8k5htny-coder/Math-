@@ -1,0 +1,14 @@
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:25:10: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn, Ne.symm hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/regression-kernel/smooth-conditional/coefficient-cov/CoefficientCovariance.lean:25:31: warning: This simp argument is unused:
+  Ne.symm hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Pi.single_apply, hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

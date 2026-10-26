@@ -1,0 +1,96 @@
+'I4SourceSmoothConditional.exists_measurable_sampleProjection' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.goodSample_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.goodSample_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.derivativeCoefficient_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.finiteCoefficient_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.pinCoefficient_weighted_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.adjustedCoefficient_weighted_summable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceConfluentPinsAt_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceAdjustedEndpoints_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.pinLift_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pinLift_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pinLift_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pinLift_goodSample' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pinLift_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.addLift_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.addLift_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.scalarSeries_add_finiteShift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceConfluentPinsAt_addLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceAdjustedEndpoints_addLift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceConfluentPinsAt_posteriorSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceAdjustedEndpoints_posteriorSample' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_isMarkov' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_pin_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_pin_fiber' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_endpoint_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.scalarSeries_finite_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.scalarSeries_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.scalarSeries_coordinate_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.pin_coefficient_covariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pin_finite_coefficients_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.finiteLift_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.pin_residual_finite_hasGaussianLaw' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.coefficient_hasGaussianLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.residualCoefficient_zero_covariance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.residualCoefficient_finite_indepFun' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.residualCoefficient_indepFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceNormalizedEndpoints_measurable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_physical_endpoint_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_physical_prescribed_map' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_eq_addLift_residual' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.addLift_observation_residual' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_zero_inclusion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.posteriorSample_zero_indepFun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_hasCondDistrib' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_map_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.smoothSourceField_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_field_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_eventually_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'I4SourceSmoothConditional.sourceSmoothKernel_eventually_map_hasCondDistrib' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "leanchecker",
+    "SourceConfluentLimits"
+  ],
+  "cwd": "/workspace/Math-/frontiers/source_derivative_gaussian_20261025",
+  "exitcode": 0,
+  "elapsed_seconds": 18.978482509999594,
+  "source_sha256_before": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "source_sha256_after": "1635a05bbd5b56608bc0a1a04eb4404c2df4601f1255f5846c1342a597bf5b0b",
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

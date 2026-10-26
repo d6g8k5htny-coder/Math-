@@ -1,0 +1,50 @@
+{
+  "role": "read-only reuse of completed transitive axiom evidence, not a new execution receipt",
+  "coverage": [
+    {
+      "target": "I4SourceContact.sourceContactEndpointSchur_posSemidef",
+      "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+      "source_path": "SourceContactEndpointParameters.lean",
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "printed_parent": "I4SourceEndpointEstimates.sourceEndpoint_normalizer_floor",
+      "printed_parent_source_path": "SourceEndpointEstimates.lean",
+      "printed_parent_source_sha256": "d1f08d80d06d1ac08afbdd700370059fd8eaf0d4e483916e742efcdd1f664598",
+      "source_code_edge": {
+        "line": 259,
+        "text": "hm hS hPSD (sourceContactEndpointSchur_posSemidef hL)"
+      },
+      "raw_log_path": "/workspace/scratch/dm2_landed_composition/endpoint_estimates/axioms.log",
+      "printed_parent_log_line": 38,
+      "permitted_axioms_by_parent_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+      "raw_log_sha256": "ded91623f2200300ff7b8ab366f5aa64564a157dd98166cb3eedaa10c884caf1"
+    },
+    {
+      "target": "I4SourceContact.sourceContactEndpointSchur_four_four_eq_schur",
+      "kind": "TRANSITIVE_FROM_PRINTED_PARENT",
+      "source_path": "SourceContactEndpointParameters.lean",
+      "source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "printed_parent": "I4SourceContact.sourceContactEndpointSchur_referenceVariance_pos",
+      "printed_parent_source_path": "SourceContactEndpointParameters.lean",
+      "printed_parent_source_sha256": "da5337a7814a008eaa8b8a98c0df4daf3efb1bc347789a2f75efc63c9c258d01",
+      "source_code_edge": {
+        "line": 322,
+        "text": "rw [sourceContactEndpointSchur_four_four_eq_schur]"
+      },
+      "raw_log_path": "/workspace/scratch/contact-endpoint-parameters/contact-parameters-controls-01.log",
+      "printed_parent_log_line": 25,
+      "permitted_axioms_by_parent_bound": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "qualification": "Applicable completed named-kernel and printed-parent transitive axiom evidence reused; no direct target #print output claimed.",
+      "raw_log_sha256": "3eb74647a2d1698732992034708b9c24d542250b15358cac3db4130130c3183a"
+    }
+  ],
+  "owner_reuse_basis": "Two public helpers are consumed by already printed parents whose transitive reports allow only the three standard axioms. A direct-output process gap does not erase completed applicable mathematical evidence. No rebuild/re-audit solely to create clean output."
+}

@@ -1,0 +1,75 @@
+SourceConfluentPins.lean:43:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+SourceConfluentPins.lean:93:52: error: unsolved goals
+case «0»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionX) =
+    smoothSourceField 2 L ω (endpointM r)
+
+case «1»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionX) =
+    smoothSourceField 2 L ω (endpointS r)
+
+case «2»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionX) =
+    (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX
+
+case «3»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionX) =
+    (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX
+
+case «4»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionY) =
+    (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY
+
+case «5»
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+k : Fin 6 → ℕ := ![0, 0, 1, 1, 1, 1]
+x : Fin 6 → Fin 2 → ℝ := ![endpointM r, endpointS r, endpointM r, endpointS r, endpointM r, endpointS r]
+u : (j : Fin 6) → Fin (k j) → Fin 2 → ℝ := fun j x => if ↑j < 4 then directionX else directionY
+hG : HasGaussianLaw (fun ω j => (iteratedFDeriv ℝ (k j) (smoothSourceField 2 L ω) (x j)) (u j)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionY) =
+    (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY

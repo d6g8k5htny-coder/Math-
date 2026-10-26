@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourceSmoothConditionalKernel.olean",
+    "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean"
+  ],
+  "cwd": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025",
+  "exit_code": 1,
+  "source": "/workspace/Math-wholefield-20261025/frontiers/source_derivative_gaussian_20261025/SourceSmoothConditionalKernel.lean",
+  "source_sha256_before": "34b9fc35c07877769c48f44de731a09096690cec07e5eda2b3af44fbd22d2969",
+  "source_sha256_after": "34b9fc35c07877769c48f44de731a09096690cec07e5eda2b3af44fbd22d2969",
+  "log_sha256": "876b6c8dc51fb2ae4536f33feac0804b74a3c3d92f13e1994beb5012035d3866",
+  "elapsed_seconds": 5.5068817138671875
+}

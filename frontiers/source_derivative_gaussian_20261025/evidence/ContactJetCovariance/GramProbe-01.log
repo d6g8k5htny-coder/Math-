@@ -1,0 +1,12 @@
+/workspace/scratch/regression-kernel/contact-gram/GramProbe.lean:14:46: error(lean.invalidField): Invalid field `norm`: The environment does not contain `Exists.norm`, so it is not possible to project the field `norm` from an expression
+  ha
+of type `∃ a_1, HasSum a a_1`
+/workspace/scratch/regression-kernel/contact-gram/GramProbe.lean:14:54: error(lean.invalidField): Invalid field `norm`: The environment does not contain `Exists.norm`, so it is not possible to project the field `norm` from an expression
+  hb
+of type `∃ a, HasSum b a`
+/workspace/scratch/regression-kernel/contact-gram/GramProbe.lean:13:75: error: unsolved goals
+ι : Type u_1
+a b : ι → ℝ
+ha : Summable a
+hb : Summable b
+⊢ Summable fun m => a m * b m
