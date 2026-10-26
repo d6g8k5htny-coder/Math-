@@ -1,0 +1,42 @@
+{
+  "module": "SourceCompactFoldWeightedProbability",
+  "total_kernel_constants": 21,
+  "named_public_theorems": 7,
+  "named_public_definitions": 3,
+  "named_prop_bundles": 0,
+  "handwritten_private_theorems": 0,
+  "generated_constants": 11,
+  "generated_theorems": 11,
+  "generated_definitions": 0,
+  "public_theorem_targets": [
+    "SourceCompactFoldWeightedProbability.sourceCompactCutoffA_nonneg",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldGood_compl_subset",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldGood_measurable",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedLaw_absolutelyContinuous",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_h0",
+    "SourceCompactFoldWeightedProbability.varying_cutoff_failure_inclusion"
+  ],
+  "definitions": [
+    "SourceCompactFoldWeightedProbability.sourceCompactCutoffA",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldGood",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedLaw"
+  ],
+  "prop_bundles": [],
+  "private_support_theorems": [],
+  "generated_constants_names": [
+    "SourceCompactFoldWeightedProbability.sourceCompactCutoffA._proof_1",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldGood._proof_1",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldGood._proof_2",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedLaw.congr_simp",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_3",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_4",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_5",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_6",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_7",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_8",
+    "SourceCompactFoldWeightedProbability.sourceCompactFoldWeightedProbability_bound._simp_1_9"
+  ],
+  "classification_policy": "All actual module-index constants; generated scalar-proof/congruence/simp constants are not separate research theorem targets.",
+  "rows": "INVENTORY.json"
+}

@@ -1,3 +1,19 @@
+# Current qualified scope:44 modules /1051 public targets /32 inputs
+
+The new compact normalized probability/H0 composition adds7 written proofs,
+3definitions and11generated constants. All21 constants have exhaustive
+transitive standard3 coverage; strict/ONEkernel/controls/soleFalse and exact
+source review passed. Same actual law, weight, event and uniform quantifiers
+are retained, with all analytic model certificates derived internally.
+
+Canonical partner and conditional Morse on each prescribed positive-gap fiber,
+intrinsic finite-event H0, frames/count-density and Parent Lean remain separate.
+The local candidate bridge is not registered by this scope. No old mathematical
+verification was replayed. Scientific effect NONE; provider-distinct process
+remains separate from completed mathematics.
+
+---
+
 # Current qualified scope:43 modules /1044 public targets /32 inputs
 
 Two sources add21 public proofs,2definitions and6generated constants; all29

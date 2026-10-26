@@ -1,0 +1,143 @@
+{
+  "recorded_utc": "2026-10-26T10:32:41.160170+00:00",
+  "all_verification_invocations": [
+    {
+      "label": "compile-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/compile-001/receipt.json",
+        "bytes": 1906,
+        "sha256": "27979744c45eddd626d54c085601bfa93e2ad922f30bca288f6bfb84b7b04d63"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:29:14.157974+00:00",
+      "ended_utc": "2026-10-26T10:29:21.220043+00:00",
+      "elapsed_seconds": 7.062027931213379,
+      "command": [
+        "env",
+        "LEAN_PATH=/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build",
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.olean",
+        "-i",
+        "/workspace/scratch/compact-fold-weighted-probability-construct/build/SourceCompactFoldWeightedProbability.ilean",
+        "SourceCompactFoldWeightedProbability.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/compile-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "controls-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/controls-001/receipt.json",
+        "bytes": 2153,
+        "sha256": "9ab9a1126bcbe26b757901aaf21cde19fdd79a27ff4ffd0bc405cd18887ccc03"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:30:25.101001+00:00",
+      "ended_utc": "2026-10-26T10:30:28.584029+00:00",
+      "elapsed_seconds": 3.483004331588745,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-fold-weighted-probability-construct/build:/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/compact-fold-weighted-probability-construct -o /workspace/scratch/compact-fold-weighted-probability-construct/build/Controls.olean /workspace/scratch/compact-fold-weighted-probability-construct/Controls.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/controls-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "false-omitted-mark-factor-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/false-omitted-mark-factor-001/receipt.json",
+        "bytes": 2116,
+        "sha256": "1523e28efa7deeeece05a781a685d7fb83ef71a1cd3c1248fe5911e71ebc1a7e"
+      },
+      "exit_code": 1,
+      "started_utc": "2026-10-26T10:30:36.410032+00:00",
+      "ended_utc": "2026-10-26T10:30:39.701168+00:00",
+      "elapsed_seconds": 3.291114091873169,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-fold-weighted-probability-construct/build:/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/compact-fold-weighted-probability-construct /workspace/scratch/compact-fold-weighted-probability-construct/FalseOmittedMarkFactor.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/false-omitted-mark-factor-001/output.log",
+        "bytes": 379,
+        "sha256": "6d80d223df1984f97417b0ec32951db9fdd01b2df919e8643804ad104e1be328"
+      },
+      "credit": "expected sole rejection"
+    },
+    {
+      "label": "inventory-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/inventory-001/receipt.json",
+        "bytes": 2071,
+        "sha256": "a949443fc3d2a6e3c4bb83800728c85f29ebbb22cac878f8d7aaf9098c780527"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:30:36.407992+00:00",
+      "ended_utc": "2026-10-26T10:30:40.478923+00:00",
+      "elapsed_seconds": 4.07087779045105,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-fold-weighted-probability-construct/build:/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/compact-fold-weighted-probability-construct /workspace/scratch/compact-fold-weighted-probability-construct/Inventory.lean"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/inventory-001/output.log",
+        "bytes": 4412,
+        "sha256": "109099b4170adee83ae8d5bbf678e258aff3a2b66914a879bfc8897b14b0dac0"
+      },
+      "credit": "successful"
+    },
+    {
+      "label": "kernel-001",
+      "receipt": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/kernel-001/receipt.json",
+        "bytes": 1937,
+        "sha256": "f6c5b8d1d00b2b02f6e1ec0bd6fa749713bd4353ed2058237e5bbd29e296ebd8"
+      },
+      "exit_code": 0,
+      "started_utc": "2026-10-26T10:31:06.108943+00:00",
+      "ended_utc": "2026-10-26T10:31:11.546519+00:00",
+      "elapsed_seconds": 5.437551975250244,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/compact-fold-weighted-probability-construct/build:/workspace/scratch/compact-gap-normalizer-construct/build:/workspace/scratch/gap-weighted-numerator-construct/build:$LEAN_PATH exec leanchecker SourceCompactFoldWeightedProbability"
+      ],
+      "log": {
+        "path": "/workspace/scratch/compact-fold-weighted-probability-construct/runs/kernel-001/output.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "credit": "successful"
+    }
+  ],
+  "exactly_one_own_module_kernel": true,
+  "old_math_replay_count": 0,
+  "all_failures_retained": true,
+  "unexpected_development_failure_count": 0,
+  "native_checkpoint_utc": "2026-10-26T11:00:00Z",
+  "terminal_utc": "2026-10-26T12:00:00Z",
+  "timers_reset": false
+}

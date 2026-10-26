@@ -1,3 +1,29 @@
+# Compact actual normalized fold probability and H0 success
+
+[SourceCompactFoldWeightedProbability.lean](SourceCompactFoldWeightedProbability.lean)
+derives one C and positive radius for the literal physical weighted gap law,
+uniform over bounded birth heights and a compact positive-gap interval.
+The exact measurable fold-cutoff failure has probability at most C*r^3.
+On Good, weighted-almost every sample has the actual ordinary singular-H0
+interval, strict-clearance set and real death level. The radius precedes the
+marks, r and coefficient field; all numerator, normalizer, probability and
+absolute-continuity facts are derived internally. Full6k1 and8^5 factors remain.
+
+Seven new written proofs, three definitions and eleven generated constants
+passed first strict compile, one named kernel, exhaustive21 standard-axiom
+rows, fifteen positive controls and one scoped sole-False mutation. Exact-source
+technical review PASS has no findings. All prior applicable verification is
+reused; raw evidence and custody are in compact-fold-weighted-probability-evidence.
+
+Registry:44 individually qualified modules/1051 public written targets=1042
+propositions+9data instances,32support inputs. The actual local Lifetime
+candidate bridge is active separately. Canonical partner/conditional genericity
+on prescribed positive-gap fibers, intrinsic finite-event H0 labeling,
+frame/count-density and ParentA/B Lean remain separate. Provider-distinct
+process is separate; scientific effect NONE. Earlier entries retain their scopes.
+
+---
+
 # Compact actual numerator and positive normalizer
 
 SourceGapWeightedNumerator.lean proves the actual physical weighted bad-union
