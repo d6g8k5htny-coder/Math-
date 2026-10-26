@@ -5,7 +5,7 @@ Add SourceActualFoldDeath.lean after the actual wide-estimates module. Reuse
 is this binding scope. Do NOT broaden this slice to torus/H0/canonical partners.
 
 For the unchanged original smooth sample and physical real-cover function
-I4SourceLifetimeGeometry.actualField 2 L sample, prove the literal existing
+I4LifetimeField.actualField 2 L sample, prove the literal existing
 C263 superlevelBar_deathHeight at Mphys=(coordinates 2).symm(endpointM r)
 is b-k*r^3, and superlevelBar_clearanceSet is Set.Iio(b-k*r^3), under the
 actual fixed-axis sourceGapLaw and same genuine sample cutoffs as estimates.
