@@ -1,0 +1,120 @@
+/- Text-only first-jet arithmetic for one integration into
+I4SourceTwoRemoteFirstJetWitness. Uncompiled helper; producer's new-module
+qualification covers the actual integrated text. Only germs0/1/2 are used. -/
+
+private def firstJet (f : (Fin 2 → ℝ) → ℝ) (p : Fin 2 → ℝ) : Fin 3 → ℝ :=
+  ![f p, fderiv ℝ f p directionX, fderiv ℝ f p directionY]
+
+private def firstJetProduct (a b : Fin 3 → ℝ) : Fin 3 → ℝ :=
+  ![a 0*b 0, a 1*b 0+a 0*b 1, a 2*b 0+a 0*b 2]
+
+private def firstJetCoefficients (P : (Fin 2 → ℝ) → ℝ) (p : Fin 2 → ℝ)
+    (t : Fin 3 → ℝ) : Fin 3 → ℝ :=
+  let a0 := t 0/P p
+  ![a0, (t 1-fderiv ℝ P p directionX*a0)/P p,
+    (t 2-fderiv ℝ P p directionY*a0)/P p]
+
+private def firstJetInterpolant (c : ℝ) (p : Fin 2 → ℝ)
+    (P : (Fin 2 → ℝ) → ℝ) (t : Fin 3 → ℝ) (z : Fin 2 → ℝ) : ℝ :=
+  P z * ∑ s : Fin 3,
+    firstJetCoefficients P p t s * localGerm c p (Fin.castAdd 3 s) z
+
+private theorem firstJet_mul (P Q : (Fin 2 → ℝ) → ℝ)
+    (hP : ContDiff ℝ 2 P) (hQ : ContDiff ℝ 2 Q) (p : Fin 2 → ℝ) :
+    firstJet (fun z => P z*Q z) p =
+      firstJetProduct (firstJet P p) (firstJet Q p) := by
+  have h := jet2_mul P Q hP hQ p
+  ext j
+  have hj := congrFun h (Fin.castAdd 3 j)
+  fin_cases j <;> simpa [firstJet, firstJetProduct, jet2, mulJet2] using hj
+
+private theorem firstJet_scale (a : ℝ) (f : (Fin 2 → ℝ) → ℝ)
+    (hf : ContDiff ℝ 2 f) (p : Fin 2 → ℝ) :
+    firstJet (fun z => a*f z) p = fun j => a*firstJet f p j := by
+  have h := fderiv_const_mul (hf.differentiable (by norm_num) p) a
+  ext j
+  fin_cases j
+  · rfl
+  · change fderiv ℝ (fun z => a*f z) p directionX = a*fderiv ℝ f p directionX
+    rw [h]
+    simp
+  · change fderiv ℝ (fun z => a*f z) p directionY = a*fderiv ℝ f p directionY
+    rw [h]
+    simp
+
+private theorem firstJet_sum (f : Fin 3 → (Fin 2 → ℝ) → ℝ)
+    (hf : ∀ s, ContDiff ℝ 2 (f s)) (p : Fin 2 → ℝ) :
+    firstJet (fun z => ∑ s, f s z) p = fun j => ∑ s, firstJet (f s) p j := by
+  have h : fderiv ℝ (fun z => ∑ s, f s z) p = ∑ s, fderiv ℝ (f s) p :=
+    fderiv_fun_sum (fun s _ => (hf s).differentiable (by norm_num) p)
+  ext j
+  fin_cases j
+  · rfl
+  · change fderiv ℝ (fun z => ∑ s, f s z) p directionX =
+      ∑ s, fderiv ℝ (f s) p directionX
+    rw [h]
+    simp
+  · change fderiv ℝ (fun z => ∑ s, f s z) p directionY =
+      ∑ s, fderiv ℝ (f s) p directionY
+    rw [h]
+    simp
+
+private theorem firstJetGerm_contDiff (c : ℝ) (p : Fin 2 → ℝ) (s : Fin 3) :
+    ContDiff ℝ 2 (localGerm c p (Fin.castAdd 3 s)) := by
+  fin_cases s <;> dsimp [localGerm] <;> fun_prop
+
+private theorem firstJet_localGerm (c : ℝ) (hc : c ≠ 0) (p : Fin 2 → ℝ)
+    (j s : Fin 3) :
+    firstJet (localGerm c p (Fin.castAdd 3 s)) p j = if j=s then 1 else 0 := by
+  have h := localGerm_jet2 c hc p (Fin.castAdd 3 j) (Fin.castAdd 3 s)
+  fin_cases j <;> fin_cases s <;> simpa [firstJet, jet2] using h
+
+private theorem firstJet_germ_combination (c : ℝ) (hc : c ≠ 0)
+    (p : Fin 2 → ℝ) (a : Fin 3 → ℝ) :
+    firstJet (fun z => ∑ s : Fin 3, a s*localGerm c p (Fin.castAdd 3 s) z) p = a := by
+  have hsmooth : ∀ s : Fin 3, ContDiff ℝ 2 (localGerm c p (Fin.castAdd 3 s)) :=
+    firstJetGerm_contDiff c p
+  have hscale : ∀ s : Fin 3,
+      ContDiff ℝ 2 (fun z => a s*localGerm c p (Fin.castAdd 3 s) z) :=
+    fun s => contDiff_const.mul (hsmooth s)
+  rw [firstJet_sum _ hscale]
+  ext j
+  calc
+    (∑ s : Fin 3, firstJet (fun z => a s*localGerm c p (Fin.castAdd 3 s) z) p j) =
+        ∑ s : Fin 3, a s*(if j=s then 1 else 0) := by
+      apply Finset.sum_congr rfl
+      intro s _
+      rw [firstJet_scale _ _ (hsmooth s)]
+      exact congrArg (fun v : ℝ => a s*v) (firstJet_localGerm c hc p j s)
+    _ = a j := by simp
+
+private theorem firstJetInterpolant_contDiff (c : ℝ) (p : Fin 2 → ℝ)
+    (P : (Fin 2 → ℝ) → ℝ) (hP : ContDiff ℝ 2 P) (t : Fin 3 → ℝ) :
+    ContDiff ℝ 2 (firstJetInterpolant c p P t) := by
+  exact hP.mul (ContDiff.sum (fun s _ =>
+    contDiff_const.mul (firstJetGerm_contDiff c p s)))
+
+private theorem firstJetInterpolant_self (c : ℝ) (hc : c ≠ 0) (p : Fin 2 → ℝ)
+    (P : (Fin 2 → ℝ) → ℝ) (hP : ContDiff ℝ 2 P) (hPp : P p ≠ 0)
+    (t : Fin 3 → ℝ) :
+    firstJet (firstJetInterpolant c p P t) p = t := by
+  have hQ : ContDiff ℝ 2 (fun z => ∑ s : Fin 3,
+      firstJetCoefficients P p t s * localGerm c p (Fin.castAdd 3 s) z) :=
+    ContDiff.sum (fun s _ => contDiff_const.mul (firstJetGerm_contDiff c p s))
+  unfold firstJetInterpolant
+  rw [firstJet_mul P _ hP hQ, firstJet_germ_combination c hc]
+  ext j
+  fin_cases j <;> simp [firstJetProduct, firstJetCoefficients, firstJet] <;>
+    field_simp [hPp] <;> ring
+
+private theorem firstJetInterpolant_zero (c : ℝ) (p : Fin 2 → ℝ)
+    (P : (Fin 2 → ℝ) → ℝ) (hP : ContDiff ℝ 2 P) (q : Fin 2 → ℝ)
+    (hPq : P q = 0) (hdPq : fderiv ℝ P q = 0) (t : Fin 3 → ℝ) :
+    firstJet (firstJetInterpolant c p P t) q = 0 := by
+  have hQ : ContDiff ℝ 2 (fun z => ∑ s : Fin 3,
+      firstJetCoefficients P p t s * localGerm c p (Fin.castAdd 3 s) z) :=
+    ContDiff.sum (fun s _ => contDiff_const.mul (firstJetGerm_contDiff c p s))
+  unfold firstJetInterpolant
+  rw [firstJet_mul P _ hP hQ]
+  ext j
+  fin_cases j <;> simp [firstJetProduct, firstJet, hPq, hdPq]

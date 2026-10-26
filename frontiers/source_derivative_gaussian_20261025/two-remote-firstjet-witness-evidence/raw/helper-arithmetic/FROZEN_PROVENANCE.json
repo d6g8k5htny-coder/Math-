@@ -1,0 +1,55 @@
+{
+  "schema": "textonly-firstjet-arithmetic-helper/v1",
+  "frozen_utc": "2026-10-26T17:33:59.587544+00:00",
+  "agent": "/root/two_remote_firstjet_arithmetic",
+  "root_actual_native_pickup": 6422878311,
+  "precode": "c9eab66fc13968de4bcf391c4effd9db5321ac11",
+  "files": [
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-arithmetic/SECTION.lean.txt",
+      "bytes": 5404,
+      "sha256": "c6d7ee9d2198f5f31c5e323e8e3335c1289b12d6d6ffdab3803da278da560e55"
+    },
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-arithmetic/IMPORTS.txt",
+      "bytes": 271,
+      "sha256": "eb8aaa70eb743519b01154773fbc05aee530a1b20197aeeb28998bca2ca1e0e1"
+    }
+  ],
+  "status": "FROZEN_UNCOMPILED_TEXT_FOR_ONE_PRODUCER_INTEGRATION",
+  "writable_scope": "/workspace/scratch/two-remote-firstjet-arithmetic",
+  "scope": "Only three-entry first jets, public localGerm0/1/2 projected from public germ jet identities, first-derivative sum/scalar rules, projected public product rule, three-scalar inverse and first-jet vanishing. No full six-germ inverse or Hessian target.",
+  "expected_namespace": "I4SourceTwoRemoteFirstJetWitness",
+  "read_sources": [
+    "frozen producer CONTROL_CONTRACT.md",
+    "frozen production SOURCE_TWO_REMOTE_FIRSTJET_WITNESS.md",
+    "public SourceRemoteJetWitness jet2/localGerm/jet2_mul/localGerm_jet2 statements and nearby calculus use",
+    "public mathlib fderiv_fun_sum/fderiv_const_mul source locations"
+  ],
+  "execution_counts": {
+    "Lean": 0,
+    "name_probes": 0,
+    "builds": 0,
+    "compiles": 0,
+    "checks": 0,
+    "kernel": 0,
+    "audit": 0,
+    "controls": 0,
+    "objects": 0,
+    "Git": 0,
+    "cache": 0,
+    "registry": 0,
+    "external": 0
+  },
+  "hash_policy": "Only these two newly authored unrecorded helper files were hashed once for this freeze; no old payload hash/check replay. This record is not self-hashed.",
+  "integration_policy": "Producer selects this needed frozen section once; final new-module qualification covers actual integrated text. Any local amendments/selections must retain original text and lineage. No helper execution or standalone research target credit.",
+  "reuse": "Owner /workspace/AGENTS.md: completed applicable verification remains reusable under unchanged assumptions/dependencies. New agent/session/handoff/freeze/process does not warrant old replay. Pending actual different-family review remains separate from established mathematical evidence.",
+  "scientific_effect": "NONE",
+  "provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "canonical_link_delivery_does_not_establish_reading": true
+}

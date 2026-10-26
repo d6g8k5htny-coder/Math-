@@ -1,0 +1,31 @@
+{
+  "kind": "inventory",
+  "run": "inventory-001",
+  "start": "2026-10-26T17:41:08.172935+00:00",
+  "end": "2026-10-26T17:41:11.778314+00:00",
+  "seconds": 3.6053905239969026,
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/Inventory.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+    "bytes": 21442,
+    "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+  },
+  "stdout": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stdout.log",
+    "bytes": 17663,
+    "sha256": "881f1814d03b4485552632aaaf10187d5b5e574bd6bd09b8dff70ecb15bee8c5"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

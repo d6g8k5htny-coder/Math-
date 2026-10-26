@@ -1,3 +1,59 @@
+# Proposed qualified scope:53 modules,1115 public targets,32 inputs
+
+The new coefficient definition concatenates public48 rows0/1/2 at x then y in
+ordinary order `(valueX,dxX,dyX,valueY,dxY,dyY)`. Two public propositions construct
+actual finite original directions in the literal raw6 kernel with joint6×6
+identity pairings, then derive residual GramPosDef for every real6×6 correction.
+Only hL and x/M,x/S,y/M,y/S,x/y quotient inequalities are premises. No supplied
+witness/rank/PosDef, pin inverse, target, probabilistic, endpoint/endpoint
+separation or nonzero-radius premise is added. Repeated pins/r0 are retained.
+
+For each chosen remote point, three squared periodic factors avoid M,S and the
+other remote using independently selected separating coordinates. Their product
+is internally positive at the chosen point and has zero first jets at the
+avoided points. Only public firstjet germs0/1/2 and a triangular value/dx/dy
+normalization are used. Qualified finite-trig conversion yields the actual
+original coefficient directions; no full secondjet inverse or Hessian target.
+
+The actual-module inventory has71 constants:2public proofs,1public coefficient
+definition,13private definitions,28private proofs,27generated proofs and2 foreign
+namespace equations. Exact strict003, standard-three/subset inventory,9public
+controls+5private adapters, one actual x=y row0/row3 collision nonexistence and
+soleFalse, one ownkernel001 and final source/spec review passed. The mutation
+drops only hxy, retaining all four remote/pin inequalities; it refutes actual
+joint witnesses, not just a particular multiplier construction.
+
+All eight attempts/failures and16 original separate streams remain archived.
+Completed strict003 was reused after environmentrevision70/resume/freeze.
+The text-only helper's three actual files and needed section are preserved,
+with one integration and no standalone execution/object/campaign. Historical
+integration plus supplemental amendment JSON and complete two-hunk diff account
+for germ C2 formula cases and firstJet_mul value-case rfl; custody completion
+changed no source or verification. Producer pendingcut and rootcut earlier
+report-pending history remain unchanged; later explicit authorization supplies
+final full-read status at sourcecut7e8ac1c7.
+
+Qualified52 registry and applicable47/48 algebraic source/trig/germ/Gram/kernel
+evidence are reused. No old proof/build/kernel/audit/control/hash replay,52law
+reproof or independent H0 dependency is introduced. Independent H0 untracked
+source and tracked PRECODE are excluded from53. Root preserves them and guards/
+stages exact53 paths;53 publication precedes H0, no global-empty assumption.
+
+No joint Gaussian law/density/independence, critical-value ties/incidence,
+conditionalMorse, secondjet12 rank/covariance floor, canonicalH0/Lifetime/Rice
+or Parent conclusion follows. Native5655734753 remains only unchanged pair-
+finiteness+2inputs review, not53 alignment. Same-family credit0/scientific effect
+NONE. Hosted requirements and actual different-family scientific alignment
+remain separate; no Ready, merge or scientific acceptance claim.
+
+---
+
+# Historical packaging context: stage52 and earlier
+
+Retained text below records earlier checkpoint scopes and publication state.
+Qualified52 native result17:26:35 and new53pickup17:28:55 retain separate
+schedules; new53 checkpoint18:20/terminal19:45 does not reset previous times.
+
 # Proposed qualified scope:52 modules,1113 public targets,32 inputs
 
 The new leaf defines only the actual endpoint Hessian, full selected49 mean

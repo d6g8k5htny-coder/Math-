@@ -1,3 +1,54 @@
+# Two actual remote first jets and their residual Gram
+
+[SourceTwoRemoteFirstJetWitness.lean](SourceTwoRemoteFirstJetWitness.lean)
+constructs six finite original coefficient directions that annihilate all six
+literal raw pins and realize the identity on `(valueX,dxX,dyX,valueY,dxY,dyY)`.
+Every real6×6 correction then gives a positive-definite residual coefficient
+Gram. The only hypotheses are signed nonzero period, four literal quotient
+remote/pin inequalities and x/y inequality. Arbitrary signed radius, repeated
+pins and radius0 remain allowed; endpoint/endpoint separation is not required.
+
+Two public propositions append to the registry. One coefficient definition,
+13private definitions,28private proofs and27generated proofs remain inventory-
+only in the complete71-constant actual-module inventory. Both foreign equations
+`I4SourceRemoteJetWitness.localGerm.eq_1` and `I4Weights.sourceC.eq_1` are included.
+Exact strict003 was reused across environmentrevision70/resume/freeze. Nine
+public controls with five private adapters, one actual collision-backed soleFalse,
+exactly one own-module kernel and final source/spec technical PASS qualify only
+this new scope. All eight attempts/failures/full streams are preserved in the
+[catalog](two-remote-firstjet-witness-evidence/TWO_REMOTE_FIRSTJET_WITNESS_EVIDENCE_CATALOG.json).
+
+One text-only arithmetic section integrated once, with zero helper execution,
+object or campaign. Historical integration and original/needed text remain
+unchanged. Supplemental custody metadata and the complete two-hunk diff account
+for both explicit germ C2 cases and the firstJet_mul value-case rfl correction.
+Completing that amendment record changed no source and replayed no verification.
+Earlier pending-cut snapshots remain preserved; later ROOT_SOURCE_CUT binds
+sourcecut7e8ac1c7 and explicit root finalization supplies the final report-read status.
+
+The proposed registry has53 individually qualified modules and1115 public
+written targets (1106 propositions and nine data instances), with32 support
+inputs. Qualified52 was published677f8aef; root owns apply, the sole own-object
+copy and subsequent publication/result/release/alignment. Independent H0 source
+and PRECODE stay outside53. Root preserves its authorized untracked source and
+stages only explicit53 paths, without requiring a globally empty workspace.
+
+This is an algebraic joint firstjet result. Joint posterior law/density/ties,
+conditionalMorse, secondjet12 rank, covariance floors, canonicalH0/Lifetime/Rice
+and Parent conclusions remain separate. Prior narrow Claude pair-finiteness
+review supplies no53 review. Different-family scientific process and hosted
+checks remain separate from established mathematics; scientific effect NONE,
+same-family/provider-distinct credit0. No Ready or merge claim is made.
+
+---
+
+# Historical packaging context: stage52 and earlier
+
+Retained checkpoint text below records earlier scopes and publication state.
+Qualified52 was published677f8aef with native result17:26:35. New53 native
+pickup17:28:55 retains18:20/19:45, without resetting any prior schedule.
+Current53 scope and preparation state are stated above.
+
 # Endpoint Hessian sampling laws and nonzero determinants
 
 [SourceEndpointHessianGaussian.lean](SourceEndpointHessianGaussian.lean) gives

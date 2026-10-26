@@ -1,0 +1,541 @@
+{
+  "created_utc": "2026-10-26T17:46:12.016888+00:00",
+  "records": [
+    {
+      "kind": "develop",
+      "run": "develop-001",
+      "start": "2026-10-26T17:35:01.726519+00:00",
+      "end": "2026-10-26T17:35:21.452346+00:00",
+      "seconds": 19.725837245001458,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "-o",
+        "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/SourceTwoRemoteFirstJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 20162,
+        "sha256": "4aaa7977ca4a4fb48f65997d50601cc5811655345d556eebbb529f75ba60f1bb"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stdout.log",
+        "bytes": 2419,
+        "sha256": "aad2b76617d7de6389ced0f30fbce1607052e3f278e96e0169617211f2f1696e"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 20162,
+          "sha256": "4aaa7977ca4a4fb48f65997d50601cc5811655345d556eebbb529f75ba60f1bb"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stdout.log",
+        "bytes": 2419,
+        "sha256": "aad2b76617d7de6389ced0f30fbce1607052e3f278e96e0169617211f2f1696e"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "develop",
+      "run": "develop-002",
+      "start": "2026-10-26T17:37:48.817042+00:00",
+      "end": "2026-10-26T17:37:54.062378+00:00",
+      "seconds": 5.245345000002999,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "-o",
+        "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/SourceTwoRemoteFirstJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21375,
+        "sha256": "8731a333dd266e6054a5bdbf5a5ef2cab58409163fee69369086343bbeab3457"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stdout.log",
+        "bytes": 2263,
+        "sha256": "17c1e92e5afcedeee4a0aae5a19528ec92da59cc65d21c9b6e34d854c43bc528"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/Controls.lean",
+          "bytes": 8485,
+          "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21375,
+          "sha256": "8731a333dd266e6054a5bdbf5a5ef2cab58409163fee69369086343bbeab3457"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stdout.log",
+        "bytes": 2263,
+        "sha256": "17c1e92e5afcedeee4a0aae5a19528ec92da59cc65d21c9b6e34d854c43bc528"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "develop",
+      "run": "develop-003",
+      "start": "2026-10-26T17:38:32.413712+00:00",
+      "end": "2026-10-26T17:38:37.787503+00:00",
+      "seconds": 5.373820139007876,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "-o",
+        "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/Controls.lean",
+          "bytes": 8485,
+          "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/develop-003/SourceTwoRemoteFirstJetWitness.olean",
+          "bytes": 1445664,
+          "sha256": "5466505132cd10c5a9ca362ba6e473de52eb949260e6b8fe801a16eff1f7f90c"
+        }
+      ]
+    },
+    {
+      "kind": "controls",
+      "run": "controls-001",
+      "start": "2026-10-26T17:41:00.198546+00:00",
+      "end": "2026-10-26T17:41:03.983065+00:00",
+      "seconds": 3.7845337920007296,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/Controls.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stdout.log",
+        "bytes": 259,
+        "sha256": "0bad27136fe321d897619ac9266f43cef45f09081724f644dc337d53d8e7fe48"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/Controls.lean",
+          "bytes": 8485,
+          "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stdout.log",
+        "bytes": 259,
+        "sha256": "0bad27136fe321d897619ac9266f43cef45f09081724f644dc337d53d8e7fe48"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "inventory",
+      "run": "inventory-001",
+      "start": "2026-10-26T17:41:08.172935+00:00",
+      "end": "2026-10-26T17:41:11.778314+00:00",
+      "seconds": 3.6053905239969026,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/Inventory.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stdout.log",
+        "bytes": 17663,
+        "sha256": "881f1814d03b4485552632aaaf10187d5b5e574bd6bd09b8dff70ecb15bee8c5"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Controls.lean",
+          "bytes": 8485,
+          "sha256": "86a6a6052055c66ab7b28e1baf3fd18ddf4e93ac2b2d2221fc31bb9d524c28dc"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stdout.log",
+        "bytes": 17663,
+        "sha256": "881f1814d03b4485552632aaaf10187d5b5e574bd6bd09b8dff70ecb15bee8c5"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/inventory-001/Inventory.olean",
+          "bytes": 2712,
+          "sha256": "c527d7bcf06d986efd920ac885638438c062528838408dd6347eaa4f6afb29b9"
+        }
+      ]
+    },
+    {
+      "kind": "controls",
+      "run": "controls-002",
+      "start": "2026-10-26T17:42:47.231409+00:00",
+      "end": "2026-10-26T17:42:51.598251+00:00",
+      "seconds": 4.3668532439915,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/Controls.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Controls.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Controls.lean",
+          "bytes": 8566,
+          "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/controls-002/Controls.olean",
+          "bytes": 262240,
+          "sha256": "bdc4d48dcfc94c6ee7d221323a6569a8281335dad3051405694bf5c00c6f4c8e"
+        }
+      ]
+    },
+    {
+      "kind": "collision",
+      "run": "collision-001",
+      "start": "2026-10-26T17:43:09.609176+00:00",
+      "end": "2026-10-26T17:43:12.781426+00:00",
+      "seconds": 3.172261426007026,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/two-remote-firstjet-witness-construct /workspace/scratch/two-remote-firstjet-witness-construct/CollisionMutation.lean -o /workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/CollisionMutation.olean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 1,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stdout.log",
+        "bytes": 119,
+        "sha256": "6c8a43e0a670f58e88e0d5ac7715396c03bd32089972c197b57024df01733b9b"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/Controls.lean",
+          "bytes": 8566,
+          "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stdout.log",
+        "bytes": 119,
+        "sha256": "6c8a43e0a670f58e88e0d5ac7715396c03bd32089972c197b57024df01733b9b"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/collision-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    },
+    {
+      "kind": "kernel",
+      "run": "kernel-001",
+      "start": "2026-10-26T17:44:05.927756+00:00",
+      "end": "2026-10-26T17:44:13.931920+00:00",
+      "seconds": 8.004169812003965,
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/two-remote-firstjet-witness-construct/build:$LEAN_PATH exec leanchecker SourceTwoRemoteFirstJetWitness"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "exit": 0,
+      "source": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetWitness.lean",
+        "bytes": 21442,
+        "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+      },
+      "stdout": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "all_source_snapshots": [
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/CollisionMutation.lean",
+          "bytes": 513,
+          "sha256": "fc19ea0ee7fcea258250ac719fb2d16f5b075a746800dec692d0ad77139dfedb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/Controls.lean",
+          "bytes": 8566,
+          "sha256": "523a8d0c498199e1273898712cd8311f2e95e7d9bf1c1acc1531e609757092eb"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/Inventory.lean",
+          "bytes": 1088,
+          "sha256": "49f5f4d9fa8ee29a2423f43e701f533429b2ba43905eaf44fa75227fd842f12b"
+        },
+        {
+          "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/SourceTwoRemoteFirstJetWitness.lean",
+          "bytes": 21442,
+          "sha256": "b523da924513fc312c5432c241fc031d4fbe3567fbeedbba981f36dd798574a4"
+        }
+      ],
+      "stdout_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr_identity": {
+        "path": "/workspace/scratch/two-remote-firstjet-witness-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "objects": []
+    }
+  ],
+  "all_failures_retained": true,
+  "exactly_one_named_own_module_kernel": true,
+  "old_verification_replays": 0,
+  "native_pickup": "6422878311",
+  "native_pickup_utc": "2026-10-26T17:28:55Z",
+  "checkpoint_utc": "2026-10-26T18:20:00Z",
+  "terminal_utc": "2026-10-26T19:45:00Z",
+  "prior52_timers_unchanged": true,
+  "timer_reset": false,
+  "resume_handling": "Environmentrevision70/rootresume reused alreadycompletedstrict00317:38:37 exactbytes/object, alloriginal3attempts untouched. Onlypreviouslypendingcontrols/inventory/mutation/onekernel executed."
+}
