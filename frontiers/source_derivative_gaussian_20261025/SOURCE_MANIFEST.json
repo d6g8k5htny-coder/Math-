@@ -3,7 +3,7 @@
   "scientific_effect": "NONE",
   "goal_status": "FULL_ORIGINAL_RESEARCH_GOAL_ACTIVE",
   "alignment_status": "PENDING_NEW_SOURCE_ALIGNMENT_AND_CONVENTIONAL_APPLICATION_DIFFERENT_FAMILY_REVIEWS",
-  "qualification_role": "35 individually qualified default modules;957 written public registry targets=948 propositions+9data instances;25supportinputs. Completed prior34 checks reused; newwideestimates qualified in own scope, no combined hostedproof build.",
+  "qualification_role": "35 individually qualified default modules;957 public written targets=948 propositions+9data instances;27support inputs (25previous+2reusedclearance). Input mathematical bodies unchanged; onlynewimport composition checked, no old proof replay.",
   "source_modules": [
     "SourceDerivativeGaussian.lean",
     "ContactJetCovariance.lean",
@@ -1000,7 +1000,7 @@
     "I4SourceAdaptiveFoldEstimates.source_scale_le",
     "I4SourceAdaptiveFoldEstimates.vertical_boundary_signs"
   ],
-  "inherited_input_count": 25,
+  "inherited_input_count": 27,
   "catalog_sha256": "b814de0d24141dd0f2fd9087b61c2d7eeb1596836eb439898a5c7506675fc24b",
   "files": {
     ".gitignore": "fde850d24186b6e99c8c0debd641fb3ab85198b109eb66f71a1fea02bd6ea1b3",
@@ -1017,7 +1017,7 @@
     "INPUT_BINDING.json": "42292a58cf84e118b34f4b8b952fa3b650126dc3d167cee85d8048b9bc6d4b13",
     "ORIGIN_SOURCE_MANIFEST.json": "d3fe096b830c4c5bf2fff47a2a2aa528ae2a79d4cb9816afb6be536685d8d9ca",
     "ORIGIN_SOURCE_SHA256SUMS": "1c8b5045a5260e5da03c5da6042d6c92681e26f05935f13f362084fe3d1572a6",
-    "README.md": "002e6bc9eb573c579d455c589b2f96aeb927607a157b10b83fdcc79f9f9a2187",
+    "README.md": "9c0858356dd3b5c3ef847299fa1b5f94f8a75405e71b4e2e1a7745a999d6457c",
     "SCOPE.md": "9b37281e1b453b9a453d105ee98129648c07277a3680246e693ee6c22c5e2faf",
     "SOURCE_CONDITIONAL_MAJORANT.md": "d7742ca40a564897fb1a1f1e7812e8ce0bd6ff531c5616dc8b4bd2ebb83815b0",
     "SOURCE_CONFLUENT_INTEGRALS.md": "445700bdeecc7d539931e64d618155bf50b936777716d596ae8a6b01352d9ce9",
@@ -1659,7 +1659,7 @@
     "inputs/SourceTorusC4.lean": "b67b13030389dea4521e8e2afcac30ea44f84abd65c374bf208067b288fc64a1",
     "inputs/SpectralWeights.lean": "92af14a2d83304de3f8576ee10b3d376587e93c4464f8c715b8d2e32360f44b0",
     "lake-manifest.json": "4cc60e1f98fc3a46bccafe6b8315445d950ca1db55ceba26fdebe3a45eafe59a",
-    "lakefile.toml": "e23ebaecf74154c198cfb9b51b0be6e5dc161d8466bfdd2d1d76712fa5f56a1e",
+    "lakefile.toml": "2a70be20efa94b131416f90291a29029e851e45d136c8685086fff58a0559961",
     "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
     "SOURCE_CURVATURE_DECOMPOSITION.md": "e85f7ec047647cce2707982b3ef452efb56558ca4a00b2f9eb778f2672f88a1f",
     "SOURCE_PIN_CURVATURE_BOUNDS.md": "a21412102e4962873a58633df5327c751ca2a17ace7b9341d055887f679374b6",
@@ -3419,9 +3419,36 @@
     "actual-fold-estimates-evidence/raw/producer/runs/compile-001/SourceAdaptiveFoldEstimates.lean": "33920c43826d1dde9f505b89d5fa9ba238ee8883ae4bba04ce620731f3b776fc",
     "actual-fold-estimates-evidence/raw/fold-numeric-budget/runs/compile-002/command.json": "ec2307b4a4ba7c12481f97c8efc56f85e37c61f85d043ca2ddd8d846a5734c8a",
     "actual-fold-estimates-evidence/raw/producer/runs/controls-001/Inventory.lean": "4ba412ccdd9660dc7b74e819f27537d764dcc1560d48d13f03a79bd0f674d948",
-    "actual-fold-estimates-evidence/raw/producer/runs/false-control-001/Controls.lean": "c0c10a30f692272758c98660f946e1f81351f84c6e40746b0d2ce2ae9024160c"
+    "actual-fold-estimates-evidence/raw/producer/runs/false-control-001/Controls.lean": "c0c10a30f692272758c98660f946e1f81351f84c6e40746b0d2ce2ae9024160c",
+    "clearance-input-evidence/raw/BINDINGS.json": "82269dd988fe7c442290934ae139ed05b6dc405b603aae7ee7828dd52cf375e4",
+    "clearance-input-evidence/IMPORT_ONLY.diff": "19278c65eafebe8ce0426c41c3c947363ac21ded083663d8af84373126ce8eb3",
+    "clearance-input-evidence/raw/historical_LOCAL_FORMAL_EXECUTION_REPORT.md": "e20efb5dc96454882d64f4e96138e6acfbcf4d7baab96734bfafa7c7cacc9031",
+    "clearance-input-evidence/BINDINGS.json": "82269dd988fe7c442290934ae139ed05b6dc405b603aae7ee7828dd52cf375e4",
+    "inputs/elder/SuperlevelBar.lean": "f328d66d7240469f080c8bbf83f7259677fee21593465977e23a95685667ebd9",
+    "clearance-input-evidence/raw/ElderClearance-strict-01.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clearance-input-evidence/raw/ElderClearance.diff": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clearance-input-evidence/raw/SuperlevelBar-strict-01.json": "1b5d198f1fd78032913cb9b6f2330f0d22e25ab8675024630636970c6e5b5d74",
+    "clearance-input-evidence/raw/REPORT.md": "4c9d66b2734c1729af7291bee6bea8cabd188dd64ba2ff843d98ae5d55b8f3b3",
+    "clearance-input-evidence/raw/SuperlevelBar-strict-01.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clearance-input-evidence/raw/SuperlevelBar.diff": "19278c65eafebe8ce0426c41c3c947363ac21ded083663d8af84373126ce8eb3",
+    "clearance-input-evidence/raw/ElderClearance-strict-01.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clearance-input-evidence/REPORT.md": "4c9d66b2734c1729af7291bee6bea8cabd188dd64ba2ff843d98ae5d55b8f3b3",
+    "clearance-input-evidence/raw/source_bindings.initial.json": "3f8b1d8170cbea0ef9058a76ced53844541c66428a528c6c35b36e0e4ab37d69",
+    "inputs/elder/ElderClearance.lean": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+    "clearance-input-evidence/raw/SOURCE_ACTUAL_FOLD_DEATH_PLAN.md": "534f22ffcfd2dcc374e7f63de8f94ab9295b5ddfbab715b06e932f828a6ce2fd",
+    "CLEARANCE_INPUT_BINDING.json": "40f795a0430c538a07ba8d4883b6183793289b485061504d4cef11a3f377d1ba",
+    "clearance-input-evidence/raw/IMPORT_ONLY.diff": "19278c65eafebe8ce0426c41c3c947363ac21ded083663d8af84373126ce8eb3",
+    "clearance-input-evidence/raw/spec_and_historical_bindings.json": "e12356e36b6e2d2e98bfcdad047968c9819cd569955abbfc31700cd975cce8c1",
+    "clearance-input-evidence/raw/compile.py": "b90dfb21366042b32e0c249da9110d038198b71e0d5e08e4be22b5248b8ebd04",
+    "clearance-input-evidence/historical_LOCAL_FORMAL_EXECUTION_REPORT.md": "e20efb5dc96454882d64f4e96138e6acfbcf4d7baab96734bfafa7c7cacc9031",
+    "clearance-input-evidence/raw/SuperlevelBar-strict-01.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "clearance-input-evidence/raw/SOURCE_ACTUAL_FOLD_DEATH.md": "8c5efd979ddd17df2fc62571dfd9526ad588e4ff31a6a2d5718dd450ba2d13da",
+    "clearance-input-evidence/raw/ElderClearance.original.lean": "d3d78472881059546402218cc77792eeef00755c222bb02499d69abd3b5cd57e",
+    "clearance-input-evidence/raw/SuperlevelBar.original.lean": "346eea948e18d5904422904006827930e27d3141ccbc19ee8ac2c24bcf65a4a9",
+    "clearance-input-evidence/raw/environment.json": "f90cf6980e26b5d535d0d10a9728f6110a97a162022da58d71bbad02d98a2717",
+    "clearance-input-evidence/raw/ElderClearance-strict-01.json": "59815d397abc63c8025f62eaf62314f58240c5e79487962dfbd49e4d45bc4a1a"
   },
-  "verification_reuse": "Completed34modules/25inputs and accepted source/Peano/Cap/clearance evidence reused. Newwide module only strictcompile/ONEkernel/full67collector/controls. Import-only clearance inputs are separate active successor composition, excluded until registered.",
+  "verification_reuse": "Completed35 source modules/25prior inputs and accepted clearance mathematics retained. Two reused clearance bodies have one import-only successor and strict artifact compiles; no old kernel/control/axiom or math review replay. SourceActualFoldDeath remains active/unregistered.",
   "not_qualified_by_this_manifest": [
     "Full Lean geometric Campbell/Kac-Rice area/count identity; separate completed conventional application retained and submitted for new scoped review",
     "Formal local stable/unstable selector, ODE flow, hitting and capture-event measurability; the proved Banach family alone does not establish these",
@@ -3753,5 +3780,17 @@
     "generated_declarations_separate": 27,
     "complete_own_module_declarations": 67,
     "scope": "Actual ordered third/fourth source jets, proven contractive coordinate/operator bounds, fullJ two-pin/oscillation/signs, Peano axiallower, actual scalar budgets; CLOSED actualsourceGapLaw structural and same-witness boundary/path endpoints on hL-only\u03b4beforek0,r,b,k, conditional only on stated sample cutoffs."
+  },
+  "previous_support_input_count_before_clearance": 25,
+  "new_clearance_input_scope": {
+    "binding": "CLEARANCE_INPUT_BINDING.json",
+    "new_support_roots": [
+      "SuperlevelBar",
+      "ElderClearance"
+    ],
+    "new_research_target_count": 0,
+    "origin_commit": "c4eabc1a917ba2c1b96fe4af425cf2a484877c03",
+    "body_preservation": "SuperlevelBar all bytes after original import line preserved; ElderClearance entire file identical. Only six narrow imports replace SuperlevelBar umbrella.",
+    "execution": "Both same-pin strict first-attempt compiles passed; all existing old mathematical/kernel/control/axiom evidence reused. No replay."
   }
 }

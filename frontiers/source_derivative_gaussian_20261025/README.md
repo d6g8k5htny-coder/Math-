@@ -1,3 +1,19 @@
+# Current support composition:35 source modules and27 inputs
+
+Two accepted clearance support modules are registered for the active exact
+real-cover death application. Their mathematical bodies are unchanged; only
+SuperlevelBar's umbrella import becomes six narrow same-pin imports. Both
+necessary successor artifacts compiled strictly on their first attempts.
+[Bindings and preserved historical evidence](CLEARANCE_INPUT_BINDING.json)
+record the import-only composition. Old kernel/control/mathematical verification
+is reused, and these inputs add zero research theorem targets.
+
+The current registry remains35 qualified source modules/957 public written
+targets=948 propositions+9data instances, with27supportinputs. The active new
+SourceActualFoldDeath module is excluded until qualified and registered.
+
+---
+
 # Actual source: wider rectangle and attained boundary/path
 
 [SourceAdaptiveFoldEstimates.lean](SourceAdaptiveFoldEstimates.lean) derives the

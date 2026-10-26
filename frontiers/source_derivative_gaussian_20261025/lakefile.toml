@@ -116,3 +116,8 @@ name = "SourceAdaptiveFoldChart"
 
 [[lean_lib]]
 name = "SourceAdaptiveFoldEstimates"
+
+[[lean_lib]]
+name = "SourceElderInputs"
+srcDir = "inputs/elder"
+roots = ["SuperlevelBar", "ElderClearance"]

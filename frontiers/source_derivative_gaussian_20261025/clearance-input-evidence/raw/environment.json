@@ -1,0 +1,21 @@
+{
+  "lean_toolchain_file": "leanprover/lean4:v4.34.1",
+  "lean_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_origin": "/workspace/Math-/frontiers/determinant_moment_20261025/.lake/packages/mathlib",
+  "mathlib_head": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "new_support_source_root": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/inputs/elder",
+  "initial_packet_elder_registration": false,
+  "module_imports": {
+    "SuperlevelBar": [
+      "import Mathlib.Analysis.InnerProductSpace.PiL2",
+      "import Mathlib.Analysis.Convex.PathConnected",
+      "import Mathlib.Topology.Order.Compact",
+      "import Mathlib.Topology.Homotopy.Path",
+      "import Mathlib.Tactic.Linarith",
+      "import Mathlib.Tactic.NormNum"
+    ],
+    "ElderClearance": [
+      "import SuperlevelBar"
+    ]
+  }
+}
