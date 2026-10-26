@@ -39,6 +39,21 @@ _HELPER_EXECUTE = _core.execute
 _ALLOWED_OVERLAY_KEYS = frozenset({'schema_version', 'files'})
 
 
+def _sync_root():
+    """Propagate this module's effective ``ROOT`` to the reviewed helper at every call boundary.
+
+    The helper reads its own module global ``ROOT`` (and this module derives the overlay path
+    from ``ROOT``) at call time, so a caller that rebinds ``gate.ROOT`` -- the fixtures of the
+    runtime tests do -- must be observed by every source, overlay and execution read, not only
+    by this wrapper. Import-time constants would silently keep reading the original tree.
+    """
+    global OVERLAY
+    root = Path(ROOT)
+    _core.ROOT = root
+    OVERLAY = root / 'manifest.overlay.json'
+    return root
+
+
 def sha(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -62,9 +77,10 @@ def check_worktree_clean(name, status):
 
 
 def dependency_state(m):
+    root = _sync_root()
     actual = {}
     for name in m['dependency_revisions']:
-        repo = str(ROOT / '.lake' / 'packages' / name)
+        repo = str(root / '.lake' / 'packages' / name)
         actual[name] = subprocess.check_output(
             ['git', '-C', repo, 'rev-parse', 'HEAD'], text=True).strip()
         check_worktree_clean(name, subprocess.check_output(
@@ -79,8 +95,9 @@ def observation(version, dependencies, digest):
 
 
 def _overlay_bytes():
-    require(OVERLAY.is_file() and not OVERLAY.is_symlink(), 'missing or symlink manifest overlay')
-    return OVERLAY.read_bytes()
+    overlay = _sync_root() / 'manifest.overlay.json'
+    require(overlay.is_file() and not overlay.is_symlink(), 'missing or symlink manifest overlay')
+    return overlay.read_bytes()
 
 
 def _effective_manifest(text):
@@ -102,21 +119,24 @@ def _effective_manifest(text):
 
 
 def source_check():
-    raw = (ROOT / 'manifest.json').read_bytes()
-    overlay = _overlay_bytes()
+    root = _sync_root()
+    raw = (root / 'manifest.json').read_bytes()
     original = _core.load_json
     try:
         _core.load_json = _effective_manifest
         m, _ = _HELPER_SOURCE_CHECK()
     finally:
         _core.load_json = original
-    return m, sha(raw + b'\0RF312-OVERLAY\0' + overlay)
+    # The overlay is read after the helper's own contract has passed: a manifest that fails its
+    # required-file inventory is refused for that reason, whether or not an overlay exists.
+    return m, sha(raw + b'\0RF312-OVERLAY\0' + _overlay_bytes())
 
 
 def execute(m, digest):
-    out = ROOT / '.lake' / 'formal-evidence'
+    root = _sync_root()
+    out = root / '.lake' / 'formal-evidence'
     out.mkdir(parents=True, exist_ok=True)
-    require(not (ROOT / '.lake').is_symlink() and not (ROOT / '.lake/build').is_symlink(),
+    require(not (root / '.lake').is_symlink() and not (root / '.lake/build').is_symlink(),
             'symlink build directory')
     # Keep test monkeypatches visible to the reviewed helper execution.
     _core.run = globals()['run']
@@ -125,11 +145,17 @@ def execute(m, digest):
         ['lake', 'env', 'lean', '--version'], 'version-preflight', out))
     preflight = observation(preflight_version, dependency_state(m), digest)
     receipt = _HELPER_EXECUTE(m, digest)
-    _, after = source_check()
-    require(after == digest, 'manifest or overlay changed during execution')
-    version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-final', out))
-    final = observation(version, dependency_state(m), after)
-    require(final == preflight, 'runtime, dependencies or sources changed during execution')
+    try:
+        _, after = source_check()
+        require(after == digest, 'manifest or overlay changed during execution')
+        version = check_lean_version(run(['lake', 'env', 'lean', '--version'], 'version-final', out))
+        final = observation(version, dependency_state(m), after)
+        require(final == preflight, 'runtime, dependencies or sources changed during execution')
+    except BaseException:
+        # The reviewed helper has already written its own receipt. A run whose final observation
+        # is refused must leave no receipt behind (the logs stay as evidence of the refusal).
+        (out / 'receipt.json').unlink(missing_ok=True)
+        raise
     receipt = dict(receipt)
     receipt.update(
         lean_version=version,
