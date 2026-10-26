@@ -1,0 +1,56 @@
+{
+  "schema": "fixed12-affine-covariance-text-helper/v1",
+  "frozen_utc": "2026-10-26T18:37:28.962671+00:00",
+  "agent": "/root/two_remote_firstjet_arithmetic",
+  "status": "FROZEN_UNCOMPILED_TEXT_FOR_ONE_INTEGRATION",
+  "native_pickup": 6424105296,
+  "precode": "98ec56b05b8b729c5f1638227280711f2f3b1718",
+  "checkpoint_utc": "2026-10-26T19:15:00Z",
+  "terminal_utc": "2026-10-26T20:30:00Z",
+  "timer_reset": false,
+  "writable_scope": "/workspace/scratch/two-remote-firstjet-gaussian-covariance-text",
+  "expected_namespace": "I4SourceTwoRemoteFirstJetGaussian",
+  "files": [
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-gaussian-covariance-text/SECTION.lean.txt",
+      "bytes": 2379,
+      "sha256": "089455f1855b4fb72b85afc59c34ad2628d128957cc8bd1b387f14ef7cf331d7"
+    },
+    {
+      "path": "/workspace/scratch/two-remote-firstjet-gaussian-covariance-text/IMPORTS.txt",
+      "bytes": 385,
+      "sha256": "c854b9b099cd429c6fbec6b8d57d4100f960256e5db43d27054258c34d568ed7"
+    }
+  ],
+  "exact_needed_declaration": "private fixed12_affine_covariance: actual coordinate covariance of fixed Matrix(Fin6)(Fin12) transport equals coefficientGram of the same finite coefficient transport.",
+  "scope": "Fixed12-to6 finite covariance/tsum algebra only. Public covariance finite-sum/scalar rules plus public coefficient-product summability/HasSum finite sums. No source-series, Gaussianity, posterior identity, independence or generic covariance library argument.",
+  "ownership_boundary": "Producer owns actual12 derivative ledger, Gaussian/CLM/mean/posterior route, actual q/T identification and final whole-new-module qualification. Root alone owns shared metadata/config/cache/registry/Git/publication. No56 source/helpers inspected.",
+  "execution_counts": {
+    "Lean": 0,
+    "name_probes": 0,
+    "builds": 0,
+    "compiles": 0,
+    "checks": 0,
+    "kernel": 0,
+    "audit": 0,
+    "control_campaigns": 0,
+    "objects": 0,
+    "Git": 0,
+    "cache": 0,
+    "shared_metadata": 0,
+    "external": 0
+  },
+  "public_API_reading": "Read frozen55 concrete CONTROL_CONTRACT and bounded public covariance/HasSum/product-summability source excerpts. Relevant earlier read-only API assessment reused; no old verification repeated.",
+  "hash_policy": "Each new unrecorded section/import file hashed once here. This provenance is written once, then receives one external custody hash; it does not contain a recursive self-hash. No old payload hashes recomputed.",
+  "integration_rule": "Freeze precedes producer ONE integration of needed text. Preserve original section/imports/provenance and any local amendment lineage. Final integrated new-module qualification covers actual text; helper runs no standalone proof/test/kernel/audit/control campaign and receives no separate research target credit.",
+  "reuse_rule": "Completed applicable verification remains reusable under unchanged assumptions/dependencies. Agent/session/handoff/freeze/Git/process labels do not justify old rechecking. Pending actual different-family scientific review/process is separate from established mathematical evidence.",
+  "prior_helper_and_preflight_files": "UNCHANGED; no additional old helper hashes/checks",
+  "scientific_effect": "NONE",
+  "same_family_provider_distinct_credit": 0,
+  "canonical_authority": [
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OWNER_MANDATE_20261015.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/b665307520948308a53d190d7341bf301df3b3a2/governance/OP-AUTONOMY-20260923-v2.1.md",
+    "https://github.com/d6g8k5htny-coder/main/blob/main/governance/OWNER_DECISION_20261025_REVIEW_FAMILIES.md"
+  ],
+  "link_delivery_does_not_establish_reading": true
+}

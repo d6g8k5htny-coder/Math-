@@ -1,0 +1,22 @@
+{
+  "recorded_utc": "2026-10-26T19:17:03.365293+00:00",
+  "helper": "/root/two_remote_firstjet_arithmetic",
+  "destination": "Controls.lean ONLY",
+  "original_section_sha256": "f703463e65a7395c821f7fb2c4f7ff009320317087551b67aafe345a4d202f3e",
+  "integration_count": 1,
+  "producer_local_amendments": [
+    "eta-expand literal block matrix and both coordinate inclusion matrices; supply dimensions3+3/index and real numeric types to Lean eliminator",
+    "expand matrix addition/multiplication/adjoints BEFORE finite coordinate simplification; remove unused Fin.sum_univ_succ simp argument"
+  ],
+  "mathematical_construction_unchanged": "principal first3 PosSemidef block, two fixed coordinate conjugates and addition; public49 one-point S.PosDef supplied, never collisionjoint6PD",
+  "actual_section": {
+    "path": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_ACTUAL_NEEDED_SECTION.lean.txt",
+    "bytes": 1659,
+    "sha256": "53a56e584d4fd6ad165627653670db6388f5e2121474507c00a4efdcf82d195e"
+  },
+  "exact_diff": "/workspace/scratch/two-remote-firstjet-gaussian-construct/PSD_HELPER_ACTUAL_AMENDMENTS.diff",
+  "historical_integration_record": "/workspace/scratch/two-remote-firstjet-gaussian-construct/HELPER_INTEGRATION.pre_amendments.json",
+  "production_covariance_helper_amendments": [],
+  "helper_executions": 0,
+  "qualification": "actual integrated Controls harness only; helper receives no standalone object/check/campaign/targetcredit"
+}

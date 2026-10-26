@@ -1,3 +1,39 @@
+# Proposed qualified scope:55 modules,1120 public targets,32 inputs
+
+[SourceTwoRemoteFirstJetGaussian.lean](SourceTwoRemoteFirstJetGaussian.lean)
+identifies the same-sample observation `(valueX,dxX,dyX,valueY,dxY,dyY)` on the
+existing raw posterior kernel. Its defined sampling Gaussian law retains the
+full target-dependent mean and actual target-free residual coefficient Gram,
+including cross-remote blocks. It permits signed nonzero periods, every radius
+and raw target, including point collisions. PosDef adds exactly the four
+remote/pin and x/y quotient inequalities, preserving repeated pins at r0.
+
+Two public written propositions append to the registry. Four public data
+definitions, seven private definitions,17private proofs and four generated
+proofs remain separate in the complete34-constant inventory; foreign0.
+Exact strict006 and one ownkernel are reused, with final meaningful controls,
+one actual cross-block covariance-mismatch soleFalse and final technical PASS.
+All actual attempts/failures/full original streams are retained, including
+large PANIC, reduction-timeout and resource-termination records.
+
+Covariance helper text belongs to production and PSD helper text to Controls.
+Original uncompiled text, actual integration and complete local amendments
+remain preserved; no standalone helper campaign or extra target credit.
+The proposed registry is55 modules/1120 written=1111Prop+9data/32inputs,
+from qualified54 publication72eb5de8. Root owns apply, the sole new ownolean
+copy (already completed once; reuse receipt) and publication. Foreign56 source/PRECODE are preserved and excluded.
+No all-radius RCD/fiber, independence, conditionalSchur, critical ties/Morse,
+canonicalH0/Lifetime/Rice or Parent conclusion is supplied. Scientific effect
+NONE; same-family/provider-distinct credit0. Different-family scientific process
+and hosted requirements remain separate from established mathematics.
+
+---
+
+# Historical packaging context: stage54 and earlier
+
+Retained text below records earlier checkpoint scopes/publication state.
+Current55 scope is given above; earlier schedules and evidence stay unchanged.
+
 # Proposed qualified scope:54 modules,1118 public targets,32 inputs
 
 The new module adds exactly two public definitions and three public

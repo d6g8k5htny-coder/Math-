@@ -1,0 +1,482 @@
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:53:86: error: unsolved goals
+case «0»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      0
+
+case «1»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      1
+
+case «2»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      2
+
+case «3»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      3
+
+case «4»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointM r)) fun x => directionY) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      4
+
+case «5»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) (endpointS r)) fun x => directionY) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      5
+
+case «6»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) x) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      6
+
+case «7»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) x) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      7
+
+case «8»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) x) fun x => directionY) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      8
+
+case «9»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 0 (smoothSourceField 2 L ω) y) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      9
+
+case «10»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) y) fun x => directionX) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      10
+
+case «11»
+L r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ ((iteratedFDeriv ℝ 1 (smoothSourceField 2 L ω) y) fun x => directionY) =
+    Fin.addCases
+      ![smoothSourceField 2 L ω (endpointM r), smoothSourceField 2 L ω (endpointS r),
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointM r)) directionY,
+        (fderiv ℝ (smoothSourceField 2 L ω) (endpointS r)) directionY]
+      ![smoothSourceField 2 L ω x, (fderiv ℝ (smoothSourceField 2 L ω) x) directionX,
+        (fderiv ℝ (smoothSourceField 2 L ω) x) directionY, smoothSourceField 2 L ω y,
+        (fderiv ℝ (smoothSourceField 2 L ω) y) directionX, (fderiv ℝ (smoothSourceField 2 L ω) y) directionY]
+      11
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:56:45: error: This simp argument is unused:
+  iteratedFDeriv_zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointVector, jointOrder, jointPoint, jointDirection, Fin.append, rawPins, twoRemoteFirstJet, remoteJet,
+    jet2, iteratedFDeriv_one_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:56:71: error: This simp argument is unused:
+  iteratedFDeriv_one_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointVector, jointOrder, jointPoint, jointDirection, Fin.append, rawPins, twoRemoteFirstJet, remoteJet,
+    jet2, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:60:46: error: unsolved goals
+case «0»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 0 (modeCoefficient 2 L m) (endpointM r)) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      0 m
+
+case «1»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 0 (modeCoefficient 2 L m) (endpointS r)) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      1 m
+
+case «2»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) (endpointM r)) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      2 m
+
+case «3»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) (endpointS r)) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      3 m
+
+case «4»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) (endpointM r)) fun x => directionY) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      4 m
+
+case «5»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) (endpointS r)) fun x => directionY) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      5 m
+
+case «6»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 0 (modeCoefficient 2 L m) x) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      6 m
+
+case «7»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) x) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      7 m
+
+case «8»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) x) fun x => directionY) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      8 m
+
+case «9»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 0 (modeCoefficient 2 L m) y) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      9 m
+
+case «10»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) y) fun x => directionX) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      10 m
+
+case «11»
+L r : ℝ
+x y : Fin 2 → ℝ
+m : SourceMode 2
+⊢ ((iteratedFDeriv ℝ 1 (modeCoefficient 2 L m) y) fun x => directionY) =
+    Fin.addCases (motive := fun x => SourceMode 2 → ℝ) (rawPinCoefficient L r)
+      ![fun m => modeCoefficient 2 L m x, derivativeCoefficient 2 L 1 x fun x => directionX,
+        derivativeCoefficient 2 L 1 x fun x => directionY, fun m => modeCoefficient 2 L m y,
+        derivativeCoefficient 2 L 1 y fun x => directionX, derivativeCoefficient 2 L 1 y fun x => directionY]
+      11 m
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:4: error: This simp argument is unused:
+  rawPinCoefficient
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawDerivativeCoefficient,
+    rawDerivativeOrder, rawDerivativePoint, rawDerivativeDirections, twoRemoteFirstJetCoefficient, remoteJetCoefficient,
+    derivativeCoefficient, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:22: error: This simp argument is unused:
+  rawDerivativeCoefficient
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawPinCoefficient,
+    rawDerivativeOrder, rawDerivativePoint, rawDerivativeDirections, twoRemoteFirstJetCoefficient, remoteJetCoefficient,
+    derivativeCoefficient, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:47: error: This simp argument is unused:
+  rawDerivativeOrder
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawPinCoefficient,
+    rawDerivativeCoefficient, rawDerivativePoint, rawDerivativeDirections, twoRemoteFirstJetCoefficient,
+    remoteJetCoefficient, derivativeCoefficient, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:63:66: error: This simp argument is unused:
+  rawDerivativePoint
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawPinCoefficient,
+    rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativeDirections, twoRemoteFirstJetCoefficient,
+    remoteJetCoefficient, derivativeCoefficient, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:64:4: error: This simp argument is unused:
+  rawDerivativeDirections
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawPinCoefficient,
+    rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint, twoRemoteFirstJetCoefficient,
+    remoteJetCoefficient, derivativeCoefficient, iteratedFDeriv_zero_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:65:26: error: This simp argument is unused:
+  iteratedFDeriv_zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [jointCoefficient, jointOrder, jointPoint, jointDirection, Fin.append, rawPinCoefficient,
+    rawDerivativeCoefficient, rawDerivativeOrder, rawDerivativePoint, rawDerivativeDirections,
+    twoRemoteFirstJetCoefficient, remoteJetCoefficient, derivativeCoefficient]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:79:91: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x y : Fin 2 → ℝ
+ω : SmoothSample 2 L
+⊢ (fun i => Fin.append (rawPins L r ω) (twoRemoteFirstJet L x y ω) (i.addNat 6)) = twoRemoteFirstJet L x y ω
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:89:45: error: unsolved goals
+R : Matrix (Fin 6) (Fin 6) ℝ
+z : Fin 12 → ℝ
+i : Fin 6
+⊢ ∑ i_1, Fin.append (fun j => -R i j) (fun j => if i = j then 1 else 0) i_1 * z i_1 =
+    z (i.addNat 6) - ∑ x, R i x * z (Fin.castAdd 6 x)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:91:48: error: This simp argument is unused:
+  Fin.sum_univ_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residualMatrix, Matrix.mulVec, dotProduct, Finset.sum_neg_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:91:65: error: This simp argument is unused:
+  Finset.sum_neg_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [residualMatrix, Matrix.mulVec, dotProduct, Fin.sum_univ_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:109:48: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+r : ℝ
+x y : Fin 2 → ℝ
+B : (Fin 6 → ℝ) →L[ℝ] Fin 6 → ℝ := LinearMap.toContinuousLinearMap (Matrix.toLin' (twoRemoteRegressionMatrix L r x y))
+hg : HasGaussianLaw (fun ω => twoRemoteFirstJet L x y ω - 0 - B (rawPins L r ω - 0)) (smoothLaw 2 L)
+ω : SmoothSample 2 L
+⊢ twoRemoteFirstJet L x y ω = fun i => Fin.append (rawPins L r ω) (twoRemoteFirstJet L x y ω) (i.addNat 6)
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:231:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  (residualMatrix (twoRemoteRegressionMatrix L r x y) *ᵥ fun a =>
+        Fin.append (rawPinCoefficient L r) (twoRemoteFirstJetCoefficient L x y) a m)
+      i =
+    Fin.append (rawPinCoefficient L r) (twoRemoteFirstJetCoefficient L x y) (i.addNat 6) m -
+      (twoRemoteRegressionMatrix L r x y *ᵥ fun i => rawPinCoefficient L r i m) i
+but is expected to have type
+  ∑ x_1,
+      residualMatrix (twoRemoteRegressionMatrix L r x y) i x_1 *
+        Fin.append (rawPinCoefficient L r) (twoRemoteFirstJetCoefficient L x y) x_1 m =
+    twoRemoteFirstJetCoefficient L x y i m -
+      ∑ i_1, twoRemoteRegressionMatrix L r x y i i_1 * rawPinCoefficient L r i_1 m
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  Measurable fun ω => (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  Measurable fun c => twoRemoteFirstJet L x y c ⟨0, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  Measurable fun ω => (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  Measurable fun c => twoRemoteFirstJet L x y c ⟨1, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  Measurable fun ω => (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  Measurable fun c => twoRemoteFirstJet L x y c ⟨2, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  Measurable fun ω => (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  Measurable fun c => twoRemoteFirstJet L x y c ⟨3, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  Measurable fun ω => (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  Measurable fun c => twoRemoteFirstJet L x y c ⟨4, ⋯⟩
+/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceTwoRemoteFirstJetGaussian.lean:280:6: error: Type mismatch: After simplification, term
+  derivative_measurable hL 1 y fun x => directionY
+ has type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun ω =>
+    (fderiv ℝ (smoothSourceField 2 L ω) y) directionY
+but is expected to have type
+  @Measurable (SmoothSample 2 L) ℝ Subtype.instMeasurableSpace Real.measurableSpace fun c =>
+    twoRemoteFirstJet L x y c ⟨5, ⋯⟩

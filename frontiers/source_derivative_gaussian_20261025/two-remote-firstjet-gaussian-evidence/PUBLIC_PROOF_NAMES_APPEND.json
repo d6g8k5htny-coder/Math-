@@ -1,0 +1,16 @@
+{
+  "source_cut": "8a21124e0f77679d8be0c0e16b8f5693f60785ae",
+  "targets": [
+    "I4SourceTwoRemoteFirstJetGaussian.rawPinKernel_twoRemoteFirstJet_eq_multivariateGaussian",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance_posDef"
+  ],
+  "inventory_only_public_data": [
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteFirstJet",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteRegressionMatrix",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemotePosteriorMean",
+    "I4SourceTwoRemoteFirstJetGaussian.twoRemoteResidualCovariance"
+  ],
+  "baseline_targets": 1118,
+  "proposed_targets": 1120,
+  "new_data_instance_targets": 0
+}
