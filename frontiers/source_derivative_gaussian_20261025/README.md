@@ -1,3 +1,36 @@
+# Finite trigonometric polynomials in the original source coefficients
+
+[SourceFiniteTrig.lean](SourceFiniteTrig.lean) represents finite shifted-cosine
+lists in the literal original source coefficients. Constant, append, scale,
+translation and product operations have exact evaluation semantics, preserving
+both product halves and arbitrary offsets. The total finite coefficient map
+uses the actual zero mode, both frequency signs and original source amplitudes.
+Its value and all-order derivative pairings require only a nonzero period;
+the finite list-operation identities hold for every real period, including zero.
+
+Seven public written proofs enter the registry. Data, structure machinery,
+private proofs and generated constants remain inventory-only; the complete
+79-constant inventory includes foreign `I4SourceSmoothConditional.zeroSample.eq_1`.
+The small derived-field finding FT-M1 was corrected from the existing inventory
+row and closed by readback, without any proof, strict or audit replay.
+
+Existing exact-source develop-003 strict-Werror evidence is reused. Fifteen
+controls, one sole-False product-normalization mutation, exactly one own-module
+kernel and the final read-only source/spec review passed. One frozen private
+conversion-helper section was integrated once; its three attempts are retained
+without a separate kernel/audit/control campaign or public target credit. The
+[catalog](finite-trig-evidence/FINITE_TRIG_EVIDENCE_CATALOG.json) preserves all
+twelve producer invocations, full streams, failures and correction history.
+
+Registry: 47 individually qualified modules and 1096 public written targets
+(1087 propositions and nine data instances), with 32 support inputs. Actual
+remote jet witnesses/rank, conditional global Morse, intrinsic elder/H0 labels
+and Parent Lean remain separate. Provider-distinct process and hosted current-
+source checks retain their own obligations; no combined 47-module hosted build
+is claimed. Scientific effect NONE.
+
+---
+
 # Finite witnesses for residual Gram positivity and exact posterior shifts
 
 [SourceFinitePinKernel.lean](SourceFinitePinKernel.lean) proves two finite

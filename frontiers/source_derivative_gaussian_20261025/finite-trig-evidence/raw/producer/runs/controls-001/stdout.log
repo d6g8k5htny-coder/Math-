@@ -1,0 +1,57 @@
+/workspace/scratch/finite-trig-construct/Controls.lean:37:47: error: unexpected identifier after decimal point; consider parenthesizing the number
+/workspace/scratch/finite-trig-construct/Controls.lean:37:21: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:37:46: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:36:31: error: unsolved goals
+⊢ I4SourceFiniteTrig.termProduct✝ { coeff := 1, frequency := 0, offset := 0 }
+      { coeff := 1, frequency := 0, offset := 0 } =
+    [{ coeff := 2⁻¹, frequency := 0, offset := 0 }, { coeff := 2⁻¹, frequency := 0, offset := 0 }]
+/workspace/scratch/finite-trig-construct/Controls.lean:60:45: error: unexpected identifier after decimal point; consider parenthesizing the number
+/workspace/scratch/finite-trig-construct/Controls.lean:60:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:60:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:60:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:60:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:57:66: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, true)) =
+    -Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:76:45: error: unexpected identifier after decimal point; consider parenthesizing the number
+/workspace/scratch/finite-trig-construct/Controls.lean:76:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:76:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:76:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:76:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:69:65: error: unsolved goals
+case left
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, true)) =
+    Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:84:45: error: unexpected identifier after decimal point; consider parenthesizing the number
+/workspace/scratch/finite-trig-construct/Controls.lean:84:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:84:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:84:19: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:84:44: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:81:53: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L 0 θ) none = Real.cos θ / sourceModeAmplitude L none
+
+case right
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L 0 θ) (some (axial, false)) = 0
+/workspace/scratch/finite-trig-construct/Controls.lean:90:2: error(lean.unknownIdentifier): Unknown identifier `_private.SourceFiniteTrig`
+/workspace/scratch/finite-trig-construct/Controls.lean:90:27: error: Invalid field notation: Identifier or numeral expected
+/workspace/scratch/finite-trig-construct/Controls.lean:90:28: error: unexpected identifier after decimal point; consider parenthesizing the number

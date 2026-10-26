@@ -1,3 +1,37 @@
+# Current qualified scope: 47 modules, 1096 public targets, 32 inputs
+
+The new finite trigonometric leaf proves exact constants, append, scale,
+translation and half-weighted cosine-product semantics for finite shifted-cosine
+lists at every real period. A total finite direction in the original source-mode
+coefficients realizes each list under only a nonzero period, preserving arbitrary
+offsets, the actual none mode, both frequency signs and actual amplitudes.
+
+All derivative orders, points and direction arrays are covered by finite pairing
+with the original derivative coefficients. The proof uses the accepted source
+derivative series on the literal finite shift of the existing zero sample; no
+infinite-series differentiation or replacement source/law is introduced.
+
+Only seven public written propositions append to the previous 1089 targets.
+Seven definitions, one abbreviation, one data structure, sixteen private proofs,
+three private definitions, three projections and forty-one other generated or
+structure constants remain separate in the complete 79-constant inventory.
+Foreign I4SourceSmoothConditional.zeroSample.eq_1 is included. FT-M1's derived
+foreign-array correction is recorded and closed from the existing row; no
+mathematical check was repeated. Exact-source strict-Werror, exhaustive standard-
+three coverage, fifteen controls, one sole-False mutation, one own-module kernel
+and source/spec review PASS qualify this new scope. Helper integration occurred once.
+
+Torus-coordinate separation, pin-annihilation/local 2-jet inversion, actual remote
+residual positivity/Gaussian law, each prescribed positive-gap conditional Morse
+theorem with distinct endpoints, joint-value incidence/selection, intrinsic
+Lifetime/H0 labels, IsFiniteBar, framed source-law transport, Rice count density
+and Parent A/B Lean remain separate. No common null event over uncountably many
+targets is asserted. Future RemoteJetWitness documents are outside this extension.
+All completed applicable mathematics is reused; provider-distinct process and
+hosted current-source checks remain separate. Scientific effect NONE.
+
+---
+
 # Current qualified scope: 46 modules, 1089 public targets, 32 inputs
 
 The new finite pin-kernel leaf derives residual coefficient Gram positivity from

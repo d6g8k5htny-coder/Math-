@@ -1,0 +1,40 @@
+/workspace/scratch/finite-trig-construct/Controls.lean:49:3: error: unknown tactic
+/workspace/scratch/finite-trig-construct/Controls.lean:47:31: error: unsolved goals
+⊢ I4SourceFiniteTrig.termProduct✝ { coeff := 1, frequency := 0, offset := 0 }
+      { coeff := 1, frequency := 0, offset := 0 } =
+    [{ coeff := 1 / 2, frequency := 0, offset := 0 }, { coeff := 1 / 2, frequency := 0, offset := 0 }]
+/workspace/scratch/finite-trig-construct/Controls.lean:74:5: error: unknown tactic
+/workspace/scratch/finite-trig-construct/Controls.lean:70:66: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+⊢ (I4SourceFiniteTrig.atomSource✝ L (↑axial) θ) (some (axial, true)) =
+    -Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:91:5: error: unknown tactic
+/workspace/scratch/finite-trig-construct/Controls.lean:83:65: error: unsolved goals
+case left
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, false)) =
+    Real.cos θ / sourceModeAmplitude L (some (axial, false))
+
+case right
+L θ : ℝ
+hn0 : -↑axial ≠ 0
+hn : -↑axial ∉ halfLattice 2
+⊢ (I4SourceFiniteTrig.atomSource✝ L (-↑axial) θ) (some (axial, true)) =
+    Real.sin θ / sourceModeAmplitude L (some (axial, false))
+/workspace/scratch/finite-trig-construct/Controls.lean:101:5: error: unknown tactic
+/workspace/scratch/finite-trig-construct/Controls.lean:97:53: error: unsolved goals
+case left
+L θ : ℝ
+⊢ (2 • I4SourceFiniteTrig.atomSource✝ L 0 θ) none = 2 * (Real.cos θ / sourceModeAmplitude L none)
+
+case right
+L θ : ℝ
+⊢ (2 • I4SourceFiniteTrig.atomSource✝ L 0 θ) (some (axial, false)) = 0

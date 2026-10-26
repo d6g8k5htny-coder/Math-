@@ -1,0 +1,50 @@
+{
+  "kind": "inventory",
+  "run": "inventory-001",
+  "start": "2026-10-26T11:34:29.132728+00:00",
+  "end": "2026-10-26T11:34:32.532027+00:00",
+  "seconds": 3.3993088149945834,
+  "command": [
+    "lake",
+    "env",
+    "sh",
+    "-c",
+    "LEAN_PATH=/workspace/scratch/finite-trig-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/finite-trig-construct /workspace/scratch/finite-trig-construct/Inventory.lean -o /workspace/scratch/finite-trig-construct/runs/inventory-001/Inventory.olean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 0,
+  "before": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+      "bytes": 12393,
+      "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+      "bytes": 508920,
+      "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+    }
+  },
+  "after": {
+    "source": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceFiniteTrig.lean",
+      "bytes": 12393,
+      "sha256": "d0f0dea0b2f8296d129a3759271076848e35dd5a4b1ab2f5f0cee58837c72b14"
+    },
+    "object": {
+      "path": "/workspace/scratch/finite-trig-construct/build/SourceFiniteTrig.olean",
+      "bytes": 508920,
+      "sha256": "5b96c7d331cd73697379c52a59a5b93749c134d89971b6926a79def657949c4c"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/inventory-001/stdout.log",
+    "bytes": 12889,
+    "sha256": "2eb9c1a0783bf5463bf0786976e40bafc4cd70088b1e1613c574848ecf9f1e0f"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/finite-trig-construct/runs/inventory-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
