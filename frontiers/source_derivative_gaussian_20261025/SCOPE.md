@@ -1,3 +1,48 @@
+# Proposed qualified scope: 49 modules, 1105 public targets, 32 inputs
+
+The new leaf observes the ordinary remote six-jet `(value,dx,dy,dxx,dxy,dyy)` on
+the literal existing raw posterior sample, with raw order
+`(fM,fS,fxM,fxS,fyM,fyS)`. Its cross matrix has remote rows and raw columns;
+`R=C*G_raw⁻¹`, residual rows `c=b-Ra`, covariance `S=coefficientGram c`, and
+mean `R*ᵥt`. All six target components are retained and S has no target argument.
+
+Exactly four public written propositions establish the all-radius actual-sample
+affine identity; the every-target `toLp 2` multivariate-Gaussian defined sampling
+law; remote residual covariance PosDef from qualified stage48's internally
+constructed finite witnesses; and the existing valid uniform conditional/fiber
+join with delta before x and target. Sampling and positivity permit arbitrary
+r, including repeated pins, and signed nonzero L. PosDef requires both literal
+quotient inequalities. RCD/fiber support requires positive r below the existing
+uniform inverse interval. No arbitrary-radius RCD claim follows from sampling.
+
+Six public data definitions are inventory-only. The complete actual-module
+inventory contains28 constants:4 public proofs,6 public definitions,14 private
+proofs,1 private definition and3 generated proofs, with no foreign-generated
+constants. Retained exact-source strict003, exhaustive standard-three/subset
+inventory,15 controls,one finite affine Dirac mean-omission sole-False mutation,
+one own-module kernel and final technical source/spec review qualify this new
+scope. Both text-only helper sections integrated once, with no helper campaign,
+object or public target credit. All eight producer attempts/failures/streams and
+source/object lineage remain archived.
+
+Qualified48 at `9a1f52b` is the reused baseline. Proposed49 binds local sourcecut
+`9ce7b951`; root alone applies metadata, copies the named own object, and handles
+publication. No old Lean/build/kernel/audit/control/hash replay is performed.
+Provider-distinct review is tracked separately from established mathematics.
+No new density/covariance-floor/two-point tie/global Morse/Sard, canonical
+Lifetime/H0, selection, Rice count density or Parent Lean conclusion is claimed.
+There is no common probability-one event over uncountably many targets.
+Scientific effect NONE; same-family provider-distinct credit0.
+
+---
+
+# Historical packaging context: stage48 and earlier
+
+The retained text below records the scope and publication state at earlier
+checkpoints. Qualified48 publication subsequently completed at `9a1f52b`.
+The current49 scope is the new section above; historical exclusions of future
+RemoteJetGaussian work refer only to those earlier checkpoints.
+
 # Proposed local qualified scope: 48 modules, 1101 public targets, 32 inputs
 
 The new actual remote-jet leaf constructs original-mode finite witnesses with

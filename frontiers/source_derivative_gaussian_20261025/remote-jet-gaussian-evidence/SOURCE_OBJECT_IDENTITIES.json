@@ -1,0 +1,40 @@
+{
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceRemoteJetGaussian.lean",
+    "bytes": 17053,
+    "sha256": "65694d00f575333b3b896338ecaf047ce8e166fbb8eddc03bd0836cce521a034"
+  },
+  "object": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/build/SourceRemoteJetGaussian.olean",
+    "bytes": 439696,
+    "sha256": "860a695d73f7a800442e03a7c1c1f9ccf77bd70692239a96a95674df03f39d0c"
+  },
+  "compiled_object": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/develop-003/SourceRemoteJetGaussian.olean",
+    "bytes": 439696,
+    "sha256": "860a695d73f7a800442e03a7c1c1f9ccf77bd70692239a96a95674df03f39d0c"
+  },
+  "strict_receipt": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/develop-003/record.json",
+    "bytes": 1275,
+    "sha256": "f75d65d26031017a3dc2fbf4ec227c96d1a8064d85db96ec0bf44dab470d3eaa"
+  },
+  "kernel_receipt": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/kernel-001/record.json",
+    "bytes": 1143,
+    "sha256": "9ad38c94a8e170fbfa2a09e180a8364aa634d55432d2458ff126c454dfb5e14e"
+  },
+  "freeze": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/FROZEN_SOURCE.json",
+    "bytes": 1082,
+    "sha256": "f31e56417b987f4e0d9c47f5b7c101516ef4267a319748bec73bc4781b1fc752"
+  },
+  "eligible_production_objects": [
+    "SourceRemoteJetGaussian.olean"
+  ],
+  "ineligible_objects": "All helper/control/inventory/mutation and earlier attempt objects. Scratch build/Controls.olean only reuses passed positive counterexample for negative harness, never production-eligible. No ilean or freshness compilation. Root alone owns production cache.",
+  "baseline_reused": "48modules/1101targets/32inputs at9a1f52baf3bc8719d37c7696a7c364211de3ee56; sourcecut689b8eef7dd2107e51d46007c1be3dfd4a909b81, source c7dcc70330f0385bdd5c3aef105d54db0f9c0155824251f4fb61cac3640649cf; eligible own stage48objectab78 already cached. All applicable old source/series/finiteGaussian/Gram/regression/rawkernel/inverse evidence reused without replay.",
+  "root_local_sourcecut": "9ce7b9519aac1b1052d9c6f0c5082581d39da0f6",
+  "published_precode": "fa7bce305cd1b95f26abde3e21e13e1e08362766",
+  "no_current_source_hosted_CI_claim": true
+}

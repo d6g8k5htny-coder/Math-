@@ -1,3 +1,44 @@
+# Actual remote-jet Gaussian law on the raw posterior sample
+
+[SourceRemoteJetGaussian.lean](SourceRemoteJetGaussian.lean) identifies the literal
+remote value, gradient and Hessian on the existing actual raw posterior sample.
+Its every-target Gaussian sampling law retains the full mean `R *ᵥ t`; its
+covariance is the target-independent Gram matrix of the actual residual rows.
+These sampling identities hold for every radius and signed nonzero period.
+Remote covariance positivity follows internally from the qualified finite
+witnesses under literal torus separation from both endpoints, including repeated
+pins. On the existing uniform positive-radius interval, one delta chosen before
+x and target gives the actual mapped conditional law and every raw-pin fiber.
+
+Four public written propositions append to the registry. Six public data
+definitions, fourteen private proofs, one private definition and three generated
+proofs remain separate in the exhaustive 28-constant inventory; there are no
+foreign-namespace generated constants. Exact-source strict003 is reused after
+freeze. Fifteen controls, the finite affine Dirac mean-omission sole-False
+mutation, exactly one own-module kernel and final source/spec technical review
+passed. All eight producer attempts and their complete streams are preserved in
+the [catalog](remote-jet-gaussian-evidence/REMOTE_JET_GAUSSIAN_EVIDENCE_CATALOG.json).
+The two text-only helper sections integrated once; no helper run, object or
+standalone qualification is claimed.
+
+The proposed registry contains 49 individually qualified modules and 1105
+public written targets (1096 propositions and nine data instances), with 32
+support inputs. Qualified48 was published at `9a1f52b`; this proposal binds local
+source cut `9ce7b951`, while the last confirmed remote head at preparation was
+PRECODE `fa7bce3`. Root owns registration, the sole own-object cache copy and
+subsequent publication/result/release/alignment records. Current-source hosted
+CI and a combined49 build are not claimed. Different-family scientific review
+remains a separate process obligation; same-family technical credit is zero.
+Scientific effect NONE.
+
+---
+
+# Historical packaging context: stage48 and earlier
+
+The retained text below records earlier package scopes and publication state at
+those earlier checkpoints. Qualified48 publication subsequently completed at
+`9a1f52b`; the current49 scope and current preparation state are given above.
+
 # Actual finite remote 2-jet witnesses and residual Gram positivity
 
 [SourceRemoteJetWitness.lean](SourceRemoteJetWitness.lean) constructs finite

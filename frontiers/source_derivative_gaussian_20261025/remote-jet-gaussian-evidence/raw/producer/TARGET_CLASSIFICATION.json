@@ -1,0 +1,322 @@
+{
+  "counts": {
+    "written_private_theorem": 14,
+    "written_public_def": 6,
+    "written_public_theorem": 4,
+    "generated_theorem": 3,
+    "written_private_def": 1
+  },
+  "written_targets": [
+    {
+      "name": "I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_eq_multivariateGaussian",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.rawPinKernel_remoteJet_conditional_uniform",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteResidualCovariance_posDef",
+      "kind": "theorem",
+      "classification": "written_public_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "inventory_only": [
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_summable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteResidualCoefficient",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_integral_zero",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_series",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJet_measurable",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteRegressionMatrix",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteResidualCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_summable_local",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteCrossCovariance",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_eq_residual_add_mean",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_covariance",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_series",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remotePosteriorMean.eq_1",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteResidualCovariance",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual_covariance",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_hasGaussianLaw",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteJet",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteJetCoefficient_weighted_summable_local",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remotePosterior_integral",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remoteJet_rawPosteriorSample._abel_1_2",
+      "kind": "theorem",
+      "classification": "generated_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.rawPinCoefficient_weighted_summable_local",
+      "kind": "theorem",
+      "classification": "written_private_theorem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "I4SourceRemoteJetGaussian.remotePosteriorMean",
+      "kind": "definition",
+      "classification": "written_public_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    },
+    {
+      "name": "_private.SourceRemoteJetGaussian.0.I4SourceRemoteJetGaussian.remoteResidual",
+      "kind": "definition",
+      "classification": "written_private_def",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "foreign_namespace_generated": false
+    }
+  ],
+  "foreign_namespace_generated": []
+}

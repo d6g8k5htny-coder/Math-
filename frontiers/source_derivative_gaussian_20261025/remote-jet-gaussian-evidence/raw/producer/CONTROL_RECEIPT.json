@@ -1,0 +1,59 @@
+{
+  "contract": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/CONTROL_CONTRACT.md",
+    "bytes": 4135,
+    "sha256": "2f0e82782f278a95dab4f60e659b4095371dcacf69c09cccbf5c44d8f0993328"
+  },
+  "contract_before_source": true,
+  "positive_source": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/Controls.lean",
+    "bytes": 10433,
+    "sha256": "ccde49645afe8f5609d7251136db1ddb7116aa039d97359922830599a41a543b"
+  },
+  "positive_receipt": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/controls-002/record.json",
+    "bytes": 1345,
+    "sha256": "20b67265ccf8c3d47c6c0a2fe87480aa3a3cbe3ec1147ff2ba7ea17f38cfeaff"
+  },
+  "control_propositions": 15,
+  "positive_scope": [
+    "six literal actual posterior firstjet entries in originalraworder",
+    "literal nonzero target1,2,3,4,5,6",
+    "signedLminus2rzero actualsamplingidentity",
+    "signedLminus2rzero actualtoLpGaussianlaw",
+    "pin samplinglaw allowing singularS",
+    "arbitrary two-target mean difference R*(t1-t2)",
+    "two nonzero targets explicit same residualGramS",
+    "actual parameterized mixedrow residual scalarseries using everyrawcolumn",
+    "literal zero-target actualposterior mixedrow scalarseries",
+    "actual repeatedpin negativeperiod quotientseparation from integerparity",
+    "stage48 actualPosDef specialized at concreteR",
+    "delta beforex/target actualmappedRCD and arbitraryfiber1",
+    "actual six nonzero targets on accepteduniforminverseinterval",
+    "finite affine scalar dirac0 translate1 law",
+    "singleton1 actualdirac1 versus erroneousdirac0 distinction"
+  ],
+  "negative_source": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/MeanOmissionMutation.lean",
+    "bytes": 327,
+    "sha256": "5d422bc0e206a4484c653b0bdb5000ca5c0add4a6356d1fe7ff1aecb4512a6fb"
+  },
+  "negative_receipt": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/runs/mean-omission-001/record.json",
+    "bytes": 1398,
+    "sha256": "1fa16d5d3b09833a7663950caac4e785481664b1d37918a3d1b4d6ecb8520f10"
+  },
+  "distinct_mutation_count": 1,
+  "mutation_attempts": 1,
+  "negative_mechanism": "Sole finite affine scalar mean omission: mu=dirac0,Z(z)=0,m=1,S=0. Mutant equality drops m, actualdirac1=erroneousdirac0. Passed scalar singleton counterexample rewrites mutated equality to soleFalse. Not a claim about actual source regression mean.",
+  "sole_false_count": 1,
+  "unrelated_negative_diagnostics": 0,
+  "positive_counterexample_object_reuse": {
+    "path": "/workspace/scratch/remote-jet-gaussian-construct/build/Controls.olean",
+    "bytes": 257544,
+    "sha256": "51a9061cbe5b0fc950a5cfda053d7d8e3843ad5a3cde32ea4e55f8fbf1c38b53"
+  },
+  "control_object_production_eligible": false,
+  "source_unchanged_through_qualification": true,
+  "failed_positive_attempts": "controls001 had nonexistent helper suggested Mathlib.Tactic.Omega import. Corrected to cached builtin Lean.Elab.Tactic.Omega; controls002 passes. All streams/snapshots retained."
+}

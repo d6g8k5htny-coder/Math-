@@ -1,0 +1,26 @@
+/- Concrete-control text only. Required tactic import: Mathlib.Tactic.Omega
+   (and the existing norm_cast/norm_num imports). No source positivity proof
+   is repeated here: only the two literal quotient-separation hypotheses. -/
+
+private theorem concrete_remote_zero_radius_separation :
+    I4Torus.torusProjection 2 (-2 : ℝ) ![1,0] ≠
+        I4Torus.torusProjection 2 (-2 : ℝ) (I4SourceConfluentPins.endpointM 0) ∧
+    I4Torus.torusProjection 2 (-2 : ℝ) ![1,0] ≠
+        I4Torus.torusProjection 2 (-2 : ℝ) (I4SourceConfluentPins.endpointS 0) := by
+  have h10 : ((1 : ℝ) : AddCircle (-2 : ℝ)) ≠ 0 := by
+    intro h
+    obtain ⟨n, hn⟩ := (AddCircle.coe_eq_zero_iff (p := (-2 : ℝ))).mp h
+    have hnR : (n : ℝ) * (-2) = 1 := by
+      simpa only [zsmul_eq_mul] using hn
+    have hnZ : n * (-2 : ℤ) = 1 := by
+      exact_mod_cast hnR
+    omega
+  constructor
+  · intro h
+    apply h10
+    have h0 := congrFun h (0 : Fin 2)
+    simpa [I4Torus.torusProjection, I4SourceConfluentPins.endpointM] using h0
+  · intro h
+    apply h10
+    have h0 := congrFun h (0 : Fin 2)
+    simpa [I4Torus.torusProjection, I4SourceConfluentPins.endpointS] using h0
