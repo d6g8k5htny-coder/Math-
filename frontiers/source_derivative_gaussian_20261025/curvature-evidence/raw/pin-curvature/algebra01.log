@@ -1,0 +1,39 @@
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:22:10: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:13:35: error: unsolved goals
+case calc.step
+r R q : ℝ
+hr : 0 ≤ r
+hR : 0 ≤ R
+a b c : ℝ
+ha : |a| ≤ R
+hb : |b| ≤ R
+hc : |c - q| ≤ r * R
+hc' : |c| ≤ |q| + r * R
+hb2 : |b| ^ 2 ≤ R ^ 2
+⊢ |a| ≤ R * |q| + 2 * r * R ^ 2
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:35:31: error: unexpected token '|*'; expected '|' or '|ₘ'
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:35:15: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  AddGroup Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:35:16: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSub ℝ ℝ Prop
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:35:7: error: Missing cases:
+/workspace/scratch/pin-curvature-implementation/CurvatureAlgebra.lean:31:58: error: unsolved goals
+r R q : ℝ
+hr : 0 ≤ r
+hR : 0 ≤ R
+v : Fin 6 → ℝ
+h0 : |v 0| ≤ R
+h1 : |v 1| ≤ R
+h2 : |v 2| ≤ R
+h3 : |v 3| ≤ R
+h4 : |v 4 - q| ≤ r * R
+h5 : |v 5 - q| ≤ r * R
+hM : |v 0 * v 4 - r * v 2 ^ 2| ≤ R * |q| + 2 * r * R ^ 2
+hS : |v 1 * v 5 - r * v 3 ^ 2| ≤ R * |q| + 2 * r * R ^ 2
+hB : 0 ≤ R * |q| + 2 * r * R ^ 2
+hprod : sorry
+⊢ sourceEndpointWeight r v ≤ 2 * r ^ 2 * R ^ 2 * q ^ 2 + 8 * r ^ 4 * R ^ 4

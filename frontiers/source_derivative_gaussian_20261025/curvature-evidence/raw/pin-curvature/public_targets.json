@@ -1,0 +1,361 @@
+{
+  "source_sha256": "b19a673aa594d1d5ef929cc598f0a142efb56c10b78c4634c92a8a749d1f1d51",
+  "count": 71,
+  "targets": [
+    {
+      "name": "I4PeanoErrorBounds.abs_weighted_integral_le",
+      "kind": "theorem",
+      "line": 23
+    },
+    {
+      "name": "I4PeanoErrorBounds.abs_weighted_integral_sub_mass_le",
+      "kind": "theorem",
+      "line": 46
+    },
+    {
+      "name": "I4PeanoErrorBounds.peanoCubic_nonneg",
+      "kind": "theorem",
+      "line": 69
+    },
+    {
+      "name": "I4PeanoErrorBounds.scaled_lipschitz_center_error",
+      "kind": "theorem",
+      "line": 77
+    },
+    {
+      "name": "I4PeanoErrorBounds.cubic_pin_pointwise_error",
+      "kind": "theorem",
+      "line": 91
+    },
+    {
+      "name": "I4PeanoErrorBounds.left_weighted_error",
+      "kind": "theorem",
+      "line": 133
+    },
+    {
+      "name": "I4PeanoErrorBounds.right_weighted_error",
+      "kind": "theorem",
+      "line": 146
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius",
+      "kind": "def",
+      "line": 165
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ",
+      "kind": "def",
+      "line": 168
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA",
+      "kind": "def",
+      "line": 171
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_eq_sourceContactQ",
+      "kind": "theorem",
+      "line": 174
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_eq_sourceContactA",
+      "kind": "theorem",
+      "line": 177
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_nonneg",
+      "kind": "theorem",
+      "line": 180
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_measurable",
+      "kind": "theorem",
+      "line": 184
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.one_le_sourceGammaRadius",
+      "kind": "theorem",
+      "line": 188
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_nonneg",
+      "kind": "theorem",
+      "line": 194
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_le_radius",
+      "kind": "theorem",
+      "line": 198
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.orderModeBound_mono",
+      "kind": "lemma",
+      "line": 204
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceDerivativeMajorant_mono",
+      "kind": "lemma",
+      "line": 218
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_le_fifth",
+      "kind": "lemma",
+      "line": 224
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_moments",
+      "kind": "theorem",
+      "line": 233
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF",
+      "kind": "def",
+      "line": 283
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH",
+      "kind": "def",
+      "line": 286
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve",
+      "kind": "def",
+      "line": 289
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.directionX_norm_le_one",
+      "kind": "theorem",
+      "line": 292
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.directionY_norm_le_one",
+      "kind": "theorem",
+      "line": 297
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.axis_point_sub_norm_le",
+      "kind": "theorem",
+      "line": 302
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.axis_derivative_lipschitz",
+      "kind": "theorem",
+      "line": 310
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_axis_derivative_abs_le",
+      "kind": "theorem",
+      "line": 339
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_continuous",
+      "kind": "theorem",
+      "line": 352
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_continuous",
+      "kind": "theorem",
+      "line": 358
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_lipschitz",
+      "kind": "theorem",
+      "line": 364
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_lipschitz",
+      "kind": "theorem",
+      "line": 374
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_lipschitz",
+      "kind": "theorem",
+      "line": 390
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_third_abs_le",
+      "kind": "theorem",
+      "line": 398
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_abs_le",
+      "kind": "theorem",
+      "line": 405
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_abs_le",
+      "kind": "theorem",
+      "line": 418
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_C3",
+      "kind": "theorem",
+      "line": 425
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_C2",
+      "kind": "theorem",
+      "line": 429
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_deriv",
+      "kind": "theorem",
+      "line": 433
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceF_second",
+      "kind": "theorem",
+      "line": 439
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_deriv",
+      "kind": "theorem",
+      "line": 448
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceH_second_zero",
+      "kind": "theorem",
+      "line": 457
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin3_eq",
+      "kind": "theorem",
+      "line": 466
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin4_eq",
+      "kind": "theorem",
+      "line": 471
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_pin5_eq",
+      "kind": "theorem",
+      "line": 474
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_peano",
+      "kind": "theorem",
+      "line": 492
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.endpoint_det_abs_le",
+      "kind": "theorem",
+      "line": 521
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.endpointWeight_curvature_le",
+      "kind": "theorem",
+      "line": 537
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.strict_endpoint_transverse_neg",
+      "kind": "theorem",
+      "line": 566
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.curvature_slab_of_upper",
+      "kind": "theorem",
+      "line": 571
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQCurve_zero",
+      "kind": "theorem",
+      "line": 592
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_abs_le",
+      "kind": "theorem",
+      "line": 597
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_abs_le",
+      "kind": "theorem",
+      "line": 601
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors",
+      "kind": "theorem",
+      "line": 607
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceGammaRadius_ge_third_fourth",
+      "kind": "theorem",
+      "line": 685
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_first_four_bounds",
+      "kind": "theorem",
+      "line": 699
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceQ_measurable",
+      "kind": "theorem",
+      "line": 738
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceA_measurable",
+      "kind": "theorem",
+      "line": 746
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_determinant_bounds",
+      "kind": "theorem",
+      "line": 754
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothWeight_curvature_bound",
+      "kind": "theorem",
+      "line": 778
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_positive_weight_curvature_upper",
+      "kind": "theorem",
+      "line": 795
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_bad_curvature_slab",
+      "kind": "theorem",
+      "line": 811
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_prescribed_pin_constraints_ae",
+      "kind": "theorem",
+      "line": 824
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothLaw_curvature_bound_ae",
+      "kind": "theorem",
+      "line": 841
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_curvature_estimates",
+      "kind": "theorem",
+      "line": 855
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceEndpointCenters",
+      "kind": "def",
+      "line": 873
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceEndpointErrorOrder",
+      "kind": "def",
+      "line": 876
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_normalized_endpoint_errors_all",
+      "kind": "theorem",
+      "line": 878
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.sourceSmoothLaw_endpoint_errors_ae",
+      "kind": "theorem",
+      "line": 895
+    },
+    {
+      "name": "I4SourcePinCurvatureBounds.source_endpoint_error_estimates",
+      "kind": "theorem",
+      "line": 903
+    }
+  ]
+}

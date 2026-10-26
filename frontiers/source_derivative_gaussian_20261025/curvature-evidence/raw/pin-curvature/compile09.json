@@ -1,0 +1,17 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    ".lake/build/lib/lean/SourcePinCurvatureBounds.olean",
+    "SourcePinCurvatureBounds.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "exit": 143,
+  "sourceSHA_before": "5a362dfd076705ee0eb2845eb89bba11738f52cfc069de82c3e2702f5fdb0ea2",
+  "sourceSHA_after": "5a362dfd076705ee0eb2845eb89bba11738f52cfc069de82c3e2702f5fdb0ea2",
+  "startedUTC": "2026-10-26T00:34:17.346797+00:00",
+  "elapsed": 64.58427381515503
+}
