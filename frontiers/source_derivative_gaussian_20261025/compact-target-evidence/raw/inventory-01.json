@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/compact-target-moments/Inventory.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_utc": "2026-10-26T04:17:16.470941+00:00",
+  "elapsed_seconds": 6.697113990783691,
+  "exit_code": 0,
+  "source": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceCompactTargetMoments.lean",
+  "snapshot": "/workspace/scratch/compact-target-moments/inventory-01.source.lean",
+  "source_sha256_before": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+  "source_sha256_after": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+  "log_sha256": "752b19dab62e247d7b6b2699cd40b0d08b89d6cff473569afdef09aa94bcafc8",
+  "object_sha256": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCompactTargetMoments.ilean": "a58c0cb307662dd598db5a7abb00bed967a961fc239c2b18e1b38a195b8459c5",
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceCompactTargetMoments.olean": "c880d2497a20f8857b8b1ea5fc0de2e365470f29d7a24f9c58afe1d62a11a38d"
+  }
+}

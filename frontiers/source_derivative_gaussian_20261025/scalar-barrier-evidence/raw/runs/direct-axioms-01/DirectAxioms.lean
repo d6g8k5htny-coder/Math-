@@ -1,0 +1,35 @@
+import AdaptiveFoldScalarBarrier
+
+#print axioms AdaptiveFoldScalar.J
+#print axioms AdaptiveFoldScalar.J._proof_1
+#print axioms AdaptiveFoldScalar.J._proof_2
+#print axioms AdaptiveFoldScalar.J.eq_1
+#print axioms AdaptiveFoldScalar.ScalarBarrier
+#print axioms AdaptiveFoldScalar.ScalarBarrier.casesOn
+#print axioms AdaptiveFoldScalar.ScalarBarrier.ceiling
+#print axioms AdaptiveFoldScalar.ScalarBarrier.floor
+#print axioms AdaptiveFoldScalar.ScalarBarrier.left_barrier
+#print axioms AdaptiveFoldScalar.ScalarBarrier.left_comparison
+#print axioms AdaptiveFoldScalar.ScalarBarrier.left_deriv
+#print axioms AdaptiveFoldScalar.ScalarBarrier.left_gain
+#print axioms AdaptiveFoldScalar.ScalarBarrier.left_pos
+#print axioms AdaptiveFoldScalar.ScalarBarrier.middle_comparison
+#print axioms AdaptiveFoldScalar.ScalarBarrier.middle_neg
+#print axioms AdaptiveFoldScalar.ScalarBarrier.mk
+#print axioms AdaptiveFoldScalar.ScalarBarrier.mk._flat_ctor
+#print axioms AdaptiveFoldScalar.ScalarBarrier.rec
+#print axioms AdaptiveFoldScalar.ScalarBarrier.recOn
+#print axioms AdaptiveFoldScalar.ScalarBarrier.right_comparison
+#print axioms AdaptiveFoldScalar.ScalarBarrier.right_deriv
+#print axioms AdaptiveFoldScalar.ScalarBarrier.right_gain
+#print axioms AdaptiveFoldScalar.ScalarBarrier.right_older
+#print axioms AdaptiveFoldScalar.ScalarBarrier.right_pos
+#print axioms AdaptiveFoldScalar.integral_q_left
+#print axioms AdaptiveFoldScalar.integral_q_right
+#print axioms AdaptiveFoldScalar.primitive_hasDerivAt
+#print axioms AdaptiveFoldScalar.q
+#print axioms AdaptiveFoldScalar.q._proof_1
+#print axioms AdaptiveFoldScalar.q.eq_1
+#print axioms AdaptiveFoldScalar.q_hasDerivAt
+#print axioms AdaptiveFoldScalar.scalarBarrier_of_convex
+#print axioms AdaptiveFoldScalar.scalarBarrier_of_secondDerivative

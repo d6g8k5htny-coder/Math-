@@ -1,0 +1,139 @@
+[
+  {
+    "label": "compile-01",
+    "record": "raw/compile-01.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.olean",
+      "-i",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.ilean",
+      "SourceCompactTargetMoments.lean"
+    ],
+    "exit_code": 1,
+    "source_sha256": "66f52aacf1621fac8f29351172ed3cf42f3d5602f19ca52a845eabe4f628dd2b",
+    "elapsed_seconds": 5.128565073013306
+  },
+  {
+    "label": "compile-02",
+    "record": "raw/compile-02.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.olean",
+      "-i",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.ilean",
+      "SourceCompactTargetMoments.lean"
+    ],
+    "exit_code": 1,
+    "source_sha256": "acb5fc6486a537ad148cfd071acc87e977d677292e999b1b0d4afeb1f2053df4",
+    "elapsed_seconds": 3.5670464038848877
+  },
+  {
+    "label": "compile-03",
+    "record": "raw/compile-03.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "-o",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.olean",
+      "-i",
+      ".lake/build/lib/lean/SourceCompactTargetMoments.ilean",
+      "SourceCompactTargetMoments.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 4.531141996383667
+  },
+  {
+    "label": "inventory-01",
+    "record": "raw/inventory-01.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/compact-target-moments/Inventory.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 6.697113990783691
+  },
+  {
+    "label": "kernel",
+    "record": "raw/kernel.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "leanchecker",
+      "SourceCompactTargetMoments"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 5.210773229598999
+  },
+  {
+    "label": "positive-controls-01",
+    "record": "raw/positive-controls-01.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/compact-target-moments/PositiveControls.lean"
+    ],
+    "exit_code": 1,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 7.297299146652222
+  },
+  {
+    "label": "positive-controls-02",
+    "record": "raw/positive-controls-02.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/compact-target-moments/PositiveControls.lean"
+    ],
+    "exit_code": 0,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 3.5519614219665527
+  },
+  {
+    "label": "reject-cubic",
+    "record": "raw/reject-cubic.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/compact-target-moments/RejectDroppedCubic.lean"
+    ],
+    "exit_code": 1,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 6.302104711532593
+  },
+  {
+    "label": "reject-height",
+    "record": "raw/reject-height.json",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "/workspace/scratch/compact-target-moments/RejectDroppedHeight.lean"
+    ],
+    "exit_code": 1,
+    "source_sha256": "4fc28898f09381b4bfd0a15324556d2f3cb68f4b39063aa3acf12db7759ccfc8",
+    "elapsed_seconds": 7.0309131145477295
+  }
+]

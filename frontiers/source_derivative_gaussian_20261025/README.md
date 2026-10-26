@@ -1,3 +1,29 @@
+# All-target source moments and normalized scalar fold barriers
+
+Two new Lean modules close additional formal gaps in the parent application:
+
+- [All-target moments](SourceCompactTargetMoments.lean) derive one actual radius
+  interval before every six-pin target and natural moment order, retain polynomial
+  target dependence, and identify genuine varying-gap laws with the raw kernel.
+- [Scalar fold barriers](AdaptiveFoldScalarBarrier.lean) derive signs, endpoint
+  margins, exact5/12 arm gains,1/4 separation and asymmetric ceiling/floor from
+  explicit derivative jets and normalized pins. Actual ridge existence and ambient
+  geometry remain separate formal obligations.
+
+Their new-only builds, one named kernel replay each, standard-axiom audits and
+substantive controls passed. Exact failures and declaration kinds are retained
+in compact-target-evidence and scalar-barrier-evidence. The31-module registry has
+866 declarations:857 propositions+9data instances, with25support inputs. Generated
+accessors, definitions and the Prop bundle are recorded separately.
+
+The stack was refreshed without changing its proof packet. PR513 has separate
+engineering review and passing current CI and is Ready for automatic review;
+protected integration and the PR512 incident disposition remain separate. The
+source-preserving base records are in engineering-evidence/stack-sync-20261026.
+Completed mathematical verification is reused; no baseline proof replay occurred.
+
+---
+
 # Actual planar elder selection and compact lifetime densities
 
 The [new conventional parent application](actual-adaptive-elder-application/PROOF.md)

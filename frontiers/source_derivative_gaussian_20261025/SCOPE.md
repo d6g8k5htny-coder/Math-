@@ -1,3 +1,20 @@
+# Current formal scope:31 modules /866 registry declarations /25 inputs
+
+New source cuts: all-target moments e2c819cf8161f0dc37de113f0157a058ba0fd2ec
+(10written proofs+2defs;23namespace audit entries); scalar barrier
+bb5a32ef10a06289ab14680b5ed1cf809d3457d6 (6written proofs+2defs+1Prop structure;
+33audit entries including14generated accessors and10other generated declarations).
+The total is857 propositions+9data instances. Generated names are not added to
+written proof counts. Scalar direct stable-name prints cover30names;3auxiliary
+proof names are covered by the exhaustive collector and named kernel.
+
+All-target unweighted source moments are actual-source theorems. The scalar module
+is a deterministic normalized companion, not an actual ridge/elder or ParentA/B
+Lean theorem. Those broader formal obligations and new independent scientific
+review remain separate from the completed source qualification.
+
+---
+
 # New conventional planar Parent A/B application
 
 Proof cutcd145a0aa1a007c98031311b77743803c72c3d25 supplies actual elder rejectionCr3

@@ -1,0 +1,6 @@
+AdaptiveFoldScalarBarrier.lean:49:40: error: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+AdaptiveFoldScalarBarrier.lean:55:80: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

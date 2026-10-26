@@ -1,0 +1,23 @@
+{
+  "author": "OpenAI Codex /root/compact_target_moments",
+  "assignment_from": "/root",
+  "binding_brief": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SOURCE_COMPACT_TARGET_MOMENTS.md",
+    "sha256": "066bf7be4303ac9ae2356fab5b8a7b0f0a4da4b4e269b9c61a6fc13deb815bef",
+    "frozen_sourcecut": "458058b9a004482de4e80ddae6d1a34ba31287eb"
+  },
+  "producer_owned_source": [
+    "SourceCompactTargetMoments.lean"
+  ],
+  "subagents": [],
+  "old_source_edits": [],
+  "local_proof_reuse": [
+    "sourceInverse_prescribed_uniform_bounds hL 0: actual inverse bounded near contact",
+    "sourceEndpoint_parameter_limits hL 0: actual covariance invertible eventually",
+    "posterior_sampleMajorant_le: every target and actual coefficient shift",
+    "sampleMajorant_prior_moment: original Gaussian weighted series, every natural order",
+    "sourceGammaRadius_le_fifth: actual radius bounded by fifth derivative majorant",
+    "rawPinKernel_eq_confluent: every-target coefficient sampling transport"
+  ],
+  "disclosure": "New generic affine majorant integrability proof repeats the mathematical add_pow_le route of the existing private drift_majorant_integrable_pow, since a private declaration cannot be imported. No old source changed."
+}

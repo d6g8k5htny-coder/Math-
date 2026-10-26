@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/adaptive-fold-scalar-barrier/build/AdaptiveFoldScalarBarrier.olean",
+    "AdaptiveFoldScalarBarrier.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "started_unix": 1792988829.146642,
+  "elapsed_seconds": 7.358708143234253,
+  "exit_code": 1,
+  "snapshots": {
+    "AdaptiveFoldScalarBarrier.lean": "104138c8e0a43594ea96a1730ebd9446a1106b48fe495a0eae3289c436c367c9"
+  }
+}

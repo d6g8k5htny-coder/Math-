@@ -1,6 +1,6 @@
 name = "source_derivative_gaussian"
 version = "0.1.0"
-defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness"]
+defaultTargets = ["SourceDerivativeGaussian", "ContactJetCovariance", "SourceContactCovariance", "SourceConfluentPins", "SourceContactSchur", "SourceDerivativeContinuity", "ConfluentIntegralIdentities", "SourceEndpointRegression", "GaussianRegressionLimits", "SourceEndpointParameters", "SourceContactEndpointParameters", "SourceConfluentLimits", "SourcePhysicalEndpointKernel", "SourceEndpointEstimates", "SourceSmoothConditionalKernel", "SourceSmoothPalm", "GaussianWeightedMajorants", "SourceConditionalMajorant", "SourcePinCurvatureBounds", "ScalarProductCurvatureBound", "SourceCurvatureDecomposition", "SourceWeightedCurvatureBound", "SourcePinPreservingQuartic", "SourceSmoothTopology", "SourceRawPinConditioning", "SourceQuarticCaptureAlgebra", "SourceMorseIncidence", "SourceSmoothParameterSpace", "SourceLifetimePairFiniteness", "SourceCompactTargetMoments", "AdaptiveFoldScalarBarrier"]
 
 [[require]]
 name = "mathlib"
@@ -98,3 +98,9 @@ name = "SourceSmoothParameterSpace"
 
 [[lean_lib]]
 name = "SourceLifetimePairFiniteness"
+
+[[lean_lib]]
+name = "SourceCompactTargetMoments"
+
+[[lean_lib]]
+name = "AdaptiveFoldScalarBarrier"
