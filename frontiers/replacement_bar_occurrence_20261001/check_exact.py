@@ -17,7 +17,7 @@ def contained_file(root, relative):
     parts = PurePosixPath(relative)
     require(not parts.is_absolute() and str(parts) == relative
             and all(p not in ('', '.', '..') for p in parts.parts)
-            and '\\\\' not in relative, 'noncanonical source path')
+            and '\\' not in relative, 'noncanonical source path')
     target = root
     for part in parts.parts:
         target = target / part
