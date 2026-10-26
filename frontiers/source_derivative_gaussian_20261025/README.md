@@ -1,3 +1,28 @@
+# Constructed ridge barriers, rectangle boundary and attained older path
+
+[AdaptiveFoldBoundaryPath.lean](AdaptiveFoldBoundaryPath.lean) joins literal C4
+potential/derivative/pin data to one constructed ridge and the scalar barrier.
+It proves the coordinate curvature budget and actual vertical quadratic loss,
+then derives a closed left-box ceiling/frontier bound and an explicit path
+through the saddle to an older ridge point, everywhere above the death level.
+
+Its8 written proofs passed strict compilation, one named kernel replay, complete
+95-declaration standard-axiom coverage and substantive controls. Ten definitions,
+three Prop bundles and74 generated declarations are separately inventoried.
+The low-vertical-drop polynomial proves every analytic premise yet exceeds the
+death value on the frontier; the omitted-budget mutation rejects at actual False.
+[Evidence and exact source scope](boundary-path-evidence/BOUNDARY_PATH_EVIDENCE_CATALOG.json)
+retain failures, helper lineage and source/object bindings. Author-side source
+review found no findings; different-family scientific alignment remains pending.
+
+The registry has33 qualified modules/896 written targets=887 propositions+9data
+instances, with25 unchanged inputs. Earlier verification is reused. The actual
+varying-gap source chart/pin/Peano adapter is active separately; wider rectangle
+source signs/budgets and physical torus/H0/count-density parents remain open.
+Earlier entries below retain their historical exact-source scopes.
+
+---
+
 # Constructed smooth transverse ridge
 
 [AdaptiveFoldTransverseRidge.lean](AdaptiveFoldTransverseRidge.lean) constructs a

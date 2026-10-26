@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "/workspace/scratch/ridge-vertical-loss/runs/run-006/VerticalLoss.lean"
+  ],
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "source_sha256": "40a313e48d747774916a240740d136d47ed84c9494b6fd5a2ea68eeacf8042d2",
+  "started_utc": "2026-10-26T05:15:07.121387+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 3.030425714998273,
+  "ended_utc": "2026-10-26T05:15:10.151946+00:00"
+}

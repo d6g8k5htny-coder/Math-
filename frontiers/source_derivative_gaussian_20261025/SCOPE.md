@@ -1,3 +1,18 @@
+# Current qualified scope:33 modules /896 written targets
+
+The8 new boundary/path proofs construct the analytic and ambient witness from
+finite literal derivative/pin/budget inputs. They prove actual vertical loss,
+closed-box ceiling/frontier and a death-level graph path through the saddle to
+an older endpoint. Ten definitions,3 Propbundles and74 generated declarations
+are separate; all95 new ownmodule declarations have standard-axiom coverage.
+
+The literal actual-source chart module is active and unqualified by this scope.
+Wider Gaussian rectangle estimates, physical torus/H0/count/probability/density
+parent transport remain separate. Completed32-module/25-input evidence is reused;
+provider-distinct process review is tracked separately from verified mathematics.
+
+---
+
 # Current qualified scope:32 modules /888 written targets
 
 The new transverse-ridge module adds22 written theorems,10 separately inventoried

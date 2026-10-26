@@ -1,0 +1,66 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/ridge-vertical-loss/runs/run-001/VerticalLoss.lean:28:27: error: unsolved goals
+case e'_8
+f f₁ f₂ : ℝ → ℝ
+a b c z y : ℝ
+hf : ∀ t ∈ Icc a b, HasDerivAt f (f₁ t) t
+hf₁ : ∀ t ∈ Icc a b, HasDerivAt f₁ (f₂ t) t
+hneg : ∀ t ∈ Icc a b, f₂ t ≤ -c
+hz : z ∈ Icc a b
+hroot : f₁ z = 0
+hy : y ∈ Icc a b
+g : ℝ → ℝ := fun t => f t + c / 2 * (t - z) ^ 2
+g₁ : ℝ → ℝ := fun t => f₁ t + c * (t - z)
+g₂ : ℝ → ℝ := fun t => f₂ t + c
+t : ℝ
+ht : t ∈ Icc a b
+⊢ (fun t => -(c * t * z) + c * t ^ 2 * (1 / 2) + c * z ^ 2 * (1 / 2)) = fun y =>
+    c * ((fun x => -z + id x) ^ 2) y * (1 / 2)
+
+case e'_9
+f f₁ f₂ : ℝ → ℝ
+a b c z y : ℝ
+hf : ∀ t ∈ Icc a b, HasDerivAt f (f₁ t) t
+hf₁ : ∀ t ∈ Icc a b, HasDerivAt f₁ (f₂ t) t
+hneg : ∀ t ∈ Icc a b, f₂ t ≤ -c
+hz : z ∈ Icc a b
+hroot : f₁ z = 0
+hy : y ∈ Icc a b
+g : ℝ → ℝ := fun t => f t + c / 2 * (t - z) ^ 2
+g₁ : ℝ → ℝ := fun t => f₁ t + c * (t - z)
+g₂ : ℝ → ℝ := fun t => f₂ t + c
+t : ℝ
+ht : t ∈ Icc a b
+⊢ c * t - c * z = -(c * z) + c * id t
+/workspace/scratch/ridge-vertical-loss/runs/run-001/VerticalLoss.lean:33:4: error: Type mismatch: After simplification, term
+  HasDerivAt.add (hf₁ t ht) (HasDerivAt.const_mul c (HasDerivAt.sub_const z (hasDerivAt_id t)))
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup.toAddCommGroup
+    NormedField.toNormedSpace.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    (f₁ + fun y => c * (id y - z)) (f₂ t + c) t
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun t => f₁ t + c * (t - z)) (f₂ t + c) t
+/workspace/scratch/ridge-vertical-loss/runs/run-001/VerticalLoss.lean:53:35: error: Type mismatch
+  (le_div_iff₀ (sub_pos.mpr hlt)).mp hs
+has type
+  0 * (z - y) ≤ g z - g y
+but is expected to have type
+  0 ≤ g z - g y
+/workspace/scratch/ridge-vertical-loss/runs/run-001/VerticalLoss.lean:58:35: error: Type mismatch
+  (div_le_iff₀ (sub_pos.mpr hgt)).mp hs
+has type
+  g y - g z ≤ 0 * (y - z)
+but is expected to have type
+  g y - g z ≤ 0

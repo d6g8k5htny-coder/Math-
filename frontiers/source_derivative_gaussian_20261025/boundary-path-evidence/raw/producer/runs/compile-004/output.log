@@ -1,0 +1,53 @@
+AdaptiveFoldBoundaryPath.lean:393:25: error: linarith failed to find a contradiction
+V : ℝ × ℝ → ℝ
+O : Set (ℝ × ℝ)
+R c M₀ M₁ M₂ A : ℝ
+h : StructuralRectangleData V O R c M₀ M₁ M₂ A
+hmargin : M₀ / c ≤ R
+hdrop : 1 ≤ c / 2 * (R - M₀ / c) ^ 2
+U : Set ℝ
+z : ℝ → ℝ
+hz : RidgeScalarData V O R c M₀ M₁ M₂ U z
+hloss : ∀ x ∈ J, ∀ y ∈ Icc (-R) R, V (x, y) ≤ profile V z x - c / 2 * (y - z x) ^ 2
+hL : profile V z (-(1 / 2)) = V M
+hR : profile V z (1 / 2) = V S
+hgap : V M - V S = 1 / 6
+hnonneg : ∀ (y : ℝ), 0 ≤ c / 2 * y ^ 2
+hceil : ∀ p ∈ leftBox R, V p ≤ V M
+p : ℝ × ℝ
+hp : p ∈ frontier (leftBox R)
+hpD : p ∈ leftBox R
+hxJ : p.1 ∈ J
+hv : V (-(3 / 2), p.2) ≤ profile V z (-(3 / 2)) - c / 2 * (p.2 - z (-(3 / 2))) ^ 2
+hleft : p.1 = -(3 / 2)
+hb : profile V z (-(3 / 2)) ≤ V S - 1 / 4
+a✝ : ?m.693 < profile V z (-(3 / 2)) - c / 2 * (p.2 - z (-(3 / 2))) ^ 2
+⊢ False
+failed
+AdaptiveFoldBoundaryPath.lean:395:25: error: linarith failed to find a contradiction
+V : ℝ × ℝ → ℝ
+O : Set (ℝ × ℝ)
+R c M₀ M₁ M₂ A : ℝ
+h : StructuralRectangleData V O R c M₀ M₁ M₂ A
+hmargin : M₀ / c ≤ R
+hdrop : 1 ≤ c / 2 * (R - M₀ / c) ^ 2
+U : Set ℝ
+z : ℝ → ℝ
+hz : RidgeScalarData V O R c M₀ M₁ M₂ U z
+hloss : ∀ x ∈ J, ∀ y ∈ Icc (-R) R, V (x, y) ≤ profile V z x - c / 2 * (y - z x) ^ 2
+hL : profile V z (-(1 / 2)) = V M
+hR : profile V z (1 / 2) = V S
+hgap : V M - V S = 1 / 6
+hnonneg : ∀ (y : ℝ), 0 ≤ c / 2 * y ^ 2
+hceil : ∀ p ∈ leftBox R, V p ≤ V M
+p : ℝ × ℝ
+hp : p ∈ frontier (leftBox R)
+hpD : p ∈ leftBox R
+hxJ : p.1 ∈ J
+hv : V (1 / 2, p.2) ≤ V S - c / 2 * (p.2 - z (1 / 2)) ^ 2
+hright : p.1 = 1 / 2
+a✝ : ?m.729 < V S - c / 2 * (p.2 - z (1 / 2)) ^ 2
+⊢ False
+failed
+Error in Linarith.normalizeDenominatorsLHS: Expr.rewrite may not produce subgoals.
+Error in Linarith.normalizeDenominatorsLHS: Expr.rewrite may not produce subgoals.
