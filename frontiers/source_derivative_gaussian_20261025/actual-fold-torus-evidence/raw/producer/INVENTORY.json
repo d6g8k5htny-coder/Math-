@@ -1,0 +1,712 @@
+{
+  "module": "SourceActualFoldTorus",
+  "total": 50,
+  "evidence_basis": "Existing exhaustive actual-owning-module-index inventory-001; parsed only, not rerun.",
+  "receipt": "runs/inventory-001/receipt.json",
+  "raw_log": "runs/inventory-001/output.log",
+  "role_counts": {
+    "prop_bundle": 1,
+    "generated": 25,
+    "public_theorem_target": 19,
+    "definition": 4,
+    "private_support_theorem": 1
+  },
+  "kernel_kind_counts": {
+    "inductive": 1,
+    "definition": 7,
+    "theorem": 40,
+    "constructor": 1,
+    "recursor": 1
+  },
+  "standard_axioms_only": true,
+  "rows": [
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData",
+      "kernel_kind": "inductive",
+      "classification": "named public Prop bundle",
+      "role": "prop_bundle",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.casesOn",
+      "kernel_kind": "definition",
+      "classification": "generated definition",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle eliminator/constructor support",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.closed_path",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.death_lt_birth",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.domain_closed",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.frontier_bound",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.height_ceiling",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.maximum_height",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.maximum_inside",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.mk",
+      "kernel_kind": "constructor",
+      "classification": "generated constructor",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle eliminator/constructor support",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.mk._flat_ctor",
+      "kernel_kind": "definition",
+      "classification": "generated definition",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle eliminator/constructor support",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.older_height",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.older_outside",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.rec",
+      "kernel_kind": "recursor",
+      "classification": "generated recursor",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle eliminator/constructor support",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.recOn",
+      "kernel_kind": "definition",
+      "classification": "generated definition",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle eliminator/constructor support",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.strictClearanceDeath_eq",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.strictClearanceSet_eq_Iio",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.TorusTrapData.strict_trace",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "Prop-bundle field projection",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actualTorusField",
+      "kernel_kind": "definition",
+      "classification": "named public definition",
+      "role": "definition",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actualTorusField.congr_simp",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actualTorusField_continuous",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actualTorusField_physical_pullback",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actualTorusField_pullback",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.actual_rectangle_torus",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.scaled_rectangle_trap",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.sourceGapLaw_actual_torus_clearance",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.sourceGapLaw_actual_torus_trap_clearance",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.sourceTorus2L_t2",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.strictClearanceDeath",
+      "kernel_kind": "definition",
+      "classification": "named public definition",
+      "role": "definition",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.strictClearanceDeath.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.strictClearanceSet",
+      "kernel_kind": "definition",
+      "classification": "named public definition",
+      "role": "definition",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.strictClearanceSet_eq_C263",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap",
+      "kernel_kind": "definition",
+      "classification": "named public definition",
+      "role": "definition",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap.eq_1",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_M",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_S",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_continuous",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_2",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_3",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_4",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_5",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_6",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_7",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_field_eq._simp_1_8",
+      "kernel_kind": "theorem",
+      "classification": "generated theorem",
+      "role": "generated",
+      "generated_subtype": "compiler theorem auxiliary",
+      "private": false,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusPhysicalMap_open",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusProjection2L_continuous",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusProjection2L_open",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "SourceActualFoldTorus.torusProjection2L_surjective",
+      "kernel_kind": "theorem",
+      "classification": "named public theorem",
+      "role": "public_theorem_target",
+      "generated_subtype": null,
+      "private": false,
+      "public_theorem_target": true,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "_private.SourceActualFoldTorus.0.SourceActualFoldTorus.physicalPi_eq_chart",
+      "kernel_kind": "theorem",
+      "classification": "handwritten private theorem",
+      "role": "private_support_theorem",
+      "generated_subtype": null,
+      "private": true,
+      "public_theorem_target": false,
+      "transitive_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

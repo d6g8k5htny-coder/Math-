@@ -1,0 +1,20 @@
+IsOpenMap.isQuotientMap.{u_1, u_2} {X : Type u_1} {Y : Type u_2} {f : X → Y} [TopologicalSpace X] [TopologicalSpace Y]
+  (open_map : IsOpenMap f) (cont : Continuous f) (surj : Function.Surjective f) : Topology.IsQuotientMap f
+/workspace/scratch/actual-torus-descent/Probe.lean:4:7: error(lean.unknownIdentifier): Unknown identifier `IsQuotientMap.continuous_iff`
+Homeomorph.isOpenMap.{u_1, u_2} {X : Type u_1} {Y : Type u_2} [TopologicalSpace X] [TopologicalSpace Y] (h : X ≃ₜ Y) :
+  IsOpenMap ⇑h
+ContinuousLinearEquiv.toHomeomorph.{u_1, u_2, u_4, u_5} {R₁ : Type u_1} {R₂ : Type u_2} [Semiring R₁] [Semiring R₂]
+  {σ₁₂ : R₁ →+* R₂} {σ₂₁ : R₂ →+* R₁} [RingHomInvPair σ₁₂ σ₂₁] [RingHomInvPair σ₂₁ σ₁₂] {M₁ : Type u_4}
+  [TopologicalSpace M₁] [AddCommMonoid M₁] {M₂ : Type u_5} [TopologicalSpace M₂] [AddCommMonoid M₂] [Module R₁ M₁]
+  [Module R₂ M₂] (e : M₁ ≃SL[σ₁₂] M₂) : M₁ ≃ₜ M₂
+ContinuousLinearEquiv.isOpenMap.{u_1, u_2, u_4, u_5} {R₁ : Type u_1} {R₂ : Type u_2} [Semiring R₁] [Semiring R₂]
+  {σ₁₂ : R₁ →+* R₂} {σ₂₁ : R₂ →+* R₁} [RingHomInvPair σ₁₂ σ₂₁] [RingHomInvPair σ₂₁ σ₁₂] {M₁ : Type u_4}
+  [TopologicalSpace M₁] [AddCommMonoid M₁] {M₂ : Type u_5} [TopologicalSpace M₂] [AddCommMonoid M₂] [Module R₁ M₁]
+  [Module R₂ M₂] (e : M₁ ≃SL[σ₁₂] M₂) : IsOpenMap ⇑e
+/workspace/scratch/actual-torus-descent/Probe.lean:8:8: error(lean.unknownIdentifier): Unknown identifier `coordinates`
+IsOpenMap.comp.{u_1, u_2, u_3} {X : Type u_1} {Y : Type u_2} {Z : Type u_3} {f : X → Y} {g : Y → Z} [TopologicalSpace X]
+  [TopologicalSpace Y] [TopologicalSpace Z] (hg : IsOpenMap g) (hf : IsOpenMap f) : IsOpenMap (g ∘ f)
+Function.Surjective.piMap.{u_1, u_2, u_3} {ι : Sort u_1} {α : ι → Sort u_2} {β : ι → Sort u_3} {f : (i : ι) → α i → β i}
+  (hf : ∀ (i : ι), Function.Surjective (f i)) : Function.Surjective (Pi.map f)
+/workspace/scratch/actual-torus-descent/Probe.lean:11:7: error(lean.unknownIdentifier): Unknown constant `Set.SurjOn.piMap`
+inferInstance : T2Space (SourceTorus 2 (-1))

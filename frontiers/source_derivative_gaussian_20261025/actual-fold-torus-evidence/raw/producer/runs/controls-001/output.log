@@ -1,0 +1,21 @@
+/workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean:46:4: error: Type mismatch: After simplification, term
+  Eq.symm (AddCircle.coe_period (-1))
+ has type
+  @Eq (ℝ ⧸ AddSubgroup.zmultiples (-1)) 0 ↑(-1)
+but is expected to have type
+  @Eq (AddCircle (-1)) ↑(![0, 0] ⟨0, ⋯⟩) ↑(![-1, 0] ⟨0, ⋯⟩)
+/workspace/scratch/actual-fold-torus-construct/ActualTorusControls.lean:67:2: error: Type mismatch: After simplification, term
+  congrArg
+    (actualTorusField
+      (Mathlib.Meta.NormNum.isInt_eq_false
+        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+          (Eq.refl (Int.negOfNat 1)))
+        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)) (Eq.refl false))
+      sample)
+    negative_period_lifts_same
+ has type
+  actualTorusField ⋯ sample (torusProjection 2 (-1) ![0, 0]) =
+    actualTorusField ⋯ sample (torusProjection 2 (-1) ![-1, 0])
+but is expected to have type
+  smoothSourceField 2 (-1) sample ![0, 0] = smoothSourceField 2 (-1) sample ![-1, 0]

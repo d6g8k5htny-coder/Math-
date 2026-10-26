@@ -1,3 +1,17 @@
+# Current qualified scope:37 modules /984 public targets /28 inputs
+
+The19 new torus public written proofs establish explicit H0-free TorusTrapData,
+actual strict clearance and sSup on the same original-period sample/law.
+One private proof,4definitions,1Propbundle and25generated constants are separate;
+all50 own constants are standard-axiom covered. Continuous/open compact frontier
+inclusion suffices, including negativeL; no global quotient injection is assumed.
+
+Old typed ElderTrap/H0 conversion, canonicalpartner, cutoff probability, framedlaw,
+weighted countdensity and ParentA/B Lean remain separate. Completed applicable
+verification is reused, distinct-family review remains a separate process.
+
+---
+
 # Current qualified scope:36modules /965public targets /27inputs
 
 The8 new actual real-cover death proofs add literal C263 death/strictclearance

@@ -1,0 +1,22 @@
+SourceActualFoldTorus.lean:282:2: error: Type mismatch: After simplification, term
+  hresult
+ has type
+  And
+    (TorusTrapData (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+      (torusPhysicalMap L r (olderPoint z)) b (b - k * r ^ 3) (torusPhysicalMap L r '' leftBox R))
+    (b + 3 / 2 * k * r ^ 3 ≤ actualTorusField hL sample (torusPhysicalMap L r (olderPoint z)) ∧
+      (∃ γ,
+          (∀ (t : ↑unitInterval), b - k * r ^ 3 ≤ actualTorusField hL sample ((γ.cast ⋯ ⋯) t)) ∧
+            (γ.cast ⋯ ⋯) pathMidpoint = torusProjection 2 L (endpointS r)) ∧
+        strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = Iio (b - k * r ^ 3) ∧
+          strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = b - k * r ^ 3)
+but is expected to have type
+  And
+    (TorusTrapData (actualTorusField hL sample) (torusProjection 2 L (endpointM r))
+      (torusPhysicalMap L r (olderPoint z)) b (b - k * r ^ 3) (torusPhysicalMap L r '' leftBox R))
+    (b + 3 / 2 * k * r ^ 3 ≤ actualTorusField hL sample (torusPhysicalMap L r (olderPoint z)) ∧
+      (∃ η,
+          (∀ (t : ↑unitInterval), b - k * r ^ 3 ≤ actualTorusField hL sample (η t)) ∧
+            η pathMidpoint = torusProjection 2 L (endpointS r)) ∧
+        strictClearanceSet (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = Iio (b - k * r ^ 3) ∧
+          strictClearanceDeath (actualTorusField hL sample) (torusProjection 2 L (endpointM r)) = b - k * r ^ 3)

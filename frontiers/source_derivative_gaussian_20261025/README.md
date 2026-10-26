@@ -1,3 +1,31 @@
+# Actual original-period torus clearance
+
+[SourceActualFoldTorus.lean](SourceActualFoldTorus.lean) descends the same source
+sample to the original torus for every nonzero period, including negative L.
+It transports the qualified box and path through a continuous open quotient,
+using compact-image frontier inclusion without an injectivity premise. Absolute
+heights and positive scale6kr^3 give actual geometric TorusTrapData, strict
+clearance Iio(b-k*r^3), and its real supremum b-k*r^3 under the unchanged actual
+gap law and qualified sample cutoffs. One hL-only radius precedes k0,r,b,k.
+
+Nineteen public written proofs, one private lemma, four definitions, one Prop
+bundle and25 generated constants are separately classified. Strict compile,
+one named kernel, exhaustive50 standard-axiom rows and ten new controls passed.
+The false quotient-injectivity control rejects at exactly one False goal.
+Completed checks were reused after interruption; only the uncovered mutation
+was executed on resumption. [Evidence](actual-fold-torus-evidence/ACTUAL_FOLD_TORUS_EVIDENCE_CATALOG.json)
+retains all runs, failures, custody and exact technical review PASS. The missed
+checkpoint/terminal and after-execution interface wording correction are explicit.
+
+The registry has37 qualified modules/984 public written targets=975 propositions
+plus9data instances, with28support inputs. One unchanged accepted compact-frontier
+proof adds no research target credit. Old typed ElderTrap/H0 conversion, canonical
+partner, weighted probability/count-density and ParentA/B Lean remain downstream.
+Different-family review remains separate and pending. Scientific effect NONE.
+Earlier entries below retain their historical scopes.
+
+---
+
 # Actual real-cover elder death and strict clearance
 
 [SourceActualFoldDeath.lean](SourceActualFoldDeath.lean) proves the literal C263
