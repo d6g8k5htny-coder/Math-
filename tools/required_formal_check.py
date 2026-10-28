@@ -68,6 +68,32 @@ def runtime_observation(value, lock: dict, name: str) -> dict:
     return value
 
 
+def manifest_identity(manifest: Path, raw: bytes) -> str:
+    """Select one declared source identity; never downgrade an overlay receipt."""
+    document = strict_json(raw.decode('utf-8'))
+    require(isinstance(document, dict), 'manifest must be an object')
+    overlay = manifest.with_name('manifest.overlay.json')
+    if 'source_identity' not in document:
+        require(not overlay.exists() and not overlay.is_symlink(), 'undeclared manifest overlay')
+        return hashlib.sha256(raw).hexdigest()
+    require(document['source_identity'] == {
+        'schema': 'rf312-overlay-v1', 'overlay': 'manifest.overlay.json'},
+        'unsupported source identity contract')
+    require(not overlay.is_symlink() and overlay.is_file(),
+            'missing or nonregular manifest overlay')
+    overlay_raw = overlay.read_bytes()
+    value = strict_json(overlay_raw.decode('utf-8'))
+    require(isinstance(value, dict) and set(value) == {'schema_version', 'files'},
+            'invalid manifest overlay keys')
+    require(type(value['schema_version']) is int and value['schema_version'] == 1
+            and isinstance(value['files'], dict), 'invalid manifest overlay schema')
+    require(all(isinstance(name, str) and isinstance(digest, str)
+                and re.fullmatch(r'[0-9a-f]{64}', digest) is not None
+                for name, digest in value['files'].items()),
+            'invalid manifest overlay file binding')
+    return hashlib.sha256(raw + b'\0RF312-OVERLAY\0' + overlay_raw).hexdigest()
+
+
 def bind_receipt(receipt: Path, manifest: Path, env: dict, git_head: str) -> dict:
     ctx = context(env)
     require(git_head == ctx['checked_commit'], 'checkout/tested commit mismatch')
@@ -81,12 +107,13 @@ def bind_receipt(receipt: Path, manifest: Path, env: dict, git_head: str) -> dic
                           ('formalization_status', 'kernel-checked'),
                           ('scientific_effect', 'NONE')]:
         require(record.get(key) == expected, 'receipt mismatch: '+key)
-    require(record.get('manifest_sha256') == hashlib.sha256(manifest.read_bytes()).hexdigest(),
+    manifest_raw = manifest.read_bytes()
+    require(record.get('manifest_sha256') == manifest_identity(manifest, manifest_raw),
             'manifest/receipt mismatch')
     # The producer's runtime fields are validated, not only hashed: the exact release, the
     # locked and clean dependencies, this attempt, and equal observations before the first
     # and after the last Lean execution. A missing or older-schema field refuses.
-    lock = dependency_lock(manifest.read_bytes())
+    lock = dependency_lock(manifest_raw)
     require(record.get('workflow_run_attempt') == ctx['run_attempt'], 'receipt mismatch: workflow_run_attempt')
     require(isinstance(record.get('lean_version'), str) and LEAN_RELEASE.fullmatch(record['lean_version']) is not None,
             'receipt runtime is not the pinned Lean release')
