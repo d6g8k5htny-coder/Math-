@@ -1,0 +1,246 @@
+/- Complete PRIVATE production fixture section61B. Insert once after the
+frozen adapters, inside I4SourceActualTorusSuperlevelLocalBasis. -/
+
+private def fixturePolynomial : I4SourceFiniteTrig.TrigPoly :=
+  [⟨1,Pi.single (0:Fin 2) 1,0⟩,⟨2,Pi.single (1:Fin 2) 1,0⟩]
+
+private def fixtureSample : SmoothSample 2 2 :=
+  I4SourceFinitePinKernel.finiteShiftSample
+    (I4SourceFiniteTrig.toSource 2 fixturePolynomial)
+    (I4SourceSmoothConditional.zeroSample 2 2)
+
+private def fixturePoint (x y : ℝ) : UniversalLaw.Spec.Lifetime.E 2 :=
+  (coordinates 2).symm ![x,y]
+
+private theorem fixture_coordinateField (x : Fin 2 → ℝ) :
+    smoothSourceField 2 2 fixtureSample x = Real.cos (Real.pi*x 0)+2*Real.cos (Real.pi*x 1) := by
+  classical
+  have hs : HasSum (fun m => I4Source.modeCoefficient 2 2 m x *
+      I4SourceFiniteTrig.toSource 2 fixturePolynomial m)
+      (I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x)
+        (I4SourceFiniteTrig.toSource 2 fixturePolynomial)) := by
+    apply hasSum_sum_of_ne_finset_zero
+    intro m hm
+    simp only [Finsupp.notMem_support_iff.mp hm,mul_zero]
+  have he : smoothSourceField 2 2 fixtureSample x =
+      I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x)
+        (I4SourceFiniteTrig.toSource 2 fixturePolynomial) := by
+    simpa [fixtureSample,smoothSourceField,I4Source.sourceField,I4Foundation.scalarSeries,
+      sampleInclusion,I4SourceFinitePinKernel.finiteShiftSample_val,
+      I4SourceSmoothConditional.zeroSample] using hs.tsum_eq
+  rw [he,I4SourceFiniteTrig.toSource_eval (by norm_num : (2:ℝ) ≠ 0)]
+  simp [fixturePolynomial,I4SourceFiniteTrig.eval,I4SourceFiniteTrig.termEval,
+    I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]
+
+private theorem fixture_actualField (X : UniversalLaw.Spec.Lifetime.E 2) :
+    actualField 2 2 fixtureSample X = Real.cos (Real.pi*X 0)+2*Real.cos (Real.pi*X 1) := by
+  exact fixture_coordinateField (coordinates 2 X)
+
+private def fixtureCoord (i : Fin 2) : UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
+  (ContinuousLinearMap.proj i : (Fin 2 → ℝ) →L[ℝ] ℝ).comp (coordinates 2).toContinuousLinearMap
+
+private def fixtureDerivative (X : UniversalLaw.Spec.Lifetime.E 2) :
+    UniversalLaw.Spec.Lifetime.E 2 →L[ℝ] ℝ :=
+  (-Real.pi*Real.sin (Real.pi*X 0)) • fixtureCoord 0 +
+    (-2*Real.pi*Real.sin (Real.pi*X 1)) • fixtureCoord 1
+
+private theorem fixture_hasFDerivAt (X : UniversalLaw.Spec.Lifetime.E 2) :
+    HasFDerivAt (actualField 2 2 fixtureSample) (fixtureDerivative X) X := by
+  have hx : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*Y 0)
+      (Real.pi • fixtureCoord 0) X := (fixtureCoord 0).hasFDerivAt.const_mul Real.pi
+  have hy : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*Y 1)
+      (Real.pi • fixtureCoord 1) X := (fixtureCoord 1).hasFDerivAt.const_mul Real.pi
+  have hh := hx.cos.add (hy.cos.const_mul 2)
+  have he : actualField 2 2 fixtureSample = fun Y : UniversalLaw.Spec.Lifetime.E 2 =>
+      Real.cos (Real.pi*Y 0)+2*Real.cos (Real.pi*Y 1) := funext fixture_actualField
+  rw [he]
+  convert hh using 1 <;> ext v <;> simp [fixtureDerivative,fixtureCoord] <;> ring
+
+private theorem fixture_hessian (X u v : UniversalLaw.Spec.Lifetime.E 2) :
+    hessian 2 (actualField 2 2 fixtureSample) X u v =
+      -Real.pi^2*Real.cos (Real.pi*X 0)*u 0*v 0-
+        2*Real.pi^2*Real.cos (Real.pi*X 1)*u 1*v 1 := by
+  rw [hessian,iteratedFDeriv_two_apply]
+  have he : fderiv ℝ (actualField 2 2 fixtureSample) = fixtureDerivative :=
+    funext fun Y => (fixture_hasFDerivAt Y).fderiv
+  rw [he]
+  have hx : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*Y 0)
+      (Real.pi • fixtureCoord 0) X := (fixtureCoord 0).hasFDerivAt.const_mul Real.pi
+  have hy : HasFDerivAt (fun Y : UniversalLaw.Spec.Lifetime.E 2 => Real.pi*Y 1)
+      (Real.pi • fixtureCoord 1) X := (fixtureCoord 1).hasFDerivAt.const_mul Real.pi
+  have hd := ((hx.sin.const_mul (-Real.pi)).smul_const (fixtureCoord 0)).add
+    ((hy.sin.const_mul (-2*Real.pi)).smul_const (fixtureCoord 1))
+  rw [show fderiv ℝ fixtureDerivative X = _ from hd.fderiv]
+  simp [fixtureCoord] <;> ring
+
+private def fixtureCriticalPoint : Fin 4 → UniversalLaw.Spec.Lifetime.E 2 :=
+  ![fixturePoint 0 0,fixturePoint 1 0,fixturePoint 0 1,fixturePoint 1 1]
+
+private theorem fixture_critical (i : Fin 4) :
+    IsCriticalPoint 2 (actualField 2 2 fixtureSample) (fixtureCriticalPoint i) := by
+  rw [IsCriticalPoint,(fixture_hasFDerivAt _).fderiv]
+  fin_cases i <;> simp [fixtureCriticalPoint,fixturePoint,fixtureDerivative,fixtureCoord]
+
+private theorem fixture_heights (i : Fin 4) :
+    actualField 2 2 fixtureSample (fixtureCriticalPoint i) = (![3,1,-1,-3] : Fin 4 → ℝ) i := by
+  rw [fixture_actualField]
+  fin_cases i <;> norm_num [fixtureCriticalPoint,fixturePoint]
+
+private theorem fixture_axis_ne (i : Fin 2) : fixturePoint (if i=0 then 1 else 0)
+    (if i=1 then 1 else 0) ≠ 0 := by
+  intro h
+  have he := congrArg (fun X => coordinates 2 X i) h
+  fin_cases i <;> norm_num [fixturePoint] at he
+
+private theorem fixture_saddleMinus_inertia :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 0 1) 1 := by
+  let n := fixturePoint 1 0
+  let p := fixturePoint 0 1
+  have hn : n ≠ 0 := by simpa [n] using fixture_axis_ne 0
+  have hp : p ≠ 0 := by simpa [p] using fixture_axis_ne 1
+  have hdN := finrank_span_singleton hn
+  have hdP := finrank_span_singleton hp
+  have hd : Disjoint (Submodule.span ℝ {n}) (Submodule.span ℝ {p}) := by
+    rw [Submodule.disjoint_def]
+    intro v hv hw
+    obtain ⟨a,ha⟩ := Submodule.mem_span_singleton.mp hv
+    obtain ⟨b,hb⟩ := Submodule.mem_span_singleton.mp hw
+    have he := congrArg (fun X => coordinates 2 X 0) (ha.trans hb.symm)
+    have ha0 : a=0 := by simpa [n,p,fixturePoint] using he
+    simpa [ha0] using ha.symm
+  have hc : IsCompl (Submodule.span ℝ {n}) (Submodule.span ℝ {p}) := by
+    apply (Submodule.isCompl_iff_disjoint _ _ ?_).mpr hd
+    simp [UniversalLaw.Spec.Lifetime.E,hdN,hdP]
+  refine ⟨Submodule.span ℝ {n},Submodule.span ℝ {p},hc,hdN,by simpa using hdP,?_,?_⟩
+  · intro v hv hv0
+    obtain ⟨a,rfl⟩ := Submodule.mem_span_singleton.mp hv
+    have ha : a ≠ 0 := by intro h; apply hv0; simp [h]
+    rw [fixture_hessian]
+    simp [n,fixturePoint]
+    nlinarith [mul_pos (sq_pos_of_ne_zero Real.pi_ne_zero) (sq_pos_of_ne_zero ha)]
+  · intro v hv hv0
+    obtain ⟨a,rfl⟩ := Submodule.mem_span_singleton.mp hv
+    have ha : a ≠ 0 := by intro h; apply hv0; simp [h]
+    rw [fixture_hessian]
+    simp [p,fixturePoint]
+    nlinarith [mul_pos (sq_pos_of_ne_zero Real.pi_ne_zero) (sq_pos_of_ne_zero ha)]
+
+private theorem fixture_min_inertia :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 1 1) 0 := by
+  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [UniversalLaw.Spec.Lifetime.E],?_,?_⟩
+  · intro v hv hv0
+    exact (hv0 ((Submodule.mem_bot ℝ).mp hv)).elim
+  · intro v _ hv
+    have hn : v 0 ≠ 0 ∨ v 1 ≠ 0 := by
+      by_contra! hh
+      apply hv
+      ext i
+      fin_cases i <;> simp_all
+    have hs : 0 < (v 0)^2+2*(v 1)^2 := by
+      rcases hn with hn|hn
+      · nlinarith [sq_pos_of_ne_zero hn,sq_nonneg (v 1)]
+      · nlinarith [sq_pos_of_ne_zero hn,sq_nonneg (v 0)]
+    rw [fixture_hessian]
+    simp [fixturePoint]
+    nlinarith [mul_pos (sq_pos_of_ne_zero Real.pi_ne_zero) hs]
+
+private theorem fixture_max_inertia :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 0 0) 2 := by
+  refine I4SourceActualFoldCandidate.hessianHasInertia_two_of_diag _ _
+    1 (-Real.pi^2) (-2*Real.pi^2) (by norm_num) ?_ ?_ 0 ?_
+  · nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]
+  · nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]
+  · intro v
+    rw [fixture_hessian]
+    simp [fixturePoint] <;> ring
+
+private theorem fixture_saddleOne_inertia :
+    HessianHasInertia 2 (actualField 2 2 fixtureSample) (fixturePoint 1 0) 1 := by
+  refine I4SourceActualFoldCandidate.hessianHasInertia_one_of_diag _ _
+    1 (Real.pi^2) (-2*Real.pi^2) (by norm_num) ?_ ?_ 0 ?_
+  · exact sq_pos_of_ne_zero Real.pi_ne_zero
+  · nlinarith [sq_pos_of_ne_zero Real.pi_ne_zero]
+  · intro v
+    rw [fixture_hessian]
+    simp [fixturePoint] <;> ring
+
+private theorem fixture_critical_max
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint 0 0 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint 0 0 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y |
+        actualField 2 2 fixtureSample (fixturePoint 0 0) ≤ actualField 2 2 fixtureSample Y}) := by
+  exact criticalCoverLevelBasis (by norm_num) fixtureSample (fixturePoint 0 0) 2
+    (fixture_critical 0) fixture_max_inertia U hU hX
+
+private theorem fixture_critical_saddleOne
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint 1 0 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint 1 0 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y |
+        actualField 2 2 fixtureSample (fixturePoint 1 0) ≤ actualField 2 2 fixtureSample Y}) := by
+  exact criticalCoverLevelBasis (by norm_num) fixtureSample (fixturePoint 1 0) 1
+    (fixture_critical 1) fixture_saddleOne_inertia U hU hX
+
+private theorem fixture_critical_saddleMinusOne
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint 0 1 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint 0 1 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y |
+        actualField 2 2 fixtureSample (fixturePoint 0 1) ≤ actualField 2 2 fixtureSample Y}) := by
+  exact criticalCoverLevelBasis (by norm_num) fixtureSample (fixturePoint 0 1) 1
+    (fixture_critical 2) fixture_saddleMinus_inertia U hU hX
+
+private theorem fixture_critical_min
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint 1 1 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint 1 1 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y |
+        actualField 2 2 fixtureSample (fixturePoint 1 1) ≤ actualField 2 2 fixtureSample Y}) := by
+  exact criticalCoverLevelBasis (by norm_num) fixtureSample (fixturePoint 1 1) 0
+    (fixture_critical 3) fixture_min_inertia U hU hX
+
+private theorem fixture_regular
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint (1/2) 0 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint (1/2) 0 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y |
+        actualField 2 2 fixtureSample (fixturePoint (1/2) 0) ≤ actualField 2 2 fixtureSample Y}) := by
+  apply regularCoverLevelBasis (by norm_num) fixtureSample _ U hU hX
+  intro he
+  have hp : Real.pi*(1/2:ℝ) = Real.pi/2 := by ring
+  have hv : fderiv ℝ (actualField 2 2 fixtureSample) (fixturePoint (1/2) 0)
+      (fixturePoint 1 0) = -Real.pi := by
+    rw [(fixture_hasFDerivAt _).fderiv]
+    norm_num [fixtureDerivative,fixturePoint,fixtureCoord,hp]
+  apply (neg_ne_zero.mpr Real.pi_ne_zero)
+  calc
+    -Real.pi = fderiv ℝ (actualField 2 2 fixtureSample) (fixturePoint (1/2) 0)
+        (fixturePoint 1 0) := hv.symm
+    _ = 0 := by rw [he]; rfl
+
+private theorem fixture_interior
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U)
+    (hX : fixturePoint 0 0 ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ fixturePoint 0 0 ∈ W ∧
+      W ⊆ U ∧ IsPathConnected (W ∩ {Y | (2:ℝ) ≤ actualField 2 2 fixtureSample Y}) := by
+  apply interiorCoverBasis (by norm_num) fixtureSample 2 _ U hU hX
+  norm_num [fixture_actualField,fixturePoint]
+
+private theorem fixture_seam
+    (O : Set (I4Torus.SourceTorus 2 2)) (hO : IsOpen O)
+    (hq : coverProjection 2 (fixturePoint 0 0) ∈ O) :
+    ∃ V : Set (I4Torus.SourceTorus 2 2), IsOpen V ∧
+      coverProjection 2 (fixturePoint 0 0) ∈ V ∧ V ⊆ O ∧
+      IsPathConnected (V ∩ {z | (3:ℝ) ≤
+        SourceActualFoldTorus.actualTorusField (by norm_num : (2:ℝ) ≠ 0) fixtureSample z}) := by
+  have hp : Continuous (coverProjection 2) :=
+    (SourceActualFoldTorus.torusProjection2L_continuous 2).comp (coordinates 2).continuous
+  obtain ⟨W,hW,hXW,hWU,hpc⟩ := fixture_critical_max
+    ((coverProjection 2) ⁻¹' O) (hO.preimage hp) hq
+  have hpc3 : IsPathConnected (W ∩ {Y | (3:ℝ) ≤ actualField 2 2 fixtureSample Y}) := by
+    simpa only [show actualField 2 2 fixtureSample (fixturePoint 0 0) = 3 from fixture_heights 0] using hpc
+  obtain ⟨hopen,_himage,htrace⟩ := projectCoverTrace (by norm_num) fixtureSample 3 W hW hpc3
+  refine ⟨coverProjection 2 '' W,hopen,⟨fixturePoint 0 0,hXW,rfl⟩,?_,htrace⟩
+  rintro q ⟨X,hX,rfl⟩
+  exact hWU hX

@@ -1,0 +1,107 @@
+{
+  "actual_runs": 11,
+  "stdout_streams": 11,
+  "stderr_streams": 11,
+  "total_streams": 22,
+  "runs": [
+    {
+      "label": "regular-001",
+      "exit": 1,
+      "stdout_bytes": 241,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:38:20.805938+00:00",
+      "ended_utc": "2026-10-28T16:38:22.991634+00:00",
+      "elapsed_seconds": 2.1856809010005236
+    },
+    {
+      "label": "regular-002",
+      "exit": 1,
+      "stdout_bytes": 6689,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:38:55.292615+00:00",
+      "ended_utc": "2026-10-28T16:38:59.944186+00:00",
+      "elapsed_seconds": 4.651539311000306
+    },
+    {
+      "label": "regular-003",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:39:40.493197+00:00",
+      "ended_utc": "2026-10-28T16:39:44.382049+00:00",
+      "elapsed_seconds": 3.8888357460000407
+    },
+    {
+      "label": "full-001",
+      "exit": 1,
+      "stdout_bytes": 6812,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:40:09.224000+00:00",
+      "ended_utc": "2026-10-28T16:40:15.473429+00:00",
+      "elapsed_seconds": 6.249414003999846
+    },
+    {
+      "label": "full-002",
+      "exit": 1,
+      "stdout_bytes": 400,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:41:45.552179+00:00",
+      "ended_utc": "2026-10-28T16:41:51.666898+00:00",
+      "elapsed_seconds": 6.11469632599983
+    },
+    {
+      "label": "compile-final",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:42:25.280409+00:00",
+      "ended_utc": "2026-10-28T16:42:30.983466+00:00",
+      "elapsed_seconds": 5.703025472000263
+    },
+    {
+      "label": "inventory-001",
+      "exit": 0,
+      "stdout_bytes": 18361,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:43:04.240030+00:00",
+      "ended_utc": "2026-10-28T16:43:07.423971+00:00",
+      "elapsed_seconds": 3.1839268559997436
+    },
+    {
+      "label": "kernel-001",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:44:58.740147+00:00",
+      "ended_utc": "2026-10-28T16:45:03.880958+00:00",
+      "elapsed_seconds": 5.1407791530000395
+    },
+    {
+      "label": "controls-001",
+      "exit": 1,
+      "stdout_bytes": 12249,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:46:48.289326+00:00",
+      "ended_utc": "2026-10-28T16:46:54.728898+00:00",
+      "elapsed_seconds": 6.439548921000096
+    },
+    {
+      "label": "controls-002",
+      "exit": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:47:52.439669+00:00",
+      "ended_utc": "2026-10-28T16:48:01.557000+00:00",
+      "elapsed_seconds": 9.117300478999823
+    },
+    {
+      "label": "false-control-001",
+      "exit": 1,
+      "stdout_bytes": 129,
+      "stderr_bytes": 0,
+      "started_utc": "2026-10-28T16:49:18.321085+00:00",
+      "ended_utc": "2026-10-28T16:49:21.078559+00:00",
+      "elapsed_seconds": 2.7574589619998733
+    }
+  ]
+}

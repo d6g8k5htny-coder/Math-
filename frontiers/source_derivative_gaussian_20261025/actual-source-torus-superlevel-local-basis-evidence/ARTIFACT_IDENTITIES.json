@@ -1,0 +1,1796 @@
+{
+  "status": "FROZEN_AGGREGATE_EXISTING_FIRST_IDENTITIES_AND_ACTUAL_IMMUTABLE_SNAPSHOT_MAPPING",
+  "created_utc": "2026-10-28T17:00:34.055917+00:00",
+  "proof_checks_added": 0,
+  "existing_source_object_stream_original_context_identities_rehashed": false,
+  "actual_runs": 11,
+  "original_streams": 22,
+  "artifact_identities": [
+    {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "current frozen004 payload; existing FIRST identity reused"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTEXT_ACKS.md",
+      "bytes": 2401,
+      "sha256": "5764835b775761b4f2ab38291ae4295cb11a559538bd2a2f21e677268a5642e4",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTROL_IDS.json",
+      "bytes": 1058,
+      "sha256": "dd665caf392a884616b537cfdcd423b47308488d483615fe029d6d93db159cc0",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTROL_RECEIPT.json",
+      "bytes": 3401,
+      "sha256": "2f68310230cdf2485e69a5fac4aae1ff6fbe9b45884141e5fc2371f29e19eed2",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+      "bytes": 25582,
+      "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/EXECUTION_RECORD_INDEX.json",
+      "bytes": 121169,
+      "sha256": "7a6a69502df6cb8ae4ac1557bf0d48c023fd5286cb121550ea682c11782c20cf",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FINAL_SOURCE_OBJECT_IDS.json",
+      "bytes": 1536,
+      "sha256": "a90bb7e459dde85f91221953f66aa12e82bfb484b1386fa2b34279add17ea527",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FalseMutation.lean",
+      "bytes": 131,
+      "sha256": "1daab937914f0847ad3a4846cda60b3ae1ae17456599cc6ce33698dc0764f0ad",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HANDOFF.md",
+      "bytes": 1942,
+      "sha256": "4d95f9de1791403c0b08734e012bb8634e7f3b760acbb4c57ec3ddca7968d1b8",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/INVENTORY.json",
+      "bytes": 21004,
+      "sha256": "979ed671bbe35e407a2d310cd6a5ef929df62fc3e545b53c8b6d48018e84cb15",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/OWN_ID_CACHE.json",
+      "bytes": 15821,
+      "sha256": "cb47196b37bf083c7fb02bd749bce4da574f0a94154a186e6f4bc47e09032537",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PACKAGING_ALLOWLIST.json",
+      "bytes": 19523,
+      "sha256": "4560c087dedda750bf678b45abc538a3a0e17651b14146660501fb5be138be94",
+      "origin": "FIRST identity newly frozen producer allowlist"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/READY.json",
+      "bytes": 901,
+      "sha256": "ada74cdec63d8e1e8b18bb4e1e4afdd23016ef6b822598c393bec6faa95e33d6",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "reused prior own first identity; unchanged size/mtime"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REPORT.md",
+      "bytes": 11336,
+      "sha256": "4a6fefef2db1fdf2d085048ffa92162bfc722db4eb87f5dd776e3d97a1665b9b",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/RUNNER_HISTORY.md",
+      "bytes": 1390,
+      "sha256": "1535bc7bc9fcfa8f14248171333b694dd44fc6807d8e179cb91a56c17881fbb1",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/STREAM_COUNTS.json",
+      "bytes": 3055,
+      "sha256": "5489bc61da4bd9dab23d473a40a623a71919fd02e260adaa89888179251b21f1",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/CONTEXT_003.json",
+      "bytes": 569,
+      "sha256": "17ce943d402950a7d8234fd038725a59d3322514586cdeb8c1ad2501ba0722c3",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/CONTEXT_004.json",
+      "bytes": 651,
+      "sha256": "796cbeb7ba36702336b1c60979c599546f41bd4ecba440eaddc3ca415f6a4433",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/controls-002.patch",
+      "bytes": 7498,
+      "sha256": "466fd426971b949e44485cc7bb587c1167e0954d418bcb1b391a2e62eb08775f",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/full-002.patch",
+      "bytes": 6916,
+      "sha256": "9ff24cbba22054190965fd9209c1208d2c37ecfcbe5779dcf155dfdcf0c9c9e4",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/full-003.patch",
+      "bytes": 653,
+      "sha256": "2faf5fb4ae421e8256fbe2cef8bda198afcabbcd1f4ccd02eccfa9430ac0680a",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/regular-002.patch",
+      "bytes": 275,
+      "sha256": "16d8cfa15076603b9b384304f3b4b5c42ad1ef82eab1d7d8d4a5fe309f5c461d",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/regular-003.patch",
+      "bytes": 2964,
+      "sha256": "48c5c5fcfcab71e2f7ee39798ba1532d34d494dc154c515a9b1eb1c6d05c7099",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build/Controls.olean",
+      "bytes": 1551368,
+      "sha256": "38924be546a79c2190e98cfc6ccba0cfcee34d1a7789a34b61a4d8cf2c47b71c",
+      "origin": "FIRST ID of newly generated OWN ordinary Controls object after controls-002 PASS and BEFORE sole importing negative"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/build/SourceActualTorusSuperlevelLocalBasis.olean",
+      "bytes": 1508072,
+      "sha256": "dbe211717c515a2a47353197b78185028551b782c78b14e3e67a9b921609bf2c",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/CONTEXT.001.md",
+      "bytes": 17807,
+      "sha256": "854209c5ecc5f9ff3ea495acc43fb2671d5ee98cdbb9d77b872d48ed1d1011ee",
+      "origin": "existing first identity reused"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/CONTEXT.002.md",
+      "bytes": 18389,
+      "sha256": "64c5e1030097b8f93f003ffe19b44f0775cc7107ccbb21494463ee536b1b3ac0",
+      "origin": "existing first identity reused"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/CONTEXT.003.md",
+      "bytes": 18825,
+      "sha256": "5cf9dd7f02a1dffa25c42972e53fc9a5445bb8c728e040f37a021ec0f1a4e125",
+      "origin": "existing context amendment FIRST identity reused"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/CONTEXT.004.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "existing context amendment FIRST identity reused"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/FIRST_IDS.json",
+      "bytes": 1232,
+      "sha256": "ba8a7df8ddeddff1b343d3e6a96f7f6b636bece09889f022fde36523dcdf41df",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/CONTEXT.ORIGINAL.md",
+      "bytes": 18389,
+      "sha256": "64c5e1030097b8f93f003ffe19b44f0775cc7107ccbb21494463ee536b1b3ac0",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/CONTROLS_CUSTODY.json",
+      "bytes": 2401,
+      "sha256": "99e3fb5812d7740bdb66da1f611e07d86c991fd574d4a0ff36e3913d1b7a2e5a",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Controls.ORIGINAL.lean.txt",
+      "bytes": 25686,
+      "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+      "origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsFrozen.ORIGINAL.json",
+      "bytes": 828,
+      "sha256": "4ea53a2c624029faaca17d231dd274eb885081187a185b96caa6c4c3bdb2e7fc",
+      "origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsImports.ORIGINAL.txt",
+      "bytes": 832,
+      "sha256": "7b06678a9bd46a1bcddeaba23be47d2410b56fa1baaef5131176b6b0884e1cab",
+      "origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/ControlsProvenance.ORIGINAL.md",
+      "bytes": 5386,
+      "sha256": "6e83c6cdea09ec28a9b4c08db78d16a05984230fd1e8b7c3ffc96384befb1642",
+      "origin": "producer FIRST identity of new complete ordinary Controls original BEFORE one integration; helper hashes0"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FIXTURE_CUSTODY.json",
+      "bytes": 2596,
+      "sha256": "b9e4201a413c212ff97fd164f4cd61ed3c8ca3907ae86f4a711bd617a07dde80",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureFrozen.ORIGINAL.json",
+      "bytes": 604,
+      "sha256": "cf38e295d8f2e4b0367d6fbfca97d8073cc7609cb8a4988faa01ac3977594818",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureImports.ORIGINAL.txt",
+      "bytes": 820,
+      "sha256": "51d3f5a91e2c5320f0532c484cdd4dfd34a0e33b96bf033ac5abc26f149a1519",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureProvenance.ORIGINAL.md",
+      "bytes": 3602,
+      "sha256": "eb9dddf7016e3a18586f795a5f5fef9eff3bf09c9e17091e22dc8341b4223d8b",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FixtureSection.ORIGINAL.lean.txt",
+      "bytes": 12791,
+      "sha256": "b4d8cdd7404caa1783ada32a87a75f15bfbcf5a6499a9e0b75d3a7f014055209",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/REGULAR_CUSTODY.json",
+      "bytes": 2258,
+      "sha256": "07cf9693a97a826fa252b8d71d66f26b331a80a60a666510a6e602364b791012",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Regular.FROZEN.json",
+      "bytes": 840,
+      "sha256": "1c9876570ce5ccef94fca9b318b5e190c204ee90dabafe71562d7857d207fd3a",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/Regular.PROVENANCE.md",
+      "bytes": 3290,
+      "sha256": "543f0044944e461883992ccd30f2b720db6c28e7158c07ddf6b6f4a39801e5ed",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/RegularSection.ORIGINAL.lean.txt",
+      "bytes": 8331,
+      "sha256": "62aedfeda4f959d5c9bc51a3f58bad71845e85152182400bd31d02e1970ba8e6",
+      "origin": "producer first ID of newly delivered owned helper original BEFORE one integration; helper hashes zero"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/record_run.py",
+      "bytes": 2521,
+      "sha256": "6b5957373b8ed34d990772033e621b0ac6a4177c95a967fee794c8ae58eabced",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json",
+      "bytes": 9939,
+      "sha256": "3b2309be71907ad1787d8fc073359694dbcf1182f66e5870cb6519938d32a65c",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/Controls.lean",
+      "bytes": 25686,
+      "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json",
+      "bytes": 11716,
+      "sha256": "2afd7c678e1fb54fce670dc4ad622402c0ddb39002d4031e162436fad9716136",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/stdout.log",
+      "bytes": 12249,
+      "sha256": "d374df35ec369b254a926eb99b16d939df7b88e220af63d1d52b66f08400f9e3",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/Controls.lean",
+      "bytes": 25582,
+      "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json",
+      "bytes": 11708,
+      "sha256": "67eacb8e7e81d9d403c9dc032c19c39a80642f7ec52d998efacc1a85715140dc",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/Controls.lean",
+      "bytes": 25582,
+      "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/FalseMutation.lean",
+      "bytes": 131,
+      "sha256": "1daab937914f0847ad3a4846cda60b3ae1ae17456599cc6ce33698dc0764f0ad",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json",
+      "bytes": 13690,
+      "sha256": "38d6a14afb6555ea9c86332490adbcc056d0e26f9c83e2a65bf22b1c7eee3306",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/stdout.log",
+      "bytes": 129,
+      "sha256": "f0a969fdd4cd321772623fde52697833c6069510437d25a9a9f12843fdf463d6",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/CONTEXT.md",
+      "bytes": 18825,
+      "sha256": "5cf9dd7f02a1dffa25c42972e53fc9a5445bb8c728e040f37a021ec0f1a4e125",
+      "origin": "actual copied context003 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29235,
+      "sha256": "2588bc97fa168cf1e88c813a7a6bf121c29864204dca14b8c084a65de48b9d7a",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json",
+      "bytes": 9425,
+      "sha256": "e8672a1b731f088be0d051f1d21db92d6a5039a5941ea6efd4a6c90b4ecaa1fa",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/stdout.log",
+      "bytes": 6812,
+      "sha256": "a59ff7ca08cde9ace6898762e22d6720a1204bdf10186b7da86ebbf13cf2a185",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29533,
+      "sha256": "4e6d89a32de977632ec4e55a6df03fc6810644fac1c2e2df7ed1bafaf656b71e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json",
+      "bytes": 9427,
+      "sha256": "85f40c2102c3e7b5dcc1f1b1b9542321bcc938698fcc4e40061fa5ff01a40cc0",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/stdout.log",
+      "bytes": 400,
+      "sha256": "f2f1e8f3d278eb7c64cbb200f4791e94100e383ee9752d9dc2e434fa5bf6a9f8",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json",
+      "bytes": 10296,
+      "sha256": "9c040a557f918ca899e563f2f3eb730234757f92b3d7f8109ba0539d5714e54f",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/stdout.log",
+      "bytes": 18361,
+      "sha256": "c50e592c2a9cd2d2223f4edfc477ddd139472af9a1889bda9f31cb01590e43b9",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/CONTEXT.md",
+      "bytes": 19994,
+      "sha256": "75444e73629541624db3e1c1e56bd280cd1f25bb990c0107750e3e05e0c42234",
+      "origin": "actual copied context004 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/Controls.lean",
+      "bytes": 25686,
+      "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/REGULAR.CHECKED.lean.txt",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 29527,
+      "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json",
+      "bytes": 11451,
+      "sha256": "546b8b323da7769bbe37cf5685ab4ac85d164c1f58454988cd8f70252ca8b608",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/CONTEXT.md",
+      "bytes": 18389,
+      "sha256": "64c5e1030097b8f93f003ffe19b44f0775cc7107ccbb21494463ee536b1b3ac0",
+      "origin": "actual copied context002 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/HEADER.FROZEN.lean.txt",
+      "bytes": 1222,
+      "sha256": "95745d348dfdc3d51477c3199f780cb78bfd3e3b08a268d7385363c55d4ef217",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 9599,
+      "sha256": "d2f7c002cebdd87417bc5d5bd19a1be73aa6c67e69702dc2dbe0ed4a8ddb2412",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json",
+      "bytes": 8116,
+      "sha256": "343bb025b73237d765116d4d15cd5b7347f78b68536d5ec34b71fce689d77250",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/stdout.log",
+      "bytes": 241,
+      "sha256": "60fc45cef9d24469b0802af88ddac55a3baa88348c4b7ec821a4c1f869e3be2f",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/CONTEXT.md",
+      "bytes": 18825,
+      "sha256": "5cf9dd7f02a1dffa25c42972e53fc9a5445bb8c728e040f37a021ec0f1a4e125",
+      "origin": "actual copied context003 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 9601,
+      "sha256": "dc58131f2736d07ef3a960106a965de6e025e933d4148da66e59d1079c02aa32",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json",
+      "bytes": 8128,
+      "sha256": "a864355f100ee6e783a69352e462d6a94afacde5f5638612b7f7a3e84197c174",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/stdout.log",
+      "bytes": 6689,
+      "sha256": "19f8af5b414c558ff4568d9eac33c39a6cff95b2348eca37cedd2a15cc9e7536",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/CONTEXT.md",
+      "bytes": 18825,
+      "sha256": "5cf9dd7f02a1dffa25c42972e53fc9a5445bb8c728e040f37a021ec0f1a4e125",
+      "origin": "actual copied context003 snapshot; existing FIRST ID reused, no hash replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/HEADER.FROZEN.lean.txt",
+      "bytes": 1224,
+      "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/Inventory.lean",
+      "bytes": 1103,
+      "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/MainSection.PRODUCER.lean.txt",
+      "bytes": 3827,
+      "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/PublicSection.PRODUCER.lean.txt",
+      "bytes": 2608,
+      "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/SourceActualTorusSuperlevelLocalBasis.lean",
+      "bytes": 10006,
+      "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+      "origin": "immutable snapshot mapped to existing actual before-run first identity; no snapshot rehash"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json",
+      "bytes": 8133,
+      "sha256": "c41b1b5c6f4793d659c0085e5abe86b980a0cce6eca1bd8d326edf0d0e6d590a",
+      "origin": "FIRST identity of newly finalized OWN metadata/harness payload for previously uncovered final custody; no mathematical check/replay"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    },
+    {
+      "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "first identity of newly created/changed OWN payload"
+    }
+  ],
+  "historical_source_snapshots": [
+    {
+      "run": "regular-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 9599,
+        "sha256": "d2f7c002cebdd87417bc5d5bd19a1be73aa6c67e69702dc2dbe0ed4a8ddb2412",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json"
+    },
+    {
+      "run": "regular-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json"
+    },
+    {
+      "run": "regular-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json"
+    },
+    {
+      "run": "regular-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json"
+    },
+    {
+      "run": "regular-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1222,
+        "sha256": "95745d348dfdc3d51477c3199f780cb78bfd3e3b08a268d7385363c55d4ef217",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json"
+    },
+    {
+      "run": "regular-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 9601,
+        "sha256": "dc58131f2736d07ef3a960106a965de6e025e933d4148da66e59d1079c02aa32",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json"
+    },
+    {
+      "run": "regular-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json"
+    },
+    {
+      "run": "regular-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json"
+    },
+    {
+      "run": "regular-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json"
+    },
+    {
+      "run": "regular-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json"
+    },
+    {
+      "run": "regular-003",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+    },
+    {
+      "run": "regular-003",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+    },
+    {
+      "run": "regular-003",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+    },
+    {
+      "run": "regular-003",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+    },
+    {
+      "run": "regular-003",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29235,
+        "sha256": "2588bc97fa168cf1e88c813a7a6bf121c29864204dca14b8c084a65de48b9d7a",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29533,
+        "sha256": "4e6d89a32de977632ec4e55a6df03fc6810644fac1c2e2df7ed1bafaf656b71e",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "full-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "compile-final",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "inventory-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/Controls.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+        "bytes": 25686,
+        "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "kernel-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/Controls.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+        "bytes": 25686,
+        "sha256": "c6dc0869a103d0312d658eff4c144592de11712a10fff95d79a3f17e117feb5a",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/Controls.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+        "bytes": 25582,
+        "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "controls-002",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/SourceActualTorusSuperlevelLocalBasis.lean",
+      "source_identity_reused": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusSuperlevelLocalBasis.lean",
+        "bytes": 29527,
+        "sha256": "f52c247c1fb8956eebb166badf62de550566a0c2e4f56f5bda30bf5a5531d04c",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/Inventory.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Inventory.lean",
+        "bytes": 1103,
+        "sha256": "f7962474499e100ec2667f5359f8cd4802faa24ae18d1707888e693c4677c31e",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/Controls.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/Controls.lean",
+        "bytes": 25582,
+        "sha256": "5e50adc0cf844933382d817d7e45a25e8b51f8c35d9c7ae4cd8588384f141bfa",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/FalseMutation.lean",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FalseMutation.lean",
+        "bytes": 131,
+        "sha256": "1daab937914f0847ad3a4846cda60b3ae1ae17456599cc6ce33698dc0764f0ad",
+        "identity_origin": "first identity of newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/MainSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/MainSection.PRODUCER.lean.txt",
+        "bytes": 3827,
+        "sha256": "ebbeca966f5b209a185f8ce3e40429a328b9d133f7fe8dd21a2877f09fb79822",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/REGULAR.CHECKED.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REGULAR.CHECKED.lean.txt",
+        "bytes": 10006,
+        "sha256": "d813aa33523657a909d755fe9f0a889a2cc569fae4462bfa58f45345751aa1be",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/PublicSection.PRODUCER.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/PublicSection.PRODUCER.lean.txt",
+        "bytes": 2608,
+        "sha256": "31df3722853bcb92ed46d32d2a0452fdeca3f93cad19b1d629a57bd0565d77c5",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    },
+    {
+      "run": "false-control-001",
+      "immutable_snapshot": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/HEADER.FROZEN.lean.txt",
+      "source_identity_reused": {
+        "path": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HEADER.FROZEN.lean.txt",
+        "bytes": 1224,
+        "sha256": "c9663ac24dad2ecca4086415453c8335ef0d3508964995d546e9df507e2efd48",
+        "identity_origin": "reused prior own first identity; unchanged size/mtime"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json"
+    }
+  ],
+  "new_final_custody_first_id_paths": [
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTEXT_ACKS.md",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTROL_IDS.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/CONTROL_RECEIPT.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/EXECUTION_RECORD_INDEX.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/FINAL_SOURCE_OBJECT_IDS.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/HANDOFF.md",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/INVENTORY.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/OWN_ID_CACHE.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/READY.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/REPORT.md",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/RUNNER_HISTORY.md",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/STREAM_COUNTS.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/CONTEXT_003.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/CONTEXT_004.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/controls-002.patch",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/full-002.patch",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/full-003.patch",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/regular-002.patch",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/amendments/regular-003.patch",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/context/FIRST_IDS.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/CONTROLS_CUSTODY.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/FIXTURE_CUSTODY.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/originals/REGULAR_CUSTODY.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/record_run.py",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/compile-final/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/controls-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/false-control-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/full-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/inventory-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/kernel-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-001/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-002/receipt.json",
+    "/workspace/scratch/actual-source-torus-superlevel-local-basis-construct/runs/regular-003/receipt.json"
+  ],
+  "root_native_bindings": {
+    "pickup": 6474565711,
+    "method_amendment": 6474887692,
+    "method_adopted_utc": "2026-10-28T16:40:08.702606+00:00",
+    "native_created_at": "2026-10-28T16:40:09Z",
+    "method_root_FIRST_ID_reused": "3443B/d2762380394ba97f7c1754e19339e6ed2814d5eb8a16e1c36305c2d4a46751fb",
+    "proper_precode": "526d696ce49a574610f614cfd93ba6db76225066",
+    "sourcecut": "917271a33398d58ab3471da2bb3a452849950660",
+    "root_own_copy": "ONCE16:47:45.324589UTC; no more copies"
+  },
+  "limitations_honestly_preserved": [
+    "Initial pre-correction context draft not separately snapshotted; native tool transcript/root actual reading retain history; no reconstructed/backdated file.",
+    "Historical runner versions not separately frozen; original actual commands/streams/source snapshots remain; exact authoring/edit tool calls retain history.",
+    "Helper ACK emission UTC not instrumented; explicit personal ACK-before-dependent-text ordering/provenance retained."
+  ]
+}

@@ -1,0 +1,65 @@
+/-- Strict membership leaves an ambient ball inside the closed superlevel. -/
+private theorem interiorCoverBasis {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) (X : UniversalLaw.Spec.Lifetime.E 2)
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U) (hX : X ∈ U)
+    (ha : a < actualField 2 L omega X) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ X ∈ W ∧ W ⊆ U ∧
+      IsPathConnected (W ∩ {Y | a ≤ actualField 2 L omega Y}) := by
+  have hg : Continuous (actualField 2 L omega) :=
+    (actualField_smooth 2 hL omega 1).continuous
+  have hopen : IsOpen (U ∩ {Y | a < actualField 2 L omega Y}) :=
+    hU.inter (hg.isOpen_preimage _ isOpen_Ioi)
+  obtain ⟨epsilon, hepsilon, hball⟩ := Metric.isOpen_iff.mp hopen X ⟨hX, ha⟩
+  refine ⟨Metric.ball X epsilon, Metric.isOpen_ball, Metric.mem_ball_self hepsilon,
+    fun Y hY => (hball hY).1, ?_⟩
+  have heq : Metric.ball X epsilon ∩ {Y | a ≤ actualField 2 L omega Y} =
+      Metric.ball X epsilon := by
+    apply inter_eq_left.mpr
+    intro Y hY
+    exact (hball hY).2.le
+  rw [heq]
+  exact (convex_ball X epsilon).isPathConnected ⟨X, Metric.mem_ball_self hepsilon⟩
+
+/-- Consume only the qualified public critical-neighborhood consequence of60. -/
+private theorem criticalCoverLevelBasis {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (X : UniversalLaw.Spec.Lifetime.E 2) (j : ℕ)
+    (hc : IsCriticalPoint 2 (actualField 2 L omega) X)
+    (hi : HessianHasInertia 2 (actualField 2 L omega) X j)
+    (U : Set (UniversalLaw.Spec.Lifetime.E 2)) (hU : IsOpen U) (hX : X ∈ U) :
+    ∃ W : Set (UniversalLaw.Spec.Lifetime.E 2), IsOpen W ∧ X ∈ W ∧ W ⊆ U ∧
+      IsPathConnected (W ∩ {Y | actualField 2 L omega X ≤ actualField 2 L omega Y}) := by
+  obtain ⟨_hj, phi, _hsource, _hzero, _htarget, _hphi, _hinv, _hquad, hneighborhood⟩ :=
+    I4SourceActualMorseLocalModel.actualSource_c1_quadratic_localModel hL omega X j hc hi
+  obtain ⟨W, hW, hXW, hWU, hpc⟩ := hneighborhood U hU hX
+  exact ⟨W, hW, hXW, fun Y hY => (hWU hY).1, hpc⟩
+
+/-- Exact quotient trace transport needs openness and continuity, not injectivity. -/
+private theorem projectCoverTrace {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) (W : Set (UniversalLaw.Spec.Lifetime.E 2))
+    (hW : IsOpen W) (hpc : IsPathConnected (W ∩ {Y | a ≤ actualField 2 L omega Y})) :
+    IsOpen (coverProjection L '' W) ∧
+      ((coverProjection L '' W) ∩
+        {z | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z} =
+        coverProjection L '' (W ∩ {Y | a ≤ actualField 2 L omega Y})) ∧
+      IsPathConnected ((coverProjection L '' W) ∩
+        {z | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z}) := by
+  have hcont : Continuous (coverProjection L) :=
+    (SourceActualFoldTorus.torusProjection2L_continuous L).comp (coordinates 2).continuous
+  have hopen : IsOpenMap (coverProjection L) :=
+    (SourceActualFoldTorus.torusProjection2L_open L).comp (coordinates 2).isOpenMap
+  have hpull (X : UniversalLaw.Spec.Lifetime.E 2) :
+      SourceActualFoldTorus.actualTorusField hL.ne' omega (coverProjection L X) =
+        actualField 2 L omega X :=
+    SourceActualFoldTorus.actualTorusField_pullback hL.ne' omega (coordinates 2 X)
+  have heq : (coverProjection L '' W) ∩
+      {z | a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega z} =
+      coverProjection L '' (W ∩ {Y | a ≤ actualField 2 L omega Y}) := by
+    ext z
+    constructor
+    · rintro ⟨⟨X, hX, rfl⟩, ha⟩
+      refine ⟨X, ⟨hX, ?_⟩, rfl⟩
+      simpa only [mem_setOf_eq, hpull] using ha
+    · rintro ⟨X, ⟨hX, ha⟩, rfl⟩
+      refine ⟨⟨X, hX, rfl⟩, ?_⟩
+      simpa only [mem_setOf_eq, hpull] using ha
+  exact ⟨hopen W hW, heq, heq.symm ▸ hpc.image hcont⟩
