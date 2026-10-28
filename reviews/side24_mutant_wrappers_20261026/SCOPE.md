@@ -44,7 +44,7 @@ the blobs every local run below used.
 
 ## Repair and preservation
 
-Eight files: `tools/side24_mutant_replay.py`, the three files in
+Nine files: `tools/side24_mutant_replay.py`, the three files in
 `tools/side24_mutant_contracts/` and `tests/test_side24_mutant_workflows.py` (all
 new), the three workflows, and this note.
 
@@ -118,9 +118,12 @@ next mode.
 | `side24-d6-coefficient` | 13 | 1 (`vandermonde`) |
 
 Every report reference has `passed: false`, its own label, and at least one false
-check. Each mutant fails a different set of checks, and the references pin the
-whole report, so a failure for another reason, a crash, a silent exit, extra
-stderr, or a report for another label is rejected.
+check. Most mutants fail a distinct set of checks, but four pairs share one:
+`by-parts`/`gauss-half` and `cumulative-init`/`cumulative-recurrence` (d=5 closed
+form), and `jacobian`/`mehta` (d=5 and d=6 coefficient). The references pin the
+whole report, including its `mutant` label, so the reports in each pair are still
+distinct. A failure for another reason, a crash, a silent exit, extra stderr, or a
+report for another label is rejected.
 
 ## Execution and non-vacuous regressions
 
