@@ -79,10 +79,8 @@
         "HASH_MATCH",
         "SAME_AUTHOR_REVIEW"
       ],
-      "node": "math.rn-fixed-remote-window",
+      "node": "diagnostic.fixed-remote",
       "reasons": [
-        "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE",
-        "required transitive dependency is not satisfied",
         "evidence consists only of non-discharge tokens"
       ],
       "refused": true
@@ -90,18 +88,17 @@
     "promote_historical_env_rescov": {
       "allowed": false,
       "blocked_absent": [
-        "hist.rnu_env.py"
+        "diagnostic.absent-carrier"
       ],
       "meaning": "integrity decision only; not theorem acceptance",
       "missing_terminal": [],
-      "node": "hist.ENV-RESCOV",
+      "node": "diagnostic.historical-env",
       "reasons": [
-        "node classification is not eligible for positive CONTROLLING status: OPEN_HISTORICAL",
         "required BLOCKED_ABSENT dependency forces HOLD"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "hist.rnu_env.py"
+        "diagnostic.absent-carrier"
       ],
       "would_be_controlling": false
     },
@@ -110,17 +107,13 @@
       "blocked_absent": [],
       "meaning": "integrity decision only; not theorem acceptance",
       "missing_terminal": [],
-      "node": "math.lifetime-remainder",
+      "node": "diagnostic.lifetime-remainder",
       "reasons": [
         "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "math.uniform-matrix-cap-lifetime",
-        "math.d1-component.congruence-erratum",
-        "math.d1-component.section9-replacement-v1_1",
-        "math.d1-component.marked-cylinder-cap",
-        "math.d1-component.reconciliation-record"
+        "diagnostic.lifetime-parent"
       ],
       "would_be_controlling": false
     },
@@ -131,17 +124,16 @@
       "missing_terminal": [
         {
           "classification": "AUTHOR_SIDE_CANDIDATE",
-          "id": "eng.d0-packet-allowlist-fix"
+          "id": "diagnostic.allowlist"
         }
       ],
-      "node": "eng.main-pr87-crosswalk",
+      "node": "diagnostic.crosswalk",
       "reasons": [
-        "node classification is not eligible for positive CONTROLLING status: HOLD",
         "required transitive dependency is not satisfied"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "eng.d0-packet-allowlist-fix"
+        "diagnostic.allowlist"
       ],
       "would_be_controlling": false
     },
@@ -150,21 +142,18 @@
       "blocked_absent": [],
       "meaning": "integrity decision only; not theorem acceptance",
       "missing_terminal": [],
-      "node": "math.side24-coefficient",
+      "node": "diagnostic.side24",
       "reasons": [
         "node classification is not eligible for positive CONTROLLING status: AUTHOR_SIDE_CANDIDATE"
       ],
       "refuted_required": [],
       "required_dependencies": [
-        "math.uniform-matrix-cap-lifetime",
-        "math.d1-component.congruence-erratum",
-        "math.d1-component.section9-replacement-v1_1",
-        "math.d1-component.marked-cylinder-cap",
-        "math.d1-component.reconciliation-record"
+        "diagnostic.side24-parent"
       ],
       "would_be_controlling": false
     }
   },
+  "illegal_attempts_context": "synthetic_negative_controls",
   "illegal_promotion_refused": true,
   "lemma_closed": false,
   "meaning": "same-author integrity controls for main #90/#86; not analytic review or theorem acceptance",
