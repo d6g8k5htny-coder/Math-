@@ -1,0 +1,75 @@
+{
+  "schema": "essential-gaussian-rate-sources/v1",
+  "sources": [
+    {
+      "id": "UPPER",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/PROOF.md",
+      "bytes": 12843,
+      "sha256": "3dd4469511507bedf075777741f98bfbc082b6b2b5955702cfa11779c79e0ea1",
+      "git_blob": "b7c9f1dfb3c14301d192df3720d15b76fac6fb78",
+      "role": "Actual source Gaussian norm, full-normalizer upper bound and essential upper tail; conventional author-side proof, no scientific verdict transferred."
+    },
+    {
+      "id": "UPPER_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/SOURCES.json",
+      "bytes": 4816,
+      "sha256": "4969e41a1be3707c55630d0509bb942d8528b283801bf116bd66f09a6ad83f8b",
+      "git_blob": "21331d2617f70a03f68813d709107981ab071fe6",
+      "role": "Transitive exact identity set, including P/ERR/REC and the sharp axial source. Its source-reading rules remain applicable."
+    },
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Sections 1-5 original covariance/pin/weight conventions and Fourier spectrum, read with ERR and REC; cap selection is not used."
+    },
+    {
+      "id": "ERR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/ERR.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "Corrected Hessian congruence inherited from the upper-bound proof."
+    },
+    {
+      "id": "REC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "In-law correction, embedded-radius source conventions and retained parent identities; acceptance labels are historical, not transferred."
+    },
+    {
+      "id": "CM",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/sard_g_pinned_transfer_20260929/PROOF.md",
+      "bytes": 8912,
+      "sha256": "6cef00efb0e4e3b0cc3a85a0f43468a22b7d2dba1525cd8489d45dfd375667bd",
+      "git_blob": "314e38c6f5f2bd78da79e423f30a341a3d45e22c",
+      "role": "Section 4 M1: conditional Cameron-Martin kernel subspace with inherited norm; no whole Sard theorem, localized input(L), or Morse-Smale premise is consumed."
+    },
+    {
+      "id": "OLD_SUPPORT",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/PROOF.md",
+      "bytes": 13952,
+      "sha256": "3c69e20a332457211b8b1182a4819ce9b1dda824801f3a90157751f41b8fedf8",
+      "git_blob": "d5ee8abee120a8bec2f6c470e517ff9db4645183",
+      "role": "Section 4 previous fixed-r essential positivity with no quantitative lower bound; used for comparison, not copied as new proof."
+    }
+  ]
+}

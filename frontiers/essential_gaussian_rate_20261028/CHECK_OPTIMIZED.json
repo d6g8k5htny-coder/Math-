@@ -1,0 +1,72 @@
+{
+  "certified_finite_enclosures": [
+    {
+      "beta_over_tau": [
+        11,
+        13
+      ],
+      "gamma_over_tau2": [
+        9,
+        11
+      ],
+      "positive_bracket_certified": true,
+      "second_over_tau2": [
+        -3,
+        -1
+      ],
+      "tau": "1/8"
+    },
+    {
+      "beta_over_tau": [
+        11,
+        13
+      ],
+      "gamma_over_tau2": [
+        9,
+        11
+      ],
+      "positive_bracket_certified": true,
+      "second_over_tau2": [
+        -3,
+        -1
+      ],
+      "tau": "1/16"
+    },
+    {
+      "beta_over_tau": [
+        11,
+        13
+      ],
+      "gamma_over_tau2": [
+        9,
+        11
+      ],
+      "positive_bracket_certified": true,
+      "second_over_tau2": [
+        -3,
+        -1
+      ],
+      "tau": "1/32"
+    }
+  ],
+  "checker_sha256": "ce50e06139969e4d8b1c5690692965be62537d13feebd645d1a85c571b654ffe",
+  "counts": {
+    "leading_rkhs_norm_cases": 8,
+    "rational_circle_pin_and_fourier_cases": 12,
+    "rational_taylor_enclosure_cases": 3,
+    "wrong_template_counterexamples": 24
+  },
+  "proof_sha256": "8e75f467dfd91bbffce448b92e17af8a76c0c3f2f13616534973dffe437f4172",
+  "scope": "Finite rational author-side template identities and Taylor enclosures only; no continuum, probability or scientific acceptance.",
+  "source_checks": [
+    "UPPER",
+    "UPPER_SOURCES",
+    "P",
+    "ERR",
+    "REC",
+    "CM",
+    "OLD_SUPPORT"
+  ],
+  "sources_sha256": "d39767aec1972358886db1028af718feb49259961e68efa5bf8e86803da515c3",
+  "status": "PASS"
+}
