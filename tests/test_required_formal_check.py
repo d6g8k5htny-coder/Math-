@@ -621,9 +621,6 @@ class LayeredManifestBindingTests(unittest.TestCase):
         shutil.copytree(ROOT / 'formal', formal,
                         ignore=shutil.ignore_patterns('.lake', '__pycache__', '*.pyc'))
         self.manifest = formal / 'manifest.json'
-        document = json.loads(self.manifest.read_text())
-        document['source_identity'] = dict(self.CONTRACT)
-        self.manifest.write_text(json.dumps(document) + '\n')
         prior_helper = sys.modules.pop('gate_helper', None)
         try:
             spec = importlib.util.spec_from_file_location('receipt_binding_producer', ROOT / 'formal/gate.py')
