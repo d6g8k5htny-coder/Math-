@@ -1,0 +1,632 @@
+SourceGapConditionalMorseDistinct.lean:970:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  inner ℝ (b i) v
+in the target expression
+  inner ℝ v (b i) * inner ℝ (b i) (T v) = hA.eigenvalues i * (b.repr v).ofLp i ^ 2
+
+A : Matrix (Fin 2) (Fin 2) ℝ
+hA : A.IsHermitian
+v : E 2
+b : OrthonormalBasis (Fin 2) ℝ (E 2) := hA.eigenvectorBasis
+T : E 2 →ₗ[ℝ] E 2 := Matrix.toEuclideanLin A
+hT : T.IsSymmetric
+hTb : ∀ (i : Fin 2), T (b i) = hA.eigenvalues i • b i
+hrepr : ∀ (i : Fin 2), (b.repr (T v)).ofLp i = hA.eigenvalues i * (b.repr v).ofLp i
+i : Fin 2
+_hi : i ∈ Finset.univ
+⊢ inner ℝ v (b i) * inner ℝ (b i) (T v) = hA.eigenvalues i * (b.repr v).ofLp i ^ 2
+SourceGapConditionalMorseDistinct.lean:992:6: error: Type mismatch: After simplification, term
+  hdet
+ has type
+  A.det ≠ 0
+but is expected to have type
+  ∏ x, hA.eigenvalues x ≠ 0
+SourceGapConditionalMorseDistinct.lean:1065:35: error: Tactic `simp` failed with a nested error:
+(deterministic) timeout at `«Lean.Meta.acLt»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+SourceGapConditionalMorseDistinct.lean:1065:4: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+SourceGapConditionalMorseDistinct.lean:980:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+SourceGapConditionalMorseDistinct.lean:1044:48: error: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, PiLp.add_apply, vn, vp, LinearIsometryEquiv.apply_symm_apply, ite_eq_left hi, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1047:48: error: This simp argument is unused:
+  PiLp.toLp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [map_add, PiLp.add_apply, vn, vp, LinearIsometryEquiv.apply_symm_apply, ite_eq_right hi, zero_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1112:29: error: unsolved goals
+case «0».«0»
+L : ℝ
+hL : 0 < L
+ω : SmoothSample 2 L
+X : E 2
+hdet :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionX] *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionY, directionY] -
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionY] ^ 2 ≠
+    0
+D : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ (smoothSourceField 2 L ω)) ((coordinates 2) X)
+a : ℝ := (D directionX) directionX
+b : ℝ := (D directionX) directionY
+c : ℝ := (D directionY) directionY
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![a, b], ![b, c]]
+hsym : (D directionY) directionX = b
+⊢ ![![a, b], ![b, c]]ᴴ 0 0 = a
+
+case «0».«1»
+L : ℝ
+hL : 0 < L
+ω : SmoothSample 2 L
+X : E 2
+hdet :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionX] *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionY, directionY] -
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionY] ^ 2 ≠
+    0
+D : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ (smoothSourceField 2 L ω)) ((coordinates 2) X)
+a : ℝ := (D directionX) directionX
+b : ℝ := (D directionX) directionY
+c : ℝ := (D directionY) directionY
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![a, b], ![b, c]]
+hsym : (D directionY) directionX = b
+⊢ ![![a, b], ![b, c]]ᴴ 0 1 = b
+
+case «1».«0»
+L : ℝ
+hL : 0 < L
+ω : SmoothSample 2 L
+X : E 2
+hdet :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionX] *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionY, directionY] -
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionY] ^ 2 ≠
+    0
+D : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ (smoothSourceField 2 L ω)) ((coordinates 2) X)
+a : ℝ := (D directionX) directionX
+b : ℝ := (D directionX) directionY
+c : ℝ := (D directionY) directionY
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![a, b], ![b, c]]
+hsym : (D directionY) directionX = b
+⊢ ![![a, b], ![b, c]]ᴴ 1 0 = b
+
+case «1».«1»
+L : ℝ
+hL : 0 < L
+ω : SmoothSample 2 L
+X : E 2
+hdet :
+  (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionX] *
+        (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionY, directionY] -
+      (iteratedFDeriv ℝ 2 (smoothSourceField 2 L ω) ((coordinates 2) X)) ![directionX, directionY] ^ 2 ≠
+    0
+D : (Fin 2 → ℝ) →L[ℝ] (Fin 2 → ℝ) →L[ℝ] ℝ := fderiv ℝ (fderiv ℝ (smoothSourceField 2 L ω)) ((coordinates 2) X)
+a : ℝ := (D directionX) directionX
+b : ℝ := (D directionX) directionY
+c : ℝ := (D directionY) directionY
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![a, b], ![b, c]]
+hsym : (D directionY) directionX = b
+⊢ ![![a, b], ![b, c]]ᴴ 1 1 = c
+SourceGapConditionalMorseDistinct.lean:1120:4: error: Type mismatch: After simplification, term
+  hd
+ has type
+  a * c - b * b ≠ 0
+but is expected to have type
+  Matrix.det ![![a, b], ![b, c]] ≠ 0
+SourceGapConditionalMorseDistinct.lean:1132:8: error: 'change' tactic failed, pattern
+  u 0 * (u 0 * a + u 1 * b) + u 1 * (u 0 * (D directionY) directionX + u 1 * c) = ?m.1426
+is not definitionally equal to target
+  u 0 * (u 0 * (D directionX) directionX + u 1 * (D directionY) directionX) +
+      u 1 * (u 0 * (D directionX) directionY + u 1 * (D directionY) directionY) =
+    a * u 0 ^ 2 + 2 * b * u 0 * u 1 + c * u 1 ^ 2
+SourceGapConditionalMorseDistinct.lean:1094:16: error: (kernel) unknown constant '_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix'
+SourceGapConditionalMorseDistinct.lean:1115:45: error: This simp argument is unused:
+  Matrix.conjTranspose_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [A]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1157:2: error: unsolved goals
+case hA.«0».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 + (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, 1]]
+⊢ ![![1, 0], ![0, 1]]ᴴ 0 0 = 1
+
+case hA.«0».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 + (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, 1]]
+⊢ ![![1, 0], ![0, 1]]ᴴ 0 1 = 0
+
+case hA.«1».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 + (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, 1]]
+⊢ ![![1, 0], ![0, 1]]ᴴ 1 0 = 0
+
+case hA.«1».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 + (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, 1]]
+⊢ ![![1, 0], ![0, 1]]ᴴ 1 1 = 1
+SourceGapConditionalMorseDistinct.lean:1165:2: error: unsolved goals
+case hdet
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 + (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, 1]]
+⊢ ¬Matrix.det ![![1, 0], ![0, 1]] = 0
+SourceGapConditionalMorseDistinct.lean:1151:16: error: (kernel) unknown constant '_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix'
+SourceGapConditionalMorseDistinct.lean:1173:2: error: unsolved goals
+case hA.«0».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = -(coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1, 0], ![0, -1]]
+⊢ ![![-1, 0], ![0, -1]]ᴴ 0 0 = -1
+
+case hA.«0».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = -(coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1, 0], ![0, -1]]
+⊢ ![![-1, 0], ![0, -1]]ᴴ 0 1 = 0
+
+case hA.«1».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = -(coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1, 0], ![0, -1]]
+⊢ ![![-1, 0], ![0, -1]]ᴴ 1 0 = 0
+
+case hA.«1».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = -(coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1, 0], ![0, -1]]
+⊢ ![![-1, 0], ![0, -1]]ᴴ 1 1 = -1
+SourceGapConditionalMorseDistinct.lean:1181:2: error: unsolved goals
+case hdet
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = -(coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![-1, 0], ![0, -1]]
+⊢ ¬Matrix.det ![![-1, 0], ![0, -1]] = 0
+SourceGapConditionalMorseDistinct.lean:1167:16: error: (kernel) unknown constant '_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix'
+SourceGapConditionalMorseDistinct.lean:1189:2: error: unsolved goals
+case hA.«0».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, -1]]
+⊢ ![![1, 0], ![0, -1]]ᴴ 0 0 = 1
+
+case hA.«0».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, -1]]
+⊢ ![![1, 0], ![0, -1]]ᴴ 0 1 = 0
+
+case hA.«1».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, -1]]
+⊢ ![![1, 0], ![0, -1]]ᴴ 1 0 = 0
+
+case hA.«1».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, -1]]
+⊢ ![![1, 0], ![0, -1]]ᴴ 1 1 = -1
+SourceGapConditionalMorseDistinct.lean:1197:2: error: unsolved goals
+case hdet
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = (coordinates 2) v 0 ^ 2 - (coordinates 2) v 1 ^ 2
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![1, 0], ![0, -1]]
+⊢ ¬Matrix.det ![![1, 0], ![0, -1]] = 0
+SourceGapConditionalMorseDistinct.lean:1183:16: error: (kernel) unknown constant '_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix'
+SourceGapConditionalMorseDistinct.lean:1205:2: error: unsolved goals
+case hA.«0».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = 2 * (coordinates 2) v 0 * (coordinates 2) v 1
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![0, 1], ![1, 0]]
+⊢ ![![0, 1], ![1, 0]]ᴴ 0 0 = 0
+
+case hA.«0».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = 2 * (coordinates 2) v 0 * (coordinates 2) v 1
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![0, 1], ![1, 0]]
+⊢ ![![0, 1], ![1, 0]]ᴴ 0 1 = 1
+
+case hA.«1».«0»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = 2 * (coordinates 2) v 0 * (coordinates 2) v 1
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![0, 1], ![1, 0]]
+⊢ ![![0, 1], ![1, 0]]ᴴ 1 0 = 1
+
+case hA.«1».«1»
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = 2 * (coordinates 2) v 0 * (coordinates 2) v 1
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![0, 1], ![1, 0]]
+⊢ ![![0, 1], ![1, 0]]ᴴ 1 1 = 0
+SourceGapConditionalMorseDistinct.lean:1213:2: error: unsolved goals
+case hdet
+g : E 2 → ℝ
+X : E 2
+hq : ∀ (v : E 2), hessian 2 g X v v = 2 * (coordinates 2) v 0 * (coordinates 2) v 1
+A : Matrix (Fin 2) (Fin 2) ℝ := ![![0, 1], ![1, 0]]
+⊢ ¬Matrix.det ![![0, 1], ![1, 0]] = 0
+SourceGapConditionalMorseDistinct.lean:1199:16: error: (kernel) unknown constant '_private.SourceGapConditionalMorseDistinct.0.I4SourceGapConditionalMorseDistinct.inertia_of_symmetric_matrix'
+SourceGapConditionalMorseDistinct.lean:1428:2: error: Type mismatch: After simplification, term
+  freeShift_derivative hL F z ω 0 x fun i => i.elim0
+ has type
+  @Eq ℝ (smoothSourceField 2 L (freeShiftSample F z ω) x)
+    (smoothSourceField 2 L ω x + ∑ j, z j * finitePairing (derivativeCoefficient 2 L 0 x fun i => i.elim0) (F.chi j))
+but is expected to have type
+  @Eq ℝ (smoothSourceField 2 L (freeShiftSample F z ω) x)
+    (smoothSourceField 2 L ω x + ∑ j, z j * finitePairing (fun m => modeCoefficient 2 L m x) (F.chi j))
+SourceGapConditionalMorseDistinct.lean:1438:2: error: Type mismatch: After simplification, term
+  freeShift_derivative hL F z ω 1 x fun x => Pi.single i 1
+ has type
+  (fderiv ℝ (smoothSourceField 2 L (freeShiftSample F z ω)) x) (Pi.single i 1) =
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single i 1) +
+      ∑ j, z j * finitePairing (derivativeCoefficient 2 L 1 x fun x => Pi.single i 1) (F.chi j)
+but is expected to have type
+  (fderiv ℝ (smoothSourceField 2 L (freeShiftSample F z ω)) x) (Pi.single i 1) =
+    (fderiv ℝ (smoothSourceField 2 L ω) x) (Pi.single i 1) +
+      ∑ j, z j * finitePairing (fun m => (fderiv ℝ (modeCoefficient 2 L m) x) (Pi.single i 1)) (F.chi j)
+SourceGapConditionalMorseDistinct.lean:1444:91: error: unsolved goals
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 2
+z : Fin 2 → ℝ
+ω : SmoothSample 2 L
+x : Point2
+i : Fin 2
+⊢ coordinateGradient (smoothSourceField 2 L ω) x i +
+      ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) x i) (F.chi j) =
+    coordinateGradient (smoothSourceField 2 L ω) x i + ∑ x_1, z x_1 * finitePairing (gradientRows L x i) (F.chi x_1)
+SourceGapConditionalMorseDistinct.lean:1447:44: error: This simp argument is unused:
+  gradientRows_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.add_apply, rowResponse_apply, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceGapConditionalMorseDistinct.lean:1456:2: error: unsolved goals
+case «0»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 3
+z : Fin 3 → ℝ
+ω : SmoothSample 2 L
+α : ℝ
+x : Point2
+⊢ ![smoothSourceField 2 L ω x + ∑ x_1, z x_1 * finitePairing (fun m => modeCoefficient 2 L m x) (F.chi x_1) - α,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x 1]
+      ⟨0, ⋯⟩ =
+    ![smoothSourceField 2 L ω x - α, coordinateGradient (smoothSourceField 2 L ω) x 0,
+          coordinateGradient (smoothSourceField 2 L ω) x 1]
+        ⟨0, ⋯⟩ +
+      ∑ x_1, z x_1 * finitePairing (levelRows L x ⟨0, ⋯⟩) (F.chi x_1)
+SourceGapConditionalMorseDistinct.lean:1460:2: error: unsolved goals
+case «1»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 3
+z : Fin 3 → ℝ
+ω : SmoothSample 2 L
+α : ℝ
+x : Point2
+⊢ ![smoothSourceField 2 L (freeShiftSample F z ω) x - α,
+        coordinateGradient (smoothSourceField 2 L ω) x 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) x 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x 1]
+      ⟨1, ⋯⟩ =
+    ![smoothSourceField 2 L ω x - α, coordinateGradient (smoothSourceField 2 L ω) x 0,
+          coordinateGradient (smoothSourceField 2 L ω) x 1]
+        ⟨1, ⋯⟩ +
+      ∑ x_1, z x_1 * finitePairing (levelRows L x ⟨1, ⋯⟩) (F.chi x_1)
+SourceGapConditionalMorseDistinct.lean:1464:2: error: unsolved goals
+case «2»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 3
+z : Fin 3 → ℝ
+ω : SmoothSample 2 L
+α : ℝ
+x : Point2
+⊢ ![smoothSourceField 2 L (freeShiftSample F z ω) x - α,
+        coordinateGradient (smoothSourceField 2 L ω) x 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) x 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) x 1]
+      ⟨2, ⋯⟩ =
+    ![smoothSourceField 2 L ω x - α, coordinateGradient (smoothSourceField 2 L ω) x 0,
+          coordinateGradient (smoothSourceField 2 L ω) x 1]
+        ⟨2, ⋯⟩ +
+      ∑ x_1, z x_1 * finitePairing (levelRows L x ⟨2, ⋯⟩) (F.chi x_1)
+SourceGapConditionalMorseDistinct.lean:1456:31: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Pi.add_apply, rowResponse_apply, levelRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1456:83: error: This simp argument is unused:
+  levelRows_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Matrix.cons_val_zero, Pi.add_apply, rowResponse_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1458:15: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1460:31: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Matrix.cons_val_zero, Pi.add_apply, rowResponse_apply, levelRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1460:51: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Matrix.cons_val_one, Pi.add_apply, rowResponse_apply, levelRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1461:24: error: This simp argument is unused:
+  levelRows_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Matrix.cons_val_one, Matrix.cons_val_zero, Pi.add_apply, rowResponse_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1463:15: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_zero, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1463:35: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.cons_val_one, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1464:31: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Pi.add_apply, rowResponse_apply, levelRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1464:82: error: This simp argument is unused:
+  levelRows_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [levelConstraint, Matrix.cons_val_one, Pi.add_apply, rowResponse_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1466:15: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1481:2: error: unsolved goals
+case «0»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 5
+z : Fin 5 → ℝ
+ω : SmoothSample 2 L
+p : Point4
+⊢ ![coordinateGradient (smoothSourceField 2 L ω) p.1 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) p.1 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 1,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 1,
+        smoothSourceField 2 L (freeShiftSample F z ω) p.1 - smoothSourceField 2 L (freeShiftSample F z ω) p.2]
+      ⟨0, ⋯⟩ =
+    ![coordinateGradient (smoothSourceField 2 L ω) p.1 0, coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+          coordinateGradient (smoothSourceField 2 L ω) p.2 0, coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+          smoothSourceField 2 L ω p.1 - smoothSourceField 2 L ω p.2]
+        ⟨0, ⋯⟩ +
+      ∑ x, z x * finitePairing (tieRows L p ⟨0, ⋯⟩) (F.chi x)
+SourceGapConditionalMorseDistinct.lean:1483:2: error: unsolved goals
+case «1»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 5
+z : Fin 5 → ℝ
+ω : SmoothSample 2 L
+p : Point4
+⊢ ![coordinateGradient (smoothSourceField 2 L ω) p.1 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) p.1 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 1,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 1,
+        smoothSourceField 2 L (freeShiftSample F z ω) p.1 - smoothSourceField 2 L (freeShiftSample F z ω) p.2]
+      ⟨1, ⋯⟩ =
+    ![coordinateGradient (smoothSourceField 2 L ω) p.1 0, coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+          coordinateGradient (smoothSourceField 2 L ω) p.2 0, coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+          smoothSourceField 2 L ω p.1 - smoothSourceField 2 L ω p.2]
+        ⟨1, ⋯⟩ +
+      ∑ x, z x * finitePairing (tieRows L p ⟨1, ⋯⟩) (F.chi x)
+SourceGapConditionalMorseDistinct.lean:1485:2: error: unsolved goals
+case «2»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 5
+z : Fin 5 → ℝ
+ω : SmoothSample 2 L
+p : Point4
+⊢ ![coordinateGradient (smoothSourceField 2 L ω) p.1 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) p.1 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 1,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 1,
+        smoothSourceField 2 L (freeShiftSample F z ω) p.1 - smoothSourceField 2 L (freeShiftSample F z ω) p.2]
+      ⟨2, ⋯⟩ =
+    ![coordinateGradient (smoothSourceField 2 L ω) p.1 0, coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+          coordinateGradient (smoothSourceField 2 L ω) p.2 0, coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+          smoothSourceField 2 L ω p.1 - smoothSourceField 2 L ω p.2]
+        ⟨2, ⋯⟩ +
+      ∑ x, z x * finitePairing (tieRows L p ⟨2, ⋯⟩) (F.chi x)
+SourceGapConditionalMorseDistinct.lean:1487:2: error: unsolved goals
+case «3»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 5
+z : Fin 5 → ℝ
+ω : SmoothSample 2 L
+p : Point4
+⊢ ![coordinateGradient (smoothSourceField 2 L ω) p.1 0 +
+          ∑ j, z j * finitePairing (fun m => coordinateGradient (modeCoefficient 2 L m) p.1 0) (F.chi j),
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 1,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 1,
+        smoothSourceField 2 L (freeShiftSample F z ω) p.1 - smoothSourceField 2 L (freeShiftSample F z ω) p.2]
+      ⟨3, ⋯⟩ =
+    ![coordinateGradient (smoothSourceField 2 L ω) p.1 0, coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+          coordinateGradient (smoothSourceField 2 L ω) p.2 0, coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+          smoothSourceField 2 L ω p.1 - smoothSourceField 2 L ω p.2]
+        ⟨3, ⋯⟩ +
+      ∑ x, z x * finitePairing (tieRows L p ⟨3, ⋯⟩) (F.chi x)
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+SourceGapConditionalMorseDistinct.lean:1489:2: error: unsolved goals
+case «4»
+L r : ℝ
+hL : L ≠ 0
+F : RawPinFreeFrame L r 5
+z : Fin 5 → ℝ
+ω : SmoothSample 2 L
+p : Point4
+⊢ ![coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.1 1,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 0,
+        coordinateGradient (smoothSourceField 2 L (freeShiftSample F z ω)) p.2 1,
+        smoothSourceField 2 L ω p.1 + ∑ x, z x * finitePairing (fun m => modeCoefficient 2 L m p.1) (F.chi x) -
+            smoothSourceField 2 L ω p.2 -
+          ∑ x, z x * finitePairing (fun m => modeCoefficient 2 L m p.2) (F.chi x)]
+      ⟨4, ⋯⟩ =
+    ![coordinateGradient (smoothSourceField 2 L ω) p.1 0, coordinateGradient (smoothSourceField 2 L ω) p.1 1,
+          coordinateGradient (smoothSourceField 2 L ω) p.2 0, coordinateGradient (smoothSourceField 2 L ω) p.2 1,
+          smoothSourceField 2 L ω p.1 - smoothSourceField 2 L ω p.2]
+        ⟨4, ⋯⟩ +
+      ∑ x, z x * finitePairing (tieRows L p ⟨4, ⋯⟩) (F.chi x)
+SourceGapConditionalMorseDistinct.lean:1479:29: error: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tieConstraint, Matrix.cons_val_one, Pi.add_apply, rowResponse_apply, tieRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1479:50: error: This simp argument is unused:
+  Matrix.cons_val_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tieConstraint, Matrix.cons_val_zero, Pi.add_apply, rowResponse_apply, tieRows_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1480:24: error: This simp argument is unused:
+  tieRows_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [tieConstraint, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.add_apply, rowResponse_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1490:15: error: This simp argument is unused:
+  finitePairing_sub_observation
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mul_sub, Finset.sum_sub_distrib, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1490:45: error: This simp argument is unused:
+  mul_sub
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finitePairing_sub_observation, Finset.sum_sub_distrib, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1490:53: error: This simp argument is unused:
+  Finset.sum_sub_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finitePairing_sub_observation, mul_sub, mul_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceGapConditionalMorseDistinct.lean:1515:39: error: Application type mismatch: The argument
+  sourceGradient_eval_measurable hL p.1
+has type
+  Measurable fun ω => coordinateGradient (smoothSourceField 2 L ω) p.1
+but is expected to have type
+  Measurable fun c =>
+    ![coordinateGradient (smoothSourceField 2 L c) p.1 0, coordinateGradient (smoothSourceField 2 L c) p.1 1,
+      coordinateGradient (smoothSourceField 2 L c) p.2 0, coordinateGradient (smoothSourceField 2 L c) p.2 1,
+      smoothSourceField 2 L c p.1 - smoothSourceField 2 L c p.2]
+in the application
+  Measurable.comp (measurable_pi_apply 0) (sourceGradient_eval_measurable hL p.1)
+SourceGapConditionalMorseDistinct.lean:1516:39: error: Application type mismatch: The argument
+  sourceGradient_eval_measurable hL p.1
+has type
+  Measurable fun ω => coordinateGradient (smoothSourceField 2 L ω) p.1
+but is expected to have type
+  Measurable fun c =>
+    ![coordinateGradient (smoothSourceField 2 L c) p.1 0, coordinateGradient (smoothSourceField 2 L c) p.1 1,
+      coordinateGradient (smoothSourceField 2 L c) p.2 0, coordinateGradient (smoothSourceField 2 L c) p.2 1,
+      smoothSourceField 2 L c p.1 - smoothSourceField 2 L c p.2]
+in the application
+  Measurable.comp (measurable_pi_apply 1) (sourceGradient_eval_measurable hL p.1)
+SourceGapConditionalMorseDistinct.lean:1548:22: error: unexpected token '('; expected ','

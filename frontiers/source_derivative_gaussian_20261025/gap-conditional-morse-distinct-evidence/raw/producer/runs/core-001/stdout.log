@@ -1,0 +1,16 @@
+SourceGapConditionalMorseDistinct.lean:89:13: error(lean.unknownIdentifier): Unknown identifier `derivativeCoefficient_weighted_summable`
+SourceGapConditionalMorseDistinct.lean:87:61: error: unsolved goals
+L : ℝ
+hL : L ≠ 0
+v : SourceMode 2 →₀ ℝ
+ω : SmoothSample 2 L
+k : ℕ
+x : Point2
+u : Fin k → Point2
+⊢ scalarSeries (derivativeCoefficient 2 L k x u) (sampleInclusion 2 L (finiteShiftSample v ω)) =
+    scalarSeries (derivativeCoefficient 2 L k x u) (sampleInclusion 2 L ω) +
+      finitePairing (derivativeCoefficient 2 L k x u) v
+SourceGapConditionalMorseDistinct.lean:126:2: error: No applicable extensionality theorem found for type
+  ENNReal
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute

@@ -1,0 +1,32 @@
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:135:20: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:135:30: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:135:57: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:146:20: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:146:30: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:146:58: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/gap-conditional-morse-distinct-construct/GapMorseDistinctControls.lean:225:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  HasFDerivAt
+    ((fun y => control59_slope control59_a0 0 y • control59_axisMap 0) + fun y =>
+      control59_slope control59_a1 1 y • control59_axisMap 1)
+    ((control59_slopeD control59_a0 0 y • ContinuousLinearMap.proj 0).smulRight (control59_axisMap 0) +
+      (control59_slopeD control59_a1 1 y • ContinuousLinearMap.proj 1).smulRight (control59_axisMap 1))
+    y
+but is expected to have type
+  HasFDerivAt control59_B
+    ((control59_slopeD control59_a0 0 y • ContinuousLinearMap.proj 0).smulRight (control59_axisMap 0) +
+      (control59_slopeD control59_a1 1 y • ContinuousLinearMap.proj 1).smulRight (control59_axisMap 1))
+    y

@@ -1,0 +1,105 @@
+SourceGapConditionalMorseDistinct.lean:302:2: error: Type mismatch: After simplification, term
+  DifferentiableAt.neg (DifferentiableAt.clm_apply hId hgd)
+ has type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField D inst✝⁴.toAddCommGroup inst✝³.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace C inst✝².toAddCommGroup inst✝¹.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (-fun y => (B y).inverse (g y)) x
+but is expected to have type
+  @DifferentiableAt ℝ DenselyNormedField.toNontriviallyNormedField D inst✝⁴.toAddCommGroup inst✝³.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace C inst✝².toAddCommGroup inst✝¹.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (incidence_theta g B) x
+SourceGapConditionalMorseDistinct.lean:313:30: error: Application type mismatch: The argument
+  hasFDerivAt_const x z
+has type
+  HasFDerivAt.{?u.76, u_2, u_1} (fun x_1 => x) 0 z
+but is expected to have type
+  HasFDerivAt.{0, u_1, u_2} ?m.145 ?m.146 x
+in the application
+  HasFDerivAt.clm_apply (DifferentiableAt.hasFDerivAt hB) (hasFDerivAt_const x z)
+SourceGapConditionalMorseDistinct.lean:374:21: error(lean.unknownIdentifier): Unknown identifier `IsAddHaarMeasure`
+
+Note: It is not possible to treat `IsAddHaarMeasure` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+SourceGapConditionalMorseDistinct.lean:423:12: error: No goals to be solved
+SourceGapConditionalMorseDistinct.lean:433:65: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceGapConditionalMorseDistinct.lean:433:67: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+SourceGapConditionalMorseDistinct.lean:433:46: error: unsolved goals
+n : ℕ
+ih : (Measure.pi fun x => gaussianReal 0 1) ≪ ℙ
+e : (Fin (n + 1) → ℝ) ≃ᵐ ℝ × (Fin n → ℝ) := MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0
+hG :
+  MeasurePreserving (⇑(MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0)) (Measure.pi fun x => gaussianReal 0 1)
+    ((gaussianReal 0 1).prod (Measure.pi fun j => gaussianReal 0 1))
+hV : MeasurePreserving ⇑(MeasurableEquiv.piFinSuccAbove (fun x => ℝ) 0) ℙ ℙ
+⊢ ¬sorry () = 0
+SourceGapConditionalMorseDistinct.lean:457:4: error(lean.unknownIdentifier): Unknown identifier `incidence_singular_image_null`
+SourceGapConditionalMorseDistinct.lean:500:27: error: Application type mismatch: The argument
+  1
+has type
+  ℝ
+but is expected to have type
+  ?m.2 2
+in the application
+  Pi.single 2 1
+SourceGapConditionalMorseDistinct.lean:511:27: error: Application type mismatch: The argument
+  1
+has type
+  ℝ
+but is expected to have type
+  ?m.2 4
+in the application
+  Pi.single 4 1
+SourceGapConditionalMorseDistinct.lean:526:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ℝ (theta ∘ ⇑P) x
+in the target expression
+  (fderiv ℝ (fun y => theta (P y)) x) w = 0
+
+D : Type u_1
+V : Type u_2
+inst✝³ : NormedAddCommGroup D
+inst✝² : NormedSpace ℝ D
+inst✝¹ : NormedAddCommGroup V
+inst✝ : NormedSpace ℝ V
+P : V →L[ℝ] D
+theta : D → V
+x w : V
+htheta : DifferentiableAt ℝ theta (P x)
+hPw : P w = 0
+⊢ (fderiv ℝ (fun y => theta (P y)) x) w = 0
+SourceGapConditionalMorseDistinct.lean:535:64: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy3_kernel_vector`
+SourceGapConditionalMorseDistinct.lean:542:64: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy5_kernel_vector`
+SourceGapConditionalMorseDistinct.lean:548:43: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy3_kernel_vector`
+SourceGapConditionalMorseDistinct.lean:555:43: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy5_kernel_vector`
+SourceGapConditionalMorseDistinct.lean:569:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  P (J ?x)
+in the target expression
+  (fun y => theta (P y)) (J x) = theta x
+
+case refine_2
+D : Type u_1
+V : Type u_2
+inst✝³ : NormedAddCommGroup D
+inst✝² : NormedSpace ℝ D
+inst✝¹ : NormedAddCommGroup V
+inst✝ : NormedSpace ℝ V
+P : V →L[ℝ] D
+J : D → V
+hPJ : ∀ (x : D), P (J x) = x
+theta : D → V
+U : Set D
+x : D
+hx : x ∈ U
+⊢ (fun y => theta (P y)) (J x) = theta x
+SourceGapConditionalMorseDistinct.lean:585:21: error(lean.unknownIdentifier): Unknown identifier `IsAddHaarMeasure`
+
+Note: It is not possible to treat `IsAddHaarMeasure` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+SourceGapConditionalMorseDistinct.lean:605:2: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy_image_null`
+SourceGapConditionalMorseDistinct.lean:612:2: error(lean.unknownIdentifier): Unknown identifier `incidence_dummy_image_null`

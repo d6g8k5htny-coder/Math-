@@ -1,0 +1,114 @@
+--- frozen-original/incidence
++++ qualified-integration/incidence
+@@ -65,7 +65,8 @@
+   have hId : DifferentiableAt ℝ (fun y => (B y).inverse) x :=
+     (hIc.comp x hBc).differentiableAt (by simp)
+   have hgd : DifferentiableAt ℝ g x := hgc.differentiableAt (by simp)
+-  simpa only [incidence_theta] using (hId.clm_apply hgd).neg
++  change DifferentiableAt ℝ (fun y => -((B y).inverse (g y))) x
++  exact (hId.clm_apply hgd).neg
+ 
+ /- This is the derivative with the free parameter z HELD FIXED. -/
+ private theorem incidence_fixed_parameter_derivative
+@@ -76,7 +77,8 @@
+     fderiv ℝ (fun y => g y+B y z) x =
+       fderiv ℝ g x+(fderiv ℝ B x).flip z := by
+   have h := hg.hasFDerivAt.add
+-    (hB.hasFDerivAt.clm_apply (hasFDerivAt_const x z))
++    (hB.hasFDerivAt.clm_apply (hasFDerivAt_const z x))
++  change fderiv ℝ (g+(fun y => B y z)) x = _
+   simpa only [ContinuousLinearMap.comp_zero,zero_add] using h.fderiv
+ 
+ /- Mandatory full variable-response equation. The DB(x)v * theta(x)
+@@ -137,7 +139,7 @@
+ private theorem incidence_singular_image_null
+     {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V]
+     [FiniteDimensional ℝ V] [MeasurableSpace V] [BorelSpace V]
+-    (μ : Measure V) [IsAddHaarMeasure μ] (theta : V → V) (S : Set V)
++    (μ : Measure V) [MeasureTheory.Measure.IsAddHaarMeasure μ] (theta : V → V) (S : Set V)
+     (htheta : ∀ x∈S, DifferentiableAt ℝ theta x)
+     (hsing : ∀ x∈S, ¬Function.Injective (fderiv ℝ theta x)) :
+     μ (theta '' S)=0 := by
+@@ -186,8 +188,6 @@
+       change (Measure.pi (fun _ : Fin 0 => gaussianReal 0 1)) ≪
+         Measure.pi (fun _ : Fin 0 => (volume : Measure ℝ))
+       rw [Measure.pi_of_empty _ (0 : Fin 0 → ℝ),Measure.pi_of_empty _ (0 : Fin 0 → ℝ)]
+-      intro s hs
+-      exact hs
+   | succ n ih =>
+       let e := MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n+1) => ℝ) (0 : Fin (n+1))
+       have hG := measurePreserving_piFinSuccAbove
+@@ -198,8 +198,10 @@
+           (volume : Measure ℝ).prod (volume : Measure (Fin n → ℝ)) :=
+         (gaussianReal_absolutelyContinuous 0 (by norm_num : (1 : ℝ≥0)≠0)).prod ih
+       have h := e.symm.measurableEmbedding.absolutelyContinuous_map hp
+-      rw [(hG.symm e).map_eq,(hV.symm e).map_eq] at h
+-      exact h
++      rw [(hG.symm e).map_eq] at h
++      change (Measure.pi (fun _ : Fin (n+1) => gaussianReal 0 1)) ≪
++        (volume : Measure (ℝ × (Fin n → ℝ))).map e.symm at h
++      rwa [(hV.symm e).map_eq] at h
+ 
+ private theorem incidence_gaussian3_ac :
+     (Measure.pi (fun _ : Fin 3 => gaussianReal 0 1)) ≪
+@@ -263,7 +265,7 @@
+   apply Prod.ext <;> funext i <;> fin_cases i <;> rfl
+ 
+ private theorem incidence_dummy3_kernel_vector :
+-    (Pi.single (2 : Fin 3) (1 : ℝ))≠0 ∧
++    (Pi.single (2 : Fin 3) (1 : ℝ) : Fin 3 → ℝ)≠0 ∧
+       incidence_project3 (Pi.single (2 : Fin 3) (1 : ℝ))=0 := by
+   constructor
+   · intro h
+@@ -274,7 +276,7 @@
+     fin_cases i <;> norm_num [Pi.single_apply]
+ 
+ private theorem incidence_dummy5_kernel_vector :
+-    (Pi.single (4 : Fin 5) (1 : ℝ))≠0 ∧
++    (Pi.single (4 : Fin 5) (1 : ℝ) : Fin 5 → ℝ)≠0 ∧
+       incidence_project5 (Pi.single (4 : Fin 5) (1 : ℝ))=0 := by
+   constructor
+   · intro h
+@@ -289,6 +291,7 @@
+     (P : V →L[ℝ] D) (theta : D → V) (x w : V)
+     (htheta : DifferentiableAt ℝ theta (P x)) (hPw : P w=0) :
+     fderiv ℝ (fun y => theta (P y)) x w=0 := by
++  change fderiv ℝ (theta ∘ P) x w=0
+   rw [(htheta.hasFDerivAt.comp x P.hasFDerivAt).fderiv]
+   change fderiv ℝ theta (P x) (P w)=0
+   rw [hPw,map_zero]
+@@ -332,7 +335,8 @@
+   · change P (J x)∈U
+     rw [hPJ]
+     exact hx
+-  · rw [hPJ]
++  · change theta (P (J x))=theta x
++    rw [hPJ]
+ 
+ private theorem incidence_dummy3_image_inclusion
+     (theta : Point2 → (Fin 3 → ℝ)) (U : Set Point2) :
+@@ -348,7 +352,7 @@
+     {D V : Type*} [NormedAddCommGroup D] [NormedSpace ℝ D]
+     [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
+     [MeasurableSpace V] [BorelSpace V]
+-    (μ : Measure V) [IsAddHaarMeasure μ]
++    (μ : Measure V) [MeasureTheory.Measure.IsAddHaarMeasure μ]
+     (P : V →L[ℝ] D) (J : D → V) (hPJ : ∀ x, P (J x)=x)
+     (w : V) (hw : w≠0) (hPw : P w=0)
+     (theta : D → V) (U : Set D)
+@@ -358,7 +362,9 @@
+     apply addHaar_image_eq_zero_of_det_fderivWithin_eq_zero μ
+       (f' := fderiv ℝ (fun y => theta (P y)))
+     · intro x hx
+-      exact ((htheta (P x) hx).hasFDerivAt.comp x P.hasFDerivAt).hasFDerivWithinAt
++      have hd := (htheta (P x) hx).comp x P.differentiableAt
++      simpa only [Function.comp_def] using hd.hasFDerivAt.hasFDerivWithinAt
++        (s := P ⁻¹' U)
+     · intro x hx
+       exact incidence_det_zero_of_killed_nonzero _ w hw
+         (incidence_composite_kills P theta x w (htheta (P x) hx) hPw)
+@@ -399,3 +405,4 @@
+   apply incidence_gaussian5_ac
+   exact incidence_dummy5_image_null (incidence_theta g B) U
+     (fun x hx => incidence_theta_differentiable U hU g B hg hB hinv x hx)
++

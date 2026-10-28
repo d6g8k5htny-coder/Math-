@@ -1,0 +1,729 @@
+--- frozen-original/global-cover
++++ qualified-integration/global-cover
+@@ -1,3 +1,126 @@
++/-! Global Morse distinctness for the literal positive-gap sampling law.
++The finite source, incidence, probability, quotient and Lifetime adapters are
++private; the final global proposition is the only authored public API. -/
++
++noncomputable section
++set_option autoImplicit false
++open scoped BigOperators Topology Matrix NNReal
++open WithLp Set MeasureTheory ProbabilityTheory I4Foundation I4Source I4Smooth I4SmoothCarrier
++open I4SourceSmoothConditional I4SourceGaussian I4SourceCovariance I4SourceDerivativeGaussian
++open I4SourceConfluentPins I4SourceConfluentLimits I4SourceRawPinConditioning
++open I4SourceFinitePinKernel I4SourceRemoteJetWitness I4SourceTwoRemoteFirstJetWitness
++open I4SourceRawPinFreeCoordinates I4SourceCompactTargetMoments I4ActualSourceMorse
++open I4LifetimeField I4SourceActualFoldCandidate I4SourceLifetimePairFiniteness
++open UniversalLaw.Spec.Lifetime
++
++namespace I4SourceGapConditionalMorseDistinct
++
++private abbrev Point2 := Fin 2 → ℝ
++private abbrev Point4 := Point2 × Point2
++
++private def Remote (L r : ℝ) (x : Point2) : Prop :=
++  I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointM r) ∧
++  I4Torus.torusProjection 2 L x ≠ I4Torus.torusProjection 2 L (endpointS r)
++
++private def RemotePair (L r : ℝ) (p : Point4) : Prop :=
++  Remote L r p.1 ∧ Remote L r p.2 ∧
++    I4Torus.torusProjection 2 L p.1 ≠ I4Torus.torusProjection 2 L p.2
++
++private def gradientRows (L : ℝ) (x : Point2) : Fin 2 → SourceMode 2 → ℝ :=
++  ![remoteJetCoefficient L x 1,remoteJetCoefficient L x 2]
++
++private def levelRows (L : ℝ) (x : Point2) : Fin 3 → SourceMode 2 → ℝ :=
++  ![remoteJetCoefficient L x 0,remoteJetCoefficient L x 1,remoteJetCoefficient L x 2]
++
++private def tieRows (L : ℝ) (p : Point4) : Fin 5 → SourceMode 2 → ℝ :=
++  ![twoRemoteFirstJetCoefficient L p.1 p.2 1,
++    twoRemoteFirstJetCoefficient L p.1 p.2 2,
++    twoRemoteFirstJetCoefficient L p.1 p.2 4,
++    twoRemoteFirstJetCoefficient L p.1 p.2 5,
++    fun m => twoRemoteFirstJetCoefficient L p.1 p.2 0 m -
++      twoRemoteFirstJetCoefficient L p.1 p.2 3 m]
++
++private def rowResponse {L r : ℝ} {n : ℕ}
++    (a : Fin n → SourceMode 2 → ℝ) (F : RawPinFreeFrame L r n) :
++    (Fin n → ℝ) →L[ℝ] (Fin n → ℝ) :=
++  ContinuousLinearMap.pi (fun i => ∑ j : Fin n,
++    finitePairing (a i) (F.chi j) • ContinuousLinearMap.proj j)
++
++private theorem rowResponse_apply {L r : ℝ} {n : ℕ}
++    (a : Fin n → SourceMode 2 → ℝ) (F : RawPinFreeFrame L r n)
++    (z : Fin n → ℝ) (i : Fin n) :
++    rowResponse a F z i = ∑ j, finitePairing (a i) (F.chi j) * z j := by
++  simp [rowResponse]
++
++private theorem finitePairing_hasSum {ι : Type*} (a : ι → ℝ) (v : ι →₀ ℝ) :
++    HasSum (fun m => a m * v m) (finitePairing a v) := by
++  classical
++  apply hasSum_sum_of_ne_finset_zero
++  intro m hm
++  simp only [Finsupp.notMem_support_iff.mp hm, mul_zero]
++
++private theorem finitePairing_linearCombination {ι : Type*}
++    (a : ι → ℝ) (v : ι →₀ ℝ) :
++    finitePairing a v = Finsupp.linearCombination ℝ a v := by
++  simp only [finitePairing,Finsupp.linearCombination_apply,smul_eq_mul,mul_comm]
++
++private theorem finitePairing_lift {ι : Type*} {n : ℕ}
++    (a : ι → ℝ) (v : Fin n → ι →₀ ℝ) (z : Fin n → ℝ) :
++    finitePairing a (∑ j, z j • v j) = ∑ j, z j * finitePairing a (v j) := by
++  classical
++  simp only [finitePairing_linearCombination,map_sum,map_smul,smul_eq_mul]
++
++private theorem finiteShift_derivative {L : ℝ} (hL : L ≠ 0)
++    (v : SourceMode 2 →₀ ℝ) (ω : SmoothSample 2 L) (k : ℕ)
++    (x : Point2) (u : Fin k → Point2) :
++    iteratedFDeriv ℝ k (smoothSourceField 2 L (finiteShiftSample v ω)) x u =
++      iteratedFDeriv ℝ k (smoothSourceField 2 L ω) x u +
++        finitePairing (derivativeCoefficient 2 L k x u) v := by
++  rw [smoothSourceField_derivative_series 2 hL,smoothSourceField_derivative_series 2 hL]
++  have h := (derivativeCoefficient_weighted_summable hL ω k x u).hasSum.add
++    (finitePairing_hasSum (derivativeCoefficient 2 L k x u) v)
++  change (∑' m, derivativeCoefficient 2 L k x u m * (ω.val m + v m)) = _
++  simpa only [mul_add,scalarSeries,sampleInclusion] using h.tsum_eq
++
++private theorem freeShift_derivative {L r : ℝ} {n : ℕ} (hL : L ≠ 0)
++    (F : RawPinFreeFrame L r n) (z : Fin n → ℝ) (ω : SmoothSample 2 L)
++    (k : ℕ) (x : Point2) (u : Fin k → Point2) :
++    iteratedFDeriv ℝ k (smoothSourceField 2 L (freeShiftSample F z ω)) x u =
++      iteratedFDeriv ℝ k (smoothSourceField 2 L ω) x u +
++        ∑ j, z j * finitePairing (derivativeCoefficient 2 L k x u) (F.chi j) := by
++  change iteratedFDeriv ℝ k
++    (smoothSourceField 2 L (finiteShiftSample (∑ j, z j • F.chi j) ω)) x u = _
++  rw [finiteShift_derivative hL,finitePairing_lift]
++
++private theorem rawKernel_null_of_sections {L r : ℝ} {n : ℕ}
++    (hL : L ≠ 0) (F : RawPinFreeFrame L r n) (t : Fin 6 → ℝ)
++    (A : Set (SmoothSample 2 L)) (hA : MeasurableSet A)
++    (hsections : ∀ ρ : SmoothSample 2 L,
++      (Measure.pi (fun _ : Fin n => gaussianReal 0 1))
++        {z | freeShiftSample F z (rawPosteriorSample hL r t ρ) ∈ A} = 0) :
++    rawPinKernel hL r t A = 0 := by
++  have hp : Measurable (rawPosteriorSample hL r t) :=
++    (rawPosteriorSample_measurable hL r).comp (measurable_const.prodMk measurable_id)
++  let φ : SmoothSample 2 L × (Fin n → ℝ) → SmoothSample 2 L :=
++    fun p => freeShiftSample F p.2 (rawPosteriorSample hL r t p.1)
++  have hφ : Measurable φ := (freeMaps_measurable F).2.1.comp
++    (measurable_snd.prodMk (hp.comp measurable_fst))
++  have hprod : (((smoothLaw 2 L).map (freeResidualSample F)).prod
++      (Measure.pi (fun _ : Fin n => gaussianReal 0 1))) (φ ⁻¹' A) = 0 := by
++    apply Measure.measure_prod_null_of_ae_null (hφ hA)
++    exact Filter.Eventually.of_forall hsections
++  rw [← freeResidual_freeCoordinate_joint_map hL F,
++    Measure.map_apply ((freeMaps_measurable F).2.2.prodMk
++      (freeMaps_measurable F).1) (hφ hA)] at hprod
++  rw [rawPinKernel_apply,Measure.map_apply hp hA]
++  have heq : (rawPosteriorSample hL r t) ⁻¹' A =
++      (fun ω => (freeResidualSample F ω,freeCoordinate F ω)) ⁻¹' (φ ⁻¹' A) := by
++    ext ω
++    simp only [Set.mem_preimage,φ]
++    rw [← rawPosteriorSample_free_reconstruction hL F t ω]
++  rw [heq]
++  exact hprod
++
+ /-!
+ Private deterministic countable compact-subchart and a.e. globalization
+ application. Insert inside the frozen59 namespace/noncomputable context.
+@@ -39,7 +162,7 @@
+     exact Metric.ball_subset_interior_closedBall
+       (Metric.mem_ball_self (hradius x).1)
+   obtain ⟨T, hT, hTcover⟩ :=
+-    isOpen_iUnion_countable (fun x : S => interior (K x))
++    TopologicalSpace.isOpen_iUnion_countable (fun x : S => interior (K x))
+       (fun _ => isOpen_interior)
+   refine ⟨K, chart, T, hT, hK, ?_⟩
+   intro x hx
+@@ -60,7 +183,7 @@
+   intro ω hω y hy
+   obtain ⟨x, hx⟩ := Set.mem_iUnion.mp (hcover hy)
+   obtain ⟨hxT, hyK⟩ := Set.mem_iUnion.mp hx
+-  exact hω x hxT y (Set.interior_subset hyK)
++  exact hω x hxT y (interior_subset hyK)
+ 
+ private theorem countable_compact_local_ae
+     {X Ω : Type*} [NormedAddCommGroup X] [NormedSpace ℝ X]
+@@ -84,3 +207,4 @@
+   intro x _hxT
+   exact (hV (chart x)).2.2.2 (K x) (hK x).1
+     ((hK x).2.1.trans Set.inter_subset_right)
++
+--- frozen-original/incidence
++++ qualified-integration/incidence
+@@ -65,7 +65,8 @@
+   have hId : DifferentiableAt ℝ (fun y => (B y).inverse) x :=
+     (hIc.comp x hBc).differentiableAt (by simp)
+   have hgd : DifferentiableAt ℝ g x := hgc.differentiableAt (by simp)
+-  simpa only [incidence_theta] using (hId.clm_apply hgd).neg
++  change DifferentiableAt ℝ (fun y => -((B y).inverse (g y))) x
++  exact (hId.clm_apply hgd).neg
+ 
+ /- This is the derivative with the free parameter z HELD FIXED. -/
+ private theorem incidence_fixed_parameter_derivative
+@@ -76,7 +77,8 @@
+     fderiv ℝ (fun y => g y+B y z) x =
+       fderiv ℝ g x+(fderiv ℝ B x).flip z := by
+   have h := hg.hasFDerivAt.add
+-    (hB.hasFDerivAt.clm_apply (hasFDerivAt_const x z))
++    (hB.hasFDerivAt.clm_apply (hasFDerivAt_const z x))
++  change fderiv ℝ (g+(fun y => B y z)) x = _
+   simpa only [ContinuousLinearMap.comp_zero,zero_add] using h.fderiv
+ 
+ /- Mandatory full variable-response equation. The DB(x)v * theta(x)
+@@ -137,7 +139,7 @@
+ private theorem incidence_singular_image_null
+     {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V]
+     [FiniteDimensional ℝ V] [MeasurableSpace V] [BorelSpace V]
+-    (μ : Measure V) [IsAddHaarMeasure μ] (theta : V → V) (S : Set V)
++    (μ : Measure V) [MeasureTheory.Measure.IsAddHaarMeasure μ] (theta : V → V) (S : Set V)
+     (htheta : ∀ x∈S, DifferentiableAt ℝ theta x)
+     (hsing : ∀ x∈S, ¬Function.Injective (fderiv ℝ theta x)) :
+     μ (theta '' S)=0 := by
+@@ -186,8 +188,6 @@
+       change (Measure.pi (fun _ : Fin 0 => gaussianReal 0 1)) ≪
+         Measure.pi (fun _ : Fin 0 => (volume : Measure ℝ))
+       rw [Measure.pi_of_empty _ (0 : Fin 0 → ℝ),Measure.pi_of_empty _ (0 : Fin 0 → ℝ)]
+-      intro s hs
+-      exact hs
+   | succ n ih =>
+       let e := MeasurableEquiv.piFinSuccAbove (fun _ : Fin (n+1) => ℝ) (0 : Fin (n+1))
+       have hG := measurePreserving_piFinSuccAbove
+@@ -198,8 +198,10 @@
+           (volume : Measure ℝ).prod (volume : Measure (Fin n → ℝ)) :=
+         (gaussianReal_absolutelyContinuous 0 (by norm_num : (1 : ℝ≥0)≠0)).prod ih
+       have h := e.symm.measurableEmbedding.absolutelyContinuous_map hp
+-      rw [(hG.symm e).map_eq,(hV.symm e).map_eq] at h
+-      exact h
++      rw [(hG.symm e).map_eq] at h
++      change (Measure.pi (fun _ : Fin (n+1) => gaussianReal 0 1)) ≪
++        (volume : Measure (ℝ × (Fin n → ℝ))).map e.symm at h
++      rwa [(hV.symm e).map_eq] at h
+ 
+ private theorem incidence_gaussian3_ac :
+     (Measure.pi (fun _ : Fin 3 => gaussianReal 0 1)) ≪
+@@ -263,7 +265,7 @@
+   apply Prod.ext <;> funext i <;> fin_cases i <;> rfl
+ 
+ private theorem incidence_dummy3_kernel_vector :
+-    (Pi.single (2 : Fin 3) (1 : ℝ))≠0 ∧
++    (Pi.single (2 : Fin 3) (1 : ℝ) : Fin 3 → ℝ)≠0 ∧
+       incidence_project3 (Pi.single (2 : Fin 3) (1 : ℝ))=0 := by
+   constructor
+   · intro h
+@@ -274,7 +276,7 @@
+     fin_cases i <;> norm_num [Pi.single_apply]
+ 
+ private theorem incidence_dummy5_kernel_vector :
+-    (Pi.single (4 : Fin 5) (1 : ℝ))≠0 ∧
++    (Pi.single (4 : Fin 5) (1 : ℝ) : Fin 5 → ℝ)≠0 ∧
+       incidence_project5 (Pi.single (4 : Fin 5) (1 : ℝ))=0 := by
+   constructor
+   · intro h
+@@ -289,6 +291,7 @@
+     (P : V →L[ℝ] D) (theta : D → V) (x w : V)
+     (htheta : DifferentiableAt ℝ theta (P x)) (hPw : P w=0) :
+     fderiv ℝ (fun y => theta (P y)) x w=0 := by
++  change fderiv ℝ (theta ∘ P) x w=0
+   rw [(htheta.hasFDerivAt.comp x P.hasFDerivAt).fderiv]
+   change fderiv ℝ theta (P x) (P w)=0
+   rw [hPw,map_zero]
+@@ -332,7 +335,8 @@
+   · change P (J x)∈U
+     rw [hPJ]
+     exact hx
+-  · rw [hPJ]
++  · change theta (P (J x))=theta x
++    rw [hPJ]
+ 
+ private theorem incidence_dummy3_image_inclusion
+     (theta : Point2 → (Fin 3 → ℝ)) (U : Set Point2) :
+@@ -348,7 +352,7 @@
+     {D V : Type*} [NormedAddCommGroup D] [NormedSpace ℝ D]
+     [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
+     [MeasurableSpace V] [BorelSpace V]
+-    (μ : Measure V) [IsAddHaarMeasure μ]
++    (μ : Measure V) [MeasureTheory.Measure.IsAddHaarMeasure μ]
+     (P : V →L[ℝ] D) (J : D → V) (hPJ : ∀ x, P (J x)=x)
+     (w : V) (hw : w≠0) (hPw : P w=0)
+     (theta : D → V) (U : Set D)
+@@ -358,7 +362,9 @@
+     apply addHaar_image_eq_zero_of_det_fderivWithin_eq_zero μ
+       (f' := fderiv ℝ (fun y => theta (P y)))
+     · intro x hx
+-      exact ((htheta (P x) hx).hasFDerivAt.comp x P.hasFDerivAt).hasFDerivWithinAt
++      have hd := (htheta (P x) hx).comp x P.differentiableAt
++      simpa only [Function.comp_def] using hd.hasFDerivAt.hasFDerivWithinAt
++        (s := P ⁻¹' U)
+     · intro x hx
+       exact incidence_det_zero_of_killed_nonzero _ w hw
+         (incidence_composite_kills P theta x w (htheta (P x) hx) hPw)
+@@ -399,3 +405,4 @@
+   apply incidence_gaussian5_ac
+   exact incidence_dummy5_image_null (incidence_theta g B) U
+     (fun x hx => incidence_theta_differentiable U hU g B hg hB hinv x hx)
++
+--- frozen-original/finite-frame
++++ qualified-integration/finite-frame
+@@ -48,7 +48,7 @@
+     simpa only [finiteFrame_pair_lc,map_zero] using h
+   rw [finiteFrame_pair_sum] at hi
+   simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-    if_true] using hi
++    ite_true] using hi
+ 
+ private def finiteFrame_extend (S : Finset (SourceMode 2)) :
+     EuclideanSpace ℝ S →ₗ[ℝ] (SourceMode 2 →₀ ℝ) where
+@@ -66,7 +66,7 @@
+     (u : EuclideanSpace ℝ S) (m : S) : finiteFrame_extend S u m.val=u m := by
+   classical
+   change (∑ k : S, u k • Finsupp.single k.val 1) m.val=u m
+-  simp [Finsupp.finsetSum_apply,Finsupp.single_apply,Subtype.coe_inj]
++  simp [Finsupp.finsetSum_apply,Finsupp.single_apply ]
+ 
+ private theorem finiteFrame_extend_off (S : Finset (SourceMode 2))
+     (u : EuclideanSpace ℝ S) (m : SourceMode 2) (hm : m ∉ S) :
+@@ -77,7 +77,7 @@
+   apply Finset.sum_eq_zero
+   intro k hk
+   have hkm : k.val ≠ m := by intro h; exact hm (h ▸ k.property)
+-  simp [Finsupp.single_apply,hkm]
++  simp [hkm]
+ 
+ private theorem finiteFrame_extend_injective (S : Finset (SourceMode 2)) :
+     Function.Injective (finiteFrame_extend S) := by
+@@ -130,9 +130,9 @@
+   let chi : Fin n → (SourceMode 2 →₀ ℝ) := fun j => E (w j)
+   have hspan : Submodule.span ℝ (Set.range chi)=Submodule.span ℝ (Set.range v) := by
+     have hs : Submodule.span ℝ (Set.range w)=Submodule.span ℝ (Set.range f) :=
+-      (InnerProductSpace.span_gramSchmidtNormed_range ℝ f).trans (InnerProductSpace.span_gramSchmidt ℝ f)
++      (InnerProductSpace.span_gramSchmidtNormed_range (𝕜 := ℝ) f).trans (InnerProductSpace.span_gramSchmidt ℝ f)
+     have hh := congrArg (fun P : Submodule ℝ (EuclideanSpace ℝ S) => P.map E) hs
+-    simp only [Submodule.map_span,Set.image_range,Function.comp_def] at hh
++    simp only [Submodule.map_span,← Set.range_comp,Function.comp_def] at hh
+     have he : (fun j => E (f j))=v := funext hEf
+     rw [he] at hh
+     exact hh
+@@ -175,7 +175,7 @@
+       simpa only [finiteFrame_pair_lc,map_zero] using hp
+     rw [finiteFrame_pair_sum] at hz
+     simpa only [F.gram,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-      if_true] using hz
++      ite_true] using hz
+   have hinj : Function.Injective (rowResponse a F) := by
+     intro c d hcd
+     let t : Fin n → ℝ := c-d
+@@ -193,7 +193,7 @@
+         simpa only [t,Pi.sub_apply,sub_mul,Finset.sum_sub_distrib,sub_eq_zero] using hi
+       rw [← he,finiteFrame_pair_sum] at hr
+       simpa only [hright,mul_ite,mul_one,mul_zero,Finset.sum_ite_eq,Finset.mem_univ,
+-        if_true] using hr
++        ite_true] using hr
+     have hu0 : u=0 := by
+       rw [← he]
+       simp only [he0,zero_smul,Finset.sum_const_zero]
+@@ -275,10 +275,11 @@
+     rw [hrows]
+     by_cases hi : i=(4 : Fin 5)
+     · subst i
+-      rw [if_pos rfl,finiteFrame_pair_sub_left,hright,hright]
++      rw [ite_eq_left rfl,finiteFrame_pair_sub_left,hright,hright]
+       fin_cases j <;> norm_num [sel]
+-    · rw [if_neg hi,hright]
++    · rw [ite_eq_right hi,hright]
+       simp only [hsel.eq_iff]
+   obtain ⟨F,hspan,hF⟩ := finiteFrame_of_rightInverse (tieRows L p) (fun j => v (sel j))
+     (fun i j => hraw i (sel j)) hright5
+   exact ⟨F,hF⟩
++
+--- frozen-original/lifetime-geometry
++++ qualified-integration/lifetime-geometry
+@@ -28,8 +28,11 @@
+     rw [← b.sum_inner_mul_inner v (T v)]
+     apply Finset.sum_congr rfl
+     intro i _hi
+-    rw [real_inner_comm v (b i), ← b.repr_apply_apply v i,
+-      ← b.repr_apply_apply (T v) i, hrepr]
++    have he1 : inner ℝ v (b i) = b.repr v i := by
++      exact (real_inner_comm _ _).trans (b.repr_apply_apply v i).symm
++    have he2 : inner ℝ (b i) (T v) = b.repr (T v) i :=
++      (b.repr_apply_apply (T v) i).symm
++    rw [he1,he2,hrepr]
+     ring
+   calc
+     dotProduct (coordinates 2 v) (A *ᵥ coordinates 2 v) = inner ℝ v (T v) := by
+@@ -50,7 +53,10 @@
+   let eigen : Fin 2 → ℝ := hA.eigenvalues
+   have heigen : ∀ i : Fin 2, eigen i ≠ 0 := by
+     have hp : (∏ i : Fin 2, eigen i) ≠ 0 := by
+-      simpa only [eigen, ← hA.det_eq_prod_eigenvalues] using hdet
++      have hdprod : A.det = ∏ i : Fin 2, eigen i := by
++        simpa [eigen] using hA.det_eq_prod_eigenvalues
++      rw [← hdprod]
++      exact hdet
+     intro i
+     exact (Finset.prod_ne_zero_iff.mp hp) i (Finset.mem_univ i)
+   have hq (v : E 2) :
+@@ -92,21 +98,21 @@
+     have hvn : vn ∈ V := by
+       intro i hi
+       simp only [vn, LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+-        if_neg hi]
++        ite_eq_right hi]
+     have hvp : vp ∈ W := by
+       intro i hi
+       simp only [vp, LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+-        if_pos hi]
++        ite_eq_left hi]
+     have hvsum : vn + vp = v := by
+       apply b.repr.injective
+       ext i
+       by_cases hi : eigen i < 0
+       · simp only [map_add, PiLp.add_apply, vn, vp,
+-          LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+-          if_pos hi, add_zero]
++          LinearIsometryEquiv.apply_symm_apply,
++          ite_eq_left hi, add_zero]
+       · simp only [map_add, PiLp.add_apply, vn, vp,
+-          LinearIsometryEquiv.apply_symm_apply, PiLp.toLp_apply,
+-          if_neg hi, zero_add]
++          LinearIsometryEquiv.apply_symm_apply,
++          ite_eq_right hi, zero_add]
+     exact Submodule.mem_sup.mpr ⟨vn, hvn, vp, hvp, hvsum⟩
+   have hcompl : IsCompl V W := ⟨hdis, codisjoint_iff.mpr hsup⟩
+   have hdim : Module.finrank ℝ V + Module.finrank ℝ W = 2 := by
+@@ -123,7 +129,7 @@
+     ext i
+     simpa only [map_zero, PiLp.zero_apply] using hz i
+   refine ⟨Module.finrank ℝ V, V, W, hcompl, rfl, ?_, ?_, ?_⟩
+-  · exact Nat.eq_sub_of_add_eq (by simpa only [add_comm] using hdim)
++  · omega
+   · intro v hv hv0
+     rw [hq]
+     apply Finset.sum_neg'
+@@ -173,13 +179,15 @@
+   have hA : A.IsHermitian := by
+     change Aᴴ = A
+     ext i j
+-    fin_cases i <;> fin_cases j <;> simp [A, Matrix.conjTranspose_apply]
++    change A j i = A i j
++    fin_cases i <;> fin_cases j <;> rfl
+   have hdetA : A.det ≠ 0 := by
+     have hd : a*c-b^2 ≠ 0 := by
+       simpa only [a, b, c, D, iteratedFDeriv_two_apply,
+         Matrix.cons_val_zero, Matrix.cons_val_one] using hdet
+-    simpa only [A, Matrix.det_fin_two, Matrix.cons_val_zero,
+-      Matrix.cons_val_one, pow_two] using hd
++    rw [Matrix.det_fin_two]
++    change a*c-b*b≠0
++    simpa only [pow_two] using hd
+   have hquad (u : Point2) : D u u = a*u 0^2+2*b*u 0*u 1+c*u 1^2 := by
+     have hu : u = u 0 • directionX + u 1 • directionY := by
+       ext i
+@@ -188,9 +196,9 @@
+       D u u = D (u 0 • directionX + u 1 • directionY)
+           (u 0 • directionX + u 1 • directionY) := congrArg₂ (fun v w => D v w) hu hu
+       _ = _ := by
+-        simp only [map_add, map_smul, ContinuousLinearMap.add_apply,
+-          ContinuousLinearMap.smul_apply, smul_eq_mul]
+-        change u 0*(u 0*a+u 1*b)+u 1*(u 0*(D directionY directionX)+u 1*c) = _
++        simp only [map_add, map_smul, _root_.add_apply,
++          _root_.smul_apply, smul_eq_mul]
++        change u 0*(u 0*a+u 1*(D directionY directionX))+u 1*(u 0*b+u 1*c) = _
+         rw [hsym]
+         ring
+   apply inertia_of_symmetric_matrix (actualField 2 L ω) X A hA _ hdetA
+@@ -217,13 +225,15 @@
+   apply inertia_of_symmetric_matrix g X A
+   · change Aᴴ = A
+     ext i j
+-    fin_cases i <;> fin_cases j <;> norm_num [A, Matrix.conjTranspose_apply]
++    change A j i = A i j
++    fin_cases i <;> fin_cases j <;> rfl
+   · intro v
+     rw [hq]
+     simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+       Matrix.cons_val_zero, Matrix.cons_val_one]
+     ring
+-  · norm_num [A, Matrix.det_fin_two]
++  · rw [Matrix.det_fin_two]
++    norm_num [A]
+ 
+ private theorem inertia_control_negative (g : E 2 → ℝ) (X : E 2)
+     (hq : ∀ v : E 2, hessian 2 g X v v =
+@@ -233,13 +243,15 @@
+   apply inertia_of_symmetric_matrix g X A
+   · change Aᴴ = A
+     ext i j
+-    fin_cases i <;> fin_cases j <;> norm_num [A, Matrix.conjTranspose_apply]
++    change A j i = A i j
++    fin_cases i <;> fin_cases j <;> rfl
+   · intro v
+     rw [hq]
+     simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+       Matrix.cons_val_zero, Matrix.cons_val_one]
+     ring
+-  · norm_num [A, Matrix.det_fin_two]
++  · rw [Matrix.det_fin_two]
++    norm_num [A]
+ 
+ private theorem inertia_control_axis_saddle (g : E 2 → ℝ) (X : E 2)
+     (hq : ∀ v : E 2, hessian 2 g X v v =
+@@ -249,13 +261,15 @@
+   apply inertia_of_symmetric_matrix g X A
+   · change Aᴴ = A
+     ext i j
+-    fin_cases i <;> fin_cases j <;> norm_num [A, Matrix.conjTranspose_apply]
++    change A j i = A i j
++    fin_cases i <;> fin_cases j <;> rfl
+   · intro v
+     rw [hq]
+     simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+       Matrix.cons_val_zero, Matrix.cons_val_one]
+     ring
+-  · norm_num [A, Matrix.det_fin_two]
++  · rw [Matrix.det_fin_two]
++    norm_num [A]
+ 
+ private theorem inertia_control_zero_diagonal_saddle (g : E 2 → ℝ) (X : E 2)
+     (hq : ∀ v : E 2, hessian 2 g X v v =
+@@ -265,13 +279,15 @@
+   apply inertia_of_symmetric_matrix g X A
+   · change Aᴴ = A
+     ext i j
+-    fin_cases i <;> fin_cases j <;> norm_num [A, Matrix.conjTranspose_apply]
++    change A j i = A i j
++    fin_cases i <;> fin_cases j <;> rfl
+   · intro v
+     rw [hq]
+     simp only [A, Matrix.mulVec, dotProduct, Fin.sum_univ_two,
+       Matrix.cons_val_zero, Matrix.cons_val_one]
+     ring
+-  · norm_num [A, Matrix.det_fin_two]
++  · rw [Matrix.det_fin_two]
++    norm_num [A]
+ 
+ private theorem geometry59_projection_eq_lattice {L : ℝ} (x y : Point2)
+     (h : I4Torus.torusProjection 2 L x = I4Torus.torusProjection 2 L y) :
+@@ -329,3 +345,4 @@
+         (congrArg (fun F : Point2 → ℝ => iteratedFDeriv ℝ k F x) hfun).symm
+       _ = iteratedFDeriv ℝ k (smoothSourceField 2 L ω) (x+s) :=
+         iteratedFDeriv_comp_add_right k s x
++
+--- frozen-original/actual-controls
++++ qualified-integration/actual-controls
+@@ -71,7 +71,7 @@
+   have hp : phase 2 2 (control57_frequency s) y =
+       ![Real.pi * y 0,2 * Real.pi * y 0,Real.pi * y 1,2 * Real.pi * y 1] s := by
+     fin_cases s <;>
+-      simp [control57_frequency,phase,sourceC,Fin.sum_univ_two] <;> ring
++      simp [control57_frequency,phase,sourceC,Fin.sum_univ_two] <;> ring_nf <;> simp
+   rw [hp]
+   fin_cases s <;> rfl
+ 
+@@ -116,25 +116,31 @@
+ 
+ theorem control59_wave_hasFDerivAt (a : ℝ) (j : Fin 2) (y : Control59Point) :
+     HasFDerivAt (control59_wave a j)
+-      (control59_slope a j y • (ContinuousLinearMap.proj j)) y := by
++      (control59_slope a j y • (ContinuousLinearMap.proj j : Control59Point →L[ℝ] ℝ)) y := by
+   have hp : HasFDerivAt (fun x : Control59Point => x j)
+       (ContinuousLinearMap.proj j) y :=
+     (ContinuousLinearMap.proj j : Control59Point →L[ℝ] ℝ).hasFDerivAt
+   have h := (((hp.const_mul Real.pi).cos).sub
+     ((hp.const_mul (2 * Real.pi)).cos)).const_mul a
+   unfold control59_wave
+-  convert h using 1 <;> ext v <;> simp [control59_slope] <;> ring
++  convert h using 1
++  ext v
++  simp [control59_slope]
++  ring
+ 
+ theorem control59_slope_hasFDerivAt (a : ℝ) (j : Fin 2) (y : Control59Point) :
+     HasFDerivAt (control59_slope a j)
+-      (control59_slopeD a j y • (ContinuousLinearMap.proj j)) y := by
++      (control59_slopeD a j y • (ContinuousLinearMap.proj j : Control59Point →L[ℝ] ℝ)) y := by
+   have hp : HasFDerivAt (fun x : Control59Point => x j)
+       (ContinuousLinearMap.proj j) y :=
+     (ContinuousLinearMap.proj j : Control59Point →L[ℝ] ℝ).hasFDerivAt
+   have h := ((((hp.const_mul Real.pi).sin).const_mul (-Real.pi)).add
+     (((hp.const_mul (2 * Real.pi)).sin).const_mul (2 * Real.pi))).const_mul a
+   unfold control59_slope
+-  convert h using 1 <;> ext v <;> simp [control59_slopeD] <;> ring
++  convert h using 1
++  ext v
++  simp [control59_slopeD]
++  ring
+ 
+ theorem control59_phi0_gradient (y : Control59Point) :
+     coordinateGradient control59_phi0 y = ![control59_slope control59_a0 0 y,0] := by
+@@ -213,7 +219,9 @@
+   have h := ((control59_slope_hasFDerivAt control59_a0 0 y).smul_const
+       (control59_axisMap 0)).add
+     ((control59_slope_hasFDerivAt control59_a1 1 y).smul_const (control59_axisMap 1))
+-  simpa only [← control59_B_analytic] using h
++  convert h using 1
++  funext w
++  exact control59_B_analytic w
+ 
+ theorem control59_center_slopes :
+     control59_slope control59_a0 0 control59_xStar = -Real.pi * control59_a0 ∧
+@@ -221,10 +229,11 @@
+     control59_slopeD control59_a0 0 control59_xStar = -4 * Real.pi^2 * control59_a0 ∧
+     control59_slopeD control59_a1 1 control59_xStar = -4 * Real.pi^2 * control59_a1 := by
+   have hp : 2 * Real.pi * (1/2 : ℝ) = Real.pi := by ring
++  have hh : Real.pi * (1/2 : ℝ)=Real.pi/2 := by ring
+   refine ⟨?_,?_,?_,?_⟩ <;>
+-    simp [control59_slope,control59_slopeD,control59_xStar,hp,
+-      show Real.pi * (1/2 : ℝ) = Real.pi/2 by ring, Real.sin_pi_div_two,
+-      Real.cos_pi_div_two,Real.sin_pi,Real.cos_pi] <;> ring
++    dsimp only [control59_slope,control59_slopeD,control59_xStar,
++      Matrix.cons_val_zero,Matrix.cons_val_one] <;>
++    rw [hp,hh] <;> norm_num <;> ring
+ 
+ theorem control59_B_center_diagonal (v : Control59Point) :
+     control59_B control59_xStar v =
+@@ -244,10 +253,11 @@
+   exact (isOpen_ne_fun h0 continuous_const).inter (isOpen_ne_fun h1 continuous_const)
+ 
+ theorem control59_center_mem_rankSet : control59_xStar ∈ control59_rankSet := by
+-  have h := control59_center_slopes
+-  exact ⟨by rw [h.1]; exact mul_ne_zero (neg_ne_zero.mpr Real.pi_ne_zero)
+-    control59_a0_pos.ne', by rw [h.2.1]; exact mul_ne_zero
+-      (neg_ne_zero.mpr Real.pi_ne_zero) control59_a1_pos.ne'⟩
++  constructor
++  · rw [control59_center_slopes.1]
++    exact mul_ne_zero (neg_ne_zero.mpr Real.pi_ne_zero) control59_a0_pos.ne'
++  · rw [control59_center_slopes.2.1]
++    exact mul_ne_zero (neg_ne_zero.mpr Real.pi_ne_zero) control59_a1_pos.ne'
+ 
+ theorem control59_B_bijective (y : Control59Point) (hy : y ∈ control59_rankSet) :
+     Function.Bijective (control59_B y) := by
+@@ -265,7 +275,11 @@
+       w 1 / control59_slope control59_a1 1 y], ?_⟩
+     rw [control59_B_apply]
+     ext j
+-    fin_cases j <;> simp [hy.1,hy.2]
++    fin_cases j
++    · change control59_slope control59_a0 0 y * (w 0 / control59_slope control59_a0 0 y)=w 0
++      field_simp [hy.1]
++    · change control59_slope control59_a1 1 y * (w 1 / control59_slope control59_a1 1 y)=w 1
++      field_simp [hy.2]
+ 
+ theorem control59_B_isInvertible (y : Control59Point) (hy : y ∈ control59_rankSet) :
+     (control59_B y).IsInvertible := by
+@@ -300,10 +314,10 @@
+     filter_upwards [control59_rankSet_open.mem_nhds control59_center_mem_rankSet] with y hy
+     exact control59_theta_on_rankSet y hy
+   rw [he.fderiv_eq]
+-  exact fderiv_const_apply _
++  exact (hasFDerivAt_const (𝕜 := ℝ) _ _).fderiv
+ 
+ theorem control59_theta_hasFDerivAt_zero :
+-    HasFDerivAt control59_theta 0 control59_xStar := by
++    HasFDerivAt control59_theta (0 : Control59Point →L[ℝ] Control59Point) control59_xStar := by
+   have he : control59_theta =ᶠ[nhds control59_xStar]
+       (fun _ : Control59Point => control59_zStar) := by
+     filter_upwards [control59_rankSet_open.mem_nhds control59_center_mem_rankSet] with y hy
+@@ -325,7 +339,7 @@
+   have h := control59_center_slopes
+   ext j
+   fin_cases j <;>
+-    simp [control59_eX,control59_zStar,control59_axisMap,h.2.2.1,h.2.2.2] <;> ring
++    simp [control59_eX,control59_zStar,control59_axisMap,h.2.2.1,h.2.2.2]
+ 
+ theorem control59_full_normalEq_all (v : Control59Point) :
+     fderiv ℝ control59_g control59_xStar v +
+@@ -337,7 +351,7 @@
+     (control59_B_hasFDerivAt control59_xStar).fderiv,
+     control59_theta_center,control59_Dtheta_zero]
+   ext j
+-  fin_cases j <;> simp [control59_axisMap,control59_zStar] <;> ring
++  fin_cases j <;> simp [control59_axisMap,control59_zStar]
+ 
+ theorem control59_full_normalEq :
+     fderiv ℝ control59_g control59_xStar control59_eX +
+@@ -359,7 +373,7 @@
+       (fun _ : Control59Point => (0 : Control59Point)) :=
+     funext control59_fixed_parameter_gradient_zero
+   rw [he]
+-  exact fderiv_const_apply _
++  exact (hasFDerivAt_const (𝕜 := ℝ) _ _).fderiv
+ 
+ theorem control59_freeShift_cancel_actual :
+     freeShiftSample control57_frame control59_zStar control59_omega0 = zeroSample 2 2 := by
+@@ -382,14 +396,21 @@
+       (freeShiftSample control57_frame control59_zStar control59_omega0)))
+         control59_xStar = 0 := by
+   rw [control59_actual_shifted_field_zero]
+-  simp [coordinateGradient]
++  have hc : coordinateGradient (fun _ : Control59Point => (0 : ℝ)) =
++      (fun _ : Control59Point => (0 : Control59Point)) := by
++    funext y j
++    change (fderiv ℝ (fun _ : Control59Point => (0 : ℝ)) y) (Pi.single j 1)=0
++    rw [(hasFDerivAt_const (𝕜 := ℝ) (0 : ℝ) y).fderiv]
++    rfl
++  rw [hc]
++  exact (hasFDerivAt_const (𝕜 := ℝ) (0 : Control59Point) control59_xStar).fderiv
+ 
+ theorem dropped_DBtheta_actual_counterexample :
+     (control59_B control59_xStar
+       (fderiv ℝ control59_theta control59_xStar control59_eX)) 0 ≠
+       (-(fderiv ℝ control59_g control59_xStar control59_eX)) 0 := by
+   rw [control59_Dtheta_zero,control59_Dg_eX]
+-  simp only [ContinuousLinearMap.zero_apply,map_zero,Pi.zero_apply,Pi.neg_apply,
++  simp only [zero_apply,map_zero,Pi.zero_apply,Pi.neg_apply,
+     Matrix.cons_val_zero,neg_mul,neg_neg]
+   have hp : 0 < 4 * Real.pi^2 * control59_a0 := by
+     have ha := control59_a0_pos
+@@ -425,10 +446,10 @@
+     finitePairing (fun m => control59_nonorthogonal i m)
+       (control59_nonorthogonal j) = ![![4,2],![2,10]] i j := by
+   fin_cases i <;> fin_cases j
+-  · simpa [control59_nonorthogonal] using control59_pair_combo 2 0 2 0
+-  · simpa [control59_nonorthogonal] using control59_pair_combo 2 0 1 3
+-  · simpa [control59_nonorthogonal] using control59_pair_combo 1 3 2 0
+-  · simpa [control59_nonorthogonal] using control59_pair_combo 1 3 1 3
++  · convert control59_pair_combo 2 0 2 0 using 1 <;> norm_num [control59_nonorthogonal]
++  · convert control59_pair_combo 2 0 1 3 using 1 <;> norm_num [control59_nonorthogonal]
++  · convert control59_pair_combo 1 3 2 0 using 1 <;> norm_num [control59_nonorthogonal]
++  · convert control59_pair_combo 1 3 1 3 using 1 <;> norm_num [control59_nonorthogonal]
+ 
+ theorem control59_nonorthogonal_raw_kernel (i : Fin 6) (j : Fin 2) :
+     finitePairing (rawPinCoefficient 2 0 i) (control59_nonorthogonal j) = 0 := by
+@@ -449,14 +470,11 @@
+   constructor
+   · ext m
+     simp [control59_nonorthogonal]
+-    ring
+   constructor
+   · ext m
+     simp [control59_nonorthogonal]
+-    ring
+   · ext m
+     simp [control59_nonorthogonal]
+-    ring
+ 
+ /- Public59 positive specialization. The interval precedes the prescribed
+ radius; no target-dependent exceptional-law selection is introduced. -/
+@@ -491,8 +509,8 @@
+     have hm : MeasurableSet {ω : SmoothSample 2 2 |
+         rawPins 2 r ω = ![b,b-0*r^3,0,0,0,0]} :=
+       measurableSet_eq_fun (rawPins_measurable (by norm_num) r) measurable_const
+-    apply (ae_iff_measure_eq hm.nullMeasurableSet).mpr
+-    simpa using rawPinKernel_pin_fiber (by norm_num : (2 : ℝ) ≠ 0) r hr.ne'
++    apply (mem_ae_iff_prob_eq_one hm).2
++    exact rawPinKernel_pin_fiber (by norm_num : (2 : ℝ) ≠ 0) r hr.ne'
+       hG (![b,b-0*r^3,0,0,0,0] : Fin 6 → ℝ)
+   filter_upwards [hpins] with ω hp
+   intro hmd
+@@ -504,6 +522,8 @@
+     exact hr
+   have hne := hmd.2 (endpointLiftM r) (endpointLiftS r) hM hS hdist
+   apply hne
++  change actualField 2 2 ω ((coordinates 2).symm (endpointM r))=
++    actualField 2 2 ω ((coordinates 2).symm (endpointS r))
+   rw [hvalM,hvalS]
+   ring
+ 

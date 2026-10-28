@@ -1,0 +1,35 @@
+{
+  "authored_public_propositions": [
+    "I4SourceGapConditionalMorseDistinct.sourceGapLaw_ae_isMorseDistinct"
+  ],
+  "authored_public_data": 0,
+  "full_module_constant_count": 167,
+  "classification_counts": {
+    "authored_private": 133,
+    "compiler_generated_foreign_namespace": 2,
+    "compiler_generated_private": 31,
+    "authored_public_proposition": 1
+  },
+  "foreign_generated": [
+    {
+      "name": "I4SourceRemoteJetWitness.remoteJetCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_foreign_namespace"
+    },
+    {
+      "name": "I4SourceTwoRemoteFirstJetWitness.twoRemoteFirstJetCoefficient.eq_1",
+      "kind": "theorem",
+      "classification": "compiler_generated_foreign_namespace"
+    }
+  ],
+  "foreign_generated_explanation": "Compiler-owned generated public equation/unfold artifacts attributed to this module by Lean actual module-index selector. Explicit source contains no references to these generated names or foreign private API. Retained and classified, not hidden by namespace filter.",
+  "source_local_direct_positive_coverage": [
+    "gradient_frame,level_frame,tie_frame: selected actual48/53 families and exact2/3/5 row response",
+    "actual_source_normal_equation: actualsourceg/B and fullDBtheta",
+    "actual_level_dummy_control,actual_tie_dummy_control: actualsource solvedtheta and actual dummy adapters",
+    "actual_nonorthogonal_normalization: actual48derivedF then mixed2chi0/chi0+3chi1; directfiniteGS,offdiag2,same span,basis responsebijective",
+    "four conditional finite symmetric-form inertia controls including zero-diagonal saddle: exactquadraticform premises, noGaussian realization",
+    "actual_lattice_translate_control: actualprojection/torusDist/value/all-orderjets directadapter calls"
+  ],
+  "scratch_boundary": "New ordinary actual finite cosine/DBtheta/publicglobal/k0limit controls qualified separately. They do not call production private APIs, and production kernel does not cover them."
+}
