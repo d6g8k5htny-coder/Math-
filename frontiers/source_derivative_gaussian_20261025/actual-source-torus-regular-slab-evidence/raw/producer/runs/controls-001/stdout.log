@@ -1,0 +1,22 @@
+/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean:273:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun t => separator (p t)) t
+in the target expression
+  primaryField (p t) ≤ 2 * separator (p t) ^ 2 - 1 / 2
+
+heq : ZerothHomotopy.mk upperPoint0 = ZerothHomotopy.mk upperPoint1
+p : Path ↑upperPoint0 ↑upperPoint1
+hp : ∀ (t : ↑unitInterval), p t ∈ TorusFiltration.superlevel_set primaryField (-mutant_b)
+hcont : Continuous fun t => separator (p t)
+h0 : separator (p 0) = 1
+h1 : separator (p 1) = -1
+hinter : 0 ∈ Icc (separator (p 1)) (separator (p 0))
+t : ↑unitInterval
+_ht : t ∈ univ
+htzero : (fun t => separator (p t)) t = 0
+hupper : 0 ≤ primaryField (p t)
+hbound : primaryField (p t) ≤ 2 * separator (p t) ^ 2 - 1 / 2
+⊢ False
+/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean:293:4: error: 'change' tactic failed, pattern
+  -1 / 2 ≤ primaryField (projection (point s 0))
+is not definitionally equal to target
+  lowerCurve s ∈ TorusFiltration.superlevel_set primaryField (-mutant_a)

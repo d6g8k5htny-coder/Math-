@@ -1,0 +1,38 @@
+--- producer-joins002/source
++++ producer-joins003/source
+@@ -734,7 +734,7 @@
+     change SourceActualFoldTorus.actualTorusField hL.ne' omega (coverProjection L X) = _ at hp
+     rw [hproj] at hp
+     have hq : a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega q.val := q.property
+-    simpa only [hp] using hq
++    simpa only [actualField,hp] using hq
+   refine ⟨⟨X,hmem⟩,?_⟩
+   apply Subtype.ext
+   exact hproj
+@@ -859,7 +859,7 @@
+     have hlow : restrictedProjection hL omega a ⟨X.val,hab.trans X.property⟩ =
+         (⟨q.val,hab.trans q.property⟩ : TorusSuperlevel hL omega a) := by
+       apply Subtype.ext
+-      exact congrArg Subtype.val hXq
++      exact congrArg (fun q : TorusSuperlevel hL omega b => q.val) hXq
+     rw [← hlow,hcomp,hfix X,hXq]
+   have hprojCont : Continuous (coverProjection L) :=
+     (SourceActualFoldTorus.torusProjection2L_continuous L).comp (coordinates 2).continuous
+@@ -907,7 +907,7 @@
+     apply Subtype.ext
+     have hX : b ≤ F X.val := by
+       simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+-    exact congrArg Subtype.val (hfix ⟨X.val,hX⟩)
++    exact congrArg (fun q : TorusSuperlevel hL omega b => q.val) (hfix ⟨X.val,hX⟩)
+   refine ⟨hleft.injective,?_⟩
+   intro q
+   obtain ⟨X,rfl⟩ := ZerothHomotopy.mk_surjective q
+@@ -916,7 +916,7 @@
+   have hX : a ≤ F X.val := by
+     simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+   have hp := (hpoint ⟨X.val,hX⟩).symm
+-  simpa only [TorusFiltration.superlevel_neg_height] using hp
++  simpa only [TorusFiltration.superlevel_neg_height,F,r,TorusFiltration.superlevel_inclusion] using hp
+ 
+ private theorem closedBand_componentBijective_core {L : ℝ} (hL : 0 < L)
+     (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)

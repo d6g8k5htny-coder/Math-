@@ -1,0 +1,111 @@
+{
+  "created_utc": "2026-10-28T18:14:34.681662+00:00",
+  "source_cut": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+  "source": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+  "destination": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/.lake/build/lib/lean/SourceActualTorusRegularSlab.olean",
+  "source_identity": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+    "bytes": 57423,
+    "sha256": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "eligible_own_object_identity": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+    "bytes": 1880192,
+    "sha256": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "qualification_receipts": {
+    "compile-final": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "-o",
+        "/workspace/scratch/actual-source-torus-regular-slab-construct/build/SourceActualTorusRegularSlab.olean",
+        "SourceActualTorusRegularSlab.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:06:57.970734+00:00",
+      "ended_utc": "2026-10-28T18:07:03.762278+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/compile-final/receipt.json"
+    },
+    "inventory-001": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-torus-regular-slab-construct/Inventory.lean"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:08:26.336810+00:00",
+      "ended_utc": "2026-10-28T18:08:29.512395+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stdout.log",
+        "bytes": 18511,
+        "sha256": "e20246774a2288c6af8ea37c1caf760ab7cd19ecea98b0128af019cdcf5c967c",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/inventory-001/receipt.json"
+    },
+    "kernel-001": {
+      "command": [
+        "/home/agent/.elan/bin/lake",
+        "env",
+        "sh",
+        "-c",
+        "LEAN_PATH=/workspace/scratch/actual-source-torus-regular-slab-construct/build:$LEAN_PATH exec leanchecker SourceActualTorusRegularSlab"
+      ],
+      "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+      "started_utc": "2026-10-28T18:11:10.197145+00:00",
+      "ended_utc": "2026-10-28T18:11:15.372164+00:00",
+      "exit_code": 0,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity newly created/changed OWN payload"
+      },
+      "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/kernel-001/receipt.json"
+    }
+  },
+  "copy_once": true,
+  "copy_scope": "ONLY newly qualified62 own .olean; no helper/Controls/ilean/old-object copy",
+  "all_further_copy_actions": "SKIP",
+  "completed_utc": "2026-10-28T18:14:34.683861+00:00",
+  "action": "COPIED_ONCE",
+  "destination_size_metadata": 1880192,
+  "identity_reused_no_rehash": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8",
+  "old_object_copies": 0,
+  "helper_or_controls_copies": 0,
+  "ilean_copies": 0,
+  "mathematical_checks": 0
+}

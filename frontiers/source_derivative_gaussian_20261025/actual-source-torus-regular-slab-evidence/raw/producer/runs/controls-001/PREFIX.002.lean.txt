@@ -1,0 +1,94 @@
+import SourceConditionalMajorant
+import SourceActualFoldTorus
+import SourceFiniteTrig
+import SourceSmoothConditionalKernel
+import ClosedSuperlevel
+import Mathlib.Analysis.Calculus.Gradient.Basic
+import Mathlib.Analysis.InnerProductSpace.Dual
+import Mathlib.Analysis.Calculus.MeanValue
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import Mathlib.Analysis.ODE.PicardLindelof
+import Mathlib.Analysis.ODE.ExistUnique
+import Mathlib.Analysis.Normed.Field.Basic
+import Mathlib.Topology.Order.Compact
+import Mathlib.Topology.MetricSpace.Lipschitz
+import Mathlib.Topology.Maps.Basic
+import Mathlib.Topology.Instances.AddCircle.Real
+import Mathlib.Topology.Connected.PathConnected
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FunProp
+import Mathlib.Tactic.Positivity
+import Lean.Elab.Tactic.Omega
+
+noncomputable section
+open Set Filter
+open I4SmoothCarrier I4LifetimeField
+open UniversalLaw.Spec.Lifetime
+open scoped Topology BigOperators Matrix NNReal
+set_option autoImplicit false
+namespace I4SourceActualTorusRegularSlab
+
+private abbrev E2 := UniversalLaw.Spec.Lifetime.E 2
+
+private def normalizedVelocity (g : E2 → ℝ) (c : ℝ) (X : E2) : E2 :=
+  (max c (‖gradient g X‖ ^ 2))⁻¹ • gradient g X
+
+private abbrev CoverSuperlevel {L : ℝ} (omega : SmoothSample 2 L) (a : ℝ) :=
+  {X : E2 | a ≤ actualField 2 L omega X}
+
+private abbrev TorusSuperlevel {L : ℝ} (hL : 0 < L)
+    (omega : SmoothSample 2 L) (a : ℝ) :=
+  {q : I4Torus.SourceTorus 2 L |
+    a ≤ SourceActualFoldTorus.actualTorusField hL.ne' omega q}
+
+private def coverProjection (L : ℝ) (X : E2) : I4Torus.SourceTorus 2 L :=
+  I4Torus.torusProjection 2 L (coordinates 2 X)
+
+private def NormalizedFieldFacts {L : ℝ} (omega : SmoothSample 2 L)
+    (a b c A : ℝ) (Kp M K : ℝ≥0) : Prop :=
+  let g := actualField 2 L omega
+  let p := gradient g
+  let V := normalizedVelocity g c
+  0 < c ∧ 0 ≤ A ∧
+    (∀ X : E2, ‖p X‖ ≤ A) ∧ LipschitzWith Kp p ∧
+    (∀ (X : E2) (n : Fin 2 → ℤ), p (X + latticeVec 2 L n) = p X) ∧
+    (∀ X : E2, a ≤ g X → g X ≤ b → c ≤ ‖p X‖ ^ 2) ∧
+    (∀ X : E2, ‖V X‖ ≤ (M : ℝ)) ∧ LipschitzWith K V ∧
+    (∀ (X : E2) (n : Fin 2 → ℤ), V (X + latticeVec 2 L n) = V X) ∧
+    (∀ X : E2, fderiv ℝ g X (V X) = ‖p X‖ ^ 2 / max c (‖p X‖ ^ 2)) ∧
+    (∀ X : E2, 0 ≤ fderiv ℝ g X (V X) ∧ fderiv ℝ g X (V X) ≤ 1) ∧
+    (∀ X : E2, a ≤ g X → g X ≤ b → fderiv ℝ g X (V X) = 1)
+
+private def FiniteHorizonFacts (L : ℝ) (V : E2 → E2) (T : ℝ)
+    (H : ℝ → E2 → E2) : Prop :=
+  (∀ X : E2, H 0 X = X) ∧
+    ContinuousOn (fun z : E2 × ℝ => H z.2 z.1)
+      (Set.univ ×ˢ Set.Icc (0 : ℝ) T) ∧
+    (∀ (X : E2) (t : ℝ), t ∈ Set.Icc (0 : ℝ) T →
+      HasDerivAt (fun u => H u X) (V (H t X)) t) ∧
+    (∀ t : ℝ, t ∈ Set.Icc (0 : ℝ) T → ∀ (X : E2) (n : Fin 2 → ℤ),
+      H t (X + latticeVec 2 L n) = H t X + latticeVec 2 L n)
+
+private def HeightHittingFacts {L : ℝ} (omega : SmoothSample 2 L)
+    (a b : ℝ) (hab : a ≤ b) (H : ℝ → E2 → E2)
+    (Rcover : CoverSuperlevel omega a → CoverSuperlevel omega b) : Prop :=
+  let g := actualField 2 L omega
+  (∀ (X : E2) (t : ℝ), t ∈ Set.Icc (0 : ℝ) (b-a) →
+    g X ≤ g (H t X) ∧ g (H t X) ≤ g X + t) ∧
+  (∀ X : E2, a ≤ g X → g X ≤ b → ∀ t : ℝ, 0 ≤ t → t ≤ b-g X →
+    g (H t X) = g X + t) ∧
+  Continuous Rcover ∧
+  (∀ X : CoverSuperlevel omega a,
+    (Rcover X).val = H (max 0 (b-g X.val)) X.val) ∧
+  (∀ X : CoverSuperlevel omega b,
+    Rcover ⟨X.val, hab.trans X.property⟩ = X) ∧
+  (∀ X : CoverSuperlevel omega a,
+    JoinedIn {Y : E2 | a ≤ g Y} X.val (Rcover X).val) ∧
+  (∀ X Y : CoverSuperlevel omega a, ∀ n : Fin 2 → ℤ,
+    Y.val = X.val + latticeVec 2 L n →
+    (Rcover Y).val = (Rcover X).val + latticeVec 2 L n)
+

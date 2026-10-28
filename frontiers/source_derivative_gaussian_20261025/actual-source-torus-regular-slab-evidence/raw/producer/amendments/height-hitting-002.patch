@@ -1,0 +1,17 @@
+--- height-hitting001/source
++++ height-hitting002/source
+@@ -518,12 +518,12 @@
+   have hdiff : DifferentiableOn ℝ f (interior (Icc (0:ℝ) t)) := by
+     intro u hu
+     exact (hd u (interior_subset hu)).differentiableAt.differentiableWithinAt
+-  have hlo := (convex_Icc : Convex ℝ (Icc (0:ℝ) t)).mul_sub_le_image_sub_of_le_deriv
++  have hlo := (convex_Icc (0 : ℝ) t).mul_sub_le_image_sub_of_le_deriv
+     hcont hdiff (C:=lower) (fun u hu => by
+       rw [(hd u (interior_subset hu)).deriv]
+       exact (hv u (interior_subset hu)).1)
+     0 ⟨le_rfl,ht⟩ t ⟨ht,le_rfl⟩ ht
+-  have hhi := (convex_Icc : Convex ℝ (Icc (0:ℝ) t)).image_sub_le_mul_sub_of_deriv_le
++  have hhi := (convex_Icc (0 : ℝ) t).image_sub_le_mul_sub_of_deriv_le
+     hcont hdiff (C:=upper) (fun u hu => by
+       rw [(hd u (interior_subset hu)).deriv]
+       exact (hv u (interior_subset hu)).2)

@@ -1,0 +1,45 @@
+--- documentary-history/PACKAGING_ALLOWLIST.001.json
++++ PACKAGING_ALLOWLIST.json
+@@ -338,15 +338,20 @@
+     "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/producer-joins-007/stdout.log",
+     "/workspace/scratch/actual-source-torus-regular-slab-construct/ARTIFACT_IDENTITIES.json",
+     "/workspace/scratch/actual-source-torus-regular-slab-construct/PACKAGING_ALLOWLIST.json",
+-    "/workspace/scratch/actual-source-torus-regular-slab-construct/FINAL_DOCUMENT_IDS.json"
++    "/workspace/scratch/actual-source-torus-regular-slab-construct/FINAL_DOCUMENT_IDS.json",
++    "/workspace/scratch/actual-source-torus-regular-slab-construct/documentary-history/PACKAGING_ALLOWLIST.001.json",
++    "/workspace/scratch/actual-source-torus-regular-slab-construct/documentary-history/FINAL_DOCUMENT_IDS.001.json",
++    "/workspace/scratch/actual-source-torus-regular-slab-construct/amendments/documentary-001.patch",
++    "/workspace/scratch/actual-source-torus-regular-slab-construct/DOCUMENTARY_AMENDMENT_001.json"
+   ],
+   "exclude_binary_copy": true,
+   "binary_copy_count_already": 1,
+   "binary_copy_action": "SKIP",
+   "root_only_records": "publication/ROOT_SOURCE_CUT*,ROOT_OWN_OBJECT_COPY* remain under root custody; reuse without hash replay",
+   "reviewer_paths": [
+-    "/workspace/scratch/actual-source-regular-slab-precode-review/FINAL_REPORT.md",
+-    "/workspace/scratch/actual-source-regular-slab-precode-review/final_scope.json"
++    "/workspace/scratch/actual-source-regular-slab-source-review/REPORT.md",
++    "/workspace/scratch/actual-source-regular-slab-source-review/scope.json"
+   ],
+-  "unrelated_stage63": "Root-owned EXTRA; not a source62 input/dependency and untouched by producer"
++  "unrelated_stage63": "Root-owned EXTRA; not a source62 input/dependency and untouched by producer",
++  "documentary_amendment": "DOCUMENTARY_AMENDMENT_001.json; original allowlist001 and full actual patch retained"
+ }
+--- documentary-history/FINAL_DOCUMENT_IDS.001.json
++++ FINAL_DOCUMENT_IDS.json
+@@ -58,10 +58,11 @@
+     },
+     {
+       "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PACKAGING_ALLOWLIST.json",
+-      "bytes": 37651,
+-      "sha256": "8bb0b68cefb534b76bb8f52db58280bffc9122f5e8634e5d2cac8f3742bc521a",
+-      "identity_origin": "FIRST documentary identity; no previous hash/check replay"
++      "bytes": 38189,
++      "sha256": "047b7da43277619a2aadafbcaab7afd28c87059be06be3b81e6fc4b853321c89",
++      "identity_origin": "FIRST identity of newly created/changed documentary payload"
+     }
+   ],
+-  "self_identity": "Not self-hashed; root may take first custody identity when adopting."
++  "self_identity": "Not self-hashed; root may take first custody identity when adopting.",
++  "documentary_amendment_001": "Reviewer directory corrected only; original finalIDs001/allowlist001 retained. No proof/control/runner/context change."
+ }

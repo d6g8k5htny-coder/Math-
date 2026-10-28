@@ -1,0 +1,57 @@
+{
+  "recorded_utc": "2026-10-28T18:27:04.135360+00:00",
+  "status": "PASS",
+  "source": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+    "bytes": 15686,
+    "sha256": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "ordinary_object": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/build/TorusRegularSlabControls.olean",
+    "bytes": 838856,
+    "sha256": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-002/receipt.json",
+  "completed_utc": "2026-10-28T18:16:36.170883+00:00",
+  "complete_original_first_run": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/controls-001/TorusRegularSlabControls.lean",
+  "original_first_identity": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/TorusRegularSlabControls.lean",
+    "bytes": 15613,
+    "sha256": "822cd28dab6d63133a1c817783474f8d824858183164a1da3960b902197e4001",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "full_actual_patch": "/workspace/scratch/actual-source-torus-regular-slab-construct/amendments/controls-002.patch",
+  "negative_harness": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FalseMutation.lean",
+    "bytes": 148,
+    "sha256": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+    "identity_origin": "existing OWN first identity reused; unchanged stat"
+  },
+  "negative_receipt": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/receipt.json",
+  "negative_exit": 1,
+  "negative_stdout": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stdout.log",
+    "bytes": 119,
+    "sha256": "abb5288367560bbfbff9e4ff171159a9389ff30965449abcbf480d3e36288155",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "negative_stderr": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/runs/false-control-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "identity_origin": "FIRST identity newly created/changed OWN payload"
+  },
+  "negative_completed_utc": "2026-10-28T18:24:31.694288+00:00",
+  "negative_attempt_count": 1,
+  "mutation": "ONLY closed band Icc hypothesis replaced by open Ioo; original actual field/sample/period/endpoints/closed superlevels/literal component map retained",
+  "positive_controls": [
+    "closedRegular_public [0,1/4]",
+    "zeroWidth_public [0,0]",
+    "emptyBand_public [-3,-2]",
+    "emptyBand_whole_nonempty"
+  ],
+  "counterproof": "Actual nonempty component collision for cos(2*pi*x)+(1/2)*cos(pi*y), levels -1/2 to 0. H=cos(pi*x) separates upper components; actual lower closed path joins their images. Open-band no-critical hypothesis independently proved.",
+  "control_author": "producer only, no ordinary Controls helper, no production private API/source concatenation"
+}

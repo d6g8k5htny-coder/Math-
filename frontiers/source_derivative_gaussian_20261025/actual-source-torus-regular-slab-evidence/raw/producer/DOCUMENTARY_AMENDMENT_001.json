@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-10-28T18:28:12.412825+00:00",
+  "reason": "Initial packaging allowlist named precode review directory rather than actual final source-review directory. Correct actual final reviewer paths only.",
+  "no_mathematical_change": true,
+  "no_mathematical_execution": true,
+  "no_old_payload_hash_replay": true,
+  "original_allowlist_snapshot": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/documentary-history/PACKAGING_ALLOWLIST.001.json",
+    "bytes": 37651,
+    "sha256": "8bb0b68cefb534b76bb8f52db58280bffc9122f5e8634e5d2cac8f3742bc521a",
+    "identity_origin": "Existing original final-document first identity reused for actual retained historical bytes"
+  },
+  "original_finalids_snapshot_first_identity": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/documentary-history/FINAL_DOCUMENT_IDS.001.json",
+    "bytes": 3298,
+    "sha256": "7c2e9c90f9e1d546a5a5332dce3024a6a4813454c5ea68fe65999c6974e6b1e4",
+    "identity_origin": "FIRST identity of newly created/changed documentary payload"
+  },
+  "new_canonical_allowlist": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/PACKAGING_ALLOWLIST.json",
+    "bytes": 38189,
+    "sha256": "047b7da43277619a2aadafbcaab7afd28c87059be06be3b81e6fc4b853321c89",
+    "identity_origin": "FIRST identity of newly created/changed documentary payload"
+  },
+  "new_canonical_finalids": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/FINAL_DOCUMENT_IDS.json",
+    "bytes": 3453,
+    "sha256": "24e5234557b02f3bdcdc44902bbc59493e00b94c7c0d422908064d00c99496dc",
+    "identity_origin": "FIRST identity of newly created/changed documentary payload"
+  },
+  "full_actual_patch": {
+    "path": "/workspace/scratch/actual-source-torus-regular-slab-construct/amendments/documentary-001.patch",
+    "bytes": 2903,
+    "sha256": "0e42281030a7d39e3e8f205917d3390bf9bcd3b59beef2f61c1ed8ea3f6af71f",
+    "identity_origin": "FIRST identity of newly created/changed documentary payload"
+  },
+  "manifest_binding": "ARTIFACT_IDENTITIES.json remains original frozen manifest. This additive amendment extends its historical/canonical bindings; existing rows unchanged.",
+  "identity_writer_scope_disclosure": "Initial freeze_documents.py calculated eight newly created final-document identities twice within the same writer (artifact manifest then final document IDs); these were documentary payload identity calculations only, not source/object/stream rehashes or mathematical checks. This actual duplication is disclosed and not repeated.",
+  "final_status": "FROZEN corrected documentary package; all21mathcalls42streams remain unchanged and reusable."
+}

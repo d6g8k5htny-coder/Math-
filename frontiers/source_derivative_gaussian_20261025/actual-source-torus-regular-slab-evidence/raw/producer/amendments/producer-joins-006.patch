@@ -1,0 +1,46 @@
+--- producer-joins005/source
++++ producer-joins006/source
+@@ -916,7 +916,10 @@
+   have hX : a ≤ F X.val := by
+     simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+   have hp := (hpoint ⟨X.val,hX⟩).symm
+-  simpa [TorusFiltration.superlevel_set,F,r,TorusFiltration.superlevel_inclusion,ContinuousMap.inclusion] using hp
++  have he : ((TorusFiltration.superlevel_inclusion F (neg_le_neg hab)) (r X)).val =
++      (R ⟨X.val,hX⟩).val := rfl
++  rw [he]
++  simpa only [TorusFiltration.superlevel_set,neg_neg,F] using hp
+ 
+ private theorem closedBand_componentBijective_core {L : ℝ} (hL : 0 < L)
+     (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+@@ -993,9 +996,15 @@
+       Real.cos (2*Real.pi*x 0)+(1/2 : ℝ)*Real.cos (Real.pi*x 1) := by
+   rw [fixtureSample,finiteSourceField]
+   have h0 : I4Source.phase 2 2 (![(2 : ℤ),0]) x = 2*Real.pi*x 0 := by
+-    simp [I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]; ring
++    unfold I4Source.phase I4Weights.sourceC
++    rw [Fin.sum_univ_two]
++    change (2*Real.pi/2)*(2 : ℝ)*x 0+(2*Real.pi/2)*(0 : ℝ)*x 1 = _
++    ring
+   have h1 : I4Source.phase 2 2 (![(0 : ℤ),1]) x = Real.pi*x 1 := by
+-    simp [I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]; ring
++    unfold I4Source.phase I4Weights.sourceC
++    rw [Fin.sum_univ_two]
++    change (2*Real.pi/2)*(0 : ℝ)*x 0+(2*Real.pi/2)*(1 : ℝ)*x 1 = _
++    ring
+   simp [fixturePolynomial,I4SourceFiniteTrig.eval,I4SourceFiniteTrig.termEval,h0,h1]
+ 
+ private theorem fixture_actualField (X : E2) :
+@@ -1029,11 +1038,9 @@
+   have h1 := congrArg (fun D : E2 →L[ℝ] ℝ => D (fixturePoint 0 1)) hc
+   simp [fixtureDerivative,fixtureCoord] at h0 h1
+   have hs0 : Real.sin (2*Real.pi*X 0) = 0 := by
+-    have hp : (2*Real.pi)*Real.sin (2*Real.pi*X 0) = 0 := by nlinarith [h0]
+-    exact (mul_eq_zero.mp hp).resolve_left (mul_ne_zero (by norm_num) Real.pi_ne_zero)
++    exact h0
+   have hs1 : Real.sin (Real.pi*X 1) = 0 := by
+-    have hp : ((1/2 : ℝ)*Real.pi)*Real.sin (Real.pi*X 1) = 0 := by nlinarith [h1]
+-    exact (mul_eq_zero.mp hp).resolve_left (mul_ne_zero (by norm_num) Real.pi_ne_zero)
++    exact h1
+   rcases Real.sin_eq_zero_iff_cos_eq.mp hs0 with hx|hx <;>
+   rcases Real.sin_eq_zero_iff_cos_eq.mp hs1 with hy|hy <;>
+   rw [fixture_actualField,hx,hy] <;> norm_num

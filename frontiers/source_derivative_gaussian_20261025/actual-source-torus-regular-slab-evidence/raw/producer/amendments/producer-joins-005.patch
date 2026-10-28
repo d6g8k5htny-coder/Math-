@@ -1,0 +1,192 @@
+--- producer-joins004/source
++++ producer-joins005/source
+@@ -916,7 +916,7 @@
+   have hX : a ≤ F X.val := by
+     simpa only [TorusFiltration.superlevel_set,Set.mem_ofPred_eq,neg_neg] using X.property
+   have hp := (hpoint ⟨X.val,hX⟩).symm
+-  simpa only [TorusFiltration.superlevel_neg_height,F,r,TorusFiltration.superlevel_inclusion,ContinuousMap.inclusion,Set.inclusion] using hp
++  simpa [TorusFiltration.superlevel_set,F,r,TorusFiltration.superlevel_inclusion,ContinuousMap.inclusion] using hp
+ 
+ private theorem closedBand_componentBijective_core {L : ℝ} (hL : 0 < L)
+     (omega : SmoothSample 2 L) (a b : ℝ) (hab : a ≤ b)
+@@ -955,4 +955,180 @@
+       (s := -b) (t := -a) (neg_le_neg hab)) :=
+   closedBand_componentBijective_core hL omega a b hab hreg
+ 
++
++private def fixturePolynomial : I4SourceFiniteTrig.TrigPoly :=
++  [⟨1,![(2 : ℤ),0],0⟩,⟨(1/2 : ℝ),![(0 : ℤ),1],0⟩]
++private def fixtureSample : SmoothSample 2 2 :=
++  I4SourceFinitePinKernel.finiteShiftSample (I4SourceFiniteTrig.toSource 2 fixturePolynomial)
++    (I4SourceSmoothConditional.zeroSample 2 2)
++private def fixturePoint (x y : ℝ) : E2 := (coordinates 2).symm ![x,y]
++@[simp] private theorem fixturePoint_apply (x y : ℝ) (i : Fin 2) :
++    fixturePoint x y i = (![x,y] : Fin 2 → ℝ) i := by
++  change (coordinates 2 ((coordinates 2).symm ![x,y])) i = _
++  rw [ContinuousLinearEquiv.apply_symm_apply]
++
++private theorem finiteSourceField (p : I4SourceFiniteTrig.TrigPoly) (x : Fin 2 → ℝ) :
++    smoothSourceField 2 2
++      (I4SourceFinitePinKernel.finiteShiftSample (I4SourceFiniteTrig.toSource 2 p)
++        (I4SourceSmoothConditional.zeroSample 2 2)) x = I4SourceFiniteTrig.eval 2 p x := by
++  classical
++  have hs : HasSum (fun m => I4Source.modeCoefficient 2 2 m x *
++      I4SourceFiniteTrig.toSource 2 p m)
++      (I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x)
++        (I4SourceFiniteTrig.toSource 2 p)) := by
++    apply hasSum_sum_of_ne_finset_zero
++    intro m hm
++    simp only [Finsupp.notMem_support_iff.mp hm,mul_zero]
++  have hf : smoothSourceField 2 2
++      (I4SourceFinitePinKernel.finiteShiftSample (I4SourceFiniteTrig.toSource 2 p)
++        (I4SourceSmoothConditional.zeroSample 2 2)) x =
++      I4SourceFinitePinKernel.finitePairing (fun m => I4Source.modeCoefficient 2 2 m x)
++        (I4SourceFiniteTrig.toSource 2 p) := by
++    simpa [smoothSourceField,I4Source.sourceField,I4Foundation.scalarSeries,sampleInclusion,
++      I4SourceFinitePinKernel.finiteShiftSample_val,I4SourceSmoothConditional.zeroSample] using hs.tsum_eq
++  exact hf.trans (I4SourceFiniteTrig.toSource_eval (by norm_num : (2 : ℝ) ≠ 0) p x)
++
++private theorem fixture_coordinateField (x : Fin 2 → ℝ) :
++    smoothSourceField 2 2 fixtureSample x =
++      Real.cos (2*Real.pi*x 0)+(1/2 : ℝ)*Real.cos (Real.pi*x 1) := by
++  rw [fixtureSample,finiteSourceField]
++  have h0 : I4Source.phase 2 2 (![(2 : ℤ),0]) x = 2*Real.pi*x 0 := by
++    simp [I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]; ring
++  have h1 : I4Source.phase 2 2 (![(0 : ℤ),1]) x = Real.pi*x 1 := by
++    simp [I4Source.phase,I4Weights.sourceC,Fin.sum_univ_two]; ring
++  simp [fixturePolynomial,I4SourceFiniteTrig.eval,I4SourceFiniteTrig.termEval,h0,h1]
++
++private theorem fixture_actualField (X : E2) :
++    actualField 2 2 fixtureSample X =
++      Real.cos (2*Real.pi*X 0)+(1/2 : ℝ)*Real.cos (Real.pi*X 1) :=
++  fixture_coordinateField (coordinates 2 X)
++
++private def fixtureCoord (i : Fin 2) : E2 →L[ℝ] ℝ :=
++  (ContinuousLinearMap.proj i).comp (coordinates 2).toContinuousLinearMap
++private def fixtureDerivative (X : E2) : E2 →L[ℝ] ℝ :=
++  (-(2*Real.pi)*Real.sin (2*Real.pi*X 0)) • fixtureCoord 0 +
++    (-((1/2 : ℝ)*Real.pi)*Real.sin (Real.pi*X 1)) • fixtureCoord 1
++private theorem fixture_hasFDerivAt (X : E2) :
++    HasFDerivAt (actualField 2 2 fixtureSample) (fixtureDerivative X) X := by
++  have h0 : HasFDerivAt (fun Y : E2 => (2*Real.pi)*Y 0)
++      ((2*Real.pi) • fixtureCoord 0) X := (fixtureCoord 0).hasFDerivAt.const_mul (2*Real.pi)
++  have h1 : HasFDerivAt (fun Y : E2 => Real.pi*Y 1)
++      (Real.pi • fixtureCoord 1) X := (fixtureCoord 1).hasFDerivAt.const_mul Real.pi
++  have hh := h0.cos.add (h1.cos.const_mul (1/2 : ℝ))
++  have he : actualField 2 2 fixtureSample = fun Y : E2 =>
++      Real.cos (2*Real.pi*Y 0)+(1/2 : ℝ)*Real.cos (Real.pi*Y 1) := funext fixture_actualField
++  rw [he]
++  convert hh using 1; ext v; simp [fixtureDerivative,fixtureCoord]; ring
++
++private theorem fixture_criticalHeights (X : E2)
++    (hc : IsCriticalPoint 2 (actualField 2 2 fixtureSample) X) :
++    actualField 2 2 fixtureSample X ∈ ({3/2,1/2,-1/2,-3/2} : Set ℝ) := by
++  change fderiv ℝ (actualField 2 2 fixtureSample) X = 0 at hc
++  rw [(fixture_hasFDerivAt X).fderiv] at hc
++  have h0 := congrArg (fun D : E2 →L[ℝ] ℝ => D (fixturePoint 1 0)) hc
++  have h1 := congrArg (fun D : E2 →L[ℝ] ℝ => D (fixturePoint 0 1)) hc
++  simp [fixtureDerivative,fixtureCoord] at h0 h1
++  have hs0 : Real.sin (2*Real.pi*X 0) = 0 := by
++    have hp : (2*Real.pi)*Real.sin (2*Real.pi*X 0) = 0 := by nlinarith [h0]
++    exact (mul_eq_zero.mp hp).resolve_left (mul_ne_zero (by norm_num) Real.pi_ne_zero)
++  have hs1 : Real.sin (Real.pi*X 1) = 0 := by
++    have hp : ((1/2 : ℝ)*Real.pi)*Real.sin (Real.pi*X 1) = 0 := by nlinarith [h1]
++    exact (mul_eq_zero.mp hp).resolve_left (mul_ne_zero (by norm_num) Real.pi_ne_zero)
++  rcases Real.sin_eq_zero_iff_cos_eq.mp hs0 with hx|hx <;>
++  rcases Real.sin_eq_zero_iff_cos_eq.mp hs1 with hy|hy <;>
++  rw [fixture_actualField,hx,hy] <;> norm_num
++
++private theorem fixture_fieldBounds (X : E2) :
++    (-3/2 : ℝ) ≤ actualField 2 2 fixtureSample X ∧ actualField 2 2 fixtureSample X ≤ 3/2 := by
++  rw [fixture_actualField]
++  constructor <;> nlinarith [Real.neg_one_le_cos (2*Real.pi*X 0),Real.cos_le_one (2*Real.pi*X 0),
++    Real.neg_one_le_cos (Real.pi*X 1),Real.cos_le_one (Real.pi*X 1)]
++
++private theorem fixture_closedRegular_noCritical (X : E2)
++    (ha : (0 : ℝ) ≤ actualField 2 2 fixtureSample X)
++    (hb : actualField 2 2 fixtureSample X ≤ 1/4) :
++    fderiv ℝ (actualField 2 2 fixtureSample) X ≠ 0 := by
++  intro hc
++  have hh := fixture_criticalHeights X hc
++  simp only [Set.mem_insert_iff,Set.mem_singleton_iff] at hh
++  rcases hh with hh|hh|hh|hh <;> linarith
++
++private theorem fixture_band_nonempty :
++    ∃ X : E2, (0 : ℝ) ≤ actualField 2 2 fixtureSample X ∧ actualField 2 2 fixtureSample X ≤ 1/4 := by
++  refine ⟨fixturePoint (1/4) (1/2),?_⟩
++  have h0 : 2*Real.pi*(1/4 : ℝ) = Real.pi/2 := by ring
++  have h1 : Real.pi*(1/2 : ℝ) = Real.pi/2 := by ring
++  norm_num [fixture_actualField,h0,h1]
++
++private theorem fixture_regularObjects :
++    ∃ c A : ℝ, ∃ Kp M K : ℝ≥0, ∃ H : ℝ → E2 → E2,
++      NormalizedFieldFacts fixtureSample 0 (1/4) c A Kp M K ∧
++      FiniteHorizonFacts 2 (normalizedVelocity (actualField 2 2 fixtureSample) c) (1/4) H ∧
++      Function.Bijective (TorusFiltration.superlevel_componentInclusion
++        (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample)
++        (s := -(1/4 : ℝ)) (t := -(0 : ℝ)) (neg_le_neg (by norm_num : (0 : ℝ) ≤ 1/4))) := by
++  obtain ⟨c,A,Kp,M,K,hfield⟩ := normalizedFieldData (by norm_num) fixtureSample 0 (1/4)
++    (by norm_num) fixture_closedRegular_noCritical fixture_band_nonempty
++  have hf := hfield
++  dsimp only [NormalizedFieldFacts] at hf
++  rcases hf with ⟨_hc,_hA,_hpb,_hpl,_hpp,_hfloor,hVb,hVl,hVp,_hform,_hsp,_hunit⟩
++  obtain ⟨H,hfamily⟩ := boundedFiniteHorizonFamily
++    (normalizedVelocity (actualField 2 2 fixtureSample) c) M K hVb hVl hVp (1/4) (by norm_num)
++  exact ⟨c,A,Kp,M,K,H,hfield,hfamily,
++    closedBand_componentBijective_core (by norm_num) fixtureSample 0 (1/4) (by norm_num)
++      fixture_closedRegular_noCritical⟩
++
++private theorem fixture_closedRegular :
++    Function.Bijective (TorusFiltration.superlevel_componentInclusion
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample)
++      (s := -(1/4 : ℝ)) (t := -(0 : ℝ)) (neg_le_neg (by norm_num : (0 : ℝ) ≤ 1/4))) := by
++  obtain ⟨_c,_A,_Kp,_M,_K,_H,_hfield,_hfamily,hbij⟩ := fixture_regularObjects
++  exact hbij
++
++private theorem fixture_zeroWidth :
++    Function.Bijective (TorusFiltration.superlevel_componentInclusion
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample)
++      (s := -(0 : ℝ)) (t := -(0 : ℝ)) (neg_le_neg (le_refl (0 : ℝ)))) :=
++  zeroWidth_componentBijective (by norm_num) fixtureSample 0
++
++private theorem fixture_emptyBand :
++    Function.Bijective (TorusFiltration.superlevel_componentInclusion
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample)
++      (s := -(-2 : ℝ)) (t := -(-3 : ℝ)) (neg_le_neg (by norm_num : (-3 : ℝ) ≤ -2))) := by
++  apply emptyBand_componentBijective (by norm_num) fixtureSample (-3) (-2) (by norm_num)
++  intro X hX
++  have hlow := (fixture_fieldBounds X).1
++  linarith [hX.2]
++
++private theorem fixture_torusBounds (q : I4Torus.SourceTorus 2 2) :
++    (-3/2 : ℝ) ≤ SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample q ∧
++      SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample q ≤ 3/2 := by
++  obtain ⟨x,hx⟩ := SourceActualFoldTorus.torusProjection2L_surjective 2 q
++  have hh := fixture_fieldBounds ((coordinates 2).symm x)
++  simpa only [actualField,ContinuousLinearEquiv.apply_symm_apply,
++    ← SourceActualFoldTorus.actualTorusField_pullback (by norm_num : (2 : ℝ) ≠ 0) fixtureSample x,hx] using hh
++
++private theorem fixture_emptyBand_whole_nonempty :
++    TorusFiltration.superlevel_set
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample) (2 : ℝ) = Set.univ ∧
++    TorusFiltration.superlevel_set
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample) (3 : ℝ) = Set.univ ∧
++    (TorusFiltration.superlevel_set
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample) (2 : ℝ)).Nonempty := by
++  have h2 : TorusFiltration.superlevel_set
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample) (2 : ℝ) = Set.univ := by
++    apply Set.eq_univ_of_forall
++    intro q
++    change (-2 : ℝ) ≤ SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample q
++    linarith [(fixture_torusBounds q).1]
++  have h3 : TorusFiltration.superlevel_set
++      (SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample) (3 : ℝ) = Set.univ := by
++    apply Set.eq_univ_of_forall
++    intro q
++    change (-3 : ℝ) ≤ SourceActualFoldTorus.actualTorusField (by norm_num : (2 : ℝ) ≠ 0) fixtureSample q
++    linarith [(fixture_torusBounds q).1]
++  refine ⟨h2,h3,0,?_⟩
++  rw [h2]
++  trivial
++
+ end I4SourceActualTorusRegularSlab

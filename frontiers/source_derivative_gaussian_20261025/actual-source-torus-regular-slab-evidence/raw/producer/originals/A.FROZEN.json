@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE_PRIVATE_A_ORIGINAL_FROZEN_UNCOMPILED_BEFORE_PRODUCER_FIRST_ID_AND_ONE_INTEGRATION",
+  "recorded_freeze_utc": "2026-10-28T17:34:50.424330+00:00",
+  "personal_full_context_ACK_observed_utc": "2026-10-28T17:25:19Z",
+  "context": "CONTEXT001 all293lines personally full-read; root acceptance and producer START release received BEFORE proof text",
+  "logical_original": "62A-NORMALIZED-FIELD-ORIGINAL-COMPLETE-V1",
+  "section": "NormalizedSection.ORIGINAL.lean.txt",
+  "imports": "IMPORTS.ORIGINAL.txt",
+  "context_copy": "CONTEXT.ORIGINAL.md",
+  "provenance": "PROVENANCE.ORIGINAL.md",
+  "new_private_theorems": [
+    "actualGradient_periodic",
+    "actualGradient_upperBounds",
+    "physical_closedCell_representative",
+    "actualGradient_closedBand_floor",
+    "actualNormalizedVelocity_estimates",
+    "normalizedFieldData"
+  ],
+  "production_helper_integrations_before_delivery": 0,
+  "producer_expected_integrations": 1,
+  "helper_Lean_executions": 0,
+  "helper_probes_checks_hashes_objects": 0,
+  "qualification": "Only the actual final producer-owned module qualifies integrated text; no helper target credit",
+  "own_files_logical_ids_only": true,
+  "originals_immutable_after_this_notice": true
+}

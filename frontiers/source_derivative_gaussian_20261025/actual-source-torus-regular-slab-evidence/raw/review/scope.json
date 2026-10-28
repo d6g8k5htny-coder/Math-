@@ -1,0 +1,160 @@
+{
+  "status": "FINAL_PASS",
+  "module": "SourceActualTorusRegularSlab",
+  "reviewer": "/root/actual_fold_chart_source_review",
+  "canonical_artifacts": [
+    "/workspace/scratch/actual-source-regular-slab-source-review/REPORT.md",
+    "/workspace/scratch/actual-source-regular-slab-source-review/scope.json"
+  ],
+  "verdicts": {
+    "specification_compliance": "PASS",
+    "mathematical_task_quality": "PASS",
+    "technical_source_and_surface": "PASS",
+    "qualification_evidence": "PASS",
+    "ordinary_controls_and_counterproof": "PASS",
+    "sole_negative": "PASS_EXPECTED_REJECTION",
+    "final_documentary_custody": "PASS",
+    "open_findings": {"critical": [], "important": [], "minor": []}
+  },
+  "role": {
+    "provider": "OpenAI",
+    "same_family": true,
+    "different_family_science_credit": 0,
+    "scientific_effect": "NONE",
+    "leaf62_proof_authorship": false,
+    "prior_roles": ["leaf61 technical source/evidence review", "leaf62 design-risk review only", "leaf63 design-only preflight"],
+    "root_assistance": "Root supplied the actual four-line endpoint definitional-equality repair applied in producer-joins-006.patch; disclosed author-side support, not independent review.",
+    "provider_distinct_process": "Separate; this technical PASS neither supplies different-family acceptance nor erases completed mathematical verification."
+  },
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualTorusRegularSlab.lean",
+    "lines": 1141,
+    "bytes": 57423,
+    "sha256_reused": "14c900c4e81be9b9ffc85e56fe9c3f191ae8405670d15d0e151a766751b6a23b",
+    "personally_full_read_once": true,
+    "public_theorem_lines": [950, 959],
+    "sole_authored_public_theorem": "I4SourceActualTorusRegularSlab.actualSource_closedSlab_componentInclusion_bijective",
+    "public_data": 0,
+    "own_object_bytes": 1880192,
+    "own_object_sha256_reused": "73dcf886a5f3d2614b93b941d15008b9828ee86d93ff15692823e79f3b03afe8"
+  },
+  "personal_reading": {
+    "proper_published_spec_plan_controls_contenders_full": true,
+    "context001_full": true,
+    "context002_actual_delta_full": true,
+    "root_context_acceptance_and_helper_personal_ack_custody": true,
+    "complete_private_helper_originals": ["A.NormalizedSection.ORIGINAL.lean.txt", "B.FiniteHorizonSection.ORIGINAL.lean.txt", "C.HeightHittingSection.ORIGINAL.lean.txt"],
+    "all_three_provenance_freeze_first_identity_custody_read": true,
+    "helper_integrations_each": 1,
+    "helper_executions": 0,
+    "production_patches_full": ["normalized-002.patch", "normalized-003.patch", "normalized-004.patch", "finite-horizon-002.patch", "height-hitting-002.patch", "producer-joins-002.patch", "producer-joins-003.patch", "producer-joins-004.patch", "producer-joins-005.patch", "producer-joins-006.patch", "producer-joins-007.patch", "producer-joins-008.patch"],
+    "context_patch_full": "context-002.patch",
+    "initial_runner001_full_and_prefirstexecution_custody": true,
+    "all_classified_module_owned_constants": 73,
+    "full_std3_stdout_bytes": 18511,
+    "inventory_collector_full": true,
+    "all_original_actual_receipts": 21,
+    "all_original_actual_split_streams_full": 42,
+    "total_stdout_bytes": 48496,
+    "total_stderr_bytes": 0,
+    "receipt_reading_method": "Every field retained through lossless identity-dictionary display of repeated identity objects; exact commands/cwd/times/exits/all before-after and snapshot bindings read. No claim of repeated literal duplicate JSON-body reading.",
+    "snapshot_body_limit": "Unchanged source/context/runner/helper bodies reused; not every duplicate snapshot body reread. No historical object retention invented.",
+    "ordinary_controls_complete_original_full": "runs/controls-001/TorusRegularSlabControls.lean",
+    "ordinary_actual_patch_full": "amendments/controls-002.patch",
+    "ordinary_final_full_coverage_by_original_plus_actual_patch": true,
+    "partial_ordinary_snapshot_not_read": true,
+    "negative_harness_and_actual_stdout_stderr_full": true,
+    "final_producer_report_handoff_qualification_controlids_controlreceipt_ready_correctedfinalids_full": true,
+    "corrected_allowlist_full_structured": true,
+    "artifact_manifest_bindings_all_structured": 333,
+    "immutable_snapshot_bindings_all_structured": 202,
+    "manifest_reading_method": "Complete grouped rows retain every path, size, hash and identity-origin; reversible directory-prefix shortening. No byte-for-byte repeated payload claim.",
+    "aggregate_execution_index": "Structured header/schema/representative mapping read; reuse all21 authoritative original receipts already fully read rather than duplicate whole168923-byte aggregate reading.",
+    "all_stream_counts_rows_full": true,
+    "documentary_amendment001_and_full_actual_patch": true,
+    "root_sourcecut_and_owncopy_records_full": true,
+    "root_reading_record_full": "/workspace/scratch/actual-source-regular-slab-publication/ROOT_READING.json"
+  },
+  "inventory": {
+    "sole_authored_public_theorem": 1,
+    "authored_private_theorem": 35,
+    "authored_private_definition": 8,
+    "private_alias": 3,
+    "private_Prop_bundle": 3,
+    "generated_proof_auxiliary": 11,
+    "generated_congruence_or_other": 1,
+    "generated_simp": 3,
+    "generated_defining_equation": 6,
+    "foreign_namespace_generated": ["I4SmoothCarrier.sampleInclusion.eq_1", "smoothSourceField.eq_1"],
+    "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"]
+  },
+  "qualification_reused": {
+    "strict": {"exit": 0, "start_utc": "2026-10-28T18:06:57.970734Z", "end_utc": "2026-10-28T18:07:03.762278Z"},
+    "inventory": {"exit": 0, "start_utc": "2026-10-28T18:08:26.336810Z", "end_utc": "2026-10-28T18:08:29.512395Z"},
+    "kernel": {"count": 1, "exit": 0, "start_utc": "2026-10-28T18:11:10.197145Z", "end_utc": "2026-10-28T18:11:15.372164Z", "scope": "production only, not ordinary Controls"},
+    "ordinary": {"exit": 0, "start_utc": "2026-10-28T18:16:31.341311Z", "end_utc": "2026-10-28T18:16:36.170883Z"},
+    "negative": {"attempts": 1, "expected_exit": 1, "actual_exit": 1, "start_utc": "2026-10-28T18:24:28.969347Z", "end_utc": "2026-10-28T18:24:31.694288Z", "stdout_bytes": 119, "stderr_bytes": 0, "diagnostic": "sole unsolved False", "counterproof_passed_before_attempt": true},
+    "historical_pre_kernel": "Immutable earlier record honestly kernel0; additive final qualification records actual1."
+  },
+  "ordinary": {
+    "source_bytes": 15686,
+    "source_sha256_reused": "cd19b811cefd5c0c66d0a8af4bba4ed4f8246e4b91794e3bcb0ce77af19f43ff",
+    "object_bytes": 838856,
+    "object_sha256_reused": "920f8685fa6821922c2525c0b3f6b538696aaf5706f45883e0bffc48641ed24a",
+    "producer_authored_no_fourth_helper": true,
+    "public_positives": ["regular[0,1/4]", "zero[0,0]", "empty[-3,-2] with whole nonempty superlevels"],
+    "mutation": "Only Icc no-critical hypothesis to Ioo at a=-1/2,b=0; same actual primary sample/period/closed sets/literal inclusion.",
+    "counterproof": "True actual open-band no-critical premise; upper classes distinct by actual continuous auxiliary cos(pi*x), global double-angle bound and path IVT; actual lower closed horizontal path makes their literal inclusion images equal.",
+    "negative_harness_bytes": 148,
+    "negative_harness_sha256_reused": "1221ad2b09c34e0650903160c26a0631f63e94004ba52860589aa1a547059af0",
+    "negative_imports_only_passed_ordinary_controls": true
+  },
+  "root_attribution": {
+    "record": "/workspace/scratch/actual-source-regular-slab-publication/ROOT_READING.json",
+    "recorded_utc": "2026-10-28T18:29:59.179237Z",
+    "production": "BOUNDED selected assembly/endpoint/public/fixture/header; not full1141/all73/raw axioms/all21receipts42streams.",
+    "ordinary_controls": "Personally FULL final328lines15686bytes",
+    "negative": "Personally FULL148-byte harness119-byte stdout/emptyerr; selected actual receipt metadata/bindings",
+    "custody": "Full named final core documents and all21streammetadata rows; BOUNDED aggregate index/manifest/allowlist.",
+    "reviewer_full_flags_copied_as_root": false,
+    "root_review_acceptance_and_final_GO_at_reviewer_freeze": "Separate pending root action, not inferred."
+  },
+  "documentary_observations": {
+    "amendment": "DOCUMENTARY_AMENDMENT_001.json",
+    "reviewer_path_correction": "Resolved to canonical actual-source-regular-slab-source-review; original allowlist and IDs retained with actual full patch.",
+    "duplicate_new_final_document_identity_calculations_disclosed": 8,
+    "no_blanket_zero_identity_recalculation_claim": true,
+    "effect": "Documentary cost only; no source/object/stream rehash or mathematical-check replay, no open custody defect."
+  },
+  "source_cut": {
+    "commit": "f99b2e1b4efb7e0d9d3d83420ba7859a611a2016",
+    "parent": "c18ad0b8f62060cb78670f5f806af25f1307614b",
+    "blob": "362b629da2b1895e259decf052f40343e5ce6e24",
+    "root_own_object_copy_count": 1,
+    "root_own_object_copy_completed_utc": "2026-10-28T18:14:34.683861Z",
+    "further_copy_action": "SKIP"
+  },
+  "reviewer_actions": {
+    "proof_source_edits": 0,
+    "helper_control_harness_edits": 0,
+    "mathematical_executions": 0,
+    "hashes": 0,
+    "Git_cache_object_external_actions": 0,
+    "only_writes": "Reviewer REPORT.md and scope.json; provisional report moved to clarified canonical reviewer path.",
+    "artifact_first_identity": "Root may take first identity when adopting; reviewer did not hash review artifacts."
+  },
+  "history": [
+    "Early full-source/surface PASS before exactly-one kernel; no source changes requested.",
+    "Production/spec/inventory/kernel and all18 initial receipts36streams PASS.",
+    "Complete ordinary original+actual patch/all2receipts4streams PASS.",
+    "Sole negative full harness/receipt/streams PASS expected1.",
+    "Provisional reviewer report preserved documentary-pending status; final custody only subsequently closed.",
+    "Final technical/spec/math-quality/evidence/custody PASS; no process credit inferred."
+  ],
+  "limitations": [
+    "No different-family scientific acceptance.",
+    "No repeat of accepted dependencies or private leaf61 body review.",
+    "No global flow, component census, critical-event, exhaustive H0 or wider-goal completion claim.",
+    "Root alone owns final acceptance, registration, shared metadata and external publication."
+  ]
+}
