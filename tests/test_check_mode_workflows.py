@@ -27,6 +27,7 @@ CONTRACTS = json.loads((ROOT / 'tools/check_mode_contracts.json').read_text())
 WORKFLOWS = {
     'c8-cap-failure-coefficient-dims': 'c8-cap-failure-coefficient-dims.yml',
     'c8-normalizer-floor-planar': 'c8-normalizer-floor-planar.yml',
+    'c8-cap-failure-coefficient-planar': 'c8-cap-failure-coefficient-planar.yml',
 }
 ACTIVE = {k: v for k, v in CONTRACTS['families'].items()
           if not os.environ.get('CHECK_MODE_TEST_FAMILY') or k == os.environ['CHECK_MODE_TEST_FAMILY']}
@@ -36,7 +37,13 @@ if not ACTIVE:
 ORDERS = {
     'c8-cap-failure-coefficient-dims': ('no-y-tail', 'r3-one', 'no-bp', 'frob-omega-off'),
     'c8-normalizer-floor-planar': ('swap-minmax', 'drop-torus-error', 'sign-saddle'),
+    'c8-cap-failure-coefficient-planar': ('no-third-jet', 'sign-lo', 'variance-yyy'),
 }
+# Extra checker arguments each original wrapper passed, for the baseline and
+# for each mutant. A pooled wrapper ran both baselines first and then its
+# mutants concurrently, so the mutants may start in any order.
+EXTRA = {'c8-cap-failure-coefficient-planar': (['--procs', '2'], ['--procs', '1'])}
+POOLED = {'c8-cap-failure-coefficient-planar'}
 MODES = ('normal', 'optimized')
 VERIFY = '      - name: Verify manifest and main-resident pins'
 STEP = (
@@ -80,11 +87,15 @@ CHILD = r'''
 import json, os, sys
 baseline = BASELINE
 reports = REPORTS
+extra_baseline, extra_mutant = EXTRA_ARGS
 args = sys.argv[1:]
-if args[:1] != ['--check'] or len(args) not in (1, 3) or (len(args) == 3 and args[1] != '--mutant'):
+if args == ['--check', *extra_baseline]:
+    label = 'baseline'
+elif len(args) == len(extra_mutant) + 3 and args[:-2] == ['--check', *extra_mutant] and args[-2] == '--mutant':
+    label = args[-1]
+else:
     sys.stderr.write('unexpected arguments\n')
     sys.exit(3)
-label = args[2] if len(args) == 3 else 'baseline'
 mode = 'optimized' if sys.flags.optimize else 'normal'
 with open(os.environ['CHECK_MODE_TRACE'], 'a') as f:
     f.write(json.dumps([label, mode, os.getcwd()]) + '\n')
@@ -139,7 +150,8 @@ class CheckModeWorkflowTests(unittest.TestCase):
             entry = contract['families'][family]
             directory = repo / entry['directory']
             directory.mkdir(parents=True)
-            script = CHILD.replace('BASELINE', repr(entry['baseline'])).replace('REPORTS', repr(entry['mutants']))
+            script = (CHILD.replace('BASELINE', repr(entry['baseline'])).replace('REPORTS', repr(entry['mutants']))
+                      .replace('EXTRA_ARGS', repr(EXTRA.get(family, ([], [])))))
             data = script.encode()
             (directory / entry['script']).write_bytes(data)
             results = (ROOT / entry['directory'] / 'RESULTS.json').read_bytes()
@@ -177,12 +189,18 @@ class CheckModeWorkflowTests(unittest.TestCase):
     def rejected(self, family, label, mode, fault):
         result, events, _ = self.case(family, label, mode, fault)
         self.assertNotEqual(result.returncode, 0, (family, label, mode, fault, 'false acceptance', events))
-        self.assertEqual(events[-1][:2], [label, mode],
-                         (family, label, mode, fault, events, result.stderr.decode(errors='replace')))
+        if family in POOLED:
+            # Two mutants may run at once, so the faulty child need not have started last.
+            self.assertIn([label, mode], [event[:2] for event in events], (family, label, mode, fault, events))
+            self.assertIn('check-mode protocol mismatch: %s/%s/%s' % (family, mode, label),
+                          result.stderr.decode(errors='replace'))
+        else:
+            self.assertEqual(events[-1][:2], [label, mode],
+                             (family, label, mode, fault, events, result.stderr.decode(errors='replace')))
 
     def test_reference_custody(self):
         canonical = json.dumps(CONTRACTS['families'], sort_keys=True, separators=(',', ':')).encode()
-        self.assertEqual(digest(canonical), '9127eaa7bc8b14bf1187940fa89c0e59ad94015420a82d291147e83f3bafb2e9')
+        self.assertEqual(digest(canonical), '75133e1782b3dd8d61dc76c40478ab5886ea6ecf7f97642ad49c2d0e596809a8')
         for family, entry in ACTIVE.items():
             with self.subTest(family=family):
                 packet = ROOT / entry['directory']
@@ -195,8 +213,13 @@ class CheckModeWorkflowTests(unittest.TestCase):
             with self.subTest(family=family):
                 result, events, packet = self.case(family)
                 self.assertEqual(result.returncode, 0, result.stderr.decode(errors='replace'))
-                labels = ['baseline', *ORDERS[family]]
-                self.assertEqual(events, [[label, mode, packet] for mode in MODES for label in labels])
+                if family in POOLED:
+                    self.assertEqual(events[:2], [['baseline', mode, packet] for mode in MODES])
+                    self.assertEqual(sorted(events[2:]),
+                                     sorted([label, mode, packet] for mode in MODES for label in ORDERS[family]))
+                else:
+                    labels = ['baseline', *ORDERS[family]]
+                    self.assertEqual(events, [[label, mode, packet] for mode in MODES for label in labels])
 
     def test_formatting_alone_is_accepted(self):
         for family in ACTIVE:
