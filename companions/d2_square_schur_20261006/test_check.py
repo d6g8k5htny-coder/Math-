@@ -136,6 +136,70 @@ class FinalRuntimeTests(unittest.TestCase):
         source=(SIDE/'check.py').read_text();body=source[source.index('def finish(out):'):source.index('def main(')]
         self.assertIn('final_runtime(out,',body)
 
+def copy_formal_fixture(source, destination):
+    """Copy formal inputs for the actual protocol fixture; never execute Lean."""
+    import shutil
+    return shutil.copytree(source, destination,
+                           ignore=shutil.ignore_patterns('.lake', '__pycache__'))
+
+
+class SourceFixtureIsolationTests(unittest.TestCase):
+    """Ignored runtime state must not enter a source-only protocol fixture."""
+    def test_ignored_runtime_and_python_cache_are_not_copied(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            source = base / 'input' / 'formal'
+            source.mkdir(parents=True)
+            (source / '.gitignore').write_text('.lake/\n__pycache__/\n')
+            tracked = source / 'tracked-source.txt'
+            tracked.write_bytes(b'exact tracked source\n')
+            tracked.chmod(0o755)
+            ignored = ('.lake/packages/runtime-cache', '__pycache__/runtime.pyc')
+            for relative in ignored:
+                path = source / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b'ignored runtime sentinel\n')
+            subprocess.run(['git', '-C', str(source.parent), 'init', '-q'],
+                           check=True, capture_output=True)
+            subprocess.run(['git', '-C', str(source.parent), 'add', 'formal'],
+                           check=True, capture_output=True)
+            for relative in ignored:
+                subprocess.run(['git', '-C', str(source.parent), 'check-ignore',
+                                'formal/' + relative], check=True, capture_output=True)
+            copied = base / 'copied-formal'
+            copy_formal_fixture(source, copied)
+            for relative in ignored:
+                with self.subTest(relative=relative):
+                    self.assertFalse((copied / relative).exists(),
+                                     'ignored runtime cache entered the source fixture')
+            self.assertEqual((copied / tracked.name).read_bytes(), tracked.read_bytes())
+            self.assertEqual((copied / tracked.name).stat().st_mode & 0o777,
+                             tracked.stat().st_mode & 0o777)
+
+    def test_actual_tracked_formal_tree_bytes_and_modes_preserved(self):
+        import subprocess
+        original = SIDE.parents[1]
+        def git(root, *args):
+            return subprocess.check_output(['git', '-C', str(root), *args], text=True).strip()
+        with tempfile.TemporaryDirectory() as td:
+            base = Path(td)
+            copied = base / 'formal'
+            copy_formal_fixture(original / 'formal', copied)
+            git(base, 'init', '-q')
+            git(base, 'add', 'formal')
+            tree = git(base, 'write-tree')
+            self.assertEqual(git(base, 'rev-parse', tree + ':formal'),
+                             git(original, 'rev-parse', 'HEAD:formal'))
+            for relative in git(original, 'ls-files', '--', 'formal').splitlines():
+                source = original / relative
+                target = base / relative
+                with self.subTest(path=relative):
+                    self.assertEqual(target.read_bytes(), source.read_bytes())
+                    self.assertEqual(target.stat().st_mode & 0o777,
+                                     source.stat().st_mode & 0o777)
+
+
 class CoreIdentityProtocolTests(unittest.TestCase):
     """Source/receipt protocol fixtures only; no Lean or finite-law execution."""
     def setUp(self):
@@ -147,7 +211,7 @@ class CoreIdentityProtocolTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name).resolve()
         original = SIDE.parents[1]
-        shutil.copytree(original / 'formal', self.root / 'formal')
+        copy_formal_fixture(original / 'formal', self.root / 'formal')
         for package in ('d2_moment_bridge', 'd2_square_schur', 'd2_atom_integral'):
             relative = Path('companions') / (package + '_20261006')
             shutil.copytree(original / relative, self.root / relative)
