@@ -18,9 +18,14 @@ ROOT=SIDE.parents[1]
 PACKAGE='companions/d2_atom_integral_20261006'
 WORKFLOW='.github/workflows/d2-atom-integral.yml'
 REPO='d6g8k5htny-coder/Math-'
-CORE_TREE='fc0b11706d064b9de42331ee0a2464865107b87b'
-CORE_MANIFEST='7149915669414e22f593ce2c6540c5e10d922eb758c7464794fc64764e679778'
-CORE_GATE='25e08d9054b929dd657668e4ee4a3524688dc476e5af958f950de3b919f04e9a'
+CORE_TREE='8922fd8c833df0c52d4a8c7b5c3ad802b93098d4'
+CORE_MANIFEST='ba7d11e43574e39da3c759e0501399a6dcd1b7da32b157a4a6b01f5c133b3062'
+CORE_GATE='509b6eb3b5ee2dc7e42810a40b07192b0feaf3924c9dbb398db43cb44e16e731'
+
+CORE_SOURCE_IDENTITY='481653d73d00f64bf06fefbf24be994f60ebe5c54f826abf899461f6e6937066'
+CORE_IDENTITY_PATH='tools/required_formal_check.py'
+CORE_IDENTITY_SHA256='6c27355237b45d3999298522c141984ff5b7c114f18b3c555cc45989976fc6dc'
+CORE_IDENTITY_BLOB='0b9d694bdf888c75826ca07ae176c5a5c43b8880'
 CONSUMED={
  'companions/d2_moment_bridge_20261006/D2MomentBridge.lean':'b3184107e290189b91e3e18fd2aa1cb631bb9bde',
  'companions/d2_square_schur_20261006/D2SquareSchur.lean':'4855c92d55254969e1de7f8cf8dec2bdc027cf69'}
@@ -54,6 +59,38 @@ def strict(raw):
 def git(*args):
     return subprocess.run(['git',*args],cwd=ROOT,check=True,capture_output=True,text=True,timeout=30).stdout.strip()
 
+def core_identity():
+    """Bind the outside-tree validator before evaluating its verified bytes."""
+    path = ROOT / CORE_IDENTITY_PATH
+    require(not any(p.is_symlink() for p in (path, *path.parents)) and path.is_file(),
+            'core identity validator missing or symlink')
+    raw = path.read_bytes()
+    framed = b'blob ' + str(len(raw)).encode() + b'\0' + raw
+    require(sha(raw) == CORE_IDENTITY_SHA256
+            and hashlib.sha1(framed).hexdigest() == CORE_IDENTITY_BLOB,
+            'core identity validator changed')
+    namespace = {'__name__': 'bound_d2_core_identity', '__file__': str(path)}
+    exec(compile(raw, str(path), 'exec'), namespace)
+    manifest = ROOT / 'formal/manifest.json'
+    manifest_raw = manifest.read_bytes()
+    require(sha(manifest_raw) == CORE_MANIFEST, 'core manifest changed')
+    digest = namespace['manifest_identity'](manifest, manifest_raw)
+    require(digest == CORE_SOURCE_IDENTITY, 'core source identity changed')
+    return digest
+
+
+def validate_core_receipt(core, current):
+    """The current core receipt binds the composite source, not the raw manifest."""
+    require(isinstance(core, dict), 'invalid core receipt')
+    require(core.get('checked_commit') == current['checked_commit'],
+            'core executed different source')
+    require(core.get('manifest_sha256') == core_identity(), 'core receipt manifest')
+    require(core.get('formalization_status') == 'kernel-checked', 'no core kernel receipt')
+
+
+
+
+
 def source():
     meta=strict((SIDE/'SOURCE_FILES.json').read_bytes());head=git('rev-parse','HEAD')
     require(set(meta)=={'version','scientific_effect','core_tree','targets','files'},'manifest schema')
@@ -64,6 +101,7 @@ def source():
     require(git('rev-parse',head+':formal')==CORE_TREE,'core tree changed')
     require(sha((ROOT/'formal/manifest.json').read_bytes())==CORE_MANIFEST,'core manifest changed')
     require(sha((ROOT/'formal/gate.py').read_bytes())==CORE_GATE,'core verifier changed')
+    core_identity()
     if os.environ.get('GITHUB_ACTIONS')=='true':
         require(os.environ.get('GITHUB_SHA')==head and os.environ.get('GITHUB_REPOSITORY')==REPO,'host/source mismatch')
         require(os.environ.get('GITHUB_RUN_ID') and os.environ.get('GITHUB_RUN_ATTEMPT'),'missing run identity')
@@ -78,7 +116,10 @@ def source():
         require(git('rev-parse',head+':'+name)==ids[name]['git_blob'],'dirty source: '+name)
         if name in PAYLOADS:require(meta['files'][name]==ids[name],'source identity: '+name)
         if name in CONSUMED:require(CONSUMED[name]==ids[name]['git_blob'],'consumed source changed: '+name)
-    git('diff','--exit-code','HEAD','--','formal',PACKAGE,WORKFLOW,*CONSUMED)
+    helper_id=identity((ROOT/CORE_IDENTITY_PATH).read_bytes())
+    require(git('rev-parse',head+':'+CORE_IDENTITY_PATH)==helper_id['git_blob'],'dirty core identity validator')
+    ids[CORE_IDENTITY_PATH]=helper_id
+    git('diff','--exit-code','HEAD','--','formal',PACKAGE,WORKFLOW,CORE_IDENTITY_PATH,*CONSUMED)
     return {'checked_commit':head,'repository':REPO,'run_id':os.environ.get('GITHUB_RUN_ID','local'),
        'run_attempt':os.environ.get('GITHUB_RUN_ATTEMPT','local'),'core_tree':CORE_TREE,
        'sources':ids,'declarations':list(TARGETS),'scientific_effect':'NONE'}
@@ -149,8 +190,7 @@ def finish(out):
         require((out/(label+'.status')).read_bytes()==b'1\n','negative status: '+label)
         negative((out/(label+'.log')).read_text(),label,1)
     raw=(ROOT/'formal/.lake/formal-evidence/receipt.json').read_bytes();core=strict(raw)
-    require(core['checked_commit']==current['checked_commit'] and core['manifest_sha256']==CORE_MANIFEST,'core identity')
-    require(core['formalization_status']=='kernel-checked','no core kernel receipt')
+    validate_core_receipt(core,current)
     final=final_runtime(out,core,strict((ROOT/'formal/manifest.json').read_bytes())['dependency_revisions'])
     result={**current,'axioms':ax,'theorem_count':6,'definition_count':0,'core_receipt_sha256':sha(raw),'final_observation':final,
        'formalization_status':'kernel-checked','alignment_status':'PENDING_INDEPENDENT_REVIEW',
