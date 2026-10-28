@@ -1,0 +1,11 @@
+--- runs/transport-002/SourceActualQuotientSaddleCollar.lean
++++ SourceActualQuotientSaddleCollar.lean
+@@ -489,7 +489,7 @@
+ private theorem transportSaddleCollar {L : ℝ} (F : I4Torus.SourceTorus 2 L → ℝ)
+     (q : I4Torus.SourceTorus 2 L) (O : Set (I4Torus.SourceTorus 2 L))
+     (rho : ℝ) (phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2)
+-    (hrho : 0 < rho) (hchart : ChartFacts F q O rho phi)
++    (_hrho : 0 < rho) (hchart : ChartFacts F q O rho phi)
+     (hgeometry : SaddleGeometry rho) : CollarFacts F q O rho phi := by
+   let W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+   have hball {z : I4Torus.SourceTorus 2 L} (hz : z ∈ phi.source) :

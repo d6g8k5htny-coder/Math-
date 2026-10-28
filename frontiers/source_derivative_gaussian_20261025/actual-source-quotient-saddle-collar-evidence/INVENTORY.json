@@ -1,0 +1,987 @@
+{
+  "module": "SourceActualQuotientSaddleCollar",
+  "total": 96,
+  "counts": {
+    "authored private finite-geometry set definition": 4,
+    "private generated proof auxiliary": 8,
+    "authored private definition": 10,
+    "generated private Prop-bundle eliminator or auxiliary": 6,
+    "authored private theorem": 38,
+    "private generated defining equation": 7,
+    "generated private Prop-bundle projection": 11,
+    "generated private Prop-bundle recursor": 2,
+    "sole authored public theorem": 1,
+    "authored private type alias": 1,
+    "private generated simp theorem": 1,
+    "authored private Prop bundle": 3,
+    "foreign-namespace generated declaration": 2,
+    "generated private Prop-bundle constructor": 2
+  },
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "declarations": [
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.targetLower",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private finite-geometry set definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.saddleQ._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.physicalProjection",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.casesOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.collar_joined_preimage",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_seamInputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixturePolynomial.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.target_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_negativeInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.saddleConeGeometry",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_negative_cone_convex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_pointCritical",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_hasFDerivAt",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_positiveInput",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_saddleInputs",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureSample.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.saddleQ",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "recursor",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.rec",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle recursor"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.disjoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_saddlePositive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureTorusField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "recursor",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.rec",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle recursor"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.mk._flat_ctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureDerivative.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.transportSaddleCollar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SourceActualQuotientSaddleCollar.actualSource_quotient_saddle_local_collar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "sole authored public theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureCoordinate.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.lower_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureCoordinate._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_positive_cone_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.center_mem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_seam",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixturePolynomial",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.Point2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private type alias"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_lower_pc._simp_1_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated simp theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureDerivative._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureSample",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_plus_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.minus_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.quotientSaddleChart",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.CollarFacts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureDerivative._proof_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.recOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_smallOpen",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.collar_pc_preimage",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixturePolynomial._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.center_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_actualField",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "UniversalLaw.Spec.Lifetime.hessian.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated declaration"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_strict_coordinate_ne_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.plus_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_negative_cone_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_lower_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.physicalProjection.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_targetPlus_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.collar_chart_image_preimage",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "I4SmoothCarrier.sampleInclusion.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "foreign-namespace generated declaration"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_coordinateFormula",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.targetPlus",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private finite-geometry set definition"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureSmallOpen",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_negative_axis_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_weighted_positive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.targetStrict",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private finite-geometry set definition"
+    },
+    {
+      "kind": "inductive",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixturePoint",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_negativeFirst_inertia",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_targetMinus_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixturePoint.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_hessian",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "constructor",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle constructor"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixture_saddleNegative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureAxis_coordinates",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "inductive",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private Prop bundle"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureDerivative._proof_3",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_positive_cone_convex",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.joined_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureAxis_ne_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureCoordinate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.saddleQ.eq_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated defining equation"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.actualSaddleCollar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureDerivative",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_positive_axis_ball",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.targetMinus",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private finite-geometry set definition"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.recOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureTorusField._proof_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_joined_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_no_joined_negative_positive",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureSmallOpen._proof_1",
+      "axioms": [
+        "propext"
+      ],
+      "classification": "private generated proof auxiliary"
+    },
+    {
+      "kind": "constructor",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.mk",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle constructor"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.mk._flat_ctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.fixtureAxis",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private definition"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.ChartFacts.source_subset",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    },
+    {
+      "kind": "definition",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.casesOn",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle eliminator or auxiliary"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.sc64_minus_pc",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "authored private theorem"
+    },
+    {
+      "kind": "theorem",
+      "name": "_private.SourceActualQuotientSaddleCollar.0.I4SourceActualQuotientSaddleCollar.SaddleGeometry.partition",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "classification": "generated private Prop-bundle projection"
+    }
+  ],
+  "coverage": "ALL exact own-module-index constants, NO namespace prefilter. Authored/private/data/Prop bundles/generated constructors/projections/recursors/auxiliaries/foreign namespace explicitly classified.",
+  "zero_count_categories": [
+    "other owned generated declaration"
+  ],
+  "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/inventory-001/receipt.json",
+  "harness_provenance": "Generic accepted module-index infrastructure, only NEW module imported; no old module execution or private proof dependency."
+}

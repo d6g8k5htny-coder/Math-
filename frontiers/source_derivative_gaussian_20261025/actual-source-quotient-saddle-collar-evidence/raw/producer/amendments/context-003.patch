@@ -1,0 +1,18 @@
+--- context/CONTEXT.002.md
++++ context/CONTEXT.003.md
+@@ -29,6 +29,7 @@
+ import Mathlib.Topology.OpenPartialHomeomorph.Composition
+ import Mathlib.Topology.OpenPartialHomeomorph.IsImage
+ import Mathlib.Topology.OpenPartialHomeomorph.Basic
++import Mathlib.Analysis.Normed.Module.Convex
+ import Mathlib.Analysis.Convex.PathConnected
+ import Mathlib.Topology.Order.IntermediateValue
+ import Mathlib.Tactic.FinCases
+@@ -380,3 +381,7 @@
+ ## Context002 exact pre-text interface refinement
+ 
+ Before any helper proof text or Lean execution, expand the three private fixture consumer signatures to their literal fixed points, and expand the ordinary predicate/positive/chosen object signatures. No imports/instances/private chart or geometry signature/public target/locked path/mathematical/control change. Original001 and complete actual001→002 patch remain immutable. Helpers receive FULL final002 for personal ACK; no earlier helper proof text exists.
++
++## Context003 narrow public convex-ball import amendment
++
++B identified the concrete public convex_ball binding in Mathlib.Analysis.Normed.Module.Convex before dependent geometry text. Add exactly that narrow import to BOTH common headers; no signature/math/public/control/path change. A complete original already froze under002 before this amendment, so it stays immutable and no A regeneration/integration occurs. B personally ACKs this actual import amendment before dependent text. Producer header001 is retained; header002 reflects this import. No Lean/probe or old check was used to decide the amendment.

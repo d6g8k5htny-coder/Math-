@@ -1,0 +1,14 @@
+{
+  "scope": "Actual A original-copy first-identity code and existing rows only; no new hash/check/audit",
+  "actual_behavior": "The producer loop called hashlib.sha256(data) for all five A original files. A.CONTEXT.ORIGINAL.md is an exact copy of the already first-identified complete context002 payload, so its SHA was recomputed once instead of reusing that known identity.",
+  "known_context_identity": {
+    "bytes": 26196,
+    "sha256": "12446497b2944bdccb326962ee218d77cc3028968fbb88f073e37c272a34d521",
+    "first_record": "context/FIRST_ID_002.json",
+    "retained_copy": "originals/A.CONTEXT.ORIGINAL.md"
+  },
+  "scope_of_existing_row_inspection": "Only the actual five A original rows and already existing context/header rows were inspected. A imports1175B/e7fcc942 differs from existing header0011091B/9b550c3a and header0021136B/cc8ca6b1; no other known-copy duplicate was identified in those inspected rows. No broader identity audit was performed.",
+  "historical_records": "A_CUSTODY.json and every original remain unchanged. Its generic FIRST-original origin is clarified by this additive record, not rewritten.",
+  "future_handling": "Known exact context/import/source snapshot copies reuse existing FIRST identities and seed their new-path cache binding; newly authored payloads receive their first identity once. No original regeneration or prior hash/check replay.",
+  "mathematical_effect": "None. The complete actual chart first-attempt strict PASS and original source/object/raw receipts remain applicable and reused. Helper executions/hashes remain zero."
+}

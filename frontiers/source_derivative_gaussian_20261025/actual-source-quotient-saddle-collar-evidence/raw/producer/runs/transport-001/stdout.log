@@ -1,0 +1,98 @@
+SourceActualQuotientSaddleCollar.lean:506:6: error: linarith failed to find a contradiction
+case mp
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+hrho : 0 < rho
+hchart : ChartFacts F q O rho phi
+hgeometry : SaddleGeometry rho
+W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+hball : ∀ {z : I4Torus.SourceTorus 2 L}, z ∈ phi.source → ↑phi z ∈ Metric.ball 0 rho
+z : I4Torus.SourceTorus 2 L
+hz : z ∈ phi.source
+hv : z ∈ {z | F q < F z}
+hid : F z = F q - ↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+a✝ : -↑phi z 0 ^ 2 + ↑phi z 1 ^ 2 ≤ 0
+⊢ False
+failed
+SourceActualQuotientSaddleCollar.lean:511:6: error: linarith failed to find a contradiction
+case mpr
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+hrho : 0 < rho
+hchart : ChartFacts F q O rho phi
+hgeometry : SaddleGeometry rho
+W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+hball : ∀ {z : I4Torus.SourceTorus 2 L}, z ∈ phi.source → ↑phi z ∈ Metric.ball 0 rho
+z : I4Torus.SourceTorus 2 L
+hz : z ∈ phi.source
+left✝ : ↑phi z ∈ Metric.ball 0 rho
+hv : 0 < -↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+hid : F z = F q - ↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+⊢ False
+failed
+SourceActualQuotientSaddleCollar.lean:581:8: error: linarith failed to find a contradiction
+case mp
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+hrho : 0 < rho
+hchart : ChartFacts F q O rho phi
+hgeometry : SaddleGeometry rho
+W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+hball : ∀ {z : I4Torus.SourceTorus 2 L}, z ∈ phi.source → ↑phi z ∈ Metric.ball 0 rho
+hW : W = phi.source ∩ ↑phi ⁻¹' targetStrict rho
+hplus : W ∩ {z | 0 < ↑phi z 1} = phi.source ∩ ↑phi ⁻¹' targetPlus rho
+hminus : W ∩ {z | ↑phi z 1 < 0} = phi.source ∩ ↑phi ⁻¹' targetMinus rho
+hstrictT : targetStrict rho ⊆ phi.target
+hplusT : targetPlus rho ⊆ phi.target
+hminusT : targetMinus rho ⊆ phi.target
+delta : ℝ
+hdelta : 0 ≤ delta
+hsT : targetLower rho delta ⊆ phi.target
+z : I4Torus.SourceTorus 2 L
+hz : z ∈ phi.source
+hv : z ∈ {z | F q - delta ≤ F z}
+hid : F z = F q - ↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+a✝ : -↑phi z 0 ^ 2 + ↑phi z 1 ^ 2 < -delta
+⊢ False
+failed
+SourceActualQuotientSaddleCollar.lean:586:8: error: linarith failed to find a contradiction
+case mpr
+L : ℝ
+F : I4Torus.SourceTorus 2 L → ℝ
+q : I4Torus.SourceTorus 2 L
+O : Set (I4Torus.SourceTorus 2 L)
+rho : ℝ
+phi : OpenPartialHomeomorph (I4Torus.SourceTorus 2 L) Point2
+hrho : 0 < rho
+hchart : ChartFacts F q O rho phi
+hgeometry : SaddleGeometry rho
+W : Set (I4Torus.SourceTorus 2 L) := phi.source ∩ {z | F q < F z}
+hball : ∀ {z : I4Torus.SourceTorus 2 L}, z ∈ phi.source → ↑phi z ∈ Metric.ball 0 rho
+hW : W = phi.source ∩ ↑phi ⁻¹' targetStrict rho
+hplus : W ∩ {z | 0 < ↑phi z 1} = phi.source ∩ ↑phi ⁻¹' targetPlus rho
+hminus : W ∩ {z | ↑phi z 1 < 0} = phi.source ∩ ↑phi ⁻¹' targetMinus rho
+hstrictT : targetStrict rho ⊆ phi.target
+hplusT : targetPlus rho ⊆ phi.target
+hminusT : targetMinus rho ⊆ phi.target
+delta : ℝ
+hdelta : 0 ≤ delta
+hsT : targetLower rho delta ⊆ phi.target
+z : I4Torus.SourceTorus 2 L
+hz : z ∈ phi.source
+left✝ : ↑phi z ∈ Metric.ball 0 rho
+hv : -delta ≤ -↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+hid : F z = F q - ↑phi z 0 ^ 2 + ↑phi z 1 ^ 2
+⊢ False
+failed

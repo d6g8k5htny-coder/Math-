@@ -1,0 +1,11 @@
+Stage64 checkpoint — actual quotient saddle collar
+
+Active unit: https://github.com/d6g8k5htny-coder/Math-/pull/514#issuecomment-6478705132 (native19:35:23UTC28Oct, rootGO19:41:48). Checkpoint19:55UTC; hard terminal22:30UTC28Oct or invocation end, unchanged, no automatic extension.
+
+Actual state: complete literal context001 frozen19:48:12UTC before helper proof TEXT or any64 Lean execution. Root personally read complete001; producer is preparing full002 expansion of all actual private fixture consumers and ordinary chosen-collar types. Root must FULLread/accept final002, and each of the two helpers must personally FULLACK before explicit TEXT release. Chart helper and finite Pi2 geometry helper are READONLY onboarding; technical reviewer is onboarding READONLY. No chart check,64 strict PASS,64 kernel,ordinary counterproof or negative run exists yet. No typed/mathematical gap has been identified; the initial complete quotient-chart milestone remains pending proof text and execution.
+
+Scope unchanged: actual positive original L/sample/physical critical point and FULL complementary inertia1, no global hm; for every ambient open O derive one actual torus→Pi2 ordered saddle chart with exact centered ball target inside O, two nonempty strict branches/JoinedIn sign classification and SAME-chart all nonnegative lower closed traces path connected. Producer owns transport/public assembly/all actual finite-cosine saddles/small O/seam/ordinary counterproof and sole negative. Max2 complete private production TEXT originals; no third ordinary author.
+
+Owner reuse instruction applies across agents, sessions and handoffs. Existing public60 and published61–63 evidence is reused; no old checks, kernel, hashes, object copies or unchanged f482 CI polling. Published63 remains f4825c3e3bd0e2d2c46157096e76b9ab17dbbb71, all four hosted SUCCESS first observed19:31:58UTC; technical review scope and provider-distinct process remain separate. Open draft/no ready/no merge/science NONE.
+
+Original global research goal remains active and unmet: regular collars, finite adjacency, lower clopen separation, actual global critical events/exhaustive H0/elder unique merger/once counting/Borel/Rice/PairLaw/Parent remain open. Future65 is conditional design only, no code/claim/GO/timer.

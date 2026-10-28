@@ -1,0 +1,11 @@
+--- runs/geometry-001/SourceActualQuotientSaddleCollar.lean
++++ SourceActualQuotientSaddleCollar.lean
+@@ -438,7 +438,7 @@
+       lower_pc := sc64_lower_pc rho hrho }
+   · apply Set.disjoint_left.mpr
+     intro u hplus hminus
+-    exact lt_asymm hplus.2 hminus.2
++    exact lt_asymm (show 0 < u 1 from hplus.2) (show u 1 < 0 from hminus.2)
+   · ext u
+     constructor
+     · intro hu

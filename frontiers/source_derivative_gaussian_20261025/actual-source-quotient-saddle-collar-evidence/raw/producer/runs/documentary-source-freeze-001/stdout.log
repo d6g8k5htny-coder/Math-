@@ -1,0 +1,22 @@
+{
+  "status": "FINAL_PRODUCTION_SOURCE_FROZEN_LAST_ACTUAL_STRICT_PASS_REUSED_AWAIT_INVENTORY_REVIEW_ONE_KERNEL",
+  "recorded_utc": "2026-10-28T20:16:08.343619+00:00",
+  "receipt": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-002/receipt.json",
+  "source": {
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualQuotientSaddleCollar.lean",
+    "bytes": 40252,
+    "sha256": "e0e0a0f77bd75bbbd8994d620ee43b18b2edd50d7649cd8cb9837e7148762265",
+    "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+  },
+  "object": {
+    "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/build/SourceActualQuotientSaddleCollar.olean",
+    "bytes": 1654224,
+    "sha256": "a57489eb917c4f2fd4d314ab5f7ae9dea60619caf9160e044700114551c1e15e",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "lines": 896,
+  "strict_completed_utc": "2026-10-28T20:15:18.577258+00:00",
+  "kernel_count_at_this_source_freeze": 0,
+  "ordinary_controls_scope": "Separate producer-owned ordinary notyetqualified; productionkernel excludes it",
+  "strict_label": "fixtures002 is actualfinal Werror; no redundantcompile-final"
+}

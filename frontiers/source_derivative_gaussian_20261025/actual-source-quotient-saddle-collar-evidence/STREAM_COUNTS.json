@@ -1,0 +1,392 @@
+{
+  "created_utc": "2026-10-28T20:36:10.954663+00:00",
+  "verification_calls": 13,
+  "verification_streams": 26,
+  "closed_documentary_workers": 6,
+  "closed_documentary_worker_streams": 12,
+  "closed_worker_stdout_bytes": 49537,
+  "closed_worker_stderr_bytes": 0,
+  "rows": [
+    {
+      "label": "chart-001",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T19:59:52.551257+00:00",
+      "ended_utc": "2026-10-28T19:59:57.782046+00:00",
+      "elapsed_seconds": 5.230581914998766,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/chart-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/chart-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-integrate-B-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:05:30.037183+00:00",
+      "ended_utc": "2026-10-28T20:05:30.102088+00:00",
+      "elapsed_seconds": 0.06458397299866192,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-integrate-B-001/stdout.log",
+        "bytes": 111,
+        "sha256": "5394eb81165d384703711497b9ec85c37bad399f8e37bcefef82ead3acf7a9a3",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-integrate-B-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "geometry-001",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:05:30.273780+00:00",
+      "ended_utc": "2026-10-28T20:05:33.810966+00:00",
+      "elapsed_seconds": 3.536962845999369,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/geometry-001/stdout.log",
+        "bytes": 233,
+        "sha256": "c22a45689533527435f62f17091161fa4c37a2c74e5943ce5204d7b8a3683567",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/geometry-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "geometry-002",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:05:45.891309+00:00",
+      "ended_utc": "2026-10-28T20:05:49.569014+00:00",
+      "elapsed_seconds": 3.677454746000876,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/geometry-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/geometry-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-transport-assembly-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:06:51.380502+00:00",
+      "ended_utc": "2026-10-28T20:06:51.445114+00:00",
+      "elapsed_seconds": 0.0641181860009965,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-transport-assembly-001/stdout.log",
+        "bytes": 96,
+        "sha256": "eb7bddfdc4d16244635eda0dccae6d56b7f41b9fd986c80b3117e28fb2f5104a",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-transport-assembly-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "transport-001",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:06:51.621483+00:00",
+      "ended_utc": "2026-10-28T20:06:55.410549+00:00",
+      "elapsed_seconds": 3.7888151570004993,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-001/stdout.log",
+        "bytes": 3718,
+        "sha256": "a80cf89edf8cb0e61c10fe4956e69f7a56f7b33be8cf58d16d5ee7399867d6c5",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "transport-002",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:07:23.621474+00:00",
+      "ended_utc": "2026-10-28T20:07:27.605548+00:00",
+      "elapsed_seconds": 3.9837008690010407,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-002/stdout.log",
+        "bytes": 347,
+        "sha256": "d3dbdfc940b2fd777826f10831877ba645a0a38029ef01f809d42c8deffd03ff",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "transport-003",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:07:39.078268+00:00",
+      "ended_utc": "2026-10-28T20:07:43.261262+00:00",
+      "elapsed_seconds": 4.182697039999766,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-003/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/transport-003/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-fixtures-assembly-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:14:22.542065+00:00",
+      "ended_utc": "2026-10-28T20:14:22.606935+00:00",
+      "elapsed_seconds": 0.06450652200146578,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-fixtures-assembly-001/stdout.log",
+        "bytes": 107,
+        "sha256": "e309b1cde2d6c54bd902992ceb830fcddaf481dc6e5c9d6718570d80fce8ff58",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-fixtures-assembly-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "fixtures-001",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:14:22.789782+00:00",
+      "ended_utc": "2026-10-28T20:14:27.825095+00:00",
+      "elapsed_seconds": 5.034989324001799,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-001/stdout.log",
+        "bytes": 4393,
+        "sha256": "da6bd73f877734e870c12259c9375b68f6215d7b9d979396679cbbfd6174b47f",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "fixtures-002",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:15:12.777473+00:00",
+      "ended_utc": "2026-10-28T20:15:18.577258+00:00",
+      "elapsed_seconds": 5.799387573002605,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/fixtures-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-source-freeze-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:16:08.321332+00:00",
+      "ended_utc": "2026-10-28T20:16:08.354173+00:00",
+      "elapsed_seconds": 0.03233754600296379,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/stdout.log",
+        "bytes": 1259,
+        "sha256": "63719ebafea7963dbc3b5730b60cff52aade82a401408f71cbcc122dfd716e94",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-source-freeze-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "inventory-001",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:17:15.711727+00:00",
+      "ended_utc": "2026-10-28T20:17:18.941994+00:00",
+      "elapsed_seconds": 3.229802854999434,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/inventory-001/stdout.log",
+        "bytes": 25270,
+        "sha256": "2472dee382a511b9893bdd23377ef77facecee0ee0488f7caddad339aa75a467",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/inventory-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-inventory-classification-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:18:25.852935+00:00",
+      "ended_utc": "2026-10-28T20:18:25.920312+00:00",
+      "elapsed_seconds": 0.06696667299911496,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-inventory-classification-001/stdout.log",
+        "bytes": 10699,
+        "sha256": "66e8335227c086c047f9e8c50354523739252bcab6d12cb4f67420993053b377",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-inventory-classification-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "kernel-001",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:22:58.661012+00:00",
+      "ended_utc": "2026-10-28T20:23:03.990459+00:00",
+      "elapsed_seconds": 5.328287456002727,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/kernel-001/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/kernel-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "documentary-ordinary-assembly-001",
+      "scope_kind": "documentary",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:24:13.422536+00:00",
+      "ended_utc": "2026-10-28T20:24:13.455303+00:00",
+      "elapsed_seconds": 0.03228854899862199,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-ordinary-assembly-001/stdout.log",
+        "bytes": 404,
+        "sha256": "c2209230b194ec8c9ca1a23572efff6ca42ce3aeb69c93aad40c00a3b231f41e",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/documentary-ordinary-assembly-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-001",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:24:13.630226+00:00",
+      "ended_utc": "2026-10-28T20:24:18.065167+00:00",
+      "elapsed_seconds": 4.4345325300018885,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-001/stdout.log",
+        "bytes": 2777,
+        "sha256": "82487827c2078d14931404405d75294ddc0511966a05b9c76291b35ecf0ec6b4",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "controls-002",
+      "scope_kind": "verification",
+      "exit_code": 0,
+      "started_utc": "2026-10-28T20:25:10.185214+00:00",
+      "ended_utc": "2026-10-28T20:25:14.774742+00:00",
+      "elapsed_seconds": 4.589093153997965,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-002/stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/controls-002/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "label": "false-control-001",
+      "scope_kind": "verification",
+      "exit_code": 1,
+      "started_utc": "2026-10-28T20:25:50.892523+00:00",
+      "ended_utc": "2026-10-28T20:25:53.163429+00:00",
+      "elapsed_seconds": 2.2702827919965785,
+      "stdout": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/false-control-001/stdout.log",
+        "bytes": 123,
+        "sha256": "2a2109503735c316f724a681c79514d608e6adb61c1c0396177f18162d701dbe",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/actual-source-quotient-saddle-collar-construct/runs/false-control-001/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    }
+  ],
+  "pending_final_capture": "Final worker pair + actual outer pair + driver-entry pair are added by post-run closure. Existing6docouter limit is explicitly OUTER_CAPTURE_SCOPE_001.json."
+}

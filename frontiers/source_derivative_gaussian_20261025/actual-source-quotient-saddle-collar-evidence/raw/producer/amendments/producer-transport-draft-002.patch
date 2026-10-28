@@ -1,0 +1,29 @@
+--- ProducerTransport.INITIAL.lean.txt
++++ ProducerTransport.002.lean.txt
+@@ -5,7 +5,7 @@
+   ext z
+   constructor
+   · rintro ⟨u, hu, rfl⟩
+-    refine ⟨phi.map_target (hs hu), ?_⟩
++    refine ⟨phi.symm.mapsTo (hs hu), ?_⟩
+     change phi (phi.symm u) ∈ s
+     simpa only [phi.right_inv (hs hu)] using hu
+   · rintro ⟨hz, hzs⟩
+@@ -44,7 +44,7 @@
+   have hball {z : I4Torus.SourceTorus 2 L} (hz : z ∈ phi.source) :
+       phi z ∈ Metric.ball (0 : Point2) rho := by
+     rw [← hchart.target_eq]
+-    exact phi.map_source hz
++    exact phi.mapsTo hz
+   have hW : W = phi.source ∩ phi ⁻¹' targetStrict rho := by
+     ext z
+     constructor
+@@ -95,7 +95,7 @@
+   · rw [hplus, hminus, Set.disjoint_left]
+     intro z hzP hzM
+     exact Set.disjoint_left.mp hgeometry.disjoint hzP.2 hzM.2
+-  · rw [hW, hplus, hminus]
++  · rw [hplus, hminus, hW]
+     ext z
+     constructor
+     · rintro ⟨hz, hu⟩
