@@ -1,0 +1,60 @@
+{
+  "label": "omitted-weight-false-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "lake",
+    "env",
+    "python",
+    "-c",
+    "import os,subprocess,sys; os.environ[\"LEAN_PATH\"]=sys.argv[1]+os.pathsep+os.environ.get(\"LEAN_PATH\",\"\"); sys.exit(subprocess.run([\"lean\",\"-DwarningAsError=true\",\"--root=\"+sys.argv[2],\"-o\",sys.argv[3],sys.argv[4]],check=False).returncode)",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects",
+    "/workspace/scratch/actual-source-morse-local-model-construct/controls",
+    "/workspace/scratch/actual-source-morse-local-model-construct/objects/OmittedTaylorWeightFalse.olean",
+    "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean"
+  ],
+  "start_utc": "2026-10-28T15:40:54.931640+00:00",
+  "source_identity": {
+    "role": "owned_ordinary_source_OmittedTaylorWeightFalse",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0051-OmittedTaylorWeightFalse.lean",
+    "bytes": 175,
+    "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+    "first_bound_utc": "2026-10-28T15:40:54.921794+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "harness_identity": {
+    "role": "owned_ordinary_execution_harness",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0052-run_ordinary.py",
+    "bytes": 3953,
+    "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+    "first_bound_utc": "2026-10-28T15:40:54.922809+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "production_object_identity": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "coverage": "ordinary source only, separate from production kernel",
+  "controls_object_identity": {
+    "role": "owned_ordinary_object_MorseLocalModelControls",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0049-MorseLocalModelControls.olean",
+    "bytes": 823096,
+    "sha256": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc",
+    "first_bound_utc": "2026-10-28T15:37:55.056145+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": true
+  },
+  "expected_failure": "ONE false omitted-weight entry=1; actual counterproof gives2",
+  "exit_code": 1,
+  "end_utc": "2026-10-28T15:40:57.590518+00:00"
+}

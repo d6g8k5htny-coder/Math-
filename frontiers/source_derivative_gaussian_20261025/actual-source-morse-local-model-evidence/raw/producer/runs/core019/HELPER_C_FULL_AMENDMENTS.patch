@@ -1,0 +1,146 @@
+--- frozen-original/C
++++ actual-source/C
+@@ -46,7 +46,8 @@
+     eval 2 (fixture_poly r) x = fixture_expr (fixture_a r) (fixture_b r) (fixture_c r) x := by
+   fin_cases r <;>
+     simp [fixture_poly,eval_scale,eval_append,eval_mul,fixture_axisCos_eval,
+-      fixture_axisSin_eval,fixture_expr,fixture_a,fixture_b,fixture_c] <;> ring
++      fixture_axisSin_eval,fixture_expr,fixture_a,fixture_b,fixture_c]
++  all_goals ring
+ 
+ private theorem fixture_sample_field (r : Fin 4) :
+     smoothSourceField 2 2 (fixture_sample r) = eval 2 (fixture_poly r) := by
+@@ -97,8 +98,10 @@
+   have h := ((h0.cos.const_mul a).add (h1.cos.const_mul b)).add
+     ((h0.sin.mul h1.sin).const_mul c)
+   unfold fixture_expr
+-  convert h using 1 <;> ext v <;>
+-    simp [fixture_D,fixture_A,fixture_B,fixture_proj] <;> ring
++  convert h using 1
++  ext v
++  simp [fixture_D,fixture_A,fixture_B,fixture_proj]
++  ring
+ 
+ private theorem fixture_A_hasFDerivAt_zero (a c : ℝ) :
+     HasFDerivAt (fixture_A a c)
+@@ -112,7 +115,10 @@
+   have h := ((h0.sin.const_mul (-a*Real.pi)).add
+     ((h0.cos.mul h1.sin).const_mul (c*Real.pi)))
+   unfold fixture_A
+-  convert h using 1 <;> ext v <;> simp [fixture_proj] <;> ring
++  convert h using 1
++  ext v
++  simp [fixture_proj]
++  ring
+ 
+ private theorem fixture_B_hasFDerivAt_zero (b c : ℝ) :
+     HasFDerivAt (fixture_B b c)
+@@ -126,7 +132,10 @@
+   have h := ((h1.sin.const_mul (-b*Real.pi)).add
+     ((h0.sin.mul h1.cos).const_mul (c*Real.pi)))
+   unfold fixture_B
+-  convert h using 1 <;> ext v <;> simp [fixture_proj] <;> ring
++  convert h using 1
++  ext v
++  simp [fixture_proj]
++  ring
+ 
+ private theorem fixture_expr_jet (a b c : ℝ) :
+     fderiv ℝ (fixture_expr a b c) 0 = 0 ∧
+@@ -204,7 +213,7 @@
+     coordinates 2 (fixture_P r y) =
+       if r=3 then ![(y 0+y 1)/Real.pi,(-y 0+y 1)/Real.pi]
+       else fixture_scale • y := by
+-  simp [fixture_P,fixture_mixedEquiv,fixture_scalarEquiv]
++  by_cases hr : r = 3 <;> simp [fixture_P,hr,fixture_mixedEquiv,fixture_scalarEquiv]
+ 
+ private theorem fixture_ordered (r : Fin 4) :
+     orderedNormalization (actualField 2 2 (fixture_sample r)) 0 (fixture_index r)
+@@ -225,30 +234,12 @@
+       iteratedFDeriv ℝ 2
+         (normalizedField (actualField 2 2 (fixture_sample r)) 0 (fixture_P r)) 0 ![u,v] =
+           2 * ∑ i : Fin 2, sign2 (fixture_index r) i * u i * v i := by
+-  let g := actualField 2 2 (fixture_sample r)
+-  have hg : ContDiff ℝ (⊤ : ℕ∞) g :=
+-    contDiff_infty.mpr (actualField_smooth 2 (by norm_num) (fixture_sample r))
+-  have hfun : normalizedField g 0 (fixture_P r) =
+-      (fun y => g (fixture_P r y)) - (fun _ : Point2 => g 0) := by
+-    funext y; simp [normalizedField]
+   refine ⟨by simp [normalizedField],?_,?_⟩
+-  · have hd := ((hg.differentiable (by simp) 0).hasFDerivAt.comp 0
+-      (fixture_P r).hasFDerivAt).sub_const (g 0)
+-    have hc : fderiv ℝ g 0 = 0 := fixture_critical r
+-    simpa [normalizedField,map_zero,hc] using hd.fderiv
++  · exact actual_normalized_critical (by norm_num) (fixture_sample r) 0
++      (fixture_P r) (fixture_critical r)
+   · intro u v
+-    rw [hfun,iteratedFDeriv_sub_apply
+-      (hg.comp (fixture_P r).contDiff).contDiffAt
+-      (contDiff_const : ContDiff ℝ (2:ℕ) (fun _ : Point2 => g 0)).contDiffAt]
+-    simp only [iteratedFDeriv_const_of_ne (by norm_num : 2 ≠ 0),sub_zero]
+-    have hh := (fixture_P r).toContinuousLinearMap.iteratedFDeriv_comp_right
+-      hg (0:Point2) (i:=2) (by simp)
+-    have he := congrArg (fun D => D (![u,v] : Fin 2 → Point2)) hh
+-    have hdirs : (fun i => fixture_P r ((![u,v] : Fin 2 → Point2) i)) =
+-        ![fixture_P r u,fixture_P r v] := by
+-      ext i; fin_cases i <;> rfl
+-    simpa only [Function.comp_def,ContinuousMultilinearMap.compContinuousLinearMap_apply,
+-      map_zero,hdirs] using he.trans (fixture_ordered r u v)
++    exact (normalized_hessian_zero _ (actualField_smooth 2 (by norm_num) (fixture_sample r) 2)
++      0 (fixture_P r) u v).trans (fixture_ordered r u v)
+ 
+ private theorem fixture_point_sq_pos (y : Point2) (hy : y ≠ 0) :
+     0 < (y 0)^2+(y 1)^2 := by
+@@ -264,7 +255,7 @@
+ private theorem fixture_inertia_zero
+     (g : E2 → ℝ) (P : Point2 ≃L[ℝ] E2)
+     (hn : orderedNormalization g 0 0 P) : HessianHasInertia 2 g 0 0 := by
+-  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [E2,E],?_,?_⟩
++  refine ⟨⊥,⊤,isCompl_bot_top,by simp,by simp [E],?_,?_⟩
+   · intro v hv hv0
+     exact (hv0 ((Submodule.mem_bot ℝ).mp hv)).elim
+   · intro v _ hv
+@@ -279,7 +270,7 @@
+ private theorem fixture_inertia_two
+     (g : E2 → ℝ) (P : Point2 ≃L[ℝ] E2)
+     (hn : orderedNormalization g 0 2 P) : HessianHasInertia 2 g 0 2 := by
+-  refine ⟨⊤,⊥,isCompl_top_bot,by simp [E2,E],by simp,?_,?_⟩
++  refine ⟨⊤,⊥,isCompl_top_bot,by simp [E],by simp,?_,?_⟩
+   · intro v _ hv
+     have hy : P.symm v ≠ 0 := by simpa using hv
+     have hh := hn (P.symm v) (P.symm v)
+@@ -299,13 +290,13 @@
+   have hn0 : n ≠ 0 := by
+     intro h; have hh := congrArg P.symm h
+     have h0 := congrFun hh 0
+-    simpa [n,basis2] using h0
++    simp [n,basis2] at h0
+   have hp0 : p ≠ 0 := by
+     intro h; have hh := congrArg P.symm h
+     have h1 := congrFun hh 1
+-    simpa [p,basis2] using h1
+-  have hnd := finrank_span_singleton hn0
+-  have hpd := finrank_span_singleton hp0
++    simp [p,basis2] at h1
++  have hnd : Module.finrank ℝ (Submodule.span ℝ {n}) = 1 := finrank_span_singleton hn0
++  have hpd : Module.finrank ℝ (Submodule.span ℝ {p}) = 1 := finrank_span_singleton hp0
+   have hd : Disjoint (Submodule.span ℝ {n}) (Submodule.span ℝ {p}) := by
+     rw [Submodule.disjoint_def]
+     intro v hv hw
+@@ -352,7 +343,9 @@
+       ((coordinates 2).symm (basis2 1)) ((coordinates 2).symm (basis2 1)) = 0 ∧
+     hessian 2 (actualField 2 2 (fixture_sample 3)) 0
+       ((coordinates 2).symm (basis2 0)) ((coordinates 2).symm (basis2 1)) = Real.pi^2 := by
+-  simp [fixture_hessian,fixture_a,fixture_b,fixture_c,basis2]
++  rw [fixture_hessian, fixture_hessian, fixture_hessian]
++  simp only [ContinuousLinearEquiv.apply_symm_apply]
++  norm_num [fixture_a,fixture_b,fixture_c,basis2]
+ 
+ private theorem fixture_consumers (r : Fin 4) :
+     taylorMatrix (normalizedField (actualField 2 2 (fixture_sample r)) 0 (fixture_P r)) 0 =
+@@ -403,4 +396,4 @@
+     exact jMatrix_mem_jBranchDomain _
+   · intro y hy
+     exact jBranch_congruence _ _ hy
+-      (actual_taylorMatrix_symm (by norm_num : (0:ℝ)<2) (fixture_sample r) 0 (fixture_P r) y)
++      (actual_taylorMatrix_symm (by norm_num : (0:ℝ)<2) (fixture_sample r) 0 (fixture_P r) y)

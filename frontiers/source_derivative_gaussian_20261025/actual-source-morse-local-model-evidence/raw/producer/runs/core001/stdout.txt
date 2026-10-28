@@ -1,0 +1,28 @@
+SourceActualMorseLocalModel.lean:73:61: error(lean.unknownIdentifier): Unknown identifier `intervalIntegrable_id`
+SourceActualMorseLocalModel.lean:72:50: error: unsolved goals
+⊢ ∫ (t : ℝ) in 0..1, 1 - t = 1 / 2
+SourceActualMorseLocalModel.lean:77:54: error: unsolved goals
+h : Point2 → ℝ
+i k : Fin 2
+⊢ 1 / 2 * (iteratedFDeriv ℝ 2 h 0) ![basis2 i, basis2 k] = ((1 / 2) • hessianMatrix h) i k
+SourceActualMorseLocalModel.lean:79:27: error: This simp argument is unused:
+  hessianMatrix
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [taylorMatrix, smul_zero, Pi.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:79:53: error: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [taylorMatrix, hessianMatrix, smul_zero, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+SourceActualMorseLocalModel.lean:79:68: error: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [taylorMatrix, hessianMatrix, smul_zero, Pi.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

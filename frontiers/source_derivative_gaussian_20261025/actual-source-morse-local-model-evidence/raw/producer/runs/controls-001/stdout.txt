@@ -1,0 +1,100 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:37:67: error: unsolved goals
+x : Fin 2 → ℝ
+hs :
+  HasSum (fun m => modeCoefficient 2 2 m x * (toSource 2 minimumPoly) m)
+    (finitePairing (fun m => modeCoefficient 2 2 m x) (toSource 2 minimumPoly))
+he : smoothSourceField 2 2 minimumSample x = finitePairing (fun m => modeCoefficient 2 2 m x) (toSource 2 minimumPoly)
+⊢ (List.map
+        (fun t => t.coeff * Real.cos (Real.pi * ↑(t.frequency 0) * x 0 + Real.pi * ↑(t.frequency 1) * x 1 + t.offset))
+        (scale (-1)
+          [{ coeff := 1, frequency := Pi.single 0 1, offset := 0 },
+            { coeff := 1, frequency := Pi.single 1 1, offset := 0 }])).sum =
+    -Real.cos (Real.pi * x 1) - Real.cos (Real.pi * x 0)
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:50:20: error: This simp argument is unused:
+  eval_scale
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [minimumPoly, eval_append, eval, termEval, phase, I4Weights.sourceC, Fin.sum_univ_two, cosineMinimum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:50:31: error: This simp argument is unused:
+  eval_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [minimumPoly, eval_scale, eval, termEval, phase, I4Weights.sourceC, Fin.sum_univ_two, cosineMinimum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:67:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:67:31: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:67:78: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:80:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:80:33: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:80:56: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:89:21: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:107:47: error: This simp argument is unused:
+  ControlPhysical
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:172:60: error: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:196:5: error(lean.unknownIdentifier): Unknown identifier `intervalIntegrable_id.const_mul`
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:189:62: error: unsolved goals
+he : (fun t => (1 - t) * 2) = fun t => 2 - 2 * t
+⊢ ∫ (t : ℝ) in 0..1, 2 - 2 * t = 1
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:222:30: error: `if_false` has been deprecated: Use `ite_false` instead
+/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean:222:2: error: Type mismatch: After simplification, term
+  hphi
+ has type
+  And (0 ∈ phi.source)
+    (↑phi 0 = 0 ∧
+      0 ∈ phi.target ∧
+        ContDiffOn ℝ 1 (↑phi) phi.source ∧
+          ContDiffOn ℝ 1 (↑phi.symm) phi.target ∧
+            (∀ x ∈ phi.source,
+                actualField 2 2 minimumSample x = actualField 2 2 minimumSample 0 + ∑ x_1, ↑phi x x_1 ^ 2) ∧
+              ∀ (O : Set (E 2)),
+                IsOpen O →
+                  0 ∈ O →
+                    ∃ V,
+                      IsOpen V ∧
+                        0 ∈ V ∧
+                          V ⊆ O ∩ phi.source ∧
+                            IsPathConnected
+                              (V ∩ {x | actualField 2 2 minimumSample 0 ≤ actualField 2 2 minimumSample x}))
+but is expected to have type
+  And (0 ∈ phi.source)
+    (↑phi 0 = 0 ∧
+      0 ∈ phi.target ∧
+        ContDiffOn ℝ 1 (↑phi) phi.source ∧
+          ContDiffOn ℝ 1 (↑phi.symm) phi.target ∧
+            (∀ x ∈ phi.source, minimumField x = minimumField 0 + ∑ i, ↑phi x i ^ 2) ∧
+              ∀ (O : Set ControlPhysical),
+                IsOpen O →
+                  0 ∈ O →
+                    ∃ V,
+                      IsOpen V ∧
+                        0 ∈ V ∧ V ⊆ O ∩ phi.source ∧ IsPathConnected (V ∩ {x | minimumField 0 ≤ minimumField x}))

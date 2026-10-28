@@ -1,0 +1,28 @@
+SourceActualMorseLocalModel.lean:500:4: error: Type mismatch: After simplification, term
+  QuadraticForm.equivalent_one_neg_one_weighted_sum_squared Q hsepQ
+ has type
+  ∃ (w : Fin (Module.finrank ℝ E2) → ℝ),
+    (∀ (i : Fin (Module.finrank ℝ E2)), w i = -1 ∨ w i = 1) ∧
+      QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares ℝ w)
+but is expected to have type
+  ∃ (w : Fin 2 → ℝ),
+    (∀ (i : Fin 2), w i = -1 ∨ w i = 1) ∧ QuadraticMap.Equivalent Q (QuadraticMap.weightedSumSquares ℝ w)
+SourceActualMorseLocalModel.lean:701:15: error: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+SourceActualMorseLocalModel.lean:758:54: error: `ContinuousLinearMap.sum_apply` has been deprecated: Use `sum_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sum_apply` to `sum_apply x`).
+SourceActualMorseLocalModel.lean:759:4: error: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+SourceActualMorseLocalModel.lean:780:2: error: Type mismatch
+  Eq.symm (matrixCLM_apply ?m.276 y)
+has type
+  ?m.276 *ᵥ y = (matrixCLM ?m.276) y
+but is expected to have type
+  normalizedResponse (actualField 2 L omega) X j P y x✝ = ((matrixCLM ∘ jBranch j ∘ M) y) (id y) x✝
+SourceActualMorseLocalModel.lean:808:2: error: Type mismatch: After simplification, term
+  hp
+ has type
+  HasFDerivAt (fun y => (N y) (id y)) (ContinuousLinearMap.id ℝ Point2 + (fderiv ℝ N 0).flip (id 0)) 0
+but is expected to have type
+  HasFDerivAt (fun y => (N y) y) (ContinuousLinearMap.id ℝ Point2) 0

@@ -1,0 +1,71 @@
+{
+  "status": "PRODUCER_COMPLETE_READY_FOR_FINAL_INDEPENDENT_TECHNICAL_REVIEW_ROOT_ONLY_INTEGRATION",
+  "utc": "2026-10-28T15:44:34.732488+00:00",
+  "module": "SourceActualMorseLocalModel",
+  "namespace": "I4SourceActualMorseLocalModel",
+  "public_Prop": "actualSource_c1_quadratic_localModel",
+  "authored_public_Props": 1,
+  "authored_public_data": 0,
+  "source": {
+    "role": "owned_production_source",
+    "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+    "bytes": 65754,
+    "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+    "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "eligible_owned_object": {
+    "role": "owned_production_object",
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+    "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+    "bytes": 3409752,
+    "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+    "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+    "new_sha256_operations": 1,
+    "reused_identity": false
+  },
+  "qualification": {
+    "production_strict": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/RECORD.json",
+    "all_owned_inventory_std3": "/workspace/scratch/actual-source-morse-local-model-construct/runs/inventory-001/RECORD.json",
+    "exactly_one_kernel": "/workspace/scratch/actual-source-morse-local-model-construct/runs/kernel-001/RECORD.json",
+    "ordinary_controls_counterproof": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/RECORD.json",
+    "sole_intendedFalse": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/RECORD.json",
+    "full_production_patches": {
+      "A": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_A_FULL_AMENDMENTS.patch",
+      "B": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_B_FULL_AMENDMENTS.patch",
+      "C": "/workspace/scratch/actual-source-morse-local-model-construct/runs/core019/HELPER_C_FULL_AMENDMENTS.patch"
+    },
+    "full_ordinary_patch": "/workspace/scratch/actual-source-morse-local-model-construct/runs/controls-003/CONTROLS_FULL_AMENDMENTS.patch"
+  },
+  "all_actual_calls": 25,
+  "inventory_owned": 173,
+  "owned_foreign_generated": [
+    "LinearEquiv.toContinuousLinearEquiv.congr_simp",
+    "I4Weights.sourceC.eq_1",
+    "sigNeg.eq_1"
+  ],
+  "helper_integrations_each": 1,
+  "helper_executions": 0,
+  "kernel_invocations": 1,
+  "negative_invocations": 1,
+  "report": "/workspace/scratch/actual-source-morse-local-model-construct/REPORT.md",
+  "execution_index": "/workspace/scratch/actual-source-morse-local-model-construct/EXECUTION_RECORD_INDEX.json",
+  "inventory_classification": "/workspace/scratch/actual-source-morse-local-model-construct/INVENTORY_CLASSIFICATION.json",
+  "artifact_first_identities": "/workspace/scratch/actual-source-morse-local-model-construct/ARTIFACT_IDENTITIES.json",
+  "no_source_edits_after_strict_core019": true,
+  "root_only": "source cut, config/registry, cache eligibleownobject ONCE, Git/external publication",
+  "review_pending": "final independent source/spec review; provider-distinct/scientific process separately scoped",
+  "science": "NONE",
+  "same_family_credit": 0,
+  "reuse": "Owner AGENTS applicable verification reusable; no old replay for head/session/handoff/process; source/object successful strict IDs reused unchanged.",
+  "actual_root_context": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_CONTEXT_BINDING.json",
+  "shared_context_full_actual_amendments": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+  "actual_root_source_cut": "c43a952b3fd71f7239fe31be51cba074cd5bd82b",
+  "actual_root_source_Gitblob": "6a5a5fbbc85fd5703f4a3c3eb727a30f55e6827d",
+  "root_eligible_object_copied_once": true,
+  "negative_harness_source_bytes": 175,
+  "negative_stdout_bytes": 138,
+  "negative_stderr_bytes": 0
+}

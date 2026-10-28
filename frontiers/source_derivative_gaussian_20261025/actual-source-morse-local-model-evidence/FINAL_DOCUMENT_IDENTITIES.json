@@ -1,0 +1,98 @@
+{
+  "status": "IMMUTABLE_FINAL_DOCUMENT_IDENTITIES",
+  "utc": "2026-10-28T15:49:03.462077+00:00",
+  "final_documents": [
+    {
+      "role": "final_producer_report",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/REPORT.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0053-REPORT.md",
+      "bytes": 11965,
+      "sha256": "f490e5fca03ee0155ef04fc6d2d4e8bbfbfc8848d090d3c5e2e56b9daa8d414b",
+      "first_bound_utc": "2026-10-28T15:47:49.311678+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_producer_handoff",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/HANDOFF.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0054-HANDOFF.json",
+      "bytes": 4407,
+      "sha256": "d7ef62b8c4d04288faa445278d1091bd8677f2a77470326f28dbbcf1c9f6ed36",
+      "first_bound_utc": "2026-10-28T15:47:49.312534+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_execution_index",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/EXECUTION_RECORD_INDEX.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0055-EXECUTION_RECORD_INDEX.json",
+      "bytes": 22156,
+      "sha256": "588447916e0a98df093c016f773d8f97a5eec89800ce16c7a978813c99bdcc86",
+      "first_bound_utc": "2026-10-28T15:47:49.313401+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_inventory_classification",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/INVENTORY_CLASSIFICATION.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0056-INVENTORY_CLASSIFICATION.json",
+      "bytes": 63717,
+      "sha256": "ae0945597d220fe77b72d398f26924c9e76aca0f7116b831181b025701160f24",
+      "first_bound_utc": "2026-10-28T15:47:49.314149+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_control_receipt",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROL_RECEIPT.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0057-CONTROL_RECEIPT.json",
+      "bytes": 1604,
+      "sha256": "9361d2409e867e92175fbb02b3d283d846ce08f2e7334779b3af522a497e88a0",
+      "first_bound_utc": "2026-10-28T15:47:49.314870+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_source_object_identites",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0058-SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2813,
+      "sha256": "1736292370069d3d15a8691463d0ee56c498b59fdc87503e98bd88dfd7813b49",
+      "first_bound_utc": "2026-10-28T15:47:49.315484+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_root_context_binding",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_CONTEXT_BINDING.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0059-ROOT_CONTEXT_BINDING.json",
+      "bytes": 4581,
+      "sha256": "46aefb63b7f3e2f1945bce2969dd544b19e2d6f8af9458d853f7358ab01a4056",
+      "first_bound_utc": "2026-10-28T15:47:49.316375+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_shared_context_amendments",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0060-SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "bytes": 1938,
+      "sha256": "5c8bd6edc034e693a893d1284a613681e129cfd3baa853ee694cb0d4bae6669e",
+      "first_bound_utc": "2026-10-28T15:47:49.317084+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_producer_ready",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/PRODUCER_FINAL_READY.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0061-PRODUCER_FINAL_READY.json",
+      "bytes": 321,
+      "sha256": "73fcdef3ccc903a1791522ac10b5caee23f0c3160fb2f8c827c48c06d86cead4",
+      "first_bound_utc": "2026-10-28T15:47:49.317740+00:00",
+      "new_sha256_operations": 1
+    }
+  ],
+  "frozen_artifact_identity_manifest": {
+    "path": "/workspace/scratch/actual-source-morse-local-model-construct/ARTIFACT_IDENTITIES.json",
+    "bytes": 30032,
+    "sha256": "0c90b7db3a0a029c16322c793db0a01ef379e79eb38a72e21b3dd3526f29ba62",
+    "first_binding_only": true,
+    "artifact_entries": 61
+  },
+  "source_object_ids": "Reuse SOURCE_OBJECT_IDENTITIES.json; no source/object hash performed here",
+  "source_code_changes_after_core019": 0,
+  "additional_Lean_or_kernel_controls": 0,
+  "root_only": "metadata/archive/Git/publication; eligible own object already copied ONCE per root receipt; no further copy"
+}

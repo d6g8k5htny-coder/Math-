@@ -1,0 +1,70 @@
+--- frozen-original/A
++++ actual-source/A
+@@ -21,14 +21,16 @@
+   rw [Matrix.diagonal_mul_diagonal]
+   have h : (fun i : Fin 2 => sign2 j i * sign2 j i) = (1 : Fin 2 → ℝ) :=
+     funext (jBranch_sign_square j)
+-  rw [h,Matrix.diagonal_one]
++  rw [h]
++  ext i k
++  by_cases hik : i = k <;> simp [Matrix.one_apply, hik]
+ 
+ private theorem jBranch_jMatrix_transpose (j : ℕ) : (jMatrix j).transpose = jMatrix j := by
+   ext i k
+   by_cases h : i=k
+   · subst k
+     rfl
+-  · simp [jMatrix,Matrix.transpose_apply,Matrix.diagonal_apply,h,Ne.symm h]
++  · simp [jMatrix,Matrix.transpose_apply,h,Ne.symm h]
+ 
+ private theorem jBranch_det_contDiff (j : ℕ) :
+     ContDiff ℝ 1 (fun M : Mat2 => (jMatrix j * M).det) := by
+@@ -67,11 +69,18 @@
+   norm_num [Matrix.trace_one]
+ 
+ private theorem jBranch_center (j : ℕ) : jBranch j (jMatrix j) = 1 := by
+-  simp only [jBranch,jBranch_jMatrix_square,Matrix.det_one,Real.sqrt_one,
+-    Matrix.trace_one,Fintype.card_fin]
++  unfold jBranch
++  rw [jBranch_jMatrix_square]
+   ext i k
+-  by_cases h : i=k <;>
+-    norm_num [Matrix.smul_apply,Matrix.add_apply,Matrix.one_apply,h]
++  change (Real.sqrt ((1 : Mat2).trace + 2 * Real.sqrt ((1 : Mat2).det)))⁻¹ *
++    ((1 : Mat2) i k + Real.sqrt ((1 : Mat2).det) * (1 : Mat2) i k) = (1 : Mat2) i k
++  norm_num [Matrix.trace_fin_two, Matrix.one_apply]
++  have h4 : Real.sqrt (4 : ℝ) = 2 := by
++    have h := Real.sqrt_sq_eq_abs (2 : ℝ)
++    norm_num at h
++    exact h
++  rw [h4]
++  by_cases hik : i = k <;> norm_num [hik]
+ 
+ private theorem jBranch_contDiffOn (j : ℕ) :
+     ContDiffOn ℝ 1 (jBranch j) (jBranchDomain j) := by
+@@ -102,8 +111,8 @@
+     Z * Z + Z.det • (1 : Mat2) = Z.trace • Z := by
+   ext i k
+   fin_cases i <;> fin_cases k <;>
+-    simp only [Matrix.mul_apply,Fin.sum_univ_two,Matrix.add_apply,Matrix.smul_apply,
+-      smul_eq_mul,Matrix.det_fin_two,Matrix.trace_fin_two,Matrix.one_apply] <;> ring
++    simp [Matrix.mul_apply,Fin.sum_univ_two,Matrix.add_apply,Matrix.smul_apply,
++      smul_eq_mul,Matrix.det_fin_two,Matrix.trace_fin_two] <;> ring
+ 
+ /- For symmetric M, Z=J*M is J-self-adjoint: Z^T*J=J*Z.
+    It is generally NOT ordinarily symmetric. -/
+@@ -132,7 +141,7 @@
+   have hNN : N*N=(Z*Z+s^2 • (1 : Mat2))+(2*s) • Z := by
+     dsimp only [N]
+     simp only [Matrix.add_mul,Matrix.mul_add,Matrix.smul_mul,Matrix.mul_smul,
+-      Matrix.one_mul,Matrix.mul_one,smul_smul]
++      Matrix.one_mul,Matrix.mul_one]
+     ext i k
+     simp only [Matrix.add_apply,Matrix.smul_apply,smul_eq_mul]
+     ring
+@@ -168,4 +177,4 @@
+   change (d⁻¹ • (Z+s • (1 : Mat2))).transpose * jMatrix j *
+     (d⁻¹ • (Z+s • (1 : Mat2))) = M
+   simp only [Matrix.transpose_smul,Matrix.smul_mul,Matrix.mul_smul,smul_smul]
+-  rw [hnum,smul_smul,hc,one_smul]
++  rw [hnum,smul_smul,hc,one_smul]

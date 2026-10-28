@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-28T15:29:56.082919+00:00",
+  "integration_count": 1,
+  "helper_executions": 0,
+  "source": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+  "original_identities": [
+    {
+      "role": "helper_Controls_original_section",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_SECTION.lean.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0037-CONTROLS_SECTION.lean.txt",
+      "bytes": 9829,
+      "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+      "first_bound_utc": "2026-10-28T15:29:56.079990+00:00",
+      "new_sha256_operations": 1,
+      "reused_identity": false
+    },
+    {
+      "role": "helper_Controls_original_imports",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_IMPORTS.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0038-CONTROLS_IMPORTS.txt",
+      "bytes": 242,
+      "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+      "first_bound_utc": "2026-10-28T15:29:56.080802+00:00",
+      "new_sha256_operations": 1,
+      "reused_identity": false
+    },
+    {
+      "role": "helper_Controls_original_provenance",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_PROVENANCE.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0039-CONTROLS_PROVENANCE.md",
+      "bytes": 3731,
+      "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+      "first_bound_utc": "2026-10-28T15:29:56.081450+00:00",
+      "new_sha256_operations": 1,
+      "reused_identity": false
+    },
+    {
+      "role": "helper_Controls_original_freeze",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_FROZEN.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0040-CONTROLS_FROZEN.json",
+      "bytes": 771,
+      "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+      "first_bound_utc": "2026-10-28T15:29:56.082271+00:00",
+      "new_sha256_operations": 1,
+      "reused_identity": false
+    }
+  ],
+  "coverage": "ordinary Controls compilation only, not production kernel"
+}

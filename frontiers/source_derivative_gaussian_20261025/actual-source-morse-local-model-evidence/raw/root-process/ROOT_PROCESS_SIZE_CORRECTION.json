@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-10-28T15:46:47.153965+00:00",
+  "status": "PROCESS_METADATA_PRECISION_CORRECTION_ONLY",
+  "mistake": "Root interpreted producer negative175B as stdout size;175B is the importing source harness size.",
+  "actual_negative_stdout_bytes": 138,
+  "actual_negative_source_bytes": 175,
+  "actual_negative_stderr_bytes": 0,
+  "actual_negative_result": "Exactly one intended unsolved False afterpassedindependentcounterproof; no unrelateddiagnostic",
+  "actual_original_record": "/workspace/scratch/actual-source-morse-local-model-construct/runs/omitted-weight-false-001/RECORD.json",
+  "historical_records_preserved": [
+    "ROOT_SOURCE_CUT.pre-size-correction.json",
+    "ROOT_OWN_OBJECT_COPY.pre-size-correction.json"
+  ],
+  "canonical_records_corrected": [
+    "ROOT_SOURCE_CUT.json",
+    "ROOT_OWN_OBJECT_COPY.json"
+  ],
+  "source_object_and_completed_copy_operation": "UNCHANGED; onlyoneowncopy15:45:12/ALLfurthercopiesSKIP",
+  "additional_hash_or_proof_build_kernel_control_negative_operations": 0,
+  "no_mathematical_defect_or_reexecution_reason": true
+}

@@ -1,0 +1,553 @@
+{
+  "artifacts": [
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0001-SourceActualMorseLocalModel.lean",
+      "bytes": 3696,
+      "sha256": "d515c252ca35ca9d49c1203ee710d5eefa6b43de7fc7c70766dce37f0b4ee023",
+      "first_bound_utc": "2026-10-28T14:50:12.946899+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_source_execution_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0002-run_source.py",
+      "bytes": 3023,
+      "sha256": "f0b7cd5c87e5f61e0f3e2dafac6babf5bb6e6a48464536a755a8bfae8de014d2",
+      "first_bound_utc": "2026-10-28T14:50:12.947126+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0003-SourceActualMorseLocalModel.lean",
+      "bytes": 3851,
+      "sha256": "33ff4e407db56bce4443caabc9962ae2e5446cd9df5c2ebc2ab2920db9310daf",
+      "first_bound_utc": "2026-10-28T14:52:07.827271+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0004-SourceActualMorseLocalModel.lean",
+      "bytes": 6341,
+      "sha256": "86be8b7a29a2c4391a3404a4c27cfe73ab5e476b030a0913cce1d0de810aea59",
+      "first_bound_utc": "2026-10-28T14:55:10.579008+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_A_original_section",
+      "path": "/workspace/scratch/morse-local-model-finite2-branch-text/SECTION.lean.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/SECTION.lean.txt",
+      "bytes": 7783,
+      "sha256": "fb8affe1ac43c2899d56401cf8f5c3942ba4981a6dc6a263a90fb2edbd587359",
+      "first_bound_utc": "2026-10-28T14:56:44.437095+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_A_original_imports",
+      "path": "/workspace/scratch/morse-local-model-finite2-branch-text/IMPORTS.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/IMPORTS.txt",
+      "bytes": 88,
+      "sha256": "d93204eceb8c3573f803bc1a35ccecdb759c3c52b20220bd8e24db231385ebb1",
+      "first_bound_utc": "2026-10-28T14:56:44.437190+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_A_original_provenance",
+      "path": "/workspace/scratch/morse-local-model-finite2-branch-text/PROVENANCE.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/PROVENANCE.md",
+      "bytes": 6119,
+      "sha256": "dbefe94953686809ffff8e81867c065108ae77c031b1ab822d232737128da41b",
+      "first_bound_utc": "2026-10-28T14:56:44.437251+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_A_original_freeze",
+      "path": "/workspace/scratch/morse-local-model-finite2-branch-text/FROZEN_LOGICAL_IDS.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/A/FROZEN_LOGICAL_IDS.json",
+      "bytes": 1012,
+      "sha256": "210c457a41ba420ea4443c7dcd9cdc934ba695ca1347beb1e02431ef9caa8fdf",
+      "first_bound_utc": "2026-10-28T14:56:44.437298+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0009-SourceActualMorseLocalModel.lean",
+      "bytes": 14266,
+      "sha256": "db178b178106ee437aba1edd9f1f6be74520cf25221be426689b07c235077ef5",
+      "first_bound_utc": "2026-10-28T14:56:44.622953+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_source_execution_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_source.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0010-run_source.py",
+      "bytes": 3721,
+      "sha256": "f6f6f0d152617ba7e1f509d4171fd94be1e3929b8192b48a5f7c441707fffd6c",
+      "first_bound_utc": "2026-10-28T14:56:44.623288+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_B_original_section",
+      "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/SECTION.lean.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/SECTION.lean.txt",
+      "bytes": 8385,
+      "sha256": "33a8c82a2750af89dd449f58617e0f30dda9e834a409e14774f2b1831377b983",
+      "first_bound_utc": "2026-10-28T15:00:14.133221+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_B_original_imports",
+      "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/IMPORTS.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/IMPORTS.txt",
+      "bytes": 408,
+      "sha256": "f622ed9ce4c60ee252236cfe15e8375da5c61a3fc69244dbf3f298bae9541a5b",
+      "first_bound_utc": "2026-10-28T15:00:14.133336+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_B_original_provenance",
+      "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/PROVENANCE.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/PROVENANCE.md",
+      "bytes": 8549,
+      "sha256": "f52a4685e858716da4df3f2dd31eb5f113097b9cd8733423434c0a12e87b52f1",
+      "first_bound_utc": "2026-10-28T15:00:14.133449+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_B_original_freeze",
+      "path": "/workspace/scratch/morse-local-model-inertia-normalizer-text/FROZEN_ORIGINALS.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/B/FROZEN_ORIGINALS.json",
+      "bytes": 1963,
+      "sha256": "906055ab3b2d72eefa52109f8894217ed1f335b947f1c697ea5f29f3fe3165c1",
+      "first_bound_utc": "2026-10-28T15:00:14.133528+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0015-SourceActualMorseLocalModel.lean",
+      "bytes": 22930,
+      "sha256": "4be888c773328c3b4f58a4563a556d0f1b6bea13c32bc7d423e793e386888a09",
+      "first_bound_utc": "2026-10-28T15:00:14.325383+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0016-SourceActualMorseLocalModel.lean",
+      "bytes": 28989,
+      "sha256": "7f9e2a184d89087e87f58727bf5e84bdcf511d27b93e59c3e947b32790315a3c",
+      "first_bound_utc": "2026-10-28T15:03:00.337031+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0017-SourceActualMorseLocalModel.lean",
+      "bytes": 29240,
+      "sha256": "b40f513919106df440ecef34d57dc076de5a02a7547c5b9f33f69a19fddaf988",
+      "first_bound_utc": "2026-10-28T15:05:30.320793+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0018-SourceActualMorseLocalModel.lean",
+      "bytes": 33462,
+      "sha256": "5b5884c271dc46ebb9d00154db4df874ceaa347eb7f3008c4ce36078556dccd4",
+      "first_bound_utc": "2026-10-28T15:08:26.084324+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0019-SourceActualMorseLocalModel.lean",
+      "bytes": 36872,
+      "sha256": "3c27ea1d87fce1dc6ff36f4d1b89f1b47b3f7254fbf8e6e0e45700e920f7f51f",
+      "first_bound_utc": "2026-10-28T15:09:50.594760+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0020-SourceActualMorseLocalModel.lean",
+      "bytes": 37218,
+      "sha256": "4cc8194a59ec26ae1a97bf549125d318b5c07a90f67fd66fc427c5a2e3c2ef54",
+      "first_bound_utc": "2026-10-28T15:11:32.453349+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0021-SourceActualMorseLocalModel.lean",
+      "bytes": 37348,
+      "sha256": "8cdd7a0fd3e4361ff6df8bf4a4da0fc35663c46b652445b0636261a8f857aeb6",
+      "first_bound_utc": "2026-10-28T15:13:33.924522+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0022-SourceActualMorseLocalModel.lean",
+      "bytes": 40605,
+      "sha256": "c4fb41bbb767b8a96bbfb01cdbbd7af4890700dc12f5bc6f96244f3f9356daca",
+      "first_bound_utc": "2026-10-28T15:15:59.910679+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0023-SourceActualMorseLocalModel.lean",
+      "bytes": 46819,
+      "sha256": "3450050d4ebce3f88cc3f7d9c7989061fbaf0b3aaf123d0889dfb6ad0adcfb62",
+      "first_bound_utc": "2026-10-28T15:18:25.118432+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0024-SourceActualMorseLocalModel.lean",
+      "bytes": 46828,
+      "sha256": "4bec7b3ef8a4c4a914b763552b7cb4b78cfa368baf96e44172adc452bccd21e8",
+      "first_bound_utc": "2026-10-28T15:20:25.309017+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0025-SourceActualMorseLocalModel.lean",
+      "bytes": 47114,
+      "sha256": "e4e8d591a427d9edb3cdbbb4c0bb83c70a76abeab763b4910aed4e336d6de2e4",
+      "first_bound_utc": "2026-10-28T15:22:22.035981+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0026-SourceActualMorseLocalModel.lean",
+      "bytes": 47154,
+      "sha256": "1e91017333f6068042efe233c93019d5c3e9c94609bc14ea908bd1f473221df4",
+      "first_bound_utc": "2026-10-28T15:23:55.134179+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_object",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0027-SourceActualMorseLocalModel.olean",
+      "bytes": 1893760,
+      "sha256": "257d5204cb7a23a9f0d0d4fabbad5dfb5cf9377a163e23137384c466776a5cac",
+      "first_bound_utc": "2026-10-28T15:24:03.328556+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_C_original_section",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_SECTION.lean.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_SECTION.lean.txt",
+      "bytes": 19250,
+      "sha256": "e4ac1545ea4fd5a30549e48e55b4f8d89d03f8719c582cfb6cfd8e5740289fac",
+      "first_bound_utc": "2026-10-28T15:25:07.179951+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_C_original_imports",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_IMPORTS.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_IMPORTS.txt",
+      "bytes": 265,
+      "sha256": "cccf726a6a6e1b0f6c5c7a6e0f2b03b5e52c90dec9bab48c2f9a8903329fd7b4",
+      "first_bound_utc": "2026-10-28T15:25:07.180222+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_C_original_provenance",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_PROVENANCE.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_PROVENANCE.md",
+      "bytes": 4061,
+      "sha256": "a8f7e610110c273d2a8ab0c4660b0c077974208f53a39f81e9f56455c4e678c1",
+      "first_bound_utc": "2026-10-28T15:25:07.180458+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_C_original_freeze",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/PRODUCTION_FROZEN.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/helper-originals/C/PRODUCTION_FROZEN.json",
+      "bytes": 577,
+      "sha256": "33859dbafd010cf17536b417beb627939ae0f27355cf9be4ff17bfdf92e76714",
+      "first_bound_utc": "2026-10-28T15:25:07.180704+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0032-SourceActualMorseLocalModel.lean",
+      "bytes": 66574,
+      "sha256": "f00c43fb51903c16703b48305cf02d99d2a972c404d49b59fe90fb671609ebc0",
+      "first_bound_utc": "2026-10-28T15:25:07.380556+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0033-SourceActualMorseLocalModel.lean",
+      "bytes": 65654,
+      "sha256": "f2a3fda2a9d2b36d9e2f3cdad181132da5ecd9b959511caa3114aa32b4c75538",
+      "first_bound_utc": "2026-10-28T15:28:12.394392+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_artifact_binding_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/bind_owned.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0034-bind_owned.py",
+      "bytes": 1392,
+      "sha256": "cdad68320aa1984ad0b79903c285538ec72594c96a92c19afb9d63257dd16c82",
+      "first_bound_utc": "2026-10-28T15:29:56.051028+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_helper_integration_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/integrate_section.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0035-integrate_section.py",
+      "bytes": 2743,
+      "sha256": "995b7bd4ed9af6ddefb81f09d48fcf186bcc062cfcf471e8a392ea13bbb7f058",
+      "first_bound_utc": "2026-10-28T15:29:56.051498+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_controls_integration_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/prepare_controls.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0036-prepare_controls.py",
+      "bytes": 1552,
+      "sha256": "4913f821215b74e4fcde99cdc7f9f1f16e2fcebef07d02e9f283a23db3baa06d",
+      "first_bound_utc": "2026-10-28T15:29:56.051893+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_Controls_original_section",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_SECTION.lean.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0037-CONTROLS_SECTION.lean.txt",
+      "bytes": 9829,
+      "sha256": "036dc6e3053438f524557a4a9a4dc28906a7784dbea65773640e946fe95e22c2",
+      "first_bound_utc": "2026-10-28T15:29:56.079990+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_Controls_original_imports",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_IMPORTS.txt",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0038-CONTROLS_IMPORTS.txt",
+      "bytes": 242,
+      "sha256": "4b5364860602cca16c8d046ae9c215f51ba54fa929bed0e2637b84239e0efdf3",
+      "first_bound_utc": "2026-10-28T15:29:56.080802+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_Controls_original_provenance",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_PROVENANCE.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0039-CONTROLS_PROVENANCE.md",
+      "bytes": 3731,
+      "sha256": "d0893ae69daabbbfe36d98abeb2ab4a6bc917be720e711d2ae730956df1f761e",
+      "first_bound_utc": "2026-10-28T15:29:56.081450+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "helper_Controls_original_freeze",
+      "path": "/workspace/scratch/morse-local-model-actual-fixtures-text/CONTROLS_FROZEN.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0040-CONTROLS_FROZEN.json",
+      "bytes": 771,
+      "sha256": "1ce2aea1ada8071dee81f00bfa1794ea1d98c12835a1d4051ca837e1f0b93272",
+      "first_bound_utc": "2026-10-28T15:29:56.082271+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_source",
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualMorseLocalModel.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0041-SourceActualMorseLocalModel.lean",
+      "bytes": 65754,
+      "sha256": "d6776bd34a2ae1371c2af8fbfcc54d2a536e7c96b2e4db517a5f4a81b4128cd5",
+      "first_bound_utc": "2026-10-28T15:30:36.412696+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_production_object",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/SourceActualMorseLocalModel.olean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0042-SourceActualMorseLocalModel.olean",
+      "bytes": 3409752,
+      "sha256": "7bc2d9fc1edcbd936dc04b583fa2b4642fc6fd968c594350df8eec28093d7ad3",
+      "first_bound_utc": "2026-10-28T15:30:47.921140+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_source_Inventory",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/Inventory.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0043-Inventory.lean",
+      "bytes": 1082,
+      "sha256": "1e2fe4e6fa7e7796690638ac4265a71551e5ae63f1c0b7236b55ddbece16ffbe",
+      "first_bound_utc": "2026-10-28T15:33:06.169343+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_execution_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0044-run_ordinary.py",
+      "bytes": 2857,
+      "sha256": "b403d52a574372a05e9f9b6e9518e1f5d22525fd0eaa8d23f654dda50edadcc2",
+      "first_bound_utc": "2026-10-28T15:33:06.169926+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_object_Inventory",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/Inventory.olean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0045-Inventory.olean",
+      "bytes": 2712,
+      "sha256": "137ca4bfb4261cffd31650b2effdc758333e34de3fea8e13236848f2bf4f7045",
+      "first_bound_utc": "2026-10-28T15:33:09.486267+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_source_MorseLocalModelControls",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0046-MorseLocalModelControls.lean",
+      "bytes": 10072,
+      "sha256": "a6023d8850e39fca5e62aaa382884850bd625850345e51a39e8acf3a17554b6a",
+      "first_bound_utc": "2026-10-28T15:34:58.100391+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_source_MorseLocalModelControls",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0047-MorseLocalModelControls.lean",
+      "bytes": 10156,
+      "sha256": "e4b5e931442092b9f48703b25fd11a56dde7245e9363b15f2f2923b2ffdf8425",
+      "first_bound_utc": "2026-10-28T15:36:29.137070+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_source_MorseLocalModelControls",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/MorseLocalModelControls.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0048-MorseLocalModelControls.lean",
+      "bytes": 10149,
+      "sha256": "8887149774e637c1c55734949c300a10c636770c635678552a897951893d9328",
+      "first_bound_utc": "2026-10-28T15:37:50.855653+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_object_MorseLocalModelControls",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/objects/MorseLocalModelControls.olean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0049-MorseLocalModelControls.olean",
+      "bytes": 823096,
+      "sha256": "99cea3a0b8be53bf53980263c97768ecf13c0222f8c2c063ae3ab7c1e4f8a4dc",
+      "first_bound_utc": "2026-10-28T15:37:55.056145+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_one_kernel_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_kernel.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0050-run_kernel.py",
+      "bytes": 2121,
+      "sha256": "08251b0c26564e6548da078c019a5d8a2585cd29afeacf5d09bc4585e4d9e49a",
+      "first_bound_utc": "2026-10-28T15:39:01.354682+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_source_OmittedTaylorWeightFalse",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/controls/OmittedTaylorWeightFalse.lean",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0051-OmittedTaylorWeightFalse.lean",
+      "bytes": 175,
+      "sha256": "0ac7b1f17de8d94bcf96004c2dbd5a778292b7b190606984954feb0d9849c405",
+      "first_bound_utc": "2026-10-28T15:40:54.921794+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "owned_ordinary_execution_harness",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/run_ordinary.py",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0052-run_ordinary.py",
+      "bytes": 3953,
+      "sha256": "f1e0fa944a5b0746595748b7e60bdeb026a0b4f95f9061859de099bdcfa5bf17",
+      "first_bound_utc": "2026-10-28T15:40:54.922809+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_producer_report",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/REPORT.md",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0053-REPORT.md",
+      "bytes": 11965,
+      "sha256": "f490e5fca03ee0155ef04fc6d2d4e8bbfbfc8848d090d3c5e2e56b9daa8d414b",
+      "first_bound_utc": "2026-10-28T15:47:49.311678+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_producer_handoff",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/HANDOFF.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0054-HANDOFF.json",
+      "bytes": 4407,
+      "sha256": "d7ef62b8c4d04288faa445278d1091bd8677f2a77470326f28dbbcf1c9f6ed36",
+      "first_bound_utc": "2026-10-28T15:47:49.312534+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_execution_index",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/EXECUTION_RECORD_INDEX.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0055-EXECUTION_RECORD_INDEX.json",
+      "bytes": 22156,
+      "sha256": "588447916e0a98df093c016f773d8f97a5eec89800ce16c7a978813c99bdcc86",
+      "first_bound_utc": "2026-10-28T15:47:49.313401+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_inventory_classification",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/INVENTORY_CLASSIFICATION.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0056-INVENTORY_CLASSIFICATION.json",
+      "bytes": 63717,
+      "sha256": "ae0945597d220fe77b72d398f26924c9e76aca0f7116b831181b025701160f24",
+      "first_bound_utc": "2026-10-28T15:47:49.314149+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_control_receipt",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/CONTROL_RECEIPT.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0057-CONTROL_RECEIPT.json",
+      "bytes": 1604,
+      "sha256": "9361d2409e867e92175fbb02b3d283d846ce08f2e7334779b3af522a497e88a0",
+      "first_bound_utc": "2026-10-28T15:47:49.314870+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_source_object_identites",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/SOURCE_OBJECT_IDENTITIES.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0058-SOURCE_OBJECT_IDENTITIES.json",
+      "bytes": 2813,
+      "sha256": "1736292370069d3d15a8691463d0ee56c498b59fdc87503e98bd88dfd7813b49",
+      "first_bound_utc": "2026-10-28T15:47:49.315484+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_root_context_binding",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/ROOT_CONTEXT_BINDING.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0059-ROOT_CONTEXT_BINDING.json",
+      "bytes": 4581,
+      "sha256": "46aefb63b7f3e2f1945bce2969dd544b19e2d6f8af9458d853f7358ab01a4056",
+      "first_bound_utc": "2026-10-28T15:47:49.316375+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_shared_context_amendments",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0060-SHARED_CONTEXT_FULL_ACTUAL_AMENDMENTS.patch",
+      "bytes": 1938,
+      "sha256": "5c8bd6edc034e693a893d1284a613681e129cfd3baa853ee694cb0d4bae6669e",
+      "first_bound_utc": "2026-10-28T15:47:49.317084+00:00",
+      "new_sha256_operations": 1
+    },
+    {
+      "role": "final_producer_ready",
+      "path": "/workspace/scratch/actual-source-morse-local-model-construct/PRODUCER_FINAL_READY.json",
+      "snapshot": "/workspace/scratch/actual-source-morse-local-model-construct/identities/0061-PRODUCER_FINAL_READY.json",
+      "bytes": 321,
+      "sha256": "73fcdef3ccc903a1791522ac10b5caee23f0c3160fb2f8c827c48c06d86cead4",
+      "first_bound_utc": "2026-10-28T15:47:49.317740+00:00",
+      "new_sha256_operations": 1
+    }
+  ]
+}
