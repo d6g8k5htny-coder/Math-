@@ -1,0 +1,219 @@
+{
+  "label": "production-fixtures-001",
+  "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+  "command": [
+    "/home/agent/.elan/bin/lake",
+    "env",
+    "lean",
+    "-DwarningAsError=true",
+    "-o",
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+    "SourceActualFiniteSuperlevelComponents.lean"
+  ],
+  "runner_version": "001",
+  "runner_history": "/workspace/scratch/actual-source-finite-superlevel-components-construct/history/runner.001.py",
+  "before": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11315,
+      "sha256": "9e130f125192c57c5f6751419c67d1017e071f40f3420c9100651cdd5cc4311d",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+      "bytes": 103160,
+      "sha256": "99a80a40c05131373220d2aa321ee2516a637b0c2ef04cdae56267d9aa4ca7a7",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/FiniteSuperlevelComponentsControls.olean": null,
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md": {
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899",
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    }
+  },
+  "snapshots": [
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/SourceActualFiniteSuperlevelComponents.lean",
+      "existing_identity": {
+        "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+        "bytes": 11315,
+        "sha256": "9e130f125192c57c5f6751419c67d1017e071f40f3420c9100651cdd5cc4311d",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/record_run.py",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py",
+        "bytes": 3212,
+        "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTEXT.md",
+      "existing_identity": {
+        "bytes": 19790,
+        "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899",
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerFixtures.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt",
+        "bytes": 6558,
+        "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CONTROLS_HEADER.001.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt",
+        "bytes": 840,
+        "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/HEADER.001.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt",
+        "bytes": 800,
+        "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/CORE.CHECKED.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt",
+        "bytes": 4756,
+        "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74",
+        "identity_origin": "FIRST identity of newly created or changed owned payload"
+      }
+    },
+    {
+      "immutable_path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/ProducerGeneric.INITIAL.lean.txt",
+      "existing_identity": {
+        "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt",
+        "bytes": 1784,
+        "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029",
+        "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+      }
+    }
+  ],
+  "started_utc": "2026-10-28T18:55:50.421277+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 2.7262396340011037,
+  "ended_utc": "2026-10-28T18:55:53.147746+00:00",
+  "after": {
+    "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean": {
+      "path": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025/SourceActualFiniteSuperlevelComponents.lean",
+      "bytes": 11315,
+      "sha256": "9e130f125192c57c5f6751419c67d1017e071f40f3420c9100651cdd5cc4311d",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/SourceActualFiniteSuperlevelComponents.olean",
+      "bytes": 103160,
+      "sha256": "99a80a40c05131373220d2aa321ee2516a637b0c2ef04cdae56267d9aa4ca7a7",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/build/FiniteSuperlevelComponentsControls.olean": null,
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/record_run.py",
+      "bytes": 3212,
+      "sha256": "a426ed036f5d5936e03133eae57940752fd07d381b4edebc414c6c06d1613442",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md": {
+      "bytes": 19790,
+      "sha256": "c71f098f981c2d745b9cbc735165d27389b6e4e30044ae3283040dccba1ab899",
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTEXT.md",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerFixtures.INITIAL.lean.txt",
+      "bytes": 6558,
+      "sha256": "da51c0a7c5a733b903ccfe9b05e079ea21e6f8d86b14fbfd9c78eeaaa2cfd674",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CONTROLS_HEADER.001.lean.txt",
+      "bytes": 840,
+      "sha256": "653fe501ae6ed282e14df6654bafbe63623987b378d9c778a3f6d383ce5ebbda",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/HEADER.001.lean.txt",
+      "bytes": 800,
+      "sha256": "05bf681bf8c5326b011dba244878b64a4d91f7e1aeb638bf3543dc476251baaf",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/CORE.CHECKED.lean.txt",
+      "bytes": 4756,
+      "sha256": "ee30189b88ff08e8ce476e690c49541cbcf666b84f1e3d9bb1b90beac1241d74",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    },
+    "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/ProducerGeneric.INITIAL.lean.txt",
+      "bytes": 1784,
+      "sha256": "d4d544d5034dd9d996c01752f4c921e8c98dd6518615211e2f0f6d7629b5a029",
+      "identity_origin": "Existing owned FIRST identity reused; unchanged stat"
+    }
+  },
+  "stdout": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stdout.log",
+    "bytes": 1431,
+    "sha256": "9a08b40ed6830289b98eacb893f0496e96ff1e3a48850090a71a897cb7a0f49f",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  },
+  "stderr": {
+    "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/production-fixtures-001/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "identity_origin": "FIRST identity of newly created or changed owned payload"
+  }
+}

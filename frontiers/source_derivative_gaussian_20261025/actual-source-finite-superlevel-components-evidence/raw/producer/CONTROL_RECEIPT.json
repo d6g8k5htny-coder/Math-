@@ -1,0 +1,57 @@
+{
+  "ordinary": {
+    "label": "controls-005",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "sh",
+      "-c",
+      "LEAN_PATH=/workspace/scratch/actual-source-finite-superlevel-components-construct/build:$LEAN_PATH exec lean -DwarningAsError=true --root=/workspace/scratch/actual-source-finite-superlevel-components-construct -o /workspace/scratch/actual-source-finite-superlevel-components-construct/build/FiniteSuperlevelComponentsControls.olean /workspace/scratch/actual-source-finite-superlevel-components-construct/FiniteSuperlevelComponentsControls.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T19:05:22.054100+00:00",
+    "ended_utc": "2026-10-28T19:05:28.665063+00:00",
+    "elapsed_seconds": 6.610599191999427,
+    "exit_code": 0,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/controls-005/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    }
+  },
+  "sole_negative": {
+    "label": "false-control-001",
+    "command": [
+      "/home/agent/.elan/bin/lake",
+      "env",
+      "sh",
+      "-c",
+      "LEAN_PATH=/workspace/scratch/actual-source-finite-superlevel-components-construct/build:$LEAN_PATH exec lean -DwarningAsError=true /workspace/scratch/actual-source-finite-superlevel-components-construct/FalseMutation.lean"
+    ],
+    "cwd": "/workspace/Math-curvature-20261026/frontiers/source_derivative_gaussian_20261025",
+    "started_utc": "2026-10-28T19:05:46.335370+00:00",
+    "ended_utc": "2026-10-28T19:05:49.356828+00:00",
+    "elapsed_seconds": 3.0210237669998605,
+    "exit_code": 1,
+    "stdout": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stdout.log",
+      "bytes": 129,
+      "sha256": "806c1bfc8a3a30dd3b176eb773253b0beda35d64a3a9bbd23ae6dd5c61da6e6b",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    },
+    "stderr": {
+      "path": "/workspace/scratch/actual-source-finite-superlevel-components-construct/runs/false-control-001/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identity_origin": "FIRST identity of newly created or changed owned payload"
+    }
+  },
+  "negative_semantics": "Exactly one intended unsolved False; no name/typeclass/private-access error; passed independent counterproof predates sole negative"
+}
