@@ -1,0 +1,24 @@
+{
+  "checker_sha256": "6ce583fb3291fb8d0f41c2c38feb0d7e942520cba75d16fef2a6352f5a08c9eb",
+  "counts": {
+    "corrected_congruence_cases": 6,
+    "regression_targets": 16,
+    "tail_exponent_cases": 27,
+    "weighted_cauchy_cases": 108
+  },
+  "proof_sha256": "3dd4469511507bedf075777741f98bfbc082b6b2b5955702cfa11779c79e0ea1",
+  "scope": "Finite rational author controls only; no Gaussian simulation, continuum verification or scientific acceptance.",
+  "source_checks": [
+    "P",
+    "ERR",
+    "REC",
+    "CAP",
+    "BOREL",
+    "C124",
+    "MAJORANTS",
+    "FIELD",
+    "SHARP"
+  ],
+  "sources_sha256": "4969e41a1be3707c55630d0509bb942d8528b283801bf116bd66f09a6ad83f8b",
+  "status": "PASS"
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "gaussian-lifetime-exponential-tail-sources/v1",
+  "sources": [
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Exact covariance, contact observations, and normalizer source. Sections 2-5 reconstructed in the new proof; read with ERR and REC."
+    },
+    {
+      "id": "ERR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/ERR.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "Mandatory corrected congruence diag(r^(-1/2),I)."
+    },
+    {
+      "id": "REC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "Mandatory in-law correction, compact source scope, embedded radius r<L/(4sqrt(2)). Historical acceptance labels are not transferred."
+    },
+    {
+      "id": "CAP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/CAP.md",
+      "bytes": 15160,
+      "sha256": "0bf922b9203c29088b12388807aa0e2ecd020485eb0f6e919679841b5b2636fc",
+      "git_blob": "0633aca3c2a2882b0de4399da0a75d64c2e6b2e1",
+      "role": "Retained parent-identity context only; no cap selection or global pairing conclusion is consumed."
+    },
+    {
+      "id": "BOREL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/BOREL.md",
+      "bytes": 9062,
+      "sha256": "845abf9f9c99d672c2a10a887b5a2e7206a3d2de3d876f35f75ff6e2dc13e62f",
+      "git_blob": "fe9b9ce4999908bb3814b500ee2d0ceb0c6f704a",
+      "role": "Retained parent-identity context only; marked Kac-Rice is not used by these tail bounds."
+    },
+    {
+      "id": "C124",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/planar_soft_layer_chain_20261003/C124/PROOF.md",
+      "bytes": 20668,
+      "sha256": "90148657397dcce31e8039afa9015c022f74b2ed0d41e75f2f2339074a8a520f",
+      "git_blob": "d99cec53ecabfe3fb9d4a1e4a085cd026134fd5c",
+      "role": "Section 5 existing exponential-square residual argument; related Fourier norm majorant method, not first discovery of that method."
+    },
+    {
+      "id": "MAJORANTS",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/source_derivative_gaussian_20261025/SOURCE_GAUSSIAN_MAJORANTS.md",
+      "bytes": 2253,
+      "sha256": "3adbab57e9ea6edbe8d4c5a4407824bb5af8e5390d2e11974540c4eb8be62274",
+      "git_blob": "0eab1265e6fd7127c2cdd07d3ffebd05b806bae3",
+      "role": "Existing generic weighted-Jensen Gaussian-majorant specification; no scientific or formal verdict transferred."
+    },
+    {
+      "id": "FIELD",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/source_derivative_gaussian_20261025/FIELD_CONDITIONING.md",
+      "bytes": 7221,
+      "sha256": "992a66e02a40c98399d697f1b896fdfe4bc93227d682a5abef10453badf6110d",
+      "git_blob": "ea9198bf9ee3870ef91d756b3cc19d7337367330",
+      "role": "Existing planar source derivative-tail/full-carrier construction, retained drift and weighted polynomial rates; new application has explicit d>=2 compact marks."
+    },
+    {
+      "id": "SHARP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "966798c3aeac4027d28588a91b9d561183a953ff",
+      "path": "frontiers/sharp_axial_escape_20261026/PROOF.md",
+      "bytes": 9974,
+      "sha256": "bd390073859b5842d9386fac8eda6122ce8fbe51f501e4951dc5c75a30d4f5d5",
+      "git_blob": "5453bc7b70fc2a4c9155f5e48d5060c882d10d2c",
+      "role": "Section 1 sharp deterministic C4 escape theorem, used for exceptional event inclusion; author-side local commit only. Published with identical proof bytes; original local authorship commit 2cbd6e8223e3d82b0ba956efe28c04e682b4a79a."
+    }
+  ]
+}
