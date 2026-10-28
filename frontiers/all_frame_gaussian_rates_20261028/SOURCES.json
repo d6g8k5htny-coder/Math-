@@ -1,0 +1,135 @@
+{
+  "schema": "all-frame-gaussian-rates-sources/v1",
+  "sources": [
+    {
+      "id": "UPPER",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/PROOF.md",
+      "bytes": 12843,
+      "sha256": "3dd4469511507bedf075777741f98bfbc082b6b2b5955702cfa11779c79e0ea1",
+      "git_blob": "b7c9f1dfb3c14301d192df3720d15b76fac6fb78",
+      "role": "Predecessor source-derived Gaussian upper proof. Section 7 reconstructs the argument for the declared spectral class; its old full-spectrum scope is not automatically transferred."
+    },
+    {
+      "id": "UPPER_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/gaussian_lifetime_exponential_tail_20261028/SOURCES.json",
+      "bytes": 4816,
+      "sha256": "4969e41a1be3707c55630d0509bb942d8528b283801bf116bd66f09a6ad83f8b",
+      "git_blob": "21331d2617f70a03f68813d709107981ab071fe6",
+      "role": "Exact transitive predecessor identity set; its P/ERR/REC reading rules remain applicable."
+    },
+    {
+      "id": "AXIS",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+      "path": "frontiers/essential_gaussian_rate_20261028/PROOF.md",
+      "bytes": 11930,
+      "sha256": "8e75f467dfd91bbffce448b92e17af8a76c0c3f2f13616534973dffe437f4172",
+      "git_blob": "9d6c1c70fd95669d445fc957978447c2c36bd6c4",
+      "role": "Previous coordinate-axis essential lower rate, exact finite template and conditional Gaussian symmetry argument. All-frame construction is derived anew."
+    },
+    {
+      "id": "AXIS_SOURCES",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "de872d97fa54eb11c0834b8f532543222900d165",
+      "path": "frontiers/essential_gaussian_rate_20261028/SOURCES.json",
+      "bytes": 3758,
+      "sha256": "d39767aec1972358886db1028af718feb49259961e68efa5bf8e86803da515c3",
+      "git_blob": "b893822a19482613937ece194ea9d2dd8f4d57ae",
+      "role": "Transitive exact identity set and scope limitations for axis predecessor."
+    },
+    {
+      "id": "AXIAL",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "223293d9d26a7a4158026a4225523e8a683a8794",
+      "path": "frontiers/sharp_axial_escape_20261026/PROOF.md",
+      "bytes": 9974,
+      "sha256": "bd390073859b5842d9386fac8eda6122ce8fbe51f501e4951dc5c75a30d4f5d5",
+      "git_blob": "5453bc7b70fc2a4c9155f5e48d5060c882d10d2c",
+      "role": "Sharp deterministic axial escape and finite-death size bound; no Gaussian or marked-law premise supplied by this source."
+    },
+    {
+      "id": "P",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/P.md",
+      "bytes": 40261,
+      "sha256": "9350ad6eaba6626b93c3dedeef9e2ff816e5cdf1c8318e85fb27499141c84bc7",
+      "git_blob": "dfed3b8d318a3ab1950957f393307733a4bef3f2",
+      "role": "Sections 1-5 original covariance/pin/weight conventions and Fourier spectrum, read with ERR and REC; cap selection is not used."
+    },
+    {
+      "id": "ERR",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/ERR.md",
+      "bytes": 1782,
+      "sha256": "bad7ef609c4ad8c41ad6af562c1b6807921e19a9d556ed793ad1a0db6e202028",
+      "git_blob": "213594d6ca6a86fb938110f4d166d9ce275a02d0",
+      "role": "Corrected Hessian congruence inherited from the upper-bound proof."
+    },
+    {
+      "id": "REC",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/lifetime_moment_boundary_20260930/sources/REC.md",
+      "bytes": 23312,
+      "sha256": "451b9d7ffee072a73fc904cab891b6693e3f233808b89df10cce1b57036b65da",
+      "git_blob": "75da2597971510f843f8d90c743950cb8c177342",
+      "role": "In-law correction, embedded-radius source conventions and retained parent identities; acceptance labels are historical, not transferred."
+    },
+    {
+      "id": "CM",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/sard_g_pinned_transfer_20260929/PROOF.md",
+      "bytes": 8912,
+      "sha256": "6cef00efb0e4e3b0cc3a85a0f43468a22b7d2dba1525cd8489d45dfd375667bd",
+      "git_blob": "314e38c6f5f2bd78da79e423f30a341a3d45e22c",
+      "role": "Section 4 M1: conditional Cameron-Martin kernel subspace with inherited norm; no whole Sard theorem, localized input(L), or Morse-Smale premise is consumed."
+    },
+    {
+      "id": "C127",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/planar_soft_layer_chain_20261003/C127/FINITE_R_INTERPOLATION.md",
+      "bytes": 18630,
+      "sha256": "c4f169c270bacd90ab357eb8b69a66533cc917c74279d5725b0dcd3673918187",
+      "git_blob": "a63449a575e365387bafbc110351730edc572e4d",
+      "role": "Related finite periodic dual interpolation, checked for reuse. Its planar remote-tail setting is not consumed as the present all-frame coalescing inverse."
+    },
+    {
+      "id": "C96",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/planar_soft_layer_chain_20261003/C96/PROOF.md",
+      "bytes": 7913,
+      "sha256": "0758b5de8f4d9e4658ca3c6cf3e52c23d8e12f77999e9c3668ef0bedb15a05f5",
+      "git_blob": "93e3734279f024a7d253076a7d93712def5779ab",
+      "role": "Only dimension-independent Section 1 ordinary-superlevel H0 maximin/elder identification; no planar stochastic assumptions transferred."
+    },
+    {
+      "id": "ST",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/compact_morse_elder_adapter_20261018/inputs/main/experiments/universality/fold_structural_universality/PROOF.md",
+      "bytes": 43927,
+      "sha256": "3d952a906553d578876456539a8f0dcd64aedd45099e8394cbe9db99866ec531",
+      "git_blob": "483d779cfdfdcea0bd8d0ec47c9fdaeff485fd4b",
+      "role": "Only conventional component/essential identity in Section 2. The all-order IsSmooth formal interface is not literally instantiated with C4; Section 11 supplies a finite-regularity argument."
+    },
+    {
+      "id": "CUSP",
+      "repository": "d6g8k5htny-coder/Math-",
+      "commit": "7d63d08f6cfadfd9c2ef28039a370d741126f9a0",
+      "path": "frontiers/cusp_second_order_20261001/PROOF.md",
+      "bytes": 52605,
+      "sha256": "cffc1b83ac364da58bd650c3c301ea1babd38e19af54f74010bdc120edce38a8",
+      "git_blob": "f6df5a7356a54771b0052e42a864a140709903ad",
+      "role": "CU.2 is the existing quartic model and local elder sector; CU.3 is consumed only as its self-contained deterministic C2 window decision theorem. CU.4 and Remark 8.1 are priority/comparison sources for the existing normalizer and cubic small-kappa window integral, not stochastic assumptions imported into the new spectral class. Historical statuses and all transitive stochastic results are not transferred."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "checker_sha256": "0bc66147bc2457d5156dcbd115f10f1f295528710126ee2729713236efb88053",
+  "counts": {
+    "critical_window_augmented_contact_rank_cases": 6,
+    "critical_window_exact_scalar_pin_cases": 12,
+    "critical_window_negative_sector_margin_cases": 6,
+    "critical_window_profile_threshold_cases": 18,
+    "critical_window_schur_and_type_cases": 144,
+    "formal_pin_discrepancy_cases": 24,
+    "full_cube_contact_right_inverse_cases": 6,
+    "global_margin_identity": 1,
+    "insufficient_cube_counterexamples": 2,
+    "periodic_projection_cases": 12,
+    "remote_margin_cases": 12,
+    "wrong_gradient_factor_counterexamples": 24
+  },
+  "critical_window_sha256": "16d15a49b5c484205c85b00d10b26c173072c946ee5be7f7da2c1d3a4ce97b17",
+  "proof_sha256": "26c41fb4df2bc7d1efac25dbfaab4822dbf2b17ebc7f77a108975a8a35e36d20",
+  "scope": "Finite exact contact matrices, polynomial identities and formal series coefficients only; no continuum or Gaussian probability certification.",
+  "source_checks": [
+    "UPPER",
+    "UPPER_SOURCES",
+    "AXIS",
+    "AXIS_SOURCES",
+    "AXIAL",
+    "P",
+    "ERR",
+    "REC",
+    "CM",
+    "C127",
+    "C96",
+    "ST",
+    "CUSP"
+  ],
+  "sources_sha256": "7c19a1429c7d8fc2a7193dedbb0277c70f0b75ca7253813509ba0f0ee84c218d",
+  "status": "PASS"
+}
